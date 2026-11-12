@@ -203,7 +203,7 @@ Started after merging master at ea6a170dd (K v0, W v0, P v0 and every phase-1 ch
 
 | File | What it is | Answers |
 | --- | --- | --- |
-| `src/living_kinds.js` (new) | 17 kind rows for every species a host names today, plus `guLivingRows(catalogue)`, which turns each of G's 78 catalogue kinds into a gu-class body row. The catalogue is passed in, not imported (PFP10). `habitatFromKinds` builds a habitat's prey needs from kind rows (the fox row says it eats rabbits; the place says how many). | Done check (catalogue half), G's request ("L runs the body") |
+| `src/living_kinds.js` (new) | 18 kind rows for every species a host names today, plus `guLivingRows(catalogue)`, which turns each of G's 78 catalogue kinds into a gu-class body row. The catalogue is passed in, not imported (PFP10). `habitatFromKinds` builds a habitat's prey needs from kind rows (the fox row says it eats rabbits; the place says how many). | Done check (catalogue half), G's request ("L runs the body") |
 | `src/living_body.js` (new) | `readLivingBody`: one read of vitality, hunger stage, injury, condition list, Gu feeding state (`fedThrough` against the day), organs, traits and learned behavior. `livingBodyFacts` gives the same read as `self.<name>` facts in W's `substrateFacts` shape. `applyBodyHarm` is the one door for C's hits and R's backlash (points become owed recovery minutes on the lifecycle). `apertureOrgan` reads a world pack's aperture law. | A's body read, C's CFC7 door, R's capacity facts and backlash inbox, SC table aperture |
 | `src/creature_lifecycle.js` | Optional `organs` on each individual (key strings and whole numbers, defaults to empty on restore, so old saves load). `setCreatureOrgan`. `aggravateCreatureInjury`, so a second hurt worsens an open wound instead of being refused. | Aperture as a body organ, one wound slot that stacks |
 | `src/world_substrate_packs/living_body.js` (new) | Pack `l.living_body`: every body tagged `living.body` carries `satiety` (ration-minutes), draining at its kind's whole food rate. For a body on the substrate, satiety is the hunger authority: `readLivingBody` takes `{amount, emptySince}` and gives the same stage a host's minutes-since-meal would (tested before and after the body runs empty), so this is not a fifth hunger form. It is unwired in live play. It publishes `living.hungry` once when a body runs empty, and keeps a `living.harm` inbox per body that the host drains through `applyBodyHarm`. | W embed, first L quantity and effects |
@@ -216,7 +216,7 @@ The handed-over `world_substrate_packs/shell_regulator.js` (pack `l.shell_regula
 
 | Count | Before (9bbc51363) | After (this phase) | Note |
 | --- | --- | --- | --- |
-| Living kinds as identity rows | 0 | **95** (17 L rows + 78 Gu rows from G) | Each passes the registry. The Gu rows are as thin as G's own (G counts them as identity data, 7 runnable): label equals id, one stage, no ration, so a Gu's hunger reads `unknown` without the host's diet |
+| Living kinds as identity rows | 0 | **96** (18 L rows + 78 Gu rows from G) | Each passes the registry. The Gu rows are as thin as G's own (G counts them as identity data, 7 runnable): label equals id, one stage, no ration, so a Gu's hunger reads `unknown` without the host's diet |
 | Living kinds exercised by shared rules in tests | 0 | **6** (sheep, house cat, rabbit, fox, liquor worm, person) | Plus the reed construct in the substrate test |
 | Living kinds read by live play through the new modules | 0 | **0** | No host calls them yet (phase 2b) |
 | Body-data rows (`needs.js` BODIES) | 5 | 5 | Not L's file; folding it into kind rows is a request |
@@ -267,3 +267,24 @@ Save compatibility (MC4): **unchanged for live saves.** The lifecycle accepts an
 2b: one live lifecycle store per save through the domain registry (one new namespaced slice, AR1-AR16), with migrations that pull in the stores of `habitat_care` (livestock), `absorb_p23/household/model.js` (pet) and `meadow_wildlife` (wild cohort). The Gu hosts move when G re-expresses them (request above). Then hosts read species from kind rows and drop their literals, with a browser pass on the meadow pen and Moss at 1920×1080.
 
 2c: afflictions as courses on `affliction_track` with B's dose; `household_brood` onto the lifecycle with `lineage_traits` as the alleles law; plant growth onto kind stages; PG1 people and creature generation on P's grammar once P publishes phase 2.
+
+## MS1: creatures coverage ledger (2026-11-12)
+
+Merged master at 2fff2285e ("Making all achievable": CV1-CV4, MS1-MS7, PFP25). Built `docs/coverage/creatures.jsonl` with `scripts/coverage_creatures.mjs` (deterministic, from `living_kinds.js` and G's `gu_catalogue.js`; `--check` fails when the ledger is stale). P's shared `check:coverage` and the README counts table are P's; this script only writes L's ledger.
+
+| State | Rows | Rule used |
+| --- | --- | --- |
+| `runs-authored` | 18 | Every L kind row. The test "every L kind reads through one body read" puts one of each kind in one store and reads its class, first stage, grown stage and hunger source. Book kinds (lightning wolf, army ants, ordinary starlight firefly, fluxweed) are authored too, because no cited scene states their living values |
+| `blocked:gu-body-fields` | 78 | Every Gu kind in G's catalogue. A Gu body runs only with a diet, ration and stage timing, and those are Keeper scene constants, not catalogue fields (G's GB7). The note names each kind's living roles |
+| `runs-canon` | 0 | Nothing yet runs with source-backed living values |
+| `not-a-thing` | 0 | Every catalogue Gu is a living Gu |
+| `unclassified` | **0** | MS1 done for this ledger |
+
+Correction: phase 2a's count of 17 L rows was wrong; there are 18 (the three army ant castes are three rows). Identity rows total 96.
+
+Requests: **G**, unblocking GB7 (diet, ration minutes, stage minutes on catalogue rows) moves up to 78 rows from `blocked` to `runs-canon` or `runs-authored` with no L code. **P**, fold this ledger into the shared counts table and `check:coverage`.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node scripts/coverage_creatures.mjs` then `--check` | 96 rows, 0 unclassified, check passes | none |
+| `node --test tests/living_foundation.test.js` | 7 pass | focused |

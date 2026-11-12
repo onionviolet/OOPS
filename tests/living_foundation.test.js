@@ -183,3 +183,23 @@ test('kernel: a care routine reads the body at each step and its quote equals se
         duration: care.effect.duration});
     assert.equal(readLivingBody({lifecycle, registry, id: ewe, clock: care.at + 6, sinceMeal: 0}).injury, null);
 });
+
+test('every L kind reads through one body read (cited by docs/coverage/creatures.jsonl)', () => {
+    const rows = LIVING_KIND_ROWS;
+    const anywhere = {id: 'anywhere', capacity: rows.length, supportedSpecies: rows.map(k => k.id)};
+    let s = restoreCreatureLifecycle();
+    const ids = {};
+    for (const kind of rows) {
+        const made = add(s, `source.${kind.id}`, kind.id, anywhere, 'player', 0, {growthMinutes: 5});
+        s = made.state; ids[kind.id] = made.id;
+    }
+    for (const kind of rows) {
+        const young = readLivingBody({lifecycle: s, registry, id: ids[kind.id], clock: 1, sinceMeal: 0, ration: 60});
+        const grown = readLivingBody({lifecycle: s, registry, id: ids[kind.id], clock: 10, sinceMeal: 0, ration: 60});
+        assert.equal(young.class, kind.class, kind.id);
+        assert.equal(young.stage, kind.stages[0], kind.id);
+        assert.ok(kind.stages.includes(grown.stage) && grown.mature, kind.id);
+        if (kind.needs === null) assert.equal(grown.hunger.stage, 'habitat', kind.id);
+    }
+    assert.equal(Object.keys(s.individuals).length, rows.length, 'one store holds every kind');
+});
