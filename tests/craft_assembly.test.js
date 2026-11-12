@@ -32,11 +32,11 @@ test('every pack process is a row the shared law finds by route and result', () 
 test('a changed part fails at a different point by the rules alone (FBC4, FBC5)', () => {
     const iron = axe('Iron axe head', 'Hickory wood medium handle');
     assert.deepEqual(fitJoin(village.joins['axe.hafting'], iron.parts), {ok: true});
-    assert.equal(carryLoad(iron.arrangement, iron.elements, {load: 20}).ok, true);
+    assert.equal(carryLoad(iron.arrangement, iron.elements, {load: 14}).ok, true);
     // A weaker but fitting handle passes the join and gives way under load.
     const weak = axe('Iron axe head', 'Simple wooden medium handle');
     assert.equal(fitJoin(village.joins['axe.hafting'], weak.parts).ok, true);
-    const strained = carryLoad(weak.arrangement, weak.elements, {load: 20});
+    const strained = carryLoad(weak.arrangement, weak.elements, {load: 14});
     assert.equal(strained.ok, false);
     assert.equal(strained.failedAt, 'handle');
     // A part with the wrong interface fails at fit, before any load is read.
@@ -44,9 +44,15 @@ test('a changed part fails at a different point by the rules alone (FBC4, FBC5)'
     const fit = fitJoin(village.joins['axe.hafting'], misfit);
     assert.equal(fit.ok, false);
     assert.match(fit.reason, /does not fit axe\.hafting \(tang\.medium\)/);
-    // A strong handle moves the first limit to the join, not the sum of parts.
-    assert.equal(loadLimit(iron.arrangement, iron.elements, {}).element, 'axe.hafting');
+    // Capacities come from the material table: a hickory handle outlasts an
+    // iron head, so the head limits; a simple handle limits instead. The
+    // arrangement's limit is its weakest element, not a sum of parts.
+    assert.equal(village.parts['Hickory wood medium handle'].capacity, 30.8);
+    assert.equal(village.parts['Iron axe head'].capacity, 17);
+    assert.deepEqual([loadLimit(iron.arrangement, iron.elements, {}).element, loadLimit(iron.arrangement, iron.elements, {}).total], ['head', 17]);
     assert.equal(loadLimit(weak.arrangement, weak.elements, {}).element, 'handle');
+    const steel = axe('Steel axe head', 'Hickory wood medium handle');
+    assert.deepEqual([loadLimit(steel.arrangement, steel.elements, {}).element, loadLimit(steel.arrangement, steel.elements, {}).total], ['head', 25.5]);
 });
 
 test('FG4-A and FG4-B: load follows the beam and the first limit moves to the anchor', () => {
@@ -70,9 +76,9 @@ test('FG4-D: salvage splits owned units by condition and refuses borrowed parts'
 
 test('wear lands on what carried the demand (FBC6)', () => {
     const weak = axe('Iron axe head', 'Simple wooden medium handle');
-    const wear = wearFromUse(weak.arrangement, weak.elements, {load: 9}, {wearPerFullLoad: 10});
-    assert.equal(wear.handle, 5);
-    assert.ok(wear.head < wear['axe.hafting'] && wear['axe.hafting'] < wear.handle);
+    const wear = wearFromUse(weak.arrangement, weak.elements, {load: 7}, {wearPerFullLoad: 10});
+    assert.ok(wear['axe.hafting'] < wear.head && wear.head < wear.handle, JSON.stringify(wear));
+    assert.equal(Math.round(wear.handle * 1000), Math.round(7 / 7.7 * 10 * 1.104 * 1000));
 });
 
 // Forge, haft and test one axe as one kernel working. Each step rereads its
@@ -93,7 +99,7 @@ function axeWorking(handleId) {
                 options: {world: W, process: 'forge.axe_head', request: {resultId: 'Iron axe head', crafted: {100: 1}}}},
             {op: 'join', minutes: 10, bindings: {a: 'head', b: 'handle'},
                 options: {join: village.joins['axe.hafting'], sides: ['head', 'handle']}},
-            {op: 'load', minutes: 1, bindings: {piece: 'axe'}, options: {demand: {load: 20}}}
+            {op: 'load', minutes: 1, bindings: {piece: 'axe'}, options: {demand: {load: 14}}}
         ]};
     const bindings = {ingots: {kind: 'lot', id: 'ingots'}, head: {kind: 'part', id: 'head'},
         handle: {kind: 'part', id: 'handle'}, axe: {kind: 'assembly', id: 'axe'}};
@@ -150,7 +156,7 @@ test('SC8: a making takes a practiced working as input', () => {
         steps: Array.from({length: n}, () => ({op: 'rehearse', minutes: 60, bindings: {self: 'self'}}))});
     const practised = n => settleWorking(practice, beginWorking(practice, move(n), {id: `drill.${n}`,
         bindings: {self: {kind: 'actor', id: 'player'}}, at: 0}), {now: 60 * n}).record;
-    const row = {id: 'refine.drill-gu', method: 'f.test.moonblade-drill', minPractice: 3, product: 'test.drill-gu'};
+    const row = {id: 'refine.drill-gu', method: 'f.test.moonblade-drill', minPractice: 3, product: 'test.drill-gu', practice: {from: 'fact', name: 'practice'}};
     assert.equal(practicedWorkingFits(row, practised(2)).ok, false);
     assert.equal(practicedWorkingFits(row, practised(3)).ok, true);
     const method = {id: 'f.test.refine', revision: 1, law: FABRICATION_LAW.ref, roles: {move: 'working'},
@@ -161,4 +167,10 @@ test('SC8: a making takes a practiced working as input', () => {
     assert.match(short.reason, /more practice \(2 of 3\)/);
     const done = quoteWorking(FABRICATION_LAW, method, {id: 'refine.1', bindings, at: 0, ports: portsFor(3)});
     assert.deepEqual(done.effects, [{kind: 'fabrication.refined', product: 'test.drill-gu', from: 'drill'}]);
+    // Default reading: count completed performances, each its own record.
+    const byRuns = {...row, practice: undefined};
+    assert.equal(practicedWorkingFits(byRuns, [practised(1), practised(1)]).ok, false);
+    assert.deepEqual(practicedWorkingFits(byRuns, [practised(1), practised(1), practised(1)]), {ok: true, runs: 3});
+    const other = {...practised(1), method: {id: 'f.test.other'}};
+    assert.match(practicedWorkingFits(byRuns, [other]).reason, /needs f\.test\.moonblade-drill/);
 });

@@ -159,7 +159,7 @@ export function loadLimit(arrangement, elements, demand) {
         if (!share.num) continue;
         for (const id of members) {
             const capacity = elements[id]?.capacity;
-            check(positive(capacity), `${id} needs a measured capacity.`);
+            check(Number.isFinite(capacity) && capacity > 0, `${id} needs a measured capacity.`);
             // total load at which this element reaches capacity: capacity / share
             const limit = {num: capacity * share.den, den: share.num};
             if (!first || limit.num * first.limit.den < first.limit.num * limit.den) first = {element: id, path, limit};
@@ -203,12 +203,19 @@ export function planSalvage(row, {units, condition, owned = true}) {
 
 // ---- SC8: making from a practiced working ----------------------------------
 // A making may take a working as input (a practiced move refined into a
-// thing). The working must be complete and practiced enough; the pack row
-// says how many settled runs and which method it reads.
-export function practicedWorkingFits(row, working) {
-    if (!object(working) || working.status !== 'complete') return {ok: false, reason: 'The method has not been carried through.'};
-    if (row.method && working.method?.id !== row.method) return {ok: false, reason: `${row.id} needs ${row.method}.`};
-    const runs = working.facts?.practice ?? 0;
+// thing). The row declares how practice is read, because worlds keep it
+// differently: by default as the number of completed performances of the
+// method (`{from: 'runs'}`, each a kernel working record), or as a fact a
+// performance writes (`{from: 'fact', name}`). Dial: minPractice.
+export function practicedWorkingFits(row, bound) {
+    const records = (Array.isArray(bound) ? bound : [bound]).filter(object);
+    const matching = records.filter(r => r.status === 'complete' && (!row.method || r.method?.id === row.method));
+    if (!matching.length) return {ok: false, reason: row.method && records.some(r => r.method?.id !== row.method)
+        ? `${row.id} needs ${row.method}.` : 'The method has not been carried through.'};
+    const practice = row.practice ?? {from: 'runs'};
+    const runs = practice.from === 'fact'
+        ? Math.max(...matching.map(r => r.facts?.[practice.name] ?? 0))
+        : matching.length;
     if (runs < (row.minPractice ?? 1)) return {ok: false, reason: `The method needs more practice (${runs} of ${row.minPractice}).`};
     return {ok: true, runs};
 }
@@ -240,7 +247,7 @@ export const FABRICATION_LAW = defineWorkingLaw({id: 'f.fabrication', revision: 
             : {ok: false, reason: `${result.failedAt} gave way.`, observed: {held: false, at: result.failedAt}};
     }},
     refine: {roles: {method: 'working'}, settle({bound, options}) {
-        const fit = practicedWorkingFits(options.row, bound.method.record);
+        const fit = practicedWorkingFits(options.row, bound.method.records ?? bound.method.record);
         return fit.ok ? {ok: true, facts: {[`refined.${options.row.id}`]: options.row.product},
             effects: [{kind: 'fabrication.refined', product: options.row.product, from: bound.method.id}],
             observed: {refined: options.row.product}}

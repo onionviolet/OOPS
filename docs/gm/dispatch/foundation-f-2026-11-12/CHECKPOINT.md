@@ -250,7 +250,7 @@ Merged master (K v0.1, W v0, P v0, every phase-1 checkpoint) into this branch fi
 | Count | Before | After |
 | --- | --- | --- |
 | Native recipe rows on shared classes | 167 | 167 |
-| Native recipes whose material accounting runs from pack rows on the shared law | 0 | 13 |
+| Native recipes whose material accounting runs from pack rows on the shared law | 0 | 13 grade variants of 4 process rows (corrected in 2b: see the ten-recipe table there) |
 | Book-canon cases as data through a shared law | 2 | 2 |
 | Bespoke scene or item modules | 7 | 7 |
 | World branch lines in shared fabrication files | 41 in 6 files | **19 in 6 files** (`processed_materials` 24 to 2, both in the harvest adapter's fixed world id); `craft_assembly.js` has none |
@@ -279,6 +279,80 @@ Merged master (K v0.1, W v0, P v0, every phase-1 checkpoint) into this branch fi
 - Leather vest dismantle and gear salvage onto `planSalvage` rows; delete `absorb_p23/salvage/salvage.js`.
 - `book_craft_transaction.js` per FBD1, once the Hogwarts and Cyoria trials settle through K.
 - Fabrication grammar on P's contract with the canon test set, then NV1 and NV4 objects through the five checks.
+
+## Phase 2b · Derived capacities, declared practice, play proof (2026-11-12)
+
+**What changed**
+
+- **One authority for material strength.** The native component material table (component types, the weapon and armour part lists and `material_properties`) moved verbatim from `crafting_component_filling.js` into `src/component_materials.js` (structural move, AR9 and AR10: no behavior change). All 874 item templates hash the same before and after the move. The Village pack's parts now name their material (`iron`, `hickory`, ...) and take `capacity` from that row by `CAPACITY_RULE` (mean of strength and toughness, times tier, times `perTier` 0.1), with `wearScale` from `gear_dimensions`. No capacity is typed per item. The hafting join's capacity (30) stays a fixture number: joins have no material row yet.
+- **SC8 practice is declared by the row.** `practicedWorkingFits` reads practice the way the row says: by default the count of completed performances of the method, each its own kernel record (`{from: 'runs'}`), or a fact a performance writes (`{from: 'fact', name}`). Not done for G yet: no G move record is the bound input in a test. Request below.
+
+**The ten recipes in FBN2, honestly**
+
+"Re-expressed" here means the recipe's material accounting (what is consumed, what is made, remainders and loss, lineage) and its assembly rows. Native quality and stat formulas stay in `crafting_recipes.js` and `crafting_component_filling.js` for now (FBX4). Reason: those formulas feed every equipment number in play, and changing them is a balance change for Weibao to see, not a foundation refactor.
+
+| Recipe | State |
+| --- | --- |
+| Iron axe head, steel axe head | On the shared law, live (`forge.axe_head`) |
+| Medium handle (four woods) | On the shared law, live (`woodworking.medium-handle`) |
+| Iron smelting with slag | On the shared law, live (`smelting.iron`) |
+| Iron and steel chopping axes | Family and arrangement rows in the pack; fit and load run in tests through K; no live caller (assembly still the native `EquipmentRecipe`) |
+| Reclaim forge offcuts | Native data row on the native class, not on the law |
+| Leather vest dismantle | Bespoke (`absorb_p23/salvage/salvage.js`), untouched |
+| Tingen amulet | Family row only; bespoke host |
+| Hogwarts practice pane | Data on `craft_resolver`, not on this law |
+
+So 4 of 10 run live on the shared law, 2 have unwired rows, 4 are untouched. Done check item (2) is not met yet.
+
+**Play evidence (AD43, PFP8).** Rebuilt to a scratch `BUILD_OUT` (tracked `dist/` untouched), served it on localhost and ran the existing headless drivers from the procedural-crafting dispatch folder at 1920x1080. All three passed on bundle `13fed22bffc1998b`, with no page errors, each with native Save, reload, Export and literal-file Import. Receipts are in [receipts/](receipts/), not `/tmp` (review F5).
+
+```receipt
+build: 13fed22bffc1998b
+route: fixture(cave and skill admission, pickaxe, fuel, handles or a steel axe; twenty ingots for the forge route)
+state: browser-verified
+viewport: 1920x1080
+persistence: checked
+tests: 8 assembly tests; 74 gear, crafting and material tests after the structural move
+review: none
+surface: processed_materials on craft_assembly packs; component_materials split
+```
+
+| Driver | What it plays | Receipt |
+| --- | --- | --- |
+| `mine-axe-browser.cjs` | Mine iron, smelt four ingot lots, forge a head, assemble, equip, chop | [village-mined-axe.json](receipts/village-mined-axe.json) |
+| `mine-axe-browser.cjs` with `NATIVE_HANDLE=1` | The same with handles cut from harvested wood | [village-mined-axe-native-handle.json](receipts/village-mined-axe-native-handle.json) |
+| `forge-browser.cjs` | Forge heads with offcuts and scale, assemble, reclaim offcuts to an ingot, equip | [village-forged-axe.json](receipts/village-forged-axe.json) |
+
+Agent-verified, not human-reviewed.
+
+**PFP2, before and after 2b**
+
+| Count | Before | After |
+| --- | --- | --- |
+| Ten-recipe set on the shared law, live | 4 | 4 |
+| Per-item typed capacities | 7 | 0 (derived from the material table) |
+| World branch lines in shared fabrication files | 19 | 19 |
+| Bespoke scene or item modules | 7 | 7 |
+
+**Rescope of "retire one stack" (reason).** Retiring the 167-row native station classes is not phase-sized and would change every equipment number. The finishable move that leaves one settle path is the one FBD1 already names: move the Hogwarts pane and Cyoria trials onto a kernel law built from `book_craft_workings`, keep the stale-quote check and the rollback test, delete `book_craft_transaction.js` and the parallel settle in `book_craft_simulation.js`, and route the native forge and smelt partitions through `FABRICATION_LAW` records inside the native craft transaction. That is phase 2c. Tingen on the shared host follows (its off-route fixtures are the canon proof of the changed-part check), and vest salvage comes last.
+
+**Phase 2b checks**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/craft_assembly.test.js` | 8 pass | |
+| 10 gear, crafting and material files (dimensions, workshop, processed materials, alloy, interaction native, crafting runtime, affixes, cohort gear, material vocabulary, assembly) | 74 pass | |
+| Item template hash before and after the material table move | 874 templates, identical hash | One-off script in scratchpad |
+| `npm run check:arch` | pass, main.js growth -1 | |
+| `npm run check:rule-routes -- --message` | runtime-code and making-systems areas touched; codes cited in the commit | |
+| Three headless browser drivers on the rebuilt bundle | 3 PASS | Fixture admission as each driver states |
+
+## Requests (relayed by the coordinator)
+
+- **G:** which record shape is a practiced move? F's `refine` step reads either completed kernel working records of the move's method (default) or a fact a performance writes. A G move record as the bound input closes SC8 for both of us. Your move-to-Gu rows can then be F pack rows `{id, method, minPractice, practice, product}`; the Gu law keeps what the refined Gu is.
+- **K:** FBD1 still stands: F will move the Hogwarts and Cyoria trials onto a kernel law and needs the stale-quote compare (KB9 territory) or will keep it in F's host if K prefers.
+- **C:** FBX9: a blow on an item can be a demand through `carryLoad` with wear landing by `wearFromUse`; disarm is custody, not F's.
+- **W:** FBQ5 load and FBQ6 condition per element are now computed by F's law (`carryLoad`, `wearFromUse`); F keeps them as thing state until W wants them as quantities.
 
 ## Checks
 
