@@ -1178,3 +1178,9 @@ Proposal recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_P
 Weibao: "How to make things both seperate but interconnected? Consider procedural settings that can have interesting results, like killer moves not from the original book and more? or spell not from the original book? How can we do about that?" Then: "Can we create a procedural system that generates the effects of the oriignal, but broad enough to cover stuff beyond the original?"
 
 Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#separate-but-connected-and-effects-beyond-the-book-2026-11-12): six seams (SB1-SB6), one effect grammar, routes beyond canon (NV1-NV5) with five checks and a novelty dial, EF1-EF8 and PFP22-PFP24.
+
+## "All" made countable, 2026-11-12
+
+Weibao: "does the live goal meet the ambitions of my stated goal?" then "Consider procedural aspects, defining grammer, other aspects and more? Make sure it is achivable and actionable?"
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#making-all-achievable-ledgers-grammar-layers-procedural-rules-milestones-2026-11-12): coverage ledgers with denominators (CV1-CV4), four grammar layers each with a canon test (GL1-GL7), procedural rules (PR1-PR9), milestones MS1-MS7, PFP25-PFP26. The run objective now uses them.
