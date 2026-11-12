@@ -177,3 +177,16 @@ Counts table: P supplies the CV1 `docs/coverage/README.md` script; the table abo
 | `npm run check:arch`, `npm run check:rules` | pass (pre-existing HP TMR1 warning only) | |
 
 Next: GL2 and GL3 for Gu (an effect layer and a composition layer with their own canon tests, MS2 and MS4), function-typed move roles to lift unnamed-role moves, and further Keeper deletions toward 10 (MS3).
+
+# Phase 2d, 2026-11-12: ledgers in P's format, Codex lane brief
+
+Merged master (P's coverage tooling `5cd05f309`). The ledgers now use P's six-field row: `source` is a single locator string, and `mechanisms` lists owners by chat letter (G on every row, plus K, W, F or L for each mechanism a running row uses). G's labels moved to the sidecar [`docs/coverage/gu_labels.json`](../../../coverage/gu_labels.json), keyed by ledger and id: layer, name, rank, function, path, label basis and move roles. It is a sidecar because every `.jsonl` file in that folder counts as a ledger. `tests/gu_coverage.test.js` reads the ledger and the sidecar and still runs every runs row.
+
+| Command | Result |
+| --- | --- |
+| `npm run check:coverage` | PASS: gu_kinds 1,466 rows, 0 unclassified, runs 26.2%; gu_moves 776 rows, 0 unclassified, runs 0.5% |
+| `node --test tests/gu_coverage.test.js` | 4/4 pass |
+
+I did not regenerate `docs/coverage/README.md`, so it doesn't conflict with other ledger owners. `node scripts/coverage_report.mjs` rebuilds it at merge.
+
+Codex lane brief: [CODEX_LANE.md](CODEX_LANE.md). It asks for five more Keeper deletions (seven, nine, vitality, rainbow, stealth) on the essence-line pattern, with the route flags, file limits and done check. G reviews its diff before committing.
