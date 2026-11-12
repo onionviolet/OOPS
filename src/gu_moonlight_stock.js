@@ -1,20 +1,28 @@
-import {acquireCreature, creatureHealth, restoreCreatureLifecycle, settleCohortStock, transferCreature} from './creature_lifecycle.js';
+import {creatureHealth, matchesCreatureRoster, openCreatureRoster, restoreCreatureLifecycle, transferCreature} from './creature_lifecycle.js';
 import {clanMoonlightTraits, drawGuTraits} from './gu_traits.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuStep} from './gu_working_host.js';
 import {moonlightBlade, moonbladeSheets, moonlightFocusSpecimen} from './gu_ability_profiles.js';
 
 const prefix = 'book.ri.keeper';
 export const moonlightStock = `${prefix}.moonlight_stock`;
-const table = `${moonlightStock}.v1`;
 const steward = `${prefix}.steward`;
 const world = `${prefix}.world`;
 const fact = `${moonlightStock}.roster`;
-const cohort = `${moonlightStock}.cohort`;
-const kind = 'moonlight';
-const operations = ['survey', 'borrow_first', 'borrow_second', 'return_stock', 'tune_stock', 'cast_stock'];
-const ids = ['creature:1', 'creature:2'];
-const habitat = keeper => ({id: `${moonlightStock}.${keeper === 'player' ? 'desk' : 'steward'}`,
-    capacity: keeper === 'player' ? 1 : 2, supportedSpecies: [kind]});
+const stock = {
+    source: `${moonlightStock}.v1`, cohortId: `${moonlightStock}.cohort`, species: 'moonlight', traits: clanMoonlightTraits,
+    specimens: [
+        {id: 'creature:1', label: 'First Gu', loan: 'borrow_first'},
+        {id: 'creature:2', label: 'Second Gu', loan: 'borrow_second'},
+    ],
+    habitats: {
+        [steward]: {id: `${moonlightStock}.steward`, capacity: 2, supportedSpecies: ['moonlight']},
+        player: {id: `${moonlightStock}.desk`, capacity: 1, supportedSpecies: ['moonlight']},
+    },
+};
+const {source, cohortId, species, specimens, habitats} = stock;
+const ids = specimens.map(row => row.id);
+const loans = new Map(specimens.map(row => [row.loan, row.id]));
+const operations = ['survey', ...loans.keys(), 'return_stock', 'tune_stock', 'cast_stock'];
 const done = (state, operation) => state.actors.player.completed[`${moonlightStock}.${operation}`] ?? 0;
 const held = roster => roster && ids.find(id => roster.lifecycle.individuals[id].keeper === 'player');
 export const isMoonlightStockOperation = operation => operations.includes(operation);
@@ -24,18 +32,16 @@ function readRoster(state) {
     const raw = state.worlds[world]?.facts?.[fact];
     if (raw === undefined) return null;
     if (typeof raw !== 'string' || raw.length > 4096) throw Error('Invalid clan Moonlight roster.');
-    const {source, lifecycle: saved, adjustments, marks} = JSON.parse(raw);
+    const {source: savedSource, lifecycle: saved, adjustments, marks} = JSON.parse(raw);
     const lifecycle = restoreCreatureLifecycle(saved);
-    if (source !== table || Object.keys(lifecycle.individuals).length !== ids.length ||
+    if (savedSource !== source || !matchesCreatureRoster(lifecycle, {ids, cohortId, species, habitats, clock: state.clock}) ||
         Object.keys(adjustments ?? {}).length !== ids.length || Object.keys(marks ?? {}).length !== ids.length ||
         ids.some(id => {
             const gu = lifecycle.individuals[id];
-            if (!gu || gu.species !== kind || gu.origin !== cohort || ![steward, 'player'].includes(gu.keeper) ||
-                gu.habitat !== habitat(gu.keeper).id || gu.bornAt > state.clock || gu.health.lastAt > state.clock ||
-                !clanMoonlightTraits.focus.some(row => row.id === gu.traits.focus) || typeof adjustments[id] !== 'boolean') return true;
+            if (!stock.traits.focus.some(row => row.id === gu.traits.focus) || typeof adjustments[id] !== 'boolean') return true;
             const original = gu.traits.focus === 'tight' ? 5 : 4;
             return marks[id] !== null && marks[id] !== original && !(adjustments[id] && marks[id] === original + 1);
-        }) || ids.filter(id => lifecycle.individuals[id].keeper === 'player').length > 1) {
+        })) {
         throw Error('The clan Moonlight Gu and their test records disagree.');
     }
     return {source, lifecycle, adjustments, marks};
@@ -46,22 +52,16 @@ function availability(state, roster) {
     const p = state.simulation.people[steward];
     const here = p?.life === 'alive' && p.location === `${prefix}.annex`;
     const ready = !!id && !creatureHealth(roster.lifecycle, id, state.clock).injury;
-    return {survey: here && !roster, borrow_first: here && !!roster && !id, borrow_second: here && !!roster && !id,
+    return {survey: here && !roster, ...Object.fromEntries(specimens.map(row => [row.loan, here && !!roster && !id])),
         return_stock: here && !!id, tune_stock: here && ready && !roster.adjustments[id], cast_stock: ready};
 }
 
 function survey(state) {
-    let lifecycle = restoreCreatureLifecycle(null);
-    const destination = habitat(steward);
-    lifecycle = settleCohortStock(lifecycle, {revision: lifecycle.revision, id: cohort, species: kind, habitat: destination, delta: 2});
-    for (const id of ids) {
-        const traits = drawGuTraits({seed: state.simulation.seed, source: table, identity: lifecycle.nextIdentity, table: clanMoonlightTraits});
-        const acquired = acquireCreature(lifecycle, {revision: lifecycle.revision, cohortId: cohort, destination,
-            keeper: steward, clock: state.clock, traits});
-        if (acquired.id !== id) throw Error('The Moonlight Gu identity changed during acquisition.');
-        lifecycle = acquired.state;
-    }
-    return {source: table, lifecycle, adjustments: Object.fromEntries(ids.map(id => [id, false])),
+    const lifecycle = openCreatureRoster({cohortId, species, destination: habitats[steward], keeper: steward,
+        count: ids.length, clock: state.clock,
+        traitsFor: identity => drawGuTraits({seed: state.simulation.seed, source, identity, table: stock.traits})});
+    if (ids.some(id => !Object.hasOwn(lifecycle.individuals, id))) throw Error('The Moonlight Gu identity changed during acquisition.');
+    return {source, lifecycle, adjustments: Object.fromEntries(ids.map(id => [id, false])),
         marks: Object.fromEntries(ids.map(id => [id, null]))};
 }
 
@@ -75,7 +75,7 @@ export function validateMoonlightStock(state, record) {
     if (Number(!!roster) !== done(state, 'survey') ||
         (!roster && operations.some(operation => done(state, operation))) ||
         (roster && (!record?.extensions?.some(pin => pin.id === moonlightStock) ||
-            done(state, 'borrow_first') + done(state, 'borrow_second') - done(state, 'return_stock') !== Number(!!held(roster)) ||
+            specimens.reduce((count, row) => count + done(state, row.loan), 0) - done(state, 'return_stock') !== Number(!!held(roster)) ||
             Object.values(roster.adjustments).filter(Boolean).length !== done(state, 'tune_stock') ||
             Object.values(roster.marks).filter(value => value !== null).length > done(state, 'cast_stock')))) {
         throw Error('The clan Moonlight roster needs its custody, refinement and casting receipts.');
@@ -84,7 +84,7 @@ export function validateMoonlightStock(state, record) {
 
 export function moonlightStockView(state) {
     const roster = readRoster(state);
-    return roster && ids.map((id, index) => ({id, label: index === 0 ? 'First Gu' : 'Second Gu',
+    return roster && specimens.map(({id, label}) => ({id, label,
         held: roster.lifecycle.individuals[id].keeper === 'player', refined: roster.adjustments[id], cut: roster.marks[id]}));
 }
 
@@ -104,14 +104,14 @@ export function settleMoonlightStock(state, operation) {
     if (operation === 'tune_stock') next.adjustments[id] = true;
     else if (operation === 'cast_stock') {
         const gu = moonlightFocusSpecimen(id, next.lifecycle.individuals[id].traits.focus, next.adjustments[id], state.clock);
-        next.marks[id] = moonbladeSheets(resolveGuActivation({stages: [{gu, operator: 'player', ability: moonlightBlade}],
-            reserves: {player: {primeval: moonlightBlade.cost}}, day: state.clock}));
+        next.marks[id] = moonbladeSheets(runGuStep(species, 'activate', {specimen: gu, at: state.clock,
+            facts: {reserves: {player: {primeval: moonlightBlade.cost}}}}));
     } else if (operation !== 'survey') {
         const returning = operation === 'return_stock';
-        const moving = returning ? id : ids[operation === 'borrow_first' ? 0 : 1];
+        const moving = returning ? id : loans.get(operation);
         const keeper = returning ? steward : 'player';
         next.lifecycle = transferCreature(next.lifecycle, {revision: next.lifecycle.revision, id: moving,
-            fromKeeper: returning ? 'player' : steward, toKeeper: keeper, destination: habitat(keeper), clock: state.clock});
+            fromKeeper: returning ? 'player' : steward, toKeeper: keeper, destination: habitats[keeper], clock: state.clock});
     }
     state.worlds[world].facts[fact] = JSON.stringify(next);
 }

@@ -228,12 +228,21 @@ Previous turn: progress from recovering S's previously absent return and its fai
 
 ## Wave 10: takeover, Wave 9 settlement, phase 1 packets (2026-11-12)
 
-| Step | State |
-| --- | --- |
-| Takeover recorded; plan docs committed (no source change; `check:docs` and `check:rules` exit 0) | See the commit after `a77fda00c` |
-| Wave 9 full suite on the primary tree | Running at the time of writing; result recorded below when it exits |
-| Wave 9 remaining route checks (Moonlight prospect, blade chain, light reader) | Not started under this coordinator |
-| Wave 9 commit | Waits on the two rows above |
-| Returned fixtures in the takeover worktrees (`tests/creature_teaching.test.js`, `tests/brew_body_delivery.test.js`) | Not reviewed |
-| Phase 1 packets P1.1 to P1.5 | Not dispatched; P1.1 first after Wave 9 lands (merge before dispatch) |
+Input `f241a434b` plus the Wave 9 candidate. Source files unchanged since 03:55 on 2026-11-12, so the isolated build `c0d1e9e25876d09fcef138aa03dd49c66ce387e92c301d944ad83ed40da62947` in `/tmp/yair-fdn-takeover.aNvM3v/wave9-resume-build` is the candidate's bundle.
 
+| Step | Command and result | Gaps |
+| --- | --- | --- |
+| Takeover and plan docs | Committed `f241a434b`; `check:docs`, `check:rules` exit 0 | No source change |
+| Full suite on the primary tree | `npm test`: 6,475 tests, 6,473 pass, 0 fail, 2 skipped, exit 0 (log `wave10-suite.log` in the takeover folder). An earlier unrecorded run at 10:11 gave the same counts | Ran before the two fixtures below were copied in |
+| Gates | `check:arch`, `check:rules`, `check:coverage` exit 0 | None |
+| Blade chain route | `check-full-tray.mjs <build> <out> --blade-chain-only`: success, 5 checks, zero page errors | The earlier failure was a 60 s load timeout while a suite ran beside it |
+| Light reader route | Same script, `--light-reader-only`: success, 7 checks, zero page errors | The earlier failure was a 20 s selector timeout under the same load |
+| Moonlight prospect route | Passed on the previous coordinator's retry (`wave9-resume-moonlight-prospect.log`, same bundle) | Not rerun here; inputs unchanged |
+| Returned fixtures | `tests/creature_teaching.test.js` (2) and `tests/brew_body_delivery.test.js` (4) copied from the takeover worktrees; with the Wave 9 test files, focused 69 of 69 | Fixture-level engine proof; no production wiring, no route |
+| Wave 9 commit | See the commit after `f241a434b` | `scripts/wave_scratch.sh`, the playbook and handoff edits, `dist/`, `index.html` and the game MCP ledger stay uncommitted as not this wave's |
+
+Delivery state: Wave 9's Moonlight roster refactor is agent-verified at parity on six existing routes with save, reload, Export and Import. The pc1 regulator pack and the teaching, dose and rival fixtures are implemented, below floor: fixture evidence, not loaded by the game (`gu_brew_regulator.js` is unreachable from `src/main.js` and calls `resolveGuActivation`, as the core's PC13 notes).
+
+Milestones: unchanged from the Usage stop section. MS3 seven of ten deletions; MS4 to MS6 open.
+
+Next: phase 1 packets by the carry-out (PC51). P1.1 first; P1.3 to P1.5 beside it as disjoint new scripts.

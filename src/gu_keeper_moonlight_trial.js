@@ -1,7 +1,7 @@
-import {acquireCreature, creatureHealth, restoreCreatureLifecycle, settleCohortStock, transferCreature} from './creature_lifecycle.js';
+import {creatureHealth, matchesCreatureRoster, openCreatureRoster, restoreCreatureLifecycle, transferCreature} from './creature_lifecycle.js';
 import {moonlightBlade, moonlightFocusBonus, moonlightFocusSpecimen, moonbladeSheets} from './gu_ability_profiles.js';
 import {isMoonlightStockOperation, moonlightStock, moonlightStockFacts, settleMoonlightStock} from './gu_moonlight_stock.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuStep} from './gu_working_host.js';
 import {beginGuProjection, invokeProjectedGu} from './gu_projection.js';
 
 const keeper = 'book.ri.keeper';
@@ -16,8 +16,10 @@ const moon = `${keeper}.moon`;
 const steward = `${keeper}.steward`;
 const kind = 'moonlight';
 const cohort = `${moonlightTrial}.loan_stock`;
-const habitat = keeper => ({id: `${moonlightTrial}.${keeper === 'player' ? 'player' : 'steward'}`,
-    capacity: 1, supportedSpecies: [kind]});
+const habitats = {
+    [steward]: {id: `${moonlightTrial}.steward`, capacity: 1, supportedSpecies: [kind]},
+    player: {id: `${moonlightTrial}.player`, capacity: 1, supportedSpecies: [kind]},
+};
 const operations = ['borrow', 'return_loan', 'tune', 'cast_clan', 'cast_loan'];
 const prospectOperations = ['prepare', 'open', 'cast_future', 'finish', 'cancel'];
 
@@ -44,9 +46,8 @@ function readTrial(state) {
     const lifecycle = restoreCreatureLifecycle(saved);
     const [id] = Object.keys(lifecycle.individuals);
     const gu = lifecycle.individuals[id];
-    if (!gu || Object.keys(lifecycle.individuals).length !== 1 || gu.species !== kind || gu.origin !== cohort ||
-        ![steward, 'player'].includes(gu.keeper) || gu.habitat !== habitat(gu.keeper).id ||
-        gu.traits.focus !== 'tight' || gu.bornAt > state.clock || gu.health.lastAt > state.clock ||
+    if (!matchesCreatureRoster(lifecycle, {ids: [id], cohortId: cohort, species: kind, habitats, clock: state.clock}) ||
+        gu.traits.focus !== 'tight' ||
         !marks || ![null, 4].includes(marks.clan) || ![null, 5, 6].includes(marks.loan)) {
         throw Error('The Moonlight Gu and its trial records disagree.');
     }
@@ -149,17 +150,15 @@ export function moonlightTrialView(state) {
 function moveTrialGu(trial, to, clock) {
     const {lifecycle, id} = trial;
     const next = transferCreature(lifecycle, {revision: lifecycle.revision, id, fromKeeper: lifecycle.individuals[id].keeper,
-        toKeeper: to, destination: habitat(to), clock});
+        toKeeper: to, destination: habitats[to], clock});
     return {...trial, lifecycle: next};
 }
 
 function newTrial(clock) {
-    const empty = restoreCreatureLifecycle(null);
-    const stocked = settleCohortStock(empty, {revision: empty.revision, id: cohort, species: kind,
-        habitat: habitat(steward), delta: 1});
-    const loan = acquireCreature(stocked, {revision: stocked.revision, cohortId: cohort, destination: habitat(steward),
-        keeper: steward, traits: {focus: 'tight'}, clock});
-    return {id: loan.id, lifecycle: loan.state, marks: {clan: null, loan: null}};
+    const lifecycle = openCreatureRoster({cohortId: cohort, species: kind, destination: habitats[steward], keeper: steward,
+        count: 1, clock, traitsFor: () => ({focus: 'tight'})});
+    const [id] = Object.keys(lifecycle.individuals);
+    return {id, lifecycle, marks: {clan: null, loan: null}};
 }
 
 export function applyMoonlightTrialEffect(state, effect, context) {
@@ -186,9 +185,8 @@ export function applyMoonlightTrialEffect(state, effect, context) {
     else if (operation !== 'tune') {
         const loan = operation === 'cast_loan';
         const specimen = loan ? loanSpecimen(trial.id, tuned(state), clock) : {id: moon, kind, rank: 1, fedThrough: clock};
-        const activation = resolveGuActivation({
-            stages: [{gu: specimen, operator: 'player', ability: moonlightBlade}],
-            reserves: {player: {primeval: moonlightBlade.cost}}, day: clock,
+        const activation = runGuStep(kind, 'activate', {
+            specimen, at: clock, facts: {reserves: {player: {primeval: moonlightBlade.cost}}},
         });
         trial.marks[loan ? 'loan' : 'clan'] = moonbladeSheets(activation);
     }

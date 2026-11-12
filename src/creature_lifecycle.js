@@ -147,6 +147,34 @@ export function settleCohortStock(state, {revision, id, species, habitat, delta}
     return {...next, cohorts: {...state.cohorts, [id]: {...cohort, species, habitat: habitat.id, stock, ...(alleles ? {alleles} : {})}}};
 }
 
+// Open a host-owned roster from a finite cohort. The host supplies trait draws
+// by acquisition serial, before the lifecycle assigns the individual ID.
+export function openCreatureRoster({cohortId, species, destination, keeper, count, clock, traitsFor}) {
+    const empty = restoreCreatureLifecycle(null);
+    let state = settleCohortStock(empty, {revision: empty.revision, id: cohortId, species, habitat: destination, delta: count});
+    for (let index = 0; index < count; index++) {
+        state = acquireCreature(state, {revision: state.revision, cohortId, destination, keeper, clock,
+            traits: traitsFor(state.nextIdentity)}).state;
+    }
+    return state;
+}
+
+// A roster owns its members and allowed custody habitats. Check the saved
+// individuals against those bindings without interpreting host-specific traits.
+export function matchesCreatureRoster(state, {ids, cohortId, species, habitats, clock}) {
+    if (Object.keys(state.individuals).length !== ids.length || new Set(ids).size !== ids.length) return false;
+    const occupancy = new Map();
+    return ids.every(id => {
+        const individual = lookup(state.individuals, id);
+        if (!individual || individual.origin !== cohortId || individual.species !== species ||
+            individual.bornAt > clock || individual.health.lastAt > clock) return false;
+        const habitat = lookup(habitats, individual.keeper);
+        const count = (occupancy.get(individual.keeper) ?? 0) + 1;
+        occupancy.set(individual.keeper, count);
+        return habitat?.id === individual.habitat && count <= habitat.capacity;
+    });
+}
+
 export function acquireCreature(state, {
     revision, cohortId, destination, keeper, traits = {}, clock = 0, ageMinutes = 0, growthMinutes = 0,
     genes, breeding, genome, root,

@@ -39,7 +39,7 @@ import {quoteFixedImmortalTravel} from '../src/gu_fixed_immortal_travel.js';
 import {guKeeperMoonlightTrial} from '../src/world_packs/book_gu_keeper_moonlight_trial.js';
 import {guKeeperMoonlightProspect} from '../src/world_packs/book_gu_keeper_moonlight_prospect.js';
 import {guKeeperMoonlightStock} from '../src/world_packs/book_gu_keeper_moonlight_stock.js';
-import {moonlightStockView} from '../src/gu_moonlight_stock.js';
+import {heldMoonlightStockStage, moonlightStockView} from '../src/gu_moonlight_stock.js';
 import {clanMoonlightTraits, drawGuTraits} from '../src/gu_traits.js';
 import {moonlightTrialView} from '../src/gu_keeper_moonlight_trial.js';
 import {guKeeperFireTrial, keeperFireTrialView} from '../src/world_packs/book_gu_keeper_fire_trial.js';
@@ -502,15 +502,37 @@ test('Keeper Red Fire keeps the written recipe and prior payments across a retur
 });
 
 test('Generated clan specimens retain innate blade focus and a separate individual refinement across custody', () => {
-    for (const [seed, cuts] of [[1, [5, 4]], [2, [4, 5]]]) {
+    // Fact byte hashes captured at f622d4cdb for the same command route.
+    const fixtures = [
+        [1, [5, 4], [
+            'a81307df44df64cc2e4eab2476a6151f732982c8a663e57724506c5496922a58',
+            '98a0cee25ef92c9d9ea38f9afa33e799e9e21bc4f0e5cd743e1046a2eec71fe4',
+            '8ba78d420b9306ee8c27b30e1862df57be7a436aa9ae47df1eabdc08fdac0f66',
+        ]],
+        [2, [4, 5], [
+            'ab0bb1239d91b8831aa95e826824a7bba9260739297edb923437cdb3a9b82acb',
+            '8e2e1b6e705b31cb620f9606a3f5442e8674922aded47d72cc1edfb070268e21',
+            'e74edb27507f42e2e34e10cd3e0f9ca7a6ad6ee220c8957a4b1a700ffdaee629',
+        ]],
+    ];
+    for (const [seed, cuts, [surveyHash, returnedHash, recastHash]] of fixtures) {
         const life = setup(seed, guKeeperMoonlightTrial, guKeeperMoonlightStock);
         const act = op => life.start(`moonlight_stock.${op}`);
         const view = () => moonlightStockView(life.p.state);
         life.start('take_moon');
         life.admitExtension(0); life.admitExtension(1);
+        const fact = id('moonlight_stock.roster');
+        const rosterBytes = () => life.p.state.worlds[id('world')].facts[fact];
+        const rosterHash = () => createHash('sha256').update(rosterBytes()).digest('hex');
+        assert.throws(() => act('borrow_first'));
         act('survey');
+        assert.equal(rosterHash(), surveyHash);
         assert.throws(() => act('survey'));
-        act('borrow_first'); act('cast_stock'); act('return_stock');
+        act('borrow_first');
+        assert.throws(() => act('borrow_second'));
+        act('cast_stock'); act('return_stock');
+        assert.equal(heldMoonlightStockStage(life.p.state), null);
+        assert.throws(() => act('cast_stock'));
         act('borrow_second');
         life.step(180);
         act('cast_stock');
@@ -518,13 +540,28 @@ test('Generated clan specimens retain innate blade focus and a separate individu
         act('tune_stock');
         const original = view()[1].id;
         act('return_stock');
+        assert.equal(rosterHash(), returnedHash);
         const returned = JSON.parse(JSON.stringify(life.envelope()));
         validateKeeperEnvelope(returned);
         assert.deepEqual(moonlightStockView(returned.expansion), view());
+
+        const invalid = structuredClone(returned);
+        const facts = invalid.expansion.worlds[id('world')].facts;
+        const roster = JSON.parse(facts[fact]);
+        for (const specimen of Object.values(roster.lifecycle.individuals)) {
+            specimen.keeper = 'player';
+            specimen.habitat = id('moonlight_stock.desk');
+        }
+        facts[fact] = JSON.stringify(roster);
+        assert.throws(() => validateKeeperEnvelope(invalid), /clan Moonlight Gu and their test records disagree/);
         act('borrow_second'); life.step(240); act('cast_stock');
         assert.equal(view()[1].id, original);
+        const stage = heldMoonlightStockStage(life.p.state);
+        assert.equal(stage.gu.id, id(`moonlight_stock.${original}`));
+        assert.equal(stage.gu.traits.bladeForce, cuts[1] / 4 - 0.75);
         assert.deepEqual(view().map(row => row.cut), [cuts[0], cuts[1] + 1]);
         assert.deepEqual(view().map(row => row.refined), [false, true]);
+        assert.equal(rosterHash(), recastHash);
         validateKeeperEnvelope(JSON.parse(JSON.stringify(life.envelope())));
     }
 });
