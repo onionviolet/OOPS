@@ -1,7 +1,9 @@
 // AR3, AD51. Pure settlement for a host-owned lifecycle slice. The host
 // supplies current habitat conditions, authority and any payment settlement.
 import {check, natural, object, positive} from './basics.js';
-import {address, drawU32} from './gen_kit.js';
+import {address} from './gen_kit.js';
+import {addBirthsToFrequencies, drawFromFrequencies, inheritGenes, pickParental, removeFromFrequencies,
+    validateGenes} from './heredity.js';
 
 const family = 'creature_lifecycle@1';
 const key = value => typeof value === 'string' && value !== '__proto__' && /^[a-zA-Z0-9][a-zA-Z0-9_.:-]*$/.test(value);
@@ -11,6 +13,14 @@ const lookup = (table, id) => Object.hasOwn(table, id) ? table[id] : undefined;
 // An organ is a small record of key strings and whole numbers (a Gu Master's aperture:
 // grade, rank, stage, condition). What it can hold is a world law read elsewhere
 // (living_body.js apertureOrgan), so the save keeps facts, not derived capacity.
+// Heredity (GN, PFP27): genes are {locus: [allele, allele]}; `tested` lists loci whose
+// alleles the keeper knows (GN6). A cohort may carry allele counts instead of members (GN8).
+const genesValid = genes => genes === undefined || object(genes) &&
+    Object.entries(genes).every(([locus, pair]) => key(locus) && Array.isArray(pair) && pair.length === 2 && pair.every(key));
+const testedValid = (tested, genes) => tested === undefined || Array.isArray(tested) && tested.every(l => genes && Object.hasOwn(genes, l)) &&
+    new Set(tested).size === tested.length;
+const allelesValid = alleles => alleles === undefined || object(alleles) && Object.entries(alleles).every(([locus, row]) =>
+    key(locus) && object(row) && natural(row.strong) && natural(row.plain));
 const organsValid = organs => object(organs) && Object.entries(organs).every(([name, organ]) => key(name) &&
     object(organ) && Object.entries(organ).every(([field, value]) => key(field) && (key(value) || natural(value))));
 
@@ -21,8 +31,8 @@ export function restoreCreatureLifecycle(saved) {
         positive(saved.nextIdentity) && object(saved.cohorts) && object(saved.individuals),
     'Invalid creature lifecycle save.');
     for (const [id, cohort] of Object.entries(saved.cohorts)) {
-        check(key(id) && object(cohort) && key(cohort.species) && key(cohort.habitat) && natural(cohort.stock),
-            'Invalid creature cohort.');
+        check(key(id) && object(cohort) && key(cohort.species) && key(cohort.habitat) && natural(cohort.stock) &&
+            allelesValid(cohort.alleles), 'Invalid creature cohort.');
     }
     for (const [id, individual] of Object.entries(saved.individuals)) {
         check(object(individual) && positive(individual.serial) && individual.serial < saved.nextIdentity &&
@@ -53,6 +63,7 @@ export function restoreCreatureLifecycle(saved) {
         validateHealth(individual.health, individual.bornAt);
         individual.organs ??= {};
         check(organsValid(individual.organs), 'Invalid creature organs.');
+        check(genesValid(individual.genes) && testedValid(individual.tested, individual.genes), 'Invalid creature genes.');
         for (const [actor, experience] of Object.entries(individual.experience)) {
             check(key(actor) && object(experience) && natural(experience.lastAt) &&
                 experience.lastAt >= individual.bornAt && natural(experience.bond) && experience.bond <= 100 &&
@@ -65,7 +76,7 @@ export function restoreCreatureLifecycle(saved) {
         check(key(id) && object(brood) && Array.isArray(brood.parents) && brood.parents.length === 2 &&
             brood.parents.every(key) && natural(brood.dueAt) &&
             natural(brood.growthMinutes) && natural(brood.dueAt + brood.growthMinutes) &&
-            traitsValid(brood.traits), 'Invalid creature brood.');
+            traitsValid(brood.traits) && genesValid(brood.genes), 'Invalid creature brood.');
         const [first, second] = brood.parents.map(parent => lookup(state.individuals, parent));
         check(first && second && first !== second && first.species === second.species &&
             first.matureAt < brood.dueAt && second.matureAt < brood.dueAt, 'Invalid creature parents.');
@@ -114,11 +125,16 @@ export function settleCohortStock(state, {revision, id, species, habitat, delta}
     const stock = (cohort?.stock ?? 0) + delta;
     check(natural(stock), 'Insufficient cohort stock.');
     if (delta > 0) checkHabitat(state, habitat, species, delta);
-    return {...next, cohorts: {...state.cohorts, [id]: {...cohort, species, habitat: habitat.id, stock}}};
+    // A cohort with allele counts keeps two per member: arrivals join in the herd's
+    // proportion, departures leave in it (GN8).
+    const alleles = cohort?.alleles && (delta > 0 ? addBirthsToFrequencies(cohort.alleles, delta) :
+        removeFromFrequencies(cohort.alleles, -delta));
+    return {...next, cohorts: {...state.cohorts, [id]: {...cohort, species, habitat: habitat.id, stock, ...(alleles ? {alleles} : {})}}};
 }
 
 export function acquireCreature(state, {
     revision, cohortId, destination, keeper, traits = {}, clock = 0, ageMinutes = 0, growthMinutes = 0,
+    genes, genome, root,
 }) {
     const next = beginSettlement(state, revision);
     const cohort = lookup(state.cohorts, cohortId);
@@ -129,10 +145,23 @@ export function acquireCreature(state, {
     checkHabitat(state, destination, cohort.species, Number(cohort.habitat !== destination?.id));
 
     const bornAt = clock - ageMinutes;
+    // GN8: a cohort that keeps allele counts gives the newcomer genes drawn from them
+    // and loses those two alleles; otherwise the host may supply genes (a bought animal).
+    let left = cohort;
+    let carried = genes;
+    check(!cohort.alleles || genome, 'This herd keeps allele counts; name its genome to draw from it.');
+    if (cohort.alleles && genome) {
+        check(carried === undefined && typeof root === 'string', 'Drawing from a herd needs a root and no supplied genes.');
+        const drawn = drawFromFrequencies(genome, cohort.alleles, {root, at: address('creature-acquire', cohortId, state.nextIdentity)});
+        carried = drawn.genes;
+        left = {...cohort, alleles: drawn.alleles};
+    }
+    check(genesValid(carried) && (carried === undefined || !genome || validateGenes(genome, carried)), 'Invalid creature genes.');
     return addIndividual({
-        ...next, cohorts: {...state.cohorts, [cohortId]: {...cohort, stock: cohort.stock - 1}},
+        ...next, cohorts: {...state.cohorts, [cohortId]: {...left, stock: cohort.stock - 1}},
     }, {origin: cohortId, species: cohort.species, habitat: destination.id, keeper,
-        bornAt, matureAt: bornAt + growthMinutes, traits: {...traits}}, clock);
+        bornAt, matureAt: bornAt + growthMinutes, traits: {...traits},
+        ...(carried ? {genes: structuredClone(carried), tested: []} : {})}, clock);
 }
 
 function addIndividual(state, fields, settledAt = fields.bornAt) {
@@ -174,6 +203,24 @@ export function setCreatureOrgan(state, {revision, id, organ, value}) {
     return {...next, individuals: {...state.individuals, [id]: {...animal, organs}}};
 }
 
+// GN6: a test (or a deduction from a child) makes one locus known to the keeper.
+export function markCreatureGenesKnown(state, {revision, id, loci}) {
+    const next = beginSettlement(state, revision);
+    const animal = lookup(state.individuals, id);
+    check(animal?.genes && Array.isArray(loci) && loci.every(l => Object.hasOwn(animal.genes, l)), 'Nothing to test.');
+    const tested = [...new Set([...(animal.tested ?? []), ...loci])];
+    return {...next, individuals: {...state.individuals, [id]: {...animal, tested}}};
+}
+
+// GN8: a herd or wild population away from the player keeps allele counts, two per member.
+export function setCohortAlleles(state, {revision, id, alleles}) {
+    const next = beginSettlement(state, revision);
+    const cohort = lookup(state.cohorts, id);
+    check(cohort && allelesValid(alleles) && Object.values(alleles).every(row => row.strong + row.plain === 2 * cohort.stock),
+        'Allele counts must be two per member of the cohort.');
+    return {...next, cohorts: {...state.cohorts, [id]: {...cohort, alleles: structuredClone(alleles)}}};
+}
+
 export function creatureDevelopment(state, id, clock) {
     const animal = lookup(state.individuals, id);
     check(animal && natural(clock) && clock >= animal.bornAt, 'Invalid creature age query.');
@@ -207,7 +254,7 @@ export function practiceWithCreature(state, {
 // Local rules supply compatible reproductive roles and gestation timing. Once
 // started, a brood keeps its parent IDs, due time and addressed trait draws.
 export function startCreatureBrood(state, {
-    revision, parents, keeper, clock, gestationMinutes, growthMinutes, root,
+    revision, parents, keeper, clock, gestationMinutes, growthMinutes, root, genome, exposure = {},
 }) {
     const next = beginSettlement(state, revision);
     check(Array.isArray(parents) && parents.length === 2 && parents.every(key) &&
@@ -221,15 +268,19 @@ export function startCreatureBrood(state, {
     check(!Object.values(state.broods).some(brood => brood.parents.some(id => parents.includes(id))),
         'A parent already has a pending brood.');
     const id = `brood:${next.revision}`;
+    // Whole traits copy from one parent (the parental draw, OA5); loci with alleles follow
+    // the genome's rules when the kind has one (GN1), with exposure raising mutation (GN4).
     const traits = {};
-    for (const name of new Set([...Object.keys(first.traits), ...Object.keys(second.traits)])) {
-        const left = lookup(first.traits, name);
-        const right = lookup(second.traits, name);
-        traits[name] = left === undefined || right === undefined ? left ?? right :
-            (drawU32(root, address('creature-inheritance', id, name)) % 2 ? left : right);
+    for (const name of new Set([...Object.keys(first.traits), ...Object.keys(second.traits)]))
+        traits[name] = pickParental(root, id, name, lookup(first.traits, name), lookup(second.traits, name));
+    let genes;
+    let mutated = [];
+    if (genome) {
+        check(first.genes && second.genes, 'Both parents need genes for this kind.');
+        ({genes, mutated} = inheritGenes(genome, first.genes, second.genes, {root, at: address('creature-genes', id), exposure}));
     }
-    return {id, state: {...next, broods: {...state.broods, [id]: {
-        parents: [...parents], dueAt: clock + gestationMinutes, growthMinutes, traits,
+    return {id, mutated, state: {...next, broods: {...state.broods, [id]: {
+        parents: [...parents], dueAt: clock + gestationMinutes, growthMinutes, traits, ...(genes ? {genes} : {}),
     }}}};
 }
 
@@ -245,7 +296,8 @@ export function settleCreatureBirth(state, {revision, broodId, clock, destinatio
     delete broods[broodId];
     return addIndividual({...next, broods}, {origin: carrier.origin, species: carrier.species,
         habitat: carrier.habitat, keeper: carrier.keeper, bornAt: clock,
-        matureAt: clock + brood.growthMinutes, traits: {...brood.traits}});
+        matureAt: clock + brood.growthMinutes, traits: {...brood.traits},
+        ...(brood.genes ? {genes: structuredClone(brood.genes), tested: []} : {})});
 }
 
 function validateHealth(health, bornAt) {
@@ -378,7 +430,8 @@ function settleWildWindow(state, habitat, populations) {
         const supported = habitat.supportedSpecies.includes(species) ? preyCapacity(state, habitat, species) : 0;
         const deficit = Math.max(0, -free, habitatOccupancy(working, habitat.id, species) - supported);
         const removed = Math.min(cohort.stock, losses, deficit);
-        cohorts[id] = {...cohort, stock: cohort.stock - removed};
+        cohorts[id] = {...cohort, stock: cohort.stock - removed,
+            ...(cohort.alleles ? {alleles: removeFromFrequencies(cohort.alleles, removed)} : {})};
         free += removed;
         ledger.losses += removed;
     }
@@ -389,7 +442,8 @@ function settleWildWindow(state, habitat, populations) {
         const prey = preyCapacity(state, habitat, cohort.species);
         const space = prey - habitatOccupancy(working, habitat.id, cohort.species);
         const added = Math.max(0, Math.min(births, free, space));
-        cohorts[id] = {...cohort, stock: cohort.stock + added};
+        cohorts[id] = {...cohort, stock: cohort.stock + added,
+            ...(cohort.alleles ? {alleles: addBirthsToFrequencies(cohort.alleles, added)} : {})};
         free -= added;
         ledger.births += added;
     }

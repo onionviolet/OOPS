@@ -336,3 +336,52 @@ Save compatibility (MC4): **unchanged.** No save key changed; the lifecycle's op
 | Headless proof on the final bundle | exit 0, page errors 0, 404s 0 | No MCP walk |
 
 `meadow_shell_state.js` was not touched (handed to W for this phase).
+
+## Heredity layer, first pass (GN1-GN8, PFP27, OA5) (2026-11-12)
+
+Merged master at 46b39fb22 and the P coverage tooling (5cd05f309). This is placed after MS1 and MS5, which are done. The shared live store (2b) still comes next for the done check. Everything here is a proposal under AD56.
+
+### What landed
+
+| Code | What | Where |
+| --- | --- | --- |
+| OA5 | The lifecycle's per-trait coin flip is now `pickParental` in the heredity layer, at its original address, so existing broods settle the same (tested bit for bit). Loci with alleles run the `lineage_traits.js` rules (dominant, recessive, incomplete, fickle, mutation) through addressed draws instead of an rng | `src/heredity.js` (new), `src/creature_lifecycle.js` |
+| GN1 | Genomes are data rows. `village.sheep` (fine fleece, dark coat, winter coat, vigor; lightning as a mutagen), `village.rabbit` (agouti, lop) and `person.household`, built from `lineage_traits.js`'s own loci and household dials. Kind rows name their genome | `src/living_genomes.js` (new), `src/living_kinds.js` |
+| GN2 | `expressGenes` gives each locus a level and its cause: `genes`, `growth` (fine fleece shows only when grown), `place` (the winter coat needs cold) or `condition` (vigor is suppressed when starved). `readLivingBody` returns `phenotype` | `heredity.js`, `living_body.js` |
+| GN3 | `individualSpread`: each individual's own draw inside the kind's ranges, by address, never stored | `heredity.js` |
+| GN4 | `mutationRate` adds the genome's mutagen percent per unit of exposure; a brood takes `exposure` (a storm over the pen) and reports which loci mutated | `heredity.js`, lifecycle brood |
+| GN5 | `genomeDistance`, `crossOutcome` (breeds true below 250 per-mille, mule below 600, no cross past that or across families; dials), `hybridGenome` | `heredity.js` |
+| GN6 | `genotypeView` shows `?` for alleles the keeper cannot know. `learnFromChild` deduces from a child: a showing recessive in the child proves the parent carries it; a child without a dominant proves a showing parent also carries the plain allele. `markCreatureGenesKnown` records a test | `heredity.js`, lifecycle |
+| GN8 | A cohort can keep allele counts, two per member, instead of individuals. Births join in proportion, losses leave in proportion, and acquiring one draws its genes from the counts and takes them out. The same in one jump or five windows across reloads | lifecycle, `heredity.js` |
+| Ledger | `creatures.jsonl` notes carry `heredity=<coin, alleles or none>[+genome]`: 3 kinds on alleles with genome rows, 6 copying whole traits, 86 with none (Gu, constructs, plants) | `scripts/coverage_creatures.mjs` |
+
+Not yet: GN7 (Gu aptitude, magical heredity, Beyonder traits as each world's canon fixed points), GN9 (canon breeds as calibration), and live wiring. The meadow pen's ewe and ram carry no genes yet, so the lamb's coat is still a whole-trait copy in play. Giving them genes changes the save shape, so it rides with 2b.
+
+### PFP2 and ledger
+
+| Count | Before | After |
+| --- | --- | --- |
+| Inheritance models | 3 (lifecycle coin flip, `lineage_traits`, `household_brood` via `lineage_traits`) | 2 code paths on one rule set: `heredity.js` (genome rows) and `lineage_traits.js` (household save slice, same loci, phenotype parity tested). Folding `lineage_traits`' internals onto `heredity.js` is a structural move for later (AR: structure apart from behavior) |
+| Kinds with genome rows | 0 | 3 |
+| Creatures ledger | 96 rows, 0 unclassified | unchanged; heredity state in notes |
+
+### Checks run
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/heredity.test.js tests/living_foundation.test.js tests/creature_lifecycle.test.js tests/habitat_care.test.js tests/lineage_traits.test.js tests/household_brood.test.js tests/village_family.test.js tests/gu_colony.test.js` | 58 pass | Focused |
+| `node --test tests/gu_lead_life.test.js tests/hp_lead_life.test.js` (MC5) | 85 pass | I did not find Klein's chapter 129 endpoint test by name; the integrator's full suite covers it |
+| `npm run check:arch`, `npm run check:rules`, `npm run check:coverage` | exit 0, 0 new player-text strings, coverage PASS | |
+| Browser | not rerun | No player-facing change; the MS5 receipt stands for the pen |
+
+Save compatibility (MC4): **unchanged.** Genes, tested lists and cohort allele counts are optional fields; old saves load.
+
+### Requests
+
+- **P:** add an optional `heredity` field to the coverage row format (`coin`, `alleles`, `none`, plus whether a genome row exists). L keeps it in `note` until then.
+- **G:** for GN7, Gu aptitude grade and talent as a genome row in the Reverend Insanity pack (canon fixed points per AD49). Gu fusion stays F's making grammar (GN5).
+- **W:** a `cold` or temperature quantity on places, so the winter-coat locus reads the substrate instead of a caller value.
+
+### Codex lane
+
+No Codex lane is proposed yet. The bulk work L could hand off is GN7 and GN9 canon rows (aptitude and Beyonder heredity from the open sources), and those need G's and B's data shape first.

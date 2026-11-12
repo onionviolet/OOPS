@@ -20,10 +20,13 @@
 //                numbers for an organ come from a world pack, never from this file (PFP3).
 //   diet         what supplies it: {prey} for a predator, {food} for a ration.
 //   source       {kind: original | book, locator}. Book rows name the chapter that shows it.
+//   genome       id of a genome row (living_genomes.js, GN1) when the kind's heredity runs on
+//                alleles; a kind without one copies whole traits from one parent.
 //   hosts        the modules that use this kind today (for PFP2 counting, not authority).
 //   placeholder  true for a row L holds until its owner's catalogue supplies it.
 // World numbers (rations, gestation minutes, prices) stay with the host or world pack.
 import {check, object} from './basics.js';
+import {LIVING_GENOMES} from './living_genomes.js';
 
 export const LIVING_KINDS_REVISION = 1;
 export const LIVING_CLASSES = Object.freeze(['animal', 'plant', 'gu', 'person', 'construct']);
@@ -40,10 +43,11 @@ const row = (id, label, klass, fields = {}) => ({id, label, class: klass, needs:
 // Kinds the hosts in src name today, with the host that names them.
 export const LIVING_KIND_ROWS = Object.freeze([
     row('sheep', 'Fleece sheep', 'animal', {needs: 'sheep', reproduction: ['pair'], diet: {food: 'Meadow hay'},
+        inheritance: 'alleles', genome: 'village.sheep',
         source: original('habitat_care.js'), hosts: ['habitat_care.js']}),
     row('house_cat', 'House cat', 'animal', {needs: 'house_cat', reproduction: ['pair'],
         source: original('absorb_p23/household/model.js'), hosts: ['absorb_p23/household/model.js']}),
-    row('rabbit', 'Rabbit', 'animal', {reproduction: ['cohort'],
+    row('rabbit', 'Rabbit', 'animal', {reproduction: ['cohort'], inheritance: 'alleles', genome: 'village.rabbit',
         source: original('meadow_wildlife.js'), hosts: ['meadow_wildlife.js']}),
     row('fox', 'Fox', 'animal', {reproduction: ['cohort'], diet: {prey: 'rabbit'},
         source: original('meadow_wildlife.js'), hosts: ['meadow_wildlife.js']}),
@@ -64,7 +68,7 @@ export const LIVING_KIND_ROWS = Object.freeze([
         hosts: ['gu_army_ants.js', 'gu_keeper_ant_nest.js']})),
     row('ordinary-starlight-firefly', 'Starlight firefly (ordinary)', 'animal', {reproduction: ['cohort'],
         source: {kind: 'book', locator: 'Reverend Insanity ch. 467 and 474 (gu_colony.js)'}, hosts: ['gu_colony.js']}),
-    row('human', 'Person', 'person', {needs: 'human', inheritance: 'alleles', reproduction: ['pair'],
+    row('human', 'Person', 'person', {needs: 'human', inheritance: 'alleles', reproduction: ['pair'], genome: 'person.household',
         stages: ['juvenile', 'adult', 'elder'], organs: ['aperture'],
         source: original('simulation.js people, chronicle.js life, npc_lives.js'),
         hosts: ['simulation.js', 'chronicle.js', 'npc_lives.js']}),
@@ -114,6 +118,7 @@ function validateKind(kind) {
     check(kind.lifespan === null || Number.isSafeInteger(kind.lifespan) && kind.lifespan > 0, `${kind.id}: lifespan.`);
     check(Array.isArray(kind.organs) && kind.organs.every(o => LIVING_ORGANS.includes(o)), `${kind.id}: organs.`);
     check(object(kind.diet) && (kind.diet.prey === undefined || idLike(kind.diet.prey)), `${kind.id}: diet.`);
+    check(kind.genome === undefined || typeof kind.genome === 'string' && kind.genome.length > 0, `${kind.id}: genome id.`);
     check(kind.placeholder === undefined || typeof kind.placeholder === 'boolean', `${kind.id}: placeholder.`);
     check(object(kind.source) && ['original', 'book'].includes(kind.source.kind) &&
         typeof kind.source.locator === 'string' && kind.source.locator, `${kind.id}: a kind names its source.`);
@@ -123,7 +128,7 @@ function validateKind(kind) {
 /** One registry for a world: L's rows plus world-pack rows (Gu from G, later others).
  * A later row for the same id is refused, so two packs cannot both define a kind,
  * except that a row replaces an L placeholder for the same id. */
-export function livingKindRegistry({rows = LIVING_KIND_ROWS, extra = []} = {}) {
+export function livingKindRegistry({rows = LIVING_KIND_ROWS, extra = [], genomes = LIVING_GENOMES} = {}) {
     const kinds = {};
     for (const kind of [...rows, ...extra]) {
         validateKind(kind);
@@ -133,7 +138,15 @@ export function livingKindRegistry({rows = LIVING_KIND_ROWS, extra = []} = {}) {
     }
     for (const kind of Object.values(kinds))
         if (kind.diet.prey) check(Object.hasOwn(kinds, kind.diet.prey), `${kind.id}: prey ${kind.diet.prey} has no row.`);
-    return Object.freeze({revision: LIVING_KINDS_REVISION, kinds: Object.freeze(kinds)});
+    for (const kind of Object.values(kinds))
+        if (kind.genome) check(Object.hasOwn(genomes, kind.genome), `${kind.id}: genome ${kind.genome} has no row.`);
+    return Object.freeze({revision: LIVING_KINDS_REVISION, kinds: Object.freeze(kinds), genomes});
+}
+
+/** The genome row for a kind, or null when its heredity copies whole traits. */
+export function livingGenome(registry, id) {
+    const kind = livingKind(registry, id);
+    return kind.genome ? registry.genomes[kind.genome] : null;
 }
 
 export function livingKind(registry, id) {

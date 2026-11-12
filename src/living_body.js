@@ -12,7 +12,8 @@
 import {check, natural, object} from './basics.js';
 import {aggravateCreatureInjury, creatureDevelopment, creatureHealth, injureCreature} from './creature_lifecycle.js';
 import {bodyData, needRate, readNeed} from './needs.js';
-import {livingKind} from './living_kinds.js';
+import {livingGenome, livingKind} from './living_kinds.js';
+import {expressGenes, genotypeView, individualSpread} from './heredity.js';
 
 // Dials, with reasons. Every number is a default a world may change.
 export const LIVING_BODY_LAW = Object.freeze({
@@ -87,7 +88,7 @@ export function apertureOrgan(organ, law) {
  * hunger source; `feeding` is a Gu record's {fedThrough, day} where the Gu
  * owner keeps feeding by day; `organLaws` maps an organ id to its world law.
  */
-export function readLivingBody({lifecycle, registry, id, clock, sinceMeal, ration, satiety, feeding, organLaws = {}, law = LIVING_BODY_LAW}) {
+export function readLivingBody({lifecycle, registry, id, clock, sinceMeal, ration, satiety, feeding, environment = {}, root, organLaws = {}, law = LIVING_BODY_LAW}) {
     const animal = lifecycle?.individuals && Object.hasOwn(lifecycle.individuals, id) ? lifecycle.individuals[id] : undefined;
     check(animal, `Unknown living body ${id}.`);
     const kind = livingKind(registry, animal.species);
@@ -120,10 +121,21 @@ export function readLivingBody({lifecycle, registry, id, clock, sinceMeal, ratio
         vitality: {value: Math.floor(law.maxVitality * woundFactor * work), max: law.maxVitality},
         hunger, injury: wound ? {kind: wound.kind, remaining: wound.remaining, required: wound.required} : null,
         inCare: health.careUntil !== null, conditions, work, heal, gu, organs,
-        traits: {...animal.traits},
+        traits: {...animal.traits}, ...heredityOf(registry, animal, {mature: development.mature, environment, conditions, root, id}),
         learned: Object.fromEntries(Object.entries(animal.experience).map(([actor, e]) =>
             [actor, {bond: e.bond, skills: {...e.training}}])),
     };
+}
+
+// GN2, GN3, GN6: what shows (with its cause), the keeper's view of the genotype, and
+// the individual's own spread. Only for kinds whose genome runs on alleles.
+function heredityOf(registry, animal, {mature, environment, conditions, root, id}) {
+    const genome = livingGenome(registry, animal.species);
+    if (!genome || !animal.genes) return {};
+    const tested = animal.tested ?? [];
+    return {phenotype: expressGenes(genome, animal.genes, {mature, environment, conditions}),
+        genotype: Object.fromEntries(Object.keys(genome.loci).map(l => [l, genotypeView(genome, animal.genes, tested, l)])),
+        ...(typeof root === 'string' ? {spread: individualSpread(genome, {root, id})} : {})};
 }
 
 /** The body read as flat facts in the substrate's `self.<name>` shape (W's
