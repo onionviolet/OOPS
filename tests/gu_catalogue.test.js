@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {guCatalogue} from '../src/gu_catalogue.js';
+import {guCatalogue, guFunctions, guRoles} from '../src/gu_catalogue.js';
 import {searchGuMoves} from '../src/gu_move_search.js';
 
 const evidence = JSON.parse(readFileSync(new URL('../docs/research/gu-identity-evidence.json', import.meta.url)));
@@ -58,4 +58,22 @@ test('unresolved ranks and the reported Immortal Worm recipe supply no playable 
     assert.deepEqual(byKind.get('liquor-worm').ranks, [1]);
     assert.equal(guCatalogue['liquor-worm'].conversion.value.rank, 1);
     assert.equal(guCatalogue['liquor-worm'].recipe, undefined);
+});
+
+test('every chapter-checked identity has grammar parts that keep chapter facts, wiki labels and gaps apart', () => {
+    assert.ok(evidence.kinds.length >= 60);
+    for (const record of evidence.kinds) {
+        const parts = guCatalogue[record.id]?.parts;
+        assert.ok(parts, `${record.id} needs a parts row`);
+        const {value, open} = parts;
+        const label = record.id;
+        assert.deepEqual(value.rank, record.ranks, `${label} rank must be the chapter-backed ranks`);
+        for (const gap of record.openFields ?? []) assert.ok(open.includes(gap), `${label} keeps open field ${gap}`);
+        assert.ok(value.rank.length || open.some(gap => /rank/.test(gap)), `${label} names its open rank`);
+        assert.ok(value.path || open.some(gap => /path/.test(gap)), `${label} names its open path`);
+        assert.ok(value.function === null ? open.some(gap => /standalone|effect|operation|contribution/.test(gap))
+            : guFunctions.includes(value.function), `${label} function`);
+        assert.ok(value.roles.every(role => guRoles.includes(role)), `${label} roles`);
+        assert.ok(['rank', 'path', 'type'].every(field => Array.isArray(value.wiki[field])), `${label} wiki layer`);
+    }
 });
