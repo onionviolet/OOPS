@@ -3733,17 +3733,17 @@ function finish_game_action({action_key, conditions_status, dialogue_key}){
 
         const success_conditions = action.getAvailabilityComponent().success_conditions;
         const start_conditions = action.getAvailabilityComponent().start_conditions;
-
+        const heldKeyById = (id, n) => Object.keys(character.getItems()).find(k => JSON.parse(k).id === id && character.getItems()[k].count >= n) ?? item_templates[id].getInventoryKey();
         Object.keys(success_conditions[0]?.items_by_id || {}).forEach(item_id => {
-            //no need to check if they are in inventory, as without them action would have been conditionally failed before reaching here
+            //the stack that met the condition (process_conditions accepts any quality of the id, e.g. graded Wool), else the plain key
             if(success_conditions[0].items_by_id[item_id].remove) {
-                character.removeFromInventory([{item_key: item_templates[item_id].getInventoryKey(), item_count: success_conditions[0].items_by_id[item_id].count}]);
+                character.removeFromInventory([{item_key: heldKeyById(item_id, success_conditions[0].items_by_id[item_id].count), item_count: success_conditions[0].items_by_id[item_id].count}]);
             }
         });
         Object.keys(start_conditions.items_by_id || {}).forEach(item_id => {
             //again no need to check
             if(start_conditions.items_by_id[item_id].remove_on_success && is_won || start_conditions.items_by_id[item_id].remove_on_fail && !is_won) {
-                character.removeFromInventory([{item_key: item_templates[item_id].getInventoryKey(), item_count: start_conditions.items_by_id[item_id].count}]);
+                character.removeFromInventory([{item_key: heldKeyById(item_id, start_conditions.items_by_id[item_id].count), item_count: start_conditions.items_by_id[item_id].count}]);
             }
         });
     }
@@ -9498,7 +9498,7 @@ configureHomes({registry:expeditionRegistry,root:()=>expansionState,locations,re
     effects:p00HouseholdEffects,commit:plan=>persistExpansion(plan),setForm:form=>{character.getBioComponent().race=form;},log:text=>log_message(text,'notification')});hostPlaceClock({homes:residenceState,expansion:()=>expansionState,character:()=>character,locationId:()=>current_location?.id,inventory:()=>readInventoryOwner(character.getItems()),gameplaySnapshot,assertSpend:key=>assertNativeItemDisposition(expansionState,key),commit:plan=>persistExpansion(plan),log:text=>log_message(text,'notification')});configureRankGap({settle:({minutes,stamina})=>{const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true),fs=character.getFullStats();if(plan.state.clock-expansionState.clock!==minutes)throw Error('Finish the current local decision first.');plan.native={...plan.native,staminaToFull:Math.min(fs.max_stamina,(plan.native?.staminaToFull??fs.max_stamina-fs.stamina)+stamina)};plan.state.sequence++;persistExpansion(plan);domainRegistry.tick(minutes);}});
 configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
     harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
-    habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),
+    habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),rootClock:()=>expansionState.clock,
     harvestContainer:()=>document.getElementById('location_actions_div'),careContainer:projectsHome,
     readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),ruleTrace:getMixtureOwner()?.ruleLaws?.receipts?.[getMixtureOwner()?.ruleLaws?.lastReceipt]?.trace,expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),
     developer:()=>is_on_dev()||new URLSearchParams(location.search).get('harvest-inspector')==='1'});

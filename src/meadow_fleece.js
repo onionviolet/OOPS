@@ -13,14 +13,16 @@ const operations = {
         const measured = measureCreatureCapability(fineness, [
             {source: 'lineage.fleece', unit: fineness.unit, value: fine ? 65 : 40},
         ]);
+        // Lineage picks the kind of wool; a care grade above plain (100) rides the key as a graded stack (ITM1).
+        const kind = measured.value >= 65 ? 'Fine wool' : 'Wool';
         return {ok: true, facts: {fineness: measured}, effects: [{
-            key: measured.value >= 65 ? FINE_WOOL_KEY : JSON.stringify({id: 'Wool'}), amount: facts.yield,
+            key: JSON.stringify(facts.quality > 100 ? {id: kind, quality: facts.quality} : {id: kind}), amount: facts.yield,
         }]};
     }},
 };
 
 export function planMeadowFleece(id, sheep, amount, {
-    genome, clock, environment, conditions, incubationConditions = creatureIncubationConditions(sheep),
+    genome, clock, environment, conditions, incubationConditions = creatureIncubationConditions(sheep), care,
 } = {}) {
     if (sheep.deadAt !== undefined) return {ok: false, operation: 'shear', reason: 'The sheep has died.'};
     const traits = {...sheep.traits};
@@ -41,6 +43,8 @@ export function planMeadowFleece(id, sheep, amount, {
             amount += Math.floor(woolYield / 10);
         }
     }
-    return planCreatureMethod(method, {law, operations, facts: {yield: amount},
+    // Care input (fleece_from_care.js readFleece): a grade for the key and extra locks from a dense fleece.
+    if (care?.bonus > 0) amount += care.bonus;
+    return planCreatureMethod(method, {law, operations, facts: {yield: amount, quality: care?.quality ?? 100},
         bindings: {subject: {kind: 'creature', id, traits}}});
 }

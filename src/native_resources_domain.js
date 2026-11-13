@@ -1,6 +1,8 @@
 import {domainRegistry, registerDomain} from './domain_registry.js';
 import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,setHarvestRoutine,pauseHarvestRoutine,resumeHarvestRoutine,cancelHarvestRoutine,observeCarcass} from './harvest.js';
 import {validateHabitat,migrateHabitat,planHabitatAction} from './habitat_care.js';
+import {SHEEP_HOLDER} from './fleece_from_care.js';
+import {addMoodThought,readMood} from './mood_thoughts_domain.js';
 import {createHarvestPanel} from './harvest_ui.js';
 import {createHabitatPanel} from './habitat_care_ui.js';
 import {registerMeadowShellFight} from './meadow_shell_combat.js';
@@ -47,21 +49,28 @@ function tickHarvest(minutes){
     harvestPanel?.render();
 }
 
+// FRC56: the sheep's mood is its own thought rows (mood_thoughts); plans read it and return the rows a care act adds. Rows are
+// written before the commit so its save carries them; a failed commit can leave one keyed row behind (no remove port), harmless.
+// Thought rows run on the root clock (TMR1, expansionState.clock), shared with every other holder; the pen keeps its calendar clock.
+const habitatRead=()=>{const c=ports.habitatContext();return {...c,mood:readMood(SHEEP_HOLDER,ports.rootClock())};};
 function actHabitat(action){
     if(action==='spar_shell'){
         const begin=domainRegistry.command('tempo_fight','begin');
         if(!begin)throw Error('Practice is unavailable right now.');
         return begin({openerId:'meadow.terrapin'});
     }
-    ports.commitHabitatPlan(planHabitatAction(habitatOwner,action,ports.habitatContext()));
+    const context=habitatRead(),plan=planHabitatAction(habitatOwner,action,context),root=ports.rootClock();
+    for(const t of plan.thoughts||[])addMoodThought(t,root);
+    ports.commitHabitatPlan(plan);
+    if(plan.fleece)ports.logMessage(`Collected ${plan.fleece.amount} ${plan.fleece.grade} wool${plan.fleece.deluxe?' (a dense fleece)':''}.`,'notification');
 }
 // Preserve the old validation order: care cross-checks first, carcasses second.
 registerDomain({id:'meadow_pen',initialState:()=>null,
     save:()=>habitatOwner?structuredClone(validateHabitat(habitatOwner,ports.clock())):undefined,
     validate:(slice,save)=>{if(slice!=null)validateHabitat(slice,calendarMinutes(save['current time']));},
     migrate:(slice,save)=>migrateHabitat(slice,envelopeClock(save)),load:setHabitatOwner,
-    commands:{act:actHabitat},projection:()=>ports.habitatContext(),
-    panels:[()=>{habitatPanel=createHabitatPanel({parent:ports.careContainer(),read:()=>{const context=ports.habitatContext();
+    commands:{act:actHabitat},projection:habitatRead,
+    panels:[()=>{habitatPanel=createHabitatPanel({parent:ports.careContainer(),read:()=>{const context=habitatRead();
         const spar=context.owner?.shellAnimal ? domainRegistry.project('tempo_fight')?.openers?.find(o=>o.id==='meadow.terrapin') : null;
         return {...context,spar};},act:actHabitat});}]});
 registerDomain({id:'harvest',initialState:()=>null,

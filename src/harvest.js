@@ -5,7 +5,8 @@ import {natural} from './basics.js';
 export const HARVEST_CAP = 24;
 export const HARVEST_SPECIES = Object.freeze(['Starving wolf rat','Wolf rat','Elite wolf rat','Elite wolf rat guardian','Wall rat']);
 export const HARVEST_PARTS = Object.freeze({pelt:{id:'Rat pelt',count:1,minutes:2},tail:{id:'Rat tail',count:1,minutes:1},fang:{id:'Rat fang',count:2,minutes:1}});
-export const GRADED_IDS = Object.freeze(['Rat pelt','Rat tail','Rat fang','Piece of wolf rat leather','Processed rat pelt','Rat meat chunks']);
+// Wool joins as a quality-only key (FRC56): pen fleece grade rides on the stack key, as ITM1 and ITM13 default.
+export const GRADED_IDS = Object.freeze(['Rat pelt','Rat tail','Rat fang','Piece of wolf rat leather','Processed rat pelt','Rat meat chunks','Wool']);
 const clamp=(n,lo,hi)=>Math.min(hi,Math.max(lo,n));
 export const supportedHarvest = species => HARVEST_SPECIES.includes(species);
 export const partNames = species => species==='Wall rat'?['tail','fang']:['pelt','tail','fang'];

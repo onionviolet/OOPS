@@ -10,7 +10,11 @@ import {livingKindRegistry} from './living_kinds.js';
 import {readLivingBody} from './living_body.js';
 import {acquireCreature, creatureDevelopment, creatureHealth, injureCreature, practiceWithCreature, restoreCreatureLifecycle,
     settleCohortStock, settleCreatureBirth, settleCreatureCare, startCreatureBrood, startCreatureCare, transferCreature} from './creature_lifecycle.js';
+import {FLEECE, readFleece, fleeceDraw, careThoughts, isWoolKey} from './fleece_from_care.js';
 // The sheep's hunger is the shared food need (needs.js, RCL12/LVR13): one hay ration holds careMinutes at the sheep's body rate.
+// FRC56 (2026-11-10, proposal): hay gates production, as in Stardew; brushing no longer gates it but builds the keeper tie and
+// the sheep's mood, which set the fleece's grade and amount (fleece_from_care.js). `lastMealAt` is the one receipt that outlives a
+// collection, so the next feeding can tell how long the sheep went hungry. Optional: older saves without it read as unknown.
 export const HABITAT_BODY='sheep';
 export const HABITAT = Object.freeze({site:'village.meadow_pen',animal:'meadow.fleece_sheep',
     location:'Village',world:'base.frontier',buildCost:18,adoptCost:12,feedCost:2,
@@ -59,6 +63,8 @@ function breedSheep(state, clock) {
 }
 
 function refreshCare(state, clock) {
+    // Tended care (recovery and the lifecycle's care record) needs hay and brushing together. Wool growth in
+    // projectHabitat needs hay alone (FRC56): brushing is a choice that raises the fleece grade.
     if (state.fedAt === null || state.attendedAt === null) return;
     const until = Math.min(state.fedAt, state.attendedAt) + HABITAT.careMinutes;
     if (until <= clock) return;
@@ -66,6 +72,8 @@ function refreshCare(state, clock) {
         id: state.sheepId, clock, keeper: state.site.owner, duration: until - clock});
 }
 
+// Wool carried under any grade (plain and finer stacks are separate keys).
+export const carriedWool=inventory=>Object.entries(inventory||{}).reduce((n,[k,c])=>n+(isWoolKey(k)?c:0),0);
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
 export function validateHabitat(s,clock=Number.MAX_SAFE_INTEGER){
     if(s==null)return null;
@@ -78,10 +86,11 @@ export function validateHabitat(s,clock=Number.MAX_SAFE_INTEGER){
     if(s.animal==null)check(s.feeds===0&&s.attentions===0&&s.collected===0&&s.progress===0&&s.fedAt===null&&s.attendedAt===null,'Care requires an owned animal.');
     else check(s.animal.id===HABITAT.animal&&s.animal.owner==='player'&&s.animal.site===s.site.id&&s.animal.welfare==='sheltered_safe'&&
         natural(s.animal.adoptedAt)&&s.animal.adoptedAt>=s.builtAt&&s.animal.adoptedAt<=s.lastMinute,'Animal needs its suitable owned pen.');
-    for(const [k,n] of [['fedAt','feeds'],['attendedAt','attentions']])check(s[k]===null||
-        natural(s[k])&&s[k]>=s.animal?.adoptedAt&&s[k]<=s.lastMinute&&s[n]>s.collected,'Invalid saved care receipt.');
-    check(s.collected<=s.feeds&&s.collected<=s.attentions,'Harvest requires finite feed and attention.');
-    check(s.progress===0||s.fedAt!==null&&s.attendedAt!==null,'Production requires both care facts.');
+    for(const [k,ok] of [['fedAt',s.feeds>s.collected],['attendedAt',s.attentions>0]])check(s[k]===null||
+        natural(s[k])&&s[k]>=s.animal?.adoptedAt&&s[k]<=s.lastMinute&&ok,'Invalid saved care receipt.');
+    check(s.lastMealAt==null||natural(s.lastMealAt)&&s.feeds>0&&s.lastMealAt>=s.animal?.adoptedAt&&s.lastMealAt<=s.lastMinute,'Invalid last meal receipt.');
+    check(s.collected<=s.feeds,'Harvest requires finite feed.');
+    check(s.progress===0||s.fedAt!==null,'Production requires a hay ration.');
     if(s.progress>0)check(s.progress<=s.lastMinute-s.animal.adoptedAt,'Production exceeds played time.');
     if (s.lifecycle !== undefined || s.sheepId !== undefined) {
         const lifecycle = restoreCreatureLifecycle(s.lifecycle);
@@ -153,12 +162,12 @@ export function projectHabitat(owner,clock){
             delete s.broodId;
         }
     }
-    if (s.animal && s.fedAt !== null && s.attendedAt !== null &&
+    if (s.animal && s.fedAt !== null &&
         creatureDevelopment(s.lifecycle, s.sheepId, clock).mature) {
         const health = creatureHealth(s.lifecycle, s.sheepId, clock);
-        const start=Math.max(s.lastMinute,s.fedAt,s.attendedAt,s.lifecycle.individuals[s.sheepId].matureAt,
+        const start=Math.max(s.lastMinute,s.fedAt,s.lifecycle.individuals[s.sheepId].matureAt,
             health.injury?.remaining ? clock : (health.injury?.healedAt ?? 0)),
-            end=Math.min(clock,s.fedAt+HABITAT.careMinutes,s.attendedAt+HABITAT.careMinutes);
+            end=Math.min(clock,s.fedAt+HABITAT.careMinutes);
         s.progress=Math.min(HABITAT.batchMinutes,s.progress+Math.max(0,end-start));
     }
     s.lastMinute=clock;return s;
@@ -179,10 +188,11 @@ export function habitatFacts(owner,clock){
     return {state:s,wound,body,lamb,shellAnimal:projectMeadowShell(s?.shellAnimal, clock),wildlife:meadowWildlife(s?.wildlife, clock),need,fed:!!fed,attended:!!attended,ready:s?.progress===HABITAT.batchMinutes,
         welfare:!s?.animal?'No animal':`Safe in suitable shelter with clean water; ${strengthWords(body)}`};
 }
-export function planHabitatAction(owner,action,{clock,money,inventory,location,world,ready}){
+// ctx.mood is the sheep's moodOf reading (the host passes it); absent reads as even.
+export function planHabitatAction(owner,action,{clock,money,inventory,location,world,ready,mood}){
     check(ready&&location===HABITAT.location&&world===HABITAT.world,'Return free and alive to your Village meadow pen.');
     check(natural(clock)&&Number.isFinite(money)&&money>=0&&object(inventory),'Invalid native care context.');
-    let s=projectHabitat(owner,clock),cost=0,items=[];
+    const before=projectHabitat(owner,clock);let s=before&&structuredClone(before),cost=0,items=[],fleece=null;
     if(action==='build'){
         check(!s,'You already own the meadow pen.');cost=HABITAT.buildCost;
         s={schema:1,policy:'played_care_v1',site:{id:HABITAT.site,owner:'player',sheltered:true,capacity:1},
@@ -262,18 +272,20 @@ export function planHabitatAction(owner,action,{clock,money,inventory,location,w
                 check(s.fedAt===null||clock>=s.fedAt+HABITAT.careMinutes,'The current hay ration still supports care.');
                 check((inventory[HAY_KEY]||0)>=1,'Carry one actual Meadow hay bundle to feed your sheep.');
                 // Begin a fresh supported interval while retaining earned progress.
-                s.fedAt=clock;s.feeds++;items=[{key:HAY_KEY,amount:-1}];
+                s.fedAt=clock;s.lastMealAt=clock;s.feeds++;items=[{key:HAY_KEY,amount:-1}];
                 refreshCare(s, clock);
             }else if(action==='attend'){
-                check(s.progress<HABITAT.batchMinutes,'Collect the ready wool before another care cycle.');
                 check(s.attendedAt===null||clock>=s.attendedAt+HABITAT.careMinutes,'Your sheep has already been brushed for this care interval.');
                 s.attendedAt=clock;s.attentions++;
                 s.lifecycle = practiceWithCreature(s.lifecycle, {revision: s.lifecycle.revision,
                     id: s.sheepId, actor: s.site.owner, clock, minimumGap: 1, bondGain: 1});
                 refreshCare(s, clock);
             }else if(action==='collect'){
-                check(s.progress===HABITAT.batchMinutes,'The wool is not ready. Feed and brush, then allow six supported played minutes.');
-                items=planMeadowFleece(s.sheepId, s.lifecycle.individuals[s.sheepId], HABITAT.yield).effects;s.progress=0;s.collected++;s.fedAt=null;s.attendedAt=null;
+                check(s.progress===HABITAT.batchMinutes,'The wool is not ready. Feed the sheep, then allow six played minutes on its hay.');
+                // Lineage sets the kind of fleece (meadow_fleece.js); care and mood set its grade and the dense bonus (fleece_from_care.js).
+                fleece=readFleece({owner:s,mood,draw:fleeceDraw(s)});
+                items=planMeadowFleece(s.sheepId, s.lifecycle.individuals[s.sheepId], HABITAT.yield, {care:{quality:fleece.quality,bonus:fleece.amount-FLEECE.base}}).effects;
+                fleece={...fleece,key:items[0].key,amount:items[0].amount};s.progress=0;s.collected++;s.fedAt=null;s.attendedAt=null;
                 s.lifecycle = settleCreatureCare(s.lifecycle, {revision: s.lifecycle.revision,
                     id: s.sheepId, clock, interrupted: true});
             }else throw Error('Unknown meadow pen action.');
@@ -282,5 +294,5 @@ export function planHabitatAction(owner,action,{clock,money,inventory,location,w
     check(money>=cost,`You need ${cost} coins for this meadow pen action.`);
     // Historical progress can span multiple paid care intervals. Do not infer it
     // solely from the most recent timestamps when refreshing a partial batch.
-    return {state:s,money:money-cost,items};
+    return {state:s,money:money-cost,items,fleece,thoughts:careThoughts(before,s,action,clock,HABITAT.careMinutes)};
 }
