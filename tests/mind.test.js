@@ -63,3 +63,18 @@ test('a mismatched target or a lease without a duration changes no faculty', () 
     assert.equal(read(wrong, 'mind_pain'), undefined);
     assert.equal(read(untimed, 'mind_pain'), undefined);
 });
+
+test('ending a named stun after restore leaves another stun in force', () => {
+    const stun = {faculty: 'awareness'};
+    const first = cast(create(), 'bind', stun, {working: 'stun.first', minutes: 5});
+    const second = cast(first, 'bind', stun, {working: 'stun.second', minutes: 7});
+    const restored = restoreEngineWorld(JSON.parse(JSON.stringify(serializeEngineWorld(second))), config);
+    const end = (engine, working) => applyEngineOps(engine, [{
+        op: 'publish', kind: 'effect.end.working', by, place: here.id,
+        detail: {parts: {time: 'instant'}, application: {targets: ['worm'], mind: stun, working}},
+    }], 'fixture:revive');
+    assert.equal(read(end(restored, 'unknown'), 'mind_awake'), false);
+    const stillStunned = end(restored, 'stun.first');
+    assert.equal(read(stillStunned, 'mind_awake'), false);
+    assert.equal(read(end(stillStunned, 'stun.second'), 'mind_awake'), true);
+});

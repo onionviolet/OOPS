@@ -32,7 +32,34 @@ function heldScene({seen, holder, working, sentence, effectDetails, field, landi
 const fieldGone = lawField => ({lawField, direction: 'changed', to: null});
 const sustained = (verb, object) => ({verb, object, target: 'bound', time: 'sustained'});
 
+// Rain fields add precipitation within their own place. Readers fall back
+// to the ordinary rain account after the last local source ends.
+export function isRainingInPlace(world, place) {
+    return world.holders[place]?.quantities.rain === 1 || world.laws.some(field =>
+        field.scope === place && field.kind === 'local-weather' && field.params.rain === true &&
+        (field.until == null || field.until > world.clock));
+}
+
 const held = {
+    'unjinx-weather': heldScene({
+        seen: 'the rain inside the office stops when the local jinx ends',
+        holder: {id: 'office', kind: 'place', as: ['effect'], quantities: {rain: 0}},
+        working: 'office-rain',
+        sentence: sustained('alter', 'law'),
+        effectDetails: {field: 'indoor-rain', kind: 'local-weather', params: {rain: true}},
+        field: {id: 'indoor-rain', kind: 'local-weather', params: {rain: true}},
+        expect: [fieldGone('indoor-rain'), {holder: 'office', quantity: 'rain', direction: 'unchanged', to: 0}],
+    }),
+    'history-release': heldScene({
+        seen: 'the smoky echo vanishes while the wand retains the earlier spell',
+        holder: {id: 'evidence-wand', kind: 'thing', place: 'clearing', as: ['implement', 'effect'],
+            properties: {marks: ['prior:dark-mark']}},
+        working: 'wand-echo',
+        sentence: sustained('alter', 'law'),
+        effectDetails: {field: 'visible-echo', kind: 'wand-echo', params: {spell: 'dark-mark'}},
+        field: {id: 'visible-echo', kind: 'wand-echo', params: {spell: 'dark-mark'}},
+        expect: [fieldGone('visible-echo'), property('evidence-wand', 'marks', 'unchanged', ['prior:dark-mark'])],
+    }),
     'dangling-release': heldScene({
         seen: 'the suspended person drops to the ground',
         holder: body('suspended-person', 'midair', {}), working: 'suspension',

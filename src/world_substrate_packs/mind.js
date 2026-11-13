@@ -6,9 +6,16 @@ import {defineWorkingLaw} from '../kernel_working.js';
 import {WORLD_PROPERTIES} from '../world_quantities.js';
 
 export const MIND_PACK = 'a.mind';
+const focusLost = 'mind.focus-lost';
 const level = id => ({id, type: 'level', min: 0, max: Number.MAX_SAFE_INTEGER});
 const properties = [
-    {id: 'mind_awake', type: 'flag'}, WORLD_PROPERTIES.senses, WORLD_PROPERTIES.concealed,
+    {id: 'mind_awake', type: 'flag'}, {id: 'mind_laughing', type: 'flag'}, {id: 'mind_speech_disrupted', type: 'flag'},
+    {id: 'mind_compelled_steps', type: 'flag'}, {id: 'mind_unsteady_footing', type: 'flag'},
+    WORLD_PROPERTIES.senses, WORLD_PROPERTIES.concealed,
+    {id: 'mind_compelled_disclosure', type: 'flag'},
+    {id: 'mind_disclosure_protected', type: 'flag'},
+    {id: 'mind_fixation', type: 'label'},
+    {id: 'mind_instinct', type: 'label'}, {id: 'mind_instinct_protected', type: 'flag'},
     level('mind_pain'), level('mind_confusion'), level('mind_mood'),
     {id: 'mind_memory', type: 'set'}, {id: 'mind_access', type: 'set'},
     {id: 'mind_controller', type: 'label'}, {id: 'mind_order', type: 'label'},
@@ -20,7 +27,7 @@ const positive = n => Number.isSafeInteger(n) && n > 0;
 const text = v => typeof v === 'string' && v.length > 0;
 const kinds = [
     'effect.block.mind', 'effect.bind.mind', 'effect.add.mind',
-    'effect.transform.mind', 'effect.transform.memory', 'effect.sense.mind', 'effect.add.memory',
+    'effect.transform.mind', 'effect.transform.memory', 'effect.sense.mind', 'effect.add.memory', 'effect.end.working',
 ];
 
 function effective({base, layers}) {
@@ -69,31 +76,67 @@ function lapse(view, id) {
     return expired ? [...ops, state(id, Object.keys(channels).length ? channels : null)] : [];
 }
 
+const counterable = ['mind_awake', 'mind_laughing', 'mind_speech_disrupted', 'mind_compelled_steps', 'mind_unsteady_footing'];
+
+function endHold(view, id, working, names) {
+    if (!text(working)) return [];
+    const channels = view.state(id) ?? {};
+    const ops = [];
+    for (const name of names) {
+        const channel = channels[name];
+        if (!channel) continue;
+        const remaining = channel.layers.filter(layer => layer.working !== working);
+        if (remaining.length === channel.layers.length) continue;
+        channel.layers = remaining;
+        if (!remaining.length) delete channels[name];
+        ops.push(property(id, name, effective(channel)));
+    }
+    return ops.length ? [...ops,
+        state(id, Object.keys(channels).length ? channels : null)] : [];
+}
+
 const isMinded = holder => Object.hasOwn(holder.properties, 'mind_awake');
 const value = v => ({value: v});
 
-function influence(view, id, {kind, by, detail}) {
+function influence(view, id, {kind, by, place, detail}) {
     const {parts, application} = detail ?? {};
     if (!parts || !Array.isArray(application?.targets) || !application.targets.includes(id)) return [];
     const {mind, minutes, working} = application;
+    if (kind === 'effect.end.working')
+        return application.targets.length === 1
+            ? endHold(view, id, working, mind?.faculty === 'awareness' ? ['mind_awake'] : counterable) : [];
     if (!mind) return [];
 
     // Sustained workings refresh a short lease under their own identity. A
     // fixed timer uses an independent lease and needs no future publishes.
-    const temporary = parts.time === 'sustained' || parts.time === 'timed';
+    // An order can be issued instantly and remain in force for its own term.
+    const directedOrder = kind === 'effect.bind.mind' && mind.faculty === 'will';
+    const temporary = parts.time === 'sustained' || parts.time === 'timed' || directedOrder;
     if (temporary && (!positive(minutes) || !Number.isSafeInteger(view.clock + minutes))) return [];
     const lease = temporary ? {
         key: JSON.stringify([by, kind, mind.faculty, mind.channel ?? null, working ?? view.clock]),
         until: view.clock + minutes,
+        ...(text(working) ? {working} : {}),
     } : null;
     let changes;
     switch (kind) {
     case 'effect.block.mind':
         if (mind.faculty === 'sense' && text(mind.channel) && view.property(id, 'senses'))
             changes = {senses: {remove: mind.channel}};
+        if (mind.faculty === 'disclosure' && lease) changes = {mind_disclosure_protected: value(true)};
+        if (mind.faculty === 'instinct' && lease) changes = {mind_instinct_protected: value(true)};
         break;
     case 'effect.bind.mind':
         if (mind.faculty === 'awareness') changes = {mind_awake: value(false)};
+        if (mind.faculty === 'laughter') changes = {mind_laughing: value(true),
+            ...(mind.disruptSpeech === false ? {} : {mind_speech_disrupted: value(true)})};
+        if (mind.faculty === 'steps') changes = {mind_compelled_steps: value(true)};
+        if (mind.faculty === 'footing') changes = {mind_unsteady_footing: value(true)};
+        if (mind.faculty === 'disclosure' && lease) changes = {mind_compelled_disclosure: value(true)};
+        if (mind.faculty === 'instinct' && lease && view.holder(mind.to)?.kind === 'place')
+            changes = {mind_instinct: value(mind.to)};
+        if (mind.faculty === 'fixation' && lease && mind.subject !== id && view.holder(mind.subject)?.kind === 'body')
+            changes = {mind_fixation: value(mind.subject)};
         if (mind.faculty === 'will' && view.holder(by) && view.holder(mind.to)?.kind === 'place' && lease)
             changes = {mind_controller: value(by), mind_order: value(mind.to)};
         break;
@@ -101,7 +144,10 @@ function influence(view, id, {kind, by, detail}) {
         if (mind.faculty === 'pain' && positive(mind.amount)) changes = {mind_pain: {delta: mind.amount}};
         break;
     case 'effect.transform.mind':
-        if (mind.faculty === 'confusion' && positive(mind.amount)) changes = {mind_confusion: {delta: mind.amount}};
+        if (mind.faculty === 'confusion' && Number.isSafeInteger(mind.amount) &&
+            (mind.amount > 0 || (lease && mind.amount < 0))) changes = {mind_confusion: {delta: mind.amount}};
+        if (mind.faculty === 'pain' && lease && Number.isSafeInteger(mind.amount) && mind.amount < 0)
+            changes = {mind_pain: {delta: mind.amount}};
         if (mind.faculty === 'mood' && Number.isSafeInteger(mind.amount) && mind.amount)
             changes = {mind_mood: {delta: mind.amount}};
         break;
@@ -123,7 +169,13 @@ function influence(view, id, {kind, by, detail}) {
         return update(view, by, {mind_access: {expose}}, {...lease, key: JSON.stringify([lease.key, id])});
     }
     }
-    return changes ? update(view, id, changes, lease) : [];
+    if (!changes) return [];
+    const ops = update(view, id, changes, lease);
+    if (ops.some(op => op.op === 'property' && (op.property === 'mind_awake' && op.value === false ||
+        op.property === 'mind_confusion' && op.value > 0))) {
+        ops.push({op: 'publish', kind: focusLost, place, by: id});
+    }
+    return ops;
 }
 
 const mover = defineAgent({id: 'a.directed-motion', revision: 0, label: 'The mover', wants: {arrive: {weight: 1}}});
@@ -138,9 +190,11 @@ function move(view, id, exits) {
     const lapsed = until !== null && until <= view.clock;
     const cleanup = lapsed ? [property(id, 'agency_goal', null), property(id, 'agency_until', null)] : [];
     const order = view.property(id, 'mind_order');
-    const goal = order ?? (lapsed ? null : view.property(id, 'agency_goal'));
+    const fixation = view.property(id, 'mind_fixation');
+    const instinct = view.property(id, 'mind_instinct_protected') === true ? null : view.property(id, 'mind_instinct');
+    const goal = order ?? instinct ?? (fixation ? view.placeOf(fixation) : null) ?? (lapsed ? null : view.property(id, 'agency_goal'));
     const here = view.placeOf(id);
-    if (!goal || goal === here || view.property(id, 'mind_awake') === false) return cleanup;
+    if (!goal || goal === here || view.property(id, 'mind_awake') === false || view.property(id, 'mind_compelled_steps') === true) return cleanup;
     if (!exits(view, here).includes(goal) || view.holder(goal)?.kind !== 'place') return cleanup;
     const candidate = {
         id: 'cross', label: 'crosses to the destination', law: travel,
@@ -150,7 +204,8 @@ function move(view, id, exits) {
         serves: () => ({arrive: 1}),
     };
     const choice = chooseWorking({agent: mover, actor: id, needs: {arrive: {urgency: 1,
-        why: order ? 'another will directs its movement' : 'it is moving toward its destination'}},
+        why: order ? 'another will directs its movement' : instinct ? 'it follows an instinct' : fixation ? 'it seeks the person it is fixated on' :
+            'it is moving toward its destination'}},
         candidates: [candidate], at: view.clock, knows: ref => view.holder(ref.id)});
     return choice.choice ? [...cleanup, {op: 'move', holder: id, to: goal}] : cleanup;
 }
@@ -166,7 +221,7 @@ export function createMindPack({routes = [], linkKinds = ['path']} = {}) {
     const exits = (view, here) => view.neighbours(here, {kinds: linkKinds, also: own});
     const names = properties.map(def => def.id);
     return {
-        id: MIND_PACK, revision: 0, properties, reads: names, writes: names, hears: kinds,
+        id: MIND_PACK, revision: 0, properties, reads: names, writes: names, hears: kinds, publishes: [focusLost],
         reactors: [{id: 'influence', on: kinds, appliesTo: isMinded, react: influence}],
         laws: [{
             id: 'lapse',
@@ -177,7 +232,8 @@ export function createMindPack({routes = [], linkKinds = ['path']} = {}) {
         }, {
             id: 'directed-motion',
             appliesTo: holder => holder.kind !== 'place' &&
-                (holder.properties.agency_goal !== undefined || holder.properties.mind_order !== undefined),
+                (holder.properties.agency_goal !== undefined || holder.properties.mind_order !== undefined ||
+                    holder.properties.mind_fixation !== undefined || holder.properties.mind_instinct !== undefined),
             horizon: (view, id) => {
                 const until = view.property(id, 'agency_until');
                 return until === null ? Infinity : Math.max(1, until - view.clock);

@@ -152,6 +152,13 @@ test('every Hogwarts spellbook row runs through the spell law', async () => {
     assert.equal(ledger.filter(r => r.state === 'unclassified').length, 0);
     const rows = new Map(HP_SPELL_ROWS.map(r => [r.id, r]));
     for (const entry of ledger) {
+        const exception = HP_SPELL_LEDGER_EXCEPTIONS[entry.id];
+        if (exception?.case) {
+            assert.ok(!rows.has(entry.id));
+            assert.deepEqual(entry.case, exception.case);
+            assert.equal(entry.state, exception.state);
+            continue;
+        }
         // A row with a coverage case is typed expressed-* (PC10); it is still a pack row under the spell law.
         if (/^(runs|expressed)-/.test(entry.state)) {
             const row = rows.get(entry.id);
@@ -185,7 +192,7 @@ test('GL2 effect layer: Hogwarts effects predicted from identity alone with blin
             return assemble(fitted, parts);
         },
     });
-    assert.equal(report.rows, 80);
+    assert.equal(report.rows, HP_SPELL_ROWS.length);
     // Measured 2026-11-12 after the source check moved 14 rows out: 33 verb and object, 12 full sentences. The plan's target is 70% (dial); these floors catch regressions.
     assert.ok(report.verbObject >= 33, `verb and object ${report.verbObject}`);
     assert.ok(report.sentence >= 12, `full sentence ${report.sentence}`);

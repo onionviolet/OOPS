@@ -22,6 +22,13 @@ function treatment(seen, place, before, delta) {
 }
 
 export const HP_PRIMITIVE_SCENES = Object.freeze({
+    relash: {
+        seen: 'the cuffs release their grip',
+        holders: [room('vault'), {id: 'cuffs', kind: 'thing', place: 'vault',
+            properties: {marks: ['fastened:prisoner', 'maker-mark']}}],
+        details: {target: at('cuffs'), mark: 'fastened:prisoner'},
+        expect: [changed('cuffs', 'marks', ['maker-mark'])],
+    },
     disarm: {
         seen: 'the duellist loses his grip on the wand, which leaves his reach',
         holders: [room('duelling-platform'), room('beyond-reach'),

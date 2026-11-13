@@ -7,15 +7,26 @@
 // Owner note: W owns effect primitives and P composition (seam SB3); this is the
 // spell-side vocabulary until a second domain shares it (request in S checkpoint).
 
-export const EFFECT_VERBS = Object.freeze(['move', 'add', 'remove', 'transform', 'bind', 'sense', 'conceal', 'copy',
+export const EFFECT_VERBS = Object.freeze(['move', 'add', 'remove', 'transform', 'bind', 'release', 'sense', 'conceal', 'copy',
     'block', 'end', 'alter_law', 'animate', 'command']);
 export const EFFECT_OBJECTS = Object.freeze(['position', 'light', 'fire', 'water', 'force', 'cold', 'form', 'size', 'material',
-    'integrity', 'vitality', 'motion', 'mind', 'mood', 'memory', 'pain', 'voice', 'sound', 'sight', 'presence', 'access',
-    'custody', 'agent', 'effect', 'mark', 'magic', 'harm', 'answer']);
+    'integrity', 'vitality', 'motion', 'mind', 'mood', 'memory', 'pain', 'voice', 'sound', 'sight', 'presence', 'access', 'orientation',
+    'custody', 'agent', 'effect', 'mark', 'magic', 'harm', 'answer', 'airway', 'composition', 'capacity']);
 export const EFFECT_TARGETS = Object.freeze(['self', 'object', 'body', 'creature', 'place', 'area', 'effect', 'implement', 'working']);
 export const EFFECT_TIMES = Object.freeze(['instant', 'sustained', 'lasting', 'timed', 'triggered']);
 export const EFFECT_CARRIERS = Object.freeze(['wand', 'attuned_mana', 'spell_slot', 'ritual', 'ability', 'gu', 'potion', 'item']);
 export const EFFECT_COSTS = Object.freeze(['stamina', 'mana', 'slot', 'spirituality', 'essence', 'material', 'none']);
+export const AIRWAY_OBSTRUCTION = 'airway:obstructed';
+
+export const unsteadyFooting = properties =>
+    properties?.mind_compelled_steps === true || properties?.mind_unsteady_footing === true;
+
+export function speechObstruction(properties, voiceBlocked = false) {
+    if (properties?.mind_awake === false) return 'unconscious';
+    if (properties?.mind_speech_disrupted === true) return 'disrupted';
+    if (properties?.marks?.includes(AIRWAY_OBSTRUCTION)) return 'airway';
+    return voiceBlocked ? 'silenced' : null;
+}
 
 // The intent law: what willing an outcome does, as verb, object and direction.
 // Default: one row per intent; a world adds intents through its pack (dial),
@@ -28,11 +39,25 @@ export const INTENT_LAW = Object.freeze({
     carry: {verb: 'move', object: 'position', direction: 'along'},
     travel: {verb: 'move', object: 'position', direction: 'to_place'},
     disarm: {verb: 'move', object: 'custody', direction: 'away'},
+    unfasten: {verb: 'release', object: 'custody'},
+    erase_trace: {verb: 'release', object: 'mark'},
+    reveal_ink: {verb: 'release', object: 'mark', direction: 'ink'},
+    clear_airway: {verb: 'release', object: 'airway'},
+    enchant_carrier: {verb: 'bind', object: 'mark'},
     free: {verb: 'end', object: 'effect'},
     end: {verb: 'end', object: 'effect'},
     hold: {verb: 'bind', object: 'motion'},
     shield: {verb: 'block', object: 'harm'},
+    repel_water: {verb: 'block', object: 'water'},
+    temper_flames: {verb: 'block', object: 'fire'},
     ward: {verb: 'alter_law', object: 'access'},
+    entrust_secret: {verb: 'alter_law', object: 'access', direction: 'keeper'},
+    taboo_name: {verb: 'alter_law', object: 'voice', direction: 'detect'},
+    trace_magic: {verb: 'alter_law', object: 'magic', direction: 'detect'},
+    link_inscription: {verb: 'alter_law', object: 'mark', direction: 'follow_source'},
+    brake: {verb: 'alter_law', object: 'motion', direction: 'slower'},
+    supply_air: {verb: 'alter_law', object: 'airway', direction: 'air_supply'},
+    unleash_fire: {verb: 'alter_law', object: 'fire', direction: 'spread'},
     counter: {verb: 'block', object: 'magic'},
     open: {verb: 'add', object: 'access'},
     seal: {verb: 'remove', object: 'access'},
@@ -48,6 +73,8 @@ export const INTENT_LAW = Object.freeze({
     blast: {verb: 'remove', object: 'integrity', direction: 'burst'},
     dig: {verb: 'remove', object: 'material', direction: 'carve'},
     reshape: {verb: 'transform', object: 'form'},
+    assemble_tent: {verb: 'transform', object: 'form', direction: 'pitched'},
+    extend_interior: {verb: 'transform', object: 'capacity', direction: 'up'},
     harden: {verb: 'transform', object: 'material', direction: 'harder'},
     enlarge: {verb: 'transform', object: 'size', direction: 'up'},
     shrink: {verb: 'transform', object: 'size', direction: 'down'},
@@ -58,6 +85,7 @@ export const INTENT_LAW = Object.freeze({
     // bandages and splints (two Hogwarts cases; Incarcerous ropes are a third).
     conjure: {verb: 'add', object: 'material'},
     reveal: {verb: 'sense', object: 'presence'},
+    inspect_properties: {verb: 'sense', object: 'composition'},
     // Added for Legilimens (EF2); second consumer: Lord of the Mysteries mind reading.
     read_mind: {verb: 'sense', object: 'mind'},
     // Added 2026-11-12 after the D&D canon test missed Detect Magic (EF2); second
@@ -68,9 +96,13 @@ export const INTENT_LAW = Object.freeze({
     divine: {verb: 'sense', object: 'answer'},
     read: {verb: 'sense', object: 'mark'},
     guide: {verb: 'sense', object: 'position'},
+    orient: {verb: 'transform', object: 'orientation', direction: 'north'},
+    replay_spell: {verb: 'alter_law', object: 'effect', direction: 'echo'},
     mark: {verb: 'add', object: 'mark'},
     conceal: {verb: 'conceal', object: 'presence'},
+    conceal_wearer: {verb: 'alter_law', object: 'presence', direction: 'wearer'},
     amplify: {verb: 'add', object: 'voice'},
+    sound_alarm: {verb: 'add', object: 'sound'},
     silence: {verb: 'block', object: 'voice'},
     muffle: {verb: 'block', object: 'sound'},
     blind: {verb: 'block', object: 'sight'},
@@ -78,6 +110,9 @@ export const INTENT_LAW = Object.freeze({
     revive: {verb: 'end', object: 'effect', direction: 'mind'},
     hurt: {verb: 'remove', object: 'vitality'},
     torment: {verb: 'add', object: 'pain'},
+    tickle: {verb: 'bind', object: 'mind', direction: 'laughter'},
+    compel_steps: {verb: 'bind', object: 'mind', direction: 'legs'},
+    unsettle_footing: {verb: 'bind', object: 'mind', direction: 'footing'},
     compel: {verb: 'command', object: 'mind'},
     forget: {verb: 'transform', object: 'memory'},
     confuse: {verb: 'transform', object: 'mind'},
@@ -120,7 +155,7 @@ export function compareSentences(got, expected, fields = SENTENCE_FIELDS) {
 
 // Check 4 (it explains itself): a plain line built from the sentence. World packs
 // may swap words; the order stays verb, object, target, time, cost.
-const VERB_WORDS = {move: 'moves', add: 'brings', remove: 'takes away', transform: 'changes', bind: 'holds', sense: 'reveals',
+const VERB_WORDS = {move: 'moves', add: 'brings', remove: 'takes away', transform: 'changes', bind: 'holds', release: 'releases', sense: 'reveals',
     conceal: 'hides', copy: 'copies', block: 'blocks', end: 'ends', alter_law: 'changes what is allowed for', animate: 'animates', command: 'commands'};
 const TIME_WORDS = {instant: 'at once', sustained: 'while you keep it up', lasting: 'and it lasts', timed: 'for a while', triggered: 'when its trigger comes'};
 export function describeSentence(s) {
@@ -135,19 +170,19 @@ export function describeSentence(s) {
 // sentence through `sharedEffect`. Default reading per word, with the reason where
 // it is a judgment. A word with no honest P reading is listed in NO_P_READING
 // with its reason and the ledger rows that use it; nothing falls through.
-export const P_VERB_OF = Object.freeze({move: 'move', add: 'add', remove: 'remove', transform: 'transform', bind: 'bind', sense: 'sense',
+export const P_VERB_OF = Object.freeze({move: 'move', add: 'add', remove: 'remove', transform: 'transform', bind: 'bind', release: 'release', sense: 'sense',
     conceal: 'conceal', copy: 'copy', block: 'block', end: 'end',
     alter_law: 'alter',      // with object law: the verb already names its object (ward: alter_law access)
     animate: 'transform',  // an existing thing gains motion; animated objects and Cyoria golems can use the same capability
     command: 'bind'});       // the agent's will is bound to the caster's (Imperius, Oppugno); publishes for the mind's owner
-export const P_OBJECT_OF = Object.freeze({position: 'position', light: 'light', fire: 'heat', cold: 'heat', water: 'moisture', force: 'force',
-    form: 'form', size: 'form', integrity: 'form', material: 'thing', motion: 'position', vitality: 'vitality', harm: 'vitality',
+export const P_OBJECT_OF = Object.freeze({position: 'position', orientation: 'thing', light: 'light', fire: 'heat', cold: 'heat', water: 'moisture', force: 'force',
+    form: 'form', size: 'form', capacity: 'thing', integrity: 'form', material: 'thing', motion: 'position', vitality: 'vitality', harm: 'vitality',
     mind: 'mind', mood: 'mind', pain: 'mind', sight: 'mind', agent: 'thing', memory: 'memory',
-    presence: 'information',  // whether a thing can be sensed or concealed on a channel
+    presence: 'information', composition: 'information',  // what can be sensed or concealed on a channel
     answer: 'information',    // a divined answer is knowledge its owner records
     voice: 'sound', sound: 'sound',
     access: 'relation',       // a lock or a seal is a mark on the thing (see PAIR)
-    custody: 'relation', mark: 'relation',
+    custody: 'relation', mark: 'relation', airway: 'relation',
     effect: 'working', magic: 'working'});  // a standing effect and magic at large are both workings, K's to answer
 export const NO_P_READING = Object.freeze({});
 // Pairs whose P verb differs from the spell verb. Cold is heat taken away, so

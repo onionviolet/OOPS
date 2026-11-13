@@ -38,7 +38,7 @@ The catalogue distinguishes the effect shown, the formula or name given by that 
 | ID | Forms and names | Operation or lead | Book evidence |
 | --- | --- | --- | --- |
 | `shield` | Protego · Shield Charm | Interpose a barrier. Delivery, size and what it intercepts have separate checks. | B6 pp3058–3059, B7 p4018 |
-| `perimeter` | Protego Totalum | Perimeter working in a group of wards. Individual contribution open. | B7 pp3916 and 4058 |
+| `perimeter` | Protego Totalum | A protective ward for occupants of an area. The book shows grouped wards and the official Shield Charm entry identifies area protection. | B7 pp3916 and 4058; official Shield Charm entry |
 | `salvio` | Salvio Hexia | Ward utterance in a group. Isolated effect open. | B7 pp3916 and 4058 |
 | `cave` | Cave Inimicum | Ward utterance in a group. Isolated effect open. | B7 p4058 |
 | `muggle-repelling` | Repello Muggletum · Muggle-Repelling Charm | A repelling ward applied among several effects. How an individual reacts needs its own evidence. | B7 pp3916 and 3936 |
@@ -87,7 +87,7 @@ The catalogue distinguishes the effect shown, the formula or name given by that 
 | --- | --- | --- | --- |
 | `person-reveal` | Homenum Revelio | Detect human presence. Compare a confirmed presence and a cast with no visible change. | B7 pp3822 and 4056 |
 | `properties-reveal` | Specialis Revelio · Scarpin's Revelaspell | Inspect an object or potion. Treat the link between the classroom procedure name and phrase as a hypothesis. | B6 pp3075 and 3307–3309 |
-| `aparecium` | Aparecium | Try to reveal something on the diary. This cast yields no observed result. | B2 p506 |
+| `aparecium` | Aparecium | Try to reveal something on the diary. This cast yields no observed result. Ordinary hidden ink is an authored comparison. | B2 p506; official Horcrux defences account |
 | `wand-history` | Prior Incantato | Read a prior wand effect from the bound wand. | B4 p1243 |
 | `twin-wand` | Priori Incantatem | Related wand phenomenon. Keep it distinct from deliberately querying a wand. | B4 p1801 |
 | `history-release` | Deletrius | Dismiss the observed echo of a spell. | B4 p1243 |
@@ -137,7 +137,7 @@ The catalogue distinguishes the effect shown, the formula or name given by that 
 | `rope` | Incarcerous | Bind with conjured restraints. | B6 p3562 |
 | `cheer` | Cheering Charm | Change mood with after-effects that wear off. | B3 p949 |
 | `bat-bogey` | Bat-Bogey Hex | Reported use by Ginny. The description is a witness account, with wording unreported. | B5 p2705, B6 p3020 |
-| `jelly-legs` | Jelly-Legs Jinx | Jinx in the nonverbal shield exercise. Delivery and block can be observed separately. | B6 p3058 |
+| `jelly-legs` | Jelly-Legs Jinx | Impair control of the legs. The B6 cast hits a shield. The official guide describes unsteady legs and lists Locomotor Wibbly. | B6 p3058; official guide to spells |
 | `bubble-head` | Bubble-Head Charm | Provide breathing support underwater. | B4 p1611 |
 | `dolohov` | Dolohov's unnamed curse | A wordless wand strike causes injury with reduced effect according to the later account. | B5 pp2742 and 2805 |
 | `marge` | Aunt Marge's inflation | Unintended magic. The outcome does not give a known formula. | B3 pp659 and 672 |
