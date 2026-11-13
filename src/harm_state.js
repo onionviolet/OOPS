@@ -1,4 +1,5 @@
 import {registerDomain} from './domain_registry.js';
+import {readNeed, settleRest, bodyData} from './needs.js';
 
 // Proposed aggregation dial: ten percent preserves residual function even when
 // several impairments stack; hard stops remain explicit action gates. Additive
@@ -87,12 +88,17 @@ const fresh = () => ({schema:1,backlash:{}});
 const MAX_CARRIERS = 32, MAX_COUNT = 1_000_000;
 export function validateHarm(slice) {
     if (slice == null) return slice;
-    check(object(slice) && Object.keys(slice).every(key=>['schema','backlash','parts','lostFor'].includes(key)) &&
+    check(object(slice) && Object.keys(slice).every(key=>['schema','backlash','parts','lostFor','rest'].includes(key)) &&
         slice.schema === 1 && object(slice.backlash) && Object.keys(slice.backlash).length <= MAX_CARRIERS, 'Invalid harm slice.');
     if (Object.hasOwn(slice,'lostFor')) {
         check(object(slice.lostFor) && Object.keys(slice.lostFor).length <= MAX_CARRIERS, 'Invalid loss-of-control timers.');
         for (const [id,minutes] of Object.entries(slice.lostFor))
             check(safeId(id) && Number.isFinite(minutes) && minutes >= 0 && minutes <= MAX_COUNT, 'Invalid loss-of-control timer.');
+    }
+    if (Object.hasOwn(slice,'rest')) {
+        const r = slice.rest;
+        check(object(r) && Object.keys(r).every(key=>['debt','at','world'].includes(key)) && safeId(r.world) &&
+            Number.isFinite(r.debt) && r.debt >= 0 && r.debt <= MAX_COUNT && Number.isSafeInteger(r.at) && r.at >= 0, 'Invalid rest record.');
     }
     for (const [id,count] of Object.entries(slice.backlash))
         check(safeId(id) && Number.isFinite(count) && count >= 0 && count <= MAX_COUNT, 'Invalid backlash counter.');
@@ -134,14 +140,17 @@ export function addBacklash(value, rules, carrier, {source,weight}) {
     validateHarm(next);
     return {state:next,record:{carrier,source,before,after:next.backlash[carrier]}};
 }
-export function restBacklash(value, rules, carrier, {minutes,treated=false}) {
+// `heal` is the body's recovery multiplier for this stretch (needs.js: body heal times its need stages); it scales the
+// minutes that count, so heal 0 recovers nothing and heal 2 counts each rest minute twice (FRC52, Kenshi B4).
+const healMult = heal => { check(Number.isFinite(heal) && heal >= 0, 'Invalid heal multiplier.'); return heal; };
+export function restBacklash(value, rules, carrier, {minutes,treated=false,heal=1}) {
     validateHarm(value);
     check(Number.isFinite(minutes) && minutes >= 0 && typeof treated === 'boolean', 'Invalid backlash recovery.');
-    const row = carrierRule(rules,carrier), next = structuredClone(value ?? fresh());
+    const row = carrierRule(rules,carrier), next = structuredClone(value ?? fresh()), counted = minutes*healMult(heal);
     const before = next.backlash[carrier] ?? row.floor;
-    if (!held(row,before)) next.backlash[carrier] = Math.max(row.floor,before-minutes/60*(treated ? row.treatedPerHour : row.restPerHour));
+    if (!held(row,before)) next.backlash[carrier] = Math.max(row.floor,before-counted/60*(treated ? row.treatedPerHour : row.restPerHour));
     validateHarm(next);
-    return {state:next,record:{carrier,minutes,treated,before,after:next.backlash[carrier]}};
+    return {state:next,record:{carrier,minutes,treated,heal,before,after:next.backlash[carrier]}};
 }
 // A carrier may hold its count once it reaches `holdsFrom` (a world dial with its reason).
 const held = (row, count) => Number.isFinite(row.holdsFrom) && count >= row.holdsFrom;
@@ -177,8 +186,9 @@ export function injurePart(value, rules, partId, {rung,cause}) {
     validateHarm(next);
     return {state:next,record:{part:partId,before,after:next.parts[partId].rung,...(cause === undefined ? {} : {cause})}};
 }
-export function healPart(value, rules, partId, {minutes,treated=false,trained=false}) {
+export function healPart(value, rules, partId, {minutes,treated=false,trained=false,heal=1}) {
     validateHarm(value);
+    minutes *= healMult(heal);
     check(Number.isFinite(minutes) && minutes >= 0 && typeof treated === 'boolean' && typeof trained === 'boolean', 'Invalid part recovery.');
     const row = partRule(rules,partId), next = structuredClone(value ?? fresh());
     const part = next.parts?.[partId], before = part?.rung ?? null;
@@ -194,7 +204,25 @@ export function healPart(value, rules, partId, {minutes,treated=false,trained=fa
     }
     if (next.parts && Object.keys(next.parts).length === 0) delete next.parts;
     validateHarm(next);
-    return {state:next,record:{part:partId,minutes,treated,trained,before,after:next.parts?.[partId]?.rung ?? null}};
+    return {state:next,record:{part:partId,minutes,treated,trained,heal,before,after:next.parts?.[partId]?.rung ?? null}};
+}
+// Rest (FRC52): the slice keeps the sleep debt as of `at` in its own world. Awake time since `at` is projected here; only
+// the world's sleep tick writes (settleRestHarm). The body is the world row's `body` (default human). Another world reads
+// nothing from it, so a crossing does not carry Tingen tiredness into the Frontier's own native sleep.
+export const harmBody = rules => rules.body ?? 'human';
+export function restReading(save, clock = save?.expansion?.clock) {
+    const r = save?.harm?.rest, rules = harmRules(save), world = save?.expansion?.actors?.player?.worldId;
+    if (!r || r.world !== world || !bodyData(harmBody(rules)).rest) return null;
+    const debt = settleRest({body:harmBody(rules),debt:r.debt,awake:Math.max(0,(Number.isFinite(clock) ? clock : r.at)-r.at)});
+    return readNeed({body:harmBody(rules),kind:'rest',since:debt});
+}
+export function settleRestHarm(value, {body='human',world,clock,awake=0,asleep=0}) {
+    validateHarm(value);
+    check(safeId(world) && Number.isSafeInteger(clock) && clock >= 0, 'Invalid rest settlement.');
+    const next = structuredClone(value ?? fresh()), before = next.rest?.world === world ? next.rest.debt : 0;
+    next.rest = {debt:settleRest({body,debt:before,awake,asleep}),at:clock,world};
+    validateHarm(next);
+    return {state:next,record:{before,after:next.rest.debt,awake,asleep}};
 }
 export function harmRules(save) {
     const world = save?.expansion?.actors?.player?.worldId;
@@ -215,6 +243,9 @@ export function actionModifiers(save, actionClass) {
         for (const {axis,mult,add} of stage.modifiers ?? []) all.push({axis,
             ...(mult === undefined ? {} : {mult}),...(add === undefined ? {} : {add}),cause:`${row.label}: ${stage.label}`});
     }
+    // A tired body works slower and weaker (BHR16: it never kills by default); the multiplier is the rest stage times body strength.
+    const rest = restReading(save);
+    if (rest && rest.effect.work < 1 && actionClass !== 'rest') for (const axis of ['speed','force']) all.push({axis,mult:rest.effect.work,cause:`Rest: ${rest.stageLabel}`});
     for (const [id,part] of Object.entries(save?.harm?.parts ?? {})) {
         const row = rules.parts?.[id];
         if (!row || !row.blocksAt.classes.includes(actionClass)) continue;
@@ -260,7 +291,7 @@ export function harmView(save) {
 
 registerDomain({id:'harm',deps:[],initialState:()=>null,
     save:()=>{
-        if (!Object.values(state.backlash).some(n=>n>0) && !Object.keys(state.parts ?? {}).length && !Object.values(state.lostFor ?? {}).some(n=>n>0)) return undefined;
+        if (!Object.values(state.backlash).some(n=>n>0) && !Object.keys(state.parts ?? {}).length && !Object.values(state.lostFor ?? {}).some(n=>n>0) && !state.rest) return undefined;
         const saved = structuredClone(state);
         if (saved.parts && !Object.keys(saved.parts).length) delete saved.parts;
         if (saved.lostFor && !Object.values(saved.lostFor).some(n=>n>0)) delete saved.lostFor;

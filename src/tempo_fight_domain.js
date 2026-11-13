@@ -11,7 +11,7 @@ import {PARTY_HELPER} from './native_battle_contracts.js';
 import {rivalCombatant, rivalBrief, rivalStudyQuote, recordRivalStudy} from './rival_memory.js';
 import {knownTargetFacts} from './known_target_facts.js';
 import {applySimulationEffects} from './simulation_effects.js';
-import {harmState, setHarmState, HARM_RUNGS} from './harm_state.js';
+import {harmState, setHarmState, HARM_RUNGS, restReading} from './harm_state.js';
 import {harmPart} from './harm_engine.js';
 import {beginTempoFight, commitTempoMove, handOverTempoFight, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
 import {tempoOpeners, tempoOpener} from './tempo_starters.js';
@@ -28,6 +28,9 @@ function applyHarm(plan) {
         save = harmPart(save, e).save; setHarmState(save.harm);
     }
 }
+// FRC52, BHR16: a tired body acts slower; the player's fighter speed takes the rest need's work multiplier (needs.js stage
+// times body strength). Null outside a world that keeps a rest record, so other fights are unchanged.
+export const restedSpeed = (root, speed) => { const r = restReading({expansion: root, harm: harmState()}); return r ? Math.max(1, Math.round(speed * r.effect.work)) : speed; };
 const carriedParts = () => Object.fromEntries(Object.entries(harmState().parts || {}).filter(([, p]) => HARM_RUNGS.includes(p.rung)).map(([id, p]) => [id, p.rung]));
 export const configureTempoFight = operations => {ports = operations;};
 // Damage types are read once from the live actors and kept on the saved profile; a fight saved without them reads as untyped physical.
@@ -165,6 +168,7 @@ function begin(request = {}) {
     const state = ports.root(), context = ports.campaignContext();
     const me = withTypes(readNativeFighter(ports.actor()), ports.actor());
     const spec = opener.spec(state, context, {me, vitals: context.vitals.player, parts: carriedParts(), enemyProfile});
+    for(const f of spec.fighters || []) if(f.id === 'player') f.speed = restedSpeed(state, f.speed);
     const plan = beginTempoFight(state, ports.registry, context, spec);
     opener.promote?.(plan, ports.registry); // AT17 prototype: recurring opponents become persistent before the commit, so the sight writer finds them
     rememberTab(); ports.commit(plan); applyHarm(plan);
