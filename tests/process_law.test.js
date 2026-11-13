@@ -1,10 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {beginWorking, settleWorking, serializeWorking, restoreWorking, interruptWorking} from '../src/kernel_working.js';
-import {PROCESS_LAW, processMethod, processBalance, projectProcess, unfinishedPiece} from '../src/process_law.js';
+import {PROCESS_LAW, processMethod, processBalance, projectProcess, remainingProcess, unfinishedPiece} from '../src/process_law.js';
 import {applyLoad} from '../src/load_law.js';
-import {createEngineWorld, advanceEngineWorld, applyEngineOps, serializeEngineWorld, restoreEngineWorld} from '../src/engine_world.js';
+import {carryLoad, fitJoin} from '../src/craft_assembly.js';
+import {createEngineWorld, advanceEngineWorld, applyEngineOps, serializeEngineWorld, restoreEngineWorld, startEngineWorking} from '../src/engine_world.js';
 import {substratePort} from '../src/world_substrate.js';
+import {changeWorkshopMedium, recordWorkshopMedium, resumeWorkshopProcess, workshopExposurePack}
+    from '../src/world_packs/workshop_process_exposure.js';
 import {steelPack, kitchenPack, loadPack, exposureProbe} from './fixtures/process_craft_packs.js';
 
 function setup(pack, steps, {piece = pack.piece, at = 0, id = 'process.fixture'} = {}) {
@@ -236,4 +239,165 @@ test('Malformed process rows and corrupted share totals fail checks', () => {
     assert.equal(processBalance(facts).balanced, false);
     const piece = {...structuredClone(exposureProbe.piece), startingTotal: 200};
     assert.throws(() => run(exposureProbe, [exposureProbe.step], {piece}), /does not balance/);
+});
+
+test('the engine keeps paid process work across provider loss and a resumed blade holds its actual load', t => {
+    const place = 'forge-yard', oven = steelPack.media.oven;
+    const media = Object.values(steelPack.media).filter(medium => medium !== oven);
+    const hammer = steelPack.tools.hammer;
+    const config = {packs: ['c.contest', workshopExposurePack.id], ownPacks: [workshopExposurePack], shared: {
+        quantities: [{id: 'fuel', unit: 'fuel', min: 0, max: 100}],
+        properties: Object.keys(steelPack.projection).map(id => ({id, type: 'level', min: 0, max: 100})),
+    }, host: {laws: [PROCESS_LAW], things: Object.fromEntries([steelPack.piece, hammer, ...media]
+        .map(thing => [`${thing.kind}:${thing.id}`, thing]))}};
+    // An oven that leaves the world really goes away. Its measured thermal
+    // properties therefore come from its holder, without a static fallback.
+    config.shared.properties.push(...Object.keys(oven.properties).map(id => ({id, type: 'level', min: 0, max: 1000})));
+    const furnace = {id: oven.id, kind: 'thing', as: ['medium'], place, properties: oven.properties};
+    const base = createEngineWorld({...config, holders: [
+        {id: place, kind: 'place'}, {id: steelPack.piece.id, kind: 'thing', as: ['piece'], place},
+        {id: steelPack.media.forge.id, kind: 'thing', as: ['medium'], place, quantities: {fuel: 30}}, furnace,
+    ]});
+    const paid = step => ({...step, options: {costs: [{quantity: 'fuel', perMinute: 2}]}});
+    const advance = (engine, at) => advanceEngineWorld(engine, at).engine;
+    const restore = engine => restoreEngineWorld(JSON.parse(JSON.stringify(serializeEngineWorld(engine))), config);
+    const start = (engine, id, steps, piece) => {
+        const method = processMethod({...steelPack, steps});
+        const bindings = Object.fromEntries(Object.entries(method.roles).map(([role, kind]) => {
+            const thing = role === 'piece' ? steelPack.piece : steelPack.media[role] ?? steelPack.tools[role];
+            return [role, {kind, id: thing.id}];
+        }));
+        return startEngineWorking(engine, {id, law: PROCESS_LAW, method, bindings, facts: piece ? {piece} : {}});
+    };
+    const record = (engine, id) => engine.records.workings[id].record;
+    const compareLoad = engine => underLoad(engine.world.holders.sample.properties);
+    const steps = [paid(S.heat), paid(S.forge), S.quench, S.temper];
+    const original = start(base, 'blade', steps);
+    const quenched = advance(original, 16);
+    assert.equal(quenched.world.holders.forge.quantities.fuel, 4);
+    const withoutOven = applyEngineOps(quenched, [{op: 'holder_remove', holder: oven.id}], 'fixture:oven-removed');
+    const stopped = advance(restore(withoutOven), 56);
+    assert.equal(record(stopped, 'blade').status, 'interrupted');
+    assert.equal(record(stopped, 'blade').receipts.at(-1).reason, 'role-unavailable');
+    assert.equal(stopped.world.holders.forge.quantities.fuel, 4);
+    assert.deepEqual(record(stopped, 'blade').facts.piece, record(quenched, 'blade').facts.piece);
+
+    const repaired = applyEngineOps(stopped, [{op: 'holder_add', value: furnace}], 'fixture:oven-returned');
+    const work = start(restore(repaired), 'temper', [S.temper], unfinishedPiece(record(repaired, 'blade')));
+    const finished = advance(restore(advance(work, 70)), 96);
+    assert.deepEqual(serializeEngineWorld(finished), serializeEngineWorld(advance(work, 96)));
+    assert.equal(finished.world.holders.forge.quantities.fuel, 4);
+    assert.ok(processBalance(record(finished, 'temper').facts).balanced);
+    assert.equal(compareLoad(finished).held, true);
+    assert.deepEqual(finished.world.holders.sample.properties, advance(original, 56).world.holders.sample.properties);
+    const brittle = advance(start(base, 'brittle', steps.slice(0, -1)), 16);
+    assert.equal(compareLoad(brittle).broke, true);
+
+    const join = {id: 'blade-seat', needs: {blade: ['tang'], grip: ['socket']}};
+    const arrangement = {geometry: 'direct', paths: {load: ['blade', 'grip']}};
+    const assembly = (engine, load = 50, gripCapacity = 60) => {
+        const blade = {id: 'sample', interfaces: ['tang'], capacity: engine.world.holders.sample.properties.toughness};
+        const grip = {id: 'grip', interfaces: ['socket'], capacity: gripCapacity};
+        assert.equal(fitJoin(join, {blade, grip}).ok, true);
+        return carryLoad(arrangement, {blade, grip}, {load});
+    };
+    assert.equal(assembly(restore(finished)).ok, true);
+    assert.equal(assembly(restore(brittle)).failedAt, 'blade');
+
+    // One eight-minute forging stage settles in two paid intervals. An
+    // empty account at the second checkpoint keeps the first interval intact.
+    const fuelLimited = applyEngineOps(base, [{op: 'set', holder: 'forge', quantity: 'fuel', amount: 19}], 'fixture:fuel-limit');
+    const checkpoint = {...S.forge, checkpointMinutes: 4, options: {requireDirectPayment: true,
+        costs: [{quantity: 'fuel', perMinute: 2, amount: 1}]}};
+    const recipe = [paid(S.heat), checkpoint, S.quench, S.temper];
+    const partlyForged = advance(start(fuelLimited, 'checkpoint', recipe), 9);
+    assert.equal(partlyForged.world.holders.forge.quantities.fuel, 0);
+    const interrupted = advance(restore(partlyForged), 13);
+    const partialRecord = record(interrupted, 'checkpoint');
+    assert.match(partialRecord.receipts.at(-1).reason, /cannot pay/);
+    assert.deepEqual(partialRecord.facts.piece, record(partlyForged, 'checkpoint').facts.piece);
+    const fueled = applyEngineOps(restore(interrupted), [{op: 'add', holder: 'forge', quantity: 'fuel', amount: 8}], 'fixture:refuel');
+    const continuation = remainingProcess(record(fueled, 'checkpoint'));
+    const resumed = startEngineWorking(fueled, continuation);
+    assert.throws(() => startEngineWorking(restore(resumed), continuation), /already held/);
+    const completed = advance(restore(advance(resumed, 15)), 60);
+    assert.deepEqual(record(completed, continuation.id).receipts[0].truth.paid.lines[0].paid.map(row => row.taken), [8]);
+    assert.deepEqual(serializeEngineWorld(completed), serializeEngineWorld(advance(resumed, 60)));
+    assert.equal(completed.world.holders.forge.quantities.fuel, 0);
+    assert.deepEqual(completed.world.holders.sample.properties, advance(start(base, 'unbroken', recipe), 56).world.holders.sample.properties);
+    assert.equal(assembly(completed).ok, true);
+
+    const coldBench = advance(fueled, 33);
+    const cooling = remainingProcess(record(coldBench, 'checkpoint'), {at: 33, medium: 'air', rows: steelPack.rows});
+    const restarted = startEngineWorking(restore(coldBench), cooling);
+    const cold = record(restarted, cooling.id).facts.piece;
+    assert.equal(cold.path.at(-1).minutes, 24);
+    assert.equal(cold.path.at(-1).medium, 'air');
+    assert.ok(cold.temperature < 200);
+    assert.equal(restarted.world.holders.forge.quantities.fuel, 8);
+    const cooledFinished = advance(restore(advance(restarted, 35)), 80);
+    assert.deepEqual(serializeEngineWorld(cooledFinished), serializeEngineWorld(advance(restarted, 80)));
+    assert.equal(cooledFinished.world.holders.forge.quantities.fuel, 0);
+    assert.notDeepEqual(cooledFinished.world.holders.sample.properties, completed.world.holders.sample.properties);
+    assert.equal(assembly(cooledFinished).ok, true);
+    assert.equal(assembly(cooledFinished).carried.blade, 50);
+    const stale = startEngineWorking(advance(coldBench, 34), cooling);
+    assert.match(record(stale, cooling.id).receipts.at(-1).reason, /current minute/);
+    const corrected = remainingProcess(record(stale, cooling.id), {at: 34, medium: 'air', rows: steelPack.rows});
+    const correctedStart = startEngineWorking(restore(stale), corrected);
+    assert.equal(record(correctedStart, corrected.id).facts.piece.path.at(-1).minutes, 25);
+    assert.equal(corrected.method.steps.length, cooling.method.steps.length);
+    const history = {at: 33, rows: steelPack.rows, segments: [{medium: 'air', until: 19}, {medium: 'water', until: 33}]};
+    const moved = remainingProcess(record(coldBench, 'checkpoint'), history);
+    const dipped = startEngineWorking(restore(coldBench), moved);
+    const dippedPiece = record(dipped, moved.id).facts.piece;
+    assert.deepEqual(dippedPiece.path.slice(-2).map(({medium, at, minutes}) => [medium, at, minutes]),
+        [['air', 19, 10], ['water', 33, 14]]);
+    assert.ok(dippedPiece.temperature < cold.temperature);
+    assert.equal(dipped.world.holders.forge.quantities.fuel, 8);
+    const dippedFinished = advance(restore(advance(dipped, 35)), 80);
+    assert.deepEqual(serializeEngineWorld(dippedFinished), serializeEngineWorld(advance(dipped, 80)));
+    assert.equal(assembly(dippedFinished).ok, true);
+    assert.equal(assembly(completed, 77, 90).ok, true);
+    assert.equal(assembly(dippedFinished, 77, 90).failedAt, 'blade');
+    assert.throws(() => remainingProcess(record(coldBench, 'checkpoint'), {...history, at: 34}), /full gap/);
+
+    const contacts = applyEngineOps(partlyForged, [
+        {op: 'holder_add', value: {id: 'cooling-rack', kind: 'thing', as: ['medium'], place,
+            properties: {temperature: 100, exchange: 1}}},
+        {op: 'holder_add', value: {id: 'cooling-water', kind: 'thing', as: ['medium'], place,
+            properties: {temperature: 20, exchange: 12}}},
+    ], 'fixture:cooling-stations');
+    const onRack = recordWorkshopMedium(contacts, {working: 'checkpoint', medium: 'cooling-rack'});
+    const inWater = recordWorkshopMedium(advance(restore(onRack), 19), {working: 'checkpoint', medium: 'cooling-water'});
+    const changed = applyEngineOps(inWater, [
+        {op: 'holder_remove', holder: 'cooling-rack'},
+        {op: 'property', holder: 'cooling-water', property: 'temperature', value: 200},
+        {op: 'add', holder: 'forge', quantity: 'fuel', amount: 8},
+    ], 'fixture:stations-change');
+    const waiting = advance(changed, 33);
+    const recorded = resumeWorkshopProcess(restore(waiting), {working: 'checkpoint', rows: steelPack.rows});
+    const trace = record(recorded, 'checkpoint.resume').facts.piece.path.slice(-2);
+    assert.deepEqual(trace.map(({medium, at, minutes}) => [medium, at, minutes]),
+        [['cooling-rack', 19, 10], ['cooling-water', 33, 14]]);
+    close(trace[1].temperature, 20);
+    assert.equal(recorded.world.holders.forge.quantities.fuel, 8);
+    const trackedFinished = advance(restore(advance(recorded, 35)), 80);
+    assert.deepEqual(serializeEngineWorld(trackedFinished), serializeEngineWorld(advance(recorded, 80)));
+    assert.equal(trackedFinished.world.holders.forge.quantities.fuel, 0);
+    assert.equal(assembly(trackedFinished).ok, true);
+    const adjusted = changeWorkshopMedium(restore(advance(inWater, 25)),
+        {medium: 'cooling-water', temperature: 200, exchange: 12});
+    const refueled = applyEngineOps(adjusted, [{op: 'add', holder: 'forge', quantity: 'fuel', amount: 8}], 'fixture:refuel');
+    const fromEvents = resumeWorkshopProcess(restore(advance(refueled, 33)), {working: 'checkpoint', rows: steelPack.rows});
+    const eventTrace = record(fromEvents, 'checkpoint.resume').facts.piece.path.slice(-3);
+    assert.deepEqual(eventTrace.map(({medium, at}) => [medium, at]),
+        [['cooling-rack', 19], ['cooling-water', 25], ['cooling-water', 33]]);
+    close(eventTrace[1].temperature, 20);
+    close(eventTrace[2].temperature, 200);
+    const eventFinished = advance(restore(advance(fromEvents, 35)), 80);
+    assert.equal(assembly(eventFinished).ok, true);
+    assert.equal(eventFinished.world.holders.forge.quantities.fuel, 0);
+    t.diagnostic(JSON.stringify({warm: completed.world.holders.sample.properties,
+        cooled: cooledFinished.world.holders.sample.properties, dipped: dippedFinished.world.holders.sample.properties}));
 });

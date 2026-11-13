@@ -30,7 +30,7 @@ function lawCheck(law) {
 
 /** Shared vessel view is borrowed, never stored or mutated here. Units are authored
  * volume, mass, heat capacity, area, energy and game seconds, not real chemistry. */
-export function quoteThermalBatch({law, vessel, load, maker, program}) {
+export function quoteThermalBatch({law, vessel, load, maker, program, holdWarm = false}) {
     lawCheck(law); apparatus(vessel);
     const mass = positive(load.mass, 'batch mass'), volume = positive(load.volume, 'batch volume');
     const specificHeat = positive(load.specificHeat, 'batch specific heat');
@@ -49,7 +49,8 @@ export function quoteThermalBatch({law, vessel, load, maker, program}) {
     const surfaceArea = vessel.surfaceArea ?? Math.cbrt(vessel.capacity) ** 2;
     const conductance = surfaceArea * vessel.heatTransfer;
     const rate = conductance / heatCapacity;
-    if (!(source > target && target > start)) reasons.push('Heating source cannot reach the requested target.');
+    if (!(source > target && (target > start || holdWarm && start <= source)))
+        reasons.push('Heating source cannot reach the requested target.');
     const warmSeconds = source > target && target > start ? Math.log((source - start) / (source - target)) / rate : 0;
     // Burner maintains its declared source temperature; larger loads warm longer.
     const durationSeconds = warmSeconds + hold;
@@ -90,6 +91,36 @@ function trajectory(law, start, source, rate, seconds) {
         degradationSeconds: above(start, source, rate, seconds, law.degradation.above)};
 }
 
+function segmentWindowSeconds(segment, ambient, start, end, min, max) {
+    const temperatureAt = (initial, source, elapsed) => source + (initial - source) * Math.exp(-segment.rate * elapsed);
+    const exposure = (initial, source, from, to) => {
+        if (to <= from) return 0;
+        if (initial === source) return initial >= min && initial <= max ? to - from : 0;
+        const cumulative = time => above(initial, source, segment.rate, time, min) -
+            above(initial, source, segment.rate, time, max);
+        return cumulative(to) - cumulative(from);
+    };
+    const burn = segment.burnSeconds;
+    const hot = exposure(segment.temperature, segment.source, start, Math.min(end, burn));
+    if (end <= burn) return hot;
+    const burnout = temperatureAt(segment.temperature, segment.source, burn);
+    return hot + exposure(burnout, ambient, Math.max(0, start - burn), end - burn);
+}
+
+/** Residence in the trailing interval, across recorded burner interventions. */
+export function thermalWindowSeconds(law, state, seconds, {minTemperature: min, maxTemperature: max}) {
+    const start = state.elapsedSeconds - seconds;
+    const segments = [...(state.history ?? []), {segment: state.segment, ambient: law.ambient, end: state.elapsedSeconds}];
+    return segments.reduce((total, {segment, ambient, end}) => total +
+        (end > start ? segmentWindowSeconds(segment, ambient, Math.max(0, start - segment.at), end - segment.at, min, max) : 0), 0);
+}
+
+function closeSegment(law, state, retainHistory) {
+    if (!retainHistory || state.elapsedSeconds === state.segment.at) return state;
+    return {...state, history: [...(state.history ?? []),
+        {segment: state.segment, ambient: law.ambient, end: state.elapsedSeconds}]};
+}
+
 export function createThermalState(law, quote, {fuel = quote.costs.fuel} = {}) {
     lawCheck(law);
     if (!quote.ok || quote.revision !== law.revision) fail('Thermal admission refused.');
@@ -122,8 +153,8 @@ export function advanceThermal(law, state, elapsedSeconds) {
 
 /** Extinguish/cool retains all irreversible residence and spent fuel. Unburned
  * fuel remains custody-owned; this function neither refunds nor mints it. */
-export function stopThermal(law, state) {
-    const settled = advanceThermal(law, state, 0);
+export function stopThermal(law, state, {retainHistory = false} = {}) {
+    const settled = closeSegment(law, advanceThermal(law, state, 0), retainHistory);
     return {...settled, segment: {at: settled.elapsedSeconds, temperature: settled.temperature,
         extractionSeconds: settled.extractionSeconds, degradationSeconds: settled.degradationSeconds,
         fuelSpent: settled.fuelSpent, rate: settled.segment.rate, source: law.ambient,
@@ -150,7 +181,7 @@ export function thermalYield(law, state, activeAmount, admission = {extractionSe
 /** Reheating is a fresh admitted paid segment, preserving prior residence and
  * damage. Caller settles to its current clock before quoting at this temperature. */
 export function resumeThermal(law, state, quote, options) {
-    const settled = advanceThermal(law, state, 0);
+    const settled = closeSegment(law, advanceThermal(law, state, 0), options?.retainHistory);
     if (quote.startTemperature !== settled.temperature) fail('Stale thermal start temperature.');
     const fresh = createThermalState(law, quote, options);
     return {...settled, segment: {...fresh.segment, at: settled.elapsedSeconds,
@@ -171,5 +202,20 @@ export function validateThermalState(state) {
     positive(s.rate, 'thermal rate'); positive(s.fuelPerSecond, 'fuel rate');
     if (state.extractionSeconds > state.elapsedSeconds || state.degradationSeconds > state.elapsedSeconds || s.extractionSeconds > s.at || s.degradationSeconds > s.at) fail('Thermal residence exceeds elapsed time.');
     if (s.extractionSeconds > state.extractionSeconds || s.degradationSeconds > state.degradationSeconds || s.fuelSpent > state.fuelSpent) fail('Invalid thermal history.');
+    if (state.history !== undefined) {
+        if (!Array.isArray(state.history)) fail('Invalid burner history.');
+        let previousEnd = 0;
+        for (const {segment, ambient, end} of state.history) {
+            finite(ambient, 'historical ambient', -273);
+            finite(end, 'historical end');
+            if (!segment || segment.at < previousEnd || end <= segment.at || end > s.at) fail('Invalid historical burner interval.');
+            finite(segment.at, 'historical start');
+            finite(segment.burnSeconds, 'historical burn time');
+            finite(segment.temperature, 'historical temperature', -273);
+            finite(segment.source, 'historical source', -273);
+            positive(segment.rate, 'historical thermal rate');
+            previousEnd = end;
+        }
+    }
     return state;
 }

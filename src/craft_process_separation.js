@@ -1,6 +1,20 @@
 // ORIGINAL process laws. Pure constituent custody plans, no stock/save/clock owner.
 // Integration must commit outputs + apparatus + costs atomically, once per stage.
 const PHASES = ['dissolved', 'suspended', 'settled', 'surface', 'vapor'];
+export const isProcessPhase = phase => PHASES.includes(phase);
+export const followsServingVolume = phase => isProcessPhase(phase) && phase !== 'settled' && phase !== 'vapor';
+
+export function fractionContents(packet) {
+    const contents = Object.create(null);
+    for (const {id, amount} of packet.constituents) if (amount) contents[id] = (contents[id] ?? 0) + amount;
+    return {...contents};
+}
+
+export function matchesFraction(packet, contents) {
+    const measured = fractionContents(packet);
+    return Object.keys(measured).length === Object.keys(contents).length &&
+        Object.entries(measured).every(([id, amount]) => Object.hasOwn(contents, id) && contents[id] === amount);
+}
 const OPS = ['strain', 'decant', 'skim', 'distill', 'divide'];
 const fail = message => { throw new Error(message); };
 const integer = (n, label) => Number.isSafeInteger(n) && n >= 0 ? n : fail(`${label} must be a nonnegative safe integer.`);
@@ -123,6 +137,13 @@ function take(batch,volume,mode,law,vessel) {
     return {product,residue};
 }
 
+export function splitProcessServing(batch, volume) {
+    batch = validateProcessBatch(batch);
+    positive(volume, 'Serving volume');
+    if (volume >= batch.volume) fail('A split needs volume left in the source.');
+    return take(batch, volume, 'divide');
+}
+
 export function quoteSeparation(law,batch,action,vessel) {
     ({batch,vessel} = admitted(law,batch,vessel));
     if(!OPS.includes(action.op)) fail('Unknown separation operation.');
@@ -145,7 +166,7 @@ export function separateProcessBatch(law,batch,action,vessel) {
     const result = {product:empty(),residue:empty(),vaporCapture:empty(),exit:empty(),waste:empty(),doses:[],vessel,costs:quote.costs};
     if(action.op === 'distill') {
         const exposure = exposeProcessVessel(law,batch,vessel,{evaporateVolume:quote.volume,airUnits:0});
-        Object.assign(result,{residue:exposure.batch,vaporCapture:exposure.vaporCapture,exit:exposure.exit});
+        Object.assign(result,{residue:exposure.batch,vaporCapture:exposure.vaporCapture,exit:exposure.exit,vessel:exposure.vessel});
         // Captured condensate is the usable distillation output, not two copies.
         result.product = result.vaporCapture; result.vaporCapture = empty();
         return result;

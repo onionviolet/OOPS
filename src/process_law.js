@@ -151,7 +151,30 @@ function expose({bound, facts, options, at}, working) {
     const {rows, minutes, projection = {}} = options;
     checkRows(rows);
     check(natural(minutes) && natural(at) && at >= minutes, 'An exposure needs whole elapsed minutes.');
-    const piece = pieceState(facts, bound.piece, at - minutes);
+    if (options.idleStartedAt !== undefined &&
+        ((options.resumeAt ?? options.idleStartedAt + minutes) !== at || facts.piece?.clock !== options.idleStartedAt))
+        return {ok: false, reason: 'Recalculate the idle exposure for the current minute.'};
+    // E1: costs still settle through the host. A checkpoint can require that
+    // its direct accounts cover the whole interval before changing the piece.
+    const costs = (options.costs ?? []).map(({from = 'medium', perMinute = 0, amount = 0, ...row}) => {
+        check(object(bound[from]) && natural(perMinute) && natural(amount), 'An exposure cost names a bound role and whole amounts.');
+        return {...row, amount: perMinute * minutes + amount, payer: bound[from].holder ?? bound[from].id};
+    });
+    if (options.requireDirectPayment) {
+        const accounts = new Map();
+        for (const row of costs) {
+            check(name(row.quantity) && row.kind === undefined && row.as === undefined,
+                'Required process payments use direct quantity debits.');
+            const key = JSON.stringify([row.payer, row.quantity]);
+            const total = (accounts.get(key) ?? 0) + row.amount;
+            accounts.set(key, total);
+            const payer = Object.values(bound).find(thing => (thing.holder ?? thing.id) === row.payer);
+            if (!(total <= (payer.quantities?.[row.quantity] ?? 0)))
+                return {ok: false, reason: 'The provider cannot pay for the next interval of work.', observed: {quantity: row.quantity}};
+        }
+    }
+    const exposureEnd = options.idleStartedAt === undefined ? at : options.idleStartedAt + minutes;
+    const piece = pieceState(facts, bound.piece, exposureEnd - minutes);
     const medium = bound.medium, mass = bound.piece.properties?.thermalMass;
     const target = medium.properties?.temperature, exchange = medium.properties?.exchange;
     check(Number.isFinite(mass) && mass > 0 && Number.isFinite(target) && Number.isFinite(exchange) && exchange >= 0,
@@ -185,10 +208,10 @@ function expose({bound, facts, options, at}, working) {
     // A reason explains a row that stood still; a row that moved needs none.
     for (const trace of traces) for (const segment of trace.segments) if (segment.moved !== 0) segment.reasons = [];
     piece.temperature = temperatureAt(minutes);
-    piece.clock = at;
+    piece.clock = exposureEnd;
     quantities(piece.scalars, 'scalars');
     check(Number.isFinite(piece.temperature) && processBalance({piece}).balanced, 'Exposure state does not balance.');
-    const path = {op: working ? 'work' : 'hold', at, minutes, medium: medium.id,
+    const path = {op: working ? 'work' : 'hold', at: exposureEnd, minutes, medium: medium.id,
         ...(working ? {tool: bound.tool.id} : {}), startTemperature, temperature: piece.temperature, rows: traces};
     piece.path.push(path);
     const nextFacts = {...facts, piece};
@@ -196,12 +219,6 @@ function expose({bound, facts, options, at}, working) {
     // pack's projection weights choose the unit. The facts keep the exact state.
     const effects = options.finish ? Object.entries(projectProcess(nextFacts, projection))
         .map(([property, value]) => ({op: 'property', holder: bound.piece.holder ?? bound.piece.id, property, value: Math.round(value)})) : [];
-    // E1 (proposal): what the exposure spends is step data (`options.costs`: fuel by the minute from
-    // the medium, wear by the step from the tool), published as cost rows for the cost owner to debit.
-    const costs = (options.costs ?? []).map(({from = 'medium', perMinute = 0, amount = 0, ...row}) => {
-        check(object(bound[from]) && natural(perMinute) && natural(amount), 'An exposure cost names a bound role and whole amounts.');
-        return {...row, amount: perMinute * minutes + amount, payer: bound[from].holder ?? bound[from].id};
-    });
     return {ok: true, facts: nextFacts, effects, ...(costs.length ? {costs} : {}),
         observed: {temperature: piece.temperature, rows: structuredClone(traces)},
         cause: 'Exposure time, contact and delivered work changed the piece.'};
@@ -210,13 +227,16 @@ function expose({bound, facts, options, at}, working) {
 export const PROCESS_LAW = defineWorkingLaw({id: 'f.process', revision: 1, operations: {
     hold: {roles: {piece: 'piece', medium: 'medium'}, settle: args => expose(args, false)},
     work: {roles: {piece: 'piece', medium: 'medium', tool: 'tool'}, settle: args => expose(args, true)},
+    'recorded-hold': {roles: {piece: 'piece'}, settle(args) {
+        return expose({...args, bound: {...args.bound, medium: args.options.mediumSnapshot}}, false);
+    }},
 }});
 
 export function processMethod({id, revision = 1, steps, rows, projection = {}}) {
     checkRows(rows);
     check(Array.isArray(steps) && steps.length > 0, 'A process method needs exposure steps.');
     const roles = {piece: 'piece'};
-    const methodSteps = steps.map((step, index) => {
+    const methodSteps = steps.flatMap((step, index) => {
         check(object(step) && ['hold', 'work'].includes(step.op) && name(step.medium), 'Invalid exposure step.');
         const bindings = {piece: 'piece', medium: step.medium};
         check(step.medium !== 'piece' && (!roles[step.medium] || roles[step.medium] === 'medium'), 'Conflicting medium role.');
@@ -230,8 +250,19 @@ export function processMethod({id, revision = 1, steps, rows, projection = {}}) 
         check(natural(minutes), 'Exposure duration is a whole number of minutes.');
         const stepRows = step.options?.rows ?? rows;
         checkRows(stepRows);
-        return {op: step.op, bindings, minutes, options: {...structuredClone(step.options ?? {}),
-            minutes, rows: structuredClone(stepRows), projection: structuredClone(projection), finish: index === steps.length - 1}};
+        const interval = step.checkpointMinutes ?? (minutes || 1);
+        check(natural(interval) && interval > 0 && Math.ceil(minutes / interval) <= MAX_SLICES,
+            'An exposure needs a positive checkpoint interval within its step budget.');
+        const count = Math.max(1, Math.ceil(minutes / interval));
+        return Array.from({length: count}, (_, part) => {
+            const elapsed = Math.min(interval, minutes - part * interval);
+            const options = structuredClone(step.options ?? {});
+            // The stage's fixed expense lands with its first successful interval.
+            if (part > 0 && options.costs) options.costs = options.costs.map(row => ({...row, amount: 0}));
+            return {op: step.op, bindings: {...bindings}, minutes: elapsed, options: {...options, minutes: elapsed,
+                rows: structuredClone(stepRows), projection: structuredClone(projection),
+                finish: index === steps.length - 1 && part === count - 1}};
+        });
     });
     return {id, revision, law: PROCESS_LAW.ref, roles, steps: methodSteps};
 }
@@ -241,4 +272,51 @@ export function unfinishedPiece(record) {
     check(object(record.facts?.piece), 'No settled piece to recover.');
     check(processBalance(record.facts).balanced, 'The recovered piece does not balance.');
     return {kind: 'piece', ...structuredClone(record.facts.piece)};
+}
+
+/** Resume an interrupted exposure at its first unpaid checkpoint. */
+export function remainingProcess(record, idle) {
+    check(record.status === 'interrupted' && record.method?.law === PROCESS_LAW.ref,
+        'Resume an interrupted process working.');
+    const steps = structuredClone(record.method.steps.slice(record.cursor));
+    if (steps[0]?.options.idleStartedAt !== undefined) {
+        check(idle, 'Recalculate the pending idle exposure before resuming.');
+        while (steps[0]?.options.idleStartedAt !== undefined) steps.shift();
+    }
+    check(steps.length > 0, 'The process has no remaining work.');
+    const roles = new Set(steps.flatMap(step => Object.values(step.bindings)));
+    const methodRoles = Object.fromEntries(Object.entries(record.method.roles).filter(([role]) => roles.has(role)));
+    const bindings = Object.fromEntries(Object.entries(record.bindings).filter(([role]) => roles.has(role)));
+    if (idle) {
+        const clock = record.facts?.piece?.clock;
+        check(natural(clock) && natural(idle.at) && idle.at >= clock,
+            'Idle exposure needs a settled piece and resume minute.');
+        checkRows(idle.rows);
+        const segments = idle.segments ?? (idle.at > clock ? [{medium: idle.medium, until: idle.at}] : []);
+        check(Array.isArray(segments) && segments.length <= MAX_SLICES, 'Idle exposure needs a bounded list of segments.');
+        let start = clock;
+        const holds = segments.map(({medium, until, properties}, index) => {
+            check(name(medium) && natural(until) && until > start && until <= idle.at,
+                'Idle exposure segments must advance toward the resume minute.');
+            // Settle the elapsed exposure at resume time. It takes no extra
+            // clock time and carries none of the interrupted stage's costs.
+            const options = {minutes: until - start, rows: structuredClone(idle.rows), idleStartedAt: start, resumeAt: idle.at};
+            start = until;
+            if (properties !== undefined) {
+                check(Number.isFinite(properties.temperature) && Number.isFinite(properties.exchange) && properties.exchange >= 0,
+                    'Recorded medium needs temperature and exchange.');
+                return {op: 'recorded-hold', minutes: 0, bindings: {piece: steps[0].bindings.piece},
+                    options: {...options, mediumSnapshot: {id: medium, properties: structuredClone(properties)}}};
+            }
+            let role = `idleMedium${index}`;
+            while (Object.hasOwn(methodRoles, role)) role += '_';
+            methodRoles[role] = 'medium';
+            bindings[role] = {kind: 'medium', id: medium};
+            return {op: 'hold', minutes: 0, bindings: {piece: steps[0].bindings.piece, medium: role}, options};
+        });
+        check(start === idle.at, 'Idle exposure must cover the full gap.');
+        steps.unshift(...holds);
+    }
+    return {id: `${record.id}.resume`, law: PROCESS_LAW, facts: structuredClone(record.facts),
+        method: {...structuredClone(record.method), steps, roles: methodRoles}, bindings};
 }

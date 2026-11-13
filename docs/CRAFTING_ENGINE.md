@@ -1648,12 +1648,14 @@ Gu House scale has several axes: physical footprint, number and spread of compon
 
 ### Foundation-first ownership and evidence, 2026-11-11
 
+See also the [targeted reference absorption round](research/ROOT_RULES_CREATURES_GU_POTIONS_AND_MAKING_2026-11-11.md#round-4-targeted-reference-absorption), the [Paradise source cases](worlds/paradise-hub/WORLD_BRIEF.md#crafting-through-paradise-laws), and the [potion reaction comparison](research/HOGWARTS_POTION_CHEMISTRY_PROPOSAL_2026-11-11.md#pc19-ordered-stages-and-reaction-cascades).
+
 This pass covers the foundation before additional playable slices. The [rule cases and falsifiers](PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md#root-rules-across-five-domains-2026-11-11) supply the coverage targets.
 
 | Case | Existing owner | Foundation gap or boundary |
 | --- | --- | --- |
 | Clear versus wired glass | `book_craft_workings.js`, `craft_working.js`, `material_lineage.js` | Role selectors and material variants already work. Keep the native lot reference separate from a definition and a saved method. Exact pane identity and school handoff belong to later integration. |
-| Fit followed by cyclic joint failure | `gear_work.js`, `src/absorb_e2/durability.js` | Crafting can record inspection and loading setup. The equipment owner retains particular joints and applies delayed wear. A joint-specific failure proof is still open. |
+| Fit followed by cyclic joint failure | `craft_assembly.js`, `world_packs/workshop_seam.js` | The headless mining consumer now wears the fitted seat by carried load, and the same load can crack it on a later cycle. Native equipment integration would need the fitted joint exposed to its durability owner. See the workshop proof below. |
 | Catalyst, residue and scale | `craft_resolver.js`, `potion_vessel_history.js` | Keep reaction rates, material amounts and the apparatus state distinct. Vessel history already plans residue and washing. Crafting needs a scale-sensitive work law with reproducible setup, without creating a second vessel owner. |
 | Bean extraction and stir reversal | `potion_workings.js`, `potion_working_rules.js` | Brewing owns pending batch and dose use. It can reuse a working's exact setup, while the potion owner decides which cues and effects are visible. |
 | Exposure history and Gu fusion survivors | `creature_lifecycle.js`, `creature_methods.js`, `gu_refinement.js` | Shared trial vocabulary can reference a living participant. Creature and Gu owners decide injury, recovery and custody. No conversion of individual identity to bulk stock. |
@@ -1673,3 +1675,482 @@ The focused foundation case uses the equal-work and doubled-batch questions from
 Use the existing lineage contract for consumed stock. The separate [cross-domain foundation](research/ROOT_RULES_CREATURES_GU_POTIONS_AND_MAKING_2026-11-11.md) can refer to it for living-derived inputs without copying creature history into the crafting save owner. A living individual remains a reference to its owning system. Apparatus state remains with the vessel or equipment owner.
 
 **Foundation completion check.** The ownership table covers crafting, engineering, chemistry, potions and living systems with sourced examples linked above. The crafting-owned proofs cover exact lineage, method rebinding, ordered and interacting state changes, a mass-limited operation at two scales, and persisted observer-qualified comparisons. The product validator independently replays the resolved composition. The working-trial validator checks its lot bindings and evidence against the frozen product. Actual time, vessel condition, delayed equipment damage, injury and organism behavior are supplied by their domain owners. This pass does not introduce new player routes. The combined focused check passed 69/69. Architecture and scoped whitespace checks passed. A disposable build succeeded (bundle SHA-256 `9174af76c42d3f19b713e4a367703feff10dac955d4fd3f79b94a7b58e8ca9a4`). No install or browser run was needed for this foundation-only change.
+
+### Tingen staged silver and worn protection, 2026-11-12
+
+**ACT NOW.** TA2/TA6/TA9 in the [reference intake](research/ROOT_RULES_CREATURES_GU_POTIONS_AND_MAKING_2026-11-11.md#round-4-targeted-reference-absorption) leave an ownership gap between a retained workpiece and its use. The [Tingen headless pack](../src/world_packs/lotm_amulet_inscription.js) closes that gap for one piece. English v1 ch83 P033–P047 establishes the prepared desk, knife, silver, two inscribed faces, guided spirituality and limited protection. The [source checkpoint](gm/dispatch/procedural-crafting-2026-11-11/CHECKPOINT.md#tingen-engraving-law) records the evidence. Removing the knife, four- and six-minute checkpoints, the one-point cost, gifting setup and the marginal mishap are fixture choices. The existing mishap owner supplies the original d20 bonus and waning model.
+
+| Priority | Pinned source and disposition | OOPS owner and consumer |
+| --- | --- | --- |
+| 1. Staged work | **Adapt behavior.** Cataclysm DDA at `feb2e6336fb5233b71622f51a45b81efbf1a7f74`. A craft retains components and recorded progress, spends charges with progress, rechecks providers and slides an unattended deadline after a shortage. Main work is CC BY-SA 3.0 Unported with separate asset and dependency notices. [Staged data contract](https://github.com/CleverRaven/Cataclysm-DDA/blob/feb2e6336fb5233b71622f51a45b81efbf1a7f74/doc/JSON/ITEM_CRAFT_AND_DISASSEMBLY.md#L275-L339) · [Craft checks and debit](https://github.com/CleverRaven/Cataclysm-DDA/blob/feb2e6336fb5233b71622f51a45b81efbf1a7f74/src/crafting.cpp#L2660-L2765) · [License](https://github.com/CleverRaven/Cataclysm-DDA/blob/feb2e6336fb5233b71622f51a45b81efbf1a7f74/LICENSE.txt) | The kernel rereads the specific providers at the stage deadline. The [inscription resolver](../src/lotm_amulet_crafting.js) supplies the material change. World stock keeps one physical silver unit, and [material lineage](../src/material_lineage.js) retains the actual input key. [Process law](../src/process_law.js) is the owner for continuous exposure and [load law](../src/load_law.js) reads its projected properties. |
+| 2. Modular item use and repair | **Adapt behavior where a part drives a real use.** Tinkers’ Construct at `31041b59dd0778c5ac11d08e9346dfda5fb55894`. Ordered materials feed tool construction. Changing one material rebuilds stats, repair reads compatible materials, and removing a modifier can yield salvage. MIT License, copyright (c) 2022 SlimeKnights. [Tool build](https://github.com/SlimeKnights/TinkersConstruct/blob/31041b59dd0778c5ac11d08e9346dfda5fb55894/src/main/java/slimeknights/tconstruct/library/recipe/tinkerstation/building/ToolBuildingRecipe.java#L180-L207) · [Material replacement](https://github.com/SlimeKnights/TinkersConstruct/blob/31041b59dd0778c5ac11d08e9346dfda5fb55894/src/main/java/slimeknights/tconstruct/library/tools/nbt/ToolStack.java#L490-L526) · [Repair](https://github.com/SlimeKnights/TinkersConstruct/blob/31041b59dd0778c5ac11d08e9346dfda5fb55894/src/main/java/slimeknights/tconstruct/tables/recipe/TinkerStationRepairRecipe.java#L92-L157) · [Modifier salvage](https://github.com/SlimeKnights/TinkersConstruct/blob/31041b59dd0778c5ac11d08e9346dfda5fb55894/src/main/java/slimeknights/tconstruct/tools/recipe/ModifierRemovalRecipe.java#L103-L146) · [License](https://github.com/SlimeKnights/TinkersConstruct/blob/31041b59dd0778c5ac11d08e9346dfda5fb55894/LICENSE) | [Fabrication](../src/craft_assembly.js) already separates join fit, carrying load, wear and condition-based salvage. For a repair trial, use the same item under the same load before and after replacing a specific part. Use [kernel identity](../src/kernel_identity.js) for cross-owner facets and lineage when the repair changes owner representation. In Tingen the substrate holder ID already survives both operations, and the material key records the rework. |
+| 3. Transfer and charged release | **Use the local carrier law.** Tingen’s inscription gives a limited, waning passive. The existing [RP-M3 Apollo source case](worlds/paradise-hub/WORLD_BRIEF.md#crafting-through-paradise-laws) supplies a distinct carrier with release conditions. | The [Tingen mishap resolver](../src/lotm_amulet_protection.js) reads the exact worn key and its binding minute after a transfer. For a charged carrier, use fabrication for the assembly and [stored workings](../src/stored_working.js) for charge, trigger, reach and effect landing. Restore a finished carrier after the handoff, fire using the recipient, and check the actual payload and charge delta. |
+
+No upstream code, recipe rows or assets were copied. The lane uses a local law, the existing engine working/cost host and the native inscription and mishap resolvers. The test supplies transfer and wear by moving the carrier and naming its current holder, then explicitly passing it as worn. This exercises the protected check without exercising gift authorization or an equipment transaction.
+
+**Save and use receipt.** After the first face at minute 4, the fixture moves the knife and JSON-restores the running working. At minute 10 the bind stops, the silver still has the exact marked key and the maker still has two Spirituality. After the knife returns, rework uses the same holder and exact marked parent. JSON restore mid-rework and minute-by-minute advance produce the same complete save at minute 16. The engine cost receipt records one debit, and competing jobs against that piece finish and pay once. Moving and restoring the finished piece under the new holder preserves the binding minute. The existing mishap consumer returns success with the finished worn piece at the same raw roll that fails with the unfinished piece or bare wearer. A separate shortfall stops at binding and retains the marked silver.
+
+**LATER.** DDA-style partial payment within a single active or unattended step needs the shared [engine records host](../src/engine_records.js) and [working kernel](../src/kernel_working.js) to hold a paused step with elapsed and paid work, recheck provider availability, and reschedule its remaining deadline on restore. The current host schedules settlement at deadlines, and a refused step ends its working. The Tingen pack restarts at the completed face boundary. This run exercises rework and the passive transfer case. Structural salvage, the legacy craft parity comparison and charged release stay with their existing consumers.
+
+**Verification.** PC95, AD36/AD38/AD49/AD51, AR3/AR6/AR11, MR29–MR33 and KW3/KW5/KW10/KW15. Base `4d4505223bae7c097a3a1c833f195ea53f8d0e26` plus live shared changes. One pack, one focused test file and this owner section. Zero edits to shared runtime files, save schemas or game registration. Agent-verified headless fixture. The existing game tie-in and browser phase remains open under PC95.
+
+- `node --test tests/{lotm_amulet_inscription,lotm_amulet_crafting,lotm_amulet_protection,craft_assembly,process_law,stored_working,engine_host,kernel_identity}.test.js` passed 61/61.
+- `npm run check:arch`, `npm run check:coverage` and `npm run check:rules` exited 0. Rules reported the existing exam-clock and private-pack glob warnings and a direction-sync warning in the shared `PROJECT.md` edit.
+- `BUILD_OUT=<temporary directory> npm run build` passed with the existing duplicate-key warning in `travel_legs.js`. Bundle SHA-256 `02ab8b4d1d86b75a96d609cdee2645f1d33634b14af8f0184671f08c4701065c`. The headless pack is exercised by Node. The full suite remains the committer gate.
+- Scoped whitespace and local-link checks passed. `npm run check:docs` reports a single unrelated hit in the dirty W18 seam note at line 29.
+
+### Installed material through a loan and heated crossing
+
+The [ENF22 receipt](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#enf22-borrowed-armor-on-a-heated-crossing) exercises the same chassis and fitted part through loan, wear, abrasion, restore and return. The substrate supplies reach and clock time. Condition belongs to the actual liner, so abrasive travel changes later insulation and combat resistance without rebuilding the plate. DDA-style continuously paid interruption still needs progress and paid-work state from the shared host as recorded in the Tingen receipt above.
+
+### Paid steel process through provider loss and assembly
+
+The [process test](../tests/process_law.test.js) runs the existing steel recipe through the common engine host. The forge starts with 30 fuel. Heating and hammering spend 26 by minute 13, and quenching ends at minute 16. Removing the actual oven then restoring the save stops tempering at its deadline. The saved workpiece keeps its structure, identity and completed process history. Returning the oven permits a new tempering working from that piece. A mid-temper JSON restore yields the same engine save as uninterrupted rework. The finished blade has the same landed hardness and toughness as the uninterrupted full recipe. No further forge fuel is spent.
+
+The same restored tang fits the same grip whether tempered or untempered. In the fabrication load reader, the tempered blade and grip hold a demand of 50, while the untempered blade fails at the blade member. The process test uses authored material curves and assembly capacities. The earlier pinned Cataclysm DDA reference informs the provider recheck and retained payment comparison. The proof settles interruption at a completed stage boundary. Continuous payment and pausing inside the same stage still require the shared host to keep partial time and payment. No shared runtime file changed for this proof.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33, KW5/KW10/KW15. The focused 16-file run passed 136/136, including [process](../tests/process_law.test.js), assembly, engine host, substrate, binding, contest and item effects. Build SHA-256 `ae27651a2613d9e1d89e0fbf55810aa316e67258d986a08ed8626e79527ab25e`. Architecture, coverage and rules exited 0 with existing warnings. The docs checker still reports the separate W18 note. Full suite remains the committer gate.
+
+### Paid checkpoints within a fabrication stage
+
+The process law now lets an authored stage declare `checkpointMinutes`. It compiles the stage into ordinary kernel steps and keeps the fixed cost on the first interval. A stage that uses `requireDirectPayment` checks the live quantity on its bound provider before changing the piece. Use this option with direct, zero-minimum debit accounts at the ordinary rate. Recipes using priced faults or alternate accounts keep their existing settlement policy. The pinned Cataclysm DDA staged-work reference above supplied the progress-and-payment comparison. The implementation uses OOPS kernel receipts and does not copy its source.
+
+The steel test splits eight minutes of forging into two four-minute intervals. Heat spends ten fuel. The first forging interval spends nine, including the fixed one-unit expense. The second refuses at zero fuel and leaves the first interval's exact workpiece. After JSON restore and refueling, `remainingProcess` supplies the remaining method, bindings and workpiece. The engine rejects a repeated start from the same interrupted record through its deterministic continuation ID. The resumed interval spends eight units. The finished blade matches the uninterrupted checkpoint recipe and holds the same assembly load. Mid-resume save and restore match an uninterrupted resume.
+
+This proves authored checkpoints, including inside a stage. Automatic pausing at arbitrary instants reopens when a consumer needs to retain sub-checkpoint work or apply cooling during the interruption. That requires shared clock and cost settlement coordination. This change keeps earlier unpartitioned methods and uses no new save schema or shared host changes.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15. The 17-file focused suite passed 147/147, including the expanded [process test](../tests/process_law.test.js). Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `49ae94c632809054718424371dabc2096dfe8b81b27f0d28bd53c4fc304cf5aa`. The full suite remains the committer gate.
+
+### Specialist commission on a customer-owned liner
+
+The workshop working binds the customer, the actual blank liner and a co-located specialist with the fireproof pattern. The maker supplies three ink and the agreed five-coin fee transfers from customer to maker on successful settlement. The order keeps the liner in the customer's custody. Departure before the deadline interrupts without a fee or ink debit. Two orders on the same blank settle once. Restore before settlement produces the same completed world as uninterrupted settlement. The fitted result changes the same combat fire strike from 25 to 15 and the same heat exposure from 20 to 16.
+
+This is a local service with a fixed fee and named pattern, using the existing rune grammar, kernel cost owner and world stock. PC25's commission by function reopens when a service has two candidate patterns or an acceptance check that can distinguish their results. Escrow, delegated item custody and disputes reopen when a remote or delayed handoff requires them. The world has a separate specialist mark so the operation tests the maker's actual availability and means.
+
+**Verification.** The 17-file focused run passed 148/148, including the [commission test](../tests/fire_resistant_lining.test.js). Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `d2dfa3dcb4ebc58ef9e146b8948db4925477f0f6bf1c971a1b730a72ec5c0b96`. PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15.
+
+### Commission by requested protection
+
+The customer can request minimum fire and heat protection and a maximum fee. The workshop quotes the cheapest qualifying pattern using the current part's condition. A three-coin pattern gives 40% fire protection. A five-coin pattern also gives 20% sustained heat protection. Quotes use the kernel forecast and identify the customer, maker, part, expected completion and exact terms. A changed quote is rejected before booking. After booking, settlement rereads custody, condition, the required protection and the available payment. A scuff that drops the part below the agreed result after a save interrupts the order with no ink or fee spent. Both completed patterns take the same fire hit from 25 to 15. The broader pattern also reduces the heat dose from 20 to 16.
+
+This implements PC25 with two local offers and an authored condition scale. Remote work, escrow and third-party certification reopen with a route that needs custody or payment to change before acceptance. The current fee settles on delivery. The working uses the existing kernel forecast, rune grammar and cost owner.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15. The 18-file focused run passed 151/151. Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `5f8b57d138cd7a8211b9688170bda9a4a28bf5d5be8d93cfd744ec28ce75f80b`. Full suite remains the committer gate.
+
+### Recovered cloth becomes a replacement lining
+
+The workshop now consumes one unit of recovered lining cloth and one fresh thread through the engine cost owner. The timed working creates a distinct blank liner at 75 condition. The headless test salvages a worn-out piece, saves with two jobs competing for the same scrap, and restores one completed replacement and one interrupted job. It then inscribes and fits the replacement. The same fire strike falls from 25 damage to 17, and a heat exposure of 20 falls to 17. The rebuilt cloth's condition limits both protections. This local recipe uses pooled salvage and gives the replacement a new identity. Exact fiber ancestry reopens when a craft needs to distinguish scrap from particular source parts. The pinned Tinkers’ Construct salvage reference above informed the return of usable material. The recipe and its settlement are implemented independently.
+
+**Verification.** The 18-file focused run passed 152/152. Architecture, rules and isolated build passed. Bundle SHA-256 `5f8b57d138cd7a8211b9688170bda9a4a28bf5d5be8d93cfd744ec28ce75f80b`. Coverage reports a shared Hogwarts `oppugno` contact expectation mismatch. The docs check reports the existing W18 note.
+
+### Identified salvage lot through refit
+
+The workshop can now recover cloth as a specific lot. Its substrate lineage names the retired liner, and the new liner's lineage names the consumed lot. The paid working rereads the exact lot and the wearer's custody at settlement. Moving the cloth away interrupts before either cloth or thread is debited. The existing pooled route remains available where fiber provenance has no consumer.
+
+Dense weave in the selected cloth survives salvage. This local recipe yields a liner at 90 condition from that lot, versus 75 from pooled cloth. The finished liner reduced the original fire strike to 16 damage. The earlier pooled comparison landed 17. Save and restore preserved both provenance links and matched uninterrupted fabrication. These condition values are authored workshop dials. Mixed material lots and partial fiber yields reopen when a recipe uses multiple source lots or fractional material recovery.
+
+**Verification.** The 18-file focused run passed 153/153. Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `38b9d91b1eb8be2b0989c583c4b224d09553a0bc1af82f83d92f753307bdf81e`. PC95, AD36/AD38/AD51, AR3/AR6/AR11 and MR29–MR33.
+
+### Cooling between paid fabrication checkpoints
+
+A resumed process can now name the medium the workpiece sat in after its last paid checkpoint. The process law applies the elapsed exposure at resume time using the existing thermal rows. The hold adds no extra clock time or fuel cost. It binds the named medium through the engine and rejects a continuation prepared for a different minute. A new continuation can replace that stale hold before any remaining work settles.
+
+In the headless steel comparison, the workpiece spends 24 minutes in air after the first paid forging interval and cools below 200 fixture degrees before work resumes. The remaining interval still costs eight fuel. The finished piece lands at hardness 77 and toughness 76, compared with 77 and 77 for the earlier restart with frozen thermal state. Both fitted blades carry the authored 50-unit load. Saving during the resumed work reproduces the same finished world. This uses the existing process law and the earlier staged-work reference. The fixture assumes one idle medium across the elapsed gap. Automatic histories of moving media or changing conditions reopen when a worksite records those changes. Retaining work before the first completed checkpoint still needs the shared host to record work and debit during that interval.
+
+**Verification.** PC95, PC17, PC52, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15. The [process fixture](../tests/process_law.test.js) and 17 related files passed 153/153. Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `38b9d91b1eb8be2b0989c583c4b224d09553a0bc1af82f83d92f753307bdf81e`. No shared working or contest runtime edit.
+
+### Changing media during a fabrication interruption
+
+A continuation can now describe the full idle gap as ordered segments. In the steel test the partly forged blade spends ten minutes in air and fourteen in water. The saved path retains each medium and the actual segment end minute. The holds apply when the job resumes, and the remaining paid interval still costs eight fuel. Restoring during the resumed job reproduces the finished world. With a grip rated for 90, the blade from the interrupted air-to-water route fails a demand of 77 at the blade. The comparison that resumes with frozen thermal state carries the demand. Both hold 50. These are authored material and load values.
+
+The process law validates complete coverage of the elapsed gap. A stale pending hold must be recalculated, and already applied holds stay in the piece's history. The caller supplies the media and their change times. Automatic recording reopens when a worksite can publish medium changes with stable timestamps and retain the historical provider properties. This extends the staged-work proof above using the existing exposure law, working receipts and assembly reader.
+
+**Verification.** The 18-file focused run passed 153/153. Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `38b9d91b1eb8be2b0989c583c4b224d09553a0bc1af82f83d92f753307bdf81e`. PC95, PC17, PC52, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15.
+
+### Repair the fitted lining on a borrowed plate
+
+A timed workshop operation can mend a fitted lining in place. At settlement it reads the same plate, slot, installed liner and current custodian. The workshop allows the borrower to do this repair because the liner stays fitted and the borrower supplies the thread. The loan still governs detachment and transfer. Returning the plate before settlement interrupts the repair and leaves the thread and liner condition intact.
+
+In the headless test, one thread brings the original installed liner from 50 to 75 condition. Restoring during the job agrees with uninterrupted settlement. The lender receives the same plate and liner after return. On the restored plate, the repaired lining reduces a 20-point heat dose from the worn liner's 18 damage to 17 and holds the paired fire strike to 17 damage. The pinned Tinkers’ Construct repair reference above supplies the material-repair comparison. OOPS uses its existing fitting, custody and working owners. Service agreements that restrict maintenance or reimburse a borrower reopen with a loan that needs those terms.
+
+**Verification.** The 18-file focused run passed 154/154. Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `38b9d91b1eb8be2b0989c583c4b224d09553a0bc1af82f83d92f753307bdf81e`. PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15.
+
+### Workshop records the medium at contact
+
+The workshop can record a workpiece's contact with a measured medium at the current engine minute. It keeps the contact times and the medium properties on the workpiece. Resuming the interrupted working reads that history and settles it through the same process law. The steel test records ten minutes on a cooling rack and fourteen in water, saves after the first contact, removes the rack and changes the water's current temperature. The restored process still uses both recorded contacts and cools to the recorded water temperature of 20. The remaining paid interval spends eight fuel and the restored finished blade holds the 50-unit assembly load.
+
+The first contact starts at a paid checkpoint. Subsequent changes come through the workshop action, which captures the actual provider properties at that moment. Passive monitoring of apparatus changes reopens when a world can publish each relevant contact or condition change. Preserving fractional work between payment checkpoints still needs coordination with the shared host.
+
+**Verification.** The 18-file focused run passed 154/154. Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `0330ac50c06376b8d2b6918c9fbf70b9013c984592885cfda3c874002cc6b346`. PC95, PC17, PC52, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15.
+
+### A worksite event records changes to the current medium
+
+The workshop medium action publishes a substrate event when it changes a medium's temperature or heat exchange. A workpiece in contact with that provider in the same place records the new properties and world minute in its existing contact history. Resume uses those snapshots through the process law.
+
+The steel test saves during water contact, changes the bath from 20 to 200 at minute 25 and restores again. The resumed working records the rack through minute 19, cool water through minute 25 and warm water through minute 33. It spends the remaining eight fuel and the finished blade carries the tested 50-unit load. Worlds with other apparatus owners can publish the same event when they change the medium. Automatic contact tracking for moves outside workshop actions still needs those movement producers to supply the physical contact transition.
+
+**Verification.** The 18-file focused run passed 154/154. Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `0330ac50c06376b8d2b6918c9fbf70b9013c984592885cfda3c874002cc6b346`. PC95, PC17, PC52, AR3/AR6/AR11 and MR29–MR33.
+
+### Insulating fiber survives identified salvage
+
+An identified salvage lot retains the source cloth's fiber insulation. Reweaving consumes the lot and fresh thread, and the replacement keeps the fiber property and its lineage. The workshop reads material insulation and rune insulation as separate reductions applied to the remaining sustained heat. Condition scales both.
+
+On the same breastplate, recovered fiber alone reduces a 20-point heat dose to 15. Adding the fire and heat inscription reduces it to 12. The fire strike goes from 25 with the unmarked replacement to 16 after inscription. The test restores the pending reweave and uses both finished variants in the existing combat and heat readers. The workshop tracks one identified fiber lot per replacement. Mixed fiber yields reopen with a recipe that needs several source lots or different retention rates.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and MR29–MR33. The 21-file focused run passed 211/211. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `49adbafe96314a70737f8155601e48c9eb7770bbfd35868d5cbdd0214f5f5f7b`. Agent-verified in the headless workshop.
+
+### Blend two identified cloth lots
+
+The workshop can reweave one unit from each of two distinct recovered lots with one fresh thread. The replacement retains both parent lot IDs. For this recipe, equal shares average the fiber insulation, and the share of dense cloth sets the condition bonus. If either lot leaves the maker's custody before settlement, the job interrupts with both lots and the thread unspent.
+
+The headless fixture blends dense insulating fiber with plain cloth and saves before settlement. After fitting, the restored replacement reduces a 40-point heat dose to 30, and the same fire strike deals 25. The recipe uses whole stock units and equal shares. Unequal or fractional inputs reopen when a fabrication recipe needs measured fiber proportions and yields.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. The 21-file focused run passed 212/212. Architecture and rules passed with existing warnings. Isolated build SHA-256 `167ef26ad07c02f58ddf0059fd9616ce7c467e1fc43e0f4a351b65651fc3ab66`. The shared coverage check failed on the Hogwarts `properties-reveal` case with an undefined value passed to `includes`. Agent-verified in the headless workshop.
+
+### Measure unequal shares of recovered fiber
+
+A reweave can specify how many whole stock units to take from each of two identified lots. Settlement verifies both quantities and current custody before charging either lot or the thread. The amounts weight both insulation and fiber density. A replacement retains the density for any later identified salvage. Existing pending reweaves without measured shares use one unit per lot.
+
+The headless comparison uses two insulating units and one plain unit. It leaves one unit in the larger source lot and retains both parents on the replacement. The same 40-point heat exposure lands 26 damage, compared with 30 for the equal-share blend. A shortage leaves the other lot and thread unspent. Save and restore agree with uninterrupted settlement. The workshop uses whole stock units and one finished lining per job. Fractional yields and fabric mass accounting reopen when a world needs to track actual fiber mass across recipes.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. The 21-file focused run passed 212/212. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `f3a9fcc23c39d30ec410b8ac3dc0b635fa91dbcb4973175e6f9f3fa3dffbaefe`. Agent-verified in the headless workshop.
+
+### Account for measured fiber through a second salvage
+
+A rewoven lining records the number of cloth units used to make it. When a worn lining is retired, the assembly salvage rule partitions that quantity by condition. The workshop pools both recovered grades as reweavable cloth. Identified recovery keeps the fiber properties and the link to the retired part. A fully reusable lining stays intact, and older linings without a recorded quantity use one unit.
+
+In the headless fixture, the three-unit blend returns two reusable units and one scrap unit to the same identified lot. A second reweave spends two units from that lot and one from the original dense lot, leaving one recovered unit available. The refitted result takes 24 damage from the same 40-point heat exposure after restore. The workshop has no cutting loss in this recipe. Distinct uses for the two recovered grades or fractional cutting loss reopen with a fabrication reader that distinguishes them.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. The 21-file focused run passed 212/212. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `f3a9fcc23c39d30ec410b8ac3dc0b635fa91dbcb4973175e6f9f3fa3dffbaefe`. Agent-verified in the headless workshop.
+
+### ENF4. An inscribed pick extracts from a finite seam
+
+The workshop spends one ink to inscribe the miner's pick. Extraction reads the actual pick and seam at settlement and runs the gathering source law. On the same five-unit vein and saved draw, the plain pick takes two fragments and the inscribed pick takes four. The recovered material and grade match. Both jobs debit the amount taken from the seam and preserve its identity on the output.
+
+After restoring the inscribed branch, two jobs compete for the final unit. One takes it and the other interrupts with its basket empty. The local source uses fixed requested yields and one material variant per location. Grade can vary between seams. Mixed deposits and a distinct harvest ordinal reopen with a source whose yield changes across digs.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. Seven related files passed 63/63. The extraction fixture passed again after the refusal wording changed. Architecture, coverage, rules and the isolated build passed. The shared docs check flags the Gu abilities acceptance claim at line 1528. Agent-verified in the headless workshop.
+
+### Preserve fragile ore from extraction to forged gear
+
+**ACT NOW.** A gathering pick can take a preservation inscription for one ink in three minutes. On a seam with an authored extraction loss, the mark keeps the ore's original grade. The workshop compared the same grade 72 seam and the same four-fragment cut. The quantity mark was present on both picks. Without preservation the ore came out at grade 32 and its forged ward mount broke on the first seven-point fire hit. The protected ore kept grade 72 and its mount supported the same ward on the second hit. Both smelts preserved the ore grade in material lineage, and the saved path also exercised salvage and refit.
+
+**ACCOUNT FOR NOW.** A seam's extraction loss represents damage to the material during the cut. The preservation mark prevents that loss. Seams without an authored loss have the same grade with either pick. A gathering pick or a removable head can carry the mark. The [head lifecycle test](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#preserve-ore-with-a-removable-head) covers refit, recast and tracing.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. Twenty related files passed 305/305, including a competing inscription with enough ink for both jobs and the extraction-to-ward route after JSON restore. Architecture, coverage and rules passed. Isolated game build SHA-256 `11a77df0d71adfc191092747660f807fe10e3d32bdde8989b8ee616b05f1666e`. The docs check flags five claims in other documents.
+
+### Smelt extracted ore with paid furnace heat
+
+The workshop uses a three-minute furnace job with a local recipe of four fragments and one fuel. The partition law accounts for three ore units in one billet and one unit in slag. Both outputs trace back to the actual basket, ore material, grade and seam. The emptied basket can take a fresh lot, and the existing ore history stays on the smelted outputs.
+
+On the same vein, the inscribed pick supplies the full recipe in one trip. The plain pick supplies two fragments, which stay in the basket when the job interrupts. Moving a full basket before settlement also interrupts, with fuel and ore intact after restore. The restored successful job matches uninterrupted settlement and accounts for all four ore units.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. Eight related files passed 97/97 against shared HEAD `f0430dde2` plus working changes. Architecture and rules passed. Isolated build SHA-256 `4c9677abe4e9df2791517f8ff3f2146b923e633a1f6c7e37dbe1f39fdcd27284`. Coverage failed to load the shared Hogwarts spell pack because `traceCase` is undefined. The shared docs check still flags the Gu abilities acceptance claim at line 1528. Agent-verified in the headless workshop.
+
+### Fit the smelted billet and prove the joint under load
+
+A three-minute fitting job spends the actual billet and grip after checking that the grip socket fits the tang. A round socket leaves both inputs intact. The finished tool keeps the billet's full lineage. Earlier workshop billets recover their grade from the ore input in that lineage.
+
+The workshop fixture uses an iron seat whose capacity is 10 plus one unit for each four grade points. The same 24-unit load cracks the seat made from grade 32 ore, whose limit is 18, and holds on the seat made from grade 72 ore, whose limit is 28. The crack persists after restore and blocks a second proof until the tool is repaired.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Eight related files passed 98/98 against shared HEAD `f0430dde2` plus working changes. Architecture, rules and coverage passed. Isolated build SHA-256 `d3fa1e5cc7c07c4b9d0e3bad5a09eeae8a2ec9dd3853cd5d211205a6a59e8a55`. The shared docs check flags the Gu abilities acceptance claim at line 1528. Agent-verified in the headless workshop.
+
+### Recover and refit a tool after a joint or grip breaks
+
+Disassembly spends one pry supply and rechecks custody and empty rests at settlement. A cracked metal seat yields two reusable iron units and one scrap unit to a single recasting lot, with the original billet key as its parent. Its sound grip returns intact. A broken grip yields grip scrap and returns the original iron key intact. The workshop pools the metal grades for recasting. Distinct recipes for reusable iron and iron scrap reopen when the two grades have different uses.
+
+One fuel recasts all three recovered iron units into a new billet. Refitting spends that billet and the recovered grip. The repaired grade 32 tool holds at 18 units and cracks again at 24. Moving a rest away during disassembly preserves the tool and supply. Two disassembly jobs aimed at the same tool recover its parts once. Interrupted and successful paths are exercised through save and restore.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Eight related files passed 100/100 against shared HEAD `f0430dde2` plus working changes. Architecture, rules and coverage passed. Isolated build SHA-256 `0e909b1969b9544e50ed6d82af39f27408d7ab7e9d1fb5a51098d8519656fdc9`. The shared docs check flags the Gu abilities acceptance claim at line 1528. Agent-verified in the headless workshop.
+
+The finished pick can return to mining. The [head inscription comparison](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#enf4-enf5-and-enf16-a-mining-inscription-follows-the-fitted-head) covers how the installed mark responds to grip replacement and metal recasting.
+
+### Dress stone recovered from a cleared passage
+
+A clearing job can place the removed rubble in a basket as one identified lot. Moving the basket away before settlement leaves the rubble and the link unchanged. Two saved jobs aimed at the same four units recover them once. A plain pick brings back two units on its first job, while the inscribed pick supplies the four-unit dressing recipe in one job.
+
+Dressing consumes four units and yields a three-unit block plus one unit of chips. Both outputs keep the route, rubble source, basket lot and any authored grade in their lineage, and the empty basket can take another lot.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Eight related files passed 105/105, including save and restore during recovery and dressing. Architecture, rules and coverage passed. Isolated build SHA-256 `19d798b00adbc8fef11f7718f286d767f8aad25a915b91c795100fef4414b64f`. The shared docs check flags the Gu abilities acceptance claim at line 1528. Agent-verified in the headless workshop.
+
+### Bed a recovered block to carry freight
+
+A three-minute repair uses the exact dressed block and chips to bed the passage support. A mismatched bed leaves both materials in stock. A completed repair records their lineage on the support and raises the local load limit from six to sixteen. Crossing reads the freight's live weight and custody at arrival.
+
+The same twelve-unit crossing fails before repair and moves the miner, pick and freight together after repair. Adding weight during a crossing raises the demand to seventeen and leaves the party at the entrance. Repair and crossing are verified through JSON restore. A market would need a listing that preserves the stone lot's identity through sale.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC5 and KW5/KW10/KW15. Eight related files passed 105/105. Architecture, rules and coverage passed. Isolated build SHA-256 `961977512b57e31950abba9fff0510fc29bf7256f5e884b05e957b7d9aefdcfd`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### Maintain a passage support after heavy crossings
+
+Successful crossings above the original six-unit limit wear the installed stone seat in proportion to the load it carries. Two twelve-unit crossings lower condition from 100 to 67 and capacity from sixteen to twelve. A thirteen-unit crossing then stops at the entrance. A three-minute maintenance job spends one mortar to bring condition back to 97 and capacity to fifteen, keeping the installed stone and bedding lineage. The same freight then crosses. An overloaded crossing leaves the support untouched because it never proceeds onto the seat.
+
+Earlier saved repairs without a condition entry start at full condition. The workshop uses a fixed maintenance gain. Worn parts can also be [recovered and replaced](#recover-and-replace-a-worn-passage-support).
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC6 and KW5/KW10/KW15. Eight related files passed 105/105. Architecture, rules and coverage passed. Isolated build SHA-256 `457492e3abf6922cd47fdd177fb464012d762742b7552a61ef042ffb0ba1a775`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### Carry stone grade from rubble into the passage load limit
+
+**ACT NOW.** The same dressing procedure preserves an authored grade on the loose stone, dressed block and bedding chips. The installed support uses the weaker of the two part grades and scales its added capacity by current condition. In the restored comparison, a twelve-unit freight load stops at the ten-unit limit of grade 20 stone. It also stops with a grade 80 block and grade 20 bedding. Grade 80 in both parts lets the freight cross at the twenty-unit floor limit. The mixed fixture supplies bedding produced by the separate grade 20 dressing run.
+
+**ACCOUNT FOR NOW.** One rubble holder describes one grade. Earlier ungraded material reads as grade 50 and keeps the original sixteen-unit limit at full condition. The floor still bounds the seat's contribution to total load.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC6 and KW5/KW10/KW15. Twenty related files passed 308/308. Architecture, coverage and rules passed. Isolated game build SHA-256 `85fd1ac816c856b3932da589f34e175e1b0c8ec910c2d6453917a6bd1f19e68d`. The headless workshop restored recovery, dressing, installation and freight settlement. The docs check flags five claims in other documents.
+
+### Recover and replace a worn passage support
+
+**ACT NOW.** A three-minute salvage job spends one pry supply and removes the exact installed block and bedding. It returns four units of loose stone with both parents in its lineage. Moving the basket interrupts the job. Competing jobs recover the same parts once. The stripped passage keeps its six-unit base capacity. Dressing and bedding the recovered stone lets the same twelve-unit freight cross at a sixteen-unit limit. A replacement cut from grade 80 rubble raises the limit to twenty. The workshop restores the pending salvage and both replacement routes.
+
+**ACCOUNT FOR NOW.** This recipe pools the block and bedding as loose stone at the lower of their grades. Redressing and rebedding restore the joint's fit. An assembly that still has all its stone yields four units. A chipped assembly follows the material loss rule below.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Twenty related files passed 309/309. Architecture, coverage and rules passed. Isolated game build SHA-256 `73a6fead11c8198d9be51055729d4cd97e1ae097d87826c4ed2d7ce9ef136ca7`. The docs check flags five claims in other documents.
+
+### Carry a stone fracture into salvage
+
+**ACT NOW.** A support can specify the load that chips its block during a successful crossing. The crossing that breaks it completes, and later crossings scale the seat's added capacity by the remaining block mass as well as grade and fit. In the restored workshop, a twelve-unit load chips one unit from a three-unit block. The same load on the return trip exceeds the new eleven-unit limit. Mortar restores the fit to full condition. Salvage still accounts for four installed units as three recovered and one lost. The three-unit lot remains intact when the four-unit dressing job refuses it.
+
+**ACCOUNT FOR NOW.** This workshop uses one susceptible corner per block. The threshold is authored on the support and applies to each fresh installation. Supports without a threshold retain ordinary wear. A short lot can be topped up using the [two-lot dressing recipe](#top-up-salvaged-stone-from-a-separate-lot).
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Twenty related files passed 309/309, including JSON restore during the loaded crossing and before salvage and dressing. Architecture, coverage and rules passed. Isolated game build SHA-256 `245a62c860f64dd9f6f2273a2bf229edf288c033305260ac9e4aba95559c9d3d`. The docs check flags five claims in other documents.
+
+### Top up salvaged stone from a separate lot
+
+**ACT NOW.** The three-minute dressing job can take declared shares from two separate baskets. Three salvaged grade 50 units and one newly quarried grade 80 unit become a grade 57 block and bedding chips. Both outputs record their input keys and the shares taken from each basket. The three unused units keep their original key. Moving the supplement before settlement interrupts the job and preserves both stocks. After restoring the pending job, the refitted support lets a twelve-unit load cross at a seventeen-unit limit and retrieve the stranded freight.
+
+**ACCOUNT FOR NOW.** Blended dressing uses the rounded-down, unit-weighted grade for both outputs. A maker can also [assign the bedding source separately](#dress-the-block-and-bedding-from-separate-allocations).
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Twenty related files passed 309/309. Architecture, coverage and rules passed. Isolated game build SHA-256 `9529e55db81de9b92635a426978dae9403459a330e4163f4c978c9bc6f93f12d`. The headless workshop restored the dressing job and freight retrieval. The docs check flags five claims in other documents.
+
+### Dress the block and bedding from separate allocations
+
+**ACT NOW.** The two-basket recipe can earmark one unit from either basket for bedding. The other three units form the block. Each output records the exact lots and amounts that made it, and settlement checks both baskets before debiting either. Using one salvaged grade 50 unit for bedding leaves two grade 50 units and one grade 80 unit for a grade 60 block. After restore, the grade 50 bedding limits the crossing to sixteen units. Blending the same four inputs gives both parts grade 57 and a seventeen-unit limit.
+
+**ACCOUNT FOR NOW.** This passage reads the weaker of the block and bedding. The allocation remains in lineage for a different joint that uses the two parts differently.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Twenty related files passed 309/309. Architecture, coverage and rules passed. Isolated game build SHA-256 `9529e55db81de9b92635a426978dae9403459a330e4163f4c978c9bc6f93f12d`. The headless test restored both dressing modes, verified each output's lineage and exercised the finished support under freight. The docs check flags five claims in other documents.
+
+### Replace bedding without discarding the block
+
+**ACT NOW.** A three-minute rebedding job spends one mortar and one dressed chip unit. It checks that the expected block and bedding are still installed, then returns the old bedding to an empty rest with its original material key. If the rest moves before settlement, the chips and mortar stay in stock. In the restored comparison, swapping grade 50 bedding for grade 80 chips under the same grade 60 block raises the limit from sixteen to eighteen. The same eighteen-unit freight then crosses.
+
+**ACCOUNT FOR NOW.** Rebedding changes the chip lot and keeps the installed block, its condition and any lost stone. The comparison uses the grade 80 chip lot produced by the separate-allocation fixture.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Twenty related files passed 309/309. Architecture, coverage and rules passed. Isolated game build SHA-256 `9529e55db81de9b92635a426978dae9403459a330e4163f4c978c9bc6f93f12d`. The headless workshop restored the pending swap and ran the matched freight attempts. The docs check flags five claims in other documents.
+
+### Replace a chipped block on its existing bedding
+
+**ACT NOW.** A three-minute job spends one pry supply and a fitted replacement block. It checks both installed parts and the live bed geometry before settlement. The old block goes into the basket as loose stone with its original lineage. In the restored workshop the chipped block yields two units and accounts for one lost unit. The grade 80 replacement on the original grade 50 bedding carries a thirteen-unit load that stopped before the swap. A mismatched bed preserves the replacement and the pry supply. Competing jobs recover the old block once.
+
+**ACCOUNT FOR NOW.** This support lets the maker lift the block and retain the existing bedding and fit condition. The recovered loose stone can enter the dressing recipe. A bonded bed that comes away with the block needs a separate recovery rule for its bedding.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Twenty related files passed 309/309. Architecture, coverage and rules passed. Isolated game build SHA-256 `9529e55db81de9b92635a426978dae9403459a330e4163f4c978c9bc6f93f12d`. The headless workshop restored the competing replacements and ran the matched freight attempts. The docs check flags five claims in other documents.
+
+### Forge a ward mount from the actual iron billet
+
+A three-minute forging job consumes the smelted billet and one furnace fuel. It fits an empty mount with a ward recess and preserves all three iron units and the input lineage. Moving the furnace before settlement preserves the fuel and billet. The workshop calibrates mount strength at one point per eight grade points with a minimum of one.
+
+With the same insert and seven-point fire hits, the grade 32 mount starts at four strength and breaks on its first interception. The grade 72 mount starts at nine and protects on the second hit. The broken assembly retains its unspent charge. Older mounts with no authored strength use the existing wear behavior.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC6 and KW5/KW10/KW15. Thirteen related files passed 182/182. Architecture, rules and coverage passed. Isolated build SHA-256 `7530019001b4e167ddbe5f9f67eda0b5dedc323f1a2c2f89af2791a72bc7d215`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### Salvage a broken ward mount and refit its insert
+
+The workshop spends one pry supply to recover all three iron units from a broken, detached mount. The old mount is retired and the recovered lot keeps the exact mount as its parent. A fitted insert interrupts the job before payment. Two jobs targeting the same broken mount recover the metal once.
+
+The recovered iron can be recast, forged into a replacement mount and fitted with the original insert. After save and restore, that insert absorbs four of the same seven-point hit and keeps one unused pulse.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Thirteen related files passed 182/182. Architecture, rules and coverage passed. Isolated build SHA-256 `01985dbb700c8669ad3e7c04ecb494b005f20f2151824426bcebc622755f8360`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### Forge a blade service lot from recovered iron
+
+A three-minute job spends one loose iron unit and one furnace fuel to forge a service unit. The result retains its input key and adds one point of blade condition plus one point per four iron grade points. Moving the output rest interrupts the job and preserves both inputs. The final service unit leaves its material key in the paid service receipt and frees the rest for another lot.
+
+In the headless comparison, disassembling a cracked pick supplies the iron. Grade 32 restores nine condition and grade 72 restores nineteen. The same blade starts at eight condition in both runs. After save and restore, twenty points of wear break the blade serviced with grade 32 iron. The grade 72 repair lets its original inscription land five extra damage.
+
+Forging records the selected iron key when the job starts. Blade service likewise records the selected lot's lineage, material and yield. In the restored competition, one service spends the original unit and forging refills the same rest from the same iron. A second service that selected the first lot interrupts, leaving the newly forged unit available. Workings saved before these selections were recorded continue to read the lot at settlement.
+
+**Lot selection verification.** The twenty-file suite passed 319/319, including all three competing jobs after JSON restore. Architecture, coverage and rules passed. The isolated game build passed with the bundle hash below. The docs check flags five claims in other documents.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC6–FBC7 and KW5/KW10/KW15. Twenty related files passed 319/319. Architecture, coverage and rules passed. Isolated game build SHA-256 `5313c0620a4726231ec1d43b2e673ba990e6eb7df59e930294ad541af389b857`. The headless workshop restored forging, service and the next strike pulse. The docs check flags five claims in other documents.
+
+### Top up a partial iron recovery before reforging
+
+A mount can record an authored loss when it breaks. The tested mount loses one of its three iron units and yields the other two at grade 32. A partial lot needs a top-up to recast. The furnace job cuts a fresh grade 80 billet, spends one unit alongside the two recovered units and leaves two grade 80 offcuts with their own lineage. The resulting three-unit billet has weighted grade 48 and records both parents. Moving the fresh billet away before settlement preserves both lots and the fuel.
+
+The reforged mount starts at six strength and lets the original insert intercept the second matching hit as well as the first. The local recipe measures lost mass and blends grade by whole units. Altered chemistry or retained deformation reopens with a material reader that can distinguish those properties.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Thirteen related files passed 183/183. Architecture, rules and coverage passed. Isolated build SHA-256 `66bde0a7c3fab90bb7793b770d6531372824fbba03d41de0d5a8bd2f1aa23e89`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### Use a saved offcut in a later recast
+
+A partial iron lot can take its top-up from loose iron left by an earlier job. The furnace spends the exact number of units needed and preserves the remaining offcut's identity. Separate holders with the same material key can supply the same recast without duplicating the material receipt.
+
+After the grade 48 replacement breaks, its break-loss setting determines the usable stock. Earlier evidence combined two recovered units with one saved grade 80 offcut. The current fixture recovers one unit and combines it with two grade 80 units. The original insert absorbs four of a seven-point hit in the newly forged mount. Save and restore reproduce the blend and resulting protection.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Thirteen related files passed 183/183. Architecture, rules and coverage passed. Isolated build SHA-256 `60d17b2164a9c72e83dd7279f7da38a67b836cdf7b8a6303174abf4a1c071a4d`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### Pool three loose lots into one billet
+
+A three-unit billet can use one unit from each of three holders. The test splits two grade 80 offcuts between separate holders and adds one recovered grade 48 unit. The result is grade 69, with all three holders recorded and the identical grade 80 keys counted together in the lineage. Moving one holder before settlement preserves every lot and the fuel.
+
+After restoring the job, the forged mount carries the original insert and absorbs four of a seven-point hit, leaving four points of mount strength. The workshop uses whole units and one three-unit billet per job. Finer allocations or a larger furnace batch would need a recipe with a different unit or output size.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Thirteen related files passed 183/183. Architecture, rules and coverage passed. Isolated build SHA-256 `ca85f90dac9ec3407660a7006960fbbaed7a247505cb4f30415cd536a385ca68`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### Repeated mining can crack the fitted seat
+
+A seam can specify its working load. Each completed fitted extraction uses the fabrication load path and wears the seat by the share of its capacity it carried. A grade 32 billet starts with a seat limit of eighteen. Three twelve-unit cycles leave the seat at fifty condition. The fourth cycle exceeds the weakened seat's limit of nine, cracks it and leaves the ore in the vein. A grade 72 billet completes the same fourth cut and yields two fragments. Moving the tool before settlement preserves the seat and the ore. Restoring the pending cut reproduces the fracture, and disassembly recovers the three iron units and the sound grip.
+
+This workshop applies one load per completed extraction and models fatigue in the seat. Seams without a measured load use the original extraction rule. Older fitted tools read as full seat condition. Separate loads on the head and grip reopen when a seam or tool geometry supplies those paths and their wear rates.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Seventeen related files passed 270/270 on shared HEAD `f0430dde2` plus working changes. Architecture, coverage and rules passed. The isolated game build passed with bundle SHA-256 `c4b899995f04c48035365da451e7541e14d392eef6c9a08464f547b9d0ff6003`. The behavior was exercised through the headless workshop. The docs check flags unrelated shared claims.
+
+### Shim a worn pick seat before it cracks
+
+A three-minute service job uses one shim to tighten the seat around the fitted head. It checks current custody, the fitted head key and the joint's condition before payment. Two jobs on the same worn seat spend one shim. Moving the pick before settlement or trying to shim a cracked seat leaves the supply intact.
+
+At fifty condition, the grade 32 pick cracks under a twelve-unit load. Servicing restores the same pick to full condition and keeps the original head. Its next twelve-unit cut yields two fragments and leaves the seat at eighty-six. A cracked seat follows the existing disassembly and recast route. The workshop uses a full reseat for one shim. Partial shimming or a different joint repair needs a material or geometry rule for how much fit it can recover.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Seventeen related files passed 270/270, including restore during service and before the next cut. Architecture, coverage and rules passed. The isolated game build passed with bundle SHA-256 `5b2bd24162a511d508921b35d5259d8083b3ea0350fd2f2ffe954fba7e0f71da`. The service was exercised through the headless workshop. The docs check flags unrelated shared claims.
+
+### Preserve a worn head's seat through disassembly and refit
+
+The workshop tracks the worn seat on the head's tang. Disassembly puts its condition on the recovered head, and fitting moves it onto the assembled tool. Replacing the grip leaves the tang's wear in place. A restored grade 32 head refitted with a fresh grip still has fifty seat condition and cracks under the same twelve-unit cut, leaving four ore in the vein. The serviced branch from the same starting state yields two fragments. Forging a mount or cutting the billet for a furnace blend consumes the tang and clears its condition. A joint design where wear falls on the socket can track that wear on the grip when its load path is authored.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Seventeen related files passed 270/270, including restored disassembly, refit and extraction. Architecture, coverage and rules passed. The isolated game build passed with bundle SHA-256 `5b2bd24162a511d508921b35d5259d8083b3ea0350fd2f2ffe954fba7e0f71da`. The refit was exercised through the headless workshop. The docs check flags unrelated shared claims.
+
+### Tan the whole pelt kept by a preservation blade
+
+A three-minute workshop treatment consumes one whole pelt and one tanning supply. It produces one processed pelt at the original quality and records the exact harvested key as the input to the treatment. On the matched harvest, the preservation blade leaves a whole pelt that the treatment can use. The damaged pelt from the ordinary blade stays in stock and the supplies stay unspent. Moving the whole pelt out of custody before settlement also preserves the supplies. Two saved jobs targeting that pelt produce one output.
+
+This recipe preserves the whole coat. A recipe that uses torn hides needs its own product, yield and support materials.
+
+**Verification.** PC95, ENF10/ENF17, AD36/AD38/AD51 and KW5/KW10/KW15. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `995125dd44290c08e4e6f1fc227f0cc58a4d16faf07e44d58e0c0f4f5861f4e9`. The treatment was exercised through the headless workshop after JSON restore. The docs check flags unrelated shared claims.
+
+### Fit a heat lining made from the preserved hide
+
+A three-minute job spends one exact tanned hide and one thread to make a lining that fits the existing breastplate seams. The part retains the processed hide key and names the source holder in its physical lineage. Two jobs sharing one hide make one lining. Losing custody before settlement leaves both hide and thread in stock.
+
+The workshop gives the lining one point of insulation per four hide quality points, up to forty. The tested quality 85 hide supplies 21 percent insulation. Once fitted and worn, it reduces a twenty-point heat exposure to sixteen. Unequipping the restored assembly lets all twenty through. The insulation comes from the hide. Inscribing fire resistance on the new lining is a separate workshop action.
+
+**Verification.** PC95, ENF10/ENF14/ENF16/ENF17, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Eighteen related files passed 292/292, including restore during cutting and fitting. Architecture, coverage and rules passed. Isolated game build SHA-256 `0ebf9ed938a0161f9aba2f48955a3fd5287f376a924fa71a748998e7e478d934`. The installed part changed the headless heat exposure. The docs check flags unrelated shared claims.
+
+### Rebuild a worn hide lining from identified salvage
+
+The worn lining yields one identified salvage lot. Reworking it keeps the tanned hide key and the original insulation rating, then applies the replacement's condition. In the saved headless comparison, a twenty-point exposure deals sixteen with the new lining, eighteen after wear, and seventeen with the recovered replacement fitted. Two jobs targeting the same lot produce one replacement. The lineage links the replacement to the salvage and the salvage to the retired lining.
+
+A blend retains each physical parent. The direct hide key is carried forward when all inputs share that key. Mixed blends with a tracked material also keep the measured allocations described below.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `65c7e7a95ff4249ef8e1085ac18b1b76e299cb3cf4736797a07abad958962170`. The headless path restored between detachment, salvage, reworking and fitting. The docs check flags unrelated shared claims.
+
+### Preserve the material allocations of a mixed lining
+
+A blend with tracked hide or previously processed lining records the exact material keys and spent quantities through the existing material lineage owner. A legacy cloth input retains its holder as the source key. In the headless test the blend spends one recovered hide unit and two cloth units. It leaves one cloth unit in stock and the fitted blend takes thirteen damage from the same twenty-point heat exposure. After detachment and salvage, the three recovered units retain the blend key. Reworking one unit records that same key as its input and leaves two units in the recovered lot.
+
+The current workshop treats recovered units from a blend as uniform. Separating hide from cloth would need a separation process that accounts for the yield of each constituent. Pooled legacy scrap retains its prior behavior.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `1d2a09d7931859fef674fddd0957a80d207c3f48c854ddef4a291f081c73dc5b`. The blend, heat exposure and second recovery were exercised after restore in the headless workshop. The docs check flags unrelated shared claims.
+
+### Separate a lining stitched from two recoverable layers
+
+A maker can stitch two identified lots as separate layers. The working records each layer's material key, amount and insulation. After the full lining is recovered, a three-minute job spends one supply and separates it into the original shares. The restored test returns one hide unit and two cloth units, with all three accounted for and no loss. Two jobs sharing the same stock settle one separation. The recovered cloth makes a fitted lining that reduces the same twenty-point exposure to eleven.
+
+The route needs the full measured stock because a partial salvage lot cannot establish that both layers are present. A uniform blend has no removable seam. Separating one would require a treatment with measured constituent yields and losses.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `185bc2d9a284e20df80a66bd184f30457c5b4ad49d75f21d1a3236530a35c181`. The headless route restored during separation and before reuse. The docs check flags unrelated shared claims.
+
+### Apply stitched layers in order during heat exposure
+
+Each stitched layer reduces the heat that reaches it, using its own measured insulation and the assembly's current condition. The same hide and cloth inputs take thirteen damage as a uniform blend and nine as a stitched assembly from a twenty-point dose. At half condition the stitched assembly takes thirteen. Unequipping lets all twenty through. The restored assembly still separates into its measured shares, and the recovered cloth remains usable as a fitted lining.
+
+The workshop applies a shared condition to the stitching and both layers. Independent layer wear needs a source of localized damage and a way to record which layer carried it. Timed contest interception still requires the contest owner's pre-damage settlement port.
+
+**Verification.** PC95, ENF14/ENF17/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `185bc2d9a284e20df80a66bd184f30457c5b4ad49d75f21d1a3236530a35c181`. The headless workshop exercised fitting, wear, unequipping and recovery after restore. The docs check flags unrelated shared claims.
+
+### Preserve abrasion on the exposed stitched layer
+
+An abrasive heated path now wears the first stitched layer on arrival. The lining's shared condition and the inner layer stay at their prior values. In the headless comparison, the crossing deals nine from a twenty-point dose. The same dose afterward deals ten. Detaching, salvaging and separating the lining returns the outer hide at eleven insulation and the inner cloth at sixty. The recovered cloth still makes a lining that takes eleven from the same dose.
+
+The workshop records localized wear on the outer layer and turns it into a reduced insulation rating on separation. General condition still scales both layers. Repairing the outer layer in place would need a paid patch action and suitable material for that specific layer.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `f6dee8c4056e98dcbc70b7e4829beb710d95c9ddbc729ce49ec86f924624c99b`. The headless workshop exercised travel, separation and reuse after restore. The docs check flags unrelated shared claims.
+
+### Patch the abraded outer layer in place
+
+A three-minute job uses one matching offcut and one thread to patch the fitted outer layer. It checks the same plate, lining, patch material, insulation and density at settlement. A weaker offcut fails and leaves both supplies intact. Two jobs against the same wear spend one set of supplies. The finished receipt records the patch holder, material key and wear removed.
+
+After the abrasive crossing the same twenty-point heat dose deals ten. The patched lining takes nine again, at the same shared condition of seventy-five. The workshop restores the damaged area with one matching offcut. Patching with another material needs a rule for how its coverage and insulation change the original layer.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `f6dee8c4056e98dcbc70b7e4829beb710d95c9ddbc729ce49ec86f924624c99b`. The headless workshop exercised the patch after JSON restore. The docs check flags unrelated shared claims.
+
+### Patch a worn layer with a different material
+
+The patch job can explicitly use a substitute offcut. The workshop treats the wear percentage as the area needing replacement. It keeps the insulation of the sound area and applies the offcut's insulation to the patched area. With half the outer layer worn, the test replaces that half with cloth rated sixty, giving the outer layer forty-one insulation. The same twenty-point dose deals eight after the substitute patch, nine after the matching hide patch, and ten before patching.
+
+The saved patch records the exact consumed offcut and its coverage. Later separation returns the mixed outer layer with its resulting rating and patch lineage. This recipe assumes the patch fills the whole worn area. Partial patches need a coverage measure for the available offcut.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `f6dee8c4056e98dcbc70b7e4829beb710d95c9ddbc729ce49ec86f924624c99b`. Patch settlement, heat exposure and separation were exercised after JSON restore in the headless workshop. The docs check flags unrelated shared claims.
+
+### Patch the worn area in measured increments
+
+An offcut can state the percentage of the outer layer it covers. A job spends one offcut and one thread, fills up to that area and leaves the remaining wear on the lining. Offcuts from earlier saves retain the full-area behavior. The workshop stores the average insulation across intact material and scales it by remaining coverage when heat lands. Two 25-point cloth patches fill a 50-point worn area, reducing the same twenty-point dose from ten damage to nine and then eight. Separating the lining after the first patch returns the outer material at twenty-six insulation, with the remaining wear included.
+
+Each offcut is consumed as one stock unit. Recovering unused area from an oversized offcut would need cutting and remnant stock with measured area.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture and rules passed. Isolated game build SHA-256 `430dd6b8cee0691e8f492710dbbc032b9456b87cb7ef401e835d505cbc016d9f`. The headless workshop exercised restore during each patch and before separating the partly patched lining. The coverage check failed in the unrelated anti-jinx varnish case on a substrate quantity declaration. The docs check flags unrelated shared claims.
+
+### Reuse the unused area of a measured offcut
+
+A patch job cuts only the area needed from an explicitly measured offcut. It spends the original stock unit and returns any excess as one smaller offcut with the same material key, insulation and density. The headless test uses fifty points from a seventy-five-point offcut and recovers twenty-five. A later crossing abrades twenty-five points. A second paid patch uses the saved remnant and reduces damage on the same twenty-point dose from eight to seven. A competing job produces no duplicate remnant.
+
+Unmeasured offcuts retain the legacy full-use behavior. Measured offcuts are patch stock. Reweaving them into a new lining would require an area-based recipe to account for several small pieces as one full cloth unit.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `430dd6b8cee0691e8f492710dbbc032b9456b87cb7ef401e835d505cbc016d9f`. The headless workshop exercised cutting, saving, abrasion and reusing the remnant. The docs check flags unrelated shared claims.
+
+### Join measured offcuts into a full cloth unit
+
+A three-minute job stitches selected pieces from two measured lots. It consumes one thread and requires one hundred area points. The restored workshop job combines a twenty-five-point patch remnant and three twenty-five-point hide offcuts, returning one full cloth unit with no area loss. It keeps the exact material keys and spent areas, and leaves the fourth hide offcut in stock. An undersized attempt leaves stock and thread intact. Two jobs competing for the remnant settle one join.
+
+Insulation and density are weighted by area. The resulting cloth can use the existing reweave and refit path. In the test the finished lining takes fifteen damage from the twenty-point heat dose. The recipe uses two lots and an exact total. More lots or cutting a larger total into several units would need allocation and remainder rules for that job.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `2a0b84f76b5236852c911c5505d042c1744572ff53b244a2ea9ff841ae606122`. The headless workshop exercised join, reweave and refit after restore. The docs check flags unrelated shared claims.
+
+### Join three measured offcut lots and return the trimming
+
+The join can bind a third lot and trim surplus from the last selected piece. The same settlement debits the selected pieces and thread, creates the full cloth and returns a measured remnant with the last piece's material and insulation. The restored workshop test uses 110 area points, returns 100 as cloth and 10 as a trimming, and accounts for all 110 without loss. The cloth uses only the area that actually went into it when weighting insulation. Rewoven and fitted, it takes thirteen damage from the twenty-point heat dose.
+
+Older pending joins retain their exact-total behavior. The workshop cuts at most one selected piece for one finished unit. Bulk output needs a rule for assigning lots across several cloth units.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `f1929224b449f4419a0e2f4a6d742d079b8c7354d20bb5331b006148f4a4f2fc`. The headless workshop exercised join, trimming, reweave and refit after restore. The docs check flags unrelated shared claims.
+
+### Join an offcut batch into individually measured cloth units
+
+A batch uses the selected lots in binding order. Each hundred area points become one cloth unit with its own input shares, physical parents, insulation and density. The job spends one thread per finished unit. Excess on the final piece returns as a measured trimming. Earlier pending jobs with no batch count still make one unit.
+
+The restored headless comparison turns 210 area points into two full units and a ten-point trimming. The first unit contains twenty-five cloth and seventy-five hide. The second contains twenty-five hide and seventy-five from the more insulating third lot. Reweaving and fitting each unit yields fifteen and ten damage respectively from the same twenty-point heat dose. The workshop currently binds two or three lots, makes up to sixteen units per job and trims only the final piece. Arbitrary lot lists would need a variable-input working binding or a staged allocation.
+
+**Verification.** PC95, ENF14/ENF16/ENF19, AD36/AD38/AD51 and FBC4–FBC7. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `3a24dd270ec1faaa916120d0267595411e3e3668b498b885738345ba61447a97`. The headless workshop exercised batch settlement, reweaving and fitting after restore. The docs check flags unrelated shared claims.
+
+### Appraise the heat protection of recovered and inscribed cloth
+
+An observer can appraise the heat that passes through a lining, including material insulation, stitched layers, condition and inscriptions. A fitting forecast combines the latest saved observations of the proposed parts. It reports the oldest observation used so a maker can tell when a change needs a fresh reading. The existing fire-strike forecast continues to use its own observations.
+
+In the restored headless test, recovered cloth takes thirteen damage from a twenty-point heat dose. A fireproof inscription adds insulation to the same cloth and lowers damage to eleven. The appraisal before inscription still predicts thirteen. Reappraisal predicts eleven and the fitted part reproduces it. The workshop forecasts a fixed dose from observed gear. A route forecast would also need evidence about the hazard and what can change in transit.
+
+**Verification.** PC95, ENF14/ENF17/ENF19/ENF21, AD36/AD38/AD51 and AR3/AR6. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `2bef8a091861f2cd68d8a5292a6de1bd93e1e3a5be76970b5393416420ff3a28`. The headless workshop exercised appraisal, inscription, fitting and exposure after JSON restore. The docs check flags unrelated shared claims.
+
+### Forecast a surveyed heated crossing from the worn lining
+
+The wearer can survey a heated path from its entrance and save that direction's duration and heat as an observation. A crossing forecast combines the survey with that wearer's observations of the fitted lining. It reports the route and lining observation times. The return direction requires its own survey because the destination can have different heat.
+
+The restored headless comparison predicts sixteen damage for the four-minute crossing and the minute-by-minute crossing applies sixteen. When the kiln is stoked, the old survey still predicts sixteen. A new survey predicts thirty-two and the crossing applies thirty-two. The forecast assumes the observed heat and protection hold for the crossing. Predicting timed gear changes, ward depletion or changing hazards along the way needs an explicit travel schedule and corresponding observations.
+
+**Verification.** PC95, ENF14/ENF19/ENF21/ENF22, AD36/AD38/AD51 and AR3/AR6. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `7b1fd2da2e9ff44e43541ef14cafe7dda67c7ea425c92279e622e584b561cf23`. The headless workshop restored both surveys and appraisal and compared the forecast with settled travel. The docs check flags unrelated shared claims.
+
+### Forecast a heated crossing with an exposure ward
+
+The crossing forecast can combine the route survey, lining appraisal and a saved ward inspection. It uses the same minute-by-minute rounding as travel and projects charge decay, pulse spending, room for captured heat and strain on the mount. The wearer must still have the inspected ward fitted. A charge appraisal from an older save can still forecast a single contact, and a fresh inspection supplies the mount and reserve observations needed for travel.
+
+In the restored headless comparison the steady ward spends two pulses and takes eight damage. With decay, only one pulse fires, leaving two charge and twelve damage. A fragile mount also permits only one pulse before breaking. The forecast assumes the inspected gear and surveyed heat remain in use and that no other action changes the ward, lining or route mid-crossing. Forecasting those changes needs the planned actions and hazard schedule.
+
+**Verification.** PC95, ENF14/ENF18/ENF19/ENF21/ENF22, AD36/AD38/AD51 and AR3/AR6. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `7b1fd2da2e9ff44e43541ef14cafe7dda67c7ea425c92279e622e584b561cf23`. The headless workshop restored the appraisals and compared the forecast with actual warded travel. The docs check flags unrelated shared claims.

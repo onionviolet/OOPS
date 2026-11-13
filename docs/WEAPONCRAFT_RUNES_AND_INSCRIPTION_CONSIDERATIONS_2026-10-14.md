@@ -1099,3 +1099,825 @@ All1081 pre-fold lines were read in complete1–150,151–300,301–450,451–60
 ## Content reconciliation B548: sourced making and retained blueprint idea
 
 [Maker-arts source catalogue](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md) has now been fully content-reviewed in B548. The earlier Corrections section already folds its source distinctions. In the imported alias table, MKR-OM15 and RC8 finished-design combination remain useful original proposals; the cited Legendary Mechanic source instead combines knowledge/talents into a blueprint. Do not treat those retained donor labels as verified franchise manufacture or delete the creative idea. WQ MEMORY/inherited-source rows keep their later W1 evidence corrections: local attunement/armament/profile rules, manufactured blank versus soul release, formula versus supplied spell, continuity/energy conflicts and weaving-anchor uncertainty. This is documentation reconciliation under AD32, not a new crafting implementation or source reread.
+
+## Round 5. What an enchantment changes, 2026-11-12
+
+**ACT NOW.** The [Tingen receipt](CRAFTING_ENGINE.md#tingen-staged-silver-and-worn-protection-2026-11-12) supplies a concrete distinction for XD7. Klein inscribes both faces and spends Spirituality to finish the same silver. The worn piece changes an ordinary mishap check and wanes from its binding date. Minecraft's enchanting table and enchanted-book anvil are ways to acquire named item upgrades. Its effects include always-on modifiers, conditional effects, changed actions and maintenance, such as Protection, Smite, Riptide and Mending respectively. Take the readable named effect and the multiple acquisition routes as reference ideas. Let the world's source decide how it is made and what it does. [Minecraft creator guide](https://learn.microsoft.com/en-us/minecraft/creator/documents/introtoenchantments) · [Official effect list](https://help.minecraft.net/hc/en-us/articles/360058730912)
+
+**ACCOUNT FOR NOW.** ENF1–ENF7 are proposals under AD38, AD51, RN3–RN9 and ESD1–ESD7. The examples and values are original design dials. Pair each acquisition method with a consumer that can distinguish its result.
+
+| Code | Effect | What changes in play |
+| --- | --- | --- |
+| ENF1 | Passive gear bonus | A strengthened edge adds power on a landed cut. An inscribed liner reduces the remaining damage from a hit that reaches its coverage. Flat armor, outgoing penetration, general damage taken, typed resistance, critical resistance and block stay distinct in the existing [combat math](../src/combat_math.js) and [gear palette](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md). |
+| ENF2 | Resistance, avoidance and prevention | A fire lining reduces burn damage while a shock-dispersing insert reduces stagger. A poison seal can reduce delivery into the body, slow buildup, or shorten a poison already present, depending on its mechanism. Tingen's charm changes whether the mishap occurs. A ward intercepts an incoming effect. These readers settle different consequences. |
+| ENF3 | Charged reactions and active abilities | A shield discharges on the first qualifying blow and absorbs up to its remaining charge. A weapon releases a pulse when invoked or when its strike lands, depending on its trigger. A ring can spend power to cast a light on demand. [Stored workings](../src/stored_working.js) already model trigger, target, reach, charge and upkeep. |
+| ENF4 | Tool and travel affordances | A pick preserves a fragile sample so it can be planted or studied. A different pick extracts extra fragments from the same seam within its material budget. Boots grip on wet stone or lighten a landing. The action's yield, route, time or consequence carries the benefit. |
+| ENF5 | Maintenance and temporary treatments | A hard coating wears instead of the edge for a while. A mending pattern repairs condition from a real fuel account. A replacement grip can restore ordinary use while the original etched blade retains its own binding. Breaking the etched blade may break the working where its pattern crosses the fracture. |
+| ENF6 | Inherent, installed, attuned and bound | A material can supply a trait by itself. A socketed charm can travel with the insert when moved. An inscription can stay on the actual blade through a handoff. A personal pact can require the new bearer to attune, or let the old bearer call a loaned item back under its terms. Custody, eligibility and the carrier's remaining power are distinct saved facts. |
+| ENF7 | Conversion and tradeoffs | An unusual shield routes blocked force into a reservoir that powers the next shove. It has a finite receiving capacity and excess force reaches the bearer. Credit the reservoir once from the actual intercepted force. A reflected hit is a new consequence attributed to the shield, with its own response rules. |
+
+**Damage example.** An illustrative 20-point physical hit meets 6 flat armor, leaving 14. A matching 25% reduction takes it to 10.5. A charged shield that intercepts 8 at the outer layer instead passes 12 into armor and spends 8 charge. If the same armor and reduction then apply, 4.5 reaches the body. Fire resistance uses the fire portion or the attack's declared type mix, according to the local combat resolver. If the blow also causes stagger, bleeding or poison delivery, each consequence reads the defense that can affect it. The native pipeline already orders flat and percent mitigation and applies the type modifier. The headless [contest strike](../src/contest_resolvers.js) currently reads flat armor and guard. Its future typed-resistance case must explicitly connect a worn source to an existing resolver. Charge is spent at settlement, and a combat preview can report each source without paying it.
+
+**Acquisition choices.** A world can offer named recipes or books for predictable work, experimentation on a medium, gems and modular parts for reversible refits, found affixes for discovery, and attunement or commissioned work for rare bindings. Tingen starts from the authored inscription. A Minecraft-like workshop could expose a short list of common named patterns and let unfamiliar effects be appraised later. More ranks can mean stronger mitigation, broader coverage, lower charge cost or longer useful life, depending on what the technique actually improves. Show the changed property before binding when the maker knows it. On transfer and restore, retain the real item's identity, condition, remaining charge and age where those facts apply.
+
+**LATER / DELEGATE.**
+
+| Priority | Level and effort | Done check |
+| --- | --- | --- |
+| ENF8. One typed defensive lining | Balanced, medium | Same saved draw against plain and inscribed copies with identical base armor. Matching fire damage changes, an ordinary cut follows the base armor, a mixed hit shows where the effect applies, and unequipping removes the bonus. The headless receipt names the actual worn source and outcome after restore. |
+| ENF9. A charged carrier or a repair that moves the working | Balanced, medium | When a selected source supports it, exercise the same carrier before and after handoff or part replacement. Check one charge debit on a qualifying release, replay after JSON restore, and a failed use tied to its missing charge, missing pattern or bearer condition. |
+| ENF10. A noncombat enchantment with a new use | Balanced, small to medium | Compare the same source material with ordinary and preservation tools. The resulting intact sample reaches an existing planting, appraisal or research action and survives a restore. |
+
+## Round 6. Fitted fire lining, 2026-11-12
+
+**ACT NOW · ENF8.** The previous round had native typed combat and a headless contest with flat armor. The [workshop pack](../src/world_packs/fire_resistant_lining.js) now fits one exact liner to a breastplate, and the [contest strike](../src/contest_resolvers.js) calls the existing [typed damage reader](../src/damage_types.js) after flat armor and guard. Typed resistance scales vitality removal. It leaves other published consequences to their own readers. The plate retains its identity and references the installed liner. The cost owner debits one loose stock unit. The wear action points the torso slot at the plate the wearer actually holds, and each new bout reads that slot and the installed part.
+
+| Same seeded strike | Plain plate | Fitted plate | Unequipped after restore |
+| --- | ---: | ---: | ---: |
+| Cut | 25 | 25 | 31 |
+| Fire | 25 | 15 | 31 |
+| Half cut, half fire | 25 | 20 | 31 |
+
+The trial uses authored values for an original workshop fixture: 6 flat armor, 40% reduction of the post-armor fire share, and three minutes to fit an already enchanted liner. Starting from the same plate and seed makes its flat armor and the raw roll common to both sides. JSON restore mid-fitting matches uninterrupted settlement. Restore after fitting preserves the result, restore after unequipping preserves the bare result, and re-equipping the same plate restores its benefit. Misfit and provider loss leave the unit unspent, and overlapping fittings spend it once.
+
+**ACCOUNT FOR NOW · ENF11.** Keep the chassis, the fitted part, the worn slot and the effect reader distinct. The plate has the same base protection with either loadout. The exact liner supplies the fire multiplier when fitted and worn. This lets a future repair restore the chassis without refreshing a worn lining. A compatible replacement can change which damage the plate resists. Item inspection can trace the bonus from the plate to its installed part. This contest snapshots the worn profile when the bout starts. Changing equipment during a bout would need a timed equipment action and a current-loadout read at settlement. The fixture implements fitting and wearing. Creation of the enchantment itself remains a separate making case.
+
+**LATER / DELEGATE.**
+
+| Priority | Level and effort | Done check |
+| --- | --- | --- |
+| ENF12. Refit and recover a component | Balanced, medium | Replace the exact liner, restore the save, and show the same plate's resistance follow the replacement. Return the old component or its salvage once, at the condition the work leaves it in. |
+| ENF13. Compare a charged defense | Balanced, medium | With the same mixed hit, compare a passive liner with a stored working that spends charge to intercept part of the blow. Keep the charge delta and the body's damage through restore. |
+| ENF14. Distinguish wearer protection from exposure | Balanced, medium | Use the same fitted part on a fire hit and on sustained heat. Add a heat exposure reader when the part's material supports it, and track what reaches the body over time. |
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33, ESD1/ESD7 and KW5/KW10/KW15. Base `4d4505223bae7c097a3a1c833f195ea53f8d0e26` plus live shared inputs. One new pack and focused test, one existing strike reader extended, no new save schema or game registration. The [headless fixture](../tests/fire_resistant_lining.test.js) ran through actual contest vitality settlement. Agent-verified under PC95. Game tie-in and full suite remain separate gates.
+
+- `node --test tests/{fire_resistant_lining,contest,contest_consumers,damage_types,craft_assembly,engine_host,lotm_amulet_inscription,paradise_dragon_flash}.test.js` passed 54/54.
+- `check:arch`, `check:coverage` and `check:rules` exited 0. Rules reported the existing exam-clock, private-pack glob and shared PROJECT direction-sync warnings.
+- Isolated `BUILD_OUT=<temporary directory> npm run build` passed with the existing duplicate-key warning in `travel_legs.js`. Bundle SHA-256 `2f29f55f9dca6a59a200db3d53b2d95932411e52efd1b536132c27d906ab0707`.
+- Scoped whitespace and local links passed. `check:docs` reports the unrelated W18 seam note at line 29.
+
+## Round 7. Item enchantment capability coverage, 2026-11-12
+
+Weibao asked for comprehensive capability coverage first, with each world free to use the subset that fits it. The scope here is the item system and ENF1–ENF14. Canon bindings keep their own requirements. Original workshop rows exercise shared capabilities under PC95.
+
+| Capability family | Existing owner and integration target | Distinguishing evidence |
+| --- | --- | --- |
+| ENF15. Acquire and create | Rune grammar, material and fabrication laws, working kernel, stock and cost owner. Named recipes, experiment, discovered affixes, material traits, copy, paid service and practice are different inputs. | The maker binds an actual blank, pays for work, and a consumer reads the resulting effect. Failure retains the correct input state. |
+| ENF16. Fit, custody and recovery | Substrate identities and custody, fabrication fit and salvage, item condition. Include install, swap, unequip, lend, transfer, attune, repair, detach, break and reclaim. | The same chassis changes behavior with its installed part. The returned part keeps its condition and cannot be recovered twice. |
+| ENF17. Passive and conditional effects | Equipment and combat profiles, typed combat, mishap, exposure, status, harvest and travel owners. Include flat and percent changes, typed harm, avoidance, secondary consequences, action availability and output quality. | The changed action or harm is settled by its actual reader. Compare with the same input and seed. |
+| ENF18. Active, reactive and maintained effects | Stored working, kernel effects, guard layers and cost owner. Include use, hit/contact/condition/time triggers, keys, reach, decay, recharge, renew, damage absorption, conversion, reflection and failure. | Actual payload or intercepted harm changes and a finite account is charged once. Restore before and after firing. |
+| ENF19. Composition, knowledge and provenance | Rune grammar and pattern combinations, knowledge, working receipts, item lineage. Include slots and capacity where local law uses them, stacking and interference, appraise, forecast, repair history and transfer terms. | Compare two compositions or readers. Keep physical facts, what the bearer knows, and what is disclosed distinct. |
+
+**ACT NOW.** The first implementation pass connects all five families to existing owners. Coverage below distinguishes the exercised paths from features that still need a connection or a source-specific rule.
+
+| Family | Headless evidence in this pass | Remaining item-level connection |
+| --- | --- | --- |
+| ENF15 | A named recipe and an experimental rune sequence run through the same grammar. Three marks produce 40 fire resistance and 20 insulation for three ink. An incompatible pair spends two ink and leaves a blank. | Copy a known design onto a fresh carrier with its source lineage. Exercise discovery and paid specialist services. |
+| ENF16 | A timed refit installs a distinct liner, returns the original at condition 50, and preserves the plate's identity. Thread repairs the old part to 75. Salvage credits scrap once. A transferred plate keeps its liner. Detaching it restores the bare plate's profile. | Bind removal and transfer terms to loans, cross-world routes and actual breaking events. Add condition loss from real use. |
+| ENF17 | A fitted liner changes matching combat damage and the dose from sustained heat. The enchanted harvest edge runs the native harvest planner and settles one exact pelt, from quality 70 in four minutes to 85 in two. | Connect live status delivery, movement and environmental tick owners. The heat fixture receives a dose, and the harvest fixture supplies an enchanted edge and an authored specimen draw. |
+| ENF18 | A worn ward catches four of twelve incoming damage on its matching channel. Stored charge exhausts, paid recharge restores use, and attunement changes what happens after transfer. Eight intercepted points enter a finite carrier account. Spending five removes five vitality from a reachable target and leaves three in the account. | Run this ward inside a timed contest, and connect genuine reflection, timed maintenance and carrier break events. Existing stored-working fixtures independently exercise contact, event, time, threshold, decay, renewal, reach and break behavior. |
+| ENF19 | Rune composition executes before inscription, fit checks the actual interfaces, and the saved working and harvest keys retain the observed result. The installed part and wearer remain distinct. | Add appraisals whose observations control disclosure, previews for item operations, and interactions among multiple installed or inscribed effects. |
+
+**ACCOUNT FOR NOW.** All three workshop adapters opt in through their host config. No global item recipe or enchantment list is assumed. Match the local carrier, input, activation, and effect to an actual reader. The fixture uses original tuning values, a bespoke workshop torso slot, an authored heat dose, and a ward-hit entry point separate from the timed contest. The shared owners still hold the time, cost, stored charge, typed harm calculation and identity-bearing stock. These capabilities are available headlessly. Game tie-in follows PC95.
+
+**LATER / DELEGATE.**
+
+| Priority | Level and effort | Done check |
+| --- | --- | --- |
+| ENF20. Timed gear and secondary consequences | Balanced, medium | Same mixed hit before and after timed unequip, including a saved in-flight strike. Show the armor, ward, heat and status effects use their respective readers. |
+| ENF21. Copy, appraisal and multiple effects | Balanced, medium | Copy an actual inscription, retain the source, and appraise with two observers. Confirm two compatible effects and one interfering pair change a settled action. |
+| ENF22. Item use across custody and other actions | Balanced, medium | Run one loan or return with exact item custody, plus one travel or status affordance. Verify condition, charge, output and authorization through restore. |
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33, KW5/KW10/KW15, RN3–RN9 and ESD1/ESD7. Base `4d4505223` plus shared live inputs. The three workshop adapters and two focused fixtures require zero game registration or new save schema. Agent-verified at fixture scope.
+
+- `node --test tests/{fire_resistant_lining,enchanted_harvest_tool,contest,contest_consumers,damage_types,craft_assembly,engine_host,lotm_amulet_inscription,paradise_dragon_flash,rune_grammar,harvest,stored_working,stored_working_engine}.test.js` passed 103/103.
+- Architecture, coverage, and rules checks exited 0. Existing warnings cover the exam clock, private-pack glob and the shared PROJECT direction sync. Isolated build passed with the existing duplicate-key warning in `travel_legs.js` and bundle SHA-256 `b8747bec85dd7a23b3baae6da45ebcbb9d66e0c40123da5ecf6132e53c9ce127`. The full suite is the committer gate.
+
+### ENF21. Physical copying and observer appraisal
+
+A timed copy rereads the exact loose source inscription, pays ink and writes the same marks on another blank. The receipt records the original carrier. The source keeps its own condition, stock and inscription. The copied two-mark pattern reduces the same fire strike from 25 to 15 and leaves the heat dose at 20. The earlier three-mark pattern reduced both. The unknown pair still spends ink without binding. Appraisal uses the existing knowledge pack and exposes the copied liner's nominal resistance to the observer who inspected it. A second observer has no appraisal record. Restore preserves both distinctions. This reuses the local rune grammar and knowledge owner independently, with no external code ported. The previous reference intake already pins the relevant staged-craft and modular-part references.
+
+The executable copy and appraisal slice uses a loose source, direct local inspection and a known rune grammar. Reopen transfer of authorizations and hidden qualities when a source case needs them. Reopen multiple fitted sources when a loadout must combine them at one actual consumer. ENF20 needs the contest owner's current-loadout read at release, and ENF22 needs the real travel or status owner. Shared working and contest files were read for boundaries during this continuation.
+
+Focused lane and related tests passed 104/104. Build SHA-256 `a8ddc45637ac8f34553a9e23cad0bd61e7766da1391484fcebd70651f351e0b0`. Architecture, coverage and rules exited 0 with the pre-existing shared warnings. Scoped whitespace passed.
+
+### ENF22. Borrowed armor on a heated crossing
+
+The workshop now lends the actual breastplate with its fitted part. Custody moves to the borrower and the plate keeps a lender reference. The borrower can wear the gear and return it, while fitting, detaching, gifting, and relending require the owner's custody. Returning clears the borrower’s worn slot and the loan marker. The test restores between lending, crossing and return.
+
+The travel consumer uses an open substrate link and advances the engine by its travel time. The destination supplies authored heat per minute and any abrasion for that approach. The four-minute kiln walk settles 20 vitality loss without the lining and 16 with it. The body and carried items reach the destination together. A closed link refuses admission. In the abrasive variant, the first crossing wears the liner from 100 to 50 condition. After restore, the return crossing costs 18 vitality and the combat fire multiplier changes from 0.6 to 0.8. The route applies its exposure and abrasion at arrival. Finer exposure timing reopens when a route needs changing hazards along the way or the timing of protection changes matters.
+
+Reference scout for the worn-gear-to-travel seam: Luanti's 3d Armor at `a4f311cbcf8125b4b83ba884d1d0d12f018021da` lets worn pieces modify movement and environmental protection. OOPS independently uses a worn profile and an actual world-link crossing. 3d Armor source is LGPL v2.1, copyright 2013–2023 Stuart Jones, with separate media notices. [Armor API examples](https://github.com/minetest-mods/3d_armor/blob/a4f311cbcf8125b4b83ba884d1d0d12f018021da/3d_armor/README.md) · [Pinned license](https://github.com/minetest-mods/3d_armor/blob/a4f311cbcf8125b4b83ba884d1d0d12f018021da/LICENSE.md)
+
+The loan is a local custody agreement for one breastplate. Enforcement across worlds, duration, and compensation reopen with a concrete loan needing the binding and boundary owners. ENF20 still needs the contest owner's read at release. No shared working, contest or travel file was edited in this continuation.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and MR29–MR33. The 16-file focused run passed 134/134, including the workshop, fabrication, process, contest, binding, substrate and stored-working tests. Architecture, coverage and rules exited 0 with existing shared warnings. Isolated build SHA-256 `a8ddc45637ac8f34553a9e23cad0bd61e7766da1391484fcebd70651f351e0b0`. Scoped whitespace passed. The full suite remains the committer gate.
+
+### ENF18. Reflection shares one intercepted packet with conversion
+
+The [ward adapter](../src/world_packs/gear_ward.js) now supports a local reflection percentage. In the focused comparison a seven-point fire packet loses four to the ward, and the wearer takes three. Two intercepted points remove vitality from a reachable attacker, and two enter the carrier's stored-force account. The existing stored working spends one four-charge pulse. After restoring and moving the attacker out of reach, the next interception reflects zero and sends four to the carrier. The fixture uses direct vitality settlement for the reflected consequence. Reopen reflected damage through the combat owner's response rules when the shared release seam can apply equipment and consequences on both sides. The physical part and paid process continuation also has a [fabrication receipt](CRAFTING_ENGINE.md#paid-steel-process-through-provider-loss-and-assembly).
+
+### ENF21 and ENF22. Layered parts and exposure barriers
+
+A breastplate can now accept a liner and an insert. Each checks its own physical interface, spends its own loose stock unit and keeps its own identity and condition. This workshop's layers multiply the fraction of matching harm that reaches the wearer. A 40% lining and an insert delivering 20% at half condition leave 48% of the fire portion. With the original seed, the restored two-part plate takes 25 cut, 12 fire and 18 mixed. Detaching the insert restores the single-lining result of 25, 15 and 20, returns the insert at 50 condition and keeps the liner installed. Both parts follow the same plate through a loan and crossing. The pinned Luanti reference in ENF22 illustrates multiple worn sources. The fit, exact part identity and multiplicative rule here are OOPS implementations.
+
+The workshop can also supply an exposure barrier to the existing affliction reader. With the same failed save, cellar spores open an inhaled poison track without the seal. An intact worn seal prevents that exposure. After restore, removing the plate or tearing the seal admits the same track. This is the contact-to-affliction admission boundary, before a body owner takes custody of an admitted track. The fixture's seal requires full condition because a tear opens a path for the cloud. Persistent affliction scheduling reopens when the shared living-body owner supplies a track slot and clock. The two-slot fit is workshop data. Timed contest settlement still needs the contest owner's live loadout read. No shared runtime file was edited in this continuation.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33. The 17-file focused run passed 147/147, including the workshop, affliction, process, assembly, contest, binding and stored-working tests. Build SHA-256 `ae27651a2613d9e1d89e0fbf55810aa316e67258d986a08ed8626e79527ab25e`. Architecture, coverage and rules passed with existing shared warnings. Scoped whitespace passed. The full suite remains the committer gate.
+
+**Pointer, 2026-11-12 · enchanted gear at tie-in.** AE1–AE5 in the [carry-out](PROCEDURAL_CARRY_OUT.md#round-2-kinds-of-fight-spell-fights-world-sense-the-gu-panel-and-enchanted-gear-2026-11-12) list what ENF1–ENF22 still need to matter in a played fight: the contest's loadout read at release (ENF20), the game's equipment slots, opponents with typed attacks, one neutrally named layer reader, and each world's own carriers. Proposals; this palette stays the owner.
+
+### ENF15. Commissioned inscription
+
+The named-pattern route now includes a [paid specialist commission](CRAFTING_ENGINE.md#specialist-commission-on-a-customer-owned-liner). Save and restore preserve the named maker, customer and blank. Settlement consumes maker ink, transfers the customer's fee once and writes the usable pattern to that exact part. The commissioned liner changes both the fire hit and the separate heat consumer. Discovery by loot and selection among service offers remain distinct acquisition paths.
+
+### ENF16 and ENF18. Repair a broken ward carrier and renew its inscription
+
+Breaking a worn shield now sends a forced activation to the existing stored-working owner, which records the ward's quiet break. A paid working repairs the exact carrier with one rivet in three minutes. Repair clears the physical break. The separate renewal spends three ink, restores charge and schedules the next pulse from the current clock. The test crosses a JSON save while repair is pending and restores again after renewal. Two competing repairs spend one rivet, and an attempt to renew while the carrier is broken spends no ink. The same seven-point fire packet deals three while the ward works, seven after the break and after physical repair, and three after renewal. This is a workshop break event. Automatic damage to the carrier during contest settlement still needs the contest owner to publish the break and pass the resulting ward state to the next strike.
+
+The two-part recovery uses the project's existing repair and stored-working mechanisms. The pinned Tinkers’ Construct material-repair example in the crafting owner informed the use of a physical repair input. This workshop independently implements a rivet repair and keeps inscription renewal under the existing stored-working owner.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15. The 17-file focused suite passed 149/149, including the [workshop test](../tests/fire_resistant_lining.test.js). Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `eeffc9f90316b98d84d5210c4d5de8310eb41579d005c23f552e6f5102f2c26c`. The full suite remains the committer gate.
+
+### ENF18. A weapon inscription answers a landed blow
+
+The workshop weapon uses the stored-working event reader to answer the contest's saved blow. The adapter checks the bearer, exact equipped weapon, journal cursor, contact place and target. One charge releases five additional damage into that target through the existing effect host on the next world pulse. Restoring between the blow and pulse produces the same saved world as advancing directly. Another combatant's strike, a blow from before binding, and removal before the pulse leave the charge intact. Re-equipping also advances the contact boundary, so the earlier blow stays spent as an opportunity. Restoring again cannot fire the same event twice.
+
+The headless bout uses body holder IDs as entrants and binds one strike inscription per weapon. The pulse is a separate response after the landed blow. The original effect calibration comes from the workshop case, and the trigger reuses the stored-working event contract. Timed release inside a contest and reflection using the target's combat defenses still need the contest owner's release interface. A far contest's aggregated record needs a per-hit source when a world wants this enchantment to answer each strike there.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW5/KW10/KW15. The 18-file focused run passed 150/150, including the [strike inscription test](../tests/strike_enchantment.test.js). Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `a8e3ae0f7c400ce49dc51137a788586cced8c887cd022e986d1bf3a338cf895e`. The full suite remains the committer gate.
+
+### ENF16 and ENF18. Repair a blade and renew its strike mark
+
+**ACT NOW.** A break silences the inscription through the stored-working owner. A three-minute job spends one repair supply to restore the blade. A separate paid renewal restores the mark and sets its event cursor to the current journal position. A queued blow from before the break stays quiet. After JSON restore, the first new landed blow fires the restored mark for five damage and spends one charge. Competing repairs spend one supply, and transfer during repair interrupts the original bearer’s job.
+
+**ACCOUNT FOR NOW.** The workshop can trigger a break through its explicit blade action or through the wear rule below. The test uses two ink for renewal.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 310/310. Architecture, coverage and rules passed. Isolated game build SHA-256 `87fef91ec1e81d34bf6bd7e138eefc77fe06e636021c5bcf1153704bd174e95b`. The headless workshop restored the blade repair, renewal and landed-blow pulse. The docs check flags five claims in other documents.
+
+### ENF5 and ENF18. A landed blow can fracture an inscribed blade
+
+**ACT NOW.** An opt-in workshop pack reads the existing near-contest blow event. A matching physical blow wears the exact equipped blade. A blade that reaches zero condition breaks before the next stored-working pulse. In a bout restored before the same blow, a blade at twenty-one condition survives the twenty-point wear and deals five extra damage on its pulse. A blade at twenty condition breaks, retains both charges and goes quiet. Repair returns the blade to full condition and paid renewal restores the mark for later blows.
+
+**ACCOUNT FOR NOW.** The workshop authors wear per blade. A blade may also use the reference load below. This reaction uses near-contest events with body IDs as entrants. Far contests need a per-hit event or an authored aggregate wear rule. The wear applies after the physical hit and before the separate inscription pulse.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related files passed 311/311. Architecture, coverage and rules passed. Isolated game build SHA-256 `7f86d2ce2a77b052e4dfefea90e9ca7a54c32e8701f08d5819c7dde3a8f4017f`. The headless test restored before the physical blow, before the stored pulse and during blade repair. The docs check flags five claims in other documents.
+
+### ENF5 and ENF18. Service a worn blade before it fractures
+
+**ACT NOW.** A three-minute service uses one repair supply to bring the exact worn blade back to full condition. In the restored comparison the same landed blow fractures the untreated blade at twenty condition. The serviced blade finishes at eighty and its original inscription spends its remaining charge for five extra damage. Competing service jobs spend one supply, and transferring the blade interrupts service.
+
+**ACCOUNT FOR NOW.** The general-supply job uses a full service on an unbroken blade. Fracture follows the separate repair and renewal route.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC6, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 317/317. Architecture, coverage and rules passed. Isolated game build SHA-256 `20e09ade8b3f1abc519f29f19df922ec51c6e4146acb8b5f66116c0fce3bd69d`. The headless workshop restored the service and compared the next landed blow. The docs check flags five claims in other documents.
+
+### ENF5 and ENF16. Service a blade with an identified material lot
+
+**ACT NOW.** A blade can specify a service material. The three-minute job binds an identified lot and spends one unit. Its authored repair yield determines the condition restored. In the restored comparison, a soft iron lot brings the blade from ten condition to fifteen, and a tempered iron lot brings it to thirty-five. The same twenty-point wear fractures the first blade. The second survives and its existing inscription deals five extra damage. A mismatched lot or one moved out of reach leaves the stock intact. Competing jobs spend the single selected unit once.
+
+**ACCOUNT FOR NOW.** This workshop uses a material match and a condition gain per unit. Generic supplies service blades with no specified material. The comparison above authors its two lots directly. A separate [fabrication comparison](CRAFTING_ENGINE.md#forge-a-blade-service-lot-from-recovered-iron) makes the service lots from recovered iron and uses them on the same blade.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC6 and KW5/KW10/KW15. Twenty related files passed 318/318. Architecture, coverage and rules passed. Isolated game build SHA-256 `19ac1a52b6566f676c5808c17eed3b2835f826e9d8388b769fc292b57917eeb8`. The headless workshop restored the paid service and the following strike pulse. The docs check flags five claims in other documents.
+
+### ENF5 and ENF18. Scale blade wear by the landed blow
+
+**ACT NOW.** A blade can declare a reference load for its wear rate. The fabrication wear law scales condition loss by the landed vitality-removal amount relative to that load. The headless workshop restores two matched bouts with the same blade at twenty condition and a twenty-point reference load. A lighter cut leaves the blade sound and its inscription fires. A heavier cut exhausts the blade and its pulse stays quiet.
+
+**ACCOUNT FOR NOW.** The workshop uses the contest's reported damage as a proxy for the load carried by the blade. Blades without a reference load use their fixed wear rate. Modeling impact against a surface that absorbs all damage requires the contest to report the physical contact load independently of landed damage.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC6, AR3/AR6 and KW10. Twenty related files passed 311/311. Architecture, coverage and rules passed. Isolated game build SHA-256 `311e9098b81715dd688d0a70abf3641ca43bacfad1678e857ddf9291dd1c4a55`. The headless comparison restored each contest before the blow and each inscription before its pulse. The docs check flags five claims in other documents.
+
+### ENF18. Exempt a marked target from a strike inscription
+
+**ACT NOW.** A strike inscription can name target marks that bypass its pulse. The stored-working owner checks the actual target at release. In the restored test, adding the truce mark after the physical blow leaves the target's vitality and the inscription's charge intact. Marking the wielder leaves the pulse free to fire. Removing the target's mark after a bypass leaves the old blow quiet. A fresh blow can spend the preserved charge.
+
+**ACCOUNT FOR NOW.** This workshop checks the target's current mark at the next world pulse. Typed pulse defense still needs the stored-working host to route vitality effects through the pre-damage impact handler and carry the updated ward records and receipts forward.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related files passed 312/312. Architecture, coverage and rules passed. Isolated game build SHA-256 `f4ca8017c8d3a91d451a72dd3e2fe786ba37ad8f1b21d1684bc7a47fa91002b7`. The headless test restored the pending pulse and confirmed that the retained charge fired on a fresh blow. The docs check flags five claims in other documents.
+
+### ENF6 and ENF22. Retune a transferred strike inscription
+
+**ACT NOW.** A personal strike mark answers the attuned bearer. A gift moves the exact blade and its remaining charge. The new bearer can retune the inscription in three minutes for one measure of ink. Settlement checks custody, blade condition and the prior attunement. A competing retune spends no ink, and giving the blade away before settlement interrupts the job. After JSON restore, the blow immediately before retuning stays quiet. A fresh blow spends the retained charge and deals five extra damage.
+
+**ACCOUNT FOR NOW.** The workshop pack registers the retuning event so the inscription can distinguish blows before and after the job, even in the same minute. This recipe uses a personal mark. Ordinary strike inscriptions keep their existing bearer-independent trigger.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 313/313. Architecture, coverage and rules passed. Isolated game build SHA-256 `cc1c3a0f2e990c91fb47b9340f3df5c6e0b7b60240b17c76b69a323dd0e9ec29`. The headless workshop restored the weapon transfer, retune and next pulse. The docs check flags five claims in other documents.
+
+### ENF18. Hold a strike pulse until it has enough charge
+
+**ACT NOW.** A strike inscription can require a full pulse. In the restored comparison, both marks spend three charge to deal nine damage on the first pulse. On the next blow the repeating mark spends its last charge for three damage. The full-pulse mark goes dormant and keeps the charge. Paying for two more charge lets a fresh blow deal nine damage. The earlier blow stays quiet after recharge.
+
+**ACCOUNT FOR NOW.** The binding uses the existing stored-working modes. The repeating mode remains the default for older and new marks. The full-pulse mode fits a pattern that needs enough charge to complete its effect.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related files passed 314/314. Architecture, coverage and rules passed. Isolated game build SHA-256 `e0ecbf792bcbf0872cbc45138af774c45dcbfa168696f99b907b216856e24006`. The headless workshop restored both pulse modes and paid recharge. The docs check flags five claims in other documents.
+
+### ENF18 and ENF22. Feed a strike inscription from the blade
+
+**ACT NOW.** A fuel-fed inscription draws from the blade's physical stock account. A three-minute loading job moves fuel from the bearer to that account and checks custody, stock and room at settlement. In the restored test an empty blade stays quiet. Loading four fuel units, transferring the blade and landing a fresh blow spends those four units for eight extra damage. The following blow has no fuel for a pulse. Competing loading jobs cannot spend the same fuel, and a handoff before loading completes leaves it with the giver.
+
+**ACCOUNT FOR NOW.** The test uses two fuel units for each of two pulse units and requires the full pulse. The fuel-fed pattern can be [laid again on a repaired blade](#enf15-and-enf18-re-ink-the-pattern-on-a-repaired-fuel-fed-blade).
+
+### ENF15 and ENF18. Re-ink the pattern on a repaired fuel-fed blade
+
+**ACT NOW.** A broken fuel-fed inscription can carry an authored re-inking price. After repairing the original blade, the bearer can pay to lay the same pattern again. The new stored record links to the broken record and starts at the current blow cursor. In the restored test, two units of ink restore the original pattern with all four fuel units still on the blade. An earlier blow stays quiet. A fresh blow spends those units for eight additional damage. The action refuses a still-broken blade, a short payment or an already working inscription.
+
+**ACCOUNT FOR NOW.** Re-inking is immediate and preserves the old record for provenance. Renewing the existing record still requires stored-working maintenance for draw-only patterns. Timed re-inking needs a settlement operation that can publish a new stored record and pay its price together.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related files passed 316/316. Architecture, coverage and rules passed. Isolated game build SHA-256 `20e09ade8b3f1abc519f29f19df922ec51c6e4146acb8b5f66116c0fce3bd69d`. The headless workshop restored before and after repair and re-inking. The docs check flags five claims in other documents.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 315/315. Architecture, coverage and rules passed. Isolated game build SHA-256 `20e09ade8b3f1abc519f29f19df922ec51c6e4146acb8b5f66116c0fce3bd69d`. The headless workshop restored the loading job, handoff and pulse. The docs check flags five claims in other documents.
+
+### ENF15. Quote an inscription by the result requested
+
+The [commission by protection](CRAFTING_ENGINE.md#commission-by-requested-protection) selects between two patterns using the exact liner, the customer's requested effects and the fee limit. The quoted result changes with condition. A save and restore before settlement preserves the terms, and the finished patterns have distinct effects on actual sustained heat.
+
+### ENF16. Salvage supplies a new fitting
+
+The [recovered cloth receipt](CRAFTING_ENGINE.md#recovered-cloth-becomes-a-replacement-lining) closes the local loop from worn part through salvage, paid fabrication, inscription, refit and two damage consumers. Restoring pending work preserves the shared scrap count and the exact identity of the finished replacement.
+
+### ENF16. A replacement can inherit recovered cloth
+
+An [identified cloth lot](CRAFTING_ENGINE.md#identified-salvage-lot-through-refit) now survives salvage and feeds a paid replacement with physical provenance. The cloth's dense weave changes the result's condition, which changes the existing fire-damage reader after refit and restore.
+
+### ENF16 and ENF22. Repair follows the fitted part through return
+
+The [fitted repair receipt](CRAFTING_ENGINE.md#repair-the-fitted-lining-on-a-borrowed-plate) verifies a timed, paid repair on an installed enchanted part. A return before settlement interrupts the job. A return after settlement delivers the improved part to the lender and changes both of the existing damage readers after restore.
+
+### ENF18 and ENF22. A strike inscription moves with its weapon
+
+A co-located handoff changes the exact weapon's custodian and clears the former bearer's worn slot. The stored inscription and charge stay on the weapon. Equipping starts a new contact boundary. In the headless test, the former bearer lands a blow, saves and gives the weapon away before the stored-working pulse. The old blow spends no charge. The recipient equips the weapon, lands a new blow and spends one charge for five additional damage. After restoring, only the new custodian can spend two ink to recharge it. A subsequent saved blow releases the recharged effect once.
+
+This uses the same carrier and stored-working maintenance path as the earlier ward. The workshop handoff is immediate and co-located. Cross-world transfer reopens when the boundary owner can carry the exact item and the associated stored record in the same transaction. Same-strike settlement still needs the contest release interface described in ENF20.
+
+**Verification.** The 18-file focused run passed 155/155, including the [strike inscription tests](../tests/strike_enchantment.test.js). Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `23c041631e96030136f8d32658caa4574a5de402de98a242105eb721fe96fef8`. PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW5/KW10/KW15.
+
+### ENF20. Timed removal during an in-flight strike
+
+The [workshop contest adapter](../src/world_packs/workshop_contest.js) advances the world to the next contest boundary and reads the defender's worn breastplate before handing control to the native contest. The timed removal settles against the exact plate and its current wearer. The paired headless bout starts the same mixed strike while the lined plate is worn and saves with the strike and removal both pending. At minute six the world action settles first. The strike deals 31 damage after removal and 20 when the plate stays worn. Restore reproduces the uninterrupted contest and engine state. The lining stays fitted to the plate.
+
+This adapter uses an authored conversion from contest ticks to world minutes and gives workshop actions precedence at the same minute. It supplies the profile of one designated defender. General equipment integration reopens when the main contest host supplies a common clock and the active loadout of each entrant. Same-strike ward interception, reflection and secondary consequences still need a settlement path where they can affect the strike before harm lands and enter the contest's outcome accounting.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW5/KW10/KW15. On `f0430dde2` plus shared live inputs, the 18-file focused run passed 156/156. Architecture, coverage, rules and docs passed with existing shared warnings. Isolated build SHA-256 `39fc39cb010a1aa3bf36c895700c9d8c979369f0defcf4f91dc7fc27aef405d6`. The timed comparison ran headlessly through the workshop adapter. Main-game registration and browser play are open.
+
+### ENF15. Recover an already-inscribed part
+
+A timed recovery can claim an existing, unowned lining at the recoverer's current place. The [headless journey](../tests/fire_resistant_lining.test.js) reaches a found liner along the heated path and restores while two people are trying to claim it. The first settlement takes custody of the original liner. The other interrupts. Recovery consumes no ink and preserves the item's condition and marks. A separate appraisal tells the new owner that it has 40 percent fire resistance. The other actor gains no appraisal. The wearer carries the original part back across the path and fits it. The same cut, fire and mixed strikes then deal 25, 15 and 20 damage.
+
+The fixture supplies a placed, authored find. Generated affixes and encounter-specific loot allocation reopen when those sources can produce identity-bearing workshop parts. Recovering one loose part uses the existing working, custody and appraisal paths without a new save shape.
+
+**ENF20 handoff to the contest owner.** The shared release profile port under development can read live armor. The ward case also needs a pre-landing settlement port. It must receive the typed packets and actor/target bodies, permit one saved ward charge to change the remaining harm, and let contest accounting see reflected harm before checking interruption and outcomes. The control is the lined mixed blow for 20. A fire-contact ward with a four-point pulse should leave 16, spend four charge once and split the four intercepted points between reflection and conversion in the existing 50 percent fixture. A cut, a missed blow or a ward unequipped before release should spend zero. Replay from the saved in-flight strike should reproduce the receipts and both bodies. An item-local resolver alone has no way to return the changed world and stored record to contest settlement.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW5/KW10/KW15. On `f0430dde2` plus shared live inputs, the 18-file focused run passed 157/157. Architecture and rules passed with existing warnings. Isolated build SHA-256 `84e03734e14021aa6dca1cf7ec7063fa592bcdcd7075017eb23d6ada21ae02ac`. The shared coverage check reports a Hogwarts `portkey` enchant working with an unavailable role. Agent-verified in the named headless fixture.
+
+### ENF15. Seeded finds change which protection a recovered part gives
+
+The workshop can place a generated find. The engine draw uses the source, site and rune grammar revision. The same grammar used for paid inscription supplies the actual fire and heat properties. The holder is committed before recovery. Reversing the order of placement produces the same two parts, and trying to place a source again after restore or after its part is salvaged does not create another item.
+
+The headless journey recovers two distinct linings. One reduces a fire strike from 25 to 15 and leaves a heat dose at 20. Refitting the same plate with the other leaves the strike at 25 and reduces the heat dose from 20 to 16. The fitted parts and their effects survive restore. The pool is an authored workshop dial of three compatible patterns. The existing [gear affix owner](../src/gear_affixes.js) handles legacy inventory rolls and stat modifiers. This fixture uses the engine draw and rune grammar because its patterns must also support physical copying and the heat reader. Encounter rewards, randomized strengths and broader affix tables reopen when an engine encounter or a second carrier supplies a concrete consumer for them.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and GR1/GR11. On `f0430dde2` plus shared live inputs, the 20-file focused run passed 192/192. Architecture, coverage and rules passed with existing shared warnings. Isolated build SHA-256 `06d8344834cb2e97743533b8ce803ab6bc1e50bf8b9e3a42ea0b85d4329b4eef`. Agent-verified in the headless workshop. No shared runtime owner changed in this pass.
+
+### ENF18 and ENF22. A charged weapon crosses a route and fires at its destination
+
+The existing heated path moves the bearer and the exact equipped weapon through the substrate. The stored inscription retains its carrier and two charges across the crossing and restore. A fresh contest blow at the destination produces five extra damage on the next pulse and spends one charge. The saved pulse matches uninterrupted settlement.
+
+The delayed pulse now checks the departure events in the same chain as the blow. If either actor leaves and returns before the pulse, the old blow spends no charge and deals no extra damage. This treats the workshop inscription as a contact effect that needs continuity until its next pulse. A different inscription could have reach or attach a delayed effect directly to the target. The crossing uses two places within one engine world. Transfers between separate world records still need the boundary owner to carry the item and its stored working together. The shared contest currently exposes a live profile read. Ward interception still needs the pre-landing settlement interface described above.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, KW5/KW10/KW15 and ESD1. On `f0430dde2` plus shared live inputs, the 20-file focused run passed 193/193. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `06d8344834cb2e97743533b8ce803ab6bc1e50bf8b9e3a42ea0b85d4329b4eef`. Agent-verified in the [headless strike fixture](../tests/strike_enchantment.test.js). The implementation uses the existing departure events and stored record format.
+
+### ENF20 and ENF22. Heat follows protection during a crossing
+
+The workshop can step a heated link one minute at a time and save the crossing record alongside the engine world. Each step advances the world first, then samples the current route heat and worn insulation. Rounding uses cumulative exposure, so dividing a mild dose across several minutes preserves the lining's effect. On arrival the same movement code carries the armor and its fitted parts.
+
+In the four-minute kiln fixture the lined plate keeps damage at 16 while worn. A timed removal that settles before the third exposure raises the total to 18. Raising the heat for the last two minutes takes it to 28. Closing the route halfway leaves the wearer at the origin with the eight damage already taken. Restoring at the midpoint reproduces the uninterrupted result. The route uses the destination's live heat as a single source for each interval and applies abrasion at arrival. Independent hazards by route position reopen when the world graph supplies those segments. The crossing record stays with the caller under the existing engine save contract.
+
+**Verification.** PC95, PC52, AD36/AD38/AD51 and AR3/AR6/AR11. The 20-file focused run passed 194/194 on `f0430dde2` plus live shared inputs. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `06d8344834cb2e97743533b8ce803ab6bc1e50bf8b9e3a42ea0b85d4329b4eef`. Agent-verified in the [headless workshop fixture](../tests/fire_resistant_lining.test.js).
+
+### ENF17 and ENF22. A worn seal blocks a persistent arrival hazard
+
+An opt-in workshop pack answers the substrate arrival event at a place with airborne spores. It reads the exact fitted gear after movement, admits exposure through the existing affliction law and keeps the admitted track on the body. The world clock schedules subsequent saves. In this workshop a failed sickness check spends five stamina.
+
+On the same crossing and saved draw, an intact seal keeps the wearer at 30 stamina. A torn seal allows three bouts of sickness, leaving 25 stamina on arrival and 15 after the remaining checks. A save after arrival and a single jump to the last check match uninterrupted settlement at each deadline. The local hazard checks arrival once and keeps one active spore track per body. Sustained airborne contact and cumulative doses reopen with a world that tracks lingering exposure. The shared contest still exposes a profile read and needs the pre-landing ward interface recorded under ENF20.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and PFA1/PFA2. The 20-file focused run passed 195/195. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `1c18e6ad84e8d1b085b104a40e31b7d10641890f9d7d27843a5eb299bf1e70b6`. Agent-verified in the headless workshop.
+
+### ENF15 and ENF19. Failed trials teach a usable pattern
+
+The workshop can compose a lining from the maker's observed rune pairs in saved inscription receipts. Two paid experiments each fail because one pair interferes. Each still records the pair that worked, and the blank stays available. After restore, the same maker can join the observed fire and heat pairs at their shared rune and inscribe the blank. A second actor has no trial observations. The combined result costs three ink after six spent on experiments. Fitted to the breastplate, it brings the original fire strike from 25 to 15 and sustained heat from 20 to 16.
+
+This route uses the workshop's symmetric pairs and two-effect composition. It reads the maker's own direct trials. Teaching and transferable trial notes reopen when a world publishes those observations through the knowledge owner. Ordered runes reopen with a grammar where reversing a pair changes the result.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, MR29–MR33 and KW9/KW10. The 20-file focused run passed 196/196. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `4574fca2c7b0a341d1e83ecc5d107a10da6551061ee2c53fecae8a5bfe21ac30`. Agent-verified in the headless workshop.
+
+### ENF15 and ENF19. A maker can teach an observed rune pair
+
+Two makers in the same place can share a pair from a direct trial through the knowledge owner. The student's saved record retains the teacher's identity and supplies the marks to the existing composition action. The test teaches a fire pair from a failed experiment, restores the lesson, and pays two ink to inscribe a distinct student-owned blank. After fitting and transfer, the same fire hit falls from 25 to 15. Without an observed pair or a co-located student, the teaching action refuses.
+
+The workshop lesson is immediate, uses one effect at a time and requires direct experience from the teacher. Written notes, teaching from received lessons and priced instruction reopen with a world that uses a text carrier, apprenticeship or a service agreement. The shared contest still has a live profile reader, with pre-landing ward settlement pending under ENF20.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, KW9/KW10 and GKM249. The 21-file focused run passed 209/209. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `b27e664210fd767bc09cff282f48f7fc52152100c994a56b65a266d4bc351f24`. Agent-verified in the headless workshop.
+
+### ENF15 and ENF19. An observed pair travels on a written page
+
+A maker can spend one ink and three minutes to write an observed pair on an existing blank page. The knowledge owner stores the observation on that page. Handing the blank away before the work finishes interrupts writing and preserves the ink. Handing over the finished page transfers custody. A separate timed read gives the recipient a lesson sourced to that page. A save during reading reproduces uninterrupted settlement. The reader then spends two ink to inscribe their own lining, which cuts the same fire hit from 25 to 15 after fitting and transfer.
+
+The local page carries one directly observed pair and requires custody at settlement. Multiple lessons per volume, damaged writing and written copies reopen when the text carrier has a reader for those differences. Paid in-person instruction remains a separate service case.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11, KW9/KW10/KW15 and GKM249. The 21-file focused run passed 210/210. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `27f194f6678a2da41070ce5c6e01206105e85d8a2529f847d64e3428cdf1035f`. Agent-verified in the headless workshop.
+
+### ENF15 and ENF19. Paid rune instruction
+
+A three-minute lesson transfers two workshop coins and teaches one directly observed pair through the knowledge owner. Settlement checks that both makers are together and that their purses can complete the exchange. In the headless test, leaving before settlement preserves the student's two coins and grants no knowledge. When two lessons compete for the same fee after restore, one teaches and pays the tutor, and the other interrupts. The student uses the learned pair to fit a lining that takes the same fire hit from 25 damage to 15.
+
+The price and duration are authored workshop defaults. Multi-session instruction, escrow and delegated payment reopen with a service agreement that uses those terms. Ward interception before contest damage still needs the shared ENF20 settlement port.
+
+**Verification.** PC95, AD36/AD38/AD51, KW9/KW10/KW15 and GKM249. The 21-file focused run passed 211/211. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `ef59905e8b37f4f97f0de51903ef9d67b0bd39305b060a934445c743dcfa53d0`. Agent-verified in the headless workshop.
+
+### ENF18 and ENF22. A ward keeps aging after handoff
+
+The ward handoff transfers custody of the exact carrier and clears the giver's worn slot. The stored inscription retains its charge, decay clock and attunement. The new owner can wear it, pay for maintenance and attune a personal binding. The handoff requires both people to be in the same place.
+
+In the headless test, a transferred ward catches four points of a seven-point fire packet at minute five. One minute later decay leaves too little charge to trigger. The new owner spends one ink to restore a pulse. After save and restore that pulse catches four points again, and the former owner cannot pay to recharge the transferred item. This check uses the ward's typed impact consumer. Same-strike interception and reflection in a timed contest still require the shared ENF20 settlement interface.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW10. The 21-file focused run passed 213/213. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `ed321056c74d6a29eb0fbdaba501b06336fe3b63f412d2e11c6c2730551dff9e`. Agent-verified in the headless workshop.
+
+### ENF7 and ENF18. A full force reservoir lets damage through
+
+The ward can set a receiving capacity on its carrier. The available space and reachable reflection target determine how much of the matching packet it can intercept. A successful catch spends one configured pulse. A full reservoir with no way to take the whole catch spends no charge when it cannot intercept any force. Existing wards use the maximum of their substrate quantity when the carrier has no smaller declared capacity.
+
+In the headless test, one free space and a 50 percent reflection setting stop two points of a 12-point mixed hit. One point fills the reservoir and one reflects. The next hit deals all 12 and spends no charge. Releasing two stored points opens enough room to stop four on the next hit and hold damage to eight. A reflection target with one vitality limits the redirected share, and the excess reaches the wearer when there is no room for it. Save and restore reproduce the resulting charge, force and vitality. The fixture settles reflection directly. Its interaction with the attacker's combat defenses remains with ENF20.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW10. The 21-file focused run passed 214/214. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `ed321056c74d6a29eb0fbdaba501b06336fe3b63f412d2e11c6c2730551dff9e`. Agent-verified in the headless workshop.
+
+### ENF7 and ENF20. Reflected fire meets the attacker's lining
+
+The workshop ward sends reflected force through the typed damage reader with the attacker's current worn resistance. The damage ledger names the reflecting carrier. The ward credits the reservoir from the portion it kept. The portion diverted into reflection stays committed even when the attacker's lining resists it.
+
+The headless comparison redirects four points of fire. An unlined attacker takes four and a lined attacker takes two. Both runs leave seven damage on the ward's wearer, four points in the reservoir and one pulse spent. Save and restore reproduce the settlement. Reflection uses typed resistance in this workshop impact path. Contest interruption, defeat credit and a second reactive defense reopen when the shared contest can settle a reflected packet with its own response rules.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW10. The 21-file focused run passed 215/215. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `ed321056c74d6a29eb0fbdaba501b06336fe3b63f412d2e11c6c2730551dff9e`. Agent-verified in the headless workshop.
+
+### ENF7 and ENF20. A second ward catches reflected fire
+
+The workshop impact path now sends the reflected packet through the recipient's typed resistance and then through the ward they currently wear. In the paired run, four redirected fire points become two after the recipient's lining. The recipient's ward catches one, credits it to its own reservoir and spends one pulse. The last point lands on the recipient. The first ward keeps four points from the original hit and its wearer takes seven. Restore reproduces both charge accounts, reservoirs and damage.
+
+This workshop allows one reflection per impact. A return ward can absorb or convert the packet. Worlds that support repeated bounces can reopen this with a shared impact chain that owns order and termination. Timed contest interruption and defeat credit still need the ENF20 settlement port.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW10. The 22-file focused run passed 215/215. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `ed321056c74d6a29eb0fbdaba501b06336fe3b63f412d2e11c6c2730551dff9e`. Agent-verified in the headless workshop.
+
+### ENF15 and ENF18. Paid preparation enables a ward binding
+
+The workshop can fit one unit of ward wire to a carrier in a three-minute working. Settlement checks the exact carrier's custody and condition. Moving it away interrupts without spending wire. When two preparations compete for the same carrier, one completes and the other leaves the remaining wire intact. Binding consumes the saved preparation and places the inscription on that carrier.
+
+In the headless test, restoring during preparation reproduces uninterrupted settlement. The bound and worn carrier stops four points of a seven-point fire packet and spends one pulse. Preparation and binding are separate workshop actions, so the paid preparation can be saved before the maker binds the ward. Automatic binding at the final fabrication step reopens when the engine host can publish a stored working as a kernel effect. The shared contest still exposes a live profile reader and needs the ENF20 settlement interface for ward interception.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. The 22-file focused run passed 216/216. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `5102f3ffb9c1f69d29f6972df9201a462b292b02dba1cd3b02bc28ca54726688`. Agent-verified in the headless workshop.
+
+### ENF3 and ENF17. A charged ring lights an appraisal bench
+
+A held ring can spend one stored charge on a spoken invocation. The effect host adds light to the bearer's current worksite account. In the headless test the dark bench refuses appraisal. The ring raises the site's light from zero to two, so the same observer can read the lining and learn its 40 percent nominal fire resistance. Restoring before invocation and before appraisal preserves charge and knowledge. A second invocation with an empty ring adds no light.
+
+This workshop models the glow as a lasting increment on a site that opts into its light account. Timed fade or a glow that travels on the ring reopen when the site reads separate, expiring light sources. The ward preparation path still awaits an engine effect that can create a stored working at settlement.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW10. The 22-file focused run passed 217/217. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `5e86de925cb9e4d7eb949b24eea831228360fa89a1f6be8b83a2a576089df9b4`. Agent-verified in the headless workshop.
+
+### ENF3 and ENF17. A timed glow lights the bench until it expires
+
+A ring can bind a sustained glow with a duration. Invocation spends one charge and places a light field on the current site. The appraisal reader adds active glow fields to the site's ambient light. The engine expires the field at its deadline. In the headless test, the maker can read the lining before the three-minute glow expires, keeps that knowledge afterward and needs more light for a fresh appraisal. Save and restore reproduce expiration, preserve unrelated ambient light and allow a second invocation after the first fades.
+
+This workshop allows one active field per ring. The field stays where the ring cast it. A glow that moves with its bearer or refreshes in place needs a carrier-following or duration-refresh rule. Existing rings without a duration keep their lasting light effect.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW10. The 23-file focused run passed 227/227. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `5e86de925cb9e4d7eb949b24eea831228360fa89a1f6be8b83a2a576089df9b4`. Agent-verified in the headless workshop.
+
+### ENF3 and ENF22. A timed glow follows its ring
+
+A portable light binding scopes the existing sustained field to the ring. Appraisal reads the ring's current place, and the world clock expires the field at its original deadline. In the headless crossing, the same ring spends one charge at departure, lights the destination after four minutes and makes an appraisal possible there. The origin goes dark when the ring leaves. Saving before the crossing reproduces uninterrupted travel, and restoring at the destination preserves the remaining two minutes.
+
+The portable glow uses places with a workshop light account and the existing custody-aware crossing. Transfers between separate engine worlds reopen when a boundary can carry the ring, its stored working and its expiring field together.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW10. The 23-file focused run passed 228/228. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `48cfd1f264e71008d38814ab19bbde597a5d9af56ff8662daed997b97fece6d0`. Agent-verified in the headless workshop.
+
+### ENF5 and ENF17. A sacrificial coating protects the harvesting edge
+
+A two-minute working spends one coating unit on a held edge. Losing custody before settlement leaves the stock intact. A successful harvest spends the coating before it can wear the blade. The next uncoated harvest wears the edge normally. The headless comparison restores during coating and harvesting. On the next specimen, the protected edge yields quality 85 and the previously uncoated edge yields quality 80 through the existing harvest planner.
+
+The workshop uses a one-use coating and 25 condition wear per uncoated harvest. Tools with no condition account retain their original behavior. Coatings that wear by degrees reopen when a task can supply different loads per use. Automatic repair can use the same condition account when a working supplies a fuel and timing rule.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. The 23-file focused run passed 229/229. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `20d40a268a9cf2410a651bcb0894a4a864847363451929dc92fb82f96e3de643`. Agent-verified in the headless workshop.
+
+### ENF5 and ENF18. Mending pulses spend fuel from the blade
+
+A maker can start a sequence of mending pulses on a blade they hold. Every two minutes the working rechecks custody and condition. Each needed pulse spends one unit of the blade's fuel and restores up to 25 condition. A pulse at full condition spends nothing. Losing custody or running out of fuel interrupts the sequence and retains the earlier repairs.
+
+In the headless fixture the blade starts at 50 condition. The first pulse raises it to 75, and the second restores it to 100. The repaired blade produces a quality 85 pelt through the existing harvest planner. A save after the first payment reproduces the uninterrupted result. This workshop uses a manually started sequence of up to four pulses. A permanently bound self-mending pattern that reacts to wear reopens with an event that identifies the worn part and the fuel it may draw.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW5/KW10/KW15. The 23-file focused run passed 230/230. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `b6f864da714bf9a5af1692752493121f99a8db0aedcb46d296da719394aca853`. Agent-verified in the headless workshop.
+
+### ENF5 and ENF18. A blade mends itself when harvesting wears it
+
+The harvest working publishes a wear event after reducing condition on the exact blade. An opt-in workshop reactor answers for a blade with a bound mending pattern. It spends one unit from the blade's fuel account and restores up to 25 condition. Coating that takes all the wear leaves the fuel unspent. An empty account leaves the wear in place.
+
+Restoring before the first harvest reproduces the same single payment and repair. The next harvest yields a quality 85 pelt with the preserved edge and quality 80 with the worn control. The binding currently answers harvest wear. Other kinds of damage reopen when their consumers can publish a compatible wear event with the affected part.
+
+**Verification.** PC95, AD36/AD38/AD51, MR29–MR33 and KW10/KW15. The 22-file focused run passed 221/221. Adding the shared effect-host tests exposed a Hogwarts count mismatch of 82 acts versus the expected 81. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `b6f864da714bf9a5af1692752493121f99a8db0aedcb46d296da719394aca853`. Agent-verified in the headless workshop.
+
+### ENF17, ENF18 and ENF20. A spell meets the equipment worn at contact
+
+The workshop uses the existing engine impact port after spell contact checks succeed. For an authored direct damage type it applies worn resistance, then spends any qualifying ward pulse on the remaining packet. The spell and stored working share the same engine clock and save.
+
+The headless fixture releases a ten-point fire spell and equips the ward during flight. At impact the bare target takes ten, the lined target takes six, and the target with lining and ward takes two. The ward spends four charge once. A slashing spell and a spell intercepted by a contact screen spend no ward charge. Restore during flight matches uninterrupted settlement, and restore at the settled minute does not repeat the hit.
+
+This proof reads instant vitality damage with a declared type. Multi-packet spells need packet data from their source. The later area spell proof uses the effect host's admitted recipients. Timed contests still need their own landing interface for interruption and defeat attribution.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6/AR11 and KW10. The 24-file focused run passed 281/281 before adding the bare and settled-minute assertions, which passed in the focused spell fixture. Architecture, coverage and rules passed with existing warnings. Isolated build SHA-256 `cee3406f1943918ae05ad9944e3b1c15708a5359a0fdd95e738af90a2c1a31d5`. Agent-verified in the headless workshop.
+
+### ENF4, ENF5 and ENF16. A mining inscription follows the fitted head
+
+The gathering pick also has an independent [ore preservation inscription](CRAFTING_ENGINE.md#preserve-fragile-ore-from-extraction-to-forged-gear). It prevents authored extraction damage to fragile ore, preserving the material grade that determines the resulting ward mount's strength.
+
+Spend one ink to inscribe the smelted head before fitting it. With the same starting vein and draw, the plain assembled pick extracts two fragments and the inscribed one extracts four. A broken grip prevents digging. Recovering the intact head and fitting a new grip restores the four-fragment yield after save and restore.
+
+The workshop's cut pattern crosses the metal seat. A cracked seat and recasting remove the pattern, so the replacement head yields two fragments until it is inscribed again. The iron keeps its source lineage through the repair.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Eight related files passed 101/101 against shared HEAD `f0430dde2` plus working changes. Architecture, rules and coverage passed. Isolated build SHA-256 `1115814ff2f9cf35073411524966548241124fc54f68361e27d280e23088233f`. The shared docs check flags the Gu abilities acceptance claim at line 1528. Agent-verified in the headless workshop.
+
+### ENF5, ENF15 and ENF19. Reconstruct a recast head from its tracing
+
+While the original head is sound, a maker can spend ink and time to trace its cuts onto a sheet. After the head cracks and is recast, the maker brings that sheet and spends fresh ink to reconstruct the cuts. The workshop checks the original billet against the recovered iron in the recast billet's lineage. A tracing from other iron or a sheet moved away during work leaves the ink unspent.
+
+The refitted head yields four fragments after restore, compared with two after an ordinary recast. The sheet stays readable after use. This local restoration job matches the immediate recast to its source. A workshop restoring several generations from the same sheet would need to match an older ancestor through successive recasts.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4–FBC7 and KW5/KW10/KW15. Eight related files passed 102/102 against shared HEAD `f0430dde2` plus working changes. Architecture, rules and coverage passed. Isolated build SHA-256 `6ff7599ba3de6e9c5c1c9cca5fea68a736bd85a152ed40e3a3c06a600d87971b`. The shared docs check flags the Gu abilities acceptance claim at line 1528. Agent-verified in the headless workshop.
+
+### ENF4, ENF17 and ENF22. A mining enchantment opens a rock passage sooner
+
+Clearing spends the actual rubble in front of a closed passage. With four units of rubble, the same three-minute job removes two with a plain pick or all four with an inscribed head. The restored, refitted head also clears the whole blockage in one job. The last removal opens the existing place link.
+
+A separate crossing uses the link's two-minute travel time and moves the miner and their pick together. Save and restore during clearing and travel agree with uninterrupted settlement. Closing the link before arrival interrupts the crossing and leaves both at the entrance. A miner can also bring a basket to [recover the cleared stone for fabrication](CRAFTING_ENGINE.md#dress-stone-recovered-from-a-cleared-passage).
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Eight related files passed 103/103. Architecture, rules and coverage passed. Isolated build SHA-256 `48efe0b34a3f2d86cfed5981cfcdc8e91164eb9bbef79a19612a7ed4e15ff74b`. The shared docs check flags the Gu abilities acceptance claim at line 1528. Agent-verified in the headless workshop.
+
+### ENF6, ENF16 and ENF22. Lend and return a fitted mining pick
+
+A three-minute handoff changes custody of the exact fitted pick. Both bearers must meet at settlement. A loan records the original lender, who can receive the pick back. The borrower's ordinary use follows custody, and the loan bars gifting, returning to someone else and stripping the installed parts. A gift changes custody without creating a return obligation and the new holder can lend it onward.
+
+After restoring during the loan, the borrower mines four fragments with the original head. The lender's concurrent use and the borrower's attempt to strip the pick interrupt. After the saved return the lender clears the passage in one job with the same head.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Eight related files passed 106/106. Architecture, rules and coverage passed. Isolated build SHA-256 `f826bad685c2b2e00ffaf5657a53eca7650da73a509d219959d2a931ee85ef60`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF6 and ENF22. Recall a pick under an agreed loan term
+
+A lender can include a recall term when handing over a fitted pick. The local recall costs one ink and takes one minute plus the open passage's travel time. The workshop allows a path up to ten travel minutes. Settlement checks the same loan, custody, endpoints and open route before returning the actual item.
+
+Closing the route during the recall preserves the ink and the borrower's custody. A loan without the term and a call by another person both interrupt. Two calls against the same saved loan spend one ink total and return one item. The returned pick keeps its lineage and mines four fragments after restore. This workshop uses local rock passages. Recall across worlds still needs a crossing that transports the item identity and its loan record.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Eight related files passed 107/107. Architecture, rules and coverage passed. Isolated build SHA-256 `9e4cff87f570f25bc3ee9003b7260bf56ccf671f930de609b6c643c8c688b21c`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF6, ENF17 and ENF22. Attune a fitted head to its new bearer
+
+The maker can inscribe a head that answers to its bearer. It mines four fragments for the attuned maker and two after a handoff. The new owner can spend one ink in a three-minute job to retune the original head. A borrower keeps ordinary use and cannot retune it under the workshop's loan terms. Two saved attempts spend one ink, and the new bearer mines four fragments after restore. A sound recovered head keeps its bearer setting. A tracing preserves the choice to attune and the reconstruction sets the bearer to the maker performing that work.
+
+WER1/WER9. Cross-world passage remains open. The native doorway reads inventory and equipment stacks and refuses borrowed cargo. The workshop pick lives as a substrate holder with an installed billet, attunement and loan record. A physical crossing needs an adapter that moves that exact holder through a named route whose cargo policy admits its custody terms. The native doorway and cargo tests pass independently.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Ten related files passed 154/154. Architecture, rules and coverage passed. Isolated build SHA-256 `dbda017bf0a9c77d1fdc32954924ecaf7ce511c9e30b9751050cb3a0b40bca3c`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF2, ENF17 and ENF20. A ward keeps a blunt hit below the balance threshold
+
+The workshop body has a local balance threshold. It loses three stamina when the blunt force left at contact reaches that threshold and the body survives. A matching contact ward absorbs four from a seven-point blunt impact, leaving three against a threshold of five. The mixed blow still deals eight damage, including its five slashing points, and costs no stamina. An exhausted ward lets the full blunt force through. A pure cut leaves the ward's charge untouched.
+
+The engine impact port also runs this check for a saved blunt spell. Equipping during flight changes the contact from seven vitality and three stamina lost to three vitality and zero stamina lost. Restore at the settled minute reproduces the result without a second hit. This proof changes saved stamina. Interrupting an action in a timed contest still needs its settlement interface to pass the actual landed impact to the contest's interruption rule.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6/AR11. Nine related files passed 122/122. Architecture, rules and coverage passed. Isolated build SHA-256 `2cc69a6346482db01a1f2444aec73b2a08124382e7830a8c7a3d4ac99e52e8b3`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF2, ENF15 and ENF18. A charged charm helps clear established spores
+
+One measure of salts inscribes and charges a blank charm. After exposure, the worn charm spends its pulse on the next due affliction check. The existing affliction law rolls that check with the treatment bonus. On the matched spore exposure, both bodies lose five stamina on entry. The treated body clears the track at the next check with 25 stamina, while removing the charm before the check leaves its charge intact and the wearer at 20 stamina with another check due.
+
+A three-minute recharge spends one measure of salts. Competing saved jobs refill the same charm once. A second exposure uses the restored pulse on its next check. The current treatment is authored for cellar spores. Additional poisons reopen with separate treatment affinities and evidence from their own check schedules.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Ten related files passed 132/132. Architecture, rules and coverage passed. Isolated build SHA-256 `69e689c58da0a5c67fadf630179be37abd71d86531132fceec48977ecc851fe6`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF19 and ENF21. Fitted inscriptions can interfere
+
+An ordered ember–mirror pair produces a fire field opposed to the workshop's usual ember–weave field. Each fitted part supplies its actual strength at its current condition. Opposed fields cancel their equal portion and the excess still protects. Aligned parts keep the usual successive reduction.
+
+On the same fire hit, one 40-percent part takes 15 damage, two aligned parts take 9, and equal opposed parts take 25. The ordinary cut takes 25 in all three cases. Removing one opposed part after restore returns fire damage to 15 and recovers the exact part. This rule uses the workshop's two fitted positions. A layout with more positions needs a rule for how fields overlap across them.
+
+ENF20 remains open for ward interception before contest damage and interruption. The shared contest exposes a live profile read, and its meeting handler still applies damage and credits the hit in one pass. A settlement interface must let the owner transform a typed impact and account for its ward cost before that pass. This slice left shared contest files with their current owners.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6/AR11. Eleven related files passed 146/146, including the existing timed contest checks. Architecture, rules and coverage passed. Isolated build SHA-256 `c269947202358ddc81775aa9d45556739a2902521a24f6ad980980f91da1b385`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF19 and ENF21. Appraise both parts before forecasting a fit
+
+Local inspection records fire strength and field direction for the observer. The fitting forecast checks the proposed slot and parts, then uses the observer's saved appraisals and the parts' visible condition. It leaves the fitting stock available. Without both appraisals the forecast gives no protection value, including after handing the same plate and insert to another observer. The recipient can inspect them independently.
+
+The saved forecast predicts 36 percent of incoming fire passes two aligned parts and 100 percent passes two equal opposing parts. The actual fit and matched hit reproduce both results. Older strength-only appraisals can still be read, and a fresh inspection supplies field direction. Forecasts for charges and timed interactions reopen when they have a corresponding observation record and a live timing reader.
+
+**Verification.** PC95, AD36/AD38/AD51, ENF19 and ENF21. Twelve related files passed 159/159, including knowledge, contest and workshop tests. Architecture, rules and coverage passed. Isolated build SHA-256 `31d9f0c9bb725870cfc763637b9bfe2cff98c8d765b06be402622e07428eb5f3`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF18 and ENF19. Appraise a ward before its charge fades
+
+Inspecting a nearby ward records the observed charge, decay and matching impact channel for that observer. The forecast uses the stored-working charge law. It predicts pulse affordability at a selected contact minute if the ward continues from the last observation. Other observers need their own appraisal, and an appraisal spends no charge.
+
+The saved appraisal predicts four charge at minute five and three at minute six, against a pulse cost of four. The same seven-point spell deals three damage at the earlier contact and seven at the later one after restore. Recharging changes the live ward, and a new inspection updates the observer's forecast. The forecast covers decay and matching channel. Future custody, wear, attunement, intervening uses and reservoir capacity are checked at contact.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6/AR11. Thirteen related files passed 177/177. Architecture, rules and coverage passed. Isolated build SHA-256 `bdbc6f524ec9762d0bfdb0ba559fc480680ced2f03629e201574a2d208899ee3`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF6, ENF9 and ENF16. Move a charged insert between mounts
+
+A fitted ward insert owns its stored working and pulse account. The shield or bracer supplies the matching recess. Installing and detaching take three minutes and recheck both parts and custody. A mismatched recess leaves the insert loose. A broken mount or a detached insert gives no interception and spends no pulse.
+
+The shield catches four points of a seven-point hit. After detaching, handing over and refitting the same insert into another bearer's bracer, the saved ward catches four points again and exhausts its original charge. This fixture uses a transferable binding.
+
+**Verification.** PC95, AD36/AD38/AD51, FBC4 and KW5/KW10/KW15. Thirteen related files passed 178/178. Architecture, rules and coverage passed. Isolated build SHA-256 `96e97d78a1d0c92de25daf1c78b5d83ef14dd808d8eac65b3518d498210c20dc`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF6, ENF9 and ENF22. Hand over a mounted ward intact
+
+A three-minute local gift transfers the mount and its exact insert together and clears the giver's worn slot. Settlement rechecks both bearers and both attachment links. A recipient leaving or the insert coming loose interrupts the gift and leaves custody with the giver.
+
+The restored gift preserves the insert's ward, remaining four charge and attunement. The recipient takes all seven points before retuning. After attuning the same insert, the ward spends its remaining pulse and reduces the hit to three.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Thirteen related files passed 179/179. Architecture, rules and coverage passed. Isolated build SHA-256 `20b29466788dfc2f1b0c42cead3934892e2bf45d1760ec2746910ee98bc63a11`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF6, ENF9 and ENF22. Lend and return the mounted ward
+
+A local loan records the lender on the mount and insert. The borrower can wear the assembly and spend its pulse, and the loan protects the assembly from gifting, detachment or changing its binding. The return hands back both holders, clears the borrower's worn slot and ends the recorded loan. Existing saved gifts retain gift behavior.
+
+The borrower and lender each catch four points of the same seven-point hit, using the two pulses on the original insert. Save and restore preserve the remaining pulse across return. Competing return jobs transfer custody once. Cross-world passage still needs a carrier for both holders that honors the recorded loan.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Thirteen related files passed 180/180. Architecture, rules and coverage passed. Isolated build SHA-256 `6e2b3050f2d5d3294a7f8f76a3c709b840e1ac7464fe1951122768ccf84020d0`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF5, ENF9 and ENF16. Repair a mount around its charged insert
+
+The borrower can spend a rivet and three minutes to repair a damaged mount with the same insert fitted. Settlement rechecks custody and both attachment links. A return that settles first leaves the rivet unspent. A completed repair leaves the insert's binding and the loan intact.
+
+The broken mount lets all seven points through. After the saved repair and return, the same insert spends its remaining pulse and lets three points through. This fixture supplies a broken mount directly. Damage to the mount during an actual bout reopens when the contest or equipment wear owner can target the mount independently of the insert.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Thirteen related files passed 181/181. Architecture, rules and coverage passed. Isolated build SHA-256 `2f9f2dd7384d9c1554b1e549b194219cb685101f5f86bb4e63954020b9f9be38`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF5 and ENF18. Intercepted force can break the ward mount
+
+A mount with a measured strength loses one point per point the fitted ward intercepts. A glancing two-point hit leaves two strength on a four-point mount. A mismatched cut spends neither strength nor charge. In the saved spell test, a seven-point impact reaches the mounted ward, the ward catches four, and the mount breaks as the wearer takes the remaining three. The insert stays armed with its other pulse.
+
+The borrower repairs the mount with a rivet and returns it. The same insert catches the next matching hit using its remaining pulse. The workshop treats the mount as the part taking the intercepted load. Material-specific failure shapes and contest-time interception still need their respective material and impact readers.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Thirteen related files passed 181/181, including restore during spell flight and during the repair. Architecture, rules and coverage passed. Isolated build SHA-256 `2f9f2dd7384d9c1554b1e549b194219cb685101f5f86bb4e63954020b9f9be38`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF5 and ENF18. Service a ward mount before it breaks
+
+A rivet restores a partially strained mount to its measured strength while the same insert stays fitted. One glancing two-point hit leaves two strength on a four-point mount. A second identical hit breaks the unserviced mount. After service it leaves two strength and the mount intact. A sound mount and a duplicate service job leave the rivet unspent. Save and restore preserve the service deadline and the insert's remaining charge.
+
+The shared contest still reads live profiles and applies its own meeting damage. Timed contest ward interception remains open until that owner can admit typed packets and settle the ward before damage, interruption and defeat.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Thirteen related files passed 183/183. Architecture, rules and coverage passed. Isolated build SHA-256 `d984fc9c4c7f57538706f3c586e96df885637ec97a0bebbf8de8bce2a5881e39`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF6 and ENF22. Carry a borrowed ward through a local passage
+
+The existing passage job can carry the worn mount and its insert together. It checks both attachment links and custody on arrival. The workshop counts two extra load units for the assembly. Removing it during the crossing or overloading the passage leaves the party and equipment at the entrance.
+
+After restoring the crossing, both parts arrive with the borrower, retain the original lender and continue decaying on the original clock. The ward intercepts four of a seven-point hit at the destination and keeps two charge. The current route is local. A cross-world route still needs its own admitted carrier and custody policy.
+
+**Verification.** PC95, AD36/AD38/AD51 and KW5/KW10/KW15. Thirteen related files passed 184/184. Architecture, rules and coverage passed. Isolated build SHA-256 `d984fc9c4c7f57538706f3c586e96df885637ec97a0bebbf8de8bce2a5881e39`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF6 and ENF22. Carry a loaned ward through a named realm doorway
+
+The headless workshop binds two authored world endpoints to a physical doorway on one engine host. The realm planner admits the exact mount and insert as equipped cargo. A lender can authorize the named doorway on both parts when making the loan. The crossing checks cargo and route admission at departure and arrival. A missing loan permission refuses departure. Closing the doorway or acquiring extra cargo in flight interrupts the job and leaves the borrower and ward at the origin.
+
+After restore, the same body and both holders reach the other endpoint. The ward uses its original decay clock, absorbs four of a seven-point hit and keeps two charge. The borrower can cross back and return both parts to the lender. This fixture uses a prepaid, fixed-duration route and one common clock. Independent realm saves, world clocks, and cargo beyond the ward need a host that can bind those owners together.
+
+**Verification.** PC95, AD36/AD38/AD51, KW5/KW10/KW15, WER1 and WER9. Seventeen related files passed 265/265, including the realm planner, cargo and native doorway suites. Architecture, rules and coverage passed. Isolated build SHA-256 `046b81b795bc95ae4a6ab33534e589cc65ab8cc6af47e4b4b6b280700ca33b47`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF22. Pay a ward doorway toll on arrival
+
+The realm planner combines the doorway toll and boundary fee into a quote against the traveler's stock. The timed working saves that quote, checks the fee and funds again at arrival, and uses the same settlement to debit the traveler and move the ward. In the test, a two-unit toll and one-unit fee leave one of four units after arrival. A closing doorway preserves all four. Spending two elsewhere during the crossing leaves two in the purse and the whole assembly at the origin. Two pending crossings settle one trip and one payment. The route currently accepts whole payments from the traveler. A named collector can receive those payments through the extension below.
+
+**Verification.** PC95, AD36/AD38/AD51, KW5/KW10/KW15, WER1 and WER9. Seventeen related files passed 266/266. Architecture, rules and coverage passed. Isolated build SHA-256 `ded34f208028a8a030259737dd4b77ab7115e6dec4265f79f719bbd96c9bca75`. The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF17, ENF18 and ENF20. An area spell meets each recipient's equipment
+
+The workshop impact reader uses the effect host's admitted recipients. In the saved ten-point fire burst, the wearer takes two damage after the lining and a four-charge ward pulse, the unprotected recipient takes ten, and the screened body takes zero. The same wearer takes six with the lining alone. Restoring at settlement applies the burst once. The reader handles direct spells and present or explicit area groups.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6/AR11. Seventeen related files passed 267/267. Architecture and coverage passed. Isolated build SHA-256 `d5f9b19ef1b602e4e6d845e1ab4bfde1d06d4722c88c748e66d36b3d24b50967`. The rules check flagged two shared Hogwarts strings using “fixture.” The shared docs check flags acceptance claims in Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF17, ENF18 and ENF20. A mixed spell carries separate damage packets
+
+A spell can supply whole damage packets with a type and phase. Their sum must agree with the spell's declared damage. The lining rounds each type and phase as a whole, so splitting seven contact fire into one and six gives the same protection. In the restored twelve-point burst, the lining reduces seven fire to four, one ward pulse catches those four, and five slashing damage lands. The unprotected body takes twelve and the screened body takes zero. Moving six fire to a different phase lets four fire through as well. Invalid packet totals use the spell's declared scalar damage.
+
+Timed contest interception remains open. It needs a settlement hook in the contest owner to intercept typed impact before damage, interruption and defeat.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6/AR11. Seventeen related files passed 267/267 on shared HEAD `f0430dde2` plus working changes, including restore before and after settlement. Architecture and coverage passed. Isolated build SHA-256 `68a0b867c4b273a8829d4635516e7d9305b1f5b8391b22451141cb9ceb7c2012`. The rules and docs checks still flag the shared issues above. Agent-verified in the headless workshop.
+
+### ENF22. A doorway collector receives the toll
+
+A named doorway can bind a collector's stock account. The saved crossing quotes the collector and the combined fee. It rechecks the traveler's stock, the collector's room and the loaned assembly before settlement. A restored crossing moved the borrower, mount and insert, and transferred three units from the borrower's six into the collector's account of one. A competing crossing transferred nothing. An account with room for two, a borrower with two, or a different collector on restore each stopped the crossing with both accounts and all three holders in place. The ward still absorbed four points after arrival.
+
+The collected toll moves the quoted stock itself. Sponsorship reopens when a route can supply the sponsor's spend authorization and live account to the realm planner. Debt or a substitute payment needs a separate quote that names what the collector agrees to receive.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6, WER1 and WER9. Seventeen related files passed 268/268, including restore in flight and after payment. Architecture and coverage passed. Isolated build SHA-256 `c4b899995f04c48035365da451e7541e14d392eef6c9a08464f547b9d0ff6003`. The rules check passed with shared warnings. The docs check flags unrelated acceptance claims in combat, Gu abilities and procedural spellcraft. Agent-verified in the headless workshop.
+
+### ENF14, ENF18 and ENF22. A charged ward intercepts sustained route heat
+
+Each minute of the heated crossing first applies the lining's insulation. An exposure ward can then intercept the remaining fire and store it on its carrier. On the four-minute route the contact ward leaves sixteen damage and keeps both pulses. The exposure ward spends two pulses, captures eight heat and leaves eight damage. If the mount breaks after one pulse, twelve damage lands and the insert keeps its second pulse. The mount, insert, plate and lining travel with the wearer. Closing the path after one minute stops the crossing with the assembly and unused pulse at the entrance.
+
+The workshop uses one exposure packet per route minute and captures heat in the insert's own account. Route segments with different hazards need positions and hazard data from the travel owner. Timed contest interception still needs the ENF20 settlement port.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and WER9. Seventeen related files passed 269/269 on shared HEAD `f0430dde2` plus working changes, including engine and crossing record restore after the first pulse. Architecture, coverage and rules passed. The isolated game build passed with bundle SHA-256 `c4b899995f04c48035365da451e7541e14d392eef6c9a08464f547b9d0ff6003`. The opt-in route was exercised through the headless workshop tests. The docs check flags unrelated shared claims.
+
+### ENF16 and ENF20. Swap a ward insert before a spell lands
+
+A three-minute job swaps the exact insert in a worn mount. The old insert stays in the bearer's custody with its full charge. Settlement checks both attachment links, current custody, the loan terms and the replacement's fit before it moves either insert. A competing swap sees the original insert is gone and stops. A missing or incompatible replacement leaves the old insert fitted.
+
+In the restored headless cast, a seven-point fire spell arrives one minute after a cut ward is swapped for a fire ward. The wearer takes three damage, the fire ward spends four charge and the removed ward keeps all eight. If the replacement is moved away or fails the fit check, the wearer takes seven and both wards keep their charge. The workshop uses the existing spell impact reader. Timed contests still need their own impact settlement port.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Seventeen related files passed 271/271, including restore in flight and after settlement. Architecture, coverage and rules passed. The isolated game build passed with bundle SHA-256 `5b2bd24162a511d508921b35d5259d8083b3ea0350fd2f2ffe954fba7e0f71da`. The swap was exercised through the headless workshop. The docs check flags unrelated shared claims.
+
+### ENF16 and ENF20. Wear or remove a ward during spell flight
+
+A two-minute equipment job fits or removes the named carrier. Fitting checks that the bearer still holds the carrier and the worn slot still matches the one at the start. Removal checks that the named carrier is still worn. In the headless test, putting on the ward before the incoming spell lands leaves two damage and spends one pulse. Removing it before impact leaves six damage and preserves both pulses. Giving away the carrier while fitting is pending interrupts the job and leaves the six-point lined impact. Restore with both jobs in flight reproduces the uninterrupted results.
+
+Ward recharge and renewal still use the direct stored-working action. Timed maintenance reopens when the shared host can settle a working's requested recharge with the stored owner and carry its updated record and receipt forward before later impacts. Timed contests need their own pre-damage settlement port.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Seventeen related files passed 271/271. Architecture, coverage and rules passed. Isolated game build SHA-256 `995125dd44290c08e4e6f1fc227f0cc58a4d16faf07e44d58e0c0f4f5861f4e9`. The wear and removal jobs were exercised through the headless workshop. The docs check flags unrelated shared claims.
+
+### ENF7 and ENF18. Released force meets the target's protection
+
+A wearer can release the force captured by a ward as a typed contact hit. The effect host first checks whether the target admits the hit. A field that blocks vitality removal leaves the reserve intact. Once admitted, the release spends the declared force and uses the same lining and ward reader as a spell impact. In the restored test, spending five force deals five to an unprotected target, three through a fire lining, and one through the lining and a second ward. That ward spends its pulse and captures the two points it intercepted. The original shield keeps its other three force after the release.
+
+This action uses the originating ward's damage type and the contact phase. A world that turns captured energy into a different effect needs an authored output and its corresponding reader. Timed contest release still needs the ENF20 settlement port.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6. Seventeen related files passed 271/271. Architecture, coverage and rules passed. The isolated game build passed with bundle SHA-256 `995125dd44290c08e4e6f1fc227f0cc58a4d16faf07e44d58e0c0f4f5861f4e9`. Release and interception were exercised through the headless workshop with JSON restore. The docs check flags unrelated shared claims.
+
+### ENF7 and ENF18. A target's screen can stop a reflected hit
+
+The reflected share now checks reach and vitality-removal admission before the target's lining or return ward answers. In the saved comparison, the reflecting shield intercepts eight, keeps four in its own reserve, and redirects four. The lined target's return ward catches one and the target takes one. With a screen admitting no vitality removal, the target takes zero and its return ward keeps both charge and reserve. The original shield still spends its pulse and keeps the four points allocated to its reserve. This workshop treats the screened share as dissipated. A screen that stores or redirects force needs its own destination and accounting.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6. Seventeen related files passed 271/271. Architecture, coverage and rules passed. The isolated game build passed with bundle SHA-256 `995125dd44290c08e4e6f1fc227f0cc58a4d16faf07e44d58e0c0f4f5861f4e9`. The reflection comparison ran through the headless workshop and matched after JSON restore. The docs check flags unrelated shared claims.
+
+### ENF2, ENF7 and ENF18. A reflected blunt hit can stagger its caster
+
+The workshop's ordinary and reflected impacts share the same balance calculation. After the target's lining and return ward act, enough remaining blunt contact force costs three stamina on a nonlethal hit. In the saved seven-point spell, the shield wearer takes one damage and reflects six. The caster takes six damage and loses three stamina. Wearing the return ward before impact catches two, leaving four damage below the five-point stagger threshold. The return pulse spends its charge and sends no further reflection.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6. Seventeen related files passed 272/272. Architecture, coverage and rules passed. Isolated game build SHA-256 `995125dd44290c08e4e6f1fc227f0cc58a4d16faf07e44d58e0c0f4f5861f4e9`. The spell restored in flight and after impact through the headless workshop. The docs check flags unrelated shared claims.
+
+### ENF10, ENF15 and ENF17. Preserve a fragile pelt for study
+
+A two-minute inscription spends one ink on the exact blade. During harvest the mark prevents the handling loss authored for a fragile carcass. The ordinary and marked blades produce the same quality on the matched cut. The ordinary cut leaves a damaged pelt, and the marked cut leaves a whole one with its original specimen lineage. A saved study job requires the whole pelt and records that specimen in the observer's knowledge. The study keeps the pelt in stock. Preexisting burns still leave a damaged pelt. Losing custody of the blade before inscription preserves the ink, and competing jobs charge once.
+
+The workshop applies preservation to handling loss on this harvest. Planting needs a harvest source with a viable propagule and a plant consumer that can read its exact identity and viability. The headless pelt proves the study route.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Eighteen related files passed 292/292, including the native harvest suite. Architecture, coverage and rules passed. The isolated game build passed with bundle SHA-256 `995125dd44290c08e4e6f1fc227f0cc58a4d16faf07e44d58e0c0f4f5861f4e9`. Inscription, harvest and study were each exercised after JSON restore in the headless workshop. The docs check flags unrelated shared claims.
+
+### ENF2, ENF17 and ENF22. Protective gear answers lingering spore exposure
+
+A spore site can set a repeat interval. Arrival still checks exposure immediately and starts the interval for occupants. A saved exposure check reads the current lining. The same body stays at thirty stamina with its seal on, loses five when it removes the seal and remains inside, and stays at thirty if it leaves before the check. Leaving cancels further exposure checks and an established affliction still follows its own clock.
+
+The purge charm clears the existing infection at its next stage and spends its charge. Staying in the cloud can start a new infection on a later exposure check. The workshop keeps one active track and processes its stage before any later exposure can start another. Cumulative dose during an active infection would need an affliction rule for how repeat inhalation changes the track.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6. Eighteen related files passed 292/292. Architecture, coverage and rules passed. Isolated game build SHA-256 `22c6cef699baef6889061cf7dbb33ba8a0c9c50b0c22c176c58dc113ebb069e3`. The headless workshop exercised seal removal, leaving, purging and renewed exposure after restore. The docs check flags unrelated shared claims.
+
+### ENF2, ENF17 and ENF18. A rechargeable filter stops spores at intake
+
+The charm can be inscribed as a filter using one measure of salts. When worn it spends a pulse on an exposure that gets through the lining. The same cloud that an intact lining seals off leaves the filter charged. An empty filter admits the next exposure. The existing purge pattern remains a separate inscription that acts on an established track.
+
+In the headless test the filter spends its first pulse on arrival and keeps the wearer at thirty stamina. A three-minute refill settles before the next exposure, spends one measure of salts and protects at that check. A competing refill spends nothing. The next unfiltered check costs five stamina. Save and restore preserve the charm, the pending refill and the exposure clock. The workshop uses one pulse per admitted cloud exposure. Filters that progressively clog or reduce dose would need an exposure rule that tracks dose and capacity separately.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Eighteen related files passed 293/293. Architecture, coverage and rules passed. Isolated game build SHA-256 `84de3ab064e81542d6f50d21e74d6fbddf1da2e1b6dc4a900e6f735cef9640b5`. The headless workshop exercised fitting, exposure, and recharge after restore. The docs check flags unrelated shared claims.
+
+### ENF2, ENF17 and ENF18. Filter measured spore doses
+
+Clouds can supply a dose per exposure and a filter can hold several units of capacity. The lining checks whether the cloud reaches the filter. The filter spends one capacity per intercepted unit. Any residual dose reaches the affliction save, with each unit above the first subtracting one from the save total. Unmeasured sites and charms retain the one-unit behavior. Purge inscriptions still treat established affliction stages.
+
+In the restored test a three-unit filter catches a two-unit arrival dose and retains one. It catches one unit of the next dose, and the other unit opens a poison track and costs five stamina. An empty filter can refill to its full rating with a saved salt job. Repeat inhalation during an active track remains on the existing single-track rule. A cumulative poisoning rule would need to define how new dose changes stage, duration or recovery.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6. Eighteen related files passed 293/293. Architecture, coverage and rules passed. Isolated game build SHA-256 `833c28ff3af1a725b907874ce70b3d0f700dc341a30aae6b2cca5b7d69fa59c6`. The headless workshop restored a partly spent filter and an in-flight refill. The docs check flags unrelated shared claims.
+
+### ENF2, ENF17 and ENF18. A filter delays cumulative spore exposure
+
+A site can set a dose threshold for the existing affliction save. The seal and filter reduce exposure first. Remaining dose accumulates at that site until the threshold, then the affliction owner rolls the save and the workshop clears the accumulated dose. Leaving the cloud clears subthreshold buildup. An active infection still follows its own stage schedule.
+
+In the headless test the unfiltered wearer reaches the four-unit threshold on the second exposure. A three-unit filter delays the save until the fourth exposure. The partly spent filter and the one- and three-unit buildup states survive restore. Leaving with three units prevents the later infection. The default for sites with no threshold is to check each exposure independently. A retained bodily dose across sites or a dose that aggravates an established track needs a rule for clearance, stage and recovery.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6. Eighteen related files passed 293/293. Architecture, coverage and rules passed. Isolated game build SHA-256 `2d230258ec5f22df0357f994ae1b67b5e09886e6200448e289a8b84f0d814c19`. The headless workshop exercised cumulative exposure and departure after restore. The docs check flags unrelated shared claims.
+
+### ENF2, ENF17 and ENF22. Retain inhaled dose between rooms
+
+A body with an authored clearance interval keeps its subthreshold dose across rooms. Clean air removes one unit per interval. Entering another cloud stops clearance, applies current equipment to the new dose and adds what gets through to what the body already carries. Bodies without this interval keep the earlier site-local behavior. An established infection keeps its own affliction clock.
+
+In the restored headless comparison the wearer carries three units after the filter is depleted. Going straight to the second cloud adds two units, exceeds the threshold of four and costs five stamina. Waiting four minutes in clean air reduces three units to one. The same entry then leaves three units and full stamina. The clearance deadline survives restore. The workshop uses one spore family. Different airborne substances would need their own buildup and clearance state.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6. Eighteen related files passed 293/293. Architecture, coverage and rules passed. Isolated game build SHA-256 `2d230258ec5f22df0357f994ae1b67b5e09886e6200448e289a8b84f0d814c19`. The headless workshop restored dose and clearance across the two-room route. The docs check flags unrelated shared claims.
+
+### ENF15, ENF17 and ENF18. Refit a filter with a separate cartridge
+
+**ACT NOW.** An inscribed frame accepts a cartridge with its own identity, capacity and remaining charge. A timed swap checks that both parts are still in the wearer's custody and that the expected cartridge is still seated. Detaching preserves the removed cartridge for reuse. In the headless comparison, a one-unit cartridge admits one unit of a two-unit dose and the wearer loses five stamina. A three-unit cartridge catches both units and keeps one. The removed cartridge keeps its charge. A pending swap survives restore, and a competing swap or a swap that loses custody is interrupted.
+
+**ACCOUNT FOR NOW.** The workshop defaults to refilling a loose, empty cartridge for one measure of salts. Its capacity comes from the cartridge rating. Integral filter charms keep their existing inscription, charge and recharge behavior.
+
+**LATER/DELEGATE.** A moderate workshop integration would expose the existing jobs and cartridge charge on the equipment surface. Check that a player can compare two cartridges, swap them, reload a save and see the same fitted part and charge.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Eighteen related files passed 294/294, including the headless crossing and JSON restore. Architecture, coverage and rules passed. Isolated game build SHA-256 `01bbe32a841592fa617b6c302254d311ace56d5d2ebe7c52e2e859fc7f62d8ae`.
+
+### ENF3 and ENF18. Recharge a light ring at the appraisal bench
+
+**ACT NOW.** A light ring can bind a price per charge. The bearer who holds it pays through the existing stored-working maintenance action. In the restored workshop, a spent ring leaves the bench too dark for appraisal. Paying two ink buys one charge. The same command lights the bench for three minutes and makes the lining appraisable. A short payment leaves the ink and charge intact. Asking to refill an already full ring spends nothing.
+
+**ACCOUNT FOR NOW.** This action refills a sound ring immediately up to its stored capacity. Timed recharge still needs the shared settlement port that can update stored records and publish their receipts at a working deadline.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related files passed 319/319. Architecture, coverage and rules passed. Isolated game build SHA-256 `5313c0620a4726231ec1d43b2e673ba990e6eb7df59e930294ad541af389b857`. The headless workshop restored the expired glow, charge purchase and second appraisal. The docs check flags five claims in other documents.
+
+### ENF16 and ENF18. Repair a fractured light ring and renew its glow
+
+**ACT NOW.** A physical break ends the ring's timed glow immediately and quiets the stored pattern. A three-minute repair spends one supply on the ring. The old glow stays out after repair, even before its former expiry. Paying the renewal price lets the ring start a new glow on its own deadline. In the restored test the renewed light makes the lining appraisable. A ring moved away interrupts repair, and competing repairs spend one supply.
+
+**ACCOUNT FOR NOW.** The workshop uses an explicit fracture action and a separate paid renewal. The fracture removes the ring's timed field. Ambient light already delivered by an instant pulse belongs to the site.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 322/322. Architecture, coverage and rules passed. Isolated game build SHA-256 `1f62f72d60dd90cb22174786c6a4a08a5054454d1579d2347dd9d6e36b83dfac`. The headless workshop restored fracture, pending repair, renewal and appraisal. The docs check flags five claims in other documents.
+
+### ENF16 and ENF22. Hand over a glowing ring
+
+**ACT NOW.** A three-minute handoff transfers the exact ring when both people and the ring are still together. In the restored workshop test the recipient carries the already glowing ring across a heated path and uses it to appraise a lining at the far bench. The first glow expires on its original deadline. The new bearer then invokes the same ring and spends its remaining charge. A recipient who leaves early interrupts the handoff, and competing gifts transfer custody once.
+
+**ACCOUNT FOR NOW.** The handoff changes custody. Portable glow follows the ring, while a field bound to a fixed bench stays there.
+
+### ENF16 and ENF22. Lend a light ring and return it after use
+
+**ACT NOW.** The three-minute loan records the lender and the specific loan on the ring. The borrower can invoke it for appraisal. A return checks the expected loan and requires both people and the same ring together. In the restored comparison, the borrower spends one of two charges and returns the ring while it still glows. The lender can spend the last charge after the original glow expires. The borrower cannot give the ring away, and a return interrupts if the lender leaves.
+
+**ACCOUNT FOR NOW.** A voluntary return takes place at a meeting. The parties can also include a recall term when the loan is made.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 324/324. Architecture, coverage and rules passed. Isolated game build SHA-256 `1f62f72d60dd90cb22174786c6a4a08a5054454d1579d2347dd9d6e36b83dfac`. The headless workshop restored the pending loan and return, the original glow deadline and the remaining charge. The docs check flags five claims in other documents.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 323/323. Architecture, coverage and rules passed. Isolated game build SHA-256 `1f62f72d60dd90cb22174786c6a4a08a5054454d1579d2347dd9d6e36b83dfac`. The headless workshop restored the pending gift, recipient's crossing and glow expiry. The docs check flags five claims in other documents.
+
+### ENF16 and ENF22. Recall a ring under an agreed loan term
+
+**ACT NOW.** A loan can authorize a paid recall over the workshop's open heated passages. Settlement rechecks the exact loan, both people, the ring's custody and the quoted path. In the restored run, recall moves the glowing ring back to the lender for one ink while the borrower stays at the far bench. The glow makes appraisal possible at the lender's bench, then expires on its original deadline. A closed passage, an ordinary loan or a competing recall leaves the ink unspent.
+
+**ACCOUNT FOR NOW.** This workshop quotes one minute plus passage cost on routes of up to ten minutes. Recall carries the ring with its remaining charge. Realm-door recall would need a loan term that names the connection and uses its transfer and toll rules.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 325/325. Architecture, coverage and rules passed. Isolated game build SHA-256 `1f62f72d60dd90cb22174786c6a4a08a5054454d1579d2347dd9d6e36b83dfac`. The headless workshop restored the pending recall, appraised at the destination and verified the original glow expiry. The docs check flags five claims in other documents.
+
+### ENF3 and ENF18. Light an appraisal bench when it gets dark
+
+**ACT NOW.** A ring can watch the ambient light account of a fixed bench. In the restored headless workshop, a bright reading spends no charge. After the bench darkens, the next scheduled check spends one charge and lights it for appraisal. If it stays dark, the next check renews the glow. If ambient light returns before that check, the current glow expires and the ring keeps its remaining charge. When the ring runs out, a dark bench stays dark.
+
+**ACCOUNT FOR NOW.** The ambient watch samples once per glow duration. This gives each field time to expire before a replacement pulse. Passage reach and any remote surcharge still apply. A bench can also use the effective-light watch below.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related files passed 320/320. Architecture, coverage and rules passed. Isolated game build SHA-256 `5313c0620a4726231ec1d43b2e673ba990e6eb7df59e930294ad541af389b857`. The headless workshop restored the pending threshold check and both daylight and sustained-darkness branches. The docs check flags five claims in other documents.
+
+### ENF18 and ENF19. Share an appraisal bench between automatic rings
+
+**ACT NOW.** An effective-light watch reads the same light as appraisal, including the active glows of other rings. The stored-working clock reads the bench after each earlier pulse at the same minute. In the restored headless comparison, the first ring lights the bench and the backup keeps its charge. The backup lights it at the next check when the primary's glow expires and the primary has no charge. Putting down the primary before the first check lets the backup light the bench immediately at that check. The bench supports appraisal until the last glow expires.
+
+**ACCOUNT FOR NOW.** Simultaneous watches follow the stored owner's order by record ID. Each ring samples once per glow duration and needs a bearer in custody at the check. A priority selected by the maker would need an explicit order in the stored-working host.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related files passed 321/321. Architecture, coverage and rules passed. Isolated game build SHA-256 `1f62f72d60dd90cb22174786c6a4a08a5054454d1579d2347dd9d6e36b83dfac`. The headless workshop restored the watch before the shared pulse and before backup takeover. The docs check flags five claims in other documents.
+
+### ENF18 and ENF22. Speak a command to light a linked bench
+
+**ACT NOW.** A light ring can store an exact command and a fixed destination. The stored-working owner checks the spoken word and reads the live passage graph from the ring. In the restored comparison a wrong command and a closed passage each preserve all three charges. Opening the passage lets the command spend two charges and light the far bench for three minutes. An observer there can appraise a lining while the origin stays dark. After the glow expires, one charge falls short at range. Bringing the ring to the bench lets that final charge light it locally.
+
+**ACCOUNT FOR NOW.** The link range and additional charge are authored per binding. This bench uses one open link and one extra charge. A timed remote glow holds its published grade, so the ring waits for the full pulse. Earlier rings keep their local command and output from their saved working.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related test files passed 305/305. Architecture, coverage and rules passed. Isolated game build SHA-256 `61f72f41051e7507cea96b69b274cdc5b01a201e031d8ed848dcc5da150c11ec`. Agent-verified through headless invocation, live passage changes, appraisal and JSON restore. The docs check flags five acceptance claims in other documents.
+
+### Preserve ore with a removable head
+
+**ACT NOW.** ENF15–ENF19. Inscribe a sound head with the ore preservation mark. Fit and disassembly carry the marks with the head, so a new grip keeps the original protection. A fracture through the metal loses the surface pattern. A saved tracing of that head lets the maker reinscribe the recast iron for one ink per missing mark. A tracing made before preservation was available still describes the split mark. In the headless test the same cut yields two fragments in all cases. The protected and refitted head recover grade 72, the recast head recovers grade 32, and the reconstructed mark returns the cut to grade 72. A competing reconstruction spends no ink.
+
+**ACCOUNT FOR NOW.** Preservation is a surface mark with no bearer key in this workshop. A tracing records whether the quantity mark was keyed. The paid reconstruction of that mark keys it to the maker who restores it, following the existing split-mark behavior.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 306/306. Architecture, coverage and rules passed. Isolated game build SHA-256 `eb6cc7ff96bfc8f5dbacc44ce4031d581c5c47994d93cbd3f8e8a36d47c7fffa`. Agent-verified through the headless workshop and JSON restore. The docs check flags five claims in other documents.
+
+### ENF7, ENF18 and ENF22. Recharge a ward from its captured force
+
+**ACT NOW.** A ward can bind its recharge price to its own captured-force account. The current bearer operates it, and the stored-working owner debits that account and restores charge together. In the restored workshop test, two seven-point fire hits fill the reservoir with eight force and spend both pulses. After transfer the new bearer exchanges those eight units for one four-charge pulse. The next hit deals three damage and leaves four force, and the hit after it deals seven. A request for five charge leaves the reserve and charge intact when the price exceeds the reserve. The saved receipt identifies the paying carrier and the operator.
+
+**ACCOUNT FOR NOW.** This binding spends two force for each charge. The same reservoir also supplies the existing release action. The authored price determines how many intercepted hits can fund a later pulse. Existing bearer-funded recharge and renewal still use their published prices.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW10. Twenty related files passed 307/307. Architecture, coverage and rules passed. Isolated game build SHA-256 `20e1bb1f39333fce89381091f9e0d5448de9c3606b8e89b5943444316708758c`. Headless custody, failed payment, recharge and impact passed through JSON restore. The docs check flags five claims in other documents.
+
+### ENF16 and ENF22. Hand over a fitted spore filter
+
+**ACT NOW.** A three-minute handoff binds the giver, recipient, frame and exact seated cartridge. At settlement the people and both parts must still be together. A successful gift clears the giver's worn slot, transfers both parts and preserves their links and charge. An empty frame can go by itself. A frame-only gift aimed at a fitted filter interrupts, as does a competing handoff after custody changes. In the restored workshop the former wearer and the recipient before equipping each lose five stamina to the same two-unit exposure. Wearing the received filter keeps the recipient at full stamina and leaves one charge in the original cartridge.
+
+**ACCOUNT FOR NOW.** The receiver equips the filter with the existing wear job. The same handoff supports an intact loan and return under the terms below.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 307/307. Architecture, coverage and rules passed. Isolated game build SHA-256 `18ff7c604e6782c3ee746605410b6b9330054b502a334d98830392100bf87466`. The headless workshop restored the pending transfer and ran the same crossing with both bearers. The docs check flags five claims in other documents.
+
+### ENF16 and ENF22. Lend and return the same fitted spore filter
+
+**ACT NOW.** A loan records the lender on the fitted frame. The borrower can equip it and spend its charge in a spore cloud. The return checks that the lender, borrower and exact assembly are still together at settlement, then clears the loan and the borrower's worn slot. The restored test uses two of three charge during a crossing and returns the original cartridge with one charge. A pending return interrupts when the lender leaves. After successful return the lender can detach the cartridge and still has that charge.
+
+**ACCOUNT FOR NOW.** This loan lends the frame and cartridge intact. Detachment, replacement and gifting wait until return, preserving the assembly the lender expects back. The existing wear and exposure jobs use the borrower's custody.
+
+**Verification.** PC95, AD36/AD38/AD51, AR3/AR6 and KW5/KW10/KW15. Twenty related files passed 307/307. Architecture, coverage and rules passed. Isolated game build SHA-256 `18ff7c604e6782c3ee746605410b6b9330054b502a334d98830392100bf87466`. Headless loan, exposure and return passed through JSON restore. The docs check flags five claims in other documents.
+
+### ENF1, ENF15 and ENF20. Inscribe a blade to deepen its cut
+
+**ACT NOW.** A three-minute inscription spends one unit of ink and marks the exact blade. The workshop `bladeCut` resolver adds the blade's effective edge power to the original strike. It reads current custody, equipment and condition at settlement. The restored contest dealt 23 damage with the plain blade, 28 with a marked blade at half condition, and 32 at full condition. Removing the blade during the windup returned damage to 23. Two overlapping jobs spent one ink. Transferring the blade before inscription settlement kept both ink units.
+
+**ACCOUNT FOR NOW.** The authored mark adds eight base power at full condition, scaled and rounded down with wear. This is a passive pattern with no charge cost. Authors opt in through the workshop `bladeCut` move resolver. Charged pre-damage interception still needs a contest settlement port. The [PC95 handoff](gm/dispatch/procedural-crafting-2026-11-11/CHECKPOINT.md#november-13-handoff-for-pc95-fabrication-and-enchantment) records the current contest and maintenance seams and the checks that reopen them.
+
+**Verification.** PC95, AD36/AD38/AD51 and AR3/AR6/AR11. Twenty focused files passed 326/326 on base `db81f1f117cde9f65ebed260fad5f6361c48d8a2` plus shared working inputs. Architecture, coverage and rules passed. Isolated game build SHA-256 `1f62f72d60dd90cb22174786c6a4a08a5054454d1579d2347dd9d6e36b83dfac`. The [headless fixture](../tests/strike_enchantment.test.js) restored inscription work and the pending contest. The docs check flags five claims in other documents.
