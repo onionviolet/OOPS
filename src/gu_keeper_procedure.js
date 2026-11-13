@@ -2,7 +2,8 @@ import {moonlightBlade} from './gu_ability_profiles.js';
 import {runGuProcedure, runGuProcedureFollowup, searchGuProcedures} from './gu_procedures.js';
 import {applyEnergyEffect} from './energy_resources.js';
 import {resolveGuActivation} from './gu_activation.js';
-import {deriveGuCondensation} from './gu_condensation.js';
+import {beamCondensationMinutes, beamCondensationProfile, deriveGuCondensation} from './gu_condensation.js';
+export {beamCondensationMinutes, beamCondensationProfile} from './gu_condensation.js';
 import {beginGuRefinement, cancelGuRefinement, stepGuRefinement} from './gu_refinement.js';
 import {applyGiantHand, applyGiantHandVariant, applyGiantHandWard, giantHandFacts, giantHandOperations, giantHandVariantOperations,
     giantHandWardOperations, giantHandYard, keeperGiantHand, keeperGiantHandVariants, keeperGiantHandWard,
@@ -35,13 +36,6 @@ const linkPinned = record => record?.extensions?.some(pin => pin.id === keeperBe
 const beamRecordPinned = record => record?.extensions?.some(pin => pin.id === keeperBeamRecord);
 const recordDone = (state, op) => state.actors.player.completed[`${keeperBeamRecord}.${op}`] ?? 0;
 const gateLoad = state => recordDone(state, 'remove_weight') ? 1 : 2;
-export const beamCondensationMinutes = 15;
-export const beamCondensationProfile = {
-    sourceEffect: 'lower-beam', measure: 'load', effect: 'lower-beam', capacity: 1, fuel: 'primeval', cost: 2,
-    recipe: {id: 'beam-catch-condensation', revision: 1, kind: 'beam-catch', rank: 1, recordLineage: true,
-        stages: [{id: 'shape', inputs: [{material: 'petals', amount: 2}, {material: 'stone', amount: 1}]},
-            {id: 'settle', inputs: []}]},
-};
 const beamGuId = `${keeperBeamCondensation}.gu`;
 const net = (cost, magnitude) => ({fn: 'catch', fuel: 'primeval', cost, effect: {kind: 'hold-load', magnitude}});
 export const procedureNets = {light: {label: 'Silk Catch Gu', ability: net(1, 1)}, heavy: {label: 'Woven Catch Gu', ability: net(2, 2)}};

@@ -9,6 +9,14 @@ export const thunderPotatoPropagation = Object.freeze({
 
 const requireThat = (ok, message) => { if (!ok) throw Error(message); };
 
+function inheritedLevel(base, spread, label) {
+    requireThat(Number.isSafeInteger(spread) && spread >= 0 && (base === undefined ? spread === 0 :
+        Number.isSafeInteger(base) && base >= 1 && Number.isSafeInteger(base + spread) &&
+        Number.isSafeInteger(2 * spread + 1)), `Invalid inherited ${label} range.`);
+    return (seed, key) => spread
+        ? Math.max(1, base - spread + Math.floor(drawFraction(seed, key) * (2 * spread + 1))) : base;
+}
+
 export function produceGuFruit(state, {rule, producer, operator, supply, reserves, clock, seed}) {
     requireThat(producer.kind === rule.producer && producer.rank === rule.producerRank && producer.holder === operator && supply,
         'The operator must hold the living producer Gu.');
@@ -19,11 +27,15 @@ export function produceGuFruit(state, {rule, producer, operator, supply, reserve
     if (result.outcome !== 'complete') return {state, reserves, result};
     const batch = state.nextBatch;
     requireThat(Number.isSafeInteger(batch) && batch > 0 && Number.isSafeInteger(batch + 1), 'Invalid production batch.');
+    const forceAt = inheritedLevel(producer.offspringForce, producer.offspringForceSpread ?? 0, 'force');
+    const triggerAt = inheritedLevel(producer.offspringTrigger, producer.offspringTriggerSpread ?? 0, 'trigger');
     const fruits = Array.from({length: rule.batchSize}, (_, index) => {
         const id = `gu-fruit:${batch}:${index + 1}`;
         const sound = drawFraction(seed, address(rule.id, 'fruit', producer.id, batch, index)) < rule.viability;
+        const force = forceAt(seed, address(rule.id, 'fruit-force', producer.id, batch, index));
+        const trigger = triggerAt(seed, address(rule.id, 'fruit-trigger', producer.id, batch, index));
         return {id, kind: rule.id, rank: rule.productRank, producer: producer.id, operator, holder: operator, batch, sound,
-            phase: 'unsorted', ...(producer.offspringForce === undefined ? {} : {force: producer.offspringForce})};
+            phase: 'unsorted', ...(force === undefined ? {} : {force}), ...(trigger === undefined ? {} : {trigger})};
     });
     return {state: {...state, nextBatch: batch + 1, fruits: [...state.fruits, ...fruits]},
         reserves: result.remaining, result};
@@ -76,13 +88,23 @@ export function plantGuFruit(state, {rule, id, operator, plot, depth, reserves, 
 
 export function disturbGuPlot(state, {plot, clock, vibration}) {
     const fruit = state.fruits.find(row => row.phase === 'planted' && row.plot === plot);
-    const threshold = fruit?.depth === 'deep' ? 2 : 1;
-    if (!fruit || fruit.readyAt > clock || vibration < threshold) return {state, spent: null};
+    const contact = vibration - (fruit?.depth === 'deep' ? 1 : 0);
+    if (!fruit || fruit.readyAt > clock || contact < (fruit.trigger ?? 1)) return {state, spent: null};
     return {state: {...state, fruits: state.fruits.map(row => row.id === fruit.id ? {...row, phase: 'spent'} : row)},
         spent: fruit.id};
 }
 
+export function dressGuFruitSoil(state, {id, operator, plot, clock}) {
+    const fruit = state.fruits.find(row => row.id === id);
+    requireThat(fruit?.phase === 'planted' && fruit.holder === operator && fruit.plot === plot,
+        'Choose a planted fruit in your care.');
+    const remaining = fruit.readyAt - clock;
+    requireThat(fruit.dressedAt === undefined && remaining > 1, 'This fruit cannot benefit from a dressing now.');
+    const next = {...fruit, dressedAt: clock, readyAt: clock + Math.ceil(remaining / 2)};
+    return {...state, fruits: state.fruits.map(row => row.id === id ? next : row)};
+}
+
 export function observeGuFruit(state) {
-    return state.fruits.map(({sound, force, ...visible}) => ({...visible,
-        ...(visible.phase !== 'unsorted' && force !== undefined ? {force} : {})}));
+    return state.fruits.map(({sound, force, trigger, ...visible}) => visible.phase === 'unsorted' ? visible : {...visible,
+        ...(force === undefined ? {} : {force}), ...(trigger === undefined ? {} : {trigger})});
 }

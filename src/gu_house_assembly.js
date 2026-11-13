@@ -1,4 +1,16 @@
 import {resolveGuActivation} from './gu_activation.js';
+import {fixedImmortalTravel, fixedImmortalTravelAbility} from './gu_fixed_immortal_travel.js';
+
+// Authored Keeper design. The headless host exercises the same support costs
+// and cargo tradeoff against live holders.
+export const transitHouseBlueprint = {
+    core: fixedImmortalTravel, rank: 6, minutes: 15,
+    ability: {...fixedImmortalTravelAbility, cost: 2},
+    supports: {
+        anchor: {carriesLoad: true, ability: {fuel: 'immortal', cost: 1, modifier: {property: 'cost', factor: 0.5, kind: fixedImmortalTravel}}},
+        glide: {carriesLoad: false, ability: {fuel: 'immortal', cost: 1, modifier: {property: 'cost', factor: 0, kind: fixedImmortalTravel}}},
+    },
+};
 
 export function fitGuHouse(blueprint, core, support, clock) {
     if (core?.kind !== blueprint.core || core.rank !== blueprint.rank || !core.alive || core.injured ||

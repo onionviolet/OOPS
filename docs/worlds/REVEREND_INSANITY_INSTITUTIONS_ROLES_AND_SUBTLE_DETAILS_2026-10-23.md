@@ -122,6 +122,8 @@ Not found: lunar or seasonal cycles tied to any institution in the windows. Awak
 
 ## 6. Power subtleties and costs in the windows (WPR14)
 
+The [Moonblade damage and recovery source pass](../research/RI_MOONBLADE_DAMAGE_CALIBRATION_2026-11-12.md) covers the original Moonlight Gu, the evidence for applicable defenses, and the limits of the reinforced-body comparisons.
+
 - Pre-refined Gu transfer control to the buyer at sale, wild Gu resist refinement (ch442 p56-58, STATED/SHOWN, U). Feeds the "Gu custody versus refinement" split in the 2026-10-14 proposals (RI-P1).
 - Aperture inspection by an academy elder cannot detect a hidden high-rank Gu (ch52 p21-70, SHOWN, U).
 - Rank floors for roles: a manager needs rank 3; sect elders rank 4+; leader rank 5; supreme elders rank 6-7 (ch325, ch335).

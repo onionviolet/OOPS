@@ -7,6 +7,9 @@
 import {readFileSync, writeFileSync, mkdirSync, existsSync} from 'node:fs';
 import {join} from 'node:path';
 import {GU_CASE_GAPS, GU_CASE_MODULE, guCaseNote} from '../src/world_packs/gu_effect_pack.js';
+import {GU_MOVE_CASE_MODULE, MOONBLADE_COVERAGE_ID, PLATE_SHELTER_COVERAGE_ID,
+    TELEPORT_ARRAY_COVERAGE_ID, CLEANSING_ARRAY_COVERAGE_ID, THREE_HEADS_COVERAGE_ID,
+    FUTURE_TRAVEL_COVERAGE_ID} from '../src/world_packs/gu_move_coverage_cases.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
 import {derivedAbilityFrom, guMethods, guRunnableCoverage} from '../src/gu_working_law.js';
 
@@ -91,6 +94,27 @@ function kindRow(record) {
 function moveRow(move) {
     const base = {id: move.id, name: move.family, source: [move.source, ...(move.chapters ?? []).map(ch => `ch${ch}`)],
         layer: 'chapter', status: move.status, roles: move.roles.map(role => ({id: role.id, kind: role.kind ?? null})), test};
+    if (move.id === 'iceblade-storm') return {...base, state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'],
+        case: {module: GU_MOVE_CASE_MODULE, id: move.id}, test: 'tests/gu_coupled_working.test.js',
+        note: 'Coupled world beat verifies living Gu, payment, movement, freezing, harm and timed protection. Timing, quantities and local geometry are authored.'};
+    if (move.id === 'giant-hand-condensed-core') return {...base, state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'],
+        case: {module: GU_MOVE_CASE_MODULE, id: move.id}, test: 'tests/gu_giant_hand_working.test.js',
+        note: 'Timed Myriad Self and Group Strength activations spend live reserves and move a slab after restore. The support pair, force, cost and load are authored.'};
+    if (move.id === 'giant-hand-stored-phantoms') return {...base, state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'],
+        case: {module: GU_MOVE_CASE_MODULE, id: move.id}, test: 'tests/gu_giant_hand_working.test.js',
+        note: 'Prepared phantoms survive restore, move a live slab on release, and expire before another release can charge the supports. The compressed preparation roles and timing are authored.'};
+    if (move.id === TELEPORT_ARRAY_COVERAGE_ID) return {...base, state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'],
+        case: {module: GU_MOVE_CASE_MODULE, id: move.id},
+        note: 'A six-hour setup survives restore. The installed route carries travellers and their living keys both ways after the plate is rewritten and removed. Key identity, costs, crossing time and severance are authored.'};
+    if (move.id === CLEANSING_ARRAY_COVERAGE_ID) return {...base, state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'],
+        case: {module: GU_MOVE_CASE_MODULE, id: move.id},
+        note: 'The chapter proposes the rewrite. An authored array wears down a compatible personal restraint over paid pulses after the plate is removed. The pulse, compatible effects, cost and duration are authored.'};
+    if (move.id === THREE_HEADS_COVERAGE_ID) return {...base, state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'],
+        case: {module: GU_MOVE_CASE_MODULE, id: move.id}, test: 'tests/gu_three_heads_working.test.js',
+        note: 'Three operators fund eighteen live Gu to form a body that lifts a heavy gate after restore. A committed Gu prevents formation and separation stops a later lift. Constituent identities, costs and load are authored.'};
+    if (move.id === FUTURE_TRAVEL_COVERAGE_ID) return {...base, state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'],
+        case: {module: GU_MOVE_CASE_MODULE, id: move.id},
+        note: 'Paid attunement funds a blank River anchor for projected travel. A live River change refuses a pending cast after restore and leaves past arrivals in place. The attunement and course checks are authored.'};
     const unnamed = move.roles.filter(role => !role.kind);
     if (unnamed.length) return {...base, state: 'blocked:unnamed-role', mechanisms: ['G'],
         note: `Roles with no named Gu: ${unnamed.map(role => role.id).join(', ')}.`};
@@ -110,6 +134,18 @@ function leadRow(lead) {
 
 const kinds = index.records.map(kindRow);
 const moves = [...index.moves.map(moveRow), ...index.move_candidates.records.map(leadRow)];
+moves.push({id: MOONBLADE_COVERAGE_ID, name: 'Little Light Moonblade',
+    source: ['docs/research/RI_MOONBLADE_DAMAGE_CALIBRATION_2026-11-12.md', 'ch70'], layer: 'authored',
+    roles: [{id: 'blade', kind: 'moonlight'}, {id: 'light', kind: 'little-light'}],
+    state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'], test: 'tests/gu_moonblade_contact.test.js',
+    note: 'A plain Moonblade falls short. Little Light extends the paid cast to the same target after mid-flight restore. Range, damage and costs use authored units.',
+    case: {module: GU_MOVE_CASE_MODULE, id: MOONBLADE_COVERAGE_ID}});
+moves.push({id: PLATE_SHELTER_COVERAGE_ID, name: 'Formation Plate Shelter',
+    source: ['docs/GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md#gu-capability-coverage-before-ui-2026-11-12', 'GKM268'],
+    layer: 'authored', roles: [{id: 'plate', kind: 'formation-plate'}],
+    state: 'expressed-authored', mechanisms: ['G', 'K', 'W', 'L'], test: 'tests/gu_coupled_working.test.js',
+    note: 'The paid rewrite survives restore and the installed shelter stops a strike until expiry. Shelter is an authored layout.',
+    case: {module: GU_MOVE_CASE_MODULE, id: PLATE_SHELTER_COVERAGE_ID}});
 for (const rows of [kinds, moves]) {
     const seen = new Set();
     for (const row of rows) {

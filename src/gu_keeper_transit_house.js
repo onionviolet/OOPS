@@ -1,22 +1,13 @@
-import {fitGuHouse, quoteGuHouse, settleGuHouse} from './gu_house_assembly.js';
-import {fixedImmortalTravel, fixedImmortalTravelAbility} from './gu_fixed_immortal_travel.js';
+import {fitGuHouse, quoteGuHouse, settleGuHouse, transitHouseBlueprint as blueprint} from './gu_house_assembly.js';
 import {fixedTravelAnnex, fixedTravelHill, quoteKeeperFixedTravel} from './gu_keeper_immortal_travel.js';
 import {keeperFixedSpecimen} from './gu_keeper_fixed_claim.js';
 import {validateGuClaims} from './gu_world_claims.js';
 
 export const keeperTransitHouse = 'book.ri.keeper.transit_house';
-export const transitHouseMinutes = 15;
+export const transitHouseMinutes = blueprint.minutes;
 export const transitHouseActions = ['open_frame', 'fit_anchor', 'fit_glide', 'finish_frame', 'rush_frame', 'unseat',
     'anchor_cross', 'glide_cross', 'freight_cross'];
 const supportIds = ['anchor', 'glide'];
-const blueprint = {
-    core: fixedImmortalTravel, rank: 6, minutes: transitHouseMinutes,
-    ability: {...fixedImmortalTravelAbility, cost: 2},
-    supports: {
-        anchor: {carriesLoad: true, ability: {fuel: 'immortal', cost: 1, modifier: {property: 'cost', factor: 0.5, kind: fixedImmortalTravel}}},
-        glide: {carriesLoad: false, ability: {fuel: 'immortal', cost: 1, modifier: {property: 'cost', factor: 0, kind: fixedImmortalTravel}}},
-    },
-};
 export const transitHouseCost = Object.freeze(Object.fromEntries(Object.entries(blueprint.supports).map(([kind, {ability}]) =>
     [kind, ability.cost + blueprint.ability.cost * ability.modifier.factor])));
 const done = (state, operation) => state.actors.player.completed[`${keeperTransitHouse}.${operation}`] ?? 0;

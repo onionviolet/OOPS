@@ -16,3 +16,32 @@ export const icebladeStormBeat = {
         {id: 'wind', kind: 'fierce-wind', fuel: 'primeval', cost: 2},
     ],
 };
+
+// Opt-in headless scale. The ground and opponent are bound at the destination
+// of one advance. Temperature, harm and guard duration are authored dials.
+export const icebladeStormWorldBeat = {
+    ...icebladeStormBeat,
+    id: 'iceblade-storm-world',
+    world: {
+        position: 'track_position',
+        fuelAccounts: {primeval: 'energy:primeval.rank1'},
+        effects: [
+            ...['operator', 'blade', 'swirl', 'wind'].map(role =>
+                ({verb: 'move', object: 'position', role, details: {}})),
+            {verb: 'block', object: 'vitality', role: 'operator', details: {minutes: 3}},
+            {verb: 'remove', object: 'vitality', role: 'target', details: {amount: 4}},
+            {verb: 'remove', object: 'heat', role: 'place', details: {amount: 10}},
+        ],
+    },
+};
+
+export const icebladeStormRouteBeat = {
+    ...icebladeStormWorldBeat,
+    id: 'iceblade-storm-route',
+    world: {
+        ...icebladeStormWorldBeat.world,
+        route: {kind: 'storm-track', side: 'contest_side'},
+        effects: icebladeStormWorldBeat.world.effects.map(row => ({...row,
+            role: row.role === 'target' ? 'foes' : row.role === 'place' ? 'ground' : row.role})),
+    },
+};
