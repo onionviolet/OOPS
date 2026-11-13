@@ -1,6 +1,7 @@
 // Read/validate existing owners. No saved slice, stock writer, tick or timer.
 import {registerDomain} from './domain_registry.js';
 import {energyCharge} from './energy_resources.js';
+import {readSpoilage, wordsFor} from './spoilage.js';
 import {stockFacts, stockAssertions, stockKeys} from './ready_stock.js';
 import {guAcademyLife as life, guId as id, guKey as key, GU_DAY, GU_FRESHNESS, GU_INITIAL_PETALS} from './world_packs/book_gu_life.js';
 import {GU_LEAD} from './world_packs/book_gu_lead_life.js';
@@ -55,7 +56,7 @@ export function guCareStatus(state, definition, record, context) {
     const {prepared, loose} = guPetalFacts(count(s.owners[id('moonlight')], id('petals')), count(context.gameplay?.player?.inventory, id('petals')));
     return [
         {label: 'Moonlight Gu care', value: gu.life === 'dead' ? `Dead · care has ended. ${prepared} prepared petals and ${loose} loose petals remain unused. This Gu no longer eats or activates.` : `Alive · care condition ${gu.vitals.health}/4 · ${prepared} prepared petals · ${loose} loose petals. Four fresh petals per day; next care deadline in ${Math.max(0, check.due - state.clock)} played minutes.`},
-        {label: 'Opening food freshness', value: state.clock >= expiry ? 'The opening petal lot has spoiled. Assigning it again cannot refresh it.' : `This entire opening lot expires in ${expiry - state.clock} played minutes. Prepared and loose petals share that deadline.`},
+        {label: 'Opening food freshness', value: state.clock >= expiry ? 'The opening petal lot has spoiled. Assigning it again cannot refresh it.' : `This entire opening lot is ${wordsFor(readSpoilage(key('petals'), state.clock - record.initializedAt))} (${expiry - state.clock} played minutes). Prepared and loose petals share that deadline.`},
         {label: 'Primeval activation budget', value: `${energy.reserve}/${energy.policy.capacity} ${energy.policy.label} · ${gu.life === 'dead' ? 'This Gu is dead; the reserve cannot activate it.' : `${charge} per taught Moonblade · reserve supports ${Math.floor(energy.reserve / charge)} activations when the Gu, method and targets are ready. Food is a separate budget.`}`}
     ];
 }

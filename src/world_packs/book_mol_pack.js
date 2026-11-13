@@ -11226,7 +11226,7 @@ export default {
        "actor": "player",
        "key": "book.mol.zorian.placement",
        "stage": "understood",
-       "value": "Nora gave a 60-question placement test, a 12-book recommended list, a weekly bonus lecture offer and three chapters due next class. Your answers are not scored here.",
+       "value": "Nora gave a 60-question placement test, a 12-book recommended list, a weekly bonus lecture offer and three chapters due next class. She hands the marked test back from the third day.",
        "basis": {
         "kind": "observation",
         "attributedTo": "book.mol.nora",

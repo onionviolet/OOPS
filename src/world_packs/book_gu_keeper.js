@@ -3,6 +3,7 @@
 // stipend, prices, meals and the refinement odds. Ranks above the first need unread blocks and are not modelled.
 // Upkeep rows come from the living_upkeep seam; the pack adds ownership, prices, the stipend and one refinement.
 import {compileUpkeepEvents, compileStandingOrder} from '../living_upkeep.js';
+import {guWorkRows} from '../companion_work_gu.js';
 export const KEEPER_PREFIX = 'book.ri.keeper';
 export const kId = n => `${KEEPER_PREFIX}.${n}`;
 export const kKey = n => JSON.stringify({id: kId(n)});
@@ -54,7 +55,7 @@ export const guKeeperLife = {
         effects: [{type: 'source', sourceId: id('aperture'), operation: 'grant', origin: 'acquired', awakened: true, active: true},
             {type: 'energy', energyId: id('primeval'), operation: 'learn'}, {type: 'energy', energyId: id('primeval'), operation: 'recover', amount: KEEPER_DIALS.startEssence},
             item('stone', KEEPER_DIALS.startStones), item('petals', 8),
-            ...KEEPER_GU.flatMap(g => [item(g.slot + '_gu', 1, steward), {type: 'claim', actor: steward, key: id(g.slot + '_title'), operation: 'acquire'}, flag(g.slot + '_kept', false, gu(g)), flag(g.slot + '_refined', false, gu(g)), flag(g.slot + '_kept.fed', false, gu(g)), flag(g.slot + '_kept.worked', false, gu(g)), flag('auto_' + g.slot, false)]),
+            ...KEEPER_GU.flatMap(g => [item(g.slot + '_gu', 1, steward), {type: 'claim', actor: steward, key: id(g.slot + '_title'), operation: 'acquire'}, flag(g.slot + '_kept', false, gu(g)), flag(g.slot + '_refined', false, gu(g)), ...(g.refinedMeal ? [flag(g.slot + '_resents', false, gu(g))] : []), flag(g.slot + '_kept.fed', false, gu(g)), flag(g.slot + '_kept.worked', false, gu(g)), flag('auto_' + g.slot, false), flag('order_' + g.slot, 'none')]),
             note('stipend_known', `The clan pays ${KEEPER_DIALS.stipendStones} primeval stones every ${KEEPER_DIALS.stipendDays} days for ${KEEPER_DIALS.stipendWeeks} weeks. Stones are both money and fuel; this is an authored first-year agreement.`),
             note('gu_known', 'Gu are living. Each has its own food and meal schedule; a missed meal costs one point of condition and a Gu at condition 1 is starved out: it cannot work until fed again, but a keeper’s Gu does not die of hunger (a dial: the clan’s unheld Gu and other people’s still can). Taking in more Gu than you can feed is allowed.')]
     }],
@@ -82,21 +83,35 @@ for(const g of KEEPER_GU) {
     const feedBatch = g.perMeal * 2;
     S.commands.push(cmd('feed_' + g.slot, `Feed the ${g.label}: ${feedBatch} ${g.foodLabel}`, {targetId: gu(g), coLocated: true, participants: ['$target'], requires: because(all(owned(g), ge(`item.${key(g.food)}`, feedBatch)), `You need this Gu in your care and ${feedBatch} ${g.foodLabel} in your bag; buy some from the steward.`),
         description: `Move ${feedBatch} ${g.foodLabel} into its larder, enough for two meals. It eats at its own boundary; this spends no essence.`,
-        costs: [{type: 'transfer', from: 'player', to: gu(g), key: key(g.food), count: feedBatch}]}));
+        costs: [{type: 'transfer', from: 'player', to: gu(g), key: key(g.food), count: feedBatch}],
+        // CPR10 tie consumer: a refined (tied) Gu that was pushed hungry holds it against you until you feed it.
+        ...(g.refinedMeal ? {effects: [flag(g.slot + '_resents', false, gu(g))]} : {})}));
     S.commands.push(cmd('buy_' + g.food, `Buy ${g.bundle} ${g.foodLabel} · ${g.bundlePrice} stone`, {targetId: steward, coLocated: true, participants: ['$target'], requires: because(all(ready, ge(`item.${key('stone')}`, g.bundlePrice)), `You need ${g.bundlePrice} primeval stone for this.`),
         description: `The steward sells ${g.bundle} ${g.foodLabel} for ${g.bundlePrice} primeval stone.`, costs: [{type: 'transfer', from: 'player', to: steward, key: key('stone'), count: g.bundlePrice}],
         effects: [item(g.food, g.bundle), note('purchase', `You bought ${g.bundle} ${g.foodLabel}.`)]}));
     // Slice: what a Gu is for. One working per meal window; condition sets how well it goes (4-3 sound, 2 works through at risk, 1 starved out).
+    // One gate for the hand verb and the standing work order (CPR15): care (condition), the tie (a resentful bound Gu refuses), the window and essence.
+    const workGate = condition => all(owned(g), condition, eq(`target.actor.${id(g.slot + '_kept.worked')}`, false), ge(`energy.${id('primeval')}.reserve`, 1), ...(g.refinedMeal ? [eq(`target.actor.${id(g.slot + '_resents')}`, false)] : []));
     const workBase = (suffix, label, condition, extra) => cmd(`work_${g.slot}${suffix}`, label, {targetId: gu(g), coLocated: true, participants: ['$target'],
-        requires: because(all(owned(g), condition, eq(`target.actor.${id(g.slot + '_kept.worked')}`, false), ge(`energy.${id('primeval')}.reserve`, 1)),
-            `You need this Gu in your care at the right condition, not yet worked this meal window, and 1 essence. A starved-out Gu (condition 1) must eat first.`),
+        requires: because(workGate(condition),
+            `You need this Gu in your care at the right condition, not yet worked this meal window, and 1 essence. A starved-out Gu (condition 1) must eat first.${g.refinedMeal ? ' A refined Gu that was pushed hungry will not work for you until you feed it.' : ''}`),
         costs: [essence(1)], ...extra});
     S.commands.push(workBase('', `Put the ${g.label} to work · 1 essence, ${g.yield} stone${g.yield > 1 ? 's' : ''}`, ge('target.vital.health', 3), {description: `A sound Gu does its clan work once per meal window: ${g.yield} primeval stone${g.yield > 1 ? 's' : ''} for 1 essence.`,
         effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), note('work', `The ${g.label} did its work: ${g.yield} stone${g.yield > 1 ? 's' : ''}.`)]}));
-    S.commands.push(workBase('_weak', `Work the hungry ${g.label} anyway · 1 essence, ${g.yield} stone${g.yield > 1 ? 's' : ''}, risk of harm`, all(ge('target.vital.health', 2), {fact: 'target.vital.health', op: 'lte', value: 2}),
-        {description: `At condition 2 the Gu works through hunger: the same pay, but it may be hurt for one point. It cannot be hurt below condition 1; feed it instead if you can.`,
-        outcomes: [{id: id(`work_${g.slot}_fine`), weight: KEEPER_DIALS.workWeakInjuryOdds.fine, effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), note('work', `The hungry ${g.label} got through its work.`)]},
-            {id: id(`work_${g.slot}_hurt`), weight: KEEPER_DIALS.workWeakInjuryOdds.hurt, effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), {type: 'vital', actor: gu(g), key: 'health', amount: -1}, note('work', `The hungry ${g.label} finished its work and was hurt; it is starved out until it eats.`)]}]}));
+    // A refined Gu is a tied being (CPR10): working it hungry is something it remembers, so it takes a separate command that sets
+    // `_resents` (cleared by feeding it). An unrefined Gu is held, has no mind to resent, and keeps the plain command.
+    for(const bound of g.refinedMeal ? [false, true] : [false]) {
+        const sfx = bound ? '_bound' : '', mark = bound ? [flag(g.slot + '_resents', true, gu(g))] : [];
+        const gate = g.refinedMeal ? [eq(`target.actor.${id(g.slot + '_refined')}`, bound)] : [];
+        S.commands.push(workBase('_weak' + sfx, `Work the hungry ${g.label} anyway · 1 essence, ${g.yield} stone${g.yield > 1 ? 's' : ''}, ${bound ? 'it will resent it' : 'risk of harm'}`, all(ge('target.vital.health', 2), {fact: 'target.vital.health', op: 'lte', value: 2}, ...gate),
+            {description: `At condition 2 the Gu works through hunger: the same pay, but it may be hurt for one point. It cannot be hurt below condition 1; feed it instead if you can.${bound ? ' A refined Gu holds it against you: it will not work again until you feed it.' : ''}`,
+            outcomes: [{id: id(`work_${g.slot}_fine${sfx}`), weight: KEEPER_DIALS.workWeakInjuryOdds.fine, effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), ...mark, note('work', `The hungry ${g.label} got through its work.`)]},
+                {id: id(`work_${g.slot}_hurt${sfx}`), weight: KEEPER_DIALS.workWeakInjuryOdds.hurt, effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), ...mark, {type: 'vital', actor: gu(g), key: 'health', amount: -1}, note('work', `The hungry ${g.label} finished its work and was hurt; it is starved out until it eats.`)]}]}));
+    }
+    // Standing work order (CPR15, FRC55): the same gate at the sound floor, on the Gu's own window after it eats; plus give back and take back (CPR18).
+    const work = guWorkRows(g, {ids: id, keys: key, worldId: id('world'), location: id('annex'), interval: g.days * KEEPER_DAY, energy: id('primeval'), note: t => note('work', t), steward, ready, faculty, flag,
+        gate: workGate(ge('target.vital.health', 3)), assignGate: all(ready, eq(`claim.${id(g.slot + '_title')}.owner`, 'player'), eq('target.life', 'alive'))});
+    S.commands.push(...work.commands); S.events.push(...work.events);
     // Standing feed order: your bag tops up the larder one meal at each boundary while you have the food.
     S.commands.push(cmd(`order_${g.slot}_on`, `Set a standing feed order for the ${g.label}`, {requires: because(all(ready, eq(`claim.${id(g.slot + '_title')}.owner`, 'player'), eq(`actor.${id('auto_' + g.slot)}`, false)), 'Take this Gu in first, and it must not already have an order.'),
         description: `At each meal boundary one meal of ${g.foodLabel} moves from your bag to its larder if you hold it. When your bag runs out the order does nothing and the Gu goes hungry on its normal schedule.`, effects: [flag('auto_' + g.slot, true)]}));

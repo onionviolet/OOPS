@@ -102,6 +102,7 @@ const rows = [
     ['topic', 'in-world', 'A topic and its available conversation choices.'],
     ['position', 'in-world', 'This character’s posts: term left and the resign verb.'],
     ['guard', 'in-world', 'The hired-guard contract this character can sign or holds.'],
+    ['law', 'in-world', 'What the watch can place on this character, and the routes to answer it.'],
     ['power', 'in-world', 'The kind of power one of this character’s own abilities is.'],
     ['owed', 'in-world', 'What this character owes: rent, duties and fines, with the settle control.'],
     ['owed-row', 'in-world', 'One account this character owes, with its settle control.'],

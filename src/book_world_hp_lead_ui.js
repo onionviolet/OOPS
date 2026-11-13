@@ -84,6 +84,12 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
   }
   for(const o of v.locked||[]){const r=node('div');r.dataset.hpLocked=o.id;r.append(node('button',o.label));r.firstChild.disabled=true;r.append(node('span',' Not how it happened'));section.append(r);}
   if(excursion)showAftermath();
+  if(v.being){
+   // CPR10: Norbert's one card. Grain, holder, custody, care and tie read from the shared being record; nothing here is stored.
+   const b=v.being,card=node('section');card.className='ui-panel-section';card.dataset.hpBeing=b.id;
+   card.append(node('h3',`${b.name}, ${b.stage.toLowerCase()}`),node('p',`${b.grain==='held'?'Held':'Tied'} · with ${b.holder}. ${b.origin}`),node('p',`Care: ${b.care.line}`),node('p',b.tie.line));
+   const h=node('ul');for(const line of b.custody)h.append(node('li',line));card.append(h);section.append(card);
+  }
   if(v.match){
    const match=node('section');match.className='ui-panel-section';match.dataset.hpMatch='';
    match.append(node('h3','Gryffindor against Slytherin'));

@@ -11,3 +11,5 @@ registerDomain({id: 'moodThoughts', deps: [], initialState: freshThoughts,
     validate: s => { validateThoughts(s); },
     load: s => { slice = s ? structuredClone(validateThoughts(s)) : freshThoughts(); lastNow = 0; },
     projection: (holder, now) => moodOf(slice, holder, now)});
+// Read-only view of the live rows for derived readers outside this owner (companion_opinion.js). Never mutate it.
+export const thoughtRows = () => slice;

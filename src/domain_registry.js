@@ -21,7 +21,7 @@ export function createDomainRegistry() {
     function registerDomain(domain) {
         if(!domain||typeof domain.id!=='string'||!domain.id||domains.has(domain.id))throw Error('Domain needs a unique id.');
         if(domain.deps!=null&&(!Array.isArray(domain.deps)||domain.deps.some(id=>typeof id!=='string')))throw Error('Invalid domain dependencies.');
-        for(const hook of ['initialState','save','validate','migrate','load','tick','refresh','projection','ownsItemKey'])if(domain[hook]!=null&&typeof domain[hook]!=='function')throw Error(`Invalid domain hook: ${hook}`);
+        for(const hook of ['initialState','save','validate','migrate','load','stage','tick','refresh','projection','ownsItemKey'])if(domain[hook]!=null&&typeof domain[hook]!=='function')throw Error(`Invalid domain hook: ${hook}`);
         // Snapshot registration metadata so later caller edits cannot change the
         // lifecycle graph or command routing. Domain closure state stays owned.
         const commands=domain.commands && Object.freeze(Object.fromEntries(Object.entries(domain.commands).map(([name,command])=>
@@ -39,6 +39,9 @@ export function createDomainRegistry() {
         save:envelope=>{for(const d of ordered()){if(!d.save)continue;const slice=d.save(envelope);if(slice!==undefined)envelope[d.id]=slice;}return envelope;},
         validate:envelope=>{for(const d of ordered())d.validate?.(envelope[d.id],envelope);return envelope;},
         load:envelope=>{for(const d of ordered()){if(!d.load)continue;const slice=Object.hasOwn(envelope,d.id)?envelope[d.id]:d.initialState?.();d.load(d.migrate?d.migrate(slice,envelope):slice,envelope);}},
+        // Before a plan is written: a domain may add its own keyed rows from what the plan settled (thought rows from a
+        // creature's window). Keyed, so a write that fails and is retried adds nothing twice. Never called on render.
+        stage:plan=>{for(const d of ordered())d.stage?.(plan);},
         tick:minutes=>{for(const d of ordered())d.tick?.(minutes);},
         // Display only: native publications (ticks, commands, save ownership, restore end) redraw panels
         // through the existing simulation render batch. No timer and no second refresh path.

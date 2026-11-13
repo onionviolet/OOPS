@@ -6,6 +6,7 @@ import {loadExpansionState} from '../src/expansion_engine.js';
 import {createFieldFixture,joinField,fieldContext,fieldCommand} from '../scripts/field_fixtures.mjs';
 import {beginTempoFight,commitTempoMove} from '../src/tempo_fight.js';
 import {recordFightSight,FIGHT_SIGHT_KEY} from '../src/tempo_fight_domain.js';
+import {LOOK_KEY} from '../src/observed_look.js';
 import {PARTY_HELPER} from '../src/native_battle_contracts.js';
 import {knownTargetFacts} from '../src/known_target_facts.js';
 
@@ -34,7 +35,8 @@ test('a persistent opponent records one fact about the fight and it survives a s
     const {plan,before}=played([[PARTY_HELPER,'Neil']]);
     assert.deepEqual(recordFightSight(plan,registry,before),[PARTY_HELPER]);
     const facts=knownTargetFacts(plan.state,PARTY_HELPER,'player');
-    assert.deepEqual(Object.keys(facts),[FIGHT_SIGHT_KEY]);
+    assert.deepEqual(Object.keys(facts).sort(),[FIGHT_SIGHT_KEY,LOOK_KEY]); // the sight, and what he saw you wear
+    assert.equal(facts[LOOK_KEY].value,'plain clothes');
     assert.equal(facts[FIGHT_SIGHT_KEY].value,'fought you, and you gave way');
     assert.equal(facts[FIGHT_SIGHT_KEY].at,plan.state.clock);
     const loaded=reload(plan.state);

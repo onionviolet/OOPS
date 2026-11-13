@@ -11,15 +11,22 @@ export const PERISHABLES=Object.freeze({
     'Cooked carrot':{life:DAY,result:'Spoiled food'},
     'Cooked clam':{life:DAY/2,result:'Spoiled food'},
     'book.hp.ing.fluxweed':{life:7*DAY,result:'Wilted fluxweed'}});
+// Shared-lot perishables: one deadline for the whole lot from its arrival (an opening allowance, a ration issue), not a per-portion
+// age, so the caller passes time since arrival as `spent`. Default: kept as itself when spent (result null); the world's own condition
+// marks it unusable and nothing vanishes (ITM22). Not shelf goods: the stilled hearth keeps per-portion ages and does not take them.
+// Gu opening petal lot (RI-c0023-02): five played days; `book_gu_life.js` reads its freshness duration from here (FRC42 fold).
+export const PERISHABLE_LOTS=Object.freeze({
+    'book.ri.academy.petals':{life:5*DAY,result:null}});
+const entryOf=id=>Object.hasOwn(PERISHABLES,id)?PERISHABLES[id]:Object.hasOwn(PERISHABLE_LOTS,id)?PERISHABLE_LOTS[id]:null;
 // Default: quality 100 is the base life; better work keeps longer (x0.5 at 50, x2 at 200). Dial: per world.
 export const qualityLifeFactor=q=>Number.isFinite(q)?Math.min(2,Math.max(.5,q/100)):1;
 const parse=key=>{try{const k=typeof key==='string'?JSON.parse(key):key;return k&&typeof k==='object'?k:null;}catch{return null;}};
-export const isPerishable=key=>{const k=parse(key);return !!k&&Object.hasOwn(PERISHABLES,k.id);};
+export const isPerishable=key=>{const k=parse(key);return !!k&&!!entryOf(k.id);};
 export function lifeOf(key){
-    const k=parse(key);if(!k||!Object.hasOwn(PERISHABLES,k.id))return null;
-    return Math.max(1,Math.floor(PERISHABLES[k.id].life*qualityLifeFactor(k.quality)));
+    const k=parse(key),e=k&&entryOf(k.id);if(!e)return null;
+    return Math.max(1,Math.floor(e.life*qualityLifeFactor(k.quality)));
 }
-export const resultOf=key=>{const k=parse(key);return k&&Object.hasOwn(PERISHABLES,k.id)?PERISHABLES[k.id].result:null;};
+export const resultOf=key=>{const k=parse(key),e=k&&entryOf(k.id);return e?e.result:null;};
 // A rate multiplies minutes a storage lets pass (stilled hearth .25; a cool cellar would be .5). Callers that already
 // measure spent age in the storage's own minutes pass rate 1.
 export function readSpoilage(key,spent,{rate=1}={}){

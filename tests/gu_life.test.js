@@ -85,3 +85,18 @@ test('coarse and partitioned shared-clock advancement settle identical meals, fr
     while(fine.p.state.clock<8*GU_DAY)fine.step(Math.min(47,8*GU_DAY-fine.p.state.clock));
     assert.deepEqual(coarse.p.state,fine.p.state);assert.equal(gu(coarse).life,'dead');valid(coarse);valid(fine);
 });
+test('story director, second world: care notices are paced from what happened, death is fixed, nothing is written or saved (STY10, AD51)',async()=>{
+    const {guCareDirected,guCareNews}=await import('../src/book_world_gu_care_story.js');const {eventFeed}=await import('../src/event_feed.js');
+    const f=refined();f.start('prepare_12');f.step(9*GU_DAY);const s=f.p.state,before=JSON.stringify(s);
+    const seen=new Set(Object.values(s.simulation.events).filter(e=>e.discoveredBy.includes('player')).map(e=>e.id));
+    const {run}=guCareDirected(s),shown=run.filter(o=>o.surfaced);
+    assert.ok(shown.length&&shown.every(o=>seen.has(o.surfaced.id)),'only occurrences the lead saw surface');
+    assert.ok(shown.length<[...seen].filter(i=>s.simulation.events[i].definitionId!==id('care.b_death')).length,'the director thins, it does not echo');
+    assert.ok(run.some(o=>o.surfaced?.category==='pressure'&&o.receipt.tension>.5),'hunger raises tension and surfaces');
+    const meals=shown.filter(o=>o.surfaced.category==='routine').map(o=>o.window);for(let i=1;i<meals.length;i++)assert.ok(meals[i]-meals[i-1]>=2,'a daily meal is not news every day');
+    const news=eventFeed(s,f.registry,{}).news;assert.equal(JSON.stringify(s),before);
+    assert.ok(news.some(n=>n.text.startsWith('Moonlight Gu died')&&!n.why),'death stays a fixed point');
+    assert.ok(news.some(n=>n.why&&!/city/.test(n.why)),'the why line uses the annex words');
+    assert.deepEqual(guCareNews(s),guCareNews(structuredClone(s)),'derived from the state alone');
+    assert.deepEqual(guCareNews({...s,actors:{...s.actors,player:{...s.actors.player,worldId:'base.frontier'}}}).news,[]);
+});

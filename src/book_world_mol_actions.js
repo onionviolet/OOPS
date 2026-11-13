@@ -11,10 +11,13 @@ import {molDivinationFacts} from './mol_zorian_divination.js';
 import {molAraneaFacts} from './mol_zorian_aranea.js';
 import {molStudyMonthFacts} from './mol_zorian_study_months.js';
 import {molArcFacts} from './mol_zorian_arc_one.js';
+import {molExamFacts} from './mol_zorian_exams.js';
+import {molExamCommands} from './world_packs/book_mol_exam_data.js';
 const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
 const installed=packNative('book.mol');
 const {commands,controllers,powers,conditions,encounters,situations}=installed.definitions;
-export const molCommands=freeze(commands),molControllers=freeze(controllers),molPowers=freeze(powers),molConditions=freeze(conditions),molEncounters=freeze(encounters),molSituations=freeze(situations),molSources=freeze(installed.sources);
+// Class tests (mol_zorian_exams.js) are added after the pack's own rows; their ids sit under book.mol.zorian. like every seat row (WA17).
+export const molCommands=freeze([...commands,...molExamCommands]),molControllers=freeze(controllers),molPowers=freeze(powers),molConditions=freeze(conditions),molEncounters=freeze(encounters),molSituations=freeze(situations),molSources=freeze(installed.sources);
 export function molFacts(state,ctx={}){
  const d=state.motherOfLearning,s=state.simulation||{},p=s.people?.player,n=ctx.molNative||{},b=p?.body,actual=n.body,actorId=ctx.actorId||'player';
  const visit=d?.visits?.find(v=>v.id===d.activeVisitId&&v.status==='active');
@@ -46,6 +49,7 @@ export function molFacts(state,ctx={}){
  for(const [owner,bag]of Object.entries(n.stock||{}))for(const [key,count]of Object.entries(bag))f[`mol.stock.${owner}.${key}`]=count;
  Object.assign(f,molSensingFacts(state),molCloudSensingFacts(state),molDivinationFacts(state,{compass:held('player',K.compass)}),molAraneaFacts(state,{barrierCubes:held('player',K.barrierCubes)}),molStudyMonthFacts(state),molArcFacts(state,{watch:held('player',K.watch),rod:held('player',K.spellRod),relay:held('player',K.relay),supplies:held('player',K.escapeGear),revolver:held('player',K.revolver)}));
  if(isZorianStart(state))Object.assign(f,molLightFacts(state));
+ Object.assign(f,molExamFacts(state));
  Object.assign(f,molLoreInstitutionFacts(state,{ownedLamp:held('player',K.lamp)+acceptedTool(K.lamp)>=1}));
  return f;
 }

@@ -6,20 +6,23 @@
 //
 // Shape (RimWorld F5, STORYTELLER.md): per window, a quiet weight competes with categories; a category is drawn, then a weighted
 // eligible candidate inside it; eligibility is rechecked at the moment of surfacing; a category promises no specific candidate.
-//   candidate = {id, category, weight, recheck?: (windowFacts) => boolean, born: window}
+//   candidate = {id, kind?, category, weight, recheck?: (windowFacts) => boolean, born: window}
 //   spec = {id, categories: {name: {weight, hold, tension?, comfort?}}, quiet, tensionQuiet, dry: {after, relief, floor}, cooldown, attempts}
 // Dials (default, reason):
 //   quiet 3          weight of "nothing surfaces this window"; high tension subtracts `tensionQuiet` (a tense city is not a silent one).
 //   category.tension weight multiplier per unit of tension (0..1): pressure grows with it, texture shrinks.
 //   category.comfort weight multiplier per unit of comfort (0..1, a long unsurfaced stretch): relief texture comes back after a lull.
 //   category.hold    windows a candidate may wait for a later window; 0 means it is of the moment and is lost if not surfaced now.
-//   cooldown         windows a surfaced candidate id sits out. A rejected recheck spends nothing and starts no cooldown (RW-D7).
+//   cooldown         windows a surfaced candidate's kind sits out (kind defaults to its id). A rejected recheck spends nothing and starts
+//                    no cooldown (RW-D7). category.cooldown overrides it per category. Second world (Gu annex, 2026-11-10): its candidates
+//                    are separate occurrences of a few repeating kinds (a daily meal), so cooldown keyed on the instance id never applied.
 //   attempts 2       how many candidates may be tried (and rechecked) in one window.
 // Fixed points (dated events, canon beats) never pass through here: they surface on their day and are reported beside the receipts.
 import {address, drawU32, pickWeighted} from './gen_kit.js';
 
 const SCALE = 1000;
 const int = x => Math.max(0, Math.round(x * SCALE));
+const kindOf = c => c.kind ?? c.id;
 const clamp01 = x => Math.min(1, Math.max(0, Number.isFinite(x) ? x : 0));
 
 export function validateDirector(spec) {
@@ -31,7 +34,7 @@ export function validateDirector(spec) {
     if(!names.length) bad('needs categories');
     for(const n of names) {
         const c = spec.categories[n];
-        if(!(c.weight >= 0) || !Number.isInteger(c.hold) || c.hold < 0 || !/^[a-z][a-z0-9_]*$/.test(n)) bad(`category ${n}`);
+        if(!(c.weight >= 0) || !Number.isInteger(c.hold) || c.hold < 0 || c.cooldown !== undefined && !(Number.isInteger(c.cooldown) && c.cooldown >= 0) || !/^[a-z][a-z0-9_]*$/.test(n)) bad(`category ${n}`);
     }
     return spec;
 }
@@ -48,7 +51,8 @@ export const categoryWeight = (spec, name, tension, comfort) => {
 // caller's deterministic order. Returns the receipt and the surfaced candidate (or null).
 export function directWindow(spec, seed, window, pool, {tension = 0, dry = 0, last = {}, facts = {}} = {}) {
     const comfort = comfortOf(spec, dry), receipt = {window, tension: clamp01(tension), comfort, quiet: 0, categories: [], tried: [], rejected: [], surfaced: null, reason: ''};
-    const live = pool.filter(c => !(last[c.id] !== undefined && window - last[c.id] < spec.cooldown) && c.weight > 0 && spec.categories[c.category]);
+    const cooling = c => { const at = last[kindOf(c)], cd = spec.categories[c.category]?.cooldown ?? spec.cooldown; return at !== undefined && window - at < cd; };
+    const live = pool.filter(c => spec.categories[c.category] && !cooling(c) && c.weight > 0);
     const names = [...new Set(live.map(c => c.category))].sort();
     const quiet = quietWeight(spec, tension, dry);
     receipt.quiet = quiet;
@@ -88,7 +92,7 @@ export function runDirector(spec, seed, upto, born, factsAt, signature = '') {
         const pool = [...run.held, ...born(w).map(c => ({...c, born: w}))];
         const {receipt, surfaced} = directWindow(spec, seed, w, pool, {tension: f.tension, dry: run.dry, last: run.last, facts: f});
         if(surfaced) receipt.late = surfaced.born < w;
-        if(surfaced) { run.last[surfaced.id] = w; run.dry = 0; run.held = run.held.filter(c => c.id !== surfaced.id); } else run.dry++;
+        if(surfaced) { run.last[kindOf(surfaced)] = w; run.dry = 0; run.held = run.held.filter(c => c.id !== surfaced.id); } else run.dry++;
         const held = new Set(run.held.map(c => c.id));
         // A candidate not surfaced is kept only while its category allows waiting; the rest are lost with the window.
         for(const c of pool) if(c.id !== surfaced?.id && !held.has(c.id) && c.born === w && spec.categories[c.category]?.hold > 0) run.held.push(c);
@@ -96,11 +100,15 @@ export function runDirector(spec, seed, upto, born, factsAt, signature = '') {
     }
     return run.out.slice(0, upto + 1);
 }
-// Plain-words reading of a receipt for the player's "why now" line: no weights, no codes (PRS).
-export function whyLine(receipt) {
+// Plain-words reading of a receipt for the player's "why now" line: no weights, no codes (PRS). `words` is the world's own wording
+// (a city, an annex, a ship): the defaults are Tingen's. Finding from the second world (Gu annex, 2026-11-10): the reading hard-coded
+// "the city", so a world without one needs its own lines; the receipt fields read are unchanged.
+export const WHY_WORDS = Object.freeze({tense: 'The city is on edge, so this is what stands out.', lull: 'It has been quiet for a while, so this catches your eye.',
+    calm: 'Nothing else competed for your attention.', late: 'It had been waiting for the right moment.'});
+export function whyLine(receipt, words = WHY_WORDS) {
     if(!receipt?.surfaced) return '';
-    const late = receipt.late ? ' It had been waiting for the right moment.' : '';
-    if(receipt.tension > 0.5) return `The city is on edge, so this is what stands out.${late}`;
-    if(receipt.comfort > 0.5) return `It has been quiet for a while, so this catches your eye.${late}`;
-    return `Nothing else competed for your attention.${late}`;
+    const w = {...WHY_WORDS, ...words}, late = receipt.late ? ` ${w.late}` : '';
+    if(receipt.tension > 0.5) return `${w.tense}${late}`;
+    if(receipt.comfort > 0.5) return `${w.lull}${late}`;
+    return `${w.calm}${late}`;
 }
