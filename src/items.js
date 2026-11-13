@@ -10,6 +10,7 @@ import {readGearComponentLineage} from './gear_component_lineage.js';
 import {readMaterialLineage, heirloomText} from './material_lineage.js';
 import {lotmDivinationItems} from './lotm_anna_session_items.js';
 import {inquiryNoteItems} from './inquiry_note_item.js';
+import {hpTableFoodItems} from './hp_table_food_items.js';
 import {registerOptionalItems,restoreOptionalItems} from './optional_item_catalogue.js';
 import {domainRegistry} from './domain_registry.js';
 import {current_game_time} from './game_time.js';
@@ -4745,7 +4746,7 @@ registerFortItems({item_templates, book_stats, Book, BookData, Material});
 setup_ids();
 // Optional catalogs retain their world data and share native registration.
 const workshopItemCatalogue=systemsWorkshopItems.map(([id,description,value])=>({id,name:id,description,value}));
-for(const catalogue of [lotmDivinationItems,inquiryNoteItems,workshopItemCatalogue])registerOptionalItems(catalogue,{templates:item_templates,OtherItem,availability:availabilities.item});
+for(const catalogue of [lotmDivinationItems,inquiryNoteItems,hpTableFoodItems,workshopItemCatalogue])registerOptionalItems(catalogue,{templates:item_templates,OtherItem,availability:availabilities.item});
 
 // Restore supported optional metadata before reading saved flags. The public
 // workshop-named export remains an alias for the existing native loader caller.
@@ -4753,6 +4754,7 @@ function restoreOptionalItemAvailability(save){
     const ports={templates:item_templates,availability:availabilities.item};
     restoreOptionalItems(save,lotmDivinationItems,ports);
     restoreOptionalItems(save,inquiryNoteItems,ports);
+    restoreOptionalItems(save,hpTableFoodItems,ports);
     if(!save.expansion?.actors.player.facts['systems_workshop.joined'])return;
     restoreOptionalItems(save,workshopItemCatalogue,ports);
 }

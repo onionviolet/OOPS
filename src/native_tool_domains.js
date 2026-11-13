@@ -19,6 +19,8 @@ import './mood_thoughts_domain.js';
 import './positions_domain.js';
 import {configureOrganizations} from './organizations_domain.js';
 import {configureInquiry} from './inquiry.js';
+import {configureSocialContact} from './social_contact_domain.js';
+import './book_world_hp_contact_panel.js';
 import './inquiry_study.js';
 import {configureFields} from './field_layer_domain.js';
 import {domainRegistry} from './domain_registry.js';
@@ -52,6 +54,7 @@ export function configureNativeToolDomains(operations) {
         removeExact: (key, qty) => operations.actor().removeFromInventory([{item_key: key, item_count: qty}])});
     configureOrganizations({...operations, writable: neutralWritable(operations), blocked: operations.worldWorkBlocked});
     configureInquiry({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations)});
+    configureSocialContact({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations)});
     configureHiredHands({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations), idle: operations.idle, logMessage: operations.logMessage});
     configureCohort({...operations,blocked:operations.worldWorkBlocked});
     configureTempoFight({...operations, writable: neutralWritable(operations)});
