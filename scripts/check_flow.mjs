@@ -12,6 +12,12 @@
 //   shift      the layout jumps during idle play with no input (UR146)
 //   leak       visible text shows engine words or a marker: text not found, undefined, NaN, [object Object] (PRS6, PRS9)
 //   repeat     one module shows the same sentence of 30+ characters twice (UR147)
+//   rawtime    a line shows a four-digit or larger minute count with no day or hour beside it (UR161)
+//
+// States (UI audit round 48, UIC135): the route walk runs on the mid fixture. The home view is then read
+// again (oversized, leak, repeat, rawtime, placeholder) in an early life and in a day-4 life opened ten
+// days of wall time later, since those show text the mid fixture never does. A life with conditions is
+// not covered yet: weather decides them, so the walk cannot promise one.
 import {readFile, writeFile, mkdtemp} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
@@ -34,7 +40,7 @@ seed.customization = defaultCustomizationState();
 seed.global_flags.is_crafting_unlocked = true;
 await session.start();
 await session.open(seed);
-const p = session.page;
+let p = session.page;
 await p.waitForTimeout(600);
 
 const findings = [];
@@ -85,6 +91,8 @@ const reading = async where => {
     for(const {module, text} of mods) {
         for(const line of text.split('\n').map(l => l.trim()).filter(Boolean)) {
             const hit = line.replace(INWORLD, '').match(LEAK); if(hit) add('leak', where, `${module}: "${hit[0]}" in "${line.slice(0, 70)}"`);
+            const raw = line.match(/\b(?:\d{4,}|\d{1,3}(?:,\d{3})+)[ -]?minutes?\b/);
+            if(raw && !/\bdays?\b|\bhours?\b|\d h\b/.test(line)) add('rawtime', where, `${module}: "${raw[0]}" in "${line.slice(0, 70)}"`);
         }
         const seen = new Map();
         for(const sentence of text.replace(/\s+/g, ' ').match(/[^.!?]{30,}[.!?]/g) || []) {
@@ -157,11 +165,42 @@ for(const [w, h, zoom] of [[1536, 864, '125%'], [1280, 720, '150%']]) {
 await session.close?.();
 const errors = session.errors.filter(e => e.kind === 'pageerror');
 for(const e of errors) add('error', 'page', e.text.split('\n')[0]);
+// Other life states, home view only, built here by play so they load without the private packs.
+// A state that cannot be built, or that does not show what its label says, is a finding, not a silent skip.
+const WALL = Date.UTC(2026, 9, 26, 15), DAY = 24 * 60;
+const noPacks = {beforeOpen: async c => c.route('**/private_packs/manifest.json', r => r.fulfill({json: {schema: 1, packs: []}}))};
+const openState = async (save, wall) => {const s = new Session({url: server.url + '?test_hooks=1', seed: 87, wall, hooks: noPacks}); await s.start(); await s.open(save); return s;};
+const STATES = [
+    {label: 'early life', open: () => openState(null, WALL)},
+    // Three played days, saved, then opened ten days of wall time later: the return note is on screen.
+    {label: 'day 4, returned after ten days', expect: ['#return_digest .return-digest-bank'], open: async () => {
+        const first = await openState(null, WALL);
+        let save;
+        try {await first.step(3 * DAY); await first.save(); save = JSON.parse(await first.page.evaluate(() => localStorage.getItem('save data')));}
+        finally {await first.close();}
+        return openState(save, WALL + 10 * DAY * 60000);
+    }},
+];
+const statesRead = [];
+for(const {label, open, expect = []} of STATES) {
+    let other = null;
+    try {
+        other = await open();
+        p = other.page;
+        await p.waitForTimeout(1200);
+        for(const sel of expect) if(!await p.evaluate(q => [...document.querySelectorAll(q)].some(e => e.offsetParent && e.textContent.trim()), sel)) add('state', label, `expected ${sel} on screen and it is not`);
+        await oversized(label); await reading(label);
+        for(const line of await placeholders()) add('placeholder', label, line);
+        for(const e of other.errors.filter(e => e.kind === 'pageerror')) add('error', label, e.text.split('\n')[0]);
+        statesRead.push(label);
+    } catch(error) {add('state', label, `could not be read: ${String(error.message || error).split('\n')[0].slice(0, 120)}`);}
+    finally {await other?.close?.();}
+}
 // One cause usually shows on many routes: group by what was found, listing where.
 const grouped = new Map();
 for(const f of findings) {const k = f.check + '|' + f.detail; const g = grouped.get(k) || grouped.set(k, {check: f.check, detail: f.detail, where: []}).get(k); if(!g.where.includes(f.where)) g.where.push(f.where);}
 const unique = [...grouped.values()];
 for(const f of unique) console.log(`${f.check.padEnd(11)} ${f.detail}\n            at: ${f.where.length > 4 ? `${f.where.slice(0, 3).join(', ')} and ${f.where.length - 3} more` : f.where.join(', ')}`);
-console.log(`check:flow: ${routes.length} routes walked at 1920x1080, zoom at 125% and 150%; ${unique.length} finding${unique.length === 1 ? '' : 's'}.`);
-if(jsonOut) await writeFile(jsonOut, JSON.stringify({routes, findings: unique}, null, 1));
+console.log(`check:flow: ${routes.length} routes walked at 1920x1080, zoom at 125% and 150%; home also read in ${statesRead.length} of ${STATES.length} other states (${statesRead.join('; ') || 'none'}); ${unique.length} finding${unique.length === 1 ? '' : 's'}.`);
+if(jsonOut) await writeFile(jsonOut, JSON.stringify({routes, states: statesRead, findings: unique}, null, 1));
 process.exit(unique.length ? 1 : 0);

@@ -65,6 +65,21 @@ export function scanSource(name, source) {
   return hits;
 }
 
+// UR161 / UR135 (UI audit round 48, UIC134): a template that prints `${n} minutes` or `${n} hours` by hand.
+// Durations go through formatDuration in src/number_format.js; a line that also calls it passes, so an
+// exact count may ride beside the human unit. Same ratchet as the vocabulary hits, kept in `durations`.
+const rawDurationRe = /\$\{[^}`]*\}[ -]?(?:minutes?|hours?)\b/;
+export function scanDurations(name, source) {
+  const hits = [];
+  source.split('\n').forEach((lineText, i) => {
+    if (!rawDurationRe.test(lineText) || /formatDuration\(/.test(lineText) || /player-text:\s*allow/.test(lineText)) return;
+    if (/^\s*(?:\/\/|\*)/.test(lineText)) return;
+    const text = lineText.trim();
+    hits.push({file: name, line: i + 1, text, key: `${name}:${sha(text)}`});
+  });
+  return hits;
+}
+
 export function scanTree() {
   const hits = [];
   // Round 5: subfolders too (src/absorb_c2/local_life.js leaked "native food poisoning" unseen). Dev-only previews stay out.
@@ -74,6 +89,12 @@ export function scanTree() {
     hits.push(...scanSource(`src/${name}`, readFileSync(resolve(root, 'src', name), 'utf8')));
   }
   return hits;
+}
+
+export function scanTreeDurations() {
+  const names = readdirSync(resolve(root, 'src'), {recursive: true}).map(String)
+    .filter(f => f.endsWith('.js') && !f.startsWith('ui/preview/')).sort();
+  return names.flatMap(name => scanDurations(`src/${name}`, readFileSync(resolve(root, 'src', name), 'utf8')));
 }
 
 function writeBacklog(hits) {
@@ -107,11 +128,11 @@ function writeBacklog(hits) {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const hits = scanTree();
+  const hits = scanTree(), durations = scanTreeDurations();
   if (args.has('--backlog')) console.log(`wrote ${writeBacklog(hits)} (${hits.length} strings)`);
   if (args.has('--update-baseline')) {
-    writeFileSync(baselinePath, JSON.stringify({generated: new Date().toISOString().slice(0, 10), keys: hits.map(h => h.key).sort()}, null, 0) + '\n');
-    console.log(`baseline: ${hits.length} known hits`);
+    writeFileSync(baselinePath, JSON.stringify({generated: new Date().toISOString().slice(0, 10), keys: hits.map(h => h.key).sort(), durations: [...new Set(durations.map(h => h.key))].sort()}, null, 0) + '\n');
+    console.log(`baseline: ${hits.length} known hits, ${durations.length} raw durations`);
     process.exit(0);
   }
   const known = new Set(existsSync(baselinePath) ? JSON.parse(readFileSync(baselinePath, 'utf8')).keys : []);
@@ -121,6 +142,13 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   console.log(`Player text check: ${hits.length} engine-vocabulary strings (${known.size} in baseline, ${retired} retired, ${fresh.length} new)`);
   for (const h of fresh) console.log(`  FAIL  ${h.file}:${h.line} "${h.word}": ${h.text.slice(0, 120)}`);
   if (fresh.length) console.log('  Rewrite in the player\'s words (docs/PROSE_RULES.md PRS6), or mark an in-world use with `// player-text: allow <why>`.');
-  console.log(fresh.length ? `FAIL (${fresh.length} new)` : 'PASS');
-  process.exit(fresh.length ? 1 : 0);
+  const knownDurations = new Set(existsSync(baselinePath) ? JSON.parse(readFileSync(baselinePath, 'utf8')).durations || [] : []);
+  const freshDurations = durations.filter(h => !knownDurations.has(h.key));
+  const retiredDurations = [...knownDurations].filter(k => !durations.some(h => h.key === k)).length;
+  console.log(`Raw durations: ${durations.length} hand-written minute or hour counts (${knownDurations.size} in baseline, ${retiredDurations} retired, ${freshDurations.length} new)`);
+  for (const h of freshDurations) console.log(`  FAIL  ${h.file}:${h.line} raw duration: ${h.text.slice(0, 120)}`);
+  if (freshDurations.length) console.log('  Print time through formatDuration in src/number_format.js (docs/UI_RULES.md UR161), or mark a deliberate case with `// player-text: allow <why>`.');
+  const failed = fresh.length + freshDurations.length;
+  console.log(failed ? `FAIL (${failed} new)` : 'PASS');
+  process.exit(failed ? 1 : 0);
 }

@@ -12,6 +12,13 @@ export function formatDecimal(value, digits = 1) {
     return trim(n.toFixed(digits));
 }
 
+/** A whole count with thousands separators: 456011 → "456,011". */
+export function formatCount(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return '?';
+    return Math.round(n).toLocaleString('en-US');
+}
+
 /** A fraction as a percentage: 0.05 → "5%", 0.125 → "12.5%". */
 export function formatPercent(fraction, digits = 1) {
     return `${formatDecimal(Number(fraction) * 100, digits)}%`;

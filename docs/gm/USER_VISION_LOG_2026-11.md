@@ -1402,6 +1402,20 @@ The [current resume block](dispatch/foundation-run-2026-11-12/RUN.md#current-res
 Weibao: "send out codex chats to absotrb accordingly, consider our analysis of the harry potter game too".
 
 Not sent. Drafts for the running domain chats are in the [capability goal assignments](dispatch/foundation-run-2026-11-12/CAPABILITY_GOAL_ASSIGNMENTS.md#follow-ups-from-the-decomp-re-fit-for-review-2026-11-13), with one ready brief for a non-overlapping lane. New lanes were held because the target files have live uncommitted edits from the running chats and Codex usage read 66% against the recorded 50% ceiling.
+## UI ideas, missed catches and subtle humour, 2026-11-13
+
+Weibao: "Ui improvement ideation", then:
+
+> How come our Ui rules didnt catch those?
+>
+> Save and reconcile accordingy
+>
+> Consider for suble humor in things, like 456011 minues(or 317~ days) passed,  More to consider?
+
+Saved as [UI audit round 48](../audits/UI_DESIGN_CORE_AUDIT.md#round-48-2026-11-13-ideas-from-a-day-4-screen-why-the-rules-missed-them-and-subtle-humour): the ideas (UIC127–UIC133), why existing rules did not fire, and proposed guards (UIC134–UIC138). Reconciled as UR158–UR162 in [UI rules](../UI_RULES.md#one-row-per-thing-cues-remedies-and-long-time-2026-11-13) and PRS13 in [prose rules](../PROSE_RULES.md), all adjustable working defaults under AD56 except UR162, which is held for him. No runtime change. His humour example is direction to consider; the wording in PRS13 is an agent proposal.
+
+Follow-up the same day: "Some jokes landbetter deadpan, but this can be a long term thing to consider? Can we behin addressing UI stuff or should we keep looking for problems? consider prior problems and more accoridngly". Recorded in PRS13 (deadpan leads, long-term, no humour pass) and in round 48's fix-first section.
+
 ## Shared acting-power record, built now (LLR26), 2026-11-10
 
 Weibao asked:

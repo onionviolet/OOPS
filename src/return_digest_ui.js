@@ -1,5 +1,9 @@
 // "While you were away" row (RPT6, LTU3). Home: pinned at the top of Reports, above the stream that
 // keeps the raw lines. Plain DOM lists, so the row is its own text form.
+import {formatCount, formatDuration} from './number_format.js';
+
+// UR161: time away reads in human units; from a day up the exact minute count rides beside it.
+const away = minutes => minutes >= 1440 ? `${formatDuration(minutes)} (${formatCount(minutes)} minutes)` : formatDuration(minutes);
 const node = (doc, tag, text = '', cls = '') => {const n = doc.createElement(tag); if (text) n.textContent = text; if (cls) n.className = cls; return n;};
 
 export function createReturnDigestRow({doc = document, markRead, openPerson = null, spendBank = null}) {
@@ -29,8 +33,8 @@ export function createReturnDigestRow({doc = document, markRead, openPerson = nu
         const r = bank?.lastReturn;
         bankLine.hidden = spend.hidden = !banked;
         if (banked) {
-            bankLine.textContent = `${r ? `On your return, ${r.minutes} minutes passed away${r.dropped ? ` (${r.dropped} over the ${bank.capacity}-minute bank were lost)` : ''}. ` : ''}Banked time: ${bank.bankedMinutes} minutes. Spending it plays the current routine forward at the normal pace and stops at any choice.`;
-            spend.textContent = `Spend ${bank.spendMinutes} banked minutes`;
+            bankLine.textContent = `${r ? `You were away for ${away(r.minutes)}.${r.dropped ? ` The bank holds ${formatDuration(bank.capacity)}, so ${formatDuration(r.dropped)} went unbanked.` : ''} ` : ''}Banked time: ${formatDuration(bank.bankedMinutes)}. Spending it plays your current routine forward at the normal pace and stops at any choice.`;
+            spend.textContent = `Spend ${formatDuration(bank.spendMinutes)} of banked time`;
             spend.disabled = !spendBank || !writable || !bank.writable || bank.busy || !bank.spendMinutes;
             if (bank.lastSpend) bankStatus.textContent = bank.lastSpend;
         } else {bankLine.textContent = ''; bankStatus.textContent = '';}

@@ -2257,3 +2257,116 @@ These join UIC120–UIC126 as LATER items. `check:flow` can grow a check for ite
 1. M1 first: it is the jump players feel on every route, and it needs Weibao's look at a before and after screenshot.
 2. Then M3 and M4 (small).
 3. Then M2, after visual baselines (UIC122).
+
+## Round 48, 2026-11-13: ideas from a day-4 screen, why the rules missed them, and subtle humour
+
+Weibao: "Ui improvement ideation", then "How come our Ui rules didnt catch those? Save and reconcile accordingy. Consider for suble humor in things, like 456011 minues(or 317~ days) passed, More to consider?" ([log](../gm/USER_VISION_LOG_2026-11.md#ui-ideas-missed-catches-and-subtle-humour-2026-11-13))
+
+**Method.** One headless capture of the Village at 1920×1080 on the `village-craftsman` fixture (day 4, returned after a long absence), read against rounds 45–47 and the [directions doc](UI_DIRECTIONS_2026-10-30.md). Rounds 1–44 were not reread, so overlap with them is possible. Everything below is a proposal (AD32). Nothing in the runtime changed this round. The work is not in the current focus (foundations first, tie-in later), so it is queued, not dispatched.
+
+### Ideas
+
+| Code | Idea | Evidence on the capture | Effort |
+| --- | --- | --- | --- |
+| UIC127 (I1) | **One place panel.** "Around you" and the place's action list describe the same place. Merge them into one list of what is here (people, stations, exits) with the selected row's actions, costs and blocked reasons beside it. | "Talk to someone" sits under the three people it opens; "Mix at the Village counter" sits under the "Village mixing counter" station row. The action list uses about a tenth of its box. | M. M1 (round 47) landed on 2026-11-11 (`119f7deff`), so this builds on the steady frame. |
+| UIC128 (I2) | **The next step marks its target.** The row the step points at carries the mark; Reports keeps one short line. | Reports reads "In Around you: Old Hesk, the village elder, then 'Talk with Old Hesk'", directions to another panel. | S |
+| UIC129 (I3) | **A condition names what it does and what eases it.** One owner row per condition: effect, time left, nearest known remedy as a link. | Cold shows four times (Wet, Cold, "17.7 °C · cold", the "Cold exposure" chip); none says what it costs or what fixes it. | S to M |
+| UIC130 (I4) | **Long time in human units, with the exact count as the joke.** See the humour section. | "456011 minutes passed away (445931 over the 10080-minute bank were lost)". | S |
+| UIC131 (I5) | **The screen grows with the life.** A new life starts with You, the place and Reports in roomier type; other panels appear when the life first has something for them, each with a Reports line (UR13). A dial, off for developer starts and fixtures. | Inventory holds two rows in a 600 px box; Reports and the action list are mostly empty. | M to L. Needs a mock and his look, since it changes the Proto23 frame early on and trades against "fully make use of the Screen". |
+| UIC132 | **Top bar by use.** Twelve equal routes; Capability runs, Connection and Beginning weigh the same as Stats, and the "All panels…" control reads "All pane". The six hubs from the directions doc are still unbuilt. Held for Weibao: he gave the top bar a reason ("condensed and seeable", UR49). | Top bar on the capture. | M |
+| UIC133 | **Check the weather lines.** The two lines under the Village header render tiny and overlapped by an empty box. The capture is a saved-state mirror, so confirm in the built game before calling it a defect. | Capture only. | S to check |
+
+### Why the rules did not catch them
+
+| Finding | Rule that already covered it | Why nothing fired |
+| --- | --- | --- |
+| Raw minutes (UIC130) | UR117 and UR135: durations go through `number_format.js`, and `formatDuration` exists. | `return_digest_ui.js:32` builds the sentence inline. The lint that would catch inline formats (UIC119) was filed LATER and scoped to `toFixed` and `%`. 57 lines in `src/*.js` interpolate `${…} minutes`. `check:flow` plays with a fixed wall clock from a fresh start, so no check has ever had the return note on screen. |
+| Duplicate ways in (UIC127) | UR42 (no duplicated fact across panels), DSG11 (one home per fact), UR147 (say a thing once). | The `repeat` check looks for the same 30-character sentence inside one module. These are two modules with different words: `mixture_ui.js:11` appends its own button to the action list while the station list names the same counter. Each feature adds its own way in and nothing compares them. |
+| Cold four times (UIC129) | DSG11. | Prose only. Its dial allows "a deliberately different view", and each copy can claim to be one. |
+| Top bar (UIC132) | None. UR49 records that the top bar is deliberate; no line says how many routes it holds or which kind. | Each feature registers a route. A cut-off control label is not something the zoom check measures (inferred from its description; not run). |
+| Empty regions (UIC131) | UR69, UR145. | Caught: `oversized` reported it in round 47 (M2, M3). The fix waits on visual baselines (UIC122). |
+| Next step far from its target (UIC128) | UR153 (a cue where the need arises). | "Show me" meets the letter of it. A design gap, not a miss. |
+
+**The pattern.** Four causes, in order of how much they explain:
+1. **A rule with no check.** The ground rules already say prose rules without a check recur; UR42, DSG11 and UR135 for durations are three of them.
+2. **Checks see one state.** `check:flow` walks a fresh or mid fixture with a fixed clock. A returned life, a life with conditions and an early life each show text the walk never renders.
+3. **Checks look inside one module.** Duplicates between panels and between features are invisible to them.
+4. **Found and queued.** Some were caught and sit behind other work.
+
+### Reconciled into the rulebooks
+
+- [UI rules](../UI_RULES.md#one-row-per-thing-cues-remedies-and-long-time-2026-11-13) UR158–UR162 (adjustable working defaults under AD56; UR162 held for Weibao).
+- [Prose rules](../PROSE_RULES.md) PRS13, subtle humour.
+- The [rules index](../RULES_INDEX.md) register and router rows.
+
+### Subtle humour
+
+DSG3 already makes the interface whimsical and unpretentious (accepted 2026-11-04). This round says how, as PRS13.
+
+- **Register.** The game is the Optimistic Progression Simulator, so the narrator is dry, exact and stubbornly optimistic. Three moves fit an instrument panel: over-precision, understatement, and good news found in a loss.
+- **The fact stays.** The joke sits beside the useful part. His example is the model: "456,011 minutes passed (about 317 days). The bank holds a week. On the bright side, that week is all yours."
+- **Where it goes.** Return notes, empty states, the reason on a `???` tab, titles and achievements, idle Reports lines, settings descriptions, save and export messages.
+- **Where it stays plain by default.** Costs, blocked reasons, confirm text (PRS4, PRS9), and grave moments. A world or scene can turn the dial.
+- **Characters joke as themselves.** The narrator's humour is not theirs (DSG13).
+- **Long-term, and deadpan first (Weibao, 2026-11-13).** "Some jokes landbetter deadpan, but this can be a long term thing to consider?" Humour is a standing consideration, not a pass to schedule. Deadpan is the preferred move; the "bright side" sample above is one option, not the model. UIC138 fixes the units now and leaves any joke to a later hand.
+
+### More to consider
+
+**ACCOUNT FOR NOW (constraints on whoever builds these):**
+- **Exact counts are funny only when large.** Under a day, plain units. From a day up, the human unit leads and the exact count may ride along. Use thousands separators (UR117).
+- **A joke told every time is a defect.** Reports history is deterministic (RPT), so pick the variant by a key (the occasion and a threshold), show it on a first time or an unusual size, and let routine repeats go quiet (DSG13 cadence).
+- **Saved lines keep their wording** (PRS8, RPT8). A joke rewritten later stays old in existing Reports history; that is fine, and no migration is owed.
+- **A duration lint must allow the pair.** "N minutes" next to a human unit passes; "N minutes" alone at a day or more fails.
+- **Tests may pin the old sentence.** Three test files import `return_digest_ui.js` (`away_bank_domain`, `digest_money_line`, `livelihoods`).
+- **No quota.** DSG5 already says taste, not a joke count; the review prompts already flag forced jokes.
+- **Nothing sealed.** A wry line stays inside what the character knows (PRS1).
+- **UIC127 and stations.** A station row that carries its own action removes the per-feature button appends, which fits AD54 (one registration line per consumer). Panel ids stay so saved layouts load (UR17).
+- **UIC131 and the checks.** Fixtures and `check:flow` assume every panel exists; a growing screen needs the dial off there, or the walk learns the early state.
+
+**LATER / DELEGATE (guards, each with level, effort and done check):**
+- **UIC134, raw-duration lint.** In `check_player_text.mjs`, flag a template that prints minutes or hours without `formatDuration`, as a ratchet over today's 57. Haiku or sonnet, S. Done: a new raw duration fails `check:rules`; the baseline only shrinks.
+- **UIC135, more states in `check:flow`.** Walk a returned life, a day-4 life with conditions and an early life as well as the fresh start. Sonnet, M. Done: the return note and a condition row appear in the walk's captures.
+- **UIC136, duplicate ways in.** Flag two visible controls in different regions that open the same destination. Sonnet, M. Done: it reports the mixing counter pair on today's build.
+- **UIC137, top-bar and label check.** Count top-bar routes and flag any control whose label is cut off at 100%. Haiku, S. Done: it reports "All pane" today.
+- **UIC138, rewrite the return note** to PRS13 through `formatDuration`. Sonnet, S. Done: the note reads in days with the exact count beside it, and the three test files pass.
+- **Screen readers.** A long wry line in a live region is noise; fold with UIC123.
+- **A humour sample in briefs.** PRS7 asks for one voice sample; a brief that writes narrator lines can quote the return-note model above.
+
+### Proposed order
+
+UIC138 and UIC134 first (small, and they close the miss that prompted this round). Then UIC127 with UIC128 as one centre-column slice. UIC131 after a mock.
+
+### Fix first, and let the walk do the looking (2026-11-13 follow-up)
+
+Weibao: "Can we behin addressing UI stuff or should we keep looking for problems? consider prior problems and more accoridngly". Recommendation (a proposal): start fixing.
+
+**Where the earlier problems stand.** `npm run check:flow` on the working tree, 2026-11-13: 13 routes at 1920×1080 with 125% and 150% zoom, 5 findings. Agent-verified, not human-reviewed.
+- **Closed since round 47:** M1, the moving side columns (`119f7deff`, 2026-11-11); `stability` reports nothing. No `response`, `back`, `zoom`, `shift` or `repeat` finding.
+- **Still open, seen by the walk:** M2, Reports takes 25% of the screen and uses 22% of its box on 14 views. Four engine-word leaks in the Knows panel ("actual" three times, "own log" once).
+- **Status not known:** R2 (Worlds against the Tingen door), R3 (commands in Notebook), R5 (Journal's blank half), M3 and M4. The walk has no check for them yet, and they were not replayed by hand this round.
+- **Invisible to the walk:** everything in this round (the return note, duplicate ways in, conditions, the top bar).
+
+**Why fixing beats another look.** The walk is nearly clean on the states it plays, so another look by eye at those states will find little. What is left sits in states it does not play. Widening the walk (UIC135) is the looking, and it keeps looking after this round.
+
+**First batch, in order:**
+1. UIC138 with UIC134: the return note in human units, and the raw-duration lint.
+2. The four Knows leaks.
+3. UIC135: the walk also plays a returned life, a day-4 life with conditions and an early life. Its new findings set the next batch.
+4. UIC127 with UIC128: the place panel and the cue on its target, shown to Weibao as before and after captures.
+5. M2: Reports sizing, after visual baselines (UIC122).
+
+`check:flow` exits 1 when it has findings. An earlier draft of this line said 0; that was the exit code of a pipe to `tail`, not of the check.
+
+### First batch landed (2026-11-13)
+
+Weibao: "Yes, start". Agent-verified, not human-reviewed. Not committed at the time of writing.
+
+- **UIC138, the return note (done).** `return_digest_ui.js` and the spend messages in `away_bank_domain.js` print time through `formatDuration`; from a day up the exact count rides beside it through the new `formatCount`. Seen in real Chromium on the rebuilt game (`village-craftsman`, 1920×1080): "You were away for 316 days 16 h (456,042 minutes). The bank holds 7 days, so 309 days 16 h went unbanked. Banked time: 7 days." and the button "Spend 1 h of banked time". No joke was added (PRS13: deadpan, long-term). Nothing saved changes, so no save, reload or import run was owed.
+- **UIC134, the raw-duration lint (done).** `check_player_text.mjs` flags a template that prints `${…} minutes` or `${…} hours` by hand, as a ratchet in the same baseline file. A line that also calls `formatDuration` passes, so the pair is allowed. Baseline: 109 lines in 70 files (the 57 counted earlier were top-level files and minutes only). `tests/player_text_durations.test.js` covers it.
+- **The four Knows leaks (done, and not what they looked like).** The game's text had already been rewritten; the leaks were old wording stored in `tests/fixtures/perf/mid.json`. Five stored workshop lines in that fixture now carry the current source wording. No runtime string changed.
+- **UIC135, more states in the walk (partly done).** `check:flow` now builds two more lives by play and reads their home view: an early life, and a day-4 life saved and opened ten days of wall time later. Each state names what must be on screen (the return note) and reports a `state` finding if it is not. That self-check caught the first attempt, which loaded library scenarios that need the private packs and silently fell back to a new hero. New `rawtime` check: a four-digit or larger minute count with no day or hour beside it. A life with conditions is not covered: weather decides them, so the walk cannot promise one.
+- **What the wider walk found on its first run.** `repeat`: "Village: Rain reaches the exposed edge." shows twice in the Village scene on day 4. This is the weather-line area flagged as UIC133, now reproduced by the check.
+
+**Checks.** `npm run build` (bundle `v0.6-f71c93b30fae`); `check:arch` pass; `check:rules` pass (raw durations 109 in baseline, 0 new); `npm run test:changed` pass; the three files that import the return note pass; `check:flow` 2 findings (Reports oversized, as before; the doubled rain line, new). Full `npm test` not run; it is the merge gate.
+
+**Next batch, from these results:** the doubled rain line and the tiny weather lines (UIC133); then UIC127 with UIC128 for Weibao's look; Reports sizing after baselines (UIC122).

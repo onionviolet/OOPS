@@ -1,5 +1,6 @@
 import {registerDomain} from './domain_registry.js';
 import {computeAway} from './away_ledger.js';
+import {formatDuration} from './number_format.js';
 // OD4/TBANK/AD18 time bank. Real time between the last save and this load is banked as game
 // minutes at the native awake cadence (one per tick, like the Patient Furnace). Nothing is applied
 // on return: the player spends the bank through the native clock, so every cost, body need and
@@ -78,7 +79,7 @@ export async function spendAwayBank(minutes=AWAY_BANK_DEFAULTS.spendMinutes){
     try{await ports.fastForward(n,{untilClock:before+n});}finally{busy=false;}
     const consumed=Math.max(0,ports.root().clock-before);
     state.bankedMinutes=Math.max(0,state.bankedMinutes-consumed);
-    lastSpend=consumed<n?`Stopped after ${consumed} of ${n} minutes at a waiting choice or boundary; the rest stays banked.`:`Spent ${consumed} banked minutes.`;
+    lastSpend=consumed<n?`Stopped after ${formatDuration(consumed)} of ${formatDuration(n)}, at a choice that waits for you; the rest stays banked.`:`Spent ${formatDuration(consumed)} of banked time.`;
     ports.persist(()=>{});
     return {requested:n,consumed};
 }

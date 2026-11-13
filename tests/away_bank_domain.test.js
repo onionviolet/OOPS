@@ -67,7 +67,7 @@ test('spending runs the native clock and debits only what it consumed', async ()
     stopAt = 7;
     await spend();
     const p = project();
-    assert.equal(p.bankedMinutes, 33); assert.match(p.lastSpend, /Stopped after 7 of 40/);
+    assert.equal(p.bankedMinutes, 33); assert.match(p.lastSpend, /Stopped after 7 min of 40 min/);
     stopAt = Infinity;
     assert.equal(fresh().bankedMinutes, 33);
 });
@@ -85,7 +85,10 @@ test('digest row shows the bank and spends it from the button', async () => {
     row.update(null, {bank: {bankedMinutes: 95, capacity: 10080, lastReturn: {minutes: 90, dropped: 0}, spendMinutes: 60, writable: true}});
     assert.equal(row.node.hidden, false);
     const line = els.find(e => e.className === 'return-digest-bank'), btn = els.find(e => e.id === 'away_bank_spend');
-    assert.match(line.textContent, /Banked time: 95 minutes/); assert.equal(btn.textContent, 'Spend 60 banked minutes');
+    assert.match(line.textContent, /You were away for 1 h 30 min\. Banked time: 1 h 35 min\./); assert.equal(btn.textContent, 'Spend 1 h of banked time');
+    // UR161: from a day up the human unit leads and the exact count rides beside it; what did not fit is named.
+    row.update(null, {bank: {bankedMinutes: 10080, capacity: 10080, lastReturn: {minutes: 456011, dropped: 445931}, spendMinutes: 60, writable: true}});
+    assert.match(line.textContent, /You were away for 316 days 16 h \(456,011 minutes\)\. The bank holds 7 days, so 309 days 16 h went unbanked\. Banked time: 7 days\./);
     await btn.click(); assert.equal(spent, 1);
     row.update(null, {bank: {bankedMinutes: 0, lastReturn: null}}); assert.equal(row.node.hidden, true);
 });
