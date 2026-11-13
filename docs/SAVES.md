@@ -62,7 +62,7 @@ Enumerate the live set with `domainRegistry.list()`; no checked-in list of slice
 | `yairpg:p23:native-authority:1:<release>` | enrolled authority record and its undo journal | `native_authority.js` |
 | `heir request`, `structured independent request` | one-shot request crossing a reload during succession | `src/main.js` |
 | `<save key>:ended-life:<instanceId>` | archive of an ended structured life | `src/structured_life_runtime.js` |
-| `yairpg.display.v1`, `yairpg.profile.v1`, `yairpg.known-item-hotkeys.v1`, `yairpg.presentation.*`, `yairpg.colors.v1`, `yairpg.craft-detail.v1`, `yairpg.opening.v1`, notice-seen keys | per-browser presentation and profile preferences | `display_settings.js`, `achievements.js`, `workspace_layout.js` and neighbours |
+| `yairpg.display.v1`, `yairpg.profile.v1`, `yairpg.known-item-hotkeys.v1`, `yairpg.presentation.*`, `yairpg.colors.v1`, `yairpg.craft-detail.v1`, `yairpg.opening.v1`, notice-seen keys | per-browser presentation and profile preferences | `display_settings.js`, `achievements.js` (its naming rows and the deeds in `deeds.js` share the one profile key, schema 1, `{at}` per id; no save field, not in Export), `workspace_layout.js` and neighbours |
 
 `display_preferences` is copied into the envelope on save, so Export carries it; the other
 presentation keys stay in the browser. Proposal: treat these as per-browser by default and

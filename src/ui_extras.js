@@ -8,6 +8,7 @@ import {mountReasonDelegate} from './locked_control.js';
 import './known_things.js';
 import './knowledge_home.js';
 import './naming_achievements_ui.js';
+import './deeds_ui.js';
 import './statistics_panel.js';
 import './today_strip.js';
 import './reports_dock.js';

@@ -36,9 +36,10 @@ export function writeProfile(storage, profile) {
 
 // Returns newly unlocked ids (catalog order) and persists. A storage failure still reports the unlock
 // for this session, so the player is told once and nothing is lost silently.
-export function unlockEarned(storage, facts, at = Date.now()) {
+// `catalog` lets deeds.js share this one store (same key, schema and record shape) with its own rows.
+export function unlockEarned(storage, facts, at = Date.now(), catalog = achievement_catalog) {
     const profile = readProfile(storage), earned = [];
-    for (const a of achievement_catalog) if (!profile.unlocked[a.id] && a.test(facts)) { profile.unlocked[a.id] = {at}; earned.push(a.id); }
+    for (const a of catalog) if (!profile.unlocked[a.id] && a.test(facts)) { profile.unlocked[a.id] = {at}; earned.push(a.id); }
     if (earned.length) writeProfile(storage, profile);
     return earned;
 }
