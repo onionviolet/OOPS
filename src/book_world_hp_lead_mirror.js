@@ -3,13 +3,13 @@
 import {definePlaceActs} from './place_acts.js';
 import {placeActStages} from './place_act_sequence.js';
 import {extensionFact} from './structured_pack_extensions.js';
+import {eq, windowKit} from './window_chain.js';
 import {HP_LEAD_QUIDDITCH} from './book_world_hp_lead_quidditch.js';
 import {hpSchoolExcursionClockRequest} from './book_world_hp_lead_flight.js';
 
 const P='book.hp.lead', HALL=P+'.school_hall', WORLD=P+'.world', RON=P+'.ron';
 export const HP_LEAD_MIRROR=P+'.w8_mirror';
 const M=HP_LEAD_MIRROR;
-const eq=(fact,value,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
 const completed=(id,reason)=>eq('completed.'+id,true,reason);
 const admittedKey=extensionFact(M);
 const house=eq('actor.hp.lead.house','gryffindor','This school account follows Gryffindor.');
@@ -54,12 +54,11 @@ export function compileHpSchoolContinuation(pack,base,school){
  const commands=definePlaceActs(data,{worldId:WORLD,group:'structured_local',situationId:P+'.situation'});
  const byId=new Map(commands.map(c=>[c.id,c])),rows=new Map(data.acts.map(a=>[a.id,a]));
  const admitted=eq(extensionFact(id),true,school.enter);
- return {
-  schema:1,id,revision:1,base:{id:base.id,revision:base.revision,contentHash:base.contentHash},
-  label:school.label,
+ return windowKit({prefix:id}).window({
+  base,label:school.label,
   description:school.description,
   requires:{all:[matchPinned,matchDone,leadHeard,anchor,house]},reason:school.reason,
-  ...(pack.items===undefined?{}:{items:pack.items}),...(pack.status===undefined?{}:{status:pack.status}),
+  items:pack.items,status:pack.status,
   commands:stages.map((stage,index)=>{
    const c=byId.get(stage.commandId),row=rows.get(c.id),previous=stages[index-1];
    const order=previous?completed(previous.commandId,school.order):matchDone;
@@ -69,7 +68,7 @@ export function compileHpSchoolContinuation(pack,base,school){
    return {...c,requires:guard,completionRequires:guard,visibleWhen:{all:[admitted,order]},
     audience:['$actor'],reservationReturns:1,...(row.clockAnchor?{durationSinceKnowledge:row.clockAnchor}:{})};
   })
- };
+ });
 }
 
 export async function registerHpLeadMirror(register,base,fetchFile=globalThis.fetch){

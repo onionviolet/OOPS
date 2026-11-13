@@ -1,5 +1,6 @@
 // Qing Mao, volume two chapters 122–123.
 import {extensionFact} from '../structured_pack_extensions.js';
+import {all, eq, heldBodyReady, windowKit} from '../window_chain.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_STONE_FOREST} from './book_gu_lead_stone_forest.js';
 import {GU_LEAD_RIVER_TOAD} from './book_gu_lead_river_toad.js';
@@ -7,21 +8,13 @@ import {GU_LEAD_MOONGLOW} from './book_gu_lead_moonglow.js';
 import {GU_LEAD_REFINEMENT} from './book_gu_lead_refinement.js';
 
 export const GU_LEAD_WOLF_FRONT = id('wolf_front');
-const local = name => `${GU_LEAD_WOLF_FRONT}.${name}`;
 const baseHash = 'sha256:9efca86558d35ae4ca0bce01755dd50761bf4c3aee82d1cd72d8b72d50f2001c';
 const predecessorHash = 'sha256:75899733757befd000717ca267633160d7cf8c4588b39077b9c998d5e8ee8130';
 const world = id('world');
 const academy = id('academy');
-const all = (...rules) => ({all: rules});
-const eq = (fact, value = true) => ({fact, op: 'eq', value});
-const done = name => eq(`completed.${local(name)}`);
-const field = (name, value) => eq(`actor.${local(name)}`, value);
-const set = (name, value) => ({type: 'fact', actor: 'player', scope: 'actor', key: local(name), value});
-const note = (name, value) => ({type: 'knowledge', actor: 'player', key: local(name), stage: 'understood', value});
-const status = (name, label) => ({id: local(name + '_status'), label, knowledgeKey: local(name)});
-const key = itemId => JSON.stringify({id: itemId});
-const stock = (itemId, value = 1) => ({fact: `item.${key(itemId)}`, op: 'gte', value});
-const item = (itemId, amount) => ({type: 'item', actor: 'player', key: key(itemId), amount});
+const kit = windowKit({prefix: GU_LEAD_WOLF_FRONT, energyId: id('primeval'),
+    reserveReason: value => `Prepare ${value} parts of essence first.`});
+const {local, done, field, set, note, status, stock, item, recover} = kit;
 const stone = `${GU_LEAD_REFINEMENT}.primeval_stone`;
 const grass = `${GU_LEAD_MOONGLOW}.vitality_grass`;
 const leaf = `${GU_LEAD_MOONGLOW}.vitality_leaf`;
@@ -30,38 +23,20 @@ const stealth = `${GU_LEAD_STONE_FOREST}.stealth_rock_gu`;
 const boar = `${GU_LEAD_RIVER_TOAD}.refined_black_boar_gu`;
 const worm = `${GU_LEAD_RIVER_TOAD}.four_flavours_liquor_worm`;
 const salvage = local('wolf_salvage');
-const sea = id('primeval');
-const reserve = value => ({fact: `energy.${sea}.reserve`, op: 'gte', value,
-    reason: `Prepare ${value} parts of essence first.`});
-const spend = output => ({type: 'energy', actor: 'player', energyId: sea, operation: 'use', output, control: 1});
-const recover = amount => ({type: 'energy', actor: 'player', energyId: sea, operation: 'recover', amount});
-const health = loss => ({type: 'vital', actor: 'player', key: 'health', amount: -loss});
+const health = loss => kit.vital('health', -loss);
 const pay = amount => item(stone, -amount);
 const stoneCost = amount => stock(stone, amount);
-const ready = all(eq('actor.life', 'alive'), eq('native.ready'), eq('native.alive'),
-    eq('body.ownerId', 'player'), eq('body.controllerId', 'player'), eq('body.mobile'),
-    eq(`claim.${id('academy_roll')}.held`), eq(`claim.${id('academy_roll')}.owner`, 'player'),
-    eq(`faculty.${id('aperture')}.active`), eq('actor.location', academy));
+const ready = heldBodyReady({claim: id('academy_roll'), faculty: id('aperture'), place: academy});
 const predecessor = all(eq(extensionFact(GU_LEAD_RIVER_TOAD)),
     eq(`completed.${GU_LEAD_RIVER_TOAD}.ask_about_stealth_scales`),
     eq(`actor.${GU_LEAD_RIVER_TOAD}.cultivation`, 'middle_with_upper_essence'),
     eq(`actor.${GU_LEAD_RIVER_TOAD}.condensed_parts`, 1));
 const admitted = eq(extensionFact(GU_LEAD_WOLF_FRONT));
 
-function act(name, label, duration, previous, description, effects, {needs = [], atStart = [], costs = [], parts = 0, reason} = {}) {
-    const visibleWhen = all(admitted, previous);
-    const support = all(ready, visibleWhen, ...needs);
-    return {
-        id: local(name), revision: 1, label, description, group: 'structured_local', worldId: world,
-        actorId: 'player', location: academy, audience: ['$actor'], once: true, duration, visibleWhen,
-        requires: {...all(support, ...atStart, ...(parts ? [reserve(parts)] : [])), reason: reason || 'Finish the previous step and stay in the village.'},
-        completionRequires: support, completionCoLocated: true, completionFailure: 'refund',
-        cancellation: 'refund', reservationReturns: 1, costs: parts ? [...costs, spend(parts)] : costs, effects
-    };
-}
+const act = kit.chain({worldId: world, location: academy, admitted, ready,
+    defaultReason: 'Finish the previous step and stay in the village.'});
 
-export const guLeadWolfFront = {
-    schema: 1, id: GU_LEAD_WOLF_FRONT, revision: 1,
+export const guLeadWolfFront = kit.window({
     base: {id: GU_LEAD, revision: 1, contentHash: baseHash},
     label: 'Fang Yuan prepares for the wolf tide',
     description: 'Use stronger essence to clear a way through the pillars before the winter patrols close in.',
@@ -117,7 +92,7 @@ export const guLeadWolfFront = {
                 note('offer', 'Qing Shu relays an offer of a high price and extra attention from the medicine hall if you are wounded. You have given no answer.')],
             {needs: [field('exchange', 'black_boar_terms_named')]})
     ]
-};
+});
 
 let installed;
 export async function registerGuLeadWolfFront(register, base) {
