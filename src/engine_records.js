@@ -18,15 +18,21 @@
 //   things:  {'<kind>:<id>': data} for bound things the world keeps no holder for;
 //   costs:   {accounts, backers, fault}, the world's price list (cost_owner.js);
 //   effects: {keys, read}, what the effect host needs to land a sentence;
-//   ports:   {authority?, pace?, stored?}, extra kernel and stored-working ports.
+//   ports:   optional authority(request, {world, law}), readThing(ref, at, world, records, {drawRoot}),
+//            pace, stored and landImpact.
 import {advanceWorld, applyWorldOps, substratePort} from './world_substrate.js';
 import {beginWorking, nextWorkingDeadline, restoreWorking, serializeWorking, settleWorking} from './kernel_working.js';
 import {advanceStoredWorkings, fireStored, restoreStored, serializeStored, storeWorking} from './stored_working.js';
 import {bindingAuthority, bindingDues, bindingState, defineBinding, dueBindingEvents, restoreBindings, serializeBindings, takeExit} from './binding.js';
 import {settleCosts} from './cost_owner.js';
 import {landEffect} from './effect_host.js';
+import {voiceBlocker} from './world_effects.js';
 import {sentenceCosts} from './effect_grammar.js';
 import {address, drawU32} from './gen_kit.js';
+import {BREW_LAW_ID} from './brew_law.js';
+import {brewFractionOf, brewOriginsOf, brewStockOps, brewStorageOf, readBrewHolder} from './engine_brew_stock.js';
+import {KNOWLEDGE_PACK, recordsOf} from './knowledge_record.js';
+import {BODY_HAUL_LAW, readHaulBody} from './body_haul.js';
 
 export const RECORDS_SCHEMA = 'engine.records@1';
 const fail = message => { throw new Error(`Engine records: ${message}`); };
@@ -73,11 +79,33 @@ export function hostOf({laws = [], things = {}, costs = null, effects = {}, port
 // ---------- what the records read and write ----------
 
 // KW3. A bound thing is the caller's data for it overlaid with the holder the world keeps.
-const reader = (host, getWorld) => (ref, at) => {
-    const thing = host.things[`${ref.kind}:${ref.id}`], held = substratePort(getWorld())(ref, at);
+const reader = (host, getWorld, law, records, drawRoot) => (ref, at) => {
+    const brew = law === BREW_LAW_ID;
+    const world = getWorld();
+    const fixed = host.things[`${ref.kind}:${ref.id}`], live = host.ports.readThing?.(ref, at, world, records, {drawRoot});
+    const thing = live ? {...fixed, ...live, properties: {...fixed?.properties, ...live.properties}} : fixed;
+    const held = substratePort(world)(ref, at);
     if (!thing && !held) return null;
-    return {...structuredClone(thing ?? {}), ...(held ? {holder: held.holder, place: held.place, quantities: held.quantities,
+    if (brew && !held) return null;
+    const bound = {...structuredClone(thing ?? {}), ...(held ? {holder: held.holder, place: held.place, quantities: held.quantities,
         properties: {...(thing?.properties ?? {}), ...held.properties}} : {}), kind: ref.kind, id: ref.id};
+    if (held && ref.kind === 'body') bound.voiceBlocked = !!voiceBlocker(world, held.holder);
+    if (held && law === BODY_HAUL_LAW.id && ref.kind === 'body') Object.assign(bound, readHaulBody(world, held));
+    if (held && law === KNOWLEDGE_PACK && ref.kind === 'body') {
+        bound.records = recordsOf(world, held.holder);
+        bound.workingLuck = world.laws.filter(field => field.scope === held.holder && field.kind === 'working-luck' &&
+            (field.until == null || field.until > world.clock)).map(field => structuredClone(field.params));
+    }
+    if (held && ref.kind === 'flask') {
+        const holder = getWorld().holders[held.holder];
+        const storage = brewStorageOf(holder);
+        const origins = brewOriginsOf(holder);
+        const fraction = brewFractionOf(holder);
+        if (fraction) bound.brewFraction = structuredClone(fraction);
+        if (storage) bound.brewStorage = structuredClone(storage);
+        if (origins) bound.brewOrigins = structuredClone(origins);
+    }
+    return brew ? readBrewHolder(bound, getWorld().holders[held.holder]) : bound;
 };
 
 /** Every settled receipt of the host's workings, with its method and bindings (what bindings and oaths read). */
@@ -90,18 +118,31 @@ const pay = (engine, world, rows, payer, cause) => settleCosts({rules: engine.ru
     ...(engine.host.costs ?? {}), keys: engine.host.effects.keys, read: engine.host.effects.read});
 
 // One published effect: a substrate op, a sentence for the effect host, or a label nothing can land.
-function land(engine, world, effect, cause, by) {
-    if (typeof effect?.op === 'string') return {world: applyWorldOps(engine.rules, world, [effect], cause), status: 'applied', reason: null};
-    const {world: next, status, reason} = landEffect(engine.rules, world, effect, {cause, by, keys: engine.host.effects.keys, read: engine.host.effects.read});
-    return {world: next, status, reason};
+function land(engine, world, effect, cause, by, brew = false) {
+    if (typeof effect?.op === 'string') {
+        const ops = brew ? brewStockOps(engine.rules, world, effect) : [effect];
+        return {world: applyWorldOps(engine.rules, world, ops, cause), status: 'applied', reason: null};
+    }
+    const options = {cause, by, keys: engine.host.effects.keys, read: engine.host.effects.read};
+    const {landImpact} = engine.host.ports;
+    const sentence = effect?.sentence;
+    if (landImpact && sentence?.verb === 'remove' && sentence.object === 'vitality' && sentence.time === 'instant') {
+        const landed = landEffect(engine.rules, world, effect, {...options, previewVitality: true});
+        if (landed.status === 'landed') {
+            const impact = landImpact({engine: {...engine, world}, effect, landed, cause, by});
+            if (impact) return impact;
+        }
+    }
+    return landEffect(engine.rules, world, effect, options);
 }
 
 function kernelPorts(engine, entry, world) {
     const {host, records} = engine;
     const bindings = records.bindings.map(defineBinding);
-    const inner = host.ports.authority;
+    const authorize = host.ports.authority;
+    const inner = authorize && (request => authorize(request, {world: world.get(), law: entry.law}));
     return {
-        read: reader(host, world.get),
+        read: reader(host, world.get, host.laws[entry.law]?.id, records, engine.draws.root),
         ...(bindings.length || inner ? {authority: bindingAuthority(bindings, {log: records.log, receipts: engineReceipts(engine), inner})} : {}),
         ...(host.ports.pace ? {pace: host.ports.pace} : {}),
         draw: oddsDraw(engine.draws), // E11: a published odds is drawn from the saved root
@@ -131,8 +172,9 @@ function settleWorkings(engine) {
                 ports: kernelPorts(engine, entry, {get: () => world, set: next => { world = next; }})});
             const landed = [...entry.landed];
             for (const {step, at, effect} of run.effects) {
-                const out = land({...engine, world}, world, effect, `working:${id}:${step}`, entry.payer ?? undefined);
+                const out = land({...engine, world}, world, effect, `working:${id}:${step}`, entry.payer ?? undefined, law.id === BREW_LAW_ID);
                 world = out.world;
+                if (out.stored) engine = {...engine, records: {...engine.records, stored: out.stored}};
                 landed.push({step, at, status: out.status, ...(out.reason ? {reason: out.reason} : {})});
             }
             engine = {...engine, world, records: {...engine.records, workings: {...engine.records.workings, [id]: {...entry, record: run.record, landed}}}};
@@ -162,18 +204,20 @@ function settleBindings(engine) {
     if (!rows.length) return engine;
     let world = engine.world;
     const published = [...records.published], dues = [...records.dues];
+    let stored = records.stored;
     for (const row of rows) {
         published.push(row.id);
         const due = {at: now, what: row.id, kind: row.kind};
         if (row.costs?.length) { const {world: next, ...paid} = pay(engine, world, row.costs, row.payer, `binding:${row.id}`); world = next; due.paid = paid; }
         for (const effect of row.effects ?? []) {
-            const out = land(engine, world, effect, `binding:${row.id}`, row.payer);
+            const out = land({...engine, records: {...engine.records, stored}}, world, effect, `binding:${row.id}`, row.payer);
             world = out.world;
+            if (out.stored) stored = out.stored;
             (due.landed ??= []).push(out.status);
         }
         if (due.paid || due.landed) dues.push(due);
     }
-    return {...engine, world, records: {...records, published, dues}};
+    return {...engine, world, records: {...records, stored, published, dues}};
 }
 
 const settleAt = engine => settleBindings(settleStored(settleWorkings(engine)));
@@ -234,12 +278,13 @@ export function storeEngineWorking(engine, spec, {id, by}) {
 }
 
 /** Fire a stored working by hand (a touch, a word, force). Its receipt is the record's last. */
-export function fireEngineStored(engine, id, {stimulus = {}, way = {}} = {}) {
+export function fireEngineStored(engine, id, {stimulus = {}, way = {}, settle = true} = {}) {
     const record = engine.records.stored[id] ?? fail(`no stored working ${id}.`);
     const run = fireStored({rules: engine.rules, world: engine.world, record, at: engine.world.clock, stimulus, way,
         ports: engine.host.ports.stored ?? {}, keys: engine.host.effects.keys, read: engine.host.effects.read,
         ...(engine.host.costs ? {costs: engine.host.costs} : {})});
-    return settleAt({...engine, world: run.world, records: {...engine.records, stored: {...engine.records.stored, [id]: run.record}}});
+    const next = {...engine, world: run.world, records: {...engine.records, stored: {...engine.records.stored, [id]: run.record}}};
+    return settle ? settleAt(next) : next;
 }
 
 /** Make a binding now. Its making price is debited from the side that owes it (default: `by`, side a). */

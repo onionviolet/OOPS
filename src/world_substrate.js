@@ -37,7 +37,8 @@ export const SUBSTRATE_DIALS = Object.freeze({
 // `effect.<verb>.<object>` belong to the effect primitives (world_effects.js).
 const BUILT_IN_KINDS = Object.freeze(['departed', 'arrived', 'law.lapsed',
     // E12: one kind per holder-lifecycle act, and the priced fault.
-    'lifecycle.create', 'lifecycle.end', 'lifecycle.copy', 'lifecycle.split', 'lifecycle.merge', 'lifecycle.promote', 'lifecycle.demote', 'lifecycle.fault']);
+    'lifecycle.create', 'lifecycle.end', 'lifecycle.copy', 'lifecycle.split', 'lifecycle.merge', 'lifecycle.promote', 'lifecycle.demote',
+    'lifecycle.cohort-change', 'lifecycle.fault']);
 const primitiveKind = kind => /^effect\.[a-z]+(\.[a-z0-9_:.*-]+)?$/.test(kind);
 
 export function composeSubstrate({packs, quantities = [], properties = [], effectKinds = [], dials = {}, draw = null}) {
@@ -62,7 +63,7 @@ export function composeSubstrate({packs, quantities = [], properties = [], effec
     };
     for (const def of quantities) addQuantity(def, 'world');
     for (const def of properties) addProperty(def, 'world');
-    const seen = new Set(), laws = [], reactors = [], kinds = new Set([...BUILT_IN_KINDS, ...effectKinds]);
+    const seen = new Set(), laws = [], reactors = [], moveChecks = [], kinds = new Set([...BUILT_IN_KINDS, ...effectKinds]);
     for (const pack of packs) for (const kind of [...(pack.publishes ?? []), ...(pack.hears ?? [])]) {
         check(typeof kind === 'string' && /^[a-z][a-z0-9_.:-]*$/.test(kind), `pack ${pack?.id} declares a malformed effect kind (${kind}).`);
         kinds.add(kind);
@@ -76,6 +77,12 @@ export function composeSubstrate({packs, quantities = [], properties = [], effec
     for (const id of q.keys()) check(!pr.has(id), `${id} is both a quantity and a property.`);
     for (const pack of packs) {
         const reads = new Set([...(pack.reads ?? []), ...(pack.writes ?? [])]), writes = new Set(pack.writes ?? []);
+        if (pack.checkEffectMove !== undefined) {
+            // Read-only admission for position effects. Callers of raw move
+            // operations still own their travel policy.
+            check(typeof pack.checkEffectMove === 'function', `pack ${pack.id} needs a function for checkEffectMove.`);
+            moveChecks.push(pack.checkEffectMove);
+        }
         for (const name of reads) check(q.has(family(name)) || pr.has(name), `pack ${pack.id} names undeclared quantity or property ${name}.`);
         for (const law of pack.laws ?? []) {
             check(idLike(law.id) && typeof law.appliesTo === 'function', `law in ${pack.id} needs id and appliesTo.`);
@@ -104,7 +111,8 @@ export function composeSubstrate({packs, quantities = [], properties = [], effec
     // E12 (end)
     const d = {...SUBSTRATE_DIALS, ...dials};
     for (const [k, v] of Object.entries(d)) check(whole(v) && v >= (k === 'cascadeDepth' ? 0 : 1), `dial ${k} must be a whole number.`);
-    return Object.freeze({quantities: q, properties: pr, effectKinds: Object.freeze(kinds), packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d),
+    return Object.freeze({quantities: q, properties: pr, effectKinds: Object.freeze(kinds), packs: Object.freeze(packs.map(p => p.id)), laws, reactors,
+        moveChecks: Object.freeze(moveChecks), dials: Object.freeze(d),
         draw: checkDraw(draw), /* E11 saved dice */ lifecycle /* E12 */});
 }
 
@@ -253,21 +261,23 @@ function viewFor(rules, world, pack) {
 // Birth, death, copy, split, merge and a cohort becoming individuals and back
 // are world acts: {op: 'lifecycle', act, ...}. A pack law or reactor may use the
 // acts its pack declares (`lifecycle: {acts, fault, innate}`); an outside caller
-// or a landed effect may use any. Each act writes lineage into `world.identity`
-// (kernel_identity.js), hands every quantity on to a holder or a named row in
+// or a landed effect may use any. Acts that change identities write lineage into
+// `world.identity` (kernel_identity.js). Each act hands quantities to a holder or a named row in
 // `world.rows`, and publishes `lifecycle.<act>` where it happened. An act that
 // cannot be done as asked changes nothing else, charges the fault price from
 // the pack's or the op's data and publishes `lifecycle.fault` with the reason
 // and a way around. A malformed op (no id, an unknown act) is a contract error
 // and throws like any other op.
 //
-//   create  {value: {id, kind, place?, quantities?, ...}, parents?, from?}
+//   create  {value: {id, kind, place?, quantities?, ...}, parents?, from?, allowRetiredParents?}
 //   copy    {holder, value: {id, ...overrides}, from?, innate?: 'share' | 'redraw'}
 //   end     {holder, remains?: {id, ...}, to?, routes?}
 //   split   {holder, into: [{id, share, ...overrides}], keep?, to?}
 //   merge   {holders, value: {id, ...} | into: id, to?, routes?}
 //   promote {holder: cohort, ids, kind?, value?, to?}
 //   demote  {holders, into: cohort, to?, routes?}
+//   cohort-change {holder: cohort, delta, quantities?: {name: amount}, row}
+//   Count changes draw from (birth) or credit (loss) the named row.
 //
 // `from` lists where a new holder's starting amounts come from, in order:
 // holder ids, then `row:<name>` for the rest (default `row:lifecycle.made`).
@@ -275,7 +285,7 @@ function viewFor(rules, world, pack) {
 // quantities they already carry, `row:<name>` takes anything; whatever is left
 // lands on `row:lifecycle.unclaimed`. `routes` names a list per quantity.
 // A row amount is what left the holders through it; a source row runs negative.
-export const LIFECYCLE_ACTS = Object.freeze(['create', 'end', 'copy', 'split', 'merge', 'promote', 'demote']);
+export const LIFECYCLE_ACTS = Object.freeze(['create', 'end', 'copy', 'split', 'merge', 'promote', 'demote', 'cohort-change']);
 const INNATE = ['share', 'redraw'];
 const LIFECYCLE_WAYS = Object.freeze({
     'id-taken': 'name an id no holder, living or ended, has used',
@@ -390,13 +400,38 @@ function lifecycleAct(rules, world, op, ctx, queue) {
     const fresh = ids => ids.every(idLike) && new Set(ids).size === ids.length && !ids.some(taken);
 
     switch (act) {
+    case 'cohort-change': {
+        const cohort = H(op.holder), {delta, quantities = {}, row} = op;
+        if (!cohort) return fault('no-holder');
+        if (cohort.kind !== 'cohort') return fault('not-cohort', cohort.id);
+        check(whole(delta) && delta !== 0 && idLike(row), 'cohort-change needs a signed count and a named quantity row.');
+        const count = cohort.count + delta;
+        if (!whole(count) || count < 0) return fault('short', cohort.id);
+        const amounts = Object.entries(quantities);
+        for (const [name, amount] of amounts) {
+            const def = quantityDef(rules, name);
+            check(Object.hasOwn(cohort.quantities, name) && whole(amount) && amount >= 0,
+                'cohort-change moves whole amounts of quantities carried by the cohort.');
+            const after = cohort.quantities[name] + Math.sign(delta) * amount;
+            const balance = (world.rows?.[row]?.[name] ?? 0) - Math.sign(delta) * amount;
+            if (!whole(after) || !whole(balance) || after < def.min || after > def.max) return fault('short', cohort.id);
+        }
+        for (const [name, amount] of amounts) {
+            const moved = Math.sign(delta) * amount;
+            addAmount(rules, cohort, name, moved, `${source}:${row}`);
+            rowAdd(world, row, name, -moved);
+        }
+        cohort.count = count;
+        return done(cohort.place, {id: cohort.id, delta, count, row, quantities});
+    }
     case 'create': case 'copy': {
         const src = act === 'copy' ? H(op.holder) : null;
         if (act === 'copy' && !src) return fault('no-holder');
         const parents = act === 'copy' ? [src.id] : op.parents ?? [];
         check(Array.isArray(parents) && idLike(op.value?.id), `${act} needs a value with an id.`);
         if (!fresh([op.value.id])) return fault('id-taken', parents.find(H));
-        if (parents.some(p => !H(p))) return fault('no-holder', parents.find(H));
+        if (parents.some(p => !H(p) && !(act === 'create' && op.allowRetiredParents === true &&
+            Object.hasOwn(world.identity?.entries ?? {}, p)))) return fault('no-holder', parents.find(H));
         const v = src ? {kind: src.kind, tags: src.tags, as: src.as, properties: src.properties, state: src.state,
             ...(src.kind === 'cohort' ? {count: src.count} : {}), quantities: src.quantities, ...op.value} : op.value;
         const place = v.kind === 'place' ? null : v.place ?? (src ? src.place : placeOf(parents[0]));

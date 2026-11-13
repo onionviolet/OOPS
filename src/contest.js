@@ -78,6 +78,10 @@ export function defineContestLaw({id, revision, moves, endings = {}, lethal = fa
         ready: {roles: {actor: 'entrant'}, settle: ({bound}) => bound.actor.able
             ? {ok: true} : {ok: false, reason: 'The mover can no longer act.', observed: {stopped: true}}},
         release: {roles: {actor: 'entrant', target: 'entrant'}, settle: args => release(law, args)},
+        relief: {roles: {actor: 'entrant'}, settle({bound: {actor}, facts: {incoming}}) {
+            return actor.able ? {ok: true, effects: [{kind: 'contest.relief', actor: actor.id, incoming}]}
+                : {ok: false, reason: 'The fighter cannot finish the handoff.'};
+        }},
     }});
     return Object.freeze(law);
 }
@@ -157,7 +161,7 @@ function quantity(record, world, entrant, name) {
 function rungIndex(fraction) {return fraction >= 1 ? 0 : 1 + Math.min(4, Math.floor((1 - fraction) * 5));}
 
 function runningMove(law, e) {
-    return e.working?.status === 'running' ? law.moves[e.working.method.steps[0].options.move] : null;
+    return e.working?.status === 'running' ? law.moves[e.working.method.steps[0].options?.move] : null;
 }
 
 /** What an entrant is at this moment, read from its body in the world. */
@@ -174,10 +178,21 @@ export function entrantView(law, record, world, id) {
     return {kind: 'entrant', id, side: e.side, body: e.body, profile: clone(e.profile), able, quantities,
         fraction, impair: dial(law, 'impairment')[rungIndex(fraction)],
         guard: guarding?.kind === 'guard' ? clone(guarding.block) : {},
-        busy: e.working?.status === 'running' ? e.working.method.steps[0].options.move : null};
+        busy: guarding?.id ?? null};
 }
 
 // ---------- beginning ----------
+
+function entrantRow(law, world, e, at) {
+    check(idOk(e.id) && idOk(e.side) && world.holders[e.body]?.kind === 'body', `Entrant ${e.id} needs a body in the world.`);
+    check(Array.isArray(e.moves) && e.moves.every(m => Object.hasOwn(law.moves, m)), `Entrant ${e.id} names a move this law does not have.`);
+    return {side: e.side, body: e.body, profile: clone(e.profile ?? {}), moves: [...e.moves], speed: e.speed ?? 100,
+        perception: e.perception ?? 5, stealth: e.stealth ?? 0, wants: {fleeAt: 0, yieldAt: 0, acceptsSurrender: true,
+            pursues: false, guards: true, ...clone(e.wants ?? {})}, reads: [...(e.reads ?? [])],
+        // Use full health so a body that enters already hurt fights impaired (CBR22).
+        max: {vitality: e.maxVitality ?? readQuantity(world, e.body, 'max_vitality') ?? readQuantity(world, e.body, 'vitality') ?? 0},
+        lifecycle: clone(e.lifecycle ?? null), ready: at, status: 'in', outcome: null, working: null, yieldRefused: false, moveCount: 0};
+}
 
 /** Begin a contest. `entrants`: [{id, side, body, profile, moves, speed, perception, stealth, wants, lifecycle}]. */
 export function beginContest(law, {id, seed, place, entrants, sides = {}, detail = 'near', at = 0, limits = {}}, world) {
@@ -186,15 +201,8 @@ export function beginContest(law, {id, seed, place, entrants, sides = {}, detail
     check(Array.isArray(entrants) && new Set(entrants.map(e => e.side)).size >= 2, 'A contest needs at least two sides.');
     const table = {};
     for (const e of [...entrants].sort((x, y) => (x.id < y.id ? -1 : 1))) {
-        check(idOk(e.id) && !table[e.id] && idOk(e.side) && world.holders[e.body]?.kind === 'body', `Entrant ${e.id} needs a body in the world.`);
-        check(Array.isArray(e.moves) && e.moves.every(m => law.moves[m]), `Entrant ${e.id} names a move this law does not have.`);
-        table[e.id] = {side: e.side, body: e.body, profile: clone(e.profile ?? {}), moves: [...e.moves], speed: e.speed ?? 100,
-            perception: e.perception ?? 5, stealth: e.stealth ?? 0, wants: {fleeAt: 0, yieldAt: 0, acceptsSurrender: true,
-                pursues: false, guards: true, ...clone(e.wants ?? {})}, reads: [...(e.reads ?? [])],
-            // Full health comes from the entrant row or the body's own max_vitality, so a body that enters
-            // already hurt fights impaired (CBR22). Only with neither does the current amount stand in.
-            max: {vitality: e.maxVitality ?? readQuantity(world, e.body, 'max_vitality') ?? readQuantity(world, e.body, 'vitality') ?? 0},
-            lifecycle: clone(e.lifecycle ?? null), ready: at, status: 'in', outcome: null, working: null, yieldRefused: false, moveCount: 0};
+        check(!Object.hasOwn(table, e.id), `Duplicate entrant ${e.id}.`);
+        table[e.id] = entrantRow(law, world, e, at);
     }
     const record = {schema: CONTEST_SCHEMA, id, law: law.ref, seed, place, detail, startedAt: at, clock: at, meetings: 0,
         sides: clone(sides), limits: clone(limits), landed: 0, entrants: table, pending: {}, pursuits: [], log: [], result: null, surprised: null};
@@ -225,7 +233,7 @@ function affordable(law, record, world, e, moveId, id) {
 }
 
 /** The default chooser (PFP11: the same for the player's auto-play and every other actor). A's chooser replaces it through ports.choose. */
-export function defaultChoice(law, record, world, id) {
+export function defaultChoice(law, record, world, id, {canUse = () => true, incoming = false} = {}) {
     const e = record.entrants[id], me = entrantView(law, record, world, id);
     const foes = Object.keys(record.entrants).filter(o => record.entrants[o].side !== e.side)
         .map(o => entrantView(law, record, world, o)).filter(v => v.able);
@@ -238,7 +246,7 @@ export function defaultChoice(law, record, world, id) {
         if (side.filter(o => o.status === 'out' || (o.lost ?? 0) > 0).length / side.length >= e.wants.yieldAtSideHurt)
             return {move: 'yield', target: id, why: 'its side has been cut'};
     }
-    const threatened = foes.some(f => f.busy && record.entrants[f.id].working?.bindings.target.id === id &&
+    const threatened = incoming || foes.some(f => f.busy && record.entrants[f.id].working?.bindings.target.id === id &&
         law.moves[f.busy].kind !== 'guard');
     // Crowding: a target only takes so many attackers at once; a faster, moving target takes fewer.
     const open = foes.filter(f => {
@@ -252,6 +260,7 @@ export function defaultChoice(law, record, world, id) {
     const pick = e.wants.target && attackable.find(f => f.id === e.wants.target)
         || [...attackable].sort((x, y) => x.fraction - y.fraction || (x.id < y.id ? -1 : 1))[0];
     for (const moveId of e.moves) {
+        if (!canUse(moveId)) continue;
         const move = law.moves[moveId];
         if (move.kind === 'guard' && !(threatened && e.wants.guards)) continue;
         if (move.kind !== 'guard' && move.target !== 'self' && !pick) return {move: 'wait', target: id, why: 'no opening'};
@@ -285,6 +294,12 @@ function applyMeeting(law, record, world, rules, effect, at) {
     const cause = `contest:${record.id}:${record.meetings}`;
     if (effect.kind === 'contest.withdraw') return leave(law, record, world, rules, effect.actor, at);
     if (effect.kind === 'contest.yield') return surrender(law, record, world, effect.actor, at);
+    if (effect.kind === 'contest.relief') {
+        const answer = handoffContest(law, record, world, {outgoing: effect.actor, incoming: effect.incoming});
+        if (answer.reason) say(law, record, {at, actor: effect.actor, move: 'handoff', outcome: 'unavailable'});
+        else Object.assign(record, answer.record);
+        return world;
+    }
     if (effect.kind !== 'contest.meet') return world;
     const target = record.entrants[effect.target];
     const ops = [];
@@ -402,10 +417,110 @@ function finish(law, record, winner, at, reason) {
         outcomes: Object.fromEntries(Object.entries(record.entrants).map(([id, e]) => [id, e.status === 'in' ? 'stood' : e.outcome]))};
 }
 
+/** End a bout at its saved tick. Completed exchanges stand and queued moves stop. */
+export function abortContest(law, record0, rules, world) {
+    check(record0.schema === CONTEST_SCHEMA && record0.law === law.ref, 'This contest belongs to a different law.');
+    if (record0.result) return {record: record0, world};
+    const record = clone(record0);
+    for (const entrant of Object.values(record.entrants)) {
+        if (entrant.working?.status === 'running')
+            entrant.working = interruptWorking(entrant.working, {at: record.clock, reason: 'contest-aborted'});
+    }
+    finish(law, record, null, record.clock, 'aborted');
+    return flushContest(law, record, rules, world);
+}
+
+/** Settle a concession or physical escape already resolved on the host clock.
+ * The host validates the offer or route. Contest owns the outcome and log. */
+export function settleContestExit(law, record0, rules, world, {entrant, kind, at}) {
+    check(record0.schema === CONTEST_SCHEMA && record0.law === law.ref, 'This contest belongs to a different law.');
+    if (record0.result) return {record: record0, world};
+    check(natural(at) && at >= record0.clock && ['yield', 'escape'].includes(kind) &&
+        Object.hasOwn(record0.entrants, entrant) && record0.entrants[entrant].status === 'in', 'Invalid contest exit.');
+    const record = clone(record0);
+    record.clock = at;
+    if (kind === 'yield') {
+        surrender(law, record, world, entrant, at);
+        if (record.entrants[entrant].status === 'in') return {record, world};
+    } else {
+        Object.assign(record.entrants[entrant], {status: 'out', outcome: 'escaped'});
+        for (const [id, foe] of opponents(record, entrant))
+            if (foe.wants.pursues) record.pursuits.push({by: id, of: entrant, at});
+        say(law, record, {at, actor: entrant, move: 'withdraw', outcome: 'got away'});
+    }
+    const standing = [...new Set(Object.values(record.entrants).filter(e => e.status === 'in').map(e => e.side))];
+    for (const [id, e] of Object.entries(record.entrants)) {
+        if ((id === entrant || standing.length <= 1) && e.working?.status === 'running')
+            e.working = interruptWorking(e.working, {at, reason: 'contest-exit'});
+    }
+    if (standing.length > 1) return {record, world};
+    finish(law, record, standing[0] ?? null, at, 'decided');
+    const settled = flushContest(law, record, rules, world);
+    if (record.detail === 'far' && Object.keys(record.pending).length) return settled;
+    return {...settled, world: applyWorldOps(rules, settled.world, [{
+        op: 'publish', kind: 'contest.settled', place: record.place, detail: {result: clone(record.result)},
+    }], `contest:${record.id}:exit`)};
+}
+
 // ---------- stepping ----------
 
-function readPort(law, record, world) {
-    return {read: ref => ref.kind === 'entrant' && record.entrants[ref.id] ? entrantView(law, record, world, ref.id) : null};
+function replacement(law, record, world, outgoing, incoming) {
+    check(record.schema === CONTEST_SCHEMA && record.law === law.ref, 'This contest belongs to a different law.');
+    const leaving = Object.hasOwn(record.entrants, outgoing) && record.entrants[outgoing];
+    const body = world.holders[incoming.body];
+    if (record.result || leaving?.status !== 'in' || !entrantView(law, record, world, outgoing).able ||
+        incoming.side !== leaving.side ||
+        Object.hasOwn(record.entrants, incoming.id) ||
+        Object.values(record.entrants).some(row => row.body === incoming.body) ||
+        body?.kind !== 'body' || body.place !== record.place || body.properties.alive === false ||
+        world.holders[leaving.body]?.place !== record.place || world.holders[leaving.body].properties.alive === false) return null;
+    const row = entrantRow(law, world, incoming, record.clock);
+    const candidates = {...record, entrants: {...record.entrants, [incoming.id]: row}};
+    return entrantView(law, candidates, world, incoming.id).able ? row : null;
+}
+
+/** A local ally takes over the side at the current contest tick. Each body keeps its own means. */
+export function handoffContest(law, record, world, {outgoing, incoming}) {
+    const row = replacement(law, record, world, outgoing, incoming);
+    if (!row) return {record, reason: 'handoff-unavailable'};
+    const next = clone(record);
+    next.entrants[incoming.id] = row;
+    const retired = next.entrants[outgoing];
+    if (retired.working?.status === 'running') {
+        retired.working = interruptWorking(retired.working, {at: next.clock, reason: 'contest-handoff'});
+    }
+    Object.assign(retired, {status: 'out', outcome: 'withdrew'});
+    say(law, next, {at: next.clock, actor: outgoing, target: incoming.id, move: 'handoff', outcome: 'withdrew'});
+    return {record: next};
+}
+
+/** Give up the current action to attempt an interruptible changeover. */
+export function prepareContestHandoff(law, record, world, {outgoing, incoming, ticks}) {
+    if (!natural(ticks) || ticks < 1 || !natural(record.clock + ticks) ||
+        !replacement(law, record, world, outgoing, incoming)) return {record, reason: 'handoff-unavailable'};
+    const next = clone(record);
+    const actor = next.entrants[outgoing];
+    if (actor.working?.status === 'running' && actor.working.method.id === 'contest.relief')
+        return {record, reason: 'handoff-in-progress'};
+    const roles = {actor: 'entrant'};
+    const method = {id: 'contest.relief', revision: 1, law: law.working.ref, roles, steps: [
+        {op: 'ready', minutes: 0, bindings: {actor: 'actor'}},
+        {op: 'relief', minutes: ticks, bindings: {actor: 'actor'}},
+    ]};
+    actor.moveCount += 1;
+    actor.working = beginWorking(law.working, method, {id: `${record.id}:${outgoing}:${actor.moveCount}`, at: next.clock,
+        bindings: {actor: {kind: 'entrant', id: outgoing}}, facts: {incoming}});
+    say(law, next, {at: next.clock, actor: outgoing, target: incoming.id, move: 'handoff', outcome: 'preparing'});
+    return {record: next};
+}
+
+function readPort(law, record, world, ports) {
+    return {read(ref) {
+        if (ref.kind !== 'entrant' || !record.entrants[ref.id]) return null;
+        const view = entrantView(law, record, world, ref.id);
+        const profile = ports.profile?.(view, record, world);
+        return profile ? {...view, profile} : view;
+    }};
 }
 
 const nextTime = e => e.working?.status === 'running' ? nextWorkingDeadline(e.working) : e.ready;
@@ -428,11 +543,11 @@ export function stepContest(law, record0, rules, world0, ports = {}) {
         return {record, world};
     }
     if (e.working?.status === 'running') {
-        const {record: done, effects} = settleWorking(law.working, e.working, {now: at, ports: readPort(law, record, world)});
+        const {record: done, effects} = settleWorking(law.working, e.working, {now: at, ports: readPort(law, record, world, ports)});
         e.working = done;
         if (done.status !== 'running') {e.ready = at; e.working = null;}
         for (const {effect} of effects) {
-            if (!['contest.wait', 'contest.guard'].includes(effect.kind)) record.meetings += 1;
+            if (!['contest.wait', 'contest.guard', 'contest.relief'].includes(effect.kind)) record.meetings += 1;
             world = applyMeeting(law, record, world, rules, effect, at);
             if (record.result) break;
         }

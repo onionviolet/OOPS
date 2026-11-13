@@ -15,6 +15,7 @@ import {check, natural, object, copy, deepFreeze, sameJson} from './basics.js';
 import {defineWorkingLaw, quoteWorking, beginWorking} from './kernel_working.js';
 import {composeWorking, composedPart, defineComposition} from './kernel_compose.js';
 import {resolveRef} from './world_substrate.js';
+import {speechObstruction} from './spell_effects.js';
 
 export const KNOWLEDGE_PACK = 'n.knowledge';
 export const KNOWLEDGE_KINDS = Object.freeze({learn: 'effect.add.information', teach: 'effect.copy.information', check: 'effect.sense.information'});
@@ -315,6 +316,28 @@ const publish = (kind, mind, knowledge) => ({op: 'publish', kind, place: mind.pl
 // Checking, teaching and closing a condition, as kernel operations. Each
 // publishes its price as cost rows (KW15) and changes records through the pack.
 export const KNOWLEDGE_LAW = defineWorkingLaw({id: KNOWLEDGE_PACK, revision: 1, operations: {
+    answer: {roles: {speaker: 'body', listener: 'body'}, settle({bound: {speaker, listener}, options, at}) {
+        if (!speaker.holder || !listener.holder || !speaker.place || speaker.place !== listener.place || speaker.holder === listener.holder)
+            return {ok: false, reason: 'conversation-out-of-reach'};
+        if (speaker.properties.mind_awake !== true || speechObstruction(speaker.properties, speaker.voiceBlocked))
+            return {ok: false, reason: 'speaker-cannot-answer'};
+        const {record, willing = false, opportunity} = options;
+        const known = Object.hasOwn(speaker.records ?? {}, record) && speaker.records[record];
+        const compelled = speaker.properties.mind_compelled_disclosure === true &&
+            speaker.properties.mind_disclosure_protected !== true;
+        const disclosed = known?.subject?.kind === 'fact' && (willing === true || compelled);
+        let chance = {};
+        if (disclosed && opportunity && !compelled) {
+            const {action, odds, effort} = opportunity;
+            check(word(action) && natural(odds) && odds <= 1000 && natural(effort), 'Invalid disclosure opportunity.');
+            const bonus = (listener.workingLuck ?? []).reduce((best, field) =>
+                field.action === action && natural(field.bonus) ? Math.max(best, field.bonus) : best, 0);
+            chance = {odds: odds === 0 ? 0 : Math.min(1000, odds + bonus), miss: {observed: {disclosed: false}},
+                costs: effort ? [{quantity: 'stamina', amount: effort, payer: listener.holder}] : []};
+        }
+        return {ok: true, ...chance, observed: {disclosed}, effects: disclosed ?
+            [publish(KNOWLEDGE_KINDS.teach, listener, {from: speaker.holder, to: listener.holder, record, at})] : []};
+    }},
     // GKM248. Each thing the evidence shows is missed on its own draw. The
     // holder sees `observed.found`; what he missed stays in the truth.
     check: {roles: {checker: 'mind', evidence: 'evidence'}, settle({bound, options, at, address}) {

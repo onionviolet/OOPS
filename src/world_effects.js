@@ -94,22 +94,44 @@ function holdersIn(world, places, target) {
 
 // Block fields: kind 'block', params {verb, object}, either may be '*'. They
 // guard the target, its place and the world, nearest first.
-function blockerOf(world, target, verb, obj) {
+function blockingField(world, target, verb, obj) {
     const h = world.holders[target], scopes = [target, h?.kind === 'place' ? null : h?.place, 'world'].filter(Boolean);
     for (const scope of scopes) for (const f of world.laws) {
         if (f.scope !== scope || f.kind !== 'block') continue;
+        const threshold = f.params.threshold;
+        if (threshold && (world.holders[scope]?.quantities[threshold.quantity] ?? 0) < threshold.minimum) continue;
+        if (f.params.spellObject !== undefined && f.params.spellObject !== obj.spellObject) continue;
         const v = f.params.verb ?? '*', o = f.params.object ?? '*';
         const objectHit = o === '*' || o === obj.name || o === obj.family || (obj.type === 'law' && o === `law:${obj.name}`) || (obj.type === 'property' && o === `property:${obj.name}`);
-        if ((v === '*' || v === verb) && objectHit) return f.id;
+        if ((v === '*' || v === verb) && objectHit) return f;
     }
     return null;
 }
 
-function concealedFrom(world, target, channel) {
+const blockerOf = (world, target, verb, obj) => blockingField(world, target, verb, obj)?.id ?? null;
+
+/** A barrier can stop an incoming cast at its aim, before custody or another
+ * effect selects the holder it will change. Ordinary object blocks still run
+ * on that eventual holder in applyEffect. */
+export function spellContactBarrier(world, target, verb, spellObject) {
+    return blockingField(world, target, verb, {type: 'contact', name: 'spell-contact', spellObject});
+}
+
+/** Audible speech is an addition to the speaker's noise channel. */
+export function voiceBlocker(world, speaker) {
+    return blockerOf(world, speaker, 'add', {type: 'quantity', name: 'noise', family: 'noise'});
+}
+
+export function concealedFrom(world, target, channel) {
     const h = world.holders[target];
     if ((h.properties.concealed ?? []).includes(channel)) return true;
     const scopes = [target, h.kind === 'place' ? null : h.place].filter(Boolean);
-    return world.laws.some(f => f.kind === 'conceal' && scopes.includes(f.scope) && (f.params.channel === channel || f.params.channel === '*'));
+    const garment = h.kind === 'body' ? world.holders[h.properties.worn_cloak] : null;
+    return world.laws.some(f => {
+        const covers = f.kind === 'conceal' && scopes.includes(f.scope) ||
+            f.kind === 'wearer-conceal' && garment?.kind === 'thing' && garment.place === h.place && f.scope === garment.id;
+        return covers && (f.params.channel === channel || f.params.channel === '*');
+    });
 }
 
 const placeOf = (world, id) => world.holders[id].kind === 'place' ? id : world.holders[id].place;
@@ -127,10 +149,11 @@ const placeOf = (world, id) => world.holders[id].kind === 'place' ? id : world.h
  * target also gets an `effect.<verb>` effect in its place so present things can
  * answer (a ward noticing, a Gu reacting to being sensed).
  */
-export function applyEffect(rules, world, act, cause) {
+export function applyEffect(rules, world, act, cause, {previewVitality = false} = {}) {
     check(EFFECT_VERBS.includes(act?.verb), `unknown verb ${act?.verb}.`);
     check(typeof cause === 'string' && cause, 'an act needs a cause.');
     const verb = act.verb;
+    check(!previewVitality || verb === 'remove' && act.object === 'vitality', 'Only direct vitality removal can be previewed.');
     // bind and conceal write the marks and concealed properties; block, alter and a bare sense name no object.
     const implied = {bind: 'property:marks', conceal: 'property:concealed'}[verb] ?? (verb === 'release' ? `property:${act.channel ? 'concealed' : 'marks'}` : undefined);
     const base = implied ? parseObject(rules, implied) : verb === 'block' || verb === 'alter' || verb === 'end' || verb === 'sense' && !act.object
@@ -156,6 +179,7 @@ export function applyEffect(rules, world, act, cause) {
     const reaching = act.target?.shape === 'within' ? resolveReach(world, act.target) : null;
     let targets = reaching ? reaching.ids : resolveTargets(world, act.target);
     // <<< E10 place graph
+    const plannedMoves = new Map();
     if (physical && verb === 'add' && !act.lifecycle /* E12 */) {
         check(targets.length === 1 && ['thing', 'body'].includes(act.create?.kind),
             'add material needs one target and a thing or body to create.');
@@ -269,6 +293,13 @@ export function applyEffect(rules, world, act, cause) {
             if (physical || grips) {
                 check(world.holders[act.to]?.kind === 'place', 'move position needs a place `to`.');
                 if (h.kind === 'place') { outcome.skipped.push({target, reason: 'is-a-place'}); break; }
+                const placeOfHolder = holder => plannedMoves.get(holder.id) ?? holder.place;
+                let refusal;
+                for (const admit of rules.moveChecks ?? []) {
+                    refusal = admit({world, holder: h, to: act.to, placeOfHolder});
+                    if (refusal) break;
+                }
+                if (refusal) { outcome.blocked.push({target, by: act.to, reason: refusal}); break; }
                 if (grips) {
                     check(typeof act.mark === 'string' && act.mark, 'move a gripped holder needs a grip mark.');
                     const marks = h.properties.marks ?? [];
@@ -276,6 +307,7 @@ export function applyEffect(rules, world, act, cause) {
                     ops.push({op: 'property', holder: target, property: 'marks', value: marks.filter(mark => mark !== act.mark)});
                 }
                 ops.push({op: 'move', holder: target, to: act.to});
+                plannedMoves.set(target, act.to);
                 note(target, {to: act.to, ...(grips ? {released: act.mark} : {})});
                 break;
             }
@@ -380,8 +412,16 @@ export function applyEffect(rules, world, act, cause) {
         }
         case 'block': {
             check(typeof act.params?.verb === 'string' && typeof act.params?.object === 'string', 'block needs params {verb, object}.');
+            const threshold = act.params.threshold;
+            check(threshold === undefined || typeof threshold?.quantity === 'string' && quantityDef(rules, threshold.quantity) &&
+                Number.isSafeInteger(threshold.minimum) && threshold.minimum > 0, 'A block threshold needs a quantity and positive minimum.');
             ops.push({op: 'law_add', field: {id: act.field ?? `block.${target}.${act.params.verb}.${act.params.object}.${world.clock}`, scope: target,
-                kind: 'block', params: {verb: act.params.verb, object: act.params.object}, ...(act.until != null ? {until: act.until} : {}), source: by}});
+                kind: 'block', params: {verb: act.params.verb, object: act.params.object,
+                    ...(threshold ? {threshold: {quantity: threshold.quantity, minimum: threshold.minimum}} : {}),
+                    ...(act.params.object === 'spell-contact' && typeof act.params.spellObject === 'string'
+                        ? {spellObject: act.params.spellObject} : {}),
+                    ...(act.params.object === 'spell-contact' && act.params.reflect === true ? {reflect: true} : {})},
+                ...(act.until != null ? {until: act.until} : {}), source: by}});
             note(target, {params: act.params, ...(act.until != null ? {until: act.until} : {})});
             break;
         }
@@ -405,6 +445,6 @@ export function applyEffect(rules, world, act, cause) {
         default: fail(`unhandled verb ${verb}.`);
         }
     }
-    const next = ops.length ? applyWorldOps(rules, world, ops, cause) : world;
+    const next = ops.length && !previewVitality ? applyWorldOps(rules, world, ops, cause) : world;
     return {world: next, outcome};
 }

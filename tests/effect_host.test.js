@@ -125,7 +125,7 @@ test('every spell word maps to a P word or is listed with its reason; a word wit
         const kind = shared.gap ?? (lowerEffect(shared, {keys}).acts.length ? 'acts' : 'publish');
         count[kind] = (count[kind] ?? 0) + 1;
     }
-    assert.deepEqual(count, {acts: 66, publish: 14});
+    assert.deepEqual(count, {acts: 91, publish: 17});
 });
 
 test('luck and soul are P objects that wait for their owners, and no canon sentence assembles differently for them', async () => {
@@ -209,12 +209,12 @@ test('the Hogwarts effect corpus lowers: acts, publishes for other owners, and k
         // The host agrees with lowering on what waits for an owner.
         if (!l.needs.length && !l.acts.length) assert.equal(landEffect(bare, hall(bare), {sentence: parts, details: {}}, {cause: 'test:corpus'}).status, 'waiting', row.id);
     }
-    // PC7 said 68 land alone, 37 publish (17 of them with an act too) and 4 need a key, of 109 labelled.
-    assert.deepEqual(count, {acts: 68, 'acts-and-publish': 17, publish: 20, 'needs-key': 4, unlabelled: 8});
+    // The concordance now describes area protection and impaired leg control.
+    assert.deepEqual(count, {acts: 70, 'acts-and-publish': 17, publish: 18, 'needs-key': 4, unlabelled: 8});
 });
 
 test('physical spell cases express their scene outcomes through the one effect host', () => {
-    assert.equal(Object.keys(HP_PRIMITIVE_SCENES).length, 15);
+    assert.equal(Object.keys(HP_PRIMITIVE_SCENES).length, 16);
     for (const [id, scene] of Object.entries(HP_PRIMITIVE_SCENES)) {
         const row = HP_SPELL_ROWS.find(row => row.id === id);
         const sentence = caseSentence(row);

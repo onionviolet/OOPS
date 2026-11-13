@@ -6,13 +6,18 @@
 // (notch_contest.js) and Gu layered defense (gu_defense.js).
 // Pure: no state, no clock, no save slice, no world imports.
 import {get_hit_chance, rollBaseCombatDamage} from './combat_math.js';
+import {typedHit} from './damage_types.js';
 import {winChance, NOTCH_DIALS} from './notch_contest.js';
 import {resolveGuDefense} from './gu_defense.js';
 
 // A resolver answers {outcome: 'hit'|'miss'|'blocked', landed: [{object, amount}], chance}.
 // `draw(name)` returns a keyed fraction in [0, 1) for this meeting.
-const landedFrom = (move, scale) => (move.effects ?? [{verb: 'remove', object: 'vitality'}])
-    .map(e => ({verb: e.verb ?? 'remove', object: e.object, amount: Math.max(0, Math.round((e.amount ?? move.power ?? 0) * scale))}))
+const landedFrom = (move, scale, harmMultiplier = 1) => (move.effects ?? [{verb: 'remove', object: 'vitality'}])
+    .map(e => {
+        const verb = e.verb ?? 'remove';
+        const multiplier = e.object === 'vitality' && verb === 'remove' ? harmMultiplier : 1;
+        return {verb, object: e.object, amount: Math.max(0, Math.round((e.amount ?? move.power ?? 0) * scale * multiplier))};
+    })
     .filter(e => e.amount > 0);
 
 // EF3: a target whose running working blocks the incoming object adds its guard.
@@ -31,7 +36,9 @@ export const CONTEST_RESOLVERS = Object.freeze({
         const armor = (target.profile.armor ?? 0) + guard;
         if (rolled <= armor && guard > 0) return {outcome: 'blocked', landed: [], chance};
         const scale = Math.max(1, rolled - armor) / Math.max(1, move.power ?? 1);
-        return {outcome: 'hit', landed: landedFrom(move, scale), chance};
+        const {defenseTypes} = target.profile;
+        const multiplier = defenseTypes ? typedHit(move.damageTypes, defenseTypes).multiplier : 1;
+        return {outcome: 'hit', landed: landedFrom(move, scale, multiplier), chance};
     },
     // Notch scale (FD2): skill notch plus the move's own against resistance and guard.
     notch({actor, target, move, draw, dials}) {
