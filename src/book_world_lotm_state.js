@@ -28,6 +28,11 @@ import {beFirearmAssertions} from './book_world_lotm_be_firearm.js';
 import {validEntryRecord} from './book_world_lotm_entry.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+// A command with outcomes freezes its own effects plus the drawn outcome's; a formula amount ({fact,min,max}) freezes to a number inside its bounds.
+const frozenAmount=(got,want)=>want&&typeof want==='object'&&!Array.isArray(want)&&typeof want.fact==='string'?Number.isFinite(got)&&got>=(want.min??-Infinity)&&got<=(want.max??Infinity):same(got,want);
+const sameEffect=(got,want)=>same({...got,amount:0},{...want,amount:0})&&frozenAmount(got.amount,want.amount);
+const sameJobEffects=(j,def)=>{if(!def.outcomes)return same(j.effects,def.effects);const o=def.outcomes.find(x=>x.id===j.outcomeId),want=[...def.effects,...(o?.effects||[])];
+ return !!o&&Array.isArray(j.effects)&&j.effects.length===want.length&&want.every((w,i)=>sameEffect(j.effects[i],w));};
 const prefix=k=>typeof k==='string'&&k.startsWith('book.lotm.');
 export const LOTM_ENTRY_PROFILE='lotm.early_tingen.local_probationer@1';
 export const lotmEnvelopeFields=['schema','definitionRevision','sourceSnapshot','sourceHash','initializedAt','entryProfile'];
@@ -61,7 +66,7 @@ export function validateLotmState(state){
  for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId)||[...castBodyCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castRecordCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(c=>c.id===j.commandId))){
   if(lotmCastLife(state)&&dormantCastWalk(j))continue;
   const def=castWalkDefinitionById(j.commandId)||[...lotmBeSpellCommands,...castBodyCommands,...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands,...castDivinationCommands,...castRecordCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].find(c=>c.id===j.commandId);
-  assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&same(j.effects,def.effects),'Tingen work differs from its exact admitted definition.');
+  assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&sameJobEffects(j,def),'Tingen work differs from its exact admitted definition.');
   if(def.bodyCare&&def.duration>0)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated??true,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Body support differs from its exact admitted definition.');
   if(def.castAbility)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Encounter support differs from its exact admitted definition.');
   if(def.inference)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Thought support differs from its exact admitted definition.');
