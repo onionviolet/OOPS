@@ -1329,6 +1329,43 @@ Weibao: "for expansions, there are in world and maybe out world methods to break
 
 The [carry-out](../PROCEDURAL_CARRY_OUT.md#direct-operators-science-fiction-and-magical-tweaks-pc97-2026-11-12) applies AD5 and AD38 to local and cross-world routes. Canon evidence and invented routes keep their own provenance.
 
+## Protagonist capability runs, 2026-11-12
+
+Weibao: “Yeah lets do a capability run for Fang Yuan first, like actually acquiring, feeding and using a Gu. What do we already have for that and what do we still need to build?” He also asked to consider combat, make the approach long term and assess running LOTM and Reincarnation Paradise in parallel.
+
+Fang Yuan is the first capability run. The [lead-life guide](../LEAD_LIFE_GUIDE.md#capability-runs-2026-11-12) describes the approach. The [carry-out](../PROCEDURAL_CARRY_OUT.md#fang-yuans-first-capability-run-2026-11-12) records existing evidence, missing joins and proposed parallel slices under the existing engine-first order.
+
+Weibao then asked to “make Fang Yuan actually refine and control the same Gu he feeds and uses in combat, then start Klein’s divination and Su Xiao’s Dragon Flash runs in parallel where they can.” He also asked for other Su Xiao runs to consider. The [Paradise brief](../worlds/paradise-hub/WORLD_BRIEF.md#su-xiaos-next-capability-runs) holds those proposals.
+
+
+## Capability runs in the UI and combat scale, 2026-11-12
+
+Weibao asked to continue the three capability runs in parallel and make them work in the UI: Liquor Worm essence in Fang Yuan's combat, Klein following the Glacis lead, and Su Xiao using a paid sword lesson in combat. This selects UI delivery for these three bounded starts. He then said “28 feels too little for such a world” and asked to consider from the ground up what HP and damage are reasonable. See the [delivery record](../PROCEDURAL_CARRY_OUT.md#capability-runs-in-the-game-ui-2026-11-12) and [combat proposal](../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md#what-hp-and-damage-should-mean-2026-11-12).
+
+## Gu capability breadth before Gu UI, 2026-11-12
+
+Weibao: “First comprehensively cover everything possible first, not everything has to apply but the capability just has to be there, instead of thinking about ui quite yet”
+
+The Gu and killer-move work returns to breadth of engine capability. Each Gu or situation uses the capabilities that fit. The [Gu coverage map](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md#gu-capability-coverage-before-ui-2026-11-12) records the engine cases and gaps. Further Gu UI design follows that work.
+
+## Tie-in, fun, UI and the fight system, 2026-11-12
+
+Weibao: "consider what it takes to seemlessly/ reasonably incorporate the engine features and spells and combat into the playable game?" Then: "how to make sure its actually fun? Ui makes sense? Do we need new combat system? More to consider?"
+
+Recorded as a proposal in the [carry-out](../PROCEDURAL_CARRY_OUT.md#tie-in-considerations-seam-fun-screen-and-the-fight-system-2026-11-12): seven pieces of tie-in work, no new combat system (fold the live fight onto the contest), fun checks led by a played save and a policy-spread comparison, screen defaults, and nine further findings. No direction changed; engine first still holds.
+
+## Kinds of fight, spell fights, Gu panel and enchanted gear, 2026-11-12
+
+Weibao: "Types of fights? spell fights?  Make things make sense? Letha lfights rarely happening in Harry potter world outside of disarming? Expanding on tehe UI pael for Gu and gu related stuff? more to consider?" and "Armor enchanting, other aspects and more?"
+
+Recorded as a proposal in the [carry-out](../PROCEDURAL_CARRY_OUT.md#round-2-kinds-of-fight-spell-fights-world-sense-the-gu-panel-and-enchanted-gear-2026-11-12): a fight described by five dials with twelve presets, lethality moved from the world law to each contest, spell-fight defaults, a usual frame per world with its reasons, a seven-part Gu panel palette for tie-in, and what enchanted gear still needs to matter in a fight.
+
+## Decomp re-fit onto the tie-in gaps, 2026-11-12
+
+Weibao: "how can we make things easier for ourselves? take code from your chronical and more?", then "we already have a pror design decomp somewhere, and then we can use how they do it for our own stuff? We have alot of thoe" and "COnsider specific UI elements and how they organize stuff and more? How they implement ideas nad more? Refit accordingly?"
+
+Recorded as findings and proposals in the [re-fit](../research/DECOMP_REFIT_TIE_IN_2026-11-12.md): what the existing game dossiers show about specific screen elements, organization and implementation, mapped to the tie-in gaps, and where the dossiers are silent. No direction changed.
+
 ## Held-out canon picks foundation waves, 2026-11-12
 
 Weibao:
@@ -1359,3 +1396,9 @@ Weibao:
 > Stop and report when a limit is reached, when a held-out score has stalled for two waves in a row, or at a decision only I can make. The report leads with the held-out table.
 
 The [current resume block](dispatch/foundation-run-2026-11-12/RUN.md#current-resume-block) carries this direction into the run.
+
+## Codex follow-ups from the re-fit, 2026-11-13
+
+Weibao: "send out codex chats to absotrb accordingly, consider our analysis of the harry potter game too".
+
+Not sent. Drafts for the running domain chats are in the [capability goal assignments](dispatch/foundation-run-2026-11-12/CAPABILITY_GOAL_ASSIGNMENTS.md#follow-ups-from-the-decomp-re-fit-for-review-2026-11-13), with one ready brief for a non-overlapping lane. New lanes were held because the target files have live uncommitted edits from the running chats and Codex usage read 66% against the recorded 50% ceiling.

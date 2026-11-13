@@ -44,9 +44,52 @@ candidates with reasons in a new `docs/gm/dispatch/<name>-<date>/CHECKPOINT.md` 
 with a `receipt` fence (vocabulary below). Run `more-to-consider` on the set and write the
 dispositions there before dispatch; ACCOUNT FOR NOW items become checks in the briefs.
 
+Keep-it-small defaults for any wave (proposal, from Weibao's 2026-11-12 "do take into
+consider these too"; detail in [PC94](../PROCEDURAL_CARRY_OUT.md#keep-it-small-pc94-2026-11-12)):
+the record states one current stop test and marks older ones as history; a packet that
+misses its done check gets one corrected brief, then stops with what was learned; a new
+checker waits until a step has been done by hand three times; each fold reports what
+changed in outcomes. Each is a dial the coordinator can move with a reason in the record.
+
 Candidates that stay out by default, with the reason: anything touching the installed app
 Weibao plays (AT7 is its own task); private-pack content the public bundle cannot reach
 (fixture-only); worlds whose windows are not built yet.
+
+### Next-wave storage defaults (Weibao, 2026-11-12)
+
+- Assign worktrees where a writer needs isolation or a build needs a stable source
+  snapshot. Read-only lanes use the existing checkout or read the pinned commit
+  with `git show` when live files are changing. Reuse a released checkout if it
+  fits the lane. Record the owner and retirement condition for each worktree.
+- Run disposable builds and browser checks with `bash scripts/wave_scratch.sh`.
+  The runner gives each invocation a scratch directory and sets `TMPDIR` inside
+  it. Point build output and explicit browser profile paths into
+  `$YAIR_WAVE_SCRATCH`. Pass `--ref <commit>` when verification needs a clean
+  checkout. Run all comparisons in one invocation, reusing its scratch worktree
+  for diagnostics and keeping just the runnable baseline and candidate bundles
+  for side-by-side tests.
+- Write the commit, patch, commands, logs and profiles needed for reproduction
+  to the lane's evidence folder outside scratch before the command exits.
+  Scratch, including any worktree created by the runner, is removed after a
+  successful or failed command. Keep editing worktrees through review and
+  integration, then retire them under [shared worktree practice](SHARED_WORKTREE_PRACTICE.md).
+- For local Rust builds, use a repo-specific `CARGO_TARGET_DIR` shared across
+  that repo's worktrees. Use a separate target for jobs that need independent
+  concurrent builds or different output paths. Keep the shared cache outside
+  scratch so later runs can reuse it.
+
+For example, the coordinator can build an isolated bundle with dependencies
+from the primary checkout when the lockfiles match:
+
+```sh
+bash scripts/wave_scratch.sh --ref HEAD -- bash -ec '
+  cmp package-lock.json "$YAIR_WAVE_SOURCE/package-lock.json"
+  ln -s "$YAIR_WAVE_SOURCE/node_modules" node_modules
+  node build.js
+  shasum -a 256 dist/bundle.js
+  # Run the browser check here, using a profile under "$YAIR_WAVE_SCRATCH".
+'
+```
 
 ## Stage 2. Briefs for this repository
 
@@ -109,9 +152,8 @@ One walk per build, headless, fresh origin, on a frozen identity:
 - A limit that blocks the walk gets one `game_report_limit` entry
   ([limits doc](../tools/GAME_MCP_LIMITS.md)).
 
-While writers are active in the primary checkout, the walk runs in a scratch worktree of
-the committed HEAD (`git worktree add <scratch> HEAD --detach`, symlink `node_modules`,
-`node build.js` there) and is labeled as proving HEAD; remove it and check
+While writers are active in the primary checkout, use the scratch runner with
+`--ref <commit>` and label the walk with the commit it proves. Check
 `git worktree list` at closeout. A failed item is diagnosed in source by the coordinator,
 fixed, rebuilt, re-gated, and re-walked for that item alone (the AT9b shape).
 

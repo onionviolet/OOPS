@@ -450,6 +450,355 @@ The kernel consequence, stated once because it is the costly part: steps settle 
 - **Pace interacts with idle settlement.** A sped-up holder during a long far settlement would multiply output for the whole stretch unless strain bounds it. The strain curve is what keeps the rate form honest.
 - **More lanes at once.** Weibao asked to use the Fable allowance. Wave 12 runs five Fable lanes on disjoint files, above PC94's three; the coordinator still reads every diff, and the count drops back if a fold finds overlap.
 
+## Fang Yuan's first capability run (2026-11-12)
+
+Weibao selected Fang Yuan first and asked for a long-term approach, with combat
+and possible parallel LOTM and Reincarnation Paradise work. [Direction log](gm/USER_VISION_LOG_2026-11.md#protagonist-capability-runs-2026-11-12).
+This is the Moonlight Gu vertical in PC52, exercised headlessly under PC95. The
+scope below applies AD38, AD44, AD49, AD51, AR3/AR7/AR10, SKR1/SKR3/SKR21,
+WKR21 and WPR4/WPR5/WPR30. LOTM-first remains
+the campaign order. The parallel slices below are proposals.
+
+| Finding | Existing path and current evidence | Remaining work |
+| --- | --- | --- |
+| F1 · Acquisition and control | Fang Yuan's [selection](../src/world_packs/book_gu_lead_selection.js) awards the physical unrefined carrier. His [first attempt](../src/world_packs/book_gu_lead_refinement.js) spends essence and leaves it unrefined. [Successful refinement](../src/world_packs/book_gu_lead_vital.js) consumes the bag item and sets an actor fact. The separate [academy novice](../src/world_packs/book_gu_life.js) transfers a titled carrier and controller on the same body. [Keeper stock](../src/gu_moonlight_stock.js) changes custody through the creature lifecycle. The [headless control working](../src/world_packs/gu_first_control.js) now reads custody, body and essence at settlement and writes control to the original specimen. | Tie the working to the real sources of aperture, custody and intervening refinement support at integration. The fixture declares these means and follows the two known scene outcomes. It does not give Moonlight a vital bond. The fixture charges at settlement. The story route reserves on admission and refunds unfinished work. Preserve that distinction in the parity check. |
+| F2 · Feeding | Fang Yuan's [dorm actions](../src/world_packs/book_gu_lead_dorm.js) buy petals and settle authored meals. The academy has repeatable care with a finite perishable lot and four petals on one daily deadline. The [catalogue](../src/gu_catalogue.js) gives two petals morning and evening (ch23) and records rock dormancy as a starvation response (ch40). The [engine food case](../src/world_packs/gu_body_cases.js) spends two petals, restores satiety and checks the wrong-food control. | Compatible academy variant and an incomplete lead loop. Buy or gather finite supplies and feed the same specimen at its local cadence. Keep expiry on the actual lot. Derive activation readiness from body condition and settle how hunger, starvation and dormancy affect it using source evidence. The academy allows a hungry living Gu to cast. The working law refuses when its `fedThrough` threshold lapses. The fixture's hunger mapping is a discriminator for that gap, with no claim that every missed meal disables a canon Moonblade. |
+| F3 · Activation and combat | The [Gu working](../src/gu_working_law.js) spends essence and emits the effect. The [contest pack](../src/contest_packs/gu_world.js) can consume it, including a Little Light combination and an unfunded fallback. Existing duel and wolf fixtures start with authored entrants, and the duel bridge fills in fed, alive and held defaults for stub profiles. The [Fang Yuan scene](../src/world_packs/book_gu_lead_early_duel.js) settles its own authored actions. | Incomplete integration. Quote and settle from live specimen, controller and essence state at use time, bind the actual target, and land harm through the existing body/contest owner. Carry injury, withdrawals and costs into the next action. Contest readiness uses tenths of a second and the world clock uses minutes. Keep that unit boundary when hosting a contest that can cross care or support deadlines. |
+| F4 · End-to-end proof | The [headless fixture](../tests/fang_yuan_capability.test.js) acquires one Gu from clan stock. The first infusion spends 30 parts and meets resistance. The supported infusion spends one part and gives control on the same ID, including after restoring mid-attempt. The same holder eats, supplies a Moonblade that lands combat damage, and survives serialization. Losing support, custody or essence before refinement settlement refuses without a new debit. | Fixture verified. It uses a contest-entry snapshot for readiness and the Wang Er scenario as a combat consumer, without claiming a contiguous chapter route. Ordinary actions and native save/export/import are tie-in work. The [prior ch140 replay](gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#first-arcs-resumed-on-authorized-credits) remains historical campaign evidence. |
+
+**Next Fang Yuan comparison.** Hold the opponent fixed and change preparation,
+distance or defense. Recheck live control and readiness when the blade releases.
+Win, withdrawal and injury should matter to what Fang Yuan can do next. Tie-in
+later replaces the equivalent scene operations with ordinary controls, using
+the existing desktop and save checks in AD43. The current fixture uses automatic
+contest choice.
+
+**Long-term capability runs.** Keep one row per useful action family in the
+world's existing mechanism or campaign record. Record how the lead acquires the
+means, uses them again, recovers or changes plans, and what outcome another action
+reads. Use book scenes to calibrate and reuse the same actions in the lead's life.
+For Fang Yuan, the next candidates are Liquor Worm conversion funding a stronger
+cast, White Jade or another guard changing a specific hit, and refinement or
+fusion producing a Gu whose traits change a later fight. After that, scouting and
+concealment change what opponents can detect, healing changes readiness for a
+return trip, and food production, trade and injuries change the cost of maintaining
+a loadout. Retreat, reserve recovery and ordinary weapons stay useful alongside Gu.
+
+| Parallel candidate | Current floor and next concrete proof |
+| --- | --- |
+| LOTM · Klein's divination | The [Bogda fixture](../tests/lotm_bogda_consultation.test.js) uses the [chapter 82 rows](../src/lotm_divination_rows.js). Tarot and dream divination spend Spirituality and produce attributed signals and separate interpretations. The dream reading binds Bogda's actual ring and birth notes. Two distinct grounds support pursuing the Glacis lead. The fixture declares Klein's Seer power and learned methods. The existing [Seer route](../tests/lotm_seer_slice.test.js) is precedent for earning them. Actual inquiry travel or testimony, and amulets or ritual combat, can build on the result. |
+| Reincarnation Paradise · Su Xiao's Dragon Flash | The [chapter 196 fixture](../tests/paradise_dragon_flash.test.js) retires TC·Jack once, preserves Dragon Flash's identity and compares both passive choices in the same opposed contest. The comparison represents the four-second bleed with a supplemental hit. Timed, stacking wounds remain open. The [Paradise brief](worlds/paradise-hub/WORLD_BRIEF.md#su-xiaos-next-capability-runs) owns the follow-ons for paid training, Hunter work, Soul Eater, companion scouting and alchemy. |
+
+LOTM and Paradise can prepare world rows and run focused fixtures in parallel
+with Fang Yuan. Each lane owns its world files. Use one writer for shared
+identity, costs, clock and combat changes. LOTM can proceed with its existing
+knowledge consumer while the combat boundary is being settled. Paradise can
+prove item identity and the donor transaction before attaching a passive to
+combat. If either exposes a shared gap, return the smallest case to that owner
+and exercise both worlds after the change. World laws, power sources and era
+requirements stay with their worlds. The follow-up started both headless lanes
+in parallel with the paid Moonlight control working.
+
+**Checks.** Input `4d4505223` plus the named capability work on the shared
+checkout. The combined `node --test` selection passed 61/61 across the three
+capability runs and adjacent engine, Gu body, contest and LOTM consumers.
+`check:arch`, `check:rules`, `check:coverage` and
+scoped `git diff --check` passed. `check:docs` flagged a pre-existing wording
+issue in `docs/gm/dispatch/foundation-run-2026-11-12/W18_GAME_SEAM.md:29`.
+These checks cover headless engine cases. The browser tie-in and ordinary
+protagonist actions remain open.
+
+## Capability runs in the game UI (2026-11-12)
+
+The [follow-up](gm/USER_VISION_LOG_2026-11.md#capability-runs-in-the-ui-and-combat-scale-2026-11-12)
+selects three playable capability starts. Open **Capability runs** from the game
+bar. The ST3 center view uses the existing Back and Escape controls, with Reports
+alongside it (DSG1/DSG5, UR9/UR70–UR75, AR2/AR3/AR6/AR7, AD43). Target desktop
+1920×1080. Each start declares its place and prior means, advances its own scene,
+and keeps its engine world in the game save through the domain registry. The
+main character's inventory, location and clock are outside these separate lives.
+Mobile optimization and the full campaign joins remain future work.
+
+| Run | On screen and in settlement |
+| --- | --- |
+| Fang Yuan | Academy start with two refined Gu. Feed Moonlight with petals and Liquor Worm with wine, convert two initial parts per middle part, then choose the actual essence pool for the first-touch spar. The same four initial parts buy either a 30-point hit or the two middle parts for a 45-point hit on the 100-vitality partner. These are authored drill values, documented in the [combat scale proposal](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md#what-hp-and-damage-should-mean-2026-11-12). Stock, control, satiety, both reserves, costs, refusal reasons, vitality and results are visible. |
+| Klein | Pay Spirituality for the readings, borrow and return the ring, pass on Glacis's lead, compare accounts, and take a carriage to the shop. The board shows location, reserve and custody, attributed testimony and Klein's direct observation at the door. The chapter transition compresses the intervening days. |
+| Su Xiao | Spar, pay 1,000 Paradise Coins, finish the hour with Koshiro's image, then try the same first-touch drill. The balance, pending lesson, elapsed time and learned timing are visible. The image landed first at 0.9 seconds before practice. Su Xiao landed first at 0.7 seconds afterward. Those timings are authored. |
+
+**Proof.** Build `02ade05b4fff53eeae1a91e8ccfdf7d7c0beb6b4bd4fb18aa03177654235e518`
+from the shared checkout into an isolated output. Fresh headless Chrome at
+1920×1080 clicked all three starts and their actions. The walk checked a refused
+Fang Yuan action, all three outcomes, Escape, a reload with paid practice in
+flight, and native Export and Import of all three results. No page errors.
+Focused checks cover the equal-cost Gu comparison, route registration, Fang's
+prior refinement, Klein's reads and visit, and Su Xiao's practice settlement.
+The final focused selection passed 35/35, including the creature ledger and
+PROJECT shape. The earlier full suite caught a coverage-only case module pulled
+into the runtime by the Gu UI. The production run now uses the living-body owner
+directly and the creature ledger regression passed on that change.
+
+### Moonblade target comparison
+
+This receipt records the original vitality-only comparison. The [injury follow-up](#sword-practice-and-moonblade-injury-follow-up)
+describes the current playable replay.
+
+In Fang Yuan's Capability run, feed Moonlight Gu and select **Test Moonblade
+against three targets**. The rehearsal runs the existing contest and Gu
+activation laws on fresh target snapshots. It uses the same attacker, seed,
+range abstraction and cut per grade. Its own supplies leave the run's live
+stock untouched. Each row shows grade, parts spent, applicable guard, vitality
+lost and left, and whether the target stays standing. Target tolerance and guard
+are authored calibration. The rehearsal models incapacitation at zero vitality
+and records neither lasting wounds nor recovery. The research chat is locating
+source outcomes to replace or refine those assumptions.
+
+| Target | Initial-stage Moonblade | Middle-stage Moonblade |
+| --- | --- | --- |
+| Exposed mortal, 30 vitality | 30 lost, incapacitated | 30 lost, incapacitated |
+| Guarded Gu Master, 100 vitality, 25 guard | 5 lost, standing | 20 lost, standing |
+| Reinforced higher-rank body, 180 vitality, 35 guard | Blocked | 10 lost, standing |
+
+Rebuilt bundle `7009a97a4700766763a29af97212b3e46b7bb7774eb16f3983b3ae390aec57d1`.
+Fresh headless Chrome at 1920×1080 clicked the comparison, checked all six rows,
+and recovered them after native Export and Import. The focused selection passed
+36/36, plus the UI surface and route contract and the architecture check. The
+broader UI token check still flags spacing in the unrelated plot draft.
+
+### Capability gaps before the next build
+
+This inventory covers the three selected lives. Each proof starts with the
+means the player actually has and ends where a later decision reads the result.
+
+| Capability | Existing proof | Gap and first useful comparison |
+| --- | --- | --- |
+| Fang Yuan · care and combat | Moonlight acquisition/control in a fixture. Feeding, conversion, sparring and a forearm wound replay in the UI. | Join custody and care to a normal life. Compare ready, late and unfunded Jade Skin on the same shot. Carry guard expense, withdrawal and the wound into a real treatment action, then test whether grip or casting returns. The source supports different effects for tissue, protection and fuel. |
+| Fang Yuan · advance and make | Liquor Worm conversion and existing fusion and Gu upkeep fixtures. | Follow one precursor through fusion, feed the resulting Gu and show its actual change to reach, power or cost in a fight. Then test a supply shortage that forces a trade, substitution or different loadout. |
+| Klein · investigate and prepare | Readings, testimony and the visit to Lawson's closed shop are playable. Amulet work has a separate engine case. | Connect a clue to an alternate lead the player can actually pursue. Compare weak or missing evidence with a corroborated lead. Join a paid preparation or amulet to an expedition, including what it costs Klein and what happens when it fails. |
+| Su Xiao · train and equip | Sword Practice and observation in the Test Hall. Dragon Flash's donor upgrade and passive choices in a headless contest. | Bring a trained timing benefit and the selected blade passive to the same fight. Compare them against distinct opponents and keep wound timing, stamina, weapon identity and skill XP through the return. Then try an opponent whose opening differs from the training image. |
+| Su Xiao · work between fights | Source anchors for Hunter work, Soul Eater, companion scouting and alchemy. | Prove one contract from lead and preparation to withdrawal or payout. Record what Soul Eater actually gains in one eligible encounter. Make a companion report change a route, and a finite alchemy batch change recovery. Existing evidence and narrower cases live in the [Paradise brief](worlds/paradise-hub/WORLD_BRIEF.md#su-xiaos-next-capability-runs). |
+
+### Sword Practice and Moonblade injury follow-up
+
+The [Moonblade research](research/RI_MOONBLADE_DAMAGE_CALIBRATION_2026-11-12.md)
+supersedes the prior replay's automatic mortal incapacitation. The fixed
+forearm contact now resolves an initial-stage flesh cut and a middle-stage
+fracture that stops the rush while leaving flight possible. Jade Skin's block
+uses the book's stated matchup. The reinforced body remains an analogue. HP,
+guard capacity, bone thresholds and the four vitality lost in one untreated
+minute are authored dials. Stabilization stops the loss and leaves the fracture.
+The observation advances the replay by one bounded minute. The comparison
+retains its own supplies and wound state.
+
+Su Xiao's completed paid lesson grants 100 Sword Practice XP. The level-one
+drill grants 25 XP. Recognizing and studying the image's opening takes ten
+minutes and grants 75 XP once. Level two releases the same cut in 0.6 seconds
+after the 0.7-second level-one cut. The drill timings and XP thresholds are
+authored. Legacy completed lessons and recorded drills supply the corresponding
+XP on read. A pending lesson still settles through its saved working.
+
+Build `b8747bec85dd7a23b3baae6da45ebcbb9d66e0c40123da5ecf6132e53c9ce127`.
+At 1920×1080, headless Chrome played the untreated and stabilized branches,
+finished the saved lesson, advanced to level two, and verified the faster
+cut. Native export/import preserved all three capability runs. Zero page
+errors. Focused tests passed 43/43. Architecture, rules and coverage passed.
+The docs lint still flags the existing Wave 18 seam note.
+
+## Tie-in considerations: seam, fun, screen and the fight system (2026-11-12)
+
+Weibao asked what it takes to bring the engine features, spells and combat into
+the playable game, then how to make sure it is fun, whether the UI makes sense
+and whether a new combat system is needed
+([log](gm/USER_VISION_LOG_2026-11.md#tie-in-fun-ui-and-the-fight-system-2026-11-12)).
+Proposal throughout (AD32). Nothing here changes PC95's order. Evidence is the
+[seam probe](gm/dispatch/foundation-run-2026-11-12/W18_GAME_SEAM.md) (M1 to M9),
+the area guide's fights row and a read of the live hosts. Costs are a reading,
+not measured.
+
+**What tie-in takes.**
+
+| Code | Work | Default |
+| --- | --- | --- |
+| T1 | One owner for the player (M2). The game keeps deficits, money and JSON-keyed items; an engine holder keeps plain amounts, and `stamina` and `coin` are declared twice with different bounds | The game owns the player. The engine reads them at each sync and its debits leave as a game plan. Engine-side, so it can be settled before tie-in |
+| T2 | Save growth (M1). Every receipt is kept and the game saves each tick | Roll finished receipts into tallies before hosting |
+| T3 | The host (M3 to M9) | One registered domain synced to the absolute root minute, the game's night hours, the game's draw root, one engine world per game world, unreadable records kept inert |
+| T4 | One front door for fights | `tempo_fight` stays the shell the player sees (openers, panel, allies, exits) with `contest.js` as the resolver under it. Far settlement and rehearsals can move first |
+| T5 | One cast everywhere | The spellbook stays the door. A cast settles through `spell_law` and the effect host, and the same cast is a contest move in a fight |
+| T6 | Ordinary verbs from a fresh life (FLR2, UR156) | No engine menu. Capability runs trade their declared starting means for earned ones |
+| T7 | Parity before deletion (G5) | A bespoke route moves when its parity fixture passes |
+
+**No new combat system.** The repo already has the Village battler, four native
+battle modules, `tempo_fight`, the contest and the notch contest. The contest is
+the new system and it is built. The work is folding, plus four gaps in it: what
+each side learned from a fight (CFC13), contests that are not fights (CFC14),
+wounds that run on a timer or stack, and distance or target area beyond the
+current range abstraction. World differences stay in pack rows and resolvers.
+The Village keeps its battler unless a reason appears.
+
+**Fun.**
+
+| Code | Check | Why |
+| --- | --- | --- |
+| N1 | By default each tie-in step ends with a named save and about twenty minutes of play (SPR6); review stays optional (AD42) | Contract tests cannot judge tension, so a played save is the most direct check available |
+| N2 | Policy spread. Run the same fight headlessly under several policies (the automatic chooser, all-out, guarded, prepared, a different loadout) and compare outcomes and costs | If every policy ends the same, the fight holds no decision, whatever its numbers. The contest is pure, so this is cheap |
+| N3 | The result is read by the next action: a wound, spent stock, what the opponent now knows (FLR4, SPR14) | A fight whose result nothing reads is a meter |
+| N4 | An ordinary day pulls it (SPR1): upkeep, supplies and a reason to prepare tomorrow | Otherwise fights happen only when a chapter says so |
+| N5 | Fights can run on a stated policy paid from real stock (CBR26), since near and far are one rule (CFC12) | In an idle game much of the play is the setup. The player should be able to watch any fight closely or let it settle |
+| N6 | Each result says what decided it in one line | Depth the player cannot see reads as luck |
+| N7 | `check:pacing` and `check:feedback` on each hosted start | First payoff, dead stretches and silent presses |
+
+**Screen.**
+
+| Code | Default |
+| --- | --- |
+| TV1 | The contest supplies the view the fight panel already draws: move label, text, cost, an odds word and the reason a move is refused. `quoteContestOdds` exists for the odds |
+| TV2 | Tenths of a second stay inside. The player sees who acts next and what is winding up |
+| TV3 | Opponent numbers are learned (CBR13, CBR14) and an unknown names the missing fact (UR157) |
+| TV4 | A spell's quote names cost, time, target and what it will change before the cast; targets come from the place's links |
+| TV5 | The three-target Moonblade comparison becomes an in-world rehearsal (a practice yard, a puppet) the player can reach, which also teaches the system |
+| TV6 | Proof is a rebuilt bundle in headless Chrome at 1920×1080 with a populated fight (AD43, PRF7) |
+
+**More to consider.**
+
+| Code | Disposition | Finding |
+| --- | --- | --- |
+| TC1 | Account for now | A body has three readings today: the game's health deficit, contest vitality and harm rungs. Settle a hit once (T1, the combat scale proposal) or the tooltip and the fight will disagree |
+| TC2 | Account for now | A lethal contest law has to end through the defeat publisher (CBR2), or engine deaths bypass forgiving recovery (AD19) |
+| TC3 | Account for now | The world ticks once a second. A fight measured in tenths has to hold the clock while the player chooses; the clock owner already supports a waiting choice. Care deadlines that fall inside a fight settle after it |
+| TC4 | Account for now | Every opponent needs an engine body and move rows. A bridge that reads an existing stat block into the `strike` resolver keeps old enemies usable on day one, with richer rows added per world |
+| TC5 | Account for now | The 30, 45 and 100 drill values are authored. Tune with N2 and source outcomes (AD49) before polishing numbers |
+| TC6 | Account for now | Old saves with a tempo fight in flight: resetting them is allowed when the receipt says so ([old-save direction](USER_VISION.md#platform-performance-and-saves), 2026-10-17); new state still has to survive save, reload, export and import |
+| TC7 | Later | A developer trace that explains one hit from the contest log (read-only) |
+| TC8 | Later | Opponents who remember and tell others, built on CFC13 |
+| TC9 | Later | Debates, trials and intimidation as contest laws (CFC14) |
+
+### Round 2: kinds of fight, spell fights, world sense, the Gu panel and enchanted gear (2026-11-12)
+
+Weibao's follow-up ([log](gm/USER_VISION_LOG_2026-11.md#kinds-of-fight-spell-fights-gu-panel-and-enchanted-gear-2026-11-12)).
+Proposal throughout (AD32); palette rows, with no build order implied. Evidence:
+`src/contest.js`, the two contest packs, `src/ui/gu_house_view.js`, the
+capability runs panel and
+[enchantment rounds 5 to 7](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-5-what-an-enchantment-changes-2026-11-12).
+
+**Kinds of fight.** Default: describe a fight by five dials and treat named kinds
+as presets, so a new kind costs a row (CX3).
+
+| Dial | Range |
+| --- | --- |
+| Stakes | Pride, a wager, standing, property, freedom, a body part, a life |
+| Ending | First touch, disarmed, yielded, out of means, driven off, captured, downed, intervention, objective taken, killed |
+| Frame | Who watches, who steps in and when, what law answers afterwards, where the hurt recover |
+| Means | What each side actually holds and knows at the start, including what the place offers |
+| Scale and distance | One on one to a battlefield; touching to out of sight; played closely or settled from afar |
+
+| Code | Preset | State |
+| --- | --- | --- |
+| FK1 | Drill or first touch | Playable (Fang Yuan, Su Xiao) |
+| FK2 | Formal duel with rules, a referee and perhaps a wager | Headless (Duelling Club) |
+| FK3 | Brawl: unruled, witnessed, and by default it stops short of killing | Move rows exist; no case yet |
+| FK4 | Hunt: the quarry flees, tracks and bites | Headless (wolves) |
+| FK5 | Ambush: one side starts unaware (CFC5) | Rule exists |
+| FK6 | Pursuit and escape (CFC11, the chase range bridge) | Rule exists |
+| FK7 | Capture: the aim is the person | Outcome exists |
+| FK8 | Holding a place: wards, stored workings and time on the defender's side | Parts exist, not joined |
+| FK9 | Skirmish and battle: crowding, morale, far settlement | Dials exist |
+| FK10 | Technique against technique: a move aimed at another working | Headless for landed effects: one Finite ends both named charms in the [Duelling Club test](../tests/hp_duelling_club.test.js). Cutting a working still winding up happens through a hard hit or a `staggers` move (CFC6); the three-move Hogwarts contest law has no counter row |
+| FK11 | Attrition: the reserve or the supplies decide | Ending exists (`noMeans`) |
+| FK12 | Contests that are not fights: debate, trial, intimidation, a mind against a mind, a game | CFC14, not built |
+
+**FK13, account for now.** CFC9 puts lethality on the contest law
+(`c.hogwarts` false, `c.gu_world` true), read where `contest.js` assigns
+outcomes. The combat palette already wants more than that: the world card names
+its usual lethality (CBC37, CBR6) and subduing is a stance (CBC32). Today a
+troll in a Hogwarts corridor or a stopped spar in the Gu world needs a second
+law with its own copy of the moves, and stakes cannot change once a contest
+has begun. Default: the world supplies the usual frame, each contest carries
+its own stakes, and a move stays capable of killing or not. This would amend
+CFC9 and is a proposal.
+
+**Spell fights.**
+
+| Code | Default | Evidence or gap |
+| --- | --- | --- |
+| SF1 | A spell duel turns on tempo and means before bodies: cast time against interruption, the wand in hand, and disarming as the ordinary ending | The Hogwarts pack already contests focus, composure and footing, with no vitality ending |
+| SF2 | A shield is a guard on what it blocks; a counter ends the other working | Guards exist and are chosen under threat. Finite Incantatem is a spell row that ends landed effects; a counter row inside the contest law is the open part (FK10) |
+| SF3 | By default a caster answers what they recognize. A silent cast hides its wind-up; knowing the counter is knowledge, and a world can offer a blanket shield at its own cost | Ties to TV2 and TV3; knowledge owner exists |
+| SF4 | The place is means: a thing levitated, a floor frozen, light put out, cover | Place holders and links exist. First check below |
+| SF5 | Jinxes leave conditions that outlast the fight and need a remedy | Affliction track and mind pack exist; contest hand-off open |
+| SF6 | A wand, a fist, a Gu and a bite share one clock | A mixed case (a first-year against a wolf) is a cheap sanity run |
+
+**Making worlds make sense.** Default: how deadly fights are follows from
+reasons in the world, and the reasons are data in the frame.
+
+| Code | World | Usual frame and when it changes |
+| --- | --- | --- |
+| WS1 | Hogwarts | Fights end in disarming, a jinx, a bind or a teacher arriving. Reasons: a student's repertoire is jinxes, adults step in, the Ministry and Azkaban answer serious harm, a wand keeps a record of its casts. Deadlier frames come with creatures, dark wizards, places with no adult near and the war years, each with its cost (CBR29) |
+| WS2 | Gu world | Killing is common outside the walls. Inside the academy an elder stops a spar, and clan law prices a death |
+| WS3 | Lord of the Mysteries | Inference from the readings, not chapter-checked here: open fights are rare and dangerous; preparation, information and loss of control decide them more than exchange of blows |
+| WS4 | Reincarnation Paradise | Inference, not chapter-checked here: missions are deadly; the hub and its Test Hall are safe |
+| WS5 | Sense check for any world | Hold back source fights and see whether the rules reproduce who won and what decided it (SPR14, SPR22). For Hogwarts the first is the troll: a levitated club falling on its owner, which tests SF4 and AD38 together |
+
+**The Gu panel.** Capability breadth still leads Gu UI design (GKM261), so this
+is a palette for tie-in. Existing pieces: the Gu house (gauges, feed timers,
+stipend ledger) and the capability run board (stock, control, satiety, both
+reserves, costs, refusals).
+
+| Code | Part | What the player decides there |
+| --- | --- | --- |
+| GP1 | Aperture | Essence by grade, capacity, recovery, and what in-flight workings have reserved |
+| GP2 | One card per Gu | Keeper, controller and loan terms as separate facts; satiety and the next meal; condition; what it can do now, at what cost, or why not |
+| GP3 | Upkeep ledger | What the whole loadout eats per day and how many days of stock remain. Which Gu to keep is the recurring decision |
+| GP4 | Moves | A killer move as roles to fill: which Gu fills each, what is missing, total cost and beats |
+| GP5 | Rehearsal | The move against a known target, with unknown facts marked (TV5, UR157) |
+| GP6 | Refinement bench | Known recipe or experiment, what raises the odds, what a failure keeps and loses |
+| GP7 | Other people's Gu | Shown as learned, with the source of each fact |
+
+**Enchanted gear.** ENF1 to ENF22 already cover making, fitting, lending,
+wards, copying and appraisal in the engine. What remains for it to matter in
+play:
+
+| Code | Finding |
+| --- | --- |
+| AE1 | The timed contest does not yet read the worn loadout at release (ENF20). Until it does, armor and wards are proven beside the fight and not inside it |
+| AE2 | The fixtures use their own torso slot. The game's equipment slots are the same owner question as T1 |
+| AE3 | A choice of enchantment matters most when opponents differ by damage type or carrier. The stat-block bridge (TC4) would make every old enemy a plain physical striker, so typed attacks belong in the first opponent rows |
+| AE4 | `gear_ward` reads its layers from `gu_defense.js`. A shield charm, an armor ward and a Gu guard want one layer reader under a neutral name |
+| AE5 | Each world has its own carriers: shield clothing, dragonhide and goblin silver at Hogwarts, amulets and sealed artifacts in Lord of the Mysteries, defensive Gu in the Gu world |
+
+**Other aspects.**
+
+| Code | Disposition | Finding |
+| --- | --- | --- |
+| TC10 | Account for now | By default opponents use the same systems: wards, potions, upkeep, knowledge of the player. A fight reads fairly when both sides run on one rule |
+| TC11 | Account for now | A potion or item used mid-fight is a move with steps and stock (`ready_stock`) |
+| TC12 | Later | Raised or bred creatures and allies entering a contest as entrants (`tempo_allies`, the living-things packs) |
+| TC13 | Later | Recovery as a place and a loop: the hospital wing, a healing Gu, a paid healer |
+| TC14 | Later | Fights avoided: scouting, intimidation, a bribe, a warning from a divination |
+
+**How other games do it.** The [decomp re-fit onto these gaps](research/DECOMP_REFIT_TIE_IN_2026-11-12.md) maps the existing game dossiers to the TV, N, TC, FK, SF, GP and AE rows above (TR1–TR50), and lists what the dossiers do not hold (TM1–TM9).
+
+### Reconciliation of both rounds (2026-11-12)
+
+Checked against the contest contract, the combat palette, the enchantment
+rounds, the seam probe and current source. Evidence level: source and docs
+read, `check:docs` and `check:rules` run; no test, build or play was run for
+this pass. Receipts quoted above keep their own dates.
+
+| ID | Finding | Class | Disposition |
+| --- | --- | --- | --- |
+| RT1 | FK10 and SF2 said nothing emits an ending for a working. Finite Incantatem is a spell row and the Duelling Club test ends two charms with it | Evidence correction | Rows rewritten; the open part is a counter row in the contest law |
+| RT2 | FK13 said a Hogwarts troll cannot kill. A second law can; the limit is duplicated moves and stakes fixed at the start | Evidence correction | Paragraph rewritten, tied to CFC9, CBC32, CBC37 and CBR6 |
+| RT3 | This section's C and V codes collided with the compression ledger's C1 to C6 and the variant parts in this doc | Duplicate code | Renamed TC and TV; other codes had no clash in the rules index |
+| RT4 | AE1 repeats ENF20; T1 to T3 restate seam rows M1 to M9 | Duplicate by reference | Kept as pointers; the enchantment palette and seam note stay the owners |
+| RT5 | WS3 and WS4 were written from memory of the readings | Missing proof | Labelled inference |
+| RT6 | TC6 cited old-save direction with no locator | Stale reference | Linked to its owner line |
+| RT7 | The combat, Gu and enchantment palettes had no route to these rounds | Incomplete integration | One pointer added in each, and in the writeup register |
+| RT8 | PC94 says the plan stops growing unless Weibao asks | Compatible | Both rounds answer his questions; no packet, gate or order was added |
+
+Unmapped: the UI rulebook was not searched row by row for overlaps with TV1 to
+TV6 and GP1 to GP7, and the per-world lethality numbers CBL10 asks for were not
+filled. `check:rules` reports two warnings that predate this work (an exam day
+counter, the PROJECT log sync).
+
 ## Tracker
 
 *Filled by hand on 2026-11-12 from the commands named; PC60 replaces this with generated output. "Open" means the check fails or its script does not exist yet.*

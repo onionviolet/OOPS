@@ -6,6 +6,13 @@ OOPS (Optimistic Progression Simulator) is Weibao's fork of Miktaew's Yet Anothe
 
 ## Pillars
 
+Protagonist capability runs build repeatable actions for lead lives. Fang Yuan's
+first run covers acquiring, feeding and using a Gu, including combat. See the
+[lead-life workflow](LEAD_LIFE_GUIDE.md#capability-runs-2026-11-12).
+Gu development now prioritizes broad engine capability before further Gu UI
+design. Each world and situation draws on the capabilities that fit its rules.
+[Direction](USER_VISION.md#scope-and-sequencing).
+
 - **Anything is possible, reasonably.** Each option should fit its world's lore and carry a cost or condition. When several answers are reasonable, the answer is "it depends on the world", so propose a default and say when it changes ([why](USER_VISION.md#anything-is-possible-2026-10-09)).
 - **Things work by how they work.** If a method, potion or plan reasonably works by the mechanisms in play, it works without a permission list. Expansion routes can use canon exceptions, new local methods or compatible means from another world, with difficulty set by the route ([why](USER_VISION.md#things-work-by-how-they-work-2026-10-17)).
 - **Limits are adjectives.** Write a constraint as a default, a dial and an in-world reason. A fixed "once" is a poor limit because the dial can usually set it per world ([why](ABUSE_AND_LIMITS.md#limits-are-adjectives)).

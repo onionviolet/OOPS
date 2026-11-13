@@ -307,3 +307,7 @@ One chat's writeups on how repeating systems get built and tuned: [system practi
 
 [Procedural core](../PROCEDURAL_CORE.md) (PC1-PC50 and PC67-PC88, proposed; for PC29's facet order Weibao said "Yes, use that order", [USER_VISION](../USER_VISION.md)) holds the core goals, honest metrics, absorption by facet, techniques, emergence and the build plan. [Procedural carry-out](../PROCEDURAL_CARRY_OUT.md) (PC51-PC66, proposed) holds the packets, the four phase 2 rows, the carry-out steps and the tracker.
 
+
+The carry-out also holds [tie-in considerations](../PROCEDURAL_CARRY_OUT.md#tie-in-considerations-seam-fun-screen-and-the-fight-system-2026-11-12) in two rounds with a reconciliation ledger (2026-11-12, proposals): what hosting the engine in the game takes, fun checks, the fight screen, fight kinds, spell fights, a usual frame per world, a Gu panel palette and enchanted gear at tie-in.
+
+[Decomp re-fit onto the tie-in gaps](../research/DECOMP_REFIT_TIE_IN_2026-11-12.md) (2026-11-12, proposals): 50 rows from 41 game dossiers mapped to the fight panel, policy fights, opponent choice, bodies, spells, the Gu panel, gear and screen organization, plus nine things the dossiers do not hold.

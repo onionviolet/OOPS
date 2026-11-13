@@ -45,7 +45,7 @@ State at handoff (master `4c476b518` plus this handoff commit):
 
 ## How to work
 
-- Lanes: one writer per file area. Run worker lanes as your native subagents or with the launcher in their own worktrees cut from master; give each a brief in the shape of the existing `CODEX_LANE.md` files (goal, files it may touch, files it must not touch, focused tests, return, done check). Keep at most three lanes at once.
+- Lanes: one writer per file area. For the next wave, follow the [storage defaults in the foundation run playbook](../../FOUNDATION_RUN_PLAYBOOK.md#next-wave-storage-defaults-weibao-2026-11-12) when assigning worktrees and running isolated builds. Use the existing `CODEX_LANE.md` brief shape (goal, files it may touch, files it must not touch, focused tests, return, done check). Keep at most three lanes at once.
 - Order: finish MS2 (P and W answer S2R1-S2R9, then GL2 for Gu and spells), then MS3 (runs as data across ledgers; G's Keeper compression to 10+ deleted modules), MS4 (23 canon moves as composed workings), MS5 (one reachable route per domain at the floor plus one combined headless browser pass), MS6 (N knowledge, X places, D story contracts, PG1 people, PG2 societies, E's three chains). The MD1-MD15 rows join their owners after MS3.
 - Lore first (PFP30): canon laws become fixed points with locators before a generator varies them.
 - Gates: lanes run focused tests; you run `npm run build`, `npm run check:arch`, `npm run check:rules`, `npm run check:coverage` and the full `npm test` once per merge wave. Docs-only merges skip the full suite. `npm test` already runs through the limiter; do not wrap it.

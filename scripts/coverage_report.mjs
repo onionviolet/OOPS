@@ -18,14 +18,24 @@
 //    working?: {family, id?, payer?, ...},  // one kernel working started in the engine host (E9); families below
 //    details?: {target, amount, minutes, place, ...},  keys?: {light: 'moon', ...},  by?: string,
 //    timeline?: [{id, sentence, details?, keys?, by?, cause?, expect?}
-//                | {id, ops, cause?, expect?} | {id, advanceTo, expect?}
+//                | {id, ops, cause?, expect?} | {id, advanceTo, expect?} | {id, restore: true}
 //                | {id, working, expect?}                       // start a kernel working; steps due now settle now
 //                | {id, store: <stored spec>, by?, expect?}     // lay a stored working under the step's id
 //                | {id, fire: <stored id>, stimulus?, expect?}],  // replaces the top-level sentence or working
+// A failed pour can be expected with {id, advanceTo, interruption: {working, reason}, expect?}.
+// A subsequent {id, resumeBrewPour: {from, flask?}, expect?} continues its remaining steps.
+// {id, resumeBrewStir: {from}, expect?} retries an interrupted operator stir and its remaining steps.
+// {id, sealVowClause: <ritual inputs>, refusal?, expect?} tests a Hogwarts binding action.
+// {id, awakenLanternHusk: <parent, huskHolder, offspring>, refusal?, expect?} tests the Lantern offspring action.
 // A working names its law family in plain data: {family: 'spell', spells: [...]} (spell_law.js spellEffectMethod)
-// or {family: 'process', method: <processMethod input>, bindings} (process_law.js). The host settles it on the
+// or {family: 'process', method: <processMethod input>, bindings} (process_law.js).
+// `gu-coupled` takes a versioned beat row and its bindings.
+// `brew`, `brew-dose` and `brew-assay` take a compiled method and bindings.
+// `brew-from-assays` takes a request for the live observer's saved assays and stock.
+// `brew-dose-from-identification` binds a stocked remedy using a saved composition reading.
+// The host settles the resulting working on the
 // world clock, debits its costs and lands its effects; a later advanceTo settles the steps that take time.
-//    expect: [{holder, quantity | property | position: true | exists: true, direction, amount?, to?}
+//    expect: [{holder, quantity | property | belief | position: true | exists: true | creationParents: true, direction, amount?, to?}
 //             | {lawField, direction, to?}]}
 // `expect` is in world terms only. Quantities support up|down|changed|unchanged and an exact
 // change `amount`. Other terms support changed|unchanged. `to` matches the final value.
@@ -33,6 +43,8 @@
 // named by an exists observation with changed and to: true before other observations can name it.
 // Unknown keys are rejected, and at least one entry must expect an actual change.
 // A named step's optional expect compares immediately before and after that step.
+// A step may also check saved working output with expectObserved: {working, step, to}.
+// `step` is the zero-based method step and `to` matches named observed fields.
 // The required case expect still compares the initial and final world.
 // Computed states: expressed-<basis> when the world changed as `expect` says; runs-<basis> when the
 // case module is also reachable from src/main.js (scripts/reachable.mjs). A case under tests/ is never reachable.
@@ -44,6 +56,8 @@ import {isDeepStrictEqual} from 'node:util';
 import path from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {reachableFrom, walkFrom, srcFiles} from './reachable.mjs';
+import {recordsOf} from '../src/knowledge_record.js';
+import {readLineage} from '../src/world_substrate.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const COVERAGE_DIR = 'docs/coverage';
@@ -109,7 +123,8 @@ export function countLedger(rows) {
 }
 
 // ---- The generic case runner (PC9, PC10) ----
-const TERMS = ['quantity', 'property', 'position', 'exists', 'lawField'];
+const FLAGS = ['position', 'exists', 'creationParents'];
+const TERMS = ['quantity', 'property', 'lawField', 'belief', ...FLAGS];
 const EXPECT_KEYS = new Set(['holder', ...TERMS, 'direction', 'amount', 'to']);
 const CHANGE = ['changed', 'unchanged'];
 const QUANTITY_CHANGE = ['up', 'down', ...CHANGE];
@@ -126,7 +141,9 @@ function checkExpect(world, expect, id, requireChange = true) {
         const kinds = TERMS.filter(k => e[k] !== undefined);
         if (kinds.length !== 1) bad('an expect entry names exactly one world term');
         const [kind] = kinds;
-        if (!(kind === 'position' || kind === 'exists' ? e[kind] === true : named(e[kind]))) bad(`invalid ${kind} observation`);
+        if (!(FLAGS.includes(kind) ? e[kind] === true : named(e[kind]))) bad(`invalid ${kind} observation`);
+        if (kind === 'creationParents' && e.to !== undefined && e.to !== null &&
+            (!Array.isArray(e.to) || !e.to.every(named))) bad('creation parents must be an array of holder IDs or null');
         const directions = kind === 'quantity' ? QUANTITY_CHANGE : CHANGE;
         if (!directions.includes(e.direction)) bad(`direction for ${kind} is one of ${directions.join(', ')}`);
         if (e.amount !== undefined && (kind !== 'quantity' || !Number.isFinite(e.amount) || e.amount < 0))
@@ -149,9 +166,15 @@ const readTerm = (world, e) => {
         return {scope, kind, params, ...(until === undefined ? {} : {until})};
     }
     if (e.exists) return Object.hasOwn(world.holders, e.holder);
+    if (e.creationParents) return readLineage(world, e.holder)
+        .find(row => row.act === 'create' && row.parents !== undefined)?.parents ?? null;
     const h = world.holders[e.holder];
     if (e.quantity !== undefined) return h?.quantities?.[e.quantity] ?? 0;
     if (e.property !== undefined) return h?.properties?.[e.property] ?? null;
+    if (e.belief !== undefined) {
+        const records = recordsOf(world, e.holder);
+        return Object.hasOwn(records, e.belief) ? records[e.belief].believed.value ?? null : null;
+    }
     return h?.place ?? null;
 };
 
@@ -171,10 +194,84 @@ export function expectHolds(before, after, expect) {
 
 // Law families a working case may name. Each turns plain case data into {law, method, bindings}.
 const WORKING_FAMILIES = {
+    'lantern-fleece': async w => {
+        const {LANTERN_EVOLUTION, LANTERN_FLEECE_LAW, LANTERN_FLASH, LANTERN_MOONBEAM, LANTERN_WISP_GLOW} =
+            await import('../src/world_packs/meadow_lantern_fleece.js');
+        const ability = {'flash': LANTERN_FLASH, 'moonbeam': LANTERN_MOONBEAM, 'wisp-glow': LANTERN_WISP_GLOW};
+        const evolution = Object.hasOwn(LANTERN_EVOLUTION.methods, w.method) && LANTERN_EVOLUTION.methods[w.method];
+        const method = evolution || (Object.hasOwn(ability, w.method) && ability[w.method]);
+        if (!method) return {blocked: 'unknown Lantern Fleece working'};
+        return {law: evolution ? LANTERN_EVOLUTION.law : LANTERN_FLEECE_LAW, method, bindings: w.bindings};
+    },
+    'gu-coupled': async w => {
+        const {compileGuCoupledBeat} = await import('../src/gu_coupled_working.js');
+        return {...compileGuCoupledBeat(w.beat), bindings: w.bindings};
+    },
+    'gu-moonblade-contact': async w => {
+        const {GU_MOONBLADE_CONTACT_LAW, moonbladeContactWorking} = await import('../src/world_packs/gu_moonblade_contact.js');
+        return {law: GU_MOONBLADE_CONTACT_LAW, method: moonbladeContactWorking({supported: w.supported === true}), bindings: w.bindings};
+    },
+    'gu-formation-plate': async w => {
+        const {GU_FORMATION_PLATE_LAW, guFormationPlateMethod} = await import('../src/world_packs/gu_formation_plate.js');
+        return {law: GU_FORMATION_PLATE_LAW, method: guFormationPlateMethod(w.options), bindings: w.bindings};
+    },
+    'gu-teleport-array': async w => {
+        const {GU_FORMATION_PLATE_LAW, guTeleportArrayMethod} = await import('../src/world_packs/gu_formation_plate.js');
+        return {law: GU_FORMATION_PLATE_LAW, method: guTeleportArrayMethod(w.options), bindings: w.bindings};
+    },
+    'gu-three-heads': async w => {
+        const {GU_THREE_HEADS_LAW, threeHeadsWorking} = await import('../src/world_packs/gu_three_heads_working.js');
+        return {law: GU_THREE_HEADS_LAW, method: threeHeadsWorking(w.operation), bindings: w.bindings};
+    },
+    'gu-fixed-travel': async w => {
+        const {GU_FIXED_TRAVEL_LAW, fixedTravelWorking} = await import('../src/world_packs/gu_fixed_travel_working.js');
+        return {law: GU_FIXED_TRAVEL_LAW, method: fixedTravelWorking(w.options), bindings: w.bindings};
+    },
+    'gu-revised-giant-hand': async w => {
+        const {GU_GIANT_HAND_LAW, revisedGiantHandWorking, prepareGiantHandWorking, releaseGiantHandWorking} =
+            await import('../src/world_packs/gu_giant_hand_working.js');
+        const methods = {revised: revisedGiantHandWorking, prepare: prepareGiantHandWorking, release: releaseGiantHandWorking};
+        const name = w.method ?? 'revised';
+        if (!Object.hasOwn(methods, name)) return {blocked: 'unknown Giant Hand working'};
+        return {law: GU_GIANT_HAND_LAW, method: methods[name], bindings: w.bindings};
+    },
     spell: async w => (await import('../src/spell_law.js')).spellEffectMethod(w.spells, w.method ? {id: w.method} : {}),
+    occlumency: async w => (await import('../src/world_packs/hp_occlumency.js')).occlumencyMethod(w),
     process: async w => {
         const {PROCESS_LAW, processMethod} = await import('../src/process_law.js');
         return {law: PROCESS_LAW, method: processMethod(w.method), bindings: w.bindings};
+    },
+    brew: async w => ({law: (await import('../src/brew_law.js')).BREW_LAW, method: w.method, bindings: w.bindings}),
+    'brew-from-identification': async (w, engine) => {
+        const {selectIdentifiedBrewRecipe} = await import('../src/brew_dose_delivery.js');
+        const recipe = selectIdentifiedBrewRecipe(engine, w.request);
+        if (!recipe) return {blocked: 'no known recipe matches the observer’s full sample reading'};
+        return {law: (await import('../src/brew_law.js')).BREW_LAW, method: recipe.method, bindings: recipe.bindings};
+    },
+    'brew-dose': async w => ({law: (await import('../src/brew_dose_delivery.js')).BREW_DOSE_LAW, method: w.method, bindings: w.bindings}),
+    knowledge: async w => ({law: (await import('../src/knowledge_record.js')).KNOWLEDGE_LAW, method: w.method, bindings: w.bindings}),
+    evolution: async w => {
+        const {defineCreatureEvolution} = await import('../src/creature_evolution.js');
+        const {law, methods} = defineCreatureEvolution(w.definition);
+        return {law, method: methods[w.method], bindings: w.bindings};
+    },
+    'age-line': async w => (await import('../src/world_packs/hp_age_line.js')).ageLineWorking(w.bindings),
+    'body-haul': async w => (await import('../src/body_haul.js')).bodyHaulWorking(w.bindings, w.minutes),
+    gillyweed: async w => (await import('../src/world_packs/hp_gillyweed.js')).gillyweedWorking(w.bindings),
+    bubotuber: async w => (await import('../src/world_packs/hp_bubotuber.js')).bubotuberWorking(w.bindings),
+    'brew-dose-from-identification': async (w, engine) => {
+        const {BREW_DOSE_LAW, bindIdentifiedBrewRemedy} = await import('../src/brew_dose_delivery.js');
+        const remedy = bindIdentifiedBrewRemedy(engine, w.request, w.method);
+        if (!remedy) return {blocked: 'no stocked remedy and serving match the observer’s identification'};
+        return {law: BREW_DOSE_LAW,
+            method: remedy.method, bindings: {...w.bindings, flask: {kind: 'flask', id: remedy.flask}}};
+    },
+    'brew-assay': async w => ({law: (await import('../src/brew_assay.js')).BREW_ASSAY_LAW, method: w.method, bindings: w.bindings}),
+    'brew-from-assays': async (w, engine) => {
+        const {generateObservedBrewWorking} = await import('../src/brew_generation.js');
+        const plan = generateObservedBrewWorking(engine, w.request);
+        if (!plan) return {blocked: 'current assays and stock cannot supply the requested brew'};
+        return {law: (await import('../src/brew_law.js')).BREW_LAW, ...plan};
     },
 };
 
@@ -189,7 +286,8 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
     } else if (!Array.isArray(timeline) || !timeline.length || data.sentence !== undefined || data.working !== undefined) {
         throw new Error(`case ${id}: a timeline is a nonempty array and replaces the sentence or working`);
     }
-    const {createEngineWorld, applyEngineOps, advanceEngineWorld, startEngineWorking, storeEngineWorking, fireEngineStored} = await import('../src/engine_world.js');
+    const {createEngineWorld, applyEngineOps, advanceEngineWorld, startEngineWorking, storeEngineWorking, fireEngineStored,
+        serializeEngineWorld, restoreEngineWorld} = await import('../src/engine_world.js');
     const {WORLD_QUANTITIES, WORLD_PROPERTIES} = await import('../src/world_quantities.js');
     const {landEffect} = await import('../src/effect_host.js');
     const config = data.engine ?? {};
@@ -200,22 +298,67 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
     const {sharedEffect} = await import('../src/spell_effects.js');
     // The sky pack needs no caller settings and runs no clock laws in these
     // instant probes. Keep the legacy vocabulary unless a case declares its own.
-    let engine = createEngineWorld({...data.world, packs, settings, dials, shared: {
+    const ownPacks = packs.includes('l.creature_form')
+        ? [(await import('../src/creature_evolution.js')).CREATURE_FORM_PACK] : [];
+    if (packs.includes('l.lantern_coat') || packs.includes('l.lantern_moon_cycle')) {
+        const {LANTERN_COAT_PACK, LANTERN_MOON_CYCLE_PACK} = await import('../src/world_packs/meadow_lantern_fleece.js');
+        if (packs.includes('l.lantern_coat')) ownPacks.push(LANTERN_COAT_PACK);
+        if (packs.includes('l.lantern_moon_cycle')) ownPacks.push(LANTERN_MOON_CYCLE_PACK);
+    }
+    if (packs.includes('b.splash'))
+        ownPacks.push((await import('../src/world_substrate_packs/brew_splash.js')).createBrewSplashPack(settings?.['b.splash']));
+    if (packs.includes('b.body_steam'))
+        ownPacks.push((await import('../src/world_substrate_packs/brew_vapor.js')).BREW_BODY_STEAM);
+    if (packs.includes('b.cloud'))
+        ownPacks.push((await import('../src/world_substrate_packs/brew_vapor.js')).createBrewCloudPack(settings?.['b.cloud']));
+    if (packs.includes('hp.descent')) ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_DESCENT);
+    if (packs.includes('hp.camp-warning')) ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_CAMP_WARNING);
+    if (packs.includes('l.breathing')) {
+        const {BREATHING_PACK, GILLED_BREATHING_PACK} = await import('../src/world_substrate_packs/breathing.js');
+        ownPacks.push(settings?.['l.breathing']?.gills ? GILLED_BREATHING_PACK : BREATHING_PACK);
+    }
+    if (packs.includes('s.focus')) ownPacks.push((await import('../src/world_substrate_packs/spell_sustain.js')).SPELL_SUSTAIN_PACK);
+    if (packs.includes('hp.fiendfyre')) ownPacks.push((await import('../src/world_substrate_packs/fiendfyre.js')).FIENDFYRE_PACK);
+    if (packs.includes('hp.accidental-lift')) ownPacks.push((await import('../src/world_packs/hp_accidental_magic.js')).HP_ACCIDENTAL_LIFT);
+    if (packs.includes('hp.protean_coins'))
+        ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_PROTEAN_COINS);
+    if (packs.includes('hp.taboo'))
+        ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_TABOO);
+    if (packs.includes('hp.trace'))
+        ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_TRACE);
+    if (packs.includes('g.travel-carry'))
+        ownPacks.push((await import('../src/world_packs/gu_fixed_travel_working.js')).guTravelCarryPack);
+    if (packs.includes('gu.self-cleansing'))
+        ownPacks.push((await import('../src/world_packs/gu_formation_plate.js')).guCleansingArrayPack);
+    if (packs.includes('g.three-heads'))
+        ownPacks.push((await import('../src/world_packs/gu_three_heads_working.js')).guThreeHeadsPack);
+    const engineConfig = {packs, ownPacks, settings, dials, shared: {
         quantities: Object.values(WORLD_QUANTITIES), properties: Object.values(WORLD_PROPERTIES), ...shared,
-    }, host: {things: host.things ?? {}, costs: host.costs ?? null, effects: {keys: host.keys ?? {}, read: sharedEffect}}});
+    }, host: {things: host.things ?? {}, costs: host.costs ?? null, effects: {keys: host.keys ?? {}, read: sharedEffect}}};
+    let engine = createEngineWorld({...data.world, ...engineConfig});
     // What the host could not land or settle since the last look, as the runner's blocked states.
     const seen = {};
-    const hostProblem = () => {
+    const acknowledged = new Set();
+    const hostProblem = (step) => {
+        const expected = step.interruption;
+        let matched = false;
         for (const [wid, entry] of Object.entries(engine.records.workings)) {
             const fresh = entry.landed.slice(seen[wid] ?? 0);
             seen[wid] = entry.landed.length;
             const failed = entry.record.status === 'interrupted' && entry.record.receipts.at(-1);
-            if (failed) return {state: 'blocked:runner-working-interrupted', detail: `${wid} step ${failed.step}: ${failed.reason}`};
+            if (failed && !acknowledged.has(wid)) {
+                if (expected?.working !== wid || expected.reason !== failed.reason)
+                    return {state: 'blocked:runner-working-interrupted', detail: `${wid} step ${failed.step}: ${failed.reason}`};
+                acknowledged.add(wid);
+                matched = true;
+            }
             for (const [status, state] of [['needs-key', 'needs'], ['waiting', 'waiting'], ['unmapped', 'unmapped'], ['label-only', 'unmapped']]) {
                 const row = fresh.find(l => l.status === status);
                 if (row) return {state: `blocked:runner-${state}`, detail: `${wid} step ${row.step}: ${row.reason}`};
             }
         }
+        if (expected && !matched) return {state: 'blocked:runner-expect-mismatch',
+            detail: `${step.id}: the expected working interruption did not occur`};
         return null;
     };
     const before = engine.world;
@@ -226,7 +369,9 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
         if (timeline) {
             if (!named(step?.id) || names.has(step.id)) throw new Error(`case ${id}: timeline steps need distinct names`);
             names.add(step.id);
-            const actions = ['sentence', 'ops', 'advanceTo', 'working', 'store', 'fire'].filter(key => Object.hasOwn(step, key));
+            const actions = ['sentence', 'ops', 'advanceTo', 'working', 'store', 'fire', 'restore', 'resumeBrewPour', 'resumeBrewStir',
+                'sealVowClause', 'awakenLanternHusk']
+                .filter(key => Object.hasOwn(step, key));
             if (actions.length !== 1) throw new Error(`case ${id} step ${step.id}: expected one action`);
             [action] = actions;
         }
@@ -238,12 +383,39 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
             if (advanced.pending !== false) return {state: 'blocked:runner-clock-advance',
                 detail: `${step.id}: advance to ${step.advanceTo} is pending at ${advanced.engine.world.clock}`};
             engine = advanced.engine;
+        } else if (action === 'restore') {
+            if (step.restore !== true) throw new Error(`case ${id}${at}: restore must be true`);
+            const saved = serializeEngineWorld(engine);
+            engine = restoreEngineWorld(JSON.parse(JSON.stringify(saved)), {
+                ...engineConfig, host: {...engineConfig.host, laws: engine.host.laws},
+            });
+            if (!isDeepStrictEqual(serializeEngineWorld(engine), saved))
+                return {state: 'blocked:runner-restore', detail: `${step.id}: restored engine save differs`};
         } else if (action === 'ops') {
             engine = applyEngineOps(engine, step.ops, cause);
         } else if (action === 'working') {
-            const bound = await WORKING_FAMILIES[step.working?.family]?.(step.working);
+            const bound = await WORKING_FAMILIES[step.working?.family]?.(step.working, engine);
             if (!bound) return {state: 'blocked:runner-working-case', detail: `no law family named ${step.working?.family ?? '(none)'} is known to the runner`};
+            if (bound.blocked) return {state: 'blocked:runner-working-inputs', detail: `${step.id}: ${bound.blocked}`};
             engine = startEngineWorking(engine, {...bound, id: step.working.id ?? `case.${timeline ? step.id : 'working'}`, payer: step.working.payer ?? null});
+        } else if (action === 'resumeBrewPour') {
+            const {resumeBrewPour} = await import('../src/engine_brew_resume.js');
+            engine = resumeBrewPour(engine, {...step.resumeBrewPour, id: `case.${step.id}`});
+        } else if (action === 'resumeBrewStir') {
+            const {resumeBrewStir} = await import('../src/engine_brew_resume.js');
+            engine = resumeBrewStir(engine, {...step.resumeBrewStir, id: `case.${step.id}`});
+        } else if (action === 'sealVowClause') {
+            const {sealVowClause} = await import('../src/world_packs/hp_unbreakable_vow.js');
+            const result = sealVowClause(engine, step.sealVowClause);
+            if (result.ok !== (step.refusal === undefined) || result.reason !== step.refusal)
+                return {state: 'blocked:runner-expect-mismatch', detail: `${step.id}: unexpected Vow response`};
+            engine = result.engine;
+        } else if (action === 'awakenLanternHusk') {
+            const {awakenLanternHusk} = await import('../src/world_packs/meadow_lantern_fleece.js');
+            const result = awakenLanternHusk(engine, step.awakenLanternHusk);
+            if (result.ok !== (step.refusal === undefined) || result.reason !== step.refusal)
+                return {state: 'blocked:runner-expect-mismatch', detail: `${step.id}: unexpected husk awakening response`};
+            engine = result.engine;
         } else if (action === 'store') {
             engine = storeEngineWorking(engine, step.store, {id: step.id, by: step.by ?? cause});
         } else if (action === 'fire') {
@@ -257,8 +429,19 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
             if (run.status === 'unmapped') return {state: 'blocked:runner-unmapped', detail: run.reason};
             engine = {...engine, world: run.world};
         }
-        const problem = hostProblem();
+        const problem = hostProblem(step);
         if (problem) return problem;
+        if (timeline && step.expectObserved !== undefined) {
+            const {working, step: index, to} = step.expectObserved ?? {};
+            if (!named(working) || !Number.isSafeInteger(index) || index < 0 || !to ||
+                typeof to !== 'object' || Array.isArray(to) || !Object.keys(to).length)
+                throw new Error(`case ${id}${at}: expectObserved needs a working, step index and observed fields`);
+            const entry = Object.hasOwn(engine.records.workings, working) ? engine.records.workings[working] : undefined;
+            const receipt = entry?.record.receipts.find(row => row.step === index && row.ok);
+            if (!receipt?.observed || Object.entries(to).some(([key, value]) =>
+                !Object.hasOwn(receipt.observed, key) || !isDeepStrictEqual(receipt.observed[key], value)))
+                return {state: 'blocked:runner-expect-mismatch', detail: `${step.id}: working observation did not match`};
+        }
         if (timeline && step.expect !== undefined) {
             checkExpect(stepBefore, step.expect, id + at, false);
             if (!expectHolds(stepBefore, engine.world, step.expect)) return {state: 'blocked:runner-expect-mismatch',

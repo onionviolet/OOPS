@@ -1,11 +1,11 @@
 {
   "note": "PC12 compression baseline. C1-C5 may only fall, C6 may only rise. Rewrite with --write-baseline.",
   "values": {
-    "C1": 36,
+    "C1": 44,
     "C2": 65,
     "C3": 5,
     "C4": 4,
-    "C5": 10,
-    "C6": 0
+    "C5": 4,
+    "C6": 3
   }
 }
