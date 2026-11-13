@@ -135,6 +135,7 @@ A new book arrives: add its row here (and in `books.json` if it will be batch-re
 | Document | Owns |
 |---|---|
 | [BOOK_RECEPTION_AUDIT](BOOK_RECEPTION_AUDIT.md) | Repeatable title audits for paid performance, visibility and reader reception, with Qidian pilots and cross-market plans |
+| [Reverend Insanity Moonblade damage and recovery](RI_MOONBLADE_DAMAGE_CALIBRATION_2026-11-12.md) | Early Moonlight Gu fuel, contact, defense and injury evidence with a proposed OOPS calibration matrix |
 | [SOURCE_ACQUISITION_TOOLS](SOURCE_ACQUISITION_TOOLS.md), [TOOL_REGISTRY](../TOOL_REGISTRY.md) | How to acquire: Source Library CLI, polite scraper, Calibre routes |
 | [DOWNLOAD_WISHLIST_2026-10-30](DOWNLOAD_WISHLIST_2026-10-30.md) (current ranked to-download list), [BOOK_CANDIDATES_2026-10-22](BOOK_CANDIDATES_2026-10-22.md), [BOOK_DISCOVERY_2026-10-26](BOOK_DISCOVERY_2026-10-26.md), [FUTURE_ACQUISITION_QUEUE](FUTURE_ACQUISITION_QUEUE_2026-10-13.md) | What we might acquire next (proposals, history) |
 | [BOOK_ACQUISITION_RECEIPT_2026-10-24](BOOK_ACQUISITION_RECEIPT_2026-10-24.md), [SOURCE_ACQUISITION_RECEIPT_2026-10-26](SOURCE_ACQUISITION_RECEIPT_2026-10-26.md) | What was downloaded, dated, with checks (history; this index is the live answer) |

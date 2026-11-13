@@ -2,6 +2,8 @@
 
 *Later survey (2026-10-30): non-protolike games with mechanism-by-owner table in [SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30](research/SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30.md).*
 
+*Focused follow-up (2026-11-13): [five games worth studying](#five-games-worth-studying-2026-11-13) for brewing, routines, crossing, supply and discovery.*
+
 Research date: 2026-09-30, America/New_York. Research and proposals only; creative acceptance and integration belong to the parent chat.
 
 **Recommendation:** first build an ordinary expedition that turns a clue into a useful technique or route. Make equipment, preparation and exploration offer different solutions to that expedition. Then add bounded automation that remembers the player's plan. Cultivation can be an earned optional path later; it should not become the universal XP amplifier.
@@ -479,3 +481,25 @@ Full-content review covers all462 input lines: the12 idle/three adjacent main co
 **Verification stays at its actual level.** Old source-fit module/retired-state/clock/loader comments, current-at-the-time menu bindings and missing native adapters are dated observations. They do not prove today's failures or completed integrations. Every worked example's costs, reward, knowledge-safe explanation, real downstream consequence and persistence belong to its actual selected proof. Existing [UI rules](UI_RULES.md), AD36/AD43 and optional human review apply; old pending human review is not a new blocker. Mystery does not make ordinary controls unreliable, and knowledge can change without rewriting historical observations. Reopen a named case/F/P/feature row when a concrete consumer needs its source or behavior evidence.
 
 This pass read documentation only. No reference page/repository, novel/PDF, source code, actual game, primary corpus, personal save, current API/license/accessibility/pacing state, test/build/browser, acquisition, deletion, relocation, commit or push was newly performed.
+
+## Five games worth studying, 2026-11-13
+
+Closest premise: **Game of Rebirth**. Closest match for planning while idle:
+**Stuck In Time**. Best transfer for the current foundation work: **Book of Hours**.
+The earlier dossiers already cover the general genre and most of these titles.
+This pass asks what specific decision each game could improve. Research only;
+the transfer examples are proposals, with no change to world order or scope.
+Applies AD38, AD51, AD52 and WPR4/19/21/27.
+
+| Finding | What the game documents | What to learn for YAIR, and how to tell it worked |
+|---|---|---|
+| F1. **Book of Hours** | In its [workstation design note](https://weatherfactory.biz/consider-the-star/), Weather Factory explains why a station's usable tools and inputs can make one process easier without making it the sole route. | **Adapt** to the existing [making seam](AREA_GUIDE.md#making). For one Hogwarts potion, compare two heat sources with different control or tending costs. See if the player can predict the tradeoff and if the batch follows from the actual process. Express temperature and control once; avoid a second station-by-recipe list. The cited note describes design intent; exact shipping behavior was not tested. |
+| F2. **Stuck In Time** | Its [developer listing](https://store.steampowered.com/app/1814010/) describes saving and editing action sequences, with practice reducing repeated action costs and opening faster routes. | **Adapt** the editable route to [activity abstraction](ACTIVITY_ABSTRACTION_RULES.md) and the existing [expedition seam](AREA_GUIDE.md#travel-and-journeys). Try a known circuit that runs until a choice matters: a new clue, supply reserve, or missed appointment. Test that a genuine change in time or means makes a previously impractical route viable, and that the stop says why. No global time-loop or repetition discount is needed. |
+| F3. **Game of Rebirth** | [ZodiacStudio's listing](https://store.steampowered.com/app/3565290/) describes nine worlds with local rules and quests, world-earned abilities, and skill chips or bloodlines that change behavior. | **Study** one carried ability across two destinations. Separate what the traveler remembers or possesses from what can run with the local means ([crossing owner](CROSS_WORLD_RULES.md)). The useful test is whether the same technique works by a different means, or whether the player can tell what is missing and find a substitute. The listing does not establish that Game of Rebirth itself checks such compatibility. |
+| F4. **Prosperous Universe** | The [official handbook](https://handbook.apex.prosperousuniverse.com/wiki/faq/index.html) separates repeat orders from the supplies that sustain production: recurring jobs rejoin the queue; lack of workforce consumables halts production. | **Adapt** this separation for one Gu feeding or workshop order through the [existing duties](AREA_GUIDE.md#work-and-duties) and actual inventory. Test that a missing supply stops new work, elapsed time still has its world-specific effects, and resupply does not double-spend or duplicate work. The lesson is in the stop and resume behavior; a market sim adds no evidence to that test. |
+| F5. **Caves of Qud** | The [water ritual reference](https://wiki.cavesofqud.com/wiki/Water_ritual) documents trading secrets and receiving teaching via faction relationships; the [developer press kit](https://cavesofqud.com/press-kit/) links its procedural history talks. | **Adapt** the audience-specific value of a clue through existing [knowledge and ties](AREA_GUIDE.md#lessons-study-and-research). Test one finding that changes a real decision for a relevant institution and has a different use or no value to another. Give it a reason grounded in what that person or institution needs, rather than paying out generic reputation for every fact. |
+
+Highest state: primary-source spot check and local owner fit (WPR21). Checked
+developer listings, design notes, the handbook, and the official wiki against
+the older dossier and current area guide. Examples are unimplemented and
+reference gameplay was not exercised. No purchase or runtime change.

@@ -78,6 +78,36 @@ book-specific feature at AD43's floor. Under AD51, the second case validates or 
 shared design rather than being a precondition for designing it. Plot armour is a
 constraint, not a stat (LSD228). Earlier wording is retained in the reconciliation history.
 
+### Capability runs (2026-11-12)
+
+A lore run follows the lead's story. A capability run follows something the lead
+can do across situations. Weibao selected Fang Yuan first. The [direction log](gm/USER_VISION_LOG_2026-11.md#protagonist-capability-runs-2026-11-12)
+records the request and the [carry-out](PROCEDURAL_CARRY_OUT.md#fang-yuans-first-capability-run-2026-11-12)
+owns the first slice and the proposed parallel work. Use the existing mechanism lane. Pick a
+protagonist, an era and a capability with a concrete payoff, then trace how the
+lead learns or acquires it, what each use takes, how it can fail, and what later
+choice reads the result. Use source examples to establish the inputs and expected
+outcomes. Try changing a condition the player could actually change, such as the
+material, preparation, timing or tool. The same rules should settle the book case
+and the variation. Earlier and later source examples can inform one mechanic
+without giving the lead knowledge or equipment ahead of time.
+
+**Example: Fang Yuan prepares and uses a Gu.** Pick one source-qualified Gu and
+one task it can help with. Acquire or refine it as appropriate, provide its food,
+prepare for use and settle the task. Then try with the Gu in worse condition or
+with less primeval essence. Carry the spent resources and the Gu's resulting
+condition into the next decision. A crafting example would follow the same
+shape: choose materials and a method, make the item, then use it where its actual
+properties matter.
+
+Build on the relevant [system owners](AREA_GUIDE.md) and keep the coverage and
+evidence in the existing world or mechanism record. Under the current
+[engine-first order](PROCEDURAL_CARRY_OUT.md#engine-first-tie-in-later-pc95-2026-11-12),
+the loop can first be exercised in a headless engine world. When game tie-in
+resumes, put the same capability behind ordinary controls in the lead's life
+and verify it at the existing AD43 floor. The lore scene can use that capability
+when the campaign reaches it.
+
 **Content scales, code does not** (LSD165). Steps collapse into verb families, families into
 effect operations (`src/simulation_effects.js`) and frames. A step costs a row; only a new
 operation, input or stop rule costs code. Measured 2026-10-29: about 110-115k of 159k source

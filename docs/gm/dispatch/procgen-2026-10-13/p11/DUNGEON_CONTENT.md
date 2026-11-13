@@ -153,6 +153,25 @@ different states. Knowing where the entrance is does not reveal the whole site.
 Maps/notes can record observed routes and signs. A player's attempted approach
 can reveal that they lack means without identifying every hidden alternative.
 
+#### Locations discovered after repeated clears
+
+Long-term design possibility, 2026-11-13. An authored combat site can reveal a
+new route or an investigation lead after a site-specific number of full clears.
+The existing game supports both forms. Four Cave depths clears reveal the
+Suspicious wall. Four Deep forest clears reveal a trail the player can follow
+from Forest road. See the [existing clear rewards](../../../../../src/data/locations.js#L621).
+
+Pick the threshold to fit what changes on repeat visits. Repeated trips might
+give the character time to notice tracks, while clearing several groups that
+control a pass could make the route safe to enter. A site could also open earlier
+if another approach produces the same result, such as tracking the animals to
+their den or driving them away. Show the sign the character can observe, then
+offer travel or investigation as the situation warrants.
+
+Revisit this option when designing a repeatable site with a distinct destination
+or lead and a reason for it to surface over several visits. It fits
+[SR6 and SR11](../../../../SITE_AND_EXPLORATION_RULES.md#discovery-information-and-maps).
+
 ### W4: other world systems worth considering beside ruins
 
 The [world/site palette](WORLD_SITE_PALETTE_2026-10-16.md) expands world families,

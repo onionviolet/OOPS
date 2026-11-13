@@ -361,3 +361,112 @@ Separate actual harm/outcome/cause, visible facts, witnessed agreement, detected
 ## Pointer, 2026-11-09: fights and canon anchors
 
 A code-shape read found that lead-world fights run on `tempo_fight` (Klein's fights, Harry's duel, four Gu windows), while `models/combat.js` stays the Village's. The calibration cases in `scripts/calibration/fight_cases.json` are proposal bands whose note says no canon fight existed in the first 24 chapters; the walks have since passed chapter 129 (Klein) and 140 (Fang Yuan). No lead-world fight code reads a potion or dose. The proposals that act on this are in the [atlas action register](audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#action-register-for-layx24-layx56-and-other-crafts-2026-11-09): LAYX30 (fights tuned to what decided them), LAYX40 (a fight you can lose) and LAYX47 (a brewed thing has a use). This doc's CB rows were not re-read against them, so some may already cover the same ground. Proposals only (AD32).
+
+## What HP and damage should mean (2026-11-12)
+
+Status: design proposal.
+
+Start with the effect a move can reasonably have on a particular target. In the
+Gu academy, compare the same throw against an exposed opponent, through an active
+shield, and against a body reinforced by an applicable Gu. At later ranks also
+check reach, target area, and whether the attack can engage a much larger body.
+The source examples already used by the contest pack include the academy puppet
+and the hunter encounter (RI vol. 1 ch. 22 and 65–70). The latter makes a clean
+Moonblade dangerous to a mortal. It supplies no universal HP conversion.
+
+| Representation | Walk the same Moonblade hit | Tradeoff |
+| --- | --- | --- |
+| Local HP and damage | A clean hit takes a substantial part of the academy partner's vitality. A real shield reduces the hit by what it intercepts. | Easy to read and compatible with current battles. One number compresses injury, disruption and recovery, so two very different hits can look equivalent. |
+| Named wounds and conditions | The hit cuts the arm, so the next throw is harder. A vital strike can end the fight while the target can still move. | Gives location, treatment and retreat more meaning. Routine fights become harder to scan, and far settlement needs a summary that preserves the same consequential wounds. |
+| Local vitality plus specific consequences | Show remaining ability to fight as vitality. Let existing harm and condition owners record a wound, destabilized power or similar lasting consequence when the mechanism produces it. A working can stop on impact even while vitality remains. | Proposed default for Gu and a candidate for other worlds. The combat owner settles the hit once and publishes the named consequence. A wound can affect later capability and treatment. Its severity does not deduct the same vitality a second time. |
+
+**Working definitions.** Vitality is the body's remaining capacity to continue
+under harm. A world can use a common internal calibration for physical tolerance
+and show a percentage of each body's capacity. Stamina and essence each pay for
+their own actions. Armor, cover and wards affect what reaches the body. Recovery
+can replenish vitality, repair an injury or restore the use of a technique,
+depending on what the remedy actually does. Two fresh opponents show 100% even
+when one has a tougher body. Use a shared attack description and local response
+to compare them. A rank difference
+can change force, protection, speed, reach, precision, or what the target can
+perceive. It does not have to raise every stat by the same factor. Named
+exceptions follow from available methods, terrain, and the opponent's means.
+
+**First comparisons.** The playable academy drill uses an authored 100 vitality
+and 30 vs 45 damage on a clean hit. An initial blade costs four raw parts. Two
+Liquor Worm conversions consume four raw parts to make two middle-stage parts
+for the stronger blade. This isolates the effect of concentration and leaves
+room for separate Gu combinations, injury, protection, and later ranks. A drill
+stops at the first landed strike. A full fight can end by retreat, surrender,
+disruption or incapacitation. The drill does not set a clean-hit count for any
+of those outcomes.
+
+An authored comparison through `resolveGuDefense` illustrates the scale. The
+same 30 / 45 slashing packets land 30 / 45 on an exposed 100-vitality body,
+5 / 20 behind 25 points of applicable guard, and 0 / 10 on a 180-vitality body
+behind 35 points of guard. The last hit takes about 6% of that body's vitality.
+The 25, 35 and 180 values illustrate distinct defenses and tolerance. They are
+neither sourced values nor rank defaults.
+
+**Next test.** Replay an exposed mortal, a guarded peer, and a higher-rank body
+against the same source-grounded attack before changing any existing curves.
+Keep actor, move, grade, exposure and defense explicit. Compare interruption,
+injury and the next action or remedy, alongside vitality and recovery. If the
+relative outcomes disagree with the source, identify whether penetration, body
+tolerance, or effect size was wrong before raising a shared damage number.
+Existing routes and saves keep their local scales until an owner has a tested
+conversion and a reason to move.
+
+## Pointer, 2026-11-12: fights at tie-in
+
+Proposals on folding the live fight onto the contest, fun checks, the fight screen, fight kinds as five dials with presets (FK1–FK13), spell fights (SF1–SF6) and a usual frame per world (WS1–WS5) are in the [carry-out's tie-in considerations](PROCEDURAL_CARRY_OUT.md#tie-in-considerations-seam-fun-screen-and-the-fight-system-2026-11-12) and [its second round](PROCEDURAL_CARRY_OUT.md#round-2-kinds-of-fight-spell-fights-world-sense-the-gu-panel-and-enchanted-gear-2026-11-12). FK13 proposes per-contest stakes beside CBC32, CBC37 and CBR6. Nothing there changes CBR1–CBR30.
+
+## Round 5: When a wand falls
+
+**ACT NOW.** The [Chapter 11 replay](research/PROCEDURAL_SPELLCRAFT_ENGINE_EVIDENCE_2026-11-11.md#chapter-11-replay-and-an-interrupted-shield-charm)
+checks a counter that clears two effects and an incoming jinx that changes
+a cast already in preparation. The [disarm drills](research/PROCEDURAL_SPELLCRAFT_ENGINE_EVIDENCE_2026-11-11.md#one-disarm-two-encounter-outcomes)
+compare supervised stoppage with attempted escape. In the supervised drill,
+a spell already in flight can still land after the call.
+
+### ACCOUNT FOR NOW
+
+- **CBD20.** Settle the objective and the physical situation separately.
+  A teacher can award the practice point when the wand drops, order both
+  students to lower their wands and secure the loose one. A rescuer keeps
+  covering the exit until the rescued person crosses. A disarmed pursuer
+  can still block the doorway. CBR2, CBR18, CBR25.
+- **CBD21.** Idle choices follow the objective and the facts the character
+  can observe. Favor lowering the wand after a supervised win and taking
+  cover after a hostile disarm. Escalation, an ambiguous surrender or a
+  dangerous new arrival can be a reason to pause for input. Keep manual and
+  idle play on the same cast and impact rules.
+- **CBD22.** Record what remains dangerous after stoppage. A paid release
+  can still hit, a restraint may hold and recovering a wand may change the
+  balance again. A household charm can change the route or the footing if
+  it can affect the actual surface. Aim, exposure and arrival time still
+  matter. Show the difference between a blocked wind-up, a missed release
+  and a landed effect that nobody has countered yet.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD23 | Have the shared contest publish a supervised win and a hostile escape from the same disarm facts. Include an opponent who offers surrender and someone who can accept it. | Sol, medium | Save during the offer and after acceptance. Each path publishes its outcome once, preserves the wand's actual custody and settles any released spell. |
+
+## Round 6. What the winner does next
+
+**ACT NOW.** The [headless duel and outcome recheck](research/PROCEDURAL_SPELLCRAFT_ENGINE_EVIDENCE_2026-11-11.md#chapter-11-and-camp-wards-recheck) verifies that the same wand loss can lead to a proctor's stop, accepted surrender, or withdrawal with pursuit. An accepted surrender cancels a pending cast and leaves a paid spell in flight to resolve.
+
+### ACCOUNT FOR NOW
+
+- **CBD24.** Set the stake before choosing a spell. In club practice the referee may call a touch, disarm, or yield and secure the wand. In a rescue, the same disarm buys a window to move someone to safety. Show the condition for a point or a successful rescue separately from what either body can still do. Practice and hostile encounters can share every impact rule. See CBR2 and AD38.
+- **CBD25.** After disarm, make the wand's location a decision. A disarmed actor may duck out, call for help, move toward a loose wand, or use a separately learned wandless method if they can perform it. A nearby opponent can try to cover the wand, guard an exit, or accept surrender. Show who has custody and what remains dangerous. A falling body, a fire, a binding, and a released spell each have their own settlement.
+- **CBD26.** Give manual and idle choice the same information. Show why a particular cast is available, what it needs at release, and what could intercept it at impact. An idle practice policy can honor the call and lower the wand. An escape policy can favor a clear path or a timely shield. Treat a household spell by its actual target and effect. Glisseo can change the escape route and send the caster's party down the same chute. Record where the spell landed and who was exposed, including bystanders.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD27 | Compare returning a loose wand in practice with both sides trying to reach it in a hostile encounter. | Sol, medium | Restore while the wand is loose and both actors are moving. The first successful recovery changes casting eligibility, while an already released spell settles from its saved origin. |
+| CBD28 | Add an aftermath choice to a nonlethal win. | Sol, medium | Save at a surrender with an active restraint and a wounded participant. The outcome persists once, while Finite, aid, or leaving changes the remaining danger and the witnesses' responses. |
