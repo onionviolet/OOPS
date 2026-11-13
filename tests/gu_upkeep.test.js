@@ -43,7 +43,7 @@ import {heldMoonlightStockStage, moonlightStockView} from '../src/gu_moonlight_s
 import {clanMoonlightTraits, drawGuTraits} from '../src/gu_traits.js';
 import {moonlightTrialView} from '../src/gu_keeper_moonlight_trial.js';
 import {guKeeperFireTrial, keeperFireTrialView} from '../src/world_packs/book_gu_keeper_fire_trial.js';
-import {guKeeperMoveTrial} from '../src/world_packs/book_gu_keeper_move_trial.js';
+import {guKeeperMoveTrial, guKeeperRaisedMoonblade} from '../src/world_packs/book_gu_keeper_move_trial.js';
 import {keeperMoveTrialView} from '../src/gu_keeper_move_trial.js';
 import {guKeeperMoonblade} from '../src/world_packs/book_gu_keeper_moonblade.js';
 import {guKeeperPastMoonblade} from '../src/world_packs/book_gu_keeper_past_moonblade.js';
@@ -428,6 +428,54 @@ test('Keeper generates and tries Moonblade candidates, retaining early costs whe
     life.step(60);
     action(`try_${alternate.slot}`);
     assert.equal(view().last.outcome, 'complete');
+});
+
+test('Keeper feeds the exact Gu and only the known pairing reaches the distant cord', () => {
+    const life = setup(717, guKeeperMoveTrial, guKeeperRaisedMoonblade);
+    const move = op => life.start(`move_trial.${op}`);
+    const trial = op => life.start(`raised_moonblade.${op}`);
+    const view = () => keeperMoveTrialView(life.p.state, life.record).raised;
+    life.start('take_moon');
+    life.admitExtension();
+    life.admitExtension(1);
+    move('borrow_little_light');
+    life.start('feed_moon');
+    life.start('buy_petals');
+    life.step(DAY);
+    assert.equal(view().moonFed, true);
+    assert.equal(view().support, 'hungry');
+    const petals = life.p.gameplay.player.inventory[key('petals')];
+    trial('feed');
+    assert.equal(life.p.gameplay.player.inventory[key('petals')], petals - 1);
+    trial('research');
+    const plain = view().plans.find(plan => plan.names.length === 0);
+    const paired = view().plans.find(plan => plan.known);
+    trial(`try_${plain.slot}`);
+    assert.equal(view().last.reach, 1);
+    assert.equal(view().cut, false);
+    life.step(DAY);
+    assert.equal(view().support, 'hungry');
+    trial(`try_${paired.slot}`);
+    assert.deepEqual(view().last, {slot: paired.slot, outcome: 'interrupted', spent: 0, reason: 'needs feeding'});
+    move('return_little_light');
+    move('borrow_light_source');
+    trial(`try_${paired.slot}`);
+    assert.equal(view().last.reason, 'Gu unavailable');
+    trial('research');
+    const substituted = view().plans.find(plan => plan.names[0] === 'Light Source Gu');
+    trial(`try_${substituted.slot}`);
+    assert.equal(view().last.reach, 1);
+    assert.equal(view().cut, false);
+    move('borrow_little_light');
+    trial('feed');
+    trial('research');
+    trial(`try_${view().plans.find(plan => plan.known).slot}`);
+    assert.equal(view().last.spent, 5);
+    assert.equal(view().cut, true);
+    trial('enter');
+    const restored = JSON.parse(JSON.stringify(life.envelope()));
+    validateKeeperEnvelope(restored);
+    assert.deepEqual(keeperMoveTrialView(restored.expansion, restored.content_packs.structured).raised, view());
 });
 
 test('Keeper Red Fire keeps the written recipe and prior payments across a returned loan', () => {

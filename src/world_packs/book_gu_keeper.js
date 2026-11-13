@@ -5,10 +5,9 @@
 import {compileUpkeepEvents, compileStandingOrder} from '../living_upkeep.js';
 import {guWorkRows} from '../companion_work_gu.js';
 import {keeperMoveSet} from '../gu_keeper_moves.js';
-import {KEEPER_PREFIX, kId, kKey} from './book_gu_keeper_ids.js';
-export {KEEPER_PREFIX, kId, kKey};
+import {KEEPER_DAY, KEEPER_PREFIX, kId, kKey} from './book_gu_keeper_ids.js';
+export {KEEPER_DAY, KEEPER_PREFIX, kId, kKey};
 const id = kId, key = kKey, steward = id('steward');
-export const KEEPER_DAY = 1440;
 // Dials. The sea is 24 units at a full aperture; aptitude 50% caps it at 12; regeneration is one unit an hour.
 export const KEEPER_DIALS = Object.freeze({fullSea: 24, aptitudePercent: 50, capacity: 12, regenPerHour: 1, startStones: 3, startEssence: 8,
     hungerKills: false, workWeakInjuryOdds: {fine: 2, hurt: 1}, stipendStones: 6, stipendDays: 7, stipendWeeks: 52, choreMinutes: 120, choreStones: 1, fuseOdds: {success: 3, failure: 2}, fuseInjury: 2,

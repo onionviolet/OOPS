@@ -1,5 +1,7 @@
 # Third Codex coordinator handoff, 2026-11-12
 
+This file preserves the incoming handoff at Wave 18. Resume from the [current run record](RUN.md#current-resume-block). The run record supersedes the checkout instructions, in-flight status and dispatch order below.
+
 Weibao (2026-11-12): "hand off for codex to take over again". You are the coordinator of the foundation run from the commit that adds this file. You work in the primary checkout `/Users/weiwei/code/yet-another-idle-rpg` on `master`. The Claude session that wrote this stops coordinating at that commit; one coordinator at a time, by Weibao's word ("This session should cooridnate") after two ran at once on 2026-11-12.
 
 ## Read first

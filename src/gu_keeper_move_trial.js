@@ -9,7 +9,7 @@ import {fireMoveTrial, keeperFireSlots, keeperFireTrial, keeperFireTrialFacts,
     validateKeeperFireTrial} from './world_packs/book_gu_keeper_fire_trial.js';
 import {keeperMoonbladeSupports as supports, keeperMoonbladeTrialFacts, keeperMovePlanSlots, keeperMoveTrial,
     keeperMoveTrialWorld, keeperTrayAlcove, keeperTrayMove, moonbladeMoveTrial,
-    validateKeeperMoonbladeTrial} from './world_packs/book_gu_keeper_move_trial.js';
+    validateKeeperMoonbladeTrial, keeperRaisedMoonblade, applyRaisedMoonblade, raisedMoonbladeFacts, validateRaisedMoonblade} from './world_packs/book_gu_keeper_move_trial.js';
 
 export {keeperMovePlanSlots, keeperMoveTrial, keeperMoveTrialView, keeperMoveTrialWorld,
     keeperTrayAlcove, keeperTrayMove} from './world_packs/book_gu_keeper_move_trial.js';
@@ -22,7 +22,7 @@ const trayWrites = {write_tray_plain: [], write_tray_little: ['little_light'], w
 
 export function isKeeperMoveTrialEffect(effect) {
     const {operation, slot} = effect;
-    const slots = operation === 'cast' ? keeperMovePlanSlots : operation === 'cast_fire' ? keeperFireSlots :
+    const slots = ['cast', 'cast_raised'].includes(operation) ? keeperMovePlanSlots : operation === 'cast_fire' ? keeperFireSlots :
         operation === 'cast_chain' ? keeperChainSlots : 0;
     return effect.type === 'guMoveTrial' && effect.actor === 'player' && keeperMoveTrialEffectPack(operation) !== null &&
         (slots ? Number.isSafeInteger(slot) && slot >= 1 && slot <= slots : slot === undefined) &&
@@ -30,6 +30,7 @@ export function isKeeperMoveTrialEffect(effect) {
 }
 
 export function keeperMoveTrialEffectPack(operation) {
+    if (['feed_raised', 'research_raised', 'cast_raised'].includes(operation)) return keeperRaisedMoonblade;
     if (['research', 'cast'].includes(operation)) return keeperMoveTrial;
     if (Object.hasOwn(trayWrites, operation) || operation === 'cast_tray_move') return keeperTrayMove;
     if (['research_chain', 'cast_chain'].includes(operation)) return keeperChain;
@@ -38,6 +39,9 @@ export function keeperMoveTrialEffectPack(operation) {
 }
 
 export function keeperMoveCommandId(effect) {
+    if (keeperMoveTrialEffectPack(effect.operation) === keeperRaisedMoonblade) {
+        return `${keeperRaisedMoonblade}.${{feed_raised: 'feed', research_raised: 'research', cast_raised: `try_${effect.slot}`}[effect.operation]}`;
+    }
     if (keeperMoveTrialEffectPack(effect.operation) === keeperSignal) {
         return `${keeperSignal}.${effect.operation.slice('signal_'.length)}`;
     }
@@ -63,6 +67,7 @@ export function validateKeeperMoveTrial(state, record) {
     validateKeeperFireTrial(state, record);
     validateTrayMove(state, record);
     validateKeeperMoonbladeTrial(state, record);
+    validateRaisedMoonblade(state, record);
 }
 
 export function keeperMoveTrialFacts(state, actor, record) {
@@ -70,11 +75,14 @@ export function keeperMoveTrialFacts(state, actor, record) {
     const notes = moonbladeMoveTrial.read(state);
     return {
         ...keeperFireTrialFacts(state), ...trayFacts(state, record), ...keeperChainFacts(state, record),
-        ...keeperSignalFacts(state, record), ...keeperMoonbladeTrialFacts(state, notes),
+        ...keeperSignalFacts(state, record), ...keeperMoonbladeTrialFacts(state, notes), ...raisedMoonbladeFacts(state),
     };
 }
 
 export function applyKeeperMoveTrialEffect(state, effect, context, registry) {
+    if (isKeeperMoveTrialEffect(effect) && keeperMoveTrialEffectPack(effect.operation) === keeperRaisedMoonblade) {
+        return applyRaisedMoonblade(state, effect, context, registry);
+    }
     if (isKeeperMoveTrialEffect(effect) && keeperMoveTrialEffectPack(effect.operation) === keeperSignal) {
         return applyKeeperSignal(state, effect, context, registry);
     }

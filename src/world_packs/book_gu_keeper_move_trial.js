@@ -4,7 +4,7 @@ import {moonlightStock} from '../gu_moonlight_stock.js';
 import {keeperChain, keeperChainBay, keeperChainLoans, keeperChainSlots} from '../gu_keeper_chain.js';
 import {keeperAuthorityBay, keeperSignal, keeperSignalBay} from '../gu_keeper_signal.js';
 import {extensionFact} from '../structured_pack_extensions.js';
-import {KEEPER_PREFIX, kId} from './book_gu_keeper_ids.js';
+import {KEEPER_DAY, KEEPER_PREFIX, kId, kKey} from './book_gu_keeper_ids.js';
 
 export const keeperMoveTrial = kId('move_trial');
 export const keeperMoveTrialWorld = kId('world');
@@ -76,7 +76,18 @@ export function keeperMoonbladeTrialFacts(state, notes) {
 export function keeperMoveTrialView(state, record) {
     if (!moonbladeMoveTrial.pinned(record)) return null;
     const notes = moonbladeMoveTrial.read(state);
-    return notes && {plans: moonbladeMoveTrial.describePlans(state, notes), last: notes.last};
+    const raisedNotes = raisedMoonbladeTrial.pinned(record) && raisedMoonbladeTrial.read(state);
+    if (!notes && !raisedMoonbladeTrial.pinned(record)) return null;
+    return {
+        plans: notes ? moonbladeMoveTrial.describePlans(state, notes) : [],
+        last: notes?.last,
+        raised: raisedMoonbladeTrial.pinned(record) ? {
+            target: rangeTarget, cut: !!raisedNotes?.cordCut, last: raisedNotes?.last,
+            moonFed: coreFed(state),
+            support: !loanHeld(state) ? 'with the steward' : supportFedThrough(state) < state.clock ? 'hungry' : 'fed',
+            plans: raisedNotes ? raisedMoonbladeTrial.describePlans(state, raisedNotes) : [],
+        } : null,
+    };
 }
 
 function command(name, label, needs, effect, description = '') {
@@ -118,11 +129,103 @@ export const guKeeperMoveTrial = {
 export async function registerGuKeeperMoveTrial(register, base) {
     if (register.bundledInstantExtension && base.contentHash === baseHash) {
         await register.bundledInstantExtension(guKeeperMoveTrial, base);
+        await register.bundledInstantExtension(guKeeperRaisedMoonblade, base);
         await register.bundledInstantExtension(guKeeperTrayMove, base);
         await register.bundledInstantExtension(guKeeperChain, base);
         await register.bundledInstantExtension(guKeeperSignal, base);
     }
 }
+
+export const keeperRaisedMoonblade = kId('raised_moonblade');
+const raised = keeperRaisedMoonblade;
+const raisedRoom = `${raised}.alcove`;
+const raisedAdmission = eq(extensionFact(raised));
+const meal = `${raised}.little_light_fed_at`;
+// Keeper practice units. The cord is within the doubled reach from ch. 70.
+const rangeTarget = 2;
+const loanHeld = state => holdsSupport(state, 'little_light');
+const lastMeal = state => state.actors.player.facts[meal];
+const supportFedThrough = state => (lastMeal(state) ?? -KEEPER_DAY - 1) + KEEPER_DAY - 1;
+const coreFed = state => state.actors[moonId]?.facts[`${kId('moon_kept')}.fed`] === true;
+
+export const raisedMoonbladeTrial = guMoveTrial({
+    id: raised, world: keeperMoveTrialWorld, place: kId('annex'), energyId: kId('primeval'),
+    slots: keeperMovePlanSlots, research: 'research_raised', effect: 'damage', referenceReserve: 12,
+    knownMove: littleLightMoonblade,
+    core: {id: moonId, kind: 'moonlight', ready: keeperMoonReady,
+        fedThrough: state => coreFed(state) ? state.clock : -1},
+    // The two loan IDs already denote the steward's distinct specimens. This trial reads
+    // the Little Light loan's meal, while Light Source remains in the steward's care.
+    supports: {
+        little_light: {...keeperMoonbladeSupports.little_light, ready: loanHeld, fedThrough: supportFedThrough},
+        light_source: {...keeperMoonbladeSupports.light_source, ready: state => holdsSupport(state, 'light_source')},
+    },
+    notes: {key: `${raised}.notes`, maxSpent: 5, receiptOrder: ['slot', 'outcome', 'spent'], keepExtra: true},
+    outcomeFields: {power: {property: 'magnitude', values: [1, 2]}, reach: {property: 'range', values: [1, 2]}},
+    progress: {cordCut: {field: 'reach', minimum: rangeTarget}},
+    errors: {invalidNotes: 'Invalid cord trial notes.', disagree: 'The cord trial and its notes disagree.',
+        admission: 'Try the distant cord at the Gu house.', research: 'Feed your Moonlight Gu and bring enough essence to cast.',
+        plan: 'Write down a combination before casting at the cord.'},
+});
+
+export function raisedMoonbladeFacts(state) {
+    const notes = raisedMoonbladeTrial.read(state);
+    return {...raisedMoonbladeTrial.planFacts(notes), [`${raised}.cut`]: notes?.cordCut === true,
+        [`${raised}.moon_fed`]: keeperMoonReady(state) && coreFed(state),
+        [`${raised}.feed_ready`]: loanHeld(state) && supportFedThrough(state) < state.clock};
+}
+
+export function validateRaisedMoonblade(state, record) {
+    const notes = raisedMoonbladeTrial.read(state), fed = lastMeal(state);
+    const done = op => state.actors.player.completed[`${raised}.${op}`] ?? 0;
+    if ((notes || fed !== undefined) && !raisedMoonbladeTrial.pinned(record) ||
+        (fed !== undefined && (!Number.isSafeInteger(fed) || fed < 0 || fed > state.clock)) ||
+        (fed !== undefined) !== (done('feed') > 0) || !!notes !== (done('research') > 0) ||
+        notes?.last && !done(`try_${notes.last.slot}`) || done('enter') && !notes?.cordCut) {
+        throw Error('The distant cord needs its meal and cast receipts.');
+    }
+}
+
+export function applyRaisedMoonblade(state, effect, context, registry) {
+    if (effect.operation !== 'feed_raised') return raisedMoonbladeTrial.apply(state, effect, context, registry);
+    if (context.actorId !== 'player' || !raisedMoonbladeTrial.pinned(context.structuredNative) ||
+        state.actors.player.worldId !== keeperMoveTrialWorld ||
+        state.simulation.people.player.location !== kId('annex') ||
+        !raisedMoonbladeFacts(state)[`${raised}.feed_ready`]) throw Error('Bring the Little Light loan to the feeding bench.');
+    state.actors.player.facts[meal] = state.clock;
+}
+
+function raisedCommand(op, label, needs, effect, description) {
+    return {...command(op, label, [], effect, description), id: `${raised}.${op}`,
+        visibleWhen: raisedAdmission, requires: all(ready, raisedAdmission, ...needs)};
+}
+const raisedEffect = (operation, slot) => ({type: 'guMoveTrial', actor: 'player', operation, ...(slot && {slot})});
+export const guKeeperRaisedMoonblade = {
+    schema: 1, id: raised, revision: 1, base: guKeeperMoveTrial.base, dependsOn: [id],
+    label: 'Cut the distant cord',
+    description: 'Feed the clan Moonlight Gu and the steward’s Little Light Gu. Try a Moonblade at the cord across the practice trench.',
+    requires: ready, reason: 'Take up Moonblade research first.',
+    locations: [{id: raisedRoom, label: 'Cord practice alcove', underRoof: true,
+        description: 'The cut cord lies by the raised latch.'}],
+    commands: [
+        {...raisedCommand('feed', 'Feed the Little Light loan · 1 Moon Orchid petal',
+            [eq(`${raised}.feed_ready`), ge(`item.${kKey('petals')}`, 1)], raisedEffect('feed_raised'),
+            'Feed this loan Gu at the bench. The steward’s practice ration lasts one day.'),
+            costs: [{type: 'item', actor: 'player', key: kKey('petals'), amount: -1}]},
+        raisedCommand('research', 'Write combinations for the distant cord', [aperture, eq(`${raised}.moon_fed`), ge(reserve, 4)],
+            raisedEffect('research_raised'), 'Compare reach using the Gu in your care.'),
+        ...Array.from({length: keeperMovePlanSlots}, (_, index) => {
+            const slot = index + 1;
+            return raisedCommand(`try_${slot}`, `Cast at the cord with combination ${slot}`,
+                [aperture, eq(`${raised}.plan_${slot}`)], raisedEffect('cast_raised', slot),
+                'Read the written Gu again when you cast. The cord is beyond a plain blade.');
+        }),
+        raisedCommand('enter', 'Lift the released latch', [eq(`${raised}.cut`)],
+            {type: 'relocate', actor: 'player', location: raisedRoom}, 'Step past the cut cord.'),
+        {...raisedCommand('back', 'Return to the Gu house', [],
+            {type: 'relocate', actor: 'player', location: kId('annex')}, 'Leave the practice alcove.'), location: raisedRoom},
+    ],
+};
 
 const trayAdmission = eq(extensionFact(keeperTrayMove));
 const trayFact = op => eq(`${keeperTrayMove}.${op}`);

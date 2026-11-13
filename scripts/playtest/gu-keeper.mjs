@@ -25,7 +25,18 @@ const p=await context.newPage();p.setDefaultTimeout(20000);
 const result={route:'fresh Village → original RI Gu keeper beginning → free Gu → refused purchases → stipend week → hold more Gu than fed → starved out on schedule → recover → save/reload/import',errors:[],checks:[],matrix:[]};
 p.on('pageerror',e=>result.errors.push(e.message));
 const play=async()=>{await p.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:60000});await p.evaluate(()=>window.simulationTestHooks.pause());await p.locator('#loading_screen_play_button').click({timeout:60000});await p.waitForFunction(()=>document.documentElement.dataset.startScreen==='closed');};
-const open=()=>p.locator('#workspace_navigation select').first().selectOption('beginning');
+const raisedMoonbladeOnly = process.argv[4] === '--raised-moonblade-only';
+const open=()=> {
+    if (!raisedMoonbladeOnly) return p.locator('#workspace_navigation select').first().selectOption('beginning');
+    // Use the real change handler without Playwright's scroll and hit-testing waits.
+    return p.evaluate(() => {
+        if (document.querySelector('#structured_pack_panel [data-structured-action]')) return;
+        const select = document.querySelector('#workspace_navigation select');
+        if (!select) throw Error('The Beginning panel selector is missing.');
+        select.value = 'beginning';
+        select.dispatchEvent(new Event('change', {bubbles: true}));
+    });
+};
 const save=()=>p.evaluate(()=>{window.saveProgress();return JSON.parse(localStorage.getItem('save data'));});
 // Loading materializes zero XP for NPC skills; absence and explicit zero agree.
 // Preserve the player ledger and every nonzero NPC entry in exact comparisons.
@@ -42,7 +53,11 @@ const sim=s=>s.expansion.simulation;
 const gu=(s,n)=>sim(s).people[id(n)];
 const stones=s=>s.inventories.person.main_character[key('stone')]?.count||0;
 const DAY=1440;
-const shot=async name=>{await p.locator('.gu-house').scrollIntoViewIfNeeded();await p.screenshot({path:path.join(out,name+'.png')});};
+const shot=async name=>{
+    if (raisedMoonbladeOnly) await p.locator('.gu-house').evaluate(node => node.scrollIntoView());
+    else await p.locator('.gu-house').scrollIntoViewIfNeeded();
+    await p.screenshot({path:path.join(out,name+'.png')});
+};
 const why=async n=>{assert.equal(await p.locator(`[data-structured-action="${id(n)}"]`).isDisabled(),true);return (await p.locator(`[data-structured-row="${id(n)}"]`).innerText()).split('\n').filter(l=>/need/i.test(l)).join(' ');};
 const act0=act,instant0=instant;
 const toClock=async t=>{for(;;){const c=(await save()).expansion.clock;if(t<=c)return;await step(Math.min(t-c,1440));}};
@@ -1269,6 +1284,65 @@ async function runMoveTrial() {
     assert.match(await resultLine.innerText(),/1 essence spent.*Gu was unavailable.*blade did not form/);
     await roundTrip('moonblade-combination-interrupted');
     result.checks.push('Generated plans compared real casts, and a returned second support left the first unit spent.');
+}
+async function runRaisedMoonblade() {
+    const command = async name => {
+        const action = id(name);
+        const before = (await save()).expansion.actors.player.completed[action] ?? 0;
+        const button = p.locator(`[data-structured-action="${action}"]`);
+        assert.equal(await button.isEnabled(), true, name);
+        await button.evaluate(node => node.click());
+        await p.waitForFunction(({action, before}) =>
+            (window.simulationTestHooks.snapshot().expansion.actors.player.completed[action] ?? 0) > before,
+        {action, before});
+    };
+    await command('take_moon');
+    for (const name of ['move_trial', 'raised_moonblade']) {
+        const extension = id(name);
+        const button = p.locator(`[data-structured-extension="${extension}"]`);
+        assert.equal(await button.isEnabled(), true, name);
+        await button.evaluate(node => node.click());
+        await p.waitForFunction(extension => {
+            window.saveProgress();
+            return JSON.parse(localStorage.getItem('save data')).content_packs.structured.extensions.some(pin => pin.id === extension);
+        }, extension);
+    }
+    const trial = op => command(`raised_moonblade.${op}`);
+    const loan = op => command(`move_trial.${op}`);
+    const view = p.locator('[data-gu="distant-cord"]');
+    const line = view.locator('[data-cord-result]');
+    const plan = async pattern => `try_${await view.locator('[data-cord-plan]').filter({hasText: pattern}).getAttribute('data-cord-plan')}`;
+    await loan('borrow_little_light');
+    await command('buy_petals');
+    await command('feed_moon');
+    await command('buy_petals');
+    await step(DAY);
+    await trial('feed');
+    await trial('research');
+    const paired = await plan(/Little Light Gu/);
+    await trial(await plan(/^Moonlight Gu/));
+    assert.match(await line.innerText(), /4 essence spent.*fell short/);
+    await roundTrip('cord-pair-fed');
+    await step(DAY);
+    await trial(paired);
+    assert.match(await line.innerText(), /0 essence spent.*needs feeding/);
+    await roundTrip('cord-pair-hungry');
+    await loan('return_little_light');
+    await loan('borrow_light_source');
+    await trial(paired);
+    assert.match(await line.innerText(), /0 essence spent.*unavailable/);
+    await trial('research');
+    await trial(await plan(/Light Source Gu/));
+    assert.match(await line.innerText(), /3 essence spent.*fell short/);
+    await loan('borrow_little_light');
+    await trial('feed');
+    await trial('research');
+    await trial(await plan(/^Little Light Gu → Moonlight Gu/));
+    assert.match(await line.innerText(), /5 essence spent.*cut the cord/);
+    await trial('enter');
+    assert.equal((await save())['current location'], id('raised_moonblade.alcove'));
+    await roundTrip('cord-pair-opened-alcove');
+    result.checks.push('The plain and cheaper substitute casts fell short. The exact pairing recovered from hunger and opened the alcove.');
 }
 async function runFireTrial() {
     await p.locator(`[data-structured-extension="${id('fire_trial')}"]`).click();
@@ -2920,6 +2994,9 @@ try {
     } else if(rainbowOnly) {
         result.route='Gu Keeper → activate Rainbow Light → save midflight → arrive or lose the support';
         await runRainbowLight();
+    } else if(raisedMoonbladeOnly) {
+        result.route = 'Gu Keeper → feed both Gu → compare reach and loan readiness → open the practice alcove';
+        await runRaisedMoonblade();
     } else if(moveTrialOnly) {
         result.route='Gu Keeper → generate Moonblade combinations → cast known and alternate moves → interrupt a saved plan';
         await runMoveTrial();

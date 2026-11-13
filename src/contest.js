@@ -12,7 +12,9 @@ import {checkKey} from './check_keys.js';
 import {defineWorkingLaw, beginWorking, settleWorking, nextWorkingDeadline, interruptWorking, quoteWorking,
     validateWorkingRecord} from './kernel_working.js';
 import {applyWorldOps, readQuantity} from './world_substrate.js';
+import {validateHarm} from './harm_state.js';
 import {CONTEST_RESOLVERS} from './contest_resolvers.js';
+import {inReach, facesLight, hasMeans, contactEffects, woundPart, canUseAtPosition, shiftPosition} from './contest_position.js';
 
 export const CONTEST_CONTRACT_VERSION = '0.1';
 export const CONTEST_SCHEMA = 'conflict.contest@1';
@@ -39,6 +41,8 @@ export const CONTEST_DIALS = Object.freeze({
     crowd: {value: 3, why: 'Only about three bodies can strike at one target at the same moment; the rest wait for an opening.'},
     kiteCrowd: {value: 1, why: 'A target that keeps moving out of reach and is faster than its attackers meets them about one at a time.'},
     waitTicks: {value: 5, why: 'An attacker with no opening circles for half a second before looking again.'},
+    glareThreshold: {value: 70, why: 'Direct bright light interferes with a visual defense.'},
+    glareEvasion: {value: 0.15, why: 'A defender looking into the sun has much less time to evade a visible projectile.'},
     oddsSamples: {value: 24, why: 'Odds for a chooser come from running the same rule on this many keyed seeds.'},
 });
 const dial = (law, name) => law.dials[name]?.value ?? CONTEST_DIALS[name].value;
@@ -49,6 +53,7 @@ const clone = v => v === undefined ? undefined : structuredClone(v);
 
 const BUILT_IN = name => ({id: name, kind: name, target: 'self', resolver: null, steps: [1], costs: {}, requires: {}});
 const BUILT_INS = ['withdraw', 'yield', 'wait'];
+const MANEUVERS = ['advance', 'cross', 'drop'];
 
 // ---------- the law ----------
 
@@ -57,7 +62,7 @@ function validateMove(id, move, resolvers) {
     check(Array.isArray(move.steps) && move.steps.length > 0 && move.steps.every(t => natural(t) && t > 0),
         `Move ${id} needs steps of whole ticks.`);
     check(['foe', 'self'].includes(move.target ?? 'foe'), `Move ${id} targets a foe or itself.`);
-    check(move.kind === 'guard' || resolvers[move.resolver], `Move ${id} names an unknown resolver.`);
+    check((move.kind === 'guard' || MANEUVERS.includes(move.kind)) || resolvers[move.resolver], `Move ${id} names an unknown resolver.`);
     if (move.bridge) check(object(move.bridge.law) && object(move.bridge.method) && ['bindings', 'facts', 'ports', 'effects', 'spent']
         .every(k => typeof move.bridge[k] === 'function'), `Move ${id} has an incomplete working bridge.`);
     for (const table of [move.costs ?? {}, move.requires ?? {}]) for (const [q, n] of Object.entries(table))
@@ -94,6 +99,12 @@ function release(law, {bound, options, address, facts}) {
         return {ok: true, effects: [{kind: `contest.${move.kind}`, actor: actor.id, move: move.id}]};
     if (!target.able) return {ok: true, effects: [{kind: 'contest.meet', actor: actor.id, target: target.id, move: move.id,
         outcome: 'wasted', landed: [], chance: 0}], observed: {outcome: 'wasted'}};
+    if (MANEUVERS.includes(move.kind))
+        return {ok: true, effects: canUseAtPosition(actor, target, move)
+            ? [{kind: 'contest.maneuver', actor: actor.id, target: target.id, move: move.id}] : []};
+    if (!hasMeans(actor, move) || !inReach(actor, target, move))
+        return {ok: true, effects: [{kind: 'contest.meet', actor: actor.id, target: target.id, move: move.id,
+            outcome: 'out of position', landed: [], chance: 0}]};
     const draw = name => drawFraction(facts.seed, checkKey({subject: address, method: `contest.${name}`}));
     let meeting = move, spent = {};
     if (move.bridge) {
@@ -105,8 +116,18 @@ function release(law, {bound, options, address, facts}) {
         meeting = {...move, effects: ran.effects};
         spent = ran.spent;
     }
-    const result = law.resolvers[move.resolver]({actor, target, move: meeting, draw, dials: law.dials});
-    return {ok: true, effects: [{kind: 'contest.meet', actor: actor.id, target: target.id, move: move.id, ...result, spent}],
+    const glare = !!meeting.projectile && facesLight(target, actor, dial(law, 'glareThreshold'));
+    const maneuver = law.moves[target.busy];
+    const moving = maneuver?.kind === 'cross' || (meeting.projectile && maneuver?.advance);
+    const lightFactor = glare ? dial(law, 'glareEvasion') : 1;
+    const movementFactor = moving ? (maneuver.moveEvasion ?? 2) : 1;
+    const evasion = (target.profile.evasion ?? 10) * lightFactor * movementFactor;
+    const defender = {...target, profile: {...target.profile, evasion}};
+    const result = law.resolvers[move.resolver]({actor, target: defender, move: meeting, draw, dials: law.dials});
+    const location = glare && meeting.headOpening && result.landed.length ? 'head' : undefined;
+    const landed = contactEffects(target, move, result.landed, location);
+    return {ok: true, effects: [{kind: 'contest.meet', actor: actor.id, target: target.id, move: move.id, ...result,
+        landed, spent, ...(glare && {glare}), ...(location && {location})}],
         observed: {outcome: result.outcome}};
 }
 
@@ -176,6 +197,9 @@ export function entrantView(law, record, world, id) {
     const able = e.status === 'in' && ends.every(q => quantities[q] > 0);
     const guarding = runningMove(law, e);
     return {kind: 'entrant', id, side: e.side, body: e.body, profile: clone(e.profile), able, quantities,
+        ...(e.position !== undefined && {position: e.position, sunDirection: record.sunDirection,
+            sunlight: readQuantity(world, record.place, 'light:sun') ?? 0}),
+        ...(e.held && {held: clone(e.held)}), ...(e.harm && {harm: clone(e.harm)}),
         fraction, impair: dial(law, 'impairment')[rungIndex(fraction)],
         guard: guarding?.kind === 'guard' ? clone(guarding.block) : {},
         busy: guarding?.id ?? null};
@@ -186,7 +210,9 @@ export function entrantView(law, record, world, id) {
 function entrantRow(law, world, e, at) {
     check(idOk(e.id) && idOk(e.side) && world.holders[e.body]?.kind === 'body', `Entrant ${e.id} needs a body in the world.`);
     check(Array.isArray(e.moves) && e.moves.every(m => Object.hasOwn(law.moves, m)), `Entrant ${e.id} names a move this law does not have.`);
-    return {side: e.side, body: e.body, profile: clone(e.profile ?? {}), moves: [...e.moves], speed: e.speed ?? 100,
+    check(e.position === undefined || Number.isSafeInteger(e.position), 'Invalid contest position.');
+    return {...(e.position !== undefined && {position: e.position}), ...(e.held && {held: clone(e.held)}),
+        side: e.side, body: e.body, profile: clone(e.profile ?? {}), moves: [...e.moves], speed: e.speed ?? 100,
         perception: e.perception ?? 5, stealth: e.stealth ?? 0, wants: {fleeAt: 0, yieldAt: 0, acceptsSurrender: true,
             pursues: false, guards: true, ...clone(e.wants ?? {})}, reads: [...(e.reads ?? [])],
         // Use full health so a body that enters already hurt fights impaired (CBR22).
@@ -195,7 +221,7 @@ function entrantRow(law, world, e, at) {
 }
 
 /** Begin a contest. `entrants`: [{id, side, body, profile, moves, speed, perception, stealth, wants, lifecycle}]. */
-export function beginContest(law, {id, seed, place, entrants, sides = {}, detail = 'near', at = 0, limits = {}}, world) {
+export function beginContest(law, {id, seed, place, entrants, sides = {}, detail = 'near', at = 0, limits = {}, sunDirection}, world) {
     check(idOk(id) && natural(seed) && natural(at) && typeof place === 'string', 'A contest needs an id, a seed, a place and a start.');
     check(['near', 'far'].includes(detail), 'Detail is near or far.');
     check(Array.isArray(entrants) && new Set(entrants.map(e => e.side)).size >= 2, 'A contest needs at least two sides.');
@@ -204,7 +230,8 @@ export function beginContest(law, {id, seed, place, entrants, sides = {}, detail
         check(!Object.hasOwn(table, e.id), `Duplicate entrant ${e.id}.`);
         table[e.id] = entrantRow(law, world, e, at);
     }
-    const record = {schema: CONTEST_SCHEMA, id, law: law.ref, seed, place, detail, startedAt: at, clock: at, meetings: 0,
+    check(sunDirection === undefined || [-1, 1].includes(sunDirection), 'Invalid light direction.');
+    const record = {...(sunDirection !== undefined && {sunDirection}), schema: CONTEST_SCHEMA, id, law: law.ref, seed, place, detail, startedAt: at, clock: at, meetings: 0,
         sides: clone(sides), limits: clone(limits), landed: 0, entrants: table, pending: {}, pursuits: [], log: [], result: null, surprised: null};
     // CFC5: the opening comes from who notices first.
     const sideIds = [...new Set(Object.values(table).map(e => e.side))].sort();
@@ -224,7 +251,10 @@ export function beginContest(law, {id, seed, place, entrants, sides = {}, detail
 
 function affordable(law, record, world, e, moveId, id) {
     const move = law.moves[moveId];
-    if (move.bridge && id && !bridgeQuote(move.bridge, entrantView(law, record, world, id))) return false;
+    if (move.tool || move.freeHand || move.partRequired || move.bridge) {
+        const actor = entrantView(law, record, world, id);
+        if (!hasMeans(actor, move) || (move.bridge && !bridgeQuote(move.bridge, actor))) return false;
+    }
     for (const [q, n] of Object.entries({...move.requires, ...move.costs})) {
         const have = quantity(record, world, e, q);
         if (have === null || have < (move.requires?.[q] ?? 0) || have < (move.costs?.[q] ?? 0)) return false;
@@ -243,7 +273,7 @@ export function defaultChoice(law, record, world, id, {canUse = () => true, inco
     // Morale read from the own side: enough of it cut or down and this one gives up.
     if (e.wants.yieldAtSideHurt !== undefined && !e.yieldRefused) {
         const side = Object.values(record.entrants).filter(o => o.side === e.side);
-        if (side.filter(o => o.status === 'out' || (o.lost ?? 0) > 0).length / side.length >= e.wants.yieldAtSideHurt)
+        if (side.filter(o => o.status === 'out' || (o.lost ?? 0) > 0 || o.hurt).length / side.length >= e.wants.yieldAtSideHurt)
             return {move: 'yield', target: id, why: 'its side has been cut'};
     }
     const threatened = incoming || foes.some(f => f.busy && record.entrants[f.id].working?.bindings.target.id === id &&
@@ -253,18 +283,23 @@ export function defaultChoice(law, record, world, id, {canUse = () => true, inco
         const fe = record.entrants[f.id];
         const cap = fe.wants.kite && fe.speed > e.speed ? dial(law, 'kiteCrowd') : dial(law, 'crowd');
         const on = Object.entries(record.entrants).filter(([oid, o]) => oid !== id && o.status === 'in' && o.side === e.side &&
-            o.working?.status === 'running' && o.working.bindings.target.id === f.id).length;
+            o.working?.status === 'running' && o.working.bindings.target?.id === f.id).length;
         return on < cap;
     });
-    const attackable = open.length ? open : [];
-    const pick = e.wants.target && attackable.find(f => f.id === e.wants.target)
-        || [...attackable].sort((x, y) => x.fraction - y.fraction || (x.id < y.id ? -1 : 1))[0];
+    // Positioned fighters prefer a nearby active threat to a wounded or yielding opponent.
+    const priority = foe => me.position === undefined ? foe.fraction
+        : Math.abs((foe.position ?? me.position) - me.position) +
+            (foe.busy === 'yield' || foe.harm?.parts?.hands?.rung === 'maimed' ? 10 : 0);
+    const pick = e.wants.target && open.find(f => f.id === e.wants.target)
+        || [...open].sort((x, y) => priority(x) - priority(y) || (x.id < y.id ? -1 : 1))[0];
     for (const moveId of e.moves) {
         if (!canUse(moveId)) continue;
         const move = law.moves[moveId];
         if (move.kind === 'guard' && !(threatened && e.wants.guards)) continue;
         if (move.kind !== 'guard' && move.target !== 'self' && !pick) return {move: 'wait', target: id, why: 'no opening'};
         if (!affordable(law, record, world, e, moveId, id)) continue;
+        if (move.target !== 'self' && move.kind !== 'guard' && !canUseAtPosition(me, pick, move)) continue;
+        if (move.seekGlare && !facesLight(me, pick, dial(law, 'glareThreshold'))) continue;
         return {move: moveId, target: move.target === 'self' ? id : pick.id, why: move.kind === 'guard' ? 'an attack is coming' : 'best open move'};
     }
     return null;
@@ -300,14 +335,32 @@ function applyMeeting(law, record, world, rules, effect, at) {
         else Object.assign(record, answer.record);
         return world;
     }
-    if (effect.kind !== 'contest.meet') return world;
+    const move = law.moves[effect.move];
+    const actor = record.entrants[effect.actor];
     const target = record.entrants[effect.target];
+    if (effect.kind === 'contest.maneuver') {
+        if (move.kind === 'drop') {
+            record.dropped ??= {};
+            record.dropped[actor.held[move.tool]] = actor.position;
+            delete actor.held[move.tool];
+        } else shiftPosition(actor, target, move);
+        say(law, record, {at, actor: effect.actor, move: effect.move, target: effect.target,
+            position: actor.position});
+        return world;
+    }
+    if (effect.kind !== 'contest.meet') return world;
+    if (!['wasted', 'out of position', 'failed'].includes(effect.outcome)) shiftPosition(actor, target, move);
     const ops = [];
     for (const [q, n] of Object.entries(effect.spent ?? {}).sort(([a], [b]) => (a < b ? -1 : 1)))
         if (n && quantity(record, world, record.entrants[effect.actor], q) !== null)
             ops.push({op: 'add', holder: record.entrants[effect.actor].body, quantity: q, amount: -n, source: `${cause}:spent`});
     let vitalityLost = 0;
-    for (const {verb, object: q, amount} of effect.landed) {
+    for (const {verb, object: q, amount, part} of effect.landed) {
+        if (part) {
+            woundPart(target, part, amount, cause);
+            target.hurt = true;
+            continue;
+        }
         if (quantity(record, world, target, q) === null) continue;
         ops.push({op: 'add', holder: target.body, quantity: q, amount: verb === 'add' ? amount : -amount, source: cause});
         if (q === 'vitality' && verb !== 'add') vitalityLost += amount;
@@ -317,13 +370,18 @@ function applyMeeting(law, record, world, rules, effect, at) {
     world = land(law, record, world, rules, ops, cause);
     if (effect.landed.length) record.landed += 1;
     say(law, record, {at, actor: effect.actor, move: effect.move, target: effect.target, outcome: effect.outcome,
-        landed: effect.landed.map(l => `${l.object} ${l.verb === 'add' ? '+' : '-'}${l.amount}`).join(', ')});
+        ...(effect.spent && Object.values(effect.spent).some(Boolean) && {spent: effect.spent}),
+        ...(effect.glare && {glare: true}), ...(effect.location && {location: effect.location}),
+        landed: effect.landed.map(l => `${l.part ?? l.object} ${l.verb === 'add' ? '+' : '-'}${l.amount}`).join(', ')});
     // CFC6: a hard enough blow cuts a working the target has not finished.
-    const move = law.moves[effect.move];
     target.lost = (target.lost ?? 0) + vitalityLost;
     if (target.lost >= 0.25 * (target.max.vitality || 1)) target.hurt = true;
-    if (target.working?.status === 'running' && target.working.method.steps.length > 1) {
-        if (move.staggers || vitalityLost >= dial(law, 'interruptShare') * (target.max.vitality || 1)) {
+    if (target.working?.status === 'running') {
+        const pending = runningMove(law, target);
+        const lostMeans = pending && !hasMeans(target, pending);
+        const disrupted = target.working.method.steps.length > 1 &&
+            (move.staggers || vitalityLost >= dial(law, 'interruptShare') * (target.max.vitality || 1));
+        if (lostMeans || disrupted) {
             target.working = interruptWorking(target.working, {at, reason: 'Hit before it finished.'});
             target.ready = at;
             say(law, record, {at, actor: effect.target, move: 'interrupted', by: effect.actor});
@@ -362,7 +420,8 @@ function surrender(law, record, world, id, at) {
     const e = record.entrants[id], foes = opponents(record, id);
     if (foes.length && foes.every(([, f]) => f.wants.acceptsSurrender)) {
         e.status = 'out'; e.outcome = 'yielded';
-        say(law, record, {at, actor: id, move: 'yield', outcome: 'accepted'});
+        say(law, record, {at, actor: id, move: 'yield', outcome: 'accepted',
+            ...(e.wants.yieldPosture && {posture: e.harm?.parts?.hands?.rung === 'maimed' ? 'down injured' : e.wants.yieldPosture})});
     } else {
         e.yieldRefused = true;
         say(law, record, {at, actor: id, move: 'yield', outcome: 'refused'});
@@ -562,8 +621,12 @@ export function stepContest(law, record0, rules, world0, ports = {}) {
         return {record, world};
     }
     check(e.moves.includes(choice.move) || BUILT_INS.includes(choice.move), `${id} cannot use ${choice.move}.`);
-    check(affordable(law, record, world, e, choice.move, id), `${id} cannot pay for ${choice.move}.`);
+    check(affordable(law, record, world, e, choice.move, id), `${id} lacks the means for ${choice.move}.`);
     const move = law.moves[choice.move];
+    const target = Object.hasOwn(record.entrants, choice.target) && record.entrants[choice.target];
+    check(target && (move.target === 'self' ? choice.target === id : move.kind === 'guard' ||
+        target.side !== e.side && canUseAtPosition(entrantView(law, record, world, id),
+            entrantView(law, record, world, choice.target), move)), 'Move is unavailable at this position.');
     // Costs are paid as the working begins (KB3 on the kernel side); the refund policy is none by default.
     const costs = Object.entries(move.costs ?? {}).filter(([, n]) => n > 0)
         .map(([q, n]) => ({op: 'add', holder: e.body, quantity: q, amount: -n, source: `contest:${record.id}:${id}:${choice.move}`}));
@@ -623,6 +686,8 @@ export function restoreContest(law, raw) {
     check(raw.law === law.ref && idOk(raw.id) && natural(raw.seed) && natural(raw.clock), 'This contest belongs to a different law.');
     for (const [id, e] of Object.entries(raw.entrants ?? {})) {
         check(idOk(id) && ['in', 'out'].includes(e.status), 'Invalid contest entrant.');
+        check(e.position === undefined || Number.isSafeInteger(e.position), 'Invalid saved contest position.');
+        if (e.harm) validateHarm(e.harm);
         if (e.working) validateWorkingRecord(law.working, e.working);
     }
     return clone(raw);

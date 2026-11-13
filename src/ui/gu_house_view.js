@@ -208,7 +208,7 @@ export function renderGuHouse(parent, house) {
         el('p', `Rainbow Light · ${reserve} white-silver measures · ${status}`,
             root, {'data-gu': 'rainbow-light', role: 'status'});
     }
-    if(house.moveTrial) {
+    if(house.moveTrial?.plans.length) {
         const list = el('section', null, root, {'data-gu': 'moonblade-combinations'});
         el('h5', 'Written Moonblade combinations', list);
         const entries = el('ol', null, list);
@@ -224,6 +224,26 @@ export function renderGuHouse(parent, house) {
             el('p', `Combination ${last.slot} · ${last.spent} essence spent. ${result}`,
                 list, {'data-gu': 'moonblade-result', role: 'status'});
         }
+    }
+    if(house.moveTrial?.raised) {
+        const {target, moonFed, support, plans, last, cut} = house.moveTrial.raised;
+        const section = el('section', null, root, {'data-gu': 'distant-cord'});
+        el('h5', 'Distant practice cord', section);
+        el('p', `Cord at reach ${target} · Moonlight ${moonFed ? 'fed this meal' : 'awaiting its meal'} · Little Light ${support}`, section);
+        const entries = el('ol', null, section);
+        for(const plan of plans) {
+            const name = [...plan.names, 'Moonlight Gu'].join(' → ');
+            el('li', `${name} · ${plan.cost} essence · reach ${plan.reach}`, entries,
+                {'data-cord-plan': plan.slot});
+        }
+        if(last) {
+            const result = last.outcome === 'complete'
+                ? last.reach >= target ? 'The blade cut the cord.' : 'The blade fell short of the cord.'
+                : {'Gu unavailable': 'A Gu in the written plan is unavailable.', 'needs feeding': 'A Gu in the written plan needs feeding.',
+                    'needs more essence': 'Essence ran short.'}[last.reason];
+            el('p', `${last.spent} essence spent. ${result}`, section, {'data-cord-result': '', role: 'status'});
+        }
+        if(cut) el('p', 'The alcove latch is released.', section);
     }
     if(house.fireTrial) {
         const {plans, pair, bundle, last} = house.fireTrial;

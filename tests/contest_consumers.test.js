@@ -3,23 +3,28 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import {composeSubstrate, createWorld, readQuantity, readProvenance} from '../src/world_substrate.js';
-import {beginContest, runContest, contestBodyIntents} from '../src/contest.js';
+import {composeSubstrate, createWorld, readQuantity, readProvenance, serializeWorld, restoreWorld} from '../src/world_substrate.js';
+import {beginContest, runContest, stepContest, serializeContest, restoreContest, contestBodyIntents} from '../src/contest.js';
 import {contestPack, applyLifecycleIntents} from '../src/contest_bodies.js';
 import {restoreCreatureLifecycle, settleCohortStock} from '../src/creature_lifecycle.js';
 import {GU_CONTEST, wangErDuel, crippledPackHunt} from '../src/contest_packs/gu_world.js';
 import {HOGWARTS_CONTEST, duellingClub} from '../src/contest_packs/hogwarts.js';
 
-function fight(law, scene, seed, detail = 'near') {
+function startFight(law, scene, seed, detail = 'near') {
     const rules = composeSubstrate({packs: [contestPack({extra: scene.quantities})]});
     const world = createWorld(rules, {holders: scene.bodies});
     const record = beginContest(law, {id: 'scene', seed, place: scene.place, entrants: scene.entrants,
-        sides: scene.sides, limits: scene.limits, detail}, world);
+        sides: scene.sides, limits: scene.limits, sunDirection: scene.sunDirection, detail}, world);
+    return {rules, record, world};
+}
+
+function fight(law, scene, seed, detail = 'near') {
+    const {rules, record, world} = startFight(law, scene, seed, detail);
     return runContest(law, record, rules, world);
 }
 const seeds = n => Array.from({length: n}, (_, i) => i + 1);
 
-test('FC1 Gu duel: Fang Yuan kills Wang Er and the hunters kneel, paying four parts a blade (RI ch65-70)', () => {
+test('FC1 Gu duel: shared Moonlight activation pays four parts and reproduces the broad outcome (RI ch66)', () => {
     let fangWins = 0, wangKilled = 0, hunterYields = 0;
     for (const seed of seeds(40)) {
         const {record, world} = fight(GU_CONTEST, wangErDuel(), seed);
@@ -105,27 +110,107 @@ const withGu = (scene, moves) => {
     return scene;
 };
 
-test('G\'s own Moonlight Gu working enters the duel unchanged: G\'s cost, G\'s force, the same canon outcome', () => {
-    assert.deepEqual(GU_CONTEST.moves.moonlight_gu.bridge.method, guMethods('moonlight').activate);
-    let wins = 0;
-    for (const seed of seeds(30)) {
-        const {record, world} = fight(GU_CONTEST, withGu(wangErDuel(), ['moonlight_gu', 'fist']), seed);
-        if (record.result.winner === 'fang_yuan') wins += 1;
-        const spent = 16 - readQuantity(world, 'fang_yuan', 'primeval_essence');
-        const blades = record.log.filter(l => l.actor === 'fang_yuan' && l.move === 'moonlight_gu').length;
-        assert.ok(blades > 0);
-        assert.equal(spent, 4 * blades, 'G\'s activation charges four parts a blade');
+const CANON_SEED = 5;
+
+test('FC1 chapter 66: a surviving arm wound breaks morale before the bow, fist and glare exchange', () => {
+    const {record, world} = fight(GU_CONTEST, wangErDuel(), CANON_SEED);
+    const blades = record.log.filter(row => row.move === 'moonlight_gu');
+    assert.deepEqual(blades.map(({target, outcome, location}) => [target, outcome, location]), [
+        ['hunter_1', 'hit', undefined], ['wang_er', 'miss', undefined], ['wang_er', 'hit', 'head'],
+    ]);
+    assert.deepEqual(blades.map(row => row.spent.primeval_essence), [4, 4, 4]);
+    assert.equal(record.entrants.hunter_1.harm.parts.hands.rung, 'maimed');
+    assert.ok(readQuantity(world, 'hunter_1', 'vitality') > 0);
+    assert.deepEqual(record.log.filter(row => row.posture === 'kneeling').map(row => row.actor), ['hunter_2', 'hunter_3']);
+    const beats = [
+        row => row === blades[0],
+        row => row.actor === 'hunter_3' && row.posture === 'kneeling',
+        row => row.move === 'bow_shot' && row.outcome === 'miss',
+        row => row.move === 'drop_bow',
+        row => row.move === 'close_fist' && row.actor === 'wang_er' && row.outcome === 'miss',
+        row => row.move === 'slip_past',
+        row => row === blades[2] && row.glare,
+        row => row.actor === 'wang_er' && row.outcome === 'killed',
+    ];
+    let previous = -1;
+    for (const beat of beats) {
+        const next = record.log.findIndex((row, index) => index > previous && beat(row));
+        assert.ok(next > previous, `missing or out of order beat ${beat}`);
+        previous = next;
     }
-    assert.ok(wins >= 22, `won ${wins}/30`);
+    assert.equal(record.entrants.wang_er.held.bow, undefined);
+    assert.equal(record.dropped['wang_er.bow'], 5);
+    assert.equal(readQuantity(world, 'wang_er', 'arrows'), 0);
+    assert.equal(readQuantity(world, 'fang_yuan', 'vitality'), 30);
+    const shade = fight(GU_CONTEST, wangErDuel({sunlight: 0}), CANON_SEED);
+    assert.ok(shade.record.log.every(row => !row.glare && row.location !== 'head'));
+    assert.notDeepEqual(shade.record.result, record.result);
 });
 
-test('the Little Light Moonblade composed working costs five and cuts twice as hard; with too little essence the chooser falls back', () => {
-    const {record, world} = fight(GU_CONTEST, withGu(wangErDuel({essence: 5}), ['little_light_moonblade', 'fist']), 2);
-    const hit = record.log.find(l => l.move === 'little_light_moonblade' && l.outcome === 'hit');
-    if (hit) assert.match(hit.landed, /vitality -28/);
-    assert.equal(readQuantity(world, 'fang_yuan', 'primeval_essence'), 0);
-    assert.equal(record.log.filter(l => l.actor === 'fang_yuan' && l.move === 'little_light_moonblade').length, 1);
-    assert.ok(record.log.some(l => l.actor === 'fang_yuan' && l.move === 'fist'), 'out of essence, he fights on with fists');
+test('FC1: swapping the bound Gu changes opening damage, final impact and fuel under the same conditions', () => {
+    assert.deepEqual(GU_CONTEST.moves.moonlight_gu.bridge.method, guMethods('moonlight').activate);
+    assert.deepEqual(GU_CONTEST.moves.moonglow_gu.bridge.method, guMethods('moonglow').activate);
+    const baseline = fight(GU_CONTEST, wangErDuel(), CANON_SEED);
+    const swap = fight(GU_CONTEST, wangErDuel({attackGu: 'moonglow'}), CANON_SEED);
+    for (const [result, move, opening, final, essence] of [
+        [baseline, 'moonlight_gu', 'vitality -4, hands -14', 'vitality -21', 4],
+        [swap, 'moonglow_gu', 'vitality -11, hands -42', 'vitality -63', 1],
+    ]) {
+        const casts = result.record.log.filter(row => row.move === move);
+        assert.equal(casts.length, 3);
+        assert.equal(casts[0].landed, opening);
+        assert.equal(casts[2].landed, final);
+        assert.equal(readQuantity(result.world, 'fang_yuan', 'primeval_essence'), essence);
+        assert.equal(result.record.result.outcomes.wang_er, 'killed');
+    }
+    assert.equal(swap.record.result.ticks, baseline.record.result.ticks);
+});
+
+test('FC1: four parts fund Moonlight but leave Moonglow unused, changing the winner in the paired run', () => {
+    const seed = 3, essence = 4;
+    const baseline = fight(GU_CONTEST, wangErDuel({essence}), seed);
+    const swap = fight(GU_CONTEST, wangErDuel({essence, attackGu: 'moonglow'}), seed);
+    assert.equal(readQuantity(baseline.world, 'fang_yuan', 'primeval_essence'), 0);
+    assert.ok(swap.record.log.some(row => row.actor === 'fang_yuan' && row.move === 'close_fist'));
+    assert.ok(!swap.record.log.some(row => row.move === 'moonglow_gu'));
+    assert.equal(readQuantity(swap.world, 'fang_yuan', 'primeval_essence'), essence);
+    assert.equal(baseline.record.result.winner, 'hunters');
+    assert.equal(swap.record.result.winner, 'fang_yuan');
+});
+
+test('FC1: restore after the arm wound and bow drop with a cast pending in both loadouts', () => {
+    for (const attackGu of ['moonlight', 'moonglow']) {
+        const scene = wangErDuel({attackGu});
+        const straight = fight(GU_CONTEST, scene, CANON_SEED);
+        const {rules, ...start} = startFight(GU_CONTEST, scene, CANON_SEED);
+        let pending = start;
+        while (!pending.record.result && (!pending.record.dropped || !pending.record.entrants.fang_yuan.working)) {
+            pending = stepContest(GU_CONTEST, pending.record, rules, pending.world);
+        }
+        assert.equal(pending.record.entrants.hunter_1.harm.parts.hands.rung, 'maimed');
+        assert.equal(pending.record.entrants.wang_er.held.bow, undefined);
+        assert.equal(pending.record.entrants.fang_yuan.working.status, 'running');
+        assert.equal(readQuantity(pending.world, 'fang_yuan', 'primeval_essence'), attackGu === 'moonlight' ? 12 : 11);
+        const reloaded = restoreWorld(rules, JSON.parse(JSON.stringify(serializeWorld(pending.world))));
+        const resumed = runContest(GU_CONTEST, restoreContest(GU_CONTEST, serializeContest(pending.record)), rules, reloaded);
+        assert.deepEqual(resumed.record, straight.record);
+        assert.deepEqual(serializeWorld(resumed.world), serializeWorld(straight.world));
+    }
+});
+
+test('the Little Light Moonblade composed working costs five, cuts twice as hard and gives way to fists', () => {
+    const scene = withGu(wangErDuel({essence: 5}), ['little_light_moonblade', 'close_fist', 'close_in']);
+    const {rules, ...start} = startFight(GU_CONTEST, scene, CANON_SEED);
+    let state = start;
+    while (!state.record.result && readQuantity(state.world, 'fang_yuan', 'primeval_essence') === 5) {
+        state = stepContest(GU_CONTEST, state.record, rules, state.world);
+    }
+    const cast = state.record.log.find(l => l.move === 'little_light_moonblade');
+    assert.equal(cast.spent.primeval_essence, 5);
+    assert.match(cast.landed, /hands -28/);
+    assert.equal(readQuantity(state.world, 'fang_yuan', 'primeval_essence'), 0);
+    const {record} = runContest(GU_CONTEST, state.record, rules, state.world);
+    assert.ok(record.log.some(l => l.actor === 'fang_yuan' && l.move === 'close_fist'));
 });
 
 test('the Hogwarts rows are effect sentences the effect grammar accepts', () => {

@@ -7,15 +7,15 @@ import {searchGuMoves} from './gu_move_search.js';
 import {runGuActivations} from './gu_working_host.js';
 
 const balances = amount => ({player: {primeval: amount}});
-const interruptions = ['needs more essence', 'Gu unavailable'];
+const interruptions = ['needs more essence', 'Gu unavailable', 'needs feeding'];
 
 export function guMoveTrial(row) {
     const {id, world, place, energyId, core, supports, notes, errors, outcomeFields, progress = {}, crossing} = row;
     const supportIds = Object.keys(supports);
     const progressEntries = Object.entries(progress);
     const pinned = record => record?.extensions?.some(pin => pin.id === id);
-    const stage = ({id, kind, ready}, state, reference) => ({
-        gu: {id, kind, rank: 1, fedThrough: state.clock, alive: reference || !ready || ready(state)},
+    const stage = ({id, kind, ready, fedThrough}, state, reference) => ({
+        gu: {id, kind, rank: 1, fedThrough: reference || !fedThrough ? state.clock : fedThrough(state), alive: reference || !ready || ready(state)},
         operator: 'player', ability: guCatalogue[kind].ability.value,
     });
     const stages = (state, reference = false) => [

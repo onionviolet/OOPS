@@ -2,3 +2,4 @@
 export const KEEPER_PREFIX = 'book.ri.keeper';
 export const kId = n => `${KEEPER_PREFIX}.${n}`;
 export const kKey = n => JSON.stringify({id: kId(n)});
+export const KEEPER_DAY = 1440;

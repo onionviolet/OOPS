@@ -612,7 +612,9 @@ Merge: `claude/fdn-coord-w14` at `3832e5b30` into master. Conflicted code and le
 
 Reading correction. The second handoff said Reverend Insanity volumes 5 to 24 had no reading passes. That is true of the batch index and false of the book: the [full-book reading](../../../research/novels/full-book/reverend-insanity/COVERAGE.md) has all 2,334 chapters integrated, with a power index and 179 reader notes that mention killer moves. Weibao (2026-11-12): "I think we do have readnigs". Matching the 753 move leads and wiki-only kinds to chapters is an extraction job over those notes, with a batched reader for chapters where the notes are too thin.
 
-## Wave schedule from Wave 17 (2026-11-12, proposal)
+## Wave schedule from Wave 17 (2026-11-12, historical proposal)
+
+The [canon-first proposal](#canon-first-wave-order-2026-11-12) followed this schedule. The [current resume block](#current-resume-block) governs dispatch. The fold receipts below record what landed.
 
 Weibao (2026-11-12): "What about the procedural stuff? add that to waves as well", then "change wave accordingly, make sure the foundational engine gets finished?" This table replaces the first schedule (Waves 15 to 18 by topic); the reasons for the order are in the next section. Waves 15 and 16 are the merged branch's work. Three lanes at a time unless Weibao says more, engine first, sparse worktrees.
 
@@ -742,7 +744,7 @@ Weibao (2026-11-12), on whether the engines tie into gameplay: "the engine shoul
 | E24 | Canon first: in every ledger, no row is blocked for a reason the engine owns. A row may stay blocked where the source does not say what the thing does, and it names that. Generators and operators start after this holds |
 | E25 | Items have a ledger: Hogwarts magical objects, Gu-world tools and refinement materials, and Lord of the Mysteries sealed artifacts and charms, on the same states as the other seven |
 
-Where E24 stands, from `check:coverage` and the ledgers' own block reasons:
+Historical Wave 18 inventory. See the [coverage correction](#third-codex-coordinator-reconciliation-2026-11-12) for that wave’s verified counts and the [current resume block](#current-resume-block) for dispatch.
 
 | Ledger | Rows | Run or compute | Blocked on the engine | Blocked on the source or on reading |
 | --- | --- | --- | --- | --- |
@@ -754,7 +756,7 @@ Where E24 stands, from `check:coverage` and the ledgers' own block reasons:
 | Lord of the Mysteries potions | 226 | 46 | 6 (body door) | 174 formulas |
 | Creatures | 96 | 35 | 0 | 61 diets unknown |
 
-Hogwarts potions are the largest engine debt: 259 rows wait on five mechanisms, mostly what a dose does once inside a body and a mind. Those five, the 41 Gu mechanisms and the items ledger go ahead of Wave 19.
+The original dispatch estimate highlighted Hogwarts potions, the 41 Gu gaps and the items ledger. The later coverage correction accounts for all 279 blocked Hogwarts potion entries, including entries with missing effect evidence.
 
 ### Wave 18 engine host fold (2026-11-12)
 
@@ -773,3 +775,228 @@ Three Fable lanes edited `src/world_substrate.js` side by side, each in marked r
 | Holder lifecycle (E12) | this fold | Create, end, copy, split, merge, promote and demote as world acts with lineage in the identity kernel; a cohort holder kind; every quantity handed to a holder or a named row; nine faults priced | The creature engine is not on the acts; its lineage key and the dice draw key need joining; no count-only cohort change; rate laws still change totals with no row |
 
 Coordination passes to Codex under the [third handoff](CODEX_COORDINATOR_HANDOFF_3.md) at this commit. The seam test lane (E23) was still running.
+
+### Third Codex coordinator reconciliation (2026-11-12)
+
+PC94, PC95, PC99, AD5, AD36, AD38, AD41 and AD56. Baseline `4d4505223` on master. This receipt and the reviewed E23 probe live on `codex/foundation-coordinator-3` in `/Users/weiwei/code/yair-fdn-coord-3`. The primary checkout and master ref were left alone by this pass. The two Wave 16 Codex chats have returned and their work is already folded. `coord-2` is idle, `coord-3b` was interrupted, and the previous Claude coordinator is idle. No new worker was started while reconciling and proposing order.
+
+- **Fold evidence.** Wave 16 adds the runner timeline and the first Keeper parity case (56 focused passes, full suite 6,652 pass and 5 skip). Wave 17 adds cost owners, the parts record, priced knowledge checks and the faster regulator (6,669 pass and 5 skip). Wave 18 adds the host for working records, saved dice, the place graph and holder lifecycle acts (final full suite 6,712 pass and 5 skip). Each recorded suite had zero failures. Fresh checks on the isolated baseline: host, holder lifecycle, saved dice, place graph and case runner 44/44. The creature engine still needs to use those lifecycle acts and draw identities.
+- **Coverage correction (E24/E25).** Fresh `npm run check:coverage` exits 0. Of seven ledgers, four have computed expression: 75/117 Hogwarts spells, 17/96 creature rows, 16/1,466 Gu kinds, 1/316 Hogwarts potions. Hogwarts ingredients, Gu moves and Lord of the Mysteries potions have typed runs and zero computed cases. Items have no comparable ledger. The earlier 80 spells, 5 Hogwarts potions, 35 creatures and 46 Lord of the Mysteries potions mix typed runs with computed cases. The 259 Hogwarts potion rows in the earlier table span six ledger reasons, including 47 missing effect sentences. Another 20 rows have object-surface, place-release, protection-field or luck-field reasons, for 279 blocked rows total. A reason label still needs review before deciding which mechanism or source input will clear it.
+- **Couplings (E8).** Fresh `npm run report:couplings` exits 0, with 17 registered packs and 9 cross-domain links in the map. It flags the residue pack's `effect.add` publication as undeclared. A link in the map is evidence of the publisher/reader relationship. Its behavior still takes a case.
+- **Worktree retirement.** Ten released Wave 13–15 checkouts were removed with plain `git worktree remove` after hash-verified private archival and confirmation of fold ancestry. Wave 13: chain-detail and held-slot. Wave 14: effects, gu-cases and runner. Wave 15: draught, gu-bodies, mind, producer and working-info. Branches retained. Recovery manifests and local files are under `~/.codex/worktree-archives/yair-foundation-2026-11-12/w13-w15-wmrt4ogk`. Fold differences include the paced nesting regression, a stricter unanswered-publish check, extra Hogwarts cases, and the explicit decision to retain the former typed state on 41 Gu rows. Kept `yair-w13-pace-port`: the uncommitted patch has stricter completed/interrupted receipt and deadline validation and negative tests absent from its fold. Review against E14 and the current save contract before adopting it. Waves 16 and 18 checkouts are outside this retirement batch.
+- **E23 review.** `fable/w18-seam` at `bbbd46946` has the probe and note. `coord-3b` copied the three files into the primary checkout and recorded 7/8 on the combined engine. Its failed assertion timed the engine bridge's one-jump schedule against 120 seconds. The original lane's 177-second measurement covered the separate game-loop banked-week path. On the isolated baseline, a fresh engine-only rerun passed: 321 segments and 353 ms for one day, 2,061 segments and 9.9 seconds for a week in one jump, 9.8 seconds in sixty-minute spends, with the same serialized result. The slice grew from 76,527 to 190,611 characters. See the probe note for ownership, migration, save growth, and clock discrepancies. The primary's copies match the original branch and were left in place. The earlier integration used `tests/headless/`; the probe is now [in the suite](../../../../tests/engine_game_seam.test.js), with the full banked game week opt-in. The relocated probe passed 8/8 in 69.3 seconds, with a banked hour through game ticks and a full engine week through the test bridge. The full banked game week was exercised on the original lane branch and remains open on the combined tree. `check:arch`, `check:rules`, `check:coverage` and `check:docs` exit 0. No game source change or build in this fold.
+
+#### Canon-first wave order (2026-11-12)
+
+Weibao: “can we make sure it covers all cannon stuff first?” E24 is the checkpoint before expansion dispatch. The wave groupings below are the coordinator's execution proposal. Keep E1–E23 in the foundation matrix and E25 in the canon intake.
+
+| Wave | Result at the end of the wave |
+| --- | --- |
+| 1–16, foundation work so far | Shared mechanics, canon cases on one runner, a timeline for delayed effects and recovery, and the first Keeper parity case. The earlier receipts document the engine checks and remaining gaps. |
+| 17–18, folded with open foundation lines | Shared cost, knowledge and design records, working records on the engine clock, saved dice, linked places and holder lifecycle acts. The headless probe verifies the game save and clock seam at fixture scope. |
+| 19 onward, canon closure in bounded waves | Inventory the selected source material and add the items ledger early. Close the engine gaps that concrete canon cases expose. Start with creature lineage and near/far parity, and shared dose settlement. Prove the potion mechanism with a source-grounded Hogwarts case and validate the shared behavior with a distinct consumer where it applies. Then cover spell effects, other potion mechanisms, Gu and moves, ingredients, creatures and items by shared mechanic. Include ordinary uses and documented canon exceptions. Run mixed settlement and restore checks as the mechanics land. |
+| After E24, procedural expansions | Copy, edit, graft, induce, transfer and make through the shared rules. Generated Gu moves, potions and spells execute on the same runner. Exercise plausible local and compatible cross-world workarounds using actual prerequisites, difficulty, costs and risks. |
+| After shared engine proof, scenes and game tie-in | Use named scenes as acceptance cases driven by data. In the tie-in phase, move playable routes onto the engine, verify them from a fresh build, and prove save, reload and import. |
+
+**E24/E25 dispatch check.** The coverage denominator is the selected source scope, established before declaring closure. Each in-scope world records its edition or chapter range and the capability families it covers. Compare that inventory with the existing ledgers, the items ledger and any missing family or world. Include spells, potions and ingredients, Gu kinds and killer moves, creatures, magical objects and materials, and documented exceptions and combinations. Record gaps for intended worlds without comparable coverage, including D&D where its selected rules are in scope. Use scoped batches to fill the gaps and keep their source locators.
+
+**Canon reconstruction comes first.** During the canon waves, build and test the rules that produce known results from their documented parts and conditions. Use the existing held-out canon test (PFP17, PFP26, RV1). Give the rule the components, order and conditions the source establishes. Compare the result with the expected canon behavior, then execute it through the shared engine and check its costs and effects. Keep source facts and authored calibration visible. Missing parts or rules stay named gaps. These reconstruction tests belong in canon coverage. Open-ended invention of new moves and other variants follows E24. [Foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md).
+
+The first Gu composition proof and its substitution results are recorded in the [Red Fire receipt](#red-fire-reconstruction-and-substitution). Apply the same reconstruction test to a potion with a documented recipe and to a creature trait where the source establishes the relevant causes.
+
+Every source-supported mechanic in scope must have a generic runner case that proves the stated effect or constraint, including a documented exception where it changes the outcome. Shared cases can cover equivalent rows with an explicit mapping and separate cases for meaningful differences. Keep sourced mechanics and authored calibration distinct. Explicitly account for aliases, non-mechanics and genuinely source-unknown behavior. Unread or unindexed selected material is outstanding intake. Missing engine behavior is outstanding implementation. Typed runs and successful samples carry their own evidence and cannot close those outstanding rows.
+
+The baseline has 109 computed cases in four ledgers. Three ledgers still lack computed cases, items lack a comparable ledger, and completeness against the selected sources remains unverified. Keep the retained pace validation and receipt growth under E14/E21, and run the E24 dispatch check before opening the expansion waves.
+
+#### Spell, creature and Gu engine proofs (proposal)
+
+PC95, E6, E7, E12, E19–E24 and [SC4](../../../PROCEDURAL_FOUNDATION_PLAN.md#the-default-sc4-with-gu-as-a-world-pack-and-a-thin-law). Use the existing creature lifecycle, bindings, workings and contest. The same individual should carry its condition and experience from care to a task or a fight and back. Implement the smallest behavior each sourced case needs. A pet or familiar can provide warning, scouting or other aid through the same action path.
+
+| Layer | What it must prove |
+| --- | --- |
+| Living body and care | One identity across habitat, custody, feeding, injury and recovery. A keeper can see what changed and act on it. |
+| Agency and bond | A creature can act, refuse or help when its behavior supports it. Custody, command, cooperation and access to an ability can change independently. |
+| Shared contest | A human and an independent creature use the same contest. A companion can assist or withdraw, and the contest's result changes the same body that care reads afterward. Creature against creature uses this same route when a sourced case calls for it. |
+| Spellcasting | A spell is an ability a caster can use through a world-specific method. The spell defines what the cast does. The working settles this particular cast with its caster, target, preparation, implements, costs and duration as applicable. A ward can retain the effect for a later trigger. |
+| Gu activation | A carried or refined Gu supplies an ability to its operator, and a source-supported autonomous Gu can act through its own policy. Track operator, payer, target and effect independently. A Gu remains the same individual when it acts, is used, or is fitted into a killer move. |
+
+Start with a human and a living companion facing a threat. Give the companion an aid or retreat choice and carry the outcome through injury or recovery and save/restore. Use a separately sourced wild or voluntary Gu case to prove the agency route. For spellcraft, reuse the Hogwarts levitation and disarm cases. Disarm already moves the held wand and releases the grip in the fixture. Extend that case through a second action that reads the equipment change, such as the opponent attempting another wand-dependent cast. Check the target, one relevant prerequisite or interruption, and the resulting state change. Reuse the encounter contract for a cultivator's Gu activation with observable costs. Bind each case to its evidence before it earns canon credit. These are proposed checks within the canon waves. The [accuracy and interference pass](../../../ABILITY_RULES.md#more-to-consider-accuracy-and-interference-across-abilities-proposal) covers cast reliability, delivery, counterplay and recovery across ability families.
+
+#### How the engine will connect to play (proposal)
+
+E20–E23, PC95. During foundation work, exercise the route headlessly through the shared engine. An actor discovers available actions from what they know, carry or can ask for. They select a target and get a quote for the time, costs, conditions and risks they can assess. The engine rechecks the actual state when the action starts or settles. The resulting receipt tells the actor what happened at the level they can observe. The world state carries the outcome into the next action and through save/restore. A human, NPC or creature uses the same action path where their means allow it.
+
+| Player entry point at tie-in | Engine behavior to connect |
+| --- | --- |
+| Spellbook or a contextual Cast action | The existing [spellbook host](../../../../src/spellbook_host.js) supplies the learned spell, caster and selected target to [spell workings](../../../../src/spell_law.js). The world pack supplies preparation, wand, components, slots or other conditions where applicable. A levitation cast can move an object during exploration. In a contest, the shared effect can change an opponent's options. |
+| Gu inventory, aperture or move list | The chosen Gu or combination provides the working's parts. Check the specific specimen, access and fuel. The receipt shows which effects landed, who paid and whether the Gu's condition changed. |
+| Companion interaction or encounter | Offer care, a request for help or an available command. The creature can act, refuse or retreat according to its bond and situation. Injury and recovery use the same body that care reads. |
+
+During tie-in, adapt one existing Spellbook cast first. Reconcile which system owns learned spells, equipment, resources and condition so a cast spends and applies its result once. Register the engine save and clock bridge through the existing [domain registry](../../../../src/domain_registry.js), using the absolute game clock established by the seam probe. Verify the player can reach the cast, select a real target, see its cost or refusal, observe the result and recover the state after saving, reloading and importing. Extend the same connection to a Gu activation and a companion action after that proof.
+
+#### What the current game can represent
+
+The foundation has enough structure for the proposed first cases. The [identity registry](../../../../src/kernel_identity.js) associates one individual with several facets. The [working host](../../../../src/engine_records.js) resolves participants and saves actions and effects in flight. The [contest](../../../../src/contest.js) can resolve effects against body holders. The live [Spellbook](../../../../src/spellbook_host.js) already previews and commits native commands. The [seam probe](W18_GAME_SEAM.md) identifies where the two representations still need to meet.
+
+- **Identity and ownership.** Resolve each cast or command to the same live actor, target and item or creature across care, inventory and combat. Read live equipment, knowledge and resources through their existing owners. Return debits and effects to those owners once. Prove that losing the implement, moving the target or changing a companion's custody between quote and execution changes the result as the rules specify.
+- **Shared action roles.** Use the working's bindings to distinguish the actor, ability source, payer and target where they differ. For a Gu, control, consent and custody can each change independently. The existing native ability compiler defaults to the player and supplies no target on its base descriptor. Use the existing target path where it fits and extend it for cases that need other participants or objects.
+- **Mechanic coverage.** Extend the effect and target rules when a sourced case requires more detail, such as a creature choosing to act, a disarm that changes a target's available actions, or a ward that fires on a later trigger. Prove that a later action can read the change. Save and restore identity, state and ongoing workings across the same shared clock. The remaining canon inventory determines the full set of gaps.
+
+[Cataclysm: Dark Days Ahead's spell data](https://github.com/CleverRaven/Cataclysm-DDA/blob/master/doc/JSON/MAGIC.md#monster-spells) is a precedent for player and creature spell use and for spell effects that create or change creature relationships. [Battle for Wesnoth's ability rules](https://wiki.wesnoth.org/AbilitiesWML#Abilities_and_their_effects) distinguish the unit providing an effect from the attacker, defender and beneficiary. [Unreal's Gameplay Ability System](https://dev.epicgames.com/documentation/en-us/unreal-engine/using-gameplay-abilities-in-unreal-engine) provides a precedent for activation conditions, costs and ability grants. These examples support reusing the current action and effect representation. The cases in the canon waves will establish how far the game's current rules cover its own worlds.
+
+#### Finish lines by direction (proposal)
+
+Use these outcomes to choose the next case and stop a packet when its promised behavior is verified. They summarize the existing finish list and distinguish a working mechanism from coverage of all selected canon. The [selective spatial design](../../../../DESIGN.md#selective-2d-exploration-2026-11-01) governs how a player sees these decisions at tie-in.
+
+**Spatial representation.** Start with named places or encounter zones and typed links for movement, sight, sound or other effects. The [Wave 18 place graph](W18_PLACE_GRAPH.md) already supports link kinds, costs, open or closed state and bounded reach. A text view can say which targets are reachable, what obstructs them and how to get around it. Add a relation or zone when a case needs distinctions within one place, such as who is behind cover or close enough to intercept. Use finer geometry if a case turns on angles, trajectories or exact placement. A diagram or map earns its place when it makes a player decision easier to read.
+
+| Direction | End goal and observable check |
+| --- | --- |
+| Shared actions, costs and knowledge (E1–E3, E7, E9, E15, E17, E19–E20, E22) | Actors can discover an action, quote it from what they know, and carry it out under the actual conditions. A failed or interrupted action explains the observable reason and settles its price correctly. Show the same action path for player and NPC, with distinct actor, payer, source and target where relevant. |
+| Space, senses and encounters (E10, E15, E19) | Position, reach and obstruction change what actions are possible. Prove one meaningful change in position or cover and a next action that reacts to it. A human, creature and companion can act through the same contest where the case calls for them. |
+| Creatures and bonds (E6, E11–E12) | The same individual carries identity, traits, needs, bonds and injuries across care, a task or encounter, and recovery. A companion can assist, refuse or retreat for a reason. A cohort and its individual counterpart agree within the case's stated tolerance. |
+| Spells, Gu and moves (E19–E20, E24) | Reproduce documented effects with the source's access, targets and costs. Prove a spell that changes a later action, a cultivator's Gu activation, a sourced autonomous or voluntary Gu action, and a composed killer move. A documented difference in control or effect changes the result. |
+| Potions, materials and items (E13, E19, E24–E25) | A formula or recipe transforms its inputs, an item or dose reaches its intended target, and the effect persists or expires by rule. Reuse the demonstrated mechanism for equivalent rows. Validate shared behavior with a distinct consumer where it applies (AD51). Account for the ingredients, items and meaningful source exceptions in the ledgers. |
+| Clock, persistence and performance (E4–E5, E8, E13–E14, E16, E18, E21) | Mixed actions, bodies and effects in flight reach equivalent outcomes by stepping, jumping and restoring. Verify costs, quantities and receipt growth within the budgets recorded for the case. Keep engine and live game timing visible as separate measurements. |
+| Canon coverage (E24–E25) | Audit the selected sources against the ledgers. Each documented mechanic and meaningful exception points to an executable case, directly or by explicit mapping. Unread scope, unclear sources and missing engine behavior stay visible as described in the dispatch check above. |
+| Procedural expansion and gameplay tie-in (E20–E23, PC95, PC97) | After canon closure, demonstrate generated variants and compatible ways around a rule through the same engine. At tie-in, a player can find the action, choose a target, understand the result, and continue after reload or import. Start with one existing Spellbook cast and then reuse the connection for a Gu and companion action. |
+
+Each lane brief names the case or family it will advance, the existing mechanism it will use, the observable difference to prove, and the check that closes the packet. If an existing representation passes that case, reuse it for equivalent rows. If two situations collapse to the same outcome despite different source rules or player choices, add the smallest distinction that explains the difference. Record the evidence and stop at the packet's finish line. Put further ideas in the relevant existing row. Use the existing usage check before each dispatch.
+
+#### Work to reach the core goals
+
+Use the [finish lines by direction](#finish-lines-by-direction-proposal) for each packet and the existing canon checkpoint for breadth. The [foundation atlas](PROGRESS_ATLAS.md) maps those finish lines to the current evidence and missing consumers. The sequence below is a proposed execution order within PC95 and PC99.
+
+| Work | Evidence that moves it forward |
+| --- | --- |
+| Inventory selected canon and start the items ledger (E24–E25) | Name the source ranges and capability families. Map known mechanics and exceptions to runnable cases or the specific missing behavior. Record missing source evidence and scope still to read. |
+| Prove a few connected actions on the current engine (E1, E6, E10–E12, E19–E20) | Extend the existing Disarm case through the next wand-dependent cast and recovery. Join creature identity and lifecycle, then compare cohort and individual settlement. Prove one shared dose mechanism. Reuse the action path for a sourced Gu use and a companion action as their owners land. |
+| Close engine gaps and cover equivalent rows (E1–E20, E22, E24–E25) | Use the case runner and existing finish matrix. As each mechanic lands, run its relevant mixed, interrupted or restored case, then map equivalent canon rows to its proof. Add local rules for differences that change outcomes. Verify observer-safe quotes and receipts through the same settlement path. |
+| Open expansions after canon closure | Prove a generated variant and a justified exception through the same action path. Reuse the existing rules for prerequisites, costs, failure and recovery, and expand the relevant family by its recorded finish line. |
+| Prove live use at tie-in (E20–E23) | Connect one existing Spellbook action through the game clock, save and state owners. In a fresh build, the player finds it, chooses a target, sees the result, and continues after save, reload or import. Reuse that connection for Gu and companions. |
+
+The [implementation guidelines](../../../ABILITY_RULES.md#implementation-guidelines) describe what belongs to the action, delivery and state owners. The [visualization guidelines](../../../../DESIGN.md#action-and-encounter-views-proposal) describe what the player should be able to see and do. A packet ends at its observable check. Bring further representation or presentation detail into a later packet when it changes a sourced result or a player decision.
+
+#### First procedural engine slice (proposal)
+
+E10, E19–E20 and AD38. Start with **actions that depend on a held implement**. Use the existing Disarm case as the source-grounded effect. The wand's holder, location and grip already live in world state. The current duel uses a focus proxy. For this slice, have a wand-dependent working read the actual grip and location when quoting and at the step where the method needs the wand. Reuse the shared effect, binding and place rules for losing or recovering the implement. The world-specific method supplies the requirement and costs.
+
+Use one fixture with the same methods and vary the starting facts or intervening actions:
+
+| Situation | Observable result |
+| --- | --- |
+| The wand is held and Disarm lands | The same wand moves and the next wand-dependent action sees that it is unavailable. |
+| A position ward blocks the movement | Grip and location stay consistent and the next cast can still use the wand if its other conditions hold. |
+| The caster retrieves the wand by a reachable route and grips it | The same action becomes available again. The route and recovery consume whatever time or resources their rules require. |
+| The caster loses the wand after the quote | The working sees the change when it needs the implement and settles the method's applicable cost or interruption once. |
+
+The case passes when its branches use the same working and effect rules, each outcome follows from the changed state, and restoring between disarm and recovery gives the same result. Use the existing fixture runner and focused tests. A comparable existing tongs-and-ward test is a cross-domain reference for the shared movement rule. A later tool-dependent craft or Gu activation can validate the new consumer without sharing the wand requirement itself.
+
+This is procedural settlement of a canon action within the current foundation phase. Generating new spell designs or other expansion content follows the existing canon checkpoint. Use the [ability guidelines](../../../ABILITY_RULES.md#implementation-guidelines) for the action boundary and the existing [core work order](#work-to-reach-the-core-goals) for the remaining directions.
+
+#### First procedural Gu and creature cases (proposal)
+
+Use the same principle as the held-implement case. An action changes the state a later decision reads. Each case can advance on its own existing engine path.
+
+| Direction | First connected case | Finish check |
+| --- | --- | --- |
+| Gu as a living ability source (E11–E12, E19–E20) | Reuse Moonlight Gu. The feeding fixture already distinguishes matching food, wrong food and starvation. The contest fixture already runs its ability and pays essence. Connect those paths through the same specimen. | The action reads the actual Gu, who can use it, who pays and any condition that the method checks. A transfer or loss of access between quote and execution changes what can settle. The correct food changes that specimen's condition. Apply a hunger effect to the cast where the selected source or an explicit authored rule supports it. A sourced voluntary Gu case can later prove the Gu acting as its own operator. |
+| Creature as an actor (E6–E7, E11–E12, E19–E20) | Use one named companion and one threat. The companion can aid, warn or withdraw according to its relationship and condition. Let an encounter injury persist into care. | With the same action rules, a change in condition or relationship changes the choice where it matters. Care changes recovery on that same individual. Save between the encounter and care, then verify that identity, condition and the next decision agree after restore. Compare cohorts and individuals separately under E6. |
+
+Stop each packet when the next consumer reads the changed state and the distinguishing check passes. Source-supported effects and authored decisions retain their own evidence.
+
+#### Generating new moves and creature traits (proposal)
+
+G4 and PC96–PC97. Build on the existing prototypes. [Gu move generation](../../../../tests/gu_move_generation.test.js) already searches a bounded set of held parts, compiles and settles a new fire composition through the working kernel, and keeps the proven design in an archive. [Creature heredity](../../../../tests/heredity.test.js) already produces offspring from parents, models exposure-dependent mutation, and shows that selecting on measured wool changes a flock over generations. These checks passed 14/14 on the coordinator checkout. G4 tracks generation integrated into the shared engine world. The existing prototype proofs retain their own scope.
+
+| Direction | First generation proof and finish line |
+| --- | --- |
+| Gu moves | Use the [Red Fire receipt](#red-fire-reconstruction-and-substitution) for the verified manual substitution and the remaining search and discovery work. |
+| Creature traits | Start with the same sheep stock and compare selection for measured wool with an unselected flock. Take the offspring through birth, growth and the trait's real consumer, such as a fleece harvest. Preserve lineage through save and restore. Introduce a second selection goal when another heritable trait has an actual consequence. |
+
+The table describes later invention and variation proofs. First reconstruct and execute known results from their source-supported inputs under the canon-first wave order above. Disarm, Gu custody and companion care exercise state that these systems can later read. New move design and inherited variation have their own tests.
+
+#### Red Fire reconstruction and substitution
+
+GL3, PFP17, RV1, E19 and E24. Scope is the offensive combination Wei Yang describes in chapter 275 (GKM124). Red Fire attacks, Duplicate increases flame count, Enlarge strengthens the flame, and Fire Source lowers essence expenditure. Fire Discharge is described as movement. Rank, numerical costs, per-flame force, activation order and timing use authored fixture values. The chapter describes this combination as part of Xiao Yan's Gu set. The fixture uses the four documented parts as inputs, and the expected flame count, force and costs are independent assertions. [Source evidence](../../../research/gu-identity-evidence.json) · [Gu research](../../../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md#red-fire-combinations-at-the-practice-kiln)
+
+| Change to the inputs | Headless result |
+| --- | --- |
+| Four source Gu | Two flames of force two land on a bound body. The engine's essence account debits six units. A mid-working save and restore matches uninterrupted settlement. |
+| Substitute Light Source in the exact recipe | The Fire Source role rejects the different kind before payment. |
+| Test a different design with Light Source in that role | Light Source's current rule discounts light abilities. Red Fire still lands the same two flames, and the total debit rises to nine. This is an authored experiment. It makes a distinct and less efficient design under these rules. |
+| Give the experimental design eight units, or transfer the core after the supports settle | The core interrupts with the applicable reason. The three spent support units remain spent, and no flame lands. |
+
+The [engine adapter](../../../../src/gu_flame_working.js) uses the existing Gu role compiler and activation law, reads current custody and essence, and delivers each resolved flame through the shared effect and cost owners. Its [fixture](../../../../tests/gu_flame_working.test.js) starts with a resolved body target. Spatial delivery and automatic discovery have their own future consumers. The [layered protection proposal](../../../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md#layered-protection-in-shared-engine-combat-proposal) holds the layered damage evidence and the crafting and rank follow-ups under E19. The [ward and condition proposal](../../../ABILITY_RULES.md#wards-and-effects-on-people-long-term-proposal) records the long-term trigger, protection and status consumers.
+
+- **ACT NOW.** Record the executable reconstruction and swap here. The canon wave order and generation row link to this receipt. Keep GKM124 as the source and earlier Keeper evidence owner. The earlier contest and generator receipts retain their scope.
+- **ACCOUNT FOR NOW.** Keep exact recipe identity, experimental compatibility, and settlement failure distinct. A working swap can be worse at the inventor's goal, as it is here. A later search can rank it accordingly while preserving a useful variant that offers a real tradeoff. Keep support compatibility specific to the effect a support changes. Retain the earlier debits when the core becomes unavailable.
+- **LATER / DELEGATE.** A bounded implementation lane at medium effort can connect the existing goal search and archive to this engine path. Its finish check is that a search proposes a variant with a demonstrated difference, settlement validates the predicted effect and actual costs, and a retained design can be used after restore. A rejected or interrupted attempt leaves a reason in its receipt. Follow the existing canon-first expansion order. Other move families, simultaneous multi-operator moves and projectile routing are outside this case.
+
+Checks on the coordinator worktree at `d423a30fa` plus these changes. Seven focused files passed 47/47. Architecture, rules, coverage and docs checks passed. The adapter is outside the live entry path, so this is PC95 engine fixture evidence. The layered protection follow-up passed 57/57 focused tests across nine files. Architecture, rules, coverage and docs checks passed. The two new headless modules are outside the game entry path. The fixture verifies actual coat and ward capacity, physical contact through a fire ward, authored body resistance, harm inbox publication and restore after ward depletion. Crafting, progression-derived resistance and live play remain separate consumers. See the combat owner linked above for the results. The generic ledger runner has no case for this composed route yet. The coverage totals retain their prior scope. Browser play and a live cast were outside this slice.
+
+#### Procedural combat across worlds
+
+The goal in [OS2](../../../PROCEDURAL_FOUNDATION_PLAN.md) and E19 is to reproduce each selected world's canon combat from its actors, abilities, equipment, environment and local rules. The shared contest should derive the sequence and consequences from those inputs. Start from the existing canon anchors and use variations to find where a shared rule or a world-specific rule is missing.
+
+| Existing anchor | Next question for the shared contest |
+| --- | --- |
+| Hogwarts duel | Can the duel use the actual wand and its reach so disarming or recovering it changes what the opponent can cast next? |
+| Gu duel | The [pit fight](#wang-er-fight-and-one-gu-swap) now uses actual Gu activation and a paired swap. Use the missing chapter beats to drive the next changes to the shared contest. Red Fire and layered protection supply separate evidence for composition and defense against a resolved target. |
+| Wolf hunt | Can a human and creatures choose, fight, withdraw and recover through the same encounter? The contest already passes selected injury and stock changes to the lifecycle. |
+
+Reuse the current contest, workings and effects. For each anchor, exercise the source-supported outcome and vary one input that ought to change it. Record the missing rule when the outcome cannot be derived. The [saved hand-burn idea](../../../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md#saved-hand-burn-idea) is one way to check aftermath and care. It does not change the canon-first wave order.
+
+#### Wang Er fight and one Gu swap
+
+AR3, E19, CFC3a, CFC7, CFC11, CFC16 and AD49. The pit fight uses real Moonlight activation on the shared contest clock. In the calibrated chapter 66 replay (seed 5), the first blade reaches the nearest hunter and localizes a surviving maiming wound. The existing side morale rule makes two witnesses kneel. Wang Er shoots as Fang Yuan closes, misses, drops the held bow and uses fists at contact range. Fang Yuan crosses to the other side. The world’s sunlight and the new relative facing create the opening for the final blade. The exchange shows a second moonblade missing and a final head strike. The fixture uses the hands rung for forearm impairment, local one-axis positions, and an authored hit-location and vitality scale. [Chapter 66](https://roliascan.com/read/reverend-insanity/ch66-97413/) · [Fight tests](../../../../tests/contest_consumers.test.js)
+
+| Replay | Result |
+| --- | --- |
+| Seed 5, Moonlight, 16 essence | Three activations cost 12 parts. Wang Er dies at tick 34. |
+| Seed 5, swap Moonglow, 16 essence | Three activations cost 15 parts. The final impact triples and the fight still ends at tick 34. |
+| Seed 5, remove sunlight | No glare or head strike. Moonlight takes a fourth cast. |
+| Seed 3, four parts | Moonlight activates once and Fang Yuan loses. Moonglow cannot activate, and Fang Yuan wins with fists. |
+| Save after arm wound and bow drop | Both loadouts resume the pending cast with the same outcome, ledger and world as uninterrupted settlement. |
+
+Across seeds 1–40, the swap changed the winner in 1/40 pairs with 16 parts and 20/40 pairs with four parts. It ended sooner in 27/40 pairs with 16 parts. These are sensitivity checks for this opponent policy and starting state.
+
+**Essence and live transfer.** The lead starts with a 44-part capacity on a 100-part aperture scale. The four-part chapter action cost is authored. The contest uses the Moonlight catalogue's four-part base and Moonglow's five-part base in an ungraded pool. It quotes before choosing and debits on Gu release, including a released miss. A cast interrupted before activation spends no Gu essence. Bow ammunition is reserved by the current contest's ordinary up-front cost path. The Little Light test debits one for support plus four for Moonlight. In the wider activation law, the base cost takes the supplied grade and stage factors and applicable Gu modifiers. A live adapter needs the actual aperture and exact specimen, an action choice over the same resolver, and settlement back to the native energy, harm, inventory and story owners. The authored chapter route still owns the live scene today. A first live proof should play the encounter with a changed outcome, then save, reload and import it. [Lead aperture](../../../../src/world_packs/book_gu_lead_life.js) · [Fuel calculation](../../../../src/gu_fuel.js) · [Live chapter route](../../../../src/world_packs/book_gu_lead_early_duel.js)
+
+**Coverage.** Keep named canon combinations as individual evidence rows. Known ingredients and behavior can be exact replay fixtures. A known effect with incomplete ingredients can be checked at its effect boundary with the missing recipe explicit. Mentions with insufficient detail remain source gaps. For discovered combinations, use existing role compatibility to prune, then the same activation and settlement to verify valid, failed and interrupted attempts. [Current Gu search](../../../../src/gu_move_search.js) evaluates one core with direct supports, with defaults of two supports and 200 trials. It does not search chained or simultaneous moves. The [compiler](../../../../src/gu_move_roles.js) can bind and compile authored roles, and the contest bridge settles an entire foreign working at release. Joint timing, distinct delivery and real state changes during a cast need proof from the first canon cases that demand them. Preserve each budget or source gap and report canon coverage from the checked rows.
+
+Checks on `d423a30fa` plus the coordinator edits. Contest, contest consumers, Gu working law, Gu move roles, Red Fire, Gu upkeep, Gu refinement and harm passed 125/125 focused tests. Architecture, coverage, rules and docs checks passed. Rules reported the existing Hogwarts day-counter and private-pack glob warnings. The paired runs add fixture evidence and leave the computed coverage ledger unchanged. Live gameplay remains open.
+
+#### Keeper care and the distant cord
+
+AR3, AD38, AD49, CFC3a, MR32, UR70–UR75 and WPR32. [Care and composition owner](../../../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md#raising-gu-for-a-procedure). The fresh Keeper enters Moonblade research, takes the clan Gu and the Little Light loan into care, then opens the distant cord trial. The existing larder feeds Moonlight on its clock. The separate loan meal costs one petal and lasts one day as a practice dial. With the written pairing, an unfed support stops before any essence is spent. The returned support stays unavailable when Light Source is borrowed. A newly written Light Source experiment spends three essence and falls short. The plain blade spends four and falls short. The fed pairing spends five and cuts the distant cord, which releases the alcove latch. The additive extension preserves the older research content pin.
+
+- `node --test tests/gu_upkeep.test.js tests/gu_move_roles.test.js tests/gu_working_law.test.js` passed 68/68. Architecture, rules and docs checks passed. Rules reported the existing day-counter and private-pack glob warnings.
+- `BUILD_OUT=<temp> npm run build` passed. Bundle SHA-256 `80581840fd04572666ae05c32abdbda88127161badd079ce17be95d66faaa7a4`. Build reported the existing duplicate key warning in travel legs.
+- `node scripts/playtest/gu-keeper.mjs <build> <evidence> --raised-moonblade-only` passed on a fresh headless browser at 1920×1080. Save, reload, export and literal import matched for the fed plan, the hungry interruption and the opened alcove. Zero page errors. Agent-verified, human review open. Mobile layout is outside this pass. This proves reach against a stationary target on a live route. The live combat consumer remains open.
+
+#### Reconciled dispatch and evidence
+
+Reviewed at `d423a30fa` with the coordinator's plan edits. Scope covers the current wave order, canon accounting, action representation and tie-in. The per-engine audit matrix and earlier gate receipts retain their original scope.
+
+| Existing line | Discrepancy and disposition | Owner and evidence |
+| --- | --- | --- |
+| RC14, E24–E25 | Competing dispatch orders and stale coverage counts. This run record owns the canon-first order. Earlier schedules and the third handoff preserve their original state. The new finish lines guide packets under AD32. | Fresh coverage check computed 109 cases across four ledgers. The selected-source inventory and items ledger still supply missing coverage. |
+| AD51, E19 | The proposed second consumer validates shared behavior where it applies. A sourced first consumer can advance when its mechanism fits. | Shared mechanics follow AD51. Spell, Gu and potion world rules retain their local differences. |
+| E10, E19–E20 | The disarm fixture proves an effect on the wand and grip. Its next-cast consequence remains a proposed follow-up. The place graph already supports typed reach. Add finer state when a case needs it to change the outcome. | Spell case data and effect host produce the change. The subsequent action is the missing consumer. Focused engine host, place graph, contest consumers and Gu bodies passed 23/23. |
+| E22–E23, PC95 | The engine and live Spellbook have separate command paths today. The headless save/clock probe demonstrates the seam with a test bridge. Tie-in still needs shared ownership and one settlement path for live equipment and costs. | The Spellbook calls native preview and commit. The engine host reads bindings and settles costs and effects. The first live cast and fresh browser save round trip remain future proof. |
+
+The checkout and usage at the time of that review were historical. Follow the [current resume block](#current-resume-block) for live sequencing.
+
+### Coordinator and spellcraft worktree reconciliation (2026-11-13)
+
+Base `4cab2177b`. The older spellcraft checkout's 19 local files were compared with the corresponding master files and their landing commits. Its Hogwarts practice, Phandalin Levitate and Cyoria research are already represented in `9bbc51363` and `e1b4a4396`. Master also includes the later earned Hogwarts receipt, Phandalin's copying and rest route, and Cyoria's composed formula editor. The detached snapshot was archived before removal.
+
+The coordinator's Wave 18 probe was already represented by `ab8da5b55`. This fold brings in the separate Red Fire and layered protection cases, the Wang Er contest and restoration fixture, the Keeper care and cord trial, and the planning notes and atlas. It keeps the incumbent contest handoff and resolves the Keeper import through the shared identifiers module (AR3, AR5). The cord uses a new opt-in extension over the current Keeper base, with earlier extension definitions and the base data hash preserved (AR6). The existing foundations-first order remains in the current resume block. Red Fire and Wang Er remain fixture-level evidence. The target for the existing Keeper panel is desktop Chrome at 1920×1080, including the cost, refused cast and unlocked alcove. Mobile remains deferred.
+
+Recovery copies use the private `~/.codex/research/worktree-cleanup-2026-11-13/reconciled-foundations/` archive. Each manifest records original HEAD, file hashes and recovery instructions.
+
+- `npm test` exited 0 with 7,386 passed, 25 skipped and zero failed. The later handoff-compatibility hunk passed all 47 targeted contest and handoff checks. The full banked game week remains opt-in and was outside this pass.
+- `npm run build` exited 0. The tracked and browser-tested bundle SHA-256 is `16d8e111230ff549bda2f2c509f598797afaaf8e0c7c64670a1db670dfe99af5`.
+- Architecture, rules, docs and all seven coverage ledgers passed. The isolated checkout omits private content packs.
+- The rebuilt Keeper route passed at 1920×1080, with the plain and substitute blades falling short, the exact loan's hunger and absence interrupting the cast, and the fed pairing opening the alcove. Save, reload, export and literal import matched for all three saved states. The browser harness invokes the existing DOM handlers directly to avoid scroll and hit-test timeouts.

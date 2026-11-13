@@ -63,6 +63,12 @@ UI (round 13 FLA5). What a world changes:
 | DSG18 | **Diegetic UI (O3, later)** | A world-shaped surface (a newspaper, a status window, a sect jade slip) replaces a generic panel only after that world's basic kit (DSG19) is working, and keeps a plain text form. | Per world, one surface at a time. | Weibao: "we need the most basic Ui working for each world" first. |
 | DSG19 | **The basic kit** | Every playable world answers six questions on screen: where I am, what I can do, my progress in the world's form, who is here, what happened in the world's voice, and how a fight looks. The [kit census](docs/audits/WORLD_UI_KIT_CENSUS_2026-10-30.md) marks each world's cells working, generic or missing. | A world without fights marks the fight cell "none by design". | The O3 gate; also the checklist for a new world's first UI slice. |
 
+## Action and encounter views (proposal)
+
+Use the existing prose-first interface as the default. Before commitment, show the selected target, expected cost and time, and any reach limit, obstruction or risk the actor can observe. Give a qualitative reason where exact odds are unknown. During a timed action, show progress and any available response, such as ducking behind cover before an effect arrives. After settlement, show the actual outcome, cost and changed state, and offer the next useful action when one is available. A disarmed player should be able to find the dropped wand and see how to recover it.
+
+Use a compact list for actions and targets. Add a zone sketch when adjacency, cover or several routes are hard to follow. Use a timeline when ordering or an intervention window matters. Derive each view from the same observable engine state and receipts. Animation can show an event the engine settled. Provide an equivalent text indication for information a decision depends on. For headless foundation work, the quote, progress and receipt can be read in the existing fixture output. During tie-in, verify that the player can find the action, predict the relevant consequence and respond to the actual outcome in the game.
+
 ## Selective 2D exploration, 2026-11-01
 
 **Current resolution: improve the Proto23-style functional interface first.**

@@ -346,3 +346,71 @@ Full review of ABR1–22, ABM1–11 and AB1–37 preserves this as the stated pr
 ABR14 already qualifies authored stamina/spirituality costs and source requirements. Apply that qualification also to ABM3/ABM9 and the LOTM table's proposed conversion: one cost vocabulary does not mean all mechanisms in a world must spend the same resource, or that an observed use necessarily advances digestion. Source-qualified causes decide both. ABR18's new domains/verbs is a useful depth check, not permission to deny a source-defined rank whose actual change is quantitative. AB15 conservation is a candidate mechanism with world-specific suppliers and destinations, not a universal law imposed on every power, title or wand mastery. AB27/AB30 suggest one exposure input with distinct readers; that does not establish identical accumulation units, thresholds or counters across body tolerance and Warping.
 
 Keep AB31's crisis analogy separate from its quoted Ars Magica thresholds and AD50's project direction. The analogy does not certify permanent outcomes, guaranteed exit counts or successful restoration in another world. AB34's longevity anchor does not by analogy supply AB17's resurrection-after-death behavior. All to-check cells, claimed source mathematics and transplant exceptions retain their original qualifications; this pass did not reopen the books or validate wiki claims. No adaptation registration, cost conversion, persistence migration, bulk-reader dispatch or alternate-world priority was selected. AD51 permits a useful seam with its first known consumer; the second case validates reuse rather than becoming an embargo.
+
+## More to consider, accuracy and interference across abilities (proposal)
+
+ABR5–ABR6, ABR11, AD38, AD51, E10 and E19–E20. Apply the existing action phases to contested delivery. The current Hogwarts Disarm coverage case targets a named wand, removes its grip mark and moves the same wand beyond reach. The separate Duelling Club contest uses a one-unit focus proxy and can reduce footing. Its resolver weighs caster skill and impairment against the defender and guard. The spell depth helpers model preparation, reliability and distinct failure outcomes. These fixtures prove different parts of the action. The existing live Spellbook uses its native preview and commit path. [Disarm case](../src/world_packs/hp_primitive_case_scenes.js) · [Contest](../src/contest_packs/hogwarts.js) · [Spell depth](../src/spell_depth.js) · [Spellbook](../src/spellbook_host.js)
+
+### Act now
+
+The next Disarm proof starts with a held wand, resolves a hit and checks that the next wand-dependent cast sees the lost implement. Give recovery a real action such as retrieving the same wand. Compare a blocked delivery and a target that lets go or swaps implements between quote and settlement. The spell method and current bindings determine which object can be affected. Fixture calibration such as stamina, speed or odds stays marked as authored. Show what the actor can observe and what they spent. This extends the existing E19–E20 proof.
+
+### Account for now
+
+| Distinction | What should change across ability families |
+| --- | --- |
+| Can it be executed? | Preparation, injury, available essence or a free hand can change whether a cast, Gu activation or grapple starts. A fizzle has its own outcome and cost. |
+| Can it reach and land? | The method determines what can be reached and how aim, target movement, cover or a guard matter. Apply skill and chance at the stage they affect. Distinguish a reliable cast that misses from one that fizzles. |
+| What can interfere? | A shield can catch an incoming effect, a counter can target an ongoing working, and interruption can prevent release. Two incoming effects can meet if their paths, timing and interaction rules support it. Concurrent effects may also both land. A timed ward and a physical interception can use the same ordering rules while keeping their own effects. |
+| What happens on contact? | The receiver determines what changes. A wand leaves the grip, an ingestible dose still needs uptake, and a claw hit may leave an injury. A splash or misfire can affect an eligible nearby target if the delivery and local rules support it. Passive or sustained abilities can use the appropriate trigger and upkeep instead of aimed contact. |
+| What persists or can be recovered? | Record costs, ongoing effects and changes to equipment, custody or condition. Check that a later action reads the same state. Where timing matters, compare a save made during the action with uninterrupted settlement. |
+
+Use the same resolution for the quote and execution where possible, with the quote limited to what the actor knows. Keep keyed draws stable through save and restore. Avoid charging or rolling twice for the same uncertainty when joining the spell and contest paths. For timed interference, test the action just before and just after the intervention. Add a same-time case if the order changes the outcome.
+
+### Implementation guidelines
+
+1. **Start with the action and the state it changes.** Use the existing working, bindings, effect host and state owner. Bind the actor, source, payer and target where they differ. Let each world's method supply its prerequisites, prices, timing and exceptions.
+2. **Resolve each stage at the time it matters.** Check what the actor can attempt, settle any preparation or release, resolve delivery and interference if the method has them, then apply the result. Recheck changing facts at the relevant stage. Keep costs and draws with the stage that owns them, so a retry or restore cannot spend twice or roll a different outcome.
+3. **Represent space to the precision the choice needs.** Use holders, named zones and typed links for reach. For an effect with meaningful travel, record its route and timing at the precision needed to decide what can intercept it. Finer geometry earns its place when it changes a sourced outcome or a player decision.
+4. **Verify the next consumer.** A settled effect changes the authoritative state. A later action should read it, as when the next cast sees a lost wand. Compare the ordinary outcome with a distinct interruption, obstruction or workaround when relevant. Check save and restore for actions that remain in flight. Use the existing finish lines to stop each packet.
+
+Player-facing presentation follows the [action and encounter views](../DESIGN.md#action-and-encounter-views-proposal). The [foundation run](gm/dispatch/foundation-run-2026-11-12/RUN.md#work-to-reach-the-core-goals) owns sequencing and delivery.
+
+### Later / delegate
+
+- **Projectile clashes and sustained contests.** Medium effort after a sourced case requires two effects to meet in transit. Begin with a place, route and arrival time when those distinguish the outcomes. Add a path intersection or finer placement when a real case distinguishes them. Done when the case distinguishes a block, a clash and two effects passing independently, with the same result after restore. Keep exceptional world-specific interactions in their source rules.
+
+## Wards and effects on people (long-term proposal)
+
+ABR5–ABR6, ABR11, AD38, AD49, AD51, PC98 and E19. Use the same action and effect path for humans, creatures and Gu where the effect has a receiver. The carrier and trigger determine when a ward acts. The effect owner determines what the action changes.
+
+### Act now
+
+| Existing line | Evidence and disposition |
+| --- | --- |
+| PC98 stored workings | The original craft table predates the shared stored-working record. The current record supports carriers, scope, event and other triggers, charge, decay and upkeep. The craft table now points to it. [Stored working](../src/stored_working.js) |
+| E19 layered protection | Red Fire consumes actual protection capacity on a matching layer. The coat then absorbs part of the remaining hit and the body records the residual harm. This proves finite absorption and save continuity. A timed trigger, interception field and charged absorption use different state owners. [Protection pack](../src/world_substrate_packs/layered_protection.js) · [Combat receipt](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md#layered-protection-in-shared-engine-combat-proposal) |
+| MND13–MND16 and ABR11 | The native game exposes active conditions on actors and targets. The headless mind pack applies timed influences and updates faculties. Physical harm and recovery have their own owner. The Red Fire body inbox records exposure to harm. A burn that changes a person's later actions still needs a named consumer. [Native conditions](../src/simulation_effects.js) · [Mind pack](../src/world_substrate_packs/mind.js) · [Harm owner](../src/harm_state.js) |
+
+Fresh focused check on the coordinator checkout at `d423a30fa` plus the headless protection work. Stored workings, their engine bridge, Red Fire, mind and harm passed 48/48. This pass maps the long-term ward and condition seams. Other worlds' specific ward catalogues, resistance thresholds and native integration remain open.
+
+### Account for now
+
+| Ward behavior | Representation and example |
+| --- | --- |
+| Absorb or dampen | A layer on a body or item absorbs matching effects up to its rating and remaining capacity. A fire ward can spend its last charge partway through a hit. A strong attack can leave a remainder. |
+| Prevent or redirect | A field changes which route, target or effect is reachable. A boundary might block a particular crossing, or redirect a projectile if the local rule provides a destination. Protection against sight, entry, heat and force can differ. |
+| Detect and respond | A stored working watches a crossing, contact, event or threshold, then warns a linked receiver, closes a gate or releases a prepared effect. Detection, intervention and who receives the warning have their own results. |
+| Sustain or suppress | A working maintains a local condition, dampens an effect while supplied, or helps clear an active condition when its method applies. Track what happens when the carrier moves, the supply ends or the area changes. |
+
+A ward's level can change **scope, strength per event, total capacity, precision, or upkeep**. Keep those properties distinct. A narrow ward can be strong against flame and permit an ordinary strike. A wide ward can protect a whole room and have a different cost or response time. Where rank grants more capacity, stronger materials or better control, derive the benefit there and apply it once. The world can also define a threshold or a compatible way around a ward through an authorized key, an open route, sufficient force, or disruption of its anchor. Keep each exception tied to the actual method and its costs.
+
+**Effects on people.** Resolve exposure first, then apply the result through the owner of the affected faculty. Residual heat can cause a burn where the exposure rule calls for it. A stun may interrupt a working or impair balance. Confusion can change choices through the mind owner. Concealment changes what observers can detect. One attack can cause damage and a separate effect when the source supports both. A shield that absorbs heat stops a heat-dependent burn from that contact. A contact poison can still enter if its own delivery conditions hold.
+
+A persistent effect records the target, source, severity or applicable facet, start, duration or exit, and treatment or recovery conditions. Specify how repeats interact. One burn may aggravate an injury while repeated exposure to a charm might refresh its duration. Use the existing state owner to make the next action read the effect. For example, an injured hand can change a grip or casting step, and treatment can restore that option. Show what the person or observer can know. Where the lead was controlled, keep MND21's requirement that the consequences become noticeable. [Mind rules](MIND_RULES.md#noticing-control) · [Encounter views](../DESIGN.md#action-and-encounter-views-proposal)
+
+### Later / delegate
+
+- **Ward response, medium effort.** Reuse the charged protection fixture and one stored-working trigger. Done when a matching hit, a nonmatching hit and an authorized bypass leave the expected charge and response receipts across restore. Define ordering at the same instant where a trigger could intervene before a hit.
+- **Condition on a person, medium effort.** Use one supported body or mind effect with an existing action consumer. Done when partial protection changes exposure, the effect changes a later action, and expiry or treatment restores it at the intended time after reload. Compare repeated exposure if the effect has a stacking rule. The [saved hand-burn idea](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md#saved-hand-burn-idea) specifies the ward, hand use, treatment and reload comparison.
+- **Crafted and ranked wards, medium effort.** Reopen with a sourced material or rank comparison. Done when two prepared items or holders give different protection through a named property and keep that difference through wear, use and recovery. Preserve the source's unknown values and label authored calibration.
