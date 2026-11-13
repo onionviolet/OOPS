@@ -37,9 +37,9 @@ try {
     report.deedsAfterReload = await deeds(); report.pullAfterReload = (await sliceOf())?.records?.length ?? 0;
     const text = await p.evaluate(() => window.save_to_file()); report.exportLen = String(text).length;
     report.exportHasProfile = String(text).includes('deed.');
-    await p.evaluate(t => { window.load_progress(t); return 1; }, text).catch(() => {}); await boot();
+    await Promise.all([p.waitForEvent('load', {timeout: 60000}).catch(() => {}), p.evaluate(t => { window.load_progress(t); return 1; }, text).catch(() => {})]); await boot();   // import reloads the page itself
     report.deedsAfterImport = await deeds(); report.pullAfterImport = (await sliceOf())?.records?.length ?? 0;
-    await p.evaluate(() => localStorage.removeItem('save data')); await p.reload(); await boot();   // a new run: no save, same profile
+    await p.evaluate(() => localStorage.removeItem('save data')); await p.goto(p.url(), {waitUntil: 'load'}); await boot();   // a new run: no save, same profile
     report.newRunWorld = await p.evaluate(() => window.simulationTestHooks.snapshot().expansion?.actors?.player?.worldId ?? null);
     report.deedsNewRun = await deeds(); report.profileNewRun = await profile();
     await p.screenshot({path: path.join(out, 'deeds-new-run.png'), timeout: 20000}).catch(() => {});

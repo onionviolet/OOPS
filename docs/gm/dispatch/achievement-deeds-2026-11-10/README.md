@@ -13,6 +13,7 @@ Achievements grew from six naming and crafting rows into **deeds** read from wha
 - `src/deeds_ui.js`: a Deeds panel in Records, refreshed by its domain (no save slice), with a toast, a log line and the discovery feedback.
 - `src/book_world_lotm_cast_host.js`: one line hands each tick's results to `observeBeatRoutes`, because `via` is not saved.
 - `src/main.js`: two ports in the existing `mountWorkspaceNavigation` line (`continuation`, `lifeRecord`); line count unchanged.
+- `src/layout_spec.js`: a `deeds` surface entry (ST6, records column, proposal) so the UI contract knows the panel.
 
 | Group | Deed (id) | Reads | Hidden until earned |
 |---|---|---|---|
@@ -41,4 +42,12 @@ Achievements grew from six naming and crafting rows into **deeds** read from wha
 
 ## Checks
 
-Filled in from the run below.
+Review state: agent-verified, not human-reviewed. Target viewport 1920×1080 desktop; mobile deferred.
+
+- FLR build: `npm run build`, OK; probe ran on the rebuilt bundle (the `layout_spec.js` entry came after and changes no runtime path).
+- Focused: `node --test tests/deeds.test.js tests/ui_contract.test.js`, 7 pass, 0 fail.
+- Full: `npm test` (limiter), first run 5925 pass, 1 fail (`deeds` had no `LAYOUT_SPEC.surfaces` entry), fixed. Rerun 5925 pass, 1 fail: `beat_ledger.test.js` headless reload hit a pack-registration mismatch because the `private_packs` link was removed and restored mid-run; that file alone passes 5/5 with the link in place. The deeds and UI contract tests passed in both runs.
+- `npm run check:arch`, exit 0 (main.js growth 0). `npm run check:rules`, exit 0; one new TMR1 warning sits in `book_world_hp_exams.js`, not this lane; player text 0 new engine-vocabulary strings.
+- Browser (`node scripts/playtest/deeds-probe.mjs <out>`, headless, fresh origin, seed 7, earned steps): enrol as the Tingen lead, walk to the street market, wait past day 3. Pull record `lotm.v1.pull.b1` outcome `restored`; the hidden deed `deed.found_you` unlocked with a log line and toast, plus `deed.crossing` from the enrolment crossing. Before the walk the Another way group showed one open row and "3 more deeds".
+- Persistence: deed rows and pull record survive save and reload, Export and Import (the export holds no profile, as designed), and a new run (save removed, world `base.frontier`) still shows both deeds from the profile. `report.json`, `deeds-panel.png` (log lines), `deeds-new-run.png`.
+- Gaps: 15 console 404 resource loads during the run (same message, no URL captured; not traced). The panel screenshot shows the Reports log, not the Deeds panel opened from Records; panel text is from the DOM. `deed.own_road` is test-only (Village line), and the substituted and deviated pull deeds are covered by the seed sweep test, not a browser run.
