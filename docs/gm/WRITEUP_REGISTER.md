@@ -4,6 +4,8 @@
 
 [Lane branch and worktree reconciliation, 2026-11-07](BRANCH_WORKTREE_RECONCILIATION_2026-11-07.md): 22 branches from the 2026-10-30 replication wave checked by content; all landed, none to merge; 8 worktrees removed and 22 branches dropped 2026-11-07, tips kept under `refs/archive/2026-11-07/` (New).
 
+[Worktree and branch cleanup, 2026-11-13](WORKTREE_CLEANUP_2026-11-13.md): 86 merged branches dropped with tips under `refs/archive/2026-11-13/`, 26 worktrees removed, 25 lane sessions archived; four items kept with reasons (New).
+
 [One ladder reconciliation, 2026-11-13](../audits/LADDER_RECONCILIATION_2026-11-13.md): places the existing coverage measures on one ladder from idea to played, maps a chat's proposals (L1-L10) to their owners, and proposes capability runs leading with books as the test set; proposals only, one open decision for Weibao (L5) (New).
 
 [AI field scan, 2026-11-08](../research/AI_FIELD_SCAN_2026-11-08.md): a news roundup sorted by level of use (dev time, baked content, optional runtime, not for here), with the local model found not answering and an offline climate-table idea; proposals only (New).
