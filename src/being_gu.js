@@ -11,7 +11,7 @@ export const REFINED = defineLayer({id: 'refined', label: 'Refined', source: 'au
     changes: [{path: 'tags', op: 'tag', value: 'refined'}]});
 export const guDef = row => ({
     id: `being.gu.${row.id}`, name: row.label, species: row.label, family: GU_FAMILY,
-    origin: 'Issued by the clan steward.', mind: !row.canRefine ? {traits: []} : {traits: ['restless'], temper: 'bites'},
+    origin: 'Issued by the clan steward.', ...(row.use ? {use: row.use} : {}), mind: !row.canRefine ? {traits: []} : {traits: ['restless'], temper: 'bites'},
     layers: () => row.refined ? [REFINED] : [],
     steps: [
         {id: 'issued', when: () => true, holder: 'the clan steward', grain: 'held', stage: 'living', why: 'The clan house issued it, held in the steward’s care.'},

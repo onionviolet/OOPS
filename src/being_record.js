@@ -67,6 +67,8 @@ export function readBeing(def, facts) {
         grain: now.grain, stage: now.stage, stageLabel: family.stages.find(s => s.id === now.stage).label, holder: now.holder,
         origin: def.origin, mind: structuredClone(def.mind ?? {traits: []}), body: {stage: body.stage, tags: [...body.tags], eats: body.eats, ...extraBody(body)},
         layers: body.layers ?? [],
+        // GKM1: what the being does when used, authored once on its def (a Gu's function, path, rank and use cost). Read-only here.
+        ...(def.use ? {use: structuredClone(def.use)} : {}),
         custody: done.map(s => ({step: s.id, holder: s.holder, grain: s.grain, stage: s.stage, why: s.why})),
         ties: now.grain === 'tied' ? (def.ties?.(facts, now.stage) ?? []).map(t => ({who: t.who, level: t.level})) : []
     };
@@ -126,5 +128,5 @@ export function readTie(being, care = null) {
 export function beingCard(being, obs) {
     const care = readCare(being, obs), tie = readTie(being, care);
     return {id: being.id, name: being.name, species: being.species, grain: being.grain, stage: being.stageLabel, holder: being.holder,
-        origin: being.origin, custody: being.custody.map(c => c.why), care, tie};
+        origin: being.origin, custody: being.custody.map(c => c.why), care, tie, ...(being.use ? {use: being.use} : {})};
 }

@@ -212,6 +212,7 @@ function buildSimulationFacts(state, context, registry) {
     // Native clock callers may supply only expedition facts. Re-read current LOTM role/body
     // support through its existing domain projection at the actual commit boundary.
     if(state.lotm) Object.assign(facts,domainRegistry.project('lotm','facts',state,context)||{});
+    Object.assign(facts,domainRegistry.project('gu_keeper','facts',state,context)||{});
     Object.assign(facts,hpFacts(state,context),tieFacts(state),keeperColonyFacts(state,actor),keeperTimeFacts(state,actor),keeperWildFacts(state,actor),keeperRefinementFacts(state,actor),keeperStargateFacts(state,context),moonlightTrialFacts(state,actor),keeperMoveTrialFacts(state,actor,context.structuredNative),keeperRainbowFacts(state,actor),guCoordinationFacts(state,actor),keeperPropagationFacts(state,actor,context),hostedWolfFacts(state,actor,context.structuredNative),keeperCooperationFacts(state,actor),keeperFixedTravelFacts(state,actor),keeperAttitudeFacts(state,actor),keeperAntNestFacts(state,actor),keeperProcedureFacts(state,actor,context.structuredNative),keeperSpiritFacts(state,actor),keeperGoalFacts(state,actor),keeperFusionFacts(state,actor),keeperFixedForgeFacts(state,actor));
     const beginning = context.structuredNative;
     if(actor === 'player' && beginning?.bound && beginning.worldId === a.worldId) {

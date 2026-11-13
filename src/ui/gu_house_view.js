@@ -1,5 +1,6 @@
 // Gu house (surface: lower-center beginning panel, desktop first). Gauges, per-Gu feed timers and a stipend ledger,
 // drawn from keeperHouseView(). Text is the whole form; the meters only repeat it (UR37). Every node carries a data-gu hook.
+import {renderGuMoves} from './gu_moves_view.js';
 const span = minutes => minutes >= 1440 ? `${(minutes / 1440).toFixed(minutes % 1440 ? 1 : 0)} days` : minutes >= 60 ? `${Math.round(minutes / 60)} hours` : `${Math.max(0, minutes)} min`;
 const signed = n => n > 0 ? `+${n}` : String(n);
 export function renderGuHouse(parent, house) {
@@ -558,6 +559,7 @@ export function renderGuHouse(parent, house) {
         if(r.work?.line) el('small', ` · ${r.work.line}`, work, {'data-gu': 'work-order'});
         if(r.work?.remembers) el('small', ` · ${r.work.remembers}`, work, {'data-gu': 'opinion'});
     }
+    if(house.moves?.length) renderGuMoves(root, house.moves);
     const led = el('section', null, root, {'data-gu': 'ledger', 'aria-label': 'Stipend and stone ledger'});
     const a = house.ledger.agreement;
     el('p', `Stones in hand: ${house.stones}. ${a.why}.${house.ledger.nextStipendIn == null ? '' : ` Next payment in ${span(house.ledger.nextStipendIn)}.`}`, led, {'data-gu': 'agreement'});
