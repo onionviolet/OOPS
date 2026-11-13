@@ -295,7 +295,6 @@ const dynamic_loot_message_types = {
     total_gathered_loot: true,
 }
 
-
 const stats_divs = {strength: document.getElementById("strength_slot"), agility: document.getElementById("agility_slot"),
                     dexterity: document.getElementById("dexterity_slot"), intuition: document.getElementById("intuition_slot"),
                     magic: document.getElementById("magic_slot"), 

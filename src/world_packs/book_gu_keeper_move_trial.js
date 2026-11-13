@@ -4,7 +4,7 @@ import {moonlightStock} from '../gu_moonlight_stock.js';
 import {keeperChain, keeperChainBay, keeperChainLoans, keeperChainSlots} from '../gu_keeper_chain.js';
 import {keeperAuthorityBay, keeperSignal, keeperSignalBay} from '../gu_keeper_signal.js';
 import {extensionFact} from '../structured_pack_extensions.js';
-import {KEEPER_PREFIX, kId} from './book_gu_keeper.js';
+import {KEEPER_PREFIX, kId} from './book_gu_keeper_ids.js';
 
 export const keeperMoveTrial = kId('move_trial');
 export const keeperMoveTrialWorld = kId('world');

@@ -1,7 +1,7 @@
 import {guCatalogue} from '../gu_catalogue.js';
 import {guMoveTrial} from '../gu_move_trial_host.js';
 import {extensionFact} from '../structured_pack_extensions.js';
-import {KEEPER_PREFIX, kId} from './book_gu_keeper.js';
+import {KEEPER_PREFIX, kId} from './book_gu_keeper_ids.js';
 
 export const keeperFireTrial = kId('fire_trial');
 export const keeperFireSlots = 8;

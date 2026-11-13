@@ -5,9 +5,8 @@
 import {compileUpkeepEvents, compileStandingOrder} from '../living_upkeep.js';
 import {guWorkRows} from '../companion_work_gu.js';
 import {keeperMoveSet} from '../gu_keeper_moves.js';
-export const KEEPER_PREFIX = 'book.ri.keeper';
-export const kId = n => `${KEEPER_PREFIX}.${n}`;
-export const kKey = n => JSON.stringify({id: kId(n)});
+import {KEEPER_PREFIX, kId, kKey} from './book_gu_keeper_ids.js';
+export {KEEPER_PREFIX, kId, kKey};
 const id = kId, key = kKey, steward = id('steward');
 export const KEEPER_DAY = 1440;
 // Dials. The sea is 24 units at a full aperture; aptitude 50% caps it at 12; regeneration is one unit an hour.
