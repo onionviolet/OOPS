@@ -221,6 +221,7 @@ By default a new slice declares data through the seam named here and does not ad
 - Test: `tests/spoilage.test.js`, `tests/owned_place_clock.test.js`, `scripts/place_clock_browser.cjs`.
 - Lots: a shared-lot good (one deadline from arrival, kept as itself when spent) goes in `PERISHABLE_LOTS`; the Gu opening petal lot is the first (`GU_FRESHNESS = lifeOf(petals)` in `book_gu_life.js`, words in `guCareStatus`). The simulation condition still carries that deadline for the engine; the hearth shelf takes only `PERISHABLES`.
 - Competing: none known (Gu lot folded 2026-11-10, FRC42).
+- Craft inheritance (BDT35, proposal, SPR29 adaptation 2026-11-11): `inheritedSpent` weights perishable inputs only (each capped at 1); `madeKey` in `owned_place_clock.js` writes the product's age on the existing `hearthShelf` receipt (no new domain), stamped on the expansion clock, rounded to whole minutes; a product from timerless inputs stays a plain key. Recipes may set `fresh_start:{reason}`. First row: Clam fritters (original, SKR17), because no raw perishable exists and only Cooked clam has a source.
 - Do not: add another per-feature freshness counter; do not make unheld goods rot in a pack without a world saying so (held goods carry no timer here).
 
 ## Care and upkeep of living things

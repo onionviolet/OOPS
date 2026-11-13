@@ -120,9 +120,11 @@ class ItemRecipe extends Recipe {
         recipe_level,
         recipe_skill,
         success_chance = [1,1],
+        fresh_start, // BDT35: {reason} when the work resets ingredient age; otherwise the product inherits it
     }) {
         super({name, id, is_unlocked, recipe_type, result, getResult, recipe_level, recipe_skill});
         this.materials = materials;
+        if(fresh_start != null) this.fresh_start = fresh_start;
         this.success_chance = success_chance;
         if(this.success_chance[0]==0){
             this.success_chance[0] = 0.1;
@@ -1719,6 +1721,18 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         result: {result_id: "Goat stew", count: 1},
         success_chance: [0.4,1],
         recipe_level: [12,22],
+        recipe_skill: "Cooking",
+    });
+    // Original row (SKR17, BDT35): the cafe's leftover boiled clams, coated in flour and fried. Clams are the only
+    // perishable input, so the fritters inherit their age; flour does not freshen them.
+    cooking_recipes.items["Clam fritters"] = new ItemRecipe({
+        name: "Clam fritters",
+        recipe_type: "usable",
+        materials: [{material_id: "Cooked clam", count: 3},
+                    {material_id: "Flour", count: 1}],
+        result: {result_id: "Clam fritters", count: 1},
+        success_chance: [0.4,1],
+        recipe_level: [5,12],
         recipe_skill: "Cooking",
     });
     cooking_recipes.items["Bread"] = new ItemRecipe({

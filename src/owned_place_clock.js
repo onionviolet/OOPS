@@ -2,7 +2,7 @@
 // Authored, not canon. Every dial is default / dial / in-world reason / cost; none is a world law.
 // Home state is read-only here (AR3): the place clock and its larder live in their own slice.
 import {registerDomain} from './domain_registry.js';
-import {PERISHABLES,resultOf,readSpoilage,wordsFor,oldestFirst} from './spoilage.js';
+import {PERISHABLES,lifeOf,resultOf,readSpoilage,wordsFor,oldestFirst,inheritedSpent} from './spoilage.js';
 const DAY=1440;
 // Dials. ratio: default 1 (the world's clock); stilledRatio 0.25 at the Hearthside cottage because the
 // old hearthstone holds slow hours when kept fed. Cost: upkeep per world day paid up front, an
@@ -33,6 +33,15 @@ export function readShelfHistory(key,now=Number.MAX_SAFE_INTEGER){
     return h;
 }
 const shelfKey=(key,spent,at)=>JSON.stringify({...JSON.parse(key),hearthShelf:{schema:1,spent,at}});
+// BDT35: a cooked product carries its inputs' spent share on the same receipt (this domain owns it).
+// consumed: [{item_key,count}] as the recipe actually spent them; clock: the expansion clock the receipt is read against.
+// A product cooked only from goods with no timer stays a plain key, like any held good (no general food decay).
+export function madeKey(resultKey,consumed,{clock,freshStart}={}){
+    if(lifeOf(resultKey)===null)return resultKey;
+    const rows=consumed.map(r=>{const h=r.item_key.startsWith('{')?readShelfHistory(r.item_key,clock):null;return {key:r.item_key,count:r.count,spent:h?h.spent+clock-h.at:0};});
+    const spent=inheritedSpent(rows,resultKey,{freshStart});
+    return spent>0?shelfKey(resultKey,spent,clock):resultKey;
+}
 export function validatePlaceClocks(s){
     if(s==null)return;
     const ok=c=>{if(!c)throw Error('Place clocks: invalid slice');};

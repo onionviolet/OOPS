@@ -4,7 +4,7 @@ import {createClockOwner} from './clock_owner.js';
 import {rebaseFurnaceSave} from './patient_furnace.js';
 import {craftingOwner,setCraftingOwner} from './crafting_frontier_runtime.js';
 import {readCyoriaCraftControls,readSchoolCraftControls,settleFinishedBookCraft,stageBookCraftTrial} from './book_craft_simulation.js';
-import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
+import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {madeKey} from './owned_place_clock.js';import {configureRankGap} from './rank_gap_observer_domain.js';
 import {createFurniturePanel} from './home_furniture_panel.js';
 import {retainGearComponentLineage} from './gear_component_lineage.js';
 import {allocateComponentLots,allocatedRecipeInputs,componentCraftEntries,componentInputLots,forgeAxeHeadOutputs,gatheredIronKey,recipeMaterialOutput,smeltIronOutputs,treatedRecipeQuality} from './processed_materials.js';
@@ -5488,7 +5488,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 const smelted = smeltIronOutputs({resultId:result_id,recipeId:selected_recipe.id,count:final_count,attempts:attempted_crafting_ammount,allocations:lineageInputs,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId});
                 if(smelted) character.addToInventory(smelted);
                 if(final_count) {
-                    if(!smelted) character.addToInventory([{item_key: recipeMaterialOutput({resultId:result_id,count:final_count,quality:treatedRecipeQuality(harvestQuality,result_id,lineageInputs),allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()), count: final_count}]);
+                    if(!smelted) character.addToInventory([{item_key: madeKey(recipeMaterialOutput({resultId:result_id,count:final_count,quality:treatedRecipeQuality(harvestQuality,result_id,lineageInputs),allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()),lineageInputs,{clock:expansionState.clock,freshStart:selected_recipe.fresh_start}), count: final_count}]);
                     observeFortAcquisition(result_id,final_count,"craft",selected_recipe.id,selected_recipe.name);
                     let msg = `Created ${item_templates[result_id].getName()}`;
                     if(attempted_crafting_ammount > 1 || scale_results) {

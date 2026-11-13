@@ -10,6 +10,8 @@ export const PERISHABLES=Object.freeze({
     'Cooked potato':{life:DAY,result:'Spoiled food'},
     'Cooked carrot':{life:DAY,result:'Spoiled food'},
     'Cooked clam':{life:DAY/2,result:'Spoiled food'},
+    // Original row (SKR17, BDT35): boiled clams fried in a flour coat. Frying keeps them a little longer than boiled.
+    'Clam fritters':{life:DAY,result:'Spoiled food'},
     'book.hp.ing.fluxweed':{life:7*DAY,result:'Wilted fluxweed'}});
 // Shared-lot perishables: one deadline for the whole lot from its arrival (an opening allowance, a ration issue), not a per-portion
 // age, so the caller passes time since arrival as `spent`. Default: kept as itself when spent (result null); the world's own condition
@@ -44,3 +46,15 @@ export function wordsFor(read){
 }
 // Stacks keep the oldest-first rule visible: sort rows by spent age, most spent first; the first row is used first.
 export const oldestFirst=(rows,spentOf)=>[...rows].sort((a,b)=>spentOf(b)-spentOf(a));
+// BDT35 craft inheritance (Factorio QS-03/QS-04/QS-06 shape). A made product's spent share is the count-weighted spent
+// share of its perishable inputs, each capped at 1; nonperishable inputs (flour, salt, a bottle) do not dilute it.
+// rows: [{key,count,spent}] as actually consumed; spent is that row's current spent age (0 for goods with no timer).
+// Default: inherit. Dial: a recipe states freshStart:{reason} when its work truly resets age (boiling and sealing,
+// curing, distilling); cost is the work that recipe asks. Returns the product's spent age in whole minutes, or 0.
+export function inheritedSpent(rows,productKey,{freshStart}={}){
+    if(freshStart!=null&&!(typeof freshStart.reason==='string'&&freshStart.reason.trim()))throw Error('A fresh start needs its reason.');
+    const life=lifeOf(productKey);if(life===null||freshStart)return 0;
+    let n=0,sum=0;
+    for(const r of rows){const l=lifeOf(r.key);if(l===null||!(r.count>0))continue;n+=r.count;sum+=r.count*Math.min(1,Math.max(0,r.spent||0)/l);}
+    return n?Math.round(Math.min(1,sum/n)*life):0; // whole minutes: cooks of one age stack on one key
+}
