@@ -56,3 +56,54 @@ test('readings: strongest route wins, a cap holds a record down to a guess, unkn
  assert.throws(()=>defineItemIdentity({itemId:'test.item_identity.box',open:{name:'x'}}),/already defined/);
  assert.throws(()=>defineItemIdentity({itemId:'test.item_identity.bad',open:{name:'x'},routes:[{knowledge:'k',name:'y',cap:'open'}]}),/cap/);
 });
+
+// BDT86 / SPR31 (proposal): the use route. Failure scenario guarded: using a pale vial names it for everyone (the old view read
+// knowledge.player for any seat), or the use teaches a name without spending the charge, or the row does not say it came from use.
+import {createExpansionState,advanceSimulation} from '../src/expansion_engine.js';
+import {initializeExpedition,expeditionRegistry as fieldRegistry} from '../src/expedition_content.js';
+import {beginBodyRecord} from '../src/body_progression.js';
+import {beginFeatureObjects,commitFeatureObjectCommand} from '../src/feature_expansion_objects_host.js';
+import {enrollReferenceGameplay} from '../src/reference_gameplay_state.js';
+import {commitReferenceGameplayCommand} from '../src/reference_gameplay_host.js';
+import {commitNethackFieldcraftCommand} from '../src/nethack_fieldcraft_host.js';
+import {NETHACK_FIELDCRAFT_KEYS as FK,NETHACK_FIELDCRAFT_IDS as FI} from '../src/nethack_fieldcraft_content.js';
+import {projectItemView} from '../src/item_views.js';
+import {usedKnowledge} from '../src/item_identity.js';
+import {provenanceOf} from '../src/knowledge_view.js';
+const body={id:'native.player.body',form:'human',ownerId:'player',controllerId:'player',hands:2,mobile:true};
+const fctx=p=>({actorId:'player',external:p.external,gameplay:p.gameplay,vitals:{player:{health:100,max_health:100,stamina:100,max_stamina:100}},
+ facts:{location:'Village','village.elderMet':true,'village.craftsmanMet':true,'campaign.anchor':true},nativeBody:body,nativeAlive:true,nativeReady:true});
+const fadvance=(p,n)=>{const c=fctx(p);return advanceSimulation(p.state,fieldRegistry,n,p.external,p.gameplay,{player:{...c,vitals:c.vitals.player}});};
+const field=(p,id)=>commitNethackFieldcraftCommand(p.state,fieldRegistry,{id},fctx(p));
+function boughtVial(){
+ let p={state:initializeExpedition(createExpansionState(17)),external:{money:30},gameplay:{player:{inventory:{},skills:{},reputation:{}}}};
+ p=beginBodyRecord(p.state,fieldRegistry,fctx(p));p.state.simulation.people.player.body=structuredClone(body);
+ p=beginFeatureObjects(p.state,fieldRegistry,fctx(p));p=commitFeatureObjectCommand(p.state,fieldRegistry,{id:'feature_objects.inspect'},fctx(p));p=fadvance(p,2);
+ p=enrollReferenceGameplay(p.state,fctx(p));p=commitReferenceGameplayCommand(p.state,fieldRegistry,{id:'reference_gameplay.open'},fctx(p));
+ p=field(p,FI.open);return field(p,'nethack_fieldcraft.buy_vial');
+}
+const vialName=(p,actor)=>itemReading(p.state.simulation.knowledge[actor]||{},itemIdentityOf(FK.vial));
+
+test('using an unknown pale vial names it for the user only, says it was learned by use, and spends the charge',()=>{
+ let p=boughtVial();
+ assert.equal(p.gameplay.player.inventory[FK.vial],1);
+ assert.deepEqual([vialName(p,'player').certainty,vialName(p,'player').name],['open','Unmarked pale vial']);
+ assert.equal(projectItemView({id:'Unmarked pale vial'},p.state,{name:'Unmarked pale vial'}).name,'Unmarked pale vial');
+ p=fadvance(field(p,FI.assay),3);
+ const mine=vialName(p,'player');
+ assert.deepEqual([mine.certainty,mine.name,mine.via,mine.provenance],['known','Reed oil vial • 1 charge','used','You used it']);
+ assert.equal(projectItemView({id:'Unmarked pale vial'},p.state,{name:'Unmarked pale vial'}).name,'Reed oil vial • 1 charge');
+ assert.equal(vialName(p,FI.eda).certainty,'open','Eda watched no use of hers; her reading is unchanged');
+ assert.equal(p.gameplay.player.inventory[FK.vial]||0,0,'the use spent the full vial');assert.equal(p.gameplay.player.inventory[FK.empty],1);
+});
+
+test('a use teaches only what it showed: plain is known, faint is a guess, none is nothing',()=>{
+ const id=defineItemIdentity({itemId:'test.item_identity.tin',open:{name:'Dented tin'},routes:[{knowledge:'k.tin.used',via:'used',name:'Tin of boot grease'}]});
+ const row=v=>usedKnowledge({actor:'npc.a',key:'k.tin.used',value:'It softened the leather.',visibility:v});
+ assert.deepEqual([row('plain').stage,row('plain').actor,row('plain').basis.route],['understood','npc.a','used']);
+ assert.equal(itemReading({'k.tin.used':{...row('faint'),at:1}},id).certainty,'guessed');
+ assert.equal(row('none'),null);
+ assert.equal(provenanceOf({stage:'understood',basis:row('plain').basis}),'You used it');
+ assert.throws(()=>usedKnowledge({key:'k',value:'v',visibility:'loud'}),/visibility/);
+ assert.throws(()=>defineItemIdentity({itemId:'test.item_identity.tin2',open:{name:'x'},routes:[{knowledge:'k',name:'y',via:'dreamt'}]}),/way of learning/);
+});

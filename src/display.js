@@ -445,11 +445,11 @@ function uncapitalize_first_letter(some_string) {
  * @returns 
  */
 function obscure_name(item_id) {
-    return item_log.is_known(item_id) ? item_templates[item_id].getName() : "???";
+    return item_log.is_known(item_id) ? displayItemName(item_templates[item_id]) : "???";
 }
 
 function obscure_name_to_type(item_id) {
-    return item_log.is_known(item_id) ? item_templates[item_id].getName() : "Unknown " + (item_templates[item_id].material_type || item_templates[item_id].component_type || "material");
+    return item_log.is_known(item_id) ? displayItemName(item_templates[item_id]) : "Unknown " + (item_templates[item_id].material_type || item_templates[item_id].component_type || "material");
 }
 
 function create_floating_effect(text, pos) {
@@ -550,6 +550,7 @@ function create_equipment_comparison(item, quality, baseline, qualityRange) {
 let fieldcraftKnowledgeReader=()=>null;
 export function setFieldcraftKnowledgeReader(read){if(typeof read!=='function')throw new Error('Bind the current player knowledge reader.');fieldcraftKnowledgeReader=read;}
 function nativeItemView(item){return projectItemView(item,fieldcraftKnowledgeReader(),{name:item.getName(),description:item.description||''});}
+export function displayItemName(item){return nativeItemView(item).name;} // BDT89: every item-name path reads the seat's own knowledge (ITM23)
 function create_item_tooltip_content({item, options={}, is_trade = false}) {
     let item_tooltip = "";
 
@@ -1319,18 +1320,18 @@ function log_loot({loot_list, is_combat=false, is_a_summary=false, is_dynamic=fa
     const resolveItem = entry => entry.item_id ? item_templates[entry.item_id] : getItemFromKey(entry.item_key);
     let item = resolveItem(loot_to_use[0]);
 
-    message += item.getName() + `" x` + loot_to_use[0].item_count + gains_msg;
+    message += displayItemName(item) + `" x` + loot_to_use[0].item_count + gains_msg;
 
     if(loot_to_use.length > 1) {
         for(let i = 1; i < loot_to_use.length; i++) {
             gains_msg = gainSuffix(loot_to_use[i]);
 
             item = resolveItem(loot_to_use[i]);
-            message += (`, "` + item.getName() + `" x` + loot_to_use[i].item_count + gains_msg);
+            message += (`, "` + displayItemName(item) + `" x` + loot_to_use[i].item_count + gains_msg);
         }
     }
     
-    const subjects=loot_to_use.map(entry=>{const item=entry.item_id?item_templates[entry.item_id]:getItemFromKey(entry.item_key);return {name:item.getName(),kind:'item',html:create_item_tooltip_content({item,options:{skip_comparison:true,skip_inventory_count:true}})};});
+    const subjects=loot_to_use.map(entry=>{const item=entry.item_id?item_templates[entry.item_id]:getItemFromKey(entry.item_key);return {name:displayItemName(item),kind:'item',html:create_item_tooltip_content({item,options:{skip_comparison:true,skip_inventory_count:true}})};});
     log_message(message, message_type,{subjects});
 }
 
@@ -2323,7 +2324,7 @@ function update_displayed_equipment() {
             equipment_slots_divs[key].classList.add("equipment_slot_empty");
             set_HTML(eq_tooltip, `Your ${key.replace("_"," ")} slot`);
         } else {
-            set_HTML(equipment_slots_divs[key], equipment[key].getName());
+            set_HTML(equipment_slots_divs[key], displayItemName(equipment[key]));
             equipment_slots_divs[key].classList.remove("equipment_slot_empty");
             
             eq_tooltip = create_item_tooltip(equipment[key]);
@@ -3378,8 +3379,8 @@ function build_item_recipe_model(selection) {
         const m = req.material;
         // Unknown ingredients stay unnamed: no item name and no material type (CP2).
         const unknown = m.material_type ? !material_type_known(m.material_type) : !req.known;
-        const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : item_templates[m.material_id].getName();
-        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:e.item.getName(),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back};
+        const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : displayItemName(item_templates[m.material_id]);
+        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back};
     });
     const station_name = document.querySelector(`.crafting_mainpage_button[data-crafting_category="${category}"]`)?.textContent.trim() || category;
     const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
@@ -3406,7 +3407,7 @@ function build_item_recipe_model(selection) {
     return {title: recipe.name, description: nativeItemView(item_templates[result_id]).description, requirements, attempts: state.amount,
         effects: item_recipe_result_effects(item_templates[result_id]),
         related: item_recipe_related_uses(selection, known_ids, result_id), back,
-        output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
+        output: {name: displayItemName(item_templates[result_id]), count, scaled: !!recipe.scale_results && count > 1},
         chance, time: "Instant: no game time passes", when: "instant", spendsOnFailure: true, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
         xp, policy: materialPolicyText(game_options.stop_crafting_on_material_change), available: state.available, blocked_reason, receipt, cue, goal:craftBatchGoal.read()?.key===item_recipe_key(selection)?craftBatchGoal.read():null,
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
@@ -3493,7 +3494,7 @@ function commit_selected_item_recipe(amount) {
     const inputs = {};
     for(const material of recipe.materials) {
         for(const entry of find_recipe_material({material, ignore_stop: true}).items) {
-            inputs[entry.item.getInventoryKey()] = {name: entry.item.getName(), before: entry.count};
+            inputs[entry.item.getInventoryKey()] = {name: displayItemName(entry.item), before: entry.count};
         }
     }
     const skill = skills[recipe.recipe_skill];
@@ -3508,7 +3509,7 @@ function commit_selected_item_recipe(amount) {
     const attempted = readPort('gameStats')?.total_crafting_attempts - attempts_before, successful = readPort('gameStats')?.total_crafting_successes - successes_before;
     craftBatchGoal.settle(goalKey,{attempted,successful,made});
     crafting_receipt = {key: item_recipe_key(selection), skill_id: recipe.recipe_skill, skill_level, made, text: craftReceiptText({
-        skill_id: recipe.recipe_skill, skill_level, made, result_name: item_templates[recipe.getResult().result_id].getName(),
+        skill_id: recipe.recipe_skill, skill_level, made, result_name: displayItemName(item_templates[recipe.getResult().result_id]),
         used, xp: skill.getTotalXP() - xp_before, attempted, successful})};
     refresh_crafting_detail();
     list.scrollTop = scroll;
@@ -3873,7 +3874,7 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
             if (recipe.materials[i].material_type || (material.items.length > 0 && material.items[0].quality)) {
                 let mat_list = "";
                 for (let j = 0; j < material.items.length; j++) {
-                    let sub_name = material.items[j].item.getName();
+                    let sub_name = displayItemName(material.items[j].item);
                     mat_list += `<span style="color:${material.items[j].count >= recipe.materials[i].count?"lime":"red"}"><b>${sub_name} x${material.items[j].count || 0}/${recipe.materials[i].count}</b></span><br>`;
                 }
 
@@ -3985,8 +3986,8 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
             .sort((a, b) => {
                 if (a.item.component_tier != b.item.component_tier) {
                     return b.item.component_tier - a.item.component_tier;
-                } else if (a.item.getName() !== b.item.getName()) {
-                    return String(a.item.getName()).localeCompare(String(b.item.getName()));
+                } else if (displayItemName(a.item) !== displayItemName(b.item)) {
+                    return String(displayItemName(a.item)).localeCompare(String(displayItemName(b.item)));
                 } else {
                     return b.item.quality - a.item.quality || a.item.getInventoryKey().localeCompare(b.item.getInventoryKey());
                 }
@@ -3998,7 +3999,7 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
             item_div.classList.add("selectable_component");
             item_div.dataset.item_key = components[j].item.getInventoryKey();
             item_div.dataset.item_quality = components[j].item.quality;
-            item_div.dataset.item_name = components[j].item.getName();
+            item_div.dataset.item_name = displayItemName(components[j].item);
             item_div.dataset.component_tier = components[j].item.component_tier;
             item_div.appendChild(create_item_tooltip(components[j].item, {class_name: "recipe_tooltip", comparisonBaseline:character.getItems()[retained_key]?.item}));
             
@@ -4058,7 +4059,7 @@ function update_displayed_material_choice({category, subcategory, recipe_id, ref
         if(!entries.length) entries.push({item:item_templates[material_recipe.material_id],count:0});
         for(const entry of entries) {
             const item_div=document.createElement('div'), name_span=document.createElement('span');
-            name_span.textContent=`${item_templates[material_recipe.result_id].getName()}${Number.isFinite(entry.item.quality)?` · input ${entry.item.quality}%`:''}`;
+            name_span.textContent=`${displayItemName(item_templates[material_recipe.result_id])}${Number.isFinite(entry.item.quality)?` · input ${entry.item.quality}%`:''}`;
             name_span.classList.add('recipe_comp_name');item_div.append(name_span);item_div.classList.add('selectable_material');
             item_div.dataset.item_key=entry.item.getInventoryKey();
             const available=canConsumeNativeCraftingItem(item_div.dataset.item_key) && accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked)[category]>0;
@@ -4502,13 +4503,13 @@ export function readPlayerAttributeInspector() {
             const worn = Object.values(character.getEquipment()).filter(item => item?.getWearProfile?.());
             sources = [];
             for(const item of worn) for(const part of item.getWearProfile().parts) {
-                sources.push({label:`${item.getName()}: ${part.material} ${part.slot} (${part.source})`,flat:part.toughness,multiplier:1});
+                sources.push({label:`${displayItemName(item)}: ${part.material} ${part.slot} (${part.source})`,flat:part.toughness,multiplier:1});
             }
             value = worn.length ? finite(worn.reduce((sum,item) => sum + item.getWearProfile().toughness,0) / worn.length) : null;
             baseValue = preMultiplier = value;
             totalMultiplier = 1;
             if(!worn.length) { status = 'unavailable'; note = 'Material toughness is unavailable for your equipped gear.'; }
-            else note = `Wear per landed hit ×${worn.map(item => `${item.getName()} ${item.getWearScale()}`).join(', ')}. Only applies when equipment durability is enabled.`;
+            else note = `Wear per landed hit ×${worn.map(item => `${displayItemName(item)} ${item.getWearScale()}`).join(', ')}. Only applies when equipment durability is enabled.`;
         }
         if(id === 'block_strength') {
             if(hasShield) {
