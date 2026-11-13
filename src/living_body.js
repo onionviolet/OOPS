@@ -10,7 +10,8 @@
 // same wound. And the aperture as a body organ: the body records grade, rank and
 // condition; a world pack's law says what that holds (PFP3, SC table).
 import {check, natural, object} from './basics.js';
-import {aggravateCreatureInjury, creatureDevelopment, creatureHealth, injureCreature} from './creature_lifecycle.js';
+import {aggravateCreatureInjury, creatureDevelopment, creatureHealth, creatureIncubationConditions,
+    injureCreature} from './creature_lifecycle.js';
 import {bodyData, needRate, readNeed} from './needs.js';
 import {livingGenome, livingKind} from './living_kinds.js';
 import {expressGenes, expressPolygenic, genotypeView, individualSpread} from './heredity.js';
@@ -106,19 +107,22 @@ export function readLivingBody({lifecycle, registry, id, clock, sinceMeal, ratio
     const woundFactor = wound ? 1 - law.woundShare * wound.remaining / wound.required : 1;
     const work = hunger?.work ?? 1, heal = hunger?.heal ?? 1;
     const conditions = [];
+    if (animal.deadAt !== undefined) conditions.push('dead');
     if (wound) conditions.push(health.careUntil !== null ? 'recovering' : 'injured');
     if (hunger?.stage === 'hungry' || hunger?.stage === 'starved') conditions.push(hunger.stage);
     if (!development.mature) conditions.push('immature');
     const gu = kind.class === 'gu' && feeding ? {fedThrough: feeding.fedThrough, day: feeding.day,
         fed: natural(feeding.fedThrough) && feeding.fedThrough >= feeding.day} : null;
     if (gu && !gu.fed) conditions.push('unfed');
+    conditions.push(...creatureIncubationConditions(animal));
     const organs = {};
     for (const [name, organ] of Object.entries(animal.organs ?? {}))
         organs[name] = name === 'aperture' && organLaws.aperture ? apertureOrgan(organ, organLaws.aperture) : {...organ};
     return {
         id, species: kind.id, class: kind.class, keeper: animal.keeper, habitat: animal.habitat,
+        ...(animal.sterile ? {sterile: true} : {}),
         stage: stageOf(kind, development, law), ageMinutes: development.ageMinutes, mature: development.mature,
-        vitality: {value: Math.floor(law.maxVitality * woundFactor * work), max: law.maxVitality},
+        vitality: {value: animal.deadAt === undefined ? Math.floor(law.maxVitality * woundFactor * work) : 0, max: law.maxVitality},
         hunger, injury: wound ? {kind: wound.kind, remaining: wound.remaining, required: wound.required} : null,
         inCare: health.careUntil !== null, conditions, work, heal, gu, organs,
         traits: {...animal.traits}, ...heredityOf(registry, animal, {mature: development.mature, environment, conditions, root, id}),
@@ -133,7 +137,7 @@ function heredityOf(registry, animal, {mature, environment, conditions, root, id
     const genome = livingGenome(registry, animal.species);
     if (!genome) return {};
     const tested = animal.tested ?? [];
-    const seeded = typeof root === 'string';
+    const seeded = typeof root === 'string' || natural(root) && root <= 0xffffffff;
     // IH1: the measured value shows; the breeding value behind it stays hidden (SB7).
     return {...(animal.genes ? {phenotype: expressGenes(genome, animal.genes, {mature, environment, conditions}),
         genotype: Object.fromEntries(Object.keys(genome.loci).map(l => [l, genotypeView(genome, animal.genes, tested, l)]))} : {}),

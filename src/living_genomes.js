@@ -34,3 +34,14 @@ export const LIVING_GENOMES = Object.freeze(Object.fromEntries([
             lop: {mode: 'recessive', strong: 'L', plain: 'l', affects: 'lop ears'}},
         spread: {weightG: [1200, 2000]}},
 ].map(row => [row.id, Object.freeze(validateGenome(row))])));
+
+// Headless Village breeding trial. Phase, map and stat ranges are authored
+// for a selectively bred line. Ordinary meadow stock keeps its existing row.
+export const MEADOW_BREEDING_GENOME = Object.freeze(validateGenome({
+    ...LIVING_GENOMES['village.sheep'],
+    id: 'village.sheep.breeding-trial',
+    mutation: 0,
+    linkage: [{loci: ['coat', 'fleece'], crossovers: [0]}],
+    ivs: {stats: ['woolYield', 'stamina', 'stride', 'recovery', 'foraging', 'surefootedness'], max: 31, inheritCount: 3},
+    polygenic: {},
+}));

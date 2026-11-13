@@ -1,15 +1,24 @@
 // AR3, AD51. Pure settlement for a host-owned lifecycle slice. The host
 // supplies current habitat conditions, authority and any payment settlement.
 import {check, natural, object, positive} from './basics.js';
-import {address} from './gen_kit.js';
-import {addBirthsToFrequencies, drawFromFrequencies, inheritBreeding, inheritGenes, pickParental, removeFromFrequencies,
-    validateBreeding, validateGenes} from './heredity.js';
+import {address, drawU32, indexFromU32} from './gen_kit.js';
+import {inbreedingGrowthDelay, kinship} from './lineage_traits.js';
+import {addBirthsToFrequencies, breedPhasedMembers, changePhasedStock, crossOutcome, crossPhasedMembers, drawFromFrequencies, drawPhasedMember, expressGenes, inheritBreeding, inheritGenes,
+    pickParental, removeFromFrequencies, inheritIVs, validateBreeding, validateGenes, validateGenome,
+    validateCrossAlleleMaps, validateIVs, validatePhasedCohort} from './heredity.js';
 
 const family = 'creature_lifecycle@1';
 const key = value => typeof value === 'string' && value !== '__proto__' && /^[a-zA-Z0-9][a-zA-Z0-9_.:-]*$/.test(value);
 const traitsValid = traits => object(traits) &&
     Object.entries(traits).every(([name, value]) => key(name) && key(value));
 const lookup = (table, id) => Object.hasOwn(table, id) ? table[id] : undefined;
+const conditionsValid = conditions => Array.isArray(conditions) && conditions.every(key) &&
+    new Set(conditions).size === conditions.length;
+export const creatureIncubationConditions = animal => animal.incubationConditions ??
+    (animal.incubationCondition ? [animal.incubationCondition] : []);
+export const creatureWildHerd = animal => animal.wildHerd ?? animal.breedingOrigin ?? animal.origin;
+const hasSpecies = (animal, species) => animal.species === species ||
+    animal.previousSpecies?.includes(species);
 // An organ is a small record of key strings and whole numbers (a Gu Master's aperture:
 // grade, rank, stage, condition). What it can hold is a world law read elsewhere
 // (living_body.js apertureOrgan), so the save keeps facts, not derived capacity.
@@ -17,6 +26,9 @@ const lookup = (table, id) => Object.hasOwn(table, id) ? table[id] : undefined;
 // alleles the keeper knows (GN6). A cohort may carry allele counts instead of members (GN8).
 const genesValid = genes => genes === undefined || object(genes) &&
     Object.entries(genes).every(([locus, pair]) => key(locus) && Array.isArray(pair) && pair.length === 2 && pair.every(key));
+const phasedValid = (phased, genes) => phased === undefined || phased === true && object(genes);
+const ivsValid = ivs => ivs === undefined || object(ivs) && Object.keys(ivs).length > 0 &&
+    Object.entries(ivs).every(([stat, value]) => key(stat) && natural(value) && value < 4294967296);
 const testedValid = (tested, genes) => tested === undefined || Array.isArray(tested) && tested.every(l => genes && Object.hasOwn(genes, l)) &&
     new Set(tested).size === tested.length;
 // IH1: hidden breeding values, {trait: whole number}; what shows is drawn from them.
@@ -37,6 +49,10 @@ export function restoreCreatureLifecycle(saved) {
     for (const [id, cohort] of Object.entries(saved.cohorts)) {
         check(key(id) && object(cohort) && key(cohort.species) && key(cohort.habitat) && natural(cohort.stock) &&
             allelesValid(cohort.alleles), 'Invalid creature cohort.');
+        if (cohort.phase !== undefined) {
+            check(cohort.alleles === undefined, 'A phased herd has one genetics ledger.');
+            validatePhasedCohort(cohort.phase, cohort.stock);
+        }
     }
     for (const [id, individual] of Object.entries(saved.individuals)) {
         check(object(individual) && positive(individual.serial) && individual.serial < saved.nextIdentity &&
@@ -44,7 +60,18 @@ export function restoreCreatureLifecycle(saved) {
             key(individual.species) && key(individual.habitat) &&
             (individual.keeper === null || key(individual.keeper)), 'Invalid creature identity.');
         const cohort = lookup(saved.cohorts, individual.origin);
-        check(cohort?.species === individual.species, 'Invalid creature origin.');
+        check(cohort, 'Invalid creature origin.');
+        check(individual.wildHerd === undefined || key(individual.wildHerd) &&
+            lookup(saved.cohorts, individual.wildHerd)?.species === individual.species, 'Invalid wild herd membership.');
+        if (individual.previousSpecies !== undefined) {
+            check(Array.isArray(individual.previousSpecies) && individual.previousSpecies.length > 0 &&
+                individual.previousSpecies.every(key) && individual.previousSpecies[0] === cohort.species &&
+                lookup(saved.cohorts, individual.breedingOrigin)?.species === individual.species,
+            'Invalid creature species history.');
+        } else {
+            check(cohort.species === individual.species, 'Invalid creature origin.');
+            check(individual.breedingOrigin === undefined, 'Invalid creature breeding origin.');
+        }
     }
     const state = structuredClone(saved);
     state.habitats ??= {};
@@ -53,6 +80,12 @@ export function restoreCreatureLifecycle(saved) {
         check(key(id) && object(habitat) && positive(habitat.interval) && natural(habitat.nextAt) &&
             habitat.nextAt >= habitat.interval && natural(habitat.births) && natural(habitat.losses),
         'Invalid creature habitat clock.');
+        if (habitat.selection !== undefined) {
+            check(object(habitat.selection), 'Invalid herd selection policies.');
+            for (const [cohortId, locus] of Object.entries(habitat.selection))
+                check(key(cohortId) && key(locus) && state.cohorts[cohortId]?.phase &&
+                    state.cohorts[cohortId].habitat === id, 'Invalid herd selection policy.');
+        }
     }
     state.broods ??= {};
     check(object(state.broods), 'Invalid creature broods.');
@@ -65,10 +98,23 @@ export function restoreCreatureLifecycle(saved) {
             individual.matureAt >= individual.bornAt && object(individual.experience), 'Invalid creature development.');
         individual.health ??= {lastAt: individual.bornAt, careUntil: null, injury: null};
         validateHealth(individual.health, individual.bornAt);
+        check(individual.pauseWhileInjured === undefined || individual.pauseWhileInjured === true, 'Invalid juvenile growth policy.');
+        check(individual.deadAt === undefined || natural(individual.deadAt) &&
+            individual.deadAt === individual.health.lastAt && individual.health.careUntil === null &&
+            individual.keeper === null, 'Invalid tracked creature loss.');
         individual.organs ??= {};
         check(organsValid(individual.organs), 'Invalid creature organs.');
         check(genesValid(individual.genes) && testedValid(individual.tested, individual.genes) &&
-            breedingValid(individual.breeding), 'Invalid creature genes.');
+            breedingValid(individual.breeding) && phasedValid(individual.phased, individual.genes) &&
+            ivsValid(individual.ivs), 'Invalid creature genes.');
+        check(individual.sterile === undefined || individual.sterile === true && (individual.parents || individual.phased),
+            'Invalid creature fertility.');
+        check(individual.parentSpecies === undefined || individual.parents && parentSpeciesValid(individual.parentSpecies),
+            'Invalid creature parent species.');
+        check(individual.incubationCondition === undefined || key(individual.incubationCondition) && individual.parents,
+            'Invalid creature incubation condition.');
+        check(individual.incubationConditions === undefined || individual.incubationCondition === undefined &&
+            individual.parents && conditionsValid(individual.incubationConditions), 'Invalid creature incubation conditions.');
         for (const [actor, experience] of Object.entries(individual.experience)) {
             check(key(actor) && object(experience) && natural(experience.lastAt) &&
                 experience.lastAt >= individual.bornAt && natural(experience.bond) && experience.bond <= 100 &&
@@ -81,27 +127,53 @@ export function restoreCreatureLifecycle(saved) {
         const parents = individual.parents;
         check(Array.isArray(parents) && parents.length === 2 && parents.every(key) &&
             parents[0] !== parents[1], 'Invalid creature birth parentage.');
-        for (const id of parents) {
+        for (const [side, id] of parents.entries()) {
             const parent = lookup(state.individuals, id);
-            check(parent && parent.serial < individual.serial && parent.species === individual.species &&
+            const species = individual.parentSpecies?.[side] ?? state.cohorts[individual.origin].species;
+            check(parent && parent.serial < individual.serial && hasSpecies(parent, species) &&
                 parent.matureAt < individual.bornAt, 'Invalid creature birth parentage.');
         }
     }
     const occupiedParents = new Set();
+    const eggs = new Set();
     for (const [id, brood] of Object.entries(state.broods)) {
         check(key(id) && object(brood) && Array.isArray(brood.parents) && brood.parents.length === 2 &&
             brood.parents.every(key) && natural(brood.dueAt) &&
             natural(brood.growthMinutes) && natural(brood.dueAt + brood.growthMinutes) &&
-            traitsValid(brood.traits) && genesValid(brood.genes) && breedingValid(brood.breeding), 'Invalid creature brood.');
+            traitsValid(brood.traits) && genesValid(brood.genes) && breedingValid(brood.breeding) &&
+            phasedValid(brood.phased, brood.genes) && ivsValid(brood.ivs), 'Invalid creature brood.');
+        check(brood.pauseWhileInjured === undefined || brood.pauseWhileInjured === true, 'Invalid juvenile growth policy.');
         const [first, second] = brood.parents.map(parent => lookup(state.individuals, parent));
-        check(first && second && first !== second && first.species === second.species &&
+        const species = brood.origin === undefined ? first?.species : lookup(state.cohorts, brood.origin)?.species;
+        check(brood.sterile === undefined || brood.sterile === true && brood.parentSpecies, 'Invalid brood fertility.');
+        check(brood.parentSpecies === undefined || brood.origin !== undefined && parentSpeciesValid(brood.parentSpecies),
+            'Invalid brood parent species.');
+        check(brood.egg === undefined || key(brood.egg) && !eggs.has(brood.egg) &&
+            brood.wild === undefined && brood.wildGenome === undefined,
+            'Invalid external incubation record.');
+        if (brood.egg) eggs.add(brood.egg);
+        check(species && first && second && (first.deadAt === undefined || brood.egg) && first !== second &&
+            hasSpecies(first, brood.parentSpecies?.[0] ?? species) && hasSpecies(second, brood.parentSpecies?.[1] ?? species) &&
             first.matureAt < brood.dueAt && second.matureAt < brood.dueAt, 'Invalid creature parents.');
         for (const parent of brood.parents) {
             check(!occupiedParents.has(parent), 'Creature is committed to multiple broods.');
             occupiedParents.add(parent);
         }
+        check(brood.wild === undefined || key(brood.wild) &&
+            (brood.origin === brood.wild || !brood.parentSpecies &&
+                creatureWildHerd(first) === brood.wild && creatureWildHerd(second) === brood.wild),
+            'Invalid tracked wild brood.');
+        const birthGenome = brood.wild === undefined ? undefined : lookup(state.cohorts, brood.wild)?.phase?.genome;
+        check(brood.genomeId === undefined || key(brood.genomeId) &&
+            (brood.wildGenome === undefined || brood.wildGenome === brood.genomeId), 'Invalid brood genome.');
+        check(brood.wildGenome === undefined || brood.wild !== undefined && key(brood.wildGenome) &&
+            (birthGenome === undefined || birthGenome === brood.wildGenome), 'Invalid wild brood genome.');
     }
     return state;
+}
+
+function parentSpeciesValid(species) {
+    return Array.isArray(species) && species.length === 2 && species.every(key);
 }
 
 function beginSettlement(state, revision) {
@@ -116,7 +188,8 @@ export function habitatOccupancy(state, habitat, species = null) {
         if (cohort.habitat === habitat && (species === null || cohort.species === species)) count += cohort.stock;
     }
     for (const individual of Object.values(state.individuals)) {
-        if (individual.habitat === habitat && (species === null || individual.species === species)) count++;
+        if (individual.deadAt === undefined && individual.habitat === habitat &&
+            (species === null || individual.species === species)) count++;
     }
     return count;
 }
@@ -131,7 +204,7 @@ function checkHabitat(state, destination, species, incoming) {
         'Habitat has insufficient prey.');
 }
 
-export function settleCohortStock(state, {revision, id, species, habitat, delta}) {
+export function settleCohortStock(state, {revision, id, species, habitat, delta, genome, genes, sterile}) {
     const next = beginSettlement(state, revision);
     check(key(id) && key(species) && key(habitat?.id) && Number.isSafeInteger(delta) && delta !== 0,
         'Invalid cohort change.');
@@ -141,6 +214,14 @@ export function settleCohortStock(state, {revision, id, species, habitat, delta}
     const stock = (cohort?.stock ?? 0) + delta;
     check(natural(stock), 'Insufficient cohort stock.');
     if (delta > 0) checkHabitat(state, habitat, species, delta);
+    if (cohort?.phase || genes !== undefined) {
+        validateGenome(genome);
+        check(genome.linkage?.length && !cohort?.alleles && (cohort?.phase || !cohort?.stock),
+            'Phased stock needs a linked genome and an empty or already phased herd.');
+        const phase = changePhasedStock(cohort?.phase ?? {genome: genome.id, profiles: []}, genome, genes, delta, sterile);
+        return {...next, cohorts: {...state.cohorts, [id]: {...cohort, species, habitat: habitat.id, stock, phase}}};
+    }
+    check(sterile === undefined, 'Cohort fertility needs phased stock.');
     // A cohort with allele counts keeps two per member: arrivals join in the herd's
     // proportion, departures leave in it (GN8).
     const alleles = cohort?.alleles && (delta > 0 ? addBirthsToFrequencies(cohort.alleles, delta) :
@@ -178,7 +259,7 @@ export function matchesCreatureRoster(state, {ids, cohortId, species, habitats, 
 
 export function acquireCreature(state, {
     revision, cohortId, destination, keeper, traits = {}, clock = 0, ageMinutes = 0, growthMinutes = 0,
-    genes, breeding, genome, root,
+    genes, breeding, phased, ivs, genome, root,
 }) {
     const next = beginSettlement(state, revision);
     const cohort = lookup(state.cohorts, cohortId);
@@ -193,21 +274,61 @@ export function acquireCreature(state, {
     // and loses those two alleles; otherwise the host may supply genes (a bought animal).
     let left = cohort;
     let carried = genes;
+    let sterile;
     check(!cohort.alleles || genome, 'This herd keeps allele counts; name its genome to draw from it.');
-    if (cohort.alleles && genome) {
+    if (cohort.phase) {
+        check(genome, 'This herd keeps phased profiles; name its genome to draw from it.');
+        validateGenome(genome);
+        check(carried === undefined && phased === undefined && root !== undefined, 'Phased acquisition draws one herd profile.');
+        const drawn = drawPhasedMember(cohort.phase, cohort.stock, genome, {root, at: address('creature-acquire', cohortId, state.nextIdentity)});
+        carried = drawn.genes;
+        sterile = drawn.sterile;
+        phased = true;
+        left = {...cohort, phase: drawn.phase};
+    } else if (cohort.alleles && genome) {
         check(carried === undefined && typeof root === 'string', 'Drawing from a herd needs a root and no supplied genes.');
         const drawn = drawFromFrequencies(genome, cohort.alleles, {root, at: address('creature-acquire', cohortId, state.nextIdentity)});
         carried = drawn.genes;
         left = {...cohort, alleles: drawn.alleles};
     }
     check(genesValid(carried) && (carried === undefined || !genome || validateGenes(genome, carried)), 'Invalid creature genes.');
+    check(phasedValid(phased, cohort.phase ? carried : genes), 'Phased acquisition needs ordered alleles from the source.');
+    check(ivsValid(ivs) && (ivs === undefined || validateIVs(genome?.ivs, ivs)), 'Invalid creature individual values.');
     check(breedingValid(breeding) && (breeding === undefined || !genome || validateBreeding(genome, breeding)), 'Invalid breeding values.');
     return addIndividual({
         ...next, cohorts: {...state.cohorts, [cohortId]: {...left, stock: cohort.stock - 1}},
     }, {origin: cohortId, species: cohort.species, habitat: destination.id, keeper,
         bornAt, matureAt: bornAt + growthMinutes, traits: {...traits},
+        ...(genome?.development?.pauseWhileInjured ? {pauseWhileInjured: true} : {}),
         ...(carried ? {genes: structuredClone(carried), tested: []} : {}),
+        ...(phased ? {phased} : {}),
+        ...(sterile ? {sterile} : {}),
+        ...(ivs ? {ivs: {...ivs}} : {}),
         ...(breeding ? {breeding: {...breeding}} : {})}, clock);
+}
+
+// Fold interchangeable, untracked stock back into its cohort. Named
+// relationships, care and individual-only facts belong on the individual.
+export function returnPhasedCreature(state, {revision, id, genome, clock}) {
+    const next = beginSettlement(state, revision);
+    const animal = lookup(state.individuals, id);
+    const cohort = animal && lookup(state.cohorts, animal.origin);
+    check(animal?.phased && animal.deadAt === undefined && !animal.previousSpecies && !animal.wildHerd && cohort?.phase &&
+        animal.keeper === null && animal.habitat === cohort.habitat,
+        'Only unheld phased stock in its original herd can be folded into counts.');
+    check(natural(clock) && clock >= Math.max(creatureMaturityAt(animal, clock), animal.health.lastAt) &&
+        animal.health.careUntil === null && animal.health.injury === null &&
+        !animal.ivs && !animal.breeding && !animal.tested?.length &&
+        ![animal.traits, animal.organs, animal.experience].some(fields => Object.keys(fields).length),
+    'This creature still has individual facts to preserve.');
+    check(!animal.parents && !Object.values(state.individuals).some(other => other.parents?.includes(id)) &&
+        !Object.values(state.broods).some(brood => brood.parents.includes(id)), 'This creature has pedigree or brood records to preserve.');
+    const stock = cohort.stock + 1;
+    check(natural(stock), 'Cohort stock exhausted its numeric range.');
+    const phase = changePhasedStock(cohort.phase, genome, animal.genes, 1, animal.sterile);
+    const individuals = {...state.individuals};
+    delete individuals[id];
+    return {...next, individuals, cohorts: {...state.cohorts, [animal.origin]: {...cohort, stock, phase}}};
 }
 
 function addIndividual(state, fields, settledAt = fields.bornAt) {
@@ -222,7 +343,7 @@ function addIndividual(state, fields, settledAt = fields.bornAt) {
 export function transferCreature(state, {revision, id, fromKeeper, toKeeper, destination, clock}) {
     const next = beginSettlement(state, revision);
     const individual = lookup(state.individuals, id);
-    check(individual && individual.keeper === fromKeeper, 'Creature custody has changed.');
+    check(individual && individual.deadAt === undefined && individual.keeper === fromKeeper, 'Creature custody has changed.');
     check(toKeeper === null || key(toKeeper), 'Invalid creature keeper.');
     checkHabitat(state, destination, individual.species, Number(individual.habitat !== destination?.id));
     const moving = individual.habitat !== destination.id || fromKeeper !== toKeeper;
@@ -231,8 +352,63 @@ export function transferCreature(state, {revision, id, fromKeeper, toKeeper, des
     const health = clock === undefined ? individual.health : projectHealth(individual, clock);
     return {...next, individuals: {...state.individuals, [id]: {
         ...individual, keeper: toKeeper, habitat: destination.id,
+        matureAt: clock === undefined ? individual.matureAt : creatureMaturityAt(individual, clock),
         health: moving ? {...health, careUntil: null} : health,
     }}};
+}
+
+export function settleWildCreatureRelocation(state, options) {
+    return settleWildHerdEntry(state, {...options, keeper: null});
+}
+
+export function releaseCreatureToWildHerd(state, options) {
+    check(key(options.keeper), 'Release needs the current keeper.');
+    return settleWildHerdEntry(state, options);
+}
+
+function settleWildHerdEntry(state, {revision, id, cohortId, destination, clock, keeper, birthCohortId = cohortId, birthGenome}) {
+    const animal = lookup(state.individuals, id), herd = lookup(state.cohorts, cohortId);
+    check(animal && herd && herd.species === animal.species && herd.habitat === destination?.id &&
+        (keeper !== null || animal.habitat !== herd.habitat), 'A compatible destination herd is required.');
+    const clockSettled = habitat => {
+        const ledger = lookup(state.habitats, habitat);
+        return natural(clock) && ledger?.nextAt > clock && ledger.nextAt - ledger.interval <= clock;
+    };
+    if (keeper !== null) check(clockSettled(destination.id), 'Settle the receiving wild habitat clock through the release minute first.');
+    const pending = Object.entries(state.broods).find(([, brood]) => !brood.egg && brood.parents.includes(id));
+    let broods = state.broods;
+    if (pending) {
+        const [broodId, brood] = pending;
+        if (brood.parents[0] === id && (brood.wild || keeper !== null)) {
+            const origin = lookup(state.cohorts, brood.origin ?? brood.wild ?? animal.origin);
+            const receiving = lookup(state.cohorts, birthCohortId);
+            check(keeper !== null || clockSettled(animal.habitat) && clockSettled(destination.id),
+                'Settle both wild habitat clocks through the relocation minute first.');
+            check(receiving?.habitat === destination.id && receiving.species === origin?.species &&
+                destination.supportedSpecies.includes(receiving.species),
+                'The carried brood needs a compatible offspring cohort at the destination.');
+            if (birthGenome !== undefined) {
+                validateGenome(birthGenome);
+                if (brood.genes) validateGenes(birthGenome, brood.genes);
+            }
+            const wildGenome = brood.wildGenome ?? brood.genomeId ?? origin.phase?.genome ?? birthGenome?.id;
+            check(keeper === null || !brood.genes || wildGenome, 'A legacy brood needs an explicit birth genome.');
+            check(!wildGenome || !receiving.phase || receiving.phase.genome === wildGenome,
+                'The receiving cohort needs the carried brood’s genome.');
+            check(!wildGenome || !birthGenome || birthGenome.id === wildGenome,
+                'The birth policy needs the carried brood’s genome.');
+            broods = {...broods, [broodId]: {...brood, wild: birthCohortId, origin: birthCohortId,
+                ...(wildGenome ? {wildGenome} : {})}};
+        } else if (brood.wild && brood.origin === undefined) {
+            // Older saves infer a wild brood's origin from its parents' herd.
+            broods = {...broods, [broodId]: {...brood, origin: brood.wild}};
+        }
+    }
+    const next = transferCreature(state, {revision, id, fromKeeper: keeper, toKeeper: null, destination, clock});
+    const relocated = next.individuals[id];
+    if (cohortId === (animal.breedingOrigin ?? animal.origin)) delete relocated.wildHerd;
+    else relocated.wildHerd = cohortId;
+    return {...next, broods};
 }
 
 // L phase 2 (SC table: aperture as a body organ with capacity, for R and G). The
@@ -241,7 +417,7 @@ export function transferCreature(state, {revision, id, fromKeeper, toKeeper, des
 export function setCreatureOrgan(state, {revision, id, organ, value}) {
     const next = beginSettlement(state, revision);
     const animal = lookup(state.individuals, id);
-    check(animal && key(organ), 'Unknown creature or organ.');
+    check(animal && animal.deadAt === undefined && key(organ), 'Unknown creature or organ.');
     const organs = {...animal.organs};
     if (value === null) delete organs[organ];
     else organs[organ] = {...value};
@@ -258,11 +434,70 @@ export function markCreatureGenesKnown(state, {revision, id, loci}) {
     return {...next, individuals: {...state.individuals, [id]: {...animal, tested}}};
 }
 
+// A world settlement can change a locus. Preserve chromosome order and keep
+// earlier broods as settled at conception. A previous assay of this locus is stale.
+export function replaceCreatureAlleles(state, {revision, id, genome, locus, alleles}) {
+    const next = beginSettlement(state, revision);
+    const animal = lookup(state.individuals, id);
+    check(animal?.genes && animal.deadAt === undefined && Object.hasOwn(genome.loci, locus), 'Unknown creature locus.');
+    check(Array.isArray(alleles), 'A creature locus needs two alleles.');
+    const genes = {...animal.genes, [locus]: [...alleles]};
+    validateGenes(genome, genes);
+    const individual = {...animal, genes};
+    if (animal.tested) individual.tested = animal.tested.filter(tested => tested !== locus);
+    return {...next, individuals: {...state.individuals, [id]: individual}};
+}
+
+// The world owns the transformation and genome compatibility. A compatible
+// kind change preserves the body and the founding cohort. Its new cohort
+// supplies the birth origin for future broods.
+export function changeCreatureSpecies(state, {revision, id, habitat, cohortId, clock, forgetSkills = [], learnSkill}) {
+    const next = beginSettlement(state, revision);
+    const animal = lookup(state.individuals, id), cohort = lookup(state.cohorts, cohortId);
+    check(animal && animal.deadAt === undefined && cohort && animal.species !== cohort.species &&
+        animal.habitat === habitat?.id && cohort.habitat === habitat.id &&
+        natural(clock) && clock >= Math.max(animal.bornAt, animal.health.lastAt),
+    'Creature needs a compatible species change in its current habitat.');
+    checkHabitat(state, habitat, cohort.species, 0);
+    check(habitatOccupancy(state, habitat.id, cohort.species) < preyCapacity(state, habitat, cohort.species),
+        'Habitat has insufficient prey for the changed creature.');
+    const keeperExperience = lookup(animal.experience, animal.keeper);
+    check(Array.isArray(forgetSkills) && forgetSkills.every(skill =>
+        key(skill) && keeperExperience && Object.hasOwn(keeperExperience.training, skill)),
+    'Species change can remove only skills already practiced with the keeper.');
+    check(learnSkill === undefined || key(learnSkill) && key(animal.keeper) &&
+        !Object.hasOwn(keeperExperience?.training ?? {}, learnSkill) &&
+        clock >= (keeperExperience?.lastAt ?? animal.bornAt), 'Invalid species-change lesson.');
+    let experience = animal.experience;
+    if (forgetSkills.length || learnSkill !== undefined) {
+        const training = {...keeperExperience?.training};
+        for (const skill of forgetSkills) delete training[skill];
+        if (learnSkill !== undefined) training[learnSkill] = 1;
+        experience = {...experience, [animal.keeper]: {
+            bond: keeperExperience?.bond ?? 0,
+            lastAt: learnSkill === undefined ? keeperExperience.lastAt : clock,
+            training,
+        }};
+    }
+    const broods = {...state.broods};
+    for (const [broodId, brood] of Object.entries(broods)) {
+        if (brood.origin !== undefined || !brood.parents.includes(id)) continue;
+        const carrier = state.individuals[brood.parents[0]];
+        broods[broodId] = {...brood, origin: carrier.breedingOrigin ?? carrier.origin};
+    }
+    const {wildHerd, ...former} = animal;
+    return {...next, broods, individuals: {...state.individuals, [id]: {
+        ...former, species: cohort.species, breedingOrigin: cohortId, experience,
+        ...(wildHerd === undefined ? {} : {wildHerd: cohortId}),
+        previousSpecies: [...new Set([...(animal.previousSpecies ?? []), animal.species])],
+    }}};
+}
+
 // GN8: a herd or wild population away from the player keeps allele counts, two per member.
 export function setCohortAlleles(state, {revision, id, alleles}) {
     const next = beginSettlement(state, revision);
     const cohort = lookup(state.cohorts, id);
-    check(cohort && allelesValid(alleles) && Object.values(alleles).every(row => row.strong + row.plain === 2 * cohort.stock),
+    check(cohort && !cohort.phase && allelesValid(alleles) && Object.values(alleles).every(row => row.strong + row.plain === 2 * cohort.stock),
         'Allele counts must be two per member of the cohort.');
     return {...next, cohorts: {...state.cohorts, [id]: {...cohort, alleles: structuredClone(alleles)}}};
 }
@@ -270,7 +505,25 @@ export function setCohortAlleles(state, {revision, id, alleles}) {
 export function creatureDevelopment(state, id, clock) {
     const animal = lookup(state.individuals, id);
     check(animal && natural(clock) && clock >= animal.bornAt, 'Invalid creature age query.');
-    return {ageMinutes: clock - animal.bornAt, mature: clock >= animal.matureAt};
+    return {ageMinutes: clock - animal.bornAt, mature: clock >= creatureMaturityAt(animal, clock)};
+}
+
+// An open wound pauses juvenile growth. If current care completes healing,
+// stop accruing the delay at that minute.
+export function creatureMaturityAt(animal, clock) {
+    const {matureAt, health} = animal;
+    if (!animal.pauseWhileInjured || !health?.injury?.remaining ||
+        matureAt <= health.lastAt || clock <= health.lastAt) return matureAt;
+    const elapsed = Math.min(clock, animal.deadAt ?? clock) - health.lastAt;
+    const pause = Math.min(elapsed, creatureGrowthPauseUntil(health) - health.lastAt);
+    check(natural(matureAt + pause), 'Adjusted creature growth interval is out of range.');
+    return matureAt + pause;
+}
+
+export function creatureGrowthPauseUntil(health) {
+    if (!(health.injury?.remaining > 0)) return null;
+    const activeCare = (health.careUntil ?? health.lastAt) - health.lastAt;
+    return activeCare >= health.injury.remaining ? health.lastAt + health.injury.remaining : Number.MAX_SAFE_INTEGER;
 }
 
 export function practiceWithCreature(state, {
@@ -278,7 +531,7 @@ export function practiceWithCreature(state, {
 }) {
     const next = beginSettlement(state, revision);
     const animal = lookup(state.individuals, id);
-    check(animal && key(actor) && (animal.keeper === actor || animal.keeper === null),
+    check(animal && animal.deadAt === undefined && key(actor) && (animal.keeper === actor || animal.keeper === null),
         'Creature is in another keeper’s custody.');
     check(natural(clock) && clock >= animal.bornAt && positive(minimumGap) &&
         natural(bondGain) && bondGain <= 100 && (skill === null || key(skill)) &&
@@ -300,19 +553,52 @@ export function practiceWithCreature(state, {
 // Local rules supply compatible reproductive roles and gestation timing. Once
 // started, a brood keeps its parent IDs, due time and addressed trait draws.
 export function startCreatureBrood(state, {
-    revision, parents, keeper, clock, gestationMinutes, growthMinutes, root, genome, exposure = {},
+    revision, parents, keeper, clock, gestationMinutes, growthMinutes, root, genome, exposure = {}, ivInheritance, cross, wild,
+    developmentEnvironment = {}, developmentConditions = [],
 }) {
     const next = beginSettlement(state, revision);
     check(Array.isArray(parents) && parents.length === 2 && parents.every(key) &&
-        parents[0] !== parents[1] && key(keeper), 'Invalid creature parents.');
+        parents[0] !== parents[1] && (key(keeper) || keeper === null && key(wild)), 'Invalid creature parents.');
     check(natural(clock) && positive(gestationMinutes) && natural(growthMinutes) &&
         natural(clock + gestationMinutes + growthMinutes), 'Invalid creature growth interval.');
     const [first, second] = parents.map(id => lookup(state.individuals, id));
-    check(first && second && first.keeper === keeper && second.keeper === keeper &&
-        first.habitat === second.habitat && first.species === second.species &&
-        first.matureAt <= clock && second.matureAt <= clock, 'Parents need compatible adult stock in the same habitat.');
+    check(first && second && first.deadAt === undefined && second.deadAt === undefined &&
+        first.keeper === keeper && second.keeper === keeper &&
+        first.habitat === second.habitat && (cross !== undefined || first.species === second.species) &&
+        creatureMaturityAt(first, clock) <= clock && creatureMaturityAt(second, clock) <= clock,
+        'Parents need compatible adult stock in the same habitat.');
     check(!Object.values(state.broods).some(brood => brood.parents.some(id => parents.includes(id))),
         'A parent already has a pending brood.');
+    check(!first.sterile && !second.sterile, 'A parent is sterile.');
+    check(wild === undefined || keeper === null && key(wild) &&
+        (cross === undefined ? creatureWildHerd(first) === wild && creatureWildHerd(second) === wild : cross?.origin === wild),
+    'Wild parents need a tracked herd or a local offspring cohort.');
+    let origin = wild ?? first.breedingOrigin;
+    let parentSpecies, sterile;
+    if (cross !== undefined) {
+        check(object(cross) && Array.isArray(cross.parentGenomes) && cross.parentGenomes.length === 2 &&
+            genome && key(cross.origin) && lookup(state.cohorts, cross.origin)?.habitat === first.habitat,
+        'A cross needs two parent genomes and a local offspring cohort.');
+        for (const parentGenome of cross.parentGenomes) validateGenome(parentGenome);
+        const [left, right] = cross.parentGenomes;
+        const outcome = crossOutcome(left, right);
+        check(outcome.viable && left.family === genome.family && right.family === genome.family,
+            'The cross is not viable.');
+        origin = cross.origin;
+        parentSpecies = [first.species, second.species];
+        if (!outcome.fertile) sterile = true;
+    }
+    const wildGenome = wild === undefined ? undefined : genome?.id;
+    const herdGenome = wild === undefined ? undefined : lookup(state.cohorts, wild)?.phase?.genome;
+    check(!wildGenome || !herdGenome || wildGenome === herdGenome, 'Wild brood needs the birth cohort genome.');
+    let inbreedingCoefficient;
+    const growthEffect = genome?.inbreeding?.growthMinutesAtFull;
+    if (growthEffect !== undefined) {
+        check(natural(growthEffect), 'Inbreeding growth effect needs whole minutes.');
+        inbreedingCoefficient = kinship(creaturePedigree(state), ...parents);
+        growthMinutes += inbreedingGrowthDelay(growthEffect, inbreedingCoefficient);
+        check(natural(clock + gestationMinutes + growthMinutes), 'Adjusted creature growth interval is out of range.');
+    }
     // GR4: a brood is named by what it is, the ordered pair and how many young that
     // pair already has, so its draws do not move when an unrelated settlement (a gene
     // test, a care action) lands first. Derived from saved parentage; no counter is stored.
@@ -328,30 +614,104 @@ export function startCreatureBrood(state, {
     let mutated = [];
     if (genome) {
         check(first.genes && second.genes, 'Both parents need genes for this kind.');
-        ({genes, mutated} = inheritGenes(genome, first.genes, second.genes, {root, at: address('creature-genes', id), exposure}));
+        ({genes, mutated} = inheritGenes(genome, first.genes, second.genes, {root, at: address('creature-genes', id),
+            exposure, phased: [first.phased, second.phased], parentGenomes: cross?.parentGenomes, alleleMaps: cross?.alleleMaps}));
+    }
+    check(ivInheritance === undefined || genome?.ivs && object(ivInheritance), 'Individual-value aids need a local genome rule.');
+    const ivs = genome?.ivs ? inheritIVs(genome.ivs, [first.ivs, second.ivs], {
+        count: ivInheritance?.count, guaranteed: ivInheritance?.guaranteed, root, at: address('creature-ivs', id),
+    }) : undefined;
+    if (genome?.development) {
+        const {iv, expressed} = genome.development;
+        if (iv) growthMinutes = Math.max(0, growthMinutes - Math.floor(ivs[iv.stat] / iv.perMinute));
+        if (expressed) {
+            const expression = expressGenes(genome, genes,
+                {mature: false, environment: developmentEnvironment, conditions: developmentConditions});
+            growthMinutes = Math.max(0, growthMinutes - expression[expressed.locus].level * expressed.minutesPerLevel);
+        }
     }
     const breeding = genome && first.breeding && second.breeding && Object.keys(genome.polygenic ?? {}).length ?
         inheritBreeding(genome, first.breeding, second.breeding, {root, at: address('creature-breeding', id)}) : undefined;
-    return {id, mutated, state: {...next, broods: {...state.broods, [id]: {
+    return {id, mutated, ...(inbreedingCoefficient === undefined ? {} : {inbreedingCoefficient}), state: {...next, broods: {...state.broods, [id]: {
         parents: [...parents], dueAt: clock + gestationMinutes, growthMinutes, traits, ...(genes ? {genes} : {}),
+        ...(genome?.development?.pauseWhileInjured ? {pauseWhileInjured: true} : {}),
+        ...(origin ? {origin} : {}),
+        ...(wild ? {wild} : {}),
+        ...(wildGenome ? {wildGenome} : {}),
+        ...(wild === undefined && genome ? {genomeId: genome.id} : {}),
+        ...(parentSpecies ? {parentSpecies} : {}),
+        ...(sterile ? {sterile} : {}),
+        ...(genes && genome.linkage?.length ? {phased: true} : {}),
+        ...(ivs ? {ivs} : {}),
         ...(breeding ? {breeding} : {}),
     }}}};
 }
 
+function creaturePedigree(state) {
+    return Object.entries(state.individuals).sort(([, a], [, b]) => a.serial - b.serial)
+        .map(([id, animal]) => ({id, sire: animal.parents?.[0], dam: animal.parents?.[1]}));
+}
+
 export function settleCreatureBirth(state, {revision, broodId, clock, destination}) {
+    return settleBroodArrival(state, {revision, broodId, clock, destination});
+}
+
+export function layCreatureEgg(state, {revision, broodId, egg, clock}) {
     const next = beginSettlement(state, revision);
     const brood = lookup(state.broods, broodId);
-    check(brood && natural(clock) && clock >= brood.dueAt, 'No creature birth is due.');
-    const carrier = lookup(state.individuals, brood.parents[0]);
-    check(carrier.habitat === destination?.id, 'Birth must settle where the carrying parent is.');
-    check(natural(clock + brood.growthMinutes), 'Invalid creature growth interval.');
-    checkHabitat(state, destination, carrier.species, 1);
+    const carrier = brood && lookup(state.individuals, brood.parents[0]);
+    check(carrier && !brood.egg && key(egg) && carrier.deadAt === undefined &&
+        natural(clock) && clock >= carrier.health.lastAt &&
+        !Object.values(state.broods).some(other => other.egg === egg), 'No matching brood can lay this egg.');
+    const {wild, wildGenome, ...inheritance} = brood;
+    return {...next, broods: {...state.broods, [broodId]: {...inheritance, egg,
+        ...(wild ? {origin: brood.origin ?? wild} : {}), ...(wildGenome ? {genomeId: wildGenome} : {})}}};
+}
+
+export function settleCreatureHatch(state, {
+    revision, broodId, egg, clock, destination, keeper = null, incubationCondition, incubationConditions,
+}) {
+    const conditions = incubationConditions ?? (incubationCondition === undefined ? [] : [incubationCondition]);
+    check(key(egg) && (keeper === null || key(keeper)) && conditionsValid(conditions),
+        'Invalid egg, hatchling keeper or incubation condition.');
+    return settleBroodArrival(state, {revision, broodId, clock, destination, egg, keeper, conditions});
+}
+
+export function settleCreatureEggLoss(state, {revision, broodId, egg}) {
+    const next = beginSettlement(state, revision);
+    const brood = lookup(state.broods, broodId);
+    check(key(egg) && brood?.egg === egg, 'No matching egg can be lost.');
     const broods = {...state.broods};
     delete broods[broodId];
-    return addIndividual({...next, broods}, {origin: carrier.origin, species: carrier.species,
-        habitat: carrier.habitat, keeper: carrier.keeper, bornAt: clock,
+    return {...next, broods};
+}
+
+function settleBroodArrival(state, {revision, broodId, clock, destination, egg, keeper, conditions = []}) {
+    const next = beginSettlement(state, revision);
+    const brood = lookup(state.broods, broodId);
+    check(brood && brood.egg === egg && natural(clock) && clock >= brood.dueAt, 'No creature birth is due.');
+    const carrier = lookup(state.individuals, brood.parents[0]);
+    if (egg === undefined) {
+        check(carrier.habitat === destination?.id, 'Birth must settle where the carrying parent is.');
+        check(carrier.deadAt === undefined, 'Birth needs a living carrier.');
+    }
+    check(natural(clock + brood.growthMinutes), 'Invalid creature growth interval.');
+    const origin = brood.origin ?? carrier.origin;
+    const species = state.cohorts[origin].species;
+    checkHabitat(state, destination, species, 1);
+    const broods = {...state.broods};
+    delete broods[broodId];
+    return addIndividual({...next, broods}, {origin, species,
+        habitat: destination.id, keeper: egg === undefined ? carrier.keeper : keeper, bornAt: clock,
         matureAt: clock + brood.growthMinutes, traits: {...brood.traits}, parents: [...brood.parents],
+        ...(conditions.length === 1 ? {incubationCondition: conditions[0]} : {}),
+        ...(conditions.length > 1 ? {incubationConditions: [...conditions].sort()} : {}),
+        ...(brood.pauseWhileInjured ? {pauseWhileInjured: true} : {}),
+        ...(brood.parentSpecies ? {parentSpecies: [...brood.parentSpecies]} : {}),
+        ...(brood.sterile ? {sterile: true} : {}),
         ...(brood.genes ? {genes: structuredClone(brood.genes), tested: []} : {}),
+        ...(brood.phased ? {phased: true} : {}),
+        ...(brood.ivs ? {ivs: {...brood.ivs}} : {}),
         ...(brood.breeding ? {breeding: {...brood.breeding}} : {})});
 }
 
@@ -384,15 +744,15 @@ function projectHealth(animal, clock) {
 export function creatureHealth(state, id, clock) {
     const animal = lookup(state.individuals, id);
     check(animal, 'Unknown creature.');
-    return structuredClone(projectHealth(animal, clock));
+    return structuredClone(animal.deadAt === undefined ? projectHealth(animal, clock) : animal.health);
 }
 
 function settleHealth(state, revision, id, clock, apply) {
     const next = beginSettlement(state, revision);
     const animal = lookup(state.individuals, id);
-    check(animal, 'Unknown creature.');
+    check(animal && animal.deadAt === undefined, 'Unknown or deceased creature.');
     const health = apply(projectHealth(animal, clock), animal);
-    return {...next, individuals: {...state.individuals, [id]: {...animal, health}}};
+    return {...next, individuals: {...state.individuals, [id]: {...animal, matureAt: creatureMaturityAt(animal, clock), health}}};
 }
 
 export function injureCreature(state, {revision, id, clock, kind, recoveryMinutes}) {
@@ -443,67 +803,305 @@ export function openWildHabitat(state, {revision, id, clock, interval}) {
     return {...next, habitats: {...state.habitats, [id]: {interval, nextAt: clock + interval, births: 0, losses: 0}}};
 }
 
-const WILD_WINDOW_BUDGET = 64;
+// The keeper's policy ranks visible traits. The clock owner supplies the
+// conditions each window, just as it supplies habitat space and exposure.
+export function setPhasedHerdSelection(state, {revision, id, clock, genome, locus}) {
+    const next = beginSettlement(state, revision);
+    const cohort = lookup(state.cohorts, id);
+    const habitat = cohort && lookup(state.habitats, cohort.habitat);
+    check(cohort?.phase && habitat && natural(clock) &&
+        clock >= habitat.nextAt - habitat.interval && clock < habitat.nextAt,
+    'Set herd selection after settling the current habitat clock.');
+    validateGenome(genome);
+    check(cohort.phase.genome === genome.id && (locus === null || key(locus) && Object.hasOwn(genome.loci, locus)),
+        'Herd selection needs a locus from its linked genome.');
+    const selection = {...habitat.selection};
+    if (locus === null) delete selection[id];
+    else selection[id] = locus;
+    return {...next, habitats: {...state.habitats, [cohort.habitat]: {...habitat, selection}}};
+}
 
-export function advanceWildHabitat(state, {revision, habitat, clock, populations}) {
+function phasedParentPool({phase, stock}, genome, locus, environment, minimum) {
+    const fertile = phase.profiles.filter(row => !row.sterile);
+    const fertileStock = fertile.reduce((total, row) => total + row.count, 0);
+    const pool = fertileStock === stock ? {phase, stock} : {phase: {...phase, profiles: fertile}, stock: fertileStock};
+    if (locus === undefined || fertileStock < minimum) return pool;
+    const ranked = fertile.map(row => ({
+        row, level: expressGenes(genome, row.genes, {environment})[locus].level,
+    }));
+    const profiles = [];
+    let available = 0;
+    for (const level of [2, 1, 0]) {
+        for (const {row, level: score} of ranked) {
+            if (score !== level) continue;
+            profiles.push(row);
+            available += row.count;
+        }
+        if (available >= minimum) break;
+    }
+    // Keep the original addressed draws when all profiles qualify.
+    if (available === fertileStock) return pool;
+    return {phase: {...phase, profiles}, stock: available};
+}
+
+function checkSourceSelection(sources) {
+    check(sources.every(({selectionLocus, genome}) => selectionLocus === undefined ||
+        key(selectionLocus) && Object.hasOwn(genome.loci, selectionLocus)),
+    'Wild cross selection needs a locus in the source genome.');
+}
+
+export const WILD_WINDOW_BUDGET = 64;
+
+export function advanceWildHabitat(state, {revision, habitat, clock, populations, reportTurnover = false, parentReady, carrierPresent}) {
     check(revision === state.revision, 'Creature state changed since this action was prepared.');
     const ledger = object(habitat) && lookup(state.habitats, habitat.id);
     check(ledger && natural(clock) && clock >= ledger.nextAt - ledger.interval &&
         natural(habitat.capacity) && Array.isArray(habitat.supportedSpecies) &&
         Array.isArray(populations) && populations.length <= 32, 'Invalid wild habitat advance.');
     const ids = new Set();
+    const sterileCrosses = new Set();
     for (const population of populations) {
         const cohort = object(population) && lookup(state.cohorts, population.id);
         check(cohort && cohort.habitat === habitat.id && !ids.has(population.id) &&
             natural(population.births) && natural(population.losses), 'Invalid wild population policy.');
+        if (cohort.phase && (population.births || population.losses)) {
+            const {genome, root} = population;
+            validateGenome(genome);
+            check(genome.id === cohort.phase.genome && genome.linkage?.length &&
+                (typeof root === 'string' && root.length > 0 || natural(root) && root <= 0xffffffff),
+            'Wild phased stock needs its linked genome and a draw root.');
+            const locus = ledger.selection?.[population.id];
+            check(locus === undefined || Object.hasOwn(genome.loci, locus), 'Unknown herd selection locus.');
+        }
+        if (population.cross !== undefined) {
+            const {cross, genome} = population;
+            check(cohort.phase && Array.isArray(cross) && cross.length === 2 &&
+                cross[0]?.id !== cross[1]?.id && cross.every(source => {
+                    const parent = key(source?.id) && lookup(state.cohorts, source.id);
+                    return parent?.phase && parent.habitat === habitat.id && source.id !== population.id &&
+                        parent.phase.genome === source.genome?.id;
+                }), 'A wild cross needs two distinct local phased source herds and a phased destination.');
+            const parentGenomes = cross.map(source => validateGenome(source.genome));
+            checkSourceSelection(cross);
+            validateGenome(genome);
+            const outcome = crossOutcome(...parentGenomes);
+            check(parentGenomes.every(parent => parent.family === genome.family) && outcome.viable,
+                'Wild cross stock needs a viable cross.');
+            if (!outcome.fertile) sterileCrosses.add(population.id);
+            check(cohort.phase.genome === genome.id && genome.linkage?.length,
+                'Wild cross stock needs the linked destination genome.');
+            validateCrossAlleleMaps(genome, parentGenomes, cross.map(source => source.alleleMap ?? {}));
+        }
+        if (population.pedigree !== undefined) {
+            const {pedigree, genome, root} = population;
+            check(object(pedigree) && positive(pedigree.gestationMinutes) && natural(pedigree.growthMinutes) &&
+                typeof pedigree.maxKinship === 'number' && pedigree.maxKinship >= 0 && pedigree.maxKinship <= 1 &&
+                population.cross === undefined &&
+                (typeof root === 'string' && root.length > 0 || natural(root) && root <= 0xffffffff),
+            'Invalid tracked wild mating policy.');
+            validateGenome(genome);
+            check(!cohort.phase || cohort.phase.genome === genome.id, 'Tracked wild mating needs the herd genome.');
+            if (pedigree.sources !== undefined) {
+                const {sources} = pedigree;
+                check(Array.isArray(sources) && sources.length === 2 && sources[0]?.id !== sources[1]?.id &&
+                    sources.every(source => {
+                        const herd = key(source?.id) && lookup(state.cohorts, source.id);
+                        return herd && herd.habitat === habitat.id && (!herd.phase || herd.phase.genome === source.genome?.id);
+                    }), 'Tracked wild cross needs two distinct local source herds.');
+                const maps = sources.map(source => validateGenome(source.genome));
+                check(maps.every(map => map.family === genome.family) && crossOutcome(...maps).viable,
+                    'Tracked wild cross needs compatible genomes.');
+                checkSourceSelection(sources);
+                validateCrossAlleleMaps(genome, maps, sources.map(source => source.alleleMap ?? {}));
+            }
+        }
         ids.add(population.id);
     }
 
     let current = state;
     let windows = 0;
+    const turnover = reportTurnover ? [] : null;
     while (clock >= current.habitats[habitat.id].nextAt && windows < WILD_WINDOW_BUDGET) {
-        current = settleWildWindow(current, habitat, populations);
+        current = settleWildWindow(current, habitat, populations, sterileCrosses, turnover);
+        current = settleTrackedWildBroods(current, habitat, populations, turnover, parentReady, carrierPresent);
         windows++;
     }
     const nextAt = current.habitats[habitat.id].nextAt;
     return {state: current, windows, settledThrough: nextAt > clock ? clock : nextAt - ledger.interval,
-        pending: nextAt <= clock};
+        pending: nextAt <= clock, ...(turnover ? {turnover} : {})};
 }
 
-function settleWildWindow(state, habitat, populations) {
+function settleWildWindow(state, habitat, populations, sterileCrosses, turnover) {
     const previous = state.habitats[habitat.id];
     const next = beginSettlement(state, state.revision);
     const ledger = {...previous, nextAt: previous.nextAt + previous.interval};
     const cohorts = {...state.cohorts};
-    const working = {...next, cohorts, habitats: {...state.habitats, [habitat.id]: ledger}};
+    const working = {...next, cohorts, individuals: {...state.individuals}, broods: {...state.broods},
+        habitats: {...state.habitats, [habitat.id]: ledger}};
     // Species compete for space in authored order. Loss decisions use the
     // opening window's stock, so a newborn cannot retroactively supply prey.
     let free = habitat.capacity - habitatOccupancy(state, habitat.id);
-    for (const {id, losses} of populations) {
+    for (const {id, losses, genome, root, pedigree} of populations) {
         const cohort = cohorts[id];
         const species = cohort.species;
         const supported = habitat.supportedSpecies.includes(species) ? preyCapacity(state, habitat, species) : 0;
         const deficit = Math.max(0, -free, habitatOccupancy(working, habitat.id, species) - supported);
+        if (pedigree && losses > 0 && deficit > 0) {
+            const removed = loseTrackedWildStock(working, habitat.id, id, species, previous.nextAt, root,
+                Math.min(losses, deficit), turnover);
+            free += removed;
+            ledger.losses += removed;
+            continue;
+        }
         const removed = Math.min(cohort.stock, losses, deficit);
+        let phase = cohort.phase;
+        if (phase) for (let i = 0; i < removed; i++) {
+            ({phase} = drawPhasedMember(phase, cohort.stock - i, genome,
+                {root, at: address('wild-cohort', habitat.id, id, previous.nextAt, 'loss', i)}));
+        }
         cohorts[id] = {...cohort, stock: cohort.stock - removed,
+            ...(phase ? {phase} : {}),
             ...(cohort.alleles ? {alleles: removeFromFrequencies(cohort.alleles, removed)} : {})};
         free += removed;
         ledger.losses += removed;
+        if (removed && turnover) turnover.push({id, losses: removed, at: previous.nextAt});
     }
-    for (const {id, births} of populations) {
+    // Cross-herd parents come from the surviving stock before any births.
+    const survivors = {...cohorts};
+    for (const {id, births, genome, root, exposure, environment, cross, pedigree} of populations) {
+        if (pedigree) continue;
         const cohort = cohorts[id];
-        if (habitatOccupancy(working, habitat.id, cohort.species) === 0 || free <= 0 || births === 0 ||
+        if ((!cross && habitatOccupancy(working, habitat.id, cohort.species) === 0) || free <= 0 || births === 0 ||
             !habitat.supportedSpecies.includes(cohort.species)) continue;
         const prey = preyCapacity(state, habitat, cohort.species);
         const space = prey - habitatOccupancy(working, habitat.id, cohort.species);
-        const added = Math.max(0, Math.min(births, free, space));
+        // Two surviving members supply the parent pool for the whole window.
+        // Later windows can draw these newborn profiles.
+        const sources = cross?.map(({id, genome, selectionLocus}) =>
+            ({...phasedParentPool(survivors[id], genome, selectionLocus, environment, 1), genome}));
+        const alleleMaps = cross?.map(source => source.alleleMap ?? {});
+        const parents = !sources && cohort.phase ?
+            phasedParentPool(cohort, genome, previous.selection?.[id], environment, 2) : null;
+        const enoughParents = sources ? sources.every(source => source.stock > 0) : !parents || parents.stock >= 2;
+        const added = enoughParents ? Math.max(0, Math.min(births, free, space)) : 0;
+        let phase = cohort.phase;
+        if (phase && added > 0) {
+            for (let i = 0; i < added; i++) {
+                const at = address('wild-cohort', habitat.id, id, previous.nextAt, 'birth', i);
+                const genes = sources ? crossPhasedMembers(sources, genome, {root, at, exposure, alleleMaps})
+                    : breedPhasedMembers(parents.phase, parents.stock, genome, {root, at, exposure});
+                phase = changePhasedStock(phase, genome, genes, 1, sterileCrosses.has(id));
+            }
+        }
         cohorts[id] = {...cohort, stock: cohort.stock + added,
+            ...(phase ? {phase} : {}),
             ...(cohort.alleles ? {alleles: addBirthsToFrequencies(cohort.alleles, added)} : {})};
         free -= added;
         ledger.births += added;
+        if (added && turnover) turnover.push({id, births: added, at: previous.nextAt});
     }
     check(natural(ledger.nextAt) && natural(ledger.births) && natural(ledger.losses), 'Wild habitat ledger exhausted.');
     return working;
+}
+
+function loseTrackedWildStock(state, habitat, origin, species, clock, root, limit, turnover) {
+    const candidates = Object.entries(state.individuals).filter(([, animal]) =>
+        animal.deadAt === undefined && creatureWildHerd(animal) === origin && animal.species === species &&
+        animal.habitat === habitat && animal.keeper === null && animal.health.lastAt <= clock)
+        .sort(([, a], [, b]) => a.serial - b.serial);
+    const count = Math.min(limit, candidates.length);
+    const lost = new Set();
+    for (let i = 0; i < count; i++) {
+        const at = address('wild-cohort', habitat, origin, clock, 'tracked-loss', i);
+        const [[id, animal]] = candidates.splice(indexFromU32(drawU32(root, at), candidates.length), 1);
+        lost.add(id);
+        if (turnover) turnover.push({id: origin, death: id, at: clock});
+        state.individuals[id] = {...animal, deadAt: clock, matureAt: creatureMaturityAt(animal, clock),
+            health: {...projectHealth(animal, clock), careUntil: null}};
+    }
+    for (const [id, brood] of Object.entries(state.broods))
+        if (!brood.egg && lost.has(brood.parents[0])) delete state.broods[id];
+    return count;
+}
+
+function settleTrackedWildBroods(state, habitat, populations, turnover, parentReady, carrierPresent) {
+    const ledger = state.habitats[habitat.id];
+    const clock = ledger.nextAt - ledger.interval;
+    let current = state, births = 0;
+    for (const {id, pedigree, births: pairLimit, genome, root, exposure, environment} of populations) {
+        if (!pedigree) continue;
+        const species = current.cohorts[id].species;
+        if (!habitat.supportedSpecies.includes(species)) continue;
+        const available = () => habitatOccupancy(current, habitat.id) < habitat.capacity &&
+            habitatOccupancy(current, habitat.id, species) < preyCapacity(current, habitat, species);
+        for (const [broodId, brood] of Object.entries(current.broods)) {
+            if (!available()) break;
+            const carrier = current.individuals[brood.parents[0]];
+            if (brood.wild !== id || brood.dueAt > clock || carrier.habitat !== habitat.id || carrier.keeper !== null) continue;
+            if (carrierPresent && !carrierPresent(brood.parents[0], carrier, broodId)) continue;
+            check(!brood.wildGenome || brood.wildGenome === genome.id, 'Wild birth needs the carried brood’s genome.');
+            if (brood.genes) validateGenes(genome, brood.genes);
+            const born = settleCreatureBirth(current, {revision: current.revision, broodId, clock, destination: habitat});
+            current = born.state;
+            if (turnover) turnover.push({id, newborn: born.id, at: clock});
+            births++;
+        }
+        if (!pairLimit || !available()) continue;
+        const busy = new Set(Object.values(current.broods).flatMap(brood => brood.parents));
+        const sources = pedigree.sources;
+        const locus = sources ? undefined : ledger.selection?.[id];
+        const crossSelection = sources?.some(source => source.selectionLocus !== undefined);
+        const candidates = Object.entries(current.individuals).filter(([animalId, animal]) =>
+            (sources ? sources.some(source => creatureWildHerd(animal) === source.id && animal.species === current.cohorts[source.id].species &&
+                habitat.supportedSpecies.includes(animal.species)) : creatureWildHerd(animal) === id && animal.species === species) &&
+            animal.habitat === habitat.id &&
+            animal.keeper === null && animal.deadAt === undefined &&
+            creatureMaturityAt(animal, clock) <= clock && !animal.sterile && !busy.has(animalId) &&
+            (!parentReady || parentReady(animalId, animal, clock)))
+            .map(([animalId, animal]) => ({animalId, serial: animal.serial, level: locus && animal.genes ?
+                expressGenes(genome, animal.genes, {environment,
+                    conditions: creatureIncubationConditions(animal)})[locus].level : 0}))
+            .sort((a, b) => b.level - a.level || a.serial - b.serial).map(({animalId}) => animalId);
+        const ancestry = creaturePedigree(current);
+        const crossLevels = new Map();
+        if (crossSelection) for (const animalId of candidates) {
+            const animal = current.individuals[animalId];
+            const source = sources.find(source => source.id === creatureWildHerd(animal));
+            const level = source.selectionLocus && animal.genes ?
+                expressGenes(source.genome, animal.genes, {environment,
+                    conditions: creatureIncubationConditions(animal)})[source.selectionLocus].level : 0;
+            crossLevels.set(animalId, level);
+        }
+        for (let i = 0; i < pairLimit && candidates.length >= 2; i++) {
+            let pair = null, lowest = Infinity, bestExpression = -1;
+            search: for (const [index, first] of candidates.entries()) {
+                for (let j = index + 1; j < candidates.length; j++) {
+                    const second = candidates[j];
+                    if (sources && creatureWildHerd(current.individuals[first]) === creatureWildHerd(current.individuals[second])) continue;
+                    const coefficient = kinship(ancestry, first, second);
+                    const expression = crossSelection ? crossLevels.get(first) + crossLevels.get(second) : 0;
+                    if (coefficient <= pedigree.maxKinship &&
+                        (coefficient < lowest || coefficient === lowest && expression > bestExpression)) {
+                        lowest = coefficient;
+                        bestExpression = expression;
+                        pair = [first, second];
+                        if (coefficient === 0 && !crossSelection) break search;
+                    }
+                }
+            }
+            if (!pair) break;
+            for (const parent of pair) candidates.splice(candidates.indexOf(parent), 1);
+            if (sources && creatureWildHerd(current.individuals[pair[0]]) !== sources[0].id) pair.reverse();
+            current = startCreatureBrood(current, {revision: current.revision, parents: pair, keeper: null,
+                wild: id, clock, genome, root, exposure, gestationMinutes: pedigree.gestationMinutes,
+                growthMinutes: pedigree.growthMinutes, developmentEnvironment: environment,
+                ...(sources ? {cross: {origin: id, parentGenomes: sources.map(source => source.genome),
+                    alleleMaps: sources.map(source => source.alleleMap ?? {})}} : {})}).state;
+        }
+    }
+    if (!births) return current;
+    check(natural(ledger.births + births), 'Wild habitat ledger exhausted.');
+    return {...current, habitats: {...current.habitats, [habitat.id]: {...ledger, births: ledger.births + births}}};
 }
 
 function preyCapacity(state, habitat, species) {

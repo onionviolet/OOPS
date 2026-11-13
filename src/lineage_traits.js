@@ -67,6 +67,10 @@ export function kinship(members, a, b, depth = 6) {
     return 0.5 * (kinship(members, y.sire, o, depth - 1) + kinship(members, y.dam, o, depth - 1));
 }
 
+export function inbreedingGrowthDelay(growthMinutesAtFull, coefficient) {
+    return Math.round(growthMinutesAtFull * coefficient);
+}
+
 // One child. ctx: {rng, id, name, sex, bornAt, profile?, members?}. Returns the child and the
 // coefficient used. Inbreeding drops a strong allele (never adds one), so close kin lose qualities.
 export function breed(sire, dam, {rng, id, name, sex, bornAt = 0, profile: pid = DEFAULT_PROFILE, members = []}) {

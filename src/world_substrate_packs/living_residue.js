@@ -32,24 +32,42 @@ export function createLivingResiduePack({plots}) {
             'Living residue needs a field, crop, forage account and uniform-per-deposit concentration.');
         check(!fields.has(field), `Living residue already has a crop plot in ${field}.`);
         const quantities = new Map();
-        for (const {substance, quantity, uptakePermille, intakeReason, dose} of residues) {
+        let nutrient = null;
+        for (const {substance, quantity, uptakePermille, intakeReason, dose, growthPerMinute} of residues) {
             check(typeof substance === 'string' && substance && quantityIn(quantity, Q.residue.id) &&
                 !quantities.has(quantity) && natural(uptakePermille) && uptakePermille <= 1000 && reasonGiven(intakeReason),
                 'Living residue needs a distinct residue account, a whole uptake fraction per thousand and an intake reason.');
             check(dose == null || (positive(dose.threshold) && positive(dose.amount) &&
                 typeof dose.kind === 'string' && dose.kind && reasonGiven(dose.reason)),
                 'Living residue harm needs a dose threshold, amount, kind and reason.');
-            quantities.set(quantity, {substance, uptakePermille, intakeReason, dose});
+            check(growthPerMinute === undefined || (positive(growthPerMinute) && dose == null),
+                'A crop nutrient needs a positive growth rate and a separate account from food-borne traces.');
+            if (growthPerMinute !== undefined) {
+                check(!nutrient, 'A crop plot has one limiting growth nutrient.');
+                nutrient = {quantity, growthPerMinute};
+            }
+            quantities.set(quantity, {substance, uptakePermille, intakeReason, dose, growthPerMinute});
         }
-        fields.set(field, {crop, forage, quantities});
+        fields.set(field, {crop, forage, quantities, nutrient});
     }
 
     const cropPresent = (view, place, crop) => view.holder(crop)?.kind === 'thing' && view.placeOf(crop) === place;
     const atPlot = holder => holder.kind === 'place' && fields.has(holder.id);
+    const grows = [...fields.values()].some(({nutrient}) => nutrient);
     return {
         id: 'l.living_residue', revision: 0,
         quantities: [Q.residue, Q.stock], writes: [Q.residue.id, Q.stock.id],
         hears: ['effect.add'], publishes: [GRAZE, UPTAKE, FED, HARM],
+        laws: grows ? [{
+            id: 'nutrient-growth', appliesTo: holder => atPlot(holder) && fields.get(holder.id).nutrient !== null,
+            horizon: () => Infinity,
+            advance(view, place, elapsed) {
+                const {crop, forage, nutrient: {quantity, growthPerMinute}} = fields.get(place);
+                if (!cropPresent(view, place, crop) || !view.has(crop, forage) || !view.has(crop, quantity)) return [];
+                const growth = Math.min(Q.stock.max - view.amount(crop, forage), view.amount(crop, quantity), elapsed * growthPerMinute);
+                return growth ? [add(crop, quantity, -growth), add(crop, forage, growth)] : [];
+            },
+        }] : [],
         reactors: [{
             id: 'uptake', on: ['effect.add'], appliesTo: atPlot,
             react(view, place, effect) {
@@ -61,7 +79,7 @@ export function createLivingResiduePack({plots}) {
                 const {crop, forage, quantities} = fields.get(place);
                 const row = quantities.get(object);
                 if (!row || row.substance !== substance || !cropPresent(view, place, crop) ||
-                    !view.has(crop, forage) || !view.amount(crop, forage) ||
+                    !view.has(crop, forage) || (!row.growthPerMinute && !view.amount(crop, forage)) ||
                     !view.has(place, object) || !view.has(crop, object)) return [];
 
                 const taken = Math.min(portionOf(amount, row.uptakePermille, 1000),
@@ -72,7 +90,7 @@ export function createLivingResiduePack({plots}) {
                 return [
                     add(place, object, -taken, source),
                     add(crop, object, taken, source),
-                    {op: 'state', holder: crop, value: {lots: [...lotsAt(view, crop), lot]}},
+                    ...(row.growthPerMinute ? [] : [{op: 'state', holder: crop, value: {lots: [...lotsAt(view, crop), lot]}}]),
                     publish(UPTAKE, place, crop, {crop, substance, amount: taken}),
                 ];
             },

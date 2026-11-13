@@ -13,6 +13,7 @@ const OUT = new URL('../docs/coverage/creatures.jsonl', import.meta.url);
 const TEST = 'tests/living_foundation.test.js';
 const registry = livingKindRegistry({extra: guLivingRows(guCatalogue)});
 const reachable = reachableFrom();
+const sheepFixture = {module: 'src/world_packs/meadow_lantern_coverage.js', id: 'lantern-fleece.moon-veil'};
 
 // Owners a kind appears on (SC4), by chat letter: L runs every body; G owns Gu rows.
 const mechanisms = kind => kind.class === 'gu' ? ['L', 'G'] : ['L'];
@@ -23,6 +24,13 @@ const mechanisms = kind => kind.class === 'gu' ? ['L', 'G'] : ['L'];
 // source, not inherited), and whether the kind has genome rows yet (GN1).
 const heredity = kind => `heredity=${kind.inheritance}${kind.genome ? '+genome' : ''}`;
 async function classify(kind) {
+    if (kind.id === 'sheep') {
+        const computed = await runCase({state: 'expressed-authored', case: sheepFixture}, {reachable});
+        if (!/^(expressed|runs)-/.test(computed.state)) throw new Error(`${kind.id}: ${computed.state} (${computed.detail})`);
+        return {state: computed.state, fixture: sheepFixture,
+            note: 'original kind; opt-in Lantern Fleece Moon Veil, saved reversion, and Sun Molt husk awakening',
+            test: 'tests/heredity.test.js'};
+    }
     if (kind.class === 'gu' && !kind.placeholder) {
         const {row, durationMinutes} = guBodyRow(kind.id);
         const fields = {...row.bodyFields, rationMinutes: durationMinutes};
@@ -55,10 +63,10 @@ async function classify(kind) {
 }
 
 const rows = await Promise.all(Object.values(registry.kinds).sort((a, b) => a.id < b.id ? -1 : 1).map(async kind => {
-    const {state, note, fixture} = await classify(kind);
+    const {state, note, fixture, test} = await classify(kind);
     return {id: kind.id, source: kind.source.locator, state, mechanisms: mechanisms(kind),
-        test: fixture ? 'tests/gu_body_cases.test.js'
-            : state.startsWith('runs') ? `${TEST}#every L kind reads through one body read` : null,
+        test: test ?? (fixture ? 'tests/gu_body_cases.test.js'
+            : state.startsWith('runs') ? `${TEST}#every L kind reads through one body read` : null),
         note: [`class=${kind.class}`, heredity(kind), note].filter(Boolean).join('; '),
         case: fixture};
 }));
