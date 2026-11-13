@@ -5441,6 +5441,616 @@ export default {
      "once": true
     },
     {
+     "revision": 1,
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "once": true,
+     "reservationReturns": 1,
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "id": "book.mol.zorian.research.compare_library_notes",
+     "label": "Set Haslush’s method beside the library’s divination shelf",
+     "description": "Read what the shelf says about asking a spell a question. Takes 40 minutes.",
+     "location": "Cyoria academy guest library",
+     "duration": 40,
+     "costs": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.research.ward.shelf",
+       "stage": "interpreted",
+       "value": "Ibery’s divination shelf agrees with Haslush on one point: a spell answers the question you put to it, and a wide question gets a muddy answer. None of the books say how narrow is narrow enough.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showShelf",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showShelf",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showShelf",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     }
+    },
+    {
+     "revision": 1,
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "once": true,
+     "reservationReturns": 1,
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "id": "book.mol.zorian.research.trial_empty_box",
+     "label": "Question a box you sealed yourself",
+     "description": "Pack an empty box, seal it and ask the spell whether it is warded. Takes 15 minutes and one cast’s worth of mana.",
+     "location": "Cyoria Imaya household",
+     "duration": 15,
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.research.ward.trial_1",
+       "stage": "seen",
+       "value": "You pack an empty box, seal it and ask whether it is warded. The answer is a clean no. You already knew that, but now you know the spell will say so plainly.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial1",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial1",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial1",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     }
+    },
+    {
+     "revision": 1,
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "once": true,
+     "reservationReturns": 1,
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "id": "book.mol.zorian.research.trial_warded_box",
+     "label": "Question a box with a ward line on it",
+     "description": "Mark a sealed box with a simple ward line and ask the spell what the ward is. Takes 15 minutes and one cast’s worth of mana.",
+     "location": "Cyoria Imaya household",
+     "duration": 15,
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.research.ward.trial_2",
+       "stage": "seen",
+       "value": "You mark a box with a plain ward line and ask what the ward is. The answer is a smear: guarding, closing, something about the edge. Nothing you could act on. The question was too wide.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial2",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial2",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial2",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     }
+    },
+    {
+     "revision": 1,
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "once": true,
+     "reservationReturns": 1,
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "id": "book.mol.zorian.research.trial_purpose_question",
+     "label": "Ask the same box what its ward is for",
+     "description": "Ask the marked box a narrower question: what the ward is made to do. Takes 15 minutes and one cast’s worth of mana.",
+     "location": "Cyoria Imaya household",
+     "duration": 15,
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.research.ward.trial_3",
+       "stage": "interpreted",
+       "value": "You ask the marked box what its ward is for. The answer comes short and plain: it keeps the lid shut. Asking what a thing is made to do works where asking what it is does not.",
+       "basis": {
+        "kind": "inference",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial3",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial3",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showTrial3",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     }
+    },
+    {
+     "revision": 1,
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "once": true,
+     "reservationReturns": 1,
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "id": "book.mol.zorian.research.write_up_the_method",
+     "label": "Write the method up in your notebook",
+     "description": "Set the shelf notes and the three trials side by side and write down what held. Takes 30 minutes.",
+     "location": "Cyoria Imaya household",
+     "duration": 30,
+     "costs": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.research.ward.refined",
+       "stage": "understood",
+       "value": "Method, in your notebook: ask the spell what an object is made to do, one purpose at a time, and leave the object closed. A small question is a cheap one, so it needs no cast from the reserve.",
+       "basis": {
+        "kind": "inference",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showWriteUp",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "requires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showWriteUp",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.showWriteUp",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     }
+    },
+    {
+     "revision": 1,
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "once": true,
+     "reservationReturns": 1,
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "id": "book.mol.zorian.arc1.identify_watch_refined",
+     "label": "Ask the watch what it is for, with your own method",
+     "description": "Use the question you worked out and leave the watch closed. Takes 5 minutes and no cast from the reserve.",
+     "location": "Cyoria sewer service hatch",
+     "duration": 5,
+     "costs": [],
+     "visibleWhen": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.arc.identify",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.refined",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "requires": {
+      "reason": "Bring the watch and use the method in your notebook.",
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.arc.identify",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.arc.hasWatch",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.refined",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionRequires": {
+      "all": [
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.studyAccess",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.arc.identify",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.arc.hasWatch",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.research.refined",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.ward_reader_known",
+       "stage": "understood",
+       "value": "You ask only what the watch is made to do, and it answers at once: a ward scanner under the watch’s appearance, made to help search for weaknesses in wards. The question of how to operate it is still open.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ]
+    },
+    {
      "id": "book.mol.zorian.arc1.feel_watch_casing",
      "revision": 1,
      "label": "Feel the seams with a small mana cloud",

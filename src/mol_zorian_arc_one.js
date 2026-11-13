@@ -6,6 +6,7 @@ import {molScheduledMonthEnd} from './mol_zorian_study_months.js';
 const prefix = 'book.mol.zorian.arc1.';
 const study = 'book.mol.zorian.s2.';
 const day = 1440;
+const ALT_DONE = Object.freeze({identify_watch_purpose: 'identify_watch_refined'});
 export const MOL_APPRENTICE_MONTHS = Object.freeze(Array.from({length: 5}, (_, i) => prefix + 'apprentice_month_' + (i + 1)));
 const ownNote = (state, key) => state.simulation?.knowledge.player?.[prefix + key];
 const currentRun = state => state.motherOfLearning.runStartedAt ?? state.motherOfLearning.initializedAt;
@@ -42,7 +43,8 @@ export function molArcWait(state, id) {
 export function molArcFacts(state, {watch = 0, rod = 0, relay = 0, supplies = 0, revolver = 0} = {}) {
     if (!isZorianStart(state) || state.actors.player.worldId !== MOL_IDS.world) return {};
     const {completed} = state.actors.player;
-    const done = key => completed[prefix + key] === 1;
+    // A refined route (research) that meets the beat stands for the original command in the chain; the two never both show.
+    const done = key => completed[prefix + key] === 1 || (ALT_DONE[key] && completed[prefix + ALT_DONE[key]] === 1);
     const unlocked = key => !!ownNote(state, key);
     const cloud = completed[study + 'track_marble_by_touch'] === 1;
     if (!cloud && !unlocked('garden_fall')) return {};
