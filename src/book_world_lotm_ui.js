@@ -254,6 +254,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    actions.append(h);}
   if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it. Your continuing connection is the way back.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';actions.append(r);}
   if(!resident&&v.cause.line)path.append(node('p',v.cause.line));
+  // FRC51: what the lead witnessed and has not shaken off, under Here for resident and other lives alike (prose, never a count).
+  for(const line of v.mind?.lines||[]){const p=node('p',line);p.dataset.lotmMind='';actions.append(p);}
   if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
   // FD8: recurring duties as plain prose (UR70-UR75) for resident and non-resident lives alike: what it is, when it shuts, how many missed; a button only while the window is open.
   for(const d of v.duties){const span=m=>m>=1440?`${Math.ceil(m/1440)} days`:m>=60?`${Math.ceil(m/60)} hours`:`${m} minutes`;

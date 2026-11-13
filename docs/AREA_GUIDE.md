@@ -16,6 +16,7 @@ By default a new slice declares data through the seam named here and does not ad
 | [Work and duties](#work-and-duties) | recurring_duties.js | Save slice `duties@1` | recurring_duties.test.js |
 | [Lessons, study and research](#lessons-study-and-research) | lesson.js, inquiry.js | Slice `inquiry`; answers in `simulation.knowledge` | lesson.test.js, inquiry.test.js |
 | [Fights and harm](#fights-and-harm) | tempo_fight.js via conflict_frame.js, harm_state.js | Saved fight session; domain `harm` | tempo_fight.test.js, harm_state.test.js |
+| [Mood and mind meters](#mood-and-mind-meters) | mood_thoughts.js, mind_meters.js | Optional key `moodThoughts` (thought rows only) | mood_thoughts.test.js, mind_meters.test.js |
 | [Powers and abilities](#powers-and-abilities) | power_grammar.js, spell_seam.js | `simulation.powers.<actor>` (engine) | spell_seam.test.js, power_grammar.test.js |
 | [Making](#making) | cast_making_adapter.js, craft_resolver.js | Actor inventory; domain `crafting` | cast_making_adapter.test.js |
 | [Care and upkeep of living things](#care-and-upkeep-of-living-things) | living_upkeep.js (no shared slice) | Not established (per feature) | gu_upkeep.test.js |
@@ -114,6 +115,18 @@ By default a new slice declares data through the seam named here and does not ad
 - Limits/traps: tempo_fight is imported by `tempo_fight_domain.js`; worlds enter through `registerTempoOpener`, not `beginTempoFight`. Stock moves `shoot`/`reload` are granted per fighter, not in the default move list. conflict_frame keeps a legacy random mode for the three pre-frame battles; new fights use keyed draws (`gen_kit.drawFraction`). Harm modifier floor 0.1 (`HARM_MODIFIER_LIMITS`). notch_contest `contest` needs an explicit `rng`, dials are per world (`NOTCH_DIALS` is a neutral default). `harm` slice is not an affliction store: afflictions are a separate caller-owned track (`affliction_catalogue.js`, `hp_brewing_state.js` use it).
 - Do not: `src/models/combat.js` and `native_battle.js`/`cohort_battle.js`/`party_battle.js` as a template for a new fight (older paths), and a second fight loop beside tempo_fight.
 - Competing: yes, several. (1) `src/models/combat.js` is the upstream Miktaew real-time battler (repo first commit 2021-08-06 is "Miktaew init"; this file was added 2026-09-11 as "combat WIP"; header not conclusive, so "upstream battler" is inferred); only `main.js` and `combat_situation_ui.js` import it. (2) Native battles (`native_battle.js`, `party_battle.js`, `feature_expansion_battle.js`, `cohort_battle.js`) use `combat_math.js` and `conflict_frame.js`; tempo_fight also uses them. `combat_math.js` is used by Village-side `enemies.js`/`misc.js`, so it is the upstream-shaped number layer shared with the native battles. (3) notch_contest, dice checks (`check_contract.js`) and attack/evasion are alternative contest engines by design (its header says so). (4) `social_contest.js` uses notch_contest too.
+
+## Mood and mind meters
+
+- Use this: `mood_thoughts.js` (pure: dated, attributed thought rows; `moodOf` sums the running rows, nothing stored but rows; MND5) with `mood_thoughts_domain.js` (the `moodThoughts` key); `mind_meters.js` (pure, FRC51 proposal: dread, fascination and contentment as thought rows whose source is `mind.<kind>.<cause>`; count, forewarning at 2 and route at 3 with a last window are derived on read).
+- Write: `addMoodThought` (one write port; keyed replays are no-ops); `editMoodThoughts` with `spendMark` (contentment, sleep) or `closeRoute` (a due route); `markThought` builds a mark row.
+- Read: `readMood`, `moodRows`; `mindMeter` (stage, opensAt, closesAt, due, passes).
+- State: thought rows only. A world caller keeps a once-per-cause marker in its own save (LOTM: world fact `mind.mark.<act id>`), because a row that ran out or was spent must not be written again.
+- Copy: `src/book_world_lotm_colleagues.js` (Dunn's mood about the player); `src/book_world_lotm_mind.js` (Klein's dread and fascination from witnessed place acts; a closed route feeds the one LOTM loss inbox only when a Beyonder source is held, otherwise a long sour thought).
+- Test: `tests/mood_thoughts.test.js`, `tests/mind_meters.test.js`.
+- Rules: MND5, MND7-MND9, MND11, MND22, BHR18, AD55, AD56, FBK.
+- Adapted from the Cultist shape (Weibao 2026-11-10: "adapt and adjust things to fit our purpose"): a route that runs out never ends the life (AD50, AD55); it feeds the world's own carrier only where a mechanism exists (MND7), else it leaves a long sour thought. Marks are mood rows, so dread lowers mood with no second mood (MND5). Contentment cancels in either order (it sits until a mark arrives, or spends at once), with no explicit spend action. Sleep, not a Dream verb with a cost, loosens one fascination mark. Routes close in play only (BHR18). Holders are per life, so a mark stays with the person who saw it.
+- Limits/traps: a second counter for strain is RCL5's old bug; a route feeds the world's own carrier (LOTM `LOTM_INBOX.loss`), never a new accumulator. Per-holder cap 20 rows drops the oldest. Holder ids are per life (`player.book.lotm.tingen`), not bare `player`. Close routes only in play, never while skipping.
 
 ## Powers and abilities
 

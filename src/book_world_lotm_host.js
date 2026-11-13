@@ -42,6 +42,7 @@ import {LOTM_PROFILES,profileKeyOf,lifeEntryEffects,leadLifeEntryEffects,validLe
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {entryRecord,entryAnswers,LOTM_ENTRY_AXES} from './book_world_lotm_entry.js';
 import {causeView} from './book_world_lotm_causes.js';
+import {lotmMindView,lotmMindNote,lotmMindDue,applyMindMarks} from './book_world_lotm_mind.js';
 import {brokerView} from './book_world_lotm_broker.js';
 import {itemIdentityOf,itemReading,itemReadingLine} from './item_identity.js';
 import {gradeRiteAtTransition} from './book_world_lotm_ritual.js';
@@ -214,7 +215,7 @@ export function createLotmHost(ports){
    assert(ports.sleeping(),'You are already awake.');
    const context=ctx(s,def),job=sleepJob(s),stopped=job?cancelSimulationJob(s,registry,job.id,context,s.sequence):{state:s};
    const plan=commitSimulationCommand(stopped.state,registry,{id},{...context,busy:false},stopped.state.sequence);
-   recordEmergent(plan,def);persist(plan);ports.endSleep();return plan;
+   recordEmergent(plan,def);persist(plan);ports.endSleep();for(const line of applyMindMarks([{kind:'sleep'}],plan.state.clock))try{ports.logMessage?.(line,'notification');}catch{/* eased */}return plan;
   }
   assert(!ports.sleeping(),'You\'re asleep. Wake up first.');
   // AD50 (RCL5): at the lost stage only rest, care and travel remain (the carrier's own action gate); the grace clock runs.
@@ -262,10 +263,21 @@ export function createLotmHost(ports){
  // the one carrier in a saved plan, then set the slice (persist throws when saving is paused, and nothing moves).
  function drainInbox(s){const r=s.actors?.player?.resources;if(!(r?.['book.lotm.pressure']>0||r?.['book.lotm.relief']>0)||!ports.writable())return;
   const plan=base(s,ports.context()),drained=drainLotmInbox(plan.state,harmState());if(!drained)return;persist(plan);setHarmState(drained);}
+ // FRC51: a mind route whose last window ran out (in play only). A Beyonder's step is saved onto the loss inbox first, then the marks come
+ // off; a failed save leaves the marks standing, so the next tick tries again. Forewarnings are noted once per change, never on reload.
+ let shownMind=null;
+ function settleMind(s){
+  const due=lotmMindDue(s,{skipping:!!ports.skipping?.()});
+  if(due&&ports.writable()){
+   if(due.inbox.length){const plan=base(s,ports.context());applySimulationEffects(plan,due.inbox.map(({kind,...e})=>e),{actorId:'player'},registry,'book.lotm.mind.route');persist(plan);}
+   due.commit();for(const line of due.lines)try{ports.logMessage?.(line,'notification');}catch{/* the change already landed */}
+  }
+  const now=lotmMindView(state()).stages;for(const line of lotmMindNote(shownMind,now))try{ports.logMessage?.(line,'notification');}catch{/* noted */}shownMind=now;
+ }
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(minutes=0){const s=state();if(s.lotm){drainInbox(s);if(ports.sleeping())restHarm(s,minutes);noteStage(state());if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(minutes=0){const s=state();if(s.lotm){settleMind(s);drainInbox(state());if(ports.sleeping())restHarm(s,minutes);noteStage(state());if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
  const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
  // Read the current life's actual inventory. Unknown or protected goods have no seizure value.
@@ -391,7 +403,7 @@ export function createLotmHost(ports){
    const records=[...Object.entries(know).filter(([k])=>k.startsWith('book.lotm.history.')).map(([id,r])=>({id,text:r.value,at:r.at})),...placeActRecords(s,pack?.householdActs),...topicTalkRecords(s,castTalkCommands)];
    const region=lotmRegionAt(s.simulation.people.player.location,{hour:castCalendar(s).calendar.hour,money:nativeContext.external?.money??0,restrictions:lotmRestrictions({state:s,days:getPrivateLotmCast()?.bindings?.days||[]})});
    const sheets=lotmSheetsFor(s,getPrivateLotmCast(),Object.keys(know).map(k=>/^book\.lotm\.cast\.(?:known|met)\.(.+)$/.exec(k)?.[1]).filter(Boolean));
-   return {enrolled:true,resident:true,powers,reputation:reputationView(s,{known:id=>castKnown(s,id)}),home:pack?lotmHomeView(s,{pack,duties:domainRegistry.project('duties'),homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}):null,tieOffers:tieOfferView(s).filter(o=>castKnown(s,o.personId)),ties:tieShownView(s).filter(t=>castKnown(s,t.personId)),altarRites:rites,arc:placeActSequenceView(s,pack?.householdActs),remoteMeetings:remotePresenceView(s,pack?.householdActs),stockViews:placeStockViews(s,pack?.householdActs),runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sky:skyLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,sealedRecords,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
+   return {enrolled:true,resident:true,mind:lotmMindView(s),powers,reputation:reputationView(s,{known:id=>castKnown(s,id)}),home:pack?lotmHomeView(s,{pack,duties:domainRegistry.project('duties'),homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}):null,tieOffers:tieOfferView(s).filter(o=>castKnown(s,o.personId)),ties:tieShownView(s).filter(t=>castKnown(s,t.personId)),altarRites:rites,arc:placeActSequenceView(s,pack?.householdActs),remoteMeetings:remotePresenceView(s,pack?.householdActs),stockViews:placeStockViews(s,pack?.householdActs),runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sky:skyLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,sealedRecords,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
   }
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');
@@ -427,7 +439,7 @@ export function createLotmHost(ports){
    return {id:cid,label:d.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,visible:p.visible};};
   const merit=f['lotm.home.evernight']&&f['lotm.beyonderTrack']?meritView(s,f,prevMerit):null;
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
-  return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f,know),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
+  return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f,know),places,marketHeld,cause:causeView(f),mind:lotmMindView(s),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
  return {enroll,cross,resign,signGuard,standWatch,fileExpense,tieAsk,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};

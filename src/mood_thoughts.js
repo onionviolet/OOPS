@@ -29,6 +29,13 @@ export function validateThoughts(slice) {
 const running = (r, now) => r.until > now && r.at <= now;
 // Drops rows that have run out. Pure.
 export const pruneThoughts = (slice, now) => ({...slice, rows: slice.rows.filter(r => r.until > now)});
+// FRC51: the rows running now for one holder, oldest first, as stored (with `at`), for readers that count rows (mind_meters.js). Pure.
+export const runningThoughts = (slice, holder, now) => (slice?.rows || []).filter(r => r.holder === holder && running(r, now)).sort((a, b) => a.at - b.at).map(r => ({...r}));
+// FRC51: removes the given rows (matched by value: holder, source, at), e.g. a mark spent by contentment or a route that closed. Pure.
+export const dropThoughts = (slice, rows) => {
+    const gone = rows.map(r => `${r.holder}\u0000${r.source}\u0000${r.at}`);
+    return {...slice, rows: slice.rows.filter(r => !gone.includes(`${r.holder}\u0000${r.source}\u0000${r.at}`))};
+};
 // The one write port. `minutes` is the run length (the producer already scaled it by the holder's temperament); `key` makes a replay a no-op.
 export function addThought(slice, {holder, subject, source, magnitude, minutes, line, key}, now) {
     if(!natural(now) || !natural(minutes) || minutes < 1) throw TypeError('A thought needs a played minute and a run length.');
