@@ -1329,3 +1329,79 @@ Weibao: "for expansions, there are in world and maybe out world methods to break
 
 The [carry-out](../PROCEDURAL_CARRY_OUT.md#direct-operators-science-fiction-and-magical-tweaks-pc97-2026-11-12) applies AD5 and AD38 to local and cross-world routes. Canon evidence and invented routes keep their own provenance.
 
+## Held-out canon picks foundation waves, 2026-11-12
+
+> Change of picking rule for the foundation run. This is my instruction; record it in the direction log in my words and update RUN.md's resume block. Limits, commit rules and engine-first stay as they are.
+>
+> Method: tune the general rules on a sample of canon, score them on canon they were never tuned on, and sort every miss. A wave is judged by whether a held-out score moved, not by engine pieces added.
+>
+> Do these in order:
+>
+> 1. Land the working tree first. There are about 134 uncommitted paths in the primary checkout and no commit since 17:19 on 2026-11-12. Commit them in small waves by owner, own paths only, focused tests per commit, one full npm test on the combined tree. Start nothing new until this is done.
+>
+> 2. Make the held-out score the headline. Extend the existing coverage report (scripts/coverage_report.mjs, docs/coverage/README.md) with one table per ledger: rows tuned on, rows held out, held-out rows matched, and each miss sorted as rule wrong, rule missing, data missing, or author's exception. Reuse the held-out tests that already exist (spell_grammar, procedural_grammar, brew_grammar_layers, PC11, PC72). No new checker script. A held-out row is never read by any fit that scores it. Check outcome and route separately: a right result through a mechanism the book contradicts is a miss.
+>
+> 3. Build the five Hogwarts potion mechanisms that block 259 rows (body door, mind state, effect sentence, body form, plant or creature target; see "Where E24 stands" in RUN.md). Tune on a small named sample, then score the rest of the 259 without tuning on them and report the match rate and the sorted misses.
+>
+> 4. Feed the loop a sample, not a census. Most blocked rows wait on reading: Gu move roles (770), Gu kind ranks (678) and effects (400), ingredient properties (380), LOTM formulas (174), creature diets (61). Do not fill them all. Have the cheapest suitable readers pull 30 to 40 fully described items per ledger from the held books, spread across families, with chapter or page locators. Split each sample in half: tune on one half, hold out the other. The remaining rows stay as the later test set. Raw book prose stays out of git.
+>
+> 5. One wave moves one number. Each wave report is the table from step 2, before and after, plus what is open. A wave that adds an engine piece and moves no held-out score says so in its first line. New ideas go to one backlog line each in RUN.md, not a new plan section or code family. PROCEDURAL_CORE.md and PROCEDURAL_CARRY_OUT.md do not grow.
+>
+> Sorting misses:
+> - Rule wrong: fix the rule, rerun the whole held-out set, and report anything that got worse.
+> - Rule missing: add it only if it would cover a family, not one item.
+> - Data missing: queue the reading; do not guess.
+> - Author's exception: canon did it for plot. Do not bend the general rule. Record a named exception with an in-world reason and cost. A growing exception pile in one family means a rule is missing; say so.
+> - Where several rules fit the same canon cases and differ on unseen ones, pick a default, label it a design choice (not derived), and list it for me.
+>
+> Stop and report when a limit is reached, when a held-out score has stalled for two waves in a row, or at a decision only I can make. The report leads with the held-out table.
+
+> Change of picking rule for the foundation run. This is my instruction; record it in the direction log in my words and update RUN.md's resume block. Limits, commit rules and engine-first stay as they are.
+>
+> Method: tune the general rules on a sample of canon, score them on canon they were never tuned on, and sort every miss. A wave is judged by whether a held-out score moved, not by engine pieces added.
+>
+> Do these in order:
+>
+> 1. Land the working tree first. There are about 134 uncommitted paths in the primary checkout and no commit since 17:19 on 2026-11-12. Commit them in small waves by owner, own paths only, focused tests per commit, one full npm test on the combined tree. Start nothing new until this is done.
+>
+> 2. Make the held-out score the headline. Extend the existing coverage report (scripts/coverage_report.mjs, docs/coverage/README.md) with one table per ledger: rows tuned on, rows held out, held-out rows matched, and each miss sorted as rule wrong, rule missing, data missing, or author's exception. Reuse the held-out tests that already exist (spell_grammar, procedural_grammar, brew_grammar_layers, PC11, PC72). No new checker script. A held-out row is never read by any fit that scores it. Check outcome and route separately: a right result through a mechanism the book contradicts is a miss.
+>
+> 3. Build the five Hogwarts potion mechanisms that block 259 rows (body door, mind state, effect sentence, body form, plant or creature target; see "Where E24 stands" in RUN.md). Tune on a small named sample, then score the rest of the 259 without tuning on them and report the match rate and the sorted misses.
+>
+> 4. Feed the loop a sample, not a census. Most blocked rows wait on reading: Gu move roles (770), Gu kind ranks (678) and effects (400), ingredient properties (380), LOTM formulas (174), creature diets (61). Do not fill them all. Have the cheapest suitable readers pull 30 to 40 fully described items per ledger from the held books, spread across families, with chapter or page locators. Split each sample in half: tune on one half, hold out the other. The remaining rows stay as the later test set. Raw book prose stays out of git.
+>
+> 5. One wave moves one number. Each wave report is the table from step 2, before and after, plus what is open. A wave that adds an engine piece and moves no held-out score says so in its first line. New ideas go to one backlog line each in RUN.md, not a new plan section or code family. PROCEDURAL_CORE.md and PROCEDURAL_CARRY_OUT.md do not grow.
+>
+> Sorting misses:
+> - Rule wrong: fix the rule, rerun the whole held-out set, and report anything that got worse.
+> - Rule missing: add it only if it would cover a family, not one item.
+> - Data missing: queue the reading; do not guess.
+> - Author's exception: canon did it for plot. Do not bend the general rule. Record a named exception with an in-world reason and cost. A growing exception pile in one family means a rule is missing; say so.
+> - Where several rules fit the same canon cases and differ on unseen ones, pick a default, label it a design choice (not derived), and list it for me.
+>
+> Stop and report when a limit is reached, when a held-out score has stalled for two waves in a row, or at a decision only I can make. The report leads with the held-out table.
+
+> Change of picking rule for the foundation run. This is my instruction; record it in the direction log in my words and update RUN.md's resume block. Limits, commit rules and engine-first stay as they are.
+>
+> Method: tune the general rules on a sample of canon, score them on canon they were never tuned on, and sort every miss. A wave is judged by whether a held-out score moved, not by engine pieces added.
+>
+> Do these in order:
+>
+> 1. Land the working tree first. There are about 134 uncommitted paths in the primary checkout and no commit since 17:19 on 2026-11-12. Commit them in small waves by owner, own paths only, focused tests per commit, one full npm test on the combined tree. Start nothing new until this is done.
+>
+> 2. Make the held-out score the headline. Extend the existing coverage report (scripts/coverage_report.mjs, docs/coverage/README.md) with one table per ledger: rows tuned on, rows held out, held-out rows matched, and each miss sorted as rule wrong, rule missing, data missing, or author's exception. Reuse the held-out tests that already exist (spell_grammar, procedural_grammar, brew_grammar_layers, PC11, PC72). No new checker script. A held-out row is never read by any fit that scores it. Check outcome and route separately: a right result through a mechanism the book contradicts is a miss.
+>
+> 3. Build the five Hogwarts potion mechanisms that block 259 rows (body door, mind state, effect sentence, body form, plant or creature target; see "Where E24 stands" in RUN.md). Tune on a small named sample, then score the rest of the 259 without tuning on them and report the match rate and the sorted misses.
+>
+> 4. Feed the loop a sample, not a census. Most blocked rows wait on reading: Gu move roles (770), Gu kind ranks (678) and effects (400), ingredient properties (380), LOTM formulas (174), creature diets (61). Do not fill them all. Have the cheapest suitable readers pull 30 to 40 fully described items per ledger from the held books, spread across families, with chapter or page locators. Split each sample in half: tune on one half, hold out the other. The remaining rows stay as the later test set. Raw book prose stays out of git.
+>
+> 5. One wave moves one number. Each wave report is the table from step 2, before and after, plus what is open. A wave that adds an engine piece and moves no held-out score says so in its first line. New ideas go to one backlog line each in RUN.md, not a new plan section or code family. PROCEDURAL_CORE.md and PROCEDURAL_CARRY_OUT.md do not grow.
+>
+> Sorting misses:
+> - Rule wrong: fix the rule, rerun the whole held-out set, and report anything that got worse.
+> - Rule missing: add it only if it would cover a family, not one item.
+> - Data missing: queue the reading; do not guess.
+> - Author's exception: canon did it for plot. Do not bend the general rule. Record a named exception with an in-world reason and cost. A growing exception pile in one family means a rule is missing; say so.
+> - Where several rules fit the same canon cases and differ on unseen ones, pick a default, label it a design choice (not derived), and list it for me.
+>
+> Stop and report when a limit is reached, when a held-out score has stalled for two waves in a row, or at a decision only I can make. The report leads with the held-out table.

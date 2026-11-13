@@ -1,12 +1,21 @@
 # Foundation run, 2026-11-12
 
-Coordinator: Claude, resuming from the [Wave 14 handoff](CLAUDE_COORDINATOR_HANDOFF.md). The original twelve Claude workers used one worktree and branch per chat (K W P G L F B S A C R M). The coordinator verifies, merges, gates and dispatches.
+Use the [current resume block](#current-resume-block) for picking and landing. The original twelve Claude workers used one worktree and branch per chat (K W P G L F B S A C R M).
 
-## Claude coordinator takeover (2026-11-12)
+## Current resume block
+
+- **Direction.** Weibao's [held-out canon instruction](../../USER_VISION_LOG_2026-11.md#held-out-canon-picks-foundation-waves-2026-11-12) supersedes the picking, reporting and stop rules in the historical blocks below. Engine-first (PC95), existing usage limits, guarded commits by owner, and no push still apply.
+- **Next.** Land the primary checkout first. At intake, master was `4d4505223` with 141 changed paths and an empty staged index. Recheck active writers. Land released work in small commits by owner with focused checks per commit and one full `npm test` on the combined tree. Hold all new work until this passes.
+- **Then.** Extend the existing coverage report and README. Lead with per-ledger before/after rows tuned on, held out, and matched, plus sorted misses. Keep scored cases outside their fit and check outcome and route separately. Reuse spell_grammar, procedural_grammar, brew_grammar_layers, PC11 and PC72. Use no new checker script.
+- **Wave order.** After the report, tune the five Hogwarts potion mechanisms on a small named sample and score the remainder of E24's 259 rows. Then sample 30–40 described items per other ledger from held books across families, split equally for tuning and scoring, and retain the rest for later. Record chapter or page locators and keep raw book prose out of git.
+- **Misses.** Fix a wrong rule and rerun the full holdout, noting regressions. Add a missing rule for a family. Queue missing data. Record an author's exception with an in-world reason and cost, and flag clusters as possible missing rules. List defaults that the evidence cannot distinguish as design choices.
+- **Wave report and stop.** Target one held-out score and give the before/after table plus open work. Say in the first line when a wave adds code without moving a score. Put new ideas on single backlog lines here. Keep PROCEDURAL_CORE.md and PROCEDURAL_CARRY_OUT.md from growing. Stop at an existing usage limit, two successive stalled waves, or a decision Weibao must make.
+
+## Historical Claude coordinator takeover (2026-11-12)
 
 Weibao (2026-11-12): "hand off for you to be the coordinatoe". The Claude session that wrote the [procedural core](../../../PROCEDURAL_CORE.md) and [carry-out](../../../PROCEDURAL_CARRY_OUT.md) is the coordinator from here. The Codex coordinator stopped at its usage ceiling with no detached worker alive (checked: `codex_goal_lane.py status` shows none alive; no test or lane process running).
 
-From the Wave 12 commit the coordinator is Codex again, under the [second handoff](CODEX_COORDINATOR_HANDOFF_2.md), which is the current resume owner: decisions, the five numbers, branch states, the next list and the limits are there. This block stays as the standing objective and picking rule; the older one below is history.
+From the Wave 12 commit the coordinator was Codex again, under the [second handoff](CODEX_COORDINATOR_HANDOFF_2.md). The picking rule and inputs below describe that phase.
 
 - Objective: foundations with gameplay deferred, and from 2026-11-12 game tie-in deferred too (carry-out PC95): work is proven in one headless engine world, measured by the five numbers G1 to G5. MS5's reachable route per domain moves to the tie-in phase; the other milestones map to the phases as before. Weibao also declined an early playable scene ("No, engine first").
 - Picking rule: the carry-out's wave ritual (PC65) and tracker, in the readjusted order (PC91) and under its keep-it-small rules (PC94): each packet names which of the five end-state numbers it moves, two tries then stop, no new checker scripts. Milestones map to its phases in the [carry-out reconciliation](../../../PROCEDURAL_CARRY_OUT.md#milestones-and-phases-rc3). The facet order ability, body, technique, custody, contest, progression has his "Yes, use that order". The rest of both docs is a proposal used as working order; Q1, Q2, Q5 and Q7 in the core stay open and nothing they would defer is deferred.
@@ -30,6 +39,8 @@ From the Wave 12 commit the coordinator is Codex again, under the [second handof
 Merged into master as 12 no-ff merges ending at 886d8c1e7.
 
 ## Resume block (unattended run, 2026-11-12)
+
+Historical checkpoint. Use the [current resume block](#current-resume-block) to continue.
 
 Weibao (2026-11-12): "send the plan updates to the chats and start phase 2. Continuw auto thorugh all the phases until everything is comprehensive and works to cover all the gu, all the possibilities of moves and more, all the potions and more? rescope as needed and more?"
 
