@@ -21,6 +21,7 @@ const routeRows = [
   ['organizations', 'organizations', 'in-world', 'Organizations are households and businesses of the current life.'],
   ['worlds', 'optional-worlds', 'crossing', 'World selection crosses between lives.'],
   ['beginning', 'beginning', 'crossing', 'Beginning chooses a life outside the lead’s current world.'],
+  ['capability-runs', 'capability-runs', 'crossing', 'Capability runs open separate practice lives.'],
   ['connection', 'continuation', 'crossing', 'Continuing connection switches between lives.'],
   ['settings', 'customization', 'system', 'Settings control the game interface.'],
 ];

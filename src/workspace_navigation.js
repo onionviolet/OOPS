@@ -37,6 +37,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
         if(route.open==='here'){centerModes().showHere();return;}
         if(route.open==='crafting'){window.openCraftingWindow();return;}
         if(route.open==='mixing'){openMixtureCounter();return;}
+        if(route.open==='control'){document.getElementById(route.select)?.click();return;}
         // R13: Inventory already has a visible home in the parity layout. Go there instead of
         // pulling the list into the center and leaving its own panel blank; Expand still opens it large.
         if(route.open==='in-place'&&document.getElementById('main_content')?.dataset.parity==='r3'){
@@ -93,7 +94,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
             if(route.open==='crafting'){disabled=!document.querySelector('.choice_craft');why=disabled?'No crafting station is available here. Reach one, or finish the conversation first.':'';title=disabled?'Crafting · Alt+C · no available station or finish this conversation.':`Crafting · Alt+C`;}
             if(route.open==='mixing'){const launch=document.getElementById('village_mixing_open');disabled=!launch||launch.hidden;title=disabled?(document.documentElement.dataset.world||'native')==='native'?'Mixing · Alt+M · return to Village and finish your conversation.':'Mixing · Alt+M · no mixing bench here.':'Mixing · Alt+M';why=disabled?title.replace(/^Mixing · Alt\+M · /,'').replace(/^./,c=>c.toUpperCase()):'';}
             setLocked(b,disabled?why:'');if(b.title!==title)b.title=title;
-            b.setAttribute('aria-current',centerModes().mode===`workspace:${id}`?'page':'false');
+            b.setAttribute('aria-current',centerModes().mode===(route.open==='control'?id:`workspace:${id}`)?'page':'false');
         }
         pollBadges();for(const [route,b]of buttons)paintBadge(b,badgeCount(route.id),route.label);
         for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden||!observer.sees({control:'menu.pane-selector'});setLocked(b,lockReason(original));b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route.open==='here'&&mode==='local'||route.open==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route.target))b.dataset.newHome='true';else delete b.dataset.newHome;}

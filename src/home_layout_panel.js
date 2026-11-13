@@ -1,14 +1,17 @@
 import {definePanel} from './panel_kit.js';
+import {createPlotDraft} from './ui/preview/plot_draft.js';
 // Desktop-first room plan for the manor (G22). Selecting a fixture or cell is free (UR35); a move shows
 // its before/after sleep term and coin fee and only runs on the confirm button.
 const el=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 const sign=v=>(v>=0?'+':'')+v.toFixed(2);
 export function createHomeLayoutPanel({read,adopt,quote,execute}){
+    const draftMode=new URLSearchParams(window.location.search).has('plot-draft');
     const panel=el('section');panel.id='home_layout_panel';panel.className='expedition_panel';
     const body=el('div'),notice=el('p');notice.setAttribute('role','status');
     panel.append(el('h2','Room plan'),el('p','Where the manor’s fixtures stand. Warmth and smoke spread from the hearth across the floor; the bed’s cell decides how well the household sleeps.'),body,notice);
     let slot=null,pending=null,signature='';
     function render(){
+        if(draftMode){if(!body.firstChild)body.append(createPlotDraft());return;}
         const view=read();if(!panel.isConnected)return;
         const sig=JSON.stringify([view,slot,pending&&pending.summary]);if(sig===signature)return;signature=sig;
         body.replaceChildren();
@@ -39,6 +42,7 @@ export function createHomeLayoutPanel({read,adopt,quote,execute}){
             body.append(go);
         }
     }
-    definePanel({id:'home-layout',title:'Room plan',role:'records',node:panel,home:document.getElementById('main_content'),defaultDock:'center',discovered:()=>read().visible,eligible:()=>read().visible});
+    if(draftMode)panel.replaceChildren(body);
+    definePanel({id:'home-layout',title:'Room plan',role:'records',node:panel,home:document.getElementById('main_content'),defaultDock:'center',discovered:()=>draftMode||read().visible,eligible:()=>draftMode||read().visible});
     render();return {render};
 }

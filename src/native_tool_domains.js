@@ -7,6 +7,7 @@ import {configureIntents} from './cultivation_intents_domain.js';
 import {configureDrainage} from './drainage_site_domain.js';
 import {configureShopLocks} from './shop_locks_domain.js';
 import {configureDojoTower} from './dojo_tower_domain.js';
+import {configureCapabilityRuns} from './capability_runs_domain.js';
 import {configurePersonalJournal} from './personal_journal_domain.js';
 import {favourite_items} from './runtime_state.js';
 import './material_lineage_domain.js';
@@ -58,6 +59,7 @@ export function configureNativeToolDomains(operations) {
     configureIntents(operations);
     configureRootRetuning({...operations,writable:operations.tradeWritable||operations.writable,blocked:operations.worldWorkBlocked});
     configureVesselThread({...operations,writable:operations.tradeWritable||operations.writable,blocked:operations.worldWorkBlocked});
+    configureCapabilityRuns({writable: neutralWritable(operations), persist: operations.persist});
     configurePersonalJournal({...operations, writable: neutralWritable(operations)});
     configureDojoTower(operations);
     configureShopLocks({...operations,writable:operations.tradeWritable||operations.writable});

@@ -116,7 +116,7 @@ test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar ord
         ['Journal','j','records','journal_show_quests'],['Bestiary','b','records','journal_show_bestiary'],['Books','a','records','journal_show_books'],
         ['Data','d','records','journal_show_data'],['Knows','f','records','journal_show_knows'],['Notebook','n','notebook'],['Skills','k','skills'],
         ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],['Organizations','x','management'],
-        ['Worlds','w','optional-worlds'],['Beginning','g','beginning'],['Connection','y','continuation'],['Settings','s','customization']];
+        ['Worlds','w','optional-worlds'],['Beginning','g','beginning'],['Capability runs','u','capability-runs'],['Connection','y','continuation'],['Settings','s','customization']];
     assert.deepEqual(routeTable().map(r => [r.label, r.key, r.target, ...(r.tab ? [r.tab] : [])]), r21);
     assert.deepEqual(routeTable().filter(r => r.pane).sort((x, y) => x.pane - y.pane).map(r => r.label), ['Here', 'Skills', 'Crafting', 'Mixing'], 'Center views keep their R21 order');
     assert.equal(routeById('records:bestiary').tab, 'journal_show_bestiary');
