@@ -66,7 +66,7 @@ Prompts for a brief that builds or tunes a repeating system (ties, fights, makin
 ## Process (accepted)
 
 - Commit only your own paths from a fresh HEAD; push waits for Weibao's yes; no `Co-Authored-By`. (shared worktree practice)
-- Lanes run their focused test file; the committer runs the full suite once; `check:arch` and `check:rules` at the stages AD36 names. (AD36)
+- Lanes run `npm run test:changed` (tests reached from their changes, slow tier left to the merge) or their focused test file; the merge batch runs the full suite once; `check:arch` and `check:rules` at the stages AD36 names. (AD36, FRC69)
 - Save findings in the owning doc under `docs/`, not in memory; link from the owner. (WPR27, AD35)
 - Haiku for bounded reading and lookups, sonnet for synthesis and code, opus or Astra only with a stated reason and a second opinion. (AU5, WPR6)
 - Report route kind, build hash and review state; "agent-verified, not human-reviewed" is a valid final state. (AD42, IPC8, IPC9)

@@ -1,0 +1,151 @@
+{
+ "about": "Per-file wall-time budget for npm test (FRC70); docs/audits/TEST_SPEED_2026-11-10.md. scripts/test_budget_reporter.mjs warns, never fails, past default_ms or a file's entry. Entries are play-length files (tier slow): test:changed leaves them to the merge batch unless their own imports change. A new slow file speeds up its setup first and gets an entry only for real play. Budgets only ratchet down: npm run test:budget -- --tighten. suite_sum_ms is the total file time that triggers a re-profile at +25%.",
+ "default_ms": 20000,
+ "files": {
+  "tests/beat_ledger.test.js": {
+   "ms": 80000,
+   "tier": "slow",
+   "why": "plays the game: headless save, export, import and reload of the ledger"
+  },
+  "tests/cast_ability_adapter.test.js": {
+   "ms": 350000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cast_body_adapter.test.js": {
+   "ms": 270000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cast_card_integration.test.js": {
+   "ms": 110000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cast_divination_adapter.test.js": {
+   "ms": 350000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cast_exchange_adapter.test.js": {
+   "ms": 300000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cast_inference_adapter.test.js": {
+   "ms": 350000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cast_journeys.test.js": {
+   "ms": 380000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cast_making_adapter.test.js": {
+   "ms": 360000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cast_topic_talk.test.js": {
+   "ms": 220000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/cheat_awakening.test.js": {
+   "ms": 60000,
+   "tier": "slow",
+   "why": "plays the game: clock jumps, fights and loads through the live discovery path"
+  },
+  "tests/crafting_native_reload.test.js": {
+   "ms": 40000,
+   "tier": "slow",
+   "why": "plays the game: headless crafting across reload"
+  },
+  "tests/currency_subunits_save.test.js": {
+   "ms": 90000,
+   "tier": "slow",
+   "why": "plays the game: built copy through save, reload, export and import"
+  },
+  "tests/facts_frame.test.js": {
+   "ms": 50000,
+   "tier": "slow",
+   "why": "plays the game: headless boot through save and reload"
+  },
+  "tests/gu_upkeep.test.js": {
+   "ms": 80000,
+   "tier": "slow",
+   "why": "plays the game: a year and more of upkeep with its saved schedule validated"
+  },
+  "tests/interaction_native.test.js": {
+   "ms": 90000,
+   "tier": "slow",
+   "why": "plays the game: headless native interaction journey"
+  },
+  "tests/lotm_cast_week.test.js": {
+   "ms": 40000,
+   "tier": "slow",
+   "why": "plays the game: a disposable copy is built, then a worker boots it and drives save, reload, export and import"
+  },
+  "tests/lotm_money_save.test.js": {
+   "ms": 90000,
+   "tier": "slow",
+   "why": "plays the game: built copy through save, reload, export and import"
+  },
+  "tests/lotm_rites_live.test.js": {
+   "ms": 170000,
+   "tier": "slow",
+   "why": "plays the game: live rites in a disposable built copy through save, reload and import"
+  },
+  "tests/mood_thoughts.test.js": {
+   "ms": 50000,
+   "tier": "slow",
+   "why": "plays the game: weeks of filing and lapses before the opinion is read"
+  },
+  "tests/palette_native.test.js": {
+   "ms": 110000,
+   "tier": "slow",
+   "why": "plays the game: three headless boots through departure, return, craft and routine journeys"
+  },
+  "tests/paradise_ecology.test.js": {
+   "ms": 50000,
+   "tier": "slow",
+   "why": "plays the game: finite care and growth over many played days"
+  },
+  "tests/person_memory_persistence.test.js": {
+   "ms": 50000,
+   "tier": "slow",
+   "why": "plays the game: built copy through save, reload and import"
+  },
+  "tests/person_memory_route.test.js": {
+   "ms": 80000,
+   "tier": "slow",
+   "why": "plays the game: built copy, headless route through save and reload"
+  },
+  "tests/place_acts.test.js": {
+   "ms": 170000,
+   "tier": "slow",
+   "why": "plays the game: pending and settled acts across save, reload, export and import"
+  },
+  "tests/scenario_facade.test.js": {
+   "ms": 50000,
+   "tier": "slow",
+   "why": "plays the game: headless scenario boots through the facade"
+  },
+  "tests/story_spine_qa.test.js": {
+   "ms": 130000,
+   "tier": "slow",
+   "why": "plays the game: a seeded real scheduler drains its budget across chunked runs"
+  },
+  "tests/storylet_deck.test.js": {
+   "ms": 70000,
+   "tier": "slow",
+   "why": "plays the game: a fixed-seed 30-day village run per temper"
+  },
+  "tests/village_lead_line.test.js": {
+   "ms": 140000,
+   "tier": "slow",
+   "why": "plays the game: a bot route reaches all five dates twice, then headless save/export/import"
+  }
+ }
+}

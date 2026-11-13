@@ -333,10 +333,30 @@ task record and checks. No separate checklist file or universal compliance score
    it. No test per rule sentence, trivial edit or duplicate implementation detail.
    Include a new test in the focused runner only if its scenario fits that group;
    otherwise run it directly. Tests must be discovered by the intended suite.
+   Keep tests fast (FRC70, 2026-11-10; defaults, each with its dial and reason):
+   - **Shared starts.** Build a life, world or headless boot once per file and deep-clone
+     it per test. Dial: a fresh build when the test is about building. Reason: a boot
+     costs seconds, and a clone keeps isolation.
+   - **No real waits.** Use the game clock, the headless virtual timers or `settle`.
+     Dial: real time only for process and limiter tests. Reason: sleeps add load-scaled
+     minutes and flake.
+   - **Play-length tests go in the slow tier.** A test that plays the game for minutes
+     gets a `tests/duration_budget.json` entry with `tier: 'slow'` and its reason.
+     `test:changed` runs it when it or a direct import changes, and the merge batch
+     always runs it. Dial: `--slow`. Reason: lanes need fast feedback, and the play
+     still runs before merge.
+   - **New files stay under `default_ms`.** Speed up setup first and label real play.
+     Budgets only ratchet down (`npm run test:budget -- --tighten`). Re-profile when
+     `npm test` reports total file time 25% over `suite_sum_ms`
+     ([record](audits/TEST_SPEED_2026-11-10.md)). Reason: the queue behind one suite
+     slot is the shared bottleneck.
 3. **Run at the right time.** Use focused checks after a coherent edit. A lane or
-   subagent runs only its focused test file and never the full suite (2026-10-22
-   lean-test direction). The full `npm test` runs once, by whoever commits, as the
-   single pre-commit gate. At completion,
+   subagent runs `npm run test:changed` (tests reached from its changes since the
+   merge base, printed with why; docs-only changes run the doc checks) or its focused
+   test file, and never the full suite (2026-10-22 lean-test direction, FRC69
+   2026-11-10). The full `npm test` runs once per merge batch, by whoever merges, as
+   the gate, including slow-tier files; it warns on files over
+   `tests/duration_budget.json`. At completion,
    run gates required by the applicable rulebooks, build and changed browser journey
    for runtime claims, and persistence checks when affected. Docs-only work needs
    relevant document/link checks, not a gameplay build. Shared code, ordering,

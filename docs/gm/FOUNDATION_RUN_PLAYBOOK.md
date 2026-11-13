@@ -124,7 +124,7 @@ opus only for a hard seam after an advisor opinion. Codex lanes: Luna-low by def
 
 Check each return at its locator before recording it: grep callers of the seam a lane says
 it wired (the Nov 6 wave found two seams with no caller play reaches, AT13), run its
-focused tests from the root, read the diff. Then, as the committer, once on the folded
+focused tests or `npm run test:changed` from the root, read the diff. Then, as the committer, once on the folded
 tree: `npm run build` (record the `dist/bundle.js` sha256), `npm test` through the slot
 runner (one suite at a time; a baseline run started before lanes edit `src/` is partial
 evidence at best), `npm run check:arch` (no new cycle, main imports at or under baseline),
