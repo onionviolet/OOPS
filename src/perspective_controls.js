@@ -115,6 +115,10 @@ const rows = [
     ['tie', 'in-world', 'How a person this character knows regards them, as noticed, and what moves it.'],
     ['home-act', 'in-world', 'A home act this character can take here: take up the flat, buy a piece, fit it.'],
     ['practice', 'in-world', 'How practised this character\u2019s hand is at desk work, the pooled steadiness and what spending it changes.'],
+    ['practice-level', 'in-world', 'This character’s mastery of desk copying and the next mark it is working toward.'],
+    ['practice-pool', 'in-world', 'The desk practice this character has pooled and why it is where it is.'],
+    ['practice-checkpoint', 'in-world', 'A mark the pooled practice reaches and whether this character has it yet.'],
+    ['mind', 'in-world', 'The character’s own state of mind: dread, fascination and contentment lines.'],
   ].map(([token, tag, basis]) => ({id: `lotm.data-${token}`, kind: 'panel-block', anchor: `[data-lotm-${token}]`, tag, basis})),
   {id: 'lotm.data-command-control', kind: 'panel-block', anchor: '[data-lotm]', tag: 'in-world', basis: 'A command or formula selector for the current character.'},
 
