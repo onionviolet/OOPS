@@ -201,12 +201,50 @@ async function nonPathwayRows() {
 
 // ---------- build ----------
 
-// The runner currently requires a case-bearing row's typed state to match
-// its computed state. Keep the workshop receipt when adding the engine case.
-const DRAUGHT_CASE = {
-    module: 'src/world_packs/hp_potion_case_scenes.js',
-    id: 'draught_of_living_death',
+const potionCaseModule = 'src/world_packs/brew_coverage_cases.js';
+const hpCases = {
+    antidote_to_common_poisons: 'Engine case: a mistletoe brew clears one oral poison burden and breathing recovers. A second burden remains. The carrier, specificity and dose are authored. Source: https://www.harrypotter.com/features/health-hazards-herbology.',
+    mixture_of_powdered_silver_and_dittany: 'Engine case: powdering silver and mixing it with dittany makes a topical seal that stops active blood loss while a bite lesion remains. Measures and timing are authored. Source: https://www.harrypotter.com/writing-by-jk-rowling/werewolves.',
+    confusing_concoction: 'Engine case: three source-listed herbs brew into a timed thickened infusion that temporarily befuddles the drinker. Concentration, timing and dose are authored.',
+    forgetfulness_potion: 'Engine case: the three official encyclopedia ingredients produce a measured oral serving that removes a selected memory while preserving a second one. The threshold and memory selection are authored.',
+    anti_jinx_varnish: 'Engine case: a measured coating temporarily intercepts an authored contact jinx on the treated broom. The formula, scope, strength and duration remain open in the source.',
+    invigoration_draught: 'Engine case: a pupil completes a paid, concentration-sensitive stir on a prepared base. The recipe and reaction are authored. Administration and physiological effects remain open.',
+    elixir_to_induce_euphoria: 'Engine case: peppermint reacts with an authored side-effect constituent before bottling. Both oral variants improve mood, and the unmodified batch also briefly disrupts speech. The reaction, dose, and modeled response are authored.',
+    calming_draught: 'Engine case: an authored oral response temporarily improves mood after the HPPE061 infirmary use. Preparation, measured response and duration are open in the source.',
+    dr_ubbly_s_oblivious_unction: 'Engine case: repeated measured topical doses fund gradual scar improvement through a saved body account. Formula is open and dose response is authored.',
+    strengthening_solution: 'Engine case: a weekend-matured oral serving lets the recipient move a load over baseline capacity. Reaction, dose and strength are authored from the novel and supplement anchors.',
+    ageing_potion: 'Engine case: an authored apparent-age effect leaves the Age Line’s eligibility input intact. The line ejects an underage entrant and applies the beard consequence. The recipe and exact age mechanism are open.',
+    wolfsbane_potion: 'Engine case: a timely serving preserves the recipient’s own movement choice through a timed wolf transformation. Sugar and expired dosing controls lose protection. Base, sugar reaction, moon event and dose timing are authored.',
+    pepperup_potion: 'Engine case: a prepared oral dose relieves a cold burden and emits timed steam that follows the patient. Dose and steam rates are authored. Formula remains open.',
+    felix_felicis: 'Engine case: a pre-mixed base stews for six modeled months before bottling an active oral serving that raises the odds of a paid recollection request. The base, calendar conversion and dose response are authored. Earlier preparation and reckless behavior remain open.',
+    amortentia: 'Engine case: two observers record different aromas from one sample, then a prepared oral serving temporarily redirects the recipient toward a specific subject. Scent associations, route behavior, dose and timing are authored. Formula remains open.',
+    antidote_to_veritaserum: 'Engine case: an authored prepared antidote temporarily protects an oral-dose recipient from compelled disclosure. The novel establishes the counteragent by report. Formula, administration and duration remain open.',
+    veritaserum: 'Engine case: a measured oral dose briefly compels an awake speaker to share a recalled fact when questioned. The formula and exact duration remain open.',
+    skele_gro: 'Engine case: a prepared oral serving funds gradual arm bone regrowth and pain for its duration. Recipe, dose and growth rate are authored.',
+    blood_replenishing_potion: 'Engine case: two measured servings restore circulating volume while the same bleed continues. The recipe, strength and timing are authored.',
+    mrs_skower_s_all_purpose_magical_mess_remover: 'Engine case: a measured cleaner removes loose dirt but leaves the wall writing after a paid scrub. The dirt control, concentrations and affinities are authored. The formula is open.',
+    mandrake_restorative_draught: 'Engine case: a mature root lot produces a restorative serving that clears a saved petrification layer. Recipe, dose and route are authored.',
+    polyjuice_potion: 'Engine case: six held ingredients make a matured base. A late donor sample binds one divided serving and drives a temporary form through expiry.',
+    wit_sharpening_potion: 'Engine case: classroom ingredients brew from stock into a serving that temporarily clears confusion and allows a trained student to focus. Dose, duration and the Occlumency comparison are authored.',
+    potion_for_dreamless_sleep: 'Engine case: prepared oral dose with authored timed sleep and recovery. Formula and dream effects are open.',
+    doxycide: 'Engine case: prepared spray holds a doxy in place while the same oral dose leaves it able to move. Formula and duration are open.',
+    murtlap_essence: 'Engine case: paid straining of pickled tentacles yields a topical serving that temporarily relieves pain. The remaining essence spills and stays lost when the bowl is mended. Dose and timing are authored.',
+    alihotsy_draught: 'Engine case: an authored combination of Specialis Revelio and the HPPE184 pairing selects held treacle from the healer’s saved dose reading and ends the timed symptom.',
+    cure_for_boils: 'Engine case: failed quill addition injures exposed skin, and a separate off-fire brew supplies a measured topical treatment. Exposure, serving size and treatment strength are authored.',
+    draught_of_living_death: 'Engine case: ingredient lots, preparation, flask and oral uptake through the living body response and recovery.',
+    draught_of_peace: 'Engine case: paid simmering, saved silver vapour cue, bottling and authored oral relief with recovery. Omitted syrup leaves the cue and active serving absent.',
+    shrinking_solution: 'Engine case: the measured green brew temporarily changes a toad into a tadpole. A separate authored counteragent reverses it. The authored overmeasure control restores its orange cue and causes harm. Counteragent composition and exact failure chemistry are open.',
+    sleeping_draught: 'Engine case: held prepared draught is incorporated into two cake portions, then one portion produces timed sleep when eaten. The formula is open.',
+    swelling_solution: 'Engine case: a prepared spill divides between exposed parts and runoff. The formula and firework trigger are open.',
+    deflating_draught: 'Engine case: a prepared oral serving clears the swelling left by a prior topical dose while preserving an unrelated form layer. The formula is open.',
 };
+
+function attachCase(row, id, note, mechanisms) {
+    row.note += ` Prior typed state: ${row.state}. ${note}`;
+    row.state = 'expressed-authored';
+    row.mechanisms = [...new Set([...row.mechanisms, ...mechanisms])];
+    row.case = {module: potionCaseModule, id};
+}
 
 export async function buildLedgers() {
     const catalogue = readFileSync(at(CATALOGUE), 'utf8').trim().split('\n').map(l => JSON.parse(l));
@@ -221,14 +259,31 @@ export async function buildLedgers() {
     });
     const lotm = [...lotmInventory(readFileSync(at(TABLE), 'utf8'), LOTM_BREW_ROWS), ...await nonPathwayRows(), ...extra];
     const hpPotions = applyOverrides(potions, o.hp_potions, 'hp_potions');
-    const draught = hpPotions.find(row => row.id === 'hp.potion.draught_of_living_death');
-    draught.note += ` Prior typed state: ${draught.state} (workshop reaction). The engine case uses authored dose size, uptake, responsiveness and recovery.`;
-    draught.state = 'expressed-authored';
-    draught.mechanisms = [...draught.mechanisms, 'brew_law', 'l.living_body'];
-    draught.case = DRAUGHT_CASE;
+    for (const [id, note] of Object.entries(hpCases))
+        attachCase(hpPotions.find(row => row.id === `hp.potion.${id}`), id, note, ['brew_law', 'b.dose']);
+    const lotmPotions = applyOverrides(lotm, o.lotm_potions, 'lotm_potions');
+    for (const recipe of LOTM_BREW_ROWS) {
+        const row = lotmPotions.find(r => r.id === `lotm.potion.${recipe.id}`);
+        const note = recipe.id === 'fool_9' ? 'Engine case: stock, bottling and oral transfer. Measured excess charge drives the authored hazard separately from potency. Advancement is open.' :
+            'Engine case: formula or recorded partial ingredients settle from stock into a bottled potency. Administration and pathway effects are open.';
+        attachCase(row, `lotm.${recipe.id}`, note, ['engine_brew_stock']);
+    }
+    const hpIngredients = applyOverrides(ingredients, o.hp_ingredients, 'hp_ingredients');
+    attachCase(hpIngredients.find(row => row.id === 'hp.ingredient.gurdyroot'), 'gurdyroot_infusion',
+        'Engine case: prepared infusion is split into two servings, held sugar is dissolved directly into one cup, and that serving is drunk. Measures and stock composition are authored. Preparation and any magical response remain open.',
+        ['engine_brew_stock', 'b.dose']);
+    attachCase(hpIngredients.find(row => row.id === 'hp.ingredient.essence_of_dittany'), 'essence_of_dittany',
+        'Engine case: measured topical essence closes a modeled bleeding cut while circulating volume remains depleted. Preparation is open and the dose conversion is authored.',
+        ['l.living_body', 'b.dose']);
+    attachCase(hpIngredients.find(row => row.id === 'hp.ingredient.bubotuber_pus'), 'bubotuber_pus',
+        'Engine case: gloved collection produces raw flask stock. Bare-hand collection causes a lesion. Authored dilution and topical dosing relieve the test patient’s skin burden.',
+        ['hp.bubotuber', 'b.dose']);
+    attachCase(hpIngredients.find(row => row.id === 'hp.ingredient.gillyweed'), 'gillyweed',
+        'Engine case: eating raw plant stock gives a temporary gilled form that preserves breath through an underwater haul. Duration and task are authored.',
+        ['hp.gillyweed', 'l.breathing', 'l.creature_form']);
     return {hp_potions: hpPotions,
-        hp_ingredients: applyOverrides(ingredients, o.hp_ingredients, 'hp_ingredients'),
-        lotm_potions: applyOverrides(lotm, o.lotm_potions, 'lotm_potions')};
+        hp_ingredients: hpIngredients,
+        lotm_potions: lotmPotions};
 }
 
 export function summarize(rows) {

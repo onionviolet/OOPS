@@ -7,9 +7,12 @@ import {beginWorking, interruptWorking, quoteWorking, restoreWorking, serializeW
 import {BREW_LAW, BREW_PUBLISHES, ageDose, brewBalance, brewMethod, spillBatch, unfinishedBatch} from '../src/brew_law.js';
 import {LOTM_BREW_ROWS, lotmBrewRow, lotmDoseReading, lotmLots, parseLotmAmount} from '../src/world_packs/lotm_brew_pack.js';
 import {brewSeer} from '../src/lotm_seer_brew.js';
-import {THERMAL_REVISION, quoteThermalBatch} from '../src/craft_process_thermal.js';
+import {THERMAL_REVISION, createThermalState, quoteThermalBatch} from '../src/craft_process_thermal.js';
 import {brewBatchState, createBrewSteamPack} from '../src/world_substrate_packs/brew_steam.js';
-import {advanceWorld, applyWorldOps, composeSubstrate, createWorld} from '../src/world_substrate.js';
+import {advanceWorld, applyWorldOps, composeSubstrate, createWorld, readQuantity} from '../src/world_substrate.js';
+import {createEngineWorld} from '../src/engine_world.js';
+import {landEffect} from '../src/effect_host.js';
+import {WORLD_QUANTITIES} from '../src/world_quantities.js';
 
 const vessel = (extra = {}) => ({kind: 'vessel', id: 'cauldron', place: 'workroom', retainPermille: 0, closure: 'open', ...extra});
 const bindingsFor = (row, lots, v = vessel()) => ({vessel: {kind: 'vessel', id: v.id}, ...Object.fromEntries(Object.entries(lots).map(([k, lot]) => [k, {kind: 'lot', id: lot.id}]))});
@@ -269,4 +272,92 @@ test('PTD8: a finished dose ages through the spoilage owner or a stated life, an
     assert.equal(dial.dose.contents.sap ?? 0, 0);
     assert.equal(dial.state, 'spoiled');
     for (const d of [known.dose, dial.dose]) assert.equal(total(d), 100);
+});
+
+// PC19. SS14's Arcryox recipe and Tricordrazine precursor, in brew milli-units
+// and degrees Celsius. See the source intake for the pinned rows and license.
+const minArcryoxTemperature = 370 - 273.15;
+const arcryox = {id: 'arcryox', priority: 2, minTemperature: minArcryoxTemperature,
+    reactants: {lithium: 1, tricordrazine: 1, cryoxadone: 1}, products: {arcryox: 3}};
+const tricordrazine = {id: 'tricordrazine', priority: 1,
+    reactants: {inaprovaline: 1, dylovene: 1}, products: {tricordrazine: 2}};
+const cascadeLots = Object.fromEntries(Object.entries({inaprovaline: 1, dylovene: 1, cryoxadone: 2, lithium: 2})
+    .map(([id, n]) => [id, {kind: 'lot', id: `lot.${id}`, material: id, amount: n * 1000, properties: {[id]: 1000}}]));
+const doseCue = {cue: 'Arcryox present', constituent: 'arcryox', atLeastPermille: 1000};
+
+function cascadeTrial({reactions = [arcryox, tricordrazine], temperature = minArcryoxTemperature, maxFirings = 2} = {}) {
+    const v = {...herbVessel(), retainPermille: 0};
+    if (temperature !== null) {
+        const quote = quoteThermalBatch({...thermal, vessel: v.thermal, program: {
+            ...thermal.program, startTemperature: temperature, targetTemperature: 100, sourceTemperature: 110,
+        }});
+        v.thermalState = createThermalState(thermal.law, quote);
+    }
+    const ports = portsFor(cascadeLots, v);
+    const method = brewMethod({id: 'test.arcryox', slots: Object.keys(cascadeLots).map(id => ({id})), process: [
+        {op: 'cascade', minutes: 2, options: {reactions, maxFirings, cues: [doseCue]}},
+        {op: 'divide', minutes: 1, options: {doses: 1}},
+    ]});
+    const start = beginWorking(BREW_LAW, method, {id: 'w.arcryox', bindings: bindingsFor(null, cascadeLots, v), at: 0});
+    const admitted = settleWorking(BREW_LAW, start, {now: 0, ports});
+    const restore = record => restoreWorking(BREW_LAW, JSON.parse(JSON.stringify(serializeWorking(record))));
+    const finish = record => settleWorking(BREW_LAW, record, {now: 3, ports});
+    const {record, effects} = finish(restore(admitted.record));
+    const direct = finish(start);
+    assert.deepEqual(record, direct.record);
+    assert.deepEqual([...admitted.effects, ...effects], direct.effects);
+    assert.deepEqual(restore(record), record);
+    assert.deepEqual(finish(record).effects, []);
+    return record;
+}
+
+test('PC19: hot chemistry rechecks its higher-priority reaction and the dose supplies a real effect', () => {
+    const competing = {id: 'competing', priority: 0, reactants: {tricordrazine: 1}, products: {residue: 1}};
+    const hot = cascadeTrial({reactions: [competing, arcryox, tricordrazine]});
+    const reversed = cascadeTrial({reactions: [tricordrazine, arcryox, competing]});
+    for (const record of [hot, reversed]) {
+        assert.deepEqual(record.facts.reactions, [{reaction: 'tricordrazine', extent: 1000}, {reaction: 'arcryox', extent: 2000}]);
+        assert.deepEqual(record.facts.brew.doses[0].contents, {arcryox: 6000});
+        assert.deepEqual(record.receipts.find(r => r.op === 'cascade').observed.cues, [doseCue.cue]);
+        assert.deepEqual(brewBalance(record.facts), {admitted: 6000, held: 0, released: 6000, balanced: true});
+    }
+    const blocked = [cascadeTrial({temperature: 96}), cascadeTrial({temperature: null})];
+    for (const record of blocked) {
+        assert.deepEqual(record.facts.brew.doses[0].contents, {tricordrazine: 2000, lithium: 2000, cryoxadone: 2000});
+        assert.deepEqual(record.receipts.find(r => r.op === 'cascade').observed.cues, []);
+        assert.ok(brewBalance(record.facts).balanced);
+    }
+
+    // SS14's healing component requires a receiver at or below 0°C.
+    // This adapter uses OOPS vitality and an authored conversion rate.
+    function treat(record, temperature) {
+        const body = {id: 'patient', kind: 'body', place: 'bay', quantities: {vitality: 10, temperature}};
+        const {rules, world} = createEngineWorld({packs: ['w.sky'], shared: {quantities: [WORLD_QUANTITIES.vitality, WORLD_QUANTITIES.temperature]},
+            holders: [{id: 'bay', kind: 'place'}, body]});
+        const active = record.facts.brew.doses[0].contents.arcryox ?? 0;
+        const amount = readQuantity(world, 'patient', 'temperature') <= 0 ? Math.floor(active / 1000) : 0;
+        if (!amount) return readQuantity(world, 'patient', 'vitality');
+        const healed = landEffect(rules, world, {
+            sentence: {verb: 'add', object: 'vitality', target: 'touched', time: 'instant', carrier: 'potion'},
+            details: {target: {shape: 'holder', id: 'patient'}, amount},
+        }, {cause: 'w.arcryox:fixture-dose'});
+        assert.equal(healed.status, 'landed');
+        return readQuantity(healed.world, 'patient', 'vitality');
+    }
+    assert.equal(treat(hot, 0), 16);
+    assert.equal(treat(hot, 1), 10);
+    assert.equal(treat(blocked[0], 0), 10);
+});
+
+test('PC19: an exhausted cascade interrupts the working and leaves admitted stock intact', () => {
+    const cycle = {id: 'revert', priority: 3,
+        reactants: {tricordrazine: 2}, products: {inaprovaline: 1, dylovene: 1}};
+    for (const options of [{maxFirings: 1}, {reactions: [tricordrazine, cycle], maxFirings: 2}]) {
+        const record = cascadeTrial(options);
+        assert.equal(record.status, 'interrupted');
+        assert.equal(record.receipts.at(-1).reason, 'cascade-firing-limit');
+        assert.deepEqual(unfinishedBatch(record).batch, {inaprovaline: 1000, dylovene: 1000, lithium: 2000, cryoxadone: 2000});
+        assert.deepEqual(brewBalance(record.facts), {admitted: 6000, held: 6000, released: 0, balanced: true});
+        assert.deepEqual(record.facts.brew.doses, []);
+    }
 });

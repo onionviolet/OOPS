@@ -50,7 +50,7 @@ function lawFor(row) {
     const coeff = Object.fromEntries(mains.map((s, i) => [s.id, amounts[i] / g]));
     const reactants = {charge: coeff[carrier.id], ...Object.fromEntries(binders.map(s => [`bind_${s.id}`, coeff[s.id]]))};
     const potency = Object.values(reactants).reduce((n, k) => n + k, 0);
-    const reaction = {id: `${row.id}.bind`, reactants, products: {potency},
+    const reaction = {id: `${row.id}.bind`, reactants, products: {potency}, productOrigins: {potency: row.id},
         ...(binders.length ? {} : {limit: parsed[carrier.id].amount})};
     return {parsed, properties, reaction, formulaPotency: Math.floor(parsed[carrier.id].amount / coeff[carrier.id]) * potency};
 }
@@ -111,4 +111,10 @@ export function lotmDoseReading(row, dose) {
     const potency = dose?.contents?.potency ?? 0, unbound = dose?.contents?.charge ?? 0;
     return {power: Math.floor(potency / MILLI), fullDosePermille: row.formulaPotency ? Math.floor(potency * 1000 / row.formulaPotency) : 0,
         hazard: Math.floor(unbound / row.hazardUnit)};
+}
+
+/** Read a delivered, formula-identified dose before offering it to a
+ * progression owner. Legacy or mixed stock can still be measured above. */
+export function identifiedLotmDoseReading(row, dose) {
+    return dose?.origins?.potency === row.id && dose.contents?.potency > 0 ? lotmDoseReading(row, dose) : null;
 }

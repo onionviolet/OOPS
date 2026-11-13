@@ -94,8 +94,13 @@ test('simulation reserves Seer stock, refunds interruption, and settles a loaded
     p = JSON.parse(JSON.stringify(p));
     validateSimulationState(p.state.simulation, p.state, registry.simulation);
     assert.equal(p.state.actors.player.facts[SEER_BREW_FACTS.product], brewSeer(measured).id);
+    assert.equal(p.state.actors.player.facts[SEER_BREW_FACTS.seer], 57);
+    assert.equal(p.state.actors.player.facts[SEER_BREW_FACTS.madness], 1);
     assert.equal(p.state.actors.player.resources[LOTM_INBOX.loss], undefined);
-    p = wait(start(p, drink), 2);
+    p = start(p, drink);
+    const savedDrink = JSON.parse(JSON.stringify(p));
+    validateSimulationState(savedDrink.state.simulation, savedDrink.state, registry.simulation);
+    p = wait(savedDrink, 2);
     assert.equal(p.state.actors.player.facts[SEER_BREW_FACTS.seer], 0);
     assert.equal(p.state.actors.player.resources[LOTM_INBOX.loss], 1);
     assert.equal(lotmLossLine(undefined, p.state).count, 1.5);

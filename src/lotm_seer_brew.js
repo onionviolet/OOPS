@@ -16,7 +16,7 @@
 // ingredients, not a proportion of the whole cup.
 //
 // Why a non-player maker and facts, not an inventory cup: the text has Neil make it and leaves the cup in the room ("nobody
-// holds the cup"). The engine is pure (resolveBatch), so an NPC maker calls it directly; the pack's own act that finishes the
+// holds the cup"). The shared brew working resolves the measured allocation; the pack's own act that finishes the
 // brew records the product. The drink spends the scene's cup in the same settlement that grants the source.
 import {compileProcedure, procedureStepKey} from './making_procedure.js';
 import {seedPlaceObjects} from './place_acts.js';
@@ -24,6 +24,9 @@ import {MAKING_TRAITS} from './making_traits.js';
 import {defineCatalogue} from './craft_materials.js';
 import {defineCraftLaw, resolveBatch} from './craft_resolver.js';
 import {LOTM_INBOX} from './book_world_lotm_harm.js';
+import {BREW_LAW, MILLI} from './brew_law.js';
+import {beginWorking, settleWorking} from './kernel_working.js';
+import {identifiedLotmDoseReading, lotmBrewRow, lotmLots} from './world_packs/lotm_brew_pack.js';
 
 const P = 'book.lotm.seer_brew';
 export const SEER_BREW_FACTS = Object.freeze({product: `${P}.product`, madness: `${P}.madness`, seer: `${P}.seer`});
@@ -60,6 +63,26 @@ export function brewSeer(amounts = {}) {
     return resolveBatch(SEER_BREW_LAW, {inputs, process: [{op: 'supplements'}, {op: 'crucial'}, {op: 'fog'}]}).product;
 }
 
+// The native command still owns custody, ingredient payment and the source
+// grant. Use its actual allocation, including the five scene measures, when
+// compiling the shared working.
+function resolveSeerAllocation(amounts = {}) {
+    const row = lotmBrewRow('fool_9');
+    const measures = Object.fromEntries(['a1', 'a2', 'a3', 'a4', 'a5', 'm1', 'm2'].map((slot, index) => {
+        const {material, qty} = SEER_BREW_FORMULA[index];
+        return [slot, (amounts[material] ?? qty) * MILLI];
+    }));
+    const lots = lotmLots(row, measures);
+    const vessel = {kind: 'vessel', id: 'seer-cauldron'};
+    const things = new Map([[vessel.id, vessel], ...Object.values(lots).map(lot => [lot.id, lot])]);
+    const bindings = {vessel: {kind: 'vessel', id: vessel.id},
+        ...Object.fromEntries(Object.entries(lots).map(([slot, lot]) => [slot, {kind: 'lot', id: lot.id}]))};
+    const working = beginWorking(BREW_LAW, row.method, {id: 'seer-allocation', bindings, at: 0});
+    const {record} = settleWorking(BREW_LAW, working, {now: working.deadlines.at(-1), ports: {read: ref => things.get(ref.id)}});
+    if (record.status !== 'complete') throw Error('The shared Seer allocation did not settle.');
+    return identifiedLotmDoseReading(row, record.facts.brew.doses[0]);
+}
+
 // The pack act that ends the brew, and the drink that consumes it. Both are pack rows; without the private pack neither exists.
 export const SEER_BREW_BINDING = Object.freeze({brewAct: 'book.lotm.kj3o.cup', consumer: 'book.lotm.kj3p.drink'});
 const stockKey = material => `${P}.stock.${material.toLowerCase().replaceAll(' ', '-')}`;
@@ -91,12 +114,15 @@ export function seedSeerStock(state, worldId, maker, {overmeasure = false} = {})
 
 const fact = (key, value) => ({type: 'fact', scope: 'actor', actor: 'player', key, value});
 function bindMeasuredCup(commands, brew, amounts, variant = false) {
+    // Retain the old product fingerprint for compatibility with saved scene
+    // receipts. The shared allocation supplies the two values the drink uses.
     const product = brewSeer(amounts);
+    const reading = resolveSeerAllocation(amounts);
     if(brew.targetId) brew.costs = [...(brew.costs ?? []), ...product.inputs.map(([, material, , qty]) => ({
         type: 'resource', actor: brew.targetId, key: stockKey(material), amount: -qty,
     }))];
     brew.effects = [...brew.effects, fact(SEER_BREW_FACTS.product, product.id),
-        fact(SEER_BREW_FACTS.seer, product.outputs.beyonder?.seer ?? 0), fact(SEER_BREW_FACTS.madness, product.outputs.spirit?.madness ?? 0)];
+        fact(SEER_BREW_FACTS.seer, reading?.power ?? 0), fact(SEER_BREW_FACTS.madness, reading?.hazard ?? 0)];
     // The source already supplies Neil as the target participant. Retain that
     // actual actor rather than spawning a second maker. Klein remains the viewer.
     if(brew.duration >= 2) {

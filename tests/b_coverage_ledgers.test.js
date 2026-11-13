@@ -38,5 +38,5 @@ test('denominators: 316 potion and 409 ingredient entries; 220 pathway Sequences
     assert.equal(lotm.filter(r => /Sequence \d/.test(r.note)).length, 220);
     const ids = new Set(lotm.map(r => r.id));
     for (const row of LOTM_BREW_ROWS) assert.ok(ids.has(`lotm.potion.${row.id}`), `${row.id} is in the inventory`);
-    assert.equal(lotm.filter(r => r.state.startsWith('runs-')).length, LOTM_BREW_ROWS.length);
+    assert.equal(lotm.filter(r => r.state === 'expressed-authored' && r.case).length, LOTM_BREW_ROWS.length);
 });
