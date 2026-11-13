@@ -5,6 +5,7 @@ import {kId as id, kKey as key, KEEPER_DAY as DAY, KEEPER_GU} from '../src/world
 import {keeperHouseView, validateKeeperEnvelope} from '../src/book_world_gu_keeper_domain.js';
 import {guOpinionRows, GU_OPINION} from '../src/companion_work_gu_domain.js';
 import {defineWorkOrder, readWorkOrder, outputFor} from '../src/companion_work.js';
+import {GU_ORDERS} from '../src/companion_work_gu.js';
 import {readKeeperOpinion, rememberAbout, opinionBand} from '../src/companion_opinion.js';
 import {domainRegistry} from '../src/domain_registry.js';
 import {validateStructuredEnvelope} from '../src/structured_pack_state.js';
@@ -131,9 +132,10 @@ test('one push is one memory however long it goes unfed; once fed the cool Gu wo
     assert.match(f.p.state.simulation.knowledge.player[id('work')].value, /grudgingly/);
 });
 
-test('every Gu has one order and its events sort after its care rows at the shared boundary', () => {
+test('every Gu with a work order has its events sort after its care rows at the shared boundary', () => {
     const f = setup();
-    for(const g of KEEPER_GU) {
+    // Gu added after the work lane (light, glow) have no order row yet; guWorkOrder returns null for them by design.
+    for(const g of KEEPER_GU.filter(g => GU_ORDERS[g.slot])) {
         const care = f.d.simulation.events.filter(e => e.id.startsWith(id(`care.${g.slot}.`))).map(e => e.id).sort();
         assert.match(care.at(-1), /\.e_order_/, g.slot);
     }

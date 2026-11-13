@@ -19,6 +19,7 @@ function format({recent, total, dynamic = true, summary = false}) {
     runInNewContext(`${logLootSource}\nlog_loot({loot_list, is_dynamic, is_a_summary});`, {
         item_templates: items,
         getItemFromKey: key => ({getName: () => key === 'wood' || key === 'stone' ? 'Potion' : key}),
+        displayItemName: item => item.getName(),
         create_item_tooltip_content: ({item}) => `tip:${item.getName()}`,
         log_message: (...args) => emitted.push(args),
         loot_list: {recent, total},
