@@ -9,6 +9,7 @@ import {hpLeadHomeCommands} from '../hp_lead_home.js';
 import {lessonEffects} from '../lesson.js';
 import {registerWorldTies,tieEffects,tieOfferCommands} from '../person_ties.js';
 import {hpLeadExamCommands} from './book_hp_lead_exam_data.js';
+import '../book_world_hp_lead_mood.js'; // registers Ron's mood reader beside his ties (the practice offer gates on it)
 import {hpLeadMakingCommands as makingRows,hpLeadMakingItems,hpPotionsIssueEffects} from '../hp_lead_making.js';
 const P='book.hp.lead', id=n=>`${P}.${n}`;
 const note=(n,value)=>({type:'knowledge',key:id(n),stage:'understood',value});
@@ -25,6 +26,9 @@ export const HP_LEAD_TIES=registerWorldTies({worldId:id('world'),situationId:id(
   note:{key:id('tie.ron_family'),value:'Ron told you about his family: five older brothers, a younger sister, and hand-me-downs for almost everything he owns.'}},
  {id:id('tie.ron_practice'),alias:'ron',kind:'affection',atLeast:2,label:'Practise together with Ron · 20 min',minutes:20,repeatable:true,assisted:true,
   description:'Take turns watching each other’s wrist and listening to the words for the levitation charm.',blocked:'Spend some school time with Ron first.',
+  // MND5 second world (proposal): a sour Ron (-5 or lower, book_world_hp_lead_mood.js) will not practise; it passes by itself in a day or two.
+  // Dial: moodAtLeast. Reason: in canon Ron is short with the charm, and with whoever brings it up, after it goes wrong for him.
+  moodAtLeast:-4,moodBlocked:'Ron has had enough of that charm for today. Ask him again once he has cooled off.',
   effects:[{type:'power',powerId:id('levitation'),operation:'refine',amount:1}],
   note:{key:id('tie.ron_practice'),value:'You and Ron took turns with the charm, pointing out what the other missed.'}}]});
 const ronTie=(moment,value)=>tieEffects(id('world'),{alias:'ron',kind:'affection',seen:{key:id(`tie.ron.${moment}`),value}});

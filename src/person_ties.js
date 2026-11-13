@@ -49,8 +49,12 @@ const moodReaders = new Map();
 export const registerTieMood = (worldId, read) => { if(typeof read !== 'function') throw Error('A tie mood reader is a function.'); moodReaders.set(worldId, read); };
 const moodOf = (state, worldId, personId) => { try { return moodReaders.get(worldId)?.(state, personId) ?? null; } catch { return null; } };
 // The words the player reads: knowledge of what was seen, never the total (AD6-AD8). Even moods say nothing.
-export const moodWords = mood => !mood?.rows?.length || mood.band === 'even' ? '' :
-    mood.band === 'sour' ? `They are short with you at the moment: ${mood.rows[0].line}.` : `They are in good humour with you: ${mood.rows[0].line}.`;
+// The strongest thought decides the wording: a thought about the player is "with you"; one about someone or something else is a
+// general humour (HP: Ron cross about a charm or a classmate is not cross with Harry, but it still shapes what he will do).
+export const moodWords = mood => { const top = mood?.rows?.[0]; if(!top || mood.band === 'even') return '';
+    const you = !top.subject || top.subject === 'player';
+    return mood.band === 'sour' ? (you ? `They are short with you at the moment: ${top.line}.` : `They are in a sour mood at the moment: ${top.line}.`)
+        : (you ? `They are in good humour with you: ${top.line}.` : `They are in good spirits: ${top.line}.`); };
 const moodShut = (state, decl, o) => {
     if(o.moodAtLeast == null) return null;
     const mood = moodOf(state, decl.worldId, decl.people[o.alias]);
@@ -106,7 +110,10 @@ export function tieOfferCommands(worldId, base) {
     const decl = worldTies(worldId);
     return (decl?.offers || []).map(o => ({...base, id: o.id, revision: 1, label: o.label, description: o.description,
         requires: {all: [...(base.requires?.all || []), {fact: `tie.${o.alias}.${o.kind}`, op: 'gte', value: o.atLeast, reason: o.blocked},
-            ...(o.moodAtLeast != null ? [{fact: `mood.${o.alias}`, op: 'gte', value: o.moodAtLeast, reason: o.moodBlocked}] : [])], reason: o.blocked},
+            ...(o.moodAtLeast != null ? [{fact: `mood.${o.alias}`, op: 'gte', value: o.moodAtLeast, reason: o.moodBlocked}] : [])],
+            // The engine shows only a top-level reason. With a mood gate there are two ways to be shut, so leave it off and let the
+            // shared fallback (structured_action_reasons.js) name the first unmet leaf: regard first, then mood.
+            ...(o.moodAtLeast != null ? {} : {reason: o.blocked})},
         ...(o.minutes ? {duration: o.minutes} : {}), once: o.repeatable ? false : true,
         ...(o.assisted ? {participants: [base.actorId || 'player', decl.people[o.alias]], participantsCoLocated: true} : {}),
         effects: [...structuredClone(o.effects || []), offerNote(decl, o)]}));
