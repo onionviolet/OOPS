@@ -2,6 +2,9 @@
 paths:
   - "src/authority.js"
   - "src/canon_pull.js"
+  - "src/canon_pull_host.js"
+  - "src/acting_powers.js"
+  - "src/ri_heavens_will.js"
   - "src/institution_store.js"
   - "src/book_world_lotm_merit.js"
   - "src/clearance.js"

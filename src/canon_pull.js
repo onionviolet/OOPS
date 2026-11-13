@@ -12,6 +12,7 @@ import {defineBeats, resolveBeats} from './beat_records.js';
 import {keyedUnitFor} from './keyed_generation.js';
 import {registerDomain} from './domain_registry.js';
 import {check, natural} from './basics.js';
+import {powerById, budgetLeft, withinReach} from './acting_powers.js';
 
 // Default: the lead's seat holds canon; other seats widen (USER_VISION 2026-10-29). Dial: per world.
 export const PULL_SEATS = Object.freeze({be: 0.9, beside: 0.75, follow: 0.7, bystander: 0.6, ordinary: 0.5});
@@ -24,6 +25,16 @@ const LIMITS = Object.freeze({records: 200, disturbance: 200, string: 200});
 
 // beats: the resolver's own {done, day} for host-ticked pulls (facts are re-read from the game each tick).
 export const emptyPull = () => ({schema: 1, disturbance: [], spent: {}, records: [], beats: {done: {}, day: 0}});
+
+// AGT1: an agent that names a registered acting power by its bare id (RCL16) takes its kind, reason, sign and budget from that record, and only
+// acts through its reach (AGT3). An inline agent behaves exactly as before. `spentAt` (days of each spend) is kept only where the power's budget refills.
+export function resolveAgent(a) {
+    const power = powerById(a.id);
+    if (!power) return a;
+    const b = power.budget;
+    return {...a, power, kind: a.kind ?? power.kind, reason: a.reason ?? power.reason, sign: a.sign ?? power.sign, cost: a.cost ?? 1,
+        budget: a.budget ?? (b.kind === 'unbudgeted' ? Infinity : b.amount)};
+}
 
 // One push from the player or the world: it reaches the beats it names and what hangs on them,
 // halving per causal hop (LSD222), and stops where no link carries it.
@@ -70,15 +81,20 @@ export function pullFor(beat, book, pull, cfg = {}) {
 function checkPullSpec(beat) {
     const spec = beat.pull;
     check(spec && typeof spec === 'object' && !Array.isArray(spec), `Beat ${beat.id}: pull must be an object.`);
-    for (const a of spec.agents ?? []) {
+    for (const a of (spec.agents ?? []).map(resolveAgent)) {
         check(typeof a.id === 'string' && a.id && typeof a.kind === 'string' && typeof a.reason === 'string' && a.reason && typeof a.sign === 'string' && a.sign, `Beat ${beat.id}: agent needs id, kind, reason and sign.`);
         check(a.restore || a.substitute, `Beat ${beat.id}: agent ${a.id} needs a restore or a substitute.`);
         for (const e of [...(a.restore ?? []), ...(a.substitute ?? [])]) check(typeof e.fact === 'string' && ('value' in e) !== ('add' in e), `Beat ${beat.id}: agent effect needs a fact and one of value or add.`);
     }
 }
 
-const spendOf = (pull, agent) => pull.spent[agent.id] ?? 0;
-const canAct = (pull, agent) => spendOf(pull, agent) + (agent.cost ?? 1) <= (agent.budget ?? 1);
+const spendOf = (pull, agent) => [agent.id, ...(agent.power?.aliases ?? [])].reduce((n, id) => n + (pull.spent[id] ?? 0), 0);
+const effectsOf = agent => [...(agent.restore ?? []), ...(agent.substitute ?? [])];
+// A power-backed agent acts only inside its reach and while its declared budget (with any refill) has room; the budget's one owner is this slice.
+function canAct(pull, agent, day) {
+    if (agent.power) return withinReach(agent.power, effectsOf(agent)) && budgetLeft(agent.power, {spent: spendOf(pull, agent), spentAt: pull.spentAt?.[agent.id] ?? []}, day) >= (agent.cost ?? 1);
+    return spendOf(pull, agent) + (agent.cost ?? 1) <= (agent.budget ?? 1);
+}
 
 function decide(beat, result, book, pull, cfg) {
     const {pull: strength, inertia, disturbance} = pullFor(beat, book, pull, cfg);
@@ -88,9 +104,9 @@ function decide(beat, result, book, pull, cfg) {
         inertia: Math.round(inertia * 100) / 100, disturbance: Math.round(disturbance * 100) / 100};
     if (!(draw < chance)) return {record: {...base, outcome: 'deviated', reason: 'draw'}};
     const needsOnly = result.causes.every(c => c.fact !== undefined && !c.mechanism && !c.beat);
-    const live = (beat.pull.agents ?? []).filter(a => canAct(pull, a));
+    const all = (beat.pull.agents ?? []).map(resolveAgent), live = all.filter(a => canAct(pull, a, result.day));
     const agent = live.find(a => needsOnly && a.restore) ?? live.find(a => a.substitute);
-    if (!agent) return {record: {...base, outcome: 'deviated', reason: (beat.pull.agents ?? []).length ? 'spent' : 'no_hand'}};
+    if (!agent) return {record: {...base, outcome: 'deviated', reason: all.length ? 'spent' : 'no_hand'}};
     const restore = needsOnly && agent.restore;
     const mark = {fact: `pull.${beat.id}`, value: restore ? 'restored' : 'substituted'};
     const modified = restore
@@ -107,6 +123,7 @@ export function resolveWithPull(beats, state, through, ctx = {}) {
     const {state: pull0 = emptyPull(), ...cfg} = ctx.pull ?? {};
     check(typeof through === 'number', 'resolveWithPull needs a dayIndex number.');
     let cur = state, pull = {...pull0, spent: {...pull0.spent}, records: [...pull0.records]};
+    if (pull0.spentAt) pull.spentAt = structuredClone(pull0.spentAt);
     const results = [], records = [], byId = new Map(book.map(b => [b.id, b]));
     for (let day = cur.day + 1; day <= through; day++) {
         let table = book;
@@ -118,7 +135,10 @@ export function resolveWithPull(beats, state, through, ctx = {}) {
             decided.add(hit.beat);
             const d = decide(byId.get(hit.beat), hit, book, pull, cfg);
             records.push(d.record);
-            if (d.agent) pull.spent[d.agent.id] = spendOf(pull, d.agent) + (d.agent.cost ?? 1);
+            if (d.agent) {
+                pull.spent[d.agent.id] = (pull.spent[d.agent.id] ?? 0) + (d.agent.cost ?? 1);
+                if (d.agent.power?.budget.refillDays) pull.spentAt = {...pull.spentAt, [d.agent.id]: [...(pull.spentAt?.[d.agent.id] ?? []), day]};
+            }
             if (d.modified) table = defineBeats(table.map(b => b.id === hit.beat ? d.modified : b));
         }
     }
@@ -152,10 +172,11 @@ export function deviationChronicle(pull) {
 const plain = v => v !== null && typeof v === 'object' && !Array.isArray(v) && Object.getPrototypeOf(v) === Object.prototype;
 export function validateCanonPull(slice) {
     if (slice == null) return;
-    check(plain(slice) && slice.schema === 1 && Object.keys(slice).every(k => ['schema', 'disturbance', 'spent', 'records', 'beats'].includes(k)), 'Invalid canon pull slice.');
+    check(plain(slice) && slice.schema === 1 && Object.keys(slice).every(k => ['schema', 'disturbance', 'spent', 'spentAt', 'records', 'beats'].includes(k)), 'Invalid canon pull slice.');
     check(Array.isArray(slice.disturbance) && slice.disturbance.length <= LIMITS.disturbance, 'Invalid canon pull disturbance.');
     for (const d of slice.disturbance) check(plain(d) && typeof d.id === 'string' && d.id.length <= LIMITS.string && natural(d.day) && d.weight > 0 && d.weight <= 1 && Array.isArray(d.reaches) && d.reaches.every(r => typeof r === 'string') && (d.label == null || typeof d.label === 'string'), 'Invalid canon pull push.');
     check(plain(slice.spent) && Object.entries(slice.spent).every(([k, v]) => k && k !== '__proto__' && natural(v)), 'Invalid canon pull spend.');
+    if (slice.spentAt != null) check(plain(slice.spentAt) && Object.entries(slice.spentAt).every(([k, v]) => k && k !== '__proto__' && Array.isArray(v) && v.length <= LIMITS.records && v.every(natural)), 'Invalid canon pull spend days.');
     check(Array.isArray(slice.records) && slice.records.length <= LIMITS.records, 'Invalid canon pull records.');
     if (slice.beats != null) check(plain(slice.beats) && natural(slice.beats.day) && plain(slice.beats.done) && Object.values(slice.beats.done).every(r => plain(r) && typeof r.status === 'string' && natural(r.day)), 'Invalid canon pull beats.');
     for (const r of slice.records) check(plain(r) && typeof r.beat === 'string' && natural(r.day) && PULL_OUTCOMES.includes(r.outcome), 'Invalid canon pull record.');

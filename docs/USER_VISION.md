@@ -183,6 +183,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 <a id="one-procedural-foundation-one-chat-per-part-2026-11-11"></a>[One procedural foundation, one chat per part, 2026-11-11](gm/USER_VISION_LOG_2026-11.md#one-procedural-foundation-one-chat-per-part-2026-11-11)<br>
 <a id="foundations-first-playable-slices-later-2026-11-11"></a>[Foundations first, playable slices later, 2026-11-11](gm/USER_VISION_LOG_2026-11.md#foundations-first-playable-slices-later-2026-11-11)<br>
+<a id="shared-acting-power-record-built-now-llr26-2026-11-10"></a>[Shared acting-power record, built now (LLR26), 2026-11-10](gm/USER_VISION_LOG_2026-11.md#shared-acting-power-record-built-now-llr26-2026-11-10)<br>
 <a id="world-kind-and-source-kind-rulebooks-2026-11-10"></a>[World kind and source kind rulebooks, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)<br>
 <a id="cross-world-rulebook-2026-11-10"></a>[Cross-world rulebook, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#cross-world-rulebook-2026-11-10)<br>
 <a id="ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10"></a>[Ideas that open possibilities are welcome; limits run by him first, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10)<br>

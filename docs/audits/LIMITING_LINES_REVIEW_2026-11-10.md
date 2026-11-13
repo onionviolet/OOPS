@@ -57,6 +57,7 @@ First to fourth rounds, 2026-11-10 ([first](../gm/USER_VISION_LOG_2026-11.md#ans
 | LLR22 | Kept, and control must be noticeable | MND15 with new MND21 (avenues) |
 | LLR23 | Deferred; later capacity from strength, body and containers | ITM7 |
 | LLR24 | Kept gentle, with repair as play and durability that adds choices, not chores | ITM11, ITM12 |
+| LLR26 | Opened: build the shared acting-power record now, LOTM and Reverend Insanity together ("FRC47, we can start a shared record for gods and patrons now?") | AGT1, AGT2; `src/acting_powers.js` |
 | LLR27 | Opened: belief is a resource wherever a method draws on it | AGT10 |
 | LLR33 | Opened: a library is welcome where it saves real work ("why should that be limited?") | UR99 dial |
 | LLR32 | Opened: generated or raster art is not needed now; it is welcome where a surface benefits, with its source noted | UR99 dial |

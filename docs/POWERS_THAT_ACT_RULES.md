@@ -28,7 +28,7 @@ An acting power, as a proposal (fields are optional unless the world uses them):
 | Code | Rule | Default, dial, reason | Builds on |
 | --- | --- | --- | --- |
 | AGT1 | **One shape for every power that acts.** Gods, fate actors, patrons, authorities and admins are acting powers; each keeps its own writer, and they share one record and readers. | Default: the record above, derived on read where possible; saved state is what was spent and what was committed. Dial: how much a world uses. Reason: FRC16; three seams today (`authority.js` place claims, `canon_pull.js` agents, patron terms in the cosmology) describe one thing three ways (AD51). | AD51, FRC16, RLAD5 |
-| AGT2 | **A second world validates the shape.** The shared record is built when two worlds use it. | Default: LOTM's church and fate agent plus one other (Reverend Insanity's Heaven's Will, or a D&D cleric's god). Dial: none. Reason: AD51. | AD51 |
+| AGT2 | **A second world validates the shape.** The shared record is built when two worlds use it. | Default: LOTM's church and fate agent plus one other (Reverend Insanity's Heaven's Will, or a D&D cleric's god). Dial: none. Reason: AD51. **Answered 2026-11-10 (LLR26, Weibao: "FRC47, we can start a shared record for gods and patrons now?"): build it now, LOTM and Reverend Insanity together.** Built as `src/acting_powers.js`; the second world is Heaven's Will in `src/ri_heavens_will.js`. | AD51 |
 | AGT3 | **Reach is a rule over facts, not a number.** An act outside a power's reach is not drawn. | Default: reach names what it can detect and touch; a domain is a named set of facts or kinds inside that rule; "unknown reach" is a valid value the world holds. Dial: per power. Reason: STY26 (W4); fate in code has no reach today (fixture matrix G1). | STY26, STY25 |
 | AGT4 | **A budget is stated where the mechanism has one** (AD55). | Default: a power declares its budget kind or "unbudgeted"; code's default of one act per agent (`canon_pull.js:81`) becomes "declared or unbudgeted". Dial: per power. Reason: AD55; a god forced to run out is a forced weakness. | AD55, STY26 |
 | AGT5 | **What a power can do is the act list it declares.** It changes the facts its acts name, and nothing else. | Default: a restore fixes only listed facts and a missing route still fails (STY25); a grant writes a card or a fact; a demand creates an obligation through the duty ledger (STN15). Dial: per power. Reason: a power with no stated acts cannot be traced or opposed. | STY25, STN15 |
@@ -68,8 +68,10 @@ An acting power, as a proposal (fields are optional unless the world uses them):
 
 ## Open details
 
-- No shared record exists; `authority.js`, `canon_pull.js` and the cosmology's patron terms are separate (AGT1).
-- The LOTM pull beat names a "church" agent as a bare id with no link to the Nighthawks store, `authority.js` or any church record (AGT11).
+- Built 2026-11-10: `src/acting_powers.js` holds the record (definitions are code, nothing saved) and readers (`powerById`, `detects`, `withinReach`, `budgetLeft`, `answer`, `powerView`). `canon_pull.js` resolves an agent's bare id through it (RCL16); spend keeps one owner, the `canonPull` slice (`spent`, plus `spentAt` only where a budget refills). The cosmology's patron terms are still separate: `terms` is an empty field on every record until a card names a patron (AGT15).
+- The LOTM church agent is the record `lotm.church.evernight` (alias `church`), its institution face the Evernight quarter row; no church registers an authority claim yet, and no faith face exists (AGT11, AGT16).
+- Heaven's Will (F2 with F6, unbudgeted, reach: detects power gathered high, touches luck facts) shows as one status row for the returned youth. At Rank one it does not look at him, so it makes no act in play yet; its `press` act and `answer` window are declared and tested, with nothing in the seat to trigger them (AGT14).
+- Not built, room left: fear as a resource and contracts (FRC35), belief as a resource where a method draws on it (AGT10), prayer and gifts (AGT8, AGT13).
 - No church registers an authority claim; Evernight, Storm and Mandated Punishers exist as district rows (AGT16).
-- No module for prayer, deities or patrons; Heaven's Will has no module (AGT8, AGT14).
-- Fate agents have no reach rule yet (AGT3; fixture matrix G1).
+- No module for prayer or patron terms (AGT8, AGT13, AGT15).
+- The LOTM `fate` agent is still an inline agent with no reach rule; a restore still clears all needs (AGT3; fixture matrix G1, G2).

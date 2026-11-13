@@ -5,17 +5,28 @@
 // The beat is shown by id only. Facts are re-read from the game each tick; the slice keeps the rest.
 import {defineBeats} from './beat_records.js';
 import {resolveWithPull, emptyPull, pullRead} from './canon_pull.js';
+import {registerPower} from './acting_powers.js';
 
 export const PULL_PRESENT = 'lotm.pull.b1.present';
 export const PULL_REACHED = 'book.lotm.pull.b1.reached';
+// AGT1, AGT11: the "church" agent is a record. Its institution face is the Evernight quarter's authority row (STN6, `book_world_lotm_districts.js`);
+// no faith face is built. Reach: it detects people in Tingen's Evernight quarter and touches only the pull's own reached fact, so it carries a beat in the lead's place
+// and nothing else (AGT3, AGT5). Budget: one act, the code's old default, now declared (AGT4); a world dial may add `refillDays`. `church` stays an alias so saved spend keeps its meaning.
+export const EVERNIGHT_CHURCH = 'lotm.church.evernight';
+registerPower({id: EVERNIGHT_CHURCH, world: 'lotm.v1', kind: 'institution', label: 'The Church of the Evernight Goddess', aliases: ['church'], institution: 'evernight',
+    reason: 'org.contingency', sign: 'a Nighthawk with standing carried it in your place',
+    goals: [{id: 'lotm.church.evernight.aims', sealed: true}],
+    reach: {detects: {fact: 'lotm.pull.b1.known', eq: true}, touches: [PULL_REACHED], channels: ['clergy', 'office']},
+    budget: {kind: 'acts', amount: 1},
+    acts: [{id: 'carry_beat', kind: 'substitute', touches: [PULL_REACHED], effects: [{fact: PULL_REACHED, value: true}]}]});
+
 export const LOTM_DOSE_PULL_BEATS = defineBeats([
     {id: 'lotm.v1.pull.b1', dayIndex: 3, until: 3, kind: 'great', needs: {fact: PULL_PRESENT, value: true},
         effects: [{fact: PULL_REACHED, value: true}],
         pull: {agents: [
             {id: 'fate', kind: 'fate', reason: 'fate.coincidence', sign: 'a coincidence carried the day to where you stood', cost: 1, budget: 1,
                 restore: [{fact: PULL_REACHED, value: true}]},
-            {id: 'church', kind: 'organisation', reason: 'org.contingency', sign: 'someone with standing carried it in your place', cost: 1, budget: 1,
-                substitute: [{fact: PULL_REACHED, value: true}]}]}},
+            {id: EVERNIGHT_CHURCH, substitute: [{fact: PULL_REACHED, value: true}]}]}},
 ]);
 // The book only says where the lead is during its slots; between slots there is nothing to be present at, so the
 // tick waits (PULL_KNOWN false) rather than carrying the beat from an unknown.
