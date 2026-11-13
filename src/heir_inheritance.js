@@ -18,6 +18,22 @@ export const HEIR_OBLIGATIONS = Object.freeze({
     archiveDuty: 'An unkept promise to organize the elder\'s archive',
 });
 export const HEIR_HOME_LOCATION = 'Shack';
+// PX78 (proposal, 2026-11-11): who takes the next seat is the player's pick among the people this
+// life's records name. 'kin' is any next of kin (the inheritance law may name one); 'apprentice'
+// needs a taught lesson; 'ward' needs a ward taken in; 'stranger' is a fresh life with no claim.
+export const HEIR_SEATS = Object.freeze(['kin', 'apprentice', 'ward', 'stranger']);
+// Seats the ended life's own records open, with the record that opens each (SPR23: read, not stored).
+export function openHeirSeats(previous) {
+    const c = previous?.expansion?.chronicle, x = c?.life?.experience || {};
+    const taught = (x.taught || []).filter(id => LESSON_IDS.includes(id)), ward = c?.relationships?.ward?.ties;
+    return {kin: true, apprentice: taught.length > 0, ward: typeof ward?.kinName === 'string', stranger: true};
+}
+// Wren's age now, from the age recorded when she was taken in and the take-in memory's minute.
+export function wardNow(c, clock = c?.lastClock) {
+    const r = c?.relationships?.ward; if(!r || typeof r.ties?.kinName !== 'string') return null;
+    const since = r.memories.find(m => String(m.id).startsWith('take_in:'))?.at ?? clock;
+    return {name: r.ties.kinName, age: (Number.isSafeInteger(r.ties.kinAge) ? r.ties.kinAge : 0) + Math.floor(Math.max(0, clock - since) / (360 * 24 * 60))};
+}
 const MAX_ROWS = 512;
 
 // Inheritance law (IM8, AD1/AD38, 2026-10-23): a per-world dial that picks the
@@ -79,7 +95,7 @@ export function itemLabel(key) {
 
 // equippedKeys: inventory keys of gear the ended body wore. The live host
 // supplies them; equipment in the save is not a stable item-key source.
-export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = DEFAULT_HEIR_LAW, kin = previous?.kin} = {}) {
+export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = DEFAULT_HEIR_LAW, kin = previous?.kin, seat = null} = {}) {
     const law = heirLaw(lawId);
     const c = previous?.expansion?.chronicle;
     check(c && c.life?.endedAt != null, 'This life has not ended.');
@@ -128,20 +144,36 @@ export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = D
         leftovers.lifeEstate = {...verdict.lifeEstate, home: leftovers.home, residences: leftovers.residences ?? null};
         leftovers.home = false; delete leftovers.residences;
     }
+    if(seat != null) {
+        check(HEIR_SEATS.includes(seat), 'Unknown successor.');
+        check(openHeirSeats(previous)[seat], seat === 'apprentice' ? 'No lesson was taught, so there is no apprentice to take the seat.' : 'No ward shares this household.');
+        leftovers.recipient = seat;
+        if(seat !== 'kin') delete leftovers.heir;
+        if(seat === 'ward') leftovers.ward = wardNow(c);
+    }
+    // A stranger has no claim: the estate passes into the Village's keeping, counted so the loss is seen.
+    if(seat === 'stranger') {
+        leftovers.unclaimed = {money: leftovers.money, goods: total(leftovers.belongings) + total(leftovers.chest) + total(residences?.goods || []),
+            home: leftovers.home, residences: Object.keys(residences?.homes.properties || {}).length + (residences?.homes.portable ? 1 : 0), papers: leftovers.papers.length,
+            standing: Object.keys(leftovers.reputation).length};
+        Object.assign(leftovers, {money: 0, belongings: [], chest: [], home: false, reputation: {}, papers: [], obligations: [], archiveLine: false});
+        delete leftovers.residences; delete leftovers.lifeEstate;
+    }
     // W3 G24: qualities travel as a re-rooted lineage slice. The heir is the named kin member when the
     // law names one that the line records, else a seeded cross of this body and its other parent.
-    if(previous.inherited_traits) {
+    // A ward or a stranger is not of this blood, so no qualities pass to them.
+    if(previous.inherited_traits && seat !== 'ward' && seat !== 'stranger') {
         let at = 0; try {at = calendarMinutes(previous['current time']);} catch {}
         const named = previous.inherited_traits.members.some(m => m.id === leftovers.heir?.id) ? leftovers.heir.id : null;
         leftovers.lineage = heirLine(previous.inherited_traits, {heirId: named, at, tag: String(c.life.endedAt)});
         leftovers.inherited = heirQualityLines(leftovers.lineage, leftovers.lineage.selfId);
     }
-    leftovers.empty = !residences?.money && !residences?.goods.length && !Object.keys(residences?.homes.properties||{}).length && !residences?.homes.portable && !money && !leftovers.belongings.length && !leftovers.chest.length && !home && !leftovers.papers.length && !leftovers.apprentice.length;
+    leftovers.empty = !leftovers.residences?.money && !leftovers.residences?.goods.length && !Object.keys(leftovers.residences?.homes.properties||{}).length && !leftovers.residences?.homes.portable && !leftovers.money && !leftovers.belongings.length && !leftovers.chest.length && !leftovers.home && !leftovers.papers.length && !(leftovers.recipient === 'apprentice' && leftovers.apprentice.length);
     return stageHeirloomClaim(previous,leftovers);
 }
 
 export function validateHeirLeftovers(l) {
-    check(object(l) && l.schema === 1 && ['kin', 'apprentice'].includes(l.recipient) && Number.isFinite(l.money) && isGrained(l.money, 2) && l.money >= 0 &&
+    check(object(l) && l.schema === 1 && HEIR_SEATS.includes(l.recipient) && Number.isFinite(l.money) && isGrained(l.money, 2) && l.money >= 0 &&
         typeof l.home === 'boolean' && typeof l.archiveLine === 'boolean' && typeof l.empty === 'boolean', 'Invalid inheritance.');
     for(const list of [l.belongings, l.chest]) check(Array.isArray(list) && list.length <= MAX_ROWS && list.every(r => Array.isArray(r) && typeof r[0] === 'string' && count(r[1])), 'Invalid inherited goods.');
     for(const list of [l.papers, l.apprentice]) check(Array.isArray(list) && list.length <= 3 && new Set(list).size === list.length && list.every(id => LESSON_IDS.includes(id)), 'Invalid inherited lessons.');
@@ -150,6 +182,8 @@ export function validateHeirLeftovers(l) {
     check(Array.isArray(l.debts) && l.debts.every(d => d?.id === 'kitDebt' && [d.owed, d.paid, d.shortfall].every(n => Number.isSafeInteger(n) && n >= 0) && d.paid + d.shortfall === d.owed), 'Invalid estate debts.');
     if(l.compact){validateNomination(l.compact);check(['claimed','lapsed','unresolved'].includes(l.compact.status)&&typeof l.compact.recipient==='string','Invalid compact claim.');}
     if(l.residences)validateHomeEstate(l.residences);
+    if(l.unclaimed != null) check(l.recipient === 'stranger' && object(l.unclaimed) && ['money', 'goods', 'residences', 'papers', 'standing'].every(k => Number.isFinite(l.unclaimed[k]) && l.unclaimed[k] >= 0) && typeof l.unclaimed.home === 'boolean', 'Invalid unclaimed estate.');
+    if(l.ward != null) check(l.recipient === 'ward' && object(l.ward) && typeof l.ward.name === 'string' && l.ward.name.length <= 80 && Number.isSafeInteger(l.ward.age) && l.ward.age >= 0, 'Invalid ward.');
     if(l.law != null) heirLaw(l.law);
     if(l.lineage != null) validateLineage(l.lineage);
     if(l.inherited != null) check(Array.isArray(l.inherited) && l.inherited.every(x => typeof x === 'string'), 'Invalid inherited qualities.');
@@ -194,7 +228,8 @@ export function heirLeftoverLines(l, labels = {}, labelItem = itemLabel) {
         return 'Unrecognized item';
     };
     const goods = list => list.slice(0, 6).map(([k, n]) => `${nameOf(k)}${n > 1 ? ` ×${n}` : ''}`).join(', ') + (list.length > 6 ? `, and ${list.length - 6} more` : '');
-    const lines = [l.recipient === 'apprentice' ? 'Recipient: the apprentice you taught.' : 'Recipient: your next of kin.'];
+    const lines = [({apprentice: 'Recipient: the apprentice you taught.', ward: `Recipient: ${l.ward?.name || 'your ward'}, the ward you took in${l.ward ? `, now ${l.ward.age}` : ''}.`,
+        stranger: 'Recipient: no one. A newcomer arrives with no claim on this life.'})[l.recipient] || 'Recipient: your next of kin.'];
     if(l.law) lines.push(`Inheritance law: ${HEIR_LAWS[l.law].reason}`);
     if(l.heir) lines.push(`Named heir: ${l.heir.name || l.heir.id} (${l.heir.rule.replaceAll('-', ' ')}).`);
     if(l.lifeEstate) lines.push(`Life estate: ${l.lifeEstate.name || l.lifeEstate.holder} keeps the house for life${l.lifeEstate.remainder ? '; it then passes to the heir' : ''}.`);
@@ -207,7 +242,7 @@ export function heirLeftoverLines(l, labels = {}, labelItem = itemLabel) {
     if(l.chest.length) lines.push(`Stored in the chest (${total(l.chest)}): ${goods(l.chest)}.`);
     if(l.home) lines.push('Home: the Shack in the Village.');
     if(l.papers.length) lines.push(`Written papers: ${l.papers.map(lessonName).join(', ')} (study each to learn it).`);
-    if(l.apprentice.length) lines.push(`Taught to the apprentice: ${l.apprentice.map(lessonName).join(', ')}.`);
+    if(l.apprentice.length && l.recipient === 'apprentice') lines.push(`Taught to the apprentice: ${l.apprentice.map(lessonName).join(', ')}.`);
     const standing = Object.entries(l.reputation).map(([r, v]) => `${r} ${v > 0 ? '+' : ''}${v}`);
     if(standing.length) lines.push(`Family standing: ${standing.join(', ')}.`);
     for(const d of l.debts) lines.push(`Debt settled first: the estate paid ${d.paid} of ${d.owed} coins owed to the Village guard for a kept kit${d.shortfall ? `; the remaining ${d.shortfall} was written off` : ''}.`);
@@ -216,6 +251,7 @@ export function heirLeftoverLines(l, labels = {}, labelItem = itemLabel) {
     for(const id of l.obligations) lines.push(`Obligation: ${HEIR_OBLIGATIONS[id]}.`);
     if(l.residences?.money)lines.push(`Unfinished home work returned ${l.residences.money} coins to the estate before debt settlement.`);
     if(l.residences)for(const h of Object.values(l.residences.homes.properties))lines.push(`Residence: ${h.name}, with its retained condition and personally owned fittings. Household rank, employment and guest agreements require a new relationship.`);
-    if(l.empty) lines.push('This life left almost nothing behind. The heir starts with only their own things.');
+    if(l.unclaimed) lines.push('The estate passes into the Village\'s keeping. The newcomer starts with only their own things.');
+    else if(l.empty) lines.push('This life left almost nothing behind. The heir starts with only their own things.');
     return lines;
 }
