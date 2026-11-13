@@ -1,0 +1,66 @@
+{
+ "viewport": "1920x1080",
+ "seed": 7,
+ "steps": [
+  "enrolled",
+  "past day 3"
+ ],
+ "deedsFresh": "Deeds\n\nWhat you have done, across every life and world. Deeds are kept on this device and grant no power.\n\nAnother way (0 done)\nBy Your Own Road: Reach a turning the story knows by a road of your own.\n3 more deeds here show themselves when you do them.\nFirsts (0 done)\nCracked Shell: An egg in your brood chamber hatches.\nThe Same Month Twice: Wake in Cyoria at the start of the month again.\nMarks on the Board: Sit all seven end-of-year papers at Hogwarts.\nTop of the Paper: Earn the best mark on an end-of-year paper.\nLives (0 done)\nA Second Life: Carry one life to its end and begin another.\nMany Lives: Carry three lives to their end.\nAcross the Threshold: Cross from one world into another.",
+ "profileFresh": null,
+ "away": "Travel from Moretti flat to Tingen street market… · 1 min",
+ "waits": [
+  "Wait until dawn · 354 min",
+  "Wait until morning · 117 min",
+  "Wait until noon · 238 min",
+  "Wait until afternoon · 118 min",
+  "Wait until evening · 237 min",
+  "Wait until night · 358 min",
+  "Wait until dawn · 357 min",
+  "Wait until morning · 118 min",
+  "Wait until noon · 237 min",
+  "Wait until afternoon · 118 min",
+  "Wait until evening · 237 min",
+  "Wait until night · 356 min",
+  "Wait until dawn · 357 min"
+ ],
+ "pullRecords": [
+  {
+   "beat": "lotm.v1.pull.b1",
+   "day": 3,
+   "status": "lapsed",
+   "pull": 0.91,
+   "chance": 0.91,
+   "inertia": 0,
+   "disturbance": 0,
+   "outcome": "restored",
+   "agent": "fate",
+   "kind": "fate",
+   "reason": "fate.coincidence",
+   "sign": "a coincidence carried the day to where you stood",
+   "cost": 1
+  }
+ ],
+ "deedsAfter": "DeedsWhat you have done, across every life and world. Deeds are kept on this device and grant no power.Deed done: It Found You Anyway.Another way (1 done)By Your Own Road: Reach a turning the story knows by a road of your own.✓ It Found You Anyway: You were somewhere else when the day came, and it still reached you. (2026-10-30)2 more deeds here show themselves when you do them.Firsts (0 done)Cracked Shell: An egg in your brood chamber hatches.The Same Month Twice: Wake in Cyoria at the start of the month again.Marks on the Board: Sit all seven end-of-year papers at Hogwarts.Top of the Paper: Earn the best mark on an end-of-year paper.Lives (1 done)A Second Life: Carry one life to its end and begin another.Many Lives: Carry three lives to their end.✓ Across the Threshold: Cross from one world into another. (2026-10-30)×",
+ "profileAfter": {
+  "schema": 1,
+  "unlocked": {
+   "deed.crossing": {
+    "at": 1793318400000
+   },
+   "deed.found_you": {
+    "at": 1793318400000
+   }
+  }
+ },
+ "log": [
+  "Deed done: Across the Threshold. Cross from one world into another.[ Entering Tingen street market ]",
+  "Deed done: It Found You Anyway. You were somewhere else when the day came, and it still reached you.Saved the game manuallySaved the game manually"
+ ],
+ "deedsAfterReload": "DeedsWhat you have done, across every life and world. Deeds are kept on this device and grant no power.Another way (1 done)By Your Own Road: Reach a turning the story knows by a road of your own.✓ It Found You Anyway: You were somewhere else when the day came, and it still reached you. (2026-10-30)2 more deeds here show themselves when you do them.Firsts (0 done)Cracked Shell: An egg in your brood chamber hatches.The Same Month Twice: Wake in Cyoria at the start of the month again.Marks on the Board: Sit all seven end-of-year papers at Hogwarts.Top of the Paper: Earn the best mark on an end-of-year paper.Lives (1 done)A Second Life: Carry one life to its end and begin another.Many Lives: Carry three lives to their end.✓ Across the Threshold: Cross from one world into another. (2026-10-30)×",
+ "pullAfterReload": 1,
+ "exportLen": 577344,
+ "exportHasProfile": false,
+ "deedsAfterImport": "DeedsWhat you have done, across every life and world. Deeds are kept on this device and grant no power.Another way (1 done)By Your Own Road: Reach a turning the story knows by a road of your own.✓ It Found You Anyway: You were somewhere else when the day came, and it still reached you. (2026-10-30)2 more deeds here show themselves when you do them.Firsts (0 done)Cracked Shell: An egg in your brood chamber hatches.The Same Month Twice: Wake in Cyoria at the start of the month again.Marks on the Board: Sit all seven end-of-year papers at Hogwarts.Top of the Paper: Earn the best mark on an end-of-year paper.Lives (1 done)A Second Life: Carry one life to its end and begin another.Many Lives: Carry three lives to their end.✓ Across the Threshold: Cross from one world into another. (2026-10-30)×",
+ "pullAfterImport": 1,
+ "fail": "page.reload: Protocol error (Page.reload): Not attached to an active page\nCall log:\n  - waiting for navigation until \"load\"\n\n    at /Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/achievements-deeds-cea6d7/scripts/playtest/deeds-probe.mjs:42:75"
+}

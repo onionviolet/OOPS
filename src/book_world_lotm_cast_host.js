@@ -423,7 +423,7 @@ import {defineBeats,resolveBeats,newBeatState} from './beat_records.js';
 import {renderRefs} from './ref_resolver.js';
 import {beatKnowledgeWrites,applyBeatKnowledge} from './beat_knowledge.js';
 import {applySimulationEffects} from './simulation_effects.js';
-import {canonPullTick,pullFacts} from './canon_pull_host.js';
+import {canonPullTick,pullFacts} from './canon_pull_host.js';import {observeBeatRoutes} from './deeds.js';
 import {sourceCoveredBeats} from './canon_source_reach.js';
 const REPORT_PREFIX='lotm.cast.report.';
 const terminalBeat=row=>row&&['carried','altered','blocked','lapsed'].includes(row.status);
@@ -636,6 +636,7 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  if(news.writes.length)applyBeatKnowledge(plan,news.writes,writeKnowledge);
  if(news.settledDay!==undefined)out.ledger.facts[LOTM_EVENTS_SETTLED]=news.settledDay;
  for(const r of news.reports)out.ledger.facts[REPORT_PREFIX+r.id]={text:r.text,at:r.at,kind:r.kind,actor:r.actor};
+ observeBeatRoutes(out.results); // deeds read the lead's route (STY33) as it resolves; via is not saved
  const saved=compactCastLedger(out.ledger,getPrivateLotmCast());
  plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(saved)};
  const objectReports=lotmBe(plan.state)?settlePlaceActReports(plan.state,LOTM_CAST.householdActs,I.world):[];

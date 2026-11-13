@@ -6,6 +6,7 @@
 //   counters()    lifetime counters the titles already read (one authority for these numbers)
 //   gameStats()   the raw game_stats record
 //   expansion()   the expansion state (party, residents, running jobs)
+//   continuation() the continuing self (lives, attempts)   lifeRecord() the lossy biography (world crossings)
 //   records()     the discovery tables the Bestiary, Anthology, item log and travel buttons read
 //   presentation(moduleId) current resolved Appearance effects/sound for a native surface
 //   equip(key)    the native equip path        unequip(slot)   the native unequip path
