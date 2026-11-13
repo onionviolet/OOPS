@@ -36,6 +36,7 @@ import {bindSeerBrew, seedSeerStock, SEER_BREW_BINDING} from './lotm_seer_brew.j
 import {defineCastMaking,quoteCastMaking,validateCastMakingConsumers} from './cast_making_adapter.js';
 import {amuletTrialCommands,LEGACY_EARLY_AMULET_TRIAL} from './lotm_amulet_crafting.js';
 import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports} from './cast_topic_talk.js';
+import {collectMindMarks,applyMindMarks} from './book_world_lotm_mind.js';
 import {definePlaceActs,seedPlaceObjects,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports,placeActVisitors} from './place_acts.js';
 
 export const LOTM_BESIDE_PROFILE='lotm.early_tingen.canon_beside@1';
@@ -655,11 +656,15 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  }
  // A finished rite or craft charges its backlash once: the mark rides this save, the accrual follows it.
  const actAdds=lotmBe(plan.state)?collectActBacklash(plan.state,castActCommands):[];
+ // FRC51: what the lead witnessed leaves its dread or fascination; the marker rides this save, the mark follows it.
+ const mindDue=lotmBe(plan.state)?collectMindMarks(plan.state,LOTM_CAST.householdActs):[];
  const result=persist(plan);
  for(const [carrier,due] of actAdds)accrueAct(carrier,due);
+ const mindLines=mindDue.length?applyMindMarks(mindDue,plan.state.clock):[];
  if(pullNext)domainRegistry.command('canonPull','commit')(pullNext);
  domainRegistry.command('beatLedger','commit')(saved);
  for(const report of [...out.reports,...news.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports,...cardReports])publish(report);
+ for(const text of mindLines)publish({text,at:plan.state.clock,kind:'events',actor:'player'});
  return result;
 }
 registerPeopleSource('lotm-cast',50,state=>castSettledPeople(state,currentCastBeatLedger()));
