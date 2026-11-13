@@ -90,3 +90,46 @@ test('filing on time leaves Dunn warm; a lapsed week leaves him sour and shuts t
     assert.equal(offer(s).eligible, true, 'it clears by itself after five days');
 });
 test('an untouched life writes no mood key', () => { life(); assert.equal(domainRegistry.save({}).moodThoughts, undefined); });
+
+// FRC39 opinion: a reader over the same rows. Social rows are what the holder thinks of one person; they do not move mood.
+const {opinionOf} = await import('../src/mood_thoughts.js');
+const {readOpinion} = await import('../src/mood_thoughts_domain.js');
+const {DUNN_LENIENCY} = await import('../src/book_world_lotm_colleagues.js');
+test('opinion sums the social rows one person holds about another; mood ignores them (FRC39)', () => {
+    let s = addThought(freshThoughts(), {holder: 'a', subject: 'b', source: 'insult', magnitude: -15, minutes: 20 * DAY, line: 'insulted me', kind: 'social'}, 0);
+    s = addThought(s, {holder: 'a', subject: 'b', source: 'insult.mood', magnitude: -5, minutes: 2 * DAY, line: 'was insulted'}, 0);
+    s = addThought(s, {holder: 'a', subject: 'c', source: 'gift', magnitude: 6, minutes: 20 * DAY, line: 'gave me a pie', kind: 'social'}, 0);
+    assert.equal(moodOf(s, 'a', 10).total, -5, 'only the mood row moves mood');
+    assert.deepEqual([opinionOf(s, 'a', 'b', 10).total, opinionOf(s, 'a', 'b', 10).band], [-15, 'cool']);
+    assert.equal(opinionOf(s, 'a', 'c', 10).total, 6, 'opinion is per subject');
+    assert.equal(opinionOf(s, 'b', 'a', 10).total, 0, 'and directed');
+    assert.equal(moodOf(s, 'a', 3 * DAY).total, 0, 'the mood passes in days');
+    assert.equal(opinionOf(s, 'a', 'b', 3 * DAY).total, -15, 'the remembered insult does not');
+    assert.ok(opinionOf(s, 'a', 'b', 19 * DAY).total > -15, 'it fades over its last stretch');
+    assert.equal(opinionOf(s, 'a', 'b', 20 * DAY).rows.length, 0);
+    assert.throws(() => validateThoughts({schema: 1, rows: [{holder: 'a', subject: 'b', source: 'x', magnitude: 1, at: 1, until: 2, line: 'z', kind: 'grudge'}]}));
+});
+test('a Dunn who thinks well of you lets one late week pass, once; the opinion rows survive save and load', () => {
+    const o = life(); meet(o.box.p.state);
+    for(let w = 0; w < 3; w++) { o.host.fileExpense(); if(w < 2) advance(o, WEEK); }
+    let s = o.box.p.state;
+    assert.equal(readOpinion(DUNN, 'player', s.clock).band, 'fond');
+    assert.ok(tieFacts(s)['opinion.dunn'] >= DUNN_LENIENCY.atLeast);
+    assert.match(tieShownView(s)[0].line, /thought well of you lately: you have kept up your weekly applications/);
+    assert.doesNotMatch(tieShownView(s)[0].line, /\d/, 'words, never the number');
+    advance(o, 2 * WEEK); // one week closes unfiled
+    o.host.fileExpense(); s = o.box.p.state;
+    assert.notEqual(readMood(DUNN, s.clock).band, 'sour', 'he let it pass');
+    assert.equal(offer(s).eligible, true, 'the funding question stays open');
+    assert.equal(s.simulation.knowledge.player[DUNN_LENIENCY.noteKey].value, DUNN_LENIENCY.note);
+    assert.equal(s.simulation.knowledge.player[DUNN_LENIENCY.noteKey].basis.attributedTo, DUNN);
+    const after = readOpinion(DUNN, 'player', s.clock).total;
+    assert.ok(after < DUNN_LENIENCY.atLeast, 'the lapse still cost opinion');
+    const saved = JSON.parse(JSON.stringify(domainRegistry.save({})));
+    assert.ok(saved.moodThoughts.rows.some(r => r.kind === 'social'));
+    domainRegistry.load(saved);
+    assert.equal(readOpinion(DUNN, 'player', s.clock).total, after, 'opinion is recomputed from the reloaded rows');
+    advance(o, 2 * WEEK); o.host.fileExpense(); s = o.box.p.state;
+    assert.equal(readMood(DUNN, s.clock).band, 'sour', 'a second lapse soon after is not let pass');
+    assert.equal(offer(s).eligible, false);
+});
