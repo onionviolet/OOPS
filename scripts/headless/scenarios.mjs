@@ -13,6 +13,7 @@ import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
 import {boot, canonicalSave, diffSaves, ROOT} from './runner.mjs';
 import {advanceGame} from './advance.mjs';
+import {WORLD_FIXTURES, buildWorldFixture, verifyWorldFixture} from './world_fixtures.mjs';
 
 export const SCENARIOS = Object.freeze({
     'fresh': {summary: 'New hero, day 1, Village.', recipe: {days: 0}},
@@ -113,6 +114,8 @@ export const SCENARIOS = Object.freeze({
     'perf-fresh': {summary: 'Committed perf fixture: fresh life.', file: 'tests/fixtures/perf/fresh.json'},
     'perf-mid': {summary: 'Committed perf fixture: mid-game life.', file: 'tests/fixtures/perf/mid.json'},
     'perf-crowded': {summary: 'Committed perf fixture: crowded life (many people and jobs).', file: 'tests/fixtures/perf/crowded.json'},
+    // DEV FIXTURES per world (world_fixtures.mjs, FRC74): built by play (or composed through the save path), verified by a reload.
+    ...Object.fromEntries(Object.entries(WORLD_FIXTURES).map(([n, d]) => [n, {summary: d.summary, fixture: n}])),
 });
 // A recipe may patch the stepped save for story access a floor check needs without hours of combat; each patch is data a
 // route script already uses (default: none; dial: add a named patch per check; reason: keep the hero otherwise untouched).
@@ -211,6 +214,30 @@ export async function scenarioSave(name, {seed = 1} = {}) {
     const def = SCENARIOS[name];
     if(!def) throw new Error(`Unknown scenario ${name}. Known: ${Object.keys(SCENARIOS).join(', ')}.`);
     if(def.file) return readFile(join(ROOT, def.file), 'utf8');
+    if(def.fixture) { // built once per source stamp and seed; cached only after it loads and proves
+        const cached = join(CACHE_DIR, `${name}-s${seed}-${await sourceStamp()}.json`);
+        try {return await readFile(cached, 'utf8');} catch {/* reuse or build below */}
+        // Code moved since the last build: the newest earlier build is reused when it still loads and proves on this tree (the same
+        // test an old player save meets). Dial: YAIRPG_FIXTURE_REBUILD=1 always rebuilds. Reason: a played build can take many minutes.
+        let text = null;
+        if(process.env.YAIRPG_FIXTURE_REBUILD !== '1') {
+            const prefix = `${name}-s${seed}-`;
+            const older = await readdir(CACHE_DIR).catch(() => []);
+            const rows = await Promise.all(older.filter(f => f.startsWith(prefix) && f.endsWith('.json'))
+                .map(async f => ({f, at: (await stat(join(CACHE_DIR, f))).mtimeMs})));
+            for(const {f} of rows.sort((a, b) => b.at - a.at).slice(0, 1)) {
+                const old = await readFile(join(CACHE_DIR, f), 'utf8');
+                try {await verifyWorldFixture(def.fixture, old, {seed}); text = old;} catch {/* rebuild */}
+            }
+        }
+        if(text == null) {
+            text = await buildWorldFixture(def.fixture, {seed});
+            await verifyWorldFixture(def.fixture, text, {seed});
+        }
+        await mkdir(CACHE_DIR, {recursive: true});
+        await writeFile(cached, text);
+        return text;
+    }
     if(!def.recipe.days && !def.recipe.patch && !def.recipe.prepare && !def.recipe.finish) return null;
     const finish = def.recipe.finish ? FINISH[def.recipe.finish] : null;
     if(def.recipe.finish && !finish) throw new Error(`Unknown scenario finish ${def.recipe.finish}.`);

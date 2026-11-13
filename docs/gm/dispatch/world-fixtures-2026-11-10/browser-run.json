@@ -1,0 +1,56 @@
+[
+ {
+  "name": "lotm-tingen-day3",
+  "route": "played",
+  "ok": true,
+  "fixtureS": 13.7,
+  "browserLoadS": 14.6,
+  "check": "day 3 (fixture 3); #lotm_panel shows /Klein|Tingen/",
+  "errors": []
+ },
+ {
+  "name": "hp-exam-week",
+  "route": "composed",
+  "ok": true,
+  "fixtureS": 8.2,
+  "browserLoadS": 6.8,
+  "check": "day 322 (fixture 322); #hp_panel shows /Exam week/",
+  "errors": []
+ },
+ {
+  "name": "gu-fed-second",
+  "route": "played",
+  "ok": true,
+  "fixtureS": 8.1,
+  "browserLoadS": 6.6,
+  "check": "day 1 (fixture 1); #structured_pack_panel shows /Liquor Worm|worm/i",
+  "errors": []
+ },
+ {
+  "name": "mol-loop2",
+  "route": "composed",
+  "ok": true,
+  "fixtureS": 7.8,
+  "browserLoadS": 6.8,
+  "check": "day 1 (fixture 1); #message_log_div shows /as they have\\s+before/",
+  "errors": []
+ },
+ {
+  "name": "frontier-hunt-ready",
+  "route": "played",
+  "ok": true,
+  "fixtureS": 84.8,
+  "browserLoadS": 13.5,
+  "check": "day 1 (fixture 1); #tempo_fight_panel shows /Hunt the boar/",
+  "errors": []
+ },
+ {
+  "name": "household-cat",
+  "route": "played",
+  "ok": true,
+  "fixtureS": 6.7,
+  "browserLoadS": 6.1,
+  "check": "day 1 (fixture 1); #home_panel shows /Moss/",
+  "errors": []
+ }
+]
