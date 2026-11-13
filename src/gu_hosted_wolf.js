@@ -1,12 +1,12 @@
 import {acquireCreature, creatureHealth, injureCreature, restoreCreatureLifecycle, settleCohortStock,
     startCreatureCare, transferCreature} from './creature_lifecycle.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations as resolveGuActivation} from './gu_working_host.js';
 import {separateHostedGu} from './gu_host_custody.js';
 import {applyWolfRidge, controlledRidgeEye, ridgeFacts, ridgeOperations, ridgeView, validateWolfRidge, wolfRidge} from './gu_wolf_ridge.js';
 import {applySmokePassage, smokeFacts, smokeOperations, smokeOperationSite, smokePassage, smokeView,
     validateSmokePassage} from './gu_smoke_passage.js';
 import {applyStealth, keeperScaleArmor, keeperStealth, scaleArmorOperations, stealthFacts, stealthOperations, stealthPlace,
-    stealthView, validateStealth} from './gu_keeper_stealth.js';
+    stealthView, validateStealth} from './world_packs/book_gu_keeper_refinement_trials.js';
 import {atRavine, wolfRavine, wolfScoutOperations, wolfScouting} from './gu_wolf_scouting.js';
 import {crownFlight, flightOperations, flightSites} from './gu_crown_flight.js';
 import {guCatalogue} from './gu_catalogue.js';

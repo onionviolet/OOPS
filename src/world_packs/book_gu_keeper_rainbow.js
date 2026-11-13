@@ -1,4 +1,4 @@
-import {keeperRainbow as id, keeperRainbowWorld, quoteRainbow, rainbowDose, rainbowFlightMinutes, rainbowInterval} from '../gu_keeper_rainbow.js';
+import {keeperRainbow as id, keeperRainbowWorld, quoteRainbow, rainbowDose, rainbowFlightMinutes, rainbowInterval} from './book_gu_keeper_sustained.js';
 import {keeperGate} from '../gu_stargate.js';
 import {keeperMoveTrial} from '../gu_keeper_move_trial.js';
 import {extensionFact} from '../structured_pack_extensions.js';

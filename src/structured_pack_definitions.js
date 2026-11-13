@@ -5,10 +5,10 @@ import {isKeeperWildEffect, keeperWildEffectPack, keeperWildWorld} from './gu_ke
 import {isKeeperRefinementEffect, keeperRefinementEffectPack, keeperRefinementWorld} from './gu_keeper_refinement.js';
 import {isMoonlightTrialEffect, moonlightTrialEffectPack, moonlightTrialWorld} from './gu_keeper_moonlight_trial.js';
 import {isKeeperMoveTrialEffect, keeperMoveCommandId, keeperMoveTrialEffectPack, keeperMoveTrialWorld} from './gu_keeper_move_trial.js';
-import {isKeeperRainbowEffect, keeperRainbow, keeperRainbowWorld} from './gu_keeper_rainbow.js';
+import {isKeeperRainbowEffect, keeperRainbow, keeperRainbowWorld} from './world_packs/book_gu_keeper_sustained.js';
 import {isKeeperPropagationEffect, keeperPropagationEffectPack, keeperPropagationWorld} from './gu_keeper_propagation.js';
 import {keeperPotatoMarket, potatoMarketEffects} from './gu_keeper_potato_market.js';
-import {keeperVitality} from './gu_keeper_vitality.js';
+import {keeperVitality} from './world_packs/book_gu_keeper_gardens.js';
 import {vitalityLeaf} from './gu_vitality_grass.js';
 import {isKeeperFixedForgeEffect, keeperFixedForgeEffectPack, keeperFixedForgeWorld} from './gu_keeper_fixed_forge.js';
 import {isKeeperFusionEffect, keeperFusionEffectPack, keeperFusionWorld} from './gu_keeper_fusion.js';

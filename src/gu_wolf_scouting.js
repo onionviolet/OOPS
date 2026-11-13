@@ -3,7 +3,7 @@ import {guCatalogue} from './gu_catalogue.js';
 import {resolveGuActivation} from './gu_activation.js';
 import {detectGuApproach} from './gu_senses.js';
 import {observeGuCloak, resolveGuCloak} from './gu_concealment.js';
-import {controlledStealthScales} from './gu_keeper_stealth.js';
+import {controlledStealthScales} from './world_packs/book_gu_keeper_refinement_trials.js';
 import {separateHostedGu} from './gu_host_custody.js';
 import {crownRetired} from './gu_crown_flight.js';
 

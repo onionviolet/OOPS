@@ -1,10 +1,17 @@
-import {keeperMoveTrial as id, keeperMovePlanSlots, keeperMoveTrialWorld, keeperTrayAlcove, keeperTrayMove} from '../gu_keeper_move_trial.js';
+import {littleLightMoonblade} from '../gu_ability_profiles.js';
+import {guMoveTrial} from '../gu_move_trial_host.js';
 import {moonlightStock} from '../gu_moonlight_stock.js';
 import {keeperChain, keeperChainBay, keeperChainLoans, keeperChainSlots} from '../gu_keeper_chain.js';
 import {keeperAuthorityBay, keeperSignal, keeperSignalBay} from '../gu_keeper_signal.js';
 import {extensionFact} from '../structured_pack_extensions.js';
 import {KEEPER_PREFIX, kId} from './book_gu_keeper.js';
 
+export const keeperMoveTrial = kId('move_trial');
+export const keeperMoveTrialWorld = kId('world');
+export const keeperMovePlanSlots = 4;
+export const keeperTrayMove = kId('tray_move');
+export const keeperTrayAlcove = `${keeperTrayMove}.alcove`;
+const id = keeperMoveTrial;
 const baseHash = 'sha256:7e51c59315a673fba1a3820aa2efb2244397facd2e2c4b42a518101a5c9d02ae';
 const eq = (fact, value = true) => ({fact, op: 'eq', value});
 const ge = (fact, value) => ({fact, op: 'gte', value});
@@ -15,6 +22,62 @@ const ready = all(eq('actor.life', 'alive'), eq('native.ready'), eq('native.aliv
 const aperture = eq(`faculty.${kId('aperture')}.active`);
 const reserve = `energy.${kId('primeval')}.reserve`;
 const ownsMoon = eq(`claim.${kId('moon_title')}.owner`, 'player');
+
+const moonId = kId('moon');
+const title = kId('moon_title');
+function keeperMoonReady(state) {
+    const moon = state.simulation.people[moonId];
+    return moon?.life === 'alive' && moon.body.controllerId === 'player' && moon.vitals.health >= 3 &&
+        state.simulation.claims[title]?.owner === 'player';
+}
+
+export const keeperMoonbladeSupports = {
+    little_light: {kind: 'little-light', label: 'Little Light Gu'},
+    light_source: {kind: 'light-source', label: 'Light Source Gu'},
+};
+const holdsSupport = (state, support) => state.actors.player.facts[`${id}.${support}`] === true;
+export const moonbladeMoveTrial = guMoveTrial({
+    id, world: keeperMoveTrialWorld, place: kId('annex'), energyId: kId('primeval'), slots: keeperMovePlanSlots,
+    research: 'research', effect: 'damage', referenceReserve: 12, knownMove: littleLightMoonblade,
+    core: {id: moonId, kind: 'moonlight', ready: keeperMoonReady},
+    supports: Object.fromEntries(Object.entries(keeperMoonbladeSupports).map(([support, member]) =>
+        [support, {...member, ready: state => holdsSupport(state, support)}])),
+    notes: {key: `${id}.notes`, maxSpent: 5, receiptOrder: ['slot', 'outcome', 'spent']},
+    outcomeFields: {power: {property: 'magnitude', values: [1, 2]}, reach: {property: 'range', values: [1, 2]}},
+    errors: {
+        invalidNotes: 'Invalid Moonblade combination notes.',
+        disagree: 'The Moonblade combinations and their notes disagree.',
+        admission: 'Try Moonblade combinations at the Gu house.',
+        research: 'Bring a ready Moonlight Gu and enough essence to test a blade.',
+        plan: 'Write down a combination before trying it.',
+    },
+});
+
+export function validateKeeperMoonbladeTrial(state, record) {
+    const notes = moonbladeMoveTrial.read(state);
+    const {completed, facts} = state.actors.player;
+    const hasNotes = (completed[`${id}.research`] ?? 0) > 0;
+    const hasFlags = Object.keys(keeperMoonbladeSupports).some(support => facts[`${id}.${support}`] !== undefined);
+    if (!!notes !== hasNotes || (notes || hasFlags) && !moonbladeMoveTrial.pinned(record) ||
+        (notes?.last && !(completed[`${id}.try_${notes.last.slot}`] > 0))) {
+        throw Error('The Moonblade combination notes need their trial receipts.');
+    }
+}
+
+export function keeperMoonbladeTrialFacts(state, notes) {
+    return {
+        [`${id}.moon_ready`]: keeperMoonReady(state),
+        ...Object.fromEntries(Object.keys(keeperMoonbladeSupports).map(support =>
+            [`${id}.holds_${support}`, holdsSupport(state, support)])),
+        ...moonbladeMoveTrial.planFacts(notes),
+    };
+}
+
+export function keeperMoveTrialView(state, record) {
+    if (!moonbladeMoveTrial.pinned(record)) return null;
+    const notes = moonbladeMoveTrial.read(state);
+    return notes && {plans: moonbladeMoveTrial.describePlans(state, notes), last: notes.last};
+}
 
 function command(name, label, needs, effect, description = '') {
     return {
@@ -37,8 +100,8 @@ export const guKeeperMoveTrial = {
     requires: all(ready, ownsMoon),
     reason: 'Take in your clan Moonlight Gu first.',
     commands: [
-        loan('little_light', 'Little Light Gu', true), loan('little_light', 'Little Light Gu', false),
-        loan('light_source', 'Light Source Gu', true), loan('light_source', 'Light Source Gu', false),
+        ...Object.entries(keeperMoonbladeSupports).flatMap(([support, {label}]) =>
+            [loan(support, label, true), loan(support, label, false)]),
         command('research', 'Write down workable Moonblade combinations', [aperture, eq(`${id}.moon_ready`),
             {any: [ge(reserve, 4), all(ge(reserve, 3), eq(`actor.${id}.light_source`))]}],
             {type: 'guMoveTrial', actor: 'player', operation: 'research'},

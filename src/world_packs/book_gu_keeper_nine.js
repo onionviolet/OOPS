@@ -1,5 +1,5 @@
-import {keeperNine as id, nineConversion, nineFarBank, nineSettleMinutes, nineHoldMinutes, crashCost, crashCut} from '../gu_keeper_nine.js';
-import {keeperSeven} from '../gu_keeper_seven.js';
+import {keeperNine as id, nineConversion, nineFarBank, nineSettleMinutes, nineHoldMinutes, crashCost, crashCut} from './book_gu_keeper_lines.js';
+import {keeperSeven} from './book_gu_keeper_lines.js';
 import {keeperTrailWine, keeperWildWorld} from '../gu_keeper_wild.js';
 import {extensionFact} from '../structured_pack_extensions.js';
 import {KEEPER_PREFIX, kId, kKey} from './book_gu_keeper.js';

@@ -1,4 +1,4 @@
-import {keeperSeven as id, sevenConversion, sevenMinutes} from '../gu_keeper_seven.js';
+import {keeperSeven as id, sevenConversion, sevenMinutes} from './book_gu_keeper_lines.js';
 import {keeperFourFlavors, keeperTrailWine, keeperWildWorld} from '../gu_keeper_wild.js';
 import {keeperRedSteel} from './book_gu_keeper_lines.js';
 import {hostedWolf, hostedWolfGlade} from '../gu_hosted_wolf.js';

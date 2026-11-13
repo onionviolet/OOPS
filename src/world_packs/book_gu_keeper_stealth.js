@@ -1,5 +1,5 @@
 import {armorSettleMinutes, cloakSettleMinutes, farScreen, farStoneRun, keeperScaleArmor, keeperStealth as id,
-    stealthPlace, stoneHollow, stoneImpact} from '../gu_keeper_stealth.js';
+    stealthPlace, stoneHollow, stoneImpact} from './book_gu_keeper_refinement_trials.js';
 import {wolfRidge} from '../gu_wolf_ridge.js';
 import {extensionFact} from '../structured_pack_extensions.js';
 import {KEEPER_PREFIX, kId, kKey} from './book_gu_keeper.js';

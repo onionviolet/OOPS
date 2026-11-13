@@ -1,0 +1,42 @@
+{
+  "status": "incomplete",
+  "success": false,
+  "route": "--seven-fragrances-only",
+  "routeResult": null,
+  "attempt": {
+    "command": "node scripts/playtest/gu-keeper.mjs /Users/weiwei/code/yair-codex-g1 /tmp/keeper-seven-proof --seven-fragrances-only",
+    "exitCode": 13,
+    "stage": "local HTTP listener, before browser launch",
+    "stderr": "Warning: Detected unsettled top-level await at file:///Users/weiwei/code/yair-codex-g1/scripts/playtest/gu-keeper.mjs:22\nawait new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));\n^\n\n\n\n",
+    "diagnostic": "A bounded listener probe returned listen EPERM: operation not permitted 127.0.0.1."
+  },
+  "currentBuild": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "bundleSha256": "9f56fd21f7537c74fdf327ae12f90d986d72269886c6bbc6b0f27e038b83528c",
+    "browserObservedBundle": false
+  },
+  "checks": {
+    "focused": {
+      "command": "node --test tests/gu_*.test.js tests/kernel_working.test.js",
+      "pass": 240,
+      "fail": 0,
+      "inputs": "Allowed Vitality dispatcher/view and Rainbow pack/view consumers now connected; support-paid/core-refusal regression included."
+    },
+    "architecture": {
+      "command": "npm run check:arch",
+      "exitCode": 0,
+      "newCycles": 0
+    },
+    "rules": {
+      "command": "npm run check:rules",
+      "exitCode": 0
+    }
+  },
+  "remaining": [
+    "Six rebuilt headless browser routes and literal save/reload/Export/Import proof.",
+    "Owner approval for four shared-file import changes before deleting Vitality and Rainbow modules."
+  ],
+  "compatibility": "No saved facts keys or completion-counter names changed. Legacy native record shape retained.",
+  "reviewState": "focused-test verified; browser unverified; uncommitted; not human-reviewed"
+}

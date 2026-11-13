@@ -37,7 +37,7 @@ import {previewPowerModel, resolveEffectAmount, fluencyDuration} from "./power_m
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
 import {reserveAmuletCosts,settledAmuletEffects} from './lotm_amulet_crafting.js';
 import {advanceConstructs,nextConstructBoundary} from './temporary_construct.js';
-import {advanceKeeperRainbow,nextKeeperRainbowBoundary} from './gu_keeper_rainbow.js';
+import {advanceKeeperRainbow,nextKeeperRainbowBoundary} from './world_packs/book_gu_keeper_sustained.js';
 import {advanceKeeperDrain,nextKeeperDrainBoundary} from './gu_keeper_propagation.js';
 import {advanceRoamingWorm,nextRoamingWormBoundary} from './gu_keeper_wild.js';
 import {advanceFixedWatch,nextFixedWatchBoundary} from './gu_keeper_fixed_claim.js';

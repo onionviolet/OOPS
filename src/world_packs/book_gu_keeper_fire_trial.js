@@ -1,8 +1,11 @@
 import {guCatalogue} from '../gu_catalogue.js';
-import {keeperFireSlots, keeperFireTrial as id} from '../gu_keeper_fire_trial.js';
+import {guMoveTrial} from '../gu_move_trial_host.js';
 import {extensionFact} from '../structured_pack_extensions.js';
 import {KEEPER_PREFIX, kId} from './book_gu_keeper.js';
 
+export const keeperFireTrial = kId('fire_trial');
+export const keeperFireSlots = 8;
+const id = keeperFireTrial;
 const baseHash = 'sha256:7e51c59315a673fba1a3820aa2efb2244397facd2e2c4b42a518101a5c9d02ae';
 const annex = kId('annex');
 const ledge = `${id}.ledge`;
@@ -24,6 +27,65 @@ const fire = guCatalogue['red-fire'].ability.value;
 const source = guCatalogue['fire-source'].ability.value;
 const minAttackCost = source.cost + fire.cost * source.modifier.factor;
 const crossCost = guCatalogue['fire-discharge'].ability.value.cost;
+
+export const fireMoveTrial = guMoveTrial({
+    id, world: kId('world'), place: annex, energyId: kId('primeval'), slots: keeperFireSlots,
+    admitted: state => !!state.actors.player.facts[issued],
+    research: 'research_fire', effect: 'flame', referenceReserve: 12,
+    core: {id: 'red-fire', kind: 'red-fire'},
+    supports: {
+        'fire-source': {kind: 'fire-source', label: 'Fire Source Gu'},
+        duplicate: {kind: 'duplicate', label: 'Duplicate Gu', ready: state => !state.actors.player.facts[returned]},
+        enlarge: {kind: 'enlarge', label: 'Enlarge Gu'},
+    },
+    notes: {key: `${id}.notes`, orderedSupports: true, keepExtra: true, receiptOrder: ['slot', 'spent', 'outcome']},
+    outcomeFields: {count: {property: 'count', values: [1, 2]}, force: {property: 'magnitude', values: [1, 2]}},
+    progress: {pair: {field: 'count', minimum: 2}, bundle: {field: 'force', minimum: 2}},
+    crossing: {operation: 'cross_fire', specimen: {id: 'fire-discharge', kind: 'fire-discharge'}, effect: 'travel',
+        unfunded: 'Gather enough essence to cross with Fire Discharge.'},
+    errors: {
+        invalidNotes: 'Invalid Red Fire trial notes.',
+        disagree: 'The Red Fire results and their notes disagree.',
+        admission: 'Bring the steward’s fire set to the Gu house.',
+        research: 'Gather enough essence to test the fire set.',
+        plan: 'The fire set is not ready for this trial.',
+    },
+});
+
+export function validateKeeperFireTrial(state, record) {
+    const notes = fireMoveTrial.read(state);
+    const flags = state.actors.player.facts;
+    const done = action => state.actors.player.completed[`${id}.${action}`] ?? 0;
+    const crossings = done('cross') - done('return_house');
+    if (Boolean(notes) !== (done('research') > 0) ||
+        Boolean(flags[issued]) !== (done('loan') === 1) ||
+        done('return_duplicate') - done('borrow_duplicate') !== Number(!!flags[returned]) ||
+        (notes || flags[returned] !== undefined) && !flags[issued] ||
+        (notes || flags[issued]) && !fireMoveTrial.pinned(record) ||
+        notes?.last && !done(`try_${notes.last.slot}`) ||
+        ![0, 1].includes(crossings) ||
+        done('cross') > 0 && !fireMoveTrial.routeReady(notes)) {
+        throw Error('The Red Fire trial needs matching loan, casting and crossing receipts.');
+    }
+}
+
+export function keeperFireTrialFacts(state) {
+    const notes = fireMoveTrial.read(state);
+    const flags = state.actors.player.facts;
+    return {
+        [`${id}.loaned`]: flags[issued] === true,
+        [`${id}.duplicate_away`]: flags[returned] === true,
+        ...fireMoveTrial.planFacts(notes),
+        [`${id}.route_ready`]: fireMoveTrial.routeReady(notes),
+    };
+}
+
+export function keeperFireTrialView(state, record) {
+    if (!fireMoveTrial.pinned(record)) return null;
+    const notes = fireMoveTrial.read(state);
+    return {pair: notes?.pair ?? false, bundle: notes?.bundle ?? false, last: notes?.last,
+        plans: fireMoveTrial.describePlans(state, notes)};
+}
 
 function command(name, label, description, needs, effects, location = annex) {
     return {id: `${id}.${name}`, revision: 1, label, description, duration: 0, group: 'structured_local',

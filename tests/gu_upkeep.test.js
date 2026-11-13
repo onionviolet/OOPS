@@ -22,6 +22,8 @@ import {guKeeperGoal} from '../src/world_packs/book_gu_keeper_goal.js';
 import {guKeeperFusion} from '../src/world_packs/book_gu_keeper_fusion.js';
 import {keeperFusionView} from '../src/gu_keeper_fusion.js';
 import {keeperGoalView} from '../src/gu_keeper_goal.js';
+import {applyKeeperDefense, applyKeeperDefenseResearch, defenseFacts, defenseFarBank, keeperDefense,
+    keeperDefenseResearch, keeperDefenseResearchFacts, keeperDefenseView, validateKeeperDefense} from '../src/gu_keeper_defense.js';
 import {searchGuGoal} from '../src/gu_goal_search.js';
 import {guKeeperSpirit} from '../src/world_packs/book_gu_keeper_spirit.js';
 import {keeperSpiritView} from '../src/gu_keeper_spirit.js';
@@ -40,6 +42,7 @@ import {guKeeperMoonlightStock} from '../src/world_packs/book_gu_keeper_moonligh
 import {moonlightStockView} from '../src/gu_moonlight_stock.js';
 import {clanMoonlightTraits, drawGuTraits} from '../src/gu_traits.js';
 import {moonlightTrialView} from '../src/gu_keeper_moonlight_trial.js';
+import {guKeeperFireTrial, keeperFireTrialView} from '../src/world_packs/book_gu_keeper_fire_trial.js';
 import {guKeeperMoveTrial} from '../src/world_packs/book_gu_keeper_move_trial.js';
 import {keeperMoveTrialView} from '../src/gu_keeper_move_trial.js';
 import {guKeeperMoonblade} from '../src/world_packs/book_gu_keeper_moonblade.js';
@@ -56,7 +59,7 @@ import {keeperCooperationView, mothClue, mothLightMinutes} from '../src/gu_keepe
 import {requestGuAid} from '../src/gu_cooperation.js';
 import {hostedWolfView} from '../src/gu_hosted_wolf.js';
 import {keeperPotatoFruit, keeperPropagationView} from '../src/gu_keeper_propagation.js';
-import {keeperRainbowView} from '../src/gu_keeper_rainbow.js';
+import {keeperRainbowView} from '../src/world_packs/book_gu_keeper_sustained.js';
 import {fourFlavorsWines} from '../src/gu_liquor_worm.js';
 import {keeperWildView} from '../src/gu_keeper_wild.js';
 import {guKeeperImmortalRefinement} from '../src/world_packs/book_gu_keeper_immortal_refinement.js';
@@ -425,6 +428,77 @@ test('Keeper generates and tries Moonblade candidates, retaining early costs whe
     life.step(60);
     action(`try_${alternate.slot}`);
     assert.equal(view().last.outcome, 'complete');
+});
+
+test('Keeper Red Fire keeps the written recipe and prior payments across a returned loan', () => {
+    const life = setup(717, guKeeperFireTrial);
+    const act = op => life.start(`fire_trial.${op}`);
+    const view = (state = life.p.state) => keeperFireTrialView(state, life.record);
+    const savedNote = state => state.worlds[id('world')].facts[id('fire_trial.notes')];
+    const restTo = amount => {
+        for (let hour = 0; hour < amount && reserve(life) < amount; hour++) {
+            life.start('rest');
+            life.step(60);
+        }
+        assert.ok(reserve(life) >= amount);
+    };
+    life.admitExtension();
+    act('loan');
+    act('research');
+    const {plans} = view();
+    const all = plans.find(plan => plan.names.length === 3);
+    assert.deepEqual([all.cost, all.count, all.force], [6, 2, 2]);
+    const research = savedNote(life.p.state);
+    const legacyPlans = [[], ['fire-source'], ['duplicate'], ['enlarge'], ['fire-source', 'duplicate'],
+        ['fire-source', 'enlarge'], ['duplicate', 'enlarge'], ['fire-source', 'duplicate', 'enlarge']];
+    assert.equal(research, JSON.stringify({pair: false, bundle: false, plans: legacyPlans, last: null}));
+
+    act('return_duplicate');
+    assert.deepEqual(view().plans, plans);
+    assert.equal(savedNote(life.p.state), research);
+    const beforeReturnCast = reserve(life);
+    act(`try_${all.slot}`);
+    assert.equal(reserve(life), beforeReturnCast - 1);
+    assert.deepEqual(view().last, {slot: all.slot, spent: 1, outcome: 'interrupted', reason: 'Gu unavailable'});
+
+    const interrupted = research.replace('"last":null',
+        `"last":{"slot":${all.slot},"spent":1,"outcome":"interrupted","reason":"Gu unavailable"}`);
+    const envelope = JSON.parse(JSON.stringify(life.envelope()));
+    validateKeeperEnvelope(envelope);
+    const loaded = loadExpansionState(envelope.expansion, life.registry);
+    assert.equal(savedNote(loaded), interrupted);
+    assert.deepEqual(view(loaded), view());
+
+    act('borrow_duplicate');
+    const pair = plans.find(plan => plan.count === 2 && plan.force === 1 && plan.cost === 5);
+    const bundle = plans.find(plan => plan.count === 1 && plan.force === 2 && plan.cost === 5);
+    restTo(pair.cost);
+    const beforePair = reserve(life);
+    act(`try_${pair.slot}`);
+    assert.equal(reserve(life), beforePair - pair.cost);
+    assert.deepEqual(view().last, {slot: pair.slot, spent: pair.cost, outcome: 'complete', count: pair.count, force: pair.force});
+    assert.throws(() => act('cross'));
+
+    const beforeBundle = reserve(life);
+    assert.equal(beforeBundle, 2);
+    act(`try_${bundle.slot}`);
+    assert.equal(reserve(life), 0);
+    assert.deepEqual(view().last, {slot: bundle.slot, spent: 2, outcome: 'interrupted', reason: 'needs more essence'});
+    restTo(bundle.cost);
+    act(`try_${bundle.slot}`);
+    assert.equal(view().pair, true);
+    assert.equal(view().bundle, true);
+
+    restTo(2);
+    const beforeCross = reserve(life);
+    const beforeCrossNote = savedNote(life.p.state);
+    act('cross');
+    assert.equal(reserve(life), beforeCross - 2);
+    assert.equal(life.p.state.simulation.people.player.location, id('fire_trial.ledge'));
+    assert.equal(savedNote(life.p.state), beforeCrossNote);
+    assert.equal(life.p.state.actors.player.completed[id('fire_trial.cross')], 1);
+    act('return_house');
+    validateKeeperEnvelope(JSON.parse(JSON.stringify(life.envelope())));
 });
 
 test('Generated clan specimens retain innate blade focus and a separate individual refinement across custody', () => {
@@ -1429,4 +1503,210 @@ test('automatic keeper events that act on the player are gated, so another world
     assert.ok(events.length>0);
     const open=events.filter(e=>e.automatic&&(e.actorId||'player')==='player'&&!e.requires).map(e=>e.id);
     assert.deepEqual(open,[]);
+});
+
+// Compression regressions exercise saved native ledgers across the shared Gu working hosts.
+import {refinementLine} from '../src/gu_refinement_line.js';
+import {sevenLine, nineLine} from '../src/world_packs/book_gu_keeper_lines.js';
+import {guGarden} from '../src/gu_garden_host.js';
+import {vitalityGarden} from '../src/world_packs/book_gu_keeper_gardens.js';
+import {sustainedGuHost} from '../src/gu_sustained_host.js';
+import {rainbowLine} from '../src/world_packs/book_gu_keeper_sustained.js';
+import {guRefinementTrial} from '../src/gu_refinement_trial_host.js';
+import {stealthTrial} from '../src/world_packs/book_gu_keeper_refinement_trials.js';
+
+function compressedFixture(config, packs = []) {
+    const state = {clock: 10, worlds: {[config.world]: {facts: {}}},
+        actors: {player: {worldId: config.world, completed: {}, facts: {}}},
+        simulation: {people: {player: {life: 'alive', location: config.place ?? 'test.host'},
+            [config.custodian]: {life: 'alive', location: config.place ?? 'test.host'}}}};
+    const record = {initializedAt: 0, extensions: [config.id, ...packs].map(id => ({id}))};
+    const receipt = (op, pack = config.id) => {
+        const key = `${pack}.${op}`;
+        state.actors.player.completed[key] = (state.actors.player.completed[key] ?? 0) + 1;
+    };
+    return {state, record, receipt};
+}
+
+test('compressed Worm lines retain cancellation, late failure, lineage and saved reserve receipts', () => {
+    const seven = refinementLine(sevenLine, {ready: () => true, activate: () => 2});
+    const {state, record, receipt} = compressedFixture(sevenLine);
+    const parent = {id: 'test.four', rank: 2, provenance: {recipe: 'four-flavors-fusion'}};
+    const act = op => {seven.apply(state, record, op, parent, true); receipt(op); seven.validate(state, record, parent);};
+    assert.equal(seven.actions(state, parent, false).prepare_seven, false);
+    act('prepare_seven');
+    assert.equal(seven.actions(state, parent, true).finish_seven, false);
+    act('cancel_seven'); act('prepare_seven');
+    state.clock += sevenLine.minutes;
+    act('finish_seven'); act('feed_seven'); act('concentrate_silver'); act('cast_seven');
+    assert.equal(seven.view(state, record).stock, 0);
+    assert.equal(seven.actions(state, parent, true, true).concentrate_silver, false);
+    const savedSeven = JSON.parse(JSON.stringify(state));
+    assert.deepEqual(seven.view(savedSeven, record), seven.view(state, record));
+    seven.validate(savedSeven, record, parent);
+    savedSeven.actors.player.completed[`${sevenLine.id}.cast_seven`]++;
+    assert.throws(() => seven.validate(savedSeven, record, parent), /receipts/);
+
+    const nine = refinementLine(nineLine), fixture = compressedFixture(nineLine);
+    const input = seven.specimen(state);
+    const next = op => {nine.apply(fixture.state, fixture.record, op, input); fixture.receipt(op);
+        nine.validate(fixture.state, fixture.record, input);};
+    fixture.receipt('buy_second');
+    next('prepare_nine'); fixture.state.clock += nineLine.holdMinutes; next('settle_nine');
+    assert.equal(nine.view(fixture.state, fixture.record).status, 'failed');
+    next('prepare_nine'); next('cancel_nine'); next('prepare_nine');
+    fixture.state.clock += nineLine.minutes; next('settle_nine'); next('feed_nine');
+    next('test_initial'); assert.equal(nine.view(fixture.state, fixture.record).lastDistance, 100);
+    next('concentrate_gold'); next('cross_cut');
+    assert.equal(nine.view(fixture.state, fixture.record).lastDistance, 200);
+    assert.equal(nine.view(fixture.state, fixture.record).stock, 0);
+    const savedNine = JSON.parse(JSON.stringify(fixture.state));
+    nine.validate(savedNine, fixture.record, input);
+    assert.deepEqual(nine.view(savedNine, fixture.record), nine.view(fixture.state, fixture.record));
+    const job = JSON.parse(savedNine.worlds[nineLine.world].facts[`${nineLine.id}.work`]);
+    job.world.gu.at(-1).provenance.ingredients.second = 'wrong.worm';
+    savedNine.worlds[nineLine.world].facts[`${nineLine.id}.work`] = JSON.stringify(job);
+    assert.throws(() => nine.validate(savedNine, fixture.record, input), /lineage/);
+});
+
+test('a garden row keeps the same plant, detached stock, daylight and treatment rest after serialization', () => {
+    // A second location and operation vocabulary exercise row reuse without a new host.
+    const config = {...vitalityGarden, id: 'test.garden', key: 'test.garden.bed', place: 'test.courtyard',
+        plantId: 'test.plant', item: 'test.leaf', ops: {borrow: 'lend', return: 'give_back', grow: 'nurture',
+            harvest: 'pluck', treat: 'heal', sell: 'trade'}};
+    const host = guGarden(config), {state, record, receipt} = compressedFixture(config);
+    const inventory = {}, context = {actorId: 'player', structuredNative: record,
+        vitals: {player: {health: 4, max_health: 10}}, nativeWeatherClock: {minute: 600, clock: state.clock}};
+    const act = op => {
+        const result = host.apply(state, {operation: op}, context); receipt(op);
+        if (result) inventory[result.key] = (inventory[result.key] ?? 0) + result.count;
+        if (op === config.ops.treat) inventory[config.item]--;
+        host.validate(state, record, inventory);
+    };
+    act('lend'); act('nurture');
+    assert.equal(host.facts(state, context)['test.garden.can_nurture'], false);
+    act('pluck'); act('heal');
+    assert.equal(host.facts(state, context)['test.garden.can_heal'], false);
+    act('give_back'); act('lend'); state.clock += config.growthMinutes; act('nurture');
+    const saved = JSON.parse(JSON.stringify(state));
+    host.validate(saved, record, inventory);
+    assert.deepEqual(host.view(saved, record), host.view(state, record));
+    state.clock += 720;
+    assert.equal(host.facts(state, context)['test.garden.can_nurture'], false);
+});
+
+test('a sustained row settles support loss, exhaustion and exact due-time renewal on the working law', () => {
+    const host = sustainedGuHost(rainbowLine), {state, record, receipt} = compressedFixture(rainbowLine);
+    state.actors.player.facts[rainbowLine.core.id] = true;
+    state.actors.player.facts[rainbowLine.support.id] = true;
+    const context = {actorId: 'player', structuredNative: record};
+    const act = operation => {host.apply(state, {type: rainbowLine.effectType, actor: 'player', operation}, context);
+        receipt(operation); host.validate(state, record);};
+    assert.equal(host.quote(false), 6); assert.equal(host.quote(true), 4);
+    act('buy'); act('start_supported');
+    const saved = JSON.parse(JSON.stringify(state));
+    state.clock = host.boundary(state); host.advance(state); host.validate(state, record);
+    assert.equal(host.view(state, record).reserve, 4);
+    const restored = sustainedGuHost(rainbowLine);
+    saved.clock = restored.boundary(saved); restored.advance(saved);
+    assert.deepEqual(saved, state);
+    delete state.actors.player.facts[rainbowLine.support.id];
+    state.clock = host.boundary(state); host.advance(state); host.validate(state, record);
+    assert.equal(host.view(state, record).reason, 'Gu unavailable');
+    assert.equal(host.view(state, record).reserve, 4);
+    act('buy'); act('start_solo');
+    state.clock = host.boundary(state); host.advance(state);
+    state.clock = host.boundary(state); host.advance(state);
+    assert.equal(host.view(state, record).reason, 'needs more essence');
+    host.validate(state, record);
+    // A support can pay before the core refuses. Preserve that paid debit at renewal.
+    act('buy'); act('start_solo'); act('stop');
+    state.actors.player.facts[rainbowLine.support.id] = true;
+    act('start_supported');
+    state.clock = host.boundary(state); host.advance(state);
+    assert.equal(host.view(state, record).reserve, 2);
+    state.clock = host.boundary(state); host.advance(state);
+    assert.equal(host.view(state, record).reserve, 1);
+    assert.equal(host.view(state, record).reason, 'needs more essence');
+    host.validate(state, record);
+});
+
+test('branch rows conserve exact Fish Scale inputs across cancellation and both consumed-input products', () => {
+    const host = guRefinementTrial(stealthTrial);
+    const {state, record, receipt} = compressedFixture(stealthTrial, ['book.ri.keeper.scale_armor']);
+    const act = op => {host.apply(state, record, op); receipt(op, host.pack(op)); host.validate(state, record);};
+    act('take_rock'); act('bind_rock'); act('test_rock'); act('buy_fish'); act('prepare_cloak');
+    assert.equal(host.facts(state)[`${stealthTrial.id}.can_test_rock`], false);
+    act('cancel_cloak'); act('prepare_cloak'); state.clock += stealthTrial.branches.cloak.minutes;
+    act('finish_cloak'); act('test_scales'); act('cross_screen');
+    act('trade_fish'); act('prepare_armor'); state.clock += stealthTrial.branches.armor.minutes;
+    act('finish_armor'); act('guard_run');
+    assert.equal(host.view(state, record).armorGuarded, true);
+    assert.equal(host.facts(state)[`${stealthTrial.id}.can_buy_fish`], false);
+    const saved = JSON.parse(JSON.stringify(state)); host.validate(saved, record);
+    assert.deepEqual(host.view(saved, record), host.view(state, record));
+    const ledger = JSON.parse(saved.worlds[stealthTrial.world].facts[stealthTrial.key]);
+    ledger.world.gu.find(gu => gu.kind === 'fish-scale').alive = true;
+    saved.worlds[stealthTrial.world].facts[stealthTrial.key] = JSON.stringify(ledger);
+    assert.throws(() => host.validate(saved, record), /receipts/);
+});
+
+test('Keeper demonstrations and crossing plans keep exact damage, recovery and saved receipts after guard loss', () => {
+    const config = {id: keeperDefense, world: id('world')};
+    const {state, record, receipt} = compressedFixture(config, [keeperDefenseResearch]);
+    const jadeId = id('jade');
+    const aperture = {reserve: 6};
+    state.simulation.energies = {player: {[id('primeval')]: aperture}};
+    state.simulation.people[jadeId] = {life: 'alive', body: {controllerId: 'player'}, vitals: {health: 2}};
+    state.simulation.claims = {[`${jadeId}_title`]: {owner: 'player'}};
+    const facts = state.worlds[config.world].facts;
+    const note = 'book.ri.keeper.layered_defense.trial';
+    const armor = {...stealthTrial.specimens.armor, alive: true};
+    facts[stealthTrial.key] = JSON.stringify({world: {gu: [armor]}});
+
+    const initial = keeperDefenseView(state, record);
+    assert.equal(initial.research.limit, 8);
+    assert.deepEqual(initial.research.options.find(row => row.operation === 'cross_6'), {
+        operation: 'cross_6', cost: 4, kinds: ['white-jade', 'scale-armor'], blast: 7, landing: 1,
+    });
+    assert.equal(applyKeeperDefense(state, record, 'bare_blast', 1), 13);
+    receipt('bare_blast');
+    assert.equal(facts[note], '{"operation":"bare_blast","at":10,"shieldAt":null}');
+    assert.throws(() => applyKeeperDefenseResearch(state, record, 'cross_5', 1), /hunter can fire again/);
+
+    state.clock = 15;
+    armor.alive = false;
+    facts[stealthTrial.key] = JSON.stringify({world: {gu: [armor]}});
+    assert.equal(defenseFacts(state, true)[`${keeperDefense}.armor_ready`], false);
+    assert.equal(keeperDefenseResearchFacts(state, record)[`${keeperDefenseResearch}.cross_5`], undefined);
+    assert.throws(() => applyKeeperDefense(state, record, 'braced_blast', 1), /chosen defenses must be ready/);
+    assert.throws(() => applyKeeperDefenseResearch(state, record, 'cross_5', 1), /Gu or essence.*changed/);
+    assert.equal(facts[note], '{"operation":"bare_blast","at":10,"shieldAt":null}');
+
+    armor.alive = true;
+    facts[stealthTrial.key] = JSON.stringify({world: {gu: [armor]}});
+    aperture.reserve = 3;
+    assert.throws(() => applyKeeperDefenseResearch(state, record, 'cross_5', 1), /Gu or essence.*changed/);
+    aperture.reserve = 6;
+    assert.deepEqual(applyKeeperDefenseResearch(state, record, 'cross_5', 1), {cost: 4, damage: 5});
+    receipt('cross_5', keeperDefenseResearch);
+    state.simulation.people.player.location = defenseFarBank;
+    assert.equal(facts[note], '{"operation":"cross_5","at":15,"shieldAt":15}');
+    assert.equal(state.actors.player.completed['book.ri.keeper.defense_research.cross_5'], 1);
+    assert.equal(aperture.reserve, 6, 'The native command owns the quoted debit.');
+
+    state.clock = 20;
+    armor.alive = false;
+    facts[stealthTrial.key] = JSON.stringify({world: {gu: [armor]}});
+    const saved = JSON.parse(JSON.stringify(state));
+    validateKeeperDefense(saved, record);
+    const restored = keeperDefenseView(saved, record);
+    assert.deepEqual(restored, keeperDefenseView(state, record));
+    assert.deepEqual(restored.last.remainder.map(packet => packet.amount), [4, 1]);
+    assert.deepEqual(restored.last.layers, [{id: 'water-shield', absorbed: 5, broken: true},
+        {id: 'scale-armor', absorbed: 3, broken: false}]);
+    assert.equal(restored.shotIn, 0);
+    assert.equal(restored.shieldIn, 15);
+    assert.deepEqual(restored.research.missing, ['water-shield', 'scale-armor']);
+    assert.deepEqual(restored.research.options, []);
 });
