@@ -47,7 +47,7 @@ test('save, reload and legacy save: slice round-trips and an envelope without it
     const env=domainRegistry.save({});domainRegistry.validate(env);const copy=structuredClone(env);
     setup();assert.deepEqual(placeClockState(),{schema:1,places:{}});domainRegistry.load(copy);assert.deepEqual(placeClockState(),env.placeClocks);
     const legacy=structuredClone(env);delete legacy.placeClocks;domainRegistry.load(legacy);domainRegistry.validate(legacy);assert.deepEqual(placeClockState(),{schema:1,places:{}});
-    assert.throws(()=>domainRegistry.validate({placeClocks:{schema:1,places:{cottage:{id:'cottage',status:'stilled',stilledUntil:null,at:0,age:0,drift:0,ratio:.25,larder:[]}}}}),/Place clocks/);
+    assert.throws(()=>domainRegistry.validate({placeClocks:{schema:1,sandglass:true,places:{cottage:{id:'cottage',status:'stilled',stilledUntil:null,at:0,age:0,drift:0,ratio:.25,larder:[]}}}}),/Place clocks/);
 });
 test('host settle stages the next slice into the same durable write and a failed commit leaves slice, money and items unchanged',()=>{
     const ch={money:50},gp={items:{}},exp={clock:0};let fail=false,seen;
@@ -136,4 +136,19 @@ test('actual food outcomes and release fees agree when many actions commit proje
         return {spoiled:out.spoiled,remaining:Object.entries(c.inventory).filter(([k])=>!/Spoiled food/.test(k)).reduce((a,[,b])=>a+b,0),age:placeClockState().places.cottage.age,remainder:placeClockState().places.cottage.remainder,drift:placeClockState().places.cottage.drift,fee:quotePlaceClock({type:'release',place:'cottage'}).cost.money};
     };
     const long=play([]);assert.deepEqual(play(Array.from({length:2880},(_,i)=>i+1)),long);assert.deepEqual(play([1,3,79,333,720,1000,1919,2880]),long);assert.equal(long.spoiled,true);assert.equal(long.remaining,0);
+});
+test('WIN3: the shelf takes per-portion perishables only, and a row with no shelf life reads as keeping instead of breaking the panel',()=>{
+    // A shared-lot perishable (spoilage.js lots, once that table grows) or any good outside PERISHABLES is refused at the shelf,
+    // whatever lifeOf says, so a spoiled take can never mint an item with no result.
+    const lot=JSON.stringify({id:'book.ri.academy.petals'}),bread=JSON.stringify({id:'Stale bread'});
+    const c=setup({inventory:{[potato]:1,[lot]:1,[bread]:1},observerMeans:['sandglass']});
+    assert.throws(()=>quotePlaceClock({type:'store',place:'cottage',key:lot}),/keeps by no clock/);
+    assert.throws(()=>quotePlaceClock({type:'store',place:'cottage',key:bread}),/keeps by no clock/);
+    // A save whose shelf holds a good that no longer has a shelf life (a dial changed under it) still projects and returns the good.
+    domainRegistry.load({placeClocks:{schema:1,sandglass:true,places:{cottage:{id:'cottage',status:'open',ratio:1,at:0,age:0,remainder:0,drift:0,stilledUntil:null,larder:[{key:bread,count:1,born:0}]}}}});
+    c.clock=3*DAY;
+    for(const route of ['present','sandglass'])assert.ok(projectPlaceClock('cottage',route).lines.some(l=>/Stale bread stored, keeping by no clock here/.test(l)),route);
+    const taken=run({type:'take',place:'cottage',key:bread});
+    assert.equal(taken.cost.items[0].key.includes('"id":"Stale bread"'),true,'returned as itself, not as rot');
+    assert.equal(c.inventory[JSON.stringify({id:'Spoiled food'})],undefined);
 });
