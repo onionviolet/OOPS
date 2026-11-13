@@ -7,7 +7,7 @@ import {giantHandForceSupportCost, giantHandPractice as giantTuning} from '../gu
 import {giantHandBracePath, giantHandFarBank, giantHandRecipe, giantHandRedDate, giantHandRefineMinutes, giantHandWardBank,
     giantHandYard, keeperGiantHand, keeperGiantHandVariants, keeperGiantHandWard} from '../gu_keeper_giant_hand.js';
 
-const baseHash = 'sha256:7e51c59315a673fba1a3820aa2efb2244397facd2e2c4b42a518101a5c9d02ae';
+const baseHash = 'sha256:b520860860968b72719b27f105927783599479aa0fc0e10f0bd23744767fb562';
 const annex = kId('annex');
 const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason && {reason})});
 const all = (...rules) => ({all: rules});

@@ -214,6 +214,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'gathering': surface('ST6', {home: 'Reference dock after Village experiments; read-only glance, opens where something can be gathered', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time']}),
         'homes': surface('ST2', {home: 'Known residences and Village home supplier', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'body', 'rights'], representations: routed}),
         'gear-workshop': surface('ST2', {home: 'Native forging station; carried equipment', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'equipment', 'place', 'time'], representations: routed}),
+        'hp-contact': surface('ST2', {home: 'Hogwarts friends at school (prototype)', frequency: 'on demand', status: 'proposal', reads: ['people', 'place', 'time', 'inventory']}),
         'hp-polyjuice': surface('ST2', {home: 'Harry Potter pack slice bench (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
         'place_clock': surface('ST2', {home: 'Owned hearth place (prototype)', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'rights']}),
         'rank_gap_observer': surface('ST2', {home: 'Goa branch records (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time', 'body']}),

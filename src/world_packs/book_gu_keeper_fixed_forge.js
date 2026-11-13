@@ -6,7 +6,7 @@ import {extensionFact} from '../structured_pack_extensions.js';
 import {KEEPER_PREFIX, kKey} from './book_gu_keeper.js';
 import {keeperTransitHouse as houseId, transitHouseCost, transitHouseMinutes} from '../gu_keeper_transit_house.js';
 
-const baseHash = 'sha256:7e51c59315a673fba1a3820aa2efb2244397facd2e2c4b42a518101a5c9d02ae';
+const baseHash = 'sha256:b520860860968b72719b27f105927783599479aa0fc0e10f0bd23744767fb562';
 const eq = (fact, value = true) => ({fact, op: 'eq', value});
 const ge = (fact, value) => ({fact, op: 'gte', value});
 const all = (...rules) => ({all: rules});
