@@ -1,4 +1,5 @@
 import {check} from './basics.js';
+import {tempoOpeners} from './tempo_starters.js';
 import {address, drawFraction} from './gen_kit.js';
 import {checkKey} from './check_keys.js';
 import {rollCombatStrike, mitigateCombatDamageFromStats} from './combat_math.js';
@@ -146,6 +147,8 @@ function finishFight(plan, registry, result) {
         const moved = [[st.keys.loaded, st.loaded - st.start.loaded], [st.keys.carried, st.carried - st.start.carried]].filter(([, n]) => n);
         if(moved.length) applySimulationEffects(plan, moved.map(([key, amount]) => ({type: 'resource', actor: 'player', key, amount})), {actorId: 'player'}, registry, `tempo-stock:${state.sequence}`);
     }
+    // A world's opener may settle what the fight changed in its own world (a counted population, say) inside this same commit.
+    for(const o of tempoOpeners()) if(o.after && o.owns?.(b.id)) o.after(plan, result, b);
     const held = Math.min(TEMPO_DIALS.heldCapMinutes.value, (b.held || 0) + takeTempoHold());
     const facts = state.actors.player.facts;
     facts[TEMPO_FACT_HELD] = Math.min(TEMPO_DIALS.heldCapMinutes.value, (facts[TEMPO_FACT_HELD] || 0) + held);
