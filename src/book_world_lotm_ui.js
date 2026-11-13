@@ -284,6 +284,13 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   if(v.merit){const m=v.merit,box=node('div');box.dataset.lotmMerit='';box.append(node('h3',`${m.name} · merit`));
    const bal=node('p',`Merit in hand: ${m.balance} (earned ${m.earned}, spent ${m.spent}). Standing is tracked separately.`);bal.dataset.lotmMeritBalance=String(m.balance);box.append(bal);
    for(const a of m.missions)box.append(row(button(a.action.label,a.action.id,()=>run(()=>act(a.action.id),''),!a.action.eligible,a.action.reasons.join(' ')),node('span',`Issuer ${a.issuer}. Risk: ${a.risk}`)));
+   if(m.practice?.learned){const pr=m.practice,pv=pr.pool,pb=node('div');pb.dataset.lotmPractice='';
+    const lv=node('p',`Copying hand: mastery ${pr.level}.${pr.next.length?` At ${pr.next[0].at}: ${pr.next[0].label.toLowerCase()}.`:''}`);lv.dataset.lotmPracticeLevel=String(pr.level);pb.append(lv);
+    const pl=node('p',`Desk practice pooled: ${pv.pool} of ${pv.cap}. Each copy adds to it until it is full. ${pv.reason}`);pl.dataset.lotmPracticePool=String(pv.pool);pb.append(pl);
+    for(const c of pv.checkpoints){const cl=node('p',`${c.label} (${c.at} pooled): ${c.text} ${c.on?'You have this now.':'Not yet.'}`);cl.dataset.lotmPracticeCheckpoint=c.on?'on':'off';pb.append(cl);}
+    const sp=pr.spend,warn=sp.loses.length?`Spending drops you below ${sp.loses.join(', ')}.`:'No checkpoint is lost by this.';
+    if(sp.action)pb.append(row(button(sp.action.label,sp.action.id,()=>run(()=>act(sp.action.id),''),!sp.action.eligible,sp.action.reasons.join(' ')),node('span',warn)));
+    box.append(pb);}
    box.append(node('p','Evidence store'));
    for(const r of m.store){const line=row(button(`${r.label} · ${r.price} merit${r.left==null?'':` · ${r.left} left`}`,r.action.id,()=>run(()=>act(r.action.id),''),!r.action.eligible,r.reasons.join(' ')),node('span',r.eligible?r.text:r.reasons.join(' ')));line.dataset.lotmMeritRow=r.id;box.append(line);}
    work.append(box);}

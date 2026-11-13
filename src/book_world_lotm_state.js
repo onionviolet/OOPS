@@ -30,6 +30,11 @@ import {SEER_BREW_BINDING,SEER_BREW_FACTS} from './lotm_seer_brew.js';
 import {resolveEffectAmount} from './power_models.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+// A command with outcomes freezes its own effects plus the drawn outcome's; a formula amount ({fact,min,max}) freezes to a number inside its bounds.
+const frozenAmount=(got,want)=>want&&typeof want==='object'&&!Array.isArray(want)&&typeof want.fact==='string'?Number.isFinite(got)&&got>=(want.min??-Infinity)&&got<=(want.max??Infinity):same(got,want);
+const sameEffect=(got,want)=>same({...got,amount:0},{...want,amount:0})&&frozenAmount(got.amount,want.amount);
+const sameJobEffects=(j,def)=>{if(!def.outcomes)return same(j.effects,def.effects);const o=def.outcomes.find(x=>x.id===j.outcomeId),want=[...def.effects,...(o?.effects||[])];
+ return !!o&&Array.isArray(j.effects)&&j.effects.length===want.length&&want.every((w,i)=>sameEffect(j.effects[i],w));};
 const prefix=k=>typeof k==='string'&&k.startsWith('book.lotm.');
 export const LOTM_ENTRY_PROFILE='lotm.early_tingen.local_probationer@1';
 export const lotmEnvelopeFields=['schema','definitionRevision','sourceSnapshot','sourceHash','initializedAt','entryProfile'];
@@ -68,7 +73,7 @@ export function validateLotmState(state){
   const effects=def?.id===SEER_BREW_BINDING.consumer
    ? def.effects.map(e=>e.amount?.fact===hazard?{...e,amount:resolveEffectAmount(e.amount,{[hazard]:a.player.facts[SEER_BREW_FACTS.madness]})}:e)
    : def?.effects;
-  assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,expectedAmuletCosts(def.id,def.costs,j.costs))&&same(j.effects,effects),'Tingen work differs from its exact admitted definition.');
+  assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,expectedAmuletCosts(def.id,def.costs,j.costs))&&sameJobEffects(j,{...def,effects}),'Tingen work differs from its exact admitted definition.');
   if(def.bodyCare&&def.duration>0)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated??true,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Body support differs from its exact admitted definition.');
   if(def.castAbility)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Encounter support differs from its exact admitted definition.');
   if(def.inference)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Thought support differs from its exact admitted definition.');

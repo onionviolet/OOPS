@@ -14,7 +14,7 @@ import {abilityCommands} from './book_world_lotm_abilities.js';
 import {brewCommands,brewFlags,brewFacts} from './book_world_lotm_brew.js';
 import {benchCommands,benchFlags,benchFacts} from './book_world_lotm_bench.js';
 import {ritualCommands,ritualFlags,ritualFacts} from './book_world_lotm_ritual.js';
-import {meritCommands,meritFacts} from './book_world_lotm_merit.js';
+import {meritCommands,meritFacts,copyingPower} from './book_world_lotm_merit.js';
 import {causeCommands,causeSteadyCommand,causeFlags,causeFacts} from './book_world_lotm_causes.js';
 import {brokerCommands,lotFlags,brokerFacts} from './book_world_lotm_broker.js';
 import {clearanceCommands,clearanceFacts,LOTM_ROLE_OF} from './book_world_lotm_clearance.js';
@@ -107,7 +107,7 @@ const districtActCommands=LOTM_DISTRICTS.flatMap(d=>Object.entries(d.vouch).map(
   requires:all(eq('lotm.home.evernight'),has('reportedIn'),rule,eq(`lotm.district.${d.alias}.supervised`),gte('lotm.supervisorAttention',spec.cost)),duration:b.duration,cancellation:b.cancellation,...districtPower[base]?{powerId:districtPower[base]}:{},
   costs:[...districtCost[base],attention(-spec.cost)],effects:[...b.effects,know('district.act',`${why} (${d.claim})`)]});}));
 export const lotmCommands=freeze([...baseCommands,...districtActCommands]);
-export const lotmPowers=freeze([{id:I.method,revision:1,label:'Material perception',model:'practice',capacity:1,worlds:[I.world],cooldown:0,execution:all(eq('lotm.methodSupported')),description:'A taught, bounded sight at one material. Presence only: no identity, safety or foresight. Costs spirituality and adds strain per use.'}]);
+export const lotmPowers=freeze([{id:I.method,revision:1,label:'Material perception',model:'practice',capacity:1,worlds:[I.world],cooldown:0,execution:all(eq('lotm.methodSupported')),description:'A taught, bounded sight at one material. Presence only: no identity, safety or foresight. Costs spirituality and adds strain per use.'},copyingPower]);
 export const lotmEnergies=freeze([LOTM_ENERGY,BE_SEER_ENERGY]);
 export const lotmSources=freeze([{id:I.source,revision:1,label:'Seer source (initiated)',kind:'trait',origin:'acquired',grants:[],bioDetail:'One consumed supervised dose. Source ownership is separate from control, strain and any later digestion; none of those follows from it alone.'},
  {id:I.clown,revision:1,label:'Clown source (Sequence 8)',kind:'trait',origin:'acquired',grants:[],bioDetail:'A second consumed dose after an assessed digestion. Canon grants fine body coordination, combat intuition and facial control; the Tingen slice has no fight or performance that reads them yet.'},
