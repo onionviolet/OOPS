@@ -10,8 +10,11 @@ import {addMoodThought, readMood} from './mood_thoughts_domain.js';
 import {temperamentFromTraits} from './person_temperament.js';
 import {recurringWindow} from './world_rhythm.js';
 import {LOTM_DUTIES} from './book_world_lotm_duties.js';
+import {tingenNewsMood, castAcquainted} from './book_world_lotm_news.js';
+import {foldNewsMood} from './news_reach.js';
 
 export const DUNN_ID = 'lotm.person.cast-618f4df49af02c7da45e'; // index id lotm.person.dunn-smith
+export const NEIL_ID = 'lotm.person.cast-6aaa65265bb46e581535'; // index id lotm.person.old-neil
 export const EXPENSE_FILED_KEY = 'book.lotm.colleague.expense_filed';
 export const EXPENSE_FILED_LINE = 'took your expense application and added it to the team\'s funding request';
 // True when this call wrote the note. A registry without Dunn's definition (pack absent) writes nothing a save could not validate (F1).
@@ -29,7 +32,7 @@ export function noteExpenseFiled(plan, registry) {
 // Default: each week's application handed in raises it by one, once per week (the cause names the week). Dial: the threshold of the
 // offer below (two weeks). Reason: a captain who signs your papers every week comes to rely on you; the book shows Dunn answering
 // Klein's questions about the team's routine (KJ3T), so trust opens disclosure, not money.
-export const LOTM_TIES = registerWorldTies({worldId: 'book.lotm.tingen', situationId: LOTM_CAST_SITUATION, kinds: ['trust'], people: {dunn: DUNN_ID},
+export const LOTM_TIES = registerWorldTies({worldId: 'book.lotm.tingen', situationId: LOTM_CAST_SITUATION, kinds: ['trust'], people: {dunn: DUNN_ID, neil: NEIL_ID},
     shown: [{alias: 'dunn', kind: 'trust', label: 'Captain Dunn', none: 'He knows your name and little else yet.', noticed: 'He has signed your weekly application.',
         moves: 'Handing in your weekly expense application on time is the kind of thing he notices.', seenPrefix: 'book.lotm.tie.dunn_signed'}],
     offers: [{id: 'book.lotm.tie.dunn_funding', alias: 'dunn', kind: 'trust', atLeast: 2,
@@ -39,7 +42,17 @@ export const LOTM_TIES = registerWorldTies({worldId: 'book.lotm.tingen', situati
         // sour mood (-5 or lower) shuts it; it clears by itself in days. Dial: moodAtLeast. Reason: an in-world person with a reason, never a penalty.
         moodAtLeast: -4, moodBlocked: 'Dunn is not taking questions about paperwork just now.',
         blocked: 'Dunn answers that kind of question once he has signed two of your weekly applications.',
-        note: {key: 'book.lotm.tie.dunn_funding', value: 'Dunn explained that he signs each member\'s weekly application and adds it to the team\'s quarterly funding request to the church, so an application on time keeps the team\'s request simple.'}}]});
+        note: {key: 'book.lotm.tie.dunn_funding', value: 'Dunn explained that he signs each member\'s weekly application and adds it to the team\'s quarterly funding request to the church, so an application on time keeps the team\'s request simple.'}},
+        // FRC news, first consumer (proposal, AD56): Old Neil keeps the office's books beside the captain (the pack's staff line), and
+        // what he hears from Dunn about your applications decides whether he spends time on your costs. Default: the question opens
+        // while good word about you is fresh with him (mood 2 or more; one clear account from the captain gives 3); a bent account that
+        // reached him cooler keeps it shut. Dial: moodAtLeast. Reason: a clerk who hears you are careful with papers helps with yours.
+        {id: 'book.lotm.tie.neil_costs', alias: 'neil', kind: 'trust', atLeast: 0, moodAtLeast: 2,
+        label: 'Ask Old Neil which costs the team will cover',
+        description: 'Old Neil sits by the office books. Ask him what can go on your weekly application.',
+        blocked: 'Old Neil answers questions about the books for people he has reason to trust.',
+        moodBlocked: 'Old Neil says he is busy with the books; nobody he trusts has spoken for you lately.',
+        note: {key: 'book.lotm.tie.neil_costs', value: 'Old Neil said materials you buy for the team\'s work can go on the weekly application, listed by item, and the captain signs them in with the rest.'}}]});
 export const EXPENSE_TIE_KEY = 'book.lotm.tie.dunn_signed';
 export const EXPENSE_TIE_LINE = 'Captain Dunn took your weekly expense application and signed it.';
 // The duty seam's own cycle for a clock minute, so one tie step matches one filed week exactly (the duty numbers cycles by absolute clock).
@@ -68,7 +81,9 @@ function thought(s, row, key) {
     addMoodThought({holder: DUNN_ID, subject: 'player', source: row.source, magnitude: row.magnitude, minutes: dunnTempo(s, row), line: row.line, key}, s.clock);
 }
 export const dunnMood = s => readMood(DUNN_ID, s.clock);
-registerTieMood('book.lotm.tingen', (s, id) => id === DUNN_ID && Number.isSafeInteger(s?.clock) && castKnown(s, DUNN_ID) ? readMood(DUNN_ID, s.clock) : null);
+// FRC news: the reader also folds in what reached a person this week about the lead (tingenNewsMood), so heard accounts move the
+// same gates thoughts do. Any met person has a mood now (zero when nothing runs); an unmet one has none.
+registerTieMood('book.lotm.tingen', (s, id) => Number.isSafeInteger(s?.clock) && (id === DUNN_ID ? castKnown(s, id) : castAcquainted(s, id)) ? foldNewsMood(readMood(id, s.clock), tingenNewsMood(s, id)) : null);
 // Called after the filing went through.
 export function moodExpenseFiled(s, week) { if(Number.isSafeInteger(s?.clock) && castKnown(s, DUNN_ID)) thought(s, DUNN_MOOD.filed, `expense.filed.w${week}`); }
 // A lapse is read once, when the player files after a week closed with nothing handed in.
