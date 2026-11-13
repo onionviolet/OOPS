@@ -19,21 +19,23 @@ async function files(dir) {
 // esbuild parses real JS. Comments, strings and template prose cannot invent edges.
 export async function importGraph(root='src', {onImport}={}) {
  const entries=await files(root),graph=new Map(entries.map(f=>[f,[]]));
+ for(const [source,specs] of await importSpecs(entries))for(const spec of specs) {
+  onImport?.(source,spec);
+  if(!spec.startsWith('.'))continue;
+  const target=path.normalize(path.join(path.dirname(source),spec));
+  if(graph.has(target))graph.get(source).push(target);
+  // Unresolved legacy mod imports are terminal edges, not graph vertices.
+  else if(target.startsWith(root+'/'))graph.get(source).push(target);
+ }
+ return graph;
+}
+// Raw import specifiers per entry file (static import, export from, dynamic
+// import of a literal, require). Also used by scripts/test_changed.mjs.
+export async function importSpecs(entries) {
  // Parse require() as well as ESM imports. Externalizing each dependency keeps
  // one output per source rather than traversing or executing the dependency.
  const {metafile}=await build({entryPoints:entries,outbase:'.',outdir:'.architecture-scan',bundle:true,treeShaking:false,format:'esm',write:false,metafile:true,logLevel:'silent',plugins:[{name:'import-edges',setup(b){b.onResolve({filter:/.*/},args=>args.kind==='entry-point'?undefined:{path:args.path,external:true});}}]});
- for(const output of Object.values(metafile.outputs)) {
-  const source=output.entryPoint;
-  for(const spec of output.imports) {
-   onImport?.(source,spec.path);
-   if(!spec.path.startsWith('.'))continue;
-   const target=path.normalize(path.join(path.dirname(source),spec.path));
-   if(graph.has(target))graph.get(source).push(target);
-   // Unresolved legacy mod imports are terminal edges, not graph vertices.
-   else if(target.startsWith(root+'/'))graph.get(source).push(target);
-  }
- }
- return graph;
+ return new Map(Object.values(metafile.outputs).filter(o=>o.entryPoint).map(o=>[o.entryPoint,o.imports.map(spec=>spec.path)]));
 }
 export function architectureEdges(graph) {
  const mainImports=[],cycleEdges=[];

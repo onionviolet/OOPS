@@ -16,7 +16,7 @@ const STR_PROPS = {id:'id',className:'class',title:'title',type:'type',name:'nam
 
 export function createDom(options = {}) {
     const unsupported = options.unsupported || new Set();
-    let byId = new Map();
+    let byId = new Map(), unsureIds = new Set();
 
     class Event {
         constructor(type, init = {}) {
@@ -39,7 +39,22 @@ export function createDom(options = {}) {
     class InputEvent extends UIEvent {}
     class DragEvent extends MouseEvent {}
 
+    // Tree links, attributes and listeners live behind prototype accessors, as in a real DOM, where
+    // a node has no own data properties. Own-property walks (native transaction snapshots of a
+    // combat that holds UI slots) then see what a browser shows them instead of the whole tree.
+    // Private fields hold them (fast in-object slots); an object that did not run the constructor
+    // (Object.create of a prototype) falls back to a side table.
+    const loose = new WeakMap(), looseGet = (o, k) => loose.get(o)?.[k], looseSet = (o, k, v) => {let r = loose.get(o); if(!r) loose.set(o, r = {}); r[k] = v;};
     class EventTarget {
+        #parentNode; #childNodes; #attrs; #listeners;
+        get parentNode() {return #parentNode in this ? this.#parentNode : looseGet(this, 'parentNode');}
+        set parentNode(v) {if(#parentNode in this) this.#parentNode = v; else looseSet(this, 'parentNode', v);}
+        get childNodes() {return #childNodes in this ? this.#childNodes : looseGet(this, 'childNodes');}
+        set childNodes(v) {if(#childNodes in this) this.#childNodes = v; else looseSet(this, 'childNodes', v);}
+        get _attrs() {return #attrs in this ? this.#attrs : looseGet(this, '_attrs');}
+        set _attrs(v) {if(#attrs in this) this.#attrs = v; else looseSet(this, '_attrs', v);}
+        get _listeners() {return #listeners in this ? this.#listeners : looseGet(this, '_listeners');}
+        set _listeners(v) {if(#listeners in this) this.#listeners = v; else looseSet(this, '_listeners', v);}
         addEventListener(type, fn, opts) {
             if(!fn) return; const capture = typeof opts === 'boolean' ? opts : !!opts?.capture;
             const list = ((this._listeners ??= new Map()).get(type) ?? (this._listeners.set(type, []), this._listeners.get(type)));
@@ -77,14 +92,6 @@ export function createDom(options = {}) {
             if(!event.defaultPrevented && this._activate) this._activate(event);
             return !event.defaultPrevented;
         }
-    }
-
-    // Tree links, attributes and listeners live behind prototype accessors, as in a real DOM, where
-    // a node has no own data properties. Own-property walks (native transaction snapshots of a
-    // combat that holds UI slots) then see what a browser shows them instead of the whole tree.
-    for(const field of ['parentNode', 'childNodes', '_attrs', '_listeners']) {
-        const store = new WeakMap();
-        Object.defineProperty(EventTarget.prototype, field, {configurable:true, get() {return store.get(this);}, set(v) {store.set(this, v);}});
     }
 
     class Node extends EventTarget {
@@ -225,10 +232,10 @@ export function createDom(options = {}) {
         get attributes() {return [...this._attrs].map(([name, value]) => ({name, value}));}
         setAttribute(k, v) {
             k = k.toLowerCase(); v = String(v);
-            if(k === 'id') {const old = this._attrs.get('id'); if(old !== v) {if(old && byId.get(old) === this) byId.delete(old); this._attrs.set(k, v); if(this.isConnected) byId.set(v, this);} return;}
+            if(k === 'id') {const old = this._attrs.get('id'); if(old !== v) {if(old && byId.get(old) === this) {byId.delete(old); unsureIds.add(old);} this._attrs.set(k, v); if(this.isConnected) byId.set(v, this);} return;}
             this._attrs.set(k, v);
         }
-        removeAttribute(k) {k = k.toLowerCase(); if(k === 'id') {const old = this._attrs.get('id'); if(old && byId.get(old) === this) byId.delete(old);} this._attrs.delete(k);}
+        removeAttribute(k) {k = k.toLowerCase(); if(k === 'id') {const old = this._attrs.get('id'); if(old && byId.get(old) === this) {byId.delete(old); unsureIds.add(old);}} this._attrs.delete(k);}
         toggleAttribute(k, force) {const has = this.hasAttribute(k); const want = force === undefined ? !has : !!force; if(want && !has) this.setAttribute(k, ''); else if(!want && has) this.removeAttribute(k); return want;}
         get classList() {return this._classList ??= new TokenList(this, 'class');}
         get relList() {return this._relList ??= new TokenList(this, 'rel');}
@@ -586,7 +593,11 @@ export function createDom(options = {}) {
         getElementById(id) {
             const hit = byId.get(id);
             if(hit && hit._attrs.get('id') === id && hit.isConnected) return hit;
+            // Every connected element with an id was indexed on insert or setAttribute, so a miss
+            // is final unless a mapping was dropped while a duplicate may still be in the tree.
+            if(!hit && !unsureIds.has(id)) return null;
             if(hit) byId.delete(id);
+            unsureIds.delete(id);
             const found = descendants(this).find(e => e._attrs.get('id') === id) ?? null;
             if(found) byId.set(id, found);
             return found;
@@ -604,7 +615,7 @@ export function createDom(options = {}) {
     const doc = new Document();
     let win = null;
     function loadHTML(html) {
-        byId = new Map();
+        byId = new Map(); unsureIds = new Set();
         for(const c of doc.childNodes) c.parentNode = null;
         doc.childNodes = [];
         const nodes = parseHTML(html);

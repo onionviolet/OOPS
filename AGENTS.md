@@ -147,8 +147,13 @@ checks; changes to the rules index or registered codes run `check:rules`.
 
 Follow [AD36: efficient rule verification](docs/RULES_INDEX.md#efficient-rule-verification-ad36).
 A runtime slice is done only at [the six-line floor](docs/RULES_INDEX.md#definition-of-done-the-floor-ad43) (AD43, 2026-10-26); otherwise record it as "implemented, below floor".
-Lean tests (2026-10-22): lanes and subagents run only their focused test file; the
-committer runs the full `npm test` once as the pre-commit gate. Organize tests by
+Lean tests (2026-10-22, FRC69 2026-11-10): lanes and subagents run `npm run test:changed`
+(the test files that import, name or walk what changed since the merge base, listed with
+why) or their focused test file; the merge batch runs the full `npm test` once as the
+gate. `test:changed` leaves slow-tier (play-length) files to that gate unless their own
+imports change. Write tests fast by default: one shared start per file, cloned per test;
+no real waits; play-length files labelled slow; new files under the budget, which
+`npm test` warns on and which only ratchets down (AD36 item 2). Organize tests by
 system, not delivery wave, and delete or merge tests that only pinned a reworked
 shape. Task records get one line per check (command, result, gaps).
 Before implementation, choose relevant existing checks and a failure scenario

@@ -93,7 +93,7 @@ Weibao's ask; raw data stays in the gitignored research folder or `private_packs
 
 1. Reconcile released lanes in the AD41 checkout or justified clean candidate;
    identify settled combined inputs before publishing its build.
-2. Apply AD36: the committer owns the full suite once as the pre-commit gate;
+2. Apply AD36: lanes run `npm run test:changed`; the committer owns the full suite once as the merge gate;
    the integrator owns required combined build/architecture/rules and changed
    native/persistence acceptance. `check:rule-behavior` is an optional focused
    route already covered by the full suite, not another universal gate.
