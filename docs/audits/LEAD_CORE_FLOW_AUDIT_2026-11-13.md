@@ -139,6 +139,7 @@ have three that work.
 | G14 | **New, fixed by the coordination chat's worker in 86a0404d8 (not rechecked here). Spending banked time wedged stepping.** After "Spend 1 h of banked time", every later step failed with "Cannot nest advanceTicks." until a reload. Seen once, headless only; not rechecked in a browser. |
 | G15 | **New. The Beginning panel lists the whole road ahead.** About 88 future step titles for Fang Yuan, and Harry's later continuations by name. Klein's day 53 carries thoughts about late-book matters. |
 | G16 | **New. Ordinary actions give no result line.** Harry's charm practice, cast and flask hand-in; Fang Yuan's story step ("Command saved."); the keeper's "Put the Moonlight Gu to work · 1 essence, 1 stone", where the stone is a gain and the label reads as a cost. |
+| G17 | **New (from the UI chat, checked here 2026-11-14). Klein's charged rent is not the book's.** `src/book_world_lotm_duties.js` charges a flat 5 soli a week, marked `basis: 'assumed'` with a comment that the source gives no figure. The local cast, built from the book, gives two: the old flat at 5 soli 6 pence a week, and 2 Daffodil Street at 12 soli a week plus 3 pence for furniture after Benson's bargaining (first quote 13 soli and 5 pence, deposit 2 pounds), paid weekly on a one-year lease. Klein's notebook in `lotm-kjw37` already records 12 soli 3 pence. Under AD49 the charge should follow the source. Not changed here: the amount is one fixed number read by the duty, the collector, the household line and about a dozen tests, and the right fix makes it follow where he lives (66 pence before the move, 147 after). No pinned hash moves and saves hold miss counts, not amounts, so no alias is needed; arrears in old saves would be re-priced. Listed as P7. |
 
 Where these go: G6, G7, G10, G13, G15 and G16 are screen findings for the UI chat (through the coordination chat); the
 fight part of G8 is with the combat chat. G11 and the link table feed P3 and P4.
@@ -168,6 +169,7 @@ Proposals for Weibao, ranked. Revised after the mid-life rerun: P1 and P2 are do
 | P4 | Narrowed by the link table: the shared gap is **a day that repeats and a reason to return** (link d), then income (Klein's work shift and pay, Harry's allowance or none by choice), then people present. Practice that improves exists in part and needs its number shown. |
 | P5 | Widened: also open a lead's own actions where the player looks first (G10), and stop listing the road ahead (G15). With the UI chat. |
 | P6 | **New: every ordinary action says what it did** (G16). With the UI chat; the fight half is with the combat chat. |
+| P7 | **New: charge Klein the book's rent, by home** (G17): 5 soli 6 pence a week at the old flat, 12 soli 3 pence at 2 Daffodil Street. Small runtime slice in the duties seam; it also makes his week about 2.4 times dearer after the move, which sharpens the missing income in P4. |
 
 The first-pass table follows for the record.
 
