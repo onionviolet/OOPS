@@ -74,12 +74,12 @@ export function createPaletteFeedback({container, readSettings = () => ({}), led
     doc.addEventListener('pointerdown', gesture, true);
     doc.addEventListener('keydown', gesture, true);
     let sequence = 0;
-    function show(receipt, anchor) {
+    function show(receipt, anchor, options = {}) {
         if (!receipt) return false;
-        return effects.present({...receipt, actorId: receipt.subjectId || 'palette', sequence: ++sequence, eventId: receipt.boundaryId || receipt.eventId || sequence}, {anchor});
+        return effects.present({...receipt, actorId: receipt.subjectId || 'palette', sequence: ++sequence, eventId: receipt.boundaryId || receipt.eventId || sequence}, {anchor, ...options});
     }
     return {
-        presentReceipt: (receipt, anchor) => show(receipt, anchor),
+        presentReceipt: (receipt, anchor, options) => show(receipt, anchor, options),
         observeTool: (record, anchor) => show(ledger.observeTool(record), anchor),
         observeLocalScene: (record, anchor) => show(ledger.observeScene(record), anchor),
         observeActivityBoundary: (record, anchor) => show(ledger.observeActivityBoundary(record), anchor),

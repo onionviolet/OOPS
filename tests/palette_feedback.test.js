@@ -105,3 +105,38 @@ test('coin feedback skips layout for non-spends and keeps eligible spend feedbac
         keys.forEach((key, i) => {if (originals[i]) Object.defineProperty(globalThis, key, originals[i]); else delete globalThis[key];});
     }
 });
+
+test('a scene cue shows its sentence once: the kept line carries the words and is outlined, with no card over it (UR147)', async () => {
+    const {createQuietPlaceDetail} = await import('../src/quiet_place_detail.js');
+    class El {
+        constructor(tag) { this.tagName = tag; this.children = []; this.parent = null; this.dataset = {}; this.textContent = ''; this.hidden = false; this.style = {setProperty() {}};
+            this.classList = {add() {}, remove() {}, contains: () => false, toggle() {}}; this.ownerDocument = doc; }
+        setAttribute() {} removeAttribute() {}
+        append(...nodes) { for (const n of nodes) { n.parent = this; this.children.push(n); } }
+        insertBefore(n) { this.append(n); }
+        remove() { if (this.parent) this.parent.children = this.parent.children.filter(c => c !== this); }
+        replaceChildren(...nodes) { this.children = []; this.append(...nodes); }
+        contains(n) { return n === this || this.children.some(c => c.contains(n)); }
+        getBoundingClientRect() { return {left: 0, top: 0, width: 0, height: 0}; }
+        animate() { return {finished: new Promise(() => {}), cancel() {}}; }
+    }
+    const doc = {hidden: false, createElement: tag => new El(tag), createElementNS: (_, tag) => new El(tag), addEventListener() {}, removeEventListener() {}};
+    const original = Object.getOwnPropertyDescriptor(globalThis, 'document');
+    Object.defineProperty(globalThis, 'document', {configurable: true, value: doc});
+    try {
+        const host = new El('div');
+        const detail = createQuietPlaceDetail({container: host, read: () => ({knownVillage: true, raining: true, placeId: 'Village', effects: 'full'}),
+            readSettings: () => ({effects: 'full', presentation: 'inline'})});
+        const line = 'Village: Rain reaches the exposed edge.';
+        assert.equal(detail.present({type: 'local-scene', subjectId: 'Village', eventId: 'e1', text: line, motif: 'guidance'}), true);
+        const all = node => [node, ...node.children.flatMap(all)];
+        assert.equal(all(host).filter(node => node.textContent === line).length, 1);
+        const card = all(host).find(node => node.className === 'work-ledger-effect');
+        assert.equal(card.hidden, true, 'no card floats over the line');
+        assert.equal(card.children.length, 0);
+        assert.ok(all(host).some(node => node.className === 'work-ledger-target-pulse'), 'the new line is outlined');
+    } finally {
+        if (original) Object.defineProperty(globalThis, 'document', original);
+        else delete globalThis.document;
+    }
+});

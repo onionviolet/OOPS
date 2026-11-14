@@ -107,10 +107,14 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
         // The mark is decorative receipt ink, never item identity or a bonus.
         if(craftReceipt)overlay.setAttribute('data-mark','decorative-receipt');
         else overlay.removeAttribute('data-mark');
-        if (options.presentation !== 'margin' || definition?.plain) {
+        // A host that keeps the sentence in its own line passes caption:false: the words show once (UR147) and the
+        // card stays away, so only the outline on the host's line marks the change.
+        const bare = target.caption === false;
+        if (bare) overlay.replaceChildren();
+        else if (options.presentation !== 'margin' || definition?.plain) {
             const caption = document.createElement('span'); caption.textContent = receipt.text; overlay.append(caption);
         }
-        overlay.hidden = false;
+        overlay.hidden = bare;
         tone();
         if (!overlay.animate) { overlay.hidden = true; return true; }
         const reduced = options.effects === 'reduced' || motion?.matches || definition?.static || definition?.plain;

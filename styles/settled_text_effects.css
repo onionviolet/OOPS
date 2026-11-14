@@ -46,6 +46,8 @@
 .work-ledger-effect[data-craft-receipt='true'] { border-radius: var(--ui-radius); border-inline-start-width: 3px; }
 .quiet-place-detail { display:block; font-size: var(--ui-type-small); line-height: var(--ui-line-body); color:var(--text-color); opacity:.8; padding:var(--ui-space-1) var(--ui-space-2); overflow-wrap:anywhere; }
 .quiet-place-detail[hidden] { display:none; }
+/* The two lines are <small> inside a small-sized box; without this they shrink twice. */
+.quiet-place-detail small { font-size:inherit; }
 
 /* A first learned skill gets a small line signature, not a panel spectacle. */
 .native-discovery-host {position:relative;}

@@ -14,6 +14,6 @@ export function createQuietPlaceDetail({container,before,read,readSettings=()=>(
     detail.setAttribute('aria-label','Local atmosphere');container.insertBefore(detail,before||null);
     const feedback=createPaletteFeedback({container:detail,readSettings});let place=null;
     const render=()=>{const view=read(),next=quietPlaceText(view);if(text.textContent!==next)text.textContent=next;detail.hidden=!next;const key=view.placeId;if(key!==place){place=key;cue.textContent='';feedback.clear();}};
-    const present=receipt=>{if(!receipt||detail.hidden)return false;cue.textContent=receipt.text;feedback.presentReceipt(receipt,text);return true;};
+    const present=receipt=>{if(!receipt||detail.hidden)return false;cue.textContent=receipt.text;feedback.presentReceipt(receipt,cue,{caption:false});return true;};
     render();return {node:detail,render,present,clear(){cue.textContent='';feedback.clear();},destroy(){feedback.destroy();detail.remove();}};
 }

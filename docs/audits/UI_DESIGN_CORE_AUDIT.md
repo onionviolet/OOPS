@@ -2370,3 +2370,85 @@ Weibao: "Yes, start". Agent-verified, not human-reviewed. Not committed at the t
 **Checks.** `npm run build` (bundle `v0.6-f71c93b30fae`); `check:arch` pass; `check:rules` pass (raw durations 109 in baseline, 0 new); `npm run test:changed` pass; the three files that import the return note pass; `check:flow` 2 findings (Reports oversized, as before; the doubled rain line, new). Full `npm test` not run; it is the merge gate.
 
 **Next batch, from these results:** the doubled rain line and the tiny weather lines (UIC133); then UIC127 with UIC128 for Weibao's look; Reports sizing after baselines (UIC122).
+
+### Second batch: the weather lines (2026-11-13)
+
+Weibao: "commit and then fix, dont lose sight of any ideas?" The first batch is commit `804e0991a` (not pushed). Agent-verified, not human-reviewed.
+
+- **UIC133, the doubled line (done).** The Village scene kept a cue as its own line and also floated a card with the same sentence over it. A host that keeps its own line now asks for no card (`caption: false` in `settled_text_effects.js`, passed by `quiet_place_detail.js`); the new line is outlined in place instead. Other hosts keep the card.
+- **UIC133, the tiny lines (done).** The two lines are `<small>` inside a box already set to the small size, so they shrank twice. They now read at 12 px (`styles/settled_text_effects.css`).
+- **The empty box (done).** It was the same card, drawn with its mark still invisible; it goes with the card.
+- **Seen in headless Chrome** on a fresh life played to its first cue at 1920×1080: one sentence, 12 px, no card, the outline sitting exactly on the cue line. The cue that fired was a skill line, which takes the same path as rain; `check:flow` no longer reports the doubled rain line on day 4.
+- **Test.** `tests/palette_feedback.test.js` asserts one sentence, no card and an outline.
+
+### Open ideas ledger (2026-11-13)
+
+One list so nothing from this round drops. Proposals unless marked (AD32). Update the status here when one lands.
+
+| Code | Idea | Status | Next move |
+| --- | --- | --- | --- |
+| UIC127 (UR158) | One place panel: one row per thing here, its actions beside it | Open | Build with UIC128 as one centre-column slice; show before and after captures |
+| UIC128 (UR159) | The next step marks its target | Open | With UIC127 |
+| UIC129 (UR160) | A condition names what it does and what eases it | Open | After UIC127; needs a state with conditions to check against |
+| UIC130, UIC138 (UR161) | Long time in human units | Done, `804e0991a` | 109 older hand-written durations retire as their lines are rewritten |
+| UIC131 | The screen grows with the life | Open, needs a mock | Mock first, then Weibao's look; trades against "fully make use of the Screen" |
+| UIC132 (UR162) | Top bar by use | Held for Weibao | His answer; it narrows what the bar holds (AD56) |
+| UIC133 | Weather lines | Done, second batch | None |
+| UIC134 | Raw-duration lint | Done, `804e0991a` | None |
+| UIC135 | More states in the walk | Partly done | A life with conditions: needs a way to promise weather, or a played fixture |
+| UIC136 | Check for duplicate ways in | Open | Build before UIC127 so it shows the mixing-counter pair, then goes quiet |
+| UIC137 | Top-bar count and cut-off label check | Open | Small; reports "All pane" today |
+| PRS13 | Dry humour, deadpan first | Standing consideration | No pass; applied when a line is rewritten anyway |
+| Humour sample in briefs | A brief that writes narrator lines quotes one | Open | When the first such brief is written |
+| Screen readers and wry lines | A long wry line in a live region is noise | Open | Fold with UIC123 |
+| M2 | Reports takes 25% of the screen, uses 22% of its box | Open, seen by the walk | After visual baselines (UIC122) |
+| UIC122 | Visual baselines | Open | Blocks M2 |
+| R2, R3, R5, M3, M4 | Round 46 and 47 findings | Status not known | Replay by hand during UIC127, since it is in the same screens; give each a walk check or close it |
+| UIC119 | Lint for inline number formats (`toFixed`, `%`) | Open, filed LATER in an earlier round | Same ratchet shape as UIC134 |
+
+### More to consider, after the weather-line fix (2026-11-13)
+
+Weibao: "more to consider?" Read from the code unless a line says seen. Proposals (AD32).
+
+**ACCOUNT FOR NOW:**
+- **The gate runs on a shared tree.** The full `npm test` behind this batch runs on a checkout holding other sessions' unfinished source edits. A failure is first checked against this batch's files (`palette_feedback.js`, `quiet_place_detail.js`, `settled_text_effects.js`, the stylesheet and its test) before it is called this batch's.
+- **The committed bundle is built clean.** `dist` for this batch was built from committed source plus this fix only, in a scratch copy, so another session's work in progress does not ship inside it.
+- **The repeat check only runs when asked.** `check:flow` had the check that found the doubled line, and it is not a gate. The new unit test is what guards it day to day.
+
+**LATER / DELEGATE (each with level, effort and done check):**
+- **UIC139, the kept cue goes stale.** The scene's cue line clears only when the place changes. "Rain reaches the exposed edge." stays after the rain stops, and "Patience improves to 2." stays all day. Now that the line is the only carrier, it needs an end: clear on the opposite weather change, and age other cues out after a stretch of game time. Sonnet, S. Done: a played rain-then-dry day shows no rain line once it is dry.
+- **UIC140, the same double in the place-feedback panel.** `palette_feedback_domain.js` writes a receipt into its own line and floats a card with the same words in three places (cues, the return summary, the harvest line). Not seen on screen this round. Sonnet, S. Done: each shows its sentence once, with the test extended to that panel.
+- **UIC141, cues during a local task.** The stylesheet hides the scene's weather lines while a local task is open, but the scene still accepts the cue because it checks the `hidden` attribute, so the cue lands on an invisible line and the panel card is skipped. Inferred, not exercised. Sonnet, S. Done: a cue fired during a task is visible somewhere, or is deliberately dropped with a Reports line.
+- **UIC142, engine wording in that panel.** "Session snapshot since your last visit", "First observed visit this session; no return summary yet." and "not live tracking while away" read as the build talking (PRS6, PRS9). One file entry is already in the prose baseline. Sonnet, S. Done: the lines are rewritten in the narrator's voice and the baseline entry retires.
+- **UIC143, a clean-bundle helper.** The scratch-copy build above is a hand recipe. A small script (`build from HEAD plus named paths`) would make own-paths commits with a correct bundle routine for every session. Haiku or sonnet, S. Done: one command writes `dist` and `index.html` for a named path list.
+- **UIC144, walk states that promise weather.** UIC135's missing conditions state and UIC139's check both need a way to ask for rain. A test hook that sets the weather for the walk only (no save effect) would cover both. Sonnet, M. Done: `check:flow` reads a rainy, cold day by name.
+
+Ledger additions: UIC139 to UIC144, all open.
+
+## Round 49, 2026-11-13: a general look across the routes
+
+Weibao: "more to consider? Other general UI stuff". Method: headless Chrome at 1920×1080 on the working tree, an early life and the `perf/mid` fixture, one capture per top-bar route (14) with counts of type sizes and cut-off labels; five captures read by eye (early home, mid home, Stats, Notebook, People). Rounds 1 to 44 were not reread, so overlap is possible. Proposals (AD32); nothing in the runtime changed. Seen means on a capture; measured means counted in the page.
+
+| Code | Finding or idea | Evidence | Effort |
+| --- | --- | --- | --- |
+| UIC145 | **The top bar shifts when an unread dot clears.** "Stats •" and "Condition •" lose their dots as they are opened, and every tab to their right moves left. Reserve the dot's width. | Seen: Condition starts at x=98 on home, 81 on Stats; Inventory at 208, 191, 174. The `stability` check watches the columns, not the bar. | S |
+| UIC146 | **One clock.** The time shows three times in three formats on home: "01/04/999 08:12, Mon · Day" in the place header, "Now: Mon, Summer, Day · 08:12 at Village" in Reports and "[ Home · 01/04/999, Summer, Mon ]" as the day divider. "Saving available." shows twice (top bar and work line). One owner each (DSG11); the others drop it or shorten to what they add. | Seen on mid home. | S |
+| UIC147 | **A stat shows three times on the Stats route.** Strength 12 sits in the left You panel, in the centre's "Stats" card and as the first row of the 42-attribute list under it. The card can go, or the left panel can show something else while Stats is open (see UIC152). | Seen on Stats. | S |
+| UIC148 | **Numbers disagree in precision and grammar.** "31.623 AP" in the list against "32" on the left; "25.298 EP" against "25"; "12.0" against "12 points"; "1 points", "1 hits". UR117 owns formats; plurals and the two precisions need one rule. | Seen on Stats. | S to M |
+| UIC149 | **A blocked reason that says nothing.** "This action is not available under the current conditions. Review the known preparation or choose another action." names no condition (UR70 to UR75). The same card uses form headings ("Stated costs", "Completion terms", "Conversation controls", "Conversation not started.") and repeats its title as an "Unavailable: …" button. Section names such as "Optional lives and local experiments" are project words (PRS6). The capture is the perf fixture, so confirm on a played life. | Seen on Notebook. | M |
+| UIC150 | **Back names the last view, not a place.** People shows "← Notebook", Notebook shows "← Journal", Stats shows "← Village". It is history, which is fine, but it reads as hierarchy. Either label it by what it does ("Back to Notebook") or always offer the place. | Seen on three routes. | S |
+| UIC151 | **Three ways into one bench.** The bottom strip has a Mixing tab, the action list has "Mix at the Village counter" and the stations list has "Village mixing counter"; crafting has the same three. This widens UIC127 from two ways in to three. The strip's last tab is labelled "?". | Seen on home. | With UIC127 |
+| UIC152 | **The left column goes half empty on a route.** Condition and Gear leave the left column when a route opens, and nothing takes the space; Inventory holds five rows in a 500 px box; People fills about a sixth of the centre. Idea: while a route is open, the left column shows the selected row's detail (the person, the attribute, the item), so the centre is the list and the left is the thing. | Seen on Stats, Notebook, People. | M, needs a mock |
+| UIC153 | **Stray type sizes.** Almost everything is 14 px or 12 px, with a few elements at 11.67, 11.9, 16.38 and 21 px. Snap them to the type tokens (DSG). | Measured on all 14 routes. | S |
+| UIC154 | **"Crit dmg×1.3" is cut off** in the You panel on every route. | Measured (scroll width over client width). | S |
+| UIC155 | **2,385 buttons sit in the page on every view.** Hidden panels stay built. Effect on speed and on keyboard and screen-reader order is not measured. | Measured. | Check first |
+| UIC156 | **Money and weight letters are unexplained.** "10C 4W", "4C 6W", "2C": two letters in two colours with no key on screen. A first-use key or a hover would do. | Seen on Inventory. Hover text not checked. | S |
+
+**Three larger directions, as options to mock, not picks.**
+- **A, list in the centre, thing on the left (UIC152).** Uses the half-empty left column and removes the repeated card on Stats.
+- **B, one status line.** Time, weather, work state and save state gather into one line that every view keeps (UIC146); the place header and Reports stop repeating them.
+- **C, the unusual one: let the empty space be the place.** Where a panel has less to show than its box, the place's own lines (weather, the narrator's noticing, who walks past) take the room, so a quiet life looks quiet instead of unfinished. It answers the empty regions (M2, UIC131) without shrinking the frame he asked to fill.
+
+**Checks this suggests:** top-bar shift (add the bar to `stability`), cut-off labels (UIC137 already asks), off-token type sizes, and the same number shown at two precisions on one view.
+
+Ledger additions: UIC145 to UIC156, all open.
