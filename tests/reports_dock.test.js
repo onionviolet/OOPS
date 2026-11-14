@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {dockRows, LOG_TAKES_OVER, tailOf, tailFor, TAIL_LINES, isDivider} from '../src/reports_dock.js';
+import {dockRows, LOG_TAKES_OVER, tailOf, tailFor, TAIL_LINES, isDivider, undoubled} from '../src/reports_dock.js';
 
 const next = {line: 'Talk to the elder.', how: 'In Local actions.'};
 const today = {clock: 'Mon, Summer, Morning · 08:00', place: 'Village', open: ['Fishing'], running: {count: 0, nextIn: null}};
@@ -40,4 +40,10 @@ test('a day or place divider is not part of the saved tail, so save, reload, sav
     assert.equal(isDivider('[ Home · 01/04/999, Summer, Mon ]'), true);
     assert.equal(isDivider('  [ Entering Wild willow stand ] '), true);
     assert.equal(isDivider('You hit Wolf rat for 1 bludgeoning'), false);
+});
+
+test('UIC189: a tail saved with each line twice shows each line once', () => {
+    assert.equal(undoubled('Started a new quest: Lost memoryStarted a new quest: Lost memory'), 'Started a new quest: Lost memory');
+    assert.equal(undoubled('Hit hit'), 'Hit hit', 'a line that only looks repetitive stays');
+    assert.deepEqual(tailFor({world: 'native', lines: ['abcabc', 'Done.']}, 'native'), ['abc', 'Done.']);
 });

@@ -14,11 +14,15 @@ export const EMPTY_NOTE_UNTIL = 2;
 // slice loads as before (no earlier lines); nothing reads these lines but this column.
 export const TAIL_LINES = 24;
 export const tailOf = (lines, world) => { const kept = lines.map(l => String(l || '').replace(/\s+/g, ' ').trim()).filter(Boolean).slice(-TAIL_LINES); return kept.length ? {world, lines: kept} : undefined; };
-export const tailFor = (slice, world) => (slice && slice.world === world && Array.isArray(slice.lines) ? slice.lines.filter(l => typeof l === 'string').slice(-TAIL_LINES) : []);
+export const tailFor = (slice, world) => (slice && slice.world === world && Array.isArray(slice.lines) ? slice.lines.filter(l => typeof l === 'string').map(undoubled).slice(-TAIL_LINES) : []);
 let restored = null, showEarlier = () => {};
 const worldNow = () => (typeof document === 'undefined' ? 'native' : document.documentElement.dataset.world || 'native');
 // What the player read: the line as shown, without its buttons or the spoken-aloud copy.
-const visibleLine = n => [...n.querySelectorAll('button')].reduce((text, b) => text.replace(b.innerText || b.textContent, ''), n.innerText ?? n.textContent);
+// UIC189: a line keeps a full and a compact copy of its words; a page saved without layout (headless, a hidden tab) has no
+// innerText and read both, so the tail held every line twice. The full copy is read when the line has one.
+const visibleLine = n => { const own = n.querySelector?.('.log-original'); if (own) return own.textContent; return [...n.querySelectorAll('button')].reduce((text, b) => text.replace(b.innerText || b.textContent, ''), n.innerText ?? n.textContent); };
+// A tail saved before that fix holds "XX" for X; it is shown, and saved again, once.
+export const undoubled = line => { const t = String(line), h = t.length / 2; return t.length > 1 && Number.isInteger(h) && t.slice(0, h) === t.slice(h) ? t.slice(0, h) : t; };
 // A place or day divider ("[ Home · 01/04/999 ]") is written afresh by every sitting, so it is not part of the tail:
 // saving, reloading and saving again with nothing done leaves the save the same.
 export const isDivider = text => /^\[ .* \]$/.test(String(text || '').replace(/\s+/g, ' ').trim());
