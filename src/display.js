@@ -6201,7 +6201,8 @@ function sort_displayed_quests() {
             }
     
         }).forEach(node=>quest_list.appendChild(node));
-    
+    // R5: the Journal opens on the current quest's steps, not on a list of closed titles.
+    if(!quest_list.querySelector(".quest_div_expanded")) quest_list.querySelector(".quest_div:not(.quest_finished)")?.classList.add("quest_div_expanded");
 }
 
 /**

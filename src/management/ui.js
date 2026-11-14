@@ -143,7 +143,7 @@ export function createManagementPanel({read,registry,command}) {
  }
  // Discovery follows the existing visibility: the Village, outside dialogue and combat.
  const visible=()=>{try{const s=read(),v=managementPresentation(s.state,registry,s.context);return (v.visible||claimHere())&&!s.inDialogue&&!s.inCombat;}catch{return false;}};
- definePanel({id:'management',title:'Market courtyard',role:'actions',node:element,home:document.getElementById('main_content'),
+ definePanel({id:'management',title:'Organizations · Market courtyard',role:'actions',node:element,home:document.getElementById('main_content'),
   discovered:visible,eligible:visible,emptyText:'Return to the Village to use the market courtyard'});
  return {element,render};
 }

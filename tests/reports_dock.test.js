@@ -10,10 +10,17 @@ test('a short log shares its column with the next step and the day', () => {
     assert.deepEqual(rows.map(r => r.kind), ['next', 'clock', 'open']);
     assert.match(rows[1].text, /Village/);
 });
-test('the log takes the column once it has enough lines', () => {
-    assert.deepEqual(dockRows({logLines: LOG_TAKES_OVER, next, today}), []);
+test('once the log has enough lines it takes the column, and only the next step stays above it', () => {
+    assert.deepEqual(dockRows({logLines: LOG_TAKES_OVER, next, today}).map(r => r.kind), ['next']);
+    assert.deepEqual(dockRows({logLines: LOG_TAKES_OVER, next: null, today}), []);
 });
 test('running commitments appear only when there are some', () => {
     const rows = dockRows({logLines: 0, next: null, today: {...today, open: [], running: {count: 2, nextIn: 30}}});
     assert.deepEqual(rows.map(r => r.kind), ['clock', 'running']);
+});
+
+test('where the place header already shows the clock, the card keeps only the day note (UIC146)', () => {
+    assert.deepEqual(dockRows({logLines: 0, next: null, today, headerHasClock: true}).map(r => r.kind), ['open']);
+    const noted = dockRows({logLines: 0, next: null, today: {...today, note: 'Market day'}, headerHasClock: true});
+    assert.deepEqual(noted[0], {kind: 'clock', label: 'Today', text: 'Market day'});
 });

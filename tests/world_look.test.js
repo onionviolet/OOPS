@@ -80,7 +80,7 @@ test('general lines vary by time of day and day, and repeat for the same moment 
 test('titles speak in every voiced world; frontier unlocks say where the new thing is used', () => {
     for (const worldId of ['base.frontier', 'book.lotm.tingen', 'book.mol.cyoria', 'pocket.folded_glasshouse']) {
         const v = reportVoice({worldId, kind: 'level_up', text: 'Title earned: Wanderer. Walked a long way.'});
-        assert.match(v.useful, /Names and achievements/, worldId);
+        assert.match(v.useful, /Naming and achievements/, worldId);
     }
     assert.equal(reportVoice({worldId: 'base.frontier', kind: 'level_up', text: 'Reached level 3'}), null, 'level-ups that are not titles stay generic');
     const act = reportVoice({worldId: 'base.frontier', kind: 'activity_unlocked', text: 'The elder shows you:\nUnlocked activity "Woodcutting" in location "Village"'});
@@ -123,7 +123,7 @@ test('a voiced useful line opens the panel it names, and every panel id is a reg
     for (const {world, useful, panel} of rows) {
         if (panel) assert.ok(modules.has(panel), `${world}: "${panel}" is not a registered workspace module`);
         // A line that names an openable panel carries its id, so a new row cannot silently lose its link.
-        if (/Notebook|Local actions|Actions list|Places and walks|Tingen workroom|Names and achievements|Your beginning|Move somewhere else/.test(useful))
+        if (/Notebook|Local actions|Actions list|Places and walks|Tingen workroom|Naming and achievements|Your beginning|Move somewhere else/.test(useful))
             assert.ok(panel, `${world}: "${useful}" names a panel but has no panel id`);
     }
     assert.equal(reportVoice({worldId: 'book.lotm.tingen', kind: 'message_travel', text: '[ Entering Tingen supervised workroom ]'}).panel, 'lotm');

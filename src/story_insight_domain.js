@@ -48,7 +48,7 @@ export function skillLines(summary){
 export function recallHistory(){const plan=ports.plan(0);deriveWorldHistory(plan.state,{worldId:ports.world()});upgradeWorldEvents(plan.state,ports.world());ports.commit(plan);panel?.render();}
 function createPanel(){
  const root=node('section');root.id='story_insight_panel';root.className='expedition_panel';root.dataset.surfaceType='expanded-center';
- const title=node('h2','Stories & history'),storiesHead=node('h3','Stories so far'),stories=node('div'),historyHead=node('h3','Regional history'),recall=node('button',"Recall the region's history"),wars=node('div'),events=node('div'),notice=node('p'),skillsHead=node('h3','Skills and paths not taken'),skillBox=node('div'),rustLabel=node('label'),rustBox=node('input'),rustText=node('span');
+ const title=node('h2','Stories and history'),storiesHead=node('h3','Stories so far'),stories=node('div'),historyHead=node('h3','Regional history'),recall=node('button',"Recall the region's history"),wars=node('div'),events=node('div'),notice=node('p'),skillsHead=node('h3','Skills and paths not taken'),skillBox=node('div'),rustLabel=node('label'),rustBox=node('input'),rustText=node('span');
  rustBox.type='checkbox';rustBox.dataset.skillRust='';rustLabel.append(rustBox,rustText);skillBox.dataset.skillList='';
  rustBox.onchange=()=>{try{setRust(rustBox.checked);notice.textContent='';}catch(e){notice.textContent=e.message;rustBox.checked=!!skillSummary()?.rustOn;}};
  recall.type='button';recall.dataset.storyInsight='recall';notice.setAttribute('role','status');stories.dataset.storyList='';wars.dataset.warList='';events.dataset.eventList='';
@@ -69,7 +69,7 @@ function createPanel(){
   events.replaceChildren(...eventLines(history).map(e=>{const p=node('p',e.line);p.dataset.eventId=e.id;p.dataset.eventKind=e.kind;return p;}));
   if(history&&!history.wars.length)wars.append(node('p','The region has held to its peace so far; no war is recorded.'));
  }
- definePanel({id:'story-insight',title:'Stories & history',role:'records',node:root,home:document.getElementById('main_content'),defaultDock:'center',after:'records',discovered:()=>true,eligible:()=>true});
+ definePanel({id:'story-insight',title:'Stories and history',role:'records',node:root,home:document.getElementById('main_content'),defaultDock:'center',after:'records',discovered:()=>true,eligible:()=>true});
  render();bindSkillRecordsPanel({render});return {render};
 }
 registerDomain({id:'storyInsight',projection:()=>({stories:storyLines(ports.root()),history:ports.root().loreHistory?.worldHistories?.[ports.world()]??null,events:eventLines(ports.root().loreHistory?.worldHistories?.[ports.world()])}),

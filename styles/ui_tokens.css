@@ -365,6 +365,8 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #workspace_navigation button:disabled { color: var(--ui-swatch-068); border-style: dashed; }
 #workspace_navigation button:focus-visible { outline: 2px solid var(--ui-accent); }
 #workspace_shortcuts { color: var(--ui-text); background: var(--ui-fill); border: var(--ui-frame); max-height: 75dvh; overflow: auto; }
+/* UIC179: the key list sits over the Reports column as a side sheet and leaves the centre in view. */
+#workspace_shortcuts[open] { position: fixed; inset: 3rem var(--ui-space-2) auto auto; margin: 0; width: min(30rem, 32vw); max-height: calc(100dvh - 4.5rem); z-index: calc(var(--ui-layer-nav, 100) + 4); }
 :root[data-start-screen="open"] #workspace_navigation { display: none; }
 @media (min-width: 1001px) {
     #main_content.workspace-active[data-workspace-mode="dock"] { padding-top: 35px; }

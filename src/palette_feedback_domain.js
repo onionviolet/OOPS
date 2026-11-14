@@ -7,7 +7,7 @@ import {current_location} from './runtime_state.js';
 import {current_game_time} from './game_time.js';
 import {worldWeatherWords} from './world_weather_display.js';
 import {is_raining} from './weather.js';
-import {createPaletteFeedback, createPaletteFeedbackLedger} from './palette_feedback.js';
+import {createPaletteFeedback, createPaletteFeedbackLedger, cueLineText} from './palette_feedback.js';
 import {node} from './reference_kit.js';
 import {nativeSkillDiscovery} from './skill_discovery_native.js';
 
@@ -21,10 +21,15 @@ const observedAt = new Map(),observedReadings=new Map();
 const ledger = createPaletteFeedbackLedger();
 const keyForHarvest = last => last && `${last.key}:${last.clock}:${JSON.stringify(last.outputs)}`;
 
+let passCues = [];
+function writeCueLine(text) {
+    if (!passCues.length) queueMicrotask(() => { passCues = []; });
+    const joined = cueLineText(passCues, text); passCues = joined.cues; cueLine.textContent = joined.line;
+}
 function publishCue(receipt, anchor) {
     if (!receipt || suppressNextCue) return;
-    if(receipt.pose){publishBodyExpression(receipt);cueLine.textContent=receipt.text;return;}
-    cueLine.textContent=receipt.text;
+    if(receipt.pose){publishBodyExpression(receipt);writeCueLine(receipt.text);return;}
+    writeCueLine(receipt.text);
     // UIC140: each line below carries its own words, so the mark comes without a second copy of them.
     if (!readPort('sceneCue',receipt) && panel.checkVisibility?.()) feedback?.presentReceipt(receipt,cueLine,{caption:false});
 }

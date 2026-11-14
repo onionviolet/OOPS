@@ -4,7 +4,7 @@ const el = (tag, text) => { const n = document.createElement(tag); if (text != n
 export function createDndPhandalinPanel({read, quote, execute}) {
     const panel = el('section'); panel.id = 'dnd_phandalin_panel'; panel.className = 'expedition_panel';
     const body = el('div'), notice = el('p'); notice.setAttribute('role', 'status');
-    panel.append(el('h2', 'Phandalin work yard (D&D test start)'),
+    panel.append(el('h2', 'Phandalin work yard'),
         el('p', 'A named test start, not a finished world: a student wizard, a torn Sack and a supply run. Numbers are proposals under SRD 5.2.1.'), body, notice);
     let signature = '';
     // Success shows in the log below; the status line is for refusals only.

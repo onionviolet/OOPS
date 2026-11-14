@@ -11,15 +11,15 @@ const DIRECTORY = Object.freeze({
     belongings: ['Inventory', THINGS], 'combat-controls': ['Inventory view options', THINGS], 'shell-inventory-tools': ['Inventory tools', THINGS],
     'shell-detail': ['Item details', THINGS], 'equipment-comparison': ['Equipment comparison', THINGS], tools: ['Tools', THINGS],
     'gear-workshop': ['Gear workshop', THINGS],
-    'personal-journal': ['Journal', RECORDS], 'story-insight': ['Stories and history', RECORDS], pledges: ['Vows and trials', RECORDS],
-    'known-things': ['Known things', RECORDS], naming: ['Names and achievements', RECORDS], lives_carry: ['Past lives', RECORDS],
+    'personal-journal': ['Your journal', RECORDS], 'story-insight': ['Stories and history', RECORDS], pledges: ['Vows and tempering', RECORDS],
+    'known-things': ['Known things', RECORDS], naming: ['Naming and achievements', RECORDS], lives_carry: ['Lives and inheritance', RECORDS],
     beginning: ['Your beginning', RECORDS], notebook: ['Notebook', RECORDS], 'quest-board': ['Leads', RECORDS],
     memories: ['Remembered years', RECORDS], messages: ['Reports', RECORDS], ledger: ['Ledger', RECORDS],
-    homes: ['Homes', WORLD], 'home-overview': ['Home at a glance', WORLD], gathering: ['Gathering at a glance', WORLD], economy_standing: ['Trade standing', WORLD],
+    homes: ['Homes and belongings', WORLD], 'home-overview': ['Home at a glance', WORLD], gathering: ['Gathering at a glance', WORLD], economy_standing: ['Standing and ledger', WORLD],
     fields: ['Spills and smoke', WORLD], 'region-view': ['Where I am', WORLD],
     'optional-worlds': ['Other worlds', WORLD], 'village-travelers': ['Travelers', WORLD], 'village-neighbors': ['Neighbors', WORLD],
     time: ['Time & weather', WORLD], location: ['Current location', WORLD], 'local-actions': ['Local actions', WORLD],
-    focus: ['Focus', WORLD], 'village-scene': ['Scene', WORLD],
+    focus: ['Around you', WORLD], 'village-scene': ['Scene', WORLD],
     'current-work': ['Current work & saving', GAME], continuation: ['Continuing connection', GAME], customization: ['Appearance', GAME],
     'customization-effects': ['Effects & sound', GAME], 'customization-rules': ['Your own rules', GAME],
     'customization-preview': ['Preview of your changes', GAME], 'customization-sites': ['Your own places', GAME],
@@ -29,7 +29,7 @@ const ROLE_GROUP = Object.freeze({character: ME, records: RECORDS, actions: WORL
 // The blocker a greyed row names when the panel gives none of its own (UIV1).
 const REASONS = Object.freeze({
     homes: 'Go back to the Village to use this', 'home-overview': 'Go back to the Village to use this', gathering: 'Go back to the Village to use this', 'drainage-site': 'Go back to the Village to use this',
-    'optional-worlds': 'No other world is open to you yet', ledger: 'Take a commission to start one',
+    'optional-worlds': 'No added world is open yet. A crossing from this place is listed under Here', ledger: 'Take a commission to start one',
     'shell-detail': 'Select an item in Inventory', 'village-travelers': 'Go back to the Village to use this', 'village-neighbors': 'Go back to the Village to use this', 'cultivation-insights': 'Needs finished work in your home world',
 });
 

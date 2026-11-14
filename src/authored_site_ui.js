@@ -5,7 +5,7 @@ import {DRAFT_FIELDS, DEFAULT_DRAFT, validateDraft, exportAuthoredFile, parseAut
 export function createAuthoredSiteUI({container, read, apply, reset, download, openSite}) {
     const el = (tag, parent, text, cls) => {const n = document.createElement(tag); if(text) n.textContent = text; if(cls) n.className = cls; parent?.append(n); return n;};
     const panel = el('section', null, '', 'customization-panel customization-surface'); panel.id = 'authored_site_editor';
-    el('h3', panel, 'Original site');
+    el('h3', panel, 'Your own places');
     const scroll = el('div', panel, '', 'customization-editor customization-fields-scroll');
     el('p', scroll, 'Author one original optional site reached from the Village. It has one timed activity that uses a material and makes a product, plus a gather activity for the material. Work runs on the game clock; completion pays real coin. Apply saves it into this life.');
     const applied = el('p', scroll); applied.id = 'authored_site_applied';

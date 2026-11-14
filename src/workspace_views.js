@@ -63,7 +63,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
             const idleText=view.inVillage?'No work running.':'No work running. Pick something under Here to start.';
             work.textContent=view.work.length?view.work.join(' · '):idleText;
             jump.textContent=view.waiting?'Open waiting response':'Open local controls';
-            ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';
+            ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';ownership.hidden=view.canWrite; // UIC146: the top bar reads this line and shows it; a warning also shows here
             ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!view.waiting&&!view.work.length&&view.canWrite;
             // UIX2: this panel owns the current-work presentation; readers (the bar chip) re-read it.
             panel.dataset.workCount=String(view.work.length);publishChange('work','current-work');}

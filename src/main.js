@@ -9885,7 +9885,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         ['location','Current location','location_div','center',true],
         ['combat-controls','Inventory & combat view','inventory_combat_switch_selection','left',true],
         ['skills','Skills & practice','skills_and_stances_div','center',false],
-        ['records','Journal & received accounts','journal_div','center',false],
+        ['records','Journal','journal_div','center',false],
         ['preparation','Character & preparation','character_div','left',false],
         ['belongings','Belongings','inventory_div','left',false],
         ['local-actions','Local actions','location_related_div','center',true],
@@ -9998,7 +9998,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         download:(name,text)=>{const url=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),0);}});
     const refreshSiteEditor=()=>authoredSiteEditor.refresh();
     setInterval(()=>{if(!deferWhileHidden(refreshSiteEditor,refreshSiteEditor))refreshSiteEditor();},500);
-    registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
+    registerWorkspaceModule({id:'customization-sites',title:'Your own places',node:authoredHost,home:'center'});
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
     setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();zorianLoop.tick();}},500);
     mountWorkspace();

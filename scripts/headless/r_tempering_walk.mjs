@@ -1,6 +1,6 @@
 // Foundation R, MS5: the Frontier tempering route on R's path rule (PRG13), played headless from a
 // fresh life by earned steps: the elder sends you to the Infested field, fighting there trains Combat,
-// then the Vows and trials panel tempers the body. Then save, reload, export and import.
+// then the Vows and tempering panel tempers the body. Then save, reload, export and import.
 // Usage: node scripts/headless/r_tempering_walk.mjs [--out receipt.json] [--export save.txt]
 import {readFileSync, writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
@@ -12,9 +12,9 @@ const game = await boot(null, {seed: out.seed});
 const doc = () => game.document;
 const text = sel => doc().querySelector(sel)?.textContent?.replace(/\s+/g, ' ').trim() ?? null;
 const hasText = t => game.clickables().some(c => (c.text || '').includes(t));
-const panelValue = () => [...doc().querySelectorAll('select option')].find(o => /Vows and trials/.test(o.textContent))?.value;
+const panelValue = () => [...doc().querySelectorAll('select option')].find(o => /Vows and tempering/.test(o.textContent))?.value;
 const openPledges = async () => {
-    const select = [...doc().querySelectorAll('select')].find(s => [...s.options].some(o => /Vows and trials/.test(o.textContent)));
+    const select = [...doc().querySelectorAll('select')].find(s => [...s.options].some(o => /Vows and tempering/.test(o.textContent)));
     select.value = panelValue(); select.dispatchEvent(new game.dom.classes.Event('change', {bubbles: true}));
     await game.settle(300);
 };

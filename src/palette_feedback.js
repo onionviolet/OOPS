@@ -5,6 +5,13 @@ const scalar = value => ['string', 'number'].includes(typeof value) && String(va
 
 // Pure observer ledger. Each route supplies public projections and committed
 // boundary IDs; this layer owns no game state, clock, RNG, or persistence.
+// Cues published in one pass share a line, newest last, up to CUE_LINE_MAX; one alone reads as before.
+// (Each used to overwrite the last, so only the final one was ever read.)
+export const CUE_LINE_MAX = 3;
+export function cueLineText(cues, text) {
+    const next = [...cues.filter(c => c !== text), text].slice(-CUE_LINE_MAX);
+    return {cues: next, line: next.join(' · ')};
+}
 export function createPaletteFeedbackLedger() {
     const tools = new Map(), returns = new Map(), boundaries = new Set(), cues = new Set(), skills = new Map(), bodies=new Map();
     const once = (set, key) => { if (!key || set.has(key)) return false; set.add(key); if (set.size > 256) set.delete(set.values().next().value); return true; };

@@ -198,7 +198,7 @@ export function reportVoice({family, worldId, kind, text, band = 'day', day = ''
     const world = worldFor(worldId, family);
     if (!world) return null;
     if (kind === 'level_up' && /^Titles? (earned|recognized from your past)/.test(text))
-        return row(world.title, 'Titles you hold, and what each one gives, are in Names and achievements.', 'naming');
+        return row(world.title, 'Titles you hold, and what each one gives, are in Naming and achievements.', 'naming');
     if (kind === 'activity_unlocked') {
         if (world.key !== 'frontier') return null; // other worlds list unlocks in their own panels
         for (const [pattern, useful] of FRONTIER_UNLOCKS) {

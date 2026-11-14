@@ -20,7 +20,7 @@ function shell(id, title, heading, intro, {collapse = false} = {}) {
 }
 
 export function createPledgesPanel({read, commands}) {
-    const s = shell('pledges_panel', 'Vows and trials', 'Vows and tempering',
+    const s = shell('pledges_panel', 'Vows and tempering', 'Vows and tempering',
         'A vow trades freedom for strength and leaves a scar if broken. Tempering sets the body for good; a failed attempt wakes a heart demon that dulls you until you sit it out.', {collapse: true});
     let rerender = () => {},routineDraft=null,loadDraft=0,gradedOpen=false,routineOpen=false;
     function render() {
@@ -105,7 +105,7 @@ export function createPledgesPanel({read, commands}) {
         s.notice.hidden = !s.notice.textContent;
     }
     rerender = render;
-    definePanel({id: 'pledges', title: 'Vows and trials', role: 'records', node: s.panel, home: document.getElementById('main_content'),
+    definePanel({id: 'pledges', title: 'Vows and tempering', role: 'records', node: s.panel, home: document.getElementById('main_content'),
         discovered: () => true, eligible: () => true, unavailableReason: () => 'Unavailable'});
     render();
     return {render: () => { render(); }};

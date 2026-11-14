@@ -123,7 +123,7 @@ export function createHpBrewingPanel({read, quote, execute}) {
         const v = read(), key = JSON.stringify([v, sel, notice]);
         if(key === signature) return; signature = key;
         const parts = [];
-        heading.textContent = v.potionWorkings?.title ?? 'Polyjuice bench · Harry Potter pack slice';
+        heading.textContent = v.potionWorkings?.title ?? 'Polyjuice bench';
         const status = el('p', notice, 'hp-notice');
         status.setAttribute('role', 'status');
         if(v.potionWorkings) parts.push(status, renderWorking(v.potionWorkings));

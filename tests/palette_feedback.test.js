@@ -152,3 +152,12 @@ test('a scene cue shows its sentence once: the kept line carries the words and i
         else delete globalThis.document;
     }
 });
+
+test('cues published in one pass share the line, newest last, and a repeat is not doubled', async () => {
+    const {cueLineText, CUE_LINE_MAX} = await import('../src/palette_feedback.js');
+    let cues = [], line = '';
+    for (const text of ['Tool worn.', 'Breath back.', 'Tool worn.', 'Fishing 3.', 'Herbs 2.']) ({cues, line} = cueLineText(cues, text));
+    assert.equal(cues.length, CUE_LINE_MAX);
+    assert.equal(line, 'Tool worn. · Fishing 3. · Herbs 2.');
+    assert.equal(cueLineText([], 'Rain on your shoulders.').line, 'Rain on your shoulders.');
+});

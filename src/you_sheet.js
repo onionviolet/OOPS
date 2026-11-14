@@ -41,7 +41,8 @@ export function createYouSheet({host, read}) {
         const next = JSON.stringify(view);
         if(next === signature) return;
         signature = next;
-        renderCharacterSheet(panel, view, {layout: 'wide'});
+        // UIC147: this view sits above the attribute list, which already shows the five natives with their detail.
+        renderCharacterSheet(panel, {...view, sections: view.sections.filter(section => section.id !== 'stats')}, {layout: 'wide'});
     }
     return {render, destroy() {panel.remove();}};
 }

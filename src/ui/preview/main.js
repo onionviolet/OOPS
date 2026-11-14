@@ -32,7 +32,7 @@ document.body.append(legacy);
 const PANELS = {
     vitals: {title: 'Character vitals', critical: true}, 'shell-character': {title: 'You'}, 'shell-inventory-tools': {title: 'Inventory tools'},
     belongings: {title: 'Belongings'}, 'local-actions': {title: 'Local actions', critical: true, nodeId: 'location_related_div', className: 'box_div'},
-    'pane-navigation': {title: 'Center views'}, records: {title: 'Journal & received accounts'}, skills: {title: 'Skills & practice'},
+    'pane-navigation': {title: 'Center views'}, records: {title: 'Journal'}, skills: {title: 'Skills & practice'},
     messages: {title: 'Reports'}, 'shell-log-tools': {title: 'Log tools'},
 };
 const placeholders = [];

@@ -54,7 +54,7 @@ function createPanel() {
         try {law = lawSelect.value; heirLaw(law); lawNote.textContent = 'Kept with your next save. It applies when this life ends.';} catch(e) {lawNote.textContent = e.message;}
         render(true);
     });
-    root.append(node('h2', 'Lives & inheritance'),
+    root.append(node('h2', 'Lives and inheritance'),
         node('p', 'What each life hands on, and what crosses at each boundary. These are the defaults for each world; a world can change them for an in-world reason.'),
         codexLine, lawLabel, lawSelect, lawReason, lawNote, ledger);
     const render = visibleRenderer(root, () => ({codex: codexSummary(), law}), view => {
@@ -72,7 +72,7 @@ function createPanel() {
             return d;
         }));
     });
-    definePanel({id: 'lives_carry', title: 'Lives & inheritance', role: 'records', node: root, home: document.getElementById('main_content'),
+    definePanel({id: 'lives_carry', title: 'Lives and inheritance', role: 'records', node: root, home: document.getElementById('main_content'),
         discovered: () => true, eligible: () => true});
     return {render};
 }

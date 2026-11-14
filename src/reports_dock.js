@@ -9,12 +9,15 @@ import {sayReason} from './locked_control.js';
 export const LOG_TAKES_OVER = 8;
 
 // Pure: the rows the card shows, or none once the log has enough lines of its own.
-export function dockRows({logLines, next, today}) {
-    if (logLines >= LOG_TAKES_OVER) return [];
+// UIC146: where the place header already shows the date and hour, the card keeps only the day's note.
+export function dockRows({logLines, next, today, headerHasClock = false}) {
+    // The next step stays here once the log fills: sending it back under the top strip pushed every panel down (UR144).
     const rows = [];
     if (next) rows.push({kind: 'next', label: 'Next step', text: next.line, hint: next.how});
+    if (logLines >= LOG_TAKES_OVER) return rows;
     if (today) {
-        rows.push({kind: 'clock', label: 'Now', text: `${today.clock}${today.place ? ` at ${today.place}` : ''}${today.note ? ` · ${today.note}` : ''}`});
+        if (!headerHasClock) rows.push({kind: 'clock', label: 'Now', text: `${today.clock}${today.place ? ` at ${today.place}` : ''}${today.note ? ` · ${today.note}` : ''}`});
+        else if (today.note) rows.push({kind: 'clock', label: 'Today', text: today.note});
         if (today.open.length) rows.push({kind: 'open', label: 'Open here', text: today.open.slice(0, 4).join(', ')});
         if (today.running.count) rows.push({kind: 'running', label: 'Running', text: `${plural(today.running.count, 'commitment')}${today.running.nextIn != null ? `, the next ends in ${minutesText(today.running.nextIn)}` : ''}`});
     }
@@ -34,8 +37,8 @@ function mount() {
         const village = (document.documentElement.dataset.world || 'native') === 'native';
         const next = village && nextCard && !nextCard.hidden ? {line: nextCard.querySelector('span')?.textContent || '', how: nextCard.querySelector('small')?.textContent || ''} : null;
         let today = null; try { today = todayDigest(); } catch { today = null; }
-        const rows = dockRows({logLines: stream.children.length, next, today});
-        // The banner under the top strip moves here while the dock shows; it returns when the log takes over.
+        const rows = dockRows({logLines: stream.children.length, next, today, headerHasClock: village && !!document.querySelector('#village_scene .scene-calendar')?.offsetParent});
+        // The banner under the top strip moves here while a next step exists, so the frame below it never shifts.
         if (nextCard) nextCard.style.display = rows.some(r => r.kind === 'next') ? 'none' : '';
         const key = JSON.stringify(rows);
         if (key === signature) return;

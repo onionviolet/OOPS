@@ -1,7 +1,7 @@
 // Authoring only the original local System. Native crafting still settles all outputs.
 export function createWorkLedgerAuthorUI({container,read,apply,reset,canWrite}) {
  const panel=document.createElement('section');panel.id='work_ledger_author';panel.className='customization-panel customization-surface';
- const title=document.createElement('h3');title.textContent='Original System rules';panel.append(title);
+ const title=document.createElement('h3');title.textContent='Your own rules';panel.append(title);
  const explain=document.createElement('p');explain.textContent='Edit the original Work Ledger. Power values affect acquired functions. Accepted commissions keep their saved terms. Native inputs, chance limits, output and time still belong to crafting.';panel.append(explain);
  const reading=document.createElement('div');reading.className='customization-fields-scroll';reading.append(explain);panel.append(reading);
  const editor=document.createElement('textarea');editor.id='work_ledger_rules_draft';editor.rows=16;editor.setAttribute('aria-label','Original Work Ledger rule draft');reading.append(editor);
