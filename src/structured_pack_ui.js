@@ -1,5 +1,6 @@
-import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
+import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, expandWorkspaceModule} from './workspace_layout.js';
 import {setText} from './dom_sync.js';
+import {registerOwnedWorkPanel} from './adventure_notebook.js';
 import {formatDuration} from './number_format.js';
 import {renderFigure} from './ui/figure.js';
 import {renderGuHouse} from './ui/gu_house_view.js';
@@ -9,7 +10,7 @@ import {createBookCraftControls} from './ui/book_craft_controls.js';
 // Optional `changed()` returns the host's cheap change token (an array compared
 // element by element); the 250 ms poll then reads only after it moves. Without
 // it the poll reads every time, as before.
-export function createStructuredPackPanel({read,command,changed}) {
+export function createStructuredPackPanel({read,command,changed,localActions=null}) {
     const NOT_YET_SHOWN=3,NEXT_SHUT=1;
     // G16: when the life's own text says nothing about an act, the panel still names what just happened.
     // G16: an instant act whose outcome the life writes as a note (a status row read from knowledge) shows that note, so a drawn outcome is read
@@ -56,7 +57,7 @@ export function createStructuredPackPanel({read,command,changed}) {
     function render(force=false) {
         if(changed)token=changed();
         const host=document.getElementById('location_actions_div');if(host&&!workspaceOwns(panel)&&panel.parentElement!==host)host.append(panel);
-        const view=projected();
+        const view=projected();lastView=view;
         craft.render(view.craft,view.canWrite);
         if(repetition&&(!view.canWrite||view.error)){notice='Repeated work stopped. '+(view.error||'Restore saving before continuing.');repetition=null;}
         if(repetition&&!view.jobs.some(j=>j.id===repetition.jobId)){
@@ -184,5 +185,32 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         message.dataset.themeState=view.error||noticeError?'error':'status';message.setAttribute('role',view.error||noticeError?'alert':'status');
         if(focusKey){const find=node=>node.dataset?.[focusKey[0]]===focusKey[1]?node:[...node.children].map(find).find(Boolean);find(body)?.focus();}
     }
-    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){clearInterval(timer);unregisterWorkspaceModule('beginning');panel.remove();}};
+    // G10: a life's day lives in its own panel, which is out of sight once you go Back to Here. While it is out of sight, Here's
+    // action list carries a short "Your day" block: what can be done now (up to four, the rest one click on) and what is running.
+    // Arrival still opens the panel itself (workspace_navigation ignores this block when it asks whether Here is empty).
+    const DAY_SHOWN=4,day=document.createElement('section');day.className='life-day';day.dataset.lifeDay='';
+    const dayHead=document.createElement('p'),dayRows=document.createElement('div'),dayNote=document.createElement('p'),dayOpen=document.createElement('button');
+    dayHead.className='life-day__head';dayNote.setAttribute('role','status');dayOpen.type='button';dayOpen.textContent='Open your day';dayOpen.onclick=()=>expandWorkspaceModule('beginning');
+    day.append(dayHead,dayRows,dayOpen,dayNote);let daySig='',dayInView=null,dayNotice=null,dayShown=false,lastView=null;
+    const syncDay=(fresh=true)=>{
+        // read() can be costly on a long life, so the block recomputes only when the life changed, the panel left or entered view, or a notice arrived.
+        const inViewNow=!localActions||panel.parentElement===localActions||panel.isConnected&&!panel.hidden&&(panel.checkVisibility?panel.checkVisibility():true);
+        if(!fresh&&inViewNow===dayInView&&notice===dayNotice&&(!dayShown||day.parentElement===localActions))return;dayInView=inViewNow;dayNotice=notice; // the action list rebuilds itself; a removed block comes back
+        // The panel's own render already read the life; reading it again here every tick froze a long life's page.
+        const view=lastView;if(!view||inViewNow||!view.active){if(day.isConnected)day.remove();dayShown=false;return;}
+        const ready=view.active?view.actions.filter(a=>a.eligible):[],running=view.active?view.jobs:[];
+        const show=view.active&&!inViewNow&&(ready.length>0||running.length>0);
+        dayShown=show;if(!show){if(day.isConnected)day.remove();return;}
+        if(day.parentElement!==localActions||localActions.firstElementChild!==day)localActions.prepend(day);
+        const sig=JSON.stringify([ready.map(a=>[a.id,a.label,a.duration,a.costs]),running.map(j=>[j.id,j.remaining]),view.canWrite,notice]);if(sig===daySig&&dayRows.children.length)return;daySig=sig;
+        dayHead.textContent=['Your day',ready.length?`${ready.length} ready`:'',...running.map(j=>`${j.label}, ${formatDuration(j.remaining)} to go`)].filter(Boolean).join(' · ');
+        dayRows.replaceChildren(...ready.slice(0,DAY_SHOWN).map(a=>{const row=document.createElement('div');row.className='life-day__row';
+            const b=button(a.label,{lifeDayAction:a.id},{type:'action',id:a.id},!view.canWrite),q=document.createElement('small');q.className='action-legibility__quote';
+            q.textContent=`${a.duration>0?formatDuration(a.duration):'At once'}${a.costs.length?' · uses '+a.costs.join(', '):''}`;row.append(b,q);return row;}));
+        dayOpen.textContent=ready.length>DAY_SHOWN?`Open your day (${ready.length-DAY_SHOWN} more)`:'Open your day';
+        dayNote.textContent=notice;dayNote.hidden=!notice;
+    };
+    // G10: a life's own timed work stays with the life. Without an owner the Notebook claimed it and took the centre on every press (as UIC182 for the courtyard).
+    const releaseWork=registerOwnedWorkPanel(work=>lastView?.actions.some(a=>a.id===work.commandId)||lastView?.jobs.some(j=>j.id===work.id)?'structured_pack_panel':null);
+    render();syncDay();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{const fresh=moved();if(fresh)render();syncDay(fresh);},250);return {render,destroy(){clearInterval(timer);releaseWork();unregisterWorkspaceModule('beginning');panel.remove();day.remove();}};
 }

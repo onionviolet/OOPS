@@ -9652,7 +9652,7 @@ sort_displayed_inventory({sort_by: "name", target: "character"});
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
 
     domainRegistry.mountPanels();
-    if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
+    if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign,localActions:document.getElementById('location_actions_div')});
     mountNativeSpellbook({
         read:()=>({state:expansionState,place:current_location?.id,record:optionalPackState.structured,canWrite:ownsSave&&!importProbeToken&&!foundationSaveBlocked&&!expansionError&&!is_loading_error}),
         structuredContext,featureWaveContext,assertWriter:assertFeatureWriter,lifeEnded:nativeLifeEnded,nativeAlive:()=>character.is_alive===true,registry:expeditionRegistry,structuredPacks,persist:persistExpansion,
