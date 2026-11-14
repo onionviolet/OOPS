@@ -21,7 +21,7 @@ import {readNativeCombatFocus} from './combat_focus.js';
 import {mountProto23Shell} from './proto23_shell.js';
 import {makeItemCardReader} from './item_card_reader.js';
 import {mountWorkspaceNavigation} from './workspace_navigation.js';
-import {createVillageWorkspace, placeExits, heardName} from './village_workspace.js';
+import {createVillageWorkspace, placeExits, heardName} from './village_workspace.js'; import {mountDayStrip} from './ui/day_strip.js';
 import {projectPlaceTypes} from './place_types_projection.js';
 import {get_location_type_penalty} from './models/location.js';
 import {projectsHome,openProjects} from './projects_drawer.js';
@@ -10001,7 +10001,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     registerWorkspaceModule({id:'customization-sites',title:'Your own places',node:authoredHost,home:'center'});
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
     setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();zorianLoop.tick();}},500);
-    mountWorkspace();
+    mountWorkspace();mountDayStrip();
     mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,refreshGear:()=>{update_displayed_equipment();for(const [slot,worn] of Object.entries(character.getEquipment()))if(worn?.getInventoryKey)try{update_displayed_character_inventory({equip_slot:slot});}catch{}},logAchievement:text=>log_message(text,'level_up'),gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,continuation:()=>continuationState,lifeRecord:()=>lifeRecord,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
