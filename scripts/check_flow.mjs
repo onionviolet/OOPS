@@ -208,7 +208,8 @@ for(const [w, h, zoom] of [[1536, 864, '125%'], [1280, 720, '150%']]) {
         const sideways = document.documentElement.scrollWidth > innerWidth + 2;
         const clipped = [...document.querySelectorAll('#main_content .workspace-module:not([hidden])')].filter(m => m.offsetParent).flatMap(m =>
             [...m.querySelectorAll('*')].filter(e => {
-                if(!e.offsetParent || e.children.length > 40) return false;
+                // A control kept only for scripts (.ui-mechanism-only: 1px, no pointer, not read aloud) is not a region a player reads.
+                if(!e.offsetParent || e.children.length > 40 || e.closest('.ui-mechanism-only')) return false;
                 const c = getComputedStyle(e);
                 return /hidden|clip/.test(c.overflowY) && e.scrollHeight > e.clientHeight + 6 && e.clientHeight > 0 && !/ellipsis/.test(c.textOverflow);
             }).slice(0, 2).map(e => `${m.dataset.module}: ${(e.id || e.className || e.tagName).toString().slice(0, 40)} shows ${e.clientHeight} of ${e.scrollHeight}px`));
