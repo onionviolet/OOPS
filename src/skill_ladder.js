@@ -99,7 +99,7 @@ export function ladderPanelText(skillId, levels, milestones) {
     if(view.level.total !== view.level.native) lines.push(`Rust holds ${skillId} at ${view.level.total} (your best is ${view.level.native}); rows above it rest until you practise.`);
     for(const r of view.rows) {
         if(r.state === 'sealed') { lines.push(`${skillId} ${r.at}: ??????`); continue; }
-        const status = r.state === 'active' ? 'active' : r.state === 'rusted' ? `resting while ${skillId} is below ${r.at}` : `needs ${skillId} ${r.at}`;
+        const status = r.state === 'active' ? 'active' : r.state === 'rusted' ? `resting while ${skillId} is below ${r.at}` : `${r.at - view.level.total} level${r.at - view.level.total === 1 ? '' : 's'} away`; // UIC200: how close, not a repeat of the row's own level
         lines.push(`${skillId} ${r.at}: ${r.name}. ${r.text}${r.effect ? ` ${r.effect}.` : ''} (${status})`);
     }
     for(const e of view.edges) lines.push(e.text);

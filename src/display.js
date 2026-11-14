@@ -5339,7 +5339,7 @@ function create_new_skill_bar(skill) {
         const skill_category_div = document.createElement("div");
         insert_HTML(skill_category_div, `<i class="material-icons icon skill_dropdown_icon"> keyboard_double_arrow_down </i>${skill.category} skills`);
         skill_category_div.dataset.skill_category = skill.category;
-        skill_category_div.classList.add("skill_category_div");
+        skill_category_div.classList.add("skill_category_div", "skill_category_expanded"); // UIC200: a group starts open, so the count is never of hidden rows
 
         //add reordering buttons
         const btn_up = document.createElement('a');
@@ -5427,7 +5427,7 @@ function create_new_skill_bar(skill) {
     skill_tooltip.appendChild(tooltip_milestones);
     skill_tooltip.appendChild(tooltip_next);
 
-    let html_content = `<span class="skill_id">id: "${skill.skill_id}"</span><br><br>${skill.description}<br>`;
+    let html_content = `${skill.description}<br>`; // UIC200: no engine id in player text
     if(skill.flavour_text) {
         html_content += `<br><span class="skill_flavour_text">"${skill.flavour_text}"</span>`;
     }
@@ -5495,7 +5495,7 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
 
     if (skill.getCurrentXP() !== "Max") {
         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.remove("skill_bar_capped");
-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}%`;
+        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}% to next level`;
         // GTL6: practice banked past the single-gain cap, per world (GTR16, GTR21).
         const digesting = domainRegistry.project('skill_overflow', 'bank', skill.skill_id) || 0;
         const xp_line = skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0];
@@ -5516,7 +5516,7 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
     set_HTML(skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[4], unlockedRewards?`<br>${unlockedRewards}`:'');
 
     if(typeof get_next_skill_milestone(skill.skill_id) !== "undefined") {
-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[5].innerText  = `lvl ${get_next_skill_milestone(skill.skill_id)}: ???`;
+        skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[5].innerText  = `Next reward at level ${get_next_skill_milestone(skill.skill_id)}.`;
     } else {
         skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[5].innerText = "";
     }
