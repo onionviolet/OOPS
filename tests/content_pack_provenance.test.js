@@ -39,3 +39,26 @@ test('explicit additive migration updates registered ids without granting items 
  assert.throws(()=>preparePackSave(original,new Map([['add',{...d,compatibility:{}}]])),/migration/);
  assert.throws(()=>preparePackSave(original,new Map([['add',{...d,locations:[{id:'add.renamed'},{id:'add.new'}]}]])),/migration/);
 });
+
+// Regressions for the 2026-11-13 stranded lead saves (lead core-flow audit G1; played check: tests/lead_saves_load.test.js).
+test('a save registered before the Gu keeper pack gained items still restores',async()=>{
+ const {guKeeperLife,KEEPER_ITEM_ADDITIONS:added}=await import('../src/world_packs/book_gu_keeper.js');
+ assert.equal(guKeeperLife.compatibility.registrationAdditions,undefined,'declared beside the definition so its pinned hash holds');
+ const now=guKeeperLife.items.map(i=>i.id);
+ const before=now.filter(id=>!added.includes(id));
+ assert.equal(before.length,8,'the registration every 2026-11-09 lead save carries');
+ const save={content_packs:{schema:1,packs:{},registered:{[guKeeperLife.id]:{worldId:guKeeperLife.world.id,locationIds:guKeeperLife.locations.map(l=>l.id),itemIds:before}}}};
+ assert.deepEqual(preparePackSave(save,new Map([[guKeeperLife.id,guKeeperLife]])).content_packs.registered[guKeeperLife.id].itemIds,now);
+});
+
+test('identity aliases map an acknowledged content hash and stay out of the hashed source',async()=>{
+ const {structuredIdentitySource,structuredIdentityAliases,structuredContentHash}=await import('../src/structured_native_registration.js');
+ const a='sha256:'+'a'.repeat(64),b='sha256:'+'b'.repeat(64),raw={id:'x',compatibility:{legacy:'preserve-dormant'},simulation:{commands:[]}};
+ const declared={...raw,compatibility:{...raw.compatibility,identityAliases:[{from:a,to:b,reason:'same life, recompiled'}]}};
+ assert.equal(await structuredContentHash(structuredIdentitySource(declared)),await structuredContentHash(raw));
+ assert.equal(structuredIdentityAliases(declared).get(a),b);
+ assert.equal(structuredIdentityAliases(raw).size,0);
+ for(const bad of [[{from:a,to:a,reason:'r'}],[{from:a,to:b}],[{from:'nope',to:b,reason:'r'}],'x'])
+  assert.throws(()=>structuredIdentityAliases({compatibility:{identityAliases:bad}}),/Invalid identity alias/);
+ assert.throws(()=>structuredIdentityAliases({compatibility:{identityAliases:[{from:a,to:b,reason:'r'}]}},new Map([[a,'sha256:'+'c'.repeat(64)]])),/Invalid identity alias/);
+});

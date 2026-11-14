@@ -1423,3 +1423,9 @@ Weibao asked:
 > FRC47, we can start a shared record for gods and patrons now?
 
 Recorded as the answer to LLR26 (AGT2 no longer waits for a second world): the shared acting-power record is built now, with LOTM and Reverend Insanity together. `src/acting_powers.js` holds the record and readers; the LOTM church agent and Heaven's Will are the first two records ([AGT2 note](../POWERS_THAT_ACT_RULES.md)). Chainsaw Man's fear and contracts (FRC35) and belief as a resource (AGT10) are left as room, not built.
+
+## Three leads first and the core-flow checks, 2026-11-13
+
+Weibao, after a diagnosis of the current game: "But even before play, how can we improve? We can prioritize Klein, Harry, Fang Yuan, over the others? What matters is that tthe core gameplay flow is there, endless possibility is developed, improvable aspects and more? The ui is intuitive and makes sense?" Then: "what about my planned internal systems?" and "run C1 to C4 on the three leads, save accordingly".
+
+Recorded as his steer, asked as a question: Klein, Harry and Fang Yuan lead the other lives, and a lead is judged on four things: a core flow that exists, off-book possibility, aspects that improve, and a UI that makes sense. What the other leads and worlds get meanwhile is not decided by this entry (AD56: a narrowing waits for his answer). The four checks and the first run are in the [lead core-flow audit](../audits/LEAD_CORE_FLOW_AUDIT_2026-11-13.md); its findings G1-G9 and order P1-P5 are proposals (AD32). His planned internal systems stay; the audit proposes ordering them by which one is missing from a lead's ordinary day.

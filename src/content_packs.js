@@ -135,8 +135,15 @@ export function cancelPack(state,d) {
 // Explicit additive registration migration: a pack names new native IDs. This
 // updates provenance only, never stock, availability, active-life definitions or jobs.
 // Removals, reordering and undeclared additions still require their own migration.
+// A pack whose content identity is pinned by its own continuations (the Gu keeper: each names the base hash) cannot grow its
+// definition's compatibility block without moving that hash. It declares its additions here instead; same meaning, same checks.
+const declaredAdditions=new Map();
+export function declareRegistrationAdditions(packId,additions) {
+    check(typeof packId==='string'&&packId&&additions&&typeof additions==='object'&&!declaredAdditions.has(packId),'Invalid additive registration declaration.');
+    declaredAdditions.set(packId,structuredClone(additions));
+}
 function migrateRegistration(row,d) {
-    const additions=d.compatibility?.registrationAdditions;
+    const additions=d.compatibility?.registrationAdditions??declaredAdditions.get(d.id);
     if(!row || !additions)return row;
     const next={...row};
     for(const [field,current]of [['locationIds',d.locations.map(l=>l.id)],['itemIds',(d.items||[]).map(i=>i.id)]]) {

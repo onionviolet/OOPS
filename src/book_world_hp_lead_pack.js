@@ -9,6 +9,13 @@ import {hpLeadSpellCommands} from './hp_lead_spells.js';
 import {hpLeadExamCommands} from './world_packs/book_hp_lead_exam_data.js';
 import {hpLeadSchoolCommands,hpLeadLessonCommands,hpLeadTieCommands,hpLeadMakingCommands} from './world_packs/book_hp_lead_life_data.js';
 const P='book.hp.lead',KIND='hp-cast';
+// Book 1 saves and the local continuations pinned this life's identity on 2026-11-09. Since then story-act prerequisites
+// name only the previous act (LAYX228, same order of play) and the exam commands joined (2026-11-10): the compiled life
+// hashes differently but an old save plays on unchanged. Each row acknowledges one such drift (structured_native_registration.js).
+// When this life's compiled content changes again, the first `from` stops matching: check an old save still plays, then update it.
+export const HP_LEAD_IDENTITY_ALIASES=Object.freeze([
+ {from:'sha256:812a6dcc19c48899503a79d2c2ccbe1eea5d4e18e74d52022c1c4f0ffd276873',to:'sha256:f9cfc3e531af70cd0cab095801b536ac60d52f4bdb0369dddcdce623d4760d5d',reason:'LAYX228 linear act prerequisites; exam commands added'},
+]);
 const arrivalId=P+'.arrive_school', sortingId=P+'.sorting';
 const completed=(id,reason)=>({fact:'completed.'+id,op:'eq',value:true,reason});
 const withGate=(command,gate)=>({...command,
@@ -102,5 +109,6 @@ export function withHpLeadCast(raw,pack){
  }
  native.simulation.commands=[...acts.map(c=>({...c,audience:['$actor']})),...school,
   ...weekCommands.map(c=>({...c,audience:['$actor']})),...extras];
+ native.compatibility.identityAliases=HP_LEAD_IDENTITY_ALIASES;
  return native;
 }

@@ -82,6 +82,11 @@
    "tier": "slow",
    "why": "plays the game: headless native interaction journey"
   },
+  "tests/lead_saves_load.test.js": {
+   "ms": 240000,
+   "tier": "slow",
+   "why": "plays the game: boots one late private save per lead and steps an hour; skips without the local checkpoints"
+  },
   "tests/lotm_cast_week.test.js": {
    "ms": 40000,
    "tier": "slow",

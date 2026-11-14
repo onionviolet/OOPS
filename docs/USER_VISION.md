@@ -33,6 +33,7 @@ How to use and update it:
 
 ## Worlds and priorities
 
+- **Klein, Harry and Fang Yuan lead the other lives** (asked as a question, 2026-11-13): "What matters is that tthe core gameplay flow is there, endless possibility is developed, improvable aspects and more? The ui is intuitive and makes sense?" What other leads get meanwhile is undecided. [Direction](gm/USER_VISION_LOG_2026-11.md#three-leads-first-and-the-core-flow-checks-2026-11-13) · [First audit](audits/LEAD_CORE_FLOW_AUDIT_2026-11-13.md)
 - **Protagonist capability runs** build recurring actions across situations. Fang Yuan starts with acquiring, feeding and using a Gu, including combat. [Direction](gm/USER_VISION_LOG_2026-11.md#protagonist-capability-runs-2026-11-12) · [Workflow](LEAD_LIFE_GUIDE.md#capability-runs-2026-11-12)
 - **Many worlds with their own systems** are the plan: "everything equally scoped, different worlds with different systems/powersystems?" and "there can be days and days of gameplay in one world alone" ([2026-10-02](gm/USER_VISION_LOG_2026-10.md#power-scale-combinations-and-distinct-world-systems-2026-10-02), [2026-10-03](gm/USER_VISION_LOG_2026-10.md#long-world-campaigns-and-parallel-systems-2026-10-03)).
 - **Depth goes to the book worlds and the menus/UI** (LOTM, Harry Potter and the queued source worlds). Frontier and Mistglass stay playable test beds with no new depth, nothing deleted ([2026-10-26](gm/USER_VISION_LOG_2026-10.md#book-worlds-and-menus-first-frontier-and-mistglass-as-test-beds-2026-10-26)). The Village loop is the first gameplay loop to establish, with a YAIR Village and a Proto23 Village ([2026-10-27](gm/USER_VISION_LOG_2026-10.md#village-loop-first-coordinators-and-gm-plan-2026-10-27)).
@@ -182,6 +183,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="three-leads-first-and-the-core-flow-checks-2026-11-13"></a>[Three leads first and the core-flow checks, 2026-11-13](gm/USER_VISION_LOG_2026-11.md#three-leads-first-and-the-core-flow-checks-2026-11-13)<br>
 <a id="one-procedural-foundation-one-chat-per-part-2026-11-11"></a>[One procedural foundation, one chat per part, 2026-11-11](gm/USER_VISION_LOG_2026-11.md#one-procedural-foundation-one-chat-per-part-2026-11-11)<br>
 <a id="foundations-first-playable-slices-later-2026-11-11"></a>[Foundations first, playable slices later, 2026-11-11](gm/USER_VISION_LOG_2026-11.md#foundations-first-playable-slices-later-2026-11-11)<br>
 <a id="shared-acting-power-record-built-now-llr26-2026-11-10"></a>[Shared acting-power record, built now (LLR26), 2026-11-10](gm/USER_VISION_LOG_2026-11.md#shared-acting-power-record-built-now-llr26-2026-11-10)<br>

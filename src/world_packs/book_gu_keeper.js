@@ -6,6 +6,7 @@ import {compileUpkeepEvents, compileStandingOrder} from '../living_upkeep.js';
 import {guWorkRows} from '../companion_work_gu.js';
 import {keeperMoveSet} from '../gu_keeper_moves.js';
 import {KEEPER_DAY, KEEPER_PREFIX, kId, kKey} from './book_gu_keeper_ids.js';
+import {declareRegistrationAdditions} from '../content_packs.js';
 export {KEEPER_DAY, KEEPER_PREFIX, kId, kKey};
 const id = kId, key = kKey, steward = id('steward');
 // Dials. The sea is 24 units at a full aperture; aptitude 50% caps it at 12; regeneration is one unit an hour.
@@ -48,6 +49,11 @@ const cmd = (n, label, extra = {}) => ({id: id(n), revision: 1, label, group: 's
 const gu = g => id(g.slot);
 const owned = g => all(ready, faculty, eq(`claim.${id(g.slot + '_title')}.owner`, 'player'), eq('target.life', 'alive'), eq('target.body.controllerId', 'player'));
 
+// Items added after the first saved registrations (2026-11-12/13 Gu batches). Naming them lets an older save's registration
+// update in place; a later item added to this pack goes on this list too, or older saves stop loading. Declared beside the
+// definition, not in it: every keeper continuation pins this definition's content hash.
+export const KEEPER_ITEM_ADDITIONS = Object.freeze([id('moss'), id('vial'), id('light_gu'), id('glow_gu')]);
+declareRegistrationAdditions(KEEPER_PREFIX, {itemIds: [...KEEPER_ITEM_ADDITIONS]});
 export const guKeeperLife = {
     schema: 2, id: KEEPER_PREFIX, revision: 1, title: 'Reverend Insanity · Gu keeper, first year',
     description: 'Keep Gu on a clan stipend: feed each on its own schedule, buy more only when you can afford them, and risk one refinement.',

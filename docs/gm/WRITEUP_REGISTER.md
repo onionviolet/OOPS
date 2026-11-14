@@ -6,6 +6,8 @@
 
 [Worktree and branch cleanup, 2026-11-13](WORKTREE_CLEANUP_2026-11-13.md): 86 merged branches dropped with tips under `refs/archive/2026-11-13/`, 26 worktrees removed, 25 lane sessions archived; four items kept with reasons (New).
 
+[Lead core-flow audit, 2026-11-13](../audits/LEAD_CORE_FLOW_AUDIT_2026-11-13.md): blank-day, off-book, improvement and cold-reader checks on Klein, Harry and Fang Yuan by headless play; finds the earned lead saves no longer load (G1) and no ordinary day for Klein or Harry; proposals P1-P5, next action is Weibao's answer on P1 (New).
+
 [One ladder reconciliation, 2026-11-13](../audits/LADDER_RECONCILIATION_2026-11-13.md): places the existing coverage measures on one ladder from idea to played, maps a chat's proposals (L1-L10) to their owners, and proposes capability runs leading with books as the test set; proposals only, one open decision for Weibao (L5) (New).
 
 [AI field scan, 2026-11-08](../research/AI_FIELD_SCAN_2026-11-08.md): a news roundup sorted by level of use (dev time, baked content, optional runtime, not for here), with the local model found not answering and an offline climate-table idea; proposals only (New).
