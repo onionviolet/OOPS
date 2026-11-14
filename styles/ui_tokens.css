@@ -1936,3 +1936,5 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 #main_content.workspace-active[data-parity="r3"] .workspace-module-header select { min-height: 24px; }
 #main_content.workspace-active[data-parity="r3"] #current_focus summary { min-height: 24px; }
 #main_content.workspace-active[data-parity="r3"] #character_name_field { min-height: 24px; box-sizing: border-box; }
+/* UIC151: a control kept only as the thing other controls press. Out of sight, out of the tab order, still clickable by code. */
+.ui-mechanism-only { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); opacity: 0; pointer-events: none; }

@@ -7,8 +7,12 @@ import {quoteMixtureAction} from './mixture_native.js';
 import {RESPONSIVE_METHOD} from './mixture_rules.js';
 import {projectMixtureDiscovery,describeSelectedPlantReadings,describeVial} from './mixture_discovery.js';
 import {INGREDIENTS,getMixtureOwner,createMixtureState,mixturePresentation,mixtureKey} from './mixture_state.js';
+import {LAYOUT_SPEC} from './layout_spec.js';
 export function createMixturePanel({craftingContainer,actionContainer,read,act}){
     const launch=document.createElement('button');launch.id='village_mixing_open';launch.textContent='Mix at the Village counter';actionContainer.append(launch);
+    // UIC151: the counter is already a row in Around you and a tab under the centre; with benchActionRow off the third
+    // copy leaves the action list. The button stays as what the tab and the route press.
+    if(!LAYOUT_SPEC.benchActionRow){launch.className='ui-mechanism-only';launch.tabIndex=-1;launch.ariaHidden='true';}
     const panel=document.createElement('section');panel.id='village_mixing_panel';
     craftingContainer.before(panel);
     // Round 8 (PF4, PF11, PF15): the centre header names the counter; the panel opens on one narrator line.

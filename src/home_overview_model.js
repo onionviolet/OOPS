@@ -50,7 +50,8 @@ function groupsFor(home, form, sees) {
  * view is projectHomes() plus `observer` (observerView). Returns every fact as words.
  */
 // G6: a pack place is stored by its id (book.hp.lead.dormitory); the player reads its label, or its last word.
-const placeWord = place => place.label || (/^[a-z0-9_-]+(\.[a-z0-9_-]+)+$/.test(place.location) ? place.location.split('.').pop().replace(/[_-]/g, ' ') : place.location);
+// A dotted id reads as its last word; a last word that is itself a generated key ("cast-266d…") reads as "another place".
+const placeWord = place => place.label || (/^[a-z0-9_-]+(\.[a-z0-9_-]+)+$/.test(place.location) ? (/[0-9a-f]{6,}/.test(place.location.split('.').pop()) ? 'another place' : place.location.split('.').pop().replace(/[_-]/g, ' ')) : place.location);
 export function homeOverviewModel(view, {homeId} = {}) {
     const observer = view.observer, sees = request => (observer ? observer.sees(request) : true);
     if (!view.visible || !view.homes.length) {

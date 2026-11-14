@@ -28,14 +28,14 @@ try {
     poorStart.character.money = 0;
     await s.open(poorStart);
     await s.page.emulateMedia({reducedMotion: 'reduce'});
-    await s.page.locator('#village_mixing_open').click();
+    await s.page.locator('button[data-panel-path="mixing"]:visible').click();
     assert.equal(await s.page.locator('#center_mode_content').evaluate(n => n.classList.contains('center-mode-enter')), false);
     await s.page.getByRole('button', {name: /Buy one pack of River bellleaf/}).click();
     assert.match(await s.page.locator('#mixture_notice').innerText(), /Not enough coins/);
     await s.page.locator('#mixture_amount_River_bellleaf').fill('99');
     assert.match(await s.page.locator('#mixture_status').innerText(), /Missing .*River bellleaf/);
     await s.page.keyboard.press('Escape');
-    assert.equal(await s.page.locator('#village_mixing_open').evaluate(n => n === document.activeElement), true);
+    assert.equal(await s.page.locator('button[data-panel-path="mixing"]:visible').evaluate(n => n === document.activeElement), true);
     say('PASS reduced motion, poor purchase and Escape focus return');
 
     await s.open(seed); const p = s.page;
@@ -45,7 +45,7 @@ try {
     }));
     const homeColumns = await sideColumns();
     assert.ok(homeColumns.length);
-    await p.locator('#village_mixing_open').click();
+    await p.locator('button[data-panel-path="mixing"]:visible').click();
     const panel = p.locator('#village_mixing_panel'); await panel.waitFor({state: 'visible'});
     assert.deepEqual(await sideColumns(), homeColumns);
     const learned = () => p.locator('#mixture_discovery').evaluate(n => n.dataset.text);
@@ -101,7 +101,7 @@ try {
     const exported = await p.evaluate(() => window.save_to_file());
     await p.reload();
     await resumeAfterLoad(p);
-    await p.locator('#village_mixing_open').click();
+    await p.locator('button[data-panel-path="mixing"]:visible').click();
     await p.locator('#mixture_cancel').click();
     assert.equal((await s.save()).mixtures.job, null);
     await Promise.all([
@@ -110,7 +110,7 @@ try {
     ]);
     await resumeAfterLoad(p);
     assert.deepEqual((await s.save()).mixtures.job, reserved.mixtures.job);
-    if (!await p.locator('#mixture_cancel').isVisible()) await p.locator('#village_mixing_open').click();
+    if (!await p.locator('#mixture_cancel').isVisible()) await p.locator('button[data-panel-path="mixing"]:visible').click();
     await p.locator('#mixture_cancel').waitFor({state:'visible'});
     assert.equal(await p.locator('.mixture-controls summary').innerText(), 'Ordinary method');
     say('PASS saved reservation, reload, cancellation and exported file import');

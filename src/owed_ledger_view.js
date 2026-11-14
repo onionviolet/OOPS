@@ -50,7 +50,8 @@ function dueText(due, row) {
 // One row as the player reads it. `due` is {daysLeft, overdue} when the writer keeps a date; `amount` may be a live figure (interest,
 // easing) supplied by the host so the tab never shows a stale balance.
 export function owedRow(row, {actorId = CONTROLLED_ACTOR_ID, labels = {}, due = null, amount = row.amount, now = 0, house = null, late = null, quote = null} = {}) {
-    const name = id => id === actorId ? 'you' : labels[id] ?? PARTY_LABELS[id] ?? words(id);
+    // G6: a party known only by a dotted id reads as its last word ("the school"), never as the id's path ("hp lead school").
+    const name = id => id === actorId ? 'you' : labels[id] ?? PARTY_LABELS[id] ?? (/\./.test(String(id)) ? `the ${words(String(id).split('.').pop())}` : words(id));
     const direction = row.debtor === actorId || row.debtor === 'heir' ? 'owe' : row.creditor === actorId ? 'owed' : 'other';
     const party = direction === 'owed' ? name(row.debtor) : name(row.creditor);
     const what = amountText(row.kind, amount, row.unit), when = dueText(due, row);

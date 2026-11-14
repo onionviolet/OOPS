@@ -250,6 +250,8 @@ export const LAYOUT_SPEC = Object.freeze({
     // panel is always on screen, so the list does not repeat it. Defaults; move an id out to list it again.
     // G7 (2026-11-13): the panel a life that holds its own things opens on when Here has nothing to do. '' turns it off.
     lifeHome: 'beginning',
+    // UIC151: whether a bench also gets a row in the action list besides its station row and its tab. A default; true restores it.
+    benchActionRow: false,
     listing: Object.freeze({whenFound: Object.freeze(['cultivation-insights', 'hp']), never: Object.freeze(['current-work'])}),
     folds: Object.freeze({
         'today': Object.freeze({into: 'region-view', section: 'today', retired: true, label: 'Today'}),

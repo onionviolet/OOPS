@@ -125,8 +125,8 @@ const blockedWithoutReason = async where => {
     for(const row of rows) add('noreason', where, `${row} cannot be pressed and says no reason`);
 };
 // UIC136: the same destination offered by controls in three or more regions at once. A place row, a tab and an action
-// row can each be right on their own; the check keeps the count from growing. KNOWN lists today's cases.
-const KNOWN_WAYS = new Set(['mixing']);
+// row can each be right on their own; three is one too many. KNOWN_WAYS is empty since the action-list row for a bench went (UIC151).
+const KNOWN_WAYS = new Set();
 const duplicateWays = async where => {
     const ways = await p.evaluate(() => {
         const seen = new Map(), put = (key, region) => {if(!key) return; if(!seen.has(key)) seen.set(key, new Set()); seen.get(key).add(region);};

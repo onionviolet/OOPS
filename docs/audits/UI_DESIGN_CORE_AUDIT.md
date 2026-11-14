@@ -2657,7 +2657,7 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 
 | Code | Item | Status | What is left, or who decides |
 | --- | --- | --- | --- |
-| UIC127, UIC128, UIC151 | One place panel; the next step marks its target; three ways into one bench | UIC128 done (already built); UIC127 and UIC151 held for Weibao | "Show me" puts focus on the row the step names. Merging the place panels or dropping the action row removes a way in (AD56); `#village_mixing_open` is also what the tab, the route and five scripts press. Mock C shows the merge |
+| UIC127, UIC128, UIC151 | One place panel; the next step marks its target; three ways into one bench | UIC128 done (already built); UIC151 done, tenth batch; UIC127 not built | A bench is now reached from its station row and its tab; the third copy left the action list (`LAYOUT_SPEC.benchActionRow`). UIC127 proper, one list for people, stations and exits with the action list gone, is not built: "Talk to someone", "Find work" and "Move somewhere else" are named in the opening's own text and in the walk scripts, so it is a rebuild of the centre (mock C), not a patch |
 | UIC129, UIC160 | A condition names its effect and remedy; Condition route with two lines | Done `c15791cc5` | Remedy lines exist for Wet and the three cold stages; other effects show what they do and no remedy until one is written |
 | UIC130, UIC134, UIC138 | Long time in human units, the lint | Done `804e0991a` | 109 older lines retire as they are rewritten |
 | UIC131 | The screen grows with the life | Mocked `90e8967bb` (G) | Weibao |
@@ -2689,8 +2689,8 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 | UIC172 | Crafting readiness | Done `20d96a7cc` | Counts on tabs; sorting dropped because a "Makeable now" filter exists |
 | UIC173 | Mixing voice as the model | Noted | Quote it in briefs (PRS7) |
 | UIC174 | The palette is hidden | Done | "Find" in the top bar opens it and its tooltip says so (checked in source and Chrome); the Keys tab names it too |
-| UIC176 | Small click targets | Held for Weibao | Tried: a 24 px floor on bar, header and fold controls moved every panel 5 px and fixed 4 of 43. A real fix makes every panel header taller, which is the frame's density (direction B) |
-| UIC119, UIC122, M2 | Inline-format lint; visual baselines; Reports sizing | Done `32b9a86c8` and the ninth batch | `tests/number_format_ratchet.test.js` (37 older calls, count only falls); `npm run check:visual` with five baselines; the walk measures the log column once it holds eight lines, because a log starts each session empty |
+| UIC176 | Small click targets | Done `47f9956d5` | Every visible control on home gives the pointer 24 px (0 of 104 short, was 24 by the hit test). Short controls keep their drawn size and get an invisible band; panel headers and stat rows take a 24 px floor, which set the lower panels 7 px lower once. `check:flow` fails on a short target (`smalltarget`) |
+| UIC119, UIC122, M2 | Inline-format lint; visual baselines; Reports sizing | Done `32b9a86c8`, `47f9956d5` | `tests/number_format_ratchet.test.js` (37 older calls, count only falls). `npm run check:visual` compares five baselines exactly but for a dither pixel one colour level off. M2 is fixed on the screen, not in the check: the last 24 lines of the log are saved with the game and shown as "Earlier" on load, and the size check is strict again |
 | R2, R3, R5, M3, M4 | Round 46 and 47 findings | Replayed: R5 done, R2 reworded, M3 and M4 no longer true, R3 held | Journal opens on the current quest's steps. Worlds' lock says what it holds. The action list uses 48% of its box and no dropdown moves a neighbour. R3 (commands inside the Notebook) is the Notebook question, mock H |
 | PRS13 | Dry humour, deadpan first | Standing consideration | No pass |
 | Directions A to F | List and thing; one status line; empty space as the place; "what can I do now"; lead with the palette; a day strip | Mocked `90e8967bb` | Weibao picks |
@@ -2777,4 +2777,34 @@ Agent-verified, not human-reviewed. Working defaults under AD56. Commit `32b9a86
 
 **Checks.** `npm run test:changed` selected the whole suite: 7,518 pass, 0 fail, 2 skipped, with the eighth batch on disk. `node scripts/check_flow.mjs --rev HEAD` after the commit: 13 routes, four other states, 0 findings, 2 known. `check:arch`, `check:rules` pass. `check:visual --rev HEAD` on the ninth batch: four identical and home the same within noise (one antialiased pixel in the Reports card differs between unrelated commits, so up to four differing pixels pass and are printed); the nudge run still fails on all five.
 
-**What is left, all of it waiting on Weibao.** Each has a mock in `prototypes/ui-directions-2026-11-13/`: the top bar by use (UIC132, UIC175; E), the Notebook and its commands (UIC168, R3; H), the growing screen (UIC131; G), one place panel and the third way into a bench (UIC127, UIC151; C), the left column as the selected thing (UIC152, UIC170; A), and the frame's density with its small targets (UIC176; B). Nothing else on this ledger is open.
+**What was left after the ninth batch (superseded by the tenth to twelfth below; three of these were not his to wait on and are now built).** Each has a mock in `prototypes/ui-directions-2026-11-13/`: the top bar by use (UIC132, UIC175; E), the Notebook and its commands (UIC168, R3; H), the growing screen (UIC131; G), one place panel and the third way into a bench (UIC127, UIC151; C), the left column as the selected thing (UIC152, UIC170; A), and the frame's density with its small targets (UIC176; B). Nothing else on this ledger is open.
+
+### Tenth to twelfth batches: checks made strict again, and the lead lives (2026-11-14)
+
+Agent-verified, not human-reviewed. Working defaults under AD56. Commits `47f9956d5`, `d7c4b248a`, `443c527e9`, `28b654bbd` and the one after. This section corrects the ninth batch's close: it called three items "held" that needed no decision, and it passed two checks by loosening them.
+
+**Corrections to the ninth batch**
+
+- **The screenshot check is exact again.** The four-pixel allowance is gone. The one pixel that differs between builds is a dither pixel in a gradient, one colour level in 255 off; that single case passes and is printed, and any pixel two or more levels off fails however few there are. A one-pixel nudge still fails all five screens.
+- **M2 is fixed on the screen.** The walk no longer skips an empty log. Reports now opens on the last sitting: the final 24 lines are saved with the game as plain text, per world, and shown dimmed under "Earlier". A save without them loads as before; nothing reads them but this column. A brand-new life also gets one line saying what the column is for. Seen in Chrome after a fight, save and reopen: 25 earlier lines, the column 71% used. The walk now plays a short errand, saves and reopens before it reads home.
+- **The fight's two empty boxes are fixed and the walk's "known" list is empty.** With one opponent the separate Opponents list is not shown; the Opponent panel carries it and the fight card has the full width. A pack of eight rows or fewer stays on All in a fight, since everything is already on screen. Seen in Chrome. The opponent still appears twice (its detail panel and the fight card), which are two different things: a sheet and a move board.
+- **UIC176, small targets (done).** See the table. 0 of 104 by a real hit test, and the screen looks the same.
+- **UIC151, the third way into a bench (done).** See the table. Seen in Chrome: the Mixing tab opens the counter, Esc puts focus back on the tab, the station row keeps its own Open button. Four walk scripts that pressed the old row now press the tab.
+
+**Lead lives (lead audit, mid-life rerun: G6, G10, G15, G16)**
+
+Read on the three earned saves in the headless game, and seen in Chrome on the exam-week fixture (my Chrome harness does not get the earned saves past the loading screen; cause not found).
+
+- **G10, a lead's own actions come first.** In Harry's life Here held only two of the home hero's boxes (pacing, gear wear), so the rule that opens a life on its own panel never fired. Those boxes no longer show in a life with its own body, and once a life is under way its panel lists what can be done now above the account of how it began. The work line no longer says "Pick something under Here" in such a life. Seen: Harry's screen opens on "Follow the deputy head inside", "Go up to your dormitory", "Sit the Transfiguration paper".
+- **G15, the road ahead.** The closed list shows the next three steps (it held 75 for Harry and 88 for Fang Yuan), and of the continuations still shut only the next one is named.
+- **G6, other lives' things.** Fang Yuan keeps the native body, so the earlier rule missed him: his list no longer carries Phandalin, Rune bench, Tingen workroom, Potioneering, Patrol or Standing and ledger. Capability runs shows a lead only their own run, and is not offered in a life that has none. "Patrol blocked" is gone on all three saves.
+- **G6, raw ids.** Klein's panel printed "Return to lotm.place.cast-126f…" in thirty-eight blocked reasons; a place known only by its id now reads "This is done somewhere else; go there first." A debt to "hp lead school" reads "the school". "Away: cast 266d…" reads "another place". "Shift day 322 (local elapsed; civil date unknown)" reads "Day 322 here (calendar date not known)".
+- **G16, "Command saved."** A life's panel now says "Started: …, 4 min to go.", "Done: …" or "Stopped." Capability runs drops its own "· saved." line when the run reports what happened. The run's text reads well and fits at 1920×1080 (seen: feed, then refine).
+- **Not reproduced: G13.** On `lotm-kjw37` at load there is no rent line with "paid", "due in" or "due … ago", no "You need the Seer potion", and nobody marked as here while Around you says no one is. It was one unrechecked run; it needs the steps.
+- **Not mine to fix: G7's remainder.** Fang Yuan's Inventory lists what his save holds; the Gu named in his story are not in it, which is the save's content, not the panel.
+- **Not seen: the full aperture line.** The keeper fixture's sea is not full, so the new sentence did not show. Lines of that length wrap inside the 983 px panel without clipping.
+
+**What is still open**
+
+- **UIC127, one place panel.** Not built. See the table.
+- **Held for Weibao, with mocks:** the top bar by use (UIC132, UIC175), the Notebook and its commands (UIC168, R3), the growing screen (UIC131), the left column as the selected thing (UIC152, UIC170), and directions A to F.

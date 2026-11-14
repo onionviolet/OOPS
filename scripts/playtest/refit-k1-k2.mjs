@@ -14,7 +14,7 @@ const s=new Session({url:server.url+'?test_hooks=1',seed:87,wall:Date.UTC(2026,9
 const seed=JSON.parse(await readFile('tests/fixtures/perf/mid.json','utf8'));seed.customization=defaultCustomizationState();delete seed.availabilities.recipe.undefined;delete seed.availabilities.recipe['recipe/undefined'];
 seed.inventories.person.main_character[key('River bellleaf')]={count:3};seed.inventories.person.main_character[key('Spring water')]={count:3};
 async function replay(){await p.waitForFunction(()=>typeof window.simulationTestHooks==='object');await p.evaluate(()=>simulationTestHooks.pause());await p.locator('#loading_screen_play_button').click();await p.waitForTimeout(450);}
-async function mixer(){await p.locator('#village_mixing_open').click();await p.locator('[data-mixture-destination]').first().waitFor({state:'visible'});await p.waitForTimeout(600);}
+async function mixer(){await p.locator('button[data-panel-path="mixing"]:visible').click();await p.locator('[data-mixture-destination]').first().waitFor({state:'visible'});await p.waitForTimeout(600);}
 const lastResult=()=>p.locator('#mixture_feedback_lastResult').innerText();
 try{
  await s.start();

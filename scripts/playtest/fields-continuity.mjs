@@ -78,7 +78,7 @@ try {
     // Case B, laptop 1440x900: a real vial from the mixing counter, hatch, collapse harm.
     await session.open(await fixtureSeed()); page = session.page;
     await page.setViewportSize({width: 1440, height: 900}); receipt.viewports.push('1440x900'); await page.waitForTimeout(300);
-    await page.locator('#village_mixing_open').click();
+    await page.locator('button[data-panel-path="mixing"]:visible').click();
     await page.locator('[data-mixture-destination]').first().waitFor({state: 'visible'});
     await page.waitForTimeout(600);
     await page.locator('[data-mixture-destination="steep"] button').click(); await page.waitForTimeout(400);
