@@ -58,7 +58,7 @@ import {fileURLToPath, pathToFileURL} from 'node:url';
 import {reachableFrom, walkFrom, srcFiles} from './reachable.mjs';
 import {recordsOf} from '../src/knowledge_record.js';
 import {readLineage} from '../src/world_substrate.js';
-import {MECHANISMS, RULE_SAW_TITLES, SPLIT_RULE, splitLabelled, fitMechanisms, scoreHeldOut} from '../src/brew_heldout.js';
+import {MECHANISMS, SPLIT_RULE, splitLabelled, fitMechanisms, scoreHeldOut} from '../src/brew_heldout.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const COVERAGE_DIR = 'docs/coverage';
@@ -511,17 +511,32 @@ export function readLedgers(dir = path.join(root, COVERAGE_DIR)) {
 
 // ---- Held-out scoring (RUN.md wave order; PC72) ----
 // Per ledger: tuned on, held out, matched, plus sorted misses. A scored row never sits in its own
-// fit set. Outcome and route are separate. Only hp_potions has a split so far; the other ledgers
-// report "none yet" until a sample is chosen from held books (each wave names its own split).
+// fit set. Outcome and route are separate, and each is scored two ways: the diagnostic (a mechanism
+// family's predicted sentence against the evidence-labelled one) and engine execution (the fitted
+// mechanism run through the brew dose law and the generic case runner, compared with the label in
+// world terms). Only hp_potions has a split so far; the other ledgers report "none yet".
 const slugOf = t => t.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+// Families these three titles had before the wave-2 pattern fixes, to replay the "before" score.
+const PRE_FIX_FAMILY = {mandrake_restorative_draught: 'plant-or-creature-target', skele_gro: 'body-door', dr_ubblys_oblivious_unction: 'mind-state'};
 export async function heldOutScores(ledgers) {
     const out = new Map();
     const {HP_POTION_SENTENCES, predictionHolds} = await import('../src/world_packs/brew_effects_pack.js');
-    const {potionFamily} = await import('./b_coverage_ledgers.mjs');
-    const labelled = HP_POTION_SENTENCES.map(s => ({id: `hp.potion.${slugOf(s.title)}`, title: s.title, family: potionFamily(s.title), parts: s.parts, evidence: s.evidence}));
-    const split = splitLabelled(labelled);
-    const table = fitMechanisms(split.tuned);
-    const score = scoreHeldOut(split.heldOut, table, {beforeObject: predictionHolds});
+    const {potionFamily, HP_POTION_FAMILY_OVERRIDES} = await import('./b_coverage_ledgers.mjs');
+    const {RULE_INFORMED} = await import('../src/brew_heldout.js');
+    const {executeRows} = await import('../src/brew_heldout_cases.js');
+    const ruleSawTitles = Object.keys(HP_POTION_FAMILY_OVERRIDES);
+    const labelled = HP_POTION_SENTENCES.map(s => ({id: `hp.potion.${slugOf(s.title)}`, subject: s.subject, title: s.title, family: potionFamily(s.title), parts: s.parts, evidence: s.evidence}));
+    const run = data => runCaseData(data, {id: 'held-out'});
+    const scenario = async rows => {
+        const split = splitLabelled(rows, {ruleSawTitles});
+        const table = fitMechanisms(split.tuned);
+        const diag = scoreHeldOut(split.heldOut, table, {beforeObject: predictionHolds});
+        const engineHeld = await executeRows(split.heldOut, table, run);
+        const engineTuned = await executeRows(split.tuned, table, run);
+        return {split, table, diag, engineHeld, engineTuned};
+    };
+    const before = await scenario(labelled.map(r => PRE_FIX_FAMILY[r.subject] ? {...r, family: PRE_FIX_FAMILY[r.subject]} : r));
+    const after = await scenario(labelled);
     const ledger = ledgers.find(l => l.name === 'hp_potions');
     const unlabelled = new Map();
     if (ledger) {
@@ -531,34 +546,54 @@ export async function heldOutScores(ledgers) {
             if (m && !labelledIds.has(r.id)) unlabelled.set(m[1], (unlabelled.get(m[1]) ?? 0) + 1);
         }
     }
-    out.set('hp_potions', {split, table, score, unlabelled, labelled});
+    out.set('hp_potions', {before, after, unlabelled, ruleInformed: RULE_INFORMED});
     return out;
 }
 
+const countEngine = (results, key, skip = new Set()) => {
+    const rows = results.filter(r => !skip.has(r.id));
+    return {n: rows.length, match: rows.filter(r => r[key] === 'match').length, cannot: rows.filter(r => r[key].startsWith('cannot')).length};
+};
+const short = id => id.replace('hp.potion.', '');
+const reasonOf = v => v.replace(/^cannot: /, '').replace(/\|/g, '/');
+
 function renderHeldOut(held, ledgers) {
     const lines = ['', '## Held-out canon scoring (PC72, tuned on / held out / matched)', '',
-        '*Diagnostic, not an execution test: a mechanism family predicts the effect sentence and delivery route of a potion, compared with the evidence-labelled sentence (`HP_POTION_SENTENCES`, each citing an evidence row; no label is derived from a title). Outcome = verb, object and target agree; object = object only; route = carrier agrees. The tuning sample never counts as held out. The split rule lives in `src/brew_heldout.js`; this section is generated.*', '',
-        '| Ledger | Tuned on | Held out | Matched outcome | Matched object only | Matched route | Matched both | Split |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |'];
+        '*Two scores per row, outcome and route kept apart. **Diagnostic**: a mechanism family predicts the effect sentence and delivery carrier, compared with the evidence-labelled sentence (`HP_POTION_SENTENCES`, each citing an evidence row; no label is derived from a title). Outcome = verb, object and target agree; route = carrier agrees. **Engine**: the fitted mechanism is built into a brew dose case (`src/brew_heldout_cases.js`) and run through the generic case runner; the label, read in world terms, is the `expect`. Engine outcome = the world term the label names changed (mind rows are checked on the mood faculty, a fixed dial) (vitality quantity up or down, form property, mind property) after an oral dose; engine route = the mechanism\'s route leaves the dose where the label\'s route needs it. Self versus touched is not an engine distinction (the target is a bound holder), so engine outcome does not test it. The tuning sample never counts as held out. The split rule lives in `src/brew_heldout.js`; this section is generated.*', '',
+        '| Ledger | Tuned on | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route | Split |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |'];
     for (const l of ledgers) {
         const h = held.get(l.name);
         if (!h) { lines.push(`| ${l.name} | 0 | 0 | | | | | none yet |`); continue; }
-        const s = h.score;
-        lines.push(`| ${l.name} | ${h.split.tuned.length} | ${s.n} | ${s.outcome} of ${s.n} | ${s.afterObject} of ${s.n} | ${s.route} of ${s.n} | ${s.both} of ${s.n} | ${SPLIT_RULE} |`);
+        const a = h.after, eo = countEngine(a.engineHeld, 'outcome'), er = countEngine(a.engineHeld, 'route');
+        lines.push(`| ${l.name} | ${a.split.tuned.length} | ${a.diag.n} | ${a.diag.outcome} of ${a.diag.n} | ${a.diag.route} of ${a.diag.n} | ${eo.match} of ${eo.n} | ${er.match} of ${er.n} | ${SPLIT_RULE} |`);
     }
     for (const [name, h] of held) {
-        const s = h.score;
+        const a = h.after, b = h.before, skip = new Set(h.ruleInformed);
+        const row = (label, sc) => {
+            const eo = countEngine(sc.engineHeld, 'outcome'), er = countEngine(sc.engineHeld, 'route');
+            return `| ${label} | ${sc.diag.n} | ${sc.diag.outcome} | ${sc.diag.route} | ${eo.match} (${eo.cannot} cannot run) | ${er.match} (${er.cannot} cannot run) |`;
+        };
+        const kept = a.diag.rows.filter(r => !skip.has(r.id));
+        const untouched = {diag: {n: kept.length, outcome: kept.filter(r => r.outcome).length, route: kept.filter(r => r.route).length},
+            engineHeld: a.engineHeld.filter(r => !skip.has(r.id))};
         lines.push('', `### ${name}`, '',
-            '| Rule | Held-out object match | Outcome (verb, object, target) | Route (carrier) |', '| --- | ---: | ---: | ---: |',
-            `| Before: title family names an object (\`FAMILY_PREDICTS\`); no route rule | ${s.beforeObject} of ${s.n} | not named by that rule | no rule (0 of ${s.n}) |`,
-            `| After: per-mechanism default fitted on the tuning sample | ${s.afterObject} of ${s.n} | ${s.outcome} of ${s.n} | ${s.route} of ${s.n} |`, '',
-            `- **Tuned on** (${h.split.tuned.length}): ${h.split.tuned.map(r => `${r.id.replace('hp.potion.', '')} (${r.family}, ${r.evidence})`).join('; ')}.`,
-            `- **Fitted defaults**: ${Object.entries(h.table).map(([f, t]) => `${f}: ${t.verb} ${t.object} ${t.target} via ${t.carrier}`).join('; ')}. No default for ${MECHANISMS.filter(m => !h.table[m]).join(', ') || 'none'} (no evidence-labelled row).`,
-            `- **Rule saw these rows** (title override set against evidence; not held out): ${h.split.ruleSaw.map(r => r.title).join(', ') || 'none'}. Out of the five mechanisms (not counted): ${h.split.outOfScope.map(r => `${r.title} (${r.family})`).join(', ') || 'none'}.`,
-            `- **Held out** (${s.n}): ${s.rows.map(r => r.id.replace('hp.potion.', '')).join(', ')}.`,
-            `- **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: ${[...h.unlabelled].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([f, n]) => `${f} ${n}`).join(', ')}. The wiki body of each (revision in its \`source\`) is the queued data; the wiki host refused automated reads on 2026-11-13.`,
-            '', '**Sorted misses** (row, predicted, actual; outcome or route or both):', '',
-            '| Row | Family | Predicted | Actual | Outcome | Route |', '| --- | --- | --- | --- | --- | --- |',
-            ...s.misses.map(r => `| ${r.id.replace('hp.potion.', '')} | ${r.family} | ${r.predicted} | ${r.actual} | ${r.outcome ? 'match' : 'miss'} | ${r.route ? 'match' : 'miss'} |`));
+            '| Held-out matches | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route |', '| --- | ---: | ---: | ---: | ---: | ---: |',
+            row('Before the three title-pattern fixes', {diag: b.diag, engineHeld: b.engineHeld}),
+            row('After the fixes (all held-out rows)', {diag: a.diag, engineHeld: a.engineHeld}),
+            row('After, without the three rule-informed rows', untouched), '',
+            `- **Read this carefully**: the three rows \`${[...skip].map(short).join('`, `')}\` were scored, found to be misses caused by a wrong title pattern, and then informed a rule (\`scripts/b_coverage_ledgers.mjs\`: the mandrake-restorative entry left the plant pattern, \`skele-gro\` moved to body-form, and dressing nouns such as unction and salve now precede the mind words). They stay in the held-out count but are not untouched; the next wave's held-out number must not be read as if they were. The last line above leaves them out.`,
+            `- **Tuned on** (${a.split.tuned.length}): ${a.split.tuned.map(r => `${short(r.id)} (${r.family}, ${r.evidence})`).join('; ')}. Engine on the tuning rows, reported apart: outcome ${countEngine(a.engineTuned, 'outcome').match} of ${a.engineTuned.length}, route ${countEngine(a.engineTuned, 'route').match} of ${a.engineTuned.length}.`,
+            `- **Fitted defaults**: ${Object.entries(a.table).map(([f, t]) => `${f}: ${t.verb} ${t.object} ${t.target} via ${t.carrier}`).join('; ')}. No default for ${MECHANISMS.filter(m => !a.table[m]).join(', ') || 'none'} (no evidence-labelled row).`,
+            `- **Rule saw these rows** (title override set against evidence; not held out): ${a.split.ruleSaw.map(r => r.title).join(', ') || 'none'}. Out of the five mechanisms (not counted): ${a.split.outOfScope.map(r => `${r.title} (${r.family})`).join(', ') || 'none'}.`,
+            `- **Held out** (${a.diag.n}): ${a.diag.rows.map(r => short(r.id)).join(', ')}.`,
+            `- **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: ${[...h.unlabelled].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0])).map(([f, n]) => `${f} ${n}`).join(', ')}. The wiki body of each (revision in its \`source\`) is the queued data; the wiki host refused automated reads on 2026-11-13.`,
+            '', '**Per held-out row** (diagnostic predicted / actual; engine result, or why it cannot run):', '',
+            '| Row | Family | Predicted | Actual | Diag outcome | Diag route | Engine outcome | Engine route |', '| --- | --- | --- | --- | --- | --- | --- | --- |');
+        const engineOf = new Map(a.engineHeld.map(r => [r.id, r]));
+        for (const r of [...a.diag.rows].sort((x, y) => Number(x.outcome && x.route) - Number(y.outcome && y.route) || x.id.localeCompare(y.id))) {
+            const e = engineOf.get(r.id), show = v => v === 'match' || v === 'mismatch' ? v : `cannot: ${reasonOf(v)}`;
+            lines.push(`| ${short(r.id)} | ${r.family} | ${r.predicted} | ${r.actual} | ${r.outcome ? 'match' : 'miss'} | ${r.route ? 'match' : 'miss'} | ${show(e.outcome)} | ${show(e.route)} |`);
+        }
     }
     return lines;
 }

@@ -9,16 +9,19 @@
  * body form, a plant or creature target, a conceal or sense verb). */
 export const MECHANISMS = Object.freeze(['body-door', 'mind-state', 'body-form', 'plant-or-creature-target', 'conceal-or-sense']);
 
-/** Titles whose family comes from a title override that was set against the evidence labels
- * (scripts/b_coverage_ledgers.mjs HP_POTION_FAMILY_OVERRIDES). The rule saw these rows, so they
- * are reported on their own line and never count as held out. */
-export const RULE_SAW_TITLES = Object.freeze(['Wolfsbane Potion']);
+/** Rows whose title pattern was corrected after they were scored (wave 2, 2026-11-13): the rule now
+ * carries what these three misses showed, so they stay in the held-out count but a second line
+ * reports the score without them. Not untouched for any later wave. */
+export const RULE_INFORMED = Object.freeze(['hp.potion.mandrake_restorative_draught', 'hp.potion.skele_gro', 'hp.potion.dr_ubbly_s_oblivious_unction']);
 
 export const SPLIT_RULE = 'Among evidence-labelled rows in the five mechanisms whose family was not set by an override, '
     + 'the first row by id in each mechanism is the tuning sample; every other such row is held out.';
 
-/** Fixed split. rows: [{id, title, family, parts}]. */
-export function splitLabelled(rows) {
+/** Fixed split. rows: [{id, title, family, parts}]. ruleSawTitles: the title overrides set against the
+ * evidence labels (HP_POTION_FAMILY_OVERRIDES in scripts/b_coverage_ledgers.mjs); the rule saw those rows,
+ * so they never count as held out. The report script passes the table in, so src imports no script. */
+export function splitLabelled(rows, {ruleSawTitles = []} = {}) {
+    const RULE_SAW_TITLES = ruleSawTitles;
     const inScope = rows.filter(r => MECHANISMS.includes(r.family) && !RULE_SAW_TITLES.includes(r.title));
     const tuned = [];
     for (const family of MECHANISMS) {

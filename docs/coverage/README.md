@@ -30,50 +30,60 @@
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1580 of 1814 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1580 of 1815 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
 ## Held-out canon scoring (PC72, tuned on / held out / matched)
 
-*Diagnostic, not an execution test: a mechanism family predicts the effect sentence and delivery route of a potion, compared with the evidence-labelled sentence (`HP_POTION_SENTENCES`, each citing an evidence row; no label is derived from a title). Outcome = verb, object and target agree; object = object only; route = carrier agrees. The tuning sample never counts as held out. The split rule lives in `src/brew_heldout.js`; this section is generated.*
+*Two scores per row, outcome and route kept apart. **Diagnostic**: a mechanism family predicts the effect sentence and delivery carrier, compared with the evidence-labelled sentence (`HP_POTION_SENTENCES`, each citing an evidence row; no label is derived from a title). Outcome = verb, object and target agree; route = carrier agrees. **Engine**: the fitted mechanism is built into a brew dose case (`src/brew_heldout_cases.js`) and run through the generic case runner; the label, read in world terms, is the `expect`. Engine outcome = the world term the label names changed (mind rows are checked on the mood faculty, a fixed dial) (vitality quantity up or down, form property, mind property) after an oral dose; engine route = the mechanism's route leaves the dose where the label's route needs it. Self versus touched is not an engine distinction (the target is a bound holder), so engine outcome does not test it. The tuning sample never counts as held out. The split rule lives in `src/brew_heldout.js`; this section is generated.*
 
-| Ledger | Tuned on | Held out | Matched outcome | Matched object only | Matched route | Matched both | Split |
+| Ledger | Tuned on | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route | Split |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | creatures | 0 | 0 | | | | | none yet |
 | gu_kinds | 0 | 0 | | | | | none yet |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
-| hp_potions | 4 | 17 | 10 of 17 | 14 of 17 | 10 of 17 | 8 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
+| hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 12 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 0 | 0 | | | | | none yet |
 | lotm_potions | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
-| Rule | Held-out object match | Outcome (verb, object, target) | Route (carrier) |
-| --- | ---: | ---: | ---: |
-| Before: title family names an object (`FAMILY_PREDICTS`); no route rule | 14 of 17 | not named by that rule | no rule (0 of 17) |
-| After: per-mechanism default fitted on the tuning sample | 14 of 17 | 10 of 17 | 10 of 17 |
+| Held-out matches | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Before the three title-pattern fixes | 17 | 10 | 10 | 13 (0 cannot run) | 11 (6 cannot run) |
+| After the fixes (all held-out rows) | 17 | 11 | 11 | 15 (0 cannot run) | 12 (5 cannot run) |
+| After, without the three rule-informed rows | 14 | 10 | 9 | 13 (0 cannot run) | 10 (4 cannot run) |
 
-- **Tuned on** (4): blood_replenishing_potion (body-door, HPPE058); calming_draught (mind-state, HPPE061); deflating_draught (body-form, HPPE025); doxycide (plant-or-creature-target, HPPE060).
+- **Read this carefully**: the three rows `mandrake_restorative_draught`, `skele_gro`, `dr_ubbly_s_oblivious_unction` were scored, found to be misses caused by a wrong title pattern, and then informed a rule (`scripts/b_coverage_ledgers.mjs`: the mandrake-restorative entry left the plant pattern, `skele-gro` moved to body-form, and dressing nouns such as unction and salve now precede the mind words). They stay in the held-out count but are not untouched; the next wave's held-out number must not be read as if they were. The last line above leaves them out.
+- **Tuned on** (4): blood_replenishing_potion (body-door, HPPE058); calming_draught (mind-state, HPPE061); deflating_draught (body-form, HPPE025); doxycide (plant-or-creature-target, HPPE060). Engine on the tuning rows, reported apart: outcome 4 of 4, route 3 of 4.
 - **Fitted defaults**: body-door: add vitality self via potion; mind-state: transform mind self via potion; body-form: transform form self via potion; plant-or-creature-target: remove vitality touched via spray. No default for conceal-or-sense (no evidence-labelled row).
 - **Rule saw these rows** (title override set against evidence; not held out): Wolfsbane Potion. Out of the five mechanisms (not counted): Felix Felicis (luck-field).
 - **Held out** (17): cure_for_boils, dr_ubbly_s_oblivious_unction, dragon_dung_fertiliser, draught_of_living_death, draught_of_peace, mandrake_restorative_draught, murtlap_essence, pepperup_potion, polyjuice_potion, potion_for_dreamless_sleep, shrinking_solution, skele_gro, sleekeazy_s_hair_potion, sleeping_draught, swelling_solution, veritaserum, wit_sharpening_potion.
 - **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: body-door 72, effect-sentence 47, mind-state 38, body-form 35, plant-or-creature-target 29, conceal-or-sense 9, object-surface 7, place-release 6, luck-field 2, protection-field 2. The wiki body of each (revision in its `source`) is the queued data; the wiki host refused automated reads on 2026-11-13.
 
-**Sorted misses** (row, predicted, actual; outcome or route or both):
+**Per held-out row** (diagnostic predicted / actual; engine result, or why it cannot run):
 
-| Row | Family | Predicted | Actual | Outcome | Route |
-| --- | --- | --- | --- | --- | --- |
-| dr_ubbly_s_oblivious_unction | mind-state | transform mind self via potion | add vitality touched via topical | miss | miss |
-| dragon_dung_fertiliser | plant-or-creature-target | remove vitality touched via spray | add vitality touched via topical | miss | miss |
-| mandrake_restorative_draught | plant-or-creature-target | remove vitality touched via spray | release form self via potion | miss | miss |
-| murtlap_essence | body-door | add vitality self via potion | add vitality touched via topical | miss | miss |
-| shrinking_solution | body-form | transform form self via potion | transform form touched via potion | miss | match |
-| skele_gro | body-door | add vitality self via potion | transform form self via potion | miss | match |
-| sleekeazy_s_hair_potion | body-form | transform form self via potion | transform form self via topical | match | miss |
-| sleeping_draught | mind-state | transform mind self via potion | transform mind self via eaten | match | miss |
-| swelling_solution | body-form | transform form self via potion | transform form touched via topical | miss | miss |
+| Row | Family | Predicted | Actual | Diag outcome | Diag route | Engine outcome | Engine route |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| dr_ubbly_s_oblivious_unction | body-door | add vitality self via potion | add vitality touched via topical | miss | miss | match | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
+| dragon_dung_fertiliser | plant-or-creature-target | remove vitality touched via spray | add vitality touched via topical | miss | miss | mismatch | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
+| mandrake_restorative_draught | body-door | add vitality self via potion | release form self via potion | miss | match | mismatch | match |
+| murtlap_essence | body-door | add vitality self via potion | add vitality touched via topical | miss | miss | match | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
+| shrinking_solution | body-form | transform form self via potion | transform form touched via potion | miss | match | match | match |
+| sleekeazy_s_hair_potion | body-form | transform form self via potion | transform form self via topical | match | miss | match | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
+| sleeping_draught | mind-state | transform mind self via potion | transform mind self via eaten | match | miss | match | match |
+| swelling_solution | body-form | transform form self via potion | transform form touched via topical | miss | miss | match | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
+| cure_for_boils | body-door | add vitality self via potion | add vitality self via potion | match | match | match | match |
+| draught_of_living_death | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
+| draught_of_peace | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
+| pepperup_potion | body-door | add vitality self via potion | add vitality self via potion | match | match | match | match |
+| polyjuice_potion | body-form | transform form self via potion | transform form self via potion | match | match | match | match |
+| potion_for_dreamless_sleep | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
+| skele_gro | body-form | transform form self via potion | transform form self via potion | match | match | match | match |
+| veritaserum | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
+| wit_sharpening_potion | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
 
 ## Blocking rules
 
