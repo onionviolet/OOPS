@@ -696,6 +696,9 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         const d = registry.simulation.events.get(c.definitionId || id); assert(d, "Unsupported event director.");
         c.due += c.interval; c.count++;
         const actorId = c.actorId || d.actorId || "player", ctx = {...contexts[actorId], actorId, targetId: c.targetId || d.targetId || null, vitals: out.vitals};
+        // An event about someone who is not in this life cannot happen here: every life is enrolled in every automatic event (line 97),
+        // so a Gu keeper's care event reaches Klein's Tingen with no such Gu. It waits its interval instead of stopping the clock.
+        if(ctx.targetId && !s.people[ctx.targetId]) continue;
         const facts = {...simulationFacts(state, ctx, registry, [d.requires]), "event.misses": c.misses || 0, "event.attempts": c.attempts || 0, "event.occurrences": c.occurrences || 0};
         if(s.people[actorId].life === "alive" && (d.maxOccurrences == null || (c.occurrences || 0) < d.maxOccurrences) && meets(d.requires, facts) && !Object.values(s.events).some(e => e.definitionId === d.id && e.actorId === actorId && e.status === "open")) {
             const chance = resolveEffectAmount(d.chance ?? 1, facts);

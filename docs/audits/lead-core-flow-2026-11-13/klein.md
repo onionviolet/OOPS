@@ -93,3 +93,83 @@ Counts: WORKED 1 (offer visible only), FAILED WITH AN IN-WORLD REASON 2, NO ROUT
 3. No open-ended divination. Rites are 21 named book questions. A paid reading for a stranger, which the world plainly allows, has no route.
 4. Making and brewing have no ordinary use. "Making" is one burn action and Mixing has nothing to mix, so no ingredient, potion or charm can be made and sold.
 5. Nothing improves with repetition. No skill, tool or relationship meter shows on any action. Thoughts and meals repeat identically, and later-chapter Thoughts and meals are live on day one.
+
+## Mid-life rerun, 2026-11-13 (save lotm-kjw37)
+
+Read-only rerun of C1, C2 and C3 through the game MCP (session `klein-mid`, seed 1). The save loaded with no error: header "Day 53, morning · 08:55 at Moretti flat", 1498½ pence, a "While you were away · about 7 weeks" note, rent already paid in absence ("Rent and dues paid: 1 pound 15 soli"), and the current task "Join your first group case" blocked on "Wait until Wednesday afternoon". About 2.3 in-game days played (day 53 morning to day 55 afternoon, status clock 4 to 5 hours of drift from the header). C4 not run. Things I did not see are marked (inference).
+
+### C1 blank day
+
+| Link | Verdict | Evidence |
+|---|---|---|
+| a. Something to do that is not a book event | Partial | Real ordinary actions exist: hand in the weekly expense application to Captain Dunn, buy furniture at the Lettuce and Meat market (blanket 30p, tea crate 6p, shelf 48p), fit it at home, coin divination at the tent, Spirit Vision, ask Melissa to wash the dishes. But no work shift, no pay and no job exists. The Blackthorn office, Hound Tavern and Fortune-telling tent each showed no local action of their own. The one scheduled "job" is the Wednesday combat practice, which is a book task. |
+| b. A real cost | Partial | Money fell 1498½ to 1492½ for the crate. The expense chit says "It shuts in 4 days. Missed 6 times." Rent is 5 soli a week with a five-choice standing order and stated consequences. Spirit Vision showed a countdown (1h, then 50m). Walks cost 2 min each. Cogitation and thoughts spend only minutes, no stamina or stock ("No stock spent"). Rent deduction itself did not land inside my window (inference). |
+| c. A result something else reads | Present | After the chit, Dunn's line changed to "warmer toward you since you hand in your weekly expense application on time" and the People web showed manner "warmer". Home Storage went from 10 to 16 units once the crate was fitted. Night vision rose to level 4 by itself. Dunn also holds a gate: he answers a question once he has signed two of your weekly applications. |
+| d. A reason to come back tomorrow | Partial | Clocks exist: rent "due in 4 days" counting down, the chit window, Wednesday practice. But two and a half days of waiting produced only ambient lines (ferry horn, church bell, neighbour on the stairs, fog). No person arrived, no event fired, nothing asked for me. Melissa read "Away; return time and place are not known." Around you read "No one else is here." at home and at the office, while the People web marked Dunn and Rozanne "here" at the office. |
+| e. Something that improves with repetition | Partial | Night vision reached level 4 during idle time (a skill report, not a choice). Dunn's two-application gate is a repetition reward I did not reach. Fitting the flat has a visible ladder (Sleep done, Storage done, Study and practice empty, one room to build). Practice itself showed no stat or skill change that I could see; STR stayed 12.6 on the stat card before the session ended. |
+
+### Day notes
+
+- Day 53 morning: chit handed in, six places walked, crate bought and fitted, coin divination tried.
+- Day 53 noon to day 55: time stepped at home. No event fired by time alone. Thoughts, meals and talks stayed available but never moved the day.
+- Day 55 afternoon: "Go to Wednesday combat practice" became ready, ran 80 min in one block and returned "You finish practice and change. You think your potion may be digested by next week. Henry expects to finish the chimney search this week." Notebook count rose 1537 to 1540. At Gawain's house nobody was listed and the walk list said "You know no other places yet."
+
+### C2 off-book probes
+
+| Plan | Class | Evidence |
+|---|---|---|
+| Take a second job or earn some other way | NO ROUTE | No job, shift or commission at the office, tavern, market or flat. The thought "weigh work options" only sets an intention flag (seen in the opening run). |
+| Sell a reading on my own | NO ROUTE | Rites list is 22 fixed questions for named book subjects. No open client or fee action. |
+| Skip work | NO ROUTE | No shift to skip. Missing the weekly chit is possible (the screen shows "Missed 6 times") but I did not test the penalty. |
+| Spend savings on something odd | WORKED | Bought a lidded tea crate, 6 pence off, then "Installed Lidded tea crate", storage 10 to 16 units. |
+| Go to practice early | FAILED WITH REASON | Task blocker "Wait until Wednesday afternoon." |
+| Ask a colleague for training | FAILED WITH REASON | Old Neil is "busy with the books; nobody he trusts has spoken for you lately", and the button is disabled. Dunn's answer waits for two signed applications. |
+| Save money for a week | SILENT | Waiting changed nothing on the money line over 2.3 days and said nothing about saving. Rent is auto-paid while away. |
+| Gamble | NO ROUTE | Tavern had no actions at all. |
+| Write to a mentor | NO ROUTE | No letter or message action found in the flat, office or Talk lists (the 14 Dunn talks were not opened one by one). |
+| Practise a ritual alone (Cogitate quietly) | SILENT | Ran 10 min, no report line, no visible change. Its disabled text read "You need the Seer potion in you and a rested mind." even while the button ran. |
+| Open Spirit Vision | WORKED | Condition panel gained "Spirit Vision on 1h" and counted down. The same wrong "needs the Seer potion" line sat on the disabled twin. |
+| Ask the coin about returning home | FAILED WITH REASON | Ran through three one-minute steps, then "The answer will not settle; nothing you know bears on this question yet." |
+| Ask Melissa to wash the dishes | WORKED | Text confirmed, she carried the basin out, then showed "Away" with no return time. Nothing else read it (inference from nothing changing). |
+
+Counts: WORKED 3, FAILED WITH REASON 3, NO ROUTE 5, SILENT 2 (13 probes).
+
+### C3 improvable aspects
+
+- Weekly expense chit: Dunn's manner improves and a question unlocks after two signed chits. Visible, and the only repetition ladder I found that ties to a person.
+- Home fittings: three slots plus one room, each with a named empty state. Buying and fitting raises storage. Improves by spending.
+- Divination coin: the three-step coin flow can be replayed, but the answer was gated on knowledge I lack; I did not see it improve.
+- Spirit Vision: timed buff, no improvement seen.
+- Cogitation: silent, no meter.
+- Night vision: levelled by passing time, not by any action.
+- Thoughts, meals, rest, talks: identical on repeat. No skill or relationship meter.
+- Combat practice: one run, no visible gain.
+
+### Broken or untidy
+
+- Clicking "Spend 1 h of banked time" (the notice under "While you were away") returned no change lines, moved the status clock about 11 minutes, then every `game_step` failed with "Cannot nest advanceTicks." until `game_reload`. Reload restored the autosave at day 54 evening. Reported through `game_report_limit`.
+- Raw ids on screen: disabled reasons like "Return to lotm.place.cast-7351aa6540a4ac426acf." and "Return to lotm.anchor.place.b8c463e1934e7742." in Rest and meals and Thoughts. Also "Away: cast 266d12fc010442f95bac." on the rented-flat row at Gawain's house.
+- Another life's leftover: the office showed "Patrol blocked: return the loaned kit · Open Patrol & custody".
+- Later-book Thoughts and Rest entries are live on day 53 (for example "decide to brew Faceless Man potion tonight", the house-price estimate). The thought text is fixed and did not read my savings.
+- The header clock ("Day 53, morning · 08:55") and the status clock (16:55) differ by 8 hours throughout.
+- Headless pacing: a one-minute step cost 17 to 25 s of wall time, long steps about 2 game minutes per second. About 500 minutes per call is the safe ceiling, so one day costs roughly 12 minutes of wall time.
+- No page errors were reported by the game status.
+
+### What changed from the opening
+
+- The clock runs. The opening run's stop ("Unknown simulation participant book.ri.keeper.moon") did not appear on this save, so that bug is specific to the opening starts or already fixed (inference).
+- A mid-life Klein has actual ordinary hooks the opening lacked: a weekly chit that moves Dunn's attitude, a market with prices, a home with fittable slots, a rent that is auto-paid, a Wednesday task. C1(c) moves from partial to present.
+- The same holes remain: no income or pay for Nighthawk work, no divination for strangers, no repetition ladder for the potion or practice, people absent at home, and nothing fires from time alone.
+- Raw ids, other lives' leftovers and later-chapter Thoughts still show.
+
+## C4 cold reader, 2026-11-13 (save lotm-kjw37, tree 0f53ba3f0)
+
+A cheap agent with only the screen text, 15 actions a goal. One run.
+
+| Goal | Result | What happened |
+|---|---|---|
+| Find your money and what you owe | Reached, about 7 actions | Inventory header gave "1498½ pence". Work & merit gave "This week's rent of 5 soli is due in 4 days". Reports also said "Rent and dues paid: 1 pound 15 soli", and another notice said the rent was "due 3 days ago". |
+| Find how to earn or do your job today | Not reached, 9 actions | The job step was blocked ("Wait until Wednesday afternoon"). "Ask Captain Dunn how the funding request works" showed as text that could not be clicked. Handing in the expense application said "Handed in." with no amount. |
+| Do one divination and read the result | Not reached, about 5 actions | The walk to the fortune-telling tent and "Open your Spirit Vision" showed in one panel state only; "Open nearby actions" and "Back to Moretti flat" swapped between two states and the list would not stay open. |
+
+Most confusing: the rent reads paid, due and overdue at once; local actions swap in and out; pence, soli and pounds appear with no conversion. Clear: Work & merit states the weekly expense deadline and the rent with its payment choices.

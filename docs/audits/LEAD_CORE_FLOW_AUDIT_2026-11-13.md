@@ -1,8 +1,11 @@
 # Lead core-flow audit, 2026-11-13
 
-Status: findings and proposals (AD32). Nothing here is accepted direction and no
-game code changed. Agent-verified by headless play on the live tree, not
-human-reviewed.
+Status: findings and proposals (AD32). Nothing here is accepted direction.
+Agent-verified by headless play on the live tree, not human-reviewed. Revised the
+same day: the first pass judged stand-ins because the lead saves would not load;
+after the [G1 repair](#g1-repair-2026-11-13) the checks were rerun on real mid-life
+saves. **Read [the mid-life rerun](#mid-life-rerun-2026-11-13) first; it supersedes
+G2 to G7 and the proposal order below it.** Two repairs changed game code (G1, G12).
 
 Weibao asked what is wrong with the game as it stands and how to improve it
 before he plays, with Klein, Harry and Fang Yuan ahead of the other leads
@@ -46,11 +49,9 @@ failure and were not rerun.
 | G8 | **Actions give no result line.** A Moonblade throw spent 4 essence and reported nothing. Essence regenerated overnight at the cap is lost without a note. | Fang Yuan cold reader goal 3; keeper C2 silent case. | Seen in play. |
 | G9 | **Headless play is slow.** About 5 game minutes per wall second, so one in-game day takes about 45 seconds and a multi-day step passes the 300 second call limit. | Coordinator step receipt (870 minutes in 161 s); two agent sessions killed by timeouts. | Verified. This is why a week-long test is expensive. |
 
-One agent claim did not reproduce. The Klein audit reported that the clock stops
-near midnight of day one and that every time step fails with "Unknown simulation
-participant book.ri.keeper.moon". The coordinator stepped `lotm-klein-wanted`
-from day 1 08:01 to day 2 00:31 with no page error. The claim may hold for the
-fresh "Be Klein Moretti" start, which was not rechecked. Treat it as open.
+One agent claim did not reproduce at first: the Klein audit reported that the clock stops and every time step fails with
+"Unknown simulation participant book.ri.keeper.moon". The coordinator's first check stopped at day 2 00:31, hours short of
+it. A second check reproduced it at day 2 07:59 on a fresh Klein start. The agent was right; see G12 for cause and repair.
 
 ## G1 repair, 2026-11-13
 
@@ -69,6 +70,79 @@ human-reviewed. Not checked: the other 90-odd earned saves one by one, and Zoria
 Standing consequence: adding an item or place to a pack, or changing what a structured life compiles to, needs its
 declaration in the same change, or the lead-save test fails.
 
+## Mid-life rerun, 2026-11-13
+
+Run after the saves loaded again, on tree `0f53ba3f0`. C1 to C3 by one sonnet agent per lead; C4 by a haiku cold reader
+per lead. Detail is in each lead file under "Mid-life rerun" and "C4 cold reader".
+
+| Lead | Save | Days played | Note |
+|---|---|---|---|
+| Klein | `lotm-kjw37` (the quiet fortnight) | about 2.3 | Steps slowly on this save, about 0.6 wall seconds a game minute. |
+| Harry | `hp-w7-halloween` (ordinary weeks before the first match) | about 1.7, played twice | The first pass looked only at Local actions and found nothing; the replay went through his own panel. |
+| Fang Yuan | `ri-fang-yuan-class-chair` | about 3 | His own life, not the keeper stand-in. |
+
+`lotm-kjw49` and `hp-w11-farewell` were not used for the blank day: the first is the newest slice and the second stands at
+King's Cross with the year over, so neither has ordinary days ahead. Both load (see the repair section).
+
+### The five blank-day links, per lead
+
+| Link | Klein | Harry | Fang Yuan (own life) | Gu keeper (first pass) |
+|---|---|---|---|---|
+| (a) Something to do that is not a book event | partial: the weekly expense chit, furniture, fitting the flat, coin divination. No work shift. | present: lessons, charm practice, brewing after Potions, time with Ron | **missing**: one enabled control, the next story step | present |
+| (b) A real cost | partial: money, rent, the chit deadline, a timed Spirit Vision | partial: time, and brewing used 5 of 14 ingredients. No stamina cost seen. | **missing**: four days passed with no cost | present |
+| (c) A result something else reads | present: Dunn's manner went "warmer" after the chit; a crate took storage from 10 to 16 | partial: a lesson unlocks practice and brewing rows; nothing later read the brew or Ron | partial: passive skills only | present |
+| (d) A reason to come back tomorrow | partial: clocks count down, nothing fired from time alone | **missing**: nothing recurred the next day | **missing** | soft: larders last 5 to 9 days |
+| (e) Improves with repetition | partial: Dunn answers a question after two chits; divination is 22 fixed questions | partial: the practice row says each try raises the lift chance, no number shown | partial: passive skills from time alone | partial |
+
+What this says for build order: link (d) is missing or soft in all four lives, so nothing yet makes tomorrow matter. Fang
+Yuan's own life is the thinnest (three links missing) while the keeper life beside it is the fullest, and the two are not
+joined. Klein and Harry have things to do mid-life; what they lack is a day that repeats (a work shift and pay, a timetable).
+
+### Off-book plans, mid-life
+
+| Lead | Probes | Worked | Failed with a reason | No route | Silent |
+|---|---|---|---|---|---|
+| Klein | 13 | 3 | 3 | 5 | 2 |
+| Harry | 12 | 3 | 2 | 6 | 1 |
+| Fang Yuan | 13 | 0 | 2 | 8 | 3 |
+| All | 38 | 6 | 7 | 19 | 6 |
+
+Half still have no route (19 of 38; the first pass had 20 of 38). The difference mid-life is that Klein and Harry each
+have three that work.
+
+### Cold reader
+
+| Lead | Goals reached | What stopped it |
+|---|---|---|
+| Klein | 1 of 3 | Could not find paid work or reach a divination; the rent read paid, due and overdue at once. |
+| Harry | 1 of 3 | Could not find a lesson's time or room, or any spell he knows; "Actions" opened a story recap. |
+| Fang Yuan (own save) | 1 of 3 | Could not find his Gu or anything to practise; only the next story step. |
+| Gu keeper, after the UI chat's fix | 3 of 3 | Found its Gu and their food with no clicks (15 failed clicks on the first pass). The result of putting a Gu to work was still unclear. |
+
+### Findings, revised
+
+| Code | State after the rerun |
+|---|---|
+| G1 | Repaired and tested (repair section). |
+| G2 | **Revised.** Klein and Harry do have ordinary things to do mid-life. What is missing is the repeating day: no work shift or pay for Klein, no timetable for Harry, and nothing recurs tomorrow for either. |
+| G3 | Stands. The keeper life is still the one full loop. |
+| G4 | Stands: 19 of 38 mid-life probes had no route. |
+| G5 | Softened to partial for all three (see link e). |
+| G6 | Stands and widened: "Patrol blocked: return the loaned kit" sits in Local actions in all three lead lives (it shows the moment `hp-w7-halloween` boots). Also seen: Capability runs listing Fang Yuan, Klein and Su Xiao inside Harry's life; "A Soldier's Life" and "Elemental preparation" offered; raw ids "Return to lotm.place.cast-7351aa6540a4ac426acf.", "Away: cast 266d12fc010442f95bac." and "To hp lead school". "Dudley's birthday" was seen on `hp-exam-week` in the first pass and not looked for again. |
+| G7 | **Fixed for the keeper life** by the UI chat (1fc151270): the cold reader found its Gu with no clicks. Not fixed for Fang Yuan's own save, where Gu named in the story are not in the Inventory. |
+| G8 | Stands and is wider than fights: see G16. |
+| G9 | Stands. `lotm-kjw37` steps at about 0.6 wall seconds a game minute. |
+| G10 | **New. A lead's actions sit in a hidden, collapsed panel.** Harry's 161 controls and Fang Yuan's 206 live in the "Beginning" panel (`#structured_pack_panel`), which starts collapsed, while Local actions shows only another life's leftover. A sonnet agent played Harry for 2.5 days and reported nothing to do. Coordinator confirmed by inspecting the save. |
+| G11 | **New. Fang Yuan's own life has none of the keeper's Gu care.** His save holds a refined Liquor Worm, 132 stones and 8 petals and offers no feed, tend, work or hunt action; of 206 controls one is enabled, the next story step. Coordinator confirmed the count. |
+| G12 | **New, repaired. The clock stopped a day into a fresh Klein start** with "Unknown simulation participant book.ri.keeper.moon". This is the open claim from the first pass, now reproduced. Cause: every life is enrolled in every automatic event, and the keeper's daily care events (added 2026-11-12/13) name a Gu that other lives do not hold. Repair: an event whose subject is not in this life waits its interval (`src/simulation.js`), with a regression in `tests/simulation.test.js`. A fresh Klein start now runs three days with no error. Mid-life saves were not affected in play. |
+| G13 | **New. Klein's screen contradicts itself.** Rent reads "paid", "due in 4 days" and "due 3 days ago" together; "No one else is here" while People marks Dunn and Rozanne as here; the header clock and status clock differ by 8 hours; "You need the Seer potion…" shows on Spirit Vision and Cogitate, which both ran. One agent run each, not rechecked. |
+| G14 | **New. Spending banked time wedged stepping.** After "Spend 1 h of banked time", every later step failed with "Cannot nest advanceTicks." until a reload. Seen once, headless only; not rechecked in a browser. |
+| G15 | **New. The Beginning panel lists the whole road ahead.** About 88 future step titles for Fang Yuan, and Harry's later continuations by name. Klein's day 53 carries thoughts about late-book matters. |
+| G16 | **New. Ordinary actions give no result line.** Harry's charm practice, cast and flask hand-in; Fang Yuan's story step ("Command saved."); the keeper's "Put the Moonlight Gu to work · 1 essence, 1 stone", where the stone is a gain and the label reads as a cost. |
+
+Where these go: G6, G7, G10, G13, G15 and G16 are screen findings for the UI chat (through the coordination chat); the
+fight part of G8 is with the combat chat. G11 and the link table feed P3 and P4.
+
 ## What the three leads share
 
 The same three things are absent in all three lives, and they are the systems
@@ -84,7 +158,18 @@ the [November 10 rulebooks](../RULES_INDEX.md) already describe:
 
 ## Proposed order
 
-Proposals for Weibao, ranked. P1 is a repair; P2 to P5 are build order.
+Proposals for Weibao, ranked. Revised after the mid-life rerun: P1 and P2 are done, P3 changed, P6 is new.
+
+| Code | Revision |
+|---|---|
+| P1 | Done (repair section). |
+| P2 | Done (mid-life rerun section). |
+| P3 | **Changed: join Fang Yuan's own life to the keeper loop** before adding to either. His save already holds the Gu, stones and petals (G11); the feed, tend, work and refine actions exist one pack over. Then add the academy schedule, a rival and a daily cost. Done when his blank day passes links (a), (b) and (d). |
+| P4 | Narrowed by the link table: the shared gap is **a day that repeats and a reason to return** (link d), then income (Klein's work shift and pay, Harry's allowance or none by choice), then people present. Practice that improves exists in part and needs its number shown. |
+| P5 | Widened: also open a lead's own actions where the player looks first (G10), and stop listing the road ahead (G15). With the UI chat. |
+| P6 | **New: every ordinary action says what it did** (G16). With the UI chat; the fight half is with the combat chat. |
+
+The first-pass table follows for the record.
 
 | Code | Step | Why here | Done when |
 |---|---|---|---|
@@ -96,8 +181,8 @@ Proposals for Weibao, ranked. P1 is a repair; P2 to P5 are build order.
 
 ## Limits of this audit
 
-- Three sonnet agents and three haiku agents, one coordinator. No human play.
-- Each lead was judged on a stand-in save (see the first table).
-- C4 has one completed run.
+- First pass: three sonnet agents and three haiku agents, six at once (the repo default is two). Rerun: three sonnet and three haiku, two at a time. One coordinator. No human play.
+- The first pass judged stand-in saves; the rerun used one mid-life save per lead, played 1.7 to 3 days each, short of the week C1 asks for.
+- C4 has one run per lead. A cold reader is a cheap model, so "not reached" shows the screen did not lead it there, not that no route exists.
+- The first Harry rerun was wrong in an instructive way (G10); the replay corrected it. Fang Yuan's count was checked the same way. Klein's G13 and G14 were not rechecked.
 - C2 probes are a sample chosen by the agents, not a census.
-- Nothing was committed by this run.

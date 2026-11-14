@@ -195,6 +195,13 @@ test("bounded catch-up returns remaining work rather than skipping controller/ev
     const rest = advance(p,p.remaining,registry); let ticks=start(registry); for(let i=0;i<1000;i++) ticks=advance(ticks,1,registry);
     assert.deepEqual(rest.state,ticks.state);
 });
+// 2026-11-13: a Gu keeper's daily care events stopped the clock a day into any other life (lead core-flow audit, Klein).
+test("an automatic event about someone absent from this life waits instead of stopping the clock", () => {
+    const registry = sandbox({events:[{id:'fixture.absent_care',revision:1,label:'Care for a creature kept elsewhere',interval:2,lifetime:0,mode:'ambient',automatic:true,public:false,chance:1,targetId:'fixture.creature_elsewhere',effects:[]}]});
+    const first = advance(start(registry),1,registry); assert.ok(first.state.simulation.checks['fixture.absent_care'],'enrolled like every automatic event');
+    const p = advance(first,10,registry); assert.equal(p.state.clock,first.state.clock+10); assert.deepEqual(p.state.simulation.events,{});
+    assert.ok(p.state.simulation.checks['fixture.absent_care'],'still scheduled for a life that does hold the creature');
+});
 test("failed durable write publishes no actors, claims, native transfers, resources or unlocks", () => {
     const old = begin(), p = command(old,"village.commission",{targetId:"oldCraftsman"}), before=structuredClone(old);
     const envelope = {character:{money:30},inventories:{person:{main_character:{},oldCraftsman:{}}},levels:{person:{main_character:{},oldCraftsman:{}}},retired_content:{opaque:"keep"}};

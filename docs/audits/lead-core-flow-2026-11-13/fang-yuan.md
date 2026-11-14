@@ -113,3 +113,84 @@ Run "Fang Yuan · Liquor Worm" (from `fresh`): feed the Moonlight Gu (2 petals),
 5. **Foreknowledge and the Spring Autumn Cicada never touch routine actions.** Neither appeared in any playable ordinary day. A repeatable way to use them (a costed foresight on a hunt or a trade) would turn his cheat into a daily tool.
 
 Smaller notes: a repeated boar hunt kept the panel "busy" through a 2-day step and needed "Stop repeated work"; yields from that loop were unclear; the boar item had no visible use; stones per hour of work stay flat at 1, so repetition only improves things via new Gu and standing orders.
+
+## Mid-life rerun, 2026-11-13 (save ri-fang-yuan-class-chair)
+
+Read-only headless rerun of C1 to C3 on his own save. `ri-fang-yuan-class-chair` loaded on the first try (seed 1, session `fy-mid`), with no page errors. It opens on day 59, 19:45, at the Clan academy. Days played: days 59 to 62 (three one-day steps, then one story step and a 10 minute step). No source was edited. Not run: C4, and the "Fang Yuan · Liquor Worm" capability run (it was only listed). Not opened: the Trade standing, Potioneering and Study panels (the panel select would not take them; see Broken things).
+
+What the save holds, as seen: 132 primeval stones plus three partly drawn ones, 25 jars of green bamboo wine, 8 Moon Orchid petals, a refined Liquor Worm (an inventory row), 5 stale bread, and "102 coins (denominations unfamiliar)". Stones and the Worm show "0 coins" as value. Stats show no essence and no aperture figure anywhere. Local actions held one line, "Patrol blocked: return the loaned kit · Open Patrol & custody". "Around you" said "No one else is here."
+
+### C1 blank day
+
+| Link | Verdict | Evidence |
+|---|---|---|
+| (a) Something to do that is not a book event | **Missing** | Local actions never held a verb. The Beginning panel offered exactly one button ("Choose Fang Yuan at the clan hearing", then one step at a time: "Go with the academy elder", then "Let the witnesses finish"). Crafting said "No station", Mixing said "no mixing bench here", Ledger said "Take a commission to start one". No feed, tend, practice, class or cultivate action in any panel I opened. |
+| (b) A real cost | **Missing** | Four days passed with no cost shown. Stones stayed 132, no hunger or essence meter, no food clock for the Worm. The 8 minute story step cost only its 8 minutes. |
+| (c) A result something else reads | **Partial** | Only passive skills moved: Night vision (level 1 on day 60, level 2 with a "new milestone" on day 62), Breathing (day 61), Patience, and max stamina 40 to 41. Nothing else in the game read the stones, Worm or wine. |
+| (d) A reason to come back tomorrow | **Missing** | No timetable, meal, debt or class. The only tomorrow-hook is the story button, which does not expire. "Calendar unknown here" shows where a schedule would sit. |
+| (e) Improves with repetition | **Partial** | Passive skills level from idling alone (Night vision +480 XP on the first day, +480 per day after; Breathing and Patience likewise). No action of his improves. |
+
+Items asked about, as seen: feeding and tending Gu absent (clicking the Liquor Worm row did nothing); primeval essence absent from every panel; stones present as 132 but with no use or spend; academy classes absent (the room is described, nobody is in it); Moonblade practice absent (it exists only as a capability-run rehearsal, not run); aperture cultivation absent; rivals and clan people absent ("No one else is here."); Liquor Worm present as an inert row; foreknowledge and the Spring Autumn Cicada not visible anywhere (inference: they live in story lines only, none seen).
+
+### C2 off-book probes
+
+Counts: WORKED 0, FAILED WITH REASON 2, NO ROUTE 8, SILENT 3.
+
+| # | Plan | Class | Evidence |
+|---|---|---|---|
+| 1 | Skip the academy or refuse the summons | NO ROUTE | The summons step had one button, "Go with the academy elder". |
+| 2 | Sell a Gu or stones | NO ROUTE | Rows show "0 coins"; no sell action; Ledger empty. |
+| 3 | Buy a different Gu | NO ROUTE | No shop or trade action in Local actions or Beginning. Trade standing not opened. |
+| 4 | Extort classmates again | NO ROUTE | "No one else is here." |
+| 5 | Hunt for food | NO ROUTE | Local actions empty. |
+| 6 | Refine something risky | FAILED WITH REASON | "No crafting station is available here." |
+| 7 | Mix or brew with the wine | FAILED WITH REASON | "Mixing: no mixing bench here." |
+| 8 | Hoard stones for days | SILENT | Four days: stones stayed 132, no line either way. |
+| 9 | Befriend someone | NO ROUTE | Nobody present, no people action. |
+| 10 | Leave the village | NO ROUTE | Worlds offers only "A Soldier's Life" (not entered). No place to walk to. |
+| 11 | Starve a Gu on purpose | NO ROUTE | No feed verb to withhold; four days gave no hunger line for the Worm. |
+| 12 | Click the Liquor Worm row (feed or tend) | SILENT | Click ran, nothing reported. |
+| 13 | Click the Moon Orchid petals (feed a Gu) | SILENT | Click ran, nothing reported. |
+| 14 | Cultivate the aperture / Moonblade practice | NO ROUTE | No action; no essence figure shown. |
+
+### C3 improvable aspects
+
+- Passive skills (Night vision, Breathing, Patience): improve with elapsed time only, no action needed. Night vision hit level 2 and a milestone by day 62.
+- Max stamina: 40 to 41 over two days, from the same passive gain.
+- Story steps: each is a one-shot; none repeat or improve.
+- Everything else in the keeper findings (feeding, tending, standing orders, refinement, tie growth): not present for him, nothing to improve.
+
+### Fang Yuan's own life against the keeper life
+
+His save has the keeper's raw materials (a refined Liquor Worm, stones, petals) but none of its verbs: the feed, tend, work, hunt and standing-order loop that made the keeper's C1 pass is not offered to him, so his life is the thinner of the two. In his save the ordinary day is empty and the book rail is the only route, one button per step. Everything the keeper had at least partly (cost, meal clocks, ties, a stipend) is absent, and so is what only he should have (class schedule, rivals, foreknowledge, the Cicada). Stones sit at 132 with no sink and no source. Inference: the keeper loop is scoped to `book.ri.keeper` and was never wired to the lead's items.
+
+### Broken or odd
+
+- Panel select (`panel:` parameter and the All panels list) refused "Study", "Known things" and "Family qualities" with "No available player option". Several panels listed under All panels are other lives' (Phandalin, Tingen workroom, Spellbook, Patrol & custody, Potioneering): leftovers.
+- Local actions text is a leftover: "Patrol blocked: return the loaned kit · Open Patrol & custody".
+- "Go with the academy elder" ran for 8 minutes and left no Reports line; Reports only showed skill notices and the "Across the Threshold" deed.
+- The Beginning panel lists all 88 future story titles in plain text, and the item keys carry raw ids (`book.ri.lead...`); on screen only action keys, not labels, showed them.
+- Backup button read "Load the backup autosave [2025-12-31 19:00:00]", a date that does not match the game's day 62 summer.
+- No page errors. The clock advanced normally (about 43 to 50 game minutes per wall second; one day about 30 s).
+
+## C4 cold reader, 2026-11-13 (tree 0f53ba3f0)
+
+A cheap agent with only the screen text, 15 actions a goal. One run on each save. The keeper run retests the UI chat's fix in 1fc151270.
+
+Gu keeper life (`gu-fed-second`):
+
+| Goal | Result | What happened |
+|---|---|---|
+| Find which Gu you own and what they eat | Reached, 0 actions | Inventory lists "Moonlight Gu · Food: Moon Orchid petals, 4 a day" and the Liquor Worm with its food. On the first audit this goal failed after 15 actions. |
+| Feed one Gu | Reached, 4 actions | Feeding is a standing order that fires as time passes. Nothing confirmed the click; a day later petals went 24 to 20. |
+| Use a Gu and read the result | Reached, result unclear | "Put the Moonlight Gu to work · 1 essence, 1 stone": essence 12 to 11, stones 0 to 1, so the label reads as a cost and the stone was a gain. Reports said nothing. |
+
+Fang Yuan's own save (`ri-fang-yuan-class-chair`):
+
+| Goal | Result | What happened |
+|---|---|---|
+| Find which Gu you own and your stones | Not reached, 8 actions | Inventory shows "Primeval stone x132" and "Liquor Worm · refined" as plain rows. The story names Little Light, White Boar, Moonglow and Black Boar Gu that are nowhere in the Inventory. |
+| Find practice, study or Gu care for today | Not reached | Notebook's Practice tab was empty. Local actions showed truncated text with nothing to click. |
+| Find the next step and do it | Reached, 2 actions | Beginning, then "Choose Fang Yuan at the clan hearing". The screen said "Command saved." and showed no result. |
+
+Most confusing on his own save: Beginning lists about 88 future steps; Local actions has text and no buttons; "Study · Ask around for someone to teach you" shows in a header and cannot be reached. Clear: the next story step is pinned at the top of Beginning.

@@ -97,3 +97,82 @@ Counts: WORKED 1, FAILED WITH REASON 3 (plus 1 partly shown), NO ROUTE 7, SILENT
 5. Village-hero leftovers (Dursley day header, Patrol notice, village skills, raw id) crowd the screen and hide that the real school actions are missing.
 
 Caveat: fixture is exam week from a composed save, and the private school extensions did not load, so some gaps may be content that exists in a full build. I could not tell which from the screen.
+
+## Mid-life rerun, 2026-11-13 (save hp-w7-halloween)
+
+Read-only headless play. First pass (`harry-mid`) was replaced after the coordinator pointed to the hidden panel; this is the replay (`harry-mid2`, seed 1). No code, test or other doc edited. What I saw on screen unless marked "(inference)".
+
+### Findability
+
+The first pass found nothing to do because Harry's life actions sit in `#structured_pack_panel`, a collapsed workspace module that a player reaches through the top-bar "Beginning" button (or Notebook > "Your beginning"). Local actions showed only "Patrol blocked: return the loaned kit", a leftover from another life, and the Here tab was empty. A new player has no cue that the real actions are under "Beginning", which is titled like a backstory page. The panel is long: its text begins with the Dursley and Hagrid backstory and the action rows come after it.
+
+### Setup
+
+- `hp-w7-halloween` loads, day 93 18:21, Great Hall, 11 Galleons, wand and broom. Days played: day 93 18:21 to day 95 12:15, about 1.7 in-game days, stepped in minutes and one 850 and one 1110 minute step. Page errors: none.
+- At boot the panel offers 4 enabled things: Continue to the first Quidditch match (not chosen), Go up to the dormitory, Sit with Ron in the common room (30 min), and a Charms practice bench choice. 75 more rows sit under "Not available yet (75)", mostly completed sorting-day rows ("This action has already been completed").
+- The save carries no school people in the People panel (8 entries, all pre-term), and Ron never appeared there even after five sessions with him (inference: his ties live only in the Beginning panel).
+
+### C1 Blank day
+
+| Link | Verdict | Evidence |
+|---|---|---|
+| (a) Something to do that is not a book event | Present | Day 94: sit with Ron (30 min, evening day 93), attend the first Charms lesson (30 min, enabled 09:02), practise the levitation charm in Charms (30 min, enabled 09:33), attend Potions (45 min, enabled 10:04), then a three-step brew (simmer 30 min, take off the fire 5 min, add the quills 30 min) and "Hand in your flask" (5 min), then practise with Ron (20 min, repeatable). Ordinary school actions, none a book event. |
+| (b) It costs something real | Partial | Time: each action has a quoted duration. Ingredients: the brew used 5 of the 14 items the Potions lesson gave. A feather is used up by "Float your feather over to Ron". Stamina: no cost seen. The Cold debuff (stamina x0.8, "Very cold" x0.6 by the morning of day 95) came from the empty hall overnight, not from a choice. |
+| (c) Result something else reads | Partial | Lessons unlock the practice and the potion actions (Charms lesson unlocked the practice bench, practice and Cast; Potions unlocked the brew). Ron lines get appended to Ron's entry in the Beginning panel ("grumbled at his feather with you", "took turns with the charm"). Stamina rose +1 then +2. I did not see any later action change because of the brew, the flask hand-in or Ron. |
+| (d) Reason to come back tomorrow | Missing | On day 95, 09:04 to 12:15, no lesson came back: the first Charms lesson shows "already been completed", Potions and the practice bench showed only "required knowledge, means or circumstances are missing". Only Ron practice, Go to dormitory, Cast the charm and Float the feather stayed. No timetable text was seen (inference: lessons may recur on a weekly schedule not reached in 1.7 days). |
+| (e) Something improves with repetition | Partial | The practice row states "Each try, lifted or dropped, adds one step of practice, and the chance of lifting it rises with practice" (read from the row), but I ran it once and the Reports log showed no result line, so I did not see the number or the chance. Ron practice repeated 5 times with a flavour line each time and nothing readable changed. |
+
+### C2 Off-book probes
+
+Done through the panel where an action exists.
+
+| # | Plan | Label | Evidence |
+|---|---|---|---|
+| 1 | Practise a spell alone | WORKED (silent result) | "Practise the levitation charm in Charms" ran for 30 min after the first lesson; no result line, no chance shown. Disabled before the lesson and again after about 10:04 ("The required knowledge, means or circumstances are missing"). |
+| 2 | Skip a class | WORKED | Day 95: no class was taken, nothing was lost or said. Lessons I skipped that day simply did not appear. |
+| 3 | Study in the library | NO ROUTE | No library place; "Revise Transfiguration, 90 min" is present but disabled with the generic blocker, and I found no way to enable it. Flamel in the library is behind the Christmas continuation. |
+| 4 | Brew outside class | WORKED | The brew's steps ran in the Great Hall after the Potions lesson (Simmer, Take off the fire, Add the quills, Hand in your flask). Brewing without the lesson was not enabled before it. |
+| 5 | Spend time with someone other than Ron | NO ROUTE | No other person has an action. |
+| 6 | Visit Hagrid | NO ROUTE | Not in the panel. |
+| 7 | Explore a corridor | NO ROUTE | Only Great Hall and dormitory exist; Go up / Go down take 0 minutes. |
+| 8 | Write home by owl | FAILED WITH REASON | "Send back your answer" exists in the list as "already been completed". |
+| 9 | Buy something | NO ROUTE | 11 Galleons, no shop or price anywhere. |
+| 10 | Break curfew | NO ROUTE | No curfew and no night action. |
+| 11 | Sit with Ron again | FAILED WITH REASON | "This action has already been completed" (the sit is one-off); Ron practice is the repeatable one. |
+| 12 | Use the charm on something else | SILENT | "Cast the levitation charm on a feather" ran, no message, no change I could read. |
+
+Counts: WORKED 3, FAILED WITH REASON 2, NO ROUTE 6, SILENT 1. The failed-reason lines are the panel's own text; its blocker line for a disabled lesson or practice is always the same generic sentence, so it never says what to do (right place, right hour or a prerequisite).
+
+### C3 Improvable aspects
+
+- Charms practice (30 min): meant to raise the chance of lifting, per its own row. I could not read the chance or step count; no result line.
+- Practise together with Ron (20 min, repeat 3 times): a flavour line each time; nothing visible changes.
+- Brew then hand in the flask: ingredients go in and one flask comes out (the item count rose then fell on hand-in); the hand-in is silent. No speed, yield or quality change seen.
+- Attend Potions (45 min, "Repeat 3 times"): gave 5 items (14 from 9) once; not tried twice.
+- Cast and Float the feather: the float uses up the feather; no change read.
+- Idle Village skills still rise (Cold resistance, Breathing) but nothing reads them.
+
+### Other things seen
+
+- Raw-id or other-life leftovers: Local actions "Patrol blocked: return the loaned kit"; Other worlds offers a Lion Legion posting (first pass); the Ledger row "To hp lead school" (first pass); the Beginning panel opens with the Dursley backstory and "Today is Dudley's birthday" in the text above the school actions (the earlier "Dudley's birthday" is this panel text, not the household panel).
+- "Repeat ... 3 times" on Ron practice kept running past the three (about 60+ min), and I could not find "Stop repeated work" by text (inference: wording or timing).
+- The Cold debuff returns each night in the Great Hall; going to the dormitory and back took 0 minutes and changed nothing I could see.
+
+### What changed from exam week
+
+- The actions exist. In exam week the only choices were seven papers; here day 94 offers a Charms lesson, a practice window, Potions, a three-step brew and practice with Ron, all as optional ordinary time.
+- Lessons look one-off or windowed, not a timetable: the first Charms lesson is "already completed", Potions and the practice bench were enabled only in the morning of day 94, none came back on day 95 up to 12:15 (inference for a later week).
+- Results are silent or flavour-only: charm practice, cast, flask hand-in and Ron sessions give no number a player can read.
+- Same people gap, same other-life leftovers, and the first pass's findability failure is the main new finding.
+
+## C4 cold reader, 2026-11-13 (save hp-w7-halloween, tree 0f53ba3f0)
+
+A cheap agent with only the screen text, 15 actions a goal. One run.
+
+| Goal | Result | What happened |
+|---|---|---|
+| Find your next lesson and where | Not reached, about 14 actions | "Actions" opened the "Your beginning" recap. The only lesson text was "Learn the Levitation Charm in Charms first", with no time or room. "Local actions 12 entries" read as collapsed and its header did nothing. |
+| Find a spell you know and practise it | Not reached, 15 actions | Skills said "4 / 4 skills" under three collapsed categories with no names. Find "Charm" gave 0 of 4. Stats showed Magic 0, Mana 0. "Spellbook · not here" could not be opened. |
+| Spend time with a friend and see what changed | Reached, 2 actions | Beginning, then "Sit with Ron in the common room · 30 min". A story line about Ron's family appeared. People and Notebook did not change, and Ron is not listed in People. |
+
+Most confusing: "Actions" opens a story recap; skills have no visible names; Capability runs lists Fang Yuan, Klein and Su Xiao in Harry's life. Clear: time with a friend is one named action with a timer.
