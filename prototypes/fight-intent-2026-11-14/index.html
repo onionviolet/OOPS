@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finish or spare: where the choice lives</title>
+<style>
+:root{--bg:#081a3a;--card:#0d2550;--edge:#34558f;--tile:#10295a;--text:#dfe7f5;--dim:#9fb0cf;--gold:#f2c94c;--red:#e0607a;--good:#7fd1a8}
+*{box-sizing:border-box}
+body{margin:0;background:#050f24;color:var(--text);font:14px/1.45 Menlo,Consolas,monospace;padding:24px}
+h1{font-size:18px;margin:0 0 4px;color:var(--gold)}
+.note{color:var(--dim);margin:0 0 20px;max-width:1300px}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1500px}
+.frame{background:var(--bg);border:1px solid var(--edge);padding:12px}
+.frame h2{font-size:15px;margin:0 0 2px;color:var(--gold)}
+.frame .why{color:var(--dim);font-size:12px;margin:0 0 10px;min-height:52px}
+.card{background:var(--card);border:1px solid var(--edge);padding:10px}
+.title{color:var(--gold)}
+.sum{font-weight:bold;margin:2px 0 6px}
+.stakes{margin:4px 0 8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.btn{display:inline-block;border:1px solid var(--edge);background:var(--tile);padding:2px 8px;color:var(--text)}
+.btn.on{border-color:var(--gold);color:var(--gold)}
+.vs{display:flex;gap:8px;align-items:center;margin:6px 0 8px}
+.side{border:1px solid var(--edge);padding:6px 8px;flex:1;font-size:12px}
+.side .bar{height:4px;background:#2a3f6b;margin-top:4px}.side .bar i{display:block;height:4px;background:var(--gold)}
+.down{color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.tile{border:1px solid var(--edge);background:var(--tile);padding:5px 6px;font-size:12px;min-height:58px}
+.tile b{display:block;font-weight:normal;color:var(--text);border-bottom:1px solid #22406f;margin-bottom:3px}
+.tile span{color:var(--dim)}
+.tile.blocked{opacity:.55;border-style:dashed}
+.band{border:1px solid var(--gold);background:#1a2c5a;padding:8px;margin:0 0 8px}
+.band .q{color:var(--gold);margin-bottom:6px}
+.band .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.band .choice{border:1px solid var(--gold);background:var(--tile);padding:6px}
+.band .choice b{font-weight:normal;color:var(--gold)}
+.band .choice span{display:block;color:var(--dim);font-size:12px}
+.fold{color:var(--dim);border-top:1px dashed var(--edge);padding-top:6px;margin-top:2px;font-size:12px}
+.intent{border:1px solid var(--edge);padding:6px 8px;margin:0 0 8px;background:#0f2a5c}
+.intent .lab{color:var(--dim);font-size:12px}
+.seg{display:inline-flex;border:1px solid var(--edge);margin-top:4px}
+.seg span{padding:2px 9px;border-right:1px solid var(--edge)}.seg span:last-child{border-right:0}
+.seg .on{background:#2b4d8a;color:var(--gold)}
+.hint{color:var(--dim);font-size:12px;margin-top:4px}
+.opener{border:1px solid var(--edge);padding:8px;margin-bottom:10px;background:#0b2147}
+.opener .title{margin-bottom:4px}
+.result{border-left:3px solid var(--good);padding-left:8px;margin-top:8px;font-size:12px}
+.stamp{color:var(--dim);font-size:11px;margin-top:16px}
+</style></head><body>
+<h1>Finish or spare: where the choice lives</h1>
+<p class="note">A mock in the game's look, drawn over Fang Yuan's lightning-wolf hunt. The text comes from the live fight capture of 2026-11-14 (<code>ri-fang-yuan-finish-or-spare-window.jpg</code>). It is not a build: nothing on this page is in the game yet. The left frame is today's screen; the other two are proposals.</p>
+<div class="row">
+
+<section class="frame">
+<h2>Today</h2>
+<p class="why">Finish and Spare are two tiles among fifteen. The question only appears inside the text of the "Fight on" tile. Attacks are still offered against a body that is down.</p>
+<div class="card">
+<div class="title">A lightning wolf beyond the wall</div>
+<div class="sum">0 opponents standing, 1 down at your feet.</div>
+<div class="stakes">Hunt · stakes: the wolf's life, and battle merit · can be deadly. <span class="btn">Hold back</span></div>
+<div class="vs"><div class="side">You · 52/60 hp<div class="bar"><i style="width:86%"></i></div>Essence 5</div><div class="side">A lightning wolf<br><span class="down">× Down</span></div></div>
+<div class="grid">
+<div class="tile"><b>Finish the lightning wolf</b><span>2 time · They are down and helpless. End it.</span></div>
+<div class="tile"><b>Spare the lightning wolf</b><span>1 time · They are down. Leave them alive.</span></div>
+<div class="tile"><b>Quick strike</b><span>3 time · A fast, light blow.</span></div>
+<div class="tile"><b>Heavy swing</b><span>6 time · A slow, hard blow.</span></div>
+<div class="tile"><b>Moonblade</b><span>5 time · 4 essence</span></div>
+<div class="tile"><b>Black Boar fist</b><span>3 time · 1 essence</span></div>
+<div class="tile"><b>Ask them not to kill</b><span>2 time · Call for an end short of killing.</span></div>
+<div class="tile"><b>Back away</b><span>4 time · Try to leave.</span></div>
+<div class="tile"><b>Fight on until something changes</b><span>… A lightning wolf is down. Finish or spare?</span></div>
+</div></div>
+</section>
+
+<section class="frame">
+<h2>Option 1 · ask at the moment</h2>
+<p class="why">A band opens when the wolf goes down. The two choices say what follows, and the moves fold away. The fight stops every time a body drops: clear, but forty wolves a night means forty stops.</p>
+<div class="card">
+<div class="title">A lightning wolf beyond the wall</div>
+<div class="sum">0 opponents standing, 1 down at your feet.</div>
+<div class="stakes">Hunt · stakes: the wolf's life, and wolf parts for the board · can be deadly. <span class="btn">Hold back</span></div>
+<div class="vs"><div class="side">You · 52/60 hp<div class="bar"><i style="width:86%"></i></div>Essence 5</div><div class="side">A lightning wolf<br><span class="down">× Down</span></div></div>
+<div class="band"><div class="q">The lightning wolf is down.</div>
+<div class="pair"><div class="choice"><b>1 · Finish it</b><span>It dies. You can take the eye, pelt and meat; the board pays for the eye.</span></div>
+<div class="choice"><b>2 · Spare it</b><span>It limps back into the trees. The woods keep one more wolf.</span></div></div></div>
+<div class="fold">▸ Other moves (12): tend a wound, back away, Moonblade…</div>
+</div>
+</section>
+
+<section class="frame">
+<h2>Option 2 · choose earlier, ask only on surprises (recommended)</h2>
+<p class="why">You set what you intend when you face the wolf, and can change it during the fight. With "Finish" or "Spare" set, the fight follows it without stopping. The band from option 1 appears only for "Ask me", or when something changes the stakes: a person, a plea, a knife drawn.</p>
+<div class="opener"><div class="title">The wolf at the wall</div>
+<div>A lightning wolf leapt the wall and is circling under the lamps.</div>
+<div class="intent" style="margin-top:6px"><span class="lab">If it goes down</span><br><span class="seg"><span class="on">Finish</span><span>Spare</span><span>Ask me</span></span>
+<div class="hint">Usual on the wolf tide: finish. The clan pays for eyes and ears.</div></div>
+<span class="btn on">Face it</span> <span class="btn">Let the watch drive it off</span></div>
+<div class="card">
+<div class="title">A lightning wolf beyond the wall</div>
+<div class="sum">1 opponent standing.</div>
+<div class="stakes">Hunt · can be deadly · if it goes down: <span class="seg"><span class="on">Finish</span><span>Spare</span><span>Ask me</span></span> <span class="btn">Hold back</span></div>
+<div class="grid">
+<div class="tile"><b>Quick strike</b><span>3 beats · A fast, light blow.</span></div>
+<div class="tile"><b>Moonblade</b><span>5 beats · 4 essence</span></div>
+<div class="tile"><b>Fight on</b><span>Plays your moves; follows "if it goes down".</span></div>
+<div class="tile blocked"><b>Ask it not to kill</b><span>A wolf does not bargain.</span></div>
+</div>
+<div class="result">You finished the lightning wolf, as you meant to. Eye, pelt and 3 jin of meat are in your pack; the meat keeps about three days.</div>
+</div>
+</section>
+</div>
+<p class="stamp">Prototype for a decision (2026-11-14). The usual answer depends on the world's frame: a wolf tide finishes, Harry's duel spares, a person asks. "Ask me" is never overridden: a person always asks, and so does a fight whose stakes change.</p>
+</body></html>
