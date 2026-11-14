@@ -36,7 +36,13 @@ await p.waitForTimeout(600);
 
 const route = async id => {await p.locator(`#workspace_navigation button[data-route-id="${id}"]`).click(); await p.waitForTimeout(400);};
 const shots = {};
-const grab = async name => {shots[name] = await p.screenshot();};
+// A view can still be settling when it is first drawn (a tab's count arrives a beat after the tab), so a screen is
+// kept once two captures in a row are the same bytes.
+const grab = async name => {
+    let last = await p.screenshot();
+    for(let i = 0; i < 8; i++) {await p.waitForTimeout(250); const next = await p.screenshot(); if(next.equals(last)) break; last = next;}
+    shots[name] = last;
+};
 await grab('home');
 await route('preparation'); await grab('stats');
 await route('belongings'); await grab('inventory');

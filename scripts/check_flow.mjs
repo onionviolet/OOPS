@@ -130,7 +130,7 @@ const KNOWN_WAYS = new Set();
 const duplicateWays = async where => {
     const ways = await p.evaluate(() => {
         const seen = new Map(), put = (key, region) => {if(!key) return; if(!seen.has(key)) seen.set(key, new Set()); seen.get(key).add(region);};
-        for(const b of [...document.querySelectorAll('#main_content button, #main_content [role="button"], #workspace_navigation button')].filter(b => b.offsetParent)) {
+        for(const b of [...document.querySelectorAll('#main_content button, #main_content [role="button"], #workspace_navigation button')].filter(b => b.offsetParent && getComputedStyle(b).pointerEvents !== 'none')) {
             const region = b.closest('.workspace-module')?.dataset.module || b.closest('[id]')?.id || '?';
             put(b.dataset.inspectNearby, region); put(b.dataset.panelPath, region); put(b.dataset.routeId?.split(':')[0], region);
             const open = b.id.match(/^(?:village_)?([a-z-]+)_open$/); if(open) put(open[1], region);
