@@ -17,9 +17,9 @@ export const TEMPO_PRESETS = Object.freeze({
     drill: {label: 'Drill', lethal: false, disarm: null, stopAt: 20, text: 'A practice bout. Someone calls it off soon.', stakes: 'pride'},
     duel: {label: 'Duel', lethal: false, disarm: 'wand', stopAt: 0, text: 'A duel: it ends when someone loses their wand, is bound, gives way or goes down.', stakes: 'standing'},
     brawl: {label: 'Brawl', lethal: false, disarm: null, stopAt: 0, text: 'An unruled scrap. It usually stops short of killing, but a hard enough blow can still kill.', stakes: 'pride'},
-    hunt: {label: 'Hunt', lethal: true, disarm: null, stopAt: 0, text: 'A hunt: the quarry fights for its life and so do you.', stakes: 'a life'},
+    hunt: {label: 'Hunt', lethal: true, disarm: null, stopAt: 0, text: 'A hunt: the quarry fights for its life.', stakes: 'a life'},
     mugging: {label: 'Robbery', lethal: false, disarm: null, stopAt: 0, text: 'A robbery: he wants your purse, not your life, but a blow is a blow.', stakes: 'property'},
-    skirmish: {label: 'Skirmish', lethal: true, disarm: null, stopAt: 0, text: 'A skirmish: both sides mean it.', stakes: 'a life'},
+    skirmish: {label: 'Skirmish', lethal: true, disarm: null, stopAt: 0, text: 'A skirmish: the other side means it.', stakes: 'a life'},
 });
 export const TEMPO_PRESET_IDS = Object.freeze(Object.keys(TEMPO_PRESETS));
 // How a fighter ended, beside its status. `killed` and `knocked_out` come from downing blows; `disarmed` and `bound` from landed casts.

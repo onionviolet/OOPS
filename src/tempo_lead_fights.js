@@ -22,8 +22,8 @@ export const TINGEN_BRAWL = Object.freeze({
     foeHp: {value: 24, why: 'A desperate dock labourer: tougher than a clerk, no trained fighter (tempo scale, as the road rival).'},
     knife: {value: 1.3, why: 'A short knife cuts harder than a fist and is as quick; it does not reach further.'},
 });
-const TINGEN_STAKES = {preset: 'brawl', lethal: true, stakes: 'your purse, and maybe your life',
-    text: 'A robbery gone wrong in a back lane. He has a knife and means it; a hard enough blow from either of you can kill.',
+const TINGEN_STAKES = {preset: 'brawl', lethal: true, stakes: 'your purse, and his life',
+    text: 'A robbery gone wrong in a back lane. He has a knife and means it. A blow from you that drops him can kill him; his knife can drop you, and you wake hurt.',
     why: 'WS3: open fights in Tingen are rare and dangerous. A knife makes it lethal; holding back is how you keep a death off your hands, and the police off your door.'};
 registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the back lane',
     text: 'A man with a knife steps out of an alley off Iron Cross Street and wants your purse. It can turn deadly either way.',
@@ -31,7 +31,7 @@ registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the bac
     quote(state) {
         if(state.actors?.player?.worldId !== 'book.lotm.tingen' || !state.lotm) return {visible: false};
         if(busy(state)) return {visible: true, eligible: false, reason: 'Another encounter is already open.'};
-        return {visible: true, eligible: true, reason: 'Deadly stakes: a downing blow can kill, yours included. Hold back to knock him out instead.'};
+        return {visible: true, eligible: true, reason: 'Deadly for him: a blow that drops him can kill. Hold back to knock him out instead. If he drops you, you wake hurt.'};
     },
     spec: (state, context, helpers) => ({id: 'lotm-lane-knife', title: 'A knifeman in the back lane', floor: 1, stakes: TINGEN_STAKES,
         conditions: {light: 'day', place: 'Tingen back lane'},
@@ -116,12 +116,12 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
         if(busy(state)) return {visible: true, eligible: false, reason: 'Another encounter is already open.'};
         const parts = reserve(state), kit = wolfKit(state, context);
         if(kit.moonblade.blocked) return {visible: true, eligible: true, reason: `${kit.moonblade.blocked} You can still go out with fists.${woundCarried(state) ? ' You carry tonight\'s wound into it.' : ''}`};
-        return {visible: true, eligible: true, reason: `${parts} parts of essence in your sea; a moonblade costs ${WOLF_HUNT.moonblade.value}.${woundCarried(state) ? ' You carry tonight\'s wound into it.' : ''} Outside the wall a downing blow kills.`};
+        return {visible: true, eligible: true, reason: `${parts} parts of essence in your sea; a moonblade costs ${WOLF_HUNT.moonblade.value}.${woundCarried(state) ? ' You carry tonight\'s wound into it.' : ''} Outside the wall a blow that drops the wolf kills it.`};
     },
     spec(state, context, helpers) {
         const kit = wolfKit(state, context);
         return {id: 'ri-wolf-tide', title: 'A lightning wolf beyond the wall', floor: 1, conditions: {light: 'day', footing: 'bad', place: 'Beyond the wall'},
-            stakes: {preset: 'hunt', stakes: 'your life, and battle merit', text: 'A hunt beyond the wall: the wolf fights for its life and so do you. A downing blow kills.',
+            stakes: {preset: 'hunt', stakes: 'the wolf\'s life, and battle merit', text: 'A hunt beyond the wall: the wolf fights for its life. A blow that drops it kills it; if it drops you, you wake badly hurt.',
                 why: 'WS2: killing is common outside the walls; the tide is why you are here.'},
             fighters: [you(helpers, {moves: [...PLAIN, ...Object.keys(kit)], kit, means: {essence: reserve(state)}, meansLabels: {essence: 'essence'},
                 ...(woundCarried(state) ? {hp: Math.max(1, Math.round(helpers.vitals.health * WOLF_HUNT.woundCarried.value * 10) / 10)} : {})}),
