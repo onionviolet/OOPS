@@ -2579,3 +2579,51 @@ Weibao: "Run the pass". Read-only; nothing in the runtime changed. Proposals (AD
 4. The Notebook (UIC168) is its own design question and goes to Weibao with a mock, since it decides where whole features live.
 
 Ledger additions: UIC164 to UIC171, open. UIC163 done (this round).
+
+### UIC164 landed: the stubs (2026-11-13)
+
+Weibao: "Fold the stubs". Agent-verified, not human-reviewed. Working defaults under AD56; each is one id in a table and moves back by removing it.
+
+Reading the seven first changed what each one needed:
+
+| Entry | What it was | What happens now |
+| --- | --- | --- |
+| Capability runs | A panel holding one "Open capability runs" button | The list entry opens the runs view, as its top-bar tab does |
+| Continuing connection | A panel holding one "Open your connection" button | The list entry opens the connection view |
+| Journal & received accounts | The Journal's box with "Choose a tab" and one line | The list entry opens the Journal on its Quests tab, as the Journal tab does |
+| Current work & saving | Two status phrases that are always on screen | Not listed |
+| Cultivation insights | A title with nothing under it | Listed once it has an insight to show |
+| The household day | A title with nothing under it | Listed once that day has begun |
+| Neighbors | A start button with an option beside it | Left alone: it is a start form that grows into a list, not a stub. My reading in round 50 was wrong |
+
+- **How.** `LAYOUT_SPEC.listing` holds the two short lists (`whenFound`, `never`). The All panels control now opens an entry through its route when the route names a launcher or a tab, so the list and the top bar cannot open different things. No panel file changed, and saved layouts are untouched.
+- **Seen in headless Chrome** at 1920×1080 on the `perf/mid` fixture: 53 entries listed, down from 56; Capability runs opens its view (331 characters where the stub had 20); Continuing connection opens its view; Stats and Ledger open as before; no page errors.
+- **Not done.** The Journal's header still says "Choose a tab" while a tab is chosen. The two Journal names remain (UIC165).
+- **UIC169 closed, not a defect.** "Local actions" returns the centre to Here by design (`expandWorkspaceModule`); my probe then measured a panel left open behind it.
+- **Test.** `tests/panel_folds.test.js` checks that every listing rule names a live, unfolded panel and that every launcher route has a target.
+
+Ledger: UIC164 done, UIC169 closed, UIC163 done.
+
+## Round 51, 2026-11-13: the work views, the keys, and what can be clicked
+
+Weibao: "other general ui improvements?" Method: headless Chrome at 1920×1080 on the working tree, `perf/mid` fixture; the three bottom tabs (Crafting, Mixing, "?") captured and read; every visible control measured for size; text on flat backgrounds measured for contrast. Proposals (AD32); nothing in the runtime changed. Angles not covered this round: combat, a long played life, the start screen, hover text, sound.
+
+| Code | Finding or idea | Evidence | Effort |
+| --- | --- | --- | --- |
+| UIC172 | **Crafting says "Missing" seventeen times.** Every Tinkering recipe reads "Missing" with nothing about what or how much. Show how close each is ("2 of 3", or the one thing short), sort what can be made now to the top, and put a makeable count on each of the seven skill tabs so an empty tab is known before it is opened. | Seen. The list-and-detail layout itself fits the template well. | M |
+| UIC173 | **The Mixing counter is the voice to copy.** "Bundles of plants and a jug of spring water. I wonder what I could make here." then plain costs: "Missing 1 River bellleaf and 1 Spring water; buying them costs 10 coins." This is PRS9 and PRS12 working. One gap: "Mix one vial · instant" looks ready while ingredients are missing. | Seen. | S |
+| UIC174 | **The best tools are behind a "?".** The last bottom tab opens a key list that reveals a command palette (Ctrl+K: "go to any panel, item or action"), a row menu on right-click with "every action a row offers", F6 to cycle panels and Esc to go back. Nothing on the main screen hints at any of them. Rename the tab ("Keys"), and let the next-step line or an empty state mention the palette once. | Seen. Whether "Find" in the top bar opens the palette was not checked. | S |
+| UIC175 | **Shortcut letters cannot be guessed.** Knows is Alt+F, Organizations Alt+X, Capability runs Alt+U, Connection Alt+Y, Beginning Alt+G. With 20 routes the alphabet is spent, which is one more reason to lead with the palette and trim the bar (UIC132, held). | Seen in the key list. | With UIC132 |
+| UIC176 | **Small click targets.** 41 of 111 visible controls on home are under 24 px in height or width, the top bar's buttons among them. 24 px is the usual floor for a mouse target. | Measured. | S to M |
+| UIC177 | **One contrast miss on flat backgrounds.** The orange weight letter "W" in Inventory is 2.86 to 1 against its row (4.5 is the usual floor for text). Everything else measured passes. Text over gradients, which is most of the centre column, could not be measured this way. | Measured. | S, and a gradient-aware check later |
+| UIC178 | **The left column differs by view.** On Crafting and Mixing the left column keeps Condition and Gear; on a top-bar route it drops them. Same frame, two behaviours. Settle it with UIC152. | Seen: Crafting against Stats. | With UIC152 |
+| UIC179 | **The key list covers what it describes.** It opens as a box over the centre panel and starts scrolled past its first rows. A side sheet or its own view would let the player try a key while reading it. | Seen. | S |
+
+**Keyboard order was not established.** A first Tab landed on the whole top bar with no visible focus ring, then the open key list trapped focus, so the walk says nothing about the rest. It needs its own pass.
+
+**Three more directions, as options to mock.**
+- **D, "what can I do now" everywhere.** One rule across lists: ready things first, then near things with the gap named, then the rest. Crafting (UIC172), the Ledger's buttons (UIC159) and blocked actions (UIC166) are the same problem in three places.
+- **E, lead with the palette.** A visible search field in the top bar that is the palette, with the tab row shortened to what is opened most. It answers 20 routes, unguessable letters and the "All pane" cut-off together. It narrows the bar, so it waits for Weibao with UIC132.
+- **F, the unusual one: a day strip.** Time is what this game spends, yet the screen shows only the current minute. A thin strip of today's hours across the centre top, marked with what happened and what the routine plans next, would make an idle day readable at a glance and give the one clock (UIC146) a home.
+
+Ledger additions: UIC172 to UIC179, open.

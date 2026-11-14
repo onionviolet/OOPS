@@ -59,3 +59,16 @@ test('a fresh start announces nothing, now or on later loads, though its own lay
     assert.deepEqual(movedNotices({storage, stored: []}), []);
     assert.deepEqual(movedNotices({storage}), [], 'the next load stays quiet');
 });
+
+// UIC164: list entries that used to open a stub.
+test('listing rules name live panels, and no panel is both unlisted and conditionally listed', () => {
+    const {whenFound, never} = LAYOUT_SPEC.listing;
+    for (const id of [...whenFound, ...never]) {
+        assert.ok(LAYOUT_SPEC.surfaces[id], `${id} has no surface`);
+        assert.ok(!LAYOUT_SPEC.folds[id], `${id} is folded, so its listing rule never runs`);
+    }
+    assert.equal(whenFound.filter(id => never.includes(id)).length, 0);
+    // A panel that is only a launcher or a tab chooser is opened through its route, so each such
+    // route has to name something the list can match.
+    for (const route of LAYOUT_SPEC.routes) if (route.select || route.tab) assert.ok(LAYOUT_SPEC.surfaces[route.target], `${route.id} targets ${route.target}, which has no surface`);
+});

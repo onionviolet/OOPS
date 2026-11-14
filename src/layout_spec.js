@@ -244,6 +244,10 @@ export const LAYOUT_SPEC = Object.freeze({
     // COV5 / COV12 (2026-10-30), UR13: views folded into one owner (src/panel_folds.js). `retired`: the
     // module is gone and its id aliases the owner (and `section`, a tab); otherwise the module stays
     // inside the owner's box and only the All panels list and the palette stop repeating it.
+    // UIC164 (2026-11-13): All panels entries that opened a stub. `whenFound`: listed only while the panel's
+    // own discovered() says it has something to show (it stays reachable the moment it does). `never`: the
+    // panel is always on screen, so the list does not repeat it. Defaults; move an id out to list it again.
+    listing: Object.freeze({whenFound: Object.freeze(['cultivation-insights', 'hp']), never: Object.freeze(['current-work'])}),
     folds: Object.freeze({
         'today': Object.freeze({into: 'region-view', section: 'today', retired: true, label: 'Today'}),
         'around-place': Object.freeze({into: 'region-view', section: 'notes', retired: true, label: 'Around this place'}),

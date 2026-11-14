@@ -8,7 +8,7 @@ const shortReason=reason=>{const text=String(reason||'').replace(/\.$/,'');retur
 import {centerModes} from './center_modes.js';
 import {decorateInventoryList,summarizeGroups} from './ui_components.js';
 import {mountGameBar} from './game_bar.js';
-import {routeTable} from './layout_spec.js';
+import {routeTable,LAYOUT_SPEC} from './layout_spec.js';
 import {changeSignal,subscribeChange,publishChange} from './ui_change_signal.js';
 import {registerChangeProbes} from './ui_change_probes.js';
 import {shortcutGroups} from './shortcut_registry.js';
@@ -51,7 +51,9 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     for(const route of routes){const {label,key,target:id}=route,b=document.createElement('button');b.type='button';b.textContent=label;
         b.dataset.panelPath=id;if(route.tab)b.dataset.panelTab=route.tab;b.dataset.routeId=route.id;b.title=`${label} · Alt+${key.toUpperCase()}`;b.setAttribute('aria-keyshortcuts',`Alt+${key}`);b.onclick=()=>{delete b.dataset.newHome;go(route);};nav.append(b);buttons.set(route,b);}
     const more=document.createElement('select');more.setAttribute('aria-label','Other known panels');
-    more.onchange=()=>{if(more.value){arrivals.delete(more.value);expandWorkspaceModule(more.value);}more.value='';};nav.append(more);
+    // UIC164: an entry whose panel is only a launcher or a tab chooser opens what its top-bar route opens.
+    const routeFor=id=>routes.find(route=>route.target===id&&(route.select||route.tab));
+    more.onchange=()=>{const id=more.value;if(id){arrivals.delete(id);const route=routeFor(id),button=route&&buttons.get(route);if(button&&!button.hidden&&button.getAttribute('aria-disabled')!=='true'&&!button.disabled)button.click();else expandWorkspaceModule(id);}more.value='';};nav.append(more);
     const help=document.createElement('button');help.type='button';help.textContent='?';help.title='Keyboard shortcuts · ?';nav.append(help);const extras=mountUiExtras({nav,openPanel:expandWorkspaceModule});
     const sheet=document.createElement('dialog');sheet.id='workspace_shortcuts';const title=document.createElement('h2');title.textContent='Panel shortcuts';
     const list=document.createElement('div'),close=document.createElement('button');close.type='button';close.textContent='Close';close.onclick=()=>sheet.close();sheet.append(title,list,close);nav.append(sheet);
@@ -101,7 +103,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
         const next=JSON.stringify([known,[...arrivals],known.map(m=>badgeCount(m.id))]);if(next!==last){last=next;more.replaceChildren();const first=document.createElement('option');first.value='';first.textContent=arrivals.size?'All panels… •':'All panels…';more.append(first);
             // COV6: five groups in player words; a greyed row says why (UIV1) instead of sitting there silent.
             const groups=new Map(PANEL_GROUPS.map(g=>[g,document.createElement('optgroup')]));groups.forEach((g,name)=>{g.label=name;});
-            for(const m of known){if(['pane-navigation','shell-log-tools'].includes(m.id)||(controlForRoute(m.id)&&!observer.sees({control:controlForRoute(m.id)})))continue;const option=document.createElement('option');option.value=m.id;const why=m.eligible?'':shortReason(m.reason);option.textContent=m.title+(arrivals.has(m.id)?' •':'')+(badgeCount(m.id)?` (${badgeCount(m.id)} new)`:'')+(why?` · ${why}`:'');option.title=m.eligible?'':m.reason;option.disabled=!m.eligible;(groups.get(m.group)||groups.get('World')).append(option);}
+            for(const m of known){if(['pane-navigation','shell-log-tools'].includes(m.id)||LAYOUT_SPEC.listing.never.includes(m.id)||(LAYOUT_SPEC.listing.whenFound.includes(m.id)&&!m.found)||(controlForRoute(m.id)&&!observer.sees({control:controlForRoute(m.id)})))continue;const option=document.createElement('option');option.value=m.id;const why=m.eligible?'':shortReason(m.reason);option.textContent=m.title+(arrivals.has(m.id)?' •':'')+(badgeCount(m.id)?` (${badgeCount(m.id)} new)`:'')+(why?` · ${why}`:'');option.title=m.eligible?'':m.reason;option.disabled=!m.eligible;(groups.get(m.group)||groups.get('World')).append(option);}
             groups.forEach(g=>{if(g.children.length)more.append(g);});}
             // COV5/COV12: a folded panel is listed once, under its owner (src/panel_folds.js).
             for(const option of [...more.querySelectorAll('option')])if(!listable(option.value))option.remove();for(const group of [...more.querySelectorAll('optgroup')])if(!group.children.length)group.remove();
