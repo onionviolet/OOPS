@@ -2487,3 +2487,95 @@ Weibao: "more to consider?" Four more captures read (Condition, Data, Ledger, an
 **The pattern in this round.** Round 48's misses were rules without checks. These are mostly panels that were each built alone: every feature brought its own tab, its own buttons row and its own explanatory note, and no pass has read them side by side. A side-by-side read of all panels against one template (title, one-line purpose, list, selected detail, actions that apply now) would find the rest faster than more single captures. Proposed as **UIC163, a panel template pass**: sonnet, M to L, read-only first, output a table of every panel against the template. Done: each of the panels in "All panels" has a row.
 
 Ledger additions: UIC157 to UIC163, open.
+
+## Round 50, 2026-11-13: every panel against one template (UIC163)
+
+Weibao: "Run the pass". Read-only; nothing in the runtime changed. Proposals (AD32).
+
+**Method.** Headless Chrome at 1920×1080 on the working tree (`abeb69331` plus other sessions' uncommitted edits), the `perf/mid` fixture with private packs blocked. Each of the 56 entries in "All panels" was opened from that list and measured: text length, buttons, blocked buttons, folds, headings, and a word scan. Four entries are locked and were not opened. Raw rows: [panels.json](ui-panel-pass-2026-11-13/panels.json). The reading column is mine, from each panel's headings and opening text; 15 panels were also seen as captures in round 49.
+
+**Limits.** One fixture, early in a life, so many lists are empty. "No reason" means the blocked button has no tooltip and no described-by link; a reason written as a sentence beside it would not be counted, so treat 27 as an upper bound. The word scan is a fixed list and misses phrases outside it. Area use is not reported: an opened panel sizes to its content, so the number meant nothing.
+
+**The template.** Title that matches the list name (T). One line saying what the panel is for, in the world's voice (P). A list (L). The selected row's detail (D). Actions that apply now, each blocked one saying why (A). "Has" below lists which of P, L, D, A a panel shows.
+
+| Panel (list name) | Group | Has | Buttons (blocked, no reason) | Text | Engine words | Reading |
+| --- | --- | --- | --- | --- | --- | --- |
+| Family qualities | Me | P A | 1 (1, 1) | 195 |  | One blocked button with no reason on it; the line above explains it. |
+| Cultivation insights | Me | stub | 0 (0, 0) | 20 |  | Title only. |
+| Projects | Me | P L | 4 (1, 0) | 2,038 | proposals, played minutes, native | "Original proposals", "(opt-in proposal)" in headings. |
+| Study | Me | locked | | | | Greyed in the list with its reason: "Ask around for someone to teach you". Not opened. |
+| Vitals | Me | ok | 0 (0, 0) | 41 |  | Small by design. |
+| Stats | Me | L D | 46 (0, 0) | 1,627 |  | Fits: list with detail beside it. Repeats the base stats (UIC147). |
+| Condition | Me | L | 0 (0, 0) | 309 |  | Two lines in a full panel (UIC160). |
+| Tools | Things | P | 0 (0, 0) | 176 |  | Empty state says what will show. "Equipment durability, which is off" is a settings note. |
+| Gear workshop | Things | P L D A | 11 (11, 0) | 1,910 | native, actual | Numbered steps read well. All 11 buttons blocked, each with a reason. "native", "actual" in text. |
+| Inventory | Things | L | 0 (0, 0) | 273 |  | Fits. |
+| Equipment comparison | Things | L D | 0 (0, 0) | 306 |  | Fits. |
+| Item details | Things | locked | | | | Greyed in the list with its reason: "Select an item in Inventory". Not opened. |
+| Phandalin | Records | P A | 2 (0, 0) | 391 | proposals | "A named test start, not a finished world", "Numbers are proposals under SRD 5.2.1". |
+| Journal | Records | P | 6 (1, 1) | 2,729 |  | Heading "Your journal" under list name "Journal". One blocked button with no reason. |
+| Stories and history | Records | P L | 1 (0, 0) | 451 |  | Fits. Empty states say what will show. |
+| Vows and trials | Records | P L A | 14 (11, 0) | 2,227 |  | List says "Vows and trials", heading "Vows and tempering". 11 blocked buttons, all with reasons. |
+| Rune bench | Records | P L A | 14 (4, 3) | 1,312 | actual | Good purpose line in the world's voice. 3 blocked buttons with no reason. |
+| Known things | Records | P L | 5 (0, 0) | 212 |  | Model panel: purpose, categories, search, empty hint. "nothing here changes the game" is a build note. |
+| Names and achievements | Records | P L | 0 (0, 0) | 602 |  | List says "Names and achievements", heading "Naming and achievements". |
+| Deeds | Records | P L | 0 (0, 0) | 368 |  | Fits. "kept on this device and grant no power" is a build note. |
+| Past lives | Records | P L | 0 (0, 0) | 1,831 |  | List says "Past lives", heading "Lives & inheritance". Reads as a rules table. |
+| Your beginning | Records | P | 1 (0, 0) | 506 |  | Fits. |
+| Notebook | Records | none | 86 (7, 6) | 18,570 | native, played minutes, actual, played time, proposals, browser, unsupported, owner, capability | 18,570 characters, 86 buttons, 30 folds, nine engine words. It is a second All panels list inside a panel. |
+| People you know | Records | P L D | 5 (0, 0) | 1,443 |  | Fits. |
+| Remembered years | Records | L A | 1 (0, 0) | 169 |  | Fits. |
+| Reports | Records | L | 1 (0, 0) | 181 |  | Fits. |
+| Ledger | Records | L A | 13 (8, 8) | 1,063 |  | 8 of 13 buttons blocked with no reason; settings box inside (UIC159). |
+| Homes | World | P L | 4 (0, 0) | 1,023 | native, played time, actual | "Prices and comfort values are proposed balance". |
+| Home at a glance | World | P | 0 (0, 0) | 131 |  | Good empty state: says how to get a home. |
+| Village experiments | World | P L A | 9 (5, 0) | 2,844 | played minutes | 13 folds. "Original frontier trial", "played minutes". |
+| Gathering at a glance | World | L A | 1 (0, 0) | 355 |  | Model panel: one table, a "Right now" column, the action in the row. |
+| Trade standing | World | L | 7 (4, 4) | 1,507 |  | List says "Trade standing", heading "Standing and ledger". 4 blocked buttons with no reason. |
+| Potioneering | World | P A | 1 (0, 0) | 371 | proposals | Heading "Polyjuice bench · Harry Potter pack slice"; "a purse of slice coins". |
+| Riverside exploration | World | P A | 1 (1, 0) | 685 | native, actual | "Native travel owns your position", "seeded once; observations and depletion persist". |
+| Capability runs | World | stub | 1 (0, 0) | 20 | capability | One button, "Open capability runs". |
+| Spills and smoke | World | P L A | 6 (5, 0) | 357 |  | Fits. Blocked buttons say why. |
+| Where I am | World | L A | 5 (0, 0) | 156 |  | Model panel: tabs, one row per place, the action in the row. |
+| Tingen workroom | World | P L A | 9 (0, 0) | 2,547 |  | Long but ordered by its own tabs. |
+| The household day | World | stub | 0 (0, 0) | 17 |  | Title only. |
+| Spellbook | World | locked | | | | Greyed in the list with its reason: "not here". Not opened. |
+| Other worlds | World | locked | | | | Greyed in the list with its reason: "No other world is open to you yet". Not opened. |
+| Market courtyard | World | P A | 2 (0, 0) | 463 | proposals, browser, played time | Build notes (UIC158); the Organizations tab opens it (UIC157). |
+| Patrol & custody | World | P A | 1 (1, 0) | 761 | native | "the native patrol job below". One blocked button, reason given. |
+| Travelers | World | L | 1 (0, 0) | 161 |  | Fits, small. |
+| Neighbors | World | stub | 1 (0, 0) | 46 |  | One button, "Get to know your neighbors". |
+| Journal & received accounts | World | stub | 0 (0, 0) | 11 |  | List says "Journal & received accounts", header "Journal · Choose a tab", one line of content. |
+| Local actions | World | wrong | 6 (1, 1) | 2,729 |  | The "Local actions" entry opened the Journal's content. Cause not traced. |
+| Focus | World | L D A | 8 (0, 0) | 1,030 |  | Fits; merges with the action list under UIC127. |
+| Scene | World | P | 1 (0, 0) | 114 |  | Fits, small. |
+| Current work & saving | Game | stub | 0 (0, 0) | 36 |  | Two status phrases already in the top bar and work line (UIC146). |
+| Appearance | Game | A | 10 (0, 0) | 346 | native | Settings form. Fits its kind. |
+| Effects & sound | Game | A | 10 (0, 0) | 3,286 | browser, proposal, native | 35 dropdowns on one page; "browser", "proposal", "native". |
+| Your own rules | Game | A | 4 (0, 0) | 279 | native | Settings form. |
+| Preview of your changes | Game | A | 4 (1, 1) | 390 |  | One blocked button with no reason. |
+| Your own places | Game | A | 5 (2, 2) | 753 | played minutes | An authoring form: "Author one original optional site". 15 inputs, 2 blocked buttons with no reason. |
+| Continuing connection | Game | stub | 1 (0, 0) | 59 |  | One button, "Open your connection", under "Quiet faculty · establish a baseline". |
+
+### What the table shows
+
+| Code | Finding | Count |
+| --- | --- | --- |
+| UIC164 | **Stub panels.** A list entry that opens a title, one status line or one launcher button: Cultivation insights, The household day, Capability runs, Neighbors, Journal & received accounts, Current work & saving, Continuing connection. Each could be a row in its owner instead of a panel, or stay out of the list until it has content. | 7 of 52 opened |
+| UIC165 | **The list name and the panel's own heading disagree.** Vows and trials / Vows and tempering; Trade standing / Standing and ledger; Past lives / Lives & inheritance; Names and achievements / Naming and achievements; Homes / Homes and belongings; Journal / Your journal; Journal & received accounts / Journal; Potioneering / Polyjuice bench · Harry Potter pack slice; Your own places / Original site; Patrol & custody / Village patrol · Apprentice; Projects / Optional projects; Tingen workroom / Tingen; Organizations (tab) / Market courtyard. Most panels also print their title twice, once in the header and once as a heading. | 13 |
+| UIC166 | **Blocked buttons with no reason.** Ledger 8, Notebook 6, Trade standing 4, Rune bench 3, Your own places 2, and one each in Family qualities, Journal and Preview. Gear workshop (11 blocked) and Vows (11 blocked) give a reason on every one, so the pattern exists to copy. | up to 27 |
+| UIC167 | **Engine words in panel text.** 16 panels match the scan, and the reading found more outside it ("proposed balance", "pack slice", "slice coins", "seeded once", "kept on this device", "which is off"). This is UIC158 across the board, not one panel. | 16 of 52 |
+| UIC168 | **The Notebook is a second panel list.** 18,570 characters, 86 buttons and 30 folds; the next largest gameplay panel has 2,844 characters. It holds whole features behind folds ("At the seal registry", "Lantern & floodline work"), each with its own controls. | 1 |
+| UIC169 | **"Local actions" opens the Journal.** Selecting it showed the Journal's headings and text. Not traced: it may be a real wrong target, or a panel that cannot open this way leaving the last one up. | 1 |
+| UIC170 | **Few panels show a selected thing.** Five of 52 have a detail region (Stats, Equipment comparison, People you know, Gear workshop, Around you). Most are a purpose line and a stack of folds. This is the gap direction A in round 49 (list in the centre, thing on the left) would fill. | 5 of 52 |
+| UIC171 | **Two Journals and six settings panels in one list.** "Journal" and "Journal & received accounts" sit in Records and World; Appearance, Effects & sound, Your own rules, Preview, Your own places and Continuing connection are six Game entries. Effects & sound alone has 35 dropdowns. | |
+
+**Panels that already fit, to copy from.** Gathering at a glance (one table, a "Right now" column, the action in the row), Where I am (three tabs, one row per place with its action), Known things (purpose line, categories, search, an empty hint that says what will appear), Gear workshop (numbered steps, every blocked action explained), Home at a glance (an empty state that says how to change it).
+
+**What I would do with this (proposal).**
+1. Checks first, since each is a count this pass already produces: blocked button without a reason (UIC166), list name against heading (UIC165), and the extra engine phrases in the prose lint (UIC167). All three as ratchets, like the duration lint.
+2. Fold the seven stubs into their owners or hide them until they have content (UIC164). It shortens the list by an eighth with no loss.
+3. Trace UIC169.
+4. The Notebook (UIC168) is its own design question and goes to Weibao with a mock, since it decides where whole features live.
+
+Ledger additions: UIC164 to UIC171, open. UIC163 done (this round).
