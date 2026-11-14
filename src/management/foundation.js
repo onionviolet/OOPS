@@ -17,7 +17,7 @@ export const sites=[[I.bench,'Courtyard shared workbench'],[I.room,'Courtyard co
 export const situations=[{id:I.situation,revision:1,label:'Village market courtyard',context:{worldId:I.world,instanceId:'frontier.main',continuityId:'frontier.branch',eraId:'frontier.present',regionId:'frontier.village'},participants:['player',I.mira,I.orin,I.sela,I.bram],initialPhase:'charter',phases:['charter'],privateTruth:{institution:'courtyard_concession'}}];
 export const foundationCommands=[
  command({id:I.begin,family:'charter',label:'Visit the market courtyard · optional, free',once:true,
- description:'Meet four local residents and inspect finite offers. This gives access, not coins, goods, a deed or a debt. Work uses played time only; leaving pauses accepted work and browser closure creates no liabilities.',
+ description:'Meet four local residents and inspect finite offers. This gives access, not coins, goods, a deed or a debt. Work moves only while you are here; leaving pauses it, and nothing is owed for time away.',
  effects:[...people.map(d=>({type:'spawn',personId:d.id,definitionId:d.id})),{type:'situation',situationId:I.situation,operation:'begin'},...sites.map(d=>({type:'site',siteId:d.id,actor:'player',operation:'open'})),
  item(K.seed,16,I.mira),item(K.damaged,1,I.mira),item(K.log,20,I.mira),item(K.cloth,10,I.mira),item(K.log,6,I.orin),
  ...people.map(d=>af('consent',true,d.id)),af('opened'),af('version',1),

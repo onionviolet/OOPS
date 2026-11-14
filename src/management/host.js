@@ -2,6 +2,7 @@ import {check} from '../basics.js';
 import {enrollSimulation,commitSimulationCommand,cancelSimulationJob,previewSimulationCommand,simulationFacts,setSimulationProgram,pauseSimulationProgram,resumeSimulationProgram} from '../simulation.js';
 import {meets} from '../simulation_contracts.js';
 import {I} from './shared.js';
+import {formatDuration} from '../number_format.js';
 import {managementDefinitions} from './content.js';
 import {managementFacts} from './facts.js';
 import {validateManagementState} from './validation.js';
@@ -69,9 +70,9 @@ export function managementPresentation(state,registry,context) {
   if(actions.length)sections.push({id:family,label,actions});
  }
  const job=state.simulation.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith('mg.'));
- if(job)sections.unshift({id:'work',label:'Accepted courtyard work',actions:[{id:job.id,type:'cancel',label:`Cancel ${registry.simulation.commands.get(job.commandId)?.label} · refund inputs`,description:`${Math.max(0,job.due-state.clock)} played minutes remain.`,eligible:true,reasons:[]}]});
+ if(job)sections.unshift({id:'work',label:'Accepted courtyard work',actions:[{id:job.id,type:'cancel',label:`Cancel ${registry.simulation.commands.get(job.commandId)?.label} · refund inputs`,description:`${formatDuration(Math.max(0,job.due-state.clock))} of work left.`,eligible:true,reasons:[]}]});
  const foremanJob=state.simulation.jobs.find(j=>j.actorId===I.orin&&j.commandId==='mg.foreman.execute');
- if(foremanJob)sections.unshift({id:'foreman_work',label:'Orin’s commissioned work',actions:[{id:foremanJob.id,type:'delegate_cancel',label:'Stop Orin’s one-order job · return reserved inputs to him',description:`${Math.max(0,foremanJob.due-state.clock)} played minutes remain. Collect the logs through the foreman cancellation action after stopping. The paid fee is retained.`,eligible:current.facts['management.foremanReturnAvailable'],reasons:[]}]});
+ if(foremanJob)sections.unshift({id:'foreman_work',label:'Orin’s commissioned work',actions:[{id:foremanJob.id,type:'delegate_cancel',label:'Stop Orin’s one-order job · return reserved inputs to him',description:`${formatDuration(Math.max(0,foremanJob.due-state.clock))} of work left. Collect the logs through the foreman cancellation action after stopping. The paid fee is retained.`,eligible:current.facts['management.foremanReturnAvailable'],reasons:[]}]});
  const program=state.simulation.programs.player;
  if(program?.commandId.startsWith('mg.')&&program.status==='running')sections.unshift({id:'mandate',label:'Bounded work mandate',actions:[{type:'pause',label:'Pause the courtyard mandate',eligible:true,reasons:[],description:'Pause future repetitions; cancel the current job separately to refund its reservation.'}]});
  if(program?.commandId.startsWith('mg.')&&program.status==='paused'&&program.remaining>0){

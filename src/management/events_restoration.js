@@ -1,4 +1,5 @@
 import {I,K,command,eq,gte,all,any,not,af,item,money,coins,stamina,transfer,know,contact,purse,owned,relationship} from './shared.js';
+import {formatDuration} from '../number_format.js';
 
 const P = 'actor.mg.';
 const booking = eq(`${P}eventBooked`);
@@ -71,7 +72,7 @@ export const commands = [
         {kind:'grain',label:'Host the grain gathering',guest:I.bram,pay:5,item:K.grain,food:'Courtyard grain',minutes:6,relationship:1,knowledge:'Bram attended the grain meal gathering and paid five actual coins from his purse. You learned that he values a filling local meal before a delivery.'},
         {kind:'exhibition_conserved',label:'Host the conserved-object exhibition',guest:I.bram,pay:8,display:'conserved',minutes:7,relationship:1,knowledge:'Bram attended an exhibition featuring the actual conserved courtyard heirloom and paid eight actual sponsorship coins from his purse. Mira noted that the conservation is careful and suitable for display.'},
         {kind:'exhibition_restored',label:'Host the restored-object exhibition',guest:I.bram,pay:8,display:'restored',minutes:7,relationship:1,knowledge:'Bram attended an exhibition featuring the actual restored courtyard heirloom and paid eight actual sponsorship coins from his purse. Mira noted that the repaired join is ready for practical use.'},
-    ].map(d => command({id:`mg.event.host_${d.kind}`,family:'MG09',label:`${d.label} · ${d.pay} coins + ${d.minutes} min`,description:`Host the prepared programme for ${d.minutes} played minutes. ${d.item?`One actual ${d.food} portion and two stamina are reserved and consumed only on completion; cancellation or lost support returns them.`:'The displayed object stays in Mira’s stock throughout the event.'} ${d.guest===I.sela?'Sela':'Bram'} pays from their actual finite purse at completion.`,
+    ].map(d => command({id:`mg.event.host_${d.kind}`,family:'MG09',label:`${d.label} · ${d.pay} coins + ${d.minutes} min`,description:`Run the prepared programme for ${formatDuration(d.minutes)}. ${d.item?`One actual ${d.food} portion and two stamina are reserved and consumed only on completion; cancellation or lost support returns them.`:'The displayed object stays in Mira’s stock throughout the event.'} ${d.guest===I.sela?'Sela':'Bram'} pays from their actual finite purse at completion.`,
         targetId:d.guest,coLocated:true,participants:['$target'],
         visibleWhen:all(booking,program(d.kind)),
         support:all(program(d.kind),contact(d.guest),purse(d.guest,d.pay),...(d.display?[displaySupport(d.display)]:[])),

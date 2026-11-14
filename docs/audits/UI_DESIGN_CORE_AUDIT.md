@@ -2658,42 +2658,42 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 | Code | Item | Status | What is left, or who decides |
 | --- | --- | --- | --- |
 | UIC127, UIC128, UIC151 | One place panel; the next step marks its target; three ways into one bench | Open | Build as one centre slice and show before and after captures |
-| UIC129, UIC160 | A condition names its effect and remedy; Condition route with two lines | Open | Needs a state with conditions (UIC144) |
+| UIC129, UIC160 | A condition names its effect and remedy; Condition route with two lines | Done `c15791cc5` | Remedy lines exist for Wet and the three cold stages; other effects show what they do and no remedy until one is written |
 | UIC130, UIC134, UIC138 | Long time in human units, the lint | Done `804e0991a` | 109 older lines retire as they are rewritten |
-| UIC131 | The screen grows with the life | Open | Mock, then Weibao |
+| UIC131 | The screen grows with the life | Mocked `90e8967bb` (G) | Weibao |
 | UIC132, UIC175 | Top bar by use; unguessable letters | Held for Weibao | It narrows the bar (AD56) |
 | UIC133, UIC139 | Weather lines; the kept cue's end | Done `dfc7fc2d5`, `abeb69331` | Snow ends by age only |
-| UIC135, UIC144 | More states in the walk; a way to ask for rain | Partly done | The conditions state |
+| UIC135, UIC144 | More states in the walk; a way to ask for rain | Done `c15791cc5` | The walk plays forward to a rainy day and fails if Condition names neither Wet nor Cold; combat and a long life are still not walked |
 | UIC136 | Check for duplicate ways in | Open | Before UIC127 |
 | UIC137 | Cut-off label | Done, this batch | A check that counts cut-off labels is still open |
 | UIC140, UIC142 | Place-feedback panel doubles and wording | Done, this batch | See it on screen |
 | UIC141 | Cues during a local task | Open | Inferred, not exercised |
 | Cue overwrite | Several cues, one line | Open | Latest wins and the rest to Reports, or a short queue |
-| UIC143 | Clean-bundle helper | Open | The hand recipe was used six times this session |
+| UIC143 | Clean-bundle helper | Done, seventh batch | `sh scripts/clean_bundle.sh <paths>` |
 | UIC145 | Top-bar shift | Done, this batch | Add the bar to the `stability` check |
 | UIC146 | One clock | Open | Goes with direction B (one status line); needs a mock |
 | UIC147, UIC152, UIC170, UIC178 | Repeated stat card; half-empty left column; few detail regions | Open | Direction A; needs a mock |
 | UIC148 | Number precision and plurals | Done for Stats | Sweep other panels |
-| UIC149, UIC159, UIC166 | Blocked actions with no reason; the Ledger's button row | Open | Direction D; a ratchet check first |
+| UIC149, UIC159, UIC166 | Blocked actions with no reason; the Ledger's button row | UIC159 done `a523856b1`; UIC149 closed as designed | UIC166 stays open as a check that also reads the text beside a button |
 | UIC150 | Back label | Done, this batch | |
 | UIC153, UIC154, UIC177 | Type sizes, clipped label, contrast | Done, this batch | A gradient-aware contrast check |
 | UIC155 | 2,385 buttons in the page | Open | Measure the effect first |
-| UIC156 | Money and weight letters | Open | Check hover text first |
+| UIC156 | Money letters | Done `4aa60af84` | Each letter says its coin on hover. The W is the wooden coin, not weight |
 | UIC157, UIC165, UIC171 | Tabs and list names that disagree with their panel; two Journals | Open | A ratchet check, then renames |
-| UIC158, UIC167 | Build notes in player text | Lint done; one line rewritten | Rewrite by surface (PRS8); registered definitions need a compatibility look |
-| UIC161, UIC162, UIC179 | Empty columns; tooltip over the header; key list over its subject | Open | Small |
+| UIC158, UIC167 | Build notes in player text | Lint done; three lines rewritten | The walk's two `leak` findings on the courtyard are gone (`4aa60af84`). Six courtyard command descriptions reworded in the seventh batch; nothing hashes or pins a description. Four lines of remembered text (`know(...)`) in the courtyard still say "played minutes"; they become saved history, so they wait for a scoped pass (PRS8) |
+| UIC161, UIC162, UIC179 | Empty columns; tooltip over the header; key list over its subject | UIC161 done `4aa60af84`; UIC162 closed as designed; UIC179 open | UIC162 is the shared locked-control line: it sits under the control it explains and clears in six seconds (UR52). UIC179 goes with direction A |
 | UIC163 | Panel template pass | Done `257ceca79` | |
 | UIC164 | Stubs | Done `5b82df7e9` | |
-| UIC168 | The Notebook as a second panel list | Open | Weibao, with a mock |
+| UIC168 | The Notebook as a second panel list | Mocked `90e8967bb` (H) | Weibao |
 | UIC169 | "Local actions opens the Journal" | Closed, not a defect | |
-| UIC172 | Crafting readiness | Partly done | Sort and tab counts |
+| UIC172 | Crafting readiness | Done `20d96a7cc` | Counts on tabs; sorting dropped because a "Makeable now" filter exists |
 | UIC173 | Mixing voice as the model | Noted | Quote it in briefs (PRS7) |
 | UIC174 | The palette is hidden | Partly done | Point at it from the main screen |
 | UIC176 | Small click targets | Open | 41 of 111 on home |
 | UIC119, UIC122, M2 | Inline-format lint; visual baselines; Reports sizing | Open | M2 waits on UIC122 |
 | R2, R3, R5, M3, M4 | Round 46 and 47 findings | Status not known | Replay during UIC127 |
 | PRS13 | Dry humour, deadpan first | Standing consideration | No pass |
-| Directions A to F | List and thing; one status line; empty space as the place; "what can I do now"; lead with the palette; a day strip | Options to mock | Weibao picks |
+| Directions A to F | List and thing; one status line; empty space as the place; "what can I do now"; lead with the palette; a day strip | Mocked `90e8967bb` | Weibao picks |
 
 ### What is not done, and why
 
@@ -2737,3 +2737,17 @@ Agent-verified, not human-reviewed. Working defaults under AD56, each one switch
 ### Mocks for the held decisions (2026-11-13)
 
 [prototypes/ui-directions-2026-11-13/index.html](../../prototypes/ui-directions-2026-11-13/index.html): one page, eight options, each with today's screen beside the proposal at the same scale and three notes (what it fixes, what changes, what it costs). A to F are the six directions from rounds 49 and 51; G is the growing screen (UIC131); H is the Notebook (UIC168); E carries the held top-bar question (UIC132). Sketches built from the game's own text, not builds: nothing in them is in the game, and the place lines in C are samples of mine. Rendered headless at 1440×900: eight sections, sixteen frames, no horizontal overflow, no page errors. They record no decision; each waits for Weibao's pick.
+
+### Seventh batch: conditions explain themselves, small items, the suite (2026-11-13)
+
+Agent-verified, not human-reviewed. Working defaults under AD56.
+
+- **UIC129, a condition says what it does and what eases it (done).** Each row in Condition keeps its name, time left and kind, then adds one line of what the effect does now (read from the effect's own detail, so it cannot drift) and, where the game has a true answer, one line of what eases it. Seen in headless Chrome at 1920×1080 on the walk's rainy day: "Wet · 30m · Debuff · Cold resistance: −5 · Get out of the rain. It dries about half an hour after the last soaking." and "Cold · 1h · Debuff · Stamina efficiency: ×0.8 · Str: ×0.9 · Lifts about an hour after the air is warm enough for you. Staying dry holds it off longer." No page errors. With two conditions the panel's second row runs past its docked height and scrolls. Test: `tests/condition_row_text.test.js`.
+- **UIC144, the walk reaches rain (done).** `npm run check:flow` now plays forward until the weather line says Rain, stands in it two hours, and fails if Condition names neither Wet nor Cold. `--rev HEAD` walks committed code when another session's unfinished edit breaks the shared tree.
+- **UIC156, UIC161, UIC158 (done).** A coin letter names its coin on hover. The item log hides "Best" or "Known bestiary sources" until a row has a value (seen: the sources column is gone on the fixture, "Best" stays). The courtyard's moved note and its job timer lost "This panel", "panel list" and "played minutes"; the walk's two `leak` findings came from those lines.
+- **UIC158, the courtyard's command descriptions (done).** Six descriptions lost "played minutes", "played time" and "browser": a job now reads "4 min of work left.", a crop "waits while you are away". Timers print through the shared duration formatter. A description is not hashed or pinned by a test, so no save is affected. Not seen in Chrome; the text check and the courtyard tests pass.
+- **UIC162 closed as designed.** The reason shown on a locked tab is the shared locked-control line, placed under the control it explains and cleared after six seconds, so it cannot move a neighbour (UR52). It covers the weather line for those seconds.
+- **UIC143 (done).** `scripts/clean_bundle.sh` builds the bundle from HEAD plus the named paths. It replaces the hand recipe this chat used for every commit.
+- **Full suite.** See the line added below when the run finishes.
+
+**What is open after this batch.** Held for Weibao, now with mocks: the top bar by use (UIC132, UIC175), the Notebook (UIC168), the growing screen (UIC131) and directions A to F. Waiting on one of those answers: one clock (UIC146, direction B), the left column and stat cards (UIC147, UIC152, direction A), the key list's place (UIC179), the place panel slice (UIC127, UIC128, UIC151, UIC136). Plain work left: four remembered courtyard lines (UIC158), a blocked-reason check (UIC166), small targets (UIC176), the page's button count (UIC155), a number sweep beyond Stats (UIC148), visual baselines and Reports sizing (UIC122, M2). Not reproduced: a scene line from another life ("Dudley's birthday"), which needs the save or the steps from the lead audit. Not covered by any state: combat.

@@ -58,14 +58,14 @@ export const commands=[
   effects:[af('cropStage','tended'),know('cropCare','Tended the planted crop with one stamina. Growth can now be started; only a ready crop can be harvested.')]}),
 
  command({id:'mg.farm.grow_greens',family:'MG06',label:'Grow tended greens · 3 played min',
-  description:'Advance the tended greens to harvest readiness using three played minutes. Browser-closed time does not advance the crop.',
+  description:'Advance the tended greens to harvest readiness over three minutes of tending. The crop waits while you are away.',
   visibleWhen:all(plotRight,eq(cropStage,'tended'),eq(cropType,'greens')),
   support:all(plotRight,eq(cropStage,'tended'),eq(cropType,'greens')),
   requires:all(plotRight,eq(cropStage,'tended'),eq(cropType,'greens')),duration:3,siteId:I.plot,
   effects:[af('cropStage','ready'),know('cropReady','The tended greens are ready. Harvest the actual greens before planting another crop.')] }),
 
  command({id:'mg.farm.grow_grain',family:'MG06',label:'Grow tended grain · 6 played min',
-  description:'Advance the tended grain to harvest readiness using six played minutes. Browser-closed time does not advance the crop.',
+  description:'Advance the tended grain to harvest readiness over six minutes of tending. The crop waits while you are away.',
   visibleWhen:all(plotRight,eq(cropStage,'tended'),eq(cropType,'grain')),
   support:all(plotRight,eq(cropStage,'tended'),eq(cropType,'grain')),
   requires:all(plotRight,eq(cropStage,'tended'),eq(cropType,'grain')),duration:6,siteId:I.plot,
