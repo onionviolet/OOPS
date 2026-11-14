@@ -12,7 +12,7 @@ test('unchanged projection retains focus and remounts the same controls',()=>wit
     const element=host.children[0],action=find(element,'structuredAction','work');action.focus();tick();
     assert.equal(document.activeElement,action);assert.equal(find(element,'structuredAction','work'),action);
     host.replaceChildren();tick();assert.equal(host.children[0],element);assert.equal(find(element,'structuredAction','work'),action);
-    action.click();assert.deepEqual(calls,[{type:'action',id:'work'}]);assert.match(text(element),/Command saved\./);
+    action.click();assert.deepEqual(calls,[{type:'action',id:'work'}]);assert.match(text(element),/Started: Prepare supplies\.|Done: Prepare supplies\.|Chosen: Prepare supplies\./);
     find(element,'structuredCancel','job.1').click();assert.deepEqual(calls[1],{type:'cancel',jobId:'job.1'});
     v.canWrite=false;tick();assert.equal(find(element,'structuredAction','work').disabled,true);assert.equal(find(element,'structuredCancel','job.1').disabled,true);
     find(element,'structuredAction','work').click();assert.equal(calls.length,2);

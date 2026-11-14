@@ -27,3 +27,7 @@
 .own-holdings-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ui-space-1); }
 .own-holdings-row { display: grid; width: 100%; text-align: left; padding: var(--ui-space-1) var(--ui-space-2); }
 .own-holdings-row > small { font-size: var(--ui-type-small); opacity: .8; white-space: normal; }
+
+/* G6: a life with its own body and belongings is not the home hero, so the home hero's pacing and gear-wear
+   boxes do not sit under Here in it. They return in any world the home hero walks. */
+:root[data-own-holdings="on"] :is(#pacing_status_panel, #durability_panel) { display: none !important; }

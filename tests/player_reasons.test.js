@@ -37,3 +37,10 @@ test('every "belongs to another" refusal in src is registered as dev text', () =
         for(const m of readFileSync(`src/${f}`, 'utf8').matchAll(/["'`](This [^"'`$]*belongs to another (?:world|actor|actor role|body|actual record)[^"'`$]*\.)["'`]/g)) found.add(m[1]);
     assert.deepEqual([...found].filter(r => !DEV_REASONS.has(r)), []);
 });
+
+test('a place known only by its id is not printed in a blocked reason (G6)', async () => {
+    const {playerReasonText, returnLine} = await import('../src/player_reasons.js');
+    assert.equal(returnLine('the Village'), 'Return to the Village.');
+    assert.equal(returnLine('lotm.place.cast-126f6180253748099d1d'), 'This is done somewhere else; go there first.');
+    assert.doesNotMatch(playerReasonText('Return to lotm.anchor.place.b8c463e1934e7742.'), /lotm\./);
+});

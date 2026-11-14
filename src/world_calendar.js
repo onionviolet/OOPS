@@ -42,7 +42,7 @@ export function formatCalendar(view, {time = false} = {}) {
     if (!view) return 'Local date unavailable';
     // An elapsed profile may opt in to a named weekday and plain day count (the book gives order and weekday, not a date).
     const date = view.format === 'elapsed' && view.showWeekday && view.weekday ? `${view.weekday}, day ${view.absoluteLocalDay + 1}` :
-        view.format === 'elapsed' ? `Shift day ${view.absoluteLocalDay + 1} (local elapsed; civil date unknown)` :
+        view.format === 'elapsed' ? `Day ${view.absoluteLocalDay + 1} here (calendar date not known)` :
         `${pad(view.day)}/${pad(view.month)}/${view.year}`;
     return date + (time ? ` ${pad(view.hour)}:${pad(view.minute)}` : '') +
         (view.seasonId ? `, ${view.seasonId}, ${view.weekday}` : '');

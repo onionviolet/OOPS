@@ -4,6 +4,7 @@ import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.
 import {createMeterBar} from './meter_bar.js';
 import {shortActionLabel} from './ui/action_label.js';
 import {decorateActionComponents} from './ui_components.js';
+import {tidyReasons} from './player_reasons.js';
 import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
 import {observerForProfile,registerCapability} from './observer_view.js';
 import {renderFigure} from './ui/figure.js';
@@ -100,7 +101,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   const list=node('ul');list.dataset.lotmSlots='';
   for(const s of d.slots){
    const li=node('li',`${s.held>=s.need&&d.status==='brewable'?'✓':'○'} ${s.role}: ${s.name}${s.amount?` (${s.amount})`:''}${d.status==='brewable'&&!d.via?` · hold ${s.held}/${s.need}`:''}${s.evidence?` [${s.evidence}]`:''}`);
-   if(s.buy){const x=s.buy;li.append(' ',button(`Buy · ${s.pence} pence${s.stock?` (${s.stock} left)`:''}`,x.id,()=>run(()=>act(x.id),''),!x.eligible,x.reasons.join(' ')||x.label));}
+   if(s.buy){const x=s.buy;li.append(' ',button(`Buy · ${s.pence} pence${s.stock?` (${s.stock} left)`:''}`,x.id,()=>run(()=>act(x.id),''),!x.eligible,tidyReasons(x.reasons)||x.label));}
    if(s.noRoute){const n=node('small',` No Tingen route. ${s.noRoute}`);li.append(n);}
    list.append(li);}
   bench.append(list);
@@ -114,8 +115,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   for(const g of d.gaps){const p=node('p',`Unknown: ${g}`);p.dataset.lotmGap='';bench.append(p);}
   if(d.brewing)bench.append(node('p',d.ready?'The pot has settled and is ready to bottle.':`Brewing · ${d.left} min left`));
   if(d.doses)bench.append(node('p',`You hold ${d.doses} ${d.product?.name||'dose'}.`));
-  for(const a of d.actions)bench.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
-  for(const o of d.drinkOptions||[])bench.append(row(button(o.label,o.id,()=>run(()=>act(o.id),''),!o.eligible,o.reasons.join(' ')||o.label)));
+  for(const a of d.actions)bench.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))));
+  for(const o of d.drinkOptions||[])bench.append(row(button(o.label,o.id,()=>run(()=>act(o.id),''),!o.eligible,tidyReasons(o.reasons)||o.label)));
   if(d.drink)bench.append(row(button('Drink a brewed dose','bench_drink',()=>{},true,d.drink.reason),node('span',d.drink.reason)));
  }
  // In-world entrance (field_ui.js workshop-door pattern): a Village place action that only opens this panel; it commits nothing.
@@ -228,7 +229,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    if(p.failure)plan.append(node('p',`Risk: ${p.failure.signs}. ${p.failure.outcome}.`));
    howTo.push('Finding a step spends nothing. Review its current terms at the normal control; using it rechecks your body, supplies and available support.');
    const steps=v.actions.filter(a=>/\.(report_in|accept_allocation|ingest|request_assessment|request_prescreen|request_exam)/.test(a.id));
-   for(const a of steps)plan.append(row(node('span',`${a.label} · ${a.duration?`${a.duration} min`:'immediate'}. ${a.eligible?'Available now.':a.reasons.join(' ')||'Not available right now.'}`),button('Find step',`plan_${a.id}`,()=>findControl(a.id),false,'Focus the existing control without starting it.')));
+   for(const a of steps)plan.append(row(node('span',`${a.label} · ${a.duration?`${a.duration} min`:'immediate'}. ${a.eligible?'Available now.':tidyReasons(a.reasons)||'Not available right now.'}`),button('Find step',`plan_${a.id}`,()=>findControl(a.id),false,'Focus the existing control without starting it.')));
    if(!steps.length)plan.append(node('p','No progression step is currently offered here. Known acting guidance and the normal walking controls below retain their own requirements.'));
    path.append(plan);
   }
@@ -236,7 +237,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    const guidance=node('div');guidance.dataset.lotmActingGuidance='';
    guidance.append(node('p','Known acting actions that feed this digestion. Progress counts when the action completes; stopping timed work adds no act. Find an action below, then use its normal control.'));
    for(const a of v.actingGuidance){
-    const state=a.pending?'In progress; not counted yet.':a.completed?'Already completed.':a.eligible?'Available now.':a.reasons.join(' ')||'Not available right now.';
+    const state=a.pending?'In progress; not counted yet.':a.completed?'Already completed.':a.eligible?'Available now.':tidyReasons(a.reasons)||'Not available right now.';
     const r=row(node('span',`${a.label} · ${a.place} · ${a.duration?`${a.duration} min`:'immediate'}${a.free?' · no resource cost':''}. ${state}`));
     if(a.visible)r.append(button('Find action',`find_${a.id}`,()=>{plannedAct=a.id;signature='';render();findControl(a.id);},false,'Move focus to the existing action and preview its count on the ladder. This spends nothing.'));
     else if(!a.here&&a.moveId)r.append(button(`Find walk to ${a.place}`,`find_${a.moveId}_${a.id}`,()=>{plannedAct=a.id;signature='';render();findControl(a.moveId);},false,'Move focus to the existing walk and preview the act\'s count on the ladder. This does not start walking.'));
@@ -259,7 +260,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   if(!resident&&v.cause.line)path.append(node('p',v.cause.line));
   // FRC51: what the lead witnessed and has not shaken off, under Here for resident and other lives alike (prose, never a count).
   for(const line of v.mind?.lines||[]){const p=node('p',line);p.dataset.lotmMind='';actions.append(p);}
-  if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
+  if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:tidyReasons(g.reasons,'; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
   // FD8: recurring duties as plain prose (UR70-UR75) for resident and non-resident lives alike: what it is, when it shuts, how many missed; a button only while the window is open.
   for(const d of v.duties){const span=m=>m>=1440?`${Math.ceil(m/1440)} days`:m>=60?`${Math.ceil(m/60)} hours`:`${m} minutes`;
   const when=d.open?` It shuts in ${span(d.shutsIn)}.`:d.status==='late'?' The window has shut for this round.':` ${d.reason}`,gone=d.missed?` Missed ${d.missed} time${d.missed===1?'':'s'}.`:'';
@@ -273,7 +274,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   // XC4: a tie shown from first meeting, before it moves, with what moves it (knowledge only, never the regard number).
   for(const r of v.reputation||[]){const p=node('p',`${r.label} · ${r.heard?'what they have heard':'what you have seen'}: ${r.line}`);p.dataset.reputationAudience=r.audienceId;if(r.heard)p.dataset.reputationHeard=r.teller;p.dataset.lotmTie=(v.ties||[]).find(t=>t.personId===r.audienceId)?.alias||'';work.append(p);}
   for(const t of (v.ties||[]).filter(t=>!(v.reputation||[]).some(r=>r.audienceId===t.personId))){const p=node('p',`${t.label}: ${t.line}`);p.dataset.lotmTie=t.alias;work.append(p);}
-  for(const o of v.tieOffers||[]){if(o.taken){const said=node('p',o.said);said.dataset.tieSaid=o.id;work.append(said);continue;}const r=row(node('span',o.eligible?o.description:`${o.description} ${o.reasons.join(' ')}`),button(o.label,`tie_${o.id}`,()=>{try{tieAsk(o.id);notice.textContent='Noted in your Notebook.';}catch(e){notice.textContent=e.message;}signature='';render();},!o.eligible||!tieAsk));r.dataset.tieOffer=o.id;work.append(r);}
+  for(const o of v.tieOffers||[]){if(o.taken){const said=node('p',o.said);said.dataset.tieSaid=o.id;work.append(said);continue;}const r=row(node('span',o.eligible?o.description:`${o.description} ${tidyReasons(o.reasons)}`),button(o.label,`tie_${o.id}`,()=>{try{tieAsk(o.id);notice.textContent='Noted in your Notebook.';}catch(e){notice.textContent=e.message;}signature='';render();},!o.eligible||!tieAsk));r.dataset.tieOffer=o.id;work.append(r);}
   if(!resident){
   const held=[v.holds.dose?'prepared dose':'',v.holds.clownDose?'prepared Clown dose':'',...v.doseLabels,...v.marketHeld,...(v.holds.sealed3?['sealed grade 3 item']:[]),...[['frog','dried frog'],['hairs','bundle of hairs'],['ink','jar of grave-dust ink']].filter(([k])=>v.holds[k]).map(x=>x[1]),...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);
   work.append(node('p',`You hold: ${held.length?held.join(', '):'nothing from the bench'}.`));
@@ -285,16 +286,16 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   }
   if(v.merit){const m=v.merit,box=node('div');box.dataset.lotmMerit='';box.append(node('h3',`${m.name} · merit`));
    const bal=node('p',`Merit in hand: ${m.balance} (earned ${m.earned}, spent ${m.spent}). Standing is tracked separately.`);bal.dataset.lotmMeritBalance=String(m.balance);box.append(bal);
-   for(const a of m.missions)box.append(row(button(a.action.label,a.action.id,()=>run(()=>act(a.action.id),''),!a.action.eligible,a.action.reasons.join(' ')),node('span',`Issuer ${a.issuer}. Risk: ${a.risk}`)));
+   for(const a of m.missions)box.append(row(button(a.action.label,a.action.id,()=>run(()=>act(a.action.id),''),!a.action.eligible,tidyReasons(a.action.reasons)),node('span',`Issuer ${a.issuer}. Risk: ${a.risk}`)));
    if(m.practice?.learned){const pr=m.practice,pv=pr.pool,pb=node('div');pb.dataset.lotmPractice='';
     const lv=node('p',`Copying hand: mastery ${pr.level}.${pr.next.length?` At ${pr.next[0].at}: ${pr.next[0].label.toLowerCase()}.`:''}`);lv.dataset.lotmPracticeLevel=String(pr.level);pb.append(lv);
     const pl=node('p',`Desk practice pooled: ${pv.pool} of ${pv.cap}. Each copy adds to it until it is full. ${pv.reason}`);pl.dataset.lotmPracticePool=String(pv.pool);pb.append(pl);
     for(const c of pv.checkpoints){const cl=node('p',`${c.label} (${c.at} pooled): ${c.text} ${c.on?'You have this now.':'Not yet.'}`);cl.dataset.lotmPracticeCheckpoint=c.on?'on':'off';pb.append(cl);}
     const sp=pr.spend,warn=sp.loses.length?`Spending drops you below ${sp.loses.join(', ')}.`:'No checkpoint is lost by this.';
-    if(sp.action)pb.append(row(button(sp.action.label,sp.action.id,()=>run(()=>act(sp.action.id),''),!sp.action.eligible,sp.action.reasons.join(' ')),node('span',warn)));
+    if(sp.action)pb.append(row(button(sp.action.label,sp.action.id,()=>run(()=>act(sp.action.id),''),!sp.action.eligible,tidyReasons(sp.action.reasons)),node('span',warn)));
     box.append(pb);}
    box.append(node('p','Evidence store'));
-   for(const r of m.store){const line=row(button(`${r.label} · ${r.price} merit${r.left==null?'':` · ${r.left} left`}`,r.action.id,()=>run(()=>act(r.action.id),''),!r.action.eligible,r.reasons.join(' ')),node('span',r.eligible?r.text:r.reasons.join(' ')));line.dataset.lotmMeritRow=r.id;box.append(line);}
+   for(const r of m.store){const line=row(button(`${r.label} · ${r.price} merit${r.left==null?'':` · ${r.left} left`}`,r.action.id,()=>run(()=>act(r.action.id),''),!r.action.eligible,tidyReasons(r.reasons)),node('span',r.eligible?r.text:tidyReasons(r.reasons)));line.dataset.lotmMeritRow=r.id;box.append(line);}
    work.append(box);}
   renderBench(v);
   }
@@ -317,9 +318,9 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   const commonActions=node('section');commonActions.dataset.commonActions='lotm';
   if(v.waits?.length){
    commonActions.append(node('h3','Common actions'),node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
-   for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);commonActions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
+   for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,tidyReasons(a.reasons));waitButtons.set(a.id,b);commonActions.append(row(b,...(!a.eligible?[node('span',tidyReasons(a.reasons))]:[])));}
   }
-  const renderObjectAction=a=>row(button(a.label,a.id,()=>run(()=>act(a.id),()=>read(selected).jobs.length?`Started: ${shortActionLabel(a.label).text}. See In progress for time and stopping terms.`:'Action settled. See Last result for its consequence.'),!a.eligible,a.reasons.join(' ')));
+  const renderObjectAction=a=>row(button(a.label,a.id,()=>run(()=>act(a.id),()=>read(selected).jobs.length?`Started: ${shortActionLabel(a.label).text}. See In progress for time and stopping terms.`:'Action settled. See Last result for its consequence.'),!a.eligible,tidyReasons(a.reasons)));
   // STN19: a constable who knows you and can place you has a case; the routes are yours. Cases that cannot be proven do not show (nobody has a case against a man they cannot place).
   const lw=v.law;
   if(lw){
@@ -353,19 +354,19 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   }
   if(v.inferences?.length){
    const thoughts=node('details');thoughts.dataset.lotmInferences='';thoughts.dataset.perspective='player';thoughts.append(node('summary','Thoughts and intentions · Your thoughts'));
-   for(const a of v.inferences)thoughts.append(node('p',`${a.chainLabel}: ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.record?[node('p',a.record)]:[]),...(a.status?[node('p',`Your intention: ${a.status}`)]:[]),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   for(const a of v.inferences)thoughts.append(node('p',`${a.chainLabel}: ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(a.record?[node('p',a.record)]:[]),...(a.status?[node('p',`Your intention: ${a.status}`)]:[]),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[]));
    actions.append(thoughts);
   }
   // W2b: powers on the shared spell lowering; a shut one says why (UR70-UR75).
-  if(v.powers?.length){const pw=node('div');pw.dataset.lotmPowers='';pw.append(node('h3','Powers'));for(const a of v.powers)pw.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.description?[node('p',a.description)]:[]),...(!a.eligible&&a.reasons.length?[node('p',a.reasons.join(' '))]:[]));actions.append(pw);}
+  if(v.powers?.length){const pw=node('div');pw.dataset.lotmPowers='';pw.append(node('h3','Powers'));for(const a of v.powers)pw.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(a.description?[node('p',a.description)]:[]),...(!a.eligible&&a.reasons.length?[node('p',tidyReasons(a.reasons))]:[]));actions.append(pw);}
   if(v.abilityConflicts?.length){
    const encounter=node('details');encounter.dataset.lotmAbilityConflicts='';encounter.dataset.perspective='player';encounter.append(node('summary','Encounters · Your encounter'));
-   for(const a of v.abilityConflicts)encounter.append(node('p',`${a.encounterLabel}: ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.record?[node('p',a.record)]:[]),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   for(const a of v.abilityConflicts)encounter.append(node('p',`${a.encounterLabel}: ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(a.record?[node('p',a.record)]:[]),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[]));
    actions.append(encounter);
   }
   if(v.divinations?.length){
    const rites=node('details');rites.dataset.lotmDivinations='';rites.dataset.perspective='player';rites.append(node('summary','Rites and questions · Your rite'));
-   for(const a of v.divinations)rites.append(node('p',`${a.queryLabel}: ${a.question} ${a.method}. ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.record?[node('p',a.record)]:[]),...(a.signal?[node('p',a.signal)]:[]),...(a.belief?[node('p',`Your interpretation: ${a.belief}`)]:[]),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   for(const a of v.divinations)rites.append(node('p',`${a.queryLabel}: ${a.question} ${a.method}. ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(a.record?[node('p',a.record)]:[]),...(a.signal?[node('p',a.signal)]:[]),...(a.belief?[node('p',`Your interpretation: ${a.belief}`)]:[]),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[]));
    actions.append(rites);
   }
   if(v.altarRites?.length){
@@ -375,7 +376,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    for(const [rowId,steps] of byRow){
     const rite=node('div');rite.dataset.lotmRite=rowId;rite.append(node('h4',steps[0].rowLabel));
     if(steps[0].layout)rite.append(node('p',`Altar, in the order you set it: ${steps[0].layout.stations.map((x,i)=>`${i+1}. ${x.label}${steps.find(t=>t.id===`${rowId}.${x.id}`)?.status==='done'?' (set)':''}`).join('; ')}.`));
-    for(const a of steps)rite.append(node('p',`${a.index+1}/${a.total} ${a.step}${a.status==='done'?' · done':a.status==='next'?' · next':''}. ${a.description} ${a.costText}`),...(a.status==='next'?[row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[])]:[]));
+    for(const a of steps)rite.append(node('p',`${a.index+1}/${a.total} ${a.step}${a.status==='done'?' · done':a.status==='next'?' · next':''}. ${a.description} ${a.costText}`),...(a.status==='next'?[row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[])]:[]));
     altar.append(rite);
    }
    actions.append(altar);
@@ -384,22 +385,22 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    // Sealed records (R6): the stack is fetched, then each page is its own read; a page above the lead's clearance shows why it stays shut.
    const sealed=node('details');sealed.dataset.lotmSealedRecords='';sealed.dataset.perspective='player';sealed.append(node('summary','Sealed records · Your reading'));
    for(const a of v.sealedRecords){
-    const line=a.status==='read'?'Read.':a.status==='ready'?`${a.duration} min. ${a.costText}`:a.reasons.join(' ');
+    const line=a.status==='read'?'Read.':a.status==='ready'?`${a.duration} min. ${a.costText}`:tidyReasons(a.reasons);
     const item=node('div');item.dataset.lotmRecordRow=a.id;item.dataset.status=a.status;
     item.append(node('p',`${a.label} · ${a.status==='read'?'read':a.status==='ready'?'ready':a.status==='withheld'?'withheld':'not yet'}`),node('p',line),
-     ...(a.status==='read'?[]:[row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' ')))]));
+     ...(a.status==='read'?[]:[row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons)))]));
     sealed.append(item);
    }
    actions.append(sealed);
   }
   if(v.exchanges?.length){
    const exchange=node('details');exchange.dataset.lotmExchanges='';exchange.dataset.perspective='player';exchange.append(node('summary','Belongings · Your exchange'));
-   for(const a of v.exchanges)exchange.append(node('p',a.description),node('p',a.costText),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   for(const a of v.exchanges)exchange.append(node('p',a.description),node('p',a.costText),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[]));
    actions.append(exchange);
   }
   if(v.making?.length){
    const making=node('details');making.dataset.lotmMaking='';making.dataset.perspective='player';making.append(node('summary','Making · Your preparation'));
-   for(const a of v.making)making.append(node('p',a.description),node('p',a.costText),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   for(const a of v.making)making.append(node('p',a.description),node('p',a.costText),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[]));
    actions.append(making);
   }
   const talkPeople=new Map();
@@ -408,11 +409,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    if(!person){person=node('details');person.dataset.lotmTopicPerson=a.personId;person.dataset.perspective='player';person.append(node('summary',`Talk to ${a.personLabel} · ${a.perspective}`));talkPeople.set(a.personId,person);actions.append(person);}
    let topic=[...person.children].find(n=>n.dataset?.lotmTopic===a.topicId);
    if(!topic){topic=node('details');topic.dataset.lotmTopic=a.topicId;topic.append(node('summary',a.topicLabel));person.append(topic);}
-   topic.append(node('p',a.description),node('p',`${a.costText} ${a.effectText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   topic.append(node('p',a.description),node('p',`${a.costText} ${a.effectText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[]));
   }
   if(v.bodyCare?.length){
    const care=node('details');care.dataset.lotmBodyCare='';care.dataset.perspective='player';care.append(node('summary','Rest and meals · Your body'));
-   for(const a of v.bodyCare)care.append(node('p',`${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   for(const a of v.bodyCare)care.append(node('p',`${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[]));
    actions.append(care);
   }
   // OPN2/OPN3/OPN4 (display only; command definitions stay byte-identical): a broker step waits out of sight until its turn,
@@ -423,7 +424,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   for(const a0 of v.actions){const step=brokerStep(a0);if(step&&step!=='pay'&&!a0.eligible)continue;
    const a=step?{...a0,reasons:a0.reasons.map(r=>r==='The required knowledge, means or circumstances are missing.'?BROKER_WAIT[step]:r)}:a0;
    if(step&&/an unmarked/.test(a.label)){const id=a.id.replace(/lot_(pay|verify|settle|reject)_/,'lot_');if(!lotNo.has(id))lotNo.set(id,lotNo.size+1);a.label=a.label.replace(/ an unmarked /,` lot ${lotNo.get(id)}, an unmarked `);}
-   actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
+   actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))));
    const power=a.id.startsWith('book.lotm.ab.')?channelNote(a,{holder:true}):'';
    if(power&&currentObserver().sees({capability:'lotm.own-power-notes'})){const pn=node('p',power);pn.dataset.lotmPower=a.id;actions.append(pn);}}
   if(currentObserver().sees({capability:'lotm.own-power-notes'})){
@@ -436,14 +437,14 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   if(commonActions.childNodes.length)actions.append(commonActions);
   if(v.journeys?.length){
    const journeys=node('details');journeys.dataset.lotmJourneys='';journeys.dataset.perspective='player';journeys.append(node('summary','Journeys · Your journey'));
-   for(const a of v.journeys)journeys.append(node('p',`${a.description} ${a.routeText}. ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
+   for(const a of v.journeys)journeys.append(node('p',`${a.description} ${a.routeText}. ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))),...(!a.eligible?[node('p',tidyReasons(a.reasons))]:[]));
    walks.append(journeys);
   }
   if(v.elsewhere?.length){walks.append(node('h3','Elsewhere'));for(const person of v.elsewhere){const line=node('p',person.label);line.dataset.lotmElsewhere=person.id;walks.append(line);}}
   if(v.district&&!resident)walks.append(node('p',`${v.district.claim}`));
   // RPX14 round 2: one departures board (nearest first, walk buttons in their rows) replaces the Places lists and
   // per-district walk disclosures; the walking map opens below it on request. Walks with no listed place keep a plain row.
-  const walkRow=m=>row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' ')));
+  const walkRow=m=>row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,tidyReasons(m.reasons)));
   const legs=legsFromMoves(v),walkIds=new Set(legs.map(l=>l.moveId));
   if(v.places?.length){
    walks.append(walkBoard({...v,legs,elsewhere:[]},{move:id=>run(()=>move(id),'You walk there.'),onToggleMap:()=>{mapOpen=!mapOpen;signature='';render();},mapShown:mapOpen}));

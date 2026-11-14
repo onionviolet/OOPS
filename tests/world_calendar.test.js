@@ -43,7 +43,7 @@ test('W33.T2 applicable fixed custom-day/month arithmetic keeps elapsed separate
 test('W33.T3 hub unknown civil date and public projection omit undeclared hidden fields', () => {
     const v = projectCalendar({...profiles['book.paradise.hub'], hiddenEvents: [{date: 'DO_NOT_DISCLOSE'}]},
         {instanceId: 'hub', hiddenDate: 'DO_NOT_DISCLOSE'});
-    assert.match(formatCalendar(v), /civil date unknown/);
+    assert.match(formatCalendar(v), /calendar date not known/);
     assert.doesNotMatch(JSON.stringify(v), /DO_NOT_DISCLOSE|hiddenEvents|hiddenDate/);
     assert.equal(formatCalendar(null), 'Local date unavailable');
 });

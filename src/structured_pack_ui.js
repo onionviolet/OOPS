@@ -1,5 +1,6 @@
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
 import {setText} from './dom_sync.js';
+import {formatDuration} from './number_format.js';
 import {renderFigure} from './ui/figure.js';
 import {renderGuHouse} from './ui/gu_house_view.js';
 import {createBookCraftControls} from './ui/book_craft_controls.js';
@@ -9,6 +10,14 @@ import {createBookCraftControls} from './ui/book_craft_controls.js';
 // element by element); the 250 ms poll then reads only after it moves. Without
 // it the poll reads every time, as before.
 export function createStructuredPackPanel({read,command,changed}) {
+    const NOT_YET_SHOWN=3,NEXT_SHUT=1;
+    // G16: when the life's own text says nothing about an act, the panel still names what just happened.
+    const resultLine=(actual,before,after)=>{const label=before?.label||'';
+        if(actual.type==='cancel')return 'Stopped. The work is set down where it was.';
+        const job=after.jobs.find(j=>j.commandId===actual.id);
+        if(job)return `Started: ${label||job.label}. ${formatDuration(job.remaining)} to go.`;
+        if(actual.type==='action'&&after.actions.find(a=>a.id===actual.id)?.completed>(before?.completed||0))return `Done: ${label}.`;
+        return label?`Chosen: ${label}.`:'Done.';};
     const panel=document.createElement('details');panel.id='structured_pack_panel';panel.open=true;
     const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
     const body=document.createElement('div');panel.append(body);let signature,notice='',repetition=null,noticeError=false;
@@ -33,7 +42,7 @@ export function createStructuredPackPanel({read,command,changed}) {
             if(request.type==='stop-repeat'){notice='Further repetitions stopped. Current work is unchanged.';render(true);return;}
             const times=request.times||1,actual={...request};delete actual.times;
             const before=projected().actions.find(a=>a.id===actual.id);
-            try{command(actual);noticeError=false;const after=projected();notice=actual.type==='cancel'?'Command saved. Selected work stopped.':actual.type==='action'&&!after.jobs.some(j=>j.commandId===actual.id)&&after.actions.find(a=>a.id===actual.id)?.completed>before.completed?'Command saved. Action settled.':'Command saved.';
+            try{command(actual);noticeError=false;const after=projected();notice=resultLine(actual,before,after);
                 if(times>1){const job=projected().jobs.find(j=>j.commandId===actual.id);
                     if(job)repetition={id:actual.id,label:before.label,remaining:times-1,jobId:job.id,completed:before.completed};}
             }catch{noticeError=true;notice=projected().error||'The action could not be saved.';}render(true);
@@ -107,7 +116,9 @@ export function createStructuredPackPanel({read,command,changed}) {
                     rows.get(info).push(['status',view.status.map(r=>[r.label,r.value])]);}
                 if(view.house){renderGuHouse(info,view.house);rows.get(info).push(['house',view.house]);}
                 for(const l of view.ladders)ladderBlock(info,l);
-                for(const e of view.extensions){
+                // G15: every continuation you can take now, then only the next one that is still shut.
+                let shut=0;for(const e of view.extensions){
+                    if(!e.eligible&&shut++>=NEXT_SHUT)continue;
                     p(e.description);for(const reason of e.reasons)p(reason);
                     add(info,'Choose '+e.label,{structuredExtension:e.id},{type:'adopt-extension',id:e.id,revision:e.revision,contentHash:e.contentHash},!view.canWrite||!e.eligible);
                 }
@@ -146,14 +157,17 @@ export function createStructuredPackPanel({read,command,changed}) {
                     row.act.setAttribute?.('aria-describedby',[row.duration.id,row.costs.id,...(action.reasons.length?[row.blockers.id]:[])].join(' '));
                     setText(row.act,action.label);row.act.disabled=!view.canWrite||!action.eligible;
                     setText(row.repeat,'Repeat '+action.label+' 3 times');row.repeat.hidden=!action.repeatable;row.repeat.disabled=row.act.disabled;
-                    const home=action.eligible||pending?actions:notYetList;
+                    const home=action.eligible||pending?actions:notYetList;if(home===actions&&row.card.hidden)row.card.hidden=false;
                     if(row.card.parentNode!==home){const had=row.card.contains(document.activeElement);home.append(row.card);if(had)row.act.focus?.();}
                 }
             }
         }
         for(const [key,fresh] of [['info',info],['plans',plans],['renewal',renewal]]){const sig=JSON.stringify(rows.get(fresh));if(sectionRows[key]!==sig){sectionRows[key]=sig;live[key].replaceChildren(...fresh.children);}}
+        // G10: once a life is under way, what you can do now comes before the opening's account of how it began.
+        if(view.active&&view.actions.some(a=>a.completed>0)&&body.firstElementChild!==work)body.prepend(work,actions);
         trim(actionRows,new Set(view.active?view.actions.map(a=>a.id):[]));
-        {const n=notYetList.children.length;notYet.hidden=!n;setText(notYetSummary,`Not available yet (${n})`);if(notYet.parentNode!==actions||actions.lastChild!==notYet)actions.append(notYet);}
+        // G15: the closed list shows the next few steps, not the whole road ahead; later ones appear as these open.
+        {const n=notYetList.children.length;notYet.hidden=!n;[...notYetList.children].forEach((card,i)=>{const hide=i>=NOT_YET_SHOWN;if(card.hidden!==hide)card.hidden=hide;});setText(notYetSummary,n>NOT_YET_SHOWN?`Not available yet (the next ${NOT_YET_SHOWN})`:`Not available yet (${n})`);if(notYet.parentNode!==actions||actions.lastChild!==notYet)actions.append(notYet);}
 trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         setText(message,view.error||notice);message.hidden=!message.textContent;
         message.dataset.themeState=view.error||noticeError?'error':'status';message.setAttribute('role',view.error||noticeError?'alert':'status');

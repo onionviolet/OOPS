@@ -97,3 +97,11 @@ test('a life that holds its own things lists no Village-hero panel and no other 
   assert.deepEqual(panels.filter(p=>seatAllowsPanel(home,p)),panels,'the home world lists everything, as before');
  }finally{off();}
 });
+
+test('a book lead on the native body lists no Village place and no other world\'s panel, and keeps body panels (G6)',async()=>{
+ const {seatAllowsPanel}=await import('../src/seat_profiles.js');
+ const lead={actors:{player:{worldId:'book.fixture.lead.world'}}},abroad={actors:{player:{worldId:'book.other.city'}}};
+ const panels=[{id:'patrol'},{id:'rune-bench'},{id:'lotm',perspective:'book.lotm.tingen'},{id:'tools'},{id:'projects'},{id:'beginning'}];
+ assert.deepEqual(panels.filter(p=>seatAllowsPanel(lead,p)).map(p=>p.id),['tools','projects','beginning']);
+ assert.deepEqual(panels.filter(p=>seatAllowsPanel(abroad,p)),panels,'the home hero abroad keeps the greyed entries that say where to go');
+});

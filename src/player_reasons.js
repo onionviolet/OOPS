@@ -36,6 +36,12 @@ export function splitReasons(reasons) {
     }
     return out;
 }
-export const playerReasonText = reasons => {const s = splitReasons(reasons); return [...s.player, ...(s.place ? [`Return to ${s.place}.`] : [])].join(" ");};
+// G6: a place the game knows only by its id is never printed ("Return to lotm.place.cast-126f…"); the line says
+// the act is done elsewhere and leaves the name to the place list.
+const RAW_ID = /^[a-z0-9_-]+(?:\.[a-z0-9_-]+)+$/i;
+export const returnLine = place => (RAW_ID.test(String(place)) ? 'This is done somewhere else; go there first.' : `Return to ${place}.`);
+// For panels that print the engine's reasons themselves: the same rule, applied to a list.
+export const tidyReasons = (reasons, glue = ' ') => (Array.isArray(reasons) ? reasons : [reasons]).filter(Boolean).map(r => String(r).replace(/Return to ([a-z0-9_-]+(?:\.[a-z0-9_-]+)+)\./gi, (_, place) => returnLine(place))).join(glue);
+export const playerReasonText = reasons => {const s = splitReasons(reasons); return [...s.player, ...(s.place ? [returnLine(s.place)] : [])].join(" ");};
 // An action is out of reach when the engine names another world/actor or an unmet unstated requirement.
 export const unreachable = reasons => splitReasons(reasons).dev.length > 0;

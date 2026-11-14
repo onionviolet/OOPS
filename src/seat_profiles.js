@@ -100,12 +100,18 @@ export function panelPerspective(state,panel){
 // own things instead (own_holdings: "Your body here is not the Village hero's sheet") does not list them, and does not
 // list a panel that names a different world. A default: take an id out of the set to show it in every life again.
 const heroPanels=new Set(['patrol','economy_standing','herbal-experiments','management','village-neighbors','drainage-site','hp-polyjuice','rune-bench','dnd-phandalin','fields','tools','gear-workshop','equipment-comparison','shell-detail','inherited_traits','pledges','projects','research','ledger','homes','home-overview','gathering','naming']);
+const homePlacePanels=new Set(['patrol','economy_standing','herbal-experiments','management','village-neighbors','village-travelers','drainage-site','hp-polyjuice','rune-bench','dnd-phandalin','homes','home-overview','gathering','fields']);
+const LEAD_WORLD=/\.lead\.world$/;
 export function seatAllowsPanel(state,panel){
  if(seatOf(state)!=='be'){
   const world=state?.actors?.player?.worldId;
-  if(!world||!ownHoldings(world))return true;
-  if(heroPanels.has(panel.id))return false;
-  return !(typeof panel.perspective==='string'&&panel.perspective.includes('.')&&panel.perspective!==world);
+  if(!world)return true;
+  const elsewhere=typeof panel.perspective==='string'&&panel.perspective.includes('.')&&panel.perspective!==world;
+  if(ownHoldings(world))return !heroPanels.has(panel.id)&&!elsewhere;
+  // G6: a book lead who keeps the native body and pack (no own holdings) still does not live in the Village,
+  // so the Village's places and another world's panels stay out of the list.
+  if(LEAD_WORLD.test(world))return !homePlacePanels.has(panel.id)&&!elsewhere;
+  return true;
  }
  const perspective=panelPerspective(state,panel);
  return perspective==='system'||perspective===state?.actors?.player?.worldId;

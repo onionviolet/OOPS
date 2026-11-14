@@ -60,7 +60,8 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
         syncProse();
         const view=read(),next=JSON.stringify(view);
         if(next!==signature){signature=next;
-            const idleText=view.inVillage?'No work running.':'No work running. Pick something under Here to start.';
+            // A life that opens on its own panel has nothing under Here to point at (G10).
+            const idleText=view.inVillage||document.documentElement.dataset.ownHoldings==='on'?'No work running.':'No work running. Pick something under Here to start.';
             work.textContent=view.work.length?view.work.join(' · '):idleText;
             jump.textContent=view.waiting?'Open waiting response':'Open local controls';
             ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';ownership.hidden=view.canWrite; // UIC146: the top bar reads this line and shows it; a warning also shows here
