@@ -4779,8 +4779,8 @@ function format_money(num) {
     if(!denominationsKnown())return `${num} coins`;
     if(!num)return 'nothing';
     // The denominations come from number_format.js, so text copies (formatMoneyText) match this purse (UIC102).
-    const coin={G:'coin_gold',S:'coin_silver',C:'coin_copper',W:'coin_wood'};
-    return (num < 0 ? '-' : '') + moneyParts(num).map(([amount, unit]) => `${amount}<span class="coin ${coin[unit]}">${unit}</span>`).join(' ');
+    const coin={G:'coin_gold',S:'coin_silver',C:'coin_copper',W:'coin_wood'},word={G:'gold',S:'silver',C:'copper',W:'wooden'};
+    return (num < 0 ? '-' : '') + moneyParts(num).map(([amount, unit]) => `${amount}<span class="coin ${coin[unit]}" title="${word[unit]} coins">${unit}</span>`).join(' ');
 }
 
 function update_displayed_character_xp(did_level = false) {

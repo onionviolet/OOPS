@@ -9,7 +9,7 @@ export const ORG_KINDS = Object.freeze({
     guild: {noun: 'guild', roster: 'Members', standing: 'Standing', holdings: 'Halls', rosterColumns: ['Rank', 'Doing']},
 });
 const plural = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
-const minutes = n => plural(Math.max(0, Math.round(n)), 'played minute');
+const minutes = n => plural(Math.max(0, Math.round(n)), 'minute');
 
 /**
  * descriptor: {id, name, kind, members:[{id, name, role, doing?, present?, note?}],

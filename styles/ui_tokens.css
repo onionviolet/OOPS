@@ -1907,3 +1907,7 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 
 /* UIC153: a <small> inside body text shrinks by the browser's ratio (11.67px); hold it to the small token. */
 .temperature-band > small, #reports_dock small { font-size: var(--ui-type-small); }
+
+/* UIC161: a column of the item log shows once any row has something in it. */
+#item_log_table:not(:has(td:nth-child(2):not(:empty))) :is(th, td):nth-child(2),
+#item_log_table:not(:has(td:nth-child(4):not(:empty))) :is(th, td):nth-child(4) {display: none;}

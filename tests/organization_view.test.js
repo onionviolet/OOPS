@@ -35,7 +35,7 @@ test('ORG a running job shows its owner, held inputs and time left, and clears w
  const v=organizationView(org(p));
  assert.equal(v.operations.length,1);
  const o=v.operations[0];assert.equal(o.who,'you');assert.equal(o.timeLeft,4);assert.deepEqual(o.held,['2 Rough wood log']);
- assert.match(organizationText(v),/4 played minutes left/);
+ assert.match(organizationText(v),/4 minutes left/);
  assert.equal(v.members.find(m=>m.id===I.bram).doing,o.label);
  const c=ctx(p),others=Object.fromEntries(Object.keys(p.state.simulation.people).filter(id=>id!=='player').map(id=>[id,{...c,actorId:id,vitals:p.state.simulation.people[id].vitals,facts:{...c.facts,location:undefined}}]));
  const out=advanceSimulation(p.state,registry,4,p.external,p.gameplay,{player:{...c,vitals:c.vitals.player},...others});
