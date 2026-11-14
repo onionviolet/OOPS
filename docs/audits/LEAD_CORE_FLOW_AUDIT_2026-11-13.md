@@ -251,7 +251,7 @@ Recorded in the [build note below](#ordinary-day-build-2026-11-14) once a loop i
 
 ## Ordinary-day build, 2026-11-14
 
-Fang Yuan first, as the largest gap. Proposal under AD32; agent-verified, not human-reviewed. **State: implemented, below floor** (FLR3, see the table) until blocked day actions stay visible with their reasons.
+Fang Yuan first, as the largest gap. Proposal under AD32; agent-verified, not human-reviewed. State: was below floor on FLR3; met since the UI chat's b00b56374 and 2d48e8948, rechecked on this save in Chrome (follow-up below).
 
 **What is playable.** On his saves from Rank Two on, the Beginning panel offers "Keep your own day: feed your Gu,
 draw stones, earn merit". Adopted, it adds ten repeatable actions at the clan academy:
@@ -294,3 +294,44 @@ on their own.
 and Ear Grass do not eat yet: the source notes give no diet, and the Earth Communication Ear Grass item text names ginseng
 with no amount. The patrol is a fixed routine, not the live fight (combat chat). Actions sit in the Beginning panel, which
 starts collapsed (G10, UI chat). Klein's wage loop is next (proposed loops above).
+
+### Follow-up: a sea that refills and a patrol that can go many ways, 2026-11-14
+
+Weibao asked whether stones are the only way to refill, and asked for random encounters and wolf attacks on patrols
+(through the coordinator: "Is primeval stones the only way to do that? Radon encounters or some wood attaches during the
+patrols?", read as random encounters and wolf attacks). Adjustable defaults (AD56, AD38).
+
+- **Natural recovery.** His seat had none: the lead life compiles no regeneration event, and its base hash is pinned. Now his
+  sea refills by itself at his aptitude's pace, which `gu_aperture.js` states for C grade as 4 points of the aperture an hour
+  (ch10): one part every 15 min, so an empty 44-part sea fills in 11 h. A stone is still the fast route.
+  - The settling runs in a domain `stage` hook (`src/ri_lead_sea_domain.js`) that every expansion write passes through.
+  - One long write equals many short ones, so banked time spent later gains what played time would (TMR4). A full sea banks
+    nothing.
+  - Save slice `ri_lead_sea` = {schema 1, at}. A save without it starts recovery at load, with no back pay.
+  - Default: on from his first act of the ordinary day, so verified story replays keep their numbers. Dial: the grade row.
+  - The rate is stated on the day's description and on the stone action.
+- **Patrol encounters.** The patrol is now a walk (3 h, up to 15 parts) and a report to the board. The report is a seeded
+  draw from the save's seed, through the engine's own outcome roll, over eight authored rows:
+  - a quiet watch, a small pack and a large pack (bigger packs pay more merit and keep more of the 15 parts);
+  - carcasses with two eyes, or a wild Gu;
+  - an injury, which blocks patrols until "Bind your wound and rest · 6 h";
+  - a scout from another clan;
+  - a wolf attack.
+  Each row leaves a result note, about 49 merit a patrol on average. `RI_PATROL_FIGHT_ROWS` (the wolf attack) and the fact
+  `book.ri.lead.day.last_fight` are the hook where the combat lane can swap in the live fight; until then it is a compressed
+  routine (ACR1).
+- **Floor.**
+  - FLR1: bundle built from `2d48e8948` plus five source paths and served from a private tree (sha256 begins `33ca07ca299fe862`).
+  - FLR2: earned save `ri-fang-yuan-ice-crystal`; headless journey test, then Chrome at 1920×1080.
+  - FLR3 met: a blocked patrol keeps its reason in the day list (UI chat, b00b56374). The report's line shows the night,
+    for example "Done: Report the watch to the alliance board. A wolf got under your blade and opened your arm. …" (UI chat,
+    2d48e8948).
+  - FLR4: merit, eyes, essence and the injury gate are read; the wild Gu has no reader yet.
+  - FLR5: save, reload, Export and Import kept the adoption, the merit, the wound and the sea's settlement. The sea went from
+    41 to 44 in two idle hours after a reload. No page errors.
+  - FLR6: agent-verified, not human-reviewed.
+  - Checks: `tests/ri_lead_day.test.js` 7 pass; `tests/ri_lead_day_journey.test.js` pass; `test:changed` 3611 pass, 0 fail;
+    `check:arch` no growth; the rules checks pass.
+- **Seen.** This save's seed opens with two injury draws in a row; over 2,000 draws the shares match the weights. The
+  extension is now a bundled continuation (instant outcomes need it). Nothing had adopted revision 1 outside tests, so no
+  alias is needed.

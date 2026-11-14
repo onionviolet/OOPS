@@ -1,12 +1,15 @@
 // Fang Yuan's ordinary day (lead core-flow audit, ordinary-day round, 2026-11-14; proposal under AD32, ACR1, LVR13, LVR18, LVR19).
 // A command extension on his own life, so no pinned hash moves: an old save adopts it like any continuation. The day: feed each Gu
 // when its meal comes due, buy its food with stones, draw a stone into the sea, hand in wolf eyes, exchange merit, and go out on a
-// wolf-tide patrol. A hungry Moonglow will not cut, so a skipped meal blocks the patrol that pays for the next ones.
+// wolf-tide patrol and report what came out of the trees (a seeded draw: pack size, finds, a wild Gu, an injury, a wolf attack).
+// A hungry Moonglow will not cut, so a skipped meal blocks the patrol that pays for the next ones. His sea also refills on its own
+// (ri_lead_sea_domain.js). Registered as a bundled continuation because the report is an instant with seeded outcomes.
 // Meal timing is read from ri_lead_day_facts.js (the needs seam); diets, prices and yields live there with their basis.
 import {extensionFact} from '../structured_pack_extensions.js';
+import {formatDuration} from '../number_format.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_RANK_TWO} from './book_gu_lead_rank_two.js';
-import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K} from '../ri_lead_day_facts.js';
+import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, riSeaMinutesPerPart} from '../ri_lead_day_facts.js';
 
 export const GU_LEAD_DAY = DAY_ID;
 const baseHash = 'sha256:9efca86558d35ae4ca0bce01755dd50761bf4c3aee82d1cd72d8b72d50f2001c';
@@ -25,6 +28,10 @@ const ready = all(eq('actor.life', 'alive'), eq('native.ready', true), eq('nativ
     eq('body.ownerId', 'player'), eq('body.controllerId', 'player'), eq('body.mobile', true));
 const admitted = eq(extensionFact(GU_LEAD_DAY), true);
 const at = eq('actor.location', academy, 'Go back to the clan academy; the dormitory and the village stalls are there.');
+const fact = (name, value) => ({type: 'fact', actor: 'player', scope: 'actor', key: local(name), value});
+const out = eq(local('on_watch'), true), notOut = eq(local('on_watch'), false, 'Report to the board first; your last watch is not counted yet.');
+const unhurt = eq(local('hurt'), false, 'Your wound needs binding and rest before another watch.');
+const seaPace = `Your sea also refills on its own, one part every ${formatDuration(riSeaMinutesPerPart(44))} at your C grade (ch10).`;
 
 function act(name, label, duration, description, effects, {needs = [], costs = [], parts = 0} = {}) {
     const support = all(ready, admitted, at);
@@ -49,11 +56,12 @@ export const guLeadDay = {
     schema: 1, id: GU_LEAD_DAY, revision: 1,
     base: {id: GU_LEAD, revision: 1, contentHash: baseHash},
     label: 'Keep your own day: feed your Gu, draw stones, earn merit',
-    description: 'Between the clan\'s errands, your Gu still eat on their own clocks and your sea still empties. Buy their food, keep them fed, refill your essence and earn battle merit on the wolf tide.',
+    description: `Between the clan's errands, your Gu still eat on their own clocks and your sea still empties. Buy their food, keep them fed, refill your essence and earn battle merit on the wolf tide. ${seaPace}`,
     requires: all(ready, eq(extensionFact(GU_LEAD_RANK_TWO), true)),
     reason: 'Reach Rank Two first.',
-    items: [{id: IT.jade, label: 'Jade rock · eight liang', description: 'One meal for a White Jade Gu, which eats eight liang every twenty days.', value: 0}],
-    status: RI_DAY_DIETS.map(d => ({id: local(`${d.slot}_status`), label: d.label, knowledgeKey: d.fed})),
+    items: [{id: IT.jade, label: 'Jade rock · eight liang', description: 'One meal for a White Jade Gu, which eats eight liang every twenty days.', value: 0},
+        {id: IT.wildGu, label: 'Wild Gu · unrefined', description: 'A small wild Gu found under the wall on patrol. It is not yours until refined.', value: 0}],
+    status: [...RI_DAY_DIETS.map(d => ({id: local(`${d.slot}_status`), label: d.label, knowledgeKey: d.fed})), {id: local('patrol_status'), label: 'Last watch', knowledgeKey: local('patrol')}],
     commands: [
         ...RI_DAY_DIETS.map(feed),
         act('buy_petals', `Buy a bag of Moon Orchid petals · ${K.petalBag.count} for ${K.petalBag.stones} stone`, 20,
@@ -67,7 +75,7 @@ export const guLeadDay = {
             [item(IT.jade, 1), note(local('bought'), `You bought eight liang of jade rock for ${K.jadeParcel.stones} stones.`)],
             {needs: [stones(K.jadeParcel.stones)], costs: [payStones(K.jadeParcel.stones)]}),
         act('draw_stone', `Draw a whole primeval stone into your sea · 1 stone, up to ${K.stoneParts.parts} parts`, K.stoneParts.minutes,
-            `Hold a stone and draw its essence into the empty part of your sea. ${K.stoneParts.why} Essence your sea cannot hold stays lost with the spent stone.`,
+            `Hold a stone and draw its essence into the empty part of your sea. ${K.stoneParts.why} Essence your sea cannot hold stays lost with the spent stone. ${seaPace}`,
             [{type: 'energy', actor: 'player', energyId: essence, operation: 'recover', amount: K.stoneParts.parts},
                 note(local('drawn'), 'You drew a primeval stone dry and your sea rose.')],
             {needs: [stones(1)], costs: [payStones(1)]}),
@@ -77,15 +85,28 @@ export const guLeadDay = {
         act('exchange_merit', `Exchange ${K.meritPerStone.merit} battle merit for a primeval stone`, 10, K.meritPerStone.why,
             [item(IT.stone, 1), note(local('merit'), `You traded ${K.meritPerStone.merit} merit for a primeval stone.`)],
             {needs: [has(IT.merit, K.meritPerStone.merit, `You need ${K.meritPerStone.merit} battle merit.`)], costs: [item(IT.merit, -K.meritPerStone.merit)]}),
-        act('patrol', `Go out on a wolf-tide patrol · ${K.patrol.minutes / 60} h, ${K.patrol.parts} parts, +${K.patrol.merit} merit`, K.patrol.minutes,
-            `Walk the outer wall with the clan's patrol and cut down what comes out of the trees. ${K.patrol.why} The Moonglow does the cutting, so it has to be fed.`,
-            [item(IT.merit, K.patrol.merit), note(local('patrol'), `You came back from the wolf tide with ${K.patrol.merit} merit on the board.`)],
-            {needs: [has(moonglow.gu, 1, 'You need the Moonglow Gu to cut with.'), eq(`${GU_LEAD_DAY}.moonglow.hungry`, false, 'Your Moonglow Gu is hungry and will not cut. Feed it first.')],
-                parts: K.patrol.parts})
+        act('patrol', `Go out on a wolf-tide patrol · ${K.patrol.minutes / 60} h, up to ${K.patrol.parts} parts`, K.patrol.minutes,
+            `Walk the outer wall with the clan's patrol and cut down what comes out of the trees. ${K.patrol.why} The Moonglow does the cutting, so it has to be fed. Report to the board afterwards to have the night counted.`,
+            [fact('patrol_out', true), note(local('patrol'), 'You walked the wall until the wolves drew back. Report to the board to have the night counted.')],
+            {needs: [has(moonglow.gu, 1, 'You need the Moonglow Gu to cut with.'), eq(`${GU_LEAD_DAY}.moonglow.hungry`, false, 'Your Moonglow Gu is hungry and will not cut. Feed it first.'), notOut, unhurt],
+                parts: K.patrol.parts}),
+        {id: local('report'), revision: 1, label: 'Report the watch to the alliance board', group: 'structured_local', worldId: world, actorId: 'player', location: academy,
+            audience: ['$actor'], once: false, duration: 0, visibleWhen: admitted,
+            description: 'The board clerk counts what the night brought. What came out of the trees is settled now, from the watch you walked.',
+            requires: all(ready, admitted, at, {...out, reason: 'Walk a patrol first.'}),
+            outcomes: RI_PATROL_ENCOUNTERS.map(r => ({id: local(`patrol.${r.id}`), weight: r.weight, effects: [
+                fact('patrol_out', false), item(IT.merit, r.merit), note(local('patrol'), r.line),
+                ...(r.back ? [{type: 'energy', actor: 'player', energyId: essence, operation: 'recover', amount: r.back}] : []),
+                ...(r.eyes ? [item(IT.eye, r.eyes)] : []), ...(r.wildGu ? [item(IT.wildGu, r.wildGu)] : []),
+                ...(r.injured ? [fact('injured', true)] : []), ...(r.fight ? [fact('last_fight', r.id)] : [])]}))},
+        act('rest_wound', `Bind your wound and rest · ${K.patrol.restMinutes / 60} h`, K.patrol.restMinutes,
+            'Clean the cut, bind it and keep off the wall until it closes.',
+            [fact('injured', false), note(local('patrol'), 'The cut has closed. You can take a watch again.')],
+            {needs: [eq(local('hurt'), true, 'You are not hurt.')]})
     ]
 };
 
 export async function registerGuLeadDay(register, base) {
-    if(!register.extension || base.contentHash !== baseHash) return null;
-    return register.extension(guLeadDay, base);
+    if(!register.bundledInstantExtension || base.contentHash !== baseHash) return null;
+    return register.bundledInstantExtension(guLeadDay, base);
 }

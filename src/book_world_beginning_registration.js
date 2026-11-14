@@ -89,6 +89,7 @@ import {registerGuLeadEarGrass,guLeadEarGrassClockRequest} from './world_packs/b
 import {registerGuLeadIceSoul,guLeadIceSoulClockRequest} from './world_packs/book_gu_lead_ice_soul.js';
 import {registerGuLeadIceCrystal} from './world_packs/book_gu_lead_ice_crystal.js';
 import {registerGuLeadDay} from './world_packs/book_gu_lead_day.js';
+import './ri_lead_sea_domain.js'; // Fang Yuan's sea refills on its own (stage hook)
 import {registerGuLeadWoodCharm,guLeadWoodCharmClockRequest} from './world_packs/book_gu_lead_wood_charm.js';
 import {registerGuLeadWallNight} from './world_packs/book_gu_lead_wall_night.js';
 import {registerGuLeadBurialGu} from './world_packs/book_gu_lead_burial_gu.js';
