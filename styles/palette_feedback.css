@@ -1,5 +1,6 @@
 .palette-feedback-host { position: relative; }
-.palette-local-cue { display: block; padding-block: round(.2em, 1px); }
+/* The line keeps its height when empty, so a cue arriving or ageing out moves nothing below it. */
+.palette-local-cue { display: block; padding-block: round(.2em, 1px); min-height: 1lh; }
 .palette-feedback-notes { margin-block: round(.3em, 1px); }
 .household-scene { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: round(.6em, 1px); margin: round(.5em, 1px) 0; padding: round(.6em, 1px); border: 1px solid currentColor; }
 .household-scene > div { overflow-wrap: anywhere; }

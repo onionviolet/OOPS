@@ -106,7 +106,7 @@ test('coin feedback skips layout for non-spends and keeps eligible spend feedbac
     }
 });
 
-test('a scene cue shows its sentence once: the kept line carries the words and is outlined, with no card over it (UR147)', async () => {
+test('a scene cue shows its sentence once: the kept line carries the words and is outlined, with no card over it, and goes when it stops being true (UR147)', async () => {
     const {createQuietPlaceDetail} = await import('../src/quiet_place_detail.js');
     class El {
         constructor(tag) { this.tagName = tag; this.children = []; this.parent = null; this.dataset = {}; this.textContent = ''; this.hidden = false; this.style = {setProperty() {}};
@@ -125,16 +125,28 @@ test('a scene cue shows its sentence once: the kept line carries the words and i
     Object.defineProperty(globalThis, 'document', {configurable: true, value: doc});
     try {
         const host = new El('div');
-        const detail = createQuietPlaceDetail({container: host, read: () => ({knownVillage: true, raining: true, placeId: 'Village', effects: 'full'}),
+        const view = {knownVillage: true, raining: true, placeId: 'Village', effects: 'full', now: 1000};
+        const detail = createQuietPlaceDetail({container: host, read: () => view,
             readSettings: () => ({effects: 'full', presentation: 'inline'})});
         const line = 'Village: Rain reaches the exposed edge.';
-        assert.equal(detail.present({type: 'local-scene', subjectId: 'Village', eventId: 'e1', text: line, motif: 'guidance'}), true);
+        assert.equal(detail.present({type: 'local-scene', subjectId: 'Village', eventId: 'e1', cue: 'rain-exposed', text: line, motif: 'guidance'}), true);
         const all = node => [node, ...node.children.flatMap(all)];
         assert.equal(all(host).filter(node => node.textContent === line).length, 1);
         const card = all(host).find(node => node.className === 'work-ledger-effect');
         assert.equal(card.hidden, true, 'no card floats over the line');
         assert.equal(card.children.length, 0);
         assert.ok(all(host).some(node => node.className === 'work-ledger-target-pulse'), 'the new line is outlined');
+        // The kept line ends with what it reports: rain stopping clears a rain line, and any cue ages out.
+        view.now = 1010; detail.render();
+        assert.equal(all(host).filter(node => node.textContent === line).length, 1, 'still raining, still fresh');
+        view.raining = false; detail.render();
+        assert.equal(all(host).filter(node => node.textContent === line).length, 0, 'the rain line goes when the rain does');
+        const skill = 'Patience improves to 2.';
+        detail.present({type: 'competence', subjectId: 'player', eventId: 'e2', text: skill, motif: 'guidance'});
+        view.now = 1010 + 59; detail.render();
+        assert.equal(all(host).filter(node => node.textContent === skill).length, 1);
+        view.now = 1010 + 60; detail.render();
+        assert.equal(all(host).filter(node => node.textContent === skill).length, 0, 'a cue ages out after an hour of game time');
     } finally {
         if (original) Object.defineProperty(globalThis, 'document', original);
         else delete globalThis.document;

@@ -31,7 +31,7 @@ export function createPaletteFeedbackLedger() {
                 'lamp-flicker': 'The lamp flickers here.'
             };
             const line = lines[cue];
-            return line ? {type: 'local-scene', subjectId: placeId, text: `${text(label) ? `${text(label)}: ` : ''}${line}`, motif: cue === 'lamp-flicker' ? 'closing' : 'guidance'} : null;
+            return line ? {type: 'local-scene', subjectId: placeId, cue, text: `${text(label) ? `${text(label)}: ` : ''}${line}`, motif: cue === 'lamp-flicker' ? 'closing' : 'guidance'} : null;
         },
         observeActivityBoundary({boundaryId, activityId, outcome, destination, summary} = {}) {
             if (!boundaryId || !activityId || !outcome || !once(boundaries, boundaryId)) return null;

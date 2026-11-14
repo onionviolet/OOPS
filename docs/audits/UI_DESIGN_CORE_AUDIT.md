@@ -2452,3 +2452,38 @@ Weibao: "more to consider? Other general UI stuff". Method: headless Chrome at 1
 **Checks this suggests:** top-bar shift (add the bar to `stability`), cut-off labels (UIC137 already asks), off-token type sizes, and the same number shown at two precisions on one view.
 
 Ledger additions: UIC145 to UIC156, all open.
+
+### UIC139 landed: the kept cue line has an end (2026-11-13)
+
+Weibao: "yes, fix F1 after the commit". Agent-verified, not human-reviewed.
+
+- **What changed.** In `quiet_place_detail.js` a rain line clears when the rain stops, and any cue clears after 60 minutes of game time (`CUE_KEEP_MINUTES`, a default to tune). A scene cue now carries which cue it is, and the scene's view carries the game minute. Nothing is saved, so no save, reload or import run was owed.
+- **Seen in headless Chrome** at 1920×1080 on a fresh life: "Patience improves to 2." shown at 14:00, still there at 14:30, gone at 15:00. The rain case is covered by the unit test only; the walk cannot yet ask for rain (UIC144).
+- **Snow** has no "stopped" signal in the scene's view, so a snow line ends by age only.
+- **Commits.** `dfc7fc2d5` (weather lines, ledger, round 49) and `1e1579431`, which replaced that commit's bundle: it had been built on a tree holding another session's unfinished edits, and the copy step that should have stopped the commit did not. The bundle is now built from committed source only.
+- **Full `npm test` on the shared tree, before this fix:** 7,418 pass, 33 fail. 32 are `tests/gu_upkeep.test.js`, which pass on committed source and fail on another session's unfinished Gu pack edit. One is `tests/ui_contract.test.js` ("deeds has no surface entry in LAYOUT_SPEC.surfaces"), which also fails on committed source. Neither touches this work's files.
+
+Ledger: UIC139 done. UIC133 done in `dfc7fc2d5`.
+
+### More to consider, round 49 continued (2026-11-13)
+
+Weibao: "more to consider?" Four more captures read (Condition, Data, Ledger, and the Worlds click), plus what UIC139 changed. Proposals (AD32).
+
+**ACT NOW (done):**
+- **UIC139 made the layout move twice.** A cue arriving grew the weather block from 26 to 44 px and its ageing out shrank it again, pushing the action list each time. The cue line now keeps its height when empty (`styles/palette_feedback.css`). Measured in headless Chrome: 44 px empty, shown and aged out.
+
+**ACCOUNT FOR NOW:**
+- **One cue line, several cues.** Tool wear, body recovery and skill cues are published in one pass and each overwrites the last, so only the final one is ever read. Whether Reports also records them was not checked. The line needs a rule: latest wins and the rest go to Reports, or a short queue.
+- **The prose lint does not know "browser".** "browser closure", "browser-closed" and "This panel used to sit inside" pass `check:rules` (0 baseline entries; five source files carry the phrases). PRS9's leak list needs these terms before UIC158 is rewritten, so the rewrite cannot regress.
+
+**LATER / DELEGATE:**
+- **UIC157, a tab should open what it names.** Organizations opens a panel titled "Market courtyard". Data opens "Journal" with sub-tabs "Quests, ???????, ???????, Data, Knows, Notebook", so Data, Knows and Notebook are both top-bar tabs and Journal sub-tabs, and two sub-tabs are literal question marks. Seen. Sonnet, M. Done: every tab's panel title matches or visibly contains the tab's name; Journal's own tabs are not repeated in the top bar, or the reverse.
+- **UIC158, build notes in player text.** Market courtyard reads "This panel used to sit inside Location actions. It now has its own place in the panel list.", "Original local proposals. Work advances only during play. No browser-closed rent, upkeep or debt collection." and "browser closure creates no liabilities" (PRS9). Seen on the fixture. Sonnet, S per panel. Done: the lines are gone or in the world's voice, and the lint terms above are in.
+- **UIC159, the Ledger shows every button at once.** "Connect, Refuse, Disconnect, Reconnect, Accept…, Claim… reward" sit in one row, contradictory ones included; the unavailable ones are dashed with no reason (UR70 to UR75). A "Visual effects" settings box with "Cancel active effect" sits inside this gameplay panel. Headings such as "Acquisition and execution" and "Connection: offered. Points: 0." are form words. Seen. Sonnet, M. Done: only the actions that apply now show, each blocked one says why, and the effects box lives in Settings.
+- **UIC160, a route with two lines.** Condition opens a full-height panel holding "No active effects" and "Body · Human", the same two lines the left column showed a moment before, and the left copy disappears. Seen. Fold into UIC129 (the condition owner row) and UIC152.
+- **UIC161, empty columns.** Data's item log has a "Known bestiary sources" column with no entries and a "Best" column with one. Hide a column until it has a value. Seen. Haiku, S.
+- **UIC162, a tooltip over the header.** Clicking the locked Worlds tab shows "No other world is open to you yet" on top of the weather line. The reason is good; its place covers live text. Seen. Haiku, S.
+
+**The pattern in this round.** Round 48's misses were rules without checks. These are mostly panels that were each built alone: every feature brought its own tab, its own buttons row and its own explanatory note, and no pass has read them side by side. A side-by-side read of all panels against one template (title, one-line purpose, list, selected detail, actions that apply now) would find the rest faster than more single captures. Proposed as **UIC163, a panel template pass**: sonnet, M to L, read-only first, output a table of every panel against the template. Done: each of the panels in "All panels" has a row.
+
+Ledger additions: UIC157 to UIC163, open.
