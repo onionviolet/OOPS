@@ -9,7 +9,7 @@ import {extensionFact} from '../structured_pack_extensions.js';
 import {formatDuration} from '../number_format.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_RANK_TWO} from './book_gu_lead_rank_two.js';
-import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, riSeaMinutesPerPart} from '../ri_lead_day_facts.js';
+import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, RI_WOLF_AT_WALL as WOLF, riSeaMinutesPerPart} from '../ri_lead_day_facts.js';
 
 export const GU_LEAD_DAY = DAY_ID;
 const baseHash = 'sha256:9efca86558d35ae4ca0bce01755dd50761bf4c3aee82d1cd72d8b72d50f2001c';
@@ -31,6 +31,7 @@ const at = eq('actor.location', academy, 'Go back to the clan academy; the dormi
 const fact = (name, value) => ({type: 'fact', actor: 'player', scope: 'actor', key: local(name), value});
 const out = eq(local('on_watch'), true), notOut = eq(local('on_watch'), false, 'Report to the board first; your last watch is not counted yet.');
 const unhurt = eq(local('hurt'), false, 'Your wound needs binding and rest before another watch.');
+const noWolf = eq(local('wolf_waiting'), false, 'A wolf is still at the wall from your last watch. Face it or let the watch drive it off first.');
 const seaPace = `Your sea also refills on its own, one part every ${formatDuration(riSeaMinutesPerPart(44))} at your C grade (ch10).`;
 
 function act(name, label, duration, description, effects, {needs = [], costs = [], parts = 0} = {}) {
@@ -88,17 +89,23 @@ export const guLeadDay = {
         act('patrol', `Go out on a wolf-tide patrol · ${K.patrol.minutes / 60} h, up to ${K.patrol.parts} parts`, K.patrol.minutes,
             `Walk the outer wall with the clan's patrol and cut down what comes out of the trees. ${K.patrol.why} The Moonglow does the cutting, so it has to be fed. Report to the board afterwards to have the night counted.`,
             [fact('patrol_out', true), note(local('patrol'), 'You walked the wall until the wolves drew back. Report to the board to have the night counted.')],
-            {needs: [has(moonglow.gu, 1, 'You need the Moonglow Gu to cut with.'), eq(`${GU_LEAD_DAY}.moonglow.hungry`, false, 'Your Moonglow Gu is hungry and will not cut. Feed it first.'), notOut, unhurt],
+            {needs: [has(moonglow.gu, 1, 'You need the Moonglow Gu to cut with.'), eq(`${GU_LEAD_DAY}.moonglow.hungry`, false, 'Your Moonglow Gu is hungry and will not cut. Feed it first.'), notOut, unhurt, noWolf],
                 parts: K.patrol.parts}),
         {id: local('report'), revision: 1, label: 'Report the watch to the alliance board', group: 'structured_local', worldId: world, actorId: 'player', location: academy,
             audience: ['$actor'], once: false, duration: 0, visibleWhen: admitted,
             description: 'The board clerk counts what the night brought. What came out of the trees is settled now, from the watch you walked.',
             requires: all(ready, admitted, at, {...out, reason: 'Walk a patrol first.'}),
             outcomes: RI_PATROL_ENCOUNTERS.map(r => ({id: local(`patrol.${r.id}`), weight: r.weight, effects: [
-                fact('patrol_out', false), item(IT.merit, r.merit), note(local('patrol'), r.line),
+                fact('patrol_out', false), ...(r.merit ? [item(IT.merit, r.merit)] : []), note(local('patrol'), r.line),
                 ...(r.back ? [{type: 'energy', actor: 'player', energyId: essence, operation: 'recover', amount: r.back}] : []),
                 ...(r.eyes ? [item(IT.eye, r.eyes)] : []), ...(r.wildGu ? [item(IT.wildGu, r.wildGu)] : []),
-                ...(r.injured ? [fact('injured', true)] : []), ...(r.fight ? [fact('last_fight', r.id)] : [])]}))},
+                ...(r.injured ? [fact('injured', true)] : []), ...(r.fight ? [fact('last_fight', r.id), fact('wolf_at_wall', true)] : [])]}))},
+        {id: local('drive_off'), revision: 1, label: `Let the watch drive the wolf off · +${WOLF.driveOffMerit} merit, a bite`, group: 'structured_local', worldId: world,
+            actorId: 'player', location: academy, audience: ['$actor'], once: false, duration: 0, visibleWhen: admitted,
+            description: 'Call the watch and drive the wolf back into the trees together instead of facing it yourself. The credit is shared, and it bites you on the way out.',
+            requires: all(ready, admitted, at, eq(local('wolf_waiting'), true, 'No wolf is waiting at the wall.')),
+            effects: [fact('wolf_at_wall', false), fact('injured', true), item(IT.merit, WOLF.driveOffMerit),
+                note(local('patrol'), `The watch drove the wolf back into the trees. It bit you on the way. ${WOLF.driveOffMerit} merit on the board, shared.`)]},
         act('rest_wound', `Bind your wound and rest · ${K.patrol.restMinutes / 60} h`, K.patrol.restMinutes,
             'Clean the cut, bind it and keep off the wall until it closes.',
             [fact('injured', false), note(local('patrol'), 'The cut has closed. You can take a watch again.')],

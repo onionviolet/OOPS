@@ -43,7 +43,7 @@ export const RI_DAY_DIALS = Object.freeze({
 // What comes out of the trees on a patrol: one seeded draw when you report to the board (the engine's outcome draw, from the save's
 // seed). Authored weights and yields (dial: per row, and per wolf-tide phase later). A bigger pack pays more merit and keeps more of the
 // fifteen parts spent (`back` is what returns). `fight` marks the rows the combat lane can replace with the live fight (hook:
-// RI_PATROL_FIGHT_ROWS); until then each is a compressed routine (ACR1). Expected merit is about 49 a patrol (eyes counted at ten), about two stones.
+// RI_PATROL_FIGHT_ROWS); until then each is a compressed routine (ACR1). Expected merit is about 43 a patrol before a wolf at the wall is settled (eyes counted at ten).
 export const RI_PATROL_ENCOUNTERS = Object.freeze([
     Object.freeze({id: 'quiet', weight: 20, merit: 25, back: 10, line: 'A quiet watch. Two stray wolves came out of the trees and the Moonglow took both. 25 merit on the board.'}),
     Object.freeze({id: 'small_pack', weight: 28, merit: 50, back: 5, line: 'A small pack of five tested the wall. You cut down two before they broke off. 50 merit on the board.'}),
@@ -52,9 +52,14 @@ export const RI_PATROL_ENCOUNTERS = Object.freeze([
     Object.freeze({id: 'wild_gu', weight: 4, merit: 25, back: 8, wildGu: 1, line: 'In the brush under the wall something small glowed and did not run. A wild Gu, unrefined. 25 merit on the board.'}),
     Object.freeze({id: 'injured', weight: 8, merit: 25, back: 0, injured: true, line: 'A wolf got under your blade and opened your arm. You finished the watch, but you need to bind it and rest before going out again. 25 merit on the board.'}),
     Object.freeze({id: 'met_scout', weight: 8, merit: 50, back: 5, line: 'A scout from another clan’s patrol shared your stretch of the wall and talked more than he should have about their losses. 50 merit on the board.'}),
-    Object.freeze({id: 'wolf_attack', weight: 8, merit: 75, back: 0, injured: true, fight: true, line: 'A lightning wolf leapt the wall and came straight at you. You killed it, though it marked you. 75 merit on the board.'})
+    Object.freeze({id: 'wolf_attack', weight: 8, merit: 0, back: 0, fight: true, line: 'A lightning wolf leapt the wall and is still out there, circling under the lamps. Face it, or let the watch drive it off.'})
 ]);
 export const RI_PATROL_FIGHT_ROWS = Object.freeze(RI_PATROL_ENCOUNTERS.filter(r => r.fight).map(r => r.id));
+// A fight row leaves a wolf at the wall (actor fact below). It is settled either by the live hunt (tempo_lead_fights.js, opener
+// ri.wolf.tide, which reads `wolf_waiting`, clears the fact and pays `killMerit` for a kill or sets the wound on a loss) or by the
+// compressed fallback in the day extension, "Let the watch drive it off" (`driveOffMerit` and a wound). Authored numbers: a kill
+// beside the wall pays a large pack's 75 less the shared credit; driving it off is the quiet watch's 25 and the bite it costs.
+export const RI_WOLF_AT_WALL = Object.freeze({fact: `${RI_LEAD_DAY}.wolf_at_wall`, killMerit: 75, driveOffMerit: 25});
 // Natural recovery: the sea refills on its own at the aptitude's pace (gu_aperture.js holds the stated law: C grade recovers 4 points
 // of the aperture an hour, ch10). His pool is measured in points of the aperture (44 at C grade), so a C sea gains one part each
 // fifteen minutes. A stone does it faster (about half an hour to the cap, ch10).
@@ -68,6 +73,7 @@ export function riLeadDayFacts(state) {
     // Patrol state as plain booleans (an unset actor fact is unknown to the rule engine, so it could never satisfy "not out").
     out[`${RI_LEAD_DAY}.on_watch`] = a.facts?.[`${RI_LEAD_DAY}.patrol_out`] === true;
     out[`${RI_LEAD_DAY}.hurt`] = a.facts?.[`${RI_LEAD_DAY}.injured`] === true;
+    out[`${RI_LEAD_DAY}.wolf_waiting`] = a.facts?.[RI_WOLF_AT_WALL.fact] === true;
     for(const d of RI_DAY_DIETS) {
         const n = riDayNeed(d, known[d.fed]?.at, state.clock);
         out[`${RI_LEAD_DAY}.${d.slot}.due`] = n.stage !== 'fed';

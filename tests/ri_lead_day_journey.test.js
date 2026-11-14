@@ -40,7 +40,8 @@ test('Fang Yuan keeps his own day: meals, a stone, a reported patrol, a sea that
     const line = save.expansion.simulation.knowledge.player[`${DAY}.patrol`].value, row = RI_PATROL_ENCOUNTERS.find(r => r.line === line);
     assert.ok(row, 'the report leaves one of the encounter lines');
     assert.equal(count(save, 'book.ri.lead.ear_grass.merit'), merit + row.merit);
-    if(row.injured) await run('rest_wound', 370);
+    if(row.fight) await run('drive_off');   // a wolf left at the wall: the compressed fallback settles it (the live hunt is the combat lane's)
+    if(row.injured || row.fight) await run('rest_wound', 370);
     save = await g.save();
     const before = sea(save);
     await g.reload(); await g.settle();

@@ -2,7 +2,7 @@
 // The played journey on his ch140 save is in ri_lead_day_journey.test.js (slow tier).
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {riLeadDayFacts, RI_DAY_DIETS, RI_DAY_DIALS, RI_LEAD_DAY, RI_PATROL_ENCOUNTERS, RI_PATROL_FIGHT_ROWS, riSeaMinutesPerPart} from '../src/ri_lead_day_facts.js';
+import {riLeadDayFacts, RI_DAY_DIETS, RI_DAY_DIALS, RI_LEAD_DAY, RI_PATROL_ENCOUNTERS, RI_PATROL_FIGHT_ROWS, RI_WOLF_AT_WALL, riSeaMinutesPerPart} from '../src/ri_lead_day_facts.js';
 import {settleSea, stageSea} from '../src/ri_lead_sea_domain.js';
 import {guLeadDay} from '../src/world_packs/book_gu_lead_day.js';
 
@@ -72,4 +72,19 @@ test('the sea is settled only in his life and only once the ordinary day has beg
     assert.equal(after.state.simulation.energies.player['book.ri.lead.primeval'].reserve, 43);
     const elsewhere = plan(day, 1200, 'book.ri.keeper.world'); stageSea(elsewhere);
     assert.equal(elsewhere.state.simulation.energies.player['book.ri.lead.primeval'].reserve, 3);
+});
+
+test('a wolf attack leaves the wolf at the wall: the patrol waits until the live hunt or the watch settles it', () => {
+    const cmd = name => guLeadDay.commands.find(c => c.id === `${RI_LEAD_DAY}.${name}`);
+    const wolf = cmd('report').outcomes.find(o => o.id === `${RI_LEAD_DAY}.patrol.wolf_attack`);
+    assert.ok(wolf.effects.some(e => e.type === 'fact' && e.key === RI_WOLF_AT_WALL.fact && e.value === true));
+    assert.ok(!wolf.effects.some(e => e.type === 'item'), 'merit waits for how the wolf is settled');
+    assert.match(JSON.stringify(cmd('patrol').requires), /book\.ri\.lead\.day\.wolf_waiting/);
+    const drive = cmd('drive_off');
+    assert.equal(drive.duration, 0);
+    assert.ok(drive.effects.some(e => e.key === RI_WOLF_AT_WALL.fact && e.value === false));
+    assert.ok(drive.effects.some(e => e.type === 'item' && e.amount === RI_WOLF_AT_WALL.driveOffMerit));
+    const facts = waiting => riLeadDayFacts({clock: 0, actors: {player: {worldId: 'book.ri.lead.world', facts: waiting ? {[RI_WOLF_AT_WALL.fact]: true} : {}}}, simulation: {knowledge: {player: {}}}});
+    assert.equal(facts(false)[`${RI_LEAD_DAY}.wolf_waiting`], false);
+    assert.equal(facts(true)[`${RI_LEAD_DAY}.wolf_waiting`], true);
 });

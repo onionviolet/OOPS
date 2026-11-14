@@ -335,3 +335,19 @@ patrols?", read as random encounters and wolf attacks). Adjustable defaults (AD5
 - **Seen.** This save's seed opens with two injury draws in a row; over 2,000 draws the shares match the weights. The
   extension is now a bundled continuation (instant outcomes need it). Nothing had adopted revision 1 outside tests, so no
   alias is needed.
+- **Wolf at the wall (later the same day).** The coordinator asked that a wolf-attack night call the combat lane's live hunt
+  (`ri.wolf.tide`, ea9cbe543), passing essence, wound and merit in and applying what comes back. The interface, proposed to
+  the combat lane, uses one fact as the handoff:
+  - The wolf row no longer pays or wounds. It sets `book.ri.lead.day.wolf_at_wall`, published as `wolf_waiting`.
+  - While the wolf waits, the patrol is blocked ("A wolf is still at the wall…").
+  - Either the live hunt settles it, or the compressed fallback "Let the watch drive the wolf off · +25 merit, a bite" does.
+  - The hunt already reads the essence pool, the hunger fact and the wound. The proposal adds: clear the fact, and pay
+    `RI_WOLF_AT_WALL.killMerit` (75) for a kill or set the wound on a loss.
+  - Numbers have one authority, `RI_WOLF_AT_WALL` in `ri_lead_day_facts.js`.
+  - The combat lane's side is theirs to land; the standalone hunt is unchanged.
+  - Proof: the wolf is reached by DEV setup (the save's draw seed set to 14848, whose next draw is the wolf row; no
+    other state edited). The first 20 draws on this save's own seed hold no wolf.
+  - Headless: the report line reads "A lightning wolf leapt the wall…", and driving it off pays 25 merit, clears the wolf
+    and sets the wound.
+  - Chrome at 1920×1080 (bundle from `ff2f94063` plus two paths, sha256 `33378431…`): the patrol shows the wolf reason, and
+    the drive-off result held through reload and Import. No page errors.
