@@ -88,6 +88,7 @@ import {registerGuLeadAllianceSlope} from './world_packs/book_gu_lead_alliance_s
 import {registerGuLeadEarGrass,guLeadEarGrassClockRequest} from './world_packs/book_gu_lead_ear_grass.js';
 import {registerGuLeadIceSoul,guLeadIceSoulClockRequest} from './world_packs/book_gu_lead_ice_soul.js';
 import {registerGuLeadIceCrystal} from './world_packs/book_gu_lead_ice_crystal.js';
+import {registerGuLeadDay} from './world_packs/book_gu_lead_day.js';
 import {registerGuLeadWoodCharm,guLeadWoodCharmClockRequest} from './world_packs/book_gu_lead_wood_charm.js';
 import {registerGuLeadWallNight} from './world_packs/book_gu_lead_wall_night.js';
 import {registerGuLeadBurialGu} from './world_packs/book_gu_lead_burial_gu.js';
@@ -249,6 +250,7 @@ export async function registerBookBeginnings(register, choices, hpPorts = null) 
     await registerGuLeadThunderCrown(register, guLead);
     await registerGuLeadLycan(register, guLead);
     await registerGuLeadInvestigator(register, guLead);
+    await registerGuLeadDay(register, guLead);
     choices.register({packId: guLead.id, label: 'Reverend Insanity · the returned clan youth',
         arrival: 'Begin in your guardians’ house on the morning of the Awakening Ceremony. You remember a life that everyone around you has yet to live.',
         means: 'Your clan name gives you a place at the ceremony. You have no opened aperture, primeval essence or Gu of your own.'});
