@@ -1509,3 +1509,23 @@ Recorded as a standing rule. It extends the [finished-worktree cleanup of 2026-1
 
 `scripts/tauri/adopt.mjs` now cleans its scratch and prunes the app's builds to current and latest at the end of a swap, and has a `clean` command for failed runs.
 
+## UI directions A, B, D and F adopted, and a chat for cohesion, 2026-11-14
+
+Weibao, after the [one-flow mock](../../prototypes/fight-intent-2026-11-14/flow.html) and the question whether to adopt the A + B + D + F package: "First fix ABDF, then Send chat to address this in it's entirety,  cohesiveness of ui and more? making things make sense?"
+
+Recorded as accepted direction, adopting the four held UI directions of [UI audit rounds 49 and 51](../audits/UI_DESIGN_CORE_AUDIT.md#round-51-2026-11-13-the-work-views-the-keys-and-what-can-be-clicked):
+
+| Direction | What it means |
+| --- | --- |
+| A | The list in the centre and the selected thing in the left column (UIC152). |
+| B | One status line in every view (UIC146). |
+| D | Ready first, then near with the gap named, then the rest, on Here and in lists. |
+| F | The day strip. |
+
+Build them first. A dedicated chat then takes UI cohesion and "making things make sense" as a whole, starting from [play-surface round 6](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-6-2026-11-14-one-flow-not-separate-panels) (PS53 to PS60).
+
+Still held for him:
+- C (empty space as the place)
+- E (lead with the palette) and the top bar (UIC132, UIC175)
+- the Notebook (UIC168)
+- the growing screen (UIC131)

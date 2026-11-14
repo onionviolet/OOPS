@@ -2693,7 +2693,7 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 | UIC119, UIC122, M2 | Inline-format lint; visual baselines; Reports sizing | Done `32b9a86c8`, `47f9956d5` | `tests/number_format_ratchet.test.js` (37 older calls, count only falls). `npm run check:visual` compares five baselines exactly but for a dither pixel one colour level off. M2 is fixed on the screen, not in the check: the last 24 lines of the log are saved with the game and shown as "Earlier" on load, and the size check is strict again |
 | R2, R3, R5, M3, M4 | Round 46 and 47 findings | Replayed: R5 done, R2 reworded, M3 and M4 no longer true, R3 held | Journal opens on the current quest's steps. Worlds' lock says what it holds. The action list uses 48% of its box and no dropdown moves a neighbour. R3 (commands inside the Notebook) is the Notebook question, mock H |
 | PRS13 | Dry humour, deadpan first | Standing consideration | No pass |
-| Directions A to F | List and thing; one status line; empty space as the place; "what can I do now"; lead with the palette; a day strip | Mocked `90e8967bb` | Weibao picks |
+| Directions A to F | List and thing; one status line; empty space as the place; "what can I do now"; lead with the palette; a day strip | Mocked `90e8967bb`; A, B, D and F adopted by Weibao 2026-11-14 ([direction](../gm/USER_VISION_LOG_2026-11.md#ui-directions-a-b-d-and-f-adopted-and-a-chat-for-cohesion-2026-11-14)) | A, B, D, F: the cohesion chat builds them. C and E: Weibao picks |
 
 ### What is not done, and why
 
