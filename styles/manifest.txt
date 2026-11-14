@@ -46,3 +46,4 @@ styles/world_look.css
 styles/redesign_drafts.css
 styles/people_variants.css
 styles/places_variants.css
+styles/day_strip.css

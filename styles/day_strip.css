@@ -1,0 +1,22 @@
+/* Day strip (UI direction F, proposal). Fixed height, in the centre's top, above the place view. Tokens only (UR65-UR68). */
+.day-strip { --day-track: var(--ui-control-sm); box-sizing: border-box; display: grid; gap: var(--ui-space-1); flex: 0 0 auto;
+    height: calc(var(--day-track) + var(--ui-line-small) + var(--ui-space-4)); padding: var(--ui-space-1) var(--ui-space-3);
+    border-bottom: var(--ui-space-hairline) solid var(--ui-hairline); color: var(--ui-text); font-size: var(--ui-type-small); line-height: var(--ui-line-small); overflow: hidden; }
+.day-strip[hidden] { display: none; }
+.day-strip-track { position: relative; height: var(--day-track); background: var(--ui-navy); border: var(--ui-space-hairline) solid var(--ui-hairline); }
+.day-strip-past { position: absolute; inset: 0 auto 0 0; width: var(--day-now, 0%); background: var(--ui-teal); }
+.day-strip-ahead { position: absolute; inset: 0; pointer-events: none; }
+.day-strip-ahead > .day-strip-work { position: absolute; top: 0; bottom: 0; left: var(--day-now, 0%); width: calc(var(--day-to, 0%) - var(--day-now, 0%)); background: transparent; border: var(--ui-space-hairline) dashed var(--ui-accent); box-sizing: border-box; }
+.day-strip-ahead > .day-strip-plan { position: absolute; top: 25%; bottom: 25%; left: var(--day-at, 0%); width: var(--ui-space-2); background: var(--ui-accent); }
+.day-strip-ticks { position: absolute; inset: 0; pointer-events: none; }
+.day-strip-tick { position: absolute; left: var(--day-at, 0%); top: 0; bottom: 0; padding-left: var(--ui-space-1); border-left: var(--ui-space-hairline) solid var(--ui-hairline); opacity: .8; }
+.day-strip-now { position: absolute; top: 0; bottom: 0; left: var(--day-now, 0%); width: var(--ui-space-1); background: var(--ui-accent); pointer-events: none; }
+.day-strip-marks { position: absolute; inset: 0; }
+.day-strip-mark { position: absolute; left: var(--day-at, 0%); top: 50%; transform: translate(-50%, -50%); min-width: var(--ui-space-5); height: var(--ui-space-5); padding: 0; margin: 0;
+    border: var(--ui-space-hairline) solid var(--ui-text); background: var(--ui-navy); color: var(--ui-text); font-size: var(--ui-type-small); line-height: var(--ui-line-compact); cursor: pointer; }
+.day-strip-mark:hover, .day-strip-mark:focus-visible { background: var(--ui-text); color: var(--ui-navy); }
+.day-strip-mark:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: var(--ui-space-hairline); }
+.day-strip-legend { display: flex; gap: var(--ui-space-4); margin: 0; white-space: nowrap; overflow: hidden; }
+.day-strip-legend > span { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.day-strip-later { color: var(--ui-accent); }
+.day-strip-found { outline: 2px solid var(--ui-accent); outline-offset: var(--ui-space-hairline); }
