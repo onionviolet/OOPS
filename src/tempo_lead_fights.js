@@ -5,6 +5,7 @@
 // every number is an authored dial with its reason (AD49 calibration against held-back source fights is the next step, WS5).
 // Leaf of the world packs: reads each world's own facts, registers through tempo_starters.js, writes back in the fight's own commit.
 import {registerTempoOpener} from './tempo_starters.js';
+import {drawFraction} from './gen_kit.js';
 import {riLeadDayFacts, RI_DAY_ITEMS, RI_WOLF_AT_WALL} from './ri_lead_day_facts.js';
 
 const key = id => JSON.stringify({id});
@@ -20,24 +21,27 @@ const PLAIN = ['jab', 'swing', 'guard', 'tend', 'withdraw', 'yield'];
 // Nighthawks' attention. The usual frame for an ordinary man is a street robbery that goes wrong: no rules, knives out.
 export const TINGEN_BRAWL = Object.freeze({
     foeHp: {value: 24, why: 'A desperate dock labourer: tougher than a clerk, no trained fighter (tempo scale, as the road rival).'},
+    temper: {value: .7, why: 'Authored: he keeps the knife under his coat until he has taken about a third of a beating; then his temper goes.'},
     knife: {value: 1.3, why: 'A short knife cuts harder than a fist and is as quick; it does not reach further.'},
 });
-const TINGEN_STAKES = {preset: 'brawl', lethal: true, stakes: 'your purse, and his life',
-    text: 'A robbery gone wrong in a back lane. He has a knife and means it. A blow from you that drops him can kill him; his knife can drop you, and you wake hurt.',
-    why: 'WS3: open fights in Tingen are rare and dangerous. A knife makes it lethal; holding back is how you keep a death off your hands, and the police off your door.'};
+// The stakes move during the fight (Weibao, 2026-11-14: "Can change mid way through"): it starts as a robbery, and the knife comes out when
+// he is hurt or you go for the kill. Once it can kill, a man you drop waits for your choice.
+const TINGEN_STAKES = {preset: 'mugging', stakes: 'your purse',
+    text: 'A robbery in a back lane. He wants your purse, not your life, and keeps a knife under his coat. Hurt him and it may come out.',
+    why: 'WS3: open fights in Tingen are rare and dangerous. A drawn knife makes it a fight that can kill; a plea can take it back. A death in a Tingen lane brings the police.'};
 registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the back lane',
     text: 'A man with a knife steps out of an alley off Iron Cross Street and wants your purse. It can turn deadly either way.',
     owns: id => id === 'lotm-lane-knife',
     quote(state) {
         if(state.actors?.player?.worldId !== 'book.lotm.tingen' || !state.lotm) return {visible: false};
         if(busy(state)) return {visible: true, eligible: false, reason: 'Another encounter is already open.'};
-        return {visible: true, eligible: true, reason: 'Deadly for him: a blow that drops him can kill. Hold back to knock him out instead. If he drops you, you wake hurt.'};
+        return {visible: true, eligible: true, reason: 'A robbery, until the knife comes out. Then whether he lives is your choice. If he drops you, you wake hurt.'};
     },
     spec: (state, context, helpers) => ({id: 'lotm-lane-knife', title: 'A knifeman in the back lane', floor: 1, stakes: TINGEN_STAKES,
         conditions: {light: 'day', place: 'Tingen back lane'},
         fighters: [you(helpers, {moves: PLAIN}),
             foe(helpers, {id: 'lotm.lane.knifeman', name: 'The knifeman', hp: TINGEN_BRAWL.foeHp.value, body: {attack: 6, agility: 5, dexterity: 6, intuition: 5, attack_speed: .9, defense: 1, crit_rate: .08, crit_multiplier: 1.5, attack_count: 1},
-                goals: {survive: .7, aim: .3}, kit: {knife: {label: 'Knife thrust', text: 'A short, quick stab.', cost: 3, power: TINGEN_BRAWL.knife.value, why: TINGEN_BRAWL.knife.why}}})]}),
+                goals: {survive: .7, aim: .3}, kit: {knife: {label: 'Knife thrust', text: 'A short, quick stab.', cost: 3, power: TINGEN_BRAWL.knife.value, escalates: true, whenHurt: TINGEN_BRAWL.temper.value, why: TINGEN_BRAWL.knife.why}}})]}),
 });
 
 // --- Harry Potter: Hogwarts. WS1: fights end in disarming, a jinx, a bind or a teacher arriving. A student's repertoire is jinxes; adults
@@ -78,6 +82,8 @@ registerTempoOpener({id: 'hp.corridor.draco', label: 'Answer Malfoy in the corri
 // inventory and his essence is his own reserve; the fight spends both for real and writes them back once, in its own commit.
 export const WOLF_HUNT = Object.freeze({
     wolfHp: {value: 30, why: 'One ordinary lightning wolf: a patrol meets two (ri_lead_day_facts patrol dial), so one is half a patrol.'},
+    largeChance: {value: .2, why: 'Authored: about one wolf in five that comes close is a big one, a pack\'s strong member; the source\'s packs are led by bigger wolves (ch122-123).'},
+    largeHp: {value: 44, why: 'Authored: half again an ordinary wolf: four clean throws rather than three.'},
     bladeForce: {value: 12, why: 'A Moonglow blade cuts by the Gu, not the arm: about two fifths of a wolf, so three clean throws kill one (the contest pack\'s moonglow_blade drops a crippled wolf in one; a healthy one takes more).'},
     boarForce: {value: 6, why: 'Authored: a boar\'s strength behind a fist, half a blade. Enough to kill a hurt wolf.'},
     moonblade: {value: 4, why: 'Four parts a throw (the contest pack\'s moonglow_blade row, ch122-123).'},
@@ -95,6 +101,8 @@ const INJURED = 'book.ri.lead.day.injured';
 // cannot open a fight, so this opener is the trigger: with a wolf waiting it fights that wolf at night and settles the patrol's facts.
 const wolfWaiting = state => !!riLeadDayFacts(state)['book.ri.lead.day.wolf_waiting'];
 const PATROL_ID = 'ri-wolf-tide-patrol';
+// Which wolf comes close is one keyed draw on the world's seed and the hour (same hour, same wolf on a replay).
+export const wolfIsLarge = state => drawFraction(state.simulation?.seed ?? 1, `ri.wolf.tide:size:${Math.floor((state.clock || 0) / 60)}`) < WOLF_HUNT.largeChance.value;
 export const woundCarried = state => !!(state.actors?.player?.facts?.[INJURED] || riLeadDayFacts(state)[INJURED]);
 export function wolfKit(state, context) {
     const hungry = !!riLeadDayFacts(state)['book.ri.lead.day.moonglow.hungry'];
@@ -124,15 +132,15 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
     },
     spec(state, context, helpers) {
         const kit = wolfKit(state, context);
-        const patrol = wolfWaiting(state);
+        const patrol = wolfWaiting(state), large = wolfIsLarge(state);
         return {id: patrol ? PATROL_ID : 'ri-wolf-tide', title: patrol ? 'The wolf at the wall' : 'A lightning wolf beyond the wall', floor: 1,
             conditions: {light: patrol ? 'dark' : 'day', footing: 'bad', place: patrol ? 'The village wall' : 'Beyond the wall'},
             stakes: {preset: 'hunt', stakes: 'the wolf\'s life, and battle merit', text: 'A hunt beyond the wall: the wolf fights for its life. A blow that drops it kills it; if it drops you, you wake badly hurt.',
                 why: 'WS2: killing is common outside the walls; the tide is why you are here.'},
             fighters: [you(helpers, {moves: [...PLAIN, ...Object.keys(kit)], kit, means: {essence: reserve(state)}, meansLabels: {essence: 'essence'},
                 ...(woundCarried(state) ? {hp: Math.max(1, Math.round(helpers.vitals.health * WOLF_HUNT.woundCarried.value * 10) / 10)} : {})}),
-                foe(helpers, {id: 'ri.wolf.tide.wolf', name: 'A lightning wolf', hp: WOLF_HUNT.wolfHp.value, tags: ['beast'],
-                    body: {attack: 5, agility: 5, dexterity: 6, intuition: 4, attack_speed: 1.1, defense: 1, crit_rate: .1, crit_multiplier: 1.5, attack_count: 1},
+                foe(helpers, {id: 'ri.wolf.tide.wolf', name: large ? 'A large lightning wolf' : 'A lightning wolf', hp: large ? WOLF_HUNT.largeHp.value : WOLF_HUNT.wolfHp.value, tags: large ? ['beast', 'large'] : ['beast'],
+                    body: {attack: large ? 7 : 5, agility: 5, dexterity: 6, intuition: 4, attack_speed: 1.1, defense: 1, crit_rate: .1, crit_multiplier: 1.5, attack_count: 1},
                     goals: {survive: .4, aim: .6}, moves: ['jab', 'swing', 'withdraw']})]};
     },
     // Essence spent in the fight leaves the reserve once; a killed wolf leaves an eye the day's alliance board reads (FLR4: hand_in_eye).

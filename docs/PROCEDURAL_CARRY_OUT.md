@@ -715,8 +715,12 @@ law with its own copy of the moves, and stakes cannot change once a contest
 has begun. Default: the world supplies the usual frame, each contest carries
 its own stakes. Since 2026-11-14 a move needs no flag to kill (Weibao: "fists can
 kill too"): in a lethal contest any downing blow can kill, and a knockout comes
-from the striker holding back or a move that cannot kill. Stakes per contest would amend
-CFC9 and is a proposal.
+from the striker holding back or a move that cannot kill. Since the same day's follow-up
+(Weibao: "it all depends, maybe its a choice? like result of fight? more? Can change mid
+way through and more?") each contest and each live fight carries its own stakes, a move
+or a plea can change them mid-fight, restraint can slip (CBD213), and in the live fight a
+downed body waits for the player to finish or spare it (CBC4). Working defaults (AD56);
+see CFC9.
 
 **The live fight across the three leads (2026-11-14, proposal).** Weibao asked for
 the combat system "to account for new possiblity while still being familar? and

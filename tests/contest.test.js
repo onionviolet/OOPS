@@ -25,9 +25,9 @@ function arena(entrants, {extra = []} = {}) {
 }
 const fighter = (id, side, more = {}) => ({id, side, body: id, profile: {attack: 12, evasion: 10, notch: 0, resist: 0}, moves: ['jab'], ...more});
 
-function play(entrants, {seed = 7, detail = 'near', law = LAW, sides, until} = {}) {
+function play(entrants, {seed = 7, detail = 'near', law = LAW, sides, until, stakes} = {}) {
     const {rules, world} = arena(entrants);
-    const record = beginContest(law, {id: 'bout', seed, place: 'yard', entrants, sides, detail}, world);
+    const record = beginContest(law, {id: 'bout', seed, place: 'yard', entrants, sides, detail, stakes}, world);
     return {rules, ...runContest(law, record, rules, world, {}, {until})};
 }
 
@@ -185,4 +185,23 @@ test('in a lethal contest a plain blow can kill; holding back is the striker\'s 
     assert.equal(end(strong({wants: {subdue: true}})), 'knocked_out', 'a striker who holds back knocks out');
     assert.equal(end(strong({moves: ['tap']})), 'knocked_out', 'a move that cannot kill knocks out');
     assert.equal(end(strong(), LAW), 'knocked_out', 'a contest that is not lethal still ends in a knockout');
+});
+
+test('each contest carries its own stakes, a move can change them mid-fight, restraint can slip and a striker can spare (FK13, CBD213, CBC4)', () => {
+    // Weibao, 2026-11-14: "it all depends, maybe its a choice? like result of fight? more? Can change mid way through and more?"
+    const moves = {jab: {resolver: 'strike', steps: [5], power: 4}, knife: {resolver: 'strike', steps: [5], power: 4, stakes: 'lethal'},
+        crush: {resolver: 'strike', steps: [5], power: 40}};
+    const mild = defineContestLaw({id: 'c.test_mild', revision: 0, lethal: false, moves});
+    const deadly = defineContestLaw({id: 'c.test_deadly2', revision: 0, lethal: true, moves});
+    const strong = more => fighter('a', 'red', {profile: {attack: 40, evasion: 30, notch: 0, resist: 0}, ...more});
+    const end = (a, opts) => play([a, fighter('b', 'blue', {vitality: 6})], opts).record.result.outcomes.b;
+    assert.equal(end(strong(), {law: mild, stakes: {lethal: true}}), 'killed', 'this contest is deadly though its law is not');
+    assert.equal(end(strong(), {law: deadly, stakes: {lethal: false}}), 'knocked_out', 'and the other way');
+    const drawn = play([strong({moves: ['knife']}), fighter('b', 'blue', {vitality: 6})], {law: mild});
+    assert.equal(drawn.record.result.outcomes.b, 'killed', 'a knife drawn mid-fight makes it lethal');
+    assert.equal(drawn.record.stakes.lethal, true);
+    assert.ok(drawn.record.log.some(r => r.move === 'stakes'));
+    assert.equal(end(strong({wants: {spares: true}}), {law: deadly}), 'knocked_out', 'the striker spares in the window');
+    const crushes = [1, 2, 3, 4, 5, 6, 7, 8].map(seed => end(strong({moves: ['crush'], wants: {subdue: true}}), {law: deadly, seed}));
+    assert.ok(crushes.includes('killed') && crushes.includes('knocked_out'), `a crushing blow held back slips sometimes: ${crushes}`);
 });

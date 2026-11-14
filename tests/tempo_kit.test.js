@@ -142,3 +142,48 @@ test('a wolf left at the wall by the patrol is fought at night and settles the p
     assert.equal(lost.gameplay.player.inventory[merit], undefined);
     assert.equal(settle('won', 'killed', {arm: 'shaken'}).state.actors.player.facts['book.ri.lead.day.injured'], true, 'a wound taken in a won fight still counts');
 });
+
+// Weibao, 2026-11-14: "it all depends, maybe its a choice? like result of fight? more? Can change mid way through and more?"
+test('a downing blow in a lethal fight leaves a window: the player finishes or spares with a move, and the fight waits for it', async () => {
+    const {offered} = await import('../src/tempo_fight.js');
+    let plan = fight({stakes: {preset: 'hunt'}, foe: {hp: 4, maxHp: 30}});
+    for(let n = 0; n < 12 && !Object.keys(plan.state.simulation.sessions.player?.nativeBattle?.fate || {}).length; n++) plan = commitTempoMove(plan.state, registry, context, {moveId: 'jab'});
+    const b = plan.state.simulation.sessions.player.nativeBattle;
+    assert.deepEqual(b.fate, {foe1: 'player'}, 'the fight stays open on the decision');
+    assert.equal(b.fighters.foe1.end, 'downed');
+    assert.doesNotThrow(() => validateTempoBattle(structuredClone(b), plan.state.simulation.sessions.player), 'a waiting window saves');
+    assert.deepEqual(tempoView(b).fateMoves.map(m => m.id), ['finish', 'spare']);
+    assert.ok(offered(b, 'player').includes('finish'));
+    const spared = commitTempoMove(plan.state, registry, context, {moveId: 'spare', targetId: 'foe1'});
+    assert.equal(spared.fightEnd[0].end, 'knocked_out');
+    assert.equal(commitTempoMove(plan.state, registry, context, {moveId: 'finish', targetId: 'foe1'}).fightEnd[0].end, 'killed');
+});
+
+test('holding back can slip, more often with a blow far too strong for it; a blow far past the body leaves no window', () => {
+    const big = {...profile, attackPower: 400};
+    const ends = n => Array.from({length: n}, (_, i) => { const p = fight({stakes: {preset: 'hunt'}, seed: 100 + i, player: {profile: big}, foe: {hp: 6, maxHp: 30}});
+        setTempoHoldBack(p.state.simulation.sessions.player.nativeBattle, true); return finish(p).fightEnd[0].end; });
+    const held = ends(12);
+    assert.ok(held.includes('killed'), `an overwhelming blow slips past restraint sometimes: ${held}`);
+    assert.ok(held.includes('knocked_out'), `and is held sometimes: ${held}`);
+    const outright = finish(fight({stakes: {preset: 'hunt'}, player: {profile: big}, foe: {hp: 6, maxHp: 30}}), 'safe');
+    assert.notEqual(outright.fightEnd[0].end, 'downed');
+});
+
+test('the stakes shift mid-fight: a knife drawn in temper, a plea, going for the kill', () => {
+    const knife = {label: 'Knife thrust', text: 'A stab.', cost: 3, power: 1.3, escalates: true, whenHurt: .7};
+    let plan = fight({stakes: {preset: 'mugging'}, foe: {hp: 30, maxHp: 30, profile: {...profile, attackPower: 2}, kit: {knife}, goals: {aim: .2, survive: .5}}});
+    const b0 = plan.state.simulation.sessions.player.nativeBattle;
+    assert.equal(b0.stakes.lethal, false);
+    assert.ok(tempoView(b0).moves.some(m => m.id === 'escalate'), 'a fight that cannot kill offers going for the kill');
+    for(let n = 0; n < 20 && plan.state.simulation.sessions.player && !plan.state.simulation.sessions.player.nativeBattle.stakes.lethal; n++) plan = commitTempoMove(plan.state, registry, context, {moveId: 'jab'});
+    const b = plan.state.simulation.sessions.player?.nativeBattle;
+    assert.ok(b?.stakes.lethal, 'hurt, he drew the knife');
+    assert.ok(b.log.some(l => /to the death/.test(l)));
+    assert.ok(tempoView(b).moves.some(m => m.id === 'plead'), 'a fight that can kill offers a plea');
+    let tries = plan;
+    for(let n = 0; n < 8 && tries.state.simulation.sessions.player?.nativeBattle?.stakes.lethal; n++) tries = commitTempoMove(tries.state, registry, context, {moveId: 'plead'});
+    assert.equal(tries.state.simulation.sessions.player?.nativeBattle?.stakes.lethal ?? false, false, 'a plea is heard in the end by someone not set on harm');
+    const esc = commitTempoMove(fight({stakes: {preset: 'brawl'}}).state, registry, context, {moveId: 'escalate'});
+    assert.equal(esc.state.simulation.sessions.player.nativeBattle.stakes.lethal, true);
+});

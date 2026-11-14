@@ -32,6 +32,10 @@ export const TEMPO_DIALS = {
     shotDamage: {value: 'maxHp / downIn', why: 'Bridge from a world scale (e.g. LOTM hits-to-down) to tempo health: each hit takes an equal share, so downIn hits drop the target. Authored dial.'},
     stallActions: {value: 30, why: 'AT21: when two weak fighters cannot hurt each other (a hit chance near zero, or blows that do almost nothing), the fight would run forever. After this many moves in a row with no harm to anyone, both sides are spent and break off (ends as withdrawn, no grudge, no one follows). About a ten percent shooter still lands one in thirty about 96 times in 100. Set to 0 to turn it off.'},
     channelNotice: {value: 'winChance(perceive - conceal)', why: 'A concealed effect (conceal above 0) is seen only by an observer with a perceive value, by one keyed draw on the notch scale: an equal noticer catches it half the time, each notch of edge moves that by roughly a quarter, and no perceive value means nothing is shown and no draw is made. An effect in the open (conceal 0) is always logged. The holder always sees their own effect.'},
+    holdFailBase: {value: .05, why: 'CBD213: holding back is a skill with a failure. One downing blow in twenty slips past restraint even when the force was right.'},
+    holdFailForce: {value: .8, why: 'CBD213: a means too strong for the occasion. Each share of the body\'s health a blow carries beyond what downed it adds this much to the slip (a Gu blade held back on a wolf fails far more often than a fist).'},
+    outright: {value: .5, why: 'CBC4: a blow carrying half a body\'s health past the point that downed it leaves no window to decide in.'},
+    pleaBase: {value: .25, why: 'A plea to stop short of killing is heard about one time in four from someone set on harm, more as their aim softens (their goals) and as they are hurt.'},
     wardCast: {value: .6, why: 'A held ward (a shield charm, a guarding Gu) makes a cast at its holder about four in ten less likely to land, beside taking the edge off a blow.'},
     witnessPerStrike: {value: false, why: 'A witness remembers a fight as one event (LSD351); one memory per strike would fill their record. Tests or a world that wants every blow remembered can turn this on.'}
 };
@@ -44,6 +48,12 @@ export const TEMPO_MOVES = {
     tend: {label: 'Tend a wound', kind: 'remedy', cost: 5, heal: .15, stamina: 2, safe: true, text: 'Stop the worst of the bleeding. Needs two stamina.'},
     withdraw: {label: 'Back away', kind: 'withdraw', cost: 4, safe: true, text: 'Try to leave. A miss costs a free blow; a clean exit can still leave a friend behind or a grudge following.'},
     yield: {label: 'Yield', kind: 'yield', cost: 2, safe: true, text: 'Offer to give up while you can still stand. The other side may refuse.'},
+    // Stakes and fate moves (Weibao, 2026-11-14: "it all depends, maybe its a choice? like result of fight? more? Can change mid way through"):
+    // offered by the fight's stakes, not carried in a fighter's move list, so saved fights and move lists are unchanged.
+    plead: {label: 'Ask them not to kill', kind: 'plead', cost: 2, safe: true, text: 'Call for an end short of killing. They may agree; then a downing blow only knocks out, for both sides.'},
+    escalate: {label: 'Go for the kill', kind: 'escalate', cost: 1, safe: false, text: 'Make it plain you mean to kill. From now a downing blow can kill, for both sides.'},
+    finish: {label: 'Finish them', kind: 'fate', cost: 2, safe: false, text: 'They are down and helpless. End it.'},
+    spare: {label: 'Spare them', kind: 'fate', cost: 1, safe: true, text: 'They are down. Leave them alive.'},
     order: {label: 'Give an order', kind: 'order', cost: 2, safe: false, text: 'Say it to an ally. Costs a little time and may not be heard.'},
     // Stock moves (FD3/FD17): only fighters granted them and carrying stock see them. Odds come from the world's own scale, set when the fight begins.
     shoot: {label: 'Fire', kind: 'shoot', cost: 3, safe: false, text: 'Spend one loaded round on the nearest foe. Misses still spend it.'},
@@ -56,22 +66,43 @@ const active = (b, side) => Object.keys(b.fighters).filter(id => b.fighters[id].
 const round1 = n => Math.round(n * 10) / 10;
 const scaled = (move, f) => Math.max(1, Math.round(move.cost * 100 / (f.speed * oddsOf(f).speed)));
 // A fighter's own kit rows (tempo_kit.js) sit beside the shared moves; `kind` is derived from what the row does, never from its label.
+// Moves the fight itself offers: the fate of a body you downed, and changing the stakes (a plea while it can kill, going for the kill while it cannot).
+export const STAKES_MOVE_IDS = ['plead', 'escalate', 'finish', 'spare'];
+const fates = (b, actorId) => Object.entries(b.fate || {}).filter(([, by]) => by === actorId).map(([id]) => id);
+export function offered(b, actorId) {
+    if(!b.stakes || b.fighters[actorId]?.status !== 'active') return [];
+    return [...(fates(b, actorId).length ? ['finish', 'spare'] : []), ...(actorId === 'player' && active(b, 'b').length ? [b.stakes.lethal ? 'plead' : 'escalate'] : [])];
+}
 export const moveRow = (f, id) => TEMPO_MOVES[id] ?? (f.kit?.[id] ? {...f.kit[id], kind: f.kit[id].ward ? 'ward' : 'kit', safe: !!f.kit[id].ward || !!f.kit[id].safe} : null);
 const isAttack = row => row && (row.kind === 'strike' || (row.kind === 'kit' && ((row.power ?? 0) > 0 || row.force > 0 || row.binds || row.stun || Object.keys(row.takes || {}).length)));
 // How strongly a policy wants a usable attack row: binding or disarming ends a fight cleanly, then raw harm.
 const kitScore = r => (r.binds ? 30 : 0) + (Object.keys(r.takes || {}).length ? 20 : 0) + (r.force ?? (r.power ?? 0) * 10) + (r.stun ? 5 : 0);
 function kitPick(b, f, actorId, {ward = false} = {}) {
-    const rows = Object.entries(f.kit || {}).filter(([id, r]) => f.moves.includes(id) && !kitWhy(f, r) && (ward ? !!r.ward : isAttack(moveRow(f, id))));
+    // `whenHurt`: a row kept back until the fighter is hurt below that share (a temper lost, a knife drawn).
+    const rows = Object.entries(f.kit || {}).filter(([id, r]) => f.moves.includes(id) && !kitWhy(f, r) && (ward ? !!r.ward : isAttack(moveRow(f, id))) && !(r.whenHurt && f.hp / f.maxHp > r.whenHurt));
     return rows.sort(([x, a], [y, c]) => kitScore(c) - kitScore(a) || (x < y ? -1 : 1))[0]?.[0] ?? null;
 }
 // A body that goes down: in a lethal fight any downing blow can kill (CFC9, Weibao 2026-11-14: "fists can kill too"), unless the striker
 // holds back or the move cannot kill. The player is never killed in this slice (AD50: a run-ending threat needs its announcement and exits).
-function downed(b, foeId, strikerId, row) {
+// Since the 2026-11-14 follow-up a downing blow in a lethal fight leaves a window (CBC4): the striker decides, with a move, whether to finish or spare.
+// A blow far past what downed the body leaves no window (outright); holding back can slip (CBD213), more often with a means too strong for it.
+function downed(b, foeId, strikerId, row, over = 0) {
     const foe = b.fighters[foeId];
     foe.status = 'down';
     if(!b.stakes) return;
     const striker = b.fighters[strikerId];
-    foe.end = b.stakes.lethal && foeId !== 'player' && row?.lethal !== false && !striker?.holdBack ? 'killed' : 'knocked_out';
+    if(!b.stakes.lethal || foeId === 'player' || row?.lethal === false) { foe.end = 'knocked_out'; return; }
+    const share = Math.max(0, over) / Math.max(1, foe.maxHp);
+    if(striker?.holdBack) {
+        const slip = Math.min(.9, TEMPO_DIALS.holdFailBase.value + TEMPO_DIALS.holdFailForce.value * share);
+        if(draw(b, 'restraint', strikerId, {foe: foeId}) < slip) { foe.end = 'killed'; say(b, `${strikerId === 'player' ? 'You could not' : `${striker.name} could not`} hold that blow back.`); }
+        else foe.end = 'knocked_out';
+        return;
+    }
+    if(share >= TEMPO_DIALS.outright.value) { foe.end = 'killed'; return; }
+    foe.end = 'downed';
+    if(striker?.side === 'a' && strikerId === 'player') (b.fate ||= {})[foeId] = strikerId;
+    else foe.end = draw(b, 'fate', strikerId, {foe: foeId}) < (striker?.goals?.aim ?? .3) * .5 ? 'killed' : 'knocked_out'; // others decide at once, by how set on harm they are
 }
 
 // Equal ready time and speed is settled by a per-fight shuffle, never by name: calibration (P8) showed an id-order tie handed the first blow to the foe every time.
@@ -134,6 +165,8 @@ function policyChoice(b, actorId, policy) {
     const foe = target(b, actorId);
     if(f.ally && policy === 'steady') return allyMove(b, actorId, {target});
     const pick = id => ({moveId: id, targetId: id === 'jab' || id === 'swing' || id === 'shoot' || isAttack(moveRow(f, id)) && moveRow(f, id).kind === 'kit' ? foe : null});
+    // A body down at this fighter's feet is decided first: a careful policy spares; a hunt or skirmish finishes, anything else spares.
+    if(fates(b, actorId).length) return {moveId: policy !== 'safe' && ['hunt', 'skirmish'].includes(b.stakes?.preset) ? 'finish' : 'spare', targetId: fates(b, actorId)[0]};
     // Kit first when it can be used (a spell, a Gu): a fighter fights with what it carries; the fists are what is left (SF6).
     if(policy !== 'safe' && f.kit) {
         const w = hp < .5 && !f.guard ? kitPick(b, f, actorId, {ward: true}) : null;
@@ -159,6 +192,9 @@ function policyChoice(b, actorId, policy) {
 function finishFight(plan, registry, result) {
     const state = plan.state, session = state.simulation.sessions.player, b = session.nativeBattle;
     b.result = result;
+    // A body still waiting when the fight ends was left lying: it lives (CBC4's window closes on nobody's decision).
+    for(const id of Object.keys(b.fate || {})) if(b.fighters[id].end === 'downed') b.fighters[id].end = 'knocked_out';
+    delete b.fate;
     // The player's injuries go to the harm ladder through its one door; the host applies them after the commit (L9 owns the ladder).
     const hurt = Object.entries(b.fighters.player.parts || {});
     if(hurt.length) plan.harmEffects = hurt.map(([partId, rung]) => ({partId, rung, cause: `fight:${b.id}`}));
@@ -212,11 +248,12 @@ function stagePlayerVitals(plan) {
 
 function resolveEnd(b, publish, mover, moverId) {
     const theirs = active(b, 'b').length;
+    if(!theirs && fates(b, 'player').length && b.fighters.player.status === 'active') return; // the window: the player decides before the fight ends
     if(!theirs) publish('won'); else if(b.fighters.player.status === 'down') publish('lost');
     else if(mover && mover.status === 'left' && (moverId === 'player' || mover.side === 'b')) publish(mover.side === 'a' ? 'withdrawn' : 'won');
 }
 
-const END_LINE = {killed: 'is dead', knocked_out: 'is out cold', disarmed: 'has lost the wand', bound: 'is bound and cannot fight on'};
+const END_LINE = {downed: 'is down and helpless', killed: 'is dead', knocked_out: 'is out cold', disarmed: 'has lost the wand', bound: 'is bound and cannot fight on'};
 const endLine = (id, f) => `${id === 'player' ? 'You are' : f.name} ${id === 'player' ? (f.end === 'disarmed' ? 'disarmed' : f.end === 'bound' ? 'bound' : 'down') : END_LINE[f.end] ?? 'goes down'}.`;
 // A kit row cast at a foe (tempo_kit.js): spend, roll to land on the shared strike math, then harm, take, hold or bind by what the row says.
 function runKit(b, id, f, name, command, move) {
@@ -232,10 +269,10 @@ function runKit(b, id, f, name, command, move) {
         hitModifier: odds.accuracy * (move.hit ?? 1) * (foe.guard && foe.ward ? TEMPO_DIALS.wardCast.value : 1), evasionModifier: oddsOf(foe).evasion});
     if(strike.kind !== 'hit') { say(b, `${name} use${s} ${move.label} on ${foeName}, ${strike.kind === 'blocked' ? 'and it is blocked' : 'and it misses'}.`); return false; }
     const bits = [];
-    let dmg = 0;
+    let dmg = 0, over = 0;
     if((move.power ?? 0) > 0 || move.force > 0) {
         dmg = mitigateCombatDamageFromStats(strike.values, foe.profile.stats, foe.guard ? (foe.ward ?? TEMPO_DIALS.guardBonus.value) : 0, f.profile.stats.armor_penetration ?? 0, 1);
-        if(dmg) { foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.adrenalineUntil = b.now + 10; bits.push(`for ${round1(dmg)}${strike.critted ? ' (critical)' : ''}`); }
+        if(dmg) { over = dmg - (foe.hp - b.floor); foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.adrenalineUntil = b.now + 10; bits.push(`for ${round1(dmg)}${strike.critted ? ' (critical)' : ''}`); }
     }
     foe.guard = false; delete foe.ward;
     for(const [q, n] of Object.entries(move.takes || {})) if((foe.means?.[q] ?? 0) > 0) {
@@ -245,7 +282,9 @@ function runKit(b, id, f, name, command, move) {
     }
     if(move.stun && foe.status === 'active') { foe.ready = Math.max(foe.ready, b.now) + move.stun; bits.push(`${foeId === 'player' ? 'you are' : 'they are'} held in place`); }
     if(move.binds && foe.status === 'active') { foe.status = 'down'; foe.end = 'bound'; }
-    if(foe.status === 'active' && foe.hp <= b.floor) downed(b, foeId, id, move);
+    if(foe.status === 'active' && foe.hp <= b.floor) downed(b, foeId, id, move, over);
+    // A temper lost or a knife drawn (row `escalates`): from this move on the fight can kill.
+    if(move.escalates && b.stakes && !b.stakes.lethal) { b.stakes.lethal = true; say(b, `${name === 'You' ? 'You make' : `${name} makes`} it a fight to the death.`); }
     say(b, `${name} use${s} ${move.label} on ${foeName}: it lands${bits.length ? `, ${bits.join(', ')}` : ''}.`);
     if(foe.status === 'down') say(b, endLine(foeId, foe));
     return true; // a landed cast is progress even without harm (the stall count, AT21)
@@ -256,7 +295,7 @@ function runMove(plan, registry, command, publish) {
     const id = nextActor(b);
     check(id && (command.actorId ?? id) === id, 'It is not that fighter\'s turn.');
     const f = b.fighters[id], move = moveRow(f, command.moveId);
-    check(move && f.moves.includes(command.moveId), 'That fighter cannot make that move.');
+    check(move && (f.moves.includes(command.moveId) || offered(b, id).includes(command.moveId)), 'That fighter cannot make that move.');
     const name = id === 'player' ? 'You' : f.name;
     b.now = f.ready; b.actions++;
     let cost = scaled(move, f);
@@ -298,8 +337,9 @@ function runMove(plan, registry, command, publish) {
         }
         if(dmg) {
             harmed = true;
+            const over = dmg - (foe.hp - b.floor);
             foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.guard = false; delete foe.ward; foe.adrenalineUntil = b.now + 10;
-            if(foe.hp <= b.floor) downed(b, foeId, id, move);
+            if(foe.hp <= b.floor) downed(b, foeId, id, move, over);
             const part = SLOTS[slot].part, next = part ? injuryFor(foe.parts?.[part], dmg, foe.maxHp, strike.critted) : null;
             if(next) {(foe.parts ||= {})[part] = next; injury = `${partLabel(part)}: ${next}`;}
         }
@@ -320,6 +360,22 @@ function runMove(plan, registry, command, publish) {
         say(b, `${name} ${strike.kind === 'hit' ? `hit${id === 'player' ? '' : 's'} ${foeName} ${slot === 'head' ? 'in the head' : slot === 'torso' ? 'in the body' : `on the ${SLOTS[slot].label}`} for ${round1(dmg)}${typed ? ` ${typed.kind}` : ''}${strike.critted ? ' (critical)' : ''}${typed?.note ? `, ${typed.note}` : ''}${stopped ? `, armour stopped ${stopped}` : ''}` : strike.kind === 'blocked' ? `meet${id === 'player' ? '' : 's'} a full block` : `miss${id === 'player' ? '' : 'es'}`}.`);
         if(injury) say(b, `${foeId === 'player' ? 'Your' : `${foe.name}'s`} ${injury.replace(': ', ' are ').toLowerCase()}.`);
         if(foe.status === 'down') say(b, endLine(foeId, foe));
+    } else if(move.kind === 'fate') {
+        const foeId = fates(b, id).includes(command.targetId) ? command.targetId : fates(b, id)[0];
+        check(foeId, 'No one is down at your feet.');
+        const foe = b.fighters[foeId]; delete b.fate[foeId];
+        foe.end = command.moveId === 'finish' ? 'killed' : 'knocked_out';
+        say(b, command.moveId === 'finish' ? `${name} finish${id === 'player' ? '' : 'es'} ${foe.name}.` : `${name} spare${id === 'player' ? '' : 's'} ${foe.name}, who lies still.`);
+    } else if(move.kind === 'plead') {
+        // Heard by the other side's goals: someone set on harm rarely agrees, someone hurt or wavering more often.
+        const them = active(b, 'b').map(x => b.fighters[x]), aim = them.length ? them.reduce((a, x) => a + (x.goals?.aim ?? .5), 0) / them.length : 0;
+        const hurt = them.length ? them.reduce((a, x) => a + (1 - x.hp / x.maxHp), 0) / them.length : 1;
+        const p = Math.min(.9, TEMPO_DIALS.pleaBase.value + .4 * (1 - aim) + .3 * hurt);
+        if(draw(b, 'plea', id, {tries: f.pleas || 0}) < p) { b.stakes.lethal = false; say(b, `${name} call${id === 'player' ? '' : 's'} for no killing, and they agree. A downing blow only knocks out now.`); }
+        else { f.pleas = (f.pleas || 0) + 1; say(b, `${name} call${id === 'player' ? '' : 's'} for no killing. They do not answer.`); }
+    } else if(move.kind === 'escalate') {
+        b.stakes.lethal = true; delete f.holdBack;
+        say(b, `${name === 'You' ? 'You make' : `${name} makes`} it plain: this is to the death now.`);
     } else if(move.kind === 'kit') {
         harmed = runKit(b, id, f, name, command, move) || harmed;
     } else if(move.kind === 'ward') {
@@ -337,8 +393,9 @@ function runMove(plan, registry, command, publish) {
         if(hit) {
             harmed = true;
             const dmg = round1(foe.maxHp / odds.downIn);
+            const over = dmg - (foe.hp - b.floor);
             foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.guard = false; delete foe.ward; foe.adrenalineUntil = b.now + 10;
-            if(foe.hp <= b.floor) downed(b, foeId, id, move);
+            if(foe.hp <= b.floor) downed(b, foeId, id, move, over);
             say(b, `${name} fire${id === 'player' ? '' : 's'} and hit${id === 'player' ? '' : 's'} ${foeName}.${foe.status === 'down' ? ` ${foeId === 'player' ? 'You go' : `${foe.name} goes`} down.` : ''}${odds.notes.length ? ` (${odds.notes.join(', ')})` : ''}`);
         } else say(b, `${name} fire${id === 'player' ? '' : 's'} and miss${id === 'player' ? '' : 'es'}.`);
         if(!st.loaded) say(b, `${id === 'player' ? 'Your' : `${f.name}'s`} chambers are empty.`);
@@ -507,21 +564,26 @@ export function tempoView(b) {
     const kitRow = id => me.kit?.[id] ? moveRow(me, id) : null;
     return {title: b.title, lines: [...b.log], next, ...(b.stakes ? {stakes: {...b.stakes}} : {}), holdBack: !!me.holdBack,
         you: {hp: me.hp, maxHp: me.maxHp, stamina: me.stamina, maxStamina: me.maxStamina, mix, ...(me.means ? {means: Object.entries(me.means).map(([id, n]) => ({id, n, label: me.meansLabels?.[id] ?? id.replace(/_/g, ' ')}))} : {}), ...(st ? {stock: {loaded: st.loaded, carried: st.carried, capacity: st.capacity, kind: st.kind, kindLabel: stockKindLabel(st.kind)}} : {})}, hits: [...(b.hits || [])], yourTurn: mine && !b.result, result: b.result,
-        moves: mine ? me.moves.filter(id => id !== 'order').map(id => kitRow(id) ? {id, label: kitRow(id).label, text: kitRow(id).text, cost: scaled(kitRow(id), me), safe: kitRow(id).safe, kit: true,
+        // Fate and stakes moves the fight offers now, one row per body waiting on a decision.
+        fates: fates(b, 'player').map(id => ({id, name: b.fighters[id].name})),
+        moves: mine ? [...me.moves.filter(id => id !== 'order'), ...offered(b, 'player').filter(id => id !== 'finish' && id !== 'spare')].map(id => kitRow(id) ? {id, label: kitRow(id).label, text: kitRow(id).text, cost: scaled(kitRow(id), me), safe: kitRow(id).safe, kit: true,
             usable: !kitWhy(me, kitRow(id)) && oddsOf(me).allowed, why: kitWhy(me, kitRow(id)), price: kitCostText(me, kitRow(id)), detail: kitDetail(me, kitRow(id), b.stakes), odds: null} : ({id, label: TEMPO_MOVES[id].label, ...(TEMPO_MOVES[id].kind === 'strike' && mix ? {mix} : {}), text: TEMPO_MOVES[id].text, cost: scaled(TEMPO_MOVES[id], me), safe: TEMPO_MOVES[id].safe,
             usable: (id !== 'tend' || me.stamina >= TEMPO_MOVES.tend.stamina) && (TEMPO_MOVES[id].kind !== 'strike' || oddsOf(me).allowed) && !stockWhy(id),
             odds: id === 'withdraw' ? oddsWord(leaveChance(b, me, x => oddsOf(x).speed)) : id === 'yield' ? oddsWord(yieldChance(b, me)) : id === 'shoot' && foe0 ? oddsWord(st.vs[foe0].chance) : null,
             ...(id === 'shoot' || id === 'reload' ? {text: `${TEMPO_MOVES[id].text} ${st.loaded} of ${st.capacity} loaded, ${st.carried} carried (${stockKindLabel(st.kind)}).`} : {}),
             why: stockWhy(id) ? stockWhy(id) : id === 'tend' && me.stamina < TEMPO_MOVES.tend.stamina ? 'Needs two stamina.' : TEMPO_MOVES[id].kind === 'strike' && !oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you striking.` : '',
             ...(TEMPO_MOVES[id].kind === 'strike' && b.stakes ? {detail: `${TEMPO_MOVES[id].text} ${b.stakes.lethal ? (me.holdBack ? 'You are holding back: a downing blow knocks out.' : 'In this fight a downing blow can kill, a fist included.') : 'A downing blow knocks out.'}`} : {})})) : [],
+        ...(mine ? {fateMoves: fates(b, 'player').flatMap(foeId => ['finish', 'spare'].map(m => ({id: m, targetId: foeId, label: `${TEMPO_MOVES[m].label.replace('them', b.fighters[foeId].name.replace(/^A /, 'the '))}`,
+            text: TEMPO_MOVES[m].text, cost: scaled(TEMPO_MOVES[m], me), safe: TEMPO_MOVES[m].safe, usable: true, why: '', odds: null})))} : {fateMoves: []}),
         aims: mine ? SLOT_IDS.map(id => ({id, label: SLOTS[id].label === 'body' ? 'Body' : SLOTS[id].label[0].toUpperCase() + SLOTS[id].label.slice(1), text: SLOTS[id].why})) : [],
         hurt: Object.entries(me.parts || {}).map(([id, rung]) => ({id, label: partLabel(id), rung, shift: oddsOf({parts: {[id]: rung}}).shift})),
         orders: mine && me.moves.includes('order') ? active(b, 'a').filter(id => b.fighters[id].ally).flatMap(id => ALLY_ORDER_IDS.map(o => ({allyId: id, orderId: o, label: `${b.fighters[id].name}: ${ALLY_ORDERS[o].label}`,
             text: ALLY_ORDERS[o].text, cost: scaled(TEMPO_MOVES.order, me), odds: oddsWord(orderChance(b, b.fighters[id]))}))) : [],
         allies: active(b, 'a').filter(id => b.fighters[id].ally).map(id => ({id, name: b.fighters[id].name, hurt: b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'steady' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing',
             order: activeOrder(b, b.fighters[id])?.id ? ALLY_ORDERS[activeOrder(b, b.fighters[id]).id].label : null})),
-        foes: active(b, 'b').map(id => ({id, name: b.fighters[id].name, hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina,
-            ...(b.fighters[id].means && Object.keys(b.fighters[id].means).length ? {means: Object.entries(b.fighters[id].means).map(([q, n]) => ({id: q, n, label: b.fighters[id].meansLabels?.[q] ?? q.replace(/_/g, ' ')}))} : {}), learned: {...b.fighters[id].learned}, injuries: Object.entries(b.fighters[id].parts || {}).map(([p, rung]) => ({label: partLabel(p), rung})), hurt: b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'fresh' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing'}))};
+        // A body waiting on your decision stays on the card, down, so the choice has a place to be made (CBC4).
+        foes: [...active(b, 'b'), ...fates(b, 'player')].map(id => ({id, name: b.fighters[id].name, ...(b.fighters[id].status === 'down' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina,
+            ...(b.fighters[id].means && Object.keys(b.fighters[id].means).length ? {means: Object.entries(b.fighters[id].means).map(([q, n]) => ({id: q, n, label: b.fighters[id].meansLabels?.[q] ?? q.replace(/_/g, ' ')}))} : {}), learned: {...b.fighters[id].learned}, injuries: Object.entries(b.fighters[id].parts || {}).map(([p, rung]) => ({label: partLabel(p), rung})), hurt: b.fighters[id].status === 'down' ? 'down and helpless' : b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'fresh' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing'}))};
 }
 
 export const tempoKey = address;

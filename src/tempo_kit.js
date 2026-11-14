@@ -23,7 +23,7 @@ export const TEMPO_PRESETS = Object.freeze({
 });
 export const TEMPO_PRESET_IDS = Object.freeze(Object.keys(TEMPO_PRESETS));
 // How a fighter ended, beside its status. `killed` and `knocked_out` come from downing blows; `disarmed` and `bound` from landed casts.
-export const TEMPO_ENDS = Object.freeze(['killed', 'knocked_out', 'disarmed', 'bound', 'stopped']);
+export const TEMPO_ENDS = Object.freeze(['downed', 'killed', 'knocked_out', 'disarmed', 'bound', 'stopped']);
 
 const text = (s, n = 300) => typeof s === 'string' && s.length > 0 && s.length <= n;
 const count = n => Number.isFinite(n) && n >= 0 && n <= 1e6;
@@ -58,13 +58,14 @@ export function validateTempoKitRow(r) {
         (r.stun === undefined || (Number.isSafeInteger(r.stun) && r.stun >= 0 && r.stun <= 60)) && (r.binds === undefined || typeof r.binds === 'boolean') &&
         (r.ward === undefined || (Number.isFinite(r.ward) && r.ward >= 0 && r.ward <= 20)) && (r.lethal === undefined || typeof r.lethal === 'boolean') &&
         (r.roles === undefined || (Array.isArray(r.roles) && r.roles.length <= 6 && r.roles.every(x => x && text(x.role, 40) && text(x.by, 60)))) &&
-        (r.blocked === undefined || text(r.blocked)) && (r.why === undefined || text(r.why, 500)) && (r.safe === undefined || typeof r.safe === 'boolean');
+        (r.blocked === undefined || text(r.blocked)) && (r.escalates === undefined || typeof r.escalates === 'boolean') && (r.whenHurt === undefined || (Number.isFinite(r.whenHurt) && r.whenHurt > 0 && r.whenHurt <= 1)) && (r.why === undefined || text(r.why, 500)) && (r.safe === undefined || typeof r.safe === 'boolean');
 }
 export function validateTempoKit(f, sharedIds) {
     if(f.means !== undefined && !counts(f.means)) return false;
     if(f.meansLabels !== undefined && !(f.meansLabels && typeof f.meansLabels === 'object' && Object.values(f.meansLabels).every(v => text(v, 40)))) return false;
     if(f.holdBack !== undefined && typeof f.holdBack !== 'boolean') return false;
     if(f.end !== undefined && !TEMPO_ENDS.includes(f.end)) return false;
+    if(f.pleas !== undefined && !(Number.isSafeInteger(f.pleas) && f.pleas >= 0)) return false;
     if(f.kit === undefined) return true;
     return !!f.kit && typeof f.kit === 'object' && Object.keys(f.kit).length <= 12 &&
         Object.entries(f.kit).every(([id, r]) => /^[a-z][a-z0-9_]{0,31}$/.test(id) && !sharedIds.includes(id) && validateTempoKitRow(r));

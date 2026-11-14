@@ -30,6 +30,7 @@ export function fightRowType(row) {
     if (row.move === 'withdraw') return 'withdraw';
     if (row.move === 'interrupted') return 'interrupted';
     if (row.move === 'handoff') return 'handoff';
+    if (row.move === 'stakes' || row.move === 'restraint') return 'done'; // the contest's stakes changed, or restraint slipped (FK13, CBD213)
     if (row.move === 'break') return 'routed';
     if (row.outcome === undefined) return 'done';
     if (row.outcome === 'hit' || row.outcome === 'miss' || row.outcome === 'blocked') return row.outcome;

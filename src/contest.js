@@ -43,6 +43,8 @@ export const CONTEST_DIALS = Object.freeze({
     waitTicks: {value: 5, why: 'An attacker with no opening circles for half a second before looking again.'},
     glareThreshold: {value: 70, why: 'Direct bright light interferes with a visual defense.'},
     glareEvasion: {value: 0.15, why: 'A defender looking into the sun has much less time to evade a visible projectile.'},
+    holdFailBase: {value: 0.05, why: 'CBD213: holding back is a skill with a failure; about one downing blow in twenty slips past restraint.'},
+    holdFailForce: {value: 0.8, why: 'CBD213: a means too strong for the occasion. Each share of the body a blow carries adds this much to the slip.'},
     oddsSamples: {value: 24, why: 'Odds for a chooser come from running the same rule on this many keyed seeds.'},
 });
 const dial = (law, name) => law.dials[name]?.value ?? CONTEST_DIALS[name].value;
@@ -221,7 +223,9 @@ function entrantRow(law, world, e, at) {
 }
 
 /** Begin a contest. `entrants`: [{id, side, body, profile, moves, speed, perception, stealth, wants, lifecycle}]. */
-export function beginContest(law, {id, seed, place, entrants, sides = {}, detail = 'near', at = 0, limits = {}, sunDirection}, world) {
+// `stakes`: this contest's own stakes (FK13, Weibao 2026-11-14: "it all depends, maybe its a choice? ... Can change mid way through").
+// The law's `lethal` is only the starting value; a move with `stakes: 'lethal'` or `'spared'` changes it while the contest runs.
+export function beginContest(law, {id, seed, place, entrants, sides = {}, detail = 'near', at = 0, limits = {}, sunDirection, stakes}, world) {
     check(idOk(id) && natural(seed) && natural(at) && typeof place === 'string', 'A contest needs an id, a seed, a place and a start.');
     check(['near', 'far'].includes(detail), 'Detail is near or far.');
     check(Array.isArray(entrants) && new Set(entrants.map(e => e.side)).size >= 2, 'A contest needs at least two sides.');
@@ -232,6 +236,7 @@ export function beginContest(law, {id, seed, place, entrants, sides = {}, detail
     }
     check(sunDirection === undefined || [-1, 1].includes(sunDirection), 'Invalid light direction.');
     const record = {...(sunDirection !== undefined && {sunDirection}), schema: CONTEST_SCHEMA, id, law: law.ref, seed, place, detail, startedAt: at, clock: at, meetings: 0,
+        stakes: {lethal: typeof stakes?.lethal === 'boolean' ? stakes.lethal : law.lethal},
         sides: clone(sides), limits: clone(limits), landed: 0, entrants: table, pending: {}, pursuits: [], log: [], result: null, surprised: null};
     // CFC5: the opening comes from who notices first.
     const sideIds = [...new Set(Object.values(table).map(e => e.side))].sort();
@@ -387,7 +392,12 @@ function applyMeeting(law, record, world, rules, effect, at) {
             say(law, record, {at, actor: effect.target, move: 'interrupted', by: effect.actor});
         }
     }
-    if (effect.landed.length) target.lastHitBy = {actor: effect.actor, move: effect.move};
+    if (effect.landed.length) target.lastHitBy = {actor: effect.actor, move: effect.move, share: vitalityLost / (target.max.vitality || 1)};
+    // A move can change what the contest is for: a knife drawn makes it lethal, a plea heard spares (FK13).
+    if (move.stakes && record.stakes && record.stakes.lethal !== (move.stakes === 'lethal')) {
+        record.stakes.lethal = move.stakes === 'lethal';
+        say(law, record, {at, actor: effect.actor, move: 'stakes', outcome: move.stakes});
+    }
     return world;
 }
 
@@ -436,12 +446,19 @@ function checkEnds(law, record, world, rules, at) {
         const view = entrantView(law, record, world, id);
         const spent = Object.keys(law.endings).find(q => q !== 'noMeans' && q in view.quantities && view.quantities[q] <= 0);
         if (!spent) continue;
-        // Weibao, 2026-11-14: "fists can kill too". In a lethal contest any blow that downs a body can kill (AD38).
-        // Holding back is the attacker's choice (wants.subdue, CBC32) or a move that cannot kill (lethal: false).
-        const by = e.lastHitBy, striker = by && record.entrants[by.actor];
-        const lethalBlow = law.lethal && !!by && law.moves[by.move]?.lethal !== false && !striker?.wants?.subdue;
+        // Weibao, 2026-11-14: "fists can kill too". In a lethal contest any blow that downs a body can kill (AD38). Then: "it all depends,
+        // maybe its a choice?": the contest's own stakes decide (record.stakes, starting from the law); holding back (wants.subdue,
+        // CBC32) can slip (CBD213), more often with a blow carrying more of the body; and a downed body waits a window (CBC4) in which
+        // the striker decides by its wants (`spares` keeps it alive; a chooser sets it). A move that cannot kill (lethal: false) knocks out.
+        const by = e.lastHitBy, striker = by && record.entrants[by.actor], lethal = record.stakes?.lethal ?? law.lethal;
+        let lethalBlow = lethal && !!by && law.moves[by.move]?.lethal !== false;
+        if (lethalBlow && striker?.wants?.subdue) {
+            const slip = Math.min(0.9, dial(law, 'holdFailBase') + dial(law, 'holdFailForce') * Math.max(0, (by.share ?? 0) - 0.25));
+            lethalBlow = drawFraction(record.seed, checkKey({subject: `${record.id}:restraint:${id}:${record.meetings}`, method: 'contest.restraint'})) < slip;
+            if (lethalBlow) say(law, record, {at, actor: by.actor, move: 'restraint', outcome: 'slipped', target: id});
+        } else if (lethalBlow && striker?.wants?.spares) lethalBlow = false;
         e.status = 'out';
-        e.outcome = spent === 'vitality' ? (lethalBlow ? 'killed' : law.lethal ? 'knocked_out' : law.endings.vitality) : law.endings[spent];
+        e.outcome = spent === 'vitality' ? (lethalBlow ? 'killed' : lethal || law.lethal ? 'knocked_out' : law.endings.vitality) : law.endings[spent];
         if (e.working?.status === 'running') e.working = interruptWorking(e.working, {at, reason: 'Down.'});
         ops.push({op: 'publish', kind: 'contest.down', place: record.place, detail: {entrant: id, outcome: e.outcome, by: e.lastHitBy ?? null}});
         say(law, record, {at, actor: id, move: 'down', outcome: e.outcome});
@@ -687,6 +704,7 @@ export const serializeContest = record => JSON.parse(JSON.stringify(record));
 export function restoreContest(law, raw) {
     check(object(raw) && raw.schema === CONTEST_SCHEMA, 'Unsupported contest save version.');
     check(raw.law === law.ref && idOk(raw.id) && natural(raw.seed) && natural(raw.clock), 'This contest belongs to a different law.');
+    check(raw.stakes === undefined || (object(raw.stakes) && typeof raw.stakes.lethal === 'boolean'), 'Invalid contest stakes.');
     for (const [id, e] of Object.entries(raw.entrants ?? {})) {
         check(idOk(id) && ['in', 'out'].includes(e.status), 'Invalid contest entrant.');
         check(e.position === undefined || Number.isSafeInteger(e.position), 'Invalid saved contest position.');

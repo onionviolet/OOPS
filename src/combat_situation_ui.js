@@ -57,6 +57,9 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const runOn = () => { try { lastNotice = runCommand() || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
         const wait = t.yourTurn ? '' : 'Not your turn yet.';
         const options = t.yourTurn ? [
+            // The window after a downing blow (CBC4): finish or spare, one pair per body, ahead of the ordinary moves.
+            ...(t.fateMoves || []).map(m => ({id: `${m.id}:${m.targetId}`, label: m.label, time: `${m.cost} time`, affects: m.text,
+                attrs: {fightOption: `${m.id}:${m.targetId}`}, blocked, onChoose: () => move({moveId: m.id, targetId: m.targetId})})),
             ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost} time`, ...(m.price ? {cost: m.price} : {}), affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
                 attrs: {fightOption: m.id}, blocked: blocked || (m.usable === false ? m.why || 'Not possible now.' : ''), onChoose: () => move({moveId: m.id})})),
             ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, time: `${o.cost} time`, affects: `${o.text} Heard ${o.odds}; not certain.`,

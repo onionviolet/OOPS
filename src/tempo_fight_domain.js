@@ -260,6 +260,9 @@ function run() {
         if(!b) break;
         if(!tempoView(b).yourTurn) { why = 'It is not your turn.'; break; }
         const me = b.fighters.player;
+        // Whether to finish or spare someone down at your feet is yours, never the policy's (Weibao, 2026-11-14: "maybe its a choice?").
+        const down = Object.entries(b.fate || {}).filter(([, by]) => by === 'player').map(([id]) => b.fighters[id].name);
+        if(down.length) { why = `${down[0]} is down. Finish or spare?`; break; }
         if(turns > 0) {
             const reasons = askNow();
             if(reasons.length) { why = reasons[0].text; if(reasons[0].kind === 'pick gone') w.lastPick = null; break; }

@@ -54,6 +54,7 @@ export function validateTempoBattle(b, session, state) {
     check(b.hits === undefined || (Array.isArray(b.hits) && b.hits.length <= TEMPO_LOG_LINES && b.hits.every(h => typeof h.actor === 'string' && typeof h.target === 'string' && typeof h.slot === 'string' && Number.isFinite(h.dmg) && Number.isFinite(h.stopped) && Number.isFinite(h.multiplier ?? 1) && (h.split === undefined || (h.split && typeof h.split === 'object')) && (h.injury === undefined || typeof h.injury === 'string'))), 'Invalid tempo hit record.');
     check(validateExit(b.exit), 'Invalid tempo exit record.');
     check(validateTempoStakes(b.stakes), 'Invalid tempo stakes.');
+    check(b.fate === undefined || (b.fate && typeof b.fate === 'object' && Object.entries(b.fate).every(([id, by]) => b.fighters?.[id]?.end === 'downed' && b.fighters?.[by])), 'Invalid tempo fate window.');
     check(Array.isArray(b.log) && b.log.length <= TEMPO_LOG_LINES && typeof b.last === 'string' && b.last.length <= 500 && b.result === null, 'Invalid tempo log.');
     const ids = Object.keys(b.fighters || {});
     check(ids.includes('player') && b.fighters.player.side === 'a' && ids.some(id => b.fighters[id].side === 'b'), 'Invalid tempo roster.');
@@ -63,6 +64,7 @@ export function validateTempoBattle(b, session, state) {
             ['active', 'down', 'left'].includes(f.status) && Array.isArray(f.moves) && f.moves.every(m => TEMPO_ALLOWED_MOVE_IDS.includes(m) || !!f.kit?.[m]) && validateTempoKit(f, TEMPO_ALLOWED_MOVE_IDS) && validateTempoStock(f.stock, ids, id) && (f.tags === undefined || (Array.isArray(f.tags) && f.tags.length <= 8 && f.tags.every(t => typeof t === 'string' && t.length > 0 && t.length <= 32))) && validateTempoChannels(f) && f.profile?.stats && (f.ally === undefined || (f.side === 'a' && validateAlly(f.ally))) && validateParts(f.parts) && validateGoals(f.goals) && (f.learned === undefined || (f.learned && typeof f.learned === 'object' && Object.values(f.learned).every(v => typeof v === 'string'))) && (f.tries === undefined || natural(f.tries)), 'Invalid saved tempo fighter.');
         if(state && id !== 'player') check(!state.simulation.people[id] || state.simulation.people[id].life === 'alive', 'Unavailable tempo fighter.');
     }
-    check(active(b, 'a').length && active(b, 'b').length, 'A tempo fight needs fighters on both sides while open.');
+    // An open fight can also be waiting on the fate of a downed body (CBC4 window) with no foe still standing.
+    check(active(b, 'a').length && (active(b, 'b').length || Object.keys(b.fate || {}).length), 'A tempo fight needs fighters on both sides while open.');
     return b;
 }

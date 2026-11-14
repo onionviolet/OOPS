@@ -179,7 +179,7 @@ export function typeChips(learned = {}, {reveal = null, worldId = null, label = 
 export function tempoSituation(view, {place = '', worldId = null, dev = false} = {}) {
     const f = view?.fight;
     if (!f) return {active: false, mode: 'tempo'};
-    const opponents = f.foes.map((o, i) => ({id: o.id, slot: i, letter: letterFor(i), name: o.name, knowledge: 'native', defeated: false,
+    const opponents = f.foes.map((o, i) => ({id: o.id, slot: i, letter: letterFor(i), name: o.name, knowledge: 'native', defeated: !!o.down,
         health: {text: o.hurt, progress: null, knowledge: 'native'}, facts: []}));
     const me = f.you || {};
     const base = fightSituation({source: 'tempo', opponents}, {name: 'You', health: Number.isFinite(me.hp) ? {current: me.hp, max: me.maxHp} : undefined,
@@ -211,7 +211,8 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
         return `${h.actor} → ${h.target ?? h.foe}${slot}: ${h.dmg ?? h.dealt}${multiplier}${split}`;
     }) : [];
     // One home per fact (DESIGN.md DSG11): hp lives on the versus row, so the summary keeps only who is standing.
-    const standing = f.foes.length, summary = `${place ? `${place}: ` : ''}${standing} opponent${standing === 1 ? '' : 's'} standing.`;
+    const standing = f.foes.filter(o => !o.down).length, down = f.foes.length - standing;
+    const summary = `${place ? `${place}: ` : ''}${standing} opponent${standing === 1 ? '' : 's'} standing${down ? `, ${down} down at your feet` : ''}.`;
     return {active: true, mode: 'tempo', summary, versus: base.versus, stakes: f.stakes || null, holdBack: !!f.holdBack, next: f.next || [], yourTurn: !!f.yourTurn,
-        moves, aims: f.aims || [], aim: f.aim ?? null, orders: f.orders || [], log: [...(f.lines || [])], dev: hits};
+        moves, fateMoves: f.fateMoves || [], aims: f.aims || [], aim: f.aim ?? null, orders: f.orders || [], log: [...(f.lines || [])], dev: hits};
 }
