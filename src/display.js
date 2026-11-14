@@ -1378,7 +1378,7 @@ function update_displayed_trader() {
     seenVendorRows.clear();
     trader_item_divs = {};
     centerModes().open('trade', () => (window.exitTrade ?? window.exit_trade)()); // exitTrade also clears the page's in_trade and button display
-    document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region)))}%`
+    document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region)))}% of worth`
     update_displayed_trader_inventory();
 }
 
@@ -1411,19 +1411,19 @@ function create_trade_buttons() {
 
     const trade_button_5 = document.createElement("div");
     trade_button_5.classList.add("trade_ammount_button");
-    trade_button_5.innerText = "5";
+    trade_button_5.innerText = "5"; trade_button_5.title = "Move 5 into the deal";
     trade_button_5.setAttribute("data-trade_ammount", 5);
     trade_buttons.appendChild(trade_button_5);
 
     const trade_button_10 = document.createElement("div");
     trade_button_10.classList.add("trade_ammount_button");
-    trade_button_10.innerText = "10";
+    trade_button_10.innerText = "10"; trade_button_10.title = "Move 10 into the deal";
     trade_button_10.setAttribute("data-trade_ammount", 10);
     trade_buttons.appendChild(trade_button_10);
 
     const trade_button_max = document.createElement("div");
     trade_button_max.classList.add("trade_ammount_button");
-    trade_button_max.innerText = "all";
+    trade_button_max.innerText = "all"; trade_button_max.title = "Move all of them into the deal";
     trade_button_max.setAttribute("data-trade_ammount", Infinity);
     trade_buttons.appendChild(trade_button_max);
     

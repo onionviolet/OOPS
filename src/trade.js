@@ -28,6 +28,7 @@ import {addPurse} from "./economy_domain.js";
 import {socialContest, scaleByMargin} from "./social_contest.js";
 import {gamePeekRoot, STREAMS, gameKeyedRandom} from "./seeded_streams.js";
 import {current_game_time} from "./game_time.js";
+import {moneyText} from './reveal_chain.js';
 
 let current_trader = null;
 let current_quote = null;
@@ -168,10 +169,10 @@ function renderPriceNotes() {
         const item = getItemFromKey(JSON.stringify({id: n.goodId})), li = document.createElement('li');
         li.dataset.priceGood = n.goodId; li.dataset.priceMood = n.mood;
         const buy = regionalUnit(item, 'buy'), sell = regionalUnit(item, 'sell');
-        const head = `${n.goodId}: ${n.mood === 'steady' ? 'ordinary price' : `${n.mood} here`}. You pay ${buy}, he pays ${sell}.`;
+        const head = `${n.goodId}: ${n.mood === 'steady' ? 'ordinary price' : `${n.mood} here`}. You pay ${moneyText(buy)}, he pays ${moneyText(sell)}.`; // UIC190: the purse's format, so a price is not read as a count
         const why = [...n.reasons, n.stock > 0 && n.reasons.length === 0 ? `${n.stock} on the shelf.` : ''].filter(Boolean).join(' ');
         const seen = other ? remembered(other, JSON.stringify({id: n.goodId})) : null;
-        const away = seen ? ` ${memoryNote({place: other, goodId: n.goodId, price: seen.price, ageDays: seen.ageDays})}` : '';
+        const away = seen ? ` ${memoryNote({place: other, goodId: n.goodId, price: seen.price, ageDays: seen.ageDays, money: moneyText})}` : '';
         li.textContent = `${head} ${why}${away}`.replace(/\s+/g, ' ').trim();
         return li;
     }));

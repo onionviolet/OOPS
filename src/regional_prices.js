@@ -166,9 +166,9 @@ export function explainQuote({vendorId, goodId, stock, day, season, draw}) {
 
 // ---- what you remember of a price somewhere else (ECR17, FLR4 consumer) -----------------------------------
 /** A remembered price is only a guess once it is old; the caller passes minutes since it was seen. */
-export function memoryNote({place, goodId, price, ageDays}) {
+export function memoryNote({place, goodId, price, ageDays, money = n => `${n} coins`}) { // money: the caller's purse format (UIC190); this leaf stays import-free
     if(!Number.isFinite(price)) return null;
     const when = ageDays <= 0 ? 'today' : ageDays === 1 ? 'yesterday' : `${ageDays} days ago`;
     const stale = ageDays > DIALS.memoryDays.value;
-    return `${goodId} in the ${place}: ${price} coins when you last saw it, ${when}${stale ? '; that is a guess by now' : ''}.`;
+    return `${goodId} in the ${place}: ${money(price)} when you last saw it, ${when}${stale ? '; that is a guess by now' : ''}.`;
 }
