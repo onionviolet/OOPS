@@ -1457,3 +1457,16 @@ Recorded as his direction. It reopens three things the standing order had parked
 - **Daily actions and gameplay loops.** Reopens the 2026-11-03 pause on daily-life mechanism work for the ordinary day of Klein, Harry and Fang Yuan first (2026-11-13 steer), built on the existing duties, livelihood and activity rules (ACR, LVR). Granularity stays an adjustable dial.
 
 Lanes, owners and file boundaries: [play-surface checkpoint](dispatch/play-surface-2026-11-14/CHECKPOINT.md). All are proposals in their designs (AD32); nothing is pushed without his yes.
+
+## Wolf parts, then merit, 2026-11-14
+
+Weibao, on the wolf-tide patrol paying merit at once: "Rather than merit immediately it could be like part of the wolf drops and then I can trade that in for merit or something, thoughts?"
+
+He asked after random patrol encounters and natural sea recovery: "Is primeval stones the only way to do that? Radon encounters or some wood attaches during the patrols?" Both are built (69a9ddda6, 978481dc9, 0e242f27e).
+
+Recorded as his direction, applied as an adjustable default (AD56, AD38):
+- A kill yields wolf parts (proof, eye, pelt, meat), and the alliance board pays merit when proof is handed in.
+- Each part also has another use: sell it, feed it, keep it for refinement, or hide it.
+- Parts are real items: meat spoils and parts have weight.
+
+The numbers wait for a source check of how the clan credits kills (AD49). Owners are the daily-loops lane (hand-in and selling) and the combat lane (the fight's yield); see the [play-surface checkpoint](dispatch/play-surface-2026-11-14/CHECKPOINT.md).
