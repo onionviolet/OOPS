@@ -72,7 +72,11 @@ test('the view draws the strip, meters with words, household and a hand-off that
     assert.match(all(node, e => e.getAttribute('data-home-glance') !== null)[0].textContent, /Canopy nest|owned/);
     all(node, e => e.getAttribute('data-open-homes') !== null)[0].click();
     assert.equal(opened, 1);
-    assert.equal(all(node, e => e.tagName.toLowerCase() === 'button').length, 1, 'no action buttons here; Homes owns them (UIV4)');
+    // UIC199: a next step Homes can do is a button, and every button here only opens Homes (UIV4).
+    const buttons = all(node, e => e.tagName.toLowerCase() === 'button');
+    for (const b of buttons) b.click();
+    assert.equal(opened, 1 + buttons.length, 'every button hands off to Homes; none acts here');
+    assert.ok(all(node, e => e.getAttribute('data-next') === 'repair')[0]?.querySelector('button'), 'repair is a button into Homes');
 });
 
 test('several homes show a switcher and report the choice', () => {

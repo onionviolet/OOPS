@@ -52,7 +52,7 @@ function groupsFor(home, form, sees) {
 // G6: a pack place is stored by its id (book.hp.lead.dormitory); the player reads its label, or its last word.
 // A dotted id reads as its last word; a last word that is itself a generated key ("cast-266d…") reads as "another place".
 const placeWord = place => place.label || (/^[a-z0-9_-]+(\.[a-z0-9_-]+)+$/.test(place.location) ? (/[0-9a-f]{6,}/.test(place.location.split('.').pop()) ? 'another place' : place.location.split('.').pop().replace(/[_-]/g, ' ')) : place.location);
-export function homeOverviewModel(view, {homeId} = {}) {
+export function homeOverviewModel(view, {homeId, money = n => `${n} coins`} = {}) { // money: the caller's purse format (UIC190)
     const observer = view.observer, sees = request => (observer ? observer.sees(request) : true);
     if (!view.visible || !view.homes.length) {
         return {empty: view.visible ? 'No home yet. Rent or buy one from the Village home supplier, or build one at a wild site from gathered material.' : 'Your known homes are elsewhere.', homes: []};
@@ -64,7 +64,7 @@ export function homeOverviewModel(view, {homeId} = {}) {
         id: h.id, empty: null,
         homes: view.homes.map(x => ({id: x.id, name: x.name, here: view.here?.id === x.id, main: view.state.primary === x.id})),
         header: {name: h.name, tenure: `${h.tenure}${h.owner === 'player' ? ' · title yours' : ''}`, here: local, usable,
-            where: local ? 'You are here.' : `Away: ${placeWord(place)}.`, comfort: homeComfort(h)},
+            where: local ? 'You are here.' : placeWord(place) === h.name ? 'You are elsewhere.' : `At ${placeWord(place)}; you are elsewhere.`, comfort: homeComfort(h)}, // UIC199: no repeated name
     };
 
     // Fittings: one step per group; the note says what stands there. Sleep also reads the roof.
@@ -96,7 +96,7 @@ export function homeOverviewModel(view, {homeId} = {}) {
         {id: 'dampness', label: 'Dampness', value: Math.floor(q.wetness / 10), max: 100, words: `${Math.floor(q.wetness / 10)} of 100 · ${dampWord(q.wetness)}`, warn: q.wetness >= 150});
     if (place.period && h.tenure !== 'owned') {
         const left = Math.max(0, h.paidUntil - c.clock);
-        upkeep.push({id: 'lodging', label: 'Prepaid lodging', value: Math.min(left, place.period), max: place.period, words: `${timeWords(left)} left · ${place.price} coins a day`, warn: left < 360});
+        upkeep.push({id: 'lodging', label: 'Prepaid lodging', value: Math.min(left, place.period), max: place.period, words: `${timeWords(left)} left · ${money(place.price)} a day`, warn: left < 360});
     }
     model.upkeep = upkeep;
     const used = Object.values(h.stock).reduce((a, b) => a + b, 0), cap = homeCapacity(h);

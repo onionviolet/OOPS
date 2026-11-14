@@ -33,11 +33,13 @@ export function renderHomeView(node, model, {onSelect = null, onOpenHomes = null
 
     const head = model.header;
     node.append(el('h3', 'home-view-name', head.name),
-        el('p', 'home-view-glance', `${head.tenure} · ${head.comfort?.label || 'Comfort not assessed'} · ${head.where}${head.usable ? '' : ' Services are unavailable to this body right now.'}`, {'data-home-glance': ''}));
+        el('p', 'home-view-glance', `${head.tenure} · ${head.comfort?.label ? `comfort: ${head.comfort.label.toLowerCase()}` : 'comfort not assessed'} · ${head.where}${head.usable ? '' : ' Services are unavailable to this body right now.'}`, {'data-home-glance': ''}));
 
     if (model.next.length) {
         const list = el('ul', 'home-view-next', undefined, {'aria-label': 'What to do next'});
-        for (const n of model.next) list.append(el('li', 'home-view-chip', n.text, {'data-next': n.id}));
+        // UIC199: a step Homes can do is a button into Homes; travel is a note, not a box that looks pressable.
+        for (const n of model.next) { const act = onOpenHomes && n.id !== 'travel', li = el('li', act ? 'home-view-chip' : 'home-view-chip home-view-chip--note', act ? undefined : n.text, {'data-next': n.id});
+            if (act) { const b = el('button', 'home-view-chip-act', n.text, {type: 'button', title: 'Opens Homes'}); b.addEventListener('click', () => onOpenHomes()); li.append(b); } list.append(li); }
         node.append(list);
     }
 

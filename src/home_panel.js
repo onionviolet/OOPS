@@ -1,5 +1,5 @@
 import {formatMoneyText} from './number_format.js';
-import {denominationsKnown} from './reveal_chain.js';
+import {denominationsKnown,moneyText} from './reveal_chain.js';
 import {renderWarehouse} from './home_warehouse.js';
 import {renderVillageContacts} from './home_contacts.js';
 import {renderHomeWork} from './home_building_panel.js';
@@ -18,7 +18,7 @@ const option=(value,label)=>{const n=el('option',label);n.value=value;return n;}
 export function createHomePanel({read,quote,execute}) {
     const panel=el('section');panel.id='home_panel';panel.className='expedition_panel ui-workbench';
     const title=el('h2','Homes and belongings'),notice=el('p');notice.setAttribute('role','status');
-    const intro=el('p','Your rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.');
+    const intro=el('p','Your rights, furnishings and goods stay with each home.');
     const summary=el('p'),homes=select('Inspect residence'),detail=el('div'),start=el('details'),startBody=el('div'),market=el('details'),marketBody=el('div'),history=el('details'),historyBody=el('div'),building=el('details'),buildingBody=el('div');
     start.dataset.homeBeginnings='';start.append(el('summary','Choose a home beginning'),el('p','Optional fresh beginnings. Read the body, home rights and starting goods before choosing. The ordinary Village beginning remains available.'),startBody);
     market.append(el('summary','Village home supplier and lodging'),marketBody);history.append(el('summary','Home history'),historyBody);
@@ -47,7 +47,7 @@ export function createHomePanel({read,quote,execute}) {
         if(h) {
             const p=P[h.id],local=view.here?.id===h.id,usable=homeUsable(h,c);
             detail.append(el('h3',h.name),el('p',`${homeDescription(h)} ${h.owner==='player'?'Title: yours.':`Owner: ${h.tenure==='rented'?'your host':'the household'}. Your occupancy is separate from title.`}`),el('p',`${local?'You are here.':`Visit ${p.location} through the native travel list.`} ${usable?'Home services available for this body.':'Home services currently unavailable for this body or lodging term.'}`));
-            if(p.period) {const meter=createMeterBar();meter.update({id:'home-rent',kind:'pool',label:'Prepaid lodging',value:Math.max(0,h.paidUntil-c.clock),max:Math.max(p.period,h.paidUntil-c.clock),note:'Played minutes remaining. Renew explicitly; no automatic debt or deletion of goods.'});detail.append(meter.node);action(detail,'renew:'+h.id,`Renew lodging · ${p.price} coins / played day`,{type:'renew',home:h.id});}
+            if(p.period) {const meter=createMeterBar();meter.update({id:'home-rent',kind:'pool',label:'Prepaid lodging',value:Math.max(0,h.paidUntil-c.clock),max:Math.max(p.period,h.paidUntil-c.clock),note:'Time left on your lodging. Renew it yourself; running out adds no debt and keeps your goods.'});detail.append(meter.node);action(detail,'renew:'+h.id,`Renew lodging · ${moneyText(p.price)} a day`,{type:'renew',home:h.id});}
             const comfort=homeComfort(h);detail.append(el('p',`${comfort.label} · ${comfort.score} furnishing and room comfort. Furnishing details show each active benefit.`));
             action(detail,'primary:'+h.id,'Make this your main residence',{type:'primary',home:h.id});
             if(h.id==='shack'&&h.tenure==='shared')action(detail,'deed:shack','Buy the Shack deed · 60 coins',{type:'deed',home:'shack'});
@@ -103,8 +103,8 @@ export function createHomePanel({read,quote,execute}) {
         market.hidden=c.world!=='base.frontier'||c.location!=='Village';
         if(!market.hidden&&view.homes.some(h=>h.id==='manor'))renderVillageContacts({host:marketBody,view,action});
         if(!view.state.properties.manor)action(marketBody,'institution_join','Join the household as a provision worker and student',{type:'institution_join'});
-        for(const [id,p]of nativeHomeEntries())if(!['family','manor'].includes(id)&&!p.legacy&&!B[id])action(marketBody,'acquire:'+id,`${p.tenure==='rented'?'Rent':p.price?'Buy':'Settle'} ${p.name} · ${p.price} coins${p.period?' / day':''}`,{type:'acquire',home:id});
-        const shop=shopNode||(shopNode=select('Furnishing to buy'));if(!shop.options.length)for(const [id,f]of Object.entries({...Object.fromEntries(Object.entries(F).filter(([,f])=>!f.registered)),...HOME_SUPPLIES}))shop.append(option(id,`${f.name} · ${f.price} coins`));if(shopSelection)shop.value=shopSelection;if(shop.parentElement!==marketBody)marketBody.append(shop);const updateShop=()=>{shopSelection=shop.value;action(marketBody,'buy','Buy selected furnishing',{type:'buy',item:shop.value});};shop.onchange=updateShop;updateShop();
+        for(const [id,p]of nativeHomeEntries())if(!['family','manor'].includes(id)&&!p.legacy&&!B[id])action(marketBody,'acquire:'+id,`${p.tenure==='rented'?'Rent':p.price?'Buy':'Settle'} ${p.name} · ${moneyText(p.price)}${p.period?' a day':''}`,{type:'acquire',home:id});
+        const shop=shopNode||(shopNode=select('Furnishing to buy'));if(!shop.options.length)for(const [id,f]of Object.entries({...Object.fromEntries(Object.entries(F).filter(([,f])=>!f.registered)),...HOME_SUPPLIES}))shop.append(option(id,`${f.name} · ${moneyText(f.price)}`));if(shopSelection)shop.value=shopSelection;if(shop.parentElement!==marketBody)marketBody.append(shop);const updateShop=()=>{shopSelection=shop.value;action(marketBody,'buy','Buy selected furnishing',{type:'buy',item:shop.value});};shop.onchange=updateShop;updateShop();
         for(const row of view.state.ledger.slice().reverse())historyBody.append(el('p',`Minute ${row.at}: ${row.text}`));
         for(const d of detail.querySelectorAll('details'))if(oldOpen.includes(d.firstChild.textContent))d.open=true;
         if(focused)buttons.get(focused)?.button.focus({preventScroll:true});

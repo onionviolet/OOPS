@@ -1,6 +1,7 @@
 import {definePanel} from './panel_kit.js';
 import {renderHomeView} from './ui/home_view.js';
 import {homeOverviewModel} from './home_overview_model.js';
+import {moneyText} from './reveal_chain.js';
 // A home at a glance (HB1-HB6): rooms and fittings strip, upkeep, storage, weather, household and
 // construction, read from the existing homes projection. It acts on nothing; Homes owns every action.
 // The household field row is world-mechanism knowledge, so a seat that is not told it never sees it (UR80).
@@ -14,7 +15,7 @@ export function createHomeOverviewPanel({read, openHomes}) {
     function render() {
         if (!panel.isConnected) return;
         const view = read();
-        const model = homeOverviewModel(view, {homeId: selected});
+        const model = homeOverviewModel(view, {homeId: selected, money: moneyText});
         const sig = JSON.stringify(model);
         if (sig === signature) return;
         signature = sig; selected = model.id || '';

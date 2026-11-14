@@ -16,6 +16,10 @@
 .home-view-next {display: flex; flex-wrap: wrap; gap: var(--ui-space-3); margin: 0 0 var(--ui-space-5); padding: 0; list-style: none;}
 .home-view-chip {padding: var(--ui-space-1) var(--ui-space-4); border: 1px solid var(--hv-warn); color: var(--hv-warn);}
 :root[data-effects="full"] .home-view-chip {box-shadow: 0 0 0.4em var(--hv-warn);}
+/* UIC199: a next step Homes can do is a button; travel is a plain warning line. */
+.home-view-chip:has(> .home-view-chip-act), .home-view-chip--note {border: 0; padding-inline: 0;}
+:root[data-effects="full"] .home-view-chip:has(> .home-view-chip-act), :root[data-effects="full"] .home-view-chip--note {box-shadow: none;}
+.home-view-chip-act {border-color: var(--hv-warn); color: var(--hv-warn);}
 .home-view-strip {min-width: 0; margin: 0 0 var(--ui-space-5);}
 .home-view-heading {margin: var(--ui-space-5) 0 var(--ui-space-2); font-size: inherit; color: var(--hv-muted);}
 .home-view-meter-row {display: grid; grid-template-columns: 9em 12em 1fr; align-items: center; gap: var(--ui-space-4); margin: var(--ui-space-2) 0;}

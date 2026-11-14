@@ -16,7 +16,7 @@ const shows = node => !node.hidden && !node.closest('[hidden]') && node.checkVis
 // handler on the list reads the clicked element's class. So these are listed even when hover has
 // not revealed them, and each is clicked itself (the favourite star by its icon, as the handler expects).
 const NATIVE_CONTROLS = [
-    {selector: '.item_use_button', label: row => (row.classList.contains('character_item_book') ? 'Read' : 'Use')},
+    {selector: '.item_use_button', label: row => (row.classList.contains('character_item_book') ? 'Read' : /eat/.test(row.querySelector('.item_use_button')?.textContent || '') ? 'Eat' : 'Use')},
     {selector: '.item_auto_use_button', label: () => 'Toggle auto-use'},
     {selector: '.equip_item_button', label: () => 'Equip'},
     {selector: '.unequip_item_button', label: () => 'Take off'},

@@ -7,7 +7,7 @@ import {join, basename} from 'node:path';
 // "10C 4W" once the character knows the coin letters and "104 coins" before, so a template that writes `${n} coins`
 // itself drifts from the purse. Older ones are counted here and the count only goes down: route one through moneyText
 // and lower BASELINE. A world with its own money (soli, galleons) keeps its own words; this counts only "coin".
-const BASELINE = 65;
+const BASELINE = 62;
 const UI_FILE = /(_ui|_view|_panel|_display)\.js$/;
 const COIN_TEMPLATE = /\$\{[^}]+\} coins?\b/g;
 const walk = dir => readdirSync(dir).flatMap(name => { const path = join(dir, name); return statSync(path).isDirectory() ? walk(path) : [path]; });

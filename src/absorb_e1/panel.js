@@ -7,7 +7,7 @@ export function pacingStatus(raw, context={}) {
 }
 export function foodPacingDescription(item) {
     const gain=nourishmentFor(item);
-    return gain?`Optional hunger: restores up to ${Number(gain.toFixed(1))}/100 fullness.`:'';
+    return gain?`Eases hunger by up to ${Number(gain.toFixed(1))} of 100 fullness, when hunger is on.`:''; // UIC198: what it does, then the setting it depends on
 }
 // Integrator owns persistence and calls onChange only after its save guard succeeds.
 export function mountPacingPanel({host, getState=getPacingState, getContext=()=>({}), onChange}) {

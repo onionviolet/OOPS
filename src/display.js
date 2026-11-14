@@ -801,7 +801,7 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false, descript
 
     const name_span = document.createElement("span");
     name_span.classList.add("active_effect_name");
-    insert_HTML(name_span, `'${effect.name}' : `);
+    insert_HTML(name_span, effect.name); // UIC198: a name, not a quoted code
     const duration_span = document.createElement("span");
     duration_span.classList.add("active_effect_duration");
     duration_span.innerText = duration == null ? "Until resolved" : ""+ format_time({time: {minutes: duration}});
@@ -833,7 +833,7 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false, descript
         let flat = false;
         if(stat_value.flat) {
             const sign = stat_value.flat > 0? "+":"";
-            tooltip_html_content += `: ${sign}${Math.round(100*stat_value.flat)/100}`;
+            tooltip_html_content += `: ${sign}${Math.round(100*stat_value.flat)/100}${/_(regeneration|loss)_flat$/.test(key) ? '/s' : ''}`; // UIC198: the same unit the stamina and health bars show
             flat = true;
 
             
@@ -2244,7 +2244,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         if(target_item.item_type === "USABLE") {
             const item_use_button = document.createElement("div");
             item_use_button.classList.add("item_use_button");
-            item_use_button.innerText = "[use]";
+            item_use_button.innerText = target_item.tags.food ? "[eat]" : "[use]"; // UIC198: food says what using it does
             const item_auto_use_button = document.createElement("div");
             item_auto_use_button.classList.add("item_auto_use_button");
             item_auto_use_button.innerText = "auto";

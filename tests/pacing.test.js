@@ -67,7 +67,7 @@ test('saved JSON roundtrip restores disabled retained state, phase and next tran
 test('readable status and food description explain defaults, effects and scope',()=>{
     assert.match(pacingStatus(normalizePacing(),home),/native pacing/);
     assert.match(pacingStatus(enabled(),{homeWorld:false}),/paused outside/);
-    assert.match(foodPacingDescription(food),/15\/100/);
+    assert.match(foodPacingDescription(food),/up to 15 of 100 fullness/);
     assert.equal(foodPacingDescription({tags:{medicine:true}}),'');
 });
 test('panel toggles call integrator and roll back visual checkbox on rejected save',()=>{
