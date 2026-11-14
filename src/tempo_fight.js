@@ -68,6 +68,17 @@ const scaled = (move, f) => Math.max(1, Math.round(move.cost * 100 / (f.speed * 
 // A fighter's own kit rows (tempo_kit.js) sit beside the shared moves; `kind` is derived from what the row does, never from its label.
 // Moves the fight itself offers: the fate of a body you downed, and changing the stakes (a plea while it can kill, going for the kill while it cannot).
 export const STAKES_MOVE_IDS = ['plead', 'escalate', 'finish', 'spare'];
+// What follows each choice, as the character would know it (PS22, PRS1). An opener may give a foe its own `fateText`; a beast and a person differ.
+const isBeast = f => !!f?.tags?.includes('beast');
+export function fateText(f) {
+    const own = f.fateText || {};
+    return {finish: own.finish ?? (isBeast(f) ? 'It dies.' : 'They die here, by your hand.'),
+        spare: own.spare ?? (isBeast(f) ? 'It limps away.' : 'They live. They will remember this.'), ...(own.detail ? {detail: own.detail} : {})};
+}
+// Why a plea cannot work, by mechanism (PS25): a beast does not bargain.
+const pleaWhy = b => { const them = active(b, 'b').map(id => b.fighters[id]); return them.length && them.every(isBeast) ? `${them[0].name.replace(/^A /, 'The ')} does not bargain.` : ''; };
+// A shift in stakes is an event the card shows once (PS23): the new state and one line of why.
+const shift = (b, cue) => { b.stakes.cue = cue.slice(0, 300); };
 const fates = (b, actorId) => Object.entries(b.fate || {}).filter(([, by]) => by === actorId).map(([id]) => id);
 export function offered(b, actorId) {
     if(!b.stakes || b.fighters[actorId]?.status !== 'active') return [];
@@ -95,7 +106,7 @@ function downed(b, foeId, strikerId, row, over = 0) {
     const share = Math.max(0, over) / Math.max(1, foe.maxHp);
     if(striker?.holdBack) {
         const slip = Math.min(.9, TEMPO_DIALS.holdFailBase.value + TEMPO_DIALS.holdFailForce.value * share);
-        if(draw(b, 'restraint', strikerId, {foe: foeId}) < slip) { foe.end = 'killed'; say(b, `${strikerId === 'player' ? 'You could not' : `${striker.name} could not`} hold that blow back.`); }
+        if(draw(b, 'restraint', strikerId, {foe: foeId}) < slip) { foe.end = 'killed'; shift(b, `${strikerId === 'player' ? 'Your' : `${striker.name}'s`} restraint slipped.`); say(b, `${strikerId === 'player' ? 'You could not' : `${striker.name} could not`} hold that blow back.`); }
         else foe.end = 'knocked_out';
         return;
     }
@@ -284,7 +295,7 @@ function runKit(b, id, f, name, command, move) {
     if(move.binds && foe.status === 'active') { foe.status = 'down'; foe.end = 'bound'; }
     if(foe.status === 'active' && foe.hp <= b.floor) downed(b, foeId, id, move, over);
     // A temper lost or a knife drawn (row `escalates`): from this move on the fight can kill.
-    if(move.escalates && b.stakes && !b.stakes.lethal) { b.stakes.lethal = true; say(b, `${name === 'You' ? 'You make' : `${name} makes`} it a fight to the death.`); }
+    if(move.escalates && b.stakes && !b.stakes.lethal) { b.stakes.lethal = true; shift(b, `${name} drew a ${move.label.split(' ')[0].toLowerCase()}.`); say(b, `${name === 'You' ? 'You make' : `${name} makes`} it a fight to the death.`); }
     say(b, `${name} use${s} ${move.label} on ${foeName}: it lands${bits.length ? `, ${bits.join(', ')}` : ''}.`);
     if(foe.status === 'down') say(b, endLine(foeId, foe));
     return true; // a landed cast is progress even without harm (the stall count, AT21)
@@ -371,10 +382,11 @@ function runMove(plan, registry, command, publish) {
         const them = active(b, 'b').map(x => b.fighters[x]), aim = them.length ? them.reduce((a, x) => a + (x.goals?.aim ?? .5), 0) / them.length : 0;
         const hurt = them.length ? them.reduce((a, x) => a + (1 - x.hp / x.maxHp), 0) / them.length : 1;
         const p = Math.min(.9, TEMPO_DIALS.pleaBase.value + .4 * (1 - aim) + .3 * hurt);
-        if(draw(b, 'plea', id, {tries: f.pleas || 0}) < p) { b.stakes.lethal = false; say(b, `${name} call${id === 'player' ? '' : 's'} for no killing, and they agree. A downing blow only knocks out now.`); }
+        check(!pleaWhy(b), pleaWhy(b));
+        if(draw(b, 'plea', id, {tries: f.pleas || 0}) < p) { b.stakes.lethal = false; shift(b, `${name === 'You' ? 'Your' : `${name}'s`} plea was heard: no killing.`); say(b, `${name} call${id === 'player' ? '' : 's'} for no killing, and they agree. A downing blow only knocks out now.`); }
         else { f.pleas = (f.pleas || 0) + 1; say(b, `${name} call${id === 'player' ? '' : 's'} for no killing. They do not answer.`); }
     } else if(move.kind === 'escalate') {
-        b.stakes.lethal = true; delete f.holdBack;
+        b.stakes.lethal = true; delete f.holdBack; shift(b, `${name === 'You' ? 'You' : name} went for the kill.`);
         say(b, `${name === 'You' ? 'You make' : `${name} makes`} it plain: this is to the death now.`);
     } else if(move.kind === 'kit') {
         harmed = runKit(b, id, f, name, command, move) || harmed;
@@ -503,7 +515,7 @@ export function beginTempoFight(state, registry, context, spec) {
     for(const f of [...spec.fighters].sort((x, y) => (x.id < y.id ? -1 : 1))) {
         fighters[f.id] = {name: f.name, side: f.side, speed: f.speed ?? 100, ready: 0, hp: f.hp, maxHp: f.maxHp ?? f.hp, stamina: f.stamina ?? 10, maxStamina: f.maxStamina ?? f.stamina ?? 10,
             profile: structuredClone(f.profile), moves: (f.moves || [...KEEP, ...Object.keys(f.kit || {})]).filter(m => KEEP.includes(m) || (f.stock && TEMPO_ALLOWED_MOVE_IDS.includes(m) && !TEMPO_MOVE_IDS.includes(m)) || !!f.kit?.[m]), perception: f.perception ?? 5, stealth: f.stealth ?? 5,
-            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), ...(f.kit ? {kit: structuredClone(f.kit)} : {}), ...(f.means ? {means: {...f.means}} : {}), ...(f.meansLabels ? {meansLabels: {...f.meansLabels}} : {}), ...(f.holdBack ? {holdBack: true} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
+            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), ...(f.kit ? {kit: structuredClone(f.kit)} : {}), ...(f.means ? {means: {...f.means}} : {}), ...(f.meansLabels ? {meansLabels: {...f.meansLabels}} : {}), ...(f.holdBack ? {holdBack: true} : {}), ...(f.fateText ? {fateText: {...f.fateText}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
     }
     if(Object.values(fighters).some(f => f.side === 'a' && f.ally)) fighters.player.moves.push('order');
     const b = {schema: TEMPO_SCHEMA, id: spec.id, title: spec.title || 'A fight', seed, actions: 0, now: 0, seconds: 0, held: 0, floor: spec.floor ?? 0,
@@ -531,6 +543,15 @@ export function commitTempoMove(state, registry, context, command, expectedSeque
     return withHold(settleAuto(step(state, registry, context, {actorId: 'player', ...command}), registry, context));
 }
 
+// How likely holding back is to slip against the foe in front, from the player's heaviest attack (PS24, CBD213). Kit rows with `force` carry
+// their own harm; a plain blow is read from its power on the player's attack. An estimate for the tooltip; the draw happens at the blow.
+export function holdRisk(b) {
+    const me = b.fighters.player, foe = active(b, 'b').map(id => b.fighters[id])[0];
+    if(!foe || !b.stakes?.lethal) return 0;
+    const blows = [...me.moves.filter(id => TEMPO_MOVES[id]?.kind === 'strike').map(id => TEMPO_MOVES[id].power * me.profile.attackPower), ...Object.values(me.kit || {}).map(r => r.force ?? (r.power ?? 0) * me.profile.attackPower)];
+    const heaviest = Math.max(0, ...blows), over = Math.max(0, heaviest - foe.maxHp * .1); // a downing blow usually finds a tenth or less left
+    return Math.min(.9, TEMPO_DIALS.holdFailBase.value + TEMPO_DIALS.holdFailForce.value * over / Math.max(1, foe.maxHp));
+}
 // The player's own restraint (CBC32): holding back turns a downing blow into a knockout in a lethal fight. Free, no time.
 export function setTempoHoldBack(b, on) { check(b?.fighters?.player && !b.result, 'No tempo fight is waiting.'); b.fighters.player.holdBack = !!on; if(!on) delete b.fighters.player.holdBack; return b; }
 
@@ -568,13 +589,14 @@ export function tempoView(b) {
         fates: fates(b, 'player').map(id => ({id, name: b.fighters[id].name})),
         moves: mine ? [...me.moves.filter(id => id !== 'order'), ...offered(b, 'player').filter(id => id !== 'finish' && id !== 'spare')].map(id => kitRow(id) ? {id, label: kitRow(id).label, text: kitRow(id).text, cost: scaled(kitRow(id), me), safe: kitRow(id).safe, kit: true,
             usable: !kitWhy(me, kitRow(id)) && oddsOf(me).allowed, why: kitWhy(me, kitRow(id)), price: kitCostText(me, kitRow(id)), detail: kitDetail(me, kitRow(id), b.stakes), odds: null} : ({id, label: TEMPO_MOVES[id].label, ...(TEMPO_MOVES[id].kind === 'strike' && mix ? {mix} : {}), text: TEMPO_MOVES[id].text, cost: scaled(TEMPO_MOVES[id], me), safe: TEMPO_MOVES[id].safe,
-            usable: (id !== 'tend' || me.stamina >= TEMPO_MOVES.tend.stamina) && (TEMPO_MOVES[id].kind !== 'strike' || oddsOf(me).allowed) && !stockWhy(id),
+            usable: (id !== 'tend' || me.stamina >= TEMPO_MOVES.tend.stamina) && (TEMPO_MOVES[id].kind !== 'strike' || oddsOf(me).allowed) && !stockWhy(id) && !(id === 'plead' && pleaWhy(b)),
             odds: id === 'withdraw' ? oddsWord(leaveChance(b, me, x => oddsOf(x).speed)) : id === 'yield' ? oddsWord(yieldChance(b, me)) : id === 'shoot' && foe0 ? oddsWord(st.vs[foe0].chance) : null,
             ...(id === 'shoot' || id === 'reload' ? {text: `${TEMPO_MOVES[id].text} ${st.loaded} of ${st.capacity} loaded, ${st.carried} carried (${stockKindLabel(st.kind)}).`} : {}),
-            why: stockWhy(id) ? stockWhy(id) : id === 'tend' && me.stamina < TEMPO_MOVES.tend.stamina ? 'Needs two stamina.' : TEMPO_MOVES[id].kind === 'strike' && !oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you striking.` : '',
+            why: id === 'plead' && pleaWhy(b) ? pleaWhy(b) : stockWhy(id) ? stockWhy(id) : id === 'tend' && me.stamina < TEMPO_MOVES.tend.stamina ? 'Needs two stamina.' : TEMPO_MOVES[id].kind === 'strike' && !oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you striking.` : '',
             ...(TEMPO_MOVES[id].kind === 'strike' && b.stakes ? {detail: `${TEMPO_MOVES[id].text} ${b.stakes.lethal ? (me.holdBack ? 'You are holding back: a downing blow knocks out.' : 'In this fight a downing blow can kill, a fist included.') : 'A downing blow knocks out.'}`} : {})})) : [],
-        ...(mine ? {fateMoves: fates(b, 'player').flatMap(foeId => ['finish', 'spare'].map(m => ({id: m, targetId: foeId, label: `${TEMPO_MOVES[m].label.replace('them', b.fighters[foeId].name.replace(/^A /, 'the '))}`,
-            text: TEMPO_MOVES[m].text, cost: scaled(TEMPO_MOVES[m], me), safe: TEMPO_MOVES[m].safe, usable: true, why: '', odds: null})))} : {fateMoves: []}),
+        ...(mine ? {fateMoves: fates(b, 'player').flatMap(foeId => ['finish', 'spare'].map(m => ({id: m, targetId: foeId, name: b.fighters[foeId].name, label: m === 'finish' ? 'Finish' : 'Spare',
+            text: fateText(b.fighters[foeId])[m], ...(m === 'finish' && fateText(b.fighters[foeId]).detail ? {detail: fateText(b.fighters[foeId]).detail} : {}), cost: scaled(TEMPO_MOVES[m], me), safe: TEMPO_MOVES[m].safe, usable: true, why: '', odds: null})))} : {fateMoves: []}),
+        place: b.conditions.place || null, holdRisk: holdRisk(b),
         aims: mine ? SLOT_IDS.map(id => ({id, label: SLOTS[id].label === 'body' ? 'Body' : SLOTS[id].label[0].toUpperCase() + SLOTS[id].label.slice(1), text: SLOTS[id].why})) : [],
         hurt: Object.entries(me.parts || {}).map(([id, rung]) => ({id, label: partLabel(id), rung, shift: oddsOf({parts: {[id]: rung}}).shift})),
         orders: mine && me.moves.includes('order') ? active(b, 'a').filter(id => b.fighters[id].ally).flatMap(id => ALLY_ORDER_IDS.map(o => ({allyId: id, orderId: o, label: `${b.fighters[id].name}: ${ALLY_ORDERS[o].label}`,

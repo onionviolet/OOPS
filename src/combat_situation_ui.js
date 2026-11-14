@@ -28,6 +28,12 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
     let cardKey = '', textKey = '', stakes = null, lines = null, figure = null, notice = null, lastNotice = '';
     notice = document.createElement('p'); notice.className = 'fight-situation-notice';
     notice.setAttribute('role', 'status'); notice.tabIndex = -1;
+    // Keys 1 and 2 press the decision band's buttons (PS21) while focus is in the card and not in a text field.
+    section.addEventListener('keydown', e => {
+        if (e.altKey || e.ctrlKey || e.metaKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target?.tagName || '')) return;
+        const b = section.querySelector(`button[data-fight-key="${e.key}"]`);
+        if (b && !b.disabled) { e.preventDefault(); b.click(); }
+    });
     let previousLog = [], previousNoticeWasError = false;
     // Tempo mode (COMBAT.md round 3, R3-O1): the same card, versus row and log, with the move area filled by the
     // tempo contest's own moves. Reads the 'tempo_fight' projection; moves go through its 'move' command, which keeps
@@ -35,7 +41,8 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
     function renderTempo(actions) {
         let view = null; try { view = domainRegistry.project('tempo_fight'); } catch { view = null; }
         if (!view?.fight || view.fight.result) return false;
-        const place = document.getElementById('location_name_span')?.textContent.trim() || '';
+        // The fight's own place first (PS30): a fight beyond the wall is not "in" the village the location line names.
+        const place = view.fight.place || document.getElementById('location_name_span')?.textContent.trim() || '';
         const dev = !!config.enable_dev_mode || document.documentElement.dataset.dev === 'on';
         const t = tempoSituation(view, {place, worldId: view.fight.worldId ? worldFamily(view.fight.worldId) : currentWorldFamily(), dev});
         if (!t.active) return false;
@@ -58,11 +65,11 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const wait = t.yourTurn ? '' : 'Not your turn yet.';
         const options = t.yourTurn ? [
             // The window after a downing blow (CBC4): finish or spare, one pair per body, ahead of the ordinary moves.
-            ...(t.fateMoves || []).map(m => ({id: `${m.id}:${m.targetId}`, label: m.label, time: `${m.cost} time`, affects: m.text,
-                attrs: {fightOption: `${m.id}:${m.targetId}`}, blocked, onChoose: () => move({moveId: m.id, targetId: m.targetId})})),
-            ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost} time`, ...(m.price ? {cost: m.price} : {}), affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
+            ...(t.fateMoves || []).map(m => ({id: `${m.id}:${m.targetId}`, label: m.label, time: `${m.cost}s`, affects: m.text,
+                attrs: {fightOption: `${m.id}:${m.targetId}`, fightFate: m.id}, blocked, onChoose: () => move({moveId: m.id, targetId: m.targetId})})),
+            ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost}s`, ...(m.price ? {cost: m.price} : {}), affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
                 attrs: {fightOption: m.id}, blocked: blocked || (m.usable === false ? m.why || 'Not possible now.' : ''), onChoose: () => move({moveId: m.id})})),
-            ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, time: `${o.cost} time`, affects: `${o.text} Heard ${o.odds}; not certain.`,
+            ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, time: `${o.cost}s`, affects: `${o.text} Heard ${o.odds}; not certain.`,
                 attrs: {fightOption: `order:${o.orderId}:${o.allyId}`}, blocked, onChoose: () => move({moveId: 'order', allyId: o.allyId, orderId: o.orderId})})),
             {id: 'handover', label: HANDOVER_LABEL, affects: HANDOVER_TEXT, attrs: {fightOption: 'handover'}, blocked, onChoose: () => move({handOver: true})},
             {id: 'run', label: RUN_LABEL, affects: RUN_TEXT, attrs: {fightOption: 'run'}, blocked: blocked || (runCommand ? '' : 'The contest cannot fight on right now.'), onChoose: runOn},
@@ -70,6 +77,32 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         section.replaceChildren();
         const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', attrs: {fightMode: 'tempo'}, header: {title: view.fight.title || 'Fight', place}, stakes: t.summary, options});
         card.querySelector('.scene-card-stakes').after(notice);
+        // Times are seconds of fight time (PS32); the meaning sits on hover of each time chip.
+        for (const q of card.querySelectorAll('.scene-card-quote')) q.title = 'Seconds of fight time this takes; the side with time left acts next.';
+        // The decision band (PS21, PS22): when a body is down, the choice about it leads the card in two wide buttons (keys 1 and 2);
+        // the ordinary moves fold under "Other moves" and stay one click away (UR156).
+        const fateRows = [...card.querySelectorAll('button[data-fight-fate]')].map(b => b.parentElement);
+        if (fateRows.length) {
+            const band = document.createElement('div'); band.className = 'fight-situation-band'; band.dataset.fightBand = '';
+            const names = [...new Set((t.fateMoves || []).map(m => m.name))];
+            const head = document.createElement('p'); head.className = 'fight-situation-band-head';
+            head.textContent = `${names.join(' and ')} ${names.length > 1 ? 'are' : 'is'} down.`;
+            band.append(head);
+            fateRows[0].before(band);
+            fateRows.forEach((row, i) => {
+                const b = row.querySelector('button'), m = t.fateMoves[i];
+                if (i < 9 && fateRows.length <= 2) b.dataset.fightKey = String(i + 1);
+                if (m?.detail) b.title = m.detail;
+                if (b.dataset.fightKey) { b.setAttribute('aria-keyshortcuts', b.dataset.fightKey); const k = document.createElement('kbd'); k.className = 'fight-situation-key'; k.textContent = b.dataset.fightKey; b.prepend(k, ' '); }
+                band.append(row);
+            });
+            const rest = [...card.querySelectorAll('.scene-card-option')].filter(row => !band.contains(row));
+            if (rest.length) {
+                const more = document.createElement('details'); more.className = 'fight-situation-more'; more.dataset.fightMore = '';
+                const sum = document.createElement('summary'); sum.textContent = `Other moves (${rest.length})`;
+                more.append(sum, ...rest); band.after(more);
+            }
+        }
         const added = newTempoLines(previousLog, t.log);
         const feedback = lastNotice || (added.length ? added.join(' ') : previousNoticeWasError ? 'The fight continues.' : notice.textContent || 'The fight continues.');
         previousLog = [...t.log]; previousNoticeWasError = !!lastNotice;
@@ -83,19 +116,40 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         // downing blow could kill (CFC9, CBC32), free and saved with the fight.
         if (t.stakes) {
             const s = document.createElement('p'); s.className = 'fight-situation-stakes'; s.dataset.fightStakes = t.stakes.preset;
-            s.textContent = `${t.stakes.label} · stakes: ${t.stakes.stakes} · ${t.stakes.lethal ? 'can be deadly' : 'not deadly'}.`;
+            // A fight that changed midway says so (PS23): "now deadly" with the reason beside it, not just a flipped word.
+            const deadly = t.stakes.cue ? (t.stakes.lethal ? 'now deadly' : 'no longer deadly') : t.stakes.lethal ? 'can be deadly' : 'not deadly';
+            s.textContent = `${t.stakes.label} · stakes: ${t.stakes.stakes} · ${deadly}.`;
             s.title = [t.stakes.text, t.stakes.why].filter(Boolean).join(' ');
+            if (t.stakes.cue) { const cue = document.createElement('span'); cue.className = 'fight-situation-cue'; cue.dataset.fightCue = ''; cue.textContent = ` ${t.stakes.cue}`; s.append(cue); }
             if (t.stakes.lethal) {
                 const hold = domainRegistry.command('tempo_fight', 'hold'), b = document.createElement('button');
                 b.type = 'button'; b.dataset.fightHold = ''; b.textContent = t.holdBack ? 'Holding back' : 'Hold back';
                 b.setAttribute('aria-pressed', String(!!t.holdBack)); b.disabled = !hold;
-                b.title = t.holdBack ? 'Your blows knock out instead of killing. Press to fight to kill again.' : 'Pull your blows: one that would drop them knocks them out instead. Costs no time.';
+                // Holding back can slip when the blows run heavy for the foe (CBD213, PS24); the odds come from the fight, not a fixed word.
+                const risk = t.holdRisk > .15 ? ` Your blows run heavy for this; holding back may slip (about ${Math.round(t.holdRisk * 100)}%).` : '';
+                b.title = (t.holdBack ? 'Your blows knock out instead of killing. Press to fight to kill again.' : 'Pull your blows: one that would drop them knocks them out instead. Costs no time.') + risk;
+                if (t.holdBack && risk) { const n = document.createElement('span'); n.className = 'fight-situation-risk'; n.dataset.fightRisk = ''; n.textContent = ' Your blows run heavy for this; holding back may slip.'; s.append(n); }
                 b.onclick = () => { try { lastNotice = hold({on: !t.holdBack}) || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
                 s.append(' ', b);
             }
             versus.before(s);
+            // A standing answer for downed beasts (PS27), so Fight on can carry a hunt through; a person always asks.
+            if (t.stakes.lethal) {
+                const setPolicy = domainRegistry.command('tempo_fight', 'downPolicy');
+                const row = document.createElement('p'); row.className = 'fight-situation-policy'; row.dataset.fightPolicy = t.downPolicy;
+                row.append('When a beast is down: ');
+                for (const [id, label] of [['ask', 'Ask me'], ['finish', 'Finish'], ['spare', 'Spare']]) {
+                    const pb = document.createElement('button'); pb.type = 'button'; pb.textContent = label; pb.dataset.fightPolicyOption = id;
+                    pb.setAttribute('aria-pressed', String(t.downPolicy === id)); pb.disabled = !setPolicy;
+                    pb.title = id === 'ask' ? 'Fight on stops when something is down and waits for you.' : `Fight on will ${label.toLowerCase()} a downed beast for you. A person always asks.`;
+                    pb.onclick = () => { try { lastNotice = setPolicy({value: id}) || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
+                    row.append(pb);
+                }
+                s.after(row);
+            }
         }
-        if (t.aims.length) {
+        // No aim while a body is down: the choice in the band is the only question (PS21).
+        if (t.aims.length && !(t.yourTurn && t.fateMoves?.length)) {
             const setAim = domainRegistry.command('tempo_fight', 'aim');
             const reason = !setAim ? 'Aiming is unavailable until the contest can accept an aim.' : !t.yourTurn ? 'Not your turn yet.' : '';
             const row = document.createElement('p'); row.className = 'fight-situation-aims'; row.dataset.tempoAims = '';

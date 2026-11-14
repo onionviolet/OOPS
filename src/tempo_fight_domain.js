@@ -222,6 +222,17 @@ function askNow() {
         return fightPauseReasons(v, {knownFoes, ...(metMeans.has(w.title) && {means: metMeans.get(w.title)}), ...(w.lastPick && {lastPick: w.lastPick})}, {first: !w.moved});
     } catch(error) { return []; }
 }
+// Fight on's standing answer when a beast is down (PS27). Kept with the life as a plain fact; a person always asks.
+export const DOWN_POLICY_FACT = 'tempo.downPolicy', DOWN_POLICIES = ['ask', 'finish', 'spare'];
+const downPolicy = facts => DOWN_POLICIES.includes(facts[DOWN_POLICY_FACT]) ? facts[DOWN_POLICY_FACT] : 'ask';
+function setDownPolicy(request = {}) {
+    check(ports?.writable(), 'The game cannot take that right now.');
+    check(DOWN_POLICIES.includes(request.value), 'Choose ask me, finish or spare.');
+    const ctx = ports.campaignContext(), plan = {state: structuredClone(ports.root()), external: structuredClone(ctx.external), gameplay: structuredClone(ctx.gameplay), vitals: structuredClone(ctx.vitals), acquisitions: [], unlocks: []};
+    plan.state.actors.player.facts[DOWN_POLICY_FACT] = request.value; plan.state.sequence++;
+    ports.commit(plan);
+    return request.value === 'ask' ? 'Fight on will stop and ask when something is down.' : `Fight on will ${request.value} a downed beast without asking. A person still asks.`;
+}
 const MET_FACT = 'tempo.metFoes', MET_CAP = 200; // dial: how many names are remembered, newest kept
 function metFoes(facts) { try { const list = JSON.parse(facts[MET_FACT] || '[]'); return Array.isArray(list) ? list.filter(n => typeof n === 'string') : []; } catch(error) { return []; } }
 function closeAccount(plan, w) {
@@ -231,6 +242,8 @@ function closeAccount(plan, w) {
     account = fightResult({place: w.title, outcomes: {player: plan.playerEnd ?? OUTCOME[result] ?? null, ...Object.fromEntries(them.map((f, i) => [`foe${i}`, f.end]))}, rows: [], asked: w.asked, turning: [],
         means: [{id: 'health', before: round(w.health), after: round(v.health ?? w.health)}, {id: 'stamina', before: round(w.stamina), after: round(v.stamina ?? w.stamina)}]},
     {seat: 'player', life: 'health', names: Object.fromEntries(them.map((f, i) => [`foe${i}`, f.name])), moves: {}, means: MEANS, parts: {}});
+    // What you carry away (PS26): a world's after-hook names it in player words.
+    if(plan.fightCarry?.length) account = {...account, items: [...account.items, ['Carried', plan.fightCarry.join(' ')]]};
     metMeans.set(w.title, {health: w.health, stamina: w.stamina});
     // Kept with the life as plain text beside tempo.lastResult, so the last result is still there after a reload.
     plan.state.actors.player.facts[MET_FACT] = JSON.stringify([...new Set([...metFoes(plan.state.actors.player.facts), ...w.foes])].slice(-MET_CAP));
@@ -260,9 +273,14 @@ function run() {
         if(!b) break;
         if(!tempoView(b).yourTurn) { why = 'It is not your turn.'; break; }
         const me = b.fighters.player;
-        // Whether to finish or spare someone down at your feet is yours, never the policy's (Weibao, 2026-11-14: "maybe its a choice?").
-        const down = Object.entries(b.fate || {}).filter(([, by]) => by === 'player').map(([id]) => b.fighters[id].name);
-        if(down.length) { why = `${down[0]} is down. Finish or spare?`; break; }
+        // Whether to finish or spare someone down at your feet is yours (Weibao, 2026-11-14: "maybe its a choice?"). A standing answer
+        // (PS27: ask me, finish, spare; default ask me) lets Fight on settle a beast; a person always asks.
+        const down = Object.entries(b.fate || {}).filter(([, by]) => by === 'player').map(([id]) => id);
+        if(down.length) {
+            const standing = downPolicy(ports.root().actors?.player?.facts || {}), beast = b.fighters[down[0]].tags?.includes('beast');
+            if(standing === 'ask' || !beast) { why = `${b.fighters[down[0]].name} is down. Finish or spare?`; break; }
+            move({moveId: standing, targetId: down[0], auto: true}); continue;
+        }
         if(turns > 0) {
             const reasons = askNow();
             if(reasons.length) { why = reasons[0].text; if(reasons[0].kind === 'pick gone') w.lastPick = null; break; }
@@ -284,7 +302,7 @@ function view() {
 }
 function readView() {
     const b = open();
-    if(b) { watching(); return {visible: true, fight: {...tempoView(b), aim, ask: askNow().map(r => r.text)}, held: b.held}; }
+    if(b) { watching(); return {visible: true, fight: {...tempoView(b), aim, ask: askNow().map(r => r.text), downPolicy: downPolicy(ports.root().actors.player.facts)}, held: b.held}; }
     const quote = startQuote(), facts = ports.root().actors.player.facts;
     const rival = {...rivalBrief(facts, knownTargetFacts(ports.root(), 'player', 'roadRival')), study: studyQuote()}, openers = openerQuotes();
     const kept = keptAccount(facts); // a last result keeps the panel findable after its opener is used up
@@ -390,7 +408,7 @@ function holdBack(request = {}) {
     ports.commit(plan);
     return request.on ? 'You hold back: a blow that would drop them knocks them out instead.' : 'You stop holding back.';
 }
-const commands = {hold: request => { const said = holdBack(request); panel?.render(true); return said; }, run: () => { check(ports?.writable(), 'The game cannot take a move right now.'); const said = run(); panel?.render(true); return said; }, aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
+const commands = {downPolicy: request => { const said = setDownPolicy(request); panel?.render(true); return said; }, hold: request => { const said = holdBack(request); panel?.render(true); return said; }, run: () => { check(ports?.writable(), 'The game cannot take a move right now.'); const said = run(); panel?.render(true); return said; }, aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
     check(ports?.writable(), 'The game cannot take a move right now.');
     move(request); panel?.render(true);
 }};

@@ -213,6 +213,6 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     // One home per fact (DESIGN.md DSG11): hp lives on the versus row, so the summary keeps only who is standing.
     const standing = f.foes.filter(o => !o.down).length, down = f.foes.length - standing;
     const summary = `${place ? `${place}: ` : ''}${standing} opponent${standing === 1 ? '' : 's'} standing${down ? `, ${down} down at your feet` : ''}.`;
-    return {active: true, mode: 'tempo', summary, versus: base.versus, stakes: f.stakes || null, holdBack: !!f.holdBack, next: f.next || [], yourTurn: !!f.yourTurn,
+    return {active: true, mode: 'tempo', summary, versus: base.versus, stakes: f.stakes || null, holdBack: !!f.holdBack, holdRisk: f.holdRisk || 0, downPolicy: f.downPolicy || 'ask', next: f.next || [], yourTurn: !!f.yourTurn,
         moves, fateMoves: f.fateMoves || [], aims: f.aims || [], aim: f.aim ?? null, orders: f.orders || [], log: [...(f.lines || [])], dev: hits};
 }

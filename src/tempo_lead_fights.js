@@ -41,7 +41,9 @@ registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the bac
         conditions: {light: 'day', place: 'Tingen back lane'},
         fighters: [you(helpers, {moves: PLAIN}),
             foe(helpers, {id: 'lotm.lane.knifeman', name: 'The knifeman', hp: TINGEN_BRAWL.foeHp.value, body: {attack: 6, agility: 5, dexterity: 6, intuition: 5, attack_speed: .9, defense: 1, crit_rate: .08, crit_multiplier: 1.5, attack_count: 1},
-                goals: {survive: .7, aim: .3}, kit: {knife: {label: 'Knife thrust', text: 'A short, quick stab.', cost: 3, power: TINGEN_BRAWL.knife.value, escalates: true, whenHurt: TINGEN_BRAWL.temper.value, why: TINGEN_BRAWL.knife.why}}})]}),
+                goals: {survive: .7, aim: .3}, tags: ['person'],
+                fateText: {finish: 'He dies in the lane. A death in Tingen brings the police, and someone may have seen.', spare: 'He crawls off into the alley. He will remember your face.'},
+                kit: {knife: {label: 'Knife thrust', text: 'A short, quick stab.', cost: 3, power: TINGEN_BRAWL.knife.value, escalates: true, whenHurt: TINGEN_BRAWL.temper.value, why: TINGEN_BRAWL.knife.why}}})]}),
 });
 
 // --- Harry Potter: Hogwarts. WS1: fights end in disarming, a jinx, a bind or a teacher arriving. A student's repertoire is jinxes; adults
@@ -135,13 +137,15 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
         const patrol = wolfWaiting(state), large = wolfIsLarge(state);
         return {id: patrol ? PATROL_ID : 'ri-wolf-tide', title: patrol ? 'The wolf at the wall' : 'A lightning wolf beyond the wall', floor: 1,
             conditions: {light: patrol ? 'dark' : 'day', footing: 'bad', place: patrol ? 'The village wall' : 'Beyond the wall'},
-            stakes: {preset: 'hunt', stakes: 'the wolf\'s life, and battle merit', text: 'A hunt beyond the wall: the wolf fights for its life. A blow that drops it kills it; if it drops you, you wake badly hurt.',
+            stakes: {preset: 'hunt', stakes: 'the wolf\'s life, and wolf parts for the board', text: 'A hunt beyond the wall: the wolf fights for its life. A blow that drops it kills it; if it drops you, you wake badly hurt.',
                 why: 'WS2: killing is common outside the walls; the tide is why you are here.'},
             fighters: [you(helpers, {moves: [...PLAIN, ...Object.keys(kit)], kit, means: {essence: reserve(state)}, meansLabels: {essence: 'essence'},
                 ...(woundCarried(state) ? {hp: Math.max(1, Math.round(helpers.vitals.health * WOLF_HUNT.woundCarried.value * 10) / 10)} : {})}),
                 foe(helpers, {id: 'ri.wolf.tide.wolf', name: large ? 'A large lightning wolf' : 'A lightning wolf', hp: large ? WOLF_HUNT.largeHp.value : WOLF_HUNT.wolfHp.value, tags: large ? ['beast', 'large'] : ['beast'],
                     body: {attack: large ? 7 : 5, agility: 5, dexterity: 6, intuition: 4, attack_speed: 1.1, defense: 1, crit_rate: .1, crit_multiplier: 1.5, attack_count: 1},
-                    goals: {survive: .4, aim: .6}, moves: ['jab', 'swing', 'withdraw']})]};
+                    goals: {survive: .4, aim: .6}, moves: ['jab', 'swing', 'withdraw'],
+                    fateText: {finish: 'It dies. You can cut out its eye; the board pays for the eye.', spare: 'It limps back into the trees. The woods keep one more wolf.',
+                        detail: 'One wolf eye to hand in at the alliance board.'}})]};
     },
     // Essence spent in the fight leaves the reserve once; a killed wolf leaves an eye the day's alliance board reads (FLR4: hand_in_eye).
     // From the patrol, it also frees the patrol, pays the kill merit, and leaves him injured when he was hurt or did not win (plain facts the
@@ -152,6 +156,8 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
         const wolf = b.fighters['ri.wolf.tide.wolf'], killed = result === 'won' && wolf?.end === 'killed' ? 1 : 0;
         const inv = ((plan.gameplay ||= {}).player ||= {}).inventory ||= {}, add = (id, n) => { inv[key(id)] = (inv[key(id)] || 0) + n; };
         if(killed) add(RI_DAY_ITEMS.eye, 1);
+        // What he carries away, in player words, for the result line (PS26).
+        plan.fightCarry = killed ? ['A wolf eye is in your pack for the board.'] : wolf?.end === 'knocked_out' ? ['The wolf limped off into the trees.'] : [];
         const facts = plan.state.actors.player.facts, wounded = Object.keys(me.parts || {}).length > 0;
         if(b.id === PATROL_ID) {
             facts[RI_WOLF_AT_WALL.fact] = false;

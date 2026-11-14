@@ -15,14 +15,14 @@ const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_c
 const profile = {stats, attackPower: 8, shield: 0, shieldSkill: 0, emptyStaminaMultiplier: .5};
 
 // A host over a real fixture fight: the ports hold the state the way the game does, and commit swaps it.
-function host({foeHp = 20, seed = 7, player = {}, facts = {}} = {}) {
+function host({foeHp = 20, seed = 7, player = {}, facts = {}, stakes = null, foe = {}} = {}) {
     const p = joinField(createFieldFixture());
     Object.assign(p.state.actors.player.facts, facts);
     p.state.simulation.seed = seed;
     const context = fieldContext(p, 'Village', {vitals: {player: {health: 30, max_health: 30, stamina: 30, max_stamina: 30}}});
-    let state = beginTempoFight(p.state, registry, context, {id: 'fx-run', title: 'Yard bout', floor: 1, fighters: [
+    let state = beginTempoFight(p.state, registry, context, {id: 'fx-run', title: 'Yard bout', floor: 1, ...(stakes ? {stakes} : {}), fighters: [
         {id: 'player', name: 'You', side: 'a', speed: 100, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile, perception: 20, stealth: 20, ...player},
-        {id: 'foe1', name: 'A yard bully', side: 'b', speed: 60, hp: foeHp, maxHp: foeHp, stamina: 30, maxStamina: 30, profile: {...profile, attackPower: 2}, perception: 20, stealth: 20}]}).state;
+        {id: 'foe1', name: 'A yard bully', side: 'b', speed: 60, hp: foeHp, maxHp: foeHp, stamina: 30, maxStamina: 30, profile: {...profile, attackPower: 2}, perception: 20, stealth: 20, ...foe}]}).state;
     let commits = 0, atCommit = null; // the view as a redraw inside the commit would read it
     configureTempoFight({root: () => state, registry, writable: () => true, campaignContext: () => context,
         commit: plan => { state = plan.state; if (plan.vitals) context.vitals = plan.vitals; commits += 1; atCommit = domainRegistry.project('tempo_fight'); }});
@@ -114,4 +114,41 @@ test('the result names how the other side ended', () => {
     const h = host({foeHp: 4});
     for (let n = 0; n < 6 && h.view().fight; n += 1) h.run();
     assert.equal(Object.fromEntries(h.view().account.items).Them, 'A yard bully: down.');
+});
+
+// PS21-PS27 (play surface round 3): what the decision band and its standing answer read.
+test('a downed beast stops Fight on to ask by default; a standing answer finishes it and the result says what was carried', () => {
+    const beast = {name: 'A lightning wolf', tags: ['beast'], hp: 4, maxHp: 30};
+    const ask = host({stakes: {preset: 'hunt'}, foe: beast});
+    assert.equal(ask.view().fight.downPolicy, 'ask');
+    const said = ask.run();
+    assert.match(said, /A lightning wolf is down\. Finish or spare\?/, said);
+    const fates = ask.view().fight.fateMoves;
+    assert.deepEqual(fates.map(m => m.label), ['Finish', 'Spare']);
+    assert.equal(fates[0].text, 'It dies.', 'a beast gets beast words, not a person\'s');
+    const plead = ask.view().fight.moves.find(m => m.id === 'plead');
+    assert.ok(!plead || plead.usable === false, 'nothing to ask of a wolf');
+    const h = host({stakes: {preset: 'hunt'}, foe: beast});
+    assert.match(domainRegistry.command('tempo_fight', 'downPolicy')({value: 'finish'}), /finish a downed beast/);
+    assert.throws(() => domainRegistry.command('tempo_fight', 'downPolicy')({value: 'maybe'}), /ask me, finish or spare/);
+    h.run();
+    assert.equal(h.view().fight, undefined, 'the standing answer carried the hunt to its end');
+});
+
+test('a person who is down always asks, whatever the standing answer for beasts', () => {
+    const h = host({stakes: {preset: 'hunt'}, foe: {hp: 4, maxHp: 30, tags: ['person']}, facts: {'tempo.downPolicy': 'finish'}});
+    assert.match(h.run(), /is down\. Finish or spare\?/);
+    assert.equal(h.view().fight.fateMoves[0].text, 'They die here, by your hand.');
+});
+
+test('the card can say the fight turned deadly and why, and how likely holding back is to slip', () => {
+    const h = host({stakes: {preset: 'brawl'}, foe: {hp: 30, maxHp: 30}});
+    assert.equal(h.view().fight.stakes.cue, undefined, 'no shift yet');
+    assert.equal(h.view().fight.holdRisk, 0, 'nothing to slip while it cannot kill');
+    h.move({moveId: 'escalate'});
+    const f = h.view().fight;
+    assert.equal(f.stakes.lethal, true);
+    assert.ok(f.stakes.cue && f.stakes.cue.length <= 300, 'the reason it changed rides with the stakes');
+    const heavy = host({stakes: {preset: 'hunt'}, player: {profile: {...profile, attackPower: 400}}, foe: {hp: 30, maxHp: 30}});
+    assert.ok(heavy.view().fight.holdRisk > .15, `a blow far too strong for this body may slip: ${heavy.view().fight.holdRisk}`);
 });

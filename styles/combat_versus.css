@@ -64,3 +64,15 @@
 .fight-situation-aims {display: flex; flex-wrap: wrap; align-items: center; gap: var(--ui-space-2); margin: 0;}
 .fight-situation-aims > button {min-height: var(--ui-control-sm);}
 .fight-situation-aims > span {flex-basis: 100%;}
+/* The decision band (PS21): two wide buttons for a downed body lead the card; other moves fold under it. */
+.fight-situation-band {display: grid; grid-template-columns: repeat(auto-fit, minmax(16em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3); padding: var(--ui-space-2) var(--ui-space-3); border: 1px solid var(--ui-hairline); border-radius: var(--ui-radius, 6px);}
+.fight-situation-band-head {grid-column: 1 / -1; margin: 0; font-weight: 600;}
+.fight-situation-band .scene-card-option {display: grid; gap: var(--ui-space-1);}
+.fight-situation-band .scene-card-option > button {min-height: var(--ui-control-md, 2.5em); font-weight: 600;}
+.fight-situation-more > summary {cursor: pointer; font-size: var(--ui-type-small);}
+.fight-situation-more[open] {display: grid; grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3);}
+.fight-situation-more[open] > summary {grid-column: 1 / -1;}
+.fight-situation-policy {display: flex; flex-wrap: wrap; align-items: center; gap: var(--ui-space-2); margin: 0; font-size: var(--ui-type-small);}
+.fight-situation-policy > button {min-height: var(--ui-control-sm);}
+.fight-situation-cue, .fight-situation-risk {color: var(--theme-muted, inherit);}
+.fight-situation-key {font: inherit; font-size: var(--ui-type-small); padding: 0 var(--ui-space-1); border: 1px solid var(--ui-hairline); border-radius: var(--ui-radius);}

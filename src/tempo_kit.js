@@ -43,7 +43,7 @@ export function validateTempoStakes(s) {
     if(s === undefined) return true;
     return !!s && TEMPO_PRESETS[s.preset] && typeof s.lethal === 'boolean' && (s.disarm === null || /^[a-z][a-z0-9_]{0,31}$/.test(s.disarm)) &&
         Number.isSafeInteger(s.stopAt) && s.stopAt >= 0 && text(s.label, 40) && text(s.text) && text(s.stakes, 60) &&
-        (s.stopText === undefined || text(s.stopText)) && (s.why === undefined || text(s.why, 500));
+        (s.stopText === undefined || text(s.stopText)) && (s.cue === undefined || text(s.cue)) && (s.why === undefined || text(s.why, 500));
 }
 
 // A kit row. cost: time units. power: strike power on the shared strike math (0 = no harm; the cast still has to land). force: harm
@@ -66,6 +66,7 @@ export function validateTempoKit(f, sharedIds) {
     if(f.holdBack !== undefined && typeof f.holdBack !== 'boolean') return false;
     if(f.end !== undefined && !TEMPO_ENDS.includes(f.end)) return false;
     if(f.pleas !== undefined && !(Number.isSafeInteger(f.pleas) && f.pleas >= 0)) return false;
+    if(f.fateText !== undefined && !(f.fateText && typeof f.fateText === 'object' && Object.values(f.fateText).every(v => text(v, 300)))) return false;
     if(f.kit === undefined) return true;
     return !!f.kit && typeof f.kit === 'object' && Object.keys(f.kit).length <= 12 &&
         Object.entries(f.kit).every(([id, r]) => /^[a-z][a-z0-9_]{0,31}$/.test(id) && !sharedIds.includes(id) && validateTempoKitRow(r));
