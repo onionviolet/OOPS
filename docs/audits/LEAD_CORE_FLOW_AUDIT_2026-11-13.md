@@ -251,9 +251,9 @@ Recorded in the [build note below](#ordinary-day-build-2026-11-14) once a loop i
 
 ## Ordinary-day build, 2026-11-14
 
-Fang Yuan first, as the largest gap. Proposal under AD32; agent-verified, not human-reviewed.
+Fang Yuan first, as the largest gap. Proposal under AD32; agent-verified, not human-reviewed. **State: implemented, below floor** (FLR3, see the table) until blocked day actions stay visible with their reasons.
 
-**What is playable.** On any of his saves from Rank Two on, the Beginning panel offers "Keep your own day: feed your Gu,
+**What is playable.** On his saves from Rank Two on, the Beginning panel offers "Keep your own day: feed your Gu,
 draw stones, earn merit". Adopted, it adds ten repeatable actions at the clan academy:
 
 - feed the Moonglow (two petals, morning and evening), the Four Flavours Liquor Worm (a jar every four days) and the White
@@ -263,7 +263,7 @@ draw stones, earn merit". Adopted, it adds ten repeatable actions at the clan ac
 - hand in a hidden wolf eye (+10 merit) and exchange 25 merit for a stone;
 - go out on a wolf-tide patrol (3 h, 10 parts, +50 merit, authored).
 
-A Gu fed recently refuses food. A Gu that misses a meal is hungry, and a hungry Moonglow blocks the patrol until it is fed.
+Proven in play on `ri-fang-yuan-ice-crystal` only. All 22 earned saves from `ri-fang-yuan-rank-two` on stand at the academy, where the actions run (checked by reading each save's location, not played). A Gu fed recently refuses food. A Gu that misses a meal is hungry, and a hungry Moonglow blocks the patrol until it is fed.
 A patrol also needs the essence that drawing a stone restores. Feeding is the day loop; patrols, merit and stones are the
 longer one.
 
@@ -278,8 +278,8 @@ registration line), adopted like any continuation, so no pinned hash moves and o
 |---|---|
 | FLR1 build | Bundle built from `6231596d7` plus the four source paths and served from a private tree, because other sessions rebuild the shared `dist/` mid-run. `dist/bundle.js` sha256 begins `981a1ddf2895305d`; the committed bundle is rebuilt the same way at commit time. |
 | FLR2 route | Earned private save `ri-fang-yuan-ice-crystal` (ch140), not a fresh life. Headless journey first, then headless Chrome at 1920×1080 from a fresh origin. |
-| FLR3 shown | Every action names its cost in the label. A blocked action says why ("Your Moonglow Gu is hungry and will not cut. Feed it first."; "The Moonglow Gu ate recently and will not take more yet."; "You need 10 parts of essence in your sea."). Gap: completed actions leave no Reports line (G16), only the status note and the Inventory. |
-| FLR4 used | Stones, petals, wine, merit and essence are the same items and pool his story steps already read (fusion stone costs, parts gates). The hunger fact is read by the patrol gate. |
+| FLR3 shown | **Below floor.** Every action names its cost in the label, and a blocked action carries its reason ("Your Moonglow Gu is hungry and will not cut. Feed it first."; "The Moonglow Gu ate recently and will not take more yet."; "You need 10 parts of essence in your sea."). But in Chrome a blocked action moves to the "Not available yet" list, which shows only the next three entries (`NOT_YET_SHOWN`, the G15 cap), and the shut story steps take those slots. So the blocked patrol vanishes with its reason (card `hidden=true`, seen at 1920×1080); the reason was asserted only in the headless DOM. Sent to the UI chat (it edited `structured_pack_ui.js` today): exempt repeatable actions from the cap. Also: completed actions leave no Reports line (G16), only the status note and the Inventory. |
+| FLR4 used | Stones, petals, wine, merit and essence are the same items and pool his story steps already read (fusion stone costs, parts gates). The Moonglow's hunger is read by the patrol gate. The Liquor Worm's and White Jade's hunger is shown and charged but **nothing reads it yet**. Next: a reader from canon, for example the worm's refining of essence or the jade skin's defence, not an invented gate. |
 | FLR5 kept | Chrome: adopt, feed, draw (essence 3 to 33), patrol (merit 30 to 80), save, reload (all held), 900 minutes unfed (patrol blocked), Export, Import (adoption, items and the hunger block held), feed (patrol open). No page errors. |
 | FLR6 labelled | Agent-verified, not human-reviewed. Route kind: earned save. |
 
@@ -287,6 +287,8 @@ Checks: `node --test tests/ri_lead_day.test.js` (5 pass), `tests/ri_lead_day_jou
 skips without the private checkpoint), `check:arch` (no growth), `check:rules`. In `check:rules` the receipts step fails on
 `docs/gm/dispatch/play-surface-2026-11-14/CHECKPOINT.md`, which is not this lane's file. The steps after it pass when run
 on their own.
+
+**Compatibility.** The extension's labels and descriptions carry the dials and diet text, so they are part of its content hash. Tuning any number in `ri_lead_day_facts.js` (patrol merit, jade price, stone parts, a diet) changes the hash, and a save that adopted revision 1 stops loading with "Restore the exact school extension content" (the G1 trap). `lead_saves_load` does not catch it because no earned checkpoint has adopted the day. A dial change therefore needs a revision bump with an `identityAliases` row, or a stated break (old saves are disposable).
 
 **Limits and next.** Meals restart from the first feed after adoption (dial: anchor at adoption). Stealth Scales, Plunder
 and Ear Grass do not eat yet: the source notes give no diet, and the Earth Communication Ear Grass item text names ginseng

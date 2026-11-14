@@ -41,7 +41,7 @@ const payStones = n => item(IT.stone, -n);
 const feed = d => act(`feed_${d.slot}`, `Feed the ${d.label} · ${d.perMeal === 1 ? 'one' : d.perMeal} ${d.foodLabel}`, 5,
     `${d.basis} Feeding early is refused: it eats when its meal comes due, and a missed meal leaves it hungry until you feed it.`,
     [note(d.fed, `The ${d.label} has eaten. ${d.slot === 'moonglow' ? 'It will want petals again this evening or tomorrow morning.' : d.slot === 'worm' ? 'The jar will last it four days.' : 'That parcel lasts it twenty days.'}`)],
-    {needs: [has(d.gu, 1, `You no longer hold the ${d.label}.`), eq(`${GU_LEAD_DAY}.${d.slot}.due`, true, `The ${d.label} ate recently and will not take more yet.`),
+    {needs: [has(d.gu, 1, `You do not hold the ${d.label}.`), eq(`${GU_LEAD_DAY}.${d.slot}.due`, true, `The ${d.label} ate recently and will not take more yet.`),
         has(d.food, d.perMeal, `You need ${d.perMeal === 1 ? 'one' : d.perMeal} ${d.foodLabel}.`)], costs: [item(d.food, -d.perMeal)]});
 const moonglow = RI_DAY_DIETS.find(d => d.slot === 'moonglow');
 

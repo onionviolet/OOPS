@@ -25,6 +25,9 @@ export const RI_DAY_DIETS = Object.freeze([
 ].map(d => Object.freeze({...d, fed: `${RI_LEAD_DAY}.fed.${d.slot}`, diet: Object.freeze(validateDiet({holder: `${RI_LEAD_DAY}.${d.slot}`, label: d.label,
     food: key(d.food), perMeal: d.perMeal, interval: d.interval, maxCondition: 4, flag: `${RI_LEAD_DAY}.${d.slot}.kept`, lethal: false}))})));
 // `food` and `gu` stay plain item ids (the commands encode them); `diet` is the living_upkeep row the needs seam reads.
+// Compatibility: these numbers and the diet text reach the day extension's labels, so they are part of its content hash. Changing one
+// strands saves that adopted the extension ("Restore the exact school extension content"); pair a change with a revision bump and an
+// identityAliases row, or state the break (old saves are disposable). See the lead core-flow audit, ordinary-day build.
 // Prices and yields, each with its reason. Canon: petals and wine (ch12, ch23), merit exchange and the wolf eye (ch127, ch132).
 // Authored: jade rock, the stone's parts and the patrol.
 export const RI_DAY_DIALS = Object.freeze({

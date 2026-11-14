@@ -37,6 +37,7 @@ test('Fang Yuan keeps his own day: meals, a drawn stone and a patrol, and a skip
     await g.step(900);
     await open();
     assert.equal(action('patrol').disabled, true, 'a missed meal leaves the Moonglow hungry after a reload too');
+    // DOM text only: in Chrome the card can sit past the Not-yet cap, hidden (audit FLR3 row).
     assert.match(action('patrol').closest('[data-structured-row]').textContent, /hungry and will not cut/);
     await run('feed_moonglow', 10);
     await open();
