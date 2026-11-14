@@ -74,8 +74,10 @@ const SEASON_STATE = {current: 'current', other: 'pending'};
 /** gatheringFigureSpec(model) -> a figure spec of non-node forms. A table row per site; a band only when the world has seasons. */
 export function gatheringFigureSpec(model, {id = 'gathering', title = 'Gathering here', size = 900} = {}) {
     const spec = {id, title, size, summary: model.glance, tables: [], bands: [], chips: [], bars: [], notes: [], legend: []};
-    spec.tables.push({id: `${id}-sites`, label: 'Sites here', barLabel: 'Stock', columns: [{label: 'Site', weight: 1.1}, {label: 'Stock', weight: 1.5}, {label: 'Gives', weight: 1.4}, {label: 'Right now', weight: 1.7}],
-        rows: model.sites.map(s => ({id: s.id, cells: [`${s.kind}: ${s.name}`, s.regrow ? `${s.stockWords}; ${s.regrow}` : s.stockWords, s.gives, s.now], state: s.state,
+    spec.tables.push({id: `${id}-sites`, label: 'Sites here', barLabel: 'Stock', columns: [{label: 'Site', weight: 1.1}, {label: 'Regrows', weight: 1.5}, {label: 'Gives', weight: 1.4}, {label: 'Right now', weight: 1.7}],
+        // UIC192: the count lives once, under the Stock bar; the text column says only how it comes back (UR147). The site's
+        // kind is a prefix only when it is not the ordinary gathering this panel is about.
+        rows: model.sites.map(s => ({id: s.id, cells: [s.kind && s.kind !== 'Gather' ? `${s.kind}: ${s.name}` : s.name, s.regrow || 'does not regrow', s.gives, s.now], state: s.state,
             bar: Math.min(1, Math.max(0, s.fill)), barNote: s.stockWords}))});
     if (model.season) {
         const {list, index, progress} = model.season, lanes = ['Year'], spans = list.map((s, i) => ({from: i, to: i + 1, label: s.label, state: i === index ? SEASON_STATE.current : SEASON_STATE.other}));

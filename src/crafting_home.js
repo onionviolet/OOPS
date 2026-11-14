@@ -36,7 +36,10 @@ export function createCraftingHome({read,quote,execute,forecast}) {
  const checks=node('div');checks.className='crafting-trial-checks';checks.append(mode,tabletLabel,timedLabel);
  const optionHelp=node('details');optionHelp.append(node('summary','What the options do'),node('p','Layered brazier formulation: one Charcoal; ingredients react in selection order.'),node('p','Body-conditioning tablet: press one (layered law).'),node('p','Hold on the brazier: 6 played minutes; late collection adds heat.'));
  form.append(fields,methodHint,checks,optionHelp);panel.insertBefore(form,firing);
- function run(q){try{const plan=execute(q);notice.textContent=plan?.outcome?.text??(q.request.type==='harvest'?'Gathered materials stored in your inventory.':q.request.type==='treatment'?'The quoted materials are committed to the treatment.':q.request.type==='craft'?(plan.failure?plan.failure.reason:'The exact materials became a preparation. Drink to observe it.'):'Preparation used. Its observed effects are recorded.');}catch(e){notice.textContent=e.message;}signature='';render();}
+ // UIC193: a gather says what it found, read from the carried materials before and after, not "Gathered materials stored".
+ const carried=()=>new Map((read().materials||[]).map(m=>[m.key,{name:m.name,count:m.count}]));
+ const foundLine=before=>{const got=[...carried()].map(([k,m])=>[m.name,m.count-(before.get(k)?.count||0)]).filter(([,n])=>n>0);return got.length?`Gathered ${got.map(([name,n])=>`${n} ${name}`).join(' and ')}. It is in your inventory.`:'You gathered nothing this time.';};
+ function run(q){try{const before=q.request.type==='harvest'?carried():null,plan=execute(q);notice.textContent=plan?.outcome?.text??(q.request.type==='harvest'?foundLine(before):q.request.type==='treatment'?'The quoted materials are committed to the treatment.':q.request.type==='craft'?(plan.failure?plan.failure.reason:'The exact materials became a preparation. Drink to observe it.'):'Preparation used. Its observed effects are recorded.');}catch(e){notice.textContent=e.message;}signature='';render();}
  harvest.onclick=()=>run(quote({type:'harvest'}));
  function render(){
   const view=read();

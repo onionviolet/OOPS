@@ -34,7 +34,7 @@ export function createGatheringPanel({read, openWorkshop}) {
         const sig = JSON.stringify(model);
         if (sig === signature) return;
         signature = sig;
-        renderGatheringView(body, model, {onOpen: openWorkshop});
+        renderGatheringView(body, model, {onOpen: openWorkshop, openLabel: 'Open Village experiments to gather'}); // UIC192: names where the button goes
     }
     definePanel({id: 'gathering', title: 'Gathering at a glance', role: 'records', node: panel, home: document.getElementById('main_content'), defaultDock: 'center', after: 'herbal-experiments',
         discovered: () => read().visible, eligible: () => read().visible});
