@@ -26,8 +26,8 @@ Coordinator: the "Opus chats and UI refinement" session. Direction: [Weibao, 202
 
 - The combat chat's pending question. It was asked before the new brief, so the brief stays queued until he answers it.
 - The held UI picks: directions A to F, the top bar (UIC132, UIC175), the Notebook (UIC168) and the growing screen (UIC131). The mocks are in `prototypes/ui-directions-2026-11-13/index.html`.
-- Pushing the 15 local commits on master.
 
 ## Log
 
+- 2026-11-14: the parent combat chat was found frozen on an old question (master was already pushed), so the combat build went to its idle child, combat-design (`local_2359a5ca`), and started there.
 - 2026-11-14: direction recorded; feature-ui and daily-loops started; the combat brief was queued to the combat chat; the day-strip chat was told the boundaries.
