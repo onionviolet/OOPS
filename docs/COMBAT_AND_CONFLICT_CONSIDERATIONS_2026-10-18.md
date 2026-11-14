@@ -506,3 +506,1043 @@ E19, AD38, AD49, AD51, CFC3a, CFC7, CFC11 and CFC16. Use the confrontation from 
 This is a proposed E19 combat-to-body check. Run the same exposure against a person's hand with enough ward capacity to stop it, with partial protection, and with a spent ward. Apply any residual burn through the existing harm owner. Verify that one action requiring that hand changes accordingly and that treatment restores it. Save and reload with the burn active and during recovery. Compare the hand, the action's availability, and the ward's remaining charge with uninterrupted settlement. The existing Red Fire fixture verifies protection and residual harm. Hand injury, its action consumer, and treatment are open on that path.
 
 Use this as evidence for the shared combat rules when a selected encounter needs it. The [foundation run](gm/dispatch/foundation-run-2026-11-12/RUN.md#procedural-combat-across-worlds) owns the order across worlds.
+
+## Round 7. Play the same fight through text or sprites (2026-11-13)
+
+Proposal for combat tie-in under AD32. Follow CBR13–CBR14 for what a fighter can observe, CFC4/CFC6/CFC16 for timing, interruption and restore, AR8 for projections, and UR91 for the difference between a settled effect and a response opportunity. The [encounter view proposal](../DESIGN.md#action-and-encounter-views-proposal) owns the display direction.
+
+**ACT NOW.** Verified the existing headless [Wang Er restore case](../tests/contest_consumers.test.js) with `node --test --test-name-pattern 'restore after the arm wound' tests/contest_consumers.test.js` (1 passed). It resumes a pending cast after the bow drops. This is a starting state for the comparison. Text and sprite input parity remains untested.
+
+### ACCOUNT FOR NOW
+
+- **CBD29.** Let the text panel, animated board, or a combined view play one saved contest. Both read the same character-visible state and submit actions to the same resolver. Selecting a visible fighter or loose bow on the board can be a shortcut for selecting its entry in the list. A sprite can show a visible windup; a lunge, hit or interruption follows the event the engine settles. Cosmetic motion may be skipped and grants no reaction time. A real response window appears in both views at the same point on the contest clock.
+- **CBD30.** Separate presentation from who makes decisions. Manual play exposes the same reachable targets, costs and response opportunities in either view. A player can also hand routine choices to a policy and take over at a decision point, with a pause on observable events they select, such as losing a weapon. Extra precision that changes outcomes, such as aiming at a particular body part or choosing a route around cover, needs a rule and an equivalent text command if the views are to remain equivalent. A simpler control preset may delegate such choices explicitly.
+- **CBD31.** Draw the space the engine has. The Wang Er fixture has an axis for distance, which can become a side-on board. A room with routes around cover could use a top-down board when those routes affect play. Use readable actor and object markers first so art quality does not decide whether the layout helps.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD32 | At the selected Gu combat tie-in, compare a compact text list, a static side-on board and that same board with animation at 1920×1080. Use the existing Wang Er fight and its pending-cast state. | Sol, medium for one encounter | On the same seeded start and command sequence, match legal targets, costs, clock, interruptions, custody, injuries and outcome. Repeat while switching views with a cast pending, after restore, and with motion disabled. In play, compare whether the player can identify a reachable target, tell what is pending and choose a response when one exists. Count wrong or missed choices and time to commit. Alternate the order or use paired starts to reduce practice effects. Keep the board if it clarifies decisions, and judge animation separately against the static board for clarity and feel. |
+
+Full movement controls, custom art and mobile presentation are outside this comparison. Test reuse on a second encounter before deciding how broadly to apply the view.
+
+## Round 8. Make positioning legible through text (2026-11-13)
+
+**ACT NOW.** Compared public developer writing and rules. [Skotos's proximity design](https://www.skotos.net/articles/proximitysystem.html) models positions relative to landmarks and people and describes an approach while it is underway. Its paper describes a partial implementation. [Fate Condensed](https://fate-srd.com/fate-condensed/challenges-conflicts-and-contests) uses named zones, adjacency, and terrain features that affect movement and reach. [Victor Gijsbers's Kerkerkruip interview](https://intfiction.org/t/interview-victor-gijsbers-on-kerkerkruip/12584) explains his choice to build tactics around preparation and reaction instead of space. [Achaea's combat help](https://www.achaea.com/game-help?what=basic-principles-of-combat-in-achaea) documents text combat with actions that recover on timers measured in seconds. These designs inform the proposal below.
+
+### ACCOUNT FOR NOW
+
+- **CBD33.** A text scene needs a persistent tactical readout. Lead with the objective, the fighter's location and visible threats. Group visible actors and items by landmark. Show routes, time, exposure and obstructions beside the destination choices. Show reach, line of sight, direction of cover, facing, height, posture or affected area when they change an available action. Keep brief changes in the fight log and offer free inspection of known details. Mark what was last seen separately from what can be confirmed now.
+- **CBD34.** Resolve the same action in both views. A text control such as “Move to pillar via aisle” should name the same route as the board selection. Both can preview that the aisle is exposed and whether the fighter can reach cover before a readable release. Preview only what the fighter can reasonably judge. Recheck position, cover and means when the rules use them. Reuse the contest clock and event order (CFC4, CFC6); pausing at a decision is a proposed control, independent of how space is shown.
+- **CBD35.** Match precision to the decisions in the scene. A line can support reach and retreat. A graph of named positions can support competing routes and cover from different directions. When two positions within one named area produce different shots or paths, offer more anchors or a keyboard-addressable grid with spoken or written descriptions. The two views use one representation of the geometry for any given fight.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD36 | Extend CBD32's comparison to a scene with two routes, directional cover, and a target or object that changes position. | Sol, medium for one follow-on encounter | From either view the player can identify who has a clear shot, find the route that breaks it and explain why it works. Run the same choices through both inputs and compare position, sight, deadline and result. If the command sets match but text players repeatedly miss a legal option, revise how they find or inspect it and compare again. |
+
+## Round 9. What the existing Tempo controls prove (2026-11-13)
+
+**ACT NOW.** Checked the [Fight card](../src/combat_situation_ui.js), [Tempo resolver](../src/tempo_fight.js) and [recorded desktop play](representations/COMBAT.md). The card offers timed moves, body-part aim for strikes, orders where applicable and one safe handover turn. The resolver accepts a foe ID. The card's standard attack buttons omit it, so the resolver selects the lowest-HP active opponent. Headless policies and the one-turn handover have different scope. `node --test tests/tempo_fight.test.js tests/tempo_location.test.js tests/tempo_host.test.js` passed 29 tests on the working tree. Desktop evidence comes from the recorded road-contest fixture build, not a fresh run. The [carry-out's T4](PROCEDURAL_CARRY_OUT.md#tie-in-considerations-seam-fun-screen-and-the-fight-system-2026-11-12) proposes the shared resolver tie-in.
+
+### ACCOUNT FOR NOW
+
+- **CBD37.** Start by exposing a named opponent choice in the existing action flow where multiple targets matter. A text option and a sprite click can submit the same foe ID. Recheck stale targets at commit and tell the player when an explicit target disappeared, since silently falling back could spend the move on a different foe. [Dwarf Fortress](https://bay12games.com/dwarves/features.html) separates detailed aimed attacks and reactions from the overhead map. [FTL](https://store.steampowered.com/app/212680/ftl_faster_than_light/) shows how pause and explicit crew or weapon orders can coexist with a running fight.
+- **CBD38.** Treat ongoing delegation as a separate player control from a single safe action. [Final Fantasy XII](https://www.square-enix-games.com/en_GB/news/2019-review-final-fantasy-x-final-fantasy-xii) uses player-defined gambits. [Guild Wars command training](https://wiki.guildwars.com/wiki/Command_Training) demonstrates a location order that takes priority over a hero's skill use while they move. For YAIRPG, consider a visible policy, a one-action override, and a clear return to policy, with stock and consequences following CBR26. Report the rule that fired and pause or retreat when the policy cannot cover a changed situation.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD39 | At a selected multi-opponent tie-in, compare a one-action order against ongoing policy with an override. | Sol, medium for one encounter | Choose a named foe in each view, invalidate that target before commit, and verify no action goes to a different foe without the player's knowledge. Run several familiar encounters under the policy, spend actual supplies and exercise one stop condition. A manual override uses the same action rules and the player can see when the policy resumes. |
+
+## Round 10. A working fight loop covers one kind of play (2026-11-13)
+
+The Village battler works for repeated clears. The player prepares a character, the battler exchanges timed attacks, and a clear advances the area's count and may pay rewards before the next group starts. That loop gives the player a reason to care about equipment and progress across several fights. Its completion logic is shaped around clearing groups. [Village round and rewards](../src/main.js#L4839)
+
+**The coverage gap is at both ends of the fight.** A hunt, escape, training bout or authored confrontation can begin with different equipment, knowledge, terrain and objectives. Its ending may be a point scored, a quarry lost, a person driven off, or an injury or item that changes the next activity. If the playable route hands combat generic stats and receives a win flag, more attacks, more numbers or a spatial view will leave those connections missing. CBR2, CBR6, CBR25–CBR26 and CBR29 describe the intended range.
+
+| Code | What works today | What the selected consumer still needs |
+| --- | --- | --- |
+| CBD40 | Village clears handle repeat play. Tempo handles deliberate exchanges with timed moves, aim and a safe one-turn handover. | Where sustained delegation is needed, the policy uses real supplies and the game shows when it needs a decision or ends the attempt. Keep detailed control available at the decisions that benefit from it. |
+| CBD41 | Pursuit already has a native view and responses. The shared contest foundation can model reach, interruptions and different end states in fixtures, including the Gu hunt and Hogwarts duel. | The selected live encounter supplies its actual people, means and objective. It returns the result to the systems that use it, such as inventory, injuries, pursuit or chapter progression. Check each connection through the route that plays it. |
+| CBD42 | The standalone Wang Er prototype shows that text and an animated board can play the same contest. | A view earns its space when it makes a choice easier to read. The prototype does not establish that terrain is needed or that the chapter consumes the outcome. |
+
+When tie-in resumes, exercise one fight where the result changes the player's next action. For Fang Yuan, compare a loaded fight against one after changing or exhausting the actual carried means, and follow a win or withdrawal into the next activity. Show what the policy handled and what was worth deciding by hand. Use the existing [tie-in plan](PROCEDURAL_CARRY_OUT.md#tie-in-considerations-seam-fun-screen-and-the-fight-system-2026-11-12) and its T4/N2–N6 checks. This is a proposed comparison within the existing foundations-first order. Source and owner review only in this round.
+
+## Round 11. What gives a fight its style (2026-11-13)
+
+**ACT NOW.** Source review distinguishes two existing examples. In the [Fang Yuan capability fixture](../tests/fang_yuan_capability.test.js), feeding and controlling an acquired Gu changes what he can bring into the fight. In the [Hogwarts contest fixture](../tests/contest_consumers.test.js), a disarm affects the wand and a jinx affects composure or footing. These are headless evidence of different decisions and effects, with live adoption tracked separately.
+
+### ACCOUNT FOR NOW
+
+- **CBD43.** Describe a style by the decision it makes interesting. The [fight presets](PROCEDURAL_CARRY_OUT.md#round-2-kinds-of-fight-spell-fights-world-sense-the-gu-panel-and-enchanted-gear-2026-11-12) already describe stakes, endings, witnesses, means and scale. Pair these with what the player can read, when they need to act, and what the world remembers. A named spell that only changes a damage number can still suit a simple exchange. An actual disarm creates decisions about recovery, escape and defense while unarmed.
+- **CBD44.** One world can have several styles, and a style can appear across worlds. A Hogwarts practice bout and an escape from a hostile caster may use the same charm and end differently. A Gu spar and a hunt can share an activation while rewarding restraint in one and positioning in the other. As an unusual LOTM comparison, test a confrontation where identifying the threat and choosing a prepared counter or exit is the main decision, then play out only the exchanges that change it. This is a proposed test, with the [LOTM combat audit](gm/dispatch/refinement-audits-2026-10-31/LOTM_COMBAT_DEEP_DIVE_2026-11-03.md) supplying context.
+- **CBD45.** Share action timing, costs and settlement where the rules fit. Let techniques define their own means, targets and effects (AD38, CFC2–CFC8). Choose the view by what must be understood: a windup and release timeline for a counter, position and direction for reach or glare, a supplies and result summary for a repeatable clear. Manual and delegated control can use the same view. Offer only intent the character can read.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD46 | Compare the selected Gu fight with a supervised Hogwarts bout at their existing tie-in points. | Sol, medium per encounter | Name the decisive choice in each. Change one input and observe a different legal move, response, or aftermath. If the same policy and move sequence settle both for the same reason, check whether the expected world difference has a real consumer before changing the presentation. |
+
+## Round 12. Let ordinary actions change a fight (2026-11-13)
+
+**ACT NOW.** Traced the standard contest release and command paths. Most moves bind an entrant as actor and either that entrant or an opposing entrant as target. They already recheck reach and means at release. A body can interrupt a windup by landing a sufficient hit, and a timed handoff can be interrupted. These are useful foundations. The usual command shape still leaves actions on nearby objects, allies and ongoing workings to other paths. [Contest resolver](../src/contest.js) · [Timed handoff and guard tests](../tests/gu_moonblade_contest.test.js)
+
+### ACCOUNT FOR NOW
+
+- **CBD47.** Begin with a physical example of a missing action. Let a fighter use an ordinary world verb during the encounter, such as picking up a loose wand, closing a door or helping a wounded ally reach an exit. Address the actual object, person or place and let the existing owner settle it. A loose wand can be recoverable and still fail to restore casting if the hand is impaired or the character lacks the knowledge. A latch can block a person without blocking every effect.
+- **CBD48.** Separate trying, reaching and completing. An action can be reasonable to start, then lose a route, target or tool while underway. Give the player the cost and risk they can judge at the start, settle from actual conditions when it matters, and preserve effects already paid for or released. This includes responses that target a specific cast, projectile or sustained effect where the world gives the fighter a way to perceive and affect it.
+- **CBD49.** Let the surrounding world answer. A wounded bystander can flee, someone else can seize the wand, and an open exit can make retreat viable. Preserve who did what, what each observer could know and what happened to bodies, objects and stock. Manual and delegated choices need the same constraints. When mid-fight world responses matter, check near and unattended settlement against those responses before using the far summary path (CFC12).
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD50 | At the selected spell-combat tie-in, use the loose-wand case from CBD25/CBD27 to exercise an ordinary world interaction during a fight. | Sol, medium for one encounter | Compare an open recovery route with the same route blocked or the wand claimed before arrival. The player can try from known facts, the engine settles reach and custody once, a spell already in flight keeps its own resolution, and subsequent casting reads the resulting custody and bodily means. Restore during the attempt and compare with uninterrupted play. |
+
+## Round 13. From attack bars to timing you can act on (2026-11-13)
+
+**ACT NOW.** Traced the two clocks. The [Village bars](../src/models/combat.js) show progress through repeating attack cycles. The [contest](../src/contest.js#L585) advances to an actor's readiness or the next step of an action underway. The current [fight card](../src/combat_situation_ui.js) has a who-acts-next line. It can keep the combatants as anchors and show a shared ordering when several deadlines matter. This extends the proposed [encounter views](../DESIGN.md#action-and-encounter-views-proposal).
+
+### ACCOUNT FOR NOW
+
+- **CBD51.** Keep simple attack bars for repeating attacks. In a detailed fight, label each fighter's current state as ready, preparing a named action, moving, or recovering as applicable. Distinguish the next opportunity to act from a pending effect's release or arrival. An unread action can show the visible tell without revealing its identity, target or exact deadline. Label a paused decision and the condition under which auto will stop.
+- **CBD52.** Put events on one time axis when their order changes the choice. Show the nearest relevant events with their source and target. On focus, preview where a proposed move would finish and when its useful effect begins if those differ. Text gives the same ordering in words. Separate already released effects from their caster when they can survive interruption. Use explicit uncertainty where the character cannot know the order, and explain a tie where it affects a choice. A preview describes the current situation, which can change before release.
+- **CBD53.** Offer a short list when it can answer the question by itself. A timeline earns its space when it is easier to compare overlapping actions. Keep it fixed while the player reads or chooses. Text and the board can show the same clock, and animation takes its cues from settlement. A visible countdown gives the player a response only when the engine offers a legal window to use it.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD54 | Compare a short event list and an aligned timeline at the selected spell fight tie-in, using one response that can finish in time and one that arrives too late. | Sol, medium for one encounter | The player can say which response can matter before committing. The displayed order agrees with the settled events and remains readable with motion off. Show an unread cast, an interrupted windup and an effect whose caster is no longer active when it arrives, where the chosen rules support them. |
+
+## Round 14. Rich fights without a click per fight (2026-11-13)
+
+Weibao asked whether named places, an event list and verbs on any subject would put too many choices into normal daily fighting. It would if every fight exposed all of them. These are proposals.
+
+**ACT NOW.** Checked what already answers this. CBC24–CBC27 and CBR26 give idle fights a policy paid from real stock and stop away play at a new kind of enemy. [CFC12](CONTEST_CONTRACT.md) makes near and far detail the same rule with equal outcomes (tested), and [N5](PROCEDURAL_CARRY_OUT.md#tie-in-considerations-seam-fun-screen-and-the-fight-system-2026-11-12) plans policy fights on it. The [contest](../src/contest.js) uses one default chooser for the player's auto-play and every other actor. CBD38 proposes a visible policy with an override. Source and owner review only. None of these yet says how many decisions a routine fight should ask for, or how a policy comes to exist without an editor.
+
+### ACCOUNT FOR NOW
+
+- **CBD55.** The chooser uses the detail, so the player does not have to. Places, cover and loose objects can change who wins and what the log says in a fight nobody touches, since auto-play and foes share one chooser. A daily fight can read "ducked behind the cart, lost the spear, finished with the knife" at zero clicks. Rich state and many prompts are separate dials.
+- **CBD56.** A routine fight asks nothing by default. It pauses when something differs from the last time this policy handled this kind of fight: a new kind of foe (CBC25), a lost or dropped means, a risk of lasting harm, a changed objective, an opening the policy has no answer for. The dial is how much difference earns a pause, set per character and per place. A repeat with nothing new settles to a result line the player can open.
+- **CBD57.** At a pause, lead with intents and keep moves one step away. Show the few intents whose likely results differ in the current situation, such as press, hold, get the wand, leave. The character's skill picks the footwork. The full move and target list stays available for anyone who wants it. Options that lead to the same result fold together, so the count follows the situation and not the size of the engine.
+- **CBD58.** Daily fighting's real choices sit before the fight. What to carry, which Gu is fed, where to hunt, when to withdraw and what to do about a known foe are set once and persist. This is where preparation-led styles (CBD44) and the idle-first default (CBC26) meet: the nuance shows up as a different result from different preparation.
+- **CBD59.** Let the policy grow from answers. When the player answers the same kind of pause the same way again, offer to keep that answer as a standing order ("recover my own weapon when the route is open"). The player can read, change or drop each order. This gives CBD38's visible policy a source in play and delays the need for an editor.
+- **CBD60.** Two failures to watch. A policy that plays as well as a careful player leaves manual control with nothing to add, and a weak one turns daily fights into chores. CBC26's default (manual pays a little more) names the target. A pause that fires every fight is a missing standing order or a threshold set too low, and the game can say which.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD61 | At the first live tie-in, count decisions per fight as a recorded figure beside the result. | Sol, small on top of the tie-in | Repeat one familiar fight ten times under policy and record zero pauses. Change one input (a new foe kind, an emptied supply, a dropped weapon) and record one pause that names the difference. Answer it the same way twice, accept the standing order, and record zero pauses on the next repeat. Compare the policy result with a hand-played run. |
+
+### Round 14 suggestions (separate from the palette)
+
+- Add "decisions asked" to the fight review so tuning the pause threshold has a number to look at.
+- When CBD46's two-style comparison runs, record each style's routine version alongside its detailed one.
+
+## Round 15. How much world, what you see, and who is playing (2026-11-13)
+
+Weibao asked whether this amounts to simulating a 2D or 3D world played through the current screen, whether the player sees the results of actions, whether it becomes a turn-based RPG, and what kinds of players it serves. These are proposals.
+
+**ACT NOW.** Checked the owners. The [contest](../src/contest.js) advances a clock to the next actor's readiness and takes one choice there, with different moves costing different time. Its tuning values each carry a written reason. The [combat review](../src/combat_review.js) records dealt and taken totals with a diagnosis for Village fights. [Feedback rules](FEEDBACK_RULES.md) have no fight-specific line. [AD52 and the activity rules](ACTIVITY_ABSTRACTION_RULES.md) cover compressing repeated play with its choices intact. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD62.** Model a tabletop scene. A fight holds the handful of relations that change a decision: who stands where among a few named places, who can reach or see whom, who holds what, and what is already under way. A continuous 2D or 3D world behind a text screen would cost far more and would decide things by geometry the text cannot tell. Working test: when a fact changes a result, the game can state that fact in a sentence. Detail the player could not have been told stays out of settlement by default, with hidden things (an unseen foe, a concealed door) kept as facts the character has yet to learn.
+- **CBD63.** Every action shows its result at four moments. Before: what the character can judge about cost, time and risk. As it settles: one line naming the cause ("the bolt struck the cart you were behind"). After: the changed state, such as a new place, a dropped item or a wound. Later: what the next activity inherits. A miss, a block and a wasted move each say why. The contest already records outcomes like "out of position", so much of this is wording and display over existing results.
+- **CBD64.** Show routine fights by their turning points. A settled fight leads with the result and the two or three events that decided it, and the full log opens on request. This lets CBD55's unattended detail be read in a few seconds, and it gives the review a cause to report beside its totals.
+- **CBD65.** Hand control feels turn-based, on a clock. At a pause the player picks one action with time to think, as in a turn-based RPG. The differences are that moves take different amounts of time, the order comes from readiness, foes act on the same clock, and a fight can end by leaving, yielding or losing a weapon. When the player lets go, the same fight runs by itself. One engine gives both the idle and the turn-based feel, and the player moves between them inside a fight.
+- **CBD66.** Player types are moods of one player. Weibao is the main player (AD22), so the useful split is by what he wants from a given fight. Each needs a way in:
+
+| Mood | Wants | Served by |
+| --- | --- | --- |
+| Watcher | Set it going and read what happened | Policy fights, turning-point results (CBD56, CBD64) |
+| Preparer | Win by what was built and carried | Real loadout and stock entering the fight (CBD41, CBD58) |
+| Tactician | Play the fights that matter by hand | Pauses with intents, timing and places (CBD52, CBD57) |
+| Reader | A fight that reads as a scene with a consequence | Cause lines and aftermath (CBD63) |
+| Avoider | Settle it by talk, stealth, leaving or a prepared counter | Endings other than a clear (CBR25, CBD44) |
+| Tinkerer | Try the odd thing and have it work when it reasonably would | Verbs on any subject (CBD47, AD38) |
+
+- **CBD67.** The mood changes per fight, so the switch belongs in the fight. Taking over, handing back and opening the full log are available at any pause. A per-character or per-place default covers the usual case.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD68 | At the first live tie-in, play one fight six ways, one per mood in CBD66. | Sol, medium on top of the tie-in | Each mood reaches a result through its own route without using another's controls. Each run shows a cause line for the deciding event and an aftermath the next activity reads. Note any mood with no route as a named gap. |
+
+### Round 15 suggestions (separate from the palette)
+
+- Add a fight line to the feedback rules once CBD63 has been tried in one encounter.
+- Write one voice sample for cause lines per world before the tie-in writes them (PRS7).
+
+## Round 16. Where the scene comes from, and one fight written out (2026-11-13)
+
+Weibao asked to keep designing. This round takes the cost question the earlier rounds left open (who makes each fight's places) and writes one daily fight as it could read on screen. These are proposals.
+
+**ACT NOW.** Checked the owners. The [fight presets FK1–FK11](PROCEDURAL_CARRY_OUT.md#round-2-kinds-of-fight-spell-fights-world-sense-the-gu-panel-and-enchanted-gear-2026-11-12) describe a kind of fight by five dials, and the Means dial already includes "what the place offers". A contest starts from a `place` id and reads holders at that place from the world record. No owner yet says how a place turns into the few named spots of CBD62. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD69.** The place supplies the scene. A fight's named spots come from what the place already holds: its kind (slope, lane, hall, riverbank), the things recorded there (a cart, a fallen pine, a door) and its ways out. A place kind gives a small default layout, and recorded things add or replace spots. An authored confrontation can add detail by hand. A daily fight then costs no scene authoring, and a fight in the same place tomorrow uses the same pine.
+- **CBD70.** Things in the scene are the world's things. The cart used as cover is the cart in the place record. If the fight breaks it, burns it or leaves a wand under it, the place keeps that afterwards (CBD49). Cover made up for a single fight would vanish at the end and could not be worn down, moved or prepared ahead of time.
+- **CBD71.** Preparing the ground is a play style. Since the scene is the place, a fighter can choose where to meet a foe, move a cart across a lane the day before, or wait at the narrow spot. This gives CBD66's preparer and avoider something to do in space without any click during the fight. FK8 (holding a place) is the same idea at larger size.
+- **CBD72.** The other side wants something too. A boar wants the intruder gone, a thief wants the purse, a duellist wants the point. A foe that reaches its aim or loses its reason leaves, yields or bargains by its own choice (CBC-A, FK dials). A scene with a way out makes those endings available to both sides, so fewer daily fights run to the last hit point.
+- **CBD73.** Crowds read by place. With many fighters, the readout groups them ("three at the gate, one on the wall") and a pause offers intents against a group or a spot. One named foe gets its own line when it differs from its group in a way that changes a choice. This keeps a skirmish (FK9) inside the same choice budget as a duel (CBD57).
+
+### One daily fight, written out
+
+A sketch of the wording and layout, to react to. Fang Yuan hunts a boar on a slope he has hunted before.
+
+The unattended result (CBD56, CBD64):
+
+```
+Hunt, east slope. Boar down in 41 seconds.
+  It charged across the scree and lost its footing.
+  Your moonblade caught it side-on.
+Essence spent: about a fifth. Left forearm grazed, light.
+[Open the full account]
+```
+
+The same hunt on a day the policy has no answer for (CBD33, CBD52, CBD57):
+
+```
+Hunt, east slope. You want the boar down before dark.
+
+You     on the scree. Moonlight Gu ready. Essence under a third.
+Boar    at the thicket edge, six paces off, turning toward you.
+Here    a fallen pine between you and the thicket.
+        the stream bank behind you, a way out.
+
+Coming  2s  the boar charges (you can see it gather).
+
+Paused: you have less essence than you have hunted this slope with.
+  Step behind the pine (1s). The charge has to come around it.
+  Loose the moonblade now (3s). It lands after the charge reaches you.
+  Back off to the stream bank (3s). The hunt ends and the boar keeps the slope.
+  More
+```
+
+After choosing the pine (CBD63, CBD59):
+
+```
+The boar came around the pine and lost its speed.
+Your moonblade took it side-on. Boar down.
+The pine is gouged on the thicket side.
+
+Keep this as a standing order? "Take cover first when essence is under a third."
+```
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD74 | Derive a scene from one existing place for the first live tie-in. | Sol, medium | Start two fights at the same place on different days and get the same spots. Move or remove one recorded thing between them and see the scene and one available action change. Damage a thing during a fight and find the damage in the place record afterwards. Save and reload mid-fight and compare with an uninterrupted run. |
+
+### Round 16 suggestions (separate from the palette)
+
+- Put the three sketches above in front of the prototype-to-decision route as static mock-ups at desktop size before any engine work, since they are cheap to change.
+- List the place kinds the Gu and Hogwarts openings already use, to see how many default layouts the first tie-ins need.
+
+## Round 17. Layout, choices, environments and how a fight starts (2026-11-13)
+
+Weibao asked how the screen changes when fight text lands in Reports, how to show choices, how fights differ by kind, result, world and environment (a school, for one), and how a fight's environment is set up. These are proposals.
+
+**ACT NOW.** Checked the owners. [DSG1](../DESIGN.md) keeps You and the current focus as twin panels on top, the place and its actions in the middle and a full-height Reports column, with a full-screen view for weighty moments (UR5). The [encounter views proposal](../DESIGN.md#action-and-encounter-views-proposal) adds a zone sketch or timeline when a list is hard to follow. [FK1–FK11](PROCEDURAL_CARRY_OUT.md#round-2-kinds-of-fight-spell-fights-world-sense-the-gu-panel-and-enchanted-gear-2026-11-12) give kinds of fight as five dials, with Frame covering who watches and who steps in. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD75.** A fight fills the panels already on screen. The current focus panel holds the objective, what is coming and any pause with its choices. The place panel is the scene, with people and things grouped by spot. The You panel shows means: essence, what is held, wounds. Reports receives cause lines as they settle and the result at the end. A routine fight touches Reports alone. A weighty fight can take the full screen and add the zone sketch or timeline.
+
+```
++---------------------------+--------------------------------+----------------------+
+| YOU                       | FOCUS: Hunt, east slope        | REPORTS              |
+| Essence under a third     | Boar down before dark          |                      |
+| Moonlight Gu ready        | Coming  2s  boar charges       | The boar turns from  |
+| Left forearm: sound       | Paused: less essence than      | the thicket.         |
++---------------------------+ you have hunted here with      |                      |
+| PLACE: east slope         |  1 Behind the pine   1s        | You step onto the    |
+| Scree       you           |  2 Moonblade now     3s  late  | scree.               |
+| Fallen pine (cover)       |  3 To the stream     3s  ends  |                      |
+| Thicket edge  boar        |  More                          |                      |
+| Stream bank (way out)     |                                |                      |
++---------------------------+--------------------------------+----------------------+
+```
+
+- **CBD76.** Reports tells and the focus panel asks. Reports scrolls, so a choice placed there could be lost under newer lines. Keep decisions in the focus panel and let Reports carry what happened, in order, in the world's voice (DSG13). The result block in Reports can open the full account and link to what changed: the wound, the gouged pine, the wand on the floor (UR92).
+- **CBD77.** A choice row answers the same four questions each time: what, how long, what it costs, what it is likely to change. Mark the one the policy would take. Mark a response that would arrive too late. Show a blocked choice with its reason when the player would expect it to be there ("the wand: Flint is standing on it"). Focusing a row lights its spot or route in the place panel and shows where it would finish among the coming events. Number keys pick rows.
+- **CBD78.** The result reads by what was at stake. A drill reports who touched first and what each learned. A duel reports the point, the wager and who watched. A hunt reports the quarry, the meat and what was spent. An escape reports who got away and what was left behind. Each side has its own line: what it gained, lost, learned and who saw. Totals of damage stay in the full account.
+- **CBD79.** An environment brings four things to a fight: its spots (CBD69), its conditions (light, footing, noise, crowding, weather), the people who may step in, and the local rules with what answers afterwards. The same charm plays as three different fights in one school:
+
+| Where | Spots and conditions | Who steps in | Rules and aftermath | Likely ending |
+| --- | --- | --- | --- | --- |
+| Corridor between lessons | Stairs, an alcove, a classroom door. Crowded, noise carries | A prefect or teacher, sooner the louder it gets | Magic in corridors is against the rules by default: points, detention, the year knows by dinner | One hit and scatter, or caught |
+| Duelling club | A marked strip, onlookers at the walls | A referee who stops it at a disarm | Allowed. Standing among those watching | Disarmed or yielded |
+| Forest at night | Roots, trunks, a slope. Dark, quiet | Nobody by default | Out of bounds. Injuries need explaining tomorrow | Driven off, hurt, or fled |
+
+- **CBD80.** Other environments differ on the same four. A clan training ground has elders watching and rewards restraint. A mountain wild has nobody coming and the weather as a condition. A city street at night has gaslight, bystanders and a police whistle, and in a world where powers are hidden the cost of using one in view is exposure. A cramped room hampers long weapons and makes furniture matter. A banquet keeps a fight covert and social. A boat or rooftop adds footing and a fall. A dream or spirit setting changes which means count at all.
+- **CBD81.** A fight starts by answering seven questions from existing state, in order. Why: the trigger and what each side wants. What kind: the nearest FK preset. Where: spots from the place, conditions from the hour and weather. Who: fighters, bystanders and those who may step in, each with the means they actually carry. Who knows: surprised, wary or waiting. Where each begins: from what they were doing, such as at a desk or at the thicket edge. How closely: policy or pause (CBD56). A question with no answer takes the kind's default. The first Reports line states the answers the character can perceive.
+- **CBD82.** The environment acts during the fight. A bell, a teacher on the stairs, dusk or rain arrive on the same clock as the fighters' moves and appear under "Coming" when the character can notice them. This is how a corridor fight ends by intervention without a special rule.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD83 | Play the same charm exchange in the three school settings of CBD79. | Sol, medium each after the first tie-in | Each run starts from CBD81's seven answers with no hand-built scene for at least one. The three differ in ending, in who knows afterwards and in what the next day inherits. In the corridor, noise brings someone sooner and the player could see it coming. Layout follows CBD75 at desktop size with rebuilt browser evidence. |
+
+### Round 17 suggestions (separate from the palette)
+
+- Mock CBD75's layout for one routine and one paused fight at desktop size before engine work.
+- Give each world's naming sheet a short list of place kinds with their usual interveners, so CBD81 has defaults to fall back on.
+
+## Round 18. Unknowns, allies, pace, growth and what a world supplies (2026-11-13)
+
+Weibao asked to keep designing. This round places earlier knowledge rules on the round 17 screen and takes five threads the 2026-11-13 rounds had not touched. These are proposals.
+
+**ACT NOW.** Checked round 1 so this round adds to it. CBC20–CBC23 already make opponent facts and intent learned fields and deception a mechanism. CBC37–CBC39 give each world a combat grammar, off-label use by mechanism and cross-world powers under local law. CBC42 puts party and solo fights on one engine. RPT rules group repeated Reports lines with a count. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD84.** Unknowns have a place on the screen. A foe's line shows what the character knows and how ("carries a revolver: you saw it"; "left hand in his pocket: unknown"). "Coming" shows a tell without a name when the action is unread (CBC21). A blank reads as a blank, so the player can tell an empty hand from an unseen one.
+
+```
+FOCUS: Howes Street, past midnight
+The man by the gaslamp has stopped walking.
+
+Him     dark coat, ten paces. Revolver under the coat (you saw the grip).
+        Left hand in his pocket: unknown.
+        He has not looked at the alley: he may not know it is there.
+Coming  he is drawing breath to speak, or to do something else.
+
+  1 Watch his hands (2s). You may learn what the pocket holds.
+  2 Speak first (1s). He answers or he acts.
+  3 Step toward the alley mouth (2s). Out of the lamplight.
+  More
+```
+
+- **CBD85.** Looking is an action with a price. Watching, probing with a feint, or testing a ward spends time on the same clock and may fill a field. In a confrontation where recognition decides the outcome (CBD44), these are the main moves and blows are the short ending. What is learned stays with the character afterwards (CBC20).
+- **CBD86.** The encounter starts before the first blow. First sight is the first pause when something is new: the player can avoid, speak, choose ground, prepare or strike first, and the other side has the same options when it noticed first (CFC5). A policy answers this pause for familiar meetings, which is how a routine hunt begins without a prompt.
+- **CBD87.** Allies have their own aims and their own policy. An ally appears by spot like anyone else and their next action shows under "Coming". What the player can do depends on the tie: ask a friend, order a subordinate, signal a trained animal, each with a chance of being heard and followed. Someone to protect is an objective that lives in the scene, since they can be moved, hidden or sent to the way out (CBD47).
+- **CBD88.** Fight text has a reading pace. A watched fight delivers lines at a rate the player sets and merges plain exchanges ("you trade three blows, neither landing clean"), giving separate lines to events that change a place, a means, a wound or a choice. A pause holds the text still. An unattended fight writes its result and turning points (CBD64). The dial runs from each blow to result alone.
+- **CBD89.** Two clocks, one conversion. A fight runs in seconds and the day runs in minutes and hours. A fight takes the game time it took plus what follows it (catching breath, binding a wound, dealing with the body or the witness), and the day clock advances by that. An unattended fight settles at once in real time and still spends its game time and stock (CBR26).
+- **CBD90.** Growth shows as quieter fights and wider options. What the character did is what improves. A practised fighter's policy handles more without pausing, reads more tells, finishes common actions sooner and sees options a novice lacks. Knowing a place adds its spots before the fight starts, and knowing a kind of foe fills its fields. A new character's fights ask more and offer less, and that changes with use.
+- **CBD91.** A world's fights are mostly rows. To fight in a new world the engine needs from that world: its moves written as what they do to bodies, things and places (AD38); the means those moves draw on; its place kinds with their usual conditions and interveners (CBD79); which endings are usual and what answers afterwards (FK dials, CBC37); and a report voice (CBD19). A move that needs an effect the engine lacks is the case that costs code. This is the feasibility answer for many worlds: list what a world's signature fights need and count the effects that are missing.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD92 | For Gu, Hogwarts and LOTM, fill CBD91's list from each world's existing moves and name the missing effects. | Sol, small per world, read-only | One table per world: moves on hand, means, place kinds, usual endings, voice sample, and each signature fight's missing effects with the nearest existing one. The count of missing effects ranks which world's fights are closest to playable. |
+| CBD93 | At a selected LOTM tie-in, play one confrontation where looking decides it (CBD84–CBD86). | Sol, medium for one encounter | An unknown field is visible as unknown. A look action spends time and fills it or fails for a stated reason. The filled field changes an available choice. The same meeting replayed with the knowledge already held opens differently. |
+
+### Round 18 suggestions (separate from the palette)
+
+- CBD92 is read-only and could run before any tie-in, since it sizes the work for each world.
+- Add fight reading pace to the existing speed and Reports settings instead of a new control.
+
+## Round 19. Covering what nobody listed (2026-11-13)
+
+Weibao asked "how to cover all the possibilities and more? Do we provide the options but then make selection automated unless otherwise?" Round 14 answers the second half in outline. This round takes the first half: how a short list of verbs reaches actions no one wrote down, and how the player asks for one that is not offered. These are proposals.
+
+**ACT NOW.** Checked the owners. The [effect grammar](PROCEDURAL_FOUNDATION_PLAN.md#one-effect-grammar-for-every-world) has about ten verbs (move, add, remove, transform, bind, sense, conceal, copy, block, alter a law field) and `moveFromSentence` in the [contest](../src/contest.js) already builds a move from such sentences (CFC3a). A contest entrant holds a fixed list of move ids, and CFC1 binds actor and target to entrants. CBC11 and CBC38 already say improvised weapons and off-label techniques work by mechanism, without saying where the option comes from on screen. The [play beyond menus guidance](PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md) warns against promising a freeform experimentation engine, and [D1](EMERGENT_SYSTEMS.md#about-ai-writers-llms) lets outside text propose an action that the game then validates. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD94.** Coverage comes from combining parts. An action is a verb, a subject, a means and sometimes a manner. The offered list at any moment is generated from what is in the scene and in hand. A lamp recorded as "holds oil, lit, breakable, light enough to throw" yields throw, pour, snuff and hand over without a lamp row. The check is CX3's: the tenth new object in a scene costs no code.
+- **CBD95.** Things carry properties, and properties decide what can be done. A small shared vocabulary (heavy, sharp, lit, brittle, liquid, hinged, alive, held, fixed in place, loud) comes from the thing and material records that making and places already keep. A result nobody listed falls out when properties meet: spilled oil under a lit wand-tip, a wet floor under a charging boar. A world adds its own properties (warded, essence-bearing, cursed) as rows.
+- **CBD96.** Three ways to reach an action, by default. Offered: the few intents of CBD57. Browsed: pick a person, thing or spot in the place panel and see what can be done to it. Composed: choose a means, a verb and a subject under "More". The composed route is how the player proposes something unlisted, and it needs no typing. Typing can filter the list. A typed sentence read by a model and turned into the same three parts is a later dial under D1, since the game still validates and settles it.
+
+```
+More > Do something else
+  With   [the lamp oil]   (left hand)
+  Do     [pour]  throw  hand over  drink  drop
+  On     [the stairs below you]
+  How    plainly  [quickly]  quietly
+
+  Pour the lamp oil on the stairs, quickly (2s).
+  You expect: the steps turn slick. Flint has to slow down or risk a fall.
+  You do not know: whether it would catch from his wand-light.
+  [Do it]
+```
+
+- **CBD97.** A proposal gets one of four answers, in the character's terms. It works, with time, cost and risk. It might work and the character cannot tell, so trying is the way to find out (CBD85). It does not work, with the missing piece named and the nearest thing that would: "You cannot lift the desk alone. Tipping it over is within reach (3s)." Or the mechanism is plausible and the game has no effect for it yet, which the game says as itself and writes to a wish list (CX6). The fourth answer is how "and more" grows from play: the list of things tried and unsupported is the build list.
+- **CBD98.** Manner multiplies the list without new verbs. Quickly, carefully, quietly, hard and as a feint trade time, noise, risk and force on the same action. Manners that would give the same result here fold away (CBD57), so the row appears when it matters, such as a quiet step in a corridor where noise brings a prefect (CBD79).
+- **CBD99.** What worked once is kept. An unlisted action the character pulled off becomes a known trick: it shows among the offered intents when the situation returns, the policy may use it, and it can be taught or copied by someone who saw it (CBC22). This ties CBD90's growth to invention, and it means the offered list for an old hand differs from a novice's in the same room.
+- **CBD100.** Everyone draws from the same generator. Foes and bystanders get their options the same way (CFC15), limited by their own bodies, means and wits: a boar does not throw lamps, a thief might. The player can be on the receiving end of an action nobody listed. Budget by default (CX5): a chooser looks at the handful of generated options that touch its aim, and a law can widen that for a named, clever opponent.
+- **CBD101.** The subject list is wider than fighters. A subject can be a person, a thing, a spot, a route, an effect already under way (CBD48), a bystander's attention, or a fact someone believes (CBC23). "Make the prefect look the other way" and "let him think the wand is broken" are then the same shape as "strike the boar": a verb on a subject by a means.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD102 | Held-out coverage count. Take about twenty fight actions from scenes in the three leads' books that no move row encodes, and try to write each as verb, subject, means and manner over existing properties. | Sol, small, read-only | A table with one row per action: composes today, composes with a new property row, or needs a new effect. The share in the first two columns is the coverage figure, and the third column is the list of missing effects (feeds CBD92). |
+| CBD103 | Mock the browse and compose routes on CBD75's layout for one school corridor scene, at desktop size. | Sol, small, static mock-up | From the mock a reader can reach an action that is absent from the offered intents in three picks or fewer, and can see each of CBD97's four answers once. |
+| CBD104 | When the first tie-in exists, generate options from one scene's recorded things instead of a fixed move list, for the player and one foe. | Sol, medium | Add a thing to the place record and a new action appears for both sides with no move row written. Remove it and the action goes. A composed action settles through the same resolver and save path as a listed one. |
+
+### Round 19 suggestions (separate from the palette)
+
+- Keep the wish list of CBD97 as a ledger file beside the game MCP limits ledger, since both record "wanted, not yet possible".
+- CBD102 is read-only and pairs with CBD92: one pass could fill both tables per world.
+
+## Round 20. How the policy picks, says why, and gets retuned (2026-11-13)
+
+Second half of Weibao's question: "Do we provide the options but then make selection automated unless otherwise?" Round 14 says yes in outline. This round covers how the pick is made among options, how the player reads the reason, and the ways to overrule or adjust it. These are proposals.
+
+**ACT NOW.** Read the two choosers. `defaultChoice` in the [contest](../src/contest.js) is a fixed order: flee, yield, side morale, guard when threatened, then the first affordable move in the entrant's own move order against the nearest or weakest open foe. Each entrant's `wants` (flee and yield thresholds, guards, a preferred target) is already a small policy record. [contest_choice.js](../src/contest_choice.js) adds three pieces through the chooser port: a scored chooser that rates candidates by harm dealt minus cost with a bonus for a finishing blow, and looks at more candidates at higher level; ordered policy rows with `when` conditions on health, a quantity or move count, a fallback move and a saved cursor; and `compareContestPolicies`, which runs named policies on identical seeds and reports outcomes and stock spent. By grep, its one importer is its own test file, so no played fight uses it yet. The reasons returned are generic ("best open move", "policy row", "scored 12/32 candidates"). Source review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD105.** A policy is a short page of sentences. It has three parts in order: what the character wants and will not spend, standing orders (when this, do that), and what to do otherwise. This is the shape `wants` plus policy rows already have. By default the first order that applies is taken, which keeps the page readable top to bottom. The dial is how much the "otherwise" line thinks.
+
+```
+How Fang Yuan fights: hunts, east slope                stance: steady
+  Wants     the quarry down. Leaves if essence falls under a tenth.
+  Keeps     the liquor worm unless asked.
+  1  Take cover first when essence is under a third.        used 4 times
+  2  Recover my own weapon when the route is open.          used once
+  3  Leave when a second beast shows.                       not yet used
+  Otherwise  the best open move he knows.
+  Asks first: anything new, lasting harm, a person's life.
+```
+
+- **CBD106.** "Otherwise" weighs options by what the character values. For a situation no order covers, the policy rates a handful of generated options (CBD94) on a few named values: progress toward the objective, harm risked, stock spent, time, and being seen. The existing scored chooser rates harm and cost alone, so an objective such as "get the wand" or "leave unseen" currently has no weight. Odds come from the same rule the fight runs on (CFC12), read through what the character knows (CBC20), so a feint can mislead a policy as it can a player.
+- **CBD107.** Skill sets how well the policy thinks. A novice considers the obvious two options and judges them roughly. A practised fighter considers more, including tricks kept from earlier fights (CBD99), and judges timing better. The scored chooser's level already maps to candidate count. This gives CBD90 a mechanism and CBD60 a dial: the policy is as good as the character, and the player's hand adds what the character has yet to learn.
+- **CBD108.** Each pick records its reason and the runner-up. The line names which order fired or which value decided, and what was passed over and why. Routine results show reasons for the turning points (CBD64), and the full account shows them for each action. Generic reasons like "policy row" are engine text and would be replaced by the order's own sentence.
+
+```
+0:12  Stepped behind the pine.   Order 1. Passed over: moonblade now (it would land late).
+0:15  Loosed the moonblade.      Best open move. Passed over: waiting (the boar was turning).
+```
+
+- **CBD109.** Stance is the coarse retune. A stance is a named setting of the values in CBD106: careful, steady, all in, quiet (avoid being seen), sparing (save stock), merciful (CBC32's subdue). It can be set per character, per kind of fight and per place, and changed at any pause. Worlds can name their own stances. Most retuning would be one stance change, with orders for the specifics.
+- **CBD110.** Four sizes of override, each one step from where the player already is. Once: take this action by hand and the policy resumes (CBD38). This fight: change stance or say "hold" or "leave" from now on. From now on: edit, reorder, pause or drop an order on the policy page. By example: open a finished fight's account, pick a moment, and say what should have happened.
+- **CBD111.** Retune by example shows its effect before it is kept. From the picked moment the game drafts the order that would have produced the wanted action, then replays recent saved fights of that kind with and without it and reports the difference: "would have changed 2 of your last 10 hunts: one faster, one lost the quarry". `compareContestPolicies` and seeded restores (CFC16) are the existing parts. The player keeps, edits or discards the draft.
+- **CBD112.** Orders can go stale or collide, and the game says so outside the fight. An order naming a Gu that is gone, a place that changed or a foe that no longer exists is flagged when preparing. Two orders that both apply resolve by position, with a one-time note. An order that led to a loss is marked in that result ("Order 1 sent you behind the pine. The pine was gone since the storm."). An order unused for a long stretch can be offered for removal.
+- **CBD113.** The policy has a spending and consequence leash. By default it asks before acts that cannot be taken back: ending a person's life, using a one-use item, showing a hidden power in view, breaking a local rule before witnesses (CBD79). A stock cap per fight ("no more than a third of essence unasked") covers the rest. Each item on the ask-first list is a dial the player can loosen for a character or place. In away play an ask resolves to the cautious option (CBC25).
+- **CBD114.** Foes have the same page, and it can be learned. A named opponent's habits are its orders and stance. Watching, fighting or asking around fills them in as learned fields (CBC21, CBC22), and a filled line changes the player's options: "it charges after turning" becomes something to prepare for. A foe that survives can add an order against what beat it. This is the opponents-who-remember inspiration in the digest, on a record the engine already keeps per entrant.
+- **CBD115.** Orders belong to the character and can move between people. A teacher's orders can be taught, a subordinate can be given the player's page for a kind of fight, and a manual or drill can supply a starting page for a weapon or school. A new character or a new world starts from a stance and a taught page instead of an empty one, which answers where a policy comes from before the player has answered any pause (CBD59).
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD116 | Mock the policy page and the reasons in a full account at desktop size, for one hunt. | Sol, small, static mock-up | A reader can say what the character will do in three described situations from the page alone, and can find why one past action was taken and what was passed over. |
+| CBD117 | At the first tie-in, give the scored chooser one value beyond harm and cost (objective progress), headless. | Sol, medium | On identical seeds, a "get the wand" objective changes at least one pick against the harm-only chooser, and the recorded reason names the objective. Existing chooser tests stay green. |
+| CBD118 | Retune by example on saved fights, headless first. | Sol, medium, after CBD117 | From one logged moment, a drafted order reproduces the wanted action on replay. A with and without comparison over ten saved fights of the kind reports changed outcomes and stock. Discarding the draft leaves the saved policy byte-identical. |
+
+### Round 20 suggestions (separate from the palette)
+
+- Write the reason wording once per world voice (PRS7) before CBD108 is built, since reasons appear in routine results.
+- Record in the area guide that `contest_choice.js` exists and has no played caller yet, so a tie-in lane finds it before writing another chooser.
+
+## Round 21. Losing, contests that are not fights, and stopping in the middle (2026-11-13)
+
+Three angles the 2026-11-13 rounds had not reached: what a loss looks like on the round 17 screen and what it opens, how a chase, an exam or an argument sits on the same frame, and what happens to a fight when the game is saved or closed partway. These are proposals.
+
+**ACT NOW.** Checked round 1 and the contract so this adds to them. CBC4 makes downed a window, CBC5 gives the winner the choice, CBC6 routes a fated character's defeat, CBC34 puts social conflict on the same outcome model and CBC36 lets losing teach. [CFC14](CONTEST_CONTRACT.md) notes a debate or trial as a law whose moves land on standing or composure, marked as unbuilt. [pursuit.js](../src/pursuit.js) already runs the long form of a chase, with evidence leading travel between places. CFC16 saves the contest record and a reload continues to the same end (tested); the log lines I read hold time, actor, move and outcome, and I found no saved field for a pause with its offered choices. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+**Losing**
+
+- **CBD119.** A loss is played as a scene. The downed window of CBC4 runs on the same frame with the player as its subject. What the player can do follows their state: a beaten, conscious character can speak, bargain, play dead or crawl for the way out, and an unconscious one has nothing to pick. Then the player reads where they wake and how they know what happened: seen, told by a witness, worked out from evidence, or blank. A blank is content ("you do not know who carried you here").
+- **CBD120.** The cost of a loss is itemised, and each item names a way back by default (AD19). What was taken, now in someone's hands and traceable. What was hurt, with its healing route. Who saw, and what they now think. What the winner learned about the character's methods (CBC22). How much time passed. Each line is a lead the character can follow or leave, so a loss adds things to do. A harsher world, forewarned at entry, can shorten the ways back (CBX4).
+
+```
+You wake on the stream bank. It is past dark.
+  Taken    the moonlight Gu is not on you. Drag marks lead uphill.
+  Hurt     left forearm, deep. It needs binding before it will hold a blade.
+  Seen     nobody you know of.
+  Unknown  how long you lay here before the cold woke you.
+What went wrong: the charge reached you with your essence already spent.
+  It might have gone otherwise with more essence, or from behind the pine.
+```
+
+- **CBD121.** Most losses are partial, and the result says which part. The objective failed and the character walked away. The fight was won at a price above what it was worth. The fight was won and the point was lost (CBD20). The result line carries both halves, and the review names the turning point with what the character did not know at that moment, in a form the player can read.
+- **CBD122.** A loss ends with what might have changed it. Up to three leads drawn from the turning point, limited to what the character could infer: more of a stock, a fact about the foe, different ground, help. They read as the character's own thoughts and can be wrong when the character's beliefs are wrong (CBC23). An unbeaten foe stays where it is and remembers (CBD114), a beaten one stays beaten (AD28), and the place keeps the damage (CBD70), so coming back is a different fight.
+- **CBD123.** Losing on purpose is an option like any other. Throwing a spar to hide strength, yielding early to keep stock, or taking a beating so someone else gets out are stances and intents (CBD109). The world reads the result it saw, and the truth stays with the character (AD7). A watcher with the means to tell can see through it.
+
+**Contests that are not fights**
+
+- **CBD124.** Four parts of the frame carry over unchanged: sides with aims, a scene of subjects, a list of what is coming, and a quantity whose running out ends it. A kind of contest names its spots, its ending quantity and who steps in. The rest (pauses, intents, composed actions, policy, result by stake) is shared.
+
+| Contest | Spots | Coming | What runs out | An unlisted action that fits |
+| --- | --- | --- | --- | --- |
+| Chase on foot | Stretches of the route, turnings, crowds, doors | The gap closing, a cart crossing, a dead end ahead | The gap, or breath | Tip a stall behind you |
+| Written exam | The questions, the clock, the proctor's desk | Time calls, the proctor's walk | Time, then nerve | Skip ahead and come back |
+| Argument | The people listening, the points raised | What the other is about to say | Composure, or the listeners' patience | Ask them a question instead |
+| Sport or match | The field's zones, the goal, the referee | The ball's arrival, the whistle | Score against time, stamina | Play for the foul |
+| Haggle | The goods, the other buyers, the door | The seller's next price, a rival's bid | Willingness on each side | Start to leave |
+| Getting past unseen | Shadows, cover, the watcher's path | The watcher's turn, a noise | Attention | Send a noise elsewhere |
+
+- **CBD125.** Routine ones settle to a line, as fights do. A familiar quiz, a daily haggle or a practised climb runs on the policy at zero prompts and pauses on something new (CBD56): a question of a kind the character has not met, a seller who will not move, a guard on a different round. The study, trade and stealth done beforehand are the preparation (CBD58).
+- **CBD126.** A contest can change kind partway without changing screens. An argument becomes a shove, a duel ends in talk, a chase ends in hiding. The aim line and the ending quantity change and the options regenerate from the same scene. Raising it to violence is an action that the policy asks about first by default (CBD113), and the other side can do it too.
+- **CBD127.** Close and long forms hand over to each other. A chase inside one place is the frame; once the quarry is out of sight it becomes the existing pursuit record, and contact reopens the frame. An exam is one sitting in a term's study. A trial is several arguments with days between. The frame covers the sitting and existing owners cover the span.
+
+```
+FOCUS: Common room, after curfew. You want Percy to let it go.
+Percy   by the portrait hole, arms folded. Sure of the rule, less sure of you.
+Here    six first-years pretending to read. The fire. The stairs up.
+Coming  he is about to ask where you were.
+
+  1 Tell him the truth, briefly (2s). He respects that, and then has to act on it.
+  2 Ask what he is doing up (1s). Puts the question back on him.
+  3 Say nothing and go up the stairs (3s). Ends it tonight. He remembers.
+  More
+```
+
+**Stopping in the middle**
+
+- **CBD128.** A pause is saved state. The question, what triggered it and the choices as offered are kept with the fight, so a reload shows the same pause. The choices are regenerated on load and compared; if they differ because the game changed between sessions, the pause says so. Reading pace position and any half-built composed action (CBD96) can be dropped on reload by default, since they are cheap to redo.
+- **CBD129.** Closing the game holds a fight at its next question. A fight paused for the player waits, and no game time passes in it. A fight running on policy when the game closes continues under away rules to its end or its next ask, then holds (CBC25). The return summary leads with any fight that is waiting and what it is waiting for. The dial is how much away play may settle alone, set with CBD113's leash.
+- **CBD130.** The same action after a reload gives the same result, and a different action gives a different future. This is how the seeded record already behaves (CFC16). It makes a reload a way to try another choice, which suits a sole player (AD22), and a poor way to fish for a luckier roll on the same choice.
+- **CBD131.** What-if replay as a tool. From any logged moment of a finished or saved fight, branch a copy and play it differently as practice. The copy spends nothing and changes nothing in the world by default. It gives the tactician mood (CBD66) a place to learn a foe, and it is the hand-played form of CBD111's replay. Whether a replay may ever replace what really happened is a limit-shaped question and is listed for Weibao below.
+- **CBD132.** A good pause can be kept as a scenario. A mid-fight state worth returning to ("the slope with low essence") saves as a named practice scenario and as a DEV fixture for verification (AD54). Later rule or policy changes can then be tried against situations that actually came up in play.
+- **CBD133.** A saved fight whose rules changed underneath it has a stated fallback. A law carries a revision. By default a fight saved under an older revision finishes under the new one when its record still validates, and otherwise is called off from its starting state with what was spent returned and one line saying why. Old saves are disposable for now, so this is a low dial setting to record, with migrate-on-load as the later form.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD134 | At the first live tie-in, play one loss through to waking. | Sol, medium on top of the tie-in | The downed window offers the choices the character's state allows. The waking text itemises taken, hurt, seen and unknown. One taken item can be followed to its holder. A second visit to the same foe and place differs from the first. Save and reload inside the downed window and compare with an uninterrupted run. |
+| CBD135 | One non-fight law, headless: an argument whose moves land on composure and the listeners' patience (CFC14). | Sol, medium | The same record, clock, chooser and save path run it with no change to the contest kernel. It ends by a typed outcome (yielded, withdrew, drove off). One composed action from CBD96 settles through it. A policy completes a familiar one with zero pauses. |
+| CBD136 | Pause persistence. Save at a pause, reload, export and import. | Sol, small after a tie-in has pauses | The same question and choices appear after each route. Picking the same choice gives the same next event as an uninterrupted run. A changed law revision produces the CBD133 line. |
+| CBD137 | What-if replay, headless first. | Sol, small to medium | Branch from a logged moment, play three different actions, and confirm the original record and world are byte-identical afterwards. |
+
+### Round 21 suggestions (separate from the palette)
+
+- For Weibao (a limit, so his call under AD56): whether a what-if replay can be promoted to replace the real result. The working default above is that it stays practice, with promotion as a dial.
+- Angles still open for later rounds: fights at larger scale, cross-world fighters meeting on one frame, and sound and motion cues.
+- CBD135 is the cheapest proof that the frame is wider than fighting, since it needs no scene or UI work.
+
+## Round 22. The same frame at larger size (2026-11-13)
+
+Weibao asked to keep designing. This round takes fights bigger than a handful of people: a street brawl of twenty, a clan raid, a battle. These are proposals.
+
+**ACT NOW.** Checked the owners. CBC40 treats war as politics settled by terms, with the player often behind the line. FK8 (holding a place) and FK9 (skirmish and battle) are presets whose dials exist: crowding caps, a side that routs at `breakAt`, and far settlement (CFC12). CBD73 groups a crowd by spot on screen. The [sizing audit](audits/COMBAT_WORLD_SIZING_2026-11-13.md) lists third parties (G2) and allies with their own choosers (G7) as shared gaps. The contest budget is 400 meetings before a stalemate (CFC16), which a battle of individuals would pass quickly. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD138.** Size changes the unit and keeps the frame. A spot becomes a part of the field (the gate, the wall, the ford). A fighter becomes a group with a count, a condition, its nerve and whoever leads it. A move becomes an order that takes minutes. Sides with aims, a scene, a list of what is coming and something that runs out all stay. Three working sizes: a skirmish of individuals (FK9), an engagement of groups in one place, and a battle of groups across several places over hours.
+- **CBD139.** A group is a count until someone in it matters (CX4). "Nine clansmen at the gate, tired, holding" is enough to settle and to read. A member becomes a person with a line when the player can affect or learn about them: a friend, a rival, the one who shouts the order, the one who breaks. The player's own body stays individual at each size.
+- **CBD140.** The seat decides the screen. A fighter in the line sees their own few spots, and the battle around them arrives as conditions and coming events ("the left is giving way"). A leader sees groups and gives orders. Someone behind the line (smith, healer, runner, CBC40) plays their own contest, such as getting arrows to the wall before the gate goes, with the battle as its clock. One battle then gives three different kinds of play, and a life that does not fight still has a part in it.
+
+```
+FOCUS: The east gate, second hour. Your squad holds the left of the gate.
+You     at the cart barricade with five of yours. Spear sound. Winded.
+Them    about a dozen at the gate mouth, pressing. More behind, number unknown.
+Here    the barricade (cover). The well yard behind you, a way back.
+Around  the right of the gate is holding. The wall above has stopped loosing.
+Coming  soon   their second rush.
+        later  someone on the wall is waving at you. You cannot hear him.
+
+  1 Hold with the squad. They follow you while you stand.
+  2 Send Bao up to the wall to find out (about 2 minutes, one fewer here).
+  3 Fall back to the well yard. The left of the gate opens.
+  More
+```
+
+- **CBD141.** Orders and news travel. An order to a group takes time to arrive, and can be misheard, lost with its runner or refused (CBD87). What a leader knows of a far group is as old as the last report, and the screen shows that age. A world's means shorten it: a signal Gu, a charmed coin, a horn code. This makes the knowledge rules matter at size and gives runners, signals and scouts real work.
+- **CBD142.** One near frame inside a far one. The battle settles at group grain (CFC12's far detail) while the player's own surroundings run near. The outer feeds the inner's "Coming" (the gate breaks), and the inner feeds the outer (the player drops their champion and that group's nerve falls). Default budget: one near frame at a time, placed where the player is.
+- **CBD143.** A strong individual at size works by mechanism. In worlds where one person outweighs a company, their moves address groups and spots as subjects: an effect over the gate mouth lowers a count and breaks nerve. Numbers push back the same way, through crowding, spent means (FK11) and attention split many ways. How far one person's power scales is the world's own fact (CBC41), read from its moves.
+- **CBD144.** The result is told per seat (CBD78). The war line, the group's line and the character's own line can differ: "The gate fell. Your squad came out whole. You are owed for the wall." Losses are itemised at group size (CBD120), and the dead who had been promoted to people are named.
+- **CBD145.** Long fights have lulls, and a lull is a pause with preparation in it. Between rushes the choices are binding wounds, resupply, moving, talking to the frightened, or sending word. A routine posting ("hold with my squad") runs on policy at zero prompts and pauses on something new, as a daily fight does (CBD56).
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD146 | Headless engagement: two groups as counted entrants with nerve, one near frame nested around a single fighter. | Sol, medium, after a tie-in | Finishes inside the meeting budget. An outer event appears in the inner frame's coming list. Changing the inner result changes the outer one on the same seed. Save and reload mid-engagement matches an uninterrupted run. |
+| CBD147 | Write the same engagement from three seats (line, leader, behind the line) as static text at desktop size. | Sol, small, mock-up | Each seat's screen offers different choices from the same events, and a reader can say what each seat does not know. |
+
+### Round 22 suggestions (separate from the palette)
+
+- Read the war research in `docs/research/warsim/` for group nerve and report delay before CBD146, so the dials start from a source.
+- A clan raid in the Gu opening and a school-wide brawl are the two nearest canon uses to size this against.
+
+## Round 23. Fighters from different worlds on one frame (2026-11-13)
+
+What happens when a Gu master meets a wizard, or a visitor brings a power the place has no word for. These are proposals.
+
+**ACT NOW.** Checked the owners. CBC39 says an imported power works by its own law and meets local enforcement. A contest takes one law, and CFC3a already lets a move run an entrant's own working on that working's law, read back as effect sentences, with `quantityOf` mapping grammar objects onto a world's body quantities. [WER9](WORLD_ENTRY_RULES.md) states what carries across a crossing and WER12 makes how a world reads an outsider a dial. The foundation plan lists carrying a charm's effect into a Gu as FN6. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD148.** A fight has a host and guests. The place's world is the host: its conditions, its interveners, its usual endings and its report voice. A visitor's moves arrive as sentences in the shared grammar, run their own working, and land on the host's bodies through a mapping. The cases worth designing are where the mapping is partial or missing.
+- **CBD149.** A foreign effect meets a local body or defence in one of three ways, decided per pair of mechanisms and written as rows with an in-world reason. It maps: fire burns in either world. It maps in part: an effect on a soul meets a body whose world keeps no such quantity, and lands on the nearest thing with a stated conversion. It finds no purchase: there is nothing for it to act on, or nothing local that knows how to stop it. The third case cuts both ways, so being foreign can be a weakness or an opening.
+- **CBD150.** A power needs its fuel, and the host may not supply it. Essence without primeval stones lasts as long as the carried stock. A wand works where the magic is in the caster. A visitor's fights therefore lean toward attrition (FK11) until they find a local substitute, and finding one is a long pursuit of its own (digest: long play).
+- **CBD151.** Not knowing is the largest effect. Locals have no learned fields for a visitor's moves, so tells go unread (CBD84) and their policies pause, hesitate or overreact. The first use is the strongest, and each use teaches those who see it (CBC22). The visitor's standing choice is how much to show. The reverse holds too: the visitor's own policy has no orders for local threats and will ask more.
+- **CBD152.** The world answers an outsider through its own people. Beyond enforcement (CBC39) there is curiosity, fear, worship, an offer, or capture for study, each from someone with a reason and the reach to act. The list of who may step in (CBD79) gains whoever in that world notices outsiders (WER12).
+- **CBD153.** No shared power number. A cross-world matchup is read from the mechanisms: the odds come from sampling the fight itself (CFC12) and are shown as the character's estimate, with low confidence against an unknown kind. Rank in one world says little in another until the pair rows of CBD149 are known.
+- **CBD154.** A fighter with two systems combines them by mechanism. Composed actions (CBD96) can take a means from each world, such as a charm cast on a Gu, when the pair rows allow it. The cost is whatever the mechanisms charge. Nothing is balanced by rule, and what pushes back is someone in the world who objects (design framing).
+- **CBD155.** The host's voice describes what it does not know. A duelling club sees "a pale crescent of light that cut the strip in two", and the word moonblade appears once someone there has learned it. The visitor's own account uses their names. This keeps knowledge honest in Reports and gives a sealed or unfamiliar power its discovery route.
+
+```
+Duelling club, Thursday. Onlookers at the walls.
+The new boy did not raise a wand.
+  A pale crescent of light crossed the strip and split the practice dummy.
+  Nobody in the room has a name for it.
+Flitwick has stopped the bout. He is looking at the boy's hands.
+Coming  a question you will have to answer.
+```
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD156 | Headless: one Gu move entered in a Hogwarts duel law through the existing bridge. | Sol, small to medium | The move runs on its own law and lands on a host quantity. The test lists which effects mapped, mapped in part or found no purchase. The local chooser's recorded reason shows it had no answer the first time. |
+| CBD157 | Pair table for Gu, Hogwarts and LOTM: each world's main effect kinds against the other two worlds' bodies and defences. | Sol, small per pair, read-only | One row per effect kind with maps, partial (conversion named) or no purchase, and the source or reasoning for each. Extends CBD92's per-world tables. |
+
+### Round 23 suggestions (separate from the palette)
+
+- CBD157 would also serve crossings outside fights (healing, potions, wards), so offer it to the world entry owner before writing it here alone.
+- Decide the fuel answer (CBD150) per crossing method when a world pass fills WER9.
+
+## Round 24. Sound, motion and the feel of a text fight (2026-11-13)
+
+How a fight played in panels of text gets weight, rhythm and warning. These are proposals.
+
+**ACT NOW.** Checked the owners. [UR91](UI_RULES.md) has one settled event drive its line, effect, sound and recap, text first, with silence available as an effect and reduced motion, an effects slider and a mute as player settings. UR62 binds cues to the actual subject and reconciles them on load. [settled_text_effects.js](../src/settled_text_effects.js) plays presentation after the save settles and holds no simulation. The versus view respects reduced motion. CBD29 says cosmetic motion grants no reaction time and CBD88 sets a reading pace. No owner lists which fight events get which cue. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD158.** A cue row per kind of fight event. Each kind (a tell, a release, a landing, a miss, an interruption, a change of spot, a thing dropped or broken, an arrival, a pause, an ending) names its line, its mark in the place or You panel, its motion and its sound, any of which can be blank on purpose. Renderers read the settled event (UR91). This is the fight's share of CBD63's four moments.
+
+| Event | Line | Mark | Motion | Sound |
+| --- | --- | --- | --- | --- |
+| A tell the character can read | "The boar gathers itself." | Entry under Coming | The entry steps in | A low breath |
+| A landing that changes a means | "Your wand is out of your hand." | Wand appears under its new spot | The row moves once | A clatter, from that side |
+| A plain exchange | Merged into one line | None | None | None |
+| A pause | The question, in the focus panel | Focus panel edge held | Text stops | One soft tone |
+| Lasting harm | Its own line, after a beat | You panel row changes | None | Silence |
+
+- **CBD159.** In a text fight, timing and spacing are the motion. A turning point gets a line by itself and a short beat before it. Plain exchanges merge (CBD88). A long line reads slow and a short one reads fast, so cause lines for sudden events are written short (PRS rules). This costs no art and still works with motion, effects and sound turned off.
+- **CBD160.** Lead the eye to what changed. When a subject changes spot, drops something or is hurt, its row marks once and settles. During a pause the screen holds still so the player can read (CBD53). Under watched auto-play, entries under "Coming" step upward as they near. Default: one marked change at a time, in the order the events settled.
+- **CBD161.** Sound is something the character hears. Noise is already a scene condition (CBD79), so a whistle from the stairs can be heard, with a side, before any line names its source, and an unknown sound is an unread tell (CBD84). With sound off the same fact arrives as text ("a whistle, from the stairs"). A deafened or distracted character hears less, by the same rule.
+- **CBD162.** Weight follows stake and rarity. A routine fight is a quiet result line. The first time something happens gets the fuller treatment and the hundredth is plain (UR91's ladder). The heaviest events (a death, a lasting wound, a treasured thing broken) get stillness and room on the page in place of a bigger effect.
+- **CBD163.** A world has a cue palette. Gu fights and wand duels differ in what a tell sounds like and how a release moves, so cue rows are world data with a shared fallback. This adds a sixth item to what a world supplies (CBD91). A visitor's unknown power can use the host's "unfamiliar" cue until it is learned (CBD155).
+- **CBD164.** Taking over is live at all times. Presentation does not eat input: a key that takes control or skips ahead works mid-line and mid-motion, and the fight state is already settled underneath (CBD29). Resuming from a pause gives one beat so the player sees what their choice did before the next event.
+- **CBD165.** Cues do not queue up while away. A return shows the summary with no replayed effects, and at most one cue for the event that most needs attention, such as a fight waiting on a question (CBD129, UR62).
+- **CBD166.** Each cue has a text equivalent, checked. With motion, effects and sound all off, a fight reads the same and offers the same warnings at the same moments. Fight reading pace joins the existing three settings (CBD88).
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD167 | Cue table as data for one hunt and one duel, shown in a mock at desktop size with settings on and off. | Sol, small to medium | Each event kind in the two fights has a row or a deliberate blank. With all three settings off, a reader gets each warning at the same moment as with them on. |
+| CBD168 | Input during presentation, at the first tie-in with watched auto-play. | Sol, small | Pressing take-over during a line or motion gives control at the next decision with no event lost or repeated. Reload mid-presentation replays no reward and attaches no cue to the wrong subject. |
+
+### Round 24 suggestions (separate from the palette)
+
+- Add the cue row to each world's naming or voice sheet so text, mark and sound are written together.
+- Angles still open: feuds and rivalries across many fights, what fighting pays and costs over a season, a first fight that teaches the screen, and companions or Gu that fight as beings in their own right.
+
+## Round 25. Three shared gaps as things a player would feel (2026-11-13)
+
+Weibao asked to keep designing on the [sizing audit](audits/COMBAT_WORLD_SIZING_2026-11-13.md)'s first three shared gaps: moves that address a thing, a place or another working (G1), third parties who arrive, watch and step in (G2), and what a fighter knows about a foe with a look action that fills it (G3). Earlier rounds named these on the screen (CBD47, CBD79, CBD82, CBD84, CBD85). This round gives each a mechanism with dials. These are proposals.
+
+**ACT NOW.** Read the audit's nearest-existing column against the code. For G1 the contest binds targets to entrants (CFC1) and `drop` records where an item fell; the Hogwarts spell stack has a wand with a grip and a Finite that ends landed charms. For G2 the [tempo fight](../src/tempo_fight.js) already has a `channelNotice` dial (a concealed effect is caught by a perceive against conceal draw) and remembers a fight as one event per witness, and the duelling club has a proctor standing in a place. For G3 tempo foes carry a `learned` record and the contest has notice and surprise at the opening (CFC5). Source review only.
+
+### ACCOUNT FOR NOW
+
+**G1. Addressing things, places and workings**
+
+- **CBD169.** A subject can be addressed when three things hold: the fighter can perceive it, can reach it, and has a means that acts on that kind of subject. Each of the three failing gives a different blocked reason ("you cannot see where it fell", "Flint is between you and it", "nothing you know ends a charm"). This is the test behind CBD97's answers, and it is the same test for a foe choosing against the player.
+- **CBD170.** A thing has custody and condition. A loose thing is taken by whoever reaches it first. A held thing is addressed through its holder's grip, so a disarm, a snatch and a blow to the hand are three routes to the same change. A thing can be covered, kicked away, broken or hidden, and each leaves it somewhere in the place record (CBD70).
+
+```
+Things  your wand, under the bench by the east wall. Three paces, past Flint.
+        Flint's wand, in his right hand. His grip is good.
+
+  1 Go for your wand (3s). Flint can reach you on the way.
+  2 Kick the bench over it (2s). Nobody gets it quickly.
+  3 Jinx his wand hand: you have no wand. Blocked.
+```
+
+- **CBD171.** A place has state that moves can change: open or blocked, lit or dark, dry or slick, quiet or loud. Holding a doorway, dousing a lamp and flooding a step are moves on a spot. The change outlasts the move and by default outlasts the fight, and it applies to whoever is there, the mover included.
+- **CBD172.** A working under way is a row the fighter can pick. It has a stage (gathering, released and travelling, or sustained) and something that holds it: the caster's attention, a gesture, a drawn circle, a fed Gu. What can answer it follows the stage. Gathering can be interrupted at its holder. Travelling can be blocked, dodged or met. Sustained ends when its holder is broken or its cost goes unpaid. An effect already landed is a condition on its subject and takes a remedy.
+
+```
+Coming  1s  Flint's jinx is in the air, toward you. Green, fast.
+        4s  the shield you started will be up. Too late for this one.
+
+  1 Drop behind the bench (1s). It meets the bench.
+  2 Finish the shield anyway (4s). It covers the next one.
+  3 Let it land and keep your aim (0s). You take it. Your own cast goes first.
+```
+
+- **CBD173.** A bound being is a subject apart from its master. A Gu, a familiar or a summoned thing has its own body, place and condition. It can be struck, seized, starved of what feeds it or turned, and its master can lose its use while standing unharmed. What the master feels through the bond is the world's own rule.
+- **CBD174.** A working can be the stake. A ritual, a ward being raised or a long cast is progress on the clock, and the fight is about whether it finishes (CBD124's "what runs out"). It can be stopped at any of its holders: the celebrant, the altar things, the circle on the floor, the supply. Each is a different target with a different guard on it, so a fight around a ritual has several ways in.
+- **CBD175.** Opponents use all of this by the same test. A foe can stand on the wand, bar the door or go for the Gu when its aim and wits suggest it (CBD100). A beast mostly addresses bodies. A trained duellist addresses the wand. The difference shows the player what kind of opponent this is.
+
+**G2. Third parties who arrive, watch and step in**
+
+- **CBD176.** Each bystander has attention that moves through stages: unaware, noticing, watching, deciding, acting. Noise, light, visible powers and how long the fight runs push it along, and distance, walls and the bystander's own business hold it back (CBD79). The screen shows the stage in words for those the character can perceive.
+
+```
+Around  two second-years at the alcove, watching.
+        footsteps on the stairs above, coming down. A teacher's pace.
+Coming  about 6s  whoever is on the stairs reaches the landing.
+
+  1 One more jinx (2s). Loud. It will be seen.
+  2 Lower your wand and walk (2s). You are a student in a corridor.
+  3 Pull Flint into the alcove (3s). Out of the line of the stairs.
+```
+
+- **CBD177.** What a third party does on acting follows their aim and standing. A teacher stops it. A friend joins. A rival fetches someone. A stranger watches and talks later. A constable arrests whoever is still holding a weapon. These are rows on the kind of person, with the usual exceptions for individuals.
+- **CBD178.** Attention can be worked on. Hiding the fight, moving it, ending it early, distracting the watcher or giving them a different story are actions on a bystander's attention or belief (CBD101). The other side can do the opposite and shout for help.
+- **CBD179.** Help has a caller, a message and a journey. Reinforcements come because someone called (a shout, a signal Gu, a whistle), the call can be stopped or go unheard, and the helpers take real time to arrive from where they were. The player sees the call if the character can, and "Coming" shows the arrival once it is known.
+- **CBD180.** A witness keeps what they saw, which can be less than what happened. Someone who came late saw who was standing over whom, and missed who struck first. Aftermath (points, arrest, reputation, a grudge) follows what witnesses believe, so the same fight can cost differently by who saw which part.
+- **CBD181.** In a world where powers are hidden, being seen is a cost counted per watcher. Each watcher who caught a power in use holds a fact with a guess at its meaning, and what they do with it (tell, sell, pray, report) is theirs to choose. Tempo's concealment draw already decides who catches a concealed effect, so the missing part is what the watcher then holds.
+
+**G3. Knowing the foe, and looking**
+
+- **CBD182.** Each known fact about a foe carries where it came from and how sure it is: seen, told, read, inferred or assumed. The screen shows the basis in a word. An assumption looks different from an observation, so the player can tell which facts would be worth a look.
+- **CBD183.** The estimate is computed from beliefs. "You think you can take him" comes from sampling the fight (CFC12) with the foe as the character believes him to be. A wrong belief gives a confident wrong estimate, which is how a village chief turns out to be far stronger than he looked (Weibao's own example in this file's opening). The estimate line names its weakest basis.
+
+```
+Him     the old chief. Unarmed (seen). Slow on the steps (seen).
+        Has not fought in years (told, by his nephew).
+        Strength: ordinary for his age (assumed).
+You think: you would win this easily. That rests on an assumption.
+
+  1 Watch how he moves when the boy drops the jar (a moment).
+  2 Push past him.
+  3 Leave it.
+```
+
+- **CBD184.** A look has three possible results beside time spent: the field fills, the field fills wrongly because the foe is showing a false front (CBC23), or the look is noticed. A noticed look tells the foe the character is wary and can start what it was meant to avoid. Skill at looking shifts the odds among the three.
+- **CBD185.** Fighting teaches without a look action. Each exchange can fill fields about what was just used: reach, speed, a move's tell, how much it took out of him. Fields about what has not been shown stay empty. A foe who holds something back stays unknown in that part, and that is a reason for both sides to hold back.
+- **CBD186.** The screen also shows what the foe seems to believe about the character, where the character can judge it: "he thinks you are unarmed", "she has seen the moonblade once". Hiding strength, feinting weakness and letting a rumour run are moves on that belief (CBD123), and the reveal is a move with one use per watcher.
+- **CBD187.** Knowledge is kept by person and by kind, outside any one fight. What was learned about this man stays about him. What was learned about boars applies to the next boar with less confidence. Books, teachers and rumours fill the same fields before a fight, with their own basis word, and can be out of date.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD188 | G1 in the Hogwarts spell stack, after the loose-wand case (CBD50): one travelling jinx as a pickable row. | Sol, medium | Three answers by stage work or fail for the stated reason: interrupt while gathering, block or dodge in flight, remedy after landing. Each of perceive, reach and means failing gives its own blocked line. A foe picks the player's wand as a target once on a seeded run. |
+| CBD189 | G2 as one corridor teacher with attention stages. | Sol, medium | Noise moves the stage sooner on the same seed. The arrival shows under Coming once footsteps are perceivable. A late arrival's record differs from an early watcher's, and the aftermath differs with it. |
+| CBD190 | G3 headless: an estimate computed from believed fields. | Sol, small to medium | With one assumed field wrong, the quoted odds differ from the true odds and the estimate names that field as its weakest basis. A look fills it and the estimate moves. A noticed look changes the foe's opening. |
+
+### Round 25 suggestions (separate from the palette)
+
+- CBD190 can run before any tie-in and gives the village-chief case a test.
+- When G2 is built, check whether tempo's per-witness fight memory can hold "which part they saw" before adding a new record.
+
+## Round 26. One way of fighting across three engines (2026-11-13)
+
+The sizing audit found three fight engines, with Gu on the contest, Hogwarts on two unjoined stacks and LOTM on the tempo fight. This round asks what they should share so a player meets one way of fighting in each world, without a rewrite as the entry price. These are proposals.
+
+**ACT NOW.** Read what each engine hands to a screen. `tempoView` in the [tempo fight](../src/tempo_fight.js) returns a title, log lines, a who-acts-next strip, the player's means, moves with label, text, time cost, usable, odds word and blocked reason, aims, ally orders, and foes with a learned record. It has three named policies (aggressive, steady, safe) and a hand-over limited to safe moves. The [contest](../src/contest.js) returns an entrant view, a choice with a reason, and log lines of time, actor, move and outcome; positions are a line, and its policy pieces sit in [contest_choice.js](../src/contest_choice.js). The Hogwarts spell stack has named places, a wand as a thing and a proctor (audit F4). The [area guide](AREA_GUIDE.md#fights-and-harm) asks for no further fight loop beside these, and a test keeps LOTM modules out of `contest.js`. All fight paths already publish defeat through one publisher (CBL1, CBL3). Source review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD191.** Share the edges and leave the middles. A player meets one way of fighting when six things match across worlds: the shape of the screen, how an answer is given, the policy page, when a fight pauses, how a result and its aftermath read, and where knowledge of a foe is kept. How a blow is worked out can stay different per engine, which CFC2 already allows inside the contest and which suits worlds that should feel different (AD5).
+- **CBD192.** One view shape, filled as far as each engine goes. Each engine projects its state onto the same parts: aim, you and your means, people by spot, things, around, coming, choices, log (CBD75). A part an engine does not model is absent or reduced, and is not invented: a tempo fight shows one spot and its conditions line, and its who-acts-next strip fills "Coming".
+
+| View part | Contest (Gu) | Spell stack (Hogwarts) | Tempo (LOTM) |
+| --- | --- | --- | --- |
+| Aim line | From the law's endings | Drill call or escape | From the opener |
+| Means | Essence, Gu, held things | Wand grip, footing, speech | Health, stamina, loaded rounds |
+| Spots | A line with reach | Named places and a path | One, with light and fog |
+| Things | Dropped item position | The wand | Stock alone |
+| Around | Absent | The proctor | Witness memory, after the fact |
+| Coming | Running workings, with timing | Casts in flight | Next three to act |
+| Choices | Move rows with reasons | Cast checks | Moves, aims, orders with odds words |
+
+- **CBD193.** One answer shape. A player's answer is a verb, a subject, a means and a manner (CBD94). Each engine takes the part it understands: tempo's move, aim and order fit inside it, and so does a contest move with its target. An answer an engine cannot settle gets CBD97's fourth reply and goes on the wish list, which then doubles as a per-engine gap list measured from play.
+- **CBD194.** One policy page over different choosers. Stance names map onto what each engine has: tempo's aggressive, steady and safe, and the contest's `wants`. Standing orders compile to policy rows on the contest and to a filter over tempo's policy pick. The ask-first list (CBD113) is checked on the chosen answer before it is committed, so it needs nothing from the engine.
+- **CBD195.** One pause rule, read from the view. Whether something is new (a foe kind, a lost means, a risk of lasting harm, an arrival) can be judged from the projected view and the knowledge store, outside the engines. A routine LOTM street fight and a routine Gu hunt then go quiet by the same rule (CBD56).
+- **CBD196.** One knowledge store. Learned fields about people and kinds live outside any engine (CBD187, and the audit's R4 default). Each engine reads them to decide what its view may show and writes what the fight revealed. Tempo's per-foe `learned` record would become a reader of it.
+- **CBD197.** One result and aftermath. The publisher gives the typed outcome. The itemised result (CBD78, CBD120) reads from that record plus the place and custody changes. World-specific consequences stay where they are, such as LOTM's heat and wages.
+- **CBD198.** One scene source. The place record supplies spots, things and conditions (CBD69), and each engine reads as much as it models. The spell stack reads the most today. An engine that reads less shows less (CBD192), which is an accurate picture of where it stands.
+- **CBD199.** What should stay different, and be felt as the world. A Gu fight turns on what was fed and carried and on essence running down across reach. A wand duel turns on cast timing, who holds a wand and where people stand, often under a referee. An LOTM street fight is short, dangerous and counted in rounds, and what is known and who saw matter more than the exchange. With the edges shared, these read as worlds differing and not as three interfaces.
+- **CBD200.** Join the Hogwarts stacks at the view first. Default route: the spell stack keeps its places, wand and casts; the contest supplies the clock, chooser, outcomes and save path; and a cast enters the contest as a move that runs its own working, which CFC3a's bridge already does for Gu. One fight would then see both. The dial is how much of the spell stack's scene the contest learns to read versus leaves to it, decided after the loose-wand case has been played.
+- **CBD201.** Engines converge when a needed fight is cheaper on the other side. A Beyonder fight that needs workings, counters and a ritual stake (CBD174) is the likely moment for LOTM (audit R4). Until then each engine keeps working and the shared edges hide most of the seam. A projection check keeps this from drifting: one described situation, run through each engine's projection, fills the same view parts or names the ones it leaves out.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD202 | Write the view shape as a schema with two projections, tempo and contest, headless. | Sol, medium | One saved fight from each engine projects to the schema with no engine change. A table of filled, reduced and absent parts per engine comes out of the test and matches CBD192's. LOTM modules stay out of `contest.js`. |
+| CBD203 | Render one live LOTM street fight through the shared layout from its projection, mock first, then at desktop size. | Sol, medium, after CBD202 | The existing fight plays to the same result as on the current card on a fixed seed. The player answers in the shared shape. Rebuilt browser evidence at 1920×1080. |
+| CBD204 | Stance and pause mapping table for the three engines. | Sol, small, read-only | Each stance names its tempo policy and contest wants. Each pause trigger names the view field it reads. Triggers no engine can supply yet are listed. |
+
+### Round 26 suggestions (separate from the palette)
+
+- CBD202 is the smallest step that makes the three engines comparable, and it changes no fight.
+- Record the "share the edges" default in the area guide's fights entry if Weibao takes it, so a tie-in lane does not start a merge by habit.
+- Angles still open: feuds and rivalries across many fights, what fighting pays and costs over a season, a first fight that teaches the screen, companions or Gu that fight as beings in their own right, and gaps G4 to G7 in the same felt style as round 25.
+
+## Round 27. The other four shared gaps as things a player would feel (2026-11-13)
+
+Weibao asked for the [sizing audit](audits/COMBAT_WORLD_SIZING_2026-11-13.md)'s remaining shared gaps in the same style as round 25: scene conditions such as cover, terrain and darkness (G4), endings such as first blood, points and capture (G5), lasting conditions such as poison or slow (G6), and allies with their own choosers and orders to them (G7). Earlier rounds placed these on the screen (CBD33, CBD72, CBD79, CBD87) and round 1 set the outcome model (CBC3, CBC18, CBC31, CBC32). This round gives each a mechanism with dials. These are proposals.
+
+**ACT NOW.** Read what exists. For G4 the [contest](../src/contest.js) has positions on a line, reach, a sun direction and a glare rule that cuts evasion against a visible projectile; the [tempo fight](../src/tempo_fight.js) has a conditions record (light, footing, weather, fog) feeding a mishap chance with a cap. For G5 the contest stops at a `limits.landed` count and has outcome names for captured and escaped. For G6 [affliction_track.js](../src/affliction_track.js) is a world-neutral staged affliction (exposure, onset, timed stages, a save at each stage's end, treatment) that no fight engine calls by my read. For G7 [tempo_allies.js](../src/tempo_allies.js) has three orders (cover me, take the same foe, fall back) whose chance of being followed reads bond, discipline, fear, noise and distance. Source review only.
+
+### ACCOUNT FOR NOW
+
+**G4. Cover, terrain and darkness**
+
+- **CBD205.** A condition changes what can be perceived, reached or done, and says which. This reuses CBD169's three tests. Darkness works on perceiving. A slope, mud or a narrow stair works on reaching. Rain on a bowstring, wind on a thrown powder or a low ceiling over a long spear works on the means. A condition written this way needs no rule per move: it changes the tests and the moves follow.
+- **CBD206.** Cover belongs to a spot and has a facing and a toughness. It protects against what comes from the far side, so a foe who moves around it has a clear line again. It stops what it is tough enough to stop: a bench stops a jinx and does little against a boar. Cover that is hit wears down, and a broken one leaves its remains in the place (CBD70).
+
+```
+Here    the fallen pine, between you and the thicket. Thick enough for a charge.
+        It does not cover you from the scree side.
+Boar    circling toward the scree. In about 3s the pine is no longer between you.
+
+  1 Move with it, keep the pine between (2s, each time it circles).
+  2 Stand and loose when it clears the pine (3s). One clean line.
+  3 Climb onto the pine (2s). Higher. It cannot charge you there, and you cannot dodge.
+```
+
+- **CBD207.** Height, footing and room are terrain in three words. Height gives reach downward and a fall. Footing gives or takes speed and sets what a miss costs. Room decides which weapons and how many people fit, so a doorway turns four attackers into one at a time, which the crowding cap already expresses as a number.
+- **CBD208.** Darkness is unequal by default. Each fighter sees by their own means: eyes, a lit wand, a sensing Gu, spirit vision, knowing the room. The screen shows what the character can make out, with last-known positions marked as such (CBD33). Making light shows the maker to everyone. Whoever sees better in the dark chooses when the fight is lit.
+
+```
+The lamp is out. You know this room. He does not.
+Him     last heard by the dresser, breathing hard. Not seen.
+You     by the door. He has not heard you move.
+
+  1 Wait and listen (2s). You may place him.
+  2 Strike where the breathing is (2s). A guess, with your knowledge of the room.
+  3 Light the lamp (2s). You see him. He sees you.
+```
+
+- **CBD209.** Conditions change during a fight and can be changed on purpose. Dusk comes, rain starts, a fire spreads, smoke fills a room (CBD82). Fighters can make conditions as moves on a spot (CBD171): douse, flood, kindle, raise dust. The maker lives in the result along with everyone else unless their own means exempt them.
+- **CBD210.** Places already carry tags that no rule reads (audit G4). Default route: give each existing tag one of CBD205's three effects before adding new tags, so old places gain conditions without re-authoring.
+
+**G5. First blood, points and capture**
+
+- **CBD211.** An ending is a condition someone is watching for. First blood, three touches, out of the ring, disarmed, pinned for a count, yielded: each is a rule of the occasion with a judge, who may be a referee, the opponent, the crowd or both fighters' honour. The fight stops when the judge calls it, which can be late, early or disputed (CBD20).
+- **CBD212.** Scoring shapes how people fight. Under first touch, speed and reach count and heavy blows are wasted. Under points, a safe scoring move beats a risky strong one. Under "until one yields", wearing down nerve matters (CBC18). The policy's stance reads the ending in force, so the same character fights a drill and a brawl differently with no new orders.
+
+```
+Clan drill, first touch of three. Elder Mo is judging from the steps.
+Score   you 1, Fang Zheng 1.
+Coming  he is setting his feet for the long form. Slow. It would hurt, and score the same.
+
+  1 Quick moonblade to the shoulder (1s). Likely first. One touch wins it.
+  2 Slip inside his reach (2s). Safer. No touch yet.
+  3 Take his blow and answer hard (3s). The elders notice restraint, and its absence.
+```
+
+- **CBD213.** Holding back is a skill with a failure. A fight to first blood can still maim, by a slip, by a means too strong for the occasion or on purpose. A move's force has a floor the fighter may be unable to go under, and control decides how often restraint holds (CBC32). A real accident and a staged one look alike to most watchers, which is something a rival can use.
+- **CBD214.** Capture is a sequence. Bring the person to where they cannot leave (pinned, cornered, bound, asleep, out of means), keep them so, and move them. Each step has its own ways to fail and its own answers from the captive: slipping a grip, calling for help, bargaining, waiting. A capture that ends the fight starts a custody that continues after it (CBC31).
+- **CBD215.** Taking alive costs more than striking down, by mechanism. It needs moves that hold without breaking, time under exposure, and usually more hands or a prepared means such as a rope, a sleeping draught or a sealing Gu. Taming a wild Gu or a beast is the same shape with the quarry's will as what runs out. The result line says what state the captive is in and who now holds them.
+- **CBD216.** An ending can be refused or disputed. A beaten side may not accept the call, a judge may be partial, a first blood may be claimed and denied. A dispute is an argument on the same frame (CBD126), and can turn back into a fight with the rules gone.
+
+**G6. Poison, slowing and other lasting conditions**
+
+- **CBD217.** A lasting condition is a staged track on a body, and the staged affliction module already has the shape: how it got in, an onset, stages with their own effects and durations, a check at each stage's end, and treatment. In a fight it would be a landed effect that keeps acting on the fight's clock and carries on afterward on the day's clock (CBD89).
+- **CBD218.** The player sees what the character can feel and name. Early stages read as sensations ("your fingers are slow on the left hand") with the cause unknown unless the character saw the dart, knows the smell or has a means to tell. The name, the course and the remedy are learned fields (CBD182). An unidentified condition is a reason to look, to retreat or to press before it worsens.
+
+```
+You     left forearm grazed. The cut is hot, and the hand is slow.
+        You do not know what was on the blade.
+Coming  it is getting worse. You cannot tell how fast.
+
+  1 Bind above the cut (3s). It may slow whatever this is.
+  2 Finish this quickly: press him (stance: all in).
+  3 Break off for the stream bank (3s). You have not seen him tire.
+```
+
+- **CBD219.** A condition changes the fight by changing the clock. A slow poison makes the poisoner want delay and the poisoned want a quick end. A stimulant gives strength now for a debt later. A bleed sets a deadline. Each side's policy reads the conditions it knows about, which gives stalling, rushing and withdrawing real reasons.
+- **CBD220.** Conditions are made, carried and delivered like other things. A poison has a maker, a dose, a carrier (blade, dart, cup, breath) and a route in, and it can miss, be wiped off, be spent or be found on its owner afterwards. Protection is by mechanism: thick hide stops a contact dose, and does nothing against one that is breathed.
+- **CBD221.** Treatment in a fight is a move with a price, and after it a task. Binding, an antidote in the pouch, a purging Gu or a counter-charm take time under exposure and may need the right knowledge. Afterwards the track continues into rest, care and whoever can treat it (BHR rules), so a won fight can still be lost over the following days, with warning by default (AD19, BHR11).
+- **CBD222.** Helpful and mixed conditions use the same track. A blessing, a draught, a berserk state or a possession has onset, stages and an end. Stacking and clashing are decided by what each acts on, with no fixed slot count.
+
+**G7. Allies with their own minds, and orders to them**
+
+- **CBD223.** An ally has the same page as anyone: an aim, a stance, standing orders and a leash (CBD105). They act on it unprompted. The player sees their next action under "Coming" and their state by spot. A good ally needs few orders because their page already suits the player's.
+- **CBD224.** An order is a request across a tie. Whether it is heard depends on noise and distance, and whether it is followed depends on the tie, their discipline, their fear and whether it fits their own aim. Tempo's order chance already reads these. The player sees the odds as a word and, after a refusal, the reason the character can tell ("she did not hear", "he will not leave his brother").
+
+```
+Allies  Bao, at the barricade beside you. Steady. He means to hold.
+        Old Shen, by the well, hurt. He means to reach the yard gate.
+Coming  Bao is setting his spear for their rush.
+
+  1 "Bao, cover Shen." (1s) Likely. He hears you and he likes Shen.
+  2 "Shen, stay down." (1s) Uncertain. He is frightened and it is loud.
+  3 Signal fall back (1s). Bao will follow. Shen cannot move fast enough.
+```
+
+- **CBD225.** Orders come in sizes. A single act ("cover me now"), a standing instruction for this fight ("keep them off the door"), and a plan agreed beforehand ("when I whistle, run"). Plans made before the fight need no hearing and cost no time during it, which makes drilling and briefing a form of preparation (CBD58, CBD115).
+- **CBD226.** Allies ask and tell as well as obey. An ally can call a warning, ask for help, suggest a move or announce they are leaving. These arrive as events and sometimes as a pause when the answer matters. An ally who saw something the character did not is a source for a learned field, with "told" as its basis.
+- **CBD227.** Working together has its own effects, by mechanism. Two people on one foe split its attention, one holding lets another strike, a healer behind a shield lasts longer. These fall out of crowding, cover and timing already in the engines, and a practised pair does them more reliably. Getting in each other's way is the same mechanism going wrong: a blocked line, a spell through a friend's spot.
+- **CBD228.** What happens to allies outlasts the fight. Who was covered, who was left, who was ordered into harm and who was thanked all write to the tie (TIE rules). An ally's own judgement of the fight can differ from the player's. Trained animals, bound Gu and summoned things sit on the same scale with shorter pages and different ties (CBD173).
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD229 | G4 headless on the contest: one cover spot with facing and toughness, and unequal darkness. | Sol, medium | Moving around cover restores the line on the same seed. A blow tougher than the cover goes through. In the dark, the view of the fighter who knows the room differs from the other's, and making light changes both. |
+| CBD230 | G5: a first-touch drill with a judge, and one capture, at the Gu tie-in. | Sol, medium | The same pair fights differently under first touch than under yield, by recorded picks. A held-back move fails to hold back at a rate set by control. A capture leaves a custody record that a later activity reads. |
+| CBD231 | G6: land one staged affliction from a fight move, using the existing module. | Sol, small to medium | The track starts in the fight, shows as a sensation with no name, changes one side's policy pick, and continues on the day clock after the fight. Treatment in the fight costs time and changes the stage check. Save and reload mid-track matches an uninterrupted run. |
+| CBD232 | G7: give one tempo ally a page and one refusal reason. | Sol, small to medium | The ally acts unprompted by its own aim. An order's odds word matches the draw's inputs. A refused order states a reason the character could tell. The tie record differs between covering and abandoning the same ally. |
+
+### Round 27 suggestions (separate from the palette)
+
+- CBD231 is the cheapest of the four, since the affliction module exists and has no fight caller yet.
+- With rounds 25 and 27 done, all seven audit gaps have a felt design; the audit's order R5 (a live Gu entry, then G1, G2, G3) still looks right, with G6 as a small addition beside the Gu entry.
+- Angles still open: feuds and rivalries across many fights, what fighting pays and costs over a season, a first fight that teaches the screen, and companions or Gu that fight as beings in their own right.
+
+## Round 28. Crowds in one place, the scene as the place up close, and what the screen pattern gives other activities (2026-11-13)
+
+Weibao asked: "Other aspects to consider? fights with so many people? general UI improvements too? world/scene engine?" This round covers what rounds 22, 25 and 26 leave open on those three. These are proposals.
+
+**ACT NOW.** Checked the code and owners. [world_substrate.js](../src/world_substrate.js) has four holder kinds (place, body, thing, cohort), where a cohort is a counted group with shared properties and lifecycle acts to promote members into individuals and demote them back. Places can carry near or far detail. A link graph joins places, with link kinds, closed links, exits, neighbours and distance. The [duelling club pack](../src/world_packs/hp_duelling_club.js) builds its platforms, far floor and doorway as place holders joined by a sightline link, with each wand as a thing holder marked with its grip. [PC92b](PROCEDURAL_CARRY_OUT.md) proposes one world record per visited place, advanced in detail where the player is. [SR4](SITE_AND_EXPLORATION_RULES.md) tells a site to join existing owners and add no parallel stock, clock or truth, and SR13 keeps inspection free of cost. In [UI rules](UI_RULES.md) and [DESIGN.md](../DESIGN.md) I found a per-aspect history (UR92) and no single list of things waiting on the player. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+**Crowds in one place (eight to thirty people)**
+
+- **CBD233.** Sort the screen by who is on you. Each other fighter stands in one of a few relations to the character: engaged with you, turning toward you, near and busy with someone else, or elsewhere in the room. The first two get their own lines. The rest fold into counts by spot (CBD73). A person moves up the list the moment they turn toward the character, and that move is itself a coming event.
+
+```
+FOCUS: The Three Brooms, a table has gone over. You want to reach Neville by the hearth.
+On you   Flint, an arm's length off, swinging.
+Turning  a seventh-year by the bar has seen your wand come out.
+Near     four around the fallen table, on each other. Two Hufflepuffs trying to pull them apart.
+Room     about a dozen pressing for the door. Rosmerta is shouting from behind the bar.
+Coming   2s  Flint's swing.
+         soon  the press at the door reaches you.
+
+  1 Duck under and go for the hearth (2s). Flint is behind you after.
+  2 Put Flint down first (3s). The seventh-year gets to you meanwhile.
+  3 Go with the press toward the door (3s). Away from Neville.
+```
+
+- **CBD234.** Sides are loose and can change. A brawl can have three or more sides, people on no side, peacemakers and people who join whoever is winning. Side is a relation each person holds toward each other person or group, read from ties and aims, so a friend of both may hold someone back from each. A person can change it mid-fight with a reason: struck by their own side, a friend goes down, the teacher arrives.
+- **CBD235.** The crowd is terrain that moves. Pushing through costs time by how dense and how willing. A press carries people toward where it is going. Panic is a condition on a group that spreads by sight and sound, and a crush at a door is a coming event with a place and a time. Standing on a table, getting behind the bar or reaching a wall are moves about the crowd as much as about any foe.
+- **CBD236.** Harm goes astray. A missed blow, a spell past its target or a thrown chair lands on whoever is in its line, by the same reach and cover tests (CBD169, CBD206). Friends and bystanders can be hit, and who hit them is a fact with witnesses (CBD180). The choice row says when a move risks someone the character would mind hitting.
+- **CBD237.** Settle by distance from the player. People on you or turning settle as individuals. People near settle as individuals when the budget allows and as pairs or knots otherwise. The room beyond settles as cohorts with a count, a mood and a direction, which is what the substrate's cohort holder is. Promotion is the existing lifecycle act: a face comes out of the count when they turn toward the character, are named, or do something that matters. Budget dial: how many individuals at once, by world and machine.
+- **CBD238.** A crowd fight ends in pieces. It thins as people leave, it breaks when someone with standing arrives, or it burns out. The result for the character is about their own aim (reached Neville, got out, was seen with a wand out), with the room's outcome as a line of context. Who started it is an argument for afterwards (CBD216).
+
+**The scene is the place, seen up close**
+
+- **CBD239.** A spot is a small place inside a place. The substrate already allows this: place holders joined by links with kinds (sightline, path, door) and closed states, bodies and things with a place, cohorts, near and far detail. The duelling club is built this way. A scene is then the near-detail form of a place, and round 16's "named spots" need no new kind of record.
+- **CBD240.** Spots appear when someone looks closely and stay where something changed. Entering near detail generates a place's spots from its kind and its recorded things (CBD69), keyed so the same place gives the same spots. Leaving folds them away again, keeping the spots where something now differs: the gouged pine, the wand under the bench, the door off its hinge (CX4, GW5). An unchanged slope costs nothing to store.
+- **CBD241.** What a scene layer adds over the substrate, as five parts. A layout rule per place kind. A property vocabulary on things (CBD95). Attention per person present (CBD176). A coming-events list that belongs to the place. One conversion between scene seconds and world minutes (CBD89). None of the five is about fighting.
+- **CBD242.** A fight is one mode of a scene. The mode is set by the aims of those present: hostile aims make it a fight, opposed but peaceful aims an argument or a haggle, one side hiding makes it stealth, no opposition makes it ordinary work in a room. The same scene can hold a conversation, a theft in progress, a potion on the boil and a search of a ruin, each using spots, things, attention and what is coming. A mode can change without the scene changing (CBD126).
+- **CBD243.** One coming list per place, shown through what the character can notice. The kettle about to boil, the teacher on the stairs, the candle burning down, the guard's round and the boar's charge are entries on the same list. Each activity shows the entries that bear on it. This gives stealth its guard rounds, making its timers and exploration its hazards from one mechanism, and it is where interruptions come from (CBC27).
+- **CBD244.** Sites and exploration are the nearest neighbour. A ruin's rooms and passages are places and links at near detail, a locked door is a closed link, a trap is a coming event with a trigger, and a survey is a look that fills fields (CBD184). The site rules already ask a site to use existing owners (SR4) and to keep inspection free (SR13), so the scene layer would be one of those owners. A fight in a ruin then needs no bridge between a site model and a fight model.
+- **CBD245.** Detail follows the player, and everyone else runs coarse. Under PC92b's default a place the player is in runs near and other places run by rates. Within the near place the same split applies again (CBD237). An event far away that would matter here arrives as news with a delay (CBD141).
+- **CBD246.** Scale down as well as up. A scene can be a tabletop: the parts of a lock, the stages of a ritual circle, the organs of a patient under a healer's hands. Spots, things, a coming list and what runs out apply there too. This is a later use to keep the vocabulary honest: if a word works for a battlefield and a workbench, it is probably the right word.
+
+**What the screen pattern gives other activities**
+
+- **CBD247.** "Focus asks, Place shows, Reports tells" (CBD75, CBD76) describes the whole game's panels. A decision belongs in the focus panel whatever raised it: a fight pause, a letter needing an answer, a choice at a crossroads, a brew at its critical moment. Reports keeps what happened. The place panel is the scene. A pointer for the UI owners; this palette changes none of their files.
+- **CBD248.** The policy page generalises to any repeating activity. Wants, standing orders, an "otherwise" line, an ask-first list and recorded reasons (CBD105 to CBD113) fit a work routine, a travel leg, a shop, a study schedule and a household. One page shape per activity kind would let the player learn it once, and retune by example (CBD111) would work on a bad market day as it does on a lost hunt.
+- **CBD249.** One "waiting on you" list. Everything paused for an answer across fights, routines, letters, visitors and expiring offers sits in one short list with what each waits for and what happens if it is left. Away play resolves items by their cautious default where they have one (CBC25) and leaves the rest waiting. The list is the first thing a return shows (CBD129).
+- **CBD250.** A what-changed block after any activity. The itemised result (CBD78, CBD120) is the same block for a journey, a day's work, a conversation or a craft: what was gained, spent, hurt, learned and who saw, each line linked to its record (UR92). Sized by stake, so a routine day is one line.
+- **CBD251.** What the focus panel gives up when a fight needs room. By default a routine fight takes none of it and writes to Reports. A paused fight takes the focus panel and parks what was there as one line in the waiting list. A weighty fight takes the full screen (UR5) and parks the rest. On ending, the parked activity returns with a note of what the fight changed for it ("the brew sat eleven minutes too long").
+- **CBD252.** The four answers and the compose row are general. "Works, might work, does not because, cannot be settled yet" (CBD97) and choosing a means, a verb and a subject (CBD96) suit making, talk and exploration as well. One wish list across activities would then measure where the whole game most often says "not yet".
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD253 | Headless tavern brawl of about twenty on the substrate: a few individuals, the rest as cohorts. | Sol, medium, after a tie-in | Stays inside the stated individual budget. A cohort member is promoted when they turn toward the character and demoted after. A stray effect lands on a named bystander with a witness record. One person changes side for a stated reason. |
+| CBD254 | Scene layer spike: generate spots for one existing place from its kind and things, enter and leave near detail. | Sol, medium, headless | The same place gives the same spots twice. A changed spot persists after leaving and an unchanged one stores nothing. The duelling club's hand-built places can be expressed as that place kind's layout plus overrides. |
+| CBD255 | One coming list shared by two modes in one place: a potion on the boil and an argument. | Sol, small to medium, after CBD254 | Both activities read the same list. The argument running long spoils the brew at the stated time. Save and reload mid-scene matches an uninterrupted run. |
+| CBD256 | Pointer packet for the UI owners: CBD247 to CBD252 as a one-page proposal against DESIGN.md, UI_RULES.md and the [UI design core audit](audits/UI_DESIGN_CORE_AUDIT.md). | Sol, small, read and write one page | Each proposal names the existing rule it extends or the gap it fills, and a static mock shows the waiting list and one what-changed block at desktop size. The owners decide what is adopted. |
+
+### Round 28 suggestions (separate from the palette)
+
+- CBD254 is the one that most changes later cost, since fights, stealth, making and sites would all read it; run it before any second hand-built scene.
+- Offer CBD239 to CBD246 to the procedural foundation and site owners as a note, so the scene layer is designed once and not from inside combat.
+- Angles still open: feuds and rivalries across many fights, what fighting pays and costs over a season, a first fight that teaches the screen, and companions or Gu that fight as beings in their own right.
+
+## Round 29. Fights over time: rivals, what fighting pays, the first fight, and beings that fight beside you (2026-11-13)
+
+Weibao asked to keep designing. Earlier rounds treat one fight at a time. This round looks across many: a rival met again and again, a season of fighting as a living, the first fight a new character or a new player meets, and Gu or companions that fight as beings of their own. These are proposals.
+
+**ACT NOW.** Checked the owners. [Rivals, identities and fate](RIVALS_IDENTITIES_AND_FATE.md) holds the rival archetypes and young-master chains, and CBR15 already makes a fight evidence for both sides. CBR26 pays idle fights from real stock and CBR19 wears gear from what happened. The [opening rules](OPENING_RULES.md) ask for a first action that lands within a few presses and controls that use words the screen has already given (OPN3, OPN5), with no fight line. The source has a companion roster with opinions and wishes and a Gu keeper domain where a Gu is alive, fed and controlled. Source and owner review only.
+
+### ACCOUNT FOR NOW
+
+**The same opponent, many times**
+
+- **CBD257.** A rivalry is a record that both sides add to. It holds the meetings so far, who won what, what each has learned of the other (CBD114, CBD187), what each owes or resents, and who else knows. The next meeting opens from that record: the rival comes prepared for what beat them, avoids the ground they lost on, or brings a friend.
+- **CBD258.** Rivals grow between meetings by their own causes (AD25). They train, find a teacher, buy a means or lose their backing, on the world's clock and at a rate their circumstances allow. The player can learn of it through the channels that exist (talk, a duel list, a scar seen in passing), so a rematch can be scouted like any foe.
+- **CBD259.** A rivalry has more ends than a death. It can settle by a decisive result both accept, a debt paid, a shared enemy, a move away, a marriage between houses, or by one side outgrowing the other until the fight is pointless. An ended rivalry stays in both histories and can reopen with a cause (AD28 covers what was beaten, and people are freer than obstacles).
+- **CBD260.** Chains escalate through ties. Beating the young master brings the elder brother, then the steward, then the house (the chain pattern in the rivals doc). Each link is a person with reach and a reason, and each can be met by something other than a fight: an apology, a patron, proof, leaving the district. The screen shows the chain as far as the character knows it.
+
+```
+Fang Zheng, third meeting.
+  Before   you 2, him 0. The first he blames on the sun. The second he does not talk about.
+  Since    he has been seen at the elder's hall most evenings. He carries something new at his belt.
+  He knows you open with the moonblade, and that you tire in a long exchange.
+  You do not know what he carries.
+```
+
+**What fighting pays and costs over a season**
+
+- **CBD261.** A fight has a ledger. In: what it yields (quarry, pay, a prize, standing, knowledge, a freed road). Out: stock spent, wear, wounds and the days they take, time, and what was seen. The result block already itemises one fight (CBD120, CBD250). Summed over a season it answers whether hunting this slope is a living.
+- **CBD262.** Fighting for a living is a routine with a rate and a variance. A familiar hunt pays steadily and now and then goes badly. The policy page plus the ledger give the player the two numbers a routine needs in words: what a usual day brings and how bad a bad day is. A place gets worse or better as it is used: quarry thins, foes learn, prices for the yield move (AD25).
+- **CBD263.** Recovery is the hidden cost and a play space. Wounds, spent essence, a tired Gu and worn gear set how soon the next fight is wise. Rest, care, repair and feeding are the other half of a fighter's week, and they are where healers, smiths and feeders earn. A character who fights less often and prepares more can come out ahead.
+- **CBD264.** What a fight yields is taken, and taking has steps. Loot is the things that were there: the beast's body, the loser's purse, the dropped wand. Carrying it off needs time, hands and sometimes a right to it, and others may claim it (CBC33, CBR28). A yield left behind stays in the place for whoever comes next.
+- **CBD265.** Not fighting has a ledger too. A road left to bandits, a challenge declined or a debt of honour unpaid each cost something by the world's own rules, and each can be paid another way (CBC35). The comparison belongs in the same season view, so the avoider's year can be judged against the fighter's.
+
+**The first fight**
+
+- **CBD266.** The first fight a character meets should be small in stake and whole in shape: a spar, a quarrel, a hen-house fox. It shows one pause, one choice with time and cost, one cause line and one what-changed block, and then goes quiet. Parts of the screen appear when first needed (things when something is dropped, "Around" when someone watches), each with one line of plain explanation in the interface voice.
+- **CBD267.** Teach by the world, where the world has a teacher. A drill master, an older student or a father shows the stance, names the tell and judges the touch (CBD211). The lesson is an ordinary fight with a patient opponent and a judge who talks. A character with no teacher learns by losing a little, with forgiving defaults (AD19).
+- **CBD268.** A new world's first fight teaches what is different there. A player who knows wand duels meets essence running down, or a street where being seen matters more than winning. One line at the first difference is enough ("Here, what you spend does not come back by morning"). This rides on the shared edges of CBD191.
+- **CBD269.** The first policy is offered, not assumed. After the first hand-played fight of a kind, the game offers a starting page from the stance used and the teacher's page (CBD115), and says what it would have done differently. Zero-prompt fighting then begins with the player's agreement.
+
+**Beings that fight beside you**
+
+- **CBD270.** A bound being is a fighter with a short page and a body (CBD173, CBD228). A Gu, a familiar, a hound or a summoned thing has its own place in the scene, its own state (fed, tired, hurt, afraid, willing) and its own likely action under "Coming". Using it is closer to asking than to pressing a button, to the degree the world makes it a being.
+- **CBD271.** Its condition is the limit on its use. A Gu that is underfed acts weakly or refuses, one that is hurt can die, and one pushed past its nature may turn or leave. The Gu keeper's alive, fed and controlled state is already what a fight should read (audit F5). The choice row shows the being's state beside the cost in essence.
+
+```
+You     Essence under half.
+Yours   Moonlight Gu, in your palm. Fed yesterday. Steady.
+        Liquor worm, at your belt. Hungry. It may not answer.
+        The hound, at the pine, hackles up. He means to go for the boar's flank.
+
+  1 Moonblade (3s). The Gu is willing.
+  2 Refine essence through the worm (2s). Uncertain: it is hungry.
+  3 Call the hound back (1s). Likely. He does not like it.
+```
+
+- **CBD272.** Beings can be targeted, taken and lost, and that is part of the stake. A foe can go for the Gu and a fight can end with the master unhurt and poorer. What the loss does to the master is the world's own rule (a bond's backlash, grief, nothing). The itemised result names them like people.
+- **CBD273.** They remember and change. A hound that was sent into harm hesitates next time, a Gu used well grows, a familiar who saved its master is treated differently by both. This writes to the same tie and opinion records companions already have, at whatever depth the being's nature supports.
+- **CBD274.** Many beings need few prompts. A master with a dozen Gu sets which are out, which are held back and in what order they are spent, as preparation (CBD58), and the policy handles the rest. A pause names a being when its state is the news ("the worm is not answering").
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD275 | Rivalry record, headless: three meetings with one opponent whose page changes after each. | Sol, medium, after policy rows are in a played fight | The second meeting's opening differs because of the first. The rival's between-meeting change has a stated cause and can be learned before the third. One non-fight ending closes the record. |
+| CBD276 | Season ledger: sum the itemised results of thirty policy-run hunts on one fixture. | Sol, small to medium | Reports usual yield, worst day, stock and days of recovery spent. Thinning quarry lowers the rate over the run. The same season with fewer, better-prepared hunts is comparable in the same view. |
+| CBD277 | First-fight script for one lead, as static text at desktop size. | Sol, small, mock-up | A reader new to the screen meets one pause, one choice, one cause line and one what-changed block in order, with each new screen part explained once, inside the opening rules' budgets. |
+| CBD278 | Build contest entrants from a live keeper's own Gu, with state gating use (audit R2). | Sol, medium | A fed and controlled Gu is usable, a hungry one is uncertain with the reason shown, a dead or absent one is gone from the list. Feeding between two fights changes the second. |
+
+### Round 29 suggestions (separate from the palette)
+
+- CBD278 is the audit's nearest step for Gu and the natural first live tie-in.
+- Sessions started from this round's request (2026-11-13) work on the pieces that need no tie-in: the scene layer spike (CBD254), the shared fight view (CBD202, CBD204), and the read-only coverage tables with the UI pointer packet (CBD102, CBD157, CBD256). Their results are findings until Weibao takes them.
+
+## Pointer and corrections, 2026-11-13: first results on rounds 19 to 28
+
+Five findings docs came back from the sessions started after round 29. All are proposals; the code is unit-tested, below the AD43 floor and not played.
+
+| Item | Result | Where |
+| --- | --- | --- |
+| CBD254 scene layer | Spots work as ordinary place holders with no new record kind (CBD239 holds). Three substrate requests: a quiet way to place holders, an op that changes detail, and a place inside a place | [spike note](audits/SCENE_LAYER_SPIKE_2026-11-13.md), `src/scene_layer.js` |
+| CBD202, CBD204 fight view | Both engines project onto one validated view. The contest is ahead on scene, tempo is ahead on words; aim and onlookers are thin in both. Ten engine requests | [projection note](audits/FIGHT_VIEW_PROJECTION_2026-11-13.md), `src/fight_view.js` |
+| CBD102 coverage | 21 unlisted actions: 3 compose today, 11 need a property row, 7 need a new effect. The sample is not blind and leans to early arcs | [coverage count](audits/COMBAT_ACTION_COVERAGE_2026-11-13.md) |
+| CBD157 pair table | First pass for Gu, Hogwarts and LOTM; most rows rest on inference and need a world pass or CBD156 | [pair table](audits/COMBAT_CROSS_WORLD_PAIRS_2026-11-13.md) |
+| CBD256 UI pointers | Each of CBD247 to CBD252 has an existing rule it extends | [pointer packet](audits/COMBAT_UI_POINTERS_2026-11-13.md) |
+
+**Corrections to the table under CBD192** (from the projection note, P1 to P8). Tempo has no aim line: an opener writes a title alone. Tempo's "witness memory" is the struck fighter's own memory, so onlookers are absent there as well. Tempo's scene has no things; rounds are a means. Tempo's two strikes carry no odds word. The contest logs data rows with no sentence, and a move's blocked reason is private to the engine. Gu carried by a contest entrant are not listed by the engine. Scene conditions sit better under "Around" than under "Spots" for both engines.
