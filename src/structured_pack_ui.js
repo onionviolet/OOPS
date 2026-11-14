@@ -146,11 +146,14 @@ export function createStructuredPackPanel({read,command,changed}) {
                         // OPN2: the quote (what it is, the clock, the inputs) folds behind "Details"; the locked reason stays in view (UIV1).
                         const heading=node('h4',card),more=node('details',card),summary=node('summary',more);summary.textContent='Details';more.className='action-legibility__details';
                         const description=node('p',more),state=node('p',more),duration=node('p',more),costs=node('p',more),blockers=node('p',card);
-                        const act=button(action.label,{structuredAction:action.id},{type:'action',id:action.id},false),repeat=button('',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},false);card.append(act,repeat);
-                        row={card,heading,description,state,duration,costs,blockers,act,repeat};actionRows.set(action.id,row);}
-                    setText(row.heading,action.label);setText(row.description,action.description||'');
-                    const pending=view.jobs.find(j=>j.commandId===action.id);setText(row.state,pending?(view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused. ':'Running. ')+pending.remaining+' played minutes remaining.':action.completed>0?'Settled completions: '+action.completed+'.':action.eligible?'Available.':'Unavailable.');
-                    setText(row.duration,'Time quote: '+(action.duration>0?`${action.duration} played minutes.`:'Immediate.'));
+                        const act=button(action.label,{structuredAction:action.id},{type:'action',id:action.id},false),repeat=button('',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},false),quote=node('small',card);quote.className='action-legibility__quote';card.append(act,quote,repeat,blockers,more); // the button leads; the reason and the folded quote follow
+                        row={card,heading,description,state,duration,costs,blockers,act,repeat,quote};actionRows.set(action.id,row);}
+                    // UIC191: one row per thing (UR158). The heading only repeated the button's words, so the button is the row's name;
+                    // the clock and the inputs sit beside the button, one step away, as upstream's plain rows do (UIC130 human time).
+                    setText(row.heading,action.label);row.heading.hidden=true;setText(row.description,action.description||'');
+                    setText(row.quote,`${action.duration>0?formatDuration(action.duration):'At once'}${action.costs.length?' · uses '+action.costs.join(', '):''}`);
+                    const pending=view.jobs.find(j=>j.commandId===action.id);setText(row.state,pending?(view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused. ':'Running. ')+formatDuration(pending.remaining)+' to go.':action.completed>0?'Settled completions: '+action.completed+'.':action.eligible?'Available.':'Unavailable.');
+                    setText(row.duration,'Takes '+(action.duration>0?`${formatDuration(action.duration)}.`:'no time.'));
                     setText(row.costs,'Inputs: '+(action.costs.length?action.costs.join(', ')+'.':'None quoted.'));
                     setText(row.blockers,action.reasons.join(' '));row.blockers.hidden=!action.reasons.length;row.blockers.dataset.themeState='warning';
                     for(const [key,n]of [['duration',row.duration],['costs',row.costs],['blockers',row.blockers]])n.id='structured-'+encodeURIComponent(action.id)+'-'+key;

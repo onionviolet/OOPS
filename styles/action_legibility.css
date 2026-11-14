@@ -37,6 +37,11 @@
     margin-block: round(0.25rem, 1px) round(0.55rem, 1px);
 }
 
+.action-legibility__quote {
+    margin-inline: round(0.5rem, 1px);
+}
+
+.action-legibility__quote,
 .action-legibility__status,
 .action-legibility__qualifiers,
 .action-legibility__alternative-description {
