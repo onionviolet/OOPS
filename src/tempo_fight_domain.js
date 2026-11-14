@@ -193,6 +193,11 @@ const RUN_CAP = 12, RUN_FLOOR = 0.5; // dials: turns one click may take, and the
 const OUTCOME = {won: 'stood', lost: 'knocked_out', withdrawn: 'withdrew', yielded: 'yielded'};
 const MEANS = {health: 'Health', stamina: 'Stamina'};
 let watch = null, account = null;
+const ACCOUNT_FACT = 'tempo.lastAccount';
+function keptAccount(facts) {
+    if(account) return account;
+    try { const kept = JSON.parse(facts[ACCOUNT_FACT] || 'null'); return kept && typeof kept.head === 'string' && Array.isArray(kept.items) ? kept : null; } catch(error) { return null; }
+}
 const metMeans = new Map(); // fight title -> what was brought last time this session
 function watching() {
     const s = ports.root().simulation?.sessions.player, b = open();
@@ -222,6 +227,8 @@ function closeAccount(plan, w) {
         means: [{id: 'health', before: round(w.health), after: round(v.health ?? w.health)}, {id: 'stamina', before: round(w.stamina), after: round(v.stamina ?? w.stamina)}]},
     {seat: 'player', life: 'health', names: {}, moves: {}, means: MEANS, parts: {}});
     metMeans.set(w.title, {health: w.health, stamina: w.stamina});
+    // Kept with the life as plain text beside tempo.lastResult, so the last result is still there after a reload.
+    plan.state.actors.player.facts[ACCOUNT_FACT] = JSON.stringify({head: account.head, items: account.items});
     watch = null;
 }
 function move(request) {
@@ -271,7 +278,8 @@ function readView() {
     if(b) { watching(); return {visible: true, fight: {...tempoView(b), aim, ask: askNow().map(r => r.text)}, held: b.held}; }
     const quote = startQuote(), facts = ports.root().actors.player.facts;
     const rival = {...rivalBrief(facts, knownTargetFacts(ports.root(), 'player', 'roadRival')), study: studyQuote()}, openers = openerQuotes();
-    return {visible: !!quote.visible || rival.history.duels > 0 || openers.length > 0, start: quote, rival, lio: lioQuote(), openers, last: facts['tempo.lastResult'] || null, account, owed: facts[TEMPO_FACT_HELD] || 0};
+    const kept = keptAccount(facts); // a last result keeps the panel findable after its opener is used up
+    return {visible: !!quote.visible || rival.history.duels > 0 || openers.length > 0 || !!kept, start: quote, rival, lio: lioQuote(), openers, last: facts['tempo.lastResult'] || null, account: kept, owed: facts[TEMPO_FACT_HELD] || 0};
 }
 function mount() {
     const root = node('details'); root.id = 'tempo_fight_panel'; root.className = 'expedition_panel';

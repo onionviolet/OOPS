@@ -91,3 +91,11 @@ test('the result is already there when the commit redraws the card', () => {
     assert.equal(h.view().fight, undefined);
     assert.match(h.atCommit().account.head, /^Yard bout\. You: /);
 });
+
+test('the result is kept with the life, so a later sitting that never watched the fight still reads it', () => {
+    const h = host({foeHp: 4});
+    for (let n = 0; n < 6 && h.view().fight; n += 1) h.run();
+    const kept = JSON.parse(h.state().actors.player.facts['tempo.lastAccount']);
+    assert.deepEqual(kept, {head: h.view().account.head, items: h.view().account.items});
+    assert.equal(JSON.parse(JSON.stringify(h.state())).actors.player.facts['tempo.lastAccount'], h.state().actors.player.facts['tempo.lastAccount']);
+});
