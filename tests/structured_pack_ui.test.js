@@ -120,3 +120,16 @@ test('a blocked repeatable action stays in view with its reason, not behind the 
     assert.ok(!adopt || [...(function* up(n) { for(; n && n !== host; n = n.parentElement) yield n; })(adopt)].some(n => /Not available yet/.test(text(n.children.find(c => c.tagName?.toLowerCase() === 'summary') || {children: [], textContent: ''}))), 'a finished one-off stays out of the day');
     panel.destroy();
 }));
+
+test('an instant act shows the outcome note it wrote, not only "Done"', () => withDom(({host, find, text}) => {
+    const v = view(); v.jobs = []; v.actions = [{...v.actions[0], id: 'report', label: 'Report the watch', duration: 0, completed: 0, eligible: true, reasons: []}];
+    v.status = [{label: 'Held', value: 2}, {label: 'Last watch', value: 'Quiet night.', note: true}];
+    const panel = createStructuredPackPanel({read: () => v, command: () => {
+        v.actions[0] = {...v.actions[0], completed: 1};
+        v.status = [{label: 'Held', value: 3}, {label: 'Last watch', value: 'A pack came at the wall; 100 merit on the board.', note: true}];
+    }});
+    find(host.children[0], 'structuredAction', 'report').click();
+    assert.match(text(host.children[0]), /Done: Report the watch\. A pack came at the wall; 100 merit on the board\./);
+    assert.doesNotMatch(text(host.children[0]), /Done: Report the watch\. 3/, 'a changed count is not an outcome');
+    panel.destroy();
+}));

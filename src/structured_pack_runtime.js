@@ -119,7 +119,7 @@ export function structuredCampaignView(state,d,record,context) {
         if(known[key])people.push({name:p.label,details:[known[key].value,...Object.entries(known).filter(([k,r])=>k!==key&&r.basis?.attributedTo===p.id).map(([,r])=>r.value)]});
     }
     const extensionStatus=(d.extensions||[]).filter(e=>record.extensions?.some(pin=>pin.id===e.id)).flatMap(e=>e.status||[]);
-    const status=[...d.presentation.status,...extensionStatus].filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value}));
+    const status=[...d.presentation.status,...extensionStatus].filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value,note:true}));
     status.push(...hpLifeStatus(state,context));
     status.push(...guCareStatus(state,d,record,context));
     status.push(...shadowCompanyStatus(state,d,record,context));

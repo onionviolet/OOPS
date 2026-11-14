@@ -12,11 +12,14 @@ import {createBookCraftControls} from './ui/book_craft_controls.js';
 export function createStructuredPackPanel({read,command,changed}) {
     const NOT_YET_SHOWN=3,NEXT_SHUT=1;
     // G16: when the life's own text says nothing about an act, the panel still names what just happened.
-    const resultLine=(actual,before,after)=>{const label=before?.label||'';
+    // G16: an instant act whose outcome the life writes as a note (a status row read from knowledge) shows that note, so a drawn outcome is read
+    // where it happened rather than folded under Details. Only note rows count; a changed count or meter is not an outcome.
+    const changedNote=(beforeStatus,after)=>after.status.filter(r=>r.note&&r.value&&!beforeStatus.some(b=>b.note&&b.label===r.label&&b.value===r.value)).map(r=>r.value).join(' ');
+    const resultLine=(actual,before,after,beforeStatus=[])=>{const label=before?.label||'';
         if(actual.type==='cancel')return 'Stopped. The work is set down where it was.';
         const job=after.jobs.find(j=>j.commandId===actual.id);
         if(job)return `Started: ${label||job.label}. ${formatDuration(job.remaining)} to go.`;
-        if(actual.type==='action'&&after.actions.find(a=>a.id===actual.id)?.completed>(before?.completed||0))return `Done: ${label}.`;
+        if(actual.type==='action'&&after.actions.find(a=>a.id===actual.id)?.completed>(before?.completed||0)){const note=changedNote(beforeStatus,after);return note?`Done: ${label}. ${note}`:`Done: ${label}.`;}
         return label?`Chosen: ${label}.`:'Done.';};
     const panel=document.createElement('details');panel.id='structured_pack_panel';panel.open=true;
     const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
@@ -31,7 +34,7 @@ export function createStructuredPackPanel({read,command,changed}) {
     const projected=()=>{const v=read();return {
         expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
-        status:(v.status||[]).map(s=>({label:s.label,value:s.value})),ladders:v.ladders||[],house:v.house||null,craft:v.craft??null,
+        status:(v.status||[]).map(s=>({label:s.label,value:s.value,note:!!s.note})),ladders:v.ladders||[],house:v.house||null,craft:v.craft??null,
         actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable,once:!!a.once})),
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
         extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons,mastery:v.renewal.mastery,reserve:v.renewal.reserve,masteryThreshold:v.renewal.masteryThreshold,next:v.renewal.next}:null,canWrite:!!v.canWrite,error:v.error};};
@@ -41,8 +44,8 @@ export function createStructuredPackPanel({read,command,changed}) {
             repetition=null;
             if(request.type==='stop-repeat'){notice='Further repetitions stopped. Current work is unchanged.';render(true);return;}
             const times=request.times||1,actual={...request};delete actual.times;
-            const before=projected().actions.find(a=>a.id===actual.id);
-            try{command(actual);noticeError=false;const after=projected();notice=resultLine(actual,before,after);
+            const prior=projected(),before=prior.actions.find(a=>a.id===actual.id);
+            try{command(actual);noticeError=false;const after=projected();notice=resultLine(actual,before,after,prior.status);
                 if(times>1){const job=projected().jobs.find(j=>j.commandId===actual.id);
                     if(job)repetition={id:actual.id,label:before.label,remaining:times-1,jobId:job.id,completed:before.completed};}
             }catch{noticeError=true;notice=projected().error||'The action could not be saved.';}render(true);
