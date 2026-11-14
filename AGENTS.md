@@ -189,6 +189,13 @@ Agent work stays in the background (Weibao, 2026-10-30, standing rule). Never op
 a visible window on his screen: browsers run headless, the Tauri app runs hidden, and
 native computer control needs his say-so first.
 
+Finished tasks delete their extras (Weibao, 2026-11-14, standing rule): scratch
+worktrees and their registration, build candidates, copied saves, temp and `work/`
+folders, background processes and superseded app builds. Keep what a record cites,
+the adopted build and one rollback; a failed run keeps its scratch until read. Stale
+scratch from another task: check it is not cited or in use, then delete or name it
+([direction](docs/gm/USER_VISION_LOG_2026-11.md#finished-tasks-delete-their-extras-2026-11-14)).
+
 ## Sealed secrets
 
 Weibao plays the game too, so world secrets are sealed by default

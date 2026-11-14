@@ -7,7 +7,9 @@
 //   node scripts/tauri/adopt.mjs verify                   hidden frozen Tauri on a scratch folder,
 //                                                         seeded with a COPY of the player's newest mirrored save
 //   node scripts/tauri/adopt.mjs swap --yes               install the snapshot as the app's latest build;
-//                                                         an open game offers "Save and reload", a closed one starts on it
+//                                                         an open game offers "Save and reload", a closed one starts on it;
+//                                                         then deletes the scratch and prunes builds to current + latest
+//   node scripts/tauri/adopt.mjs clean                    delete the scratch after a failed or abandoned run
 //
 // Scratch: work/tauri-adopt/. Player folder: ~/Library/Application Support/local.yairpg.tauri.
 import fs from 'node:fs';
@@ -126,10 +128,35 @@ function swap() {
     log(`Installed ${state.id} as the app's latest build (commit ${state.sha.slice(0, 9)}).`);
     log('An open game shows "New build ready"; a closed one starts on it next launch.');
     if (before) log(`Rollback: node -e "require('./scripts/tauri/snapshot.cjs').writePointer(process.argv[1],'latest.json',process.argv[2])" "${APP_DATA}" ${before}`);
+    // Standing rule (Weibao, 2026-11-14): a finished task deletes its extras. After a swap the scratch
+    // worktree, candidate and verify folder (which holds a copy of the player's save) are gone, and the
+    // builds folder keeps only the adopted build (the rollback) and the new latest.
+    clean({keep: [before, state.id]});
+}
+
+// Delete this script's scratch: the registered worktree, the candidate, the verify folder and state.
+// With keep, also prune app builds other than those ids (never current.json's or latest.json's).
+function clean({keep = null} = {}) {
+    const worktree = path.join(WORK, 'worktree');
+    if (fs.existsSync(worktree)) {
+        try { git(ROOT, 'worktree', 'remove', '--force', worktree); } catch { /* not registered */ }
+    }
+    fs.rmSync(WORK, {recursive: true, force: true});
+    git(ROOT, 'worktree', 'prune');
+    log(`Removed ${path.relative(ROOT, WORK)} (scratch worktree, candidate, verify copy).`);
+    if (!keep) return;
+    const builds = path.join(APP_DATA, 'builds');
+    const held = new Set([...keep, snap.readPointer(APP_DATA, 'current.json'), snap.readPointer(APP_DATA, 'latest.json')].filter(Boolean));
+    for (const e of fs.existsSync(builds) ? fs.readdirSync(builds, {withFileTypes: true}) : []) {
+        if (!e.isDirectory() || held.has(e.name)) continue;
+        fs.rmSync(path.join(builds, e.name), {recursive: true, force: true});
+        log(`Pruned old build ${e.name}.`);
+    }
 }
 
 const command = args[0];
 if (command === 'prepare') prepare();
 else if (command === 'verify') verify();
 else if (command === 'swap') swap();
-else { console.error('Usage: adopt.mjs prepare --commit <sha> | verify | swap --yes'); process.exit(2); }
+else if (command === 'clean') clean();
+else { console.error('Usage: adopt.mjs prepare --commit <sha> | verify | swap --yes | clean'); process.exit(2); }

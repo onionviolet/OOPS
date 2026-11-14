@@ -171,6 +171,7 @@ How to use and update it:
 - **Codex lanes implement**; the coordinating session briefs, reviews, commits and runs browser checks. Separate capable implementers build the runtime mechanism lane ([2026-10-29](gm/USER_VISION_LOG_2026-10.md#cast-lives-build-everything-the-leads-life-needs-choose-later-for-other-seats-2026-10-28), [2026-11-02](gm/USER_VISION_LOG_2026-11.md#runtime-mechanism-lane-for-the-book-absorption-2026-11-02)).
 - **Consider sibling ideas** in the same family where relevant, as a default, not a duty ([2026-10-30](gm/USER_VISION_LOG_2026-10.md#consider-similar-ideas-for-each-idea-where-relevant-2026-10-30)).
 - **Each slice leaves the next one cheaper** (AD54): walks save reusable game states, reachability is checked at commit, world hosts take one registration line per consumer, tests share life-start builders, and records cost less than the work ([2026-11-07](gm/USER_VISION_LOG_2026-11.md#each-slice-leaves-the-next-one-cheaper-2026-11-07)).
+- **Finished tasks delete their extras**: scratch worktrees, build candidates, copied saves, temp and `work/` folders and superseded app builds; keep what a record cites, the adopted build and one rollback ([2026-11-14](gm/USER_VISION_LOG_2026-11.md#finished-tasks-delete-their-extras-2026-11-14)).
 - Model routing for subagents follows the global working agreement; the 2026-10-20 "sonnet level" entry is history ([2026-10-20](gm/USER_VISION_LOG_2026-10.md#retire-the-1366768-floor-2026-10-19)).
 
 ## Identity
@@ -183,6 +184,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="finished-tasks-delete-their-extras-2026-11-14"></a>[Finished tasks delete their extras, 2026-11-14](gm/USER_VISION_LOG_2026-11.md#finished-tasks-delete-their-extras-2026-11-14)<br>
 <a id="three-leads-first-and-the-core-flow-checks-2026-11-13"></a>[Three leads first and the core-flow checks, 2026-11-13](gm/USER_VISION_LOG_2026-11.md#three-leads-first-and-the-core-flow-checks-2026-11-13)<br>
 <a id="one-procedural-foundation-one-chat-per-part-2026-11-11"></a>[One procedural foundation, one chat per part, 2026-11-11](gm/USER_VISION_LOG_2026-11.md#one-procedural-foundation-one-chat-per-part-2026-11-11)<br>
 <a id="foundations-first-playable-slices-later-2026-11-11"></a>[Foundations first, playable slices later, 2026-11-11](gm/USER_VISION_LOG_2026-11.md#foundations-first-playable-slices-later-2026-11-11)<br>

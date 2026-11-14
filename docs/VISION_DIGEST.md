@@ -70,6 +70,7 @@ Ahead sources (2026-11-10): hold the source that runs furthest, prefer text that
 - Task layers and crafting follow-through reuse Proto23/YAIR suppliers with task-specific forms. Display detail, execution depth and knowledge stay separate; longer work keeps actual held/spent, interruption and return terms ([direction](USER_VISION.md#task-appropriate-ui-layers-and-crafting-follow-through-2026-11-04)).
 - Shared, modular foundations should let many lives, livelihoods and groups coexist in one world and carry across worlds. Obligations, reputation, heat and economy are wanted as depth without micromanagement, and apply only where an authority has a claim, knowledge and reach; strength can refuse it (asked 2026-11-06; the designs are proposals) ([why](USER_VISION.md#cross-world-foundations-obligations-and-authority-2026-11-06)).
 - World secrets stay sealed from Weibao outside their discovery route, because he plays too. Refer to them by ID and status ([AGENTS.md](../AGENTS.md#sealed-secrets)).
+- Finished tasks delete their extras (scratch worktrees, build candidates, copied saves, temp folders, superseded app builds), keeping what a record cites, the adopted build and one rollback ([why](USER_VISION.md#finished-tasks-delete-their-extras-2026-11-14)).
 
 ## Using this digest
 

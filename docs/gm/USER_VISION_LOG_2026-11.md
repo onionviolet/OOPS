@@ -1495,3 +1495,17 @@ This changes PC95's "engine first" from a ban on tie-in into a sequence inside e
 4. Adjust.
 
 Held-out canon scoring stays. The considerations, OR1 to OR10, are proposals in the [run's resume block](dispatch/foundation-run-2026-11-12/RUN.md#orientation-for-the-resumed-run-2026-11-14).
+
+## Finished tasks delete their extras, 2026-11-14
+
+Weibao, after the app build was frozen and adopted: "did you deelete extras and more? make that longstanding rule"
+
+Recorded as a standing rule. It extends the [finished-worktree cleanup of 2026-10-21](USER_VISION_LOG_2026-10.md#primary-checkout-default-and-finished-worktree-cleanup-2026-10-21) from worktrees to everything a task makes.
+
+- Default: when a task finishes, its owner deletes the extras it made: scratch worktrees (and their registration), build candidates, copied saves, temp and `work/` folders, background processes and superseded app builds.
+- Keep: what an owner record links as evidence, the adopted app build and one rollback build.
+- Dial: a failed or interrupted run keeps its scratch until the failure is read, then cleans it; a session that finds someone else's stale scratch checks that it is not cited or in use, then deletes it or names it for its owner.
+- Reason: disk (one freeze left 1.4 GB), privacy (the verify folder held a copy of his save) and fewer stale states for later agents to trip on.
+
+`scripts/tauri/adopt.mjs` now cleans its scratch and prunes the app's builds to current and latest at the end of a swap, and has a `clean` command for failed runs.
+
