@@ -1430,6 +1430,14 @@ Weibao, after a diagnosis of the current game: "But even before play, how can we
 
 Recorded as his steer, asked as a question: Klein, Harry and Fang Yuan lead the other lives, and a lead is judged on four things: a core flow that exists, off-book possibility, aspects that improve, and a UI that makes sense. What the other leads and worlds get meanwhile is not decided by this entry (AD56: a narrowing waits for his answer). The four checks and the first run are in the [lead core-flow audit](../audits/LEAD_CORE_FLOW_AUDIT_2026-11-13.md); its findings G1-G9 and order P1-P5 are proposals (AD32). His planned internal systems stay; the audit proposes ordering them by which one is missing from a lead's ordinary day.
 
+## Fists can kill too, 2026-11-14
+
+Weibao, on a result table where a blade policy killed a wolf and a fist policy knocked one out: "fists can kill too".
+
+Applied to the contest (AD38): in a lethal contest any blow that downs a body can kill; a move needs no flag for it. A knockout comes from the striker holding back (`wants.subdue`, CBC32) or a move that cannot kill (`lethal: false`). Recorded in [CFC9](../CONTEST_CONTRACT.md) and the [carry-out's FK13](../PROCEDURAL_CARRY_OUT.md#round-2-kinds-of-fight-spell-fights-world-sense-the-gu-panel-and-enchanted-gear-2026-11-12). Default (proposal): whether a downed body dies at once or waits in a window where someone decides (CBC4) stays a later dial.
+
+Weibao, answering whether a downing blow kills: "it all depends, maybe its a choice? like result of fight? more? Can change mid way through and more?" Recorded as his direction. It widens CFC9: whether someone dies is not fixed by the contest law. It can be a fighter's choice, come from how the fight goes, and change partway through. Working defaults (AD56, adjustable): stakes are carried by each fight and can shift mid-fight (a knife drawn, a temper lost, a plea heard); holding back can fail (CBD213); and a downed body can wait in a window where someone decides (CBC4). The combat chat owns building it.
+
 ## Combat: a replay is practice, and one fight goes live, 2026-11-14
 
 Weibao answered three asked questions in the combat chat by choosing an option for each.
