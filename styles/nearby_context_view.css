@@ -40,6 +40,10 @@
 .nearby-context-view > p:last-child {flex:0 0 auto;margin:round(.3em, 1px) 0;}
 @container (min-width:30em) {
  .nearby-context-view[data-selected=false] .nearby-context-list {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:round(.75em, 1px);align-content:start;}
+ /* UIC127: the ways out sit under the people, beside the stations, so the list adds no row and the frame keeps its height. */
+ .nearby-context-view[data-selected=false] .nearby-context-list > [data-nearby-group=people] {grid-column:1;grid-row:1;}
+ .nearby-context-view[data-selected=false] .nearby-context-list > [data-nearby-group=services] {grid-column:2;grid-row:1 / span 2;}
+ .nearby-context-view[data-selected=false] .nearby-context-list > [data-nearby-group=exits] {grid-column:1;grid-row:2;}
 }
 /* Native generic buttons otherwise retain 14px when this surface is enlarged. */
 #main_content[data-parity="r3"] #current_focus .nearby-context-view button {font:inherit;line-height:1.3;}

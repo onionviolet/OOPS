@@ -82,7 +82,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         text(placeBody,model.descriptionRest);place.hidden=!model.descriptionRest;text(back,`← ${model.place} overview`);
         node.dataset.selected=String(!!model.subject);node.dataset.selectionMissing=String(model.missing);
         for(const [kind,label,subjects] of [['people','People here',model.people],['services','Services & stations',model.services],['exits','Ways out',model.exits]]){
-            let group=groups.get(kind);if(!group){group=el('section');const heading=el('h3'),body=el('div');group.append(heading,body);groups.set(kind,group);list.append(group);}
+            let group=groups.get(kind);if(!group){group=el('section');group.dataset.nearbyGroup=kind;const heading=el('h3'),body=el('div');group.append(heading,body);groups.set(kind,group);list.append(group);}
             group.hidden=!subjects.length;text(group.firstChild,`${label} · ${subjects.length}`);
             const body=group.lastChild;
             for(const [index,subject] of subjects.entries()){
