@@ -1429,3 +1429,11 @@ Recorded as the answer to LLR26 (AGT2 no longer waits for a second world): the s
 Weibao, after a diagnosis of the current game: "But even before play, how can we improve? We can prioritize Klein, Harry, Fang Yuan, over the others? What matters is that tthe core gameplay flow is there, endless possibility is developed, improvable aspects and more? The ui is intuitive and makes sense?" Then: "what about my planned internal systems?" and "run C1 to C4 on the three leads, save accordingly".
 
 Recorded as his steer, asked as a question: Klein, Harry and Fang Yuan lead the other lives, and a lead is judged on four things: a core flow that exists, off-book possibility, aspects that improve, and a UI that makes sense. What the other leads and worlds get meanwhile is not decided by this entry (AD56: a narrowing waits for his answer). The four checks and the first run are in the [lead core-flow audit](../audits/LEAD_CORE_FLOW_AUDIT_2026-11-13.md); its findings G1-G9 and order P1-P5 are proposals (AD32). His planned internal systems stay; the audit proposes ordering them by which one is missing from a lead's ordinary day.
+
+## Combat: a replay is practice, and one fight goes live, 2026-11-14
+
+Weibao answered three asked questions in the combat chat by choosing an option for each.
+
+- Asked whether a what-if replay of a past fight should ever replace what really happened, he chose "Practice only". By default a replay changes nothing in the world; the working reason is that the world keeps one account of what happened, and he was not asked for his own (CBD131 in the [combat palette](../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md)).
+- Asked what should count as complete for the headless combat work, he chose "Tie one fight into the game" over stopping at headless. This lifts engine first (PC95) for one fight. It is a go-ahead for that one tie-in and does not change the standing order for other work.
+- Asked whether to push local master to origin, he chose "Push master". Pushed 2026-11-14 at d60d61faf. Later commits wait for a new yes.

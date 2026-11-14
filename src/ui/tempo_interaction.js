@@ -1,6 +1,9 @@
 // The cautious handover chooses one non-attacking move; a withdrawal can still fail.
 export const HANDOVER_LABEL = 'Let a careful policy take one turn';
 export const HANDOVER_TEXT = 'Chooses brace, tend or back away; it does not attack. Backing away can fail and invite a free blow.';
+// Sustained delegation (CBD38, CBD56): the steady policy fights on, attacks included, until something needs the player.
+export const RUN_LABEL = 'Fight on until something changes';
+export const RUN_TEXT = 'A steady policy takes your turns, attacks included. It stops when your last move is no longer possible, you take a new injury, your health falls under half, or the fight ends.';
 
 // Fight logs are bounded tails. Compare their overlap so a move and the response
 // both reach the status, even when old lines have rolled off the beginning.

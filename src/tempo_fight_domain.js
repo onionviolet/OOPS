@@ -13,7 +13,10 @@ import {knownTargetFacts} from './known_target_facts.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {harmState, setHarmState, HARM_RUNGS, restReading} from './harm_state.js';
 import {harmPart} from './harm_engine.js';
-import {beginTempoFight, commitTempoMove, handOverTempoFight, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
+import {beginTempoFight, commitTempoMove, handOverTempoFight, policyMove, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
+import {projectTempoFight} from './fight_view.js';
+import {fightPauseReasons} from './fight_pause.js';
+import {fightResult} from './fight_text.js';
 import {tempoOpeners, tempoOpener} from './tempo_starters.js';
 import {HANDOVER_LABEL, HANDOVER_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
 
@@ -184,11 +187,79 @@ function study() {
     recordRivalStudy(plan.state); ports.commit(plan);
     return 'You have taken her measure.';
 }
+// What this session has seen of the open fight, for the pause rule and the result (CBD56, CBD78). Kept in memory:
+// nothing is added to the save, so a fight restored after a reload is measured from when it was first seen again.
+const RUN_CAP = 12, RUN_FLOOR = 0.5; // dials: turns one click may take, and the health share under which it hands back
+const OUTCOME = {won: 'stood', lost: 'knocked_out', withdrawn: 'withdrew', yielded: 'yielded'};
+const MEANS = {health: 'Health', stamina: 'Stamina'};
+let watch = null, account = null;
+const metMeans = new Map(); // fight title -> what was brought last time this session
+function watching() {
+    const s = ports.root().simulation?.sessions.player, b = open();
+    if(!b) return null;
+    if(watch?.sessionId !== s.id) {
+        const me = b.fighters.player;
+        watch = {sessionId: s.id, title: b.title || 'Fight', health: me.hp, stamina: me.stamina, hurt: Object.keys(me.parts || {}).length, asked: 0, moved: false, lastPick: null};
+        account = null;
+    }
+    return watch;
+}
+// Why the fight wants the player now, from the shared view. A foe counts as known once anything has been learned of it.
+function askNow() {
+    const b = open(), w = watching();
+    if(!b || !w) return [];
+    try {
+        const v = projectTempoFight(b, {stance: 'steady'});
+        if(!v.yourTurn) return [];
+        const knownFoes = Object.entries(b.fighters).filter(([, f]) => f.side === 'b' && Object.keys(f.learned || {}).length > 0).map(([id]) => id);
+        return fightPauseReasons(v, {knownFoes, ...(metMeans.has(w.title) && {means: metMeans.get(w.title)}), ...(w.lastPick && {lastPick: w.lastPick})}, {first: !w.moved});
+    } catch(error) { return []; }
+}
+function closeAccount(plan, w) {
+    const result = plan.state.actors.player.facts['tempo.lastResult'], v = plan.vitals?.player ?? ports.campaignContext().vitals?.player ?? {};
+    const round = n => Math.round(n * 10) / 10;
+    account = fightResult({place: w.title, outcomes: {player: OUTCOME[result] ?? null}, rows: [], asked: w.asked, turning: [],
+        means: [{id: 'health', before: round(w.health), after: round(v.health ?? w.health)}, {id: 'stamina', before: round(w.stamina), after: round(v.stamina ?? w.stamina)}]},
+    {seat: 'player', life: 'health', names: {}, moves: {}, means: MEANS, parts: {}});
+    metMeans.set(w.title, {health: w.health, stamina: w.stamina});
+    watch = null;
+}
 function move(request) {
-    const state = ports.root(), ctx = ports.campaignContext(), before = openFight();
+    const state = ports.root(), ctx = ports.campaignContext(), before = openFight(), w = watching();
+    if(w && !request.auto) w.asked += 1;
     const plan = request.handOver ? handOverTempoFight(state, ports.registry, ctx) : commitTempoMove(state, ports.registry, ctx,
         {moveId: request.moveId, targetId: request.targetId, allyId: request.allyId, orderId: request.orderId, aim: request.aim !== undefined ? request.aim : ['jab', 'swing'].includes(request.moveId) ? aim : null}, state.sequence);
-    recordFightSight(plan, ports.registry, before); ports.commit(plan); applyHarm(plan);
+    recordFightSight(plan, ports.registry, before);
+    // The result is written before the commit: the commit redraws the card, and the card reads it (found by play, 2026-11-14).
+    if(w) {
+        w.moved = true;
+        if(!request.handOver && !request.auto) w.lastPick = request.moveId; // the player's own pick: a policy alternating fire and reload is not news
+        if(plan.state.simulation?.sessions.player?.nativeBattle?.schema !== TEMPO_SCHEMA) closeAccount(plan, w);
+    }
+    ports.commit(plan); applyHarm(plan);
+}
+// Fight on by the steady policy, attacks included, until something needs the player (CBD38, CBD56). One click, at most RUN_CAP turns.
+// It returns why it stopped. The first turn is taken without asking again, since the player has just seen the card and chosen this.
+function run() {
+    let turns = 0, why = '';
+    for(; turns < RUN_CAP; turns++) {
+        const b = open(), w = watching();
+        if(!b) break;
+        if(!tempoView(b).yourTurn) { why = 'It is not your turn.'; break; }
+        const me = b.fighters.player;
+        if(turns > 0) {
+            const reasons = askNow();
+            if(reasons.length) { why = reasons[0].text; if(reasons[0].kind === 'pick gone') w.lastPick = null; break; }
+            if(Object.keys(me.parts || {}).length > w.hurt) { why = 'You have taken a new injury.'; w.hurt = Object.keys(me.parts).length; break; }
+            if(me.hp < (me.maxHp ?? w.health) * RUN_FLOOR) { why = 'Your health is under half.'; break; }
+        }
+        const pick = policyMove(b, 'player', 'steady');
+        move({moveId: pick.moveId, targetId: pick.targetId, auto: true});
+    }
+    check(turns > 0, why || 'Nothing to fight on with.');
+    const turnsText = `${turns} turn${turns === 1 ? '' : 's'} taken.`;
+    if(!open()) return `${turnsText} The fight is over.`;
+    return `${turnsText} ${why || 'That is as far as one go-ahead runs.'}`;
 }
 // A view only quotes the committed state. Its four quotes share one context build.
 function view() {
@@ -197,10 +268,10 @@ function view() {
 }
 function readView() {
     const b = open();
-    if(b) return {visible: true, fight: {...tempoView(b), aim}, held: b.held};
+    if(b) { watching(); return {visible: true, fight: {...tempoView(b), aim, ask: askNow().map(r => r.text)}, held: b.held}; }
     const quote = startQuote(), facts = ports.root().actors.player.facts;
     const rival = {...rivalBrief(facts, knownTargetFacts(ports.root(), 'player', 'roadRival')), study: studyQuote()}, openers = openerQuotes();
-    return {visible: !!quote.visible || rival.history.duels > 0 || openers.length > 0, start: quote, rival, lio: lioQuote(), openers, last: facts['tempo.lastResult'] || null, owed: facts[TEMPO_FACT_HELD] || 0};
+    return {visible: !!quote.visible || rival.history.duels > 0 || openers.length > 0, start: quote, rival, lio: lioQuote(), openers, last: facts['tempo.lastResult'] || null, account, owed: facts[TEMPO_FACT_HELD] || 0};
 }
 function mount() {
     const root = node('details'); root.id = 'tempo_fight_panel'; root.className = 'expedition_panel';
@@ -261,6 +332,7 @@ function mount() {
         } else if(!v.start.visible && !v.rival.history.duels) {
             for(const o of v.openers) {const row = node('div'); row.append(button(o.label, `open:${o.id}`, o.reason || o.text, !o.eligible, () => act(begin, {openerId: o.id})), node('small', ' ' + (o.reason || o.text))); body.append(row);}
             if(v.last) body.append(node('p', `Last fight: ${v.last}.`));
+            if(v.account) { const list = node('ul'); list.dataset.tempoAccount = ''; list.append(node('li', v.account.head), ...v.account.items.map(([k, t]) => node('li', `${k}: ${t}`))); body.append(list); }
         } else {
             body.append(node('p', 'Settle the road challenge move by move. Quick moves cost little time and light harm; heavy ones leave you open longer. Who notices first sets the opening.'));
             if(v.start.visible || v.rival.history.duels) {const r = node('p', `${v.rival.memory} ${v.rival.appraisal}`); r.dataset.rivalBrief = v.rival.appraised ? 'appraised' : 'unread'; body.append(r);}
@@ -288,7 +360,7 @@ function setAim(request = {}) {
     aim = request.aim;
     panel?.render(true);
 }
-const commands = {aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
+const commands = {run: () => { check(ports?.writable(), 'The game cannot take a move right now.'); const said = run(); panel?.render(true); return said; }, aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
     check(ports?.writable(), 'The game cannot take a move right now.');
     move(request); panel?.render(true);
 }};

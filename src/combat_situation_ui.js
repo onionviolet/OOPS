@@ -15,7 +15,7 @@ import {renderSceneCard} from './ui/scene_card.js';
 import {versusWithEngine} from './read_models/combat_situation_bridge.js';
 import {harmRung} from './harm_state.js';
 import {worldFamily, currentWorldFamily} from './world_look.js';
-import {HANDOVER_LABEL, HANDOVER_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
+import {HANDOVER_LABEL, HANDOVER_TEXT, RUN_LABEL, RUN_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
 
 const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
 
@@ -40,7 +40,8 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const t = tempoSituation(view, {place, worldId: view.fight.worldId ? worldFamily(view.fight.worldId) : currentWorldFamily(), dev});
         if (!t.active) return false;
         if (actions && section.previousElementSibling !== actions) actions.after(section);
-        const key = `tempo\n${JSON.stringify(t)}`;
+        const ask = view.fight.ask || [];
+        const key = `tempo\n${JSON.stringify(t)}\n${ask.join('|')}`;
         if (section.hidden) section.hidden = false;
         if (key === cardKey) return true;
         const previousFocus = captureTempoFocus(section, ['fightOption', 'fightAim']);
@@ -50,6 +51,9 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const command = domainRegistry.command('tempo_fight', 'move'), blocked = command ? '' : 'The contest cannot take moves right now.';
         // A refused move keeps the contest's own reason on the card (DSG10), and the card redraws on the next tick.
         const move = request => { try { command(request); lastNotice = ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
+        // Fight on (CBD38): the contest's own 'run' command plays a steady policy until something needs the player and says why it stopped.
+        const runCommand = domainRegistry.command('tempo_fight', 'run');
+        const runOn = () => { try { lastNotice = runCommand() || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
         const wait = t.yourTurn ? '' : 'Not your turn yet.';
         const options = t.yourTurn ? [
             ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost} time`, affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
@@ -57,6 +61,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, time: `${o.cost} time`, affects: `${o.text} Heard ${o.odds}; not certain.`,
                 attrs: {fightOption: `order:${o.orderId}:${o.allyId}`}, blocked, onChoose: () => move({moveId: 'order', allyId: o.allyId, orderId: o.orderId})})),
             {id: 'handover', label: HANDOVER_LABEL, affects: HANDOVER_TEXT, attrs: {fightOption: 'handover'}, blocked, onChoose: () => move({handOver: true})},
+            {id: 'run', label: RUN_LABEL, affects: RUN_TEXT, attrs: {fightOption: 'run'}, blocked: blocked || (runCommand ? '' : 'The contest cannot fight on right now.'), onChoose: runOn},
         ] : [{id: 'wait', label: 'Wait', affects: 'The others are acting.', attrs: {fightOption: 'wait'}, blocked: wait}];
         section.replaceChildren();
         const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', attrs: {fightMode: 'tempo'}, header: {title: view.fight.title || 'Fight', place}, stakes: t.summary, options});
@@ -66,6 +71,8 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         previousLog = [...t.log]; previousNoticeWasError = !!lastNotice;
         const next = document.createElement('p'); next.className = 'fight-situation-next'; next.textContent = `Who acts next: ${t.next.join(' → ')}`;
         notice.after(next);
+        // Why the fight wants you now (the pause rule, CBD56): a line of its own, so it is not lost among the log lines.
+        if (ask.length) { const why = document.createElement('p'); why.className = 'fight-situation-ask'; why.dataset.fightAsk = ''; why.textContent = `Worth a look: ${ask.join(' ')}`; notice.after(why); }
         const versus = document.createElement('div'); versus.className = 'fight-situation-versus'; next.after(versus);
         renderVersusRow(versus, t.versus);
         if (t.aims.length) {
@@ -120,7 +127,9 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             if (previousFocus) {
                 section.dataset.fightFinished = 'true'; section.hidden = false;
                 section.append(notice);
-                notice.textContent = view?.last ? `Fight ended: ${view.last}.` : 'Fight controls are no longer available.';
+                // The itemised result when this session watched the fight (CBD78); the plain word otherwise.
+                notice.textContent = view?.account ? [view.account.head, ...view.account.items.map(([k, text]) => `${k}: ${text}`)].join(' ')
+                    : view?.last ? `Fight ended: ${view.last}.` : 'Fight controls are no longer available.';
                 notice.focus({preventScroll: true}); notice.scrollIntoView({block: 'nearest'});
             } else section.hidden = true;
         }

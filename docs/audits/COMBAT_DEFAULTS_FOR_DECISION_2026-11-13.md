@@ -2,7 +2,7 @@
 
 Ten defaults from rounds 10 to 31 of the [combat palette](../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md), picked as the ones the rest depend on. This carries out CBD303.
 
-**How to read it.** Under AD56 an idea that follows the core rules and widens play is used as an adjustable working default without waiting, and a line that removes options waits for Weibao. Q1 and Q3 to Q10 widen play or order the work, so the headless combat work uses them as working defaults now. They are agent proposals in use, not accepted direction, and any of them changes on his word. Q2 narrows what a routine fight can cost; it is used because it is his own leaning (his words are in CBD304), and it stays his to confirm. Q11 removes an option and waits.
+**How to read it.** Under AD56 an idea that follows the core rules and widens play is used as an adjustable working default without waiting, and a line that removes options waits for Weibao. Q1 and Q3 to Q10 widen play or order the work, so the headless combat work uses them as working defaults now. They are agent proposals in use, not accepted direction, and any of them changes on his word. Q2 narrows what a routine fight can cost; it is used because it is his own leaning (his words are in CBD304), and it stays his to confirm. Q11 removed an option and was his to answer; his answer is below.
 
 | Code | Default | If taken | What it costs | State today |
 | --- | --- | --- | --- | --- |
@@ -17,9 +17,9 @@ Ten defaults from rounds 10 to 31 of the [combat palette](../COMBAT_AND_CONFLICT
 | Q9 | **Share the edges across the three fight engines and leave their middles; LOTM stays on tempo for now** (CBD191, CBD201, sizing R4). Dial: converge an engine when a needed fight is cheaper on the other side. | One way of fighting for the player without a rewrite. | A projection per engine to keep in step (CBD298). | [Fight view](FIGHT_VIEW_PROJECTION_2026-11-13.md) projects both engines, unit-tested. |
 | Q10 | **Order of work: headless before live, and the silent routine fight before pauses** (CBD305, CBD308, PC95). Dial: a lead's next fight can pull an item forward. | The Progress Quest floor comes first: a fight that plays itself and reads well. | The live Gu entry waits for the headless proof. Progress Quest needs a source dive. | First headless proof exists: the Gu pit duel passes the [three trials](../../tests/fight_three_trials.test.js). |
 
-## One limit that waits for Weibao (AD56)
+## The limit, answered by Weibao (2026-11-14)
 
-- **Q11.** Whether a what-if replay of a past fight can replace what really happened (CBD131). The working default keeps it as practice.
+- **Q11.** Asked whether a what-if replay of a past fight can replace what really happened (CBD131), he chose "Practice only". By default a replay changes nothing in the world; the working reason is that the world keeps one account of what happened, and he was not asked for his own. Recorded in the [direction log](../gm/USER_VISION_LOG_2026-11.md#combat-a-replay-is-practice-and-one-fight-goes-live-2026-11-14).
 
 ## Not on this page
 
@@ -27,4 +27,4 @@ About 260 other proposal codes stay in the palette as a palette. Nothing there i
 
 ## What finishing this lane means
 
-Under PC95 (engine first, tie-in later) this lane's work is finished when it is built headless, tested and recorded, which is its state in the palette's standing table. A fight that the live game starts on these parts is tie-in work for a later instruction, and the coordination chat holds the same boundary.
+Weibao was asked on 2026-11-14 and chose "Tie one fight into the game". The headless work was the first stage; one fight in the live game using the new text, pause rule and result is the stage that finishes it. Engine first (PC95) stays the order for other work.
