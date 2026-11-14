@@ -60,7 +60,11 @@ export function itemRecipeStatus({recipe, stationTier, findMaterial, isMaterialK
 
 /** UIC172: a recipe row says how far it is from ready, not just "Missing". */
 export function shortOfText(requirements) {
-    const short = requirements.filter(r => r.missing).length, all = requirements.length;
+    const missing = requirements.filter(r => r.missing), short = missing.length, all = requirements.length;
+    // UIC185: one known material short names it and how many, so the row says what to fetch without opening it.
+    // An unrecognised material keeps the count alone (PRS1); a long name keeps the count so the row does not wrap.
+    const one = missing[0], name = short === 1 && one.known && (one.material?.material_id || one.material?.material_type);
+    if(name && name.length <= 22) return `needs ${Math.max(1, (one.need ?? 1) - (one.have ?? 0))} ${name}`;
     return short === 1 ? '1 material short' : `${short} of ${all} materials short`;
 }
 

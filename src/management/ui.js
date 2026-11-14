@@ -8,7 +8,14 @@ import '../hired_hands_plot.js'; // hired hand for the courtyard plot (OB7/OB12)
 import {groupsOf,groupLines} from '../organizations.js';
 import {moneyText} from '../reveal_chain.js';
 import {domainRegistry} from '../domain_registry.js';
+import {registerOwnedWorkPanel} from '../adventure_notebook.js';
+import {formatDuration} from '../number_format.js';
 const node=(tag,text='',attrs={})=>{const n=document.createElement(tag);n.textContent=text;for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;};
+// UIC182: courtyard work stays in the courtyard. Without this the Notebook claimed any running job and took the centre on Plant or Tend.
+registerOwnedWorkPanel((_work,definition)=>definition?.group==='management'?'management_panel':null);
+// UIC183: what just happened, in the G16 shape: "Started: …, 2 min to go.", "Done: …" or "Stopped."
+const doneLine=a=>a.type==='cancel'||a.type==='delegate_cancel'?'Stopped. Held inputs are back with their owner.':a.type==='pause'?'Paused after the current job.':a.type==='repeat'?'Scheduled. Each repetition takes its own inputs.':
+ (head=>a.duration>0?`Started: ${head}, ${formatDuration(a.duration)} to go.`:`Done: ${head}.`)(String(a.label||'').split(' · ')[0]);
 const MOVED_KEY='oops.management.movedNoticeSeen';
 const seenMoved=()=>{try{return localStorage.getItem(MOVED_KEY)==='1';}catch{return false;}};
 const markMoved=()=>{try{localStorage.setItem(MOVED_KEY,'1');}catch{}};
@@ -43,7 +50,7 @@ export function createManagementPanel({read,registry,command}) {
  function drawOverview(org) {
   const view=org&&organizationView(org);
   if(!view){overview.hidden=true;overview.replaceChildren();drawn='';return;} // hidden even on the first render (AT32: the panel can open away from the courtyard)
-  const key=`${organizationText(view)}|${selected}`;
+  const key=`${organizationText(view)}|${view.holdings.map(h=>h.note||'').join('|')}|${selected}`;
   if(key===drawn)return;drawn=key;overview.hidden=false;overview.replaceChildren();
   const summary=node('p',view.summary,{class:'organization-summary'});
   const grid=node('div','',{class:'organization-grid'});
@@ -80,6 +87,7 @@ export function createManagementPanel({read,registry,command}) {
   const here=!view.visible&&claimHere(),hidden=(!view.visible&&!here)||snapshot.inDialogue||snapshot.inCombat,court=hidden||here;element.hidden=hidden;
   terms.hidden=here;moved.hidden=here||seenMoved();awayHead.hidden=!here; // the panel keeps its registered title; away from the courtyard this names what it shows
   sections.hidden=here;history.hidden=here;
+  if(/^Started: /.test(message)&&!view.sections.some(x=>x.id==='work'))message=message.replace(/^Started: (.*), [^,]+ to go\.$/,'Done: $1.'); // the job ended while the panel was open
   notice.textContent=snapshot.error||message;notice.hidden=!notice.textContent;
   drawOverview(court||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
   groupsNote.textContent=court||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
@@ -127,11 +135,13 @@ export function createManagementPanel({read,registry,command}) {
   for(const s of view.sections) {
    visibleGroups.add(s.id);let g=groups.get(s.id);
    if(!g){g=node('details');g.className='expedition_card';g.append(node('summary',s.label));groups.set(s.id,g);sections.append(g);if(s.id==='charter'||s.id==='work')g.open=true;}
+   // UIC181: the summary says where things stand and how many rows can be pressed now, one step away from opening it (UIC172).
+   {const ready=s.actions.filter(a=>a.eligible&&snapshot.canWrite).length,text=[s.label,s.status,ready&&!['charter','work','foreman_work','mandate','resume_mandate'].includes(s.id)?`${ready} ready`:''].filter(Boolean).join(' · ');if(g.firstChild.textContent!==text)g.firstChild.textContent=text;}
    g.hidden=false;
    for(const a of s.actions) {
     const id=`${s.id}:${a.type||'command'}:${a.id||''}`;seen.add(id);let r=rows.get(id);
     if(!r){const el=node('section'),button=node('button'),description=node('p'),reason=node('p');button.type='button';el.className='expedition_card';el.append(button,description,reason);g.append(el);r={el,button,description,reason,action:a};rows.set(id,r);
-     button.addEventListener('click',()=>{try{const current=read();command({...r.action,sequence:current.state.sequence});message='Courtyard change saved.';}catch(e){message=e.message;}render();});}
+     button.addEventListener('click',()=>{try{const current=read();command({...r.action,sequence:current.state.sequence});message=doneLine(r.action);}catch(e){message=e.message;}render();});}
     r.action=a;r.el.hidden=false;r.button.textContent=a.label;r.button.disabled=!snapshot.canWrite||!a.eligible;r.description.textContent=a.description||'';
     r.reason.textContent=(a.reasons||[]).join(' ');r.reason.hidden=!r.reason.textContent;
    }

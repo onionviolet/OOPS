@@ -1,6 +1,7 @@
 // Organization overview (proposal, ORGANIZATIONS.md): one pure projection for any group the player leads or
 // co-runs. An adapter hands in a descriptor; this returns what the panel draws and the same facts as plain
 // lines (UR37). No state, no persistence. The kind descriptor picks the nouns, never different code (FND5).
+import {moneyText} from './reveal_chain.js';
 export const ORG_KINDS = Object.freeze({
     household_business: {noun: 'household business', roster: 'People', standing: 'Standing', holdings: 'Holdings', rosterColumns: ['Role', 'Doing']},
     gang: {noun: 'gang', roster: 'Crew', standing: 'Heat', holdings: 'Turf', rosterColumns: ['Role', 'Doing']},
@@ -40,7 +41,7 @@ export function organizationSummary(v) {
     parts.push(v.operations.length ? `${plural(v.operations.length, 'job')} under way${first ? `, ${first.label}${Number.isFinite(first.timeLeft) ? `, ${minutes(first.timeLeft)} left` : ''}` : ''}.` : v.empty);
     if (v.money) {
         const m = [];
-        if (Number.isFinite(v.money.onHand)) m.push(`${plural(v.money.onHand, unit)} on hand`);
+        if (Number.isFinite(v.money.onHand)) m.push(`${unit === 'coin' ? moneyText(v.money.onHand) : plural(v.money.onHand, unit)} on hand`); // UIC184: the same coins as the strip and the purse
         if (Number.isFinite(v.money.committedOut)) m.push(`${v.money.committedOut} committed out`);
         if (Number.isFinite(v.money.expectedIn)) m.push(`${v.money.expectedIn} expected in`);
         parts.push(`${m.join(', ')}.`);

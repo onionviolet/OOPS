@@ -38,6 +38,8 @@ test('formatGlance rounds for a list and keeps one of a thing singular (UIC148)'
 test('shortOfText names how many materials a recipe lacks (UIC172)', async () => {
     const {shortOfText} = await import('../src/crafting_visibility.js');
     assert.equal(shortOfText([{missing: true}, {missing: false}, {missing: false}]), '1 material short');
+    assert.equal(shortOfText([{missing: true, known: true, need: 3, have: 1, material: {material_id: 'Wool'}}, {missing: false}]), 'needs 2 Wool');
+    assert.equal(shortOfText([{missing: true, known: false, need: 1, have: 0, material: {material_id: 'Strange ore'}}, {missing: false}]), '1 material short');
     assert.equal(shortOfText([{missing: true}, {missing: true}, {missing: false}]), '2 of 3 materials short');
 });
 

@@ -1,5 +1,7 @@
 import {check} from '../basics.js';
-import {enrollSimulation,commitSimulationCommand,cancelSimulationJob,previewSimulationCommand,simulationFacts,setSimulationProgram,pauseSimulationProgram,resumeSimulationProgram} from '../simulation.js';
+import {evaluateRule} from '../rules.js';
+import {UNMET_REASON} from '../player_reasons.js';
+import {enrollSimulation,commitSimulationCommand,cancelSimulationJob,previewSimulationCommand,simulationFacts,simulationRuleFacts,setSimulationProgram,pauseSimulationProgram,resumeSimulationProgram} from '../simulation.js';
 import {meets} from '../simulation_contracts.js';
 import {I} from './shared.js';
 import {formatDuration} from '../number_format.js';
@@ -49,6 +51,29 @@ export function commitManagement(state,registry,command,context,sequence=state.s
  return out;
 }
 export const managementFamilies={charter:'Courtyard charter',supplies:'Finite supplies',MG01:'Investing and patronage',MG02:'Property management',MG03:'Shopkeeping and inn',MG04:'Auctions and appraisal',MG05:'Caravans and shipping',MG06:'Farming and care',MG07:'Workshop scheduling',MG08:'Lending and mutual aid',MG09:'Events and performances',MG10:'Restoration and collections'};
+// UIC180: a blocked courtyard row says what is short and where to get it, not the engine's fallback line (UIC166, UIC172).
+// Reads only the command's own requirement; an item it lacks names the count held and, when Mira's supplies carry it, her price.
+const itemName=key=>{try{return JSON.parse(key).id;}catch{return String(key);}};
+const unmetLeaves=(rule,facts,out=[])=>{if(!rule||rule.not)return out;if(rule.all||rule.any){for(const r of rule.all||rule.any)if(!evaluateRule(r,facts).met)unmetLeaves(r,facts,out);return out;}if(!evaluateRule(rule,facts).met)out.push(rule);return out;};
+function shortfall(state,registry,d,quoteContext) {
+ const facts=simulationRuleFacts(state,quoteContext,registry,d.requires),lines=[];
+ for(const leaf of unmetLeaves(d.requires,facts)) {
+  if(!leaf.fact?.startsWith('item.')||leaf.op!=='gte'){if(leaf.reason)lines.push(leaf.reason);continue;}
+  const key=leaf.fact.slice(5),have=Number(facts[leaf.fact])||0,name=itemName(key).toLowerCase();
+  const sell=managementDefinitions.commands.find(c=>c.family==='supplies'&&c.effects.some(e=>e.type==='transfer'&&e.key===key&&e.to==='player'));
+  const price=sell&&-sell.costs.filter(c=>c.key==='money').reduce((t,c)=>t+c.amount,0),seller=sell&&(registry.simulation.people?.get?.(sell.targetId)?.label||state.simulation.people[sell.targetId]?.label||'').split(', ')[0];
+  lines.push(`Needs ${leaf.value} ${name}; you have ${have}.${sell?` ${seller||'The courtyard'} sells one for ${price} coins under Finite supplies.`:''}`);
+ }
+ return lines;
+}
+// UIC181: the plot's state in words, so the Farming summary says where the crop stands before it is opened (UR158).
+export function plotLine(facts,job=null,registry=null,clock=0) {
+ if(facts['mg.plotRight']!==true)return 'plot not rented';
+ const d=job&&registry?.simulation.commands.get(job.commandId);
+ if(d?.family==='MG06')return `${d.label.split(' · ')[0].toLowerCase()}, ${formatDuration(Math.max(0,job.due-clock))} to go`;
+ const crop=facts['mg.cropType']||'crop',stage=facts['mg.cropStage'];
+ return stage==='planted'?`${crop} planted, tend next`:stage==='tended'?`${crop} tended, grow next`:stage==='ready'?`${crop} ready to harvest`:'plot empty, plant next';
+}
 export function managementPresentation(state,registry,context) {
  const local=state.actors.player.worldId===I.world&&context.facts?.location==='Village';
  if(!local)return {visible:false,sections:[],records:[]};
@@ -64,10 +89,11 @@ export function managementPresentation(state,registry,context) {
    // NPC readiness uses its own actor facts; player observation remains local.
    if(npc&&!state.actors[I.orin]?.facts['mg.foremanReady'])continue;
    const quote=previewSimulationCommand(state,registry,d.id,quoteContext);
-   if(quote.visible)actions.push({id:d.id,label:d.label,description:d.description,eligible:quote.eligible&&!context.busy,reasons:quote.reasons,duration:quote.duration,costs:quote.costs});
+   const reasons=!quote.eligible&&quote.reasons.includes(UNMET_REASON)?(()=>{const named=shortfall(state,registry,d,quoteContext);return named.length?[...new Set([...named,...quote.reasons.filter(r=>r!==UNMET_REASON)])]:quote.reasons;})():quote.reasons;
+   if(quote.visible)actions.push({id:d.id,label:d.label,description:d.description,eligible:quote.eligible&&!context.busy,reasons,duration:quote.duration,costs:quote.costs});
    if(d.repeatable===true&&state.actors.player.completed[d.id]>0)actions.push({id:d.id,type:'repeat',count:3,label:'Schedule up to three of this learned recipe',description:'Each repetition reserves real inputs separately. Shortages stop the mandate; costs are refunded when cancelled. No extra purchases or changed terms.',eligible:quote.eligible&&!context.busy,reasons:quote.reasons});
   }
-  if(actions.length)sections.push({id:family,label,actions});
+  if(actions.length)sections.push({id:family,label,actions,...(family==='MG06'?{status:plotLine(state.actors.player.facts,state.simulation.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith('mg.')),registry,state.clock)}:{})});
  }
  const job=state.simulation.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith('mg.'));
  if(job)sections.unshift({id:'work',label:'Accepted courtyard work',actions:[{id:job.id,type:'cancel',label:`Cancel ${registry.simulation.commands.get(job.commandId)?.label} · refund inputs`,description:`${formatDuration(Math.max(0,job.due-state.clock))} of work left.`,eligible:true,reasons:[]}]});

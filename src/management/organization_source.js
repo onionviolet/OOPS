@@ -1,6 +1,7 @@
 // Courtyard adapter: builds the organization descriptor for the Market courtyard (a household business)
 // from facts the courtyard already keeps. Read-only; no new state, no new save field.
 import {I} from './shared.js';
+import {plotLine} from './host.js';
 import {rankOf, ladderFor} from '../faction_rank.js';
 
 const named = label => { const i = label.indexOf(', '); return i < 0 ? {name: label, role: ''} : {name: label.slice(0, i), role: label.slice(i + 2)}; };
@@ -31,7 +32,7 @@ export function courtyardOrganization(state, registry, context = {}) {
     const reputation = context.gameplay?.player?.reputation?.Village ?? context.villageReputation;
     const standing = Number.isFinite(reputation) ? (() => { const r = rankOf('Village', reputation); return {label: 'Village standing', rank: r.name, feeling: r.feeling, value: r.value, next: r.next ? {name: r.next.name, at: r.next.at} : null}; })() : null;
     const ladder = standing ? ladderFor('Village').map((rung, i, all) => ({label: rung.name, state: rung.name === standing.rank ? 'current' : rankOf('Village', reputation).index > i ? 'done' : 'pending'})) : [];
-    const holdings = [{id: I.bench, label: 'Shared workbench'}, {id: I.room, label: 'Concession room', note: state.actors.player.facts['mg.roomOwned'] ? 'yours' : 'not yours yet'}, {id: I.plot, label: 'Planting plot'}];
+    const holdings = [{id: I.bench, label: 'Shared workbench'}, {id: I.room, label: 'Concession room', note: state.actors.player.facts['mg.roomOwned'] ? 'yours' : 'not yours yet'}, {id: I.plot, label: 'Planting plot', note: plotLine(state.actors.player.facts, jobs.find(j => j.actorId === 'player'), registry, state.clock)}];
     return {id: 'courtyard', name: 'Market courtyard', kind: 'household_business', members, operations, holdings, ladder, standing,
         money: {onHand: Number.isFinite(onHand) ? onHand : undefined, committedOut: committedOut || undefined, expectedIn: expectedIn || undefined}};
 }

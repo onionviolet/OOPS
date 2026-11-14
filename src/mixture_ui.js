@@ -26,8 +26,10 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
     const run=request=>{try{const result=act(request);lastFailure=null;lastQueueFailure=null;if(request.type==='repeat')queueCounts.delete(request.product);const completion=getMixtureOwner()?.lastCompletion;
         notice.textContent=request.type==='advance'&&completion?.outcome==='repeat stopped'?`Batch completed. Repeat stopped. ${mixtureFailureText(completion.stopReason)}`:result?.message||'No change.';
         lastSafeNotice=notice.textContent;render();}catch(error){lastFailure=request.type==='mix'?error.message:null;lastQueueFailure=request.type==='repeat'?error.message:null;const message=mixtureFailureText(error.message);notice.textContent=message+(message==="Can't mix right now"&&lastSafeNotice?` · Last notice: ${lastSafeNotice}`:'');updateFeedback();}};
+    // UIC186: a plain column head, so the number box reads as how many to use (upstream's table shape).
+    {const head=document.createElement('div');head.className='mixture-ingredient mixture-head';head.setAttribute('aria-hidden','true');for(const t of ['Ingredient','Use','Held',''])head.append(Object.assign(document.createElement('span'),{textContent:t}));rows.append(head);}
     for(const i of INGREDIENTS){const row=document.createElement('label');row.className='mixture-ingredient';const name=document.createElement('span');name.textContent=i.id+' ';row.append(name);
-        const input=document.createElement('input');input.type='number';input.min=0;input.max=99;input.step=1;input.value=['River bellleaf','Spring water'].includes(i.id)?1:0;input.id='mixture_amount_'+i.id.replaceAll(' ','_');input.style.width='50px';input.oninput=()=>{lastFailure=null;preview();};row.append(input);amounts[i.id]=input;
+        const input=document.createElement('input');input.type='number';input.min=0;input.max=99;input.step=1;input.value=['River bellleaf','Spring water'].includes(i.id)?1:0;input.id='mixture_amount_'+i.id.replaceAll(' ','_');input.style.width='50px';input.setAttribute('aria-label',`How many ${i.id} to use`);input.oninput=()=>{lastFailure=null;preview();};row.append(input);amounts[i.id]=input;
         const stock=document.createElement('span');stock.className='mixture-have';stockLabels[i.id]=stock;row.append(stock);const buy=document.createElement('button');buy.type='button';buy.className='mixture-buy';buy.textContent=`Buy · ${i.price} coins`;buy.setAttribute('aria-label',`Buy one pack of ${i.id} for ${i.price} coins`);buy.onclick=()=>run({type:'buy',id:i.id});row.append(buy);name.title=i.route;rows.append(row);}
     const controls=document.createElement('div');controls.className='mixture-controls';panel.append(controls);
     const methods=document.createElement('details');methods.className='mixture-details';
@@ -78,6 +80,11 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
         const shortage=short.length?`Missing ${short.map(r=>`${r.missing} ${r.id}`).join(' and ')}${data.holds.buyCoins?`; buying ${short.length===1?'it':'them'} costs ${data.holds.buyCoins} coins`:''}.`:'';
         const message=unavailable?data.blocker.mix:shortage||data.blocker.mix;
         if(status.textContent!==(message??''))status.textContent=message??'';
+        // UIC187: Mix is pressable only when it can run, and a blocked Mix says why on hover and in the status line under it (UIC166).
+        const cannot=!frame.ready||!!q.error||short.length>0,why=cannot?(message||'Not ready to mix.'):'';
+        mix.disabled=cannot;if(mix.title!==why)mix.title=why;
+        // UIV1: the status line under it is the reason; linking it keeps the shared sweeper from printing a second copy.
+        if(cannot&&why===message)mix.setAttribute('aria-describedby',status.id);else if(mix.getAttribute('aria-describedby')===status.id)mix.removeAttribute('aria-describedby');
     }
     function preview(){
         const methodLabel=method.value===RESPONSIVE_METHOD?'Responsive method':'Ordinary method';

@@ -12,7 +12,7 @@ export function createFieldPanel({registry,read,command,openWorkshop,localAction
     const groups=new Map(),controls=new Map();let notice="",eventSignature="",sessionSignature="";
     const run=c=>{try{command(c);notice="Progress saved.";}catch(e){notice=e.message;}render();};
     const button=(label,id,c)=>{const b=node("button",label);b.type="button";b.dataset.fieldCommand=id;b.addEventListener("click",()=>run(c));return b;};
-    for(const [id,label] of [["association","Association"],["lever","Wedged timber & lever lesson · PROPOSAL"],["methods","Methods & recovery"],["workshop","Project & production"],["road","Road aftermath"],["assessment","Assessment"]]) {
+    for(const [id,label] of [["association","Association"],["lever","Wedged timber & lever lesson"],["methods","Methods & recovery"],["workshop","Project & production"],["road","Road aftermath"],["assessment","Assessment"]]) {
         const group=node("details","","notebook_preparation");group.append(node("summary",label));group.open=id==="association";body.append(group);groups.set(id,group);
     }
     const begin=button("Ask about a shared field workshop","field.begin",{type:"field_begin"});groups.get("association").append(begin);

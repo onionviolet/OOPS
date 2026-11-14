@@ -2882,3 +2882,41 @@ Picked up on Opus from the UI chat's stopped plan after the day strip was mounte
 - No unit test for the three DOM changes; the browser runs above are the evidence.
 
 Still open: the story cast in Around you (F3, UI chat).
+
+### Fifteenth batch: feature panels, farming first (play surface, 2026-11-14)
+
+Weibao's play-surface direction (2026-11-14, [direction log](../gm/USER_VISION_LOG_2026-11.md#play-surface-ui-per-feature-combat-across-worlds-daily-loops-2026-11-14)): each feature panel gets an intuitive pass inside the current frame. Agent-verified, not human-reviewed. Working defaults under AD56. Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture, before and after, from a fresh origin each run; no page errors. Upstream YAIR was the yardstick: a plain row per thing, the number one step away, nothing to open to learn what is short. Voice sample (PRS7, UIC173): "Missing 1 River bellleaf and 1 Spring water; buying them costs 10 coins."
+
+**Farming: the courtyard plot (Organizations · Market courtyard).** Played the whole cycle each time: visit, rent, buy a seed, plant, tend, grow, harvest.
+
+- **UIC180, a blocked row says what is short and where to get it (done).** Plant read "The required knowledge, means or circumstances are missing." with no seed. It now reads "Needs 1 courtyard seed packet; you have 0. Mira sells one for 2 coins under Finite supplies." The courtyard reads the command's own requirement and Mira's supply list, so any courtyard row short of an item gets the same line.
+- **UIC181, the plot's state one step away (done).** The Farming summary and the Holdings line say where the crop stands: "plot not rented", "plot empty, plant next", "plant quick greens, 2 min to go", "greens planted, tend next", "greens tended, grow next", "greens ready to harvest". Every courtyard section summary also counts what can be pressed now ("Finite supplies · 3 ready").
+- **UIC182, Plant threw you into the Notebook (fixed).** Any courtyard job with a duration (plant, tend, grow) moved the centre to the Notebook's People tab, because the Notebook claimed every running job that had no owner panel. The courtyard now registers as the owner of its work, as the LOTM and Hogwarts panels do; the whole cycle stays in the courtyard.
+- **UIC183, what just happened (done).** "Courtyard change saved." after every press became "Done: Rent Mira's local plot.", "Started: Plant quick greens, 2 min to go." (turning to "Done: Plant quick greens." when it ends) or "Stopped." (G16 shape).
+- **UIC184, one money format (done).** The courtyard summary said "104 coins on hand" beside a strip and purse reading "10C 4W". It uses the purse's format now.
+- **Human time (UIC130).** "Grow tended greens · 3 played min" and two foreman labels read "3 min"; "3 actual portions" reads "3 portions". A job already saved keeps its old label (PRS8).
+
+**Field works.** The Field association panel opens on `village-rival`; Practical works needs a built facility that no fixture reaches, so it was not seen. One fix: the "Wedged timber & lever lesson · PROPOSAL" heading lost its build tag (UIC188, PRS9). `world_completion_crop_clock.js` draws nothing; nothing to pass.
+
+**Crafting.**
+
+- **UIC185, the one short material is named on the row (done).** A recipe short of one known material says which and how many ("Bonemeal · needs 20 animal tooth") instead of "1 material short". A material the character has not met keeps the count alone, as the detail calls it "Unfamiliar material" (PRS1); several short keep "2 of 3 materials short". Test in `tests/number_format.test.js`. The crafting baseline changed by that one row and was refreshed.
+
+**Mixing.**
+
+- **UIC187, Mix one vial was pressable with nothing to mix (fixed; corrects the round 51 note on UIC173).** In Chrome the button was enabled while the counter said ingredients were missing. It is now disabled until the quote can run, its tooltip carries the same line, and it points at the status line so the shared reason sweeper does not print a second copy. Seen: disabled, then enabled after buying the two short plants, then "Mixture owned. Drink a dose to observe its properties."
+- **UIC186, the number box reads as an amount (done).** A plain column head (Ingredient, Use, Held) sits over the four rows, each box is labelled for screen readers, and the Buy column has a fixed width so the boxes line up (Emberseed's sat 7 px left).
+
+**Found, not fixed (not mine or not plain work).**
+
+- **UIC189, doubled lines under "Earlier" in Reports.** On `village-rival` the saved log tail reads "Started a new quest: Lost memoryStarted a new quest: Lost memory", each line twice with no break. Whoever owns the saved log tail.
+- **UIC190, two money formats.** Prices across panels read "8 coins" and "costs 10 coins" while the purse reads "10C 4W". Fixed only in the courtyard summary; the rest is a frame-wide sweep.
+- **Courtyard section counts are noisy.** Nine of eleven sections show "1 ready" from day one, because each offers a free first step. Kept: it tells a newcomer each section has something to press. Dropping the count where the only ready row is an introduction is the next refinement.
+
+**Checks**
+
+- Focused tests for every touched module (17 files): 181 pass, 0 fail. `npm run test:changed` with the courtyard change: 3,900 tests, 3,898 pass, 0 fail, 2 skipped.
+- `check:arch` passes (no new cycle, `main.js` unchanged). `check:rules` fails on one line, not mine: the coordinator's new `docs/gm/dispatch/play-surface-2026-11-14/CHECKPOINT.md` lacks a receipt block.
+- `check:visual`: home, stats, inventory, journal identical; crafting differed only by the Bonemeal row (x 634-808, y 404-415) and was refreshed.
+
+**Next, in order:** Gu garden display (`gu-fed-second`), gathering (Village common herb verge, "Gathering at a glance"), carcass processing (its intro is a manual of "played time" lines, PRS9), then UIC190.
