@@ -63,3 +63,35 @@ export function shortOfText(requirements) {
     const short = requirements.filter(r => r.missing).length, all = requirements.length;
     return short === 1 ? '1 material short' : `${short} of ${all} materials short`;
 }
+
+/** The short word on a recipe row and its longer spoken form, from one status. */
+export function recipeRowSummary(state) {
+    const noStation = state.reasons.includes('no station here'), short = state.requirements.some(r => r.missing);
+    return state.available
+        ? {short: `${state.amount} ready`, explanation: `${state.amount} ${state.amount === 1 ? 'attempt' : 'attempts'} ready; results may vary`}
+        : noStation ? {short: 'No station', explanation: 'No station here'}
+        : short ? {short: shortOfText(state.requirements), explanation: 'Missing materials; select for requirements'}
+        : {short: 'Unavailable', explanation: 'Unavailable; select for requirements'};
+}
+
+/**
+ * UIC172: each skill tab shows how many of its item recipes can be made now, so an empty tab is known before it is
+ * opened. Reads the rows' own readiness marks; one pass per frame however many rows repaint.
+ */
+let tabCountsQueued = false;
+export function paintRecipeTabCounts(doc) {
+    if (tabCountsQueued || !doc?.querySelectorAll) return;
+    tabCountsQueued = true;
+    const run = () => {
+        tabCountsQueued = false;
+        for (const tab of doc.querySelectorAll('.crafting_mainpage_button[data-crafting_category]')) {
+            const category = tab.dataset.crafting_category;
+            const ready = doc.querySelectorAll(`[data-crafting_category="${category}"][data-crafting_subcategory] .recipe_readiness[data-ready="true"]`).length;
+            const next = ready ? String(ready) : '';
+            if ((tab.dataset.readyCount || '') !== next) { if (next) tab.dataset.readyCount = next; else delete tab.dataset.readyCount; }
+            const title = ready ? `${ready} ${ready === 1 ? 'recipe' : 'recipes'} ready to make` : 'Nothing ready to make here yet';
+            if (tab.title !== title) tab.title = title;
+        }
+    };
+    (globalThis.requestAnimationFrame || (fn => setTimeout(fn, 0)))(run);
+}

@@ -248,6 +248,8 @@ export const LAYOUT_SPEC = Object.freeze({
     // UIC164 (2026-11-13): All panels entries that opened a stub. `whenFound`: listed only while the panel's
     // own discovered() says it has something to show (it stays reachable the moment it does). `never`: the
     // panel is always on screen, so the list does not repeat it. Defaults; move an id out to list it again.
+    // G7 (2026-11-13): the panel a life that holds its own things opens on when Here has nothing to do. '' turns it off.
+    lifeHome: 'beginning',
     listing: Object.freeze({whenFound: Object.freeze(['cultivation-insights', 'hp']), never: Object.freeze(['current-work'])}),
     folds: Object.freeze({
         'today': Object.freeze({into: 'region-view', section: 'today', retired: true, label: 'Today'}),

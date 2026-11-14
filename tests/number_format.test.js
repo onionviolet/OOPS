@@ -40,3 +40,27 @@ test('shortOfText names how many materials a recipe lacks (UIC172)', async () =>
     assert.equal(shortOfText([{missing: true}, {missing: false}, {missing: false}]), '1 material short');
     assert.equal(shortOfText([{missing: true}, {missing: true}, {missing: false}]), '2 of 3 materials short');
 });
+
+test('recipeRowSummary gives one short word and one spoken line per status (UIC172)', async () => {
+    const {recipeRowSummary} = await import('../src/crafting_visibility.js');
+    assert.deepEqual(recipeRowSummary({available: true, amount: 2, reasons: [], requirements: []}), {short: '2 ready', explanation: '2 attempts ready; results may vary'});
+    assert.equal(recipeRowSummary({available: false, amount: 0, reasons: ['no station here'], requirements: [{missing: true}]}).short, 'No station');
+    assert.equal(recipeRowSummary({available: false, amount: 0, reasons: ['missing 1 material'], requirements: [{missing: true}, {missing: false}]}).short, '1 material short');
+    assert.equal(recipeRowSummary({available: false, amount: 0, reasons: ['x'], requirements: []}).short, 'Unavailable');
+});
+
+test('paintRecipeTabCounts marks a skill tab with how many recipes are ready (UIC172)', async () => {
+    const {paintRecipeTabCounts} = await import('../src/crafting_visibility.js');
+    const tab = category => ({dataset: {crafting_category: category}, title: ''});
+    const tabs = [tab('cooking'), tab('forging')], ready = {cooking: 2, forging: 0};
+    const doc = {querySelectorAll: selector => selector.startsWith('.crafting_mainpage_button') ? tabs
+        : {length: ready[selector.match(/data-crafting_category="([^"]+)"/)[1]]}};
+    const frames = []; const original = globalThis.requestAnimationFrame; globalThis.requestAnimationFrame = fn => frames.push(fn);
+    try {
+        paintRecipeTabCounts(doc); paintRecipeTabCounts(doc);
+        assert.equal(frames.length, 1, 'many repaints queue one pass');
+        frames[0]();
+        assert.equal(tabs[0].dataset.readyCount, '2'); assert.equal(tabs[0].title, '2 recipes ready to make');
+        assert.equal(tabs[1].dataset.readyCount, undefined); assert.equal(tabs[1].title, 'Nothing ready to make here yet');
+    } finally { globalThis.requestAnimationFrame = original; }
+});

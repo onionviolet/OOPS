@@ -18,6 +18,7 @@ import {pollBadges,badgeCount,markSeen,paintBadge} from './change_badges.js';
 import {controlForRoute} from './seat_profiles.js';
 import {observerView} from './observer_view.js';
 import {readPort} from './ui_ports.js';
+import {ownHoldings} from './own_holdings.js';
 import {setLocked,lockReason,sayReason} from './locked_control.js';
 
 // UIL1 (UIM2): the routes come from the layout spec's route table; this module owns how each opens.
@@ -53,6 +54,16 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     const more=document.createElement('select');more.setAttribute('aria-label','Other known panels');
     // G7: a row in a life's own holdings opens the panel that holds what the life can do with it.
     document.addEventListener('own-holdings-open',()=>expandWorkspaceModule('beginning'));
+    // G7: a life that holds its own things and has nothing to do under Here opens on its own panel (LAYOUT_SPEC.lifeHome),
+    // once per arrival at a place, so Back still returns to Here and stays there. A default; set lifeHome to '' to turn it off.
+    let lifeHomeShownFor='';
+    const hereIsEmpty=()=>{const host=document.getElementById('location_actions_div');return !host||![...host.children].some(el=>!el.hidden&&el.style?.display!=='none'&&!el.classList?.contains('none_display')&&(el.getClientRects?el.getClientRects().length>0:true)&&(el.textContent||'').trim());};
+    const lifeHomeTimer=setInterval(()=>{if(!nav.isConnected){clearInterval(lifeHomeTimer);return;}
+        const target=LAYOUT_SPEC.lifeHome;if(!target||document.documentElement.dataset.startScreen!=='closed')return;
+        const world=readPort('expansion')?.actors?.player?.worldId,key=`${world}:${document.getElementById('location_name_span')?.textContent||''}`;
+        if(!world||!ownHoldings(world)){lifeHomeShownFor='';return;}
+        if(key===lifeHomeShownFor||centerModes().mode!=='local')return;
+        lifeHomeShownFor=key;if(hereIsEmpty()&&knownWorkspaceModules().some(m=>m.id===target&&m.eligible))expandWorkspaceModule(target);},800);
     // UIC164: an entry whose panel is only a launcher or a tab chooser opens what its top-bar route opens.
     const routeFor=id=>routes.find(route=>route.target===id&&(route.select||route.tab));
     more.onchange=()=>{const id=more.value;if(id){arrivals.delete(id);const route=routeFor(id),button=route&&buttons.get(route);if(button&&!button.hidden&&button.getAttribute('aria-disabled')!=='true'&&!button.disabled)button.click();else expandWorkspaceModule(id);}more.value='';};nav.append(more);

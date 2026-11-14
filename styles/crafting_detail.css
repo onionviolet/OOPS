@@ -185,3 +185,6 @@
     flex:0 0 auto;background:var(--custom-background,var(--p23-context));
     padding:var(--ui-space-2);border:1px solid var(--workspace-border);
 }
+
+/* UIC172: a skill tab carries how many recipes are ready to make now. */
+#crafting_window .crafting_mainpage_button[data-ready-count]::after { content: ' · ' attr(data-ready-count); color: var(--sem-gain, var(--ui-swatch-001)); }

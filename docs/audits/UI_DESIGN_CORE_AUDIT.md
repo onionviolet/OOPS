@@ -2724,3 +2724,12 @@ Agent-verified, not human-reviewed. Seen in headless Chrome at 1920×1080 on the
 **Ledger changes after this batch:** UIC159 done; UIC149 reworded and closed as designed; UIC166 open as a check, with the count unknown; G6 and G7 done for lives that hold their own things (fourth batch); G8 routed to the coordination chat. Everything else stands as in the revised ledger above.
 
 **Next, in the coordination chat's order:** a life's own panel as its home view (needs a look), the recipe-list extraction and then UIC172's sort and counts, UIC158's remaining lines with a compatibility check on registered definitions, then UIC146 to UIC148 beyond the Stats list.
+
+### Sixth batch: a life opens on its own panel, ready counts, a stray line (2026-11-13)
+
+Agent-verified, not human-reviewed. Working defaults under AD56, each one switch or table entry.
+
+- **A life's own panel as its home view (done; G7).** A life that holds its own things and has nothing to do under Here opens on "Your beginning" (`LAYOUT_SPEC.lifeHome`; empty turns it off). It happens once per arrival at a place, so Back returns to Here and stays. Seen in headless Chrome at 1920×1080 on `gu-fed-second`: the keeper's life loads on its Gu house table; Back leaves the centre on Here; the Village home is unchanged; no page errors.
+- **UIC172, ready counts on the skill tabs (done; sort not needed).** Each crafting tab shows how many of its recipes can be made now, and its tooltip says so or says nothing is ready. A "Makeable now" filter already exists, so sorting was dropped. The row wording moved out of `display.js` into `crafting_visibility.js`, which freed the room. Seen in Chrome only for the empty case (no recipe is ready in the fixture); the count itself is covered by a unit test.
+- **G6, "Patrol blocked" in another life (hardened, cause not traced).** The shortcut's own rule already hides it off the Village. It now also leaves the page when hidden, so no display rule on the action list can show it elsewhere. I could not reproduce the dormitory sighting, so this is a guard, not a confirmed fix. "Dudley's birthday" comes from the HP lead pack's own text and was not touched.
+- **Gu upkeep tests.** `tests/gu_upkeep.test.js` passes 57 of 57 on the current tree; the 32 failures seen earlier came from another session's edit that has since landed.

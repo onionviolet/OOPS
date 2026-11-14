@@ -67,7 +67,10 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
     }
     const shortcut=node('button','Patrol blocked: return the loaned kit · Open Patrol & custody');shortcut.type='button';shortcut.id='village_patrol_custody_link';
     shortcut.onclick=()=>openWorkspaceModule('patrol');
+    // G6: off the Village the shortcut leaves the page as well as being marked hidden, so no display rule on the
+    // action list can show it in another life (the lead audit saw it in a dormitory; the exact cause was not traced).
     function refreshShortcut(){const v=read();shortcut.hidden=!v.visible||!v.state.loan||v.state.loan.status==='active';
+        if(shortcut.hidden){if(shortcut.isConnected)shortcut.remove();return;}
         const host=document.getElementById('location_actions_div');if(host && shortcut.parentElement!==host)host.prepend(shortcut);}
     render();registerWorkspaceModule({id:'patrol',title:'Patrol & custody',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(render,250);return {render,destroy:()=>{clearInterval(timer);unregisterWorkspaceModule('patrol');panel.remove();shortcut.remove();}};
 }

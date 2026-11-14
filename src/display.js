@@ -56,7 +56,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 import { channelNote } from "./channels.js";
 import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
-import {recipeMakeableNow, itemRecipeStatus, shortOfText} from "./crafting_visibility.js";
+import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts} from "./crafting_visibility.js";
 import {readPort,ports,whenPortsReady} from './ui_ports.js';
 import {mountTalkView} from './talk_dialogue_host.js';
 import {craftCue} from "./craft_cues.js";
@@ -3422,21 +3422,14 @@ function update_item_recipe_row_status(row, category, recipe) {
         summary.className = "recipe_readiness";
         row.append(summary);
     }
-    const short = state.available ? `${state.amount} ready`
-        : state.reasons.includes("no station here") ? "No station"
-        : state.requirements.some(r => r.missing) ? shortOfText(state.requirements)
-        : "Unavailable";
-    const explanation = state.available
-        ? `${state.amount} ${state.amount === 1 ? "attempt" : "attempts"} ready; results may vary`
-        : state.reasons.includes("no station here") ? "No station here"
-        : state.requirements.some(r => r.missing) ? "Missing materials; select for requirements"
-        : "Unavailable; select for requirements";
+    const {short, explanation} = recipeRowSummary(state);
     summary.textContent = short;
     summary.title = explanation;
     summary.dataset.ready = String(state.available);
     summary.setAttribute("aria-hidden", "true");
     const count = recipe.getResult().count;
     row.setAttribute("aria-label", `${recipe.name}${count > 1 ? `; output ×${count}` : ""}; ${explanation}`);
+    paintRecipeTabCounts(document);
 }
 
 function refresh_crafting_detail() {
