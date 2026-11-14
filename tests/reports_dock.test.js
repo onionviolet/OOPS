@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {dockRows, LOG_TAKES_OVER, tailOf, tailFor, TAIL_LINES} from '../src/reports_dock.js';
+import {dockRows, LOG_TAKES_OVER, tailOf, tailFor, TAIL_LINES, isDivider} from '../src/reports_dock.js';
 
 const next = {line: 'Talk to the elder.', how: 'In Local actions.'};
 const today = {clock: 'Mon, Summer, Morning · 08:00', place: 'Village', open: ['Fishing'], running: {count: 0, nextIn: null}};
@@ -34,4 +34,10 @@ test('the tail of the log travels with the save as plain text, capped, and only 
     assert.deepEqual(tailFor(slice, 'book.other'), [], "another life's lines stay out");
     assert.deepEqual(tailFor(null, 'native'), [], 'a save without the slice loads as before');
     assert.equal(tailFor(slice, 'native').length, TAIL_LINES);
+});
+
+test('a day or place divider is not part of the saved tail, so save, reload, save changes nothing (M2)', () => {
+    assert.equal(isDivider('[ Home · 01/04/999, Summer, Mon ]'), true);
+    assert.equal(isDivider('  [ Entering Wild willow stand ] '), true);
+    assert.equal(isDivider('You hit Wolf rat for 1 bludgeoning'), false);
 });

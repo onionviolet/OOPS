@@ -19,7 +19,10 @@ let restored = null, showEarlier = () => {};
 const worldNow = () => (typeof document === 'undefined' ? 'native' : document.documentElement.dataset.world || 'native');
 // What the player read: the line as shown, without its buttons or the spoken-aloud copy.
 const visibleLine = n => [...n.querySelectorAll('button')].reduce((text, b) => text.replace(b.innerText || b.textContent, ''), n.innerText ?? n.textContent);
-const saveTail = () => { if (typeof document === 'undefined') return undefined; const stream = document.getElementById('message_box_div'); return stream ? tailOf([...stream.children].filter(n => !n.classList.contains('report-earlier-head')).map(visibleLine), worldNow()) : undefined; };
+// A place or day divider ("[ Home · 01/04/999 ]") is written afresh by every sitting, so it is not part of the tail:
+// saving, reloading and saving again with nothing done leaves the save the same.
+export const isDivider = text => /^\[ .* \]$/.test(String(text || '').replace(/\s+/g, ' ').trim());
+const saveTail = () => { if (typeof document === 'undefined') return undefined; const stream = document.getElementById('message_box_div'); return stream ? tailOf([...stream.children].filter(n => !n.classList.contains('report-earlier-head')).map(visibleLine).filter(text => !isDivider(text)), worldNow()) : undefined; };
 
 // Pure: the rows the card shows, or none once the log has enough lines of its own.
 // UIC146: where the place header already shows the date and hour, the card keeps only the day's note.
