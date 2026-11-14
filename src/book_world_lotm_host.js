@@ -64,6 +64,7 @@ import {lotmSheetsFor} from './book_world_lotm_sheets.js';
 import {harmContext,accrueHarm,restHarm,lotmRestMeter,lostControlOutcome,lossOfControlStep,harmClassOf,drainLotmInbox,lotmLossLine,lotmStageNote} from './book_world_lotm_harm.js';
 import {harmState,setHarmState} from './harm_state.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
+import {wageView,wageStartEffects,wageCollectEffects} from './book_world_lotm_wage.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
 // A walk's arrival record cites the workroom situation, which begins when you report in (or your life's own first report).
 const WALK_AFTER_REPORT='Report in at the workroom before you walk the district.';
@@ -417,6 +418,13 @@ export function createLotmHost(ports){
   try{applySimulationEffects(plan,[purseEffect(owed.pence)],{actorId:'player'},registry,'book.lotm.guard_pay');persist(plan);}catch(e){guardRestore(prior);throw e;}
   ports.logMessage?.(`The foreman paid ${guardPayWords(owed.pence)}${owed.weeks?` for ${owed.weeks} ${owed.weeks===1?'week':'weeks'} of watch`:''}${owed.bonus?`${owed.weeks?', with':' as'} a bonus of ${guardPayWords(owed.bonus)}`:''}.`,'notification');
  }
+ // Klein's weekly wage after the story window (book_world_lotm_wage.js): one plan per draw, the purse effect and the paid weeks saved together.
+ function startWage(){writable();const s=state(),plan=base(s,ports.context());applySimulationEffects(plan,wageStartEffects(s),{actorId:'player'},registry,'book.lotm.wage');persist(plan);}
+ function collectWage(){
+  writable();const s=state(),plan=base(s,ports.context()),{effects,line}=wageCollectEffects(s);
+  applySimulationEffects(plan,effects,{actorId:'player'},registry,'book.lotm.wage');persist(plan);
+  ports.logMessage?.(line,'notification');return line;
+ }
  function view(selected=null){return withFactsFrame(state(),()=>readView(selected));}
  function readView(selected=null){
   const s=castState(state()),d=s.lotm,shared={};
@@ -456,7 +464,7 @@ export function createLotmHost(ports){
    const records=[...Object.entries(know).filter(([k])=>k.startsWith('book.lotm.history.')).map(([id,r])=>({id,text:r.value,at:r.at})),...placeActRecords(s,pack?.householdActs),...topicTalkRecords(s,castTalkCommands)];
    const region=lotmRegionAt(s.simulation.people.player.location,{hour:castCalendar(s).calendar.hour,money:nativeContext.external?.money??0,restrictions:lotmRestrictions({state:s,days:getPrivateLotmCast()?.bindings?.days||[]})});
    const sheets=lotmSheetsFor(s,getPrivateLotmCast(),Object.keys(know).map(k=>/^book\.lotm\.cast\.(?:known|met)\.(.+)$/.exec(k)?.[1]).filter(Boolean));
-   return {enrolled:true,resident:true,mind:lotmMindView(s),law:lawView(s,lawCtx(s,c)),powers,reputation:reputationView(s,{known:id=>castAcquainted(s,id)}),home:pack?lotmHomeView(s,{pack,duties:domainRegistry.project('duties'),homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}):null,tieOffers:tieOfferView(s).filter(o=>castAcquainted(s,o.personId)),ties:tieShownView(s).filter(t=>castAcquainted(s,t.personId)),altarRites:rites,arc:placeActSequenceView(s,pack?.householdActs),remoteMeetings:remotePresenceView(s,pack?.householdActs),stockViews:placeStockViews(s,pack?.householdActs),runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sky:skyLine(s),sleeping:ports.sleeping(),meters:[lotmRestMeter(s)].filter(Boolean),places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,sealedRecords,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
+   return {enrolled:true,resident:true,wage:wageView(s),mind:lotmMindView(s),law:lawView(s,lawCtx(s,c)),powers,reputation:reputationView(s,{known:id=>castAcquainted(s,id)}),home:pack?lotmHomeView(s,{pack,duties:domainRegistry.project('duties'),homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}):null,tieOffers:tieOfferView(s).filter(o=>castAcquainted(s,o.personId)),ties:tieShownView(s).filter(t=>castAcquainted(s,t.personId)),altarRites:rites,arc:placeActSequenceView(s,pack?.householdActs),remoteMeetings:remotePresenceView(s,pack?.householdActs),stockViews:placeStockViews(s,pack?.householdActs),runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sky:skyLine(s),sleeping:ports.sleeping(),meters:[lotmRestMeter(s)].filter(Boolean),places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,sealedRecords,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
   }
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');
@@ -495,7 +503,7 @@ export function createLotmHost(ports){
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),law:lawView(s,lawCtx(s,c)),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f,know),places,marketHeld,cause:causeView(f),mind:lotmMindView(s),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:[...lotmMeters(e),lotmRestMeter(s)].filter(Boolean),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
- return {enroll,cross,resign,signGuard,standWatch,lawRoute,fileExpense,tieAsk,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,resign,signGuard,standWatch,lawRoute,fileExpense,tieAsk,collectGuardPay,startWage,collectWage,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){return castLocalClock(s)?.clock||'';}

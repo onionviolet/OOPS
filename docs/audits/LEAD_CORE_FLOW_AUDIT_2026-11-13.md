@@ -140,6 +140,7 @@ have three that work.
 | G15 | **New. The Beginning panel lists the whole road ahead.** About 88 future step titles for Fang Yuan, and Harry's later continuations by name. Klein's day 53 carries thoughts about late-book matters. |
 | G16 | **New. Ordinary actions give no result line.** Harry's charm practice, cast and flask hand-in; Fang Yuan's story step ("Command saved."); the keeper's "Put the Moonlight Gu to work · 1 essence, 1 stone", where the stone is a gain and the label reads as a cost. |
 | G17 | **New (from the UI chat, checked here 2026-11-14). Klein's charged rent is not the book's.** `src/book_world_lotm_duties.js` charges a flat 5 soli a week, marked `basis: 'assumed'` with a comment that the source gives no figure. The local cast, built from the book, gives two: the old flat at 5 soli 6 pence a week, and 2 Daffodil Street at 12 soli a week plus 3 pence for furniture after Benson's bargaining (first quote 13 soli and 5 pence, deposit 2 pounds), paid weekly on a one-year lease. Klein's notebook in `lotm-kjw37` already records 12 soli 3 pence. Under AD49 the charge should follow the source. Not changed here: the amount is one fixed number read by the duty, the collector, the household line and about a dozen tests, and the right fix makes it follow where he lives (66 pence before the move, 147 after). No pinned hash moves and saves hold miss counts, not amounts, so no alias is needed; arrears in old saves would be re-priced. Listed as P7. |
+| G18 | **New (2026-11-14, wage slice). Late LOTM saves stall headless Chrome at PLAY.** kjw42 (ch129) and kjw33 leave the renderer above 100% CPU, and no JavaScript pause point is reached. This held on the HEAD tree too. kjw33 reached a usable page on 2026-11-10 (WIN2). Every Klein-side browser proof waits on it. |
 
 Where these go: G6, G7, G10, G13, G15 and G16 are screen findings for the UI chat (through the coordination chat); the
 fight part of G8 is with the combat chat. G11 and the link table feed P3 and P4.
@@ -351,3 +352,56 @@ patrols?", read as random encounters and wolf attacks). Adjustable defaults (AD5
     and sets the wound.
   - Chrome at 1920×1080 (bundle from `ff2f94063` plus two paths, sha256 `33378431…`): the patrol shows the wolf reason, and
     the drive-off result held through reload and Import. No page errors.
+
+### Klein's weekly wage, 2026-11-14
+
+Loop K1 from the table above: £3 a week in, with the advance repaid at half pay. Rent by home (P7) is not part of this slice.
+
+- **What plays.** Under Here, a "Weekly pay" block appears once his save holds the Nighthawk contract note
+  (`book.lotm.kj3f.contract.terms`).
+  - "Draw your weekly pay" starts the weeks.
+  - Each closed week can then be collected: "Collect your pay · 1 pound 10 soli". The block names what is kept against the
+    advance and what is still owed.
+  - After eight weeks the advance is repaid, and the full £3 comes through.
+- **Default, dial, reason** (`WAGE_DIALS` in `src/book_world_lotm_wage.js`):
+  - The weekly pay (720 pence), the advance (2,880 pence) and the kept share (half) are stated by the contract and the
+    advance slip.
+  - The weeks count from his own first draw. The reason: the story replay pays the canon weeks it shows as scenes and never
+    takes the advance back, so the whole advance is still owed when the ordinary weeks begin.
+  - A save without the advance slip is paid in full.
+- **Shape.** It copies the money seam's `book_world_lotm_pay.js`:
+  - one purse effect per collection;
+  - progress kept as a SET fact (`book.lotm.wage.paid`), so a replay cannot pay twice;
+  - elapsed weeks derived from the `.at` of the start note `book.lotm.wage.start`.
+  No save slice and no second money counter. The host verbs are `startWage` and `collectWage`, beside the guard's pay.
+- **Why not a `registerPayLine` row.** A pay line pays one fixed figure per week, one week per collection. This wage keeps a
+  share against a debt until the debt is cleared, and pays every closed week in one draw. Both need a running view of the
+  advance, so the wage is a sibling of that seam rather than a row in it. Folding the advance into the pay seam as a
+  "kept against" step is a possible later merge.
+- **Compatibility.** Additive. An old save shows the start offer, and nothing is paid until it is taken.
+- **Not done.**
+  - The advance has no row in Ledger > Owed yet.
+  - Rent is still the flat 5 soli (G17, P7). The book gives 5 soli 6 pence at the old flat and 12 soli 3 pence at 2
+    Daffodil Street after the lease ends (`kj3n.franky.deal`).
+  - Charging rent by home needs the duty set's defs read per state in `duties_domain.js`. Today the amount is a frozen
+    number, read in five places.
+- **Checked.**
+  - `tests/lotm_wage.test.js` covers the canon figures, eight weeks at half, the full wage after, one SET per draw and no
+    advance slip.
+  - Headless on his ch129 save (lotm-kjw42):
+    - The offer, Start and the first week's countdown play.
+    - From a DEV setup a week into the wage (start note backdated three weeks, one week already paid; no other state
+      edited), collecting pays 720 pence for weeks 2 and 3 and keeps 3 pounds. The block then reads "7 pounds 10 soli still
+      owed".
+    - That result holds through reload and through Export then Import.
+  - A live seven-day step was stopped after 11 CPU minutes without finishing. Under the headless runner a late LOTM life
+    ticks very expensively.
+- **Below floor: the browser gate (FLR) is not met.**
+  - In headless Chrome at 1920×1080 the page never got past PLAY on late LOTM saves (kjw42 at ch129, kjw33). This held with
+    four launch routes: the fixture opener, a forced click, the playtest `Session` with a frozen wall clock, and the
+    restamped save.
+  - The renderer sits above 100% CPU, and no JavaScript pause point is reached in two minutes. That suggests layout or
+    style work rather than script, but it is not confirmed.
+  - The HEAD tree without this change stalled the same way for at least six minutes before it was stopped.
+  - kjw33 reached a usable page in Chrome on 2026-11-10 (WIN2), so this is a likely regression since then. It blocks every
+    Klein-side browser proof, P7's included, and is recorded as finding G18.

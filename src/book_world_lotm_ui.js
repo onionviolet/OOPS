@@ -20,6 +20,8 @@ import {lotmThresholdView} from './book_world_lotm_threshold.js';
 import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 import {lotmPositionsFromView,lotmPositionLine} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,guardPayWords} from './book_world_lotm_guard.js';
+import {wageWords} from './book_world_lotm_wage.js';
+import {formatDuration} from './number_format.js';
 import {homeModelLines} from './home_overview_model.js';
 import {renderHomeView} from './ui/home_view.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
@@ -31,7 +33,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.text
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,lawRoute,readOwed=readOwedLedger,settle=settleOwed}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,startWage,collectWage,lawRoute,readOwed=readOwedLedger,settle=settleOwed}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -249,6 +251,18 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   if(p.capped)path.append(node('p','Later Sequences are not offered in this branch.'));
   const how=node('details');how.className='lotm-how';how.append(node('summary','How this works'),...howTo.map(t=>node('p',t)));path.append(how);
   }
+  }
+  // Klein's weekly pay from Mrs. Orianna after the story window, with half kept until the advance is repaid (book_world_lotm_wage.js).
+  const wg=v.wage;
+  if(wg){
+   const g=node('div');g.dataset.lotmWage='';g.append(node('h3','Weekly pay'));
+   if(!wg.started)g.append(node('p',`Your Nighthawk wage is ${wageWords(wg.weeklyPence)} a week, paid by Mrs. Orianna${wg.advance?`; half of it is kept until the advance of ${wageWords(wg.advanceLeft)} is repaid`:''}.`),row(button('Draw your weekly pay','wage_start',()=>run(()=>startWage(),'Mrs. Orianna will pay you each week.'),!startWage,'The first week closes seven days from now.')));
+   else{
+    g.append(node('p',wg.owedWeeks?`Owed now: ${wageWords(wg.net)} for ${wg.owedWeeks===1?'one week':`${wg.owedWeeks} weeks`}${wg.kept?` (${wageWords(wg.kept)} kept against the advance)`:''}.`:`Nothing owed now. The next week closes in ${formatDuration(wg.nextIn)}.`),
+     ...(wg.advance?[node('p',wg.advanceLeft?`Advance still owed: ${wageWords(wg.advanceLeft)}.`:'The advance is repaid; the full wage is yours.')]:[]));
+    if(wg.owedWeeks&&collectWage)g.append(row(button(`Collect your pay · ${wageWords(wg.net)}`,'wage_collect',()=>run(()=>collectWage(),'Mrs. Orianna paid you.'),false,'Every closed week not yet collected.')));
+   }
+   actions.append(g);
   }
   // RET3: the paused Village life is resumed from the connection panel, not from here. It leads the Here tab: the other life is a crossing fact, not a path detail.
   // W1d (LT10 read side): the flat on the household model: who lives there, the rent, what is kept there.
