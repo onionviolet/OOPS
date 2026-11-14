@@ -10,6 +10,7 @@
 //   stability  opening a centre view moves or resizes a side column that did not change (UR144)
 //   oversized  a region of 10% or more of the screen is less than a quarter used (UR145)
 //   shift      the layout jumps during idle play with no input (UR146)
+//   noreason   a visible control that cannot be pressed gives no reason a player can read (UIV1, UIC166)
 //   leak       visible text shows engine words or a marker: text not found, undefined, NaN, [object Object] (PRS6, PRS9)
 //   repeat     one module shows the same sentence of 30+ characters twice (UR147)
 //   rawtime    a line shows a four-digit or larger minute count with no day or hour beside it (UR161)
@@ -102,6 +103,17 @@ const reading = async where => {
         }
     }
 };
+// UIC166: a visible control that cannot act should say why (UIV1). A reason counts wherever a player can read it: the
+// control's own tooltip or locked-reason, a described-by note, or reason text in the same row. Zero on the walked
+// routes when it was added (2026-11-13), so one is a finding.
+const blockedWithoutReason = async where => {
+    const rows = await p.evaluate(() => [...document.querySelectorAll('#main_content button, #main_content [role="button"]')]
+        .filter(b => b.offsetParent && (b.disabled || b.getAttribute('aria-disabled') === 'true'))
+        .filter(b => !(b.title || b.dataset.disabledReason || b.getAttribute('aria-describedby') || b.closest('[title]')
+            || [...(b.parentElement?.querySelectorAll('[class*="reason"], [class*="requirement"], [role="status"], small') || [])].some(n => n.textContent.trim())))
+        .map(b => `${b.closest('.workspace-module')?.dataset.module || '?'}: "${(b.textContent || '').trim().slice(0, 40)}"`));
+    for(const row of rows) add('noreason', where, `${row} cannot be pressed and says no reason`);
+};
 const oversized = async where => {for(const u of await usage()) if(u.area >= 10 && u.used < 25) add('oversized', where, `${u.module} takes ${u.area}% of the screen and uses ${u.used}% of its box`);};
 const moved = (before, after, where) => {
     for(const [id, b] of Object.entries(before)) {
@@ -118,6 +130,7 @@ const idleShift = await p.evaluate(() => window.__flowShifts);
 if(idleShift > 0.05) add('shift', 'home', `layout shift ${idleShift.toFixed(3)} in 8 s of idle play`);
 await oversized('home');
 await reading('home');
+await blockedWithoutReason('home');
 const homeFrame = await frame();
 const home = await screen();
 for(const line of await placeholders()) add('placeholder', 'home', line);
@@ -131,6 +144,7 @@ for(const route of routes) {
     moved(homeFrame, await frame(), route.name);
     await oversized(route.name);
     await reading(route.name);
+    await blockedWithoutReason(route.name);
     const target = await p.evaluate(id => document.querySelector(`[data-module="${id}"]`)?.dataset.module || id, route.id);
     if(now.sig === home.sig && now.focused !== target) add('response', route.name, 'the click changed nothing visible and left focus where it was');
     for(const line of await placeholders()) add('placeholder', route.name, line);
