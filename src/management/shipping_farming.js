@@ -44,12 +44,12 @@ export const commands=[
  command({id:'mg.farm.plant_greens',family:'MG06',label:'Plant quick greens · 1 seed + 1 stamina + 2 min',
   description:'Reserve one actual seed packet and plant quick greens in the rented plot. The seed and stamina return if planting is cancelled or plot access fails.',
   visibleWhen:canPlant,support:all(plotRight,plotEmpty),requires:all(canPlant,gte(`item.${K.seed}`,1)),duration:2,siteId:I.plot,
-  costs:[item(K.seed,-1),stamina(-1)],effects:[af('cropStage','planted'),af('cropType','greens'),know('cropPlan','Planted one packet of quick greens. Tend the planted crop, then spend played time growing it to harvest readiness.')]}),
+  costs:[item(K.seed,-1),stamina(-1)],effects:[af('cropStage','planted'),af('cropType','greens'),know('cropPlan','Planted one packet of quick greens. Tend the planted crop, then give it time to grow until it is ready to harvest.')]}),
 
  command({id:'mg.farm.plant_grain',family:'MG06',label:'Plant grain · 1 seed + 2 stamina + 3 min',
   description:'Reserve one actual seed packet and plant grain in the rented plot. Grain takes longer to grow and yields more food; inputs return if planting is cancelled or plot access fails.',
   visibleWhen:canPlant,support:all(plotRight,plotEmpty),requires:all(canPlant,gte(`item.${K.seed}`,1)),duration:3,siteId:I.plot,
-  costs:[item(K.seed,-1),stamina(-2)],effects:[af('cropStage','planted'),af('cropType','grain'),know('cropPlan','Planted one packet of grain. Tend the planted crop, then spend played time growing it to harvest readiness.')]}),
+  costs:[item(K.seed,-1),stamina(-2)],effects:[af('cropStage','planted'),af('cropType','grain'),know('cropPlan','Planted one packet of grain. Tend the planted crop, then give it time to grow until it is ready to harvest.')]}),
 
  command({id:'mg.farm.tend_crop',family:'MG06',label:'Tend the planted crop · 1 stamina + 1 min',
   description:'Spend a real minute and stamina tending the crop. This is the required care step before growth; the plot remains occupied until harvest.',

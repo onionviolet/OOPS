@@ -2657,29 +2657,29 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 
 | Code | Item | Status | What is left, or who decides |
 | --- | --- | --- | --- |
-| UIC127, UIC128, UIC151 | One place panel; the next step marks its target; three ways into one bench | Open | Build as one centre slice and show before and after captures |
+| UIC127, UIC128, UIC151 | One place panel; the next step marks its target; three ways into one bench | UIC128 done (already built); UIC127 and UIC151 held for Weibao | "Show me" puts focus on the row the step names. Merging the place panels or dropping the action row removes a way in (AD56); `#village_mixing_open` is also what the tab, the route and five scripts press. Mock C shows the merge |
 | UIC129, UIC160 | A condition names its effect and remedy; Condition route with two lines | Done `c15791cc5` | Remedy lines exist for Wet and the three cold stages; other effects show what they do and no remedy until one is written |
 | UIC130, UIC134, UIC138 | Long time in human units, the lint | Done `804e0991a` | 109 older lines retire as they are rewritten |
 | UIC131 | The screen grows with the life | Mocked `90e8967bb` (G) | Weibao |
 | UIC132, UIC175 | Top bar by use; unguessable letters | Held for Weibao | It narrows the bar (AD56) |
 | UIC133, UIC139 | Weather lines; the kept cue's end | Done `dfc7fc2d5`, `abeb69331` | Snow ends by age only |
 | UIC135, UIC144 | More states in the walk; a way to ask for rain | Done `c15791cc5` | The walk plays forward to a rainy day and fails if Condition names neither Wet nor Cold; combat and a long life are still not walked |
-| UIC136 | Check for duplicate ways in | Open | Before UIC127 |
+| UIC136 | Check for duplicate ways in | Done `32b9a86c8` | `check:flow` fails (`dupway`) when three or more regions open one destination, beyond the known mixing case |
 | UIC137 | Cut-off label | Done, this batch | A check that counts cut-off labels is still open |
 | UIC140, UIC142 | Place-feedback panel doubles and wording | Done, this batch | See it on screen |
-| UIC141 | Cues during a local task | Open | Inferred, not exercised |
-| Cue overwrite | Several cues, one line | Open | Latest wins and the rest to Reports, or a short queue |
+| UIC141 | Cues during a local task | Done `32b9a86c8` | The scene refuses a cue while a stylesheet hides its block, so the cue goes to its panel line. Unit-tested path only; not exercised with a task open |
+| Cue overwrite | Several cues, one line | Done `32b9a86c8` | Cues from one pass share the line, newest last, up to three (`CUE_LINE_MAX`) |
 | UIC143 | Clean-bundle helper | Done, seventh batch | `sh scripts/clean_bundle.sh <paths>` |
 | UIC145 | Top-bar shift | Done, this batch | Add the bar to the `stability` check |
-| UIC146 | One clock | Open | Goes with direction B (one status line); needs a mock |
-| UIC147, UIC152, UIC170, UIC178 | Repeated stat card; half-empty left column; few detail regions | Open | Direction A; needs a mock |
+| UIC146 | One clock | Done `32b9a86c8` | Reports drops its "Now" row where the place header shows the hour; the work line leaves "Saving available." to the top bar. The log's day divider stays, as history |
+| UIC147, UIC152, UIC170, UIC178 | Repeated stat card; half-empty left column; few detail regions | UIC147 done `32b9a86c8`; UIC178 closed as one rule; UIC152 and UIC170 held for Weibao | The card of five natives is gone from Stats. The left column's rule is single: a panel shown in the centre leaves the column and its box keeps its size so nothing moves (UR144). Filling that box with the selected thing is direction A (mock A) |
 | UIC148 | Number precision and plurals | Done for Stats | Sweep other panels |
 | UIC149, UIC159, UIC166 | Blocked actions with no reason; the Ledger's button row | UIC159 done `a523856b1`; UIC149 closed as designed | UIC166 done as a check: `check:flow` fails on a blocked control with no readable reason; zero on the 13 walked routes |
 | UIC150 | Back label | Done, this batch | |
 | UIC153, UIC154, UIC177 | Type sizes, clipped label, contrast | Done, this batch | A gradient-aware contrast check |
-| UIC155 | 2,385 buttons in the page | Open | Measure the effect first |
+| UIC155 | 2,385 buttons in the page | Closed, measured | 2,427 buttons, 87 visible, none of the hidden ones can take focus; a forced restyle of the whole page takes 4.7 ms. No action |
 | UIC156 | Money letters | Done `4aa60af84` | Each letter says its coin on hover. The W is the wooden coin, not weight |
-| UIC157, UIC165, UIC171 | Tabs and list names that disagree with their panel; two Journals | Open | A ratchet check, then renames |
+| UIC157, UIC165, UIC171 | Tabs and list names that disagree with their panel; two Journals | Done `32b9a86c8` | Twelve names aligned; the two Journals are "Journal" and "Your journal". The "???????" tabs are deliberate and already say "You have not come across this yet." The six settings entries stay six: folding them is the top-bar question |
 | UIC158, UIC167 | Build notes in player text | Lint done; three lines rewritten | The walk's two `leak` findings on the courtyard are gone (`4aa60af84`). Six courtyard command descriptions reworded in the seventh batch; nothing hashes or pins a description. Four lines of remembered text (`know(...)`) in the courtyard still say "played minutes"; they become saved history, so they wait for a scoped pass (PRS8) |
 | UIC161, UIC162, UIC179 | Empty columns; tooltip over the header; key list over its subject | UIC161 done `4aa60af84`; UIC162 closed as designed; UIC179 open | UIC162 is the shared locked-control line: it sits under the control it explains and clears in six seconds (UR52). UIC179 goes with direction A |
 | UIC163 | Panel template pass | Done `257ceca79` | |
@@ -2688,14 +2688,16 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 | UIC169 | "Local actions opens the Journal" | Closed, not a defect | |
 | UIC172 | Crafting readiness | Done `20d96a7cc` | Counts on tabs; sorting dropped because a "Makeable now" filter exists |
 | UIC173 | Mixing voice as the model | Noted | Quote it in briefs (PRS7) |
-| UIC174 | The palette is hidden | Partly done | Point at it from the main screen |
-| UIC176 | Small click targets | Open, measured again | 47 of 111 on home, 1 to 7 px short; a density change, goes with direction B |
-| UIC119, UIC122, M2 | Inline-format lint; visual baselines; Reports sizing | Open | M2 waits on UIC122 |
-| R2, R3, R5, M3, M4 | Round 46 and 47 findings | Status not known | Replay during UIC127 |
+| UIC174 | The palette is hidden | Done | "Find" in the top bar opens it and its tooltip says so (checked in source and Chrome); the Keys tab names it too |
+| UIC176 | Small click targets | Held for Weibao | Tried: a 24 px floor on bar, header and fold controls moved every panel 5 px and fixed 4 of 43. A real fix makes every panel header taller, which is the frame's density (direction B) |
+| UIC119, UIC122, M2 | Inline-format lint; visual baselines; Reports sizing | Done `32b9a86c8` and the ninth batch | `tests/number_format_ratchet.test.js` (37 older calls, count only falls); `npm run check:visual` with five baselines; the walk measures the log column once it holds eight lines, because a log starts each session empty |
+| R2, R3, R5, M3, M4 | Round 46 and 47 findings | Replayed: R5 done, R2 reworded, M3 and M4 no longer true, R3 held | Journal opens on the current quest's steps. Worlds' lock says what it holds. The action list uses 48% of its box and no dropdown moves a neighbour. R3 (commands inside the Notebook) is the Notebook question, mock H |
 | PRS13 | Dry humour, deadpan first | Standing consideration | No pass |
 | Directions A to F | List and thing; one status line; empty space as the place; "what can I do now"; lead with the palette; a day strip | Mocked `90e8967bb` | Weibao picks |
 
 ### What is not done, and why
+
+*Superseded: the eighth and ninth batches at the end of this file closed the plain work; what is left waits on Weibao.*
 
 The open items fall into three groups. **Held or waiting for a look:** the top bar, the Notebook, the growing screen and the six directions change what the frame is, so they need a mock and Weibao's answer. **Needs a state the fixture lacks:** conditions, rain, a long life, combat. **Plain work not yet started:** the ratchet checks from the panel pass, the place-panel slice, crafting sort and counts, and the small items in the table.
 
@@ -2753,4 +2755,26 @@ Agent-verified, not human-reviewed. Working defaults under AD56.
 - **Full suite (merge gate).** `npm test`: 7,511 tests, 7,509 pass, 0 fail, 2 skipped, exit 0. It ran on the shared tree after another session repaired `src/simulation.js`, with the condition rows on disk; the later small commits in this batch ran their focused tests, `check:arch`, `check:rules` and the walk. The earlier 137 failures were that half-edited file, and `tests/gu_upkeep.test.js` passes 57 of 57.
 - **Walk on committed code.** `node scripts/check_flow.mjs --rev HEAD`: 13 routes, three other states read, one finding left (Reports takes a quarter of the screen and uses a fifth of its box; M2, waits on visual baselines).
 
-**What is open after this batch.** Held for Weibao, now with mocks: the top bar by use (UIC132, UIC175), the Notebook (UIC168), the growing screen (UIC131) and directions A to F. Waiting on one of those answers: one clock and small targets (UIC146, UIC176, direction B), the left column and stat cards (UIC147, UIC152, direction A), the key list's place (UIC179), the place panel slice (UIC127, UIC128, UIC151, UIC136). Plain work left: four remembered courtyard lines (UIC158), the page's button count (UIC155), a number sweep beyond Stats (UIC148), visual baselines and Reports sizing (UIC122, M2). Not reproduced: a scene line from another life ("Dudley's birthday"), which needs the save or the steps from the lead audit. Not covered by any state: combat.
+**What was open after this batch (superseded by the eighth and ninth batches below).** Held for Weibao, now with mocks: the top bar by use (UIC132, UIC175), the Notebook (UIC168), the growing screen (UIC131) and directions A to F. Waiting on one of those answers: one clock and small targets (UIC146, UIC176, direction B), the left column and stat cards (UIC147, UIC152, direction A), the key list's place (UIC179), the place panel slice (UIC127, UIC128, UIC151, UIC136). Plain work left: four remembered courtyard lines (UIC158), the page's button count (UIC155), a number sweep beyond Stats (UIC148), visual baselines and Reports sizing (UIC122, M2). Not reproduced: a scene line from another life ("Dudley's birthday"), which needs the save or the steps from the lead audit. Not covered by any state: combat.
+
+### Eighth and ninth batches: the rest of the plain work (2026-11-13)
+
+Agent-verified, not human-reviewed. Working defaults under AD56. Commit `32b9a86c8` and the one after it. Seen in headless Chrome at 1920×1080 on `perf/mid` unless a line says otherwise; no page errors.
+
+- **UIC146, one clock (done).** The Reports card no longer repeats the date and hour where the place header shows them, and keeps a "Today" row only when the day has a note. Off the Village, where a world keeps its own calendar, the "Now" row stays. The work line says "No work running." and leaves "Saving available." to the top bar; a save warning still shows in both.
+- **The next step stays in Reports (new, found in the fight).** Once the log filled, the next-step line went back under the top bar as a full-width strip and pushed every panel down 50 px. It now stays at the top of Reports. Seen in Chrome in a fight with 54 log lines: the step is in Reports, the strip is gone and the left column sits at the same height as before the fight.
+- **UIC147 (done).** Stats no longer shows a card of the five natives above a list that starts with the same five.
+- **R5 (done).** The Journal opens with the current quest's steps showing, not a single closed title over a blank panel.
+- **UIC157, UIC165, UIC171, names agree (done).** List name, panel header and inner heading now match for Vows and tempering, Naming and achievements, Lives and inheritance, Homes and belongings, Standing and ledger, Stories and history, Your own rules, Your own places, Around you, Journal, Your journal and Organizations · Market courtyard. "Harry Potter pack slice" and "(D&D test start)" left two headings. A report line that pointed at "Names and achievements" follows the new name.
+- **UIC141 and the cue overwrite (done).** Cues published in one pass share the line, newest last, up to three, in the scene and in the place-feedback panel. A cue is refused by the scene while its block is hidden, so it reaches the panel line. The shared-line rule is unit-tested; neither was seen in Chrome because the fixture publishes no cue.
+- **UIC179 (done).** The key list opens as a side sheet over the Reports column, starts at its first row, leaves the centre usable, and closes on Esc or a second press of Keys.
+- **R2 (reworded).** Worlds' lock now reads "No added world is open yet. A crossing from this place is listed under Here", so it no longer contradicts the Village's crossing.
+- **UIC158 (done).** The last four courtyard lines lost "played minutes" and "played time". Text already saved in a life keeps its old wording (PRS8).
+- **Checks added.** `check:flow` gained a fight (it walks into the Infested field and needs an opponent with health on screen), `dupway` (UIC136), and a `known` list for findings another lane owns. `npm run check:visual` compares five screens with stored baselines (UIC122); it showed a one-pixel nudge and two identical runs. `tests/number_format_ratchet.test.js` stops new inline number formats (UIC119, UIC148).
+- **Closed by measuring.** UIC155: no hidden button can take focus and a whole-page restyle is 4.7 ms. M3 and M4 are no longer true on today's build. M2: a log starts each session empty, so the walk measures its column once it holds eight lines; on the fight state, where it is full, it passes.
+- **Found in the fight, for the combat lane.** One opponent is shown three times (the Opponent panel, the Opponents list and the fight card). The Opponents list and the fight-filtered Inventory are mostly empty boxes; the walk prints both as `known`.
+- **"Dudley's birthday" traced, not a leftover.** It is Harry's own household sequence, shown in his Beginning panel because the composed exam-week fixture never recorded those stages as done (`hpLeadProjection` in `src/book_world_hp_lead_domain.js` falls back to the first unfinished sequence). It is not text from another life. The fix belongs to the pack: skip the household sequence once the school term state is set, or have the fixture record it. Sent to the coordination chat.
+
+**Checks.** `npm run test:changed` selected the whole suite: 7,518 pass, 0 fail, 2 skipped, with the eighth batch on disk. `node scripts/check_flow.mjs --rev HEAD` after the commit: 13 routes, four other states, 0 findings, 2 known. `check:arch`, `check:rules` pass. `check:visual --rev HEAD`: five identical.
+
+**What is left, all of it waiting on Weibao.** Each has a mock in `prototypes/ui-directions-2026-11-13/`: the top bar by use (UIC132, UIC175; E), the Notebook and its commands (UIC168, R3; H), the growing screen (UIC131; G), one place panel and the third way into a bench (UIC127, UIC151; C), the left column as the selected thing (UIC152, UIC170; A), and the frame's density with its small targets (UIC176; B). Nothing else on this ledger is open.
