@@ -2935,11 +2935,12 @@ Same method and gates as the fifteenth batch, in the order the coordination chat
 - **UIC195, one waiting reason for the choices (done).** During a fight the same 95-character sentence sat under each of the four Process buttons. It now sits once above them and each button points at it.
 - **UIC190, prices in the purse's format (done for this pass's panels; ratchet for the rest).** The purse reads "10C 4W" and prices read "8 coins". The mixing counter (buttons, shortage line, feedback), the courtyard (its authored "· 4 coins" labels, shortfall line, wages, group costs, treasury) now print through `moneyText`, which keeps "N coins" until the character knows the coin letters. Seen: "Buy · 8W", "buying them costs 1C", "Rent Mira's local plot · 4W". `tests/money_format_ratchet.test.js` counts the 65 raw coin prices left in UI modules (homes, habitat care, Potioneering, standing, aging and others); the count only falls.
 
-**Not done.** The Gu pack's own labels mix cost and gain ("Put the Moonlight Gu to work · 1 essence, 1 stone" spends essence and earns a stone; "Do clan Gu house chores · 120 min") and sit in the pack's content, which the daily-loops lane owns. Sent there.
+**Not done.** The Gu pack's own labels mix cost and gain ("Put the Moonlight Gu to work · 1 essence, 1 stone" spends essence and earns a stone; "Do clan Gu house chores · 120 min") and sit in the pack's content, which the daily-loops lane owns. Passed to the coordination chat for that lane.
 
 **Checks**
 
 - Focused tests for every touched module: 1,036 pass, 0 fail, plus the new ratchet.
+- `npm run test:changed`: 3,799 tests, 3,796 pass, 1 fail, 2 skipped. The failure was mine: the quote's margin used a raw value (`tests/ui_contract.test.js`, UR65); it uses `--ui-space-2` now and that test passes.
 - On committed code (`ea9249039`): `node scripts/visual_baseline.mjs --rev HEAD` five identical; `node scripts/check_flow.mjs --rev HEAD` 13 routes, four other states, 0 findings. `check:arch` passes; `check:rules` passes (one warning: the private-pack glob matches no file in this tree).
 
 **Next, if the pass continues:** the 65 raw coin prices by panel (homes first), the Gu pack labels with their owner, then Harry's school panel on the new card.

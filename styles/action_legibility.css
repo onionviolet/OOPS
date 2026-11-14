@@ -38,7 +38,7 @@
 }
 
 .action-legibility__quote {
-    margin-inline: round(0.5rem, 1px);
+    margin-inline: var(--ui-space-2);
 }
 
 .action-legibility__quote,
