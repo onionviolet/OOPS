@@ -2689,7 +2689,7 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 | UIC172 | Crafting readiness | Done `20d96a7cc` | Counts on tabs; sorting dropped because a "Makeable now" filter exists |
 | UIC173 | Mixing voice as the model | Noted | Quote it in briefs (PRS7) |
 | UIC174 | The palette is hidden | Partly done | Point at it from the main screen |
-| UIC176 | Small click targets | Open | 41 of 111 on home |
+| UIC176 | Small click targets | Open, measured again | 47 of 111 on home, 1 to 7 px short; a density change, goes with direction B |
 | UIC119, UIC122, M2 | Inline-format lint; visual baselines; Reports sizing | Open | M2 waits on UIC122 |
 | R2, R3, R5, M3, M4 | Round 46 and 47 findings | Status not known | Replay during UIC127 |
 | PRS13 | Dry humour, deadpan first | Standing consideration | No pass |
