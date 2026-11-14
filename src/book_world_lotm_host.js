@@ -139,8 +139,14 @@ export function createLotmHost(ports){
  const castState=s=>{if(!lotmCastLife(s))return s;const projected=copy(s);syncLotmCast(projected);return projected;};
  const sleepingCommand=id=>id===SLEEP||registry.simulation.commands.get(id)?.group==='book_lotm'&&registry.simulation.commands.get(id)?.bodyCare?.kind==='sleep';
  const sleepJob=s=>s.simulation?.jobs?.find(j=>sleepingCommand(j.commandId)&&j.actorId==='player');
- function ctx(s,def,nativeContext){const c=nativeContext||ports.context(),vitals=c.vitals||{};
-  const out=lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null,harm:harmState()});if(lotmBe(s))out.facts['lotm.profile.beside']=true;out.facts['bodyCare.sleeping']=!!ports.sleeping();out.facts['topicTalk.hour']=castCalendar(s).calendar.hour;return castJourneyContext(s,def?{...out,...harmContext(s,def)}:out);}
+ // `shared` is one view build's read-only copy of the harm slice, its save wrapper and the journey places. The facts frame matches a
+ // context by the identity of each field, so a fresh clone per offer made every offer miss it. Nothing it holds is written by a preview.
+ function ctx(s,def,nativeContext,shared){const c=nativeContext||ports.context(),vitals=c.vitals||{};
+  const harm=shared?(shared.harm??=harmState()):harmState();
+  const out=lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null,harm});if(lotmBe(s))out.facts['lotm.profile.beside']=true;out.facts['bodyCare.sleeping']=!!ports.sleeping();out.facts['topicTalk.hour']=castCalendar(s).calendar.hour;
+  const full=castJourneyContext(s,def?{...out,...(shared?{harmSave:(shared.harmSave??={expansion:s,harm}),harmActionClass:harmClassOf(def)}:harmContext(s,def))}:out);
+  if(shared&&full.structuredNative){const n=shared.native;if(n&&n.locationIds.join('\u0000')===full.structuredNative.locationIds.join('\u0000'))full.structuredNative=n;else shared.native=full.structuredNative;}
+  return full;}
  const base=(s,c)=>({state:copy(s),external:copy(c.external||{}),gameplay:copy(c.gameplay||{}),gameplayBefore:copy(c.gameplay||{}),vitals:copy(c.vitals||{}),equipment:copy(c.equipment||{}),acquisitions:[],unlocks:[]});
  function writable(){assert(ports.writable(),'Saving is paused, so the branch cannot change now.');assert(!lotmBe(state())||validLeadLife(getPrivateLotmCast()),'Cast unavailable: private pack absent. This life is read-only.');}
  function recordEmergent(plan,def){
@@ -413,9 +419,9 @@ export function createLotmHost(ports){
  }
  function view(selected=null){return withFactsFrame(state(),()=>readView(selected));}
  function readView(selected=null){
-  const s=castState(state()),d=s.lotm;
+  const s=castState(state()),d=s.lotm,shared={};
   if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),axes:LOTM_ENTRY_AXES,returnable:returnable(),profiles:Object.values(LOTM_PROFILES).filter(p=>p.key==='be'?(ports.developerStarts?.()??testHooksEnabled)&&validLeadLife(getPrivateLotmCast()):p.key!=='beside'||castAvailable).map(({key,label,blurb})=>({key,label:key==='be'?`Developer playthrough: ${label}`:label,blurb,answers:key==='be'?[['Beginning',blurb]]:entryAnswers(key,{returnable:returnable()}),...(key==='be'?{independent:true,available:!!ports.startBe}: {})}))};
-  const nativeContext=ports.context(),c=ctx(s,null,nativeContext),f=c.facts,at=s.simulation.people.player.location,e=s.simulation.energies?.player?.[I.energy],know=s.simulation.knowledge?.player||{};
+  const nativeContext=ports.context(),c=ctx(s,null,nativeContext,shared),f=c.facts,at=s.simulation.people.player.location,e=s.simulation.energies?.player?.[I.energy],know=s.simulation.knowledge?.player||{};
   if(lotmBe(s)){
    const loaded=getPrivateLotmCast(),ready=validLeadLife(loaded),pack=ready?loaded:null,life=pack?.leadLife,elapsed=s.clock-s.lotm.initializedAt;
    const allowed=new Set([at,...(life?.knownPlaces||[]),...Object.keys(know).filter(k=>k.startsWith('book.lotm.cast.place.known.')).map(k=>k.slice('book.lotm.cast.place.known.'.length))]);
@@ -430,16 +436,16 @@ export function createLotmHost(ports){
    // one read-only context/frame rather than rebuilding the entire native world
    // for every route; each command still runs the normal quote and canon checks.
    const journeyContext=c,journeys=withFactsFrame(s,()=>castJourneyOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{facts:def=>simulationFacts(s,journeyContext,registry,[def.requires]),blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
-   const topicTalks=castTopicOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def,nativeContext)),{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),nativeContext)});
+   const topicTalks=withFactsFrame(s,()=>castTopicOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def,nativeContext,shared)),{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),nativeContext)}));
    const divinations=withFactsFrame(s,()=>castDivinationOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{facts:def=>simulationFacts(s,journeyContext,registry,[def.requires]),blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
    const rites=withFactsFrame(s,()=>castActOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
    // W2b: Seer powers lowered by the shared spell lowering (the same code as Harry's charm), offered once the source allows them.
-   const powers=withFactsFrame(s,()=>lotmBeSpellCommands.filter(d=>registry.simulation.commands.has(d.id)).map(d=>{const q=previewSimulationCommand(s,registry,d.id,ctx(s,d,nativeContext));return {id:d.id,label:d.label,description:d.description,visible:q.visible,eligible:!!q.eligible&&ports.writable()&&!ports.sleeping(),reasons:q.reasons||[]};}).filter(p=>p.visible));
-   const abilityConflicts=withFactsFrame(s,()=>castAbilityOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def,nativeContext)),{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),nativeContext)}));
+   const powers=withFactsFrame(s,()=>lotmBeSpellCommands.filter(d=>registry.simulation.commands.has(d.id)).map(d=>{const q=previewSimulationCommand(s,registry,d.id,ctx(s,d,nativeContext,shared));return {id:d.id,label:d.label,description:d.description,visible:q.visible,eligible:!!q.eligible&&ports.writable()&&!ports.sleeping(),reasons:q.reasons||[]};}).filter(p=>p.visible));
+   const abilityConflicts=withFactsFrame(s,()=>castAbilityOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def,nativeContext,shared)),{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),nativeContext)}));
    const inferences=withFactsFrame(s,()=>castInferenceOffers(s,def=>previewSimulationCommand(s,registry,def.id,journeyContext),{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
-   const exchanges=withFactsFrame(s,()=>castExchangeOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def,nativeContext)),{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
+   const exchanges=withFactsFrame(s,()=>castExchangeOffers(s,def=>previewSimulationCommand(s,registry,def.id,ctx(s,def,nativeContext,shared)),{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):ports.sleeping()?'You\'re asleep. Wake up first.':'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),journeyContext)}));
    const bodyCare=withFactsFrame(s,()=>castBodyOffers(s,def=>{
-    const job=def.bodyCare.kind==='wake'&&sleepJob(s),c=ctx(s,def,nativeContext);
+    const job=def.bodyCare.kind==='wake'&&sleepJob(s),c=ctx(s,def,nativeContext,shared);
     const ready=job?cancelSimulationJob(s,registry,job.id,c,s.sequence).state:s;
     return previewSimulationCommand(ready,registry,def.id,def.bodyCare.kind==='wake'?{...c,busy:false}:c);
    },{blocked:!ports.writable()?(ports.writeBlockReason?.()||'Saving is paused.'):'',decide:def=>canonActionDecision(s,def,getPrivateLotmCast(),nativeContext)}));
