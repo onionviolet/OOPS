@@ -10,14 +10,15 @@ const element = (tag, text, className) => {
 const button = label => Object.assign(element('button', label, 'action_button'), {type: 'button'});
 const mode = 'capability-runs';
 
-export function createCapabilityRunsPanel({runs, read, commit}) {
+// `shows(id)` says whether a run belongs on this life's list (G6): the home hero sees all, a lead sees their own.
+export function createCapabilityRunsPanel({runs, read, commit, shows = () => true}) {
     const home = element('section');
     const launch = button('Open capability runs');
     launch.id = 'capability_runs_open';
     home.append(launch);
     definePanel({id: 'capability-runs', title: 'Capability runs', role: 'actions', node: home,
         home: document.getElementById('location_actions_div'), defaultDock: 'center', after: 'beginning',
-        discovered: () => true, eligible: () => true});
+        discovered: () => true, eligible: () => Object.keys(runs).some(shows)});
 
     const root = element('section', '', 'center-mode-hidden');
     root.id = 'capability_runs_view';
@@ -43,8 +44,9 @@ export function createCapabilityRunsPanel({runs, read, commit}) {
     launch.onclick = () => { render(); center.open(mode); };
 
     function render() {
+        if (!shows(selected)) selected = Object.keys(runs).find(shows) ?? selected;
         const view = read(selected);
-        for (const [id, tab] of tabs) tab.setAttribute('aria-pressed', String(id === selected));
+        for (const [id, tab] of tabs) { tab.hidden = !shows(id); tab.setAttribute('aria-pressed', String(id === selected)); }
         intro.textContent = view.introduction;
         const focusedAction = document.activeElement?.dataset?.capabilityAction;
         body.replaceChildren();
@@ -69,7 +71,8 @@ export function createCapabilityRunsPanel({runs, read, commit}) {
             row.append(control, element('p', action.detail));
             if (control.disabled) row.append(why);
             control.onclick = () => {
-                try { commit(selected, action.id); notice.textContent = `${action.label} · saved.`; }
+                // G16: the run's own line says what the act did; the status line only speaks when the run stays silent.
+                try { commit(selected, action.id); notice.textContent = read(selected).result ? '' : `Done: ${action.label}.`; }
                 catch (error) { notice.textContent = error.message; }
                 render();
             };
