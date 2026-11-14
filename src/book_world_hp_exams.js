@@ -11,7 +11,7 @@ import {HP_LEVITATION} from './world_packs/book_hp_lead_life_data.js';
 import {HP_STUDY} from './book_world_hp_lessons.js';
 const P = 'book.hp.lead', WORLD = `${P}.world`, STORY_REVISION = `${P}.w11_finale.revision`, STORY_REVISION_SESSIONS = 2, MARKS_DAY = 329;
 const MASTERY_FOR_FULL = 8, ALCHEMY_XP_FOR_FULL = 40;
-const leadDay = state => { const o = state?.simulation?.knowledge?.player?.[`${P}.opening`]; return o ? Math.floor((Math.max(0, state.clock - o.at) + 480) / 1440) : null; };
+const leadDay = state => { const o = state?.simulation?.knowledge?.player?.[`${P}.opening`]; return o ? Math.floor((Math.max(0, state.clock - o.at) + 480) / 1440) : null; }; // rule-lint: allow days since the opening scene plus an 8-hour offset, not a calendar day
 const player = state => state?.actors?.player?.worldId === WORLD ? state.actors.player : null;
 const atSchoolSorted = a => !!a?.facts?.['hp.lead.atSchool'] && !!a.facts['hp.lead.house'];
 const studied = (state, topic) => state?.simulation?.knowledge?.player?.[HP_STUDY[topic].key]?.stage === 'understood';

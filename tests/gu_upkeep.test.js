@@ -1563,6 +1563,11 @@ test('persistence: serialized load equals live state, validator accepts a played
     const coarse = setup(), fine = setup(); coarse.step(9 * DAY); while(fine.p.state.clock < 9 * DAY) fine.step(Math.min(47, 9 * DAY - fine.p.state.clock));
     assert.deepEqual(coarse.p.state, fine.p.state); valid(coarse);
 });
+test('house view: a full aperture says what each day of regeneration loses; below the cap it says nothing', () => {
+    const f = setup(), v = () => keeperHouseView(f.p.state, f.d, f.record, f.ctx()).gauge;
+    assert.equal(v().lostPerDay, 0); f.step(10 * 60); assert.equal(reserve(f), DIAL.capacity);
+    assert.equal(v().lostPerDay, DIAL.regenPerHour * 24); f.start('take_moon'); assert.equal(v().lostPerDay, 0);
+});
 test('house view: timers, gauge, cap and ledger read the save', () => {
     const f = setup(); f.start('take_moon'); f.start('feed_moon');
     const v = () => keeperHouseView(f.p.state, f.d, f.record, f.ctx());

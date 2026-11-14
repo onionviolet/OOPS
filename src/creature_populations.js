@@ -59,7 +59,7 @@ const count = (table, state, world, place, c, at) => nodeAt(c, state.nodes[keyOf
 // `next` is the sighting a hunt would meet: one species by weight among those present, and how many.
 export function populationAt(table, state, {root, world, place, at}) {
     const p = table.places[place] ?? fail(`Unknown place ${place}.`);
-    const day = Math.floor(at / MINUTES_PER_DAY);
+    const day = Math.floor(at / MINUTES_PER_DAY); // rule-lint: allow draw key over the caller's minute; changing it would reroll saved sightings
     const rows = Object.values(p.creatures).map(c => {
         const node = count(table, state, world, place, c, at);
         const about = indexFromU32(drawU32(root, address('creature.here', table.id, table.revision, world, place, c.id, {day})), 1000) < c.chance;

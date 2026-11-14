@@ -91,7 +91,7 @@ export function keeperHouseView(state, definition, record, context) {
     const stones = own(inventory, key('stone'));
     const energy = s.energies.player?.[id('primeval')], charge = energy && energyCharge(energy.policy, {output: 1});
     const gauge = energy && {now: energy.reserve, max: energy.policy.capacity, fullSea: DIAL.fullSea, aptitudePercent: DIAL.aptitudePercent, regenPerHour: DIAL.regenPerHour,
-        nextRegenIn: 60 - ((now - anchor) % 60), perActivation: charge, text: `${energy.reserve}/${energy.policy.capacity} primeval essence · aptitude ${DIAL.aptitudePercent}% caps the sea at ${energy.policy.capacity} of ${DIAL.fullSea} · +${DIAL.regenPerHour}/hour`};
+        nextRegenIn: 60 - ((now - anchor) % 60), perActivation: charge, lostPerDay: energy.reserve >= energy.policy.capacity ? DIAL.regenPerHour * 24 : 0, text: `${energy.reserve}/${energy.policy.capacity} primeval essence · aptitude ${DIAL.aptitudePercent}% caps the sea at ${energy.policy.capacity} of ${DIAL.fullSea} · +${DIAL.regenPerHour}/hour`};
     const held = [];
     const rows = KEEPER_GU.map(g => {
         const p = s.people[id(g.slot)], diet = keeperDiets.find(d => d.holder === id(g.slot)), kept = s.claims[id(g.slot + '_title')]?.owner === 'player';

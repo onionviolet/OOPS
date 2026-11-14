@@ -54,7 +54,7 @@ export const HP_CONTACT = registerContactWorld({worldId: WORLD,
         here: state => playerAt(state) && playerAt(state) === state?.simulation?.people?.[RON]?.location ? null : 'Ron is in the Great Hall; go there first.'}},
     day(state) {
         let view = null; try { view = resolveWorldCalendar(state); } catch { view = null; }
-        const day = Number.isSafeInteger(view?.absoluteLocalDay) ? view.absoluteLocalDay : Number.isSafeInteger(state?.clock) ? Math.floor(state.clock / 1440) : null;
+        const day = Number.isSafeInteger(view?.absoluteLocalDay) ? view.absoluteLocalDay : Number.isSafeInteger(state?.clock) ? Math.floor(state.clock / 1440) : null; // rule-lint: allow fallback only when resolveWorldCalendar has no answer; identical to the old reading
         return day == null ? null : {day, yearDay: day % 365};
     },
     giftable(state, key) {

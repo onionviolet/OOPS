@@ -21,7 +21,7 @@ export function renderGuHouse(parent, house) {
         el('p', `Aperture · ${g.text}`, wrap);
         const m = el('meter', null, wrap, {min: 0, max: g.max, value: g.now, 'aria-label': 'Primeval essence reserve', 'data-gu': 'essence-meter'});
         m.textContent = `${g.now} of ${g.max}`;
-        el('p', g.now >= g.max ? 'The sea is full at your aptitude cap; more rest cannot raise it.' : `Next unit in ${span(g.nextRegenIn)}. A Gu activation costs ${g.perActivation}.`, wrap);
+        el('p', g.now >= g.max ? `The sea is full at your aptitude cap, so each hour's unit has nowhere to go: about ${g.lostPerDay} lost a day until you spend some.` : `Next unit in ${span(g.nextRegenIn)}. A Gu activation costs ${g.perActivation}.`, wrap);
     }
     el('p', house.feedingCap.line, root, {'data-gu': 'feeding-cap', role: 'status'});
     if(house.colony) {
