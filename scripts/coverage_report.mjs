@@ -58,6 +58,7 @@ import {fileURLToPath, pathToFileURL} from 'node:url';
 import {reachableFrom, walkFrom, srcFiles} from './reachable.mjs';
 import {recordsOf} from '../src/knowledge_record.js';
 import {readLineage} from '../src/world_substrate.js';
+import {MECHANISMS, RULE_SAW_TITLES, SPLIT_RULE, splitLabelled, fitMechanisms, scoreHeldOut} from '../src/brew_heldout.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const COVERAGE_DIR = 'docs/coverage';
@@ -508,7 +509,61 @@ export function readLedgers(dir = path.join(root, COVERAGE_DIR)) {
     });
 }
 
-export function renderReadme(ledgers, {computed = new Map(), reach = null} = {}) {
+// ---- Held-out scoring (RUN.md wave order; PC72) ----
+// Per ledger: tuned on, held out, matched, plus sorted misses. A scored row never sits in its own
+// fit set. Outcome and route are separate. Only hp_potions has a split so far; the other ledgers
+// report "none yet" until a sample is chosen from held books (each wave names its own split).
+const slugOf = t => t.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+export async function heldOutScores(ledgers) {
+    const out = new Map();
+    const {HP_POTION_SENTENCES, predictionHolds} = await import('../src/world_packs/brew_effects_pack.js');
+    const {potionFamily} = await import('./b_coverage_ledgers.mjs');
+    const labelled = HP_POTION_SENTENCES.map(s => ({id: `hp.potion.${slugOf(s.title)}`, title: s.title, family: potionFamily(s.title), parts: s.parts, evidence: s.evidence}));
+    const split = splitLabelled(labelled);
+    const table = fitMechanisms(split.tuned);
+    const score = scoreHeldOut(split.heldOut, table, {beforeObject: predictionHolds});
+    const ledger = ledgers.find(l => l.name === 'hp_potions');
+    const unlabelled = new Map();
+    if (ledger) {
+        const labelledIds = new Set(labelled.map(r => r.id));
+        for (const r of ledger.rows) {
+            const m = /^blocked:(.+)$/.exec(r.state);
+            if (m && !labelledIds.has(r.id)) unlabelled.set(m[1], (unlabelled.get(m[1]) ?? 0) + 1);
+        }
+    }
+    out.set('hp_potions', {split, table, score, unlabelled, labelled});
+    return out;
+}
+
+function renderHeldOut(held, ledgers) {
+    const lines = ['', '## Held-out canon scoring (PC72, tuned on / held out / matched)', '',
+        '*Diagnostic, not an execution test: a mechanism family predicts the effect sentence and delivery route of a potion, compared with the evidence-labelled sentence (`HP_POTION_SENTENCES`, each citing an evidence row; no label is derived from a title). Outcome = verb, object and target agree; object = object only; route = carrier agrees. The tuning sample never counts as held out. The split rule lives in `src/brew_heldout.js`; this section is generated.*', '',
+        '| Ledger | Tuned on | Held out | Matched outcome | Matched object only | Matched route | Matched both | Split |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |'];
+    for (const l of ledgers) {
+        const h = held.get(l.name);
+        if (!h) { lines.push(`| ${l.name} | 0 | 0 | | | | | none yet |`); continue; }
+        const s = h.score;
+        lines.push(`| ${l.name} | ${h.split.tuned.length} | ${s.n} | ${s.outcome} of ${s.n} | ${s.afterObject} of ${s.n} | ${s.route} of ${s.n} | ${s.both} of ${s.n} | ${SPLIT_RULE} |`);
+    }
+    for (const [name, h] of held) {
+        const s = h.score;
+        lines.push('', `### ${name}`, '',
+            '| Rule | Held-out object match | Outcome (verb, object, target) | Route (carrier) |', '| --- | ---: | ---: | ---: |',
+            `| Before: title family names an object (\`FAMILY_PREDICTS\`); no route rule | ${s.beforeObject} of ${s.n} | not named by that rule | no rule (0 of ${s.n}) |`,
+            `| After: per-mechanism default fitted on the tuning sample | ${s.afterObject} of ${s.n} | ${s.outcome} of ${s.n} | ${s.route} of ${s.n} |`, '',
+            `- **Tuned on** (${h.split.tuned.length}): ${h.split.tuned.map(r => `${r.id.replace('hp.potion.', '')} (${r.family}, ${r.evidence})`).join('; ')}.`,
+            `- **Fitted defaults**: ${Object.entries(h.table).map(([f, t]) => `${f}: ${t.verb} ${t.object} ${t.target} via ${t.carrier}`).join('; ')}. No default for ${MECHANISMS.filter(m => !h.table[m]).join(', ') || 'none'} (no evidence-labelled row).`,
+            `- **Rule saw these rows** (title override set against evidence; not held out): ${h.split.ruleSaw.map(r => r.title).join(', ') || 'none'}. Out of the five mechanisms (not counted): ${h.split.outOfScope.map(r => `${r.title} (${r.family})`).join(', ') || 'none'}.`,
+            `- **Held out** (${s.n}): ${s.rows.map(r => r.id.replace('hp.potion.', '')).join(', ')}.`,
+            `- **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: ${[...h.unlabelled].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([f, n]) => `${f} ${n}`).join(', ')}. The wiki body of each (revision in its \`source\`) is the queued data; the wiki host refused automated reads on 2026-11-13.`,
+            '', '**Sorted misses** (row, predicted, actual; outcome or route or both):', '',
+            '| Row | Family | Predicted | Actual | Outcome | Route |', '| --- | --- | --- | --- | --- | --- |',
+            ...s.misses.map(r => `| ${r.id.replace('hp.potion.', '')} | ${r.family} | ${r.predicted} | ${r.actual} | ${r.outcome ? 'match' : 'miss'} | ${r.route ? 'match' : 'miss'} |`));
+    }
+    return lines;
+}
+
+export function renderReadme(ledgers, {computed = new Map(), reach = null, held = new Map()} = {}) {
     const lines = ['# Coverage ledgers', '',
         '*Generated by `node scripts/coverage_report.mjs`; do not edit by hand. Format and states: [plan CV1-CV4](../PROCEDURAL_FOUNDATION_PLAN.md#coverage-ledgers-cv). Each corpus owner writes its own `<corpus>.jsonl`. `npm run check:coverage` fails only on malformed rows; the percentages are a report, not a gate.*', '',
         '## Counts', '',
@@ -532,6 +587,7 @@ export function renderReadme(ledgers, {computed = new Map(), reach = null} = {})
         lines.push('', '## Reachability from `src/main.js` (PC14)', '', `\`node scripts/reachable.mjs\`: ${reach.reachable} of ${reach.total} src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:`, '');
         lines.push(...(reach.computedImports.length ? reach.computedImports.map(c => `- \`${c.file}\`: \`\` ${c.snippet} \`\``) : ['- none']));
     }
+    lines.push(...renderHeldOut(held, ledgers));
     const blocked = ledgers.flatMap(l => Object.entries(countLedger(l.rows).rules).map(([rule, n]) => ({ledger: l.name, rule, n})))
         .sort((a, b) => b.n - a.n || a.rule.localeCompare(b.rule));
     lines.push('', '## Blocking rules', '', blocked.length ? '| Ledger | Missing rule | Rows |' : 'None yet.');
@@ -564,7 +620,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         const reach = {reachable: files.filter(f => walk.reachable.has(f)).length, total: files.length,
             computedImports: walk.computedImports.map(c => ({file: path.relative(root, c.file), snippet: c.snippet}))};
         fs.mkdirSync(path.join(root, COVERAGE_DIR), {recursive: true});
-        fs.writeFileSync(path.join(root, COVERAGE_DIR, 'README.md'), renderReadme(ledgers, {computed, reach}));
+        fs.writeFileSync(path.join(root, COVERAGE_DIR, 'README.md'), renderReadme(ledgers, {computed, reach, held: await heldOutScores(ledgers)}));
         console.log(`wrote ${COVERAGE_DIR}/README.md (${ledgers.length} ledgers)`);
     } else console.log(`coverage rows: PASS (${ledgers.length} ledgers)`);
 }

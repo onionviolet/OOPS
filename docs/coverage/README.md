@@ -7,12 +7,12 @@
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 368 | 1078 | 4 | 0 | 100% | 25.2% |
-| [gu_moves](gu_moves.jsonl) | G | 776 | 776 | 0 | 4 | 772 | 0 | 0 | 100% | 0.5% |
-| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 4 | 279 | 32 | 0 | 100% | 1.4% |
-| [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 380 | 9 | 0 | 100% | 5% |
-| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 10 | 36 | 180 | 0 | 0 | 100% | 20.4% |
-| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 5 | 32 | 5 | 0 | 100% | 4.5% |
-| [creatures](creatures.jsonl) | L | to build | 96 | 0 | 18 | 61 | 0 | 0 | 100% | 18.8% |
+| [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 3 | 766 | 0 | 0 | 100% | 0.4% |
+| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 249 | 32 | 0 | 100% | 0.4% |
+| [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 376 | 9 | 0 | 100% | 5% |
+| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
+| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
+| [creatures](creatures.jsonl) | L | to build | 96 | 0 | 17 | 61 | 0 | 0 | 100% | 17.7% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -20,19 +20,60 @@
 
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
-| creatures | 18 | 17 | 0 | 18 |
+| creatures | 17 | 18 | 0 | 17 |
 | gu_kinds | 368 | 16 | 0 | 368 |
-| gu_moves | 4 | 0 | 0 | 4 |
-| hp_ingredients | 20 | 0 | 0 | 20 |
-| hp_potions | 4 | 1 | 0 | 4 |
-| hp_spells | 5 | 75 | 0 | 5 |
-| lotm_potions | 46 | 0 | 0 | 46 |
+| gu_moves | 3 | 9 | 0 | 3 |
+| hp_ingredients | 20 | 4 | 0 | 20 |
+| hp_potions | 1 | 34 | 0 | 1 |
+| hp_spells | 0 | 111 | 0 | 0 |
+| lotm_potions | 0 | 46 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1492 of 1678 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1580 of 1814 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
+
+## Held-out canon scoring (PC72, tuned on / held out / matched)
+
+*Diagnostic, not an execution test: a mechanism family predicts the effect sentence and delivery route of a potion, compared with the evidence-labelled sentence (`HP_POTION_SENTENCES`, each citing an evidence row; no label is derived from a title). Outcome = verb, object and target agree; object = object only; route = carrier agrees. The tuning sample never counts as held out. The split rule lives in `src/brew_heldout.js`; this section is generated.*
+
+| Ledger | Tuned on | Held out | Matched outcome | Matched object only | Matched route | Matched both | Split |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| creatures | 0 | 0 | | | | | none yet |
+| gu_kinds | 0 | 0 | | | | | none yet |
+| gu_moves | 0 | 0 | | | | | none yet |
+| hp_ingredients | 0 | 0 | | | | | none yet |
+| hp_potions | 4 | 17 | 10 of 17 | 14 of 17 | 10 of 17 | 8 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
+| hp_spells | 0 | 0 | | | | | none yet |
+| lotm_potions | 0 | 0 | | | | | none yet |
+
+### hp_potions
+
+| Rule | Held-out object match | Outcome (verb, object, target) | Route (carrier) |
+| --- | ---: | ---: | ---: |
+| Before: title family names an object (`FAMILY_PREDICTS`); no route rule | 14 of 17 | not named by that rule | no rule (0 of 17) |
+| After: per-mechanism default fitted on the tuning sample | 14 of 17 | 10 of 17 | 10 of 17 |
+
+- **Tuned on** (4): blood_replenishing_potion (body-door, HPPE058); calming_draught (mind-state, HPPE061); deflating_draught (body-form, HPPE025); doxycide (plant-or-creature-target, HPPE060).
+- **Fitted defaults**: body-door: add vitality self via potion; mind-state: transform mind self via potion; body-form: transform form self via potion; plant-or-creature-target: remove vitality touched via spray. No default for conceal-or-sense (no evidence-labelled row).
+- **Rule saw these rows** (title override set against evidence; not held out): Wolfsbane Potion. Out of the five mechanisms (not counted): Felix Felicis (luck-field).
+- **Held out** (17): cure_for_boils, dr_ubbly_s_oblivious_unction, dragon_dung_fertiliser, draught_of_living_death, draught_of_peace, mandrake_restorative_draught, murtlap_essence, pepperup_potion, polyjuice_potion, potion_for_dreamless_sleep, shrinking_solution, skele_gro, sleekeazy_s_hair_potion, sleeping_draught, swelling_solution, veritaserum, wit_sharpening_potion.
+- **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: body-door 72, effect-sentence 47, mind-state 38, body-form 35, plant-or-creature-target 29, conceal-or-sense 9, object-surface 7, place-release 6, luck-field 2, protection-field 2. The wiki body of each (revision in its `source`) is the queued data; the wiki host refused automated reads on 2026-11-13.
+
+**Sorted misses** (row, predicted, actual; outcome or route or both):
+
+| Row | Family | Predicted | Actual | Outcome | Route |
+| --- | --- | --- | --- | --- | --- |
+| dr_ubbly_s_oblivious_unction | mind-state | transform mind self via potion | add vitality touched via topical | miss | miss |
+| dragon_dung_fertiliser | plant-or-creature-target | remove vitality touched via spray | add vitality touched via topical | miss | miss |
+| mandrake_restorative_draught | plant-or-creature-target | remove vitality touched via spray | release form self via potion | miss | miss |
+| murtlap_essence | body-door | add vitality self via potion | add vitality touched via topical | miss | miss |
+| shrinking_solution | body-form | transform form self via potion | transform form touched via potion | miss | match |
+| skele_gro | body-door | add vitality self via potion | transform form self via potion | miss | match |
+| sleekeazy_s_hair_potion | body-form | transform form self via potion | transform form self via topical | match | miss |
+| sleeping_draught | mind-state | transform mind self via potion | transform mind self via eaten | match | miss |
+| swelling_solution | body-form | transform form self via potion | transform form touched via topical | miss | miss |
 
 ## Blocking rules
 
@@ -41,38 +82,21 @@
 | gu_moves | roles-unknown | 753 |
 | gu_kinds | rank-unknown | 678 |
 | gu_kinds | effect-unknown | 400 |
-| hp_ingredients | ingredient-properties | 380 |
+| hp_ingredients | ingredient-properties | 376 |
 | lotm_potions | formula-in-notes | 174 |
-| hp_potions | body-door | 82 |
+| hp_potions | body-door | 72 |
 | creatures | diet-unknown | 61 |
-| hp_potions | mind-state | 50 |
 | hp_potions | effect-sentence | 47 |
-| hp_potions | body-form | 40 |
-| hp_potions | plant-or-creature-target | 31 |
-| gu_moves | unnamed-role | 17 |
-| hp_spells | missing-intent | 10 |
+| hp_potions | mind-state | 38 |
+| hp_potions | body-form | 36 |
+| hp_potions | plant-or-creature-target | 30 |
+| gu_moves | unnamed-role | 13 |
 | hp_potions | conceal-or-sense | 9 |
-| hp_potions | object-surface | 8 |
+| hp_potions | object-surface | 7 |
 | lotm_potions | body-door | 6 |
 | hp_potions | place-release | 6 |
-| hp_spells | effect-unknown | 4 |
-| hp_spells | effect-unshown | 3 |
-| hp_spells | intent-object-slot | 3 |
-| hp_potions | luck-field | 3 |
-| hp_potions | protection-field | 3 |
-| gu_moves | role-cannot-run | 2 |
-| hp_spells | accidental-magic | 1 |
-| hp_spells | breath-need | 1 |
-| hp_spells | discipline-not-cast | 1 |
-| hp_spells | enforcement-record | 1 |
-| hp_spells | interior-capacity | 1 |
-| hp_spells | keeper-secret | 1 |
-| hp_spells | language-key | 1 |
-| hp_spells | linked-effect | 1 |
-| hp_spells | propagating-effect | 1 |
-| hp_spells | rate-change | 1 |
-| hp_spells | speech-trigger | 1 |
-| hp_spells | vow-clauses | 1 |
+| hp_potions | luck-field | 2 |
+| hp_potions | protection-field | 2 |
 
 ## Row format
 
