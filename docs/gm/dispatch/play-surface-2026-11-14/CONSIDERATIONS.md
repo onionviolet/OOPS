@@ -65,3 +65,42 @@ Weibao asked which everyday gameplay is in work, whether the UI improvement has 
 | --- | --- | --- | --- |
 | PS19 | **A "while you were away" line.** One Reports summary on return from a jump or offline catch-up: meals missed, sea refilled, patrol nights, fights, pay. Built on the saved log tail and the day strip's model, not a new store. | Sonnet, S-M, after PS17 | After an 8-hour jump on Fang Yuan's day, one line lists what changed, and the day strip shows the same marks after reload. |
 | PS20 | **A week's ledger for each lead's day.** Run `npm run check:pacing` (or a game MCP loop) over seven in-game days of Fang Yuan's day to see whether stones and merit run out, balance or pile up, before PS9 automates it. | Sonnet, S | Receipt lists income and spending per day for the week and names any day the loop blocks. |
+
+## Round 3, 2026-11-14: how the choice shows on screen
+
+Weibao: "more to consider? How would the choiuce be shown in ui? More to consider?". The choice here is the kill-or-spare window and the lethality that shifts mid-fight, from 1c4684a24.
+
+Evidence is the combat lane's capture `combat/ri-fang-yuan-finish-or-spare-window.jpg`, taken at 1920×1080 on Fang Yuan's wolf hunt, and `src/combat_situation_ui.js` lines 55–93. All lines in this round are proposals (AD32, AD56).
+
+### What the screen does now
+
+- "Finish the lightning wolf" and "Spare the lightning wolf" are the first two tiles in a grid of fifteen. The grid looks the same as Quick strike, Heavy swing and Moonblade, which are all still offered against a body that is down.
+- The question "Finish or spare?" appears in two places. One is the last line of the "Fight on until something changes" tile's text. The other is the header's "1 down at your feet". It has no line of its own.
+- Neither tile says what follows. Finish says "End it." and Spare says "Leave them alive." The parts a kill yields and what a spared wolf does next are not shown.
+- "Ask them not to kill" is offered against a wolf.
+- The stakes line still reads "the wolf's life, and battle merit". The wolf-parts direction moves merit to the board.
+- The header names the place as "Clan academy" while the fight is "beyond the wall".
+- Every RI inventory row reads "0 coins".
+
+### ACCOUNT FOR NOW: the choice as its own moment
+
+| Code | Default | Dial, reason |
+| --- | --- | --- |
+| PS21 | **A decision band.** When a body goes down in a fight that can kill, a band opens above the moves: "The lightning wolf is down." Two wide buttons follow, Finish and Spare, keyed 1 and 2. The ordinary moves fold under "Other moves (n)", still reachable. | Dial: a player setting can keep the flat grid. Reason: this is the one moment the fight asks a question, so it should look like one. YAIR keeps its attack rhythm everywhere else. |
+| PS22 | **Each button says what follows, as the character would know it** (PRS1). Finish: "It dies. You can take the eye, pelt and meat; the board pays for the eye." Spare: "It limps back into the trees. The woods keep one more wolf." For a person, Spare adds "They will remember this." The exact yields sit on hover. | Reason: a choice with no named consequence is a coin flip. The numbers stay one step away (UR151). |
+| PS23 | **A shift in stakes is a visible event, not only a log line.** When the knife comes out, a plea is heard or restraint slips, the stakes chip changes: "Brawl · not deadly" becomes "Brawl · now deadly". One cue line says why ("The knifeman draws a knife."). The change is announced once, without a flash loop. | Reason: Weibao asked that lethality be able to change mid-fight (2c95b5a01). A change the player cannot see is not a change they can play. |
+| PS24 | **Hold back shows its risk.** The tooltip, and a small note when it applies, say when restraint may slip: "Your blows run heavy for this; holding back may slip." | Reason: CBD213 slips are otherwise invisible until they happen. |
+| PS25 | **A choice that cannot work says why, by mechanism** (AD38, UIC166). Against a wolf, "Ask them not to kill" reads blocked with the reason "A wolf does not bargain." It does not vanish, so the player learns the rule. | Dial: hide it per world when the reason is obvious. |
+| PS26 | **The result line names the fate and what you carry.** "You finished the lightning wolf. Eye, pelt and 3 jin of meat are in your pack; the meat keeps about three days." On Spare: "The wolf limped off. 1 watch tally." | Reason: this closes G16 for fights, and it fits the wolf-part split agreed between the combat and daily-loops lanes. |
+| PS27 | **Fight on can carry a standing answer.** A policy row reads "When something is down: ask me / finish / spare". The default is "ask me". A set answer lets Fight on and a later "keep my day" routine (PS9) run patrols without stopping. Persons always ask. | Dial: per kind of foe. Reason: this is an idle game. A question asked forty times a night becomes a chore. |
+| PS28 | **The answer is set per world, by its frame.** Harry's duel offers no Finish by default. A downed duellist ends the duel, and Finish appears only when the stakes are deadly and the character would. Killing a person in any world feeds standing, witnesses and ties (STN, TIE), and the band says who saw. | Reason: the usual frame per world from carry-out round 2. Killing is rare at Hogwarts. |
+
+### Also seen on that screen
+
+| Code | Item | Owner |
+| --- | --- | --- |
+| PS29 | Stakes line text: "battle merit" becomes "wolf parts for the board" after the wolf-parts change. | Combat lane |
+| PS30 | The fight header names "Clan academy" for a fight beyond the wall. The fight's place should be the encounter's place. | Combat lane, with daily-loops |
+| PS31 | RI inventory rows all read "0 coins". A thing with no known price in this world shows no price, and the purse line says what money is here: primeval stones. | feature-ui (PS11) |
+| PS32 | Move costs read "2 time", a unit the player meets nowhere else. Say it in beats with a one-line hover, or in seconds of fight time (UIC130). | Combat lane |
+| PS33 | Condition shows Hypothermia at stamina efficiency ×0.1 on a Clan academy night. This could be a real cold-night effect or a stray carryover from another life. Check it before tuning. | daily-loops (Fang Yuan's day) |
