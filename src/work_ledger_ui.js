@@ -107,10 +107,11 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
         else element('p', !state.assistUnlocked ? 'Woodworking assistance not acquired. The shop price is 2 ledger points.' : state.connection === 'connected' ? 'Woodworking assistance acquired; the connected service can assist native component work.' : 'Woodworking assistance acquired; execution is unavailable while disconnected.', benefits);
         const actions = element('div', ''); actions.className = 'work-ledger-actions';
         for (const row of view.actions || []) {
+            if (row.hidden) continue;
             const button = element('button', row.label, actions); button.type = 'button'; button.dataset.ledgerControl = row.action;
             button.disabled = busy || !view.canWrite || !view.available || !row.enabled;
             button.onclick = () => submit(row.action);
-            if (row.reason) { button.title = row.reason; element('small', row.reason, actions); }
+            if (row.reason) button.title = row.reason;
         }
         const presentation = element('fieldset', ''); presentation.className = 'work-ledger-presentation';
         element('legend', 'Visual effects', presentation);

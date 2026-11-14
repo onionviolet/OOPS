@@ -2711,3 +2711,16 @@ Queued by the coordination chat from the [lead core-flow audit](LEAD_CORE_FLOW_A
 - **G8, no result line after an action.** Not a shell problem as far as I traced: the result text comes from the pack's command and the fight text. Sent back to the coordination chat for the combat or pack owner.
 - **Tests.** `tests/seat_profiles.test.js` (scoped list, home unchanged), `tests/own_holdings.test.js` passes unchanged.
 - **Harness note.** My Chrome harness could not load a library save because its test tree left out the private packs; linking them in fixed it. This also explains the first wider-walk failure in round 48.
+
+### Fifth batch: blocked actions say why (UIC159, UIC149, UIC166), 2026-11-13
+
+Agent-verified, not human-reviewed. Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture, no page errors.
+
+- **UIC159, the Ledger's button row (done).** Each action carries its reason: "Connect first.", "Finish this commission first.", "Needs 2 points; you have 0.", "Already taught." A connection action that cannot apply is left out, so Connect and Disconnect no longer sit side by side. On the fixture the row went from ten buttons to eight: Connect and Refuse ready, six blocked with "Connect first." The settings box inside the panel was not moved.
+- **UIC149, the reason that said nothing (reworded, not changed).** The line is the fallback of a deliberate rule: a blocked reason shows only when the character could know it (PRS1). It now reads "Something stands in the way, and you cannot yet tell what. Check what this needs, or try another way."
+- **UIC166 corrected.** The count of 27 was too high, as its caveat allowed. Trade standing writes its reasons beside the buttons and the Rune bench puts them in tooltips; the probe saw neither. The Ledger was a real case and is fixed. A fair count needs a check that also reads the text beside a button.
+- **UIC172, sort and tab counts (not built).** `display.js` is at its size cap and both need code there; an extraction of the recipe list comes first.
+
+**Ledger changes after this batch:** UIC159 done; UIC149 reworded and closed as designed; UIC166 open as a check, with the count unknown; G6 and G7 done for lives that hold their own things (fourth batch); G8 routed to the coordination chat. Everything else stands as in the revised ledger above.
+
+**Next, in the coordination chat's order:** a life's own panel as its home view (needs a look), the recipe-list extraction and then UIC172's sort and counts, UIC158's remaining lines with a compatibility check on registered definitions, then UIC146 to UIC148 beyond the Stats list.

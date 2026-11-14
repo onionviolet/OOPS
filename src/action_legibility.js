@@ -156,7 +156,7 @@ function evaluatorBlockers(preview, definition, requirements, disclosure, contex
         if(message) rows.push({id: `evaluator-${i}`, text: message});
     }
     rows.push(...qualified(disclosure.blockers));
-    if(!rows.length) rows.push({id: 'contact', text: 'This action is not available under the current conditions. Review the known preparation or choose another action.'});
+    if(!rows.length) rows.push({id: 'contact', text: 'Something stands in the way, and you cannot yet tell what. Check what this needs, or try another way.'});
     return unique(rows);
 }
 
