@@ -118,3 +118,41 @@ Weibao: "choose before, it should be a fighting style or fighting stakes choice?
 | PS38 | **The original auto-combat reads the same model.** A foe at zero is "down", the terms setting resolves it in one log line ("Starving wolf rat is down. You finish it. Rat tail ×1."), and the next foe steps up. With Finish set, play matches today's YAIR exactly, loot included. | Reason: "familiar" means the grind loop does not change unless the player changes a setting. |
 | PS39 | **One model, two views.** The auto view (attack bars, log) is for routine fights. The card (moves, band) is for fights that matter. Both show the same approach strip, so moving from one view to the other changes nothing the player chose. | Reason: the tempo card and the original combat should not drift into two systems (PS2's lesson, applied to fights). |
 | PS40 | **"Ask me" pauses the auto loop the way a low-health stop would.** A person, or stakes that shifted, also stops the loop, whatever the setting. | Reason: these are the surprises worth a stop (PS27). |
+
+## Round 5, 2026-11-14: better types for each layer, and what else
+
+Weibao: "more ot consider? better types and more? More to consider?". This round extends round 4's three layers.
+
+Checked first, to avoid repeating what exists:
+- YAIR's stances in `src/combat_stances.js` are Normal, Quick, Crushing Force, Defensive Measures, Broad Arc, Berserker's Stride and Flowing Water. Each changes numbers, stamina cost and target count.
+- The live stakes presets in `src/tempo_kit.js` are drill, duel, brawl, hunt, robbery and skirmish.
+- The fight-kind palette FK1–FK12 is in the carry-out: ambush, pursuit, capture, holding a place, battle, technique against technique, attrition, and contests that are not fights.
+
+All lines are proposals (AD32, AD56).
+
+### ACCOUNT FOR NOW: these change the model being built
+
+| Code | Default | Dial, reason |
+| --- | --- | --- |
+| PS41 | **The other side has terms too, and the card shows what the character can tell of them.** On the foe card: "He wants your purse, not your life." "It fights to eat." "She wants you disarmed, not hurt." Hand over the purse, yield or back away become real answers. | Reason: AD38 says the other side has a say. Today the player meets a robbery's terms only in the stakes text. Seeing them turns a fight into a choice before it is a fight. What shows follows PRS1: a Seer or Spirit Vision reads more. |
+| PS42 | **Your own terms when it goes badly.** One more setting on the strip: "If I'm losing: fight on / yield / break off at about a third of my health / use a last resort". The last resort is a named Gu, potion or item. | Reason: idle combat needs a stop rule the player trusts. YAIR players expect a retreat threshold. It also covers Harry yielding a duel and Klein running from a Beyonder he cannot beat. |
+| PS43 | **Stakes can bind terms, and the strip says so.** An arrest needs the person taken alive. A duel's rules rule out Finish. A drill makes any kill a crime. When the player's terms clash with the stakes, the setting shows the clash and its cost ("A finish here is murder; the referee and the hall will see it") and does not silently override. | Dial: the player can still break the rules, at the cost the world charges (AD38, STN). Reason: a choice the game quietly overrides is not a choice. |
+| PS44 | **Down is a state of the body, not a label.** Knocked out, wounded and helpless, yielding, bound, fled. Each state offers its own terms: take alive needs a bound or knocked-out body; a yielding foe can be questioned. | Reason: Take alive, interrogation and capture (FK7) need to know which state the body is in. It reuses the harm and body state (`harm_state.js`). |
+
+### Better types (LATER, ranked)
+
+| Code | Layer | Types to add | Why these | Level, done check |
+| --- | --- | --- | --- | --- |
+| PS45 | Stance | **Stances that change what you do, not only numbers:**<br>• Guard someone: you take blows aimed at an ally.<br>• Go for the leader.<br>• Keep distance and kite.<br>• Grapple and pin.<br>• Disarm first.<br>• Hold the line: block a gap and keep your ground.<br>• Wear them down: a stamina war.<br>• Hit and run. | YAIR's stances only change numbers and target counts. These change targeting and position, which the tempo fight already models. | Opus, M; each new stance plays differently in a seeded fight test. |
+| PS46 | Stance | **Stances for each means:**<br>• a caster's stance (cast fast or with care);<br>• a Gu Master's stance (spend essence thriftily or in bursts);<br>• unarmed;<br>• shield;<br>• two weapons. | A spell or Gu fighter should not be stuck with sword stances. | Sonnet, S per stance; it shows in the strip only when its means is held. |
+| PS47 | Stance | **World stances that do work beyond the fight:**<br>• Klein's Seer acting: fighting as a Seer digests his potion (acting principle).<br>• A Hogwarts duelling form: a bow, a formal guard, and points that count.<br>• A Gu formation with allies. | This is where "transfer across worlds" earns its keep: the same strip, a different world's meaning. | Opus, M per world. |
+| PS48 | Terms | **More terms:**<br>• knock out and leave;<br>• disarm and let go;<br>• take their things (robbery from your side);<br>• accept a yield;<br>• question them;<br>• hand them to the authority (Nighthawks, a teacher, the clan);<br>• a mercy kill for a beast past saving;<br>• harvest (cut the Gu or the parts). | Each is a different outcome with its own consequences (STN, TIE, items). | Opus, M; each term writes its consequence and a result line. |
+| PS49 | Stakes | **Stakes types FK lacks:**<br>• arrest: authority, take alive;<br>• tournament or arena: spectators, fame and yield rules;<br>• escort: keep someone alive;<br>• assassination: one blow, unseen;<br>• a riot or mob;<br>• trial by combat;<br>• a wager match. | FK1–FK12 cover how fights run. These are why a fight is held, which sets the terms (PS43). | Opus, S each as a preset row; M for arena and escort. |
+
+### What a choice leaves behind (LATER)
+
+| Code | Item |
+| --- | --- |
+| PS50 | **Your terms are remembered per foe kind in the bestiary.** YAIR already has one. The row reads "Wolf rat · your terms: Finish". |
+| PS51 | **A choice has consequences beyond loot.** Kills and spares feed standing (a merciful or a ruthless name), ties (a spared man returns, grateful or vengeful), the mind (MND: Klein's acting, a first kill's weight), the world's own rules (in Harry's world killing costs more than standing) and populations (spared wolves grow wary). Each shows as one Reports line when it happens, not as a hidden meter. |
+| PS52 | **A sparring partner learns your stance.** Repeated drills against the same person let them read your habit, and switching stance becomes a choice that matters. This is a small counter-play loop for training, and it uses ties. |
