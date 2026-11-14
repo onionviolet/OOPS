@@ -2657,7 +2657,7 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 
 | Code | Item | Status | What is left, or who decides |
 | --- | --- | --- | --- |
-| UIC127, UIC128, UIC151 | One place panel; the next step marks its target; three ways into one bench | UIC128 done (already built); UIC151 done, tenth batch; UIC127 not built | A bench is now reached from its station row and its tab; the third copy left the action list (`LAYOUT_SPEC.benchActionRow`). UIC127 proper, one list for people, stations and exits with the action list gone, is not built: "Talk to someone", "Find work" and "Move somewhere else" are named in the opening's own text and in the walk scripts, so it is a rebuild of the centre (mock C), not a patch |
+| UIC127, UIC128, UIC151 | One place panel; the next step marks its target; three ways into one bench | UIC128 done (already built); UIC151 done, tenth batch; UIC127 built, thirteenth batch (the action list's two groups still show; see there) | A bench is now reached from its station row and its tab; the third copy left the action list (`LAYOUT_SPEC.benchActionRow`). UIC127 proper, one list for people, stations and exits with the action list gone, is not built: "Talk to someone", "Find work" and "Move somewhere else" are named in the opening's own text and in the walk scripts, so it is a rebuild of the centre (mock C), not a patch |
 | UIC129, UIC160 | A condition names its effect and remedy; Condition route with two lines | Done `c15791cc5` | Remedy lines exist for Wet and the three cold stages; other effects show what they do and no remedy until one is written |
 | UIC130, UIC134, UIC138 | Long time in human units, the lint | Done `804e0991a` | 109 older lines retire as they are rewritten |
 | UIC131 | The screen grows with the life | Mocked `90e8967bb` (G) | Weibao |
@@ -2811,7 +2811,55 @@ Read on the three earned saves in the headless game, and seen in Chrome on the e
 - `node scripts/visual_baseline.mjs --rev HEAD`: five identical, twice. A screen is captured once two captures in a row match, because the Crafting tab's count arrives a beat after the tab.
 - `check:arch`, `check:rules` pass.
 
-**What is still open**
+**What was still open after the twelfth batch (superseded by the thirteenth below)**
 
 - **UIC127, one place panel.** Not built. See the table.
 - **Held for Weibao, with mocks:** the top bar by use (UIC132, UIC175), the Notebook and its commands (UIC168, R3), the growing screen (UIC131), the left column as the selected thing (UIC152, UIC170), and directions A to F.
+
+### Thirteenth batch: one list of what is here, and Klein's contradictions (2026-11-14)
+
+Agent-verified, not human-reviewed. Working defaults under AD56. Commits `98c51d9af`, `173e44a97`, `516e97547` and the one that adds this section. It closes the three items the twelfth batch left without needing Weibao: UIC127, G13 and the earned saves in Chrome.
+
+**UIC127, one place list (built)**
+
+- **Around you now holds everything that is here.** A third group, Ways out, sits under the people and beside the stations. Each row gives the walk and a warning where the far side is not safe ("Infested field · 15 min away · Not safe"); picking it puts "Go to …" or "Enter …" beside it, as a person's row puts "Talk with …" there. It reads the same links the action list reads, so the two cannot disagree.
+- **People list at every place, not only the Village.** Before this, Around you knew people in the home Village and nowhere else. Outside it a person goes by what the action list calls them ("The suspicious man"), so no name shows that the character has not learned (PRS1).
+- **The panel keeps its height.** My first layout put the ways out on a new row, which made the top panel 100 px taller and pushed Inventory and the action list down. The visual check caught it on four screens. Now the group shares the people's column, and those four screens are pixel-identical to their old baselines.
+- **Seen in Chrome at 1920×1080:** the three groups at home; picking a way out, with the picked row kept in view when the list narrows; walking to the Wild willow stand and back, and starting a talk with Old Hesk, all from Around you; the Slums, with one person under his heard name and his talk opening.
+- **The switch, built and off: `LAYOUT_SPEC.placeList.hideActionGroups`.** On, "Talk to someone" and "Move somewhere else" leave the action list, which keeps Find work, Train and the crossing. Seen in Chrome with it on: the walk out, back and into a talk all work from Around you alone. It is off because it takes away the one-press way to walk on (a way out in Around you is two presses), which is a limit and so Weibao's call (AD56), and because 35 on-request walk scripts owned by other chats press those two groups. Until it is on, a way out and a talk each show in two places.
+- `LAYOUT_SPEC.placeList.exits: false` takes the Ways out group away again.
+
+**G13, Klein's screen contradicting itself (reproduced on `lotm-kjw37`, three of four parts)**
+
+- **"No one else is here" (reproduced, the false line fixed).** At the Moretti flat Around you said it under "People here · 0". The list only ever knew the home Village's people, so it had no grounds to say a place was empty. The line now reads "Nothing here to pick out just now." What is not fixed: the people the People panel marks as here in Klein's world come from the story's own cast, which this list does not read. Sent to the coordination chat with the place it would plug in (the `people` list built beside `placeExits` in `src/main.js`).
+- **"You need the Seer potion…" (reproduced, fixed).** Press "Open your Spirit Vision" and the same button went grey with "You need the Seer potion in you and a rested mind", when the potion was in him and the only thing wrong was that the vision was already open. The reason now names all three needs: "This needs the Seer potion in you, your Spirit Vision closed and a rested mind." Unit-tested; replayed in the headless game.
+- **Rent (reproduced, explained, one line fixed).** Three lines, all true, read as a contradiction side by side: a landlady's notice from about three days ago, "Rent and dues paid: 1 pound 15 soli" from the time away, and "This week's rent of 5 soli is due in 4 days". The duty line also said "5 soli (an assumed figure)", a note written for agents; that is gone. What is not mine: the 5 soli itself, against the 12 soli 3 pence Klein's own notebook records for the flat. Sent to the coordination chat (`src/book_world_lotm_duties.js:19`).
+- **Clocks eight hours apart (not on the screen).** The lead audit already traced it to the play tool's status line against the header. One clock shows on the screen.
+
+**The earned saves in Chrome**
+
+- **Harry (`hp-w7-halloween`) and Fang Yuan (`ri-fang-yuan-class-chair`) load and were seen.** Both open on their own actions with the next three steps listed. The earlier failure was my harness's six-second limit under load.
+- **Klein (`lotm-kjw37`) does not become usable in a browser, and it is not the harness.** The page loads and then never answers: 68 of 68 samples over ten minutes found it busy, each inside the story's action list being priced again (`src/book_world_lotm_host.js:432` to `:448`, through `previewSimulationCommand` at `src/simulation.js:115`, `src/facts_frame.js` and `src/simulation_effects.js`). The headless game plays the save because it does not draw every frame. This is the engine's cost on a long story life, not screen code; sent to the coordination chat with the samples. Klein's screens are therefore verified in the headless game only.
+
+**The visual check, as run**
+
+- The rule stands as written in the twelfth batch: a screen passes when it is identical, or when its only differences are pixels one colour level in 255 off, and that case prints its own line ("identical but for N dither pixels one level off"). Anything two or more levels off fails.
+- On `516e97547` against the baselines from before this batch: `home: DIFFERENT, 45617 pixels, up to 204 levels off, x 373-869, y 329-440` (the new Ways out group and nothing else); stats, inventory, journal and crafting `identical`.
+- After refreshing the home baseline, two more runs: five `identical`, twice. The one-level case did not occur in any of these runs.
+
+**Checks**
+
+- Full `npm test` on `516e97547`: 7,549 tests, 7,547 pass, 0 fail, 2 skipped.
+- `node scripts/check_flow.mjs --rev HEAD`: on `516e97547`, 13 routes, four other states, 0 findings.
+- The first walk of this batch had one finding, mine: the zoom check read the bench's script-only button as clipped text once that class held its 1 px size. The check now skips controls of that class, which no player can see or press.
+- `npm run test:changed` before the first commit: 4,823 tests, 4,821 pass, 0 fail, 2 skipped.
+- `check:arch` (`main.js` 10,115 of 10,115; `display.js` 6,763 of 6,767) and `check:rules` pass.
+
+**What is still open**
+
+Nothing on this ledger is open that an agent can close. What is left is Weibao's:
+
+- **Q1, the action list's two groups.** Turn `hideActionGroups` on, so a talk and a way out each have one home, or leave both. On costs one press per walk and means updating the walk scripts.
+- **Q2 to Q5, with mocks in `prototypes/ui-directions-2026-11-13/`:** the top bar by use (UIC132, UIC175), the Notebook and its commands (UIC168, R3), the growing screen (UIC131), the left column as the selected thing (UIC152, UIC170), and which of directions A to F to take further.
+
+Sent to other chats, not screen work: Klein's life is too slow to play in a browser; the rent figure; the story cast in Around you.
