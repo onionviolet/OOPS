@@ -198,6 +198,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'tools': surface(UNSET),
         'fields': surface(UNSET),
         'naming': surface(UNSET),
+        'deeds': surface('ST6', {home: 'Reference dock; a record of deeds done across lives', frequency: 'occasional', status: 'proposal', reads: ['knowledge']}),
         'household-fortunes': surface('ST6', {home: 'Reference dock; opens once the manor household has been seen', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'home-layout': surface('ST6', {home: 'Reference dock; opens once the manor household has been met', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'inventory']}),
         'inherited_traits': surface('ST6', {home: 'Reference dock; family qualities and what a test reveals, always available', frequency: 'occasional', status: 'proposal', reads: ['body', 'inventory', 'people']}),
