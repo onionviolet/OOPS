@@ -436,7 +436,10 @@ function checkEnds(law, record, world, rules, at) {
         const view = entrantView(law, record, world, id);
         const spent = Object.keys(law.endings).find(q => q !== 'noMeans' && q in view.quantities && view.quantities[q] <= 0);
         if (!spent) continue;
-        const lethalBlow = law.lethal && law.moves[e.lastHitBy?.move]?.lethal;
+        // Weibao, 2026-11-14: "fists can kill too". In a lethal contest any blow that downs a body can kill (AD38).
+        // Holding back is the attacker's choice (wants.subdue, CBC32) or a move that cannot kill (lethal: false).
+        const by = e.lastHitBy, striker = by && record.entrants[by.actor];
+        const lethalBlow = law.lethal && !!by && law.moves[by.move]?.lethal !== false && !striker?.wants?.subdue;
         e.status = 'out';
         e.outcome = spent === 'vitality' ? (lethalBlow ? 'killed' : law.lethal ? 'knocked_out' : law.endings.vitality) : law.endings[spent];
         if (e.working?.status === 'running') e.working = interruptWorking(e.working, {at, reason: 'Down.'});

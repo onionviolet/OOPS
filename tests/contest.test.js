@@ -173,3 +173,16 @@ test('the contest names no world and no entrant domain (SC9, PFP3)', () => {
         assert.ok(imports.every(l => !/world_packs|contest_packs|book_|gu_(?!defense)|hp_|lotm/.test(l)), `${file}: ${imports.join(' | ')}`);
     }
 });
+
+test('in a lethal contest a plain blow can kill; holding back is the striker\'s choice or the move\'s nature (CBC32)', () => {
+    // Weibao, 2026-11-14: "fists can kill too". No move needs a flag to be able to kill.
+    const moves = {jab: {resolver: 'strike', steps: [5], power: 4}, tap: {resolver: 'strike', steps: [5], power: 4, lethal: false}};
+    const deadly = defineContestLaw({id: 'c.test_deadly', revision: 0, lethal: true, moves});
+    const strong = more => fighter('a', 'red', {profile: {attack: 40, evasion: 30, notch: 0, resist: 0}, ...more});
+    const weak = fighter('b', 'blue', {vitality: 6});
+    const end = (a, law = deadly) => play([a, weak], {law}).record.result.outcomes.b;
+    assert.equal(end(strong()), 'killed', 'an unflagged jab that downs a body kills');
+    assert.equal(end(strong({wants: {subdue: true}})), 'knocked_out', 'a striker who holds back knocks out');
+    assert.equal(end(strong({moves: ['tap']})), 'knocked_out', 'a move that cannot kill knocks out');
+    assert.equal(end(strong(), LAW), 'knocked_out', 'a contest that is not lethal still ends in a knockout');
+});

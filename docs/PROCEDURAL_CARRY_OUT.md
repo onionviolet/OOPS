@@ -713,7 +713,9 @@ its usual lethality (CBC37, CBR6) and subduing is a stance (CBC32). Today a
 troll in a Hogwarts corridor or a stopped spar in the Gu world needs a second
 law with its own copy of the moves, and stakes cannot change once a contest
 has begun. Default: the world supplies the usual frame, each contest carries
-its own stakes, and a move stays capable of killing or not. This would amend
+its own stakes. Since 2026-11-14 a move needs no flag to kill (Weibao: "fists can
+kill too"): in a lethal contest any downing blow can kill, and a knockout comes
+from the striker holding back or a move that cannot kill. Stakes per contest would amend
 CFC9 and is a proposal.
 
 **Spell fights.**

@@ -135,8 +135,10 @@ test('policy spread separates a blade policy from a fist policy on the same hunt
             blades: {fang_yuan: {rows: [{move: 'moonglow_blade', fallback: 'fist'}]}},
             fists: {fang_yuan: {rows: [{move: 'fist'}]}},
         }, {seeds: seeds(6)});
-    // Same seeds, same pack: the two policies end differently and cost differently.
-    assert.notDeepEqual(spread.blades.outcomes, spread.fists.outcomes);
+    // Same seeds, same pack: the two policies cost differently. Both can kill in a lethal
+    // fight (Weibao, 2026-11-14: "fists can kill too"), so the outcome words are not the difference.
+    assert.ok(Object.keys(spread.blades.outcomes.killed ?? {}).length > 0, 'blades kill');
+    assert.ok(Object.keys(spread.fists.outcomes.killed ?? {}).length > 0, 'fists kill too');
     assert.ok(spread.blades.spent.fang_yuan.primeval_essence > 0, 'blades spend essence');
     assert.equal(spread.fists.spent.fang_yuan?.primeval_essence, undefined, 'fists spend none');
     assert.ok((spread.fists.changed.fang_yuan?.vitality ?? 0) < (spread.blades.changed.fang_yuan?.vitality ?? 0),
