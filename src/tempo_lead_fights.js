@@ -5,7 +5,7 @@
 // every number is an authored dial with its reason (AD49 calibration against held-back source fights is the next step, WS5).
 // Leaf of the world packs: reads each world's own facts, registers through tempo_starters.js, writes back in the fight's own commit.
 import {registerTempoOpener} from './tempo_starters.js';
-import {riLeadDayFacts, RI_DAY_ITEMS} from './ri_lead_day_facts.js';
+import {riLeadDayFacts, RI_DAY_ITEMS, RI_WOLF_AT_WALL} from './ri_lead_day_facts.js';
 
 const key = id => JSON.stringify({id});
 const held = (context, id) => Number(context.gameplay?.player?.inventory?.[key(id)] || 0);
@@ -91,6 +91,10 @@ const GU = {moonglow: RI_DAY_ITEMS.moonglow, jade: RI_DAY_ITEMS.whiteJade, boar:
 const reserve = state => Number(state.simulation?.energies?.player?.[ESSENCE]?.reserve || 0);
 // The patrol's report can say he came back hurt (daily-loops lane: fact `book.ri.lead.day.injured`); the fight then starts from that wound.
 const INJURED = 'book.ri.lead.day.injured';
+// The patrol's report can leave a wolf at the wall (daily-loops lane, RI_WOLF_AT_WALL owns its fact and merit). The patrol is pack data and
+// cannot open a fight, so this opener is the trigger: with a wolf waiting it fights that wolf at night and settles the patrol's facts.
+const wolfWaiting = state => !!riLeadDayFacts(state)['book.ri.lead.day.wolf_waiting'];
+const PATROL_ID = 'ri-wolf-tide-patrol';
 export const woundCarried = state => !!(state.actors?.player?.facts?.[INJURED] || riLeadDayFacts(state)[INJURED]);
 export function wolfKit(state, context) {
     const hungry = !!riLeadDayFacts(state)['book.ri.lead.day.moonglow.hungry'];
@@ -109,18 +113,20 @@ export function wolfKit(state, context) {
 }
 registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the tide (play it out)',
     text: 'Instead of a compressed patrol, meet one lightning wolf beyond the wall and fight it move by move. A killed wolf leaves an eye for the alliance board.',
-    owns: id => id === 'ri-wolf-tide',
+    owns: id => id === 'ri-wolf-tide' || id === PATROL_ID,
     quote(state, context) {
         if(state.actors?.player?.worldId !== 'book.ri.lead.world') return {visible: false};
         if(!held(context, GU.moonglow)) return {visible: false};
         if(busy(state)) return {visible: true, eligible: false, reason: 'Another encounter is already open.'};
-        const parts = reserve(state), kit = wolfKit(state, context);
-        if(kit.moonblade.blocked) return {visible: true, eligible: true, reason: `${kit.moonblade.blocked} You can still go out with fists.${woundCarried(state) ? ' You carry tonight\'s wound into it.' : ''}`};
-        return {visible: true, eligible: true, reason: `${parts} parts of essence in your sea; a moonblade costs ${WOLF_HUNT.moonblade.value}.${woundCarried(state) ? ' You carry tonight\'s wound into it.' : ''} Outside the wall a blow that drops the wolf kills it.`};
+        const parts = reserve(state), kit = wolfKit(state, context), waiting = wolfWaiting(state) ? 'The wolf from tonight\'s watch is at the wall. ' : '';
+        if(kit.moonblade.blocked) return {visible: true, eligible: true, reason: `${waiting}${kit.moonblade.blocked} You can still go out with fists.${woundCarried(state) ? ' You carry tonight\'s wound into it.' : ''}`};
+        return {visible: true, eligible: true, reason: `${waiting}${parts} parts of essence in your sea; a moonblade costs ${WOLF_HUNT.moonblade.value}.${woundCarried(state) ? ' You carry tonight\'s wound into it.' : ''} Outside the wall a blow that drops the wolf kills it.`};
     },
     spec(state, context, helpers) {
         const kit = wolfKit(state, context);
-        return {id: 'ri-wolf-tide', title: 'A lightning wolf beyond the wall', floor: 1, conditions: {light: 'day', footing: 'bad', place: 'Beyond the wall'},
+        const patrol = wolfWaiting(state);
+        return {id: patrol ? PATROL_ID : 'ri-wolf-tide', title: patrol ? 'The wolf at the wall' : 'A lightning wolf beyond the wall', floor: 1,
+            conditions: {light: patrol ? 'dark' : 'day', footing: 'bad', place: patrol ? 'The village wall' : 'Beyond the wall'},
             stakes: {preset: 'hunt', stakes: 'the wolf\'s life, and battle merit', text: 'A hunt beyond the wall: the wolf fights for its life. A blow that drops it kills it; if it drops you, you wake badly hurt.',
                 why: 'WS2: killing is common outside the walls; the tide is why you are here.'},
             fighters: [you(helpers, {moves: [...PLAIN, ...Object.keys(kit)], kit, means: {essence: reserve(state)}, meansLabels: {essence: 'essence'},
@@ -130,13 +136,22 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
                     goals: {survive: .4, aim: .6}, moves: ['jab', 'swing', 'withdraw']})]};
     },
     // Essence spent in the fight leaves the reserve once; a killed wolf leaves an eye the day's alliance board reads (FLR4: hand_in_eye).
+    // From the patrol, it also frees the patrol, pays the kill merit, and leaves him injured when he was hurt or did not win (plain facts the
+    // pack's rules read), plus a readable record for Reports and later readers.
     after(plan, result, b) {
-        const left = b.fighters.player.means?.essence, pool = plan.state.simulation?.energies?.player?.[ESSENCE];
+        const me = b.fighters.player, start = reserve(plan.state), left = me.means?.essence, pool = plan.state.simulation?.energies?.player?.[ESSENCE];
         if(pool && Number.isFinite(left)) pool.reserve = Math.max(0, Math.min(pool.reserve, left));
-        const wolf = b.fighters['ri.wolf.tide.wolf'];
-        if(result === 'won' && wolf?.end === 'killed') {
-            const inv = ((plan.gameplay ||= {}).player ||= {}).inventory ||= {};
-            inv[key(RI_DAY_ITEMS.eye)] = (inv[key(RI_DAY_ITEMS.eye)] || 0) + 1;
+        const wolf = b.fighters['ri.wolf.tide.wolf'], killed = result === 'won' && wolf?.end === 'killed' ? 1 : 0;
+        const inv = ((plan.gameplay ||= {}).player ||= {}).inventory ||= {}, add = (id, n) => { inv[key(id)] = (inv[key(id)] || 0) + n; };
+        if(killed) add(RI_DAY_ITEMS.eye, 1);
+        const facts = plan.state.actors.player.facts, wounded = Object.keys(me.parts || {}).length > 0;
+        if(b.id === PATROL_ID) {
+            facts[RI_WOLF_AT_WALL.fact] = false;
+            if(killed) add(RI_DAY_ITEMS.merit, RI_WOLF_AT_WALL.killMerit);
+            else if(result === 'won') add(RI_DAY_ITEMS.merit, RI_WOLF_AT_WALL.driveOffMerit); // held back: it limps off over the wall, as when the watch drives it off
+            if(wounded || result === 'lost' || result === 'withdrawn' || result === 'yielded') facts['book.ri.lead.day.injured'] = true;
         }
+        facts['book.ri.lead.day.wolf_fight'] = JSON.stringify({from: b.id === PATROL_ID ? 'patrol' : 'hunt', result, killed, wolf: wolf?.end ?? (wolf?.status === 'left' ? 'withdrew' : 'stood'),
+            essenceSpent: Number.isFinite(left) ? Math.max(0, start - left) : 0, healthMissing: Math.max(0, Math.round((me.maxHp - me.hp) * 10) / 10), wounded, at: plan.state.clock});
     },
 });
