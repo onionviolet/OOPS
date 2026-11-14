@@ -1,3 +1,4 @@
+import {readFileSync} from 'node:fs';
 // DEV/TEST ONLY. Named world fixtures (FRC74, FRC76): the states browser proofs and the game MCP keep needing, built once and
 // cached instead of walked again by every lane. Nothing here is imported by src/ or shipped in the player UI.
 //
@@ -33,6 +34,10 @@ const panelText = (game, sel) => (game.$(sel)?.textContent || '').replace(/\s+/g
 
 const HP = 'book.hp.lead', KEEPER = 'book.ri.keeper';
 
+function hpHouseholdActIds() {
+    try {return JSON.parse(readFileSync(new URL('../../private_packs/hp-cast/cast.json', import.meta.url), 'utf8')).householdActs.acts.map(act => act.id);}
+    catch {return [];}
+}
 export const WORLD_FIXTURES = Object.freeze({
     'lotm-tingen-day3': {
         world: 'lotm', route: 'played', view: {panel: 'lotm', sel: '#lotm_panel', text: /Klein|Tingen/}, needs: ['private_packs/lotm-cast'],
@@ -60,6 +65,10 @@ export const WORLD_FIXTURES = Object.freeze({
             const {expansionState: s, current_game_time: t} = game.internals, a = s.actors.player, day = 321;
             a.facts['hp.lead.atSchool'] = true; a.facts['hp.lead.house'] = 'gryffindor';
             for(const id of ['arrive_school', 'sorting', 'w6.return']) a.completed[`${HP}.${id}`] = 1;
+            // The household weeks before school are behind him too. Left unrecorded, his panel fell back to the first unfinished
+            // sequence and showed "Dudley's birthday" in exam week (lead core-flow audit G6, 2026-11-13). Without the local cast
+            // there is no household sequence to record.
+            for(const id of hpHouseholdActIds()) a.completed[id] = 1;
             s.simulation.people.player.location = `${HP}.school_hall`;
             s.clock = day * 1440 + 60; // 09:00 on lead day 321 (lead clock anchor 08:00)
             t.day_count = day + 1; t.hour = 9; t.minute = 0;
