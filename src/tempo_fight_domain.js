@@ -227,9 +227,10 @@ function metFoes(facts) { try { const list = JSON.parse(facts[MET_FACT] || '[]')
 function closeAccount(plan, w) {
     const result = plan.state.actors.player.facts['tempo.lastResult'], v = plan.vitals?.player ?? ports.campaignContext().vitals?.player ?? {};
     const round = n => Math.round(n * 10) / 10;
-    account = fightResult({place: w.title, outcomes: {player: OUTCOME[result] ?? null}, rows: [], asked: w.asked, turning: [],
+    const them = (plan.fightEnd || []).filter(f => typeof f.name === 'string' && f.name); // the other side, by the names the fight used
+    account = fightResult({place: w.title, outcomes: {player: OUTCOME[result] ?? null, ...Object.fromEntries(them.map((f, i) => [`foe${i}`, f.end]))}, rows: [], asked: w.asked, turning: [],
         means: [{id: 'health', before: round(w.health), after: round(v.health ?? w.health)}, {id: 'stamina', before: round(w.stamina), after: round(v.stamina ?? w.stamina)}]},
-    {seat: 'player', life: 'health', names: {}, moves: {}, means: MEANS, parts: {}});
+    {seat: 'player', life: 'health', names: Object.fromEntries(them.map((f, i) => [`foe${i}`, f.name])), moves: {}, means: MEANS, parts: {}});
     metMeans.set(w.title, {health: w.health, stamina: w.stamina});
     // Kept with the life as plain text beside tempo.lastResult, so the last result is still there after a reload.
     plan.state.actors.player.facts[MET_FACT] = JSON.stringify([...new Set([...metFoes(plan.state.actors.player.facts), ...w.foes])].slice(-MET_CAP));

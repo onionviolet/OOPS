@@ -109,3 +109,9 @@ test('a foe fought to an end is remembered with the life, so the next meeting do
     assert.deepEqual(host({facts: {'tempo.metFoes': kept}}).view().fight.ask, []);
     assert.deepEqual(host().view().fight.ask, ['A yard bully: not fought before.']);
 });
+
+test('the result names how the other side ended', () => {
+    const h = host({foeHp: 4});
+    for (let n = 0; n < 6 && h.view().fight; n += 1) h.run();
+    assert.equal(Object.fromEntries(h.view().account.items).Them, 'A yard bully: down.');
+});

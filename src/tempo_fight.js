@@ -153,6 +153,8 @@ function finishFight(plan, registry, result) {
     const facts = state.actors.player.facts;
     facts[TEMPO_FACT_HELD] = Math.min(TEMPO_DIALS.heldCapMinutes.value, (facts[TEMPO_FACT_HELD] || 0) + held);
     facts['tempo.lastResult'] = result;
+    // How each opposing fighter ended, for the host's result block (not saved: the host turns it into player text).
+    plan.fightEnd = Object.values(b.fighters).filter(f => f.side === 'b').map(f => ({name: f.name, end: f.status === 'down' ? 'down' : f.yielded ? 'yielded' : f.status === 'left' ? 'withdrew' : 'stood'}));
     if(result === 'lost') plan.defeat = savedBattleLoss(Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => b.fighters[id].name));
     // Allies who fought write the bond (LSD331) and are named in a fact the party route already reads.
     const allies = Object.entries(b.fighters).filter(([id, f]) => f.ally && state.simulation.people[id]);

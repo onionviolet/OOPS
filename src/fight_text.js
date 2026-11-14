@@ -10,7 +10,7 @@ export const FIGHT_TEXT_SCHEMA = 'fight.text@1';
 
 // Outcome words a player can read. An outcome with no word here is left out.
 const OUTCOME_WORDS = Object.freeze({
-    stood: 'standing', killed: 'killed', knocked_out: 'out cold', yielded: 'yielded', withdrew: 'withdrew',
+    stood: 'standing', down: 'down', killed: 'killed', knocked_out: 'out cold', yielded: 'yielded', withdrew: 'withdrew',
     routed: 'routed', captured: 'captured', escaped: 'got away', drove_off: 'driven off',
 });
 const POSTURE_WORDS = Object.freeze({kneeling: 'kneeling', 'down injured': 'hurt'});
