@@ -38,7 +38,8 @@ review: none
 - **Feature UI** (feature-ui). Farming and the courtyard, crafting, mixing (76c5f1682, b361fa580). Reports' Earlier lines (a529e0db5). The Gu house rows (38d7b3d25). Gathering (dd22b9148). Carcass processing (6231596d7). Prices in the purse format (ea9249039). Blocked repeatable actions keep their reason (b00b56374). Result lines for instant acts (2d48e8948). A life's day on Here (a538b279e). The shop (04bf7b2c1). Ledger: UI audit, fifteenth and sixteenth batches. Eating and home, and training, are still in progress.
 - **Daily loops** (daily-loops). Map and proposed loops (008fa95b1). Fang Yuan's ordinary day (425d14bb7, corrected in 89803de77). Natural sea recovery and seeded patrol nights (69a9ddda6), at floor. Next is Klein's wage loop, then Harry's timetable.
 - **Combat** (combat lane, `local_7da0d3f3`, which took over from the Fable-limited family). CFC9 committed (49fb16bd3). One live fight per lead world on the familiar card: Klein's brawl, Harry's duel and Fang Yuan's hunt, with stakes presets, spells and Gu as kit rows and Hold back (ea9cbe543). Proof is under `combat/`, and the next-worlds table is in the carry-out. Not built: enchanted gear (AE1), counters, calibration against source fights (WS5).
-- **Open, with no owner:** F3 (the story cast in Around you). It is waiting for a browser-playable Klein save.
+- **Klein's wage loop** (fa49cee23): implemented, below floor. The browser gate is blocked by G18: late LOTM saves stall headless Chrome at PLAY, on HEAD too. The G18 bisect went to feature-ui on 2026-11-14.
+- **Open:** F3 (the story cast in Around you) waits on G18.
 
 ## Waiting on Weibao
 
