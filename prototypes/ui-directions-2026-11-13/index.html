@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI directions, 2026-11-13 (mocks)</title>
+<style>
+:root { --bg:#040a2c; --panel:#07184a; --panel2:#0a2a4a; --line:#2c6ad0; --text:#d8f0ff; --muted:#8fb2cc; --accent:#ffd84d; --gain:#5dff8a; --warn:#ff9d57; --rep:#2a1a4a; }
+* { box-sizing:border-box; }
+body { margin:0; background:#02061a; color:var(--text); font:14px/1.45 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+header.page { padding:16px 20px 8px; max-width:1400px; margin:0 auto; }
+header.page h1 { font-size:18px; margin:0 0 4px; color:var(--accent); }
+header.page p { margin:4px 0; color:var(--muted); max-width:100ch; }
+nav.pick { display:flex; flex-wrap:wrap; gap:6px; padding:8px 20px; max-width:1400px; margin:0 auto; position:sticky; top:0; background:#02061a; z-index:2; }
+nav.pick button { font:inherit; color:var(--text); background:var(--panel); border:1px solid var(--line); padding:5px 10px; cursor:pointer; }
+nav.pick button[aria-pressed="true"] { border-color:var(--accent); color:var(--accent); }
+section.option { max-width:1400px; margin:0 auto; padding:8px 20px 28px; }
+section.option h2 { font-size:16px; margin:14px 0 4px; scroll-margin-top:48px; }
+section.option .notes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:8px 0 12px; }
+section.option .notes div { border-left:2px solid var(--line); padding-left:10px; color:var(--muted); }
+section.option .notes b { display:block; color:var(--text); }
+.pair { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.pair.single { grid-template-columns:1fr; }
+figure { margin:0; min-width:0; }
+figcaption { color:var(--accent); margin-bottom:4px; }
+/* A frame is the 1920x1080 screen at a little under a third of its size. */
+.frame { min-width:0; aspect-ratio:16/9; background:var(--bg); border:1px solid #16306a; display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:auto minmax(0,1fr); gap:3px; padding:3px; font-size:9px; line-height:1.35; overflow:hidden; }
+.bar { display:flex; gap:2px; align-items:center; background:#06123c; border-bottom:1px solid var(--line); padding:1px 3px; white-space:nowrap; overflow:hidden; }
+.bar span { padding:1px 5px; border-right:1px solid #1c3f86; }
+.bar .field { flex:0 0 34%; border:1px solid var(--line); background:#030a26; color:var(--muted); padding:1px 6px; }
+.bar .right { margin-left:auto; border:0; color:var(--muted); }
+.status { background:#051238; border:1px solid #1c3f86; padding:1px 6px; color:var(--text); white-space:nowrap; overflow:hidden; }
+.cols { display:grid; grid-template-columns:18% minmax(0,1fr) 26%; gap:3px; min-height:0; min-width:0; }
+.col { display:flex; flex-direction:column; gap:3px; min-height:0; min-width:0; }
+.p { background:var(--panel); border:1px solid var(--line); padding:3px 5px; min-height:0; overflow:hidden; }
+.p.rep { background:var(--rep); border-color:#5a4aa0; }
+.p.grow { flex:1 1 0; }
+.p h3 { margin:0 0 2px; font-size:9px; color:var(--accent); font-weight:600; }
+.p .m { color:var(--muted); }
+.row { display:flex; justify-content:space-between; gap:6px; border-top:1px solid #153a78; padding:1px 0; }
+.row.sel { background:#123a6a; outline:1px solid var(--accent); }
+.ok { color:var(--gain); } .near { color:var(--accent); } .no { color:var(--muted); }
+.hot { outline:1.5px solid var(--accent); outline-offset:-1px; }
+.empty { color:#3d5f8f; font-style:italic; }
+.strip { display:grid; grid-template-columns:repeat(24,1fr); gap:1px; margin-top:2px; }
+.strip i { display:block; height:9px; background:#0c2a5a; font-style:normal; font-size:6px; text-align:center; color:var(--muted); }
+.strip i.done { background:#1d5fae; } .strip i.now { background:var(--accent); } .strip i.plan { background:#284a2e; }
+.legend { display:flex; gap:10px; color:var(--muted); margin-top:2px; }
+@media (max-width:900px) { .pair, section.option .notes { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header class="page">
+  <h1>UI directions, 2026-11-13</h1>
+  <p>Eight mocks for the decisions the UI audit holds for you (rounds 49 to 51). Each shows today's screen beside the proposal at the same scale, with what it fixes and what it costs. Text is taken from the game where it exists. These are sketches to choose from, not builds; nothing here is in the game.</p>
+  <p>Codes refer to <a style="color:var(--accent)" href="../../docs/audits/UI_DESIGN_CORE_AUDIT.md">docs/audits/UI_DESIGN_CORE_AUDIT.md</a>, section "UI ledger, revised".</p>
+</header>
+<nav class="pick" id="pick"></nav>
+<main id="main"></main>
+<script>
+const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
+const rows = list => list.map(([a, b, cls]) => `<div class="row ${cls || ''}"><span>${a}</span><span>${b || ''}</span></div>`).join('');
+const TABS = ['Stats', 'Condition', 'Inventory', 'Journal', 'Data', 'Knows', 'Notebook', 'People', 'Travelers', 'Projects', 'Ledger', 'Organizations', 'Worlds', 'Beginning', 'All panels…'];
+const bar = (tabs = TABS) => `<div class="bar">${tabs.map(t => `<span>${t}</span>`).join('')}<span class="right">Find · Saving available. · Save · Export · Import · Menu</span></div>`;
+const you = extra => `<div class="p"><h3>Hero You · Human · Lv 0</h3>60/60 hp · 0/10 xp · 40/40 stamina${extra === false ? '' : rows([['STR 12.0 · AGL 8.0 · DEX 10.0'], ['INT 10.0 · Defense 1.0 · Magic 0.0'], ['Attack 1.2 · Speed 1.0/s · Crit % 5%']])}</div>`;
+const inv = tall => `<div class="p ${tall ? 'grow' : ''}"><h3>Inventory 10C 4W</h3>${rows([['Ledger workshop cache', '2W'], ['Prepared survey kit x2', '2W'], ['Stale bread x5', '2C'], ['Cheap leather pants [legs]', '4C 6W']])}</div>`;
+const around = `<div class="p"><h3>Around you</h3>Medium-sized village, built at the foot of the mountains.${rows([['Old Hesk, the village elder', 'Village neighbor'], ['Dunstan, the village trader', 'Merchant'], ['Village mixing counter', 'station'], ['Gear workshop', 'station']])}</div>`;
+const place = (clock = true) => `<div class="p grow"><h3>Village <span class="m">· Summer Dry 14.9 °C</span></h3>${clock ? '<span class="m">01/04/999 08:12, Mon · Day</span><br>' : ''}Daylight falls across the village path.<br>${clock ? 'No work running. Saving available.' : ''}${rows([['Move somewhere else'], ['Talk to someone'], ['Find work'], ['Train'], ['Mix at the Village counter']])}</div>`;
+const reports = (clock = true) => `<div class="p rep grow"><h3>Reports</h3>Next step: Ask the elder about the spare weapon and pick one, or go without.<br><span class="m">Talk with Old Hesk in Around you, then "About the spare weapon…".</span><br>${clock ? 'Now: Mon, Summer, Day · 08:12 at Village<br>' : ''}[ Home · 01/04/999, Summer, Mon ]</div>`;
+const frame = (top, left, centre, right, status) => `<div class="frame"><div>${top}${status ? `<div class="status">${status}</div>` : ''}</div><div class="cols"><div class="col fill">${left}</div><div class="col fill">${centre}</div><div class="col fill">${right}</div></div></div>`;
+const today = () => frame(bar(), you() + inv(true), around + place(), reports());
+
+const OPTIONS = [
+  {id: 'A', title: 'A. List in the centre, the thing on the left', codes: 'UIC147, UIC152, UIC170, UIC178',
+    fixes: 'The left column goes half empty on a route and Strength shows three times. Only five of 52 panels show a selected thing.',
+    change: 'While a route is open, the left column shows the selected row: the attribute, the person, the item. The centre is only the list.',
+    cost: 'Your vitals leave the left column while a route is open, unless a thin vitals strip stays. Every list panel needs a "selected" notion.',
+    before: () => frame(bar(), you() + `<div class="p grow empty">Condition and Gear left this column; nothing took the space.</div>`, `<div class="p grow"><h3>Stats</h3><div class="p" style="width:40%"><h3>Stats</h3>${rows([['Strength', '12'], ['Agility', '8'], ['Dexterity', '10']])}</div>${rows([['Strength', '12 points', 'sel'], ['Agility', '8 points'], ['Dexterity', '10 points'], ['Attack rating', '31.6 AP'], ['Hits per attack', '1 hit'], ['Critical chance', '5%'], ['Defense', '1 point']])}</div>`, reports()),
+    after: () => frame(bar(), you(false) + `<div class="p grow hot"><h3>Strength</h3>The strength behind your physical blows. More strength increases attack power.${rows([['Current', '12 points'], ['Base', '12'], ['From gear', 'none'], ['From training', 'none']])}<br><span class="m">Calculation and sources ▸</span></div>`, `<div class="p grow"><h3>Stats · 42 attributes</h3>${rows([['Strength', '12 points', 'sel'], ['Agility', '8 points'], ['Dexterity', '10 points'], ['Intuition', '10 points'], ['Attack rating', '31.6 AP'], ['Hits per attack', '1 hit'], ['Critical chance', '5%'], ['Critical damage', '×1.3'], ['Defense', '1 point'], ['Evasion rating', '25.3 EP']])}</div>`, reports())},
+  {id: 'B', title: 'B. One status line', codes: 'UIC146',
+    fixes: 'The time shows three times in three formats on home, and "Saving available." twice.',
+    change: 'One line under the top bar holds time, weather, work and save state on every view. The place header and Reports stop repeating them.',
+    cost: 'One more fixed row, about 22 px. Reports loses its "Now:" line, which some may read as a heading.',
+    before: today,
+    after: () => frame(bar(), you() + inv(true), around + place(false), reports(false), `<span class="hot">Mon 01/04/999 · 08:12 · Summer, dry, 14.9 °C · No work running · Saved</span>`)},
+  {id: 'C', title: 'C. Let the empty space be the place', codes: 'M2, UIC131, UIC152',
+    fixes: 'Inventory holds five rows in a 500 px box; Reports and People are mostly empty. A quiet life looks unfinished.',
+    change: 'A panel takes the room its content needs. What is left goes to the place: the narrator noticing things, who walks past, the weather turning. The frame stays full.',
+    cost: 'It needs enough place lines to not repeat (PRS12 writes them). Lines must go quiet when something real needs the room.',
+    before: today,
+    after: () => frame(bar(), you() + inv(false) + `<div class="p grow hot"><span class="m">The pack is light. Bread, a kit, a pair of bad trousers.</span></div>`, around + `<div class="p grow"><h3>Village <span class="m">· Summer Dry 14.9 °C</span></h3>${rows([['Move somewhere else'], ['Talk to someone'], ['Find work'], ['Train']])}<div class="hot" style="margin-top:4px;padding:3px">Daylight falls across the village path.<br>Old Hesk is mending a net by the well.<br>Somebody has left a rake against the trader's wall. Maybe it is nobody's.<br><span class="m">The mountains keep the north to themselves.</span></div></div>`, `<div class="p rep"><h3>Reports</h3>Next step: Ask the elder about the spare weapon.<br>[ Home · 01/04/999, Summer, Mon ]</div><div class="p rep grow hot"><span class="m">Nothing else to report. It is that kind of morning.</span></div>`)},
+  {id: 'D', title: 'D. "What can I do now" in every list', codes: 'UIC149, UIC159, UIC166, UIC172',
+    fixes: 'Crafting said "Missing" seventeen times; the Ledger showed every button at once; blocked actions gave no reason.',
+    change: 'One order for every list: ready first, then near with the gap named, then the rest. Built already for recipe rows, tab counts and the Ledger; this makes it the rule everywhere.',
+    cost: 'Rows move as things become ready, which fights the steady-frame rule; a list that is open holds its order until it is reopened.',
+    before: () => frame(bar(), you() + inv(true), `<div class="p grow"><h3>Crafting · Tinkering</h3>${rows([['Wool cloth', 'Missing'], ['Fine wool cloth', 'Missing'], ['Sinew string', 'Missing'], ['Flax string', 'Missing'], ['Bonemeal', 'Missing'], ['Wolf trophy', 'Missing'], ['Boar trophy', 'Missing'], ['Forager pendant', 'Missing']])}</div>`, reports()),
+    after: () => frame(bar(), you() + inv(true), `<div class="p grow hot"><h3>Crafting · Tinkering · 2 ready</h3>${rows([['Sinew string', '3 ready', 'ok'], ['Bonemeal', '1 ready', 'ok'], ['Flax string', 'needs 1 Flax', 'near'], ['Wool cloth', 'needs 2 Wool', 'near'], ['Forager pendant', '1 of 3 materials', 'no'], ['Wolf trophy', '0 of 2 materials', 'no'], ['Boar trophy', '0 of 2 materials', 'no'], ['Fine wool cloth', 'no station here', 'no']])}</div>`, reports())},
+  {id: 'E', title: 'E. Lead with the palette; top bar by use', codes: 'UIC132 (held), UIC174, UIC175',
+    fixes: 'Twenty routes weigh the same; shortcut letters cannot be guessed (Knows is Alt+F); the command palette is hidden behind the Keys tab.',
+    change: 'A search field in the bar is the palette: any panel, item or action. Beside it sit the few places opened most; everything else is a keystroke away.',
+    cost: 'This narrows what the bar shows, which you gave a reason for ("condensed and seeable"), so it waits for your answer. Which tabs stay is a choice; it could follow use.',
+    before: today,
+    after: () => frame(`<div class="bar"><span class="field hot">Go to anything…  Ctrl+K</span>${['Here', 'You', 'Things', 'Records', 'People', 'World'].map(t => `<span>${t}</span>`).join('')}<span class="right">Saved · Menu</span></div>`, you() + inv(true), around + place(), reports())},
+  {id: 'F', title: 'F. A day strip', codes: 'UIC146, direction F',
+    fixes: 'Time is what the game spends, and the screen shows only the current minute. An idle day is hard to read back.',
+    change: 'A thin strip of today\'s 24 hours: what happened, where now is, what the routine plans next. Hover a block for its Reports line.',
+    cost: 'It needs the routine to expose its plan, which is engine work. It is new, so it wants the most play before it is trusted.',
+    before: today,
+    after: () => frame(bar(), you() + inv(true), `<div class="p hot"><h3>Today · Mon 01/04/999</h3><div class="strip">${Array.from({length: 24}, (_, h) => `<i class="${h < 6 ? '' : h < 8 ? 'done' : h === 8 ? 'now' : [12, 13, 18, 22, 23].includes(h) ? 'plan' : ''}">${h % 6 === 0 ? h : ''}</i>`).join('')}</div><div class="legend"><span>06 woke · 07 talked with Old Hesk</span><span style="color:var(--accent)">08:12 now</span><span>12 gather herbs · 18 supper · 22 sleep</span></div></div>` + around + place(false), reports(false))},
+  {id: 'G', title: 'G. The screen grows with the life', codes: 'UIC131',
+    fixes: 'A new life opens on every panel at once, most of them empty.',
+    change: 'Day one shows You, the place and Reports in roomier type. A panel arrives when the life first has something for it, with one Reports line. A dial; off for developer starts.',
+    cost: 'It trades against "fully make use of the Screen" early on. Fixtures and the flow walk assume every panel exists, so they keep the dial off.',
+    before: () => frame(bar(), you() + inv(true), around + place(), reports()),
+    after: () => `<div class="frame" style="font-size:11px"><div>${bar(['Here', 'You', 'All panels…'])}</div><div class="cols" style="grid-template-columns:22% 1fr 28%"><div class="col fill">${you()}<div class="p grow empty">Inventory arrives with your first item.</div></div><div class="col fill"><div class="p grow hot"><h3>Village</h3>Medium-sized village, built at the foot of the mountains, with rocks preventing any expansion towards north.<br><br>Daylight falls across the village path.${rows([['Old Hesk, the village elder', 'Talk'], ['Dunstan, the village trader', 'Talk'], ['Move somewhere else', '']])}</div></div><div class="col fill">${reports(false)}</div></div></div>`,
+    labels: ['Today, day 1', 'Proposed, day 1 (day 30 looks like today)']},
+  {id: 'H', title: 'H. The Notebook stops being a second panel list', codes: 'UIC168',
+    fixes: 'The Notebook holds 18,570 characters, 86 buttons and 30 folds. Whole features sit inside it behind folds ("At the seal registry", "Lantern & floodline work").',
+    change: 'The Notebook keeps what a notebook keeps: your notes, what you practise, the people you know. A feature that happens at a place becomes a station row at that place.',
+    cost: 'It moves where several features live, so it needs a "now in…" notice (the moved-panel notice exists) and care that nothing becomes unreachable away from its place.',
+    before: () => frame(bar(), you() + inv(true), `<div class="p grow"><h3>Notebook · Here · Practice · People</h3>${rows([['▸ Tools, practice & local lives'], ['▸ Village crossroads'], ['▸ Lantern & floodline work'], ['▸ Optional lives and local experiments'], ['▾ At the seal registry'], ['Conversation not started. Conversation controls'], ['Discuss the offered work · Unavailable'], ['… 25 more folds']])}</div>`, reports()),
+    after: () => frame(bar(), you() + inv(true), `<div class="p"><h3>Around you</h3>${rows([['Old Hesk, the village elder', 'Village neighbor'], ['Village mixing counter', 'station'], ['Seal registry', 'station · hear the steward\'s terms', 'sel'], ['Lantern store', 'station · floodline work']])}</div><div class="p grow hot"><h3>Notebook</h3>${rows([['Notes', '3'], ['Practice', '2 skills'], ['People you know', '1']])}<span class="m">Things you do at a place are at that place.</span></div>`, reports())},
+];
+
+const pick = document.getElementById('pick'), main = document.getElementById('main');
+function show(id) {
+  for (const b of pick.children) b.setAttribute('aria-pressed', String(b.dataset.id === id));
+  for (const s of main.children) s.hidden = id !== 'all' && s.dataset.id !== id;
+}
+for (const o of [{id: 'all', title: 'All'}, ...OPTIONS]) { const b = el('button', '', o.id === 'all' ? 'All' : o.title.split('.')[0]); b.dataset.id = o.id; b.title = o.title; b.onclick = () => show(o.id); pick.append(b); }
+for (const o of OPTIONS) {
+  const s = el('section', 'option'); s.dataset.id = o.id;
+  s.append(el('h2', '', `${o.title} <span style="color:var(--muted);font-weight:400">· ${o.codes}</span>`));
+  s.append(el('div', 'notes', `<div><b>What it fixes</b>${o.fixes}</div><div><b>What changes</b>${o.change}</div><div><b>What it costs</b>${o.cost}</div>`));
+  const pair = el('div', 'pair'), [l1, l2] = o.labels || ['Today', 'Proposed'];
+  const a = el('figure', '', `<figcaption>${l1}</figcaption>${o.before()}`), b = el('figure', '', `<figcaption>${l2}</figcaption>${o.after()}`);
+  pair.append(a, b); s.append(pair); main.append(s);
+}
+show('all');
+</script>
+</body>
+</html>
