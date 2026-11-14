@@ -188,3 +188,63 @@ The first-pass table follows for the record.
 - C4 has one run per lead. A cold reader is a cheap model, so "not reached" shows the screen did not lead it there, not that no route exists.
 - The first Harry rerun was wrong in an instructive way (G10); the replay corrected it. Fang Yuan's count was checked the same way. Klein's G13 and G14 were not rechecked.
 - C2 probes are a sample chosen by the agents, not a census.
+
+## Ordinary-day round, 2026-11-14 (map and loops)
+
+Status: findings and proposals (AD32). Asked by Weibao on 2026-11-14 ("Daily day to day actions? more gameplay loops?",
+[direction log](../gm/USER_VISION_LOG_2026-11.md#play-surface-ui-per-feature-combat-across-worlds-daily-loops-2026-11-14)).
+It reopens the 2026-11-03 daily-life pause for the three leads only. The "today" column reuses the mid-life rerun and G1 to
+G17 above rather than replaying them; one new probe was run (Fang Yuan at his endpoint, below).
+
+### Endpoint saves
+
+| Lead | Endpoint asked | Save that stands there | Note |
+|---|---|---|---|
+| Klein | Tingen through ch129 | `lotm-kjw42` (harbor emergency); `kjw43` starts at ch130 | Earned saves run on to `kjw49` (ch163). Days were judged on `kjw37`, the quiet fortnight. |
+| Harry | Book 1 | `hp-w11-farewell` | Year over, no ordinary days ahead. Days were judged on `hp-w7-halloween`, the ordinary weeks before the first match. |
+| Fang Yuan | Qing Mao departure, ch140 | `ri-fang-yuan-ice-crystal` | Earned saves run on to ch171 (`ri-fang-yuan-lycan`). |
+
+New probe, `ri-fang-yuan-ice-crystal` through the game MCP (seed 1): day 219, winter, Clan academy. He holds 792 primeval
+stones, Moonglow Gu, Four Flavours Liquor Worm, White Jade Gu, Stealth Scales Gu, Plunder Gu, Earth Communication Ear Grass,
+25 jars of green bamboo wine, 8 Moon Orchid petals, 30 battle merit and 6 hidden lightning wolf eyes. His essence pool is
+3 of 44 parts. Every one of these is an inert row: no feed, buy, draw-a-stone, exchange or patrol verb anywhere, and the
+Beginning panel offers only story steps. G11 holds at the endpoint, not only at the class chair.
+
+### The ordinary day: canon, game, gap
+
+| Lead | What the ordinary day holds in canon at the endpoint | What the game offers today | Gap |
+|---|---|---|---|
+| Klein | Office hours at Blackthorn Security (reception, copying, the archives); mysticism lessons with Old Neil; the Wednesday combat practice with Gawain; turns on the Chanis Gate watch; acting as a Seer to digest the potion; rent, Benson's and Melissa's household, savings toward a better house. Weekly wage £3 (£2 10s plus a 10s allowance), the £12 advance repaid at half pay, rent 12s 3d a week at Daffodil Street. | Weekly expense chit that warms Dunn (G2, link c present); rent as a standing order at an assumed 5 soli (G17); furniture and fitting; coin divination over 22 fixed questions; Spirit Vision; Wednesday practice as a story task. | No work shift and **no pay at all** on the lead life (the wage exists only for the civil-clerk entry, `book_world_lotm_livelihoods.js`), so savings only drain. Practice gives no number (G5). People absent at home (G13). |
+| Harry | A weekly timetable (Potions double on Friday, Astronomy at midnight, Herbology, Transfiguration, Charms, flying on Thursday), homework, the library, meals in the Great Hall, house points won and lost, time with Ron and Hermione, Quidditch practice once on the team. | Lessons, charm practice, brewing after Potions and sessions with Ron, all inside the collapsed Beginning panel (G10). A weekly class slot exists as a duty (`book_world_hp_duties.js`) but the lessons themselves are one-off rows. | Nothing recurs the next day (link d missing). Practice says it improves but shows no number (G16). No library, other people or house-point use. |
+| Fang Yuan | Feed each Gu on its own clock (Moonlight line two petals twice a day; a jar of wine lasts the Liquor Worm four days; White Jade eats eight liang of jade rock every twenty days), buy their food in the village (ten petals a stone, a jar two stones), draw stones to refill his sea, and during the wolf tide go out for battle merit (a wolf eye is ten merit, 25 merit a stone). About 5 stones a day for four Gu, living and cultivation (ch64). | Nothing. The keeper life one pack over has feed, tend, work and refine (G3) but his own life has none of it (G11). | The thinnest of the three: links (a), (b) and (d) missing. Largest gap, so built first. |
+
+Canon figures for Fang Yuan come from the repo's own source notes (`docs/research/novels/reverend-insanity/`, the
+`RANKS_ECONOMY` tables, and the lead packs' item text). Not found there: what Moonglow, Four Flavours, Stealth Scales,
+Plunder and Ear Grass eat, essence per stone, and the estate's rent.
+
+### Proposed loops
+
+Granularity is a dial per lead (ACR1, ACR3): one action per meal or purchase where the timing is the choice, a routine
+where it is not.
+
+| Lead | Day loop (verbs) | Longer loop it feeds | Built on |
+|---|---|---|---|
+| Fang Yuan | Feed each Gu when its meal comes due; buy petals, wine and jade rock with stones; draw a stone into the sea; hand in wolf eyes and exchange merit; go out on a wolf-tide patrol. | Patrols earn merit, merit becomes stones, stones buy food and refill the sea, and the surplus is saved for the next refinement or rank. A hungry Gu will not cut, so a skipped meal blocks the day's patrol (link d). | `living_upkeep.js` diets and the needs seam (LVR13), a structured extension on his own life (no pinned hash moves), LVR18/LVR19. |
+| Klein | Go to the office (a shift with a choice of desk, archive or watch); collect the week's pay from the accountant; lessons with Old Neil; practise acting as a Seer. | Wage to rent to savings: £3 a week in, the advance repaid at half pay for eight weeks, rent by home (P7), savings toward Daffodil Street and ingredients. Acting as a Seer digests the potion (the improving aspect). | `recurring_duties.js` (the civil report and guard shift already use it), `book_world_lotm_lives.weeksOwed`, `livelihoods.js`, P7. |
+| Harry | Attend the day's lessons by timetable; homework or library study; practise a spell with its chance shown; meals and time with friends. | Study to marks to exams (the June papers already exist), and house points from lessons and conduct to the House Cup. | `HP_DUTIES` class slot widened to a timetable, `book_world_hp_lessons.js`, `book_world_hp_exams.js`, the practice bench extension. |
+
+Constraints, as default, dial and reason:
+
+- **Meals.** Default: canon diet where stated; a Gu with no stated diet eats like the Gu it was made from (Moonglow as
+  Moonlight, Four Flavours as Liquor Worm). Dial: each row of the diet table. Reason: AD49 fixes the stated numbers, and a
+  fused Gu's parent is the nearest evidence.
+- **Hunger.** Default: a hungry Gu does not work and nothing dies (LVR15). Dial: a world or a later canon slice can make a
+  long-starved Gu degenerate (the book shows it, ch105). Reason: the book's consequence exists but its timing is unstated.
+- **Income.** Default: a patrol pays a fixed 50 merit (two stones); figures not in the source are labelled authored. Dial:
+  per patrol and per wolf-tide phase. Reason: enough to cover a day's upkeep with little spare, so saving takes choices.
+- **Not done here.** Klein's and Harry's loops are proposals until built; the live fight stays with the combat chat, so a
+  patrol is a compressed routine (ACR1) that a fight can replace.
+
+### Build state
+
+Recorded in the [build note below](#ordinary-day-build-2026-11-14) once a loop is playable.
