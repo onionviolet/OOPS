@@ -3,6 +3,9 @@
     height: calc(var(--day-track) + var(--ui-line-small) + var(--ui-space-4)); padding: var(--ui-space-1) var(--ui-space-3);
     border-bottom: var(--ui-space-hairline) solid var(--ui-hairline); color: var(--ui-text); font-size: var(--ui-type-small); line-height: var(--ui-line-small); overflow: hidden; }
 .day-strip[hidden] { display: none; }
+/* The strip is the home place view's. A centre view (the Notebook, crafting, any expanded panel, R13's data-center-task)
+   or a fight that takes the centre hides it at once, without waiting for the strip's one-second redraw. */
+#main_content[data-center-task] .day-strip, #main_content:has(#current_focus > .combat-focus-view, [data-fight-mode="tempo"]) .day-strip { display: none; }
 .day-strip-track { position: relative; height: var(--day-track); background: var(--ui-navy); border: var(--ui-space-hairline) solid var(--ui-hairline); }
 .day-strip-past { position: absolute; inset: 0 auto 0 0; width: var(--day-now, 0%); background: var(--ui-teal); }
 .day-strip-ahead { position: absolute; inset: 0; pointer-events: none; }

@@ -45,6 +45,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         if (section.hidden) section.hidden = false;
         if (key === cardKey) return true;
         const previousFocus = captureTempoFocus(section, ['fightOption', 'fightAim']);
+        const opening = section.dataset.fightMode !== 'tempo';
         cardKey = key; textKey = '';
         section.dataset.fightMode = 'tempo';
         delete section.dataset.fightFinished;
@@ -112,6 +113,10 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         }
         if (notice.textContent !== feedback) notice.textContent = feedback;
         restoreTempoFocus(section, previousFocus, notice);
+        // A fight opened from a scrolled centre view (the Notebook's hunt row) kept that view's scroll, which left the card's
+        // top, its title and first moves, above the scrollport. Opening brings the card's top into view once and moves focus to
+        // its status line, so the view the fight was started from no longer holds focus and scrolls itself back on its next redraw.
+        if (opening && !previousFocus) { section.scrollIntoView?.({block: 'start', behavior: 'instant'}); notice.focus({preventScroll: true}); }
         return true;
     }
     function render() {

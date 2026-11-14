@@ -59,7 +59,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
  // COV7 / UR42: a button reads as a short verb phrase. Cost and time ride in a chip after it, a bracketed risk note moves to
  // the hover text, and an over-long phrase is cut at eight words with the whole line kept in the title.
  // OPN4: before the first report-in the engine refuses with its situation assertion; the player's reason is the report.
- const button=(label,token,onclick,disabled,reason0)=>{const reason=String(reason0||'').split('Knowledge needs its actual situation context.').join('Report in at the workroom first.');const s=shortActionLabel(label);const b=node('button',s.text);if(s.chip){const c=node('span',` · ${s.chip}`);c.className='action-chip';b.append(c);}b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;const title=[reason,s.note,s.cut?label:''].filter(Boolean).join(' · ');if(title)b.title=title;if(reason)b.dataset.disabledReason=reason;b.onclick=onclick;return b;};
+// A reason is a block reason only on a disabled button; on a live one it is hover text, so lock readers and the row menu do not show it as a refusal.
+ const button=(label,token,onclick,disabled,reason0)=>{const reason=String(reason0||'').split('Knowledge needs its actual situation context.').join('Report in at the workroom first.');const s=shortActionLabel(label);const b=node('button',s.text);if(s.chip){const c=node('span',` · ${s.chip}`);c.className='action-chip';b.append(c);}b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;const title=[reason,s.note,s.cut?label:''].filter(Boolean).join(' · ');if(title)b.title=title;if(reason&&b.disabled)b.dataset.disabledReason=reason;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
  // Navigation only: focus the existing command row, including its disabled reason.
  const tabBlocks={actions,walks,path,work,bench,notebook};

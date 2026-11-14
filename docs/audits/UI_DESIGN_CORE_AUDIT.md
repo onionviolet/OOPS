@@ -2863,3 +2863,22 @@ Nothing on this ledger is open that an agent can close. What is left is Weibao's
 - **Q2 to Q5, with mocks in `prototypes/ui-directions-2026-11-13/`:** the top bar by use (UIC132, UIC175), the Notebook and its commands (UIC168, R3), the growing screen (UIC131), the left column as the selected thing (UIC152, UIC170), and which of directions A to F to take further.
 
 Sent to other chats, not screen work: Klein's life is too slow to play in a browser; the rent figure; the story cast in Around you.
+
+### Fourteenth batch: the day strip steps aside, the fight card opens whole (2026-11-14)
+
+Picked up on Opus from the UI chat's stopped plan after the day strip was mounted (`bbab85a4a`). Target viewport 1920×1080; mobile deferred.
+
+- **The strip steps aside at once.** It belongs to the home place view, so a centre view (the Notebook, crafting, any expanded panel: `#main_content[data-center-task]`, R13) or a fight holding the centre now hides it through the stylesheet, without waiting for its one-second redraw; the module's own check reads the same facts so its `hidden` attribute stays honest. Seen in headless Chrome: shown at home (44 px at y 489), hidden with the Notebook open, back on "Back to Village", hidden through the boar hunt, back after.
+- **The tempo fight card opens whole.** Reproduced: a hunt started from the Notebook put the card at the top of the centre scroller while the scroller kept the Notebook's scroll (472 px), so the card's title and first moves ("Fire", "Reload") sat above the view. About a second later the Notebook's own fight panel, still holding focus from the Hunt press, scrolled its notice back into view. Opening now brings the card's top into view once and moves focus to its status line. Measured at 0, 0.3, 1.2, 2.5 and 4 s: card at y 176, scroller at 0.
+- **A LOTM button's reason is a block reason only when it is blocked.** Live buttons such as "Sign on as a night watchman" carried their description in `data-disabled-reason`, which the row menu and lock readers present as a refusal. The text stays as hover text.
+- **Home baseline refreshed** for the strip's row; stats, inventory, journal and crafting identical.
+
+**Checks**
+
+- `npm run test:changed`: 1,457 tests, 1,455 pass, 0 fail, 2 skipped.
+- `check:visual`: home differed only by the strip row (x 362-1388, y 536-1030), refreshed; four others identical.
+- `check:flow` on the working tree: 13 routes, four other states, 0 findings. `check:arch` and `check:rules` pass.
+- Full `npm test` on `bbab85a4a` plus this batch (and another chat's uncommitted contest change in the tree): 7,558 tests, 7,556 pass, 0 fail, 2 skipped.
+- No unit test for the three DOM changes; the browser runs above are the evidence.
+
+Still open: the story cast in Around you (F3, UI chat).

@@ -92,7 +92,9 @@ const lineText = node => {
 };
 
 // A fight takes the centre when the opponent view is up (the opponent view replaces Around you) or the timed fight card is up; then the strip is hidden, not covered.
-const fightHasCentre = () => !!document.querySelector('#current_focus > .combat-focus-view, [data-fight-mode="tempo"]');
+// So does any centre view (the Notebook, crafting, an expanded panel): the strip belongs to the home place view. The stylesheet
+// hides it at once on the same facts; this check keeps the hidden attribute honest for readers.
+const fightHasCentre = () => !!document.querySelector('#main_content[data-center-task], #current_focus > .combat-focus-view, [data-fight-mode="tempo"]');
 // The place view itself: the strip is its first child, above the place name, so it comes and goes with the view.
 const placeDock = () => document.getElementById('village_scene');
 export function mountDayStrip({host = placeDock(), stream = document.getElementById('message_box_div'), yieldsTo = fightHasCentre, calendar = () => resolveWorldCalendar(readPort('expansion'), readPort('gameTime'))} = {}) {
