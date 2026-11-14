@@ -32,7 +32,7 @@ export function createStructuredPackPanel({read,command,changed}) {
         expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
         status:(v.status||[]).map(s=>({label:s.label,value:s.value})),ladders:v.ladders||[],house:v.house||null,craft:v.craft??null,
-        actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable})),
+        actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable,once:!!a.once})),
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
         extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons,mastery:v.renewal.mastery,reserve:v.renewal.reserve,masteryThreshold:v.renewal.masteryThreshold,next:v.renewal.next}:null,canWrite:!!v.canWrite,error:v.error};};
     const button=(label,data,request,disabled)=>{
@@ -160,7 +160,9 @@ export function createStructuredPackPanel({read,command,changed}) {
                     row.act.setAttribute?.('aria-describedby',[row.duration.id,row.costs.id,...(action.reasons.length?[row.blockers.id]:[])].join(' '));
                     setText(row.act,action.label);row.act.disabled=!view.canWrite||!action.eligible;
                     setText(row.repeat,'Repeat '+action.label+' 3 times');row.repeat.hidden=!action.repeatable;row.repeat.disabled=row.act.disabled;
-                    const home=action.eligible||pending?actions:notYetList;if(home===actions&&row.card.hidden)row.card.hidden=false;
+                    // A repeatable action, or one done before that can be done again, is the ordinary day, not the road ahead (G15): when it is blocked it stays here with its
+                    // reason in view, rather than joining the capped "Not available yet" list where shut story steps hide it.
+                    const home=action.eligible||pending||action.repeatable||action.completed>0&&!action.once?actions:notYetList;if(home===actions&&row.card.hidden)row.card.hidden=false;
                     if(row.card.parentNode!==home){const had=row.card.contains(document.activeElement);home.append(row.card);if(had)row.act.focus?.();}
                 }
             }

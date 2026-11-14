@@ -104,3 +104,19 @@ test('a next step that is still shut is not lifted above the opening account',()
     const panel=createStructuredPackPanel({read:()=>v,command:()=>{}}),body=host.children[0].children[1];
     assert.ok(text(body).indexOf('Keeper')<text(body).indexOf('Choose Fang Yuan'));panel.destroy();
 }));
+
+test('a blocked repeatable action stays in view with its reason, not behind the shut steps', () => withDom(({host, find, text, tick}) => {
+    const v = view(), base = v.actions[0];
+    v.actions = [...['s1', 's2', 's3', 's4'].map(id => ({...base, id, label: `Story ${id}`, eligible: false, repeatable: false, completed: 0, reasons: ['Later.']})),
+        {...base, id: 'patrol', label: 'Patrol', eligible: false, repeatable: true, completed: 1, reasons: ['Your Moonglow Gu is hungry and will not cut. Feed it first.']}];
+    const panel = createStructuredPackPanel({read: () => v, command: () => {}}); tick();
+    const patrol = find(host.children[0], 'structuredAction', 'patrol'), card = patrol.parentElement;
+    assert.equal(patrol.disabled, true);
+    assert.notEqual(card.hidden, true);
+    for(let n = card.parentElement; n && n !== host; n = n.parentElement) assert.doesNotMatch(text(n.children.find(c => c.tagName?.toLowerCase() === 'summary') || {children: [], textContent: ''}), /Not available yet/, 'not inside the closed Not available yet list');
+    assert.match(text(card), /hungry and will not cut/);
+    v.actions.push({...base, id: 'adopt', label: 'Take in a Gu', eligible: false, once: true, completed: 1, repeatable: false, reasons: ['Already done.']}); tick();
+    const adopt = find(host.children[0], 'structuredAction', 'adopt');
+    assert.ok(!adopt || [...(function* up(n) { for(; n && n !== host; n = n.parentElement) yield n; })(adopt)].some(n => /Not available yet/.test(text(n.children.find(c => c.tagName?.toLowerCase() === 'summary') || {children: [], textContent: ''}))), 'a finished one-off stays out of the day');
+    panel.destroy();
+}));
