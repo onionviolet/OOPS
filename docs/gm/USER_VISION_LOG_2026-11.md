@@ -1439,3 +1439,21 @@ Weibao answered three asked questions in the combat chat by choosing an option f
 - Asked whether to push local master to origin, he chose "Push master". Pushed 2026-11-14 at d60d61faf. Later commits wait for a new yes.
 
 Later the same day he chose "Push master (Recommended)" for the live-fight commits (origin at 55f9364cf). On which prose he meant by "your prose kind of sucks sometimes": "Narrative or fight lines previously, we can consider for future". Reading (agent): the earlier narrative and fight-line sketches, a later topic and no task now.
+
+## Play surface: UI per feature, combat across worlds, daily loops, 2026-11-14
+
+Weibao (set as a session goal):
+
+> coordinate the opus chats and create new ones to accordingly to flesh out UI make be intuitive and good like the original, but absorbing all the refinements, and applying that for each individual feature from farming to others and more?
+>
+> Also refining combat system to account for new possiblity while still being familar? and transfering across all the worlds,
+>
+> Daily day to day actions? more gameplay loops?
+
+Recorded as his direction. It reopens three things the standing order had parked, beside the foundation work rather than in place of it:
+
+- **UI, feature by feature.** Each feature panel (farming and field works first, then crafting, mixing, care of living things, gathering and the rest) gets an intuitive pass that reads like upstream YAIR's plain panels and absorbs the refinements already proven (readiness counts, UIC172; the Mixing voice, UIC173; blocked controls say why, UIC166; one row per thing, UR158). Directions A to F, the top bar (UIC132, UIC175), the Notebook (UIC168) and the growing screen (UIC131) stay held for his pick; the passes work inside the current frame. "Like the original" means upstream YAIR's look and plainness, not Proto23 mechanics (round 8's hold stands).
+- **Combat across worlds.** Extends the 2026-11-14 one-fight lift of PC95 to refining the live fight so it carries the new possibilities (the contest, the five fight dials, spells, Gu, fists that kill) while the surface stays familiar, and to carrying that fight to every world's lives. The combat chat family owns it.
+- **Daily actions and gameplay loops.** Reopens the 2026-11-03 pause on daily-life mechanism work for the ordinary day of Klein, Harry and Fang Yuan first (2026-11-13 steer), built on the existing duties, livelihood and activity rules (ACR, LVR). Granularity stays an adjustable dial.
+
+Lanes, owners and file boundaries: [play-surface checkpoint](dispatch/play-surface-2026-11-14/CHECKPOINT.md). All are proposals in their designs (AD32); nothing is pushed without his yes.

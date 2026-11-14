@@ -224,6 +224,7 @@ This is direction, and it overrides earlier lines in both docs. Wherever the cor
 - **Dropped until tie-in:** wiring into `src/main.js` or live routes, browser passes and save, reload, export and import proofs for new foundation work, and game save slices for the world. Existing routes are left as they are.
 - **Kept, so tie-in is hosting and not redesign:** the engine world uses the kernel's save shape (KW10) and the same one-jump-or-many settlement tests the game needs. The full suite, arch, rules and coverage checks stay.
 - **Bespoke code is absorbed now, deleted at tie-in.** A bespoke module counts as absorbed when its behavior is re-expressed as rows and laws in the engine world and a parity fixture shows the same outcomes as the old module on the same inputs. The old module stays in place while the game still imports it. Deleting it is tie-in work.
+- **Lifted in part, 2026-11-14.** One live fight (his answer that day), then feature-by-feature UI, the fight across worlds and the leads' daily loops ([direction](gm/USER_VISION_LOG_2026-11.md#play-surface-ui-per-feature-combat-across-worlds-daily-loops-2026-11-14)). Foundation work itself stays engine first.
 - **Tie-in is its own phase**, after phase 4 and before slices: host the engine world in the game, move live routes onto it, delete absorbed modules, and run the browser and save proofs once.
 
 The five numbers (PC89) at the start of PC95. See the resume line below for the current run evidence.
