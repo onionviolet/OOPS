@@ -175,7 +175,7 @@ Why the panels feel separate today:
 | PS56 | **Back returns where you came from.** Navigation keeps a stack: from a fight result to the bench, then back to the fight result, not to the bench's home. | No (UR33 and the centre controller) |
 | PS57 | **One hub: Here, ready now.** Each feature reports its ready and near rows through one interface, and Here lists them across features, ready first and near with the gap named. | Yes: this is direction D (held). The interface (a feature's `ready()` rows) can start now, as data |
 | PS58 | **A loop map per life.** The chain (Feed → Patrol → Parts → Board → Stones → Feed) shows live counts, the node where the loop is waiting is marked, and each node opens its panel. | A new representation (UR89), so it is mocked first |
-| PS59 | **A change shows wherever it matters.** Meat that is spoiling shows in Inventory, on Here and on the bench, not only in the panel that made it. One state is read everywhere (CTR). | No |
+| PS59 | **A change shows wherever it matters.** Meat that is spoiling shows in Inventory, on Here and on the bench, as well as in the panel that made it. One state is read everywhere (CTR). | No |
 | PS60 | **Reports lines link to their source.** Every noun and every "Next" in a Reports line is a link. | No |
 
 Recommendation: the cohesion Weibao asks for is mostly directions A, B, D and F taken together, so this round puts them to him as one package. PS55, PS56, PS59, PS60, PS54's links and data, and PS57's interface fit today's frame and can start now.
