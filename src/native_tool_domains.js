@@ -1,6 +1,7 @@
 import {configureHpBrewingDomain} from './hp_brewing_domain.js';
 import {configureCohort} from './cohort_battle_domain.js';
 import {configureTempoFight} from './tempo_fight_domain.js';
+import './tempo_lead_fights.js'; // one live fight per lead world (Tingen lane, Hogwarts corridor, wolf tide)
 import {configureRootRetuning} from './root_retuning_domain.js';
 import {configureVesselThread} from './vessel_thread_domain.js';
 import {configureIntents} from './cultivation_intents_domain.js';

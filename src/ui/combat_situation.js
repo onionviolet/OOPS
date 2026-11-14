@@ -188,10 +188,17 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     // Match the native hero's whole-number HP label; the meter still uses the
     // precise health value for its fill and combat calculations.
     if (base.versus.you.hp && Number.isFinite(me.maxHp)) base.versus.you.hp.text = `${Math.ceil(me.hp)}/${Math.ceil(me.maxHp)} hp`;
+    // Upstream YAIR's two bars on both sides (2026-11-14, combat across worlds): the tempo fight's own numbers, and what each side holds.
+    const bar = (cur, max, unit) => Number.isFinite(cur) && max > 0 ? {current: cur, max, text: `${Math.ceil(cur)}/${Math.ceil(max)} ${unit}`} : null;
+    const meansText = list => list?.length ? list.map(m => m.id === 'wand' ? (m.n > 0 ? 'Wand in hand' : 'No wand') : `${m.label[0].toUpperCase()}${m.label.slice(1)} ${Math.round(m.n)}`).join(' · ') : null;
+    base.versus.you.stamina = bar(me.stamina, me.maxStamina, 'stamina');
+    base.versus.you.means = meansText(me.means);
     const byId = new Map(f.foes.map(o => [o.id, o]));
     for (const o of base.versus.opponents) {
         const foe = byId.get(o.id);
-        o.hp = {text: foe.hurt[0].toUpperCase() + foe.hurt.slice(1), fraction: null};
+        o.hp = {text: foe.hurt[0].toUpperCase() + foe.hurt.slice(1), fraction: Number.isFinite(foe.hp) && foe.maxHp > 0 ? foe.hp / foe.maxHp : null};
+        o.stamina = bar(foe.stamina, foe.maxStamina, 'stamina');
+        o.means = meansText(foe.means);
         o.types = typeChips(foe.learned, {reveal: foe.reveal, worldId});
     }
     base.versus.you.mix = me.mix ? mixText(me.mix, worldId) : null;
@@ -205,6 +212,6 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     }) : [];
     // One home per fact (DESIGN.md DSG11): hp lives on the versus row, so the summary keeps only who is standing.
     const standing = f.foes.length, summary = `${place ? `${place}: ` : ''}${standing} opponent${standing === 1 ? '' : 's'} standing.`;
-    return {active: true, mode: 'tempo', summary, versus: base.versus, next: f.next || [], yourTurn: !!f.yourTurn,
+    return {active: true, mode: 'tempo', summary, versus: base.versus, stakes: f.stakes || null, holdBack: !!f.holdBack, next: f.next || [], yourTurn: !!f.yourTurn,
         moves, aims: f.aims || [], aim: f.aim ?? null, orders: f.orders || [], log: [...(f.lines || [])], dev: hits};
 }

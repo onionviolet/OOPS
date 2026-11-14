@@ -25,6 +25,9 @@
 .versus-bar-fill {display: block; height: 100%; width: var(--versus-fill, 0%); background: var(--versus-accent);}
 .versus-card[data-threat="lethal"] .versus-bar-fill {background: var(--versus-warn);}
 .versus-card[data-down="true"] .versus-bar-fill {background: var(--versus-danger);}
+.versus-bar--stamina {height: var(--ui-space-1);}
+.versus-bar--stamina .versus-bar-fill {background: var(--versus-muted);}
+.versus-means {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--versus-muted);}
 
 .versus-chips {display: flex; flex-wrap: wrap; gap: var(--ui-space-2);}
 .versus-chip {display: inline-block; padding: var(--ui-space-1) var(--ui-space-2); border: var(--ui-space-hairline) solid var(--versus-line); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}

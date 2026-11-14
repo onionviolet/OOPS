@@ -11,7 +11,7 @@ export const FIGHT_TEXT_SCHEMA = 'fight.text@1';
 // Outcome words a player can read. An outcome with no word here is left out.
 const OUTCOME_WORDS = Object.freeze({
     stood: 'standing', down: 'down', killed: 'killed', knocked_out: 'out cold', yielded: 'yielded', withdrew: 'withdrew',
-    routed: 'routed', captured: 'captured', escaped: 'got away', drove_off: 'driven off',
+    routed: 'routed', captured: 'captured', escaped: 'got away', drove_off: 'driven off', disarmed: 'disarmed', bound: 'bound', stopped: 'stopped by someone stepping in',
 });
 const POSTURE_WORDS = Object.freeze({kneeling: 'kneeling', 'down injured': 'hurt'});
 const QUIET_MOVES = new Set(['wait']);
@@ -164,7 +164,7 @@ export function fightResult({place, seconds, outcomes, rows, means = [], left = 
         const name = r.means(m.id);
         if (!name) continue;
         if (m.id === r.life) kept.push(m.after >= m.before ? 'Unhurt.' : `${name} ${m.after} of ${m.before}.`);
-        else if (m.after < m.before) spent.push(`${name} ${m.before - m.after} of ${m.before}.`);
+        else if (m.after < m.before) spent.push(`${name} ${Math.round((m.before - m.after) * 10) / 10} of ${m.before}.`); // tenths: no float tails
     }
     if (spent.length) items.push(['Spent', spent.join(' ')]);
     if (kept.length) items.push(['Hurt', kept.join(' ')]);

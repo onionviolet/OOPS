@@ -64,6 +64,9 @@ function youSide(doc, you) {
         side.append(make(doc, 'p', 'versus-hp', you.hp.text));
         if (you.hp.max > 0) side.append(meter(doc, 'versus-bar versus-bar--you', `${you.name} hit points`, you.hp.current / you.hp.max, you.hp.text));
     }
+    // Stamina under health, as upstream YAIR's two bars (tempo fights only pass it).
+    if (you.stamina?.max > 0) side.append(meter(doc, 'versus-bar versus-bar--stamina', `${you.name} stamina`, you.stamina.current / you.stamina.max, you.stamina.text));
+    if (you.means) side.append(make(doc, 'p', 'versus-means', you.means));
     if (you.allies > 0) side.append(make(doc, 'p', 'versus-allies', you.alliesText ? `Beside you: ${you.alliesText}` : `+${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}`));
     if (you.mix) side.append(make(doc, 'p', 'versus-mix', `Strikes: ${you.mix}`));
     return side;
@@ -79,6 +82,8 @@ function card(doc, o) {
     c.append(make(doc, 'h4', 'versus-name', o.name));
     c.append(make(doc, 'p', 'versus-hp', o.hp.text));
     if (o.hp.fraction !== null && o.hp.fraction !== undefined) c.append(meter(doc, 'versus-bar', `${o.name} hit points`, o.hp.fraction, o.hp.text));
+    if (o.stamina?.max > 0) c.append(meter(doc, 'versus-bar versus-bar--stamina', `${o.name} stamina`, o.stamina.current / o.stamina.max, o.stamina.text));
+    if (o.means) c.append(make(doc, 'p', 'versus-means', o.means));
     const chips = make(doc, 'div', 'versus-chips');
     const threat = chip(doc, 'threat', threatText(o.threat), o.threat.level === 'lethal' ? 'fig-fx--pulse' : '');
     if (Number.isFinite(o.threat.blow)) threat.setAttribute('title', BOUND_NOTE);

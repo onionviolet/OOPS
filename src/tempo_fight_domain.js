@@ -13,7 +13,7 @@ import {knownTargetFacts} from './known_target_facts.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {harmState, setHarmState, HARM_RUNGS, restReading} from './harm_state.js';
 import {harmPart} from './harm_engine.js';
-import {beginTempoFight, commitTempoMove, handOverTempoFight, policyMove, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
+import {beginTempoFight, commitTempoMove, handOverTempoFight, policyMove, tempoView, setTempoHoldBack, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
 import {projectTempoFight} from './fight_view.js';
 import {fightPauseReasons} from './fight_pause.js';
 import {fightResult} from './fight_text.js';
@@ -228,7 +228,7 @@ function closeAccount(plan, w) {
     const result = plan.state.actors.player.facts['tempo.lastResult'], v = plan.vitals?.player ?? ports.campaignContext().vitals?.player ?? {};
     const round = n => Math.round(n * 10) / 10;
     const them = (plan.fightEnd || []).filter(f => typeof f.name === 'string' && f.name); // the other side, by the names the fight used
-    account = fightResult({place: w.title, outcomes: {player: OUTCOME[result] ?? null, ...Object.fromEntries(them.map((f, i) => [`foe${i}`, f.end]))}, rows: [], asked: w.asked, turning: [],
+    account = fightResult({place: w.title, outcomes: {player: plan.playerEnd ?? OUTCOME[result] ?? null, ...Object.fromEntries(them.map((f, i) => [`foe${i}`, f.end]))}, rows: [], asked: w.asked, turning: [],
         means: [{id: 'health', before: round(w.health), after: round(v.health ?? w.health)}, {id: 'stamina', before: round(w.stamina), after: round(v.stamina ?? w.stamina)}]},
     {seat: 'player', life: 'health', names: Object.fromEntries(them.map((f, i) => [`foe${i}`, f.name])), moves: {}, means: MEANS, parts: {}});
     metMeans.set(w.title, {health: w.health, stamina: w.stamina});
@@ -298,7 +298,9 @@ function mount() {
         panel?.render(true);
     };
     const button = (label, id, title, disabled, handler) => {const b = node('button', label); b.type = 'button'; b.dataset.tempo = id; b.title = title || ''; b.disabled = !!disabled; b.onclick = handler; return b;};
-    const place = () => placePanel(root, [...document.querySelectorAll(ENCOUNTER_SLOT)].find(slot => !slot.hidden && !slot.inert), document.getElementById('location_actions_div'));
+    // Several world panels can offer a slot (Tingen, Harry's day, the Beginning panel); the one on screen wins, then any open one.
+    const place = () => { const open = [...document.querySelectorAll(ENCOUNTER_SLOT)].filter(slot => !slot.hidden && !slot.inert);
+        return placePanel(root, open.find(slot => slot.checkVisibility?.() !== false) || open[0], document.getElementById('location_actions_div')); };
     const render = force => {
         place();
         if(!root.isConnected) return;
@@ -374,7 +376,18 @@ function setAim(request = {}) {
     aim = request.aim;
     panel?.render(true);
 }
-const commands = {run: () => { check(ports?.writable(), 'The game cannot take a move right now.'); const said = run(); panel?.render(true); return said; }, aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
+// Hold back (CBC32): the player's restraint is part of the saved fight and costs no time, so it commits the open fight as it stands.
+function holdBack(request = {}) {
+    check(ports?.writable(), 'The game cannot take that right now.');
+    const state = ports.root(), s = state.simulation?.sessions.player;
+    check(s?.nativeBattle?.schema === TEMPO_SCHEMA, 'No fight is open.');
+    const plan = {state: structuredClone(state), external: structuredClone(ports.campaignContext().external), gameplay: structuredClone(ports.campaignContext().gameplay), vitals: structuredClone(ports.campaignContext().vitals), acquisitions: [], unlocks: []};
+    setTempoHoldBack(plan.state.simulation.sessions.player.nativeBattle, !!request.on);
+    plan.state.sequence++;
+    ports.commit(plan);
+    return request.on ? 'You hold back: a blow that would drop them knocks them out instead.' : 'You stop holding back.';
+}
+const commands = {hold: request => { const said = holdBack(request); panel?.render(true); return said; }, run: () => { check(ports?.writable(), 'The game cannot take a move right now.'); const said = run(); panel?.render(true); return said; }, aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
     check(ports?.writable(), 'The game cannot take a move right now.');
     move(request); panel?.render(true);
 }};

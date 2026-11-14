@@ -693,10 +693,10 @@ as presets, so a new kind costs a row (CX3).
 
 | Code | Preset | State |
 | --- | --- | --- |
-| FK1 | Drill or first touch | Playable (Fang Yuan, Su Xiao) |
-| FK2 | Formal duel with rules, a referee and perhaps a wager | Headless (Duelling Club) |
-| FK3 | Brawl: unruled, witnessed, and by default it stops short of killing | Move rows exist; no case yet |
-| FK4 | Hunt: the quarry flees, tracks and bites | Headless (wolves) |
+| FK1 | Drill or first touch | Playable (Fang Yuan, Su Xiao); `drill` preset row in the live fight |
+| FK2 | Formal duel with rules, a referee and perhaps a wager | Headless (Duelling Club); live as `duel` (Harry against Malfoy in a corridor, a teacher steps in, 2026-11-14) |
+| FK3 | Brawl: unruled, witnessed, and by default it stops short of killing | Live as `brawl` (Klein's knifeman in a Tingen lane, made lethal by the knife, 2026-11-14) |
+| FK4 | Hunt: the quarry flees, tracks and bites | Headless (wolves); live as `hunt` (Fang Yuan's lightning wolf, 2026-11-14) |
 | FK5 | Ambush: one side starts unaware (CFC5) | Rule exists |
 | FK6 | Pursuit and escape (CFC11, the chase range bridge) | Rule exists |
 | FK7 | Capture: the aim is the person | Outcome exists |
@@ -717,6 +717,38 @@ its own stakes. Since 2026-11-14 a move needs no flag to kill (Weibao: "fists ca
 kill too"): in a lethal contest any downing blow can kill, and a knockout comes
 from the striker holding back or a move that cannot kill. Stakes per contest would amend
 CFC9 and is a proposal.
+
+**The live fight across the three leads (2026-11-14, proposal).** Weibao asked for
+the combat system "to account for new possiblity while still being familar? and
+transfering across all the worlds". The live tempo fight now carries stakes per
+fight: a preset row (`tempo_kit.js`: drill, duel, brawl, hunt, robbery, skirmish)
+with lethality, the means whose loss ends a fighter's part, and when someone in the
+frame steps in, each overridable by the opener with its reason. Fighters carry kit
+rows beside the shared moves. One row shape is a spell, a Gu activation, a killer
+move filled by several Gu (roles shown in its detail, GP4) or a fist a Gu makes
+strong; a row says what it spends, needs in hand, takes from the target, how long it
+holds them, whether it binds or can kill, and `force` when harm comes from the thing
+rather than the arm (AD38). Hold back is a free, saved toggle (CBC32, CFC9 in the
+live fight). The card stays YAIR's: move rows, attack and defence lines, HP and
+stamina bars on both sides, one result line naming how each side ended; the stakes
+line and each row's workings sit on hover. Three openers run it (`tempo_lead_fights.js`):
+Klein against a knifeman in a Tingen lane (brawl made lethal by the knife, WS3),
+Harry against Malfoy in a corridor (duel; Leg-Locker, Full Body-Bind and snatching
+the wand, since a first year does not yet know the Disarming Charm; a teacher stops
+it, WS1), Fang Yuan against a lightning wolf beyond the wall (hunt; Moonblade,
+Stone-hidden moonblade, Black Boar fist, White Jade skin, essence spent for real, a
+hungry Moonglow refuses to cut, a killed wolf leaves an eye for the alliance board,
+WS2). Not yet: enchanted gear changing a blow (AE1), wind-ups a hit can cut (CFC6),
+counters (FK10), calibration against held-back source fights (WS5), and killing a
+persistent named person (the world's death owner).
+
+| Next world | What its fight needs |
+| --- | --- |
+| Reincarnation Paradise (Su Xiao) | A `skirmish` frame for missions and a `drill` frame for the hub's Test Hall (WS4); his skills as kit rows on his own resources; deaths on missions read by the paradise's own death rule |
+| Mother of Learning (Zorian) | Spell kit rows on mana; the loop as the frame's reason that death is survivable for him and not for others; Cyoria's watch stepping in (`stopAt`) |
+| The Frontier and the Village (base worlds) | Move the boar hunt and Mara's road duel onto presets (hunt, duel) so their result lines name kills and knockouts; bows already run on stock |
+| A Soldier's Life and other battle worlds | Many fighters on a side: crowding, morale and far settlement (FK9) before kit rows matter |
+| Any world with worn gear | Read the worn loadout at release (AE1, ENF20) so an enchanted blade or a ward changes a blow through the same row fields |
 
 **Spell fights.**
 

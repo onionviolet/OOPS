@@ -57,7 +57,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const runOn = () => { try { lastNotice = runCommand() || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
         const wait = t.yourTurn ? '' : 'Not your turn yet.';
         const options = t.yourTurn ? [
-            ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost} time`, affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
+            ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost} time`, ...(m.price ? {cost: m.price} : {}), affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
                 attrs: {fightOption: m.id}, blocked: blocked || (m.usable === false ? m.why || 'Not possible now.' : ''), onChoose: () => move({moveId: m.id})})),
             ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, time: `${o.cost} time`, affects: `${o.text} Heard ${o.odds}; not certain.`,
                 attrs: {fightOption: `order:${o.orderId}:${o.allyId}`}, blocked, onChoose: () => move({moveId: 'order', allyId: o.allyId, orderId: o.orderId})})),
@@ -76,6 +76,22 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         if (ask.length) { const why = document.createElement('p'); why.className = 'fight-situation-ask'; why.dataset.fightAsk = ''; why.textContent = `Worth a look: ${ask.join(' ')}`; notice.after(why); }
         const versus = document.createElement('div'); versus.className = 'fight-situation-versus'; next.after(versus);
         renderVersusRow(versus, t.versus);
+        // What the fight is for, one line; the reasons one step away on hover (round 2 dials, WS1-WS3). Hold back sits beside it when a
+        // downing blow could kill (CFC9, CBC32), free and saved with the fight.
+        if (t.stakes) {
+            const s = document.createElement('p'); s.className = 'fight-situation-stakes'; s.dataset.fightStakes = t.stakes.preset;
+            s.textContent = `${t.stakes.label} · stakes: ${t.stakes.stakes} · ${t.stakes.lethal ? 'can be deadly' : 'not deadly'}.`;
+            s.title = [t.stakes.text, t.stakes.why].filter(Boolean).join(' ');
+            if (t.stakes.lethal) {
+                const hold = domainRegistry.command('tempo_fight', 'hold'), b = document.createElement('button');
+                b.type = 'button'; b.dataset.fightHold = ''; b.textContent = t.holdBack ? 'Holding back' : 'Hold back';
+                b.setAttribute('aria-pressed', String(!!t.holdBack)); b.disabled = !hold;
+                b.title = t.holdBack ? 'Your blows knock out instead of killing. Press to fight to kill again.' : 'Pull your blows: one that would drop them knocks them out instead. Costs no time.';
+                b.onclick = () => { try { lastNotice = hold({on: !t.holdBack}) || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
+                s.append(' ', b);
+            }
+            versus.before(s);
+        }
         if (t.aims.length) {
             const setAim = domainRegistry.command('tempo_fight', 'aim');
             const reason = !setAim ? 'Aiming is unavailable until the contest can accept an aim.' : !t.yourTurn ? 'Not your turn yet.' : '';
@@ -96,6 +112,8 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             if (reason) { const why = document.createElement('span'); why.textContent = ` ${reason}`; row.append(why); }
             versus.after(row);
         }
+        // A move's detail (how it works, what fills it, what it can do) is one step away, on hover (new depth stays off the face of the card).
+        for (const m of t.moves) if (m.detail) { const btn = card.querySelector(`button[data-fight-option="${m.id}"]`); if (btn && !btn.disabled) btn.title = m.detail; }
         const log = document.createElement('ol'); log.className = 'fight-situation-log'; log.setAttribute('aria-label', 'What happened in this fight');
         for (const line of t.log) { const li = document.createElement('li'); li.textContent = line; log.append(li); }
         card.append(log);

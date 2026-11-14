@@ -24,7 +24,8 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
         return label?`Chosen: ${label}.`:'Done.';};
     const panel=document.createElement('details');panel.id='structured_pack_panel';panel.open=true;
     const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
-    const body=document.createElement('div');panel.append(body);let signature,notice='',repetition=null,noticeError=false;
+    // AR17: a shared fight panel (tempo openers) renders in the encounter slot; the body re-renders, the slot does not.
+    const body=document.createElement('div'),encounterSlot=document.createElement('div');encounterSlot.dataset.sharedSlot='encounter';panel.append(body);body.append(encounterSlot);let signature,notice='',repetition=null,noticeError=false;
     const node=(tag,parent)=>{const n=document.createElement(tag);parent.append(n);return n;};
     const live={info:node('section',body),steps:node('section',body)},work=node('section',body);live.plans=node('section',body);live.renewal=node('section',body);const actions=node('section',body),message=node('p',body);
     const craft=createBookCraftControls(command);body.insertBefore(craft.element,message);

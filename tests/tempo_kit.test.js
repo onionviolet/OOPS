@@ -1,0 +1,119 @@
+// Stakes and kit in the live tempo fight (Weibao, 2026-11-14: "refining combat system to account for new possiblity while still being
+// familar? and transfering across all the worlds"). A preset sets lethality and endings; kit rows carry spells and Gu moves; a fist can
+// kill unless the striker holds back (CFC9, CBC32). One shared start per file, cloned per test.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import '../src/native_battle.js';
+import {expeditionRegistry as registry} from '../src/expedition_content.js';
+import {createFieldFixture, joinField, fieldContext} from '../scripts/field_fixtures.mjs';
+import {beginTempoFight, commitTempoMove, driveTempoFight, setTempoHoldBack, tempoView, validateTempoBattle} from '../src/tempo_fight.js';
+import {tempoStakes, validateTempoKitRow, TEMPO_PRESETS} from '../src/tempo_kit.js';
+
+const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_count: 1, crit_rate: .3, crit_multiplier: 1.5, stamina_efficiency: 1};
+const profile = {stats, attackPower: 8, shield: 0, shieldSkill: 0, emptyStaminaMultiplier: .5};
+const base = joinField(createFieldFixture());
+const context = fieldContext(base, 'Village', {vitals: {player: {health: 30, max_health: 30, stamina: 30, max_stamina: 30}}});
+
+const SPELLS = {
+    disarm: {label: 'Expelliarmus', text: 'The Disarming Charm.', cost: 4, power: 0, hit: 1.5, needs: {wand: 1}, takes: {wand: 1}, why: 'Takes the wand from the hand.'},
+    bind: {label: 'Petrificus Totalus', text: 'The Full Body-Bind.', cost: 5, power: 0, hit: 1.2, needs: {wand: 1}, binds: true, why: 'Locks the body rigid.'},
+};
+function fight({stakes, player = {}, foe = {}, seed = 7} = {}) {
+    const state = structuredClone(base.state); state.simulation.seed = seed;
+    return beginTempoFight(state, registry, context, {id: 'fx-kit', title: 'Kit bout', floor: 1, ...(stakes ? {stakes} : {}), fighters: [
+        {id: 'player', name: 'You', side: 'a', speed: 100, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile, perception: 20, stealth: 20, ...player},
+        {id: 'foe1', name: 'A rival', side: 'b', speed: 60, hp: 12, maxHp: 12, stamina: 30, maxStamina: 30, profile: {...profile, attackPower: 2}, perception: 20, stealth: 20, ...foe}]});
+}
+const finish = (plan, policy = 'aggressive') => driveTempoFight(plan.state, registry, context, policy);
+
+test('presets are rows: each names its lethality, the means whose loss ends it, and whether someone steps in', () => {
+    for(const [id, p] of Object.entries(TEMPO_PRESETS)) assert.equal(typeof p.lethal, 'boolean', id);
+    assert.deepEqual(tempoStakes({preset: 'duel'}).disarm, 'wand');
+    assert.equal(tempoStakes({preset: 'hunt', lethal: false}).lethal, false, 'an opener overrides a dial');
+    assert.throws(() => tempoStakes({preset: 'nope'}));
+});
+
+test('in a lethal fight a fist that drops the foe kills; holding back knocks out; a non-lethal frame knocks out', () => {
+    const killed = finish(fight({stakes: {preset: 'hunt'}}));
+    assert.equal(killed.fightEnd[0].end, 'killed', 'an ordinary jab can kill (CFC9)');
+    const held = fight({stakes: {preset: 'hunt'}});
+    setTempoHoldBack(held.state.simulation.sessions.player.nativeBattle, true);
+    assert.equal(finish(held).fightEnd[0].end, 'knocked_out', 'the striker held back (CBC32)');
+    assert.equal(finish(fight({stakes: {preset: 'brawl'}})).fightEnd[0].end, 'knocked_out');
+    assert.equal(finish(fight()).fightEnd[0].end, 'down', 'a fight with no stakes reads as before');
+});
+
+test('a spell is a kit row: the Disarming Charm takes the wand and in a duel that ends the foe\'s part', () => {
+    let plan = fight({stakes: {preset: 'duel'}, player: {kit: SPELLS, means: {wand: 1}}, foe: {kit: {disarm: SPELLS.disarm}, means: {wand: 1}}});
+    const view = tempoView(plan.state.simulation.sessions.player.nativeBattle);
+    const row = view.moves.find(m => m.id === 'disarm');
+    assert.equal(row.label, 'Expelliarmus'); assert.equal(row.usable, true); assert.match(row.detail, /takes the wand/);
+    for(let n = 0; n < 12 && plan.state.simulation.sessions.player; n++) {
+        const wand = plan.state.simulation.sessions.player.nativeBattle.fighters.player.means.wand; // disarmed, the player has fists left (SF6)
+        plan = commitTempoMove(plan.state, registry, context, {moveId: wand ? 'disarm' : 'jab'});
+    }
+    assert.equal(plan.fightEnd[0].end, 'disarmed');
+    assert.equal(plan.state.actors.player.facts['tempo.lastResult'], 'won');
+});
+
+test('a binding cast ends the fight with the foe unharmed, and a spent means blocks the row with a reason', () => {
+    let plan = fight({stakes: {preset: 'duel'}, player: {kit: {bind: {...SPELLS.bind, hit: 3}}, means: {wand: 1}}});
+    for(let n = 0; n < 12 && plan.state.simulation.sessions.player; n++) plan = commitTempoMove(plan.state, registry, context, {moveId: 'bind'});
+    assert.equal(plan.fightEnd[0].end, 'bound');
+    const gu = {moonblade: {label: 'Moonblade', text: 'A crescent of light.', cost: 5, power: 1.6, spends: {essence: 4}, why: 'Moonglow Gu.'}};
+    plan = fight({stakes: {preset: 'hunt'}, player: {kit: gu, means: {essence: 3}, meansLabels: {essence: 'essence'}}});
+    const row = tempoView(plan.state.simulation.sessions.player.nativeBattle).moves.find(m => m.id === 'moonblade');
+    assert.equal(row.usable, false); assert.equal(row.why, 'Needs 4 essence; 3 left.');
+    assert.throws(() => commitTempoMove(plan.state, registry, context, {moveId: 'moonblade'}), /Needs 4 essence/);
+});
+
+test('a Gu move spends essence on use, a killer move names the Gu that fill it, and the run policy uses the kit', () => {
+    const gu = {moonblade: {label: 'Moonblade', text: 'A crescent of light.', cost: 5, power: 1.6, spends: {essence: 4}, why: 'Moonglow Gu.'},
+        hidden: {label: 'Stone-hidden moonblade', text: 'A cut whose gathering is hidden.', cost: 7, power: 1.8, hit: 1.5, spends: {essence: 6},
+            roles: [{role: 'hide', by: 'Stealth Rock Gu'}, {role: 'cut', by: 'Moonglow Gu'}], why: 'Two Gu at once.'}};
+    const plan = fight({stakes: {preset: 'hunt'}, player: {kit: gu, means: {essence: 20}}});
+    const b = plan.state.simulation.sessions.player.nativeBattle;
+    assert.match(tempoView(b).moves.find(m => m.id === 'hidden').detail, /Filled by: hide, Stealth Rock Gu; cut, Moonglow Gu/);
+    const after = commitTempoMove(plan.state, registry, context, {moveId: 'hidden'});
+    const left = after.state.simulation.sessions.player?.nativeBattle?.fighters.player.means.essence;
+    assert.ok(left === undefined || left === 14, `essence ${left}`);
+    const done = finish(plan, 'steady');
+    assert.equal(done.fightEnd[0].end, 'killed');
+});
+
+test('a teacher steps in at the frame\'s time; the saved fight with stakes and kit validates', () => {
+    const plan = fight({stakes: {preset: 'duel', stopAt: 6, stopText: 'A teacher arrives and stops it.'}, foe: {hp: 300, maxHp: 300}, player: {kit: SPELLS, means: {wand: 1}}});
+    const b = plan.state.simulation.sessions.player.nativeBattle;
+    assert.doesNotThrow(() => validateTempoBattle(structuredClone(b), plan.state.simulation.sessions.player));
+    const done = finish(plan, 'safe');
+    assert.equal(done.fightEnd[0].end, 'stopped');
+    assert.equal(done.playerEnd, 'stopped');
+    assert.equal(validateTempoKitRow({label: 'x', text: 'y', cost: 0}), false, 'a row costs time');
+});
+
+test('each lead world opens its own frame: Tingen deadly, Hogwarts a duel a teacher stops, the wolf hunt reads the Gu held and fed', async () => {
+    const {wolfKit} = await import('../src/tempo_lead_fights.js');
+    const {tempoOpener} = await import('../src/tempo_starters.js');
+    const life = worldId => ({actors: {player: {worldId, facts: {'hp.lead.atSchool': true}}}, simulation: {sessions: {}, knowledge: {player: {}}, energies: {player: {'book.ri.lead.primeval': {reserve: 9}}}}, clock: 0, lotm: {}});
+    const inv = ids => ({gameplay: {player: {inventory: Object.fromEntries(ids.map(id => [JSON.stringify({id}), 1]))}}});
+    assert.equal(tempoOpener('lotm.lane.knife').quote(life('book.lotm.tingen')).visible, true);
+    assert.equal(tempoOpener('lotm.lane.knife').quote(life('book.hp.lead.world')).visible, false, 'each opener stays in its own world');
+    assert.equal(tempoOpener('hp.corridor.draco').quote(life('book.hp.lead.world')).visible, true);
+    const gu = ['book.ri.lead.moonglow.moonglow_gu', 'book.ri.lead.stone_forest.stealth_rock_gu'];
+    const kit = wolfKit(life('book.ri.lead.world'), inv(gu));
+    assert.deepEqual(Object.keys(kit), ['moonblade', 'hidden_blade'], 'only the Gu held fill rows');
+    assert.match(kit.moonblade.blocked, /hungry/, 'a Moonglow never fed through the day is hungry and will not cut');
+    assert.deepEqual(kit.hidden_blade.roles.map(r => r.by), ['Stealth Rock Gu', 'Moonglow Gu']);
+    assert.match(tempoOpener('ri.wolf.tide').quote(life('book.ri.lead.world'), inv(gu)).reason, /fists/);
+});
+
+test('a wound from the same night\'s patrol is carried into the wolf fight', async () => {
+    const {woundCarried} = await import('../src/tempo_lead_fights.js');
+    const {tempoOpener} = await import('../src/tempo_starters.js');
+    const state = {actors: {player: {worldId: 'book.ri.lead.world', facts: {'book.ri.lead.day.injured': true}}}, simulation: {sessions: {}, knowledge: {player: {}}, energies: {player: {'book.ri.lead.primeval': {reserve: 9}}}}, clock: 0};
+    assert.equal(woundCarried(state), true);
+    const ctx = {gameplay: {player: {inventory: {[JSON.stringify({id: 'book.ri.lead.moonglow.moonglow_gu'})]: 1}}}};
+    const spec = tempoOpener('ri.wolf.tide').spec(state, ctx, {me: profile, vitals: {health: 50, max_health: 60, stamina: 10, max_stamina: 10}, parts: {}, enemyProfile: () => profile});
+    assert.equal(spec.fighters[0].hp, 35);
+    assert.match(tempoOpener('ri.wolf.tide').quote(state, ctx).reason, /wound/);
+});

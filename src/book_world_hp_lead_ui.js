@@ -25,7 +25,8 @@ const workTime=minutes=>{
 };
 export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct}){
  const panel=node('section');panel.id='hp_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
- const body=node('div');panel.append(node('h2','The household day'),body);
+ const body=node('div'),encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: a shared fight panel renders here (as Tingen's panel), not re-rendered
+ panel.append(node('h2','The household day'),encounterSlot,body);
  let notice='';
  const render=()=>{
   const v=project();body.replaceChildren();
