@@ -5,6 +5,7 @@ import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule} from './w
 import {publishChange} from './ui_change_signal.js';
 import {applyWorldLook} from './world_look.js';
 import {sayReason} from './locked_control.js';
+import {livesOwnLife} from './seat_profiles.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
 // definition lookup, command dispatcher or gameplay timer belongs here.
@@ -61,7 +62,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
         const view=read(),next=JSON.stringify(view);
         if(next!==signature){signature=next;
             // A life that opens on its own panel has nothing under Here to point at (G10).
-            const idleText=view.inVillage||document.documentElement.dataset.ownHoldings==='on'?'No work running.':'No work running. Pick something under Here to start.';
+            const idleText=view.inVillage||document.documentElement.dataset.ownHoldings==='on'||livesOwnLife(view.world)?'No work running.':'No work running. Pick something under Here to start.';
             work.textContent=view.work.length?view.work.join(' · '):idleText;
             jump.textContent=view.waiting?'Open waiting response':'Open local controls';
             ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';ownership.hidden=view.canWrite; // UIC146: the top bar reads this line and shows it; a warning also shows here

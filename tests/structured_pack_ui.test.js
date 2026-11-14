@@ -81,3 +81,26 @@ test('renewal preview shows current and after-renewal mastery and reserve',()=>w
     assert.match(text(host.children[0]),/Method mastery: 4 now \(needs 3\), 1 after renewal.*Training reserve: 7 now, 0 after renewal/s);assert.doesNotMatch(text(host.children[0]),/RAW_RENEWAL/);
     panel.destroy();
 }));
+
+// G10 (Fang Yuan's first screen): a life whose only move is the next story step opens with that step first, above the account of how it began.
+test('an active life with only an open next step leads with that step',()=>withDom(({host,find,text,tick})=>{
+    const v=view();v.actions=[];v.jobs=[];v.extensions=[{id:'ext.hearing',label:'Fang Yuan at the clan hearing',description:'Answer the elder’s summons.',eligible:true,reasons:[],revision:1,contentHash:'h'}];
+    const panel=createStructuredPackPanel({read:()=>v,command:()=>{}}),element=host.children[0];
+    const body=element.children[1],step=find(element,'structuredExtension','ext.hearing');
+    assert.ok(step);assert.equal(step.disabled,false);
+    const stepAt=text(body).indexOf('Choose Fang Yuan'),historyAt=text(body).indexOf('Keeper');
+    assert.ok(stepAt>=0&&historyAt>=0&&stepAt<historyAt,'the step comes before the opening account');
+    panel.destroy();
+}));
+
+test('open actions still come before the next step',()=>withDom(({host,text})=>{
+    const v=view();v.extensions=[{id:'ext.hearing',label:'Fang Yuan at the clan hearing',description:'Answer the summons.',eligible:true,reasons:[],revision:1,contentHash:'h'}];
+    const panel=createStructuredPackPanel({read:()=>v,command:()=>{}}),body=host.children[0].children[1];
+    assert.ok(text(body).indexOf('Prepare supplies')<text(body).indexOf('Choose Fang Yuan'));panel.destroy();
+}));
+
+test('a next step that is still shut is not lifted above the opening account',()=>withDom(({host,text})=>{
+    const v=view();v.actions=[];v.jobs=[];v.extensions=[{id:'ext.hearing',label:'Fang Yuan at the clan hearing',description:'Answer the summons.',eligible:false,reasons:['Not yet.'],revision:1,contentHash:'h'}];
+    const panel=createStructuredPackPanel({read:()=>v,command:()=>{}}),body=host.children[0].children[1];
+    assert.ok(text(body).indexOf('Keeper')<text(body).indexOf('Choose Fang Yuan'));panel.destroy();
+}));

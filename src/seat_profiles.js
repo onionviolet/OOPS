@@ -102,6 +102,9 @@ export function panelPerspective(state,panel){
 const heroPanels=new Set(['patrol','economy_standing','herbal-experiments','management','village-neighbors','drainage-site','hp-polyjuice','rune-bench','dnd-phandalin','fields','tools','gear-workshop','equipment-comparison','shell-detail','inherited_traits','pledges','projects','research','ledger','homes','home-overview','gathering','naming']);
 const homePlacePanels=new Set(['patrol','economy_standing','herbal-experiments','management','village-neighbors','village-travelers','drainage-site','hp-polyjuice','rune-bench','dnd-phandalin','homes','home-overview','gathering','fields']);
 const LEAD_WORLD=/\.lead\.world$/;
+// A life with its own panel under Your beginning: one that keeps its own holdings, or a book lead on the native body and pack.
+// The idle line under Here and the open-on-own-panel rule both ask this, so a lead with no holdings is not left on an empty Here.
+export const livesOwnLife=world=>!!world&&(!!ownHoldings(world)||LEAD_WORLD.test(world));
 export function seatAllowsPanel(state,panel){
  if(seatOf(state)!=='be'){
   const world=state?.actors?.player?.worldId;

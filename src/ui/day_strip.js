@@ -13,6 +13,7 @@ import {resolveWorldCalendar} from '../world_calendar.js';
 import {WORLD_CALENDAR_PROFILES} from '../world_calendar_content.js';
 import {readPort} from '../ui_ports.js';
 import {registerPanelSettings, getDisplaySetting, subscribeDisplaySettings} from '../display_settings.js';
+import {CONTROLLED_ACTOR_ID} from '../observer_view.js';
 
 const DEFAULT_UNITS = Object.freeze({minutesPerHour: 60, hoursPerDay: 24});
 const TEXT_MAX = 90;
@@ -71,8 +72,8 @@ export function dayStripModel({calendar, units = DEFAULT_UNITS, events = [], wor
 // neutral because a job's label can name an outcome that is decided later (today_strip.js SX4).
 export function workFromExpansion(expansion) {
     if (!expansion) return [];
-    const mine = job => !job.context?.actorId || job.context.actorId === 'player';
-    const jobs = [...(expansion.pending || []).filter(mine), ...(expansion.simulation?.jobs || []).filter(j => j.actorId === 'player')];
+    const mine = job => !job.context?.actorId || job.context.actorId === CONTROLLED_ACTOR_ID;
+    const jobs = [...(expansion.pending || []).filter(mine), ...(expansion.simulation?.jobs || []).filter(j => j.actorId === CONTROLLED_ACTOR_ID)];
     return jobs.map((job, i) => ({id: String(job.id ?? i), endsIn: Number.isFinite(job.due - expansion.clock) ? job.due - expansion.clock : null}));
 }
 

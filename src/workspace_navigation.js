@@ -15,10 +15,9 @@ import {shortcutGroups} from './shortcut_registry.js';
 import {mountUiExtras} from './ui_extras.js';
 import {configureUiPorts} from './ui_ports.js';
 import {pollBadges,badgeCount,markSeen,paintBadge} from './change_badges.js';
-import {controlForRoute} from './seat_profiles.js';
+import {controlForRoute,livesOwnLife} from './seat_profiles.js';
 import {observerView} from './observer_view.js';
 import {readPort} from './ui_ports.js';
-import {ownHoldings} from './own_holdings.js';
 import {setLocked,lockReason,sayReason} from './locked_control.js';
 
 // UIL1 (UIM2): the routes come from the layout spec's route table; this module owns how each opens.
@@ -61,7 +60,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     const lifeHomeTimer=setInterval(()=>{if(!nav.isConnected){clearInterval(lifeHomeTimer);return;}
         const target=LAYOUT_SPEC.lifeHome;if(!target||document.documentElement.dataset.startScreen!=='closed')return;
         const world=readPort('expansion')?.actors?.player?.worldId,key=`${world}:${document.getElementById('location_name_span')?.textContent||''}`;
-        if(!world||!ownHoldings(world)){lifeHomeShownFor='';return;}
+        if(!livesOwnLife(world)){lifeHomeShownFor='';return;}
         if(key===lifeHomeShownFor||centerModes().mode!=='local')return;
         lifeHomeShownFor=key;if(hereIsEmpty()&&knownWorkspaceModules().some(m=>m.id===target&&m.eligible))expandWorkspaceModule(target);},800);
     // UIC164: an entry whose panel is only a launcher or a tab chooser opens what its top-bar route opens.

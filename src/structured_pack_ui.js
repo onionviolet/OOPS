@@ -22,7 +22,7 @@ export function createStructuredPackPanel({read,command,changed}) {
     const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
     const body=document.createElement('div');panel.append(body);let signature,notice='',repetition=null,noticeError=false;
     const node=(tag,parent)=>{const n=document.createElement(tag);parent.append(n);return n;};
-    const live={info:node('section',body)},work=node('section',body);live.plans=node('section',body);live.renewal=node('section',body);const actions=node('section',body),message=node('p',body);
+    const live={info:node('section',body),steps:node('section',body)},work=node('section',body);live.plans=node('section',body);live.renewal=node('section',body);const actions=node('section',body),message=node('p',body);
     const craft=createBookCraftControls(command);body.insertBefore(craft.element,message);
     // OPN2/OPN4: actions that cannot run yet wait in one closed list, each with its reason, so the opening lists what you can do now.
     const notYet=document.createElement('details'),notYetSummary=node('summary',notYet),notYetList=node('div',notYet);notYet.className='action-legibility__not-yet';notYet.hidden=true;
@@ -75,15 +75,15 @@ export function createStructuredPackPanel({read,command,changed}) {
         panel.hidden=!view.available&&!view.active;
         // Prose, plans and renewal build detached; a live section is replaced only
         // when its own rows (text, controls, disabled state) differ from last time.
-        const info=document.createElement('section'),plans=document.createElement('section'),renewal=document.createElement('section');
-        const rows=new Map([[info,[]],[plans,[]],[renewal,[]]]);
+        const info=document.createElement('section'),steps=document.createElement('section'),plans=document.createElement('section'),renewal=document.createElement('section');
+        const rows=new Map([[info,[]],[steps,[]],[plans,[]],[renewal,[]]]);
         const p=(text,parent=info)=>{if(text==null||text==='')return;const n=node('p',parent);n.textContent=String(text);rows.get(parent).push(['p',n.textContent]);return n;};
         const add=(parent,label,data,request,disabled)=>{parent.append(button(label,data,request,disabled));rows.get(parent).push(['b',label,data,request,disabled]);};
         const ladderBlock=(parent,ladder)=>{const fig=node('div',parent),words=node('details',parent);fig.dataset.structuredLadder='';words.dataset.structuredLadderText='';
             const {text}=renderFigure(fig,ladder.spec,{idPrefix:'structured-ladder-'+ladder.id});
             words.append(Object.assign(document.createElement('summary'),{textContent:'Read the ladder as text'}),Object.assign(document.createElement('pre'),{textContent:text,className:'fig-text'}));
             rows.get(parent).push(['ladder',text]);};
-        live.info.hidden=work.hidden=live.plans.hidden=live.renewal.hidden=actions.hidden=!(view.available||view.active);
+        live.info.hidden=live.steps.hidden=work.hidden=live.plans.hidden=live.renewal.hidden=actions.hidden=!(view.available||view.active);
         if(view.available||view.active){
             p(view.arrival?.label||view.title);if(!view.arrival)p(view.description);
             if(!view.active){
@@ -119,8 +119,8 @@ export function createStructuredPackPanel({read,command,changed}) {
                 // G15: every continuation you can take now, then only the next one that is still shut.
                 let shut=0;for(const e of view.extensions){
                     if(!e.eligible&&shut++>=NEXT_SHUT)continue;
-                    p(e.description);for(const reason of e.reasons)p(reason);
-                    add(info,'Choose '+e.label,{structuredExtension:e.id},{type:'adopt-extension',id:e.id,revision:e.revision,contentHash:e.contentHash},!view.canWrite||!e.eligible);
+                    p(e.description,steps);for(const reason of e.reasons)p(reason,steps);
+                    add(steps,'Choose '+e.label,{structuredExtension:e.id},{type:'adopt-extension',id:e.id,revision:e.revision,contentHash:e.contentHash},!view.canWrite||!e.eligible);
                 }
                 for(const job of view.jobs){
                     let row=jobRows.get(job.id);
@@ -162,9 +162,12 @@ export function createStructuredPackPanel({read,command,changed}) {
                 }
             }
         }
-        for(const [key,fresh] of [['info',info],['plans',plans],['renewal',renewal]]){const sig=JSON.stringify(rows.get(fresh));if(sectionRows[key]!==sig){sectionRows[key]=sig;live[key].replaceChildren(...fresh.children);}}
+        for(const [key,fresh] of [['info',info],['steps',steps],['plans',plans],['renewal',renewal]]){const sig=JSON.stringify(rows.get(fresh));if(sectionRows[key]!==sig){sectionRows[key]=sig;live[key].replaceChildren(...fresh.children);}}
         // G10: once a life is under way, what you can do now comes before the opening's account of how it began.
-        if(view.active&&view.actions.some(a=>a.completed>0)&&body.firstElementChild!==work)body.prepend(work,actions);
+        // A life whose only move is the next story step has nothing else to lead with, so that step comes first.
+        if(view.active&&(view.actions.some(a=>a.completed>0)||view.extensions.some(e=>e.eligible))){
+            const doNow=view.actions.some(a=>a.eligible)||view.jobs.length>0,want=doNow?[work,actions,live.steps]:[live.steps,work,actions];
+            if(want.some((n,k)=>body.children[k]!==n))for(const n of [...want].reverse())body.prepend(n);}
         trim(actionRows,new Set(view.active?view.actions.map(a=>a.id):[]));
         // G15: the closed list shows the next few steps, not the whole road ahead; later ones appear as these open.
         {const n=notYetList.children.length;notYet.hidden=!n;[...notYetList.children].forEach((card,i)=>{const hide=i>=NOT_YET_SHOWN;if(card.hidden!==hide)card.hidden=hide;});setText(notYetSummary,n>NOT_YET_SHOWN?`Not available yet (the next ${NOT_YET_SHOWN})`:`Not available yet (${n})`);if(notYet.parentNode!==actions||actions.lastChild!==notYet)actions.append(notYet);}
