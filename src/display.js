@@ -44,6 +44,7 @@ import {readLocalWeatherWords, get_current_book, get_context, canConsumeNativeCr
 import {translate} from "./native_translation.js";
 import { activities } from "./activities.js";
 import { format_time, current_game_time, seasons, is_night } from "./game_time.js";
+import { LAYOUT_SPEC } from "./layout_spec.js";
 import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, getItemRarity, getItemFromKey, item_log } from "./items.js";
 import { favourite_locations, location_types, locations } from "./data/locations.js";
 import { get_location_type_penalty } from "./models/location.js";
@@ -2585,6 +2586,7 @@ function create_location_choice_dropdown({name, icon, class_name}) {
     // Keyed by its name: several menus share a class (Move, Fast travel and challenges are all choice_travel).
     elem.dataset.choiceKey = name;
     if(open_location_dropdowns.has(name)) elem.classList.add("location_choice_dropdown_expanded");
+    if(LAYOUT_SPEC.placeList.hideActionGroups && ["Move somewhere else", "Talk to someone"].includes(name)) elem.classList.add("ui-mechanism-only"); // UIC127
 
     elem.addEventListener("click", (event)=>{
         let target = event.target;

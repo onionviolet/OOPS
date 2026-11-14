@@ -44,7 +44,7 @@ export const lotmBeChanceFact = id => `lotm.be.spell.${id.slice(PREFIX.length + 
 // (the real Seer source, through the host fact lotm.beSeer.supported), as the Harry caller does for its power. The grammar's native energy-use price now travels through ability_records with the other costs.
 export const lotmBeSpellCommands = lowerSpellCasts(lotmBeSpellSet, {chanceFact: lotmBeChanceFact, practice: {sourceOf: () => BE_SEER_SOURCE, amount: 1}}).filter(c => c.id === castId).map(c => ({
     ...c, group: 'book_lotm', worldId: WORLD, audience: ['$actor'],
-    requires: {all: [{fact: 'actor.life', op: 'eq', value: 'alive'}, beSpiritVisionOnRequires()], reason: 'You need the Seer potion in you and a rested mind.'}}));
+    requires: {all: [{fact: 'actor.life', op: 'eq', value: 'alive'}, beSpiritVisionOnRequires()], reason: 'This needs the Seer potion in you, your Spirit Vision closed and a rested mind.'}}));
 
 export const lotmBeSpellFacts = state => spellCastFacts(state, lotmBeSpellSet, {chanceFact: lotmBeChanceFact});
 

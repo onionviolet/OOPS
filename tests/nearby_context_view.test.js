@@ -33,3 +33,26 @@ test('PX46: a place account shows once; a short one whole, a long one as its fir
     const long = projectNearbyContext({place: 'Stand', people: [], services: [], things: []}, null, 'First. ' + 'More words here. '.repeat(30));
     assert.equal(long.descriptionLead, 'First.'); assert.ok(long.descriptionRest.startsWith('More words')); assert.doesNotMatch(long.descriptionRest, /^First/);
 });
+
+test('UIC127: the ways out join people and stations in one list, each with its own act', async () => {
+    const {projectNearbyContext, placeExits} = await import('../src/nearby_context_view.js');
+    const place = (id, extra = {}) => ({id, name: id, tags: {safe_zone: true}, canBeStarted: () => true, ...extra});
+    const here = {id: 'Flat', connected_locations: [{location: place('Street')}, {location: place('Sewer', {tags: {}})},
+        {location: place('Trial', {is_challenge: true})}, {location: place('Sealed', {canBeStarted: () => false})}]};
+    const exits = placeExits(here, {}, {Flat: {Street: 5, Sewer: 90}});
+    assert.deepEqual(exits.map(e => [e.id, e.act, e.role]), [['go:Street', 'Go to Street', '5 min away'], ['go:Sewer', 'Enter Sewer', '1 h 30 min away · Not safe']]);
+    assert.deepEqual(placeExits(null, {}), [], 'a fight has no ways out');
+    const model = projectNearbyContext({place: 'Flat', people: [], things: [], exits,
+        actions: exits.map(e => ({id: e.id, target: e.id, label: e.act}))}, 'go:Street', 'A small flat.');
+    assert.equal(model.summary, '2 ways out');
+    assert.equal(model.subject.kind, 'exit');
+    assert.deepEqual(model.subject.actions.map(a => a.label), ['Go to Street']);
+    assert.equal(model.subjects.length, 2, 'a place with ways out is not an empty place');
+});
+
+test('UIC127, PRS1: a person outside the Village goes by what the action list calls them', async () => {
+    const {heardName} = await import('../src/nearby_context_view.js');
+    assert.equal(heardName('Talk to the suspicious man'), 'The suspicious man');
+    assert.equal(heardName('Talk with Old Hesk.'), 'Old Hesk');
+    assert.equal(heardName('Enter the shop'), '');
+});

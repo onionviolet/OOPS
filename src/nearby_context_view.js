@@ -1,4 +1,23 @@
 import {storyRecap} from './lore_history_view.js';
+import {formatDuration} from './number_format.js';
+import {LAYOUT_SPEC} from './layout_spec.js';
+
+// UIC127, PRS1: what the action list calls someone ("Talk to the suspicious man" gives "The suspicious man"), so Around you
+// shows no name the character has not learned. '' when the line is not of that shape.
+export const heardName = line => {const m = String(line || '').replace(/<[^>]*>/g, '').trim().match(/^(?:talk|speak|chat) (?:to|with) (.+?)[.!]?$/i); return m ? m[1][0].toUpperCase() + m[1].slice(1) : '';};
+
+// UIC127: the ways out of a place, read from the same links the action list uses. A fight has none.
+// `act` is the verb the player presses; `role` is the walk, with a warning where the far side is not safe.
+export function placeExits(location, context, travelTimes = {}) {
+    if (!location || LAYOUT_SPEC.placeList?.exits === false) return [];
+    return (location.connected_locations || []).map(link => link.location)
+        .filter(to => to && to.canBeStarted(context) && !to.is_challenge)
+        .map(to => {
+            const minutes = travelTimes[location.id]?.[to.id], safe = !!to.tags?.safe_zone;
+            return {id: `go:${to.id}`, name: to.name, safe, act: safe ? `Go to ${to.name}` : `Enter ${to.name}`,
+                role: [Number.isFinite(minutes) && minutes > 0 ? `${formatDuration(minutes)} away` : '', safe ? '' : 'Not safe'].filter(Boolean).join(' · ')};
+        });
+}
 
 const rows = value => Array.isArray(value) ? value : [];
 const admitted = row => row && row.id && row.known !== false && row.hidden !== true;
@@ -18,12 +37,14 @@ export function projectNearbyContext(frame = {}, selected = null, description = 
         actions:rows(frame.actions).filter(admitted).filter(action => action.target === row.id)}));
     const people = add(frame.people, 'person');
     const services = [...add(frame.services, 'service'), ...add(frame.things, 'station')];
-    const subjects = [...people, ...services];
+    const exits = add(frame.exits, 'exit');
+    const subjects = [...people, ...services, ...exits];
     const requested = frame.dialogue || selected;
     const subject = subjects.find(row => row.id === requested) || null;
     const summary = [people.length ? `${people.length} ${people.length === 1 ? 'person' : 'people'}` : '',
-        services.length ? `${services.length} ${services.length === 1 ? 'service / station' : 'services / stations'}` : ''].filter(Boolean).join(' · ');
-    return {place:frame.place || 'This place',people,services,subjects,subject,
+        services.length ? `${services.length} ${services.length === 1 ? 'service / station' : 'services / stations'}` : '',
+        exits.length ? `${exits.length} ${exits.length === 1 ? 'way out' : 'ways out'}` : ''].filter(Boolean).join(' · ');
+    return {place:frame.place || 'This place',people,services,exits,subjects,subject,
         selectedId:subject?.id || null,summary,description:String(description || '').trim(),
         // A short account shows whole; a long one shows its first sentence with the rest behind More (PX46).
         ...(String(description || '').trim().length <= 320 ? {descriptionLead:String(description || '').trim(),descriptionRest:''} : {descriptionLead:firstSentence(description),descriptionRest:String(description || '').trim().slice(firstSentence(description).length).trim()}),missing:!!requested && !subject};
@@ -60,7 +81,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         text(summary,model.summary);summary.hidden=frame?.inVillage===true||!model.summary;text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead;
         text(placeBody,model.descriptionRest);place.hidden=!model.descriptionRest;text(back,`← ${model.place} overview`);
         node.dataset.selected=String(!!model.subject);node.dataset.selectionMissing=String(model.missing);
-        for(const [kind,label,subjects] of [['people','People here',model.people],['services','Services & stations',model.services]]){
+        for(const [kind,label,subjects] of [['people','People here',model.people],['services','Services & stations',model.services],['exits','Ways out',model.exits]]){
             let group=groups.get(kind);if(!group){group=el('section');const heading=el('h3'),body=el('div');group.append(heading,body);groups.set(kind,group);list.append(group);}
             group.hidden=!subjects.length;text(group.firstChild,`${label} · ${subjects.length}`);
             const body=group.lastChild;
@@ -68,14 +89,14 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
                 let button=buttons.get(subject.id);if(!button){button=el('button');button.type='button';button.append(el('strong'),el('small'));button.dataset.inspectNearby=subject.id;button.onclick=()=>select(subject.id);buttons.set(subject.id,button);}
                 if(body.children[index]!==button)body.insertBefore(button,body.children[index]||null);
                 text(button.firstChild,subject.name);text(button.lastChild,subject.role);button.lastChild.hidden=!subject.role;
-                button.dataset.nearbyKind=subject.kind;button.setAttribute('aria-pressed',String(subject.id===model.selectedId));button.title=`Inspect ${subject.name}`;
+                button.dataset.nearbyKind=subject.kind;button.setAttribute('aria-pressed',String(subject.id===model.selectedId));button.title=subject.kind==='exit'?`${subject.name}: see the way there`:`Inspect ${subject.name}`;
             }
         }
         let removedFocus=false;for(const [id,button] of buttons)if(!model.subjects.some(s=>s.id===id)){removedFocus ||= doc.activeElement===button;button.remove();buttons.delete(id);}
         const subject=model.subject;detail.hidden=!subject;
         // PX90: the populated Village list already shows what can be inspected.
         empty.hidden=!!subject || (frame?.inVillage===true && model.subjects.length>0 && !missingNotice);
-        text(empty,missingNotice?'That subject is no longer available here. Choose another known subject.':model.subjects.length?'Choose someone or something here to inspect.':(model.description?'No one else is here.':'Nothing here to inspect yet. Talk to someone in Local actions to meet them.'));
+        text(empty,missingNotice?'That subject is no longer available here. Choose another known subject.':model.subjects.length?'Choose someone or something here to inspect.':(model.description?'Nothing here to pick out just now.':'Nothing here to inspect yet. Talk to someone in Local actions to meet them.'));
         if(subject){text(title,subject.name);text(role,subject.role);role.hidden=!subject.role;
             const known=[subject.traits.length?`Known traits: ${subject.traits.join(', ')}`:'',subject.relationship?`Relationship: ${subject.relationship}`:''].filter(Boolean).join(' · ');
             text(facts,known);facts.hidden=!known;text(memory,subject.memory);memory.hidden=!subject.memory;
@@ -90,6 +111,8 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
             text(button,action.label);button.disabled=!!action.disabled;button.title=action.reason||'';
         }
         // A disappearing subject must not strand keyboard focus in a removed detail.
+        // UIC127: with a row picked the list is one narrow column, so keep the picked row in sight.
+        if(subject&&previousModel?.selectedId!==subject.id)buttons.get(subject.id)?.scrollIntoView?.({block:'nearest'});
         if(removedFocus || (!subject && previousModel?.subject && detail.contains(doc.activeElement))) (buttons.get(returnId)||buttons.values().next().value||node).focus();
         return model;
     };

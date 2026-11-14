@@ -252,6 +252,10 @@ export const LAYOUT_SPEC = Object.freeze({
     lifeHome: 'beginning',
     // UIC151: whether a bench also gets a row in the action list besides its station row and its tab. A default; true restores it.
     benchActionRow: false,
+    // UIC127: Around you is the one list of what is here. `exits` adds the ways out to it. `hideActionGroups` takes
+    // "Talk to someone" and "Move somewhere else" out of the action list, since the list now holds both; it is built
+    // and off, because it removes the one-press way to walk on and 35 walk scripts press those two groups.
+    placeList: Object.freeze({exits: true, hideActionGroups: false}),
     listing: Object.freeze({whenFound: Object.freeze(['cultivation-insights', 'hp']), never: Object.freeze(['current-work'])}),
     folds: Object.freeze({
         'today': Object.freeze({into: 'region-view', section: 'today', retired: true, label: 'Today'}),

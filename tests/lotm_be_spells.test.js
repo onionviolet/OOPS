@@ -54,6 +54,9 @@ test('the registry accepts the command with the spirituality pool', () => {
 });
 
 test('player-facing strings carry no engine words', () => {
+    // G13: the group's reason names all three needs, so an open vision is not blamed on a missing potion.
+    assert.match(cmd.requires.reason, /Spirit Vision closed/);
+    assert.ok(JSON.stringify(cmd.requires).includes('Your Spirit Vision is already open.'));
     const strings = [cmd.label, cmd.requires.reason, ...JSON.stringify(cmd.requires).match(/"reason":"[^"]+"/g).map(s => s.slice(10, -1)),
         ...cmd.effects.filter(e => e.type === 'knowledge').map(e => e.value)];
     for(const s of strings) assert.doesNotMatch(s, /outcome|weight|\bfact\b|chance|failChance|energy|condition|\.[a-z_]+\./i, s);

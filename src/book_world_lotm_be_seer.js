@@ -44,7 +44,7 @@ export const beSpiritRestEffects=()=>[{type:'condition',actor:'player',id:BE_SPI
 const cnd=(id,op,value)=>({fact:`condition.${id}`,op,value});
 // Predicates for place-act rows. On: a held source, switch off, exhaustion below the dial (a default; a world or a method may allow it). Off: switch on.
 // Seeing (aura observations): switch on, and the source held.
-export const beSpiritVisionOnRequires=()=>({all:[{fact:'lotm.beSeer.supported',op:'eq',value:true,reason:'You need the Seer potion in you.'},cnd(BE_SPIRIT_VISION,'eq',0),{...cnd(BE_SPIRIT_EXHAUSTION,'lte',BE_SPIRIT_EXHAUSTION_LIMIT-1),reason:'Your mind is too worn for Spirit Vision; sleep first.'}]});
+export const beSpiritVisionOnRequires=()=>({all:[{fact:'lotm.beSeer.supported',op:'eq',value:true,reason:'You need the Seer potion in you.'},{...cnd(BE_SPIRIT_VISION,'eq',0),reason:'Your Spirit Vision is already open.'},{...cnd(BE_SPIRIT_EXHAUSTION,'lte',BE_SPIRIT_EXHAUSTION_LIMIT-1),reason:'Your mind is too worn for Spirit Vision; sleep first.'}]});
 export const beSpiritVisionOffRequires=()=>cnd(BE_SPIRIT_VISION,'gte',1);
 export const beSpiritVisionSeesRequires=()=>({all:[{fact:'lotm.beSeer.supported',op:'eq',value:true},cnd(BE_SPIRIT_VISION,'gte',1)]});
 export const beSeerConditions=[

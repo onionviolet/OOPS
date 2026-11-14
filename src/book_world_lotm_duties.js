@@ -14,7 +14,7 @@ export const LOTM_DUTIES = Object.freeze([Object.freeze({id: 'lotm.expense_claim
 export const LOTM_RENT_ID = 'lotm.rent';
 export const LOTM_RENT = Object.freeze([Object.freeze({id: LOTM_RENT_ID, schedule: Object.freeze({period: WEEK, opens: 0, closes: WEEK}),
     debtor: 'player', creditor: 'landlady', source: 'lotm_duties',
-    why: 'Rent for your Tingen lodging falls due at the end of each week: 5 soli (an assumed figure).',
+    why: 'Rent for your Tingen lodging falls due at the end of each week: 5 soli.',
     policy: Object.freeze({default: 'pay_on_time', allowed: Object.freeze(['pay_on_time', 'pay_late', 'pay_part', 'dispute', 'skip']), reason: 'An ordinary landlady takes it on time, a week late with a word, in part, or argues it; she is no official, so there is no bribing her.'}),
     dues: Object.freeze({amount: 5 * LOTM_PENCE.soli, basis: 'assumed', lateCycles: 1,
         // OB1/OB2 dials (authored proposals): half in part; a dispute held 3 days, 40% allowed, a granted one cuts the week by half; at 6 missed weeks
