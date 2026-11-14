@@ -57,9 +57,12 @@ const itemName=key=>{try{return JSON.parse(key).id;}catch{return String(key);}};
 const unmetLeaves=(rule,facts,out=[])=>{if(!rule||rule.not)return out;if(rule.all||rule.any){for(const r of rule.all||rule.any)if(!evaluateRule(r,facts).met)unmetLeaves(r,facts,out);return out;}if(!evaluateRule(rule,facts).met)out.push(rule);return out;};
 function shortfall(state,registry,d,quoteContext) {
  const facts=simulationRuleFacts(state,quoteContext,registry,d.requires),lines=[];
+ // An item a running job holds is not short: the job has it, and "Finish your current activity first." leads instead.
+ const held=new Set(state.simulation.jobs.filter(j=>j.actorId==='player').flatMap(j=>(j.costs||[]).filter(c=>c.type==='item'&&c.amount<0).map(c=>c.key)));
  for(const leaf of unmetLeaves(d.requires,facts)) {
   if(!leaf.fact?.startsWith('item.')||leaf.op!=='gte'){if(leaf.reason)lines.push(leaf.reason);continue;}
   const key=leaf.fact.slice(5),have=Number(facts[leaf.fact])||0,name=itemName(key).toLowerCase();
+  if(held.has(key))continue;
   const sell=managementDefinitions.commands.find(c=>c.family==='supplies'&&c.effects.some(e=>e.type==='transfer'&&e.key===key&&e.to==='player'));
   const price=sell&&-sell.costs.filter(c=>c.key==='money').reduce((t,c)=>t+c.amount,0),seller=sell&&(registry.simulation.people?.get?.(sell.targetId)?.label||state.simulation.people[sell.targetId]?.label||'').split(', ')[0];
   lines.push(`Needs ${leaf.value} ${name}; you have ${have}.${sell?` ${seller||'The courtyard'} sells one for ${price} coins under Finite supplies.`:''}`);
@@ -89,7 +92,7 @@ export function managementPresentation(state,registry,context) {
    // NPC readiness uses its own actor facts; player observation remains local.
    if(npc&&!state.actors[I.orin]?.facts['mg.foremanReady'])continue;
    const quote=previewSimulationCommand(state,registry,d.id,quoteContext);
-   const reasons=!quote.eligible&&quote.reasons.includes(UNMET_REASON)?(()=>{const named=shortfall(state,registry,d,quoteContext);return named.length?[...new Set([...named,...quote.reasons.filter(r=>r!==UNMET_REASON)])]:quote.reasons;})():quote.reasons;
+   const reasons=!quote.eligible&&quote.reasons.includes(UNMET_REASON)?(()=>{const named=[...new Set([...shortfall(state,registry,d,quoteContext),...quote.reasons.filter(r=>r!==UNMET_REASON)])];return named.length?named:quote.reasons;})():quote.reasons;
    if(quote.visible)actions.push({id:d.id,label:d.label,description:d.description,eligible:quote.eligible&&!context.busy,reasons,duration:quote.duration,costs:quote.costs});
    if(d.repeatable===true&&state.actors.player.completed[d.id]>0)actions.push({id:d.id,type:'repeat',count:3,label:'Schedule up to three of this learned recipe',description:'Each repetition reserves real inputs separately. Shortages stop the mandate; costs are refunded when cancelled. No extra purchases or changed terms.',eligible:quote.eligible&&!context.busy,reasons:quote.reasons});
   }
