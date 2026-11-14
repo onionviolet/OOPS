@@ -1,4 +1,5 @@
 import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
+import {ownHoldings} from './own_holdings.js';
 
 export const SEATS = Object.freeze(['be', 'beside', 'follow', 'bystander', 'ordinary']);
 // B1 reserves this id for the player-facing lead life. It is derived from the
@@ -95,8 +96,17 @@ export function panelPerspective(state,panel){
  if(currentWorldPanels.has(panel.id))return state?.actors?.player?.worldId||'unclassified';
  return 'unclassified';
 }
+// G6 (2026-11-13): panels that belong to the Village hero's own body, purse, tools and village. A life that holds its
+// own things instead (own_holdings: "Your body here is not the Village hero's sheet") does not list them, and does not
+// list a panel that names a different world. A default: take an id out of the set to show it in every life again.
+const heroPanels=new Set(['patrol','economy_standing','herbal-experiments','management','village-neighbors','drainage-site','hp-polyjuice','rune-bench','dnd-phandalin','fields','tools','gear-workshop','equipment-comparison','shell-detail','inherited_traits','pledges','projects','research','ledger','homes','home-overview','gathering','naming']);
 export function seatAllowsPanel(state,panel){
- if(seatOf(state)!=='be')return true;
+ if(seatOf(state)!=='be'){
+  const world=state?.actors?.player?.worldId;
+  if(!world||!ownHoldings(world))return true;
+  if(heroPanels.has(panel.id))return false;
+  return !(typeof panel.perspective==='string'&&panel.perspective.includes('.')&&panel.perspective!==world);
+ }
  const perspective=panelPerspective(state,panel);
  return perspective==='system'||perspective===state?.actors?.player?.worldId;
 }

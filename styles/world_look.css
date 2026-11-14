@@ -22,3 +22,8 @@
 :root[data-own-holdings="on"] #proto23_character .shell-core-stats,
 :root[data-own-holdings="on"] #proto23_character .shell-character-tools { display: none; }
 :root[data-own-holdings="on"] [data-own-holdings-notice] { margin: var(--ui-space-hairline) 0; padding: 0 var(--ui-space-hairline); color: var(--ui-text); font-size: var(--ui-type-small); line-height: var(--ui-line-small); }
+
+/* G7: what a life owns, one row per thing. A row is a button: it opens where the thing is used. */
+.own-holdings-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ui-space-1); }
+.own-holdings-row { display: grid; width: 100%; text-align: left; padding: var(--ui-space-1) var(--ui-space-2); }
+.own-holdings-row > small { font-size: var(--ui-type-small); opacity: .8; white-space: normal; }

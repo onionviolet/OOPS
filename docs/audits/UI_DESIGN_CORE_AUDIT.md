@@ -2698,3 +2698,16 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 ### What is not done, and why
 
 The open items fall into three groups. **Held or waiting for a look:** the top bar, the Notebook, the growing screen and the six directions change what the frame is, so they need a mock and Weibao's answer. **Needs a state the fixture lacks:** conditions, rain, a long life, combat. **Plain work not yet started:** the ratchet checks from the panel pass, the place-panel slice, crafting sort and counts, and the small items in the table.
+
+### Fourth batch: a life's own screen (lead audit G6, G7), 2026-11-13
+
+Queued by the coordination chat from the [lead core-flow audit](LEAD_CORE_FLOW_AUDIT_2026-11-13.md) (P5). Working defaults under AD56; agent-verified, not human-reviewed. Seen in headless Chrome at 1920×1080 on the `gu-fed-second` fixture (the Gu-keeper life), no page errors.
+
+- **What the keeper's home looked like before.** Inventory read "moon gu, worm gu" as one line of text. The centre was blank. The Gu house, with each Gu's condition, larder, next meal and work, sat one panel away in "Your beginning", and nothing pointed there.
+- **G7, each owned thing on its own row (done for lives that hold their own things).** Inventory now lists one row per thing, named as the item names itself, with what it is for under it. A Gu's row says what it eats: "Moonlight Gu · Food: Moon Orchid petals, 4 a day." A row is a button and opens "Your beginning", where that life's actions are. One click from home reaches the Gu table. The same reader serves the Shadow Slave and academy lives; only the keeper was seen.
+- **G6, the panel list (done for the same lives).** A life that holds its own things no longer lists panels that belong to the Village hero's body, purse, tools and village, or a panel that names another world. The keeper's list went from 46 entries to 29: Trade standing, Potioneering, Patrol & custody, Phandalin, Rune bench, Tingen workroom, Projects and Ledger are gone from it. The home world lists everything as before. The set is one table in `seat_profiles.js`.
+- **G6, raw ids (one fixed).** Home at a glance wrote "Away: book.hp.lead.dormitory"; it now writes the place's label or its last word.
+- **Not done.** Scene lines left by another life ("Dudley's birthday", "Patrol blocked: return the loaned kit") were not reproduced or traced. The Find box was not changed. The keeper's centre is still blank until a row or Beginning is opened: making a life's own panel its home view is the real fix and needs a look. The purse line in the Inventory header is cut off at this width.
+- **G8, no result line after an action.** Not a shell problem as far as I traced: the result text comes from the pack's command and the fight text. Sent back to the coordination chat for the combat or pack owner.
+- **Tests.** `tests/seat_profiles.test.js` (scoped list, home unchanged), `tests/own_holdings.test.js` passes unchanged.
+- **Harness note.** My Chrome harness could not load a library save because its test tree left out the private packs; linking them in fixed it. This also explains the first wider-walk failure in round 48.

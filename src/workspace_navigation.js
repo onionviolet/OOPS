@@ -51,6 +51,8 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     for(const route of routes){const {label,key,target:id}=route,b=document.createElement('button');b.type='button';b.textContent=label;
         b.dataset.panelPath=id;if(route.tab)b.dataset.panelTab=route.tab;b.dataset.routeId=route.id;b.title=`${label} · Alt+${key.toUpperCase()}`;b.setAttribute('aria-keyshortcuts',`Alt+${key}`);b.onclick=()=>{delete b.dataset.newHome;go(route);};nav.append(b);buttons.set(route,b);}
     const more=document.createElement('select');more.setAttribute('aria-label','Other known panels');
+    // G7: a row in a life's own holdings opens the panel that holds what the life can do with it.
+    document.addEventListener('own-holdings-open',()=>expandWorkspaceModule('beginning'));
     // UIC164: an entry whose panel is only a launcher or a tab chooser opens what its top-bar route opens.
     const routeFor=id=>routes.find(route=>route.target===id&&(route.select||route.tab));
     more.onchange=()=>{const id=more.value;if(id){arrivals.delete(id);const route=routeFor(id),button=route&&buttons.get(route);if(button&&!button.hidden&&button.getAttribute('aria-disabled')!=='true'&&!button.disabled)button.click();else expandWorkspaceModule(id);}more.value='';};nav.append(more);

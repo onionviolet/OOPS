@@ -86,3 +86,14 @@ test('unknown ids remain visible and warn once', () => {
     } finally { console.warn=prior; }
     assert.equal(messages.length,2);
 });
+
+test('a life that holds its own things lists no Village-hero panel and no other world\'s panel (G6)',async()=>{
+ const {registerOwnHoldings}=await import('../src/own_holdings.js'),{seatAllowsPanel}=await import('../src/seat_profiles.js');
+ const off=registerOwnHoldings('fixture.keeper.world',{purse:'p',items:'i',body:'b'});
+ try{
+  const life={actors:{player:{worldId:'fixture.keeper.world'}}},home={actors:{player:{worldId:'base.frontier'}}};
+  const panels=[{id:'patrol'},{id:'economy_standing'},{id:'lotm',perspective:'book.lotm.tingen'},{id:'beginning'},{id:'notebook'},{id:'own',perspective:'fixture.keeper.world'},{id:'deeds'}];
+  assert.deepEqual(panels.filter(p=>seatAllowsPanel(life,p)).map(p=>p.id),['beginning','notebook','own','deeds']);
+  assert.deepEqual(panels.filter(p=>seatAllowsPanel(home,p)),panels,'the home world lists everything, as before');
+ }finally{off();}
+});

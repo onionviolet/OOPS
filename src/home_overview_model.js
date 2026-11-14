@@ -49,6 +49,8 @@ function groupsFor(home, form, sees) {
  * homeOverviewModel(view, {homeId}) -> model | {empty}
  * view is projectHomes() plus `observer` (observerView). Returns every fact as words.
  */
+// G6: a pack place is stored by its id (book.hp.lead.dormitory); the player reads its label, or its last word.
+const placeWord = place => place.label || (/^[a-z0-9_-]+(\.[a-z0-9_-]+)+$/.test(place.location) ? place.location.split('.').pop().replace(/[_-]/g, ' ') : place.location);
 export function homeOverviewModel(view, {homeId} = {}) {
     const observer = view.observer, sees = request => (observer ? observer.sees(request) : true);
     if (!view.visible || !view.homes.length) {
@@ -61,7 +63,7 @@ export function homeOverviewModel(view, {homeId} = {}) {
         id: h.id, empty: null,
         homes: view.homes.map(x => ({id: x.id, name: x.name, here: view.here?.id === x.id, main: view.state.primary === x.id})),
         header: {name: h.name, tenure: `${h.tenure}${h.owner === 'player' ? ' · title yours' : ''}`, here: local, usable,
-            where: local ? 'You are here.' : `Away: ${place.location}.`, comfort: homeComfort(h)},
+            where: local ? 'You are here.' : `Away: ${placeWord(place)}.`, comfort: homeComfort(h)},
     };
 
     // Fittings: one step per group; the note says what stands there. Sleep also reads the roof.

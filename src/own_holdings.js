@@ -27,8 +27,10 @@ export function ownHoldingsView(worldId, state) {
     if (!entry) return null;
     const read = (reader, ...args) => { try { return reader ? reader(...args) : undefined; } catch { return undefined; } };
     const purse = read(entry.readers.purse, state), items = read(entry.readers.items, state);
-    const list = Array.isArray(items) ? items.filter(x => typeof x === 'string' && x).join(', ') : items;
-    return {purse: typeof purse === 'string' && purse ? purse : entry.purse, items: typeof list === 'string' && list ? list : entry.items, body: entry.body};
+    // G7: a reader may return rows ({label, detail}) as well as plain labels, so each owned thing gets its own line.
+    const rows = Array.isArray(items) ? items.map(x => typeof x === 'string' ? {label: x, detail: ''} : {label: String(x?.label ?? ''), detail: String(x?.detail ?? '')}).filter(r => r.label) : [];
+    const list = Array.isArray(items) ? rows.map(r => r.label).join(', ') : items;
+    return {purse: typeof purse === 'string' && purse ? purse : entry.purse, items: typeof list === 'string' && list ? list : entry.items, body: entry.body, ...(rows.length ? {rows} : {})};
 }
 
 // Where each notice sits: inside the panel whose native content the veil hides.
@@ -40,6 +42,23 @@ export function syncOwnHoldingsNotices(root, entry) {
         const host = doc.getElementById(hostId), old = host?.querySelector(':scope > [data-own-holdings-notice]');
         if (!host) continue;
         if (!entry) { old?.remove(); continue; }
+        // G7: what this life owns is a list, one row per thing with what it is for; a row opens where it is used.
+        if (key === 'items' && entry.rows?.length && doc.createElement('ul').append) {
+            const signature = JSON.stringify(entry.rows);
+            if (old?.dataset.signature === signature) continue;
+            const list = doc.createElement('ul'); list.dataset.ownHoldingsNotice = key; list.dataset.signature = signature; list.className = 'own-holdings-list';
+            for (const row of entry.rows) {
+                const item = doc.createElement('li'), button = doc.createElement('button'), name = doc.createElement('span');
+                button.type = 'button'; button.className = 'own-holdings-row'; name.textContent = row.label; button.append(name);
+                if (row.detail) { const detail = doc.createElement('small'); detail.textContent = row.detail; button.append(detail); }
+                button.title = 'Open what you can do with this';
+                button.addEventListener('click', () => doc.dispatchEvent(new CustomEvent('own-holdings-open', {detail: {label: row.label}})));
+                item.append(button); list.append(item);
+            }
+            if (old) old.replaceWith(list); else host.prepend(list);
+            continue;
+        }
+        if (old && old.tagName === 'UL') { const note = doc.createElement('p'); note.dataset.ownHoldingsNotice = key; note.textContent = entry[key]; old.replaceWith(note); continue; }
         if (old) { if (old.textContent !== entry[key]) old.textContent = entry[key]; continue; }
         const note = doc.createElement('p'); note.dataset.ownHoldingsNotice = key; note.textContent = entry[key]; host.prepend(note);
     }
