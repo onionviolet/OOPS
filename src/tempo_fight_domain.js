@@ -204,7 +204,8 @@ function watching() {
     if(!b) return null;
     if(watch?.sessionId !== s.id) {
         const me = b.fighters.player;
-        watch = {sessionId: s.id, title: b.title || 'Fight', health: me.hp, stamina: me.stamina, hurt: Object.keys(me.parts || {}).length, asked: 0, moved: false, lastPick: null};
+        watch = {sessionId: s.id, title: b.title || 'Fight', health: me.hp, stamina: me.stamina, hurt: Object.keys(me.parts || {}).length, asked: 0, moved: false, lastPick: null,
+            foes: Object.values(b.fighters).filter(f => f.side === 'b' && typeof f.name === 'string').map(f => f.name)};
         account = null;
     }
     return watch;
@@ -216,10 +217,13 @@ function askNow() {
     try {
         const v = projectTempoFight(b, {stance: 'steady'});
         if(!v.yourTurn) return [];
-        const knownFoes = Object.entries(b.fighters).filter(([, f]) => f.side === 'b' && Object.keys(f.learned || {}).length > 0).map(([id]) => id);
+        const met = metFoes(ports.root().actors?.player?.facts || {}); // names fought to an end before, kept with the life
+        const knownFoes = Object.entries(b.fighters).filter(([, f]) => f.side === 'b' && (Object.keys(f.learned || {}).length > 0 || met.includes(f.name))).map(([id]) => id);
         return fightPauseReasons(v, {knownFoes, ...(metMeans.has(w.title) && {means: metMeans.get(w.title)}), ...(w.lastPick && {lastPick: w.lastPick})}, {first: !w.moved});
     } catch(error) { return []; }
 }
+const MET_FACT = 'tempo.metFoes', MET_CAP = 200; // dial: how many names are remembered, newest kept
+function metFoes(facts) { try { const list = JSON.parse(facts[MET_FACT] || '[]'); return Array.isArray(list) ? list.filter(n => typeof n === 'string') : []; } catch(error) { return []; } }
 function closeAccount(plan, w) {
     const result = plan.state.actors.player.facts['tempo.lastResult'], v = plan.vitals?.player ?? ports.campaignContext().vitals?.player ?? {};
     const round = n => Math.round(n * 10) / 10;
@@ -228,6 +232,7 @@ function closeAccount(plan, w) {
     {seat: 'player', life: 'health', names: {}, moves: {}, means: MEANS, parts: {}});
     metMeans.set(w.title, {health: w.health, stamina: w.stamina});
     // Kept with the life as plain text beside tempo.lastResult, so the last result is still there after a reload.
+    plan.state.actors.player.facts[MET_FACT] = JSON.stringify([...new Set([...metFoes(plan.state.actors.player.facts), ...w.foes])].slice(-MET_CAP));
     plan.state.actors.player.facts[ACCOUNT_FACT] = JSON.stringify({head: account.head, items: account.items});
     watch = null;
 }

@@ -15,8 +15,9 @@ const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_c
 const profile = {stats, attackPower: 8, shield: 0, shieldSkill: 0, emptyStaminaMultiplier: .5};
 
 // A host over a real fixture fight: the ports hold the state the way the game does, and commit swaps it.
-function host({foeHp = 20, seed = 7, player = {}} = {}) {
+function host({foeHp = 20, seed = 7, player = {}, facts = {}} = {}) {
     const p = joinField(createFieldFixture());
+    Object.assign(p.state.actors.player.facts, facts);
     p.state.simulation.seed = seed;
     const context = fieldContext(p, 'Village', {vitals: {player: {health: 30, max_health: 30, stamina: 30, max_stamina: 30}}});
     let state = beginTempoFight(p.state, registry, context, {id: 'fx-run', title: 'Yard bout', floor: 1, fighters: [
@@ -98,4 +99,13 @@ test('the result is kept with the life, so a later sitting that never watched th
     const kept = JSON.parse(h.state().actors.player.facts['tempo.lastAccount']);
     assert.deepEqual(kept, {head: h.view().account.head, items: h.view().account.items});
     assert.equal(JSON.parse(JSON.stringify(h.state())).actors.player.facts['tempo.lastAccount'], h.state().actors.player.facts['tempo.lastAccount']);
+});
+
+test('a foe fought to an end is remembered with the life, so the next meeting does not ask again', () => {
+    const first = host({foeHp: 4});
+    for (let n = 0; n < 6 && first.view().fight; n += 1) first.run();
+    const kept = first.state().actors.player.facts['tempo.metFoes'];
+    assert.deepEqual(JSON.parse(kept), ['A yard bully']);
+    assert.deepEqual(host({facts: {'tempo.metFoes': kept}}).view().fight.ask, []);
+    assert.deepEqual(host().view().fight.ask, ['A yard bully: not fought before.']);
 });
