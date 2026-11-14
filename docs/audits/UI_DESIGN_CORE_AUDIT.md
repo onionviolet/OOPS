@@ -2804,6 +2804,13 @@ Read on the three earned saves in the headless game, and seen in Chrome on the e
 - **Not mine to fix: G7's remainder.** Fang Yuan's Inventory lists what his save holds; the Gu named in his story are not in it, which is the save's content, not the panel.
 - **Not seen: the full aperture line.** The keeper fixture's sea is not full, so the new sentence did not show. Lines of that length wrap inside the 983 px panel without clipping.
 
+**Checks on the last commit (`b656e3a96`)**
+
+- Full `npm test`: 7,535 tests, 7,533 pass, 0 fail, 2 skipped. The run before it had one failure, mine: the saved log tail grew by a day divider on every reload, so save, reload, save changed the save. Dividers are now left out of the tail.
+- `node scripts/check_flow.mjs --rev HEAD`: 13 routes, four other states (early life, a return after ten days, rain, a fight), 0 findings, nothing on a known list.
+- `node scripts/visual_baseline.mjs --rev HEAD`: five identical, twice. A screen is captured once two captures in a row match, because the Crafting tab's count arrives a beat after the tab.
+- `check:arch`, `check:rules` pass.
+
 **What is still open**
 
 - **UIC127, one place panel.** Not built. See the table.
