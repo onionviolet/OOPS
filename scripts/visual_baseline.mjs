@@ -61,12 +61,16 @@ const diff = (a, b) => p.evaluate(async ([a, b]) => {
 
 await mkdir(dir, {recursive: true});
 let bad = 0;
+const NOISE = 4;
 for(const [name, png] of Object.entries(shots)) {
     const file = join(dir, name + '.png');
     if(update) {await writeFile(file, png); console.log(`${name}: baseline written`); continue;}
     let base; try {base = await readFile(file);} catch {console.log(`${name}: MISSING baseline`); bad++; continue;}
     const d = await diff(base, png);
     if(!d) {console.log(`${name}: identical`); continue;}
+    // A single antialiased pixel in the Reports card differs between builds of unrelated commits (seen 2026-11-13).
+    // A real one-pixel shift changes hundreds of pixels, so up to NOISE differing pixels still pass, and are printed.
+    if(d.count >= 0 && d.count <= NOISE) {console.log(`${name}: same within noise (${d.count} pixel${d.count === 1 ? '' : 's'}, ${d.box})`); continue;}
     bad++; await writeFile(join(dir, name + '.new.png'), png);
     console.log(`${name}: DIFFERENT, ${d.count < 0 ? '' : d.count + ' pixels, '}${d.box}`);
 }
