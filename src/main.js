@@ -9216,11 +9216,12 @@ function fastForward(n, {sliceMs = 30, onProgress, untilClock = null} = {}) {
             }
         } finally {
             try {if(close) autosaves = close();}
-            finally {if(!wasPaused) resumeEngine(); fastForwarding = null;}
+            finally {if(!wasPaused) resumeEngine();}
         }
         return {ticks, callbacks, autosaves, slices, maxSliceMs: +maxSliceMs.toFixed(1), wallMs: Math.round(performance.now() - started)};
     };
-    return fastForwarding = run();
+    const running = run().finally(() => {if(fastForwarding === running) fastForwarding = null;}); // clear on settle: run() can end before its first await
+    return fastForwarding = running;
 }
 
 /** Lifetime counters that titles read; all derived from existing saved state. */
