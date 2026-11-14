@@ -1,8 +1,8 @@
 // Native hosts publish returned facts and effects. No save keys or scene operations live here (KW11).
-import {quoteWorking} from './kernel_working.js';
+import {beginWorking, quoteWorking, settleWorking, viewWorking} from './kernel_working.js';
 import {asBoundGu, guMethods, guMoveMethod, guRef, guWorkingLaw} from './gu_working_law.js';
 
-export function runGuStep(kind, operation, {at, facts = {}, options = {}, specimen, id = `gu.host.${operation}`}) {
+function quoteStep(kind, operation, {at, facts = {}, options = {}, specimen, id = `gu.host.${operation}`}) {
     const method = structuredClone(guMethods(kind)[operation]);
     if (!method) throw Error(`No ${operation} method for ${kind}.`);
     // Hosts settle one stage at a time against their existing native clock and saved ledger.
@@ -10,10 +10,25 @@ export function runGuStep(kind, operation, {at, facts = {}, options = {}, specim
     method.steps = [{...step, minutes: 0, options: {...step.options, ...options}}];
     const bindings = Object.fromEntries(Object.entries(method.roles).map(([name, type]) =>
         [name, type === 'gu' ? guRef(specimen.id) : {kind: 'operator', id: 'player'}]));
-    const result = quoteWorking(guWorkingLaw, method, {id, at, facts, bindings,
-        ports: {read: ref => ref.kind === 'operator' ? ref : ref.id === specimen?.id ? asBoundGu(specimen) : null}});
+    const run = {id, at, facts, bindings,
+        ports: {read: ref => ref.kind === 'operator' ? ref : ref.id === specimen?.id ? asBoundGu(specimen) : null}};
+    return {method, run, result: quoteWorking(guWorkingLaw, method, run)};
+}
+
+export function runGuStep(kind, operation, args) {
+    const {result} = quoteStep(kind, operation, args);
     if (!result.ok) throw Error(result.reason ?? `The ${operation} working failed.`);
     return result;
+}
+
+// Same step for a caller that branches on the refusal: {outcome: 'interrupted', reason} instead of a throw.
+// A completed activation also reports `cost`, what the working charged, read from the settled receipt.
+export function tryGuStep(kind, operation, args) {
+    const {method, run, result} = quoteStep(kind, operation, args);
+    if (!result.ok) return {outcome: 'interrupted', reason: result.reason ?? `The ${operation} working failed.`};
+    const record = beginWorking(guWorkingLaw, method, run);
+    const settled = settleWorking(guWorkingLaw, record, {now: record.deadlines.at(-1), ports: run.ports});
+    return {outcome: 'complete', ...result, cost: viewWorking(settled.record).steps[0].observed?.cost};
 }
 
 // Ordered activations keep modifier carry and native balance/result conventions while using the law.

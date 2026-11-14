@@ -1,6 +1,6 @@
 // PC95 / RIG24. Formation supplies the spare qi that cocoons the precursors
 // and lets them resonate on the common world clock.
-import {resolveGuActivation} from '../gu_activation.js';
+import {tryGuStep} from '../gu_working_host.js';
 import {defineWorkingLaw} from '../kernel_working.js';
 import {stableId} from '../simulation_ids.js';
 import {livingBodyState} from '../world_substrate_packs/living_body.js';
@@ -353,11 +353,11 @@ export const GU_LANDSCAPE_LAW = defineWorkingLaw({id: 'gu.landscape', revision: 
         if (!(missing > 0)) return {ok: false, reason: 'There is no lost cover here to restore.'};
         const gu = {id: specimen.holder, kind: p.gu_kind, alive: p.alive === true, injured: p.injured,
             fedThrough: specimen.quantities.satiety > 0 ? at : at - 1};
-        const result = resolveGuActivation({stages: [{gu, operator: operator.id, ability: restoreTerrain}], day: at,
-            reserves: {[operator.id]: {immortal: operator.quantities[GREEN_GRAPE] ?? 0}}});
+        const result = tryGuStep(landscape, 'activate', {specimen: gu, at, options: {ability: restoreTerrain},
+            facts: {reserves: {player: {immortal: operator.quantities[GREEN_GRAPE] ?? 0}}}});
         if (result.outcome !== 'complete') return {ok: false, reason: result.reason};
         const amount = Math.min(missing, result.effects[0].magnitude);
-        return {ok: true, costs: [{quantity: GREEN_GRAPE, payer: operator.holder, amount: result.activations[0].cost}],
+        return {ok: true, costs: [{quantity: GREEN_GRAPE, payer: operator.holder, amount: result.cost}],
             observed: {restored: amount}, effects: [{op: 'add', holder: terrain.holder, quantity: 'cover', amount}]};
     }},
 }});

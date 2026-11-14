@@ -5,7 +5,7 @@ import {defineWorkingLaw} from '../kernel_working.js';
 import {beginGuRefinement, stepGuRefinement} from '../gu_refinement.js';
 import {discoverMoonFusions, moonFusionAbility, moonFusionMaterials, moonFusionSupply} from '../gu_moon_fusions.js';
 import {moonlightBlade} from '../gu_ability_profiles.js';
-import {resolveGuActivation} from '../gu_activation.js';
+import {tryGuStep} from '../gu_working_host.js';
 import {livingBodyState} from '../world_substrate_packs/living_body.js';
 
 const stones = 'stock:' + moonFusionMaterials;
@@ -102,10 +102,11 @@ function cast({bound, options, at}) {
     const ability = moonglow
         ? moonFusionAbility({traits: {power: specimen.properties.gu_blade_power, reach: specimen.properties.gu_blade_reach}})
         : moonlightBlade;
-    const result = resolveGuActivation({stages: [{gu, operator: operator.id, ability,
-        ...(moonglow && {supply: moonFusionSupply})}], reserves: {[operator.id]: {[pool]: operator.quantities[quantity] ?? 0}}, day: at});
+    const result = tryGuStep(gu.kind, 'activate', {specimen: gu, at,
+        options: {ability, ...(moonglow && {pool: moonFusionSupply.pool, rank: moonFusionSupply.rank, source: moonFusionSupply.source})},
+        facts: {reserves: {player: {[pool]: operator.quantities[quantity] ?? 0}}}});
     if (result.outcome !== 'complete') return reject(result.reason);
-    return {ok: true, costs: [{quantity, payer: operator.holder, amount: result.activations[0].cost}],
+    return {ok: true, costs: [{quantity, payer: operator.holder, amount: result.cost}],
         observed: {specimen: gu.id, kind: gu.kind}, effects: [{
             sentence: {verb: 'remove', object: 'vitality', target: 'bound', time: 'instant', carrier: 'gu', cost: 'none', limits: []},
             details: {target: {shape: 'holder', id: target.holder}, amount: result.effects[0].magnitude},

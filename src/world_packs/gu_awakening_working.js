@@ -1,6 +1,6 @@
 // PC95 / RIG1–4. The first aperture opens in place on the existing body.
 import {APERTURE_LAW, apertureGrade, aperturePool} from '../gu_aperture.js';
-import {resolveGuActivation} from '../gu_activation.js';
+import {tryGuStep} from '../gu_working_host.js';
 import {guAbility} from '../gu_working_law.js';
 import {defineWorkingLaw} from '../kernel_working.js';
 import {apertureHolder} from '../world_substrate_packs/gu_aperture.js';
@@ -65,10 +65,10 @@ function moonblade({bound: {operator, specimen, target}, at}) {
     const gu = {id: specimen.holder, kind: p.gu_kind, alive: p.alive === true, injured: p.injured,
         fedThrough: specimen.quantities.satiety > 0 ? at : at - 1};
     const ability = {...profile, cost: profile.cost * APERTURE_LAW.measure};
-    const result = resolveGuActivation({stages: [{gu, operator: operator.id, ability}],
-        reserves: {[operator.id]: {[ability.fuel]: operator.quantities[initial]}}, day: at});
+    const result = tryGuStep('moonlight', 'activate', {specimen: gu, at, options: {ability},
+        facts: {reserves: {player: {[ability.fuel]: operator.quantities[initial]}}}});
     if (result.outcome !== 'complete') return reject(result.reason);
-    return {ok: true, costs: [{quantity: initial, payer: operator.holder, amount: result.activations[0].cost}],
+    return {ok: true, costs: [{quantity: initial, payer: operator.holder, amount: result.cost}],
         observed: {specimen: gu.id}, effects: [{
             sentence: {verb: 'remove', object: 'vitality', target: 'bound', time: 'instant', carrier: 'gu', cost: 'none', limits: []},
             details: {target: {shape: 'holder', id: target.holder}, amount: result.effects[0].magnitude},
