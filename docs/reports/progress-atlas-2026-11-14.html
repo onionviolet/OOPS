@@ -1,0 +1,48 @@
+<h2 class="sr-only">OOPS progress atlas for 14 November 2026: twelve areas by built, proven, integrated and delivered, with findings AT38 to AT46 and ranked next moves.</h2>
+<style>
+.g{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr)) minmax(0,1fr);gap:4px;font-size:13px;align-items:center}
+.h{color:var(--text-muted);font-size:12px}
+.c{height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:default}
+.y{background:#0F6E56;color:#E1F5EE}.p{background:#9FE1CB;color:#04342C}
+.n{border:1px solid var(--border-strong);color:var(--text-muted)}
+.u{background:repeating-linear-gradient(45deg,transparent 0 4px,var(--border-strong) 4px 5px);color:var(--text-secondary);border:1px dashed var(--border-strong)}
+.f{font-size:11px;color:var(--text-secondary);font-family:var(--font-mono)}
+.lg{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--text-secondary);margin:0 0 10px}
+.lg span{display:flex;align-items:center;gap:5px}.sw{width:14px;height:12px;border-radius:3px;display:inline-block}
+.sec{font-size:14px;font-weight:500;margin:1.4rem 0 .5rem}
+.mv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.box{background:var(--surface-1);border-radius:8px;padding:.7rem .9rem;font-size:13px;line-height:1.55}
+.box b{font-weight:500}
+#tip{font-size:12px;color:var(--text-secondary);min-height:18px;margin-top:6px}
+</style>
+<div style="padding:.5rem 0">
+<div class="lg"><span><i class="sw y"></i>yes</span><span><i class="sw p"></i>partial or below floor</span><span><i class="sw n" style="border:1px solid var(--border-strong)"></i>no</span><span><i class="sw u"></i>unknown</span></div>
+<div class="g" id="grid"><div class="h">Area</div><div class="h">Built</div><div class="h">Proven</div><div class="h">Integrated</div><div class="h">Delivered</div><div class="h">Findings</div></div>
+<div id="tip">Hover a cell for its evidence.</div>
+<div class="sec">Next moves</div>
+<div class="mv">
+<div class="box"><b>Accepted priority</b><br>Procedural foundations first. Feature UI, the live fight across worlds and the leads' daily loops run beside them (Nov 14). Other game tie-in waits. Klein and Fang Yuan resume first.</div>
+<div class="box"><b>Suggestions, ranked</b><br>1 AT38 / G18: why kjw42 spins headless Chrome<br>2 AT7: freeze and adopt an app build<br>3 AT38 / PS6: a committed fixture per lead's day<br>4 AT41: one wolf owner<br>5 AT42: Gu held-out split</div>
+</div>
+<div style="font-size:12px;color:var(--text-muted);margin-top:10px">Snapshot master 2c95b5a01, 14 Nov 2026, 64 dirty paths from other writers. Owners' recorded evidence; no fresh runs. Source: docs/reports/PROGRESS_ATLAS_2026-11-14.md</div>
+</div>
+<script>
+const R=[
+["Klein, LOTM","y:slices to kjw49 (ch163)","p:browser to ch129; wage loop headless (G18)","y:LOTM mechanisms, live brawl","n:app on Nov 10 build","AT38 AT7"],
+["Fang Yuan, Gu","y:to ch171 earned; ch141-145 below floor","p:day loop on private saves only (PS6)","y:Gu care, patrols, refine, hunt","n:not in app","AT38 AT40 AT41"],
+["Harry, HP","y:Book 1 closed","y:rebuilt browser, save and import","p:live duel; no daily loop","n:not in app","AT40 AT45"],
+["Zorian, MoL","y:Arc 1 closed","y:rebuilt browser","u:not covered by the audit","n:not in app","AT45"],
+["Gu foundation","y:catalogue to wolf tide","p:coverage ledger; no held-out split","p:one row: refine the wild Gu","n:no","AT42 AT39"],
+["Creatures","y:lifecycle, populations","p:17 computed cases","n:wolf tide not hooked","n:engine only","AT39 AT41"],
+["Potions","y:brew law, dose, assay","y:held-out 13-15 of 17","n:no consumer yet","n:no","AT39"],
+["Spells","y:spell law, grammar","p:engine 13 of 99 held-out","p:duel hook is a no-op","p:native Spellbook only","AT39"],
+["Crafting, chemistry, home","y:modules exist","u:worker reports, no ledger","u:unknown","u:unknown","AT39"],
+["Fights","y:tempo fight and kit","p:headless browser screenshots","y:one per lead world","n:not in app","AT7"],
+["UI","y:UIC180-200 today","y:check:visual, check:flow","y:yes","n:not in app","AT7 AT44"],
+["Release","n:v0.1.0 not cut","u:n/a","u:n/a","p:app build v0.6-39a72234ba67, Nov 10","AT7 AT44"]];
+const g=document.getElementById('grid'),t=document.getElementById('tip'),L={y:'yes',p:'partial',n:'no',u:'?'};
+R.forEach(r=>{const a=document.createElement('div');a.textContent=r[0];g.appendChild(a);
+for(let i=1;i<5;i++){const[k,v]=r[i].split(/:(.*)/);const c=document.createElement('div');c.className='c '+k;c.textContent=L[k];c.title=v;
+c.onmouseenter=()=>t.textContent=r[0]+' · '+['','Built','Proven','Integrated','Delivered'][i]+': '+v;g.appendChild(c);}
+const f=document.createElement('div');f.className='f';f.textContent=r[5];g.appendChild(f);});
+</script>
