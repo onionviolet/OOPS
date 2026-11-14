@@ -1,0 +1,30 @@
+# Combat working defaults · 2026-11-13
+
+Ten defaults from rounds 10 to 31 of the [combat palette](../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md), picked as the ones the rest depend on. This carries out CBD303.
+
+**How to read it.** Under AD56 an idea that follows the core rules and widens play is used as an adjustable working default without waiting, and a line that removes options waits for Weibao. Q1 and Q3 to Q10 widen play or order the work, so the headless combat work uses them as working defaults now. They are agent proposals in use, not accepted direction, and any of them changes on his word. Q2 narrows what a routine fight can cost; it is used because it is his own leaning (his words are in CBD304), and it stays his to confirm. Q11 removes an option and waits.
+
+| Code | Default | If taken | What it costs | State today |
+| --- | --- | --- | --- | --- |
+| Q1 | **A routine fight asks nothing and pauses when something is new** (CBD56). Dial: how much difference earns a pause, per character and place. | Daily fights run at zero clicks and end in a short result. Pauses become the place where play happens. | A pause rule that reads "new" from the view and what the character knows. Needs the decisions-asked count before tuning (CBD295). | Rule built headless in [fight_pause.js](../../src/fight_pause.js) with three kinds: new foe, lower means, last pick gone. What it remembers between fights is still staged. |
+| Q2 | **A routine fight costs what can be got back; lasting loss needs a fight entered after a warning** (CBD304, Weibao's leaning). Dial: a harsher world, forewarned at entry. | Auto-play is safe to trust. Grave fights are chosen. "You cannot judge him" counts as a warning. | Sorting fights into routine, risky and grave from the forecast, and a keep-safe mark on treasured things. | Design. The forecast exists for Village fights. |
+| Q3 | **Fight text comes in two registers: terse lines generated from events, and rare authored lines in the world's voice** (CBD310). Dial: how much authored text a world adds. | No generated literary sentences. A move nobody wrote a sentence for still reads. | Labels per world (names, moves, done forms). Authored lines need Weibao's voice samples (PRS7). | Terse register built for contest fights in [fight_text.js](../../src/fight_text.js), headless. |
+| Q4 | **A fight uses the panels already on screen: Focus asks, Place shows, Reports tells** (CBD75, CBD76). Dial: a weighty fight may take the full screen. | No separate fight screen. Choices stay out of the scrolling column. | Focus gives up room during a fight. The same pattern is then expected of other activities (CBD247 to CBD253). | Shown in the playthrough. No live screen reads the view. |
+| Q5 | **The scene is the place at close range, kept in the world record, and that record is the one model of space** (CBD69, CBD239, CBD292). Dial: precision per scene, from a line to a small graph. | Fights, talk, stealth and exploring share spots and things. Fight damage stays in the place. | Each engine has to read spots over time. Old scene changes need a fade or summary rule (CBD294). | [Scene layer spike](SCENE_LAYER_SPIKE_2026-11-13.md), unit-tested, no caller. |
+| Q6 | **At a pause the player sees a few intents, with every other action reachable by picking a thing or composing one** (CBD57, CBD96). Dial: how many intents are offered. | Choice stays small without closing off the unlisted action. | An action generator and the four answers to a proposal (CBD97). | Design. A move written as one sentence settles and reads today (trial 3). |
+| Q7 | **The policy is a short readable page: a stance, standing orders learned from the player's answers, and an ask-first list** (CBD59, CBD105, CBD109, CBD113). Dial: stock cap and ask-first items per character. | No policy editor needed early. The player can read why a pick was made. | Reasons recorded per pick, and one value beyond harm and cost in the chooser (CBD117). | A scoring chooser and policy rows exist in `contest_choice.js` with no played caller. |
+| Q8 | **A move can address a thing, a place or a working, by the test perceive, reach and means** (CBD169, sizing G1). Dial: which kinds of subject a world's fighters know how to act on. | Picking up a wand, barring a door and stopping a ritual become ordinary moves. Pays off in all three worlds. | An engine change to the contest's target rule, and custody settled through the thing's owner. | Not built. Today a move targets self or a foe. |
+| Q9 | **Share the edges across the three fight engines and leave their middles; LOTM stays on tempo for now** (CBD191, CBD201, sizing R4). Dial: converge an engine when a needed fight is cheaper on the other side. | One way of fighting for the player without a rewrite. | A projection per engine to keep in step (CBD298). | [Fight view](FIGHT_VIEW_PROJECTION_2026-11-13.md) projects both engines, unit-tested. |
+| Q10 | **Order of work: headless before live, and the silent routine fight before pauses** (CBD305, CBD308, PC95). Dial: a lead's next fight can pull an item forward. | The Progress Quest floor comes first: a fight that plays itself and reads well. | The live Gu entry waits for the headless proof. Progress Quest needs a source dive. | First headless proof exists: the Gu pit duel passes the [three trials](../../tests/fight_three_trials.test.js). |
+
+## One limit that waits for Weibao (AD56)
+
+- **Q11.** Whether a what-if replay of a past fight can replace what really happened (CBD131). The working default keeps it as practice.
+
+## Not on this page
+
+About 260 other proposal codes stay in the palette as a palette. Nothing there is a plan until a line here or a later instruction picks it up (CBD300).
+
+## What finishing this lane means
+
+Under PC95 (engine first, tie-in later) this lane's work is finished when it is built headless, tested and recorded, which is its state in the palette's standing table. A fight that the live game starts on these parts is tie-in work for a later instruction, and the coordination chat holds the same boundary.

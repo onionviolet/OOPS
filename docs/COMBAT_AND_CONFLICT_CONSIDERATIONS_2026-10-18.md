@@ -560,6 +560,8 @@ Full movement controls, custom art and mobile presentation are outside this comp
 
 ## Round 10. A working fight loop covers one kind of play (2026-11-13)
 
+*Rounds 10 to 32 were written in one day. For what is built, spiked or still an idea, read [where rounds 10 to 32 stand](#where-rounds-10-to-32-stand-2026-11-13) first.*
+
 The Village battler works for repeated clears. The player prepares a character, the battler exchanges timed attacks, and a clear advances the area's count and may pay rewards before the next group starts. That loop gives the player a reason to care about equipment and progress across several fights. Its completion logic is shaped around clearing groups. [Village round and rewards](../src/main.js#L4839)
 
 **The coverage gap is at both ends of the fight.** A hunt, escape, training bout or authored confrontation can begin with different equipment, knowledge, terrain and objectives. Its ending may be a point scored, a quarry lost, a person driven off, or an injury or item that changes the next activity. If the playable route hands combat generic stats and receives a win flag, more attacks, more numbers or a spatial view will leave those connections missing. CBR2, CBR6, CBR25–CBR26 and CBR29 describe the intended range.
@@ -639,7 +641,7 @@ Weibao asked whether named places, an event list and verbs on any subject would 
 
 | Code | Proposal | Level, effort | Done check |
 | --- | --- | --- | --- |
-| CBD61 | At the first live tie-in, count decisions per fight as a recorded figure beside the result. | Sol, small on top of the tie-in | Repeat one familiar fight ten times under policy and record zero pauses. Change one input (a new foe kind, an emptied supply, a dropped weapon) and record one pause that names the difference. Answer it the same way twice, accept the standing order, and record zero pauses on the next repeat. Compare the policy result with a hand-played run. |
+| CBD61 | Count decisions per fight as a recorded figure beside the result, headless first and then at the live tie-in (revised 2026-11-13, CBD308). | Sol, small | Repeat one familiar fight ten times under policy and record zero pauses. Change one input (a new foe kind, an emptied supply, a dropped weapon) and record one pause that names the difference. Answer it the same way twice, accept the standing order, and record zero pauses on the next repeat. Compare the policy result with a hand-played run. |
 
 ### Round 14 suggestions (separate from the palette)
 
@@ -655,7 +657,7 @@ Weibao asked whether this amounts to simulating a 2D or 3D world played through 
 ### ACCOUNT FOR NOW
 
 - **CBD62.** Model a tabletop scene. A fight holds the handful of relations that change a decision: who stands where among a few named places, who can reach or see whom, who holds what, and what is already under way. A continuous 2D or 3D world behind a text screen would cost far more and would decide things by geometry the text cannot tell. Working test: when a fact changes a result, the game can state that fact in a sentence. Detail the player could not have been told stays out of settlement by default, with hidden things (an unseen foe, a concealed door) kept as facts the character has yet to learn.
-- **CBD63.** Every action shows its result at four moments. Before: what the character can judge about cost, time and risk. As it settles: one line naming the cause ("the bolt struck the cart you were behind"). After: the changed state, such as a new place, a dropped item or a wound. Later: what the next activity inherits. A miss, a block and a wasted move each say why. The contest already records outcomes like "out of position", so much of this is wording and display over existing results.
+- **CBD63.** Every action shows its result at four moments. Before: what the character can judge about cost, time and risk. As it settles: one terse line naming the cause ("Bolt: stopped by the cart."). After: the changed state, such as a new place, a dropped item or a wound. Later: what the next activity inherits. A miss, a block and a wasted move each say why. The contest already records outcomes like "out of position", so much of this is wording and display over existing results.
 - **CBD64.** Show routine fights by their turning points. A settled fight leads with the result and the two or three events that decided it, and the full log opens on request. This lets CBD55's unattended detail be read in a few seconds, and it gives the review a cause to report beside its totals.
 - **CBD65.** Hand control feels turn-based, on a clock. At a pause the player picks one action with time to think, as in a turn-based RPG. The differences are that moves take different amounts of time, the order comes from readiness, foes act on the same clock, and a fight can end by leaving, yielding or losing a weapon. When the player lets go, the same fight runs by itself. One engine gives both the idle and the turn-based feel, and the player moves between them inside a fight.
 - **CBD66.** Player types are moods of one player. Weibao is the main player (AD22), so the useful split is by what he wants from a given fight. Each needs a way in:
@@ -675,7 +677,7 @@ Weibao asked whether this amounts to simulating a 2D or 3D world played through 
 
 | Code | Proposal | Level, effort | Done check |
 | --- | --- | --- | --- |
-| CBD68 | At the first live tie-in, play one fight six ways, one per mood in CBD66. | Sol, medium on top of the tie-in | Each mood reaches a result through its own route without using another's controls. Each run shows a cause line for the deciding event and an aftermath the next activity reads. Note any mood with no route as a named gap. |
+| CBD68 | Play one fight six ways, one per mood in CBD66, headless first and then at the live tie-in (revised 2026-11-13, CBD308). | Sol, medium | Each mood reaches a result through its own route without using another's controls. Each run shows a cause line for the deciding event and an aftermath the next activity reads. Note any mood with no route as a named gap. |
 
 ### Round 15 suggestions (separate from the palette)
 
@@ -698,15 +700,18 @@ Weibao asked to keep designing. This round takes the cost question the earlier r
 
 ### One daily fight, written out
 
-A sketch of the wording and layout, to react to. Fang Yuan hunts a boar on a slope he has hunted before.
+A sketch of the layout, to react to. Fang Yuan hunts a boar on a slope he has hunted before. The result and the lines after the choice were rewritten on 2026-11-13 in the terse register of CBD310; the pause's choice rows are still hand-written.
 
 The unattended result (CBD56, CBD64):
 
 ```
-Hunt, east slope. Boar down in 41 seconds.
-  It charged across the scree and lost its footing.
-  Your moonblade caught it side-on.
-Essence spent: about a fifth. Left forearm grazed, light.
+East slope. 41 seconds. You: standing.
+  Them    Boar: killed.
+  Spent   Primeval essence 4 of 20.
+  Hurt    Left forearm, grazed.
+  What decided it
+    Boar: charge fails, footing lost on the scree.
+    You: moonblade hits the boar, flank.
 [Open the full account]
 ```
 
@@ -732,9 +737,11 @@ Paused: you have less essence than you have hunted this slope with.
 After choosing the pine (CBD63, CBD59):
 
 ```
-The boar came around the pine and lost its speed.
-Your moonblade took it side-on. Boar down.
-The pine is gouged on the thicket side.
+You: behind the pine.
+Boar: charge slowed, around the pine.
+You: moonblade hits the boar, flank.
+Boar down, killed.
+Fallen pine: gouged, thicket side.
 
 Keep this as a standing order? "Take cover first when essence is under a third."
 ```
@@ -743,7 +750,7 @@ Keep this as a standing order? "Take cover first when essence is under a third."
 
 | Code | Proposal | Level, effort | Done check |
 | --- | --- | --- | --- |
-| CBD74 | Derive a scene from one existing place for the first live tie-in. | Sol, medium | Start two fights at the same place on different days and get the same spots. Move or remove one recorded thing between them and see the scene and one available action change. Damage a thing during a fight and find the damage in the place record afterwards. Save and reload mid-fight and compare with an uninterrupted run. |
+| CBD74 | Derive a scene from one existing place, headless first (revised 2026-11-13; the [scene layer spike](audits/SCENE_LAYER_SPIKE_2026-11-13.md) covers the first three checks). | Sol, medium | Start two fights at the same place on different days and get the same spots. Move or remove one recorded thing between them and see the scene and one available action change. Damage a thing during a fight and find the damage in the place record afterwards. Save and reload mid-fight and compare with an uninterrupted run. |
 
 ### Round 16 suggestions (separate from the palette)
 
@@ -764,11 +771,11 @@ Weibao asked how the screen changes when fight text lands in Reports, how to sho
 +---------------------------+--------------------------------+----------------------+
 | YOU                       | FOCUS: Hunt, east slope        | REPORTS              |
 | Essence under a third     | Boar down before dark          |                      |
-| Moonlight Gu ready        | Coming  2s  boar charges       | The boar turns from  |
-| Left forearm: sound       | Paused: less essence than      | the thicket.         |
+| Moonlight Gu ready        | Coming  2s  boar charges       | Boar: turned, facing |
+| Left forearm: sound       | Paused: less essence than      | you.                 |
 +---------------------------+ you have hunted here with      |                      |
-| PLACE: east slope         |  1 Behind the pine   1s        | You step onto the    |
-| Scree       you           |  2 Moonblade now     3s  late  | scree.               |
+| PLACE: east slope         |  1 Behind the pine   1s        | You: onto the scree. |
+| Scree       you           |  2 Moonblade now     3s  late  |                      |
 | Fallen pine (cover)       |  3 To the stream     3s  ends  |                      |
 | Thicket edge  boar        |  More                          |                      |
 | Stream bank (way out)     |                                |                      |
@@ -829,7 +836,7 @@ Coming  he is drawing breath to speak, or to do something else.
 - **CBD85.** Looking is an action with a price. Watching, probing with a feint, or testing a ward spends time on the same clock and may fill a field. In a confrontation where recognition decides the outcome (CBD44), these are the main moves and blows are the short ending. What is learned stays with the character afterwards (CBC20).
 - **CBD86.** The encounter starts before the first blow. First sight is the first pause when something is new: the player can avoid, speak, choose ground, prepare or strike first, and the other side has the same options when it noticed first (CFC5). A policy answers this pause for familiar meetings, which is how a routine hunt begins without a prompt.
 - **CBD87.** Allies have their own aims and their own policy. An ally appears by spot like anyone else and their next action shows under "Coming". What the player can do depends on the tie: ask a friend, order a subordinate, signal a trained animal, each with a chance of being heard and followed. Someone to protect is an objective that lives in the scene, since they can be moved, hidden or sent to the way out (CBD47).
-- **CBD88.** Fight text has a reading pace. A watched fight delivers lines at a rate the player sets and merges plain exchanges ("you trade three blows, neither landing clean"), giving separate lines to events that change a place, a means, a wound or a choice. A pause holds the text still. An unattended fight writes its result and turning points (CBD64). The dial runs from each blow to result alone.
+- **CBD88.** Fight text has a reading pace. A watched fight delivers lines at a rate the player sets and folds repeated plain lines into one with a count ("Wang Er: punch misses you (3 times)."), giving separate lines to events that change a place, a means, a wound or a choice. A pause holds the text still. An unattended fight writes its result and turning points (CBD64). The dial runs from each blow to result alone.
 - **CBD89.** Two clocks, one conversion. A fight runs in seconds and the day runs in minutes and hours. A fight takes the game time it took plus what follows it (catching breath, binding a wound, dealing with the body or the witness), and the day clock advances by that. An unattended fight settles at once in real time and still spends its game time and stock (CBR26).
 - **CBD90.** Growth shows as quieter fights and wider options. What the character did is what improves. A practised fighter's policy handles more without pausing, reads more tells, finishes common actions sooner and sees options a novice lacks. Knowing a place adds its spots before the fight starts, and knowing a kind of foe fills its fields. A new character's fights ask more and offer less, and that changes with use.
 - **CBD91.** A world's fights are mostly rows. To fight in a new world the engine needs from that world: its moves written as what they do to bodies, things and places (AD38); the means those moves draw on; its place kinds with their usual conditions and interveners (CBD79); which endings are usual and what answers afterwards (FK dials, CBC37); and a report voice (CBD19). A move that needs an effect the engine lacks is the case that costs code. This is the feasibility answer for many worlds: list what a world's signature fights need and count the effects that are missing.
@@ -1546,3 +1553,163 @@ Five findings docs came back from the sessions started after round 29. All are p
 | CBD256 UI pointers | Each of CBD247 to CBD252 has an existing rule it extends | [pointer packet](audits/COMBAT_UI_POINTERS_2026-11-13.md) |
 
 **Corrections to the table under CBD192** (from the projection note, P1 to P8). Tempo has no aim line: an opener writes a title alone. Tempo's "witness memory" is the struck fighter's own memory, so onlookers are absent there as well. Tempo's scene has no things; rounds are a means. Tempo's two strikes carry no odds word. The contest logs data rows with no sentence, and a move's blocked reason is private to the engine. Gu carried by a contest entrant are not listed by the engine. Scene conditions sit better under "Around" than under "Spots" for both engines.
+
+## Round 30. What a playthrough to watch needs (2026-11-13)
+
+Weibao asked: "record a playthrough for me to watch, first, consider all the things that needs to be done and more?" This round lists what the recording has to get right before it is built. These are proposals.
+
+**ACT NOW.** Checked what can be recorded today. No designed fight is reachable in the live game (sizing audit F2), so a recording of the game itself would show the old fight card. What exists headless: the Wang Er pit duel on the contest with its authored numbers, a tempo street fight fixture with a loaded revolver, `projectContest` and `projectTempoFight` onto one view shape, and the [Wang Er prototype](../prototypes/wang-er-duel/README.md) with its single-file build, sentence writer for contest log rows and headless browser check. The project's browser helper runs headless, which the background-only rule needs. Source review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD279.** Record real engine runs on a proposed screen, and say which is which on the screen. The fights are settled by the engines on a fixed seed. The three-panel layout (CBD75), the pause rule, the sentences for contest log rows and the scripted answers are prototype pieces. A footer names them, so nothing staged reads as built (CX6).
+- **CBD280.** Record frames, then play them. A script runs each fight in Node and writes a list of frames: the projected view, new Reports lines, and a note. A page plays the frames. This keeps the recording repeatable, lets it be re-recorded after any engine change, and leaves the frames as a comparison file for later view regressions (AD54).
+- **CBD281.** Show the claims a viewer has to judge, one per scene. A routine fight that asks nothing and ends in a result with its turning points (CBD56, CBD64). The same fight with one pause, its choice rows with time, cost, the policy's pick and a blocked reason (CBD57, CBD77). What is coming, with tells (CBD52). A result told by stake (CBD78). A second engine on the same screen (CBD191).
+- **CBD282.** Show absence as absence. A part the engine does not fill appears as an empty, labelled region with the projection's own reason ("no onlookers or arrivals"). The recording is then also a picture of what is missing, which is more useful to a director than a filled mock.
+- **CBD283.** Keep a director's note apart from the game screen. One line under the screen says what the scene demonstrates and cites its codes. It is visibly outside the game, so the game text can be judged as game text.
+- **CBD284.** Make it watchable at a reader's pace. Play, pause, step, speed and a scrub bar, with pauses that hold long enough to read the choices (CBD88). A video file is produced from the same page for watching without controls. Both are at desktop size, 1920 by 1080 (standing UI priority).
+- **CBD285.** Say what the recording does not show. It is not the live game and does not meet the AD43 floor. The contest view has no knowledge filter, so it shows engine truth about foes. Wording is draft and has not been through the prose rules. Motion and sound cues (round 24) are absent.
+- **CBD286.** Name what it should help decide, so feedback has somewhere to land: the panel roles, the choice row, how often a fight should pause, the result block, and whether two engines reading as one screen is worth the shared view.
+- **CBD287.** More, for later recordings. The same player can replay a real saved fight once one exists (CBD131, CBD132). A scene-layer scene (CBD254) can be a third act when a fight reads its spots. Each tie-in can end by re-running the recorder, so the watchable record grows with the game.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD288 | Re-record after the first live tie-in, from a real saved fight in the game. | Sol, small once the tie-in exists | The recorder reads a save, the player shows the same frames the game showed, and the footer no longer lists a staged piece that the tie-in built. |
+
+### Round 30 suggestions (separate from the palette)
+
+- Keep the recorder and player under `prototypes/fight-playthrough/` with output under `work/`, as the Wang Er prototype does.
+
+## Pointer, 2026-11-13: the recorded playthrough
+
+Round 30 is carried out in [prototypes/fight-playthrough](../prototypes/fight-playthrough/README.md): three scenes recorded from real engine runs and played on the proposed screen, as a page and a two-minute video under `work/fight-playthrough/`. Headless check at 1920 by 1080: 36 steps, no page errors, no panel overflow. It is a prototype, below the AD43 floor.
+
+Making it turned up three gaps to add to the projection note's requests. A bridged move such as the moonblade carries no cost on its row, so the screen cannot say it costs essence. Its blocked reason reads "its own working cannot start", which hides the plain cause (not enough essence). The tempo engine drops the fight record with its last move, so the closing log lines cannot be shown; the result is read from what the engine writes back.
+
+## Round 31. Problems and risks in the design so far (2026-11-13)
+
+Weibao asked "More problems to consider?" This round lists what could go wrong with rounds 10 to 30, with a default handling for each. It adds no features. These are proposals.
+
+**ACT NOW.** Checked which risks earlier rounds already name. CBD60 names a policy that leaves the hand nothing to add and one that makes fights a chore. CBD61 proposes counting decisions asked. CBD52 says a preview describes the current situation and can change. CBD240 keeps scene changes only where something changed. The [playthrough](../prototypes/fight-playthrough/README.md) showed two of these risks live: its Gu sentences are hand-written per move, and the moonblade row could show neither its cost nor a plain blocked reason. Owner and prototype review only.
+
+### ACCOUNT FOR NOW
+
+- **CBD289. Writing cost.** Cause lines, intent labels, blocked reasons and result lines all have to be generated from state, and a template over combinable actions reads flat or wrong ("You pour the lamp oil on the stairs, quickly."). Default handling: write per-verb sentence patterns with slots, plus authored lines for a world's signature moves, and run the player-text lint over generated samples (PRS rules). The cost grows with verbs times manners, so keep both lists short until the wording has been read in play.
+- **CBD290. Preview honesty.** "Lands after the charge reaches you" comes from a look-ahead that hidden facts and chance can make wrong. Default handling: a preview states only what the character can judge, uses three confidence words at most (will, should, may), and a preview that turned out wrong is followed by a cause line saying what the character did not know. A preview the engine cannot compute is left off the row.
+- **CBD291. Policy trust.** One unattended loss of something treasured can sour auto-play for good. The first-run leash matters more than how well the policy fights. Default handling: start with a tight ask-first list and a low stock cap (CBD113), loosen them by the player's own choice, and treat named or bonded things as ask-first until told otherwise.
+- **CBD292. Four models of space.** The contest has a line, the spell stack has named places, tempo has a conditions line, and `scene_layer.js` now generates spots. Nothing says which one a new fight should use. Default handling: the substrate's places and links are the single store (CBD239), the scene layer writes to it, and each engine reads what it can (CBD198). Until an engine reads spots, a fight on it shows a line or one spot and says so. Decide this before a second hand-built scene.
+- **CBD293. Untested combinations.** Actions composed from properties produce pairs nobody tried, and some will be absurd or broken. Default handling: test at property level (each property against each verb and each condition once), log composed actions that settle in play, and let an odd result be reported to the wish list (CBD97) with one click.
+- **CBD294. Save growth.** Lasting changes in each place visited add up over a long life. Default handling: a place keeps changes that a later choice could read, and folds the rest into a summary line after a stated time ("old damage from a fight in spring"). Budget per place stated as a number (CX5). Nothing is forgotten by the character; detail is summarised in the record.
+- **CBD295. Pause tuning has one player and no numbers.** Thresholds argued without data will be wrong. Default handling: record decisions asked, pauses skipped and overrides per fight first (CBD61), and change a threshold only against that record.
+- **CBD296. The idle paradox.** If preparation plus policy decide routine fights, the fight itself may hold no fun. Two acceptable answers, by kind of fight: a routine fight's job is to feed other systems (stock, wounds, standing, knowledge, the season ledger) and be read in seconds; a fight that matters is played. The risk is a middle band that is neither quick nor interesting. Watch for fights that pause often and change little.
+- **CBD297. Scope.** This thread grew from combat into a scene system, a policy system and a screen pattern, while the standing order is foundations first and the three leads. Default handling: treat rounds 19 to 30 as a palette, build only what a lead's next fight needs, and let the scene layer be owned by the foundation work it belongs to.
+- **CBD298. Three engines and a projection to keep in step.** The shared view hides the seam and can also hide drift: each engine change can silently break a projection. Default handling: the projection test is part of each engine's focused tests, and the engine requests in the projection note are done where the engine lives so the projection stops rebuilding private logic.
+- **CBD299. Engine words leak to the player.** "Its own working cannot start" reached the prototype screen. More such text will appear as more state is shown. Default handling: each blocked reason and outcome word has a player sentence or is hidden, checked by the existing vocabulary lint over projected views.
+- **CBD300. A large pile of proposals.** This file holds about 260 proposal codes from one day, all still proposals. A long palette is hard to act on and easy to mistake for a plan. Default handling: distil the few defaults Weibao takes into the proposed combat rules, leave the rest here as palette, and have briefs cite the distilled lines.
+- **CBD301. The recording can flatter the design.** It uses scripted answers, hand-written sentences and a staged "last time you had 16". Default handling: keep the footer that names staged parts, and replace each staged part with a built one as tie-ins land (CBD288).
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| CBD302 | Sentence sample sheet: generate fifty lines from the playthrough's frames and the compose row, and read them against the prose rules. | Sol, small | A count of lines that read flat, wrong or engine-voiced, with the pattern that produced each. Decides whether CBD289's patterns are enough. |
+| CBD303 | One page for Weibao: the ten defaults from rounds 10 to 30 most worth a yes or no, each in two lines. | Sol, small, read and write | Each line names its code, what changes if taken, and what it costs. The page records no decision itself. |
+
+### Round 31 suggestions (separate from the palette)
+
+- CBD292 and CBD297 are the two to settle before more is built, since they decide who owns the scene.
+- CBD303 would turn this file from a pile into a short list of decisions.
+
+### Weibao's replies to these problems, as leanings (2026-11-13)
+
+He answered in the parent chat with questions, so these are leanings to design toward and are recorded as his words with proposed answers. Verified before writing: `publicCombatForecast` in [combat_review.js](../src/combat_review.js) gives seconds to kill and seconds to fall; Progress Quest sits unresearched at row 15 of the [acquisition queue](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md); the three derivation trials are in the [procedural systems proposal](research/OTHER_YAIR_PROCEDURAL_SYSTEMS_PROPOSAL_2026-11-11.md); PC95 is "engine first, tie-in later" in [the carry-out plan](PROCEDURAL_CARRY_OUT.md#engine-first-tie-in-later-pc95-2026-11-12).
+
+- **CBD304. On losing.** His words: "maybe its harder for us to lose willy nilly? no irrecoverable stuff, unless you choose to go into a bad fight like that?" Proposed answer: a routine fight costs what can be got back (wounds heal, taken things can be traced, CBD120). Lasting loss needs a fight the character entered after a warning they could perceive, and "you cannot judge him" counts as a warning (CBD183). The forecast's seconds to kill and to fall can sort a fight into routine, risky or grave. A strong foe arriving in a routine makes the policy leave or ask (CBD56). A "keep safe" mark on treasured things stops the policy staking them (CBD291). A lethal canon world stays a dial forewarned at entry (CBX4). This tightens CBD291 and fits AD19.
+- **CBD305. On Progress Quest.** His words: "Should we first absorb all the possibilities from progress quest?" Proposed answer: yes as the floor. It is the zero-decision case: fight, loot, a carry limit, sell, upgrade, quest and act bars, and terse generated lines. Get the silent routine loop reading well first and add pauses on top. This reorders the first playable toward CBD55, CBD64 and the season ledger (CBD261) ahead of pauses and composed actions. It needs a source dive, since the queue row is unresearched.
+- **CBD306. On saves.** His words: "For saves, should we consider new saving system". Proposed answer: not for this. The scene spike stores what differs from a keyed layout and nothing else, which was three rows in its test. What is missing is the fade or summarise rule of CBD294. A wider save redesign is a separate question with its own owner.
+- **CBD307. On the idle paradox.** His words: "consider the case of the original game too". Proposed answer: in the upstream game routine fights are worth running because they feed skill growth, drops for making and area progress. Routine fights here keep that job and add wounds, wear, knowledge of foes and standing (CBD296's first answer). The test for a routine fight is then what it feeds, and each kind of fight should name at least one reader (FLR4).
+- **CBD308. On method.** His words: "How to work on the procedural systems in the same way?" Proposed answer: use the three trials the procedural work already uses. A known case: replay a canon fight and match its outcome and route. A controlled variation: change one input and explain the difference (CBD46, CBD61). An unlisted combination: an action nobody wrote that should work by its mechanisms (CBD102). Under PC95 the first proof is a headless fight read through `fight_view.js`, with the live tie-in after. Earlier lines here that say "at the first live tie-in" should be read in that order.
+- **CBD309. On the engine.** His words: "What engine do we need to build?" Proposed answer: no new engine. Six parts over the substrate: the scene layer, an action generator with wider targets (G1), a chooser with a pause rule, the view projection, an event-to-text renderer, and the result publisher that exists. The scene layer over substrate places is the one model of space, with the contest's line as its one-row case (CBD292). Two of the six exist as spikes (`scene_layer.js`, `fight_view.js`) and one is built (the publisher).
+- **CBD310. On the prose.** His words: "your prose kind of sucks sometimes" (which text is not yet settled; the parent chat asked). Proposed answer: split fight text in two. Terse factual lines generated from events, in the Progress Quest register ("Boar down. Essence: a fifth. Forearm grazed."). Rare authored lines in the world's voice, written from his samples (PRS7). Generated literary sentences are the weak middle and are dropped by default. This changes CBD289: fewer sentence patterns, plainer ones, and the sample sheet (CBD302) should compare both registers on the playthrough's frames. The sketches in rounds 16 to 29 and the playthrough's Gu sentences are in the weak middle and are examples of layout, not of voice.
+
+## Round 32. Completing and revising (2026-11-13)
+
+Weibao set the goal "complete accordingly and revise". This round carries out the next step the earlier rounds named, revises what they got wrong, and adds no new ideas. Proposals throughout.
+
+**ACT NOW (done).**
+
+- **Terse text, built (CBD310, CBD289, CBD299).** [fight_text.js](../src/fight_text.js) turns contest log rows into lines by one pattern per kind of event, folds repeated plain lines between turning points into one with a count (CBD88), and builds the itemised result (CBD78). Names and labels come from the caller. An id with no label gives no line, so engine words stay off the screen.
+- **Three trials, passing (CBD308).** [fight_three_trials.test.js](../tests/fight_three_trials.test.js) runs the Gu pit duel headless through the contest, the shared view and the text. Known case: Fang Yuan stands, Wang Er is killed, three hunters yield. Controlled variation: with 4 essence he gets one moonblade, closes in and finishes by hand, Wang Er is out cold, and the result says what was spent and lost. Unlisted combination: a shove written as one effect sentence settles, is offered in the view and reads, with no code for it.
+- **Playthrough re-recorded.** The [recorded playthrough](../prototypes/fight-playthrough/README.md) now takes its Gu lines and result from that module. Its hand-written sentences are gone and its footer says which parts remain staged.
+- **Decision page written (CBD303).** [Ten defaults for a yes or no](audits/COMBAT_DEFAULTS_FOR_DECISION_2026-11-13.md), with one limit waiting on Weibao.
+
+**Checks.** `node --test tests/fight_three_trials.test.js`: 5 pass. The playthrough's headless check at 1920 by 1080: 36 steps, no page errors, no panel overflow. Gate results for this change are in the chat report. Below the AD43 floor: no screen in the game reads any of this, and it has not been played in the game.
+
+**Revised.**
+
+- **Order of work.** Lines in rounds 10 to 21 that say "at the first live tie-in" are read as: headless proof first, then the tie-in, and the silent routine fight before pauses (CBD305, CBD308, PC95). The sizing audit's order is revised to match.
+- **Sample wording.** The sketches in rounds 16 to 29 show layout. Their sentences are the weak middle register that CBD310 drops. What a contest fight reads like today:
+
+```
+You: moonblade hits First hunter, hands.
+First hunter: yields, hurt.
+Wang Er: bow shot misses you.
+Wang Er: bow dropped.
+Wang Er: punch misses you (3 times).
+You: moonblade hits Wang Er, head, through the glare.
+Wang Er down, killed.
+
+The pit. 3.4 seconds. You: standing.
+  Spent   Primeval essence 12 of 16.
+  Hurt    Unhurt.
+```
+
+- **Turning points.** A plain hit on the player is left to the result's Hurt line. Counting each one as a turning point broke folding and made a long list.
+- **Still staged or missing, in order of what blocks reading a fight.** The pause rule (CBD56). A plain blocked reason for a bridged move, which still reads "its own working cannot start" (CBD299, the projection note's request). Text for tempo fights, whose log is already sentences. Authored lines in a world's voice, which wait for samples. Spots from the scene layer in a fight.
+
+## Pointer, 2026-11-13: the Gu fight slice (engine first)
+
+The coordination chat relayed Weibao's sharpened goal ("make the most progress in in the combat, ui, and procedural systems") and asked for a built engine slice answering the [handoff's](gm/COMBAT_DESIGN_HANDOFF_2026-11-13.md) A1 and A2. Built headless, with no live-screen tie-in. Proposals; below the AD43 floor.
+
+- **Real state in (CBD41, sizing F5).** [gu_fight_entry.js](../src/world_packs/gu_fight_entry.js) builds a contest entrant from the Gu a person keeps in the engine world: which Gu they have decides which Gu moves they bring. Lending the Little Light Gu to someone else removes the combined move. Whether a kept Gu is fed and controlled is still judged where the fight uses it, by the existing check.
+- **A line for every row (CBD63, the lead audit's G8).** [fight_text.js](../src/fight_text.js) now types every contest row (hit, miss, blocked, failed, out of reach, done, yield, yield refused, down, out, withdraw, interrupted, handoff, routed, wait). A move that was paid for and came to nothing carries its cost: "You: little-light moonblade fails. 1 primeval essence spent." Cost is left off a hit, where the result is the news.
+- **A consequence carried forward (FLR4).** `guFightCarry` reads the two worlds and returns typed rows: how each ended, what each spent and lost, which kept Gu came out hungrier. The existing reader in the test is the Jade Skin working: it funds a guard before the bout and refuses afterwards for lack of essence, with its own reason. The rows match after a save and reload of the world.
+- **Evidence.** [gu_fight_entry.test.js](../tests/gu_fight_entry.test.js), five tests, and two new scenes in the [recorded playthrough](../prototypes/fight-playthrough/README.md).
+- **Fixture-only.** The world is a test fixture (a ring, two people, four Gu). Attack and evasion are the caller's numbers, since no owner derives them from a body. Nothing in the live game starts this fight. The fight view's choices still read the entrant's stored Gu list and do not apply the live fed-and-controlled check.
+- **Why this fixture and not the seed-5 pit duel.** The pit duel's fighters carry Gu as numbers on a profile. The ring fixture has Gu as bodies in the world with keepers and satiety, which is what "real state" needs.
+
+## Where rounds 10 to 32 stand (2026-11-13)
+
+One table for the whole day's work, so the rounds above can be read as a palette with a known state. Everything is a proposal. "Built headless" means source and focused tests exist and nothing in the game calls it. Nothing here meets the AD43 floor.
+
+| Part | State | Evidence or owner round |
+| --- | --- | --- |
+| The problem: one fight question for every world | Described | Rounds 10 and 11; [sizing audit](audits/COMBAT_WORLD_SIZING_2026-11-13.md) |
+| Terse fight lines and itemised result | Built headless. Lines for contest fights; the result block for both engines | [fight_text.js](../src/fight_text.js); `tests/fight_three_trials.test.js` |
+| The Gu world's words for its moves, means and parts | Built as world data | `GU_FIGHT_LABELS` in gu_fight_entry.js |
+| A type and a line for every row, cost shown when nothing came of it | Built headless | `fightAccount`; `tests/gu_fight_entry.test.js` |
+| When a routine fight pauses, and what it remembers from the fight before | Built headless, both engines through the view | [fight_pause.js](../src/fight_pause.js); `tests/fight_pause.test.js` |
+| One view shape for both engines | Built headless | [fight_view.js](../src/fight_view.js); [note](audits/FIGHT_VIEW_PROJECTION_2026-11-13.md) |
+| A plain reason when a move's own working cannot start | Built headless | `contestBlock` in fight_view.js; three-trials test |
+| Fighters built from the Gu kept in the world | Built on a fixture world | [gu_fight_entry.js](../src/world_packs/gu_fight_entry.js) |
+| Consequences left in the world and read by the next working | Built on a fixture world | `guFightCarry`; Jade Skin working as the reader |
+| Three trials: known case, controlled variation, unlisted combination | Passing for the Gu pit duel | `tests/fight_three_trials.test.js` |
+| Spots from a place | Spiked, no caller | [scene layer spike](audits/SCENE_LAYER_SPIKE_2026-11-13.md) |
+| A recording to watch | Recorded, five scenes. Staged: the layout, the fixture people's names, and the answers at each pause | [playthrough](../prototypes/fight-playthrough/README.md) |
+| The screen: Focus asks, Place shows, Reports tells | Shown in the recording, no live screen | Round 17; [UI pointers](audits/COMBAT_UI_POINTERS_2026-11-13.md) for the UI owners |
+| Policy page, stances, standing orders from answers, ask-first list | Idea; a scoring chooser exists with no played caller | Rounds 14 and 20 |
+| Losing and what a routine fight may cost | Idea, with Weibao's leaning recorded | CBD304; round 21 |
+| Moves on things, places and workings (G1) | Idea; the contest targets self or a foe | Rounds 12, 19 and 25 |
+| Third parties who arrive and watch (G2); knowing a foe and looking (G3) | Idea; tempo has a concealment draw and a study step | Rounds 18 and 25 |
+| Cover, conditions, endings, lasting conditions, allies (G4 to G7) | Idea | Round 27 |
+| Composed actions from properties | Idea; one sentence-built move settles and reads | Round 19; trial 3 |
+| Crowds, battles, cross-world fighters, cues, non-fight contests, stopping mid-fight | Idea | Rounds 21 to 24 and 28 |
+| Authored lines in a world's voice | Waiting on voice samples | CBD310; PRS7 |
+| Text for tempo fights | Not built; tempo's log is already sentences | Round 32 |
+| A fight the live game starts on any of this | None | PC95: engine first |
+| Working defaults | Ten in use as adjustable working defaults (AD56), one of them Weibao's own leaning; one limit waits for him | [working defaults page](audits/COMBAT_DEFAULTS_FOR_DECISION_2026-11-13.md) |
+| What finishing means for this lane | Built headless, tested and recorded; the live tie-in is later work | PC95; the working defaults page |
+
+**Revised in place on 2026-11-13.** CBD61, CBD68 and CBD74 now say headless first. The round 15 example line, the round 16 result and after-choice sketches, the round 17 Reports column and the round 18 folding example use the terse register. Rounds 19 to 31 are unchanged; where one says "at the first live tie-in", read it in the order above. Round 32's list of what is still staged is superseded by this table: the pause rule and its memory, the plain blocked reason, the street fight's result block and the Gu labels are now built.

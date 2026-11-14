@@ -6,14 +6,14 @@ Everything here is a proposal. Nothing in it is accepted direction, and no exist
 
 **Files**
 
-- [src/scene_layer.js](../../src/scene_layer.js): pure module, 327 lines. Imports `gen_kit.js` (keyed draws) and `world_substrate.js` (link readers). Nothing imports it.
-- [tests/scene_layer.test.js](../../tests/scene_layer.test.js): 9 tests.
+- [src/scene_layer.js](../../src/scene_layer.js): pure module, about 350 lines. Imports `gen_kit.js` (keyed draws) and `world_substrate.js` (link readers). Nothing imports it.
+- [tests/scene_layer.test.js](../../tests/scene_layer.test.js): 11 tests.
 
 **Checks**
 
 | Check | Result | Gap |
 |---|---|---|
-| `node --test tests/scene_layer.test.js` | 9 pass, 0 fail | Unit only. No engine world, no laws or reactors composed in. |
+| `node --test tests/scene_layer.test.js` | 11 pass, 0 fail (after round 2) | Unit only. No engine world, no laws or reactors composed in. |
 | `npm run -s check:arch` | exit 0, no new cycle, no `main.js` import | Run on a shared checkout with other sessions' uncommitted edits present. |
 | `npm test`, build, browser | not run (out of scope for the spike) | The new test file has no row in `tests/duration_budget.json`; it runs in about 0.2 s. |
 
@@ -80,3 +80,37 @@ How the done check came out:
 1. R1 and R2 as substrate ops (small, the substrate owner's call).
 2. R3 decided, since CBD255 (one coming list for a place) needs to know whether a place's events reach its spots.
 3. A read-only walk in a DEV fixture: enter a real place from a world pack and print spots and offered actions, as the first step toward the floor.
+
+## Round 2: more to consider (2026-11-13)
+
+Weibao asked "more to consider?" in the spike's chat. Codes continue from the lists above. All proposals.
+
+**ACT NOW (done, in the two spike files)**
+
+- **F6. Leaving crashed when a law field was scoped to a spot.** `holder_remove` leaves law fields behind and the world check then refuses a field with no scope. A ward on a doorway would have made the scene impossible to leave. Fix: the fold removes such fields into `kept.laws` and entering adds them back, skipping one whose `until` passed while folded. Evidence: `world_substrate.js` `holder_remove` and `validateWorld`; new test.
+- **F7. A spot's amounts and pack state were dropped without a trace.** The diff compared properties only. A spot that gained noise, light or another pack's state lost it on leave. Fix: quantities, their ledger and pack state now count as a difference and come back on enter. The amount still lands on the `holder.removed` row at each fold (R6 stands).
+- **F8. Two neighbouring scenes open at once mirrored each other's mirror links.** With the lane open, entering the yard built a way out from the lane's inside view of the gate, and leaving then wrote to a link that might be gone. Fix: only world links between unfolded places are mirrored. Tested in both leave orders.
+- **F9. Draw addresses had no layout revision.** `SCENE_LAYOUT_REVISION` is now part of every address, per the `gen_kit.js` header (G7 partly answered; kept rows naming a spot that a new revision drops are still skipped, not migrated).
+
+**ACCOUNT FOR NOW (constraints for the tie-in, no work added)**
+
+- **C1. Do not fold while a working is bound to a spot.** The duelling club's casts name spots directly (`details.to: 'far-floor'`, `contact.from`). A spell in flight when the spots are removed would land nowhere. The caller needs a "busy" check before `leaveSceneOps`, or the fold has to wait for running workings whose bindings sit on a spot.
+- **C2. An open scene makes the whole world step by the minute.** Spots are near, and the substrate contract lists partitioned detail as not built. A long rest or wait taken inside a scene costs a segment per minute. The tie-in should fold on any wait longer than a dial, not only when the player walks out.
+- **C3. The draw root must be the world's.** The default root is the fixed string `scene`, so two saves get the same lane. The caller should pass the engine world's draw root (`createEngineWorld` takes `drawRoot`).
+- **C4. `perceive` reads truth.** A hidden thing or a concealed door is found by the test as it stands. Before a player sees its answers, it has to read through what the character knows (AD6 to AD8, CBC20), and the existing `senses` and `concealed` properties in `world_quantities.js` are the place to start.
+- **C5. A held thing is offered like a loose one.** `sceneActions` lists "take draco-wand" when standing beside Draco. CBD170 says a held thing is addressed through its holder's grip. The `grip:` mark is already read for the actor's own things, so the rule has a hook; it is not written.
+- **C6. Far-detail activity can make kept rows stale.** If someone carries the lamp off while the lane is folded, the row saying where the lamp lay stays until the next visit, where it is ignored and then dropped. Harmless, but "stores nothing extra" is only true again after that visit.
+- **C7. The kept slice is world truth, with no record of who knows it.** Sites want what was found kept apart from what is there (SR claims and scoped discovery, CBD244). A ruin built on this layer needs a knowledge record beside the slice, not inside it.
+
+**LATER / DELEGATE**
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| L1 | Substrate ops for R1 and R2 (quiet placement, a `detail` op), with the spike switched to them. | Sonnet, small; substrate owner's file | An untouched visit leaves the serialized world byte-equal, effect log included; the spike test asserts it. |
+| L2 | Decide R3 (place inside a place) with the procedural foundation owner, before CBD255. | Design note first, then sonnet, medium | An effect published at the parent reaches a reactor on a holder standing at a spot, or the note says why it should not. |
+| L3 | A read-only scene print for a DEV fixture place: spots, links, who is where, offered actions with blocked reasons. | Sonnet, small | Run on one real place from a world pack; output is the same on two runs and after save and reload. |
+| L4 | A thing that makes several spots (a platform with two ends and a sightline, a cart with a far side). | Sonnet, small to medium | The club override shrinks to bare ids, a rename and who stands where; the comparison test still passes. |
+| L5 | Custody through the holder's grip (C5) and cover with facing and toughness (G1) on `addressable`. | Sonnet, medium, after the fight view lands | Disarm, snatch and a blow to the hand are three offered routes to one change; a bench stops a jinx and not a boar. |
+| L6 | Give the layer an [area guide](../AREA_GUIDE.md) entry, a [writeup register](../gm/WRITEUP_REGISTER.md) row and a mark on the CBD254 row. | Haiku, small; those files have other sessions' edits today | Each of the three links to this note. |
+
+Checks after this round: `node --test tests/scene_layer.test.js` 11 pass; `npm run -s check:arch` exit 0. State unchanged: unit-tested, below the AD43 floor, not played.

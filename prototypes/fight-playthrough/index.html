@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fight playthrough (prototype)</title>
+<style>/* INLINE_CSS */</style>
+</head>
+<body>
+<header>
+  <div id="act"></div>
+  <div id="scene"></div>
+  <div id="count"></div>
+</header>
+<main>
+  <section id="you" class="panel"><h2>You</h2><div class="body"></div><p class="missing"></p></section>
+  <section id="focus" class="panel"><h2>Focus</h2><div class="body"></div><p class="missing"></p></section>
+  <section id="reports" class="panel"><h2>Reports</h2><div class="body"></div><p class="missing"></p></section>
+  <section id="place" class="panel"><h2>Place</h2><div class="body"></div><p class="missing"></p></section>
+</main>
+<div id="card" hidden><div><p id="card-act"></p><h1 id="card-scene"></h1><p id="card-note"></p></div></div>
+<footer>
+  <p id="note"></p>
+  <div id="controls">
+    <button id="prev" title="Left arrow">Back</button>
+    <button id="play" title="Space">Play</button>
+    <button id="next" title="Right arrow">Step</button>
+    <input id="scrub" type="range" min="0" value="0" aria-label="Position">
+    <label>Speed <select id="speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select></label>
+    <label><input id="gaps" type="checkbox" checked> Show what each engine leaves out</label>
+  </div>
+  <p id="honest">Prototype replay, recorded 2026-11-13. Settled by the real engines on a fixed seed: every move, hit, cost, time and outcome. Lines and results in the Gu scenes come from the terse text patterns in fight_text.js. The pause rule is fight_pause.js, and what it remembers comes from the first fight of this recording. Every result block is the shared one. Prototype pieces: this layout, the names of the people in these fixture fights, and the answers given at each pause, since nobody is playing a recording. Not the live game; wording is draft.</p>
+</footer>
+<script>window.PLAYTHROUGH = /* INLINE_DATA */;</script>
+<script>/* INLINE_JS */</script>
+</body>
+</html>

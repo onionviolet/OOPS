@@ -318,4 +318,8 @@ The carry-out also holds [tie-in considerations](../PROCEDURAL_CARRY_OUT.md#tie-
 
 [Decomp re-fit onto the tie-in gaps](../research/DECOMP_REFIT_TIE_IN_2026-11-12.md) (2026-11-12, proposals): 50 rows from 41 game dossiers mapped to the fight panel, policy fights, opponent choice, bodies, spells, the Gu panel, gear and screen organization, plus nine things the dossiers do not hold.
 
+[Combat world sizing](../audits/COMBAT_WORLD_SIZING_2026-11-13.md) (2026-11-13, findings and proposals): what Gu, Hogwarts and LOTM fights have on which engine, what is live, and seven shared engine gaps (G1-G7) with a possible order. Read-only source pass, not played.
+
+[Combat working defaults](../audits/COMBAT_DEFAULTS_FOR_DECISION_2026-11-13.md) (2026-11-13, proposals in use under AD56): ten defaults from combat rounds 10 to 31 with what each changes, costs and where it stands, plus one limit waiting on Weibao.
+
 [UI directions mocks](../../prototypes/ui-directions-2026-11-13/index.html) (2026-11-13, proposals): eight before-and-after sketches for the UI decisions held for Weibao (list and thing, one status line, empty space as the place, what can I do now, palette-led bar, day strip, growing screen, Notebook), each with what it fixes and costs. Records no decision. Ledger: [UI audit](../audits/UI_DESIGN_CORE_AUDIT.md#ui-ledger-revised-2026-11-13).

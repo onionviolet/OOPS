@@ -34,6 +34,7 @@ const list = v => Array.isArray(v);
 /** Check a view against the shared shape. Throws on the first fault and returns the view. */
 export function validateFightView(view) {
     check(object(view) && view.schema === FIGHT_VIEW_SCHEMA && text(view.engine) && text(view.id), 'A fight view needs a schema, an engine and an id.');
+    check(['seat', 'engine'].includes(view.knowledge), 'A view says whose knowledge it shows: the seat\'s, or the engine\'s own truth.');
     check(textOrNull(view.title) && typeof view.yourTurn === 'boolean' && (view.result === null || text(view.result)), 'Invalid fight view header.');
     check(object(view.parts) && FIGHT_VIEW_PARTS.every(p => FIGHT_VIEW_STATES.includes(view.parts[p])) &&
         Object.keys(view.parts).length === FIGHT_VIEW_PARTS.length, 'Every view part needs a state: filled, reduced or absent.');
@@ -128,7 +129,7 @@ export function projectTempoFight(b, {stance = 'steady'} = {}) {
     ...tv.orders.map(o => ({id: `order:${o.allyId}:${o.orderId}`, what: o.label, text: o.text, time: {seconds: o.cost}, cost: [],
         likely: o.odds, blocked: null, policy: false, subjects: [o.allyId], answer: {verb: 'order', subject: o.allyId, means: null, manner: o.orderId}}))];
     const strikes = tv.moves.some(m => TEMPO_MOVES[m.id].kind === 'strike');
-    return finish({schema: FIGHT_VIEW_SCHEMA, engine: 'tempo', id: b.id, title: tv.title, yourTurn: tv.yourTurn, result: tv.result,
+    return finish({schema: FIGHT_VIEW_SCHEMA, engine: 'tempo', knowledge: 'seat', id: b.id, title: tv.title, yourTurn: tv.yourTurn, result: tv.result,
         aim: {text: tv.title, ends: []}, you,
         people: [{spot: 'here', label: text(c.place) ? c.place : null, who}],
         things: null,
@@ -168,7 +169,8 @@ function contestBlock(law, me, foes, move) {
     if (move.bridge) {
         const quote = quoteWorking(move.bridge.law, move.bridge.method, {id: 'fight.view.quote', bindings: move.bridge.bindings(me),
             facts: move.bridge.facts(me), at: 0, ports: move.bridge.ports(me)});
-        if (!quote.ok) return 'its own working cannot start';
+        // The working's own reason when it reads as words ("needs more essence"); a bare code is not player text (CBD299).
+        if (!quote.ok) return typeof quote.reason === 'string' && /\s/.test(quote.reason) ? quote.reason : 'something it needs is missing';
     }
     if (move.target !== 'self' && move.kind !== 'guard' && !foes.some(f => canUseAtPosition(me, f, move))) return foes.length ? 'no one in position for it' : 'no one left to use it on';
     return null;
@@ -177,8 +179,10 @@ function contestBlock(law, me, foes, move) {
 /**
  * Project a contest record through `entrantView` and its running workings.
  * `seat` is the entrant the view is for. `wants` on that entrant is the stance.
+ * `choose` is the chooser the fight is really run with (the `ports.choose` of stepContest);
+ * it is asked on a copy, because a policy chooser keeps its cursor on the record.
  */
-export function projectContest(law, record, world, {seat, title = null} = {}) {
+export function projectContest(law, record, world, {seat, title = null, choose = defaultChoice} = {}) {
     check(record?.schema === CONTEST_SCHEMA && record.law === law.ref && object(record.entrants[seat]), 'A contest view needs its law, its record and a seat in it.');
     const e = record.entrants[seat], me = entrantView(law, record, world, seat);
     const views = Object.fromEntries(Object.keys(record.entrants).map(id => [id, entrantView(law, record, world, id)]));
@@ -211,7 +215,7 @@ export function projectContest(law, record, world, {seat, title = null} = {}) {
         ...(record.sunDirection !== undefined ? [{what: 'sun side', value: record.sunDirection > 0 ? 'up the line' : 'down the line'}] : [])];
     const coming = order.map(([id, x]) => ({who: id, name: id, seconds: seconds(Math.max(0, nextTime(x) - record.clock)), what: runningMove(x),
         target: x.working?.status === 'running' ? x.working.bindings.target?.id ?? null : null}));
-    const pick = yourTurn ? defaultChoice(law, record, world, seat) : null;
+    const pick = yourTurn ? choose(law, structuredClone(record), world, seat) : null;
     const choices = !yourTurn ? [] : [...e.moves, ...BUILT_INS.filter(m => !e.moves.includes(m))].map(id => {
         const move = law.moves[id], open = foes.filter(f => move.target !== 'self' && move.kind !== 'guard' && canUseAtPosition(me, f, move)).map(f => f.id);
         const ticks = BUILT_IN_TICKS[id] ? dial(law, BUILT_IN_TICKS[id]) : move.steps.reduce((sum, t) => sum + Math.max(1, Math.round(t * 100 / (e.speed || 100))), 0);
@@ -220,7 +224,7 @@ export function projectContest(law, record, world, {seat, title = null} = {}) {
             likely: null, blocked: contestBlock(law, me, foes, move), policy: pick?.move === id, subjects: open,
             answer: {verb: CONTEST_VERBS[move.kind] ?? 'strike', subject: pick?.move === id && pick.target !== seat ? pick.target : null, means: move.tool ?? id, manner: null}};
     });
-    return finish({schema: FIGHT_VIEW_SCHEMA, engine: 'contest', id: record.id, title, yourTurn, result: record.result ? `${record.result.reason}: ${record.result.outcomes[seat]}` : null,
+    return finish({schema: FIGHT_VIEW_SCHEMA, engine: 'contest', knowledge: 'engine', id: record.id, title, yourTurn, result: record.result ? `${record.result.reason}: ${record.result.outcomes[seat]}` : null,
         aim: {text: null, ends}, you, people, things, around: {conditions, onlookers: null}, coming, choices, manners: [],
         log: record.log.map(line => ({text: null, data: structuredClone(line)}))},
     [['aim', 'endings as data; no sentence, and no objective beyond the law\'s endings'],

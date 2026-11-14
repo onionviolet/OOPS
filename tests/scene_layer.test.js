@@ -9,7 +9,8 @@ import {addressable, enterSceneOps, HANDS, leaveSceneOps, planScene, readKept, s
     SCENE_PROPERTIES} from '../src/scene_layer.js';
 import {startDuellingClub} from '../src/world_packs/hp_duelling_club.js';
 
-const rules = composeSubstrate({packs: [{id: 'scene'}], properties: [...SCENE_PROPERTIES, {id: 'marks', type: 'set'}]});
+const rules = composeSubstrate({packs: [{id: 'scene'}], properties: [...SCENE_PROPERTIES, {id: 'marks', type: 'set'}],
+    quantities: [{id: 'noise', unit: 'loudness grade', min: 0, max: 100}]});
 const apply = (world, ops, cause = 'test') => ops.length ? applyWorldOps(rules, world, ops, cause) : world;
 const enter = (world, place, opts) => apply(world, enterSceneOps(world, place, opts), 'scene.enter');
 const leave = (world, place, opts) => apply(world, leaveSceneOps(world, place, opts), 'scene.leave');
@@ -130,6 +131,36 @@ test('a pushed cart, a dug pit and a removed link are kept as differences from t
     const back = record(enter(folded, 'lane'));
     delete back.holders.lane.state.scene;
     assert.deepEqual(back, record(world));
+});
+
+test('a ward, a noise level and pack state left on a spot fold away and come back', () => {
+    let world = enter(START, 'lane');
+    world = apply(world, [
+        {op: 'law_add', field: {id: 'ward', scope: 'lane.middle', kind: 'ward', params: {against: 'entry'}}},
+        {op: 'law_add', field: {id: 'brief', scope: 'lane.middle', kind: 'hush', until: 5}},
+        {op: 'carry', holder: 'lane.far-end', quantity: 'noise'},
+        {op: 'add', holder: 'lane.far-end', quantity: 'noise', amount: 30, source: 'shout'},
+        {op: 'state', holder: 'lane.near-end', pack: 'x.tracks', value: {prints: 2}},
+    ]);
+    const folded = leave(world, 'lane'); // without the fold, a law field with no scope fails the world check
+    assert.deepEqual(folded.laws, []);
+    const kept = readKept(folded, 'lane');
+    assert.deepEqual(Object.keys(kept.laws), ['brief', 'ward']);
+    assert.deepEqual(kept.spots['lane.far-end'], {properties: {}, quantities: {noise: 30}, ledger: {noise: {shout: 30}}});
+    const back = enter(folded, 'lane');
+    assert.deepEqual(back.laws, world.laws);
+    assert.equal(back.holders['lane.far-end'].quantities.noise, 30);
+    assert.deepEqual(back.holders['lane.near-end'].state, {'x.tracks': {prints: 2}});
+    // A field whose time ran out while the place was folded does not come back.
+    const late = enter({...folded, clock: 9, decidedAt: 9}, 'lane');
+    assert.deepEqual(late.laws.map(f => f.id), ['ward']);
+});
+
+test('two neighbouring scenes open at once fold cleanly in either order', () => {
+    const both = enter(enter(START, 'lane'), 'yard');
+    assert.deepEqual(both.links.filter(l => l.id.includes('.out.')).map(l => l.id), ['lane.out.gate', 'yard.out.gate']);
+    assert.deepEqual(record(leave(leave(both, 'lane'), 'yard')), record(START));
+    assert.deepEqual(record(leave(leave(both, 'yard'), 'lane')), record(START));
 });
 
 test('moving or removing one recorded thing changes the scene and one available action', () => {

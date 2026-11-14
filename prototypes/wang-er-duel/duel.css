@@ -1,0 +1,109 @@
+:root {
+    color-scheme: dark;
+    --bg: #111a20;
+    --panel: #16242c;
+    --line: #3b515a;
+    --ink: #ecede0;
+    --muted: #b9c8c9;
+    --mint: #c6edda;
+    --gold: #f6cc8a;
+    font: 16px/1.45 system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; color: var(--ink); background: var(--bg); }
+main { max-width: 1460px; margin: 0 auto; padding: 35px 36px; }
+h1, h2, p { margin: 0; }
+h1 { font: 500 clamp(2rem, 4vw, 3.6rem)/1.12 Georgia, serif; margin: 4px 0 8px; }
+h2 { font-size: 1.05rem; font-weight: 660; }
+p, legend { color: var(--muted); }
+.eyebrow { color: var(--gold); font-size: .77rem; letter-spacing: .16em; text-transform: uppercase; }
+.page-header, .toolbar, .action-header, .scene-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.page-header { margin-bottom: 22px; }
+.toolbar { justify-content: flex-start; flex-wrap: wrap; border-block: 1px solid var(--line); padding: 9px 0 13px; margin-bottom: 20px; }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+legend { padding: 0 0 4px; font-size: .78rem; }
+.segments { display: flex; }
+.segments button + button { border-left: 0; }
+.motion { margin: 1.2em 14px 0 0; }
+#status { margin: 1.2em 0 0 auto; color: var(--mint); }
+button, select {
+    border: 1px solid var(--line);
+    background: #1e3039;
+    color: var(--ink);
+    font: inherit;
+    padding: 8px 13px;
+}
+button { cursor: pointer; }
+button:hover:not(:disabled) { background: #2d4851; }
+button[aria-pressed="true"] { background: #294a48; color: var(--mint); box-shadow: inset 0 -2px #b3e4cd; }
+button:disabled { cursor: default; color: #adbbbf; background: #19272d; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; z-index: 4; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 18px; align-items: start; }
+.fight, .resources, .report { border: 1px solid var(--line); background: var(--panel); min-width: 0; }
+.scene-header, .action-area, #text-scene, .resources, .report { padding: 15px 18px; }
+.scene-header { border-bottom: 1px solid var(--line); }
+#clock, .meta, time { color: var(--muted); font-variant-numeric: tabular-nums; }
+#board { height: 283px; position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(180deg, #172b3f, #416067 64%, #263b37 65%, #18292b); }
+.sun { position: absolute; width: 62px; aspect-ratio: 1; right: 7%; top: 13%; border-radius: 50%; background: #f6cf95; box-shadow: 0 0 45px #ffc77552; }
+.ridge { position: absolute; inset: 18% 0 34%; background: #243e44; clip-path: polygon(0 77%, 8% 47%, 20% 65%, 30% 29%, 45% 76%, 61% 54%, 68% 26%, 82% 71%, 100% 49%, 100% 100%, 0 100%); }
+.axis { position: absolute; inset: auto 8% 57px; border-bottom: 1px solid #8fa28b70; }
+.axis span { position: absolute; transform: translateX(-50%); font-size: .7rem; color: #d5ded6; padding-top: 5px; }
+.position-pin { position: absolute; z-index: 2; left: var(--x); bottom: 54px; width: 7px; height: 7px; transform: translateX(-50%); border-radius: 50%; background: var(--mint); }
+.actor {
+    --coat: #f3d2a3;
+    position: absolute;
+    z-index: 1;
+    bottom: calc(68px + var(--lane, 0) * 77px);
+    left: var(--x);
+    width: 108px;
+    transform: translateX(-50%);
+    display: grid;
+    justify-items: center;
+    gap: 3px;
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 3px;
+    text-shadow: 0 1px 3px #071619;
+}
+.actor::after { content: ""; position: absolute; pointer-events: none; z-index: -1; left: 50%; top: 100%; height: calc(10px + var(--lane, 0) * 77px); border-left: 1px dashed #c6edda75; }
+.actor.player { --coat: #9ae0c6; }
+.actor.wang_er { --coat: #fca690; }
+.actor.out { opacity: .66; }
+.actor.out .sprite { transform: rotate(72deg) scale(.79); }
+.actor.yielded .sprite { transform: scaleY(.72); }
+.actor .sprite { display: block; position: relative; width: 30px; height: 36px; transform-origin: bottom center; }
+.sprite::before { content: ""; position: absolute; inset: 0 10px auto; height: 10px; border: 1px solid #2c2922; background: #f2c4a3; }
+.sprite::after { content: ""; position: absolute; inset: 9px 0 0; background: var(--coat); clip-path: polygon(27% 0, 73% 0, 95% 46%, 79% 54%, 74% 41%, 88% 93%, 55% 100%, 50% 79%, 45% 100%, 12% 93%, 26% 41%, 21% 54%, 5% 46%); }
+.actor .name { display: block; font-size: .84rem; white-space: nowrap; }
+.actor .tell { display: block; color: #f9e1ae; font-size: .66rem; line-height: 1.14; }
+.bow { position: absolute; bottom: 29px; left: var(--x); transform: translateX(-50%); color: var(--gold); font-size: .8rem; white-space: nowrap; }
+.bolt { position: absolute; z-index: 3; bottom: 67px; height: 4px; width: 25px; background: #fff3d7; box-shadow: 0 0 10px #ffe8a0; pointer-events: none; }
+.bolt.moonlight_gu { height: 15px; width: 15px; border-radius: 50%; background: transparent; box-shadow: 4px 1px #d4fff7, 5px 1px 11px #d4fff7; }
+#text-scene { min-height: 283px; }
+#text-scene ul { padding-left: 22px; margin: 8px 0 0; }
+#text-scene li { margin: 5px 0; }
+#scene-note { border-block: 1px solid var(--line); padding: 8px 18px; font-size: .84rem; }
+.action-header { flex-wrap: wrap; margin-bottom: 5px; }
+#pending { margin-bottom: 12px; }
+#moves { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.move { text-align: left; min-height: 63px; }
+.move small { display: block; margin-top: 4px; color: var(--muted); }
+#notice:not(:empty) { color: var(--gold); margin-top: 9px; }
+aside { display: grid; gap: 14px; }
+#vitals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+#vitals strong { display: block; font: 1.9rem/1.2 Georgia, serif; color: var(--mint); }
+#vitals span { color: var(--muted); font-size: .87rem; }
+#policy-note { margin: 9px 0; font-size: .87rem; }
+#log { list-style: none; margin: 0; padding: 0; max-height: 425px; overflow: auto; }
+#log li { padding: 8px 0; border-top: 1px solid var(--line); font-size: .87rem; }
+#log time { margin-right: 6px; font-size: .74rem; }
+@media (max-width: 900px) {
+    main { padding: 19px; }
+    .layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 570px) {
+    #moves { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #status { flex-basis: 100%; margin: 0; }
+    .actor { width: 80px; }
+}

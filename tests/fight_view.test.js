@@ -13,6 +13,8 @@ import {composeSubstrate, createWorld} from '../src/world_substrate.js';
 import {beginContest, stepContest, serializeContest, restoreContest} from '../src/contest.js';
 import {contestPack} from '../src/contest_bodies.js';
 import {GU_CONTEST, wangErDuel} from '../src/contest_packs/gu_world.js';
+import {HOGWARTS_CONTEST, duellingClub} from '../src/contest_packs/hogwarts.js';
+import {createPolicyChooser} from '../src/contest_choice.js';
 import {FIGHT_VIEW_PARTS, FIGHT_STANCES, validateFightView, fightViewCoverage, projectTempoFight, projectContest} from '../src/fight_view.js';
 
 const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_count: 1, crit_rate: .3, crit_multiplier: 1.5, stamina_efficiency: 1};
@@ -113,6 +115,22 @@ test('a saved contest projects to a valid view through entrantView and running w
     const dry = projectContest(law, record, poor, {seat: 'fang_yuan'});
     assert.ok(dry.choices.some(c => c.blocked), 'a move that cannot start says why');
     assert.ok(dry.choices.filter(c => c.policy).every(c => c.blocked === null));
+});
+
+test('the mark follows the chooser the fight is run with, and the Hogwarts contest rows project unchanged', () => {
+    const {law, record, world} = contestFight(), before = JSON.stringify(record);
+    const rows = createPolicyChooser({fang_yuan: {rows: [{move: 'close_fist', fallback: 'close_in'}]}});
+    const view = projectContest(law, record, world, {seat: 'fang_yuan', choose: rows});
+    assert.ok(['close_fist', 'close_in'].includes(view.choices.find(c => c.policy).id));
+    assert.equal(JSON.stringify(record), before, 'a policy chooser keeps its cursor on a copy');
+    assert.deepEqual([projectTempoFight(tempoBattle()).knowledge, view.knowledge], ['seat', 'engine']);
+    const scene = duellingClub('harry_draco'), rules = composeSubstrate({packs: [contestPack({extra: scene.quantities})]});
+    let w = createWorld(rules, {holders: scene.bodies});
+    let r = beginContest(HOGWARTS_CONTEST, {id: 'club', seed: 2, place: scene.place, entrants: scene.entrants, sides: scene.sides, limits: scene.limits}, w);
+    for (let n = 0; n < 3; n++) ({record: r, world: w} = stepContest(HOGWARTS_CONTEST, r, rules, w));
+    const club = projectContest(HOGWARTS_CONTEST, r, w, {seat: 'harry'});
+    assert.ok(club.aim.ends.some(e => e.outcome === 'stopped'), 'the referee\'s hit limit is one of the ways it ends');
+    assert.equal(club.people.flatMap(s => s.who).length, 2);
 });
 
 test('the coverage table: filled, reduced and absent parts per engine', () => {

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wang Er · Duel prototype</title>
+<style>/* INLINE_CSS */</style>
+</head>
+<body>
+<main>
+    <header class="page-header">
+        <div><p class="eyebrow">Reverend Insanity · Combat prototype</p><h1>Wang Er at the pit</h1><p>Play as Fang Yuan against Wang Er and three hunters.</p></div>
+        <button id="reset" type="button">Restart duel</button>
+    </header>
+    <div class="toolbar">
+        <fieldset><legend>View</legend><div class="segments">
+            <button id="text-mode" aria-pressed="false" type="button">Text</button>
+            <button id="board-mode" aria-pressed="true" type="button">2D board</button>
+        </div></fieldset>
+        <label class="motion"><input id="motion" type="checkbox" checked> Animate</label>
+        <fieldset><legend>Control</legend><div class="segments">
+            <button id="manual" aria-pressed="true" type="button">Manual</button>
+            <button id="auto" aria-pressed="false" type="button">Auto</button>
+        </div></fieldset>
+        <p id="status" role="status"></p>
+    </div>
+    <div class="layout">
+        <section class="fight" aria-label="Battlefield and moves">
+            <div class="scene-header"><h2>Hunting ground</h2><span id="clock"></span></div>
+            <div id="board" aria-label="Side-on battlefield">
+                <div class="sun" aria-hidden="true"></div><div class="ridge" aria-hidden="true"></div>
+                <div id="actors"></div><div id="effects" aria-hidden="true"></div>
+                <div class="axis" aria-hidden="true"></div>
+            </div>
+            <div id="text-scene" hidden></div>
+            <p id="scene-note"></p>
+            <div class="action-area">
+                <div class="action-header">
+                    <h2>Your next move</h2>
+                    <label for="target">Target <select id="target"></select></label>
+                </div>
+                <p id="pending"></p>
+                <div id="moves"></div>
+                <p id="notice" role="alert"></p>
+            </div>
+        </section>
+        <aside aria-label="Resources and combat report">
+            <section class="resources"><h2>Fang Yuan</h2><div id="vitals"></div></section>
+            <section class="report"><h2>Fight report</h2><p id="policy-note"></p><ol id="log"></ol></section>
+        </aside>
+    </div>
+</main>
+<script>/* INLINE_JS */</script>
+</body>
+</html>

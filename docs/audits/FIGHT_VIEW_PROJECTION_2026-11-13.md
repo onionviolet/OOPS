@@ -9,7 +9,7 @@ One view shape for a fight, with a projection from the tempo fight and one from 
 - [src/fight_view.js](../../src/fight_view.js): the shape (`FIGHT_VIEW_SCHEMA` `fight.view@1`), `validateFightView`, `projectTempoFight`, `projectContest`, `fightViewCoverage` and the stance table `FIGHT_STANCES`.
 - [tests/fight_view.test.js](../../tests/fight_view.test.js): a saved revolver street fight in fog (tempo) and the Gu pit duel stepped to Fang Yuan's choice with a move in flight (contest) both project to a valid view. The test prints the table below and asserts it.
 
-**How it was checked.** `node --test tests/fight_view.test.js`: 7 pass, 0 fail. `npm run -s check:arch`: no new cycle, no import of `main.js`. The full suite was left to the merge gate. The new test file has no entry in `tests/duration_budget.json` (an existing file, left alone); it runs in under a second.
+**How it was checked.** `node --test tests/fight_view.test.js`: 8 pass, 0 fail (7 before the more-to-consider round). `npm run -s check:arch`: no new cycle, no import of `main.js`. The full suite was left to the merge gate. The new test file has no entry in `tests/duration_budget.json` (an existing file, left alone); it runs in under a second.
 
 ## The shape
 
@@ -112,3 +112,36 @@ Nothing was changed in an engine. These are what a fuller projection would ask f
 - The contest is ahead on scene (positions, things, moves in flight). Tempo is ahead on words (labels, sentences, odds words, reasons). A shared screen needs both, and each engine's gap is the other's strength.
 - Aim and Around are thin in both. An aim line and onlookers are new state for either engine and are worth designing once, outside both (CBD197, CBD198).
 - CBD203 (render one LOTM street fight from this view) can start from the tempo projection as it stands. R1 to R3 would make it read better and none of them blocks it.
+
+## More to consider, round 1 (2026-11-13)
+
+Asked by Weibao after the first report. Proposals; the two ACT NOW items are done in the new files, and the test is at 8 pass, 0 fail.
+
+### ACT NOW (done)
+
+- **M1 · The view says whose knowledge it shows.** A tempo view is already filtered to what the player saw (the log drops unnoticed concealed moves, foes show a hurt word and learned fields). A contest view shows the engine's truth about every entrant, including the move a foe has in flight. A screen that drew a contest view as it stands would show the player things the character cannot know. Each view now carries `knowledge: 'seat'` or `'engine'`, and the validator requires it, so a renderer or the pause rule can refuse or filter an engine-truth view until the knowledge store (R10) exists.
+- **M2 · The policy mark follows the chooser the fight is run with.** The contest mark came from `defaultChoice` alone. A fight run on policy rows or the scored chooser (`contest_choice.js`) would have shown a mark on a move the policy would not take. `projectContest` now takes the chooser as `choose` and asks it on a copy of the record, because the policy chooser writes its cursor onto the record it is given.
+
+### ACCOUNT FOR NOW
+
+- **M3 · A choice row's id is the key back to the engine; the answer shape is for reading.** A contest row's `answer.means` is the tool when the move has one (the bow, not `bow_shot`), so the answer alone cannot be turned back into a command. Whatever takes the player's pick (CBD203) keys on the row id plus a chosen subject and manner.
+- **M4 · A tempo fight has no finished view.** The session is deleted in the same commit that ends the fight, so `result` is null in every tempo view that can exist. The itemised result (CBD197) needs its own record from the publisher and cannot be read from this view.
+- **M5 · Seconds are exact for the contest and approximate for tempo.** Contest ticks are tenths of a second. Tempo costs are "about seconds", scaled by speed and by injury: the fixture's shot shows 6 where the move table says 3, because the player was slowed. A shared timeline that mixes both in one fight (CBD200) would need one clock first.
+- **M6 · A manner changes time and odds, and the view does not say so.** Aiming a tempo strike adds one time unit and makes the blow easier to avoid (`LOCATION_DIALS.aimCost`, `aimHitPenalty`). `tempoView` lists aims without either number. Request R11: aims carry their time and odds change.
+- **M7 · The view is derived and is not a save shape.** `fight.view@1` versions the shape for its readers. Nothing stores a view, and the engines stay the one authority for fight state (AR3).
+- **M8 · The Hogwarts contest rows already project.** The Harry and Draco club bout goes through `projectContest` unchanged, with the referee's hit limit showing as one way the fight ends. What stays unprojected is the spell stack in `hp_duelling_club.js`, which is where the places, the wand and the proctor are.
+
+### LATER / DELEGATE
+
+| Code | Proposal | Level, effort | Done check |
+| --- | --- | --- | --- |
+| M9 | A view difference function for the pause rule (CBD195): given the last handled view and the current one, return which of T1 to T7 fired. Pure, in a new file beside `fight_view.js`. | Sonnet, small | On the two test fixtures: emptying the chamber fires T2, dropping the bow fires T2, a stance with no policy fires T5, and an unchanged view fires nothing. |
+| M10 | Answer to command, both engines: a row id with subject and manner becomes a `commitTempoMove` command or a contest `{move, target}`, and an answer the engine cannot take returns CBD97's fourth reply. | Sonnet, small, before CBD203 | Every usable row of both fixtures round-trips to a command the engine accepts; a blocked row is refused with its reason. |
+| M11 | Project the spell stack (`hp_duelling_club.js`) as a third projection. It is the one engine that would fill People by named spot, Things and an onlooker. | Sonnet, medium | The disarm drill projects to a valid view with four named spots, the wand as a thing and the proctor under Around; the coverage table gains a third row. |
+| M12 | Apply R1 to R3 in `tempoView` (conditions, ids and time in `next`, strike odds and stamina cost). Small, no save change, and it lifts three tempo parts. | Sonnet, small, needs the tempo owner's lane | Tempo's Around conditions come through `tempoView`, and the Choices gap for strikes leaves the missing list. |
+| M13 | Register this write-up, add the fights entry line to the area guide, add the test to the duration budget, and mark CBD202 and CBD204 in the palette. These are edits to shared files that this session was told to leave alone. | Haiku, small, at merge | The four files name `fight_view.js` and this doc. |
+
+### Suggestions (separate from the list)
+
+- M9 and M10 together are what CBD203 needs beyond drawing. Doing them first keeps the rendering lane to layout.
+- M11 would test the shape harder than either projection so far, since the spell stack is the engine that has what the shape was drawn from (CBD75's mock).

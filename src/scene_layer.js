@@ -20,6 +20,8 @@ import {address, drawU32, indexFromU32} from './gen_kit.js';
 import {linkReach, normalizeLink, worldLinks} from './world_substrate.js';
 
 export const SCENE_PACK = 'scene';
+// Part of every draw address: raise it when a layout row changes, so old draws are not reread as new ones.
+export const SCENE_LAYOUT_REVISION = 1;
 const byId = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const fail = message => { throw new Error(`Scene layer: ${message}`); };
@@ -91,7 +93,7 @@ export function planScene(world, placeId, opts = {}) {
     const place = world.holders[placeId];
     if (place?.kind !== 'place' || place.refs?.scene) fail(`${placeId} is not a place that can be entered.`);
     const {kind, layout, o} = layoutFor(place, opts), root = opts.root ?? 'scene';
-    const draw = (...parts) => drawU32(root, address('scene', placeId, kind, ...parts));
+    const draw = (...parts) => drawU32(root, address('scene', SCENE_LAYOUT_REVISION, placeId, kind, ...parts));
     const rename = o.rename ?? {}, name = local => rename[local] ?? local;
     const id = local => o.ids === 'bare' ? local : `${placeId}.${local}`;
 
@@ -156,7 +158,9 @@ export function planScene(world, placeId, opts = {}) {
     // 5. The place's own ways out attach to exit spots, so a barred door is barred here too.
     const exits = (layout.exits ?? []).map(name).filter(local => spots.has(local));
     const out = [];
-    worldLinks(world).filter(l => l.from === placeId || l.to === placeId).forEach((l, i) => {
+    // A neighbour's open scene already shows this way from its side; only world links are mirrored.
+    const worldSide = l => !world.holders[l.from].refs?.scene && !world.holders[l.to].refs?.scene;
+    worldLinks(world).filter(l => (l.from === placeId || l.to === placeId) && worldSide(l)).forEach((l, i) => {
         const spot = real(o.exitAt?.[l.id]) ?? (exits.length ? exits[i % exits.length] : fallback);
         out.push({...l, id: `${placeId}.out.${l.id}`, [l.from === placeId ? 'from' : 'to']: id(spot), mirrors: l.id});
     });
@@ -175,6 +179,8 @@ export function planScene(world, placeId, opts = {}) {
 }
 
 const spotShape = s => ({tags: [...s.tags].sort(), properties: s.properties ?? {}});
+// What a spot gained that a fresh spot never has: amounts, their ledger, pack state.
+const spotCarried = s => Object.fromEntries(['quantities', 'ledger', 'state'].filter(f => Object.keys(s[f] ?? {}).length).map(f => [f, s[f]]));
 const LINK_FIELDS = ['kind', 'from', 'to', 'cost', 'state', 'oneWay', 'force', 'note'];
 const linkDiff = (now, fresh) => Object.fromEntries(LINK_FIELDS.filter(f => !same(now[f] ?? null, fresh[f] ?? null)).map(f => [f, now[f] ?? null]));
 
@@ -185,8 +191,9 @@ export function enterSceneOps(world, placeId, opts = {}) {
     const plan = planScene(world, placeId, opts), kept = readKept(world, placeId) ?? {};
     const spots = new Map(plan.spots.map(s => [s.id, s]));
     for (const [id, k] of Object.entries(kept.spots ?? {})) {
-        if (spots.has(id)) spots.set(id, {...spots.get(id), properties: k.properties});
-        else if (k.added) spots.set(id, {id, kind: 'place', detail: 'near', tags: k.tags, properties: k.properties, refs: {scene: placeId}});
+        const {added, tags, ...carried} = k;
+        if (spots.has(id)) spots.set(id, {...spots.get(id), ...carried});
+        else if (added) spots.set(id, {id, kind: 'place', detail: 'near', tags, ...carried, refs: {scene: placeId}});
     }
     const links = new Map(plan.links.map(l => [l.id, l]));
     for (const [id, k] of Object.entries(kept.links ?? {})) {
@@ -201,23 +208,32 @@ export function enterSceneOps(world, placeId, opts = {}) {
         ...[...links.values()].filter(l => (spots.has(l.from) || world.holders[l.from]) && (spots.has(l.to) || world.holders[l.to]))
             .map(link => ({op: 'link_add', link})),
         ...Object.entries(at).map(([holder, to]) => ({op: 'move', holder, to})),
+        // A law field left on a spot (a ward on the doorway) comes back unless its time ran out while folded.
+        ...Object.entries(kept.laws ?? {}).filter(([, f]) => spots.has(f.scope) && (f.until == null || f.until > world.clock))
+            .map(([id, f]) => ({op: 'law_add', field: {...f, id}})),
     ];
 }
 
 /** Ops that fold a place's spots away. What differs from a fresh plan is kept on the
- * place: a changed spot, a changed, removed or added link, a thing lying somewhere a
- * fresh plan would not put it. A way out changed from inside is written to the world's
+ * place: a changed spot (with any amounts and pack state it gained), a changed, removed
+ * or added link, a law field on a spot, a thing lying somewhere a fresh plan would not put it. A way out changed from inside is written to the world's
  * own link. People are not kept at spots by default (`keepPeople` is the dial). */
 export function leaveSceneOps(world, placeId, opts = {}) {
     const ids = spotsOf(world, placeId);
     if (!ids.length) return [];
     const plan = planScene(world, placeId, opts), inScene = new Set(ids);
-    const fresh = new Map(plan.spots.map(s => [s.id, s])), kept = {spots: {}, links: {}, at: {}}, ops = [];
+    const fresh = new Map(plan.spots.map(s => [s.id, s])), kept = {spots: {}, links: {}, at: {}, laws: {}}, ops = [];
 
     for (const id of ids) {
         const now = world.holders[id], was = fresh.get(id);
-        if (!was) kept.spots[id] = {...spotShape(now), added: true};
-        else if (!same(now.properties, was.properties)) kept.spots[id] = {properties: now.properties};
+        const carried = spotCarried(now);
+        if (!was) kept.spots[id] = {...spotShape(now), ...carried, added: true};
+        else if (!same(now.properties, was.properties) || Object.keys(carried).length) kept.spots[id] = {properties: now.properties, ...carried};
+    }
+    // Law fields scoped to a spot would be left with no scope; they fold into the kept slice.
+    for (const {id, ...field} of world.laws.filter(f => inScene.has(f.scope))) {
+        kept.laws[id] = field;
+        ops.push({op: 'law_remove', id});
     }
     const mine = (world.links ?? []).filter(l => inScene.has(l.from) || inScene.has(l.to));
     const freshLinks = new Map(plan.links.map(l => [l.id, l]));
