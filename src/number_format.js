@@ -12,6 +12,15 @@ export function formatDecimal(value, digits = 1) {
     return trim(n.toFixed(digits));
 }
 
+/** UIC148: a value with its unit for a list read at a glance: 31.623 AP → "31.6 AP", 1 points → "1 point". Exact figures stay one step away. */
+export function formatGlance(value, unit = '') {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return '?';
+    const text = String(Number(n.toFixed(Math.abs(n) >= 10 ? 1 : n !== 0 && Math.abs(n) < .01 ? 6 : 2)));
+    const word = n === 1 ? ({points: 'point', hits: 'hit'})[unit] ?? unit : unit;
+    return word ? `${text} ${word}` : text;
+}
+
 /** A whole count with thousands separators: 456011 → "456,011". */
 export function formatCount(value) {
     const n = Number(value);

@@ -16,7 +16,7 @@ test('native session notes compare a real departure/return and clear across load
     await g.call('change_location',{location_id:'Village',skip_travel_time:true});
     const notes=g.text('#palette_feedback_panel');
     assert.match(notes,/Stale bread/);
-    assert.match(notes,/previous visit snapshot|Previous visit snapshot/);
+    assert.match(notes,/This is what you remember, not what is there now/);
     await g.save();await g.reload();
     assert.doesNotMatch(g.text('#palette_feedback_panel'),/previously|more changes in Details/);
     assert.deepEqual(g.errors,[]);

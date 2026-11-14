@@ -34,7 +34,7 @@ export function centerModes() {
     const actions = document.getElementById('location_actions_div');
     const nav = document.createElement('div'); nav.id = 'center_mode_navigation';
     const back = document.createElement('button'); back.id = 'center_mode_back'; back.type = 'button';
-    back.textContent = '← Village'; back.addEventListener('click', () => owner.back());
+    back.textContent = '← Back to Village'; back.addEventListener('click', () => owner.back());
     nav.append(back);
     const host = actions.parentElement;
     const content = document.createElement('div'); content.id = 'center_mode_content';
@@ -88,7 +88,7 @@ export function centerModes() {
         else if (board && !depth && board.dataset.heldRows) { const was = board.dataset.heldRows.trim(); delete board.dataset.heldRows; if (was) board.style.setProperty('grid-template-rows', was, 'important'); else board.style.removeProperty('grid-template-rows'); }
         const place = document.getElementById('location_name_span')?.textContent.trim() || 'Local actions';
         const label = views.get(destination)?.label || {mixing:'Village mixing counter',dialogue:'Conversation',reading:'Reading',sleep:'Resting',activity:'Current work',action:'Current work',crafting:'Crafting',trade:'Trade',storage:'Storage'}[destination] || place;
-        back.textContent = `← ${label}${mode === 'reading' ? ' · Stop reading' : mode === 'sleep' ? ' · Wake up' : ''}`;
+        back.textContent = `← Back to ${label}${mode === 'reading' ? ' · Stop reading' : mode === 'sleep' ? ' · Wake up' : ''}`;
         back.setAttribute('aria-label', back.textContent);
         nav.dataset.centerMode = mode;
         for (const [key, id] of Object.entries(surfaces)) {

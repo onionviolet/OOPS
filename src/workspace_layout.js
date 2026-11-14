@@ -154,7 +154,7 @@ function syncPanelHeader(module,state,eligible) {
         const purse=owner.parity&&module.id==='belongings'?document.getElementById('money_div')?.textContent.trim().replace(/^Your purse contains:\s*/, ''):null;
         const nearbySummary=owner.parity&&module.id==='focus'?module.node.dataset.nearbySummary:null;
         const panelName=owner.parity&&module.id==='focus'?'Around you':module.title;
-        const statusText=purse??nearbySummary??(!eligible?(module.unavailableReason?.()||'Return here to use this panel'):count?`${count} entries`:({focus:module.shell.dataset.focusEmpty==='true'?'Inspect a target':'Current target',records:'Choose a tab','local-actions':'Available here',projects:`${module.node.querySelectorAll('details').length} projects`}[module.id]||(state.collapsed?'Collapsed · expand to review':'Ready')));
+        const statusText=purse??nearbySummary??(!eligible?(module.unavailableReason?.()||'Return here to use this panel'):count?`${count} entries`:({focus:module.shell.dataset.focusEmpty==='true'?'Inspect a target':'Current target','local-actions':'Available here',projects:`${module.node.querySelectorAll('details').length} projects`}[module.id]||(state.collapsed?'Collapsed · expand to review':'Ready')));
         if(status.textContent!==statusText)status.textContent=statusText;
         const description=purse?`Purse: ${purse}`:statusText;
         setProperty(status,'title',description);setAttribute(status,'aria-label',description);

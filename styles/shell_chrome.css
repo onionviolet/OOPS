@@ -9,7 +9,7 @@
 .control-box-button:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:-2px;}
 .control-box-button[aria-expanded="true"] {border-color:var(--p23-quantity);}
 .control-box-label {min-width:0;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums;}
-.control-box-caret {color:var(--p23-muted);font-size:.85em;}
+.control-box-caret {color:var(--p23-muted);font-size:var(--ui-type-small);}
 .control-box-panel {position:fixed;inset:auto;margin:0;padding:round(.3em, 1px) round(.45em, 1px) round(.45em, 1px);box-sizing:border-box;max-height:min(70vh,32em);overflow:auto;
  font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;
  color:var(--p23-text);background:var(--p23-context);border:2px solid var(--p23-line);box-shadow:var(--ui-shadow);}
@@ -88,7 +88,7 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 :root[data-one-bar="true"] #game_bar #workspace_navigation > select {max-width:9em;}
 :root[data-one-bar="true"] #game_bar .game-bar-overflow[hidden] {display:none;}
 :root[data-one-bar="true"] #game_bar .game-bar-right {display:flex;align-items:center;flex:0 0 auto;gap:3px;}
-:root[data-one-bar="true"] #game_bar .game-bar-save-state {color:var(--p23-muted);font-size:.85em;white-space:nowrap;padding:0 round(.4em, 1px);}
+:root[data-one-bar="true"] #game_bar .game-bar-save-state {color:var(--p23-muted);font-size:var(--ui-type-small);white-space:nowrap;padding:0 round(.4em, 1px);}
 :root[data-one-bar="true"] #game_bar .game-bar-save-state[data-warning="true"] {color:var(--p23-critical);font-weight:600;}
 :root[data-one-bar="true"] #game_bar :is(#save_button,#save_to_file_button,#load_from_file_button) {position:relative;display:inline-flex;align-items:center;height:auto;min-height:0;margin:0;padding:round(.1em, 1px) round(.55em, 1px);font:inherit;color:var(--p23-text);background:var(--p23-context)!important;background-image:none!important;border:1px solid var(--p23-line);cursor:pointer;width:auto;}
 :root[data-one-bar="true"] #game_bar #saved_file_input {display:none;}

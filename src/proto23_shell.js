@@ -16,7 +16,7 @@ import {rendered} from './panel_reveal.js';
 import {descriptionCopy} from './shell_item_description.js';
 import {renderItemCard} from './ui/item_card.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
-const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit dmg',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
+const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
 const active=()=>document.getElementById('main_content')?.dataset.presentation==='proto23-shell';
 const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};
 function attributeExplanation(row){

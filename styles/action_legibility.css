@@ -138,3 +138,7 @@
 #main_content .expanded-panel-view:has([data-field-works]) > .expanded-panel-heading {
     background: var(--ui-fill) !important;
 }
+
+/* UIC153: headings on the type tokens, not the browser's h2/h3 sizes. */
+.action-legibility h2 { font-size: var(--ui-type-title); }
+.action-legibility__card h3 { font-size: var(--ui-type-body); }

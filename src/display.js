@@ -48,7 +48,7 @@ import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, 
 import { favourite_locations, location_types, locations } from "./data/locations.js";
 import { get_location_type_penalty } from "./models/location.js";
 import { enemy_killcount, enemy_templates } from "./enemies.js";
-import { formatPercent, formatMultiplier, formatRatio, moneyParts } from "./number_format.js";
+import { formatPercent, formatMultiplier, formatRatio, formatGlance, moneyParts } from "./number_format.js";
 import { set_bar_fraction, mark_vital_meter } from "./ui/bar_semantics.js";
 import { playerAttributeDefinitions, ATTRIBUTE_DESCRIPTIONS, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR, affixSourceRows } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
@@ -56,7 +56,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 import { channelNote } from "./channels.js";
 import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
-import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
+import {recipeMakeableNow, itemRecipeStatus, shortOfText} from "./crafting_visibility.js";
 import {readPort,ports,whenPortsReady} from './ui_ports.js';
 import {mountTalkView} from './talk_dialogue_host.js';
 import {craftCue} from "./craft_cues.js";
@@ -3424,7 +3424,7 @@ function update_item_recipe_row_status(row, category, recipe) {
     }
     const short = state.available ? `${state.amount} ready`
         : state.reasons.includes("no station here") ? "No station"
-        : state.requirements.some(r => r.missing) ? "Missing"
+        : state.requirements.some(r => r.missing) ? shortOfText(state.requirements)
         : "Unavailable";
     const explanation = state.available
         ? `${state.amount} ${state.amount === 1 ? "attempt" : "attempts"} ready; results may vary`
@@ -4432,7 +4432,7 @@ export function readPlayerAttributeInspector() {
         if(value == null) return 'Unavailable';
         if(PERCENT_ATTRIBUTES.has(key)) return formatPercent(value, 3);
         if(unit === '×') return formatMultiplier(value, 3);
-        return `${number(value)} ${unit}`;
+        return formatGlance(value, unit);
     };
     const sourcesFor = (flat, multiplier, key, includeFlat = true) => {
         const sources = [];

@@ -414,7 +414,9 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content[data-workspace-composition="proto23"] #center_mode_navigation { flex: 0 0 auto; }
 }
 #workspace_navigation select { max-width: 170px; }
-#workspace_navigation [data-new-home="true"]::after { content: ' •'; color: var(--ui-accent); }
+/* UIC145: the dot sits in the tab's corner and takes no width, so clearing it moves no other tab. */
+#workspace_navigation [data-new-home="true"] { position: relative; }
+#workspace_navigation [data-new-home="true"]::after { content: '•'; color: var(--ui-accent); position: absolute; top: 1px; right: 2px; line-height: .7; pointer-events: none; }
 
 @media (min-width:1001px) {
 #main_content.workspace-active[data-workspace-composition="proto23"] .workspace-module[data-module="local-actions"]:has(.center-mode-open) { flex: 1 1 0 !important; min-height: 0 !important; }
@@ -1827,7 +1829,7 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 
 #main_content.workspace-active :is(.ui-workbench,#continuation_view) [role="status"]:empty {display:none;}
 /* Full route names retain enough space before the bar folds shortcuts. */
-:root[data-one-bar="true"] #game_bar #workspace_navigation > select {width:12ch;min-width:12ch;max-width:12ch;}
+:root[data-one-bar="true"] #game_bar #workspace_navigation > select {width:15ch;min-width:15ch;max-width:15ch;} /* UIC137: 12ch cut "All panels…" to "All panel" */
 :root[data-one-bar="true"] #game_bar .game-bar-overflow {flex:0 0 auto;}
 :root[data-one-bar="true"] #game_bar .game-bar-overflow .control-box-button {max-width:none;}
 #main_content.workspace-active #trade_control_div #trade_price_div {display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;}
@@ -1902,3 +1904,6 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 #village_mixing_panel .mixture-status {margin:var(--ui-space-1) 0;}
 #village_mixing_panel .mixture-details > summary {cursor:pointer;margin-top:var(--ui-space-2);}
 .mixture-discovery-table td[data-state="unknown"] {color:var(--workspace-muted, inherit);}
+
+/* UIC153: a <small> inside body text shrinks by the browser's ratio (11.67px); hold it to the small token. */
+.temperature-band > small, #reports_dock small { font-size: var(--ui-type-small); }

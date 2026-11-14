@@ -16,7 +16,7 @@ export function createManagementPanel({read,registry,command}) {
  // UR8: the panel owns its node and registers through definePanel; nothing appends it to Location actions.
  const claimHere=()=>{try{return !!domainRegistry.command('organizations','claimHere')?.();}catch{return false;}};
  const element=node('section','',{id:'management_panel','aria-label':'Market courtyard'});element.className='expedition_panel organization-panel';
- const terms=node('p','Original local proposals. Work advances only during play. No browser-closed rent, upkeep or debt collection.');terms.className='organization-note';
+ const terms=node('p','Work here moves only while you are here to do it. The courtyard keeps no tally against you while you are away.');terms.className='organization-note';
  const moved=node('p','This panel used to sit inside Location actions. It now has its own place in the panel list.');moved.className='organization-note organization-moved';
  const dismiss=node('button','Got it',{type:'button'});dismiss.setAttribute('aria-label','Got it: hide the note about the new Market courtyard panel');dismiss.title='Hide this note';dismiss.addEventListener('click',()=>{markMoved();moved.hidden=true;});moved.append(' ',dismiss);moved.hidden=seenMoved();
  const notice=node('p');notice.setAttribute('role','status');

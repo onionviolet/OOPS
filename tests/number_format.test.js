@@ -23,3 +23,20 @@ test('money text matches the purse denominations', () => {
     assert.equal(formatMoneyText(123456), '1G 23S 45C 6W');
     assert.equal(formatMoneyText(-30), '-3C');
 });
+
+test('formatGlance rounds for a list and keeps one of a thing singular (UIC148)', async () => {
+    const {formatGlance} = await import('../src/number_format.js');
+    assert.equal(formatGlance(31.623, 'AP'), '31.6 AP');
+    assert.equal(formatGlance(1.234, 'damage'), '1.23 damage');
+    assert.equal(formatGlance(1, 'points'), '1 point');
+    assert.equal(formatGlance(1, 'hits'), '1 hit');
+    assert.equal(formatGlance(12, 'points'), '12 points');
+    assert.equal(formatGlance(0, 'hp/s'), '0 hp/s');
+    assert.equal(formatGlance(NaN, 'AP'), '?');
+});
+
+test('shortOfText names how many materials a recipe lacks (UIC172)', async () => {
+    const {shortOfText} = await import('../src/crafting_visibility.js');
+    assert.equal(shortOfText([{missing: true}, {missing: false}, {missing: false}]), '1 material short');
+    assert.equal(shortOfText([{missing: true}, {missing: true}, {missing: false}]), '2 of 3 materials short');
+});

@@ -36,6 +36,8 @@ export const ENGINE_WORDS = [
   'runtime', 'registry', 'host\\b', 'adapter', 'validated', 'atomically',
   // PX47 (2026-11-10 playtest): prototype talk and hedges that reached the player.
   'prototype', 'represented', 'authority-backed', 'played minutes', 'makes no claim', 'past history', 'text not found',
+  // UIC167 (2026-11-13 panel pass): build notes that read as the game explaining itself.
+  'browser', 'played time', 'this panel', 'panel list', 'pack slice', 'slice coins', 'proposed balance', 'on this device',
 ];
 const wordRe = new RegExp(`\\b(${ENGINE_WORDS.join('|')})\\b`, 'i');
 // Field names whose string values the player reads.

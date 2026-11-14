@@ -57,3 +57,9 @@ export function itemRecipeStatus({recipe, stationTier, findMaterial, isMaterialK
     const available = !reasons.length && availability.available_ammount > 0;
     return {available, amount: available ? availability.available_ammount : 0, requirements, reasons, availability};
 }
+
+/** UIC172: a recipe row says how far it is from ready, not just "Missing". */
+export function shortOfText(requirements) {
+    const short = requirements.filter(r => r.missing).length, all = requirements.length;
+    return short === 1 ? '1 material short' : `${short} of ${all} materials short`;
+}

@@ -25,7 +25,8 @@ function publishCue(receipt, anchor) {
     if (!receipt || suppressNextCue) return;
     if(receipt.pose){publishBodyExpression(receipt);cueLine.textContent=receipt.text;return;}
     cueLine.textContent=receipt.text;
-    if (!readPort('sceneCue',receipt) && panel.checkVisibility?.()) feedback?.presentReceipt(receipt,anchor);
+    // UIC140: each line below carries its own words, so the mark comes without a second copy of them.
+    if (!readPort('sceneCue',receipt) && panel.checkVisibility?.()) feedback?.presentReceipt(receipt,cueLine,{caption:false});
 }
 
 function knownSkills(character) {
@@ -93,11 +94,11 @@ function render() {
             const hadVisited = visitedPlaces.has(currentId);
             const receipt = ledger.observeReturn({boundaryId: `visit:${currentId}:${++visitSequence}`, subjectId: currentId, entries: rows});
             if (receipt) {
-                returnLine.textContent = `Session snapshot since your last visit: ${receipt.text}`;
+                returnLine.textContent = `Since you were last here: ${receipt.text}`;
                 returnDetails.hidden=false;returnList.replaceChildren(...receipt.changes.map(change=>node('li',change)));
-                returnContext.textContent=`Previous visit snapshot, observed ${observedAt.get(currentId)||'earlier this session'}. This is remembered information, not live tracking while away.`;
-                if(panel.checkVisibility?.()) feedback?.presentReceipt(receipt);
-            } else returnLine.textContent = hadVisited ? 'No known changes in the session snapshot since your last visit.' : 'First observed visit this session; no return summary yet.';
+                returnContext.textContent=`As you saw it ${observedAt.get(currentId)||'earlier'}. This is what you remember, not what is there now.`;
+                if(panel.checkVisibility?.()) feedback?.presentReceipt(receipt,returnLine,{caption:false});
+            } else returnLine.textContent = hadVisited ? 'Nothing here looks different from your last visit.' : 'Your first look at this place. Come back and the changes will show.';
             if(!receipt){returnDetails.hidden=true;returnList.replaceChildren();returnContext.textContent='';}
             const remembered=observedReadings.get(currentId)||[];returnMeters.replaceChildren();
             for(const old of remembered){const bar=createMeterBar();bar.update({id:`remembered-observation:${old.subject}`,subject:old.subject,label:`${old.label} · last observed`,kind:'pool',value:old.value,max:old.max,observation:{stale:true,text:`Remembered during previous visit: ${observedAt.get(currentId)}. This is not its current condition.`},note:'An observation from the previous visit, retained in this session only.'});returnMeters.append(bar.node);}
@@ -137,7 +138,7 @@ function render() {
             const destination = harvestSummary();
             const receipt = ledger.observeActivityBoundary({boundaryId: `harvest:${harvestKey}`, activityId: 'carcass-processing', outcome: `Processing complete: ${harvest.choice}`, destination: 'carried', summary: destination ? [destination] : []});
             activityLine.textContent = receipt?.text || destination;
-            if (receipt && !suppressNextCue && panel.checkVisibility?.()) feedback?.presentReceipt(receipt, sceneAnchor);
+            if (receipt && !suppressNextCue && panel.checkVisibility?.()) feedback?.presentReceipt(receipt, activityLine, {caption:false});
         }
     }
     if (!activityLine.textContent && harvestKey) activityLine.textContent = harvestSummary();
@@ -148,12 +149,12 @@ function render() {
 function createPanel() {
     const section = node('section', null, {id: 'palette_feedback_panel', class: 'reference-panel expedition_panel palette-feedback-host'});
     section.dataset.surfaceType = 'reference';
-    const intro = node('p', 'Local conditions and session-only changes from observed native state.');
+    const intro = node('p', '');
     const activity = node('p', ''), returned = node('p', '', {role: 'status', 'aria-live': 'polite'});
     cueLine=node('p','',{class:'palette-feedback-notes'});returnDetails=node('details');returnDetails.hidden=true;
     returnContext=node('p');returnList=node('ul');returnMeters=node('div');returnDetails.append(node('summary','Details of this return'),returnContext,returnList,returnMeters);
     activity.className = 'palette-feedback-activity'; returned.className = 'palette-feedback-return';
-    intro.textContent = 'Return snapshots and completed local work, from observed native state. Comparisons last for this session only.';
+    intro.textContent = 'What changed here since you last looked, and what your work here finished.';
     section.append(intro, activity, cueLine, returned,returnDetails);
     activityLine = activity; returnLine = returned;
     feedback = createPaletteFeedback({container: section, ledger, readSettings: () => readPort('presentation', 'location') || {}});

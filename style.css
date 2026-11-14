@@ -1849,7 +1849,8 @@ i {
 }
 
 .coin_wood{
-	color: var(--ui-swatch-050);
+	/* UIC177: the darker brown read at 2.9 to 1 on a dark row. */
+	color: var(--ui-swatch-103);
 }
 
 .coin_copper{

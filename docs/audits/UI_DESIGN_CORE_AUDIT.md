@@ -2383,6 +2383,8 @@ Weibao: "commit and then fix, dont lose sight of any ideas?" The first batch is 
 
 ### Open ideas ledger (2026-11-13)
 
+Superseded the same day by the [revised ledger](#ui-ledger-revised-2026-11-13) at the end of this file; kept as written.
+
 One list so nothing from this round drops. Proposals unless marked (AD32). Update the status here when one lands.
 
 | Code | Idea | Status | Next move |
@@ -2627,3 +2629,72 @@ Weibao: "other general ui improvements?" Method: headless Chrome at 1920×1080 o
 - **F, the unusual one: a day strip.** Time is what this game spends, yet the screen shows only the current minute. A thin strip of today's hours across the centre top, marked with what happened and what the routine plans next, would make an idle day readable at a glance and give the one clock (UIC146) a home.
 
 Ledger additions: UIC172 to UIC179, open.
+
+## UI ledger, revised (2026-11-13)
+
+Weibao set the goal "complete accordingly and revise". This is the one current list for rounds 48 to 51; the per-round "ledger additions" lines above are history. Agent-verified, not human-reviewed. Everything not marked done is a proposal (AD32).
+
+### Third batch (this revision)
+
+Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line says otherwise; no page errors.
+
+- **UIC145, top-bar shift (done).** The unread dot sits in the tab's corner and takes no width. Stats, Condition, Inventory, Journal, Data and Knows start at the same x on home, on Stats and on Condition.
+- **UIC137, "All pane" (done).** The control is 15 characters wide and reads "All panels…".
+- **UIC153, stray type sizes (done).** Carets, the save-state text, two `<small>` lines and the Notebook's card headings are on the type tokens. Measured: no text outside 12, 14 and 16 px on home or Stats (icon glyphs aside).
+- **UIC154, the cut-off label (done).** The You panel reads "Crit ×1.3" beside "Crit % 5%". Measured: no clipped button or tab.
+- **UIC177, contrast (done).** The wood-coin letter uses the lighter brown already used in the crafting detail.
+- **UIC148, numbers (done for the Stats list).** "31.6 AP", "25.3 EP", "1 point", "1 hit". The exact figure stays in "Calculation and sources". Other panels were not swept.
+- **UIC150, back label (done).** "← Back to Notebook", "← Back to Village".
+- **UIC174, the "?" tab (done in part).** It reads "Keys" and its tooltip names the palette and the row menu. Nothing on the main screen points at the palette yet.
+- **UIC172, crafting rows (done in part).** A row reads "1 material short" or "2 of 3 materials short". Sorting ready recipes first and a makeable count per skill tab are not built.
+- **UIC140 and UIC142, the place-feedback panel (done, not seen on screen).** Its three lines no longer float a second copy of their words, and its build wording is rewritten ("Since you were last here: …", "Nothing here looks different from your last visit.", "This is what you remember, not what is there now."). Covered by `tests/palette_native.test.js`; the panel was not opened in Chrome this round.
+- **UIC167, lint terms (done).** The prose lint knows "browser", "played time", "this panel", "panel list", "pack slice", "slice coins", "proposed balance" and "on this device". 25 existing strings went into the baseline, so the count can only fall.
+- **UIC158 (one line done).** The courtyard's note reads "Work here moves only while you are here to do it. The courtyard keeps no tally against you while you are away." Its command descriptions were left: they sit in registered definitions that saves may pin by content.
+- **Journal header.** It no longer says "Choose a tab" while a tab is open.
+- **UIC173 corrected.** "Mix one vial" is already disabled when ingredients are missing; the capture made it look ready. What is weak is how a disabled button looks, which belongs with UIC166.
+
+### Status of every item
+
+| Code | Item | Status | What is left, or who decides |
+| --- | --- | --- | --- |
+| UIC127, UIC128, UIC151 | One place panel; the next step marks its target; three ways into one bench | Open | Build as one centre slice and show before and after captures |
+| UIC129, UIC160 | A condition names its effect and remedy; Condition route with two lines | Open | Needs a state with conditions (UIC144) |
+| UIC130, UIC134, UIC138 | Long time in human units, the lint | Done `804e0991a` | 109 older lines retire as they are rewritten |
+| UIC131 | The screen grows with the life | Open | Mock, then Weibao |
+| UIC132, UIC175 | Top bar by use; unguessable letters | Held for Weibao | It narrows the bar (AD56) |
+| UIC133, UIC139 | Weather lines; the kept cue's end | Done `dfc7fc2d5`, `abeb69331` | Snow ends by age only |
+| UIC135, UIC144 | More states in the walk; a way to ask for rain | Partly done | The conditions state |
+| UIC136 | Check for duplicate ways in | Open | Before UIC127 |
+| UIC137 | Cut-off label | Done, this batch | A check that counts cut-off labels is still open |
+| UIC140, UIC142 | Place-feedback panel doubles and wording | Done, this batch | See it on screen |
+| UIC141 | Cues during a local task | Open | Inferred, not exercised |
+| Cue overwrite | Several cues, one line | Open | Latest wins and the rest to Reports, or a short queue |
+| UIC143 | Clean-bundle helper | Open | The hand recipe was used six times this session |
+| UIC145 | Top-bar shift | Done, this batch | Add the bar to the `stability` check |
+| UIC146 | One clock | Open | Goes with direction B (one status line); needs a mock |
+| UIC147, UIC152, UIC170, UIC178 | Repeated stat card; half-empty left column; few detail regions | Open | Direction A; needs a mock |
+| UIC148 | Number precision and plurals | Done for Stats | Sweep other panels |
+| UIC149, UIC159, UIC166 | Blocked actions with no reason; the Ledger's button row | Open | Direction D; a ratchet check first |
+| UIC150 | Back label | Done, this batch | |
+| UIC153, UIC154, UIC177 | Type sizes, clipped label, contrast | Done, this batch | A gradient-aware contrast check |
+| UIC155 | 2,385 buttons in the page | Open | Measure the effect first |
+| UIC156 | Money and weight letters | Open | Check hover text first |
+| UIC157, UIC165, UIC171 | Tabs and list names that disagree with their panel; two Journals | Open | A ratchet check, then renames |
+| UIC158, UIC167 | Build notes in player text | Lint done; one line rewritten | Rewrite by surface (PRS8); registered definitions need a compatibility look |
+| UIC161, UIC162, UIC179 | Empty columns; tooltip over the header; key list over its subject | Open | Small |
+| UIC163 | Panel template pass | Done `257ceca79` | |
+| UIC164 | Stubs | Done `5b82df7e9` | |
+| UIC168 | The Notebook as a second panel list | Open | Weibao, with a mock |
+| UIC169 | "Local actions opens the Journal" | Closed, not a defect | |
+| UIC172 | Crafting readiness | Partly done | Sort and tab counts |
+| UIC173 | Mixing voice as the model | Noted | Quote it in briefs (PRS7) |
+| UIC174 | The palette is hidden | Partly done | Point at it from the main screen |
+| UIC176 | Small click targets | Open | 41 of 111 on home |
+| UIC119, UIC122, M2 | Inline-format lint; visual baselines; Reports sizing | Open | M2 waits on UIC122 |
+| R2, R3, R5, M3, M4 | Round 46 and 47 findings | Status not known | Replay during UIC127 |
+| PRS13 | Dry humour, deadpan first | Standing consideration | No pass |
+| Directions A to F | List and thing; one status line; empty space as the place; "what can I do now"; lead with the palette; a day strip | Options to mock | Weibao picks |
+
+### What is not done, and why
+
+The open items fall into three groups. **Held or waiting for a look:** the top bar, the Notebook, the growing screen and the six directions change what the frame is, so they need a mock and Weibao's answer. **Needs a state the fixture lacks:** conditions, rain, a long life, combat. **Plain work not yet started:** the ratchet checks from the panel pass, the place-panel slice, crafting sort and counts, and the small items in the table.
