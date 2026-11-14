@@ -2956,3 +2956,8 @@ Same method and gates as the fifteenth batch, in the order the coordination chat
 - **UIC200, training and skills (done).** Skills opened with every group collapsed, so "4 / 4 skills" sat over an empty list. Groups now start open, and open again on reload; closing one lasts the sitting. Each bar's bare "2.5%" reads "2.5% to next level". The tooltip no longer shows the engine id (`id: "Patience"`). "lvl 2: ???" reads "Next reward at level 2." The ladder's "Patience 4: … (needs Patience 4)" reads "(1 level away)". What practising raises was already stated on the practice actions ("Completion gives six Climbing XP and one practice"). Seen on `village-craftsman`.
 
 **Not done.** The Notebook's Practice view also holds "Eat a proper meal" (a frail beginning's way to clear Underfed); it is clear but only reachable in that view. Fang Yuan's inventory shows "102 coins (denominations unfamiliar)" and "0 coins" per item. The Skills tab row still shows the upstream "???????" third tab. The Homes history lists "Minute 1234:" lines.
+
+**Checks**
+
+- `npm run test:changed` on the working tree with all five changes: 3,645 tests, 3,643 pass, 0 fail, 2 skipped. Focused files touched here (home view, pacing, skill ladder, regional prices, money ratchet, UI contract) pass.
+- On committed code (`c2d4c10e5`): `node scripts/visual_baseline.mjs --rev HEAD` five identical; `node scripts/check_flow.mjs --rev HEAD` 13 routes, four other states, 0 findings. `check:arch` passes (display.js stays under its cap); `check:rules` passes (one warning: the private-pack glob matches no file in this tree).
