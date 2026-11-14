@@ -282,8 +282,40 @@ function uptakeEffects(flask, recipient, contents, amount, rows, route) {
     ];
 }
 
+// Body-surface route (proposal, wave 3). A preparation is applied to one named surface of a body (skin,
+// hair, a wound) for a stated contact time. Mechanism: the surface must exist on that body (its world mark
+// `surface:<name>` in the `marks` property; a bald head has no hair surface to treat), and during contact a fraction of the
+// applied units reaches the body: fraction = min(1000, uptake permille per contact minute x minutes).
+// The absorbed units land in the same body dose account as a swallowed dose, so every dose response
+// reads them unchanged; the rest stays as surface residue in the account coat and splash already use
+// (washing, drying and transfer are those packs' rules, connected and not copied). Defaults by surface,
+// each with its in-world reason, and a dial (`uptakePermille` on the method overrides it):
+//   skin 40 (intact skin is a slow barrier: ten minutes of contact reach four tenths),
+//   hair 100 (hair holds a liquid on a large surface and takes a treatment in about ten minutes),
+//   wound 250 (broken skin has no barrier: about four minutes of contact reach all of it).
+// The contact time counts from the application; the dose is settled once, with no per-minute drift.
+export const SURFACE_UPTAKE = Object.freeze({skin: 40, hair: 100, wound: 250});
+
+function surfaceContact(recipient, options, drawn) {
+    const {surface, contact} = options;
+    if (typeof surface !== 'string' || !surface) return {reason: 'surface-unnamed'};
+    if (!(recipient.properties?.marks ?? []).includes(`surface:${surface}`)) return {reason: 'recipient-lacks-surface'};
+    const rate = options.uptakePermille ?? SURFACE_UPTAKE[surface];
+    if (!natural(rate) || rate > 1000) return {reason: 'surface-uptake-unset'};
+    if (!positive(contact)) return {reason: 'contact-time-unset'};
+    const fraction = Math.min(1000, rate * contact);
+    const absorbed = {}, remaining = {};
+    for (const [part, units] of Object.entries(drawn)) {
+        const taken = Number(BigInt(units) * BigInt(fraction) / 1000n);
+        if (taken) absorbed[part] = taken;
+        if (units - taken) remaining[part] = units - taken;
+    }
+    return {absorbed, remaining};
+}
+
 const doseOperations = {
-    administer: {roles, minutes: 2, settle({bound: {flask, recipient}, options, at, address}, coating = false) {
+    administer: {roles, minutes: 2, settle({bound: {flask, recipient}, options, at, address}, mode = 'dose') {
+        const coating = mode === 'coat';
         if (!flask.holder || !recipient.holder || flask.holder === recipient.holder || !flask.place || flask.place !== recipient.place)
             return {ok: false, reason: 'serving-out-of-reach'};
         const available = brewDoseContents(flask);
@@ -313,12 +345,19 @@ const doseOperations = {
         const drawn = split ? fractionContents(split.product) : measuredBrewShare(available, measure, total);
         const amount = Object.values(drawn).reduce((sum, units) => sum + units, 0);
         if (!amount) return {ok: false, reason: 'serving-measure-unavailable'};
-        const {dose: {contents}, state} = storedBrewDose(drawn, flask.brewStorage, at);
+        const {dose: {contents: delivered}, state} = storedBrewDose(drawn, flask.brewStorage, at);
+        const surface = mode === 'apply' ? surfaceContact(recipient, options, delivered) : null;
+        if (surface?.reason) return {ok: false, reason: surface.reason};
+        // Responses read what reached the body: the whole dose, or the share a surface let through.
+        const contents = surface ? surface.absorbed : delivered;
+        const deposits = surface
+            ? [...Object.entries(surface.absorbed).map(([part, amount]) => [brewDoseQuantity(part), amount, WORLD_QUANTITIES.stock.max]),
+                ...Object.entries(surface.remaining).map(([part, amount]) => [residueQuantity(part), amount, WORLD_QUANTITIES.residue.max])]
+            : Object.entries(delivered).map(([part, amount]) => coating
+                ? [residueQuantity(part), amount, WORLD_QUANTITIES.residue.max] : [brewDoseQuantity(part), amount, WORLD_QUANTITIES.stock.max]);
         const effects = [];
-        for (const [part, amount] of Object.entries(contents)) {
-            const quantity = coating ? residueQuantity(part) : brewDoseQuantity(part);
+        for (const [quantity, amount, max] of deposits) {
             const held = recipient.quantities[quantity];
-            const max = coating ? WORLD_QUANTITIES.residue.max : WORLD_QUANTITIES.stock.max;
             if (amount > max - (held ?? 0)) return {ok: false, reason: 'recipient-dose-account-full'};
             effects.push(held === undefined ? {op: 'carry', holder: recipient.holder, quantity, amount} :
                 {op: 'add', holder: recipient.holder, quantity, amount});
@@ -423,14 +462,19 @@ export const BREW_DOSE_LAW = defineWorkingLaw({id: 'b.dose', revision: 1, operat
     ...doseOperations,
     coat: {...doseOperations.administer, roles: coatingRoles, settle(args) {
         if (args.options.route !== 'coat') return {ok: false, reason: 'coating-route-unavailable'};
-        return doseOperations.administer.settle(args, true);
+        return doseOperations.administer.settle(args, 'coat');
+    }},
+    apply: {...doseOperations.administer, settle(args) {
+        if (args.options.route !== 'apply') return {ok: false, reason: 'surface-route-unavailable'};
+        return doseOperations.administer.settle(args, 'apply');
     }},
 }});
 
-export function brewDoseMethod({id, route, amount, volume, responses = [], treatment, sizeForBurden, sizeForBurdenByVolume}) {
+export function brewDoseMethod({id, route, amount, volume, responses = [], treatment, sizeForBurden, sizeForBurdenByVolume, surface, contact, uptakePermille}) {
     return {id, revision: 1, law: BREW_DOSE_LAW.ref, roles,
         steps: [{op: 'administer', bindings: {flask: 'flask', recipient: 'recipient'},
-            options: {route, responses, ...(amount === undefined ? {} : {amount}), ...(volume === undefined ? {} : {volume}),
+            options: {route, responses, ...(surface === undefined ? {} : {surface}), ...(contact === undefined ? {} : {contact}),
+                ...(uptakePermille === undefined ? {} : {uptakePermille}), ...(amount === undefined ? {} : {amount}), ...(volume === undefined ? {} : {volume}),
                 ...(treatment ? {treatment} : {}), ...(sizeForBurden === undefined ? {} : {sizeForBurden}),
                 ...(sizeForBurdenByVolume ? {sizeForBurdenByVolume} : {})}}]};
 }
@@ -438,4 +482,10 @@ export function brewDoseMethod({id, route, amount, volume, responses = [], treat
 export function brewCoatingMethod({id, amount, responses}) {
     const method = brewDoseMethod({id, amount, responses, route: 'coat'});
     return {...method, roles: coatingRoles, steps: method.steps.map(step => ({...step, op: 'coat'}))};
+}
+
+/** A preparation applied to a named surface of a body for a contact time (see SURFACE_UPTAKE). */
+export function brewApplyMethod({id, surface, contact, uptakePermille, amount, responses = []}) {
+    const method = brewDoseMethod({id, route: 'apply', amount, responses, surface, contact, uptakePermille});
+    return {...method, steps: method.steps.map(step => ({...step, op: 'apply'}))};
 }

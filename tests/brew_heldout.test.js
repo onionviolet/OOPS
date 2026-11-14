@@ -45,11 +45,12 @@ test('engine execution score on the held-out rows (separate outcome and route ru
     const table = fitMechanisms(split.tuned);
     const res = await executeRows(split.heldOut, table, run);
     const n = key => res.filter(r => r[key] === 'match').length;
-    assert.deepEqual([n('outcome'), n('route')], [15, 12]);
-    const cannot = res.filter(r => r.route.startsWith('cannot')).map(r => r.id).sort();
-    assert.deepEqual(cannot, ['hp.potion.dr_ubbly_s_oblivious_unction', 'hp.potion.dragon_dung_fertiliser', 'hp.potion.murtlap_essence',
-        'hp.potion.sleekeazy_s_hair_potion', 'hp.potion.swelling_solution']);
-    for (const r of res.filter(r => r.route.startsWith('cannot'))) assert.match(r.route, /missing mechanism/);
+    assert.deepEqual([n('outcome'), n('route')], [15, 13]);
+    assert.deepEqual(res.filter(r => r.route.startsWith('cannot')), []);
+    // The labelled surface route runs for every held-out row (apply on a body, coat on soil, or by mouth).
+    assert.equal(res.filter(r => r.labelRoute === 'match').length, 17);
+    const missed = res.filter(r => r.route === 'mismatch').map(r => r.id).sort();
+    assert.deepEqual(missed, ['hp.potion.dr_ubbly_s_oblivious_unction', 'hp.potion.murtlap_essence', 'hp.potion.sleekeazy_s_hair_potion', 'hp.potion.swelling_solution']);
     const tuned = await executeRows(split.tuned, table, run);
     assert.equal(tuned.filter(r => r.outcome === 'match').length, 4);
 });

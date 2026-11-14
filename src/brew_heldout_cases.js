@@ -6,7 +6,7 @@
 // Outcome and route are separate runs: the outcome run delivers by mouth so the effect is tested
 // alone; the route run delivers by the mechanism's route and checks the account the label's route
 // needs. Quantities are fixed dials shared by every row, never read from the row.
-import {brewDoseMethod} from './brew_dose_delivery.js';
+import {brewApplyMethod, brewCoatingMethod, brewDoseMethod} from './brew_dose_delivery.js';
 import {BREW_PUBLISHES} from './brew_law.js';
 import {brewDoseQuantity} from './engine_brew_stock.js';
 import {WORLD_PROPERTIES, WORLD_QUANTITIES} from './world_quantities.js';
@@ -15,9 +15,24 @@ import {residueQuantity} from './world_substrate_packs/residue_flow.js';
 const ACTIVE = 'held-out-extract';
 const ref = (kind, id = kind) => ({kind, id});
 
-/** The delivery routes the engine can run for a body recipient, by label carrier. The brew dose law
- * has `administer` (a body takes a measured dose) and `coat` (a thing takes a surface residue). */
-export const ROUTE_OF_CARRIER = Object.freeze({potion: 'oral', eaten: 'oral', topical: 'coat', spray: 'coat'});
+/** What a label's carrier means to the engine: swallowed (`administer`, a body's dose account) or put
+ * on a surface (`apply` on a body's named surface, `coat` on a thing; both leave residue on it). Which
+ * of drunk and eaten, or topical and spray, a potion uses is a design choice the engine does not
+ * decide, so each pair shares a class. */
+export const ROUTE_OF_CARRIER = Object.freeze({potion: 'oral', eaten: 'oral', topical: 'surface', spray: 'surface'});
+
+/** Where a surface-class preparation goes, read from each row's evidence (never from a title). A row
+ * with no entry has no evidence naming a recipient, so its surface route is reported as missing data.
+ * Soil is a thing, not a body: it takes the existing `coat` route. */
+export const SURFACE_OF_ROW = Object.freeze({
+    'hp.potion.swelling_solution': {recipient: 'body', surface: 'skin', evidence: 'HPPE024'},
+    'hp.potion.murtlap_essence': {recipient: 'body', surface: 'skin', evidence: 'HPPE054'},
+    'hp.potion.sleekeazy_s_hair_potion': {recipient: 'body', surface: 'hair', evidence: 'HPPE062'},
+    'hp.potion.dr_ubbly_s_oblivious_unction': {recipient: 'body', surface: 'skin', evidence: 'HPPE121'},
+    'hp.potion.dragon_dung_fertiliser': {recipient: 'thing', surface: 'soil', evidence: 'HPPE124'},
+});
+/** Contact minutes for the route run: one dial shared by every row. */
+export const CONTACT_MINUTES = 5;
 
 /** Dials: one authored value per object, the same for every row. */
 const DIALS = Object.freeze({
@@ -78,24 +93,38 @@ export function outcomeCase(prediction, label) {
     return {data: baseCase({object: prediction.object, method, expect: [{holder: 'recipient', ...term}]}), term};
 }
 
-/** Route case: the mechanism's route, expected to leave the dose in the account the label's route
- * needs (oral: the body's dose account; coat: a surface residue account). A surface route cannot run
- * on a body here, because `coat` binds a thing, so the engine's own refusal is the reason. */
-export function routeCase(prediction, label) {
+/** Route case: the mechanism's route, expected to leave the dose where the label's route needs it:
+ * oral, in the body's dose account; surface, as residue on the recipient. The recipient and surface come
+ * from SURFACE_OF_ROW (default: a body's skin). An oral label with a surface offer (or the reverse) is a
+ * real mismatch the engine shows, not a lookup. */
+export function routeCase(prediction, label, rowId = null) {
     if (!prediction) return {cannot: 'no mechanism default (no evidence-labelled row fitted it)'};
     const want = ROUTE_OF_CARRIER[label.carrier], offered = ROUTE_OF_CARRIER[prediction.carrier];
-    if (!want) return {cannot: `no engine route for the label's carrier ${label.carrier}`};
-    if (want === 'coat') return {cannot: 'missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law'};
-    if (offered === 'coat') return {cannot: 'missing mechanism: the mechanism offers a surface route and brew `coat` binds a thing, not a body'};
-    const response = {part: ACTIVE, minimum: 1, sentence: {verb: 'add', object: 'vitality', time: 'instant'}, details: {amount: DIALS.vitality.amount}};
-    const method = brewDoseMethod({id: 'held-out.route', route: offered, responses: [response]});
+    if (!want || !offered) return {cannot: `no engine route for the carrier ${want ? prediction.carrier : label.carrier}`};
+    const place = SURFACE_OF_ROW[rowId];
+    if (want === 'surface' && !place) return {cannot: 'missing data: no evidence names what the preparation is applied to'};
+    const target = place ?? {recipient: 'body', surface: 'skin'};
+    const flask = ref('flask');
+    const holders = [{id: 'bench', kind: 'place'},
+        {id: 'flask', kind: 'thing', as: ['flask'], place: 'bench', quantities: {[brewDoseQuantity(ACTIVE)]: 4}},
+        target.recipient === 'thing' ? {id: 'recipient', kind: 'thing', place: 'bench'}
+            : {id: 'recipient', kind: 'body', place: 'bench', properties: {marks: [`surface:${target.surface}`], mind_awake: true, mind_mood: DIALS.mind.start, mind_confusion: 0}}];
+    const method = offered === 'surface'
+        ? (target.recipient === 'thing' ? brewCoatingMethod({id: 'held-out.coat', responses: []})
+            : brewApplyMethod({id: 'held-out.apply', surface: target.surface, contact: CONTACT_MINUTES, responses: []}))
+        : brewDoseMethod({id: 'held-out.oral', route: 'oral', responses: []});
     const account = want === 'oral' ? brewDoseQuantity(ACTIVE) : residueQuantity(ACTIVE);
-    return {data: baseCase({object: 'vitality', method, expect: [{holder: 'recipient', quantity: account, direction: 'up', to: 4}]})};
+    const expect = [{holder: 'recipient', quantity: account, direction: 'up'}];
+    return {data: {basis: 'authored', engine: {packs: ['a.mind'], host: {things: {}},
+        shared: {effectKinds: BREW_PUBLISHES, quantities: [...Object.values(WORLD_QUANTITIES)], properties: [WORLD_PROPERTIES.marks]}},
+        world: {holders},
+        timeline: [{id: 'serve', working: {family: 'brew-dose', method, bindings: {flask, recipient: ref(target.recipient, 'recipient')}}},
+            {id: 'settle', advanceTo: 4, expect}],
+        expect}};
 }
 
-
 /** Run each row's outcome and route cases through `run` (the generic case runner, passed in so src
- * imports no script). Each entry: {id, outcome, route}, each 'match', 'mismatch' or `cannot: <why>`. */
+ * imports no script). Each entry: {id, outcome, route, labelRoute}, each 'match', 'mismatch' or `cannot: <why>`. */
 export async function executeRows(rows, table, run) {
     const judge = async built => {
         if (built.cannot) return `cannot: ${built.cannot}`;
@@ -108,7 +137,9 @@ export async function executeRows(rows, table, run) {
     const results = [];
     for (const r of rows) {
         const prediction = table[r.family];
-        results.push({id: r.id, family: r.family, outcome: await judge(outcomeCase(prediction, r.parts)), route: await judge(routeCase(prediction, r.parts))});
+        results.push({id: r.id, family: r.family, outcome: await judge(outcomeCase(prediction, r.parts)), route: await judge(routeCase(prediction, r.parts, r.id)),
+            // Can the engine deliver the labelled route at all? The label's own carrier, run through the same case.
+            labelRoute: await judge(routeCase({carrier: r.parts.carrier}, r.parts, r.id))});
     }
     return results;
 }

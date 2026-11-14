@@ -30,7 +30,7 @@
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1580 of 1815 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1580 of 1816 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -44,7 +44,7 @@
 | gu_kinds | 0 | 0 | | | | | none yet |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
-| hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 12 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
+| hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 0 | 0 | | | | | none yet |
 | lotm_potions | 0 | 0 | | | | | none yet |
 
@@ -52,11 +52,12 @@
 
 | Held-out matches | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Before the three title-pattern fixes | 17 | 10 | 10 | 13 (0 cannot run) | 11 (6 cannot run) |
-| After the fixes (all held-out rows) | 17 | 11 | 11 | 15 (0 cannot run) | 12 (5 cannot run) |
-| After, without the three rule-informed rows | 14 | 10 | 9 | 13 (0 cannot run) | 10 (4 cannot run) |
+| Before the three title-pattern fixes | 17 | 10 | 10 | 13 (0 cannot run) | 12 (0 cannot run) |
+| After the fixes (all held-out rows) | 17 | 11 | 11 | 15 (0 cannot run) | 13 (0 cannot run) |
+| After, without the three rule-informed rows | 14 | 10 | 9 | 13 (0 cannot run) | 11 (0 cannot run) |
 
 - **Read this carefully**: the three rows `mandrake_restorative_draught`, `skele_gro`, `dr_ubbly_s_oblivious_unction` were scored, found to be misses caused by a wrong title pattern, and then informed a rule (`scripts/b_coverage_ledgers.mjs`: the mandrake-restorative entry left the plant pattern, `skele-gro` moved to body-form, and dressing nouns such as unction and salve now precede the mind words). They stay in the held-out count but are not untouched; the next wave's held-out number must not be read as if they were. The last line above leaves them out.
+- **Body-surface route (proposal, wave 3)**: the brew dose law gained `apply`, a preparation put on a named surface of a body for a contact time. The surface must exist on that body (a `surface:<name>` world mark); a fraction min(1000, uptake permille a minute x minutes) of the applied units reaches the body's dose account and the rest stays as surface residue in the account `coat` and splash already use. Defaults with their reasons: skin 40 a minute (a slow barrier), hair 100 (a large wet surface takes a treatment in about ten minutes), wound 250 (no barrier). A method's `uptakePermille` is the dial; the held-out route run uses 5 contact minutes for every row. Before it (wave 2): engine route 12 of 17 with 5 rows unable to run. Five rows now run the labelled route (`Label route runs`): four through `apply` on a body (swelling_solution, murtlap_essence and dr_ubbly_s_oblivious_unction on skin, sleekeazy_s_hair_potion on hair, surfaces read from evidence HPPE024, HPPE054, HPPE121 and HPPE062) and dragon_dung_fertiliser through `coat` on soil, a thing (HPPE124). Whether a potion is applied or drunk stays a design choice: the four body rows still miss on route because the fitted body-door and body-form defaults say potion.
 - **Tuned on** (4): blood_replenishing_potion (body-door, HPPE058); calming_draught (mind-state, HPPE061); deflating_draught (body-form, HPPE025); doxycide (plant-or-creature-target, HPPE060). Engine on the tuning rows, reported apart: outcome 4 of 4, route 3 of 4.
 - **Fitted defaults**: body-door: add vitality self via potion; mind-state: transform mind self via potion; body-form: transform form self via potion; plant-or-creature-target: remove vitality touched via spray. No default for conceal-or-sense (no evidence-labelled row).
 - **Rule saw these rows** (title override set against evidence; not held out): Wolfsbane Potion. Out of the five mechanisms (not counted): Felix Felicis (luck-field).
@@ -65,25 +66,25 @@
 
 **Per held-out row** (diagnostic predicted / actual; engine result, or why it cannot run):
 
-| Row | Family | Predicted | Actual | Diag outcome | Diag route | Engine outcome | Engine route |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| dr_ubbly_s_oblivious_unction | body-door | add vitality self via potion | add vitality touched via topical | miss | miss | match | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
-| dragon_dung_fertiliser | plant-or-creature-target | remove vitality touched via spray | add vitality touched via topical | miss | miss | mismatch | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
-| mandrake_restorative_draught | body-door | add vitality self via potion | release form self via potion | miss | match | mismatch | match |
-| murtlap_essence | body-door | add vitality self via potion | add vitality touched via topical | miss | miss | match | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
-| shrinking_solution | body-form | transform form self via potion | transform form touched via potion | miss | match | match | match |
-| sleekeazy_s_hair_potion | body-form | transform form self via potion | transform form self via topical | match | miss | match | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
-| sleeping_draught | mind-state | transform mind self via potion | transform mind self via eaten | match | miss | match | match |
-| swelling_solution | body-form | transform form self via potion | transform form touched via topical | miss | miss | match | cannot: missing mechanism: brew `coat` binds a thing, and no body-surface dose route exists in the brew dose law |
-| cure_for_boils | body-door | add vitality self via potion | add vitality self via potion | match | match | match | match |
-| draught_of_living_death | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
-| draught_of_peace | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
-| pepperup_potion | body-door | add vitality self via potion | add vitality self via potion | match | match | match | match |
-| polyjuice_potion | body-form | transform form self via potion | transform form self via potion | match | match | match | match |
-| potion_for_dreamless_sleep | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
-| skele_gro | body-form | transform form self via potion | transform form self via potion | match | match | match | match |
-| veritaserum | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
-| wit_sharpening_potion | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match |
+| Row | Family | Predicted | Actual | Diag outcome | Diag route | Engine outcome | Engine route | Label route runs |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dr_ubbly_s_oblivious_unction | body-door | add vitality self via potion | add vitality touched via topical | miss | miss | match | mismatch | runs |
+| dragon_dung_fertiliser | plant-or-creature-target | remove vitality touched via spray | add vitality touched via topical | miss | miss | mismatch | match | runs |
+| mandrake_restorative_draught | body-door | add vitality self via potion | release form self via potion | miss | match | mismatch | match | runs |
+| murtlap_essence | body-door | add vitality self via potion | add vitality touched via topical | miss | miss | match | mismatch | runs |
+| shrinking_solution | body-form | transform form self via potion | transform form touched via potion | miss | match | match | match | runs |
+| sleekeazy_s_hair_potion | body-form | transform form self via potion | transform form self via topical | match | miss | match | mismatch | runs |
+| sleeping_draught | mind-state | transform mind self via potion | transform mind self via eaten | match | miss | match | match | runs |
+| swelling_solution | body-form | transform form self via potion | transform form touched via topical | miss | miss | match | mismatch | runs |
+| cure_for_boils | body-door | add vitality self via potion | add vitality self via potion | match | match | match | match | runs |
+| draught_of_living_death | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match | runs |
+| draught_of_peace | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match | runs |
+| pepperup_potion | body-door | add vitality self via potion | add vitality self via potion | match | match | match | match | runs |
+| polyjuice_potion | body-form | transform form self via potion | transform form self via potion | match | match | match | match | runs |
+| potion_for_dreamless_sleep | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match | runs |
+| skele_gro | body-form | transform form self via potion | transform form self via potion | match | match | match | match | runs |
+| veritaserum | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match | runs |
+| wit_sharpening_potion | mind-state | transform mind self via potion | transform mind self via potion | match | match | match | match | runs |
 
 ## Blocking rules
 
