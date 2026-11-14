@@ -2,6 +2,16 @@
 
 Coordinator: the "Opus chats and UI refinement" session. Direction: [Weibao, 2026-11-14](../../USER_VISION_LOG_2026-11.md#play-surface-ui-per-feature-combat-across-worlds-daily-loops-2026-11-14). Fable usage is exhausted until 2026-11-16, so every chat runs on Opus. Usage at dispatch: 5-hour window 6%, weekly all-models 56%.
 
+```receipt
+build: n/a
+route: n/a
+state: drafted
+viewport: n/a
+persistence: n/a
+tests: coordination record only; each lane keeps its own receipt in its owning doc
+review: none
+```
+
 ## Lanes and owners
 
 | Lane | Session | Owns | Done when |
