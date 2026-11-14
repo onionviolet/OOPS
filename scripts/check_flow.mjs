@@ -29,7 +29,8 @@ import {ENGINE_WORDS} from './check_player_text.mjs';
 const root = new URL('..', import.meta.url).pathname;
 const jsonOut = process.argv.includes('--json') ? process.argv[process.argv.indexOf('--json') + 1] : null;
 const tree = await mkdtemp(join(tmpdir(), 'yairpg-flow-'));
-prepareTree('WORKTREE', tree);
+// --rev HEAD walks committed code when another session's unfinished edit breaks the shared tree's build.
+prepareTree(process.argv.includes('--rev') ? process.argv[process.argv.indexOf('--rev') + 1] : 'WORKTREE', tree);
 await build(tree);
 const server = await serve(tree);
 const session = new Session({url: server.url + '?test_hooks=1', seed: 87, wall: Date.UTC(2026, 9, 26, 15),
@@ -180,15 +181,29 @@ const STATES = [
         finally {await first.close();}
         return openState(save, WALL + 10 * DAY * 60000);
     }},
+    // UIC144: rain is fixed by the seed and the day, so the walk plays forward until the weather line says Rain, then
+    // stands in it for two hours. `must` returns what is wrong, or '' when the state shows what its label says.
+    {label: 'a rainy day, two hours in the rain', open: async () => {
+        const s = await openState(null, WALL);
+        const raining = () => s.page.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /°C/.test(e.textContent) && /Rain/.test(e.textContent)));
+        for(let i = 0; i < 120 && !await raining(); i++) await s.step(120);
+        if(await raining()) await s.step(120);
+        return s;
+    }, must: p => p.evaluate(() => {
+        if(![...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /°C/.test(e.textContent) && /Rain/.test(e.textContent))) return 'no rain within ten played days';
+        return /Wet|Cold/.test(document.getElementById('shell_condition')?.textContent || '') ? '' : 'two hours in the rain and Condition names neither Wet nor Cold';
+    })},
 ];
 const statesRead = [];
-for(const {label, open, expect = []} of STATES) {
+for(const {label, open, expect = [], must} of STATES) {
     let other = null;
     try {
         other = await open();
         p = other.page;
         await p.waitForTimeout(1200);
         for(const sel of expect) if(!await p.evaluate(q => [...document.querySelectorAll(q)].some(e => e.offsetParent && e.textContent.trim()), sel)) add('state', label, `expected ${sel} on screen and it is not`);
+        const wrong = must ? await must(p) : '';
+        if(wrong) add('state', label, wrong);
         await oversized(label); await reading(label);
         for(const line of await placeholders()) add('placeholder', label, line);
         for(const e of other.errors.filter(e => e.kind === 'pageerror')) add('error', label, e.text.split('\n')[0]);

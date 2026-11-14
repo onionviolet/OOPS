@@ -207,6 +207,11 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 #main_content.workspace-active[data-parity="r3"] .condition-effect[data-effect-kind="debuff"] .condition-effect-kind {color:var(--sem-blocked);}
 #main_content.workspace-active[data-parity="r3"] .condition-effect[data-effect-kind="buff"] .condition-effect-kind {color:var(--sem-gain);}
 #main_content.workspace-active[data-parity="r3"] .condition-effect[data-ended="true"] {color:var(--p23-muted);}
+#main_content.workspace-active[data-parity="r3"] .condition-effect-does,
+#main_content.workspace-active[data-parity="r3"] .condition-effect-eases {grid-column:1 / -1;min-width:0;text-align:left;overflow-wrap:anywhere;color:var(--p23-muted);}
+#main_content.workspace-active[data-parity="r3"] .condition-effect-does {color:var(--p23-value);}
+#main_content.workspace-active[data-parity="r3"] .condition-effect-does[hidden],
+#main_content.workspace-active[data-parity="r3"] .condition-effect-eases[hidden] {display:none;}
 /* Keep core facts and aligned tools intact; whole secondary rows yield first. */
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="shell-character"] > .workspace-module-body {display:flex;flex-direction:column;}
 #main_content.workspace-active[data-parity="r3"] #proto23_character {display:flex;flex-direction:column;flex-wrap:nowrap;flex:1 1 auto;min-height:0;height:auto;}

@@ -4,6 +4,7 @@ import {registerPanelSettings,getDisplaySetting,setDisplaySettings} from './disp
 import {subscribeChange,bridgeLegacyNode} from './ui_change_signal.js';
 import {readTemperature} from './condition_facts.js';
 import {createTemperatureBand} from './temperature_band.js';
+import {effectSummary,easesText} from './condition_row_text.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n;};
 // Display-only reader, mounted through the existing shell owner. No timer, save or commands.
 export function mountConditionPanel({home,rates,readRows,notice,inspect,isInspecting=()=>false}) {
@@ -29,13 +30,17 @@ export function mountConditionPanel({home,rates,readRows,notice,inspect,isInspec
         for(const source of native){
             const name=source.querySelector('.active_effect_name')?.textContent.replace(/^'|'\s*:\s*$/g,'').trim();if(!name)continue;
             const id=source.dataset.effectId||name;live.add(id);let record=records.get(id);
-            if(!record){const button=node('button'),label=node('span'),duration=node('span'),kind=node('small');
+            if(!record){const button=node('button'),label=node('span'),duration=node('span'),kind=node('small'),does=node('span'),eases=node('span');
                 button.type='button';button.className='condition-effect';button.dataset.contextPreview='effect';button.dataset.effectId=id;
                 label.className='condition-effect-name';duration.className='condition-effect-duration';kind.className='condition-effect-kind';
-                button.append(label,duration,kind);button.onclick=()=>inspect(button);list.append(button);record={button,label,duration,kind};records.set(id,record);
+                does.className='condition-effect-does';eases.className='condition-effect-eases';
+                button.append(label,duration,kind,does,eases);button.onclick=()=>inspect(button);list.append(button);record={button,label,duration,kind,does,eases};records.set(id,record);
             }
             const kind=source.dataset.effectKind||'condition',duration=source.querySelector('.active_effect_duration')?.textContent.trim()||'';
             write(record.label,name);write(record.duration,duration);write(record.kind,kind==='buff'?'Buff':kind==='debuff'?'Debuff':'Condition');
+            const body=source.cloneNode(true);body.querySelector('.active_effect_name_and_duration')?.remove();
+            const doesText=effectSummary(body.innerHTML),easesLine=easesText(name);
+            write(record.does,doesText);record.does.hidden=!doesText;write(record.eases,easesLine);record.eases.hidden=!easesLine;
             record.button.dataset.effectKind=kind;delete record.button.dataset.ended;
             record.button.setAttribute('aria-label',`${name} · ${record.kind.textContent}${duration?' · '+duration:''}`);
             record.button.nativeEffectView={html:source.innerHTML,ended:false};
