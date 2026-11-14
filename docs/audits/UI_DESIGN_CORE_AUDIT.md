@@ -2922,3 +2922,24 @@ Weibao's play-surface direction (2026-11-14, [direction log](../gm/USER_VISION_L
 - F3 (the story cast in Around you) was offered to this pass and handed back: it joins the LOTM simulation's cast (shared with daily-loops) through `main.js`, and Klein's save cannot be played in a browser yet, so no UI proof was possible.
 
 **Next, in order:** Gu garden display (`gu-fed-second`), gathering (Village common herb verge, "Gathering at a glance"), carcass processing (its intro is a manual of "played time" lines, PRS9), then UIC190.
+
+### Sixteenth batch: Gu house, gathering, carcasses, prices, the Earlier lines (2026-11-14)
+
+Same method and gates as the fifteenth batch, in the order the coordination chat set. Agent-verified, not human-reviewed. Working defaults under AD56. Headless Chrome at 1920×1080, before and after, fresh origin each run, no page errors.
+
+- **UIC189, Earlier lines doubled (fixed).** A Reports line keeps a full and a compact copy of its words. A save made without layout (the headless builder, a hidden tab) has no `innerText`, so the saved tail read both: "Started a new quest: Lost memoryStarted a new quest: Lost memory". The tail now reads the full copy, and a tail already saved twice shows once. Seen on `village-rival`. Test in `tests/reports_dock.test.js`. The stray `tests/fixtures/visual/crafting.new.png` is deleted and `*.new.png` is ignored there.
+- **UIC191, a life's action rows (Gu keeper, `gu-fed-second`; done).** Each action printed its name three times (heading, button, and again inside Details), so eight rows filled the screen. The button is now the row's name, the clock and inputs sit beside it ("At once · uses 1 Rank-one primeval essence", "2 h"), and Details folds the description. Eleven rows fit where eight did. "Played minutes" in the row state and time line became human units. The same renderer serves Harry's and Klein's lives; their tests pass and Harry's screen was not re-seen.
+- **UIC192, Gathering at a glance (done).** Two columns were both headed Stock and both said "12 of 12 left". The text column now says how the stock comes back ("regrows 12 a day"); the count lives once, under the bar. The site lost its "Gather:" prefix. The button said "Open the workshop to gather" and opened Village experiments; it now says "Open Village experiments to gather".
+- **UIC193, a gather says what it found (done).** "Gathered materials stored in your inventory." became "Gathered 1 Marsh rushwort. It is in your inventory.", read from the carried materials before and after.
+- **UIC194, carcass processing as a hint, not a manual (done).** The intro was seven rules in one paragraph with "played time" twice. It reads "Butcher a carcass whole for every part, or take one part faster and lose the rest. Fresh carcasses give better parts; they spoil over about four hours." The count left behind shows only when there is one. "1 carcasses" ran into "Selected carcass:" on one line; it reads "Wolf rat · 1 carcass" above the picker. "Refresh condition estimate" is "Look it over" then "Look again". The work card, receipt and estimate history use minutes and hours, not "played minute 1234". Seen in a fight at the Infested field and through one whole butchering in the Village.
+- **UIC195, one waiting reason for the choices (done).** During a fight the same 95-character sentence sat under each of the four Process buttons. It now sits once above them and each button points at it.
+- **UIC190, prices in the purse's format (done for this pass's panels; ratchet for the rest).** The purse reads "10C 4W" and prices read "8 coins". The mixing counter (buttons, shortage line, feedback), the courtyard (its authored "· 4 coins" labels, shortfall line, wages, group costs, treasury) now print through `moneyText`, which keeps "N coins" until the character knows the coin letters. Seen: "Buy · 8W", "buying them costs 1C", "Rent Mira's local plot · 4W". `tests/money_format_ratchet.test.js` counts the 65 raw coin prices left in UI modules (homes, habitat care, Potioneering, standing, aging and others); the count only falls.
+
+**Not done.** The Gu pack's own labels mix cost and gain ("Put the Moonlight Gu to work · 1 essence, 1 stone" spends essence and earns a stone; "Do clan Gu house chores · 120 min") and sit in the pack's content, which the daily-loops lane owns. Sent there.
+
+**Checks**
+
+- Focused tests for every touched module: 1,036 pass, 0 fail, plus the new ratchet.
+- On committed code (`ea9249039`): `node scripts/visual_baseline.mjs --rev HEAD` five identical; `node scripts/check_flow.mjs --rev HEAD` 13 routes, four other states, 0 findings. `check:arch` passes; `check:rules` passes (one warning: the private-pack glob matches no file in this tree).
+
+**Next, if the pass continues:** the 65 raw coin prices by panel (homes first), the Gu pack labels with their owner, then Harry's school panel on the new card.
