@@ -2,6 +2,23 @@
 
 Use the [current resume block](#current-resume-block) for picking and landing. The original twelve Claude workers used one worktree and branch per chat (K W P G L F B S A C R M).
 
+## Orientation for the resumed run, 2026-11-14
+
+Weibao: "Restart foundation run, but orient them better? More to consider? Make them consider UI elements too? General gameplay and iterative implement" ([direction](../../USER_VISION_LOG_2026-11.md#foundation-run-resumes-oriented-to-play-2026-11-14)). This orientation supersedes the "engine-first" stop rule in the block below for picking and finishing waves. The other rules of that block stand: held-out scoring, guarded commits, no push, landing first. All OR lines are proposals (AD32), each a default with a dial.
+
+| Code | Consideration | Default, dial, reason |
+| --- | --- | --- |
+| OR1 | **A wave has a consumer.** Each foundation slice names the lead, life or loop that uses it first: Fang Yuan for Gu, Klein for potions and acting, Harry for spells, any life for creatures, crafting and making. | Default: pick the wave whose consumer is a lead's ordinary day or fight that exists now (daily-loops, the live fight). Dial: a breadth wave with no consumer is allowed when it raises a held-out score, and is labelled engine-only. Reason: unused capability is invisible to play. |
+| OR2 | **A UI element contract per mechanism.** A slice states what the player sees, in the shapes the play-surface lanes already use: life panel rows (one row per action, its clock and inputs beside the button, the blocked reason kept), result lines, kit rows on the fight card, readiness counts, numbers one step away (hover or detail), the purse format, human time units. | Default: reuse those shapes and add no new panel. Dial: a new representation when no shape fits, mocked first (prototype-to-decision). Reason: the feature-ui pass (UIC180–UIC200) showed what reads well; foundations should arrive already legible. |
+| OR3 | **Iterate in small loops.** Each slice runs four steps: engine proof, panel, a played check in headless Chrome at 1920×1080 from a fixture or an earned save, then one adjustment from what the play showed. | Default: one build-play-adjust cycle per slice, at most two. Dial: a pure data wave (more canon rows) skips the panel step when the panel already reads its rows. Reason: held-out scores say the rule fits canon; play says it is usable. |
+| OR4 | **Score the played check too.** Beside the held-out table, each wave reports the gameplay result: what the player can now do that they could not, the clicks to do it, and what was confusing. | Default: three lines per wave. Reason: before and after tables move without play getting better. |
+| OR5 | **Pay the shared-runner debt at tie-in.** Eight Gu packs call `resolveGuActivation(` directly (PC12 C1, 44). When a Gu slice touches one, move it onto the shared runner. | Default: in the wave that touches it. Reason: tie-in is where the debt would otherwise double. |
+| OR6 | **Coordinate with the play-surface lanes.** feature-ui owns feature panel files, daily-loops owns the leads' day files, and the combat lane owns `contest.js`, `tempo_*` and `combat_situation_ui.js` ([checkpoint](../play-surface-2026-11-14/CHECKPOINT.md)). | Default: a foundation slice hands its panel rows to the owning lane, or asks it first. Reason: one writer per file. |
+| OR7 | **Things work by how they work (AD38) in the UI too.** A blocked action names the mechanism that blocks it, not a rule list. A possible but costly action shows its cost rather than hiding. | Default: as UIC166 and UR158. |
+| OR8 | **Performance target.** New panels and per-tick work stay inside the 8 GB older-laptop target: no per-frame rebuilds, and one context per build (AR9). | Default: measure when a panel lists more than about fifty rows. |
+| OR9 | **Pace by usage.** The run is on Opus with the 5-hour and weekly windows shared with three play-surface lanes. | Default: two worker lanes at once (AU3). Stop the wave at a durable checkpoint when the 5-hour window passes 85% or the weekly window passes 80%. Dial: Weibao can raise it. |
+| OR10 | **One playable outcome per wave.** A wave ends where Weibao could play the change, not at a batch boundary (AGENTS.md "Finish one playable slice"). | Default: the wave report leads with that outcome. |
+
 ## Current resume block
 
 - **Direction.** Weibao's [held-out canon instruction](../../USER_VISION_LOG_2026-11.md#held-out-canon-picks-foundation-waves-2026-11-12) supersedes the picking, reporting and stop rules in the historical blocks below. Engine-first (PC95), existing usage limits, guarded commits by owner, and no push still apply.

@@ -1470,3 +1470,20 @@ Recorded as his direction, applied as an adjustable default (AD56, AD38):
 - Parts are real items: meat spoils and parts have weight.
 
 The numbers wait for a source check of how the clan credits kills (AD49). Owners are the daily-loops lane (hand-in and selling) and the combat lane (the fight's yield); see the [play-surface checkpoint](dispatch/play-surface-2026-11-14/CHECKPOINT.md).
+
+## Foundation run resumes, oriented to play, 2026-11-14
+
+Weibao: "Restart foundation run, but orient them better? More to consider? Make them consider UI elements too? General gameplay and iterative implement,"
+
+Recorded as his direction. The foundation run resumes on Opus while Fable is exhausted. Its waves now name, besides the engine proof:
+- what the player sees: UI elements;
+- what loop it feeds: general gameplay;
+- a build, play and adjust cycle: iterative implementation.
+
+This changes PC95's "engine first" from a ban on tie-in into a sequence inside each wave:
+1. Prove it in the engine world.
+2. Show it on the panel its consumer uses.
+3. Play it.
+4. Adjust.
+
+Held-out canon scoring stays. The considerations, OR1 to OR10, are proposals in the [run's resume block](dispatch/foundation-run-2026-11-12/RUN.md#orientation-for-the-resumed-run-2026-11-14).
