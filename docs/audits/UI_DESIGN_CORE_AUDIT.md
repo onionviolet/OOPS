@@ -2918,5 +2918,7 @@ Weibao's play-surface direction (2026-11-14, [direction log](../gm/USER_VISION_L
 - Focused tests for every touched module (17 files): 181 pass, 0 fail. `npm run test:changed` with the courtyard change: 3,900 tests, 3,898 pass, 0 fail, 2 skipped.
 - `check:arch` passes (no new cycle, `main.js` unchanged). `check:rules` fails on one line, not mine: the coordinator's new `docs/gm/dispatch/play-surface-2026-11-14/CHECKPOINT.md` lacks a receipt block.
 - `check:visual`: home, stats, inventory, journal identical; crafting differed only by the Bonemeal row (x 634-808, y 404-415) and was refreshed.
+- On committed code (`b361fa580`, which also stops a seed held by the running Plant job from being reported short): `node scripts/visual_baseline.mjs --rev HEAD` five identical; `node scripts/check_flow.mjs --rev HEAD` 13 routes, four other states, 0 findings; `check:arch` passes.
+- F3 (the story cast in Around you) was offered to this pass and handed back: it joins the LOTM simulation's cast (shared with daily-loops) through `main.js`, and Klein's save cannot be played in a browser yet, so no UI proof was possible.
 
 **Next, in order:** Gu garden display (`gu-fed-second`), gathering (Village common herb verge, "Gathering at a glance"), carcass processing (its intro is a manual of "played time" lines, PRS9), then UIC190.
