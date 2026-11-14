@@ -42,3 +42,19 @@ test('the same Moonblade resolves against each target without spending Fang Yuan
     assert.match(run.view(observed).comparison.rows[1][6], /fracture.*stabilized/);
     assert.throws(() => run.act(observed, 'observe-wound'), /observed this minute/);
 });
+
+test('every action leaves its own result line naming what it cost and what is left', () => {
+    let engine = run.create();
+    engine = run.act(engine, 'feed-moonlight');
+    assert.match(run.view(engine).result, /fed the Moonlight Gu.*2 moon orchid petals/);
+    engine = run.act(engine, 'feed-liquor-worm');
+    assert.match(run.view(engine).result, /fed the Liquor Worm/);
+    const first = run.act(engine, 'cast-basic'), second = run.act(first, 'cast-basic');
+    const [a, b] = [first, second].map(e => run.view(e).result);
+    assert.notEqual(a, b);
+    assert.match(a, /8 initial-stage parts left; the partner has 70 vitality left/);
+    assert.match(b, /4 initial-stage parts left; the partner has 40 vitality left/);
+    const refined = run.act(run.restore(JSON.parse(JSON.stringify(serializeEngineWorld(engine)))), 'refine');
+    assert.match(run.view(refined).result, /refined .* initial-stage parts into 1 middle-stage part\. You have \d+ initial-stage and 1 middle-stage/);
+    assert.equal(run.view(second).history.length, 4);
+});

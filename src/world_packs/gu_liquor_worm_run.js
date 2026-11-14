@@ -109,11 +109,16 @@ function spar(engine, id) {
     const spent = reserve(engine)[id === 'cast-refined' ? middle : initial] - out.world.holders[fang].quantities[id === 'cast-refined' ? middle : initial];
     const damage = read(engine, rival).quantities.vitality - out.world.holders[rival].quantities.vitality;
     const history = read(engine, fang).state[practiceState] ?? [];
-    const result = {refined: id === 'cast-refined', spent, damage};
+    const pool = id === 'cast-refined' ? middle : initial, held = out.world.holders[fang].quantities;
+    const result = {kind: 'cast', refined: id === 'cast-refined', spent, damage, left: held[pool], partner: out.world.holders[rival].quantities.vitality};
     return advanceEngineWorld(applyEngineOps({...engine, world: out.world}, [
         {op: 'state', holder: fang, pack: practiceState, value: [...history.slice(-7), result]},
     ], id), engine.world.clock + 1).engine;
 }
+
+// Every action leaves its own line, so the notice always describes the last thing done.
+const logOp = (engine, entry) => ({op: 'state', holder: fang, pack: practiceState,
+    value: [...(read(engine, fang).state[practiceState] ?? []).slice(-7), entry]});
 
 function compareMatchups(engine) {
     const rows = matchups.flatMap(({label, vitality, guard, bone}) => {
@@ -153,7 +158,9 @@ function followWound(engine, action, rows) {
 }
 
 const fedText = (engine, kind) => `${controlled(engine, kind) ? 'Refined · under your control' : 'Outside your control'} · ${fed(engine, kind) ? `${read(engine, kind).quantities.satiety} min of food left` : 'Needs food'}`;
-const castResult = row => `${row.refined ? 'Middle-stage' : 'Initial-stage'} Moonblade spent ${row.spent} parts and took ${row.damage} of the partner’s ${practiceVitality} vitality.`;
+const castResult = row => row.kind === 'feed' ? `You fed the ${row.label}: ${row.detail}.`
+    : row.kind === 'refine' ? `The Liquor Worm refined ${row.spent} initial-stage parts into ${row.made} middle-stage part${row.made === 1 ? '' : 's'}. You have ${row.initial} initial-stage and ${row.middle} middle-stage parts left.`
+    : `${row.refined ? 'Middle-stage' : 'Initial-stage'} Moonblade spent ${row.spent} parts and took ${row.damage} of the partner’s ${practiceVitality} vitality.${row.left === undefined ? '' : ` You have ${row.left} ${row.refined ? 'middle' : 'initial'}-stage parts left; the partner has ${row.partner} vitality left.`}`;
 const stock = (engine, kind) => read(engine, 'supplies').quantities[diets[kind].stock];
 function view(engine) {
     const funds = reserve(engine);
@@ -200,9 +207,11 @@ function act(engine, id) {
     if (id.startsWith('feed-')) {
         const kind = id.slice(5);
         const diet = diets[kind];
+        const [label, detail] = kind === moon ? ['Moonlight Gu', 'it ate 2 moon orchid petals'] : ['Liquor Worm', 'it drank a jar of green bamboo wine'];
         return applyEngineOps(engine, [
             {op: 'add', holder: 'supplies', quantity: diet.stock, amount: -diet.amount},
             {op: 'set', holder: kind, quantity: 'satiety', amount: diet.duration},
+            logOp(engine, {kind: 'feed', label, detail}),
         ], id);
     }
     if (id !== 'refine') return spar(engine, id);
@@ -213,6 +222,8 @@ function act(engine, id) {
     return advanceEngineWorld(applyEngineOps(engine, [
         {op: 'set', holder: fang, quantity: initial, amount: refined[poolInitial]},
         {op: 'set', holder: fang, quantity: middle, amount: refined[poolMiddle]},
+        logOp(engine, {kind: 'refine', spent: before[initial] - refined[poolInitial], made: refined[poolMiddle] - before[middle],
+            initial: refined[poolInitial], middle: refined[poolMiddle]}),
     ], 'liquor_worm_refines'), engine.world.clock + 1).engine;
 }
 
