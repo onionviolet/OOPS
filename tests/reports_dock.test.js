@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {dockRows, LOG_TAKES_OVER} from '../src/reports_dock.js';
+import {dockRows, LOG_TAKES_OVER, tailOf, tailFor, TAIL_LINES} from '../src/reports_dock.js';
 
 const next = {line: 'Talk to the elder.', how: 'In Local actions.'};
 const today = {clock: 'Mon, Summer, Morning · 08:00', place: 'Village', open: ['Fishing'], running: {count: 0, nextIn: null}};
@@ -23,4 +23,15 @@ test('where the place header already shows the clock, the card keeps only the da
     assert.deepEqual(dockRows({logLines: 0, next: null, today, headerHasClock: true}).map(r => r.kind), ['open']);
     const noted = dockRows({logLines: 0, next: null, today: {...today, note: 'Market day'}, headerHasClock: true});
     assert.deepEqual(noted[0], {kind: 'clock', label: 'Today', text: 'Market day'});
+});
+
+test('the tail of the log travels with the save as plain text, capped, and only shows in the world it came from (M2)', () => {
+    const many = Array.from({length: TAIL_LINES + 6}, (_, i) => `  line\n${i} `);
+    const slice = tailOf(many, 'native');
+    assert.equal(slice.lines.length, TAIL_LINES);
+    assert.equal(slice.lines.at(-1), `line ${TAIL_LINES + 5}`);
+    assert.equal(tailOf(['', '  '], 'native'), undefined, 'an empty log writes no save key');
+    assert.deepEqual(tailFor(slice, 'book.other'), [], "another life's lines stay out");
+    assert.deepEqual(tailFor(null, 'native'), [], 'a save without the slice loads as before');
+    assert.equal(tailFor(slice, 'native').length, TAIL_LINES);
 });

@@ -5813,6 +5813,14 @@
       "snippet": ".style.width='50px'",
       "count": 1,
       "reason": "Number entry width predating UR131 (2026-11-10); move to a token width with UR106."
+    },
+    {
+      "key": "src/reports_dock.js|foreign-host|50db8d8a93ca2056",
+      "path": "src/reports_dock.js",
+      "rule": "foreign-host",
+      "snippet": "stream.prepend(head, ...lines.map(text => { const line = document.createElement('div'); line.className = 'report-earlier'; line.textContent = text; return line; }));",
+      "count": 1,
+      "reason": "M2 (2026-11-14): the saved tail of the log is shown as plain, dimmed lines at the top of the log's own stream so it scrolls with the lines that follow it; a separate box would give the column two scrollers."
     }
   ]
 }

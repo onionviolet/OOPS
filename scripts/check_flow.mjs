@@ -11,6 +11,7 @@
 //   oversized  a region of 10% or more of the screen is less than a quarter used (UR145)
 //   shift      the layout jumps during idle play with no input (UR146)
 //   dupway     three or more regions on one screen open the same destination, beyond the known list (UIC136)
+//   smalltarget a visible control on home gives the pointer less than 24px in some direction (UIC176, UR64)
 //   noreason   a visible control that cannot be pressed gives no reason a player can read (UIV1, UIC166)
 //   leak       visible text shows engine words or a marker: text not found, undefined, NaN, [object Object] (PRS6, PRS9)
 //   repeat     one module shows the same sentence of 30+ characters twice (UR147)
@@ -44,6 +45,14 @@ seed.global_flags.is_crafting_unlocked = true;
 await session.start();
 await session.open(seed);
 let p = session.page;
+await p.waitForTimeout(600);
+// M2: the fixture predates the saved log tail, so the walk plays a short errand (to the willow stand and back),
+// saves and reopens. Home is then read the way a returning player meets it: Reports opens on the last sitting.
+await p.locator('.location_choice[data-travel="Wild willow stand"]').first().click(); await session.step(6);
+await p.locator('.location_choice[data-travel="Village"]').first().click(); await session.step(6);
+await session.save();
+await session.open(JSON.parse(await p.evaluate(() => localStorage.getItem('save data'))));
+p = session.page;
 await p.waitForTimeout(600);
 
 const findings = [];
@@ -82,10 +91,8 @@ const usage = () => p.evaluate(() => [...document.querySelectorAll('#main_conten
         const q = e.getBoundingClientRect();
         if(q.height && q.bottom <= r.bottom + 1 && (e.textContent.trim() || /^(svg|canvas|input|select|img)$/i.test(e.tagName))) bottom = Math.max(bottom, q.bottom);
     }
-    // M2: a log starts each session empty and fills by play, so its column is measured once it holds a few lines.
-    if(m.dataset.module === 'messages' && (document.getElementById('message_box_div')?.children.length || 0) < 8) return null;
     return {module: m.dataset.module, area: Math.round(r.width * r.height / (innerWidth * innerHeight) * 100), used: Math.round((bottom - r.top) / Math.max(1, r.height) * 100)};
-}).filter(Boolean));
+}));
 // What a player reads, per module: engine words and broken markers (leak), and a sentence said twice (repeat).
 const LEAK = new RegExp(`\\b(${ENGINE_WORDS.join('|')})\\b|text not found|\\bundefined\\b|\\bNaN\\b|\\[object Object\\]`, 'i');
 // In-world uses of a listed word (a place named a registry, a tailor's seam) are not leaks.
@@ -132,6 +139,20 @@ const duplicateWays = async where => {
     });
     for(const way of ways) if(!KNOWN_WAYS.has(way.split(':')[0])) add('dupway', where, `three or more regions open the same thing (${way})`);
 };
+// UIC176: a visible control gives the pointer at least 24px each way (UR64). Measured by asking the page what sits
+// 11px above, below, left and right of the control's centre, so an invisible hit band counts and a clipped one does not.
+const smallTargets = async where => {
+    const rows = await p.evaluate(() => {
+        const vis = [...document.querySelectorAll('#game_bar button,#workspace_navigation button,#main_content button,#main_content select,#main_content input,#main_content [role=button],#main_content summary')]
+            .filter(e => e.offsetParent && e.getBoundingClientRect().width > 0);
+        const hit = (e, x, y) => {const t = document.elementFromPoint(x, y); return !!t && (t === e || e.contains(t));};
+        return vis.filter(e => {
+            const b = e.getBoundingClientRect(), cx = b.x + b.width / 2, cy = b.y + b.height / 2, dx = Math.min(11, b.width / 2 - 1) + (b.width < 24 ? 12 - b.width / 2 : 0);
+            return hit(e, cx, cy) && !(hit(e, cx, cy - 11) && hit(e, cx, cy + 11) && hit(e, cx - dx, cy) && hit(e, cx + dx, cy));
+        }).map(e => {const b = e.getBoundingClientRect(); return `${e.closest('.workspace-module')?.dataset.module || e.closest('[id]')?.id || '?'}: "${(e.textContent || e.title || e.id || '').trim().slice(0, 24)}" is ${Math.round(b.width)}x${Math.round(b.height)}`;});
+    });
+    for(const row of rows) add('smalltarget', where, `${row}, under 24px to the pointer`);
+};
 const oversized = async where => {for(const u of await usage()) if(u.area >= 10 && u.used < 25) add('oversized', where, `${u.module} takes ${u.area}% of the screen and uses ${u.used}% of its box`);};
 const moved = (before, after, where) => {
     for(const [id, b] of Object.entries(before)) {
@@ -150,6 +171,7 @@ await oversized('home');
 await reading('home');
 await blockedWithoutReason('home');
 await duplicateWays('home');
+await smallTargets('home');
 const homeFrame = await frame();
 const home = await screen();
 for(const line of await placeholders()) add('placeholder', 'home', line);
@@ -232,7 +254,7 @@ const STATES = [
         await s.page.locator('.location_choice[data-travel="Infested field"]').first().click();
         await s.step(20);
         return s;
-    }, must: p => p.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /Opponent/.test(e.textContent) && /\d+\/\d+ hp/.test(e.textContent))
+    }, must: p => p.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /opponent/i.test(e.textContent) && /\d+\/\d+ hp/.test(e.textContent))
         ? '' : 'walked into the Infested field and no opponent with health is on screen')},
 ];
 const statesRead = [];
@@ -257,7 +279,6 @@ const grouped = new Map();
 for(const f of findings) {const k = f.check + '|' + f.detail; const g = grouped.get(k) || grouped.set(k, {check: f.check, detail: f.detail, where: []}).get(k); if(!g.where.includes(f.where)) g.where.push(f.where);}
 // Findings another lane owns: printed, not failed, so this walk stays a gate for the shell. Remove a line when it is fixed.
 const KNOWN = [
-    [/^(belongings|opponents) takes .* of its box$/, 'a fight in the Infested field', 'combat lane: one opponent leaves the opponents list and the fight-filtered inventory mostly empty'],
 ];
 const known = [], unique = [];
 for(const f of grouped.values()) {

@@ -1913,3 +1913,26 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 /* UIC161: a column of the item log shows once any row has something in it. */
 #item_log_table:not(:has(td:nth-child(2):not(:empty))) :is(th, td):nth-child(2),
 #item_log_table:not(:has(td:nth-child(4):not(:empty))) :is(th, td):nth-child(4) {display: none;}
+/* M2: the Reports column's empty-state line. */
+#reports_empty { margin: var(--ui-space-2) var(--ui-space-3); color: var(--ui-muted, inherit); font-size: var(--ui-type-small); line-height: var(--ui-line-body); }
+#reports_empty[hidden] { display: none; }
+#message_box_div .report-earlier { color: var(--ui-muted, inherit); opacity: .75; padding: var(--ui-space-1) var(--ui-space-2); font-size: var(--ui-type-small); }
+#message_box_div .report-earlier-head { text-transform: uppercase; letter-spacing: .06em; opacity: .6; }
+
+/* UIC176: every pointer target is at least 24px tall to the pointer. A short control keeps its drawn size and gets
+   an invisible 24px band centred on it, so the top bar and fold lines stay where they are (UR144). A panel header
+   is clipped by its panel, so a band cannot help it: headers and stat rows take a 24px floor instead, which moves
+   a panel by under 2px. */
+:is(#game_bar, #workspace_navigation) button, #main_content .workspace-module-header :is(strong, button, select),
+#main_content summary, #village_scene .scene-location-header button,
+#proto23_character :is(.shell-attributes-open, summary), #main_content .inventory-tabs-clear { position: relative; }
+:is(#game_bar, #workspace_navigation) button::before, #main_content .workspace-module-header :is(strong, button)::before,
+#main_content summary::before, #village_scene .scene-location-header button::before,
+#proto23_character .shell-attributes-open::before, #main_content .inventory-tabs-clear::before {
+    content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 24px); height: max(100%, 24px); transform: translate(-50%, -50%); }
+#main_content.workspace-active[data-parity="r3"] .workspace-module > .workspace-module-header { min-height: 24px; }
+#main_content.workspace-active[data-parity="r3"] .workspace-module > .workspace-module-header > strong { align-self: stretch; display: grid; align-content: center; min-height: 24px; }
+#main_content.workspace-active[data-parity="r3"] #proto23_character .shell-stat-record { min-height: 24px; }
+#main_content.workspace-active[data-parity="r3"] .workspace-module-header select { min-height: 24px; }
+#main_content.workspace-active[data-parity="r3"] #current_focus summary { min-height: 24px; }
+#main_content.workspace-active[data-parity="r3"] #character_name_field { min-height: 24px; box-sizing: border-box; }

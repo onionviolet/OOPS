@@ -50,29 +50,29 @@ const diff = (a, b) => p.evaluate(async ([a, b]) => {
         const x = c.getContext('2d'); x.drawImage(i, 0, 0); r({w: i.width, h: i.height, d: x.getImageData(0, 0, i.width, i.height).data});}; i.src = 'data:image/png;base64,' + s;});
     const [A, B] = [await load(a), await load(b)];
     if(A.w !== B.w || A.h !== B.h) return {count: -1, box: `size ${A.w}x${A.h} vs ${B.w}x${B.h}`};
-    let count = 0, x0 = 1e9, y0 = 1e9, x1 = -1, y1 = -1;
+    let count = 0, max = 0, x0 = 1e9, y0 = 1e9, x1 = -1, y1 = -1;
     for(let i = 0; i < A.d.length; i += 4) {
         if(A.d[i] === B.d[i] && A.d[i + 1] === B.d[i + 1] && A.d[i + 2] === B.d[i + 2] && A.d[i + 3] === B.d[i + 3]) continue;
         const px = (i / 4) % A.w, py = Math.floor(i / 4 / A.w);
+        for(let k = 0; k < 4; k++) max = Math.max(max, Math.abs(A.d[i + k] - B.d[i + k]));
         count++; x0 = Math.min(x0, px); y0 = Math.min(y0, py); x1 = Math.max(x1, px); y1 = Math.max(y1, py);
     }
-    return count ? {count, box: `x ${x0}-${x1}, y ${y0}-${y1}`} : null;
+    return count ? {count, max, box: `x ${x0}-${x1}, y ${y0}-${y1}`} : null;
 }, [a.toString('base64'), b.toString('base64')]);
 
 await mkdir(dir, {recursive: true});
 let bad = 0;
-const NOISE = 4;
 for(const [name, png] of Object.entries(shots)) {
     const file = join(dir, name + '.png');
     if(update) {await writeFile(file, png); console.log(`${name}: baseline written`); continue;}
     let base; try {base = await readFile(file);} catch {console.log(`${name}: MISSING baseline`); bad++; continue;}
     const d = await diff(base, png);
     if(!d) {console.log(`${name}: identical`); continue;}
-    // A single antialiased pixel in the Reports card differs between builds of unrelated commits (seen 2026-11-13).
-    // A real one-pixel shift changes hundreds of pixels, so up to NOISE differing pixels still pass, and are printed.
-    if(d.count >= 0 && d.count <= NOISE) {console.log(`${name}: same within noise (${d.count} pixel${d.count === 1 ? '' : 's'}, ${d.box})`); continue;}
+    // The panel backgrounds are dithered gradients, and one dither pixel can land one colour level (1 of 255) off
+    // between builds. That is the only difference let through: any pixel two or more levels off fails, however few.
+    if(d.count >= 0 && d.max <= 1) {console.log(`${name}: identical but for ${d.count} dither pixel${d.count === 1 ? '' : 's'} one level off (${d.box})`); continue;}
     bad++; await writeFile(join(dir, name + '.new.png'), png);
-    console.log(`${name}: DIFFERENT, ${d.count < 0 ? '' : d.count + ' pixels, '}${d.box}`);
+    console.log(`${name}: DIFFERENT, ${d.count < 0 ? '' : `${d.count} pixels, up to ${d.max} levels off, `}${d.box}`);
 }
 await session.close?.(); await server.close?.();
 process.exit(bad ? 1 : 0);

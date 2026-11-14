@@ -105,8 +105,9 @@ export function createVillageWorkspace({read,act,placeDetail}) {
     }
     const shortLabel={'You hit them':'Your hit','Evade you':'Evade','Attack':'Atk','Speed':'Spd'};
     const ownValue=label=>{const id=({'Attack':'attack_power_slot','Defense':'defense_slot','Speed':'attack_speed_slot'})[label];const own=id?document.querySelector(`#character_stats_div #${id}`)?.textContent.trim():'';return own?`You: ${own}${label==='Speed'?' /s':''}`:'';};
-    function renderEnemy(target,board){
-        const opponents=board.opponents,count=opponents.length,root=document.getElementById('main_content');
+    let standing=0;const OPPONENT_LIST_FROM=2;
+    function renderEnemy(target,board){ // sets `standing`, read by the Opponents list's eligibility
+        const opponents=board.opponents,count=opponents.length,root=document.getElementById('main_content');standing=count;
         if(enemyView.parentNode!==focus)focus.replaceChildren(enemyView);
         focus.dataset.nativeActor=target.id||'';
         // Repeated names group in first-appearance order; each group keeps native slot order.
@@ -170,7 +171,9 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
     const home=document.getElementById('main_content');
     definePanel({id:'focus',title:'Focus',role:'character',node:focus,home,defaultDock:'center',after:'time',eligible:()=>true});
     const fighting=()=>home.dataset.parity==='r3'&&home.dataset.parityCombat==='true';
-    definePanel({id:'opponents',title:'Opponents',role:'character',node:opponentsView,home,defaultDock:'center',after:'local-actions',eligible:fighting,discovered:fighting,
+    // A lone opponent is already whole in the Opponent panel; the list is for choosing among two or more.
+    const crowd=()=>fighting()&&standing>=OPPONENT_LIST_FROM;
+    definePanel({id:'opponents',title:'Opponents',role:'character',node:opponentsView,home,defaultDock:'center',after:'local-actions',eligible:crowd,discovered:fighting,
         settings:[{key:'letters',label:'Opponent letters',description:'Show A, B, C beside opponents of the same name. Off by default: hover a report line to find its opponent.',options:[['off','Off'],['hover','On hover'],['always','Always']],default:'off'}]});
     // R22c (FC12): hovering or focusing a combat line marks its opponent's row in the current wave,
     // and a row marks its lines. Older waves' lines link to nothing. Presentation only.

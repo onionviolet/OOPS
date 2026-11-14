@@ -101,4 +101,6 @@ export function todayDigest() {
     return todayDigestView(readToday());
 }
 export const todayDigestView = view => ({clock:view.clock,place:view.place,...(view.note?{note:view.note}:{}),
-    open:view.usesLocalClock?[]:view.rows.filter(r=>r.open).map(r=>r.name),running:view.work});
+    open:view.usesLocalClock?[]:view.rows.filter(r=>r.open).map(r=>r.name),
+    // M2: what keeps set hours here and is shut now, with its hours, so the day's shape is readable before the log fills.
+    later:view.usesLocalClock?[]:view.rows.filter(r=>!r.open).map(r=>({name:r.name,detail:r.detail})),running:view.work});

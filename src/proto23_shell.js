@@ -245,9 +245,11 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
     compact.append(tabs.node);
     // R22c (FC17): a fight opens Inventory on Usable (when you hold any) and leaving it returns the
     // tab you had; the stored preference stays the idle tab. Browser-local presentation only.
-    {const shellRoot=document.getElementById('main_content');let idleTab=null;
+    {const shellRoot=document.getElementById('main_content'),FIGHT_USABLE_FROM=9;let idleTab=null;
         const follow=()=>{const fight=shellRoot.dataset.parity==='r3'&&shellRoot.dataset.parityCombat==='true';
-            if(fight&&idleTab===null){idleTab=tabs.current();if(idleTab!=='usable'&&inventoryList.querySelector('.character_item_usable,.character_item_book'))tabs.select('usable');}
+            if(fight&&idleTab===null){idleTab=tabs.current();
+                // A short pack is already all on screen; the switch is for finding a usable among many (FIGHT_USABLE_FROM rows).
+                if(idleTab!=='usable'&&inventoryList.children.length>=FIGHT_USABLE_FROM&&inventoryList.querySelector('.character_item_usable,.character_item_book'))tabs.select('usable');}
             else if(!fight&&idleTab!==null){const back=idleTab;idleTab=null;if(tabs.current()!==back)tabs.select(back);}};
         new MutationObserver(follow).observe(shellRoot,{attributes:true,attributeFilter:['data-parity-combat','data-parity']});follow();}
     const sort=makeSelect('Inventory sort',[['inventory_sort_by_name','Name'],['inventory_sort_by_price','Value'],['inventory_sort_by_type','Type']]);
