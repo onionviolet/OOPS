@@ -59,6 +59,7 @@ import {reachableFrom, walkFrom, srcFiles} from './reachable.mjs';
 import {recordsOf} from '../src/knowledge_record.js';
 import {readLineage} from '../src/world_substrate.js';
 import {MECHANISMS, SPLIT_RULE, splitLabelled, fitMechanisms, scoreHeldOut} from '../src/brew_heldout.js';
+import {SPLIT_RULE as SPELL_SPLIT_RULE, splitSpells, fitSpells, scoreSpells, singletonIntentRows} from '../src/spell_heldout.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const COVERAGE_DIR = 'docs/coverage';
@@ -547,7 +548,40 @@ export async function heldOutScores(ledgers) {
         }
     }
     out.set('hp_potions', {before, after, unlabelled, ruleInformed: RULE_INFORMED});
+    out.set('hp_spells', await spellHeldOut());
     return out;
+}
+
+// Hogwarts spells (wave 2026-11-14). The fit and the prediction read the tuning rows and the blind gloss file only.
+export const BLIND_LEXICON = 'docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon.json';
+export async function spellHeldOut() {
+    const {HP_SPELL_ROWS, HP_SPELL_WORLD, HP_SPELL_NAME_WORDS, HP_SPELL_LEDGER_EXCEPTIONS} = await import('../src/spell_pack_hogwarts.js');
+    const {HP_CASE_SCENES} = await import('../src/world_packs/hp_effect_pack.js');
+    const {executeSpellRows, outcomeCase} = await import('../src/spell_heldout_cases.js');
+    const blind = JSON.parse(fs.readFileSync(path.join(root, BLIND_LEXICON), 'utf8'));
+    const opts = {lexicon: {...blind.roots, ...blind.names}, nameWords: HP_SPELL_NAME_WORDS};
+    const split = splitSpells(HP_SPELL_ROWS), fit = fitSpells(split.tuned, HP_SPELL_WORLD);
+    const diag = scoreSpells(split.heldOut, fit, HP_SPELL_WORLD, opts), diagTuned = scoreSpells(split.tuned, fit, HP_SPELL_WORLD, opts);
+    const run = data => runCaseData(data, {id: 'held-out'});
+    const sentences = new Map([...diag.rows, ...diagTuned.rows].map(r => [r.id, r.sentenceValue]));
+    const engineHeld = await executeSpellRows(split.heldOut, sentences, run);
+    const engineTuned = await executeSpellRows(split.tuned, sentences, run);
+    // Probe validation: each row with a template, its own truth as both prediction and label.
+    const own = HP_SPELL_ROWS.filter(r => split.heldOut.includes(r) || split.tuned.includes(r)).filter(r => outcomeCase(r.truth, r.truth).data);
+    const selfRun = {n: own.length, match: 0};
+    for (const r of own) if ((await run(outcomeCase(r.truth, r.truth).data)).state.startsWith('expressed-')) selfRun.match++;
+    const singles = new Set(singletonIntentRows(HP_SPELL_ROWS));
+    const kept = diag.rows.filter(r => !singles.has(r.id));
+    const untouched = {n: kept.length, verbObject: kept.filter(r => r.verbObject).length, outcome: kept.filter(r => r.outcome).length,
+        targeting: kept.filter(r => r.targeting).length, both: kept.filter(r => r.outcome && r.targeting).length};
+    // How the computed cases were authored: every case is a scene keyed by the row id, run on the row's own truth.
+    const exceptionCases = Object.entries(HP_SPELL_LEDGER_EXCEPTIONS).filter(([, e]) => e.case).length;
+    const tableSrc = ['src/world_packs/hp_effect_pack.js', 'src/world_packs/hp_primitive_case_scenes.js']
+        .map(f => fs.readFileSync(path.join(root, f), 'utf8')).join('\n');
+    const templated = (tableSrc.match(/^\s+'?[a-z-]+'?: (carried|marked|unmarked|reshaped|measured|loss|treatment)\(/gm) ?? []).length;
+    const bespoke = {scenes: Object.keys(HP_CASE_SCENES).length, exceptionCases, built: Object.values(HP_CASE_SCENES).filter(v => v.build).length, templated,
+        rows: HP_SPELL_ROWS.length};
+    return {kind: 'spell', selfRun, split, fit, diag, diagTuned, engineHeld, engineTuned, untouched, singletonCount: singles.size, bespoke, rows: HP_SPELL_ROWS};
 }
 
 const countEngine = (results, key, skip = new Set()) => {
@@ -557,6 +591,37 @@ const countEngine = (results, key, skip = new Set()) => {
 const short = id => id.replace('hp.potion.', '');
 const reasonOf = v => v.replace(/^cannot: /, '').replace(/\|/g, '/');
 
+function renderSpellHeldOut(name, h) {
+    const d = h.diag, u = h.untouched, b = h.bespoke, e = countEngine(h.engineHeld, 'outcome'), et = countEngine(h.engineTuned, 'outcome');
+    const rank = {'wrong rule': 0, 'missing rule': 1, 'missing data': 2, 'undecidable default': 3};
+    const cats = {};
+    for (const r of d.misses) cats[r.miss.category] = (cats[r.miss.category] ?? 0) + 1;
+    const lines = ['', `### ${name}`, '',
+        `- **Finding: every computed case is bespoke per row.** All ${b.scenes + b.exceptionCases} computed cases (${b.scenes} scenes in \`HP_CASE_SCENES\` plus ${b.exceptionCases} case modules on exception rows) are keyed by the row id, and each case's sentence is that row's own truth (\`caseSentence(row)\` reads \`row.truth\`, which is the label). ${b.built} are custom \`build\` functions and ${b.scenes - b.built} are plain scene objects, ${b.templated} of them through the shared templates \`carried\`, \`marked\`, \`unmarked\`, \`reshaped\`, \`measured\`, \`loss\` or \`treatment\` (the shapes are general; every holder, destination and mark is authored for the row). None of the ${b.scenes + b.exceptionCases} is a held-out test. The pack's \`intent\` field also reproduces the truth sentence through \`sentenceFromIntent\` for all ${b.rows} rows, so it is the label in disguise and is not an input. The held-out set is what the identity rule can predict without having seen the row, and the engine score runs a fresh generic probe (\`src/spell_heldout_cases.js\`), never a scene.`,
+        '', '| Held-out matches | Held out | Verb and object | Outcome (verb, object, direction) | Targeting | Time | Whole sentence | Engine outcome |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
+        `| All held-out rows | ${d.n} | ${d.verbObject} | ${d.outcome} | ${d.targeting} | ${d.time} | ${d.sentence} | ${e.match} (${e.cannot} cannot run) |`,
+        `| Without the ${h.singletonCount} rows whose intent only that row uses | ${u.n} | ${u.verbObject} | ${u.outcome} | ${u.targeting} | | | |`, '',
+        `- **Split rule** (\`src/spell_heldout.js\`): ${SPELL_SPLIT_RULE}`,
+        `- **Tuned on** (${h.split.tuned.length}): ${h.split.tuned.map(r => `${r.id} (${r.family}, ${r.locator})`).join('; ')}. Diagnostic on the tuning rows, reported apart: outcome ${h.diagTuned.outcome} of ${h.diagTuned.n}, targeting ${h.diagTuned.targeting}; engine outcome ${et.match} of ${et.n}.`,
+        `- **Rule**: identity (roots and the English name words) -> intent (\`inferIntent\` over the tuning corpus plus the blind gloss lexicon \`${BLIND_LEXICON}\`, written from word strings and the intent list only) -> verb, object, direction from \`INTENT_LAW\` -> target and time from the tuning rows sharing the intent (else all tuning rows) -> the grammar's own checks. The family field is never read. The hand-written \`HP_ROOT_LEXICON\` is not used: it maps roots to the rows' own intents.`,
+        `- **Leak, stated**: \`INTENT_LAW\` has an entry coined for each of ${h.singletonCount} intents that exactly one row uses (EF2), and the blind reader saw the intent list, so a correct guess on such a row gets its sentence by construction. The second table line leaves those rows out. This wave cannot show the law predicting an effect it was not written for; it shows how far identity alone reaches. Not comparable to the leave-one-out GL2 line (33 of 80 verb and object): that fit trains on 79 rows, this one on ${h.split.tuned.length}.`,
+        `- **Outcome** = verb, object and direction agree; **targeting** = target agrees (the spell's carrier is the wand on every row, so carrier is not scored). Time is mostly an authored or inferred default in the pack notes and stays out of the headline.`,
+        `- **Engine**: the predicted sentence is landed on a probe built from fixed dials for its world-term class (position, vitality, form, mark-add, mark-drop); the label, read in world terms, is the \`expect\`. The probes are validated by running each class on its own label (${h.selfRun.match} of ${h.selfRun.n} evidence-labelled rows with a template run and match). Targeting is not an engine distinction (the target is a bound holder), so no engine targeting score. "Cannot run" is a prediction or a label whose object has no generic probe, never forced.`,
+        `- **Out of scope** (label is an author's ruling or reading, not evidence): ${h.split.authoredLabel.map(r => r.id).join(', ')}. The 6 not-a-thing rows and 3 exception rows have no truth sentence.`,
+        `- **Held out** (${d.n}): ${d.rows.map(r => r.id).join(', ')}.`,
+        `- **Miss categories** (${d.misses.length} rows miss outcome, targeting or time): ${Object.entries(cats).sort((x, y) => rank[x[0]] - rank[y[0]]).map(([k, n]) => `${k} ${n}`).join(', ')}. Missing mechanism applies to the engine only (see the cannot-run reasons). Author's exception: none identified from the notes. Undecidable defaults are design choices for the creative director and are not picked here.`,
+        '', '**Sorted misses** (category, then id; none fixed):', '',
+        '| Row | Category | Field | Predicted | Actual | Why | Engine outcome |', '| --- | --- | --- | --- | --- | --- | --- |'];
+    const engineOf = new Map(h.engineHeld.map(r => [r.id, r]));
+    const show = v => v === 'match' || v === 'mismatch' ? v : `cannot: ${reasonOf(v)}`;
+    for (const r of [...d.misses].sort((x, y) => rank[x.miss.category] - rank[y.miss.category] || x.id.localeCompare(y.id)))
+        lines.push(`| ${r.id} | ${r.miss.category} | ${r.miss.field} | ${r.predicted} | ${r.actual} | ${r.miss.why.replace(/\|/g, '/')} | ${show(engineOf.get(r.id).outcome)} |`);
+    const cannot = {};
+    for (const r of h.engineHeld.filter(x => x.outcome.startsWith('cannot'))) { const k = reasonOf(r.outcome); cannot[k] = (cannot[k] ?? 0) + 1; }
+    lines.push('', `**Engine cannot-run reasons** (held out): ${Object.entries(cannot).sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0])).map(([k, n]) => `${k} (${n})`).join('; ')}.`);
+    return lines;
+}
+
 function renderHeldOut(held, ledgers) {
     const lines = ['', '## Held-out canon scoring (PC72, tuned on / held out / matched)', '',
         '*Two scores per row, outcome and route kept apart. **Diagnostic**: a mechanism family predicts the effect sentence and delivery carrier, compared with the evidence-labelled sentence (`HP_POTION_SENTENCES`, each citing an evidence row; no label is derived from a title). Outcome = verb, object and target agree; route = carrier agrees. **Engine**: the fitted mechanism is built into a brew dose case (`src/brew_heldout_cases.js`) and run through the generic case runner; the label, read in world terms, is the `expect`. Engine outcome = the world term the label names changed (mind rows are checked on the mood faculty, a fixed dial) (vitality quantity up or down, form property, mind property) after an oral dose; engine route = the mechanism\'s route leaves the dose where the label\'s route needs it. Self versus touched is not an engine distinction (the target is a bound holder), so engine outcome does not test it. The tuning sample never counts as held out. The split rule lives in `src/brew_heldout.js`; this section is generated.*', '',
@@ -564,10 +629,16 @@ function renderHeldOut(held, ledgers) {
     for (const l of ledgers) {
         const h = held.get(l.name);
         if (!h) { lines.push(`| ${l.name} | 0 | 0 | | | | | none yet |`); continue; }
+        if (h.kind === 'spell') {
+            const eo = countEngine(h.engineHeld, 'outcome');
+            lines.push(`| ${l.name} | ${h.split.tuned.length} | ${h.diag.n} | ${h.diag.outcome} of ${h.diag.n} | ${h.diag.targeting} of ${h.diag.n} (targeting) | ${eo.match} of ${eo.n} (${eo.cannot} cannot run) | not an engine distinction | ${SPELL_SPLIT_RULE} |`);
+            continue;
+        }
         const a = h.after, eo = countEngine(a.engineHeld, 'outcome'), er = countEngine(a.engineHeld, 'route');
         lines.push(`| ${l.name} | ${a.split.tuned.length} | ${a.diag.n} | ${a.diag.outcome} of ${a.diag.n} | ${a.diag.route} of ${a.diag.n} | ${eo.match} of ${eo.n} | ${er.match} of ${er.n} | ${SPLIT_RULE} |`);
     }
     for (const [name, h] of held) {
+        if (h.kind === 'spell') { lines.push(...renderSpellHeldOut(name, h)); continue; }
         const a = h.after, b = h.before, skip = new Set(h.ruleInformed);
         const row = (label, sc) => {
             const eo = countEngine(sc.engineHeld, 'outcome'), er = countEngine(sc.engineHeld, 'route');
