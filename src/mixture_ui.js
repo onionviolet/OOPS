@@ -8,6 +8,7 @@ import {RESPONSIVE_METHOD} from './mixture_rules.js';
 import {projectMixtureDiscovery,describeSelectedPlantReadings,describeVial} from './mixture_discovery.js';
 import {INGREDIENTS,getMixtureOwner,createMixtureState,mixturePresentation,mixtureKey} from './mixture_state.js';
 import {LAYOUT_SPEC} from './layout_spec.js';
+import {moneyText} from './reveal_chain.js'; // UIC190: prices in the purse's own format
 export function createMixturePanel({craftingContainer,actionContainer,read,act}){
     const launch=document.createElement('button');launch.id='village_mixing_open';launch.textContent='Mix at the Village counter';actionContainer.append(launch);
     // UIC151: the counter is already a row in Around you and a tab under the centre; with benchActionRow off the third
@@ -30,7 +31,7 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
     {const head=document.createElement('div');head.className='mixture-ingredient mixture-head';head.setAttribute('aria-hidden','true');for(const t of ['Ingredient','Use','Held',''])head.append(Object.assign(document.createElement('span'),{textContent:t}));rows.append(head);}
     for(const i of INGREDIENTS){const row=document.createElement('label');row.className='mixture-ingredient';const name=document.createElement('span');name.textContent=i.id+' ';row.append(name);
         const input=document.createElement('input');input.type='number';input.min=0;input.max=99;input.step=1;input.value=['River bellleaf','Spring water'].includes(i.id)?1:0;input.id='mixture_amount_'+i.id.replaceAll(' ','_');input.style.width='50px';input.setAttribute('aria-label',`How many ${i.id} to use`);input.oninput=()=>{lastFailure=null;preview();};row.append(input);amounts[i.id]=input;
-        const stock=document.createElement('span');stock.className='mixture-have';stockLabels[i.id]=stock;row.append(stock);const buy=document.createElement('button');buy.type='button';buy.className='mixture-buy';buy.textContent=`Buy · ${i.price} coins`;buy.setAttribute('aria-label',`Buy one pack of ${i.id} for ${i.price} coins`);buy.onclick=()=>run({type:'buy',id:i.id});row.append(buy);name.title=i.route;rows.append(row);}
+        const stock=document.createElement('span');stock.className='mixture-have';stockLabels[i.id]=stock;row.append(stock);const buy=document.createElement('button');buy.type='button';buy.className='mixture-buy';buy.textContent=`Buy · ${moneyText(i.price)}`;buy.setAttribute('aria-label',`Buy one pack of ${i.id} for ${moneyText(i.price)}`);buy.onclick=()=>run({type:'buy',id:i.id});row.append(buy);name.title=i.route;rows.append(row);}
     const controls=document.createElement('div');controls.className='mixture-controls';panel.append(controls);
     const methods=document.createElement('details');methods.className='mixture-details';
     const methodSummary=document.createElement('summary');
@@ -77,7 +78,7 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
         if(workCard)workCard.hidden=!s?.job;
         const short=(data.holds.materials||[]).filter(r=>r.missing);
         const unavailable=lastFailure||q.error||!frame.ready;
-        const shortage=short.length?`Missing ${short.map(r=>`${r.missing} ${r.id}`).join(' and ')}${data.holds.buyCoins?`; buying ${short.length===1?'it':'them'} costs ${data.holds.buyCoins} coins`:''}.`:'';
+        const shortage=short.length?`Missing ${short.map(r=>`${r.missing} ${r.id}`).join(' and ')}${data.holds.buyCoins?`; buying ${short.length===1?'it':'them'} costs ${moneyText(data.holds.buyCoins)}`:''}.`:'';
         const message=unavailable?data.blocker.mix:shortage||data.blocker.mix;
         if(status.textContent!==(message??''))status.textContent=message??'';
         // UIC187: Mix is pressable only when it can run, and a blocked Mix says why on hover and in the status line under it (UIC166).

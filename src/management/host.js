@@ -8,6 +8,7 @@ import {formatDuration} from '../number_format.js';
 import {managementDefinitions} from './content.js';
 import {managementFacts} from './facts.js';
 import {validateManagementState} from './validation.js';
+import {moneyText} from '../reveal_chain.js';
 export const managementContext=(state,context)=>({...context,facts:{...context.facts,...managementFacts(state,context)}});
 export function commitManagement(state,registry,command,context,sequence=state.sequence) {
  check(context.actorId==='player'&&sequence===state.sequence,'The courtyard choice is stale.');
@@ -65,7 +66,7 @@ function shortfall(state,registry,d,quoteContext) {
   if(held.has(key))continue;
   const sell=managementDefinitions.commands.find(c=>c.family==='supplies'&&c.effects.some(e=>e.type==='transfer'&&e.key===key&&e.to==='player'));
   const price=sell&&-sell.costs.filter(c=>c.key==='money').reduce((t,c)=>t+c.amount,0),seller=sell&&(registry.simulation.people?.get?.(sell.targetId)?.label||state.simulation.people[sell.targetId]?.label||'').split(', ')[0];
-  lines.push(`Needs ${leaf.value} ${name}; you have ${have}.${sell?` ${seller||'The courtyard'} sells one for ${price} coins under Finite supplies.`:''}`);
+  lines.push(`Needs ${leaf.value} ${name}; you have ${have}.${sell?` ${seller||'The courtyard'} sells one for ${moneyText(price)} under Finite supplies.`:''}`);
  }
  return lines;
 }

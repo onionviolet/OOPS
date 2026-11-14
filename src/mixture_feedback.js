@@ -2,6 +2,7 @@
 import {INGREDIENTS,mixturePresentation} from './mixture_state.js';
 import {projectKnownActionRequirements} from './action_legibility.js';
 import {blockedIngredients} from './mixture_native.js';
+import {moneyText} from './reveal_chain.js';
 // Free stock excludes keys the native disposition owner holds elsewhere (K2).
 const stock=(frame,id)=>blockedIngredients(frame.expansion)[id]?0:frame.inventory?.[JSON.stringify({id})]?.count??0;
 const amounts=inputs=>Object.entries(inputs??{}).map(([id,n])=>`${n} ${id}`).join(', ');
@@ -40,7 +41,7 @@ export function projectMixtureFeedback({frame,owner,quote,queue,requirements}) {
     const queueRows=qp&&Number.isSafeInteger(count)&&count>=1&&count<=999?materials(qp.inputs,count,owner?.job?.product===qp.id?owner.job.held:{}):[];
     const queueCost=queueRows.reduce((n,r)=>n+r.buyCoins,0);
     const holds={materials:rows,buyCoins:cost,queueMaterials:queueRows,queueBuyCoins:queueCost,
-        text:product?`Vial: ${describe(rows)}. Buy missing: ${cost} coins; purse ${frame.money}. No mixing fee.`:'Next vial: unavailable until the selection is valid.'};
+        text:product?`Vial: ${describe(rows)}. Buy missing: ${moneyText(cost)}; purse ${moneyText(frame.money)}. No mixing fee.`:'Next vial: unavailable until the selection is valid.'};
     if(queueRows.length)holds.text+=` Queue ${count} totals: ${queueRows.map(r=>`${r.needed} ${r.id} (${r.after<0?`short ${-r.after}`:`${r.after} left`})`).join('; ')}. Buy missing: ${queueCost} coins. One batch held at a time.${owner?.job?.product===qp.id?' Totals include held.':''}`;
     const job=owner?.job,left=job?Math.max(0,job.due-frame.clock):0;
     const work={minutesLeft:job?left:null,batches:job?.remaining??0,minutesPerBatch:3,totalMinutes:job?left+3*(job.remaining-1):0,

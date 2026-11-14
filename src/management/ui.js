@@ -16,6 +16,8 @@ registerOwnedWorkPanel((_work,definition)=>definition?.group==='management'?'man
 // UIC183: what just happened, in the G16 shape: "Started: …, 2 min to go.", "Done: …" or "Stopped."
 const doneLine=a=>a.type==='cancel'||a.type==='delegate_cancel'?'Stopped. Held inputs are back with their owner.':a.type==='pause'?'Paused after the current job.':a.type==='repeat'?'Scheduled. Each repetition takes its own inputs.':
  (head=>a.duration>0?`Started: ${head}, ${formatDuration(a.duration)} to go.`:`Done: ${head}.`)(String(a.label||'').split(' · ')[0]);
+// UIC190: courtyard labels are authored with "4 coins"; they show in the purse's format like every other price here.
+const coinWords=text=>String(text).replace(/\b(\d+) coins?\b/g,(_,n)=>moneyText(Number(n)));
 const MOVED_KEY='oops.management.movedNoticeSeen';
 const seenMoved=()=>{try{return localStorage.getItem(MOVED_KEY)==='1';}catch{return false;}};
 const markMoved=()=>{try{localStorage.setItem(MOVED_KEY,'1');}catch{}};
@@ -95,17 +97,17 @@ export function createManagementPanel({read,registry,command}) {
    if(hj){const hire=hp.hires.find(h=>h.jobId===hj.id&&h.status==='active'),sig=JSON.stringify([snapshot.canWrite,hj,hire&&hire.paidThrough,hire&&hire.sellAbove]);
     if(handList.dataset.sig!==sig){handList.dataset.sig=sig;
      const run=(f,ok)=>()=>{try{f();message=ok;}catch(e){message=e.message;}render();};
-     if(hire)handList.replaceChildren(node('p',`${hire.name} tends the ${hire.crop} for ${hire.wage} coins a week, paid ahead. ${hire.income?.text||''}`.trim(),{class:'organization-note'}),
+     if(hire)handList.replaceChildren(node('p',`${hire.name} tends the ${hire.crop} for ${moneyText(hire.wage)} a week, paid ahead. ${hire.income?.text||''}`.trim(),{class:'organization-note'}),
       (()=>{const b=node('button',`Let ${hire.name} go`,{type:'button'});b.disabled=!snapshot.canWrite;b.addEventListener('click',run(()=>domainRegistry.command('hired_hands','fire')({jobId:hj.id}),'You let them go.'));return b;})(),
       (()=>{const w=node('p',null,{class:'organization-note'}),n=node('input',null,{type:'number',min:'0',max:'999',step:'1',value:String(hire.sellAbove??10),'aria-label':'Keep this much grain'}),set=node('button',hire.sellAbove==null?'Sell grain above this at the market':'Change the sell order',{type:'button'});set.disabled=!snapshot.canWrite;
        set.addEventListener('click',run(()=>domainRegistry.command('hired_hands','order')({jobId:hj.id,sellAbove:Number(n.value)}),'Sell order set.'));w.append(node('span',hire.sellAbove==null?'Grain above ':`Selling grain above ${hire.sellAbove}; set it to `),n,node('span',' '),set);
        if(hire.sellAbove!=null){const off=node('button','Stop selling',{type:'button'});off.disabled=!snapshot.canWrite;off.addEventListener('click',run(()=>domainRegistry.command('hired_hands','order')({jobId:hj.id,sellAbove:null}),'Sell order cleared.'));w.append(' ',off);}
        return w;})());
-     else handList.replaceChildren(...hj.candidates.map(c=>{const wrap=node('p'),b=node('button',`Hire ${c.name} · ${c.wage} coins a week`,{type:'button'});b.disabled=!snapshot.canWrite||!c.eligible;
+     else handList.replaceChildren(...hj.candidates.map(c=>{const wrap=node('p'),b=node('button',`Hire ${c.name} · ${moneyText(c.wage)} a week`,{type:'button'});b.disabled=!snapshot.canWrite||!c.eligible;
       b.addEventListener('click',run(()=>domainRegistry.command('hired_hands','hire')({jobId:hj.id,hand:c.id,crop:handCrop.value}),`${c.name} is hired.`));wrap.append(b,node('small',` ${c.eligible?c.line:c.reasons.join(' ')}`));return wrap;}));}}}
   found.hidden=court||!view.opened||!domainRegistry.command('organizations','quote');
   if(!found.hidden){const q=domainRegistry.command('organizations','quote')(dials());
-   foundTerms.textContent=`Costs ${q.cost} coins now.${q.because?` ${q.because}`:''} With coin dues, members pay at each meeting into the group's treasury.`;
+   foundTerms.textContent=`Costs ${moneyText(q.cost)} now.${q.because?` ${q.because}`:''} With coin dues, members pay at each meeting into the group's treasury.`;
    foundBtn.disabled=!snapshot.canWrite||!q.eligible||!nameIn.value.trim();foundWhy.textContent=nameIn.value.trim()||!q.eligible?q.reasons.join(' '):'Name the group to found it.';foundWhy.hidden=!foundWhy.textContent;}
   mine.hidden=hidden||(!here&&!view.opened)||!domainRegistry.command('organizations','quote');
   if(!mine.hidden){
@@ -121,14 +123,14 @@ export function createManagementPanel({read,registry,command}) {
      card.append(node('h4',g.name));
      if(coin){
       const late=g.members.filter(m=>m.lateMeetings>0).map(m=>`${m.name} (${m.lateMeetings} late)`);
-      card.append(node('p',`Treasury: ${box} coin${box===1?'':'s'}. Dues: ${g.duesPerMeeting} coins per member per meeting; a member who cannot cover it is marked late and charged nothing.${late.length?` Late: ${late.join(', ')}.`:''}`,{class:'organization-note'}));
+      card.append(node('p',`Treasury: ${moneyText(box)}. Dues: ${moneyText(g.duesPerMeeting)} per member per meeting; a member who cannot cover it is marked late and charged nothing.${late.length?` Late: ${late.join(', ')}.`:''}`,{class:'organization-note'}));
       card.append(act(pend?`Collect dues (${pend} meeting${pend===1?'':'s'} held)`:'Collect dues',pend?'':'No meeting has been held since the last collecting.',()=>org('settle')({id:g.id}),'Dues collected and saved.',!snapshot.canWrite||!pend));
      } else card.append(node('p','This group collects no coin dues, so it has no treasury.',{class:'organization-note'}));
      for(const q of inv)if(!q.joined)card.append(act(`Invite ${q.name}`,q.eligible?`Agrees at Village standing ${q.needs}.`:q.reasons.join(' '),()=>org('invite')({id:g.id,npc:q.npc}),`${q.name} joined ${g.name}.`,!snapshot.canWrite||!q.eligible));
-     for(const q of abil)card.append(act(`${q.label} · ${q.cost} coins`,q.eligible?q.because:q.reasons.join(' '),()=>org('spend')({id:g.id,ability:q.key}),`${q.label}: done.`,!snapshot.canWrite||!q.eligible));
+     for(const q of abil)card.append(act(`${q.label} · ${moneyText(q.cost)}`,q.eligible?q.because:q.reasons.join(' '),()=>org('spend')({id:g.id,ability:q.key}),`${q.label}: done.`,!snapshot.canWrite||!q.eligible));
      for(const q of clm)card.append(q.held?act(`Give up ${q.label}`,`${g.name} claims ${q.label}.`,()=>org('release')({id:g.id,place:q.place}),`${g.name} gave up ${q.label}.`,!snapshot.canWrite)
-      :act(`Claim ${q.label} · ${q.cost} coins`,q.eligible?q.because:q.reasons.join(' '),()=>org('claim')({id:g.id,place:q.place}),`${g.name} claims ${q.label}.`,!snapshot.canWrite||!q.eligible));
-     card.append(act(`Dissolve ${g.name}`,box?`The ${box} coins in the box go back to the members who paid in.`:'',()=>org('dissolve')({id:g.id}),`${g.name} dissolved.`,!snapshot.canWrite));
+      :act(`Claim ${q.label} · ${moneyText(q.cost)}`,q.eligible?q.because:q.reasons.join(' '),()=>org('claim')({id:g.id,place:q.place}),`${g.name} claims ${q.label}.`,!snapshot.canWrite||!q.eligible));
+     card.append(act(`Dissolve ${g.name}`,box?`The ${moneyText(box)} in the box go back to the members who paid in.`:'',()=>org('dissolve')({id:g.id}),`${g.name} dissolved.`,!snapshot.canWrite));
      return card;}));}
    }
   const seen=new Set(),visibleGroups=new Set();
@@ -142,7 +144,7 @@ export function createManagementPanel({read,registry,command}) {
     const id=`${s.id}:${a.type||'command'}:${a.id||''}`;seen.add(id);let r=rows.get(id);
     if(!r){const el=node('section'),button=node('button'),description=node('p'),reason=node('p');button.type='button';el.className='expedition_card';el.append(button,description,reason);g.append(el);r={el,button,description,reason,action:a};rows.set(id,r);
      button.addEventListener('click',()=>{try{const current=read();command({...r.action,sequence:current.state.sequence});message=doneLine(r.action);}catch(e){message=e.message;}render();});}
-    r.action=a;r.el.hidden=false;r.button.textContent=a.label;r.button.disabled=!snapshot.canWrite||!a.eligible;r.description.textContent=a.description||'';
+    r.action=a;r.el.hidden=false;r.button.textContent=coinWords(a.label);r.button.disabled=!snapshot.canWrite||!a.eligible;r.description.textContent=a.description||'';
     r.reason.textContent=(a.reasons||[]).join(' ');r.reason.hidden=!r.reason.textContent;
    }
   }
