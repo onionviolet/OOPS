@@ -156,3 +156,26 @@ All lines are proposals (AD32, AD56).
 | PS50 | **Your terms are remembered per foe kind in the bestiary.** YAIR already has one. The row reads "Wolf rat · your terms: Finish". |
 | PS51 | **A choice has consequences beyond loot.** Kills and spares feed standing (a merciful or a ruthless name), ties (a spared man returns, grateful or vengeful), the mind (MND: Klein's acting, a first kill's weight), the world's own rules (in Harry's world killing costs more than standing) and populations (spared wolves grow wary). Each shows as one Reports line when it happens, not as a hidden meter. |
 | PS52 | **A sparring partner learns your stance.** Repeated drills against the same person let them read your habit, and switching stance becomes a choice that matters. This is a small counter-play loop for training, and it uses ties. |
+
+## Round 6, 2026-11-14: one flow, not separate panels
+
+Weibao: "how can we make UI flow between each other rather than being its own thing? so its cohesive all together?". Mock: [flow.html](../../../../prototypes/fight-intent-2026-11-14/flow.html), with `flow.png` beside it. It shows Fang Yuan's evening after a wolf at the wall. All lines are proposals (AD32).
+
+Why the panels feel separate today:
+- Each feature is a destination with its own home.
+- Its outputs stop at its own result line.
+- An item says what it is, not where it can go.
+- The ready actions of one feature cannot be seen from another, except the day actions on Here (a538b279e).
+
+| Code | Default | Needs Weibao's pick? |
+| --- | --- | --- |
+| PS53 | **One spine in every view: where and when.** A status line holds place, time, weather, the reserve that matters in this world and the save state (direction B). Under it, the day strip shows what happened and what is due (direction F, mounted at bbab85a4a). | Yes: B and F are held directions |
+| PS54 | **Nouns are links to one inspector.** An item, person, place or Gu opens the same inspector, which shows where it came from and where it can go. The where-to rows are other features' verbs, live with their gaps ("Moonglow's next step wants 3; you have 2"). | The inspector in the left column is direction A (held). The links and the where-to data can start now, opening today's detail views |
+| PS55 | **Results name the next step.** A result line ends with links to the panels that use what was just gained: "Next: process at the carcass bench · hand the eye in". | No, frame-neutral |
+| PS56 | **Back returns where you came from.** Navigation keeps a stack: from a fight result to the bench, then back to the fight result, not to the bench's home. | No (UR33 and the centre controller) |
+| PS57 | **One hub: Here, ready now.** Each feature reports its ready and near rows through one interface, and Here lists them across features, ready first and near with the gap named. | Yes: this is direction D (held). The interface (a feature's `ready()` rows) can start now, as data |
+| PS58 | **A loop map per life.** The chain (Feed → Patrol → Parts → Board → Stones → Feed) shows live counts, the node where the loop is waiting is marked, and each node opens its panel. | A new representation (UR89), so it is mocked first |
+| PS59 | **A change shows wherever it matters.** Meat that is spoiling shows in Inventory, on Here and on the bench, not only in the panel that made it. One state is read everywhere (CTR). | No |
+| PS60 | **Reports lines link to their source.** Every noun and every "Next" in a Reports line is a link. | No |
+
+Recommendation: the cohesion Weibao asks for is mostly directions A, B, D and F taken together, so this round puts them to him as one package. PS55, PS56, PS59, PS60, PS54's links and data, and PS57's interface fit today's frame and can start now.
