@@ -72,7 +72,10 @@ test('trial 1: repeated plain lines fold between turning points and each turning
 test('trial 2, controlled variation: less essence gives a different fight, and the result says why', () => {
     const o = low.record.result.outcomes;
     assert.equal(o.fang_yuan, 'stood');
-    assert.equal(o.wang_er, 'knocked_out');
+    // Finished by hand. Whether fists kill or only put a man down is the contest's rule (Weibao, 2026-11-14:
+    // "fists can kill too"), so this trial holds either way and checks that the text follows the outcome.
+    assert.ok(['knocked_out', 'killed'].includes(o.wang_er), o.wang_er);
+    const fate = o.wang_er === 'killed' ? 'killed' : 'out cold';
     const blades = rec => rec.log.filter(r => r.actor === 'fang_yuan' && r.move === 'moonlight_gu').length;
     assert.equal(blades(full.record), 3);
     assert.equal(blades(low.record), 1);
@@ -80,11 +83,11 @@ test('trial 2, controlled variation: less essence gives a different fight, and t
     const items = Object.fromEntries(low.result.items);
     assert.equal(items.Spent, 'Primeval essence 4 of 4.');
     assert.match(items.Hurt, /^Vitality \d+ of 30\.$/);
-    assert.equal(items.Them, 'First hunter, Second hunter, Third hunter: yielded. Wang Er: out cold.');
+    assert.equal(items.Them, `First hunter, Second hunter, Third hunter: yielded. Wang Er: ${fate}.`);
     assert.ok(low.lines.some(l => l.text === 'Wang Er: bow shot hits you, through the glare.'));
     assert.equal(low.lines.find(l => l.text === 'You: punch hits Wang Er.').count, 6);
     assert.ok(full.lines.some(l => l.text === 'Wang Er: bow dropped.') && low.lines.some(l => l.text === 'You: closed in.'));
-    assert.deepEqual(low.result.turning.slice(-1), ['Wang Er down, out cold.']);
+    assert.deepEqual(low.result.turning.slice(-1), [`Wang Er down, ${fate}.`]);
     for (const line of [...low.lines.map(shownLine), low.result.head, ...low.result.items.map(i => i[1])]) assert.doesNotMatch(line, ENGINE_WORDS);
 });
 
