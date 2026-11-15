@@ -74,7 +74,7 @@ import {GRADED_IDS,consumedHarvestQuality,gradedKey,replacedHarvestDrop} from '.
 import {buildVillageObtainability,villageTablesFromNative} from './village_obtainability.js';
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
-import {worldWeatherWords,lifeTemperature} from './world_weather_display.js';
+import {worldWeatherWords,lifeTemperature} from './world_weather_display.js';import {placeDescriber} from './place_descriptions.js';
 const mixtureSeed=()=>streamSeed(expansionState,STREAMS.craft,"village.mixtures@1");
 const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@2");
 import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
@@ -9469,7 +9469,7 @@ set_loading_screen_progress("Waking up from a nyap...");
 
 set_loading_screen_progress("Translating the meows");
 const registerStructuredNative=createStructuredNativeRegistration({registry:expeditionRegistry,locations,items:item_templates,inventories,availabilities,definitions:structuredPacks,
-    makeLocation:l=>{if(l.combat?.enemyIds.some(id=>!enemy_templates[id]))throw Error('Unsupported native encounter.');return l.combat?new CombatZone({id:l.id,name:l.label,description:l.description,enemies_list:l.combat.enemyIds,enemy_stat_variation:0,parent_location:null,leave_text:'Return to shelter',is_unlocked:true}):new OptionalPackLocation({id:l.id,name:l.label,description:l.description,connected_locations:[],is_under_roof:l.underRoof!==false,is_unlocked:true});},
+    makeLocation:l=>{if(l.combat?.enemyIds.some(id=>!enemy_templates[id]))throw Error('Unsupported native encounter.');return l.combat?new CombatZone({id:l.id,name:l.label,description:l.description,enemies_list:l.combat.enemyIds,enemy_stat_variation:0,parent_location:null,leave_text:'Return to shelter',is_unlocked:true}):new OptionalPackLocation({id:l.id,name:l.label,description:l.description,getDescription:placeDescriber(l.id,l.description,()=>expansionState),connected_locations:[],is_under_roof:l.underRoof!==false,is_unlocked:true});},
     makeItem:i=>i.equipment?new Armor({...nativeStructuredEquipmentTemplate(i),tags:{expedition:true,structuredEquipment:true}}):new OtherItem({id:i.id,name:i.label,description:i.description,value:i.value||0,tags:{expedition:true}}),makeInventory:()=>new InventoryComponent()});
 const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,locations,
     makeLocation:l=>new OptionalPackLocation({id:l.id,name:l.label,description:l.description,connected_locations:[],is_under_roof:true}),
