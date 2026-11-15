@@ -97,7 +97,12 @@ export function topTerms(regions, combat) {
         const ids = [...region.querySelectorAll(':scope > .workspace-module[data-module]')].filter(n => !n.hidden).map(n => n.dataset.module);
         const fit = regionFit(ids);
         if (fit === 'content') { found = true; const parts = elasticParts(region); player = Math.max(player, contentExtent(region) - parts.shown); elastic = Math.max(elastic, parts.want); }
-        else if (fit === 'combat') { if (combat) focus = Math.max(focus, contentExtent(region)); else idleFocus = Math.max(idleFocus, stackedExtent(region)); }
+        else if (fit === 'combat') { if (combat) focus = Math.max(focus, contentExtent(region)); else {
+            // The row reads Around you alone: Ready now above it has its own height through the centre split, and letting its
+            // rows size the You row would move Inventory each time a row comes or goes (UR144).
+            const around = region.querySelector(':scope > .workspace-module[data-module="focus"]');
+            idleFocus = Math.max(idleFocus, around && region.querySelector(':scope > #ready_hub') ? intrinsicExtent(around) : intrinsicExtent(region));
+        } }
     }
     // No content box on top (You moved down): the row takes its elastic default instead of its
     // minimum, so the boxes moved up keep a useful height.
