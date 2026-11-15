@@ -14,12 +14,14 @@ Task record for the code half of the [status reconciliation](RULES_STATUS_RECONC
 | Fit | Extends PGC4, PGC5, PGC17 (`docs/PROCEDURAL_GRAMMAR_CONTRACT.md`), PAC3 and PAC4 (`docs/PACING_RULES.md`), OPN2, OPN5 and OPN7 (`docs/OPENING_RULES.md`), and EF2 (`docs/PROCEDURAL_FOUNDATION_PLAN.md`). No new seam. |
 | Ring | Producer and consumer: the grammar gate, its callers and the effect pipeline. Failure: receipts name each flag. Persistence and UI: none touched. |
 | Rule codes | PGC4, PGC5, PGC17, PC73, PAC3, PAC4, PAC5, OPN2, OPN5, OPN7, OPN9, EF2, LLR39 to LLR42, LLR47 to LLR49, AD5, AD38, AD56, AR1 to AR16 (runtime code) |
-| Files | `src/procedural_grammar.js`, `src/spell_grammar.js`, `src/effect_grammar.js`, `src/effect_checks.js`, `src/gu_move_generation.js`, `src/spell_effects.js`, `scripts/check_pacing.mjs`, `scripts/check_openings.mjs`, their tests, this record. Own worktree branch only; no push. |
+| Files | `src/procedural_grammar.js`, `src/spell_grammar.js`, `src/effect_grammar.js`, `src/effect_checks.js`, `src/gu_move_generation.js`, `src/spell_effects.js`, `scripts/check_pacing.mjs`, `scripts/check_openings.mjs`, their tests, this record. Commits stay on the worktree branch; no push. |
 | Failure scenario and checks | Flipping the default could silently loosen a world law, such as a spell that stuns a board. Caught by `tests/spell_grammar.test.js` (canon refusals), `tests/effect_grammar.test.js` (`verb-object`), and the new flag-versus-reject case in `tests/procedural_grammar.test.js`. |
 
-## Decisions in this slice
+## Choices in this slice (proposals)
 
-| Code | Decision | Reason |
+Agent choices made to carry out the LLR answers Weibao gave ("go ahead for all of them", 2026-11-14); he can flip any of them.
+
+| Code | Choice | Reason |
 |---|---|---|
 | RCA1 | **World laws declared `reject`:** `sentence-runs`, `target-fits-verb` and `living-target` (spell grammar); `verb-object` and `carrier-cost` (effect grammar, also used by the Hogwarts effect pack). | `sentence-runs` is shape (PFP16, generated means runnable). The others are canon or property laws with a dial that opens them (`mindedObjects`, `anyCost`). |
 | RCA2 | **`carrier-cost` stays `reject` while the spell grammar's `carrier-pays` stays a flag.** | They read alike but are different laws. `carrier-pays` checks a carrier's *usual* account; a transfer between worlds may pay differently (AD56). `carrier-cost` checks the world's own account table for that carrier, and its `anyCost` dial opens it. If Weibao wants it a flag, he flips one field. |
@@ -32,8 +34,8 @@ Task record for the code half of the [status reconciliation](RULES_STATUS_RECONC
 
 | Line | Record | Gate |
 |---|---|---|
-| FLR1 Build | n/a: no bundle-facing behavior; `npm run build` not run | floor |
-| FLR2 Route | n/a: library and check-script code, exercised by unit tests only | floor |
+| FLR1 Build | `npm run build` on dc7323816: bundle sha256 `eede8e94e220…` (rebuilt files not committed). The grammar files are in the bundle; shipped behavior changes only where a closed slot meets an unknown value, since every shipped check rule now declares its severity | floor |
+| FLR2 Route | n/a: library and check-script code, exercised by unit tests and no game route | floor |
 | FLR3 Shown | n/a: no player surface | floor |
 | FLR4 Used | Existing consumers: `gu_move_generation.js` (gate and score), `exploreEffects`, `searchEffectsForGoal`, `spell_invention.js`, `canonTest` | floor |
 | FLR5 Kept | n/a: no save keys touched | floor |
@@ -47,8 +49,10 @@ Task record for the code half of the [status reconciliation](RULES_STATUS_RECONC
 | Command | Result | Gaps |
 |---|---|---|
 | `node --test tests/procedural_grammar.test.js tests/grammar_search.test.js tests/spell_grammar.test.js tests/effect_grammar.test.js tests/gu_move_generation.test.js` | 46 pass, including new flag-versus-reject, unknown-part flag and pays-as-rank cases | |
-| `node --test tests/pacing_check.test.js tests/openings_check.test.js` | 24 pass | pure ratchet only, no game boot |
-| `npm run test:changed` | Selected 224 files (nearly the suite, because `procedural_grammar.js` and `spell_effects.js` reach most of the game); the run was killed (exit 144) right after load gating released it, with no results | Not rerun whole; the merge gate's full `npm test` covers the 201 files that only reach the changed modules through imports |
+| `node --test tests/pacing_check.test.js tests/openings_check.test.js` | 24 pass | the pure ratchet functions; no game boot |
+| `npm run test:changed` | Selected 224 files (nearly the suite, because `procedural_grammar.js` and `spell_effects.js` reach most of the game); the run was killed (exit 144) right after load gating released it, with no results | Not rerun whole; the merge gate's full `npm test` covers the other 201 files, which reach the changed modules through imports |
 | `node --test --test-concurrency=4` on the 23 files `test:changed` lists as importing or naming a changed module | 299 tests: 298 pass, 0 fail, 1 skipped (the pacing recorder smoke, gated on `YAIRPG_PACING_BOOT=1`) | |
 | `npm run check:arch` | PASS (exit 0) | |
 | `npm run check:rules` | PASS (exit 0); one pre-existing stale-glob warning in `.claude/rules/research-and-agents.md` | not this task's |
+| `node scripts/check_doc_slips.mjs --base 5fb587834` | no new hits | |
+| `npm run build` | built; bundle sha256 `eede8e94e220…`; rebuilt `dist/` and `index.html` restored, not committed | |
