@@ -148,3 +148,13 @@ test('a refined wild Moonlight Gu eats like any Moonlight Gu, and each feed verb
         assert.ok(feed.effects[0].value.endsWith(d.fedLine));
     }
 });
+
+test('the report draws with the tide: each night row weighs what riEncounterWeights says, and a dateless life keeps the static weights', async () => {
+    const {riLeadDayTideFacts, riPatrolWeightFact} = await import('../src/ri_lead_day_tide.js');
+    const report = guLeadDay.commands.find(c => c.id === `${RI_LEAD_DAY}.report`);
+    for(const r of RI_PATROL_ENCOUNTERS) assert.deepEqual(report.outcomes.find(o => o.id === `${RI_LEAD_DAY}.patrol.${r.id}`).weight, {fact: riPatrolWeightFact(r.id)});
+    const dateless = {...life(0), simulation: {seed: 1, knowledge: {player: {}}}};
+    const facts = riLeadDayTideFacts(dateless);
+    for(const r of RI_PATROL_ENCOUNTERS) assert.equal(facts[riPatrolWeightFact(r.id)], r.weight, r.id);
+    assert.deepEqual(riLeadDayTideFacts({clock: 0, actors: {player: {worldId: 'book.hp.lead.world'}}}), {}, 'other lives publish nothing');
+});

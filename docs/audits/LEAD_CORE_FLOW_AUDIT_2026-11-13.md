@@ -447,9 +447,7 @@ for merit or something." These are adjustable defaults (AD56, AD38) under the pl
 - **Compatibility.** The day extension is now revision 2, so its content hash moved. A save that adopted revision 1 needs the
   extension adopted again. Old saves are disposable (standing decision), so no alias was added.
 - **Not done.**
-  - The patrol weights are still static. The runtime's outcome weights accept fact-driven amounts, so a later hook can publish
-    `riEncounterWeights` from `ri_wolf_tide.js` as facts. That file is uncommitted foundation work, so this change does not
-    import it.
+  - ~~The patrol weights are still static.~~ Done in [the tide follow-up](#follow-up-the-patrol-follows-the-wolf-tide-2026-11-14).
   - Meat added to a spoiled lot restarts the lot's clock.
   - No flesh-eating Gu is in his kit, so meat has no feeding use yet.
   - A kept eye has no refinement use in the day yet.
@@ -545,3 +543,27 @@ purse seam.
     published fact with a reason.
   - `tests/hp_lead_day_journey.test.js` (slow tier, his Halloween save): Herbology shut on Sunday night, open Tuesday 09:02,
     one class and one homework, both kept through a reload. It passed headless in 119 s on the working tree.
+
+### Follow-up: the patrol follows the wolf tide, 2026-11-14
+
+- **What changed.**
+  - The Gu-world time session dated the tide (`riWolfTidePhase`: off, early, peak, ebb; RWT24-RWT27).
+  - `ri_lead_day_tide.js` publishes `riEncounterWeights` as one fact per patrol row. The report's eight outcomes weigh those
+    facts instead of the static table. Day extension revision 5.
+  - A peak night brings more packs and fewer quiet watches. A thinned or ebbing wall brings more quiet watches. Finds and the
+    scout are unchanged.
+  - A life with no date, or a date outside the tide, keeps the static weights, because the `off` phase is neutral.
+- **Compatibility.** Revision 5 moves the extension's hash. A save that adopted revision 4 adopts the day again. Old saves are
+  disposable, so no alias was added.
+- **Not done.**
+  - The report line does not name the phase. The tide's own event book carries the date.
+  - Prices stay fixed. The eye's ten merit is canon (ch132). A tide-season price for meat and hides would be authored, so it
+    waits for a reason to exist.
+- **Checked.**
+  - `tests/ri_lead_day.test.js`: the report reads one weight fact per row, a dateless life equals the static weights, and other
+    lives publish nothing.
+  - `tests/ri_calendar_tide.test.js` (theirs) covers the shift by phase.
+  - `tests/ri_lead_day_journey.test.js` passed headless (67 s), so the runtime resolves the fact weights.
+  - `riEncounterWeights` costs about 0.05 ms a call, so it is safe in the per-frame facts build.
+  - Chrome was not rerun for this change, so the tide's shift has not been seen on screen: implemented, below floor for
+    browser evidence.
