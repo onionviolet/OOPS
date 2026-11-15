@@ -137,7 +137,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   doorText.textContent=local?(first?`Nearby: ${first.label}`:'Open nearby actions'):'Cross to another world: Tingen';
   if(place&&!door.isConnected)place.append(door);}
  let doorObserver=null;
- addEventListener(CROSS_FREELY_EVENT,()=>syncDoor(read(selected)));
+ (globalThis.window||globalThis).addEventListener?.(CROSS_FREELY_EVENT,()=>syncDoor(read(selected)));
  function render(){
   const v={...read(selected),duties:duties?.()?.items||[]};setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
   // The seat filter owns hidden on workroom blocks; slot availability is separate.
