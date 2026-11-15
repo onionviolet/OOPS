@@ -1,6 +1,6 @@
 # UI cohesion captures (2026-11-14)
 
-Headless Chrome at 1920×1080, fresh origin each. "Before" is HEAD `ab42c5d99` (before the slice); "after" is a clean build of HEAD `6a9d432cc`. Agent-verified, not human-reviewed. The audit rows are UIC250 to UIC261 in [the UI audit](../../../../audits/UI_DESIGN_CORE_AUDIT.md).
+Headless Chrome at 1920×1080, fresh origin each. The PNGs sit beside this file in the shared checkout and are not committed (the dispatch folder ignores PNGs). "Before" is HEAD `ab42c5d99` (before the slice); "after" is a clean build of HEAD `6a9d432cc`. Agent-verified, not human-reviewed. The audit rows are UIC250 to UIC261 in [the UI audit](../../../../audits/UI_DESIGN_CORE_AUDIT.md).
 
 | Capture | What to look at |
 | --- | --- |
