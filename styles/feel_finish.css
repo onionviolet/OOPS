@@ -1,0 +1,106 @@
+/* Feel and finish (PS153-PS159, round 16, proposals). src/ui/feel_finish.js sets data-feel-* on <html>
+   from Settings > Feel and finish; every effect here keys off its own attribute so each toggle is real.
+   Motion uses the --ui-motion-* tokens, which ui_tokens.css zeroes under Effects off or reduced and the
+   OS reduce-motion setting; "Reduce motion" below zeroes them too. A glow means one thing: rarity on
+   items, readiness on rows, focus on controls. */
+:root {
+    --feel-glow-blur: var(--ui-space-2);
+    --feel-glow-mix: 55%;
+    --feel-ready: var(--ui-state-ready);
+    --feel-near: var(--ui-state-near);
+    --feel-ready-edge: inset 2px 0 0 var(--feel-ready), 0 0 var(--feel-glow-blur) color-mix(in srgb, var(--feel-ready) 28%, transparent);
+    --feel-ready-pulse: 0 0 calc(var(--feel-glow-blur) * 2) color-mix(in srgb, var(--feel-ready) 60%, transparent);
+    --feel-hover-fill: color-mix(in srgb, var(--ui-accent, currentColor) 12%, transparent);
+    --feel-press-fill: color-mix(in srgb, var(--ui-accent, currentColor) 24%, transparent);
+    --feel-focus-ring: 2px solid var(--workspace-focus, var(--ui-accent));
+    --feel-daylight: 1;
+    --feel-light-strength: 1;
+    --feel-sky-day: color-mix(in srgb, var(--ui-accent) 34%, transparent);
+    --feel-sky-dusk: color-mix(in srgb, var(--sem-money, var(--ui-accent)) 26%, transparent);
+    --feel-sky-night: color-mix(in srgb, black 55%, transparent);
+    --feel-sky-rain: color-mix(in srgb, var(--p23-muted, gray) 30%, transparent);
+    --feel-sky-indoor: color-mix(in srgb, var(--sem-money, var(--ui-accent)) 16%, transparent);
+    --feel-tick-rise: calc(var(--ui-space-1) * -1);
+}
+:root[data-feel-motion="reduce"] {--ui-motion-fast: 0ms; --ui-motion-normal: 0ms; --ui-motion-settle: 0ms;}
+
+/* PS153: rarity as a soft edge glow on the row in its colour, with a solid edge for epic and up; common and
+   trash stay plain. The name keeps its kind colour (gear, usable, component), and the bitmap Gothic face takes
+   no text glow (corc_readability.css, DSG2), so the glow sits on the row, not the letters. */
+:root[data-feel-glow="on"] #main_content #inventory_div :is(.inventory_item_control, .equipped_item_control)[data-feel-rarity]:not([data-feel-rarity="common"], [data-feel-rarity="trash"]) {
+    box-shadow: inset 0 0 var(--feel-glow-blur) color-mix(in srgb, var(--feel-rarity) 45%, transparent);
+}
+:root[data-feel-glow="on"] #main_content #inventory_div :is(.inventory_item_control, .equipped_item_control)[data-feel-rarity]:is([data-feel-rarity="epic"], [data-feel-rarity="legendary"], [data-feel-rarity="mythical"]) {
+    box-shadow: inset 2px 0 0 var(--feel-rarity), inset 0 0 calc(var(--feel-glow-blur) * 1.5) color-mix(in srgb, var(--feel-rarity) 55%, transparent);
+}
+:root[data-feel-glow="on"] #main_content #inventory_div [data-feel-fav] .item_name::before {content: "☆"; margin-right: var(--ui-space-1); color: var(--sem-money, var(--ui-accent));}
+:root[data-feel-glow="on"] #main_content #inventory_div [data-feel-worn] .item_name::before {content: "◆"; margin-right: var(--ui-space-1); color: var(--ui-state-ready); font-size: var(--ui-type-small, inherit);}
+:root[data-feel-glow="on"] #main_content #inventory_div [data-feel-fav][data-feel-worn] .item_name::before {content: "◆☆";}
+/* New item: the existing "new" tag pulses once (motion tokens), then stays until hovered. */
+@keyframes feel-new-pulse {
+    0% {box-shadow: 0 0 0 color-mix(in srgb, var(--sem-money, var(--ui-accent)) 0%, transparent);}
+    40% {box-shadow: 0 0 var(--feel-glow-blur) color-mix(in srgb, var(--sem-money, var(--ui-accent)) 60%, transparent);}
+    100% {box-shadow: 0 0 0 color-mix(in srgb, var(--sem-money, var(--ui-accent)) 0%, transparent);}
+}
+:root[data-feel-glow="on"] #main_content [data-item-new] {animation: feel-new-pulse var(--ui-motion-settle) var(--ui-motion-ease) 1;}
+
+/* PS154: ready rows get the ready edge; becoming ready (the selector starts matching) pulses once. Near is dashed. */
+@keyframes feel-ready-pulse {
+    0% {box-shadow: var(--feel-ready-edge);}
+    35% {box-shadow: var(--feel-ready-edge), var(--feel-ready-pulse);}
+    100% {box-shadow: var(--feel-ready-edge);}
+}
+:root:is([data-feel-ready="pulse"], [data-feel-ready="edge"]) #main_content :is(.ready-hub__row--ready, .recipe_div[data-craft-state="ready"]) {box-shadow: var(--feel-ready-edge);}
+:root[data-feel-ready="pulse"] #main_content :is(.ready-hub__row--ready, .recipe_div[data-craft-state="ready"]) {animation: feel-ready-pulse var(--ui-motion-settle) var(--ui-motion-ease) 1;}
+:root:is([data-feel-ready="pulse"], [data-feel-ready="edge"]) #main_content :is(.ready-hub__row--near, .recipe_div[data-craft-state="near"]) {outline: 1px dashed color-mix(in srgb, var(--feel-near) 70%, transparent); outline-offset: -1px;}
+
+/* PS155: bars ease to their new value; a number that grows ticks up for a moment. */
+:root[data-feel-motion="on"] #main_content :is(#character_healthbar_current, #character_stamina_bar_current, #character_mana_bar_current, #character_xp_bar_current, .skill_bar_current, .meter-bar-fill) {
+    transition: width var(--ui-motion-settle) var(--ui-motion-ease);
+}
+@keyframes feel-tick-up {
+    0% {color: var(--sem-gain, var(--ui-accent)); transform: translateY(var(--feel-tick-rise));}
+    100% {transform: none;}
+}
+:root[data-feel-motion="on"] #main_content [data-feel-tick="up"], :root[data-feel-motion="on"] [data-feel-tick="up"] {display: inline-block; animation: feel-tick-up var(--ui-motion-settle) var(--ui-motion-ease) 1;}
+
+/* PS156: the page behind the panels follows the hour and weather. The panels keep their own fills. */
+:root[data-feel-light="dim"] {--feel-light-strength: .5;}
+#light_based_background_div {display: none;}
+:root:is([data-feel-light="on"], [data-feel-light="dim"]) body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: var(--ui-layer-backdrop);
+    opacity: var(--feel-light-strength);
+    background: radial-gradient(ellipse at 50% -10%, var(--feel-sky-tint) 0%, transparent 70%);
+    transition: background var(--ui-motion-settle) var(--ui-motion-ease);
+}
+:root[data-feel-sky="day"] {--feel-sky-tint: var(--feel-sky-day);}
+:root[data-feel-sky="dusk"] {--feel-sky-tint: var(--feel-sky-dusk);}
+:root[data-feel-sky="night"] {--feel-sky-tint: var(--feel-sky-night);}
+:root[data-feel-sky="rain"] {--feel-sky-tint: var(--feel-sky-rain);}
+:root[data-feel-sky="indoor"] {--feel-sky-tint: var(--feel-sky-indoor);}
+:root[data-feel-sky="night"]:is([data-feel-light="on"], [data-feel-light="dim"]) body::before {background: linear-gradient(var(--feel-sky-night), var(--feel-sky-night));}
+
+/* PS157: one hover, pressed and focus language for every control; disabled shows its reason through
+   the shared reason delegate (locked_control.js), and here only its cursor. */
+:root[data-feel-states="on"] #main_content :is(button, summary, select, [role="button"], [role="option"], .inventory_item_control, .recipe_div):not(:disabled):hover {
+    background-image: linear-gradient(var(--feel-hover-fill), var(--feel-hover-fill));
+}
+:root[data-feel-states="on"] #main_content :is(button, summary, [role="button"], [role="option"], .inventory_item_control, .recipe_div):not(:disabled):active {
+    background-image: linear-gradient(var(--feel-press-fill), var(--feel-press-fill));
+    transform: translateY(1px);
+}
+:root[data-feel-states="on"] #main_content :is(button, summary, select, input, [role="button"], [role="option"], [tabindex]):focus-visible {outline: var(--feel-focus-ring); outline-offset: 1px;}
+:root[data-feel-states="on"] #main_content :is(button, [role="button"]):disabled {cursor: help;}
+
+/* PS159: YAIR's own options listed inside the Feel and finish group. */
+.feel-classic #options_panel {display: block; position: static; visibility: visible; opacity: 1; width: auto; height: auto; max-height: none; background: none; border: 0; padding: 0;}
+.feel-classic #options_choices {display: grid; gap: var(--ui-space-1);}
+.feel-classic .options_choice {display: flex; align-items: center; gap: var(--ui-space-2); margin: 0; padding: var(--ui-space-1) 0; border: 0; background: none; font-size: var(--ui-type-body, inherit);}
+.feel-classic .options_choice:has(#options_change_background_color) {display: none;}
+
+/* DU10 (with the combat lane): a thin attack-timer bar under each fighter's health on the tempo card. Combat adds
+   the element and its fill (a child's width, or --fill as a fraction); this file owns the look. Static under reduce. */
+#fight_situation .versus-bar--timer {height: var(--ui-space-1); background: var(--ui-meter-track-bg, transparent); overflow: hidden;}
+#fight_situation .versus-bar--timer > * {display: block; height: 100%; background: var(--ui-state-near); transition: width var(--ui-motion-settle) linear;}
+#fight_situation .versus-bar--timer:not(:has(> *)) {background: linear-gradient(to right, var(--ui-state-near) calc(var(--fill, 0) * 100%), var(--ui-meter-track-bg, transparent) 0);}
+#fight_situation [data-down="true"] .versus-bar--timer {opacity: .35;}

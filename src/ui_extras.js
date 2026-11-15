@@ -4,6 +4,7 @@ import {mountCommandPalette} from './command_palette.js';
 import {mountRowContextMenu} from './row_context_menu.js';
 import {mountEmptyStates} from './empty_states.js';
 import {mountReasonDelegate} from './locked_control.js';
+import {mountFeelFinish} from './ui/feel_finish.js';
 // Importing these registers their domains and panels before the registry initializes (main.js).
 import './known_things.js';
 import './knowledge_home.js';
@@ -34,9 +35,10 @@ export function mountUiExtras({nav, openPanel}) {
     mountReasonDelegate();
     mountSearchEscape();
     mountNativeControls(); mountLightDismiss();
+    const feel = mountFeelFinish(); // PS153-PS159: glow, ready edge, motion, light, control states, cues
     const findButton = document.createElement('button');
     findButton.type = 'button'; findButton.textContent = 'Find'; findButton.dataset.paletteOpen = '';
     findButton.title = 'Find a panel, item or action · Ctrl+K or Cmd+K'; findButton.setAttribute('aria-keyshortcuts', 'Control+K Meta+K');
     findButton.onclick = () => palette.open();
-    return {findButton, palette, rowMenu, destroy() { palette.destroy(); rowMenu.destroy(); empties.destroy(); findButton.remove(); }};
+    return {findButton, palette, rowMenu, destroy() { palette.destroy(); rowMenu.destroy(); empties.destroy(); feel?.destroy(); findButton.remove(); }};
 }

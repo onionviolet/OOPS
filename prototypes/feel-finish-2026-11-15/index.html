@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- PS153-PS157 states side by side, drawn by the real styles/feel_finish.css. Open from a server at the repo root. -->
+<html data-feel-glow="on" data-feel-ready="edge" data-feel-motion="on" data-feel-light="on" data-feel-states="on" data-feel-sky="day">
+<head><meta charset="utf-8"><title>Feel and finish mock</title>
+<link rel="stylesheet" href="../../styles/ui_tokens.css"><link rel="stylesheet" href="../../styles/feel_finish.css">
+<style>
+ :root{--ui-accent:#9bb4ae;--sem-gain:#7fe88f;--sem-money:#f0c060;--p23-value:#f0c060;--p23-muted:#8c96a8;--ui-space-1:2px;--ui-space-2:6px;--ui-motion-settle:900ms;--ui-motion-ease:ease-out}
+ body{background:#090d26;color:#e8ecf4;font:15px ui-monospace,monospace;margin:0;padding:18px}
+ #main_content{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+ section{border:1px solid #2a3560;background:#0f1638cc;padding:10px}
+ h2{font-size:13px;color:#9bb4ae;margin:0 0 8px;text-transform:uppercase}
+ .row,.recipe_div,button{display:block;width:100%;text-align:left;padding:4px 6px;margin:2px 0;background:#141c44;color:inherit;border:1px solid #26305a;font:inherit}
+ .sky{display:flex;gap:8px}.sky div{flex:1;height:70px;border:1px solid #2a3560;position:relative;overflow:hidden;font-size:12px;padding:4px;background:#090d26}
+ .sky div::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% -10%,var(--t) 0%,transparent 70%)}
+ small{color:#8c96a8}
+</style></head>
+<body><div id="main_content">
+<section><h2>PS153 item glow</h2>
+ <div class="row inventory_item_control" data-feel-rarity="common"><span class="item_name">Stale bread ×5</span> <small>common, plain</small></div>
+ <div class="row inventory_item_control" data-feel-rarity="uncommon" style="--feel-rarity:#7fe88f"><span class="item_name">Wolf-fang knife</span> <small>uncommon</small></div>
+ <div class="row inventory_item_control" data-feel-rarity="rare" style="--feel-rarity:#7fb2ff" data-feel-fav><span class="item_name">Rain-cut cloak</span> <small>rare, favourite</small></div>
+ <div class="row equipped_item_control" data-feel-rarity="epic" style="--feel-rarity:#ff9ed1" data-feel-worn><span class="item_name">Moonsilver ring</span> <small>epic, worn</small></div>
+ <div class="row inventory_item_control" data-feel-rarity="legendary" style="--feel-rarity:#d29bff"><span class="item_name">Heart of the Ninth Hill</span> <small>legendary</small></div>
+ <div class="row inventory_item_control" data-item-new><span class="item_name">Sealed survey parcel</span> <small>new (pulses once)</small></div>
+</section>
+<section><h2>PS154 ready edge · PS157 states</h2>
+ <div class="recipe_div" data-craft-state="ready">Make Bonemeal <small>ready</small></div>
+ <div class="recipe_div" data-craft-state="near">Make Charcoal <small>needs 1 raw wood</small></div>
+ <div class="recipe_div" data-craft-state="blocked">Wool cloth <small>no station here</small></div>
+ <button>Talk to someone <small>idle</small></button>
+ <button style="background-image:linear-gradient(var(--feel-hover-fill),var(--feel-hover-fill))">Find work <small>hover</small></button>
+ <button style="background-image:linear-gradient(var(--feel-press-fill),var(--feel-press-fill));transform:translateY(1px)">Train <small>pressed</small></button>
+ <button style="outline:var(--feel-focus-ring);outline-offset:1px">Move somewhere else <small>keyboard focus</small></button>
+</section>
+<section><h2>PS155 motion · PS156 light</h2>
+ <div class="row">XP <span data-feel-tick="up" style="color:#7fe88f;transform:translateY(-2px);display:inline-block">7/10</span> <small>ticks up (frame shown)</small></div>
+ <div class="row">Purse 10C 4W → <span style="color:#7fe88f">12C 4W</span></div>
+ <div class="sky" style="margin-top:10px">
+  <div style="--t:var(--feel-sky-day)">day 12:00</div><div style="--t:var(--feel-sky-dusk)">dusk 19:30</div>
+  <div style="--t:var(--feel-sky-night);background:#05071a">night 01:00</div><div style="--t:var(--feel-sky-rain)">rain</div><div style="--t:var(--feel-sky-indoor)">indoors</div>
+ </div>
+ <p><small>Settings › Feel and finish: Item glow, Ready glow, Motion (reduce), Time-of-day light (on/dim/off), Hover/pressed/focus, Cue sounds (off), Classic options (YAIR's list).</small></p>
+</section>
+</div></body></html>

@@ -48,3 +48,4 @@ styles/people_variants.css
 styles/places_variants.css
 styles/day_strip.css
 styles/status_line.css
+styles/feel_finish.css
