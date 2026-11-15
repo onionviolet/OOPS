@@ -211,3 +211,35 @@ Weibao: "does the ui split duplicate anything? more to consider? it feels like t
 | PS69 | Place and time are said by the status line and again by the bottom panel's "Village" header and its daylight line. | Default: B carries them and the bottom header goes (dial: a world may keep a scene line there; reason: one place to read the time). |
 | PS70 | The quest shows in the Journal box, the Journal tab and Reports' "Next step". | The Journal box is the quest view; "Next step" links into it. |
 | PS71 | The empty bottom-left. | Not a new tile: "Ready now" (D) takes the space, led by the next step. Verbs with no other home (Find work, Train, Cross) join Around you or Ready now. |
+
+## Round 9, 2026-11-15: representations, chosen by the question
+
+Weibao: "more to consider? HOw to ficx? other aspects to consider? what representations can we use? we dont need to be limited by what we have right now, and then we can have better representation if we need it?". The rules already allow any form (UR89–UR99: canvas, graph, tree, map, timeline, forms that follow the mechanism, cheap SVG and glyph materials first). What is missing is the choice, made per question, and a shared set of forms. All lines are proposals (AD32, AD56).
+
+### How to fix: one rule and two owners
+
+- **PS72. Each panel answers one player question, and its form is picked for that question.** Rows stay the default for a list of choices. A different form earns its place when it answers its question faster than text. A prose-first reading (2026-11-04) still leads narration.
+- **PS73. A shared form library (UR98, level 3), owned by ui-cohesion.** Feature lanes and worlds use the forms and dress them. Each form reads the owner's data, never a hand-written copy (UR93). Each has a text fallback and a keyboard route. Each is cheap SVG within the 8 GB target.
+- **PS74. A representation pass per feature,** with prototype-to-decision: mock two forms on the real save, keep the one that answers faster, and name the one rejected.
+
+### Palette: question → form
+
+| Code | Player's question | Form | First users |
+| --- | --- | --- | --- |
+| PS75 | When does it happen? | **Timelines:** the day strip (built); a week strip with recurring clocks (Gu meals, rent day, classes); countdown rings on items that spoil or work that is running | Fang Yuan's Gu meals, Klein's pay and rent, Harry's timetable, spoilage |
+| PS76 | Where is it, and how far? | **Place map:** Around you as a small node map, with exits as edges labelled with travel time and danger; a schematic per site (the outer wall with its watch posts; Tingen's streets) | Around you, patrols, travel, Tingen |
+| PS77 | How much is left, and how fast does it come back? | **Reserve gauges with rate and runway:** an essence sea with a refill tick; stones against daily upkeep ("runway: 4 days"); spirituality; stamina | Fang Yuan's left column (PS65), Klein, the status line (B) |
+| PS78 | How does this work? | **Mechanism forms (UR93):** a refinement as a chain of steps with the will and imprints; a potion as stages; a craft as inputs flowing to outputs; a ritual as its parts | Gu refinement (b7c8a2836), mixing, crafting, Klein's rituals |
+| PS79 | How far along am I? | **Ladders and trees (UR90):** Sequence 9 to 0 with digestion; Gu rank and aperture grade; Hogwarts years and exams; skill trees with the real gates drawn | Each lead's progression |
+| PS80 | Who matters to me? | **A relationship web:** people as cards, ties drawn as lines with their kind and strength, and recent changes marked | Klein's Tarot Club and Nighthawks, Harry's friends, Fang Yuan's clan |
+| PS81 | What happens next in this fight? | **A turn track:** an initiative bar of who acts next, as marks with beats instead of "Who acts next: You → wolf"; a range band (far, near, grappling); the stakes chip | The fight card |
+| PS82 | What is going on, and what do I know? | **A case board:** clues as cards with their source and freshness (UR85), and links between them | Klein's investigations, inquiries |
+| PS83 | What happened while I was away? | **A recap card:** one summary on return, saying what was eaten, earned, spoiled and missed, with links (UR91) | Offline catch-up, banked time |
+| PS84 | Am I hurt, and where? | **A body chart:** wounds and conditions on a figure, with each remedy beside it | Condition, fights, Fang Yuan's wound |
+| PS85 | Is it worth it? | **Price over days:** a small line of prices at the board or shop, and the regional price memory | The shop, the alliance board, wolf parts |
+
+### Other aspects
+
+- **PS86. Dress each world.** One grammar with different materials: Gu in jade, moonlight and ink; LOTM in brass, fog and paper; Hogwarts in parchment and house colours. A world changes the dress, not the controls (UR94, AD39 look).
+- **PS87. A form is only as good as its data.** Before a form ships, the data it draws must have one owner (the lesson from PS2 and PS61). A pretty map over a duplicated count is worse than a list.
+- **PS88. Order the work by question, not by feature.** The first forms are the ones the most screens need: the reserve gauge (PS77) for B and the per-world left column; the place map (PS76) for "This place"; the turn track (PS81) for the fight card. The rest follow per feature.
