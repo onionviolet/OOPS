@@ -54,3 +54,13 @@ test('work is read from the expansion state for the player only, with neutral wo
     assert.deepEqual(w, [{id: 'j1', endsIn: 60}, {id: 'j3', endsIn: 120}]);
     assert.deepEqual(workFromExpansion(null), []);
 });
+
+test('PS199: by default the strip waits until something is timed; Always and Never override', async () => {
+    const {stripShows} = await import('../src/ui/day_strip.js');
+    const idle = {hidden: false, ahead: []}, timed = {hidden: false, ahead: [{key: 'work:1'}]}, unknown = {hidden: true, ahead: [{key: 'work:1'}]};
+    assert.equal(stripShows('timed', idle), false);
+    assert.equal(stripShows('timed', timed), true);
+    assert.equal(stripShows('on', idle), true);
+    assert.equal(stripShows('off', timed), false);
+    assert.equal(stripShows('on', unknown), false);
+});

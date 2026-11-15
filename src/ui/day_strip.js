@@ -78,9 +78,13 @@ export function workFromExpansion(expansion) {
 }
 
 registerPanelSettings({id: 'day-strip', title: 'Day strip', settings: [
-    {key: 'visible', label: 'Day strip (proposal)', options: [['on', 'Shown'], ['off', 'Hidden']], default: 'on',
-        description: 'A thin band of today\'s hours above the place: what was reported today, and what is already set for later. Never stored in the game.'}]});
-const shown = () => getDisplaySetting('panel.day-strip.visible') !== 'off';
+    {key: 'visible', label: 'Day strip (proposal)', options: [['timed', 'When something is timed'], ['on', 'Always'], ['off', 'Never']], default: 'timed',
+        description: 'A thin band of today\'s hours above the place: what was reported today, and what is already set for later. By default it shows once something is timed today. Never stored in the game.'}]});
+// PS199 (round 19, proposal): a ruler with nothing on it reads as noise in a life's first minutes, so by default the strip
+// waits until something is timed today: work under way or a planned entry (a life's schedule joins through `plan`).
+// 'on' and 'off' keep their stored meaning (always, never).
+export const stripShows = (mode, model) => !model.hidden && mode !== 'off' && (mode === 'on' || model.ahead.length > 0);
+const mode = () => getDisplaySetting('panel.day-strip.visible');
 
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 
@@ -144,7 +148,7 @@ export function mountDayStrip({host = placeDock(), stream = document.getElementB
         let view = null; try { view = calendar(); } catch { view = null; }
         sync(view);
         const model = dayStripModel({calendar: view, units: unitsOf(view), events: records, work: workFromExpansion(readPort('expansion')), plan: []});
-        const hide = model.hidden || !shown() || (!!root.closest('#village_scene') && !!yieldsTo());
+        const hide = !stripShows(mode(), model) || (!!root.closest('#village_scene') && !!yieldsTo());
         if (hide !== visible) { visible = hide; root.hidden = hide; }
         if (hide) return;
         root.style.setProperty('--day-now', `${model.nowFraction * 100}%`);
