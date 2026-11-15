@@ -354,3 +354,50 @@ Weibao: "how else can we section better? WHat would make most sense and be most 
 | --- | --- | --- |
 | PS117 | **Empty bodies take space.** The Condition panel with no effects, the empty band above the action chips. | A panel with nothing in it folds to its header line (PS99). |
 | PS118 | **Per world.** Fang Yuan's and Klein's lives keep the same regions with their own nouns (Gu house, the board, the Tingen streets). | The regions are fixed and the contents per world, so a player who learns one life can read the others (familiar, as Weibao asked for combat). |
+
+## Round 14, 2026-11-15: back to YAIR's groupings, in depth
+
+Weibao on the round 13 mock: "meh, look at how yair does it, and the groupings, consider in depth accordingly?" ([log](../../USER_VISION_LOG_2026-11.md#back-to-yairs-groupings-2026-11-15)). Sources:
+- upstream `index.html` and `src/display.js` at `upstream/master` (v0.5.5.30);
+- the native capture `docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/user-native-yair.png`;
+- our own YAIR-faithful frame of 2026-10-14, `docs/gm/dispatch/absorb-all-2026-10-14/checks/upstream-dev-town.png`.
+
+### How YAIR groups the screen
+
+| Column | Question | Boxes, top to bottom | Switching |
+| --- | --- | --- | --- |
+| 1 | Who am I and what do I carry | Vitals (name, xp, stamina, mana, hp); character (Stats, Bio, Equipment, Tools); Inventory or Combat view | tabs inside each box |
+| 2 | Where am I and what do I do | time and temperature strip; location (name, description, open or cleared); actions, or the combat box in a fight; crafting replaces the actions box | the box changes in place |
+| 3 | What am I working toward and what do I know | Journal (Quests, Bestiary, Anthology, Data); Skills (Skills, Stances, Magic, with sorts) | tabs inside each box |
+| 4 | What happened | message log, newest last, with filter tabs (Levels and unlocks, Events, Crafting, Combat, Loot) | tabs at the box's foot |
+
+- **There is no top tab bar.** Everything sits in one fixed screen. Save, Export, Import and Options are a small footer.
+- **Actions are grouped by verb, not by noun.** One box holds fixed, iconed verbs in a set order: Move somewhere else, Fast travel, Crafting, Sleep, Storage, Talk to someone, Visit a merchant, Find work, Train, Gather resources, Take an action, Take on a challenge. Each verb opens a dropdown of its targets (`display.js` 2058–2217). The location box holds only the place's name and description.
+- **A mode replaces a box instead of adding a page.** A fight takes the location column's middle, and crafting takes the actions box. Back returns the box.
+
+### Where we drifted, and why round 13 felt off
+
+- **Round 13 moved verbs onto noun cards, which is the opposite of YAIR.** Its verb list is the familiar thing.
+- **We grew a 17-tab top bar.** YAIR has none, so a page there is a tab inside one of four boxes.
+- **Column 3 dissolved.** YAIR keeps quests and skills side by side in the third column. We moved skills to a centre tab and squeezed the Journal into the action panel.
+- **Here grew a noun panel (Around you) beside the verb list.** That makes two routes to every person and way out (PS67–PS70).
+
+### ACT NOW (proposals; supersede PS112, PS113 and PS116)
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS119 | **YAIR's four columns are the spine.** Default: 1 You (vitals, character tabs, Inventory or Combat), 2 Place and action (status strip, location, the actions box, which modes replace in place), 3 Progress and knowledge (Journal box and Skills box), 4 Reports. Every feature finds a box and becomes a tab inside it, never a new top tab. Dial: Layout keeps custom arrangements (it exists today). Reason: the original's shape is the familiar one Weibao asked for. |
+| PS120 | **Actions by verb, in YAIR's order and icons.** New verbs join the list as verbs with their own icon, placed by kind: Feed (Gu), Patrol, Refine, Hand in (board), Study, Practise (jinx). Each verb opens its targets. "Around you" folds into the location box as one line ("2 people · 6 stations · 3 ways out", each a link that opens the matching verb). Ready now marks verbs instead of repeating them: "Talk to someone · 1 new", "Crafting · 2 close". |
+| PS121 | **Modes replace boxes.** A fight takes column 2's middle (the fight card and the auto view, with the approach strip on top). Crafting, Mixing, Gu refining and a bench replace the actions box, with Back. Doing now is the actions box's head while work runs, as YAIR shows a running job. The Here, Crafting, Mixing and Keys tabs go. |
+| PS122 | **Column 3 returns.** The Journal box gets the tabs Quests, Bestiary, Anthology, Data, then ours: Knows, Notebook, People (People, Travelers, Organizations), Worlds, Beginning. The Skills box gets Skills, Stances, Magic, plus each world's powers as a tab (Gu, Spells, Beyonder). |
+| PS123 | **The top bar goes.** Save, Export, Import, Options and Menu return to the footer, as in YAIR. Development pages (Data, Capability runs, All panels, Projects, Ledger) go behind Menu → Tools. The status line merges into column 2's time strip, and the day strip sits under it. |
+| PS124 | **Reports keeps YAIR's footer filters.** The next step ("Right now") stays at the head of Reports, and the filters add Ready and Story. |
+
+### ACCOUNT FOR NOW
+
+| Code | Proposal |
+| --- | --- |
+| PS125 | **Mapping table for the build.** Each of today's 17 top tabs and Here's panels names its box and tab, and Ledger, Projects and Capability runs go to Tools. A page with no box is a finding, not a new tab. |
+| PS126 | **Keep what round 11 and 12 earned, inside the boxes.** Stacked headers become YAIR box headers. The pinned band becomes the column 2 strip. Panel kinds (PS108) now place a panel into a box and tab. Crafting's detail pane lives inside the replaced actions box. |
+| PS127 | **Per world.** The same four columns everywhere. Fang Yuan's verbs (Feed, Patrol, Refine, Hand in) sit in the actions box, his Gu in the Skills box, and the board in the Journal's Data tab or as a verb target. |
+| PS128 | **1920×1080 check.** YAIR's four columns sized for 1366 wide. At 1920 the extra width goes to columns 2 and 3, and nothing scrolls the page. |

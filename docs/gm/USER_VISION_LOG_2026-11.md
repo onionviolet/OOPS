@@ -1592,3 +1592,9 @@ Weibao then answered: "Yes, move them". Accepted. Built in da9a20646. Each row g
 Weibao: "how else can we section better? WHat would make most sense and be most optimal?" After round 13 was proposed (PS112–PS118): "Mock then build".
 
 Recorded as his direction for ui-cohesion: mock [round 13](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-13-2026-11-15-sectioning-by-question-read-from-the-village-home-at-4ba128ba3) on real screens, show it to him, then build.
+
+## Back to YAIR's groupings, 2026-11-15
+
+Weibao on the round 13 mock (regions by question, verbs on noun cards, a five-family top bar): "meh, look at how yair does it, and the groupings, consider in depth accordingly?"
+
+Recorded as his direction. Round 13's noun cards and top-bar families are set aside. [Round 14](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-14-2026-11-15-back-to-yairs-groupings-in-depth) takes YAIR's four columns as the spine (You; Place and action; Journal and Skills; Reports), with actions grouped by verb in YAIR's order and modes replacing a box in place. It is mocked before building, as he chose for round 13.
