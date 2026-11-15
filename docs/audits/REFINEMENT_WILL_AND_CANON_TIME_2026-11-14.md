@@ -64,6 +64,49 @@ Input identity: master `da06a080b`. The foundation run's Wave 19 is uncommitted 
 | RWT29 | **Timing literacy in the UI.** The day strip and quotes say when a thing can next happen and why ("Moonlight refines best at night; 4 h to dusk"), and what canon is coming that the character knows about (PIR20, who-knows). Waits on the UI owners (OR2, OR6). | sonnet, small, UI lane | A blocked timed step shows its next window; an unknown canon beat stays hidden |
 | RWT30 | **Ripeness and windows.** Some steps have a best moment rather than a gate: a Gu at its hungriest, a potion off the heat at the right minute, a sowing window. The odds or quality peak there and fall off either side (a curve, a dial per row). | sonnet, medium | Quality differs by timing in a seeded test; the quote names the best minute |
 
+## Round 2: taking someone else's Gu, and what follows (2026-11-14)
+
+Weibao asked about "the lore implications of stealing gu and more? other aspects? that can be a drama point too". Evidence is from the committed reading synthesis (`docs/research/novels/full-book/reverend-insanity/`). Labels: **stated** (the notes say it), **inferred** (from stated cases), **proposal** (authored).
+
+### What canon shows
+
+- **A refined Gu carries its master's imprint.** Fang Yuan removes his imprint from one half of Bone Flesh Unity before Bai refines it (RI-c0230-01, stated). Bai refines a bought Poison Vow Gu herself in 15 minutes so Fang Yuan cannot alter it (RI-c0272-03, stated). Whoever holds a Gu without its imprint has a body, not a tool (inferred).
+- **Theft happens, and the haul can sit unused.** Fang Yuan steals Bai's Relic, Stone Aperture and Water Shield Gu (ch143). Two chapters later they are held, and the Relic and Stone Aperture are unused (RI-c0145-02, stated). The notes don't give the reason; an imprint still to break fits (inferred).
+- **Framing and witness knowledge are part of it.** Fang Yuan frames Bai for the Man Shi group's deaths and turns Qing Shu's party against him with a false accusation (ch134, ch139, stated). What the guards and assassins saw differs from the plan (the Water Image case: "revealed knowledge is not retroactive witness knowledge", stated).
+- **Denial by destruction.** Bai self-detonates Frost Demon Gu and sacrifices his arm rather than be taken (ch139, stated). Restricted self-destruction keeps selected Gu intact (dog-army notes, stated).
+- **A master's death frees or kills their Gu.** Dogs can die with their enslavement Gu; their natural Gu can function, die or flee (stated). Vital Gu already die with their master in code (`vitalMaster`).
+- **Lending is not giving.** A loan keeps the lender's will and control while the borrower supplies fuel (stated; `Overlapping Shadow is a loan after a refused reward`). Clan Gu at the start are clan property lent to students (Wave 19 and earlier lead-life notes, stated in those docs).
+- **Theft can end in pardon.** Fei's theft is real, yet a risky performance and an investigation yield pardon and promotion (stated). Outcomes follow people and institutions, not a fixed penalty.
+
+### Findings
+
+| Code | Finding | Evidence |
+| --- | --- | --- |
+| RWT31 | **No Gu has an imprint field.** Specimens have `holder`, `alive`, `vitalMaster` and an Immortal `uniqueKey` claim (`gu_world_claims.js`). Custody and control are mostly the same thing. Moving `holder` hands over a working Gu with nothing to break. | `gu_refinement.js`, `gu_world_claims.js` exports |
+| RWT32 | **Theft code exists for other things, not Gu.** `steal` and `theft` appear in fights, economy standing, the LOTM collector and story requests. None of these covers a living Gu, its imprint or its owner's response. | grep of `src` |
+| RWT33 | **The pieces a theft drama needs already exist.** `world_events.js` has who-knows and learned-day. The kernel separates what was observed from the truth (KW9). `person_memory` and person ties carry grudges. Contest outcomes include `captured`. A theft slice is mostly wiring. | AREA_GUIDE rows |
+
+### Proposals (defaults with dials and reasons)
+
+- **RWT34. An imprint is a will on the Gu.** Each refined specimen carries `imprint: {by, strength, at}`. Claiming a Gu reads it: a wild Gu has none, so you wear down only its own will (RWT19). A Gu imprinted by someone else costs that will plus theirs, scaled by the strength of the mark. The owner can lift their own imprint at little cost (ch230). Dial: per world, how fast an absent master's imprint fades. Reason: the source treats ownership as will, not possession.
+- **RWT35. Taking and claiming are two acts.** Taking is custody (pickpocket, loot, lift from a body, sweep a stash). Claiming is breaking the imprint. Between the two, the thief holds a Gu that won't answer, has to be fed, and may still be marked as someone else's (ch145, inferred). Default: a held, unclaimed Gu can't be used; it can be fed, sold, hidden or returned.
+- **RWT36. The owner may notice.** Default (proposal): an owner senses a broken imprint at once if it is broken nearby, and otherwise later, through absence, a missed feeding or a hunt. Dial per world and rank. Reason: a mark is part of the owner's will; how sharp the sense is isn't stated, so it is a dial.
+- **RWT37. A stolen Gu is evidence.** Until it is claimed, it is proof of whose it was: a clan Gu, a known kind seen on a known person, a feeding pattern. After claiming, its kind and history can still give it away to someone who knew it (MR44 keeps the individual). The event book's who-knows and the kernel's observed-versus-truth carry what each person knows.
+- **RWT38. Owners can deny a theft.** A master can self-detonate a Gu or order it to flee rather than lose it (ch139, the dog notes). Default: costly, as in canon (a limb, the Gu itself). Dial: who can do it at what rank.
+- **RWT39. Death changes the haul.** Looting the dead is its own case: vital Gu die with their master, natural Gu may function, die or flee (stated), and an imprint from a dead master fades or lingers per the RWT34 dial. A corpse's Gu are a race against flight.
+- **RWT40. Clan property and lending.** Clan Gu are lent: the clan's mark sits under the student's, or the loan has a ledger row. Losing one, selling one or being robbed of one is a debt or an offence at the merit board, read by the existing standing and duty owners. Default: the clan asks first, and punishes per its customs (the institutions notes).
+- **RWT41. Drama falls out of the state.** No scripted theft quests. Theft writes facts (who took what, who saw, whose imprint), and people react through what they already have: grudges in memory, ties, the clan's law, rumours in who-knows, and bounties as offers. That covers framing someone else (ch134), a pardon after an investigation (Fei), a fence who asks no questions, a victim who comes back stronger, and a Gu that slips back to its owner. Reason: AD38, things work by how they work.
+- **RWT42. The same shape across worlds.** Possession and allegiance are separate in other sources too, which makes this a cross-world law with world operations, not a Gu special case. Hogwarts canon: a wand's allegiance passes to whoever defeats or disarms its master. Lord of the Mysteries canon: a sealed artifact keeps its own will and costs whoever carries it, and a Beyonder characteristic outlives its owner. The taming family (RWT21) and the imprint (RWT34) can share one law: hold, subdue, mark, keep, lose.
+- **RWT43. Theft is also the player's risk.** NPCs can steal from the player by the same rules. Defaults: safeguards are mechanisms (refine at once, keep Gu in the aperture, a guard, a stash), not a toggle. Dial: how often the world tries, per world. Reason: AD22 means no anti-cheat, but a world that can steal from you makes ownership matter.
+
+### LATER / DELEGATE (round 2)
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| RWT44 | **The imprint field and claim cost** (RWT34, RWT35): add the field, make claims read it, and let an owner lift their own. Build after RWT19 and with RWT22. | sonnet, medium | A Gu marked by a stronger master costs more to claim than a wild one; lifting your own costs little; save round-trips |
+| RWT45 | **A first theft slice in Fang Yuan's life** (RWT36, RWT37, RWT40, RWT41): take a classmate's or a corpse's Gu, then the owner's or clan's response through existing standing, ties and who-knows. A consumer for RWT44. | sonnet, medium-large; needs RWT44 | A stolen clan Gu leads to a board inquiry in a seeded run; a witness changes who is suspected; nothing is scripted per case |
+| RWT46 | **Allegiance across worlds** (RWT42): one law with Gu imprint, wand allegiance and sealed-artifact will as operations. | sonnet, large; after RWT21 and RWT44 | Two worlds pass the same hold, subdue, mark, keep, lose test |
+
 ## Suggested order
 
 RWT14 and RWT15 come first, so Wave 19 lands. Then RWT22, RWT17 and RWT19, which make the wild Gu honest for Fang Yuan's day. Then RWT24, RWT25 and RWT27, which give the wolf tide a calendar and phases with the same consumer. RWT20 and RWT21 come after the will contest exists, and RWT26 once two worlds have calendars. Each is a proposal under AD56; none removes an option.
