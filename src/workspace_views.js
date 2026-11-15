@@ -6,6 +6,7 @@ import {publishChange} from './ui_change_signal.js';
 import {applyWorldLook} from './world_look.js';
 import {sayReason} from './locked_control.js';
 import {livesOwnLife} from './seat_profiles.js';
+import {setStatusText} from './ui/status_line.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
 // definition lookup, command dispatcher or gameplay timer belongs here.
@@ -69,6 +70,10 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
             ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!view.waiting&&!view.work.length&&view.canWrite;
             // UIX2: this panel owns the current-work presentation; readers (the bar chip) re-read it.
             panel.dataset.workCount=String(view.work.length);publishChange('work','current-work');}
+        // Direction B (PS53): the status line shows the work line in every view; this panel keeps the controls (the
+        // jump button, a read-only warning) and drops its own copy of the words while the line is up.
+        const working=view.work.length>0,inLine=setStatusText('work',working?view.work.join(' · '):'No work running',{idle:!working,title:working?'Work under way. Select to show it on Here.':'Nothing is running. Pick something under Here to start.'});
+        if(work.hidden!==inLine)work.hidden=inLine;
         // Generic world palettes stay deliberately independent of sealed IDs.
         const world=!view.world || view.world === 'base.frontier' ? 'native' : view.world,theme=view.away?'cool':'warm',root=document.getElementById('main_content');
         if(document.documentElement.dataset.world!==world)document.documentElement.dataset.world=world;

@@ -1,0 +1,69 @@
+/* --ui-target-min: the 24px pointer floor (UIC176, UR64), built from tokens. */
+:root {--ui-target-min: calc(var(--ui-control-sm) + var(--ui-space-2));}
+/* The spine (directions B and F, PS53): the status line and the day strip as the game bar's second and third rows.
+   State sheet: idle (work "No work running" muted), work running (the work slot reads as a link), read-only (the save
+   slot turns critical, from the game bar's data-warning), unknown calendar (the when slot says so; the strip hides and
+   its row goes), 150% text (the row grows with the type; slots clip with an ellipsis, never wrap), reduced motion
+   (nothing animates). Fixed slot order and tabular figures so the ticking minute never moves a neighbour (UR144). */
+:root[data-one-bar="true"] #game_bar:has(> #game_spine) {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch;}
+:root[data-one-bar="true"] #game_bar > .game-bar-left, :root[data-one-bar="true"] #game_bar > .game-bar-right {min-height:0;}
+#game_spine {grid-column:1/-1;display:grid;min-width:0;border-top:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-blue, var(--p23-inventory-fill));}
+.game-status {display:flex;align-items:stretch;gap:0;min-width:0;min-height:var(--ui-target-min);padding:0 var(--ui-space-3);overflow:hidden;white-space:nowrap;
+    font-size:var(--ui-type-small);line-height:var(--ui-line-small, 1.3);font-variant-numeric:tabular-nums;color:var(--p23-text);}
+.game-status > [data-status-slot] {display:inline-flex;align-items:center;flex:0 0 auto;min-width:0;padding:0 var(--ui-space-3);border-right:var(--ui-space-hairline) solid var(--p23-line);}
+.game-status > [data-status-slot]:first-child {padding-left:0;}
+.game-status > [data-status-slot][hidden], .game-status > [data-status-slot]:empty {display:none;}
+.game-status-place {font-weight:var(--ui-weight-strong);color:var(--p23-value, var(--ui-accent));}
+.game-status .scene-calendar {color:var(--p23-text);}
+.game-status .scene-conditions {display:inline-flex;align-items:stretch;gap:var(--ui-space-3);color:var(--p23-quantity);}
+.game-status .scene-conditions > :is(span,button) {display:inline-flex;align-items:center;column-gap:var(--ui-space-2);white-space:nowrap;min-height:var(--ui-target-min);}
+.game-status .scene-conditions button {font:inherit;line-height:inherit;color:inherit;background:transparent;border:0;padding:0;text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
+.game-status .scene-conditions button:focus-visible, .game-status-work:focus-visible {outline:2px solid var(--workspace-focus, var(--ui-accent));outline-offset:1px;}
+.game-status .condition-warning {color:var(--sem-blocked, var(--p23-critical));border:var(--ui-space-hairline) solid currentColor;padding:0 var(--ui-space-1);}
+.game-status [data-condition-value="spring"] {color:var(--p23-season-spring);} .game-status [data-condition-value="summer"] {color:var(--p23-season-summer);}
+.game-status :is([data-condition-value="autumn"],[data-condition-value="fall"]) {color:var(--p23-season-autumn);}
+.game-status :is([data-condition-value="winter"],[data-condition-value="snow"]) {color:var(--p23-season-winter);} .game-status [data-condition-value="rain"] {color:var(--p23-rain);}
+.game-status-reserve {flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;color:var(--p23-value, var(--ui-accent));}
+.game-status-work {display:block!important;min-height:var(--ui-target-min);flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;max-width:40em;font:inherit;color:var(--p23-text);background:transparent;border:0;border-right:var(--ui-space-hairline) solid var(--p23-line);
+    text-align:left;cursor:pointer;text-decoration:underline;text-underline-offset:.15em;}
+.game-status-work[data-idle="true"] {color:var(--p23-muted);text-decoration:none;}
+.game-status-work:hover {background:var(--p23-hover-fill, transparent);}
+.game-status-save {margin-left:auto;border-right:0!important;padding-right:0!important;}
+.game-status .game-bar-save-state {padding:0;color:var(--p23-muted);}
+.game-status .game-bar-save-state[data-warning="true"] {color:var(--p23-critical);font-weight:var(--ui-weight-strong);}
+/* The day strip as the spine's last row: the track and its legend side by side, one line high. */
+#game_spine > .day-strip {--day-track:round(calc(var(--ui-control-sm) * .7), 1px);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:var(--ui-space-3);height:auto;padding:var(--ui-space-1) var(--ui-space-3);border-top:var(--ui-space-hairline) solid var(--p23-line);border-bottom:0;}
+#game_spine > .day-strip .day-strip-legend {max-width:40vw;}
+#game_spine > .day-strip .day-strip-legend:not(:has(> span:not(:empty))) {display:none;}
+#game_spine > .day-strip .day-strip-tick {line-height:var(--day-track);font-size:var(--ui-type-small);}
+#game_spine > .day-strip[hidden] {display:none;}
+#game_spine > .day-strip .day-strip-legend {font-size:var(--ui-type-small);}
+/* Here, ready now (direction D, PS57). A block at the top of Here's action list. Rows: the act, then its time or the gap,
+   then which feature it is from. Ready rows plain, urgent ones marked, near rows muted with the gap in the accent. */
+#ready_hub {display:grid;gap:var(--ui-space-1);margin:0 0 var(--ui-space-2);padding:var(--ui-space-2) var(--ui-space-3);border:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-blue, transparent);font-size:var(--ui-type-small);}
+#ready_hub .ready-hub__head {margin:0;color:var(--p23-value, var(--ui-accent));font-weight:var(--ui-weight-strong);}
+#ready_hub .ready-hub__rows {list-style:none;margin:0;padding:0;display:grid;gap:var(--ui-space-hairline);}
+#ready_hub .ready-hub__row {display:grid;grid-template-columns:minmax(0,max-content) minmax(0,1fr) auto;align-items:baseline;gap:var(--ui-space-3);min-height:var(--ui-control-sm);}
+#ready_hub .ready-hub__go {font:inherit;font-size:var(--ui-type-body);text-align:left;color:var(--p23-text);background:transparent;border:var(--ui-space-hairline) solid var(--p23-line);padding:0 var(--ui-space-2);cursor:pointer;min-height:var(--ui-target-min);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#ready_hub .ready-hub__go:hover {background:var(--p23-hover-fill, transparent);}
+#ready_hub .ready-hub__go:focus-visible, #ready_hub .ready-hub__more:focus-visible {outline:2px solid var(--workspace-focus, var(--ui-accent));outline-offset:1px;}
+#ready_hub .ready-hub__go:disabled {cursor:default;color:var(--p23-muted);}
+#ready_hub .ready-hub__row--near .ready-hub__go {color:var(--p23-muted);border-style:dashed;}
+#ready_hub .ready-hub__row[data-urgent="true"] .ready-hub__go {border-color:var(--p23-critical);}
+#ready_hub .ready-hub__gap {color:var(--p23-value, var(--ui-accent));overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#ready_hub .ready-hub__detail {color:var(--p23-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#ready_hub .ready-hub__from {color:var(--p23-muted);white-space:nowrap;}
+#ready_hub .ready-hub__more {justify-self:start;font:inherit;color:var(--p23-text);background:transparent;border:0;padding:0;text-decoration:underline;cursor:pointer;min-height:var(--ui-target-min);}
+#ready_hub .ready-hub__more[hidden], #ready_hub .ready-hub__note[hidden] {display:none;}
+#ready_hub .ready-hub__note {margin:0;color:var(--p23-critical);}
+/* The inspector (direction A, UIC152): while a centre view's detail sits in the left column, the vitals stay as a strip and
+   the stat grid and Condition step aside; the list in the centre takes the freed width. */
+#main_content.workspace-active[data-inspecting="true"] .workspace-module:is([data-module="shell-character"],[data-module="condition"]) {display:none!important;}
+#main_content.workspace-active[data-inspecting="true"] .attribute-inspector-layout {grid-template-columns:minmax(0,1fr)!important;grid-template-rows:none!important;}
+#shell_inspector {flex:1 1 0;min-height:0;overflow:auto;overscroll-behavior:contain;padding:var(--ui-space-2) var(--ui-space-3);border:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-blue, transparent);color:var(--p23-text);}
+#shell_inspector > * {border:0!important;padding:0!important;overflow:visible!important;}
+#shell_inspector :is(h3,h4) {color:var(--p23-value, var(--ui-accent));}
+/* Results name the next step (PS55): links at the end of a Reports line. */
+.report-next {color:var(--p23-muted);}
+.report-next__go {font:inherit;color:var(--p23-value, var(--ui-accent));background:transparent;border:0;padding:0;min-height:var(--ui-target-min);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
+.report-next__go:focus-visible {outline:2px solid var(--workspace-focus, var(--ui-accent));outline-offset:1px;}

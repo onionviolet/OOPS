@@ -20,7 +20,8 @@ const worldNow = () => (typeof document === 'undefined' ? 'native' : document.do
 // What the player read: the line as shown, without its buttons or the spoken-aloud copy.
 // UIC189: a line keeps a full and a compact copy of its words; a page saved without layout (headless, a hidden tab) has no
 // innerText and read both, so the tail held every line twice. The full copy is read when the line has one.
-const visibleLine = n => { const own = n.querySelector?.('.log-original'); if (own) return own.textContent; return [...n.querySelectorAll('button')].reduce((text, b) => text.replace(b.innerText || b.textContent, ''), n.innerText ?? n.textContent); };
+// A line's own words: its original span, or its text without buttons and without a "Next:" part (PS55, ui/next_steps.js).
+const visibleLine = n => { const own = n.querySelector?.('.log-original'); if (own) return own.textContent; const next = n.querySelector?.('.report-next'); const whole = (n.innerText ?? n.textContent).replace(next ? (next.innerText || next.textContent) : '\u0000', ''); return [...n.querySelectorAll('button')].filter(b => !next?.contains(b)).reduce((text, b) => text.replace(b.innerText || b.textContent, ''), whole); };
 // A tail saved before that fix holds "XX" for X; it is shown, and saved again, once.
 export const undoubled = line => { const t = String(line), h = t.length / 2; return t.length > 1 && Number.isInteger(h) && t.slice(0, h) === t.slice(h) ? t.slice(0, h) : t; };
 // A place or day divider ("[ Home · 01/04/999 ]") is written afresh by every sitting, so it is not part of the tail:
@@ -74,7 +75,7 @@ function mount() {
         let today = null; try { today = todayDigest(); } catch { today = null; }
         const fresh = stream.querySelectorAll(':scope > :not(.report-earlier)').length;
         empty.hidden = stream.children.length > EMPTY_NOTE_UNTIL;
-        const rows = dockRows({logLines: fresh, next, today, headerHasClock: village && !!document.querySelector('#village_scene .scene-calendar')?.offsetParent});
+        const rows = dockRows({logLines: fresh, next, today, headerHasClock: !!document.querySelector('#game_status .scene-calendar')?.offsetParent || village && !!document.querySelector('#village_scene .scene-calendar')?.offsetParent});
         // The banner under the top strip moves here while a next step exists, so the frame below it never shifts.
         if (nextCard) nextCard.style.display = rows.some(r => r.kind === 'next') ? 'none' : '';
         const key = JSON.stringify(rows);

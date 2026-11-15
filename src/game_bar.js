@@ -1,16 +1,14 @@
 import {createControlBox} from './ui/control_box.js';
-import {subscribeChange} from './ui_change_signal.js';
-import {centerModes} from './center_modes.js';
+import {mountStatusLine, placeInStatus} from './ui/status_line.js';
 
 // R21 one bar (MB2). In the parity shell the top navigation row and the bottom bar become one bar
 // at the top: panel navigation on the left; save state, Save, Export and Import on the right; the
 // rarely used items (settings, version, help, Authoring, Layout, density and attribution links)
 // in a Menu (UR50). The existing nodes move in with placeholders and move back outside
 // the parity shell (GU5), so every handler and guard stays the native one (UR55).
-// Save state mirrors the current-work panel's ownership line: one authority (AR3).
-// UIL2 (UIW1): while the current-work panel is out of view, a chip in the bar repeats its work line
-// (what runs and the time left the panel names). It re-reads that panel when the panel publishes
-// 'work' and never computes work itself (AR3).
+// Save state mirrors the current-work panel's ownership line: one authority (AR3). It sits in the status line under
+// the bar (direction B, PS53), which also holds the work line; the work chip UIL2 added for a panel scrolled out of
+// view is gone because the status line is on screen in every view.
 
 const make = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const RIGHT = ['save_button', 'save_to_file_button', 'load_from_file_button', 'saved_file_input'];
@@ -37,8 +35,8 @@ export function mountGameBar({nav}) {
     // A command in the Menu (Authoring, Edit layout, density) closes it once it runs; disclosures,
     // selects and fields inside it keep it open.
     menu.body.addEventListener('click', event => { const hit = event.target.closest('button,a'); if (hit && !hit.closest('summary') && !event.target.closest('select,input,textarea')) setTimeout(() => menu.close({restore: false})); });
-    const chip = make('button', 'game-bar-work-chip'); chip.type = 'button'; chip.hidden = true;
-    left.append(more.node); right.append(chip, state, menu.node); bar.append(left, right);
+    left.append(more.node); right.append(state, menu.node); bar.append(left, right);
+    const spine = mountStatusLine({bar});
     const homes = new Map();
     const move = (node, host) => { if (!node || node.parentNode === host) return; if (!homes.has(node)) { const mark = document.createComment(`game-bar:${node.id || node.className}`); node.before(mark); homes.set(node, mark); } host.append(node); };
     const restoreAll = () => { for (const [node, mark] of homes) if (mark.parentNode && node.previousSibling !== mark) mark.after(node); };
@@ -74,31 +72,6 @@ export function mountGameBar({nav}) {
         const warn = !line || line.classList.contains('workspace-warning');
         if (state.dataset.warning !== String(warn)) state.dataset.warning = String(warn);
     };
-    // The chip shows only when work runs and the panel is not on screen. Showing or hiding it
-    // refolds the bar, so that waits while the pointer or focus is on the bar (UIX4, UR52); its text
-    // sits in a fixed width, so ticking time never moves a neighbour.
-    const workPanel = () => document.getElementById('workspace_current_work');
-    let watched = null, panelInView = true, chipHeld = false;
-    const sight = new IntersectionObserver(entries => { for (const e of entries) if (e.target === watched) panelInView = e.isIntersecting; syncChip(); });
-    // Keyboard focus holds it; focus a mouse click leaves on a bar button does not.
-    const busy = () => [bar, more.panel, menu.panel].some(n => n && (n.matches(':hover') || !!n.querySelector(':focus-visible')));
-    function syncChip() {
-        const panel = workPanel();
-        if (panel !== watched) { if (watched) sight.unobserve(watched); watched = panel; panelInView = true; if (panel) sight.observe(panel); }
-        const line = panel?.querySelector(':scope > p')?.textContent.trim() || '';
-        const want = !!active && Number(panel?.dataset.workCount || 0) > 0 && !panelInView && !!line;
-        if (line && chip.textContent !== line) { chip.textContent = line; chip.title = `Current work: ${line}. Select to show the Current work panel.`; chip.setAttribute('aria-label', chip.title); }
-        if (chip.hidden !== !want) { if (busy()) { chipHeld = true; return; } chip.hidden = !want; chipHeld = false; signature = ''; apply(); }
-        else chipHeld = false;
-    }
-    chip.addEventListener('click', () => {
-        const panel = workPanel(); if (!panel) return;
-        if (!panel.checkVisibility()) centerModes().showHere();
-        requestAnimationFrame(() => workPanel()?.scrollIntoView({block: 'nearest'}));
-    });
-    const releaseChip = () => { if (chipHeld) queueMicrotask(() => { if (chipHeld && !busy()) syncChip(); }); };
-    bar.addEventListener('pointerleave', releaseChip); document.addEventListener('focusout', releaseChip);
-    const stopChip = subscribeChange({id: 'game-bar-current-work', surface: 'current-work', refresh: syncChip});
     function apply() {
         const on = parity();
         if (on !== active) {
@@ -106,8 +79,9 @@ export function mountGameBar({nav}) {
             if (on) {
                 document.body.prepend(bar); left.prepend(nav);
                 for (const id of RIGHT) move(document.getElementById(id), right);
-                right.append(state, menu.node);
-                state.after(...RIGHT.map(id => document.getElementById(id)).filter(Boolean));
+                right.append(menu.node);
+                menu.node.before(...RIGHT.map(id => document.getElementById(id)).filter(Boolean));
+                placeInStatus('save', state);
                 const toolbar = root()?.querySelector(':scope > .workspace-toolbar');
                 menu.attach();
                 if (toolbar) move(toolbar, menu.body);
@@ -117,7 +91,7 @@ export function mountGameBar({nav}) {
                 lastWidth = 0;
             } else {
                 menu.close({restore: false}); more.close({restore: false});
-                restoreAll(); bar.remove(); delete document.documentElement.dataset.oneBar; chip.hidden = true;
+                restoreAll(); bar.remove(); delete document.documentElement.dataset.oneBar;
                 for (const b of nav.querySelectorAll('[data-bar-overflow]')) delete b.dataset.barOverflow;
                 // The native navigation keeps its own fixed top row outside the shell.
                 document.getElementById('main_content')?.before(nav);
@@ -136,6 +110,6 @@ export function mountGameBar({nav}) {
     // A route appearing or leaving (discovery, a fight) refolds at once, not on the next pass.
     const routes = new MutationObserver(() => { if (active) apply(); }); routes.observe(nav, {attributes: true, attributeFilter: ['hidden'], subtree: true, childList: true});
     document.addEventListener('workspace-presentation-change', () => setTimeout(apply));
-    const timer = setInterval(apply, 500); apply(); syncChip();
-    return {apply, bar, destroy() { clearInterval(timer); observer.disconnect(); routes.disconnect(); sight.disconnect(); stopChip(); document.removeEventListener('focusout', releaseChip); active = true; restoreAll(); bar.remove(); menu.destroy(); more.destroy(); }};
+    const timer = setInterval(apply, 500); apply();
+    return {apply, bar, destroy() { clearInterval(timer); observer.disconnect(); routes.disconnect(); spine.destroy(); active = true; restoreAll(); bar.remove(); menu.destroy(); more.destroy(); }};
 }

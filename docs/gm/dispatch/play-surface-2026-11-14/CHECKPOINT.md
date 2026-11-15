@@ -42,7 +42,7 @@ review: none
 - **Daily loops** (daily-loops). Map and proposed loops (008fa95b1). Fang Yuan's ordinary day (425d14bb7, corrected in 89803de77). Natural sea recovery and seeded patrol nights (69a9ddda6), at floor. Next is Klein's wage loop, then Harry's timetable.
 - **Combat** (combat lane, `local_7da0d3f3`, which took over from the Fable-limited family). CFC9 committed (49fb16bd3). One live fight per lead world on the familiar card: Klein's brawl, Harry's duel and Fang Yuan's hunt, with stakes presets, spells and Gu as kit rows and Hold back (ea9cbe543). Proof is under `combat/`, and the next-worlds table is in the carry-out. Not built: enchanted gear (AE1), counters, calibration against source fights (WS5).
 - **Klein's wage loop** (fa49cee23): at floor (f0bb7696a), played in Chrome at 1920×1080 on kjw42 after the G18 fix (bb822ec5f), with collect, reload and import holding. G18 is closed; the load follow-up is e29799c15.
-- **Open:** F3 (the story cast in Around you), which waited on G18, can now be proved on kjw42.
+- **Open:** F3 (the story cast in Around you), which waited on G18, can now be proved on kjw42. It is assigned to ui-cohesion, with its "This place" panel.
 
 ## Waiting on Weibao
 

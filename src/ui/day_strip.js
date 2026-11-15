@@ -88,7 +88,7 @@ const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls)
 const lineText = node => {
     const original = node.querySelector(':scope > .log-original');
     if (original) return clean(original.textContent);
-    return clean([...node.childNodes].filter(c => c.nodeType === 3 || (c.nodeType === 1 && !c.matches('button, .report-voice, .message_border, .log-compact, small'))).map(c => c.textContent).join(' '));
+    return clean([...node.childNodes].filter(c => c.nodeType === 3 || (c.nodeType === 1 && !c.matches('button, .report-voice, .report-next, .message_border, .log-compact, small'))).map(c => c.textContent).join(' '));
 };
 
 // A fight takes the centre when the opponent view is up (the opponent view replaces Around you) or the timed fight card is up; then the strip is hidden, not covered.
@@ -96,6 +96,8 @@ const lineText = node => {
 // hides it at once on the same facts; this check keeps the hidden attribute honest for readers.
 const fightHasCentre = () => !!document.querySelector('#main_content[data-center-task], #current_focus > .combat-focus-view, [data-fight-mode="tempo"]');
 // The place view itself: the strip is its first child, above the place name, so it comes and goes with the view.
+// In the one-bar shell the spine (status_line.js) adopts it under the status line, in every view; there it never yields,
+// because it no longer sits over the centre (directions B and F, 2026-11-14).
 const placeDock = () => document.getElementById('village_scene');
 export function mountDayStrip({host = placeDock(), stream = document.getElementById('message_box_div'), yieldsTo = fightHasCentre, calendar = () => resolveWorldCalendar(readPort('expansion'), readPort('gameTime'))} = {}) {
     if (!host || host.querySelector(':scope > #day_strip')) return null;
@@ -142,7 +144,7 @@ export function mountDayStrip({host = placeDock(), stream = document.getElementB
         let view = null; try { view = calendar(); } catch { view = null; }
         sync(view);
         const model = dayStripModel({calendar: view, units: unitsOf(view), events: records, work: workFromExpansion(readPort('expansion')), plan: []});
-        const hide = model.hidden || !shown() || !!yieldsTo();
+        const hide = model.hidden || !shown() || (!!root.closest('#village_scene') && !!yieldsTo());
         if (hide !== visible) { visible = hide; root.hidden = hide; }
         if (hide) return;
         root.style.setProperty('--day-now', `${model.nowFraction * 100}%`);

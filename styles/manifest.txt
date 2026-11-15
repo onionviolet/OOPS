@@ -47,3 +47,4 @@ styles/redesign_drafts.css
 styles/people_variants.css
 styles/places_variants.css
 styles/day_strip.css
+styles/status_line.css

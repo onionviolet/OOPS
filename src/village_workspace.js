@@ -17,6 +17,7 @@ import {subscribeChange,bridgeLegacyNode} from './ui_change_signal.js';
 import {formatCalendar} from './world_calendar.js';
 import {upcomingStripNode} from './upcoming_strip_ui.js';
 import {sayReason} from './locked_control.js';
+import {placeInStatus,setStatusText} from './ui/status_line.js';
 const factHelp=label=>({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[label]||'';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 
@@ -236,6 +237,10 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         }
 
         setText(calendar,[season?date.replace(', '+season,''):date,header.phase?((/night/i.test(header.phase)?'☾ ':'☼ ')+header.phase):''].filter(Boolean).join(' · '));setTitle(calendar,header.description);calendar.dataset.timeOfDay=header.phase?(/night/i.test(header.phase)?'night':'day'):'unknown';
+        // Direction B (PS53): the status line under the top bar is the one home of the place, the time and the weather in
+        // every view. This view still renders them (one authority) and hands the nodes over; without the line they stay here.
+        setStatusText('place',frame.place);
+        if(!(placeInStatus('when',calendar)&&placeInStatus('weather',conditions))){if(conditions.parentNode!==clock)clock.append(conditions);if(calendar.parentNode!==placeFooter)placeFooter.prepend(calendar);}
         // R13 dedupe: with the shell, Focus's place card is the home for who and what is here, so the
         // lower People/Things tabs would repeat it. Actions and Options stay.
         const focusOwnsNearby=parity&&document.getElementById('main_content').dataset.presentation==='proto23-shell';if(focusOwnsNearby&&['people','things'].includes(placeTab))placeTab='actions';

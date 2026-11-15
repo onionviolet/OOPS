@@ -1165,7 +1165,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 #main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] button > progress {display:block;}
 #main_content.workspace-active[data-parity="r3"] .scene-conditions {display:flex;flex-wrap:wrap;justify-content:flex-end;gap:round(.15em, 1px) round(.6em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .scene-conditions > span {white-space:nowrap;}
-#main_content.workspace-active[data-parity="r3"] {--p23-season-spring:#9eedbc;--p23-season-summer:#f7df87;--p23-season-autumn:#ffbd85;--p23-season-winter:#c8e8ff;--p23-rain:#97d6ff;--p23-critical:#ffd18c;--p23-miss:#b6c5dc;}
+#main_content.workspace-active[data-parity="r3"], #game_status {--p23-season-spring:#9eedbc;--p23-season-summer:#f7df87;--p23-season-autumn:#ffbd85;--p23-season-winter:#c8e8ff;--p23-rain:#97d6ff;--p23-critical:#ffd18c;--p23-miss:#b6c5dc;}
 #main_content.workspace-active[data-parity="r3"] [data-condition-value="spring"] {color:var(--p23-season-spring);}
 #main_content.workspace-active[data-parity="r3"] [data-condition-value="summer"] {color:var(--p23-season-summer);}
 #main_content.workspace-active[data-parity="r3"] :is([data-condition-value="autumn"],[data-condition-value="fall"]) {color:var(--p23-season-autumn);}

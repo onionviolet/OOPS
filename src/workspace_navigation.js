@@ -8,6 +8,10 @@ const shortReason=reason=>{const text=String(reason||'').replace(/\.$/,'');retur
 import {centerModes} from './center_modes.js';
 import {decorateInventoryList,summarizeGroups} from './ui_components.js';
 import {mountGameBar} from './game_bar.js';
+import {mountReadyHub} from './ui/ready_hub.js';
+import {mountInspector} from './ui/inspector.js';
+import {mountNextSteps} from './ui/next_steps.js';
+import {installReadySources} from './ready_sources.js';
 import {routeTable,LAYOUT_SPEC} from './layout_spec.js';
 import {changeSignal,subscribeChange,publishChange} from './ui_change_signal.js';
 import {registerChangeProbes} from './ui_change_probes.js';
@@ -56,7 +60,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     // G7: a life that holds its own things and has nothing to do under Here opens on its own panel (LAYOUT_SPEC.lifeHome),
     // once per arrival at a place, so Back still returns to Here and stays there. A default; set lifeHome to '' to turn it off.
     let lifeHomeShownFor='';
-    const hereIsEmpty=()=>{const host=document.getElementById('location_actions_div');return !host||![...host.children].some(el=>!('lifeDay' in (el.dataset||{}))&&!el.hidden&&el.style?.display!=='none'&&!el.classList?.contains('none_display')&&(el.getClientRects?el.getClientRects().length>0:true)&&(el.textContent||'').trim());};
+    const hereIsEmpty=()=>{const host=document.getElementById('location_actions_div');return !host||![...host.children].some(el=>!('lifeDay' in (el.dataset||{}))&&!('readyHub' in (el.dataset||{}))&&!el.hidden&&el.style?.display!=='none'&&!el.classList?.contains('none_display')&&(el.getClientRects?el.getClientRects().length>0:true)&&(el.textContent||'').trim());};
     const lifeHomeTimer=setInterval(()=>{if(!nav.isConnected){clearInterval(lifeHomeTimer);return;}
         const target=LAYOUT_SPEC.lifeHome;if(!target||document.documentElement.dataset.startScreen!=='closed')return;
         const world=readPort('expansion')?.actors?.player?.worldId,key=`${world}:${document.getElementById('location_name_span')?.textContent||''}`;
@@ -79,7 +83,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     const root=document.getElementById('main_content');definePanel({id:'pane-navigation',title:'Center views',role:'actions',node:paneNav,home:root,defaultDock:'center',after:'local-actions',eligible:()=>root.dataset.parity==='r3',discovered:()=>root.dataset.parity==='r3'});
     document.getElementById('main_content').before(nav);
     // R21 (MB2): in the parity shell the navigation joins the one bar with save and menu.
-    const gameBar=mountGameBar({nav});gameBar?.bar?.querySelector('.game-bar-save-state')?.before(extras.findButton);
+    const gameBar=mountGameBar({nav});gameBar?.bar?.querySelector('.game-bar-right')?.prepend(extras.findButton);installReadySources();mountReadyHub();mountInspector();mountNextSteps(); // direction D (PS57): Here's ready-now hub, fed by each feature's ready rows
     const resize=new ResizeObserver(()=>document.documentElement.style.setProperty('--workspace-nav-height',nav.offsetHeight+'px'));resize.observe(nav);
     let last='',notified=false,lastRefresh=0,held=false;
     // UIX4 / UR52: a route appearing or leaving moves the buttons after it and refolds the bar, so
