@@ -34,6 +34,10 @@ const panelText = (game, sel) => (game.$(sel)?.textContent || '').replace(/\s+/g
 
 const HP = 'book.hp.lead', KEEPER = 'book.ri.keeper';
 
+function hpSchoolWeekStageIds() {
+    try {return JSON.parse(readFileSync(new URL('../../private_packs/hp-cast/cast.json', import.meta.url), 'utf8')).schoolWeek.sequences[0].stages.map(s => s.commandId);}
+    catch {return [];}
+}
 function hpHouseholdActIds() {
     try {return JSON.parse(readFileSync(new URL('../../private_packs/hp-cast/cast.json', import.meta.url), 'utf8')).householdActs.acts.map(act => act.id);}
     catch {return [];}
@@ -83,6 +87,32 @@ export const WORLD_FIXTURES = Object.freeze({
             await game.settle(200);
             must(/Exam week/.test(panelText(game, '#hp_panel')), 'the HP panel does not show Exam week');
             must(game.$('[data-hp-paper] button:not([disabled])'), 'no paper to sit');
+        },
+    },
+    'hp-term-jinx': {
+        world: 'hp', route: 'composed', view: {panel: 'hp', sel: '#hp_panel', text: /Lessons/}, needs: ['private_packs/hp-cast (the first week it marks done)'],
+        summary: 'DEV FIXTURE, COMPOSED: Harry\'s lead life begun through Beginning, then the Arrival, Sorting (Gryffindor), the whole first week and the household weeks marked done, in the Great Hall, clocks moved to Monday 5 October 09:00 (lead day 65, term time) so the library is open, the Lessons section shows and the first Charms lesson (Mondays 09:00) is on. For the duel jinxes (Wave 19).',
+        async build(game) {
+            await beginLife(game, HP);
+            // Same composition as hp-exam-week, at a term-time day. The first-week arc must read done, or the HP panel keeps the
+            // Lessons section (and every practice row in it) hidden behind "Follow the deputy head inside".
+            const {expansionState: s, current_game_time: t} = game.internals, a = s.actors.player, day = 65;
+            a.facts['hp.lead.atSchool'] = true; a.facts['hp.lead.house'] = 'gryffindor';
+            for(const id of ['arrive_school', 'sorting', 'w6.return']) a.completed[`${HP}.${id}`] = 1;
+            for(const id of [...hpHouseholdActIds(), ...hpSchoolWeekStageIds()]) a.completed[id] = 1;
+            s.simulation.people.player.location = `${HP}.school_hall`;
+            s.clock = day * 1440 + 60;
+            t.day_count = day + 1; t.hour = 9; t.minute = 0;
+            const m = 3 + Math.floor(day / 30); t.year = 999 + Math.floor(m / 12); t.month = 1 + m % 12; t.day = 1 + day % 30;
+            const save = structuredClone(await game.save());
+            save['current location'] = `${HP}.school_hall`;
+            return save;
+        },
+        async proves(save, game) {
+            must(save.expansion?.actors?.player?.facts?.['hp.lead.atSchool'], 'not at school');
+            await game.fill('#workspace_navigation select', 'hp').catch(() => {});
+            await game.settle(200);
+            must(/Read up Locomotor Mortis/.test(panelText(game, '#hp_panel')), 'the HP panel does not offer the library read-up');
         },
     },
     'gu-fed-second': {

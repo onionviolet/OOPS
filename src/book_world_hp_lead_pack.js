@@ -14,7 +14,7 @@ const P='book.hp.lead',KIND='hp-cast';
 // hashes differently but an old save plays on unchanged. Each row acknowledges one such drift (structured_native_registration.js).
 // When this life's compiled content changes again, the first `from` stops matching: check an old save still plays, then update it.
 export const HP_LEAD_IDENTITY_ALIASES=Object.freeze([
- {from:'sha256:812a6dcc19c48899503a79d2c2ccbe1eea5d4e18e74d52022c1c4f0ffd276873',to:'sha256:f9cfc3e531af70cd0cab095801b536ac60d52f4bdb0369dddcdce623d4760d5d',reason:'LAYX228 linear act prerequisites; exam commands added'},
+ {from:'sha256:101f60377981b022c185a4928219c10105e15025c394049b275235f8a14da08f',to:'sha256:f9cfc3e531af70cd0cab095801b536ac60d52f4bdb0369dddcdce623d4760d5d',reason:'LAYX228 linear act prerequisites; exam commands added; duel jinxes read up and practised (Wave 19)'},
 ]);
 const arrivalId=P+'.arrive_school', sortingId=P+'.sorting';
 const completed=(id,reason)=>({fact:'completed.'+id,op:'eq',value:true,reason});

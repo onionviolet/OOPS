@@ -100,3 +100,20 @@ Run in headless Chrome at 1920x1080, from a fresh origin, on a clean bundle buil
 - **RWT14.** `ri_wolf_tide.js` owns the mechanism (population, foe, parts per wolf by size). Daily-loops owns nightly yields and prices and reads from it. Committed alone at `815616b18` so combat and daily-loops could build on it.
 - **Feature-ui `615d26319`.** The timed act now ends with a Done line naming the kind. Repeat offers at most as many runs as the held inputs cover, so it is hidden with one wild Gu. Seen in Chrome by that lane. Reports still writes no line for a finished timed life act (not feature-ui's file).
 - **Hand-over.** The wild-Gu files go to the RWT22 and RWT19 session after this commit: `ri_wild_gu.js`, `gu_refiner_registry.js`, the wild refinement pack and `tests/ri_wild_gu.test.js`.
+
+## Wave 19b: Harry's duel jinxes land (2026-11-14, resumed at Weibao's "Run all lanes", stop 95% weekly)
+
+- **What the player can now do.** In term time Harry can read up Locomotor Mortis and Petrificus Totalus in the library (30 minutes each). After his first Charms lesson he opens the practice bench and takes a class wand. Then he practises each jinx on Ron, at 1 stamina a try and one step of practice per try, landed or not.
+  - Rows the player can't use yet stay visible with their mechanism: "Read up Locomotor Mortis first.", then "Take a class wand from the Charms practice bench first."
+  - Played in headless Chrome at 1920x1080 from a fresh origin on the new DEV fixture `hp-term-jinx` (Monday 5 October, first week done): read up, Charms lesson, bench, wand, three tries. Leg-lock mastery 3 survived a second fresh origin, with no page errors.
+- **Clicks.** Five to the first try, because the lesson and bench chain comes first. One a try after that.
+- **What was confusing.** The panel doesn't say whether a try landed, and it shows no chance beside the row. Only the stamina line is there. The chance is ready from `hpLeadJinxChances`. Both are asks to the owner of `book_world_hp_lead_ui.js` (OR6).
+- **Consumer pending.** The duel reads the practice only after combat adds the `practiseDuelKit` line in `tempo_lead_fights.js`. Until then the duel's hit dials are unchanged.
+- **Limit awaiting Weibao (AD56).** Practice needs a class wand from the bench, so it waits for the Monday Charms lesson. Canon Harry owns a wand, and his life has no own-wand item. Widening default: practise with any wand in hand. That change was not made, because it moves the cast hash again.
+- **Persistence.** The cast content hash moved to `101f6037…`. The alias row in `book_world_hp_lead_pack.js` now maps it to `f9cf…`, so the earned `hp-w11-farewell` save loads (`lead_saves_load` passes). The pinned command lists in `hp_arrival`, `hp_lead_window1` and `hp_lead_window2` gained the four jinx ids.
+- **Checks:**
+  - HP files plus saves: 393 of 393.
+  - Full `npm test` on `6c8914ae7` plus these paths, in an archive tree: 7,648 of 7,660 pass and 11 skipped. The 1 failure is git-only (`rule_routes`).
+  - `check:arch` and `check:rules` exit 0.
+  - Budget warning: `ri_wild_gu.test.js` runs 49 s against 35 s. That file is now the RWT session's.
+- **Fixture cache gap.** The scenario cache key doesn't change when `world_fixtures.mjs` changes, so stale `hp-term-jinx` builds had to be deleted by hand from `$TMPDIR/yairpg-scenarios`. This is a backlog line for the fixture owner.

@@ -14,6 +14,8 @@ import {definePowerGrammar} from './power_grammar.js';
 import {hpPowerPrices, HP_LEVITATION_PARTS} from './power_grammar_worlds.js';
 import {hpSpellAdapter} from './spell_adapter_hp.js';
 import {lowerSpellCasts, spellCastFacts} from './spell_cast_lowering.js';
+import {hpSpellPower} from './hp_duel_mastery.js';
+import {schoolYearPosition} from './book_world_hp_school_calendar.js';
 // Shared save identity, pinned against the life-data export by spell_cast_lowering tests.
 const HP_LEVITATION = 'book.hp.lead.levitation';
 
@@ -41,7 +43,7 @@ export const hpLeadSpellCommands = lowerSpellCasts(hpLeadSpellSet, {chanceFact: 
             reason: 'You need to be at Hogwarts and to know the charm.'}};
 });
 
-export const hpLeadSpellFacts = state => ({...spellCastFacts(state, hpLeadSpellSet, {chanceFact: hpLeadChanceFact, powerOf: () => HP_LEVITATION}), ...hpLeadAdditionalSpellFacts(state), ...labTrialFacts(state), [pathBlocked]: state.worlds?.[WORLD]?.facts?.[BOARD]===true?0:1, ...spellCastFacts(state, benchSpells, {chanceFact: benchChanceFact, powerOf: () => HP_LEVITATION})});
+export const hpLeadSpellFacts = state => ({...spellCastFacts(state, hpLeadSpellSet, {chanceFact: hpLeadChanceFact, powerOf: () => HP_LEVITATION}), ...hpLeadAdditionalSpellFacts(state), ...labTrialFacts(state), [pathBlocked]: state.worlds?.[WORLD]?.facts?.[BOARD]===true?0:1, ...spellCastFacts(state, benchSpells, {chanceFact: benchChanceFact, powerOf: () => HP_LEVITATION}), ...jinxFacts(state)});
 
 // A second application of the learned charm, not a second learned power. The
 // lesson supplier issues one practice feather; the transfer owner conserves it.
@@ -71,6 +73,71 @@ export const hpLeadAdditionalSpellCommands = lowerSpellCasts(hpLeadPassingSpellS
 export const hpLeadAdditionalSpellFacts = state => spellCastFacts(state, hpLeadPassingSpellSet, {chanceFact: hpLeadChanceFact, powerOf: () => HP_LEVITATION});
 
 hpLeadSpellCommands.push(...hpLeadAdditionalSpellCommands);
+
+// Duel jinxes as practised spells (OR1 consumer: the corridor duel, tempo_lead_fights.js through hp_duel_mastery.js). Proposals under
+// AD38/AD56. Each jinx is its own 'practice' power keyed by its Hogwarts spell row (hpSpellPower); its mastery is the one number both the
+// practice fizzle chance below and the duel's hit read. No carry-over from the levitation charm.
+// Learning: read it up in the school library. Default, dial, reason: 30 minutes, once. A first-year may read any jinx in the open shelves
+// (Locomotor Mortis is a first-year jinx, B1 p175; the body-bind is one Hermione found by reading, B1 p219), so a book teaches it; the
+// library keeps term hours and asks which house you are in (the same rule as hpLibraryReason, pinned by tests).
+// Practice: Ron lets you try it on him. Default, dial, reason: 1 stamina a try, instant, one practice step either way (Weibao, 2026-11-08,
+// every cast teaches); a leg-lock needs legs, so a partner, not a feather. A class wand from the practice bench is the wand in hand.
+// Fizzle dials: 60% at no practice for the leg-lock (the levitation charm's first-year start), 70% for the body-bind (the duel already
+// lands it less often), both 10 points less per step. Gaps: Ron's own mood and the counter-curse are not modelled; the spoken words are
+// unstated as for the charm.
+export const HP_JINX = 'book.hp.lead.jinx';
+const HP_CLASS_WAND = practiceWand.id;
+const JINXES = [
+    {key: 'leg_lock', row: 'leg-lock', words: 'Locomotor Mortis', name: 'the Leg-Locker Curse', failure: 0.6,
+        worked: 'Ron\'s legs snapped together and he toppled onto a bench, laughing, until you undid it.', fizzled: 'The jinx went wide. Ron\'s legs stayed his own.',
+        book: 'You read the Leg-Locker Curse in a library book of jinxes: the words, Locomotor Mortis, and the wand pointed at the legs.'},
+    {key: 'body_bind', row: 'body-bind', words: 'Petrificus Totalus', name: 'the Full Body-Bind', failure: 0.7,
+        worked: 'Ron went rigid and tipped over like a plank. You released him before anyone noticed.', fizzled: 'Ron flinched but nothing took hold.',
+        book: 'You read the Full Body-Bind in a library book of jinxes: the words, Petrificus Totalus, and the wand raised then pointed.'},
+];
+const jinxPower = j => hpSpellPower(j.row);
+const jinxNote = (j, value) => note(`jinx.${j.key}.last`, value);
+const jinxLaw = {...hpLeadPowerLaw,
+    prices: {...hpLeadPowerLaw.prices,
+        failure: {...hpLeadPowerLaw.prices.failure, ...Object.fromEntries(JINXES.map(j => [`function.${j.key}`, j.failure]))},
+        perMastery: {...hpLeadPowerLaw.prices.perMastery, ...Object.fromEntries(JINXES.map(j => [`function.${j.key}`, 0.1]))}},
+    functions: {...hpLeadPowerLaw.functions, ...Object.fromEntries(JINXES.map(j => [j.key, () => [jinxNote(j, j.worked)]]))}};
+const jinxSet = definePowerGrammar(JINXES.map(j => ({key: j.key, label: `Practise ${j.words} on Ron`, sourceId: `${HP_JINX}.${j.key}`, origin: {kind: 'text'}, fn: 'support',
+    parts: {functions: [j.key], magnitude: 1, range: 0, duration: 0, targets: 1, tier: 1},
+    formula: [{label: 'At Hogwarts', requires: {fact: 'actor.hp.lead.atSchool', op: 'eq', value: true, reason: 'You practise jinxes at school.'}}],
+    failureOutcome: [jinxNote(j, j.fizzled)],
+    unstated: ['spoken words (no speech fact in the lead life)', 'canon stamina cost']})), jinxLaw, hpSpellAdapter({worldId: WORLD, prefix: HP_JINX}));
+const jinxChanceFact = id => `hp.lead.jinx.${id.slice(HP_JINX.length + 1)}.failChance`;
+const TERM = 'hp.lead.jinx.term', SORTED = 'hp.lead.jinx.sorted';
+const classWand = {fact: `item.${itemKey(practiceWand)}`, op: 'gte', value: 1, reason: 'Take a class wand from the Charms practice bench first.'};
+const jinxRead = j => ({fact: `power.${jinxPower(j)}.owned`, op: 'eq', value: true, reason: `Read up ${j.words} first.`});
+export const hpLeadJinxReadCommands = JINXES.map(j => ({id: `${HP_JINX}.${j.key}.read`, revision: 1, label: `Read up ${j.words} in the library · 30 min`,
+    group: 'structured_local', worldId: WORLD, actorId: 'player', location: HALL, audience: ['$actor'], costs: [], once: true, duration: 30, cancellation: 'refund',
+    description: `Find ${j.name} in a book of jinxes and learn the words and the wand movement. Reading teaches it; landing it takes practice.`,
+    requires: {all: [alive, {fact: 'actor.hp.lead.atSchool', op: 'eq', value: true, reason: 'The school library is open once you are at Hogwarts.'},
+        {fact: SORTED, op: 'eq', value: true, reason: 'You are not sorted yet; the library asks which house you belong to.'},
+        {fact: TERM, op: 'eq', value: true, reason: 'The library is shut for the holidays.'}]},
+    completionRequires: alive, completionCoLocated: true, completionFailure: 'refund',
+    effects: [{type: 'power', powerId: jinxPower(j), operation: 'learn'}, jinxNote(j, j.book)]}));
+export const hpLeadJinxCommands = lowerSpellCasts(jinxSet, {chanceFact: jinxChanceFact, practice: {powerOf: key => jinxPower(JINXES.find(j => j.key === key)), amount: 1}})
+    .filter(c => JINXES.some(j => c.id === jinxSet.ids[j.key].command)).map(c => {
+        const j = JINXES.find(x => c.id === jinxSet.ids[x.key].command);
+        return {...c, powerId: jinxPower(j), group: 'structured_local', worldId: WORLD, location: HALL, audience: ['$actor'],
+            participants: ['player', 'book.hp.lead.ron'], participantsCoLocated: true,
+            description: `Ron lets you try ${j.name} on him. Each try, landed or not, adds one step of practice.`,
+            // No top-level reason: the panel names the first unmet leaf (structured_action_reasons.js), so each block says its mechanism.
+            requires: {all: [alive, jinxRead(j), ...jinxSet.cards[j.key].conditions.map(x => structuredClone(x.requires)), classWand]}};
+    });
+const jinxFacts = state => {
+    const a = state?.actors?.player, opening = state?.simulation?.knowledge?.player?.['book.hp.lead.opening'];
+    // The lead day as book_world_hp_facts.js counts it; schoolYearPosition owns what counts as term.
+    const day = opening ? Math.floor((Math.max(0, state.clock - opening.at) + 480) / 1440) : null;
+    return {[SORTED]: !!a?.facts?.['hp.lead.house'], [TERM]: a?.facts?.['hp.lead.atSchool'] === true && day != null && schoolYearPosition(day)?.phase === 'term',
+        ...spellCastFacts(state, jinxSet, {chanceFact: jinxChanceFact, powerOf: key => jinxPower(JINXES.find(j => j.key === key))})};
+};
+/** The practised fizzle chance for each jinx, the bench's shape (one step away from the button). */
+export const hpLeadJinxChances = state => Object.fromEntries(JINXES.map(j => [jinxSet.ids[j.key].command, jinxFacts(state)[jinxChanceFact(jinxSet.ids[j.key].command)]]));
+hpLeadSpellCommands.push(...hpLeadJinxReadCommands, ...hpLeadJinxCommands);
 
 // The practice board is an authored object in the school hall. Its one saved
 // fact is the board's current support, read by both release and retrieval.

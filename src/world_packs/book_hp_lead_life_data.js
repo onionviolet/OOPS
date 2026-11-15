@@ -7,6 +7,7 @@
 import {hpLeadPowerItems,hpLeadSpellIssueEffects} from '../hp_lead_spells.js';
 import {hpLeadHomeCommands} from '../hp_lead_home.js';
 import {lessonEffects} from '../lesson.js';
+import {hpSpellPower} from '../hp_duel_mastery.js';
 import {registerWorldTies,tieEffects,tieOfferCommands} from '../person_ties.js';
 import {hpLeadExamCommands} from './book_hp_lead_exam_data.js';
 import '../book_world_hp_lead_mood.js'; // registers Ron's mood reader beside his ties (the practice offer gates on it)
@@ -118,7 +119,10 @@ export const hpLeadLessonCommands=(()=>{
     {id:'brewed',weight:{fact:'hp.lead.brewChance'},effects:[...hpPotionsIssueEffects,...lessonEffects({key:id('lesson.potions'),value:'You followed the written steps of a simple draught under the potions master.',situationId:id('situation'),skill:'Alchemy',xp:5}),know('potions_last','Your draught came out the right colour and the master moved on.')]},
     {id:'spoiled',weight:{fact:'hp.lead.brewChance',scale:-1,add:1},effects:[...hpPotionsIssueEffects,...lessonEffects({key:id('lesson.potions'),value:'You followed the written steps of a simple draught under the potions master.',situationId:id('situation'),skill:'Alchemy',xp:2}),know('potions_last','Your draught went wrong; the master told you where.')]}]}];
 })();
-hpLeadLife.simulation.powers=[{id:HP_LEVITATION,revision:1,label:'Levitation charm',model:'practice',capacity:1,cooldown:0}];
+// Duel jinxes (hp_lead_spells.js reads them up in the library and practises them on Ron; hp_duel_mastery.js turns the practice into the duel's hit).
+hpLeadLife.simulation.powers=[{id:HP_LEVITATION,revision:1,label:'Levitation charm',model:'practice',capacity:1,cooldown:0},
+ {id:hpSpellPower('leg-lock'),revision:1,label:'Leg-Locker Curse',model:'practice',capacity:1,cooldown:0},
+ {id:hpSpellPower('body-bind'),revision:1,label:'Full Body-Bind',model:'practice',capacity:1,cooldown:0}];
 hpLeadLife.simulation.commands.push(...hpLeadLessonCommands);
 // Exams (hp_exam_model.js): revision sessions, the seven papers and the marks board, native so a paper can roll its band and a session can count.
 hpLeadLife.simulation.commands.push(...hpLeadExamCommands);
