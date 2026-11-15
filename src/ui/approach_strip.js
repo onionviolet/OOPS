@@ -1,7 +1,7 @@
 // The approach strip (PS34-PS43, proposals): how you fight, what you mean to happen when they go down, and what you do if you are losing.
 // One row of controls drawn the same way on a fight's opener and on the fight card (PS39), so moving between them changes nothing the
 // player chose. Stakes are not here: they are shown, not picked (PS37). Draws only; every choice goes back through a command.
-import {TERMS_LABEL, TERMS_TEXT, LOSING, LOSING_LABEL, termsClash} from '../fight_terms.js';
+import {TERMS_LABEL, TERMS_TEXT, LOSING, LOSING_LABEL, termsClash, theirTerms} from '../fight_terms.js';
 
 const KIND_WORD = {beast: 'it goes', person: 'they go', other: 'they go'};
 
@@ -59,6 +59,9 @@ export function renderApproachStrip(host, {strip, stakes = {}, disabled = false,
         line.append('If I am losing: ', segmented(doc, {name: 'If I am losing', options: LOSING.map(id => [id, LOSING_LABEL[id], id === 'fight_on' ? 'Fight on stops only when something needs you.' : id === 'yield' ? 'At about a third of your health, yield.' : 'At about a third of your health, back away.']), value: strip.losing, disabled, onPick: v => on.losing?.(v)}));
         box.append(line);
     }
+    // Their terms if you go down (PS45): read from the stakes, the same words on the opener, the card and the grind's own card.
+    const kind = (strip.terms || [])[0]?.kind || 'other', theirs = theirTerms(stakes, kind);
+    if(theirs.text) { const line = doc.createElement('p'); line.className = 'approach-row approach-theirs'; line.dataset.approachTheirs = theirs.terms; line.textContent = `If you go down: ${theirs.text}`; box.append(line); }
     host.append(box);
     return box;
 }

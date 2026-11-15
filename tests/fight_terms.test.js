@@ -2,7 +2,7 @@
 // Pulled Blows' skill making a slip rarer in the live fight.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {defaultTerms, termsFor, termsClash, foeKind, asksNow, losingMove, wantsText, canTakeAlive, TERMS_FACT} from '../src/fight_terms.js';
+import {defaultTerms, termsFor, termsClash, foeKind, asksNow, losingMove, wantsText, canTakeAlive, TERMS_FACT, theirTerms, robbedAmount} from '../src/fight_terms.js';
 import '../src/native_battle.js';
 import {expeditionRegistry as registry} from '../src/expedition_content.js';
 import {createFieldFixture, joinField, fieldContext} from '../scripts/field_fixtures.mjs';
@@ -50,4 +50,29 @@ test('Pulled Blows: a practised hand slips less often than a new one', () => {
     const raw = kills(0), practised = kills(1);
     assert.ok(raw > 0, `an untrained hold slips with a blow this heavy: ${raw}`);
     assert.ok(practised < raw, `a practised hold slips less: ${practised} < ${raw}`);
+});
+
+test('their terms when you go down come from the stakes: a robber robs, a duel spares, a killing fight leaves you for dead', () => {
+    assert.equal(theirTerms({preset: 'mugging'}, 'person').terms, 'rob');
+    assert.equal(theirTerms({preset: 'duel'}, 'person').terms, 'spare');
+    assert.equal(theirTerms({preset: 'hunt', lethal: true}, 'beast').terms, 'leave_for_dead');
+    assert.equal(theirTerms({arrest: true}, 'person').terms, 'capture');
+    assert.equal(theirTerms({frame: 'original'}, 'beast').terms, 'leave_for_dead');
+    assert.equal(theirTerms({preset: 'brawl', theirs: {terms: 'capture', text: 'They drag you to the cellar.'}}).text, 'They drag you to the cellar.');
+    assert.deepEqual([robbedAmount(0), robbedAmount(1), robbedAmount(9), robbedAmount(100)], [0, 1, 5, 50]);
+});
+
+test('a robbery you lose takes from your purse in the same commit and says so', () => {
+    const base = joinField(createFieldFixture());
+    const context = fieldContext(base, 'Village', {vitals: {player: {health: 30, max_health: 30, stamina: 30, max_stamina: 30}}});
+    const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_count: 1, crit_rate: 0, crit_multiplier: 1.5, stamina_efficiency: 1};
+    const state = structuredClone(base.state); state.simulation.seed = 11;
+    const p = beginTempoFight(state, registry, context, {id: 'fx-rob', title: 'Rob', floor: 1, stakes: {preset: 'mugging'}, fighters: [
+        {id: 'player', name: 'You', side: 'a', speed: 40, hp: 2, maxHp: 30, stamina: 30, maxStamina: 30, profile: {stats, attackPower: 1, shield: 0, shieldSkill: 0, emptyStaminaMultiplier: .5}, perception: 20, stealth: 20},
+        {id: 'foe1', name: 'The robber', side: 'b', tags: ['person'], speed: 120, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile: {stats, attackPower: 40, shield: 0, shieldSkill: 0, emptyStaminaMultiplier: .5}, perception: 20, stealth: 20}]});
+    const end = p.state.simulation.sessions.player ? driveTempoFight(p.state, registry, context, 'aggressive') : p; // a fast robber may finish it in the opening
+    assert.equal(end.state.actors.player.facts['tempo.lastResult'], 'lost');
+    assert.equal(end.theirTerms, 'rob');
+    assert.equal(end.external.money, context.external.money - robbedAmount(context.external.money));
+    assert.match(end.fightTaken, /The robber took about half of what you carried/);
 });

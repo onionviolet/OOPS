@@ -281,6 +281,8 @@ function closeAccount(plan, w) {
     if(them.some(f => f.byTerms)) account = {...account, items: account.items.map(([k, t]) => k === 'Them' ? [k, `${t.replace(/\.$/, '')}, as you meant to.`] : [k, t])};
     // What you carry away (PS26): a world's after-hook names it in player words.
     if(plan.fightCarry?.length) account = {...account, items: [...account.items, ['Carried', plan.fightCarry.join(' ')]]};
+    // What the side that downed you took (PS45, their terms).
+    if(plan.fightTaken) account = {...account, items: [...account.items, ['Taken', plan.fightTaken]]};
     metMeans.set(w.title, {health: w.health, stamina: w.stamina});
     // Kept with the life as plain text beside tempo.lastResult, so the last result is still there after a reload.
     plan.state.actors.player.facts[MET_FACT] = JSON.stringify([...new Set([...metFoes(plan.state.actors.player.facts), ...w.foes])].slice(-MET_CAP));

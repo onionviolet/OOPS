@@ -85,3 +85,22 @@ export function wantsText(f, stakes = {}) {
     if(stakes.lethal) return 'They mean you real harm.';
     return 'They want you down, not dead.';
 }
+
+// The other side's terms when you go down (PS45, proposals): what they do with you, set by the stakes and the foe, shown before the fight
+// on the same strip as yours, so a loss is never a surprise. An opener may give its own `theirs` ({terms, text}) with an in-world reason.
+// Today every loss still ends with you waking hurt (the defeat record); what changes is what they take or do first.
+export const THEIR_TERMS = Object.freeze(['rob', 'spare', 'capture', 'leave_for_dead']);
+// Dial: a robber takes about half of what you carry, rounded up (what is in your pockets, not what is put away at home).
+export const ROB_SHARE = {value: .5, reason: 'he takes what he finds in your pockets in a hurry, not everything you own'};
+export function theirTerms(stakes = {}, kind = 'other') {
+    if(stakes?.theirs?.terms && THEIR_TERMS.includes(stakes.theirs.terms)) return {terms: stakes.theirs.terms, text: stakes.theirs.text || ''};
+    const beast = kind === 'beast';
+    if(stakes?.frame === 'original') return {terms: 'leave_for_dead', text: beast ? 'It leaves you where you fall. You wake later, hurt.' : 'They leave you where you fall. You wake later, hurt.'};
+    if(stakes?.arrest) return {terms: 'capture', text: 'They take you in. You wake hurt, in their keeping.'};
+    if(stakes?.preset === 'mugging') return {terms: 'rob', text: 'He goes through your pockets and takes about half of what you carry. You wake hurt.'};
+    if(stakes?.preset === 'duel' || stakes?.preset === 'drill') return {terms: 'spare', text: 'They stop when you drop. You get up hurt, and the bout is theirs.'};
+    if(stakes?.lethal) return {terms: 'leave_for_dead', text: beast ? 'It mauls you and leaves you for dead. You wake badly hurt.' : 'They leave you for dead. You wake badly hurt.'};
+    return {terms: 'spare', text: beast ? 'It loses interest once you stop moving. You wake hurt.' : 'They leave you lying. You wake hurt.'};
+}
+// What a robbery takes from `money` (whole units, at least one when there is any).
+export const robbedAmount = money => money > 0 ? Math.min(money, Math.ceil(money * ROB_SHARE.value)) : 0;

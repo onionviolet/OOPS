@@ -15,7 +15,7 @@ import {leaveChance, yieldChance, followers, EXIT_DIALS} from './tempo_exit.js';
 import {winChance} from './notch_contest.js';
 import {stockEdge, stockKindLabel} from './stock_kinds.js';
 import {tempoStakes, kitWhy, kitCostText, kitDetail} from './tempo_kit.js';
-import {foeKind, asksNow, TERMS_LABEL, termsClash, wantsText} from './fight_terms.js';
+import {foeKind, asksNow, TERMS_LABEL, termsClash, wantsText, theirTerms, robbedAmount} from './fight_terms.js';
 import {TEMPO_SCHEMA, TEMPO_LOG_LINES, TEMPO_MOVE_IDS, TEMPO_ALLOWED_MOVE_IDS, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle} from './tempo_fight_contract.js';
 export {TEMPO_SCHEMA, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle};
 
@@ -257,6 +257,17 @@ function finishFight(plan, registry, result) {
     // How each opposing fighter ended, for the host's result block (not saved: the host turns it into player text).
     plan.fightEnd = Object.values(b.fighters).filter(f => f.side === 'b').map(f => ({name: f.name, end: f.end ?? (f.status === 'down' ? 'down' : f.yielded ? 'yielded' : f.status === 'left' ? 'withdrew' : 'stood'), ...(f.byTerms ? {byTerms: true} : {})}));
     if(b.fighters.player.end) plan.playerEnd = b.fighters.player.end;
+    // Their terms (PS45): what the side that downed you does first. A robbery takes from the purse in this same commit.
+    if(result === 'lost') {
+        const winners = Object.values(b.fighters).filter(f => f.side === 'b' && f.status === 'active'), theirs = theirTerms(b.stakes || {}, foeKind(winners[0] || {}));
+        const who = winners[0]?.name || 'They';
+        if(theirs.terms === 'rob') {
+            const taken = Number.isFinite(plan.external?.money) ? robbedAmount(plan.external.money) : 0;
+            if(taken > 0) { plan.external.money -= taken; plan.fightTaken = `${who} took ${plan.external.money === 0 ? 'everything you carried' : 'about half of what you carried'} (${taken}).`; }
+            else plan.fightTaken = `${who} went through your pockets and found nothing worth taking.`;
+        } else if(theirs.terms === 'capture') state.actors.player.facts['tempo.captured_by'] = who;
+        plan.theirTerms = theirs.terms;
+    }
     if(result === 'lost') plan.defeat = savedBattleLoss(Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => b.fighters[id].name));
     // Allies who fought write the bond (LSD331) and are named in a fact the party route already reads.
     const allies = Object.entries(b.fighters).filter(([id, f]) => f.ally && state.simulation.people[id]);

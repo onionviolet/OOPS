@@ -235,7 +235,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             const kinds = [...new Set((combat.defenders || []).map(d => foeKind(d)))];
             if (stripFor && kinds.length) {
                 const host = document.createElement('div'); host.dataset.nativeStrip = ''; card.append(host);
-                const draw = () => { host.replaceChildren(); renderApproachStrip(host, {strip: stripFor({kinds, frame: 'original'}), asks: false, losing: false,
+                const draw = () => { host.replaceChildren(); renderApproachStrip(host, {strip: stripFor({kinds, frame: 'original'}), stakes: {frame: 'original'}, asks: false, losing: false,
                     on: {terms: (kind, value) => { try { lastNotice = termsCommand({kind, value}); } catch (error) { lastNotice = error.message; } draw(); }}}); };
                 draw();
             }
