@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import '../src/native_battle.js';
 import {expeditionRegistry as registry} from '../src/expedition_content.js';
 import {createFieldFixture, joinField, fieldContext} from '../scripts/field_fixtures.mjs';
-import {beginTempoFight, commitTempoMove, driveTempoFight, setTempoHoldBack, tempoView, validateTempoBattle} from '../src/tempo_fight.js';
+import {beginTempoFight, commitTempoMove, driveTempoFight, nextActor, setTempoHoldBack, tempoView, validateTempoBattle} from '../src/tempo_fight.js';
 import {tempoStakes, validateTempoKitRow, TEMPO_PRESETS} from '../src/tempo_kit.js';
 
 const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_count: 1, crit_rate: .3, crit_multiplier: 1.5, stamina_efficiency: 1};
@@ -218,4 +218,9 @@ test('a fallen foe keeps its place in the view, marked down, while the rest figh
     assert.deepEqual(v.foes.map(f => f.id), order, 'rows keep their order');
     assert.equal(v.foes.find(f => f.id === 'foe1').down, true);
     assert.equal(v.foes.find(f => f.id === 'foe2').down, undefined);
+    // DU10: the attack timer. Whoever acts next is full, a fallen foe has none.
+    const nextId = nextActor(b), all = [v.you, ...v.foes];
+    assert.equal(nextId === 'player' ? v.you.ready : v.foes.find(f => f.id === nextId).ready, 1);
+    assert.equal(v.foes.find(f => f.id === 'foe1').ready, null);
+    for(const r of all.map(x => x.ready).filter(r => r !== null)) assert.ok(r >= 0 && r <= 1, `ready share in range: ${r}`);
 });

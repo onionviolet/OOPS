@@ -193,12 +193,14 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     const meansText = list => list?.length ? list.map(m => m.id === 'wand' ? (m.n > 0 ? 'Wand in hand' : 'No wand') : `${m.label[0].toUpperCase()}${m.label.slice(1)} ${Math.round(m.n)}`).join(' · ') : null;
     base.versus.you.stamina = bar(me.stamina, me.maxStamina, 'stamina');
     base.versus.you.means = meansText(me.means);
+    base.versus.you.ready = me.ready ?? null; // DU10: the attack timer, a rhythm in words (readyWord), never a number
     const byId = new Map(f.foes.map(o => [o.id, o]));
     for (const o of base.versus.opponents) {
         const foe = byId.get(o.id);
         o.hp = {text: foe.hurt[0].toUpperCase() + foe.hurt.slice(1), fraction: Number.isFinite(foe.hp) && foe.maxHp > 0 ? foe.hp / foe.maxHp : null};
         o.stamina = bar(foe.stamina, foe.maxStamina, 'stamina');
         o.means = meansText(foe.means);
+        o.ready = foe.down ? null : foe.ready ?? null;
         o.wants = foe.wants || null; // what they want, as far as you can tell (PS41)
         o.types = typeChips(foe.learned, {reveal: foe.reveal, worldId});
     }

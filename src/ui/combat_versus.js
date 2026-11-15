@@ -54,6 +54,9 @@ function meter(doc, className, label, fraction, text) {
     bar.append(make(doc, 'span', 'versus-bar-fill'));
     return bar;
 }
+// The attack timer (DU10): how close a fighter is to acting, as a thin bar whose words say the same. Feel-finish owns its look (styles/feel_finish.css).
+export const readyWord = r => r >= 1 ? 'acts next' : r >= .6 ? 'acts soon' : r >= .3 ? 'winding up' : 'a while yet';
+const timer = (doc, name, ready) => Number.isFinite(ready) ? meter(doc, 'versus-bar versus-bar--timer', `${name}: time to act`, ready, readyWord(ready)) : null;
 const chip = (doc, kind, text, extra = '') => make(doc, 'span', `versus-chip versus-chip--${kind}${extra ? ` ${extra}` : ''}`, text);
 
 function youSide(doc, you) {
@@ -66,6 +69,7 @@ function youSide(doc, you) {
     }
     // Stamina under health, as upstream YAIR's two bars (tempo fights only pass it).
     if (you.stamina?.max > 0) side.append(meter(doc, 'versus-bar versus-bar--stamina', `${you.name} stamina`, you.stamina.current / you.stamina.max, you.stamina.text));
+    { const t = timer(doc, you.name, you.ready); if (t) side.append(t); }
     if (you.means) side.append(make(doc, 'p', 'versus-means', you.means));
     if (you.allies > 0) side.append(make(doc, 'p', 'versus-allies', you.alliesText ? `Beside you: ${you.alliesText}` : `+${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}`));
     if (you.mix) side.append(make(doc, 'p', 'versus-mix', `Strikes: ${you.mix}`));
@@ -83,6 +87,7 @@ function card(doc, o) {
     c.append(make(doc, 'p', 'versus-hp', o.hp.text));
     if (o.hp.fraction !== null && o.hp.fraction !== undefined) c.append(meter(doc, 'versus-bar', `${o.name} hit points`, o.hp.fraction, o.hp.text));
     if (o.stamina?.max > 0) c.append(meter(doc, 'versus-bar versus-bar--stamina', `${o.name} stamina`, o.stamina.current / o.stamina.max, o.stamina.text));
+    { const t = !o.down && timer(doc, o.name, o.ready); if (t) c.append(t); }
     if (o.means) c.append(make(doc, 'p', 'versus-means', o.means));
     if (o.wants) { const w = make(doc, 'p', 'versus-wants', o.wants); w.dataset.versusWants = ''; c.append(w); }
     const chips = make(doc, 'div', 'versus-chips');

@@ -100,3 +100,14 @@ test('a downed opponent reads "Down" once in the text form', async () => {
     const text = versusText(fightSituation(BRAWL_BOARD, {name: 'You', health: {current: 30, max: 40}, speed: .8, defense: 2, sideSize: 1}).versus);
     assert.match(text, /^Mire hound A\. Down\.$/m);
 });
+
+test('the attack timer (DU10) is a meter in words on a standing fighter, and absent on a fallen one', () => {
+    const versus = duel(); versus.you.ready = 1; versus.opponents[0].ready = .4;
+    const root = draw(versus), timers = root.find(n => n.has('versus-bar--timer'));
+    assert.equal(timers.length, 2);
+    assert.equal(timers[0].attrs['aria-valuetext'], 'acts next');
+    assert.equal(timers[1].attrs['aria-valuetext'], 'winding up');
+    assert.equal(timers[1].props['--versus-fill'], '40%');
+    versus.opponents[0].down = true;
+    assert.equal(draw(versus).find(n => n.has('versus-bar--timer')).length, 1);
+});
