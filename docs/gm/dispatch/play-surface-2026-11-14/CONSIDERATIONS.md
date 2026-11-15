@@ -322,3 +322,35 @@ Each module appends its own `<details>` under Here (`src/main.js:1280`, `:1412`,
 | --- | --- | --- |
 | PS110 | **Per world.** Fang Yuan and Klein get other rows (Cross to Tingen appears from the Village). | The kind registry is per world. A row with no meaning in a world hides there (PS61, PS65). |
 | PS111 | **Iona's ledger is a development surface.** "Systems and workshop" with 54 entries reads like a tool. | Default: it moves to a Workshop tab or the Notebook, out of Here. Weibao names it if it should be in play. |
+
+## Round 13, 2026-11-15: sectioning by question, read from the Village home at 4ba128ba3
+
+Weibao: "how else can we section better? WHat would make most sense and be most optimal?" Read from `tests/fixtures/visual/home.png` (1920×1080, HEAD 4ba128ba3).
+
+### What the screen does now
+
+- **Seventeen top tabs in one flat bar** (Stats … Capability runs, plus All panels). Player pages, records and development tools sit side by side.
+- **Three tab levels at once:** the top bar, the centre's Here / Crafting / Mixing / Keys, and the action panel's Actions / Home / Options. Keys is a setting at the same level as Crafting.
+- **Actions repeats Around you.**
+  - "Go to Wild willow stand" and "Enter the Infested field" repeat Ways out.
+  - "Try to craft something" repeats Crafting stations and the Crafting tab.
+  - "Talk to someone" repeats People here.
+- **Goals are split.** Reports' "Right now" holds the next step, while the Journal's quests sit in the centre's bottom right, inside the action panel.
+- **Condition shows twice:** the top tab and the left panel. The left panel's empty body takes about 200 px.
+
+### ACT NOW (proposals)
+
+| Code | Finding | Proposal (default, dial, reason) |
+| --- | --- | --- |
+| PS112 | **Section by the player's question, one region per question.** | Default regions: left "Who am I" (you, condition, gear, inventory); centre top "Now" (Ready now, Doing now); centre middle "Here" (people, stations, ways out, each a card that carries its own verbs); centre bottom the open workspace (Here's leftover verbs, Crafting, Mixing); right "Why and what happened" (goals, then Reports). Dial: the Pin menu (PS98) and panel kinds (PS108) place anything else. Reason: each region answers one question, so the eye knows where to look. |
+| PS113 | **Verbs live on their nouns.** | Default: clicking Old Hesk offers Talk, a way out offers Go with its time and danger, and a station opens its workspace. The action list keeps only verbs with no noun on screen (Find work, Train) plus the activity chips. "Move somewhere else", "Try to craft something" and "Talk to someone" go. Reason: one route per thing (PS67–PS70). |
+| PS114 | **One goals column.** | Default: the Journal's quests move to the right column above Reports, under one "Goals" header, so the next step and the quest list sit together. Reports keeps the log. |
+| PS115 | **One tab level for play.** | Default: the centre's workspace tabs (Here, Crafting, Mixing, then each world's own) are the only play tabs. Keys and Options move to Menu. Actions / Home / Options inside the panel fold into the workspace. |
+| PS116 | **Top bar grouped into five families with menus.** | Default: You (Stats, Condition, Knows, Beginning), Things (Inventory, Ledger, Projects), People (People, Travelers, Organizations), World (Worlds, Journal, Notebook), Tools (Data, Capability runs, All panels: development and records). Each family opens a menu; the five labels fit in one short bar. Dial: a player can pin a page as its own tab. |
+
+### ACCOUNT FOR NOW
+
+| Code | Finding | Proposal |
+| --- | --- | --- |
+| PS117 | **Empty bodies take space.** The Condition panel with no effects, the empty band above the action chips. | A panel with nothing in it folds to its header line (PS99). |
+| PS118 | **Per world.** Fang Yuan's and Klein's lives keep the same regions with their own nouns (Gu house, the board, the Tingen streets). | The regions are fixed and the contents per world, so a player who learns one life can read the others (familiar, as Weibao asked for combat). |
