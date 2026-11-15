@@ -51,6 +51,18 @@ review: none
 
 ## Log
 
+- 2026-11-15 ~07:20 UTC, resume point (5-hour usage 93%, weekly 91%, weekly reset 2026-11-16 18:00 UTC). All lanes are idle.
+  - Origin is at 6b9f623ea; everything after it is unpushed and needs a landing gate. Run the full suite from a clean tree, rebuild the bundle with `scripts/clean_bundle.sh` (discord-features left `dist/` unbuilt), and fix the failing `check:rules` receipt in `save-architecture-2026-11-15/CHECKPOINT.md`, which belongs to another chat.
+  - Accepted direction: round 14 (YAIR's four columns), with slices 1 and 2 built. Slice 3 (modes replace the actions box; the fight slot) and slice 4 (Journal and Skills box tabs, fit to content) are next in ui-cohesion. The shared "?" renderer (PS130) and drag layout (PS179) follow.
+  - Waiting on Weibao: build the areas mock (6708ffb4c) and drafts D1–D6 (af44e5786, 001c2a0d8, f833a3a8b).
+  - Lanes and next items:
+    - feel-finish: PS153–PS159 built (2148b0f13); PS186–PS189 and DU39/41/42 next.
+    - discord-features: PS160, PS161 and DU40 built; PS167 next.
+    - ui-drafting: kit pages 1 and 2 done; batch 2 next.
+    - feature-ui: verbs, why-this-number and the craft details built.
+    - combat: yield, fallen rows and the attack timer built; column 2 waits on slice 3.
+    - daily-loops: Harry's week, tide, PS143 built.
+    - foundation-run: waits on Klein's acting-method authoring decision.
 - 2026-11-15: the Fang Yuan freeze was found by feature-ui: structuredCampaignView built the simulation facts about 200 times per read. Fixed in 81babde33 (UIC207); daily-loops' Chrome repro passes on 561b0348e in 37 s. The day-strip chat, the one pusher (Weibao: "work with the other chats, push accordingly"; "Yes, after freeze fix"), pushed origin 1225b97da..561b0348e. Gate: 7,639 of 7,651 pass, 11 skipped, 1 fail (`tests/procedural_reports.test.js:23`, which fails on HEAD as well and is being traced). `tests/headless/village_wave2.test.js` "rival recipe reaches study" also fails outside the suite, and is being traced too.
 - 2026-11-15 ~01:40 UTC: feature-ui ran `pkill -f "npm run test:changed"` to stop a duplicate of its own run (against the stop-by-PID rule). Any lane whose `test:changed` died around then with no output reruns it. Separately, daily-loops found Fang Yuan's ch140 save freezing headless Chrome from 9093652ec on (fine at da06a080b). A bisect is running, feature-ui's UIC207 (the life view in one facts frame) is a likely fix, and the push waits for it.
 - 2026-11-15 01:30 UTC: Weibao accepted UR88's notice tiers ([log](../../USER_VISION_LOG_2026-11.md#notice-tiers-adopted-2026-11-14), PS89, LLR28) and kept coordination in this chat after compaction (PS92 not needed now). ui-cohesion applies the tiers to Ready now, cues and the fight stops.
