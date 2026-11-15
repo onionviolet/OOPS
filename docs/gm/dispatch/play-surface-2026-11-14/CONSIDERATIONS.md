@@ -372,7 +372,7 @@ Weibao on the round 13 mock: "meh, look at how yair does it, and the groupings, 
 | 4 | What happened | message log, newest last, with filter tabs (Levels and unlocks, Events, Crafting, Combat, Loot) | tabs at the box's foot |
 
 - **There is no top tab bar.** Everything sits in one fixed screen. Save, Export, Import and Options are a small footer.
-- **Actions are grouped by verb, not by noun.** One box holds fixed, iconed verbs in a set order: Move somewhere else, Fast travel, Crafting, Sleep, Storage, Talk to someone, Visit a merchant, Find work, Train, Gather resources, Take an action, Take on a challenge. Each verb opens a dropdown of its targets (`display.js` 2058–2217). The location box holds only the place's name and description.
+- **Actions are grouped by verb, not by noun.** One box holds fixed, iconed verbs in a set order: Move somewhere else, Fast travel, Crafting, Sleep, Storage, Talk to someone, Visit a merchant, Find work, Train, Gather resources, Take an action, Take on a challenge. Each verb opens a dropdown of its targets (`display.js` 2058–2217). The location box holds the place's name and description and nothing else by default.
 - **A mode replaces a box instead of adding a page.** A fight takes the location column's middle, and crafting takes the actions box. Back returns the box.
 
 ### Where we drifted, and why round 13 felt off
