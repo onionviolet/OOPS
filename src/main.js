@@ -6563,25 +6563,6 @@ function create_save({forExport = false} = {}) {
     }
 } 
 
-//encodes provided text (presumably: JSONified save data) to base64, necessary as 'btoa' does not support any characters outside of Latin1 encoding
-function to_base64(text) {
-    const bytes = new TextEncoder().encode(text);
-    let latin1 = "";
-    for(let i = 0; i < bytes.length; i++) {
-        latin1 += String.fromCharCode(bytes[i]);
-    }
-    return btoa(latin1);
-}
-
-function from_base64(encoded) {
-    const latin1 = atob(encoded);
-    const bytes = new Uint8Array(latin1.length);
-    for(let i = 0; i < latin1.length; i++) {
-        bytes[i] = latin1.charCodeAt(i);
-    }
-    return new TextDecoder().decode(bytes);
-}
-
 /**
  * called from index.html
  * @returns save string encoded to base64
