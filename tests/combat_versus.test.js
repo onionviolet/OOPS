@@ -42,10 +42,13 @@ test('one card per opponent in slot order, drawn through the host document', () 
     assert.equal(host.children[0].dataset.opponents, '1');
 });
 
-test('unknown opponent shows ??? hp with no bar and an unsized threat word', () => {
+test('unknown opponent reads Atk ? · ?/? hp (PS130) with no bar and an unsized threat word', () => {
     const root = draw(brawl()), c = cards(root)[3];
     assert.equal(c.dataset.known, 'unknown');
-    assert(c.textContent.includes('??? hp'));
+    assert(c.textContent.includes('Atk ? · ?/? hp'), c.textContent);
+    const marks = c.find(n => n.has('known-number'));
+    assert.deepEqual(marks.map(n => n.dataset.known), ['unknown', 'unknown', 'unknown']);
+    assert.match(marks[0].title, /attack: not known yet/);
     assert.equal(c.find(n => n.getAttribute('role') === 'meter').length, 0);
     assert(chips(c, 'threat')[0].textContent.includes('Not sized up'));
     assert(cards(root)[1].find(n => n.getAttribute('role') === 'meter').length === 1);

@@ -85,3 +85,7 @@
 .approach-stance > select {min-height: var(--ui-control-sm);}
 .fight-situation-chip {display: inline-block; padding: 0 var(--ui-space-2); border: 1px solid var(--ui-hairline); cursor: help;}
 .versus-wants {margin: 0; font-size: var(--ui-type-small); font-style: italic;}
+/* PS130: a number the character does not know reads "?", paler, until DU6's shared unknown style lands. */
+.versus-numbers {margin: 0; font-size: var(--ui-type-small, inherit);}
+.versus-numbers .known-number[data-known="unknown"] {color: var(--versus-muted); cursor: help;}
+.versus-numbers .known-number[data-known="estimated"] {font-style: italic;}

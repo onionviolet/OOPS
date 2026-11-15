@@ -2,6 +2,7 @@
 // the right, each with small labelled chips. Input is `fightSituation(...).versus`. Every fact is in words;
 // colour and marks only repeat it (UR37). Draws through host.ownerDocument so pop-out windows work.
 import {FIGURE_STATES} from './figure.js';
+import {knownNumberNode} from './known_number.js';
 
 const MARKS = {lethal: FIGURE_STATES.strained, heavy: FIGURE_STATES.filled, light: FIGURE_STATES.empty, unknown: FIGURE_STATES.unknown, down: FIGURE_STATES.broken};
 
@@ -84,7 +85,15 @@ function card(doc, o) {
     c.dataset.combatSubject = o.id;
     c.setAttribute('aria-label', opponentLine(o));
     c.append(make(doc, 'h4', 'versus-name', o.name));
-    c.append(make(doc, 'p', 'versus-hp', o.hp.text));
+    // Numbers as the character knows them (PS130): "Atk ? · ?/? hp" until seen; the hp line keeps only its words (Fresh, Down), one home per fact.
+    if (o.numbers && !o.down) {
+        const n = make(doc, 'p', 'versus-numbers'), num = (v, field) => knownNumberNode(v, {}, {field: `${o.name}: ${field}`, doc});
+        n.dataset.versusNumbers = '';
+        const t = text => make(doc, 'span', null, text);
+        n.append(t('Atk '), num(o.numbers.atk, 'attack'), t(' · '), num(o.numbers.hp, 'health'), t('/'), num(o.numbers.maxHp, 'most health'), t(' hp'));
+        c.append(n);
+    }
+    if (!o.numbers || o.down || !/\d|\?\?\?/.test(o.hp.text)) c.append(make(doc, 'p', 'versus-hp', o.hp.text));
     if (o.hp.fraction !== null && o.hp.fraction !== undefined) c.append(meter(doc, 'versus-bar', `${o.name} hit points`, o.hp.fraction, o.hp.text));
     if (o.stamina?.max > 0) c.append(meter(doc, 'versus-bar versus-bar--stamina', `${o.name} stamina`, o.stamina.current / o.stamina.max, o.stamina.text));
     { const t = !o.down && timer(doc, o.name, o.ready); if (t) c.append(t); }

@@ -137,7 +137,10 @@ export function fightSituation(board, you = {}, {place = ''} = {}) {
             const threat = o.defeated ? {level: 'down', word: 'Down'} : known === 'unknown' || !attackOf(o) ? {level: 'unknown', word: 'Not sized up'}
                 : l ? {level: l.level, word: l.level === 'lethal' ? 'Could down you' : 'Heavy', blow: l.blow} : {level: 'light', word: 'Light'};
             const duel = odds.shown && opponents.length === 1;
-            return {id: o.id, letter: o.letter || letterFor(o.slot ?? 0), name: label(o), down: !!o.defeated, known,
+            // The numbers as the character knows them (PS130): attack power when its Attack fact is shown, hp when the health line was seen; null is "?".
+            const seenHp = seen && /(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/.exec(String(o.health.text));
+            const numbers = {atk: attackOf(o)?.power ?? null, hp: seenHp ? Number(seenHp[1]) : null, maxHp: seenHp ? Number(seenHp[2]) : null};
+            return {id: o.id, letter: o.letter || letterFor(o.slot ?? 0), name: label(o), down: !!o.defeated, known, numbers,
                 hp: o.defeated ? {text: 'Down', fraction: 0} : seen ? {text: o.health.text, fraction: o.health.progress == null ? null : o.health.progress / 100} : {text: '??? hp', fraction: null},
                 threat, intent: o.defeated ? null : {known: false, word: 'Intent unread'},
                 odds: duel && !o.defeated ? {you: odds.you, them: odds.them, youWord: odds.you == null ? null : chanceWord(odds.you), themWord: odds.them == null ? null : chanceWord(odds.them)} : null,
