@@ -51,6 +51,17 @@ review: none
 
 ## Log
 
+- 2026-11-15 ~10:00 UTC: weekly usage reached the 95% stop, and every lane has stopped until the reset at 2026-11-16 18:00 UTC.
+  - Origin is at 44cca6fb3 after a green gate: 7,694 of 7,706 pass, 0 fail, 12 skipped. Since then, round 19 (a4788cc2d), the fight slot (4757435a5) and its bundle (2d663b839) are committed and not pushed.
+  - Resume order:
+    1. ui-cohesion slice 4: the fight slot shows during a tempo fight, the Journal and Skills box tabs, and round 18's Here box in column 3. Then slice 5, the knownNumber "?" renderer (PS130).
+    2. Round 19's crossing gate (PS196) and day-strip gate (PS199).
+    3. Combat's losing terms (PS45–PS52).
+    4. Klein's acting slice (foundation run, resume block c4bc8f279).
+    5. discord-features from PS167.
+    6. feel-finish PS186–PS189.
+    7. ui-drafting batch 2.
+  - Waiting on Weibao: build the areas mock and drafts D1–D6.
 - 2026-11-15 ~08:30 UTC: landing gate on 15af661c1 from a clean archive. Build, `check:arch` and `check:rules` pass. Full suite: 7,693 of 7,706 pass, 12 skipped, 1 fail: `tests/cheat_cards.test.js` "cheat old-save load and real create_save encode import round trip". Cause: `placeClassicOptions()` (`src/ui/feel_finish.js:102`, from 2148b0f13) moves `#options_panel` into the Feel settings group, which can drop it, and `load()` then reads a null `#options_textsize` (`src/main.js:2925`). Sent to feel-finish. The next push waits on that fix. Klein's acting default went to the foundation run's resume block (c4bc8f279), to start after the weekly reset.
 - 2026-11-15 ~07:20 UTC, resume point (5-hour usage 93%, weekly 91%, weekly reset 2026-11-16 18:00 UTC). All lanes are idle.
   - Origin is at 6b9f623ea; everything after it is unpushed and needs a landing gate. Run the full suite from a clean tree, rebuild the bundle with `scripts/clean_bundle.sh` (discord-features left `dist/` unbuilt), and fix the failing `check:rules` receipt in `save-architecture-2026-11-15/CHECKPOINT.md`, which belongs to another chat.
