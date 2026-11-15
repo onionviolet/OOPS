@@ -103,6 +103,15 @@ test('the four checks name the missing law, price, exception or word', async () 
     assert.equal(noLaw.checks.find(c => c.id === 'runs').pass, hp.checks.laws.has('copy|working'));
     const cheap = checkEffect(hp.fitted, {...base, amount: 0}, hp.checks);
     assert.match(cheap.checks.find(c => c.id === 'pays').reason, /underpriced/);
+    // Pays reports and ranks; it does not fail the candidate (PGC17, PC73, LLR49).
+    assert.equal(cheap.pass, true);
+    assert.deepEqual(cheap.reports, ['pays']);
+    assert.ok(cheap.underpriced > 0 && Number.isSafeInteger(cheap.underpriced));
+    const ranked = keepSpread([{id: 'paid', parts: sentence}, {id: 'cheap', parts: sentence, underpriced: cheap.underpriced}], [sentence], {k: 1});
+    assert.deepEqual(ranked.kept.map(c => c.id), ['paid']);
+    assert.equal(ranked.kept[0].score - cheap.underpriced, ranked.left[0].score);
+    assert.deepEqual(ranked.left.map(c => c.id), ['cheap']);
+    assert.match(ranked.left[0].reason, /underpriced/);
     const law = {id: 'c', parts: {...sentence, verb: 'alter', object: 'law'}};
     const world = {...hp.checks, laws: new Set([...hp.checks.laws, 'alter|law'])};
     assert.match(checkEffect(hp.fitted, law, world).checks.find(c => c.id === 'allows').reason, /forbidden/);

@@ -1,7 +1,8 @@
 // New effects beyond the book (chat P, plan NV1-NV5, PFP23, PFP24). Propose
 // candidates from canon sentences at a novelty dial with a cause, then run the
 // five checks: it runs, it pays, the world allows it, it explains itself, and
-// a kept set is worth keeping with a diverse spread. Domain-free: a world pack
+// a kept set is worth keeping with a diverse spread. Pays and the spread rank
+// and report; the other three gate (PGC17, LLR49). Domain-free: a world pack
 // supplies its laws, words, prices and exceptions. Draws go through gen_kit.
 import {address, compareCodePoints, drawU32, indexFromU32, pickWeighted} from './gen_kit.js';
 import {assemble} from './procedural_grammar.js';
@@ -96,7 +97,11 @@ function probeRuns(probe, parts) {
     } catch (error) { return {pass: false, reason: `the probe world refused it: ${error.message}`}; }
 }
 
-// The four per-candidate checks, in order. world: {laws:Set, curve, words:{slot:{value:word}}, forbid:[{law, reason, exception?:{reason, cost}}]}.
+// The four per-candidate checks, in order. runs, allows and explains gate the
+// candidate; pays reports and ranks (PGC17, PC73, LLR49 2026-11-14): an
+// underpriced effect still passes, its row says by how much, and keepSpread
+// scores it lower. Each row carries gate:true|false so callers need no special case.
+// world: {laws:Set, curve, words:{slot:{value:word}}, forbid:[{law, reason, exception?:{reason, cost}}]}.
 export function checkEffect(fitted, candidate, world) {
     const checks = [];
     const built = assemble(fitted, candidate.parts);
@@ -107,37 +112,48 @@ export function checkEffect(fitted, candidate, world) {
     if (!built.ok) { runs = false; ran = built.receipt.violations.map(v => v.reason ?? v.kind).join('; '); }
     else if (world.probe) ({pass: runs, reason: ran} = probeRuns(world.probe, candidate.parts));
     else { runs = world.laws.has(law); ran = runs ? `lookup only, nothing was executed: the world's ${law} law is declared` : `lookup only, nothing was executed: no law in this world runs ${law}`; }
-    checks.push({id: 'runs', pass: runs, executed: Boolean(built.ok && world.probe), reason: ran});
+    checks.push({id: 'runs', gate: true, pass: runs, executed: Boolean(built.ok && world.probe), reason: ran});
     const price = priceOf(world.curve, candidate.parts);
     const declared = candidate.amount;
     const pays = declared === undefined || declared >= price;
-    checks.push({id: 'pays', pass: pays, price, reason: declared === undefined ? `priced at ${price} by ${world.curve.reason}` : pays ? `pays ${declared} of ${price}` : `underpriced: ${declared} below ${price}`});
+    // Whole points short of the price, so a spread score stays an integer (archiveOffer).
+    const underpriced = pays ? 0 : Math.ceil(price - declared);
+    checks.push({id: 'pays', gate: false, pass: pays, price, underpriced, reason: declared === undefined ? `priced at ${price} by ${world.curve.reason}` : pays ? `pays ${declared} of ${price}` : `underpriced: ${declared} below ${price}`});
     const rule = (world.forbid ?? []).find(f => f.law === law);
     const allows = !rule || Boolean(rule.exception);
-    checks.push({id: 'allows', pass: allows, reason: !rule ? 'no world law forbids it' : rule.exception
+    checks.push({id: 'allows', gate: true, pass: allows, reason: !rule ? 'no world law forbids it' : rule.exception
         ? `allowed by exception: ${rule.exception.reason} (cost: ${rule.exception.cost})` : `forbidden: ${rule.reason}`});
     const missing = [], words = [];
     for (const slot of CORE) {
         const word = world.words?.[slot]?.[candidate.parts[slot]];
         if (word) words.push(word); else missing.push(`${slot}:${candidate.parts[slot]}`);
     }
-    checks.push({id: 'explains', pass: !missing.length, text: missing.length ? null : words.join(' '), reason: missing.length ? `no world words for ${missing.join(', ')}` : 'every part has a world word'});
-    return {id: candidate.id, pass: checks.every(c => c.pass), checks, built: built.value};
+    checks.push({id: 'explains', gate: true, pass: !missing.length, text: missing.length ? null : words.join(' '), reason: missing.length ? `no world words for ${missing.join(', ')}` : 'every part has a world word'});
+    return {id: candidate.id, pass: gatesPass(checks), checks, underpriced, reports: checks.filter(c => !c.gate && !c.pass).map(c => c.id), built: built.value};
 }
+// True when every gating row passes; report rows (pays) never fail a candidate.
+export const gatesPass = checks => checks.every(c => c.gate === false || c.pass);
 
 // Check 5 over a set: keep the best candidate per niche (verb and object
 // kind), then fill by score, so the world gets a spread of different effects,
-// not one best effect copied. score weights are integer dials.
-export function keepSpread(candidates, canonParts, {k = 6, weights = {useful: 1, novel: 2, fit: 1}, fit = () => 0} = {}) {
+// not one best effect copied. score weights are integer dials; weights.pays
+// (default 1) takes points off per whole point a candidate is underpriced
+// (c.underpriced, from checkEffect). The spread ranks and reports; it rejects
+// nothing: every candidate it does not keep is listed in left with the reason.
+export const SPREAD_WEIGHTS = Object.freeze({useful: 1, novel: 2, fit: 1, pays: 1});
+export function keepSpread(candidates, canonParts, {k = 6, weights = SPREAD_WEIGHTS, fit = () => 0} = {}) {
+    const w = {...SPREAD_WEIGHTS, ...weights};
     const scored = candidates.map(c => {
-        const useful = scopeOf(c.parts), novel = novelty(c.parts, canonParts), fitScore = fit(c.parts);
-        return {...c, score: weights.useful * useful + weights.novel * novel + weights.fit * fitScore, parts: c.parts,
-            breakdown: {useful, novel, fit: fitScore}, niche: lawKey(c.parts)};
+        const useful = scopeOf(c.parts), novel = novelty(c.parts, canonParts), fitScore = fit(c.parts), underpriced = c.underpriced ?? 0;
+        return {...c, score: w.useful * useful + w.novel * novel + w.fit * fitScore - w.pays * underpriced, parts: c.parts,
+            breakdown: {useful, novel, fit: fitScore, underpriced}, niche: lawKey(c.parts)};
     }).sort((a, b) => b.score - a.score || compareCodePoints(a.id, b.id));
     const kept = [], niches = new Set();
     for (const c of scored) if (kept.length < k && !niches.has(c.niche)) { kept.push(c); niches.add(c.niche); }
     for (const c of scored) if (kept.length < k && !kept.includes(c)) kept.push(c);
-    return {kept, niches: niches.size, considered: candidates.length};
+    const left = scored.filter(c => !kept.includes(c)).map(c => ({id: c.id, score: c.score, niche: c.niche,
+        reason: `ranked below the ${k} kept (score ${c.score}${c.breakdown.underpriced ? `, ${c.breakdown.underpriced} underpriced` : ''})`}));
+    return {kept, left, niches: niches.size, considered: candidates.length};
 }
 
 // PR4 · Niche archive (quality-diversity). One best entry per niche, keyed by
@@ -175,13 +191,14 @@ export function exploreEffects(fitted, canon, world, options) {
         results.push({candidate: c, ...checkEffect(fitted, c, world)});
         used++;
     }
-    const passing = results.filter(r => r.pass).map(r => r.candidate);
+    const passing = results.filter(r => r.pass).map(r => ({...r.candidate, underpriced: r.underpriced}));
     const spread = keepSpread(passing, canon.map(c => c.parts), options.keep);
-    const failures = {};
-    for (const r of results) for (const c of r.checks) if (!c.pass) failures[c.id] = (failures[c.id] ?? 0) + 1;
+    // failures counts gating checks; reports counts rows that rank instead (pays).
+    const failures = {}, reports = {};
+    for (const r of results) for (const c of r.checks) if (!c.pass) { const t = c.gate ? failures : reports; t[c.id] = (t[c.id] ?? 0) + 1; }
     let archive = options.archive ?? createNicheArchive();
     for (const c of spread.kept) archive = archiveOffer(archive, {id: c.id, parts: c.parts, score: c.score, cause: c.cause, grammar: fitted.ref}).archive;
-    return {proposed: candidates.length, checked: results.length, passed: passing.length, failures, kept: spread.kept, niches: spread.niches, archive,
+    return {proposed: candidates.length, checked: results.length, passed: passing.length, failures, reports, kept: spread.kept, left: spread.left, niches: spread.niches, archive,
         budget: {trials: budget.trials, used, truncated: stopped || count < (options.count ?? 12)}, results};
 }
 

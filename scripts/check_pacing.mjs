@@ -24,6 +24,10 @@
 // than the baseline, fails. Improving a recorded miss prints "tighten" and the baseline can be
 // updated so the gain cannot be lost.
 //
+// Targets are guidance (PAC3, PAC4; LLR39, LLR40, 2026-11-14): a start may exceed one when its
+// TARGETS row names why in `exceeds: {measure: reason}`. That miss is then reported with its
+// reason and never fails; a miss without a reason still goes through the ratchet above.
+//
 // Measures, in game minutes since the first step (`t`):
 //   firstPayoffMin       first step with money up, an item gained, a skill level, or a new unlock id
 //   firstActedPayoffMin  the same, but only on a click or repeat step (not a wait or a panel glance)
@@ -56,7 +60,9 @@ export const START_MINUTES = Object.freeze({village: 720});
 export const PASSIVE_BUCKETS = new Set(['levels', 'skillRecords', 'absorb_local_life']);
 
 // Targets: default, dial, reason (PAC3). Game minutes. null = no target written for that measure.
-// Default row first; a start overrides only the numbers it names.
+// Default row first; a start overrides only the numbers it names. `reason` explains the row's numbers;
+// `exceeds: {measure: reason}` states why the start may run past one of them (LLR39), which turns that
+// miss into a report.
 export const DEFAULT_TARGET = Object.freeze({firstPayoffMin: 30, firstActedPayoffMin: 60, longestPayoffGapMin: 240, longestDeadMin: 90});
 export const TARGETS = Object.freeze({
     'village': {firstActedPayoffMin: 30, longestPayoffGapMin: 120, longestDeadMin: 60,
@@ -77,6 +83,11 @@ export const TARGETS = Object.freeze({
     'soldier.p01': {firstPayoffMin: 60, longestPayoffGapMin: 360, reason: 'a short visit: something should land in the first hour'},
 });
 export const targetFor = id => ({...DEFAULT_TARGET, ...(TARGETS[id] || {})});
+/** Pure: the stated reason a start may exceed a measure's target, or null (LLR39). */
+export const exceedReason = (target, measure) => {
+    const why = target?.exceeds?.[measure];
+    return typeof why === 'string' && why.trim() ? why.trim() : null;
+};
 const MEASURES = ['firstPayoffMin', 'firstActedPayoffMin', 'longestPayoffGapMin', 'longestDeadMin'];
 
 // Practice every life does by existing (Breathing, Patience) and the Skills panel it reveals are the clock, not play.
@@ -141,28 +152,31 @@ export const TOLERANCE = Object.freeze({minutes: 30, ratio: 0.25});
 const slack = base => Math.max(TOLERANCE.minutes, Math.round(base * TOLERANCE.ratio));
 
 /**
- * Pure: results (analyzeTrace outputs) vs a baseline object -> {regressions, misses, tighten, ok}.
- * A measure that meets its target needs no baseline entry; one that misses must be recorded.
+ * Pure: results (analyzeTrace outputs) vs a baseline object -> {regressions, misses, reported, tighten, ok}.
+ * A measure that meets its target needs no baseline entry; one that misses must be recorded, unless
+ * its start states a reason to exceed it, which reports the miss instead of failing (LLR39).
  */
-export function compareToBaseline(results, baseline = {starts: {}}) {
-    const regressions = [], misses = [], tighten = [];
+export function compareToBaseline(results, baseline = {starts: {}}, {targetOf = targetFor} = {}) {
+    const regressions = [], misses = [], reported = [], tighten = [];
     for(const r of results) {
         const base = baseline.starts?.[r.start];
         if(r.status === 'skipped') continue;
         if(r.status === 'error') {if(base?.status !== 'error') regressions.push({start: r.start, measure: 'status', note: 'trace failed to record'}); continue;}
-        const target = targetFor(r.start);
+        const target = targetOf(r.start);
         for(const m of MEASURES) {
             const t = target[m]; if(t == null) continue;
             const v = val(r[m], r), missed = v > t;
             const recorded = base?.misses?.[m];
             if(!missed) {if(recorded != null) tighten.push({start: r.start, measure: m, value: r[m], was: recorded, note: 'now meets target; retire the baseline entry'}); continue;}
-            misses.push({start: r.start, measure: m, value: r[m], target: t});
+            const why = exceedReason(target, m);
+            misses.push({start: r.start, measure: m, value: r[m], target: t, ...(why ? {reason: why} : {})});
+            if(why) {reported.push({start: r.start, measure: m, value: r[m], target: t, reason: why}); continue;}
             if(recorded == null) {regressions.push({start: r.start, measure: m, value: r[m], target: t, note: 'new miss'}); continue;}
             if(v > recorded + slack(recorded)) regressions.push({start: r.start, measure: m, value: r[m], was: recorded, note: 'worse than baseline'});
             else if(v < recorded - slack(recorded)) tighten.push({start: r.start, measure: m, value: r[m], was: recorded, note: 'better than baseline; update it'});
         }
     }
-    return {regressions, misses, tighten, ok: regressions.length === 0};
+    return {regressions, misses, reported, tighten, ok: regressions.length === 0};
 }
 
 /** Pure: the baseline object that records today's misses. */
@@ -268,10 +282,10 @@ async function main() {
     const cmp = compareToBaseline(results, has('--update-baseline') ? buildBaseline(results, params) : baseline);
     if(has('--backlog')) {mkdirSync(dirname(BACKLOG_PATH), {recursive: true}); writeFileSync(BACKLOG_PATH, backlogText(results, cmp)); console.log(`wrote ${BACKLOG_PATH}`);}
     for(const t of cmp.tighten) console.log(`tighten  ${t.start} ${t.measure}: ${fmt(t.value)} (baseline ${fmt(t.was)}) ${t.note}`);
-    for(const m of cmp.misses) console.log(`miss     ${m.start} ${m.measure}: ${fmt(m.value)} > ${m.target}`);
+    for(const m of cmp.misses) console.log(`${m.reason ? 'exceeds ' : 'miss    '} ${m.start} ${m.measure}: ${fmt(m.value)} > ${m.target}${m.reason ? ` (reason: ${m.reason})` : ''}`);
     for(const g of cmp.regressions) console.log(`REGRESSION ${g.start} ${g.measure}: ${g.value != null ? fmt(g.value) : ''} ${g.note}${g.was != null ? ` (baseline ${fmt(g.was)})` : ''}`);
     if(!sameParams) console.log('note: recording parameters differ from the baseline; numbers are not comparable.');
-    console.log(`pacing: ${results.filter(r => r.status === 'ok').length} starts measured, ${cmp.misses.length} recorded or new misses, ${cmp.regressions.length} regressions.`);
+    console.log(`pacing: ${results.filter(r => r.status === 'ok').length} starts measured, ${cmp.misses.length} recorded or new misses (${cmp.reported.length} with a stated reason), ${cmp.regressions.length} regressions.`);
     process.exit(cmp.ok ? 0 : 1);
 }
 

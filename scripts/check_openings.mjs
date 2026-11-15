@@ -225,12 +225,23 @@ export function walkSummary({start, scene, win, M, meta}) {
 // Ratchet
 
 const TRACE_CODES = new Set(['first-action-late', 'first-payoff-late', 'no-effect-choice', 'dead-stretch']);
+// Budgets and press counts are guidance (OPN2, OPN5, OPN7; LLR39, LLR41, LLR42, 2026-11-14): a start
+// may exceed one when it states why here, {start: {code: reason}}. Only these codes can be exceeded;
+// a missing action or a refusal without a reason is a defect, not a budget.
+export const EXCEEDABLE = new Set(['prose-wall', 'long-block', 'first-action-late', 'first-payoff-late', 'dead-stretch']);
+export const EXCEEDS = Object.freeze({});
+/** Pure: the stated reason a start may exceed a budget flag, or null (LLR39). */
+export const exceedReason = (exceeds, start, code) => {
+    const why = EXCEEDABLE.has(code) ? exceeds?.[start]?.[code] : null;
+    return typeof why === 'string' && why.trim() ? why.trim() : null;
+};
 export const TOLERANCE = Object.freeze({abs: 1, ratio: 0.25});
 const slack = base => Math.max(TOLERANCE.abs, Math.round(base * TOLERANCE.ratio));
 
-/** Pure: results vs baseline -> {regressions, misses, tighten, ok}. A flag must be recorded to pass. */
-export function compareToBaseline(results, baseline = {starts: {}}) {
-    const regressions = [], misses = [], tighten = [];
+/** Pure: results vs baseline -> {regressions, misses, reported, tighten, ok}. A flag must be recorded to
+ *  pass, unless the start states a reason to exceed that budget, which reports it instead (LLR39). */
+export function compareToBaseline(results, baseline = {starts: {}}, {exceeds = EXCEEDS} = {}) {
+    const regressions = [], misses = [], reported = [], tighten = [];
     for(const r of results) {
         if(r.status === 'skipped') continue;
         const base = baseline.starts?.[r.start];
@@ -238,7 +249,9 @@ export function compareToBaseline(results, baseline = {starts: {}}) {
         const seen = new Set();
         for(const f of r.flags) {
             seen.add(f.code);
-            misses.push({start: r.start, code: f.code, value: f.value});
+            const why = exceedReason(exceeds, r.start, f.code);
+            misses.push({start: r.start, code: f.code, value: f.value, ...(why ? {reason: why} : {})});
+            if(why) {reported.push({start: r.start, code: f.code, value: f.value, reason: why}); continue;}
             const was = base?.misses?.[f.code];
             if(was == null) {regressions.push({start: r.start, code: f.code, value: f.value, note: 'new flag'}); continue;}
             if(f.value > was + slack(was)) regressions.push({start: r.start, code: f.code, value: f.value, was, note: 'worse than baseline'});
@@ -246,7 +259,7 @@ export function compareToBaseline(results, baseline = {starts: {}}) {
         }
         for(const [code, was] of Object.entries(base?.misses || {})) if(!seen.has(code) && !(r.tracePending && TRACE_CODES.has(code))) tighten.push({start: r.start, code, value: null, was, note: 'flag cleared; retire the baseline entry'});
     }
-    return {regressions, misses, tighten, ok: regressions.length === 0};
+    return {regressions, misses, reported, tighten, ok: regressions.length === 0};
 }
 
 export function buildBaseline(results, params = PARAMS) {
@@ -501,9 +514,9 @@ async function main() {
     const cmp = compareToBaseline(results, has('--update-baseline') ? buildBaseline(results) : baseline);
     if(has('--backlog')) {mkdirSync(dirname(BACKLOG_PATH), {recursive: true}); writeFileSync(BACKLOG_PATH, backlogText(results, cmp)); console.log(`wrote ${BACKLOG_PATH}`);}
     for(const t of cmp.tighten) console.log(`tighten  ${t.start} ${t.code}: ${t.value ?? 'gone'} (baseline ${t.was}) ${t.note}`);
-    for(const m of cmp.misses) console.log(`miss     ${m.start} ${m.code}: ${m.value}`);
+    for(const m of cmp.misses) console.log(`${m.reason ? 'exceeds ' : 'miss    '} ${m.start} ${m.code}: ${m.value}${m.reason ? ` (reason: ${m.reason})` : ''}`);
     for(const g of cmp.regressions) console.log(`REGRESSION ${g.start} ${g.code}: ${g.value ?? ''} ${g.note}${g.was != null ? ` (baseline ${g.was})` : ''}`);
-    console.log(`openings: ${results.filter(r => r.status === 'ok').length} starts read, ${cmp.misses.length} recorded or new flags, ${cmp.regressions.length} regressions.`);
+    console.log(`openings: ${results.filter(r => r.status === 'ok').length} starts read, ${cmp.misses.length} recorded or new flags (${cmp.reported.length} with a stated reason), ${cmp.regressions.length} regressions.`);
     process.exit(cmp.ok ? 0 : 1);
 }
 

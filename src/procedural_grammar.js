@@ -25,6 +25,8 @@ function jointKeys(grammar, slot, parts) {
 
 // spec: {id, revision, slots:[{id, type, values?:[...]|'corpus', open?, min?, max?, given?}],
 //        rules:[{id, kind:'derive'|'check', severity?:'reject'|'flag', reads?, run, default, dial?, reason}],
+// A check rule flags by default (PGC4, LLR47, 2026-11-14): it reports and the thing
+// still assembles. A rule that states a world law declares severity:'reject'.
 //        fallback:{id, parts}, budget?:{maxDraws}}
 export function defineGrammar(spec) {
     if (!spec || typeof spec.id !== 'string' || !spec.id) fail('A grammar needs an id.');
@@ -47,7 +49,8 @@ export function defineGrammar(spec) {
     const rules = (spec.rules ?? []).map(r => {
         if (!r?.id || !['derive', 'check'].includes(r.kind) || typeof r.run !== 'function') fail(`Rule ${r?.id} needs an id, kind and run.`);
         if (typeof r.reason !== 'string' || typeof r.default !== 'string') fail(`Rule ${r.id} needs a default and a reason (AD5 constraint form).`);
-        return Object.freeze({severity: 'reject', reads: [], ...r});
+        if (r.severity !== undefined && !['reject', 'flag'].includes(r.severity)) fail(`Rule ${r.id} has unknown severity ${r.severity}.`);
+        return Object.freeze({severity: 'flag', reads: [], ...r});
     });
     if (!spec.fallback?.id || !spec.fallback.parts) fail(`Grammar ${spec.id} needs a named authored fallback (GR6).`);
     return Object.freeze({contract: GRAMMAR_CONTRACT, id: spec.id, revision: spec.revision, ref: `${spec.id}@${spec.revision}`,
@@ -151,7 +154,9 @@ export function assemble(grammar, parts) {
         const known = Array.isArray(slot.values) ? new Set(slot.values.map(key)) : null;
         const seen = grammar.support ? new Set(grammar.support[slot.id].values) : null;
         for (const v of values) {
-            if (known && !known.has(key(v)) && !slot.open) violations.push({kind: 'unknown-part', slot: slot.id, value: v});
+            // A closed slot's unknown value is a flag (PGC5, LLR47): the thing still
+            // assembles and the receipt names the value the vocabulary lacks.
+            if (known && !known.has(key(v)) && !slot.open) flags.push({kind: 'unknown-part', slot: slot.id, value: v});
             else if (seen && !seen.has(key(v))) flags.push({kind: 'novel-part', slot: slot.id, value: v});
         }
         normalized[slot.id] = slot.type === 'one' ? values[0] : values;
@@ -349,11 +354,15 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
                 if (baseAll) prediction.baselineAll++;
             }
             const built = assemble(fitted, row.parts);
-            const mismatches = built.ok ? compare(built.value, row.truth) : [];
+            // Assembly lets an unknown closed-slot value through as a flag (LLR47);
+            // the canon test still counts it, because a canon row the vocabulary
+            // cannot name is the gap this test exists to list.
+            const unknown = built.receipt.flags.filter(f => f.kind === 'unknown-part');
+            const mismatches = built.ok && !unknown.length ? compare(built.value, row.truth) : [];
             openCoverage.tested++;
             if (!built.receipt.flags.some(f => f.kind === 'novel-part')) openCoverage.covered++;
-            if (built.ok && !mismatches.length) { passed++; continue; }
-            for (const v of built.receipt.violations) failures.push({id: row.id, ...v});
+            if (built.ok && !mismatches.length && !unknown.length) { passed++; continue; }
+            for (const v of [...built.receipt.violations, ...unknown]) failures.push({id: row.id, ...v});
             for (const m of mismatches) failures.push({id: row.id, kind: 'derive-mismatch', ...m});
         }
     }

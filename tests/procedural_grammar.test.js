@@ -18,7 +18,7 @@ const toy = defineGrammar({
     ],
     rules: [
         {id: 'label', kind: 'derive', default: 'Method then base.', reason: 'Test naming.', run: ({parts}) => ({name: `${parts.method} ${parts.base}`})},
-        {id: 'raw-grain', kind: 'check', default: 'Grain is not eaten raw.', reason: 'Raw grain does not digest.', dial: 'rawGrain',
+        {id: 'raw-grain', kind: 'check', severity: 'reject', default: 'Grain is not eaten raw.', reason: 'Raw grain does not digest.', dial: 'rawGrain',
             run: ({parts, dials}) => parts.base === 'grain' && parts.method === 'raw' && !dials.rawGrain ? {reason: 'raw grain'} : null},
     ],
     fallback: {id: 'toy.porridge', parts: {base: 'grain', method: 'boil', extras: []}},
@@ -42,11 +42,32 @@ test('assembly runs the same rules for any parts and names each failure', () => 
     assert.equal(ok.ok, true);
     assert.equal(ok.value.derived.name, 'roast root');
     const bad = assemble(toy, {base: 'stone', method: 'raw', extras: ['salt', 'herb', 'fat']});
-    assert.deepEqual(bad.receipt.violations.map(v => v.kind).sort(), ['too-many-parts', 'unknown-part']);
+    assert.deepEqual(bad.receipt.violations.map(v => v.kind), ['too-many-parts']);
+    // An unknown value in a closed slot is a flag (PGC5, LLR47); the shape still fails.
+    assert.deepEqual(bad.receipt.flags.map(f => [f.kind, f.value]), [['unknown-part', 'stone']]);
+    const stone = assemble(toy, {base: 'stone', method: 'boil', extras: []});
+    assert.equal(stone.ok, true);
+    assert.deepEqual(stone.receipt.flags.map(f => f.kind), ['unknown-part']);
     const raw = assemble(toy, {base: 'grain', method: 'raw', extras: []});
     assert.equal(raw.receipt.violations[0].rule, 'raw-grain');
     // The dial opens it without a code change (AD5).
     assert.equal(assemble(defineGrammar({...toy.spec, dials: {rawGrain: true}}), {base: 'grain', method: 'raw', extras: []}).ok, true);
+});
+
+test('a check flags by default; a world law declares reject; shape stays a violation (PGC4, LLR47)', () => {
+    const range = {id: 'salt-heavy', kind: 'check', default: 'Dishes in the source carry at most one extra.', reason: 'Source range, not a law.',
+        run: ({parts}) => (parts.extras ?? []).length > 1 ? {reason: 'more extras than the source shows'} : null};
+    const g = defineGrammar({...toy.spec, rules: [...toy.spec.rules, range]});
+    assert.equal(g.rules.find(r => r.id === 'salt-heavy').severity, 'flag');
+    assert.equal(g.rules.find(r => r.id === 'raw-grain').severity, 'reject');
+    const heavy = assemble(g, {base: 'root', method: 'roast', extras: ['salt', 'fat']});
+    assert.equal(heavy.ok, true);
+    assert.deepEqual(heavy.receipt.flags.map(f => [f.kind, f.rule]), [['rule-flag', 'salt-heavy']]);
+    const law = assemble(g, {base: 'grain', method: 'raw', extras: []});
+    assert.equal(law.ok, false);
+    assert.deepEqual(law.receipt.violations.map(v => [v.kind, v.rule]), [['rule-reject', 'raw-grain']]);
+    assert.deepEqual(assemble(g, {base: 'root', method: 'roast', extras: 'salt'}).receipt.violations.map(v => v.kind), ['bad-shape']);
+    assert.throws(() => defineGrammar({...toy.spec, rules: [{...range, severity: 'warn'}]}), /unknown severity/);
 });
 
 test('fit gives integer weights with reasons, conditioned where declared', () => {
@@ -175,7 +196,7 @@ test('nested parts assemble, fit and generate through a child grammar (GL6)', ()
         slots: [{id: 'op', type: 'one', values: ['crush', 'stir', 'heat']}, {id: 'input', type: 'one', open: true, given: 'op'}],
         fallback: {id: 'toy.step.f', parts: {op: 'stir', input: 'water'}}});
     const recipe = defineGrammar({id: 'toy.recipe', revision: 1, slots: [{id: 'steps', type: 'parts', grammar: step, min: 1, max: 4}],
-        rules: [{id: 'heat-last', kind: 'check', default: 'Heat comes after the inputs are prepared.', reason: 'Test order rule.',
+        rules: [{id: 'heat-last', kind: 'check', severity: 'reject', default: 'Heat comes after the inputs are prepared.', reason: 'Test order rule.',
             run: ({parts}) => parts.steps.findIndex(s => s.op === 'heat') === 0 && parts.steps.length > 1 ? {reason: 'heat first'} : null}],
         fallback: {id: 'toy.recipe.f', parts: {steps: [{op: 'stir', input: 'water'}]}}});
     assert.throws(() => defineGrammar({...recipe.spec, slots: [{id: 'steps', type: 'parts'}]}), /child grammar/);
@@ -184,7 +205,9 @@ test('nested parts assemble, fit and generate through a child grammar (GL6)', ()
     const fitted = fitGrammar(recipe, rows);
     assert.equal(fitted.weights.steps.child.weights.input.given.crush.fang, 1);
     const bad = assemble(fitted, {steps: [{op: 'boil', input: 'x'}, {op: 'heat', input: 'y'}]});
-    assert.deepEqual(bad.receipt.violations.map(v => v.slot), ['steps[0].op']);
+    assert.deepEqual(bad.receipt.violations, []);
+    assert.deepEqual(bad.receipt.flags.filter(f => f.kind === 'unknown-part').map(f => f.slot), ['steps[0].op']);
+    assert.deepEqual(assemble(fitted, {steps: []}).receipt.violations.map(v => v.kind), ['missing-part']);
     assert.equal(assemble(fitted, {steps: [{op: 'heat', input: 'x'}, {op: 'stir', input: 'y'}]}).receipt.violations[0].rule, 'heat-last');
     const a = generate(fitted, {root: 9, address: 'test:gl6', cause});
     assert.deepEqual(generate(fitted, {root: 9, address: 'test:gl6', cause}).value, a.value);
