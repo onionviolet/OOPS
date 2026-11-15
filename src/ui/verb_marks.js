@@ -1,33 +1,42 @@
 // Ready now marks verbs (round 14, PS120; Weibao 2026-11-15 liked the YAIR columns mock). The actions box keeps YAIR's
-// verbs in YAIR's order; a feature whose ready rows belong to one verb puts its count on that verb ("Try to craft
-// something · 2 close") instead of repeating the rows in a Ready now panel. The rows still come from each owner through
-// the ready registry (AR3); this module only counts them. A source with no verb on screen keeps its rows in the Ready
-// now panel, so nothing is lost (PS129): Fang Yuan's day keeps its list until its acts become verbs (feature-ui, PS120).
+// verbs in YAIR's order; a ready row whose verb is on screen puts its count on that verb ("Try to craft something · 2
+// close") instead of repeating itself in a Ready now panel. Each row names its verb (src/ui/action_verbs.js; the row's own
+// wins, then its source's, src/ready_rows.js); this module only counts them (AR3). A row whose verb has no row on screen
+// stays in Ready now, so nothing is lost (PS129): Fang Yuan's Feed, Practise, Hand in and Patrol keep their rows until the
+// frame draws those verbs.
 import {collectReady} from '../ready_rows.js';
 
-// Which verb a ready source belongs to. Selectors find the verb in the native action list.
-export const VERB_FOR_SOURCE = Object.freeze({crafting: '.choice_craft', mixing: '#village_mixing_open'});
+// Sources that predate row verbs. Mixing has no ACTION_VERBS id; its verb is the Village counter's own button.
+const SOURCE_VERB = Object.freeze({crafting: 'craft', mixing: 'mixing'});
+// Where each verb sits in the native action list (display.js create_location_choice_dropdown class names).
+export const VERB_SELECTOR = Object.freeze({craft: '.choice_craft', mixing: '#village_mixing_open', talk: '.choice_dialogue', trade: '.choice_trade',
+    work: '.choice_work', train: '.choice_train', gather: '.choice_gather', action: '.choice_action'});
 
-// Pure: the mark text for each source with rows worth a mark. Ready first, then close; further-off rows are not marked.
+/** The verb a ready row belongs to, or '' when neither it nor its source names one. */
+export const rowVerb = row => row?.verb || SOURCE_VERB[row?.source] || '';
+
+// Pure: the mark text for each verb with rows worth a mark. Ready first, then close; further-off rows are not marked.
 export function verbMarks(rows) {
     const out = {};
-    for (const source of Object.keys(VERB_FOR_SOURCE)) {
-        const mine = rows.filter(r => r.source === source), ready = mine.filter(r => r.state === 'ready').length, near = mine.filter(r => r.state === 'near').length;
+    for (const verb of Object.keys(VERB_SELECTOR)) {
+        const mine = rows.filter(r => rowVerb(r) === verb), ready = mine.filter(r => r.state === 'ready').length, near = mine.filter(r => r.state === 'near').length;
         const text = [ready ? `${ready} ready` : '', near ? `${near} close` : ''].filter(Boolean).join(' · ');
-        if (text) out[source] = {text, state: ready ? 'ready' : 'near'};
+        if (text) out[verb] = {text, state: ready ? 'ready' : 'near'};
     }
     return out;
 }
 
-const list = () => document.getElementById('location_actions_div');
-const owner = hidden => node => !!node && !node.hidden && !node.classList.contains('none_display') && node.style.display !== 'none' && !hidden(node);
-// Sources whose verb is in the action list now: their rows show as the verb's mark, not as Ready now rows.
-export function markedSources({hidden = () => false} = {}) {
-    const at = list(), shown = owner(hidden), out = new Set();
+const list = () => (typeof document === 'undefined' ? null : document.getElementById('location_actions_div'));
+const owner = node => !!node && !node.hidden && !node.classList.contains('none_display') && node.style.display !== 'none';
+// Verbs drawn in the action list now: their rows show as the verb's mark, not as Ready now rows.
+export function shownVerbs(at = list()) {
+    const out = new Set();
     if (!at) return out;
-    for (const [source, selector] of Object.entries(VERB_FOR_SOURCE)) if (shown(at.querySelector(selector))) out.add(source);
+    for (const [verb, selector] of Object.entries(VERB_SELECTOR)) if (owner(at.querySelector(selector))) out.add(verb);
     return out;
 }
+/** Pure: the rows that still belong in Ready now, given the verbs on screen. */
+export const unmarkedRows = (rows, shown) => rows.filter(r => !shown.has(rowVerb(r)));
 
 export function mountVerbMarks() {
     let signature = '';
@@ -37,11 +46,11 @@ export function mountVerbMarks() {
         const marks = verbMarks(rows), sig = JSON.stringify(marks);
         if (sig === signature && [...at.querySelectorAll('[data-ready-mark]')].length === Object.keys(marks).length) return;
         signature = sig;
-        for (const [source, selector] of Object.entries(VERB_FOR_SOURCE)) {
-            const verb = at.querySelector(selector); if (!verb) continue;
-            const mark = marks[source];
-            if (mark) { verb.dataset.readyMark = mark.text; verb.dataset.readyMarkState = mark.state; }
-            else { delete verb.dataset.readyMark; delete verb.dataset.readyMarkState; }
+        for (const [verb, selector] of Object.entries(VERB_SELECTOR)) {
+            const node = at.querySelector(selector); if (!node) continue;
+            const mark = marks[verb];
+            if (mark) { node.dataset.readyMark = mark.text; node.dataset.readyMarkState = mark.state; }
+            else { delete node.dataset.readyMark; delete node.dataset.readyMarkState; }
         }
     }
     const timer = setInterval(render, 1000); render();

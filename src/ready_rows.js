@@ -3,7 +3,7 @@
 // a count of the rest. A feature computes its rows from its own readiness (the recipe row's status, a life's eligible
 // actions, a Gu's meal window); this module only collects and orders them, so there is one authority per fact (AR3).
 //
-// A source: registerReady({id, label, rows: () => Row[]}). Row: {
+// A source: registerReady({id, label, verb?, rows: () => Row[]}); `verb` (an ACTION_VERBS id) is the default for its rows. Row: {
 //   id        stable within the source
 //   label     what the player would do, in their words ("Make Sinew string", "Feed the Moonglow Gu")
 //   state     'ready' (can be done now) | 'near' (one named thing short) | 'rest' (further off; counted, not listed)
@@ -13,6 +13,7 @@
 //   open()    optional: show the place where it is done (the panel, the bench)
 //   act()     optional: do it from the hub (only for rows whose own panel would do it in one press)
 //   uses      optional: item or resource names the row consumes or needs, which PS55 "Next" lines read
+//   verb      optional: the ACTION_VERBS id this act belongs to (src/ui/action_verbs.js); the row's own wins, then its source's
 // }
 // A source that throws or returns junk shows nothing; it never breaks Here.
 const sources = new Map();
@@ -30,7 +31,7 @@ const clean = row => row && typeof row.label === 'string' && row.label.trim() &&
 // Within one state and urgency, a source's own order is kept (its panel already sorted them).
 export function orderReady(rowsBySource) {
     const out = [];
-    for (const [sourceId, rows, label] of rowsBySource) for (const [i, row] of (rows || []).entries()) if (clean(row)) out.push({...row, source: sourceId, sourceLabel: label, key: `${sourceId}:${row.id ?? i}`, at: out.length});
+    for (const [sourceId, rows, label, verb] of rowsBySource) for (const [i, row] of (rows || []).entries()) if (clean(row)) out.push({...row, ...(row.verb || verb ? {verb: row.verb || verb} : {}), source: sourceId, sourceLabel: label, key: `${sourceId}:${row.id ?? i}`, at: out.length});
     const rank = r => STATES.indexOf(r.state) * 2 + (r.urgent ? 0 : 1);
     out.sort((a, b) => rank(a) - rank(b) || a.at - b.at);
     // One act, one row: two sources naming the same act (a hungry Gu's Feed row and the life panel's own Feed button) merge.
@@ -47,7 +48,7 @@ export function orderReady(rowsBySource) {
 }
 export function collectReady() {
     const lists = [];
-    for (const s of sources.values()) { let rows = []; try { rows = s.rows() || []; } catch { rows = []; } lists.push([s.id, Array.isArray(rows) ? rows : [], s.label || s.id]); }
+    for (const s of sources.values()) { let rows = []; try { rows = s.rows() || []; } catch { rows = []; } lists.push([s.id, Array.isArray(rows) ? rows : [], s.label || s.id, s.verb]); }
     return orderReady(lists);
 }
 export function readyCounts(rows = collectReady()) {

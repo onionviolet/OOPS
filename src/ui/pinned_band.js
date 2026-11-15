@@ -12,7 +12,7 @@
 import {collectReady} from '../ready_rows.js';
 import {hubModel} from './ready_hub.js';
 import {centerModes} from '../center_modes.js';
-import {markedSources} from './verb_marks.js';
+import {shownVerbs, unmarkedRows} from './verb_marks.js';
 
 export const BAND_PARTS = Object.freeze([['status', 'Status line'], ['strip', 'Day strip'], ['ready', 'Ready now'], ['doing', 'Doing now'], ['place', 'This place']]);
 const KEY = 'yairpg.pinned-band.v1';
@@ -83,7 +83,7 @@ export function mountPinnedBand({status = () => document.getElementById('game_st
         const panelShows = !!document.getElementById('ready_hub')?.checkVisibility?.();
         let model = {empty: true, rows: [], head: '', first: null, here: 0};
         // PS120: on Here, rows already marked on their verb are not repeated in the band.
-        try { const marked = page ? new Set() : markedSources(); model = bandReady(collectReady().filter(r => !marked.has(r.source)), page); } catch { /* a source mid-load shows nothing */ }
+        try { const shown = page ? new Set() : shownVerbs(); model = bandReady(unmarkedRows(collectReady(), shown), page); } catch { /* a source mid-load shows nothing */ }
         ready.hidden = !pins.ready || panelShows || model.empty;
         const sig = JSON.stringify([model.head, model.rows.map(r => [r.key, r.label, r.state, r.gap, r.detail])]);
         if (!ready.hidden && sig !== signature && !list.matches?.(':popover-open')) {
