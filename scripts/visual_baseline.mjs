@@ -8,7 +8,7 @@
 //   his day opened, stopped before any patrol) and Klein at lotm-kjw42 (Here). Both are private saves, so their baselines
 //   live outside git in docs/research/novels/visual-baselines/ and are skipped when the private checkpoints are absent.
 // Hidden flag --nudge moves the top bar down 1px with a transform, to prove a one-pixel shift is caught.
-import {readFile, writeFile, mkdtemp, mkdir, symlink} from 'node:fs/promises';
+import {readFile, writeFile, mkdtemp, mkdir, symlink, rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {prepareTree, build, serve} from './perf/lib.mjs';
@@ -122,4 +122,6 @@ for(const [name, png, home] of all) {
     console.log(`${name}: DIFFERENT, ${d.count < 0 ? '' : `${d.count} pixels, up to ${d.max} levels off, `}${d.box}`);
 }
 await session.close?.(); await server.close?.();
+// The scratch build is not kept (finished tasks delete their extras, 2026-11-14).
+await rm(tree, {recursive: true, force: true});
 process.exit(bad ? 1 : 0);

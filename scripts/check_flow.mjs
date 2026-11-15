@@ -21,7 +21,7 @@
 // again (oversized, leak, repeat, rawtime, placeholder) in an early life and in a day-4 life opened ten
 // days of wall time later, since those show text the mid fixture never does. A life with conditions is
 // not covered yet: weather decides them, so the walk cannot promise one.
-import {readFile, writeFile, mkdtemp} from 'node:fs/promises';
+import {readFile, writeFile, mkdtemp, rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {prepareTree, build, serve} from './perf/lib.mjs';
@@ -290,4 +290,6 @@ for(const f of known) console.log(`known       ${f.detail}\n            ${f.owne
 for(const f of unique) console.log(`${f.check.padEnd(11)} ${f.detail}\n            at: ${f.where.length > 4 ? `${f.where.slice(0, 3).join(', ')} and ${f.where.length - 3} more` : f.where.join(', ')}`);
 console.log(`check:flow: ${routes.length} routes walked at 1920x1080, zoom at 125% and 150%; home also read in ${statesRead.length} of ${STATES.length} other states (${statesRead.join('; ') || 'none'}); ${unique.length} finding${unique.length === 1 ? '' : 's'}.`);
 if(jsonOut) await writeFile(jsonOut, JSON.stringify({routes, states: statesRead, findings: unique}, null, 1));
+// The scratch build is not kept (finished tasks delete their extras, 2026-11-14).
+await rm(tree, {recursive: true, force: true});
 process.exit(unique.length ? 1 : 0);
