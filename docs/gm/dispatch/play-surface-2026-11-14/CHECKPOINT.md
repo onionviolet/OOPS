@@ -51,6 +51,7 @@ review: none
 
 ## Log
 
+- 2026-11-15 ~08:30 UTC: landing gate on 15af661c1 from a clean archive. Build, `check:arch` and `check:rules` pass. Full suite: 7,693 of 7,706 pass, 12 skipped, 1 fail: `tests/cheat_cards.test.js` "cheat old-save load and real create_save encode import round trip". Cause: `placeClassicOptions()` (`src/ui/feel_finish.js:102`, from 2148b0f13) moves `#options_panel` into the Feel settings group, which can drop it, and `load()` then reads a null `#options_textsize` (`src/main.js:2925`). Sent to feel-finish. The next push waits on that fix. Klein's acting default went to the foundation run's resume block (c4bc8f279), to start after the weekly reset.
 - 2026-11-15 ~07:20 UTC, resume point (5-hour usage 93%, weekly 91%, weekly reset 2026-11-16 18:00 UTC). All lanes are idle.
   - Origin is at 6b9f623ea; everything after it is unpushed and needs a landing gate. Run the full suite from a clean tree, rebuild the bundle with `scripts/clean_bundle.sh` (discord-features left `dist/` unbuilt), and fix the failing `check:rules` receipt in `save-architecture-2026-11-15/CHECKPOINT.md`, which belongs to another chat.
   - Accepted direction: round 14 (YAIR's four columns), with slices 1 and 2 built. Slice 3 (modes replace the actions box; the fight slot) and slice 4 (Journal and Skills box tabs, fit to content) are next in ui-cohesion. The shared "?" renderer (PS130) and drag layout (PS179) follow.
