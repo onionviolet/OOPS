@@ -619,9 +619,10 @@ export function tempoView(b) {
     const mix = me.profile.types?.attack || null, st = me.stock, foe0 = st && active(b, 'b').find(id => st.vs[id]);
     const stockWhy = id => id === 'shoot' ? (!st?.loaded ? 'The chamber is empty.' : !foe0 ? 'No one is in your sights.' : '') : id === 'reload' ? (!st?.carried ? 'You have no rounds to load.' : st.loaded >= st.capacity ? 'Every chamber is already loaded.' : '') : '';
     const kitRow = id => me.kit?.[id] ? moveRow(me, id) : null;
-    // How close each standing fighter is to acting (DU10): 1 for whoever acts next, 0 for the longest wait behind them.
-    const readies = active(b).map(id => b.fighters[id].ready), soonest = Math.min(...readies), spread = Math.max(...readies) - soonest;
-    const readyOf = id => b.fighters[id].status !== 'active' ? null : spread > 0 ? 1 - (b.fighters[id].ready - soonest) / spread : 1;
+    // How close each standing fighter is to acting (DU10): 1 for whoever acts next; the wait behind them is measured in that fighter's own
+    // heavy swing (dial), so a foe who strikes right after you reads nearly full and one a whole swing or more away reads empty.
+    const soonest = Math.min(...active(b).map(id => b.fighters[id].ready));
+    const readyOf = id => b.fighters[id].status !== 'active' ? null : Math.max(0, 1 - (b.fighters[id].ready - soonest) / scaled(TEMPO_MOVES.swing, b.fighters[id]));
     return {title: b.title, lines: [...b.log], next, ...(b.stakes ? {stakes: {...b.stakes}} : {}), holdBack: !!me.holdBack,
         you: {hp: me.hp, maxHp: me.maxHp, stamina: me.stamina, maxStamina: me.maxStamina, ready: readyOf('player'), mix, ...(me.means ? {means: Object.entries(me.means).map(([id, n]) => ({id, n, label: me.meansLabels?.[id] ?? id.replace(/_/g, ' ')}))} : {}), ...(st ? {stock: {loaded: st.loaded, carried: st.carried, capacity: st.capacity, kind: st.kind, kindLabel: stockKindLabel(st.kind)}} : {})}, hits: [...(b.hits || [])], yourTurn: mine && !b.result, result: b.result,
         // Fate and stakes moves the fight offers now, one row per body waiting on a decision.
