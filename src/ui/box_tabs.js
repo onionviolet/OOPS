@@ -1,11 +1,13 @@
 // Box tabs (round 14 slice 4, PS122; Weibao liked the YAIR columns mock 2026-11-15). A world's power joins the Skills box as
 // a tab beside YAIR's Skills, Stances and Magic (Gu, Spells, Beyonder), and a page can join the Journal box beside Quests
-// and Data the same way. The tab uses YAIR's own tab row: one page shows and the rest hide (index.html changeTab), and
+// and Data, or the Character box beside Bio, the same way. The tab uses YAIR's own tab row: one page shows and the rest hide (index.html changeTab), and
 // the row's click handler marks the chosen tab. The owner keeps its node and its content (AR3); this module only puts
 // the node in the box and shows the tab while `when()` holds.
 export const BOX_TAB_HOMES = Object.freeze({
     skills: Object.freeze({module: 'skills', bar: 'skill_and_stance_control_div', pages: 'skills_and_stances_content_div', className: 'skill_stance_control_button'}),
     journal: Object.freeze({module: 'records', bar: 'journal_control_div', pages: 'journal_content_div', className: 'journal_control_button'}),
+    // Character › Stats, Bio, Equipment, Tools: a life's Bio rows (rent, what is owed) join here (feature-ui D1).
+    character: Object.freeze({module: 'preparation', bar: 'character_control_div', pages: 'character_content_div', className: 'character_control_button'}),
 });
 
 const tabs = new Map();
