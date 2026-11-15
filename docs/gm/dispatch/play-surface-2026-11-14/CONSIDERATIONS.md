@@ -449,3 +449,45 @@ Weibao on the round 14 mock: "I likethis, the mock will need more work to be as 
 | --- | --- |
 | PS151 | F17: a map travel selector, once places generate maps (SR rules); it is not a round 14 requirement. |
 | PS152 | F27, P14: compare an assembled item by its useful results; it goes with making systems (MR). |
+
+## Round 16, 2026-11-15: feel and finish, the Discord features, and UI for what has none
+
+Weibao: "Consider the new features discussed in the Discourd findings too, consider details like glow on items and more? subtle aspects like that? MOre to consider? We can send something to work on the prior part, ant then also work on the subtle details? And another for Ui drafting and cohesion for future capabilities or existing capabiltieis lacking those and more?" ([log](../../USER_VISION_LOG_2026-11.md#feel-and-finish-discord-features-and-ui-drafting-lanes-2026-11-15))
+
+### Feel and finish (proposals; polish lane)
+
+YAIR's own options (`upstream/master:index.html`) show what its players tuned: bar outlines, tooltip outlines, uniform text size, background animations, a background colour that follows the time of day, enemy on-hit animations, a dynamic loot message, an exp-display threshold, a temperature scale, and favourite items (`character_item_faved`, `item_fav_div`).
+
+| Code | Detail | Default (dial in Options) |
+| --- | --- | --- |
+| PS153 | **Item glow by meaning.** | Rarity or quality as a coloured name with a soft edge glow; a new item pulses once and keeps a dot until hovered; equipped and favourited items get a mark (☆ as in YAIR). A glow means one thing per world, with no decoration for its own sake. |
+| PS154 | **Ready glow.** | A verb, station or row that is ready gets the gold edge (PS103 ready token) and a slow single pulse when it becomes ready; near gets a dashed edge. |
+| PS155 | **Motion that explains.** | Bars ease to their new value. A gained number ticks up briefly. Damage and loot float off their source in a fight. An enemy hit flashes (YAIR's on-hit option). All of it is reducible: Options has "reduce motion", and the OS setting is honoured. |
+| PS156 | **Time-of-day light.** | The page background follows the hour and weather (YAIR's light-based background), dimmed by an option. |
+| PS157 | **Pressed, hover and focus states.** | Every control shows hover, pressed and keyboard focus the same way; disabled controls show their reason on hover. |
+| PS158 | **Sound hooks.** | YAIR has BGM in Reports' filters. A quiet cue for ready, level-up and a fight's end is proposed, off by default. |
+| PS159 | **Display options from YAIR.** | Text outlines, uniform text size, the temperature scale, an exp threshold and "don't auto-switch to combat" carry over into Options. |
+
+### Discord features beyond the UI (proposals; Discord-features lane)
+
+Sources are the [YAIR developer media research](../../../research/yair-upstream/DISCORD_RESEARCH_2026-10-20.md).
+
+| Code | Source | Feature |
+| --- | --- | --- |
+| PS160 | F5 | Clear bonuses: clearing a place can roll a bonus reward, nested by chance and shown as such. |
+| PS161 | F8 | Conditional trader stock: a cleared hideout or a world event changes what a trader sells. |
+| PS162 | F15 | Inventory stacking by identity and quality, with redundant saved data dropped (save size, PS95). |
+| PS163 | F16 | Equipment from components: the assembled item's results compared by its useful dimensions (P14). |
+| PS164 | F17 | A travel map for places with known positions; generated maps later. |
+| PS165 | F22, F9 | Substitutes by property: a recipe takes any input with the property it uses, and the item keeps its own identity and price. |
+| PS166 | F23, F31 | Reward rates explained by their causes, without spoiling the payoff. |
+| PS167 | F26, P11 | Ingredient chains navigable from the recipe: follow a missing input to its producer and back. |
+| PS168 | F30, F34 | A fight setup good for winning but poor for practice says so, with the cause; a broad attack shows how it scales. |
+
+### UI for capabilities that have none (proposals; UI-drafting lane)
+
+| Code | Proposal |
+| --- | --- |
+| PS169 | **A coverage pass:** list each capability in the progress atlas and each runtime module with player-facing state but no surface, or a surface outside round 14's boxes. Rank them by what a lead's life touches first. |
+| PS170 | **Draft each in round 14's grammar:** which box and tab, which verb, what the Ready mark says, which numbers are known, estimated or "?", and the empty state. Mock at 1920×1080 beside the closest existing screen; build only after Weibao looks, in batches. |
+| PS171 | **A UI kit page:** one page that shows every shared form (box, tab, verb row, Ready mark, "?" number, state token, glow, tooltip, empty state), so new features draw from it and stay cohesive. |

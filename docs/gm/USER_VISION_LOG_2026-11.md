@@ -1604,3 +1604,9 @@ Recorded as his direction. Round 13's noun cards and top-bar families are set as
 Weibao on the round 14 mock (YAIR's four columns): "I likethis, the mock will need more work to be as fleshed out as 'today', some design detils coule be, unknown numbers can be represented as question marks ⏎ Lots of other subtle UI considerations? ⏎ What about from the discord research that we can incorporate at the same time?"
 
 Recorded as acceptance of round 14's direction. The build carries everything today's screens show (PS129), and an unknown number reads "?" (PS130). [Round 15](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-15-2026-11-15-fleshing-round-14-out-subtle-details-and-what-the-yair-discord-adds) lists the subtle details and the YAIR Discord findings that go in at the same time.
+
+## Feel and finish, Discord features and UI drafting lanes, 2026-11-15
+
+Weibao: "Consider the new features discussed in the Discourd findings too, consider details like glow on items and more? subtle aspects like that? MOre to consider? We can send something to work on the prior part, ant then also work on the subtle details? And another for Ui drafting and cohesion for future capabilities or existing capabiltieis lacking those and more?"
+
+Recorded as his direction. Three new lanes start: Discord features (PS160–PS168), feel and finish (PS153–PS159), and UI drafting for capabilities that have no surface (PS169–PS171). The proposals are in [round 16](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-16-2026-11-15-feel-and-finish-the-discord-features-and-ui-for-what-has-none).
