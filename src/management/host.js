@@ -78,8 +78,10 @@ export function plotLine(facts,job=null,registry=null,clock=0) {
  const crop=facts['mg.cropType']||'crop',stage=facts['mg.cropStage'];
  return stage==='planted'?`${crop} planted, tend next`:stage==='tended'?`${crop} tended, grow next`:stage==='ready'?`${crop} ready to harvest`:'plot empty, plant next';
 }
+// The courtyard exists only in its own world; outside it nothing below can show, so callers may answer from the state alone.
+export const managementWorldHere=state=>state?.actors?.player?.worldId===I.world;
 export function managementPresentation(state,registry,context) {
- const local=state.actors.player.worldId===I.world&&context.facts?.location==='Village';
+ const local=managementWorldHere(state)&&context.facts?.location==='Village';
  if(!local)return {visible:false,sections:[],records:[]};
  const opened=state.actors.player.facts['mg.opened']===true,current=managementContext(state,context),sections=[];
  if(!opened) return {visible:true,opened:false,sections:[{id:'charter',label:managementFamilies.charter,actions:[{id:I.begin,label:'Visit the market courtyard · optional, free',description:managementDefinitions.commands.find(d=>d.id===I.begin).description,eligible:current.facts['management.supported']&&!context.busy,reasons:['No stock, money, deed or debt is granted by meeting the residents.'],duration:0}]}],records:[]};

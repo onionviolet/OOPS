@@ -1,4 +1,4 @@
-import {managementPresentation} from './host.js';
+import {managementPresentation,managementWorldHere} from './host.js';
 import {courtyardOrganization} from './organization_source.js';
 import {organizationView,organizationText} from '../organization_view.js';
 import {definePanel} from '../panel_kit.js';
@@ -21,7 +21,8 @@ const coinWords=text=>String(text).replace(/\b(\d+) coins?\b/g,(_,n)=>moneyText(
 const MOVED_KEY='oops.management.movedNoticeSeen';
 const seenMoved=()=>{try{return localStorage.getItem(MOVED_KEY)==='1';}catch{return false;}};
 const markMoved=()=>{try{localStorage.setItem(MOVED_KEY,'1');}catch{}};
-export function createManagementPanel({read,registry,command}) {
+// peek (optional) returns {state,inDialogue,inCombat} without building the world context read() carries.
+export function createManagementPanel({read,registry,command,peek}) {
  // UR8: the panel owns its node and registers through definePanel; nothing appends it to Location actions.
  const claimHere=()=>{try{return !!domainRegistry.command('organizations','claimHere')?.();}catch{return false;}};
  const element=node('section','',{id:'management_panel','aria-label':'Market courtyard'});element.className='expedition_panel organization-panel';
@@ -154,7 +155,10 @@ export function createManagementPanel({read,registry,command}) {
   return view;
  }
  // Discovery follows the existing visibility: the Village, outside dialogue and combat.
- const visible=()=>{try{const s=read(),v=managementPresentation(s.state,registry,s.context);return (v.visible||claimHere())&&!s.inDialogue&&!s.inCombat;}catch{return false;}};
+ // The layout polls this several times a second, so outside the courtyard's world it answers from peek: the full
+ // presentation would be invisible there anyway, and building its context cost about 40 ms a poll on late saves.
+ const visible=()=>{try{const p=peek?.();if(p&&!managementWorldHere(p.state))return claimHere()&&!p.inDialogue&&!p.inCombat;
+  const s=read(),v=managementPresentation(s.state,registry,s.context);return (v.visible||claimHere())&&!s.inDialogue&&!s.inCombat;}catch{return false;}};
  definePanel({id:'management',title:'Organizations · Market courtyard',role:'actions',node:element,home:document.getElementById('main_content'),
   discovered:visible,eligible:visible,emptyText:'Return to the Village to use the market courtyard'});
  return {element,render};

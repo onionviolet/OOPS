@@ -1,4 +1,5 @@
 import {testHooksEnabled} from './simulation_clock.js';
+import {observerForProfile} from './observer_view.js';
 import {placeActRecords,placeStockViews} from './place_acts.js';
 import {blackthornDepartureMishap} from './lotm_amulet_protection.js';
 import {remotePresenceView} from './place_remote_presence.js';
@@ -172,6 +173,9 @@ export function createLotmHost(ports){
  // G18: whether the workroom is in this life, without building its view. The navigation asks every half second; the full view
  // quotes every cast command (about 0.75 s on a late Klein save), so asking through view() kept the page busy for good.
  function discovered(){const s=state();return !!s.lotm||lotmCastLife(s)||startable();}
+ // The seat's observer, the same as observerForProfile(view().entryProfile) without building the view: the panel's
+ // seat filter asks on every change to its DOM (G18 follow-up, UIC205).
+ function observer(){return observerForProfile(state().lotm?.entryProfile);}
  function enroll(profileKey='probationer',{independent=false}={}){
   const profile=LOTM_PROFILES[profileKey];assert(profile&&(!['beside','be'].includes(profileKey)||castAvailable)&&(profileKey!=='be'||validLeadLife(getPrivateLotmCast())),'Choose one of the available Tingen starts.');
   assert(profileKey!=='be'||independent,'This life needs a fresh independent beginning.');
@@ -506,7 +510,7 @@ export function createLotmHost(ports){
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),law:lawView(s,lawCtx(s,c)),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f,know),places,marketHeld,cause:causeView(f),mind:lotmMindView(s),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:[...lotmMeters(e),lotmRestMeter(s)].filter(Boolean),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
- return {enroll,cross,resign,signGuard,standWatch,lawRoute,fileExpense,tieAsk,collectGuardPay,startWage,collectWage,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,discovered,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,resign,signGuard,standWatch,lawRoute,fileExpense,tieAsk,collectGuardPay,startWage,collectWage,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,discovered,observer,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){return castLocalClock(s)?.clock||'';}

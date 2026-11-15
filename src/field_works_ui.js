@@ -49,6 +49,9 @@ export function createFieldWorksPanel({registry,read,command}) {
     function render(){
         const snapshot=read(),{state,context,enabled,error}=snapshot,f=state.actors.player.facts,view=fieldWorksView(state,context),s=state.simulation;
         panel.hidden=!f['field.facility']||!['Shack','Village'].includes(context.facts?.location)||snapshot.inDialogue;
+        // A hidden panel quotes nothing: every control's preview cost about 2.7 s a render on late saves of other
+        // worlds (G18 follow-up). The render that shows it again fills every control before it is seen.
+        if(panel.hidden)return;
         summary.textContent=view?'Local clay, material trials, a supplied garden, powered work and contracted helpers share your existing workshop.':'Extend your assembled field workshop with practical clay work and supplied production.';
         extension.render(state,context,view,snapshot);
         message=error||message;notice.textContent=message;notice.hidden=!message;

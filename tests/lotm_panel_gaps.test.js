@@ -47,6 +47,8 @@ test('G18: whether the workroom is found is answered without building its view',
  const {knownWorkspaceModules}=await import('../src/workspace_layout.js');
  const {host}=hostOver(cc9()),view=host.view();
  assert.equal(host.discovered(),!!(view.enrolled||view.startable),'the cheap answer agrees with the view');
+ const {observerForProfile}=await import('../src/observer_view.js'),probe=['lotm.local-task-entry','lotm.own-power-notes'];
+ assert.deepEqual(probe.map(c=>host.observer().sees({capability:c})),probe.map(c=>observerForProfile(view.entryProfile).sees({capability:c})),'the seat filter\'s cheap observer agrees with the view');
  let reads=0;const home=document.createElement('div');document.body.append(home);
  createLotmPanel({read:()=>{reads++;return view;},discovered:()=>host.discovered(),act(){},cancel(){},move(){},enroll(){},home,readOwed:()=>({rows:[],live:{},labels:{}}),settle:()=>0});
  const before=reads;knownWorkspaceModules();knownWorkspaceModules();

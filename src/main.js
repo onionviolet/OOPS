@@ -1,3 +1,4 @@
+import './timer_coalesce.js'; // first: stale interval ticks from a busy boot run once (G18 follow-up)
 import {MISTGLASS_ARTIFACT} from './artifact_refining.js';
 import {isTingenAmulet} from './lotm_amulet_crafting.js';
 import {createClockOwner} from './clock_owner.js';
@@ -50,7 +51,6 @@ import {withFactsFrame as withSimulationFrame,withDisplayFactsFrame} from './fac
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
 import {readingPresentation} from './absorb_p23/reading/presentation.js';
-import {readingRate} from './reveal_chain.js';
 import {SALVAGE,loadSalvage,wornSalvageChoices,quoteSalvage,stageSalvage} from './absorb_p23/salvage/salvage.js';
 import {stageReadingResult} from './absorb_p23/host_joins/tranche_three.js';
 import {createReadingSalvagePanel} from './absorb_p23/host_joins/tranche_three_ui.js';
@@ -81,7 +81,7 @@ import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
 import {stageMixtureAction,commitMixturePlan} from './mixture_native.js';
 import {createMixturePanel} from './mixture_ui.js';
 import {createStoryletPanel} from './storylet_ui.js';
-import {createAcquisitionLesson,revealLessonMessages,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,knownPracticeHints,openingAllows,stageRevealKnowledge} from './reveal_chain.js';
+import {createAcquisitionLesson,revealLessonMessages,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,knownPracticeHints,openingAllows,stageRevealKnowledge,readingRate} from './reveal_chain.js';
 import {getDisplaySetting,subscribeDisplaySettings,DISPLAY_KEY,exportDisplayPreferences,adoptDisplayPreferences} from './display_settings.js';
 import {settleObservedDrops,validateDropObservations} from './absorb_p23/known_detail/observations.js';
 import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absorb_p23/known_detail/presentation.js';
@@ -9711,7 +9711,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
 
     featureExpansionPanel=createFeatureExpansionPanel({read:()=>({...readProgression(),context:featureWaveContext(),battleView:featureBattleHost.view(),battleRunning:featureBattleHost.isRunning(),notice:featureBattleHost.pauseReason(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actFeatureExpansion,present:snapshot=>refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext,craftControls:(state,context)=>readCyoriaCraftControls(state,expeditionRegistry,context,craftingOwner,key=>getItemFromKey(key).getName())})});
     if(foundationProbeEnabled)foundationInteractionPanel=createFoundationInteractionPanel({registry:expeditionRegistry,enabled:true,read:()=>({state:expansionState,context:expeditionContext(),enabled:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!nativeOccupationReason(),error:expansionError}),command:actFoundationInteraction});
-    managementPanel=createManagementPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actManagement});
+    managementPanel=createManagementPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),peek:()=>({state:expansionState,inDialogue:!!current_dialogue,inCombat:!!current_combat}),command:actManagement});
     managementPanel.render();
     crushSocialPanel=createCrushSocialPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actCrushSocial});
     document.getElementById('location_actions_div')?.append(crushSocialPanel.element);

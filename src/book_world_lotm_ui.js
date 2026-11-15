@@ -33,7 +33,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.text
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,startWage,collectWage,lawRoute,readOwed=readOwedLedger,settle=settleOwed,discovered=null}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,startWage,collectWage,lawRoute,readOwed=readOwedLedger,settle=settleOwed,discovered=null,observer=null}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -46,7 +46,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
  registerCapability({id:'lotm.local-task-entry',audience:'seat-only',panel:'lotm'});
  registerCapability({id:'lotm.own-power-notes',audience:'seat-only',panel:'lotm'}); // W11-D: kind-of-power lines and owed rows are the lead's own (ABR19)
  const readOwedRows=()=>{try{return readOwed?.()||null;}catch{return null;}};
- const currentObserver=()=>observerForProfile(read(selected)?.entryProfile);
+ // observer (optional) answers without building the view; the seat filter runs on every DOM change (UIC205).
+ const currentObserver=observer||(()=>observerForProfile(read(selected)?.entryProfile));
  const applySeatFilter=()=>{
   const observer=currentObserver();
   for(const item of PERSPECTIVE_CONTROLS){
