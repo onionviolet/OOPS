@@ -1,5 +1,16 @@
 # Save architecture checkpoint (2026-11-15)
 
+```receipt
+build: n/a
+route: n/a
+state: built
+viewport: n/a (no player-facing change)
+persistence: unchanged
+tests: full suite 7,664 pass, 0 fail, 30 skipped on HEAD plus e44e565f6's changes in a clean worktree; save parts 4/4; check:arch main.js -19
+review: diff-scoped
+surface: save parts module, owner table for hand-written save keys, save cost and probe scripts (e44e565f6)
+```
+
 Owner chat: the architecture and save review session. Design and measurements live in
 [the review](../../../audits/ARCHITECTURE_AND_SAVE_REVIEW_2026-11-15.md) (rounds 2 to 4). Rules: AR1, AR3, AR6, AR9, AR10, AR15, AD36, AD43.
 
