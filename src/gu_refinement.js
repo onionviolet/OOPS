@@ -7,7 +7,13 @@ function check(condition, message) {
     if (!condition) throw Error(message);
 }
 
-export function beginGuRefinement(state, {id, refiner, recipe, precursor, ingredients = {}, productId = id}) {
+// MR44 (RWT22): a claim keeps the same individual. `recipe.claim` lets a wild Gu of the recipe's own kind and rank be refined in place:
+// the specimen keeps its id, traits and provenance and changes only its holder's control (`wild` ends, an imprint is set, RWT34).
+const advances = (specimen, recipe) => specimen.rank < recipe.rank || recipe.claim === true && specimen.wild === true &&
+    specimen.kind === recipe.kind && specimen.rank === recipe.rank;
+const FAILURES = ['destroy', 'injure', 'wary'];
+
+export function beginGuRefinement(state, {id, refiner, recipe, precursor, ingredients = {}, productId = id, at}) {
     check(stableId(id) && !state.attempts.some(job => job.id === id), 'Refinement identity is invalid or already used.');
     check(stableId(refiner) && Object.hasOwn(state.stocks, refiner), 'Unknown refiner.');
     check(stableId(recipe?.id) && Number.isSafeInteger(recipe.revision) && recipe.revision > 0 &&
@@ -29,7 +35,7 @@ export function beginGuRefinement(state, {id, refiner, recipe, precursor, ingred
     if (recipe.precursorKind !== undefined) {
         const specimen = state.gu.find(gu => gu.id === precursor);
         check(specimen?.alive && specimen.holder === refiner && specimen.kind === recipe.precursorKind &&
-            specimen.rank < recipe.rank, 'The refinement needs its living precursor in your custody.');
+            advances(specimen, recipe), 'The refinement needs its living precursor in your custody.');
         check(!specimen.uniqueKey || recipe.uniqueKey, 'Advancement needs the resulting Immortal identity.');
         check(!specimen.uniqueKey || specimen.kind !== recipe.kind || recipe.uniqueKey === specimen.uniqueKey,
             'Advancing the same Immortal Gu kind must preserve its unique identity.');
@@ -49,7 +55,7 @@ export function beginGuRefinement(state, {id, refiner, recipe, precursor, ingred
     for (const stage of recipe.stages) {
         check(stableId(stage.id) && Array.isArray(stage.inputs), 'Invalid refinement stage.');
         check(stage.onPrecursorControlFailure === undefined || precursor !== undefined &&
-            ['destroy', 'injure'].includes(stage.onPrecursorControlFailure), 'Invalid precursor failure effect.');
+            FAILURES.includes(stage.onPrecursorControlFailure), 'Invalid precursor failure effect.');
         for (const [role, effect] of Object.entries(stage.onControlFailure ?? {})) {
             check(Object.hasOwn(roles, role) && ['destroy', 'injure'].includes(effect), 'Invalid refinement failure effect.');
         }
@@ -62,7 +68,7 @@ export function beginGuRefinement(state, {id, refiner, recipe, precursor, ingred
     }
     next.attempts.push({id, refiner, recipe: structuredClone(recipe), ingredients: structuredClone(ingredients),
         ...(precursor === undefined ? {productId} : {precursor}),
-        cursor: 0, status: 'working'});
+        ...(at === undefined ? {} : {at}), cursor: 0, status: 'working'});
     return next;
 }
 
@@ -73,7 +79,7 @@ export function stepGuRefinement(state, id, {controlFailed = false, isLivingMast
     const {recipe} = job;
     const specimen = job.precursor === undefined ? null : next.gu.find(gu => gu.id === job.precursor);
     if (job.precursor !== undefined && (!specimen?.alive || specimen.holder !== job.refiner ||
-        specimen.kind !== recipe.precursorKind || specimen.rank >= recipe.rank)) {
+        specimen.kind !== recipe.precursorKind || !advances(specimen, recipe))) {
         finishUnsuccessful(next, job, 'precursor-unavailable');
         return next;
     }
@@ -103,7 +109,13 @@ export function stepGuRefinement(state, id, {controlFailed = false, isLivingMast
     const product = {kind: recipe.kind, rank: recipe.rank, uniqueKey: recipe.uniqueKey};
     if (recipe.productTraits) product.traits = structuredClone(recipe.productTraits);
     if (recipe.recordLineage) product.provenance = {recipe: recipe.id, revision: recipe.revision, ingredients: {...job.ingredients}};
-    if (specimen) {
+    if (specimen && recipe.claim) {
+        // Same individual: only holder-side facts change. The find stays in its provenance; the claim is added to it.
+        delete specimen.wild;
+        delete specimen.wary;
+        specimen.provenance = {...specimen.provenance, claim: {recipe: recipe.id, revision: recipe.revision}};
+        specimen.imprint = {by: job.refiner, strength: recipe.imprintStrength ?? 1, at: job.at ?? 0};
+    } else if (specimen) {
         Object.assign(specimen, product);
         if (product.uniqueKey === undefined) delete specimen.uniqueKey;
     } else {
@@ -129,6 +141,7 @@ function applyRefinementFailure(gu, consequence, isLivingMaster, job) {
         gu.injured = true;
         (job.vitalSurvivors ??= []).push(gu.id);
     } else if (consequence === 'destroy') endSpecimen(gu, 'destroyed');
+    else if (consequence === 'wary') gu.wary = (gu.wary ?? 0) + 1;
     else gu.injured = true;
 }
 
