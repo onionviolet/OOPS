@@ -18,6 +18,13 @@ It links `styles/ui_tokens.css` for the PS103 state tokens and the tooltip fill.
 Sources: rounds 14 to 16 in the [play surface considerations](../../docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md) (PS103, PS109, PS119 to PS157) and the [Discord UI elements review](../../docs/research/yair-upstream/DISCORD_UI_ELEMENTS_REVIEW_2026-11-15.md). Folded in from that review: DU1, DU2, DU3, DU8, DU10, DU11, DU12, DU19, DU20, DU29 and DU35. UI_RULES codes cited: UR32, UR43, UR52, UR100 and UR125.
 
 Open points:
-- Class names (`.box`, `.tab`, `.verb`, `.mark`, `.num`, `.k`) are the mock's. They change to match the frame ui-cohesion builds.
+- Names follow ui-cohesion's frame:
+  - a box is `.workspace-module[data-module]` inside `[data-region]`;
+  - a verb row is `.location_choice_dropdown.choice_<verb>`, with `.location_choice_dropdown_expanded` when open;
+  - the mark is `data-ready-mark` and `data-ready-mark-state`, drawn as `::after`;
+  - the Here line is `.nearby-here-line` with `[data-here-link]` buttons;
+  - chips are `.here-chip`.
+
+  Box tabs stay `.tab` as a placeholder until slice 4 names them. The mock's `.box` and `.verb` classes remain alongside for styling.
 - Glow and motion (cells 4, 7 and 8) follow feel-finish's settled names and link `styles/feel_finish.css`: ready is a green inset edge (`--feel-ready-edge`) with one `feel-ready-pulse`; near is a 1px dashed gold outline; rarity is an inset glow on the row from `--feel-rarity` (`data-feel-rarity`), with no text glow; plus `feel-new-pulse`, `feel-tick-up`, the ☆ and ◆ marks, the hover, press and focus tokens, and `html[data-feel-motion=reduce]` for reduce motion.
 - Quality grade names (fine, rare, masterwork, relic) are placeholders; each world names its own.

@@ -49,6 +49,14 @@ main { position:absolute; top:46px; left:14px; right:14px; bottom:12px; display:
 .verb.open { border-color:var(--gold); }
 .verb.dim { opacity:.55; } .verb.dim .mark { color:var(--muted); font-style:italic; }
 .sub { margin:-1px 0 5px 52px; } .act { border:1px solid var(--line); border-radius:3px; padding:1px 8px; }
+/* ui-cohesion's real names (2026-11-15): a verb row is .location_choice_dropdown plus .choice_<verb>; open adds
+   .location_choice_dropdown_expanded; the mark is data-ready-mark with data-ready-mark-state, drawn as ::after. */
+.location_choice_dropdown[data-ready-mark]::after { content:attr(data-ready-mark); margin-left:auto; font-size:13px; }
+.location_choice_dropdown[data-ready-mark-state="ready"]::after { color:var(--k-ready); content:"● " attr(data-ready-mark); }
+.location_choice_dropdown[data-ready-mark-state="near"]::after { color:var(--k-near); content:"◐ " attr(data-ready-mark); }
+.location_choice_dropdown[data-ready-mark-state="far"]::after { color:var(--k-far); content:"○ " attr(data-ready-mark); }
+.location_choice_dropdown[data-ready-mark-state="reason"]::after { color:var(--muted); font-style:italic; }
+.nearby-here-line { font-size:14px; } .nearby-here-line button { font:inherit; color:var(--text); background:none; border:0; padding:0; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
 /* Ready marks and state tokens (PS103, PS133): word and colour together, so colour is not the sole signal. */
 .k { font-size:13px; } .k.ready { color:var(--k-ready); } .k.near { color:var(--k-near); } .k.far { color:var(--k-far); } .k.blocked { color:var(--k-blocked); }
 .k.ready::before { content:"● "; } .k.near::before { content:"◐ "; } .k.far::before { content:"○ "; } .k.blocked::before { content:"⊘ "; }
@@ -161,15 +169,15 @@ main[hidden] { display:none; } .pager { margin-left:auto; color:var(--gold); bor
 <header><h1>Round 14 UI kit</h1><span>PS171, proposal (AD32): the shared forms a new feature draws from, live. Hover, press, Tab; click tabs, verbs and the tooltip. Demo loop every 4 s. Reduce motion <b id="rmstate">off</b> (r; p replays).</span><span class="pager" id="pager" tabindex="0">Page 2 ›</span></header>
 <main id="p1">
 
-<section class="cell"><h2>1 · Box <code>.box · PS119, DSG1</code></h2>
-  <div class="box"><h3><span>Local actions</span><small>1 new · 2 close</small></h3><div class="body"><div class="row"><span>A box holds one question's rows.</span><span class="m">count asks something</span></div></div></div>
-  <div class="box teal"><h3><span>Character vitals</span><small>Lv 3</small></h3><div class="body m">Column 1 boxes (You) are teal.</div></div>
-  <div class="box rep"><h3><span>Reports</span><small></small></h3><div class="body m">Column 4 is purple (DSG2).</div></div>
+<section class="cell"><h2>1 · Box <code>.workspace-module[data-module] · PS119</code></h2>
+  <div data-region="actions"><div class="box workspace-module" data-module="location_actions"><h3><span>Local actions</span><small>1 new · 2 close</small></h3><div class="body"><div class="nearby-here-line">Here: <button data-here-link="people">2 people</button> · <button data-here-link="services">6 stations</button> · <button data-here-link="exits">3 ways out</button> · <button data-here-link="all">all</button></div></div></div></div>
+  <div class="box teal workspace-module" data-module="player" data-region="player"><h3><span>Character vitals</span><small>Lv 3</small></h3><div class="body m">Column 1 boxes (You) are teal.</div></div>
+  <div class="box rep workspace-module" data-module="log" data-region="log"><h3><span>Reports</span><small></small></h3><div class="body m">Column 4 is purple (DSG2).</div></div>
   <div class="tabs"><span class="tab sm on">Inventory</span><span class="tab sm wake" id="wakeTab">Combat</span><span class="m" style="font-size:12px">a tab wakes when it matters (DU35)</span></div>
-  <div class="cap">A header count shows when it asks something ("3 of 6 ready", PS109). By default a feature gets a box or a tab in one, not a new top tab.</div>
+  <div class="cap">A box is a .workspace-module with data-module inside a data-region (player, focus, inventory, actions, journal, log). The Here line's counts open their verbs. A header count shows when it asks something ("3 of 6 ready", PS109). By default a feature gets a box or a tab in one, not a new top tab.</div>
 </section>
 
-<section class="cell"><h2>2 · Box tabs <code>.tabs .tab · PS122, PS137</code></h2>
+<section class="cell"><h2>2 · Box tabs <code>.tab (placeholder) · PS122, PS137</code></h2>
   <div class="box"><h3><span>Journal</span><small></small></h3><div class="body">
     <div class="tabs" data-tabs="j"><span class="tab on" tabindex="0" data-t="q">Quests</span><span class="tab" tabindex="0" data-t="b">Bestiary</span><span class="tab" tabindex="0" data-t="a">Anthology</span><span class="tab" tabindex="0" data-t="d">Data</span></div>
     <div class="tabs" data-tabs="j"><span class="tab sm" tabindex="0" data-t="k">Knows<span class="dot"></span></span><span class="tab sm" tabindex="0" data-t="n">Notebook</span><span class="tab sm" tabindex="0" data-t="p">People</span><span class="tab sm hidden">Worlds</span><span class="tab sm" tabindex="0" data-t="g">Beginning</span></div>
@@ -187,19 +195,19 @@ main[hidden] { display:none; } .pager { margin-left:auto; color:var(--gold); bor
   <div class="cap">Sorts are small tabs at the box's foot, as in YAIR.</div>
 </section>
 
-<section class="cell"><h2>3 · Verb row <code>.verb · PS120, PS131, PS140</code></h2>
-  <div class="verb" tabindex="0" data-open="mv"><span class="key">1</span><span class="ic">⇢</span><span>Move somewhere else</span><span class="mark k far">3 ways</span></div>
+<section class="cell"><h2>3 · Verb row <code>.location_choice_dropdown · PS120</code></h2>
+  <div class="location_choice_dropdown choice_move verb" tabindex="0" data-open="mv" data-ready-mark="3 ways" data-ready-mark-state="far"><span class="key">1</span><span class="ic">⇢</span><span>Move somewhere else</span></div>
   <div class="sub" data-sub="mv" hidden><div class="row"><span class="act" tabindex="0">Infested field <span class="danger" title="Wolf rats seen here">⚠</span></span><span class="m">[15 min]</span></div><div class="row"><span class="act" tabindex="0">Tingen</span><span class="m">[crossing]</span></div></div>
-  <div class="verb open" tabindex="0" data-open="tk"><span class="key">4</span><span class="ic">❝</span><span>Talk to someone</span><span class="mark k ready">1 new</span></div>
+  <div class="location_choice_dropdown choice_talk verb open location_choice_dropdown_expanded" tabindex="0" data-open="tk" data-ready-mark="1 new" data-ready-mark-state="ready"><span class="key">4</span><span class="ic">❝</span><span>Talk to someone</span></div>
   <div class="sub" data-sub="tk"><div class="row"><span class="act" tabindex="0">Old Hesk · About the spare weapon…</span><span class="k ready">new</span></div><div class="row"><span class="act" tabindex="0">Dunstan, the village trader</span><span class="m"></span></div></div>
-  <div class="verb dim" tabindex="0" aria-disabled="true"><span class="key">7</span><span class="ic">⚑</span><span>Train</span><span class="mark">no trainer here</span></div>
+  <div class="location_choice_dropdown choice_train verb dim" tabindex="0" aria-disabled="true" data-ready-mark="no trainer here" data-ready-mark-state="reason"><span class="key">7</span><span class="ic">⚑</span><span>Train</span></div>
   <div class="cap">Fixed order and icon; number key = place in the list; a verb with nothing to do keeps its slot, dimmed, with its reason. Opening one pushes nothing above it. Each verb opens its targets as rows under it, with time in brackets and ⚠ on a known danger (DU8). Try Move.</div>
 </section>
 
-<section class="cell"><h2>4 · Ready mark <code>.mark .k · PS120, PS54</code></h2>
-  <div class="verb ready" id="pulseA" tabindex="0"><span class="key">2</span><span class="ic">⚒</span><span>Try to craft something</span><span class="mark k ready" id="readyMark">2 ready</span></div>
-  <div class="verb near"><span class="key">2</span><span class="ic">⚒</span><span>Try to craft something</span><span class="mark k near">1 close · needs 2 sinew</span></div>
-  <div class="verb"><span class="key">9</span><span class="ic">●</span><span>Take an action</span><span class="mark k ready">story: 2 choices</span></div>
+<section class="cell"><h2>4 · Ready mark <code>[data-ready-mark] · PS120, PS54</code></h2>
+  <div class="location_choice_dropdown choice_craft verb ready" id="pulseA" tabindex="0" data-ready-mark="2 ready" data-ready-mark-state="ready"><span class="key">2</span><span class="ic">⚒</span><span>Try to craft something</span></div>
+  <div class="location_choice_dropdown choice_craft verb near" data-ready-mark="1 close · needs 2 sinew" data-ready-mark-state="near"><span class="key">2</span><span class="ic">⚒</span><span>Try to craft something</span></div>
+  <div class="location_choice_dropdown choice_action verb" data-ready-mark="story: 2 choices" data-ready-mark-state="ready"><span class="key">9</span><span class="ic">●</span><span>Take an action</span></div>
   <div class="cap">The mark is Ready now's row folded onto its verb: a count and a noun ("1 new", "2 hungry", "1 ready"), or the one thing missing when near. No mark = nothing waiting. Ready = green inset edge with one pulse when it becomes ready (feel-finish: --feel-ready-edge, PS154); near = a 1px dashed gold outline.</div>
 </section>
 
@@ -216,7 +224,7 @@ main[hidden] { display:none; } .pager { margin-left:auto; color:var(--gold); bor
 </section>
 
 <section class="cell"><h2>6 · State tokens <code>--ui-state-* · PS103, PS133</code></h2>
-  <div><span class="chip k ready">ready</span><span class="chip k near">one short · 2 sinew</span><span class="chip k far">far off · 3 of 7</span><span class="chip k blocked">blocked · bench in use</span></div>
+  <div><span class="chip here-chip k ready">ready</span><span class="chip here-chip k near">one short · 2 sinew</span><span class="chip here-chip k far">far off · 3 of 7</span><span class="chip here-chip k blocked">blocked · bench in use</span></div>
   <div class="row"><span>Bonemeal</span><span class="k ready">ready</span></div>
   <div class="row"><span>Sinew cord</span><span class="k near">needs 2 sinew</span></div>
   <div class="row"><span>Bone needle</span><span class="k far">needs Bone tools</span></div>
@@ -356,7 +364,7 @@ function beat() {
   step++;
   const ready = step % 2 === 1, v = $('pulseA');                       // near -> ready, then back (PS154)
   v.classList.toggle('ready', ready); v.classList.toggle('near', !ready);
-  $('readyMark').className = 'mark k ' + (ready ? 'ready' : 'near'); $('readyMark').textContent = ready ? '2 ready' : '1 close · needs 2 sinew';
+  v.dataset.readyMarkState = ready ? 'ready' : 'near'; v.dataset.readyMark = ready ? '2 ready' : '1 close · needs 2 sinew';
   if (ready) restart(v, 'became');
   $('haveN').textContent = 68 - (step % 4) * 6;
   restart($('pulseB'), 'isnew');                                       // a new item pulses once (PS153)
