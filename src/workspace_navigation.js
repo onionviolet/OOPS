@@ -60,7 +60,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     // G7: a life that holds its own things and has nothing to do under Here opens on its own panel (LAYOUT_SPEC.lifeHome),
     // once per arrival at a place, so Back still returns to Here and stays there. A default; set lifeHome to '' to turn it off.
     let lifeHomeShownFor='';
-    const hereIsEmpty=()=>{const host=document.getElementById('location_actions_div');return !host||![...host.children].some(el=>!('lifeDay' in (el.dataset||{}))&&!('readyHub' in (el.dataset||{}))&&!el.hidden&&el.style?.display!=='none'&&!el.classList?.contains('none_display')&&(el.getClientRects?el.getClientRects().length>0:true)&&(el.textContent||'').trim());};
+    const hereIsEmpty=()=>{const host=document.getElementById('location_actions_div');return !host||![...host.children].some(el=>!el.hidden&&el.style?.display!=='none'&&!el.classList?.contains('none_display')&&(el.getClientRects?el.getClientRects().length>0:true)&&(el.textContent||'').trim());};
     const lifeHomeTimer=setInterval(()=>{if(!nav.isConnected){clearInterval(lifeHomeTimer);return;}
         const target=LAYOUT_SPEC.lifeHome;if(!target||document.documentElement.dataset.startScreen!=='closed')return;
         const world=readPort('expansion')?.actors?.player?.worldId,key=`${world}:${document.getElementById('location_name_span')?.textContent||''}`;
