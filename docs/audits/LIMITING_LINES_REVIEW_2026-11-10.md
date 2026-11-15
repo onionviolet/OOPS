@@ -45,6 +45,29 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 | LLR36 | XWR27 | A counterpart in a branch or parallel world is a different person after the fork, and meeting one's own counterpart is meeting a stranger | Multiverse structures' branching row | Counterparts keep a link by default (shared memory, a bond), by world |
 | LLR37 | MND5 mood gates (`moodAtLeast` on Dunn's funding question and Ron's charm practice) | A sour person refuses an offer for a day or two, even with regard high enough | Canon people act on how they feel (Ron is short after a charm goes wrong for him); a person with a reason, never a penalty | Mood shapes the answer without refusing: a sour Ron practises badly or briefly, a warm one adds more |
 
+## Older proposed sets, 2026-11-14
+
+The same sort, applied to rule sets written before AD56 ([status reconciliation](RULES_STATUS_RECONCILIATION_2026-11-14.md)). Everything else in those sets is now a working default, restates accepted direction, or is a process rule listed there for one answer per set. Also waiting: SPR17 goes with LLR2, and GTR8 goes with LLR13. Already answered: GTR25 follows LLR12.
+
+| Code | Line | What it limits | Why the agent proposed it | Open alternative |
+| --- | --- | --- | --- | --- |
+| LLR38 | SPR26 | NPCs and the player always share quote and eligibility functions, "never the rule" | One function keeps NPC and player costs honest | Shared by default, with an exception for an in-world reason and cost (AD5) |
+| LLR39 | PAC3, OPN5 | Numeric targets per start (30/60/240/90 minutes; 6 presses to a visible change, 20 to a payoff) that fail the check | Starts drifted slow | Targets as guidance a world may exceed with a stated reason; PAC owns the numbers and OPN5 points at them |
+| LLR40 | PAC4 | Every start shows an acted payoff within the first hour | A start with no early reward reads as broken | A prompt; a canon wait is named on the first screen |
+| LLR41 | OPN2 | About 300 words before the first action, no block over 60 | Prose walls before play | Guidance; longer setup folds into Details (PRS3) |
+| LLR42 | OPN7 | No run of 6 presses without a visible change | Silent stretches read as broken | Fold into PAC7: a wait names its reason or what ends it |
+| LLR43 | GTR33 | Scarce items live in one world ledger, so one gain is another's absence | Keeps scarce keys scarce | Duplication possible through a mechanism with a cost (AD38) |
+| LLR44 | World completion standard, random starts first implementation | A bounded pool of qualified starts; reroll and fallback wait until specified | Each start needs a coherent snapshot | Any compatible start can be drawn; reroll as a dial |
+| LLR45 | ABR1 | No invented ability fills a gap in the source unless he asks | Keeps book powers faithful | A labelled original ability wherever the world implies one |
+| LLR46 | UR79 | A new UI shape needs two consumers | Stops one-off widgets | A new shape with its first known consumer (AD51, UR98) |
+| LLR47 | PGC4, PGC5 | Grammar rules reject by default, including unknown parts in closed slots | Malformed output stays out | Flag by default; reject only a malformed shape or world law; `unknown-part` becomes a flag like `novel-part` |
+| LLR48 | PGC13, WSC19, PC81 | A new effect verb or object needs a second consumer; `will`, `space` and `belief` held back | One vocabulary across worlds | Add on the first known consumer with a canon effect the set cannot express (AD51) |
+| LLR49 | PGC17 | New effects off the price curve ("pays") or the spread are rejected | Guards balance | Report and rank, as PC73 does; AD5 says balance is not forced |
+| LLR50 | PC19 | Cross-world transfer novelty (level 2) only with a named contact between worlds | Novelty needs a cause | Any actor with the means; the contact is the cause, not the gate |
+| LLR51 | PC69 | An unseen pair of parts defaults to no interaction | Unknown pairs stay inert | Laws that read properties compute it; neutral only where no mechanism applies (AD38) |
+| LLR52 | PROCEDURAL_CARRY_OUT tie-in, "no new combat system" | Closes the option of another combat system | The contest seam covers fights | New kinds of fight become contest packs; revisit if a case fails |
+| LLR53 | PROCEDURAL_CORE PC20/Q2, Q3, Q5, Q7 | `grammar_search` moved to palette; wiki-only Gu stay catalogued; upstream systems wait; facet breadth after verticals | Ordering the engine work | All stay buildable, and the split sets order only; already open as Q2, Q3, Q5, Q7 there |
+
 ## Answers so far
 
 First to fourth rounds, 2026-11-10 ([first](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-first-round-2026-11-10), [second](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-second-round-2026-11-10), [third](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-third-round-2026-11-10), [fourth](../gm/USER_VISION_LOG_2026-11.md#answers-on-llr32-and-llr33-and-ui-research-sent-2026-11-10)):

@@ -36,7 +36,7 @@ ${routerRows}
 
 test("a register code family absent from the router warns without failing", () => {
     const {status, out} = runCheck(fixture(
-        "| Routed set | ZA1–ZA3 | s | c | [Owned](OWNED.md) |\n| Orphan set | QQ1–QQ3 | s | c | [Owned](OWNED.md) |",
+        "| Routed set | ZA1–ZA3 | Accepted | c | [Owned](OWNED.md) |\n| Orphan set | QQ1–QQ3 | Accepted | c | [Owned](OWNED.md) |",
         "| anything | ZA1–ZA3 | [Owned](OWNED.md) |"));
     assert.equal(status, 0);
     assert.match(out, /Orphan set: code family QQ appears in no router row/);
@@ -45,7 +45,7 @@ test("a register code family absent from the router warns without failing", () =
 
 test("a register owner link under docs/gm/dispatch warns without failing", () => {
     const {status, out} = runCheck(fixture(
-        "| Dated set | ZB1–ZB3 | s | c | [Working](gm/dispatch/WORKING.md) |\n| Standing set | ZC1–ZC3 | s | c | [Owned](OWNED.md) |",
+        "| Dated set | ZB1–ZB3 | Accepted | c | [Working](gm/dispatch/WORKING.md) |\n| Standing set | ZC1–ZC3 | Accepted | c | [Owned](OWNED.md) |",
         "| anything | ZB1–ZB3, ZC1–ZC3 | [Owned](OWNED.md) |"));
     assert.equal(status, 0);
     assert.match(out, /Dated set: owner link gm\/dispatch\/WORKING\.md is under docs\/gm\/dispatch\//);
@@ -53,7 +53,7 @@ test("a register owner link under docs/gm/dispatch warns without failing", () =>
 });
 
 const mixed = (citation = 'UR1–UR3, BHR1–BHR2') => fixture(
-    '| UI | UR1–UR3 (UR1–UR2 standing; UR3 proposed) | s | c | [Owned](OWNED.md) |\n| Health | BHR1–BHR2 | s | c | [Owned](OWNED.md) |',
+    '| UI | UR1–UR3 (UR1–UR2 standing; UR3 proposed) | Accepted | c | [Owned](OWNED.md) |\n| Health | BHR1–BHR2 | Accepted | c | [Owned](OWNED.md) |',
     `| task | ${citation} | [Owned](OWNED.md) |`);
 const definitions = '# Owned\n\n| UR1 | first |\n| UR2 | second |\n| UR3 | proposed |\nBHR1. First\nBHR2. Second\n';
 
@@ -109,4 +109,13 @@ test('reversed registered ranges fail', () => {
     const r = runCheck(mixed().replace('BHR1–BHR2', 'BHR2–BHR1'), {'OWNED.md': definitions});
     assert.equal(r.status, 1);
     assert.match(r.out, /reversed range/);
+});
+test('a register Status cell without a status word fails; Mixed needs two states', () => {
+    const rows = s => fixture(`| Set | ZA1–ZA3 | ${s} | c | [Owned](OWNED.md) |`, '| anything | ZA1–ZA3 | [Owned](OWNED.md) |');
+    assert.equal(runCheck(rows('Working default 2026-11-10 (AD56)')).status, 0);
+    assert.equal(runCheck(rows('Mixed: Accepted ZA1–ZA2; Proposal ZA3')).status, 0);
+    const bad = runCheck(rows('Standing 2026-10-16'));
+    assert.equal(bad.status, 1);
+    assert.match(bad.out, /Set: Status must open with/);
+    assert.equal(runCheck(rows('Mixed: Accepted only')).status, 1);
 });

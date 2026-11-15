@@ -38,6 +38,17 @@ for (const f of ruleFiles) {
   if (!registered.has(resolve(docs, f))) fail(`rulebook docs/${f} has no row in the Register of rule sets`);
 }
 
+// 1a. Status words (RIX3, 2026-11-14): each Status cell opens with one of the
+// three states in "Status words", or "Mixed:" naming at least two of them.
+const STATES = ['Accepted', 'Working default', 'Proposal'];
+for (const r of register) {
+  const name = r[0] || r[1], status = r[2] || '';
+  const lead = STATES.find(s => status.startsWith(s));
+  if (lead) continue;
+  if (/^Mixed:/.test(status) && STATES.filter(s => status.includes(s)).length >= 2) continue;
+  fail(`${name}: Status must open with ${STATES.join(', ')} or "Mixed:" naming two of them (found "${status.slice(0, 40)}")`);
+}
+
 // 1b. Routing and ownership warnings (RIX2): a code family no router row names,
 // and an owner link under docs/gm/dispatch/ (a dated working document).
 const routerText = sectionOf(index, 'Router: what applies to my task');

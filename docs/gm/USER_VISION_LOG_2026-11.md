@@ -1509,6 +1509,7 @@ Recorded as a standing rule. It extends the [finished-worktree cleanup of 2026-1
 
 `scripts/tauri/adopt.mjs` now cleans its scratch and prunes the app's builds to current and latest at the end of a swap, and has a `clean` command for failed runs.
 
+
 ## UI directions A, B, D and F adopted, and a chat for cohesion, 2026-11-14
 
 Weibao, after the [one-flow mock](../../prototypes/fight-intent-2026-11-14/flow.html) and the question whether to adopt the A + B + D + F package: "First fix ABDF, then Send chat to address this in it's entirety,  cohesiveness of ui and more? making things make sense?"
@@ -1541,3 +1542,17 @@ Problems seen in that capture (agent reading):
 - The fight opener with its strip sits in the same scroll.
 - The world intro text and the place text follow, also in the same scroll.
 - No panel headers, and sections are told apart only by indentation.
+
+## Rule statuses made coherent; reconcile closes the loop, 2026-11-14
+
+Weibao: "I meant like, to stardardize make things coherent? make things better in a way together? Whats iwth all the proposed rulebooks? how can we improve preflight and existing rulebooks?" Then, on the agent's O1–O5 answer: "Start accordingly, consider why /reconcile-project didnt fix that? improve reconcile accordingly?"
+
+Recorded: O1 and O2 started under that instruction ([status reconciliation](../audits/RULES_STATUS_RECONCILIATION_2026-11-14.md), RSR1–RSR7):
+- **Three status words.** The rules index has three status words: Accepted (AD32), Working default (AD56) and Proposal. Every register row opens with one of them, or "Mixed:", and `check:rules` enforces it (RIX3).
+- **Older proposed sets sorted under AD56.** Lines that widen play are working defaults. Lines that limit play are held as LLR38–LLR53 in the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md#older-proposed-sets-2026-11-14). Process rules wait for one answer per set (RSR P1–P5).
+- **reconcile-project.** It guarded only against false adoption, so it never routed a proposal. It now has a status-hygiene step: a label census, label against enforcement, and a route plus a decision packet for every proposal.
+
+Still waiting for him:
+- LLR38–LLR53
+- P1–P5
+- O3 (one preflight card) and O4 (one rulebook shape), which are not started
