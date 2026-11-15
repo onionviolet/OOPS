@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>YAIR columns mock</title>
+<!-- Round 14 (PS119-PS128, proposals, AD32). Weibao on round 13: "meh, look at how yair does it, and the groupings,
+     consider in depth accordingly?" A 1920x1080 mock in YAIR's four fixed columns, not a build: 1 You, 2 Place and
+     action (time strip, location box, the actions box that modes replace in place), 3 Journal box and Skills box,
+     4 Reports with YAIR's footer filters. No top bar; Save, Export, Import, Options and Menu sit in the footer.
+     Text comes from the game's own screens (Village home on perf-mid, Fang Yuan's day on ri-fang-yuan-ice-crystal,
+     Crafting, a wolf rat fight in the Infested field). Open with ?screen=village|fy|craft|fight|map&opt=mock|today|yair,
+     or keys 1-5 for the screen and t / y / m for Today, YAIR, Mock. -->
+<style>
+:root { --bg:#0a0d24; --box:#141b45; --head:#1d2a66; --line:#5b63b0; --quiet:#2d3570; --text:#e8ecff; --muted:#a3abd6; --gold:#ffd24a;
+  --green:#3fd27a; --teal:#1f5f5a; --rep:#2a1d4d; --hp:#ff6b6b; --xp:#b5a36a; --st:#4ee07a; --mana:#7f8ed8; --danger:#ff9d57; }
+* { box-sizing:border-box; }
+html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--bg); color:var(--text); font:15px/1.35 system-ui, -apple-system, "Segoe UI", sans-serif; }
+#ref { position:absolute; inset:0; width:1920px; height:1080px; object-fit:contain; background:#000; display:none; }
+body:not([data-opt="mock"]) #ref { display:block; } body:not([data-opt="mock"]) #frame { display:none; }
+/* Four fixed columns (PS119). YAIR sizes them for 1366; at 1920 the extra width goes to columns 2 and 3 (PS128). */
+.col { position:absolute; top:10px; bottom:46px; display:flex; flex-direction:column; gap:10px; min-height:0; }
+.c1 { left:14px; width:372px; } .c2 { left:398px; width:640px; } .c3 { left:1050px; width:470px; } .c4 { left:1532px; width:374px; }
+.box { background:var(--box); border:1px solid var(--line); border-radius:6px; display:flex; flex-direction:column; min-height:0; flex:0 1 auto; overflow:hidden; }
+.box.grow { flex:1 1 auto; } .box.teal { background:#0f2b33; border-color:#2b8a80; } .box.rep { background:var(--rep); border-color:#7a5ab0; }
+.box > h3 { margin:0; padding:7px 10px; font-size:15px; background:rgba(255,255,255,.04); border-bottom:1px solid var(--quiet); display:flex; justify-content:space-between; gap:8px; }
+.box > h3 small { color:var(--gold); font-weight:600; }
+.box > .body { padding:6px 10px; overflow:auto; min-height:0; flex:1 1 auto; }
+.bar { position:relative; height:19px; margin:3px 0; border-radius:2px; text-align:center; font-size:12px; line-height:19px; color:#111; }
+.bar i { position:absolute; inset:0; width:var(--f); background:var(--c); border-radius:2px; } .bar span { position:relative; }
+.bar.empty { background:#2a2f55; }
+.grid { display:grid; grid-template-columns:1fr auto 1fr auto; border:1px solid var(--quiet); font-size:14px; }
+.grid span { padding:2px 6px; border-bottom:1px solid var(--quiet); } .grid span:nth-child(even) { text-align:right; border-right:1px solid var(--quiet); }
+.tabs { display:flex; gap:4px; flex-wrap:wrap; margin:6px 0 2px; } .tab { flex:1; text-align:center; border:1px solid var(--line); border-radius:4px; padding:3px 6px; background:#24306e; font-size:14px; white-space:nowrap; }
+.tab.on { background:var(--gold); color:#151515; font-weight:700; } .tab.sm { flex:0 0 auto; font-size:13px; }
+.row { display:flex; justify-content:space-between; gap:8px; padding:3px 0; border-bottom:1px solid var(--quiet); font-size:14px; }
+.m { color:var(--muted); } .g { color:var(--gold); } .warn { color:var(--danger); } .ok { color:var(--green); }
+/* Column 2: the time strip with the day strip, the location box and the actions box. */
+.time { display:flex; justify-content:space-between; font-size:18px; padding:8px 12px; } .time b { font-weight:700; }
+.daystrip { position:relative; height:12px; margin:0 12px 8px; border:1px solid var(--quiet); background:#1a2456; }
+.daystrip i { position:absolute; inset:0; width:var(--now); background:#3a56b8; } .daystrip b { position:absolute; top:-2px; bottom:-2px; left:var(--now); width:3px; background:var(--gold); }
+.loc { padding:8px 12px; } .loc .name { font-size:20px; } .loc .desc { font-style:italic; color:var(--muted); margin:4px 0 6px; }
+.loc .here a { color:var(--text); text-decoration:underline; text-underline-offset:3px; }
+.status2 { padding:6px 12px; font-size:14px; border-top:1px solid var(--quiet); }
+.verb { display:flex; align-items:center; gap:10px; border:1px solid #6d6a8a; border-radius:3px; padding:7px 10px; margin:6px 0; font-size:17px; background:rgba(255,255,255,.02); }
+.verb .ic { width:22px; text-align:center; color:var(--text); font-size:17px; } .verb .mark { margin-left:auto; font-size:13px; color:var(--gold); }
+.verb .mark.near { color:var(--muted); } .verb.open { border-color:var(--gold); }
+.sub { margin:-2px 0 6px 34px; } .sub .row { font-size:14px; } .sub .act { border:1px solid var(--line); border-radius:3px; padding:1px 8px; }
+.sub .act.near { border-style:dashed; color:var(--muted); }
+.head-run { border:1px solid var(--gold); border-radius:3px; padding:6px 10px; margin:4px 0 8px; } .head-run .bar { height:8px; }
+/* Column 4: Reports with YAIR's footer filters plus Ready and Story (PS124). */
+.log .row { justify-content:center; text-align:center; font-size:13.5px; } .log .row.place { color:var(--gold); font-weight:700; }
+.rightnow { border-bottom:1px solid var(--quiet); padding:4px 0 8px; font-size:14px; }
+.filters { display:flex; flex-wrap:wrap; gap:3px; padding:6px 8px; border-top:1px solid var(--quiet); }
+.filters span { border:1px solid var(--gold); color:var(--gold); padding:2px 6px; font-size:13.5px; border-radius:3px; } .filters span.new { border-style:dashed; }
+/* Footer (PS123): no top bar. */
+.foot { position:absolute; left:0; right:0; bottom:0; height:38px; display:flex; align-items:center; gap:2px; background:#070a1c; border-top:1px solid var(--gold); padding:0 8px; font-size:16px; }
+.foot span { padding:6px 10px; } .foot .mid { margin-left:auto; } .foot .mid span, .foot .menu { border:1px solid var(--line); border-radius:4px; margin:0 3px; padding:3px 10px; }
+.foot .r { margin-left:auto; color:var(--muted); font-size:13px; }
+.menu-pop { position:absolute; bottom:40px; background:#070a1c; border:1px solid var(--gold); padding:4px 0; font-size:14px; display:none; z-index:5; }
+.menu-pop div { padding:2px 14px; } .menu-pop .h { color:var(--muted); font-size:12px; }
+body.menus .menu-pop { display:block; }
+/* Fight card replaces column 2's middle (PS121). */
+.fight .opp { border:1px solid var(--line); border-radius:3px; padding:4px 8px; margin-bottom:6px; }
+.fight .stats { display:flex; gap:14px; font-size:13px; color:var(--muted); } .fight .hpbar { height:20px; background:#3a1010; border-radius:2px; position:relative; text-align:center; font-size:13px; line-height:20px; }
+.fight .hpbar i { position:absolute; left:0; top:0; bottom:0; width:var(--f); background:#e23b3b; border-radius:2px; } .fight .hpbar span { position:relative; }
+.approach { display:flex; gap:6px; font-size:13px; margin-bottom:6px; } .approach span { border:1px solid var(--line); border-radius:3px; padding:2px 8px; } .approach span.on { border-color:var(--gold); color:var(--gold); }
+.empty-slot { border-top:1px solid var(--quiet); height:46px; }
+/* Mapping screen (PS125). */
+.map { position:absolute; inset:10px 14px 46px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; gap:14px; font-size:13.5px; }
+.map table { border-collapse:collapse; width:100%; } .map th, .map td { border:1px solid var(--quiet); padding:3px 7px; text-align:left; vertical-align:top; } .map th { background:var(--head); }
+.map h2 { font-size:16px; margin:4px 0; color:var(--gold); }
+.note { position:fixed; left:398px; bottom:42px; font-size:11px; color:var(--muted); }
+#pick { position:fixed; right:14px; bottom:44px; z-index:9; background:#000c; border:1px solid var(--gold); padding:5px 7px; font-size:12px; }
+#pick button { font:inherit; color:var(--text); background:#1a2456; border:1px solid var(--line); margin:1px; padding:2px 6px; cursor:pointer; }
+#pick button[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
+body.shot #pick, body.shot .note { display:none; }
+</style>
+</head>
+<body data-opt="mock">
+<img id="ref" alt="Comparison capture">
+<div id="frame">
+  <div class="col c1" id="c1"></div><div class="col c2" id="c2"></div><div class="col c3" id="c3"></div><div class="col c4" id="c4"></div>
+  <div class="map" id="map" hidden></div>
+  <div class="foot"><span>Save</span><span>Export</span><span>Import</span><span>⚙ Options</span><span class="menu">Menu ▴</span><span>Find</span>
+    <div class="mid"><span>Layout ▴</span></div><span class="r">v0.6 · autosave on</span></div>
+  <div class="menu-pop" style="left:290px"><div class="h">Menu</div><div>Keys</div><div>Shortcuts</div><div>Connection</div><div class="h">Tools (development)</div><div>Data pages · Capability runs</div><div>All panels…</div><div>Projects · Ledger</div><div>Iona's workshop ledger</div></div>
+</div>
+<div class="note" id="note"></div>
+<div id="pick"><span>Screen</span> <button data-s="village">1 Village</button><button data-s="fy">2 Fang Yuan</button><button data-s="craft">3 Crafting</button><button data-s="fight">4 Fight</button><button data-s="map">5 Mapping</button>
+  · <button data-o="mock">Mock</button><button data-o="today">Today</button><button data-o="yair">YAIR</button> · <button id="menus">Menu</button></div>
+<script>
+const h = (t, c, x) => `<${t}${c ? ` class="${c}"` : ''}>${x}</${t}>`;
+const box = (title, sub, body, cls = '') => `<section class="box ${cls}">${title ? `<h3><span>${title}</span><small>${sub || ''}</small></h3>` : ''}${h('div', 'body', body)}</section>`;
+const bar = (t, c, f) => `<div class="bar${f ? '' : ' empty'}" style="--c:${c};--f:${f}%"><i></i><span>${t}</span></div>`;
+const grid = pairs => h('div', 'grid', pairs.map(([k, v]) => `<span>${k}</span><span>${v}</span>`).join(''));
+const tabs = (list, on, cls = '') => h('div', 'tabs', list.map(t => `<span class="tab ${cls}${t === on ? ' on' : ''}">${t}</span>`).join(''));
+const verb = (ic, name, mark = '', cls = '', sub = '') => h('div', `verb ${cls}`, `<span class="ic">${ic}</span><span>${name}</span>${mark ? `<span class="mark ${mark.startsWith('~') ? 'near' : ''}">${mark.replace(/^~/, '')}</span>` : ''}`) + (sub ? h('div', 'sub', sub) : '');
+const subrow = (label, right, near) => h('div', 'row', `<span class="act${near ? ' near' : ''}">${label}</span><span class="m">${right}</span>`);
+const STATS = grid([['Strength:', '12.0'], ['Agility:', '8.0'], ['Dexterity:', '10.0'], ['Intuition', '10.0'], ['Defense:', '1.0'], ['Magic:', '0.0'], ['Atk power:', '1.2'], ['Atk spd:', '1.0'], ['Crit rate:', '5.0%'], ['Crit mult:', '130.0%'], ['AP:', '32'], ['EP :', '25']]);
+const C1 = ({name = 'Hero', lv = 0, hp = '60/60 hp', st = '40/40 stamina', effects = '0', effectLine = '', invTab = 'Inventory', inv, combat}) => [
+  box('Character vitals', `Lv ${lv}`, h('div', 'tab', name) + bar('0 / 10 xp', 'var(--xp)', 0) + bar(st, 'var(--st)', 100) + bar('0/0 mana', 'var(--mana)', 0) + bar(hp, 'var(--hp)', parseInt(hp) / parseInt(hp.split('/')[1]) * 100), 'teal'),
+  box('Character & preparation', '', h('div', 'row', '<b>Lvl: 0</b><span></span>') + STATS + h('div', 'row', `<span>Active effects:</span><span class="${effects === '0' ? '' : 'warn'}">${effects}</span>`) + effectLine + tabs(['Stats', 'Bio', 'Equipment', 'Tools'], 'Stats', 'sm'), 'teal'),
+  box('Inventory & combat view', '', tabs(['Inventory', 'Combat'], invTab) + (invTab === 'Combat' ? combat : inv), 'teal grow'),
+].join('');
+const VILLAGE_INV = h('div', 'm', 'Your purse contains: 10C · 4W') + ['☆ Ledger workshop cache · 2W', '☆ Prepared survey kit ×2 · 2W', '☆ Sealed survey parcel ×2 · 3W', '☆ Stale bread ×5 [use] · 2C', '☆ [legs] Cheap leather pants [40%] [equip] · 4C 6W'].map(t => h('div', 'row', `<span>${t.split(' · ')[0]}</span><span>${t.split(' · ')[1]}</span>`)).join('') + tabs(['Sort by name', 'Sort by value', 'Sort by type'], 'Sort by name', 'sm');
+const JOURNAL = (on, list) => box('Journal & received accounts', '', tabs(['Quests', 'Bestiary', 'Anthology', 'Data'], on) + tabs(['Knows', 'Notebook', 'People', 'Worlds', 'Beginning'], on, 'sm') + list + h('div', 'row', '<span></span><span class="m">Hide completed ☐</span>'));
+const SKILLS = (on, extra, list) => box('Skills & practice', '', list + h('div', 'row', '<span></span><span class="m">Hide max level skills ☐</span>') + tabs(['Sort by name', 'Sort by level', 'Sort by progress'], 'Sort by name', 'sm') + tabs(['Skills', 'Stances', 'Magic', ...extra], on), 'grow');
+const REPORTS = (rightNow, lines, extra = '') => `<section class="box rep grow"><h3><span>Reports</span><small>${extra}</small></h3><div class="body log">${h('div', 'rightnow', rightNow)}${lines.map(l => h('div', `row ${l.startsWith('[') ? 'place' : ''}`, l)).join('')}</div>` +
+  h('div', 'filters', ['Levels / unlocks', 'Events', 'Crafting', 'Combat', 'Loot', 'BGM'].map(f => `<span>${f}</span>`).join('') + '<span class="new">Ready</span><span class="new">Story</span>') + '</section>';
+const VILLAGE_TIME = (time, temp, now) => box('', '', h('div', 'time', `<span>${time}</span><span>${temp}</span>`) + `<div class="daystrip" style="--now:${now}"><i></i><b></b></div>`);
+const VILLAGE_LOC = box('', '', h('div', 'loc', h('div', 'name', '☆ Village') + h('div', 'desc', 'Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.') + h('div', 'here', 'Here: <a>2 people</a> · <a>6 stations</a> · <a>3 ways out</a>')) + h('div', 'status2', 'No work running.&nbsp;&nbsp; Saving available.'));
+const SCREENS = {
+  village: {
+    ref: {today: 'today-village.jpg', yair: 'upstream-dev-town.png'},
+    c1: C1({inv: VILLAGE_INV}),
+    c2: [VILLAGE_TIME('01/04/999 08:12, Summer, Mon, <b>Day</b>', '14.9°C', '35%'), VILLAGE_LOC,
+      box('Local actions', '1 new · 2 close', verb('⇢', 'Move somewhere else', '3 ways') + verb('⚒', 'Try to craft something', '~2 close') + verb('⚗', 'Mix at the Village counter') +
+        verb('❝', 'Talk to someone', '1 new', 'open', subrow('Old Hesk, the village elder · About the spare weapon…', 'new') + subrow('Dunstan, the village trader', '')) +
+        verb('⚖', 'Visit a merchant') + verb('▤', 'Find work', '5C / 2 h') + verb('⚑', 'Train') + verb('⌕', 'Gather resources', 'herb verge') +
+        verb('●', 'Take an action', '3 ready', '', subrow('Local life', '3 of 6 ready') + subrow('Village practice and familiar ground', '')) + verb('⌂', 'Your home', 'Furniture · 1 ready') + verb('⚠', 'Take on a challenge', '~Reed-circle rung'), 'grow')].join(''),
+    c3: JOURNAL('Quests', h('div', 'row', '<b>Lost memory</b><span class="m">1 of 2</span>') + h('div', 'row', '<span class="m">☑ Find out what happened</span><span></span>') + h('div', 'row', '<span>☐ Help with the wolf rat infestation</span><span></span>')) +
+      SKILLS('Skills', [], h('div', 'row', '<span>Running</span><span class="m">Lv 0</span>') + h('div', 'row', '<span>Weightlifting</span><span class="m">Lv 0</span>')),
+    c4: REPORTS('<b class="g">Right now</b><br>Ask the elder about the spare weapon and pick one, or go without. <span class="m">Talk to someone › Old Hesk › "About the spare weapon...".</span>', ['Nothing has happened yet this sitting.', '[ Home · 01/04/999, Summer, Mon ]']),
+    note: 'Village home. Around you is one line in the location box; each count opens its verb. Verbs in YAIR\'s order and icons; Ready now marks verbs ("1 new", "2 close").',
+  },
+  fy: {
+    ref: {today: 'today-fang-yuan.jpg', yair: 'native-yair.jpg'},
+    c1: C1({name: 'Gu Yue', hp: '60/60 hp', st: '42/42 stamina', effects: '1', effectLine: h('div', 'row', '<span class="warn">Freezing · 1h</span><span class="m">stamina ×0.3 · all xp ×0.6</span>'),
+      inv: h('div', 'm', '792 primeval stones · 102 Village coins') + ['Battle merit ×30', 'Beast-skin map', 'Dormitory guard’s sabre [equip]', 'Earth Communication Ear Grass', 'Four Flavours Liquor Worm', 'Half a primeval stone', 'Hidden lightning wolf eye ×6', 'Hundred-year bitter shell · broken ×2', 'Jar of green bamboo wine ×25', 'Jia Fu’s token'].map(t => h('div', 'row', `<span>☆ ${t}</span>`)).join('')}),
+    c2: [VILLAGE_TIME('Gu Yue · 16 October, year 1 14:43, <b>Autumn</b>', 'essence 3/44', '57%'),
+      box('', '', h('div', 'loc', h('div', 'name', '☆ Clan academy') + h('div', 'desc', 'Pupils who opened their apertures sit at low desks. The elder shows the class how to sense the sea and move its essence.') + h('div', 'here', 'Here: <a>the alliance board</a> · <a>the village stalls</a> · <a>the Gu room</a>')) + h('div', 'status2', 'No work running.&nbsp;&nbsp; Saving available.&nbsp;&nbsp; <span class="g">Banked time: 6 days 1 h</span>')),
+      box('Local actions', '8 ready · 7 close', verb('◐', 'Feed your Gu', '2 hungry', 'open', subrow('Feed the Moonglow Gu', 'missed a meal') + subrow('Feed the Four Flavours Liquor Worm', 'missed a meal') + subrow('Feed the White Jade Gu', 'needs jade rock', true)) +
+        verb('◎', 'Practise', '1 ready', '', '') + verb('⚖', 'Visit a merchant', '3 ready · 2 close') + verb('▣', 'Hand in at the alliance board', '1 ready') + verb('⇢', 'Patrol the wolf tide', '~Gu hungry') + verb('✚', 'Bind your wound and rest', '~not hurt') + verb('●', 'Take an action', 'story: 2 choices'), 'grow')].join(''),
+    c3: JOURNAL('Quests', h('div', 'row', '<b>Across the Threshold</b><span class="ok">done</span>') + h('div', 'row', '<span>Practice the Moonlight and Little Light pairing</span><span class="m">next</span>')) +
+      SKILLS('Gu', ['Gu'], h('div', 'row', '<b>Moonglow Gu</b><span class="warn">hungry · missed a meal</span>') + h('div', 'row', '<b>Four Flavours Liquor Worm</b><span class="warn">hungry</span>') + h('div', 'row', '<b>White Jade Gu</b><span class="m">needs 1 parcel of jade rock</span>') + h('div', 'row', '<span>Green-copper primeval essence</span><span class="m">3/44</span>')),
+    c4: REPORTS('<b class="g">Right now · Story</b><br>Choose: <b>Practice the Moonlight and Little Light pairing</b> or <b>Fang Yuan returns when the fighting quiets</b>. <span class="m">Not available yet: the next 3.</span>', ['While you were away: banked 6 days 1 h.', 'Spend 1 h of banked time', '[ Gu Yue · 16 October, year 1, Autumn ]', 'Deed done: Across the Threshold.']),
+    note: 'Fang Yuan. Same four columns; his verbs (Feed, Practise, Hand in, Patrol) sit in Local actions, his Gu in the Skills box\'s Gu tab, the story\'s choices at the head of Reports.',
+  },
+  craft: {
+    ref: {today: 'today-crafting.jpg', yair: 'native-yair.jpg'},
+    c1: C1({inv: VILLAGE_INV}),
+    c2: [VILLAGE_TIME('01/04/999 08:12, Summer, Mon, <b>Day</b>', '14.9°C', '35%'), VILLAGE_LOC,
+      box('Crafting · Tinkering', '← Back to Local actions', tabs(['Tinkering', 'Butchering', 'Cooking', 'Woodworking', 'Smelting', 'Forging', 'Alchemy'], 'Tinkering', 'sm') +
+        h('div', 'm', 'One short · 10') + [['Wool cloth', 5], ['Fine wool cloth', 5], ['Sinew string', 5], ['Flax string', 5], ['Bonemeal', 20], ['Wolf trophy', 4]].map(([n, k], i) => h('div', 'row', `<span${i ? '' : ' class="g"'}>${n}</span><span class="g">short ${k} of something unfamiliar</span>`)).join('') + h('div', 'row', '<span class="m">▸ Far off (6) · 4 more one short</span><span></span>') +
+        h('div', 'head-run', '<b class="g">Wool cloth</b> · Thick and warm, might possibly absorb some punches<br><span class="warn">× Can\'t craft yet: missing 5 Unfamiliar material.</span><br><span class="m">Instant · Success 4%, very unlikely · Tinkering tier 1 · Where to get it: turns up as you explore and fight.</span><br><span class="m">[ Craft 1 ] [ 5 ] [ 10 ] [ All ]</span>'), 'grow')].join(''),
+    c3: '', c4: '',
+    note: 'Crafting replaces the actions box in place, with Back; its detail pane lives inside (PS121, PS126). The Here, Crafting, Mixing and Keys tabs are gone.',
+  },
+  fight: {
+    ref: {today: 'today-fight.jpg', yair: 'native-yair.jpg'},
+    c1: C1({hp: '55/60 hp', st: '36/40 stamina', invTab: 'Combat', combat: h('div', 'row', '<span>Atk: 1.2 · Spd: 1 · AP: 32 · EP: 19 · Def: 1</span><span></span>') + h('div', 'row', '<b>Normal Stance</b><span class="m">[ change ]</span>') + h('div', 'row', '<span>If it goes down:</span><span><b class="g">Finish</b> · Spare</span>') + h('p', 'm', 'Default: out in these wilds a fight runs to the end, as it always has.')}),
+    c2: [VILLAGE_TIME('01/04/999 08:30, Summer, Mon, <b>Day</b>', '15.3°C', '36%'),
+      box('', '', h('div', 'loc', h('div', 'name', '☆ Infested field <span class="m" style="font-size:13px">open · 15 / 15 groups left · Clears: [0]</span>')) + '<div class="fight" style="padding:0 12px 8px">' + h('div', 'approach', '<span class="on">Fight</span><span>Withdraw: Go back to [Village] [15m]</span><span class="m">Tempo: you and Wolf rat strike at about the same pace</span>') +
+        h('div', 'opp', '<div class="row"><b>Wolf rat</b><span class="m">Light · intent unread</span></div><div class="stats"><span>Atk: 6 piercing</span><span>Spd: 0.97</span><span>Hit you: 32%</span><span>Evade: 18%</span><span>Def: 1</span><span class="g">Your hit: 82%</span></div><div class="hpbar" style="--f:90%"><i></i><span>27/30 hp</span></div>') +
+        '<div class="empty-slot"></div><div class="empty-slot"></div><div class="empty-slot"></div><div class="empty-slot"></div><div class="empty-slot"></div></div>', 'grow'),
+      box('', '', verb('⇢', 'Go back to [Village] [15m]'))].join(''),
+    c3: '', c4: REPORTS('<b class="g">Right now</b><br>Wolf rat 27/30. You hit usually (82%); it hits you sometimes (32%).', ['[ Entering Infested field ]', 'Wind off the northern rocks.', 'You hit Wolf rat for 1 bludgeoning', 'Wolf rat misses you', 'You hit Wolf rat for 1 bludgeoning', '<span class="warn">Wolf rat hits you for 5.9 piercing</span>', 'You hit Wolf rat for 1 bludgeoning'], 'Combat'),
+    note: 'A fight takes column 2\'s middle: the approach strip on top, the opponent card, the auto view below, and Withdraw stays the actions box (PS121). Column 1 shows Combat.',
+  },
+};
+// Crafting and the fight keep column 3 and the village Reports.
+SCREENS.craft.c3 = SCREENS.village.c3; SCREENS.craft.c4 = SCREENS.village.c4; SCREENS.fight.c3 = SCREENS.village.c3;
+const MAP = `<div><h2>Today's top tabs → a box and tab (PS125)</h2><table><tr><th>Today</th><th>Goes to</th></tr>${[
+  ['Stats', '1 · Character & preparation · Stats'], ['Condition', '1 · Character & preparation · Active effects (opens the list)'], ['Inventory', '1 · Inventory & combat view · Inventory'],
+  ['Journal (quests)', '3 · Journal · Quests'], ['Data', '3 · Journal · Data'], ['Knows', '3 · Journal · Knows'], ['Notebook', '3 · Journal · Notebook'],
+  ['People, Travelers, Organizations', '3 · Journal · People (three filters)'], ['Worlds', '3 · Journal · Worlds'], ['Beginning', '3 · Journal · Beginning'],
+  ['Projects, Ledger', 'Footer · Menu › Tools'], ['Capability runs, All panels…', 'Footer · Menu › Tools'], ['Connection', 'Footer · Menu'], ['Settings', 'Footer · ⚙ Options'],
+  ['Shortcuts', 'Footer · Menu › Shortcuts'], ['Find', 'Footer · Find (and Ctrl+K)'], ['Save, Export, Import', 'Footer, as in YAIR'],
+  ['Centre tabs: Here', '2 · no tab: the location box and Local actions'], ['Centre tabs: Crafting, Mixing', '2 · replace the actions box (verbs "Try to craft something", "Mix at the Village counter")'],
+  ['Centre tabs: Keys', 'Footer · Menu › Keys'], ['Centre tabs: Skills (Fang Yuan)', '3 · Skills & practice'],
+].map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join('')}</table></div>
+<div><h2>Here's panels and the frame → a box and tab</h2><table><tr><th>Today</th><th>Goes to</th></tr>${[
+  ['Status line, pinned band', '2 · time strip (date, weather, place, work, save)'], ['Day strip', '2 · under the time strip'], ['Around you', '2 · location box, one line: people · stations · ways out, each opens its verb'],
+  ['Ready now', 'Marks on verbs ("1 new", "2 close"); Reports filter Ready'], ['Doing now', '2 · head of the actions box while work runs'], ['Next step, Story (data-here-story)', '4 · Reports "Right now"; filter Story'],
+  ['Move somewhere else, ways out, Tingen crossing', '2 · Move somewhere else (Tingen as a way)'], ['Local life, Village practice, reading salvage', '2 · Take an action › its group'],
+  ['Furniture, A lived home', '2 · Your home (YAIR sleep / storage)'], ['Reed-circle rung', '2 · Take on a challenge'], ['Equipment condition, Living equipment', '1 · Character & preparation · Equipment'],
+  ['Optional pacing, Combat options', 'Footer · ⚙ Options'], ['Growth profile', '3 · Skills & practice · Skills'], ['Iona\'s workshop ledger (PS111)', 'Footer · Menu › Tools'],
+  ['A life\'s day panel (Your day)', '2 · its acts as verbs (Feed, Practise, Hand in, Patrol); 3 · Skills · the world\'s power tab (Gu)'], ['Tingen life panel', '3 · Skills · Beyonder; its acts as verbs'],
+  ['Fight card, opponent board', '2 · replaces the location box\'s middle'], ['Inspector (left detail)', '1 · opens under Character & preparation'], ['Journal mini (centre)', '3 · Journal · Quests'],
+].map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join('')}</table>
+<h2>Findings: no box</h2><p>None left once Tools takes the development pages. Connection has no YAIR home; Menu is the proposal.</p></div>`;
+const P = new URLSearchParams(location.search);
+let screen = P.get('screen') || 'village', opt = P.get('opt') || 'mock';
+function render() {
+  const s = SCREENS[screen], isMap = screen === 'map';
+  document.body.dataset.opt = isMap ? 'mock' : opt;
+  if (!isMap) document.getElementById('ref').src = s.ref[opt] || '';
+  for (const k of ['c1', 'c2', 'c3', 'c4']) { const n = document.getElementById(k); n.hidden = isMap; if (!isMap) n.innerHTML = s[k]; }
+  const m = document.getElementById('map'); m.hidden = !isMap; if (isMap) m.innerHTML = MAP;
+  document.getElementById('note').textContent = isMap ? 'PS125 mapping.' : opt === 'mock' ? s.note : opt === 'today' ? 'Today: the real capture.' : 'YAIR: the native capture.';
+  for (const b of document.querySelectorAll('#pick button[data-s]')) b.setAttribute('aria-pressed', String(b.dataset.s === screen));
+  for (const b of document.querySelectorAll('#pick button[data-o]')) b.setAttribute('aria-pressed', String(b.dataset.o === opt));
+}
+SCREENS.map = {};
+document.getElementById('pick').onclick = e => { const b = e.target.closest('button'); if (!b) return; if (b.id === 'menus') document.body.classList.toggle('menus'); if (b.dataset.s) screen = b.dataset.s; if (b.dataset.o) opt = b.dataset.o; render(); };
+addEventListener('keydown', e => { const s = {1: 'village', 2: 'fy', 3: 'craft', 4: 'fight', 5: 'map'}[e.key]; if (s) screen = s; if (e.key === 't') opt = 'today'; if (e.key === 'y') opt = 'yair'; if (e.key === 'm') opt = 'mock'; render(); });
+if (P.has('shot')) document.body.classList.add('shot'); if (P.has('menus')) document.body.classList.add('menus');
+render();
+</script>
+</body>
+</html>
