@@ -13,7 +13,7 @@ import {getDisplaySetting} from './display_settings.js';
 import {projectVillageScene} from './causal_story_scenes.js';
 import {openWorkspaceModule} from './workspace_layout.js';
 import {storyRecap} from './lore_history_view.js';
-import {subscribeChange,bridgeLegacyNode} from './ui_change_signal.js';
+import {subscribeChange,bridgeLegacyNode} from './ui_change_signal.js';import {classifyHere,mountHereChips,mountHereWayOuts,HERE_HOMES} from './ui/here_kinds.js';
 import {formatCalendar} from './world_calendar.js';
 import {upcomingStripNode} from './upcoming_strip_ui.js';
 import {sayReason} from './locked_control.js';
@@ -56,16 +56,17 @@ export function createVillageWorkspace({read,act,placeDetail}) {
     const clock=node('p'),people=node('div'),things=node('div'),groups=node('div');
     people.className='scene-chips';things.className='scene-chips';
     clock.className='scene-location-header';const placeName=node('strong'),conditions=node('span'),calendar=node('span'),placeTags=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';placeTags.className='scene-place-tags';clock.append(placeName,placeTags,conditions);const placeFooter=node('div');placeFooter.className='scene-place-footer';placeFooter.append(calendar);
-    // R21 (Weibao, 2026-10-17): the group drop-downs live under Options, not in the action list.
-    // The tab names how many there are and how many hold ready actions (UR13).
-    const optionsLabel=()=>{const groups=[...document.querySelectorAll('#location_actions_div > details')].filter(d=>!d.hidden&&d.style.display!=='none'&&!d.classList.contains('none_display'));
-        const ready=groups.filter(d=>[...d.querySelectorAll('button')].some(b=>!b.hidden&&!b.disabled)).length;return groups.length?`Options · ${groups.length}${ready?` (${ready} ready)`:''}`:'Options';};
+    // PS107, PS108 (Weibao, 2026-11-15; replaces R21's groups-under-Options): each panel under Here goes to the home of its
+    // kind (src/ui/here_kinds.js). Activity groups are chips at the top of Actions, settings are Options, gear care, home
+    // and the workshop ledger get their own tabs, a crossing joins Ways out. PS109: Options names no count; a setting asks nothing.
+    let hereKinds=classifyHere();const chips=mountHereChips();mountHereWayOuts();
+    const optionsLabel=()=>{hereKinds=classifyHere();chips.render(hereKinds.groups);return 'Options';};
     // UIL2 (UIX2): the count is a change reader, not part of the 250 ms scene poll, so it never lags
     // the action list it summarizes. Its input is the native action list, which has no publisher of
     // its own yet; a legacy bridge publishes 'place' when that list mutates.
     let optionsText='Options',stopOptions=()=>{},stopBridge=()=>{};
     const refreshOptions=()=>{optionsText=optionsLabel();const b=placeTabs.querySelector('[data-place-tab="options"]');if(b)setText(b,optionsText);};
-    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions',placeChosen=false;for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{if(placeTab===id&&placeChosen){sayReason(b,`Already showing ${label}.`);return;}placeTab=id;placeChosen=true;render();};placeTabs.append(b);}placeFooter.append(placeTabs);scene.append(clock,placeFooter,upcomingStripNode(),...(placeDetail?[placeDetail]:[]),people,things,groups);
+    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions',placeChosen=false;for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],...HERE_HOMES,['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{if(placeTab===id&&placeChosen){sayReason(b,`Already showing ${label}.`);return;}placeTab=id;placeChosen=true;render();};placeTabs.append(b);}placeFooter.append(placeTabs);scene.append(clock,placeFooter,upcomingStripNode(),...(placeDetail?[placeDetail]:[]),people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
     // R20 opponent board: one row per opponent, laid out by count (layout_spec opponentBoard), and
     // the inspected opponent's facts once below the rows instead of repeated on every card. Reads the
@@ -245,9 +246,10 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         // lower People/Things tabs would repeat it. Actions and Options stay.
         const focusOwnsNearby=parity&&document.getElementById('main_content').dataset.presentation==='proto23-shell';if(focusOwnsNearby&&['people','things'].includes(placeTab))placeTab='actions';
         // A dead end (UIC267): with nothing under Actions and groups under Options, the place opens on Options until the player picks a tab.
-        const actionList=document.getElementById('location_actions_div'),hasAction=!!actionList&&[...actionList.children].some(c=>c.tagName!=='DETAILS'&&!c.hidden&&c.style.display!=='none'&&!c.classList.contains('none_display')&&!c.matches('#pacing_status_panel,#durability_panel,#p23_combat_options_panel')&&(c.textContent||'').trim());
-        const shownTab=placeTab==='actions'&&!placeChosen&&!hasAction&&optionsText!=='Options'?'options':placeTab;
-        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeFooter.hidden=!parity;placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':optionsText):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null;b.setAttribute('aria-pressed',String(b.dataset.placeTab===shownTab));}
+        // A tab with nothing in it hides; a chosen tab that empties falls back to Actions (PS110: what a world has decides it).
+        refreshOptions();const tabCount=id=>hereKinds.tabs[id]??null,hasAction=tabCount('actions')>0;if(['options',...HERE_HOMES.map(([id])=>id)].includes(placeTab)&&!tabCount(placeTab))placeTab='actions';
+        const shownTab=placeTab==='actions'&&!placeChosen&&!hasAction?(['options',...HERE_HOMES.map(([id])=>id)].find(id=>tabCount(id))||'actions'):placeTab;
+        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeFooter.hidden=!parity;placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;const home=b.dataset.placeTab==='options'||HERE_HOMES.some(([id])=>id===b.dataset.placeTab);if(home){setText(b,b.dataset.placeTab==='options'?optionsText:HERE_HOMES.find(([id])=>id===b.dataset.placeTab)[1]);b.hidden=!tabCount(b.dataset.placeTab);}else{setText(b,b.dataset.placeTab==='actions'?'Actions':`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null||b.dataset.placeTab==='actions'&&!hasAction&&shownTab!=='actions';}b.setAttribute('aria-pressed',String(b.dataset.placeTab===shownTab));}
         document.getElementById('main_content').dataset.placeTab=parity?shownTab:'actions';groups.hidden=parity;
         scene.dataset.inVillage=String(frame.inVillage);
         const signature=JSON.stringify([frame.inVillage,frame.people,frame.things,frame.actions]);

@@ -1093,7 +1093,6 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-rows:minmax(0,min(440px,48%)) minmax(0,1fr);gap:var(--ui-space-3);}
 #main_content.workspace-active[data-parity="r3"] .shell-stat-records {gap:round(.3em, 1px) round(.75em, 1px);}
 }
-#main_content.workspace-active[data-parity="r3"]:not([data-place-tab="options"]) #location_related_div:not(.center-mode-open) :is(#pacing_status_panel,#durability_panel,#p23_combat_options_panel) {display:none!important;}
 #main_content.workspace-active[data-parity="r3"] #location_related_div.center-mode-open ~ .scene-local-tabs {display:none;}
 #main_content.workspace-active[data-parity="r3"]:has(#location_related_div.center-mode-open) .scene-local-tabs {display:none;}
 #main_content.workspace-active[data-parity="r3"] .shell-stat-record {background:transparent!important;border:0!important;border-bottom:1px solid var(--p23-quiet-line)!important;}

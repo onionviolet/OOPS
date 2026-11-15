@@ -19,6 +19,19 @@ export function placeExits(location, context, travelTimes = {}) {
         });
 }
 
+// PS107: a way out that is not a walk (a crossing to another world) joins Ways out from its owner. A source returns rows
+// {id, name, role, act, run}; pressing the row's action runs the owner's own control, so the owner stays the authority.
+const wayOutSources = new Map();
+export function registerWayOut(source) {
+    wayOutSources.set(source.id, source);
+    return () => { if (wayOutSources.get(source.id) === source) wayOutSources.delete(source.id); };
+}
+export function extraWayOuts() {
+    const out = [];
+    for (const s of wayOutSources.values()) { let found = []; try { found = s.rows() || []; } catch { found = []; } for (const r of found) if (r?.id && r.name) out.push(r); }
+    return out;
+}
+
 const rows = value => Array.isArray(value) ? value : [];
 const admitted = row => row && row.id && row.known !== false && row.hidden !== true;
 const firstSentence = text => String(text || '').trim().match(/^.*?[.!?](?:\s|$)/)?.[0].trim() || String(text || '').trim();
@@ -34,7 +47,7 @@ export function projectNearbyContext(frame = {}, selected = null, description = 
         traits:row.met === true ? rows(row.traits) : [],
         relationship:row.met === true ? row.relationship : null,
         memory:row.met === true ? storyRecap(frame.history || {}, row.id)?.line : null,
-        actions:rows(frame.actions).filter(admitted).filter(action => action.target === row.id)}));
+        actions:typeof row.run === 'function' ? [{id:`way:${row.id}`,label:row.act || row.name,run:row.run}] : rows(frame.actions).filter(admitted).filter(action => action.target === row.id)}));
     const people = add(frame.people, 'person');
     const services = [...add(frame.services, 'service'), ...add(frame.things, 'station')];
     const exits = add(frame.exits, 'exit');
@@ -74,7 +87,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     list.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey||!event.target.dataset.inspectNearby)return;
         const delta={ArrowDown:1,j:1,ArrowUp:-1,k:-1}[event.key];if(!delta)return;event.preventDefault();move(delta);buttons.get(returnId)?.focus();});
     const update=({frame,selected=null,description=''}={})=>{
-        const previousModel=model;model=projectNearbyContext(frame,selected,description);
+        const previousModel=model;model=projectNearbyContext({...frame,exits:[...rows(frame?.exits),...extraWayOuts()]},selected,description);
         if(lastPlace!==model.place){place.open=false;returnId=null;missingNotice=false;lastPlace=model.place;list.scrollTop=0;detail.scrollTop=0;}
         if(model.missing)missingNotice=true;
         // PX46, UR147: the first sentence shows once; the disclosure holds only what follows it. No count line when there is nothing to count.
@@ -109,7 +122,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         for(const [id,button] of actionButtons)if(!wanted.some(a=>a.id===id)){removedFocus ||= doc.activeElement===button;button.remove();actionButtons.delete(id);}
         for(const [index,action] of wanted.entries()){
             let button=actionButtons.get(action.id);if(!button){button=el('button');button.type='button';button.dataset.focusAction=action.id;
-                button.onclick=()=>{const current=model.subject?.actions.find(a=>a.id===action.id);if(current&&!current.disabled)act?.(current.id);};actionButtons.set(action.id,button);}
+                button.onclick=()=>{const current=model.subject?.actions.find(a=>a.id===action.id);if(current&&!current.disabled){if(current.run)current.run();else act?.(current.id);}};actionButtons.set(action.id,button);}
             if(actions.children[index]!==button)actions.insertBefore(button,actions.children[index]||null);
             text(button,action.label);button.disabled=!!action.disabled;button.title=action.reason||'';
         }

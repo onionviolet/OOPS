@@ -5821,6 +5821,14 @@
       "snippet": "stream.prepend(head, ...lines.map(text => { const line = document.createElement('div'); line.className = 'report-earlier'; line.textContent = text; return line; }));",
       "count": 1,
       "reason": "M2 (2026-11-14): the saved tail of the log is shown as plain, dimmed lines at the top of the log's own stream so it scrolls with the lines that follow it; a separate box would give the column two scrollers."
+    },
+    {
+      "key": "src/ui/here_kinds.js|foreign-host|7aac7aebfac67b26",
+      "path": "src/ui/here_kinds.js",
+      "rule": "foreign-host",
+      "snippet": "if (panel.parentElement !== host) host.append(panel);",
+      "count": 1,
+      "reason": "PS108: placeHerePanel is the one placer under Here; owners call it instead of appending themselves."
     }
   ]
 }

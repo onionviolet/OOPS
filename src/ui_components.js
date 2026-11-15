@@ -137,7 +137,11 @@ export function summarizeGroups(root, {actions = true, skip = null} = {}) {
         if(/\d/.test(own)){summary.querySelector('[data-group-status]')?.remove();continue;}
         const buttons=actions?[...group.querySelectorAll('button')].filter(n=>!n.hidden&&!n.closest('summary')):[];
         const rows=buttons.length?[]:[...group.querySelectorAll(':scope li, :scope tr, :scope [data-panel-row]')].filter(n=>!n.hidden&&!n.closest('summary')&&!n.closest('thead'));
-        const text=buttons.length?`${buttons.filter(n=>!n.disabled&&n.getAttribute('aria-disabled')!=='true').length} of ${buttons.length} ready`:rows.length?`${rows.length} ${rows.length===1?'entry':'entries'}`:'';
+        // PS109: a count shows only when it asks something. "3 of 6 ready" does; "54 of 54" and "0 of 6" do not. A group with
+        // nothing ready is marked idle, so its heading or chip folds back instead of counting zero.
+        const ready=buttons.filter(n=>!n.disabled&&n.getAttribute('aria-disabled')!=='true').length,idle=buttons.length>0&&!ready;
+        if(group.dataset.groupIdle!==String(idle))group.dataset.groupIdle=String(idle);
+        const text=buttons.length?(ready&&ready<buttons.length?`${ready} of ${buttons.length} ready`:''):rows.length?`${rows.length} ${rows.length===1?'entry':'entries'}`:'';
         let status=summary.querySelector('[data-group-status]');
         if(!text){status?.remove();continue;}
         if(!status){status=document.createElement('small');status.dataset.groupStatus='';summary.append(status);}

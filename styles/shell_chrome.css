@@ -118,10 +118,24 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 :root[data-one-bar="true"] #main_content.workspace-active[data-parity="r3"][data-workspace-mode="dock"] {height:calc(100dvh - 22px);padding-top:var(--game-bar-height,30px);}
 }
 
-/* ---- Place: group drop-downs under Options (Weibao 2026-10-17) ---- */
+/* ---- Place: each panel under Here shows in the tab of its kind (PS107, PS108; src/ui/here_kinds.js) ---- */
 @media (min-width:1001px) {
-#main_content.workspace-active[data-parity="r3"]:not([data-place-tab="options"]) #location_related_div:not(.center-mode-open) #location_actions_div > details {display:none!important;}
-#main_content.workspace-active[data-parity="r3"][data-place-tab="options"] #location_related_div:not(.center-mode-open) #location_actions_div > :not(details) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"]:is([data-place-tab="actions"],:not([data-place-tab])) #location_related_div:not(.center-mode-open) #location_actions_div > :is([data-here-tab]:not([data-here-tab="actions"]),details[data-here-kind="act"]:not([data-here-chip-open])) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="options"] #location_related_div:not(.center-mode-open) :is(#location_actions_div > :not([data-here-tab="options"]), #here_chips) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="equipment"] #location_related_div:not(.center-mode-open) :is(#location_actions_div > :not([data-here-tab="equipment"]), #here_chips) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="home"] #location_related_div:not(.center-mode-open) :is(#location_actions_div > :not([data-here-tab="home"]), #here_chips) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="workshop"] #location_related_div:not(.center-mode-open) :is(#location_actions_div > :not([data-here-tab="workshop"]), #here_chips) {display:none!important;}
+/* The open group sits under the chip row, above the action rows. */
+/* The legacy list sets an inline display:block; it hides itself with none, which stays. */
+#main_content.workspace-active[data-parity="r3"] #location_related_div:not(.center-mode-open) #location_actions_div:not([style*="none"]) {display:flex!important;flex-direction:column;}
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > details[data-here-chip-open] {order:-2;}
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > details[data-here-chip-open] > summary {display:none;}
+.here-chips {display:flex;flex-wrap:wrap;gap:var(--ui-space-1);padding:var(--ui-space-1) 0;}
+.here-chips[hidden], #location_related_div.center-mode-open .here-chips {display:none;}
+.here-chip {font:inherit;color:var(--p23-text);background:transparent;border:var(--ui-space-hairline) solid var(--p23-line);padding:var(--ui-space-hairline) var(--ui-space-2);min-height:var(--ui-target-min);cursor:pointer;}
+.here-chip:hover {background:var(--p23-hover-fill, transparent);}
+.here-chip[aria-pressed="true"] {border-color:var(--p23-quantity);border-bottom:2px solid var(--p23-quantity);}
+.here-chip[data-idle="true"] {color:var(--ui-state-far);}
 /* A group's ready count stays on its summary line instead of wrapping onto the divider. */
 #main_content.workspace-active[data-parity="r3"] #location_actions_div > details > summary {display:flex;align-items:baseline;gap:round(.5em, 1px);}
 #main_content.workspace-active[data-parity="r3"] #location_actions_div > details > summary [data-group-status] {margin-left:auto;flex:0 0 auto;white-space:nowrap;}
