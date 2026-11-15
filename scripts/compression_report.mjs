@@ -55,17 +55,19 @@ export function measure() {
     const callers = name => {
         const def = new RegExp(`(?:function\\s*\\*?\\s*|(?:const|let|var)\\s+)${name}\\b`);
         const call = new RegExp(`(?<![\\w$.])${name}\\s*\\(`, 'g');
-        const defs = [], calling = [];
+        const defs = [], calling = [], probes = [];
         for (const [f, s] of text) {
             if (def.test(s)) defs.push(rel(f));
             const uses = [...s.matchAll(call)].filter(m => !/(?:function\s*\*?\s*)$/.test(s.slice(Math.max(0, m.index - 20), m.index)));
-            if (uses.length && !def.test(s)) calling.push(rel(f));
+            // Held-out scorers (src/*_heldout.js) probe the real engine on purpose; they are a check, not a
+            // caller to fold away, so they are listed apart and do not count toward C1 (PC72, PC12).
+            if (uses.length && !def.test(s)) (/_heldout\.js$/.test(f) ? probes : calling).push(rel(f));
         }
-        return {defs, calling};
+        return {defs, calling, probes};
     };
     const gu = callers('resolveGuActivation'), step = callers('runGuStep');
     const C1 = {value: gu.calling.length, definition: gu.defs, reachable: gu.calling.filter(f => reachable.has(join(ROOT, f))).length,
-        runGuStepFiles: step.calling.length, runGuStepDefinition: step.defs};
+        runGuStepFiles: step.calling.length, runGuStepDefinition: step.defs, heldoutProbes: gu.probes};
 
     // C2: module counts.
     const names = dir => readdirSync(join(ROOT, dir)).filter(n => n.endsWith('.js'));
