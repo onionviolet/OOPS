@@ -1653,3 +1653,9 @@ Recorded as acceptance of round 17's areas (PS172–PS185) as mocked, and of dra
 Weibao: "we can probably split the journal tab with room to spare for something below it? Combat page could use some work, skills and practice have so much empty space, I might have been looking at the old versions, Consider how to organize combat better? consider the proto23 style vs yair style, Why would freezing reduce xp gain>? What about round 15? Cross freely should bprobably put elsewhere or unlocked or something in the future more to consider?"
 
 Saved as round 20 (PS203–PS215, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-20-2026-11-15-column-3-split-combat-organized-proto23-and-yair-cold-and-xp-round-15s-status-the-crossings-home). Nothing is built yet; the lanes resume after the weekly reset.
+
+## Challenge the earlier choices, 2026-11-15
+
+Weibao: "send chat to gate and push, and here, we should challenge the ideas of the previous implementators and considwer if we can do better, specially in terms of design and more? not because they might be bad but simply because there could be better"
+
+The push brief went to the pusher chat. The challenges are round 21 (PS216–PS228, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-21-2026-11-15-challenging-the-earlier-choices). Each has a deciding test.
