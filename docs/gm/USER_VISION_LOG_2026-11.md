@@ -1659,3 +1659,9 @@ Saved as round 20 (PS203–PS215, proposals) in the [play-surface considerations
 Weibao: "send chat to gate and push, and here, we should challenge the ideas of the previous implementators and considwer if we can do better, specially in terms of design and more? not because they might be bad but simply because there could be better"
 
 The push brief went to the pusher chat. The challenges are round 21 (PS216–PS228, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-21-2026-11-15-challenging-the-earlier-choices). Each has a deciding test.
+
+## Better versus more, and the worth of not knowing, 2026-11-15
+
+Weibao: "how to consider what is better than more? how to make mock more accurate to the real deal without costing tooo much? bringing mock into reaslity? other aspects? ?/? has benefits. sometimes not knowing is part of it, more to consider?"
+
+Saved as round 22 (PS229–PS242, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-22-2026-11-15-better-versus-more-mocks-that-match-the-game-and-the-worth-of-not-knowing). PS236 amends PS219: "?" stays where the character cannot tell.

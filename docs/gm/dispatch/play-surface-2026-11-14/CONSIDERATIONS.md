@@ -650,3 +650,41 @@ Each row names a choice already built or proposed, the strongest alternative, an
 ### How this runs
 
 After the weekly reset, one prototype lane takes PS216, PS217 and PS219 first: those change what every later slice looks like. PS226 decides the order of feel-finish's open items, and PS228 is the judge for all of them. Each deciding test ends in a capture pair for Weibao. A challenge that loses is recorded with its test, so it is not reopened without new evidence.
+
+## Round 22, 2026-11-15: better versus more, mocks that match the game, and the worth of not knowing
+
+Weibao: "how to consider what is better than more? how to make mock more accurate to the real deal without costing tooo much? bringing mock into reaslity? other aspects? ?/? has benefits. sometimes not knowing is part of it, more to consider?" ([log](../../USER_VISION_LOG_2026-11.md#better-versus-more-and-the-worth-of-not-knowing-2026-11-15)).
+
+### Better versus more
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS229 | **"Better" means the same play for less effort; "more" means more to read.** Default: a change counts as better when it moves at least one of these, measured on the same task at 1920×1080, without making another worse: clicks or keys to the goal; places the eye visits before acting; blank area inside boxes; things on screen that the task never used; wrong or missed actions (a due Gu unfed, a fight not fled). A change that adds a surface states which of these it improves; if none, it is "more". Reason: the earlier rounds each added a good idea, and the screen grew. |
+| PS230 | **Every addition names what it replaces or hides.** Default: a new row, chip or panel either takes over an existing one's job or shows only when its condition holds (round 19's rule). Dial: Display › Show everything, for a player who wants the full board. Reason: the count of permanent controls rises only when the life truly has more to do. |
+| PS231 | **Weibao's taste is the final judge, and the numbers pick what reaches him.** The PS229 numbers and the blind panel (PS228) sort candidates; Weibao sees the top two as a capture pair and picks. A low score does not overrule a choice he likes. |
+
+### Mocks that match the game, cheaply
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS232 | **Mock inside the real game, behind a URL flag.** Default: a layout or look proposal is a stylesheet plus, when needed, a small layout-spec override in the real bundle, switched on by `?variant=ps217` on the test origin. It renders real saves, real words, real numbers and real edge cases, which hand-written HTML mocks invent and get wrong (round 15 found the round 14 mock thinner than today). Cost: about the same as a static mock for look and placement, since `layout_spec.js` columnSlots, box tabs and the shared tokens already exist. Static HTML stays for things the game cannot draw yet (a new screen with no engine). |
+| PS233 | **Fixtures give the mock its state.** Default: each variant is captured on the same fixtures (fresh-day3, gu-fed-second, lotm-tingen-day3, hp-exam-week, a fight), with the same seed, before and after, and named with the commit hash (PS214). Reason: a mock that only shows a hand-picked moment hides the empty and the crowded cases. |
+| PS234 | **The winning variant is already the build.** Default: when Weibao picks a variant, its flag becomes the default and the loser's stylesheet and override are deleted in the same change; nothing is rebuilt from a picture. Reason: the mock-to-build translation is where detail was lost before. |
+| PS235 | **Variants stay display-only.** A flag variant changes layout and look, never save data, so switching cannot harm a save. A proposal that needs engine work is staged: the look as a variant on fake-but-typed facts through `withDisplayFactsFrame`, then the engine. Visual baselines and walk tests run with variants off, plus once with the candidate on before it becomes default. |
+
+### Not knowing is part of play
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS236 | **"?" and relative words, both, chosen by what the life can perceive.** This amends PS219. Default: what the character can see is said in words ("bigger than you", "limping"); what the character cannot tell stays "?" (a hidden power, a stranger's strength, the odds of an untried recipe, a sealed truth). A world's tone sets the mix: a horror or mystery life shows more "?", a trained hunter fewer. Reason: Weibao, "sometimes not knowing is part of it". The "?" is a promise that something is there to learn; replacing it everywhere would remove that. |
+| PS237 | **A "?" says how it could be learned.** Default: hovering a "?" names a route without its answer ("Watch it fight", "Ask a hunter", "Study one"), and learning it is a small moment (a Reports line, the number fading in). Reason: an unknown with a route is a goal; one without is noise (PS138, KNW). |
+| PS238 | **Wrong knowledge is allowed.** Default: an estimate from rumour can be off and shows as an estimate ("~12, from a rumour"); when the truth arrives the number corrects, and the correction is shown. Reason: hidden properties act whether or not anyone knows them (USER_VISION one-record rule), so a believed number can be wrong. |
+| PS239 | **Some things stay "?" on purpose.** Sealed secrets, another life's inner state and the far future keep "?" until their discovery route (sealed-secret rule); no skill or cheat reveals them by number alone. Dial: a cheat card that names a route, not the answer. |
+
+### More to consider
+
+| Code | Consideration |
+| --- | --- |
+| PS240 | **Cost guard for variants.** A variant lane works on stylesheet and spec overrides, with no new engine code. Its done check is the capture pair plus `check:visual` with the flag off. |
+| PS241 | **Hold the comparisons still.** Fonts, window size, seed and the reduce-motion setting are pinned in capture runs, so a difference in a pair comes from the variant, not the run. |
+| PS242 | **One question per capture pair.** Each pair answers one question ("borders or spacing?"), so Weibao's pick says which change he liked. A pair that differs in five ways cannot be read. |
