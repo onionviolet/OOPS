@@ -1529,3 +1529,15 @@ Still held for him:
 - E (lead with the palette) and the top bar (UIC132, UIC175)
 - the Notebook (UIC168)
 - the growing screen (UIC131)
+
+## The centre feels clunky; split it into panels, 2026-11-14
+
+Weibao, after seeing the approach-strip capture on Fang Yuan's opener: "Ui feels cluncky, with things not obviously sectioned off? the center panel might be better to split into multiple panels".
+
+Recorded as his direction for the UI cohesion lane (`ui-cohesion`). The centre column becomes several clearly bounded panels instead of one long scroll. Each panel gets its own header and its own scroll, the way upstream YAIR boxes its location, combat and actions. This goes with directions A, B, D and F. The split itself is mocked on real screens before it is built.
+
+Problems seen in that capture (agent reading):
+- One scroll mixes the life's day actions, a collapsed "Not available yet" list and the story steps.
+- The fight opener with its strip sits in the same scroll.
+- The world intro text and the place text follow, also in the same scroll.
+- No panel headers, and sections are told apart only by indentation.
