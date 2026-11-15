@@ -61,10 +61,11 @@ const timer = (doc, name, ready) => Number.isFinite(ready) ? meter(doc, 'versus-
 // DU37 (D6, proposal): a seeded sigil beside each name, so two foes of one kind are told apart at a glance by shape; colour comes from the
 // card's own tokens and only repeats it (UR37, UR99: cheap materials, no art). Drawn only where the document makes SVG.
 const SVG = 'http://www.w3.org/2000/svg';
+const tenth = n => Math.round(n * 10) / 10; // SVG geometry, not a number anyone reads (outside number_format.js by design)
 export function sigilPoints(name) {
     let x = 0; for (const c of String(name)) x = (x * 31 + c.charCodeAt(0)) >>> 0;
     const n = 3 + (x % 4), turn = (x % 7) / 7;
-    return Array.from({length: n}, (_, i) => { const a = (i / n) * Math.PI * 2 + turn, r = 6 + ((x >>> (i * 3)) % 4); return `${(12 + r * Math.cos(a)).toFixed(1)},${(12 + r * Math.sin(a)).toFixed(1)}`; }).join(' ');
+    return Array.from({length: n}, (_, i) => { const a = (i / n) * Math.PI * 2 + turn, r = 6 + ((x >>> (i * 3)) % 4); return `${tenth(12 + r * Math.cos(a))},${tenth(12 + r * Math.sin(a))}`; }).join(' ');
 }
 function sigil(doc, name) {
     if (typeof doc.createElementNS !== 'function') return null;

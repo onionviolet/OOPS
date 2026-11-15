@@ -32,15 +32,17 @@ export function bonusKnown(row, knownItems = {}) {
     return items.length > 0 && items.every(id => (knownItems[id]?.number ?? 0) > 0);
 }
 
-/** The location box's clause: "sometimes: a farmer's thanks (about 1 in 3) · rarer: ??? (about 1 in 5)". Empty when the place has none. */
+/** The location box's clause: "sometimes: a farmer's thanks (about 1 in 3) · rarer: something not yet seen (about 1 in 5)". Empty when the place has none.
+ *  An unseen bonus is named in words, not a "???" mark (UR142), and keeps its odds (DU40). */
+const UNSEEN = 'something not yet seen';
 export function clearBonusText(rows = [], knownItems = {}) {
     const parts = [];
     const walk = (list, depth) => {
         for(const row of list) {
             const known = bonusKnown(row, knownItems);
-            parts.push(`${depth ? 'rarer' : 'sometimes'}: ${known ? row.label : '???'} (${odds(row.chance)})`);
+            parts.push(`${depth ? 'rarer' : 'sometimes'}: ${known ? row.label : UNSEEN} (${odds(row.chance)})`);
             if(known) walk(row.then ?? [], depth + 1);
-            else if(row.then?.length) parts.push('rarer: ???');
+            else if(row.then?.length) parts.push(`rarer: ${UNSEEN}`);
         }
     };
     walk(rows, 0);
