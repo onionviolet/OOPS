@@ -179,3 +179,23 @@ Why the panels feel separate today:
 | PS60 | **Reports lines link to their source.** Every noun and every "Next" in a Reports line is a link. | No |
 
 Recommendation: the cohesion Weibao asks for is mostly directions A, B, D and F taken together, so this round puts them to him as one package. PS55, PS56, PS59, PS60, PS54's links and data, and PS57's interface fit today's frame and can start now.
+
+## Round 7, 2026-11-15: the Village shell leaks into other worlds, and the lanes trip over each other
+
+Weibao: "more to consider?". Evidence: the PS33 trace from daily-loops, and the opener and fight captures on Fang Yuan's life (`combat/approach-opener.jpg`, `combat/ri-fang-yuan-finish-or-spare-window.jpg`). The coordination record is in this folder's CHECKPOINT. All lines are proposals (AD32).
+
+### ACCOUNT FOR NOW
+
+| Code | Finding | Evidence | Default |
+| --- | --- | --- | --- |
+| PS61 | **The Village shell runs in every world.** Fang Yuan's capture shows Village systems running in his life: native Winter cold at the academy (PS33); "Calendar unknown here"; "Hero · Lv 0 · 0/10 xp", Village STR, AGL and Hero XP in the left column; "102 coins (denominations unfamiliar)"; every item at "0 coins". The leads' own progressions (Gu rank, aperture, essence; Klein's sequence; Harry's year) are not what the frame shows. | The two captures above; `main.js` adds the cold conditions from the native calendar. | One inventory, per world, of every native system the shell runs (weather, cold, calendar, hero level and XP, attributes, coins, hunger, Village quests, skills), each with its route: the world's own, shared, or hidden. Then the status line (B) and the left column (A) read the world's own progression and reserve. This is the "carry it across worlds" work for the frame itself. |
+| PS62 | **One G-code, two fixers.** G18 got a dedicated session from the progress-atlas chat while feature-ui had already begun the bisect, and both prepared a fix to the same LOTM files. | Session transcripts, 2026-11-15. | Before a chat fixes a coded finding (G, PS, UIC), it reads that code's owner row in this CHECKPOINT and adds itself if the row is empty. Chats started outside this coordination register there too. |
+| PS63 | **The machine-wide test slot is the real bottleneck.** Six suites queued, one hung for 1h34m, and lanes waited hours to commit. The coordinator stopped a hung run that belonged to another lane. | CHECKPOINT log, 00:15 UTC. | A per-file timeout on the suite command (proposal, held for the test-runner owner). Lanes run `test:changed` and their focused files and leave full suites to one merge gate per batch (AD36). A stop of someone else's run is logged with its PIDs. |
+| PS64 | **The app lags the work.** The installed app was frozen at 817cff0eb (v0.6-63fd12a38b31). Since then: the approach strip, wolf parts, the decision band and the cold fix (in flight). | 51aa8a373, later commits. | Re-adopt the app once at the end of this push, after the full gate, so what Weibao opens matches what the reports say. |
+
+### LATER
+
+| Code | Item | Level, done check |
+| --- | --- | --- |
+| PS65 | **The left column per world.** Fang Yuan's left column shows his aperture, essence sea, Gu rank and his Gu, not Village STR and Hero XP; Klein's shows his sequence, digestion and spirituality; Harry's shows his year, house points and wand. The Village keeps its own. Built on A (the thing on the left) and PS61's routes. | Opus (ui-cohesion), M per world. Done: each lead's left column reads its world, seen in Chrome. |
+| PS66 | **A coordinator handoff block.** This coordinating chat's context is filling. CHECKPOINT holds lanes, owners, delivered work, the log and what waits on Weibao, so a fresh coordinator resumes from it. | Done when a fresh chat can resume from CHECKPOINT alone. |
