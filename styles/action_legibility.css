@@ -149,6 +149,6 @@
 .action-legibility__card h3 { font-size: var(--ui-type-body); }
 
 /* PS103: one status vocabulary and colour across Ready now, Crafting and a life's own rows: ready (gain), near (the gap gold), blocked (warning). */
-.action-legibility__card[data-ui-state="ready"] .action-legibility__quote {color: var(--sem-gain, var(--ui-accent));}
-.action-legibility__card[data-ui-state="near"] [data-theme-state="warning"] {color: var(--p23-value, var(--ui-accent));}
-.action-legibility__card[data-ui-state="blocked"] [data-theme-state="warning"] {color: var(--sem-blocked, var(--p23-muted));}
+.action-legibility__card[data-ui-state="ready"] .action-legibility__quote {color: var(--ui-state-ready);}
+.action-legibility__card[data-ui-state="near"] [data-theme-state="warning"] {color: var(--ui-state-near);}
+.action-legibility__card[data-ui-state="blocked"] [data-theme-state="warning"] {color: var(--ui-state-blocked);}

@@ -74,7 +74,10 @@ function renderSources(model) {
     for(const req of short) {
         const row = el('p', 'craft_source_row');
         row.dataset.craftState = 'near';
-        row.append(el('span', 'craft_source_name', `${req.label} ${req.have}/${req.need}`));
+        // An input the character has seen opens in the inspector (held: its item details; not held: Find with its name), UI cohesion's link.
+        const name = el(req.inspect ? 'button' : 'span', 'craft_source_name', `${req.label} ${req.have}/${req.need}`);
+        if(req.inspect) { name.type = 'button'; name.dataset.inspectItem = req.inspect.id; name.dataset.inspectName = req.inspect.name; name.title = `Look up ${req.inspect.name}`; }
+        row.append(name);
         const from = req.unknown ? 'Not found yet; it turns up as you explore and fight.'
             : req.from?.length ? `Dropped by ${req.from.join(', ')}.`
             : 'No source met yet; try a trader, the wilds or a recipe below.';
