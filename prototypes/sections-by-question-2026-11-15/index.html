@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>Sections by question mock</title>
+<!-- Round 13 (PS112-PS118, proposals, AD32), mocked first as Weibao picked "Mock then build" (2026-11-15).
+     A 1920x1080 mock, not a build. Each region answers one question: left "Who am I", centre top "Now", centre middle
+     "Here" (every noun a card carrying its own verbs), centre bottom the open workspace, right "Goals" then Reports.
+     One tab level for play; Keys and Options sit in Menu; the top bar is five families. Text comes from the game's own
+     screens (Village home on perf-mid, Fang Yuan's day on ri-fang-yuan-ice-crystal, Crafting); "Today" is the real
+     capture. Open with ?screen=village|fy|craft&opt=today|mock, or keys 1-3 for the screen and t to flip. -->
+<style>
+:root { --bg:#02061a; --panel:#07184a; --line:#2c6ad0; --quiet:#153a78; --text:#d8f0ff; --muted:#8fb2cc; --accent:#ffd84d;
+  --gain:#5dff8a; --near:#ffd84d; --rep:#2a1a4a; --head:#0b2457; --danger:#ff9d57; }
+* { box-sizing:border-box; }
+html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--bg); color:var(--text); font:14px/1.35 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+#today { position:absolute; inset:0; width:1920px; height:1080px; display:none; }
+body[data-opt="today"] #today { display:block; } body[data-opt="today"] #frame { display:none; }
+/* Top bar: five families, each a menu (PS116). Menu holds Keys and Options (PS115). */
+.bar { position:absolute; left:0; right:0; top:0; height:27px; display:flex; background:#06123c; border-bottom:1px solid var(--line); white-space:nowrap; }
+.bar span { padding:4px 14px; border-right:1px solid #1c3f86; } .bar span.fam { min-width:160px; } .bar span.fam::after { content:" ▾"; color:var(--muted); }
+.bar .r { margin-left:auto; display:flex; } .bar .r span { padding:4px 8px; border-left:1px solid #1c3f86; border-right:0; }
+.menu { position:absolute; top:27px; background:#06123c; border:1px solid var(--accent); padding:4px 0; z-index:5; font-size:13px; display:none; }
+.menu div { padding:2px 14px; } .menu div.h { color:var(--muted); font-size:11px; }
+body.menus .menu { display:block; }
+.status { position:absolute; left:0; right:0; top:28px; height:24px; display:flex; background:#051238; border-bottom:1px solid #1c3f86; font-size:12px; white-space:nowrap; }
+.status span { padding:4px 10px; border-right:1px solid var(--quiet); } .status .place { color:var(--accent); font-weight:700; } .status .save { margin-left:auto; color:var(--muted); border:0; }
+.strip { position:absolute; left:6px; right:6px; top:56px; height:16px; border:1px solid var(--quiet); background:#0c2a5a; }
+.strip i { position:absolute; top:0; bottom:0; left:0; width:var(--now); background:#1d5fae; } .strip b { position:absolute; top:0; bottom:0; left:var(--now); width:3px; background:var(--accent); }
+/* Region labels: the question each region answers. */
+.q { position:absolute; top:76px; font-size:11px; color:var(--muted); letter-spacing:.04em; }
+.col { position:absolute; top:92px; bottom:16px; display:flex; flex-direction:column; gap:8px; min-height:0; }
+.left { left:20px; width:330px; } .right { left:1401px; width:499px; } .centre { left:362px; width:1027px; }
+.box { background:var(--panel); border:1px solid var(--line); min-height:0; display:flex; flex-direction:column; flex:0 1 auto; }
+.box.grow { flex:1 1 auto; } .box.rep { background:var(--rep); border-color:#5a4aa0; }
+.box > h3 { margin:0; padding:3px 10px; font-size:14px; background:var(--head); border-bottom:1px solid var(--line); color:var(--accent); display:flex; justify-content:space-between; gap:12px; flex:0 0 auto; }
+.box > h3 small { color:var(--muted); font-weight:400; }
+.box.folded > h3 { border-bottom:0; } .box.folded > h3 > span::before { content:"▸ "; color:var(--muted); }
+.box > .body { padding:4px 10px; overflow:auto; min-height:0; flex:1 1 auto; }
+.row { display:flex; justify-content:space-between; gap:12px; border-top:1px solid var(--quiet); padding:3px 0; align-items:baseline; }
+.row:first-child { border-top:0; }
+.btn { border:1px solid var(--line); padding:1px 8px; white-space:nowrap; } .btn.near { border-style:dashed; color:var(--muted); } .btn.urgent { border-color:#ffd18c; }
+.gap { color:var(--near); } .m { color:var(--muted); } .from { color:var(--muted); font-size:12px; } .warn { color:var(--danger); }
+.bars div { position:relative; height:20px; border:1px solid var(--quiet); margin-bottom:2px; text-align:center; font-weight:700; }
+.bars div i { position:absolute; left:0; top:0; bottom:0; width:var(--f); background:var(--c); opacity:.75; z-index:0; } .bars div span { position:relative; }
+.kv { display:grid; grid-template-columns:repeat(3, 1fr 1fr); gap:1px 8px; font-size:13px; } .kv span:nth-child(even) { text-align:right; }
+/* Here: every noun is a card with its own verbs (PS113). */
+.cards { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; }
+.card { border:1px solid var(--quiet); padding:4px 8px; display:flex; flex-direction:column; gap:3px; }
+.card b { color:var(--text); } .card .m { font-size:12px; }
+.card .verbs { display:flex; flex-wrap:wrap; gap:4px; margin-top:2px; }
+.card.sel { border-color:var(--accent); }
+.kind { font-size:11px; color:var(--muted); margin:4px 0 2px; }
+/* One tab level (PS115): the workspace's tabs are the only play tabs. */
+.tabs { flex:0 0 28px; display:flex; border:1px solid var(--line); background:#06123c; }
+.tabs span { flex:1; text-align:center; padding:4px; border-right:1px solid #1c3f86; } .tabs span.on { border-bottom:2px solid var(--accent); color:var(--accent); }
+.chips { display:flex; gap:6px; flex-wrap:wrap; margin:2px 0 6px; } .chip { border:1px solid var(--line); padding:1px 8px; } .chip.idle { color:var(--muted); border-color:var(--quiet); }
+.split2 { display:grid; grid-template-columns:440px 1fr; gap:10px; min-height:0; }
+.rl .row { font-size:13px; } .rl .row.on { background:#0e2a64; outline:1px solid var(--accent); }
+.note { position:fixed; left:362px; bottom:4px; font-size:11px; color:var(--muted); }
+#pick { position:fixed; right:24px; bottom:26px; z-index:9; background:#000c; border:1px solid var(--accent); padding:6px 8px; font-size:12px; }
+#pick button { font:inherit; color:var(--text); background:#0a1a44; border:1px solid var(--line); margin:1px; padding:2px 6px; cursor:pointer; }
+#pick button[aria-pressed="true"] { border-color:var(--accent); color:var(--accent); }
+body.shot #pick, body.shot .note { display:none; }
+</style>
+</head>
+<body data-opt="mock">
+<img id="today" alt="Today's screen, captured from the game">
+<div id="frame">
+  <div class="bar"><span class="fam">You</span><span class="fam">Things</span><span class="fam">People</span><span class="fam">World</span><span class="fam">Tools</span>
+    <div class="r"><span>Find</span><span>Save</span><span>Export</span><span>Import</span><span>Menu ▾</span></div></div>
+  <div class="menu" style="left:0"><div class="h">You</div><div>Stats</div><div>Condition</div><div>Knows</div><div>Beginning</div></div>
+  <div class="menu" style="left:72px"><div class="h">Things</div><div>Inventory</div><div>Ledger</div><div>Projects</div></div>
+  <div class="menu" style="left:160px"><div class="h">People</div><div>People</div><div>Travelers</div><div>Organizations</div></div>
+  <div class="menu" style="left:252px"><div class="h">World</div><div>Worlds</div><div>Journal</div><div>Notebook</div></div>
+  <div class="menu" style="left:338px"><div class="h">Tools</div><div>Data</div><div>Capability runs</div><div>All panels…</div></div>
+  <div class="menu" style="right:0"><div class="h">Menu</div><div>Keys</div><div>Options</div><div>Shortcuts</div><div>Settings</div></div>
+  <div class="status" id="status"></div>
+  <div class="strip" id="strip"><i></i><b></b></div>
+  <div class="q" style="left:20px">WHO AM I</div><div class="q" style="left:362px">NOW · HERE · WORKSPACE</div><div class="q" style="left:1401px">WHY AND WHAT HAPPENED</div>
+  <div class="col left" id="left"></div>
+  <div class="col centre" id="centre"></div>
+  <div class="col right" id="right"></div>
+</div>
+<div class="note" id="note"></div>
+<div id="pick"><span>Screen</span> <button data-s="village">1 Village</button><button data-s="fy">2 Fang Yuan</button><button data-s="craft">3 Crafting</button>
+  <span> · </span><button data-o="today">Today</button><button data-o="mock">Mock</button><span> · </span><button id="menus">Menus</button></div>
+<script>
+const h = (tag, cls, html) => `<${tag}${cls ? ` class="${cls}"` : ''}>${html}</${tag}>`;
+const box = (title, sub, body, cls = '') => `<section class="box ${cls}"><h3><span>${title}</span><small>${sub || ''}</small></h3>${cls.includes('folded') ? '' : h('div', 'body', body)}</section>`;
+const row = (label, from, cls = '', extra = '') => h('div', 'row', `<span><span class="btn ${cls}">${label}</span> ${extra}</span><span class="from">${from}</span>`);
+const card = (name, role, verbs, cls = '') => h('div', `card ${cls}`, `<b>${name}</b>${role ? h('span', 'm', role) : ''}<div class="verbs">${verbs.map(v => `<span class="btn ${v[1] || ''}">${v[0]}</span>`).join('')}</div>`);
+const bars = (hp, xp, st) => h('div', 'bars', [[hp, '#5dffd0', 1], [xp, '#0a2a4a', 0], [st, '#6a3a9a', 1]].map(([t, c, f]) => `<div style="--c:${c};--f:${f ? '100%' : '0%'}"><i></i><span>${t}</span></div>`).join(''));
+const VILLAGE_LEFT = (gearOpen) => [
+  box('You', 'Human · Lv 0', bars('60/60 hp', '0/10 xp', '40/40 stamina') + h('div', 'kv', '<span>STR</span><span>12.0</span><span>AGL</span><span>8.0</span><span>DEX</span><span>10.0</span><span>INT</span><span>10.0</span><span>Defense</span><span>1.0</span><span>Magic</span><span>0.0</span><span>Attack</span><span>1.2</span><span>Speed</span><span>1.0/s</span><span>Crit</span><span>5%</span>')),
+  box('Condition', 'nothing on you', '', 'folded'),
+  box('Gear', 'leather pants', '', 'folded'),
+  box('Inventory', '10C · 4W · 5 kinds', ['Ledger workshop cache · 2W', 'Prepared survey kit ×2 · 2W', 'Sealed survey parcel ×2 · 3W', 'Stale bread ×5 · 2C', 'Cheap leather pants [legs] [40%] · 4C 6W'].map(t => h('div', 'row', `<span>${t.split(' · ')[0]}</span><span class="m">${t.split(' · ')[1]}</span>`)).join(''), 'grow'),
+].join('');
+const VILLAGE_RIGHT = (extra = '') => [
+  box('Goals', 'next step first', h('div', '', '<b>Next:</b> Ask the elder about the spare weapon and pick one, or go without. <span class="m">Talk with Old Hesk (his card in Here), then "About the spare weapon...". Your choice goes in your inventory.</span>') +
+    h('div', 'kind', 'LOST MEMORY') + h('div', 'row', '<span>☑ Find out what happened</span><span class="m">done</span>') + h('div', 'row', '<span>☐ Help with the wolf rat infestation</span><span class="m">Infested field</span>') + extra),
+  box('Reports', 'all · latest', h('p', 'm', 'Nothing has happened yet this sitting. What you do, find, win, lose and hear is written here as it happens, newest at the bottom.') + h('div', '', '[ Home · 01/04/999, Summer, Mon ]'), 'rep grow'),
+].join('');
+const VILLAGE_HERE = (sel) => box('Here · Village', '2 people · 6 stations · 3 ways out', h('p', 'm', 'Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. ▸ More') +
+  h('div', 'kind', 'PEOPLE') + h('div', 'cards', card('Old Hesk, the village elder', 'Village neighbor', [['Talk'], ['About the spare weapon…', 'urgent']], sel === 'hesk' ? 'sel' : '') + card('Dunstan, the village trader', 'Merchant', [['Talk'], ['Trade']]) + card('Waypost supply clerk', 'Supply clerk', [['Talk'], ['Supplies']])) +
+  h('div', 'kind', 'STATIONS') + h('div', 'cards', card('Crafting stations', 'Benches and tools · 2 close', [['Open']]) + card('Village mixing counter', 'Mix and observe your own ingredients', [['Open']]) + card('Homes', 'Rights, furnishings, storage · Furniture 1 ready', [['Open']]) +
+    card('Village common herb verge', 'Gather herbs, inspect materials', [['Gather'], ['Inspect']]) + card('Gear workshop', 'Fittings, treatment, repair, salvage', [['Open']]) + '') +
+  h('div', 'kind', 'WAYS OUT') + h('div', 'cards', card('Infested field', '15 min · <span class="warn">not safe</span>', [['Enter']]) + card('Wild willow stand', '5 min · safe', [['Go']]) + card('Tingen', 'Another world · a new life there', [['Cross']])));
+const SCREENS = {
+  village: {
+    status: '<span class="place">Village</span><span>01/04/999 08:12, Mon · ☼ Day</span><span>☀ Summer Dry 14.9 °C · comfortable</span><span>No work running</span><span>This place: 2 people · 6 stations · 3 ways out</span><span class="save">Saving available. Pin</span>', now: '35%',
+    left: VILLAGE_LEFT(),
+    centre: [
+      box('Now', 'nothing ready · 2 close · no work running', row('Make Charcoal', 'Crafting', 'near', '<span class="gap">needs 1 raw wood</span>') + row('Make Processed rough wood', 'Crafting', 'near', '<span class="gap">needs 1 Rough wood log</span>')),
+      VILLAGE_HERE(),
+      h('div', 'tabs', '<span class="on">Here</span><span>Crafting</span><span>Mixing</span>'),
+      box('Workspace · Here', 'verbs with no card above', h('div', 'chips', '<span class="chip">Local life · 3 of 6 ready</span><span class="chip">Village practice and familiar ground</span>') +
+        row('Find work', 'Pays 5C per 2 hours') + row('Train', 'Go for a run around the village'), 'grow'),
+    ].join(''),
+    right: VILLAGE_RIGHT(),
+    note: 'Village home (perf-mid). "Move somewhere else", "Try to craft something" and "Talk to someone" are gone: each verb sits on its card (PS113). Journal joined Goals (PS114). Actions/Home/Options folded into one workspace; Options in Menu (PS115).',
+  },
+  fy: {
+    status: '<span class="place">Clan academy</span><span>Gu Yue · 16 October, year 1 14:43</span><span>⁓ Autumn</span><span>Green-copper primeval essence 3/44</span><span>No work running</span><span class="save">Saving available. Pin</span>', now: '57%',
+    left: [
+      box('You', 'Gu Yue · Lv 0', bars('60/60 hp', '0/10 xp', '42/42 stamina') + h('div', 'kv', '<span>STR</span><span>9.3</span><span>AGL</span><span>4.9</span><span>DEX</span><span>6.0</span><span>INT</span><span>10.0</span><span>Defense</span><span>1.0</span><span>Magic</span><span>0.0</span>')),
+      box('Condition', '1 effect', h('div', 'row', '<span class="warn">Freezing</span><span class="m">1h · stamina ×0.3, all xp ×0.6</span>') + h('p', 'm', 'Lifts about an hour after the air is warm enough for you.')),
+      box('Gear', 'Dormitory guard’s sabre', '', 'folded'),
+      box('Inventory', '792 primeval stones · 102 Village coins', ['Battle merit ×30', 'Beast-skin map', 'Dormitory guard’s sabre', 'Earth Communication Ear Grass', 'Four Flavours Liquor Worm', 'Half a primeval stone', 'Hidden lightning wolf eye ×6', 'Hundred-year bitter shell · broken ×2', 'Jar of green bamboo wine ×25', 'Jia Fu’s token'].map(t => h('div', 'row', `<span>${t}</span>`)).join(''), 'grow'),
+    ].join(''),
+    centre: [
+      box('Now', '8 ready · 7 close · no work running', row('Feed the Moonglow Gu', 'Your Gu', 'urgent', '<span class="m">missed a meal</span>') + row('Feed the Four Flavours Liquor Worm', 'Your Gu', 'urgent', '<span class="m">missed a meal</span>') +
+        row('Draw a whole primeval stone into your sea · 1 stone, up to 30 parts', 'Your day', '', '<span class="m">30 min</span>') + row('Hand a wolf eye in at the alliance board · +10 merit', 'Your day', '', '<span class="m">10 min</span>') + h('div', 'row', '<span class="m">+ 4 ready, 7 close · Show all</span><span></span>')),
+      box('Here · Clan academy', 'his own nouns: Gu, board, stalls', h('p', 'm', 'Pupils who opened their apertures sit at low desks. The elder shows the class how to sense the sea and move its essence.') +
+        h('div', 'kind', 'YOUR GU') + h('div', 'cards', card('Moonglow Gu', 'Hungry · missed a meal', [['Feed', 'urgent']]) + card('Four Flavours Liquor Worm', 'Hungry · missed a meal', [['Feed', 'urgent']]) + card('White Jade Gu', '<span class="gap">needs 1 parcel of jade rock</span>', [['Feed', 'near']])) +
+        h('div', 'kind', 'PLACES TO DEAL') + h('div', 'cards', card('Alliance board', 'merit for wolf eyes and tallies', [['Hand in a wolf eye · +10'], ['Exchange 25 merit']]) + card('Village stalls', 'petals, wine, jade rock, hides', [['Buy petals'], ['Buy wine'], ['Buy jade rock'], ['Sell hide', 'near']]) + card('Village kitchens', 'buys wolf meat', [['Sell 6 jin', 'near'], ['Throw out spoiled', 'near']])) +
+        h('div', 'kind', 'WAYS OUT') + h('div', 'cards', card('Wolf-tide patrol', '3 h · up to 15 parts · <span class="warn">Gu hungry</span>', [['Go out', 'near']]) + card('Mountain path', 'after the fighting quiets', [['Return', 'near']]) + card('Gu room', 'beside the academy', [['Visit']]))),
+      h('div', 'tabs', '<span class="on">Here</span><span>Skills</span>'),
+      box('Workspace · Your story', 'next choices', row('Practice the Moonlight and Little Light pairing', 'Choose', '', '<span class="m">Try both throws from the same mark…</span>') + row('Fang Yuan returns when the fighting quiets', 'Choose', '', '<span class="m">Stay out of the fight…</span>') +
+        h('div', 'row', '<span class="m">▸ Not available yet (the next 3)</span><span></span>') + h('div', 'chips', '<span class="chip">Bind your wound and rest · 6 h</span><span class="chip idle">Optional pacing → Menu › Options</span>'), 'grow'),
+    ].join(''),
+    right: [
+      box('Goals', 'next step first', h('div', '', '<b>Next:</b> Practice the Moonlight and Little Light pairing. <span class="m">Refine your Little Light Gu and keep both Gu.</span>') + h('div', 'kind', 'DEEDS') + h('div', 'row', '<span>☑ Across the Threshold</span><span class="m">today 14:00</span>')),
+      box('Reports', 'all · latest', h('div', '', '<b>While you were away</b>') + h('p', 'm', 'Banked time: 6 days 1 h. Spending it plays your current routine forward at the normal pace and stops at any choice.') + h('div', '', '<span class="btn">Spend 1 h of banked time</span>') + h('p', '', 'Deed done: Across the Threshold. Cross from one world into another.'), 'rep grow'),
+    ].join(''),
+    note: 'Fang Yuan\'s Here (ri-fang-yuan-ice-crystal). Same regions, his own nouns (PS118): his Gu, the alliance board, the stalls. The story\'s next choices take the workspace (UIC278); Ready now keeps the four most pressing rows.',
+  },
+  craft: {
+    status: '<span class="place">Village</span><span>01/04/999 08:12, Mon · ☼ Day</span><span>☀ Summer Dry 14.9 °C · comfortable</span><span>No work running</span><span>This place: 2 people · 6 stations · 3 ways out</span><span class="save">Saving available. Pin</span>', now: '35%',
+    left: VILLAGE_LEFT(),
+    centre: [
+      box('Now', 'nothing else ready · no work running', '', 'folded'),
+      box('Here · Village', '2 people · 6 stations · 3 ways out', '', 'folded'),
+      h('div', 'tabs', '<span>Here</span><span class="on">Crafting</span><span>Mixing</span>'),
+      box('Workspace · Crafting', 'Tinkering · Items/trinkets', h('div', 'chips', ['Tinkering', 'Butchering', 'Cooking', 'Woodworking', 'Smelting', 'Forging', 'Alchemy'].map((t, i) => `<span class="chip${i ? ' idle' : ''}">${t}</span>`).join('')) +
+        h('div', 'split2', h('div', 'rl', h('div', 'm', 'One short · 10') + [['Wool cloth', 5], ['Fine wool cloth', 5], ['Sinew string', 5], ['Flax string', 5], ['Bonemeal', 20], ['Wolf trophy', 4], ['Boar trophy', 4], ['Mountain goat trophy', 4], ['Bear trophy', 4], ['Crab trophy', 4]].map(([n, k], i) => `<div class="row${i ? '' : ' on'}"><span>${n}</span><span class="gap">short ${k} of something unfamiliar</span></div>`).join('') + h('div', 'row', '<span class="m">▸ Far off (6)</span><span></span>')) +
+          h('div', '', '<b style="color:var(--accent)">Wool cloth</b>' + h('p', '', 'Thick and warm, might possibly absorb some punches') + h('p', 'gap', '× Can\'t craft yet: missing 5 Unfamiliar material.') + h('p', 'm', 'Instant · Makes Wool cloth ×1 · Success 4%, very unlikely · Tinkering tier 1') + h('p', '', '<b>Where to get it</b><br>Unfamiliar material 0/5: not found yet; it turns up as you explore and fight.') + '<span class="btn near">Craft 1 · instant</span> <span class="btn near">5</span> <span class="btn near">10</span> <span class="btn near">All</span>')), 'grow'),
+    ].join(''),
+    right: VILLAGE_RIGHT(),
+    note: 'Crafting. Now and Here fold to their header lines while a workspace is open (PS117, PS102); the workspace takes the height. One tab level (PS115).',
+  },
+};
+const P = new URLSearchParams(location.search);
+let screen = P.get('screen') || 'village', opt = P.get('opt') || 'mock';
+const TODAY = {village: 'today-village.jpg', fy: 'today-fang-yuan.jpg', craft: 'today-crafting.jpg'};
+function render() {
+  const s = SCREENS[screen];
+  document.body.dataset.opt = opt; document.getElementById('today').src = TODAY[screen];
+  document.getElementById('status').innerHTML = s.status; document.getElementById('strip').style.setProperty('--now', s.now);
+  for (const k of ['left', 'centre', 'right']) document.getElementById(k).innerHTML = s[k];
+  document.getElementById('note').textContent = opt === 'mock' ? s.note : 'Today: the real capture.';
+  for (const b of document.querySelectorAll('#pick button[data-s]')) b.setAttribute('aria-pressed', String(b.dataset.s === screen));
+  for (const b of document.querySelectorAll('#pick button[data-o]')) b.setAttribute('aria-pressed', String(b.dataset.o === opt));
+}
+document.getElementById('pick').onclick = e => { const b = e.target.closest('button'); if (!b) return; if (b.id === 'menus') document.body.classList.toggle('menus'); if (b.dataset.s) screen = b.dataset.s; if (b.dataset.o) opt = b.dataset.o; render(); };
+addEventListener('keydown', e => { const s = {1: 'village', 2: 'fy', 3: 'craft'}[e.key]; if (s) screen = s; if (e.key === 't') opt = opt === 'mock' ? 'today' : 'mock'; if (e.key === 'm') document.body.classList.toggle('menus'); render(); });
+// Each family's menu opens under its own label.
+[...document.querySelectorAll('.bar .fam')].forEach((f, i) => { const m = document.querySelectorAll('.menu')[i]; if (m) m.style.left = f.offsetLeft + 'px'; });
+if (P.has('shot')) document.body.classList.add('shot'); if (P.has('menus')) document.body.classList.add('menus');
+render();
+</script>
+</body>
+</html>
