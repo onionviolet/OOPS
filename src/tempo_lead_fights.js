@@ -5,6 +5,7 @@
 // every number is an authored dial with its reason (AD49 calibration against held-back source fights is the next step, WS5).
 // Leaf of the world packs: reads each world's own facts, registers through tempo_starters.js, writes back in the fight's own commit.
 import {registerTempoOpener} from './tempo_starters.js';
+import {practiseDuelKit} from './hp_duel_mastery.js';
 import {riLeadDayFacts, RI_DAY_ITEMS, RI_WOLF_AT_WALL, RI_WOLF_PART_ITEMS, RI_MEAT_NOTE} from './ri_lead_day_facts.js';
 import {riWolfFoe, riWolfParts, riRecordWolfKill, RI_WOLF_TIDE_FACT} from './ri_wolf_tide.js';
 
@@ -75,9 +76,10 @@ registerTempoOpener({id: 'hp.corridor.draco', label: 'Answer Malfoy in the corri
     },
     spec: (state, context, helpers) => ({id: 'hp-corridor-draco', title: 'Malfoy in the corridor', floor: 1, stakes: HOGWARTS_STAKES,
         conditions: {light: 'day', place: 'Third-floor corridor'},
-        fighters: [you(helpers, {moves: [...PLAIN, 'leg_lock', 'body_bind', 'snatch'], kit: {leg_lock: SPELL.legLock, body_bind: SPELL.bind, snatch: SPELL.snatch}, means: {wand: 1}}),
+        // Practice counts (foundation run, hp_duel_mastery.js): Harry's jinx practice raises his own Leg-Locker and Body-Bind, under the kit cap.
+        fighters: practiseDuelKit(state, [you(helpers, {moves: [...PLAIN, 'leg_lock', 'body_bind', 'snatch'], kit: {leg_lock: SPELL.legLock, body_bind: SPELL.bind, snatch: SPELL.snatch}, means: {wand: 1}}),
             foe(helpers, {id: 'hp.corridor.draco', name: 'Draco Malfoy', hp: 20, body: {attack: 4, agility: 6, dexterity: 6, intuition: 5, attack_speed: 1, defense: 1, crit_rate: .05, crit_multiplier: 1.3, attack_count: 1},
-                goals: {survive: .6, aim: .4}, means: {wand: 1}, tags: ['person'], wants: 'He wants to beat you in front of the others, not to hurt you badly.', kit: {leg_lock: SPELL.legLock, snatch: SPELL.snatch}})]}),
+                goals: {survive: .6, aim: .4}, means: {wand: 1}, tags: ['person'], wants: 'He wants to beat you in front of the others, not to hurt you badly.', kit: {leg_lock: SPELL.legLock, snatch: SPELL.snatch}})], {leg_lock: 'leg-lock', body_bind: 'body-bind'})}),
 });
 
 // --- Reverend Insanity: the wolf tide (Fang Yuan's lead life). WS2: killing is common outside the walls. His Gu are items in his own
