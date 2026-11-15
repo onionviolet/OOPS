@@ -72,7 +72,8 @@ test('centre split: the first centre region takes its own height, short or tall,
     const {centreRow} = await import('../src/shell_composition.js');
     assert.deepEqual(centreRow({want: 120, topRow: 470, fontSize: 14}), {row: 120, form: 'short'}, 'a quiet place gives the rest of the row to the panels below');
     assert.deepEqual(centreRow({want: 20, topRow: 470, fontSize: 14}), {row: 56, form: 'short'}, 'never shorter than four lines');
-    assert.equal(centreRow({want: 450, topRow: 470, fontSize: 14}), null, 'near-equal heights keep the shared row');
+    assert.equal(centreRow({want: 450, topRow: 470, fontSize: 14}), null, 'a little shorter than the row just fills it');
+    assert.deepEqual(centreRow({want: 480, topRow: 470, fontSize: 14, cap: 800}), {row: 480, form: 'tall'}, 'any real amount taller takes its height, so nothing squeezes');
     assert.deepEqual(centreRow({want: 620, topRow: 470, fontSize: 14, cap: 800}), {row: 620, form: 'tall'}, 'Ready now over a full place grows past the You row');
     assert.deepEqual(centreRow({want: 1200, topRow: 470, fontSize: 14, cap: 800}), {row: 800, form: 'tall'}, 'capped so the action list keeps its floor');
     assert.equal(centreRow({want: 0, topRow: 470, fontSize: 14}), null, 'nothing measured: no split');

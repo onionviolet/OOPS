@@ -118,3 +118,27 @@ test('PS98, PS102: the pinned band folds Ready now to its count and first row, l
     assert.equal(pins.ready, false); assert.equal(pins.place, true, 'a bad stored value falls back to pinned');
     assert.deepEqual(Object.keys(readPins({getItem: () => { throw Error('blocked'); }})), BAND_PARTS.map(([id]) => id), 'blocked storage: all pinned');
 });
+
+test('UIC275: crafting rows come from the recipes\' own status, before the recipe list was ever built', async () => {
+    const {craftingReadyReader} = await import('../src/ready_sources.js');
+    const req = (id, have, need, known = true) => ({material: {material_id: id}, have, need, missing: have < need, known});
+    const recipe = (name, requirements, available = false) => ({name, isUnlocked: () => true, requirements, available});
+    const book = {smithing: {items: {
+        bone: recipe('Bonemeal', [req('animal tooth', 0, 20)]),
+        rope: recipe('Rope', [req('flax', 3, 3)], true),
+        odd: recipe('Odd charm', [req('mystery', 0, 5, false)]),
+        far: recipe('Far charm', [req('a', 0, 1), req('b', 0, 1)]),
+        lost: {name: 'Unlearned', isUnlocked: () => false},
+    }}};
+    let t = 0, opened = null;
+    const status = (_c, r) => ({available: r.available, amount: r.available ? 2 : 0, requirements: r.requirements, reasons: r.available ? [] : ['missing']});
+    const read = craftingReadyReader({recipes: () => book, unlocked: () => true, status, open: s => { opened = s; }, now: () => t});
+    const rows = read();
+    assert.deepEqual(rows.map(r => [r.name, r.ready, r.text]), [['Bonemeal', false, 'needs 20 animal tooth'], ['Rope', true, '2 ready'], ['Odd charm', false, 'short 5 of something unfamiliar']]);
+    rows[0].open(); assert.deepEqual(opened, {category: 'smithing', subcategory: 'items', recipe_id: 'bone'});
+    const {craftingRowsFromStates} = await import('../src/ready_sources.js');
+    assert.deepEqual(craftingRowsFromStates(rows).map(r => r.state), ['near', 'ready', 'rest'], 'a gap that names nothing to fetch is further off');
+    assert.equal(read(), rows, 'kept for a moment: the hub, band and Next links share one read');
+    t = 900; assert.notEqual(read(), rows);
+    assert.deepEqual(craftingReadyReader({recipes: () => book, unlocked: () => false, status, open() {}})(), [], 'crafting not open to this life: no rows');
+});

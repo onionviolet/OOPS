@@ -57,7 +57,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 import { channelNote } from "./channels.js";
 import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
-import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts, recipeStateWord} from "./crafting_visibility.js"; import {groupRecipeRows} from "./ui/craft_groups.js";
+import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts, recipeStateWord} from "./crafting_visibility.js"; import {setCraftingReader, craftingReadyReader} from "./ready_sources.js"; import {groupRecipeRows} from "./ui/craft_groups.js";
 import {readPort,ports,whenPortsReady} from './ui_ports.js';
 import {mountTalkView} from './talk_dialogue_host.js';
 import {craftCue} from "./craft_cues.js";
@@ -3383,7 +3383,7 @@ function build_item_recipe_model(selection) {
         // Unknown ingredients stay unnamed: no item name and no material type (CP2).
         const unknown = m.material_type ? !material_type_known(m.material_type) : !req.known;
         const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : displayItemName(item_templates[m.material_id]);
-        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back, from: unknown ? [] : [...new Set((m.material_type ? Object.keys(item_log.items).filter(id => item_templates[id]?.material_type === m.material_type) : [m.material_id]).flatMap(id => knownBestiarySources(id, {knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates})))].slice(0, 4)}; // PS100: where to get it, from what you have met
+        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back, inspect: !unknown && m.material_id ? {id: m.material_id, name: label} : null, from: unknown ? [] : [...new Set((m.material_type ? Object.keys(item_log.items).filter(id => item_templates[id]?.material_type === m.material_type) : [m.material_id]).flatMap(id => knownBestiarySources(id, {knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates})))].slice(0, 4)}; // PS100: where to get it, from what you have met
     });
     const station_name = document.querySelector(`.crafting_mainpage_button[data-crafting_category="${category}"]`)?.textContent.trim() || category;
     const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
@@ -3416,6 +3416,8 @@ function build_item_recipe_model(selection) {
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
 }
 
+// UIC275: Ready now reads recipe readiness from the status the rows paint, so a fresh Village lists it before Crafting opens.
+setCraftingReader(craftingReadyReader({recipes: () => recipes, unlocked: () => global_flags.is_crafting_unlocked, status: item_recipe_state, open: selection => { window.openCraftingWindow?.(); select_item_recipe(selection); requestAnimationFrame(() => show_item_recipe_row(selection)); }}));
 // R14: one observer-safe row summary from the same native status as the detail/guard.
 function update_item_recipe_row_status(row, category, recipe) {
     const state = item_recipe_state(category, recipe);

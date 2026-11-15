@@ -112,14 +112,16 @@ export function topTerms(regions, combat) {
 //   'short': shorter than the top row; the action panels start right under it.
 //   'tall': taller than the top row, up to `cap`; the action panels start lower, and You and Inventory keep their row.
 // Pure: returns {row, form} in px, or null for the shared row. Dials: `minLines` (the region never shrinks below this),
-// `spareLines` (a split must move the edge at least this much, so near-equal heights keep the plain grid). Measured at the
+// `spareLines` (a short split must move the edge at least this much; a little shorter than the row just fills it). Measured at the
 // same stable moments as the row itself (UR52, UR144).
 export function centreRow({want, topRow, fontSize, cap = Infinity, minLines = 4, spareLines = 3}) {
     if (!(want > 0) || !(topRow > 0)) return null;
     const row = Math.ceil(Math.max(want, fontSize * minLines)), spare = fontSize * spareLines;
     if (row <= topRow - spare) return {row, form: 'short'};
+    // Taller than the row by any real amount: the region takes its height, or its panels would squeeze inside it. Only
+    // the short form keeps a margin, since a region a little shorter than the row loses nothing by filling it.
     const tall = Math.floor(Math.min(row, cap));
-    return tall >= topRow + spare ? {row: tall, form: 'tall'} : null;
+    return tall > topRow + 2 ? {row: tall, form: 'tall'} : null;
 }
 
 export function createShellComposition({root, board, regions, resize}) {

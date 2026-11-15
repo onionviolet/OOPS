@@ -8,33 +8,71 @@
 // The life panel's day actions register from their own panel (structured_pack_ui.js) under the id 'life-day'.
 import {registerReady, readySources} from './ready_rows.js';
 import {readPort} from './ui_ports.js';
+import {recipeStateWord, recipeRowSummary} from './crafting_visibility.js';
 import * as riDay from './ri_lead_day_facts.js';
 import {wordsFor} from './spoilage.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
 
 const openLife = () => expandWorkspaceModule('beginning');
 
-// Crafting: one row per recipe whose row says ready or one material short. A row further off is counted, not listed.
+// Crafting: one row per recipe that is ready or one named material short. A row further off is counted, not listed.
 // `namesFor(material)` lists the item names that satisfy a material type ("animal tooth" → "Rat fang", "Wolf fang"), so a
 // line that names the item ("Rat fang x2") points at the recipe that asks for the type (PS55).
-export function craftingRowsFrom(nodes, namesFor = () => []) {
+// Pure: `recipes` are {name, ready, text, open} with the recipe row's own short words (crafting_visibility.js
+// recipeRowSummary: "3 ready", "needs 20 animal tooth", "short 5 of something unfamiliar").
+export function craftingRowsFromStates(recipes, namesFor = () => []) {
     const rows = [];
-    for (const mark of nodes) {
-        const row = mark.closest('[data-crafting_category]') ? mark.parentElement : null;
-        if (!row) continue;
-        const name = (row.getAttribute('aria-label') || '').split(';')[0].trim();
-        if (!name) continue;
-        const text = mark.textContent.trim(), ready = mark.dataset.ready === 'true', short = /^needs (\d+) (.+)$/.exec(text);
-        // Near means one named thing short ("needs 2 Wool"); "1 material short" names nothing to fetch, so it is further off.
-        const state = ready ? 'ready' : short ? 'near' : 'rest';
-        rows.push({id: name, label: `Make ${name}`, state, detail: ready ? text : '', gap: state === 'near' ? text : '', uses: short ? [short[2], ...namesFor(short[2])] : [],
-            open: () => { window.openCraftingWindow?.(); requestAnimationFrame(() => { row.click?.(); row.scrollIntoView?.({block: 'nearest'}); }); }});
+    for (const r of recipes) {
+        if (!r?.name) continue;
+        const text = String(r.text || '').trim(), short = /^needs (\d+) (.+)$/.exec(text);
+        // Near means one named thing short ("needs 2 Wool"); a gap that names nothing to fetch is further off.
+        const state = r.ready ? 'ready' : short ? 'near' : 'rest';
+        rows.push({id: r.name, label: `Make ${r.name}`, state, detail: r.ready ? text : '', gap: state === 'near' ? text : '', uses: short ? [short[2], ...namesFor(short[2])] : [], open: r.open});
     }
     return rows;
 }
+// The same from the recipe list's own marks, for when the recipe data has no reader yet (the list was opened).
+export function craftingRowsFrom(nodes, namesFor = () => []) {
+    const recipes = [];
+    for (const mark of nodes) {
+        const row = mark.closest('[data-crafting_category]') ? mark.parentElement : null;
+        const name = row ? (row.getAttribute('aria-label') || '').split(';')[0].trim() : '';
+        if (!name) continue;
+        recipes.push({name, ready: mark.dataset.ready === 'true', text: mark.textContent,
+            open: () => { window.openCraftingWindow?.(); requestAnimationFrame(() => { row.click?.(); row.scrollIntoView?.({block: 'nearest'}); }); }});
+    }
+    return craftingRowsFromStates(recipes, namesFor);
+}
 // Item names per material type, from the item templates the records port already hands the reference panels.
 const namesForType = type => Object.values(readPort('records')?.item_templates || {}).filter(t => t?.material_type === type && t.name).map(t => t.name);
-const craftingRows = () => typeof document === 'undefined' ? [] : craftingRowsFrom(document.querySelectorAll('[data-crafting_subcategory] .recipe_readiness'), namesForType);
+// UIC275: Ready now on a fresh Village read the recipe list's marks, which exist only once Crafting has been opened. The
+// crafting owner (display.js) hands its recipe readiness here instead, from the same status the list paints.
+let craftingReader = null;
+// The crafting owner's reader: every learned item recipe through its own status (`status(category, recipe)`, itemRecipeStatus),
+// worded as the row words it (recipeRowSummary). Blocked and far-off recipes are left out. Read about once a second by the
+// hub, the band and Next links, so it keeps its answer for 800 ms.
+export function craftingReadyReader({recipes, unlocked, status, open, now = () => performance.now()}) {
+    let cache = {at: -Infinity, rows: []};
+    return () => {
+        const t = now();
+        if (t - cache.at < 800) return cache.rows;
+        const rows = [];
+        if (unlocked()) for (const [category, pages] of Object.entries(recipes() || {})) for (const [recipe_id, recipe] of Object.entries(pages?.items || {})) {
+            if (!recipe?.isUnlocked?.()) continue;
+            const state = status(category, recipe), word = recipeStateWord(state);
+            if (word === 'blocked' || word === 'far') continue;
+            const selection = {category, subcategory: 'items', recipe_id};
+            rows.push({name: recipe.name, ready: state.available, text: recipeRowSummary(state).short, open: () => open(selection)});
+        }
+        cache = {at: t, rows};
+        return rows;
+    };
+}
+export function setCraftingReader(fn) { craftingReader = typeof fn === 'function' ? fn : null; }
+const craftingRows = () => {
+    if (craftingReader) { try { return craftingRowsFromStates(craftingReader() || [], namesForType); } catch { return []; } }
+    return typeof document === 'undefined' ? [] : craftingRowsFrom(document.querySelectorAll('[data-crafting_subcategory] .recipe_readiness'), namesForType);
+};
 
 // Gu meals: only a missed meal, because a meal that is merely due is already the life panel's own ready row. Held counts are
 // read where the life keeps its things: the hero's own pack (the ui port 'stock', as the "item." facts read a native inventory)
