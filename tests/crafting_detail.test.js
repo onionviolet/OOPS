@@ -47,6 +47,9 @@ test('glance states time, cost, result, quality and chance in words, with no inv
     const bare = craftGlance({...base, chance: null});
     assert.equal(bare.rows.find(r => r.key === 'time').value, 'Not stated');
     assert.equal(bare.rows.find(r => r.key === 'chance').value, 'Unassessed');
+    // PS144: the result row says how many you already hold, and says nothing when the count is not known.
+    assert.match(craftGlance({...base, output: {...base.output, owned: 4}}).rows.find(r => r.key === 'result').value, / · you have 4$/);
+    assert.doesNotMatch(bare.rows.find(r => r.key === 'result').value, /you have/);
 });
 
 test('blocked glance carries the one reason and marks each short input', () => {
@@ -110,4 +113,28 @@ test('a blocked commit names its time and says why beside the buttons (UR102, UI
         assert.equal(why.parentElement,commit.closest('.craft_detail_actions'));
         commit.click();assert.equal(blocked,1);
     } finally {globalThis.document=previous;}
+});
+
+test('a short input links to the known recipe that makes it, through the same follow that gives Back (PS144)',()=>{
+    const previous=globalThis.document,dom=createDom();dom.loadHTML('<html><body><div id="detail"></div></body></html>');globalThis.document=dom.document;
+    try {
+        const root=document.getElementById('detail');const followed=[];
+        const req={label:'Sinew',need:2,have:0,missing:true,inspect:{id:'Sinew',name:'Sinew'}};
+        const model={title:'Bow',description:'',requirements:[req],effects:[],output:{name:'Bow',count:1},available:false,attempts:0,
+            related:[{title:'Cure sinew',recipe_id:'cure',via:'Produces an input',outputId:'Sinew',available:true,target:{recipe_id:'cure'}},{title:'Other',recipe_id:'o',via:'Uses this output',outputId:'Bow',available:true}]};
+        renderCraftingDetail(root,model,{onRelated:t=>followed.push(t)});
+        const make=root.querySelector('.craft_source_make');
+        assert.equal(make.textContent,'Make it: Cure sinew');make.click();assert.deepEqual(followed,[{recipe_id:'cure'}]);
+        renderCraftingDetail(root,{...model,related:[]},{});assert.equal(root.querySelector('.craft_source_make'),null,'no maker known, no link');
+    } finally {globalThis.document=previous;}
+});
+
+test('a batch names the material it runs out of before it starts (PS145)',async()=>{
+    const {batchBoundary}=await import('../src/crafting_detail.js');
+    const reqs=[{label:'Sinew',need:2,have:7},{label:'Sinew',need:1,have:7},{label:'Wood',need:1,have:9}];
+    assert.equal(batchBoundary(reqs,2),'Makes 2 attempts, then runs out of Sinew. ');
+    assert.match(craftBatchProposal({requirements:reqs,available:2,requested:10}),/^Makes 2 attempts, then runs out of Sinew\. Proposed up to 2/);
+    assert.doesNotMatch(craftBatchProposal({requirements:reqs,available:2,requested:1}),/runs out/,'a request inside the stock names no boundary');
+    assert.equal(batchBoundary(reqs,1),'','a limit set by something else (skill, station) does not blame a material');
+    assert.equal(batchBoundary([{label:'Ore',need:1,stockKnown:true,usable:3,have:8}],3),'Makes 3 attempts, then runs out of Ore. ','reserved stock does not count');
 });

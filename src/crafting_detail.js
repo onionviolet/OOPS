@@ -64,7 +64,7 @@ function renderGlance(model) {
 
 // PS100: each short input says have/need and where to get it, from what this character has met (enemies beaten that drop it;
 // the recipes that make it are under "Known producers and uses"). An input never seen says so rather than naming it.
-function renderSources(model) {
+function renderSources(model, handlers = {}) {
     const short = (model.requirements || []).filter(r => r.missing);
     if(!short.length) return null;
     const wrap = el('section', 'craft_sources');
@@ -82,6 +82,15 @@ function renderSources(model) {
             : req.from?.length ? `Dropped by ${req.from.join(', ')}.`
             : 'No source met yet; try a trader, the wilds or a recipe below.';
         row.append(el('span', 'craft_source_from', from));
+        // PS144: a known recipe that makes this input opens straight from the row; the recipe's Back returns here.
+        const maker = req.inspect && model.related?.find(r => r.via === 'Produces an input' && r.outputId === req.inspect.id);
+        if(maker) {
+            const make = el('button', 'craft_source_make', `Make it: ${maker.title}`);
+            make.type = 'button';
+            make.setAttribute('data-craft-related', maker.recipe_id);
+            make.addEventListener('click', () => handlers.onRelated?.(maker.target || maker.recipe_id));
+            row.append(make);
+        }
         wrap.append(row);
     }
     return wrap;
@@ -159,7 +168,7 @@ export function renderCraftingDetail(root, model, handlers) {
     }
 
     body.append(renderGlance(model));
-    const sources = renderSources(model);
+    const sources = renderSources(model, handlers);
     if(sources) body.append(sources);
     const uses = el('details', 'craft_detail_section craft_detail_stock');
     uses.open = stockOpen || model.requirements.some(req => req.held_back);
@@ -222,7 +231,9 @@ export function renderCraftingDetail(root, model, handlers) {
 
     const actions = el('div', 'craft_detail_actions');
     const buttons = el('div', 'craft_detail_buttons');
-    const preview=el('p','craft_batch_proposal','Focus or hover a batch choice to preview its maximum input use. The preview reserves nothing.');
+    // PS145: where "All" will stop shows before any hover, when a material sets it.
+    const boundary=model.available&&!model.singleAttempt?batchBoundary(model.requirements,model.attempts??0):'';
+    const preview=el('p','craft_batch_proposal',`${boundary}Focus or hover a batch choice to preview its maximum input use. The preview reserves nothing.`);
     actions.append(preview);
     // Outcome and time on the label (UR102, UR10): "Craft 1 · instant", "Start brazier hold · 6 min".
     const commit = el('button', 'craft_commit', `${model.commitLabel || 'Craft 1'}${model.when ? ` · ${model.when}` : ''}`);
@@ -307,5 +318,15 @@ export function craftBatchProposal({requirements, available, requested}) {
     if(!limit)return 'No attempts are available. This preview reserves nothing.';
     const requestLabel=Number.isFinite(request)?String(request):'all available';
     const uses=requirements.map(req=>`${Math.max(0,Math.floor(req.need*limit))} ${req.label}`).join(', ');
-    return `Proposed up to ${limit} attempt${limit===1?'':'s'} (request: ${requestLabel}): ${uses}. Native skill limits can stop earlier; this preview reserves nothing.`;
+    const stop=request>limit?batchBoundary(requirements,limit):'';
+    return `${stop}Proposed up to ${limit} attempt${limit===1?'':'s'} (request: ${requestLabel}): ${uses}. Native skill limits can stop earlier; this preview reserves nothing.`;
+}
+
+// PS145: the material a batch runs out of, named before you start ("Makes 3, then runs out of Sinew. "). Slots that share a
+// material add their needs; the one whose stock gives the fewest attempts is the boundary, if it is what sets the limit.
+export function batchBoundary(requirements,limit){
+    const by=new Map();
+    for(const req of requirements||[]){if(!(req.need>0))continue;const have=req.stockKnown?req.usable:req.have;const row=by.get(req.label)||{need:0,have:Number(have)||0};row.need+=req.need;by.set(req.label,row);}
+    let low=null;for(const [label,row] of by){const n=Math.floor(row.have/row.need);if(!low||n<low.n)low={label,n};}
+    return low&&low.n===limit?`Makes ${limit} attempt${limit===1?'':'s'}, then runs out of ${low.label}. `:'';
 }

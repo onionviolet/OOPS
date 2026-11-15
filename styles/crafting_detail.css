@@ -206,3 +206,6 @@
 #crafting_window button.craft_source_name {cursor: pointer; text-decoration: underline dotted;}
 #crafting_window button.craft_source_name:focus-visible {outline: 2px solid var(--theme-focus, var(--workspace-focus)); outline-offset: 1px;}
 #crafting_window .craft_source_from {color: var(--p23-muted, var(--theme-surface-muted));}
+/* PS144: the recipe that makes a short input, one click from its row; Back on that recipe returns here. */
+#crafting_window .craft_source_make {font: inherit; background: transparent; border: 0; padding: 0; cursor: pointer; color: var(--ui-state-ready); text-decoration: underline dotted;}
+#crafting_window .craft_source_make:focus-visible {outline: 2px solid var(--theme-focus, var(--workspace-focus)); outline-offset: 1px;}

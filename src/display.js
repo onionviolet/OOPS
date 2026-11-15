@@ -7,7 +7,7 @@ import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRec
 import {componentInputLots} from './processed_materials.js';
 import {mountMaterialChoice} from './material_choice_view.js';
 import {renderCraftingSelection} from './crafting_selection_detail.js';
-import {renderRecentLearning} from './recent_learning.js';
+import {renderRecentLearning, notePractice} from './recent_learning.js'; const learning_readers = {visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName(), now: () => current_game_time.day_count*1440 + current_game_time.hour*60 + current_game_time.minute, capped: id => skills[id].getCurrentLvl?.() >= skills[id].max_level};
 import {equipmentComparisonHTML} from './equipment_comparison.js';
 import {centerModes} from './center_modes.js';
 import {expandWorkspaceModule,openWorkspaceModule} from './workspace_layout.js';
@@ -57,7 +57,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 import { channelNote } from "./channels.js";
 import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
-import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts, recipeStateWord} from "./crafting_visibility.js"; import {setCraftingReader, craftingReadyReader} from "./ready_sources.js"; import {groupRecipeRows} from "./ui/craft_groups.js";
+import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts, recipeStateWord} from "./crafting_visibility.js"; import {setCraftingReader, craftingReadyReader} from "./ready_sources.js"; import {groupRecipeRows} from "./ui/craft_groups.js"; import {gatherLine, stopOutcome} from "./ui/gather_line.js";
 import {readPort,ports,whenPortsReady} from './ui_ports.js';
 import {mountTalkView} from './talk_dialogue_host.js';
 import {craftCue} from "./craft_cues.js";
@@ -2772,7 +2772,7 @@ function create_location_choices({location, category, is_combat = false}) {
 
             activity_div.appendChild(create_gathering_tooltip(location.activities[key]));
 
-            insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + location.activities[key].starting_text);
+            insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + location.activities[key].starting_text); const gather_line = document.createElement("span"); gather_line.className = "gather_line"; gather_line.textContent = gatherLine(location.activities[key].getActivityEfficiency(), obscure_name); activity_div.appendChild(gather_line);
             choice_list.push(activity_div);
         });
     } else if (category === "travel") {
@@ -3410,7 +3410,7 @@ function build_item_recipe_model(selection) {
     return {title: recipe.name, description: nativeItemView(item_templates[result_id]).description, requirements, attempts: state.amount,
         effects: item_recipe_result_effects(item_templates[result_id]),
         related: item_recipe_related_uses(selection, known_ids, result_id), back,
-        output: {name: displayItemName(item_templates[result_id]), count, scaled: !!recipe.scale_results && count > 1},
+        output: {name: displayItemName(item_templates[result_id]), count, scaled: !!recipe.scale_results && count > 1, owned: Object.values(character.getItems() || {}).reduce((n, e) => n + (e?.item?.id === result_id ? e.count : 0), 0)},
         chance, time: "Instant: no game time passes", when: "instant", spendsOnFailure: true, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
         xp, policy: materialPolicyText(game_options.stop_crafting_on_material_change), available: state.available, blocked_reason, receipt, cue, goal:craftBatchGoal.read()?.key===item_recipe_key(selection)?craftBatchGoal.read():null,
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
@@ -4194,7 +4194,7 @@ function update_gathering_tooltip(activity) {
         tooltip_content += `<br>x${gained_resources[i].count[0] === gained_resources[i].count[1] ? gained_resources[i].count[0] : `${gained_resources[i].count[0]}-${gained_resources[i].count[1]}`} "${obscure_name(gained_resources[i].name)} " at ${Math.round(100*gained_resources[i].chance)}%`;
     }
     tooltip_content += tool_tooltip_line(activity);
-    set_HTML(gathering_tooltip, tooltip_content);
+    set_HTML(gathering_tooltip, tooltip_content); const gather_line = parent?.querySelector(".gather_line"); if(gather_line) gather_line.textContent = gatherLine({gathering_time_needed, gained_resources}, obscure_name);
 }
 
 function update_displayed_health() {
@@ -4683,7 +4683,7 @@ function update_displayed_time() {
 
     //color coding like it used to be done with icon?
 
-    set_HTML(time_field, current_game_time.toString() + ", <b>" + time_of_the_day + "</b>");
+    set_HTML(time_field, current_game_time.toString() + ", <b>" + time_of_the_day + "</b>"); if(skill_list) renderRecentLearning(skill_list, character.getLevelableComponent(), learning_readers);
 }
 
 function update_displayed_temperature(optionalWeather = {}) {
@@ -5067,11 +5067,11 @@ function start_activity_display(current_activity) {
 
     const action_end_div = document.createElement("div");
     action_end_div.setAttribute("onclick", "end_activity()");
-    action_end_div.id = "action_end_div";
+    action_end_div.id = "action_end_div"; notePractice(current_activity.activity_name, base_activity.base_skills_names, action_end_div, learning_readers.now());
 
     const action_end_text = document.createElement("div");
     action_end_text.innerText = `Stop ${current_activity.activity_name}`;
-    action_end_text.id = "action_end_text";
+    action_end_text.id = "action_end_text"; const stop_outcome = stopOutcome(base_activity.type, current_activity.gathering_time_needed || current_activity.working_period); if(stop_outcome) { action_end_div.title = stop_outcome; action_end_text.append(Object.assign(document.createElement("span"), {className: "stop_outcome", textContent: stop_outcome})); }
 
     action_end_div.appendChild(action_end_text);
 
@@ -5464,7 +5464,7 @@ function create_new_skill_bar(skill) {
  */
 function update_displayed_skill_bar(skill, leveled_up=true) {
     if(deferSimulationRender(`skill:${skill.skill_id}`, () => update_displayed_skill_bar(skill, true))) return;
-    renderRecentLearning(skill_list, character.getLevelableComponent(), {visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName()});
+    renderRecentLearning(skill_list, character.getLevelableComponent(), learning_readers);
     if(!nativeSkillDiscovery(skill,character)){
         skill_bar_divs[skill.category]?.[skill.skill_id]?.remove();
         if(skill_bar_divs[skill.category])delete skill_bar_divs[skill.category][skill.skill_id];

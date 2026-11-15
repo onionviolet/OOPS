@@ -77,3 +77,19 @@ test('paintRecipeTabCounts marks a skill tab with how many recipes are ready (UI
         assert.equal(tabs[1].dataset.readyCount, undefined); assert.equal(tabs[1].title, 'Nothing ready to make here yet');
     } finally { globalThis.requestAnimationFrame = original; }
 });
+
+test('a gathering period reads time, real time, then each chance and yield (PS142)', async () => {
+    const {gatherLine} = await import('../src/ui/gather_line.js');
+    assert.equal(gatherLine({gathering_time_needed: 6, gained_resources: [{name: 'herb', chance: 0.4, count: [1, 2]}]}, n => n.toUpperCase()), 'Every 6 min (about 6 s real) · 40% · 1–2 HERB');
+    assert.equal(gatherLine({gathering_time_needed: 90, gained_resources: [{name: 'a', chance: 1, count: [1, 1]}, {name: 'b', chance: 0.05, count: [2, 3]}]}), 'Every 1 h 30 min (about 1 min 30 s real) · 100% · 1 a; 5% · 2–3 b');
+    assert.equal(gatherLine({gathering_time_needed: 5, gained_resources: [{name: 'c', chance: 0.002, count: [1, 1]}]}), 'Every 5 min (about 5 s real) · <1% · 1 c');
+    assert.equal(gatherLine({}), '');
+});
+
+test('Stop says what it keeps and what it loses, by activity type (PS141)', async () => {
+    const {stopOutcome} = await import('../src/ui/gather_line.js');
+    assert.equal(stopOutcome('GATHERING', 28), 'Stop keeps what you found; the current 28 min search is lost.');
+    assert.equal(stopOutcome('JOB', 120), '', 'a job says it in its own pay line');
+    assert.equal(stopOutcome('TRAINING', 1), 'Stop keeps all practice so far.');
+    assert.equal(stopOutcome('SLEEP', 1), '');
+});

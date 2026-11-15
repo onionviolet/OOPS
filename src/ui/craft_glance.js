@@ -44,7 +44,8 @@ export function craftGlance(model) {
     const spend = totals.size ? [...totals].map(([label, n]) => `${n} ${label}`).join(', ') : 'nothing listed';
     const cost = model.spendsOnFailure ? 'Selected ingredients are spent on every attempt, including failures.' : (model.cost || `Spends ${spend} per attempt`);
     const q = model.quality?.range;
-    const result = `${out.name} ×${out.count}${out.scaled ? ' (partial results possible)' : ''}`;
+    // PS144: how many of the output you already hold, so making more is a choice made with the stock in view.
+    const result = `${out.name} ×${out.count}${out.scaled ? ' (partial results possible)' : ''}${Number.isFinite(out.owned) ? ` · you have ${out.owned}` : ''}`;
     const quality = q
         ? `Quality ${q[0]}–${q[1]}${model.quality.note ? ` · ${model.quality.note}` : ''}`
         : 'Not graded: it works or it does not';

@@ -33,6 +33,8 @@ export function equipmentComparison(item, baseline, {quality = item?.quality, qu
     return {baselineName: baseline.getName?.() || baseline.name, baselineQuality: baseline.quality, qualities, rows};
 }
 export function equipmentComparisonHTML(item, baseline, options = {}) {
+    // PS148: an empty slot is a comparison too: every effect listed applies in full, penalties included.
+    if(!baseline && item?.equip_slot && (options.baselineRole || 'equipped item') === 'equipped item') return '<br><br><b>Nothing worn in this slot</b>: wearing this adds every effect above in full.';
     const model = equipmentComparison(item, baseline, options);
     if(!model) return '';
     if(model.unsupported) return `<br><br>Comparison unavailable: ${esc(model.unsupported)}`;
@@ -47,10 +49,12 @@ export function equipmentComparisonHTML(item, baseline, options = {}) {
     if(options.qualityRange?.length>1 && item.components)html += '<br>Preview covers the selected parts and quality range before new craft affixes. Those additional outcomes remain unresolved until the craft commits.';
     for(const row of model.rows) {
         const label = options.statNames?.[row.id] || row.label.replaceAll('_',' '), unit = row.kind === 'multiplier' ? '×' : '';
-        const values = row.values.map(v => `${unit}${v}`).join(' to '), deltas = row.deltas.map(v => `${v > 0 ? '+' : ''}${v}`).join(' to ');
+        // PS148: a multiplier's change reads as a multiplier (×1.09 of what you wear), not a difference of factors.
+        const ratio = row.kind === 'multiplier' && row.baseline !== 0;
+        const values = row.values.map(v => `${unit}${v}`).join(' to '), deltas = ratio ? row.values.map(v => `×${round(v / row.baseline)}`).join(' to ') : row.deltas.map(v => `${v > 0 ? '+' : ''}${v}`).join(' to ');
         // Text carries direction; no universal green/red assertion for stats with
         // world-specific tradeoffs. Reduction dimensions explicitly say lower.
-        html += `<br>${esc(label)}: ${values} vs ${unit}${row.baseline} (Δ ${deltas}${reductions.has(row.id) ? '; lower reduces damage' : ''})`;
+        html += `<br>${esc(label)}: ${values} vs ${unit}${row.baseline} (${ratio ? 'change' : 'Δ'} ${deltas}${reductions.has(row.id) ? '; lower reduces damage' : ''})`;
     }
     if(!model.rows.length) html += '<br>No comparable native stat reader.';
     return html;

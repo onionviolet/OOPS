@@ -46,6 +46,10 @@ test('IS3: native stat readers keep a named fixed baseline and quality range wit
  assert.equal(comparison.rows.find(r=>r.id==='damage_taken').favorable,true);
  assert.match(equipmentComparisonHTML(item,baseline,{qualityRange:[100,120]}),/Worn, 100% quality/);
  assert.match(equipmentComparisonHTML(item,baseline,{qualityRange:[100,120]}),/lower reduces damage/);
+ // PS148: a multiplier's change reads as a multiplier, and an empty slot says everything is a gain.
+ assert.match(equipmentComparisonHTML(item,baseline,{qualityRange:[100,120]}),/×0\.9 to ×0\.88 vs ×0\.9 \(change ×1 to ×0\.978/);
+ assert.match(equipmentComparisonHTML(item,undefined),/Nothing worn in this slot/);
+ assert.equal(equipmentComparisonHTML(item,undefined,{baselineRole:'selected part'}),'');
  assert.match(equipmentComparison({equip_slot:'head'},baseline).unsupported,/different/);
  assert.equal(baseline.quality,100);
 });

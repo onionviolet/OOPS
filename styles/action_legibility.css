@@ -152,3 +152,7 @@
 .action-legibility__card[data-ui-state="ready"] .action-legibility__quote {color: var(--ui-state-ready);}
 .action-legibility__card[data-ui-state="near"] [data-theme-state="warning"] {color: var(--ui-state-near);}
 .action-legibility__card[data-ui-state="blocked"] [data-theme-state="warning"] {color: var(--ui-state-blocked);}
+/* PS142: a gathering choice shows its period, chance and yield on a second line (time first, real time qualified). */
+.location_choice .gather_line {display: block; margin-left: var(--ui-space-5); color: var(--ui-muted, inherit); font-size: var(--ui-type-small); line-height: var(--ui-line-body);}
+/* PS141: what Stop keeps and loses, under the Stop label. */
+#action_end_text .stop_outcome {display: block; color: var(--ui-muted, inherit); font-size: var(--ui-type-small); line-height: var(--ui-line-body);}
