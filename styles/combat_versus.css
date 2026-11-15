@@ -65,23 +65,23 @@
 .fight-situation-aims > button {min-height: var(--ui-control-sm);}
 .fight-situation-aims > span {flex-basis: 100%;}
 /* The decision band (PS21): two wide buttons for a downed body lead the card; other moves fold under it. */
-.fight-situation-band {display: grid; grid-template-columns: repeat(auto-fit, minmax(16em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3); padding: var(--ui-space-2) var(--ui-space-3); border: 1px solid var(--ui-hairline); border-radius: var(--ui-radius, 6px);}
-.fight-situation-band-head {grid-column: 1 / -1; margin: 0; font-weight: 600;}
+.fight-situation-band {display: grid; grid-template-columns: repeat(auto-fit, minmax(16em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3); padding: var(--ui-space-2) var(--ui-space-3); border: 1px solid var(--ui-hairline);}
+.fight-situation-band-head {grid-column: 1 / -1; margin: 0; font-weight: var(--ui-weight-strong);}
 .fight-situation-band .scene-card-option {display: grid; gap: var(--ui-space-1);}
-.fight-situation-band .scene-card-option > button {min-height: var(--ui-control-md, 2.5em); font-weight: 600;}
+.fight-situation-band .scene-card-option > button {min-height: var(--ui-control-md, 2.5em); font-weight: var(--ui-weight-strong);}
 .fight-situation-more > summary {cursor: pointer; font-size: var(--ui-type-small);}
 .fight-situation-more[open] {display: grid; grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3);}
 .fight-situation-more[open] > summary {grid-column: 1 / -1;}
 .fight-situation-cue, .fight-situation-risk {color: var(--theme-muted, inherit);}
-.fight-situation-key {font: inherit; font-size: var(--ui-type-small); padding: 0 var(--ui-space-1); border: 1px solid var(--ui-hairline); border-radius: var(--ui-radius);}
+.fight-situation-key {font: inherit; font-size: var(--ui-type-small); padding: 0 var(--ui-space-1); border: 1px solid var(--ui-hairline);}
 /* The approach strip (PS34-PS42): stance, terms and losing terms, the same on the opener and the card. */
 .approach-strip {display: grid; gap: var(--ui-space-1); margin: 0;}
 .approach-row {display: flex; flex-wrap: wrap; align-items: center; gap: var(--ui-space-2); margin: 0; font-size: var(--ui-type-small);}
 .approach-segmented {display: inline-flex; flex-wrap: wrap; gap: var(--ui-space-1);}
 .approach-segmented > button {min-height: var(--ui-control-sm);}
-.approach-segmented > button[aria-pressed="true"] {font-weight: 600; outline: 1px solid currentColor;}
+.approach-segmented > button[aria-pressed="true"] {font-weight: var(--ui-weight-strong); outline: 1px solid currentColor;}
 .approach-why {color: var(--theme-muted, inherit);}
-.approach-why[data-approach-clash] {color: inherit; font-weight: 600;}
+.approach-why[data-approach-clash] {color: inherit; font-weight: var(--ui-weight-strong);}
 .approach-stance > select {min-height: var(--ui-control-sm);}
-.fight-situation-chip {display: inline-block; padding: 0 var(--ui-space-2); border: 1px solid var(--ui-hairline); border-radius: var(--ui-radius); cursor: help;}
+.fight-situation-chip {display: inline-block; padding: 0 var(--ui-space-2); border: 1px solid var(--ui-hairline); cursor: help;}
 .versus-wants {margin: 0; font-size: var(--ui-type-small); font-style: italic;}

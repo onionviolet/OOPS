@@ -120,7 +120,8 @@ test('a wound from the same night\'s patrol is carried into the wolf fight', asy
 
 test('a wolf left at the wall by the patrol is fought at night and settles the patrol\'s plain facts', async () => {
     const {tempoOpener} = await import('../src/tempo_starters.js');
-    const {RI_WOLF_AT_WALL} = await import('../src/ri_lead_day_facts.js');
+    const {RI_WOLF_AT_WALL, RI_WOLF_PART_ITEMS, RI_MEAT_NOTE} = await import('../src/ri_lead_day_facts.js');
+    const {riWolfParts, RI_WOLF_TIDE_FACT} = await import('../src/ri_wolf_tide.js');
     const opener = tempoOpener('ri.wolf.tide'), state = {actors: {player: {worldId: 'book.ri.lead.world', facts: {[RI_WOLF_AT_WALL.fact]: true}}},
         simulation: {sessions: {}, knowledge: {player: {}}, energies: {player: {'book.ri.lead.primeval': {reserve: 20}}}}, clock: 5};
     const ctx = {gameplay: {player: {inventory: {[JSON.stringify({id: 'book.ri.lead.moonglow.moonglow_gu'})]: 1}}}};
@@ -132,8 +133,19 @@ test('a wolf left at the wall by the patrol is fought at night and settles the p
         opener.after(plan, result, {id: spec.id, fighters: {player: {means: {essence: 12}, hp: 40, maxHp: 50, ...(parts ? {parts} : {})}, 'ri.wolf.tide.wolf': {end: wolfEnd, status: 'down'}}}); return plan; };
     const won = settle('won', 'killed');
     assert.equal(won.state.actors.player.facts[RI_WOLF_AT_WALL.fact], false, 'the patrol is free again');
-    assert.equal(won.gameplay.player.inventory[merit], RI_WOLF_AT_WALL.killMerit);
+    // Weibao, 2026-11-14: wolf parts, not merit; the board pays for the eye and the tally.
+    assert.equal(won.gameplay.player.inventory[merit], undefined, 'no merit from the fight');
+    const parts = riWolfParts({large: false});
+    for(const [part, n] of Object.entries(parts)) assert.equal(won.gameplay.player.inventory[JSON.stringify({id: RI_WOLF_PART_ITEMS[part]})], n, part);
     assert.equal(won.gameplay.player.inventory[eye], 1);
+    assert.match(won.state.simulation.knowledge.player[RI_MEAT_NOTE].value, new RegExp(`${parts.meat} jin`), 'the meat starts its spoil clock');
+    assert.equal(won.state.simulation.knowledge.player[RI_MEAT_NOTE].at, 5);
+    assert.ok(won.state.actors.player.facts[RI_WOLF_TIDE_FACT], 'the kill is counted against the wolves at the wall');
+    const spared = settle('won', 'knocked_out');
+    const tally = JSON.stringify({id: RI_WOLF_AT_WALL.tally});
+    assert.equal(spared.gameplay.player.inventory[tally], 1, 'a wolf that lived leaves the watch tally');
+    assert.equal(spared.gameplay.player.inventory[eye], undefined);
+    assert.equal(spared.gameplay.player.inventory[merit], undefined);
     assert.equal(won.state.simulation.energies.player['book.ri.lead.primeval'].reserve, 12);
     assert.equal(JSON.parse(won.state.actors.player.facts['book.ri.lead.day.wolf_fight']).essenceSpent, 8);
     assert.equal(won.state.actors.player.facts['book.ri.lead.day.injured'], undefined);

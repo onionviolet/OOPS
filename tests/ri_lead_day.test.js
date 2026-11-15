@@ -93,7 +93,7 @@ test('a wolf attack leaves the wolf at the wall: the patrol waits until the live
 
 const MERIT = JSON.stringify({id: RI_DAY_ITEMS.merit});
 // Until the combat lane's hunt drops parts instead of paying merit (it then removes itself here).
-const KNOWN_MERIT_WRITERS = ['tempo_lead_fights.js'];
+const KNOWN_MERIT_WRITERS = [];
 
 test('a patrol night yields wolf parts, never merit: the alliance board is the one merit writer', () => {
     const writers = guLeadDay.commands.flatMap(c => [c.effects || [], ...(c.outcomes || []).map(o => o.effects)].flat()

@@ -5,8 +5,8 @@
 // every number is an authored dial with its reason (AD49 calibration against held-back source fights is the next step, WS5).
 // Leaf of the world packs: reads each world's own facts, registers through tempo_starters.js, writes back in the fight's own commit.
 import {registerTempoOpener} from './tempo_starters.js';
-import {drawFraction} from './gen_kit.js';
-import {riLeadDayFacts, RI_DAY_ITEMS, RI_WOLF_AT_WALL} from './ri_lead_day_facts.js';
+import {riLeadDayFacts, RI_DAY_ITEMS, RI_WOLF_AT_WALL, RI_WOLF_PART_ITEMS, RI_MEAT_NOTE} from './ri_lead_day_facts.js';
+import {riWolfFoe, riWolfParts, riRecordWolfKill, RI_WOLF_TIDE_FACT} from './ri_wolf_tide.js';
 
 const key = id => JSON.stringify({id});
 const held = (context, id) => Number(context.gameplay?.player?.inventory?.[key(id)] || 0);
@@ -83,9 +83,6 @@ registerTempoOpener({id: 'hp.corridor.draco', label: 'Answer Malfoy in the corri
 // --- Reverend Insanity: the wolf tide (Fang Yuan's lead life). WS2: killing is common outside the walls. His Gu are items in his own
 // inventory and his essence is his own reserve; the fight spends both for real and writes them back once, in its own commit.
 export const WOLF_HUNT = Object.freeze({
-    wolfHp: {value: 30, why: 'One ordinary lightning wolf: a patrol meets two (ri_lead_day_facts patrol dial), so one is half a patrol.'},
-    largeChance: {value: .2, why: 'Authored: about one wolf in five that comes close is a big one, a pack\'s strong member; the source\'s packs are led by bigger wolves (ch122-123).'},
-    largeHp: {value: 44, why: 'Authored: half again an ordinary wolf: four clean throws rather than three.'},
     bladeForce: {value: 12, why: 'A Moonglow blade cuts by the Gu, not the arm: about two fifths of a wolf, so three clean throws kill one (the contest pack\'s moonglow_blade drops a crippled wolf in one; a healthy one takes more).'},
     boarForce: {value: 6, why: 'Authored: a boar\'s strength behind a fist, half a blade. Enough to kill a hurt wolf.'},
     moonblade: {value: 4, why: 'Four parts a throw (the contest pack\'s moonglow_blade row, ch122-123).'},
@@ -104,7 +101,7 @@ const INJURED = 'book.ri.lead.day.injured';
 const wolfWaiting = state => !!riLeadDayFacts(state)['book.ri.lead.day.wolf_waiting'];
 const PATROL_ID = 'ri-wolf-tide-patrol';
 // Which wolf comes close is one keyed draw on the world's seed and the hour (same hour, same wolf on a replay).
-export const wolfIsLarge = state => drawFraction(state.simulation?.seed ?? 1, `ri.wolf.tide:size:${Math.floor((state.clock || 0) / 60)}`) < WOLF_HUNT.largeChance.value;
+// The wolf's size, health and bite come from the wolf tide's own table (ri_wolf_tide.js riWolfFoe: one keyed draw per hour, big wolves can be hunted out).
 export const woundCarried = state => !!(state.actors?.player?.facts?.[INJURED] || riLeadDayFacts(state)[INJURED]);
 export function wolfKit(state, context) {
     const hungry = !!riLeadDayFacts(state)['book.ri.lead.day.moonglow.hungry'];
@@ -134,15 +131,15 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
     },
     spec(state, context, helpers) {
         const kit = wolfKit(state, context);
-        const patrol = wolfWaiting(state), large = wolfIsLarge(state);
+        const patrol = wolfWaiting(state), wolf = riWolfFoe(state), large = wolf.large;
         return {id: patrol ? PATROL_ID : 'ri-wolf-tide', title: patrol ? 'The wolf at the wall' : 'A lightning wolf beyond the wall', floor: 1,
             conditions: {light: patrol ? 'dark' : 'day', footing: 'bad', place: patrol ? 'The village wall' : 'Beyond the wall'},
             stakes: {preset: 'hunt', stakes: 'the wolf\'s life, and wolf parts for the board', text: 'A hunt beyond the wall: the wolf fights for its life. A blow that drops it kills it; if it drops you, you wake badly hurt.',
                 why: 'WS2: killing is common outside the walls; the tide is why you are here.'},
             fighters: [you(helpers, {moves: [...PLAIN, ...Object.keys(kit)], kit, means: {essence: reserve(state)}, meansLabels: {essence: 'essence'},
                 ...(woundCarried(state) ? {hp: Math.max(1, Math.round(helpers.vitals.health * WOLF_HUNT.woundCarried.value * 10) / 10)} : {})}),
-                foe(helpers, {id: 'ri.wolf.tide.wolf', name: large ? 'A large lightning wolf' : 'A lightning wolf', hp: large ? WOLF_HUNT.largeHp.value : WOLF_HUNT.wolfHp.value, tags: large ? ['beast', 'large'] : ['beast'],
-                    body: {attack: large ? 7 : 5, agility: 5, dexterity: 6, intuition: 4, attack_speed: 1.1, defense: 1, crit_rate: .1, crit_multiplier: 1.5, attack_count: 1},
+                foe(helpers, {id: 'ri.wolf.tide.wolf', name: large ? 'A large lightning wolf' : 'A lightning wolf', hp: wolf.hp, tags: large ? ['beast', 'large'] : ['beast'],
+                    body: {attack: wolf.attack, agility: 5, dexterity: 6, intuition: 4, attack_speed: 1.1, defense: 1, crit_rate: .1, crit_multiplier: 1.5, attack_count: 1},
                     goals: {survive: .4, aim: .6}, moves: ['jab', 'swing', 'withdraw'], wants: 'It fights to eat, and runs when it is hurt enough.',
                     fateText: {finish: 'It dies. You can cut out its eye; the board pays for the eye.', spare: 'It limps back into the trees. The woods keep one more wolf.',
                         detail: 'One wolf eye to hand in at the alliance board.'}})]};
@@ -155,14 +152,21 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
         if(pool && Number.isFinite(left)) pool.reserve = Math.max(0, Math.min(pool.reserve, left));
         const wolf = b.fighters['ri.wolf.tide.wolf'], killed = result === 'won' && wolf?.end === 'killed' ? 1 : 0;
         const inv = ((plan.gameplay ||= {}).player ||= {}).inventory ||= {}, add = (id, n) => { inv[key(id)] = (inv[key(id)] || 0) + n; };
-        if(killed) add(RI_DAY_ITEMS.eye, 1);
+        // Weibao, 2026-11-14: "Rather than merit immediately it could be like part of the wolf drops and then I can trade that in for merit".
+        // A kill drops the wolf's parts (riWolfParts: eye, hide, meat in jin); the board pays for the eye. A wolf that lives (spared, held back,
+        // driven off) leaves only the watch's tally from a patrol. No merit is written here: the alliance board is the one merit writer.
+        const large = !!wolf?.tags?.includes('large'), parts = killed ? riWolfParts({large}) : {};
+        for(const [part, n] of Object.entries(parts)) if(n > 0 && RI_WOLF_PART_ITEMS[part]) add(RI_WOLF_PART_ITEMS[part], n);
+        if(parts.meat > 0) ((plan.state.simulation.knowledge ||= {}).player ||= {})[RI_MEAT_NOTE] = {stage: 'understood', value: `You carried ${parts.meat} jin of wolf meat back from beyond the wall.`, at: plan.state.clock, cause: `tempo:${b.id}`};
+        if(killed) plan.state.actors.player.facts[RI_WOLF_TIDE_FACT] = riRecordWolfKill(plan.state, {large});
         // What he carries away, in player words, for the result line (PS26).
-        plan.fightCarry = killed ? ['A wolf eye is in your pack for the board.'] : wolf?.end === 'knocked_out' ? ['The wolf limped off into the trees.'] : [];
+        plan.fightCarry = killed ? [`A wolf eye for the board${parts.pelt ? ', its hide' : ''}${parts.meat ? ` and ${parts.meat} jin of meat` : ''} are in your pack.`]
+            : wolf?.end === 'knocked_out' ? ['The wolf limped off into the trees.'] : [];
         const facts = plan.state.actors.player.facts, wounded = Object.keys(me.parts || {}).length > 0;
         if(b.id === PATROL_ID) {
             facts[RI_WOLF_AT_WALL.fact] = false;
-            if(killed) add(RI_DAY_ITEMS.merit, RI_WOLF_AT_WALL.killMerit);
-            else if(result === 'won') add(RI_DAY_ITEMS.merit, RI_WOLF_AT_WALL.driveOffMerit); // held back: it limps off over the wall, as when the watch drives it off
+            // A wolf that lived still leaves the captain's word that you held the wall: one watch tally (the board pays it).
+            if(!killed && result === 'won') { add(RI_WOLF_AT_WALL.tally, 1); plan.fightCarry.push('The watch captain gives you a tally for holding the wall.'); }
             if(wounded || result === 'lost' || result === 'withdrawn' || result === 'yielded') facts['book.ri.lead.day.injured'] = true;
         }
         facts['book.ri.lead.day.wolf_fight'] = JSON.stringify({from: b.id === PATROL_ID ? 'patrol' : 'hunt', result, killed, wolf: wolf?.end ?? (wolf?.status === 'left' ? 'withdrew' : 'stood'),
