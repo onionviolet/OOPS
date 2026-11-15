@@ -36,6 +36,7 @@ export const TEMPO_DIALS = {
     holdFailBase: {value: .05, why: 'CBD213: holding back is a skill with a failure. One downing blow in twenty slips past restraint even when the force was right.'},
     holdFailForce: {value: .8, why: 'CBD213: a means too strong for the occasion. Each share of the body\'s health a blow carries beyond what downed it adds this much to the slip (a Gu blade held back on a wolf fails far more often than a fist).'},
     holdSkillCut: {value: .7, why: 'PS35: Pulled Blows at full skill cuts the chance of a slip by this share (a practised hand pulls a blow cleanly; never quite zero).'},
+    yieldAt: {value: .3, why: 'PS48: a person who would rather live than win offers to yield at about a third of their health, once; below that they run.'},
     outright: {value: .5, why: 'CBC4: a blow carrying half a body\'s health past the point that downed it leaves no window to decide in.'},
     pleaBase: {value: .25, why: 'A plea to stop short of killing is heard about one time in four from someone set on harm, more as their aim softens (their goals) and as they are hurt.'},
     wardCast: {value: .6, why: 'A held ward (a shield charm, a guarding Gu) makes a cast at its holder about four in ten less likely to land, beside taking the edge off a blow.'},
@@ -73,6 +74,7 @@ export const STAKES_MOVE_IDS = ['plead', 'escalate', 'finish', 'spare'];
 // What follows each choice, as the character would know it (PS22, PRS1). An opener may give a foe its own `fateText`; a beast and a person differ.
 const isBeast = f => !!f?.tags?.includes('beast');
 export function fateText(f) {
+    if(f.yielding) return {finish: 'They gave up. Killing them now is a killing everyone will call murder.', spare: 'You accept. They back away, hands open; it is over.'};
     const own = f.fateText || {};
     return {finish: own.finish ?? (isBeast(f) ? 'It dies.' : 'They die here, by your hand.'),
         spare: own.spare ?? (isBeast(f) ? 'It limps away.' : 'They live. They will remember this.'), ...(own.detail ? {detail: own.detail} : {})};
@@ -127,10 +129,16 @@ function downed(b, foeId, strikerId, row, over = 0) {
 function byTerms(b, foeId) {
     const foe = b.fighters[foeId], kind = foeKind(foe), terms = b.terms?.[kind] ?? 'ask';
     if(asksNow({terms, kind, shifted: !!b.stakes?.cue})) { if(foe.end === 'knocked_out') { foe.end = 'downed'; } (b.fate ||= {})[foeId] = 'player'; return false; }
+    if(foe.yielding && terms === 'spare') { acceptYield(b, foeId, 'You accept the yield, as you meant to.'); foe.byTerms = true; return true; }
     foe.end = terms === 'finish' ? 'killed' : terms === 'take_alive' ? 'bound' : 'knocked_out'; foe.byTerms = true;
     const it = kind === 'beast' ? 'it' : 'them';
     say(b, terms === 'finish' ? `You finish ${it}, as you meant to.` : terms === 'take_alive' ? `You bind ${it} and keep ${it}, as you meant to.` : `You leave ${it} alive, as you meant to.`);
     return true;
+}
+
+// A yield accepted: they leave the fight on their feet (end 'yielded' in the result), not as a body.
+function acceptYield(b, foeId, line) {
+    const foe = b.fighters[foeId]; delete foe.end; foe.status = 'left'; foe.yielded = true; delete b.fate?.[foeId]; say(b, line);
 }
 
 // Equal ready time and speed is settled by a per-fight shuffle, never by name: calibration (P8) showed an id-order tie handed the first blow to the foe every time.
@@ -195,6 +203,8 @@ function policyChoice(b, actorId, policy) {
     const pick = id => ({moveId: id, targetId: id === 'jab' || id === 'swing' || id === 'shoot' || isAttack(moveRow(f, id)) && moveRow(f, id).kind === 'kit' ? foe : null});
     // A body down at this fighter's feet is decided first: a careful policy spares; a hunt or skirmish finishes, anything else spares.
     if(fates(b, actorId).length) return {moveId: policy !== 'safe' && ['hunt', 'skirmish'].includes(b.stakes?.preset) ? 'finish' : 'spare', targetId: fates(b, actorId)[0]};
+    // The other side's terms (PS41, PS48): a person who would rather live than win offers to yield once badly hurt, before running.
+    if(f.side === 'b' && b.stakes && foeKind(f) === 'person' && has('yield') && !f.offered && hp < TEMPO_DIALS.yieldAt.value && (f.goals?.survive ?? .5) >= .5) return pick('yield');
     // Kit first when it can be used (a spell, a Gu): a fighter fights with what it carries; the fists are what is left (SF6).
     if(policy !== 'safe' && f.kit) {
         const w = hp < .5 && !f.guard ? kitPick(b, f, actorId, {ward: true}) : null;
@@ -392,8 +402,12 @@ function runMove(plan, registry, command, publish) {
         const foeId = fates(b, id).includes(command.targetId) ? command.targetId : fates(b, id)[0];
         check(foeId, 'No one is down at your feet.');
         const foe = b.fighters[foeId]; delete b.fate[foeId];
-        foe.end = command.moveId === 'finish' ? 'killed' : 'knocked_out';
-        say(b, command.moveId === 'finish' ? `${name} finish${id === 'player' ? '' : 'es'} ${foe.name}.` : `${name} spare${id === 'player' ? '' : 's'} ${foe.name}, who lies still.`);
+        if(foe.yielding && command.moveId === 'spare') acceptYield(b, foeId, `${name} accept${id === 'player' ? '' : 's'} ${foe.name}'s yield.`);
+        else {
+            foe.end = command.moveId === 'finish' ? 'killed' : 'knocked_out';
+            if(foe.yielding && command.moveId === 'finish') shift(b, `${name === 'You' ? 'You' : name} killed someone who had yielded.`);
+            say(b, command.moveId === 'finish' ? `${name} finish${id === 'player' ? '' : 'es'} ${foe.name}.` : `${name} spare${id === 'player' ? '' : 's'} ${foe.name}, who lies still.`);
+        }
     } else if(move.kind === 'plead') {
         // Heard by the other side's goals: someone set on harm rarely agrees, someone hurt or wavering more often.
         const them = active(b, 'b').map(x => b.fighters[x]), aim = them.length ? them.reduce((a, x) => a + (x.goals?.aim ?? .5), 0) / them.length : 0;
@@ -457,8 +471,13 @@ function runMove(plan, registry, command, publish) {
             say(b, `${name} ${id === 'player' ? 'try to back away, but are cut off' : 'tries to back away, but is cut off'}; the turn costs a free blow.`);
         }
     } else {
+        // The other side yields to you (PS48): your terms answer it, and a person always asks (the band: Accept or Finish).
+        if(f.side === 'b' && b.stakes && b.fighters.player?.status === 'active') {
+            f.offered = true; f.status = 'down'; f.end = 'downed'; f.yielding = true; f.guard = false;
+            say(b, `${name} yields, hands open.`);
+            byTerms(b, id);
         // A surrender can be refused by the other side's goals.
-        if(draw(b, 'yield', id, {tries: f.tries || 0}) < yieldChance(b, f)) {
+        } else if(draw(b, 'yield', id, {tries: f.tries || 0}) < yieldChance(b, f)) {
             f.status = 'left'; f.yielded = true; say(b, `${name} yield${id === 'player' ? '' : 's'}.`);
             b.exit = {kind: 'yielded', followedBy: [], leftBehind: id === 'player' ? active(b, 'a').filter(x => x !== 'player' && b.fighters[x].ally) : []};
         } else {
@@ -611,7 +630,7 @@ export function tempoView(b) {
             ...(id === 'shoot' || id === 'reload' ? {text: `${TEMPO_MOVES[id].text} ${st.loaded} of ${st.capacity} loaded, ${st.carried} carried (${stockKindLabel(st.kind)}).`} : {}),
             why: id === 'plead' && pleaWhy(b) ? pleaWhy(b) : stockWhy(id) ? stockWhy(id) : id === 'tend' && me.stamina < TEMPO_MOVES.tend.stamina ? 'Needs two stamina.' : TEMPO_MOVES[id].kind === 'strike' && !oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you striking.` : '',
             ...(TEMPO_MOVES[id].kind === 'strike' && b.stakes ? {detail: `${TEMPO_MOVES[id].text} ${b.stakes.lethal ? (me.holdBack ? 'You are holding back: a downing blow knocks out.' : 'In this fight a downing blow can kill, a fist included.') : 'A downing blow knocks out.'}`} : {})})) : [],
-        ...(mine ? {fateMoves: fates(b, 'player').flatMap(foeId => ['finish', 'spare'].map(m => ({id: m, targetId: foeId, name: b.fighters[foeId].name, label: m === 'finish' ? 'Finish' : 'Spare',
+        ...(mine ? {fateMoves: fates(b, 'player').flatMap(foeId => ['finish', 'spare'].map(m => ({id: m, targetId: foeId, name: b.fighters[foeId].name, label: m === 'finish' ? 'Finish' : b.fighters[foeId].yielding ? 'Accept' : 'Spare', ...(b.fighters[foeId].yielding ? {yielding: true} : {}),
             text: fateText(b.fighters[foeId])[m], ...(m === 'finish' && fateText(b.fighters[foeId]).detail ? {detail: fateText(b.fighters[foeId]).detail} : {}), cost: scaled(TEMPO_MOVES[m], me), safe: TEMPO_MOVES[m].safe, usable: true, why: '', odds: null})))} : {fateMoves: []}),
         place: b.conditions.place || null, holdRisk: holdRisk(b),
         aims: mine ? SLOT_IDS.map(id => ({id, label: SLOTS[id].label === 'body' ? 'Body' : SLOTS[id].label[0].toUpperCase() + SLOTS[id].label.slice(1), text: SLOTS[id].why})) : [],

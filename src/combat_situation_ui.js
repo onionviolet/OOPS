@@ -90,7 +90,8 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             const band = document.createElement('div'); band.className = 'fight-situation-band'; band.dataset.fightBand = '';
             const names = [...new Set((t.fateMoves || []).map(m => m.name))];
             const head = document.createElement('p'); head.className = 'fight-situation-band-head';
-            head.textContent = `${names.join(' and ')} ${names.length > 1 ? 'are' : 'is'} down.`;
+            const yielding = (t.fateMoves || []).every(m => m.yielding); // the other side gave up (PS48): the band says so
+            head.textContent = `${names.join(' and ')} ${yielding ? (names.length > 1 ? 'yield' : 'yields') : names.length > 1 ? 'are down' : 'is down'}.`;
             band.append(head);
             fateRows[0].before(band);
             fateRows.forEach((row, i) => {

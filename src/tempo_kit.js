@@ -68,6 +68,8 @@ export function validateTempoKit(f, sharedIds) {
     if(f.stance !== undefined && !text(f.stance, 40)) return false;
     if(f.wants !== undefined && !text(f.wants, 200)) return false;
     if(f.byTerms !== undefined && f.byTerms !== true) return false;
+    if(f.yielding !== undefined && f.yielding !== true) return false;
+    if(f.offered !== undefined && f.offered !== true) return false;
     if(f.end !== undefined && !TEMPO_ENDS.includes(f.end)) return false;
     if(f.pleas !== undefined && !(Number.isSafeInteger(f.pleas) && f.pleas >= 0)) return false;
     if(f.fateText !== undefined && !(f.fateText && typeof f.fateText === 'object' && Object.values(f.fateText).every(v => text(v, 300)))) return false;

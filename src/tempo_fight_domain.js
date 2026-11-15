@@ -312,7 +312,7 @@ function run() {
         const me = b.fighters.player;
         // A body waits on you only when your terms ask, it is a person, or the stakes shifted (the engine settles the rest as you meant to).
         const down = Object.entries(b.fate || {}).filter(([, by]) => by === 'player').map(([id]) => id);
-        if(down.length) { why = `${b.fighters[down[0]].name} is down. Finish or spare?`; break; }
+        if(down.length) { why = b.fighters[down[0]].yielding ? `${b.fighters[down[0]].name} yields. Accept or finish?` : `${b.fighters[down[0]].name} is down. Finish or spare?`; break; }
         // Your losing terms (PS42): at about a third of your health, yield or break off instead of the next blow.
         const losing = losingMove({losing: losingFor(ports.root().actors?.player?.facts), hp: me.hp, maxHp: me.maxHp ?? w.health});
         if(losing && me.moves.includes(losing)) { move({moveId: losing, auto: true}); turns++; why = losing === 'yield' ? 'You yield, as you meant to.' : 'You break off, as you meant to.'; break; }

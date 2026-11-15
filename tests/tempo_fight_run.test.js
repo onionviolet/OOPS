@@ -170,3 +170,25 @@ test('the card can say the fight turned deadly and why, and how likely holding b
     const heavy = host({stakes: {preset: 'hunt'}, player: {profile: {...profile, attackPower: 400}}, foe: {hp: 30, maxHp: 30}});
     assert.ok(heavy.view().fight.holdRisk > .15, `a blow far too strong for this body may slip: ${heavy.view().fight.holdRisk}`);
 });
+
+// PS41, PS48: the other side has terms too. A hurt person offers to yield; a person always asks, and Accept or Finish answers it.
+test('a hurt person yields; the fight asks, Accept ends it with them on their feet, Finish is a killing that shifts the stakes', () => {
+    const person = {name: 'The knifeman', tags: ['person'], hp: 9, maxHp: 30, goals: {survive: .7, aim: .3}};
+    const h = host({stakes: {preset: 'brawl'}, terms: {person: 'finish'}, foe: person});
+    let said = '';
+    for(let n = 0; n < 6 && h.view().fight && !h.view().fight.fateMoves?.length; n++) said = h.run();
+    const f = h.view().fight;
+    assert.ok(f?.fateMoves?.length, `the yield waits on you: ${said}`);
+    assert.match(said, /The knifeman yields\. Accept or finish\?/);
+    assert.deepEqual(f.fateMoves.map(m => m.label), ['Finish', 'Accept']);
+    assert.ok(f.lines.some(l => /yields, hands open/.test(l)));
+    const accept = f.fateMoves.find(m => m.label === 'Accept');
+    h.move({moveId: 'spare', targetId: accept.targetId});
+    assert.equal(h.view().fight, undefined);
+    assert.equal(h.view().last, 'won');
+    assert.match(Object.fromEntries(h.view().account.items).Them, /yielded/);
+    const k = host({stakes: {preset: 'brawl'}, foe: person});
+    for(let n = 0; n < 6 && k.view().fight && !k.view().fight.fateMoves?.length; n++) k.run();
+    k.move({moveId: 'finish', targetId: k.view().fight.fateMoves[0].targetId});
+    assert.match(Object.fromEntries(k.view().account.items).Them, /killed/);
+});
