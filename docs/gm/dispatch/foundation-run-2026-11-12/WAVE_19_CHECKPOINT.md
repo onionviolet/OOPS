@@ -5,10 +5,10 @@ First wave of the resumed run under the [orientation](RUN.md#orientation-for-the
 ```receipt
 build: clean_bundle.sh from 126de3278 plus lane 1's paths
 route: DEV fixture ri-fang-yuan-wild-gu, then the real "Refine the wild Gu" command
-state: lane 1 committed; Harry Phase B parked (not landed)
+state: lane 1 committed (815616b18, b7c8a2836); Harry Phase B parked (not landed)
 viewport: 1920x1080 headless Chrome
 persistence: save, reload and a second fresh origin: refined Gu kept
-tests: focused 31 of 31; lane test:changed 4,992 of 4,994 (2 skipped); full npm test on the committed HEAD pending (slot held by another session's run)
+tests: focused 31 of 31; lane test:changed 4,992 of 4,994 (2 skipped); full npm test on b7c8a2836 (archive tree) 7,622 of 7,635, 11 skipped; the 2 failures (rule_routes, ui_contract) need git and pass 6 of 6 in the checkout. Chrome re-walk on the committed bundle: Done line shown, refined Gu kept through reload and a second origin, no page errors
 review: agent-verified, not human-reviewed
 ```
 
