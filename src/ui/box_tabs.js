@@ -4,8 +4,8 @@
 // the row's click handler marks the chosen tab. The owner keeps its node and its content (AR3); this module only puts
 // the node in the box and shows the tab while `when()` holds.
 export const BOX_TAB_HOMES = Object.freeze({
-    skills: Object.freeze({bar: 'skill_and_stance_control_div', pages: 'skills_and_stances_content_div', className: 'skill_stance_control_button'}),
-    journal: Object.freeze({bar: 'journal_control_div', pages: 'journal_content_div', className: 'journal_control_button'}),
+    skills: Object.freeze({module: 'skills', bar: 'skill_and_stance_control_div', pages: 'skills_and_stances_content_div', className: 'skill_stance_control_button'}),
+    journal: Object.freeze({module: 'records', bar: 'journal_control_div', pages: 'journal_content_div', className: 'journal_control_button'}),
 });
 
 const tabs = new Map();
@@ -44,6 +44,13 @@ export function sync() {
         tab.button.hidden = !on;
         if (!on && tab.node.style.display !== 'none') { tab.node.style.display = 'none'; bar.querySelector('button:not([hidden])')?.click(); }
     }
+}
+
+// A box with a tab showing counts as found, so a page a life opens (Klein's pay ledger) is reachable before the box's own
+// first find (feature-ui, 2026-11-15). Keyed by the workspace module the box lives in.
+export function moduleHasShownTab(moduleId) {
+    const box = Object.entries(BOX_TAB_HOMES).find(([, h]) => h.module === moduleId)?.[0];
+    return !!box && shownTabs(box).length > 0;
 }
 
 let timer = 0;

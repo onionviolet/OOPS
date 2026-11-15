@@ -3,6 +3,7 @@ import {setLocked,lockReason,sayReason} from './locked_control.js';
 import {resolvePanel,selectSection,foldOf} from './panel_folds.js';
 import {seatAllowsPanel,panelPerspective} from './seat_profiles.js';
 import {centerModes} from './center_modes.js';
+import {moduleHasShownTab} from './ui/box_tabs.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellResize} from './shell_resize.js';
 import {createShellComposition} from './shell_composition.js';
@@ -265,7 +266,7 @@ function panelAccessible(state,module) {
 function moduleKnown(module, eligible) {
     if (!panelAccessible(readPort('expansion'),module)) return false;
     if (module.known) return true;
-    let found; try { found = module.discovered() !== false; } catch { found = false; }
+    let found; try { found = module.discovered() !== false || moduleHasShownTab(module.id); } catch { found = false; }
     if (!(found || eligible)) return false;
     module.known = true; if (revealArmed()) reveal(module); return true;
 }
@@ -331,7 +332,7 @@ export function updateWorkspace() {
             if (module.placeholder?.parentNode && module.node.previousSibling !== module.placeholder) module.placeholder.after(module.node);
             else if (!module.placeholder?.parentNode) { const home = (module.homeId && document.getElementById(module.homeId)) || module.home; if(home?.isConnected && module.node.parentNode !== home)home.append(module.node); }
             module.node.classList.toggle('workspace-user-hidden', state.hidden && !module.critical);
-            const eligible = module.eligible() !== false, known = moduleKnown(module, eligible); labelShell(module, known);
+            const eligible = module.eligible() !== false || moduleHasShownTab(module.id), known = moduleKnown(module, eligible); labelShell(module, known);
             module.node.classList.toggle("workspace-discovery-hidden", !known || !eligible);
             syncRestore(module, state, known, eligible, true);
         });
@@ -343,7 +344,7 @@ export function updateWorkspace() {
         module.node.classList.remove('workspace-user-hidden','workspace-discovery-hidden');
         if(module.expanded){module.shell.hidden=true;syncPanelHeader(module,state,module.eligible()!==false);return;}
         if (module.node.parentNode !== module.body) module.body.append(module.node);
-        const shell = module.shell; const eligible = module.eligible() !== false, known = moduleKnown(module, eligible); labelShell(module, known);
+        const shell = module.shell; const eligible = module.eligible() !== false || moduleHasShownTab(module.id), known = moduleKnown(module, eligible); labelShell(module, known);
         // Undiscovered shells wait outside the labelled docks, so no dock label or text names them.
         if (!known) { setProp(shell, 'hidden', true); if (shell.parentNode !== owner.vault) owner.vault.append(shell); syncRestore(module, state, known, eligible, false); return; }
         // Reach A2 proposal: restore the vital dock only on combat entry, not every render.
@@ -638,7 +639,7 @@ export function setWorkspaceContext(context) {
 // Focused views borrow the original node. No layout save, clone or second UI owner.
 export function knownWorkspaceModules() {
     // G18: discovered() is asked once per panel per call (it was asked twice); a panel's discovered() must stay cheap, since navigation polls this.
-    const state=readPort('expansion'),seen=new Map(),found=m=>{if(!seen.has(m)){let f=false;try{f=m.discovered()!==false;}catch{}seen.set(m,f);}return seen.get(m);};
+    const state=readPort('expansion'),seen=new Map(),found=m=>{if(!seen.has(m)){let f=false;try{f=m.discovered()!==false||moduleHasShownTab(m.id);}catch{}seen.set(m,f);}return seen.get(m);};
     return [...registry.values()].filter(m=>{try{return panelAccessible(state,m)&&(m.known||found(m));}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),found:found(m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
 }
 export function expandWorkspaceModule(requested,{title}={}) {

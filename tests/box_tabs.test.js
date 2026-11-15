@@ -10,3 +10,14 @@ test('a box tab names a known box and shows while its when() holds; a throwing o
     assert.deepEqual(shownTabs('journal', list).map(t => t.id), ['worlds']);
     assert.throws(() => registerBoxTab({box: 'nowhere', id: 'x', label: 'X', node: {}}), /known box/);
 });
+
+test('a box with a tab showing counts as found, so its page is reachable before the box\'s own first find', async () => {
+    const {moduleHasShownTab} = await import('../src/ui/box_tabs.js');
+    let open = true;
+    const release = registerBoxTab({box: 'journal', id: 'pay', label: 'Pay', node: {style: {display: 'none'}, remove() {}}, when: () => open});
+    try {
+        assert.equal(moduleHasShownTab('records'), true);
+        assert.equal(moduleHasShownTab('skills'), false);
+        open = false; assert.equal(moduleHasShownTab('records'), false);
+    } finally { release(); }
+});
