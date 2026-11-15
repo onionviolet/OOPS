@@ -91,7 +91,29 @@ body.shot #pick, body.shot .note { display:none; }
 .spec h4 { margin:0 0 4px; font-size:12px; color:var(--gold); letter-spacing:.03em; }
 .spec div { display:grid; grid-template-columns:78px 1fr; gap:6px; padding:2px 0; border-bottom:1px solid #1d2350; } .spec b { color:var(--muted); font-weight:600; }
 .spec p { margin:4px 0 0; color:var(--muted); font-size:11.5px; }
-.c4 .box.rep { flex:1 1 40%; } .c3 .head-run .bar { height:19px; }
+.c4 .box.rep { flex:1 1 40%; }
+/* D6 fight panel (DU14, DU37), class names after the combat lane's src/ui/combat_versus.js; mount point left open. */
+.fight2 { display:flex; flex-direction:column; gap:6px; padding:6px 10px; }
+.stakes { align-self:flex-start; font-size:12.5px; border:1px solid var(--danger); color:var(--danger); border-radius:10px; padding:1px 9px; }
+.approach2 { display:grid; grid-template-columns:auto 1fr; gap:3px 10px; font-size:13px; border:1px solid var(--quiet); border-radius:3px; padding:5px 8px; }
+.approach2 .act, .band .act { border:1px solid var(--line); border-radius:3px; padding:0 6px; }
+.versus-bar.unk i { width:100%; background:repeating-linear-gradient(45deg,#3a4170 0 6px,#2a2f55 6px 12px); }
+.approach2 .act.on { border-color:var(--gold); color:var(--gold); } .approach2 .act { margin-right:3px; font-size:12.5px; }
+.versus { display:grid; grid-template-columns:1fr 1.25fr; gap:10px; } .versus h5 { margin:0 0 3px; font-size:12px; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; }
+.versus-card { position:relative; border:1px solid var(--line); border-radius:3px; padding:5px 8px 5px 8px; margin-bottom:6px; background:rgba(255,255,255,.02); transition:opacity .6s, filter .6s; }
+.versus-card[data-down] { opacity:.38; filter:grayscale(1); } .versus-card .nm { display:flex; align-items:center; gap:6px; font-weight:700; font-size:14px; padding-right:2px; }
+.versus-card .nm small { font-weight:400; color:var(--muted); margin-left:auto; font-size:12px; }
+.sigil { width:24px; height:24px; flex:0 0 24px; border:1px solid var(--line); border-radius:3px; background:#0f1438; }
+.versus-bar { position:relative; height:15px; background:#3a1010; border-radius:2px; margin:3px 0; font-size:11.5px; line-height:15px; text-align:center; overflow:hidden; }
+.versus-bar i { position:absolute; left:0; top:0; bottom:0; width:var(--f); background:#e23b3b; } .versus-bar b { position:absolute; left:0; top:0; bottom:0; width:var(--l); background:#7a1d1d; }
+.versus-bar span { position:relative; text-shadow:-1px 0 #000,1px 0 #000,0 -1px #000,0 1px #000; }
+.versus-bar--you i { background:#e2763b; } .versus-bar--stamina { height:9px; background:#16301f; } .versus-bar--stamina i { background:var(--st); }
+.versus-bar--timer { height:3px; background:#2a2050; margin:2px 0 3px; } .versus-bar--timer i { background:#9d7bff; }
+.versus-means, .versus-wants { margin:1px 0; font-size:12.5px; color:var(--muted); } .versus-wants { color:var(--text); }
+.inspect { position:absolute; right:6px; bottom:4px; font-size:11.5px; color:var(--muted); border:1px solid var(--quiet); border-radius:3px; padding:0 5px; }
+.band { border:1px solid var(--gold); border-radius:3px; padding:6px 9px; background:rgba(255,210,74,.06); font-size:14px; }
+.band .key { font:11px ui-monospace,monospace; border:1px solid var(--muted); border-radius:2px; padding:0 4px; margin-right:4px; color:var(--muted); }
+.held { display:flex; gap:8px; border-top:1px solid var(--quiet); padding-top:6px; margin-top:auto; } .held .verb { flex:1; margin:0; font-size:15px; } .c3 .head-run .bar { height:19px; }
 #dtitle { position:fixed; left:398px; bottom:42px; font-size:11px; color:var(--muted); }
 /* Compare view: the draft beside today's screen of the same life. */
 #cmp { display:none; position:absolute; inset:0; background:#000; }
@@ -143,6 +165,15 @@ const C1K = (mid, inv) => [
 const KLEIN_INV = h('div', 'm', 'Your purse contains: 1 penny') + row('☆ Notebook, pen and ink', '') + row('☆ Revolver (canon, at the desk)', '') + tabs(['Sort by name', 'Sort by value', 'Sort by type'], 'Sort by name', 'sm');
 const KLEIN_TIME = VILLAGE_TIME('Day 3, <b>night</b> · 00:01', 'fog · coal smoke', '2%');
 const KLEIN_LOC = box('', '', h('div', 'loc', h('div', 'name', '☆ Moretti flat') + h('div', 'desc', 'River fog and coal smoke hang over the street; you see less far than by day.') + h('div', 'here', 'Here: <a>Benson and Melissa</a> · <a>the desk</a> · <a>1 way out</a>')) + h('div', 'status2', 'No work running.&nbsp;&nbsp; Saving available.'));
+
+// DU37: a seeded SVG sigil from the subject's name (UR99, cheap materials; no raster art).
+const sigil = name => { let x = 0; for (const c of name) x = (x * 31 + c.charCodeAt(0)) >>> 0; const pts = [];
+  const n = 3 + (x % 4); for (let i = 0; i < n; i++) { const a = (i / n) * 6.283 + (x % 7) / 7, r = 6 + ((x >> (i * 3)) % 4); pts.push(`${12 + r * Math.cos(a)},${12 + r * Math.sin(a)}`); }
+  const hue = x % 360; return `<svg class="sigil" viewBox="0 0 24 24"><polygon points="${pts.join(' ')}" fill="none" stroke="hsl(${hue} 70% 70%)" stroke-width="1.5"/><circle cx="12" cy="12" r="1.6" fill="hsl(${hue} 70% 70%)"/></svg>`; };
+const vbar = (cls, f, l, t) => `<div class="versus-bar ${cls}" style="--f:${f}%;--l:${l}%"><b></b><i></i><span>${t}</span></div>`;
+const vcard = ({name, kind, hp, hpT, lost, st, means, wants, down, timer = 40, glyph = true}) => `<article class="versus-card"${down ? ' data-down' : ''} data-combat-subject="${name}"><div class="nm">${glyph ? sigil(name) : ''}${name}<small>${kind}</small></div>` +
+  vbar(hpT.startsWith('?') ? 'unk' : '', hp, lost ?? hp, hpT) + (st != null ? vbar('versus-bar--stamina', st, st, '') : '') + (down ? '' : `<div class="versus-bar versus-bar--timer" style="--f:${timer}%"><i></i></div>`) +
+  `<p class="versus-means">${means}</p>${wants ? `<p class="versus-wants">Wants: ${wants}</p>` : ''}<span class="inspect">Inspect</span></article>`;
 const DRAFTS = {
   d1: {
     title: 'D1 · Klein\'s work day (SFC10)', today: 'lotm-tingen-day3.png',
@@ -221,6 +252,27 @@ const DRAFTS = {
       ready: 'Patrol: wolves near (estimated count); Board: parts held ("6 eyes · 2 pelts"); none when the tide is off', known: 'merit and its entries, parts held, wolves killed',
       est: 'wolves near the wall, refill time', unk: 'large and frenzy wolves until seen; gate merit before it is paid', empty: 'Tide line hidden when no tide; Data: "No merit yet. The board pays for wolf parts."',
       today: 'A description line and the patrol report; merit paid in four places (AT41)', codes: 'PS120, PS130, PS143, DSG11; waits on PS2 and PS3 (one wolf owner, one merit writer). Phases from ri_wolf_tide.js; counts are examples.'}),
+  },
+  d6: {
+    title: 'D6 · Two sides in column 2 (DU14) with sigil tiles (DU37)', today: 'ri-fang-yuan-wild-gu.png',
+    c1: C1({hp: '55/60 hp', st: '36/40 stamina', invTab: 'Combat', combat: row('Atk 1.2 · Spd 1 · AP 32 · Def 1') + row('<b>Normal Stance</b>', '<span class="m">[ change ]</span>')}),
+    c2: [VILLAGE_TIME('01/04/999 08:30, Summer, Mon, <b>Day</b>', '15.3°C', '36%'),
+      draft('Infested field', 'open · groups left 14 / 15 · Clears: 0', '<div class="fight2">' +
+        '<span class="stakes">Out here a fight runs to the finish unless someone yields</span>' +
+        h('div', 'approach2', '<span class="m">Stance</span><span><span class="act on">Normal ▾</span></span><span class="m">If they go down</span><span><span class="act">Finish</span><span class="act on">Spare</span><span class="act">Ask me</span></span><span class="m">If I am losing</span><span><span class="act on">Fight on</span><span class="act">Yield</span><span class="act">Break off at a third</span></span>') +
+        '<div class="versus"><section class="versus-side--you"><h5>You</h5>' + vcard({name: 'Hero', kind: 'you', hp: 92, hpT: '55/60 hp', st: 90, means: 'Means: oak club, 1 bludgeoning', glyph: false, timer: 70}) +
+          '<h5>Beside you</h5>' + vcard({name: 'Dunstan', kind: 'ally · trader', hp: 70, lost: 85, hpT: '21/30 hp', st: 60, means: 'Means: short spear', wants: 'to get back to his stall', timer: 20}) + '</section>' +
+        '<section><h5>Against you · 3</h5>' + vcard({name: 'Wolf rat', kind: 'light', hp: 77, lost: 90, hpT: '23/30 hp', st: 70, means: 'Means: bite, 6 piercing · Hit you 32%', wants: 'to eat', timer: 55}) +
+          vcard({name: 'Wolf rat ', kind: 'down', hp: 0, hpT: '0/30 hp · down', means: 'Means: bite', down: true}) +
+          vcard({name: 'Large wolf rat', kind: 'unread', hp: 100, hpT: '?/? hp', means: 'Means: ?', wants: '?', timer: 10}) + '</section></div>' +
+        h('div', 'band', '<b>The wolf rat is down.</b> <span class="key">1</span><span class="act">Finish it</span> <span class="key">2</span><span class="act">Spare it</span> <span class="m">· your default: Spare</span><div class="m" style="font-size:12.5px;margin-top:3px">▸ Other moves (3): Withdraw · Yield · Fight on (auto)</div>') +
+        '<div class="held">' + verb('⇠', 'Withdraw: back to Village [15m]', 'held in place') + verb('⌕', 'Inspect a fighter', 'separate') + '</div></div>', 'grow')].join(''),
+    c3: JOURNAL('Bestiary', row('<b>Wolf rat</b>', 'seen 3 · Atk ~4') + row('Large wolf rat', unk('?', 'Not watched fighting yet.'))) + SKILLS('Skills', [], row('Club', 'Lv 1')),
+    c4: REPORTS('<b class="g">Right now</b><br>A wolf rat is down: Finish or Spare (1 / 2). Two still stand.', ['[ Entering Infested field ]', 'A fight began: 3 wolf rats.', '<span class="m">Combat lines go to the Combat filter (DU16).</span>'], 'Combat') + spec({code: 'D6 · DU14, DU37 (with the combat lane)',
+      box: '2 · column 2\'s middle (PS121); the mount point waits on ui-cohesion\'s slot selector', verb: 'Fight moves: Finish / Spare on the decision band (1 / 2), Withdraw held at the bottom (PS147), Inspect separate from leaving; "Other moves (n)" folds the rest',
+      ready: 'The decision band is the ready state: a body is down or yields; the Reports head says so', known: 'your HP and stamina, allies\' HP, foes you have watched (HP, means, hit chance)',
+      est: 'a watched foe\'s attack (~4); the attack timer is a rhythm, not a number', unk: 'an unread foe\'s HP, means and wants ("?/? hp")', empty: 'No one against you: the card closes and the location box returns (PS121)',
+      today: 'The live fight card (src/ui/combat_versus.js, combat lane): this mock arranges its parts as two sides; no runtime file touched', codes: 'DU10-DU12, DU14, DU16, DU37, PS121, PS130, PS147, UR99. Fallen foes dim in place as in e36cd2913. Timer styling: feel-finish.'}),
   },
 };
 const P = new URLSearchParams(location.search), id = P.get('d') || 'd1', D = DRAFTS[id];

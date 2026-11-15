@@ -12,7 +12,7 @@ It links `styles/ui_tokens.css` for the PS103 state tokens and the tooltip fill.
 |---|---|
 | kit.png | All twelve cells, still (`?still`) |
 | kit-live-frame.png | A frame from the live loop: ready verb, eased bar, damaged fighter, awake Combat tab |
-| kit-page2.png | Page 2 (`?page=2`, or the Page 2 button): forms from the DU review that had no owner. DU6 pale locked tabs, DU34 active-effects count (opened), DU21 start-screen load chip (clean and repaired), DU22 selected tile. DU14 two-sided fight panel and DU37 enemy portrait are placeholders until the combat lane answers |
+| kit-page2.png | Page 2 (`?page=2`, or the Page 2 button): forms from the DU review that had no owner. DU6 pale locked tabs, DU34 active-effects count (opened), DU21 start-screen load chip (clean and repaired), DU22 selected tile. DU14 two-sided fight panel and DU37 sigil tile in a compact form, agreed with the combat lane; the full fight screen is ui-drafts D6 |
 | kit-tooltip-pinned.png | The tooltip pinned: chance, have/need per material, the XP breakdown and the interruption outcome |
 
 Sources: rounds 14 to 16 in the [play surface considerations](../../docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md) (PS103, PS109, PS119 to PS157) and the [Discord UI elements review](../../docs/research/yair-upstream/DISCORD_UI_ELEMENTS_REVIEW_2026-11-15.md). Folded in from that review: DU1, DU2, DU3, DU8, DU10, DU11, DU12, DU19, DU20, DU29 and DU35. UI_RULES codes cited: UR32, UR43, UR52, UR100 and UR125.

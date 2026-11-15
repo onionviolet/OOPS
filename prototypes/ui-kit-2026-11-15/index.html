@@ -151,6 +151,7 @@ main[hidden] { display:none; } .pager { margin-left:auto; color:var(--gold); bor
 .tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; } .tile { border:1px solid var(--line); border-radius:4px; padding:6px; text-align:center; font-size:14px; cursor:pointer; background:#1a2456; }
 .tile:hover { border-color:#a9a6d0; } .tile.sel { background:#2d3d8e; border-color:var(--gold); box-shadow:0 0 0 1px var(--gold); } .tile small { display:block; color:var(--muted); font-size:11px; }
 .tilegrp { font-size:12px; color:var(--muted); margin:6px 0 2px; } .createbox { border:1px dashed var(--line); border-radius:5px; padding:8px; }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:8px; } .sigtile { display:flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:3px; padding:3px 8px; font-size:14px; font-weight:700; }
 .pending { border:1px dashed #6c4f8f; border-radius:5px; padding:10px; color:#bda7dd; font-size:13px; }
 </style>
 </head>
@@ -309,17 +310,24 @@ main[hidden] { display:none; } .pager { margin-left:auto; color:var(--gold); bor
     <span class="btn" tabindex="0">Confirm</span></div>
   <div class="cap">Tiles in headed groups. The chosen tile gets a lighter fill plus the gold edge, so colour is not the sole signal. A line says what the choice changes, as YAIR says its choices are cosmetic. Arrow keys move inside a group.</div>
 </section>
-<section class="cell"><h2>17 · Two-sided fight panel <code>DU14 · waiting on combat</code></h2>
-  <div class="pending"><b>Not drafted yet.</b> Fight forms go to the combat lane first (coordinator). Proposed default sent to them: it replaces column 2's middle (PS121) instead of covering the centre; allies left and foes right as fighter rows (cell 8), fallen rows dimmed in place, Exit as a fight action. Fills in after their answer.</div>
+<section class="cell"><h2>17 · Two-sided fight panel <code>DU14 · agreed with combat</code></h2>
+  <div class="two"><div><div class="tilegrp">You · beside you</div><div class="fighter"><div class="fst"><span>club</span><b style="color:var(--text)">Hero</b></div><div class="hpb" style="--f:92%;--lost:92%"><b></b><i></i><span>55/60 hp</span></div><div class="timer"><i></i></div></div><div class="fighter"><div class="fst"><span>spear</span><b style="color:var(--text)">Dunstan</b></div><div class="hpb" style="--f:70%;--lost:85%"><b></b><i></i><span>21/30 hp</span></div><div class="timer"><i></i></div></div></div>
+  <div><div class="tilegrp">Against you · 3</div><div class="fighter"><div class="fst"><span>wants: to eat</span><b style="color:var(--text)">Wolf rat</b></div><div class="hpb" style="--f:77%;--lost:90%"><b></b><i></i><span>23/30 hp</span></div><div class="timer"><i></i></div></div><div class="fighter down"><div class="fst"><span>down</span><b>Wolf rat</b></div><div class="hpb" style="--f:0%;--lost:0%"><b></b><i></i><span>0/30</span></div></div></div></div>
+  <div class="cap">Both sides inside column 2's middle (PS121), mapped onto the combat lane's versus row: your side with "Beside you", one card per foe, fallen cards dimmed in place. Above them sit the stakes chip, the approach strip and, when a body is down, the 1/2 decision band. Withdraw is held at the bottom (PS147) and Inspect is separate from leaving. Full screen: ui-drafts D6.</div>
 </section>
-<section class="cell"><h2>18 · Enemy portrait <code>DU37 · waiting on combat</code></h2>
-  <div class="pending"><b>Not drafted yet.</b> Proposed default: an optional small tile in the fighter row's corner, a glyph or seeded SVG sigil (UR99, cheap materials first), name tag beside it; no raster art by default. Waits on combat's answer.</div>
+<section class="cell"><h2>18 · Enemy sigil tile <code>DU37 · agreed with combat</code></h2>
+  <div id="sigils" style="display:flex;gap:10px;flex-wrap:wrap"></div>
+  <div class="cap">An optional tile in the card's top corner beside the name, never in the HP row. It is a seeded SVG sigil drawn from the subject's id, so the same creature always gets the same mark (UR99, cheap materials first; no raster art by default). A world can swap the seed rule for its own glyph set (DSG12).</div>
 </section>
 </main>
 <script>
 const $ = id => document.getElementById(id), body = document.body, rmState = $('rmstate');
 const restart = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
 const P = new URLSearchParams(location.search);
+const sigil = name => { let x = 0; for (const c of name) x = (x * 31 + c.charCodeAt(0)) >>> 0; const pts = []; const n = 3 + (x % 4);
+  for (let i = 0; i < n; i++) { const a = (i / n) * 6.283 + (x % 7) / 7, r = 6 + ((x >> (i * 3)) % 4); pts.push(`${12 + r * Math.cos(a)},${12 + r * Math.sin(a)}`); }
+  const hue = x % 360; return `<svg viewBox="0 0 24 24" width="26" height="26" style="border:1px solid var(--line);border-radius:3px;background:#0f1438"><polygon points="${pts.join(' ')}" fill="none" stroke="hsl(${hue} 70% 70%)" stroke-width="1.5"/><circle cx="12" cy="12" r="1.6" fill="hsl(${hue} 70% 70%)"/></svg>`; };
+$('sigils').innerHTML = ['Wolf rat', 'Large wolf rat', 'Lightning wolf', 'Moonglow Gu', 'Malfoy', 'Dunstan'].map(n => `<span class="sigtile">${sigil(n)}${n}</span>`).join('');
 const page = n => { $('p1').hidden = n !== 1; $('p2').hidden = n !== 2; $('pager').textContent = n === 1 ? 'Page 2 ›' : '‹ Page 1'; };
 $('pager').addEventListener('click', () => page($('p1').hidden ? 1 : 2));
 $('fxRow').addEventListener('click', () => { $('fxList').hidden = !$('fxList').hidden; });
