@@ -1,5 +1,7 @@
 # System practice rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 How to build and tune a repeating system: ties, fights, making, care, research
 and generators. **Proposed 2026-11-09 (AD32).** Weibao asked to "address the rules
 accordingly" and to "reconcile docs and core rules and more as to make future dev
@@ -63,7 +65,7 @@ Added 2026-11-10, proposed (AD32), after Weibao asked "Refinements we can do? co
 | SPR23 | **Derive, then store.** State that can be rebuilt from dated records is a reading over them; a system stores its own rows only when no record owns the event, and says why. Dial: a world may store a derived value as a cache with the record still the authority. | Two copies of one fact drifting apart (RCL5, RCL12; BDT17, BDT28) | Which record the state is read from, or why none exists |
 | SPR24 | **A threshold is a cost, not a wall.** A rank, level, stat or skill gap raises cost, risk and strain, shown in the quote before commit (AR7); a hard gate in code needs Weibao's answer as a limiting line (AD56). | "Cannot" lines written without his answer (GKM2, revised to GKM13) | The cost curve and where it is shown |
 | SPR25 | **Amounts carry type and provenance.** A fuel, currency or resource amount records grade, owner and source, so given, stored, borrowed and earned amounts stay apart. | A lent or stolen amount indistinguishable from one's own (GKM17) | The fields the amount carries |
-| SPR26 | **Everyone plays by the player's rules.** Quote, eligibility and cost are pure functions that NPCs, generators and away time call unchanged. Dial: an NPC may skip display work, never the rule. | NPC shortcuts that let them do what the player cannot, or the reverse (GKM18, GKM20) | Which callers share the function |
+| SPR26 | **Everyone plays by the player's rules.** Quote, eligibility and cost are pure functions that NPCs, generators and away time call unchanged. Dial: an NPC may skip display work; an exception to the shared rule needs an in-world reason and cost (AD5; LLR38, 2026-11-14). | NPC shortcuts that let them do what the player cannot, or the reverse (GKM18, GKM20) | Which callers share the function |
 | SPR27 | **A combination's effect comes from its parts.** A recipe, move, ritual or blend derives its effect from what its parts do; a canon combination is a fitted case of that rule, not a lookup row (AD38). | A table of allowed combinations that blocks invention (GKM6) | One canon case and one invented case through the same code |
 | SPR28 | **Every timed system joins the replay harness.** Anything that changes with played minutes registers a case in the away-time equivalence harness when it lands. | Away time quietly giving different results from play (TMR4; BDT65, BDT99) | The harness case name |
 | SPR29 | **A borrowed shape records its adaptation.** A system built from another game or book says which mechanism it took, what it changed and why, in the commit and the area guide row. | A copied rule that fits badly, with no record of why it was kept (Weibao, 2026-11-10: "Feel free to also adapt and adjust things to fit our purpose better too") | The adaptation note |

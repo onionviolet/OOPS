@@ -1,5 +1,7 @@
 # Reusable mockup workbench
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 Standing workflow requested by Weibao on 2026-10-16: “Make long standing better
 mockup system.” This owns how YAIR UI proposals are built and compared. It does
 not select a recipe layout, replace the accepted Proto23 baseline, or authorize

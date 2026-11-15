@@ -1,5 +1,7 @@
 # Domain rules
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 **Accepted 2026-10-18 as standing defaults.** One file for the five domain rulebooks
 that Weibao accepted together: body and health (BHR), combat and conflict (CBR),
 economy and trade (ECR), skills and learning (SLR), and presence and interaction

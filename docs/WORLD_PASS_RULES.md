@@ -1,5 +1,7 @@
 # World pass rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Weibao, 2026-10-23: after a facilities and person-to-person-roles pass on
 Reincarnation Paradise, "consider reviews and basic rules to expand on the
 expansion/exploration passes for the future ... save more strongly locally ...

@@ -1,5 +1,7 @@
 # Livelihood rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Working defaults 2026-11-10 under AD56 (ideas that open possibilities are welcome), adjustable; the lines listed in the [limiting lines review](audits/LIMITING_LINES_REVIEW_2026-11-10.md) stay proposals until Weibao answers. Drafted as proposals the same day (AD32). Requested by Weibao ("Draft both", [log](gm/USER_VISION_LOG_2026-11.md#relationship-and-livelihood-rulebooks-2026-11-10)). Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
 
 Covers making a living from land, living things and labour: farming and gardens, herds and animal care, fishing, foraging, hunting and trapping, mining and woodcutting as work, and jobs for wages. A world may set any line differently with an in-world reason and cost (AD5, AD38); each row gives the default, the dial and the reason.

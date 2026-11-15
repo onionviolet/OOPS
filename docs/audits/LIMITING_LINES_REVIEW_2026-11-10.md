@@ -49,6 +49,8 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 
 The same sort, applied to rule sets written before AD56 ([status reconciliation](RULES_STATUS_RECONCILIATION_2026-11-14.md)). Everything else in those sets is now a working default, restates accepted direction, or is a process rule listed there for one answer per set. Also waiting: SPR17 goes with LLR2, and GTR8 goes with LLR13. Already answered: GTR25 follows LLR12.
 
+Answered 2026-11-14 (Weibao: "go ahead for all of them"): every line below takes its open alternative; see Answers so far.
+
 | Code | Line | What it limits | Why the agent proposed it | Open alternative |
 | --- | --- | --- | --- | --- |
 | LLR38 | SPR26 | NPCs and the player always share quote and eligibility functions, "never the rule" | One function keeps NPC and player costs honest | Shared by default, with an exception for an in-world reason and cost (AD5) |
@@ -85,6 +87,22 @@ First to fourth rounds, 2026-11-10 ([first](../gm/USER_VISION_LOG_2026-11.md#ans
 | LLR27 | Opened: belief is a resource wherever a method draws on it | AGT10 |
 | LLR33 | Opened: a library is welcome where it saves real work ("why should that be limited?") | UR99 dial |
 | LLR32 | Opened: generated or raster art is not needed now; it is welcome where a surface benefits, with its source noted | UR99 dial |
+| LLR38 | Opened: shared by default, exceptions with an in-world reason and cost (2026-11-14) | SPR26 |
+| LLR39 | Opened: targets are guidance a start may exceed with a reason; PAC owns the numbers (2026-11-14) | PAC3, OPN5 |
+| LLR40 | Opened: a prompt, not a gate (2026-11-14) | PAC4 |
+| LLR41 | Opened: guidance; long setup folds into Details (2026-11-14) | OPN2 |
+| LLR42 | Folded into PAC7 (2026-11-14) | OPN7 |
+| LLR43 | Opened: duplication through a mechanism with a cost (2026-11-14) | GTR33 |
+| LLR44 | Opened: any compatible start can be drawn; reroll as a dial (2026-11-14) | World completion standard |
+| LLR45 | Opened: labelled original abilities where the world implies one (2026-11-14) | ABR1 |
+| LLR46 | Opened: a new shape with its first known consumer (2026-11-14) | UR79 |
+| LLR47 | Opened: flag by default; reject only malformed shape or world law (2026-11-14) | PGC4, PGC5 |
+| LLR48 | Opened: first known consumer (2026-11-14) | PGC13, WSC19, PC81 |
+| LLR49 | Opened: report and rank, with no rejection (2026-11-14) | PGC17 |
+| LLR50 | Opened: any actor with the means (2026-11-14) | PC19 |
+| LLR51 | Opened: computed from properties; neutral where no mechanism applies (2026-11-14) | PC69 |
+| LLR52 | Opened: contest packs, revisit on a failing case (2026-11-14) | PROCEDURAL_CARRY_OUT |
+| LLR53 | Opened: all buildable; the split sets order; wiki-body effects run labelled; nothing waits; parallel facet lanes (2026-11-14) | PC20/Q2, Q3, Q5, Q7 |
 
 ## Restating accepted direction (no answer needed)
 

@@ -1,5 +1,7 @@
 # Naming rules (NMR)
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Proposed 2026-11-06 (AD32); run authorized by Weibao, lines not yet accepted
 ([direction](USER_VISION.md#five-quality-deep-dives-on-the-prose-model-2026-11-06)).
 

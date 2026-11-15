@@ -1,5 +1,7 @@
 # Means and appraisal (proposal)
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 > **How to use this doc (Weibao, 2026-10-10):** these are considerations
 > for established and future worlds, to help ideaboard and implement
 > fitting characters at fitting times. Tiers, lists and tables are

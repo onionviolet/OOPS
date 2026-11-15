@@ -1,5 +1,7 @@
 # Societies and markets contract
 
+Register status: Working default (AD56; rules index register, 2026-11-14).
+
 *Version **v0**, 2026-11-12, chat M of the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md#other-systems-the-foundations-need-2026-11-11) (OS4, MC15). Built on the [kernel working contract](KERNEL_WORKING_CONTRACT.md) v0.1 and the [world substrate contract](WORLD_SUBSTRATE_CONTRACT.md) v0. A proposal under AD56: it widens play, and every number is a default with a dial and an in-world reason. Changes are versioned requests to chat M. Inventory and the reasoning behind each line: [M checkpoint](gm/dispatch/foundation-m-2026-11-12/CHECKPOINT.md).*
 
 Code: [`src/market_substrate.js`](../src/market_substrate.js) (goods, want, supply, price), [`src/market_trade.js`](../src/market_trade.js) (trade on K), [`src/market_word.js`](../src/market_word.js) (word of prices as knowledge). Tests: [`tests/market_foundation.test.js`](../tests/market_foundation.test.js) (M1-M8).

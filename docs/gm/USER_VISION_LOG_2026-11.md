@@ -1556,3 +1556,15 @@ Still waiting for him:
 - LLR38–LLR53
 - P1–P5
 - O3 (one preflight card) and O4 (one rulebook shape), which are not started
+
+## Process sets, held lines, preflight card and rulebook shape, 2026-11-14
+
+Weibao, on the open items from the status reconciliation (process sets P1–P5, held lines LLR38–LLR53, O3 and O4): "go ahead for all of them".
+
+Recorded as accepted direction ([record](../audits/RULES_STATUS_RECONCILIATION_2026-11-14.md#answers-and-follow-through-2026-11-14)):
+- **P1–P5.** Accepted as prompts. A blank field stops nothing, and the gates those sets name still block.
+- **LLR38–LLR53.** Each takes its open alternative; the owner lines are rewritten.
+- **O3.** The [preflight card](PREFLIGHT_CARD.md) is the one brief and receipt form.
+- **O4.** The [rulebook shape](../RULES_INDEX.md#rulebook-shape) is the standard. Owner headers state the register status, and `check:rules` enforces it (RIX4).
+
+Code that still runs the old LLR47–LLR49 and LLR39–LLR42 defaults (procedural grammar rejects, `pays`, the pacing and opening checks) is listed for its own slice.

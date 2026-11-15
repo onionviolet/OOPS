@@ -1,5 +1,7 @@
 # World absorption rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Weibao, 2026-10-17: "create a set of rules to absorb worlds accordingly? Or
 expand what we have? Code to implement rules? More to consider?" This followed
 the recommendation to turn each book into data that a shared engine reads,

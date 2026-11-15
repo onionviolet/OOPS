@@ -627,7 +627,7 @@ not measured.
 | T6 | Ordinary verbs from a fresh life (FLR2, UR156) | No engine menu. Capability runs trade their declared starting means for earned ones |
 | T7 | Parity before deletion (G5) | A bespoke route moves when its parity fixture passes |
 
-**No new combat system.** The repo already has the Village battler, four native
+**No new combat system.** Answered (LLR52, 2026-11-14): new kinds of fight come as contest packs, revisited if a case fails. The repo already has the Village battler, four native
 battle modules, `tempo_fight`, the contest and the notch contest. The contest is
 the new system and it is built. The work is folding, plus four gaps in it: what
 each side learned from a fight (CFC13), contests that are not fights (CFC14),

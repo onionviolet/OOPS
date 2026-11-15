@@ -1,5 +1,7 @@
 # Contest contract
 
+Register status: Working default (AD56; rules index register, 2026-11-14).
+
 *Version 0.1 (v0), 2026-11-12. Owner: chat C in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md) (OS2). Module: [`src/contest.js`](../src/contest.js), resolvers [`src/contest_resolvers.js`](../src/contest_resolvers.js), bodies [`src/contest_bodies.js`](../src/contest_bodies.js). Tests: [`tests/contest.test.js`](../tests/contest.test.js) (contract), [`tests/contest_consumers.test.js`](../tests/contest_consumers.test.js) (FC1 to FC3). A proposal under AD56: it widens what fights can do and every number is a default with a dial. Changes are versioned requests to chat C. Inventory and reasoning: [phase 1 checkpoint](gm/dispatch/foundation-c-2026-11-12/CHECKPOINT.md).*
 
 ## What a contest is

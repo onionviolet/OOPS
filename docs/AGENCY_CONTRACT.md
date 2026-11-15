@@ -1,5 +1,7 @@
 # Agency contract
 
+Register status: Working default (AD56; rules index register, 2026-11-14).
+
 *Version 0.2 (v0), 2026-11-12 (0.2 adds AGC13-AGC14). Owner: chat A in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md) (OS1). Module: [`src/agency.js`](../src/agency.js). Consumers: [`src/agency_household.js`](../src/agency_household.js) (a person) and [`src/agency_wild.js`](../src/agency_wild.js) (a wild creature on the world substrate). Tests: [`tests/agency.test.js`](../tests/agency.test.js). A proposal under AD56: it widens what every actor can do, and every line is an adjustable default. Changes are versioned requests to chat A.*
 
 ## What it does

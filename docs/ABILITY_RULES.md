@@ -1,5 +1,7 @@
 # Ability implementation rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Weibao, 2026-10-25: "planning ability implementation rules for every world?
 More to consider?" ([request](USER_VISION.md#human-gates-can-be-skipped-2026-10-25)).
 
@@ -46,9 +48,8 @@ source locator (book, chapter, wiki page) with its canon status (WA3, MR13):
 canon, inferred, or original with a stated reason. Recall-only abilities wait for
 a source pass (HTP29). Where the source grants nothing at a rung (LOTM Sequence
 9/8 rows today), the rung's use comes from what the source does give: acting,
-digestion, perception it implies, institutions that use it. Default: no invented
-power to fill a gap; dial: an original ability labelled as such when Weibao asks
-for one or the world clearly implies one.
+digestion, perception it implies, institutions that use it. Default (LLR45, 2026-11-14): a labelled original ability may fill a gap wherever
+the world implies one; dial: a world held strictly to its text.
 
 **ABR2. Model the mechanism, not the name (AD38, SLR41, GTR2).** Each ability row
 names its means (source, faculty, method, device), trigger, cost (or none, ABR14, AD55) and the consumer

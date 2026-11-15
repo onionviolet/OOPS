@@ -1,5 +1,7 @@
 # Activity abstraction rules
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 Standing defaults requested 2026-11-04. Authority: Weibao, after the activity and cross-world findings: “turn findings into rules accordingly, and then” reconcile-project, then “Then consider long term ideas like gameplay, types of palystyles, and much more?” [Recorded direction](USER_VISION.md#activity-abstraction-rules-and-long-term-playstyles-2026-11-04), AD52. The request adopts the findings as operating principles through this rulebook; the agent-authored wording remains adjustable under AD32. Specific activity examples, field lists, numeric policies, implementation order and later playstyle ideas are not blanket adopted.
 
 Applies when designing or implementing repeated activities, compressed periods and their controls in any applicable world. Compose with AD5/6–8/15–18/38/44/46/49, MR18/MR29, domain laws, AR3/7/8 and AD36/43. AD51 governs shared software mechanisms; this owner governs compressed gameplay. Neither requires a universal activity engine, full offscreen simulation or all-world rollout.

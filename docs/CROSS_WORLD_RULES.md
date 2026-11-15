@@ -1,5 +1,7 @@
 # Cross-world rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Working defaults 2026-11-10 under AD56 (ideas that open possibilities are welcome), adjustable; the lines listed in the [limiting lines review](audits/LIMITING_LINES_REVIEW_2026-11-10.md) (LLR34–LLR36) stay proposals until Weibao answers. Drafted as proposals the same day (AD32). Requested by Weibao ("Another caht to work on the cross world rulebook?", [log](gm/USER_VISION_LOG_2026-11.md#cross-world-rulebook-2026-11-10)); ranked FRC18 in the [coverage audit](audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md). Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
 
 Covers what happens between and across worlds: the hub or home between worlds, what money, items, skills, titles, ties, knowledge and bodies are worth or keep when they cross, whose rules apply on each crossing edge, time across worlds, local prices and cross-world trade, travel authorities and routes, converged worlds, and what other people know of a traveler. Entry and starts (how a life begins in a world) stay with WER; this book is about the road, the market and the bookkeeping between. A world may set any line differently with an in-world reason and cost (AD5, AD38); each row gives the default, the dial and the reason.

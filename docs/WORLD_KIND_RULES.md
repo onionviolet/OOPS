@@ -1,5 +1,7 @@
 # World kind rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Working defaults 2026-11-10 under AD56 (ideas that open possibilities are welcome), adjustable; lines listed in the [limiting lines review](audits/LIMITING_LINES_REVIEW_2026-11-10.md) stay proposals until Weibao answers. Drafted as proposals the same day (AD32). Requested by Weibao ("foundational implementation rules for types of worlds and more? also types of source?", [log](gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)); the canon-first order was added after his follow-up ([log](gm/USER_VISION_LOG_2026-11.md#canon-first-building-and-calibration-2026-11-10)). Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
 
 Covers how a kind of world (cultivation, occult mystery, magic academy, time loop, system apocalypse, death game, expedition hub, cyberpunk, ordinary life and the rest) becomes engine data: presets over the shared world axes, composition of several kinds, the minimum kit every world registers, how far a world is built, and how worlds of different kinds meet. A world may set any line differently with an in-world reason and cost (AD5, AD38); each row gives the default, the dial and the reason.

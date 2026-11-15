@@ -1,5 +1,7 @@
 # Feedback rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Proposed 2026-11-06 (AD32); run authorized by Weibao, lines not yet accepted.
 
 Every click should answer back: a Reports line, a number moving, a panel opening, or a reason when the

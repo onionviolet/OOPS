@@ -1,5 +1,7 @@
 # Lead-life guide: one reading of the book-life ideas
 
+Register status: Proposal (AD32; rules index register, 2026-11-14).
+
 *Written 2026-10-29. Status: **proposal and navigation, not new direction.** It adds no rule
 codes and changes no accepted line. Where it says "accepted", Weibao's own words or an AD
 code record it; everything else is a proposal from the cast-lives sessions.*

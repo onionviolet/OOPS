@@ -1,19 +1,30 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {mkdirSync, mkdtempSync, writeFileSync, rmSync} from "node:fs";
+import {mkdirSync, mkdtempSync, readFileSync, writeFileSync, rmSync} from "node:fs";
 import {tmpdir} from "node:os";
 import {join} from "node:path";
 import {spawnSync} from "node:child_process";
 
 const script = new URL("../scripts/check_rules_index.mjs", import.meta.url).pathname;
 
-function runCheck(index, files = {}) {
+// The state the checker expects in a fixture owner's header: the rows' shared state, else Mixed.
+const fixtureState = index => {
+    const states = new Set([...index.matchAll(/^\|[^|]*\|[^|]*\|\s*(Accepted|Working default|Proposal|Mixed)/gm)].map(m => m[1]));
+    return states.size === 1 ? [...states][0] : 'Mixed';
+};
+
+function runCheck(index, files = {}, {autoHeader = true} = {}) {
     const root = mkdtempSync(join(tmpdir(), "rules-index-"));
     mkdirSync(join(root, "docs/gm/dispatch"), {recursive: true});
     writeFileSync(join(root, "docs/RULES_INDEX.md"), index);
     writeFileSync(join(root, "docs/OWNED.md"), "# Owned\n" + ["ZA", "QQ", "ZC"].flatMap(p => [1, 2, 3].map(n => `${p}${n}. Fixture definition`)).join("\n"));
     writeFileSync(join(root, "docs/gm/dispatch/WORKING.md"), "# Working\n" + [1, 2, 3].map(n => `ZB${n}. Fixture definition`).join("\n"));
     for (const [file, body] of Object.entries(files)) writeFileSync(join(root, "docs", file), body);
+    // Fixture owners state the register status their rows use (RIX4) unless a test checks that line.
+    if (autoHeader) for (const f of ["OWNED.md", "gm/dispatch/WORKING.md"]) {
+        const path = join(root, "docs", f), body = readFileSync(path, "utf8");
+        if (!/^Register status:/m.test(body)) writeFileSync(path, body.replace(/^(# .*\n)/, `$1Register status: ${fixtureState(index)} (fixture).\n`));
+    }
     const r = spawnSync("node", [script], {env: {...process.env, RULES_INDEX_ROOT: root}, encoding: "utf8"});
     rmSync(root, {recursive: true, force: true});
     return {status: r.status, out: r.stdout};
@@ -118,4 +129,13 @@ test('a register Status cell without a status word fails; Mixed needs two states
     assert.equal(bad.status, 1);
     assert.match(bad.out, /Set: Status must open with/);
     assert.equal(runCheck(rows('Mixed: Accepted only')).status, 1);
+});
+test('an owner header must state the register status, Mixed when its rows differ', () => {
+    const idx = s => fixture(`| Set | ZA1–ZA3 | ${s} | c | [Owned](OWNED.md) |`, '| anything | ZA1–ZA3 | [Owned](OWNED.md) |');
+    const owned = st => '# Owned\n\n' + (st ? `Register status: ${st} (test).\n` : '') + ['ZA1. a', 'ZA2. b', 'ZA3. c'].join('\n');
+    assert.equal(runCheck(idx('Accepted'), {'OWNED.md': owned('Accepted')}, {autoHeader: false}).status, 0);
+    const wrong = runCheck(idx('Accepted'), {'OWNED.md': owned('Proposal')}, {autoHeader: false});
+    assert.equal(wrong.status, 1);
+    assert.match(wrong.out, /header says "Proposal", register says "Accepted"/);
+    assert.match(runCheck(idx('Accepted'), {'OWNED.md': owned('')}, {autoHeader: false}).out, /no "Register status: Accepted" line/);
 });

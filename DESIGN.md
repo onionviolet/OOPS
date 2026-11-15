@@ -1,5 +1,7 @@
 # OOPS design: the look
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 The one owner of how the game looks and reads. Weibao accepted a single DESIGN.md
 for this on 2026-10-30 (O1, [his words](docs/USER_VISION.md#ui-identity-per-world-basics-and-combat-surfaces-2026-10-30)).
 It says what the game should feel like, what every feature UI meets, and how

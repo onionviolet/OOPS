@@ -1,5 +1,7 @@
 # Prose rules (PRS)
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 How player-facing words are written and checked. Weibao, 2026-11-06, to the
 three-move proposal (vocabulary lint, rewrite by surface, voice sample in every
 brief) and to registering the 2026-10-27 PR1–PR4 seed as a rulebook: "Lets do

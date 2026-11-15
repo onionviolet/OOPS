@@ -1,5 +1,7 @@
 # Progression gate rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Weibao, 2026-10-23: "consider implementing ruleset to help absorb progression
 gates and more? more to consider?"
 
@@ -103,7 +105,7 @@ codes in brackets are the worlds' own proposal rows.
 | GTR30 | **Thresholds may scale with facts.** A dial can be an expression over facts (for example doubling per stage, tenfold per rank), stated in the row. | Per gate | Hand-tabled thresholds that drift from the world's own scaling (RIX3, SS rank-split limits) |
 | GTR31 | **Gates can carry clocks.** A window that closes, an upkeep that lapses, a hazard that grows while ignored, or a calendar event cleared by surviving it is part of the gate, with an idle-safe pause where the world allows one. | Per world, how forgiving idle time is (AD19) | Gates that only read a snapshot and miss timing (RIX2, RIX7, LMX3, LMX7, SSX1, MLX6) |
 | GTR32 | **A mismatch can reduce output instead of blocking.** Using power above your rank, out of role or against a neighbour's interference lowers yield or adds risk on a curve, rather than refusing. | Per world, the curve | Binary locks where the source shows partial success (RIX5, SGX4, LMX4, MLX6) |
-| GTR33 | **Scarce supply lives in a world ledger.** Conserved, unique or singular things (characteristics, seats, one-of-a-kind items) are counted per world, so one holder's gain is another's absence; convergence and pull bias where they appear. | Per world | Free duplication of scarce progression keys (LMX1, LMX2, LMX8, RIX10) |
+| GTR33 | **Scarce supply lives in a world ledger.** Conserved, unique or singular things (characteristics, seats, one-of-a-kind items) are counted per world, so one holder's gain is another's absence; convergence and pull bias where they appear. Duplication is possible through a mechanism with its cost (AD38; LLR43, 2026-11-14). | Per world | Free duplication of scarce progression keys (LMX1, LMX2, LMX8, RIX10) |
 | GTR34 | **Opening a gate can consume, exclude or attach.** Crossing may spend the stock it read, close a rival path, or attach a mandatory cost (a flaw, an oath, a debt) that later gates read. | Per gate | Gates that open for free and leave no trace for later choices (SSX4, SSX5, SSX7, LMX6, RIX11) |
 | GTR35 | **Reading a gate's state is itself a means.** Status reads, appraisals and outside assessments can be gated, costly, fallible or revealing to the reader's watchers (GTR10 says what may be shown; this says what the read costs). | Per world and per read method | Free perfect information about every gate (SGX3, LMX5, SSX9) |
 

@@ -156,6 +156,7 @@ no real waits; play-length files labelled slow; new files under the budget, whic
 `npm test` warns on and which only ratchets down (AD36 item 2). Organize tests by
 system, not delivery wave, and delete or merge tests that only pinned a reworked
 shape. Task records get one line per check (command, result, gaps).
+Start each task record or lane brief from the [preflight card](docs/gm/PREFLIGHT_CARD.md).
 Before implementation, choose relevant existing checks and a failure scenario
 from the touched rules and consumers. Add or extend a regression for changed
 behavior or a reproduced defect when it protects a meaningful invariant; avoid

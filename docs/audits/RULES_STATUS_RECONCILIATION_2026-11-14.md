@@ -1,6 +1,6 @@
 # Rules status reconciliation, 2026-11-14
 
-Code prefix RSR. Weibao asked how to "stardardize make things coherent", "Whats iwth all the proposed rulebooks? how can we improve preflight and existing rulebooks?", then "Start accordingly, consider why /reconcile-project didnt fix that? improve reconcile accordingly?" This record covers O1 (three status words, enforced) and O2 (a line-by-line sort of the older proposed sets under AD56). O3 (one preflight card) and O4 (one rulebook shape) are next and not started.
+Code prefix RSR. Weibao asked how to "stardardize make things coherent", "Whats iwth all the proposed rulebooks? how can we improve preflight and existing rulebooks?", then "Start accordingly, consider why /reconcile-project didnt fix that? improve reconcile accordingly?" This record covers O1 (three status words, enforced) and O2 (a line-by-line sort of the older proposed sets under AD56). O3 (one preflight card) and O4 (one rulebook shape) followed the same day; see [Answers and follow-through](#answers-and-follow-through-2026-11-14).
 
 Method: five read-only sonnet lanes each read one batch of owner files and sorted every code into widens play (working default), limits play (held for him), process (how agents work; AD56 does not promote these), restates accepted direction, palette, or retired. The coordinator checked the buckets against the [limiting lines review](LIMITING_LINES_REVIEW_2026-11-10.md) and folded them into the register. The lanes' borderline calls are kept below as written; nothing was bulk-assigned.
 
@@ -28,7 +28,7 @@ Fixed 2026-11-14 in the shared skill (`~/.codex/skills/reconcile-project/SKILL.m
 - `scripts/check_rules_index.mjs` fails a Status cell without a state word; `tests/check_rules_index.test.js` covers it.
 - Each set's sorted ranges are in its register row. Held lines are LLR38–LLR53 in the [limiting lines review](LIMITING_LINES_REVIEW_2026-11-10.md#older-proposed-sets-2026-11-14).
 
-Owner files keep their own header wording for now; the register row is the current status. Aligning headers belongs to O4.
+The register row is the current status; owner headers now carry a matching `Register status:` line (O4, below), and older status wording inside them is history.
 
 ## Process sets for one answer each (his yes or no)
 
@@ -57,15 +57,30 @@ AD56 covers play ideas, so these stay Proposal until he answers by set. Recommen
 - PROCEDURAL_CARRY_OUT after about line 540 ("Capability runs", round 2): sorted from headings and first lines only.
 - The 2026-10-30 [reconciliation audit](RULES_RECONCILIATION_AUDIT_2026-10-30.md) overlap-cluster merge proposals: they feed O4, not re-sorted here.
 
-## Next (LATER, needs his answer on order)
+## Answers and follow-through, 2026-11-14
 
-- **O3 preflight card:** merge P1, MR40, UR76 and the AGENTS.md brief lines into one template with conditional sections, closing with the FLR receipt. Done check: a lane brief built from it, and AGENTS.md pointing at it instead of listing fields.
-- **O4 rulebook shape:** header with scope, status counts and owner; core lines first; applications and history below; duplicates folded to aliases; owner headers match the register. Done check: `check:rules` compares each owner header state with its register row.
+Weibao, on P1 to P5, the held lines and O3/O4: "go ahead for all of them".
+
+- **P1 to P5 accepted as prompts (AD32).** A blank field stops nothing. The gates those sets name still block: the check ratchets, WPR18, WA45, WA53, WA67, ABR22, GTR27 and SPR28. The register rows and GROUND_RULES headers say so.
+- **LLR38 to LLR53 take their open alternatives.** The owner lines are rewritten, and the answers are in the [limiting lines review](LIMITING_LINES_REVIEW_2026-11-10.md#answers-so-far). Not covered by this answer: SPR17 (it goes with LLR2), GTR8 (it goes with LLR13), and the earlier holds UR77, UR82, UR88 and UR162.
+- **O3 done.** The [preflight card](../gm/PREFLIGHT_CARD.md) is one form: always-fields, conditional rows and the FLR receipt. AGENTS.md Verification, the foundation-run playbook, UR76, MR40 and GROUND_RULES point at it.
+- **O4 done.** The [rulebook shape](../RULES_INDEX.md#rulebook-shape) has five points and an alias table. Every rulebook owner now opens with `Register status:`, and `check:rules` fails when it disagrees with the register (RIX4). Moving core lines first and history below happens as each rulebook is next edited.
+
+### Code still on the old defaults (implemented, rule changed)
+
+The rules now say one thing and these files still do the old one. Each needs its own slice with tests:
+
+- `src/procedural_grammar.js`: the default rule severity is still `reject` (line 50), and `unknown-part` is still a violation (line 154). LLR47 makes both flags, except for a malformed shape or a declared world law. Every grammar's check rules need sorting into world law versus source range before the default flips.
+- `src/effect_checks.js`: `pays` still fails a candidate (line 113). LLR49 makes it a report and a rank.
+- `scripts/check_pacing.mjs` and `scripts/check_openings.mjs`: targets and press counts still fail when exceeded. LLR39 to LLR42 make them guidance a start may exceed with a stated reason (a per-start reason field that turns the failure into a report).
+- `src/spell_effects.js` comments still cite the second-consumer rule (EF2). LLR48 changes it to the first known consumer.
 
 ## Checks
 
 | Command | Result | Gaps |
 |---|---|---|
-| `node --test tests/check_rules_index.test.js` | 11 pass | |
-| `npm run check:rules` | see the commit record | |
+| `node --test tests/check_rules_index.test.js` | 12 pass (status words, owner headers) | |
+| `npm run check:rules` | PASS | |
+| `node --test tests/kernel_working.test.js tests/mind_meters.test.js tests/test_changed.test.js` (tests that read changed docs) | 36 pass | `test:changed` pulled in other sessions' src changes and queued behind load; not used |
+| `node scripts/check_doc_slips.mjs` on added lines | clean | its older findings elsewhere are not this task's |
 | `python3 -m unittest discover tests` (skill helper) | 3 pass | scenario 11 not run |

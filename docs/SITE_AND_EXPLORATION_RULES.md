@@ -1,5 +1,7 @@
 # Site and exploration rules
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 Standing design/decision rules requested by Weibao, 2026-10-16, for ruins,
 natural sites, maps, discovery and restoration. [Original request and scope](USER_VISION.md#standing-site-rules-and-more-site-types-2026-10-16).
 These capture the logical principles of the requested world-first approach.

@@ -1,5 +1,7 @@
 # Progression path contract
 
+Register status: Working default (AD56; rules index register, 2026-11-14).
+
 *Version 0.1 (v0), 2026-11-12. Owner: chat R in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md) (OS3, MC13, PG8). Module: [`src/progression_path.js`](../src/progression_path.js). Tests: [`tests/progression_path.test.js`](../tests/progression_path.test.js). A proposal under AD56: it widens what every world can do and every number is a pack dial. Changes are requests to chat R. Inventory and reasons: [R checkpoint](gm/dispatch/foundation-r-2026-11-12/CHECKPOINT.md).*
 
 ## What a path is

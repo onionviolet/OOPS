@@ -1,5 +1,7 @@
 # Ground rules
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 One page, read before any task. Everything here restates a rule that already
 exists; the code after each line is where the detail lives. Status per block:
 **accepted** binds every agent, **proposed** binds once Weibao accepts it by
@@ -15,9 +17,9 @@ prose rules without a check recur.
 - One authority per fact; truth, knowledge and display stay separate; sealed secrets stay sealed outside play. (AD6-AD8, AR3)
 - Everything built is the current best, open to refactor, replacement and improvement with a reason; past code earns no weight over a better implementation. Build modular (small modules behind ports, one owner, versioned data) so parts swap cleanly; structural rounds change no gameplay; checkpoints name known limits and the expected refactor. (AD45, AR9)
 
-## Design pre-flight, PRF1-PRF8 (proposed, [round 3](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-3-2026-10-26-design-practice-the-mistakes-agents-make-before-code))
+## Design pre-flight, PRF1-PRF8 (accepted as prompts 2026-11-14, RSR P1, AD32; [round 3](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-3-2026-10-26-design-practice-the-mistakes-agents-make-before-code))
 
-A brief or design note can use these prompts before a lane starts. Missing information that affects correctness or scope is resolved under the underlying standing rules; a blank field does not create a new stop gate. This set remains proposed.
+A brief or design note can use these prompts before a lane starts. Missing information that affects correctness or scope is resolved under the underlying standing rules; a blank field does not create a new stop gate. Weibao accepted the set as prompts on 2026-11-14 ("go ahead for all of them"); fill it through the [preflight card](gm/PREFLIGHT_CARD.md).
 
 | Code | The brief states | Restates |
 |---|---|---|
@@ -43,7 +45,7 @@ A runtime slice missing a line is "implemented, below floor", never "done". Cont
 | FLR5 | **Kept.** When persistence changes: save, reload, Export, Import exercised. | AR10, WPR32 |
 | FLR6 | **Labelled.** The receipt names the highest review state reached and the route kind. | WPR21, AD42 |
 
-## Foundation, FND1-FND5 (proposed, [round 4](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-4-2026-10-26-foundation-rules-procedural-modular-and-stack))
+## Foundation, FND1-FND5 (accepted as prompts 2026-11-14, RSR P1, AD32; [round 4](audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md#round-4-2026-10-26-foundation-rules-procedural-modular-and-stack))
 
 | Code | Default with its dial | Restates |
 |---|---|---|
@@ -53,7 +55,7 @@ A runtime slice missing a line is "implemented, below floor", never "done". Cont
 | FND4 | **Stack questions route to the ranked table** (TS10-TS17); reopen only with new measurement or Weibao's direction. | AD39 |
 | FND5 | **Design a reasonable shared seam from known world needs; a second, different world validates or revises it.** Extend existing verbs where they fit, and keep actual world differences local. This proposed prompt follows accepted AD51 and is not a two-implemented-world prerequisite. | AD51, AR11, WA1, WA5, WA20 |
 
-## System practice, SPR1-SPR34 (proposed 2026-11-09, [rulebook](SYSTEM_PRACTICE_RULES.md))
+## System practice, SPR1-SPR34 (sorted 2026-11-14: working defaults under AD56 and prompts accepted under AD32, SPR17 held; [rulebook](SYSTEM_PRACTICE_RULES.md))
 
 Prompts for a brief that builds or tunes a repeating system (ties, fights, making, care, research, generators). A blank answer stops nothing.
 

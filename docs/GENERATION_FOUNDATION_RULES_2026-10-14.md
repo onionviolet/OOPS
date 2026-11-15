@@ -1,5 +1,7 @@
 # Generation foundation rules: one contract for every generator
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 Date: 2026-10-14. Weibao asked for "procedural generation/foundation
 generation rules to make everything else easier", plus more to consider and
 subtle stuff. GR1–GR17 were accepted 2026-10-18 as the standing generator contract (Weibao: "accept based on base and existing rules"; no conflict with MR2 or AD22). Suggested order, lanes and top picks below remain proposals. It sits under the

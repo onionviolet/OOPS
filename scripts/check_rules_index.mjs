@@ -49,6 +49,26 @@ for (const r of register) {
   fail(`${name}: Status must open with ${STATES.join(', ')} or "Mixed:" naming two of them (found "${status.slice(0, 40)}")`);
 }
 
+// 1a'. Owner headers (RIX4, 2026-11-14): each rulebook's first owner file opens
+// with "Register status: <state>" matching its register row(s); Mixed when they differ.
+const NOT_RULEBOOKS = new Set(['AGENTS.md', 'docs/TOOL_REGISTRY.md']);
+const ownerStates = new Map();
+for (const r of register) {
+  const first = links(r[4] || '').find(l => !/^(https?:|#)/.test(l));
+  if (!first) continue;
+  const file = resolve(docs, first.split('#')[0]);
+  if (NOT_RULEBOOKS.has(rel(file)) || !existsSync(file)) continue;
+  const state = [...STATES, 'Mixed'].find(s => (r[2] || '').startsWith(s));
+  if (!ownerStates.has(file)) ownerStates.set(file, new Set());
+  if (state) ownerStates.get(file).add(state);
+}
+for (const [file, states] of ownerStates) {
+  const want = states.size === 1 ? [...states][0] : 'Mixed';
+  const m = /^Register status: (Accepted|Working default|Proposal|Mixed)\b/m.exec(read(file).split('\n').slice(0, 60).join('\n'));
+  if (!m) fail(`${rel(file)}: header has no "Register status: ${want}" line in its first 60 lines`);
+  else if (m[1] !== want) fail(`${rel(file)}: header says "${m[1]}", register says "${want}"`);
+}
+
 // 1b. Routing and ownership warnings (RIX2): a code family no router row names,
 // and an owner link under docs/gm/dispatch/ (a dated working document).
 const routerText = sectionOf(index, 'Router: what applies to my task');
@@ -63,7 +83,7 @@ for (const r of register) {
     if (target.startsWith(resolve(docs, 'gm', 'dispatch') + '/')) {
       const labelled = [...(r[4] || '').matchAll(/proposal source:\s*\[[^\]]*\]\(([^)\s]+)\)/gi)].some(m => m[1] === l);
       const proposalRow = /^proposal\b/i.test(r[2] || '') && !/\b(?:accepted|standing|binding)\b/i.test(r[2] || '');
-      const proposalHeader = existsSync(target) && /\bStatus:\s*(?:\*\*)?proposal\b/i.test(read(target).slice(0, 4000));
+      const proposalHeader = existsSync(target) && /(?<!Register )\bStatus:\s*(?:\*\*)?proposal\b/i.test(read(target).slice(0, 4000));
       const stableRoute = links(r[4] || '').some(link => !/^(https?:|#)/.test(link) &&
         !resolve(docs, link.split('#')[0]).startsWith(resolve(docs, 'gm', 'dispatch') + '/') &&
         existsSync(resolve(docs, link.split('#')[0])));

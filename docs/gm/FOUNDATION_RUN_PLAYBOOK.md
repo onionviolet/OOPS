@@ -94,7 +94,8 @@ bash scripts/wave_scratch.sh --ref HEAD -- bash -ec '
 ## Stage 2. Briefs for this repository
 
 Follow the skill's lane brief shapes; the local copy is at
-`~/.claude/skills/foundation-run/references/lane-briefs.md`. Every brief here also names:
+`~/.claude/skills/foundation-run/references/lane-briefs.md`, filled through the
+[preflight card](PREFLIGHT_CARD.md). Every brief here also names:
 
 - Reading: AGENTS.md "Design framing", "Verification", "Safety", "Sealed secrets" (and
   "Game MCP" for walks), `docs/GROUND_RULES.md`, `.claude/rules/runtime-code.md`,

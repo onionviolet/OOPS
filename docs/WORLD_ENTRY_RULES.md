@@ -1,5 +1,7 @@
 # World entry rules
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 Weibao, 2026-10-26: "save accordingly, and save rules so these will be taken
 into considerations for other book worlds where things like these matters too?"
 

@@ -1,5 +1,7 @@
 # World and system completion standard
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 2026-10-11. Requested direction: section off the audits and ideas so every small
 detail can be developed, and use a standardized way to complete worlds and more.
 The section structure and workflow below are implementation proposals for that
@@ -158,7 +160,7 @@ need a coherent prior world state; they do not fabricate actions the player
 performed or rewards the player earned. A random place is not necessarily a
 random power, era or character. Each axis needs its own selected policy.
 
-Proposed first implementation chooses among a bounded set of qualified starts.
+First implementation (LLR44, 2026-11-14): any compatible start can be drawn, with reroll as a dial.
 Eligibility depends on installed content and supported native bindings, not a
 promise that every drafted world works. Persist the committed selection and
 starting snapshot, candidate-pool revision and relevant seeded choices before

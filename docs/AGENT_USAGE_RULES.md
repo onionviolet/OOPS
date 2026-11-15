@@ -1,5 +1,7 @@
 # Agent usage rules
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 Standing workflow, 2026-10-16. Authority: [Weibao's request](USER_VISION.md#agent-generation-and-book-usage-2026-10-16); router: AD37. Readers may delegate lesser agents under AU9, following Weibao’s later correction on the same date. These rules constrain execution cost, not the ambition or required honesty of source coverage. They apply to internal workers, detached CLI readers, visible chats and successors under every provider. Host restrictions still apply.
 
 ## Before generating another agent

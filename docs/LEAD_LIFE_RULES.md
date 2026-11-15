@@ -1,5 +1,7 @@
 # Lead-life rules (accepted lines only)
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 *Created 2026-10-29. This is the rulebook LSD155 proposed. It holds only what Weibao
 has accepted, with the date and his words or the AD code that records it. It adds no new
 rule codes: details live in the LSD lines it cites, and those lines stay proposals until he

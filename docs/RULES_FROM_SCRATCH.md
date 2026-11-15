@@ -1,5 +1,7 @@
 # Rules from scratch (accepted 2026-10-10)
 
+Register status: Accepted (AD32; rules index register, 2026-11-14).
+
 Weibao: "remove all the rules accordingly and then we can set some new
 rules from scratch?" The old agent-made rules are being rewritten as
 defaults (see [design defaults audit](DESIGN_DEFAULTS_AUDIT.md)). This file

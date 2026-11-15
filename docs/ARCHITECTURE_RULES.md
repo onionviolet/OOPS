@@ -1,5 +1,7 @@
 # Architecture rules
 
+Register status: Mixed. Each range's state (Accepted under AD32, Working default under AD56, or Proposal) is in the rules index register (2026-11-14).
+
 Standing rules for every agent that adds or changes runtime code. Weibao,
 2026-10-16, after the [modularity assessment](reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md):
 "make a codex run to fix accordingly and create rules accordingly". The accepted
