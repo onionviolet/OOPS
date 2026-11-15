@@ -4,11 +4,13 @@
 //   Practice (fluency):   Charms = levitation-charm practice steps, Potions = Alchemy xp, both from the lessons and casts he chose to do.
 //   Study (understanding): the library write-ups (HP_STUDY) and a correct flask (hp.lead.potions.flask), as the lessons already count them.
 //   Revision: native sessions per subject (actor resource) plus the two the story's own revision act gives every subject once played.
-//   Other papers have no play behind them yet: aptitude baseline plus revision only (stated gap, hp_exam_model.js SUBJECTS).
+//   Other papers: classes attended (fluency) and homework written (understanding) from the weekly timetable (book_world_hp_day.js).
 import {SUBJECT_IDS, EXAM_SUBJECTS, BANDS, BAND_WORDS, ANCHORS, REVISION_OPENS, EXAM_DAY, REVISION_CAP, bandChances, overallChances, overallBand, anchorBands, cohortMarks, examSubject} from './hp_exam_model.js';
 import {HP_EXAM_IDS} from './world_packs/book_hp_lead_exam_data.js';
 import {HP_LEVITATION} from './world_packs/book_hp_lead_life_data.js';
 import {HP_STUDY} from './book_world_hp_lessons.js';
+import {HP_TIMETABLE, hpDayExamInputs} from './book_world_hp_day.js';
+const DAY_SUBJECTS = HP_TIMETABLE.map(r => r.id);
 const P = 'book.hp.lead', WORLD = `${P}.world`, STORY_REVISION = `${P}.w11_finale.revision`, STORY_REVISION_SESSIONS = 2, MARKS_DAY = 329;
 const MASTERY_FOR_FULL = 8, ALCHEMY_XP_FOR_FULL = 40;
 const leadDay = state => { const o = state?.simulation?.knowledge?.player?.[`${P}.opening`]; return o ? Math.floor((Math.max(0, state.clock - o.at) + 480) / 1440) : null; }; // rule-lint: allow days since the opening scene plus an 8-hour offset, not a calendar day
@@ -26,6 +28,8 @@ export function hpExamInputs(state, gameplay) {
     const mastery = state?.simulation?.powers?.player?.[HP_LEVITATION]?.mastery ?? 0, xp = gameplay?.player?.skills?.Alchemy?.xp ?? 0;
     const flask = player(state)?.facts?.['hp.lead.potions.flask'] === 'cure' ? 0.5 : 0, sessions = hpExamSessions(state);
     const base = Object.fromEntries(SUBJECT_IDS.map(s => [s, {fluency: 0, understanding: 0, sessions: sessions[s]}]));
+    // The week's classes and homework for the subjects with no play route of their own (book_world_hp_day.js, loop H1).
+    for(const id of DAY_SUBJECTS) base[id] = {...base[id], ...hpDayExamInputs(gameplay, id)};
     base.charms = {...base.charms, fluency: Math.min(1, mastery / MASTERY_FOR_FULL), understanding: studied(state, 'charms') ? 1 : 0};
     base.potions = {...base.potions, fluency: Math.min(1, xp / ALCHEMY_XP_FOR_FULL), understanding: (studied(state, 'potions') ? 0.5 : 0) + flask};
     return base;

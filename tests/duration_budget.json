@@ -77,6 +77,11 @@
    "tier": "slow",
    "why": "plays the game: a year and more of upkeep with its saved schedule validated"
   },
+  "tests/hp_lead_day_journey.test.js": {
+   "ms": 180000,
+   "tier": "slow",
+   "why": "plays the game: Harry's Halloween private save through a Tuesday class, its homework and a reload; skips without the local checkpoint"
+  },
   "tests/interaction_native.test.js": {
    "ms": 90000,
    "tier": "slow",

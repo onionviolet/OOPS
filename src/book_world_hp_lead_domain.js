@@ -35,6 +35,7 @@ import {hpExamView} from './book_world_hp_exams.js';
 import {domainRegistry} from './domain_registry.js';
 import {hpStudyRows,hpStudyStart,hpStudyWriteNote} from './book_world_hp_inquiry.js';
 import {hpPositions,hpPositionLine,HP_HOUSE_FACT,HP_HOUSES} from './book_world_hp_positions.js';
+import {HP_LEAD_DAY_ITEMS} from './world_packs/book_hp_lead_day.js';
 const LEAD_ID='book.hp.lead';
 const EMPTY_ARC=Object.freeze({id:`${LEAD_ID}.arc`,title:'Nothing authored yet',completed:0,total:0,done:false,next:null,aftermath:null,conclusion:null});
 const actData=()=>getHpLeadCast()?.householdActs??hpLeadHouseholdActs;
@@ -80,7 +81,7 @@ export function hpLeadHoldingsReaders(cast=()=>getHpLeadCast()){
     return {
         purse(state){const c=cast()?.currency,n=c&&lifeHoldings(state).resources[c.resource];
             return typeof n==='number'?ladderLabel(n,c.ladder,'an empty purse'):undefined;},
-        items(){const labels=new Map([...(cast()?.items||[]),...(getHpLeadHalloween()?.items||[]),...(getHpLeadMirror()?.items||[]),...(getHpLeadFlamel()?.items||[]),...(getHpLeadNorbert()?.items||[]),...(getHpLeadFinale()?.items||[]),...hpTableFoodItems.map(i=>({id:i.id,label:i.name}))].map(i=>[i.id,i.label])),rows=readPort('character')?.getItems?.()??{},out=[];
+        items(){const labels=new Map([...(cast()?.items||[]),...(getHpLeadHalloween()?.items||[]),...(getHpLeadMirror()?.items||[]),...(getHpLeadFlamel()?.items||[]),...(getHpLeadNorbert()?.items||[]),...(getHpLeadFinale()?.items||[]),...hpTableFoodItems.map(i=>({id:i.id,label:i.name})),...HP_LEAD_DAY_ITEMS].map(i=>[i.id,i.label])),rows=readPort('character')?.getItems?.()??{},out=[];
             for(const [key,row] of Object.entries(rows)){let id;try{id=JSON.parse(key)?.id;}catch{continue;}
                 if(labels.has(id)&&(row?.count??1)>0)out.push(`${labels.get(id)}${(row?.count??1)>1?` x${row.count}`:''}`);}
             return out;},

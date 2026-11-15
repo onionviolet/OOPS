@@ -5,6 +5,7 @@ import {registerDomain, domainRegistry} from './domain_registry.js';
 import {packNative} from './world_pack_registry.js';
 import {loadHpLeadCast,withHpLeadCast} from './book_world_hp_lead_pack.js';
 import {hpLeadPracticeExtension} from './hp_lead_spells.js';
+import {hpLeadDayExtension} from './world_packs/book_hp_lead_day.js';
 import {registerHpLeadDomain} from './book_world_hp_lead_domain.js';
 import {registerHpLeadFlight,hpSchoolPassageClockRequest} from './book_world_hp_lead_flight.js';
 import {registerHpLeadDuel,hpDuelPassageClockRequest} from './book_world_hp_lead_duel.js';
@@ -142,6 +143,7 @@ export async function registerBookBeginnings(register, choices, hpPorts = null) 
     await registerHpBeginnings(register, choices);
     const lead = await register(withHpLeadCast(packNative('book.hp.lead'), await loadHpLeadCast()));
     if(register.bundledInstantExtension)await register.bundledInstantExtension(hpLeadPracticeExtension(lead),lead);
+    if(register.bundledInstantExtension)await register.bundledInstantExtension(hpLeadDayExtension(lead),lead);
     await registerHpLeadFlight(register, lead);
     await registerHpLeadDuel(register, lead);
     await registerHpLeadHalloween(register, lead);

@@ -472,3 +472,76 @@ for merit or something." These are adjustable defaults (AD56, AD38) under the pl
   - Every item in his Inventory reads "0 coins".
   - The panel header says "Calendar unknown here".
   - The day's result line does not show in the panel's status after a report; only the "Last watch" status row carries it.
+
+### The shared day shape (PS5) and Harry's school week, 2026-11-14
+
+Every lead's ordinary day is built to one contract, so a later "keep my day" routine (PS9) and other lives can reuse it.
+Proposal under AD32 and AD56; the parts restate ACR1, ACR6, ACR8 and LVR19.
+
+| Part | What it is | Why |
+|---|---|---|
+| Day verbs | Each verb is one command with a place, a duration, its costs, one gate per reason (with the words saying how to open it) and one result note. | ACR2: a verb uses actual means and the local clock. A routine reads the same gate a player reads. |
+| Clock | The life's own clock and calendar owner. No new minute counter. | One authority per fact (AR3). |
+| Longer loop | What the verbs build up, kept by an owner that already exists (an item, a SET fact, a power, a skill, a purse), and read by one later consumer. | LVR19: work done, output and pay stay separate facts. |
+| Result line | A knowledge note per verb, shown as an extension status row. | ACR5: the player sees what changed. |
+| Routine hook | Gates stop at a decision (hunger, a wound, a wolf at the wall, a class missed). A policy names which verbs to repeat and when. | ACR8: compression splits at a decision boundary. The routine itself is PS9. |
+
+Filled in for the three leads:
+
+| | Fang Yuan | Klein | Harry |
+|---|---|---|---|
+| Form | Command extension (`book_gu_lead_day.js`) | Host ports in the LOTM domain (`book_world_lotm_wage.js`), because the wage is a money seam | Command extension (`world_packs/book_hp_lead_day.js`) |
+| Verbs | Feed, buy food, draw a stone, patrol, report, hand in, sell | Start drawing pay, collect the closed weeks | Go to a class on its hour, write its homework |
+| Clock | Diet clocks from the feed note's `at` | Weeks from the start note's `at` | The lead lesson clock and term gate (`hpLeadMinute`, `hpInTerm`) |
+| Longer loop | Parts to merit to stones to food and essence | Pay against the advance, then savings | Class notes and marked homework to the June paper |
+| Owner of the count | Items and the board's merit | Purse, paid weeks as a SET fact | Items, read by `hpExamInputs` |
+| Routine stops | Hungry Moonglow, a wound, a wolf at the wall | None needed (one verb a week) | A class past its quarter hour of grace |
+
+Klein's wage is the one lead built as host ports rather than commands. It stays that way, since money goes through the
+purse seam.
+
+**Harry's week (loop H1).**
+
+- **What it is.**
+  - Charms and Potions keep their Monday hour and the class-slot duty.
+  - Five subjects get a timetable (`HP_TIMETABLE`, `book_world_hp_day.js`). Each is a weekly window on `lessonAvailability`
+    with a quarter hour's grace:
+    - Herbology: Tuesdays, Thursdays and Fridays at 09:00.
+    - Transfiguration: Tuesday 10:00 and Thursday 14:00.
+    - Defence: Wednesday and Friday at 10:00.
+    - History of Magic: Monday and Friday at 14:00.
+    - Astronomy: Wednesday at 23:00.
+  - A class takes an hour and leaves a set of class notes. A piece of homework is owed per class held; writing it takes an
+    hour and gives a marked piece.
+  - The June paper for each of the five subjects reads what Harry holds:
+    - Fluency is his notes against 24 classes.
+    - Understanding is his marked homework against 12 pieces.
+  - Before this change those papers had no play behind them.
+- **Source.**
+  - Stated in PS ch8: Herbology three times a week in the greenhouses, and Astronomy at midnight on Wednesdays.
+  - The book has double Potions on Friday. This life already teaches Potions on Monday (an earlier proposal), so Friday
+    morning is Herbology and Defence.
+  - Every other hour is authored.
+- **Dials, with reasons.** All are in `HP_DAY_DIALS`: the late allowance, class and homework lengths, and the counts for full
+  fluency and understanding.
+- **Compatibility.**
+  - The extension pins the hash of the life it is registered on, as the Charms practice bench does. Harry's life hash
+    does not move, and no identity alias is needed.
+  - It adopts like any continuation.
+  - With no notes held, exam chances equal the old baseline.
+- **Why items.** Command extensions may not write actor resources (`structured_pack_definitions.js` allowedEffect). Notes
+  he loses or gives away are also gone from his revision, which is the item's own mechanism.
+- **Not done.**
+  - House points. No owner holds a count, and the House Cup is a fixed canon result in the finale, so a tally would contradict
+    it. This is the next longer loop.
+  - Meals and friends are not part of the day yet.
+  - Missed classes cost nothing beyond the lost notes.
+  - The duty ledger still covers only Monday's slot.
+  - No "next class" line on screen; the times are in the extension's description and in each gate's reason.
+  - No ordinary player start reaches this (PS12).
+- **Checked.**
+  - `tests/hp_lead_day.test.js` covers: windows and grace, no class on Monday morning, in the holidays or before the
+    Sorting; homework owed against notes held; notes and marked pieces raising the Herbology paper; every gate reading a
+    published fact with a reason.
+  - `tests/hp_lead_day_journey.test.js` (slow tier, his Halloween save): Herbology shut on Sunday night, open Tuesday 09:02,
+    one class and one homework, both kept through a reload. It passed headless in 119 s on the working tree.

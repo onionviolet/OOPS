@@ -19,6 +19,8 @@ const leadMinute = state => { const o = state?.simulation?.knowledge?.player?.[`
 const inTerm = state => { const m = leadMinute(state); return state?.actors?.player?.worldId === `${P}.world` && state.actors.player.facts?.[AT_SCHOOL] === true && m != null
     && schoolYearPosition(Math.floor(m / 1440))?.phase === 'term'; };
 const HOUR = 60;
+// Shared with Harry's weekly timetable (book_world_hp_day.js), so both read one clock and one term gate.
+export {leadMinute as hpLeadMinute, inTerm as hpInTerm};
 export const HP_LESSONS = Object.freeze({
     charms: Object.freeze({id: 'charms', label: 'Charms', teacher: 'the charms master', firstId: `${P}.lesson_charms`, practiceId: `${P}.charms_practice`,
         schedule: Object.freeze({period: SLOT.period, opens: SLOT.opens, closes: SLOT.opens + HOUR}), fact: 'hp.lead.charmsOpen', when: 'Mondays 09:00 to 10:00 in term'}),
