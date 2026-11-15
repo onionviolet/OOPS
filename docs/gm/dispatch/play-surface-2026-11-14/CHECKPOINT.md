@@ -51,6 +51,29 @@ review: none
 
 ## Log
 
+- 2026-11-15 ~19:40 UTC: the 8% push ended at about 95% weekly.
+  - Landed:
+    - D1 complete apart from a shift act: b935a6cab, 5d259c7a2, af8606722.
+    - D3's Attend verb: 11c00073a.
+    - D4's Gu tab: 5b72e15ad.
+    - Box tabs and the Character home: 5c9592b37, 64952f26f, ae6fb5e04.
+    - The crossing gate: 46eddef3e, with the headless fix e4c24f514.
+    - The day-strip gate: 8d1713dd9.
+    - knownNumber: 4a65f23ec, used on fight cards in e829434a0.
+    - Losing terms: 27b3057d2.
+    - D6 first slice: 6a362b11a.
+  - The fight slot is retired (both fights already take column 2).
+  - Open after the reset:
+    - D2;
+    - D4's Refine bench;
+    - D3's exams-in-Quests part;
+    - D5;
+    - D6's ally cards and fixed Withdraw;
+    - the Journal tabs for Knows, Notebook, People, Worlds and Beginning;
+    - PS192's Here box;
+    - box fit;
+    - areas.
+  - Unpushed since 44cca6fb3. The push gate needs `check:rules` clean; the save-architecture checkpoint is missing its build SHA, and that chat owns it.
 - 2026-11-15: Weibao said "Build both" for the areas mock and drafts D1–D6. Dispatch at the reset:
   - Areas: a new lane on `travel_legs` areas, with ui-cohesion for the location box arrows.
   - D1 and D3 go to feature-ui; D4 to feature-ui with ui-cohesion's Skills box tabs; D2 to ui-cohesion's Skills tab with feature-ui's content.
