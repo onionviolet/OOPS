@@ -3,8 +3,8 @@
 // hands each hit's rewards to the ordinary reward path (process_rewards), so a bonus is never a second reward system.
 //
 // Row: {id, label, chance, hint?: 'public', rewards: {money?, items?, ...}, then?: [rows]}.
-// Default: odds are shown as "about 1 in N" once the bonus is known; a rarer bonus the character has not seen reads "?"
-// (PS130). Dial: `hint: 'public'` on a row says the place itself is known for it (the field's farmers, the gang's
+// Default (DU40 over PS130): every row shows its odds as "about 1 in N"; a row the character has not seen hides only its
+// name ("???"), and a row under an unseen one stays wholly "???". Dial: `hint: 'public'` on a row says the place itself is known for it (the field's farmers, the gang's
 // stash). Reason: the clear is honest about extra luck without spoiling what the luck holds.
 
 const odds = chance => chance >= 1 ? 'always' : `about 1 in ${Math.max(2, Math.round(1 / chance))}`;
@@ -32,15 +32,15 @@ export function bonusKnown(row, knownItems = {}) {
     return items.length > 0 && items.every(id => (knownItems[id]?.number ?? 0) > 0);
 }
 
-/** The location box's clause: "sometimes: a farmer's thanks (about 1 in 3) · rarer: ?". Empty when the place has none. */
+/** The location box's clause: "sometimes: a farmer's thanks (about 1 in 3) · rarer: ??? (about 1 in 5)". Empty when the place has none. */
 export function clearBonusText(rows = [], knownItems = {}) {
     const parts = [];
     const walk = (list, depth) => {
         for(const row of list) {
             const known = bonusKnown(row, knownItems);
-            parts.push(`${depth ? 'rarer' : 'sometimes'}: ${known ? `${row.label} (${odds(row.chance)})` : '?'}`);
+            parts.push(`${depth ? 'rarer' : 'sometimes'}: ${known ? row.label : '???'} (${odds(row.chance)})`);
             if(known) walk(row.then ?? [], depth + 1);
-            else if(row.then?.length) parts.push('rarer: ?');
+            else if(row.then?.length) parts.push('rarer: ???');
         }
     };
     walk(rows, 0);

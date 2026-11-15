@@ -20,14 +20,14 @@ test('PS160: Reports mark a bonus as chance, with its odds and depth', () => {
     assert.equal(clearBonusMessage({row: rows[0].then[0], depth: 1}), 'Rarer bonus (about 1 in 4, after the first): a locked strongbox.');
 });
 
-test('PS160: the location line names a known bonus and keeps an unseen rarer one as "?"', () => {
+test('PS160/DU40: the location line names a known bonus and hides only the name of an unseen one', () => {
     assert.equal(clearBonusText([], {}), '');
-    assert.equal(clearBonusText(rows, {}), " · sometimes: the gang's stash (about 1 in 3) · rarer: ?");
+    assert.equal(clearBonusText(rows, {}), " · sometimes: the gang's stash (about 1 in 3) · rarer: ??? (about 1 in 4)", 'DU40: the name hides, the odds stay');
     const held = {'Steel chainmail helmet': {number: 1}};
     assert.ok(bonusKnown(rows[0].then[0], held));
     assert.equal(clearBonusText(rows, held), " · sometimes: the gang's stash (about 1 in 3) · rarer: a locked strongbox (about 1 in 4)");
     const hidden = [{...rows[0], hint: undefined}];
-    assert.equal(clearBonusText(hidden, {}), ' · sometimes: ? · rarer: ?', 'an unannounced bonus with no items held stays unknown');
+    assert.equal(clearBonusText(hidden, {}), ' · sometimes: ??? (about 1 in 3) · rarer: ???', 'an unannounced bonus with no items held stays unknown');
 });
 
 test('PS160: each hit becomes an ordinary reward object carrying its Reports line', async () => {

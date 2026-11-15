@@ -1,7 +1,7 @@
 // PS160 clear bonuses at 1920x1080 from a fresh origin, headless. Run after a build:
 //   python3 -m http.server 19761 --bind 127.0.0.1 &  YAIRPG_PORT=19761 node scripts/clear_bonus_browser.cjs
 // Setup (fixture, not proof): a fresh life with the Infested field opened and the hero's combat skills raised so the run is
-// short. Played: the field's clear line names its public bonus and keeps the rarer one as "?", real clears roll the bonus,
+// short. Played: the field's clear line names its public bonus and hides only the rarer one's name, real clears roll the bonus,
 // Reports marks a hit as a chance bonus with its odds, the bread arrives; then save, reload, Export and Import keep it.
 const fs = require('node:fs'), assert = require('node:assert/strict');
 const {runBrowser} = require('./ui_helpers.cjs');
@@ -34,7 +34,7 @@ runBrowser(async browser => {
     await page.evaluate(() => window.change_location({location_id: 'Infested field'}));
     await page.waitForFunction(() => simulationTestHooks.snapshot()['current location'] === 'Infested field', null, {timeout: 20000});
     const line0 = await clearLine(); say(`field line: ${line0}`);
-    assert.match(line0, /sometimes: a farmer left bread at the field's edge \(about 1 in 3\) · rarer: \?/);
+    assert.match(line0, /sometimes: a farmer left bread at the field's edge \(about 1 in 3\) · rarer: \?\?\? \(about 1 in 5\)/);
 
     // Fight until a clear rolls the bonus (about 1 in 3 per clear) or ten clears pass.
     let hit = null;
