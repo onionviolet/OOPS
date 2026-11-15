@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>Areas inside a place</title>
+<!-- Round 17 areas mock (PS172-PS178, PS184; proposals, AD32). Weibao: areas inside a place you move between, swapping when you
+     enter a building, few clicks, arrows on the sides, and the chain of areas as a map. Drawn in round 14's frame at 1920x1080
+     (slice 2: the Here line and verb marks), with the round 14 mock's styles and the kit's forms. Build nothing until he looks.
+     ?a=a1..a4 (keys 1-4): Village square, inside the elder's house with the map, Fang Yuan, Hogwarts. -->
+<style>
+:root { --bg:#0a0d24; --box:#141b45; --head:#1d2a66; --line:#5b63b0; --quiet:#2d3570; --text:#e8ecff; --muted:#a3abd6; --gold:#ffd24a;
+  --green:#3fd27a; --teal:#1f5f5a; --rep:#2a1d4d; --hp:#ff6b6b; --xp:#b5a36a; --st:#4ee07a; --mana:#7f8ed8; --danger:#ff9d57; }
+* { box-sizing:border-box; }
+html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--bg); color:var(--text); font:15px/1.35 system-ui, -apple-system, "Segoe UI", sans-serif; }
+#ref { position:absolute; inset:0; width:1920px; height:1080px; object-fit:contain; background:#000; display:none; }
+body:not([data-opt="mock"]) #ref { display:block; } body:not([data-opt="mock"]) #frame { display:none; }
+/* Four fixed columns (PS119). YAIR sizes them for 1366; at 1920 the extra width goes to columns 2 and 3 (PS128). */
+.col { position:absolute; top:10px; bottom:46px; display:flex; flex-direction:column; gap:10px; min-height:0; }
+.c1 { left:14px; width:372px; } .c2 { left:398px; width:640px; } .c3 { left:1050px; width:470px; } .c4 { left:1532px; width:374px; }
+.box { background:var(--box); border:1px solid var(--line); border-radius:6px; display:flex; flex-direction:column; min-height:0; flex:0 1 auto; overflow:hidden; }
+.box.grow { flex:1 1 auto; } .box.teal { background:#0f2b33; border-color:#2b8a80; } .box.rep { background:var(--rep); border-color:#7a5ab0; }
+.box > h3 { margin:0; padding:7px 10px; font-size:15px; background:rgba(255,255,255,.04); border-bottom:1px solid var(--quiet); display:flex; justify-content:space-between; gap:8px; }
+.box > h3 small { color:var(--gold); font-weight:600; }
+.box > .body { padding:6px 10px; overflow:auto; min-height:0; flex:1 1 auto; }
+.bar { position:relative; height:19px; margin:3px 0; border-radius:2px; text-align:center; font-size:12px; line-height:19px; color:#111; }
+.bar i { position:absolute; inset:0; width:var(--f); background:var(--c); border-radius:2px; } .bar span { position:relative; }
+.bar.empty { background:#2a2f55; }
+.grid { display:grid; grid-template-columns:1fr auto 1fr auto; border:1px solid var(--quiet); font-size:14px; }
+.grid span { padding:2px 6px; border-bottom:1px solid var(--quiet); } .grid span:nth-child(even) { text-align:right; border-right:1px solid var(--quiet); }
+.tabs { display:flex; gap:4px; flex-wrap:wrap; margin:6px 0 2px; } .tab { flex:1; text-align:center; border:1px solid var(--line); border-radius:4px; padding:3px 6px; background:#24306e; font-size:14px; white-space:nowrap; }
+.tab.on { background:var(--gold); color:#151515; font-weight:700; } .tab.sm { flex:0 0 auto; font-size:13px; }
+.row { display:flex; justify-content:space-between; gap:8px; padding:3px 0; border-bottom:1px solid var(--quiet); font-size:14px; }
+.m { color:var(--muted); } .g { color:var(--gold); } .warn { color:var(--danger); } .ok { color:var(--green); }
+/* Column 2: the time strip with the day strip, the location box and the actions box. */
+.time { display:flex; justify-content:space-between; font-size:18px; padding:8px 12px; } .time b { font-weight:700; }
+.daystrip { position:relative; height:12px; margin:0 12px 8px; border:1px solid var(--quiet); background:#1a2456; }
+.daystrip i { position:absolute; inset:0; width:var(--now); background:#3a56b8; } .daystrip b { position:absolute; top:-2px; bottom:-2px; left:var(--now); width:3px; background:var(--gold); }
+.loc { padding:8px 12px; } .loc .name { font-size:20px; } .loc .desc { font-style:italic; color:var(--muted); margin:4px 0 6px; }
+.loc .here a { color:var(--text); text-decoration:underline; text-underline-offset:3px; }
+.status2 { padding:6px 12px; font-size:14px; border-top:1px solid var(--quiet); }
+.verb { display:flex; align-items:center; gap:10px; border:1px solid #6d6a8a; border-radius:3px; padding:7px 10px; margin:6px 0; font-size:17px; background:rgba(255,255,255,.02); }
+.verb .ic { width:22px; text-align:center; color:var(--text); font-size:17px; } .verb .mark { margin-left:auto; font-size:13px; color:var(--gold); }
+.verb .mark.near { color:var(--muted); } .verb.open { border-color:var(--gold); }
+.sub { margin:-2px 0 6px 34px; } .sub .row { font-size:14px; } .sub .act { border:1px solid var(--line); border-radius:3px; padding:1px 8px; }
+.sub .act.near { border-style:dashed; color:var(--muted); }
+.head-run { border:1px solid var(--gold); border-radius:3px; padding:6px 10px; margin:4px 0 8px; } .head-run .bar { height:8px; }
+/* Column 4: Reports with YAIR's footer filters plus Ready and Story (PS124). */
+.log .row { justify-content:center; text-align:center; font-size:13.5px; } .log .row.place { color:var(--gold); font-weight:700; }
+.rightnow { border-bottom:1px solid var(--quiet); padding:4px 0 8px; font-size:14px; }
+.filters { display:flex; flex-wrap:wrap; gap:3px; padding:6px 8px; border-top:1px solid var(--quiet); }
+.filters span { border:1px solid var(--gold); color:var(--gold); padding:2px 6px; font-size:13.5px; border-radius:3px; } .filters span.new { border-style:dashed; }
+/* Footer (PS123): no top bar. */
+.foot { position:absolute; left:0; right:0; bottom:0; height:38px; display:flex; align-items:center; gap:2px; background:#070a1c; border-top:1px solid var(--gold); padding:0 8px; font-size:16px; }
+.foot span { padding:6px 10px; } .foot .mid { margin-left:auto; } .foot .mid span, .foot .menu { border:1px solid var(--line); border-radius:4px; margin:0 3px; padding:3px 10px; }
+.foot .r { margin-left:auto; color:var(--muted); font-size:13px; }
+.menu-pop { position:absolute; bottom:40px; background:#070a1c; border:1px solid var(--gold); padding:4px 0; font-size:14px; display:none; z-index:5; }
+.menu-pop div { padding:2px 14px; } .menu-pop .h { color:var(--muted); font-size:12px; }
+body.menus .menu-pop { display:block; }
+/* Fight card replaces column 2's middle (PS121). */
+.fight .opp { border:1px solid var(--line); border-radius:3px; padding:4px 8px; margin-bottom:6px; }
+.fight .stats { display:flex; gap:14px; font-size:13px; color:var(--muted); } .fight .hpbar { height:20px; background:#3a1010; border-radius:2px; position:relative; text-align:center; font-size:13px; line-height:20px; }
+.fight .hpbar i { position:absolute; left:0; top:0; bottom:0; width:var(--f); background:#e23b3b; border-radius:2px; } .fight .hpbar span { position:relative; }
+.approach { display:flex; gap:6px; font-size:13px; margin-bottom:6px; } .approach span { border:1px solid var(--line); border-radius:3px; padding:2px 8px; } .approach span.on { border-color:var(--gold); color:var(--gold); }
+.empty-slot { border-top:1px solid var(--quiet); height:46px; }
+/* Mapping screen (PS125). */
+.map { position:absolute; inset:10px 14px 46px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; gap:14px; font-size:13.5px; }
+.map table { border-collapse:collapse; width:100%; } .map th, .map td { border:1px solid var(--quiet); padding:3px 7px; text-align:left; vertical-align:top; } .map th { background:var(--head); }
+.map h2 { font-size:16px; margin:4px 0; color:var(--gold); }
+.note { position:fixed; left:398px; bottom:42px; font-size:11px; color:var(--muted); }
+#pick { position:fixed; right:14px; bottom:44px; z-index:9; background:#000c; border:1px solid var(--gold); padding:5px 7px; font-size:12px; }
+#pick button { font:inherit; color:var(--text); background:#1a2456; border:1px solid var(--line); margin:1px; padding:2px 6px; cursor:pointer; }
+#pick button[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
+body.shot #pick, body.shot .note { display:none; }
+/* Draft additions (PS170): a draft box is outlined gold-dashed; the spec card is a note, not UI. Kit forms from prototypes/ui-kit-2026-11-15. */
+.draft { outline:2px dashed var(--gold); outline-offset:2px; position:relative; }
+.draft::after { content:"DRAFT"; position:absolute; top:0; left:50%; transform:translateX(-50%); z-index:2; font-size:10px; letter-spacing:.08em; background:var(--gold); color:#151515; padding:0 5px; border-radius:2px; }
+.verb + .sub, .draft .sub { margin-left:34px; }
+.num.est { color:var(--gold); } .num.est::after { content:" est"; font-size:10px; color:var(--muted); vertical-align:super; }
+.num.unk { color:var(--muted); border-bottom:1px dotted var(--muted); cursor:help; }
+.k.ready { color:var(--green); } .k.near { color:var(--gold); } .k.far { color:var(--muted); } .k.blocked { color:var(--danger); }
+.k.ready::before { content:"● "; } .k.near::before { content:"◐ "; } .k.far::before { content:"○ "; } .k.blocked::before { content:"⊘ "; }
+.wtable, .gtable { display:grid; grid-template-columns:1.1fr .6fr .6fr .8fr; font-size:13.5px; border:1px solid var(--quiet); margin:4px 0; font-variant-numeric:tabular-nums; }
+.gtable { grid-template-columns:1.5fr 1fr .8fr .8fr; }
+.wtable span, .gtable span { padding:2px 6px; border-bottom:1px solid var(--quiet); } .wtable span:nth-child(4n+2), .wtable span:nth-child(4n+3), .wtable span:nth-child(4n) { text-align:right; }
+.method { border:1px solid var(--line); border-radius:3px; padding:4px 8px; margin:6px 0; } .method.pick { border-color:var(--gold); }
+.tide { display:flex; flex-direction:column; gap:2px; font-size:14px; border-left:3px solid var(--danger); padding:4px 8px; margin:2px 0 6px; background:rgba(255,157,87,.07); }
+.spec { flex:0 0 auto; border:1px dashed #8b8fb8; background:#0b0f2a; border-radius:4px; padding:6px 9px; font-size:12.5px; }
+.spec h4 { margin:0 0 4px; font-size:12px; color:var(--gold); letter-spacing:.03em; }
+.spec div { display:grid; grid-template-columns:78px 1fr; gap:6px; padding:2px 0; border-bottom:1px solid #1d2350; } .spec b { color:var(--muted); font-weight:600; }
+.spec p { margin:4px 0 0; color:var(--muted); font-size:11.5px; }
+.c4 .box.rep { flex:1 1 40%; } .c3 .head-run .bar { height:19px; }
+#dtitle { position:fixed; left:398px; bottom:42px; font-size:11px; color:var(--muted); }
+
+/* Areas (PS172-PS178). */
+.loca { position:relative; padding:0 0 4px; }
+.loca .loc { padding:8px 150px 8px 150px; text-align:center; } .loca .desc { margin:4px auto 6px; }
+.loca .area { color:var(--gold); font-size:17px; } .mapbtn { float:right; font-size:13px; border:1px solid var(--line); border-radius:3px; padding:1px 7px; margin-right:-130px; }
+.arrow { position:absolute; font-size:14px; border:1px solid var(--line); border-radius:3px; padding:2px 8px; background:#1d2a66; white-space:nowrap; cursor:pointer; }
+.arrow i { font-style:normal; font-size:11px; color:var(--danger); } .arrow.gated { border-style:dashed; border-color:var(--danger); }
+.arrow.l { left:8px; top:50%; transform:translateY(-50%); max-width:140px; white-space:normal; } .arrow.r { right:8px; top:50%; transform:translateY(-50%); max-width:140px; white-space:normal; text-align:right; }
+.arrow.u { left:50%; top:4px; transform:translateX(-50%); } .arrow.d { left:50%; bottom:-2px; transform:translateX(-50%); }
+.loca:has(.arrow.u) .loc { padding-top:30px; } .loca:has(.arrow.d) { padding-bottom:26px; }
+.arow { font-size:14px; } .arow .act { white-space:nowrap; } .arow > span:last-child { text-align:right; }
+.arow.near .act { border-style:dashed; } .arow.far .act { border-style:dotted; color:var(--muted); }
+.gate b { font-weight:600; color:var(--danger); font-size:12px; text-transform:uppercase; letter-spacing:.04em; } .gate { margin-right:6px; }
+.ways { color:var(--text); } .tag { color:var(--muted); font-size:13px; }
+.done { text-decoration:line-through; color:var(--muted); }
+.minimap { border-top:1px solid var(--quiet); padding:6px 10px; } .minimap .mh { display:flex; justify-content:space-between; font-size:13px; }
+.minimap line { stroke:#8b93d6; stroke-width:2; } .minimap line.dash { stroke-dasharray:5 5; stroke:#5b63b0; }
+.minimap .node rect { fill:#1d2a66; stroke:#8b93d6; } .minimap .node text { fill:var(--text); font-size:13px; text-anchor:middle; font-family:system-ui; }
+.minimap .node.here rect { fill:var(--gold); stroke:var(--gold); } .minimap .node.here text { fill:#151515; font-weight:700; }
+.minimap .node.rumour rect, .minimap .node:not(.seen):not(.here) rect { stroke-dasharray:4 3; fill:#141b45; } .minimap .node.rumour text { fill:var(--muted); }
+.minimap .node.gated rect { stroke:var(--danger); }
+</style>
+</head>
+<body data-opt="mock">
+<div id="frame">
+  <div class="col c1" id="c1"></div><div class="col c2" id="c2"></div><div class="col c3" id="c3"></div><div class="col c4" id="c4"></div>
+  <div class="foot"><span>Save</span><span>Export</span><span>Import</span><span>⚙ Options</span><span class="menu">Menu ▴</span><span>Find</span>
+    <div class="mid"><span>Layout ▴</span></div><span class="r">v0.6 · autosave on</span></div>
+</div>
+<div id="dtitle"></div>
+<script>
+const h = (t, c, x) => `<${t}${c ? ` class="${c}"` : ''}>${x}</${t}>`;
+const box = (title, sub, body, cls = '') => `<section class="box ${cls}">${title ? `<h3><span>${title}</span><small>${sub || ''}</small></h3>` : ''}${h('div', 'body', body)}</section>`;
+const bar = (t, c, f) => `<div class="bar${f ? '' : ' empty'}" style="--c:${c};--f:${f}%"><i></i><span>${t}</span></div>`;
+const grid = pairs => h('div', 'grid', pairs.map(([k, v]) => `<span>${k}</span><span>${v}</span>`).join(''));
+const tabs = (list, on, cls = '') => h('div', 'tabs', list.map(t => `<span class="tab ${cls}${t === on ? ' on' : ''}">${t}</span>`).join(''));
+const verb = (ic, name, mark = '', cls = '', sub = '') => h('div', `verb ${cls}`, `<span class="ic">${ic}</span><span>${name}</span>${mark ? `<span class="mark ${mark.startsWith('~') ? 'near' : ''}">${mark.replace(/^~/, '')}</span>` : ''}`) + (sub ? h('div', 'sub', sub) : '');
+const subrow = (label, right, near) => h('div', 'row', `<span class="act${near ? ' near' : ''}">${label}</span><span class="m">${right}</span>`);
+const STATS = grid([['Strength:', '12.0'], ['Agility:', '8.0'], ['Dexterity:', '10.0'], ['Intuition', '10.0'], ['Defense:', '1.0'], ['Magic:', '0.0'], ['Atk power:', '1.2'], ['Atk spd:', '1.0'], ['Crit rate:', '5.0%'], ['Crit mult:', '130.0%'], ['AP:', '32'], ['EP :', '25']]);
+const C1 = ({name = 'Hero', lv = 0, hp = '60/60 hp', st = '40/40 stamina', effects = '0', effectLine = '', invTab = 'Inventory', inv, combat}) => [
+  box('Character vitals', `Lv ${lv}`, h('div', 'tab', name) + bar('0 / 10 xp', 'var(--xp)', 0) + bar(st, 'var(--st)', 100) + bar('0/0 mana', 'var(--mana)', 0) + bar(hp, 'var(--hp)', parseInt(hp) / parseInt(hp.split('/')[1]) * 100), 'teal'),
+  box('Character & preparation', '', h('div', 'row', '<b>Lvl: 0</b><span></span>') + STATS + h('div', 'row', `<span>Active effects:</span><span class="${effects === '0' ? '' : 'warn'}">${effects}</span>`) + effectLine + tabs(['Stats', 'Bio', 'Equipment', 'Tools'], 'Stats', 'sm'), 'teal'),
+  box('Inventory & combat view', '', tabs(['Inventory', 'Combat'], invTab) + (invTab === 'Combat' ? combat : inv), 'teal grow'),
+].join('');
+const VILLAGE_INV = h('div', 'm', 'Your purse contains: 10C · 4W') + ['☆ Ledger workshop cache · 2W', '☆ Prepared survey kit ×2 · 2W', '☆ Sealed survey parcel ×2 · 3W', '☆ Stale bread ×5 [use] · 2C', '☆ [legs] Cheap leather pants [40%] [equip] · 4C 6W'].map(t => h('div', 'row', `<span>${t.split(' · ')[0]}</span><span>${t.split(' · ')[1]}</span>`)).join('') + tabs(['Sort by name', 'Sort by value', 'Sort by type'], 'Sort by name', 'sm');
+const JOURNAL = (on, list) => box('Journal & received accounts', '', tabs(['Quests', 'Bestiary', 'Anthology', 'Data'], on) + tabs(['Knows', 'Notebook', 'People', 'Worlds', 'Beginning'], on, 'sm') + list + h('div', 'row', '<span></span><span class="m">Hide completed ☐</span>'));
+const SKILLS = (on, extra, list) => box('Skills & practice', '', list + h('div', 'row', '<span></span><span class="m">Hide max level skills ☐</span>') + tabs(['Sort by name', 'Sort by level', 'Sort by progress'], 'Sort by name', 'sm') + tabs(['Skills', 'Stances', 'Magic', ...extra], on), 'grow');
+const REPORTS = (rightNow, lines, extra = '') => `<section class="box rep grow"><h3><span>Reports</span><small>${extra}</small></h3><div class="body log">${h('div', 'rightnow', rightNow)}${lines.map(l => h('div', `row ${l.startsWith('[') ? 'place' : ''}`, l)).join('')}</div>` +
+  h('div', 'filters', ['Levels / unlocks', 'Events', 'Crafting', 'Combat', 'Loot', 'BGM'].map(f => `<span>${f}</span>`).join('') + '<span class="new">Ready</span><span class="new">Story</span>') + '</section>';
+const VILLAGE_TIME = (time, temp, now) => box('', '', h('div', 'time', `<span>${time}</span><span>${temp}</span>`) + `<div class="daystrip" style="--now:${now}"><i></i><b></b></div>`);
+const VILLAGE_LOC = box('', '', h('div', 'loc', h('div', 'name', '☆ Village') + h('div', 'desc', 'Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.') + h('div', 'here', 'Here: <a>2 people</a> · <a>6 stations</a> · <a>3 ways out</a>')) + h('div', 'status2', 'No work running.&nbsp;&nbsp; Saving available.'));
+
+// ---- Areas inside a place (round 17, PS172-PS178; proposals). Kit forms from prototypes/ui-kit-2026-11-15. ----
+const est = t => `<span class="num est">${t}</span>`, unk = (t, why) => `<span class="num unk" title="${why}">${t}</span>`;
+const row = (l, r = '', cls = '') => h('div', `row ${cls}`, `<span>${l}</span><span>${r}</span>`);
+const draft = (title, sub, body, cls = '') => box(title, sub, body, `${cls} draft`);
+const spec = s => `<section class="spec"><h4>${s.code} · draft note, not UI</h4>` + s.rows.map(([k, v]) => `<div><b>${k}</b><span>${v}</span></div>`).join('') + `<p>${s.codes}</p></section>`;
+// Location box with neighbour arrows on its edges (PS175) and the map button (PS176).
+const LOCA = ({place, area, desc, here, arrows, status = 'No work running.&nbsp;&nbsp; Saving available.', mapOpen = '', back = ''}) => draft('', '',
+  `<div class="loca">${arrows.map(([side, label, gate]) => `<span class="arrow ${side}${gate ? ' gated' : ''}" title="${gate || 'free, no time'}">${side === 'l' ? '← ' : side === 'u' ? '↑ ' : side === 'd' ? '↓ ' : ''}${label}${gate ? ` <i>${gate}</i>` : ''}${side === 'r' ? ' →' : ''}</span>`).join('')}` +
+  h('div', 'loc', `<div class="name">☆ ${place} <span class="area">· ${area}</span><span class="mapbtn">▦ Map</span></div>` + h('div', 'desc', desc) + h('div', 'here', here) + back) + `</div>` + h('div', 'status2', status) + mapOpen, '');
+// The map grows from the known area chain (PS176): named = visited, dashed = known link not walked, "?" = rumoured.
+const MAP = (title, nodes, edges, w = 600, ht = 210) => `<div class="minimap"><div class="mh"><b>${title}</b><span class="m">from what you know · dashed: not walked · ?: rumoured</span></div><svg viewBox="0 0 ${w} ${ht}" width="100%" height="${ht}">` +
+  edges.map(([a, b, kind]) => { const A = nodes[a], B = nodes[b]; return `<line x1="${A[0]}" y1="${A[1]}" x2="${B[0]}" y2="${B[1]}" class="${kind || ''}"/>`; }).join('') +
+  Object.entries(nodes).map(([k, [x, y, label, kind]]) => `<g class="node ${kind || ''}"><rect x="${x - label.length * 4 - 10}" y="${y - 12}" width="${label.length * 8 + 20}" height="24" rx="3"/><text x="${x}" y="${y + 5}">${label}</text></g>`).join('') + `</svg></div>`;
+const gate = (kind, what, ways) => `<span class="gate"><b>${kind}</b> ${what}:</span><span class="ways">${ways}</span>`;
+const arow = (name, right, cls = '') => h('div', `row arow ${cls}`, `<span class="act">${name}</span><span>${right}</span>`);
+const VILL_C1 = C1({inv: VILLAGE_INV});
+const VTIME = VILLAGE_TIME('01/04/999 08:12, Summer, Mon, <b>Day</b>', '14.9°C', '35%');
+const JQ = JOURNAL('Quests', row('<b>Lost memory</b>', '1 of 2') + row('<span class="done">Find out what happened</span>') + row('Help with the wolf rat infestation'));
+const SK = SKILLS('Skills', [], row('Running', 'Lv 0') + row('Weightlifting', 'Lv 0'));
+const SCREENS = {
+  a1: {
+    title: 'A1 · Village · square: arrows, Move around with gates, verbs that walk you there',
+    c1: VILL_C1,
+    c2: [VTIME, LOCA({place: 'Village', area: 'square', desc: 'Medium-sized village at the foot of the mountains. The well and the notice post stand in the square.',
+        here: 'Here: <a>Dunstan</a> · <a>the well</a> · <a>the notice post</a>', arrows: [['l', 'market row'], ['r', 'elder\'s house'], ['d', 'field edge', '⚠ wolf rats']]}),
+      box('Local actions', '1 new · 2 close', 
+        draft('', '', verb('⇢', 'Move around', '4 known · 1 ?', 'open',
+          arow('Market row', 'free · <span class="m">stalls open 08:00 to 18:00</span>') +
+          arow('Elder\'s house', 'free · front room, yard') +
+          arow('Field edge', gate('danger', 'wolf rats seen', 'prepare · fight · sneak · turn back')) +
+          arow('Elder\'s back room', gate('permission', 'Old Hesk\'s', 'ask him · <span class="m">sneak (noticed)</span>'), 'near') +
+          arow('Granary', gate('guarded', 'a watchman', 'talk · pay 2C · distract'), 'near') +
+          arow('Old well shaft ?', gate('?', 'rumoured', 'Hesk mentioned it · <span class="m">search the square</span>'), 'far')), '') +
+        verb('⇉', 'Leave the Village', '3 ways') + verb('⚒', 'Try to craft something', '~2 close') +
+        draft('', '', verb('❝', 'Talk to someone', '1 new', 'open', arow('Old Hesk <span class="tag">· elder\'s house</span>', '<span class="k ready">new</span> · walks you there') + arow('Dunstan <span class="tag">· here</span>', '')), '') +
+        verb('⚖', 'Visit a merchant', '<span class="tag">market row</span>') + verb('⌕', 'Gather resources', '<span class="tag">field edge</span>'), 'grow')].join(''),
+    c3: JQ + SK,
+    c4: REPORTS('<b class="g">Right now</b><br>Ask the elder about the spare weapon. <span class="m">Talk to someone › Old Hesk · elder\'s house (walks you there).</span>', ['[ Village · square ]', 'Nothing has happened yet this sitting.']) + spec({code: 'A1 · PS172-PS175, PS178', rows: [
+      ['Location box', '"Village · square"; up to four neighbour arrows on its edges; a gated arrow carries its gate word (⚠ here); arrow keys move'],
+      ['Verb', '<b>Move around</b> lists every known area with its gate and the ways round you have now; <b>Leave the Village</b> is the old Move somewhere else'],
+      ['Few clicks', 'Targets in other areas carry an area tag; choosing one walks you there and acts (PS174a). Ready counts the whole place'],
+      ['Numbers', 'known: hours, fare; "?" for a rumoured area or an unseen gate; time: free now (legs at 0 min, PS177)'],
+      ['Empty', 'A small place stays one area: no arrows, no Move around (PS172)']], codes: 'PS172-PS175, PS177, PS178, AD38. Areas and gates are examples.'}),
+  },
+  a2: {
+    title: 'A2 · Inside the elder\'s house: the set swaps, Talk walked you here, the map grows',
+    c1: VILL_C1,
+    c2: [VTIME, LOCA({place: 'Village', area: 'elder\'s house · front room', desc: 'A low room that smells of pipe smoke. A spare weapon hangs over the hearth.',
+        here: 'Here: <a>Old Hesk</a> · <a>the hearth</a>', arrows: [['r', 'yard'], ['d', 'out to the square'], ['u', 'back room', 'permission']],
+        mapOpen: MAP('Village, as you know it', {sq: [300, 105, 'square', 'seen'], mk: [110, 105, 'market row', 'seen'], el: [470, 60, 'elder\'s house', 'here'], yd: [560, 130, 'yard'], fe: [300, 180, 'field edge', 'seen'], gr: [140, 40, 'granary'], ws: [190, 175, '?', 'rumour'], br: [470, 18, 'back room', 'gated']},
+          [['sq', 'mk'], ['sq', 'el'], ['sq', 'fe'], ['el', 'yd', 'dash'], ['mk', 'gr', 'dash'], ['sq', 'ws', 'dash'], ['el', 'br', 'dash']])}),
+      box('Local actions', '1 new', draft('', '', verb('❝', 'Talk to someone', '1 new', 'open', arow('Old Hesk · About the spare weapon…', '<span class="k ready">new</span>') + arow('Old Hesk · Ask about the old well', '<span class="m">rumour</span>')), '') +
+        verb('⇢', 'Move around', 'yard · back room ⊘') + verb('●', 'Take an action', '', '', '') + verb('⇠', 'Back to the square', 'Esc'), 'grow')].join(''),
+    c3: JQ + SK,
+    c4: REPORTS('<b class="g">Right now</b><br>Old Hesk is here. Ask about the spare weapon.', ['[ Village · square ]', 'You walk to the elder\'s house. No time passes.', '[ Village · elder\'s house · front room ]']) + spec({code: 'A2 · PS172, PS174, PS176', rows: [
+      ['Swap', 'Entering a building swaps the area set for its inside (front room, yard, back room); Back or "out to the square" returns'],
+      ['Few clicks', 'One click on "Old Hesk · elder\'s house" walked you here and opened the talk; Reports says where you went'],
+      ['Map', 'Drawn from the area graph you know: solid = walked, dashed = known but not walked, "?" = rumoured, ⊘ = gated. Opens from ▦ Map on the location box'],
+      ['Stays', 'Ready now, the Journal and the day strip do not change with the area (PS173)'],
+      ['Empty', 'Map button hidden until two areas are known']], codes: 'PS172-PS176, SR6, SR7. Layout of the map is drawn from links, not authored.'}),
+  },
+  a3: {
+    title: 'A3 · Fang Yuan: the clan village, then inside the academy',
+    c1: C1({name: 'Gu Yue', inv: h('div', 'm', '0 primeval stones · 102 Village coins') + ['Hidden lightning wolf eye', 'Stale bread ×5', 'Wild Gu · unrefined'].map(t => row(`☆ ${t}`)).join('')}),
+    c2: [VILLAGE_TIME('Gu Yue · 12 March, year 1 06:00, <b>Spring</b>', 'essence 44/44', '25%'),
+      LOCA({place: 'Gu Yue village', area: 'clan academy · classroom', desc: 'Pupils who opened their apertures sit at low desks.', here: 'Here: <a>the academy elder</a> · <a>3 pupils</a>',
+        arrows: [['l', 'Gu room', 'hours · opens this week'], ['r', 'practice yard'], ['d', 'out to the stalls']]}),
+      box('Local actions', '1 ready', draft('', '', verb('⇢', 'Move around', '6 known', 'open',
+          arow('Practice yard', 'free') + arow('Gu room', gate('hours', 'opens when the elder says', 'wait · ask the elder')) +
+          arow('The stalls', 'free · <span class="tag">outside</span>') + arow('Cliff path', gate('means', 'a sheer drop', 'a rope · <span class="m">a movement Gu (none held)</span>'), 'near') + arow('The wall', gate('danger', 'wolves beyond', 'patrol with the guard · prepare')) +
+          arow('Clan warehouse', gate('permission', 'clan rank', 'merit · a token · <span class="m">sneak (noticed)</span>'), 'near')), '') +
+        verb('◐', 'Feed your Gu', '') + verb('⚗', 'Refine', '1 wild Gu <span class="tag">· here</span>') + verb('▣', 'Hand in at the alliance board', '<span class="tag">the stalls</span>'), 'grow')].join(''),
+    c3: JOURNAL('Quests', row('<b>Across the Threshold</b>', '<span class="ok">done</span>') + row('Choose the academy Gu selection', '<span class="tag">Gu room</span>')) + SKILLS('Gu', ['Gu'], row('Wild Gu', 'unrefined')),
+    c4: REPORTS('<b class="g">Right now · Story</b><br>Refine the wild Gu, then choose a Gu in the Gu room.', ['[ Gu Yue village · clan academy ]']) + spec({code: 'A3 · PS184 Fang Yuan', rows: [
+      ['Grain', 'Clan village: academy, stalls, the wall; the academy has classroom, practice yard, Gu room'],
+      ['Gates', 'Hours (Gu room opens when the elder says), danger (the wall), means (cliff path: a rope or a movement Gu), permission by clan rank (warehouse)'],
+      ['Tags', 'The board and the Gu choice carry their area; choosing walks you there'],
+      ['World', 'A sealed aperture would use labelled tabs, not compass arrows (PS175)']], codes: 'PS172-PS178, PS184. Areas are examples.'}),
+  },
+  a4: {
+    title: 'A4 · Hogwarts: corridors and rooms, the moving stairs as a world-law gate',
+    c1: [box('Character vitals', 'Lv 0', h('div', 'tab', 'Harry Potter') + bar('60/60 hp', 'var(--hp)', 100) + bar('40/40 stamina', 'var(--st)', 100), 'teal'), box('Inventory & combat view', '', tabs(['Inventory', 'Combat'], 'Inventory') + row('☆ Wand (holly)') + row('☆ Invisibility cloak'), 'teal grow')].join(''),
+    c2: [VILLAGE_TIME('School days · Day 61 · 21:40', 'curfew 21:00', '90%'),
+      LOCA({place: 'Hogwarts', area: 'Grand Staircase · third floor', desc: 'The staircase you stood on swings away with a grinding sound.', here: 'Here: <a>Peeves</a> · <a>a portrait</a>',
+        arrows: [['l', 'third-floor corridor', 'forbidden'], ['r', 'trophy room'], ['u', 'seventh floor', 'stairs moving'], ['d', 'Great Hall']]}),
+      box('Local actions', '', draft('', '', verb('⇢', 'Move around', '6 known · 1 ?', 'open',
+          arow('Gryffindor common room', gate('permission', 'the Fat Lady\'s password', 'say it (known) · <span class="m">wait for a friend</span>')) +
+          arow('Seventh floor', gate('world law', 'the stairs moved', 'wait ' + est('~2 min') + ' · take the tapestry passage')) +
+          arow('Third-floor corridor', gate('social cost', 'out of bounds', 'go anyway: house points at risk if seen'), 'near') +
+          arow('Restricted Section', gate('hours', 'curfew', 'a teacher\'s note · the cloak (hides you)'), 'near') +
+          arow('Trophy room', gate('locked', 'bolted at night', 'Alohomora (known) · <span class="m">Filch has the key</span>'), 'near') +
+          arow('A door that wasn\'t there ?', gate('hidden', '?', 'walk past three times thinking of it'), 'far')), '') +
+        verb('❝', 'Talk to someone', '', '', arow('Ron <span class="tag">· common room</span>', 'walks you there')) + verb('☾', 'Sleep', '<span class="tag">dormitory</span>'), 'grow')].join(''),
+    c3: JOURNAL('Quests', row('<b>The third-floor corridor</b>', 'curious')) + SKILLS('Spells', ['Spells'], row('Alohomora', 'opens: locked gates')),
+    c4: REPORTS('<b class="g">Right now</b><br>It is past curfew. Get back to the common room or hide under the cloak.', ['[ Hogwarts · Grand Staircase ]', 'The staircase swung away.']) + spec({code: 'A4 · PS184 Hogwarts', rows: [
+      ['Grain', 'Floors and corridors as areas; each room inside its floor'],
+      ['Gates', 'Locked (trophy room: Alohomora), permission (a password), world law (stairs that move: wait or a passage), social cost (out of bounds), hours (curfew), hidden ("?")'],
+      ['Means', 'Alohomora shows on locked gates as a way round; the cloak on hours and guards'],
+      ['Numbers', 'est: how long the stairs take; "?" for the hidden door until found']], codes: 'PS178, PS184, AD38. Canon places; gates and timings are examples.'}),
+  },
+};
+const P = new URLSearchParams(location.search), id = P.get('a') || 'a1', D = SCREENS[id];
+for (const k of ['c1', 'c2', 'c3', 'c4']) document.getElementById(k).innerHTML = D[k];
+document.getElementById('dtitle').textContent = D.title;
+addEventListener('keydown', e => { const n = Number(e.key); if (n >= 1 && n <= 4) location.search = `?a=a${n}`; });
+
+</script>
+</body>
+</html>
