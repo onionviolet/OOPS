@@ -1395,11 +1395,11 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 }
 @media(min-width:1001px){
 #main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) [data-region="focus"] {display:none;}
-#main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) [data-region="actions"] {grid-column:3;grid-row:1/-1;}
-#main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) [data-region="inventory"] {grid-column:1/3;}
+#main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) [data-region="actions"] {grid-column:2;grid-row:1/-1;}
+#main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) [data-region="inventory"] {grid-column:1/2;}
 @media(min-width:1700px){
-/* UR144: the attribute inspector takes Around you's columns; Inventory keeps its own. */
-#main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) [data-region="actions"] {grid-column:2/4;grid-row:1/-1;}
+/* UR144, round 14 (PS121): the attribute inspector replaces column 2 in place; the Journal column keeps its own. */
+#main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) [data-region="actions"] {grid-column:2;grid-row:1/-1;}
 #main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) [data-region="inventory"] {grid-column:1/2;}
 }
 #main_content.workspace-active[data-parity="r3"]:has(#center_mode_content #character_attribute_inspector) .shell-gear-disclosure {display:none;}
@@ -1449,13 +1449,13 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
    Inventory widens. A selected person, a conversation or an opponent keeps Focus. */
 @media(min-width:1001px){
 #main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="focus"] {display:none;}
-#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="actions"] {grid-column:3;grid-row:1/-1;}
-#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="inventory"] {grid-column:1/3;}
+#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="actions"] {grid-column:2;grid-row:1/-1;}
+#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="inventory"] {grid-column:1/2;}
 }
-/* UR144 (round 6): at the primary target the view takes Around you's columns, top to bottom, and
-   Inventory keeps its column, so nothing beside the view moves. */
+/* UR144, round 14 (PS121): a centre view replaces column 2 top to bottom; Inventory and the Journal
+   column keep theirs, so nothing beside the view moves. */
 @media(min-width:1700px){
-#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="actions"] {grid-column:2/4;grid-row:1/-1;}
+#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="actions"] {grid-column:2;grid-row:1/-1;}
 #main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="inventory"] {grid-column:1/2;}
 #main_content.workspace-active[data-parity="r3"][data-local-task="crafting_window"] :is(.crafting_mainpage_button,.crafting_subpage_button) {padding:round(.12em, 1px) round(.35em, 1px);}
 }
