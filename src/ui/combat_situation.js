@@ -212,7 +212,7 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
         return `${h.actor} → ${h.target ?? h.foe}${slot}: ${h.dmg ?? h.dealt}${multiplier}${split}`;
     }) : [];
     // One home per fact (DESIGN.md DSG11): hp lives on the versus row, so the summary keeps only who is standing.
-    const standing = f.foes.filter(o => !o.down).length, down = f.foes.length - standing;
+    const standing = f.foes.filter(o => !o.down).length, down = (f.fateMoves || []).length ? new Set(f.fateMoves.map(m => m.targetId)).size : 0; // only bodies still waiting on you are "at your feet"
     const summary = `${place ? `${place}: ` : ''}${standing} opponent${standing === 1 ? '' : 's'} standing${down ? `, ${down} down at your feet` : ''}.`;
     return {active: true, mode: 'tempo', summary, versus: base.versus, stakes: f.stakes || null, holdBack: !!f.holdBack, holdRisk: f.holdRisk || 0, strip: f.strip || null, terms: f.terms || null, next: f.next || [], yourTurn: !!f.yourTurn,
         moves, fateMoves: f.fateMoves || [], aims: f.aims || [], aim: f.aim ?? null, orders: f.orders || [], log: [...(f.lines || [])], dev: hits};

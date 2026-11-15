@@ -640,7 +640,8 @@ export function tempoView(b) {
         allies: active(b, 'a').filter(id => b.fighters[id].ally).map(id => ({id, name: b.fighters[id].name, hurt: b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'steady' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing',
             order: activeOrder(b, b.fighters[id])?.id ? ALLY_ORDERS[activeOrder(b, b.fighters[id]).id].label : null})),
         // A body waiting on your decision stays on the card, down, so the choice has a place to be made (CBC4).
-        foes: [...active(b, 'b'), ...fates(b, 'player')].map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status === 'down' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina,
+        // Every foe keeps its row in the same place; one that fell or left stays, dimmed (DU11, PS147): the list does not jump while you read.
+        foes: Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status !== 'active' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina,
             ...(b.fighters[id].means && Object.keys(b.fighters[id].means).length ? {means: Object.entries(b.fighters[id].means).map(([q, n]) => ({id: q, n, label: b.fighters[id].meansLabels?.[q] ?? q.replace(/_/g, ' ')}))} : {}), learned: {...b.fighters[id].learned}, injuries: Object.entries(b.fighters[id].parts || {}).map(([p, rung]) => ({label: partLabel(p), rung})), hurt: b.fighters[id].status === 'down' ? 'down and helpless' : b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'fresh' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing'}))};
 }
 

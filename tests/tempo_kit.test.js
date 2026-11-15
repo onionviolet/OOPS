@@ -199,3 +199,23 @@ test('the stakes shift mid-fight: a knife drawn in temper, a plea, going for the
     const esc = commitTempoMove(fight({stakes: {preset: 'brawl'}}).state, registry, context, {moveId: 'escalate'});
     assert.equal(esc.state.simulation.sessions.player.nativeBattle.stakes.lethal, true);
 });
+
+// DU11, PS147: a foe that falls keeps its row, dimmed, so the list does not jump while the fight goes on.
+test('a fallen foe keeps its place in the view, marked down, while the rest fight on', () => {
+    const state = structuredClone(base.state); state.simulation.seed = 7;
+    let plan = beginTempoFight(state, registry, context, {id: 'fx-two', title: 'Two', floor: 1, stakes: {preset: 'brawl'}, fighters: [
+        {id: 'player', name: 'You', side: 'a', speed: 100, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile, perception: 20, stealth: 20},
+        {id: 'foe1', name: 'A first rival', side: 'b', speed: 60, hp: 1, maxHp: 30, stamina: 30, maxStamina: 30, profile: {...profile, attackPower: 1}, perception: 20, stealth: 20},
+        {id: 'foe2', name: 'A second rival', side: 'b', speed: 60, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile: {...profile, attackPower: 1}, perception: 20, stealth: 20}]});
+    const order = tempoView(plan.state.simulation.sessions.player.nativeBattle).foes.map(f => f.id);
+    for(let n = 0; n < 12; n++) {
+        const b = plan.state.simulation.sessions.player?.nativeBattle;
+        if(!b || b.fighters.foe1.status !== 'active') break;
+        plan = commitTempoMove(plan.state, registry, context, {moveId: 'jab', targetId: 'foe1'});
+    }
+    const b = plan.state.simulation.sessions.player.nativeBattle, v = tempoView(b);
+    assert.notEqual(b.fighters.foe1.status, 'active', 'the first rival is out');
+    assert.deepEqual(v.foes.map(f => f.id), order, 'rows keep their order');
+    assert.equal(v.foes.find(f => f.id === 'foe1').down, true);
+    assert.equal(v.foes.find(f => f.id === 'foe2').down, undefined);
+});
