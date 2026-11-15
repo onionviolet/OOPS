@@ -21,7 +21,7 @@ import {isStaple, unitPrice, lineValue, explainQuote, stapleIds} from './regiona
 import {seePrices, remembered} from "./economy_standing_domain.js";
 import {memoryNote} from './regional_prices.js';
 import {termsFor, recordTrade, bindStandingHost, noteShopVisit, shopMemory} from "./economy_standing_domain.js";
-import {shopGreeting} from "./shop_greeting.js";
+import {shopGreeting, pickStockNews} from "./shop_greeting.js";
 import {address, drawU32, indexFromU32} from "./gen_kit.js";
 import {renderStandingTerms} from "./economy_standing_ui.js";
 import {addPurse} from "./economy_domain.js";
@@ -682,6 +682,7 @@ export function greetingFacts(trader_key, context) {
     const terms=termsFor(current_location.market_region,trader_key,character.reputation);
     return {visits:memory.visits,today,lastBought:memory.lastBought,boughtDay:memory.boughtDay,talked:talks.get(`${trader_key}:${today}`)??null,
         soldOut:gone&&restockIn?{item:gone,restockIn}:null,
+        stockNews:pickStockNews(trader.stockCauses(context),restockIn), // PS161: a cleared place or finished quest on the shelf
         shortage:terms.parts.some(p=>p.cause==='shortage')};
 }
 function sayGreeting(trader_key, context) {

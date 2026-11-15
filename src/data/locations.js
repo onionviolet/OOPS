@@ -490,6 +490,10 @@ const favourite_locations = {};
             ],
             xp: 5,
         },
+        // PS160 (proposal): farmers leave something for whoever clears their field; a ring lost in the stalks turns up rarely.
+        clear_bonus: [{id: "field.thanks", label: "a farmer left bread at the field's edge", chance: 0.35, hint: "public",
+            rewards: {items: [{item: "Fresh bread", count: 2}]},
+            then: [{id: "field.ring", label: "a ring someone lost in the stalks", chance: 0.2, rewards: {items: ["Snake fang ring"]}}]}],
         rewards_with_clear_requirement: [
             {
                 required_clear_count: 2,
@@ -1234,6 +1238,10 @@ There's another gate on the wall in front of you, but you have a strange feeling
         enemy_stat_variation: 0.1,
         name: "Gang hideout", 
         parent_location: locations["Slums"],
+        // PS160 (proposal): a gang keeps a stash; a locked strongbox inside it is rarer.
+        clear_bonus: [{id: "hideout.stash", label: "the gang's stash under a loose board", chance: 0.3, hint: "public", rewards: {money: 150},
+            then: [{id: "hideout.strongbox", label: "a locked strongbox in the stash", chance: 0.25,
+                rewards: {items: [{item: "Steel chainmail helmet", quality: 100}]}}]}],
         first_reward: {
             xp: 1000,
             reputation: {Slums: 200, Town: 50},

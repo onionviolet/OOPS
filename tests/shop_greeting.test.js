@@ -3,6 +3,14 @@ import assert from 'node:assert/strict';
 import {shopGreeting, SHOP_VOICES} from '../src/shop_greeting.js';
 import * as s from '../src/economy_standing.js';
 import {loadNative, STANCE_LOCATION_STUBS} from './helpers/native_loader.mjs';
+import {readFileSync} from 'node:fs';
+
+// The template module needs the native graph, so read the declared causes from source (as trader_templates.test.js does).
+const templatesCauses = name => {
+    const src = readFileSync(new URL('../src/data/inventory_templates.js', import.meta.url), 'utf8');
+    const body = src.split(`inventory_templates["${name}"]`)[1].split('inventory_templates[')[0];
+    return [...body.matchAll(/cause: '([^']+)'/g)].map(x => x[1]);
+};
 
 const first = () => 0;
 const base = {visits: 1, today: 10, lastBought: null, boughtDay: -1, talked: null, soldOut: null, shortage: false};
@@ -72,4 +80,48 @@ export {current_game_time} from './src/game_time.js';`, {stubs: STANCE_LOCATION_
     assert.equal(t.daysToRestock(), 4);
     for(const name of ['Basic', 'Slums', 'Swamp', 'Cat cafe'])
         for(const group of m.templates[name]) assert.ok(group.items.some(spec => spec.chance >= 1), `${name}: every condition set lays out staples`);
+});
+
+test('PS161: a cleared place reaches the keeper before the cart; the next cart brings it and he says so', async () => {
+    const m = await loadNative(`
+export {TraderComponent} from './src/components/trader_component.js';
+export {default as templates} from './src/data/inventory_templates.js';
+export {current_game_time} from './src/game_time.js';
+export {pickStockNews, shopGreeting} from './src/shop_greeting.js';
+export {bindGameStreams, createStreams} from './src/seeded_streams.js';`, {stubs: STANCE_LOCATION_STUBS});
+    m.bindGameStreams(() => ({streams: m.createStreams(161), actors: {player: {worldId: 'base.frontier'}}}));
+    let cleared = false;
+    const yes = {canBeStarted: () => true}, ifCleared = {canBeStarted: () => cleared}, ifHeld = {canBeStarted: () => !cleared};
+    m.templates.ps161 = [
+        {...ifHeld, cause: 'gang-holds', items: [{...yes, item_name: 'Coil of rope', chance: 1, count: [1]}]},
+        {...ifCleared, cause: 'gang-cleared', items: [{...yes, item_name: 'Coil of rope', chance: 1, count: [1]}, {...yes, item_name: 'Iron sword', chance: 1, count: [1]}]}];
+    const t = new m.TraderComponent({name: 'ps161 test', inventory_template: 'ps161', refresh_time: 4});
+    assert.ok(t.refresh({}), 'first fill');
+    assert.deepEqual(t.stockCauses({}), [{cause: 'gang-holds', stocked: true, fresh: false}], 'a first fill is not news');
+    cleared = true;
+    assert.deepEqual(t.stockCauses({}), [{cause: 'gang-cleared', stocked: false, fresh: false}]);
+    const coming = m.pickStockNews(t.stockCauses({}), t.daysToRestock());
+    assert.deepEqual(coming, {cause: 'gang-cleared', kind: 'coming', restockIn: 4});
+    const said = m.shopGreeting({vendorId: 'suspiciousTrader', facts: {visits: 3, today: 0, stockNews: coming}, pick: () => 0});
+    assert.match(said.text, /next load, in 4 days/); assert.ok(said.why.includes('stock-coming:gang-cleared'));
+    t.filled_causes = null; t.fresh_causes = null;
+    assert.equal(t.stockCauses({})[0].stocked, false, 'after a reload the shelf itself says the sword is not here yet');
+    m.current_game_time.day_count += 4;
+    assert.ok(t.refresh({}), 'the cart comes');
+    assert.ok(Object.values(t.getTradeInventory()).some(e => e.item.id === 'Iron sword'), 'the caused goods are on the shelf');
+    const fresh = m.pickStockNews(t.stockCauses({}), t.daysToRestock());
+    assert.deepEqual(fresh, {cause: 'gang-cleared', kind: 'fresh'});
+    assert.match(m.shopGreeting({vendorId: 'suspiciousTrader', facts: {visits: 3, today: 4, stockNews: fresh}, pick: () => 0}).text, /Steel mail on the rack/);
+    assert.equal(m.shopGreeting({vendorId: 'villageTrader', facts: {visits: 3, today: 4, stockNews: fresh}, pick: () => 0}).why.join(), 'regular', 'a keeper with no line for a cause stays silent');
+    t.filled_causes = null;
+    assert.equal(t.stockCauses({})[0].stocked, true, 'after a reload the sword on the shelf reads as stocked');
+});
+
+test('PS161: the real Slums and Swamp templates name their causes and the keepers voice them', () => {
+    const causes = name => templatesCauses(name);
+    assert.deepEqual(causes('Slums'), ['gang-holds', 'gang-cleared']);
+    assert.deepEqual(causes('Swamp'), ['swamp-quest-done']);
+    assert.ok(SHOP_VOICES.suspiciousTrader.causes['gang-holds'].standing.length);
+    assert.ok(SHOP_VOICES.suspiciousTrader.causes['gang-cleared'].coming.length);
+    assert.ok(SHOP_VOICES.swamplandTrader.causes['swamp-quest-done'].fresh.length);
 });

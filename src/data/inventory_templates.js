@@ -301,7 +301,7 @@ inventory_templates["Intermediate"] =
 
 inventory_templates["Slums"] = [
     new TradeItemGroup({
-        start_conditions: item_conditions.gang_not_cleared,
+        start_conditions: item_conditions.gang_not_cleared, cause: 'gang-holds',
         items: [
             new TradeItem({item_name: "Iron spear", count: [1], quality: [70, 90], chance: 0.8}),
             new TradeItem({item_name: "Iron dagger", count: [1], quality: [70, 90], chance: 0.8}),
@@ -386,7 +386,7 @@ inventory_templates["Slums"] = [
         ]
     }),
     new TradeItemGroup({
-        start_conditions: item_conditions.gang_cleared,
+        start_conditions: item_conditions.gang_cleared, cause: 'gang-cleared',
         items: [
             new TradeItem({item_name: "Iron spear", count: [1], quality: [100, 120], chance: 0.8}),
             new TradeItem({item_name: "Iron dagger", count: [1], quality: [100, 120], chance: 0.8}),
@@ -494,7 +494,7 @@ inventory_templates["Swamp"] =
         ]
     }),
     new TradeItemGroup({
-        start_conditions: item_conditions.swamp_quest_done,
+        start_conditions: item_conditions.swamp_quest_done, cause: 'swamp-quest-done',
         items: [
             new TradeItem({item_name: "Alligator jerky", count: [2,5]}),
             new TradeItem({item_name: "Snake jerky", count: [2,5]}),

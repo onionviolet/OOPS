@@ -29,6 +29,14 @@ export const SHOP_VOICES = Object.freeze({
         talked: ['We already haggled today. I\'m still sore about it.'],
         soldOut: ['{Item}? Gone. More turns up {when}, if nobody asks where from.'],
         shortage: ['You bought me thin. Everything\'s dearer till I find more.'],
+        // PS161: what the Gang hideout does to his shelf. `standing` is a lead while it holds, not a promise of stock.
+        causes: {
+            'gang-holds': {standing: ['The best pieces? The hideout lot take their cut before the good mail ever reaches me.']},
+            'gang-cleared': {
+                coming: ['Heard someone broke the hideout gang. Nobody skims my stock now; steel mail and the better blades come with the next load, {when}.'],
+                fresh: ['With the hideout gang gone, nobody skims my stock. Steel mail on the rack, and the better blades. Look before word gets round.'],
+            },
+        },
     },
     swamplandTrader: {
         first: ['Mind the mud on the mat. Everything here was caught, dried or dug up near camp.',
@@ -38,6 +46,12 @@ export const SHOP_VOICES = Object.freeze({
         talked: ['No more haggling today. My throat is tired.'],
         soldOut: ['No {item} left. The hunters bring more {when}.'],
         shortage: ['You near emptied the drying racks. Prices go up till they fill again.'],
+        causes: {
+            'swamp-quest-done': {
+                coming: ['The hunters are going out again now the camp is safe. Fuller racks {when}.'],
+                fresh: ['The hunters are out every day since the camp was helped. Full racks, and a hide or two worth tanning.'],
+            },
+        },
     },
     nekomimiTrader: {
         first: ['Welcome, welcome! Sit anywhere the cats aren\'t.', 'Oh, a new guest! The menu is on the wall, the cats are not for sale.'],
@@ -72,8 +86,25 @@ export const GREETING_DIALS = Object.freeze({
     rememberDays: {value: 7, why: 'A week later they still recall what you bought; after that it blurs into the rest of the trade.'},
 });
 
+// PS161: the keeper's line for a stock cause, or '' when this voice has none for it (a cause without a line stays silent).
+function causeLine(voice, news, pick) {
+    const pool = news && voice.causes?.[news.cause]?.[news.kind];
+    return pool?.length ? fill(pool[pick(`cause:${news.cause}:${news.kind}`, pool.length)], news) : '';
+}
+
+/** PS161: pick the stock news from `stockCauses` rows: a cause the cart has not brought yet, then one this cart
+ * just brought, then a standing one. `restockIn` comes from the stall's clock. */
+export function pickStockNews(rows = [], restockIn = null) {
+    const coming = rows.find(r => !r.stocked);
+    if(coming && restockIn) return {cause: coming.cause, kind: 'coming', restockIn};
+    const fresh = rows.find(r => r.stocked && r.fresh);
+    if(fresh) return {cause: fresh.cause, kind: 'fresh'};
+    const standing = rows.find(r => r.stocked);
+    return standing ? {cause: standing.cause, kind: 'standing'} : null;
+}
+
 /**
- * facts: {visits, today, lastBought, boughtDay, talked: null|{won}, soldOut: null|{item, restockIn}, shortage: bool}
+ * facts: {visits, today, lastBought, boughtDay, talked: null|{won}, soldOut: null|{item, restockIn}, stockNews: null|{cause, kind, restockIn?}, shortage: bool}
  * Returns {text, why: [fact ids that chose the line]} (ECC52: the why list feeds a read-only inspector).
  */
 export function shopGreeting({vendorId, facts, pick}) {
@@ -86,7 +117,9 @@ export function shopGreeting({vendorId, facts, pick}) {
     else if(recent) { opener = from('bought', {item: facts.lastBought}); why.push('bought-recently'); }
     else { opener = from('regular'); why.push(facts.visits >= GREETING_DIALS.regularVisits.value ? 'regular' : 'returning'); }
     let news = '';
+    const cause = causeLine(voice, facts.stockNews, pick);
     if(facts.soldOut) { news = from('soldOut', facts.soldOut); why.push('staple-sold-out'); }
+    else if(cause) { news = cause; why.push(`stock-${facts.stockNews.kind}:${facts.stockNews.cause}`); }
     else if(facts.shortage) { news = from('shortage'); why.push('shortage'); }
     return {text: news ? `${opener} ${news}` : opener, why};
 }

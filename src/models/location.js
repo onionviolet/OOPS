@@ -247,6 +247,7 @@ class CombatZone extends BaseLocation {
                  entrance_rewards = {},
                  light_level = null, //generally handled through type for those
                  rewards_with_clear_requirement = [], //array of Rewards objects, with `required_clear_count: Number` on each
+                 clear_bonus = [], //PS160: chance rows rolled on each clear, nested by `then` (src/clear_bonus.js)
                  otherUnlocks,
                  unlock_text,
                  is_challenge = false,
@@ -314,6 +315,7 @@ class CombatZone extends BaseLocation {
         this.first_reward = new Rewards(first_reward); //reward for first clear
         this.repeatable_reward = new Rewards(repeatable_reward); //reward for each clear, including first; all unlocks should be in this, just in case
         this.rewards_with_clear_requirement = rewards_with_clear_requirement; //rewards that are only given on N-th clear
+        this.clear_bonus = clear_bonus;
 
         this.is_challenge = is_challenge;
         //challenges can be completed only once 

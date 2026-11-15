@@ -84,6 +84,7 @@ class TraderComponent {
         if(this.can_refresh()) {
             //refresh inventory
             const previous={...this.#inventory.getItems()},retained = {}, lastDue = this.last_refresh;
+            const before = this.filled_causes ?? (lastDue < 0 ? new Set(this.activeCauses(context)) : null) ?? new Set(this.stockCauses(context).filter(c => c.stocked).map(c => c.cause));
             this.#cycleStart = lastDue;
             for(const [key, entry] of Object.entries(this.#inventory.getItems())) {
                 if(conservedCampaignKeys.has(key)) {
@@ -104,6 +105,10 @@ class TraderComponent {
             // What this restock put on the shelf, by name: lets the keeper say a staple sold out (ECC43). Memory only;
             // after a reload it is empty until the next restock, and the keeper simply has no stock news.
             this.laid_out = new Set(Object.values(this.#inventory.getItems()).filter(e => e?.count > 0).map(e => e.item?.name));
+            // PS161: which caused groups this fill laid out, and which are new since the last fill. Memory only, like
+            // laid_out; after a reload `stockCauses` reads the shelf instead.
+            this.filled_causes = new Set(this.activeCauses(context));
+            this.fresh_causes = new Set([...this.filled_causes].filter(c => !before.has(c)));
             return true;
         }
         //otherwise do nothing
@@ -145,6 +150,29 @@ class TraderComponent {
         const names = inventory_templates[this.inventory_template].filter(g => g.canBeStarted(context))
             .flatMap(g => g.items.filter(spec => spec.chance >= 1 && spec.canBeStarted(context)).map(spec => spec.item_name));
         return [...new Set(names)];
+    }
+
+    /** PS161: cause ids of the template groups whose conditions hold now (a cleared hideout, a finished quest). */
+    activeCauses(context) {
+        return [...new Set(inventory_templates[this.inventory_template].filter(g => g.cause && g.canBeStarted(context)).map(g => g.cause))];
+    }
+
+    /**
+     * PS161: each cause that holds now, and whether the shelf already carries it. A cause that came true after the
+     * last fill is `stocked: false` until the next cart (the stall restocks on its own cycle; the news travels, the
+     * goods follow). After a reload, a cause counts as stocked when the shelf holds a good only that group sells,
+     * or when its group has no such good.
+     */
+    stockCauses(context) {
+        const groups = inventory_templates[this.inventory_template];
+        const onShelf = new Set(Object.values(this.#inventory.getItems()).filter(e => e?.count > 0).map(e => e.item?.id ?? e.item?.name));
+        return this.activeCauses(context).map(cause => {
+            if(this.filled_causes) return {cause, stocked: this.filled_causes.has(cause), fresh: this.fresh_causes?.has(cause) ?? false};
+            const mine = new Set(groups.filter(g => g.cause === cause).flatMap(g => g.items.map(i => i.item_name)));
+            const others = new Set(groups.filter(g => g.cause !== cause).flatMap(g => g.items.map(i => i.item_name)));
+            const own = [...mine].filter(n => !others.has(n));
+            return {cause, stocked: own.length === 0 || own.some(n => onShelf.has(n)), fresh: false};
+        });
     }
 
     /** Whole days until the next delivery (at least 1); null for a stall on another restock clock. */

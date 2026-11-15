@@ -31,6 +31,9 @@ class TradeItemGroup {
     constructor(data)
     {
         this.items = data.items;
+        // PS161: an optional cause id names why this group is on the shelf (a cleared place, a finished quest), so the
+        // keeper can say it; the condition itself stays in start_conditions, and a group without a cause says nothing.
+        this.cause = data.cause ?? null;
         this.#availability = new AvailabilityComponent({...data, is_unlocked: true});
         //component not saved to availabilities, not meant to use unlock status for this class, just conditions
     }

@@ -87,7 +87,7 @@ import {settleObservedDrops,validateDropObservations} from './absorb_p23/known_d
 import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absorb_p23/known_detail/presentation.js';
 import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
 import {skillExpansionPresentation} from './skill_expansion_host.js';
-import {setNativeObservedDropReader} from './display.js';
+import {setNativeObservedDropReader, setKnownClearTextReader} from './display.js';
 let p23DropObservations,loadedDisplayPreferences;
 
 import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
@@ -115,7 +115,7 @@ import {normalizeElementalOption,describeElementalPreparation} from './absorb_e3
 import {equipmentDurability as durability,canonicalDurabilityKey,createDurability} from './absorb_e2/durability.js';
 import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects as basePacingEffects} from './absorb_e1/pacing.js';
 import {mountPacingPanel,pacingStatus} from './absorb_e1/panel.js';
-import {setKnownClearTextReader} from './display.js';
+import {clearBonusRewards, clearBonusText} from './clear_bonus.js';
 import {FORT, createFortSupply, migrateFortSupply, stageFortAction, observeFortSource, fortDisclosures, knownClearText} from './absorb_d/fort.js';
 import {registerFortContent} from './absorb_d/register.js';
 import {createFortControls} from './absorb_d/ui.js';
@@ -5216,7 +5216,7 @@ function get_location_rewards(location) {
 
     //calls in first clear give xp, this call omits xp to avoid repeating it
     //repeatable rewards are indeed intended to be called on first clear as well (with the exception of xp, duh)
-    process_rewards({rewards: {...location.repeatable_reward, xp: null}, source_type: "location", source_name: location.name, is_first_clear: false, source_id: location.id});
+    for(const rewards of [{...location.repeatable_reward, xp: null}, ...clearBonusRewards(location.clear_bonus, path => gameRandom(STREAMS.reward, `clear-bonus:${location.id}:${location.enemy_groups_killed}:${path}`))]) process_rewards({rewards, source_type: "location", source_name: location.name, is_first_clear: false, source_id: location.id}); // PS160: clear bonuses ride the same path
 
     if(location.otherUnlocks) {
         location.otherUnlocks();
@@ -9854,7 +9854,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     householdPanel=createHouseholdPanel({host:document.getElementById('location_actions_div'),read:p00HouseholdFrame,act:actP00Household});
     durabilityPanel=createDurabilityPanel();
     elementalPanel=createElementalPanel();
-    setKnownClearTextReader(location=>knownClearText(location,fortDisclosures(book_stats[FORT.notes].accumulated_time>=4)));
+    setKnownClearTextReader(location=>knownClearText(location,fortDisclosures(book_stats[FORT.notes].accumulated_time>=4))+clearBonusText(location.clear_bonus,item_log.items));
     fortControls=createFortControls({read:readFortFrame,act:actFort});
     if(current_location?.tags.safe_zone && !current_activity && !current_game_action && !current_combat && !current_dialogue && !is_sleeping && !is_reading && !is_in_trade()) reload_normal_location();
     lifeRecordPanel = createLifeRecordPanel({read:()=>({record:lifeRecord,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),remember:()=>{
