@@ -8,9 +8,30 @@
 // Which views take part: a detail node marked [data-inspector-detail], or one of the known detail regions below. A feature
 // opts in by marking its detail node; no registration line is needed.
 // Steady frame (UR144): the left column's box keeps its size; only what is inside it changes.
+import {expandWorkspaceModule} from '../workspace_layout.js';
+
 const KNOWN = ['.attribute-inspector-detail'];
 const SELECTOR = ['[data-inspector-detail]', ...KNOWN].join(',');
 const el = (tag, cls) => { const n = document.createElement(tag); if (cls) n.className = cls; return n; };
+
+// Open one item where the player inspects items (a crafting input's "Where to get it", a Next link). One authority: the
+// inventory owns selection, so a held item is chosen through the inventory row's own click route, and Item details is
+// opened as a centre view when a centre view hides it (the same route as a slot press, FBK3). An item not held has no row;
+// Find opens with its name typed. Returns 'held', 'find' or null. A button can carry data-inspect-item="<item id>" (and
+// data-inspect-name, or its text) instead of calling this.
+export function inspectItem({id = '', name = ''} = {}) {
+    const rows = [...document.querySelectorAll('#inventory_content_div > [data-character_item]')];
+    const idOf = r => { try { return JSON.parse(r.dataset.character_item).id || ''; } catch { return ''; } };
+    const words = String(name || '').trim().toLowerCase();
+    const row = rows.find(r => id && idOf(r) === id) || rows.find(r => words && r.textContent.toLowerCase().includes(words));
+    if (row) {
+        row.click();
+        requestAnimationFrame(() => { const d = document.querySelector('.workspace-module[data-module="shell-detail"]'); if (!d?.checkVisibility?.()) expandWorkspaceModule('shell-detail'); });
+        return 'held';
+    }
+    if (words) { document.dispatchEvent(new CustomEvent('palette-find', {detail: {query: name.trim()}})); return 'find'; }
+    return null;
+}
 
 export function mountInspector() {
     const root = () => document.getElementById('main_content');
@@ -41,7 +62,9 @@ export function mountInspector() {
         r.dataset.inspecting = 'true';
     }
     const timer = setInterval(tick, 250);
+    const onInspect = event => { const b = event.target.closest?.('[data-inspect-item]'); if (!b) return; event.preventDefault(); inspectItem({id: b.dataset.inspectItem, name: b.dataset.inspectName || b.textContent}); };
+    document.addEventListener('click', onInspect);
     document.addEventListener('workspace-presentation-change', () => setTimeout(tick));
     tick();
-    return {node: box, tick, destroy() { clearInterval(timer); release(); }};
+    return {node: box, tick, destroy() { clearInterval(timer); document.removeEventListener('click', onInspect); release(); }};
 }

@@ -133,6 +133,9 @@ export function mountCommandPalette({navigation, openPanel}) {
         opener = document.activeElement; input.value = ''; active = 0; refresh(); dialog.showModal(); input.focus();
     }
     input.addEventListener('input', () => { active = 0; refresh(); });
+    // Find with words already typed (the inspector's route for an item not held, src/ui/inspector.js inspectItem).
+    const findWords = event => { open(); input.value = String(event.detail?.query || ''); active = 0; refresh(); input.select(); };
+    document.addEventListener('palette-find', findWords);
     dialog.addEventListener('keydown', event => {
         if (event.key === 'Escape') { event.stopPropagation(); return; }
         if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
@@ -148,5 +151,5 @@ export function mountCommandPalette({navigation, openPanel}) {
     };
     document.addEventListener('keydown', onKey);
     registerShortcut({id: 'command-palette', keys: 'Ctrl+K or Cmd+K', label: 'Command palette: go to any panel, item or action'});
-    return {open, close, destroy: () => { document.removeEventListener('keydown', onKey); dialog.remove(); }};
+    return {open, close, destroy: () => { document.removeEventListener('keydown', onKey); document.removeEventListener('palette-find', findWords); dialog.remove(); }};
 }
