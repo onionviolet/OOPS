@@ -43,3 +43,12 @@ test('used skills carry their channel line in the Path tab; unspent and untagged
  assert.match(m.panel.querySelector('[data-lotm-skill="Medicine"]').textContent,/Kind of power: Heal/);
  const other=mount({...view,entryProfile:OBSERVER},{rows:[]});other.ui.render();assert.equal(other.panel.querySelector('[data-lotm-skills]'),null);
 });
+test('G18: whether the workroom is found is answered without building its view', async () => {
+ const {knownWorkspaceModules}=await import('../src/workspace_layout.js');
+ const {host}=hostOver(cc9()),view=host.view();
+ assert.equal(host.discovered(),!!(view.enrolled||view.startable),'the cheap answer agrees with the view');
+ let reads=0;const home=document.createElement('div');document.body.append(home);
+ createLotmPanel({read:()=>{reads++;return view;},discovered:()=>host.discovered(),act(){},cancel(){},move(){},enroll(){},home,readOwed:()=>({rows:[],live:{},labels:{}}),settle:()=>0});
+ const before=reads;knownWorkspaceModules();knownWorkspaceModules();
+ assert.equal(reads,before,'the navigation poll never reads the full workroom view');
+});

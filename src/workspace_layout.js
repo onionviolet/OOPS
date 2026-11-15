@@ -636,7 +636,9 @@ export function setWorkspaceContext(context) {
 
 // Focused views borrow the original node. No layout save, clone or second UI owner.
 export function knownWorkspaceModules() {
-    const state=readPort('expansion');return [...registry.values()].filter(m=>{try{return panelAccessible(state,m)&&(m.known||m.discovered()!==false);}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),found:(()=>{try{return m.discovered()!==false;}catch{return false;}})(),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
+    // G18: discovered() is asked once per panel per call (it was asked twice); a panel's discovered() must stay cheap, since navigation polls this.
+    const state=readPort('expansion'),seen=new Map(),found=m=>{if(!seen.has(m)){let f=false;try{f=m.discovered()!==false;}catch{}seen.set(m,f);}return seen.get(m);};
+    return [...registry.values()].filter(m=>{try{return panelAccessible(state,m)&&(m.known||found(m));}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),found:found(m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
 }
 export function expandWorkspaceModule(requested,{title}={}) {
     // COV5/COV12, UR13: a folded id opens its owner (and the owner's tab, when one is named).

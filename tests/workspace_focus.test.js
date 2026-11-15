@@ -56,3 +56,14 @@ test('a scoped panel follows world and activity changes without erasing unrelate
         eligible=false;assert.equal(openWorkspaceModule('scope_probe'),false);
     }finally{unregisterWorkspaceModule('scope_probe');unregisterWorkspaceModule('scope_other');configureUiPorts(null);globalThis.document=previous;}
 });
+
+test('the panel list asks each panel whether it is found once per read (G18: navigation polls it every half second)', async () => {
+    const previous=globalThis.document;
+    globalThis.document={createElement:tag=>new Element(tag),getElementById:()=>null,activeElement:null,createComment:()=>new Element('comment'),
+        documentElement:{dataset:{},style:{setProperty(){},removeProperty(){}}},addEventListener(){},removeEventListener(){},querySelector:()=>null,querySelectorAll:()=>[]};
+    const {registerWorkspaceModule,unregisterWorkspaceModule,knownWorkspaceModules}=await import('../src/workspace_layout.js');
+    const home=new Element('div'),node=new Element('section');node.append(new Element('button'));home.append(node);
+    let asked=0;registerWorkspaceModule({id:'asked_probe',title:'Asked',node,home,discovered:()=>{asked++;return true;}});
+    try{const row=knownWorkspaceModules().find(m=>m.id==='asked_probe');assert.equal(row?.found,true);assert.equal(asked,1);}
+    finally{unregisterWorkspaceModule('asked_probe');globalThis.document=previous;}
+});

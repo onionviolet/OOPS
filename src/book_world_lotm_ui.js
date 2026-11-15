@@ -33,7 +33,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.text
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,startWage,collectWage,lawRoute,readOwed=readOwedLedger,settle=settleOwed}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,startWage,collectWage,lawRoute,readOwed=readOwedLedger,settle=settleOwed,discovered=null}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -496,6 +496,6 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    (same||panel.querySelector('#lotm-current-task-title'))?.focus({preventScroll:true});
   }
  }
- definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,perspective:'book.lotm.tingen',discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
+ definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,perspective:'book.lotm.tingen',discovered:discovered||(()=>{const v=read();return v.enrolled||v.startable;}),eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
  render();return {render};
 }
