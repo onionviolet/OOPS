@@ -27,7 +27,7 @@ test('daily teacher boundaries recur without attendance claims or skipped-day re
         assert.equal(evaluateAction(p.state,registry,'village.route_lesson',context(p,minute)).eligible,open);
     }
     assert.deepEqual(p,before);
-    assert.match(view(p,1080).text,/840 game minutes/);
+    assert.match(view(p,1080).text,/Returns in 14 h\./);
     assert.ok(!view(p,480).preview.includes('dry-bank'));
 });
 

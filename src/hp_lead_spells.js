@@ -137,6 +137,11 @@ const jinxFacts = state => {
 };
 /** The practised fizzle chance for each jinx, the bench's shape (one step away from the button). */
 export const hpLeadJinxChances = state => Object.fromEntries(JINXES.map(j => [jinxSet.ids[j.key].command, jinxFacts(state)[jinxChanceFact(jinxSet.ids[j.key].command)]]));
+/** OR6: per jinx command, its fizzle chance and the last try's note ("Ron's legs snapped together…" or "The jinx went wide…"), for the row. */
+export const hpLeadJinxRows = state => {
+    const facts = jinxFacts(state), known = state?.simulation?.knowledge?.player || {};
+    return Object.fromEntries(JINXES.map(j => {const id = jinxSet.ids[j.key].command; return [id, {failChance: facts[jinxChanceFact(id)] ?? null, last: [j.worked, j.fizzled].includes(known[`book.hp.lead.jinx.${j.key}.last`]?.value) ? known[`book.hp.lead.jinx.${j.key}.last`].value : null}];})); // reading it up writes the same key; only a try is a last try
+};
 hpLeadSpellCommands.push(...hpLeadJinxReadCommands, ...hpLeadJinxCommands);
 
 // The practice board is an authored object in the school hall. Its one saved

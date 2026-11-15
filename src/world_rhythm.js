@@ -2,6 +2,7 @@
 // never creates occurrences, simulates missed rewards or consumes randomness.
 
 import {natural as integer} from './basics.js';
+import {formatDuration} from './number_format.js';
 export function calendarMinutes(t) {
     if(!t || !["year", "month", "day", "hour", "minute"].every(k => integer(t[k])) ||
         t.month < 1 || t.month > 12 || t.day < 1 || t.day > 30 || t.hour >= 24 || t.minute >= 60) {
@@ -27,7 +28,7 @@ export function recurringWindow(schedule, minute, lastClaim) {
     const nextOpens = (phase < schedule.opens && !claimed ? cycle : cycle + 1) * schedule.period + schedule.opens;
     return {cycle, open, claimed, remaining: open ? schedule.closes - phase : 0, nextIn: nextOpens - minute,
         reason: open ? "" : claimed ? "Already attended this game day. The next gathering is tomorrow."
-            : `Returns in ${nextOpens - minute} game minutes.`};
+            : `Returns in ${formatDuration(nextOpens - minute)}.`}; // UIC130: human time, not a minute count
 }
 
 // FD8: a recurring duty is a recurring window plus the last cycle attended. Pure over (schedule, minute, lastDone); status is

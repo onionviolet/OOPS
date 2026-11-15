@@ -5,6 +5,7 @@ import {shortActionLabel} from './ui/action_label.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
 import {hpLeadTieCommands,hpLeadMakingCommands} from './world_packs/book_hp_lead_life_data.js';
 import {hpLeadSpellCommands,hpLeadBenchCommands,HP_SPELL_PRACTICE} from './hp_lead_spells.js';
+import {HP_LEAD_MAKING} from './hp_lead_making.js';
 import {HP_LEAD_FLIGHT,isHpSchoolPassage} from './book_world_hp_lead_flight.js';
 import {isHpDuelPassage} from './book_world_hp_lead_duel.js';
 import {isHpHalloweenPassage} from './book_world_hp_lead_halloween.js';
@@ -141,7 +142,11 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
     b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};
     const stamina=-(c.costs||[]).filter(x=>x.type==='vital'&&x.key==='stamina').reduce((n,x)=>n+x.amount,0);
     row.append(b);if(c.description)row.append(node('p',c.description));
-    if(stamina)row.append(node('p',`Costs ${stamina} stamina, even if it fizzles${c.powerId?'; every try adds practice':''}.`));if(!a.eligible)row.append(node('p',(a.reasons||[]).join(' ')));parent.append(row);};
+    if(stamina)row.append(node('p',`Costs ${stamina} stamina, even if it fizzles${c.powerId?'; every try adds practice':''}.`));if(!a.eligible)row.append(node('p',a.once&&a.completed>0?'Done.':(a.reasons||[]).join(' ')));
+    // OR6: a practised jinx says how often it lands now and what the last try did, under its own row.
+    const jx=v.jinxRows?.[c.id];if(jx){if(Number.isFinite(jx.failChance)){const p=node('p',`Lands about ${Math.round(100*(1-jx.failChance))}% of tries now; practice raises it.`);p.dataset.hpJinxChance='';row.append(p);}
+     if(jx.last){const p=node('p',`Last try: ${jx.last}`);p.dataset.hpJinxLast='';row.append(p);}}
+    parent.append(row);};
   const ls=v.lessons;
   if(ls&&schoolExtras){const s3=node('section');s3.className='ui-panel-section';s3.dataset.hpLessons='';s3.append(node('h3','Lessons'));
    for(const l of ls.lessons){const a=(campaign.actions||[]).find(x=>x.id===l.commandId);if(!a)continue;
@@ -197,7 +202,9 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
   // W1a: the Potions bench (shared craft engine rows); shown at school, a shut brew says what it needs (UR70-UR75).
   if(v.school?.atSchool&&schoolExtras){const s5=node('section');s5.className='ui-panel-section';s5.dataset.hpBench='';s5.append(node('h3','Potions bench'));
    for(const j of campaign.jobs||[]){if(!hpLeadMakingCommands.some(c=>c.id===j.commandId))continue;const line=node('p',`${j.label} · ${j.remaining} min left`);s5.append(line);if(j.cancellable){const b=node('button','Stop this preparation');b.type='button';b.dataset.hpProcedureCancel=j.id;b.onclick=()=>{try{command({type:'cancel',jobId:j.id});notice='Completed steps are kept. You can try this step again.';}catch(e){notice=e.message;}render();};s5.append(b);}}
+   let route=null; // PS11: two brews share their first step, so each route is named above its steps
    for(const c of hpLeadMakingCommands){const a=(campaign.actions||[]).find(x=>x.id===c.id);if(!a)continue;
+    if(c.making?.rowId!==route){route=c.making?.rowId;const r=HP_LEAD_MAKING.rows.find(x=>x.id===route);if(r){const h=node('h4',r.label.split(' · ')[0]);h.dataset.hpBrewRoute=route;s5.append(h);}}
     const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(c.procedure?`${a.label} · ${a.duration} min`:a.label),b=node('button',s.text);b.type='button';b.dataset.hpMake=c.id;
     b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));
     b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};

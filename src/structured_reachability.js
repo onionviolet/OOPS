@@ -13,12 +13,15 @@ export function structuredReachabilityHints(definition, command, facts) {
         if(command.id===site.prepareId && facts['actor.'+site.injuryKey]>0)
             hints.push('Treat the current expedition injury before preparing another attempt.');
     }
+    // PS11: what is short reads as one line ("Needs 2 more Dried nettles and 1 more Porcupine quills."), not one sentence per input.
+    const short=[];
     for(const cost of command.costs||[]) {
         if(cost.actor!=null&&!['player','$actor'].includes(cost.actor))continue;
         if(cost.type!=='item'||!Number.isFinite(cost.amount)||cost.amount>=0)continue;
         let item;try{item=definition.items?.find(i=>i.id===JSON.parse(cost.key).id);}catch{continue;}
         const held=facts['item.'+cost.key]||0;
-        if(item && held < -cost.amount)hints.push(`Carried stock: ${held} / ${-cost.amount} × ${item.label} required. Retrieve or acquire the quoted input first.`);
+        if(item && held < -cost.amount)short.push(`${-cost.amount-held} more ${item.label}`);
     }
+    if(short.length)hints.push(`Needs ${short.length>1?`${short.slice(0,-1).join(', ')} and ${short.at(-1)}`:short[0]}.`);
     return hints;
 }

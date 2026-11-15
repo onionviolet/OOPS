@@ -8,7 +8,7 @@ import {createContentRegistry,createExpansionState,loadExpansionState} from '../
 import {compileStructuredPack,mergeStructuredPack} from '../src/structured_pack_definitions.js';
 import {planStructuredSelection,beginStructuredCampaign,structuredCampaignView} from '../src/structured_pack_runtime.js';
 import {commitSimulationCommand,advanceSimulationBoundary,previewSimulationCommand} from '../src/simulation.js';
-import {hpLeadJinxReadCommands,hpLeadJinxCommands,hpLeadJinxChances,hpLeadSpellFacts,HP_JINX} from '../src/hp_lead_spells.js';
+import {hpLeadJinxReadCommands,hpLeadJinxCommands,hpLeadJinxChances,hpLeadJinxRows,hpLeadSpellFacts,HP_JINX} from '../src/hp_lead_spells.js';
 import {hpLibraryReason} from '../src/book_world_hp_lessons.js';
 import {hpSpellPower,duelHit,practisedKitRow} from '../src/hp_duel_mastery.js';
 const P='book.hp.lead',DAY=1440,WAND=JSON.stringify({id:'book.hp.lead.spell_practice.class_wand'});
@@ -65,6 +65,8 @@ test('reading up teaches the jinx once; practice on Ron needs a class wand and a
  assert.equal(f.plan.state.simulation.powers.player[P+'.levitation'],undefined,'no carry-over to or from the charm');
  const chances=hpLeadJinxChances(f.plan.state);
  assert.ok(Math.abs(chances[USE_LEG]-0.3)<1e-9,'60% at no practice, 10 points off per step');
+ // OR6: the row reads the same chance and the last try's note.
+ const rows=hpLeadJinxRows(f.plan.state);assert.equal(rows[USE_LEG].failChance,chances[USE_LEG]);assert.match(rows[USE_LEG].last,/legs snapped together|went wide/);assert.equal(rows[hpLeadJinxCommands[1].id].last,null,'an untried jinx has no last try');
  // The duel reads the same number.
  const kitRow=practisedKitRow({label:'Locomotor Mortis',text:'x',cost:4,power:0,hit:1.2},f.plan.state,'leg-lock');
  assert.equal(kitRow.hit,duelHit(1.2,3));
