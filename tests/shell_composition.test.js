@@ -20,11 +20,10 @@ test('a nearly empty You still gets ten text lines', () => {
     assert.equal(topRowHeight({player: 20, focus: 0, combat: false, board: 688, fontSize: 14}), 140);
 });
 
-test('companions: idle shows Journal (R21: Skills off by Weibao\'s word), a fight shows Skills only, undiscovered stay out', async () => {
+test('companions: round 14 keeps Journal and Skills in their own column; a fight adds the opponent list, undiscovered stay out', async () => {
     const { companionsFor } = await import('../src/shell_composition.js');
-    assert.deepEqual(companionsFor({combat: false, available: ['local-actions', 'records', 'skills']}), ['records']);
-    assert.deepEqual(companionsFor({combat: true, available: ['records', 'skills']}), ['skills']);
-    assert.deepEqual(companionsFor({combat: false, available: ['skills']}), []);
+    assert.deepEqual(companionsFor({combat: false, available: ['local-actions', 'records', 'skills']}), []);
+    assert.deepEqual(companionsFor({combat: true, available: ['records', 'skills', 'opponents']}), ['opponents']);
     assert.deepEqual(companionsFor({combat: true, available: ['records']}), []);
 });
 

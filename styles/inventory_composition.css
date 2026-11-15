@@ -11,7 +11,8 @@
 #main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] .workspace-board:has(> [data-region="inventory"] > [data-module="belongings"]):not([style*="grid-template-columns"]) {
  --inventory-default-width:min(calc(var(--shell-context-size,var(--ui-type-body))*24),22%);
  --inventory-top-share:calc(var(--shell-share-1) + var(--shell-share-2));--inventory-log-share:var(--shell-share-4);
- grid-template-columns:minmax(0,var(--inventory-default-width)) minmax(0,calc(var(--inventory-top-share) - var(--inventory-default-width))) minmax(0,1fr) minmax(0,var(--inventory-log-share));
+ /* Round 14 (PS119): the four columns are the spec's tracks, You over Inventory in the first; no width moves between tracks. */
+ grid-template-columns:var(--shell-columns);
 }
 /* UR144 (round 6, 2026-11-10): an open centre view keeps the home columns, so You, Inventory and
    Reports hold still; the view grows up into Around you's space instead (ui_tokens.css). The COV2

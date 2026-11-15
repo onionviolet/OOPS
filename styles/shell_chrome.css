@@ -74,7 +74,7 @@
 
 /* ---- One bar (MB2) ---- */
 #game_bar {display:none;}
-:root[data-one-bar="true"] #game_bar {position:fixed;top:0;left:0;right:0;z-index:var(--ui-layer-nav);display:flex;align-items:stretch;gap:round(.5em, 1px);min-height:0;padding:0 round(.5em, 1px) 0 0;box-sizing:border-box;
+:root[data-one-bar="true"] #game_bar {position:fixed;bottom:0;left:0;right:0;z-index:var(--ui-layer-nav);display:flex;align-items:stretch;gap:round(.5em, 1px);min-height:0;padding:0 round(.5em, 1px) 0 0;box-sizing:border-box;
 font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:var(--p23-text);background:var(--p23-inventory-fill);border-bottom:1px solid var(--p23-line);}
 :root[data-one-bar="true"] #bottom_panel_div {display:none!important;}
 :root[data-one-bar="true"] #game_bar .game-bar-left {display:flex;align-items:stretch;flex:1 1 auto;min-width:0;overflow:hidden;}
@@ -115,7 +115,7 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 :root[data-one-bar="true"] #control_box_game-bar-menu #reference_creator_links {display:flex!important;flex-direction:column;align-items:stretch!important;border-top:1px solid var(--p23-line);padding-top:round(.3em, 1px);}
 :root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links a:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:2px;}
 @media (min-width:1001px) {
-:root[data-one-bar="true"] #main_content.workspace-active[data-parity="r3"][data-workspace-mode="dock"] {height:calc(100dvh - 22px);padding-top:var(--game-bar-height,30px);}
+:root[data-one-bar="true"] #main_content.workspace-active[data-parity="r3"][data-workspace-mode="dock"] {height:calc(100dvh - 16px);padding-top:var(--game-top-height,30px);padding-bottom:var(--game-bar-height,30px);box-sizing:border-box;}
 }
 
 /* ---- Place: each panel under Here shows in the tab of its kind (PS107, PS108; src/ui/here_kinds.js) ---- */

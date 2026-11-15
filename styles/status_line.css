@@ -5,7 +5,8 @@
    slot turns critical, from the game bar's data-warning), unknown calendar (the when slot says so; the strip hides and
    its row goes), 150% text (the row grows with the type; slots clip with an ellipsis, never wrap), reduced motion
    (nothing animates). Fixed slot order and tabular figures so the ticking minute never moves a neighbour (UR144). */
-:root[data-one-bar="true"] #game_bar:has(> #game_spine) {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch;}
+/* Round 14 (PS123): the spine is the time strip at the top; the bar is the footer. */
+:root[data-one-bar="true"] #game_top {position:fixed;top:0;left:0;right:0;z-index:var(--ui-layer-nav);}
 :root[data-one-bar="true"] #game_bar > .game-bar-left, :root[data-one-bar="true"] #game_bar > .game-bar-right {min-height:0;}
 #game_spine {grid-column:1/-1;display:grid;min-width:0;border-top:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-blue, var(--p23-inventory-fill));}
 .game-status {display:flex;align-items:stretch;gap:0;min-width:0;min-height:var(--ui-target-min);padding:0 var(--ui-space-3);overflow:hidden;white-space:nowrap;

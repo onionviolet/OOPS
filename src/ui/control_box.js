@@ -55,6 +55,8 @@ export function createControlBox({id, title, placement = 'below', keepOpen = nul
         const width = panel.getBoundingClientRect().width || requestedWidth;
         let left, top;
         if (placement === 'beside') { left = Math.max(8, region.left - width - 4); top = Math.max(8, b.top); }
+        // 'above' opens upward from a footer control (round 14: the bar sits at the bottom, PS123).
+        else if (placement === 'above') { left = Math.min(Math.max(8, b.left), innerWidth - width - 8); top = Math.max(8, b.top - (panel.offsetHeight || 0) - 2); }
         else { left = Math.min(Math.max(8, region.left + 4), innerWidth - width - 8); top = b.bottom + 2; }
         const height = panel.offsetHeight || 0;
         if (top + height > innerHeight - 8) top = Math.max(8, innerHeight - height - 8);

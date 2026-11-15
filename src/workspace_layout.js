@@ -304,7 +304,8 @@ export function updateWorkspace() {
     setData(owner.root,'parityCombat',String(!!registry.get('combat')?.eligible()));
     setData(owner.root,'layoutContext',placementContext());
     // UM8: the parity grid's areas and column shares come from the spec; CSS has one generic rule.
-    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches});
+    const empty=Object.entries(owner.regions||{}).filter(([,region])=>![...region.children].some(n=>n.classList?.contains('workspace-module')&&!n.hidden)).map(([id])=>id);
+    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches,empty});
     setStyle(owner.board,'--shell-areas',grid.areas);setStyle(owner.board,'--shell-columns',grid.columns);
     setStyle(owner.board,'--shell-lend-columns',centerLendColumns());
     grid.shares.forEach((share,i)=>setStyle(owner.board,`--shell-share-${i+1}`,share));

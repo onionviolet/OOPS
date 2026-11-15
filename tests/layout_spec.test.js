@@ -5,15 +5,15 @@ import { LAYOUT_SPEC, workspaceRegions, regionFor, shellOrder, companionsFor, co
 test('workspace region descriptors preserve native reading order and labels', () => {
     assert.deepEqual(workspaceRegions(), [
         {id:'player', label:'player'}, {id:'focus', label:'Around you'},
-        {id:'inventory', label:'inventory'}, {id:'actions', label:'actions'}, {id:'log', label:'log'},
+        {id:'inventory', label:'inventory'}, {id:'actions', label:'actions'}, {id:'journal', label:'Journal and skills'}, {id:'log', label:'log'},
     ]);
 });
 test('a new or reordered region is supplied by the spec without another host list', () => {
     const regions = {map:{label:'Local map',panels:[]}, ...LAYOUT_SPEC.regions};
     const spec = {...LAYOUT_SPEC, regions};
-    assert.deepEqual(workspaceRegions(spec).map(r=>r.id), ['map','player','focus','inventory','actions','log']);
+    assert.deepEqual(workspaceRegions(spec).map(r=>r.id), ['map','player','focus','inventory','actions','journal','log']);
     assert.deepEqual(workspaceRegions(spec)[0], {id:'map',label:'Local map'});
-    assert.equal(workspaceRegions().length, 5);
+    assert.equal(workspaceRegions().length, 6);
 });
 
 // R17 is structural (AR9): the spec must reproduce the R16 decisions exactly. The R16 code is kept
@@ -26,10 +26,11 @@ function r16ParityRegion(id, combat) {
     if (id === 'shell-detail') return 'actions';
     if (['belongings', 'combat-controls', 'shell-inventory-tools'].includes(id)) return 'inventory';
     if (['messages', 'shell-log-tools'].includes(id)) return 'log';
-    if (['records', 'skills'].includes(id)) return 'actions';
+    // Round 14 (PS119, PS122): Journal and Skills have YAIR's third column.
+    if (['records', 'skills'].includes(id)) return 'journal';
     return 'actions';
 }
-const r16Order = companions => ['vitals', 'shell-character', 'condition', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', ...companions, 'pane-navigation', 'messages', 'shell-log-tools'];
+const r16Order = companions => ['vitals', 'shell-character', 'condition', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', ...companions, 'pane-navigation', 'records', 'skills', 'messages', 'shell-log-tools'];
 // Every panel ID registered by the game at R17 start, plus an unknown one.
 const IDS = ['vitals', 'time', 'location', 'combat-controls', 'skills', 'records', 'preparation', 'belongings', 'local-actions', 'messages',
     'beginning', 'combat', 'continuation', 'current-work', 'customization', 'customization-effects', 'customization-preview', 'customization-rules', 'customization-sites',
@@ -49,14 +50,15 @@ test('item inspection preserves nearby context during idle and travel, with serv
 
 test('default shell order matches R16 for the parity shell and the plain shell', () => {
     // R22b (SU1): the opponent list joins the fight companions, ahead of Skills.
-    assert.deepEqual(shellOrder({parity: true}), r16Order(['records', 'opponents', 'skills']));
+    // Round 14: Journal and Skills are fixed in the third column; only the fight's opponent list is a companion.
+    assert.deepEqual(shellOrder({parity: true}), r16Order(['opponents']));
     assert.deepEqual(shellOrder({parity: false}), r16Order([]));
-    assert.deepEqual(companionPanels(), ['records', 'opponents', 'skills']);
+    assert.deepEqual(companionPanels(), ['opponents']);
 });
 
-test('companions and top-row numbers match R16 (R21: Skills left the idle default)', () => {
-    assert.deepEqual(companionsFor({combat: false, available: ['skills', 'records', 'x']}), ['records']);
-    assert.deepEqual(companionsFor({combat: true, available: ['skills', 'records']}), ['skills']);
+test('companions and top-row numbers match R16 (round 14: Journal and Skills are no longer companions)', () => {
+    assert.deepEqual(companionsFor({combat: false, available: ['skills', 'records', 'x']}), []);
+    assert.deepEqual(companionsFor({combat: true, available: ['skills', 'records', 'opponents']}), ['opponents']);
     // R16 formula with its literal numbers.
     const r16 = ({player, focus, combat, board, fontSize, frame = 6, elastic = 0, viewport = 0}) => {
         const cap = Math.min(board * 0.55, Math.max(240, fontSize * 17.5, viewport * 0.38));
@@ -96,14 +98,14 @@ test('R21 placement: swaps main boxes, places companions, keeps the log and defa
     assert.equal(moveBox(p, 'idle', 'you', 'actions').contexts.idle.boxes.you, undefined, 'main boxes do not join the actions');
     p = moveBox(p, 'idle', 'journal', 'inventory');
     assert.equal(regionFor('records', {placement: p.contexts.idle}), 'inventory');
+    p = moveBox(p, 'idle', 'journal', 'journal');
     p = swapCompanions(p, 'idle'); assert.equal(p.contexts.idle.swap, true);
     p = moveBox(p, 'idle', 'around', 'inventory');
     assert.equal(regionFor('shell-detail', {placement: p.contexts.idle}), 'actions', 'R22c: item detail stays beside the actions when Around you moves');
     assert.equal(isDefault(resetContext(p, 'idle'), 'idle'), true);
     assert.equal(normalizePlacement({version: 1, spec: 1, contexts: {idle: {boxes: {you: 'focus'}}}}).stale, true, 'an older spec version is dropped (GU6)');
-    // R22b: spec 3 only adds a box, so an R21 (spec 2) placement keeps its moves.
-    const kept = normalizePlacement({version: 1, spec: 2, contexts: {idle: {boxes: {you: 'focus'}, companions: {journal: 'inventory'}}}});
-    assert.equal(kept.contexts.idle.boxes.you, 'focus'); assert.equal(kept.contexts.idle.companions.journal, 'inventory');
+    // Round 14 (spec 6): the four columns change every slot, so a placement from an older spec starts from the defaults.
+    assert.equal(normalizePlacement({version: 1, spec: 5, contexts: {idle: {boxes: {you: 'focus'}}}}).stale, true);
     assert.equal(regionFit(['vitals', 'shell-character']), 'content');
     assert.equal(regionFit(['focus']), 'combat');
     assert.equal(regionFit(['belongings', 'records']), 'fill');
@@ -126,17 +128,17 @@ test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar ord
     assert.equal(routeById('continuation').select, 'continuation_open', 'Connection opens the existing owner, with its discovery gate');
 });
 
-test('UIL1/UIL4 the spec reads v2 and v3 placements unchanged and still drops v1 (GU6)', async () => {
+test('round 14 (spec 6) reads its own placements and drops older ones, as GU6 dropped v1', async () => {
     const {normalizePlacement} = await import('../src/shell_layout_edit.js');
-    const v2 = {version: 1, spec: 2, contexts: {idle: {boxes: {inventory: 'player'}, companions: {journal: 'inventory'}, swap: true}, combat: {boxes: {}, companions: {}, swap: false}}};
+    const v2 = {version: 1, spec: 6, contexts: {idle: {boxes: {inventory: 'player'}, companions: {}, swap: true}, combat: {boxes: {}, companions: {}, swap: false}}};
     const read = normalizePlacement(v2);
-    assert.equal(LAYOUT_SPEC.version, 5);
+    assert.equal(LAYOUT_SPEC.version, 6);
     assert.equal(read.stale, false);
-    assert.equal(read.spec, 5);
+    assert.equal(read.spec, 6);
+    for (const spec of [2, 3, 4, 5]) assert.equal(normalizePlacement({...v2, spec}).stale, true, `spec ${spec} starts fresh`);
     // The contexts the old placement lacks (travel, service) start at the spec defaults.
     assert.deepEqual(Object.keys(read.contexts), ['idle', 'combat', 'travel', 'service']);
     assert.deepEqual({idle: read.contexts.idle, combat: read.contexts.combat}, Object.fromEntries(Object.entries(v2.contexts).map(([k,v])=>[k,{...v,sizes:{}}])));
-    assert.equal(normalizePlacement({...v2, spec: 3}).stale, false, 'a UIL1 (spec 3) placement reads');
     assert.equal(regionFor('belongings', {placement: read.contexts.idle}), 'player');
     assert.equal(normalizePlacement({...read}).stale, false, 'a current placement reads back');
     assert.equal(normalizePlacement({version: 1, spec: 1, contexts: v2.contexts}).stale, true);
@@ -158,9 +160,9 @@ test('UIL4 contextOf: combat beats an open service view, which beats travel, whi
 });
 
 test('UIL4 the new contexts use spec defaults and keep the idle homes and the log column', () => {
-    assert.deepEqual(companionsFor({context: 'travel', available: ['records', 'skills']}), ['records']);
+    assert.deepEqual(companionsFor({context: 'travel', available: ['records', 'skills']}), []);
     assert.deepEqual(companionsFor({context: 'service', available: ['records', 'skills']}), [], 'service recommends none');
-    assert.deepEqual(companionPanels(), ['records', 'opponents', 'skills'], 'the companion palette is Journal, Opponents (R22b) and Skills');
+    assert.deepEqual(companionPanels(), ['opponents'], 'round 14: the fight\'s opponent list is the only companion');
     for (const context of ['idle', 'travel', 'service']) {
         assert.equal(regionFor('shell-detail', {context}), context==='service'?'focus':'actions', `${context} item detail keeps its declared home`);
         assert.equal(regionFor('messages', {context}), 'log', `${context} keeps the log column (UR11)`);
@@ -171,12 +173,12 @@ test('UIL4 the new contexts use spec defaults and keep the idle homes and the lo
 test('UIL4 a placement is stored per context and one context never changes another', async () => {
     const {normalizePlacement, moveBox, resetContext, isDefault} = await import('../src/shell_layout_edit.js');
     let p = normalizePlacement(null);
-    p = moveBox(p, 'service', 'journal', 'actions');
-    assert.deepEqual(p.contexts.service.companions, {journal: 'actions'});
+    p = moveBox(p, 'service', 'opponents', 'actions');
+    assert.deepEqual(p.contexts.service.companions, {opponents: 'actions'});
     for (const other of ['idle', 'combat', 'travel']) assert.equal(isDefault(p, other), true, `${other} untouched`);
     assert.equal(isDefault(resetContext(p, 'service'), 'service'), true);
     // A stored placement with an unknown context keeps only the contexts the spec declares.
-    const raw = {version: 1, spec: 4, contexts: {travel: {boxes: {inventory: 'player'}, companions: {}, swap: false}, nonsense: {boxes: {you: 'focus'}}}};
+    const raw = {version: 1, spec: 6, contexts: {travel: {boxes: {inventory: 'player'}, companions: {}, swap: false}, nonsense: {boxes: {you: 'focus'}}}};
     const read = normalizePlacement(raw);
     assert.equal(read.contexts.travel.boxes.inventory, 'player');
     assert.equal('nonsense' in read.contexts, false);
@@ -185,7 +187,7 @@ test('UIL4 a placement is stored per context and one context never changes anoth
 
 test('UIL7 sizes migrate additively, stay per-context, and reset with placements', async () => {
     const {normalizePlacement, resizeContext, resetContext, isDefault, moveBox} = await import('../src/shell_layout_edit.js');
-    const v4={version:1,spec:4,contexts:{idle:{boxes:{inventory:'player'},companions:{journal:'inventory'},swap:true}}};
+    const v4={version:1,spec:6,contexts:{idle:{boxes:{inventory:'player'},companions:{opponents:'inventory'},swap:true}}};
     const loaded=normalizePlacement(v4);
     assert.deepEqual(loaded.contexts.idle.sizes,{});
     assert.equal(loaded.contexts.idle.boxes.inventory,'player');
@@ -194,7 +196,7 @@ test('UIL7 sizes migrate additively, stay per-context, and reset with placements
     assert.deepEqual(resized.contexts.idle,loaded.contexts.idle);
     assert.deepEqual(resized.contexts.service.sizes,sizes);
     assert.equal(isDefault(resized,'service'),false);
-    const moved=moveBox(resized,'service','journal','actions');
+    const moved=moveBox(resized,'service','opponents','actions');
     assert.deepEqual(moved.contexts.service.sizes,sizes);
     assert.deepEqual(normalizePlacement(JSON.parse(JSON.stringify(moved))),moved);
     assert.equal(isDefault(resetContext(moved,'service'),'service'),true);
@@ -246,19 +248,24 @@ test('UIL7 the row divider spans only columns where a box ends above and another
 });
 
 // UM8 (2026-10-22): the grid is spec data. The host writes these strings; CSS has one generic rule.
-test('UM8 grid bands reproduce the former stylesheet areas, columns and inventory shares', () => {
+test('UM8 grid bands give YAIR\'s four columns (round 14, PS119, PS128)', () => {
     const at = w => px => w >= px;
     const base = gridTemplate({atLeast: at(1536)}), wide = gridTemplate({atLeast: at(1920)}), huge = gridTemplate({atLeast: at(3000)});
-    assert.equal(base.areas, '"player player focus log" "inventory actions actions log"');
-    assert.equal(base.columns, 'minmax(0,336fr) minmax(0,110fr) minmax(0,446fr) minmax(0,379fr)');
-    assert.equal(wide.areas, '"player focus focus log" "inventory actions actions log"');
-    assert.equal(wide.columns, 'minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr)');
-    assert.equal(huge.columns, 'minmax(0,420fr) minmax(0,200fr) minmax(0,700fr) minmax(0,460fr)');
-    // The former hand-computed inventory composition shares (top = tracks 1+2, log = track 4).
-    for (const [g, top, log] of [[base, 35.0904799, 29.8190401], [wide, 33.3333333, 26.7973856], [huge, 34.8314607, 25.8426966]]) {
-        assert.ok(Math.abs(parseFloat(g.shares[0]) + parseFloat(g.shares[1]) - top) < 1e-6);
-        assert.equal(parseFloat(g.shares[3]), log);
+    assert.equal(base.areas, '"player focus journal log" "inventory actions journal log"');
+    assert.equal(base.columns, 'minmax(0,300fr) minmax(0,440fr) minmax(0,320fr) minmax(0,300fr)');
+    assert.equal(wide.areas, base.areas);
+    assert.equal(wide.columns, 'minmax(0,372fr) minmax(0,640fr) minmax(0,470fr) minmax(0,374fr)');
+    assert.equal(huge.columns, 'minmax(0,420fr) minmax(0,900fr) minmax(0,620fr) minmax(0,460fr)');
+    // Each column's share is its width over the whole, so the inventory composition sizes against the real tracks.
+    for (const [g, cols] of [[base, [300, 440, 320, 300]], [wide, [372, 640, 470, 374]], [huge, [420, 900, 620, 460]]]) {
+        const total = cols.reduce((a, b) => a + b, 0);
+        cols.forEach((c, i) => assert.ok(Math.abs(parseFloat(g.shares[i]) - c / total * 100) < 1e-6, `${i}`));
     }
+});
+test('a column whose regions have nothing to show gives its width to the column before it (round 14, PS99)', () => {
+    const g = gridTemplate({atLeast: px => px <= 1920, empty: ['journal']});
+    assert.equal(g.columns, 'minmax(0,372fr) minmax(0,1110fr) minmax(0,0fr) minmax(0,374fr)');
+    assert.equal(gridTemplate({atLeast: px => px <= 1920, empty: ['actions']}).columns, gridTemplate({atLeast: px => px <= 1920}).columns, 'a column another region still holds keeps its width');
 });
 test('UM8 every area names a spec region and every region has an area', () => {
     const regions = Object.keys(LAYOUT_SPEC.regions);
@@ -273,16 +280,16 @@ test('UM3 a composition with a sixth region and its own grid is data only', () =
     const grids = {...LAYOUT_SPEC.grids, wide: [{minWidth: 1001, areas: ['player focus map log', 'inventory actions actions log'], columns: [1, 1, 1, 1]}]};
     const contexts = {...LAYOUT_SPEC.contexts, travel: {...LAYOUT_SPEC.contexts.travel, grid: 'wide'}};
     const spec = {...LAYOUT_SPEC, regions, grids, contexts};
-    assert.deepEqual(workspaceRegions(spec).map(r => r.id), ['player', 'focus', 'inventory', 'actions', 'log', 'map']);
+    assert.deepEqual(workspaceRegions(spec).map(r => r.id), ['player', 'focus', 'inventory', 'actions', 'journal', 'log', 'map']);
     assert.equal(gridTemplate({context: 'travel', atLeast: () => true}, spec).areas, '"player focus map log" "inventory actions actions log"');
     assert.equal(gridTemplate({context: 'idle', atLeast: () => true}, spec).areas, gridTemplate({context: 'idle', atLeast: () => true}).areas);
 });
 
 // COV2 / UR69: the lend dial is spec data; the host writes one variable and CSS has one rule.
-test('COV2 center lend gives the view the rest: two side tracks, a closed track 2, a one-fr center', async () => {
+test('COV2 center lend gives the view the rest: You, a one-fr centre, the Journal column narrowed, Reports (round 14)', async () => {
     const {centerLendColumns} = await import('../src/layout_spec.js');
     const cols = centerLendColumns('14px');
-    assert.equal(cols, 'minmax(0,min(calc(14px*24),22%)) minmax(0,0px) minmax(0,1fr) minmax(0,min(calc(14px*27),22%))');
+    assert.equal(cols, 'minmax(0,min(calc(14px*24),22%)) minmax(0,1fr) minmax(0,min(calc(14px*26),22%)) minmax(0,min(calc(14px*27),22%))');
     assert.equal(cols.split(' ').length, 4);
     const tight = centerLendColumns('14px', {...LAYOUT_SPEC, centerLend: {sideEm: 20, sideMaxPct: 18, logEm: 22, logMaxPct: 18}});
     assert.match(tight, /\*20\),18%\)/);

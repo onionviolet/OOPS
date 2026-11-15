@@ -29,8 +29,10 @@ export const LAYOUT_SPEC = Object.freeze({
     // Version 5 (R22b, SU8) adds the opponent list as a fight companion beside the actions (data only).
     // Version 4 (UIL4) adds the travel and service contexts; placements stored under 2 and 3 read
     // unchanged and a context they lack starts at the spec defaults.
-    version: 5,
-    placementReads: Object.freeze([2, 3, 4]),
+    // Version 6 (round 14, PS119, 2026-11-15): YAIR's four columns. Journal and Skills leave the companions for their own
+    // column; a placement stored under an older spec starts from these defaults (old layouts are disposable, AD22).
+    version: 6,
+    placementReads: Object.freeze([]),
     // The five parity-shell regions in grid order. `panels` are fixed homes; a panel not listed in
     // any region lives in `fallback`. `contextual` homes depend on the context. R21c: the awakened
     // status window lives under You (it shows only once the system awakens).
@@ -38,7 +40,9 @@ export const LAYOUT_SPEC = Object.freeze({
         player: Object.freeze({label: 'player', panels: ['vitals', 'shell-character', 'condition', 'status-window']}),
         focus: Object.freeze({label: 'Around you', panels: ['focus']}),
         inventory: Object.freeze({label: 'inventory', panels: ['belongings', 'combat-controls', 'shell-inventory-tools']}),
-        actions: Object.freeze({label: 'actions', panels: ['records', 'skills', 'opponents']}),
+        actions: Object.freeze({label: 'actions', panels: ['opponents']}),
+        // PS119, PS122: YAIR's third column, the Journal box over the Skills box.
+        journal: Object.freeze({label: 'Journal and skills', panels: ['records', 'skills']}),
         log: Object.freeze({label: 'log', panels: ['messages', 'shell-log-tools']}),
     }),
     fallback: 'actions',
@@ -57,18 +61,18 @@ export const LAYOUT_SPEC = Object.freeze({
         around: Object.freeze({lead: 'focus', title: 'Around you', panels: Object.freeze(['focus']), home: 'focus', fit: 'combat'}),
         inventory: Object.freeze({lead: 'belongings', title: 'Inventory', panels: Object.freeze(['combat-controls', 'shell-inventory-tools', 'belongings']), home: 'inventory', fit: 'fill'}),
         condition: Object.freeze({lead: 'condition', title: 'Condition', panels: Object.freeze(['condition']), companion: true, home: 'player', fit: 'content'}),
-        journal: Object.freeze({lead: 'records', title: 'Journal', panels: Object.freeze(['records']), companion: true, fit: 'fill'}),
-        skills: Object.freeze({lead: 'skills', title: 'Skills', panels: Object.freeze(['skills']), companion: true, fit: 'fill'}),
+        journal: Object.freeze({lead: 'records', title: 'Journal', panels: Object.freeze(['records']), home: 'journal', fit: 'fill'}),
+        skills: Object.freeze({lead: 'skills', title: 'Skills', panels: Object.freeze(['skills']), home: 'journal', fit: 'fill'}),
         // R22b (SU1, SU2): in a fight the opponent list takes the second column beside the actions,
         // where the place region had height to spare; Around you keeps the inspected opponent.
         opponents: Object.freeze({lead: 'opponents', title: 'Opponents', panels: Object.freeze(['opponents']), companion: true, fit: 'fill'}),
     }),
     // Named slots a box can move to. The log is not a slot: it keeps its column (UR11). The actions
     // region keeps the place, current work and actions; only companions join it.
-    slots: Object.freeze({player: 'Top left', focus: 'Top centre', inventory: 'Bottom left', actions: 'Beside the actions'}),
+    slots: Object.freeze({player: 'Top left', focus: 'Top centre', inventory: 'Bottom left', actions: 'Beside the actions', journal: 'Third column'}),
     // Default order of the shell's panels when no layout is stored. Companions are inserted after
     // `companionsAfter` in the parity shell only.
-    shellOrder: Object.freeze(['vitals', 'shell-character', 'condition', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', 'pane-navigation', 'messages', 'shell-log-tools']),
+    shellOrder: Object.freeze(['vitals', 'shell-character', 'condition', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', 'pane-navigation', 'records', 'skills', 'messages', 'shell-log-tools']),
     companionsAfter: 'local-actions',
     // Default and dial per context (WX6, CZ4): idle shows Journal beside the actions; a fight shows
     // Skills (Stances) only. R21 (Weibao, 2026-10-17: "We dont need skills always be seen"): Skills
@@ -83,9 +87,9 @@ export const LAYOUT_SPEC = Object.freeze({
     // Journal (its notes carry the journey); service recommends none, because the view needs the
     // room, and a Journal the player places there shows as a strip.
     contexts: Object.freeze({
-        idle: Object.freeze({label: 'idle', companions: Object.freeze(['records'])}),
-        combat: Object.freeze({label: 'fight', when: Object.freeze({combat: true}), companions: Object.freeze(['opponents', 'skills'])}),
-        travel: Object.freeze({label: 'travel', when: Object.freeze({signal: 'travel'}), companions: Object.freeze(['records'])}),
+        idle: Object.freeze({label: 'idle', companions: Object.freeze([])}),
+        combat: Object.freeze({label: 'fight', when: Object.freeze({combat: true}), companions: Object.freeze(['opponents'])}),
+        travel: Object.freeze({label: 'travel', when: Object.freeze({signal: 'travel'}), companions: Object.freeze([])}),
         service: Object.freeze({label: 'service', when: Object.freeze({centerTasks: Object.freeze(['mixing', 'crafting'])}), companions: Object.freeze([])}),
     }),
     contextPriority: Object.freeze(['combat', 'service', 'travel']),
@@ -96,10 +100,11 @@ export const LAYOUT_SPEC = Object.freeze({
     // top-row fit stay with shell_composition.js and the stylesheet.
     grids: Object.freeze({
         standard: Object.freeze([
-            Object.freeze({minWidth: 1001, areas: Object.freeze(['player player focus log', 'inventory actions actions log']), columns: Object.freeze([336, 110, 446, 379])}),
-            // R22b (SU6): at the primary target You takes Inventory's column width; the freed width goes to Around you.
-            Object.freeze({minWidth: 1700, areas: Object.freeze(['player focus focus log', 'inventory actions actions log']), columns: Object.freeze([410, 100, 610, 410])}),
-            Object.freeze({minWidth: 2800, areas: Object.freeze(['player focus focus log', 'inventory actions actions log']), columns: Object.freeze([420, 200, 700, 460])}),
+            // PS119, PS128 (round 14): YAIR's four columns. You over Inventory; place and action; Journal over Skills;
+            // Reports. YAIR sizes them for 1366; at 1920 the extra width goes to the second and third columns.
+            Object.freeze({minWidth: 1001, areas: Object.freeze(['player focus journal log', 'inventory actions journal log']), columns: Object.freeze([300, 440, 320, 300])}),
+            Object.freeze({minWidth: 1700, areas: Object.freeze(['player focus journal log', 'inventory actions journal log']), columns: Object.freeze([372, 640, 470, 374])}),
+            Object.freeze({minWidth: 2800, areas: Object.freeze(['player focus journal log', 'inventory actions journal log']), columns: Object.freeze([420, 900, 620, 460])}),
         ]),
     }),
     // COV2 / UR69 (2026-10-30): while a center view is open the side regions lend their width back.
@@ -107,7 +112,8 @@ export const LAYOUT_SPEC = Object.freeze({
     // Reports narrows to `logEm` (up to `logMaxPct`) and the open view takes the rest. Dial: a saved
     // manual size wins (inline grid columns), and a fight or a selected subject keeps the full grid.
     // Reason: at 1920 the view the player just asked for got 721 px of 1920. Text size scales the em.
-    centerLend: Object.freeze({sideEm: 24, sideMaxPct: 22, logEm: 27, logMaxPct: 22}),
+    // Round 14 (PS121): a mode replaces the actions box in the second column, so the Journal column stays, narrowed.
+    centerLend: Object.freeze({sideEm: 24, sideMaxPct: 22, journalEm: 26, journalMaxPct: 22, logEm: 27, logMaxPct: 22}),
     // Top-row fit (WX3). The top row takes what You needs, or the opponent cards in a fight, plus
     // a frame. Caps keep the bottom row useful. Rows that yield (secondary stats) may grow it only
     // to the R14 default, so at laptop sizes they yield before inventory and actions (R11 order).
@@ -331,13 +337,17 @@ export const contextLabel = (context, spec = LAYOUT_SPEC) => spec.contexts[conte
 // UM8: the grid for a context at the current width. `atLeast(px)` answers the band's media test,
 // so the host can use matchMedia. `shares` are each column's percent of the whole, for CSS that
 // sizes against the default tracks (inventory composition).
-export function gridTemplate({context = 'idle', atLeast}, spec = LAYOUT_SPEC) {
+// `empty` names regions with nothing to show (round 14, PS99): a column held only by them gives its width to the
+// column before it, so a life with no Journal yet has no blank third column.
+export function gridTemplate({context = 'idle', atLeast, empty = []}, spec = LAYOUT_SPEC) {
     const bands = spec.grids[spec.contexts[context]?.grid || 'standard'];
     const band = bands.filter(b => atLeast(b.minWidth)).at(-1) || bands[0];
     const total = band.columns.reduce((a, b) => a + b, 0);
+    const widths = [...band.columns], rows = band.areas.map(row => row.split(/\s+/));
+    for (let i = 1; i < widths.length; i++) if (rows.every(row => empty.includes(row[i]))) { widths[i - 1] += widths[i]; widths[i] = 0; }
     return {
         areas: band.areas.map(row => `"${row}"`).join(' '),
-        columns: band.columns.map(c => `minmax(0,${c}fr)`).join(' '),
+        columns: widths.map(c => `minmax(0,${c}fr)`).join(' '),
         shares: band.columns.map(c => `${(c / total * 100).toFixed(7)}%`),
     };
 }
@@ -345,8 +355,8 @@ export function gridTemplate({context = 'idle', atLeast}, spec = LAYOUT_SPEC) {
 // COV2: the four column tracks while a center view is open (see `centerLend`). Track 2 is closed:
 // Inventory spans tracks 1-2 there, so it keeps its home width. `size` is the CSS length of one em.
 export function centerLendColumns(size = 'var(--shell-context-size,var(--ui-type-body))', spec = LAYOUT_SPEC) {
-    const {sideEm, sideMaxPct, logEm, logMaxPct} = spec.centerLend;
-    return `minmax(0,min(calc(${size}*${sideEm}),${sideMaxPct}%)) minmax(0,0px) minmax(0,1fr) minmax(0,min(calc(${size}*${logEm}),${logMaxPct}%))`;
+    const {sideEm, sideMaxPct, journalEm = 26, journalMaxPct = 22, logEm, logMaxPct} = spec.centerLend;
+    return `minmax(0,min(calc(${size}*${sideEm}),${sideMaxPct}%)) minmax(0,1fr) minmax(0,min(calc(${size}*${journalEm}),${journalMaxPct}%)) minmax(0,min(calc(${size}*${logEm}),${logMaxPct}%))`;
 }
 
 // The box a panel belongs to, if any.

@@ -1,8 +1,9 @@
 import {createControlBox} from './ui/control_box.js';
 import {mountStatusLine, placeInStatus} from './ui/status_line.js';
 
-// R21 one bar (MB2). In the parity shell the top navigation row and the bottom bar become one bar
-// at the top: panel navigation on the left; save state, Save, Export and Import on the right; the
+// Round 14 (PS123, 2026-11-15): YAIR keeps no top bar, so the bar is the footer at the bottom, and the status line and
+// day strip stay at the top as the time strip (#game_top). Every route button keeps its node and stays visible.
+// R21 one bar (MB2). In the parity shell the top navigation row and the bottom bar become one bar: panel navigation on the left; save state, Save, Export and Import on the right; the
 // rarely used items (settings, version, help, Authoring, Layout, density and attribution links)
 // in a Menu (UR50). The existing nodes move in with placeholders and move back outside
 // the parity shell (GU5), so every handler and guard stays the native one (UR55).
@@ -27,16 +28,17 @@ export function mountGameBar({nav}) {
     const bar = make('header', 'game-bar'); bar.id = 'game_bar'; bar.setAttribute('aria-label', 'Game bar');
     const left = make('div', 'game-bar-left'), right = make('div', 'game-bar-right');
     const state = make('span', 'game-bar-save-state'); state.setAttribute('role', 'status'); state.setAttribute('aria-live', 'polite');
-    const more = createControlBox({id: 'game-bar-more', title: 'Panel shortcuts', placement: 'below'});
+    const more = createControlBox({id: 'game-bar-more', title: 'Panel shortcuts', placement: 'above'});
     more.node.classList.add('game-bar-overflow'); more.setLabel('Shortcuts', 'Panel shortcuts');
-    const menu = createControlBox({id: 'game-bar-menu', title: 'Menu', placement: 'below', panelHome: root});
+    const menu = createControlBox({id: 'game-bar-menu', title: 'Menu', placement: 'above', panelHome: root});
     menu.node.classList.add('game-bar-menu'); menu.setLabel('Menu', 'Settings, help, layout and links');
     const menuLinks = make('div', 'game-bar-menu-links');
     // A command in the Menu (Authoring, Edit layout, density) closes it once it runs; disclosures,
     // selects and fields inside it keep it open.
     menu.body.addEventListener('click', event => { const hit = event.target.closest('button,a'); if (hit && !hit.closest('summary') && !event.target.closest('select,input,textarea')) setTimeout(() => menu.close({restore: false})); });
     left.append(more.node); right.append(state, menu.node); bar.append(left, right);
-    const spine = mountStatusLine({bar});
+    const top = make('header', 'game-top'); top.id = 'game_top'; top.setAttribute('aria-label', 'Time and place');
+    const spine = mountStatusLine({bar: top});
     const homes = new Map();
     const move = (node, host) => { if (!node || node.parentNode === host) return; if (!homes.has(node)) { const mark = document.createComment(`game-bar:${node.id || node.className}`); node.before(mark); homes.set(node, mark); } host.append(node); };
     const restoreAll = () => { for (const [node, mark] of homes) if (mark.parentNode && node.previousSibling !== mark) mark.after(node); };
@@ -77,7 +79,7 @@ export function mountGameBar({nav}) {
         if (on !== active) {
             active = on;
             if (on) {
-                document.body.prepend(bar); left.prepend(nav);
+                document.body.prepend(top); document.body.append(bar); left.prepend(nav);
                 for (const id of RIGHT) move(document.getElementById(id), right);
                 right.append(menu.node);
                 menu.node.before(...RIGHT.map(id => document.getElementById(id)).filter(Boolean));
@@ -91,7 +93,7 @@ export function mountGameBar({nav}) {
                 lastWidth = 0;
             } else {
                 menu.close({restore: false}); more.close({restore: false});
-                restoreAll(); bar.remove(); delete document.documentElement.dataset.oneBar;
+                restoreAll(); bar.remove(); top.remove(); delete document.documentElement.dataset.oneBar;
                 for (const b of nav.querySelectorAll('[data-bar-overflow]')) delete b.dataset.barOverflow;
                 // The native navigation keeps its own fixed top row outside the shell.
                 document.getElementById('main_content')?.before(nav);
@@ -104,12 +106,13 @@ export function mountGameBar({nav}) {
         const next = `${width}:${font}:${visible}`;
         if (next !== signature) { signature = next; fold(); }
         document.documentElement.style.setProperty('--game-bar-height', `${Math.ceil(bar.getBoundingClientRect().height)}px`);
-        document.documentElement.style.setProperty('--workspace-nav-height', `${Math.ceil(bar.getBoundingClientRect().height)}px`);
+        document.documentElement.style.setProperty('--game-top-height', `${Math.ceil(top.getBoundingClientRect().height)}px`);
+        document.documentElement.style.setProperty('--workspace-nav-height', `${Math.ceil(top.getBoundingClientRect().height)}px`);
     }
-    const observer = new ResizeObserver(() => { signature = ''; apply(); }); observer.observe(bar);
+    const observer = new ResizeObserver(() => { signature = ''; apply(); }); observer.observe(bar); observer.observe(top);
     // A route appearing or leaving (discovery, a fight) refolds at once, not on the next pass.
     const routes = new MutationObserver(() => { if (active) apply(); }); routes.observe(nav, {attributes: true, attributeFilter: ['hidden'], subtree: true, childList: true});
     document.addEventListener('workspace-presentation-change', () => setTimeout(apply));
     const timer = setInterval(apply, 500); apply();
-    return {apply, bar, destroy() { clearInterval(timer); observer.disconnect(); routes.disconnect(); spine.destroy(); active = true; restoreAll(); bar.remove(); menu.destroy(); more.destroy(); }};
+    return {apply, bar, destroy() { clearInterval(timer); observer.disconnect(); routes.disconnect(); spine.destroy(); active = true; restoreAll(); bar.remove(); top.remove(); menu.destroy(); more.destroy(); }};
 }
