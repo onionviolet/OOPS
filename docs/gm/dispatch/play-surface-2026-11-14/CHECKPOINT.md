@@ -49,5 +49,6 @@ review: none
 
 ## Log
 
+- 2026-11-15 00:15 UTC: a full-suite run had held the machine-wide test slot for 1h34m. Two of its test processes (`tests/cheat_awakening.test.js`, `tests/cheat_cards.test.js`) sat at 0% CPU, and five more suites were queued behind it. The coordinator stopped the two by PID (SIGTERM, then SIGKILL) and the queue moved. `tests/cheat_cards.test.js` passes on its own (4/4, 12 s), so the hang came from that run, not the test. Gap: the limiter has no per-file timeout, so a hung file blocks every lane; a `--test-timeout` in the suite command would bound it (proposal).
 - 2026-11-14: the parent combat chat was found frozen on an old question (master was already pushed), so the combat build went to its idle child, combat-design (`local_2359a5ca`), and started there.
 - 2026-11-14: direction recorded; feature-ui and daily-loops started; the combat brief was queued to the combat chat; the day-strip chat was told the boundaries.
