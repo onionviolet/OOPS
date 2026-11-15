@@ -3,6 +3,7 @@ import {setText} from './dom_sync.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
 import {registerReady} from './ready_rows.js';
 import {nextLinks} from './ui/next_steps.js';
+import {verbOf} from './ui/action_verbs.js';
 import {formatDuration} from './number_format.js';
 import {renderFigure} from './ui/figure.js';
 import {renderGuHouse} from './ui/gu_house_view.js';
@@ -42,7 +43,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
         expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
         status:(v.status||[]).map(s=>({label:s.label,value:s.value,note:!!s.note})),ladders:v.ladders||[],house:v.house||null,craft:v.craft??null,
-        actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable,once:!!a.once,runs:Number.isFinite(a.runs)?a.runs:null})),
+        actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable,once:!!a.once,runs:Number.isFinite(a.runs)?a.runs:null,verb:a.verb||null})),
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
         extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons,mastery:v.renewal.mastery,reserve:v.renewal.reserve,masteryThreshold:v.renewal.masteryThreshold,next:v.renewal.next}:null,canWrite:!!v.canWrite,error:v.error};};
     const button=(label,data,request,disabled)=>{
@@ -211,9 +212,11 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
     const releaseReady=registerReady({id:'life-day',label:'Your day',rows:()=>{const v=lastView;if(!v?.active)return [];
         return v.actions.filter(a=>!a.once||a.eligible||a.completed===0).map(a=>{
             const detail=`${a.duration>0?formatDuration(a.duration):'At once'}${a.costs.length?' · uses '+a.costs.join(', '):''}`,open=()=>expandWorkspaceModule('beginning');
-            if(a.eligible&&v.canWrite)return {id:a.id,label:a.label,state:'ready',detail,open,act:()=>run({type:'action',id:a.id}),uses:uses(a.costs)};
+            // PS120: each row names its verb (the pack's own, else read from the act), and every row opens, rest included.
+            const verb=verbOf(a);
+            if(a.eligible&&v.canWrite)return {id:a.id,label:a.label,verb,state:'ready',detail,open,act:()=>run({type:'action',id:a.id}),uses:uses(a.costs)};
             const ordinary=a.repeatable||a.completed>0&&!a.once;
-            return ordinary&&a.reasons.length?{id:a.id,label:a.label,state:'near',gap:a.reasons[0],detail,open,uses:uses(a.costs)}:{id:a.id,label:a.label,state:'rest'};
+            return ordinary&&a.reasons.length?{id:a.id,label:a.label,verb,state:'near',gap:a.reasons[0],detail,open,uses:uses(a.costs)}:{id:a.id,label:a.label,verb,state:'rest',...(a.reasons.length?{gap:a.reasons[0]}:{}),detail,open};
         });}});
     // G10: a life's own timed work stays with the life. Without an owner the Notebook claimed it and took the centre on every press (as UIC182 for the courtyard).
     const releaseWork=registerOwnedWorkPanel(work=>lastView?.actions.some(a=>a.id===work.commandId)||lastView?.jobs.some(j=>j.id===work.id)?'structured_pack_panel':null);

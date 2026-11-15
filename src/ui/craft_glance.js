@@ -68,3 +68,21 @@ export function craftGlance(model) {
 export function glanceText(glance) {
     return [`${GLANCE_MARKS[glance.status.state]} ${glance.status.text}`, ...glance.rows.map(r => `${r.label}: ${r.value}`)].join('\n');
 }
+
+// DU1: "why this number" for a craft's success chance, in parts the player can move: the recipe's floor and ceiling over
+// its skill range, where your skill level puts you (a station above tier 1 counts as extra levels), then what worn
+// charms and the work ledger add. Mirrors Recipe.get_success_chance; the total is the number the glance shows.
+export function craftChanceParts({floor, ceiling, range, level, tier = 1, skill, total}) {
+    if (![floor, ceiling, level, total].every(Number.isFinite) || !Array.isArray(range)) return [];
+    const [lo, hi] = range, span = hi - lo + 1, pct = x => `${Math.round(x * 100)}%`;
+    const at = Math.min(Math.max(level, 0), hi) - lo + 1;
+    const fromSkill = floor * (ceiling / floor) ** Math.min(1, (at + (tier - 1)) / span);
+    const rest = total - Math.round(fromSkill * 100), name = skill || 'level';
+    // A skill the character has not discovered stays unnamed: the lines say "level" instead.
+    return [
+        `This recipe: ${pct(floor)} at ${name} ${lo}, rising to ${pct(ceiling)} by ${name} ${hi}.`,
+        `Your ${name} ${level}${tier > 1 ? `, plus ${tier - 1} for the tier ${tier} station` : ''}: ${pct(fromSkill)}.`,
+        ...(rest ? [`Worn charms and the work ledger: ${rest > 0 ? '+' : ''}${rest}%.`] : []),
+        `Now: ${total}%.`,
+    ];
+}

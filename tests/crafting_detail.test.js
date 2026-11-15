@@ -138,3 +138,33 @@ test('a batch names the material it runs out of before it starts (PS145)',async(
     assert.equal(batchBoundary(reqs,1),'','a limit set by something else (skill, station) does not blame a material');
     assert.equal(batchBoundary([{label:'Ore',need:1,stockKnown:true,usable:3,have:8}],3),'Makes 3 attempts, then runs out of Ore. ','reserved stock does not count');
 });
+
+test('the success chance opens into its parts: recipe range, your level and station, then charms and ledger (DU1)',async()=>{
+    const {craftChanceParts}=await import('../src/ui/craft_glance.js');
+    const parts=craftChanceParts({floor:.1,ceiling:.9,range:[1,10],level:3,tier:2,skill:'Tinkering',total:30});
+    assert.equal(parts[0],'This recipe: 10% at Tinkering 1, rising to 90% by Tinkering 10.');
+    assert.equal(parts[1],'Your Tinkering 3, plus 1 for the tier 2 station: 24%.');
+    assert.equal(parts[2],'Worn charms and the work ledger: +6%.');
+    assert.equal(parts.at(-1),'Now: 30%.');
+    assert.equal(craftChanceParts({floor:.1,ceiling:.9,range:[1,10],level:3,tier:2,skill:'T',total:24}).length,3,'no charm line when nothing adds');
+    assert.equal(craftChanceParts({floor:.2,ceiling:1,range:[5,15],level:0,skill:'',total:11})[1],'Your level 0: 11%.','an undiscovered skill stays unnamed');
+    const previous=globalThis.document,dom=createDom();dom.loadHTML('<html><body><div id="detail"></div></body></html>');globalThis.document=dom.document;
+    try {
+        const root=document.getElementById('detail');
+        renderCraftingDetail(root,{title:'X',description:'',requirements:[],effects:[],output:{name:'X',count:1},available:true,attempts:1,chance:30,chance_parts:parts},{});
+        const why=root.querySelector('[data-craft-chance-why]');
+        assert.match(why.textContent,/^Why 30%\?/);assert.match(why.textContent,/plus 1 for the tier 2 station/);
+    } finally {globalThis.document=previous;}
+});
+
+test('an "Any coal" row names its stand-ins on the row, in the order they are used (PS165)',()=>{
+    const previous=globalThis.document,dom=createDom();dom.loadHTML('<html><body><div id="detail"></div></body></html>');globalThis.document=dom.document;
+    try {
+        const root=document.getElementById('detail');
+        const req={label:'Any coal',need:1,have:15,variants:[{name:'Coal',count:12},{name:'Charcoal',count:3}]};
+        renderCraftingDetail(root,{title:'X',description:'',requirements:[req],effects:[],output:{name:'X',count:1},available:true,attempts:1},{});
+        assert.equal(root.querySelector('.craft_req_variants').textContent,'Coal 12 · Charcoal 3');
+        renderCraftingDetail(root,{title:'X',description:'',requirements:[{...req,variants:[{name:'Coal',count:12}]}],effects:[],output:{name:'X',count:1},available:true,attempts:1},{});
+        assert.equal(root.querySelector('.craft_req_variants'),null,'one kind needs no list');
+    } finally {globalThis.document=previous;}
+});

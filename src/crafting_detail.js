@@ -54,11 +54,19 @@ function renderGlance(model) {
                 cell.classList.add('craft_detail_odds');
                 cell.append(value);
                 if(row.word) cell.append(el('span', 'craft_chance_word', `· ${row.word}`));
+                if(model.chance_parts?.length) cell.title = model.chance_parts.join('\n');
             } else cell.append(value);
         }
         grid.append(cell);
     }
     wrap.append(grid);
+    // DU1: why the chance is what it is, in parts the player can move (skill, station, charms).
+    if(model.chance_parts?.length) {
+        const why = el('details', 'craft_chance_why');
+        why.setAttribute('data-craft-chance-why', '');
+        why.append(el('summary', '', `Why ${model.chance}%?`), ...model.chance_parts.map(t => el('p', '', t)));
+        wrap.append(why);
+    }
     return wrap;
 }
 
@@ -186,7 +194,12 @@ export function renderCraftingDetail(root, model, handlers) {
         if(req.missing) row.append(el('span', 'craft_req_short', `missing ${req.need - req.have}`));
         else if(req.held_back) row.append(el('span', 'craft_req_short', 'selected material group blocked; release its commitments or finish the current activity'));
         if(!req.unknown && Number.isFinite(req.stock) && req.stock !== req.have) row.append(el('small', '', `${req.stock} carried in all material groups`));
-        if(!req.unknown && req.variants?.length) row.title = `Consumption order: ${req.variants.map(v=>`${v.name}${Number.isFinite(v.quality)?` ${v.quality}%`:''} ×${v.count}`).join(', ')}`;
+        // PS165: an "Any coal" row names what will stand in for it on the row itself, in the order it is used ("Coal 12 · Charcoal 3").
+        if(!req.unknown && req.variants?.length) {
+            const order = req.variants.map(v=>`${v.name}${Number.isFinite(v.quality)?` ${v.quality}%`:''} ${v.count}`).join(' · ');
+            row.title = `Consumption order: ${order}`;
+            if(req.variants.length > 1) row.append(el('span', 'craft_req_variants', order));
+        }
         uses.append(row);
     }
     body.append(uses);

@@ -209,3 +209,9 @@
 /* PS144: the recipe that makes a short input, one click from its row; Back on that recipe returns here. */
 #crafting_window .craft_source_make {font: inherit; background: transparent; border: 0; padding: 0; cursor: pointer; color: var(--ui-state-ready); text-decoration: underline dotted;}
 #crafting_window .craft_source_make:focus-visible {outline: 2px solid var(--theme-focus, var(--workspace-focus)); outline-offset: 1px;}
+/* DU1: the parts of the success chance, folded under the glance. */
+#crafting_window .craft_chance_why {margin: var(--ui-space-1) 0; color: var(--p23-muted, var(--theme-surface-muted));}
+#crafting_window .craft_chance_why > summary {cursor: pointer;}
+#crafting_window .craft_chance_why > p {margin: 0;}
+/* PS165: what stands in for an "Any …" input, in use order, on the row. */
+#crafting_window .craft_req_variants {color: var(--p23-muted, var(--theme-surface-muted)); font-size: var(--ui-type-small);}

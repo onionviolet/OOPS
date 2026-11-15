@@ -159,6 +159,7 @@ test('PS57/PS55: a life\'s day acts are hub rows that run like the button, and t
         const mine = () => collectReady().filter(r => r.source === 'life-day');
         assert.deepEqual(mine().map(r => [r.label, r.state]), [['Buy a bag of Moon Orchid petals', 'ready'], ['Feed the Moonglow Gu', 'near']]);
         assert.equal(mine()[1].gap, 'Needs 2 Moon Orchid petals; you have 0.'); assert.deepEqual(mine()[1].uses, ['Moon Orchid petals']);
+        assert.deepEqual(mine().map(r => r.verb), ['trade', 'feed'], 'PS120: each row names the verb it belongs to');
         mine()[0].act(); assert.deepEqual(calls, [{type: 'action', id: 'buy'}]);
         assert.match(text(host.children[0]), /Done: Buy a bag of Moon Orchid petals\.\s+Next:\s+Feed the Moonglow Gu/);
     } finally { panel.destroy(); }
