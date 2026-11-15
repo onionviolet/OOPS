@@ -156,3 +156,9 @@
 .location_choice .gather_line {display: block; margin-left: var(--ui-space-5); color: var(--ui-muted, inherit); font-size: var(--ui-type-small); line-height: var(--ui-line-body);}
 /* PS141: what Stop keeps and loses, under the Stop label. */
 #action_end_text .stop_outcome {display: block; color: var(--ui-muted, inherit); font-size: var(--ui-type-small); line-height: var(--ui-line-body);}
+/* D1: Klein's pay ledger, a Journal page. */
+.pay-ledger table {border-collapse: collapse; width: 100%; font-size: var(--ui-type-small);}
+.pay-ledger th, .pay-ledger td {text-align: left; padding: var(--ui-space-1) var(--ui-space-2);}
+.pay-ledger tr[data-status="owed"] td {color: var(--ui-state-ready);}
+.pay-ledger tr[data-status="paid"] td {color: var(--ui-muted, inherit);}
+.pay-ledger__head {margin: 0 0 var(--ui-space-2);}

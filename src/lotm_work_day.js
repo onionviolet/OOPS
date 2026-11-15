@@ -55,3 +55,20 @@ export function renderPayLedger(doc, ledger, words = wageWords) {
     if (!ledger.started) { const p = doc.createElement('p'); p.textContent = 'Weeks count from your first draw.'; wrap.append(p); }
     return wrap;
 }
+
+// The ledger as a Journal page beside Quests and Data (UI cohesion's box tabs, 5c9592b37). It shows while Klein has a
+// contract and redraws only when the numbers change; `read` gives the expansion state.
+export function mountPayLedgerTab({registerBoxTab, read}) {
+    if (typeof document === 'undefined') return () => {};
+    const node = document.createElement('section');
+    node.className = 'pay-ledger-page';
+    let key = '';
+    const when = () => {
+        const v = wageView(read());
+        if (!v) return false;
+        const ledger = wageLedger(v), next = JSON.stringify(ledger);
+        if (next !== key) { key = next; node.replaceChildren(renderPayLedger(document, ledger)); }
+        return true;
+    };
+    return registerBoxTab({box: 'journal', id: 'pay', label: 'Pay', node, when});
+}

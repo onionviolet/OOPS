@@ -25,3 +25,15 @@ test('the ledger draws as a table with each week in words', () => {
 test('no contract, no rows; pay due is ready under Find work and acts; otherwise it rests with the time to the next week', () => {
     assert.deepEqual(lotmWorkRows({actors: {player: {worldId: 'elsewhere'}}}), []);
 });
+
+test('the ledger mounts as a Journal page that shows only while there is a contract and redraws only on change', async () => {
+    const {mountPayLedgerTab} = await import('../src/lotm_work_day.js');
+    const previous = globalThis.document, dom = createDom(); dom.loadHTML('<html><body></body></html>'); globalThis.document = dom.document;
+    try {
+        let tab = null, state = {actors: {player: {worldId: 'elsewhere'}}};
+        mountPayLedgerTab({registerBoxTab: t => { tab = t; return () => {}; }, read: () => state});
+        assert.equal(tab.box, 'journal'); assert.equal(tab.label, 'Pay');
+        assert.equal(tab.when(), false, 'no contract: no tab');
+        assert.equal(tab.node.textContent, '');
+    } finally { globalThis.document = previous; }
+});
