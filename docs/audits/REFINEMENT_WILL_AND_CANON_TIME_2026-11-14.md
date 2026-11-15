@@ -107,6 +107,53 @@ Weibao asked about "the lore implications of stealing gu and more? other aspects
 | RWT45 | **A first theft slice in Fang Yuan's life** (RWT36, RWT37, RWT40, RWT41): take a classmate's or a corpse's Gu, then the owner's or clan's response through existing standing, ties and who-knows. A consumer for RWT44. | sonnet, medium-large; needs RWT44 | A stolen clan Gu leads to a board inquiry in a seeded run; a witness changes who is suspected; nothing is scripted per case |
 | RWT46 | **Allegiance across worlds** (RWT42): one law with Gu imprint, wand allegiance and sealed-artifact will as operations. | sonnet, large; after RWT21 and RWT44 | Two worlds pass the same hold, subdue, mark, keep, lose test |
 
+## Round 3: the theft path, and ways around an imprint (2026-11-14)
+
+Weibao: "There is a way around things, I believe, what about theft path? more to consider?" Evidence is from the reading notes in `docs/research/novels/full-book/reverend-insanity/` (`POWER_INDEX.md`, `MYSTERIES_AND_REVISIONS.md`, `engine_inputs/claims.jsonl`; locators below). Lord of the Mysteries canon is open in development (2026-11-09).
+
+### What canon shows
+
+- **Theft is a path of its own, with a Venerable.** Thieving Heaven Demon Venerable left dream realms, inheritances and killer moves (stated). His inheritance can pick an otherworldly demon and grant methods and Gu, and practice can still fail (RI-c2016-02/03, stated).
+- **Theft beats custody defences.** Great Thief Ghost Hand steals Gu, and in one raid an allied Gu House lost pillars, many mortal Gu and several Immortal Gu (claims, stated). Against Xia Cha, pulling her partly out of a dream exposes her aperture, but her passive time-path defence still blocks the theft until a separate move dims it (RI-c1606-01, stated). So theft from inside an aperture takes exposure and a counter to its defences.
+- **Theft does not bypass the will.** Several Gu stolen from Bo Qing's body "remain unconquered" (synthesis, stated). The thief gets custody and still has the claim to make (RWT35).
+- **Marks can be stolen.** Steal Dao removes dao marks, and Thieves Den can steal marks but cannot use them itself (claims, stated). Theft can move what a thing is made of, not only the thing.
+- **Theft takes more than objects.** Steal Life ages and kills within its range and consumes lifespan (RI-c1581-03, RI-c1836-02, stated). Luck theft is a theme (CTC65; the catalogue marks it unverified for RI, `CHEAT_CATALOGUE.md`). Fang Yuan steals a corpse in a distraction raid (eighth hall, stated) and five stones by substitution (round 89, stated).
+- **Theft has limits.** Thieving Heaven failed to extract wild Gu from the Space Cave with one recipe (claims, stated). Concealment and Heaven's Will push back (RI-c1490-03).
+- **The world's customs judge theft by place and path.** The rule data holds `ri.custom.demonic-path-losers-in-wrong` and `ri.custom.demonic-gu-master-tacit-toll` (rule census, stated in data). Robbing in the wilderness among demonic Gu masters reads differently from stealing a clan Gu inside the stockade.
+- **Lord of the Mysteries has a theft pathway too.** Its Marauder line (the Error pathway) steals objects, then thoughts, Beyonder powers and, high up, fate and time (canon, open in development). Hogwarts: a disarm or defeat moves a wand's allegiance (canon).
+
+### Ways around an imprint (proposals, each a default with a dial and a reason)
+
+Canon shows theft getting around custody, not the will. Under AD38 (things work by how they work), these are reasonable routes, each with its mechanism and cost:
+
+| Code | Route | Mechanism and cost | Dial and reason |
+| --- | --- | --- | --- |
+| RWT47 | **Steal the mark with the Gu.** | A theft-path move that, like Steal Dao, lifts the owner's imprint off as it takes the Gu, leaving it wild instead of marked. Costs a rank-gated move, a strong cost, and a trace the owner may feel. | Default off below a set rank, on above it. Reason: canon steals dao marks (stated), and an imprint is a mark of will (RWT34, inferred). |
+| RWT48 | **Make the owner lift it.** | Coercion, a hostage, a deal, a debt or a duel's terms (fight terms, `surrender_accepted`). Lifting your own imprint costs little (ch230). | Default: works through contest and offer owners. Reason: ownership by consent is canon. |
+| RWT49 | **Outwait it.** | An absent master's imprint fades. A dead master's lingers a while or breaks at once. | Dial per world and rank (RWT34). Reason: the source does not fix a rate. |
+| RWT50 | **Kill the master.** | Vital Gu die with them; natural Gu may function, die or flee (stated). A race against flight, and a murder with its own consequences. | Default as canon. Reason: stated. |
+| RWT51 | **Out-will it.** | Wear down the owner's mark directly (RWT19 with the mark's strength added). Slow and loud; works best when the owner is weaker or far away. | Default on. Reason: the same law as a wild Gu. |
+| RWT52 | **Trick it.** | Impersonate the owner (an aura, a disguise, a Polyjuice-like change), or swap a decoy (the round-89 substitution). Works until something checks. | Default: an imprint reads will, not looks, so disguise fools people, not the Gu. Dial per world. Reason: a mark is part of the owner's will. |
+| RWT53 | **Steal what feeds it.** | Take a Gu's food, habitat or keeper so it leaves or weakens on its own (hunger feeds RWT19). Indirect, deniable and slow. | Default on. Reason: diets already exist (FLR4). |
+| RWT54 | **Take it in a dream or a pocket world.** | Thieving Heaven's dream realms let a thief capture Gu (RI-c1492-01) and expose an aperture (RI-c1606-01). | Default: only where such a place exists. Reason: stated. |
+
+### Further aspects
+
+- **RWT55. Theft is a path you can build.** A theft-path character advances by stealing: methods learned from an inheritance (Thieving Heaven), dao marks gathered by theft, a growing set of counters to defences. It plugs into existing progression owners as a path, not a cheat toggle. The ear grass, Stealth Scales and Stealth Rock Gu already in his life are early theft tools.
+- **RWT56. One taking law across worlds.** RI theft path, LOTM's Marauder line and HP's wand allegiance run on one law: expose, counter the defence, take, then claim or not (RWT46). Each world adds operations: a Ghost Hand, a pickpocket's Beyonder power, a disarm.
+- **RWT57. Defences are mechanisms too.** Concealment, passive aperture defence, decoys, a guard, keeping Gu in the aperture, refining at once (ch272), and a self-detonation order (RWT38). A theft is an attack on them, priced like any contest (KW15 odds, a quote you commit to).
+- **RWT58. What you can steal widens with rank.** Objects and corpses first, then Gu and stones, then marks and methods, then lifespan, luck and, in LOTM, fate. Each is a separate operation with its own victim loss and trace (the synthesis rule: theft, fusion and restoration are distinct operations).
+- **RWT59. Customs set the stakes.** The same theft is a crime in the stockade, a toll on the demonic road and fair loot after a fight among demonic masters ("losers are always in the wrong"). The existing custom rows decide who reacts and how; there's no global wanted level.
+- **RWT60. Theft remembers.** A thief's methods leave signatures: a known move, a missing kind turning up at a market, a dream trace. These go through who-knows and memory (RWT37), so a careful thief and a greedy one end up with different lives.
+
+### LATER / DELEGATE (round 3)
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| RWT61 | **A taking law on the kernel** (RWT56, RWT57): steps expose, counter, take, with odds and traces, and world operations for one RI theft move and one LOTM Marauder power. After RWT44. | sonnet, large | One law runs both worlds' thefts; a defended aperture blocks until countered; the save round-trips |
+| RWT62 | **Mark theft** (RWT47, RWT58): a move that takes a Gu and its imprint, rank-gated with a cost and a trace. | sonnet, medium; needs RWT44 and RWT61 | The stolen Gu arrives wild, not marked; the owner can notice by the RWT36 dial |
+| RWT63 | **Theft-path progression for a lead** (RWT55): an early, small path in Fang Yuan's life using the stealth Gu he has. | sonnet, medium; after RWT45 | Stealing advances a path rung in a seeded run, and the clan's customs react |
+
 ## Suggested order
 
 RWT14 and RWT15 come first, so Wave 19 lands. Then RWT22, RWT17 and RWT19, which make the wild Gu honest for Fang Yuan's day. Then RWT24, RWT25 and RWT27, which give the wolf tide a calendar and phases with the same consumer. RWT20 and RWT21 come after the will contest exists, and RWT26 once two worlds have calendars. Each is a proposal under AD56; none removes an option.

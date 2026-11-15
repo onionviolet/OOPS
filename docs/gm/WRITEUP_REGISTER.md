@@ -320,7 +320,7 @@ The carry-out also holds [tie-in considerations](../PROCEDURAL_CARRY_OUT.md#tie-
 
 [Combat world sizing](../audits/COMBAT_WORLD_SIZING_2026-11-13.md) (2026-11-13, findings and proposals): what Gu, Hogwarts and LOTM fights have on which engine, what is live, and seven shared engine gaps (G1-G7) with a possible order. Read-only source pass, not played.
 
-[Refinement, will and canon time](../audits/REFINEMENT_WILL_AND_CANON_TIME_2026-11-14.md) (2026-11-14, findings and proposals): whether the foundation run is current (two owners for wolf parts), what refinement lacks (conditions, odds, a will contest, defeat into submission) and how canon dates, recurring events and seasons could drive a world (RWT1-RWT46; round 2 covers taking someone else's Gu: imprints, evidence, owners' responses, theft as drama). Read-only source pass, not played.
+[Refinement, will and canon time](../audits/REFINEMENT_WILL_AND_CANON_TIME_2026-11-14.md) (2026-11-14, findings and proposals): whether the foundation run is current (two owners for wolf parts), what refinement lacks (conditions, odds, a will contest, defeat into submission) and how canon dates, recurring events and seasons could drive a world (RWT1-RWT63; round 2 covers taking someone else's Gu: imprints, evidence, owners' responses, theft as drama; round 3 the theft path and ways around an imprint). Read-only source pass, not played.
 
 [Combat working defaults](../audits/COMBAT_DEFAULTS_FOR_DECISION_2026-11-13.md) (2026-11-13, proposals in use under AD56): ten defaults from combat rounds 10 to 31 with what each changes, costs and where it stands, plus one limit waiting on Weibao.
 
