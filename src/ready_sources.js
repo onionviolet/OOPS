@@ -23,7 +23,8 @@ export function craftingRowsFrom(nodes) {
         const name = (row.getAttribute('aria-label') || '').split(';')[0].trim();
         if (!name) continue;
         const text = mark.textContent.trim(), ready = mark.dataset.ready === 'true', short = /^needs (\d+) (.+)$/.exec(text);
-        const state = ready ? 'ready' : short || text === '1 material short' ? 'near' : 'rest';
+        // Near means one named thing short ("needs 2 Wool"); "1 material short" names nothing to fetch, so it is further off.
+        const state = ready ? 'ready' : short ? 'near' : 'rest';
         rows.push({id: name, label: `Make ${name}`, state, detail: ready ? text : '', gap: state === 'near' ? text : '', uses: short ? [short[2]] : [],
             open: () => { window.openCraftingWindow?.(); requestAnimationFrame(() => { row.click?.(); row.scrollIntoView?.({block: 'nearest'}); }); }});
     }
