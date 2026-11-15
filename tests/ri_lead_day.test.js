@@ -159,3 +159,9 @@ test('the report draws with the tide: each night row weighs what riEncounterWeig
     assert.equal(facts['book.ri.lead.wolf_tide.phase'], 'off', 'a dateless life reads the tide as off');
     assert.deepEqual(riLeadDayTideFacts({clock: 0, actors: {player: {worldId: 'book.hp.lead.world'}}}), {}, 'other lives publish nothing');
 });
+
+test('player words carry no source notes (PRS1), say "1 stone", and a meal offers no repeat', () => {
+    const shown = [guLeadDay.label, guLeadDay.description, ...guLeadDay.items.flatMap(i => [i.label, i.description]), ...guLeadDay.commands.flatMap(c => [c.label, c.description || ''])];
+    for(const t of shown) assert.doesNotMatch(t, /\(ch\d|Authored|the source|\b1 stones\b/, t);
+    for(const d of RI_DAY_DIETS) assert.equal(guLeadDay.commands.find(c => c.id === `${RI_LEAD_DAY}.feed_${d.slot}`).duration, 0, 'repeatable means not once and longer than zero');
+});

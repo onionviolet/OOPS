@@ -59,3 +59,9 @@ test('the extension is plain data on the registered life: one class and one home
     assert.match(hpTimetableWords(HP_TIMETABLE.find(r => r.id === 'herbology')), /Tuesdays, Thursdays and Fridays 09:00 to 10:00/);
     assert.match(hpTimetableWords(HP_TIMETABLE.find(r => r.id === 'astronomy')), /Wednesdays 23:00 to midnight/);
 });
+
+test('player words carry no source notes (PRS1)', () => {
+    const ext = hpLeadDayExtension({id: 'book.hp.lead', revision: 1, contentHash: 'sha256:x'});
+    for(const t of [ext.label, ext.description, ...ext.items.flatMap(i => [i.label, i.description]), ...ext.commands.flatMap(c => [c.label, c.description])])
+        assert.doesNotMatch(t, /\bch\d|stated|proposal|Authored/, t);
+});

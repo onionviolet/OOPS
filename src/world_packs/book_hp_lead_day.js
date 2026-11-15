@@ -23,7 +23,7 @@ function act(name, label, duration, description, effects, needs) {
         completionRequires: support, completionCoLocated: true, completionFailure: 'refund', cancellation: 'refund', reservationReturns: 1, effects};
 }
 const lesson = row => act(`attend_${row.id}`, `Go to ${row.label} · ${K.lessonMinutes.value / 60} h`, K.lessonMinutes.value,
-    `${cap(row.teacher)} teaches it in ${row.room}, ${hpTimetableWords(row)}. ${row.basis} Each class leaves you a set of notes, and the June paper goes by what you have.`,
+    `${cap(row.teacher)} teaches it in ${row.room}, ${hpTimetableWords(row)}. Each class leaves you a set of notes, and the June paper goes by what you have.`,
     [gain(HP_NOTES_ITEM(row.id)), note(local('last_lesson'), `${row.label}: ${row.lesson}`)],
     [eq(hpDayFact(row.id, 'startable'), true, `${row.label} is taught ${hpTimetableWords(row)} in term; come within a quarter of an hour of the start.`)]);
 const homework = row => act(`homework_${row.id}`, `Write your ${row.label} homework · ${K.homeworkMinutes.value / 60} h`, K.homeworkMinutes.value,
@@ -38,7 +38,7 @@ export const HP_LEAD_DAY_ITEMS = Object.freeze(HP_TIMETABLE.flatMap(r => [
 export const HP_LEAD_DAY_COMMANDS = Object.freeze(HP_TIMETABLE.flatMap(row => [lesson(row), homework(row)]));
 export function hpLeadDayExtension(base) {
     return {
-        schema: 1, id: HP_LEAD_DAY, revision: 1,
+        schema: 1, id: HP_LEAD_DAY, revision: 2,
         base: {id: base.id, revision: base.revision, contentHash: base.contentHash},
         label: 'Keep your school week: the timetable and its homework',
         description: `Charms and Potions are on Monday mornings. The rest of the week: ${HP_TIMETABLE.map(r => `${r.label}, ${hpTimetableWords(r)}`).join('. ')}. Go on time and write the homework; both count in June.`,

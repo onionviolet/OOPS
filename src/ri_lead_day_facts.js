@@ -16,20 +16,24 @@ export const RI_DAY_ITEMS = Object.freeze({
     merit: 'book.ri.lead.ear_grass.merit', eye: 'book.ri.lead.ear_grass.cached_wolf_eyes', jade: `${RI_LEAD_DAY}.jade_rock`, wildGu: `${RI_LEAD_DAY}.wild_gu`,
     pelt: `${RI_LEAD_DAY}.wolf_pelt`, meat: `${RI_LEAD_DAY}.wolf_meat`, tally: `${RI_LEAD_DAY}.watch_tally`,
     moonglow: 'book.ri.lead.moonglow.moonglow_gu', wildMoonlight: 'book.ri.lead.wild_refinement.moonlight_gu', worm: 'book.ri.lead.river_toad.four_flavours_liquor_worm', whiteJade: 'book.ri.lead.white_jade.white_jade_gu'});
-// Diets, one row per Gu that eats. `basis` says where each number comes from (AD49): canon figures are fixed points; a Gu whose diet
+// Diets, one row per Gu that eats. `basis` says where each number comes from (AD49) and stays in code; `say` is the player's words (PRS1): canon figures are fixed points; a Gu whose diet
 // the source does not state eats like the Gu it was made from (dial: replace the row when a later reading finds the figure).
 export const RI_DAY_DIETS = Object.freeze([
     Object.freeze({slot: 'moonglow', label: 'Moonglow Gu', gu: RI_DAY_ITEMS.moonglow, food: RI_DAY_ITEMS.petals, foodLabel: 'Moon Orchid petals', perMeal: 2, interval: DAY / 2,
         basis: 'Moonlight Gu eats two petals a meal, morning and evening (ch23). Moonglow is made from Moonlight and its food is unstated, so it eats the same (authored).',
+        say: 'Made from a Moonlight Gu, it eats like one: two petals a meal, morning and evening.',
         fedLine: 'It will want petals again this evening or tomorrow morning.'}),
     // A Moonlight Gu refined from a patrol find (ri_wild_gu.js riWildGuItem('moonlight'); the wild-refinement pack owns the item).
     Object.freeze({slot: 'wild_moonlight', label: 'Moonlight Gu (wild)', gu: RI_DAY_ITEMS.wildMoonlight, food: RI_DAY_ITEMS.petals, foodLabel: 'Moon Orchid petals', perMeal: 2, interval: DAY / 2,
-        basis: 'Moonlight Gu eats two petals a meal, morning and evening (ch23).', fedLine: 'It will want petals again this evening or tomorrow morning.'}),
+        basis: 'Moonlight Gu eats two petals a meal, morning and evening (ch23).',
+        say: 'A Moonlight Gu eats two petals a meal, morning and evening.', fedLine: 'It will want petals again this evening or tomorrow morning.'}),
     Object.freeze({slot: 'worm', label: 'Four Flavours Liquor Worm', gu: RI_DAY_ITEMS.worm, food: RI_DAY_ITEMS.wine, foodLabel: 'jar of green bamboo wine', perMeal: 1, interval: 4 * DAY,
         basis: 'One jar of green bamboo wine lasts a Liquor Worm four days (ch23). The fused worm\'s food is unstated, so it keeps the same jar (authored).',
+        say: 'Like any Liquor Worm, it drinks a jar of green bamboo wine every four days.',
         fedLine: 'The jar will last it four days.'}),
     Object.freeze({slot: 'jade', label: 'White Jade Gu', gu: RI_DAY_ITEMS.whiteJade, food: RI_DAY_ITEMS.jade, foodLabel: 'parcel of jade rock (eight liang)', perMeal: 1, interval: 20 * DAY,
         basis: 'Eight liang of jade rock every twenty days (the White Jade Gu item text, ch98-100). One parcel of eight liang is one meal.',
+        say: 'It eats eight liang of jade rock every twenty days, one parcel a meal.',
         fedLine: 'That parcel lasts it twenty days.'})
 ].map(d => Object.freeze({...d, fed: `${RI_LEAD_DAY}.fed.${d.slot}`, diet: Object.freeze(validateDiet({holder: `${RI_LEAD_DAY}.${d.slot}`, label: d.label,
     food: key(d.food), perMeal: d.perMeal, interval: d.interval, maxCondition: 4, flag: `${RI_LEAD_DAY}.${d.slot}.kept`, lethal: false}))})));
@@ -39,17 +43,18 @@ export const RI_DAY_DIETS = Object.freeze([
 // identityAliases row, or state the break (old saves are disposable). See the lead core-flow audit, ordinary-day build.
 // Prices and yields, each with its reason. Canon: petals and wine (ch12, ch23), merit exchange and the wolf eye (ch127, ch132).
 // Authored: jade rock, the stone's parts, the patrol and its encounters.
+// Each dial: `why` is the source or authoring note (code only); `say` is what the player reads (PRS1).
 export const RI_DAY_DIALS = Object.freeze({
-    petalBag: Object.freeze({count: 10, stones: 1, why: 'Ten petals for one stone (ch23).'}),
-    wineJar: Object.freeze({stones: 2, why: 'A jar of green bamboo wine is two stones (ch12, ch23).'}),
-    jadeParcel: Object.freeze({stones: 6, why: 'Authored: the source gives no price. Six stones keeps the White Jade the dearest mouth over twenty days without rivalling the petals\' daily cost.'}),
-    stoneParts: Object.freeze({parts: 30, minutes: 30, why: 'His own story draws fifteen parts from a stone and calls it half drawn (assessment and caravan items), so a whole stone holds about thirty parts. Thirty minutes keeps the story\'s pace of fifteen parts in fifteen.'}),
-    meritPerStone: Object.freeze({merit: 25, why: '25 battle merit buys a primeval stone on the alliance board (ch127).'}),
-    eyeMerit: Object.freeze({merit: 10, why: 'A lightning wolf eye is worth ten merit (ch132). Eyes at the board are how the clan credits wolf-tide kills (ch127).'}),
-    tallyMerit: Object.freeze({merit: 10, why: 'Authored: a watch tally is the captain’s word that you stood in a shared fight. The board pays it like one eye, the share of a kill you did not finish yourself.'}),
-    peltSale: Object.freeze({stones: 1, why: 'Authored: the source gives no price for a lightning wolf hide. One stone, a day and a half of petals: worth carrying home, not worth hunting for.'}),
-    meatSale: Object.freeze({jin: 6, stones: 1, why: 'Authored: rice is five merit a jin at the board (ch132); wolf meat is tough and plentiful in a wolf tide, so the village kitchens give a stone for six jin.'}),
-    patrol: Object.freeze({parts: 15, minutes: 180, restMinutes: 360, why: 'Authored: a watch on the outer wall takes up to fifteen parts, the most a heavy night costs; what the night did not use returns when you report.'}),
+    petalBag: Object.freeze({count: 10, stones: 1, why: 'Ten petals for one stone (ch23).', say: 'The stalls sell ten petals for a stone.'}),
+    wineJar: Object.freeze({stones: 2, why: 'A jar of green bamboo wine is two stones (ch12, ch23).', say: 'The tavern asks two stones a jar.'}),
+    jadeParcel: Object.freeze({stones: 6, why: 'Authored: the source gives no price. Six stones keeps the White Jade the dearest mouth over twenty days without rivalling the petals\' daily cost.', say: 'The stone dealer asks six stones for a parcel.'}),
+    stoneParts: Object.freeze({parts: 30, minutes: 30, why: 'His own story draws fifteen parts from a stone and calls it half drawn (assessment and caravan items), so a whole stone holds about thirty parts. Thirty minutes keeps the story\'s pace of fifteen parts in fifteen.', say: 'A whole stone holds about thirty parts, drawn in half an hour.'}),
+    meritPerStone: Object.freeze({merit: 25, why: '25 battle merit buys a primeval stone on the alliance board (ch127).', say: 'The alliance board gives a primeval stone for 25 battle merit.'}),
+    eyeMerit: Object.freeze({merit: 10, why: 'A lightning wolf eye is worth ten merit (ch132). Eyes at the board are how the clan credits wolf-tide kills (ch127).', say: 'The board pays ten merit for each lightning wolf eye; eyes are how the clan counts wolf-tide kills.'}),
+    tallyMerit: Object.freeze({merit: 10, why: 'Authored: a watch tally is the captain’s word that you stood in a shared fight. The board pays it like one eye, the share of a kill you did not finish yourself.', say: 'The board pays a tally like one eye, your share of a kill you did not finish yourself.'}),
+    peltSale: Object.freeze({stones: 1, why: 'Authored: the source gives no price for a lightning wolf hide. One stone, a day and a half of petals: worth carrying home, not worth hunting for.', say: 'The leather seller pays a stone a hide: worth carrying home, not worth hunting for.'}),
+    meatSale: Object.freeze({jin: 6, stones: 1, why: 'Authored: rice is five merit a jin at the board (ch132); wolf meat is tough and plentiful in a wolf tide, so the village kitchens give a stone for six jin.', say: 'Wolf meat is tough and plentiful in a wolf tide, so the kitchens give a stone for six jin.'}),
+    patrol: Object.freeze({parts: 15, minutes: 180, restMinutes: 360, why: 'Authored: a watch on the outer wall takes up to fifteen parts, the most a heavy night costs; what the night did not use returns when you report.', say: 'A watch takes up to fifteen parts of essence, what a heavy night costs; what the night did not use comes back when you report.'}),
     carry: Object.freeze({pelt: 1, meat: 6, why: 'Authored: one man walking the wall carries every eye he cut, one hide and about six jin of meat; the rest of the night’s kill goes to the watch’s kitchen.'})
 });
 // What comes out of the trees on a patrol: one seeded draw when you report to the board (the engine's outcome draw, from the save's
