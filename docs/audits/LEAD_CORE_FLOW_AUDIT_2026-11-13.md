@@ -567,3 +567,20 @@ purse seam.
   - `riEncounterWeights` costs about 0.05 ms a call, so it is safe in the per-frame facts build.
   - Chrome was not rerun for this change, so the tide's shift has not been seen on screen: implemented, below floor for
     browser evidence.
+
+### Follow-up: places that change, and pursuits that look promising (PS143, PS150), 2026-11-15
+
+- **PS143, built (51baec80d).**
+  - `place_descriptions.js` lets a world add a line to a place's description.
+  - Fang Yuan's clan academy reads the tide in the tide's own words: quiet, early, peak, ebb, and a line once the watch has
+    thinned the wall.
+  - Fang Yuan has no wall place to stand on, so the academy, where his day is kept, carries it.
+  - **Not done.**
+    - The box redraws when the place is drawn (arrival, a move, a load), not as the date passes while he stays put.
+    - On a dated day before the first tide, the line says the packs "have gone back", which assumes a tide already passed. That
+      wording belongs to the tide's owner.
+    - Klein's streets after an event need an owner for "what happened here" in Tingen. None exists yet.
+- **PS150, proposed and not built.**
+  - Its home is the inquiry read side (`inquiryView`, `confidenceWord`, `effortMet`; ACR5 known coverage). It already tracks
+    effort and coverage without the answer, which is "still promising, payoff hidden".
+  - The first fit is Harry's library study or Klein's research, shown as a lead or rumour line beside the study.
