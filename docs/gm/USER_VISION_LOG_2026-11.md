@@ -1580,3 +1580,9 @@ Recorded as acceptance of UR88 (LLR28, PS89). A stop-list item may interrupt: a 
 Weibao, after the centre-split mocks and a capture of the built Crafting tab: "stacked is good but some info shoulkd on every page, also there is so much white space on the crafting page ⏎ more to conisder?"
 
 Recorded as his direction for ui-cohesion and feature-ui. The centre uses stacked panels, each with a header and its own scroll. A pinned band of information shows on every page (PS98: status line, day strip, one-line Ready now, Doing now, This place folded). Crafting stops leaving empty space: panels size to their content, and the free height goes to the selected recipe's detail (PS99, PS100). The round is in [play-surface considerations, round 11](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-11-2026-11-15-what-stays-on-every-page-and-the-empty-half-of-crafting).
+
+## The folded rows under Actions, 2026-11-15
+
+Weibao, with a capture of seven folded rows under the Village's action list: "Sbhould these alwyas be below the actions panel? should we adjust that? Move them else where? section off seperately?"
+
+Recorded as a question with a proposed default, not yet his decision. Each row goes to the home of its kind (PS107): activity groups become chips in Actions, a world crossing joins This place's ways out, settings go to Options, and feature screens become tabs with their ready rows in Ready now. Panels declare their kind and the frame places them (PS108). See [round 12](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-12-2026-11-15-the-folded-rows-under-actions).

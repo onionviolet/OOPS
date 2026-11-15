@@ -294,3 +294,31 @@ Weibao picked stacked panels and said two things after seeing the built Crafting
 | --- | --- |
 | PS105 | **The same list-plus-detail for Mixing, Skills and the Gu house.** Any list page whose rows hide their key fact gets the PS100 detail pane once Crafting proves it. |
 | PS106 | **Pin from the inspector.** "Watch this" on an item or recipe puts it in the pinned band, for example "wolf eyes 2/3". |
+
+## Round 12, 2026-11-15: the folded rows under Actions
+
+Weibao, with a capture of the Village's Here: "Sbhould these alwyas be below the actions panel? should we adjust that? Move them else where? section off seperately?" ([log](../../USER_VISION_LOG_2026-11.md#the-folded-rows-under-actions-2026-11-15)). The capture shows seven folded rows under the action list, then empty frame:
+- Cross to another world: Tingen
+- Optional pacing
+- Equipment condition and repair
+- Iona's work ledger · systems and workshop (54 of 54 ready)
+- Local life (0 of 6 ready)
+- Village practice and familiar ground (0 of 2 ready)
+- Furniture and home comforts (1 of 1 ready)
+
+Each module appends its own `<details>` under Here (`src/main.js:1280`, `:1412`, `src/book_world_lotm_ui.js:128`, `src/home_furniture_panel.js`, `src/absorb_p23/host_joins/tranche_four_ui.js`, `src/systems_workshop_ui.js`). Nothing decides where a kind of thing lives, so they pile up at the bottom in load order.
+
+### ACT NOW
+
+| Code | Finding | Proposal (default, dial, reason) |
+| --- | --- | --- |
+| PS107 | **Seven different kinds of thing share one pile.** A crossing, a setting, a gear feature, a project ledger, two activity groups and a home feature. | Default: each row goes to the home of its kind. Things to do now stay in Actions as category chips at the top (like Crafting's skill row): Local life, Village practice. A way to another world joins This place's ways out. Settings (Optional pacing) go to Options. Features with their own screen (Equipment, Furniture and home, Iona's ledger) become a tab or a place station, and their ready rows feed Ready now. Dial: the player can pin any of them into the band (PS98). Reason: the question "what can I do here" should not end in a settings switch and a world door. |
+| PS108 | **A registry, not appends.** Modules insert their own panels under Here. | Default: a panel declares its kind (act, place, setting, feature, project) and the frame places it (UR144, AR3). New modules cannot append under Here directly; the UI contract test catches it. |
+| PS109 | **Counts that say nothing.** "54 of 54 ready" and "0 of 6 ready" both mean "nothing to decide". | Default: a ready count shows only when it asks something of the player. Ready rows go to Ready now under UR88's tiers. A group with nothing ready shows what opens it ("needs Bone tools") or folds. |
+
+### ACCOUNT FOR NOW
+
+| Code | Finding | Proposal |
+| --- | --- | --- |
+| PS110 | **Per world.** Fang Yuan and Klein get other rows (Cross to Tingen appears from the Village). | The kind registry is per world. A row with no meaning in a world hides there (PS61, PS65). |
+| PS111 | **Iona's ledger is a development surface.** "Systems and workshop" with 54 entries reads like a tool. | Default: it moves to a Workshop tab or the Notebook, out of Here. Weibao names it if it should be in play. |
