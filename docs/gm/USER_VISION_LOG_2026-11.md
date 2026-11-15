@@ -1586,3 +1586,9 @@ Recorded as his direction for ui-cohesion and feature-ui. The centre uses stacke
 Weibao, with a capture of seven folded rows under the Village's action list: "Sbhould these alwyas be below the actions panel? should we adjust that? Move them else where? section off seperately?"
 
 Weibao then answered: "Yes, move them". Accepted. Built in da9a20646. Each row goes to the home of its kind (PS107): activity groups become chips in Actions, a world crossing joins This place's ways out, settings go to Options, and feature screens become tabs with their ready rows in Ready now. Panels declare their kind and the frame places them (PS108). See [round 12](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-12-2026-11-15-the-folded-rows-under-actions).
+
+## Sections by the player's question, 2026-11-15
+
+Weibao: "how else can we section better? WHat would make most sense and be most optimal?" After round 13 was proposed (PS112–PS118): "Mock then build".
+
+Recorded as his direction for ui-cohesion: mock [round 13](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-13-2026-11-15-sectioning-by-question-read-from-the-village-home-at-4ba128ba3) on real screens, show it to him, then build.
