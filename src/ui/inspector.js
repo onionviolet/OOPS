@@ -27,12 +27,14 @@ export function mountInspector() {
         const r = root(); if (!r) return;
         const centre = r.dataset.centerTask ? document.getElementById('center_mode_content') : null;
         // Still the same view: the placeholder sits in the open centre view, so keep the node where it is.
-        if (adopted && mark?.isConnected && centre?.contains(mark) && centre.checkVisibility()) {
+        // A view stacked over it (Crafting opened from Stats) hides the first view inside the same container, so the
+        // placeholder's own parent has to be visible, not just the container.
+        if (adopted && mark?.isConnected && centre?.contains(mark) && mark.parentElement?.checkVisibility()) {
             const home = leftHome(); if (home && box.parentElement !== home) home.append(box);
             return;
         }
         if (adopted) release();
-        const detail = centre?.checkVisibility() ? centre.querySelector(SELECTOR) : null, home = leftHome();
+        const detail = centre ? [...centre.querySelectorAll(SELECTOR)].find(n => n.checkVisibility()) : null, home = leftHome();
         if (!detail || !home) return;
         mark = document.createComment('inspector'); detail.before(mark);
         adopted = detail; box.replaceChildren(detail); home.append(box);
