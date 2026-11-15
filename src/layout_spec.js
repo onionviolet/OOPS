@@ -70,9 +70,6 @@ export const LAYOUT_SPEC = Object.freeze({
     // Named slots a box can move to. The log is not a slot: it keeps its column (UR11). The actions
     // region keeps the place, current work and actions; only companions join it.
     slots: Object.freeze({player: 'Top left', focus: 'Top centre', inventory: 'Bottom left', actions: 'Beside the actions', journal: 'Third column'}),
-    // Round 14 slice 3 (PS121): named slots a mode fills inside a column. A fight takes column 2's middle, between the
-    // place head and the actions box; the combat lane places its card there and the frame keeps the slot in column 2.
-    columnSlots: Object.freeze({combat: 'fight'}),
     // Default order of the shell's panels when no layout is stored. Companions are inserted after
     // `companionsAfter` in the parity shell only.
     shellOrder: Object.freeze(['vitals', 'shell-character', 'condition', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', 'pane-navigation', 'records', 'skills', 'messages', 'shell-log-tools']),
