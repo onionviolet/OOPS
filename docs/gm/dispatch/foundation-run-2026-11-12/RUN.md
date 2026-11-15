@@ -25,7 +25,11 @@ Weibao: "Restart foundation run, but orient them better? More to consider? Make 
 - **Backlog (Wave 19, rechecked Wave 20).** Klein's digestion by acting is **not reachable**. Be-Klein's readings for others are compiled at `book_world_lotm_cast_host.js:205` and listed at `book_world_lotm_ui.js:383`, but they stay locked:
   - Each step needs `means`, `contact` and `grounds` facts (`book_world_lotm_div_supply.js:23-31`).
   - The cast grants only the astrolabe, numerology and dream-divination methods (act `kj3aa`). Nothing grants the chart or tarot methods, or any `book.lotm.div.contact.*` or `book.lotm.div.grounds.*` key.
-  - First slice: author when Klein learns chart and tarot, and give one client case its contact and grounds keys.
+  - **Next action (default set by the coordinator session on 2026-11-15 under AD5/AD56; a proposal, canon-close, adjustable).**
+    - Klein learns chart and tarot divination in Old Neil's mysticism lessons at the Blackthorn Security office, in his first weeks as a Nighthawk civilian staffer. One lesson per method, gated on attending.
+    - His first client case comes through the Tingen Divination Club: Hanass Vincent introduces a member who wants a reading, which grants one `book.lotm.div.contact.*` key and one `book.lotm.div.grounds.*` key.
+    - Then the per-reading acting counter below. Prove it at the floor on `kjw42`.
+    - Not started on 2026-11-15: weekly usage was 91% against the 95% stop and the 5-hour window was at 95%. Start after the weekly reset (2026-11-16 18:00 UTC).
   - Then the counter:
     - a per-reading flag `book.lotm.be.acting.<rowId>` on the interpret step's effects (`cast_divination_adapter.js:62-72`);
     - the resident view in `book_world_lotm_host.js` (beside `mind:`) sums the flags through `digestionFacts(f,'lotm.be',n,LOTM_DIGEST_ACTS)` and `digestionFelt`;
