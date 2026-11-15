@@ -99,8 +99,7 @@
 .feel-classic .options_choice:has(#options_change_background_color) {display: none;}
 
 /* DU10 (with the combat lane): a thin attack-timer bar under each fighter's health on the tempo card. Combat adds
-   the element and its fill (a child's width, or --fill as a fraction); this file owns the look. Static under reduce. */
-#fight_situation .versus-bar--timer {height: var(--ui-space-1); background: var(--ui-meter-track-bg, transparent); overflow: hidden;}
+   the element (span.versus-bar-fill at width var(--versus-fill)); this file owns the look. Static under reduce. */
+#fight_situation .versus-bar--timer {height: var(--ui-space-1); background: var(--versus-track); overflow: hidden;}
 #fight_situation .versus-bar--timer > * {display: block; height: 100%; background: var(--ui-state-near); transition: width var(--ui-motion-settle) linear;}
-#fight_situation .versus-bar--timer:not(:has(> *)) {background: linear-gradient(to right, var(--ui-state-near) calc(var(--fill, 0) * 100%), var(--ui-meter-track-bg, transparent) 0);}
 #fight_situation [data-down="true"] .versus-bar--timer {opacity: .35;}
