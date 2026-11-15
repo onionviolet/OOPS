@@ -51,6 +51,11 @@ review: none
 
 ## Log
 
+- 2026-11-15: Weibao said "Build both" for the areas mock and drafts D1–D6. Dispatch at the reset:
+  - Areas: a new lane on `travel_legs` areas, with ui-cohesion for the location box arrows.
+  - D1 and D3 go to feature-ui; D4 to feature-ui with ui-cohesion's Skills box tabs; D2 to ui-cohesion's Skills tab with feature-ui's content.
+  - D5 goes to daily-loops, after PS2/PS3.
+  - D6 goes to combat, on ui-cohesion's fight-slot fix.
 - 2026-11-15 ~10:00 UTC: weekly usage reached the 95% stop, and every lane has stopped until the reset at 2026-11-16 18:00 UTC.
   - Origin is at 44cca6fb3 after a green gate: 7,694 of 7,706 pass, 0 fail, 12 skipped. Since then, round 19 (a4788cc2d), the fight slot (4757435a5) and its bundle (2d663b839) are committed and not pushed.
   - Resume order:

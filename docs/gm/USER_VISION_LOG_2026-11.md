@@ -1641,3 +1641,9 @@ Answered and proposed in [round 18](dispatch/play-surface-2026-11-14/CONSIDERATI
 Weibao: "we should put the travel to other world buttom somehwere and gate it until Its unlocked or I die, or some sort of settings area? MOre to consider? COnsider tihs for the timer too"
 
 Recorded as his direction. The crossing stays hidden until an in-world unlock or a death opens it, with a sandbox "Cross freely" setting under Menu › Worlds. The day strip likewise appears once the life has something timed, with a setting to show it always or never. See [round 19](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-19-2026-11-15-the-world-crossing-gated-until-it-opens-and-the-day-strip-the-same-way).
+
+## Build the areas and drafts D1–D6, 2026-11-15
+
+Weibao, asked whether to build the areas mock (6708ffb4c) and drafts D1–D6 after the usage reset: "Build both".
+
+Recorded as acceptance of round 17's areas (PS172–PS185) as mocked, and of drafts D1–D6 (af44e5786, 001c2a0d8, f833a3a8b). The build starts after the weekly usage reset on 2026-11-16, in the order in the play-surface checkpoint.
