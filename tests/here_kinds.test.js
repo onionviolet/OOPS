@@ -1,7 +1,7 @@
 // PS107-PS110: Here's panels by kind. The frame tags each panel and shows it in its kind's tab; a crossing joins Ways out.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync, readdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {uiViolations} from './helpers/ui_contract.mjs';
 import {hereTab, HERE_KINDS, HERE_HOMES, HERE_KIND_MAP} from '../src/ui/here_kinds.js';
@@ -45,4 +45,16 @@ test('a crossing joins Ways out and pressing it runs the owner\'s own control (P
         view.subject.actions[0].run(); assert.equal(pressed, 1);
     } finally { release(); }
     assert.deepEqual(extraWayOuts(), []);
+});
+
+test('every display or visibility rule splits cleanly for the headless cascade (scripts/headless/css.mjs)', () => {
+    // css.mjs splits a selector list with /,(?![^(]*\))/. A comma before a nested :not(...) inside :is(...) breaks there,
+    // and the unclosed half can match an ancestor: da9a20646 hid #main_content in every headless run that way.
+    const dir = new URL('../styles/', import.meta.url), broken = [];
+    for (const f of readdirSync(dir)) {
+        const css = readFileSync(new URL(f, dir), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+        for (const m of css.matchAll(/([^{}]+)\{[^{}]*(?:display|visibility)[^{}]*\}/g))
+            for (const part of m[1].trim().split(/,(?![^(]*\))/)) if ((part.match(/\(/g) || []).length !== (part.match(/\)/g) || []).length) broken.push(`${f}: ${part.trim().slice(0, 100)}`);
+    }
+    assert.deepEqual(broken, [], 'Write one selector per rule instead of a list with a nested :not(...) inside :is(...).');
 });

@@ -120,11 +120,19 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 
 /* ---- Place: each panel under Here shows in the tab of its kind (PS107, PS108; src/ui/here_kinds.js) ---- */
 @media (min-width:1001px) {
-#main_content.workspace-active[data-parity="r3"]:is([data-place-tab="actions"],:not([data-place-tab])) #location_related_div:not(.center-mode-open) #location_actions_div > :is([data-here-tab]:not([data-here-tab="actions"]),details[data-here-kind="act"]:not([data-here-chip-open])) {display:none!important;}
-#main_content.workspace-active[data-parity="r3"][data-place-tab="options"] #location_related_div:not(.center-mode-open) :is(#location_actions_div > :not([data-here-tab="options"]), #here_chips) {display:none!important;}
-#main_content.workspace-active[data-parity="r3"][data-place-tab="equipment"] #location_related_div:not(.center-mode-open) :is(#location_actions_div > :not([data-here-tab="equipment"]), #here_chips) {display:none!important;}
-#main_content.workspace-active[data-parity="r3"][data-place-tab="home"] #location_related_div:not(.center-mode-open) :is(#location_actions_div > :not([data-here-tab="home"]), #here_chips) {display:none!important;}
-#main_content.workspace-active[data-parity="r3"][data-place-tab="workshop"] #location_related_div:not(.center-mode-open) :is(#location_actions_div > :not([data-here-tab="workshop"]), #here_chips) {display:none!important;}
+/* One selector per rule: scripts/headless/css.mjs splits selector lists by a regex that breaks on nested parentheses. */
+#main_content.workspace-active[data-parity="r3"][data-place-tab="actions"] #location_related_div:not(.center-mode-open) #location_actions_div > [data-here-tab]:not([data-here-tab="actions"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="actions"] #location_related_div:not(.center-mode-open) #location_actions_div > details[data-here-kind="act"]:not([data-here-chip-open]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"]:not([data-place-tab]) #location_related_div:not(.center-mode-open) #location_actions_div > [data-here-tab]:not([data-here-tab="actions"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"]:not([data-place-tab]) #location_related_div:not(.center-mode-open) #location_actions_div > details[data-here-kind="act"]:not([data-here-chip-open]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="options"] #location_related_div:not(.center-mode-open) #location_actions_div > :not([data-here-tab="options"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="options"] #location_related_div:not(.center-mode-open) #here_chips {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="equipment"] #location_related_div:not(.center-mode-open) #location_actions_div > :not([data-here-tab="equipment"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="equipment"] #location_related_div:not(.center-mode-open) #here_chips {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="home"] #location_related_div:not(.center-mode-open) #location_actions_div > :not([data-here-tab="home"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="home"] #location_related_div:not(.center-mode-open) #here_chips {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="workshop"] #location_related_div:not(.center-mode-open) #location_actions_div > :not([data-here-tab="workshop"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="workshop"] #location_related_div:not(.center-mode-open) #here_chips {display:none!important;}
 /* The open group sits under the chip row, above the action rows. */
 /* The legacy list sets an inline display:block; it hides itself with none, which stays. */
 #main_content.workspace-active[data-parity="r3"] #location_related_div:not(.center-mode-open) #location_actions_div:not([style*="none"]) {display:flex!important;flex-direction:column;}
