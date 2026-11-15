@@ -178,7 +178,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     row.act.setAttribute?.('aria-describedby',[row.duration.id,row.costs.id,...(action.reasons.length?[row.blockers.id]:[])].join(' '));
                     setText(row.act,action.label);row.act.disabled=!view.canWrite||!action.eligible;
                     // A repeat offer never promises more runs than the inputs in hand cover; below two runs there is nothing to repeat.
-                    const times=Math.min(3,action.runs??3);row.repeatRequest.times=times;setText(row.repeat,'Repeat '+action.label+' '+times+' times');
+                    const times=Math.min(3,action.runs??3);row.repeatRequest.times=times;setText(row.repeat,`Repeat ×${times}`);const repeatSays=`Repeat ${action.label} ${times} times`;if(row.repeat.title!==repeatSays){row.repeat.title=repeatSays;row.repeat.setAttribute?.('aria-label',repeatSays);} // PS11: the act's name is on its own button; the repeat says only how many
                     row.repeat.hidden=!action.repeatable||times<2;row.repeat.disabled=row.act.disabled;
                     // A repeatable action, or one done before that can be done again, is the ordinary day, not the road ahead (G15): when it is blocked it stays here with its
                     // reason in view, rather than joining the capped "Not available yet" list where shut story steps hide it.
