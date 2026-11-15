@@ -119,7 +119,10 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
             b.setAttribute('aria-current',centerModes().mode===(route.open==='control'?id:`workspace:${id}`)?'page':'false');
         }
         pollBadges();for(const [route,b]of buttons)paintBadge(b,badgeCount(route.id),route.label);
-        for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden||!observer.sees({control:'menu.pane-selector'});setLocked(b,lockReason(original));b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route.open==='here'&&mode==='local'||route.open==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route.target))b.dataset.newHome='true';else delete b.dataset.newHome;}
+        // PS61, PS65: a life that keeps its own world does not run the Village's benches; while one is locked there its tab
+        // would only open onto "No crafting station", so it steps aside. The life's own making sits in its life panel and Ready now.
+        const ownWorld=livesOwnLife(document.documentElement.dataset.world||'');
+        for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden||!observer.sees({control:'menu.pane-selector'})||(ownWorld&&['crafting','mixing'].includes(route.open)&&!!lockReason(original));setLocked(b,lockReason(original));b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route.open==='here'&&mode==='local'||route.open==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route.target))b.dataset.newHome='true';else delete b.dataset.newHome;}
         const next=JSON.stringify([known,[...arrivals],known.map(m=>badgeCount(m.id))]);if(next!==last){last=next;more.replaceChildren();const first=document.createElement('option');first.value='';first.textContent=arrivals.size?'All panels… •':'All panels…';more.append(first);
             // COV6: five groups in player words; a greyed row says why (UIV1) instead of sitting there silent.
             const groups=new Map(PANEL_GROUPS.map(g=>[g,document.createElement('optgroup')]));groups.forEach((g,name)=>{g.label=name;});
