@@ -1,4 +1,4 @@
-import {localMoneyLabel} from './ui/local_money_label.js';
+import {localMoneyLabel, localPurseLabel, coinPricesHere} from './ui/local_money_label.js';
 import {bookFinishLines} from './book_finish_lines.js';
 import {keptShopKeys} from './shop_locks.js';
 import {gearItemFactsHtml} from './gear_item_facts.js';
@@ -1391,7 +1391,8 @@ function update_displayed_money() {
     if(!ports()) whenPortsReady(update_displayed_money);
     if(deferSimulationRender(update_displayed_money, () => update_displayed_money(...arguments))) return;
     const own = ownHoldingsView(currentWorldId(), readPort('expansion'));
-    if(own) {set_HTML(document.getElementById("money_div"), `Your purse contains: ${own.purse}`); return;}
+    const local = own?.purse ?? localPurseLabel(currentWorldId(), {money: character.money, held: id => character.getItems?.()[JSON.stringify({id})]?.count ?? 0});
+    if(local) {set_HTML(document.getElementById("money_div"), `Your purse contains: ${local}`); return;}
     set_HTML(document.getElementById("money_div"), `Your purse contains: ${currentWorldId()==='book.lotm.tingen'||denominationsKnown() ? format_money(character.money) : `${character.money} coins (denominations unfamiliar)`}`);
 }
 
@@ -1819,7 +1820,7 @@ export function inventoryDisplayRevision() {return inventory_display_revision;}
 function update_displayed_character_inventory({item_key, equip_slot, character_sorting, sorting_direction="asc", was_anything_new_added=false, is_trade=false, skip_sorting=false} = {}) {
     if(!ports()) whenPortsReady(update_displayed_character_inventory);
     if(deferSimulationRender(update_displayed_character_inventory, () => update_displayed_character_inventory({character_sorting, sorting_direction, is_trade}))) return;
-    inventory_display_revision++;
+    inventory_display_revision++; if(!coinPricesHere(currentWorldId())) update_displayed_money(); // PS31: a purse of held stones changes with the pack
     if(document.getElementById("crafting_window").style.display === "block") apply_crafting_filter();
     //removal of unneeded divs
 
@@ -1959,7 +1960,7 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                     const price_span = item_divs[inventory_key].getElementsByClassName("item_value")[0];
                     const price_html = is_trade
                         ? `${format_money(regionalUnit(character.getItems()[inventory_key].item, 'sell') ?? round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`
-                        : `${format_money(round_item_price(character.getItems()[inventory_key].item.getBaseValue()), true)}`;
+                        : (v => v > 0 && coinPricesHere(currentWorldId()) ? `${format_money(v, true)}` : '')(round_item_price(character.getItems()[inventory_key].item.getBaseValue())); // PS31: no known worth, no price
                     if(price_span.__item_value_html !== price_html || price_span.innerHTML !== price_span.__item_value_rendered) {
                         set_HTML(price_span, price_html);
                         price_span.__item_value_html = price_html;
@@ -2284,7 +2285,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
 
     if(!target_item.tags.unsellable) {
         item_additional.appendChild(create_trade_buttons());
-        insert_HTML(item_value_span, `${format_money(regionalUnit(target_item, (target === "trader") === (typeof trade_index === "undefined") ? 'buy' : 'sell') ?? round_item_price(target_item.getValue({region: current_location?.market_region, multiplier: price_multiplier})), true)}`);
+        const shown_value = regionalUnit(target_item, (target === "trader") === (typeof trade_index === "undefined") ? 'buy' : 'sell') ?? round_item_price(target_item.getValue({region: current_location?.market_region, multiplier: price_multiplier}));
+        if(shown_value > 0 && coinPricesHere(currentWorldId())) insert_HTML(item_value_span, `${format_money(shown_value, true)}`); // PS31: a thing with no known worth here shows no price
     } else {
         item_control_div.setAttribute("data-unsellable", "true");
         clear_HTML_content(item_value_span);

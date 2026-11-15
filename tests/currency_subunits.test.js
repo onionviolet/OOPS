@@ -73,3 +73,13 @@ test('the grain dial is per world: off by default, on for Tingen only', async ()
   assert.throws(() => addPurse({money: 10}, 0.1, 'test.rate'));
   bindMoneyGrain(() => 1);
 });
+
+test('PS31: a world whose money is a held thing names it on the purse line, native coins as a note', async () => {
+  const {localPurseLabel} = await import('../src/ui/local_money_label.js');
+  const held = n => id => id === 'book.ri.lead.refinement.primeval_stone' ? n : 0;
+  assert.equal(localPurseLabel('book.ri.lead.world', {money: 0, held: held(3)}), '3 primeval stones');
+  assert.equal(localPurseLabel('book.ri.lead.world', {money: 102, held: held(1)}), '1 primeval stone · 102 Village coins');
+  assert.equal(localPurseLabel('base.frontier', {money: 5}), null);
+  const {coinPricesHere} = await import('../src/ui/local_money_label.js');
+  assert.equal(coinPricesHere('book.ri.lead.world'), false); assert.equal(coinPricesHere('base.frontier'), true);
+});
