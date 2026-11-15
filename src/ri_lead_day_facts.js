@@ -5,6 +5,7 @@
 // thing the day asks for (dial: an anchor at adoption instead).
 import {validateDiet, dietNeed} from './living_upkeep.js';
 import {APERTURE_LAW, apertureGrade} from './gu_aperture.js';
+import {readSpoilage} from './spoilage.js';
 
 export const RI_LEAD_DAY = 'book.ri.lead.day';
 const key = id => JSON.stringify({id});
@@ -13,6 +14,7 @@ const DAY = 1440;
 export const RI_DAY_ITEMS = Object.freeze({
     petals: 'book.ri.lead.dorm.petals', wine: 'book.ri.lead.vital.bamboo_wine', stone: 'book.ri.lead.refinement.primeval_stone',
     merit: 'book.ri.lead.ear_grass.merit', eye: 'book.ri.lead.ear_grass.cached_wolf_eyes', jade: `${RI_LEAD_DAY}.jade_rock`, wildGu: `${RI_LEAD_DAY}.wild_gu`,
+    pelt: `${RI_LEAD_DAY}.wolf_pelt`, meat: `${RI_LEAD_DAY}.wolf_meat`, tally: `${RI_LEAD_DAY}.watch_tally`,
     moonglow: 'book.ri.lead.moonglow.moonglow_gu', worm: 'book.ri.lead.river_toad.four_flavours_liquor_worm', whiteJade: 'book.ri.lead.white_jade.white_jade_gu'});
 // Diets, one row per Gu that eats. `basis` says where each number comes from (AD49): canon figures are fixed points; a Gu whose diet
 // the source does not state eats like the Gu it was made from (dial: replace the row when a later reading finds the figure).
@@ -37,29 +39,44 @@ export const RI_DAY_DIALS = Object.freeze({
     jadeParcel: Object.freeze({stones: 6, why: 'Authored: the source gives no price. Six stones keeps the White Jade the dearest mouth over twenty days without rivalling the petals\' daily cost.'}),
     stoneParts: Object.freeze({parts: 30, minutes: 30, why: 'His own story draws fifteen parts from a stone and calls it half drawn (assessment and caravan items), so a whole stone holds about thirty parts. Thirty minutes keeps the story\'s pace of fifteen parts in fifteen.'}),
     meritPerStone: Object.freeze({merit: 25, why: '25 battle merit buys a primeval stone on the alliance board (ch127).'}),
-    eyeMerit: Object.freeze({merit: 10, why: 'A lightning wolf eye is worth ten merit (ch132).'}),
+    eyeMerit: Object.freeze({merit: 10, why: 'A lightning wolf eye is worth ten merit (ch132). Eyes at the board are how the clan credits wolf-tide kills (ch127).'}),
+    tallyMerit: Object.freeze({merit: 10, why: 'Authored: a watch tally is the captain’s word that you stood in a shared fight. The board pays it like one eye, the share of a kill you did not finish yourself.'}),
+    peltSale: Object.freeze({stones: 2, why: 'Authored: the source gives no price for a lightning wolf hide. Two stones puts a clean hide above a day of petals and below a jar of wine and a meal.'}),
+    meatSale: Object.freeze({jin: 3, stones: 1, why: 'Authored: rice is five merit a jin at the board (ch132); fresh wolf meat sells to the village kitchens a little dearer, three jin for a stone.'}),
     patrol: Object.freeze({parts: 15, minutes: 180, restMinutes: 360, why: 'Authored: a watch on the outer wall takes up to fifteen parts, the most a heavy night costs; what the night did not use returns when you report.'})
 });
 // What comes out of the trees on a patrol: one seeded draw when you report to the board (the engine's outcome draw, from the save's
-// seed). Authored weights and yields (dial: per row, and per wolf-tide phase later). A bigger pack pays more merit and keeps more of the
-// fifteen parts spent (`back` is what returns). `fight` marks the rows the combat lane can replace with the live fight (hook:
-// RI_PATROL_FIGHT_ROWS); until then each is a compressed routine (ACR1). Expected merit is about 43 a patrol before a wolf at the wall is settled (eyes counted at ten).
+// seed). Weibao 2026-11-14: "Rather than merit immediately it could be like part of the wolf drops and then I can trade that in for merit
+// or something". So a night yields parts, never merit: eyes are the board's proof (canon, ch127/ch132), a watch tally is the captain's
+// word for a shared kill, and pelts and meat sell for stones. Merit is written only by the board hand-ins (PS3). Authored weights and
+// yields (dial: per row, and per wolf-tide phase later; the wall's own population is ri_wolf_tide.js). `back` is the essence that returns.
+// `fight` marks the rows the live hunt replaces (RI_PATROL_FIGHT_ROWS); until then each is a compressed routine (ACR1). About 1.8 eyes,
+// 0.65 tallies, a third of a pelt and nearly a jin of meat a night: some 40 merit's worth before a wolf at the wall is settled.
 export const RI_PATROL_ENCOUNTERS = Object.freeze([
-    Object.freeze({id: 'quiet', weight: 20, merit: 25, back: 10, line: 'A quiet watch. Two stray wolves came out of the trees and the Moonglow took both. 25 merit on the board.'}),
-    Object.freeze({id: 'small_pack', weight: 28, merit: 50, back: 5, line: 'A small pack of five tested the wall. You cut down two before they broke off. 50 merit on the board.'}),
-    Object.freeze({id: 'large_pack', weight: 12, merit: 100, back: 0, line: 'A pack of a dozen came at the wall with a lightning wolf leading. Your sea ran dry before they turned. 100 merit on the board.'}),
-    Object.freeze({id: 'carcasses', weight: 12, merit: 25, back: 8, eyes: 2, line: 'Little came out tonight, but two carcasses lay where an earlier patrol left them. You cut out their eyes. 25 merit, and two eyes kept back.'}),
-    Object.freeze({id: 'wild_gu', weight: 4, merit: 25, back: 8, wildGu: 1, line: 'In the brush under the wall something small glowed and did not run. A wild Gu, unrefined. 25 merit on the board.'}),
-    Object.freeze({id: 'injured', weight: 8, merit: 25, back: 0, injured: true, line: 'A wolf got under your blade and opened your arm. You finished the watch, but you need to bind it and rest before going out again. 25 merit on the board.'}),
-    Object.freeze({id: 'met_scout', weight: 8, merit: 50, back: 5, line: 'A scout from another clan’s patrol shared your stretch of the wall and talked more than he should have about their losses. 50 merit on the board.'}),
-    Object.freeze({id: 'wolf_attack', weight: 8, merit: 0, back: 0, fight: true, line: 'A lightning wolf leapt the wall and is still out there, circling under the lamps. Face it, or let the watch drive it off.'})
+    Object.freeze({id: 'quiet', weight: 20, back: 10, eyes: 2, pelts: 1, line: 'A quiet watch. Two stray wolves came out of the trees and the Moonglow took both. You cut out their eyes and kept the cleaner hide.'}),
+    Object.freeze({id: 'small_pack', weight: 28, back: 5, eyes: 2, tallies: 1, line: 'A small pack of five tested the wall. You cut down two and took their eyes; the watch finished two more, and the captain gave you a tally for your share.'}),
+    Object.freeze({id: 'large_pack', weight: 12, back: 0, eyes: 3, pelts: 1, meat: 6, tallies: 2, line: 'A pack of a dozen came at the wall with a lightning wolf leading. Your sea ran dry before they turned. Three eyes, a hide and six jin of meat are yours, and two tallies for the kills you shared.'}),
+    Object.freeze({id: 'carcasses', weight: 12, back: 8, eyes: 2, line: 'Little came out tonight, but two carcasses lay where an earlier patrol left them. The hides had spoiled; you cut out the eyes.'}),
+    Object.freeze({id: 'wild_gu', weight: 4, back: 8, wildGu: 1, line: 'In the brush under the wall something small glowed and did not run. A wild Gu, unrefined.'}),
+    Object.freeze({id: 'injured', weight: 8, back: 0, eyes: 1, injured: true, line: 'A wolf got under your blade and opened your arm. You killed it and took the eye, but you need to bind the cut and rest before going out again.'}),
+    Object.freeze({id: 'met_scout', weight: 8, back: 5, tallies: 1, line: 'A scout from another clan’s patrol shared your stretch of the wall and talked more than he should have about their losses. The captain gave you a tally for the wolf you turned together.'}),
+    Object.freeze({id: 'wolf_attack', weight: 8, back: 0, fight: true, line: 'A lightning wolf leapt the wall and is still out there, circling under the lamps. Face it, or let the watch drive it off.'})
 ]);
 export const RI_PATROL_FIGHT_ROWS = Object.freeze(RI_PATROL_ENCOUNTERS.filter(r => r.fight).map(r => r.id));
 // A fight row leaves a wolf at the wall (actor fact below). It is settled either by the live hunt (tempo_lead_fights.js, opener
-// ri.wolf.tide, which reads `wolf_waiting`, clears the fact and pays `killMerit` for a kill or sets the wound on a loss) or by the
-// compressed fallback in the day extension, "Let the watch drive it off" (`driveOffMerit` and a wound). Authored numbers: a kill
-// beside the wall pays a large pack's 75 less the shared credit; driving it off is the quiet watch's 25 and the bite it costs.
-export const RI_WOLF_AT_WALL = Object.freeze({fact: `${RI_LEAD_DAY}.wolf_at_wall`, killMerit: 75, driveOffMerit: 25});
+// ri.wolf.tide, which reads `wolf_waiting` and clears the fact) or by the compressed fallback in the day extension, "Let the watch drive it
+// off". A kill drops the wolf's parts (RI_WOLF_PARTS in ri_wolf_tide.js, as items RI_WOLF_PART_ITEMS); a drive-off, a held-back or a fled
+// wolf brings back no parts, only one watch tally (`tally`), which the board pays `witnessedMerit` for. `killMerit` and `driveOffMerit` are
+// deprecated: kept only until the combat lane's hook drops parts instead (then removed with KNOWN_MERIT_WRITERS in tests/ri_lead_day.test.js).
+export const RI_WOLF_AT_WALL = Object.freeze({fact: `${RI_LEAD_DAY}.wolf_at_wall`, tally: RI_DAY_ITEMS.tally, witnessedMerit: RI_DAY_DIALS.tallyMerit.merit, killMerit: 75, driveOffMerit: 25});
+// The day's item for each part name in RI_WOLF_PARTS (ri_wolf_tide.js owns the parts and their counts; this owns the items).
+export const RI_WOLF_PART_ITEMS = Object.freeze({eye: RI_DAY_ITEMS.eye, pelt: RI_DAY_ITEMS.pelt, meat: RI_DAY_ITEMS.meat});
+// Meat is one shared lot (spoilage.js PERISHABLE_LOTS): its clock starts at the `at` of the last note under RI_MEAT_NOTE, written by
+// whatever brings meat back (a patrol report, the hunt's after-hook). Spoiled meat stays meat (ITM22); it cannot be sold, only thrown
+// out. Dial: the lot's life. Gap: fresh meat added to a spoiled lot restarts the whole lot's clock.
+export const RI_MEAT_NOTE = `${RI_LEAD_DAY}.meat_got`;
+export const riMeatState = (state, at = state?.simulation?.knowledge?.player?.[RI_MEAT_NOTE]?.at) =>
+    Number.isFinite(at) ? readSpoilage(JSON.stringify({id: RI_DAY_ITEMS.meat}), Math.max(0, state.clock - at)) : null;
 // Natural recovery: the sea refills on its own at the aptitude's pace (gu_aperture.js holds the stated law: C grade recovers 4 points
 // of the aperture an hour, ch10). His pool is measured in points of the aperture (44 at C grade), so a C sea gains one part each
 // fifteen minutes. A stone does it faster (about half an hour to the cap, ch10).
@@ -74,6 +91,7 @@ export function riLeadDayFacts(state) {
     out[`${RI_LEAD_DAY}.on_watch`] = a.facts?.[`${RI_LEAD_DAY}.patrol_out`] === true;
     out[`${RI_LEAD_DAY}.hurt`] = a.facts?.[`${RI_LEAD_DAY}.injured`] === true;
     out[`${RI_LEAD_DAY}.wolf_waiting`] = a.facts?.[RI_WOLF_AT_WALL.fact] === true;
+    out[`${RI_LEAD_DAY}.meat_fresh`] = riMeatState(state)?.state !== 'spoiled';
     for(const d of RI_DAY_DIETS) {
         const n = riDayNeed(d, known[d.fed]?.at, state.clock);
         out[`${RI_LEAD_DAY}.${d.slot}.due`] = n.stage !== 'fed';

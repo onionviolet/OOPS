@@ -405,3 +405,62 @@ Loop K1 from the table above: £3 a week in, with the advance repaid at half pay
   - The HEAD tree without this change stalled the same way for at least six minutes before it was stopped.
   - kjw33 reached a usable page in Chrome on 2026-11-10 (WIN2), so this is a likely regression since then. It blocks every
     Klein-side browser proof, P7's included, and is recorded as finding G18.
+
+### Follow-up: wolf parts instead of merit, 2026-11-14
+
+Weibao, through the coordinator: "Rather than merit immediately it could be like part of the wolf drops and then I can trade that in
+for merit or something." These are adjustable defaults (AD56, AD38) under the play-surface round's PS2 to PS4.
+
+- **Source check (AD49).** The clan credits wolf-tide kills by eyeballs handed in at the merit board: one lightning wolf eye is
+  10 merit, 25 merit is a stone, and 5 merit is 500 g of rice (ch127, ch132). So the eye as the proof is canon. Everything else
+  below is authored and labelled as such in `RI_DAY_DIALS`.
+- **What plays.**
+  - A patrol night yields parts: eyes, a lightning wolf hide, wolf meat by the jin, and watch tallies for kills shared with the
+    watch. It never yields merit.
+  - Merit is paid only at the alliance board:
+    - "Hand a wolf eye in" pays 10 merit (canon).
+    - "Hand a watch tally in" pays 10 merit (authored: the share of a kill you did not finish).
+  - A hide sells at the stalls for 2 stones. Fresh meat sells to the village kitchens, 3 jin for a stone. Both prices are
+    authored.
+  - Meat keeps about three days (a `PERISHABLE_LOTS` row in `spoilage.js`, clocked from the `book.ri.lead.day.meat_got` note).
+    After that it cannot be sold and is thrown to the dogs; nothing vanishes on its own (ITM22).
+  - "Let the watch drive the wolf off" now gives a watch tally and a bite, with no merit.
+- **One merit writer (PS3).**
+  - `GU_LEAD_DAY_BOARD` names the two board commands.
+  - `tests/ri_lead_day.test.js` checks that they are the only day commands that add merit, and that no runtime module outside the
+    day names the merit item.
+  - The one known exception is the combat lane's hunt hook (`KNOWN_MERIT_WRITERS`), until it drops parts.
+- **The interface with the combat lane** (agreed 2026-11-14):
+  - Part names and counts belong to `RI_WOLF_PARTS` in the foundation run's `ri_wolf_tide.js`.
+  - The items belong to `RI_WOLF_PART_ITEMS` here.
+  - A kill adds the parts and writes the meat note.
+  - A drive-off, a held-back fight or a fled wolf gives one tally (`RI_WOLF_AT_WALL.tally`).
+  - `killMerit` and `driveOffMerit` stay exported, deprecated, until that hook lands.
+- **Compatibility.** The day extension is now revision 2, so its content hash moved. A save that adopted revision 1 needs the
+  extension adopted again. Old saves are disposable (standing decision), so no alias was added.
+- **Not done.**
+  - The patrol weights are still static. The runtime's outcome weights accept fact-driven amounts, so a later hook can publish
+    `riEncounterWeights` from `ri_wolf_tide.js` as facts. That file is uncommitted foundation work, so this change does not
+    import it.
+  - Meat added to a spoiled lot restarts the lot's clock.
+  - No flesh-eating Gu is in his kit, so meat has no feeding use yet.
+  - A kept eye has no refinement use in the day yet.
+- **Checked.**
+  - `tests/ri_lead_day.test.js` covers the one merit writer, the parts on a large-pack night, the meat lot's three days and its
+    sell and throw gates.
+  - `tests/ri_lead_day_journey.test.js` (his ch140 save) checks that a reported night pays no merit, and that an eye handed in
+    pays 10.
+  - Chrome at 1920×1080, on the ri-fang-yuan-ice-crystal fixture with the day's seed set to 7680 (DEV setup: the next draw is
+    the large pack; nothing else edited). Bundle: HEAD `3e971853c` plus three paths, sha256 `91383f87…`.
+    - The report took eyes from 6 to 9, a hide to 1, meat to 6 jin and tallies to 2, with merit unchanged at 30. Inventory
+      names "Lightning wolf hide", "Wolf meat · jin" and "Watch tally".
+    - The eye hand-in took merit from 30 to 40, and the tally from 40 to 50.
+    - The hide sold for 2 stones, and 3 jin of fresh meat for 1.
+    - Three days on, selling was refused ("The meat has spoiled. Nobody will buy it; throw it out."), and the last 3 jin were
+      thrown out.
+    - A second run with the same setup held all counts through reload and through Export then Import. No page errors.
+- **UI friction seen on his screen (PS8, for the UI chat):**
+  - Eyes from a patrol join the story's "Hidden lightning wolf eye" stack, so a fresh eye reads as hidden.
+  - Every item in his Inventory reads "0 coins".
+  - The panel header says "Calendar unknown here".
+  - The day's result line does not show in the panel's status after a report; only the "Last watch" status row carries it.

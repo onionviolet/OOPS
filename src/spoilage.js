@@ -18,7 +18,9 @@ export const PERISHABLES=Object.freeze({
 // marks it unusable and nothing vanishes (ITM22). Not shelf goods: the stilled hearth keeps per-portion ages and does not take them.
 // Gu opening petal lot (RI-c0023-02): five played days; `book_gu_life.js` reads its freshness duration from here (FRC42 fold).
 export const PERISHABLE_LOTS=Object.freeze({
-    'book.ri.academy.petals':{life:5*DAY,result:null}});
+    'book.ri.academy.petals':{life:5*DAY,result:null},
+    // Wolf meat from Fang Yuan's patrols (ri_lead_day_facts.js RI_MEAT_NOTE): authored, about three days in spring air before it turns.
+    'book.ri.lead.day.wolf_meat':{life:3*DAY,result:null}});
 const entryOf=id=>Object.hasOwn(PERISHABLES,id)?PERISHABLES[id]:Object.hasOwn(PERISHABLE_LOTS,id)?PERISHABLE_LOTS[id]:null;
 // Default: quality 100 is the base life; better work keeps longer (x0.5 at 50, x2 at 200). Dial: per world.
 export const qualityLifeFactor=q=>Number.isFinite(q)?Math.min(2,Math.max(.5,q/100)):1;

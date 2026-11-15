@@ -2,9 +2,10 @@
 // The played journey on his ch140 save is in ri_lead_day_journey.test.js (slow tier).
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {riLeadDayFacts, RI_DAY_DIETS, RI_DAY_DIALS, RI_LEAD_DAY, RI_PATROL_ENCOUNTERS, RI_PATROL_FIGHT_ROWS, RI_WOLF_AT_WALL, riSeaMinutesPerPart} from '../src/ri_lead_day_facts.js';
+import {readFileSync, readdirSync} from 'node:fs';
+import {riLeadDayFacts, RI_DAY_DIETS, RI_DAY_DIALS, RI_DAY_ITEMS, RI_LEAD_DAY, RI_MEAT_NOTE, RI_PATROL_ENCOUNTERS, RI_PATROL_FIGHT_ROWS, RI_WOLF_AT_WALL, RI_WOLF_PART_ITEMS, riSeaMinutesPerPart} from '../src/ri_lead_day_facts.js';
 import {settleSea, stageSea} from '../src/ri_lead_sea_domain.js';
-import {guLeadDay} from '../src/world_packs/book_gu_lead_day.js';
+import {guLeadDay, GU_LEAD_DAY_BOARD} from '../src/world_packs/book_gu_lead_day.js';
 
 const life = (clock, fed = {}) => ({clock, actors: {player: {worldId: 'book.ri.lead.world'}},
     simulation: {knowledge: {player: Object.fromEntries(Object.entries(fed).map(([slot, at]) => [`${RI_LEAD_DAY}.fed.${slot}`, {at}]))}}});
@@ -83,8 +84,39 @@ test('a wolf attack leaves the wolf at the wall: the patrol waits until the live
     const drive = cmd('drive_off');
     assert.equal(drive.duration, 0);
     assert.ok(drive.effects.some(e => e.key === RI_WOLF_AT_WALL.fact && e.value === false));
-    assert.ok(drive.effects.some(e => e.type === 'item' && e.amount === RI_WOLF_AT_WALL.driveOffMerit));
+    assert.ok(drive.effects.some(e => e.type === 'item' && e.key === JSON.stringify({id: RI_WOLF_AT_WALL.tally}) && e.amount === 1), 'a wolf that runs leaves a tally, not merit');
     const facts = waiting => riLeadDayFacts({clock: 0, actors: {player: {worldId: 'book.ri.lead.world', facts: waiting ? {[RI_WOLF_AT_WALL.fact]: true} : {}}}, simulation: {knowledge: {player: {}}}});
     assert.equal(facts(false)[`${RI_LEAD_DAY}.wolf_waiting`], false);
     assert.equal(facts(true)[`${RI_LEAD_DAY}.wolf_waiting`], true);
+});
+
+const MERIT = JSON.stringify({id: RI_DAY_ITEMS.merit});
+// Until the combat lane's hunt drops parts instead of paying merit (it then removes itself here).
+const KNOWN_MERIT_WRITERS = ['tempo_lead_fights.js'];
+
+test('a patrol night yields wolf parts, never merit: the alliance board is the one merit writer', () => {
+    const writers = guLeadDay.commands.flatMap(c => [c.effects || [], ...(c.outcomes || []).map(o => o.effects)].flat()
+        .filter(e => e.type === 'item' && e.key === MERIT && e.amount > 0).map(() => c.id));
+    assert.deepEqual([...new Set(writers)].sort(), [...GU_LEAD_DAY_BOARD].sort());
+    const src = new URL('../src/', import.meta.url);
+    const outside = readdirSync(src).filter(f => f.endsWith('.js') && !['ri_lead_day_facts.js', ...KNOWN_MERIT_WRITERS].includes(f))
+        .filter(f => /RI_DAY_ITEMS\.merit|ear_grass\.merit|killMerit|driveOffMerit/.test(readFileSync(new URL(f, src), 'utf8')));
+    assert.deepEqual(outside, [], 'no runtime module outside the day writes battle merit');
+    assert.ok(RI_PATROL_ENCOUNTERS.every(r => !('merit' in r)));
+    const report = guLeadDay.commands.find(c => c.id === `${RI_LEAD_DAY}.report`);
+    const large = report.outcomes.find(o => o.id.endsWith('large_pack')).effects;
+    for(const id of Object.values(RI_WOLF_PART_ITEMS)) assert.ok(large.some(e => e.type === 'item' && e.key === JSON.stringify({id}) && e.amount > 0), `a large pack yields ${id}`);
+    assert.ok(large.some(e => e.type === 'knowledge' && e.key === RI_MEAT_NOTE), 'meat that comes back starts its spoil clock');
+    for(const id of Object.values(RI_WOLF_PART_ITEMS).filter(id => id !== RI_DAY_ITEMS.eye)) assert.ok(guLeadDay.items.some(i => i.id === id), `${id} is named in Inventory`);
+});
+
+test('wolf meat sells while fresh and is thrown out once it has turned (about three days)', () => {
+    const facts = (clock, at) => riLeadDayFacts({clock, actors: {player: {worldId: 'book.ri.lead.world', facts: {}}}, simulation: {knowledge: {player: at == null ? {} : {[RI_MEAT_NOTE]: {at}}}}})[`${RI_LEAD_DAY}.meat_fresh`];
+    assert.equal(facts(0), true, 'no meat yet reads as nothing spoiled');
+    assert.equal(facts(2 * 1440, 0), true);
+    assert.equal(facts(3 * 1440 + 1, 0), false);
+    const cmd = name => guLeadDay.commands.find(c => c.id === `${RI_LEAD_DAY}.${name}`);
+    assert.match(JSON.stringify(cmd('sell_meat').requires), /meat_fresh[^}]*"value":true/);
+    assert.match(JSON.stringify(cmd('throw_meat').requires), /meat_fresh[^}]*"value":false/);
+    assert.ok(cmd('sell_pelt').effects.some(e => e.key === JSON.stringify({id: RI_DAY_ITEMS.stone}) && e.amount === RI_DAY_DIALS.peltSale.stones));
 });

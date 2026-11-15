@@ -2,6 +2,8 @@
 // A command extension on his own life, so no pinned hash moves: an old save adopts it like any continuation. The day: feed each Gu
 // when its meal comes due, buy its food with stones, draw a stone into the sea, hand in wolf eyes, exchange merit, and go out on a
 // wolf-tide patrol and report what came out of the trees (a seeded draw: pack size, finds, a wild Gu, an injury, a wolf attack).
+// A night yields wolf parts, not merit (Weibao 2026-11-14): eyes and watch tallies are paid in merit at the alliance board, the only
+// merit writer (GU_LEAD_DAY_BOARD, PS3); hides and fresh meat sell for stones; meat spoils (RI_MEAT_NOTE).
 // A hungry Moonglow will not cut, so a skipped meal blocks the patrol that pays for the next ones. His sea also refills on its own
 // (ri_lead_sea_domain.js). Registered as a bundled continuation because the report is an instant with seeded outcomes.
 // Meal timing is read from ri_lead_day_facts.js (the needs seam); diets, prices and yields live there with their basis.
@@ -9,9 +11,11 @@ import {extensionFact} from '../structured_pack_extensions.js';
 import {formatDuration} from '../number_format.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_RANK_TWO} from './book_gu_lead_rank_two.js';
-import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, RI_WOLF_AT_WALL as WOLF, riSeaMinutesPerPart} from '../ri_lead_day_facts.js';
+import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, RI_WOLF_AT_WALL as WOLF, RI_MEAT_NOTE, riSeaMinutesPerPart} from '../ri_lead_day_facts.js';
 
 export const GU_LEAD_DAY = DAY_ID;
+// The commands that write battle merit: the alliance board's hand-ins, nothing else (PS3; tests/ri_lead_day.test.js counts them).
+export const GU_LEAD_DAY_BOARD = Object.freeze([`${DAY_ID}.hand_in_eye`, `${DAY_ID}.hand_in_tally`]);
 const baseHash = 'sha256:9efca86558d35ae4ca0bce01755dd50761bf4c3aee82d1cd72d8b72d50f2001c';
 const world = id('world');
 const academy = id('academy');
@@ -52,16 +56,20 @@ const feed = d => act(`feed_${d.slot}`, `Feed the ${d.label} · ${d.perMeal === 
     {needs: [has(d.gu, 1, `You do not hold the ${d.label}.`), eq(`${GU_LEAD_DAY}.${d.slot}.due`, true, `The ${d.label} ate recently and will not take more yet.`),
         has(d.food, d.perMeal, `You need ${d.perMeal === 1 ? 'one' : d.perMeal} ${d.foodLabel}.`)], costs: [item(d.food, -d.perMeal)]});
 const moonglow = RI_DAY_DIETS.find(d => d.slot === 'moonglow');
+const meatFresh = v => eq(local('meat_fresh'), v, v ? 'The meat has spoiled. Nobody will buy it; throw it out.' : 'The meat is still fresh. Sell it before it turns.');
 
 export const guLeadDay = {
-    schema: 1, id: GU_LEAD_DAY, revision: 1,
+    schema: 1, id: GU_LEAD_DAY, revision: 2,
     base: {id: GU_LEAD, revision: 1, contentHash: baseHash},
-    label: 'Keep your own day: feed your Gu, draw stones, earn merit',
-    description: `Between the clan's errands, your Gu still eat on their own clocks and your sea still empties. Buy their food, keep them fed, refill your essence and earn battle merit on the wolf tide. ${seaPace}`,
+    label: 'Keep your own day: feed your Gu, draw stones, trade wolf parts for merit',
+    description: `Between the clan's errands, your Gu still eat on their own clocks and your sea still empties. Buy their food, keep them fed, refill your essence, and bring wolf parts back from the wolf tide to trade at the board and the stalls. ${seaPace}`,
     requires: all(ready, eq(extensionFact(GU_LEAD_RANK_TWO), true)),
     reason: 'Reach Rank Two first.',
     items: [{id: IT.jade, label: 'Jade rock · eight liang', description: 'One meal for a White Jade Gu, which eats eight liang every twenty days.', value: 0},
-        {id: IT.wildGu, label: 'Wild Gu · unrefined', description: 'A small wild Gu found under the wall on patrol. It is not yours until refined.', value: 0}],
+        {id: IT.wildGu, label: 'Wild Gu · unrefined', description: 'A small wild Gu found under the wall on patrol. It is not yours until refined.', value: 0},
+        {id: IT.pelt, label: 'Lightning wolf hide', description: `A wolf's hide from the wall. ${K.peltSale.why}`, value: 0},
+        {id: IT.meat, label: 'Wolf meat · jin', description: 'Meat from a wolf killed at the wall, by the jin. It keeps about three days, then nobody will buy it.', value: 0},
+        {id: IT.tally, label: 'Watch tally', description: `A marked bamboo slip from the watch captain for a kill you shared. ${K.tallyMerit.why}`, value: 0}],
     status: [...RI_DAY_DIETS.map(d => ({id: local(`${d.slot}_status`), label: d.label, knowledgeKey: d.fed})), {id: local('patrol_status'), label: 'Last watch', knowledgeKey: local('patrol')}],
     commands: [
         ...RI_DAY_DIETS.map(feed),
@@ -80,9 +88,21 @@ export const guLeadDay = {
             [{type: 'energy', actor: 'player', energyId: essence, operation: 'recover', amount: K.stoneParts.parts},
                 note(local('drawn'), 'You drew a primeval stone dry and your sea rose.')],
             {needs: [stones(1)], costs: [payStones(1)]}),
-        act('hand_in_eye', `Put a hidden wolf eye on the alliance board · +${K.eyeMerit.merit} merit`, 10, `${K.eyeMerit.why} A hidden eye earns nothing until it is handed in.`,
+        act('hand_in_eye', `Hand a wolf eye in at the alliance board · +${K.eyeMerit.merit} merit`, 10, `${K.eyeMerit.why} An eye earns nothing until it is handed in; one you keep back stays yours to hide or refine with.`,
             [item(IT.merit, K.eyeMerit.merit), note(local('merit'), `The board credits you ${K.eyeMerit.merit} merit for a lightning wolf eye.`)],
-            {needs: [has(IT.eye, 1, 'You have no hidden wolf eye left.')], costs: [item(IT.eye, -1)]}),
+            {needs: [has(IT.eye, 1, 'You have no wolf eye to hand in.')], costs: [item(IT.eye, -1)]}),
+        act('hand_in_tally', `Hand a watch tally in at the alliance board · +${K.tallyMerit.merit} merit`, 5, K.tallyMerit.why,
+            [item(IT.merit, K.tallyMerit.merit), note(local('merit'), `The board credits you ${K.tallyMerit.merit} merit for a watch tally.`)],
+            {needs: [has(IT.tally, 1, 'You have no watch tally to hand in.')], costs: [item(IT.tally, -1)]}),
+        act('sell_pelt', `Sell a wolf hide at the village stalls · ${K.peltSale.stones} stones`, 15, K.peltSale.why,
+            [item(IT.stone, K.peltSale.stones), note(local('sold'), `The leather seller paid ${K.peltSale.stones} primeval stones for a lightning wolf hide.`)],
+            {needs: [has(IT.pelt, 1, 'You have no wolf hide to sell.')], costs: [item(IT.pelt, -1)]}),
+        act('sell_meat', `Sell ${K.meatSale.jin} jin of wolf meat to the village kitchens · ${K.meatSale.stones} stone`, 15, `${K.meatSale.why} Only fresh meat sells; it keeps about three days from the night you brought it back.`,
+            [item(IT.stone, K.meatSale.stones), note(local('sold'), `The kitchens paid a primeval stone for ${K.meatSale.jin} jin of wolf meat.`)],
+            {needs: [has(IT.meat, K.meatSale.jin, `You need ${K.meatSale.jin} jin of wolf meat.`), meatFresh(true)], costs: [item(IT.meat, -K.meatSale.jin)]}),
+        act('throw_meat', `Throw out ${K.meatSale.jin} jin of spoiled wolf meat`, 5, 'The meat has turned. The village dogs get it.',
+            [note(local('sold'), `You threw ${K.meatSale.jin} jin of spoiled wolf meat to the village dogs.`)],
+            {needs: [has(IT.meat, K.meatSale.jin, `You hold less than ${K.meatSale.jin} jin of wolf meat.`), meatFresh(false)], costs: [item(IT.meat, -K.meatSale.jin)]}),
         act('exchange_merit', `Exchange ${K.meritPerStone.merit} battle merit for a primeval stone`, 10, K.meritPerStone.why,
             [item(IT.stone, 1), note(local('merit'), `You traded ${K.meritPerStone.merit} merit for a primeval stone.`)],
             {needs: [has(IT.merit, K.meritPerStone.merit, `You need ${K.meritPerStone.merit} battle merit.`)], costs: [item(IT.merit, -K.meritPerStone.merit)]}),
@@ -96,16 +116,18 @@ export const guLeadDay = {
             description: 'The board clerk counts what the night brought. What came out of the trees is settled now, from the watch you walked.',
             requires: all(ready, admitted, at, {...out, reason: 'Walk a patrol first.'}),
             outcomes: RI_PATROL_ENCOUNTERS.map(r => ({id: local(`patrol.${r.id}`), weight: r.weight, effects: [
-                fact('patrol_out', false), ...(r.merit ? [item(IT.merit, r.merit)] : []), note(local('patrol'), r.line),
+                fact('patrol_out', false), note(local('patrol'), r.line),
+                ...(r.pelts ? [item(IT.pelt, r.pelts)] : []), ...(r.tallies ? [item(IT.tally, r.tallies)] : []),
+                ...(r.meat ? [item(IT.meat, r.meat), note(RI_MEAT_NOTE, `You carried ${r.meat} jin of wolf meat back from the wall.`)] : []),
                 ...(r.back ? [{type: 'energy', actor: 'player', energyId: essence, operation: 'recover', amount: r.back}] : []),
                 ...(r.eyes ? [item(IT.eye, r.eyes)] : []), ...(r.wildGu ? [item(IT.wildGu, r.wildGu)] : []),
                 ...(r.injured ? [fact('injured', true)] : []), ...(r.fight ? [fact('last_fight', r.id), fact('wolf_at_wall', true)] : [])]}))},
-        {id: local('drive_off'), revision: 1, label: `Let the watch drive the wolf off · +${WOLF.driveOffMerit} merit, a bite`, group: 'structured_local', worldId: world,
+        {id: local('drive_off'), revision: 1, label: 'Let the watch drive the wolf off · a watch tally, a bite', group: 'structured_local', worldId: world,
             actorId: 'player', location: academy, audience: ['$actor'], once: false, duration: 0, visibleWhen: admitted,
-            description: 'Call the watch and drive the wolf back into the trees together instead of facing it yourself. The credit is shared, and it bites you on the way out.',
+            description: 'Call the watch and drive the wolf back into the trees together instead of facing it yourself. A wolf that runs leaves no parts; the captain gives you a tally for standing in it, and it bites you on the way out.',
             requires: all(ready, admitted, at, eq(local('wolf_waiting'), true, 'No wolf is waiting at the wall.')),
-            effects: [fact('wolf_at_wall', false), fact('injured', true), item(IT.merit, WOLF.driveOffMerit),
-                note(local('patrol'), `The watch drove the wolf back into the trees. It bit you on the way. ${WOLF.driveOffMerit} merit on the board, shared.`)]},
+            effects: [fact('wolf_at_wall', false), fact('injured', true), item(WOLF.tally, 1),
+                note(local('patrol'), 'The watch drove the wolf back into the trees. It bit you on the way. The captain gave you a watch tally for the board.')]},
         act('rest_wound', `Bind your wound and rest · ${K.patrol.restMinutes / 60} h`, K.patrol.restMinutes,
             'Clean the cut, bind it and keep off the wall until it closes.',
             [fact('injured', false), note(local('patrol'), 'The cut has closed. You can take a watch again.')],
