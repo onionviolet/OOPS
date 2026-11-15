@@ -46,6 +46,12 @@ const node = (tag, text = '') => {const n = document.createElement(tag); n.textC
 // own host (the location actions list) otherwise. The id is dropped while slotted so the Adventure Notebook, which files panels by id, leaves it alone.
 export const ENCOUNTER_SLOT = '[data-shared-slot="encounter"]';
 export const PANEL_ID = 'tempo_fight_panel';
+// On screen: the browser's own check, or (where it is missing, as in the headless runner) no hidden or display:none ancestor.
+const onScreen = el => {
+    if(typeof el.checkVisibility === 'function') return el.checkVisibility();
+    for(let n = el; n && n.nodeType === 1; n = n.parentElement) if(n.hidden || globalThis.getComputedStyle?.(n).display === 'none') return false;
+    return true;
+};
 export function placePanel(root, slot, fallback) {
     if(slot?.isConnected && !slot.hidden && !slot.inert) {
         if(root.parentElement === slot) return 'slot';
@@ -349,8 +355,10 @@ function mount() {
     };
     const button = (label, id, title, disabled, handler) => {const b = node('button', label); b.type = 'button'; b.dataset.tempo = id; b.title = title || ''; b.disabled = !!disabled; b.onclick = handler; return b;};
     // Several world panels can offer a slot (Tingen, Harry's day, the Beginning panel); the one on screen wins, then any open one.
-    const place = () => { const open = [...document.querySelectorAll(ENCOUNTER_SLOT)].filter(slot => !slot.hidden && !slot.inert);
-        return placePanel(root, open.find(slot => slot.checkVisibility?.() !== false) || open[0], document.getElementById('location_actions_div')); };
+    const place = () => { const open = [...document.querySelectorAll(ENCOUNTER_SLOT)].filter(slot => !slot.hidden && !slot.inert && !slot.closest('.workspace-collapsed')); // a collapsed module's body is not on screen (village_wave2)
+        // Home is where the Notebook files this panel by id; leaving a slot goes straight there, so a world panel that drops off
+        // screen does not leave the fight panel under Here until the Notebook's next draw (village_wave2).
+        return placePanel(root, open.find(onScreen), document.querySelector(`[data-notebook-panel="${PANEL_ID}"]`) || document.getElementById('location_actions_div')); }; // only a slot on screen; otherwise the panel goes home, where the Notebook files it
     const render = force => {
         place();
         if(!root.isConnected) return;
