@@ -405,6 +405,14 @@ Loop K1 from the table above: £3 a week in, with the advance repaid at half pay
   - The HEAD tree without this change stalled the same way for at least six minutes before it was stopped.
   - kjw33 reached a usable page in Chrome on 2026-11-10 (WIN2), so this is a likely regression since then. It blocks every
     Klein-side browser proof, P7's included, and is recorded as finding G18.
+- **Browser gate met (later the same day), after G18's fix (bb822ec5f).** Chrome at 1920×1080 on kjw42, playtest `Session` (frozen wall
+  clock), bundle from HEAD `66f9b67e2`, sha256 `48e3a43a…`:
+  - The offer reads "Your Nighthawk wage is 3 pounds a week…". After Start: "Nothing owed now. The next week closes in 7 days."
+  - From the same DEV setup a week into the wage, the block reads "Owed now: 3 pounds for 2 weeks (3 pounds kept against the
+    advance)". Collecting adds 720 pence and leaves 7 pounds 10 soli owed.
+  - That held through reload and through Export then Import. No page errors.
+  - The slice is at the floor: agent-verified, not human-reviewed.
+  - Friction seen (PS8): Home still names the Moretti flat, with rent at a flat 5 soli. That is P7.
 
 ### Follow-up: wolf parts instead of merit, 2026-11-14
 
