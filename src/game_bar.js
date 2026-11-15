@@ -1,5 +1,6 @@
 import {createControlBox} from './ui/control_box.js';
 import {mountStatusLine, placeInStatus} from './ui/status_line.js';
+import {crossFreelyControl} from './ui/cross_freely.js';
 
 // Round 14 (PS123, 2026-11-15): YAIR keeps no top bar, so the bar is the footer at the bottom, and the status line and
 // day strip stay at the top as the time strip (#game_top). Every route button keeps its node and stays visible.
@@ -88,6 +89,7 @@ export function mountGameBar({nav}) {
                 menu.attach();
                 if (toolbar) move(toolbar, menu.body);
                 if (menuLinks.parentNode !== menu.body) menu.body.append(menuLinks);
+                if (!menu.body.querySelector('[data-setting="cross-freely"]')) menu.body.append(crossFreelyControl());
                 for (const id of MENU) move(document.getElementById(id), menuLinks);
                 document.documentElement.dataset.oneBar = 'true';
                 lastWidth = 0;

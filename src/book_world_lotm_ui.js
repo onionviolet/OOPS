@@ -1,5 +1,6 @@
 import {lotmTaskSummary,renderLotmTaskSummary} from './ui/lotm_task_summary.js';
 import {definePanel} from './panel_kit.js';
+import {crossFreely,CROSS_FREELY_EVENT} from './ui/cross_freely.js';
 import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.js';
 import {createMeterBar} from './meter_bar.js';
 import {shortActionLabel} from './ui/action_label.js';
@@ -132,10 +133,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   if(expandWorkspaceModule('lotm')&&first){tabsUi.select('here');findControl(first.id,{focusAction:true});}});
  const localActions=()=>document.getElementById('location_actions_div');
  function syncDoor(v){const place=localActions(),local=v.resident&&currentObserver().sees({capability:'lotm.local-task-entry'}),first=local?v.objectActs?.find(a=>a.eligible):null;
-  door.hidden=!local&&(!!v.enrolled||!v.atVillage);door.dataset.lotmLocalEntry=local?'true':'false';
+  door.hidden=!local&&(!!v.enrolled||!v.atVillage||!crossFreely());door.dataset.lotmLocalEntry=local?'true':'false';
   doorText.textContent=local?(first?`Nearby: ${first.label}`:'Open nearby actions'):'Cross to another world: Tingen';
   if(place&&!door.isConnected)place.append(door);}
  let doorObserver=null;
+ addEventListener(CROSS_FREELY_EVENT,()=>syncDoor(read(selected)));
  function render(){
   const v={...read(selected),duties:duties?.()?.items||[]};setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
   // The seat filter owns hidden on workroom blocks; slot availability is separate.
