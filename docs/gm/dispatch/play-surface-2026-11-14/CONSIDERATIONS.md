@@ -265,3 +265,32 @@ Weibao: "more to consider?". These angles were not covered by rounds 1 to 9. Pro
 | PS94 | **The first five minutes of each life.** `npm run check:openings` (OPN) runs on Fang Yuan's, Klein's and Harry's opening screens after the frame changes, and checks whether a new player can tell what to do. |
 | PS95 | **Save growth over long play.** Wolf populations, kill records, fight records and aspect histories (UR92) all grow. Measure save size after 100 in-game days on one lead against the 8 GB target, and cap or compact histories before they bloat. |
 | PS96 | **A density setting.** A compact or comfortable choice for the panels, once A, B, D and F settle, since the split adds frames. |
+
+## Round 11, 2026-11-15: what stays on every page, and the empty half of Crafting
+
+Weibao picked stacked panels and said two things after seeing the built Crafting page ([log](../../USER_VISION_LOG_2026-11.md#stacked-panels-picked-some-info-on-every-page-2026-11-15)): some information belongs on every page, and Crafting leaves too much empty space. Read from his capture of the Crafting tab at 1920×1080: Ready now (3 rows), the recipe list (16 rows), and This place folded at the bottom. The list ends about halfway down a panel that stretches to fill the column.
+
+### ACT NOW
+
+| Code | Finding | Proposal (default, dial, reason) |
+| --- | --- | --- |
+| PS97 | **Stacked panels are picked.** Ready now, Doing now, This place and Story, each with a header and its own bounded scroll. | ui-cohesion builds the rest of the split: Doing now, then Ready above This place. Feature panels keep their content owners. |
+| PS98 | **A pinned band: what every page shows.** Today, the status line and day strip (B, F) persist, and This place persists as a folded bar. Ready now persists on some pages and hides on others. | Default: every page shows the status line (place, time, essence or vitals, saved), the day strip, a one-line Ready now (its count and the first item, expandable), Doing now when something is running, and This place folded. The feature panel gets the rest. Dial: the player pins or unpins any band. Reason: what the life needs next and what it is doing should not vanish when you open a tab. |
+| PS99 | **Panels stretch to fill the column, so a short list leaves a large empty box.** Crafting's list ends about halfway down its frame. | Default: a panel sizes to its content, up to a cap. Leftover height goes to a detail pane or to the next panel, never to an empty frame. Reason: an empty bordered box reads as missing content. |
+| PS100 | **Crafting uses its empty half for the selected recipe.** It has no detail view today: a row says "1 material short" but not which material. | Default: list on the left, the selected recipe on the right (or below on a narrow screen). The detail shows each input as have/need with where to get it (inspector links, A), the output, its time and use, then Make. The first row is selected on open. Reason: the question at a bench is "what can I make, and what am I missing", which the empty space can answer. |
+
+### ACCOUNT FOR NOW
+
+| Code | Finding | Proposal |
+| --- | --- | --- |
+| PS101 | **Short rows do not name the material.** "1 material short" and "2 of 2 materials short" make you open a recipe to learn anything. | Name it in the row when it is one item ("needs 1 sinew"). Rows that lack everything fold into "Far off (6)". Group the list as Ready, One short and Far off. |
+| PS102 | **Ready now repeats Crafting's list on the Crafting page.** Make Bonemeal shows in both, with the same "needs 20 animal tooth". | On a feature page the pinned Ready band leaves out rows from that same feature, or marks them "here". This matches ui-cohesion's hiding rule, now kept as a one-line band. |
+| PS103 | **The list rows have no state color.** Every row reads alike, and "needs 20" is gold only in Ready now. | Use one status vocabulary on every page: ready, one short, far off, blocked with a reason. Same color and words in Ready now, the lists and the inspector. |
+| PS104 | **The Reports column on the right is cut off in this capture.** | Check that the right column keeps its width at 1920×1080 once the pinned band lands; the walk scripts cover it. |
+
+### LATER
+
+| Code | Item |
+| --- | --- |
+| PS105 | **The same list-plus-detail for Mixing, Skills and the Gu house.** Any list page whose rows hide their key fact gets the PS100 detail pane once Crafting proves it. |
+| PS106 | **Pin from the inspector.** "Watch this" on an item or recipe puts it in the pinned band, for example "wolf eyes 2/3". |
