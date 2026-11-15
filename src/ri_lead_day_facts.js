@@ -41,24 +41,27 @@ export const RI_DAY_DIALS = Object.freeze({
     meritPerStone: Object.freeze({merit: 25, why: '25 battle merit buys a primeval stone on the alliance board (ch127).'}),
     eyeMerit: Object.freeze({merit: 10, why: 'A lightning wolf eye is worth ten merit (ch132). Eyes at the board are how the clan credits wolf-tide kills (ch127).'}),
     tallyMerit: Object.freeze({merit: 10, why: 'Authored: a watch tally is the captain’s word that you stood in a shared fight. The board pays it like one eye, the share of a kill you did not finish yourself.'}),
-    peltSale: Object.freeze({stones: 2, why: 'Authored: the source gives no price for a lightning wolf hide. Two stones puts a clean hide above a day of petals and below a jar of wine and a meal.'}),
-    meatSale: Object.freeze({jin: 3, stones: 1, why: 'Authored: rice is five merit a jin at the board (ch132); fresh wolf meat sells to the village kitchens a little dearer, three jin for a stone.'}),
-    patrol: Object.freeze({parts: 15, minutes: 180, restMinutes: 360, why: 'Authored: a watch on the outer wall takes up to fifteen parts, the most a heavy night costs; what the night did not use returns when you report.'})
+    peltSale: Object.freeze({stones: 1, why: 'Authored: the source gives no price for a lightning wolf hide. One stone, a day and a half of petals: worth carrying home, not worth hunting for.'}),
+    meatSale: Object.freeze({jin: 6, stones: 1, why: 'Authored: rice is five merit a jin at the board (ch132); wolf meat is tough and plentiful in a wolf tide, so the village kitchens give a stone for six jin.'}),
+    patrol: Object.freeze({parts: 15, minutes: 180, restMinutes: 360, why: 'Authored: a watch on the outer wall takes up to fifteen parts, the most a heavy night costs; what the night did not use returns when you report.'}),
+    carry: Object.freeze({pelt: 1, meat: 6, why: 'Authored: one man walking the wall carries every eye he cut, one hide and about six jin of meat; the rest of the night’s kill goes to the watch’s kitchen.'})
 });
 // What comes out of the trees on a patrol: one seeded draw when you report to the board (the engine's outcome draw, from the save's
 // seed). Weibao 2026-11-14: "Rather than merit immediately it could be like part of the wolf drops and then I can trade that in for merit
-// or something". So a night yields parts, never merit: eyes are the board's proof (canon, ch127/ch132), a watch tally is the captain's
-// word for a shared kill, and pelts and meat sell for stones. Merit is written only by the board hand-ins (PS3). Authored weights and
-// yields (dial: per row, and per wolf-tide phase later; the wall's own population is ri_wolf_tide.js). `back` is the essence that returns.
-// `fight` marks the rows the live hunt replaces (RI_PATROL_FIGHT_ROWS); until then each is a compressed routine (ACR1). About 1.8 eyes,
-// 0.65 tallies, a third of a pelt and nearly a jin of meat a night: some 40 merit's worth before a wolf at the wall is settled.
+// or something". A row says what happened: how many dead wolves you took parts from (`wolves`, of which `large`), which parts survived
+// (`keep`, for carcasses left too long) and how many watch tallies the captain gave for shared kills. What a dead wolf yields is not here:
+// ri_wolf_tide.js owns the wolves and their parts (RI_WOLF_PARTS, riWolfParts; PS2, RWT1), and the day extension multiplies them out,
+// capped by what one man carries (RI_DAY_DIALS.carry). Merit is written only by the board hand-ins (PS3). Authored weights (dial: per row;
+// the wall's population can scale them later, riEncounterWeights). `back` is the essence that returns. `fight` marks the rows the live hunt
+// replaces (RI_PATROL_FIGHT_ROWS); until then each is a compressed routine (ACR1). About 1.6 eyes, two thirds of a hide, four jin of meat
+// and 0.6 tallies a night: some 55 merit's worth before a wolf at the wall is settled.
 export const RI_PATROL_ENCOUNTERS = Object.freeze([
-    Object.freeze({id: 'quiet', weight: 20, back: 10, eyes: 2, pelts: 1, line: 'A quiet watch. Two stray wolves came out of the trees and the Moonglow took both. You cut out their eyes and kept the cleaner hide.'}),
-    Object.freeze({id: 'small_pack', weight: 28, back: 5, eyes: 2, tallies: 1, line: 'A small pack of five tested the wall. You cut down two and took their eyes; the watch finished two more, and the captain gave you a tally for your share.'}),
-    Object.freeze({id: 'large_pack', weight: 12, back: 0, eyes: 3, pelts: 1, meat: 6, tallies: 2, line: 'A pack of a dozen came at the wall with a lightning wolf leading. Your sea ran dry before they turned. Three eyes, a hide and six jin of meat are yours, and two tallies for the kills you shared.'}),
-    Object.freeze({id: 'carcasses', weight: 12, back: 8, eyes: 2, line: 'Little came out tonight, but two carcasses lay where an earlier patrol left them. The hides had spoiled; you cut out the eyes.'}),
+    Object.freeze({id: 'quiet', weight: 20, back: 10, wolves: 2, line: 'A quiet watch. Two stray wolves came out of the trees and the Moonglow took both.'}),
+    Object.freeze({id: 'small_pack', weight: 28, back: 5, wolves: 2, tallies: 1, line: 'A small pack of five tested the wall. You cut down two; the watch finished two more, and the captain gave you a tally for your share.'}),
+    Object.freeze({id: 'large_pack', weight: 12, back: 0, wolves: 3, large: 1, tallies: 2, line: 'A pack of a dozen came at the wall with a big lightning wolf leading. Your sea ran dry before they turned; the leader was one of yours, and the captain gave you tallies for the kills you shared.'}),
+    Object.freeze({id: 'carcasses', weight: 12, back: 8, wolves: 2, keep: Object.freeze(['eye']), line: 'Little came out tonight, but two carcasses lay where an earlier patrol left them. The hides and meat had spoiled; the eyes were still good.'}),
     Object.freeze({id: 'wild_gu', weight: 4, back: 8, wildGu: 1, line: 'In the brush under the wall something small glowed and did not run. A wild Gu, unrefined.'}),
-    Object.freeze({id: 'injured', weight: 8, back: 0, eyes: 1, injured: true, line: 'A wolf got under your blade and opened your arm. You killed it and took the eye, but you need to bind the cut and rest before going out again.'}),
+    Object.freeze({id: 'injured', weight: 8, back: 0, wolves: 1, injured: true, line: 'A wolf got under your blade and opened your arm. You killed it, but you need to bind the cut and rest before going out again.'}),
     Object.freeze({id: 'met_scout', weight: 8, back: 5, tallies: 1, line: 'A scout from another clan’s patrol shared your stretch of the wall and talked more than he should have about their losses. The captain gave you a tally for the wolf you turned together.'}),
     Object.freeze({id: 'wolf_attack', weight: 8, back: 0, fight: true, line: 'A lightning wolf leapt the wall and is still out there, circling under the lamps. Face it, or let the watch drive it off.'})
 ]);

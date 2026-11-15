@@ -37,7 +37,7 @@ test('Fang Yuan keeps his own day: meals, a stone, a reported patrol, a sea that
     assert.equal(action('patrol').disabled, true, 'one watch at a time until it is reported');
     await run('report');
     save = await g.save();
-    const line = save.expansion.simulation.knowledge.player[`${DAY}.patrol`].value, row = RI_PATROL_ENCOUNTERS.find(r => r.line === line);
+    const line = save.expansion.simulation.knowledge.player[`${DAY}.patrol`].value, row = RI_PATROL_ENCOUNTERS.find(r => line.startsWith(r.line));
     assert.ok(row, 'the report leaves one of the encounter lines');
     assert.equal(count(save, 'book.ri.lead.ear_grass.merit'), merit, 'the night pays no merit on its own');
     const eyes = count(save, 'book.ri.lead.ear_grass.cached_wolf_eyes');

@@ -11,7 +11,8 @@ import {extensionFact} from '../structured_pack_extensions.js';
 import {formatDuration} from '../number_format.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_RANK_TWO} from './book_gu_lead_rank_two.js';
-import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, RI_WOLF_AT_WALL as WOLF, RI_MEAT_NOTE, riSeaMinutesPerPart} from '../ri_lead_day_facts.js';
+import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, RI_WOLF_AT_WALL as WOLF, RI_WOLF_PART_ITEMS, RI_MEAT_NOTE, riSeaMinutesPerPart} from '../ri_lead_day_facts.js';
+import {riWolfParts} from '../ri_wolf_tide.js';
 
 export const GU_LEAD_DAY = DAY_ID;
 // The commands that write battle merit: the alliance board's hand-ins, nothing else (PS3; tests/ri_lead_day.test.js counts them).
@@ -56,10 +57,23 @@ const feed = d => act(`feed_${d.slot}`, `Feed the ${d.label} · ${d.perMeal === 
     {needs: [has(d.gu, 1, `You do not hold the ${d.label}.`), eq(`${GU_LEAD_DAY}.${d.slot}.due`, true, `The ${d.label} ate recently and will not take more yet.`),
         has(d.food, d.perMeal, `You need ${d.perMeal === 1 ? 'one' : d.perMeal} ${d.foodLabel}.`)], costs: [item(d.food, -d.perMeal)]});
 const moonglow = RI_DAY_DIETS.find(d => d.slot === 'moonglow');
+// What a reported night brings back (PS2, RWT1): the dead wolves' parts from the one wolf table (ri_wolf_tide.js riWolfParts, by size),
+// only the parts a carcass still has (`keep`), and no more than one man carries (RI_DAY_DIALS.carry). Exported for the one-source test.
+export function patrolYield(row) {
+    const got = {};
+    for(let i = 0; i < (row.wolves || 0); i++) for(const [part, n] of Object.entries(riWolfParts({large: i < (row.large || 0)})))
+        if(!row.keep || row.keep.includes(part)) got[part] = (got[part] || 0) + n;
+    return Object.fromEntries(Object.entries(got).map(([part, n]) => [part, Math.min(n, K.carry[part] ?? n)]).filter(([, n]) => n > 0));
+}
+const words = {eye: n => `${n === 1 ? 'an eye' : `${n} eyes`}`, pelt: n => `${n === 1 ? 'a hide' : `${n} hides`}`, meat: n => `${n} jin of meat`};
+const broughtBack = (got, tallies) => {
+    const list = [...Object.entries(got).map(([part, n]) => words[part](n)), ...(tallies ? [tallies === 1 ? 'a watch tally' : `${tallies} watch tallies`] : [])];
+    return list.length ? ` Brought back: ${list.join(', ')}.` : '';
+};
 const meatFresh = v => eq(local('meat_fresh'), v, v ? 'The meat has spoiled. Nobody will buy it; throw it out.' : 'The meat is still fresh. Sell it before it turns.');
 
 export const guLeadDay = {
-    schema: 1, id: GU_LEAD_DAY, revision: 2,
+    schema: 1, id: GU_LEAD_DAY, revision: 3,
     base: {id: GU_LEAD, revision: 1, contentHash: baseHash},
     label: 'Keep your own day: feed your Gu, draw stones, trade wolf parts for merit',
     description: `Between the clan's errands, your Gu still eat on their own clocks and your sea still empties. Buy their food, keep them fed, refill your essence, and bring wolf parts back from the wolf tide to trade at the board and the stalls. ${seaPace}`,
@@ -115,12 +129,12 @@ export const guLeadDay = {
             audience: ['$actor'], once: false, duration: 0, visibleWhen: admitted,
             description: 'The board clerk counts what the night brought. What came out of the trees is settled now, from the watch you walked.',
             requires: all(ready, admitted, at, {...out, reason: 'Walk a patrol first.'}),
-            outcomes: RI_PATROL_ENCOUNTERS.map(r => ({id: local(`patrol.${r.id}`), weight: r.weight, effects: [
-                fact('patrol_out', false), note(local('patrol'), r.line),
-                ...(r.pelts ? [item(IT.pelt, r.pelts)] : []), ...(r.tallies ? [item(IT.tally, r.tallies)] : []),
-                ...(r.meat ? [item(IT.meat, r.meat), note(RI_MEAT_NOTE, `You carried ${r.meat} jin of wolf meat back from the wall.`)] : []),
+            outcomes: RI_PATROL_ENCOUNTERS.map(r => ({r, got: patrolYield(r)})).map(({r, got}) => ({id: local(`patrol.${r.id}`), weight: r.weight, effects: [
+                fact('patrol_out', false), note(local('patrol'), `${r.line}${broughtBack(got, r.tallies)}`),
+                ...Object.entries(got).map(([part, n]) => item(RI_WOLF_PART_ITEMS[part], n)), ...(r.tallies ? [item(IT.tally, r.tallies)] : []),
+                ...(got.meat ? [note(RI_MEAT_NOTE, `You carried ${got.meat} jin of wolf meat back from the wall.`)] : []),
                 ...(r.back ? [{type: 'energy', actor: 'player', energyId: essence, operation: 'recover', amount: r.back}] : []),
-                ...(r.eyes ? [item(IT.eye, r.eyes)] : []), ...(r.wildGu ? [item(IT.wildGu, r.wildGu)] : []),
+                ...(r.wildGu ? [item(IT.wildGu, r.wildGu)] : []),
                 ...(r.injured ? [fact('injured', true)] : []), ...(r.fight ? [fact('last_fight', r.id), fact('wolf_at_wall', true)] : [])]}))},
         {id: local('drive_off'), revision: 1, label: 'Let the watch drive the wolf off · a watch tally, a bite', group: 'structured_local', worldId: world,
             actorId: 'player', location: academy, audience: ['$actor'], once: false, duration: 0, visibleWhen: admitted,

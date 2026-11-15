@@ -5,7 +5,8 @@ import assert from 'node:assert/strict';
 import {readFileSync, readdirSync} from 'node:fs';
 import {riLeadDayFacts, RI_DAY_DIETS, RI_DAY_DIALS, RI_DAY_ITEMS, RI_LEAD_DAY, RI_MEAT_NOTE, RI_PATROL_ENCOUNTERS, RI_PATROL_FIGHT_ROWS, RI_WOLF_AT_WALL, RI_WOLF_PART_ITEMS, riSeaMinutesPerPart} from '../src/ri_lead_day_facts.js';
 import {settleSea, stageSea} from '../src/ri_lead_sea_domain.js';
-import {guLeadDay, GU_LEAD_DAY_BOARD} from '../src/world_packs/book_gu_lead_day.js';
+import {guLeadDay, GU_LEAD_DAY_BOARD, patrolYield} from '../src/world_packs/book_gu_lead_day.js';
+import {RI_WOLF_PARTS} from '../src/ri_wolf_tide.js';
 
 const life = (clock, fed = {}) => ({clock, actors: {player: {worldId: 'book.ri.lead.world'}},
     simulation: {knowledge: {player: Object.fromEntries(Object.entries(fed).map(([slot, at]) => [`${RI_LEAD_DAY}.fed.${slot}`, {at}]))}}});
@@ -119,4 +120,20 @@ test('wolf meat sells while fresh and is thrown out once it has turned (about th
     assert.match(JSON.stringify(cmd('sell_meat').requires), /meat_fresh[^}]*"value":true/);
     assert.match(JSON.stringify(cmd('throw_meat').requires), /meat_fresh[^}]*"value":false/);
     assert.ok(cmd('sell_pelt').effects.some(e => e.key === JSON.stringify({id: RI_DAY_ITEMS.stone}) && e.amount === RI_DAY_DIALS.peltSale.stones));
+});
+
+test('one source of wolf yields: the patrol counts dead wolves, ri_wolf_tide.js says what a wolf gives (PS2, RWT1)', () => {
+    for(const r of RI_PATROL_ENCOUNTERS) for(const field of ['eyes', 'pelts', 'meat', 'merit']) assert.ok(!(field in r), `${r.id} carries no ${field} count of its own`);
+    const quiet = patrolYield(RI_PATROL_ENCOUNTERS.find(r => r.id === 'quiet'));
+    assert.equal(quiet.eye, 2 * RI_WOLF_PARTS.eye.ordinary, 'eyes are the wolves times the table');
+    assert.equal(quiet.meat, Math.min(2 * RI_WOLF_PARTS.meat.ordinary, RI_DAY_DIALS.carry.meat), 'meat is capped by what one man carries');
+    assert.deepEqual(Object.keys(patrolYield(RI_PATROL_ENCOUNTERS.find(r => r.id === 'carcasses'))), ['eye'], 'old carcasses keep only their eyes');
+    const report = guLeadDay.commands.find(c => c.id === `${RI_LEAD_DAY}.report`);
+    for(const r of RI_PATROL_ENCOUNTERS) {
+        const effects = report.outcomes.find(o => o.id === `${RI_LEAD_DAY}.patrol.${r.id}`).effects;
+        for(const [part, id] of Object.entries(RI_WOLF_PART_ITEMS)) {
+            const given = effects.filter(e => e.type === 'item' && e.key === JSON.stringify({id})).reduce((n, e) => n + e.amount, 0);
+            assert.equal(given, patrolYield(r)[part] ?? 0, `${r.id} gives the table's ${part}`);
+        }
+    }
 });
