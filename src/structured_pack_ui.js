@@ -4,6 +4,9 @@ import {registerOwnedWorkPanel} from './adventure_notebook.js';
 import {registerReady} from './ready_rows.js';
 import {nextLinks} from './ui/next_steps.js';
 import {verbOf} from './ui/action_verbs.js';
+import {registerBoxTab} from './ui/box_tabs.js';
+import {readPort} from './ui_ports.js';
+import {riGuTabModel,renderRiGuTab} from './ri_gu_tab.js';
 import {formatDuration} from './number_format.js';
 import {renderFigure} from './ui/figure.js';
 import {renderGuHouse} from './ui/gu_house_view.js';
@@ -131,7 +134,8 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     node('summary',more).textContent='Details';
                     for(const row of view.status){const n=node('p',more);n.textContent=`${row.label}: ${row.value}`;}
                     rows.get(info).push(['status',view.status.map(r=>[r.label,r.value])]);}
-                if(view.house){renderGuHouse(info,view.house);rows.get(info).push(['house',view.house]);}
+                // D4: with a Skills box on the page the Gu house (aperture and each Gu's meals) is the Skills box's Gu tab; without one it stays here.
+                if(view.house){if(releaseGuTab){const k=JSON.stringify(view.house);if(k!==guKey){guKey=k;guTab.replaceChildren();renderGuHouse(guTab,view.house);}}else renderGuHouse(info,view.house);rows.get(info).push(['house',view.house]);}
                 for(const l of view.ladders)ladderBlock(info,l);
                 // G15: every continuation you can take now, then only the next one that is still shut.
                 let shut=0;for(const e of view.extensions){
@@ -211,6 +215,12 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
     // the "Your day" block that sat on Here while the panel was out of view (G10, UIC196). Shut story steps stay in the panel.
     let lastView=null;
     const uses=costs=>costs.map(c=>c.replace(/^Entrust /,'').replace(/ (for this work|to recipient)$/,'').replace(/^\d+(\.\d+)?\s*(× )?/,'').trim()).filter(Boolean);
+    const guTab=document.createElement('section');guTab.className='gu-tab-page';let guKey='';
+    const releaseGuTab=document.getElementById?.('skills_and_stances_content_div')?registerBoxTab({box:'skills',id:'gu',label:'Gu',node:guTab,when:()=>{
+        // The Gu-keeper life draws its house here from render(); Fang Yuan's Gu come from his day facts (ri_gu_tab.js), redrawn on change.
+        if(lastView?.active&&lastView?.house)return true;
+        const m=riGuTabModel(readPort('expansion'),readPort('stock')?.carried);if(!m)return false;
+        const k='ri'+JSON.stringify(m);if(k!==guKey){guKey=k;guTab.replaceChildren();renderRiGuTab(guTab,m);}return true;}}):null;
     const releaseReady=registerReady({id:'life-day',label:'Your day',rows:()=>{const v=lastView;if(!v?.active)return [];
         return v.actions.filter(a=>!a.once||a.eligible||a.completed===0).map(a=>{
             const detail=`${a.duration>0?formatDuration(a.duration):'At once'}${a.costs.length?' · uses '+a.costs.join(', '):''}`,open=()=>expandWorkspaceModule('beginning');
@@ -222,5 +232,5 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         });}});
     // G10: a life's own timed work stays with the life. Without an owner the Notebook claimed it and took the centre on every press (as UIC182 for the courtyard).
     const releaseWork=registerOwnedWorkPanel(work=>lastView?.actions.some(a=>a.id===work.commandId)||lastView?.jobs.some(j=>j.id===work.id)?'structured_pack_panel':null);
-    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){clearInterval(timer);releaseWork();releaseReady();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
+    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){clearInterval(timer);releaseWork();releaseReady();releaseGuTab?.();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
 }
