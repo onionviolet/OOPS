@@ -130,7 +130,7 @@ function makeShell(module) {
     if (!module.placeholder) { module.placeholder = document.createComment(`workspace:${module.id}`); module.node.before(module.placeholder); }
     const shell = el('section', 'workspace-module'); shell.dataset.module = module.id; shell.tabIndex = -1;
     // UM9: a box's look keys on its box, never its region, so it looks the same in any slot.
-    const box = boxOf(module.id); if (box) shell.dataset.box = box;
+    const box = boxOf(module.id); if (box) shell.dataset.box = box; const slot = LAYOUT_SPEC.columnSlots?.[module.id]; if (slot) shell.dataset.columnSlot = slot;
     const header = el('div', 'workspace-module-header');
     const handle = button('↕', 'handle', module.id); handle.className = 'workspace-drag-handle'; handle.draggable = false; handle.title = 'Drag to reorder or dock. Arrow keys move; left/right changes dock.'; 
     const title = el('strong'); title.tabIndex = 0; title.setAttribute('role', 'button');
