@@ -58,6 +58,26 @@ function meter(doc, className, label, fraction, text) {
 // The attack timer (DU10): how close a fighter is to acting, as a thin bar whose words say the same. Feel-finish owns its look (styles/feel_finish.css).
 export const readyWord = r => r >= 1 ? 'acts next' : r >= .6 ? 'acts soon' : r >= .3 ? 'winding up' : 'a while yet';
 const timer = (doc, name, ready) => Number.isFinite(ready) ? meter(doc, 'versus-bar versus-bar--timer', `${name}: time to act`, ready, readyWord(ready)) : null;
+// DU37 (D6, proposal): a seeded sigil beside each name, so two foes of one kind are told apart at a glance by shape; colour comes from the
+// card's own tokens and only repeats it (UR37, UR99: cheap materials, no art). Drawn only where the document makes SVG.
+const SVG = 'http://www.w3.org/2000/svg';
+export function sigilPoints(name) {
+    let x = 0; for (const c of String(name)) x = (x * 31 + c.charCodeAt(0)) >>> 0;
+    const n = 3 + (x % 4), turn = (x % 7) / 7;
+    return Array.from({length: n}, (_, i) => { const a = (i / n) * Math.PI * 2 + turn, r = 6 + ((x >>> (i * 3)) % 4); return `${(12 + r * Math.cos(a)).toFixed(1)},${(12 + r * Math.sin(a)).toFixed(1)}`; }).join(' ');
+}
+function sigil(doc, name) {
+    if (typeof doc.createElementNS !== 'function') return null;
+    const svg = doc.createElementNS(SVG, 'svg'); svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('class', 'versus-sigil'); svg.setAttribute('aria-hidden', 'true');
+    const poly = doc.createElementNS(SVG, 'polygon'); poly.setAttribute('points', sigilPoints(name));
+    const dot = doc.createElementNS(SVG, 'circle'); dot.setAttribute('cx', '12'); dot.setAttribute('cy', '12'); dot.setAttribute('r', '1.6');
+    svg.append(poly, dot); return svg;
+}
+function named(doc, name) {
+    const h = make(doc, 'h4', 'versus-name', name), mark = sigil(doc, name);
+    if (mark && typeof h.prepend === 'function') h.prepend(mark);
+    return h;
+}
 const chip = (doc, kind, text, extra = '') => make(doc, 'span', `versus-chip versus-chip--${kind}${extra ? ` ${extra}` : ''}`, text);
 
 function youSide(doc, you) {
@@ -72,7 +92,15 @@ function youSide(doc, you) {
     if (you.stamina?.max > 0) side.append(meter(doc, 'versus-bar versus-bar--stamina', `${you.name} stamina`, you.stamina.current / you.stamina.max, you.stamina.text));
     { const t = timer(doc, you.name, you.ready); if (t) side.append(t); }
     if (you.means) side.append(make(doc, 'p', 'versus-means', you.means));
-    if (you.allies > 0) side.append(make(doc, 'p', 'versus-allies', you.alliesText ? `Beside you: ${you.alliesText}` : `+${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}`));
+    if (you.allyCards?.length) {
+        // D6: allies stand on your side, each its own small card under "Beside you" (the same words as the old one-line list).
+        side.append(make(doc, 'h5', 'versus-heading', 'Beside you'));
+        for (const a of you.allyCards) {
+            const c = make(doc, 'article', 'versus-card versus-card--ally'); c.dataset.combatSubject = a.id;
+            c.append(named(doc, a.name), make(doc, 'p', 'versus-hp', a.order ? `${a.hurt}, told: ${a.order}` : a.hurt));
+            side.append(c);
+        }
+    } else if (you.allies > 0) side.append(make(doc, 'p', 'versus-allies', you.alliesText ? `Beside you: ${you.alliesText}` : `+${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}`));
     if (you.mix) side.append(make(doc, 'p', 'versus-mix', `Strikes: ${you.mix}`));
     return side;
 }
@@ -84,7 +112,7 @@ function card(doc, o) {
     c.dataset.down = String(!!o.down);
     c.dataset.combatSubject = o.id;
     c.setAttribute('aria-label', opponentLine(o));
-    c.append(make(doc, 'h4', 'versus-name', o.name));
+    c.append(named(doc, o.name));
     // Numbers as the character knows them (PS130): "Atk ? · ?/? hp" until seen; the hp line keeps only its words (Fresh, Down), one home per fact.
     if (o.numbers && !o.down) {
         const n = make(doc, 'p', 'versus-numbers'), num = (v, field) => knownNumberNode(v, {}, {field: `${o.name}: ${field}`, doc});
@@ -122,6 +150,9 @@ export function renderVersusRow(host, versus) {
     sep.setAttribute('aria-hidden', 'true');
     const them = make(doc, 'section', 'versus-side versus-side--them');
     them.setAttribute('aria-label', 'Opponents');
+    // D6: the other side is named and counted; fallen foes keep their cards (DU11), so the count is who still stands.
+    const standing = versus.opponents.filter(o => !o.down).length;
+    them.append(make(doc, 'h5', 'versus-heading versus-heading--them', `Against you · ${standing}${standing < versus.opponents.length ? ` of ${versus.opponents.length}` : ''}`));
     for (const o of versus.opponents) them.append(card(doc, o));
     root.append(youSide(doc, versus.you), sep, them);
     host.replaceChildren(root);

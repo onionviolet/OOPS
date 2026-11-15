@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {fightSituation} from '../src/ui/combat_situation.js';
-import {renderVersusRow, versusText} from '../src/ui/combat_versus.js';
+import {renderVersusRow, versusText, sigilPoints} from '../src/ui/combat_versus.js';
 import {DUEL_BOARD, BRAWL_BOARD} from '../src/ui/preview/fixtures/combat.js';
 
 class Element {
@@ -113,4 +113,17 @@ test('the attack timer (DU10) is a meter in words on a standing fighter, and abs
     assert.equal(timers[1].props['--versus-fill'], '40%');
     versus.opponents[0].down = true;
     assert.equal(draw(versus).find(n => n.has('versus-bar--timer')).length, 1);
+});
+
+test('D6: the other side is headed and counted by who stands, allies get their own cards, and each name has a stable sigil', () => {
+    const versus = brawl(); versus.opponents[0].down = true;
+    versus.you.allies = 2; versus.you.allyCards = [{id: 'a1', name: 'Dunstan', hurt: 'hurt', order: 'Guard me'}, {id: 'a2', name: 'Old Wen', hurt: 'steady', order: null}];
+    const root = draw(versus), heads = root.find(n => n.tagName === 'h5');
+    assert.deepEqual(heads.map(h => h.textContent), ['Beside you', `Against you · ${versus.opponents.length - 1} of ${versus.opponents.length}`]);
+    const allies = root.find(n => n.has('versus-card--ally'));
+    assert.deepEqual(allies.map(a => a.dataset.combatSubject), ['a1', 'a2']);
+    assert.ok(allies[0].textContent.includes('hurt, told: Guard me'));
+    assert.equal(root.find(n => n.has('versus-allies')).length, 0, 'the one-line list gives way to the cards');
+    assert.equal(sigilPoints('The knifeman'), sigilPoints('The knifeman'));
+    assert.notEqual(sigilPoints('Wolf rat A'), sigilPoints('Wolf rat B'));
 });

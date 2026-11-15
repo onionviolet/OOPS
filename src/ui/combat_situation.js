@@ -209,6 +209,7 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     }
     base.versus.you.mix = me.mix ? mixText(me.mix, worldId) : null;
     if (f.allies?.length) base.versus.you.alliesText = f.allies.map(a => `${a.name} (${a.hurt}${a.order ? `, told: ${a.order}` : ''})`).join(', ');
+    if (f.allies?.length) base.versus.you.allyCards = f.allies.map(a => ({id: a.id, name: a.name, hurt: a.hurt, order: a.order || null})); // D6: each ally its own small card
     const moves = (f.moves || []).map(m => ({...m, mixText: m.mix ? mixText(m.mix, worldId) : ''}));
     const hits = dev ? (f.hits || []).map(h => {
         const slot = h.slot ? ` [${h.slot}]` : '';

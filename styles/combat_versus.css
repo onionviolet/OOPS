@@ -89,3 +89,10 @@
 .versus-numbers {margin: 0; font-size: var(--ui-type-small, inherit);}
 .versus-numbers .known-number[data-known="unknown"] {color: var(--versus-muted); cursor: help;}
 .versus-numbers .known-number[data-known="estimated"] {font-style: italic;}
+/* D6 (proposal): headings for the two sides, ally cards on your side, and a seeded sigil beside each name (DU37). */
+.versus-heading {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small); font-weight: var(--ui-weight-strong); color: var(--versus-muted); letter-spacing: .04em; text-transform: uppercase;}
+.versus-heading--them {grid-column: 1 / -1;}
+.versus-card--ally {padding: var(--ui-space-2);}
+.versus-name {display: flex; align-items: center; gap: var(--ui-space-2);}
+.versus-sigil {width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; color: var(--versus-accent);}
+.versus-sigil circle {fill: currentColor; stroke: none;}
