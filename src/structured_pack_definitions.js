@@ -2,6 +2,7 @@ import {check, object} from './basics.js';
 import {isKeeperColonyEffect, keeperColonyEffectPack, keeperFarmWorld} from './gu_keeper_colony.js';
 import {isKeeperTimeEffect, keeperTime, keeperTimeWorld} from './gu_keeper_time.js';
 import {isKeeperWildEffect, keeperWildEffectPack, keeperWildWorld} from './gu_keeper_wild.js';
+import {guRefinePackEffect} from './gu_refiner_registry.js';
 import {isKeeperRefinementEffect, keeperRefinementEffectPack, keeperRefinementWorld} from './gu_keeper_refinement.js';
 import {isMoonlightTrialEffect, moonlightTrialEffectPack, moonlightTrialWorld} from './gu_keeper_moonlight_trial.js';
 import {isKeeperMoveTrialEffect, keeperMoveCommandId, keeperMoveTrialEffectPack, keeperMoveTrialWorld} from './gu_keeper_move_trial.js';
@@ -303,7 +304,7 @@ export function registerStructuredCommandExtension(raw,contentHash,base,registry
             c.id===`${raw.id}.${e.operation}`&&c.duration===0&&playerEffect(e)&&isKeeperFusionEffect(e);
         const forgeFixed=e=>bundledInstant&&raw.id===keeperFixedForgeEffectPack(e.operation)&&base.world.id===keeperFixedForgeWorld&&
             c.id===`${raw.id}.${e.operation}`&&c.duration===0&&playerEffect(e)&&isKeeperFixedForgeEffect(e);
-        check((c.costs||[]).every(allowedCost)&&[...(c.effects||[]),...outcomes].every(e=>allowedEffect(e)||practice(e)||tendColony(e)||useSeal(e)||trackWorm(e)||refineImmortal(e)||compareMoonlight(e)||testMove(e)||holdRainbow(e)||propagateGu(e)||tradePotato(e)||healLeaf(e)||followWolf(e)||walkWithSteward(e)||requestAid(e)||immortalTravel(e)||attitudeTrial(e)||raiseAnts(e)||tryProcedure(e)||spirit(e)||researchGoal(e)||fuseMoon(e)||forgeFixed(e)),'Command-only extensions cannot provision actors, faculties or new runtime owners.');
+        check((c.costs||[]).every(allowedCost)&&[...(c.effects||[]),...outcomes].every(e=>allowedEffect(e)||guRefinePackEffect(e,{pack:raw.id,world:base.world.id,command:c.id,player:bundledInstant&&playerEffect(e)})||practice(e)||tendColony(e)||useSeal(e)||trackWorm(e)||refineImmortal(e)||compareMoonlight(e)||testMove(e)||holdRainbow(e)||propagateGu(e)||tradePotato(e)||healLeaf(e)||followWolf(e)||walkWithSteward(e)||requestAid(e)||immortalTravel(e)||attitudeTrial(e)||raiseAnts(e)||tryProcedure(e)||spirit(e)||researchGoal(e)||fuseMoon(e)||forgeFixed(e)),'Command-only extensions cannot provision actors, faculties or new runtime owners.');
     }
     const notes=new Set(raw.commands.flatMap(c=>c.effects||[]).filter(e=>e.type==='knowledge'&&e.actor==='player').map(e=>e.key));
     check(raw.items===undefined||Array.isArray(items)&&items.length>0&&items.every(i=>object(i)&&own(i.id)&&Object.keys(i).every(k=>['id','label','description','value'].includes(k))&&Number.isSafeInteger(i.value)&&i.value>=0),'Invalid extension item.');

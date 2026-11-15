@@ -102,6 +102,38 @@ export const WORLD_FIXTURES = Object.freeze({
             must(petals > 0, 'the Moonlight Gu has no petals in its keep');
         },
     },
+    'ri-fang-yuan-wild-gu': {
+        world: 'gu', route: 'composed', view: {panel: 'beginning', sel: '#structured_pack_panel', text: /Refine the wild Gu/}, needs: [],
+        summary: 'DEV FIXTURE, COMPOSED: Fang Yuan\'s lead life (book.ri.lead) begun from Beginning, then set in his academy room with a full 44-part sea of green-copper essence, one wild Gu (book.ri.lead.day.wild_gu) and one hidden lightning wolf eye; "Refine the wild Gu you found" adopted by a click. Both refine rows are ready. The story before rank two and the patrol that finds the Gu are not walked.',
+        async build(game) {
+            const ESS = 'book.ri.lead.primeval', WILD = 'book.ri.lead.wild_refinement';
+            await beginLife(game, 'book.ri.lead');
+            // His sea opens at the awakening and the wild Gu comes from a patrol at rank two; both are days of story, so the save path sets
+            // what they leave: the essence ledger (policy as the awakening writes it), the location and the two items. No new save field.
+            const save = structuredClone(await game.save()), x = save.expansion;
+            x.simulation.people.player.location = 'book.ri.lead.academy'; save['current location'] = 'book.ri.lead.academy';
+            (x.simulation.energies ||= {}).player = {[ESS]: {policy: {id: ESS, revision: 1, label: 'Green-copper primeval essence', capacity: 44, output: 44,
+                control: 1, efficiencyNumerator: 1, efficiencyDenominator: 1, strainLimit: 0, strainPerUse: 0}, reserve: 44, strain: 0}};
+            const inv = save.inventories.person.main_character;
+            inv[JSON.stringify({id: 'book.ri.lead.day.wild_gu'})] = {count: 1};
+            inv[JSON.stringify({id: 'book.ri.lead.ear_grass.cached_wolf_eyes'})] = {count: 1};
+            await game.load(save);
+            await game.fill(PANEL, 'beginning');
+            await game.click(`[data-structured-extension="${WILD}"]`);
+            await game.settle(300);
+        },
+        async proves(save, game) {
+            const WILD = 'book.ri.lead.wild_refinement';
+            must(save.content_packs?.structured?.extensions?.some(e => e.id === WILD), 'the wild refinement is not adopted');
+            must(save.expansion.simulation.energies.player['book.ri.lead.primeval'].reserve === 44, 'his sea is not full');
+            await game.fill(PANEL, 'beginning').catch(() => {});
+            await game.settle(200);
+            for(const op of ['refine', 'cow']) {
+                const b = game.$(`[data-structured-action="${WILD}.${op}"]`);
+                must(b && !b.disabled, `the ${op} row is missing or blocked`);
+            }
+        },
+    },
     'mol-loop2': {
         world: 'mol', route: 'composed', view: {panel: 'notebook', tab: '[data-notebook-view="here"]', sel: '#message_log_div', text: /as they have\s+before/}, needs: [],
         summary: 'DEV FIXTURE, COMPOSED clock: Zorian begun from the Village by play (elder talk, Chart, Begin as Zorian), then the clock and scheduled due times moved to one minute before the month ends (as scripts/playtest/mol-restart-memory.mjs does), and the engine\'s own stepper fires the date restart. Run 2 with the first loop\'s foreknowledge.',

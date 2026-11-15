@@ -82,6 +82,7 @@ import {applyKeeperCooperationEffect, keeperCooperationFacts} from './gu_keeper_
 import {applyHostedWolfEffect, hostedWolfFacts} from './gu_hosted_wolf.js';
 import {keeperStargateFacts} from './gu_stargate.js';
 import {applyKeeperWildEffect, keeperWildFacts} from './gu_keeper_wild.js';
+import {guRefineConsequences} from './gu_refiner_registry.js';
 import {applyKeeperRefinementEffect, keeperRefinementFacts} from './gu_keeper_refinement.js';
 import {stageAcquisition} from "./acquisition.js";
 import {applyGameplayEffect} from "./gameplay_transactions.js";
@@ -418,6 +419,7 @@ function applyEffects(plan, effects, context, registry, cause, {spending = false
         else if(e.type === "guMoveTrial") applyKeeperMoveTrialEffect(state, e, context, registry.simulation);
         else if(e.type === "guMoonlightTrial") applyMoonlightTrialEffect(state, e, context);
         else if(e.type === "guWild") applyKeeperWildEffect(state, e, context);
+        else if(e.type === "guRefine") applyEffects(plan, guRefineConsequences(state, e, context), context, registry, cause);
         else if(e.type === "guColony" || e.type === "guRefinement" || e.type === "guPropagate") {
             const collected = e.type === "guColony" ? applyKeeperColonyEffect(state, e, context) : null;
             const grant = e.type === "guRefinement" ? applyKeeperRefinementEffect(state, e, context) :

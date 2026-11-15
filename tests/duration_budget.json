@@ -156,6 +156,11 @@
    "ms": 140000,
    "tier": "slow",
    "why": "plays the game: a bot route reaches all five dates twice, then headless save/export/import"
+  },
+  "tests/ri_wild_gu.test.js": {
+   "ms": 35000,
+   "tier": "slow",
+   "why": "plays the game: boots the ri-fang-yuan-wild-gu fixture twice, refines through the real command, saves mid-refine and reloads"
   }
  }
 }

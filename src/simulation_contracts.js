@@ -2,6 +2,7 @@ import {stableId} from "./simulation_ids.js";
 import {isKeeperColonyEffect} from './gu_keeper_colony.js';
 import {isKeeperTimeEffect} from './gu_keeper_time.js';
 import {isKeeperWildEffect} from './gu_keeper_wild.js';
+import {isGuRefineEffect} from './gu_refiner_registry.js';
 import {isKeeperRefinementEffect} from './gu_keeper_refinement.js';
 import {isMoonlightTrialEffect} from './gu_keeper_moonlight_trial.js';
 import {isKeeperMoveTrialEffect} from './gu_keeper_move_trial.js';
@@ -63,7 +64,7 @@ export function numeric(v) {return finite(v) || record(v) && typeof v.fact === "
 // Lazy and hoisted so declarative project compilation can validate through the
 // existing native-registry import cycle without weakening any effect checks.
 var operations;
-function simulationOperations() {return operations ||= new Set(["spawn", "relocate", "fact", "resource", "vital", "body", "item", "transfer", "xp", "reputation", "knowledge", "relationship", "claim", "condition", "life", "source", "faculty", "power", "progress", "title", "equipment", "custody", "unlock", "event", "world", "party", "energy", "observation", "site", "pursuit", "situation", "container", "foundationInteraction", "construct", "guColony", "guTime", "guWild", "guRefinement", "guMoonlightTrial", "guMoveTrial", "guRainbow", "guCoordinate", "guPropagate", "guHostedWolf", "guCooperation", "guFixedTravel", "guAttitude", "guAntNest", "guProcedure", "guSpirit", "guGoal", "guFusion", "guFixedForge"]);}
+function simulationOperations() {return operations ||= new Set(["spawn", "relocate", "fact", "resource", "vital", "body", "item", "transfer", "xp", "reputation", "knowledge", "relationship", "claim", "condition", "life", "source", "faculty", "power", "progress", "title", "equipment", "custody", "unlock", "event", "world", "party", "energy", "observation", "site", "pursuit", "situation", "container", "foundationInteraction", "construct", "guColony", "guTime", "guWild", "guRefinement", "guMoonlightTrial", "guMoveTrial", "guRainbow", "guCoordinate", "guPropagate", "guHostedWolf", "guCooperation", "guFixedTravel", "guAttitude", "guAntNest", "guProcedure", "guSpirit", "guGoal", "guFusion", "guFixedForge", "guRefine"]);}
 
 
 export function validateSimulationEffect(e) {
@@ -94,6 +95,7 @@ export function validateSimulationEffect(e) {
     if(e.type === "guMoonlightTrial") assert(isMoonlightTrialEffect(e), "Invalid Moonlight Gu trial effect.");
     if(e.type === "guRefinement") assert(isKeeperRefinementEffect(e), "Invalid Gu refinement effect.");
     if(e.type === "guWild") assert(isKeeperWildEffect(e), "Invalid wild Gu effect.");
+    if(e.type === "guRefine") assert(isGuRefineEffect(e), "Invalid Gu refinement effect for this world.");
     if(e.type === "guTime") assert(isKeeperTimeEffect(e), "Invalid Gu time effect.");
     if(e.type === "guColony") assert(isKeeperColonyEffect(e), "Invalid firefly colony effect.");
     if(e.type === "resource") assert(stableId(e.key) && numeric(e.amount), "Invalid resource effect.");
