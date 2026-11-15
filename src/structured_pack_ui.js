@@ -29,7 +29,10 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
     // AR17: a shared fight panel (tempo openers) renders in the encounter slot; the body re-renders, the slot does not.
     const body=document.createElement('div'),encounterSlot=document.createElement('div');encounterSlot.dataset.sharedSlot='encounter';panel.append(body);body.append(encounterSlot);let signature,notice='',repetition=null,noticeError=false,timed=null;
     const node=(tag,parent)=>{const n=document.createElement(tag);parent.append(n);return n;};
-    const live={info:node('section',body),steps:node('section',body)},work=node('section',body);live.plans=node('section',body);live.renewal=node('section',body);const actions=node('section',body),message=node('p',body);
+    // UIC278: the story block (the next steps and the shut ones after them) is one node another owner may place elsewhere on Here;
+    // the panel keeps rendering into it and reorders it only while it is still in the panel body.
+    const story=document.createElement('section');story.dataset.hereStory='';story.className='life-story';
+    const live={info:node('section',body),steps:node('section',story)},work=node('section',body);body.append(story);live.plans=node('section',body);live.renewal=node('section',body);const actions=node('section',body),message=node('p',body);
     const craft=createBookCraftControls(command);body.insertBefore(craft.element,message);
     // OPN2/OPN4: actions that cannot run yet wait in one closed list, each with its reason, so the opening lists what you can do now.
     const notYet=document.createElement('details'),notYetSummary=node('summary',notYet),notYetList=node('div',notYet);notYet.className='action-legibility__not-yet';notYet.hidden=true;
@@ -188,11 +191,11 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
         // G10: once a life is under way, what you can do now comes before the opening's account of how it began.
         // A life whose only move is the next story step has nothing else to lead with, so that step comes first.
         if(view.active&&(view.actions.some(a=>a.completed>0)||view.extensions.some(e=>e.eligible))){
-            const doNow=view.actions.some(a=>a.eligible)||view.jobs.length>0,want=doNow?[work,actions,live.steps]:[live.steps,work,actions];
+            const doNow=view.actions.some(a=>a.eligible)||view.jobs.length>0,want=(doNow?[work,actions,story]:[story,work,actions]).filter(n=>n!==story||story.parentElement===body);
             if(want.some((n,k)=>body.children[k]!==n))for(const n of [...want].reverse())body.prepend(n);}
         trim(actionRows,new Set(view.active?view.actions.map(a=>a.id):[]));
         // G15: the closed list shows the next few steps, not the whole road ahead; later ones appear as these open.
-        {const n=notYetList.children.length;notYet.hidden=!n;[...notYetList.children].forEach((card,i)=>{const hide=i>=NOT_YET_SHOWN;if(card.hidden!==hide)card.hidden=hide;});setText(notYetSummary,n>NOT_YET_SHOWN?`Not available yet (the next ${NOT_YET_SHOWN})`:`Not available yet (${n})`);if(notYet.parentNode!==actions||actions.lastChild!==notYet)actions.append(notYet);}
+        {const n=notYetList.children.length;notYet.hidden=!n;[...notYetList.children].forEach((card,i)=>{const hide=i>=NOT_YET_SHOWN;if(card.hidden!==hide)card.hidden=hide;});setText(notYetSummary,n>NOT_YET_SHOWN?`Not available yet (the next ${NOT_YET_SHOWN})`:`Not available yet (${n})`);if(notYet.parentElement!==story||story.lastChild!==notYet)story.append(notYet);story.hidden=live.steps.hidden&&notYet.hidden||!live.steps.childElementCount&&notYet.hidden;}
 trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         // PS55: a result line ends with "Next:" links to the ready or near rows that use what it names (next_steps.js reads the same rows as the hub),
         // and only on a Done line, once the gain is in hand rather than while it runs.
@@ -214,5 +217,5 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         });}});
     // G10: a life's own timed work stays with the life. Without an owner the Notebook claimed it and took the centre on every press (as UIC182 for the courtyard).
     const releaseWork=registerOwnedWorkPanel(work=>lastView?.actions.some(a=>a.id===work.commandId)||lastView?.jobs.some(j=>j.id===work.id)?'structured_pack_panel':null);
-    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){clearInterval(timer);releaseWork();releaseReady();unregisterWorkspaceModule('beginning');panel.remove();}};
+    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){clearInterval(timer);releaseWork();releaseReady();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
 }

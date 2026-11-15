@@ -164,3 +164,13 @@ test('PS57/PS55: a life\'s day acts are hub rows that run like the button, and t
     } finally { panel.destroy(); }
     assert.equal(collectReady().some(r => r.source === 'life-day'), false, 'destroy unregisters the source');
 }));
+
+test('UIC278: the story block is one marked node that stays where another owner puts it', () => withDom(({host, find, text, tick}) => {
+    const v = view(); v.actions = []; v.jobs = []; v.extensions = [{id: 'ext.hearing', label: 'Fang Yuan at the clan hearing', description: 'Answer the summons.', eligible: true, reasons: [], revision: 1, contentHash: 'h'}];
+    const panel = createStructuredPackPanel({read: () => v, command: () => {}}), body = host.children[0].children[1];
+    const story = body.children.find(n => n.dataset.hereStory !== undefined);
+    assert.ok(story, 'marked data-here-story'); assert.match(text(story), /Choose Fang Yuan at the clan hearing/);
+    const elsewhere = host; elsewhere.append(story); v.extensions[0] = {...v.extensions[0], label: 'Fang Yuan before the elder'}; panel.render(true); tick();
+    assert.equal(story.parentElement, elsewhere, 'the panel does not pull it back'); assert.match(text(story), /Fang Yuan before the elder/, 'and still renders into it');
+    panel.destroy();
+}));
