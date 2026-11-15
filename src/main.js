@@ -74,7 +74,7 @@ import {GRADED_IDS,consumedHarvestQuality,gradedKey,replacedHarvestDrop} from '.
 import {buildVillageObtainability,villageTablesFromNative} from './village_obtainability.js';
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
-import {worldWeatherWords} from './world_weather_display.js';
+import {worldWeatherWords,lifeTemperature} from './world_weather_display.js';
 const mixtureSeed=()=>streamSeed(expansionState,STREAMS.craft,"village.mixtures@1");
 const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@2");
 import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
@@ -8695,7 +8695,7 @@ function simulateTick() {
         if(!deferWhileHidden(renderEffectDisplays,renderEffectDisplays))renderEffectDisplays();
 
         const optionalWeather=getPacingEffects(homePacingContext());
-        const new_temperature = get_current_temperature_smoothed()+basePacingEffects(homePacingContext()).temperatureOffset;
+        const new_temperature = lifeTemperature(expansionState?.actors?.player?.worldId ?? 'base.frontier', readLocalCalendar, current_location, get_current_temperature_smoothed)+basePacingEffects(homePacingContext()).temperatureOffset;
 
         if(!current_location.is_under_roof) {
             //not under roof, background animations can happen
