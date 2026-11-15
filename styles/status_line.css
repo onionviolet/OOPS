@@ -67,13 +67,50 @@
 .report-next {color:var(--p23-muted);}
 .report-next__go {font:inherit;color:var(--p23-value, var(--ui-accent));background:transparent;border:0;padding:0;min-height:var(--ui-target-min);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
 .report-next__go:focus-visible {outline:2px solid var(--workspace-focus, var(--ui-accent));outline-offset:1px;}
-/* Ready now as its own panel on Here (centre split, 2026-11-14): a header band like the shell's panel headers, rows that
-   scroll inside a bounded height, and the action list under it scrolling on its own. Inside a centre view (Crafting,
-   Stats) the view's own list already says what is ready, so the panel steps aside there. */
-#main_content.workspace-active[data-parity="r3"]:not([data-center-task]) #center_mode_content:has(> #ready_hub) {display:flex;flex-direction:column;overflow:hidden;gap:var(--ui-space-2);}
-#main_content.workspace-active[data-parity="r3"]:not([data-center-task]) #center_mode_content:has(> #ready_hub) > #location_actions_div {flex:1 1 auto;min-height:0;overflow-y:auto;max-height:none;}
-#main_content.workspace-active[data-parity="r3"] #ready_hub {display:flex;flex-direction:column;flex:0 1 auto;min-height:0;max-height:62%;margin:0;padding:0;gap:0;}
+/* Ready now as its own panel (stacked panels, PS97): first in the centre column, above This place, with a header band like
+   the shell's panel headers and rows that scroll inside it. Rows are capped by count (ready_hub.js), so the panel sizes to
+   its content. In a fight the column belongs to the fight, and inside a centre view (Crafting, Stats) the view's own list
+   says what is ready; there the pinned band's one line stands in (PS98). */
+#main_content.workspace-active[data-parity="r3"] [data-region="focus"] > #ready_hub {order:-1;flex:0 1 auto;max-height:none;border:0;border-bottom:3px solid var(--p23-frame);}
+#main_content.workspace-active[data-parity="r3"] [data-region="focus"]:has(> #ready_hub) > .workspace-module[data-module="focus"] {flex:1 0 auto!important;}
+#main_content.workspace-active[data-parity="r3"] [data-region="focus"]:has(> #ready_hub) > .workspace-module[data-module="focus"] > .workspace-module-body {flex:1 0 auto!important;height:auto!important;}
+#main_content.workspace-active[data-parity="r3"] #ready_hub {display:flex;flex-direction:column;min-height:0;margin:0;padding:0;gap:0;}
 #main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__head {flex:0 0 auto;padding:var(--ui-space-hairline) var(--ui-space-2);border-bottom:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-region-fill, var(--ui-fill));font-size:var(--shell-context-size, var(--ui-type-body));}
-#main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__rows {flex:0 1 auto;min-height:0;overflow-y:auto;padding:var(--ui-space-1) var(--ui-space-2);scrollbar-gutter:stable;}
+#main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__rows {flex:0 1 auto;min-height:0;overflow-y:auto;grid-auto-rows:max-content;align-content:start;padding:var(--ui-space-1) var(--ui-space-2);scrollbar-gutter:stable;}
 #main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__more, #main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__note {flex:0 0 auto;margin:0 var(--ui-space-2) var(--ui-space-1);}
-#main_content.workspace-active[data-center-task] #ready_hub {display:none;}
+#main_content.workspace-active:is([data-center-task],[data-parity-combat="true"]) #ready_hub {display:none;}
+/* Doing now (PS97): the running activity's own nodes (display.js writes them into the action list and updates them by id)
+   read as one headed panel above the rest of the list: a header band on the first, side borders on all, the Stop control
+   closing it. The Current work panel's "Open local controls" says nothing new while this block shows. */
+#main_content.workspace-active #location_actions_div > :is(#action_status_div,#action_xp_div,#time_for_earnings_div,#gathering_progress_bar_max,#action_end_div) {border-inline:var(--ui-space-hairline) solid var(--p23-line);margin:0;background:var(--p23-region-fill, transparent);}
+#main_content.workspace-active #location_actions_div > #action_status_div {border-top:var(--ui-space-hairline) solid var(--p23-line);}
+#main_content.workspace-active #location_actions_div > #action_status_div::before {content:"Doing now";display:block;text-align:left;font-style:normal;font-weight:var(--ui-weight-strong);color:var(--p23-value, var(--ui-accent));padding:var(--ui-space-hairline) var(--ui-space-2);margin-bottom:var(--ui-space-1);border-bottom:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-region-fill, var(--ui-fill));}
+#main_content.workspace-active #location_actions_div > #action_end_div {border-bottom:var(--ui-space-hairline) solid var(--p23-line);margin-bottom:var(--ui-space-3);}
+#main_content.workspace-active[data-center-task="activity"] #workspace_current_work > button {display:none;}
+/* The pinned band (PS98, src/ui/pinned_band.js): Ready now and This place folded into the status line's own row, then the
+   Pin menu at the row's end. State sheet: idle (folded line), hover (fill), focus (outline), open (the Ready list as a
+   popover under its button, top layer, so the row never grows), empty (the part leaves the row), unpinned (gone; the Pin
+   menu stays), 150% text (the row grows with the type; parts clip with an ellipsis), reduced motion (nothing animates). */
+.game-status > .pinned-band__ready {gap:var(--ui-space-2);flex:0 1 auto;overflow:hidden;}
+.game-status :is(.pinned-band__ready-head,.pinned-band__ready-first,.pinned-band__place) {font:inherit;color:var(--p23-text);background:transparent;border:0;padding:0;min-height:var(--ui-target-min);cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.game-status .pinned-band__ready-head {color:var(--p23-value, var(--ui-accent));font-weight:var(--ui-weight-strong);}
+.game-status .pinned-band__ready-head::after {content:" ▾";}
+.game-status .pinned-band__ready-first {text-decoration:underline;text-underline-offset:.15em;max-width:28em;}
+.game-status > .pinned-band__place {display:inline-flex;align-items:center;flex:0 1 auto;max-width:36em;padding:0 var(--ui-space-3);border-right:var(--ui-space-hairline) solid var(--p23-line);text-decoration:underline;text-underline-offset:.15em;}
+.game-status :is(.pinned-band__ready-head,.pinned-band__ready-first,.pinned-band__place):hover {background:var(--p23-hover-fill, transparent);}
+.game-status :is(.pinned-band__ready-head,.pinned-band__ready-first,.pinned-band__place,.pinned-band__pins > summary):focus-visible {outline:2px solid var(--workspace-focus, var(--ui-accent));outline-offset:1px;}
+.game-status > .pinned-band__pins {display:inline-flex;align-items:center;position:relative;padding:0 0 0 var(--ui-space-3);border-right:0;}
+.game-status > .pinned-band__pins > summary {cursor:pointer;color:var(--p23-muted);min-height:var(--ui-target-min);display:inline-flex;align-items:center;}
+.game-status > .pinned-band__pins[open] > .pinned-band__pin-list {position:fixed;right:var(--ui-space-3);z-index:var(--ui-layer-popover);display:grid;gap:var(--ui-space-1);padding:var(--ui-space-2) var(--ui-space-3);background:var(--p23-region-fill, var(--ui-fill));border:var(--ui-space-hairline) solid var(--p23-line);color:var(--p23-text);}
+.game-status .pinned-band__pin-list label {display:flex;align-items:center;gap:var(--ui-space-2);min-height:var(--ui-target-min);cursor:pointer;}
+.pinned-band__list {position:fixed;inset:auto;top:var(--band-top, 0);left:var(--band-left, 0);margin:0;max-width:min(48em, 90vw);max-height:60vh;overflow:auto;padding:var(--ui-space-1) var(--ui-space-2);border:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-region-fill, var(--ui-fill));color:var(--p23-text);font-size:var(--ui-type-small);}
+.pinned-band__list .pinned-band__list-head {margin:0 0 var(--ui-space-1);color:var(--p23-value, var(--ui-accent));font-weight:var(--ui-weight-strong);}
+.pinned-band__list .pinned-band__row {display:grid;grid-template-columns:minmax(0,max-content) minmax(0,1fr);gap:var(--ui-space-3);width:100%;min-height:var(--ui-target-min);align-items:baseline;text-align:left;font:inherit;color:var(--p23-text);background:transparent;border:0;border-top:var(--ui-space-hairline) solid var(--p23-line);padding:var(--ui-space-hairline) 0;cursor:pointer;}
+.pinned-band__list .pinned-band__row:hover {background:var(--p23-hover-fill, transparent);}
+.pinned-band__list .pinned-band__row--near > span {color:var(--p23-muted);}
+.pinned-band__list .pinned-band__row--near > small {color:var(--p23-value, var(--ui-accent));}
+.pinned-band__list .pinned-band__row--ready > small {color:var(--p23-muted);}
+/* Unpinned parts. The status line's own slots go but the row stays, so the band's parts and the Pin menu remain. */
+#game_spine[data-unpinned~="status"] #game_status > [data-status-slot]:not([data-band-part]):not([data-status-slot="band-pins"]) {display:none!important;}
+#game_spine[data-unpinned~="strip"] > .day-strip {display:none!important;}
+#game_spine[data-unpinned~="doing"] #game_status > [data-status-slot="work"] {display:none!important;}

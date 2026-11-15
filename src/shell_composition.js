@@ -49,6 +49,21 @@ export function contentExtent(region, skip = null) {
     return Math.ceil(bottom - top);
 }
 
+// A region whose panels stack, each with its own scroll (Ready now above Around you): its content is the sum of each
+// panel's full height, read as the sum of the panel's own parts at their scroll heights (a header, a list that scrolls, a
+// More button). A single lowest-line read misses rows that overflow behind the next panel.
+const natural = n => {
+    const cs = getComputedStyle(n), edge = ['paddingTop', 'paddingBottom', 'borderTopWidth', 'borderBottomWidth'].reduce((s, k) => s + (parseFloat(cs[k]) || 0), 0);
+    return edge + [...n.children].filter(c => c.getClientRects().length).reduce((sum, c) => { const m = getComputedStyle(c);
+        return sum + Math.max(c.scrollHeight, c.getBoundingClientRect().height) + (parseFloat(m.marginTop) || 0) + (parseFloat(m.marginBottom) || 0); }, 0);
+};
+export function stackedExtent(region) {
+    const parts = [...region.children].filter(n => n.getClientRects().length && getComputedStyle(n).display !== 'none');
+    // A panel stretched to fill (flex-grow) counts by its lines only, or the measure would read the stretch back as content.
+    const own = n => (parseFloat(getComputedStyle(n).flexGrow) || 0) > 0 ? intrinsicExtent(n) : Math.max(intrinsicExtent(n), natural(n));
+    return parts.length > 1 ? parts.reduce((sum, n) => sum + own(n), 0) : intrinsicExtent(region);
+}
+
 // Parts pinned to a region's bottom edge by a stretching sibling (the action-region nav bar, the
 // Around you closing hint) sit wherever the region ends. They count by their own height, not
 // their position; otherwise each measure reads the last size back as content and ratchets.
@@ -82,7 +97,7 @@ export function topTerms(regions, combat) {
         const ids = [...region.querySelectorAll(':scope > .workspace-module[data-module]')].filter(n => !n.hidden).map(n => n.dataset.module);
         const fit = regionFit(ids);
         if (fit === 'content') { found = true; const parts = elasticParts(region); player = Math.max(player, contentExtent(region) - parts.shown); elastic = Math.max(elastic, parts.want); }
-        else if (fit === 'combat') { if (combat) focus = Math.max(focus, contentExtent(region)); else idleFocus = Math.max(idleFocus, intrinsicExtent(region)); }
+        else if (fit === 'combat') { if (combat) focus = Math.max(focus, contentExtent(region)); else idleFocus = Math.max(idleFocus, stackedExtent(region)); }
     }
     // No content box on top (You moved down): the row takes its elastic default instead of its
     // minimum, so the boxes moved up keep a useful height.
@@ -90,16 +105,21 @@ export function topTerms(regions, combat) {
     return {player, elastic, focus, idleFocus};
 }
 
-// Centre split (Weibao 2026-11-14: the centre should be sectioned into panels; mock in prototypes/centre-split-2026-11-14).
-// The top row's height comes from the You column, and Around you shared it, so a quiet place showed a tall empty box above a
-// squeezed action list. Outside a fight, with the default boxes and no hand-set sizes, Around you takes its content's
-// height and the action panels start right under it; You and Inventory keep their row. Pure: returns the centre row in px,
-// or 0 for no split. Dial: `minLines` (Around you never shrinks below this) and `spareLines` (a split must free at least
-// this much). Measured at the same stable moments as the row itself (UR52, UR144).
-export function centreRow({want, topRow, fontSize, minLines = 4, spareLines = 3}) {
-    if (!(want > 0) || !(topRow > 0)) return 0;
-    const row = Math.ceil(Math.max(want, fontSize * minLines));
-    return row <= topRow - fontSize * spareLines ? row : 0;
+// Centre split (stacked panels, picked by Weibao 2026-11-15; PS97, PS99). The top row's height comes from the You column,
+// and the centre's first region (Ready now, then This place) used to share it: a quiet place showed a tall, nearly empty box
+// above a squeezed action list, and a busy one scrolled while the list below sat short. Outside a fight, with the default
+// boxes and no hand-set sizes, the centre's first region takes its content's height instead:
+//   'short': shorter than the top row; the action panels start right under it.
+//   'tall': taller than the top row, up to `cap`; the action panels start lower, and You and Inventory keep their row.
+// Pure: returns {row, form} in px, or null for the shared row. Dials: `minLines` (the region never shrinks below this),
+// `spareLines` (a split must move the edge at least this much, so near-equal heights keep the plain grid). Measured at the
+// same stable moments as the row itself (UR52, UR144).
+export function centreRow({want, topRow, fontSize, cap = Infinity, minLines = 4, spareLines = 3}) {
+    if (!(want > 0) || !(topRow > 0)) return null;
+    const row = Math.ceil(Math.max(want, fontSize * minLines)), spare = fontSize * spareLines;
+    if (row <= topRow - spare) return {row, form: 'short'};
+    const tall = Math.floor(Math.min(row, cap));
+    return tall >= topRow + spare ? {row: tall, form: 'tall'} : null;
 }
 
 export function createShellComposition({root, board, regions, resize}) {
@@ -134,18 +154,25 @@ export function createShellComposition({root, board, regions, resize}) {
         const current = root.style.getPropertyValue('--shell-top-row');
         if (root.dataset.centerTask && current) { heldRow = true; clearTimeout(settling); settling = 0; }
         else if (heldRow) { if (!settling) settling = setTimeout(() => { settling = 0; heldRow = false; schedule(); }, LAYOUT_SPEC.settleMs); }
-        else if (current !== value) root.style.setProperty('--shell-top-row', value);
+        // A one-pixel change is a measuring ratchet (You's yielding rows answering the row they sit in), not new content: the
+        // row keeps its height, so the frame does not flicker between two sizes while the start settles (UR144).
+        else if (current !== value && !(current && Math.abs(parseFloat(current) - parseFloat(value)) <= 1)) root.style.setProperty('--shell-top-row', value);
         // The centre split follows the row it sits in; while a centre view holds the row, the split waits with it.
         if (!root.dataset.centerTask && !heldRow) {
             const own = id => [...(regions[id]?.querySelectorAll(':scope > .workspace-module[data-module]') || [])].filter(n => !n.hidden).map(n => n.dataset.module);
             const defaults = !combat && regionFit(own('focus')) === 'combat' && own('focus').includes('focus') && regionFit(own('player')) === 'content'
                 && !board.style.getPropertyValue('grid-template-rows') && !board.style.getPropertyValue('grid-template-areas');
-            const row = defaults ? centreRow({want: intrinsicExtent(regions.focus) + 2 * frameFor(fontSize), topRow: parseFloat(root.style.getPropertyValue('--shell-top-row')), fontSize}) : 0;
-            // The second row is what remains of the top row after the first and the board's own row gap, so You and
-            // Inventory sit exactly where the two-row grid puts them and opening a centre view moves neither (UR144).
-            const rest = row ? parseFloat(root.style.getPropertyValue('--shell-top-row')) - row - (parseFloat(getComputedStyle(board).rowGap) || 0) : 0;
-            if (row) { root.style.setProperty('--shell-centre-row', `${row}px`); root.style.setProperty('--shell-centre-rest', `${rest}px`); if (root.dataset.centreSplit !== 'true') root.dataset.centreSplit = 'true'; }
-            else if (root.dataset.centreSplit) { delete root.dataset.centreSplit; root.style.removeProperty('--shell-centre-row'); root.style.removeProperty('--shell-centre-rest'); }
+            const topRow = parseFloat(root.style.getPropertyValue('--shell-top-row')), gap = parseFloat(getComputedStyle(board).rowGap) || 0;
+            // The action list keeps at least its bottom-row floor under a tall centre region.
+            const cap = height - gap - fontSize * LAYOUT_SPEC.topRow.bottomLines;
+            const split = defaults ? centreRow({want: stackedExtent(regions.focus) + 2 * frameFor(fontSize), topRow, fontSize, cap}) : null;
+            // The middle row is the difference between the two edges less the board's own row gap, so You and Inventory sit
+            // exactly where the two-row grid puts them and opening a centre view moves neither (UR144).
+            if (split) {
+                const first = split.form === 'short' ? split.row : topRow, rest = Math.abs(topRow - split.row) - gap;
+                root.style.setProperty('--shell-centre-row', `${first}px`); root.style.setProperty('--shell-centre-rest', `${rest}px`);
+                if (root.dataset.centreSplit !== split.form) root.dataset.centreSplit = split.form;
+            } else if (root.dataset.centreSplit) { delete root.dataset.centreSplit; root.style.removeProperty('--shell-centre-row'); root.style.removeProperty('--shell-centre-rest'); }
         }
         if (root.dataset.shellFit !== 'true') root.dataset.shellFit = 'true';
         resize?.measure();
@@ -169,6 +196,8 @@ export function createShellComposition({root, board, regions, resize}) {
     document.addEventListener('workspace-presentation-change', schedule);
     // Arriving somewhere is a stable moment too: Around you now holds another place's people and ways out.
     document.addEventListener('game-place-change', schedule);
+    // A panel arriving in or leaving a region (Ready now) is one too.
+    document.addEventListener('shell-content-change', schedule);
     // Closing the start screen, and the character rows that arrive over the next few renders, is
     // a stable moment too: re-measure for a short settle window, then stop listening.
     let settle = 0;
@@ -185,6 +214,6 @@ export function createShellComposition({root, board, regions, resize}) {
     schedule();
     return {
         measure: schedule,
-        destroy() { observer.disconnect(); startObserver.disconnect(); screenObserver.disconnect(); clearTimeout(settle); root.removeEventListener('click', acted); window.removeEventListener('resize', schedule); document.removeEventListener('workspace-presentation-change', schedule); document.removeEventListener('game-place-change', schedule); if (frame) cancelAnimationFrame(frame); },
+        destroy() { observer.disconnect(); startObserver.disconnect(); screenObserver.disconnect(); clearTimeout(settle); root.removeEventListener('click', acted); window.removeEventListener('resize', schedule); document.removeEventListener('workspace-presentation-change', schedule); document.removeEventListener('game-place-change', schedule); document.removeEventListener('shell-content-change', schedule); if (frame) cancelAnimationFrame(frame); },
     };
 }

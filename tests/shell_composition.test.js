@@ -68,10 +68,12 @@ test('UIA12: a fight keeps its own top-row rule even when the bottom row has roo
     assert.equal(topRowHeight({player: 300, focus: 380, combat: true, board: 688, fontSize: 14, below: 100}), topRowHeight({player: 300, focus: 380, combat: true, board: 688, fontSize: 14}));
 });
 
-test('centre split: Around you takes its own height when that frees real room, never below its floor', async () => {
+test('centre split: the first centre region takes its own height, short or tall, when that moves the edge enough', async () => {
     const {centreRow} = await import('../src/shell_composition.js');
-    assert.equal(centreRow({want: 120, topRow: 470, fontSize: 14}), 120, 'a quiet place gives the rest of the row to the panels below');
-    assert.equal(centreRow({want: 20, topRow: 470, fontSize: 14}), 56, 'never shorter than four lines');
-    assert.equal(centreRow({want: 450, topRow: 470, fontSize: 14}), 0, 'too little freed: keep the shared row');
-    assert.equal(centreRow({want: 0, topRow: 470, fontSize: 14}), 0, 'nothing measured: no split');
+    assert.deepEqual(centreRow({want: 120, topRow: 470, fontSize: 14}), {row: 120, form: 'short'}, 'a quiet place gives the rest of the row to the panels below');
+    assert.deepEqual(centreRow({want: 20, topRow: 470, fontSize: 14}), {row: 56, form: 'short'}, 'never shorter than four lines');
+    assert.equal(centreRow({want: 450, topRow: 470, fontSize: 14}), null, 'near-equal heights keep the shared row');
+    assert.deepEqual(centreRow({want: 620, topRow: 470, fontSize: 14, cap: 800}), {row: 620, form: 'tall'}, 'Ready now over a full place grows past the You row');
+    assert.deepEqual(centreRow({want: 1200, topRow: 470, fontSize: 14, cap: 800}), {row: 800, form: 'tall'}, 'capped so the action list keeps its floor');
+    assert.equal(centreRow({want: 0, topRow: 470, fontSize: 14}), null, 'nothing measured: no split');
 });

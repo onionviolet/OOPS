@@ -101,3 +101,20 @@ test('PS55: a Reports line that names what a row uses gets that row as its next 
     assert.deepEqual(nextFor('Your woollen cloak is warm.', rows), [], 'part of a word is not a match');
     assert.deepEqual(nextFor('Found a boar tusk.', rows), [], 'further-off rows are not offered');
 });
+
+test('PS98, PS102: the pinned band folds Ready now to its count and first row, leaving out the open page\'s own rows', async () => {
+    const {bandReady, readPins, BAND_PARTS} = await import('../src/ui/pinned_band.js');
+    const rows = orderReady([
+        ['crafting', [{id: 'bone', label: 'Make Bonemeal', state: 'near', gap: 'needs 20 animal tooth'}], 'Crafting'],
+        ['life-day', [{id: 'feed', label: 'Feed the Moonglow Gu', state: 'ready', urgent: true}], 'Your day'],
+    ]);
+    const here = bandReady(rows, '');
+    assert.equal(here.head, 'Ready now · 1 ready · 1 close'); assert.equal(here.first.label, 'Feed the Moonglow Gu');
+    const crafting = bandReady(rows, 'crafting');
+    assert.equal(crafting.head, 'Ready now · 1 ready'); assert.equal(crafting.here, 1, 'Crafting\'s own row is left to its list');
+    assert.equal(bandReady(rows.filter(r => r.source === 'crafting'), 'crafting').empty, true, 'nothing else: the part leaves the row');
+    const store = {getItem: () => '{"ready":false,"place":"yes"}'};
+    const pins = readPins(store);
+    assert.equal(pins.ready, false); assert.equal(pins.place, true, 'a bad stored value falls back to pinned');
+    assert.deepEqual(Object.keys(readPins({getItem: () => { throw Error('blocked'); }})), BAND_PARTS.map(([id]) => id), 'blocked storage: all pinned');
+});

@@ -20,14 +20,29 @@ export function hubModel(rows, {expanded = false} = {}) {
     return {shown, hidden, counts, head, empty: !ready.length && !near.length};
 }
 
-export function mountReadyHub({host = () => document.getElementById('location_actions_div')} = {}) {
+// Where the panel goes (PS97, stacked panels picked 2026-11-15): first in the centre column, above This place (the Around
+// you region of the parity shell). Without that region (another presentation), just above Here's action list.
+const defaultSpot = () => {
+    const region = document.querySelector('#main_content.workspace-active[data-parity="r3"] .workspace-board > [data-region="focus"]');
+    if (region) return {parent: region, before: region.firstElementChild};
+    const list = document.getElementById('location_actions_div');
+    return list ? {parent: list.parentElement, before: list} : null;
+};
+
+export function mountReadyHub({spot = defaultSpot} = {}) {
     const root = el('section', 'ready-hub'); root.id = 'ready_hub'; root.dataset.readyHub = ''; root.setAttribute('aria-label', 'Ready now');
     const head = el('p', 'ready-hub__head'), list = el('ul', 'ready-hub__rows'), more = el('button', 'ready-hub__more'), note = el('p', 'ready-hub__note');
     more.type = 'button'; note.setAttribute('role', 'status'); note.hidden = true;
     root.append(head, list, more, note);
-    let expanded = false, signature = '';
-    more.onclick = () => { expanded = !expanded; signature = ''; render(true); };
+    // PS99: in the stacked centre column the panel shows every row and scrolls inside its own bounds, and the frame gives it
+    // the height (src/shell_composition.js centreRow), so spare height goes to rows, not to an empty frame below. Elsewhere
+    // the default caps hold (READY_SHOWN, NEAR_SHOWN). Either way the player can fold or unfold it.
+    let expanded = null, signature = '', shownBefore = false, rowsBefore = -1;
+    const isExpanded = () => expanded ?? !!root.parentElement?.matches?.('[data-region="focus"]');
+    more.onclick = () => { expanded = !isExpanded(); signature = ''; render(true); changedShape(); };
     const held = () => root.matches(':hover') || root.contains(document.activeElement);
+    // Folding or unfolding is the player's own act on the panel: the frame refits to it.
+    const changedShape = () => document.dispatchEvent(new CustomEvent('shell-content-change', {detail: {part: 'ready-now'}}));
     function rowNode(r) {
         const li = el('li', `ready-hub__row ready-hub__row--${r.state}`); li.dataset.readyKey = r.key; if (r.urgent) li.dataset.urgent = 'true';
         const go = el('button', 'ready-hub__go', r.label); go.type = 'button';
@@ -41,21 +56,30 @@ export function mountReadyHub({host = () => document.getElementById('location_ac
         return li;
     }
     function render(force = false) {
-        const parent = host();
-        if (!parent) return;
+        const place = spot();
+        if (!place?.parent) return;
         if (!force && held()) return;
-        const rows = collectReady(), model = hubModel(rows, {expanded});
-        if (model.empty) { if (root.isConnected) root.remove(); signature = ''; return; } // further-off rows alone are not worth a block
-        // Just above Here's action list, as its own sibling: the native list rebuilds its children, and a block inside it was
-        // taken out and put back on every rebuild, so a pointer could never settle on a row (UR52).
-        if (root.parentElement !== parent.parentElement || root.nextElementSibling !== parent) parent.before(root);
-        const sig = JSON.stringify([model.head, model.shown.map(r => [r.key, r.label, r.state, r.gap, r.detail, r.urgent]), model.hidden, expanded]);
+        const rows = collectReady(), model = hubModel(rows, {expanded: isExpanded()});
+        // The panel arriving or leaving changes the centre column's first region, a stable moment for the frame (the split).
+        const changed = () => document.dispatchEvent(new CustomEvent('shell-content-change', {detail: {part: 'ready-now'}}));
+        if (model.empty) { if (root.isConnected) { root.remove(); changed(); } signature = ''; return; } // further-off rows alone are not worth a block
+        const arriving = !root.isConnected;
+        // Its own node, never inside the native list: that list rebuilds its children, and a block inside it was taken out and
+        // put back on every rebuild, so a pointer could never settle on a row (UR52).
+        // Placed once; the region's own layout may re-append its modules, and the stylesheet keeps this panel first there.
+        if (root.parentElement !== place.parent) place.parent.insertBefore(root, place.before);
+        // Showing again (a centre view closed, a fight ended) is the same moment for the frame as arriving.
+        const visible = root.checkVisibility?.() ?? true;
+        if (arriving || visible !== shownBefore) { shownBefore = visible; changed(); }
+        // So is the panel growing or shrinking by rows (a life's day loading its acts); a changed label alone is not.
+        if (model.shown.length + (model.hidden ? 1 : 0) !== rowsBefore) { const first = rowsBefore < 0; rowsBefore = model.shown.length + (model.hidden ? 1 : 0); if (!first) changed(); }
+        const sig = JSON.stringify([model.head, model.shown.map(r => [r.key, r.label, r.state, r.gap, r.detail, r.urgent]), model.hidden, isExpanded()]);
         if (sig === signature) return;
         signature = sig;
         head.textContent = model.head;
         list.replaceChildren(...model.shown.map(rowNode));
-        more.hidden = !(model.hidden > 0 || expanded);
-        more.textContent = expanded ? 'Show fewer' : `Show ${model.hidden} more`;
+        more.hidden = !(model.hidden > 0 || (isExpanded() && model.shown.length > 5));
+        more.textContent = isExpanded() ? 'Show fewer' : `Show ${model.hidden} more`;
     }
     const timer = setInterval(() => render(), 1000);
     root.addEventListener('pointerleave', () => render());

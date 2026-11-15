@@ -65,11 +65,12 @@ export function mountStatusLine({bar}) {
         slot.dataset.statusSlot = name;
         if (name === 'work') {
             slot.type = 'button';
-            // Work under way names what runs and the time left; selecting it shows the Current work panel on Here.
+            // Work under way names what runs and the time left; selecting it shows Doing now (the running activity's own
+            // block, else the Current work panel) on Here.
+            const target = () => document.getElementById('action_status_div') || document.getElementById('workspace_current_work');
             slot.addEventListener('click', () => {
-                const panel = document.getElementById('workspace_current_work');
-                if (panel && !panel.checkVisibility()) centerModes().showHere();
-                requestAnimationFrame(() => document.getElementById('workspace_current_work')?.scrollIntoView({block: 'nearest'}));
+                if (!target()?.checkVisibility()) centerModes().showHere();
+                requestAnimationFrame(() => target()?.scrollIntoView({block: 'nearest'}));
             });
         }
         slots.set(name, slot); line.append(slot);

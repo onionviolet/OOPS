@@ -11,6 +11,7 @@ import {mountGameBar} from './game_bar.js';
 import {mountReadyHub} from './ui/ready_hub.js';
 import {mountInspector} from './ui/inspector.js';
 import {mountNextSteps} from './ui/next_steps.js';
+import {mountPinnedBand} from './ui/pinned_band.js';
 import {installReadySources} from './ready_sources.js';
 import {routeTable,LAYOUT_SPEC} from './layout_spec.js';
 import {changeSignal,subscribeChange,publishChange} from './ui_change_signal.js';
@@ -83,7 +84,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     const root=document.getElementById('main_content');definePanel({id:'pane-navigation',title:'Center views',role:'actions',node:paneNav,home:root,defaultDock:'center',after:'local-actions',eligible:()=>root.dataset.parity==='r3',discovered:()=>root.dataset.parity==='r3'});
     document.getElementById('main_content').before(nav);
     // R21 (MB2): in the parity shell the navigation joins the one bar with save and menu.
-    const gameBar=mountGameBar({nav});gameBar?.bar?.querySelector('.game-bar-right')?.prepend(extras.findButton);installReadySources();mountReadyHub();mountInspector();mountNextSteps(); // direction D (PS57): Here's ready-now hub, fed by each feature's ready rows
+    const gameBar=mountGameBar({nav});gameBar?.bar?.querySelector('.game-bar-right')?.prepend(extras.findButton);installReadySources();mountReadyHub();mountInspector();mountNextSteps();mountPinnedBand(); // direction D (PS57): Here's ready-now hub, fed by each feature's ready rows
     const resize=new ResizeObserver(()=>document.documentElement.style.setProperty('--workspace-nav-height',nav.offsetHeight+'px'));resize.observe(nav);
     let last='',notified=false,lastRefresh=0,held=false;
     // UIX4 / UR52: a route appearing or leaving moves the buttons after it and refolds the bar, so

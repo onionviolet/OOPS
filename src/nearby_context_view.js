@@ -80,6 +80,9 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         // PX46, UR147: the first sentence shows once; the disclosure holds only what follows it. No count line when there is nothing to count.
         text(summary,model.summary);summary.hidden=frame?.inVillage===true||!model.summary;text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead;
         text(placeBody,model.descriptionRest);place.hidden=!model.descriptionRest;text(back,`← ${model.place} overview`);
+        // PS98: the pinned band's folded This place line reads these, so the counts have one author.
+        // The frame re-measures when what this view holds changes shape (the centre split sizes the region to it).
+        if(node.dataset.place!==model.place||node.dataset.placeSummary!==model.summary){node.dataset.place=model.place;node.dataset.placeSummary=model.summary;if(typeof CustomEvent==='function')doc.dispatchEvent?.(new CustomEvent('shell-content-change',{detail:{part:'around-you'}}));}
         node.dataset.selected=String(!!model.subject);node.dataset.selectionMissing=String(model.missing);
         for(const [kind,label,subjects] of [['people','People here',model.people],['services','Services & stations',model.services],['exits','Ways out',model.exits]]){
             let group=groups.get(kind);if(!group){group=el('section');group.dataset.nearbyGroup=kind;const heading=el('h3'),body=el('div');group.append(heading,body);groups.set(kind,group);list.append(group);}
