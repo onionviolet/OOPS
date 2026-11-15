@@ -3,8 +3,25 @@ import {check as assert, natural} from './basics.js';
 import {WORLD_CALENDAR_PROFILES, WORLD_DAY_EVENTS} from './world_calendar_content.js';
 import {legacyClimateEnvironment} from './world_climate.js';
 import {MOL_START_ZORIAN} from './book_world_mol_starts.js';
+import {riCalendarBinding} from './ri_calendar.js';
 const pad = n => String(n).padStart(2, '0');
 const seasons = ['Spring', 'Summer', 'Autumn', 'Winter'];
+// Seasons are world data (TMR2). `seasons: true` keeps the legacy quarter-of-the-year rule (month / 3); an array of
+// {id, from: {month, day?}} rows is a world's own cycle: a day belongs to the last row that has started, wrapping the year.
+export function seasonFor(profile, month, day) {
+    if (Array.isArray(profile.seasons)) {
+        const rows = [...profile.seasons].sort((a, b) => a.from.month - b.from.month || (a.from.day ?? 1) - (b.from.day ?? 1));
+        const started = rows.filter(r => r.from.month < month || (r.from.month === month && (r.from.day ?? 1) <= day));
+        return (started.length ? started.at(-1) : rows.at(-1)).id;
+    }
+    return profile.seasons ? seasons[Math.floor((month - 1) / 3)] : null;
+}
+// Absolute local day index of a calendar date in a profile (the same index the event book windows use).
+export function calendarDayIndex(profile, {year, month, day}) {
+    const months = profile.months, yearLength = months.reduce((n, m) => n + m.days, 0);
+    assert(natural(year) && year > 0 && natural(month) && month >= 1 && month <= months.length && natural(day) && day >= 1 && day <= months[month - 1].days, 'Invalid calendar date.');
+    return (year - 1) * yearLength + months.slice(0, month - 1).reduce((n, m) => n + m.days, 0) + day - 1;
+}
 
 // Fixed arithmetic only in this legacy slice. Unsupported algorithms fail closed.
 export function projectCalendar(profile, {elapsed = 0, unit = 'played_minutes', instanceId, calendar = null}) {
@@ -28,14 +45,15 @@ export function projectCalendar(profile, {elapsed = 0, unit = 'played_minutes', 
     let remaining = absoluteLocalDay % yearLength, month = 1;
     while (remaining >= months[month - 1].days) {remaining -= months[month - 1].days; month++;}
     const hour = Math.floor(minuteWithinDay / u.minutesPerHour), minute = minuteWithinDay % u.minutesPerHour;
-    const seasonId = profile.seasons ? seasons[Math.floor((month - 1) / 3)] : null;
+    const seasonId = seasonFor(profile, month, remaining + 1);
     // Public projection uses only declared date fields; no event graph or hidden overlay enters it.
     return {profileId: profile.id, profileRevision: profile.revision, instanceId,
         dayIdentity: JSON.stringify([instanceId, profile.id, profile.revision, absoluteLocalDay]),
         absoluteLocalDay, minuteWithinDay, dayFraction: minuteWithinDay / dayLength,
         year, month, day: remaining + 1, hour, minute, day_count,
         weekday: profile.week?.[day_count % profile.week.length] ?? null, showWeekday: profile.showWeekday === true,
-        seasonId, precision: profile.precision, label: profile.label, format: profile.format,
+        seasonId, monthLabel: months[month - 1].label ?? null, dayOfYear: absoluteLocalDay % yearLength, yearLength,
+        precision: profile.precision, label: profile.label, format: profile.format,
         description: profile.format === 'elapsed' ? 'Local elapsed shift date; civil calendar unknown.' : 'Authored legacy numeric calendar; not a sourced civil date.'};
 }
 export function formatCalendar(view, {time = false} = {}) {
@@ -43,9 +61,10 @@ export function formatCalendar(view, {time = false} = {}) {
     // An elapsed profile may opt in to a named weekday and plain day count (the book gives order and weekday, not a date).
     const date = view.format === 'elapsed' && view.showWeekday && view.weekday ? `${view.weekday}, day ${view.absoluteLocalDay + 1}` :
         view.format === 'elapsed' ? `Day ${view.absoluteLocalDay + 1} here (calendar date not known)` :
+        view.format === 'named' ? `${view.day} ${view.monthLabel ?? `month ${view.month}`}, year ${view.year}` :
         `${pad(view.day)}/${pad(view.month)}/${view.year}`;
     return date + (time ? ` ${pad(view.hour)}:${pad(view.minute)}` : '') +
-        (view.seasonId ? `, ${view.seasonId}, ${view.weekday}` : '');
+        (view.seasonId ? `, ${view.seasonId}${view.weekday ? `, ${view.weekday}` : ''}` : '');
 }
 export function calendarEnvironment(view) {
     // Preserve legacy 20:00 physical light; descriptive Night remains 21:00.
@@ -76,6 +95,8 @@ export function resolveWorldCalendar(state, homeCalendar) {
     const worldId = state?.actors?.player?.worldId ?? 'base.frontier';
     const hp=hpCalendarBinding(state);
     if(hp)return projectCalendar(hp.profile,{instanceId:hp.instanceId,elapsed:hp.elapsed,unit:'played_minutes'});
+    const ri=riCalendarBinding(state);   // Fang Yuan's life: a typed life with its own start clock (RWT24)
+    if(ri)return projectCalendar(ri.profile,{instanceId:ri.instanceId,elapsed:ri.elapsed,unit:'played_minutes'});
     if (worldId === 'base.frontier') return projectCalendar(WORLD_CALENDAR_PROFILES[worldId], {instanceId: 'frontier.main', calendar: homeCalendar});
     const binding = visitorCalendarBinding(state);
     return binding ? projectCalendar(binding.profile, {instanceId: binding.instance.id,

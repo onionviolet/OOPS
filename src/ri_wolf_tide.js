@@ -5,6 +5,9 @@
 import {defineCreatureTable, createPopulationState, validatePopulationState, populationAt, recordKill, populationLine} from './creature_populations.js';
 import {drawFraction} from './gen_kit.js';
 import {RI_PATROL_ENCOUNTERS} from './ri_lead_day_facts.js';
+import {buildEventBook, standingOn} from './world_events.js';
+import {resolveWorldCalendar, calendarDayIndex} from './world_calendar.js';
+import {WORLD_CALENDAR_PROFILES} from './world_calendar_content.js';
 
 export const RI_WOLF_TIDE_WORLD = 'book.ri.lead.world', RI_WOLF_TIDE_PLACE = 'outer_wall';
 export const RI_WOLF_TIDE_FACT = 'book.ri.lead.wolf_tide.pop';
@@ -30,6 +33,44 @@ export const RI_WOLF_TIDE = defineCreatureTable({id: 'ri.wolf_tide', revision: 1
     {id: RI_WOLF_SPECIES.large, name: 'Large lightning wolves', weight: D.large.weight, chance: D.large.chance, number: [1, 1], cap: D.large.cap, refillPerDay: D.large.refillPerDay},
     {id: RI_WOLF_SPECIES.frenzy, name: 'Frenzy lightning wolf', weight: D.frenzy.weight, chance: D.frenzy.chance, number: [1, 1], cap: D.frenzy.cap, refillPerDay: D.frenzy.refillPerDay},
 ]}]});
+
+// RWT25, RWT27 (TMR1, TMR8, TMR13; OD7, OD8): the tide comes round every year as one recurring row in the event book, and its phases
+// (early, peak, ebb) are read from the world's calendar, never counted here. Every number is a dial: the source dates the first tide
+// to mid-to-late July (lead-run beat 213101) and a second one the same year (214901, "the second wolf tide this year"); its length,
+// phases and strength are authored.
+export const RI_TIDE_EVENT = 'ri.wolf_tide';
+export const RI_TIDE_DIALS = Object.freeze({
+    window: Object.freeze({fromYear: 2, month: 7, day: 15, days: 45, phases: Object.freeze([['early', 15], ['peak', 15], ['ebb', 15]]),
+        why: 'Beat 213101 puts the first tide in the second year, mid-to-late July, and 216103 has the end of summer after it; the first year shows only a small beast tide in winter (09501). Forty-five days, in three of fifteen, is authored (dial: from year 1, other lengths). The second tide of the year, his first night at the wall (214901), falls in the peak.'}),
+});
+const tideProfile = WORLD_CALENDAR_PROFILES[RI_WOLF_TIDE_WORLD];
+const W = RI_TIDE_DIALS.window;
+export const RI_TIDE_BOOK = buildEventBook([{id: RI_TIDE_EVENT, key: 'ri.wolf_tide', kind: 'public_event', placement: 'recurring', scope: 'public', evidence: 'I',
+    place: RI_WOLF_TIDE_PLACE, recur: {every: {years: 1}, fromDay: calendarDayIndex(tideProfile, {year: W.fromYear, month: W.month, day: W.day}), durationDays: W.days,
+        phaseDays: W.phases.map(([id, days]) => ({id, days}))}}], {calendar: tideProfile});
+// What each phase does to the wall: crowd scales the ordinary wolves about, strong the big ones (permille of the table's own weights),
+// largeChance is the share of close wolves that are big. `off` is neutral on purpose: the day lane's patrol assumes a wall under tide, so
+// a life with no date, or a date outside the window, keeps today's weights (dial: a quiet wall out of season).
+export const RI_TIDE_PHASES = Object.freeze({
+    off: Object.freeze({crowd: 1000, strong: 1000, largeChance: D.largeChance.value, line: 'The wall is quiet. The packs have gone back up into the mountains.',
+        why: 'Neutral by default so the patrol does not change outside a dated tide.'}),
+    early: Object.freeze({crowd: 700, strong: 500, largeChance: .1, line: 'The first packs are coming down off the ridge. The wall is not yet crowded.',
+        why: 'Authored: a tide builds. Mostly ordinary wolves at first; the strong ones follow the packs in.'}),
+    peak: Object.freeze({crowd: 1300, strong: 1500, largeChance: .3, line: 'The tide is at its height. The wolves come thick and the big ones lead them.',
+        why: 'Authored: the peak is when the wolf king is about (canon dates the king to the tide; ch122-123 packs are led by large wolves), so more wolves and more big ones.'}),
+    ebb: Object.freeze({crowd: 600, strong: 400, largeChance: .1, line: 'The tide is ebbing. Fewer wolves come each night, and the big ones have gone.',
+        why: 'Authored: the strong wolves withdraw first; the stragglers are ordinary.'}),
+});
+// Where the tide stands for this life today: {id: 'off'|'early'|'peak'|'ebb', active, dayInPhase, nextDay, year}. Reads the world calendar
+// (a life with no date reads 'off'); consumers (patrol weights, prices, mood lines) read this one answer, never the calendar themselves.
+export function riWolfTidePhase(state) {
+    let view = null;
+    try {view = state?.actors?.player?.worldId === RI_WOLF_TIDE_WORLD ? resolveWorldCalendar(state, null) : null;} catch {view = null;}
+    if (!view) return {id: 'off', active: false, dayInPhase: 0, nextDay: null, year: null, dated: false};
+    const at = standingOn(RI_TIDE_BOOK, RI_TIDE_EVENT, view.absoluteLocalDay);
+    return {id: at.active ? at.phase.id : 'off', active: at.active, dayInPhase: at.phase?.dayInPhase ?? 0, nextDay: at.nextDay ?? null, year: view.year, dated: true};
+}
+export const riWolfTidePhaseLine = phase => RI_TIDE_PHASES[phase?.id ?? 'off'].line;
 
 const seedOf = state => state?.simulation?.seed ?? 1;
 export function riWolfTideState(state) {
@@ -64,7 +105,8 @@ export const RI_PATROL_SCALING = Object.freeze({
     quiet: 'thin', small_pack: 'ordinary', large_pack: 'large', injured: 'any', wolf_attack: 'any', carcasses: 'none', wild_gu: 'none', met_scout: 'none',
 });
 export function riEncounterWeights(state) {
-    const view = riWolfTideView(state), o = share(view, RI_WOLF_SPECIES.ordinary), l = share(view, RI_WOLF_SPECIES.large);
+    const view = riWolfTideView(state), tide = RI_TIDE_PHASES[riWolfTidePhase(state).id];
+    const o = Math.round(share(view, RI_WOLF_SPECIES.ordinary) * tide.crowd / 1000), l = Math.round(share(view, RI_WOLF_SPECIES.large) * tide.strong / 1000);
     const scale = {ordinary: o, large: l, any: Math.max(o, l), thin: 2000 - o, none: 1000};
     return Object.fromEntries(RI_PATROL_ENCOUNTERS.map(row => [row.id, Math.round(row.weight * scale[RI_PATROL_SCALING[row.id] ?? 'none'] / 1000)]));
 }
@@ -73,10 +115,11 @@ export function riEncounterWeights(state) {
 // only come while big wolves are left at the wall, and an ordinary one stands in once they are hunted out.
 export function riWolfFoe(state) {
     const hour = Math.floor((state?.clock || 0) / 60);
-    const drawn = drawFraction(seedOf(state), `ri.wolf.tide:size:${hour}`) < D.largeChance.value;
+    const phase = riWolfTidePhase(state), tide = RI_TIDE_PHASES[phase.id];
+    const drawn = drawFraction(seedOf(state), `ri.wolf.tide:size:${hour}`) < tide.largeChance;
     const largeLeft = riWolfTideView(state).rows.find(r => r.id === RI_WOLF_SPECIES.large).left > 0;
     const large = drawn && largeLeft;
-    return {large, species: large ? RI_WOLF_SPECIES.large : RI_WOLF_SPECIES.ordinary,
+    return {large, phase: phase.id, species: large ? RI_WOLF_SPECIES.large : RI_WOLF_SPECIES.ordinary,
         hp: large ? D.largeHp.value : D.ordinaryHp.value, attack: large ? D.largeAttack.value : D.ordinaryAttack.value,
         why: large ? `${D.largeChance.why} ${D.largeHp.why}` : drawn ? 'A big wolf would have come, but the big wolves at this stretch of wall are hunted out for now.' : D.ordinaryHp.why};
 }

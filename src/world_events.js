@@ -4,7 +4,7 @@
 import {check, natural, object} from './basics.js';
 
 export const EVENT_KINDS = Object.freeze(['public_event', 'institution_notice', 'disaster', 'curfew', 'festival', 'canon_beat']);
-export const PLACEMENTS = Object.freeze(['dated', 'anchored', 'ordinal', 'unplaced']);
+export const PLACEMENTS = Object.freeze(['dated', 'anchored', 'ordinal', 'recurring', 'unplaced']);
 const LABELS = ['S', 'T', 'I', 'U'], SCOPES = ['public', 'private'];
 
 function validateRecord(r) {
@@ -15,11 +15,21 @@ function validateRecord(r) {
     if (r.placement === 'dated') check(object(r.when) && natural(r.when.day) && (r.when.endDay === undefined || (natural(r.when.endDay) && r.when.endDay >= r.when.day)), `Invalid window on ${r.id}.`);
     if (r.placement === 'anchored') check(object(r.anchor) && typeof r.anchor.eventId === 'string' && Number.isSafeInteger(r.anchor.offsetDays) &&
         (r.anchor.durationDays === undefined || natural(r.anchor.durationDays)), `Invalid anchor on ${r.id}.`);
+    // RWT25: a repeating window. `recur` = {every: {days, years?}, fromDay, untilDay?, durationDays, phaseDays?: [{id, days}]}, in the world's
+    // day index (calendarDayIndex gives a date's index). A phase list must add up to durationDays: each occurrence runs its phases in order.
+    if (r.placement === 'recurring') {
+        const c = r.recur, every = c?.every;
+        check(object(c) && object(every) && natural(every.days ?? 0) && natural(every.years ?? 0) && (every.days ?? 0) + (every.years ?? 0) > 0 &&
+            natural(c.fromDay) && (c.untilDay === undefined || (natural(c.untilDay) && c.untilDay >= c.fromDay)) && natural(c.durationDays) && c.durationDays > 0 &&
+            (c.phaseDays === undefined || (Array.isArray(c.phaseDays) && c.phaseDays.every(p => typeof p?.id === 'string' && natural(p.days) && p.days > 0) &&
+                c.phaseDays.reduce((n, p) => n + p.days, 0) === c.durationDays)), `Invalid recurrence on ${r.id}.`);
+    }
     if (r.placement === 'ordinal') check(object(r.ordinal) && typeof r.ordinal.beat === 'string', `Invalid ordinal on ${r.id}.`);
 }
 
 // Resolves anchors to days. Ordinal and unplaced events have no day: they never run until the host binds them (WA24).
-export function buildEventBook(records, {bindings = {}} = {}) {
+// `calendar` (a profile: its months give the year length) is needed only to turn `every.years` into days.
+export function buildEventBook(records, {bindings = {}, calendar = null} = {}) {
     check(Array.isArray(records), 'Invalid world event list.');
     const byId = new Map();
     for (const r of records) {validateRecord(r); check(!byId.has(r.id), `Duplicate world event ${r.id}.`); byId.set(r.id, r);}
@@ -40,11 +50,42 @@ export function buildEventBook(records, {bindings = {}} = {}) {
         windows.set(id, w);
         return w;
     };
-    const events = records.map(r => ({...r, window: resolve(r.id), spread: r.spread ?? [], present: r.present ?? [], effects: r.effects ?? []}));
+    const yearDays = calendar ? calendar.months.reduce((n, m) => n + m.days, 0) : 0;
+    for (const r of records) if (r.placement === 'recurring') {
+        check(!r.recur.every.years || yearDays > 0, `Recurrence in years on ${r.id} needs a calendar.`);
+        const span = (r.recur.every.years ?? 0) * yearDays + (r.recur.every.days ?? 0);
+        check(span >= r.recur.durationDays, `Recurrence on ${r.id} repeats before it ends.`);
+    }
+    const events = records.map(r => ({...r, ...(r.placement === 'recurring' ? {periodDays: (r.recur.every.years ?? 0) * yearDays + (r.recur.every.days ?? 0)} : {}), window: resolve(r.id), spread: r.spread ?? [], present: r.present ?? [], effects: r.effects ?? []}));
     return Object.freeze({events: Object.freeze(events), byId: new Map(events.map(e => [e.id, e]))});
 }
 
-export const happenedOn = (book, day) => book.events.filter(e => e.window && e.window.day <= day && day <= e.window.endDay);
+// The window an event holds on `day`: its one window, or for a recurring event the occurrence that covers `day` (null between them).
+// An occurrence is {day, endDay, index, phase?: {id, index, dayInPhase, days}}. A recurring event has no `window` of its own, so
+// learnedDay (who learns of it) skips it: a recurring event is read by day, not heard of once (dial: a per-occurrence route later).
+export function windowOn(e, day) {
+    if (e.placement !== 'recurring') return e.window && e.window.day <= day && day <= e.window.endDay ? e.window : null;
+    const c = e.recur;
+    if (day < c.fromDay) return null;
+    const index = Math.floor((day - c.fromDay) / e.periodDays), start = c.fromDay + index * e.periodDays;
+    if (day >= start + c.durationDays || (c.untilDay !== undefined && start > c.untilDay)) return null;
+    let into = day - start, i = 0;
+    const phases = c.phaseDays ?? [];
+    while (i < phases.length - 1 && into >= phases[i].days) {into -= phases[i].days; i++;}
+    return {day: start, endDay: start + c.durationDays - 1, index, ...(phases.length ? {phase: {id: phases[i].id, index: i, dayInPhase: into, days: phases[i].days}} : {})};
+}
+export const happenedOn = (book, day) => book.events.filter(e => windowOn(e, day));
+// Where a recurring event stands on `day`: inside an occurrence (with its phase), or waiting for the next one.
+export function standingOn(book, eventId, day) {
+    const e = book.byId.get(eventId);
+    check(e?.placement === 'recurring', `Unknown recurring event ${eventId}.`);
+    const w = windowOn(e, day);
+    if (w) return {active: true, ...w};
+    const c = e.recur;
+    if (day < c.fromDay) return {active: false, nextDay: c.fromDay};
+    const next = c.fromDay + (Math.floor((day - c.fromDay) / e.periodDays) + 1) * e.periodDays;
+    return {active: false, nextDay: c.untilDay !== undefined && next > c.untilDay ? null : next};
+}
 export const endedBy = (book, day) => book.events.filter(e => e.window && e.window.endDay <= day);
 // City-scale restrictions (GM38): the world meets the lead as curfews, closures and halted travel on their days.
 // An effect is {kind: 'curfew'|'closure'|'travel_halt', places?, institutions?, legs?, means?, hours?, fromDay?, toDay?}.
@@ -53,13 +94,14 @@ export const endedBy = (book, day) => book.events.filter(e => e.window && e.wind
 // A curfew- or closure-kind event with no listed effect is its own region-wide restriction over its window.
 export function restrictionsOn(book, day) {
     return book.events.flatMap(e => {
-        if (!e.window) return [];
+        const w = e.placement === 'recurring' ? windowOn(e, day) : e.window;   // a recurring event restricts only inside an occurrence
+        if (!w) return [];
         const listed = e.effects.filter(f => ['curfew', 'closure', 'travel_halt'].includes(f.kind));
         if (!listed.length) {
-            return ['curfew', 'closure'].includes(e.kind) && e.window.day <= day && day <= e.window.endDay ?
+            return ['curfew', 'closure'].includes(e.kind) && windowOn(e, day) ?
                 [{eventId: e.id, kind: e.kind, places: e.place ? [e.place] : null, hours: null, hoursKnown: false, lineKey: e.lineKey ?? null}] : [];
         }
-        return listed.filter(f => (f.fromDay ?? e.window.day) <= day && day <= (f.toDay ?? e.window.endDay)).map(f => ({eventId: e.id, kind: f.kind,
+        return listed.filter(f => (f.fromDay ?? w.day) <= day && day <= (f.toDay ?? w.endDay)).map(f => ({eventId: e.id, kind: f.kind,
             places: f.places ?? (f.place ? [f.place] : e.place ? [e.place] : null), institutions: f.institutions ?? null, legs: f.legs ?? null, means: f.means ?? null,
             hours: f.hours ?? null, hoursKnown: f.hoursKnown ?? f.hours != null, unmapped: f.unmapped === true, scopeText: f.scopeText ?? null, lineKey: e.lineKey ?? null}));
     });
