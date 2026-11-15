@@ -199,3 +199,15 @@ Weibao: "more to consider?". Evidence: the PS33 trace from daily-loops, and the 
 | --- | --- | --- |
 | PS65 | **The left column per world.** Fang Yuan's left column shows his aperture, essence sea, Gu rank and his Gu, not Village STR and Hero XP; Klein's shows his sequence, digestion and spirituality; Harry's shows his year, house points and wand. The Village keeps its own. Built on A (the thing on the left) and PS61's routes. | Opus (ui-cohesion), M per world. Done: each lead's left column reads its world, seen in Chrome. |
 | PS66 | **A coordinator handoff block.** This coordinating chat's context is filling. CHECKPOINT holds lanes, owners, delivered work, the log and what waits on Weibao, so a fresh coordinator resumes from it. | Done when a fresh chat can resume from CHECKPOINT alone. |
+
+## Round 8, 2026-11-15: what the split duplicates
+
+Weibao: "does the ui split duplicate anything? more to consider? it feels like the center bottom tile has room to condense one more tile there but there might be no need". Evidence: home baseline `tests/fixtures/visual/home.png` at 126de3278. Proposals (AD32), sent to ui-cohesion.
+
+| Code | Duplicate | Default |
+| --- | --- | --- |
+| PS67 | Around you's ways out and people are repeated by the bottom list's "Move somewhere else" and "Talk to someone". | Retire the generic action list (UIC127 proper). |
+| PS68 | One bench has three ways in: a station row, "Try to craft something" and the bottom tabs. | Keep one route, chosen with check:flow's `dupway` evidence. |
+| PS69 | Place and time are said by the status line and again by the bottom panel's "Village" header and its daylight line. | B is the only place they appear; the bottom header goes. |
+| PS70 | The quest shows in the Journal box, the Journal tab and Reports' "Next step". | The Journal box is the quest view; "Next step" links into it. |
+| PS71 | The empty bottom-left. | Not a new tile: "Ready now" (D) takes the space, led by the next step. Verbs with no other home (Find work, Train, Cross) join Around you or Ready now. |
