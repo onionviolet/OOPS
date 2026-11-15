@@ -137,3 +137,14 @@ test('one source of wolf yields: the patrol counts dead wolves, ri_wolf_tide.js 
         }
     }
 });
+
+test('a refined wild Moonlight Gu eats like any Moonlight Gu, and each feed verb shows only while that Gu is held', () => {
+    const wild = RI_DAY_DIETS.find(d => d.slot === 'wild_moonlight');
+    assert.equal(wild.gu, 'book.ri.lead.wild_refinement.moonlight_gu');
+    assert.deepEqual([wild.perMeal, wild.interval], [2, 720]);
+    for(const d of RI_DAY_DIETS) {
+        const feed = guLeadDay.commands.find(c => c.id === `${RI_LEAD_DAY}.feed_${d.slot}`);
+        assert.match(JSON.stringify(feed.visibleWhen), new RegExp(`item\\.\\{\\\\"id\\\\":\\\\"${d.gu.replaceAll('.', '\\.')}\\\\"\\}`), `${d.slot} shows only while held`);
+        assert.ok(feed.effects[0].value.endsWith(d.fedLine));
+    }
+});

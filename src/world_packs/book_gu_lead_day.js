@@ -39,11 +39,12 @@ const unhurt = eq(local('hurt'), false, 'Your wound needs binding and rest befor
 const noWolf = eq(local('wolf_waiting'), false, 'A wolf is still at the wall from your last watch. Face it or let the watch drive it off first.');
 const seaPace = `Your sea also refills on its own, one part every ${formatDuration(riSeaMinutesPerPart(44))} at your C grade (ch10).`;
 
-function act(name, label, duration, description, effects, {needs = [], costs = [], parts = 0} = {}) {
+// `visible`: an extra rule for showing the verb at all (a feed row shows only while that Gu is held).
+function act(name, label, duration, description, effects, {needs = [], costs = [], parts = 0, visible = null} = {}) {
     const support = all(ready, admitted, at);
     return {
         id: local(name), revision: 1, label, description, group: 'structured_local', worldId: world,
-        actorId: 'player', location: academy, audience: ['$actor'], once: false, duration, visibleWhen: admitted,
+        actorId: 'player', location: academy, audience: ['$actor'], once: false, duration, visibleWhen: visible ? all(admitted, visible) : admitted,
         requires: all(support, ...needs, ...(parts ? [{fact: `energy.${essence}.reserve`, op: 'gte', value: parts, reason: `You need ${parts} parts of essence in your sea.`}] : [])),
         completionRequires: support, completionCoLocated: true, completionFailure: 'refund',
         cancellation: 'refund', reservationReturns: 1, costs: parts ? [...costs, spend(parts)] : costs, effects
@@ -53,8 +54,8 @@ const stones = n => has(IT.stone, n, `You need ${n} primeval stone${n === 1 ? ''
 const payStones = n => item(IT.stone, -n);
 const feed = d => act(`feed_${d.slot}`, `Feed the ${d.label} · ${d.perMeal === 1 ? 'one' : d.perMeal} ${d.foodLabel}`, 5,
     `${d.basis} Feeding early is refused: it eats when its meal comes due, and a missed meal leaves it hungry until you feed it.`,
-    [note(d.fed, `The ${d.label} has eaten. ${d.slot === 'moonglow' ? 'It will want petals again this evening or tomorrow morning.' : d.slot === 'worm' ? 'The jar will last it four days.' : 'That parcel lasts it twenty days.'}`)],
-    {needs: [has(d.gu, 1, `You do not hold the ${d.label}.`), eq(`${GU_LEAD_DAY}.${d.slot}.due`, true, `The ${d.label} ate recently and will not take more yet.`),
+    [note(d.fed, `The ${d.label} has eaten. ${d.fedLine}`)],
+    {visible: has(d.gu, 1, `You do not hold the ${d.label}.`), needs: [has(d.gu, 1, `You do not hold the ${d.label}.`), eq(`${GU_LEAD_DAY}.${d.slot}.due`, true, `The ${d.label} ate recently and will not take more yet.`),
         has(d.food, d.perMeal, `You need ${d.perMeal === 1 ? 'one' : d.perMeal} ${d.foodLabel}.`)], costs: [item(d.food, -d.perMeal)]});
 const moonglow = RI_DAY_DIETS.find(d => d.slot === 'moonglow');
 // What a reported night brings back (PS2, RWT1): the dead wolves' parts from the one wolf table (ri_wolf_tide.js riWolfParts, by size),
@@ -73,7 +74,7 @@ const broughtBack = (got, tallies) => {
 const meatFresh = v => eq(local('meat_fresh'), v, v ? 'The meat has spoiled. Nobody will buy it; throw it out.' : 'The meat is still fresh. Sell it before it turns.');
 
 export const guLeadDay = {
-    schema: 1, id: GU_LEAD_DAY, revision: 3,
+    schema: 1, id: GU_LEAD_DAY, revision: 4,
     base: {id: GU_LEAD, revision: 1, contentHash: baseHash},
     label: 'Keep your own day: feed your Gu, draw stones, trade wolf parts for merit',
     description: `Between the clan's errands, your Gu still eat on their own clocks and your sea still empties. Buy their food, keep them fed, refill your essence, and bring wolf parts back from the wolf tide to trade at the board and the stalls. ${seaPace}`,

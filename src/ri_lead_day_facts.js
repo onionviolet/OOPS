@@ -15,16 +15,22 @@ export const RI_DAY_ITEMS = Object.freeze({
     petals: 'book.ri.lead.dorm.petals', wine: 'book.ri.lead.vital.bamboo_wine', stone: 'book.ri.lead.refinement.primeval_stone',
     merit: 'book.ri.lead.ear_grass.merit', eye: 'book.ri.lead.ear_grass.cached_wolf_eyes', jade: `${RI_LEAD_DAY}.jade_rock`, wildGu: `${RI_LEAD_DAY}.wild_gu`,
     pelt: `${RI_LEAD_DAY}.wolf_pelt`, meat: `${RI_LEAD_DAY}.wolf_meat`, tally: `${RI_LEAD_DAY}.watch_tally`,
-    moonglow: 'book.ri.lead.moonglow.moonglow_gu', worm: 'book.ri.lead.river_toad.four_flavours_liquor_worm', whiteJade: 'book.ri.lead.white_jade.white_jade_gu'});
+    moonglow: 'book.ri.lead.moonglow.moonglow_gu', wildMoonlight: 'book.ri.lead.wild_refinement.moonlight_gu', worm: 'book.ri.lead.river_toad.four_flavours_liquor_worm', whiteJade: 'book.ri.lead.white_jade.white_jade_gu'});
 // Diets, one row per Gu that eats. `basis` says where each number comes from (AD49): canon figures are fixed points; a Gu whose diet
 // the source does not state eats like the Gu it was made from (dial: replace the row when a later reading finds the figure).
 export const RI_DAY_DIETS = Object.freeze([
     Object.freeze({slot: 'moonglow', label: 'Moonglow Gu', gu: RI_DAY_ITEMS.moonglow, food: RI_DAY_ITEMS.petals, foodLabel: 'Moon Orchid petals', perMeal: 2, interval: DAY / 2,
-        basis: 'Moonlight Gu eats two petals a meal, morning and evening (ch23). Moonglow is made from Moonlight and its food is unstated, so it eats the same (authored).'}),
+        basis: 'Moonlight Gu eats two petals a meal, morning and evening (ch23). Moonglow is made from Moonlight and its food is unstated, so it eats the same (authored).',
+        fedLine: 'It will want petals again this evening or tomorrow morning.'}),
+    // A Moonlight Gu refined from a patrol find (ri_wild_gu.js riWildGuItem('moonlight'); the wild-refinement pack owns the item).
+    Object.freeze({slot: 'wild_moonlight', label: 'Moonlight Gu (wild)', gu: RI_DAY_ITEMS.wildMoonlight, food: RI_DAY_ITEMS.petals, foodLabel: 'Moon Orchid petals', perMeal: 2, interval: DAY / 2,
+        basis: 'Moonlight Gu eats two petals a meal, morning and evening (ch23).', fedLine: 'It will want petals again this evening or tomorrow morning.'}),
     Object.freeze({slot: 'worm', label: 'Four Flavours Liquor Worm', gu: RI_DAY_ITEMS.worm, food: RI_DAY_ITEMS.wine, foodLabel: 'jar of green bamboo wine', perMeal: 1, interval: 4 * DAY,
-        basis: 'One jar of green bamboo wine lasts a Liquor Worm four days (ch23). The fused worm\'s food is unstated, so it keeps the same jar (authored).'}),
+        basis: 'One jar of green bamboo wine lasts a Liquor Worm four days (ch23). The fused worm\'s food is unstated, so it keeps the same jar (authored).',
+        fedLine: 'The jar will last it four days.'}),
     Object.freeze({slot: 'jade', label: 'White Jade Gu', gu: RI_DAY_ITEMS.whiteJade, food: RI_DAY_ITEMS.jade, foodLabel: 'parcel of jade rock (eight liang)', perMeal: 1, interval: 20 * DAY,
-        basis: 'Eight liang of jade rock every twenty days (the White Jade Gu item text, ch98-100). One parcel of eight liang is one meal.'})
+        basis: 'Eight liang of jade rock every twenty days (the White Jade Gu item text, ch98-100). One parcel of eight liang is one meal.',
+        fedLine: 'That parcel lasts it twenty days.'})
 ].map(d => Object.freeze({...d, fed: `${RI_LEAD_DAY}.fed.${d.slot}`, diet: Object.freeze(validateDiet({holder: `${RI_LEAD_DAY}.${d.slot}`, label: d.label,
     food: key(d.food), perMeal: d.perMeal, interval: d.interval, maxCondition: 4, flag: `${RI_LEAD_DAY}.${d.slot}.kept`, lethal: false}))})));
 // `food` and `gu` stay plain item ids (the commands encode them); `diet` is the living_upkeep row the needs seam reads.
@@ -69,9 +75,8 @@ export const RI_PATROL_FIGHT_ROWS = Object.freeze(RI_PATROL_ENCOUNTERS.filter(r 
 // A fight row leaves a wolf at the wall (actor fact below). It is settled either by the live hunt (tempo_lead_fights.js, opener
 // ri.wolf.tide, which reads `wolf_waiting` and clears the fact) or by the compressed fallback in the day extension, "Let the watch drive it
 // off". A kill drops the wolf's parts (RI_WOLF_PARTS in ri_wolf_tide.js, as items RI_WOLF_PART_ITEMS); a drive-off, a held-back or a fled
-// wolf brings back no parts, only one watch tally (`tally`), which the board pays `witnessedMerit` for. `killMerit` and `driveOffMerit` are
-// deprecated: kept only until the combat lane's hook drops parts instead (then removed with KNOWN_MERIT_WRITERS in tests/ri_lead_day.test.js).
-export const RI_WOLF_AT_WALL = Object.freeze({fact: `${RI_LEAD_DAY}.wolf_at_wall`, tally: RI_DAY_ITEMS.tally, witnessedMerit: RI_DAY_DIALS.tallyMerit.merit, killMerit: 75, driveOffMerit: 25});
+// wolf brings back no parts, only one watch tally (`tally`), which the board pays `witnessedMerit` for.
+export const RI_WOLF_AT_WALL = Object.freeze({fact: `${RI_LEAD_DAY}.wolf_at_wall`, tally: RI_DAY_ITEMS.tally, witnessedMerit: RI_DAY_DIALS.tallyMerit.merit});
 // The day's item for each part name in RI_WOLF_PARTS (ri_wolf_tide.js owns the parts and their counts; this owns the items).
 export const RI_WOLF_PART_ITEMS = Object.freeze({eye: RI_DAY_ITEMS.eye, pelt: RI_DAY_ITEMS.pelt, meat: RI_DAY_ITEMS.meat});
 // Meat is one shared lot (spoilage.js PERISHABLE_LOTS): its clock starts at the `at` of the last note under RI_MEAT_NOTE, written by
