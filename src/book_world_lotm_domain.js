@@ -13,6 +13,10 @@ import {registerDutySet} from './duties_domain.js';
 import {LOTM_DUTIES,LOTM_RENT,LOTM_CIVIL_DUTIES,LOTM_CIVIL_DUTY_ID,LOTM_GUARD_DUTIES,LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
 import {lotmDutyHeld} from './book_world_lotm_positions.js';
 import {registerUpcomingSource} from './upcoming_strip_ui.js';
+import {registerReady} from './ready_rows.js';
+import {readPort} from './ui_ports.js';
+import {expandWorkspaceModule} from './workspace_layout.js';
+import {lotmWorkRows} from './lotm_work_day.js';
 import {lotmFacts} from './book_world_lotm_actions.js';
 import {lotmDivinationFacts} from './book_world_lotm_div_supply.js';
 import {lotmActFacts} from './book_world_lotm_acts_host.js';
@@ -71,6 +75,8 @@ function workshopPanelView(selection) {
  return {...view,records:[...view.records,...records].sort((a,b)=>(a.at??0)-(b.at??0))};
 }
 registerUpcomingSource(()=>host?.upcoming()||[]);
+// D1: Klein's pay under the Find work verb in Ready now; the row draws the pay as the panel's own button does (book_world_lotm_wage.js owns the facts).
+registerReady({id:'lotm-work',label:'Your work',verb:'work',rows:()=>lotmWorkRows(readPort('expansion'),{collect:()=>{host.collectWage();panel?.render();},open:()=>expandWorkspaceModule('lotm')})});
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
  commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
  projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...lotmActFacts(...args),...itemSafetyFacts(args[0],getPrivateLotmCast()?.itemSafety),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs)}:host?.view(),
