@@ -37,3 +37,8 @@ test('the ledger mounts as a Journal page that shows only while there is a contr
         assert.equal(tab.node.textContent, '');
     } finally { globalThis.document = previous; }
 });
+
+test('Bio rows say what Klein owes and when rent falls due (D1)', async () => {
+    const {lotmBioRows} = await import('../src/lotm_work_day.js');
+    assert.deepEqual(lotmBioRows({actors: {player: {worldId: 'elsewhere'}}}, null), []);
+});

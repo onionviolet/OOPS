@@ -72,3 +72,33 @@ export function mountPayLedgerTab({registerBoxTab, read}) {
     };
     return registerBoxTab({box: 'journal', id: 'pay', label: 'Pay', node, when});
 }
+
+// D1 Bio rows: what Klein owes and when his rent falls due, as lines in YAIR's own Bio page (UI cohesion: append your node
+// there). Owes reads wageView; rent reads the duties projection's 'lotm.rent' item (due, time left, weeks missed).
+export function lotmBioRows(state, duties) {
+    const v = wageView(state);
+    if (!v) return [];
+    const rows = [];
+    const half = WAGE_DIALS.weeklyPence.value * WAGE_DIALS.keptShare.value;
+    if (v.advance) rows.push({label: 'Owes', value: v.advanceLeft ? `advance ${wageWords(v.advanceLeft)} · about ${Math.ceil(v.advanceLeft / half)} weeks to clear` : 'nothing; the advance is repaid'});
+    const rent = (duties?.items || []).find(d => d.id === 'lotm.rent');
+    if (rent) rows.push({label: 'Rent', value: `${rent.status === 'late' ? 'late' : `due in ${formatDuration(rent.shutsIn)}`}${rent.missed ? ` · ${rent.missed} ${rent.missed === 1 ? 'week' : 'weeks'} behind` : ''}`});
+    return rows;
+}
+// Placed as a Character box tab ("Work", beside Stats · Bio · Equipment · Tools) rather than inside the native Bio page: Klein's
+// Character box is undiscovered in his life, and a shown tab is what makes it found (UI cohesion, ae6fb5e04).
+export function mountLotmBio({registerBoxTab, read, duties}) {
+    if (typeof document === 'undefined') return () => {};
+    const node = document.createElement('div');
+    node.className = 'lotm-bio'; node.dataset.lotmBio = '';
+    let key = '';
+    const when = () => {
+        let rows = [];
+        try { rows = lotmBioRows(read(), duties()); } catch { rows = []; }
+        if (!rows.length) return false;
+        const next = JSON.stringify(rows);
+        if (next !== key) { key = next; node.replaceChildren(...rows.map(r => { const d = document.createElement('div'); d.className = 'character_bio_entry'; d.textContent = `${r.label}: ${r.value}`; return d; })); }
+        return true;
+    };
+    return registerBoxTab({box: 'character', id: 'work', label: 'Work', node, when});
+}

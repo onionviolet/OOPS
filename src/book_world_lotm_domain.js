@@ -16,7 +16,7 @@ import {registerUpcomingSource} from './upcoming_strip_ui.js';
 import {registerReady} from './ready_rows.js';
 import {readPort} from './ui_ports.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
-import {lotmWorkRows,mountPayLedgerTab} from './lotm_work_day.js';
+import {lotmWorkRows,mountPayLedgerTab,mountLotmBio} from './lotm_work_day.js';
 import {registerBoxTab} from './ui/box_tabs.js';
 import {lotmFacts} from './book_world_lotm_actions.js';
 import {lotmDivinationFacts} from './book_world_lotm_div_supply.js';
@@ -78,6 +78,7 @@ function workshopPanelView(selection) {
 registerUpcomingSource(()=>host?.upcoming()||[]);
 // D1: Klein's pay under the Find work verb in Ready now; the row draws the pay as the panel's own button does (book_world_lotm_wage.js owns the facts).
 mountPayLedgerTab({registerBoxTab,read:()=>readPort('expansion')});
+mountLotmBio({registerBoxTab,read:()=>readPort('expansion'),duties:()=>domainRegistry.project('duties')});
 registerReady({id:'lotm-work',label:'Your work',verb:'work',rows:()=>lotmWorkRows(readPort('expansion'),{collect:()=>{host.collectWage();panel?.render();},open:()=>expandWorkspaceModule('lotm')})});
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
  commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
