@@ -1568,3 +1568,9 @@ Recorded as accepted direction ([record](../audits/RULES_STATUS_RECONCILIATION_2
 - **O4.** The [rulebook shape](../RULES_INDEX.md#rulebook-shape) is the standard. Owner headers state the register status, and `check:rules` enforces it (RIX4).
 
 Code that still runs the old LLR47–LLR49 and LLR39–LLR42 defaults (procedural grammar rejects, `pays`, the pacing and opening checks) is listed for its own slice.
+
+## Notice tiers adopted, 2026-11-14
+
+Coordinator's question: "Should I adopt UR88's notice tiers, and hand coordination to a fresh chat now?" Weibao: "Go ahead, context is no longer full after compact".
+
+Recorded as acceptance of UR88 (LLR28, PS89). A stop-list item may interrupt: a choice that needs the player, a known event, a lethal edge or an exhausted supply. Everything else becomes a log line, a dot on its home or a recap line, and repeats group into one line with a count. The player can raise or lower any kind of notice. The handoff to a fresh coordinator (PS92) is not needed now, so coordination stays in this chat.

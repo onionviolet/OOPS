@@ -103,6 +103,7 @@ First to fourth rounds, 2026-11-10 ([first](../gm/USER_VISION_LOG_2026-11.md#ans
 | LLR51 | Opened: computed from properties; neutral where no mechanism applies (2026-11-14) | PC69 |
 | LLR52 | Opened: contest packs, revisit on a failing case (2026-11-14) | PROCEDURAL_CARRY_OUT |
 | LLR53 | Opened: all buildable; the split sets order; wiki-body effects run labelled; nothing waits; parallel facet lanes (2026-11-14) | PC20/Q2, Q3, Q5, Q7 |
+| LLR28 | Adopted as written, 2026-11-14 ([log](../gm/USER_VISION_LOG_2026-11.md#notice-tiers-adopted-2026-11-14)): by default a stop-list item interrupts and the rest are log lines, dots or recap lines; the dial is the player raising or lowering any kind | UR88, PS89 |
 
 ## Restating accepted direction (no answer needed)
 
