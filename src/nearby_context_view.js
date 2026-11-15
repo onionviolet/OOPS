@@ -76,7 +76,18 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     const back=el('button'),previous=el('button','‹ Previous'),next=el('button','Next ›');for(const b of [back,previous,next])b.type='button';
     back.dataset.nearbyBack='';previous.dataset.nearbyPrevious='';next.dataset.nearbyNext='';navigation.append(previous,next);
     const title=el('h3'),role=el('p'),facts=el('p'),memory=el('p'),actions=el('div'),empty=el('p');actions.className='nearby-context-actions';
-    detail.append(navigation,title,role,facts,memory,actions,back);split.append(list,detail);node.append(summary,placeLead,place,split,empty);
+    detail.append(navigation,title,role,facts,memory,actions,back);split.append(list,detail);
+    // PS120 (round 14): Around you folds to one line in the location box, "Here: 2 people · 6 stations · 3 ways out". Each
+    // count opens its verb in the action list (Talk to someone, Move somewhere else); stations, with no single verb, and
+    // Show all unfold the full list, so every subject, role and act stays one press away (PS129).
+    const hereLine=el('p');hereLine.className='nearby-here-line';const hereLinks={};let expanded=false,lastArgs={};
+    const openKind=(kind,selector)=>{const verb=selector&&doc.querySelector?.(`#location_actions_div ${selector}`);
+        if(verb&&!verb.hidden&&verb.style?.display!=='none'){if(!verb.classList.contains('location_choice_dropdown_expanded'))verb.click();verb.scrollIntoView?.({block:'nearest'});verb.focus?.();return;}
+        expanded=true;update(lastArgs);};
+    for(const [kind,selector] of [['people','.choice_dialogue'],['services',null],['exits','.choice_travel']]){const b=el('button');b.type='button';b.dataset.hereLink=kind;b.onclick=()=>openKind(kind,selector);hereLinks[kind]=b;}
+    const showAll=el('button');showAll.type='button';showAll.dataset.hereLink='all';showAll.onclick=()=>{expanded=!expanded;update(lastArgs);};
+    hereLine.append(el('span','Here:'),hereLinks.people,hereLinks.services,hereLinks.exits,showAll);
+    node.append(summary,placeLead,place,hereLine,split,empty);
     const groups=new Map(),buttons=new Map(),actionButtons=new Map();let model=null,lastPlace=null,returnId=null,missingNotice=false;
     const select=id=>{missingNotice=false;returnId=id || model?.selectedId || returnId;choose?.(id);};
     const move=direction=>{if(!model?.subjects.length)return;const index=model.subjects.findIndex(s=>s.id===model.selectedId);const target=model.subjects[(index+direction+model.subjects.length)%model.subjects.length];select(target.id);};
@@ -87,11 +98,17 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     list.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey||!event.target.dataset.inspectNearby)return;
         const delta={ArrowDown:1,j:1,ArrowUp:-1,k:-1}[event.key];if(!delta)return;event.preventDefault();move(delta);buttons.get(returnId)?.focus();});
     const update=({frame,selected=null,description=''}={})=>{
+        lastArgs={frame,selected,description};
         const previousModel=model;model=projectNearbyContext({...frame,exits:[...rows(frame?.exits),...extraWayOuts()]},selected,description);
         if(lastPlace!==model.place){place.open=false;returnId=null;missingNotice=false;lastPlace=model.place;list.scrollTop=0;detail.scrollTop=0;}
         if(model.missing)missingNotice=true;
         // PX46, UR147: the first sentence shows once; the disclosure holds only what follows it. No count line when there is nothing to count.
-        text(summary,model.summary);summary.hidden=frame?.inVillage===true||!model.summary;text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead;
+        text(summary,model.summary);summary.hidden=true;
+        const count=(n,one,many)=>n?`${n} ${n===1?one:many}`:'';
+        for(const [kind,words] of [['people',count(model.people.length,'person','people')],['services',count(model.services.length,'station','stations')],['exits',count(model.exits.length,'way out','ways out')]]){text(hereLinks[kind],words);hereLinks[kind].hidden=!words;
+            hereLinks[kind].title=kind==='people'?'Opens Talk to someone in the actions':kind==='exits'?'Opens Move somewhere else in the actions':'Shows the stations and services here';}
+        hereLine.hidden=!model.subjects.length;text(showAll,expanded?'Fold':'Show all');showAll.setAttribute('aria-expanded',String(expanded));
+        node.dataset.compact=String(!expanded&&!model.subject&&!model.missing&&model.subjects.length>0);text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead;
         text(placeBody,model.descriptionRest);place.hidden=!model.descriptionRest;text(back,`← ${model.place} overview`);
         // PS98: the pinned band's folded This place line reads these, so the counts have one author.
         // The frame re-measures when what this view holds changes shape (the centre split sizes the region to it).

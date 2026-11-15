@@ -6,6 +6,7 @@
 // they leave. Default caps: five ready and three near rows shown, the rest one press away (dial: READY_SHOWN, NEAR_SHOWN).
 // Pure view; nothing is saved.
 import {collectReady, readyCounts} from '../ready_rows.js';
+import {markedSources} from './verb_marks.js';
 
 const READY_SHOWN = 5, NEAR_SHOWN = 3;
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
@@ -59,7 +60,8 @@ export function mountReadyHub({spot = defaultSpot} = {}) {
         const place = spot();
         if (!place?.parent) return;
         if (!force && held()) return;
-        const rows = collectReady(), model = hubModel(rows, {expanded: isExpanded()});
+        // PS120: a source whose verb is in the action list shows as that verb's mark, not as rows here.
+        const marked = markedSources(), rows = collectReady().filter(r => !marked.has(r.source)), model = hubModel(rows, {expanded: isExpanded()});
         // The panel arriving or leaving changes the centre column's first region, a stable moment for the frame (the split).
         const changed = () => document.dispatchEvent(new CustomEvent('shell-content-change', {detail: {part: 'ready-now'}}));
         if (model.empty) { if (root.isConnected) { root.remove(); changed(); } signature = ''; return; } // further-off rows alone are not worth a block

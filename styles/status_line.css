@@ -125,3 +125,6 @@
 :root[data-status-line] #main_content.workspace-active[data-parity="r3"][data-center-task] .workspace-module[data-module="village-scene"] {display:none;}
 :root[data-status-line] #main_content.workspace-active[data-parity="r3"] #quiet_place_detail > small:not(.palette-local-cue) {display:none;}
 :root[data-status-line] #main_content.workspace-active[data-parity="r3"] #quiet_place_detail:has(> .palette-local-cue:empty) {padding:0;min-height:0;}
+/* PS120 (round 14): Ready now marks its verb in the action list ("Try to craft something · 2 close"). */
+#location_actions_div [data-ready-mark]::after {content:" · " attr(data-ready-mark);color:var(--ui-state-near);font-size:var(--ui-type-small);}
+#location_actions_div [data-ready-mark-state="ready"]::after {color:var(--ui-state-ready);}

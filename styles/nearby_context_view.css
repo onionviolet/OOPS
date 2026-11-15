@@ -47,3 +47,10 @@
 }
 /* Native generic buttons otherwise retain 14px when this surface is enlarged. */
 #main_content[data-parity="r3"] #current_focus .nearby-context-view button {font:inherit;line-height:1.3;}
+/* PS120 (round 14): Around you folds to its Here line; each count opens its verb, Show all unfolds the list. */
+.nearby-here-line {display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--ui-space-2);margin:0 0 var(--ui-space-1)!important;}
+.nearby-here-line > button {font:inherit;color:var(--p23-text);background:transparent;border:0;padding:0;min-height:var(--ui-target-min);cursor:pointer;text-decoration:underline;text-underline-offset:.15em;}
+.nearby-here-line > button[data-here-link="all"] {margin-left:auto;color:var(--p23-muted);}
+.nearby-here-line > button[hidden] {display:none;}
+.nearby-context-view[data-compact="true"] > .nearby-context-split {display:none;}
+.nearby-context-view[data-compact="true"] > .nearby-context-split ~ p {display:none;}

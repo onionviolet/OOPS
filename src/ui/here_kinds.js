@@ -31,8 +31,9 @@ export const HERE_KIND_MAP = Object.freeze([
     ['#furniture_panel', {kind: 'feature', home: 'home'}],
     ['#p23_household_panel', {kind: 'feature', home: 'home'}],
     ['#systems_workshop_panel', {kind: 'project', home: 'workshop'}],
-    // The Tingen door is a place while it leads away and a plain act once the life lives there ("Nearby: ...").
-    ['[data-lotm-door]', node => node.dataset.lotmLocalEntry === 'true' ? {kind: 'act'} : {kind: 'place'}],
+    // The Tingen door is a verb in the action list (round 14, PS120: actions by verb, YAIR's order); Around you's Show all
+    // also lists it under Ways out through registerWayOut.
+    ['[data-lotm-door]', {kind: 'act'}],
 ]);
 
 // Pure: which tab a kind shows in. A place shows in no tab of the action list; Around you lists it.
@@ -126,7 +127,7 @@ export function mountHereWayOuts() {
     wayOutReleased?.();
     wayOutReleased = registerWayOut({id: 'here-places', rows: () => {
         const list = document.getElementById('location_actions_div'); if (!list) return [];
-        return [...list.children].filter(c => declared(c).kind === 'place' && !ownerHidden(c) && (c.textContent || '').trim()).map((c, i) => {
+        return [...list.children].filter(c => (declared(c).kind === 'place' || c.matches('[data-lotm-door]') && c.dataset.lotmLocalEntry !== 'true') && !ownerHidden(c) && (c.textContent || '').trim()).map((c, i) => {
             // The words, without the icon font's ligature name.
             const words = [...c.childNodes].filter(n => !n.classList?.contains('material-icons')).map(n => n.textContent).join('').trim();
             const to = words.replace(/^Cross to another world:\s*/i, '').trim();
