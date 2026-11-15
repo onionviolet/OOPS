@@ -1629,3 +1629,9 @@ Recorded as his direction:
 - any box draggable on one layout model.
 
 The proposals are in [round 17](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-17-2026-11-15-areas-inside-a-place-gates-movable-boxes-and-the-effects-no-clip-showed).
+
+## Strip numbers, world crossing and Around you, 2026-11-15
+
+Weibao, looking at the round 14 Village home: "what do the numbers on top mean? Where else to put the cross to another world? HOw to put the around you part better? Using more of the space from the journal part? did we implement the D15? More to consider? Do we have ui for other actions too?"
+
+Answered and proposed in [round 18](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-18-2026-11-15-the-strips-numbers-the-world-crossing-around-you-in-column-3-log-filters-and-actions-without-a-surface) (PS190–PS195): the strip explains itself, the world crossing moves under travel, Around you becomes column 3's Here box above the Journal, and YAIR's log filters (DU15) are still to build.

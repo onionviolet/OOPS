@@ -541,3 +541,36 @@ He also liked the Discord top 10, asked to consider the effects no clip showed, 
 | PS187 | Floating text | Damage, healing and loot rise from their source and fade within a second; repeats stack with a count. |
 | PS188 | Rarity or quality glow | A soft edge in the rarity colour with its word in the tooltip (PS153). |
 | PS189 | Sound | Cues for ready, level-up, a fight's end and a gate opening, each with its own volume; off by default. |
+
+## Round 18, 2026-11-15: the strip's numbers, the world crossing, Around you in column 3, log filters, and actions without a surface
+
+Weibao, looking at the Village home at 17916d6f9: "what do the numbers on top mean? Where else to put the cross to another world? HOw to put the around you part better? Using more of the space from the journal part? did we implement the D15? More to consider? Do we have ui for other actions too?" ([log](../../USER_VISION_LOG_2026-11.md#strip-numbers-world-crossing-and-around-you-2026-11-15))
+
+What the capture shows:
+- **Top strip:** the 6, 12 and 18 are the day strip's hour ticks (F). The gold line is now (08:12). Events and plans would sit on it as chips, but the Village has none yet, so it reads as a bare ruler.
+- **Footer:** it still holds the 17 routes. Slice 1 moved the bar but has not yet grouped it (PS123).
+- **Second-level tabs:** Here, Crafting, Mixing and Keys, and Actions, Home and Options, are still there until slice 3.
+- **Journal:** one quest and an empty column. The Skills box lands under it in slice 4.
+
+### ACT NOW (proposals)
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS190 | **The strip explains itself.** Default: the hour ticks get a label ("Today") and the current time sits on the now line. Events and plans show as chips (fed Moonglow, patrol, Moonglow due 23:00). With nothing on today's strip it folds into the status line as "Today: nothing planned · next: …", and its height goes to the boxes. Hover on any tick gives the time. Reason: a bare ruler of numbers reads as noise. |
+| PS191 | **The world crossing lives with travel, not in the verb list.** Default: under **Move somewhere else**, a separate group "Another world" lists each known crossing (Tingen) with what it costs and what carries over (WER rules). The Journal box's **Worlds** tab is the overview of the lives you hold and the doors you know. The stray "Cross to another world" row goes. Dial: the Pin menu can pin a crossing to the strip. Reason: it is a way out, the biggest one, and belongs with the others. |
+| PS192 | **Around you moves to column 3 as the Here box.** Default: column 3's head becomes **Here**, the full list of the current area (people, stations and ways out, each with its verbs, and the area arrows from round 17). Under it sits the **Journal** box, fitted to its content, and then **Skills**. Column 2 keeps a compact place head (name, area and one line of description, with "More about this place") and the actions box, which gains the height. Dial: drag layout (PS179) moves any of them, and a preset puts Here back in column 2. Reason: the people and things you can touch need room more than a one-quest Journal does. |
+| PS193 | **YAIR's log filters (DU15) are not built yet.** Today Reports has a single filter dropdown. Default: the YAIR filter row at the foot of Reports (Levels and unlocks, Events, Crafting, Combat, Loot), plus Ready and Story (PS124). Each is a toggle, and the choice is kept per life. It is in the UI kit (cell 12) and not in the game. |
+
+### ACCOUNT FOR NOW: actions without a proper surface
+
+The [surface coverage audit](../../../audits/UI_SURFACE_COVERAGE_2026-11-15.md) (SFC1–SFC42) answers "do we have UI for other actions". Many actions have a surface, but often a poor one:
+- **SFC2:** about 47 files append straight into the actions box, so the verbs land in load order.
+- **SFC3:** about 45 registered centre panels have no route (Deeds, Companions, Study, Homes, Regard and more).
+- **SFC1:** each lead lives in one catch-all panel (Klein's workroom has about 25 sections).
+- **SFC4:** the Skills box has no world tabs (Beyonder, Spells, Gu).
+- **SFC5:** several engines reach no player at all: creature populations, the potion and spell engines, and markets.
+
+| Code | Proposal |
+| --- | --- |
+| PS194 | Batches 2 and 3 of the drafts take SFC12, SFC21–SFC27 and SFC30–SFC33. Each stray verb joins a verb with a target, and each unrouted panel gets a box and tab (PS125 extended). The catch-all lead panels split into their verbs and tabs after D1–D6 are built. |
+| PS195 | A check in `check:flow` lists any panel or action outside the layout registry, so the count of strays goes down and stays down. |
