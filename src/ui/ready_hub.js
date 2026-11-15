@@ -46,10 +46,9 @@ export function mountReadyHub({host = () => document.getElementById('location_ac
         if (!force && held()) return;
         const rows = collectReady(), model = hubModel(rows, {expanded});
         if (model.empty) { if (root.isConnected) root.remove(); signature = ''; return; } // further-off rows alone are not worth a block
-        // First in Here's list, after a life's own "Your day" block while that block still exists (it keeps the top; the
-        // two never trade places on a tick, UR52). The block folds into this hub once its panel registers its rows.
-        const lifeDay = parent.querySelector(':scope > [data-life-day]'), anchor = lifeDay ? lifeDay.nextElementSibling : parent.firstElementChild;
-        if (root.parentElement !== parent || (anchor !== root && root.previousElementSibling !== lifeDay)) parent.insertBefore(root, anchor);
+        // Just above Here's action list, as its own sibling: the native list rebuilds its children, and a block inside it was
+        // taken out and put back on every rebuild, so a pointer could never settle on a row (UR52).
+        if (root.parentElement !== parent.parentElement || root.nextElementSibling !== parent) parent.before(root);
         const sig = JSON.stringify([model.head, model.shown.map(r => [r.key, r.label, r.state, r.gap, r.detail, r.urgent]), model.hidden, expanded]);
         if (sig === signature) return;
         signature = sig;

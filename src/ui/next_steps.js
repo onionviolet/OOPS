@@ -43,15 +43,26 @@ export function mountNextSteps({stream = () => document.getElementById('message_
     const host = stream();
     if (!host || typeof MutationObserver === 'undefined') return null;
     const textOf = node => { const own = node.querySelector(':scope > .log-original'); return (own || node).textContent; };
-    function decorate(node) {
-        if (node.nodeType !== 1 || !node.classList.contains('message_common') || node.classList.contains('report-earlier') || node.querySelector('.report-next')) return;
-        if (node.dataset.logLabel === 'Combat') return;
+    const eligible = node => node.nodeType === 1 && node.classList.contains('message_common') && !node.classList.contains('report-earlier')
+        && node.dataset.logLabel !== 'Combat' && !node.querySelector('.report-next');
+    // Rows are read once per batch, and only the newest few lines of a batch are looked at: catching up a long absence
+    // writes hundreds of lines in one go, and reading every feature's rows per line stalled the page at PLAY.
+    const BATCH_LOOKED_AT = 3;
+    function decorate(nodes) {
+        const fresh = nodes.filter(eligible).slice(-BATCH_LOOKED_AT);
+        if (!fresh.length) return;
         let list = [];
         try { list = rows(); } catch { list = []; }
-        const span = nextLinks(textOf(node), list);
-        if (span) node.append(span);
+        if (!list.some(r => r.state !== 'rest' && r.uses?.length)) return;
+        for (const node of fresh) { const span = nextLinks(textOf(node), list); if (span) node.append(span); }
     }
-    const observer = new MutationObserver(list => { for (const m of list) for (const n of m.addedNodes) decorate(n); });
+    let queued = [], pending = false;
+    const flush = () => { pending = false; const batch = queued; queued = []; decorate(batch); };
+    const observer = new MutationObserver(list => {
+        for (const m of list) for (const n of m.addedNodes) queued.push(n);
+        if (queued.length > 50) queued = queued.slice(-50);
+        if (!pending) { pending = true; setTimeout(flush, 0); }
+    });
     observer.observe(host, {childList: true});
-    return {decorate, dispose() { observer.disconnect(); }};
+    return {decorate: node => decorate([node]), dispose() { observer.disconnect(); }};
 }
