@@ -133,3 +133,17 @@ test('an instant act shows the outcome note it wrote, not only "Done"', () => wi
     assert.doesNotMatch(text(host.children[0]), /Done: Report the watch\. 3/, 'a changed count is not an outcome');
     panel.destroy();
 }));
+
+test('a timed act says what came of it when the work settles, not only "to go"', () => withDom(({host, find, text, tick}) => {
+    const v = view(); v.jobs = []; v.actions = [{...v.actions[0], id: 'refine', label: 'Refine the wild Gu', duration: 60, completed: 0, repeatable: true, runs: 1}];
+    v.status = [{label: 'Refining', value: 'Not yet.', note: true}];
+    const panel = createStructuredPackPanel({read: () => v, command: () => { v.jobs = [{id: 'job.r', commandId: 'refine', label: 'Refine', remaining: 60, duration: 60}]; }});
+    const element = host.children[0];
+    assert.equal(find(element, 'structuredRepeat', 'refine').hidden, true, 'one wild Gu in hand: nothing to repeat');
+    find(element, 'structuredAction', 'refine').click(); assert.match(text(element), /Started: Refine the wild Gu\. 1 h to go\./);
+    v.jobs = []; v.actions[0] = {...v.actions[0], completed: 1}; v.status = [{label: 'Refining', value: 'It came out a Moonlight Gu.', note: true}]; tick();
+    assert.match(text(element), /Done: Refine the wild Gu\. It came out a Moonlight Gu\./); assert.doesNotMatch(text(element), /to go/);
+    v.actions[0] = {...v.actions[0], runs: 2}; tick(); const repeat = find(element, 'structuredRepeat', 'refine');
+    assert.equal(repeat.hidden, false); assert.match(text(repeat), /Repeat Refine the wild Gu 2 times/);
+    panel.destroy();
+}));

@@ -218,3 +218,13 @@ test('native local controls quote only the current location while departure acti
  const f=setup(input);let view=structuredCampaignView(f.plan.state,f.definition,f.record,{...f.context,registry:f.registry});assert(!view.actions.some(a=>a.id==='atelier.remote'));assert(view.actions.some(a=>a.id==='atelier.repair'));
  f.plan.state.simulation.people.player.location='atelier.garden';view=structuredCampaignView(f.plan.state,f.definition,f.record,{...f.context,registry:f.registry,facts:{location:'atelier.garden'}});assert(view.actions.some(a=>a.id==='atelier.remote'));assert(!view.actions.some(a=>a.id==='atelier.repair'));
 });
+
+test('an act quotes how many runs the held items cover, null when it spends no item', async () => {
+    const {structuredActionRuns} = await import('../src/structured_pack_runtime.js');
+    const key = JSON.stringify({id: 'wild'}), eye = JSON.stringify({id: 'eye'});
+    const costs = [{type: 'item', actor: 'player', key, amount: -1}, {type: 'item', actor: 'player', key: eye, amount: -2}, {type: 'vital', key: 'stamina', amount: -5}];
+    assert.equal(structuredActionRuns(costs, {[`item.${key}`]: 3, [`item.${eye}`]: 5}), 2);
+    assert.equal(structuredActionRuns(costs.slice(0, 1), {[`item.${key}`]: 1}), 1);
+    assert.equal(structuredActionRuns(costs.slice(0, 1), {}), 0, 'a spent item has no fact: none in hand');
+    assert.equal(structuredActionRuns([{type: 'vital', key: 'stamina', amount: -5}], {}), null);
+});

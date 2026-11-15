@@ -142,11 +142,23 @@ export function structuredCampaignView(state,d,record,context) {
         if(a.actorId && a.actorId!=='player' || a.actorDefinitionId && a.actorDefinitionId!==state.simulation.people.player?.definitionId)continue;
         if(a.location!=null&&a.location!==(context.facts?.location||state.simulation.people.player.location))continue;
         const quote=previewSimulationCommand(state,context.registry,a.id,{...context,targetId:a.targetId});
-        if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:quote.eligible?[...hints(a),...quote.reasons]:structuredActionReasons(a,[...hints(a),...quote.reasons],reachFacts.get(a.targetId||null)),duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,once:!!a.once,costs:structuredActionCosts({...quote,costs:quote.costs?.length?quote.costs:a.costs},d,state)});
+        if(!quote.visible)continue;
+        const reasons=quote.eligible?[...hints(a),...quote.reasons]:structuredActionReasons(a,[...hints(a),...quote.reasons],reachFacts.get(a.targetId||null)),costList=quote.costs?.length?quote.costs:a.costs;
+        actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons,duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,once:!!a.once,costs:structuredActionCosts({...quote,costs:costList},d,state),runs:structuredActionRuns(costList,reachFacts.get(a.targetId||null))});
     }
     const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:context.registry.simulation.commands.get(j.commandId)?.duration||0,cancellable:j.cancellation!=='none'}));
     const extensions=(d.extensions||[]).filter(e=>!record.extensions?.some(pin=>pin.id===e.id)).map(e=>previewStructuredExtension(state,d,record,e,context,simulationFacts(state,context,context.registry)));
     return {available:true,active:true,extensions,expeditions:previewStructuredExpeditions(state,d,context),ladders:structuredLadderViews(d,state.actors.player?.facts),title:d.title||'Local life',place:structuredAdmittedLocations(d,record).find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs,house:keeperHouseView(state,d,record,context)};
+}
+
+// An item no longer held has no fact, so a missing fact reads as none in hand.
+// How many times the held items cover this act's item inputs (null when it spends no item), so a repeat offer never promises more runs
+// than the hand holds. Items only: other inputs refill while the work runs, and the command's own check still stops a run that falls short.
+export function structuredActionRuns(costs,facts) {
+    let runs=null;
+    for(const e of costs||[]){if(e.type!=='item'||!(e.amount<0)||e.actor!=null&&!['player','$actor'].includes(e.actor))continue;
+        if(!facts)continue;const held=Number(facts[`item.${e.key}`]??0);if(!Number.isFinite(held))continue;const n=Math.floor(held/-e.amount);runs=runs==null?n:Math.min(runs,n);}
+    return runs;
 }
 
 // Show only the acting character's executable input quote. NPC reserves and

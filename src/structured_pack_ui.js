@@ -25,7 +25,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
     const panel=document.createElement('details');panel.id='structured_pack_panel';panel.open=true;
     const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
     // AR17: a shared fight panel (tempo openers) renders in the encounter slot; the body re-renders, the slot does not.
-    const body=document.createElement('div'),encounterSlot=document.createElement('div');encounterSlot.dataset.sharedSlot='encounter';panel.append(body);body.append(encounterSlot);let signature,notice='',repetition=null,noticeError=false;
+    const body=document.createElement('div'),encounterSlot=document.createElement('div');encounterSlot.dataset.sharedSlot='encounter';panel.append(body);body.append(encounterSlot);let signature,notice='',repetition=null,noticeError=false,timed=null;
     const node=(tag,parent)=>{const n=document.createElement(tag);parent.append(n);return n;};
     const live={info:node('section',body),steps:node('section',body)},work=node('section',body);live.plans=node('section',body);live.renewal=node('section',body);const actions=node('section',body),message=node('p',body);
     const craft=createBookCraftControls(command);body.insertBefore(craft.element,message);
@@ -37,7 +37,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
         expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
         status:(v.status||[]).map(s=>({label:s.label,value:s.value,note:!!s.note})),ladders:v.ladders||[],house:v.house||null,craft:v.craft??null,
-        actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable,once:!!a.once})),
+        actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable,once:!!a.once,runs:Number.isFinite(a.runs)?a.runs:null})),
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
         extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons,mastery:v.renewal.mastery,reserve:v.renewal.reserve,masteryThreshold:v.renewal.masteryThreshold,next:v.renewal.next}:null,canWrite:!!v.canWrite,error:v.error};};
     const button=(label,data,request,disabled)=>{
@@ -48,6 +48,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
             const times=request.times||1,actual={...request};delete actual.times;
             const prior=projected(),before=prior.actions.find(a=>a.id===actual.id);
             try{command(actual);noticeError=false;const after=projected();notice=resultLine(actual,before,after,prior.status);
+                const started=actual.type==='action'&&times===1&&after.jobs.find(j=>j.commandId===actual.id);timed=started?{id:actual.id,jobId:started.id,label:before?.label||started.label,completed:before?.completed||0,status:prior.status}:null;
                 if(times>1){const job=projected().jobs.find(j=>j.commandId===actual.id);
                     if(job)repetition={id:actual.id,label:before.label,remaining:times-1,jobId:job.id,completed:before.completed};}
             }catch{noticeError=true;notice=projected().error||'The action could not be saved.';}render(true);
@@ -75,6 +76,9 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                 return render(true);
             }
         }
+        // G16 for timed acts: when the work the player started settles, its notice turns from "to go" to what came of it (the life's note).
+        if(timed&&!repetition&&!view.jobs.some(j=>j.id===timed.jobId)){const a=view.actions.find(a=>a.id===timed.id),note=changedNote(timed.status,view);
+            if(a?a.completed>timed.completed:note){notice=note?`Done: ${timed.label}. ${note}`:`Done: ${timed.label}.`;}timed=null;}
         const next=JSON.stringify({view,repetition,notice});if(!force&&signature===next)return;signature=next;
         const focused=document.activeElement,focusKey=focused&&body.contains(focused)?Object.entries(focused.dataset||{}).find(([key])=>key.startsWith('structured')):null;
         panel.hidden=!view.available&&!view.active;
@@ -151,8 +155,8 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                         // OPN2: the quote (what it is, the clock, the inputs) folds behind "Details"; the locked reason stays in view (UIV1).
                         const heading=node('h4',card),more=node('details',card),summary=node('summary',more);summary.textContent='Details';more.className='action-legibility__details';
                         const description=node('p',more),state=node('p',more),duration=node('p',more),costs=node('p',more),blockers=node('p',card);
-                        const act=button(action.label,{structuredAction:action.id},{type:'action',id:action.id},false),repeat=button('',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},false),quote=node('small',card);quote.className='action-legibility__quote';card.append(act,quote,repeat,blockers,more); // the button leads; the reason and the folded quote follow
-                        row={card,heading,description,state,duration,costs,blockers,act,repeat,quote};actionRows.set(action.id,row);}
+                        const act=button(action.label,{structuredAction:action.id},{type:'action',id:action.id},false),repeatRequest={type:'action',id:action.id,times:3},repeat=button('',{structuredRepeat:action.id},repeatRequest,false),quote=node('small',card);quote.className='action-legibility__quote';card.append(act,quote,repeat,blockers,more); // the button leads; the reason and the folded quote follow
+                        row={card,heading,description,state,duration,costs,blockers,act,repeat,repeatRequest,quote};actionRows.set(action.id,row);}
                     // UIC191: one row per thing (UR158). The heading only repeated the button's words, so the button is the row's name;
                     // the clock and the inputs sit beside the button, one step away, as upstream's plain rows do (UIC130 human time).
                     setText(row.heading,action.label);row.heading.hidden=true;setText(row.description,action.description||'');
@@ -164,7 +168,9 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     for(const [key,n]of [['duration',row.duration],['costs',row.costs],['blockers',row.blockers]])n.id='structured-'+encodeURIComponent(action.id)+'-'+key;
                     row.act.setAttribute?.('aria-describedby',[row.duration.id,row.costs.id,...(action.reasons.length?[row.blockers.id]:[])].join(' '));
                     setText(row.act,action.label);row.act.disabled=!view.canWrite||!action.eligible;
-                    setText(row.repeat,'Repeat '+action.label+' 3 times');row.repeat.hidden=!action.repeatable;row.repeat.disabled=row.act.disabled;
+                    // A repeat offer never promises more runs than the inputs in hand cover; below two runs there is nothing to repeat.
+                    const times=Math.min(3,action.runs??3);row.repeatRequest.times=times;setText(row.repeat,'Repeat '+action.label+' '+times+' times');
+                    row.repeat.hidden=!action.repeatable||times<2;row.repeat.disabled=row.act.disabled;
                     // A repeatable action, or one done before that can be done again, is the ordinary day, not the road ahead (G15): when it is blocked it stays here with its
                     // reason in view, rather than joining the capped "Not available yet" list where shut story steps hide it.
                     const home=action.eligible||pending||action.repeatable||action.completed>0&&!action.once?actions:notYetList;if(home===actions&&row.card.hidden)row.card.hidden=false;
