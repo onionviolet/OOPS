@@ -1,6 +1,8 @@
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, expandWorkspaceModule} from './workspace_layout.js';
 import {setText} from './dom_sync.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
+import {registerReady} from './ready_rows.js';
+import {nextLinks} from './ui/next_steps.js';
 import {formatDuration} from './number_format.js';
 import {renderFigure} from './ui/figure.js';
 import {renderGuHouse} from './ui/gu_house_view.js';
@@ -42,7 +44,10 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
         extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons,mastery:v.renewal.mastery,reserve:v.renewal.reserve,masteryThreshold:v.renewal.masteryThreshold,next:v.renewal.next}:null,canWrite:!!v.canWrite,error:v.error};};
     const button=(label,data,request,disabled)=>{
         const b=document.createElement('button');b.type='button';b.textContent=label;Object.assign(b.dataset,data);b.disabled=disabled;
-        b.onclick=()=>{
+        b.onclick=()=>run(request);return b;
+    };
+    // One way an act runs, from its button or from the hub on Here (PS57): the command, the result line, the repeat plan.
+    const run=request=>{
             repetition=null;
             if(request.type==='stop-repeat'){notice='Further repetitions stopped. Current work is unchanged.';render(true);return;}
             const times=request.times||1,actual={...request};delete actual.times;
@@ -52,7 +57,6 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                 if(times>1){const job=projected().jobs.find(j=>j.commandId===actual.id);
                     if(job)repetition={id:actual.id,label:before.label,remaining:times-1,jobId:job.id,completed:before.completed};}
             }catch{noticeError=true;notice=projected().error||'The action could not be saved.';}render(true);
-        };return b;
     };
     let token=null;
     const moved=()=>{if(!changed)return true;const next=changed();const same=token&&next.length===token.length&&next.every((v,i)=>Object.is(v,token[i]));token=next;return !same;};
@@ -188,36 +192,25 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
         // G15: the closed list shows the next few steps, not the whole road ahead; later ones appear as these open.
         {const n=notYetList.children.length;notYet.hidden=!n;[...notYetList.children].forEach((card,i)=>{const hide=i>=NOT_YET_SHOWN;if(card.hidden!==hide)card.hidden=hide;});setText(notYetSummary,n>NOT_YET_SHOWN?`Not available yet (the next ${NOT_YET_SHOWN})`:`Not available yet (${n})`);if(notYet.parentNode!==actions||actions.lastChild!==notYet)actions.append(notYet);}
 trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
-        setText(message,view.error||notice);message.hidden=!message.textContent;
+        // PS55: a result line ends with "Next:" links to the ready or near rows that use what it names (next_steps.js reads the same rows as the hub),
+        // and only on a Done line, once the gain is in hand rather than while it runs.
+        const said=view.error||notice;if(message.dataset.said!==said){message.dataset.said=said;message.textContent=said;const next=!view.error&&!noticeError&&/^Done: /.test(said||'')?nextLinks(said):null;if(next)message.append(next);}message.hidden=!said;
         message.dataset.themeState=view.error||noticeError?'error':'status';message.setAttribute('role',view.error||noticeError?'alert':'status');
         if(focusKey){const find=node=>node.dataset?.[focusKey[0]]===focusKey[1]?node:[...node.children].map(find).find(Boolean);find(body)?.focus();}
     }
-    // G10: a life's day lives in its own panel, which is out of sight once you go Back to Here. While it is out of sight, Here's
-    // action list carries a short "Your day" block: what can be done now (up to four, the rest one click on) and what is running.
-    // Arrival still opens the panel itself (workspace_navigation ignores this block when it asks whether Here is empty).
-    const DAY_SHOWN=4,day=document.createElement('section');day.className='life-day';day.dataset.lifeDay='';
-    const dayHead=document.createElement('p'),dayRows=document.createElement('div'),dayNote=document.createElement('p'),dayOpen=document.createElement('button');
-    dayHead.className='life-day__head';dayNote.setAttribute('role','status');dayOpen.type='button';dayOpen.textContent='Open your day';dayOpen.onclick=()=>expandWorkspaceModule('beginning');
-    day.append(dayHead,dayRows,dayOpen,dayNote);let daySig='',dayInView=null,dayNotice=null,dayShown=false,lastView=null;
-    const syncDay=(fresh=true)=>{
-        // read() can be costly on a long life, so the block recomputes only when the life changed, the panel left or entered view, or a notice arrived.
-        const inViewNow=!localActions||panel.parentElement===localActions||panel.isConnected&&!panel.hidden&&(panel.checkVisibility?panel.checkVisibility():true);
-        if(!fresh&&inViewNow===dayInView&&notice===dayNotice&&(!dayShown||day.parentElement===localActions))return;dayInView=inViewNow;dayNotice=notice; // the action list rebuilds itself; a removed block comes back
-        // The panel's own render already read the life; reading it again here every tick froze a long life's page.
-        const view=lastView;if(!view||inViewNow||!view.active){if(day.isConnected)day.remove();dayShown=false;return;}
-        const ready=view.active?view.actions.filter(a=>a.eligible):[],running=view.active?view.jobs:[];
-        const show=view.active&&!inViewNow&&(ready.length>0||running.length>0);
-        dayShown=show;if(!show){if(day.isConnected)day.remove();return;}
-        if(day.parentElement!==localActions||localActions.firstElementChild!==day)localActions.prepend(day);
-        const sig=JSON.stringify([ready.map(a=>[a.id,a.label,a.duration,a.costs]),running.map(j=>[j.id,j.remaining]),view.canWrite,notice]);if(sig===daySig&&dayRows.children.length)return;daySig=sig;
-        dayHead.textContent=['Your day',ready.length?`${ready.length} ready`:'',...running.map(j=>`${j.label}, ${formatDuration(j.remaining)} to go`)].filter(Boolean).join(' · ');
-        dayRows.replaceChildren(...ready.slice(0,DAY_SHOWN).map(a=>{const row=document.createElement('div');row.className='life-day__row';
-            const b=button(a.label,{lifeDayAction:a.id},{type:'action',id:a.id},!view.canWrite),q=document.createElement('small');q.className='action-legibility__quote';
-            q.textContent=`${a.duration>0?formatDuration(a.duration):'At once'}${a.costs.length?' · uses '+a.costs.join(', '):''}`;row.append(b,q);return row;}));
-        dayOpen.textContent=ready.length>DAY_SHOWN?`Open your day (${ready.length-DAY_SHOWN} more)`:'Open your day';
-        dayNote.textContent=notice;dayNote.hidden=!notice;
-    };
+    // PS57: a life's day actions are rows in the hub on Here ("Ready now"), from the panel's own last read: what can be done now
+    // runs from there exactly as its button does, and an ordinary act that is blocked shows as near with its reason. This replaces
+    // the "Your day" block that sat on Here while the panel was out of view (G10, UIC196). Shut story steps stay in the panel.
+    let lastView=null;
+    const uses=costs=>costs.map(c=>c.replace(/^Entrust /,'').replace(/ (for this work|to recipient)$/,'').replace(/^\d+(\.\d+)?\s*(× )?/,'').trim()).filter(Boolean);
+    const releaseReady=registerReady({id:'life-day',label:'Your day',rows:()=>{const v=lastView;if(!v?.active)return [];
+        return v.actions.filter(a=>!a.once||a.eligible||a.completed===0).map(a=>{
+            const detail=`${a.duration>0?formatDuration(a.duration):'At once'}${a.costs.length?' · uses '+a.costs.join(', '):''}`,open=()=>expandWorkspaceModule('beginning');
+            if(a.eligible&&v.canWrite)return {id:a.id,label:a.label,state:'ready',detail,open,act:()=>run({type:'action',id:a.id}),uses:uses(a.costs)};
+            const ordinary=a.repeatable||a.completed>0&&!a.once;
+            return ordinary&&a.reasons.length?{id:a.id,label:a.label,state:'near',gap:a.reasons[0],detail,open,uses:uses(a.costs)}:{id:a.id,label:a.label,state:'rest'};
+        });}});
     // G10: a life's own timed work stays with the life. Without an owner the Notebook claimed it and took the centre on every press (as UIC182 for the courtyard).
     const releaseWork=registerOwnedWorkPanel(work=>lastView?.actions.some(a=>a.id===work.commandId)||lastView?.jobs.some(j=>j.id===work.id)?'structured_pack_panel':null);
-    render();syncDay();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{const fresh=moved();if(fresh)render();syncDay(fresh);},250);return {render,destroy(){clearInterval(timer);releaseWork();unregisterWorkspaceModule('beginning');panel.remove();day.remove();}};
+    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){clearInterval(timer);releaseWork();releaseReady();unregisterWorkspaceModule('beginning');panel.remove();}};
 }

@@ -67,3 +67,13 @@
 .report-next {color:var(--p23-muted);}
 .report-next__go {font:inherit;color:var(--p23-value, var(--ui-accent));background:transparent;border:0;padding:0;min-height:var(--ui-target-min);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
 .report-next__go:focus-visible {outline:2px solid var(--workspace-focus, var(--ui-accent));outline-offset:1px;}
+/* Ready now as its own panel on Here (centre split, 2026-11-14): a header band like the shell's panel headers, rows that
+   scroll inside a bounded height, and the action list under it scrolling on its own. Inside a centre view (Crafting,
+   Stats) the view's own list already says what is ready, so the panel steps aside there. */
+#main_content.workspace-active[data-parity="r3"]:not([data-center-task]) #center_mode_content:has(> #ready_hub) {display:flex;flex-direction:column;overflow:hidden;gap:var(--ui-space-2);}
+#main_content.workspace-active[data-parity="r3"]:not([data-center-task]) #center_mode_content:has(> #ready_hub) > #location_actions_div {flex:1 1 auto;min-height:0;overflow-y:auto;max-height:none;}
+#main_content.workspace-active[data-parity="r3"] #ready_hub {display:flex;flex-direction:column;flex:0 1 auto;min-height:0;max-height:62%;margin:0;padding:0;gap:0;}
+#main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__head {flex:0 0 auto;padding:var(--ui-space-hairline) var(--ui-space-2);border-bottom:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-region-fill, var(--ui-fill));font-size:var(--shell-context-size, var(--ui-type-body));}
+#main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__rows {flex:0 1 auto;min-height:0;overflow-y:auto;padding:var(--ui-space-1) var(--ui-space-2);scrollbar-gutter:stable;}
+#main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__more, #main_content.workspace-active[data-parity="r3"] #ready_hub .ready-hub__note {flex:0 0 auto;margin:0 var(--ui-space-2) var(--ui-space-1);}
+#main_content.workspace-active[data-center-task] #ready_hub {display:none;}

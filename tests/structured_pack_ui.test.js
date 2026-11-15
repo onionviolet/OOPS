@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createStructuredPackPanel} from '../src/structured_pack_ui.js';
 import {withPanelDom} from './helpers/mini_dom.mjs';
+import {collectReady} from '../src/ready_rows.js';
 
 const withDom=run=>withPanelDom(env=>run({...env,cleared:env.isCleared,
     find:function find(node,key,id){return node.dataset[key]===id?node:node.children.map(c=>find(c,key,id)).find(Boolean);}}));
@@ -146,4 +147,20 @@ test('a timed act says what came of it when the work settles, not only "to go"',
     v.actions[0] = {...v.actions[0], runs: 2}; tick(); const repeat = find(element, 'structuredRepeat', 'refine');
     assert.equal(repeat.hidden, false); assert.match(text(repeat), /Repeat Refine the wild Gu 2 times/);
     panel.destroy();
+}));
+
+test('PS57/PS55: a life\'s day acts are hub rows that run like the button, and the result line names what uses its gain', () => withDom(({host, find, text}) => {
+    const v = view(); v.jobs = [];
+    v.actions = [{id: 'buy', label: 'Buy a bag of Moon Orchid petals', duration: 0, completed: 0, eligible: true, reasons: [], costs: ['1 × Primeval stone'], repeatable: false},
+        {id: 'feed', label: 'Feed the Moonglow Gu', duration: 5, completed: 1, eligible: false, reasons: ['Needs 2 Moon Orchid petals; you have 0.'], costs: ['2 × Moon Orchid petals'], repeatable: true}];
+    const calls = [];
+    const panel = createStructuredPackPanel({read: () => v, command: r => { calls.push(r); v.actions[0] = {...v.actions[0], completed: 1}; v.actions[1] = {...v.actions[1], eligible: true, reasons: []}; }});
+    try {
+        const mine = () => collectReady().filter(r => r.source === 'life-day');
+        assert.deepEqual(mine().map(r => [r.label, r.state]), [['Buy a bag of Moon Orchid petals', 'ready'], ['Feed the Moonglow Gu', 'near']]);
+        assert.equal(mine()[1].gap, 'Needs 2 Moon Orchid petals; you have 0.'); assert.deepEqual(mine()[1].uses, ['Moon Orchid petals']);
+        mine()[0].act(); assert.deepEqual(calls, [{type: 'action', id: 'buy'}]);
+        assert.match(text(host.children[0]), /Done: Buy a bag of Moon Orchid petals\.\s+Next:\s+Feed the Moonglow Gu/);
+    } finally { panel.destroy(); }
+    assert.equal(collectReady().some(r => r.source === 'life-day'), false, 'destroy unregisters the source');
 }));

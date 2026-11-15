@@ -43,7 +43,12 @@ export function setStatusText(name, text, {idle = false, title = ''} = {}) {
     const slot = slots.get(name);
     if (!slot || !line?.isConnected) return false;
     const words = String(text ?? '');
-    if (slot.textContent !== words) slot.textContent = words;
+    if (slot.textContent !== words) {
+        const arrived = name === 'place' && slot.textContent !== '';
+        slot.textContent = words;
+        // A new place is a stable moment for the frame (the centre split re-measures Around you).
+        if (arrived) document.dispatchEvent(new CustomEvent('game-place-change', {detail: {place: words}}));
+    }
     if (slot.dataset.idle !== String(idle)) slot.dataset.idle = String(idle);
     if (title && slot.title !== title) slot.title = title;
     slot.hidden = !words;

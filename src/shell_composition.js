@@ -90,6 +90,18 @@ export function topTerms(regions, combat) {
     return {player, elastic, focus, idleFocus};
 }
 
+// Centre split (Weibao 2026-11-14: the centre should be sectioned into panels; mock in prototypes/centre-split-2026-11-14).
+// The top row's height comes from the You column, and Around you shared it, so a quiet place showed a tall empty box above a
+// squeezed action list. Outside a fight, with the default boxes and no hand-set sizes, Around you takes its content's
+// height and the action panels start right under it; You and Inventory keep their row. Pure: returns the centre row in px,
+// or 0 for no split. Dial: `minLines` (Around you never shrinks below this) and `spareLines` (a split must free at least
+// this much). Measured at the same stable moments as the row itself (UR52, UR144).
+export function centreRow({want, topRow, fontSize, minLines = 4, spareLines = 3}) {
+    if (!(want > 0) || !(topRow > 0)) return 0;
+    const row = Math.ceil(Math.max(want, fontSize * minLines));
+    return row <= topRow - fontSize * spareLines ? row : 0;
+}
+
 export function createShellComposition({root, board, regions, resize}) {
     let frame = 0, heldRow = false, settling = 0;
     const measure = () => {
@@ -123,6 +135,18 @@ export function createShellComposition({root, board, regions, resize}) {
         if (root.dataset.centerTask && current) { heldRow = true; clearTimeout(settling); settling = 0; }
         else if (heldRow) { if (!settling) settling = setTimeout(() => { settling = 0; heldRow = false; schedule(); }, LAYOUT_SPEC.settleMs); }
         else if (current !== value) root.style.setProperty('--shell-top-row', value);
+        // The centre split follows the row it sits in; while a centre view holds the row, the split waits with it.
+        if (!root.dataset.centerTask && !heldRow) {
+            const own = id => [...(regions[id]?.querySelectorAll(':scope > .workspace-module[data-module]') || [])].filter(n => !n.hidden).map(n => n.dataset.module);
+            const defaults = !combat && regionFit(own('focus')) === 'combat' && own('focus').includes('focus') && regionFit(own('player')) === 'content'
+                && !board.style.getPropertyValue('grid-template-rows') && !board.style.getPropertyValue('grid-template-areas');
+            const row = defaults ? centreRow({want: intrinsicExtent(regions.focus) + 2 * frameFor(fontSize), topRow: parseFloat(root.style.getPropertyValue('--shell-top-row')), fontSize}) : 0;
+            // The second row is what remains of the top row after the first and the board's own row gap, so You and
+            // Inventory sit exactly where the two-row grid puts them and opening a centre view moves neither (UR144).
+            const rest = row ? parseFloat(root.style.getPropertyValue('--shell-top-row')) - row - (parseFloat(getComputedStyle(board).rowGap) || 0) : 0;
+            if (row) { root.style.setProperty('--shell-centre-row', `${row}px`); root.style.setProperty('--shell-centre-rest', `${rest}px`); if (root.dataset.centreSplit !== 'true') root.dataset.centreSplit = 'true'; }
+            else if (root.dataset.centreSplit) { delete root.dataset.centreSplit; root.style.removeProperty('--shell-centre-row'); root.style.removeProperty('--shell-centre-rest'); }
+        }
         if (root.dataset.shellFit !== 'true') root.dataset.shellFit = 'true';
         resize?.measure();
         // GU2: each measure is timed so checks can confirm it stays within a frame.
@@ -143,6 +167,8 @@ export function createShellComposition({root, board, regions, resize}) {
     const acted = event => { if (event.target.closest?.('[data-workspace-action]')) setTimeout(schedule); };
     root.addEventListener('click', acted);
     document.addEventListener('workspace-presentation-change', schedule);
+    // Arriving somewhere is a stable moment too: Around you now holds another place's people and ways out.
+    document.addEventListener('game-place-change', schedule);
     // Closing the start screen, and the character rows that arrive over the next few renders, is
     // a stable moment too: re-measure for a short settle window, then stop listening.
     let settle = 0;
@@ -159,6 +185,6 @@ export function createShellComposition({root, board, regions, resize}) {
     schedule();
     return {
         measure: schedule,
-        destroy() { observer.disconnect(); startObserver.disconnect(); screenObserver.disconnect(); clearTimeout(settle); root.removeEventListener('click', acted); window.removeEventListener('resize', schedule); document.removeEventListener('workspace-presentation-change', schedule); if (frame) cancelAnimationFrame(frame); },
+        destroy() { observer.disconnect(); startObserver.disconnect(); screenObserver.disconnect(); clearTimeout(settle); root.removeEventListener('click', acted); window.removeEventListener('resize', schedule); document.removeEventListener('workspace-presentation-change', schedule); document.removeEventListener('game-place-change', schedule); if (frame) cancelAnimationFrame(frame); },
     };
 }

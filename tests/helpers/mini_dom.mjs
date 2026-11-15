@@ -40,6 +40,7 @@ export function withPanelDom(run) {
         click() {if(!this.disabled) this.onclick?.();}
     }
     document.createElement = tag => new Element(tag);
+    document.createTextNode = value => {const node = new Element('#text'); node.textContent = String(value); return node;};
     document.root = new Element('main');
     const host = new Element('div'); host.id = 'location_actions_div'; document.root.append(host);
     document.getElementById = id => document.root.children.find(node => node.id === id) || null;

@@ -15,6 +15,7 @@ import {simulationFacts} from './simulation_effects.js';
 import {previewSimulationCommand} from './simulation.js';
 import {compileClaims,claimStale} from './claim_runtime.js';
 import {evaluateRule} from './rules.js';
+import {withDisplayFactsFrame} from './facts_frame.js';
 import {requireStructuredContent,validateStructuredRecord,requireStructuredSelection,validateStructuredSelection} from './structured_pack_state.js';
 
 export function validateStructuredBootstrap(d, startId) {
@@ -109,7 +110,11 @@ export function beginStructuredCampaign(state,d,context,receipt,selection=null) 
     return {plan:out,record};
 }
 
-export function structuredCampaignView(state,d,record,context) {
+// A life's view quotes every command it offers (two hundred on Fang Yuan's day), and each quote reads the simulation facts. One facts
+// frame for the whole view lets those reads share one build per actor and target instead of building them again per command,
+// which on a long Gu life kept the page from ever going idle (the G18 shape, in the life panel's per-tick read).
+export function structuredCampaignView(state,d,record,context) {return withDisplayFactsFrame(state,()=>structuredCampaignViewIn(state,d,record,context));}
+function structuredCampaignViewIn(state,d,record,context) {
     if(!record)return {available:!!d,active:false,title:d?.title||'A new beginning',description:d?.description||'Begin an independent local life. Your existing progress stays in this save.',people:[],status:[],actions:[],jobs:[]};
     requireStructuredContent(record,new Map([[d.id,d]]),state);
     const known=state.simulation.knowledge.player||{},people=[];
