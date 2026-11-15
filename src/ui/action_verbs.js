@@ -14,6 +14,8 @@ export const ACTION_VERBS = Object.freeze([
     {id: 'trade', label: 'Visit a merchant', icon: 'storefront'},
     {id: 'hand_in', label: 'Hand in', icon: 'assignment_turned_in'},
     {id: 'work', label: 'Find work', icon: 'work_outline'},
+    // D3: a school world's lessons and papers take Train's slot (Harry's Attend).
+    {id: 'attend', label: 'Attend', icon: 'edit_note'},
     {id: 'train', label: 'Train', icon: 'fitness_center'},
     {id: 'study', label: 'Study', icon: 'menu_book'},
     {id: 'practise', label: 'Practise', icon: 'self_improvement'},
@@ -33,8 +35,10 @@ const WORDS = [
     ['refine', /\brefin/i],
     ['hand_in', /\b(hand in|turn in|deliver|submit|report to)\b/i],
     ['patrol', /\b(patrol|guard|keep watch|stand watch)\b/i],
+    // A lesson or an exam paper (Harry's 'attend_<subject>' and '…paper…' commands read 'Go to Charms', which is not travel).
+    ['attend', /\b(attend|exam|paper|sit the|lesson)\b/i],
     ['practise', /\b(practi[cs]e|drill|circulat|cultivat|meditat)/i],
-    ['study', /\b(study|read|research|learn|copy out|memori[sz]e)/i],
+    ['study', /\b(study|read|research|learn|copy out|memori[sz]e|homework|revis)/i],
     ['train', /\b(train|exercise|spar)\b/i],
     ['craft', /\b(craft|brew|forge|cook|make|build|repair|smith|sew|carve)\b/i],
     ['gather', /\b(gather|forage|collect|harvest|dig|mine|fish|hunt)\b/i],

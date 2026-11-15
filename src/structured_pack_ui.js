@@ -181,6 +181,8 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     // A repeat offer never promises more runs than the inputs in hand cover; below two runs there is nothing to repeat.
                     const times=Math.min(3,action.runs??3);row.repeatRequest.times=times;setText(row.repeat,`Repeat ×${times}`);const repeatSays=`Repeat ${action.label} ${times} times`;if(row.repeat.title!==repeatSays){row.repeat.title=repeatSays;row.repeat.setAttribute?.('aria-label',repeatSays);} // PS11: the act's name is on its own button; the repeat says only how many
                     row.repeat.hidden=!action.repeatable||times<2;row.repeat.disabled=row.act.disabled;
+                    // A blocked repeat gives the act's own reason to the shared disabled-reason note, not its name (title), which it would print as a line.
+                    const repeatWhy=row.repeat.disabled?(action.reasons[0]||'Not available now.'):'';if((row.repeat.dataset.disabledReason||'')!==repeatWhy){if(repeatWhy)row.repeat.dataset.disabledReason=repeatWhy;else delete row.repeat.dataset.disabledReason;}
                     // A repeatable action, or one done before that can be done again, is the ordinary day, not the road ahead (G15): when it is blocked it stays here with its
                     // reason in view, rather than joining the capped "Not available yet" list where shut story steps hide it.
                     const home=action.eligible||pending||action.repeatable||action.completed>0&&!action.once?actions:notYetList;if(home===actions&&row.card.hidden)row.card.hidden=false;
