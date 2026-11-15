@@ -17,8 +17,11 @@ import {beginTempoFight, commitTempoMove, handOverTempoFight, policyMove, tempoV
 import {projectTempoFight} from './fight_view.js';
 import {fightPauseReasons} from './fight_pause.js';
 import {fightResult} from './fight_text.js';
+import {TERMS, TERMS_FACT, FOE_KINDS, foeKind, termsFor, canTakeAlive, LOSING, LOSING_FACT, losingFor, losingMove} from './fight_terms.js';
+import {selected_stance} from './runtime_state.js';
 import {tempoOpeners, tempoOpener} from './tempo_starters.js';
 import {HANDOVER_LABEL, HANDOVER_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
+import {renderApproachStrip} from './ui/approach_strip.js';
 
 // Road-duel tempo route: the same pursuit and encounter, driven by the tempo clock (LSD307-LSD317).
 // Text-first (LSD314): one line per step, a who-acts-next strip, moves with their time cost.
@@ -157,7 +160,7 @@ function openerQuotes() {
     const state = ports.root(), context = ports.campaignContext();
     if(!state.simulation || state.simulation.sessions.player) return [];
     return tempoOpeners().flatMap(o => {
-        try {const q = o.quote(state, context); return q?.visible ? [{id: o.id, label: o.label, text: o.text || '', eligible: !!q.eligible && ports.writable() && !context.busy, reason: q.reason || (context.busy ? 'Finish your current activity first.' : '')}] : [];}
+        try {const q = o.quote(state, context); return q?.visible ? [{id: o.id, label: o.label, text: o.text || '', eligible: !!q.eligible && ports.writable() && !context.busy, reason: q.reason || (context.busy ? 'Finish your current activity first.' : ''), ...(o.meets ? {meets: {...o.meets}, strip: strip(state.actors?.player?.facts || {}, o.meets, [o.meets.kind], {means: {}})} : {})}] : [];}
         catch(error) {return [];}
     });
 }
@@ -171,7 +174,17 @@ function begin(request = {}) {
     const state = ports.root(), context = ports.campaignContext();
     const me = withTypes(readNativeFighter(ports.actor()), ports.actor());
     const spec = opener.spec(state, context, {me, vitals: context.vitals.player, parts: carriedParts(), enemyProfile});
-    for(const f of spec.fighters || []) if(f.id === 'player') f.speed = restedSpeed(state, f.speed);
+    const facts = state.actors?.player?.facts || {}, stakes = spec.stakes ? {preset: spec.stakes.preset, lethal: spec.stakes.lethal ?? null} : {};
+    for(const f of spec.fighters || []) if(f.id === 'player') {
+        f.speed = restedSpeed(state, f.speed);
+        // How you fight (PS35): the stance the player picked; Pulled Blows holds every blow back, and its skill makes a slip rarer.
+        const stance = selected_stance?.id || 'normal';
+        f.stance = stance;
+        if(stance === 'pulled') { f.holdBack = true; f.holdSkill = pulledSkill(); }
+    }
+    // Your terms for each kind of foe in this fight (PS36), from the player's setting or the world's default.
+    const player = (spec.fighters || []).find(f => f.id === 'player');
+    spec.terms = Object.fromEntries([...new Set((spec.fighters || []).filter(f => f.side === 'b').map(foeKind))].map(k => [k, termsFor(facts, stakes, k, {player}).terms]));
     const plan = beginTempoFight(state, ports.registry, context, spec);
     opener.promote?.(plan, ports.registry); // AT17 prototype: recurring opponents become persistent before the commit, so the sight writer finds them
     rememberTab(); ports.commit(plan); applyHarm(plan);
@@ -222,16 +235,32 @@ function askNow() {
         return fightPauseReasons(v, {knownFoes, ...(metMeans.has(w.title) && {means: metMeans.get(w.title)}), ...(w.lastPick && {lastPick: w.lastPick})}, {first: !w.moved});
     } catch(error) { return []; }
 }
-// Fight on's standing answer when a beast is down (PS27). Kept with the life as a plain fact; a person always asks.
-export const DOWN_POLICY_FACT = 'tempo.downPolicy', DOWN_POLICIES = ['ask', 'finish', 'spare'];
-const downPolicy = facts => DOWN_POLICIES.includes(facts[DOWN_POLICY_FACT]) ? facts[DOWN_POLICY_FACT] : 'ask';
-function setDownPolicy(request = {}) {
+// Pulled Blows' skill as a share of its cap, read through the native actor (no main.js import).
+function pulledSkill() { try { const a = ports.actor(); const lv = a.getTotalSkillLevel?.('Pulled blows') || 0; return Math.min(1, lv / 30); } catch(error) { return 0; } }
+// Your terms (PS36) and your losing terms (PS42): plain facts kept with the life, one per kind of foe. Set before a fight (the opener's
+// strip) or during it (the card's strip); a live fight takes the change at once.
+function planNow() { const ctx = ports.campaignContext(); return {state: structuredClone(ports.root()), external: structuredClone(ctx.external), gameplay: structuredClone(ctx.gameplay), vitals: structuredClone(ctx.vitals), acquisitions: [], unlocks: []}; }
+function setTerms(request = {}) {
     check(ports?.writable(), 'The game cannot take that right now.');
-    check(DOWN_POLICIES.includes(request.value), 'Choose ask me, finish or spare.');
-    const ctx = ports.campaignContext(), plan = {state: structuredClone(ports.root()), external: structuredClone(ctx.external), gameplay: structuredClone(ctx.gameplay), vitals: structuredClone(ctx.vitals), acquisitions: [], unlocks: []};
-    plan.state.actors.player.facts[DOWN_POLICY_FACT] = request.value; plan.state.sequence++;
+    check(FOE_KINDS.includes(request.kind), 'Choose which kind of foe.');
+    check(TERMS.includes(request.value), 'Choose Finish, Spare, Take alive or Ask me.');
+    const plan = planNow(), b = plan.state.simulation?.sessions?.player?.nativeBattle;
+    if(request.value === 'take_alive') check(canTakeAlive(b?.fighters?.player || {means: {}}) || !b, 'Nothing to bind them with.');
+    plan.state.actors.player.facts[TERMS_FACT(request.kind)] = request.value; plan.state.sequence++;
+    if(b?.schema === TEMPO_SCHEMA && b.terms) b.terms[request.kind] = request.value;
     ports.commit(plan);
-    return request.value === 'ask' ? 'Fight on will stop and ask when something is down.' : `Fight on will ${request.value} a downed beast without asking. A person still asks.`;
+    return {finish: 'A body that goes down is killed, as you mean it.', spare: 'A body that goes down is left alive.', take_alive: 'A body that goes down is bound and kept.', ask: 'The fight will stop and ask you.'}[request.value];
+}
+function setLosing(request = {}) {
+    check(ports?.writable(), 'The game cannot take that right now.');
+    check(LOSING.includes(request.value), 'Choose fight on, yield or break off.');
+    const plan = planNow(); plan.state.actors.player.facts[LOSING_FACT] = request.value; plan.state.sequence++; ports.commit(plan);
+    return request.value === 'fight_on' ? 'You will fight on, whatever happens.' : request.value === 'yield' ? 'At about a third of your health you will yield.' : 'At about a third of your health you will break off.';
+}
+// What the strip shows for a fight or an opener: your stance, your terms for each kind in it, the reason, and your losing terms.
+function strip(facts, stakes, kinds, player) {
+    return {stance: selected_stance ? {id: selected_stance.id, name: selected_stance.name} : {id: 'normal', name: 'Normal Stance'},
+        terms: kinds.map(kind => ({kind, ...termsFor(facts, stakes, kind, {player}), takeAlive: canTakeAlive(player)})), losing: losingFor(facts)};
 }
 const MET_FACT = 'tempo.metFoes', MET_CAP = 200; // dial: how many names are remembered, newest kept
 function metFoes(facts) { try { const list = JSON.parse(facts[MET_FACT] || '[]'); return Array.isArray(list) ? list.filter(n => typeof n === 'string') : []; } catch(error) { return []; } }
@@ -242,6 +271,8 @@ function closeAccount(plan, w) {
     account = fightResult({place: w.title, outcomes: {player: plan.playerEnd ?? OUTCOME[result] ?? null, ...Object.fromEntries(them.map((f, i) => [`foe${i}`, f.end]))}, rows: [], asked: w.asked, turning: [],
         means: [{id: 'health', before: round(w.health), after: round(v.health ?? w.health)}, {id: 'stamina', before: round(w.stamina), after: round(v.stamina ?? w.stamina)}]},
     {seat: 'player', life: 'health', names: Object.fromEntries(them.map((f, i) => [`foe${i}`, f.name])), moves: {}, means: MEANS, parts: {}});
+    // Settled by the player's terms (PS36): the result says so, "as you meant to".
+    if(them.some(f => f.byTerms)) account = {...account, items: account.items.map(([k, t]) => k === 'Them' ? [k, `${t.replace(/\.$/, '')}, as you meant to.`] : [k, t])};
     // What you carry away (PS26): a world's after-hook names it in player words.
     if(plan.fightCarry?.length) account = {...account, items: [...account.items, ['Carried', plan.fightCarry.join(' ')]]};
     metMeans.set(w.title, {health: w.health, stamina: w.stamina});
@@ -273,14 +304,12 @@ function run() {
         if(!b) break;
         if(!tempoView(b).yourTurn) { why = 'It is not your turn.'; break; }
         const me = b.fighters.player;
-        // Whether to finish or spare someone down at your feet is yours (Weibao, 2026-11-14: "maybe its a choice?"). A standing answer
-        // (PS27: ask me, finish, spare; default ask me) lets Fight on settle a beast; a person always asks.
+        // A body waits on you only when your terms ask, it is a person, or the stakes shifted (the engine settles the rest as you meant to).
         const down = Object.entries(b.fate || {}).filter(([, by]) => by === 'player').map(([id]) => id);
-        if(down.length) {
-            const standing = downPolicy(ports.root().actors?.player?.facts || {}), beast = b.fighters[down[0]].tags?.includes('beast');
-            if(standing === 'ask' || !beast) { why = `${b.fighters[down[0]].name} is down. Finish or spare?`; break; }
-            move({moveId: standing, targetId: down[0], auto: true}); continue;
-        }
+        if(down.length) { why = `${b.fighters[down[0]].name} is down. Finish or spare?`; break; }
+        // Your losing terms (PS42): at about a third of your health, yield or break off instead of the next blow.
+        const losing = losingMove({losing: losingFor(ports.root().actors?.player?.facts), hp: me.hp, maxHp: me.maxHp ?? w.health});
+        if(losing && me.moves.includes(losing)) { move({moveId: losing, auto: true}); turns++; why = losing === 'yield' ? 'You yield, as you meant to.' : 'You break off, as you meant to.'; break; }
         if(turns > 0) {
             const reasons = askNow();
             if(reasons.length) { why = reasons[0].text; if(reasons[0].kind === 'pick gone') w.lastPick = null; break; }
@@ -292,7 +321,7 @@ function run() {
     }
     check(turns > 0, why || 'Nothing to fight on with.');
     const turnsText = `${turns} turn${turns === 1 ? '' : 's'} taken.`;
-    if(!open()) return `${turnsText} The fight is over.`;
+    if(!open()) return `${turnsText} ${/as you meant to/.test(why) ? `${why} ` : ''}The fight is over.`;
     return `${turnsText} ${why || 'That is as far as one go-ahead runs.'}`;
 }
 // A view only quotes the committed state. Its four quotes share one context build.
@@ -302,7 +331,7 @@ function view() {
 }
 function readView() {
     const b = open();
-    if(b) { watching(); return {visible: true, fight: {...tempoView(b), aim, ask: askNow().map(r => r.text), downPolicy: downPolicy(ports.root().actors.player.facts)}, held: b.held}; }
+    if(b) { watching(); return {visible: true, fight: {...tempoView(b), aim, ask: askNow().map(r => r.text), strip: strip(ports.root().actors.player.facts, b.stakes || {}, Object.keys(b.terms || {}), b.fighters.player)}, held: b.held}; }
     const quote = startQuote(), facts = ports.root().actors.player.facts;
     const rival = {...rivalBrief(facts, knownTargetFacts(ports.root(), 'player', 'roadRival')), study: studyQuote()}, openers = openerQuotes();
     const kept = keptAccount(facts); // a last result keeps the panel findable after its opener is used up
@@ -367,7 +396,11 @@ function mount() {
                 const handover = node('div'); handover.append(button(HANDOVER_LABEL, 'handover', HANDOVER_TEXT, !ports.writable(), () => act(move, {handOver: true})), node('small', ' ' + HANDOVER_TEXT)); body.append(handover);
             }
         } else if(!v.start.visible && !v.rival.history.duels) {
-            for(const o of v.openers) {const row = node('div'); row.append(button(o.label, `open:${o.id}`, o.reason || o.text, !o.eligible, () => act(begin, {openerId: o.id})), node('small', ' ' + (o.reason || o.text))); body.append(row);}
+            for(const o of v.openers) {
+                const row = node('div'); row.append(button(o.label, `open:${o.id}`, o.reason || o.text, !o.eligible, () => act(begin, {openerId: o.id})), node('small', ' ' + (o.reason || o.text))); body.append(row);
+                // Choose before (PS36, Weibao 2026-11-14): the approach is set on the opener, with the world's default and its reason.
+                if(o.strip) renderApproachStrip(row, {strip: o.strip, stakes: o.meets, disabled: !ports.writable(), on: {terms: (kind, value) => act(setTerms, {kind, value}), losing: value => act(setLosing, {value})}});
+            }
             if(v.last) body.append(node('p', `Last fight: ${v.last}.`));
             if(v.account) { const list = node('ul'); list.dataset.tempoAccount = ''; list.append(node('li', v.account.head), ...v.account.items.map(([k, t]) => node('li', `${k}: ${t}`))); body.append(list); }
         } else {
@@ -408,7 +441,14 @@ function holdBack(request = {}) {
     ports.commit(plan);
     return request.on ? 'You hold back: a blow that would drop them knocks them out instead.' : 'You stop holding back.';
 }
-const commands = {downPolicy: request => { const said = setDownPolicy(request); panel?.render(true); return said; }, hold: request => { const said = holdBack(request); panel?.render(true); return said; }, run: () => { check(ports?.writable(), 'The game cannot take a move right now.'); const said = run(); panel?.render(true); return said; }, aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
+// The original loop's read (PS38): your terms for a foe's kind in that world's frame, and how likely a pulled blow slips. Reads only.
+function originalTerms(request = {}) {
+    const facts = ports?.root?.()?.actors?.player?.facts || {}, kind = foeKind({tags: request.tags});
+    const t = termsFor(facts, {frame: request.frame || 'original'}, kind);
+    return {kind, terms: t.terms === 'ask' || t.terms === 'take_alive' ? 'finish' : t.terms, set: t.set, slip: .05 * (1 - .7 * pulledSkill())};
+}
+const commands = {stripFor: request => strip(ports.root().actors?.player?.facts || {}, {frame: request?.frame || 'original'}, (request?.kinds || []).filter(k => FOE_KINDS.includes(k)), {means: {}}),
+    termsFor: originalTerms, terms: request => { const said = setTerms(request); panel?.render(true); return said; }, losing: request => { const said = setLosing(request); panel?.render(true); return said; }, hold: request => { const said = holdBack(request); panel?.render(true); return said; }, run: () => { check(ports?.writable(), 'The game cannot take a move right now.'); const said = run(); panel?.render(true); return said; }, aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
     check(ports?.writable(), 'The game cannot take a move right now.');
     move(request); panel?.render(true);
 }};

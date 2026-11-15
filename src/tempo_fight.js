@@ -15,6 +15,7 @@ import {leaveChance, yieldChance, followers, EXIT_DIALS} from './tempo_exit.js';
 import {winChance} from './notch_contest.js';
 import {stockEdge, stockKindLabel} from './stock_kinds.js';
 import {tempoStakes, kitWhy, kitCostText, kitDetail} from './tempo_kit.js';
+import {foeKind, asksNow, TERMS_LABEL, termsClash, wantsText} from './fight_terms.js';
 import {TEMPO_SCHEMA, TEMPO_LOG_LINES, TEMPO_MOVE_IDS, TEMPO_ALLOWED_MOVE_IDS, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle} from './tempo_fight_contract.js';
 export {TEMPO_SCHEMA, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle};
 
@@ -34,6 +35,7 @@ export const TEMPO_DIALS = {
     channelNotice: {value: 'winChance(perceive - conceal)', why: 'A concealed effect (conceal above 0) is seen only by an observer with a perceive value, by one keyed draw on the notch scale: an equal noticer catches it half the time, each notch of edge moves that by roughly a quarter, and no perceive value means nothing is shown and no draw is made. An effect in the open (conceal 0) is always logged. The holder always sees their own effect.'},
     holdFailBase: {value: .05, why: 'CBD213: holding back is a skill with a failure. One downing blow in twenty slips past restraint even when the force was right.'},
     holdFailForce: {value: .8, why: 'CBD213: a means too strong for the occasion. Each share of the body\'s health a blow carries beyond what downed it adds this much to the slip (a Gu blade held back on a wolf fails far more often than a fist).'},
+    holdSkillCut: {value: .7, why: 'PS35: Pulled Blows at full skill cuts the chance of a slip by this share (a practised hand pulls a blow cleanly; never quite zero).'},
     outright: {value: .5, why: 'CBC4: a blow carrying half a body\'s health past the point that downed it leaves no window to decide in.'},
     pleaBase: {value: .25, why: 'A plea to stop short of killing is heard about one time in four from someone set on harm, more as their aim softens (their goals) and as they are hurt.'},
     wardCast: {value: .6, why: 'A held ward (a shield charm, a guarding Gu) makes a cast at its holder about four in ten less likely to land, beside taking the edge off a blow.'},
@@ -76,7 +78,7 @@ export function fateText(f) {
         spare: own.spare ?? (isBeast(f) ? 'It limps away.' : 'They live. They will remember this.'), ...(own.detail ? {detail: own.detail} : {})};
 }
 // Why a plea cannot work, by mechanism (PS25): a beast does not bargain.
-const pleaWhy = b => { const them = active(b, 'b').map(id => b.fighters[id]); return them.length && them.every(isBeast) ? `${them[0].name.replace(/^A /, 'The ')} does not bargain.` : ''; };
+const pleaWhy = b => { const them = active(b, 'b').map(id => b.fighters[id]); return them.length && them.every(isBeast) ? `A ${/wolf/i.test(them[0].name) ? 'wolf' : 'beast'} does not bargain.` : ''; };
 // A shift in stakes is an event the card shows once (PS23): the new state and one line of why.
 const shift = (b, cue) => { b.stakes.cue = cue.slice(0, 300); };
 const fates = (b, actorId) => Object.entries(b.fate || {}).filter(([, by]) => by === actorId).map(([id]) => id);
@@ -105,15 +107,30 @@ function downed(b, foeId, strikerId, row, over = 0) {
     if(!b.stakes.lethal || foeId === 'player' || row?.lethal === false) { foe.end = 'knocked_out'; return; }
     const share = Math.max(0, over) / Math.max(1, foe.maxHp);
     if(striker?.holdBack) {
-        const slip = Math.min(.9, TEMPO_DIALS.holdFailBase.value + TEMPO_DIALS.holdFailForce.value * share);
-        if(draw(b, 'restraint', strikerId, {foe: foeId}) < slip) { foe.end = 'killed'; shift(b, `${strikerId === 'player' ? 'Your' : `${striker.name}'s`} restraint slipped.`); say(b, `${strikerId === 'player' ? 'You could not' : `${striker.name} could not`} hold that blow back.`); }
-        else foe.end = 'knocked_out';
+        // Pulled Blows (PS35): its skill makes a slip rarer as it levels (dial holdSkillCut at full skill).
+        const slip = Math.min(.9, TEMPO_DIALS.holdFailBase.value + TEMPO_DIALS.holdFailForce.value * share) * (1 - TEMPO_DIALS.holdSkillCut.value * (striker.holdSkill || 0));
+        if(draw(b, 'restraint', strikerId, {foe: foeId}) < slip) { foe.end = 'killed'; shift(b, `${strikerId === 'player' ? 'Your' : `${striker.name}'s`} restraint slipped.`); say(b, `${strikerId === 'player' ? 'You could not' : `${striker.name} could not`} hold that blow back.`); return; }
+        // A held blow leaves a body out cold; the player's terms still act on it (PS44), the others leave it be.
+        foe.end = 'knocked_out';
+        if(strikerId === 'player' && b.terms) byTerms(b, foeId); // a fight without terms keeps the plain knockout
         return;
     }
     if(share >= TEMPO_DIALS.outright.value) { foe.end = 'killed'; return; }
     foe.end = 'downed';
+    if(strikerId === 'player' && byTerms(b, foeId)) return;
     if(striker?.side === 'a' && strikerId === 'player') (b.fate ||= {})[foeId] = strikerId;
     else foe.end = draw(b, 'fate', strikerId, {foe: foeId}) < (striker?.goals?.aim ?? .3) * .5 ? 'killed' : 'knocked_out'; // others decide at once, by how set on harm they are
+}
+
+// The player's terms act on a body they downed (PS36, PS44): Finish, Spare or Take alive happen at once, "as you meant to"; Ask me, a person,
+// or stakes that shifted in this fight leave the window open (PS27, PS40). Returns true when the terms settled it.
+function byTerms(b, foeId) {
+    const foe = b.fighters[foeId], kind = foeKind(foe), terms = b.terms?.[kind] ?? 'ask';
+    if(asksNow({terms, kind, shifted: !!b.stakes?.cue})) { if(foe.end === 'knocked_out') { foe.end = 'downed'; } (b.fate ||= {})[foeId] = 'player'; return false; }
+    foe.end = terms === 'finish' ? 'killed' : terms === 'take_alive' ? 'bound' : 'knocked_out'; foe.byTerms = true;
+    const it = kind === 'beast' ? 'it' : 'them';
+    say(b, terms === 'finish' ? `You finish ${it}, as you meant to.` : terms === 'take_alive' ? `You bind ${it} and keep ${it}, as you meant to.` : `You leave ${it} alive, as you meant to.`);
+    return true;
 }
 
 // Equal ready time and speed is settled by a per-fight shuffle, never by name: calibration (P8) showed an id-order tie handed the first blow to the foe every time.
@@ -228,7 +245,7 @@ function finishFight(plan, registry, result) {
     facts[TEMPO_FACT_HELD] = Math.min(TEMPO_DIALS.heldCapMinutes.value, (facts[TEMPO_FACT_HELD] || 0) + held);
     facts['tempo.lastResult'] = result;
     // How each opposing fighter ended, for the host's result block (not saved: the host turns it into player text).
-    plan.fightEnd = Object.values(b.fighters).filter(f => f.side === 'b').map(f => ({name: f.name, end: f.end ?? (f.status === 'down' ? 'down' : f.yielded ? 'yielded' : f.status === 'left' ? 'withdrew' : 'stood')}));
+    plan.fightEnd = Object.values(b.fighters).filter(f => f.side === 'b').map(f => ({name: f.name, end: f.end ?? (f.status === 'down' ? 'down' : f.yielded ? 'yielded' : f.status === 'left' ? 'withdrew' : 'stood'), ...(f.byTerms ? {byTerms: true} : {})}));
     if(b.fighters.player.end) plan.playerEnd = b.fighters.player.end;
     if(result === 'lost') plan.defeat = savedBattleLoss(Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => b.fighters[id].name));
     // Allies who fought write the bond (LSD331) and are named in a fact the party route already reads.
@@ -515,11 +532,11 @@ export function beginTempoFight(state, registry, context, spec) {
     for(const f of [...spec.fighters].sort((x, y) => (x.id < y.id ? -1 : 1))) {
         fighters[f.id] = {name: f.name, side: f.side, speed: f.speed ?? 100, ready: 0, hp: f.hp, maxHp: f.maxHp ?? f.hp, stamina: f.stamina ?? 10, maxStamina: f.maxStamina ?? f.stamina ?? 10,
             profile: structuredClone(f.profile), moves: (f.moves || [...KEEP, ...Object.keys(f.kit || {})]).filter(m => KEEP.includes(m) || (f.stock && TEMPO_ALLOWED_MOVE_IDS.includes(m) && !TEMPO_MOVE_IDS.includes(m)) || !!f.kit?.[m]), perception: f.perception ?? 5, stealth: f.stealth ?? 5,
-            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), ...(f.kit ? {kit: structuredClone(f.kit)} : {}), ...(f.means ? {means: {...f.means}} : {}), ...(f.meansLabels ? {meansLabels: {...f.meansLabels}} : {}), ...(f.holdBack ? {holdBack: true} : {}), ...(f.fateText ? {fateText: {...f.fateText}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
+            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), ...(f.kit ? {kit: structuredClone(f.kit)} : {}), ...(f.means ? {means: {...f.means}} : {}), ...(f.meansLabels ? {meansLabels: {...f.meansLabels}} : {}), ...(f.holdBack ? {holdBack: true} : {}), ...(Number.isFinite(f.holdSkill) && f.holdSkill > 0 ? {holdSkill: Math.min(1, f.holdSkill)} : {}), ...(f.stance ? {stance: f.stance} : {}), ...(f.wants ? {wants: f.wants} : {}), ...(f.fateText ? {fateText: {...f.fateText}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
     }
     if(Object.values(fighters).some(f => f.side === 'a' && f.ally)) fighters.player.moves.push('order');
     const b = {schema: TEMPO_SCHEMA, id: spec.id, title: spec.title || 'A fight', seed, actions: 0, now: 0, seconds: 0, held: 0, floor: spec.floor ?? 0,
-        conditions: {light: 'day', footing: 'firm', weather: 'clear', ...spec.conditions}, fighters, log: [], last: '', result: null, surprised: null, ...(spec.stakes ? {stakes: tempoStakes(spec.stakes)} : {})};
+        conditions: {light: 'day', footing: 'firm', weather: 'clear', ...spec.conditions}, fighters, log: [], last: '', result: null, surprised: null, ...(spec.stakes ? {stakes: tempoStakes(spec.stakes)} : {}), ...(spec.terms ? {terms: {...spec.terms}} : {})};
     // Who notices first sets the opening (LSD341): aware side vs the other's best stealth.
     const best = (side, key) => Math.max(...Object.values(fighters).filter(f => f.side === side).map(f => f[key]));
     const aware = side => best(side, 'perception') + 10 * drawFraction(seed, checkKey({subject: `${b.id}:notice`, method: 'notice', period: {at: 0}, targetState: {side}})) >= best(side === 'a' ? 'b' : 'a', 'stealth');
@@ -550,7 +567,7 @@ export function holdRisk(b) {
     if(!foe || !b.stakes?.lethal) return 0;
     const blows = [...me.moves.filter(id => TEMPO_MOVES[id]?.kind === 'strike').map(id => TEMPO_MOVES[id].power * me.profile.attackPower), ...Object.values(me.kit || {}).map(r => r.force ?? (r.power ?? 0) * me.profile.attackPower)];
     const heaviest = Math.max(0, ...blows), over = Math.max(0, heaviest - foe.maxHp * .1); // a downing blow usually finds a tenth or less left
-    return Math.min(.9, TEMPO_DIALS.holdFailBase.value + TEMPO_DIALS.holdFailForce.value * over / Math.max(1, foe.maxHp));
+    return Math.min(.9, TEMPO_DIALS.holdFailBase.value + TEMPO_DIALS.holdFailForce.value * over / Math.max(1, foe.maxHp)) * (1 - TEMPO_DIALS.holdSkillCut.value * (me.holdSkill || 0));
 }
 // The player's own restraint (CBC32): holding back turns a downing blow into a knockout in a lethal fight. Free, no time.
 export function setTempoHoldBack(b, on) { check(b?.fighters?.player && !b.result, 'No tempo fight is waiting.'); b.fighters.player.holdBack = !!on; if(!on) delete b.fighters.player.holdBack; return b; }
@@ -604,7 +621,7 @@ export function tempoView(b) {
         allies: active(b, 'a').filter(id => b.fighters[id].ally).map(id => ({id, name: b.fighters[id].name, hurt: b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'steady' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing',
             order: activeOrder(b, b.fighters[id])?.id ? ALLY_ORDERS[activeOrder(b, b.fighters[id]).id].label : null})),
         // A body waiting on your decision stays on the card, down, so the choice has a place to be made (CBC4).
-        foes: [...active(b, 'b'), ...fates(b, 'player')].map(id => ({id, name: b.fighters[id].name, ...(b.fighters[id].status === 'down' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina,
+        foes: [...active(b, 'b'), ...fates(b, 'player')].map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status === 'down' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina,
             ...(b.fighters[id].means && Object.keys(b.fighters[id].means).length ? {means: Object.entries(b.fighters[id].means).map(([q, n]) => ({id: q, n, label: b.fighters[id].meansLabels?.[q] ?? q.replace(/_/g, ' ')}))} : {}), learned: {...b.fighters[id].learned}, injuries: Object.entries(b.fighters[id].parts || {}).map(([p, rung]) => ({label: partLabel(p), rung})), hurt: b.fighters[id].status === 'down' ? 'down and helpless' : b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'fresh' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing'}))};
 }
 

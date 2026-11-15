@@ -96,6 +96,21 @@ stances["quick"] = new Stance({
     stamina_cost: 2,
 });
 
+// Pulled Blows (PS35, proposal; Weibao 2026-11-14 "is it a fighting style or a stakes choice"): how you fight when you mean to stop
+// someone, not kill them. Less force; a blow that would drop them knocks them out instead, and the skill makes a slip rarer. Open to
+// everyone from the start: anyone can pull a punch, and doing it well is the skill.
+stances["pulled"] = new Stance({
+    name: "Pulled Blows",
+    id: "pulled",
+    related_skill: "Pulled blows",
+    is_unlocked: true,
+    description: "You hit to stop, not to kill: less force, and a blow that would drop them knocks them out instead.",
+    stat_multipliers: {
+        attack_power: 0.7,
+    },
+    stamina_cost: 1,
+});
+
 stances["heavy"] = new Stance({
     name: "Crushing Force",
     id: "heavy",

@@ -84,6 +84,7 @@ function card(doc, o) {
     if (o.hp.fraction !== null && o.hp.fraction !== undefined) c.append(meter(doc, 'versus-bar', `${o.name} hit points`, o.hp.fraction, o.hp.text));
     if (o.stamina?.max > 0) c.append(meter(doc, 'versus-bar versus-bar--stamina', `${o.name} stamina`, o.stamina.current / o.stamina.max, o.stamina.text));
     if (o.means) c.append(make(doc, 'p', 'versus-means', o.means));
+    if (o.wants) { const w = make(doc, 'p', 'versus-wants', o.wants); w.dataset.versusWants = ''; c.append(w); }
     const chips = make(doc, 'div', 'versus-chips');
     const threat = chip(doc, 'threat', threatText(o.threat), o.threat.level === 'lethal' ? 'fig-fx--pulse' : '');
     if (Number.isFinite(o.threat.blow)) threat.setAttribute('title', BOUND_NOTE);

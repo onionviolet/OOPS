@@ -185,6 +185,30 @@ class Combat {
         } else this.setAttackLoop({fighter_index,is_attacker,base_cooldown:this.#data[side].attack_cooldowns[fighter_index]});
     }
 
+    // The player's terms for this foe's kind in the original wilds (fight_terms.js frame 'original': Finish unless the player set
+    // otherwise), and whether a pulled blow held. No terms service (headless rigs) means Finish, as before.
+    #downTerms(target, random) {
+        const read = typeof domainRegistry === 'undefined' ? null : domainRegistry.command('tempo_fight', 'termsFor'); // sandboxed rigs run without the registry
+        const set = read ? read({tags: target.tags, frame: 'original'}) : null;
+        let terms = set?.terms || 'finish', slipped = false;
+        if(current_stance?.id === 'pulled') {
+            slipped = random("restraint") < (set?.slip ?? .05);
+            if(!slipped && terms === 'finish' && !set?.set) terms = 'spare'; // a pulled blow leaves them out cold unless you chose to finish
+        }
+        return {terms: slipped ? 'finish' : terms, slipped};
+    }
+    // Spared or out cold (PS38): the foe leaves the fight alive. You still won the exchange (experience, its own death hooks for
+    // scripted unlocks), but there is no loot, no kill count and no kill for quests: nobody died.
+    #leaveDown({fighter, target, is_attacker, target_index, target_count_xp_modifier, logEvent}) {
+        target.on_death?.(fighter);
+        log_message(`${target.name} is down. You leave ${target.tags?.human ? 'them' : 'it'} alive, as you meant to.`, "enemy_defeated", {combat: logEvent("defeat")});
+        if(target.get_loot) add_xp_to_character(target.xp_value * target_count_xp_modifier, true);
+        target.is_alive = false;
+        update_displayed_health_of_fighter({fighter_index: target_index, is_attacker: !is_attacker});
+        if(this.nativeExchangeHost&&this.defenders.every(e=>!e.is_alive))domainRegistry.command('combatReview','finish')?.({id:this.rngKey,outcome:'won'});
+        this.clearAttackLoop({fighter_index: target_index, is_attacker: !is_attacker});
+    }
+
     #random(side,index,targetIndex,decision) {
         return gameKeyedRandom(STREAMS.combat,JSON.stringify([this.rngKey,side,index,this.#turns[side][index]||0,targetIndex,decision]));
     }
@@ -667,6 +691,15 @@ class Combat {
                 kill_player({is_combat: true});
                 return;
             } else {
+                // PS38 (proposal): a foe at zero is down, and the player's terms say what happens; Finish keeps today's YAIR exactly. Pulled
+                // Blows (PS35) holds the blow, so the body is out cold unless the restraint slips; then the terms act on it. Scripted
+                // encounters keep their own path.
+                const down = fighter.tags.main_character && !this.is_special_combat && !this.encounterHooks ? this.#downTerms(target, random) : null;
+                if(down && down.terms !== 'finish') {
+                    this.#leaveDown({fighter, target, is_attacker, target_index, target_count_xp_modifier, down, logEvent});
+                    return;
+                }
+                if(down?.slipped) log_message(`You could not hold that blow back.`, "enemy_defeated", {combat: logEvent("defeat")});
                 const dropChanceModifier = this.encounterHooks?.planDefeat ? accessoryDropModifier(1/target_count**0.6667) * (this.encounterProfile?.dropChanceModifier ?? 1) : undefined;
                 // Preflight before death hooks, defeat XP, loot and kill progress.
                 const settlement = this.encounterHooks?.planDefeat?.({combat:this,fighter,target,dropChanceModifier});

@@ -54,6 +54,7 @@ export function validateTempoBattle(b, session, state) {
     check(b.hits === undefined || (Array.isArray(b.hits) && b.hits.length <= TEMPO_LOG_LINES && b.hits.every(h => typeof h.actor === 'string' && typeof h.target === 'string' && typeof h.slot === 'string' && Number.isFinite(h.dmg) && Number.isFinite(h.stopped) && Number.isFinite(h.multiplier ?? 1) && (h.split === undefined || (h.split && typeof h.split === 'object')) && (h.injury === undefined || typeof h.injury === 'string'))), 'Invalid tempo hit record.');
     check(validateExit(b.exit), 'Invalid tempo exit record.');
     check(validateTempoStakes(b.stakes), 'Invalid tempo stakes.');
+    check(b.terms === undefined || (b.terms && typeof b.terms === 'object' && Object.entries(b.terms).every(([k, v]) => ['beast', 'person', 'other'].includes(k) && ['finish', 'spare', 'take_alive', 'ask'].includes(v))), 'Invalid tempo terms.');
     check(b.fate === undefined || (b.fate && typeof b.fate === 'object' && Object.entries(b.fate).every(([id, by]) => b.fighters?.[id]?.end === 'downed' && b.fighters?.[by])), 'Invalid tempo fate window.');
     check(Array.isArray(b.log) && b.log.length <= TEMPO_LOG_LINES && typeof b.last === 'string' && b.last.length <= 500 && b.result === null, 'Invalid tempo log.');
     const ids = Object.keys(b.fighters || {});

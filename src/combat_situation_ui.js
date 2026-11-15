@@ -12,11 +12,15 @@ import {config} from './config.js';
 import {figureText, FIGURE_STATES} from './ui/figure.js';
 import {renderVersusRow} from './ui/combat_versus.js';
 import {renderSceneCard} from './ui/scene_card.js';
+import {renderApproachStrip} from './ui/approach_strip.js';
+import {foeKind} from './fight_terms.js';
 import {versusWithEngine} from './read_models/combat_situation_bridge.js';
 import {harmRung} from './harm_state.js';
 import {worldFamily, currentWorldFamily} from './world_look.js';
 import {HANDOVER_LABEL, HANDOVER_TEXT, RUN_LABEL, RUN_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
 
+// Fight time is counted in beats (PS32): the fight's own clock, not the world's.
+const beats = n => `${n} beat${n === 1 ? '' : 's'}`;
 const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
 
 export function mountFightSituation({getCombat, readout, every = 400}) {
@@ -65,11 +69,11 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const wait = t.yourTurn ? '' : 'Not your turn yet.';
         const options = t.yourTurn ? [
             // The window after a downing blow (CBC4): finish or spare, one pair per body, ahead of the ordinary moves.
-            ...(t.fateMoves || []).map(m => ({id: `${m.id}:${m.targetId}`, label: m.label, time: `${m.cost}s`, affects: m.text,
+            ...(t.fateMoves || []).map(m => ({id: `${m.id}:${m.targetId}`, label: m.label, time: beats(m.cost), affects: m.text,
                 attrs: {fightOption: `${m.id}:${m.targetId}`, fightFate: m.id}, blocked, onChoose: () => move({moveId: m.id, targetId: m.targetId})})),
-            ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost}s`, ...(m.price ? {cost: m.price} : {}), affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
+            ...t.moves.map(m => ({id: m.id, label: m.label, time: beats(m.cost), ...(m.price ? {cost: m.price} : {}), affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
                 attrs: {fightOption: m.id}, blocked: blocked || (m.usable === false ? m.why || 'Not possible now.' : ''), onChoose: () => move({moveId: m.id})})),
-            ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, time: `${o.cost}s`, affects: `${o.text} Heard ${o.odds}; not certain.`,
+            ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, time: beats(o.cost), affects: `${o.text} Heard ${o.odds}; not certain.`,
                 attrs: {fightOption: `order:${o.orderId}:${o.allyId}`}, blocked, onChoose: () => move({moveId: 'order', allyId: o.allyId, orderId: o.orderId})})),
             {id: 'handover', label: HANDOVER_LABEL, affects: HANDOVER_TEXT, attrs: {fightOption: 'handover'}, blocked, onChoose: () => move({handOver: true})},
             {id: 'run', label: RUN_LABEL, affects: RUN_TEXT, attrs: {fightOption: 'run'}, blocked: blocked || (runCommand ? '' : 'The contest cannot fight on right now.'), onChoose: runOn},
@@ -78,7 +82,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', attrs: {fightMode: 'tempo'}, header: {title: view.fight.title || 'Fight', place}, stakes: t.summary, options});
         card.querySelector('.scene-card-stakes').after(notice);
         // Times are seconds of fight time (PS32); the meaning sits on hover of each time chip.
-        for (const q of card.querySelectorAll('.scene-card-quote')) q.title = 'Seconds of fight time this takes; the side with time left acts next.';
+        for (const q of card.querySelectorAll('.scene-card-quote')) q.title = 'Beats of fight time this takes: the fewer you spend, the sooner you act again.';
         // The decision band (PS21, PS22): when a body is down, the choice about it leads the card in two wide buttons (keys 1 and 2);
         // the ordinary moves fold under "Other moves" and stay one click away (UR156).
         const fateRows = [...card.querySelectorAll('button[data-fight-fate]')].map(b => b.parentElement);
@@ -115,37 +119,25 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         // What the fight is for, one line; the reasons one step away on hover (round 2 dials, WS1-WS3). Hold back sits beside it when a
         // downing blow could kill (CFC9, CBC32), free and saved with the fight.
         if (t.stakes) {
+            // Stakes are shown, not picked (PS37): a chip that names what the fight is, with its reasons on hover; it flips when a move changes it
+            // (a knife drawn, a plea heard) and the reason sits beside it (PS23).
             const s = document.createElement('p'); s.className = 'fight-situation-stakes'; s.dataset.fightStakes = t.stakes.preset;
-            // A fight that changed midway says so (PS23): "now deadly" with the reason beside it, not just a flipped word.
             const deadly = t.stakes.cue ? (t.stakes.lethal ? 'now deadly' : 'no longer deadly') : t.stakes.lethal ? 'can be deadly' : 'not deadly';
-            s.textContent = `${t.stakes.label} · stakes: ${t.stakes.stakes} · ${deadly}.`;
-            s.title = [t.stakes.text, t.stakes.why].filter(Boolean).join(' ');
+            const chip = document.createElement('span'); chip.className = 'fight-situation-chip'; chip.dataset.fightStakesChip = ''; chip.tabIndex = 0;
+            chip.textContent = `${t.stakes.label}: ${deadly}`;
+            chip.title = [`At stake: ${t.stakes.stakes}.`, t.stakes.text, t.stakes.why?.replace(/^[A-Z]{1,4}\d+[a-z]?: (.)/, (_, c) => c.toUpperCase()), t.stakes.cue].filter(Boolean).join(' '); // design codes stay off the face (PRS1)
+            s.append('Stakes ', chip);
             if (t.stakes.cue) { const cue = document.createElement('span'); cue.className = 'fight-situation-cue'; cue.dataset.fightCue = ''; cue.textContent = ` ${t.stakes.cue}`; s.append(cue); }
-            if (t.stakes.lethal) {
-                const hold = domainRegistry.command('tempo_fight', 'hold'), b = document.createElement('button');
-                b.type = 'button'; b.dataset.fightHold = ''; b.textContent = t.holdBack ? 'Holding back' : 'Hold back';
-                b.setAttribute('aria-pressed', String(!!t.holdBack)); b.disabled = !hold;
-                // Holding back can slip when the blows run heavy for the foe (CBD213, PS24); the odds come from the fight, not a fixed word.
-                const risk = t.holdRisk > .15 ? ` Your blows run heavy for this; holding back may slip (about ${Math.round(t.holdRisk * 100)}%).` : '';
-                b.title = (t.holdBack ? 'Your blows knock out instead of killing. Press to fight to kill again.' : 'Pull your blows: one that would drop them knocks them out instead. Costs no time.') + risk;
-                if (t.holdBack && risk) { const n = document.createElement('span'); n.className = 'fight-situation-risk'; n.dataset.fightRisk = ''; n.textContent = ' Your blows run heavy for this; holding back may slip.'; s.append(n); }
-                b.onclick = () => { try { lastNotice = hold({on: !t.holdBack}) || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
-                s.append(' ', b);
-            }
+            // Restraint can slip when the blows run heavy for the foe (CBD213, PS24); the odds come from the fight.
+            if (t.holdRisk > .15 && t.strip?.stance?.id === 'pulled') { const n = document.createElement('span'); n.className = 'fight-situation-risk'; n.dataset.fightRisk = ''; n.textContent = ` Your blows run heavy for this; a pulled blow may slip (about ${Math.round(t.holdRisk * 100)}%).`; s.append(n); }
             versus.before(s);
-            // A standing answer for downed beasts (PS27), so Fight on can carry a hunt through; a person always asks.
-            if (t.stakes.lethal) {
-                const setPolicy = domainRegistry.command('tempo_fight', 'downPolicy');
-                const row = document.createElement('p'); row.className = 'fight-situation-policy'; row.dataset.fightPolicy = t.downPolicy;
-                row.append('When a beast is down: ');
-                for (const [id, label] of [['ask', 'Ask me'], ['finish', 'Finish'], ['spare', 'Spare']]) {
-                    const pb = document.createElement('button'); pb.type = 'button'; pb.textContent = label; pb.dataset.fightPolicyOption = id;
-                    pb.setAttribute('aria-pressed', String(t.downPolicy === id)); pb.disabled = !setPolicy;
-                    pb.title = id === 'ask' ? 'Fight on stops when something is down and waits for you.' : `Fight on will ${label.toLowerCase()} a downed beast for you. A person always asks.`;
-                    pb.onclick = () => { try { lastNotice = setPolicy({value: id}) || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
-                    row.append(pb);
-                }
-                s.after(row);
+            // How you fight, your terms when they go down, and when you stop (PS34-PS42): the same strip the opener showed (PS39).
+            if (t.strip) {
+                const termsCommand = domainRegistry.command('tempo_fight', 'terms'), losingCommand = domainRegistry.command('tempo_fight', 'losing');
+                const said = fn => { try { lastNotice = fn() || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
+                const host = document.createElement('div'); s.after(host);
+                renderApproachStrip(host, {strip: t.strip, stakes: t.stakes, disabled: !termsCommand,
+                    on: {terms: (kind, value) => said(() => termsCommand({kind, value})), losing: value => said(() => losingCommand({value}))}});
             }
         }
         // No aim while a body is down: the choice in the band is the only question (PS21).
@@ -236,6 +228,16 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             // Text first (LTU7): lines the chips cannot carry sit above the versus row (round 2, R2-S1).
             lines = document.createElement('ul'); lines.className = 'fight-situation-lines'; stakes.after(lines);
             figure = document.createElement('div'); figure.className = 'fight-situation-versus'; card.append(figure);
+            // The same approach strip as the fight card (PS39): stance and terms for each kind here. This loop cannot stop to ask yet,
+            // so Ask me and losing terms are not offered in it.
+            const stripFor = domainRegistry.command('tempo_fight', 'stripFor'), termsCommand = domainRegistry.command('tempo_fight', 'terms');
+            const kinds = [...new Set((combat.defenders || []).map(d => foeKind(d)))];
+            if (stripFor && kinds.length) {
+                const host = document.createElement('div'); host.dataset.nativeStrip = ''; card.append(host);
+                const draw = () => { host.replaceChildren(); renderApproachStrip(host, {strip: stripFor({kinds, frame: 'original'}), asks: false, losing: false,
+                    on: {terms: (kind, value) => { try { lastNotice = termsCommand({kind, value}); } catch (error) { lastNotice = error.message; } draw(); }}}); };
+                draw();
+            }
         }
         const next = figureText(situation.spec);
         if (next === textKey) return;

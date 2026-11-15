@@ -29,7 +29,7 @@ export const TINGEN_BRAWL = Object.freeze({
 const TINGEN_STAKES = {preset: 'mugging', stakes: 'your purse',
     text: 'A robbery in a back lane. He wants your purse, not your life, and keeps a knife under his coat. Hurt him and it may come out.',
     why: 'WS3: open fights in Tingen are rare and dangerous. A drawn knife makes it a fight that can kill; a plea can take it back. A death in a Tingen lane brings the police.'};
-registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the back lane',
+registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the back lane', meets: {kind: 'person', preset: 'mugging'},
     text: 'A man with a knife steps out of an alley off Iron Cross Street and wants your purse. It can turn deadly either way.',
     owns: id => id === 'lotm-lane-knife',
     quote(state) {
@@ -41,7 +41,7 @@ registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the bac
         conditions: {light: 'day', place: 'Tingen back lane'},
         fighters: [you(helpers, {moves: PLAIN}),
             foe(helpers, {id: 'lotm.lane.knifeman', name: 'The knifeman', hp: TINGEN_BRAWL.foeHp.value, body: {attack: 6, agility: 5, dexterity: 6, intuition: 5, attack_speed: .9, defense: 1, crit_rate: .08, crit_multiplier: 1.5, attack_count: 1},
-                goals: {survive: .7, aim: .3}, tags: ['person'],
+                goals: {survive: .7, aim: .3}, tags: ['person'], wants: 'He wants your purse, not your life. Hurt him and the knife may come out.',
                 fateText: {finish: 'He dies in the lane. A death in Tingen brings the police, and someone may have seen.', spare: 'He crawls off into the alley. He will remember your face.'},
                 kit: {knife: {label: 'Knife thrust', text: 'A short, quick stab.', cost: 3, power: TINGEN_BRAWL.knife.value, escalates: true, whenHurt: TINGEN_BRAWL.temper.value, why: TINGEN_BRAWL.knife.why}}})]}),
 });
@@ -64,7 +64,7 @@ const HOGWARTS_STAKES = {preset: 'duel', stopAt: HOGWARTS_DUEL.stopAt.value, sta
     stopText: 'Professor McGonagall rounds the corner. "Wands away, both of you!" The duel is over.',
     text: 'A corridor duel: it ends when someone loses their wand, is bound, gives way, or a teacher arrives. Nobody dies in a school corridor.',
     why: 'WS1: students know jinxes, adults step in, and the Ministry answers serious harm, so this frame is not lethal.'};
-registerTempoOpener({id: 'hp.corridor.draco', label: 'Answer Malfoy in the corridor (duel)',
+registerTempoOpener({id: 'hp.corridor.draco', label: 'Answer Malfoy in the corridor (duel)', meets: {kind: 'person', preset: 'duel'},
     text: 'Malfoy blocks the third-floor corridor with his wand out. A schoolyard duel: wands, jinxes, and a teacher never far.',
     owns: id => id === 'hp-corridor-draco',
     quote(state) {
@@ -77,7 +77,7 @@ registerTempoOpener({id: 'hp.corridor.draco', label: 'Answer Malfoy in the corri
         conditions: {light: 'day', place: 'Third-floor corridor'},
         fighters: [you(helpers, {moves: [...PLAIN, 'leg_lock', 'body_bind', 'snatch'], kit: {leg_lock: SPELL.legLock, body_bind: SPELL.bind, snatch: SPELL.snatch}, means: {wand: 1}}),
             foe(helpers, {id: 'hp.corridor.draco', name: 'Draco Malfoy', hp: 20, body: {attack: 4, agility: 6, dexterity: 6, intuition: 5, attack_speed: 1, defense: 1, crit_rate: .05, crit_multiplier: 1.3, attack_count: 1},
-                goals: {survive: .6, aim: .4}, means: {wand: 1}, kit: {leg_lock: SPELL.legLock, snatch: SPELL.snatch}})]}),
+                goals: {survive: .6, aim: .4}, means: {wand: 1}, tags: ['person'], wants: 'He wants to beat you in front of the others, not to hurt you badly.', kit: {leg_lock: SPELL.legLock, snatch: SPELL.snatch}})]}),
 });
 
 // --- Reverend Insanity: the wolf tide (Fang Yuan's lead life). WS2: killing is common outside the walls. His Gu are items in his own
@@ -121,7 +121,7 @@ export function wolfKit(state, context) {
         why: `A guarding Gu: the next blow mostly glances off, and a cast at you is harder to land. ${WOLF_HUNT.jade.why}`};
     return kit;
 }
-registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the tide (play it out)',
+registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the tide (play it out)', meets: {kind: 'beast', preset: 'hunt', lethal: true},
     text: 'Instead of a compressed patrol, meet one lightning wolf beyond the wall and fight it move by move. A killed wolf leaves an eye for the alliance board.',
     owns: id => id === 'ri-wolf-tide' || id === PATROL_ID,
     quote(state, context) {
@@ -143,7 +143,7 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
                 ...(woundCarried(state) ? {hp: Math.max(1, Math.round(helpers.vitals.health * WOLF_HUNT.woundCarried.value * 10) / 10)} : {})}),
                 foe(helpers, {id: 'ri.wolf.tide.wolf', name: large ? 'A large lightning wolf' : 'A lightning wolf', hp: large ? WOLF_HUNT.largeHp.value : WOLF_HUNT.wolfHp.value, tags: large ? ['beast', 'large'] : ['beast'],
                     body: {attack: large ? 7 : 5, agility: 5, dexterity: 6, intuition: 4, attack_speed: 1.1, defense: 1, crit_rate: .1, crit_multiplier: 1.5, attack_count: 1},
-                    goals: {survive: .4, aim: .6}, moves: ['jab', 'swing', 'withdraw'],
+                    goals: {survive: .4, aim: .6}, moves: ['jab', 'swing', 'withdraw'], wants: 'It fights to eat, and runs when it is hurt enough.',
                     fateText: {finish: 'It dies. You can cut out its eye; the board pays for the eye.', spare: 'It limps back into the trees. The woods keep one more wolf.',
                         detail: 'One wolf eye to hand in at the alliance board.'}})]};
     },

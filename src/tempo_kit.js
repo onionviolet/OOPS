@@ -64,6 +64,10 @@ export function validateTempoKit(f, sharedIds) {
     if(f.means !== undefined && !counts(f.means)) return false;
     if(f.meansLabels !== undefined && !(f.meansLabels && typeof f.meansLabels === 'object' && Object.values(f.meansLabels).every(v => text(v, 40)))) return false;
     if(f.holdBack !== undefined && typeof f.holdBack !== 'boolean') return false;
+    if(f.holdSkill !== undefined && !(Number.isFinite(f.holdSkill) && f.holdSkill > 0 && f.holdSkill <= 1)) return false;
+    if(f.stance !== undefined && !text(f.stance, 40)) return false;
+    if(f.wants !== undefined && !text(f.wants, 200)) return false;
+    if(f.byTerms !== undefined && f.byTerms !== true) return false;
     if(f.end !== undefined && !TEMPO_ENDS.includes(f.end)) return false;
     if(f.pleas !== undefined && !(Number.isSafeInteger(f.pleas) && f.pleas >= 0)) return false;
     if(f.fateText !== undefined && !(f.fateText && typeof f.fateText === 'object' && Object.values(f.fateText).every(v => text(v, 300)))) return false;

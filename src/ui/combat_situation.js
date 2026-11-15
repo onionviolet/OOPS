@@ -199,6 +199,7 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
         o.hp = {text: foe.hurt[0].toUpperCase() + foe.hurt.slice(1), fraction: Number.isFinite(foe.hp) && foe.maxHp > 0 ? foe.hp / foe.maxHp : null};
         o.stamina = bar(foe.stamina, foe.maxStamina, 'stamina');
         o.means = meansText(foe.means);
+        o.wants = foe.wants || null; // what they want, as far as you can tell (PS41)
         o.types = typeChips(foe.learned, {reveal: foe.reveal, worldId});
     }
     base.versus.you.mix = me.mix ? mixText(me.mix, worldId) : null;
@@ -213,6 +214,6 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     // One home per fact (DESIGN.md DSG11): hp lives on the versus row, so the summary keeps only who is standing.
     const standing = f.foes.filter(o => !o.down).length, down = f.foes.length - standing;
     const summary = `${place ? `${place}: ` : ''}${standing} opponent${standing === 1 ? '' : 's'} standing${down ? `, ${down} down at your feet` : ''}.`;
-    return {active: true, mode: 'tempo', summary, versus: base.versus, stakes: f.stakes || null, holdBack: !!f.holdBack, holdRisk: f.holdRisk || 0, downPolicy: f.downPolicy || 'ask', next: f.next || [], yourTurn: !!f.yourTurn,
+    return {active: true, mode: 'tempo', summary, versus: base.versus, stakes: f.stakes || null, holdBack: !!f.holdBack, holdRisk: f.holdRisk || 0, strip: f.strip || null, terms: f.terms || null, next: f.next || [], yourTurn: !!f.yourTurn,
         moves, fateMoves: f.fateMoves || [], aims: f.aims || [], aim: f.aim ?? null, orders: f.orders || [], log: [...(f.lines || [])], dev: hits};
 }

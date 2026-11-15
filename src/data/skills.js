@@ -378,6 +378,18 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
                                 get_effect_description: ()=> {
                                     return `Improves efficiency of the 'Quick Steps' stance`;
                                 }});
+    // Pulled Blows (PS35, proposal): restraint as a stance. Its level makes a held blow slip less often (tempo_fight.js holdSkillCut).
+    skills["Pulled blows"] = new Skill({
+                                names: {0: "Pulled blows"},
+                                parent_skill: "Stance mastery",
+                                description: "Hitting to stop someone, not to kill them: the blow lands, then eases off",
+                                max_level_coefficient: 2,
+                                base_xp_cost: 60,
+                                category: "Stance",
+                                max_level: 30,
+                                get_effect_description: ()=> {
+                                    return `Improves efficiency of the 'Pulled Blows' stance, and a held blow slips less often`;
+                                }});
     skills["Heavy strike"] = new Skill({
         milestones: {1: {stats: {strength: {flat: 1}}}},
                                 names: {0: "Crushing force"}, 

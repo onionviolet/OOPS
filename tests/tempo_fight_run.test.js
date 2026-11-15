@@ -15,12 +15,12 @@ const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_c
 const profile = {stats, attackPower: 8, shield: 0, shieldSkill: 0, emptyStaminaMultiplier: .5};
 
 // A host over a real fixture fight: the ports hold the state the way the game does, and commit swaps it.
-function host({foeHp = 20, seed = 7, player = {}, facts = {}, stakes = null, foe = {}} = {}) {
+function host({foeHp = 20, seed = 7, player = {}, facts = {}, stakes = null, foe = {}, terms = null} = {}) {
     const p = joinField(createFieldFixture());
     Object.assign(p.state.actors.player.facts, facts);
     p.state.simulation.seed = seed;
     const context = fieldContext(p, 'Village', {vitals: {player: {health: 30, max_health: 30, stamina: 30, max_stamina: 30}}});
-    let state = beginTempoFight(p.state, registry, context, {id: 'fx-run', title: 'Yard bout', floor: 1, ...(stakes ? {stakes} : {}), fighters: [
+    let state = beginTempoFight(p.state, registry, context, {id: 'fx-run', title: 'Yard bout', floor: 1, ...(stakes ? {stakes} : {}), ...(terms ? {terms} : {}), fighters: [
         {id: 'player', name: 'You', side: 'a', speed: 100, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile, perception: 20, stealth: 20, ...player},
         {id: 'foe1', name: 'A yard bully', side: 'b', speed: 60, hp: foeHp, maxHp: foeHp, stamina: 30, maxStamina: 30, profile: {...profile, attackPower: 2}, perception: 20, stealth: 20, ...foe}]}).state;
     let commits = 0, atCommit = null; // the view as a redraw inside the commit would read it
@@ -117,22 +117,40 @@ test('the result names how the other side ended', () => {
 });
 
 // PS21-PS27 (play surface round 3): what the decision band and its standing answer read.
-test('a downed beast stops Fight on to ask by default; a standing answer finishes it and the result says what was carried', () => {
+test('your terms settle a downed beast as you meant to, by Fight on or a hand-played blow; Ask me opens the window', () => {
     const beast = {name: 'A lightning wolf', tags: ['beast'], hp: 4, maxHp: 30};
-    const ask = host({stakes: {preset: 'hunt'}, foe: beast});
-    assert.equal(ask.view().fight.downPolicy, 'ask');
-    const said = ask.run();
-    assert.match(said, /A lightning wolf is down\. Finish or spare\?/, said);
+    const fin = host({stakes: {preset: 'hunt'}, terms: {beast: 'finish'}, foe: beast});
+    fin.run();
+    assert.equal(fin.view().fight, undefined, 'Fight on did not stop: the terms carried it');
+    const them = Object.fromEntries(fin.view().account.items).Them;
+    assert.match(them, /killed, as you meant to\.$/, them);
+    // A blow played by hand follows the same terms: no window opens.
+    const hand = host({stakes: {preset: 'hunt'}, terms: {beast: 'spare'}, foe: beast});
+    for(let n = 0; n < 12 && hand.view().fight; n++) hand.move({moveId: 'jab'});
+    assert.equal(hand.view().fight, undefined);
+    assert.match(Object.fromEntries(hand.view().account.items).Them, /out cold, as you meant to/);
+    const ask = host({stakes: {preset: 'hunt'}, terms: {beast: 'ask'}, foe: beast});
+    assert.match(ask.run(), /A lightning wolf is down\. Finish or spare\?/);
     const fates = ask.view().fight.fateMoves;
     assert.deepEqual(fates.map(m => m.label), ['Finish', 'Spare']);
     assert.equal(fates[0].text, 'It dies.', 'a beast gets beast words, not a person\'s');
     const plead = ask.view().fight.moves.find(m => m.id === 'plead');
     assert.ok(!plead || plead.usable === false, 'nothing to ask of a wolf');
-    const h = host({stakes: {preset: 'hunt'}, foe: beast});
-    assert.match(domainRegistry.command('tempo_fight', 'downPolicy')({value: 'finish'}), /finish a downed beast/);
-    assert.throws(() => domainRegistry.command('tempo_fight', 'downPolicy')({value: 'maybe'}), /ask me, finish or spare/);
-    h.run();
-    assert.equal(h.view().fight, undefined, 'the standing answer carried the hunt to its end');
+});
+
+test('terms are kept per kind of foe and change a live fight; take alive needs a means; losing terms stop the loop', () => {
+    const h = host({stakes: {preset: 'hunt'}, terms: {beast: 'ask'}, foe: {name: 'A lightning wolf', tags: ['beast'], hp: 4, maxHp: 30}});
+    const terms = domainRegistry.command('tempo_fight', 'terms');
+    assert.match(terms({kind: 'beast', value: 'finish'}), /killed/);
+    assert.equal(h.state().actors.player.facts['fight.terms.beast'], 'finish');
+    assert.equal(h.state().simulation.sessions.player.nativeBattle.terms.beast, 'finish', 'the open fight takes the change at once');
+    assert.throws(() => terms({kind: 'beast', value: 'take_alive'}), /Nothing to bind them with/);
+    assert.throws(() => terms({kind: 'dragon', value: 'finish'}), /which kind/);
+    const strip = h.view().fight.strip;
+    assert.deepEqual(strip.terms.map(t => [t.kind, t.terms, t.set]), [['beast', 'finish', true]]);
+    // Losing terms: at about a third of your health, yield instead of the next blow.
+    const low = host({player: {hp: 8, maxHp: 30}, foe: {hp: 40, maxHp: 40}, facts: {'fight.losing': 'yield'}});
+    assert.match(low.run(), /You yield, as you meant to\./);
 });
 
 test('a person who is down always asks, whatever the standing answer for beasts', () => {
