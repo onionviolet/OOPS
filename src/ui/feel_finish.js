@@ -98,20 +98,42 @@ export function playCue(kind) {
 }
 const unlockAudio = () => { if (setting('sound') === 'on') { try { audio ||= new AudioContext(); audio.resume?.(); } catch { /* no audio */ } } };
 
-// PS159: YAIR's own options panel sits detached in the page; show it under the Feel group.
+// PS159: YAIR's own options stay where the page keeps them (load() reads them by id); the Feel group shows a
+// proxy row per option that clicks or sets the real input, and mirrors its state on each sweep. The settings
+// board re-renders its groups, so nothing of the real panel is ever moved into it.
+const CLASSIC_SKIP = new Set(['options_change_background_color']); // replaced by Time-of-day light
 function placeClassicOptions() {
-    const panel = document.getElementById('options_panel');
     const group = document.querySelector('.display-group[data-panel-settings="feel"]');
-    if (!panel || !group) return;
+    const choices = document.querySelectorAll('#options_choices .options_choice');
+    if (!group || !choices.length) return;
     let box = group.querySelector('.feel-classic');
     if (!box) {
         box = document.createElement('div'); box.className = 'feel-classic';
         const head = document.createElement('p'); head.className = 'display-setting-desc';
         head.textContent = 'The classic light-based background is replaced by Time-of-day light above.';
-        box.append(head); group.append(box);
+        box.append(head);
+        for (const choice of choices) {
+            const real = choice.querySelector('input'); if (!real || CLASSIC_SKIP.has(real.id)) continue;
+            const row = document.createElement('label'); row.className = 'options_choice'; row.dataset.feelProxy = real.id;
+            const proxy = document.createElement('input'); proxy.type = real.type;
+            if (real.type === 'range') { proxy.min = real.min; proxy.max = real.max;
+                proxy.addEventListener('change', () => { real.value = proxy.value; real.dispatchEvent(new Event('input')); real.dispatchEvent(new Event('change')); }); }
+            else proxy.addEventListener('click', event => { event.preventDefault(); real.click(); setTimeout(() => syncClassic(box), 0); });
+            const text = document.createElement('span');
+            text.textContent = choice.querySelector('label')?.textContent.trim() || real.id;
+            row.append(proxy, text); box.append(row);
+        }
+        group.append(box);
     }
-    if (panel.parentElement !== box) box.append(panel);
     box.hidden = setting('yair') === 'hide';
+    syncClassic(box);
+}
+function syncClassic(box) {
+    for (const row of box.querySelectorAll('[data-feel-proxy]')) {
+        const real = document.getElementById(row.dataset.feelProxy), proxy = row.querySelector('input');
+        if (!real || !proxy) continue;
+        if (real.type === 'checkbox') proxy.checked = real.checked; else if (document.activeElement !== proxy) proxy.value = real.value;
+    }
 }
 
 let mounted = null;

@@ -92,11 +92,9 @@
 :root[data-feel-states="on"] #main_content :is(button, summary, select, input, [role="button"], [role="option"], [tabindex]):focus-visible {outline: var(--feel-focus-ring); outline-offset: 1px;}
 :root[data-feel-states="on"] #main_content :is(button, [role="button"]):disabled {cursor: help;}
 
-/* PS159: YAIR's own options listed inside the Feel and finish group. */
-.feel-classic #options_panel {display: block; position: static; visibility: visible; opacity: 1; width: auto; height: auto; max-height: none; background: none; border: 0; padding: 0;}
-.feel-classic #options_choices {display: grid; gap: var(--ui-space-1);}
+/* PS159: proxy rows for YAIR's own options, listed inside the Feel and finish group. */
+.feel-classic {display: grid; gap: var(--ui-space-1);}
 .feel-classic .options_choice {display: flex; align-items: center; gap: var(--ui-space-2); margin: 0; padding: var(--ui-space-1) 0; border: 0; background: none; font-size: var(--ui-type-body, inherit);}
-.feel-classic .options_choice:has(#options_change_background_color) {display: none;}
 
 /* DU10 (with the combat lane): a thin attack-timer bar under each fighter's health on the tempo card. Combat adds
    the element (span.versus-bar-fill at width var(--versus-fill)); this file owns the look. Static under reduce. */
