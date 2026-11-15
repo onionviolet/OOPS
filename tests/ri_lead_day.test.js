@@ -156,5 +156,6 @@ test('the report draws with the tide: each night row weighs what riEncounterWeig
     const dateless = {...life(0), simulation: {seed: 1, knowledge: {player: {}}}};
     const facts = riLeadDayTideFacts(dateless);
     for(const r of RI_PATROL_ENCOUNTERS) assert.equal(facts[riPatrolWeightFact(r.id)], r.weight, r.id);
+    assert.equal(facts['book.ri.lead.wolf_tide.phase'], 'off', 'a dateless life reads the tide as off');
     assert.deepEqual(riLeadDayTideFacts({clock: 0, actors: {player: {worldId: 'book.hp.lead.world'}}}), {}, 'other lives publish nothing');
 });
