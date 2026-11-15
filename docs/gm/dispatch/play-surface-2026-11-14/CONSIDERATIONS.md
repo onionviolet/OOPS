@@ -491,3 +491,53 @@ Sources are the [YAIR developer media research](../../../research/yair-upstream/
 | PS169 | **A coverage pass:** list each capability in the progress atlas and each runtime module with player-facing state but no surface, or a surface outside round 14's boxes. Rank them by what a lead's life touches first. |
 | PS170 | **Draft each in round 14's grammar:** which box and tab, which verb, what the Ready mark says, which numbers are known, estimated or "?", and the empty state. Mock at 1920×1080 beside the closest existing screen; build only after Weibao looks, in batches. |
 | PS171 | **A UI kit page:** one page that shows every shared form (box, tab, verb row, Ready mark, "?" number, state token, glow, tooltip, empty state), so new features draw from it and stay cohesive. |
+
+## Round 17, 2026-11-15: areas inside a place, gates, movable boxes, and the effects no clip showed
+
+Weibao, after round 14 slice 1 and the Discord top 10 ([log](../../USER_VISION_LOG_2026-11.md#areas-inside-places-and-movable-boxes-2026-11-15)), and his answers to four questions:
+- **Grain:** areas per place, "and maybe it changes when I enter a certain place? How to decide what it shows once inside, and more? How to prevent needing to click too much? Would the chain of 'areas' Kind of create a map?"
+- **Cost:** "Keep time as a future possibility considering how its currently implemented, but free with spots gated is good but needs deeper consideration for all the possibilities".
+- **Showing it:** "verb list seems to be the best but the best way to represent there? would we put arrows on the sides?"
+- **Columns:** "Drag any box, consider long term and modular archetecture and more?"
+
+He also liked the Discord top 10, asked to consider the effects no clip showed, and asked for a deeper pass on the unsampled stills (running; it extends DU38 onward).
+
+### Existing owners to build on (not new systems)
+
+- **Foot legs between spots:** `src/travel_legs.js` (`defineRoute`, `quoteRoute`, `settleRoute`; legs carry `minutes`, `fare`, `restrictions`). Tingen's districts already use it (`src/book_world_lotm_districts.js`, `lotmWalkMinutes`).
+- **Rooms inside a home:** `registerHomeWorld({rooms})` in `home_content.js`.
+- **Sites and maps:** [SR rules](../../../SITE_AND_EXPLORATION_RULES.md). SR6 separates a lead from an entrance and a surveyed extent; SR7 treats maps as scoped knowledge.
+- **Layout:** `src/layout_spec.js`, `src/shell_layout_edit.js`, `src/workspace_layout.js`, and the footer's existing Layout control.
+
+### ACT NOW (proposals)
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS172 | **Areas per place, nested by entering.** Default: a place holds a few areas (the Village: square, market row, the elder's house, the field edge). Entering a building swaps the area set for its inside (the elder's house: front room, yard). The location box reads "Village · square", and Back or the exit returns you to the outer area. A small place stays one area. Dial: a world sets its grain, so Tingen keeps its districts and Hogwarts gets corridors and rooms. Reason: more things fit in a place without one screen holding everything. |
+| PS173 | **What an area shows.** Default: the people there now (each person's day puts them somewhere), the stations and objects bound there, its exits, and the verbs those allow. Place-wide things (Ready now, the Journal, the day strip) stay on screen whatever the area. Reason: the area changes what you can touch, not what you are working toward. |
+| PS174 | **Few clicks.** Defaults: (a) any verb target in a known area is listed with its area tag, and choosing it walks you there and acts ("Talk to Old Hesk · elder's house"); (b) Ready marks count across the whole place, tagged by area; (c) arriving puts you in the place's usual area, and returning puts you where you left; (d) neighbours sit one click away. Dial: "Walk there first" can be switched off for players who want to walk by hand. |
+| PS175 | **Arrows on the location box's sides for neighbours, and the verb for everything else.** Default: the location box shows up to four neighbour arrows at its edges, labelled ("← market row", "elder's house →", "↓ field edge"); arrow keys move. The "Move around" verb lists every known area with its gate and, later, its time. A world without a compass (a dream, a Gu aperture) uses labelled tabs instead of directions. |
+| PS176 | **The chain of areas is a map, held as knowledge.** Default: areas and their links form a graph. Once the character knows enough of it (SR6, SR7), the location box can open a small drawn map from that graph, with known areas named, rumoured ones as "?" and unvisited links dashed. Reason: the map grows out of play rather than being authored separately. |
+| PS177 | **Free now, time-ready.** Default: moving between areas costs no time today. Each link is a `travel_legs` leg with `minutes: 0`, so a world or a later setting can give it walking time without a new model. |
+| PS178 | **Gates by mechanism (AD38), each with alternatives.** These are the kinds of gate, with an example and the ways round each: <ul><li>Locked (door, chest): key, lockpicking, breaking it, a spell or Gu that opens it.</li><li>Permission (owner, rank, membership): ask, show a token, reputation, bribe, sneak.</li><li>Hours (shop closed, curfew): wait, or knock with a reason.</li><li>Danger (a fight beyond): prepare, fight, sneak, turn back.</li><li>Hidden (unknown door): find it by search, a clue or a sense.</li><li>Guarded (a watchman): talk, pay, distract, fight.</li><li>Body or means (a ledge, deep water, flight): a tool, a skill, a power.</li><li>World law (warded ground, a sealed aperture): its own key or rite.</li><li>Social cost (a private room): allowed but noticed, with consequences.</li></ul>A gated arrow shows its gate and the ways you have now; nothing hides that the character can see. Unknown gates read "?". |
+| PS179 | **Drag any box: the layout model.** <ul><li>Default: the screen is slots (four columns, stacked) holding box ids. A box is a registered kind (PS108) with a minimum size, a fold state and the tabs it accepts.</li><li>Dragging a box by its header to another slot swaps or inserts it, and neighbours reflow. A keyboard move ("Move box…" in the box menu) does the same.</li><li>Layouts save per browser as a versioned spec (`layout_spec.js`). Named presets include YAIR default, Reports left and Wide journal, and each world can have its own default; Reset is always offered.</li><li>A box sizes to its content within its slot, so the Journal's empty height goes to the box under it.</li><li>Reason: one layout model serves every future box, so a new feature registers once and the player places it.</li></ul> |
+
+### ACCOUNT FOR NOW
+
+| Code | Consideration |
+| --- | --- |
+| PS180 | **Save shape.** The current area per place and known areas and links sit in a namespaced slice with a migration (old saves start in the place's usual area). Layout stays out of the save (per browser). |
+| PS181 | **People move.** A person's schedule names an area and hour. Who you meet depends on where and when, and the Reports line says where someone went. |
+| PS182 | **Area facts.** Indoors or outdoors (PS33's roof rule), light, noise and privacy are area facts that cold, stealth, conversation and crime read. |
+| PS183 | **Events and fights have an area.** A fight takes the area's box, and leaving the area is a fight action (PS147). |
+| PS184 | **Per world.** <ul><li>Village: a few areas.</li><li>Tingen: districts as areas, with buildings inside.</li><li>Fang Yuan's mountain village: the academy, the wall and the stalls.</li><li>Hogwarts: corridors and rooms, with the stairs changing as a world-law gate.</li></ul> |
+| PS185 | **Performance and tests.** By default, render the current area alone, because other areas' rows cost time on every tick; keep walk scripts per area, and give each lead a baseline of one area in and out. |
+
+### The effects no clip showed (proposals; Weibao asked to consider them: "we can also consider the not seen in any clip options")
+
+| Code | Effect | Default |
+| --- | --- | --- |
+| PS186 | Hit flash | A brief tint on the struck row, off under reduce motion (PS155). |
+| PS187 | Floating text | Damage, healing and loot rise from their source and fade within a second; repeats stack with a count. |
+| PS188 | Rarity or quality glow | A soft edge in the rarity colour with its word in the tooltip (PS153). |
+| PS189 | Sound | Cues for ready, level-up, a fight's end and a gate opening, each with its own volume; off by default. |

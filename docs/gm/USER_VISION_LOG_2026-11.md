@@ -1610,3 +1610,22 @@ Recorded as acceptance of round 14's direction. The build carries everything tod
 Weibao: "Consider the new features discussed in the Discourd findings too, consider details like glow on items and more? subtle aspects like that? MOre to consider? We can send something to work on the prior part, ant then also work on the subtle details? And another for Ui drafting and cohesion for future capabilities or existing capabiltieis lacking those and more?"
 
 Recorded as his direction. Three new lanes start: Discord features (PS160–PS168), feel and finish (PS153–PS159), and UI drafting for capabilities that have no surface (PS169–PS171). The proposals are in [round 16](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-16-2026-11-15-feel-and-finish-the-discord-features-and-ui-for-what-has-none).
+
+## Areas inside places, and movable boxes, 2026-11-15
+
+Weibao: "Round 14 looks good, but journal has too much white space? option to drag reports column to the area for journal and then the journal there? ... For the around you, maybe we can make it so that we can travel the 'around you' area, to reach certain things? this would allow more things to enter screen, but other things to leave them too? this would allow for specific rooms with only certain people and actions and more ... Ask me any question to fully understand my idea". He also liked the Discord top 10 and asked to consider the effects no clip showed and a deeper pass on the unsampled stills.
+
+His answers:
+- **Grain:** areas per place, "and maybe it changes when I enter a certain place? ... How to prevent needing to click too much? Would the chain of 'areas' Kind of create a map?"
+- **Cost:** "Keep time as a future possibility ... but free with spots gated is good but needs deeper consideration for all the possibilities".
+- **Showing it:** "verb list seems to be the best but the best way to represent there? would we put arrows on the sides?"
+- **Columns:** "Drag any box, consider long term and modular archetecture and more?"
+
+Recorded as his direction:
+- areas per place, nested by entering;
+- free movement with gates by mechanism, kept ready for time;
+- arrows plus a verb;
+- the chain of areas as a map held as knowledge;
+- any box draggable on one layout model.
+
+The proposals are in [round 17](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-17-2026-11-15-areas-inside-a-place-gates-movable-boxes-and-the-effects-no-clip-showed).
