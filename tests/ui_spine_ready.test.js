@@ -66,12 +66,13 @@ const leadState = ({fedAt = null, clock = 10_000} = {}) => ({clock, actors: {pla
 
 test('Gu care: a missed meal is urgent; with too little food the gap names it, held from the hero\'s own pack', () => {
     const pack = {[JSON.stringify({id: moonglow.gu})]: 1, [JSON.stringify({id: moonglow.food, quality: 100})]: 1};
-    const [row] = guCareRows(leadState(), pack);
+    const [row] = guCareRows(leadState(), pack, () => true);
     assert.equal(row.label, 'Feed the Moonglow Gu');
     assert.equal(row.state, 'near'); assert.equal(row.urgent, true);
     assert.equal(row.gap, `needs ${moonglow.perMeal} ${moonglow.foodLabel}; you have 1`);
     const fed = {...pack, [JSON.stringify({id: moonglow.food})]: 5};
-    assert.equal(guCareRows(leadState(), fed)[0].state, 'ready');
+    assert.equal(guCareRows(leadState(), fed, () => true)[0].state, 'ready');
+    assert.deepEqual(guCareRows(leadState(), fed, () => false), [], 'without the life panel\'s rows, a fed-able Gu is left to its own Feed button');
     assert.deepEqual(guCareRows(leadState(), {}), [], 'a Gu not held is not asked for');
     assert.deepEqual(guCareRows(leadState({fedAt: 9_990}), pack), [], 'a Gu fed just now is not hungry');
     assert.deepEqual(guCareRows({...leadState(), actors: {player: {worldId: 'base.frontier'}}}, pack), [], 'other lives never see his Gu');
@@ -83,8 +84,9 @@ test('crafting rows read the recipe rows\' own readiness marks', () => {
         const r = {getAttribute: () => `${label}; output ×1; x`, click() {}, scrollIntoView() {}};
         return {closest: () => r, parentElement: r, textContent: text, dataset: {ready: String(ready)}};
     };
-    const rows = craftingRowsFrom([row('Sinew string', '3 ready', true), row('Wool cloth', 'needs 2 Wool', false), row('Boar trophy', '2 of 3 materials short', false)]);
-    assert.deepEqual(rows.map(r => [r.label, r.state, r.gap || r.detail]), [['Make Sinew string', 'ready', '3 ready'], ['Make Wool cloth', 'near', 'needs 2 Wool'], ['Make Boar trophy', 'rest', '']]);
+    const rows = craftingRowsFrom([row('Sinew string', '3 ready', true), row('Wool cloth', 'needs 2 Wool', false), row('Boar trophy', '2 of 3 materials short', false), row('Bonemeal', 'needs 20 animal tooth', false)], t => t === 'animal tooth' ? ['Rat fang'] : []);
+    assert.deepEqual(rows.map(r => [r.label, r.state, r.gap || r.detail]), [['Make Sinew string', 'ready', '3 ready'], ['Make Wool cloth', 'near', 'needs 2 Wool'], ['Make Boar trophy', 'rest', ''], ['Make Bonemeal', 'near', 'needs 20 animal tooth']]);
+    assert.deepEqual(rows[3].uses, ['animal tooth', 'Rat fang'], 'a line naming the item points at the recipe asking for its type');
     assert.deepEqual(rows[1].uses, ['Wool']);
 });
 
