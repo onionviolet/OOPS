@@ -139,11 +139,24 @@ body.rm *, body.rm *::before, body.rm *::after { animation:none !important; tran
 .done { text-decoration:line-through; color:var(--muted); }
 .danger { color:var(--k-blocked); }
 .cool { color:#7fd8ff; }
+/* Page 2: forms with no owner from the DU review (coordinator 2026-11-15). */
+main[hidden] { display:none; } .pager { margin-left:auto; color:var(--gold); border:1px solid var(--gold); border-radius:3px; padding:0 8px; font-size:13px; cursor:pointer; }
+.tab.locked { opacity:.4; border-style:dashed; cursor:help; } .tab.locked::after { content:" ?"; }
+.fx-list { margin:2px 0 0 10px; } .fx-list[hidden] { display:none; }
+.start { text-align:center; padding:14px; background:linear-gradient(160deg,#2a1d4d,#141b45); border:1px solid #7a5ab0; border-radius:6px; }
+.start h4 { margin:0; font-size:24px; background:linear-gradient(90deg,#c08bff,#6fa8ff); -webkit-background-clip:text; color:transparent; }
+.start .play { display:inline-block; margin:10px 0 8px; font-size:20px; padding:6px 30px; border:1px solid var(--gold); color:var(--gold); border-radius:4px; cursor:pointer; }
+.chipline { display:inline-flex; gap:6px; align-items:center; font-size:13px; border-radius:12px; padding:2px 10px; }
+.chipline.ok { background:rgba(63,210,122,.15); color:var(--k-ready); border:1px solid var(--k-ready); } .chipline.warn { background:rgba(255,157,87,.12); color:var(--k-blocked); border:1px solid var(--k-blocked); }
+.tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; } .tile { border:1px solid var(--line); border-radius:4px; padding:6px; text-align:center; font-size:14px; cursor:pointer; background:#1a2456; }
+.tile:hover { border-color:#a9a6d0; } .tile.sel { background:#2d3d8e; border-color:var(--gold); box-shadow:0 0 0 1px var(--gold); } .tile small { display:block; color:var(--muted); font-size:11px; }
+.tilegrp { font-size:12px; color:var(--muted); margin:6px 0 2px; } .createbox { border:1px dashed var(--line); border-radius:5px; padding:8px; }
+.pending { border:1px dashed #6c4f8f; border-radius:5px; padding:10px; color:#bda7dd; font-size:13px; }
 </style>
 </head>
 <body>
-<header><h1>Round 14 UI kit</h1><span>PS171, proposal (AD32): the shared forms a new feature draws from, live. Hover, press, Tab; click tabs, verbs and the tooltip. Demo loop every 4 s. Reduce motion <b id="rmstate">off</b> (r; p replays).</span></header>
-<main>
+<header><h1>Round 14 UI kit</h1><span>PS171, proposal (AD32): the shared forms a new feature draws from, live. Hover, press, Tab; click tabs, verbs and the tooltip. Demo loop every 4 s. Reduce motion <b id="rmstate">off</b> (r; p replays).</span><span class="pager" id="pager" tabindex="0">Page 2 ›</span></header>
+<main id="p1">
 
 <section class="cell"><h2>1 · Box <code>.box · PS119, DSG1</code></h2>
   <div class="box"><h3><span>Local actions</span><small>1 new · 2 close</small></h3><div class="body"><div class="row"><span>A box holds one question's rows.</span><span class="m">count asks something</span></div></div></div>
@@ -265,10 +278,52 @@ body.rm *, body.rm *::before, body.rm *::after { animation:none !important; tran
 </section>
 
 </main>
+<main id="p2" hidden>
+<section class="cell"><h2>13 · Locked tabs <code>.tab.locked · DU6</code></h2>
+  <div class="box"><h3><span>Crafting</span><small>2 ready</small></h3><div class="body">
+    <div class="tabs"><span class="tab on" tabindex="0">Tinkering</span><span class="tab" tabindex="0">Butchering</span><span class="tab" tabindex="0">Cooking</span><span class="tab locked" title="Unknown craft. Seeing it done, a book or a teacher opens it.">Woodworking</span></div>
+    <div class="tabs"><span class="tab locked" title="Unknown craft. A forge and someone who smelts would show it.">Smelting</span><span class="tab locked" title="Unknown craft.">Forging</span><span class="tab locked" title="Unknown craft.">Alchemy</span></div>
+    <div class="tabs"><span class="tab sm on" tabindex="0">Items</span><span class="tab sm" tabindex="0">Components</span><span class="tab sm" tabindex="0">Equipment</span></div>
+    <div class="row"><span>Bonemeal</span><span class="k ready">ready</span></div></div></div>
+  <div class="cap">Known categories are full tabs. Ones that exist but you have not met are pale and dashed with a "?", and hover says what would open them. Their name shows, as in YAIR; a world that hides a craft's name shows only "?". A sub-tab row sits under the category rows. Different from a tab with nothing in it, which hides (PS110).</div>
+</section>
+<section class="cell"><h2>14 · Active effects count <code>DU34 · UR52</code></h2>
+  <div class="box teal"><h3><span>Character & preparation</span><small></small></h3><div class="body">
+    <div class="row"><span>Defense</span><span class="num">1.0</span></div>
+    <div class="row" id="fxRow" tabindex="0" style="cursor:pointer"><span>Active effects: <b class="k blocked" style="font-size:14px">2</b> <span class="m">›</span></span><span class="m">click to list</span></div>
+    <div class="fx-list" id="fxList" hidden><div class="row"><span class="k blocked">Freezing · 1h</span><span class="m">stamina ×0.3 · xp ×0.6</span></div><div class="row"><span class="k ready">Well fed · 3h</span><span class="m">stamina regen ×1.2</span></div></div>
+  </div></div>
+  <div class="cap">The count sits under the stat grid, coloured by the worst effect (a harm reads in the blocked tone). Click or Enter opens the list in place without moving anything above. With none it reads "Active effects: 0", not a blank.</div>
+</section>
+<section class="cell"><h2>15 · Start screen load chip <code>DU21 · UR55</code></h2>
+  <div class="start"><h4>Yet Another Idle RPG</h4><div class="m" style="font-size:12px">v0.6 · build 63fd12a</div><span class="play" tabindex="0">PLAY</span><br>
+    <span class="chipline ok">● Save loaded · Klein Moretti, day 41 · no repairs</span></div>
+  <div class="start" style="padding:8px"><span class="chipline warn">⊘ Save loaded with 1 repair · an unknown item was set aside</span><div class="m" style="font-size:12px;margin-top:4px">Details › · your Export from 13 Nov is kept</div></div>
+  <div class="cap">On first opening a life, one chip says whether loading went well, whose save, how far, and any repair or migration with what was kept. Green when clean, amber with a reason. Save state stays visible without a menu (UR55).</div>
+</section>
+<section class="cell"><h2>16 · Selected tile <code>.tile.sel · DU22</code></h2>
+  <div class="createbox"><div class="tilegrp">People of the frontier</div>
+    <div class="tiles" data-tiles="r"><span class="tile sel" tabindex="0">Human<small>plains</small></span><span class="tile" tabindex="0">Hill folk<small>mountains</small></span><span class="tile" tabindex="0">River kin<small>delta</small></span></div>
+    <div class="tilegrp">Age</div><div class="tiles" data-tiles="a"><span class="tile" tabindex="0">Young</span><span class="tile sel" tabindex="0">Adult</span><span class="tile" tabindex="0">Elder</span></div>
+    <div class="m" style="font-size:12px;margin:6px 0">These change how you look and how people first see you; your stats start the same.</div>
+    <span class="btn" tabindex="0">Confirm</span></div>
+  <div class="cap">Tiles in headed groups. The chosen tile gets a lighter fill plus the gold edge, so colour is not the sole signal. A line says what the choice changes, as YAIR says its choices are cosmetic. Arrow keys move inside a group.</div>
+</section>
+<section class="cell"><h2>17 · Two-sided fight panel <code>DU14 · waiting on combat</code></h2>
+  <div class="pending"><b>Not drafted yet.</b> Fight forms go to the combat lane first (coordinator). Proposed default sent to them: it replaces column 2's middle (PS121) instead of covering the centre; allies left and foes right as fighter rows (cell 8), fallen rows dimmed in place, Exit as a fight action. Fills in after their answer.</div>
+</section>
+<section class="cell"><h2>18 · Enemy portrait <code>DU37 · waiting on combat</code></h2>
+  <div class="pending"><b>Not drafted yet.</b> Proposed default: an optional small tile in the fighter row's corner, a glyph or seeded SVG sigil (UR99, cheap materials first), name tag beside it; no raster art by default. Waits on combat's answer.</div>
+</section>
+</main>
 <script>
 const $ = id => document.getElementById(id), body = document.body, rmState = $('rmstate');
 const restart = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
 const P = new URLSearchParams(location.search);
+const page = n => { $('p1').hidden = n !== 1; $('p2').hidden = n !== 2; $('pager').textContent = n === 1 ? 'Page 2 ›' : '‹ Page 1'; };
+$('pager').addEventListener('click', () => page($('p1').hidden ? 1 : 2));
+$('fxRow').addEventListener('click', () => { $('fxList').hidden = !$('fxList').hidden; });
+document.querySelectorAll('[data-tiles]').forEach(g => g.addEventListener('click', e => { const t = e.target.closest('.tile'); if (!t) return; g.querySelectorAll('.tile').forEach(x => x.classList.toggle('sel', x === t)); }));
 // Box tabs: click or Enter switches the pane; the box remembers (sessionStorage stands in for per-life memory, PS137).
 for (const group of document.querySelectorAll('[data-tabs]')) group.addEventListener('click', e => pickTab(e.target.closest('.tab')));
 function pickTab(t) { if (!t || t.classList.contains('hidden')) return; const g = t.closest('[data-tabs]').dataset.tabs;
@@ -311,6 +366,8 @@ addEventListener('keydown', e => { if (e.target.matches('input, textarea')) retu
 if (P.has('still')) { setRM(true); rmState.textContent = 'on (capture)'; $('pulseA').classList.add('became'); }
 else { beat(); setInterval(beat, 4000); }
 if (P.has('tip')) $('tipHost').classList.add('pinned');
+if (P.get('page') === '2') page(2);
+if (P.has('fx')) $('fxList').hidden = false;
 </script>
 </body>
 </html>

@@ -174,7 +174,7 @@ drop out of the top 10 only because the rows above had no surface.
 
 ### Evidence for the unseen effects
 
-- Hit animation: partial. Two code stills (544115c22b, 802abb2d4d, Dec 2025) show an enemy on-hit animation option and an on-start animation call per enemy, and the developer's message the same day says the animations were at first just on-hit. A reference image and a grayscale slash draft (2709bc4747, ec8744fb2a, Sep 2026) show the developer designing a slash mark. No still shows an animation drawn in the game, so a hit flash is not confirmed as an effect, only as an option and a draft.
+- Hit animation: partial. Two code stills (544115c22b, 802abb2d4d, Dec 2025) show an enemy on-hit animation option and an on-start animation call per enemy, and the developer's message the same day says the animations were at first just on-hit. A reference image and a grayscale slash draft (2709bc4747, ec8744fb2a, Sep 2026) show the developer designing a slash mark. No still shows an animation drawn in the game, so a hit flash is not confirmed as an effect, just as an option and a draft.
 - Floating damage text: none. No still shows numbers rising off a fighter; hits appear as lines in the log and as bar changes.
 - Rarity glow: none. Rarity is coloured text with a bracketed tier word (DU41); no halo, edge glow or pulse appears on any item row or tooltip. PS153 is our proposal.
 - Sound: none directly. The last tab in the log filter row is "Background" in the Apr 2024 stills and "BGM" from May 2026 (2822ac1470, 6b2444dee8). It may mean music, or a quiet-messages bucket; no still decides it. This weakens the sourcing of PS158 ("YAIR has BGM"): treat the tab's meaning as open in DU15 and PS158. This note does not edit the considerations file.
