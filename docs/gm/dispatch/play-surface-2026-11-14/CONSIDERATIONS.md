@@ -219,7 +219,7 @@ Weibao: "more to consider? HOw to ficx? other aspects to consider? what represen
 ### How to fix: one rule and two owners
 
 - **PS72. Each panel answers one player question, and its form is picked for that question.** Rows stay the default for a list of choices. A different form earns its place when it answers its question faster than text. A prose-first reading (2026-11-04) still leads narration.
-- **PS73. A shared form library (UR98, level 3), owned by ui-cohesion.** Feature lanes and worlds use the forms and dress them. Each form reads the owner's data, never a hand-written copy (UR93). Each has a text fallback and a keyboard route. Each is cheap SVG within the 8 GB target.
+- **PS73. A shared form library (UR98, level 3), owned by ui-cohesion.** Feature lanes and worlds use the forms and dress them. Default: each form reads the owner's data rather than a hand-written copy (UR93; reason: a copy drifts). Each has a text fallback and a keyboard route. Each is cheap SVG within the 8 GB target.
 - **PS74. A representation pass per feature,** with prototype-to-decision: mock two forms on the real save, keep the one that answers faster, and name the one rejected.
 
 ### Palette: question → form
