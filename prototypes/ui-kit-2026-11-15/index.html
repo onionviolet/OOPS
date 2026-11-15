@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>Round 14 UI kit</title>
+<!-- PS171 (proposal, AD32): every shared form in round 14's grammar on one page, so new features draw from it and stay
+     cohesive. It links the game's own styles/ui_tokens.css for the PS103 state tokens; the box, tab and verb styles
+     follow the round 14 mock (prototypes/yair-columns-2026-11-15), which Weibao liked. Class names (.box, .tab, .verb,
+     .mark, .num) are the mock's until ui-cohesion's frame names them; glow and motion follow feel-finish's
+     styles/feel_finish.css where it has landed (marks, --ui-motion-settle), drafts elsewhere. Not runtime code. Keys: r toggles reduce motion, p replays the "became ready" pulse. -->
+<link rel="stylesheet" href="../../styles/ui_tokens.css">
+<style>
+:root { --bg:#0a0d24; --box:#141b45; --line:#5b63b0; --quiet:#2d3570; --text:#e8ecff; --muted:#a3abd6; --gold:#ffd24a;
+  --rep:#2a1d4d; --hp:#ff6b6b; --st:#4ee07a; --mana:#7f8ed8;
+  /* PS103 state vocabulary; values come from ui_tokens.css when it loads, these are the fallbacks. */
+  --k-ready: var(--ui-state-ready, #3fd27a); --k-near: var(--ui-state-near, #ffd24a); --k-far: var(--ui-state-far, #7d86c0); --k-blocked: var(--ui-state-blocked, #ff9d57);
+  /* Glow drafts (PS153-PS154): one meaning per glow. */
+  --q-common:#d7dbf0; --q-fine:#6ad37a; --q-rare:#6fa8ff; --q-masterwork:#c08bff; --q-relic:#ffb347;
+  --pulse: var(--ui-motion-settle, 1.2s); } /* feel-finish (styles/feel_finish.css) times pulses and ticks on --ui-motion-settle */
+* { box-sizing:border-box; }
+html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--bg); color:var(--text); font:15px/1.35 system-ui, -apple-system, "Segoe UI", sans-serif; font-variant-numeric: tabular-nums; }
+header { height:44px; display:flex; align-items:baseline; gap:18px; padding:10px 16px 0; }
+header h1 { margin:0; font-size:20px; color:var(--gold); } header span { color:var(--muted); font-size:13px; }
+main { position:absolute; top:46px; left:14px; right:14px; bottom:12px; display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(3, 1fr); gap:12px; }
+.cell { border:1px dashed #39407a; border-radius:6px; padding:8px 10px; min-height:0; overflow:hidden; display:flex; flex-direction:column; gap:6px; }
+.cell > * { flex-shrink:0; }
+.cell > h2 { margin:0; font-size:13px; color:var(--gold); letter-spacing:.02em; display:flex; justify-content:space-between; }
+.cell > h2 code { color:var(--muted); font:11px ui-monospace, monospace; }
+.cap { font-size:12px; color:var(--muted); }
+/* Box (PS119): a framed section with a header and a small gold count. */
+.box { background:var(--box); border:1px solid var(--line); border-radius:6px; display:flex; flex-direction:column; overflow:hidden; }
+.box.teal { background:#0f2b33; border-color:#2b8a80; } .box.rep { background:var(--rep); border-color:#7a5ab0; }
+.box > h3 { margin:0; padding:6px 10px; font-size:15px; background:rgba(255,255,255,.04); border-bottom:1px solid var(--quiet); display:flex; justify-content:space-between; }
+.box > h3 small { color:var(--gold); font-weight:600; font-size:13px; }
+.box > .body { padding:5px 10px; }
+/* Box tabs (PS122, PS137): tabs inside a box by default, not top tabs. */
+.tabs { display:flex; gap:4px; flex-wrap:wrap; margin:4px 0; } .tab { flex:1; text-align:center; border:1px solid var(--line); border-radius:4px; padding:2px 6px; background:#24306e; font-size:14px; white-space:nowrap; }
+.tab.on { background:var(--gold); color:#151515; font-weight:700; } .tab.sm { flex:0 0 auto; font-size:13px; }
+.tab .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--k-ready); margin-left:4px; vertical-align:middle; }
+.tab.hidden { opacity:.25; text-decoration:line-through; }
+.row { display:flex; justify-content:space-between; gap:8px; padding:3px 0; border-bottom:1px solid var(--quiet); font-size:14px; }
+.m { color:var(--muted); } .g { color:var(--gold); }
+/* Verb row (PS120, PS131, PS140): fixed place, icon, name, Ready mark at the right. */
+.verb { display:flex; align-items:center; gap:10px; border:1px solid #6d6a8a; border-radius:3px; padding:6px 10px; margin:4px 0; font-size:16px; background:rgba(255,255,255,.02); position:relative; }
+.verb .key { font:11px ui-monospace, monospace; color:var(--muted); width:12px; } .verb .ic { width:20px; text-align:center; }
+.verb .mark { margin-left:auto; font-size:13px; }
+.verb.open { border-color:var(--gold); }
+.verb.dim { opacity:.55; } .verb.dim .mark { color:var(--muted); font-style:italic; }
+.sub { margin:-1px 0 5px 52px; } .act { border:1px solid var(--line); border-radius:3px; padding:1px 8px; }
+/* Ready marks and state tokens (PS103, PS133): word and colour together, so colour is not the sole signal. */
+.k { font-size:13px; } .k.ready { color:var(--k-ready); } .k.near { color:var(--k-near); } .k.far { color:var(--k-far); } .k.blocked { color:var(--k-blocked); }
+.k.ready::before { content:"● "; } .k.near::before { content:"◐ "; } .k.far::before { content:"○ "; } .k.blocked::before { content:"⊘ "; }
+.chip { display:inline-block; border:1px solid currentColor; border-radius:3px; padding:0 6px; margin:2px 4px 2px 0; }
+.chip.near { border-style:dashed; }
+/* Numbers (PS130, PS132): known plain, estimated with ~ or a range, unknown "?". One renderer. */
+.num { font-variant-numeric:tabular-nums; text-align:right; }
+.num.est { color:var(--k-near); } .num.est::after { content:" est"; font-size:10px; color:var(--muted); vertical-align:super; }
+.num.unk { color:var(--muted); border-bottom:1px dotted var(--muted); cursor:help; }
+.ntable { display:grid; grid-template-columns:1fr 64px 92px 72px; font-size:14px; border:1px solid var(--quiet); }
+.ntable span { padding:2px 6px; border-bottom:1px solid var(--quiet); } .ntable .h { color:var(--muted); font-size:12px; }
+.bar { position:relative; height:19px; margin:3px 0; border-radius:2px; text-align:center; font-size:12px; line-height:19px; color:#fff; background:#2a2f55; overflow:hidden; }
+.bar i { position:absolute; inset:0; width:var(--f); background:var(--c); border-radius:2px; transition:width .5s ease-out; }
+.bar span { position:relative; -webkit-text-stroke:0; text-shadow:-1px 0 #000, 1px 0 #000, 0 -1px #000, 0 1px #000; }
+.bar.unk i { background:repeating-linear-gradient(45deg, #3a4170 0 6px, #2a2f55 6px 12px); width:100%; }
+/* Glow (PS153, PS154): rarity name with a soft edge, new = one pulse and a dot, ready = gold edge. */
+.q { text-shadow:0 0 6px color-mix(in srgb, currentColor 60%, transparent); }
+.q.common { color:var(--q-common); text-shadow:none; } .q.fine { color:var(--q-fine); } .q.rare { color:var(--q-rare); } .q.masterwork { color:var(--q-masterwork); } .q.relic { color:var(--q-relic); }
+.newdot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--gold); margin-right:5px; }
+.isnew { animation:newpulse var(--pulse) ease-out 1; }
+.fav { color:var(--gold); } .worn { color:var(--k-ready); font-size:12px; margin-left:3px; } .eq { font-size:11px; border:1px solid var(--muted); color:var(--muted); border-radius:2px; padding:0 3px; }
+.verb.ready { border-color:var(--gold); box-shadow:0 0 0 1px var(--gold), 0 0 8px rgba(255,210,74,.35); }
+.verb.ready.became { animation:readypulse var(--pulse) ease-out 1; }
+.verb.near { border-style:dashed; border-color:var(--k-near); }
+@keyframes readypulse { 0% { box-shadow:0 0 0 1px var(--gold), 0 0 0 rgba(255,210,74,.0); } 40% { box-shadow:0 0 0 1px var(--gold), 0 0 18px rgba(255,210,74,.75); } 100% { box-shadow:0 0 0 1px var(--gold), 0 0 8px rgba(255,210,74,.35); } }
+@keyframes newpulse { 0% { background:rgba(255,210,74,.0); } 35% { background:rgba(255,210,74,.28); } 100% { background:rgba(255,210,74,0); } }
+@keyframes tick { 0% { color:var(--k-ready); transform:translateY(-2px); } 100% { color:inherit; transform:none; } }
+.ticked { display:inline-block; animation:tick .8s ease-out 1; }
+.floaty { position:absolute; right:10px; top:-4px; color:var(--hp); font-weight:700; font-size:13px; animation:floatoff 1.4s ease-out infinite; }
+@keyframes floatoff { 0% { opacity:0; transform:translateY(6px); } 20% { opacity:1; } 100% { opacity:0; transform:translateY(-16px); } }
+body.rm *, body.rm *::before, body.rm *::after { animation:none !important; transition:none !important; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } }
+/* Tooltip (PS134, UR tooltip tokens): sized to content up to a cap, clear of the control, holds still while numbers tick. */
+.tipwrap { position:relative; height:190px; }
+.tip { position:absolute; left:150px; top:0; max-width:300px; background:var(--ui-tooltip-fill, linear-gradient(90deg,#333,#111)); border:2px solid #d3d3d3; outline:2px solid #000; box-shadow:5px 5px #b41030; padding:6px 9px; font-size:13px; }
+.tip b { color:var(--gold); } .tip .row { border-color:#555; font-size:13px; }
+/* Controls (PS136, PS157): hover, pressed, focus the same everywhere; disabled carries its reason. */
+.btn { display:inline-block; font:inherit; font-size:14px; color:var(--text); background:#1d2a66; border:1px solid var(--line); border-radius:3px; padding:3px 10px; margin:2px 4px 2px 0; }
+.btn.hover { background:#26357e; border-color:var(--gold); } .btn.pressed { background:#141d4a; transform:translateY(1px); }
+.btn.focus { outline:2px solid var(--gold); outline-offset:2px; } .btn.disabled { opacity:.5; }
+.btn.sel { background:var(--gold); color:#151515; font-weight:700; } .btn.pend { border-style:dashed; color:var(--muted); } .btn.pend::after { content:""; display:inline-block; width:8px; height:8px; margin-left:6px; border:2px solid var(--muted); border-top-color:transparent; border-radius:50%; animation:spin .9s linear infinite; } @keyframes spin { to { transform:rotate(360deg); } } .btn.fail { border-color:var(--k-blocked); color:var(--k-blocked); }
+.reason { font-size:12px; color:var(--k-blocked); }
+/* Empty and unknown (PS138, UR32/UR52): empty names what fills it; unknown is a different thing. */
+.empty { border:1px dashed var(--quiet); border-radius:4px; padding:10px; text-align:center; color:var(--muted); font-size:14px; }
+.empty a { color:var(--text); text-decoration:underline; text-underline-offset:3px; }
+.unknownbox { border:1px dashed #6c4f8f; color:#bda7dd; }
+/* Running job head (PS121, PS141) and replaced box (PS121). */
+.head-run { border:1px solid var(--gold); border-radius:3px; padding:5px 10px; font-size:14px; } .head-run .bar { height:8px; }
+.back { font-size:13px; color:var(--muted); }
+.log .row { justify-content:center; font-size:13.5px; } .log .row.place { color:var(--gold); font-weight:700; }
+.filters { display:flex; flex-wrap:wrap; gap:3px; padding:5px 8px; border-top:1px solid var(--quiet); }
+.filters span { border:1px solid var(--gold); color:var(--gold); padding:1px 6px; font-size:13px; border-radius:3px; } .filters span.off { opacity:.45; }
+.sky { display:flex; gap:14px; align-items:center; font-size:16px; padding:6px 10px; }
+.sky .ic { font-size:18px; }
+#rmstate { color:var(--gold); }
+/* Live states (coordinator 2026-11-15: forms move, not only static samples). Real :hover, :active, :focus-visible. */
+.btn, .tab, .verb, .act, .filters span { cursor:pointer; transition:background-color .12s, border-color .12s, transform .06s, box-shadow .12s; }
+.btn:hover, .tab:not(.on):hover, .act:hover { background:#26357e; border-color:var(--gold); }
+.btn:active, .tab:active, .verb:active, .act:active { transform:translateY(1px); filter:brightness(.88); }
+.btn:focus-visible, .tab:focus-visible, .verb:focus-visible, .act:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+.verb:not(.dim):hover { background:rgba(255,255,255,.06); border-color:#a9a6d0; } .verb.ready:hover { border-color:var(--gold); }
+.verb.dim { cursor:not-allowed; }
+.btn[aria-disabled="true"] { opacity:.5; cursor:not-allowed; } .btn[aria-disabled="true"]:hover { background:#1d2a66; border-color:var(--line); }
+.filters span:hover { background:rgba(255,210,74,.12); }
+/* Live tooltip: appears after a short delay, fades and settles 3 px, holds still while its numbers tick. */
+.has-tip { position:relative; display:inline-block; }
+.has-tip > .tip { left:0; top:calc(100% + 8px); opacity:0; transform:translateY(3px); pointer-events:none; transition:opacity .14s ease-out .25s, transform .14s ease-out .25s; z-index:4; width:max-content; }
+.has-tip:hover > .tip, .has-tip:focus-within > .tip, .has-tip.pinned > .tip { opacity:1; transform:none; }
+.has-tip.pinned > .tip { pointer-events:auto; }
+.qtip { position:absolute; right:0; bottom:calc(100% + 6px); width:max-content; max-width:240px; font-size:12px; text-align:left; opacity:0; transition:opacity .14s ease-out .25s; pointer-events:none; background:#111; border:1px solid #d3d3d3; padding:4px 7px; color:var(--text); z-index:4; }
+.num.unk { position:relative; } .num.unk:hover .qtip, .num.unk:focus .qtip { opacity:1; }
+.live { font-size:11px; color:var(--k-ready); } .live::before { content:"● "; animation:blink 2s steps(2) infinite; }
+@keyframes blink { 50% { opacity:.2; } }
+.flash { animation:hitflash .35s ease-out 1; } @keyframes hitflash { 0% { background:rgba(255,107,107,.45); } 100% { background:transparent; } }
+.floaty { animation:none; opacity:0; } .floaty.go { animation:floatoff 1.1s ease-out 1; }
+.tabpane[hidden] { display:none; }
+/* DU review folds (docs/research/yair-upstream/DISCORD_UI_ELEMENTS_REVIEW_2026-11-15.md). */
+.have { color:var(--k-ready); } .short { color:var(--hp); } .brk { color:var(--muted); font-size:12px; padding-left:10px; }
+.fighter { border:1px solid var(--line); border-radius:3px; padding:3px 8px; margin:3px 0; transition:opacity .6s, filter .6s; position:relative; }
+.fighter .hpb { position:relative; height:16px; background:#3a1010; border-radius:2px; font-size:12px; text-align:center; line-height:16px; overflow:hidden; }
+.fighter .hpb i { position:absolute; left:0; top:0; bottom:0; width:var(--f); background:#e23b3b; transition:width .5s ease-out; }
+.fighter .hpb b { position:absolute; left:0; top:0; bottom:0; width:var(--lost); background:#7a1d1d; transition:width .9s ease-out .4s; }
+.fighter .hpb span { position:relative; text-shadow:-1px 0 #000, 1px 0 #000, 0 -1px #000, 0 1px #000; }
+.fighter .timer { height:3px; margin-top:2px; background:#2a2050; } .fighter .timer i { display:block; height:100%; width:0; background:#9d7bff; animation:swing 1.6s linear infinite; }
+@keyframes swing { to { width:100%; } }
+.fighter.down { opacity:.35; filter:grayscale(1); } .fighter.down .timer i { animation:none; }
+.fighter .fst { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); }
+.tab.wake { opacity:.5; } .tab.wake.awake { opacity:1; box-shadow:0 0 0 1px var(--gold), 0 0 8px rgba(255,210,74,.35); }
+.done { text-decoration:line-through; color:var(--muted); }
+.danger { color:var(--k-blocked); }
+.cool { color:#7fd8ff; }
+</style>
+</head>
+<body>
+<header><h1>Round 14 UI kit</h1><span>PS171, proposal (AD32): the shared forms a new feature draws from, live. Hover, press, Tab; click tabs, verbs and the tooltip. Demo loop every 4 s. Reduce motion <b id="rmstate">off</b> (r; p replays).</span></header>
+<main>
+
+<section class="cell"><h2>1 · Box <code>.box · PS119, DSG1</code></h2>
+  <div class="box"><h3><span>Local actions</span><small>1 new · 2 close</small></h3><div class="body"><div class="row"><span>A box holds one question's rows.</span><span class="m">count asks something</span></div></div></div>
+  <div class="box teal"><h3><span>Character vitals</span><small>Lv 3</small></h3><div class="body m">Column 1 boxes (You) are teal.</div></div>
+  <div class="box rep"><h3><span>Reports</span><small></small></h3><div class="body m">Column 4 is purple (DSG2).</div></div>
+  <div class="tabs"><span class="tab sm on">Inventory</span><span class="tab sm wake" id="wakeTab">Combat</span><span class="m" style="font-size:12px">a tab wakes when it matters (DU35)</span></div>
+  <div class="cap">A header count shows when it asks something ("3 of 6 ready", PS109). By default a feature gets a box or a tab in one, not a new top tab.</div>
+</section>
+
+<section class="cell"><h2>2 · Box tabs <code>.tabs .tab · PS122, PS137</code></h2>
+  <div class="box"><h3><span>Journal</span><small></small></h3><div class="body">
+    <div class="tabs" data-tabs="j"><span class="tab on" tabindex="0" data-t="q">Quests</span><span class="tab" tabindex="0" data-t="b">Bestiary</span><span class="tab" tabindex="0" data-t="a">Anthology</span><span class="tab" tabindex="0" data-t="d">Data</span></div>
+    <div class="tabs" data-tabs="j"><span class="tab sm" tabindex="0" data-t="k">Knows<span class="dot"></span></span><span class="tab sm" tabindex="0" data-t="n">Notebook</span><span class="tab sm" tabindex="0" data-t="p">People</span><span class="tab sm hidden">Worlds</span><span class="tab sm" tabindex="0" data-t="g">Beginning</span></div>
+    <div class="tabpane" data-pane="j:q"><div class="row"><b>Lost memory</b><span class="m">1 of 2</span></div><div class="row"><span class="done">Find out what happened</span><span class="m">done</span></div></div>
+    <div class="tabpane" data-pane="j:b" hidden><div class="row"><span>兽 Wolf rat</span><span class="m">seen 3 · Atk ~4</span></div></div>
+    <div class="tabpane" data-pane="j:a" hidden><div class="empty">No stories collected yet. <span class="m">Books and tellers add them.</span></div></div>
+    <div class="tabpane" data-pane="j:d" hidden><div class="row"><span>Days lived</span><span class="num">3</span></div></div>
+    <div class="tabpane" data-pane="j:k" hidden><div class="row"><span>Wolf rats hunt at dusk</span><span class="m">Hesk · day 2</span></div></div>
+    <div class="tabpane" data-pane="j:n" hidden><div class="empty">Nothing written yet. <span class="m">Notes you take appear here.</span></div></div>
+    <div class="tabpane" data-pane="j:p" hidden><div class="row"><span>人 Old Hesk</span><span class="m">elder · warm</span></div></div>
+    <div class="tabpane" data-pane="j:g" hidden><div class="row"><span>You woke in the Village</span><span class="m">day 1</span></div></div>
+  </div></div>
+  <div class="cap">YAIR's tabs first, ours after in a smaller row. A green dot = something new inside (cleared on view). A tab with nothing in it hides (struck here to show it, PS110). Each box remembers its last tab per world and per life (PS137). Done quests stay in place, struck, with "Hide completed" (DU29).</div>
+  <div class="tabs" data-tabs="s"><span class="tab sm on" tabindex="0">Sort by name</span><span class="tab sm" tabindex="0">Sort by level</span><span class="tab sm" tabindex="0">Sort by progress</span></div>
+  <div class="cap">Sorts are small tabs at the box's foot, as in YAIR.</div>
+</section>
+
+<section class="cell"><h2>3 · Verb row <code>.verb · PS120, PS131, PS140</code></h2>
+  <div class="verb" tabindex="0" data-open="mv"><span class="key">1</span><span class="ic">⇢</span><span>Move somewhere else</span><span class="mark k far">3 ways</span></div>
+  <div class="sub" data-sub="mv" hidden><div class="row"><span class="act" tabindex="0">Infested field <span class="danger" title="Wolf rats seen here">⚠</span></span><span class="m">[15 min]</span></div><div class="row"><span class="act" tabindex="0">Tingen</span><span class="m">[crossing]</span></div></div>
+  <div class="verb open" tabindex="0" data-open="tk"><span class="key">4</span><span class="ic">❝</span><span>Talk to someone</span><span class="mark k ready">1 new</span></div>
+  <div class="sub" data-sub="tk"><div class="row"><span class="act" tabindex="0">Old Hesk · About the spare weapon…</span><span class="k ready">new</span></div><div class="row"><span class="act" tabindex="0">Dunstan, the village trader</span><span class="m"></span></div></div>
+  <div class="verb dim" tabindex="0" aria-disabled="true"><span class="key">7</span><span class="ic">⚑</span><span>Train</span><span class="mark">no trainer here</span></div>
+  <div class="cap">Fixed order and icon; number key = place in the list; a verb with nothing to do keeps its slot, dimmed, with its reason. Opening one pushes nothing above it. Each verb opens its targets as rows under it, with time in brackets and ⚠ on a known danger (DU8). Try Move.</div>
+</section>
+
+<section class="cell"><h2>4 · Ready mark <code>.mark .k · PS120, PS54</code></h2>
+  <div class="verb ready" id="pulseA" tabindex="0"><span class="key">2</span><span class="ic">⚒</span><span>Try to craft something</span><span class="mark k ready" id="readyMark">2 ready</span></div>
+  <div class="verb near"><span class="key">2</span><span class="ic">⚒</span><span>Try to craft something</span><span class="mark k near">1 close · needs 2 sinew</span></div>
+  <div class="verb"><span class="key">9</span><span class="ic">●</span><span>Take an action</span><span class="mark k ready">story: 2 choices</span></div>
+  <div class="cap">The mark is Ready now's row folded onto its verb: a count and a noun ("1 new", "2 hungry", "1 ready"), or the one thing missing when near. No mark = nothing waiting. Ready = gold edge with one slow pulse when it becomes ready (PS154); near = dashed edge.</div>
+</section>
+
+<section class="cell"><h2>5 · Numbers: known, estimated, "?" <code>.num · PS130, PS132</code></h2>
+  <div class="ntable"><span class="h">What the life knows</span><span class="h num">known</span><span class="h num">estimated</span><span class="h num">unknown</span>
+    <span>Wolf rat attack</span><span class="num">4.0</span><span class="num est">~4</span><span class="num unk" tabindex="0">?<span class="qtip">You have not seen it fight. Watching one fight shows a range.</span></span>
+    <span>Health</span><span class="num">18/18</span><span class="num est">15–20</span><span class="num unk" tabindex="0">?/?<span class="qtip">You have not seen it hurt. A wound you see shows a range.</span></span>
+    <span>Dunstan pays for pelts</span><span class="num">3C</span><span class="num est">2–4C</span><span class="num unk" tabindex="0">?<span class="qtip">Unknown to this life. Asking or watching shows a range.</span></span>
+    <span>Chance this batch holds</span><span class="num">62%</span><span class="num est">~60%</span><span class="num unk" tabindex="0">?<span class="qtip">Unknown to this life. Asking or watching shows a range.</span></span>
+    <span>Stack</span><span class="num">×3</span><span class="num">×3</span><span class="num">×3</span></div>
+  <div class="bar" style="--c:var(--hp);--f:70%"><i></i><span>14/20 hp</span></div>
+  <div class="bar unk"><i></i><span>?/? hp</span></div>
+  <div class="cap">One renderer for all three, set by the knowledge level (KNW). "?" has a dotted underline and its hover says how to learn it. Estimates are gold with "est". Tabular figures, right-aligned; "×3", not "x3". Bar text has a dark outline (PS133).</div>
+</section>
+
+<section class="cell"><h2>6 · State tokens <code>--ui-state-* · PS103, PS133</code></h2>
+  <div><span class="chip k ready">ready</span><span class="chip k near">one short · 2 sinew</span><span class="chip k far">far off · 3 of 7</span><span class="chip k blocked">blocked · bench in use</span></div>
+  <div class="row"><span>Bonemeal</span><span class="k ready">ready</span></div>
+  <div class="row"><span>Sinew cord</span><span class="k near">needs 2 sinew</span></div>
+  <div class="row"><span>Bone needle</span><span class="k far">needs Bone tools</span></div>
+  <div class="row"><span>Smoked meat</span><span class="k blocked">needs a fire here</span></div>
+  <div class="cap">By default the same four words and colours in Ready now, the lists, verb marks and the inspector. Each has a glyph too (● ◐ ○ ⊘) so colour-blind reading works. Blocked carries its reason, limited to what the observer knows (DSG10).</div>
+</section>
+
+<section class="cell"><h2>7 · Glow by meaning <code>.q .isnew · PS153 (draft, feel-finish owns)</code></h2>
+  <div class="box teal"><h3><span>Inventory</span><small></small></h3><div class="body">
+    <div class="row"><span class="q common">☆ Stale bread ×5</span><span class="m">2C</span></div>
+    <div class="row"><span class="q fine">☆ Sinew cord</span><span class="m">fine</span></div>
+    <div class="row isnew" id="pulseB"><span><span class="newdot"></span><span class="q rare">Wolf rat pelt, clean</span></span><span class="m">new</span></div>
+    <div class="row"><span><span class="fav">☆</span><span class="worn" title="worn">◆</span> <span class="q masterwork">Dormitory guard's sabre</span></span><span class="m">masterwork</span></div>
+    <div class="row"><span class="q relic">☆ Hidden lightning wolf eye ×6</span><span class="m">relic</span></div>
+  </div></div>
+  <div class="cap">Quality = coloured name with a soft edge (common has none). New = one pulse and a dot until hovered. ☆ = favourited, ◆ = worn, matching feel-finish's marks (data-feel-fav, data-feel-worn). Each world names its own grades; a glow means one thing per world.</div>
+</section>
+
+<section class="cell"><h2>8 · Motion that explains <span class="live">live loop</span> <code>PS155, PS156 (draft)</code></h2>
+  <div class="bar" id="stBar" style="--c:var(--st);--f:55%"><i></i><span>22/40 stamina</span></div>
+  <div class="row"><span>Running</span><span>Lv <span id="tickA">4</span> <span class="m" id="tickPlus"></span></span></div>
+  <div class="fighter" id="foe"><div class="fst"><span>Atk ~4 · Spd ? · Hit you 32%</span><b style="color:var(--text)">兽 Wolf rat</b></div><div class="hpb" id="foeHp" style="--f:90%;--lost:90%"><b></b><i></i><span id="foeHpT">27/30 hp</span></div><div class="timer"><i></i></div><span class="floaty" id="floaty">−4</span></div>
+  <div class="fighter" id="foe2"><div class="fst"><span>Atk ~4 · Spd ?</span><b style="color:var(--text)">兽 Wolf rat</b></div><div class="hpb" style="--f:40%;--lost:40%"><b></b><i></i><span>12/30 hp</span></div><div class="timer"><i></i></div></div>
+  <div class="box"><div class="body sky"><span class="ic">☀</span><span style="white-space:nowrap">08:12 · Summer</span><span class="cool" title="Cool: under 15°C">☁ 13.2°C</span><span class="m" style="margin-left:auto;font-size:12px">PS135, DU19</span></div></div>
+  <div class="cap">Bars ease; a gain ticks up once; damage floats off its source; the lost part shows darker, then settles (DU12). Thin bar = attack timer (DU10, inferred). A fallen fighter dims in place (DU11). Reduce motion stops all of it.</div>
+</section>
+
+<section class="cell"><h2>9 · Tooltip <code>--ui-tooltip-* · PS134, UR43</code></h2>
+  <div class="tipwrap">
+    <span class="has-tip" id="tipHost"><span class="btn" tabindex="0">Make Bonemeal ×3</span>
+    <div class="tip"><b>Make Bonemeal ×3</b><div class="row"><span>Chance</span><span class="have">100%</span></div><div class="row"><span>Animal tooth</span><span><span class="have" id="haveN">68</span>/6</span></div><div class="row"><span>Sinew</span><span class="short">1/2</span></div><div class="row"><span>Takes</span><span class="num" id="tipClock">45 min</span></div><div class="row"><span>You own</span><span>2</span></div><div class="row"><span>XP</span><span>12</span></div><div class="brk">base 8 · Tinkering ×1.2 · book +2</div><div class="m">Stop keeps finished batches; the current one is lost.</div></div></span>
+  </div>
+  <div class="cap">Sized to content up to 300 px, clear of the control and the pointer, and it does not move while its numbers tick. Hover (after 0.25 s) or focus previews; click pins (UR43). Have/need per material, green or red with the count, live while it runs (DU3); a total opens its breakdown (DU1); near an edge it flips (DU2). The interruption outcome rides here and in the job head (PS141).</div>
+</section>
+
+<section class="cell"><h2>10 · Controls <code>.btn · PS136, PS157, UR100, DSG10</code></h2>
+  <div><span class="btn">rest</span><span class="btn hover">hover</span><span class="btn pressed">pressed</span><span class="btn focus">focus</span><span class="m" style="font-size:12px">static samples</span></div>
+  <div><span class="btn" tabindex="0">Try me</span><span class="btn" tabindex="0">and me</span><span class="m" style="font-size:12px">live: hover, press, Tab</span></div>
+  <div><span class="btn sel" tabindex="0">Selected</span><span class="btn pend" tabindex="0">Pending</span><span class="btn fail" tabindex="0">Failed</span><span class="reason">⊘ bench taken; nothing spent</span></div>
+  <div><span class="btn" tabindex="0" aria-disabled="true">Sleep</span><span class="reason">⊘ not tired enough · after 18:00</span></div>
+  <div><span class="btn">Repeat ×3</span><span class="btn">Stop</span></div>
+  <div class="cap">One look for hover, pressed and focus. A disabled control shows its reason inline too, because a player may never hover.</div>
+  <div class="head-run"><div class="row" style="border:0"><span>Making Bonemeal · <span id="jobN">2</span> of 3</span><span class="m num" id="jobLeft">18 min left</span></div><div class="bar" id="jobBar" style="--c:var(--gold);--f:66%"><i></i></div><div class="m" style="font-size:12px">Stop keeps 2; the third is lost.</div></div>
+</section>
+
+<section class="cell"><h2>11 · Empty, unknown and replaced <code>PS138, PS121, UR32, UR52, UR125</code></h2>
+  <div class="empty">No quests yet. <a>Old Hesk</a> may have one.</div>
+  <div class="empty unknownbox">Something here you cannot read yet. <span class="m">A lantern or a guide would show it.</span></div>
+  <div class="box"><h3><span>Crafting <span class="back">· Back (Esc)</span></span><small>2 ready</small></h3><div class="body"><div class="row"><span>The mode replaces the actions box in place.</span><span class="m">Back returns it</span></div></div></div>
+  <div class="cap">Empty names what fills it, with a link when the filler is known. Unknown is a different box: something exists that you cannot read. A mode (craft, fight, a bench) takes a box's place and Back or Esc returns it, open verbs intact.</div>
+</section>
+
+<section class="cell"><h2>12 · Reports line <code>.log · PS124, PS149, UR88</code></h2>
+  <div class="box rep"><div class="body log">
+    <div class="row" style="justify-content:flex-start"><b class="g">Right now</b>&nbsp;Ask the elder about the spare weapon.</div>
+    <div class="row place">[ Village · 01/04/999, Summer ]</div>
+    <div class="row">Gathered herb verge ×3 <span class="m">&nbsp;(3 runs)</span></div>
+    <div class="row">Running reached Lv 4.</div>
+    <div class="row">You can now make Sinew cord. <a class="g">&nbsp;Next: Crafting</a></div></div>
+    <div class="filters"><span>Levels / unlocks</span><span>Events</span><span class="off" tabindex="0">Crafting</span><span>Combat</span><span>Loot</span><span>Ready</span><span>Story</span></div></div>
+  <div class="cap">Newest last. Repeats fold into one line with a count, in order. A line that unlocks something carries a "Next:" link to its verb (PS55). Filters at the foot; a faded filter is off.</div>
+</section>
+
+</main>
+<script>
+const $ = id => document.getElementById(id), body = document.body, rmState = $('rmstate');
+const restart = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
+const P = new URLSearchParams(location.search);
+// Box tabs: click or Enter switches the pane; the box remembers (sessionStorage stands in for per-life memory, PS137).
+for (const group of document.querySelectorAll('[data-tabs]')) group.addEventListener('click', e => pickTab(e.target.closest('.tab')));
+function pickTab(t) { if (!t || t.classList.contains('hidden')) return; const g = t.closest('[data-tabs]').dataset.tabs;
+  document.querySelectorAll(`[data-tabs="${g}"] .tab`).forEach(x => x.classList.toggle('on', x === t));
+  if (t.dataset.t) { document.querySelectorAll(`[data-pane^="${g}:"]`).forEach(p => p.hidden = p.dataset.pane !== `${g}:${t.dataset.t}`); t.querySelector('.dot')?.remove();
+    try { sessionStorage.setItem('kit-tab-' + g, t.dataset.t); } catch {} } }
+try { const k = sessionStorage.getItem('kit-tab-j'); if (k) pickTab(document.querySelector(`[data-tabs="j"] .tab[data-t="${k}"]`)); } catch {}
+// Verbs open their targets under them; nothing above moves (PS131). Dimmed verbs say why instead.
+document.addEventListener('click', e => { const v = e.target.closest('.verb[data-open]'); if (!v) return; const sub = document.querySelector(`[data-sub="${v.dataset.open}"]`);
+  sub.hidden = !sub.hidden; v.classList.toggle('open', !sub.hidden); });
+document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.tab, .verb[data-open], .has-tip .btn')) { e.preventDefault(); e.target.click(); } });
+// Tooltip: click pins, Esc or a click elsewhere unpins (UR41). Its clock ticks without moving it.
+$('tipHost').addEventListener('click', e => { e.stopPropagation(); $('tipHost').classList.toggle('pinned'); });
+document.addEventListener('click', () => $('tipHost').classList.remove('pinned'));
+// Reports filters toggle.
+document.querySelectorAll('.filters span').forEach(f => f.addEventListener('click', () => f.classList.toggle('off')));
+// Demo loop: the states a feature passes through, every 4 s.
+let step = 0, stamina = 22, lv = 4, mins = 45, job = 2;
+function beat() {
+  step++;
+  const ready = step % 2 === 1, v = $('pulseA');                       // near -> ready, then back (PS154)
+  v.classList.toggle('ready', ready); v.classList.toggle('near', !ready);
+  $('readyMark').className = 'mark k ' + (ready ? 'ready' : 'near'); $('readyMark').textContent = ready ? '2 ready' : '1 close · needs 2 sinew';
+  if (ready) restart(v, 'became');
+  $('haveN').textContent = 68 - (step % 4) * 6;
+  restart($('pulseB'), 'isnew');                                       // a new item pulses once (PS153)
+  stamina = stamina >= 30 ? 14 : stamina + 11;                          // bars ease to the new value (PS155)
+  $('stBar').style.setProperty('--f', (stamina / 40 * 100) + '%'); $('stBar').querySelector('span').textContent = `${stamina}/40 stamina`;
+  if (step % 3 === 0) { lv++; $('tickA').textContent = lv; $('tickPlus').textContent = '+1'; restart($('tickA'), 'ticked'); } else $('tickPlus').textContent = '';
+  restart($('floaty'), 'go'); restart($('foe'), 'flash');
+  const hp = [27, 23, 19, 15][step % 4]; $('foeHp').style.setProperty('--f', hp / 30 * 100 + '%'); setTimeout(() => $('foeHp').style.setProperty('--lost', hp / 30 * 100 + '%'), 50); $('foeHpT').textContent = `${hp}/30 hp`;
+  if (step % 4 === 0) $('foeHp').style.setProperty('--lost', '90%');
+  $('foe2').classList.toggle('down', step % 3 === 2); $('wakeTab').classList.toggle('awake', step % 2 === 1);               // damage floats off its source; the hit flashes
+  job = job >= 3 ? 1 : job + 1; $('jobN').textContent = job;           // a running job updates in place (PS139)
+  $('jobBar').style.setProperty('--f', (job / 3 * 100 - 10) + '%'); $('jobLeft').textContent = `${(3 - job) * 15 + 3} min left`;
+}
+setInterval(() => { mins = mins <= 5 ? 45 : mins - 5; $('tipClock').textContent = `${mins} min`; }, 1000);
+function setRM(on) { body.classList.toggle('rm', on); rmState.textContent = on ? 'on' : 'off'; }
+addEventListener('keydown', e => { if (e.target.matches('input, textarea')) return; if (e.key === 'r') setRM(!body.classList.contains('rm')); if (e.key === 'p') beat(); if (e.key === 'Escape') $('tipHost').classList.remove('pinned'); });
+if (P.has('still')) { setRM(true); rmState.textContent = 'on (capture)'; $('pulseA').classList.add('became'); }
+else { beat(); setInterval(beat, 4000); }
+if (P.has('tip')) $('tipHost').classList.add('pinned');
+</script>
+</body>
+</html>
