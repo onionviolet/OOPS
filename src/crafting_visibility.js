@@ -36,12 +36,12 @@ export function recipeMakeableNow({recipe, stationTier, inventory, itemTemplates
 // unavailable class, the "Makeable now" filter, the detail's Craft button and the
 // requirement rows all read this. It reuses the exact get_availability() result the
 // native craft uses and adds the same station and disposition checks the craft makes.
-export function itemRecipeStatus({recipe, stationTier, findMaterial, isMaterialKnown, canConsume}) {
+export function itemRecipeStatus({recipe, stationTier, findMaterial, isMaterialKnown, canConsume, isTypeKnown = () => true}) {
     const availability = recipe.get_availability();
     const requirements = recipe.materials.map((material, i) => {
         // get_availability() stops after the first short material; later rows use the same lookup.
         const found = availability.materials[i] || findMaterial({material, needed_count: material.count});
-        const known = material.material_type ? true : isMaterialKnown(material.material_id);
+        const known = material.material_type ? isTypeKnown(material.material_type) : isMaterialKnown(material.material_id); // the row and the detail name the same things (CP2)
         const need = found.need ?? material.count;
         const owned = found.items.reduce((n,entry)=>n+entry.count,0), usable = found.items.reduce((n,entry)=>n+(canConsume(entry.item.getInventoryKey())?entry.count:0),0);
         const blocked = Math.max(0,owned-usable), held_back = found.count >= need && blocked > 0;
@@ -64,8 +64,20 @@ export function shortOfText(requirements) {
     // UIC185: one known material short names it and how many, so the row says what to fetch without opening it.
     // An unrecognised material keeps the count alone (PRS1); a long name keeps the count so the row does not wrap.
     const one = missing[0], name = short === 1 && one.known && (one.material?.material_id || one.material?.material_type);
-    if(name && name.length <= 22) return `needs ${Math.max(1, (one.need ?? 1) - (one.have ?? 0))} ${name}`;
-    return short === 1 ? '1 material short' : `${short} of ${all} materials short`;
+    // PS101: one short names it ("needs 1 sinew"); a material never seen still says what kind of gap it is.
+    const n = short === 1 ? Math.max(1, (one.need ?? 1) - (one.have ?? 0)) : 0;
+    if(name) return `needs ${n} ${name}`;
+    if(short === 1) return `short ${n} of something unfamiliar`;
+    return `${short} of ${all} materials short`;
+}
+
+/** PS103: the one status word a recipe row, Ready now and the inspector share: ready, near (one thing short), far, blocked (a reason, not a material). */
+export function recipeStateWord(state) {
+    if(state.available) return 'ready';
+    const missing = state.requirements.filter(r => r.missing).length;
+    if(!missing) return 'blocked';
+    if(state.reasons.includes('no station here') || state.reasons.includes('not learned')) return 'blocked';
+    return missing === 1 ? 'near' : 'far';
 }
 
 /** The short word on a recipe row and its longer spoken form, from one status. */

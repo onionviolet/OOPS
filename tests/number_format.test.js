@@ -37,17 +37,28 @@ test('formatGlance rounds for a list and keeps one of a thing singular (UIC148)'
 
 test('shortOfText names how many materials a recipe lacks (UIC172)', async () => {
     const {shortOfText} = await import('../src/crafting_visibility.js');
-    assert.equal(shortOfText([{missing: true}, {missing: false}, {missing: false}]), '1 material short');
+    assert.equal(shortOfText([{missing: true}, {missing: false}, {missing: false}]), 'short 1 of something unfamiliar');
     assert.equal(shortOfText([{missing: true, known: true, need: 3, have: 1, material: {material_id: 'Wool'}}, {missing: false}]), 'needs 2 Wool');
-    assert.equal(shortOfText([{missing: true, known: false, need: 1, have: 0, material: {material_id: 'Strange ore'}}, {missing: false}]), '1 material short');
+    assert.equal(shortOfText([{missing: true, known: false, need: 1, have: 0, material: {material_id: 'Strange ore'}}, {missing: false}]), 'short 1 of something unfamiliar');
     assert.equal(shortOfText([{missing: true}, {missing: true}, {missing: false}]), '2 of 3 materials short');
+    assert.equal(shortOfText([{missing: true, known: true, need: 1, have: 0, material: {material_id: 'Fine wool cloth of the north'}}]), 'needs 1 Fine wool cloth of the north', 'PS101: a long known name is still named');
+});
+
+test('PS103: one state word per recipe row', async () => {
+    const {recipeStateWord} = await import('../src/crafting_visibility.js');
+    const req = m => ({missing: m});
+    assert.equal(recipeStateWord({available: true, reasons: [], requirements: [req(false)]}), 'ready');
+    assert.equal(recipeStateWord({available: false, reasons: ['missing 1 material'], requirements: [req(true), req(false)]}), 'near');
+    assert.equal(recipeStateWord({available: false, reasons: ['missing 2 materials'], requirements: [req(true), req(true)]}), 'far');
+    assert.equal(recipeStateWord({available: false, reasons: ['no station here', 'missing 1 material'], requirements: [req(true)]}), 'blocked');
+    assert.equal(recipeStateWord({available: false, reasons: ['a material is reserved or you are busy'], requirements: [req(false)]}), 'blocked');
 });
 
 test('recipeRowSummary gives one short word and one spoken line per status (UIC172)', async () => {
     const {recipeRowSummary} = await import('../src/crafting_visibility.js');
     assert.deepEqual(recipeRowSummary({available: true, amount: 2, reasons: [], requirements: []}), {short: '2 ready', explanation: '2 attempts ready; results may vary'});
     assert.equal(recipeRowSummary({available: false, amount: 0, reasons: ['no station here'], requirements: [{missing: true}]}).short, 'No station');
-    assert.equal(recipeRowSummary({available: false, amount: 0, reasons: ['missing 1 material'], requirements: [{missing: true}, {missing: false}]}).short, '1 material short');
+    assert.equal(recipeRowSummary({available: false, amount: 0, reasons: ['missing 1 material'], requirements: [{missing: true}, {missing: false}]}).short, 'short 1 of something unfamiliar');
     assert.equal(recipeRowSummary({available: false, amount: 0, reasons: ['x'], requirements: []}).short, 'Unavailable');
 });
 

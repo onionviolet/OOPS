@@ -57,7 +57,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 import { channelNote } from "./channels.js";
 import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
-import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts} from "./crafting_visibility.js";
+import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts, recipeStateWord} from "./crafting_visibility.js"; import {groupRecipeRows} from "./ui/craft_groups.js";
 import {readPort,ports,whenPortsReady} from './ui_ports.js';
 import {mountTalkView} from './talk_dialogue_host.js';
 import {craftCue} from "./craft_cues.js";
@@ -3254,7 +3254,7 @@ function item_recipe_state(category, recipe) {
     return itemRecipeStatus({recipe,
         stationTier: accessoryCraftingTiers(current_location, undefined, global_flags.is_crafting_unlocked)[category],
         findMaterial: find_recipe_material,
-        isMaterialKnown: id => item_log.is_known(id),
+        isMaterialKnown: id => item_log.is_known(id), isTypeKnown: type => material_type_known(type),
         canConsume: key => { try { return canConsumeNativeCraftingItem(key); } catch { return true; } }});
 }
 
@@ -3383,7 +3383,7 @@ function build_item_recipe_model(selection) {
         // Unknown ingredients stay unnamed: no item name and no material type (CP2).
         const unknown = m.material_type ? !material_type_known(m.material_type) : !req.known;
         const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : displayItemName(item_templates[m.material_id]);
-        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back};
+        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back, from: unknown ? [] : [...new Set((m.material_type ? Object.keys(item_log.items).filter(id => item_templates[id]?.material_type === m.material_type) : [m.material_id]).flatMap(id => knownBestiarySources(id, {knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates})))].slice(0, 4)}; // PS100: where to get it, from what you have met
     });
     const station_name = document.querySelector(`.crafting_mainpage_button[data-crafting_category="${category}"]`)?.textContent.trim() || category;
     const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
@@ -3429,7 +3429,7 @@ function update_item_recipe_row_status(row, category, recipe) {
     const {short, explanation} = recipeRowSummary(state);
     summary.textContent = short;
     summary.title = explanation;
-    summary.dataset.ready = String(state.available);
+    summary.dataset.ready = String(state.available); row.dataset.craftState = recipeStateWord(state); // PS103: one status word
     summary.setAttribute("aria-hidden", "true");
     const count = recipe.getResult().count;
     row.setAttribute("aria-label", `${recipe.name}${count > 1 ? `; output ×${count}` : ""}; ${explanation}`);
@@ -3458,8 +3458,8 @@ function refresh_crafting_detail() {
             update_item_recipe_row_status(row, selected_crafting_category, recipe);
             row.setAttribute("aria-selected", String(is_selected_item_recipe(selected_crafting_category, "items", row.dataset.recipe_id)));
         }
-        sync_item_recipe_tabstops(page);
-    }
+        // PS100/PS101: rows grouped Ready / One short / Far off, and with nothing chosen the first row is selected so the detail is never empty.
+        const first = groupRecipeRows(page); if(first && !(selected_item_recipe?.category === selected_crafting_category && selected_item_recipe?.subcategory === "items" && page.querySelector(`[data-recipe_id="${CSS.escape(selected_item_recipe.recipe_id)}"]`)?.checkVisibility?.() !== false)) { selected_item_recipe = {category: selected_crafting_category, subcategory: "items", recipe_id: first.dataset.recipe_id}; first.setAttribute("aria-selected", "true"); } sync_item_recipe_tabstops(page); }
     const visible = selected_item_recipe && selected_item_recipe.category === selected_crafting_category
         && selected_item_recipe.subcategory === "items" && page?.querySelector(`[data-recipe_id="${selected_item_recipe.recipe_id}"]`);
     renderCraftingDetail(root, visible ? build_item_recipe_model(selected_item_recipe) : null, {

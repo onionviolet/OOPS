@@ -147,3 +147,8 @@
 /* UIC153: headings on the type tokens, not the browser's h2/h3 sizes. */
 .action-legibility h2 { font-size: var(--ui-type-title); }
 .action-legibility__card h3 { font-size: var(--ui-type-body); }
+
+/* PS103: one status vocabulary and colour across Ready now, Crafting and a life's own rows: ready (gain), near (the gap gold), blocked (warning). */
+.action-legibility__card[data-ui-state="ready"] .action-legibility__quote {color: var(--sem-gain, var(--ui-accent));}
+.action-legibility__card[data-ui-state="near"] [data-theme-state="warning"] {color: var(--p23-value, var(--ui-accent));}
+.action-legibility__card[data-ui-state="blocked"] [data-theme-state="warning"] {color: var(--sem-blocked, var(--p23-muted));}

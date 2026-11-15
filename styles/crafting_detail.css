@@ -131,6 +131,16 @@
 #crafting_window .recipe_div[role=option] .recipe_item_name {flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere;}
 #crafting_window .recipe_readiness {margin-left: auto; white-space: nowrap; color: var(--theme-surface-muted, var(--ui-swatch-102));}
 #crafting_window .recipe_readiness[data-ready="true"] {color: var(--sem-gain, var(--ui-swatch-001));}
+/* PS103: one status vocabulary and colour, shared with Ready now: ready (gain), one short (the gap gold), far off (muted), blocked (warning). */
+#crafting_window .recipe_div[data-craft-state="near"] .recipe_readiness {color: var(--p23-value, var(--ui-accent));}
+#crafting_window .recipe_div[data-craft-state="far"] .recipe_readiness {color: var(--p23-muted, var(--theme-surface-muted));}
+#crafting_window .recipe_div[data-craft-state="blocked"] .recipe_readiness {color: var(--sem-blocked, var(--p23-muted));}
+/* PS101: group headers; Far off folds with its count until opened (a selected row stays visible). */
+#crafting_window .craft-group-head {margin: 0; padding: var(--ui-space-2) var(--ui-space-3) var(--ui-space-1); font: inherit; font-size: var(--ui-type-small); color: var(--p23-muted, var(--theme-surface-muted)); background: transparent; border: 0; text-align: left; width: 100%;}
+#crafting_window button.craft-group-head {cursor: pointer;}
+#crafting_window button.craft-group-head:focus-visible {outline: 2px solid var(--theme-focus, var(--workspace-focus)); outline-offset: -2px;}
+#crafting_window .craft-group-head[hidden] {display: none;}
+#crafting_window .crafting_recipe_list:not([data-far-open]) > .recipe_div[data-craft-folded] {display: none !important;}
 
 /* Peers stay on one scrolling strip at larger text. The selected native tab
    and focus remain available without spending a second row on one category. */
@@ -188,3 +198,9 @@
 
 /* UIC172: a skill tab carries how many recipes are ready to make now. */
 #crafting_window .crafting_mainpage_button[data-ready-count]::after { content: ' · ' attr(data-ready-count); color: var(--sem-gain, var(--ui-swatch-001)); }
+
+/* PS100: where to get what is short, under the glance, in the shared one-short colour. */
+#crafting_window .craft_sources {margin: var(--ui-space-2) 0; display: grid; gap: var(--ui-space-1);}
+#crafting_window .craft_source_row {margin: 0; display: flex; flex-wrap: wrap; gap: 0 var(--ui-space-3);}
+#crafting_window .craft_source_name {color: var(--p23-value, var(--ui-accent));}
+#crafting_window .craft_source_from {color: var(--p23-muted, var(--theme-surface-muted));}

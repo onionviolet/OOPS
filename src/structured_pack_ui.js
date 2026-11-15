@@ -169,6 +169,8 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     setText(row.duration,'Takes '+(action.duration>0?`${formatDuration(action.duration)}.`:'no time.'));
                     setText(row.costs,'Inputs: '+(action.costs.length?action.costs.join(', ')+'.':'None quoted.'));
                     setText(row.blockers,action.reasons.join(' '));row.blockers.hidden=!action.reasons.length;row.blockers.dataset.themeState='warning';
+                    // PS103: the shared status word on the row, as in Ready now and Crafting: ready, near (a reason to fetch), blocked.
+                    row.card.dataset.uiState=action.eligible&&view.canWrite?'ready':action.reasons.length&&(action.repeatable||action.completed>0&&!action.once)?'near':'blocked';
                     for(const [key,n]of [['duration',row.duration],['costs',row.costs],['blockers',row.blockers]])n.id='structured-'+encodeURIComponent(action.id)+'-'+key;
                     row.act.setAttribute?.('aria-describedby',[row.duration.id,row.costs.id,...(action.reasons.length?[row.blockers.id]:[])].join(' '));
                     setText(row.act,action.label);row.act.disabled=!view.canWrite||!action.eligible;

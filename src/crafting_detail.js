@@ -62,6 +62,27 @@ function renderGlance(model) {
     return wrap;
 }
 
+// PS100: each short input says have/need and where to get it, from what this character has met (enemies beaten that drop it;
+// the recipes that make it are under "Known producers and uses"). An input never seen says so rather than naming it.
+function renderSources(model) {
+    const short = (model.requirements || []).filter(r => r.missing);
+    if(!short.length) return null;
+    const wrap = el('section', 'craft_sources');
+    wrap.setAttribute('data-craft-sources', '');
+    wrap.setAttribute('aria-label', 'Where to get what is short');
+    wrap.append(el('p', 'craft_detail_label', 'Where to get it'));
+    for(const req of short) {
+        const row = el('p', 'craft_source_row');
+        row.dataset.craftState = 'near';
+        row.append(el('span', 'craft_source_name', `${req.label} ${req.have}/${req.need}`));
+        const from = req.unknown ? 'Not found yet; it turns up as you explore and fight.'
+            : req.from?.length ? `Dropped by ${req.from.join(', ')}.`
+            : 'No source met yet; try a trader, the wilds or a recipe below.';
+        row.append(el('span', 'craft_source_from', from));
+        wrap.append(row);
+    }
+    return wrap;
+}
 function el(tag, className, text) {
     const node = document.createElement(tag);
     if(className) node.className = className;
@@ -135,6 +156,8 @@ export function renderCraftingDetail(root, model, handlers) {
     }
 
     body.append(renderGlance(model));
+    const sources = renderSources(model);
+    if(sources) body.append(sources);
     const uses = el('details', 'craft_detail_section craft_detail_stock');
     uses.open = stockOpen || model.requirements.some(req => req.held_back);
     uses.append(el('summary', '', 'Input stock'));
