@@ -113,6 +113,8 @@ body.shot #pick, body.shot .note { display:none; }
 .inspect { position:absolute; right:6px; bottom:4px; font-size:11.5px; color:var(--muted); border:1px solid var(--quiet); border-radius:3px; padding:0 5px; }
 .band { border:1px solid var(--gold); border-radius:3px; padding:6px 9px; background:rgba(255,210,74,.06); font-size:14px; }
 .band .key { font:11px ui-monospace,monospace; border:1px solid var(--muted); border-radius:2px; padding:0 4px; margin-right:4px; color:var(--muted); }
+.newtag { font-style:normal; font-size:10px; color:var(--gold); border:1px dashed var(--gold); border-radius:2px; padding:0 4px; margin-left:6px; text-transform:none; letter-spacing:0; }
+.versus-allies { font-size:12.5px; margin:0 0 6px; }
 .held { display:flex; gap:8px; border-top:1px solid var(--quiet); padding-top:6px; margin-top:auto; } .held .verb { flex:1; margin:0; font-size:15px; } .c3 .head-run .bar { height:19px; }
 #dtitle { position:fixed; left:398px; bottom:42px; font-size:11px; color:var(--muted); }
 /* Compare view: the draft beside today's screen of the same life. */
@@ -254,25 +256,26 @@ const DRAFTS = {
       today: 'A description line and the patrol report; merit paid in four places (AT41)', codes: 'PS120, PS130, PS143, DSG11; waits on PS2 and PS3 (one wolf owner, one merit writer). Phases from ri_wolf_tide.js; counts are examples.'}),
   },
   d6: {
-    title: 'D6 · Two sides in column 2 (DU14) with sigil tiles (DU37)', today: 'ri-fang-yuan-wild-gu.png',
-    c1: C1({hp: '55/60 hp', st: '36/40 stamina', invTab: 'Combat', combat: row('Atk 1.2 · Spd 1 · AP 32 · Def 1') + row('<b>Normal Stance</b>', '<span class="m">[ change ]</span>')}),
-    c2: [VILLAGE_TIME('01/04/999 08:30, Summer, Mon, <b>Day</b>', '15.3°C', '36%'),
-      draft('Infested field', 'open · groups left 14 / 15 · Clears: 0', '<div class="fight2">' +
-        '<span class="stakes">Out here a fight runs to the finish unless someone yields</span>' +
-        h('div', 'approach2', '<span class="m">Stance</span><span><span class="act on">Normal ▾</span></span><span class="m">If they go down</span><span><span class="act">Finish</span><span class="act on">Spare</span><span class="act">Ask me</span></span><span class="m">If I am losing</span><span><span class="act on">Fight on</span><span class="act">Yield</span><span class="act">Break off at a third</span></span>') +
-        '<div class="versus"><section class="versus-side--you"><h5>You</h5>' + vcard({name: 'Hero', kind: 'you', hp: 92, hpT: '55/60 hp', st: 90, means: 'Means: oak club, 1 bludgeoning', glyph: false, timer: 70}) +
-          '<h5>Beside you</h5>' + vcard({name: 'Dunstan', kind: 'ally · trader', hp: 70, lost: 85, hpT: '21/30 hp', st: 60, means: 'Means: short spear', wants: 'to get back to his stall', timer: 20}) + '</section>' +
-        '<section><h5>Against you · 3</h5>' + vcard({name: 'Wolf rat', kind: 'light', hp: 77, lost: 90, hpT: '23/30 hp', st: 70, means: 'Means: bite, 6 piercing · Hit you 32%', wants: 'to eat', timer: 55}) +
-          vcard({name: 'Wolf rat ', kind: 'down', hp: 0, hpT: '0/30 hp · down', means: 'Means: bite', down: true}) +
-          vcard({name: 'Large wolf rat', kind: 'unread', hp: 100, hpT: '?/? hp', means: 'Means: ?', wants: '?', timer: 10}) + '</section></div>' +
-        h('div', 'band', '<b>The wolf rat is down.</b> <span class="key">1</span><span class="act">Finish it</span> <span class="key">2</span><span class="act">Spare it</span> <span class="m">· your default: Spare</span><div class="m" style="font-size:12.5px;margin-top:3px">▸ Other moves (3): Withdraw · Yield · Fight on (auto)</div>') +
-        '<div class="held">' + verb('⇠', 'Withdraw: back to Village [15m]', 'held in place') + verb('⌕', 'Inspect a fighter', 'separate') + '</div></div>', 'grow')].join(''),
-    c3: JOURNAL('Bestiary', row('<b>Wolf rat</b>', 'seen 3 · Atk ~4') + row('Large wolf rat', unk('?', 'Not watched fighting yet.'))) + SKILLS('Skills', [], row('Club', 'Lv 1')),
-    c4: REPORTS('<b class="g">Right now</b><br>A wolf rat is down: Finish or Spare (1 / 2). Two still stand.', ['[ Entering Infested field ]', 'A fight began: 3 wolf rats.', '<span class="m">Combat lines go to the Combat filter (DU16).</span>'], 'Combat') + spec({code: 'D6 · DU14, DU37 (with the combat lane)',
-      box: '2 · column 2\'s middle (PS121); the mount point waits on ui-cohesion\'s slot selector', verb: 'Fight moves: Finish / Spare on the decision band (1 / 2), Withdraw held at the bottom (PS147), Inspect separate from leaving; "Other moves (n)" folds the rest',
-      ready: 'The decision band is the ready state: a body is down or yields; the Reports head says so', known: 'your HP and stamina, allies\' HP, foes you have watched (HP, means, hit chance)',
-      est: 'a watched foe\'s attack (~4); the attack timer is a rhythm, not a number', unk: 'an unread foe\'s HP, means and wants ("?/? hp")', empty: 'No one against you: the card closes and the location box returns (PS121)',
-      today: 'The live fight card (src/ui/combat_versus.js, combat lane): this mock arranges its parts as two sides; no runtime file touched', codes: 'DU10-DU12, DU14, DU16, DU37, PS121, PS130, PS147, UR99. Fallen foes dim in place as in e36cd2913. Timer styling: feel-finish.'}),
+    title: 'D6 · Two sides in column 2 (DU14) with sigil tiles (DU37), at the wolf front', today: 'ri-fang-yuan-wild-gu.png',
+    c1: C1({name: 'Gu Yue', hp: '52/60 hp', st: '30/42 stamina', invTab: 'Combat', combat: row('Atk 1.2 · Spd 1 · AP 32 · Def 1') + row('<b>Normal Stance</b>', '<span class="m">[ change ]</span>')}),
+    c2: [VILLAGE_TIME('Gu Yue · 16 October, year 1 14:50, <b>Autumn</b>', 'essence 31/44', '58%'),
+      draft('East wall · wolf front', 'live fight', '<div class="fight2">' +
+        '<span class="stakes">On the wall a fight runs to the finish unless someone yields</span>' +
+        h('div', 'approach2', '<span class="m">Stance</span><span><span class="act on">Normal Stance ▾</span></span><span class="m">If they go down</span><span><span class="act">Finish</span><span class="act on">Spare</span><span class="act">Ask me</span></span><span class="m">If I am losing</span><span><span class="act on">Fight on</span><span class="act">Yield</span><span class="act">Break off at a third</span></span>') +
+        '<div class="versus"><section class="versus-side--you"><h5>You <i class="newtag">heading: proposal</i></h5>' + vcard({name: 'Gu Yue', kind: 'you', hp: 87, hpT: '52/60 hp', st: 71, means: 'Means: Moonblade, 6 cutting', glyph: false, timer: 70}) +
+          '<p class="versus-allies">Beside you: the patrol leader, two clan guards</p>' +
+          '<h5>Beside you as cards <i class="newtag">new: proposal</i></h5>' + vcard({name: 'Patrol leader', kind: 'ally', hp: 70, lost: 85, hpT: '42/60 hp', st: 60, means: 'Means: spear, a defensive Gu', wants: 'to hold the gate', timer: 20}) + '</section>' +
+        '<section class="versus-side--them"><h5>Against you · 3 <i class="newtag">heading: proposal</i></h5>' + vcard({name: 'Lightning wolf', kind: 'ordinary', hp: 60, lost: 78, hpT: '18/30 hp', st: 70, means: 'Means: bite, 7 piercing · Hit you 30%', wants: 'to break through', timer: 55}) +
+          vcard({name: 'Lightning wolf ', kind: 'down', hp: 0, hpT: '0/30 hp · down', means: 'Means: bite', down: true}) +
+          vcard({name: 'Large lightning wolf', kind: 'unread', hp: 100, hpT: '?/? hp', means: 'Means: ?', wants: '?', timer: 10}) + '</section></div>' +
+        h('div', 'band', '<b>Lightning wolf is down.</b> <span class="act"><span class="key">1</span>Finish</span> <span class="act"><span class="key">2</span>Spare</span><div class="m" style="font-size:12.5px;margin-top:3px">▸ Other moves (3): Withdraw · Yield · Fight on</div>') +
+        '<div class="held">' + verb('⇠', 'Withdraw: behind the gate [5m]', 'held in place') + verb('⌕', 'Inspect a fighter', 'separate') + '</div></div>', 'grow')].join(''),
+    c3: JOURNAL('Bestiary', row('<b>Lightning wolf</b>', 'seen 41 · Atk ~7') + row('Large lightning wolf', unk('?', 'Not watched fighting yet.'))) + SKILLS('Gu', ['Gu'], row('Moonglow Gu', '<span class="k ready">fed</span>')),
+    c4: REPORTS('<b class="g">Right now</b><br>Lightning wolf is down: 1 Finish or 2 Spare. Two still stand.', ['[ East wall · wolf front ]', 'A pack of three came at the palisade.', '<span class="m">Combat lines go to the Combat filter (DU16).</span>'], 'Combat') + spec({code: 'D6 · DU14, DU37 (checked by the combat lane)',
+      box: '2 · column 2\'s middle (PS121); the mount point waits on ui-cohesion\'s slot selector', verb: 'Band "&lt;name&gt; is down." / "&lt;name&gt; yields." with 1 Finish, 2 Spare (Accept when it yields); no band when the terms already settle the fall ("as you meant to"). Withdraw held at the bottom, Inspect separate',
+      ready: 'The band is the ready state; the Reports head says so', known: 'your HP and stamina, foes you have watched (HP, means, hit chance)',
+      est: 'a watched foe\'s attack (~7); the timer is a rhythm, not a number', unk: 'an unread foe\'s HP, means and wants ("?/? hp")', empty: 'No one against you: the card closes and the location box returns (PS121)',
+      today: 'The live tempo fight card (combat lane). As built: allies are one "Beside you" line and the sides have no headings; ally cards and headings here are new proposals', codes: 'DU10-DU12, DU14, DU16, DU37, PS121, PS130, PS147, UR99. The Infested field\'s original loop has only Stance and Finish/Spare, so this is set at the wolf front.'}),
   },
 };
 const P = new URLSearchParams(location.search), id = P.get('d') || 'd1', D = DRAFTS[id];
