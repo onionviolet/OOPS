@@ -574,3 +574,24 @@ The [surface coverage audit](../../../audits/UI_SURFACE_COVERAGE_2026-11-15.md) 
 | --- | --- |
 | PS194 | Batches 2 and 3 of the drafts take SFC12, SFC21–SFC27 and SFC30–SFC33. Each stray verb joins a verb with a target, and each unrouted panel gets a box and tab (PS125 extended). The catch-all lead panels split into their verbs and tabs after D1–D6 are built. |
 | PS195 | A check in `check:flow` lists any panel or action outside the layout registry, so the count of strays goes down and stays down. |
+
+## Round 19, 2026-11-15: the world crossing gated until it opens, and the day strip the same way
+
+Weibao: "we should put the travel to other world buttom somehwere and gate it until Its unlocked or I die, or some sort of settings area? MOre to consider? COnsider tihs for the timer too" ([log](../../USER_VISION_LOG_2026-11.md#world-crossing-gated-and-the-day-strip-too-2026-11-15)). Today "Cross to another world: Tingen" sits in the Village's verb list from the first minute, and the day strip shows on every page from the start.
+
+### ACT NOW (proposals)
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS196 | **The crossing has three ways to open, and is hidden until one does.** Default: no crossing control shows until one of these happens. (1) **In-world unlock:** the life finds a means to cross (a door, a rite, a cheat that wakes, a world power's release; WER1, WER2). The crossing then appears under Move somewhere else › Another world (PS191), naming its method and what carries (WER3, WER9). (2) **Death:** the death screen offers the crossings this soul can take (XM1 soul into the recently dead, XM4 rebirth and the rest), beside the life's own death outcome. A death is where a new life begins. (3) **A sandbox setting:** Menu › Worlds › "Cross freely" (off by default) shows every crossing at all times, for testing and for a player who wants it (AD22: Weibao is the player). Reason: an always-there door makes every life feel temporary. |
+| PS197 | **Locked crossings are known only as far as the life knows them.** Default: the Journal's Worlds tab lists the lives you hold. A crossing you have heard of but cannot use shows as a pale row ("?", DU6) with what would open it if the life knows ("a rite the Seer may learn"); one it has never heard of does not show. |
+| PS198 | **Crossing is a weighty act.** Default: a confirm step names what carries over and what is left (WER3: body, memories, cheat, items, identity, language, who notices, the old life's state, obligations), whether the old life keeps running or freezes (AD12), and the way back if there is one. A crossing after death has no way back to that body. |
+| PS199 | **The day strip earns its place the same way.** Default: the strip is hidden until the life has something timed. That can be a schedule (Harry's timetable, Klein's office hours), a Gu's meal time, a patrol night or a planned event, or a calendar the character keeps. Until then, the status line shows the time alone. Once it appears, it labels itself (PS190) and shows the day's chips. Dial: the Pin menu shows or hides it at any time. Options › Display has "Day strip: when there is something timed / always / never". Reason: a ruler with nothing on it reads as noise in the first minutes. |
+| PS200 | **Time known as the life knows it.** Default: the clock and date read as the character knows them. A lost-memory start may know the hour from the light but not the date ("? / 04 / 999"), and the strip fills in as the life learns its calendar (KNW, PS130). Dial: "Show the real clock" in Options for players who want it. |
+
+### ACCOUNT FOR NOW
+
+| Code | Consideration |
+| --- | --- |
+| PS201 | **Other unlockable surfaces follow the same rule.** The Skills box's world tabs (Gu, Spells, Beyonder), the Bestiary and the merit board appear when the life first meets them. The first time each appears it gets the "new" pulse (PS153), and a Reports line says what just opened. |
+| PS202 | **Fixtures and tests.** Walk scripts and fixtures that use the crossing turn on "Cross freely" or start past the unlock, so tests do not depend on a hidden control. |

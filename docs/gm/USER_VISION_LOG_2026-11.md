@@ -1635,3 +1635,9 @@ The proposals are in [round 17](dispatch/play-surface-2026-11-14/CONSIDERATIONS.
 Weibao, looking at the round 14 Village home: "what do the numbers on top mean? Where else to put the cross to another world? HOw to put the around you part better? Using more of the space from the journal part? did we implement the D15? More to consider? Do we have ui for other actions too?"
 
 Answered and proposed in [round 18](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-18-2026-11-15-the-strips-numbers-the-world-crossing-around-you-in-column-3-log-filters-and-actions-without-a-surface) (PS190–PS195): the strip explains itself, the world crossing moves under travel, Around you becomes column 3's Here box above the Journal, and YAIR's log filters (DU15) are still to build.
+
+## World crossing gated, and the day strip too, 2026-11-15
+
+Weibao: "we should put the travel to other world buttom somehwere and gate it until Its unlocked or I die, or some sort of settings area? MOre to consider? COnsider tihs for the timer too"
+
+Recorded as his direction. The crossing stays hidden until an in-world unlock or a death opens it, with a sandbox "Cross freely" setting under Menu › Worlds. The day strip likewise appears once the life has something timed, with a setting to show it always or never. See [round 19](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-19-2026-11-15-the-world-crossing-gated-until-it-opens-and-the-day-strip-the-same-way).
