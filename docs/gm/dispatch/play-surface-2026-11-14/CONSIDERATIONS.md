@@ -401,3 +401,51 @@ Weibao on the round 13 mock: "meh, look at how yair does it, and the groupings, 
 | PS126 | **Keep what round 11 and 12 earned, inside the boxes.** Stacked headers become YAIR box headers. The pinned band becomes the column 2 strip. Panel kinds (PS108) now place a panel into a box and tab. Crafting's detail pane lives inside the replaced actions box. |
 | PS127 | **Per world.** The same four columns everywhere. Fang Yuan's verbs (Feed, Patrol, Refine, Hand in) sit in the actions box, his Gu in the Skills box, and the board in the Journal's Data tab or as a verb target. |
 | PS128 | **1920×1080 check.** YAIR's four columns sized for 1366 wide. At 1920 the extra width goes to columns 2 and 3, and nothing scrolls the page. |
+
+## Round 15, 2026-11-15: fleshing round 14 out, subtle details, and what the YAIR Discord adds
+
+Weibao on the round 14 mock: "I likethis, the mock will need more work to be as fleshed out as 'today', some design detils coule be, unknown numbers can be represented as question marks ⏎ Lots of other subtle UI considerations? ⏎ What about from the discord research that we can incorporate at the same time?" ([log](../../USER_VISION_LOG_2026-11.md#round-14-liked-flesh-it-out-2026-11-15)). The Discord source is [YAIR developer media research](../../../research/yair-upstream/DISCORD_RESEARCH_2026-10-20.md) (F5–F34, P5–P17, DC1–DC5); those codes are cited as they stand there.
+
+### ACT NOW: the build carries everything today shows
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS129 | **Nothing is lost in the move.** Default: every row, count, tooltip, link and control that today's screens show lands in a round 14 box (PS125 table as the checklist). The walk scripts and `check:visual -- --lives` run before and after. A capability that the mock trimmed is a finding. Reason: Weibao noted the mock is thinner than today. |
+| PS130 | **Unknown numbers read "?".** Default: a value the character does not know shows "?" ("Atk ? · Spd ? · ?/? hp"). A partly known value shows its range or estimate ("~12", "10–14") at the knowledge level the life has (KNW). A known value shows plain. One renderer handles all three, used by fighters, prices, chances and people. Dial: a cheat or skill raises the level. Reason: YAIR shows "???" for an unknown title; our fights and prices already carry knowledge levels. |
+
+### ACCOUNT FOR NOW: subtle details
+
+| Code | Detail | Default |
+| --- | --- | --- |
+| PS131 | Verbs keep their places | A verb with nothing to do stays in its slot, dimmed, with its reason. Rows do not jump when one opens, and each box remembers which verbs are open per place (F29, P16). |
+| PS132 | Numbers line up | Tabular figures, right-aligned number columns, one unit style (the purse's C/W, the world's own coin), and "×3" counts, not "x3". |
+| PS133 | Bars and coloured text stay legible | Text on bars and rarity colours gets a contrast outline (F11). By default, state is shown by word and colour together, so colour-blind reading works (PS103 tokens). |
+| PS134 | Tooltips hold still | By default, tooltips size to their content up to a cap, sit clear of the pointer and the control, and stay put while their numbers tick, because a moving tooltip cannot be read (F12, F33). |
+| PS135 | One sky signal | Day or night, weather and season read as one strip element: an icon, a word on hover and the temperature (F13). |
+| PS136 | Controls only with behaviour | A button exists only when clicking it does something now, or it carries its reason (F14). |
+| PS137 | Box tabs remember | Each box keeps its last tab per world and per life, so switching lives does not reset the Journal or the Skills box. |
+| PS138 | Empty says what fills it | An empty box or tab names what would fill it ("No quests yet. Old Hesk may have one."). |
+| PS139 | No layout shift | Live numbers and running jobs update in place. By default, a new row goes at the end or into a reserved slot, below the reader's eye, because a jump above it loses their place (UR144). |
+| PS140 | Keys | Number keys for the verbs in order, with Escape as Back from a replaced box (PS93). |
+
+### ACCOUNT FOR NOW: from the YAIR Discord (sources in the research doc)
+
+| Code | Source | Default in round 14's boxes |
+| --- | --- | --- |
+| PS141 | F18, P5 | A long job states its interruption outcome before you start ("Stop keeps finished batches; the current one is lost"), in the actions box head and the verb's tooltip. |
+| PS142 | F19, P6 | Gathering and other repeats give time, chance and yield separate jobs: "every 6 min · 40% · 1–2 herbs", with real time second and qualified. |
+| PS143 | F20, P7 | The location box's description changes with what happened there (a cleared field, a wall after the wolf tide). |
+| PS144 | F21, P8, P11 | Crafting shows how many of the output you own. A missing input opens its producer in the inspector, and Back returns you to the recipe. |
+| PS145 | F25, P10 | A batch that will stop at a material boundary says so before you start ("makes 3, then runs out of sinew"). |
+| PS146 | F29, P12, P13 | The Skills box gets a stable "Learning now" view beside the full list, and says why a chosen practice is not happening. |
+| PS147 | F32, P16 | In a fight, the controls hold still while fighters join or fall; inspecting a fighter and leaving are separate controls. |
+| PS148 | F7 | Gear shows deltas against what you wear, with multipliers as multipliers. |
+| PS149 | F6 | Reports group repeated rewards into one summary line with a count, consistent with UR88, and keep their order. |
+| PS150 | F31, P15 | A pursuit shows evidence that it is still promising (a lead, a rumour) without showing its payoff. |
+
+### LATER
+
+| Code | Item |
+| --- | --- |
+| PS151 | F17: a map travel selector, once places generate maps (SR rules); it is not a round 14 requirement. |
+| PS152 | F27, P14: compare an assembled item by its useful results; it goes with making systems (MR). |

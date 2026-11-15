@@ -1598,3 +1598,9 @@ Recorded as his direction for ui-cohesion: mock [round 13](dispatch/play-surface
 Weibao on the round 13 mock (regions by question, verbs on noun cards, a five-family top bar): "meh, look at how yair does it, and the groupings, consider in depth accordingly?"
 
 Recorded as his direction. Round 13's noun cards and top-bar families are set aside. [Round 14](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-14-2026-11-15-back-to-yairs-groupings-in-depth) takes YAIR's four columns as the spine (You; Place and action; Journal and Skills; Reports), with actions grouped by verb in YAIR's order and modes replacing a box in place. It is mocked before building, as he chose for round 13.
+
+## Round 14 liked; flesh it out, 2026-11-15
+
+Weibao on the round 14 mock (YAIR's four columns): "I likethis, the mock will need more work to be as fleshed out as 'today', some design detils coule be, unknown numbers can be represented as question marks ⏎ Lots of other subtle UI considerations? ⏎ What about from the discord research that we can incorporate at the same time?"
+
+Recorded as acceptance of round 14's direction. The build carries everything today's screens show (PS129), and an unknown number reads "?" (PS130). [Round 15](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-15-2026-11-15-fleshing-round-14-out-subtle-details-and-what-the-yair-discord-adds) lists the subtle details and the YAIR Discord findings that go in at the same time.
