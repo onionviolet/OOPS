@@ -59,6 +59,7 @@ import {reachableFrom, walkFrom, srcFiles} from './reachable.mjs';
 import {recordsOf} from '../src/knowledge_record.js';
 import {readLineage} from '../src/world_substrate.js';
 import {MECHANISMS, SPLIT_RULE, splitLabelled, fitMechanisms, scoreHeldOut} from '../src/brew_heldout.js';
+import {SPLIT_RULE as GU_SPLIT_RULE, splitGu, fitGu, scoreGu} from '../src/gu_heldout.js';
 import {SPLIT_RULE as SPELL_SPLIT_RULE, splitSpells, fitSpells, scoreSpells, singletonIntentRows} from '../src/spell_heldout.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -549,7 +550,18 @@ export async function heldOutScores(ledgers) {
     }
     out.set('hp_potions', {before, after, unlabelled, ruleInformed: RULE_INFORMED});
     out.set('hp_spells', await spellHeldOut());
+    out.set('gu_kinds', await guHeldOut());
     return out;
+}
+
+// Gu kinds (2026-11-14): a seeded split over catalogue kinds with a function reading; activation rows run the real engine.
+export async function guHeldOut() {
+    const {guCatalogue} = await import('../src/gu_catalogue.js');
+    const split = splitGu(Object.entries(guCatalogue));
+    const fit = fitGu(split.tuned, guCatalogue);
+    const score = scoreGu(split.heldOut, fit, guCatalogue);
+    const tunedScore = scoreGu(split.tuned, fit, guCatalogue);
+    return {kind: 'gu', split, fit, score, tunedScore};
 }
 
 // Hogwarts spells (wave 2026-11-14). The fit and the prediction read the tuning rows and the blind gloss file only.
@@ -591,6 +603,24 @@ const countEngine = (results, key, skip = new Set()) => {
 const short = id => id.replace('hp.potion.', '');
 const reasonOf = v => v.replace(/^cannot: /, '').replace(/\|/g, '/');
 
+function renderGuHeldOut(name, h) {
+    const sc = h.score, t = h.tunedScore, cats = {};
+    for (const r of sc.misses) for (const m of r.misses) cats[m.category] = (cats[m.category] ?? 0) + 1;
+    const rank = {'wrong rule': 0, 'missing rule': 1, 'missing data': 2, "author's exception": 3, 'undecidable default': 4};
+    const lines = ['', `### ${name}`, '',
+        `- **Finding: the engine runs only authored abilities.** ${sc.withAbility} of ${sc.n} held-out kinds carry an activation row (its effect, pool and charge are built from the scene's \`observed\` text and an \`authored\` quantity), so ${sc.cannotRun} cannot run an engine probe (no activation row, or no class predicted, or no probe effect for the class). The 5 refinement recipes are not scored: each names its own ingredients and stages by hand, and no rule predicts a stage list. A run needs a blind name lexicon (as the spell split used) before the rule can move this score.`,
+        '', '| Held-out matches | Held out | Diagnostic outcome (function class) | Engine outcome (effect class) | Engine route (pool and charge) |', '| --- | ---: | ---: | ---: | ---: |',
+        `| All held-out kinds | ${sc.n} | ${sc.diagOutcome} | ${sc.engineOutcome} of ${sc.ran} (${sc.cannotRun} cannot run) | ${sc.engineRoute} of ${sc.ran} |`,
+        '', `- **Split rule** (\`src/gu_heldout.js\`): ${GU_SPLIT_RULE}`,
+        `- **Tuned on** (${h.split.tuned.length}): ${h.split.tuned.join(', ')}. On the tuning kinds, reported apart: diagnostic outcome ${t.diagOutcome} of ${t.n}.`,
+        `- **Out of scope** (${h.split.outOfScope.length}): kinds with no function reading in the catalogue.`,
+        `- **Rule**: class votes from wiki type and path labels and name words seen on the tuning kinds (ties alphabetical); pool from the wiki rank (6 and up immortal, else primeval); charge from the tuned rank band, else the tuned mode. The probe ability is the plainest effect of the predicted class, run through \`resolveGuActivation\`. Outcome and route are separate. No rule was changed after scoring, so there is no untouched-subset line.`,
+        `- **Misses** (${Object.entries(cats).sort((a, b) => rank[a[0]] - rank[b[0]]).map(([k, v]) => `${v} ${k}`).join(', ')}): per-kind line below.`, '',
+        '| Kind | Actual class | Predicted | Diagnostic | Engine outcome | Engine route | First miss |', '| --- | --- | --- | --- | --- | --- | --- |'];
+    for (const r of sc.rows) lines.push(`| ${r.id} | ${r.truth} | ${r.predicted} | ${r.diagOutcome ? 'match' : 'miss'} | ${r.engine ? (r.engine.ran ? (r.engine.outcome ? 'match' : 'mismatch') : 'cannot run') : 'no activation row'} | ${r.engine?.ran ? (r.engine.route ? 'match' : 'mismatch') : ''} | ${r.miss ? `${r.miss.category}: ${r.miss.why}`.replace(/\|/g, '/') : ''} |`);
+    return lines;
+}
+
 function renderSpellHeldOut(name, h) {
     const d = h.diag, u = h.untouched, b = h.bespoke, e = countEngine(h.engineHeld, 'outcome'), et = countEngine(h.engineTuned, 'outcome');
     const rank = {'wrong rule': 0, 'missing rule': 1, 'missing data': 2, 'undecidable default': 3};
@@ -629,6 +659,11 @@ function renderHeldOut(held, ledgers) {
     for (const l of ledgers) {
         const h = held.get(l.name);
         if (!h) { lines.push(`| ${l.name} | 0 | 0 | | | | | none yet |`); continue; }
+        if (h.kind === 'gu') {
+            const sc = h.score;
+            lines.push(`| ${l.name} | ${h.split.tuned.length} | ${sc.n} | ${sc.diagOutcome} of ${sc.n} | not scored without an engine | ${sc.engineOutcome} of ${sc.ran} (${sc.cannotRun} cannot run) | ${sc.engineRoute} of ${sc.ran} | ${GU_SPLIT_RULE} |`);
+            continue;
+        }
         if (h.kind === 'spell') {
             const eo = countEngine(h.engineHeld, 'outcome');
             lines.push(`| ${l.name} | ${h.split.tuned.length} | ${h.diag.n} | ${h.diag.outcome} of ${h.diag.n} | ${h.diag.targeting} of ${h.diag.n} (targeting) | ${eo.match} of ${eo.n} (${eo.cannot} cannot run) | not an engine distinction | ${SPELL_SPLIT_RULE} |`);
@@ -638,6 +673,7 @@ function renderHeldOut(held, ledgers) {
         lines.push(`| ${l.name} | ${a.split.tuned.length} | ${a.diag.n} | ${a.diag.outcome} of ${a.diag.n} | ${a.diag.route} of ${a.diag.n} | ${eo.match} of ${eo.n} | ${er.match} of ${er.n} | ${SPLIT_RULE} |`);
     }
     for (const [name, h] of held) {
+        if (h.kind === 'gu') { lines.push(...renderGuHeldOut(name, h)); continue; }
         if (h.kind === 'spell') { lines.push(...renderSpellHeldOut(name, h)); continue; }
         const a = h.after, b = h.before, skip = new Set(h.ruleInformed);
         const row = (label, sc) => {

@@ -30,7 +30,7 @@
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1584 of 1821 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1606 of 1843 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -41,7 +41,7 @@
 | Ledger | Tuned on | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route | Split |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | creatures | 0 | 0 | | | | | none yet |
-| gu_kinds | 0 | 0 | | | | | none yet |
+| gu_kinds | 8 | 49 | 4 of 49 | not scored without an engine | 1 of 6 (43 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
@@ -201,6 +201,72 @@
 | sticking | undecidable default | time | bind motion object instant | bind motion object lasting | the row note marks the time as authored or inferred | match |
 
 **Engine cannot-run reasons** (held out): no prediction (no identity evidence named an intent) (37); the engine has no generic world term for remove integrity (4); the engine has no generic world term for remove material (4); the engine has no generic world term for end effect (3); no generic probe for the predicted end effect (2); the engine has no generic world term for bind mind (2); the engine has no generic world term for block harm (2); no generic probe for the predicted add cold (1); no generic probe for the predicted add fire (1); no generic probe for the predicted add force (1); no generic probe for the predicted add voice (1); no generic probe for the predicted remove integrity (1); the engine has no generic world term for add pain (1); the engine has no generic world term for alter_law access (1); the engine has no generic world term for alter_law magic (1); the engine has no generic world term for alter_law mark (1); the engine has no generic world term for alter_law motion (1); the engine has no generic world term for alter_law presence (1); the engine has no generic world term for block fire (1); the engine has no generic world term for block sight (1); the engine has no generic world term for block sound (1); the engine has no generic world term for block voice (1); the engine has no generic world term for command agent (1); the engine has no generic world term for command mind (1); the engine has no generic world term for copy form (1); the engine has no generic world term for move custody (1); the engine has no generic world term for sense composition (1); the engine has no generic world term for sense mind (1); the engine has no generic world term for sense presence (1); the engine has no generic world term for transform capacity (1); the engine has no generic world term for transform memory (1); the engine has no generic world term for transform mind (1); the engine has no generic world term for transform mood (1); the engine has no generic world term for transform orientation (1); the engine has no generic world term for transform vitality (1).
+
+### gu_kinds
+
+- **Finding: the engine runs only authored abilities.** 18 of 49 held-out kinds carry an activation row (its effect, pool and charge are built from the scene's `observed` text and an `authored` quantity), so 43 cannot run an engine probe (no activation row, or no class predicted, or no probe effect for the class). The 5 refinement recipes are not scored: each names its own ingredients and stages by hand, and no rule predicts a stage list. A run needs a blind name lexicon (as the spell split used) before the rule can move this score.
+
+| Held-out matches | Held out | Diagnostic outcome (function class) | Engine outcome (effect class) | Engine route (pool and charge) |
+| --- | ---: | ---: | ---: | ---: |
+| All held-out kinds | 49 | 4 | 1 of 6 (43 cannot run) | 4 of 6 |
+
+- **Split rule** (`src/gu_heldout.js`): Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one).
+- **Tuned on** (8): fire-source, light-source, lightning-eye, moon-scar, nine-eyes-liquor-worm, starlight-firefly, stealth-scales, vitality-grass. On the tuning kinds, reported apart: diagnostic outcome 8 of 8.
+- **Out of scope** (21): kinds with no function reading in the catalogue.
+- **Rule**: class votes from wiki type and path labels and name words seen on the tuning kinds (ties alphabetical); pool from the wiki rank (6 and up immortal, else primeval); charge from the tuned rank band, else the tuned mode. The probe ability is the plainest effect of the predicted class, run through `resolveGuActivation`. Outcome and route are separate. No rule was changed after scoring, so there is no untouched-subset line.
+- **Misses** (30 missing rule, 27 missing data, 2 author's exception): per-kind line below.
+
+| Kind | Actual class | Predicted | Diagnostic | Engine outcome | Engine route | First miss |
+| --- | --- | --- | --- | --- | --- | --- |
+| after | produce | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| all-out-effort | strength | convert-essence | miss | no activation row |  | missing rule: identity votes convert-essence/economize/illuminate; no feature in the fit votes the true class strength |
+| ant-nest | produce | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| attitude | mind | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| blood-asset | suppress | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| borrow-strength | strength | illuminate | miss | no activation row |  | missing rule: identity votes illuminate/convert-essence/economize; no feature in the fit votes the true class strength |
+| charging-crash | move | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| charred-thunder-potato | attack | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| charred-thunder-potato-mother | produce | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| duplicate | amplify | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| earth-communication-ear-grass | sense | produce | miss | cannot run |  | missing rule: identity votes produce; no feature in the fit votes the true class sense |
+| earth-overlord | strength | illuminate | miss | no activation row |  | missing rule: identity votes illuminate/convert-essence/economize; no feature in the fit votes the true class strength |
+| enlarge | amplify | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| fire-discharge | move | economize | miss | mismatch | mismatch | missing rule: identity votes economize; no feature in the fit votes the true class move |
+| fixed-immortal-travel | travel | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| formation-plate | formation | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| four-flavors-liquor-worm | convert-essence | convert-essence | match | no activation row |  |  |
+| group-strength | strength | convert-essence | miss | no activation row |  | missing rule: identity votes convert-essence/economize/illuminate; no feature in the fit votes the true class strength |
+| ice-blade | attack | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| landscape-as-before | restore | produce | miss | no activation row |  | missing rule: identity votes produce; no feature in the fit votes the true class restore |
+| liquor-worm | convert-essence | convert-essence | match | no activation row |  |  |
+| little-light | amplify | economize | miss | mismatch | match | missing rule: identity votes economize; no feature in the fit votes the true class amplify |
+| love | travel | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| moonglow | attack | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| moonlight | attack | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| mountain-as-before | stabilize | produce | miss | no activation row |  | missing rule: identity votes produce; no feature in the fit votes the true class stabilize |
+| moving-fire | move | economize | miss | no activation row |  | missing rule: identity votes economize; no feature in the fit votes the true class move |
+| myriad-self | strength | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| photo-audio | record | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| plunder | steal | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| rainbow-light | move | economize | miss | no activation row |  | missing rule: identity votes economize; no feature in the fit votes the true class move |
+| red-fire | attack | economize | miss | mismatch | mismatch | missing rule: identity votes economize; no feature in the fit votes the true class attack |
+| river-as-before | stabilize | produce | miss | no activation row |  | missing rule: identity votes produce; no feature in the fit votes the true class stabilize |
+| scale-armor | guard | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| self-reliance | heal | produce | miss | no activation row |  | missing rule: identity votes produce; no feature in the fit votes the true class heal |
+| self-strength | strength | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| seven-fragrances-liquor-worm | convert-essence | convert-essence | match | no activation row |  |  |
+| spring-autumn-cicada | time | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| stealth-rock | conceal | conceal | match | match | match |  |
+| thunder-shield | guard | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| thunderclap | attack | sense | miss | mismatch | match | missing rule: identity votes sense; no feature in the fit votes the true class attack |
+| thunderwings | fly | sense | miss | mismatch | match | missing rule: identity votes sense; no feature in the fit votes the true class fly |
+| tyrant-strength | strength | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| vitality-leaf | heal | produce | miss | no activation row |  | missing rule: identity votes produce; no feature in the fit votes the true class heal |
+| water-shield | guard | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| white-jade | guard | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| wind-overlord | strength | illuminate | miss | no activation row |  | missing rule: identity votes illuminate/convert-essence/economize; no feature in the fit votes the true class strength |
+| year-gu | time | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| years-flow-like-water | produce | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 
 ## Blocking rules
 
