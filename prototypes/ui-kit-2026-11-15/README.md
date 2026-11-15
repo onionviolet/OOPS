@@ -19,5 +19,5 @@ Sources: rounds 14 to 16 in the [play surface considerations](../../docs/gm/disp
 
 Open points:
 - Class names (`.box`, `.tab`, `.verb`, `.mark`, `.num`, `.k`) are the mock's. They change to match the frame ui-cohesion builds.
-- Glow and motion (cells 4, 7 and 8): the favourite and worn marks (☆, ◆) and the pulse timing (`--ui-motion-settle`) match feel-finish's `styles/feel_finish.css`. The rest stays a draft until their PS153 to PS157 land.
+- Glow and motion (cells 4, 7 and 8) follow feel-finish's settled names and link `styles/feel_finish.css`: ready is a green inset edge (`--feel-ready-edge`) with one `feel-ready-pulse`; near is a 1px dashed gold outline; rarity is an inset glow on the row from `--feel-rarity` (`data-feel-rarity`), with no text glow; plus `feel-new-pulse`, `feel-tick-up`, the ☆ and ◆ marks, the hover, press and focus tokens, and `html[data-feel-motion=reduce]` for reduce motion.
 - Quality grade names (fine, rare, masterwork, relic) are placeholders; each world names its own.

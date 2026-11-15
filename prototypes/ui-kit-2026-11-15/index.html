@@ -10,6 +10,7 @@
      .mark, .num) are the mock's until ui-cohesion's frame names them; glow and motion follow feel-finish's
      styles/feel_finish.css where it has landed (marks, --ui-motion-settle), drafts elsewhere. Not runtime code. Keys: r toggles reduce motion, p replays the "became ready" pulse. -->
 <link rel="stylesheet" href="../../styles/ui_tokens.css">
+<link rel="stylesheet" href="../../styles/feel_finish.css"><!-- feel-finish tokens and keyframes: --feel-*, feel-ready-pulse, feel-new-pulse, feel-tick-up -->
 <style>
 :root { --bg:#0a0d24; --box:#141b45; --line:#5b63b0; --quiet:#2d3570; --text:#e8ecff; --muted:#a3abd6; --gold:#ffd24a;
   --rep:#2a1d4d; --hp:#ff6b6b; --st:#4ee07a; --mana:#7f8ed8;
@@ -63,19 +64,20 @@ main { position:absolute; top:46px; left:14px; right:14px; bottom:12px; display:
 .bar i { position:absolute; inset:0; width:var(--f); background:var(--c); border-radius:2px; transition:width .5s ease-out; }
 .bar span { position:relative; -webkit-text-stroke:0; text-shadow:-1px 0 #000, 1px 0 #000, 0 -1px #000, 0 1px #000; }
 .bar.unk i { background:repeating-linear-gradient(45deg, #3a4170 0 6px, #2a2f55 6px 12px); width:100%; }
-/* Glow (PS153, PS154): rarity name with a soft edge, new = one pulse and a dot, ready = gold edge. */
-.q { text-shadow:0 0 6px color-mix(in srgb, currentColor 60%, transparent); }
-.q.common { color:var(--q-common); text-shadow:none; } .q.fine { color:var(--q-fine); } .q.rare { color:var(--q-rare); } .q.masterwork { color:var(--q-masterwork); } .q.relic { color:var(--q-relic); }
+/* Glow (PS153, PS154), matched to feel-finish (styles/feel_finish.css): rarity is an inset glow on the row in --feel-rarity, not on the
+   letters (the Gothic face takes no text glow); the name keeps its kind colour. Ready = green inset edge (--feel-ready-edge) with one
+   feel-ready-pulse; near = 1px dashed gold outline (--feel-near); new = one feel-new-pulse; ticks use feel-tick-up. All at --ui-motion-settle. */
+.q { color:var(--text); }
+.qw.fine { color:var(--q-fine); } .qw.rare { color:var(--q-rare); } .qw.masterwork { color:var(--q-masterwork); } .qw.relic { color:var(--q-relic); }
+[data-feel-rarity]:not([data-feel-rarity="common"]) { box-shadow:inset 0 0 var(--feel-glow-blur, 8px) color-mix(in srgb, var(--feel-rarity) 45%, transparent); }
+[data-feel-rarity="masterwork"], [data-feel-rarity="relic"] { box-shadow:inset 2px 0 0 var(--feel-rarity), inset 0 0 calc(var(--feel-glow-blur, 8px) * 1.5) color-mix(in srgb, var(--feel-rarity) 55%, transparent); }
 .newdot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--gold); margin-right:5px; }
-.isnew { animation:newpulse var(--pulse) ease-out 1; }
-.fav { color:var(--gold); } .worn { color:var(--k-ready); font-size:12px; margin-left:3px; } .eq { font-size:11px; border:1px solid var(--muted); color:var(--muted); border-radius:2px; padding:0 3px; }
-.verb.ready { border-color:var(--gold); box-shadow:0 0 0 1px var(--gold), 0 0 8px rgba(255,210,74,.35); }
-.verb.ready.became { animation:readypulse var(--pulse) ease-out 1; }
-.verb.near { border-style:dashed; border-color:var(--k-near); }
-@keyframes readypulse { 0% { box-shadow:0 0 0 1px var(--gold), 0 0 0 rgba(255,210,74,.0); } 40% { box-shadow:0 0 0 1px var(--gold), 0 0 18px rgba(255,210,74,.75); } 100% { box-shadow:0 0 0 1px var(--gold), 0 0 8px rgba(255,210,74,.35); } }
-@keyframes newpulse { 0% { background:rgba(255,210,74,.0); } 35% { background:rgba(255,210,74,.28); } 100% { background:rgba(255,210,74,0); } }
-@keyframes tick { 0% { color:var(--k-ready); transform:translateY(-2px); } 100% { color:inherit; transform:none; } }
-.ticked { display:inline-block; animation:tick .8s ease-out 1; }
+.isnew { animation:feel-new-pulse var(--ui-motion-settle, 900ms) var(--ui-motion-ease, ease-out) 1; }
+.fav { color:var(--gold); } .eq { font-size:11px; border:1px solid var(--muted); color:var(--muted); border-radius:2px; padding:0 3px; }
+.verb.ready { border-color:var(--feel-ready, var(--k-ready)); box-shadow:var(--feel-ready-edge, inset 2px 0 0 var(--k-ready)); }
+.verb.ready.became { animation:feel-ready-pulse var(--ui-motion-settle, 900ms) var(--ui-motion-ease, ease-out) 1; }
+.verb.near { outline:1px dashed color-mix(in srgb, var(--feel-near, var(--gold)) 70%, transparent); outline-offset:1px; }
+.ticked { display:inline-block; animation:feel-tick-up var(--ui-motion-settle, 900ms) var(--ui-motion-ease, ease-out) 1; }
 .floaty { position:absolute; right:10px; top:-4px; color:var(--hp); font-weight:700; font-size:13px; animation:floatoff 1.4s ease-out infinite; }
 @keyframes floatoff { 0% { opacity:0; transform:translateY(6px); } 20% { opacity:1; } 100% { opacity:0; transform:translateY(-16px); } }
 body.rm *, body.rm *::before, body.rm *::after { animation:none !important; transition:none !important; }
@@ -105,9 +107,9 @@ body.rm *, body.rm *::before, body.rm *::after { animation:none !important; tran
 #rmstate { color:var(--gold); }
 /* Live states (coordinator 2026-11-15: forms move, not only static samples). Real :hover, :active, :focus-visible. */
 .btn, .tab, .verb, .act, .filters span { cursor:pointer; transition:background-color .12s, border-color .12s, transform .06s, box-shadow .12s; }
-.btn:hover, .tab:not(.on):hover, .act:hover { background:#26357e; border-color:var(--gold); }
-.btn:active, .tab:active, .verb:active, .act:active { transform:translateY(1px); filter:brightness(.88); }
-.btn:focus-visible, .tab:focus-visible, .verb:focus-visible, .act:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+.btn:hover, .tab:not(.on):hover, .act:hover { background:color-mix(in srgb, #1d2a66, var(--gold) 12%); background:var(--feel-hover-fill, #26357e); border-color:var(--gold); }
+.btn:active, .tab:active, .verb:active, .act:active { background:var(--feel-press-fill, #141d4a); transform:translateY(1px); }
+.btn:focus-visible, .tab:focus-visible, .verb:focus-visible, .act:focus-visible { outline:var(--feel-focus-ring, 2px solid var(--gold)); outline-offset:2px; }
 .verb:not(.dim):hover { background:rgba(255,255,255,.06); border-color:#a9a6d0; } .verb.ready:hover { border-color:var(--gold); }
 .verb.dim { cursor:not-allowed; }
 .btn[aria-disabled="true"] { opacity:.5; cursor:not-allowed; } .btn[aria-disabled="true"]:hover { background:#1d2a66; border-color:var(--line); }
@@ -198,7 +200,7 @@ main[hidden] { display:none; } .pager { margin-left:auto; color:var(--gold); bor
   <div class="verb ready" id="pulseA" tabindex="0"><span class="key">2</span><span class="ic">⚒</span><span>Try to craft something</span><span class="mark k ready" id="readyMark">2 ready</span></div>
   <div class="verb near"><span class="key">2</span><span class="ic">⚒</span><span>Try to craft something</span><span class="mark k near">1 close · needs 2 sinew</span></div>
   <div class="verb"><span class="key">9</span><span class="ic">●</span><span>Take an action</span><span class="mark k ready">story: 2 choices</span></div>
-  <div class="cap">The mark is Ready now's row folded onto its verb: a count and a noun ("1 new", "2 hungry", "1 ready"), or the one thing missing when near. No mark = nothing waiting. Ready = gold edge with one slow pulse when it becomes ready (PS154); near = dashed edge.</div>
+  <div class="cap">The mark is Ready now's row folded onto its verb: a count and a noun ("1 new", "2 hungry", "1 ready"), or the one thing missing when near. No mark = nothing waiting. Ready = green inset edge with one pulse when it becomes ready (feel-finish: --feel-ready-edge, PS154); near = a 1px dashed gold outline.</div>
 </section>
 
 <section class="cell"><h2>5 · Numbers: known, estimated, "?" <code>.num · PS130, PS132</code></h2>
@@ -222,15 +224,15 @@ main[hidden] { display:none; } .pager { margin-left:auto; color:var(--gold); bor
   <div class="cap">By default the same four words and colours in Ready now, the lists, verb marks and the inspector. Each has a glyph too (● ◐ ○ ⊘) so colour-blind reading works. Blocked carries its reason, limited to what the observer knows (DSG10).</div>
 </section>
 
-<section class="cell"><h2>7 · Glow by meaning <code>.q .isnew · PS153 (draft, feel-finish owns)</code></h2>
+<section class="cell"><h2>7 · Glow by meaning <code>data-feel-rarity · PS153 (feel-finish)</code></h2>
   <div class="box teal"><h3><span>Inventory</span><small></small></h3><div class="body">
     <div class="row"><span class="q common">☆ Stale bread ×5</span><span class="m">2C</span></div>
-    <div class="row"><span class="q fine">☆ Sinew cord</span><span class="m">fine</span></div>
-    <div class="row isnew" id="pulseB"><span><span class="newdot"></span><span class="q rare">Wolf rat pelt, clean</span></span><span class="m">new</span></div>
-    <div class="row"><span><span class="fav">☆</span><span class="worn" title="worn">◆</span> <span class="q masterwork">Dormitory guard's sabre</span></span><span class="m">masterwork</span></div>
-    <div class="row"><span class="q relic">☆ Hidden lightning wolf eye ×6</span><span class="m">relic</span></div>
+    <div class="row" data-feel-rarity="fine" style="--feel-rarity:var(--q-fine)"><span class="q">☆ Sinew cord</span><span class="qw fine">fine</span></div>
+    <div class="row isnew" id="pulseB" data-item-new data-feel-rarity="rare" style="--feel-rarity:var(--q-rare)"><span><span class="newdot"></span><span class="q">Wolf rat pelt, clean</span></span><span class="qw rare">rare · new</span></div>
+    <div class="row" data-feel-fav data-feel-worn data-feel-rarity="masterwork" style="--feel-rarity:var(--q-masterwork)"><span><span class="worn" title="worn">◆</span><span class="fav">☆</span> <span class="q">Dormitory guard's sabre</span></span><span class="qw masterwork">masterwork</span></div>
+    <div class="row" data-feel-rarity="relic" style="--feel-rarity:var(--q-relic)"><span class="q">☆ Hidden lightning wolf eye ×6</span><span class="qw relic">relic</span></div>
   </div></div>
-  <div class="cap">Quality = coloured name with a soft edge (common has none). New = one pulse and a dot until hovered. ☆ = favourited, ◆ = worn, matching feel-finish's marks (data-feel-fav, data-feel-worn). Each world names its own grades; a glow means one thing per world.</div>
+  <div class="cap">Rarity = a soft inset glow on the row in its colour, with a solid left edge for the top grades; common has none. The name keeps its kind colour; the grade word carries the rarity colour. New = one pulse and a dot until hovered. ☆ = favourited, ◆ = worn, matching feel-finish's marks (data-feel-fav, data-feel-worn). Each world names its own grades; a glow means one thing per world.</div>
 </section>
 
 <section class="cell"><h2>8 · Motion that explains <span class="live">live loop</span> <code>PS155, PS156 (draft)</code></h2>
@@ -369,7 +371,7 @@ function beat() {
   $('jobBar').style.setProperty('--f', (job / 3 * 100 - 10) + '%'); $('jobLeft').textContent = `${(3 - job) * 15 + 3} min left`;
 }
 setInterval(() => { mins = mins <= 5 ? 45 : mins - 5; $('tipClock').textContent = `${mins} min`; }, 1000);
-function setRM(on) { body.classList.toggle('rm', on); rmState.textContent = on ? 'on' : 'off'; }
+function setRM(on) { body.classList.toggle('rm', on); document.documentElement.dataset.feelMotion = on ? 'reduce' : 'on'; rmState.textContent = on ? 'on' : 'off'; }
 addEventListener('keydown', e => { if (e.target.matches('input, textarea')) return; if (e.key === 'r') setRM(!body.classList.contains('rm')); if (e.key === 'p') beat(); if (e.key === 'Escape') $('tipHost').classList.remove('pinned'); });
 if (P.has('still')) { setRM(true); rmState.textContent = 'on (capture)'; $('pulseA').classList.add('became'); }
 else { beat(); setInterval(beat, 4000); }
