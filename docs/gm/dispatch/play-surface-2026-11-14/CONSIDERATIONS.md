@@ -243,3 +243,25 @@ Weibao: "more to consider? HOw to ficx? other aspects to consider? what represen
 - **PS86. Dress each world.** One grammar with different materials: Gu in jade, moonlight and ink; LOTM in brass, fog and paper; Hogwarts in parchment and house colours. A world changes the dress, not the controls (UR94, AD39 look).
 - **PS87. A form is only as good as its data.** Before a form ships, the data it draws must have one owner (the lesson from PS2 and PS61). A pretty map over a duplicated count is worse than a list.
 - **PS88. Order the work by question, not by feature.** The first forms are the ones the most screens need: the reserve gauge (PS77) for B and the per-world left column; the place map (PS76) for "This place"; the turn track (PS81) for the fight card. The rest follow per feature.
+
+## Round 10, 2026-11-15: attention, first minutes, guards and the landing
+
+Weibao: "more to consider?". These angles were not covered by rounds 1 to 9. Proposals (AD32).
+
+### ACCOUNT FOR NOW
+
+| Code | Finding | Default |
+| --- | --- | --- |
+| PS89 | **Attention is now spent in five places.** The status line, the day strip, Ready now, cues and Reports all ask for the eye, and the fight band and the "ask me" stops add more. Without tiers, everything shouts. | Adopt UR88's notice tiers, held for Weibao. Only a stop-list item interrupts: a choice that needs the player, a known event, a lethal edge, or an exhausted supply. Everything else is a log line, a dot on its home or a recap line, and repeats group with a count. The player can raise or lower any kind. This is the piece that keeps D and the stops calm. |
+| PS90 | **The visual guards only cover the Village.** The five baselines (home, crafting, inventory, journal, stats) are all native, and the frame changes now land on the leads' screens too. | Add baselines for Fang Yuan's day and Klein's Tingen at 1920×1080 (owner: ui-cohesion), so a frame change cannot quietly break a lead's screen. |
+| PS91 | **No full gate has run on the combined tree since the push began.** Lanes run `test:changed`. Two runs were killed or hung, and `main.js` was briefly emptied. | Before calling the push done: one full `npm test`, `check:flow`, `check:visual`, and the three lead journeys on their private saves (PS6). Then re-adopt the app (PS64). The coordinator runs it once the lanes go quiet. |
+| PS92 | **The coordinator is near its context limit.** | Hand off to a fresh coordinator from CHECKPOINT and CONSIDERATIONS (PS66) before compaction, not after. |
+
+### LATER
+
+| Code | Item |
+| --- | --- |
+| PS93 | **Keys for an idle game.** Ready-now rows take 1 to 9, the fight's terms keep their keys, and focus order gets its own walk (round 51 could not establish it). |
+| PS94 | **The first five minutes of each life.** `npm run check:openings` (OPN) runs on Fang Yuan's, Klein's and Harry's opening screens after the frame changes, and checks whether a new player can tell what to do. |
+| PS95 | **Save growth over long play.** Wolf populations, kill records, fight records and aspect histories (UR92) all grow. Measure save size after 100 in-game days on one lead against the 8 GB target, and cap or compact histories before they bloat. |
+| PS96 | **A density setting.** A compact or comfortable choice for the panels, once A, B, D and F settle, since the split adds frames. |
