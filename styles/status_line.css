@@ -114,3 +114,13 @@
 #game_spine[data-unpinned~="status"] #game_status > [data-status-slot]:not([data-band-part]):not([data-status-slot="band-pins"]) {display:none!important;}
 #game_spine[data-unpinned~="strip"] > .day-strip {display:none!important;}
 #game_spine[data-unpinned~="doing"] #game_status > [data-status-slot="work"] {display:none!important;}
+/* PS71: with the status line up, the place panel's own header stops repeating the place name, and the quiet line under it
+   stops repeating the weather. A dressed world keeps its header whole (Klein's glyph and "Tingen · fog, gaslight and church
+   bells" are the world's own title). The
+   quiet line's block stays in place, zero-height, because palette cues land in it (quiet_place_detail.js present). */
+:root[data-status-line]:not([data-world-flourish="on"]) #main_content.workspace-active[data-parity="r3"] #village_scene > .scene-location-header > strong {display:none;}
+:root[data-status-line]:not([data-world-flourish="on"]) #main_content.workspace-active[data-parity="r3"] #village_scene > .scene-location-header:not(:has(> .scene-place-tags:not([hidden]):not(:empty))) {display:none;}
+/* On a centre view the place panel holds nothing the band's This place does not already say. */
+:root[data-status-line] #main_content.workspace-active[data-parity="r3"][data-center-task] .workspace-module[data-module="village-scene"] {display:none;}
+:root[data-status-line] #main_content.workspace-active[data-parity="r3"] #quiet_place_detail > small:not(.palette-local-cue) {display:none;}
+:root[data-status-line] #main_content.workspace-active[data-parity="r3"] #quiet_place_detail:has(> .palette-local-cue:empty) {padding:0;min-height:0;}

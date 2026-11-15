@@ -88,5 +88,7 @@ export function mountStatusLine({bar}) {
     const tick = () => { adoptStrip(); setStatusText('reserve', reserveReader(), {title: 'What your powers draw on, as it stands now.'}); };
     tick();
     const timer = setInterval(tick, 1000);
-    return {node: spine, tick, destroy() { clearInterval(timer); spine.remove(); line = null; slots.clear(); }};
+    // Rules that step aside for the line (PS71: the place panel's own header) key off this, not a document-wide :has().
+    document.documentElement.dataset.statusLine = 'on';
+    return {node: spine, tick, destroy() { clearInterval(timer); spine.remove(); line = null; slots.clear(); delete document.documentElement.dataset.statusLine; }};
 }
