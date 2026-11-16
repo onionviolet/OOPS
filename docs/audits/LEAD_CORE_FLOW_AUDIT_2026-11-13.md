@@ -602,6 +602,6 @@ purse seam.
 - **Not done.**
   - A shift does not require walking to the office. The office place sits in the private cast pack.
   - A shift is a clock jump, not a job with progress and cancel (ACR7).
-  - Chrome proved the shift and a reload on lotm-kjw49. Export then Import is not verified: the imported page came back on the pre-shift save with no message. Implemented-unverified for import.
+  - Export then Import on lotm-kjw49 was refused ("no room to safely keep this life"), with or without a shift: the import's size guard measured plain text, not the codec's stored form. Fixed 2026-11-16 (main.js `lifeSaveStorage` passes the codec measure through; tests/save_import_size.test.js); the shift now holds through Export then Import in Chrome.
   - The UI lane's Ready rows (`lotm_work_day.js`) can list the shifts from `shiftRead` and declare `uses` for "Next:" links.
   - Rent by home (P7) and the streets (PS143) are still open.

@@ -596,7 +596,7 @@ let lifeStorageFailure = false;
 // Skips rewriting an unchanged life; see the D3 decision in save_files.js.
 const durableSaves = createDurableSaveWriter(() => localStorage);
 // Shared save writes stage life observations and publish them only after success.
-const lifeSaveStorage = {
+const lifeSaveStorage = {get length(){return localStorage.length;},key:i=>localStorage.key(i),getStoredItem:k=>localStorage.getStoredItem?.(k)??localStorage.getItem(k),storedLength:v=>localStorage.storedLength?.(v)??String(v).length, // the import size guard (checkSaveSize) measures the codec's stored form and the other keys, as a normal save does
     setItem(key, serialized, onDurable, options) {return this.setEnvelope(key, JSON.parse(serialized), onDurable, options);},
     // The caller transfers a detached envelope. Only the top-level life fields
     // are replaced here; staged domains remain read-only until publication.
