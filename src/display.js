@@ -7,7 +7,7 @@ import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRec
 import {componentInputLots} from './processed_materials.js';
 import {mountMaterialChoice} from './material_choice_view.js';
 import {renderCraftingSelection} from './crafting_selection_detail.js';
-import {renderRecentLearning, notePractice} from './recent_learning.js'; const learning_readers = {visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName(), now: () => current_game_time.day_count*1440 + current_game_time.hour*60 + current_game_time.minute, capped: id => skills[id].getCurrentLvl?.() >= skills[id].max_level};
+import {renderRecentLearning, notePractice} from './recent_learning.js'; const learning_readers = {visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName(), now: () => current_game_time.day_count*1440 + current_game_time.hour*60 + current_game_time.minute, capped: id => skills[id].getCurrentLvl?.() >= skills[id].max_level, level: id => skills[id].getCurrentLvl?.()};
 import {equipmentComparisonHTML} from './equipment_comparison.js';
 import {centerModes} from './center_modes.js';
 import {expandWorkspaceModule,openWorkspaceModule} from './workspace_layout.js';

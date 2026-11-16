@@ -27,3 +27,19 @@ test('the practice line names a chosen practice that has given its skill nothing
     node.isConnected = false;
     assert.equal(learningNowView(owner, readers, 90).practice, '', 'a stopped activity says nothing');
 });
+
+test('Learning now gives a rate once there is a run to measure, the activity it comes from, and one line for a level reached (PS204)', () => {
+    const owner = {}, node = {isConnected: true}; let lvl = 1;
+    const r = {...readers, level: () => lvl};
+    notePractice('running', ['Running'], node, 0);
+    recordLearning(owner, 'Running', 1);
+    let v = learningNowView(owner, r, 0);
+    assert.equal(v.now[0].rate, null, 'no run yet: rate unknown');
+    assert.equal(v.now[0].from, 'running');
+    recordLearning(owner, 'Running', 20); lvl = 2;
+    v = learningNowView(owner, r, 30);
+    assert.equal(v.now[0].rate, 40, '20 XP over 30 minutes is 40 an hour');
+    assert.equal(v.levelUp, 'Running reached 2');
+    assert.equal(learningNowView(owner, r, 200).levelUp, '', 'the level line goes quiet after the hour');
+    assert.equal(Object.keys(owner).includes('recent_level_up'), false, 'nothing new is kept on the owner');
+});
