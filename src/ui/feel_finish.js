@@ -148,15 +148,19 @@ function fightAnchor(target) {
 }
 function showFightEffect({target, amount, kind}) {
     const anchor = fightAnchor(target); if (!anchor || !motionAllowed()) return;
+    // PS295: under the Classic preset, fight numbers and the flash follow YAIR's own on-hit animations option.
+    const classic = getDisplaySetting('panel.look.preset') === 'classic';
+    const yairOnHit = !!document.getElementById('options_do_enemy_onhit_animations')?.checked;
+    if (classic && !yairOnHit) return;
     floatLayer ||= Object.assign(document.createElement('div'), {className: 'feel-float-layer'});
     if (!floatLayer.isConnected) { floatLayer.setAttribute('aria-hidden', 'true'); document.body.append(floatLayer); }
     const r = anchor.getBoundingClientRect();
-    if (setting('hitFlash') === 'on' && kind === 'damage') {
+    if ((classic || setting('hitFlash') === 'on') && kind === 'damage') {
         const flash = Object.assign(document.createElement('div'), {className: 'feel-hit-flash'});
         Object.assign(flash.style, {left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px`});
         flash.addEventListener('animationend', () => flash.remove()); floatLayer.append(flash);
     }
-    if (setting('floats') !== 'on') return;
+    if (!classic && setting('floats') !== 'on') return;
     const text = `${kind === 'heal' ? '+' : '−'}${amount}`, key = `${target}|${text}`, live = liveFloats.get(key);
     if (live?.isConnected) { live.dataset.count = String(Number(live.dataset.count || 1) + 1); live.textContent = `${text} ×${live.dataset.count}`; return; }
     const float = Object.assign(document.createElement('span'), {className: 'feel-float', textContent: text});
