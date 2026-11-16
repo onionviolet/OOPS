@@ -2,7 +2,7 @@
 // class on its own hours in term with a quarter hour's grace, homework is owed only after a class, and both counts feed that subject's June paper.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {HP_TIMETABLE, HP_NOTES_ITEM, HP_MARKED_ITEM, hpDayFacts, hpDayFact, hpTimetableWords} from '../src/book_world_hp_day.js';
+import {HP_TIMETABLE, HP_NOTES_ITEM, HP_MARKED_ITEM, HP_SET_ITEM, hpDayFacts, hpDayFact, hpTimetableWords} from '../src/book_world_hp_day.js';
 import {hpLeadDayExtension, HP_LEAD_DAY_COMMANDS} from '../src/world_packs/book_hp_lead_day.js';
 import {hpExamInputs, hpExamFacts} from '../src/book_world_hp_exams.js';
 
@@ -30,11 +30,16 @@ test('a class takes pupils on its own hours, for a quarter of an hour after the 
     assert.equal(startable(life(94, '09:05', {'hp.lead.house': undefined}), 'herbology'), false, 'not before the Sorting');
 });
 
-test('homework is owed only for classes attended and not yet written up (notes held against marked pieces held)', () => {
-    const facts = g => hpDayFacts(life(94, '20:00'), {gameplay: g});
-    assert.equal(facts(held())[hpDayFact('history', 'owed')], false);
-    assert.equal(facts(held({history: 2}, {history: 1}))[hpDayFact('history', 'owed')], true);
-    assert.equal(facts(held({history: 2}, {history: 2}))[hpDayFact('history', 'owed')], false);
+test('homework is owed while a set piece is held; a class sets it and writing uses it up (PS225: the Done line points at writing it)', () => {
+    const owed = n => hpDayFacts(life(94, '20:00'), {gameplay: {player: {inventory: n ? {[JSON.stringify({id: HP_SET_ITEM('history')})]: n} : {}}}})[hpDayFact('history', 'owed')];
+    assert.deepEqual([owed(0), owed(1)], [false, true]);
+    const cmd = id => HP_LEAD_DAY_COMMANDS.find(c => c.id === `book.hp.lead.day.${id}`);
+    const setKey = JSON.stringify({id: HP_SET_ITEM('history')});
+    assert.ok(cmd('attend_history').effects.some(e => e.type === 'item' && e.key === setKey && e.amount === 1), 'a class sets one piece');
+    assert.match(cmd('attend_history').effects.find(e => e.type === 'knowledge').value, /History of Magic homework is set\.$/);
+    assert.deepEqual(cmd('homework_history').costs, [{type: 'item', actor: 'player', key: setKey, amount: -1}], 'writing it uses the set piece up');
+    const ext = hpLeadDayExtension({id: 'book.hp.lead', revision: 1, contentHash: 'sha256:x'});
+    assert.equal(ext.items.find(i => i.id === HP_SET_ITEM('history')).label, 'History of Magic homework', 'the item name the Done line matches');
 });
 
 test('the week feeds the June paper: notes raise fluency, marked homework understanding, and the chance of a better band rises', () => {

@@ -44,6 +44,8 @@ export const HP_TIMETABLE = Object.freeze([
 ].map(Object.freeze));
 export const HP_NOTES_ITEM = s => `${HP_LEAD_DAY}.notes.${s}`;
 export const HP_MARKED_ITEM = s => `${HP_LEAD_DAY}.marked.${s}`;
+// A piece of homework set at a class and not yet written: a thing he holds, so the panel's Done line can point at writing it (PS225).
+export const HP_SET_ITEM = s => `${HP_LEAD_DAY}.set.${s}`;
 export const hpDayFact = (s, what) => `${HP_LEAD_DAY}.${s}.${what}`;
 export const hpTimetableWords = row => {
     const byTime = new Map();
@@ -69,7 +71,7 @@ export function hpDayFacts(state, context = {}) {
     const minute = hpLeadMinute(state), here = sorted(state) && minute != null && inTermSafe(state), facts = {};
     for(const row of HP_TIMETABLE) {
         facts[hpDayFact(row.id, 'startable')] = here && !!startableSlot(row, minute);
-        facts[hpDayFact(row.id, 'owed')] = hpLessonsAttended(g, row.id) > hpHomeworkDone(g, row.id);
+        facts[hpDayFact(row.id, 'owed')] = count(g, HP_SET_ITEM(row.id)) > 0;
     }
     return facts;
 }
