@@ -605,3 +605,17 @@ purse seam.
   - Export then Import on lotm-kjw49 was refused ("no room to safely keep this life"), with or without a shift: the import's size guard measured plain text, not the codec's stored form. Fixed 2026-11-16 (main.js `lifeSaveStorage` passes the codec measure through; tests/save_import_size.test.js); the shift now holds through Export then Import in Chrome.
   - The UI lane's Ready rows (`lotm_work_day.js`) can list the shifts from `shiftRead` and declare `uses` for "Next:" links.
   - Rent by home (P7) and the streets (PS143) are still open.
+
+### Klein's streets: proposed event owner (PS143 for Tingen), 2026-11-16
+
+- **Owner, proposal.** The Tingen event book (`lotmEventBook` in `book_world_lotm_events.js`, on `world_events.js`) records what
+  happened at a place. A record gains a `place` (a Tingen place id) and a `lineKey`, and the place hook (`place_descriptions.js`)
+  adds that line to the street's description on the days it covers.
+  - The book already drives restrictions and the upcoming strip, so a street cannot disagree with a closure.
+- **Found.** The private event pack holds one event (an early rail halt), and nothing in it carries a place, so there is nothing to
+  show yet.
+- **Wiring needed.** Tingen locations are created in three places, and each would pass `placeDescriber`:
+  - `book_world_lotm_domain.js` line 10 (public places) and line 31 (cast places).
+  - `cast_location_restore.js`, which resets `getDescription` to static text.
+- **Next.** Author two or three placed records as a proposal under AD32 and AD56, wire the three sites, and prove it in Chrome on a
+  Klein save on the event's day. Rent by home (P7) follows.
