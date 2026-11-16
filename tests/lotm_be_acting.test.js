@@ -38,7 +38,7 @@ const vit={health:24,max_health:24,stamina:18,max_stamina:18};
 // The host binds native travel to the cast's places (castJourneyContext); in the real pack the club is a destination of
 // earlier carriage acts, so the fixture names it here the same way.
 const ctxOf=p=>({...lotmContext(p.state,{actorId:'player',external:p.external,gameplay:p.gameplay,vitals:{player:vit},nativeAlive:true,facts:{location:p.state.simulation.people.player.location}}),
- structuredNative:{bound:true,worldId:'book.lotm.tingen',bodyId:'native.player.body',locationIds:['fixture.place.club']}});
+ structuredNative:{bound:true,worldId:'book.lotm.tingen',bodyId:'native.player.body',locationIds:['fixture.place.club','fixture.place.flat']}});
 const ROW='lotm.div.astrological-chart';
 function life(){
  const o=hostOver(bare());o.host.enroll('be',{independent:true});const p=structuredClone(o.box.p);
@@ -55,7 +55,8 @@ const quote=(p,id)=>quoteDivinations(p.state,cmds.filter(d=>d.id===id),d=>previe
 const reading=p=>{for(const step of ['prepare','ask','interpret'])run(p,`${ROW}.${step}`,1);return p;};
 
 test('the lessons, the club case and the acting hook are compiled for a cast with the office, flat and club',()=>{
- for(const id of ['lotm.be.lesson.chart','lotm.be.lesson.tarot','lotm.be.club.glacis-chart'])assert.ok(cmds.some(d=>d.id===id),id);
+ for(const id of ['lotm.be.lesson.chart','lotm.be.lesson.tarot','lotm.be.club.glacis-chart','lotm.be.club.lost-object','lotm.div.tarot-lost-object.interpret'])assert.ok(cmds.some(d=>d.id===id),id);
+ assert.ok(cmds.find(d=>d.id==='lotm.div.tarot-lost-object.interpret').effects.some(e=>e.key==='book.lotm.be.acting.tarot-lost-object'));
  assert.deepEqual(host.castDivinationCommands.find(d=>d.id===`${ROW}.interpret`).effects.filter(e=>e.key?.startsWith(A.BE_ACTING_PREFIX)).map(e=>e.key),['book.lotm.be.acting.astrological-chart']);
  assert.equal(cmds.find(d=>d.id===`${ROW}.interpret.unclear`).effects.some(e=>e.key?.startsWith(A.BE_ACTING_PREFIX)),false,'an unclear reading is not the role played (COUNT_UNCLEAR)');
  const coin=defineDivinations(LOTM_DIVINATION_ROWS,{worldId:'book.lotm.tingen',group:'book_lotm',situationId:host.LOTM_CAST_SITUATION,interpretEffects:A.lotmBeInterpretEffects});
@@ -108,9 +109,27 @@ test('club client sessions the pack records count once each; six settle the poti
  const p=life(),f=p.state.actors.player.facts;
  for(const name of ['anna','glacis','joyce','bogda'])Object.assign(f,{[`book.lotm.be.client.${name}`]:'paid',[`book.lotm.be.client.${name}.fee`]:8,[`book.lotm.be.client.${name}.owed`]:0});
  assert.equal(A.beActingCount(p.state),4,'fee and owed suffixes are not sessions');
- f['book.lotm.be.acting.astrological-chart']=true;f['book.lotm.be.acting.numerology']=true;
+ f['book.lotm.be.acting.astrological-chart']=true;assert.equal(A.beActingCount(p.state),5);
+ f['book.lotm.be.acting.numerology']=true;f['book.lotm.be.acting.tarot-divination']=true;
+ assert.equal(A.beActingCount(p.state),5,'Joyce\'s numbers and Bogda\'s spread are the paid sessions already counted');
+ f['book.lotm.be.acting.tarot-lost-object']=true;
  assert.match(A.lotmBeActingLine(p.state),/^The Seer potion has settled; you feel it fully yours: 6 of 6/);
- f['book.lotm.be.acting.tarot-divination']=true;assert.match(A.lotmBeActingLine(p.state),/6 of 6/,'shown count stops at the need');
+ f['book.lotm.be.acting.future-row']=true;assert.match(A.lotmBeActingLine(p.state),/6 of 6/,'shown count stops at the need');
  assert.equal(A.lotmBeActingLine({...p.state,lotm:{...p.state.lotm,entryProfile:'lotm.early_tingen.canon_beside@1'}}),null);
  const dry=hostOver(bare());dry.host.enroll('be',{independent:true});assert.equal(A.lotmBeActingLine(dry.box.p.state),null,'no potion, no digestion');
+});
+
+test('the lost keepsake: tarot from Old Neil, Edward booked through the club, read in the Topaz room, one act',()=>{
+ const p=at(life(),'fixture.place.flat'),LOST='lotm.div.tarot-lost-object';
+ assert.match(quote(p,'lotm.be.club.lost-object').reasons.join(' '),/Learn tarot divination from Old Neil/);
+ run(at(p,'fixture.place.office'),'lotm.be.lesson.tarot',45);
+ assert.equal(quote(at(p,'fixture.place.club'),`${LOST}.prepare`),undefined,'method learned; the reading shows once Edward is booked');
+ run(at(p,'fixture.place.flat'),'lotm.be.club.lost-object',40);
+ assert.equal(p.state.simulation.people.player.location,'fixture.place.club');
+ for(const step of ['prepare','ask','interpret'])run(p,`${LOST}.${step}`,1);
+ assert.equal(p.state.actors.player.facts['book.lotm.be.acting.tarot-lost-object'],true);
+ assert.equal(A.beActingCount(p.state),1);
+ run(p,'lotm.be.club.home',25);assert.equal(p.state.simulation.people.player.location,'fixture.place.flat','the carriage brings Klein home');
+ run(at(p,'fixture.place.club'),'lotm.be.club.home',25);assert.equal(p.state.simulation.people.player.location,'fixture.place.flat','the ride home repeats');
+ validateLotmState(p.state);
 });
