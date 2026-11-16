@@ -21,3 +21,14 @@ adjustable default (AD56); review state is agent-verified, not human-reviewed.
 Order after the coordinator's DU38-DU69 pass (smallest playable first): PS167; PS166 and PS168 (DU40's table form can serve PS166's gather side); PS163 with DU45's per-slot component picker (quality-sorted stacks); DU38 two-pane trade (a frame surface, needs ui-cohesion and feature-ui since it replaces the trade box layout in `index.html` and `display.js`); PS162; PS164.
 
 Still open (2026-11-16): DU38's two-pane layout (trade's pending state, price percentage and total already exist; the layout waits on ui-cohesion's renderer and feature-ui's item sheet); F34's per-fight yield on a fight surface; the walking map remembering its open state.
+
+## Handover (2026-11-16, wave closed by the coordinator)
+
+Commits from this lane: 4baaf0d4e, 0ff37471f, 02e709b7b, f97f33bd4, 7a7a811ba, 674c4d572, 4d0cb17f5, e4598c9f7, 6ed24951d. Nothing of this lane is uncommitted. Browser walks: `scripts/stock_causes_browser.cjs`, `scripts/clear_bonus_browser.cjs`, `scripts/discord_surfaces_browser.cjs` (build a scratch tree of HEAD, link `resources/fonts/private` into it for captures, serve it, pass `YAIRPG_PORT` and `YAIRPG_HEAD`).
+
+Left open, in order:
+1. **DU38 two-pane trade.** Your goods and the trader's side by side with tinted pending rows; the pending state, the price percentage ("Prices: N% of worth") and the signed total already exist in `src/trade.js`. Waits on feature-ui's item sheet moving onto the kit renderer (PS292), then a layout pass with ui-cohesion and feature-ui (`index.html`, `display.js` trade box). Done when both panes, tints and Exit apart from Cancel play at 1920x1080 with a buy, a sell and a cancelled pick.
+2. **F34 per-fight yield.** `src/drop_rate_causes.js` already says "each drops less (×0.48), but the fight as a whole yields ×1.44 one kill's loot" for three at once. It needs a fight surface: combat's Reports routing once combat lands PS289; agree the spot with the combat lane. Done when a fight against several shows the line from the real target count.
+3. **Walking map open state.** Fast travel's walking map (`src/ui/discord_surfaces.js` `fastTravelMapBlock`) closes again when display.js redraws the list. Default proposal: remember open or closed per place in session memory, as the Skills box does. Done when the map stays open through a redraw and a move.
+
+Also noted: the "Evasion or Fortitude" wording sits with feature-ui's PS249 slice; kitRow wrapping for long plain labels sits with ui-cohesion's next commit.
