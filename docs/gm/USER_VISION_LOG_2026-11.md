@@ -1677,3 +1677,22 @@ Saved as round 23 (PS243–PS263, proposals) in the [play-surface considerations
 Weibao on the borders-or-spacing pair: "Implement both and have the player choose, can leave border as default, lots of features can be like that ⏎ whats next to consider?"
 
 Direction: a tested look with no clear loser ships as a player choice, and the current look stays the default. Saved as round 24 (PS264–PS278, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-24-2026-11-15-looks-as-player-choices-and-what-comes-next). It amends PS234. ui-cohesion is building Display › Row style.
+
+## Potion route by form, the top bar, the Notebook and the early screen, 2026-11-16
+
+Asked as four questions. Weibao's answers:
+
+- Potion route: "Follow the form, unless other possibilities and more". A preparation's form sets its default route (draughts drunk; solutions, essences, unctions and pastes on a surface; sweets eaten; the target is whoever or whatever receives it, plants included), and any other route that reasonably works by the mechanisms in play still works (AD38). Owner: the potion holdout line in the [foundation resume block](dispatch/foundation-run-2026-11-12/RUN.md#current-resume-block).
+- Top bar (UIC132): "Group by use".
+- Notebook (UIC168): "Split features out".
+- Early screen (UIC131): "NOt sure whats best, Maybe show both?". Read under [looks as player choices](#looks-as-player-choices-2026-11-15): both ship as a Display › Look choice, the current full layout with the place filling empty room as the default.
+
+Owners: the [UI audit](../audits/UI_DESIGN_CORE_AUDIT.md) status rows for UIC131, UIC132 and UIC168.
+
+Same message: "What else needs labeling passes or putting all the killer moves or interesting ideas, like the 8x8 = 88 thing in the Reverent insanity, more to consider?" Saved as GKM427–GKM438 (proposals) in the [Gu abilities and killer moves palette](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md#labeling-passes-and-a-ledger-of-clever-uses-2026-11-16-proposals).
+
+## Capitalization quirks can stay, 2026-11-16
+
+Weibao, on a fight line that reads "You hit The knifeman" with a capital "The" mid-sentence: "Sub tle capitalization is fine, and can be a fun gimmick."
+
+Direction: a subtle capitalization quirk in player text is not a defect to fix by default. A world or a voice may use it on purpose. PRS checks do not flag it.
