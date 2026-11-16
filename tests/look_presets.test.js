@@ -23,3 +23,25 @@ test('text size, motion and density are look options whose sheets exist, and eve
         assert(o?.choices.some(([c]) => c === v), `${k}=${v}`);
     }
 });
+
+test('Look shows Preset first and folds the single choices under Customize, open only for Custom (PS295)', async () => {
+    const {createDom} = await import('../scripts/headless/dom.mjs');
+    const {foldLookGroup} = await import('../src/ui/look_presets.js');
+    const dom = createDom();
+    const row = (id, value) => `<div class="display-setting-row"><label>${id}</label><select id="display-setting-panel.look.${id}"><option value="${value}" selected>${value}</option></select></div>`;
+    dom.loadHTML(`<html><body><details class="display-group" data-panel-settings="look"><summary>Look</summary><div class="display-setting-row"><label>preset</label><select id="display-setting-panel.look.preset"><option value="classic" selected>classic</option><option value="custom">custom</option></select></div>${row('text', 'normal')}${row('motion', 'full')}${row('rows', 'bordered')}</details></body></html>`);
+    const doc = dom.document, group = doc.querySelector('.display-group');
+    assert.equal(foldLookGroup(doc), true);
+    const order = () => [...group.children].map(c => c.tagName.toLowerCase() === 'summary' ? 'summary' : c.className);
+    assert.deepEqual(order(), ['summary', 'display-setting-row', 'look-customize']);
+    const fold = group.querySelector('.look-customize');
+    assert.equal(fold.querySelectorAll('.display-setting-row').length, 3);
+    assert.equal(fold.open, false, 'closed while a named preset is chosen');
+    foldLookGroup(doc);
+    assert.deepEqual(order(), ['summary', 'display-setting-row', 'look-customize'], 'running again changes nothing');
+    assert.equal(group.querySelectorAll('.look-customize').length, 1);
+    doc.getElementById('display-setting-panel.look.preset').value = 'custom';
+    foldLookGroup(doc);
+    assert.equal(fold.open, true, 'Custom opens the fold');
+    assert.equal(foldLookGroup(createDom().document), false, 'no Look group yet: nothing to fold');
+});
