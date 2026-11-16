@@ -9,7 +9,7 @@ Weibao's standing goal for this run: "coordinate the opus chats and create new o
 ## State at handoff
 
 - origin/master was e53dbd33c, pushed with a green gate (7,758 pass, 0 fail). Commits after it are listed in the last checkpoint entry. The final close gate's result is recorded there too.
-- All lanes were told to stop, commit their checked work, and write their handovers. Six had confirmed by 21:50 UTC. Combat (last at 33e65b9ba, PS50) and daily-loops (last at 0e3f973fa) were still mid-turn with stop messages queued. Check their sessions and `git status` before assigning anything.
+- All lanes were told to stop, commit their checked work, and write their handovers. All have now stopped. Combat's last commit is 33e65b9ba (PS50). Daily-loops' last is 694edcafe (Harry's next-class line and the house-points owner proposal), which came after the close-out bundle and is not pushed.
 - The final bundle was built at 33e65b9ba. It clears PS303, where today's saves failed to load in the old bundle. Until that bundle lands, uncommitted combat edits in `src/combat_situation_ui.js` and `styles/combat_versus.css` add an import cycle and fail the manifest test in the shared tree.
 - Weekly usage was about 12% after the 2026-11-16 reset. The usage limit resets weekly on Monday at 18:00 UTC.
 
@@ -54,4 +54,6 @@ The side-session notes folder is `~/Library/Application Support/Claude/side-sess
 - The cast_* live-save tests run close to their 270 s timeout under load.
 - The 530px bare column under column 2's content: the view tabs should follow the content (queued with ui-cohesion).
 - DU38 trade waits on the item card body moving onto the kit.
+- Combat's PS48 ("take their things") is uncommitted and unchecked in `src/tempo_fight.js`, `src/tempo_fight_contract.js`, `src/tempo_lead_fights.js` and `src/combat_situation_ui.js`. Those four files hold only that change. A patch copy, `ps48_take_their_things_UNCOMMITTED.patch`, is in combat's side-session notes. Finish it or restore the files.
+- F34, per-fight yield in Reports, is cleared to build. Combat said yes after the stop, but the discord ledger's handover still says "awaiting its answer". The line goes in `src/models/combat.js`. Default: one line per attack that fells two or more targets, and nothing for single-target fights.
 - Pushed c39e5f7dd strands Klein at the Divination Club with no way home. The fix is foundation-run's Wave 22, which is uncommitted and unplayed in `src/lotm_be_div_learning.js`, `src/lotm_be_acting.js` and `tests/lotm_be_acting.test.js` (5 of 5 pass). The patch and a walk script are in the side-session notes, `wave22_klein_handoff/`. Playing and landing it comes first.

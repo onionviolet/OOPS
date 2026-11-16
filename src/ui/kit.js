@@ -16,6 +16,7 @@ export const KIT_VOCABULARY = Object.freeze({
 let kitDoc = null;
 /** Draw into another document (a card rendered into host.ownerDocument, MDL13). Pass null to return to the global one. */
 export function useKitDocument(doc) { kitDoc = doc || null; }
+export const kitElement = (tag, cls, text) => el(tag, cls, text); // one element, drawn into the kit's document (PS245: features build markup here, not on their own)
 const el = (tag, cls, text) => { const n = (kitDoc || globalThis.document).createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const tag = (node, data = {}) => { for (const [k, v] of Object.entries(data)) if (v != null) node.dataset[k] = String(v); return node; };
 

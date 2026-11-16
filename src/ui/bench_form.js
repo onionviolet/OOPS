@@ -2,9 +2,9 @@
 // ritual later). The same five parts sit in the same place on every bench, so the form is learnt once: what goes in,
 // how much more it can hold (a bar and a reason), what clashes, the chance as known, and what you will have after.
 // Draws only; a bench's own model supplies the rows. Rows go through the kit (src/ui/kit.js), drawn into `doc`.
-import {kitRow, useKitDocument} from './kit.js';
+import {kitElement, kitRow, useKitDocument} from './kit.js';
 
-const el = (doc, tag, cls, text) => { const n = doc.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const el = (doc, tag, cls, text) => kitElement(tag, cls, text); // drawn while useKitDocument(doc) holds
 
 /**
  * form: {inputs:[row], capacity:{used, max, unit, reason}, clashes:[row], chance:[row], after:[row], cost?: string}
