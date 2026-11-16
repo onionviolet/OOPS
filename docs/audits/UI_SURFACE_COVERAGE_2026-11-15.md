@@ -51,15 +51,15 @@ Rank is set by what a lead meets on day 1 to 3 in the fixtures, then by what tha
 | SFC23 | **Potioneering** (a second potion bench) | Harry, Klein | `hp-polyjuice` panel beside Mixing | **Mix** verb opens it in place as one more bench; one bench grammar with Mixing (UR94) | batch 2 (D9) |
 | SFC24 | **Two homes for one thing** | all | Here's Home tab plus the unrouted `homes`, `home-overview` and `home-layout` panels | **Your home** verb opens one home box in place; the room plan becomes a tab inside it | batch 2 (D7) |
 | SFC25 | **Divination, rites and the altar** | Klein | Workroom "Rites and questions", "Altar and rites" | **Take an action** › Rites, which opens the rite figure in place (UR93: the altar is its own form) | batch 2 (D10) |
-| SFC26 | **Watch, guard and brokers** (law around Klein) | Klein | Workroom sections | 3 · Journal · People · Organizations, with custody and clearance as rows; a warning on the location box when the watch matters there (UR83) | batch 3 |
-| SFC27 | **Standing and regard** | Klein, Harry | Regard and Standing and ledger panels, unrouted; `reputation_view` has no UI importer | 1 · Character · Bio gets a "Standing" row with "?" where unknown; detail in Journal · People | batch 3 |
+| SFC26 | **Watch, guard and brokers** (law around Klein) | Klein | Workroom sections | 3 · Journal · People · Organizations, with custody and clearance as rows; a warning on the location box when the watch matters there (UR83) | batch 3 (D11) |
+| SFC27 | **Standing and regard** | Klein, Harry | Regard and Standing and ledger panels, unrouted; `reputation_view` has no UI importer | 1 · Character · Bio gets a "Standing" row with "?" where unknown; detail in Journal · People | batch 3 (D11) |
 | SFC28 | **Equipment condition shown twice** | all | Condition route, left panel, Here Equipment tab | 1 · Character · Equipment only (PS125 already says so) | none needed; build note |
 
 ### Tier 3: Village and other lives, stray
 
 | Code | Capability | Today | Proposed home | Draft |
 | --- | --- | --- | --- | --- |
-| SFC30 | Village patrol and watchcraft | Here panel | **Find work** › Patrol | batch 3 |
+| SFC30 | Village patrol and watchcraft | Here panel | **Find work** › Patrol | batch 3 (D12) |
 | SFC31 | The 47-file Here dump (Town, Exchange, Routes, Field, Observation, Pursuit, Promise, Party, Pocket realm, Storylet, Technique, Body and more) | Here | Each finds a verb by kind (PS120); a mapping table like PS125's, one row per file | table, not a draft |
 | SFC32 | Unrouted centre panels (SFC3) | discovery only | Each gets a box and tab in a PS125 extension; Deeds to Journal · Quests, Companions to Journal · People, Study to **Study** verb, Statistics to Journal · Data, Lives and inheritance to Journal · Beginning | table, not a draft |
 | SFC33 | Leads board | `quest-board` unrouted | Journal · Quests | with SFC32 |

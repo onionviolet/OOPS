@@ -37,3 +37,10 @@ Other targets, odds and counts are examples, and each draft note says which.
 | D8 · capture-d8.png | SFC21 and SFC22: Skills · **Spells** with a "Learning now" head, the **Practise** verb with chances, and Journal · People with a **School** filter | the spellbook disclosure and "Friends at school", both unrouted |
 | D9 · capture-d9.png | SFC23: the **Mix** bench in place, with a tab per bench (Cauldron, Counter) and Polyjuice drawn as stages, so Mixing and Potioneering share one grammar | the Potioneering panel beside the Mixing tab |
 | D10 · capture-d10.png | SFC25: **Take an action › Rites** opens the altar as its own figure (candles, altar, words) with the steps beside it | the workroom's "Rites and questions" and "Altar and rites" |
+
+## Batch 3 (2026-11-16)
+
+| Draft | Gap | Today |
+|---|---|---|
+| D11 · capture-d11.png | SFC26 and SFC27: law around Klein as rows under each body in Journal · People · **Organizations** (clearance, record, custody by ID), **Standing** per audience in Character · Bio, and a location-box forewarning where the law matters (UR83) | the workroom's watch, guard and broker sections; the unrouted Regard and Standing panels |
+| D12 · capture-d12.png | SFC30: the Village watch post under **Find work**, with a rank head, shifts, the loaned kit and promotion as targets; the record goes in Journal · Data | the Village career panel appended to Here |

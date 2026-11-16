@@ -345,6 +345,37 @@ const DRAFTS = {
       est: 'how long until an answer', unk: 'whose name answers (a sealed truth stays a "?" until learned)', empty: '"No rites known. A teacher or a book teaches one."',
       today: 'Workroom "Rites and questions" and "Altar and rites" sections', codes: 'PS121, PS130, UR93, UR98; rite_figure.js is the existing figure to reuse. Rite parts are examples.'}),
   },
+
+  d11: {
+    title: 'D11 · Klein: law and standing in People and Bio (SFC26, SFC27)', today: 'lotm-tingen-day3.png',
+    c1: C1K(draft('Character & preparation', 'Bio', row('<b>Klein Moretti</b>', 'clerk · Blackthorn Security') + row('<b>Standing</b>', '') + row('· with the Nighthawks', est('~trusted') + ' · <span class="m">captain, day 40</span>') + row('· on Iron Cross Street', unk('?', 'Nobody there has spoken of you yet.')) + row('· with the police', 'clear · <span class="m">no record</span>') + row('Clearance', 'Nighthawk civilian staff') + tabs(['Stats', 'Bio', 'Equipment', 'Tools'], 'Bio', 'sm'), 'teal'), KLEIN_INV),
+    c2: [VILLAGE_TIME('Day 41, <b>afternoon</b> · 15:10', 'overcast', '63%'),
+      draft('', '', h('div', 'loc', h('div', 'name', '☆ Tingen · Iron Cross Street') + h('div', 'desc', 'Narrow houses, laundry lines and men waiting for day work.') + h('div', 'tide', '<b>Police patrol about</b><span>Carrying the revolver openly here would be noticed.</span>') + h('div', 'here', 'Here: <a>a constable</a> · <a>a broker\'s office</a> · <a>3 ways out</a>')), ''),
+      box('Local actions', '', verb('⇢', 'Move around', '5 known') + verb('❝', 'Talk to someone', '', '', arow('The constable <span class="tag">· here</span>', '<span class="m">wary</span>')) + verb('⚖', 'Visit a merchant', '<span class="tag">broker\'s office</span>') + verb('▤', 'Find work', '~shift 08:00'), 'grow')].join(''),
+    c3: draft('Journal & received accounts', 'People · Organizations', tabs(['Quests', 'Bestiary', 'Anthology', 'Data'], '') + tabs(['Knows', 'Notebook', 'People', 'Worlds', 'Beginning'], 'People', 'sm') + tabs(['People', 'Travelers', 'Organizations'], 'Organizations', 'sm') +
+        row('<b>Nighthawks (Tingen)</b>', 'you work for them') + row('· your clearance', 'civilian staff') + row('· custody', '1 item held for you · <span class="m">sealed object S-ID, by ID</span>') +
+        row('<b>Tingen police</b>', 'the watch') + row('· your record', 'clear') + row('· what they watch for', 'weapons carried openly, night trouble') +
+        row('<b>Brokers</b>', '1 known') + row('· a hired guard', unk('?', 'Prices not asked yet.')) + row('<b>Church of the Evernight</b>', est('~neutral'))) + SKILLS('Skills', ['Beyonder'], row('Divination', 'Lv 1')),
+    c4: REPORTS('<b class="g">Right now</b><br>Police are about: keep the revolver out of sight here.', ['[ Tingen · Iron Cross Street ]']) + spec({code: 'D11 · SFC26, SFC27',
+      box: '3 · Journal · People · <b>Organizations</b> (custody, clearance, record as rows under each body); 1 · Character · Bio gets <b>Standing</b> per audience; a location-box warning when the law matters here (UR83)', verb: 'None new: the law is read, not done; Talk and Visit carry the people',
+      ready: 'None; a forewarning shows on the location box instead (UR83)', known: 'clearance, record, who holds what for you',
+      est: 'standing with an audience that has spoken of you', unk: 'standing where nobody has spoken; a broker\'s prices until asked', empty: 'Organizations: "No body knows you yet." Standing: "No one has formed a view of you yet."',
+      today: 'Workroom "The watch", "Hired guard", "Broker custody"; the unrouted Regard and Standing panels', codes: 'PS122, PS130, UR83, UR84, DSG11. Canon bodies; standings are examples; custody goes by ID.'}),
+  },
+  d12: {
+    title: 'D12 · Village patrol under Find work (SFC30)', today: 'ri-fang-yuan-wild-gu.png',
+    c1: C1({inv: VILLAGE_INV}),
+    c2: [VILLAGE_TIME('03/04/999 06:40, Summer, Wed, <b>Day</b>', '13.8°C', '28%'), box('', '', h('div', 'loc', h('div', 'name', '☆ Village · square') + h('div', 'desc', 'The watch post stands by the well; Tessa is checking the kit rack.') + h('div', 'here', 'Here: <a>Tessa</a> · <a>Iona</a> · <a>the kit rack</a>'))),
+      box('Local actions', '1 ready', draft('', '', verb('▤', 'Find work', '1 ready', 'open', h('div', 'head-run', '<b class="g">Watch post · Apprentice</b> → Dependable worker <span class="m">· 2 of 3 kits returned</span>') +
+          arow('Take a patrol shift · solo round', '4 h · 5C · <span class="m">kit on loan</span>') + arow('Covered shift with Iona', '4 h · teach on the round · <span class="m">pays less</span>') + arow('Return the loaned kit', '<span class="k near">due · shift 3</span>') + arow('Ask Tessa for your promotion', '<span class="m">needs 3 kits returned</span>', 'near') + arow('Odd jobs', '5C / 2 h')), '') +
+        verb('⇢', 'Move around', '4 known') + verb('❝', 'Talk to someone', '', '') + verb('⚑', 'Train', ''), 'grow')].join(''),
+    c3: JOURNAL('Data', row('<b>Watch post</b>', 'Apprentice') + row('Shifts', '3 · 2 kits returned') + row('Watchcraft', est('~steady')) + row('Teaching Iona', 'not started')) + SKILLS('Skills', [], row('Watchcraft', 'Lv 1')),
+    c4: REPORTS('<b class="g">Right now</b><br>Return the loaned kit from shift 3, then ask Tessa about promotion.', ['[ Village · square ]', 'Tessa remembers shift 3.']) + spec({code: 'D12 · SFC30',
+      box: '2 · <b>Find work</b> › the watch post with its rank head; 3 · Journal · Data holds the career record', verb: '<b>Find work</b>: shifts, the loaned kit, promotion and teaching as targets',
+      ready: '"1 ready" (a shift can start); near: "kit due"; promotion shows its missing requirement', known: 'rank, shifts, kits returned, pay',
+      est: 'watchcraft progress', unk: 'none here', empty: '"No post yet. Tessa takes on apprentices at the watch post."',
+      today: 'The Village career panel and watchcraft status appended to Here', codes: 'PS120, PS131, PS141. Ranks and Tessa from village_career.js; pay and hours are examples.'}),
+  },
 };
 const P = new URLSearchParams(location.search), id = P.get('d') || 'd1', D = DRAFTS[id];
 for (const k of ['c1', 'c2', 'c3', 'c4']) document.getElementById(k).innerHTML = D[k];
