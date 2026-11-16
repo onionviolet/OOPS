@@ -43,9 +43,13 @@ export function defineInquiry(def) {
     check(text(def.risk), 'An inquiry names what a wrong or early answer costs.');
     check(def.session == null || (def.session && count(def.session.minutes) && def.session.minutes > 0), 'Invalid inquiry session.');
     check((def.gate == null || typeof def.gate === 'function') && (def.evidence == null || typeof def.evidence === 'function'), 'Inquiry hooks are functions.');
+    // PS150: optional leads, each shown once the work reaches its share of the need; they say the pursuit is going somewhere, never its answer.
+    check(def.leads == null || Array.isArray(def.leads) && def.leads.every((l, i) => l && text(l.line) && typeof l.share === 'number' && l.share > 0 && l.share < 1
+        && (i === 0 || l.share > def.leads[i - 1].share)), 'Inquiry leads need a line and a rising share between 0 and 1.');
     check(Array.isArray(def.outputs) && def.outputs.length > 0 && def.outputs.every(o => o && idOk(o.key) && STAGES.includes(o.stage) && text(o.value)), 'Invalid inquiry outputs.');
     return Object.freeze({...def, sources: Object.freeze(def.sources.map(s => Object.freeze({...s}))), need: Object.freeze({...def.need}),
         outputs: Object.freeze(def.outputs.map(o => Object.freeze({...o}))), actor: def.actor ?? 'player',
+        ...(def.leads ? {leads: Object.freeze(def.leads.map(l => Object.freeze({...l})))} : {}),
         ...(def.session ? {session: Object.freeze({...def.session})} : {})});
 }
 
@@ -74,6 +78,17 @@ export function confidenceWord(def, rec, done = false) {
     if(!e.minutes && !e.evidence) return CONFIDENCE.none;
     if(e.evidence <= 0) return CONFIDENCE.hunch;
     return e.evidence === 1 || def.need.evidence <= 1 ? CONFIDENCE.once : CONFIDENCE.repeated;
+}
+/** How far the effort is toward the need, 0 to 1: the mean of the two budgets' shares, each capped at 1 (a budget of 0 counts as met). */
+export function inquiryShare(def, rec) {
+    const e = rec?.effort ?? {minutes: 0, evidence: 0}, part = (n, need) => need > 0 ? Math.min(1, n / need) : 1;
+    return (part(e.minutes, def.need.minutes) + part(e.evidence, def.need.evidence)) / 2;
+}
+/** PS150: the furthest lead the work has reached, or null (none authored, none reached yet, or already worked out). */
+export function inquiryLead(def, rec, done = false) {
+    if(done || !def.leads?.length) return null;
+    const share = inquiryShare(def, rec);
+    return def.leads.filter(l => share >= l.share).at(-1)?.line ?? null;
 }
 /** Effort is complete when both budgets are met. */
 export const effortMet = (def, rec) => !!rec && rec.effort.minutes >= def.need.minutes && rec.effort.evidence >= def.need.evidence;
@@ -104,6 +119,7 @@ export function inquiryView(slice, def) {
     const word = confidenceWord(def, rec, done), e = rec?.effort ?? {minutes: 0, evidence: 0};
     return {id: def.id, question: def.question, method: def.method, sources: def.sources.map(s => ({...s})), risk: def.risk, opened: !!rec, done, confidence: word,
         effort: {...e, needMinutes: def.need.minutes, needEvidence: def.need.evidence},
+        lead: inquiryLead(def, rec, done),
         partial: done ? def.outputs.map(o => o.value).join(' ') : `${word}: ${e.minutes} of ${def.need.minutes} minutes worked, ${e.evidence} of ${def.need.evidence} pieces of evidence.`,
         outputs: def.outputs.map(o => ({key: o.key, stage: o.stage, written: !!rec?.wrote.includes(o.key)}))};
 }

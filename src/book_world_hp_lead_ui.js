@@ -166,7 +166,7 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
    for(const r of study?.rows?.()||[]){const row=node('div');row.dataset.panelRow='';
     const b=node('button',r.label);b.type='button';b.dataset.hpStudy=r.id;b.disabled=!r.eligible||!campaign.canWrite;
     b.onclick=()=>{try{study.start(r.id);notice='';}catch(e){notice=e.message;}render();};
-    row.append(b);row.append(node('p',r.eligible?r.progress:(r.done?`Worked out. ${r.progress}`:`${r.reason} ${r.progress}`)));
+    row.append(b);row.append(node('p',r.eligible?r.progress:(r.done?`Worked out. ${r.progress}`:`${r.reason} ${r.progress}`)));if(r.lead){const lead=node('p',r.lead);lead.dataset.studyLead='';row.append(lead);}
     if(r.canNote){const nb=node('button','Write it up as a note');nb.type='button';nb.dataset.hpStudyNote=r.id;
      nb.onclick=()=>{try{study.writeNote(r.id);notice='You wrote a note.';}catch(e){notice=e.message;}render();};row.append(nb);}
     s3.append(row);}

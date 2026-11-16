@@ -17,17 +17,22 @@ const TOPICS = [
     {topic: 'charms', label: 'the levitation charm', question: 'Why does the levitation charm work when I do it right?', need: {minutes: 180, evidence: 3},
         value: 'You read how the charm is built and what you saw in class makes sense: the swish and flick set the lift, and the word matters more than force, so a steady wrist beats a hard wave.',
         risk: 'A wrong idea of the motion costs you class tries and the feather stays put.',
+        // PS150 leads: signs the reading is getting somewhere, never the answer (that is `value`). Shares are dials.
+        leads: [{share: 0.25, line: 'The chapter\'s drawings of the swish and flick match what the charms master chalked up. You are on the right pages.'},
+            {share: 0.6, line: 'An older Gryffindor says the first years who get it stop waving so hard. Something in this chapter explains why.'}],
         evidence: state => { const p = state?.simulation?.powers?.player?.[HP_LEVITATION]; return (p?.owned ? 1 : 0) + (p?.mastery ?? 0); }},
     {topic: 'potions', label: 'first-year potion ingredients', question: 'What do the plain first-year ingredients do, and in what order do they go in?', need: {minutes: 180, evidence: 2},
         value: 'You read what each plain ingredient is for and why the order and the heat matter: a draught spoils from rushing the steps, not from a missing rare part.',
         risk: 'Reading the steps wrong costs a spoiled draught and a point off your master\'s regard.',
+        leads: [{share: 0.25, line: 'The ingredients table has a column on order you had not noticed before. It matters for something.'},
+            {share: 0.6, line: 'Your last draught and the book disagree on one step. One of them is wrong, and you are close to which.'}],
         // The Alchemy skill is the only record of classes (no second counter): a class is worth 5 or 2 xp, so round up by 5.
         evidence: (_state, plan) => Math.ceil(Math.max(0, plan?.gameplay?.player?.skills?.Alchemy?.xp ?? 0) / 5)}];
 
 export const HP_STUDY_TOPICS = Object.freeze(TOPICS.map(t => registerInquiry({
     id: HP_STUDY[t.topic].inquiry, question: t.question, method: 'read',
     sources: [{kind: 'book', id: `hp.lead.library.${t.topic}`, coverage: `a first-year text on ${t.label} (authored)`}, {kind: 'lesson', id: `hp.lead.lesson.${t.topic}`, coverage: 'what you have done in class'}],
-    need: t.need, risk: t.risk, session: {minutes: SESSION},
+    need: t.need, risk: t.risk, leads: t.leads, session: {minutes: SESSION},
     outputs: [{key: HP_STUDY[t.topic].key, stage: 'understood', value: t.value}],
     gate: state => hpLibraryReason(state), evidence: t.evidence})).map(d => Object.freeze({topic: d.id.split('.').pop(), id: d.id, label: TOPICS.find(t => d.id.endsWith(t.topic)).label})));
 
@@ -36,7 +41,7 @@ const ask = (registry, name) => registry.command('inquiry', name);
 export function hpStudyRows(registry) {
     return HP_STUDY_TOPICS.map(t => {
         let q; try { q = ask(registry, 'quote')({id: t.id}); } catch { return null; }
-        return {id: t.id, topic: t.topic, label: `Study ${t.label} in the library · ${q.minutes} min`, eligible: q.eligible, reason: q.reason, done: q.done, progress: q.partial,
+        return {id: t.id, topic: t.topic, label: `Study ${t.label} in the library · ${q.minutes} min`, eligible: q.eligible, reason: q.reason, done: q.done, progress: q.partial, lead: q.lead,
             question: q.question, canNote: q.done};
     }).filter(Boolean);
 }

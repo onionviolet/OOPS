@@ -85,3 +85,19 @@ test('a dropped slice cannot rewrite a fact already in the store, and definition
     assert.throws(() => defineInquiry({...def, risk: ''}), /wrong or early/);
     assert.throws(() => defineInquiry({...def, method: 'guess'}), /Invalid inquiry/);
 });
+
+test('PS150: a lead shows once the work reaches its share, the furthest one wins, and none shows after the answer', async () => {
+    const def = defineInquiry({id: 'study.test.leads', question: 'Why?', method: 'read', sources: [{kind: 'book', id: 'b'}], need: {minutes: 100, evidence: 2},
+        risk: 'Wasted hours.', outputs: [{key: 'study.test.leads.answer', stage: 'understood', value: 'Because.'}],
+        leads: [{share: 0.25, line: 'You are on the right pages.'}, {share: 0.6, line: 'Something here explains it.'}]});
+    const at = (minutes, evidence) => inquiryView({records: {[def.id]: {effort: {minutes, evidence}, wrote: []}}}, def).lead;
+    assert.equal(inquiryView(freshInquiries(), def).lead, null);
+    assert.equal(at(40, 0), null, 'a fifth of the need');
+    assert.equal(at(50, 0), 'You are on the right pages.');
+    assert.equal(at(100, 1), 'Something here explains it.');
+    const done = inquiryView({records: {[def.id]: {effort: {minutes: 100, evidence: 2}, wrote: ['study.test.leads.answer']}}}, def);
+    assert.deepEqual([done.lead, done.partial], [null, 'Because.']);
+    assert.throws(() => defineInquiry({...def, id: 'study.test.bad', leads: [{share: 0.6, line: 'a'}, {share: 0.3, line: 'b'}]}), /rising share/);
+    const {HP_STUDY_TOPICS} = await import('../src/book_world_hp_inquiry.js');
+    assert.equal(HP_STUDY_TOPICS.length, 2, 'Harry\'s two library topics register with their leads');
+});
