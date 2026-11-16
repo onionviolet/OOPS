@@ -257,6 +257,7 @@ function finishFight(plan, registry, result) {
     // How each opposing fighter ended, for the host's result block (not saved: the host turns it into player text).
     plan.fightEnd = Object.values(b.fighters).filter(f => f.side === 'b').map(f => ({name: f.name, end: f.end ?? (f.status === 'down' ? 'down' : f.yielded ? 'yielded' : f.status === 'left' ? 'withdrew' : 'stood'), ...(f.byTerms ? {byTerms: true} : {})}));
     if(b.fighters.player.end) plan.playerEnd = b.fighters.player.end;
+    plan.fightLines = [...b.log]; // the whole fight's lines, so the last blow still reaches Reports after the card closes (not saved)
     // Their terms (PS45): what the side that downed you does first. A robbery takes from the purse in this same commit.
     if(result === 'lost') {
         const winners = Object.values(b.fighters).filter(f => f.side === 'b' && f.status === 'active'), theirs = theirTerms(b.stakes || {}, foeKind(winners[0] || {}));

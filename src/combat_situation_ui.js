@@ -267,6 +267,8 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
             // PS289, PS51: the card stops drawing when the fight ends, so its result goes to Reports here, once, as one combat line (the last
             // blow, how each side ended, what was taken or carried). "hero_missed" is the plain combat kind: filed under Combat, no hit colour.
             const result = view?.account ? [view.account.head, ...view.account.items.filter(([k]) => k !== 'Asked').map(([k, text]) => `${k}: ${text}`)].join(' ') : view?.last ? `Fight ended: ${view.last}.` : '';
+            // The last move's lines first: the fight closed on that move, so the card never drew them (found playing Harry's duel).
+            if (view?.account?.lines?.length) for (const line of newTempoLines(previousLog, view.account.lines)) reportLine(line);
             if (result) { try { reportTo?.(result, 'hero_missed'); } catch { /* Reports not mounted (tests) */ } }
             previousLog = []; previousNoticeWasError = false; lastNotice = '';
             if (previousFocus) {
