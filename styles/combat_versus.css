@@ -108,7 +108,7 @@
 .versus-bar--hp, .versus-row .versus-bar--stamina {position: relative; height: 1.25em; min-height: 20px; background: var(--p23-track, var(--versus-track)); overflow: hidden;}
 .versus-bar--hp > .versus-bar-fill, .versus-card .versus-bar--hp > .versus-bar-fill {background: var(--p23-health-fill, var(--versus-accent));}
 .versus-row .versus-bar--stamina > .versus-bar-fill {background: var(--p23-energy-fill, var(--versus-muted));}
-.versus-bar-text {position: absolute; inset: 0; display: block; text-align: center; white-space: nowrap; overflow: hidden; font-variant-numeric: tabular-nums; line-height: max(1.25em, 20px);}
+.versus-bar-text {position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; white-space: nowrap; overflow: hidden; font-variant-numeric: tabular-nums;}
 .versus-bar--hp > .versus-bar-text {color: var(--p23-dark-value, var(--versus-ink));}
 .versus-bar--hp[data-health-known="false"] > .versus-bar-text, .versus-row .versus-bar--stamina > .versus-bar-text {color: var(--p23-text, var(--versus-ink)); text-shadow: var(--ui-text-shadow, none);}
 .versus-bar--hp .known-number[data-known="unknown"] {color: inherit; cursor: help;}
