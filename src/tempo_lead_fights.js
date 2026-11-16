@@ -43,6 +43,7 @@ registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the bac
         fighters: [you(helpers, {moves: PLAIN}),
             foe(helpers, {id: 'lotm.lane.knifeman', name: 'The knifeman', hp: TINGEN_BRAWL.foeHp.value, body: {attack: 6, agility: 5, dexterity: 6, intuition: 5, attack_speed: .9, defense: 1, crit_rate: .08, crit_multiplier: 1.5, attack_count: 1},
                 goals: {survive: .7, aim: .3}, tags: ['person'], wants: 'He wants your purse, not your life. Hurt him and the knife may come out.',
+                heard: {atk: 12, from: 'A lamplighter swears the knifeman of the back lanes hits like a dock porter.'},
                 fateText: {finish: 'He dies in the lane. A death in Tingen brings the police, and someone may have seen.', spare: 'He crawls off into the alley. He will remember your face.'},
                 kit: {knife: {label: 'Knife thrust', text: 'A short, quick stab.', cost: 3, power: TINGEN_BRAWL.knife.value, escalates: true, whenHurt: TINGEN_BRAWL.temper.value, why: TINGEN_BRAWL.knife.why}}})]}),
 });

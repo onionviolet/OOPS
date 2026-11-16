@@ -121,7 +121,12 @@ function card(doc, o) {
         const n = make(doc, 'p', 'versus-numbers'), num = (v, field, how = {}) => { const k = knownNumberNode(v, how, {field: `${o.name}: ${field}`, doc}); if (k.dataset.known === 'unknown' && ROUTE[field]) { k.title = `${k.title}. ${ROUTE[field]}`; k.dataset.learnRoute = ''; } return k; };
         n.dataset.versusNumbers = '';
         const t = text => make(doc, 'span', null, text);
-        n.append(t('Atk '), num(o.numbers.atk, 'attack', o.numbers.atkEstimated ? {known: false} : {}), t(' · '), num(o.numbers.hp, 'health'), t('/'), num(o.numbers.maxHp, 'most health'), t(' hp'));
+        const atk = num(o.numbers.atk, 'attack', o.numbers.atkEstimated ? {known: false} : {});
+        if (o.numbers.heardFrom) { atk.title = `${o.name}: attack, from a rumour: ${o.numbers.heardFrom} It may be wrong.`; atk.dataset.heard = ''; }
+        // PS238: what you believed, struck through beside what you learned, so the correction shows.
+        const was = Number.isFinite(o.numbers.wasHeard) && Math.round(o.numbers.wasHeard) !== Math.round(o.numbers.atk) ? make(doc, 'span', 'versus-was', `~${Math.round(o.numbers.wasHeard)}`) : null;
+        if (was) { was.title = 'What the rumour said.'; }
+        n.append(t('Atk '), ...(was ? [was, t(' ')] : []), atk, ...(o.numbers.heardFrom ? [t(', from a rumour')] : []), t(' · '), num(o.numbers.hp, 'health'), t('/'), num(o.numbers.maxHp, 'most health'), t(' hp'));
         c.append(n);
         if (o.sense) { const w = make(doc, 'p', 'versus-sense', `It ${o.sense}.`); w.dataset.versusSense = ''; c.append(w); }
     }

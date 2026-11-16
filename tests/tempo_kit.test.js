@@ -240,3 +240,17 @@ test('what you can see of a foe is said in words, and taking its blows teaches i
     assert.ok(Number.isFinite(v.foes[0].seenAtk));
     assert.equal(v.lines.filter(l => /^You know how hard a big rival hits now: about \d+\.$/.test(l)).length, 1);
 });
+
+// PS238: a rumoured attack can be wrong; the first blow corrects it and the log says so.
+test('a wrong rumour is corrected by the first blow, and the log says the rumour was wrong', () => {
+    const state = structuredClone(base.state); state.simulation.seed = 3;
+    let plan = beginTempoFight(state, registry, context, {id: 'fx-rumour', title: 'Rumour', floor: 1, stakes: {preset: 'brawl'}, fighters: [
+        {id: 'player', name: 'You', side: 'a', speed: 100, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile, perception: 20, stealth: 20},
+        {id: 'foe1', name: 'The bruiser', side: 'b', speed: 130, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile, perception: 20, stealth: 20, heard: {atk: 99, from: 'Someone at the inn said so.'}}]});
+    let b = plan.state.simulation.sessions.player.nativeBattle;
+    assert.deepEqual(tempoView(b).foes[0].heard, {atk: 99, from: 'Someone at the inn said so.'});
+    for(let n = 0; n < 12 && !b.fighters.foe1.seen; n++) { plan = commitTempoMove(plan.state, registry, context, {moveId: 'guard'}); b = plan.state.simulation.sessions.player?.nativeBattle; if(!b) break; }
+    assert.ok(b?.fighters.foe1.seen);
+    assert.equal(tempoView(b).lines.filter(l => /^The rumour was wrong: the bruiser hits for about \d+, not 99\.$/.test(l)).length, 1);
+    assert.doesNotThrow(() => validateTempoBattle(structuredClone(b), plan.state.simulation.sessions.player));
+});

@@ -140,3 +140,15 @@ test('PS236, PS237: a foe reads in words beside its "?", each "?" names a way to
     c = cards(draw(versus))[3];
     assert.equal(c.find(n => n.has('known-number'))[0].textContent, '~6.2');
 });
+
+test('PS238: a rumoured attack reads "~12, from a rumour" and, once corrected, the rumour shows struck beside the learned number', () => {
+    const versus = brawl(), o = versus.opponents[3];
+    o.numbers = {...o.numbers, atk: 12, atkEstimated: true, heardFrom: 'A lamplighter swears it.'};
+    let c = cards(draw(versus))[3];
+    assert.ok(c.textContent.includes('Atk ~12, from a rumour'), c.textContent);
+    assert.match(c.find(n => n.has('known-number'))[0].title, /from a rumour: A lamplighter swears it\. It may be wrong\./);
+    o.numbers = {...o.numbers, atk: 6, heardFrom: undefined, wasHeard: 12};
+    c = cards(draw(versus))[3];
+    assert.equal(c.find(n => n.has('versus-was'))[0].textContent, '~12');
+    assert.ok(c.textContent.includes('Atk ~12 ~6'), c.textContent);
+});

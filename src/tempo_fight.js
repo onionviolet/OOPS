@@ -374,7 +374,7 @@ function runMove(plan, registry, command, publish) {
             attacker: f.profile.stats, target: foe.profile.stats, shield: foe.profile.shield, shieldSkill: foe.profile.shieldSkill, random,
             hitModifier: odds.accuracy * (aim ? LOCATION_DIALS.aimHitPenalty.value : 1), evasionModifier: foeOdds.evasion});
         // Where it landed, what the armour on that slot stopped, and the harm to the part (G6).
-        let slot = null, stopped = 0, injury = null, dmg = 0, typed = null;
+        let slot = null, stopped = 0, injury = null, dmg = 0, typed = null, unguarded = 0;
         if(strike.kind === 'hit') {
             slot = pickSlot(slotWeights(f, foe, {id: command.moveId}, aim, odds.precision), draw(b, 'location', id, {foe: foeId}));
             // Damage types (COMBAT.md round 3): the attack mix against the defender's per-type map, both read from the live actors at the start.
@@ -382,6 +382,8 @@ function runMove(plan, registry, command, publish) {
             typed = f.profile.types || foe.profile.types ? typedHit(f.profile.types?.attack, foe.profile.types?.defense) : null;
             const def = defenceAt(foe.profile, slot, typed), guardMod = foe.guard ? (foe.ward ?? TEMPO_DIALS.guardBonus.value) : 0, pen = f.profile.stats.armor_penetration ?? 0, scale = SLOTS[slot].scale * (typed?.multiplier ?? 1);
             dmg = mitigateCombatDamageFromStats(strike.values, {...foe.profile.stats, defense: def.total}, guardMod, pen, scale);
+            // What the blow would have done without your brace: how hard it hits is learned from that, not from a softened blow (PS237, PS238).
+            unguarded = guardMod ? mitigateCombatDamageFromStats(strike.values, {...foe.profile.stats, defense: def.total}, 0, pen, scale) : dmg;
             if(def.worn > 0) stopped = round1(Math.max(0, mitigateCombatDamageFromStats(strike.values, {...foe.profile.stats, defense: def.base}, guardMod, pen, scale) - dmg));
         }
         if(dmg) {
@@ -394,8 +396,11 @@ function runMove(plan, registry, command, publish) {
         }
         // PS237: you learn how hard a foe hits by taking its blows; the first one is a small moment in the log, and its attack shows as "~N".
         if(dmg && f.side === 'b' && foeId === 'player') {
-            const seen = f.seen ||= {blows: 0, total: 0}; seen.blows++; seen.total = round1(seen.total + dmg);
-            if(seen.blows === 1) say(b, `You know how hard ${f.name.replace(/^(The|A|An) /, w => w.toLowerCase())} hits now: about ${Math.max(1, Math.round(dmg))}.`);
+            const seen = f.seen ||= {blows: 0, total: 0}; seen.blows++; seen.total = round1(seen.total + unguarded);
+            // PS238: a rumour can be wrong; the first blow settles it, and the log says which (dial: off by more than a quarter is wrong).
+            const who = f.name.replace(/^(The|A|An) /, w => w.toLowerCase()), felt = Math.max(1, Math.round(unguarded)), heard = f.heard?.atk;
+            if(seen.blows === 1) say(b, Number.isFinite(heard) ? (Math.abs(felt - heard) > heard * HEARD_OFF ? `The rumour was wrong: ${who} hits for about ${felt}, not ${heard}.` : `The rumour held: ${who} hits for about ${felt}.`)
+                : `You know how hard ${who} hits now: about ${felt}.`);
         }
         // The player's side learns how this foe takes the blow's main type by seeing it land.
         if(typed && f.side === 'a' && foe.side === 'b') (foe.learned ||= {})[typed.kind] = typed.note || 'normal';
@@ -567,7 +572,7 @@ export function beginTempoFight(state, registry, context, spec) {
     for(const f of [...spec.fighters].sort((x, y) => (x.id < y.id ? -1 : 1))) {
         fighters[f.id] = {name: f.name, side: f.side, speed: f.speed ?? 100, ready: 0, hp: f.hp, maxHp: f.maxHp ?? f.hp, stamina: f.stamina ?? 10, maxStamina: f.maxStamina ?? f.stamina ?? 10,
             profile: structuredClone(f.profile), moves: (f.moves || [...KEEP, ...Object.keys(f.kit || {})]).filter(m => KEEP.includes(m) || (f.stock && TEMPO_ALLOWED_MOVE_IDS.includes(m) && !TEMPO_MOVE_IDS.includes(m)) || !!f.kit?.[m]), perception: f.perception ?? 5, stealth: f.stealth ?? 5,
-            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), ...(f.kit ? {kit: structuredClone(f.kit)} : {}), ...(f.means ? {means: {...f.means}} : {}), ...(f.meansLabels ? {meansLabels: {...f.meansLabels}} : {}), ...(f.holdBack ? {holdBack: true} : {}), ...(Number.isFinite(f.holdSkill) && f.holdSkill > 0 ? {holdSkill: Math.min(1, f.holdSkill)} : {}), ...(f.stance ? {stance: f.stance} : {}), ...(f.wants ? {wants: f.wants} : {}), ...(f.fateText ? {fateText: {...f.fateText}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
+            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), ...(f.kit ? {kit: structuredClone(f.kit)} : {}), ...(f.means ? {means: {...f.means}} : {}), ...(f.meansLabels ? {meansLabels: {...f.meansLabels}} : {}), ...(f.holdBack ? {holdBack: true} : {}), ...(Number.isFinite(f.holdSkill) && f.holdSkill > 0 ? {holdSkill: Math.min(1, f.holdSkill)} : {}), ...(f.stance ? {stance: f.stance} : {}), ...(f.wants ? {wants: f.wants} : {}), ...(f.heard ? {heard: {...f.heard}} : {}), ...(f.fateText ? {fateText: {...f.fateText}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
     }
     if(Object.values(fighters).some(f => f.side === 'a' && f.ally)) fighters.player.moves.push('order');
     const b = {schema: TEMPO_SCHEMA, id: spec.id, title: spec.title || 'A fight', seed, actions: 0, now: 0, seconds: 0, held: 0, floor: spec.floor ?? 0,
@@ -629,6 +634,7 @@ export function handOverTempoFight(state, registry, context, {steps = 1} = {}) {
 
 // PS236: what you can see of a foe, said against yourself in words (its build, its speed, a limp), never its hidden numbers. Dial: a foe
 // tagged uncanny, or a fight whose stakes say so, gives no read at all (some worlds keep more "?"; Weibao: "sometimes not knowing is part of it").
+export const HEARD_OFF = .25; // PS238 dial: a rumour off by more than a quarter reads as wrong when the truth lands
 export const SENSE_DIALS = {stronger: 1.25, weaker: .8, faster: 1.15, slower: .87, why: 'a quarter more reach or weight is what most people can see at a glance'};
 export function senseOf(b, foe, me) {
     if(foe.tags?.includes?.('uncanny') || b.stakes?.uncanny) return null;
@@ -673,7 +679,7 @@ export function tempoView(b) {
             order: activeOrder(b, b.fighters[id])?.id ? ALLY_ORDERS[activeOrder(b, b.fighters[id]).id].label : null})),
         // A body waiting on your decision stays on the card, down, so the choice has a place to be made (CBC4).
         // Every foe keeps its row in the same place; one that fell or left stays, dimmed (DU11, PS147): the list does not jump while you read.
-        foes: Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status !== 'active' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina, ready: readyOf(id), sense: senseOf(b, b.fighters[id], me), ...(b.fighters[id].seen ? {seenAtk: round1(b.fighters[id].seen.total / b.fighters[id].seen.blows)} : {}),
+        foes: Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status !== 'active' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina, ready: readyOf(id), sense: senseOf(b, b.fighters[id], me), ...(b.fighters[id].seen ? {seenAtk: round1(b.fighters[id].seen.total / b.fighters[id].seen.blows)} : {}), ...(b.fighters[id].heard ? {heard: {...b.fighters[id].heard}} : {}),
             ...(b.fighters[id].means && Object.keys(b.fighters[id].means).length ? {means: Object.entries(b.fighters[id].means).map(([q, n]) => ({id: q, n, label: b.fighters[id].meansLabels?.[q] ?? q.replace(/_/g, ' ')}))} : {}), learned: {...b.fighters[id].learned}, injuries: Object.entries(b.fighters[id].parts || {}).map(([p, rung]) => ({label: partLabel(p), rung})), hurt: b.fighters[id].status === 'down' ? 'down and helpless' : b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'fresh' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing'}))};
 }
 
