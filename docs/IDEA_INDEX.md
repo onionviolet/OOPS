@@ -1,5 +1,7 @@
 # Game idea index
 
+[Play surface wave handoff, 2026-11-16](gm/dispatch/play-surface-2026-11-14/HANDOFF.md): every open idea from the 2026-11-14 to 11-16 UI, combat and daily-loop wave, by lane with done checks, plus what waits on Weibao. Rounds 1-27 (PS1-PS302, proposals) live in its [considerations](gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md). The starting list for the next ideaboard.
+
 [Five quality deep dives, 2026-11-06](gm/dispatch/quality-deep-dives-2026-11-06/CHECKPOINT.md): pacing (PAC), openings (OPN), names (NMR), consistency (CTR) and feedback (FBK) on the prose model, each a proposed rulebook, a baseline-ratchet check and a ranked backlog; fix slices done 2026-11-07 (see the checkpoint's fix log).
 
 [Planned-idea audit continuation, 2026-11-06](audits/IDEA_AUDIT_2026-11-06.md): inherited lanes plus UI, research/authority, tooling/release and other-world review. Coverage and remaining unverified rows stay explicit; this is not a new execution queue.
