@@ -115,6 +115,11 @@ body.shot #pick, body.shot .note { display:none; }
 .band .key { font:11px ui-monospace,monospace; border:1px solid var(--muted); border-radius:2px; padding:0 4px; margin-right:4px; color:var(--muted); }
 .newtag { font-style:normal; font-size:10px; color:var(--gold); border:1px dashed var(--gold); border-radius:2px; padding:0 4px; margin-left:6px; text-transform:none; letter-spacing:0; }
 .versus-allies { font-size:12.5px; margin:0 0 6px; }
+.stages { display:flex; flex-direction:column; gap:0; margin:4px 0; } .stage { display:grid; grid-template-columns:22px 1fr auto; gap:8px; align-items:center; padding:5px 6px; border-left:2px solid var(--quiet); margin-left:10px; font-size:14px; }
+.stage .dot { width:12px; height:12px; border-radius:50%; border:2px solid var(--line); margin-left:-14px; background:var(--box); } .stage.done .dot { background:var(--green); border-color:var(--green); } .stage.now { border-left-color:var(--gold); background:rgba(255,210,74,.06); } .stage.now .dot { border-color:var(--gold); }
+.altar { display:grid; grid-template-columns:300px 1fr; gap:10px; align-items:start; } .altar svg text { fill:var(--text); font:12px system-ui; text-anchor:middle; }
+.homegrid { display:grid; grid-template-columns:1fr 1fr; gap:6px; } .room { border:1px solid var(--line); border-radius:3px; padding:5px 8px; font-size:13.5px; } .room.here { border-color:var(--gold); } .room b { display:block; font-size:14px; }
+.short { color:var(--hp); } .have { color:var(--green); } .tag { color:var(--muted); font-size:13px; } .arow { font-size:14px; } .arow .act { border:1px solid var(--line); border-radius:3px; padding:1px 8px; }
 .held { display:flex; gap:8px; border-top:1px solid var(--quiet); padding-top:6px; margin-top:auto; } .held .verb { flex:1; margin:0; font-size:15px; } .c3 .head-run .bar { height:19px; }
 #dtitle { position:fixed; left:398px; bottom:42px; font-size:11px; color:var(--muted); }
 /* Compare view: the draft beside today's screen of the same life. */
@@ -176,6 +181,7 @@ const vbar = (cls, f, l, t) => `<div class="versus-bar ${cls}" style="--f:${f}%;
 const vcard = ({name, kind, hp, hpT, lost, st, means, wants, down, timer = 40, glyph = true}) => `<article class="versus-card"${down ? ' data-down' : ''} data-combat-subject="${name}"><div class="nm">${glyph ? sigil(name) : ''}${name}<small>${kind}</small></div>` +
   vbar(hpT.startsWith('?') ? 'unk' : '', hp, lost ?? hp, hpT) + (st != null ? vbar('versus-bar--stamina', st, st, '') : '') + (down ? '' : `<div class="versus-bar versus-bar--timer" style="--f:${timer}%"><i></i></div>`) +
   `<p class="versus-means">${means}</p>${wants ? `<p class="versus-wants">Wants: ${wants}</p>` : ''}<span class="inspect">Inspect</span></article>`;
+const arow = (name, right, cls = '') => h('div', `row arow ${cls}`, `<span class="act">${name}</span><span>${right}</span>`);
 const DRAFTS = {
   d1: {
     title: 'D1 · Klein\'s work day (SFC10)', today: 'lotm-tingen-day3.png',
@@ -277,13 +283,75 @@ const DRAFTS = {
       est: 'a watched foe\'s attack (~7); the timer is a rhythm, not a number', unk: 'an unread foe\'s HP, means and wants ("?/? hp")', empty: 'No one against you: the card closes and the location box returns (PS121)',
       today: 'The live tempo fight card (combat lane). As built: allies are one "Beside you" line and the sides have no headings; ally cards and headings here are new proposals', codes: 'DU10-DU12, DU14, DU16, DU37, PS121, PS130, PS147, UR99. The Infested field\'s original loop has only Stance and Finish/Spare, so this is set at the wolf front.'}),
   },
+
+  d7: {
+    title: 'D7 · One home box: Klein\'s flat (SFC12, SFC24)', today: 'lotm-tingen-day3.png',
+    c1: C1K(box('Character & preparation', '', STATS + row('Active effects:', '0') + tabs(['Stats', 'Bio', 'Equipment', 'Tools'], 'Stats', 'sm'), 'teal'), KLEIN_INV),
+    c2: [KLEIN_TIME, box('', '', h('div', 'loc', h('div', 'name', '☆ Moretti flat') + h('div', 'desc', 'River fog and coal smoke hang over the street; you see less far than by day.') + h('div', 'here', 'Here: <a>Benson and Melissa</a> · <a>the desk</a> · <a>1 way out</a>'))),
+      draft('Your home · Moretti flat', '← Back (Esc)', tabs(['Rooms', 'Furniture', 'Storage', 'Upkeep', 'Room plan'], 'Rooms', 'sm') +
+        h('div', 'homegrid', h('div', 'room here', '<b>Front room · you are here</b>desk, notebook, revolver<br><span class="m">writing · reading</span>') + h('div', 'room', '<b>Bedroom (shared)</b>bed, small chest<br><span class="m">Sleep: rested by dawn</span>') + h('div', 'room', '<b>Melissa\'s corner</b>books by the stove<br><span class="m">her study place</span>') + h('div', 'room', '<b>Landing</b>stairs to the street<br><span class="m">1 way out</span>')) +
+        row('<b>Rent</b>', '5 soli this week · due in 5 days') + row('Comfort', unk('?', 'Not assessed yet. A night or two here tells you.')) + row('Household', 'Benson (elder brother) · Melissa (younger sister)') + row('Storage', 'nothing kept here that you know of') +
+        h('div', 'm', 'Sleep, store and pay rent from here; the room plan opens as a tab, not a separate page.'), 'grow')].join(''),
+    c3: JOURNAL('Notebook', row('<b>Thoughts and intentions</b>', '56 entries') + row('Pay the rent when you can.', 'day 3') + row('Look over the desk without reading beyond what you can see.', 'day 3')) + SKILLS('Skills', ['Beyonder'], row('Reading', 'Lv 0')),
+    c4: REPORTS('<b class="g">Right now</b><br>Look over the desk, then sleep.', ['[ Moretti flat · Day 3 ]']) + spec({code: 'D7 · SFC12, SFC24',
+      box: '2 · <b>Your home</b> opens one home box in place of the actions box, tabs Rooms, Furniture, Storage, Upkeep, Room plan; thoughts go to 3 · Journal · Notebook', verb: '<b>Your home</b> (YAIR\'s Sleep and Storage slot); the household names sit on the Here line',
+      ready: '"rent in 5 days" (near) · "rent due" (ready) · "1 furniture ready" when a piece can be placed', known: 'rent, who lives here, what is stored',
+      est: 'how rested a night here leaves you', unk: 'comfort until a night is spent', empty: '"No home yet. Renting a room or a bed opens it."',
+      today: 'Workroom Home section; Here\'s Home tab; the unrouted homes, home-overview and home-layout panels (two homes for one thing)', codes: 'PS120, PS121, PS125, DSG11, UR93. Rooms are examples.'}),
+  },
+  d8: {
+    title: 'D8 · Harry: Skills · Spells, the Practise verb, and friends in People (SFC21, SFC22)', today: 'hp-exam-week.png',
+    c1: [box('Character vitals', 'Lv 0', h('div', 'tab', 'Harry Potter') + bar('60/60 hp', 'var(--hp)', 100) + bar('40/40 stamina', 'var(--st)', 100), 'teal'), box('Inventory & combat view', '', tabs(['Inventory', 'Combat'], 'Inventory') + row('☆ Wand (holly, phoenix feather)') + row('☆ Class books ×6'), 'teal grow')].join(''),
+    c2: [VILLAGE_TIME('School days · Day 61 · 16:10', 'Autumn', '68%'), box('', '', h('div', 'loc', h('div', 'name', '☆ Hogwarts · Charms corridor') + h('div', 'desc', 'An empty classroom with feathers left on the desks.') + h('div', 'here', 'Here: <a>Hermione</a> · <a>the charms bench</a>'))),
+      box('Local actions', '1 ready', verb('⇢', 'Move around', '6 known') + verb('❝', 'Talk to someone', '', '', arow('Hermione <span class="tag">· here</span>', '')) +
+        draft('', '', verb('◎', 'Practise', '1 ready', 'open', arow('Wingardium Leviosa · a feather', '20 min · ' + est('~1 in 3') + ' to lift') + arow('Lumos', '5 min · steady') + arow('Alohomora', '<span class="m">needs a lock to try on</span>')), '') + verb('✎', 'Attend', '~Potions 09:00') + verb('☾', 'Sleep', '<span class="tag">dormitory</span>'), 'grow')].join(''),
+    c3: draft('Journal & received accounts', 'People', tabs(['Quests', 'Bestiary', 'Anthology', 'Data'], '') + tabs(['Knows', 'Notebook', 'People', 'Worlds', 'Beginning'], 'People', 'sm') + tabs(['People', 'School', 'Travelers', 'Organizations'], 'School', 'sm') +
+        row('<b>Ron Weasley</b>', 'friend · Gryffindor') + row('<b>Hermione Granger</b>', 'friend · ' + est('~warming')) + row('Neville Longbottom', 'dormmate') + row('Draco Malfoy', '<span class="k blocked">rival</span>')) +
+      draft('Skills & practice', 'Spells', h('div', 'head-run', '<b class="g">Learning now</b> · Wingardium Leviosa <span class="m">· practised 3 times</span>') + row('<b>Wingardium Leviosa</b>', 'learning · lifts a feather ' + est('~1 in 3')) + row('<b>Lumos</b>', 'known · steady') + row('Alohomora', 'read about · not tried') + row('Expelliarmus', unk('?', 'Not taught yet.')) + tabs(['Skills', 'Stances', 'Magic', 'Spells'], 'Spells'), 'grow'),
+    c4: REPORTS('<b class="g">Right now</b><br>Practise Wingardium Leviosa before Charms tomorrow.', ['[ Charms corridor · Day 61 ]']) + spec({code: 'D8 · SFC21, SFC22',
+      box: '3 · Skills · <b>Spells</b> (a "Learning now" head, PS146); 3 · Journal · People with a <b>School</b> filter beside Travelers and Organizations', verb: '<b>Practise</b> opens what can be practised here, each with time and a chance',
+      ready: '"1 ready" when a spell can be practised here; near names what is missing ("needs a lock")', known: 'spells known and read about, friends and dormmates',
+      est: 'a spell\'s chance while learning; a friend\'s warmth', unk: 'spells not yet taught', empty: 'Spells: "No spells yet. Lessons and books teach them." School: "No one at school knows you yet."',
+      today: 'The spellbook &lt;details&gt; and the "Friends at school" panel, both unrouted', codes: 'PS122, PS130, PS146, UR98. Canon spells; chances and warmth are examples.'}),
+  },
+  d9: {
+    title: 'D9 · One bench grammar: the cauldron beside the counter (SFC23)', today: 'hp-exam-week.png',
+    c1: [box('Character vitals', 'Lv 0', h('div', 'tab', 'Harry Potter') + bar('60/60 hp', 'var(--hp)', 100) + bar('40/40 stamina', 'var(--st)', 100), 'teal'), box('Inventory & combat view', '', tabs(['Inventory', 'Combat'], 'Inventory') + row('☆ Lacewing flies ×20') + row('☆ Leeches ×4') + row('☆ Knotgrass') + row('☆ Bicorn horn', '<span class="short">0</span>'), 'teal grow')].join(''),
+    c2: [VILLAGE_TIME('School days · Day 140 · 22:30', 'Winter', '94%'), box('', '', h('div', 'loc', h('div', 'name', '☆ Hogwarts · a disused bathroom') + h('div', 'desc', 'Water on the floor; a cauldron set behind the stall door.') + h('div', 'here', 'Here: <a>Hermione</a> · <a>the cauldron</a>'))),
+      draft('Mix · Cauldron', '← Back (Esc)', tabs(['Cauldron', 'Counter', 'Notes'], 'Cauldron', 'sm') + h('div', 'm', 'Polyjuice Potion · a month of brewing · you own 0') +
+        h('div', 'stages', h('div', 'stage done', '<span class="dot"></span><span>Stew the lacewing flies</span><span class="m">21 days · done</span>') + h('div', 'stage done', '<span class="dot"></span><span>Add leeches, knotgrass, fluxweed</span><span class="m">done</span>') + h('div', 'stage now', '<span class="dot"></span><span><b>Add bicorn horn and boomslang skin</b></span><span class="short">needs 1 bicorn horn</span>') + h('div', 'stage', '<span class="dot"></span><span>Leave to brew</span><span class="m">' + est('~1 day') + '</span>') + h('div', 'stage', '<span class="dot"></span><span>A hair of the one you become</span><span class="m">at the end</span>')) +
+        row('Chance it holds', est('~70%') + ' · <span class="m">your brewing, a quiet room</span>') + row('Where to get bicorn horn', '<a>the Potions store</a> ' + unk('?', 'Locked; who has the key is not known yet.')) +
+        h('div', 'head-run', '<b class="g">Next stage</b> · needs 1 bicorn horn<br><span class="m">Stop: the brew keeps for 2 days, then spoils.</span>'), 'grow')].join(''),
+    c3: JOURNAL('Quests', row('<b>Become someone else for an hour</b>', 'stage 3 of 5')) + SKILLS('Skills', ['Spells'], row('Potion-making', 'Lv 2')),
+    c4: REPORTS('<b class="g">Right now</b><br>Find bicorn horn before the brew spoils.', ['[ A disused bathroom ]', 'The brew thickens to a mud colour.']) + spec({code: 'D9 · SFC23',
+      box: '2 · the <b>Mix</b> bench replaces the actions box; tabs are the benches you can use here (Cauldron, Counter), so Mixing and Potioneering share one grammar', verb: '<b>Mix</b>; a missing input links to where it comes from (PS144, PS167) and Back returns',
+      ready: '"stage ready" when the next stage can run; near names the missing input', known: 'stages done, what you own, the brew\'s keeping time',
+      est: 'chance it holds, time to the next stage', unk: 'where a locked input can be got', empty: '"No brew going. Pick a recipe you know."',
+      today: 'The unrouted Potioneering panel beside the Mixing tab (a second bench grammar)', codes: 'PS121, PS141, PS144, PS167, UR93, UR94 (the stages are the mechanism\'s own form). Canon recipe; numbers are examples.'}),
+  },
+  d10: {
+    title: 'D10 · Klein\'s rites: Take an action › Rites opens the altar in place (SFC25)', today: 'lotm-tingen-day3.png',
+    c1: C1K(box('Character & preparation', '', STATS + tabs(['Stats', 'Bio', 'Equipment', 'Tools'], 'Stats', 'sm'), 'teal'), h('div', 'm', 'Your purse: 2 soli 4 pence') + row('☆ Candles ×4') + row('☆ Pure water') + row('☆ Essential oil', '<span class="short">0</span>')),
+    c2: [VILLAGE_TIME('Day 41, <b>night</b> · 23:40', 'rain', '98%'), box('', '', h('div', 'loc', h('div', 'name', '☆ Moretti flat · front room') + h('div', 'desc', 'Rain on the slates; the family is asleep.') + h('div', 'here', 'Here: <a>the desk</a>'))),
+      draft('Rite · a ritual of asking', '← Back (Esc)', h('div', 'altar', `<svg viewBox="0 0 300 230" width="300" height="230"><circle cx="150" cy="115" r="92" fill="none" stroke="#5b63b0" stroke-dasharray="4 4"/><rect x="118" y="95" width="64" height="40" rx="3" fill="#1d2a66" stroke="#ffd24a"/><text x="150" y="119">altar</text>` +
+          [[150, 22, 'candle · ✓'], [242, 115, 'candle · ✓'], [150, 210, 'candle · ✓'], [58, 115, 'candle · ✓']].map(([x, y, t]) => `<circle cx="${x}" cy="${y}" r="7" fill="#ffd24a"/><text x="${x}" y="${y + (y > 115 ? -12 : 22)}">${t}</text>`).join('') + `<text x="150" y="160" fill="#ff9d57">oil · missing</text></svg>` +
+          h('div', '', h('div', 'stages', h('div', 'stage done', '<span class="dot"></span><span>Set the four candles</span><span class="m">done</span>') + h('div', 'stage now', '<span class="dot"></span><span><b>Anoint the altar</b></span><span class="short">needs essential oil</span>') + h('div', 'stage', '<span class="dot"></span><span>Recite the honorific name</span><span class="m">' + unk('?', 'Whose name answers is not known.') + '</span>') + h('div', 'stage', '<span class="dot"></span><span>Ask, then wait</span><span class="m">' + est('~10 min') + '</span>')) +
+            row('Risk', '<span class="k near">something may answer</span>') + row('Spirit cost', '2 · you have 5'))) +
+        h('div', 'm', 'A rite is drawn by its parts (altar, candles, words), not as a list. Missing parts show where they go.'), 'grow')].join(''),
+    c3: JOURNAL('Knows', row('<b>A ritual of asking</b>', 'learned · day 38') + row('Candles at the four points', 'Old Neil · day 38')) + SKILLS('Beyonder', ['Beyonder'], row('<b>Seer · Sequence 9</b>', '') + row('Divination', '<span class="k ready">ready</span>')),
+    c4: REPORTS('<b class="g">Right now</b><br>Anoint the altar: you need essential oil.', ['[ Moretti flat · Day 41 ]', 'You set the candles at the four points.']) + spec({code: 'D10 · SFC25',
+      box: '2 · <b>Take an action › Rites</b> opens the rite in place of the actions box, drawn as its own figure (UR93)', verb: '<b>Take an action</b> › Rites (and divination methods beside it)',
+      ready: '"1 rite ready" when every part is set; near names the missing part', known: 'parts set, spirit cost, what you hold',
+      est: 'how long until an answer', unk: 'whose name answers (a sealed truth stays a "?" until learned)', empty: '"No rites known. A teacher or a book teaches one."',
+      today: 'Workroom "Rites and questions" and "Altar and rites" sections', codes: 'PS121, PS130, UR93, UR98; rite_figure.js is the existing figure to reuse. Rite parts are examples.'}),
+  },
 };
 const P = new URLSearchParams(location.search), id = P.get('d') || 'd1', D = DRAFTS[id];
 for (const k of ['c1', 'c2', 'c3', 'c4']) document.getElementById(k).innerHTML = D[k];
 document.getElementById('dtitle').textContent = D.title;
 document.title = 'Draft ' + D.title.split(' · ')[0];
 if (P.has('cmp')) { document.body.classList.add('cmp'); document.getElementById('cmpL').src = `capture-${id}.png`; document.getElementById('cmpR').src = `today/${D.today}`; document.getElementById('cmpT').textContent = D.title; }
-addEventListener('keydown', e => { const n = Number(e.key); if (n >= 1 && n <= 5) location.search = `?d=d${n}`; });
+addEventListener('keydown', e => { const n = Number(e.key); if (n >= 1 && n <= 9) location.search = `?d=d${n}`; if (e.key === '0') location.search = '?d=d10'; });
 
 </script>
 </body>

@@ -29,4 +29,11 @@ Other targets, odds and counts are examples, and each draft note says which.
 
 `today/` holds the DEV fixture captures (headless Chrome at 1920x1080, `node scripts/fixture_browser.cjs <name>`). These are setups, not played lives.
 
-Batch 2 (next, after Weibao looks): SFC12 Klein's home, SFC21 Spellbook as Skills · Spells, SFC22 friends in People, SFC23 one bench grammar for Potioneering and Mixing, SFC24 one home, SFC25 rites.
+## Batch 2 (2026-11-16)
+
+| Draft | Gap | Today |
+|---|---|---|
+| D7 · capture-d7.png | SFC12 and SFC24: **Your home** opens one home box in place, with tabs Rooms, Furniture, Storage, Upkeep and Room plan (Klein's flat). Thoughts go to Journal · Notebook | the workroom's Home section, Here's Home tab and three unrouted home panels |
+| D8 · capture-d8.png | SFC21 and SFC22: Skills · **Spells** with a "Learning now" head, the **Practise** verb with chances, and Journal · People with a **School** filter | the spellbook disclosure and "Friends at school", both unrouted |
+| D9 · capture-d9.png | SFC23: the **Mix** bench in place, with a tab per bench (Cauldron, Counter) and Polyjuice drawn as stages, so Mixing and Potioneering share one grammar | the Potioneering panel beside the Mixing tab |
+| D10 · capture-d10.png | SFC25: **Take an action › Rites** opens the altar as its own figure (candles, altar, words) with the steps beside it | the workroom's "Rites and questions" and "Altar and rites" |
