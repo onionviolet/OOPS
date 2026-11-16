@@ -1,4 +1,4 @@
-// The layout grows with the life (round 21, PS216/PS275; proposal, ?variant=ps216 only). gridTemplate already folds a
+// The layout grows with the life (round 21, PS216/PS275): Display › Look › Layout: Grows with the life, or ?variant=ps216 for tests. gridTemplate already folds a
 // column whose regions are all empty (PS99); under the variant the Journal and Reports columns also count as empty
 // until the life gives them something, so a new life starts on You and the place and each column opens when it gets
 // content. A Village life starts with its opening quest and two Reports lines (the quest and the name hint, besides the
@@ -29,9 +29,10 @@ function mark(doc, id, because) {
     setTimeout(() => { region.dataset.regionOpened = 'open'; for (const h of heads) delete h.dataset.openedBecause; }, SETTLE_MS);
 }
 
-/** Widen gridTemplate's `empty` under ?variant=ps216; otherwise return it unchanged. */
+/** Widen gridTemplate's `empty` under Layout: Grows with the life (or ?variant=ps216); otherwise return it unchanged. */
 export function growEmpty(empty, doc = globalThis.document) {
-    if (!doc || doc.documentElement.dataset.variant !== 'ps216') return empty;
+    const root = doc?.documentElement;
+    if (!root || (root.dataset.variant !== 'ps216' && root.dataset.lookLayout !== 'grows')) return empty;
     const open = columnsToOpen({quests: questCount(doc), reports: reportCount(doc), skills: doc.querySelectorAll('.skill_div').length}), out = [...empty];
     for (const id of ['journal', 'log']) {
         if (opened.has(id)) continue;

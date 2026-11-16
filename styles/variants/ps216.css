@@ -1,8 +1,8 @@
-/* ?variant=ps216 (PS216, round 21; proposal). src/ui/grow_columns.js widens gridTemplate's `empty` so the Journal and
+/* Display › Look › Layout: Grows with the life, or ?variant=ps216 (PS216, round 21). src/ui/grow_columns.js widens gridTemplate's `empty` so the Journal and
    Reports columns open when the life gives them something; this sheet only marks the moment a column opens, so the
    player sees what arrived. Motion stops under reduce motion. */
-:root[data-variant="ps216"] #main_content [data-region][data-region-opened="new"] > .workspace-module {animation:feel-new-pulse var(--ui-motion-settle,.4s) ease-out 1;}
-:root[data-variant="ps216"] #main_content [data-region-opened="new"] .workspace-module-header > strong[data-opened-because]::after {content:" · " attr(data-opened-because);color:var(--ui-accent);font-size:var(--ui-type-small);}
+:root:is([data-variant="ps216"],[data-look-layout="grows"]) #main_content [data-region][data-region-opened="new"] > .workspace-module {animation:feel-new-pulse var(--ui-motion-settle,.4s) ease-out 1;}
+:root:is([data-variant="ps216"],[data-look-layout="grows"]) #main_content [data-region-opened="new"] .workspace-module-header > strong[data-opened-because]::after {content:" · " attr(data-opened-because);color:var(--ui-accent);font-size:var(--ui-type-small);}
 @media (prefers-reduced-motion: reduce) {
-:root[data-variant="ps216"] #main_content [data-region][data-region-opened="new"] > .workspace-module {animation:none;}
+:root:is([data-variant="ps216"],[data-look-layout="grows"]) #main_content [data-region][data-region-opened="new"] > .workspace-module {animation:none;}
 }

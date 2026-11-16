@@ -30,6 +30,12 @@ export const LOOK_OPTIONS = Object.freeze([
         choices: Object.freeze([['bordered', 'Bordered'], ['spacing', 'Spacing']]),
         sheets: Object.freeze({bordered: '', spacing: 'styles/variants/ps217.css'}),
         description: 'Bordered draws a frame around each row. Spacing separates rows with space and a thin line, and shows each skill on one line.'}),
+    // PS216 (Weibao 2026-11-16: "make it a choice and then I can try both in the future"): Full is today's four columns;
+    // Grows with the life starts a new life on You and the place and opens each column when it gets content.
+    Object.freeze({id: 'layout', label: 'Layout', default: 'full',
+        choices: Object.freeze([['full', 'Full'], ['grows', 'Grows with the life']]),
+        sheets: Object.freeze({full: '', grows: 'styles/variants/ps216.css'}),
+        description: 'Full shows every column from the start. Grows with the life starts on you and the place, and opens the Journal and Reports columns when the life first gives them something.'}),
     // PS206, PS222, PS289 (combat lane): where the fight tells what just happened. Reports (classic, default) carries every line;
     // the box can also keep its last six lines, or each card its own latest line with the whole fight folded in the box.
     // PS289 (Weibao 2026-11-16: "the old combat UI was better and more coherent"): Reports is the classic default.

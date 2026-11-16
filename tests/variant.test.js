@@ -31,3 +31,11 @@ test('PS216: a column opens when its content grows past a life\'s opening; the J
     assert.deepEqual(columnsToOpen({...opening, skills: 1}), {journal: 'First skill'});
     assert.deepEqual(columnsToOpen({...opening, quests: 2}), {journal: 'A new quest'});
 });
+
+test('Layout is a look choice: Full by default, Grows with the life loads the ps216 sheet (PS216)', async () => {
+    const {LOOK_OPTIONS, lookSheet} = await import('../src/ui/variant.js');
+    const layout = LOOK_OPTIONS.find(o => o.id === 'layout');
+    assert.equal(layout.default, 'full');
+    assert.equal(lookSheet(layout, 'full'), '');
+    assert.equal(lookSheet(layout, 'grows'), 'styles/variants/ps216.css');
+});
