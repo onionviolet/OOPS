@@ -41,3 +41,19 @@ The play-surface wave (2026-11-14 to 2026-11-16) closes here, as Weibao asked: "
 - The cast_* live-save tests run close to their 270 s worker timeout under load. The fix is a longer timeout or the slow label.
 - Shared files: a pathspec commit takes the whole file from disk. Default: stage your own hunks with `git apply --cached`, then run a bare `git commit` after checking `git diff --cached`.
 - Captures need `resources/fonts/private` linked into scratch trees (PS293).
+
+## Ideaboard starter, 2026-11-16 (proposals for Weibao to react to)
+
+Weibao: "then we can start ideaboarding after handing off all the rest ideas". The starter board, to expand into rounds on his picks:
+
+| Code | Theme |
+| --- | --- |
+| I1 | A week, not a day: each lead's weekly rhythm (pay week and rent, timetable and house points, the tide cycle), a small week strip and an idle run of the routine. |
+| I2 | One fight in every world: the original combat screen carried to a fight that matters for each lead, then mixed fights with allies. |
+| I3 | Making as a loop: gather, refine, make, reforge or enchant, then wear, sell or hand in, each step linking to the next; enchanting differs by world. |
+| I4 | Crossing worlds with weight: what carries across (skills, knowledge, items, debts) and why, with the crossing opened in the world. |
+| I5 | The screen that grows with you: areas, the growing layout and panels that appear when first met. |
+| I6 | Knowing as play: "?", rumours and wrong estimates beyond fights (prices, intentions, recipes, maps), each with a route to learn. |
+| I7 | An unusual life: a second-order role (a raised Gu, Klein's informant, a house-elf) on the same screens with a very different day. |
+
+Questions: Q1 which lead feels complete first, or all three evenly; Q2 deeper leads or a fourth world to prove the systems carry; Q3 new features or cohesion on what exists.
