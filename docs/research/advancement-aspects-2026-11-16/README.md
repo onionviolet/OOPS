@@ -35,20 +35,51 @@ Reverend Insanity has 7,196 reader claims (164 files). Mother of Learning, Shado
 
 Yes. One aspect schema, one Haiku prompt, one batch with a `custom_id` per novel and row; each novel needs only a small local adapter that turns its reading format into packets. Novels run independently, so a bad adapter fails one novel's rows, not the batch. Order by consumer: LOTM Fool line (Klein), Reverend Insanity moves and diets (Fang Yuan), then Circle of Inevitability (same system, second book, a free cross-check on LOTM rows), then the rest.
 
-## Price
+## Price (corrected the same day)
 
-Rates from the bundled Claude API reference (cached 2026-11-03): Claude Haiku 5.5 $0.10 in and $0.50 out per million tokens (prompts up to 100K), Claude Sonnet 5.5 $2 and $10; Message Batches are half price. Outputs are budgeted at five times the visible answer to cover thinking.
+The first estimate budgeted output at five times the answer. The measured Haiku 5.5 batch receipts in the [batch reading workflow](../BATCH_READING_WORKFLOW.md) show reasoning output of 25,000 to 50,000 tokens a request at high effort, $0.008 to $0.014 a request. Short extraction at low effort should cost less, but nothing has measured it. Working estimate: $0.003 to $0.01 a request, so about 2,700 requests for every pass below come to roughly $10 to $30, not under $10. A 20-request pilot per pass settles the rate before the rest is sent.
 
-| Pass | Requests | Input tokens (est.) | Haiku 5.5 batch | Sonnet 5.5 batch |
-| --- | ---: | ---: | ---: | ---: |
-| RI move roles from claims (GKM427) | 534 | 0.75M | about $0.30 | about $6 |
-| RI move roles from chapter text, for moves the claims leave open | up to 534 | about 2M | about $0.50 | about $10 |
-| Gu rank, path, food and effect from wiki pages (GKM444) | about 900 | about 2.5M | about $0.70 | about $14 |
-| LOTM potion aspect sheets, 22 pathways by 10 Sequences | 220 | about 1.1M | about $0.30 | about $6 |
-| Circle of Inevitability cross-check of the same sheets | 220 | about 1M | about $0.30 | about $6 |
-| Clever-uses first slice (GKM437) | about 100 | about 0.5M | about $0.10 | about $2 |
-| Sonnet check of a 10% sample of every Haiku pass | about 250 | about 1M | | about $5 |
+| Pass | Requests |
+| --- | ---: |
+| RI move roles from claims (GKM427) | 534 |
+| RI move roles from chapter text where claims leave roles open | up to 534 |
+| Gu rank, path, food and effect from wiki pages (GKM444) | about 900 |
+| LOTM potion aspect sheets, 22 pathways by 10 Sequences | 220 |
+| Circle of Inevitability cross-check | 220 |
+| Clever-uses first slice (GKM437) | about 100 |
+| Cross-model check on a 10% sample | about 250 |
 
-All of it on Haiku with the Sonnet sample check comes to under $10. The cost that matters is review time: every row a model fills still needs its locator checked before it becomes a rule (AU13).
+## Haiku or Luna
 
-Not verified: provider balance, credit expiry, and live prices (fetch before dispatch). Token counts are estimates from character counts; `count_tokens` on a sample would settle them.
+Same price: GPT-6 Luna batch is $0.05 in and $0.25 out per million tokens, equal to Haiku 5.5's batch rate (workflow doc, prices read 2026-11-08). The repo default for bounded extraction is Luna at low effort (AU5). Luna needs a strict `json_schema` (the first non-strict Circle census left out required fields); Haiku 5.5 takes structured outputs. Proposed use of both:
+
+- **Split by credit.** Run one pass family per provider so both balances get used, one provider per book at a time (the driver refuses a mix in one run file).
+- **The other model is the check.** Luna extracts and Haiku re-extracts a 10% sample, or the reverse. Two model families disagreeing is a better flag than a same-family Sonnet check, and costs the same as the extraction. Disagreements go to Sonnet or to source review.
+- **Pilot decides the default.** `batch_compare.mjs` on the pilot rows, with separate private folders, picks whichever matches source locators better for that pass.
+
+## Wikis
+
+Already on disk, private (`~/.codex/research/wikis/`):
+
+- **Lord of the Mysteries** (`lotm-wiki-current-pages-2026-11-03.jsonl.gz`, 1,833 pages): "potion formula" on 115 pages, "advancement ritual" on 98, "acting method" on 47, "loss of control" on 32, "main ingredient" on 44. Template fields can be parsed locally for free; free-text ritual and acting sections go to the extraction model. This tier is wiki, scored apart from book rows (GKM445), and Circle of Inevitability and the LOTM readings confirm it.
+- Twenty other Fandom wikis (Bleach, JJK, One Piece, Naruto, Frieren and others) for later worlds.
+
+Not on this machine: the Harry Potter Fandom dump (`harrypotter_pages_current.xml.7z`, 54,181,689 bytes) and the Reverend Insanity Fandom dump (`reverendinsanity_pages_current.xml.7z`, 2,062,702 bytes), both from Fandom's public S3 dump route used on 2026-10-10 (`docs/research/power-systems/wiki-digests/SOURCES.md`). Their indexes are tracked; the archives were read in another environment. Re-downloading them is one file each, not page scraping, and unblocks the Hogwarts potion labels (the live site refused automated reads) and the Gu wiki pass. sagaofgu.com pages (455 linked) would go through `lncrawl-polite`.
+
+## Other aspects
+
+Beyond the five on the potion page, each also generic across worlds:
+
+| Aspect | LOTM example | Engine owner |
+| --- | --- | --- |
+| Who may | Sequence order, neighbouring pathways, switching | Standing and knowledge (STN, KNW) |
+| Where it comes from | Ingredient sources, sellers, prices, Church control | Economy, items (ITM) |
+| How long | Brewing, digestion time, waiting before the next Sequence | Time (TMR) |
+| What others notice | Signs of a Beyonder, spirituality, being sensed | Knowledge, feedback |
+| What is left behind | Beyonder characteristics after death; Gu outliving a master | Items, inheritance |
+| Who controls the knowledge | Formulas held by Churches and families; penalties for leaking | Standing and law |
+| How it changes the mind | Personality drift, madness, the role taking over | Mind (MND) |
+| What can be false | An incomplete or forged formula (the GKM247 pattern) | Knowledge, GKM430 claim tier |
+| How it combines | Pathway convergence, artifacts, counters | Cross-system rules |
+
+The sheet grows to these fourteen fields, and each pass fills only the fields its source states.

@@ -1717,3 +1717,5 @@ Weibao: "whatx next? send again? we can have some batched to do research and fin
 
 Weibao, with a screenshot of an LOTM potion page (Overview, Formula, Ritual, Backlash, Acting Method): "Consider aspects like this too, we can work on multiple novels at once? Price it". Saved as a proposal with prices in [advancement aspects](../research/advancement-aspects-2026-11-16/README.md): one five-aspect sheet for every world's advancement, rituals as conditions on world state, the LOTM Fool line first for Klein's digestion, one batch across novels.
 
+Same thread: "haiku or luna? whats more optimal? Check wikis and more too? other aspects?" Answered in the same doc: same batch price, use both with each as the other's check, a pilot per pass; the LOTM wiki is already on disk; nine more aspects; the price estimate corrected upward to $10 to $30.
+
