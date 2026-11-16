@@ -171,3 +171,9 @@ The two failures were save workers killed at the 270 s timeout, with no failed a
 Standing risk: the cast_* live-save files run close to their worker timeout whenever the machine is busy. The fix is open: a longer worker timeout or the slow label.
 
 Landed after 95bdf13d3 and not pushed: discord surfaces 4d0cb17f5 and e4598c9f7, combat 4ab373717 and bcc8a92f7, ui-cohesion 1120c44cd, round 26, and others.
+
+## Close-out gate 14a646680, 2026-11-16 (not pushed)
+
+The pusher gated a clean checkout of 14a646680. The bundle matches, and arch, rules and docs exit 0. Flow shows only the known no-rain finding. npm test: 7,780 tests, 7,767 pass, 1 fail, 12 skipped, at a load average of about 6.
+
+The failure is an assertion, not a timeout. tests/ui_style_ratchet.test.js "no UI module adds raw style; counts only go down (PS245)" reports src/ui/bench_form.js: ownMarkup 0 -> 1. It came from e33ee6aa1, the enchanting bench form. The fix is to build that markup through src/ui/kit.js. Origin stays at e53dbd33c until a fixed hash passes the gate.
