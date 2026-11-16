@@ -75,8 +75,8 @@ runBrowser(async browser => {
     await page.evaluate(k => window.equip_item(k), pants);
     await page.evaluate(() => simulationTestHooks.resume?.());
     await page.evaluate(() => window.change_location({location_id: 'Infested field'}));
-    // Read the line in the same poll that finds it: once a hit lands, Fortitude trains and the line rightly goes.
-    const line = await (await page.waitForFunction(() => document.body.innerText.split('\n').find(t => /nothing has hurt you since you started/.test(t)), null, {timeout: 120000, polling: 500})).jsonValue();
+    // Read the line and pause in the same poll that finds it: once a hit lands, Fortitude trains and the line rightly goes.
+    const line = await (await page.waitForFunction(() => { const t = document.body.innerText.split('\n').find(t => /nothing has hurt you since you started/.test(t)); if(t) simulationTestHooks.pause(); return t; }, null, {timeout: 120000, polling: 500})).jsonValue();
     say(`practice: ${line}`);
     assert.match(line, /Infested field: no [^.]*Fortitude[^.]* XP since you started\. Fortitude: it learns from wounds, and nothing has hurt you since you started\./);
     await shot('ps168-practice-cause');
