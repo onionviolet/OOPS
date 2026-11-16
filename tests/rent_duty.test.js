@@ -2,13 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {domainRegistry} from '../src/domain_registry.js';
 import {registerDutySet} from '../src/duties_domain.js';
-import {LOTM_RENT, LOTM_RENT_ID, LOTM_DUTIES} from '../src/book_world_lotm_duties.js';
+import {LOTM_RENT as LOTM_RENT_BOOK, LOTM_RENT_ID, LOTM_DUTIES} from '../src/book_world_lotm_duties.js';
 import {migrateDuties, freshDuties, settleMisses} from '../src/recurring_duties.js';
 import {readOwedLedger} from '../src/owed_ledger_sources.js';
+// The duty arithmetic below runs on a 60-pence week; the book's own figures (by home) are in tests/lotm_rent_by_home.test.js.
+const RENT_60 = LOTM_RENT_BOOK.map(d => ({...d, dues: {...d.dues, amount: 60}}));
 const WEEK = 10080, RENT = 60, ID = LOTM_RENT_ID;
 let clock = 10, enrolled = true, purse = 0, payFails = false;
 const payments = [];
-registerDutySet('rent_test', {defs: LOTM_RENT, state: () => ({clock, enrolled}), active: s => s.enrolled, minute: s => s.clock,
+registerDutySet('rent_test', {defs: RENT_60, state: () => ({clock, enrolled}), active: s => s.enrolled, minute: s => s.clock,
     purse: {balance: () => purse, pay: (amount, paid) => { if(payFails) throw Error('Saving is paused.'); purse -= amount; payments.push({amount, weeks: paid.length}); }}});
 registerDutySet('claim_test', {defs: LOTM_DUTIES, state: () => ({clock, enrolled}), active: s => s.enrolled, minute: s => s.clock});
 const slice = () => domainRegistry.save({}).duties;

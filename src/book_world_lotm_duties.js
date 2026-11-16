@@ -7,16 +7,18 @@ const WEEK = 7 * 24 * 60;
 export const LOTM_DUTIES = Object.freeze([Object.freeze({id: 'lotm.expense_claim', schedule: Object.freeze({period: WEEK, opens: 0, closes: WEEK}),
     debtor: 'player', creditor: 'nighthawks', source: 'lotm_duties',
     why: 'File this week\'s expense application with Captain Dunn so it joins the team funding request.'})]);
-// Tingen lodging rent as a standing order (OB1/OB2/OB4). AUTHORED PROPOSAL: no rent figure is stated in the source data (basis 'assumed').
-// Dial: 5 soli (60 pence) a week, about a twelfth of Klein's 3-pound civil week, so the order is felt but never ruinous; range 2 to 10 soli by district.
+// Tingen lodging rent as a standing order (OB1/OB2/OB4). Rent follows the home (P7): the old flat is 5 soli 6 pence a week (stated, KJ3N:
+// Benson to Mr. Franky), and after the move 2 Daffodil Street is 12 soli plus 3 pence for the furniture (stated, KJ3N haggle; KJ3S sums).
+// One duty id for both, so the ledger, the collector and the household read one rent; lotmRentDefs is the set's per-state view.
+// Dial: the book's figures; a world without them would use a twelfth to a twentieth of the lead's week (2 to 10 soli by district).
 // Grace dial: one week late costs nothing (a landlady who knows his hours); one miss brings a notice, two bring her at the door (steps are
 // thresholds on the miss count, so escalation is state, not a draw). No heat or bounty in this slice (LATER).
 export const LOTM_RENT_ID = 'lotm.rent';
 export const LOTM_RENT = Object.freeze([Object.freeze({id: LOTM_RENT_ID, schedule: Object.freeze({period: WEEK, opens: 0, closes: WEEK}),
     debtor: 'player', creditor: 'landlady', source: 'lotm_duties',
-    why: 'Rent for your Tingen lodging falls due at the end of each week: 5 soli.',
+    why: 'Rent for your Tingen flat falls due at the end of each week: 5 soli 6 pence.',
     policy: Object.freeze({default: 'pay_on_time', allowed: Object.freeze(['pay_on_time', 'pay_late', 'pay_part', 'dispute', 'skip']), reason: 'An ordinary landlady takes it on time, a week late with a word, in part, or argues it; she is no official, so there is no bribing her.'}),
-    dues: Object.freeze({amount: 5 * LOTM_PENCE.soli, basis: 'assumed', lateCycles: 1,
+    dues: Object.freeze({amount: 5 * LOTM_PENCE.soli + 6, basis: 'stated', lateCycles: 1,
         // OB1/OB2 dials (authored proposals): half in part; a dispute held 3 days, 40% allowed, a granted one cuts the week by half; at 6 missed weeks
         // her men take goods worth the arrears (lowest value first, never worn or quest items), only while you are there.
         partShare: 0.5, dispute: Object.freeze({delayDays: 3, chance: 0.4, cut: 0.5, grantLine: 'Your landlady allows the damp and the draught: that week is halved.', denyLine: 'Your landlady checks her book and says the week stands in full.'}),
@@ -39,3 +41,8 @@ export const lotmDutyRows = (slice, minute) => dutyRows(slice, LOTM_DUTIES, minu
 export const fileExpenseClaim = (slice, minute) => answerMisses(attendDuty(slice, LOTM_DUTIES, 'lotm.expense_claim', minute), 'lotm.expense_claim');
 export const closeLotmWeeks = (slice, minute) => settleMisses(slice, LOTM_DUTIES, minute);
 export {freshDuties, migrateDuties};
+// The home the rent follows: the old flat until the family moves (the fact the move writes), then 2 Daffodil Street.
+export const LOTM_MOVED_FACT = 'book.lotm.kj3n.moved';
+const DAFFODIL = Object.freeze(LOTM_RENT.map(d => Object.freeze({...d, why: 'Rent for 2 Daffodil Street falls due at the end of each week: 12 soli 3 pence, with the furniture.',
+    dues: Object.freeze({...d.dues, amount: 12 * LOTM_PENCE.soli + 3})})));
+export const lotmRentDefs = (defs, state) => state?.actors?.player?.facts?.[LOTM_MOVED_FACT] === true ? DAFFODIL : defs;

@@ -10,7 +10,7 @@ import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {castNeedsFullContext,CAST_EAGER_PEOPLE_LIMIT,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace,castLocalClock,lotmBe} from './book_world_lotm_cast_host.js';
 import {registerDomain,domainRegistry} from './domain_registry.js';
 import {registerDutySet} from './duties_domain.js';
-import {LOTM_DUTIES,LOTM_RENT,LOTM_CIVIL_DUTIES,LOTM_CIVIL_DUTY_ID,LOTM_GUARD_DUTIES,LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
+import {LOTM_DUTIES,LOTM_RENT,lotmRentDefs,LOTM_CIVIL_DUTIES,LOTM_CIVIL_DUTY_ID,LOTM_GUARD_DUTIES,LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
 import {lotmDutyHeld} from './book_world_lotm_positions.js';
 import {registerUpcomingSource} from './upcoming_strip_ui.js';
 import {registerReady} from './ready_rows.js';
@@ -63,7 +63,7 @@ export function configureLotm(p){
  registerDutySet('lotm_guard',{defs:LOTM_GUARD_DUTIES,state:()=>p.state(),active:st=>lotmDutyHeld(st,LOTM_GUARD_DUTY_ID),minute:st=>st.clock});
  // Rent is a standing order on the same clock: settles through the host's purse seam, never a click.
  configureHeatPurse({balance:()=>host.purseBalance(),pay:amount=>host.payFine(amount)});
- registerDutySet('lotm_rent',{defs:LOTM_RENT,state:()=>p.state(),active:st=>lotmBe(st),minute:st=>st.clock,purse:{balance:()=>host.purseBalance(),pay:(amount,paid)=>host.payDues(amount,paid)},money:{world:'Tingen'},
+ registerDutySet('lotm_rent',{defs:LOTM_RENT,resolve:lotmRentDefs,state:()=>p.state(),active:st=>lotmBe(st),minute:st=>st.clock,purse:{balance:()=>host.purseBalance(),pay:(amount,paid)=>host.payDues(amount,paid)},money:{world:'Tingen'},
   // OB2: actual carried goods, published together with the settled arrears.
   seize:{present:()=>p.state().actors.player.worldId===I.world&&p.writable?.()!==false&&!p.restoring?.(),goods:()=>host.heldGoods(),take:(picks,plan)=>host.seizeGoods(picks,plan)}});
  castLocationRestore=createCastLocationRestore({locations:p.locations,

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import '../src/native_battle.js';
 import {domainRegistry} from '../src/domain_registry.js';
 import {registerDutySet} from '../src/duties_domain.js';
-import {LOTM_RENT} from '../src/book_world_lotm_duties.js';
+import {LOTM_RENT as LOTM_RENT_BOOK} from '../src/book_world_lotm_duties.js';
 import {LOTM_IDS as I} from '../src/book_world_lotm_ids.js';
 import {configureHeatPurse} from '../src/heat.js';
 import {consequenceNews} from '../src/consequences.js';
@@ -14,9 +14,11 @@ import {constablesQuote, constablesSpec, resolveConstableFights, configureConsta
 import {expeditionRegistry as registry} from '../src/expedition_content.js';
 import {createFieldFixture, joinField, fieldContext} from '../scripts/field_fixtures.mjs';
 import {beginTempoFight, commitTempoMove} from '../src/tempo_fight.js';
+// The duty arithmetic below runs on a 60-pence week; the book's own figures (by home) are in tests/lotm_rent_by_home.test.js.
+const RENT_60 = LOTM_RENT_BOOK.map(d => ({...d, dues: {...d.dues, amount: 60}}));
 
 let clock = 10, purse = 0, advanced = [];
-registerDutySet('strikes_rent', {defs: LOTM_RENT, state: () => ({clock}), active: () => true, minute: s => s.clock,
+registerDutySet('strikes_rent', {defs: RENT_60, state: () => ({clock}), active: () => true, minute: s => s.clock,
     purse: {balance: () => purse, pay: amount => { purse -= amount; }}});
 const reset = ({host = true} = {}) => {
     clock = 10; purse = 0; advanced = []; domainRegistry.load({}); domainRegistry.tick(1);

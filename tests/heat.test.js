@@ -2,17 +2,19 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {domainRegistry} from '../src/domain_registry.js';
 import {registerDutySet} from '../src/duties_domain.js';
-import {LOTM_RENT, LOTM_RENT_ID} from '../src/book_world_lotm_duties.js';
+import {LOTM_RENT as LOTM_RENT_BOOK, LOTM_RENT_ID} from '../src/book_world_lotm_duties.js';
 import {configureHeatPurse, migrateHeat, freshHeat} from '../src/heat.js';
 import {consequenceNews} from '../src/consequences.js';
 import {readOwedLedger, settleOwed} from '../src/owed_ledger_sources.js';
 import {eventFeed} from '../src/event_feed.js';
 import {createExpansionState} from '../src/expansion_engine.js';
 import {initializeExpedition, expeditionRegistry as registry} from '../src/expedition_content.js';
+// The duty arithmetic below runs on a 60-pence week; the book's own figures (by home) are in tests/lotm_rent_by_home.test.js.
+const RENT_60 = LOTM_RENT_BOOK.map(d => ({...d, dues: {...d.dues, amount: 60}}));
 
 const WEEK = 10080, FINE = 120;
 let clock = 10, purse = 0;
-registerDutySet('heat_rent', {defs: LOTM_RENT, state: () => ({clock}), active: () => true, minute: s => s.clock,
+registerDutySet('heat_rent', {defs: RENT_60, state: () => ({clock}), active: () => true, minute: s => s.clock,
     purse: {balance: () => purse, pay: amount => { purse -= amount; }}});
 const state = () => initializeExpedition(createExpansionState(7));
 const reset = (coins = 0, withPurse = true) => {

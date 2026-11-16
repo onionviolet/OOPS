@@ -20,9 +20,9 @@ test('residents are filtered by what the player knows', () => {
 });
 test('rent line comes from the rent duty item', () => {
     const due = lotmHomeView(stateOf(), {pack, duties: {items: [{id: 'lotm.rent', status: 'due', shutsIn: 2880, missed: 0}]}});
-    assert.equal(due.rent.owed, 60); assert.equal(due.rent.dueIn, 2880); assert.match(due.rent.line, /5 soli.*due in 2 days/);
-    const behind = lotmHomeView(stateOf(), {pack, duties: {items: [{id: 'lotm.rent', status: 'late', shutsIn: 0, missed: 2, escalation: 'Your landlady knocks.'}]}});
-    assert.equal(behind.rent.owed, 120); assert.match(behind.rent.line, /2 weeks behind.*Your landlady knocks/);
+    assert.equal(due.rent.owed, 66); assert.equal(due.rent.dueIn, 2880); assert.match(due.rent.line, /5 soli 6 pence.*due in 2 days/);
+    const behind = lotmHomeView(stateOf(), {pack, duties: {items: [{id: 'lotm.rent', status: 'late', shutsIn: 0, missed: 2, amount: 147, escalation: 'Your landlady knocks.'}]}});
+    assert.equal(behind.rent.owed, 294, 'the week the item carries (2 Daffodil Street)'); assert.match(behind.rent.line, /2 weeks behind.*24 soli 6 pence.*Your landlady knocks/);
     const none = lotmHomeView(stateOf(), {pack, duties: {items: []}});
     assert.equal(none.rent.owed, 0);
 });

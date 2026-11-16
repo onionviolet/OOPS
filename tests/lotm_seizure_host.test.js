@@ -2,7 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {fresh,hostOver} from './lotm_helpers.js';
 import {applySeizure,planSeizure} from '../src/recurring_duties.js';
-import {LOTM_RENT} from '../src/book_world_lotm_duties.js';
+import {LOTM_RENT as LOTM_RENT_BOOK} from '../src/book_world_lotm_duties.js';
+// The duty arithmetic below runs on a 60-pence week; the book's own figures (by home) are in tests/lotm_rent_by_home.test.js.
+const RENT_60 = LOTM_RENT_BOOK.map(d => ({...d, dues: {...d.dues, amount: 60}}));
 const keyOf=id=>JSON.stringify({id:id==='rag'?'Tingen ordinary comparator sample':id});
 const item=key=>{key=JSON.parse(key).id;key=key==='Tingen ordinary comparator sample'?'rag':key;return ({tags:key==='quest'?{quest:true}:{},getValue:({quality})=>key==='rag'?30:100,getName:()=>key});};
 function fixture(extra={}){
@@ -11,9 +13,9 @@ function fixture(extra={}){
 }
 test('the LOTM seizure host reads real holdings and publishes the selected debit, excluding protected goods',()=>{
  const o=fixture(),goods=o.host.heldGoods();assert.equal(goods.find(g=>g.key===keyOf('worn')).equipped,true);assert.equal(goods.some(g=>g.key===keyOf('quest')||g.key===keyOf('borrowed')),false);
- const plan=planSeizure(LOTM_RENT[0],6,goods);assert.equal(plan.taken,360);o.host.seizeGoods(plan.picks);
+ const plan=planSeizure(RENT_60[0],6,goods);assert.equal(plan.taken,360);o.host.seizeGoods(plan.picks);
  assert.equal(o.box.p.gameplay.player.inventory[keyOf('rag')],8);assert.equal(o.box.p.gameplay.player.inventory[keyOf('worn')],1);assert.equal(o.box.p.gameplay.player.inventory[keyOf('quest')],1);assert.equal(o.box.p.gameplay.player.inventory[keyOf('borrowed')],1);
- assert.equal(applySeizure({missed:{[LOTM_RENT[0].id]:6}},LOTM_RENT[0],plan,50).missed[LOTM_RENT[0].id],0);
+ assert.equal(applySeizure({missed:{[RENT_60[0].id]:6}},RENT_60[0],plan,50).missed[RENT_60[0].id],0);
 });
 test('a stale request or failed publication consumes nothing',()=>{
  const o=fixture();assert.throws(()=>o.host.seizeGoods([{key:keyOf('worn'),qty:1}]),/no longer available/);assert.throws(()=>o.host.seizeGoods([{key:keyOf('rag'),qty:21}]),/no longer available/);

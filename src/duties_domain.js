@@ -11,6 +11,7 @@ let slice = freshDuties();
 //        purse?: {balance: (state) => number, pay: (amount, paid, state) => void}}  (purse is needed only by defs with `dues`; pay throws when it cannot)
 //        draw?: (key, state) => [0,1)   a world's seeded draw for disputes and bribes (default: a stable hash of the key)
 //        place?: (state) => string      where the player is, for defs that name an `authority` (OB8)
+//        resolve?: (defs, state) => defs   a per-state view of the same duties (same ids), e.g. a rent that follows the home (P7)
 //        seize?: {present: (state) => bool, goods: (state) => [{key,name,value,qty,equipped?,quest?}], take: (picks, plan, state) => void}   (OB2: goods are only taken while present)
 export function registerDutySet(id, set) {
     if(typeof id !== 'string' || !id || !Array.isArray(set?.defs) || typeof set.active !== 'function' || typeof set.minute !== 'function') throw Error('Invalid duty set.');
@@ -21,10 +22,11 @@ export function dutyMoneyInputs(owed = []) {
     const out = [];
     for(const set of sets.values()) {
         if(!set.money) continue;
-        try { if(set.active(set.state?.())) out.push({world: set.money.world, defs: set.defs, slice, owed, fmt: set.money.fmt, paidLabel: set.money.paidLabel}); } catch { /* world not ready */ }
+        try { const st = set.state?.(); if(set.active(st)) out.push({world: set.money.world, defs: defsOf(set, st), slice, owed, fmt: set.money.fmt, paidLabel: set.money.paidLabel}); } catch { /* world not ready */ }
     }
     return out;
 }
+const defsOf = (set, st) => set.resolve ? set.resolve(set.defs, st) : set.defs;
 const owed = (d, set, st) => {
     if(!d.authority) return true;
     const a = authorityOver(st, {world: d.authority, place: d.place ?? set.place?.(st), registered: d.registered === true});
@@ -39,7 +41,7 @@ function live() {
             if(!set.active(st)) continue;
             // OB8: a def that names an authority owes nothing where no claimant knows the player and reaches the place; its weeks close unaccounted.
             const split = {defs: [], idle: []};
-            for(const d of set.defs) (owed(d, set, st) ? split.defs : split.idle).push(d);
+            for(const d of defsOf(set, st)) (owed(d, set, st) ? split.defs : split.idle).push(d);
             out.push({...split, all: set.defs, minute: set.minute(st), purse: set.purse, set, st});
         } catch { /* world not ready */ }
     }
@@ -49,7 +51,7 @@ const empty = s => ['lastDone', 'missed', 'closed', 'policy', 'late', 'short', '
 // Registered sets that are not live right now: their clock is read when it can be, and the stretch is closed unaccounted.
 function skipIdle(liveSets) {
     for(const set of sets.values()) {
-        if(liveSets.some(l => l.all === set.defs)) continue;
+        if(liveSets.some(l => l.set === set)) continue;
         try { const minute = set.minute(set.state?.()); if(Number.isInteger(minute) && minute >= 0) slice = skipInactive(slice, set.defs, minute); } catch { /* clock unreadable: nothing to skip */ }
     }
 }
@@ -129,7 +131,7 @@ function project() {
         for(const d of defs) {
             const s = dutyState(d.schedule, minute, slice.lastDone[d.id]), missed = slice.missed[d.id] ?? 0;
             if(s.status === 'due' || s.status === 'late' || missed) {
-                const item = {id: d.id, why: d.why, open: s.open && !d.dues, status: s.status, shutsIn: s.remaining, reason: s.open ? '' : s.reason, missed};
+                const item = {id: d.id, why: d.why, open: s.open && !d.dues, status: s.status, shutsIn: s.remaining, reason: s.open ? '' : s.reason, missed, ...(d.dues ? {amount: d.dues.amount} : {})};
                 if(d.policy) { // a standing order: the choice, the choices, and where the escalation stands (state, not a draw)
                     const policy = policyOf(slice, d);
                     Object.assign(item, {standing: true, policy, policyLabel: policyWords(policy), policies: allowedOf(d).map(id => ({id, label: policyOption(d, id)})),

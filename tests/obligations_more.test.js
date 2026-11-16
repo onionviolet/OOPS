@@ -4,17 +4,19 @@ import assert from 'node:assert/strict';
 import {domainRegistry} from '../src/domain_registry.js';
 import {registerDutySet} from '../src/duties_domain.js';
 import {registerAuthoritySource, registerKnownness} from '../src/authority.js';
-import {LOTM_RENT, LOTM_RENT_ID} from '../src/book_world_lotm_duties.js';
+import {LOTM_RENT as LOTM_RENT_BOOK, LOTM_RENT_ID} from '../src/book_world_lotm_duties.js';
 import {planSeizure, migrateDuties, freshDuties, allowedOf, policyOption} from '../src/recurring_duties.js';
+// The duty arithmetic below runs on a 60-pence week; the book's own figures (by home) are in tests/lotm_rent_by_home.test.js.
+const RENT_60 = LOTM_RENT_BOOK.map(d => ({...d, dues: {...d.dues, amount: 60}}));
 const WEEK = 10080, RENT = 60, DAY = 1440, ID = LOTM_RENT_ID;
-const base = LOTM_RENT[0];
+const base = RENT_60[0];
 const OFFICIAL = {...base, id: 't.permit', official: true, policy: {default: 'pay_on_time'}};
 const WILDS = {...base, id: 't.levy', authority: 'obw', registered: false, policy: {default: 'skip'}};
 let current = '', clock = 10, purse = 0, draws = () => 0.5, here = true, goods = [], place = 'town';
 const paid = [], taken = [];
 const mk = (name, defs, extra = {}) => registerDutySet(name, {defs, state: () => ({clock}), active: () => current === name, minute: s => s.clock, draw: k => draws(k),
     purse: {balance: () => purse, pay: (amount, list) => { purse -= amount; paid.push({amount, list}); }}, ...extra});
-mk('rent', LOTM_RENT, {seize: {present: () => here, goods: () => goods, take: (picks, plan) => { taken.push({picks, plan}); }}});
+mk('rent', RENT_60, {seize: {present: () => here, goods: () => goods, take: (picks, plan) => { taken.push({picks, plan}); }}});
 mk('official', [OFFICIAL]);
 const SLOW = {...base, id: 't.slow', dues: {...base.dues, dispute: {delayDays: 20}}};
 mk('slow', [SLOW]);

@@ -17,11 +17,11 @@ export const FLAT_RESIDENTS = Object.freeze([
     Object.freeze({indexId: 'lotm.person.benson', relation: 'your elder brother'}),
     Object.freeze({indexId: 'lotm.person.melissa', relation: 'your younger sister'})]);
 
-const soli = pence => { const n = Math.round(pence / LOTM_PENCE.soli); return `${n} soli`; };
+const soli = pence => { const n = Math.floor(pence / LOTM_PENCE.soli), d = Math.round(pence - n * LOTM_PENCE.soli); return d ? `${n} soli ${d} ${d === 1 ? 'penny' : 'pence'}` : `${n} soli`; };
 
 function rentOf(duties) {
-    const def = LOTM_RENT.find(d => d.id === LOTM_RENT_ID), week = def.dues.amount;
     const item = (duties?.items || []).find(i => i.id === LOTM_RENT_ID);
+    const week = item?.amount ?? LOTM_RENT.find(d => d.id === LOTM_RENT_ID).dues.amount;   // the week follows the home (P7)
     if(!item) return {owed: 0, dueIn: null, line: `Your rent is ${soli(week)} a week and nothing is owed right now.`};
     const behind = item.missed || 0, thisWeek = item.status === 'due' ? 1 : 0;
     const owed = (behind + thisWeek) * week, dueIn = Number.isFinite(item.shutsIn) ? item.shutsIn : null;

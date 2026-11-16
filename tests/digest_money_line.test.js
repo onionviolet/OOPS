@@ -2,9 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {returnDigest, moneyLines, coinWords} from '../src/return_digest.js';
 import {createReturnDigestRow} from '../src/return_digest_ui.js';
-import {LOTM_RENT, LOTM_RENT_ID} from '../src/book_world_lotm_duties.js';
+import {LOTM_RENT as LOTM_RENT_BOOK, LOTM_RENT_ID} from '../src/book_world_lotm_duties.js';
 import {freshDuties, settleDues, setPolicy} from '../src/recurring_duties.js';
 import {bare, registry} from './lotm_helpers.js';
+// The duty arithmetic below runs on a 60-pence week; the book's own figures (by home) are in tests/lotm_rent_by_home.test.js.
+const RENT_60 = LOTM_RENT_BOOK.map(d => ({...d, dues: {...d.dues, amount: 60}}));
 
 // OB6: the weekly money line, derived from the duties slice and the owed rows; no save key, one line per world.
 const WEEK = 10080, RENT = 60;
@@ -12,13 +14,13 @@ const base = bare(50).state;
 const state = clock => ({...structuredClone(base), clock});
 // Real settlement of n weeks from the opening week, so the slice is what the duties domain would hold.
 function settle(weeks, coins, {policy} = {}) {
-    let slice = freshDuties(); const defs = LOTM_RENT;
+    let slice = freshDuties(); const defs = RENT_60;
     if (policy) slice = setPolicy(slice, defs, LOTM_RENT_ID, policy);
     slice = settleDues(slice, defs, 10, 0).slice; // starts tracking at the life's first minute
     const r = settleDues(slice, defs, 10 + weeks * WEEK, coins);
     return r.slice;
 }
-const lotm = (slice, extra = {}) => ({world: 'lotm', defs: LOTM_RENT, slice, fmt: coinWords(), ...extra});
+const lotm = (slice, extra = {}) => ({world: 'lotm', defs: RENT_60, slice, fmt: coinWords(), ...extra});
 const digest = (seenAt, clock, money) => returnDigest(state(clock), registry, {facts: {}, seenAt, money});
 
 test('two weeks away with rent paid on time gives one money line with the right total', () => {

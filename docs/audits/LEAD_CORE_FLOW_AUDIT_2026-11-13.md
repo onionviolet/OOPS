@@ -627,3 +627,17 @@ purse seam.
   - Wired: public places (domain `register`), cast places (`cast_location_restore.js` gained a `describe` option), and the domain
     tick redraws the place box when the street line changes with the hour.
   - Dial for later: the frequencies and hours are authored. A Tingen week calendar (TMR2) would put the market on a named weekday.
+
+### Klein's rent follows his home (P7), 2026-11-16
+
+- **Was.** The rent was a flat 5 soli a week (an assumed figure) wherever he lived.
+- **Now (book figures, stated).**
+  - The old flat costs 5 soli 6 pence a week.
+  - After the move (`book.lotm.kj3n.moved`), 2 Daffodil Street costs 12 soli plus 3 pence for the furniture.
+- **How it works.**
+  - One duty id covers both homes. The duty set gained an optional `resolve(defs, state)` view (`duties_domain.js`), and
+    `lotmRentDefs` picks the home's week, so the standing order, the arrears, the collector and the household all read one rent.
+  - Duty items now carry `amount`.
+  - The household line shows pence instead of rounding them away.
+- **Dial, proposal.** Arrears from the old flat carry over to the new rent under the same id, counted in weeks. Pricing them at the
+  old week, or ending them with Mr. Franky's lease, would need a per-week amount in the ledger.

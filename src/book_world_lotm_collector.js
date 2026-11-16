@@ -53,8 +53,8 @@ const dues = LOTM_RENT[0].dues.amount;
 function atTheDoor() {
     const step = project('heat')?.steps?.find(s => s.kind === 'collector' && s.authority === 'landlady');
     if(!step) return null;
-    const missed = project('duties')?.items?.find(i => i.id === LOTM_RENT_ID)?.missed ?? 0;
-    return {step, missed, owed: missed * dues, coins: project('heat')?.coins ?? null};
+    const item = project('duties')?.items?.find(i => i.id === LOTM_RENT_ID), missed = item?.missed ?? 0;
+    return {step, missed, owed: missed * (item?.amount ?? dues), coins: project('heat')?.coins ?? null};   // the week follows the home (P7)
 }
 
 // One fight's outcome, applied once. Returns the line the player reads.

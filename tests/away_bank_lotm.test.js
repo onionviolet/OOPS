@@ -4,9 +4,11 @@ import {readFileSync} from 'node:fs';
 import {domainRegistry} from '../src/domain_registry.js';
 import {awayBankDomain, spendAwayBank, configureAwayBank} from '../src/away_bank_domain.js';
 import {registerDutySet} from '../src/duties_domain.js';
-import {LOTM_RENT, LOTM_RENT_ID} from '../src/book_world_lotm_duties.js';
+import {LOTM_RENT as LOTM_RENT_BOOK, LOTM_RENT_ID} from '../src/book_world_lotm_duties.js';
 import {BE_PROFILE_ID} from '../src/seat_profiles.js';
 import {lotmBe} from '../src/book_world_lotm_cast_host.js';
+// The duty arithmetic below runs on a 60-pence week; the book's own figures (by home) are in tests/lotm_rent_by_home.test.js.
+const RENT_60 = LOTM_RENT_BOOK.map(d => ({...d, dues: {...d.dues, amount: 60}}));
 
 // AT23: banked away time spent in a LOTM life goes through the same clock-and-tick path as live time, so the LOTM clock
 // advances and its standing orders settle exactly as they would have live.
@@ -15,7 +17,7 @@ const root = {clock: 10, lotm: {entryProfile: BE_PROFILE_ID}};
 let purse = 0; const paid = [];
 // The native clock owner's contract (src/clock_owner.js): move the root clock, then domainRegistry.tick(consumed).
 const advance = n => { root.clock += n; domainRegistry.tick(n); };
-registerDutySet('at23_rent', {defs: LOTM_RENT, state: () => root, active: lotmBe, minute: st => st.clock,
+registerDutySet('at23_rent', {defs: RENT_60, state: () => root, active: lotmBe, minute: st => st.clock,
     purse: {balance: () => purse, pay: (amount, p) => { purse -= amount; paid.push(...p); }}});
 const dutySlice = () => domainRegistry.save({}).duties;
 
