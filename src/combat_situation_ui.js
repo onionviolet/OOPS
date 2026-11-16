@@ -14,6 +14,7 @@ import {renderVersusRow} from './ui/combat_versus.js';
 import {renderSceneCard} from './ui/scene_card.js';
 import {renderApproachStrip} from './ui/approach_strip.js';
 import {foeKind} from './fight_terms.js';
+import {registerPanelSettings, getDisplaySetting} from './display_settings.js';
 import {versusWithEngine} from './read_models/combat_situation_bridge.js';
 import {harmRung} from './harm_state.js';
 import {worldFamily, currentWorldFamily} from './world_look.js';
@@ -22,6 +23,16 @@ import {HANDOVER_LABEL, HANDOVER_TEXT, RUN_LABEL, RUN_TEXT, captureTempoFocus, r
 // Fight time is counted in beats (PS32): the fight's own clock, not the world's.
 const beats = n => `${n} beat${n === 1 ? '' : 's'}`;
 const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
+
+// PS206 (proposal): Display > Fight > Fight log, per browser. The box keeps the last six lines by default; "Every line" keeps them all.
+// Tempo fight lines are not sent to Reports yet, so there is no "Reports only" choice: it would hide them (a gap for the Reports owner).
+const FIGHT_LOG_LINES = 6;
+registerPanelSettings({id: 'fight', title: 'Fight', settings: [{key: 'log', label: 'Fight log in the fight box', options: [['six', 'Last six lines'], ['all', 'Every line']], default: 'six',
+    description: 'How much of the fight so far the fight box keeps under the moves. Presentation only.'}]});
+// PS207 (proposal): moves fold to the five you use most, counted per browser; Fight on and the hand-over stay out.
+const MOVE_USE_KEY = 'yairpg.fight.moveUse.v1', FOLD_AT = 5;
+const moveUse = () => { try { return JSON.parse(localStorage.getItem(MOVE_USE_KEY) || '{}') || {}; } catch { return {}; } };
+const countMove = id => { if (!id) return; try { const u = moveUse(); u[id] = (u[id] || 0) + 1; localStorage.setItem(MOVE_USE_KEY, JSON.stringify(u)); } catch { /* counts are a convenience */ } };
 
 export function mountFightSituation({getCombat, readout, every = 400}) {
     const section = document.createElement('section');
@@ -62,7 +73,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         delete section.dataset.fightFinished;
         const command = domainRegistry.command('tempo_fight', 'move'), blocked = command ? '' : 'The contest cannot take moves right now.';
         // A refused move keeps the contest's own reason on the card (DSG10), and the card redraws on the next tick.
-        const move = request => { try { command(request); lastNotice = ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
+        const move = request => { try { command(request); lastNotice = ''; countMove(request.moveId === 'order' ? `order:${request.orderId}` : request.moveId); } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
         // Fight on (CBD38): the contest's own 'run' command plays a steady policy until something needs the player and says why it stopped.
         const runCommand = domainRegistry.command('tempo_fight', 'run');
         const runOn = () => { try { lastNotice = runCommand() || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
@@ -107,6 +118,17 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
                 const sum = document.createElement('summary'); sum.textContent = `Other moves (${rest.length})`;
                 more.append(sum, ...rest); band.after(more);
             }
+        } else if (t.yourTurn) {
+            // PS207: the five moves you use most stay on the face of the card; the rest fold under "More moves", in their usual order.
+            const use = moveUse(), rows = [...card.querySelectorAll('.scene-card-option')].filter(row => !/^(run|handover|wait)$/.test(row.querySelector('button[data-fight-option]')?.dataset.fightOption || ''));
+            if (rows.length > FOLD_AT) {
+                const key = row => { const id = row.querySelector('button[data-fight-option]')?.dataset.fightOption || ''; return id.startsWith('order:') ? id.split(':').slice(0, 2).join(':') : id; };
+                const keep = new Set(rows.map((row, i) => ({row, i, n: use[key(row)] || 0})).sort((a, b) => b.n - a.n || a.i - b.i).slice(0, FOLD_AT).map(x => x.row));
+                const rest = rows.filter(row => !keep.has(row));
+                const more = document.createElement('details'); more.className = 'fight-situation-more'; more.dataset.fightMore = 'moves';
+                const sum = document.createElement('summary'); sum.textContent = `More moves (${rest.length})`;
+                rows.at(-1).after(more); more.append(sum, ...rest);
+            }
         }
         const added = newTempoLines(previousLog, t.log);
         const feedback = lastNotice || (added.length ? added.join(' ') : previousNoticeWasError ? 'The fight continues.' : notice.textContent || 'The fight continues.');
@@ -131,7 +153,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             if (t.stakes.cue) { const cue = document.createElement('span'); cue.className = 'fight-situation-cue'; cue.dataset.fightCue = ''; cue.textContent = ` ${t.stakes.cue}`; s.append(cue); }
             // Restraint can slip when the blows run heavy for the foe (CBD213, PS24); the odds come from the fight.
             if (t.holdRisk > .15 && t.strip?.stance?.id === 'pulled') { const n = document.createElement('span'); n.className = 'fight-situation-risk'; n.dataset.fightRisk = ''; n.textContent = ` Your blows run heavy for this; a pulled blow may slip (about ${Math.round(t.holdRisk * 100)}%).`; s.append(n); }
-            versus.before(s);
+            versus.after(s); // PS206: both sides first, then what the fight is and how you fight it
             // How you fight, your terms when they go down, and when you stop (PS34-PS42): the same strip the opener showed (PS39).
             if (t.strip) {
                 const termsCommand = domainRegistry.command('tempo_fight', 'terms'), losingCommand = domainRegistry.command('tempo_fight', 'losing');
@@ -160,12 +182,12 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
                 row.append(button);
             }
             if (reason) { const why = document.createElement('span'); why.textContent = ` ${reason}`; row.append(why); }
-            versus.after(row);
+            (section.querySelector('[data-approach-strip]')?.parentElement || section.querySelector('.fight-situation-stakes') || versus).after(row);
         }
         // A move's detail (how it works, what fills it, what it can do) is one step away, on hover (new depth stays off the face of the card).
         for (const m of t.moves) if (m.detail) { const btn = card.querySelector(`button[data-fight-option="${m.id}"]`); if (btn && !btn.disabled) btn.title = m.detail; }
         const log = document.createElement('ol'); log.className = 'fight-situation-log'; log.setAttribute('aria-label', 'What happened in this fight');
-        for (const line of t.log) { const li = document.createElement('li'); li.textContent = line; log.append(li); }
+        for (const line of getDisplaySetting('panel.fight.log') === 'all' ? t.log : t.log.slice(-FIGHT_LOG_LINES)) { const li = document.createElement('li'); li.textContent = line; log.append(li); }
         card.append(log);
         if (t.dev.length) {
             const readout = document.createElement('ul'); readout.className = 'fight-situation-dev'; readout.setAttribute('aria-label', 'Developer readout: type split per hit');
