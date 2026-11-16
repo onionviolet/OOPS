@@ -617,5 +617,13 @@ purse seam.
 - **Wiring needed.** Tingen locations are created in three places, and each would pass `placeDescriber`:
   - `book_world_lotm_domain.js` line 10 (public places) and line 31 (cast places).
   - `cast_location_restore.js`, which resets `getDescription` to static text.
-- **Next.** Author two or three placed records as a proposal under AD32 and AD56, wire the three sites, and prove it in Chrome on a
-  Klein save on the event's day. Rent by home (P7) follows.
+- **Built, 2026-11-16 (proposal, AD32, AD56).** Three street records in `src/lotm_street_events.js`, each with a place, a line and
+  the hours of the Tingen day it shows. All three are recurring and authored:
+  - A market day at the street market, weekly, 06:00 to 14:00.
+  - A parish soup kettle on Iron Cross Street, every 5 days, 11:00 to 15:00.
+  - A coal cart beside the Blackthorn office, every 3 days, 08:00 to 12:00.
+  - `lotmEventBook` merges them with the private pack (or stands them alone without it). `lotmStreetLine` reads them. They close
+    nothing, so restrictions and the upcoming strip are unchanged.
+  - Wired: public places (domain `register`), cast places (`cast_location_restore.js` gained a `describe` option), and the domain
+    tick redraws the place box when the street line changes with the hour.
+  - Dial for later: the frequencies and hours are authored. A Tingen week calendar (TMR2) would put the market on a named weekday.

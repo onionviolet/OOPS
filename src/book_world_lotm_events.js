@@ -3,7 +3,8 @@
 // returns the lines the cast persist path writes once per day rollover (RPT6, replay-safe).
 import {deepFreeze} from './basics.js';
 import {loadEventPack,frameBindings} from './world_events_pack.js';
-import {restrictionsOn} from './world_events.js';
+import {restrictionsOn,windowOn} from './world_events.js';
+import {LOTM_STREET_EVENTS,LOTM_STREET_LINES} from './lotm_street_events.js';
 import {worldLight,TINGEN_LIGHT} from './world_light.js';
 import {eventKnowledgeWrites} from './world_events_knowledge.js';
 const PATH='lotm-events/events.json',LEAD='player',SETTLED='lotm.events.settledDay';
@@ -49,9 +50,19 @@ export function lotmRestrictions({state,days,pack=loaded}){
 // Tingen calendar profile (TMR2), which would roll days at midnight instead of 24 hours after arrival.
 export const lotmDay=state=>Math.floor((state.clock-state.lotm.initializedAt)/1440)+1;
 // The one book the day's restrictions and the upcoming strip both read, so the strip cannot disagree with travel blocking.
+// The committed street records (lotm_street_events.js) join the private pack's events, or stand alone without it.
 export function lotmEventBook({state,days,pack=loaded}){
+ const merged={schema:1,world:pack?.world??'book.lotm.tingen',events:[...(pack?.events??[]),...LOTM_STREET_EVENTS]};
  const byScene=new Map(days.map(d=>[d.scene,d.day])),reached=days.filter(d=>state.clock>=state.lotm.initializedAt+(d.day-1)*1440+d.from).map(d=>d.scene);
- return loadEventPack(pack,{bindings:frameBindings(pack,reached,beat=>byScene.get(beat)),leadId:LEAD});
+ return loadEventPack(merged,{bindings:frameBindings(merged,reached,beat=>byScene.get(beat)),leadId:LEAD});
+}
+// What is going on at a Tingen place now (PS143): the lines of the book's events placed there whose window covers today and whose
+// hours hold at this hour of the Tingen day. '' outside a Tingen life.
+export function lotmStreetLine(state,placeId,{days=[],pack=loaded}={}){
+ if(!state?.lotm||!Number.isSafeInteger(state.clock)||!Number.isSafeInteger(state.lotm.initializedAt))return '';
+ const day=lotmDay(state),hour=Math.floor(((state.clock-state.lotm.initializedAt)%1440+1440)%1440/60);
+ return lotmEventBook({state,days,pack}).events.filter(e=>e.place===placeId&&e.lineKey&&windowOn(e,day)&&(!e.hours||(e.hours.from<=hour&&hour<e.hours.until)))
+  .map(e=>LOTM_STREET_LINES[e.lineKey]??pack?.lines?.[e.lineKey]).filter(Boolean).join(' ');
 }
 
 // Tingen light at the lead's current minute: night and fog are a world-clock state, not event text (FD9).
