@@ -1,6 +1,6 @@
 // PS168 (round 16, proposal; Discord F30, research P13): a setup good for winning can be poor for practice, and the
 // practice line should name the actual cause, not a guess. Pure: the caller passes what the character's own situation
-// shows (worn armour, a shield in hand, wounds taken, poison, cold felt) and the skill ids that went quiet; the reader
+// shows (worn armour, a shield in hand, wounds taken or a fight, poison, cold felt) and the skill ids that went quiet; the reader
 // returns one short cause per skill whose known gate is shut, or nothing.
 //
 // Default: only gates the skill's own description already states (Iron skin: bare skin; Evasion: no shield; Poison
@@ -11,7 +11,8 @@
 const GATES = new Map([
     ['Iron skin', f => f.wearingArmor ? 'your armour takes the hits it learns from' : ''],
     ['Evasion', f => f.usingShield ? 'you block with a shield instead of dodging' : ''],
-    ['Fortitude', f => f.woundsTaken === 0 ? 'it learns from wounds, and nothing has hurt you yet' : ''],
+    // In a fight every landed hit pays Fortitude (src/models/combat.js), so a quiet Fortitude there means no wound landed.
+    ['Fortitude', f => f.woundsTaken === 0 || f.fight ? 'it learns from wounds, and nothing has hurt you since you started' : ''],
     ['Poison resistance', f => f.poisoned === false ? 'it builds while poison is in you, and none has taken hold' : ''],
     ['Cold resistance', f => f.feelsCold === false ? 'you are warm enough here; it trains when the cold bites' : ''],
 ]);

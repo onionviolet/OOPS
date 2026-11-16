@@ -18,3 +18,10 @@ test('PS166/F34: a broad fight lowers each drop but raises the fight\'s total, a
     assert.ok(r.fight.perFight > 1 && r.fight.perFight < 3, 'more than one kill, less than three');
     assert.match(dropRateLine(0.3, {targets: 3}), /×0\.48 each when fighting 3 at once\. Against 3 at once each drops less \(×0\.48\), but the fight as a whole yields ×1\.44 one kill's loot\./);
 });
+
+test('PS166: the Bestiary note names a visible cause only, and nothing when the rate is untouched', async () => {
+    const {bestiaryRateNote} = await import('../src/ui/discord_surfaces.js');
+    assert.equal(bestiaryRateNote({skillName: 'Butchering', skillFactor: 1.25}), 'Butchering raises what these drop for you (×1.25).');
+    assert.equal(bestiaryRateNote({skillName: 'Butchering', skillFactor: 1}), '');
+    assert.equal(bestiaryRateNote({skillName: null, skillFactor: 2}), '', 'a creature no skill affects says nothing');
+});

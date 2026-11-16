@@ -91,7 +91,8 @@ function renderSources(model, handlers = {}) {
             : 'No source met yet; try a trader, the wilds or a recipe below.';
         row.append(el('span', 'craft_source_from', from));
         // PS144: a known recipe that makes this input opens straight from the row; the recipe's Back returns here.
-        const maker = req.inspect && model.related?.find(r => r.via === 'Produces an input' && r.outputId === req.inspect.id);
+        // PS167: an "Any <type>" input finds its maker by the output's material type.
+        const maker = !req.unknown && model.related?.find(r => r.via === 'Produces an input' && (req.inspect ? r.outputId === req.inspect.id : req.makesType && r.outputMaterialType === req.makesType));
         if(maker) {
             const make = el('button', 'craft_source_make', `Make it: ${maker.title}`);
             make.type = 'button';

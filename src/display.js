@@ -7,7 +7,7 @@ import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRec
 import {componentInputLots} from './processed_materials.js';
 import {mountMaterialChoice} from './material_choice_view.js';
 import {renderCraftingSelection} from './crafting_selection_detail.js';
-import {renderRecentLearning, notePractice} from './recent_learning.js'; const learning_readers = {visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName(), now: () => current_game_time.day_count*1440 + current_game_time.hour*60 + current_game_time.minute, capped: id => skills[id].getCurrentLvl?.() >= skills[id].max_level, level: id => skills[id].getCurrentLvl?.()};
+import {fastTravelMapBlock, bestiaryRateTitle, bestiaryRateNote} from './ui/discord_surfaces.js'; import {renderRecentLearning, notePractice} from './recent_learning.js'; const learning_readers = {practiceFacts: p => ({wearingArmor: character.isWearingArmor?.(), usingShield: character.hasShield?.(), fight: !!p?.node?.fight}), visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName(), now: () => current_game_time.day_count*1440 + current_game_time.hour*60 + current_game_time.minute, capped: id => skills[id].getCurrentLvl?.() >= skills[id].max_level, level: id => skills[id].getCurrentLvl?.()};
 import {equipmentComparisonHTML} from './equipment_comparison.js';
 import {centerModes} from './center_modes.js';
 import {expandWorkspaceModule,openWorkspaceModule} from './workspace_layout.js';
@@ -2985,7 +2985,7 @@ function create_fast_travel_choices() {
 
         choice_list.push(action);
     }
-    return choice_list;
+    const map = fastTravelMapBlock({hereId: current_location.id, distances: travel_times[current_location.id] || {}, exits: (current_location.connected_locations || []).map(c => ({id: c.location.id, minutes: travel_times[current_location.id]?.[c.location.id]})), known: id => !!locations[id]?.canBeStarted?.(get_context()), label: id => locations[id]?.name ?? id, onGo: id => window.change_location({location_id: id})}); if(map) choice_list.push(map); return choice_list; // PS164
 }
 
 function remove_fast_travel_choice({location_id}) {
@@ -3021,7 +3021,7 @@ function update_displayed_combat_location(location) {
 
     clear_count_div.style.display = "block";
     enemy_count_div.style.display = "block";
-    combat_div.style.display = "block";
+    combat_div.style.display = "block"; notePractice(location.name, ["Iron skin", "Evasion", "Fortitude"], {fight: true, get isConnected() {return current_location?.id === location.id;}}, learning_readers.now()); // PS168: a fight is a practice for the skills its gates decide
 
     if(!game_options.disable_combat_autoswitch) {
         combat_switch.click();
@@ -3346,7 +3346,7 @@ function item_recipe_result_effects(item) {
 // Other unlocked recipes on this station page sharing a known, named ingredient or using this result.
 // Built only from rows the list already shows; unknown or "any type" materials never create links.
 function item_recipe_related_uses(selection) {
-    return relatedKnownRecipes(selection, known_recipe_variants(), item_templates).map(v=>({...v,target:{category:v.category,subcategory:v.subcategory,recipe_id:v.recipe_id,material_id:v.material_id},
+    return relatedKnownRecipes(selection, known_recipe_variants(), item_templates).map(v=>({...v,outputMaterialType:item_templates[v.outputId]?.material_type??null,target:{category:v.category,subcategory:v.subcategory,recipe_id:v.recipe_id,material_id:v.material_id},
         available: recipeMakeableNow({recipe:recipes[v.category][v.subcategory][v.recipe_id],stationTier:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked)[v.category],inventory:character.getItems(),itemTemplates:item_templates,isMaterialKnown:id=>item_log.is_known(id),canConsume:canConsumeNativeCraftingItem})}));
 }
 
@@ -3383,7 +3383,7 @@ function build_item_recipe_model(selection) {
         // Unknown ingredients stay unnamed: no item name and no material type (CP2).
         const unknown = m.material_type ? !material_type_known(m.material_type) : !req.known;
         const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : displayItemName(item_templates[m.material_id]);
-        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back, inspect: !unknown && m.material_id ? {id: m.material_id, name: label} : null, from: unknown ? [] : [...new Set((m.material_type ? Object.keys(item_log.items).filter(id => item_templates[id]?.material_type === m.material_type) : [m.material_id]).flatMap(id => knownBestiarySources(id, {knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates})))].slice(0, 4)}; // PS100: where to get it, from what you have met
+        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back, inspect: !unknown && m.material_id ? {id: m.material_id, name: label} : null, makesType: m.material_type ?? null, from: unknown ? [] : [...new Set((m.material_type ? Object.keys(item_log.items).filter(id => item_templates[id]?.material_type === m.material_type) : [m.material_id]).flatMap(id => knownBestiarySources(id, {knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates})))].slice(0, 4)}; // PS100: where to get it, from what you have met
     });
     const station_name = document.querySelector(`.crafting_mainpage_button[data-crafting_category="${category}"]`)?.textContent.trim() || category;
     const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
@@ -5933,7 +5933,7 @@ function create_bestiary_entry_tooltip(enemy_name) {
         const heading=document.createElement('div');heading.textContent='Observed drops';tooltip_drops.append(heading);
         const facts=nativeObservedDropReader(enemy_name);
         for(const fact of facts){const line=document.createElement('div');line.textContent=`${fact.label}: ${fact.count} acquired`;tooltip_drops.append(line);}
-        if(!facts.length){const line=document.createElement('div');line.textContent='No drops observed yet.';tooltip_drops.append(line);}
+        if(!facts.length){const line=document.createElement('div');line.textContent='No drops observed yet.';tooltip_drops.append(line);} const rateNote=bestiaryRateNote({skillName: enemy.tags?.beast ? 'Butchering' : null, skillFactor: enemy.get_droprate_modifier()}); if(rateNote){const line=document.createElement('div');line.dataset.dropRateCause='';line.textContent=rateNote;tooltip_drops.append(line);} // PS166
     } else {
         if(enemy.loot_list.length > 0)tooltip_drops.appendChild(create_bestiary_loot_line());
         for(const loot of enemy.loot_list)tooltip_drops.appendChild(create_bestiary_loot_line(enemy,loot));
@@ -5998,7 +5998,7 @@ function create_bestiary_loot_line(enemy, loot) {
         //create based on data passed
         loot_name.innerText = `${obscure_name(loot.item_name)}`;
         loot_chance_base.innerText = `[${loot.chance*100}%]`;
-        loot_chance_current.innerText = `${Math.round(10000*loot.chance*enemy.get_droprate_modifier())/100}%`;
+        loot_chance_current.innerText = `${Math.round(10000*loot.chance*enemy.get_droprate_modifier())/100}%`; loot_chance_current.title = bestiaryRateTitle(loot.chance, {skillName: enemy.tags?.beast ? 'Butchering' : null, skillFactor: enemy.get_droprate_modifier()}); // PS166
         loot_chance.append(loot_chance_current, loot_chance_base);
         loot_line.append(loot_name, loot_chance);
     } else {

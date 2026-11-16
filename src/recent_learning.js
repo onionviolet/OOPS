@@ -2,6 +2,7 @@
 // it with the XP it describes. The existing save serializer omits it deliberately.
 // No timer, save slice or discovery authority. Never record a restoration award.
 import {panelSection, infoRow, chip, reasonLine} from './ui/panel_sections.js';
+import {practiceCauseLines} from './practice_causes.js';
 import {knownNumber} from './ui/known_number.js';
 
 export function recordLearning(owner, skillId, amount, {loading = false} = {}) {
@@ -59,7 +60,8 @@ export function learningNowView(owner, readers, now) {
     const why = quiet.map(id => `${readers.name(id)}${readers.capped?.(id) ? ' (at its highest level)' : ''}`);
     const up = levelUps.get(owner), upFresh = up && readers.visible(up.skillId) && (!finite || now - up.at <= NOW_WINDOW);
     return {now: rows.filter(fresh).sort(order).map(r => ({...r, rate: rate(r), from: from(r)})), earlier: rows.filter(r => !fresh(r)).sort(order),
-        practice: why.length ? `${active.label}: no ${why.join(', ')} XP since you started.` : '',
+        // PS168: a quiet skill whose known gate is shut says the cause after the observation (practice_causes.js).
+        practice: why.length ? [`${active.label}: no ${why.join(', ')} XP since you started.`, ...practiceCauseLines(quiet.filter(id => !readers.capped?.(id)), readers.practiceFacts?.(active) ?? {}, readers.name)].join(' ') : '',
         levelUp: upFresh ? `${readers.name(up.skillId)} reached ${up.level}` : ''};
 }
 

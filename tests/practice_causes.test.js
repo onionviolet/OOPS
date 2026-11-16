@@ -5,7 +5,8 @@ import {practiceCause, practiceCauseLines, registerPracticeGate} from '../src/pr
 test('PS168: a shut gate names its cause; an open one or an unknown fact says nothing', () => {
     assert.equal(practiceCause('Iron skin', {wearingArmor: true}), 'your armour takes the hits it learns from');
     assert.equal(practiceCause('Iron skin', {wearingArmor: false}), '');
-    assert.equal(practiceCause('Fortitude', {woundsTaken: 0}), 'it learns from wounds, and nothing has hurt you yet');
+    assert.equal(practiceCause('Fortitude', {woundsTaken: 0}), 'it learns from wounds, and nothing has hurt you since you started');
+    assert.equal(practiceCause('Fortitude', {fight: true}), 'it learns from wounds, and nothing has hurt you since you started', 'a quiet Fortitude in a fight means no hit landed');
     assert.equal(practiceCause('Fortitude', {}), '', 'no reading of wounds is not the same as no wounds');
     assert.equal(practiceCause('Poison resistance', {poisoned: false}), 'it builds while poison is in you, and none has taken hold');
     assert.equal(practiceCause('Cooking', {wearingArmor: true}), '', 'a skill with no known gate stays unexplained');

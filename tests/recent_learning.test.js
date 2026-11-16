@@ -43,3 +43,14 @@ test('Learning now gives a rate once there is a run to measure, the activity it 
     assert.equal(learningNowView(owner, r, 200).levelUp, '', 'the level line goes quiet after the hour');
     assert.equal(Object.keys(owner).includes('recent_level_up'), false, 'nothing new is kept on the owner');
 });
+
+test('the practice line adds the known cause when a quiet skill\'s gate is shut (PS168)', () => {
+    const owner = {}, node = {isConnected: true};
+    notePractice('sparring', ['Iron skin', 'Combat'], node, 0);
+    const worn = {...readers, practiceFacts: () => ({wearingArmor: true})};
+    assert.equal(learningNowView(owner, worn, 40).practice,
+        'sparring: no Iron skin, Combat XP since you started. Iron skin: your armour takes the hits it learns from.');
+    const bare = {...readers, practiceFacts: () => ({wearingArmor: false})};
+    assert.equal(learningNowView(owner, bare, 41).practice, 'sparring: no Iron skin, Combat XP since you started.', 'no known cause, no guess');
+    node.isConnected = false;
+});

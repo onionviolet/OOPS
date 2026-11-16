@@ -129,6 +129,20 @@ test('a short input links to the known recipe that makes it, through the same fo
     } finally {globalThis.document=previous;}
 });
 
+test('an "Any <type>" input links to the known recipe whose output has that type, and an unknown one never does (PS167)',()=>{
+    const previous=globalThis.document,dom=createDom();dom.loadHTML('<html><body><div id="detail"></div></body></html>');globalThis.document=dom.document;
+    try {
+        const root=document.getElementById('detail');const followed=[];
+        const req={label:'Any coal',need:1,have:0,missing:true,inspect:null,makesType:'coal'};
+        const model={title:'Iron ingot',description:'',requirements:[req],effects:[],output:{name:'Iron ingot',count:1},available:false,attempts:0,
+            related:[{title:'Charcoal',recipe_id:'charcoal',via:'Produces an input',outputId:'Charcoal',outputMaterialType:'coal',available:true,target:{category:'smelting',recipe_id:'charcoal'}}]};
+        renderCraftingDetail(root,model,{onRelated:t=>followed.push(t)});
+        const make=root.querySelector('.craft_source_make');
+        assert.equal(make.textContent,'Make it: Charcoal');make.click();assert.deepEqual(followed,[{category:'smelting',recipe_id:'charcoal'}]);
+        renderCraftingDetail(root,{...model,requirements:[{...req,unknown:true}]},{});assert.equal(root.querySelector('.craft_source_make'),null,'an unknown input names no maker');
+    } finally {globalThis.document=previous;}
+});
+
 test('a batch names the material it runs out of before it starts (PS145)',async()=>{
     const {batchBoundary}=await import('../src/crafting_detail.js');
     const reqs=[{label:'Sinew',need:2,have:7},{label:'Sinew',need:1,have:7},{label:'Wood',need:1,have:9}];
