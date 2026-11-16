@@ -47,6 +47,14 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
         table.append(body); root.append(table);
     } else root.append(el(doc, 'p', 'item-card-note', model.note || 'Wearing this adds nothing to your stats.'));
 
+    // PS248: what is in its make, as the life knows it; "?" rows promise something to learn (PS236).
+    if (model.affixes?.length) {
+        const sec = el(doc, 'section', 'item-card-affixes'); sec.dataset.role = 'affixes';
+        sec.append(el(doc, 'h4', null, 'In its make'));
+        const ul = el(doc, 'ul');
+        for (const a of model.affixes) { const li = el(doc, 'li', null, a.known ? `${a.name}: ${a.text}` : `? ${a.text}`); li.dataset.known = String(a.known); ul.append(li); }
+        sec.append(ul); root.append(sec);
+    }
     // Provenance trail: where it has been. Absent records say so instead of inventing a past.
     if (model.facets.provenance === 'known') {
         const trail = el(doc, 'section', 'item-card-trail'); trail.dataset.role = 'provenance';
@@ -56,6 +64,14 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
         root.append(trail);
     } else root.append(el(doc, 'p', 'item-card-unknown', 'Unknown to you: where it came from.'));
 
+    // PS248: where it can go. Every making system adds its verb here rather than its own item view.
+    if (model.verbs?.length) {
+        const sec = el(doc, 'section', 'item-card-verbs'); sec.dataset.role = 'verbs';
+        sec.append(el(doc, 'h4', null, 'Where it can go'));
+        const ul = el(doc, 'ul');
+        for (const v of model.verbs) { const li = el(doc, 'li', null, `${v.label} · ${v.where}`); li.dataset.verb = v.id; ul.append(li); }
+        sec.append(ul); root.append(sec);
+    }
     if (model.value && model.facets.value === 'known') root.append(el(doc, 'p', 'item-card-worth', `Worth ${model.value}`));
     host.replaceChildren(root);
     return root;

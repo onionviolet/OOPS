@@ -44,3 +44,18 @@ test('condition appears only when wear is tracked, with a word', () => {
 });
 
 test('non-equipment has no card', () => { assert.equal(itemCardModel({getName: () => 'Bread'}), null); });
+
+test('PS248: the sheet reads affixes as the life knows them and lists where the item can go', () => {
+    const item = {equip_slot: 'torso', quality: 80, getName: () => 'Coat', getAttack: () => 0, getDefense: () => 2, getShieldStrength: () => 0, getStats: () => ({}),
+        affixes: [{id: 'armor.reinforced', v: 2}, {id: 'armor.padded', v: 0.02}], gearwork: {roles: {external: {name: 'Wolf hide'}}}};
+    const m = itemCardModel(item, null, {rarity: 'rare', wearFactor: 0.6});
+    assert.equal(m.affixes[0].text, 'Defense +2, rolls 1.5–4.5');
+    assert.equal(m.affixes[1].text, 'Damage taken −2% (less taken), rolls 1.5%–4.5%');
+    assert.deepEqual(m.verbs.map(v => v.id), ['wear', 'repair', 'reforge', 'salvage', 'sell']);
+    const unread = itemCardModel(item, null, {rarity: 'rare', level: 'AP2'});
+    assert.deepEqual(unread.affixes.map(a => [a.known, a.name]), [[false, '?'], [false, '?']], 'unread stats: one "?" row per affix, never a zero');
+    const dom = createDom(); dom.loadHTML('<html><body><div id="h"></div></body></html>');
+    const root = renderItemCard(dom.document.getElementById('h'), m);
+    assert.match(root.textContent, /In its make.*Reinforced: Defense \+2, rolls 1\.5–4\.5/);
+    assert.match(root.textContent, /Where it can go.*Repair · at the Gear workshop/);
+});

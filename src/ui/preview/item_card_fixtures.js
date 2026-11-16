@@ -13,4 +13,7 @@ export const ITEM_CARD_FIXTURES = [
     {id: 'unappraised', title: 'The same shirt through a glance (AP1)', item: mailShirt, worn: jerkin, info: {rarity: 'common', level: 'AP1'}},
     {id: 'estimated', title: 'Estimate only (AP2): band, no numbers', item: mailShirt, worn: jerkin, info: {rarity: 'common', level: 'AP2'}},
     {id: 'measured', title: 'Measured (AP3): numbers, no past', item: mailShirt, worn: jerkin, info: {rarity: 'common', level: 'AP3'}},
+    // PS248: a rare shirt with two affixes and worn edges: what is in its make and where it can go; then the same through a glance.
+    {id: 'affixed', title: 'A rare shirt with two affixes, worn (in hand)', item: {...mailShirt, affixes: [{id: 'armor.reinforced', v: 3}, {id: 'armor.padded', v: 0.03}]}, worn: jerkin, info: {rarity: 'rare', wearFactor: 0.62}},
+    {id: 'affixed-glance', title: 'The same rare shirt through an estimate (AP2)', item: {...mailShirt, affixes: [{id: 'armor.reinforced', v: 3}, {id: 'armor.padded', v: 0.03}]}, worn: jerkin, info: {rarity: 'rare', level: 'AP2'}},
 ];

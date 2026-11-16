@@ -2,6 +2,7 @@
 // Pure data in, plain object out. Truth comes from the item readers and equipmentComparison;
 // nothing here parses display text (AD6-AD8). Every row carries words for its direction (UR37).
 import {equipmentComparison} from './equipment_comparison.js';
+import {getAffix, affixRange, isReductionAffix} from './gear_affixes.js';
 
 // Neutral stand-in for an empty slot, so "nothing worn" compares through the same readers.
 const emptySlot = slot => ({equip_slot: slot, name: 'Empty slot', quality: undefined, getName: () => 'Empty slot',
@@ -39,6 +40,29 @@ function statRows(item, baseline, quality, hasWorn) {
     })};
 }
 
+// PS248: the affixes as the life knows them. Read stats: the value and the range this rarity rolls in ("+2, rolls 1–3").
+// Stats unread: one "?" row per affix, so the reader knows something is there to learn (PS236), never a zero.
+const affixWords = (a, v) => a.operation === 'percent' ? `${Math.round(v * 1000) / 10}%` : String(v);
+function affixRows(item, rarity, known) {
+    return (item.affixes || []).map(e => {
+        const a = getAffix(e.id);
+        if (!a) return null;
+        if (!known) return {known: false, name: '?', text: 'something in the make you cannot read yet'};
+        const [lo, hi] = affixRange(a, rarity), less = isReductionAffix(a);
+        return {known: true, name: a.name, stat: pretty(a.stat), value: affixWords(a, e.v), range: `${affixWords(a, lo)}–${affixWords(a, hi)}`,
+            text: `${pretty(a.stat)} ${less ? '−' : '+'}${affixWords(a, e.v)}${less ? ' (less taken)' : ''}, rolls ${affixWords(a, lo)}–${affixWords(a, hi)}`};
+    }).filter(Boolean);
+}
+// PS248: where it can go, from what the item itself carries. Each making system adds its verb here, not its own item view.
+function itemVerbs(item, wear) {
+    const v = [{id: 'wear', label: 'Wear it', where: `on your ${String(item.equip_slot).replaceAll('_', ' ')}`}];
+    if (wear != null && wear < .99) v.push({id: 'repair', label: 'Repair', where: 'at the Gear workshop'});
+    if ((item.affixes || []).length) v.push({id: 'reforge', label: 'Reforge', where: 'at the Gear workshop: one affix rolls again'});
+    if (Object.keys(item.gearwork?.roles || {}).length || item.components) v.push({id: 'salvage', label: 'Salvage', where: 'at the Gear workshop: back to its parts'});
+    v.push({id: 'sell', label: 'Sell', where: 'to a merchant'});
+    return v;
+}
+
 // item: a live item object. worn: the item in the same slot, or null. info: what the caller knows about it
 // ({rarity, wearFactor, count, level, hidden, valueText}) so this module imports no game core.
 export function itemCardModel(item, worn = null, info = {}) {
@@ -62,6 +86,8 @@ export function itemCardModel(item, worn = null, info = {}) {
         condition: wear == null ? null : {factor: wear, text: wear >= .99 ? 'sound' : wear >= .7 ? 'worn' : wear >= .4 ? 'badly worn' : 'nearly spent'},
         trail, trailRecorded: trail.length > 0,
         value: info.valueText ?? null,
+        affixes: affixRows(item, info.rarity, sees.has('stats')),
+        verbs: itemVerbs(item, wear),
     };
     return model;
 }
