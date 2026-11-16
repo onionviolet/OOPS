@@ -1696,3 +1696,9 @@ Same message: "What else needs labeling passes or putting all the killer moves o
 Weibao, on a fight line that reads "You hit The knifeman" with a capital "The" mid-sentence: "Sub tle capitalization is fine, and can be a fun gimmick."
 
 Direction: a subtle capitalization quirk in player text is not a defect to fix by default. A world or a voice may use it on purpose. PRS checks do not flag it.
+
+## Old combat screen and coherence, 2026-11-16
+
+Weibao: "What happend to the usual font? have we imlmented everything we wanted to? Why is not everything coherent? I feel like the old combat UI was better and more coherentthen the On each card? more to consider? other aspects?"
+
+Direction read: the original combat screen is the default, and the newer fight views stay as choices (PS264). Saved as round 26 (PS285–PS295, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-26-2026-11-16-the-missing-font-coherence-and-the-old-combat-screen). The font finding is that the captures lost it, not the game.

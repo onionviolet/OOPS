@@ -788,3 +788,28 @@ ACT NOW, done in 6895cf083 with bundle 6b330ab8c. Upstream YAIR prints only "49%
 | PS282 | **Max-level and long names.** Default: "Max" in place of the percent, as upstream does, with a capped bar colour. A long name ellipsizes and shows in full on hover. |
 | PS283 | **The look follows Row style.** Under Spacing, the green box around each skill goes and the bar becomes the row's only colour. Under Bordered, the border drops to the hairline weight from PS244, because the 2px bright border is the loudest thing on the screen. Dial: Classic keeps upstream's 2px green. |
 | PS284 | **A narrow-column check.** check:flow measures text wrapping inside fixed-height rows at the narrowest column width the layout allows, so a label that wraps is caught before a capture shows it. |
+
+## Round 26, 2026-11-16: the missing font, coherence, and the old combat screen
+
+Weibao: "What happend to the usual font? have we imlmented everything we wanted to? Why is not everything coherent? I feel like the old combat UI was better and more coherentthen the On each card? more to consider? other aspects?" ([log](../../USER_VISION_LOG_2026-11.md#old-combat-screen-and-coherence-2026-11-16)).
+
+### Findings
+
+| Code | Finding | Evidence |
+| --- | --- | --- |
+| PS285 | **The font did not change in the game; the captures lost it.** The game's bitmap Gothic faces load from `resources/fonts/private/`, which git ignores. Lanes capture from clean `git archive` trees, which have no private fonts, so those pictures fall back to a system font. The reforge, kit-page and draft captures show it; the game MCP's captures (which link private files) keep the real font. | `styles/ui_tokens.css` @font-face rules; ui-cohesion's note "private fonts 404 in the scratch tree"; `--ui-font` unchanged in recent history. |
+| PS286 | **Not everything wanted is built.** Built and pushed or landed: the four-column frame, box tabs, the fight box, Learning now, Row style and presets, knownNumber with words and rumours, the item sheet, the shared renderer. Open: areas (waiting on its session card), reforging and enchanting (in progress), drafts D1–D12 as builds, slice 4's Journal tabs and Here box, PS216, Harry's daily loop, and most of round 15's details. | CHECKPOINT resume-wave table; commits since adbcc4ff0. |
+| PS287 | **Why it is not coherent yet.** Eight lanes add surfaces in parallel, and the shared renderer (1120c44cd) exists but draws two boxes so far, so the other boxes still have its own markup and spacing. Look choices multiply the variations. Captures without the font make it look worse than it is. | Kit migration list; PS243 note. |
+| PS288 | **The fight card has become a control panel.** Klein's knifeman card shows the stakes, a stance select, two rows of terms, a sentence about losing, an aim row, six move tiles with two-line descriptions, a "Who acts next" line, and the same hit line printed twice (under the card and under a tile). YAIR's fight is cards with bars, a short row of actions, and the lines in Reports. | Capture `ps222-cards-16eee20f1-knifeman.png`. |
+
+### Proposals (default, dial, reason)
+
+| Code | Proposal |
+| --- | --- |
+| PS289 | **The original combat screen is the default.** Default: every fight opens as YAIR draws it. Foe cards show name, bars and the attack timer, a short row of actions follows, and the fight's lines go to Reports under its Combat filter. This needs tempo lines routed to Reports, which they are not today. The fight card's extras become choices under Display › Look › Fight: "In the fight box" and "On each card". Reason: Weibao finds the old screen better and more coherent; PS264 keeps today's look as the default when it is a choice. |
+| PS290 | **The approach is set before the fight and folded during it.** Default: stakes, stance, terms, losing and aim are set on the opener and saved per kind of foe (PS221's habit). During the fight they show as one summary line ("Robbery · not deadly · Normal stance · Finish · Fight on"), and clicking it opens the controls. Reason: five control rows on every card are the main source of clutter. |
+| PS291 | **Moves are buttons, and their words go in tooltips.** Default: a move is a short button with its beats ("Quick strike · 3"), and its description, odds and cost sit in the kit tooltip, as YAIR's actions do. A line is printed once. |
+| PS292 | **One coherence pass before more surfaces.** Default: for the rest of this wave, a new or changed box draws through the kit renderer (`src/ui/kit.js`), and the ratchet counts boxes on their own markup down, never up. ui-cohesion migrates the most-seen boxes first: the fight box, Skills, the inventory and the item sheet. |
+| PS293 | **Captures carry the real font.** Default: every capture tree links `resources/fonts/private` (and the other private packs) from the primary checkout, the way the game MCP does. A capture without the font is redone before it is shown. |
+| PS294 | **A coherence review per slice.** Default: before a slice is reported, its capture sits beside a neighbouring box's capture, both at 1920×1080 with the font. A different spacing, border, type size or colour from the kit is fixed or named. The blind panel (PS228) runs once per wave across all features. |
+| PS295 | **Fewer choices on screen, more in presets.** Default: Display › Look shows the presets (Classic, Calm, Dense), and the single choices sit under "Customize". Classic is the original's look everywhere, the fight included. Reason: choices are welcome, but a page of switches is itself incoherent. |
