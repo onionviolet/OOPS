@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import '../src/native_battle.js';
 import {expeditionRegistry as registry} from '../src/expedition_content.js';
 import {createFieldFixture, joinField, fieldContext} from '../scripts/field_fixtures.mjs';
-import {beginTempoFight, commitTempoMove, driveTempoFight, nextActor, setTempoHoldBack, tempoView, validateTempoBattle} from '../src/tempo_fight.js';
+import {beginTempoFight, commitTempoMove, driveTempoFight, nextActor, senseOf, setTempoHoldBack, tempoView, validateTempoBattle} from '../src/tempo_fight.js';
 import {tempoStakes, validateTempoKitRow, TEMPO_PRESETS} from '../src/tempo_kit.js';
 
 const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_count: 1, crit_rate: .3, crit_multiplier: 1.5, stamina_efficiency: 1};
@@ -223,4 +223,20 @@ test('a fallen foe keeps its place in the view, marked down, while the rest figh
     assert.equal(nextId === 'player' ? v.you.ready : v.foes.find(f => f.id === nextId).ready, 1);
     assert.equal(v.foes.find(f => f.id === 'foe1').ready, null);
     for(const r of all.map(x => x.ready).filter(r => r !== null)) assert.ok(r >= 0 && r <= 1, `ready share in range: ${r}`);
+});
+
+// PS236, PS237: a foe is read in words against you; its attack becomes "~N" once it has hit you, with one log line; an uncanny foe gives no read.
+test('what you can see of a foe is said in words, and taking its blows teaches its attack', () => {
+    const state = structuredClone(base.state); state.simulation.seed = 3;
+    let plan = beginTempoFight(state, registry, context, {id: 'fx-read', title: 'Read', floor: 1, stakes: {preset: 'brawl'}, fighters: [
+        {id: 'player', name: 'You', side: 'a', speed: 100, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile, perception: 20, stealth: 20},
+        {id: 'foe1', name: 'A big rival', side: 'b', speed: 130, hp: 30, maxHp: 30, stamina: 30, maxStamina: 30, profile: {...profile, attackPower: profile.attackPower * 2}, perception: 20, stealth: 20}]});
+    let b = plan.state.simulation.sessions.player.nativeBattle;
+    assert.equal(tempoView(b).foes[0].sense, 'looks stronger than you, faster than you');
+    assert.equal(senseOf({stakes: {uncanny: true}}, b.fighters.foe1, b.fighters.player), null);
+    for(let n = 0; n < 12 && !b.fighters.foe1.seen; n++) { plan = commitTempoMove(plan.state, registry, context, {moveId: 'guard'}); b = plan.state.simulation.sessions.player?.nativeBattle; if(!b) break; }
+    assert.ok(b?.fighters.foe1.seen, 'the rival landed a blow');
+    const v = tempoView(b);
+    assert.ok(Number.isFinite(v.foes[0].seenAtk));
+    assert.equal(v.lines.filter(l => /^You know how hard a big rival hits now: about \d+\.$/.test(l)).length, 1);
 });

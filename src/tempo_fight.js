@@ -392,6 +392,11 @@ function runMove(plan, registry, command, publish) {
             const part = SLOTS[slot].part, next = part ? injuryFor(foe.parts?.[part], dmg, foe.maxHp, strike.critted) : null;
             if(next) {(foe.parts ||= {})[part] = next; injury = `${partLabel(part)}: ${next}`;}
         }
+        // PS237: you learn how hard a foe hits by taking its blows; the first one is a small moment in the log, and its attack shows as "~N".
+        if(dmg && f.side === 'b' && foeId === 'player') {
+            const seen = f.seen ||= {blows: 0, total: 0}; seen.blows++; seen.total = round1(seen.total + dmg);
+            if(seen.blows === 1) say(b, `You know how hard ${f.name.replace(/^(The|A|An) /, w => w.toLowerCase())} hits now: about ${Math.max(1, Math.round(dmg))}.`);
+        }
         // The player's side learns how this foe takes the blow's main type by seeing it land.
         if(typed && f.side === 'a' && foe.side === 'b') (foe.learned ||= {})[typed.kind] = typed.note || 'normal';
         if(slot) b.hits = [...(b.hits || []), {actor: id, target: foeId, slot, dmg: round1(dmg), stopped, multiplier: typed?.multiplier ?? 1, split: typed?.split ?? {physical: 1}, ...(injury ? {injury} : {})}].slice(-TEMPO_DIALS.logLines.value);
@@ -622,6 +627,18 @@ export function handOverTempoFight(state, registry, context, {steps = 1} = {}) {
     return plan;
 }
 
+// PS236: what you can see of a foe, said against yourself in words (its build, its speed, a limp), never its hidden numbers. Dial: a foe
+// tagged uncanny, or a fight whose stakes say so, gives no read at all (some worlds keep more "?"; Weibao: "sometimes not knowing is part of it").
+export const SENSE_DIALS = {stronger: 1.25, weaker: .8, faster: 1.15, slower: .87, why: 'a quarter more reach or weight is what most people can see at a glance'};
+export function senseOf(b, foe, me) {
+    if(foe.tags?.includes?.('uncanny') || b.stakes?.uncanny) return null;
+    const words = [], power = (foe.profile?.attackPower || 0) / Math.max(.001, me.profile?.attackPower || 0), speed = (foe.speed || 0) / Math.max(1, me.speed || 0);
+    words.push(power >= SENSE_DIALS.stronger ? 'looks stronger than you' : power <= SENSE_DIALS.weaker ? 'looks weaker than you' : 'looks about your match');
+    if(speed >= SENSE_DIALS.faster) words.push('faster than you'); else if(speed <= SENSE_DIALS.slower) words.push('slower than you');
+    if(foe.parts?.leg) words.push('limping');
+    return words.join(', ');
+}
+
 // Text-first view (LSD314): one line per step and a who-acts-next strip.
 export function tempoView(b) {
     const next = actingOrder(b).map(id => id === 'player' ? 'You' : b.fighters[id].name);
@@ -656,7 +673,7 @@ export function tempoView(b) {
             order: activeOrder(b, b.fighters[id])?.id ? ALLY_ORDERS[activeOrder(b, b.fighters[id]).id].label : null})),
         // A body waiting on your decision stays on the card, down, so the choice has a place to be made (CBC4).
         // Every foe keeps its row in the same place; one that fell or left stays, dimmed (DU11, PS147): the list does not jump while you read.
-        foes: Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status !== 'active' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina, ready: readyOf(id),
+        foes: Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status !== 'active' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina, ready: readyOf(id), sense: senseOf(b, b.fighters[id], me), ...(b.fighters[id].seen ? {seenAtk: round1(b.fighters[id].seen.total / b.fighters[id].seen.blows)} : {}),
             ...(b.fighters[id].means && Object.keys(b.fighters[id].means).length ? {means: Object.entries(b.fighters[id].means).map(([q, n]) => ({id: q, n, label: b.fighters[id].meansLabels?.[q] ?? q.replace(/_/g, ' ')}))} : {}), learned: {...b.fighters[id].learned}, injuries: Object.entries(b.fighters[id].parts || {}).map(([p, rung]) => ({label: partLabel(p), rung})), hurt: b.fighters[id].status === 'down' ? 'down and helpless' : b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'fresh' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing'}))};
 }
 

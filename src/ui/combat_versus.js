@@ -116,11 +116,14 @@ function card(doc, o) {
     c.append(named(doc, o.name));
     // Numbers as the character knows them (PS130): "Atk ? · ?/? hp" until seen; the hp line keeps only its words (Fresh, Down), one home per fact.
     if (o.numbers && !o.down) {
-        const n = make(doc, 'p', 'versus-numbers'), num = (v, field) => knownNumberNode(v, {}, {field: `${o.name}: ${field}`, doc});
+        // PS237: an unknown names a way to learn it, never the answer.
+        const ROUTE = {attack: 'Watch it fight: once it lands a blow you will know how hard it hits.', health: 'Study one, or ask a hunter who has.', 'most health': 'Study one, or ask a hunter who has.'};
+        const n = make(doc, 'p', 'versus-numbers'), num = (v, field, how = {}) => { const k = knownNumberNode(v, how, {field: `${o.name}: ${field}`, doc}); if (k.dataset.known === 'unknown' && ROUTE[field]) { k.title = `${k.title}. ${ROUTE[field]}`; k.dataset.learnRoute = ''; } return k; };
         n.dataset.versusNumbers = '';
         const t = text => make(doc, 'span', null, text);
-        n.append(t('Atk '), num(o.numbers.atk, 'attack'), t(' · '), num(o.numbers.hp, 'health'), t('/'), num(o.numbers.maxHp, 'most health'), t(' hp'));
+        n.append(t('Atk '), num(o.numbers.atk, 'attack', o.numbers.atkEstimated ? {known: false} : {}), t(' · '), num(o.numbers.hp, 'health'), t('/'), num(o.numbers.maxHp, 'most health'), t(' hp'));
         c.append(n);
+        if (o.sense) { const w = make(doc, 'p', 'versus-sense', `It ${o.sense}.`); w.dataset.versusSense = ''; c.append(w); }
     }
     if (!o.numbers || o.down || !/\d|\?\?\?/.test(o.hp.text)) c.append(make(doc, 'p', 'versus-hp', o.hp.text));
     if (o.hp.fraction !== null && o.hp.fraction !== undefined) c.append(meter(doc, 'versus-bar', `${o.name} hit points`, o.hp.fraction, o.hp.text));

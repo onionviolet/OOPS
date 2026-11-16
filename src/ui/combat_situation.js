@@ -205,6 +205,8 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
         o.means = meansText(foe.means);
         o.ready = foe.down ? null : foe.ready ?? null;
         o.wants = foe.wants || null; // what they want, as far as you can tell (PS41)
+        o.sense = foe.sense || null; // PS236: what you can see of it, in words
+        if (Number.isFinite(foe.seenAtk)) o.numbers = {...(o.numbers || {}), atk: foe.seenAtk, atkEstimated: true}; // PS237: learned by taking its blows
         o.types = typeChips(foe.learned, {reveal: foe.reveal, worldId});
     }
     base.versus.you.mix = me.mix ? mixText(me.mix, worldId) : null;

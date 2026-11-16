@@ -127,3 +127,16 @@ test('D6: the other side is headed and counted by who stands, allies get their o
     assert.equal(sigilPoints('The knifeman'), sigilPoints('The knifeman'));
     assert.notEqual(sigilPoints('Wolf rat A'), sigilPoints('Wolf rat B'));
 });
+
+test('PS236, PS237: a foe reads in words beside its "?", each "?" names a way to learn it, and a learned attack shows as an estimate', () => {
+    const versus = brawl(), o = versus.opponents[3];
+    o.sense = 'looks stronger than you, faster than you';
+    let c = cards(draw(versus))[3];
+    assert.ok(c.textContent.includes('It looks stronger than you, faster than you.'));
+    const marks = c.find(n => n.has('known-number'));
+    assert.match(marks[0].title, /not known yet\. Watch it fight/);
+    assert.match(marks[1].title, /Study one, or ask a hunter/);
+    o.numbers = {...o.numbers, atk: 6.2, atkEstimated: true};
+    c = cards(draw(versus))[3];
+    assert.equal(c.find(n => n.has('known-number'))[0].textContent, '~6.2');
+});
