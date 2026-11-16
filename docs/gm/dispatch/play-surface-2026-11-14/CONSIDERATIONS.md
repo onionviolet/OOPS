@@ -827,3 +827,7 @@ Weibao: "make it a choice and then I can try both in the fuutre ⏎ I meant wast
 | PS300 | **One fight bar style.** Default: every fighter bar in the game, native or tempo, uses YAIR's bar: the same height, track, colour per meaning and the number inside. A new bar style needs a reason and a kit entry (PS244). |
 | PS301 | **A "drawn twice" check.** check:flow flags a screen where the same fighter, item or person appears in two boxes at once with the same facts, so a duplicate view is caught before a capture. |
 | PS302 | **Close a wave on purpose.** Default: a wave ends with every lane committing, writing its handover and stopping, then one gate and push, then the open ideas gathered into one handoff list before new ideas start. This is the round 27 close. |
+
+### Delivery note, 2026-11-16: PS155 Effects follows the OS (311e609d1)
+
+PS155 (round 16) is built as a working default under AD56. New saves store Effects as "auto", which plays full motion unless the OS asks for reduced motion. An explicit Off, Reduced or Full setting wins, and old saves keep their stored value. check:visual and check:flow pin Reduced. Owner: feel-finish (src/customization_profiles.js).
