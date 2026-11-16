@@ -58,6 +58,8 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         if (b && !b.disabled) { e.preventDefault(); b.click(); }
     });
     let previousLog = [], previousNoticeWasError = false, approachOpen = false;
+    // The approach line folds the fight's setup (stakes, stance, terms, aim) into one summary; both fight forms share it (PS290).
+    const approachFold = title => { const approach = document.createElement('details'), sum = document.createElement('summary'); approach.className = 'fight-situation-approach'; approach.dataset.fightApproach = ''; approach.open = approachOpen; sum.title = title; return {approach, sum}; };
     // Tempo mode (COMBAT.md round 3, R3-O1): the same card, versus row and log, with the move area filled by the
     // tempo contest's own moves. Reads the 'tempo_fight' projection; moves go through its 'move' command, which keeps
     // the contest's own checks. The world family (DESIGN.md DSG11, DSG13) only picks type names.
@@ -219,8 +221,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
             const term = t.strip?.terms?.[0], aimLabel = t.aim ? (t.aims.find(a => a.id === t.aim)?.label || '') : '';
             const deadly = t.stakes ? (t.stakes.lethal ? 'can be deadly' : 'not deadly') : '';
             const words = [t.stakes ? `${t.stakes.label} · ${deadly}` : '', t.strip?.stance?.name || '', term ? TERMS_LABEL[term.terms] : '', t.strip?.losing ? LOSING_LABEL[t.strip.losing] : '', aimLabel ? `Aim: ${aimLabel}` : ''].filter(Boolean);
-            const approach = document.createElement('details'); approach.className = 'fight-situation-approach'; approach.dataset.fightApproach = ''; approach.open = approachOpen;
-            const sum = document.createElement('summary'); sum.textContent = words.join(' · ') || 'How you fight'; sum.title = 'Open to change the stakes you accept, your stance, your terms and your aim.';
+            const {approach, sum} = approachFold('Open to change the stakes you accept, your stance, your terms and your aim.'); sum.textContent = words.join(' · ') || 'How you fight';
             fold[0].before(approach); approach.append(sum, ...fold);
             approach.addEventListener('toggle', () => { approachOpen = approach.open; });
         }
@@ -300,8 +301,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
                     blocked: leave ? '' : 'No way out is shown from here.', onChoose: () => leaveChoice()?.click()}]});
             stakes = card.querySelector('.scene-card-stakes');
             lines = document.createElement('ul'); lines.className = 'fight-situation-lines'; stakes.after(lines);
-            const approach = document.createElement('details'); approach.className = 'fight-situation-approach'; approach.dataset.fightApproach = ''; approach.open = approachOpen;
-            const sum = document.createElement('summary'), quiet = document.createElement('span'); sum.title = 'Open to see how the fight stands and to change your stance and your terms.';
+            const {approach, sum} = approachFold('Open to see how the fight stands and to change your stance and your terms.'), quiet = document.createElement('span');
             // The line states the approach itself; the shared group counter ("1 entry") would only count the tempo note.
             quiet.dataset.groupOwnStatus = ''; quiet.hidden = true; const say = text => { sum.textContent = text; sum.append(quiet); }; say('How you fight');
             approach.addEventListener('toggle', () => { approachOpen = approach.open; });
