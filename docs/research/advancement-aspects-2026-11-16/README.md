@@ -83,3 +83,35 @@ Beyond the five on the potion page, each also generic across worlds:
 | How it combines | Pathway convergence, artifacts, counters | Cross-system rules |
 
 The sheet grows to these fourteen fields, and each pass fills only the fields its source states.
+
+## Pilot result (2026-11-16, agent-verified, not human-reviewed)
+
+Weibao: "Yes to both" (download the two wiki dumps, run a 20-request pilot).
+
+**Downloads.** `harrypotter_pages_current.xml.7z` (54,181,689 bytes) and `reverendinsanity_pages_current.xml.7z` (2,062,702 bytes) from Fandom's public S3 dump route, saved under `~/.codex/research/wikis/<wiki>/dump/`. Both SHA-256 hashes match the 2026-10-10 records in `docs/research/power-systems/wiki-digests/SOURCES.md`. Not yet unpacked or read.
+
+**LOTM wiki module blocked.** The local LOTM snapshot holds namespace-0 pages only. The per-Sequence formula, ritual and acting tabs live in `Module:Sequence/standard`, and the one GET for it returned 403 behind a Cloudflare bot check. Not retried and not worked around. Routes left: a copy Weibao exports from his browser, or the private chapter text at the book locators.
+
+**Pilot.** `node scripts/aspect_pilot.mjs` sent the same 20 packets (10 LOTM Sequences from paid book claims plus local wiki pages; 10 mortal Reverend Insanity moves from paid reader claims) to GPT-6 Luna and Claude Haiku 5.5, low effort, one strict schema, synchronous calls. Packets and replies are in the gitignored `private/` folder.
+
+| Measure | Luna | Haiku |
+| --- | ---: | ---: |
+| Replies parsed | 20 of 20 | 20 of 20 |
+| Input tokens | 31,820 | 79,794 |
+| Output tokens | 10,038 | 32,544 |
+| Batch cost per request (half the measured standard cost) | $0.0002 | $0.0006 |
+| Fields filled | 43 | 69 |
+| Filled fields whose locator is not in the packet | 0 | 7 |
+| Fields filled for the Sequence with no evidence | 0 | 0 |
+
+The two agree on filled versus empty for 142 of 180 fields; Haiku alone fills 32, Luna alone 6. A spot check of the Fool Sequence 8 and 9 rows: both read digestion and the month of daily acting correctly from the same claim; Haiku's extra fills there put a Sefirah Castle return rite under "advancement ritual" and an unrelated attack under "backlash", so its extra recall is mostly overreach. Component extraction is noisy in both (a place, a person and "more than ten Gu" listed as components), so component rows need a name check against the Gu catalogue before use.
+
+**What it settles.**
+
+- **Luna extracts, Haiku is the second opinion.** Luna is more precise and costs a third as much here, because Haiku's structured outputs add the schema to every prompt. Haiku runs only on fields Luna left empty, and anything it adds goes to review.
+- **Evidence is the limit, not the model.** The paid LOTM claims are summaries and almost never carry a formula, so neither model could fill "take" for Sequence 9. LOTM formulas need the chapter text or the wiki module.
+- **Cost is far below the earlier estimate.** At these rates every pass in the table (about 2,700 requests) is about $0.60 on Luna plus about $1.60 if Haiku ran everything. The $10 to $30 estimate was based on long reading passes at high effort and does not apply to short extraction at low effort.
+- **Two schema limits found.** Haiku's structured outputs allow at most 16 nullable parameters per schema (the script uses empty strings), and its SDK refuses a 32,000-token cap without streaming (the script uses 16,000).
+
+Pilot spend on both providers, including the two failed Haiku attempts: about $0.05.
+
