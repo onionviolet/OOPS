@@ -15,6 +15,8 @@ import {readFileSync} from 'node:fs';
 // A fixture is setup, not proof: lanes still play the changed behaviour from it and still save, reload and import from a fresh
 // origin. It never stands in for the floor's fresh-origin line when the feature is the start of a life (docs/RULES_INDEX.md, AD36).
 import {boot} from './runner.mjs';
+// Around you folds to one Here line (PS120, e1abe03a9); a script that picks a person opens the full list first, as a player would.
+const openAround = async game => { if (game.$('.nearby-context-view[data-compact="true"]')) await game.click('[data-here-link="all"]'); };
 
 const PANEL = '#workspace_navigation select[aria-label="Other known panels"]';
 const say = (...a) => process.env.YAIRPG_FIXTURE_QUIET ? undefined : process.stderr.write(`[fixture] ${a.join(' ')}\n`);
@@ -222,7 +224,7 @@ export const WORLD_FIXTURES = Object.freeze({
             inv[JSON.stringify({id: 'Hunter\'s arrow'})] = {count: 6};
             await game.load(save); // through the real load path
             for(const who of ['villageElder', 'oldCraftsman']) {
-                await game.clickText(who === 'villageElder' ? /village elder\s*Village neighbor$/ : /old craftsman\s*Village neighbor$/);
+                await openAround(game); await game.clickText(who === 'villageElder' ? /village elder\s*Village neighbor$/ : /old craftsman\s*Village neighbor$/);
                 await game.click(`[data-focus-action="talk:${who}"]`);
                 await game.click('[data-textline="hello"]');
                 await game.click('#center_mode_back');

@@ -14,6 +14,8 @@ import {createHash} from 'node:crypto';
 import {boot, canonicalSave, diffSaves, ROOT} from './runner.mjs';
 import {advanceGame} from './advance.mjs';
 import {WORLD_FIXTURES, buildWorldFixture, verifyWorldFixture} from './world_fixtures.mjs';
+// Around you folds to one Here line (PS120, e1abe03a9); a script that picks a person opens the full list first, as a player would.
+const openAround = async game => { if (game.$('.nearby-context-view[data-compact="true"]')) await game.click('[data-here-link="all"]'); };
 
 export const SCENARIOS = Object.freeze({
     'fresh': {summary: 'New hero, day 1, Village.', recipe: {days: 0}},
@@ -162,7 +164,7 @@ async function prepareVillage(game, kind) {
         return;
     }
     if(kind === 'chronicle') { // elder met, then the People notebook's own Begin chronicle button
-        await game.clickText(/village elder\s*Village neighbor$/); // display name leads (NMR1), role stays
+        await openAround(game); await game.clickText(/village elder\s*Village neighbor$/); // display name leads (NMR1), role stays
         await game.click('[data-focus-action="talk:villageElder"]');
         await game.click('[data-textline="hello"]');
         await game.click('#center_mode_back');
@@ -173,7 +175,7 @@ async function prepareVillage(game, kind) {
         await game.click('[data-chronicle="begin-open"]');
         return;
     }
-    await game.clickText(/village elder\s*Village neighbor$/); // display name leads (NMR1), role stays
+    await openAround(game); await game.clickText(/village elder\s*Village neighbor$/); // display name leads (NMR1), role stays
     await game.click('[data-focus-action="talk:villageElder"]');
     await game.click('[data-textline="hello"]');
     await game.click('#center_mode_back');
