@@ -378,8 +378,9 @@ function mount() {
             return;
         }
         if(v.fight && document.getElementById('fight_situation')) {
-            // One fight surface (COMBAT.md round 3, R3-O1): the open contest is shown and played in the Fight card.
-            body.append(node('p', 'The contest is open in the Fight card below. The world clock holds until it ends.'));
+            // One fight surface (COMBAT.md round 3, R3-O1): the open contest is shown and played in the Fight card, so this panel steps aside
+            // while it is open (PS289 follow-up: it repeated the card's status under it, and the card is not "below" in every layout).
+            root.hidden = !previousFocus;
         } else if(v.fight) {
             const f = v.fight;
             body.append(node('p', 'The fight waits for you. The world clock holds until it ends; time away is kept and applied afterwards.'));
