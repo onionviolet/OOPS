@@ -23,13 +23,19 @@ test('a place reads its base text plus what its sources say; a broken or silent 
     assert.equal(describePlace('test.place', 'A yard.', {tag: 'gone'}), 'A yard.');
 });
 
-test('the clan academy reads the tide: peak and ebb in its own words, a thinned wall, nothing out of a dated life', () => {
-    assert.equal(describePlace(RI_ACADEMY, 'The academy.', life(atDate(2, 8, 5))), `The academy. ${RI_TIDE_PHASES.peak.line}`);
-    assert.equal(riAcademyTideLine(life(atDate(2, 8, 20))), RI_TIDE_PHASES.ebb.line);
-    assert.equal(riAcademyTideLine(life(atDate(2, 6, 1))), RI_TIDE_PHASES.off.line, 'a dated life outside the tide hears the wall is quiet');
+test('the clan academy reads the tide while it is on: phase and day, wolves near the wall, the tide\'s words, a thinned wall; hidden otherwise', () => {
+    const peak = describePlace(RI_ACADEMY, 'The academy.', life(atDate(2, 8, 5)));
+    assert.match(peak, /^The academy\. Wolf tide, peak day \d+ of 15\. /);
+    assert.ok(peak.includes(RI_TIDE_PHASES.peak.line));
+    assert.match(peak, /About \d+ lightning wolves are near the wall\./);
+    assert.match(riAcademyTideLine(life(atDate(2, 8, 20))), /^Wolf tide, ebb day \d+ of 15\./);
+    const early = riAcademyTideLine(life(atDate(2, 7, 15))), peakNear = Number(/About (\d+)/.exec(peak)[1]);
+    assert.match(early, /day 1 of 15/);
+    assert.ok(Number(/About (\d+)/.exec(early)[1]) < peakNear, 'the peak crowds the wall more than the early days');
     let state = life(atDate(2, 8, 5));
-    for(let i = 0; i < 40; i++) state = life(state.clock, {[RI_WOLF_TIDE_FACT]: riRecordWolfKill(state, {n: 1})});
-    assert.match(riAcademyTideLine(state), /thinned this stretch of the wall/);
+    for(let i = 0; i < 16; i++) state = life(state.clock, {[RI_WOLF_TIDE_FACT]: riRecordWolfKill(state, {n: 1})});
+    assert.match(riAcademyTideLine(state), /thinned this stretch/);
+    assert.equal(riAcademyTideLine(life(atDate(2, 6, 1))), '', 'out of the tide the line is hidden');
     assert.equal(riAcademyTideLine({clock: 0, actors: {player: {worldId: RI_WOLF_TIDE_WORLD, facts: {}}}}), '', 'a life with no date says nothing');
     assert.equal(riAcademyTideLine({clock: 0, actors: {player: {worldId: 'book.hp.lead.world'}}}), '');
 });
