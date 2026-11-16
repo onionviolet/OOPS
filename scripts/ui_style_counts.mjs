@@ -1,5 +1,5 @@
 // PS245: count raw style in UI modules (src/ui/*.js and src/*_ui.js): raw colours (#hex, rgb(), hsl()), pixel sizes in
-// strings, border declarations and toFixed. Tokens, the kit (src/ui/kit.js) and number_format are where these belong.
+// strings, border declarations, toFixed and (PS292) own markup: createElement, innerHTML and insertAdjacentHTML. Tokens, the kit (src/ui/kit.js) and number_format are where these belong.
 // `node scripts/ui_style_counts.mjs --write` rewrites the baseline after a file's count went down.
 import {readdirSync, readFileSync, writeFileSync} from 'node:fs';
 const ROOT = new URL('../', import.meta.url);
@@ -9,6 +9,8 @@ const PATTERNS = {
     px: /\b\d+(?:\.\d+)?px\b/g,
     border: /\bborder(?:-[a-z]+)?\s*[:=]|\.style\.border/g,
     toFixed: /\.toFixed\(/g,
+    // PS292: a box drawing its own markup instead of the kit's forms. Counts only go down as boxes move to src/ui/kit.js.
+    ownMarkup: /\.createElement\(|\binsertAdjacentHTML\(|\.innerHTML\s*=/g,
 };
 export function uiModules() {
     const ui = readdirSync(new URL('src/ui/', ROOT)).filter(f => f.endsWith('.js')).map(f => `src/ui/${f}`);

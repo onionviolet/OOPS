@@ -1,104 +1,807 @@
 {
+ "src/action_legibility_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/aging_contact_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/authored_site_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/backlog_expansion_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/body_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/book_world_hp_lead_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/book_world_lotm_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
  "src/causal_story_ui.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 1
+  "toFixed": 1,
+  "ownMarkup": 1
  },
  "src/chain_inspector_ui.js": {
   "colour": 4,
   "px": 9,
   "border": 2,
-  "toFixed": 0
+  "toFixed": 0,
+  "ownMarkup": 11
+ },
+ "src/character_bio_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/cheat_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
  },
  "src/chronicle_ui.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 6
+  "toFixed": 6,
+  "ownMarkup": 1
+ },
+ "src/combat_situation_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 33
+ },
+ "src/content_pack_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 5
  },
  "src/continuation_ui.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 2
+  "toFixed": 2,
+  "ownMarkup": 1
+ },
+ "src/customization_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 31
  },
  "src/drainage_site_ui.js": {
   "colour": 0,
   "px": 1,
   "border": 0,
-  "toFixed": 0
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/economy_standing_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/event_feed_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/exchange_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/expansion_quest_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 6
+ },
+ "src/expedition_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 4
+ },
+ "src/feature_expansion_nested_ink_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/feature_expansion_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/field_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/field_works_extension_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/field_works_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/foundation_interaction_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/frontier_campaign_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/generated_people_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
  },
  "src/habitat_care_ui.js": {
   "colour": 0,
   "px": 1,
   "border": 0,
-  "toFixed": 0
+  "toFixed": 0,
+  "ownMarkup": 1
  },
  "src/harvest_ui.js": {
   "colour": 2,
   "px": 8,
   "border": 2,
-  "toFixed": 0
+  "toFixed": 0,
+  "ownMarkup": 30
+ },
+ "src/household_brood_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/ink_narrative_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/known_routes_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/life_events_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/life_record_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/mistglass_seedbed_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 3
  },
  "src/mixture_ui.js": {
   "colour": 0,
   "px": 2,
   "border": 0,
-  "toFixed": 0
+  "toFixed": 0,
+  "ownMarkup": 61
+ },
+ "src/npc_lives_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/observation_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/original_frontier_campaign_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/party_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/people_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/pledges_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
  },
  "src/pocket_realm_ui.js": {
   "colour": 0,
   "px": 2,
   "border": 1,
-  "toFixed": 0
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/promise_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/pursuit_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/quest_board_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/repository_absorption_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/return_digest_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/simulation_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
  },
  "src/skill_expansion_ui.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 1
+  "toFixed": 1,
+  "ownMarkup": 1
+ },
+ "src/spellbook_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 5
+ },
+ "src/start_probe_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 12
+ },
+ "src/storage_batch_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/storylet_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/structured_pack_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 15
+ },
+ "src/systems_workshop_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/technique_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/titles_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/town_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/approach_strip.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 11
  },
  "src/ui/bar_semantics.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 1
+  "toFixed": 1,
+  "ownMarkup": 0
+ },
+ "src/ui/body_view.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/book_craft_controls.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 4
+ },
+ "src/ui/box_tabs.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/capability_runs.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/character_sheet_view.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
  },
  "src/ui/combat_display.js": {
   "colour": 3,
   "px": 0,
   "border": 0,
-  "toFixed": 0
+  "toFixed": 0,
+  "ownMarkup": 21
  },
  "src/ui/combat_situation.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 1
+  "toFixed": 1,
+  "ownMarkup": 0
  },
  "src/ui/combat_versus.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 1
+  "toFixed": 1,
+  "ownMarkup": 1
+ },
+ "src/ui/control_box.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/craft_groups.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/cross_freely.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/ui/crossing_threshold.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/day_strip.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/feel_finish.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 10
+ },
+ "src/ui/figure.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 4
+ },
+ "src/ui/figure_forms.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/figure_interact.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/gathering_view.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
  },
  "src/ui/gu_house_view.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 1
+  "toFixed": 1,
+  "ownMarkup": 1
+ },
+ "src/ui/gu_moves_view.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/here_kinds.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/ui/home_view.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/inspector.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/item_card.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/known_number.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/ladder_groups.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/ui/look_presets.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/ui/lotm_task_summary.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/next_steps.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/ui/owed_ledger.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/panel_sections.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 17
+ },
+ "src/ui/pathway_card_view.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/pinned_band.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/ready_hub.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/reforge_preview.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/scene_card.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/search_field.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 2
+ },
+ "src/ui/skills_tab.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/start_compare.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/status_line.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/talk_view.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/variant.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/walk_board.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/ui/walk_map.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 6
+ },
+ "src/upcoming_strip_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 5
  },
  "src/vessel_forks_ui.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 2
+  "toFixed": 2,
+  "ownMarkup": 3
  },
  "src/vessel_geometry_ui.js": {
   "colour": 0,
   "px": 0,
   "border": 0,
-  "toFixed": 2
+  "toFixed": 2,
+  "ownMarkup": 7
+ },
+ "src/village_career_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/village_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 1
+ },
+ "src/work_ledger_author_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 10
+ },
+ "src/work_ledger_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0,
+  "ownMarkup": 7
  }
 }

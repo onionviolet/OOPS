@@ -6,7 +6,7 @@ import {readFileSync} from 'node:fs';
 import {BASELINE, currentCounts, countStyle} from '../scripts/ui_style_counts.mjs';
 
 test('the style counter sees raw colours, pixel sizes, borders and toFixed, and skips comments', () => {
-    assert.deepEqual(countStyle("n.style.border = '1px solid #fff';\n// a note: #000 2px\nv.toFixed(1); c = 'rgb(1,2,3)';"), {colour: 2, px: 1, border: 1, toFixed: 1});
+    assert.deepEqual(countStyle("n.style.border = '1px solid #fff';\n// a note: #000 2px\nv.toFixed(1); c = 'rgb(1,2,3)';"), {colour: 2, px: 1, border: 1, toFixed: 1, ownMarkup: 0});
 });
 
 test('no UI module adds raw style; counts only go down (PS245)', () => {
@@ -15,5 +15,5 @@ test('no UI module adds raw style; counts only go down (PS245)', () => {
         const was = base[file]?.[kind] ?? 0;
         if (n > was) rises.push(`${file}: ${kind} ${was} -> ${n}`);
     }
-    assert.deepEqual(rises, [], 'Use tokens, the kit or number_format instead of raw style in UI modules.');
+    assert.deepEqual(rises, [], 'Use tokens, the kit (src/ui/kit.js) or number_format instead of raw style or own markup in UI modules.');
 });
