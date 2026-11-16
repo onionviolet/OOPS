@@ -9,7 +9,7 @@ Weibao's standing goal for this run: "coordinate the opus chats and create new o
 ## State at handoff
 
 - origin/master was e53dbd33c, pushed with a green gate (7,758 pass, 0 fail). Commits after it are listed in the last checkpoint entry. The final close gate's result is recorded there too.
-- All lanes were told to stop, commit only checked work, and write their handovers.
+- All lanes were told to stop, commit their checked work, and write their handovers.
 - Weekly usage was about 12% after the 2026-11-16 reset. The usage limit resets weekly on Monday at 18:00 UTC.
 
 ## Lanes (sessions) and their handovers
@@ -30,11 +30,11 @@ The side-session notes folder is `~/Library/Application Support/Claude/side-sess
 
 ## How the wave ran (keep what worked)
 
-- **Commits.** Commit only your own paths from a fresh HEAD. A pathspec commit takes the whole file from disk, so for a shared file `git apply --cached` a patch of your own lines, check `git diff --cached`, then run a bare `git commit`. Never stash, reset, force or `pkill -f`. No Co-Authored-By trailer.
+- **Commits.** Commit only your own paths from a fresh HEAD. A pathspec commit takes the whole file from disk, so for a shared file `git apply --cached` a patch of your own lines, check `git diff --cached`, then run a bare `git commit`. Default: no stash, reset, force or `pkill -f`, because other sessions share the tree. No Co-Authored-By trailer.
 - **One bundle builder.** Lanes don't commit dist/ or index.html. Before each push, the coordinator runs `sh scripts/clean_bundle.sh` from a clean HEAD and commits the bundle, then hands that hash to the pusher.
 - **Gate.** The pusher checks out the hash cleanly and runs the full npm test, check:arch, check:rules, check:docs, check:flow and the bundle match, then pushes as a fast-forward. Load timeouts on the cast_* live-save tests with no failed assertion can pass with evidence; anything else goes back to the owning lane.
 - **Captures.** 1920×1080, headless, named with the HEAD hash, with `resources/fonts/private` linked into scratch trees (PS293).
-- **Coherence.** New boxes draw through `src/ui/kit.js`, and the style and markup ratchets in `tests/ui_style_ratchet.test.js` only go down (PS245, PS292).
+- **Coherence.** New boxes draw through `src/ui/kit.js`, and the style and markup ratchets in `tests/ui_style_ratchet.test.js` can fall but not rise (PS245, PS292).
 - **Looks.** A look pair with no clear loser ships as a choice in LOOK_OPTIONS (`src/ui/variant.js`), with today's look as default (PS264). Classic is the original YAIR look.
 - **Pacing.** Lanes check `get_usage` between slices, pause above 90% of the 5-hour window, and stop at 85% weekly.
 - **Direction.** Weibao's words go in `docs/gm/USER_VISION_LOG_2026-11.md`, and rounds go in CONSIDERATIONS.
