@@ -4,6 +4,10 @@ import {walkMapBlock} from './walk_map.js';
 import {nativeWalkView, readWalkMove} from '../native_walk_view.js';
 import {dropRateLine} from '../drop_rate_causes.js';
 
+// PS164: whether the player left the walking map open. Session memory only (not saved): display.js rebuilds the Fast
+// travel list on every redraw and move, and the map comes back as the player left it. Default closed.
+let walkMapOpen = false;
+
 /** PS164: the walking map under Fast travel's destinations; null when it would show one place or none (coordinator's
  * default: only with more than one leg). `onGo(id)` is the native move. */
 export function fastTravelMapBlock({hereId, distances, exits, known, label, onGo}) {
@@ -11,7 +15,7 @@ export function fastTravelMapBlock({hereId, distances, exits, known, label, onGo
     if(view.legs.length <= 1) return null;
     const byLabel = new Map(view.legs.map(l => [l.moveId, l]));
     const box = walkMapBlock({...view, moves: view.legs.map(l => ({id: l.moveId, label: l.to, eligible: true, reasons: []}))},
-        {open: false, onPick: moveId => { const m = readWalkMove(moveId); if(m && byLabel.has(moveId)) onGo(m.id); }});
+        {open: walkMapOpen, ontoggle: open => { walkMapOpen = open; }, onPick: moveId => { const m = readWalkMove(moveId); if(m && byLabel.has(moveId)) onGo(m.id); }});
     box.dataset.fastTravelMap = '';
     return box;
 }

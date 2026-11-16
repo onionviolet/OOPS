@@ -54,6 +54,11 @@ runBrowser(async browser => {
     say('picked Infested field on the map: travelled');
     await page.evaluate(() => window.change_location({location_id: 'Village'}));
     await page.waitForFunction(() => simulationTestHooks.snapshot()['current location'] === 'Village', null, {timeout: 20000});
+    // The redraw after the trip there and back keeps the map as the player left it: open.
+    await page.locator('.location_choice_dropdown', {hasText: 'Fast travel'}).first().click();
+    await page.locator('[data-fast-travel-map]').waitFor({state: 'attached', timeout: 8000});
+    assert.equal(await page.locator('[data-fast-travel-map]').evaluate(n => n.open), true, 'the walking map stays open through redraws and moves');
+    say('walking map still open after the trip and the redraw');
 
     // PS167: Low quality iron ingot is short of coal; the row links to Charcoal, and Back returns.
     await page.evaluate(() => window.openCraftingWindow());

@@ -24,3 +24,18 @@ test('PS164: the walk map draws it with a control per place', () => {
     assert.ok(Object.values(controls).includes('travel:Forest road'));
     assert.deepEqual(spec.rings.map(r => r.label), ['10 min walk', '15 min walk', '30 min walk', '120 min walk']);
 });
+
+test('PS164: the walking map comes back open after a redraw once the player opened it, and closed once they close it', async () => {
+    const {createDom} = await import('../scripts/headless/dom.mjs');
+    const {fastTravelMapBlock} = await import('../src/ui/discord_surfaces.js');
+    const previous = globalThis.document, dom = createDom(); dom.loadHTML('<html><body></body></html>'); globalThis.document = dom.document;
+    const settle = () => new Promise(r => setTimeout(r, 0));
+    try {
+        const build = () => fastTravelMapBlock({hereId: 'Village', distances, exits, known, onGo: () => {}});
+        const first = build(); assert.equal(first.open, false, 'closed by default');
+        first.open = true; first.dispatchEvent(new dom.classes.Event('toggle')); await settle();
+        const second = build(); assert.equal(second.open, true, 'a redraw keeps it open');
+        second.open = false; second.dispatchEvent(new dom.classes.Event('toggle')); await settle();
+        assert.equal(build().open, false, 'closing it sticks too');
+    } finally { globalThis.document = previous; }
+});
