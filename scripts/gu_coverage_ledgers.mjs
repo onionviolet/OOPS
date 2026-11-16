@@ -81,14 +81,18 @@ function kindRow(record) {
     const byType = types.length ? typeFunction[types[0]] : null;
     const byName = byType ? null : nameFunction.find(([pattern]) => pattern.test(nameOf(record)))?.[1] ?? null;
     const fn = byType ?? byName;
-    const rank = ranks.length ? ranks[0] : null;
+    // GKM443: a kind the wiki names an Immortal Gu is rank six or higher. With no rank label, six is used as a
+    // lower bound and marked so; a wiki or chapter rank replaces it.
+    const immortalByName = !ranks.length && /\bimmortal gu\b/i.test(nameOf(record));
+    const rank = ranks.length ? ranks[0] : immortalByName ? 6 : null;
     const wiki = {...base, layer: 'wiki', status: record.status, rank, function: fn, path: pathOf(record),
+        rankBasis: ranks.length ? 'wiki-rank' : immortalByName ? 'name-immortal-lower-bound' : null,
         labelBasis: byType ? 'wiki-type' : byName ? 'name-keyword-inference' : null};
     if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: ['G'], note: 'No wiki rank label; needs a chapter pass or an authored-rank dial.'};
     if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: ['G'], note: 'No effect label from type or name; needs a chapter pass (GL2).'};
     if (!derivedAbilityFrom({rank, function: fn})) throw Error(`cannot derive ${record.id}`);
     return {...wiki, state: 'runs-authored', mechanisms: owners(['activate']),
-        note: `Unchecked wiki identity (tentative, SKR3); lowest wiki rank ${rank}; ${byType ? 'function from wiki type' : 'function inferred from the name'}; ability derived.`};
+        note: `Unchecked wiki identity (tentative, SKR3); ${immortalByName ? 'rank 6 as a lower bound from the Immortal Gu name (GKM443)' : `lowest wiki rank ${rank}`}; ${byType ? 'function from wiki type' : 'function inferred from the name'}; ability derived.`};
 }
 
 function moveRow(move) {
