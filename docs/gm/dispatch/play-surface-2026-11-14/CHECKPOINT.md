@@ -110,3 +110,14 @@ review: none
 - 2026-11-15 00:15 UTC: a full-suite run had held the machine-wide test slot for 1h34m. Two of its test processes (`tests/cheat_awakening.test.js`, `tests/cheat_cards.test.js`) sat at 0% CPU, and five more suites were queued behind it. The coordinator stopped the two by PID (SIGTERM, then SIGKILL) and the queue moved. `tests/cheat_cards.test.js` passes on its own (4/4, 12 s), so the hang came from that run, not the test. Gap: the limiter has no per-file timeout, so a hung file blocks every lane; a `--test-timeout` in the suite command would bound it (proposal).
 - 2026-11-14: the parent combat chat was found frozen on an old question (master was already pushed), so the combat build went to its idle child, combat-design (`local_2359a5ca`), and started there.
 - 2026-11-14: direction recorded; feature-ui and daily-loops started; the combat brief was queued to the combat chat; the day-strip chat was told the boundaries.
+
+## Push 44cca6fb3..c063b3183, 2026-11-15
+
+The first gate on 4e3fd82e2 was red, with four items. Each was fixed by its owning chat:
+- the save-architecture receipt: cacf91368;
+- the number-format ratchet: combat 7191134db, plus ui-cohesion cd9bf9f44;
+- the clear_bonus "???" placeholder: 7191134db;
+- seven oversized boxes: cd9bf9f44 and 77042d979, with the threshold unchanged;
+- the stale bundle: c063b3183.
+
+The second gate ran on a clean checkout of c063b3183. The bundle matches. arch, rules and docs exit 0. Flow has only the known no-rain finding. npm test: 7,724 tests, 7,712 pass, 0 fail, 12 skipped. The pusher (local_2ce54229) pushed a fast-forward. Rounds 20–22 (PS203–PS242, proposals) are in this push. The lanes resume after the 2026-11-16 18:00 UTC reset in the saved order, with the round 21 prototype lane (PS216, PS217, PS219, as flag variants per PS232) added.
