@@ -4,7 +4,7 @@ import {deferSimulationRender} from '../simulation_render.js';
 "use strict";
 
 import { skills } from "../data/skills.js";
-import { clear_HTML_content, set_HTML, update_displayed_faved_stances, update_displayed_health, update_displayed_stance } from "../display.js";
+import { clear_HTML_content, log_message, set_HTML, update_displayed_faved_stances, update_displayed_health, update_displayed_stance } from "../display.js";
 import { enemy_tag_to_skill_mapping } from "../enemies.js";
 import {get_current_combat} from "../native_view.js";
 import {selected_stance} from "../runtime_state.js";
@@ -17,7 +17,7 @@ import {mountFightSituation} from "../combat_situation_ui.js";
 const readoutDeps = {skills, tagSkills: enemy_tag_to_skill_mapping, hitChance: get_hit_chance};
 registerCombatOpponents({getCombat: () => get_current_combat(), readout: (combat, at) => fighterReadout(combat, at, readoutDeps)});
 // LTU7: the fight situation card reads the same readout and projection (home: Here, under Local actions).
-if(typeof document !== 'undefined') mountFightSituation({getCombat: () => get_current_combat(), readout: (combat, at) => fighterReadout(combat, at, readoutDeps)});
+if(typeof document !== 'undefined') mountFightSituation({getCombat: () => get_current_combat(), readout: (combat, at) => fighterReadout(combat, at, readoutDeps), report: log_message}); // PS289: tempo lines to Reports
 
 //enemy onhit animation
 const onhitAnimation = [

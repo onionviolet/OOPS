@@ -100,3 +100,6 @@
 .versus-last {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--versus-muted); font-style: italic;}
 .fight-situation-whole > summary {cursor: pointer; font-size: var(--ui-type-small);}
 .fight-situation-foot {grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ui-space-2) var(--ui-space-3); padding-top: var(--ui-space-2); border-top: var(--ui-space-hairline) solid var(--versus-line);}
+/* PS290, PS291: the folded approach line, and a status line kept for screen readers when the lines are in Reports. */
+.fight-situation-approach > summary {cursor: pointer; font-size: var(--ui-type-small); color: var(--versus-muted);}
+.fight-situation-notice--quiet {position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;}

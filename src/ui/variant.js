@@ -30,12 +30,13 @@ export const LOOK_OPTIONS = Object.freeze([
         choices: Object.freeze([['bordered', 'Bordered'], ['spacing', 'Spacing']]),
         sheets: Object.freeze({bordered: '', spacing: 'styles/variants/ps217.css'}),
         description: 'Bordered draws a frame around each row. Spacing separates rows with space and a thin line, and shows each skill on one line.'}),
-    // PS206, PS222 (combat lane): where the fight tells what just happened. The box keeps its last six lines by default; "On each card"
-    // puts each fighter's own latest line under its card and folds the whole fight away in the box (tempo lines do not reach Reports yet).
-    Object.freeze({id: 'fightLog', label: 'Fight log', default: 'box',
-        choices: Object.freeze([['box', 'Last six lines in the fight box'], ['all', 'Every line in the fight box'], ['cards', 'On each card']]),
-        sheets: Object.freeze({box: '', all: '', cards: ''}),
-        description: 'Where a fight tells what just happened: the last six lines under the moves, every line, or each fighter\'s own latest line under its card.'}),
+    // PS206, PS222, PS289 (combat lane): where the fight tells what just happened. Reports (classic, default) carries every line;
+    // the box can also keep its last six lines, or each card its own latest line with the whole fight folded in the box.
+    // PS289 (Weibao 2026-11-16: "the old combat UI was better and more coherent"): Reports is the classic default.
+    Object.freeze({id: 'fightLog', label: 'Fight log', default: 'reports',
+        choices: Object.freeze([['reports', 'In Reports (classic)'], ['box', 'In the fight box'], ['cards', 'On each card']]),
+        sheets: Object.freeze({reports: '', box: '', cards: ''}),
+        description: 'Where a fight tells what just happened: in Reports under Combat, as the original game does; also the last six lines under the moves; or also each fighter\'s own latest line under its card.'}),
 ]);
 
 /** Pure: the variant code from a query string, or '' when absent or not a plain code. */

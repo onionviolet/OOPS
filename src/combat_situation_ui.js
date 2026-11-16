@@ -13,7 +13,7 @@ import {figureText, FIGURE_STATES} from './ui/figure.js';
 import {renderVersusRow} from './ui/combat_versus.js';
 import {renderSceneCard} from './ui/scene_card.js';
 import {renderApproachStrip} from './ui/approach_strip.js';
-import {foeKind} from './fight_terms.js';
+import {foeKind, TERMS_LABEL, LOSING_LABEL} from './fight_terms.js';
 import {getDisplaySetting} from './display_settings.js';
 import {versusWithEngine} from './read_models/combat_situation_bridge.js';
 import {harmRung} from './harm_state.js';
@@ -26,13 +26,25 @@ const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#locati
 
 // PS206, PS222 (proposals): Display > Look > Fight log (src/ui/variant.js LOOK_OPTIONS): the last six lines in the box (default), every
 // line, or each card's own latest line. Tempo fight lines are not sent to Reports yet, so no choice hides them all from the box.
-const FIGHT_LOG_LINES = 6, fightLogMode = () => getDisplaySetting('panel.look.fightLog') || 'box';
+const FIGHT_LOG_LINES = 6, fightLogMode = () => getDisplaySetting('panel.look.fightLog') || 'reports';
+// PS289: every tempo line goes to Reports under its Combat filter, as YAIR's own fight lines do (yours as hero lines, the rest as enemy lines).
+// The Reports writer is passed in by the mount (ui/combat_display.js holds display.js's log_message), so this file adds no import cycle.
+let reportTo = null;
+const reportLine = line => { try { reportTo?.(line, /^(You|Your)\b/.test(line) ? 'hero_attacked' : 'enemy_attacked'); } catch { /* Reports not mounted (tests) */ } };
+const alreadyReported = lines => {
+    const have = [...document.querySelectorAll('#message_log_div .message_combat .log-original')].slice(-lines.length).map(n => n.textContent);
+    for (let k = Math.min(lines.length, have.length); k > 0; k--) if (lines.slice(0, k).every((l, i) => l === have[have.length - k + i])) return k;
+    return 0;
+};
+// PS291: short labels for the two hand-over moves; their full words go in the tooltip.
+const SHORT_LABEL = {run: 'Fight on', handover: 'One careful turn'};
 // PS207 (proposal): moves fold to the five you use most, counted per browser; Fight on and the hand-over stay out.
 const MOVE_USE_KEY = 'yairpg.fight.moveUse.v1', FOLD_AT = 5;
 const moveUse = () => { try { return JSON.parse(localStorage.getItem(MOVE_USE_KEY) || '{}') || {}; } catch { return {}; } };
 const countMove = id => { if (!id) return; try { const u = moveUse(); u[id] = (u[id] || 0) + 1; localStorage.setItem(MOVE_USE_KEY, JSON.stringify(u)); } catch { /* counts are a convenience */ } };
 
-export function mountFightSituation({getCombat, readout, every = 400}) {
+export function mountFightSituation({getCombat, readout, every = 400, report = null}) {
+    reportTo = report;
     const section = document.createElement('section');
     section.id = 'fight_situation'; section.className = 'fight-situation'; section.setAttribute('aria-label', 'Fight situation');
     section.hidden = true;
@@ -47,7 +59,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const b = section.querySelector(`button[data-fight-key="${e.key}"]`);
         if (b && !b.disabled) { e.preventDefault(); b.click(); }
     });
-    let previousLog = [], previousNoticeWasError = false;
+    let previousLog = [], previousNoticeWasError = false, approachOpen = false;
     // Tempo mode (COMBAT.md round 3, R3-O1): the same card, versus row and log, with the move area filled by the
     // tempo contest's own moves. Reads the 'tempo_fight' projection; moves go through its 'move' command, which keeps
     // the contest's own checks. The world family (DESIGN.md DSG11, DSG13) only picks type names.
@@ -87,8 +99,17 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             {id: 'handover', label: HANDOVER_LABEL, affects: HANDOVER_TEXT, attrs: {fightOption: 'handover'}, blocked, onChoose: () => move({handOver: true})},
             {id: 'run', label: RUN_LABEL, affects: RUN_TEXT, attrs: {fightOption: 'run'}, blocked: blocked || (runCommand ? '' : 'The contest cannot fight on right now.'), onChoose: runOn},
         ] : [{id: 'wait', label: 'Wait', affects: 'The others are acting.', attrs: {fightOption: 'wait'}, blocked: wait}];
+        // PS291: a move is a short button with its beats ("Quick strike · 3"); its words, cost and odds go in the tooltip. Finish and spare
+        // keep their words: they are the decision band's question.
+        const tips = new Map(), shortOptions = options.map(o => {
+            if (o.attrs?.fightFate || o.id === 'wait') return o;
+            tips.set(o.attrs?.fightOption, [o.time, o.cost, o.affects].filter(Boolean).join(' · '));
+            const n = parseInt(o.time, 10);
+            return {...o, label: SHORT_LABEL[o.id] || (Number.isFinite(n) ? `${o.label} · ${n}` : o.label), time: undefined, cost: undefined, affects: undefined};
+        });
         section.replaceChildren();
-        const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', attrs: {fightMode: 'tempo'}, header: {title: view.fight.title || 'Fight', place}, stakes: t.summary, options});
+        const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', attrs: {fightMode: 'tempo'}, header: {title: view.fight.title || 'Fight', place}, stakes: t.summary, options: shortOptions});
+        for (const [id, tip] of tips) { const b = card.querySelector(`button[data-fight-option="${id}"]`); if (b && tip) b.title = b.disabled && b.title ? `${b.title} ${tip}` : tip; }
         card.querySelector('.scene-card-stakes').after(notice);
         // Times are seconds of fight time (PS32); the meaning sits on hover of each time chip.
         for (const q of card.querySelectorAll('.scene-card-quote')) q.title = 'Beats of fight time this takes: the fewer you spend, the sooner you act again.';
@@ -137,6 +158,8 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             }
         }
         const added = newTempoLines(previousLog, t.log);
+        // After a reload the card has not seen these lines, but Reports (saved) may hold them already: skip the ones at its tail.
+        for (const line of added.slice(previousLog.length ? 0 : alreadyReported(t.log))) reportLine(line);
         const feedback = lastNotice || (added.length ? added.join(' ') : previousNoticeWasError ? 'The fight continues.' : notice.textContent || 'The fight continues.');
         previousLog = [...t.log]; previousNoticeWasError = !!lastNotice;
         const next = document.createElement('p'); next.className = 'fight-situation-next'; next.textContent = `Who acts next: ${t.next.join(' → ')}`;
@@ -191,11 +214,23 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             (section.querySelector('[data-approach-strip]')?.parentElement || section.querySelector('.fight-situation-stakes') || versus).after(row);
         }
         // A move's detail (how it works, what fills it, what it can do) is one step away, on hover (new depth stays off the face of the card).
-        for (const m of t.moves) if (m.detail) { const btn = card.querySelector(`button[data-fight-option="${m.id}"]`); if (btn && !btn.disabled) btn.title = m.detail; }
+        for (const m of t.moves) if (m.detail) { const btn = card.querySelector(`button[data-fight-option="${m.id}"]`); if (btn && !btn.disabled) btn.title = btn.title.includes(m.text) ? btn.title.replace(m.text, m.detail) : [btn.title, m.detail].filter(Boolean).join(' · '); }
+        // PS290: what you set before the fight (stakes, stance, terms, losing, aim) folds to one line; a click opens the controls.
+        const fold = [section.querySelector('.fight-situation-stakes'), section.querySelector('[data-approach-strip]')?.parentElement, section.querySelector('[data-tempo-aims]')].filter(Boolean);
+        if (fold.length) {
+            const term = t.strip?.terms?.[0], aimLabel = t.aim ? (t.aims.find(a => a.id === t.aim)?.label || '') : '';
+            const deadly = t.stakes ? (t.stakes.lethal ? 'can be deadly' : 'not deadly') : '';
+            const words = [t.stakes ? `${t.stakes.label} · ${deadly}` : '', t.strip?.stance?.name || '', term ? TERMS_LABEL[term.terms] : '', t.strip?.losing ? LOSING_LABEL[t.strip.losing] : '', aimLabel ? `Aim: ${aimLabel}` : ''].filter(Boolean);
+            const approach = document.createElement('details'); approach.className = 'fight-situation-approach'; approach.dataset.fightApproach = ''; approach.open = approachOpen;
+            const sum = document.createElement('summary'); sum.textContent = words.join(' · ') || 'How you fight'; sum.title = 'Open to change the stakes you accept, your stance, your terms and your aim.';
+            fold[0].before(approach); approach.append(sum, ...fold);
+            approach.addEventListener('toggle', () => { approachOpen = approach.open; });
+        }
         const log = document.createElement('ol'); log.className = 'fight-situation-log'; log.setAttribute('aria-label', 'What happened in this fight');
         const mode = fightLogMode();
         for (const line of mode === 'box' ? t.log.slice(-FIGHT_LOG_LINES) : t.log) { const li = document.createElement('li'); li.textContent = line; log.append(li); }
-        if (mode === 'cards') { const whole = document.createElement('details'); whole.className = 'fight-situation-whole'; whole.dataset.fightWhole = '';
+        if (mode === 'reports') { /* PS289: the lines are in Reports; the box prints none */ }
+        else if (mode === 'cards') { const whole = document.createElement('details'); whole.className = 'fight-situation-whole'; whole.dataset.fightWhole = '';
             const sum = document.createElement('summary'); sum.textContent = `The whole fight (${t.log.length} line${t.log.length === 1 ? '' : 's'})`; whole.append(sum, log); card.append(whole); }
         else card.append(log);
         if (t.dev.length) {
@@ -211,6 +246,9 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             chosen?.parentElement.append(notice);
         }
         if (notice.textContent !== feedback) notice.textContent = feedback;
+        // PS291: a line is printed once. With the lines in Reports, the status line stays for screen readers only, unless it carries a
+        // refusal or why Fight on stopped, which are nowhere else.
+        notice.classList.toggle('fight-situation-notice--quiet', fightLogMode() === 'reports' && !lastNotice);
         restoreTempoFocus(section, previousFocus, notice);
         // A fight opened from a scrolled centre view (the Notebook's hunt row) kept that view's scroll, which left the card's
         // top, its title and first moves, above the scrollport. Opening brings the card's top into view once and moves focus to
