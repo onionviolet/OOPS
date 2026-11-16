@@ -13,6 +13,7 @@ import {figureText, FIGURE_STATES} from './ui/figure.js';
 import {renderVersusRow} from './ui/combat_versus.js';
 import {renderSceneCard} from './ui/scene_card.js';
 import {renderApproachStrip} from './ui/approach_strip.js';
+import {syncBestiaryTerms, watchBestiaryTerms} from './ui/bestiary_terms.js';
 import {foeKind, TERMS_LABEL, LOSING_LABEL} from './fight_terms.js';
 import {getDisplaySetting} from './display_settings.js';
 import {worldFamily, currentWorldFamily} from './world_look.js';
@@ -41,8 +42,9 @@ const MOVE_USE_KEY = 'yairpg.fight.moveUse.v1', FOLD_AT = 5;
 const moveUse = () => { try { return JSON.parse(localStorage.getItem(MOVE_USE_KEY) || '{}') || {}; } catch { return {}; } };
 const countMove = id => { if (!id) return; try { const u = moveUse(); u[id] = (u[id] || 0) + 1; localStorage.setItem(MOVE_USE_KEY, JSON.stringify(u)); } catch { /* counts are a convenience */ } };
 
-export function mountFightSituation({getCombat, readout, every = 400, report = null}) {
+export function mountFightSituation({getCombat, readout, every = 400, report = null, foeKindOf = null}) {
     reportTo = report;
+    watchBestiaryTerms({kind: foeKindOf}); // PS50: bestiary rows name your terms for each kind of foe
     const section = document.createElement('section');
     section.id = 'fight_situation'; section.className = 'fight-situation'; section.setAttribute('aria-label', 'Fight situation');
     section.hidden = true;
@@ -78,6 +80,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         if (key === cardKey) return true;
         const previousFocus = captureTempoFocus(section, ['fightOption', 'fightAim']);
         const opening = section.dataset.fightMode !== 'tempo';
+        if (opening) syncBestiaryTerms(); // terms set on the opener reach the bestiary when the fight opens
         cardKey = key; textKey = '';
         section.dataset.fightMode = 'tempo';
         delete section.dataset.fightFinished;
@@ -189,7 +192,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
                 const said = fn => { try { lastNotice = fn() || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
                 const host = document.createElement('div'); s.after(host);
                 renderApproachStrip(host, {strip: t.strip, stakes: t.stakes, disabled: !termsCommand,
-                    on: {terms: (kind, value) => said(() => termsCommand({kind, value})), losing: value => said(() => losingCommand({value}))}});
+                    on: {terms: (kind, value) => said(() => { const r = termsCommand({kind, value}); syncBestiaryTerms(); return r; }), losing: value => said(() => losingCommand({value}))}});
             }
         }
         // No aim while a body is down: the choice in the band is the only question (PS21).
@@ -317,7 +320,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
                 const draw = () => { const strip = stripFor({kinds, frame: 'original'}), term = strip?.terms?.[0];
                     say([strip?.stance?.name || '', term ? TERMS_LABEL[term.terms] : ''].filter(Boolean).join(' · ') || 'How you fight');
                     host.replaceChildren(); renderApproachStrip(host, {strip, stakes: {frame: 'original'}, asks: false, losing: false,
-                    on: {terms: (kind, value) => { try { lastNotice = termsCommand({kind, value}); } catch (error) { lastNotice = error.message; } draw(); }}}); };
+                    on: {terms: (kind, value) => { try { lastNotice = termsCommand({kind, value}); } catch (error) { lastNotice = error.message; } syncBestiaryTerms(); draw(); }}}); };
                 draw();
             }
         }

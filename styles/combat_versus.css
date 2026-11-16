@@ -115,3 +115,6 @@
 #fight_situation .versus-row .versus-bar--timer {height: .25em; background: var(--p23-track, var(--versus-track));}
 #fight_situation .versus-row .versus-bar--timer > * {background: var(--p23-value, var(--versus-accent));}
 .versus-row > .versus-side--you, .versus-card {align-self: start; height: auto;}
+/* PS50: a bestiary row names your terms for its kind ("your terms: Finish"), between the name and the kill count. */
+.bestiary_entry_div[data-bestiary-terms]::after {content: "· " attr(data-bestiary-terms); order: 1; flex: 0 0 auto; padding: 0 var(--ui-space-2); color: var(--theme-muted, var(--ui-hairline)); white-space: nowrap;}
+.bestiary_entry_div[data-bestiary-terms] > .bestiary_entry_kill_count {order: 2; margin-left: auto;}
