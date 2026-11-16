@@ -130,3 +130,14 @@ The second gate ran on a clean checkout of c063b3183. The bundle matches. arch, 
 - Rounds 20–23 (PS203–PS263) are saved as proposals.
 - Waiting on Weibao's pick: today or ps217.
 - Next push: everything after c063b3183, through one gate run by the pusher.
+
+## Second last-4% wave, 2026-11-16 (not pushed)
+
+- 9504883c1, combat (PS206/PS207): the fight box reads top to bottom, moves fold to five, and the last six lines stay in the box.
+  - Display › Fight log offers Last six lines or Every line. "Reports only" waits on the Reports owner, because tempo lines never reach Reports.
+- beb1b943e, feature-ui (PS204/PS146): "Learning now" under Skills.
+  - Gap: no structured stall reasons yet. Klein and Harry not captured.
+- 12854366f, ui-cohesion, with bundle eac1e89ef, which covers all three: Display › Look › Row style is Bordered (default) or Spacing, and LOOK_OPTIONS in src/ui/variant.js is the registry.
+  - Gap: the one-line skill's "% to next" is cut short in the narrow third column.
+  - Follow-up: the Fight log setting moves into LOOK_OPTIONS.
+- Next push: everything after c063b3183, through one gate run by the pusher.
