@@ -2,7 +2,7 @@
 // it with the XP it describes. The existing save serializer omits it deliberately.
 // No timer, save slice or discovery authority. Never record a restoration award.
 import {panelSection, infoRow, chip, reasonLine} from './ui/panel_sections.js';
-import {practiceCauseLines} from './practice_causes.js';
+import {practiceCauseLines, practiceCause} from './practice_causes.js';
 import {knownNumber} from './ui/known_number.js';
 
 export function recordLearning(owner, skillId, amount, {loading = false} = {}) {
@@ -62,20 +62,33 @@ export function learningNowView(owner, readers, now) {
     return {now: rows.filter(fresh).sort(order).map(r => ({...r, rate: rate(r), from: from(r)})), earlier: rows.filter(r => !fresh(r)).sort(order),
         // PS168: a quiet skill whose known gate is shut says the cause after the observation (practice_causes.js).
         practice: why.length ? [`${active.label}: no ${why.length > 1 ? `${why.slice(0, -1).join(', ')} or ${why.at(-1)}` : why[0]} XP since you started.`, ...practiceCauseLines(quiet.filter(id => !readers.capped?.(id)), readers.practiceFacts?.(active) ?? {}, readers.name)].join(' ') : '',
+        // One structured row per quiet skill: why, as far as the character can see (capped, a shut gate, or not known).
+        stalls: quiet.map(id => {const capped = !!readers.capped?.(id), cause = capped ? '' : practiceCause(id, readers.practiceFacts?.(active) ?? {});
+            return {skillId: id, name: readers.name(id), reason: capped ? 'capped' : cause ? 'gate' : 'unknown', cause: capped ? 'at its highest level' : cause};}),
+        stalledIn: quiet.length ? active.label : '',
+        practising: active ? active.skillIds.filter(id => readers.visible(id)) : [],
         levelUp: upFresh ? `${readers.name(up.skillId)} reached ${up.level}` : ''};
 }
 
 // PS204/PS146: the section sits in the room under the Skills list and shows only with something to say: what is practising
 // now (with its rate and the activity it comes from), why a chosen practice is not paying, and one quiet line for a level
 // just reached. Built from the shared kit rows (panel_sections.js) and knownNumber, so the Skills box keeps one grammar.
+// PS280 (asked by UI cohesion): the skill rows of the practice running now carry data-practising; their CSS gives them the
+// accent. Set while it runs, cleared when it stops. The rows are display.js's `.skill_div[data-skill]`.
+function markPractising(doc, ids) {
+    const want = new Set(ids);
+    for(const row of doc.querySelectorAll('.skill_div[data-practising]')) if(!want.has(row.dataset.skill)) delete row.dataset.practising;
+    for(const row of doc.querySelectorAll('.skill_div[data-skill]')) if(want.has(row.dataset.skill) && !('practising' in row.dataset)) row.dataset.practising = '';
+}
 export function renderRecentLearning(host, owner, readers) {
     const home = host.parentNode;
     if(!home) return;
     const doc = host.ownerDocument;
     let view = home.querySelector(':scope > [data-recent-learning]');
     const v = learningNowView(owner, readers, readers.now?.());
+    markPractising(doc, v.practising);
     if(!v.now.length && !v.practice && !v.levelUp) {view?.remove(); return;}
-    const key = JSON.stringify([v.now.map(r => [r.skillId, r.rate == null ? null : Math.round(r.rate * 10), r.from]), v.practice, v.levelUp]);
+    const key = JSON.stringify([v.now.map(r => [r.skillId, r.rate == null ? null : Math.round(r.rate * 10), r.from]), v.practice, v.stalls, v.levelUp]);
     if(view && view.dataset.key === key && view.previousElementSibling === host) return;
     const {node, body} = panelSection('Learning now', {className: 'learning-now'});
     node.dataset.recentLearning = ''; node.dataset.key = key; node.setAttribute('aria-live', 'off');
@@ -85,7 +98,15 @@ export function renderRecentLearning(host, owner, readers) {
         if(r.from) chips.push(chip(`from ${r.from}`));
         body.append(infoRow({label: r.name, chips}));
     }
-    if(v.practice) body.append(reasonLine(v.practice));
+    // Learning now stall reasons: the observation once, then each quiet skill as its own row with its reason as a chip.
+    if(v.stalls.length) {
+        body.append(reasonLine(`${v.stalledIn}: no XP since you started for`));
+        for(const st of v.stalls) {
+            const row = infoRow({label: st.name, chips: [chip(st.cause || 'cause not known', {guess: !st.cause,
+                title: st.cause ? '' : 'Only a cause the skill itself names is shown; nothing it states is holding it back here.'})]});
+            row.dataset.stall = st.reason; body.append(row);
+        }
+    }
     if(v.levelUp) {const p = doc.createElement('p'); p.className = 'learning-now-level'; p.textContent = v.levelUp; body.append(p);}
     if(view) view.replaceWith(node); else host.after(node);
 }

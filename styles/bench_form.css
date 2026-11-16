@@ -1,0 +1,5 @@
+/* PS250/PS251: the shared bench form. Five parts in a fixed order; rows are kit rows. Kit vocabulary only. */
+.bench-form {display:grid;gap:var(--kit-gap-2);min-width:0;}
+.bench-form__part {display:grid;gap:var(--kit-gap-1);}
+.bench-form__empty {margin:0;color:var(--ui-muted);}
+.bench-form__bar {width:100%;height:var(--kit-gap-2);}

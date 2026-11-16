@@ -49,3 +49,4 @@ styles/places_variants.css
 styles/day_strip.css
 styles/status_line.css
 styles/feel_finish.css
+styles/bench_form.css

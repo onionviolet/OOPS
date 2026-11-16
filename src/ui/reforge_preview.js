@@ -3,14 +3,18 @@
 // rolls, quotes or writes. Rows draw through the kit (src/ui/kit.js); the old-beside-new pair is the one view the kit lacks. `known` is the sheet's appraisal: without it the landing spans read "?" (as far as you can tell).
 import {getAffix} from '../gear_affixes.js';
 import {affixWords} from '../item_card_model.js';
-import {kitRow} from './kit.js';
+import {kitRow, useKitDocument} from './kit.js';
 
 const el = (doc, tag, cls, text) => { const n = doc.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const mark = (id, v) => { const a = getAffix(id); return a ? `${a.name} ${affixWords(a, v)}` : String(id); };
 const pct = n => `${Math.round(n * 100)}%`;
 
 /** The before-you-pay view, in kit rows (PS292): what stays, what is rerolled into what, the odds' causes and the cost. */
-export function renderReforgePreview(doc, preview, {known = true, cost = []} = {}) {
+export function renderReforgePreview(doc, preview, opts = {}) {
+    useKitDocument(doc);
+    try { return drawPreview(doc, preview, opts); } finally { useKitDocument(null); }
+}
+function drawPreview(doc, preview, {known = true, cost = []}) {
     const root = el(doc, 'section', 'reforge-preview');
     root.dataset.reforgePreview = '';
     root.append(el(doc, 'h4', null, 'Before you pay'));
@@ -34,7 +38,11 @@ export function renderReforgePreview(doc, preview, {known = true, cost = []} = {
 }
 
 /** After the work: the old and new marks side by side, with Keep and, while the mark is soft, Hammer back. */
-export function renderReforgeResult(doc, {from, to, onKeep, onRevert, revertReason = '', revertCost = ''}) {
+export function renderReforgeResult(doc, opts) {
+    useKitDocument(doc);
+    try { return drawResult(doc, opts); } finally { useKitDocument(null); }
+}
+function drawResult(doc, {from, to, onKeep, onRevert, revertReason = '', revertCost = ''}) {
     const root = el(doc, 'section', 'reforge-result');
     root.dataset.reforgeResult = '';
     const pair = el(doc, 'div', 'reforge-result__pair');

@@ -52,5 +52,21 @@ test('the practice line adds the known cause when a quiet skill\'s gate is shut 
         'sparring: no Iron skin or Combat XP since you started. Iron skin: your armour takes the hits it learns from.');
     const bare = {...readers, practiceFacts: () => ({wearingArmor: false})};
     assert.equal(learningNowView(owner, bare, 41).practice, 'sparring: no Iron skin or Combat XP since you started.', 'no known cause, no guess');
+    assert.deepEqual(learningNowView(owner, worn, 42).stalls.map(st => [st.skillId, st.reason]), [['Iron skin', 'gate'], ['Combat', 'unknown']], 'one structured reason per quiet skill');
+    const capped = {...readers, capped: id => id === 'Combat'};
+    assert.deepEqual(learningNowView(owner, capped, 43).stalls.find(st => st.skillId === 'Combat'), {skillId: 'Combat', name: 'Combat', reason: 'capped', cause: 'at its highest level'});
     node.isConnected = false;
+});
+
+test('PS280: the practising skill rows carry data-practising while the practice runs, and lose it when it stops', async () => {
+    const {createDom} = await import('../scripts/headless/dom.mjs');
+    const {renderRecentLearning} = await import('../src/recent_learning.js');
+    const dom = createDom(); dom.loadHTML('<html><body><div id="list"><div class="skill_div" data-skill="Iron skin"></div><div class="skill_div" data-skill="Combat"></div><div class="skill_div" data-skill="Hidden"></div></div></body></html>');
+    const doc = dom.document, host = doc.getElementById('list'), node = {isConnected: true};
+    notePractice('sparring', ['Iron skin', 'Hidden'], node, 0);
+    renderRecentLearning(host, {}, {...readers, now: () => 5});
+    assert.deepEqual([...doc.querySelectorAll('[data-practising]')].map(n => n.dataset.skill), ['Iron skin'], 'an undiscovered skill is not marked');
+    node.isConnected = false;
+    renderRecentLearning(host, {}, {...readers, now: () => 6});
+    assert.equal(doc.querySelectorAll('[data-practising]').length, 0);
 });

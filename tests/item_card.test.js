@@ -65,7 +65,6 @@ test('PS249: the sheet draws the workshop reroll preview, with "?" spans when th
         band: [.125, 1], factors: [{id: 'skill', label: 'Forging 4 at a tier 1 forge', effect: 'the worst a new mark can be is 13% of its range'}],
         pool: [{id: 'armor.reinforced', name: 'Reinforced', chance: .5, lo: 1.5, hi: 4.5, min: 1.5, max: 4.5}]};
     let opened = 0;
-    const dom = createDom(); dom.loadHTML('<html><body></body></html>'); globalThis.document = dom.document; // the kit draws with the global document
     const m = {...model('affixed'), reforge: {preview, known: false, cost: [{name: 'Iron ingot', count: 1}], open: () => opened++}};
     const host = draw(m), sec = host.querySelector('[data-role="reforge"]');
     assert.match(sec.textContent, /Stays.*Vital 3%/s);

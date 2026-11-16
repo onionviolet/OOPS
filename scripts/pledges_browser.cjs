@@ -56,7 +56,7 @@ fs.mkdirSync(evidence,{recursive:true});const say=m=>console.log(m);
   say(`[${w}] carved ember+gale: ${await page.locator('[data-worn]').innerText()}`);
   await page.locator('[data-rune="root"]').click();await page.locator('[data-rune="ember"]').click();
   await page.locator('[data-rune="gale"]').click();
-  assert.match(await page.locator('[data-rune-preview]').innerText(),/ember→gale: more stamina/);say(`[${w}] preview names known pairs and says untried for the rest`);
+  assert.match(await page.locator('[data-rune-preview]').innerText(),/Ember → Gale\s*more stamina/);say(`[${w}] preview names known pairs and says untried for the rest`);
   await page.screenshot({path:`${evidence}/rune-bench-${w}.png`});
   const s3=await snapshot();
   // Save, reload, export/import
