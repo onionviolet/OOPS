@@ -32,13 +32,13 @@ test('restored known state alone is not an event; a deliberate new-run reset per
 test('saved skill effects override only their supported consumer and old profiles remain valid', () => {
     const old = defaultCustomizationState();
     const restored = validateCustomizationState(JSON.parse(JSON.stringify(old)));
-    assert.equal(getCustomizationSettings(restored,'skills').effects,'reduced');
+    assert.equal(getCustomizationSettings(restored,'skills').effects,'auto');
     for(const mode of ['off','reduced','full']) {
         const profile = structuredClone(old);
         profile.profiles.Default.modules.skills = {effects:mode,sound:false};
         const saved = validateCustomizationState(JSON.parse(JSON.stringify(profile)));
         assert.equal(getCustomizationSettings(saved,'skills').effects,mode);
-        assert.equal(getCustomizationSettings(saved,'crafting').effects,'reduced');
+        assert.equal(getCustomizationSettings(saved,'crafting').effects,'auto');
     }
     const invalid = structuredClone(old);
     invalid.profiles.Default.modules.vitals = {effects:'full'};

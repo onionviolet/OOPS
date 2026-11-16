@@ -31,6 +31,7 @@ let privateOpen = false;
 const seed = JSON.parse(await readFile(join(root, 'tests/fixtures/perf/mid.json'), 'utf8'));
 delete seed.availabilities.recipe.undefined; delete seed.availabilities.recipe['recipe/undefined'];
 seed.customization = defaultCustomizationState();
+seed.customization.profiles.Default.settings.effects = 'reduced'; // steady captures: the default follows the OS (PS155)
 seed.global_flags.is_crafting_unlocked = true;
 await session.start();
 await session.open(seed);

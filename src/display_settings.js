@@ -69,7 +69,8 @@ const listeners = new Set();
 export function getDisplaySettings() { return {...current}; }
 export function getDisplaySetting(key) { return current[key]; }
 // Global cap from the save-level Effects setting (absent before a save loads = full).
-export function effectsCap() { const v = typeof document !== 'undefined' && document.documentElement.dataset.effects; return v === 'off' || v === 'reduced' ? v : 'full'; }
+// 'auto' (the default since PS155) is full motion unless the system asks for reduced motion.
+export function effectsCap() { const v = typeof document !== 'undefined' && document.documentElement.dataset.effects; if (v === 'auto') return globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 'reduced' : 'full'; return v === 'off' || v === 'reduced' ? v : 'full'; }
 
 export function applyDisplaySettings() {
     if (typeof document === 'undefined') return;

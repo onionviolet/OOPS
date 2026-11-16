@@ -15,7 +15,7 @@ const LUMINOUS_MESSAGES_PALETTE = {background:'#231735', text:'#eee5ff', accent:
 // The Neutral look that was the default before 2026-10-29. Saves whose only
 // profile still equals it are upgraded to Luminous Gothic on load.
 export function neutralPresentationSettings() {
-    return {componentTheme: 'neutral', typography: {font: 'gothic', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'reduced', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};
+    return {componentTheme: 'neutral', typography: {font: 'gothic', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'auto', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};
 }
 // Luminous Gothic is the default look (Weibao, 2026-10-29).
 export function defaultPresentationSettings() {
@@ -52,7 +52,7 @@ export function validatePresentationSettings(input, partial = false) {
             }
         }
         if (key === 'spacing') result[key] = number(value, 0, 32, 'spacing');
-        if (key === 'effects') result[key] = choice(value, ['off','reduced','full'], 'effects');
+        if (key === 'effects') result[key] = choice(value, ['off','reduced','full','auto'], 'effects') // 'auto' follows the system's reduce-motion setting (PS155, AD56 working default);
         if (key === 'sound') { if (typeof value !== 'boolean') fail('invalid sound'); result[key] = value; }
         if (key === 'presentation') result[key] = choice(value, ['inline','margin'], 'presentation');
         if (key === 'effectDefinition') {

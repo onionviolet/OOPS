@@ -34,7 +34,7 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
     const font = select('Font', ['system','serif','mono','gothic']), size = input('Font size', 'number', 10, 28);
     const background = input('Background', 'color'), text = input('Text', 'color'), accent = input('Accent', 'color'), spacing = input('Spacing', 'number', 0, 32);
     currentFields = effectFields;
-    const effects = select('Effects', ['off','reduced','full']), sound = input('Sound after gesture', 'checkbox'), presentation = select('Receipt placement', ['inline','margin']);
+    const effects = select('Effects', ['auto','off','reduced','full']), sound = input('Sound after gesture', 'checkbox'), presentation = select('Receipt placement', ['inline','margin']);
     // The basics stay in view; the receipt's look sits behind one disclosure.
     const lookBox = document.createElement('details'); lookBox.className = 'customization-look';
     const lookSummary = document.createElement('summary'); lookSummary.textContent = 'Receipt look'; const lookBody = document.createElement('div'); lookBody.className = 'ui-field-grid'; lookBox.append(lookSummary, lookBody); effectFields.append(lookBox); currentFields = lookBody;

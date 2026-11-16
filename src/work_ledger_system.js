@@ -44,7 +44,7 @@ const DEFAULT_SETTINGS = Object.freeze({effects:'reduced',sound:false,presentati
 function integer(value) {return Number.isSafeInteger(value)&&value>=0;}
 function number(value,min,max) {return typeof value==='number'&&Number.isFinite(value)&&value>=min&&value<=max;}
 function clone(value) {return JSON.parse(JSON.stringify(value));}
-function settingsValid(value) {return value&&['full','reduced','off'].includes(value.effects)&&typeof value.sound==='boolean'&&['inline','margin'].includes(value.presentation);}
+function settingsValid(value) {return value&&['full','reduced','off','auto'].includes(value.effects)&&typeof value.sound==='boolean'&&['inline','margin'].includes(value.presentation);}
 function receipt(type,actorId,sequence,text,extra={}) {return {id:`work-ledger:${sequence}:${type}`,type,motif:type==='disconnect'?'closing':type.startsWith('applied')?'guidance':'seal',actorId,sequence,text,...extra};}
 export function createWorkLedger(actorId='player') {
     assert(typeof actorId==='string'&&actorId.length>0,'Work Ledger needs an actor.');
