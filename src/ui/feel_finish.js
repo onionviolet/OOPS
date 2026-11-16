@@ -9,7 +9,7 @@ import {newTempoLines} from './tempo_interaction.js';
 import {current_game_time} from '../game_time.js';
 import {get_current_light_level, is_raining} from '../weather.js';
 import {current_location} from '../runtime_state.js';
-import {mountLookPresets} from './look_presets.js';
+import {mountLookPresets, foldLookGroup} from './look_presets.js';
 
 const ON_OFF = [['on', 'On'], ['off', 'Off']];
 export const FEEL_SETTINGS = [
@@ -241,7 +241,7 @@ export function mountFeelFinish() {
         const ready = document.querySelectorAll('#ready_hub .ready-hub__row--ready').length;
         if (readyCount != null && ready > readyCount) playCue('ready');
         readyCount = ready;
-        placeClassicOptions();
+        placeClassicOptions(); foldLookGroup();
         readFight();
     };
     // A host without MutationObserver (a test DOM) still gets the settings and the light; rows are not decorated.

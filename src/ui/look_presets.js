@@ -37,3 +37,21 @@ export function mountLookPresets() {
     mounted = {destroy() { off(); mounted = null; }};
     return mounted;
 }
+
+// PS295: Display › Look shows the presets first; the single choices sit under a "Customize" fold, open when the
+// screen is Custom. The settings board rebuilds its groups, so this runs again after each rebuild (idempotent).
+export function foldLookGroup(doc = globalThis.document) {
+    const group = doc?.querySelector?.('.display-group[data-panel-settings="look"]');
+    if (!group) return false;
+    const rows = [...group.querySelectorAll(':scope > .display-setting-row')].filter(r => !r.querySelector('[id="display-setting-panel.look.preset"]'));
+    let fold = group.querySelector(':scope > details.look-customize');
+    if (!fold) {
+        fold = doc.createElement('details'); fold.className = 'look-customize';
+        const sum = doc.createElement('summary'); sum.textContent = 'Customize'; fold.append(sum);
+        const first = group.querySelector(':scope > .display-setting-row');
+        if (first) first.after(fold); else group.append(fold);
+    }
+    for (const row of rows) fold.append(row);
+    if (group.querySelector('[id="display-setting-panel.look.preset"]')?.value === 'custom') fold.open = true;
+    return true;
+}

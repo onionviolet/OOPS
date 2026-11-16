@@ -140,3 +140,7 @@
 /* DU39: the classic backup and reset buttons, plain, the reset marked as the one that cannot be undone. */
 .feel-classic .feel-classic-action {justify-self: start; font: inherit;}
 .feel-classic .feel-classic-action[data-danger] {color: var(--ui-state-blocked); border-color: currentColor;}
+
+/* PS295: presets first, the single look choices folded under Customize. */
+.display-group .look-customize {margin: var(--ui-space-2) 0 0;}
+.display-group .look-customize > summary {cursor: pointer; font-weight: var(--ui-weight-strong);}
