@@ -769,3 +769,22 @@ Weibao on the ps217 pair: "Implement both and have the player choose, can leave 
 | PS276 | **A first-run look picker.** The first time a player opens the game, one screen offers the presets beside a live preview. It is skipped by default for Weibao's existing setup. |
 | PS277 | **Choices are named in reports.** Default: a capture or bug note records the look choices in force; reason: a difference between two screenshots can otherwise be mistaken for a regression. |
 | PS278 | **Accessibility rides the same registry.** Text size, contrast outline (PS133) and reduced motion register as look options, so one Display page holds them all. |
+
+## Round 25, 2026-11-16: the Skills box up close
+
+Weibao, with a capture of the Skills box: "To next level is wrapping in a bad way and moving the bar, how does the original handle that? HOw to make ui look better and more?"
+
+ACT NOW, done in 6895cf083 with bundle 6b330ab8c. Upstream YAIR prints only "49%" in a 20%-wide slot beside the name, and keeps "current / needed" in the tooltip. UIC200 had lengthened the label to "% to next level" in the same slot, so a narrow column wrapped it to three lines and pushed the bar down. The fix:
+- the label is upstream's short percent, at its own width, with tabular figures;
+- the name ellipsizes before anything wraps;
+- the tooltip line now reads "a / b XP to the next level";
+- Learning now's rate and source read as quiet text instead of boxed chips.
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS279 | **One set of fold controls per group.** Default: each skill group header has one chevron that folds the group; "fold all" and "open all" move into the Sort / filter menu. Reason: today each header shows two pairs of arrows, which read as noise on every group. |
+| PS280 | **Weight by what is moving.** Default: a skill practising now gets the accent on its bar and name, while idle skills sit dimmer. Learning now then confirms the rate rather than being the only place you see it. Reason: all rows weigh the same today, so the one you are training does not stand out. |
+| PS281 | **The bar carries the number when there is room.** Default: in a wide column, the percent sits inside the bar's end like YAIR's health bars; in a narrow one, beside the name (today's fix). Reason: one fewer text element per row, with no wrap. |
+| PS282 | **Max-level and long names.** Default: "Max" in place of the percent, as upstream does, with a capped bar colour. A long name ellipsizes and shows in full on hover. |
+| PS283 | **The look follows Row style.** Under Spacing, the green box around each skill goes and the bar becomes the row's only colour. Under Bordered, the border drops to the hairline weight from PS244, because the 2px bright border is the loudest thing on the screen. Dial: Classic keeps upstream's 2px green. |
+| PS284 | **A narrow-column check.** check:flow measures text wrapping inside fixed-height rows at the narrowest column width the layout allows, so a label that wraps is caught before a capture shows it. |
