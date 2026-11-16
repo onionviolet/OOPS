@@ -6,6 +6,15 @@ Weibao: "stop them and hand off and then we will have a new coordinator handle t
 
 Weibao's standing goal for this run: "coordinate the opus chats and create new ones accordingly to flesh out UI, make it intuitive and good like the original, but absorbing all the refinements, and applying that for each individual feature from farming to others and more? Also refining combat system to account for new possibility while still being familiar? and transferring across all the worlds, Daily day to day actions? more gameplay loops?"
 
+## Current state (new coordinator, 2026-11-16 evening)
+
+- This session took over as coordinator from local_3d724a92 on Weibao's request. origin/master is ad35e8ba5, pushed on Weibao's yes after the gate: 7,779 of 7,782 pass; the one failure was a symlinked-checkout artifact in world_lead_pipeline, since fixed in cast_worksheet.mjs.
+- Wave 22 landed and pushed: Klein gets home from the Divination Club (0519d56b4, bundle ad35e8ba5). Played headless and in the browser at 1920x1080 through save, reload and import. Agent-verified, not human-reviewed.
+- The pusher session (local_2ce54229) is archived. Pushes now run `npm run gate:push` in a clean checkout of the commit (`--full` at a wave close), then push as a fast-forward on Weibao's yes.
+- Test speed (Weibao 2026-11-16): runs size parallelism to free cores and start the slowest files first; full suite 395 s down to 254 s at 13 files at once. The suite is now CPU-bound (about 49 CPU-minutes), so the next lever is caching the game boot in the ~30 heaviest files.
+- Known red, pre-existing: check:flow's "a rainy day" state finds no rain within ten played days, identically on 7524c2f3b. No owner yet.
+- Still uncommitted in the shared tree: combat's PS48 and the combat_situation_ui import-cycle edits (Known risks below).
+
 ## State at handoff
 
 - origin/master is 7524c2f3b, pushed with a green gate (7,769 pass, 0 fail) on 2026-11-16. It holds every lane's committed work. Only the uncommitted items under Known risks remain outside it.

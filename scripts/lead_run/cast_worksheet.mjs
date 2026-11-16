@@ -174,7 +174,9 @@ export function run(argv) {
     const crosswalk = JSON.parse(readFileSync(crosswalkPath, 'utf8'));
     const worksheets = buildWorksheets({registry: readJsonl(resolve(actual, 'registry.jsonl')), scenes: readJsonl(resolve(actual, 'scenes.jsonl')),
         extras: readJsonl(resolve(actual, 'extras.jsonl')), crosswalk, world, from, to});
-    const out = resolve(outArg), outRel = relative(novelsRoot, out);
+    // Resolve the output like the input: through symlinks, from its nearest existing folder (it may not exist yet).
+    const realOut = p => existsSync(p) ? realpathSync(p) : resolve(realOut(resolve(p, '..')), basename(p));
+    const out = realOut(resolve(outArg)), outRel = relative(novelsRoot, out);
     if (outRel.startsWith('..') || !outRel.split(/[\\/]/).includes('private')) throw new Error('Output must be under a novel private directory');
     mkdirSync(out, {recursive: true});
     let rows = 0, usable = 0;
