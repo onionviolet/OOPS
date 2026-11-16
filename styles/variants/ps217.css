@@ -1,0 +1,15 @@
+/* ?variant=ps217 (round 20 PS217 with PS205; proposal, compared against today on fixtures, PS232). Hierarchy by spacing
+   and type instead of nested borders: a box keeps its edge; rows inside it lose their own borders for space and a
+   hairline, and state shows by colour and weight. PS205: a skill reads on one line, name · level · thin bar · % to next;
+   a selected (focused or hovered) skill keeps its full row. */
+:root[data-variant="ps217"] #main_content .workspace-module :is(.skill_div,.skill_bar_max,.location_choice_dropdown,.inventory_item_control,.location_choices,.action_travel) {border-width:0!important;border-bottom:1px solid color-mix(in srgb,currentColor 14%,transparent)!important;box-shadow:none!important;outline:0;background-color:transparent;}
+:root[data-variant="ps217"] #main_content .workspace-module :is(.location_choice_dropdown,.inventory_item_control,.skill_div) {padding-block:var(--ui-space-1);}
+:root[data-variant="ps217"] #main_content .workspace-module :is(.location_choice_dropdown,.location_choices):is(:hover,:focus-visible) {color:var(--p23-value);font-weight:var(--ui-weight-strong);}
+:root[data-variant="ps217"] #main_content .workspace-module .location_choice_dropdown_expanded {font-weight:var(--ui-weight-strong);}
+:root[data-variant="ps217"] #main_content .workspace-module .skill_category_div {margin-bottom:var(--ui-space-3);}
+
+/* PS205: one line per skill. */
+:root[data-variant="ps217"] #main_content .skill_div:not(:focus-within):not(:hover) .skill_bar_max {position:relative;min-height:0;height:auto;padding:0 0 var(--ui-space-1);}
+:root[data-variant="ps217"] #main_content .skill_div:not(:focus-within):not(:hover) .skill_bar_text {display:flex;flex-wrap:nowrap;justify-content:space-between;gap:var(--ui-space-3);white-space:nowrap;position:relative;}
+:root[data-variant="ps217"] #main_content .skill_div:not(:focus-within):not(:hover) :is(.skill_bar_name,.skill_bar_xp) {white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+:root[data-variant="ps217"] #main_content .skill_div:not(:focus-within):not(:hover) .skill_bar_current {position:absolute;left:0;bottom:0;top:auto;height:2px!important;}

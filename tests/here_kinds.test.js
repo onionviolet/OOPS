@@ -51,7 +51,7 @@ test('every display or visibility rule splits cleanly for the headless cascade (
     // css.mjs splits a selector list with /,(?![^(]*\))/. A comma before a nested :not(...) inside :is(...) breaks there,
     // and the unclosed half can match an ancestor: da9a20646 hid #main_content in every headless run that way.
     const dir = new URL('../styles/', import.meta.url), broken = [];
-    for (const f of readdirSync(dir)) {
+    for (const f of readdirSync(dir).filter(f => f.endsWith('.css'))) {
         const css = readFileSync(new URL(f, dir), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
         for (const m of css.matchAll(/([^{}]+)\{[^{}]*(?:display|visibility)[^{}]*\}/g))
             for (const part of m[1].trim().split(/,(?![^(]*\))/)) if ((part.match(/\(/g) || []).length !== (part.match(/\)/g) || []).length) broken.push(`${f}: ${part.trim().slice(0, 100)}`);
