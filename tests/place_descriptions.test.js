@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {calendarDayIndex} from '../src/world_calendar.js';
 import {WORLD_CALENDAR_PROFILES} from '../src/world_calendar_content.js';
-import {registerPlaceDescription, describePlace, placeDescriber} from '../src/place_descriptions.js';
+import {registerPlaceDescription, describePlace, placeDescriber, setPlaceRedraw, refreshPlaceDescription} from '../src/place_descriptions.js';
 import {RI_ACADEMY, riAcademyTideLine} from '../src/ri_lead_day_tide.js';
 import {RI_TIDE_PHASES, RI_WOLF_TIDE_WORLD, RI_WOLF_TIDE_FACT, riRecordWolfKill} from '../src/ri_wolf_tide.js';
 
@@ -42,4 +42,18 @@ test('the clan academy reads the tide while it is on: phase and day, wolves near
 
 test('the native location reads its description through the registry', () => {
     assert.match(readFileSync(new URL('../src/main.js', import.meta.url), 'utf8'), /getDescription:placeDescriber\(l\.id,l\.description,\(\)=>expansionState\)/);
+});
+
+test('a refresh redraws the place box once when its drawn text has changed, and not otherwise', () => {
+    let hour = 9, redraws = 0;
+    const off = registerPlaceDescription('test.redraw.place', s => s.hour < 12 ? 'A cart is unloading.' : '');
+    setPlaceRedraw(() => { redraws++; });
+    try {
+        const describe = placeDescriber('test.redraw.place', 'A street.', () => ({hour}));
+        assert.equal(describe(), 'A street. A cart is unloading.');
+        assert.equal(refreshPlaceDescription(), false, 'nothing changed');
+        hour = 13;
+        assert.equal(refreshPlaceDescription(), true); assert.equal(redraws, 1);
+        assert.equal(refreshPlaceDescription(), false, 'once per change, even if the redraw draws another place');
+    } finally { off(); setPlaceRedraw(null); }
 });

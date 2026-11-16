@@ -652,13 +652,13 @@ purse seam.
   - Klein's streets: dd8afb107.
   - Rent by home: 2d408371a.
 - **Open, in order.**
-  1. **D5 patrol count and merit ledger (Fang Yuan).** The academy readout shows the tide phase and the wolves near the wall, but
-     not his own record. A count of patrols this tide and the merit they earned need saved history: today only totals exist (merit
-     is an item; the last report is one knowledge note). Proposal:
-     - Keep a small per-tide ledger in the RI lead's saved slice (`ri_lead_sea` stage, or actor facts keyed by tide occurrence).
-     - Write one row per patrol report (day, outcome, merit).
-     - Have `riAcademyTideLine` add "Patrols this tide: N, merit M."
-     - Done check: patrol twice, then reload and import, and the line holds.
+  1. **D5 patrol count and merit ledger (Fang Yuan). Built 2026-11-16 (proposal, AD32, AD56).**
+     - `src/ri_tide_ledger.js` counts from the engine's completion counts (patrol reports, eyes and tallies handed in), since each tide
+       opened. A saved slice `ri_tide_ledger` keeps the open tide's base and the last 5 closed tides.
+     - The academy reads "This tide you have reported N patrols and the board has credited you M merit", and between tides, the last tide.
+     - Merit is priced from the board's dials, so a dial change re-prices past tides. A tide first seen part-way through counts from then.
+     - `place_descriptions.js` now redraws a place box on the registry's refresh when its text changed (`refreshPlaceDescription`), so the
+       line moves after a report, and the same refresh replaced the LOTM-only tick redraw for Klein's streets.
   2. **Harry's further days.** The week has classes, homework and Next links (cc7a1bdc9, b66a13469). Still missing:
      - a "next class" line on the panel;
      - meals and friends in his day;

@@ -92,6 +92,7 @@ import {registerGuLeadIceCrystal} from './world_packs/book_gu_lead_ice_crystal.j
 import {registerGuLeadDay} from './world_packs/book_gu_lead_day.js';
 import {registerGuLeadWildRefinement} from './world_packs/book_gu_lead_wild_refinement.js';
 import './ri_lead_sea_domain.js'; // Fang Yuan's sea refills on its own (stage hook)
+import './ri_tide_ledger.js'; // Fang Yuan's patrols and merit per wolf tide (stage hook, academy line)
 import {registerGuLeadWoodCharm,guLeadWoodCharmClockRequest} from './world_packs/book_gu_lead_wood_charm.js';
 import {registerGuLeadWallNight} from './world_packs/book_gu_lead_wall_night.js';
 import {registerGuLeadBurialGu} from './world_packs/book_gu_lead_burial_gu.js';

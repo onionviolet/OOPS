@@ -28,7 +28,7 @@ import {LOTM_IDS as I,LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 import {registerLocalClockSource} from './today_strip.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
 import {createCastLocationRestore} from './cast_location_restore.js';
-import {placeDescriber,registerPlaceDescription} from './place_descriptions.js';
+import {placeDescriber,registerPlaceDescription,setPlaceRedraw} from './place_descriptions.js';
 import {lotmStreetLine} from './book_world_lotm_events.js';
 import {LOTM_STREET_PLACES} from './lotm_street_events.js';
 import {configureHeatPurse} from './heat.js';
@@ -39,10 +39,6 @@ registerOwnedWorkPanel((_work,definition)=>definition?.group==='book_lotm'?'lotm
 // Klein's streets (PS143): what the Tingen event book has going on at a place shows in its description.
 const describeTingen=(id,base)=>placeDescriber(id,base,()=>ports?.state());
 for(const place of LOTM_STREET_PLACES)registerPlaceDescription(place,s=>lotmStreetLine(s,place,{days:getPrivateLotmCast()?.bindings?.days||[]}));
-// The place box draws on arrival and load; a street's line also changes with the hour, so the tick redraws it when it does.
-let streetShown='';
-function redrawStreet(){const id=ports?.location?.();if(!LOTM_STREET_PLACES.includes(id))return;
- const key=`${id}|${lotmStreetLine(ports.state(),id,{days:getPrivateLotmCast()?.bindings?.days||[]})}`;if(key===streetShown)return;streetShown=key;ports.refreshLocationIdentity?.(ports.locations[id]);}
 // Definitions create locked placeholders only. The supervisor's stock is seeded once by enrollment (AR3).
 function register({NPC,NPCRegistry,SafeLocation,locations}){
  for(const p of lotmPeople){const npc=new NPC({id:p.id,name:p.label,levelable:structuredClone(p.vitals),is_unlocked:false,description:p.description});npc.reputation={};NPCRegistry.add(p.id,npc);}
@@ -55,6 +51,8 @@ function ensureCastLocation(id){
 }
 export function configureLotm(p){
  ports=p;register(p);
+ // The shell's place redraw (any world's place box, PS143): this configure call is where the composition root hands over the location port.
+ setPlaceRedraw(()=>{const place=p.locations?.[p.location?.()];if(place)p.refreshLocationIdentity?.(place);});
  // FD8: Klein's weekly expense claim is kept on the BE life's own clock; the shared duties domain imports no world.
  registerDutySet('lotm',{defs:LOTM_DUTIES,state:()=>p.state(),active:st=>lotmBe(st),minute:st=>st.clock});
  // The civil clerk's weekly office report is held by the civil post (FD15): resigning the post makes this set inactive, which closes its weeks unaccounted.
@@ -90,7 +88,7 @@ registerUpcomingSource(()=>host?.upcoming()||[]);
 mountPayLedgerTab({registerBoxTab,read:()=>readPort('expansion')});
 mountLotmBio({registerBoxTab,read:()=>readPort('expansion'),duties:()=>domainRegistry.project('duties')});
 registerReady({id:'lotm-work',label:'Your work',verb:'work',rows:()=>lotmWorkRows(readPort('expansion'),{collect:()=>{host.collectWage();panel?.render();},open:()=>expandWorkspaceModule('lotm')})});
-registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>{host?.tick(minutes);redrawStreet();},refresh:()=>panel?.render(),
+registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
  commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
  projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...lotmActFacts(...args),...itemSafetyFacts(args[0],getPrivateLotmCast()?.itemSafety),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs)}:host?.view(),
  panels:[()=>{panel=createLotmPanel({read:workshopPanelView,discovered:()=>host.discovered(),observer:()=>host.observer(),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home(),duties:()=>domainRegistry.project('duties'),tieAsk:id=>host.tieAsk(id),homeAct:request=>domainRegistry.command('homes','execute')(domainRegistry.command('homes','quote')(request)),attend:dutyId=>dutyId===LOTM_GUARD_DUTY_ID?host.standWatch():dutyId==='lotm.expense_claim'?host.fileExpense():domainRegistry.command('duties','attend')({dutyId}),resign:id=>host.resign(id),signGuard:()=>host.signGuard(),lawRoute:(id,route)=>host.lawRoute(id,route),collectGuard:()=>host.collectGuardPay(),startWage:()=>host.startWage(),collectWage:()=>host.collectWage(),shiftRead:()=>host.shiftRead(),workShift:kind=>host.workShift(kind),setOrder:(dutyId,policy)=>domainRegistry.command('duties','setOrder')({dutyId,policy})});}]});

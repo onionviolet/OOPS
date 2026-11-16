@@ -68,7 +68,8 @@ export function riWolfTidePhase(state) {
     try {view = state?.actors?.player?.worldId === RI_WOLF_TIDE_WORLD ? resolveWorldCalendar(state, null) : null;} catch {view = null;}
     if (!view) return {id: 'off', active: false, dayInPhase: 0, nextDay: null, year: null, dated: false};
     const at = standingOn(RI_TIDE_BOOK, RI_TIDE_EVENT, view.absoluteLocalDay);
-    return {id: at.active ? at.phase.id : 'off', active: at.active, dayInPhase: at.phase?.dayInPhase ?? 0, nextDay: at.nextDay ?? null, year: view.year, dated: true};
+    return {id: at.active ? at.phase.id : 'off', active: at.active, dayInPhase: at.phase?.dayInPhase ?? 0, nextDay: at.nextDay ?? null, year: view.year, dated: true,
+        startDay: at.active ? at.day : null}; // the occurrence's first day, a key for this tide (ri_tide_ledger.js)
 }
 export const riWolfTidePhaseLine = phase => RI_TIDE_PHASES[phase?.id ?? 'off'].line;
 
