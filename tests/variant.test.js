@@ -16,7 +16,7 @@ test('look options: Row style is Bordered by default, Spacing loads the ps217 sh
     const {LOOK_OPTIONS, lookSheet} = await import('../src/ui/variant.js');
     const rows = LOOK_OPTIONS.find(o => o.id === 'rows');
     assert.equal(rows.default, 'bordered');
-    assert.deepEqual(rows.choices.map(([v]) => v), ['bordered', 'spacing']);
+    assert.deepEqual(rows.choices.map(([v]) => v), ['bordered', 'spacing', 'classic']);
     assert.equal(lookSheet(rows, 'bordered'), '');
     assert.equal(lookSheet(rows, 'spacing'), 'styles/variants/ps217.css');
     assert.equal(lookSheet(rows, 'nonsense'), '');

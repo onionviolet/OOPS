@@ -27,9 +27,9 @@ export const LOOK_OPTIONS = Object.freeze([
         sheets: Object.freeze({comfortable: '', dense: 'styles/variants/dense.css'}),
         description: 'Dense tightens rows and gaps and uses small text, so more fits on screen.'}),
     Object.freeze({id: 'rows', label: 'Row style', default: 'bordered',
-        choices: Object.freeze([['bordered', 'Bordered'], ['spacing', 'Spacing']]),
-        sheets: Object.freeze({bordered: '', spacing: 'styles/variants/ps217.css'}),
-        description: 'Bordered draws a frame around each row. Spacing separates rows with space and a thin line, and shows each skill on one line.'}),
+        choices: Object.freeze([['bordered', 'Bordered'], ['spacing', 'Spacing'], ['classic', 'Classic']]),
+        sheets: Object.freeze({bordered: '', spacing: 'styles/variants/ps217.css', classic: ''}),
+        description: 'Bordered draws a thin frame around each row; Classic keeps the original game\'s bold green skill frames. Spacing separates rows with space and a thin line, and shows each skill on one line.'}),
     // PS216 (Weibao 2026-11-16: "make it a choice and then I can try both in the future"): Full is today's four columns;
     // Grows with the life starts a new life on You and the place and opens each column when it gets content.
     Object.freeze({id: 'layout', label: 'Layout', default: 'full',
