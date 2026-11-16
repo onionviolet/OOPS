@@ -584,3 +584,24 @@ purse seam.
   - Its home is the inquiry read side (`inquiryView`, `confidenceWord`, `effortMet`; ACR5 known coverage). It already tracks
     effort and coverage without the answer, which is "still promising, payoff hidden".
   - The first fit is Harry's library study or Klein's research, shown as a lead or rumour line beside the study.
+
+### Klein's office day (loop K2), 2026-11-16
+
+- **What it is.** `book_world_lotm_shift.js`: one shift a day while he holds the Nighthawk contract.
+  - The reception desk at the Blackthorn Security front: 4 h from a 09:00 to 13:00 start.
+  - The archives: 4 h from 09:00 to 15:00.
+  - A turn at Chanis Gate: 6 h from 19:00 to 23:00.
+  - The hours pass through the host clock (the cells-sentence route), then one result line goes to his knowledge and to Reports.
+  - The line is seeded per day and kind, mostly quiet, never a case or a sealed truth. It counts shifts for the pay week, and the
+    "Office hours" block shows the count.
+- **Pay is untouched.** Pay is the weekly salary (`book_world_lotm_wage.js`). A shift pays nothing on its own and never gates pay.
+- **Source.** Stated: the security front, archive reading, and the team's turns at Chanis Gate. The hours, lengths and lines are
+  authored. Each dial keeps `why` in code and `say` for the panel (PRS1).
+- **Open question for Weibao (a limit under AD56).** Should a week with no shifts cost something, such as a word from the captain
+  or a docked week? Today it costs nothing.
+- **Not done.**
+  - A shift does not require walking to the office. The office place sits in the private cast pack.
+  - A shift is a clock jump, not a job with progress and cancel (ACR7).
+  - Chrome proved the shift and a reload on lotm-kjw49. Export then Import is not verified: the imported page came back on the pre-shift save with no message. Implemented-unverified for import.
+  - The UI lane's Ready rows (`lotm_work_day.js`) can list the shifts from `shiftRead` and declare `uses` for "Next:" links.
+  - Rent by home (P7) and the streets (PS143) are still open.

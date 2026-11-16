@@ -65,7 +65,7 @@ import {lotmSheetsFor} from './book_world_lotm_sheets.js';
 import {harmContext,accrueHarm,restHarm,lotmRestMeter,lostControlOutcome,lossOfControlStep,harmClassOf,drainLotmInbox,lotmLossLine,lotmStageNote} from './book_world_lotm_harm.js';
 import {harmState,setHarmState} from './harm_state.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
-import {wageView,wageStartEffects,wageCollectEffects} from './book_world_lotm_wage.js';
+import {wageView,wageStartEffects,wageCollectEffects} from './book_world_lotm_wage.js';import {shiftView,shiftEffects} from './book_world_lotm_shift.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
 // A walk's arrival record cites the workroom situation, which begins when you report in (or your life's own first report).
 const WALK_AFTER_REPORT='Report in at the workroom before you walk the district.';
@@ -432,6 +432,17 @@ export function createLotmHost(ports){
   applySimulationEffects(plan,effects,{actorId:'player'},registry,'book.lotm.wage');persist(plan);
   ports.logMessage?.(line,'notification');return line;
  }
+ // Klein's office shift (book_world_lotm_shift.js): the hours pass through the host clock as the cells sentence does, then one result line.
+ const shiftClock=s=>{const c=castCalendar(s).calendar;return {day:c.day_count,hour:c.hour};};
+ function shiftRead(){const s=state();return s.actors.player.worldId===I.world&&lotmCastLife(s)?shiftView(s,shiftClock(s)):null;}
+ function workShift(kind){
+  writable();const s=state();assert(!ports.restoring()&&!ports.busy()&&!s.simulation.sessions?.player&&s.actors.player.worldId===I.world,'Finish what you are doing first.');
+  const {minutes,line,effects}=shiftEffects(s,kind,shiftClock(s));
+  assert(ports.planTime,'The clock is unavailable.');const plan=ports.planTime(minutes),consumed=plan.state.clock-s.clock;
+  assert(consumed===minutes,'The office clock could not run the whole shift.');
+  applySimulationEffects(plan,effects,{actorId:'player'},registry,'book.lotm.shift');persist(plan);domainRegistry.tick(consumed);
+  ports.logMessage?.(line,'notification');return line;
+ }
  function view(selected=null){return withFactsFrame(state(),()=>readView(selected));}
  function readView(selected=null){
   const s=castState(state()),d=s.lotm,shared={};
@@ -510,7 +521,7 @@ export function createLotmHost(ports){
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),law:lawView(s,lawCtx(s,c)),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f,know),places,marketHeld,cause:causeView(f),mind:lotmMindView(s),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:[...lotmMeters(e),lotmRestMeter(s)].filter(Boolean),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
- return {enroll,cross,resign,signGuard,standWatch,lawRoute,fileExpense,tieAsk,collectGuardPay,startWage,collectWage,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,discovered,observer,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,resign,signGuard,standWatch,lawRoute,fileExpense,tieAsk,collectGuardPay,startWage,collectWage,shiftRead,workShift,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,discovered,observer,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){return castLocalClock(s)?.clock||'';}

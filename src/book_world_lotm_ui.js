@@ -22,6 +22,7 @@ import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 import {lotmPositionsFromView,lotmPositionLine} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,guardPayWords} from './book_world_lotm_guard.js';
 import {wageWords} from './book_world_lotm_wage.js';
+import {kitRow} from './ui/kit.js';
 import {formatDuration} from './number_format.js';
 import {homeModelLines} from './home_overview_model.js';
 import {renderHomeView} from './ui/home_view.js';
@@ -34,7 +35,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.text
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,startWage,collectWage,lawRoute,readOwed=readOwedLedger,settle=settleOwed,discovered=null,observer=null}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,startWage,collectWage,shiftRead=null,workShift=null,lawRoute,readOwed=readOwedLedger,settle=settleOwed,discovered=null,observer=null}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -267,6 +268,13 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    }
    actions.append(g);
   }
+  // Klein's office day (book_world_lotm_shift.js): one shift a day at the desk, in the archives or at Chanis Gate, counted for the pay week.
+  const sh=shiftRead?.();
+  if(sh&&workShift){const g=node('div');g.dataset.lotmShift='';g.append(node('h3','Office hours'),node('p',sh.doneToday?`You have worked today's shift. ${sh.thisWeek===1?'One shift':`${sh.thisWeek} shifts`} this pay week.`:`${sh.thisWeek?`${sh.thisWeek===1?'One shift':`${sh.thisWeek} shifts`} this pay week so far.`:'No shifts yet this pay week.'} The office keeps one shift a day.`));
+   // PS292: drawn as kit rows (ui/kit.js): the shift, what it is or why it is shut, and where the work is.
+   for(const k of sh.kinds)g.append(kitRow({state:k.eligible?'ready':'near',label:k.label,action:{title:k.eligible?k.say:k.reason,disabled:!k.eligible,run:()=>run(()=>workShift(k.id),()=>shiftRead()?.last||'')},fact:k.eligible?k.say:k.reason,from:'Office hours',data:{lotm:`shift_${k.id}`,panelRow:''}}));
+   if(sh.last)g.append(node('p',sh.last));
+   actions.append(g);}
   // RET3: the paused Village life is resumed from the connection panel, not from here. It leads the Here tab: the other life is a crossing fact, not a path detail.
   // W1d (LT10 read side): the flat on the household model: who lives there, the rent, what is kept there.
   if(v.home?.lines?.length){const h=node('div');h.dataset.lotmHome='';h.append(node('h3','Home'),...v.home.lines.filter(l=>!homeModelLines(v.home.model).includes(l)).map(l=>node('p',l)));
