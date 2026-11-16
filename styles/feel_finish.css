@@ -22,7 +22,7 @@
     --feel-sky-indoor: color-mix(in srgb, var(--sem-money, var(--ui-accent)) 16%, transparent);
     --feel-tick-rise: calc(var(--ui-space-1) * -1);
 }
-:root[data-feel-motion="reduce"] {--ui-motion-fast: 0ms; --ui-motion-normal: 0ms; --ui-motion-settle: 0ms;}
+:root[data-look-motion="reduce"] {--ui-motion-fast: 0ms; --ui-motion-normal: 0ms; --ui-motion-settle: 0ms;}
 
 /* PS153: rarity as a soft edge glow on the row in its colour, with a solid edge for epic and up; common and
    trash stay plain. The name keeps its kind colour (gear, usable, component), and the bitmap Gothic face takes
@@ -55,14 +55,14 @@
 :root:is([data-feel-ready="pulse"], [data-feel-ready="edge"]) #main_content :is(.ready-hub__row--near, .recipe_div[data-craft-state="near"]) {outline: 1px dashed color-mix(in srgb, var(--feel-near) 70%, transparent); outline-offset: -1px;}
 
 /* PS155: bars ease to their new value; a number that grows ticks up for a moment. */
-:root[data-feel-motion="on"] #main_content :is(#character_healthbar_current, #character_stamina_bar_current, #character_mana_bar_current, #character_xp_bar_current, .skill_bar_current, .meter-bar-fill) {
+:root:not([data-look-motion="reduce"]) #main_content :is(#character_healthbar_current, #character_stamina_bar_current, #character_mana_bar_current, #character_xp_bar_current, .skill_bar_current, .meter-bar-fill) {
     transition: width var(--ui-motion-settle) var(--ui-motion-ease);
 }
 @keyframes feel-tick-up {
     0% {color: var(--sem-gain, var(--ui-accent)); transform: translateY(var(--feel-tick-rise));}
     100% {transform: none;}
 }
-:root[data-feel-motion="on"] #main_content [data-feel-tick="up"], :root[data-feel-motion="on"] [data-feel-tick="up"] {display: inline-block; animation: feel-tick-up var(--ui-motion-settle) var(--ui-motion-ease) 1;}
+:root:not([data-look-motion="reduce"]) #main_content [data-feel-tick="up"], :root:not([data-look-motion="reduce"]) [data-feel-tick="up"] {display: inline-block; animation: feel-tick-up var(--ui-motion-settle) var(--ui-motion-ease) 1;}
 
 /* PS156: the page behind the panels follows the hour and weather. The panels keep their own fills. */
 :root[data-feel-light="dim"] {--feel-light-strength: .5;}

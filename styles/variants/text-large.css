@@ -1,0 +1,9 @@
+/* PS278: Display › Look › Text, Large. Loaded only when chosen (src/ui/variant.js). It replaces the Appearance
+   profile's body and small sizes with the bitmap face's next native strikes (16 and 14), so letters stay crisp. */
+:root, #main_content .customization-module, #main_content [style*="--custom-size"] {
+    --custom-size: 16px !important;
+    --custom-small-size: 14px !important;
+    --ui-type-body: 16px;
+    --ui-type-small: 14px;
+    --ui-type-title: 18px;
+}

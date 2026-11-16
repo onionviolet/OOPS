@@ -8,6 +8,24 @@ import {registerPanelSettings, getDisplaySetting, subscribeDisplaySettings} from
 // Each entry: id, label, choices [[value, label]], default, and the stylesheet per choice ('' loads none). A later look
 // choice registers here the same way.
 export const LOOK_OPTIONS = Object.freeze([
+    // PS266 presets (src/ui/look_presets.js applies them; changing any one choice reads as Custom).
+    Object.freeze({id: 'preset', label: 'Preset', default: 'classic',
+        choices: Object.freeze([['classic', 'Classic'], ['calm', 'Calm'], ['dense', 'Dense'], ['custom', 'Custom']]),
+        sheets: Object.freeze({classic: '', calm: '', dense: '', custom: ''}),
+        description: 'Classic is the original look. Calm uses spacing between rows, a still ready edge and dimmer light. Dense fits more rows with small text. Custom appears once you change any single choice.'}),
+    // PS278: accessibility rides the same registry.
+    Object.freeze({id: 'text', label: 'Text size', default: 'normal',
+        choices: Object.freeze([['normal', 'Normal'], ['large', 'Large']]),
+        sheets: Object.freeze({normal: '', large: 'styles/variants/text-large.css'}),
+        description: 'Large uses the next crisp size of the letters everywhere, in place of the Appearance size.'}),
+    Object.freeze({id: 'motion', label: 'Motion', default: 'full',
+        choices: Object.freeze([['full', 'Explaining motion'], ['reduce', 'Reduce motion']]),
+        sheets: Object.freeze({full: '', reduce: ''}),
+        description: 'Bars ease, gains tick up and ready rows pulse once. Reduce stops all of it; your system\'s reduce-motion setting and Effects off also stop it.'}),
+    Object.freeze({id: 'density', label: 'Density', default: 'comfortable',
+        choices: Object.freeze([['comfortable', 'Comfortable'], ['dense', 'Dense']]),
+        sheets: Object.freeze({comfortable: '', dense: 'styles/variants/dense.css'}),
+        description: 'Dense tightens rows and gaps and uses small text, so more fits on screen.'}),
     Object.freeze({id: 'rows', label: 'Row style', default: 'bordered',
         choices: Object.freeze([['bordered', 'Bordered'], ['spacing', 'Spacing']]),
         sheets: Object.freeze({bordered: '', spacing: 'styles/variants/ps217.css'}),

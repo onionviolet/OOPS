@@ -15,10 +15,10 @@ test('time-of-day light reads the weather light level, rain and roof', () => {
 
 test('every effect has its own Options row, a real default, and sound starts off', () => {
     const keys = FEEL_SETTINGS.map(s => s.key);
-    for (const k of ['glow', 'ready', 'motion', 'light', 'states', 'sound', 'yair']) assert(keys.includes(k), k);
+    for (const k of ['glow', 'ready', 'light', 'states', 'sound', 'yair']) assert(keys.includes(k), k);
     for (const s of FEEL_SETTINGS) assert(s.options.some(([v]) => v === s.default), s.key);
     assert.equal(FEEL_SETTINGS.find(s => s.key === 'sound').default, 'off');
     // Each toggle is real: the stylesheet keys every effect off its own attribute.
     const css = readFileSync(new URL('../styles/feel_finish.css', import.meta.url), 'utf8');
-    for (const a of ['data-feel-glow', 'data-feel-ready', 'data-feel-motion', 'data-feel-light', 'data-feel-states']) assert(css.includes(a), a);
+    for (const a of ['data-feel-glow', 'data-feel-ready', 'data-look-motion', 'data-feel-light', 'data-feel-states']) assert(css.includes(a), a);
 });

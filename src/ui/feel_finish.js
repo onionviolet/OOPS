@@ -2,12 +2,13 @@
 // shell already renders and the clock, and writes data-feel-* attributes and tokens that
 // styles/feel_finish.css draws. Nothing here changes the save, a mechanic or a game timer.
 // Every effect has its own row in Settings ("Feel and finish", stored per browser with the other
-// display settings, so reload, Export and Import keep it). Motion also obeys the save-level Effects
-// cap (data-effects) and the OS reduce-motion setting through the --ui-motion-* tokens.
+// display settings, so reload, Export and Import keep it). Reduce motion is a Look option (PS278); motion
+// also obeys the save-level Effects cap (data-effects) and the OS setting through the --ui-motion-* tokens.
 import {registerPanelSettings, getDisplaySetting, subscribeDisplaySettings} from '../display_settings.js';
 import {current_game_time} from '../game_time.js';
 import {get_current_light_level, is_raining} from '../weather.js';
 import {current_location} from '../runtime_state.js';
+import {mountLookPresets} from './look_presets.js';
 
 const ON_OFF = [['on', 'On'], ['off', 'Off']];
 export const FEEL_SETTINGS = [
@@ -15,8 +16,6 @@ export const FEEL_SETTINGS = [
         description: 'Uncommon and better items get a soft glow in their rarity colour, epic and up a solid edge; favourites get ☆ and worn gear ◆. Common items stay plain.'},
     {key: 'ready', label: 'Ready glow', default: 'pulse', options: [['pulse', 'Edge and one pulse'], ['edge', 'Edge only'], ['off', 'Off']],
         description: 'A row you can do now gets a ready edge, and pulses once when it becomes ready. One short of ready gets a dashed edge.'},
-    {key: 'motion', label: 'Motion', default: 'on', options: [['on', 'Explaining motion'], ['reduce', 'Reduce motion']],
-        description: 'Bars ease to their new value and a number that grows ticks up for a moment. Reduce stops all of it. Effects off, and your system\'s reduce-motion setting, also stop it.'},
     {key: 'light', label: 'Time-of-day light', default: 'on', options: [['on', 'On'], ['dim', 'Dim'], ['off', 'Off']],
         description: 'The page behind the panels follows the hour and the weather: brighter by day, deep at night, grey in rain, warm indoors.'},
     {key: 'states', label: 'Hover, pressed and focus', default: 'on', options: ON_OFF,
@@ -74,7 +73,7 @@ const lastValue = new WeakMap();
 function tick(node) {
     const value = firstNumber(node.textContent);
     const before = lastValue.get(node); lastValue.set(node, value);
-    if (value == null || before == null || !(value > before) || setting('motion') === 'reduce') return;
+    if (value == null || before == null || !(value > before) || getDisplaySetting('panel.look.motion') === 'reduce') return;
     node.removeAttribute('data-feel-tick'); void node.offsetWidth; node.setAttribute('data-feel-tick', 'up');
 }
 
@@ -140,7 +139,7 @@ function syncClassic(box) {
 let mounted = null;
 export function mountFeelFinish() {
     if (mounted || typeof document === 'undefined') return mounted;
-    applyFeelSettings(); paintDaylight();
+    applyFeelSettings(); paintDaylight(); mountLookPresets(); // PS266 presets; motion lives in Display › Look (PS278)
     const unsubscribe = subscribeDisplaySettings(() => { applyFeelSettings(); paintDaylight(); placeClassicOptions(); });
     let readyCount = null, queued = false;
     const sweep = () => {

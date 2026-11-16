@@ -1,0 +1,8 @@
+/* PS266: Display › Look › Density, Dense (the Dense preset). Loaded only when chosen. Rows and gaps tighten by
+   shrinking the one spacing unit every --ui-space-* step derives from, lines use the compact height, and body
+   text drops to the small strike. Columns stay put; boxes sized by their content get shorter. */
+:root, #main_content .customization-module, #main_content [style*="--custom-size"] {
+    --ui-space-unit: calc(var(--custom-size, var(--ui-type-body)) / 20) !important;
+    --ui-line-body: var(--ui-line-compact) !important;
+    --custom-size: 12px !important;
+}
