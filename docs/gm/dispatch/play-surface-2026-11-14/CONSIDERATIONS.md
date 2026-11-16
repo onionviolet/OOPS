@@ -813,3 +813,17 @@ Weibao: "What happend to the usual font? have we imlmented everything we wanted 
 | PS293 | **Captures carry the real font.** Default: every capture tree links `resources/fonts/private` (and the other private packs) from the primary checkout, the way the game MCP does. A capture without the font is redone before it is shown. |
 | PS294 | **A coherence review per slice.** Default: before a slice is reported, its capture sits beside a neighbouring box's capture, both at 1920×1080 with the font. A different spacing, border, type size or colour from the kit is fixed or named. The blind panel (PS228) runs once per wave across all features. |
 | PS295 | **Fewer choices on screen, more in presets.** Default: Display › Look shows the presets (Classic, Calm, Dense), and the single choices sit under "Customize". Classic is the original's look everywhere, the fight included. Reason: choices are welcome, but a page of switches is itself incoherent. |
+
+## Round 27, 2026-11-16: the fight drawn twice, empty space, and closing the wave
+
+Weibao: "make it a choice and then I can try both in the fuutre ⏎ I meant wasted space for the combat one, and the yellow bar combat with differing sizes? what happened to the original? also whats. with all the empty space? other aspects to consider? ⏎ Might be worth finishing everything here, commit push an merge, and then we can start ideaboarding after handing off all the rest ideas" ([log](../../USER_VISION_LOG_2026-11.md#finish-the-wave-then-ideaboard-2026-11-16)).
+
+| Code | Finding or proposal |
+| --- | --- |
+| PS296 | **The fight is drawn twice.** In the Infested field capture at bcc8a92f7, YAIR's own Opponent box sits at the top of column 2. Below it, our fight card draws "You" against "Wolf rat" again, with yellow bars of different widths, and the Opponent box has a blank band under its stats. The original is still there; our card was added beside it instead of replacing or folding into it. |
+| PS297 | **One fight view, YAIR's.** Default: in a native fight, the Opponent box is the fight, and our card keeps only the folded approach line and Withdraw. A tempo fight draws its fighters in the same Opponent-box form, with YAIR's hp bar (text inside), the attack bar beneath, equal widths and YAIR's colours. Combat's last slice of the wave. |
+| PS298 | **Boxes stop at their content in fights too.** The Opponent box and the actions box size to their rows, and by default the room left goes to Reports and the fight log rather than a blank band; reason: blank bands are what Weibao keeps noticing (PS203, PS211). |
+| PS299 | **The growing layout is a choice.** Display › Look › Customize › Layout: "Full" (default) or "Grows with the life" (PS216), so Weibao can try both later (PS264). |
+| PS300 | **One fight bar style.** Default: every fighter bar in the game, native or tempo, uses YAIR's bar: the same height, track, colour per meaning and the number inside. A new bar style needs a reason and a kit entry (PS244). |
+| PS301 | **A "drawn twice" check.** check:flow flags a screen where the same fighter, item or person appears in two boxes at once with the same facts, so a duplicate view is caught before a capture. |
+| PS302 | **Close a wave on purpose.** Default: a wave ends with every lane committing, writing its handover and stopping, then one gate and push, then the open ideas gathered into one handoff list before new ideas start. This is the round 27 close. |

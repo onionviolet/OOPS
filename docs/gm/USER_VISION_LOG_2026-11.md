@@ -1702,3 +1702,9 @@ Direction: a subtle capitalization quirk in player text is not a defect to fix b
 Weibao: "What happend to the usual font? have we imlmented everything we wanted to? Why is not everything coherent? I feel like the old combat UI was better and more coherentthen the On each card? more to consider? other aspects?"
 
 Direction read: the original combat screen is the default, and the newer fight views stay as choices (PS264). Saved as round 26 (PS285–PS295, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-26-2026-11-16-the-missing-font-coherence-and-the-old-combat-screen). The font finding is that the captures lost it, not the game.
+
+## Finish the wave, then ideaboard, 2026-11-16
+
+Weibao: "make it a choice and then I can try both in the fuutre ⏎ I meant wasted space for the combat one, and the yellow bar combat with differing sizes? what happened to the original? also whats. with all the empty space? other aspects to consider? ⏎ Might be worth finishing everything here, commit push an merge, and then we can start ideaboarding after handing off all the rest ideas"
+
+Direction: the growing layout ships as a Look choice with today's layout as default. The combat screen goes back to one fight view in YAIR's form. The wave closes with commits, a push and a handoff of every open idea, then ideaboarding starts. Saved as round 27 (PS296–PS302) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-27-2026-11-16-the-fight-drawn-twice-empty-space-and-closing-the-wave); the handoff is [HANDOFF.md](dispatch/play-surface-2026-11-14/HANDOFF.md).
