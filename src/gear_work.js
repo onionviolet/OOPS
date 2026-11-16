@@ -4,6 +4,7 @@ import {readGearComponentLineage, recoveredGearComponent, replaceGearComponentLi
 import {wearScale} from './gear_dimensions.js';
 import {quoteHeat, HEAT_WORLDS} from './heat_grades.js';
 import {energyCharge} from './energy_resources.js';
+import {getAffix, normalizeAffixes, rerollPool} from './gear_affixes.js';
 
 const round = n => Math.round(n * 10000) / 10000;
 const record = v => v && typeof v === 'object' && !Array.isArray(v);
@@ -16,13 +17,19 @@ export const GEAR_WORK_LAWS = Object.freeze({
     'base.frontier': Object.freeze({revision: 1, heatGrade: 2, heatLoad: 4, hotMinutes: 5,
         coldSoak: Object.freeze({below: 8, extraWear: 1, insulationPerWarmth: .7}),
         repairUnit: 20, fieldEfficiency: 0.5, salvageShare: 0.5, honingUses: 5,
+        // PS249 (proposal): reworking a mark is reworking metal. Default, dial, reason: the smith's control (skill and
+        // station) lifts the lowest share of an affix range a new mark can land in, by controlLift; metal still hot from
+        // heating lifts it by heatLift more; each earlier rework (reroll, reforge, hammer-back) fatigues the metal and
+        // lowers the best share by fatigueEach, to at most fatigueMax. A fresh mark stays soft for revertMinutes, so it
+        // can be hammered back to the old one for one more Charcoal, which is one more rework.
+        rework: Object.freeze({controlLift: .5, heatLift: .15, fatigueEach: .15, fatigueMax: .6, revertMinutes: 30}),
         roles: Object.freeze({grip: 'Handling through a held part', lining: 'Padding spreads a blow', coating: 'A shell spreads impact', setting: 'A fitted component carries its native modifiers'})}),
 });
 export const GEAR_ACTIONS = Object.freeze({
     attach: 'Attach material role', detach: 'Remove material role', heat: 'Heat workpiece',
     shape: 'Work hot metal', quench: 'Quench in oil', temper: 'Temper metal', finish: 'Finish the surface',
     refit: 'Refit the handling', hone: 'Improve through use', swap: 'Replace component',
-    reroll:'Reroll selected inscription',socket: 'Make rigid setting', reforge: 'Reforge craftsmanship', repair: 'Repair with material', fieldRepair: 'Field material repair', salvage: 'Dismantle for components',
+    reroll:'Reroll selected inscription',revert:'Hammer back the last inscription',socket: 'Make rigid setting', reforge: 'Reforge craftsmanship', repair: 'Repair with material', fieldRepair: 'Field material repair', salvage: 'Dismantle for components',
 });
 
 export function validateWork(value) {
@@ -112,6 +119,22 @@ export function gearWorkSourceRows(equipment, stat) {
         .filter(r => r.stat === stat).map(r => ({...r, label: `${r.label} (${item.getName()})`, includedInEquipment: true})));
 }
 
+const markWords = m => { const a = getAffix(m.id); return a ? `${a.name} ${a.operation === 'percent' ? `${Math.round(m.v * 1000) / 10}%` : m.v}` : m.id; };
+// PS249: the odds of a new mark, from the mechanism (law.rework). Returns the band [lo, hi] of each range a new value can
+// land in and one line per factor, in the words the preview shows.
+export function reworkOdds({work, control, hot, skill, station, law}) {
+    const rule = law.rework, pct = n => `${Math.round(n * 100)}%`;
+    const reworks = (work?.history || []).filter(r => ['reroll', 'reforge', 'revert'].includes(r.action)).length;
+    const fatigue = Math.min(rule.fatigueMax, reworks * rule.fatigueEach);
+    const lift = control * rule.controlLift, heat = hot ? rule.heatLift : 0;
+    const hi = round(1 - fatigue), lo = round(Math.min(hi, lift + heat));
+    return {band: [lo, hi], reworks, factors: [
+        {id: 'skill', label: `Forging ${skill} at a tier ${station} forge`, effect: `the worst a new mark can be is ${pct(lift)} of its range`},
+        {id: 'heat', label: hot ? 'The metal is still hot' : 'The metal is cold', effect: hot ? `lifts that by ${pct(heat)}` : 'no lift; heat it first and the mark takes better'},
+        {id: 'fatigue', label: reworks ? `Reworked ${reworks === 1 ? 'once' : `${reworks} times`} before` : 'Never reworked', effect: fatigue ? `the metal is tired, so the best a new mark can be is ${pct(hi)}` : 'the metal is fresh, so the top of the range is open'},
+    ]};
+}
+
 // Key itself owns the completed processes. Host binds the instance ID before
 // execution; factory decoding validates the record and preserves the exact key.
 export function quoteGearWork({request, inventory, templates, maker, condition = 100, cap = 100, uses = 0, clock, law = GEAR_WORK_LAWS[maker.world]}) {
@@ -181,7 +204,21 @@ export function quoteGearWork({request, inventory, templates, maker, condition =
         if(!target||target.s==='mechanism')return block('Select an existing rolled inscription; material-derived affixes require changing the component.');
         if(skill<3)return block('Inscription isolation needs Forging 3 to preserve neighboring marks.');
         const ingot=JSON.stringify({id:'Iron ingot'}),fuel=JSON.stringify({id:'Charcoal'});take(ingot);take(fuel);
-        summary=`Re-inscribe ${target.id}. One Iron ingot and one Charcoal are consumed. Other affixes stay fixed; the replacement resolves from the saved craft stream at commitment.`;
+        const odds=reworkOdds({work,control,hot,skill,station:maker.station,law});
+        const rarity=item.getRarity?.()??'common',pool=rerollPool({list:key.affixes,id:target.id,rarity,band:odds.band});
+        if(!pool.length)return block('No other inscription fits beside the marks this item keeps.');
+        q.preview={kind:'reroll',target:{...target,name:getAffix(target.id)?.name||target.id},stays:key.affixes.filter(a=>a.id!==target.id).map(a=>({...a,name:getAffix(a.id)?.name||a.id})),
+            quality:item.quality,parts:Object.values(item.components),history:work.history.length,band:odds.band,factors:odds.factors,pool};
+        summary=`Re-inscribe ${q.preview.target.name}. One Iron ingot and one Charcoal are consumed. Other affixes stay fixed; the new mark lands between ${Math.round(odds.band[0]*100)}% and ${Math.round(odds.band[1]*100)}% of its range.`;
+    } else if(action==='revert'){
+        const last=work.history.at(-1),rule=law.rework;
+        if(last?.action!=='reroll'||!last.affix?.from||!last.affix?.to)return block('Only a fresh inscription can be hammered back; the last work on this item was not a reroll.');
+        if(clock-last.at>rule.revertMinutes)return block(`The mark has set. A fresh one can be hammered back only within ${rule.revertMinutes} played minutes.`);
+        if(!key.affixes?.some(a=>a.id===last.affix.to.id))return block('The fresh mark is no longer on this item.');
+        if(skill<3)return block('Hammering a mark back needs Forging 3 to spare the marks beside it.');
+        take(JSON.stringify({id:'Charcoal'}));
+        key.affixes=normalizeAffixes([...key.affixes.filter(a=>a.id!==last.affix.to.id),last.affix.from]);
+        summary=`Hammer back ${markWords(last.affix.to)} to ${markWords(last.affix.from)}. One Charcoal reheats the metal, and the metal takes one more rework.`;
     } else if (action === 'reforge') {
         if(!properties || !chosen?.tags.component || !parts.some(p=>p.material_family===chosenTemplate.material_family)) return block('Select a component whose material family can support this reforge.');
         const target=Math.max(item.quality,Math.min(250,Math.round((item.quality*2+(chosen.quality??100)+skill*2+maker.station*5)/3)));

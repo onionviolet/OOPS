@@ -61,7 +61,7 @@ export function learningNowView(owner, readers, now) {
     const up = levelUps.get(owner), upFresh = up && readers.visible(up.skillId) && (!finite || now - up.at <= NOW_WINDOW);
     return {now: rows.filter(fresh).sort(order).map(r => ({...r, rate: rate(r), from: from(r)})), earlier: rows.filter(r => !fresh(r)).sort(order),
         // PS168: a quiet skill whose known gate is shut says the cause after the observation (practice_causes.js).
-        practice: why.length ? [`${active.label}: no ${why.join(', ')} XP since you started.`, ...practiceCauseLines(quiet.filter(id => !readers.capped?.(id)), readers.practiceFacts?.(active) ?? {}, readers.name)].join(' ') : '',
+        practice: why.length ? [`${active.label}: no ${why.length > 1 ? `${why.slice(0, -1).join(', ')} or ${why.at(-1)}` : why[0]} XP since you started.`, ...practiceCauseLines(quiet.filter(id => !readers.capped?.(id)), readers.practiceFacts?.(active) ?? {}, readers.name)].join(' ') : '',
         levelUp: upFresh ? `${readers.name(up.skillId)} reached ${up.level}` : ''};
 }
 

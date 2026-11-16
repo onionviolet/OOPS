@@ -21,7 +21,7 @@ test('the practice line names a chosen practice that has given its skill nothing
     const owner = {}, node = {isConnected: true};
     notePractice('fishing', ['Fishing', 'Old', 'Hidden'], node, 0);
     assert.equal(learningNowView(owner, readers, 10).practice, '', 'too soon to say');
-    assert.equal(learningNowView(owner, readers, 40).practice, 'fishing: no Fishing, Old (at its highest level) XP since you started.');
+    assert.equal(learningNowView(owner, readers, 40).practice, 'fishing: no Fishing or Old (at its highest level) XP since you started.');
     recordLearning(owner, 'Fishing', 1);
     assert.equal(learningNowView(owner, readers, 45).practice, 'fishing: no Old (at its highest level) XP since you started.');
     node.isConnected = false;
@@ -49,8 +49,8 @@ test('the practice line adds the known cause when a quiet skill\'s gate is shut 
     notePractice('sparring', ['Iron skin', 'Combat'], node, 0);
     const worn = {...readers, practiceFacts: () => ({wearingArmor: true})};
     assert.equal(learningNowView(owner, worn, 40).practice,
-        'sparring: no Iron skin, Combat XP since you started. Iron skin: your armour takes the hits it learns from.');
+        'sparring: no Iron skin or Combat XP since you started. Iron skin: your armour takes the hits it learns from.');
     const bare = {...readers, practiceFacts: () => ({wearingArmor: false})};
-    assert.equal(learningNowView(owner, bare, 41).practice, 'sparring: no Iron skin, Combat XP since you started.', 'no known cause, no guess');
+    assert.equal(learningNowView(owner, bare, 41).practice, 'sparring: no Iron skin or Combat XP since you started.', 'no known cause, no guess');
     node.isConnected = false;
 });

@@ -2,6 +2,7 @@
 // given, never the global document (MDL13). Every mark has words beside it (UR37): the band is a word,
 // a delta is "+2 better", an unknown facet reads "Unknown to you", never zero. The tilde mark is reserved for a guess (shared with the sheet grammar). Roles, not looks, are named in
 // data attributes so a later motif pack can restyle them (item 20).
+import {renderReforgePreview} from './reforge_preview.js';
 const el = (doc, tag, cls, text) => { const n = doc.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const GLYPH = {better: '▲', worse: '▼', same: '＝'};
 
@@ -71,6 +72,15 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
         const ul = el(doc, 'ul');
         for (const v of model.verbs) { const li = el(doc, 'li', null, `${v.label} · ${v.where}`); li.dataset.verb = v.id; ul.append(li); }
         sec.append(ul); root.append(sec);
+    }
+    // PS249: the reroll gamble, drawn from the Gear workshop's quote; paying happens at the bench, never from the sheet.
+    if (model.reforge) {
+        const sec = el(doc, 'section', 'item-card-reforge'); sec.dataset.role = 'reforge';
+        sec.append(el(doc, 'h4', null, 'Reroll a mark'));
+        if (model.reforge.preview) sec.append(renderReforgePreview(doc, model.reforge.preview, {known: model.reforge.known, cost: model.reforge.cost}));
+        else sec.append(el(doc, 'p', 'ui-disabled-reason', model.reforge.reason));
+        if (model.reforge.open) { const b = el(doc, 'button', null, 'Reroll at the bench'); b.type = 'button'; b.dataset.reforgeOpen = ''; b.onclick = model.reforge.open; sec.append(b); }
+        root.append(sec);
     }
     if (model.value && model.facets.value === 'known') root.append(el(doc, 'p', 'item-card-worth', `Worth ${model.value}`));
     host.replaceChildren(root);

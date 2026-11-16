@@ -82,7 +82,9 @@ export function mechanismAffixes(parts, rarity, gearClass = 'armor') {
 
 // Random rolls. `random` is injected (a seeded draw in the game, a fixed list in tests), called
 // in a fixed order: one draw per pick, one for the value. Exclusive sets already used are skipped.
-export function rollAffixes({rarity, gearClass = 'armor', random, dial = DEFAULT_AFFIX_DIAL, counts = AFFIX_COUNT_BY_RARITY, taken = []}) {
+// `band` = [lo, hi], the share of each range a value can land in (PS249: the smith's control lifts lo, worked metal's
+// fatigue lowers hi). The default [0, 1] is the whole range, the same draws as before.
+export function rollAffixes({rarity, gearClass = 'armor', random, dial = DEFAULT_AFFIX_DIAL, counts = AFFIX_COUNT_BY_RARITY, taken = [], band = [0, 1]}) {
     if (!dial.randomRolls) return [];
     const picked = [...taken];
     const chosen = [];
@@ -99,7 +101,8 @@ export function rollAffixes({rarity, gearClass = 'armor', random, dial = DEFAULT
             if (remaining < 0) { affix = candidate; break; }
         }
         const [min, max] = affixRange(affix, rarity);
-        const entry = {id: affix.id, v: round(min + (max - min) * random()), s: 'roll'};
+        const share = band[0] + (band[1] - band[0]) * random();
+        const entry = {id: affix.id, v: round(min + (max - min) * share), s: 'roll'};
         chosen.push(entry);
         picked.push(entry);
     }
@@ -192,9 +195,22 @@ export function affixedCraftEntries({parsedKey, crafted, rarityOf, partsOf, rand
 
 // Re-inscribe one selected rolled affix. Material-derived affixes belong to the
 // underlying component and must be changed by changing that component.
-export function rerollSelectedAffix({list,id,rarity,random}){
+export function rerollSelectedAffix({list,id,rarity,random,band}){
  const selected=list?.find(a=>a.id===id);if(!selected||selected.s==='mechanism')throw Error('Choose an existing rolled inscription; material affixes follow their components.');
- const kept=list.filter(a=>a.id!==id),picked=rollAffixes({rarity,random,taken:kept,counts:{[rarity]:1}});
+ const kept=list.filter(a=>a.id!==id),picked=rollAffixes({rarity,random,taken:kept,counts:{[rarity]:1},band});
  if(picked.length!==1)throw Error('No compatible inscription fits beside the retained affixes.');
  return normalizeAffixes([...kept,...picked]);
+}
+
+// PS249: what a reroll can draw, before any draw. The pool and weights rollAffixes uses for one pick beside `kept`,
+// each with its chance and the value span the band allows. Pure; the same pool the commit draws from.
+export function rerollPool({list, id, rarity, band = [0, 1], gearClass = 'armor'}) {
+    const kept = (list || []).filter(a => a.id !== id);
+    const sets = new Set(kept.map(p => getAffix(p.id)?.exclusive).filter(Boolean));
+    const pool = AFFIXES.filter(a => a.gearClass.includes(gearClass) && !kept.some(p => p.id === a.id) && !(a.exclusive && sets.has(a.exclusive)));
+    const total = pool.reduce((sum, a) => sum + a.weight, 0);
+    return pool.map(a => {
+        const [min, max] = affixRange(a, rarity);
+        return {id: a.id, name: a.name, chance: round(a.weight / total), lo: round(min + (max - min) * band[0]), hi: round(min + (max - min) * band[1]), min, max};
+    });
 }

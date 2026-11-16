@@ -1,6 +1,8 @@
 import {definePanel} from './panel_kit.js';
 import {GEAR_ACTIONS} from './gear_work.js';
 import {panelSection,labelControl,quotedActionList} from './ui/panel_sections.js';
+import {getAffix} from './gear_affixes.js';
+import {renderReforgePreview,renderReforgeResult} from './ui/reforge_preview.js';
 const el = (tag, text) => {const n = document.createElement(tag); if(text != null) n.textContent = text; return n;};
 const labels = {attack_points:'Attack precision',cold_tolerance:'Cold tolerance',crit_resistance:'Critical resistance',damage_taken:'Damage taken',min_damage_share:'Minimum share of a hit',stamina_efficiency:'Stamina efficiency',attack_speed:'Attack speed',attack_power:'Attack power'};
 const select = label => {const n = el('select'); n.setAttribute('aria-label', label); return n;};
@@ -11,13 +13,14 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
     const affix=select('Inscription to reroll');
     const focus = select('Process control');
     focus.append(choice('', 'Work by hand'), choice('focus', 'Use measured focus for precision'));
-    const inspect = el('div'), details = el('div'), notice = el('p'), run = el('button', 'Apply quoted process'), hides = el('div');
+    const inspect = el('div'), details = el('div'), notice = el('p'), run = el('button', 'Apply quoted process'), hides = el('div'), outcome = el('div');
+    let fresh = null; // PS249: the mark just struck, shown old beside new until kept or hammered back
     panel.classList.add('ui-workbench');
     const subject=panelSection('1 · Current item'), process=panelSection('2 · Plan the change'), review=panelSection('3 · Quoted change and cost');
     const subjectFields=el('div'),processFields=el('div');subjectFields.className=processFields.className='ui-field-grid';
     subjectFields.append(labelControl(maker,'Maker'),labelControl(items,'Carried equipment'));
     processFields.append(labelControl(action,'Process'),labelControl(material,'Material'),labelControl(role,'Material role'),labelControl(slot,'Component to replace'),labelControl(focus,'Process control'),labelControl(affix,'Inscription to reroll'));
-    subject.body.append(subjectFields,inspect);process.body.append(processFields);review.body.append(details,run);
+    subject.body.append(subjectFields,inspect);process.body.append(processFields);review.body.append(details,run,outcome);
     run.type = 'button'; run.dataset.gearCommit = ''; notice.setAttribute('role', 'status');
     panel.append(el('h2', 'Gear workshop'), el('p', 'Work on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.'),
         subject.node,process.node,review.node,notice,hides);
@@ -48,7 +51,7 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
             const history = item.work?.history || [];
             if(history.length) {const h = el('details'), summary = el('summary', `Work history (${history.length})`); h.append(summary); for(const r of history) h.append(el('p', `${r.action} · ${r.maker} · ${r.location} · game minute ${r.at}`)); inspect.append(h);}
         } else inspect.append(el('p',view.rows.length?'Select a carried item to inspect its condition, materials and existing work.':'No component-built gear is carried. This bench works on weapons, shields and assembled armor with replaceable parts. Simple clothing has no such parts here. Unequip suitable worn gear in Inventory first.'));
-        const a = action.value;affix.hidden=a!=='reroll';fill(affix,(item?.affixes||[]).filter(a=>a.s!=='mechanism').map(a=>[a.id,`${a.id}: ${a.v}`]),'Choose rolled inscription');
+        const a = action.value;affix.hidden=a!=='reroll';fill(affix,(item?.affixes||[]).filter(a=>a.s!=='mechanism').map(a=>[a.id,`${getAffix(a.id)?.name||a.id} ${a.v}`]),'Choose rolled inscription');
         focus.hidden = !view.focusKnown || !['quench','temper'].includes(a) || maker.value !== 'player';
         if(focus.hidden) focus.value = '';
         material.hidden = !['attach','swap','repair','fieldRepair','quench','socket','reforge'].includes(a);
@@ -64,15 +67,28 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
         hides.replaceChildren(local.node,treatments.node);
         for(const n of hides.querySelectorAll('details'))if(openGroups.has(n.dataset.actionGroup||n.dataset.workshopSection))n.open=true;
         if(focused)[...hides.querySelectorAll('[data-quoted-action]')].find(n=>n.dataset.quotedAction===focused)?.focus({preventScroll:true});
-        if(q.eligible) for(const row of q.spend.slice(1)) details.append(el('p', `Consumes ${view.materials.find(m => m.key === row.key)?.name || JSON.parse(row.key).id} ×${row.count}`));
+        const costRows=q.eligible?q.spend.slice(1).map(row=>({name:view.materials.find(m => m.key === row.key)?.name || JSON.parse(row.key).id,count:row.count})):[];
+        if(q.eligible&&q.preview) details.append(renderReforgePreview(document,q.preview,{cost:costRows}));
+        else for(const row of costRows) details.append(el('p', `Consumes ${row.name} ×${row.count}`));
+        outcome.replaceChildren();
+        if(fresh&&view.rows.some(r=>r.key===fresh.key)){
+            const back=quote({maker:maker.value||'player',action:'revert',key:fresh.key});
+            outcome.append(renderReforgeResult(document,{from:fresh.from,to:fresh.to,revertReason:back.eligible?'':back.reason,revertCost:'1 Charcoal',
+                onKeep:()=>{fresh=null;notice.textContent='You keep the new mark.';signature='';render();},
+                onRevert:()=>{try{const r=execute(back);notice.textContent=r.summary;fresh=null;items.value=r.resultKey;}catch(e){notice.textContent=e.message;}signature='';render();}}));
+        } else fresh=null;
     }
     for(const input of [maker, items, action, material, role, slot, focus,affix]) input.onchange = () => {signature = ''; render();};
     run.onclick = () => {
-        try {const result = execute(q); notice.textContent = result.summary; signature = ''; render(); if(result.resultKey) {items.value = result.resultKey; render();}}
+        try {const result = execute(q); notice.textContent = result.summary;
+            const last=result.resultKey&&result.reroll?JSON.parse(result.resultKey).gearwork?.history?.at(-1)?.affix:null;fresh=last?{key:result.resultKey,...last}:null;
+            signature = ''; render(); if(result.resultKey) {items.value = result.resultKey; signature=''; render();}}
         catch(error) {notice.textContent = error.message; signature = ''; render();}
     };
     definePanel({id: 'gear-workshop', title: 'Gear workshop', role: 'actions', node: panel,
         home: document.getElementById('main_content'), defaultDock: 'center', discovered: () => read().discovered,
         eligible: () => read().discovered, unavailableReason: () => 'Visit a native forging station to work on gear.'});
-    render(); return {render};
+    // PS249: the item sheet opens the bench on its item with Reroll chosen.
+    const focusReroll=(key,id)=>{signature='';render();items.value=key;action.value='reroll';signature='';render();if(id){affix.value=id;signature='';render();}};
+    render(); return {render,focusReroll};
 }

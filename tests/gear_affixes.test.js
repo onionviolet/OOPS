@@ -120,3 +120,13 @@ test('affixes on real armor: key round trip, pipeline totals and a source row pe
     assert.deepEqual(character.getStats().flat.affixes, {});
     assert.deepEqual(character.getStats().multiplier.affixes, {});
 });
+
+test('PS249: the default band draws exactly as before; a band narrows the value', async () => {
+    const {rerollSelectedAffix, rollAffixes, getAffix, affixRange} = await import('../src/gear_affixes.js');
+    const seq = () => { const xs = [.3, .4]; let i = 0; return () => xs[i++ % xs.length]; };
+    const list = [{id: 'armor.nimble', v: .02, s: 'roll'}];
+    assert.deepEqual(rerollSelectedAffix({list, id: 'armor.nimble', rarity: 'rare', random: seq()}), rerollSelectedAffix({list, id: 'armor.nimble', rarity: 'rare', random: seq(), band: [0, 1]}));
+    const [top] = rollAffixes({rarity: 'common', random: () => .999, counts: {common: 1}, band: [.5, .6]});
+    const [min, max] = affixRange(getAffix(top.id), 'common');
+    assert.ok(top.v >= min + (max - min) * .5 - .001 && top.v <= min + (max - min) * .6 + .001, `${top.id} ${top.v} inside the band`);
+});

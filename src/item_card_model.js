@@ -42,7 +42,7 @@ function statRows(item, baseline, quality, hasWorn) {
 
 // PS248: the affixes as the life knows them. Read stats: the value and the range this rarity rolls in ("+2, rolls 1–3").
 // Stats unread: one "?" row per affix, so the reader knows something is there to learn (PS236), never a zero.
-const affixWords = (a, v) => a.operation === 'percent' ? `${Math.round(v * 1000) / 10}%` : String(v);
+export const affixWords = (a, v) => a.operation === 'percent' ? `${Math.round(v * 1000) / 10}%` : String(v);
 function affixRows(item, rarity, known) {
     return (item.affixes || []).map(e => {
         const a = getAffix(e.id);

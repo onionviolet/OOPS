@@ -238,6 +238,26 @@ test('selected inscription reroll preserves neighboring affixes and copy identit
  n.validateWorkshopEnvelope({inventories:{player:{[result.resultKey]:{count:1}}}});
 });
 
+test('PS249: a reroll shows its odds before paying, lands inside them, and a fresh mark can be hammered back while soft',async()=>{
+ const f=await fixture(),{n,actor,items}=f;f.ports.random=()=>.5;n.configureGearWorkshop(f.ports);f.setSkill(4);
+ const data=JSON.parse(n.item_templates['Steel chainmail armor'].getInventoryKey());data.quality=150;data.affixes=[{id:'armor.nimble',v:.02,s:'roll'},{id:'armor.vital',v:.03,s:'roll'}];const armor=JSON.stringify(data);actor.addToInventory([{item_key:armor,count:1}]);
+ const q=n.quoteWorkshop({action:'reroll',key:armor,affix:'armor.nimble'}),p=q.preview;assert.equal(q.eligible,true,q.reason);
+ // Forging 4 at a tier 1 forge: control .25 lifts the worst share to 12.5%; cold metal adds nothing; fresh metal keeps the top open.
+ assert.deepEqual(p.band,[.125,1]);assert.deepEqual(p.stays.map(a=>a.id),['armor.vital']);assert.equal(p.target.name,'Nimble');
+ assert.ok(!p.pool.some(a=>a.id==='armor.vital'),'a kept mark is not drawn again');
+ assert.ok(Math.abs(p.pool.reduce((s,a)=>s+a.chance,0)-1)<.01);assert.deepEqual(p.factors.map(x=>x.id),['skill','heat','fatigue']);
+ const k1=n.executeWorkshop(q).resultKey,row=JSON.parse(k1).gearwork.history.at(-1).affix;
+ assert.deepEqual(row.from,data.affixes[0]);const landed=p.pool.find(a=>a.id===row.to.id);assert.ok(landed&&row.to.v>=landed.lo&&row.to.v<=landed.hi,'the mark lands inside the quoted span');
+ // Hammer back within the soft window: the old mark returns, one Charcoal is spent, and the metal counts one more rework.
+ const coal=items[key('Charcoal')].count,back=n.quoteWorkshop({action:'revert',key:k1});assert.equal(back.eligible,true,back.reason);
+ const k2=n.executeWorkshop(back).resultKey;assert.deepEqual(JSON.parse(k2).affixes.find(a=>a.id==='armor.nimble'),data.affixes[0]);assert.equal(items[key('Charcoal')].count,coal-1);
+ assert.match(n.quoteWorkshop({action:'revert',key:k2}).reason,/not a reroll/);
+ assert.deepEqual(n.quoteWorkshop({action:'reroll',key:k2,affix:'armor.nimble'}).preview.band,[.125,.7],'two reworks tire the metal');
+ const k3=n.executeWorkshop(n.quoteWorkshop({action:'reroll',key:k2,affix:'armor.nimble'})).resultKey;f.setClock(100+31);
+ assert.match(n.quoteWorkshop({action:'revert',key:k3}).reason,/has set/);
+ n.validateWorkshopEnvelope({inventories:{player:{[k3]:{count:1}}}});
+});
+
 test('a traced axe keeps its fitted parts through swap and degrades the exact removed cohorts', async () => {
  const f = await fixture(), {n, actor, items, run} = f;
  const traced = (id, family, quality, parent) => planProcessedMaterial({

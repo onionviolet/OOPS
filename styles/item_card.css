@@ -12,10 +12,23 @@
 .item-card-rows {width:100%;border-collapse:collapse;}
 .item-card-rows th {text-align:left;font-weight:normal;padding:var(--ui-space-1) var(--ui-space-2) var(--ui-space-1) 0;}
 .item-card-value {font-variant-numeric:tabular-nums;text-align:right;padding:var(--ui-space-1) var(--ui-space-4);}
-.item-card-delta {white-space:nowrap;}
+.item-card-delta {white-space:normal;}
 .item-card-row[data-direction="better"] .item-card-delta {color:var(--p23-gain, inherit);}
 .item-card-row[data-direction="worse"] .item-card-delta {color:var(--p23-loss, inherit);}
 .item-card-row[data-direction="same"] .item-card-delta {color:var(--p23-muted, inherit);}
 .item-card-trail h4 {margin:0 0 var(--ui-space-1);font-size:var(--ui-type-small);color:var(--p23-muted, inherit);font-weight:normal;}
 .item-card-trail ol {margin:0;padding-left:var(--ui-space-6);}
 [data-effects="off"] .item-card *,[data-effects="reduced"] .item-card * {transition:none;animation:none;}
+/* PS249: the reroll gamble (before you pay) and the old and new marks side by side. Rows are kit rows (src/ui/kit.js);
+   only the grouping and the pair are drawn here, in the kit vocabulary. Shared by the sheet and the Gear workshop. */
+.reforge-preview,.item-card {min-width:0;grid-template-columns:minmax(0,1fr);}
+.reforge-preview {display:grid;gap:var(--kit-gap-2);}
+.reforge-preview h4 {margin:0;}
+.reforge-preview__stays,.reforge-preview__rolled,.reforge-preview__odds {display:grid;gap:var(--kit-gap-1);}
+.reforge-preview__rolled p {margin:0;}
+.reforge-result {display:grid;gap:var(--kit-gap-2);margin-top:var(--kit-gap-2);}
+.reforge-result__pair {display:grid;grid-template-columns:1fr 1fr;gap:var(--kit-gap-2);}
+.reforge-result__side {display:grid;gap:var(--kit-gap-1);padding:var(--kit-gap-2);border:var(--kit-border) solid var(--ui-muted);}
+.reforge-result__side[data-side="after"] {border-color:var(--ui-accent);}
+.reforge-result__label {font-size:var(--ui-type-small);color:var(--ui-muted);}
+.reforge-result__actions {display:grid;gap:var(--kit-gap-1);}

@@ -10,6 +10,7 @@ import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {toolsState, setToolsState, maxCondition, rekeyToolFacts} from './tools_domain.js';
 import {quoteGearWork, validateWork, materialProperties, GEAR_WORK_LAWS, coldSoakNeed} from './gear_work.js';
 import {createGearWorkshopPanel} from './gear_workshop_panel.js';
+import {expandWorkspaceModule} from './workspace_layout.js';
 import {HIDE_TREATMENTS, quoteHideTreatment, samePreparationQuote} from './material_treatment.js';
 import {applyEnergyEffect} from './energy_resources.js';
 
@@ -67,7 +68,10 @@ export function executeWorkshop(quoted) {
                 let draw=0;
                 data.affixes=createAffixes({parts:{internal:ports.templates[data.components.internal],external:ports.templates[data.components.external]},rarity:ports.itemFactory(JSON.stringify(data)).getRarity(),random:()=>ports.random(`gear.reforge:${data.e2_instance}:${data.gearwork.history.length}:${draw++}`)});
             }
-            if(q.reroll){let draw=0;data.affixes=rerollSelectedAffix({list:data.affixes,id:q.reroll,rarity:input.getRarity(),random:()=>ports.random(`gear.inscription:${data.e2_instance}:${data.gearwork.history.length}:${draw++}`)});}
+            if(q.reroll){let draw=0;const from=data.affixes.find(a=>a.id===q.reroll),others=new Set(data.affixes.filter(a=>a.id!==q.reroll).map(a=>a.id));data.affixes=rerollSelectedAffix({list:data.affixes,id:q.reroll,rarity:input.getRarity(),band:q.preview?.band,random:()=>ports.random(`gear.inscription:${data.e2_instance}:${data.gearwork.history.length}:${draw++}`)});
+                // PS249: the row keeps the old and new mark, so a fresh one can be hammered back while it is soft.
+                const to=data.affixes.find(a=>!others.has(a.id));
+                data.gearwork.history[data.gearwork.history.length-1].affix={from:{...from},to:{...to}};}
             resultKey = JSON.stringify(data);
             // Decode and validate BEFORE removing any item. No lost custody if
             // an authored replacement cannot construct a real native item.
@@ -146,6 +150,8 @@ export function projectWorkshop() {
         repairer:Object.entries(MENDER_ACTIONS).filter(([id])=>id==='lesson'?!ports.root?.().actors.player.facts['mender.methodsKnown']:id==='shift'?!ports.root?.().actors.player.facts['mender.repairShift']:id==='advance'?!ports.root?.().actors.player.sources['frontier.mender.fitted']:true).flatMap(([id,label])=>['tool','advance','fine'].includes(id)?['smoked','oiled'].map(route=>({id:id+':'+route,label:label+' · '+route+' lot',quote:quoteRepairer(id+':'+route)})):[{id,label,quote:quoteRepairer(id)}]),
         hides: Object.entries(HIDE_TREATMENTS).map(([id, t]) => ({id, label: t.label, note: t.note, quote: quoteHide(id)}))};
 }
+// PS249: the item sheet's "Reroll at the bench" opens this panel on that item with Reroll chosen.
+function openReroll(key, id) { expandWorkspaceModule('gear-workshop'); panel?.focusReroll(key, id); }
 export function validateWorkshopEnvelope(envelope) {
     // Native inventories, equipment and NPC inventories all keep the same key.
     // Other domains still validate their own keys. Only inspect our marker.
@@ -169,6 +175,6 @@ export function validateWorkshopEnvelope(envelope) {
 }
 registerDomain({id: 'gear_workshop', initialState: () => null,
     ownsItemKey: keyHasWork, validate: (_, envelope) => validateWorkshopEnvelope(envelope),
-    commands: {quote: quoteWorkshop, execute: executeWorkshop, quoteHide, executeHide}, projection: projectWorkshop,
+    commands: {quote: quoteWorkshop, execute: executeWorkshop, quoteHide, executeHide, openReroll}, projection: projectWorkshop,
     refresh: () => panel?.render(), panels: [() => {panel = createGearWorkshopPanel({read: projectWorkshop, quote: quoteWorkshop, execute: executeWorkshop, prepareHide: executeHide,repairer:executeRepairer});}],
 });

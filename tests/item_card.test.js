@@ -59,3 +59,20 @@ test('PS248: the sheet reads affixes as the life knows them and lists where the 
     assert.match(root.textContent, /In its make.*Reinforced: Defense \+2, rolls 1\.5–4\.5/);
     assert.match(root.textContent, /Where it can go.*Repair · at the Gear workshop/);
 });
+
+test('PS249: the sheet draws the workshop reroll preview, with "?" spans when the make is unread, and opens the bench', () => {
+    const preview = {kind: 'reroll', target: {id: 'armor.nimble', v: .02, name: 'Nimble'}, stays: [{id: 'armor.vital', v: .03}], quality: 150, parts: [], history: 0,
+        band: [.125, 1], factors: [{id: 'skill', label: 'Forging 4 at a tier 1 forge', effect: 'the worst a new mark can be is 13% of its range'}],
+        pool: [{id: 'armor.reinforced', name: 'Reinforced', chance: .5, lo: 1.5, hi: 4.5, min: 1.5, max: 4.5}]};
+    let opened = 0;
+    const dom = createDom(); dom.loadHTML('<html><body></body></html>'); globalThis.document = dom.document; // the kit draws with the global document
+    const m = {...model('affixed'), reforge: {preview, known: false, cost: [{name: 'Iron ingot', count: 1}], open: () => opened++}};
+    const host = draw(m), sec = host.querySelector('[data-role="reforge"]');
+    assert.match(sec.textContent, /Stays.*Vital 3%/s);
+    assert.match(sec.textContent, /Rerolled: Nimble 2%/);
+    assert.match(sec.querySelector('.kit-row[data-affix="armor.reinforced"]').textContent, /50% chance · lands \?/);
+    assert.match(sec.textContent, /Costs 1 Iron ingot.*paid whatever lands/s);
+    sec.querySelector('[data-reforge-open]').click(); assert.equal(opened, 1);
+    const refused = draw({...model('affixed'), reforge: {preview: null, reason: 'A local crafting station is needed for this process.', open: null}});
+    assert.match(refused.querySelector('[data-role="reforge"]').textContent, /crafting station is needed/);
+});
