@@ -99,3 +99,4 @@
 .versus-numbers .versus-was {text-decoration: line-through; color: var(--versus-muted);}
 .versus-last {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--versus-muted); font-style: italic;}
 .fight-situation-whole > summary {cursor: pointer; font-size: var(--ui-type-small);}
+.fight-situation-foot {grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ui-space-2) var(--ui-space-3); padding-top: var(--ui-space-2); border-top: var(--ui-space-hairline) solid var(--versus-line);}

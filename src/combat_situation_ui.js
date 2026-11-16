@@ -118,14 +118,22 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             }
         } else if (t.yourTurn) {
             // PS207: the five moves you use most stay on the face of the card; the rest fold under "More moves", in their usual order.
-            const use = moveUse(), rows = [...card.querySelectorAll('.scene-card-option')].filter(row => !/^(run|handover|wait)$/.test(row.querySelector('button[data-fight-option]')?.dataset.fightOption || ''));
-            if (rows.length > FOLD_AT) {
+            const use = moveUse(), rows = [...card.querySelectorAll('.scene-card-option')].filter(row => !/^(run|handover|wait|withdraw)$/.test(row.querySelector('button[data-fight-option]')?.dataset.fightOption || ''));
+            if (rows.length > FOLD_AT + 1) { // folding a single move would cost a click to save one row
                 const key = row => { const id = row.querySelector('button[data-fight-option]')?.dataset.fightOption || ''; return id.startsWith('order:') ? id.split(':').slice(0, 2).join(':') : id; };
                 const keep = new Set(rows.map((row, i) => ({row, i, n: use[key(row)] || 0})).sort((a, b) => b.n - a.n || a.i - b.i).slice(0, FOLD_AT).map(x => x.row));
                 const rest = rows.filter(row => !keep.has(row));
                 const more = document.createElement('details'); more.className = 'fight-situation-more'; more.dataset.fightMore = 'moves';
                 const sum = document.createElement('summary'); sum.textContent = `More moves (${rest.length})`;
                 rows.at(-1).after(more); more.append(sum, ...rest);
+            }
+            // PS147, D6: leaving and handing over hold still: Fight on, the hand-over and Back away sit in one row at the foot of the moves,
+            // in a fixed order, whatever else folds or moves above them.
+            const footRows = ['run', 'handover', 'withdraw'].map(id => card.querySelector(`.scene-card-option button[data-fight-option="${id}"]`)?.closest('.scene-card-option')).filter(Boolean);
+            if (footRows.length) {
+                const foot = document.createElement('div'); foot.className = 'fight-situation-foot'; foot.dataset.fightFoot = '';
+                const last = [...card.querySelectorAll('.scene-card-option, [data-fight-more="moves"]')].filter(e => !footRows.includes(e) && !e.parentElement?.matches('[data-fight-more]')).at(-1);
+                (last || footRows[0]).after(foot); foot.append(...footRows);
             }
         }
         const added = newTempoLines(previousLog, t.log);
