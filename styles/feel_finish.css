@@ -101,3 +101,20 @@
 #fight_situation .versus-bar--timer {height: var(--ui-space-1); background: var(--versus-track); overflow: hidden;}
 #fight_situation .versus-bar--timer > * {display: block; height: 100%; background: var(--ui-state-near); transition: width var(--ui-motion-settle) linear;}
 #fight_situation [data-down="true"] .versus-bar--timer {opacity: .35;}
+
+/* PS132: numbers line up. Figures are tabular everywhere a number is read against another (vitals, stats, purse,
+   counts, values, skill percent, recipe needs); value columns sit right. Counts read "×3" (display.js). */
+#main_content :is(#basic_character_info_div, .shell-stat-record, .stat_value, .character_stat_value, #money_div, .item_count, .item_value,
+    .inventory_item_value, .skill_level, .skill-percent, .recipe_readiness, .meter-bar-value, .versus-bar, .status-line, .ready-hub__detail) {
+    font-variant-numeric: tabular-nums;
+}
+
+/* PS133: bar values already sit on a dark chip of their own (ui_tokens.css, r3 vitals), which reads on any fill
+   without an outline, so YAIR's bar-outline option is not offered here; rarity colours meet 4.5:1 in Vivid
+   (rarity_palette.js) and every state carries its word with its colour (PS103). */
+
+/* PS134: tooltips hold still. They never take the pointer (no flicker as a row redraws under it), keep a steady
+   width while their numbers tick (tabular figures, a floor), and stay inside the window. */
+:is(.item_tooltip, .job_tooltip, .location_tooltip, .recipe_tooltip, .stat_tooltip, .skill_tooltip, .character_bar_tooltip, .stance_tooltip, .location_action_tooltip) {
+    pointer-events: none; font-variant-numeric: tabular-nums; max-width: min(28em, calc(100vw - var(--ui-space-4, 2em)));
+}

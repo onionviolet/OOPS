@@ -83,7 +83,7 @@ export function hpLeadHoldingsReaders(cast=()=>getHpLeadCast()){
             return typeof n==='number'?ladderLabel(n,c.ladder,'an empty purse'):undefined;},
         items(){const labels=new Map([...(cast()?.items||[]),...(getHpLeadHalloween()?.items||[]),...(getHpLeadMirror()?.items||[]),...(getHpLeadFlamel()?.items||[]),...(getHpLeadNorbert()?.items||[]),...(getHpLeadFinale()?.items||[]),...hpTableFoodItems.map(i=>({id:i.id,label:i.name})),...HP_LEAD_DAY_ITEMS].map(i=>[i.id,i.label])),rows=readPort('character')?.getItems?.()??{},out=[];
             for(const [key,row] of Object.entries(rows)){let id;try{id=JSON.parse(key)?.id;}catch{continue;}
-                if(labels.has(id)&&(row?.count??1)>0)out.push(`${labels.get(id)}${(row?.count??1)>1?` x${row.count}`:''}`);}
+                if(labels.has(id)&&(row?.count??1)>0)out.push(`${labels.get(id)}${(row?.count??1)>1?` ×${row.count}`:''}`);}
             return out;},
     };
 }

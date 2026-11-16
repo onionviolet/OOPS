@@ -25,7 +25,7 @@ export function createPrimordialPanel({read, request, askRule, startShift, repay
             b.onclick = () => act(() => { const out = buy(r.id); if(!out.ok) throw Error(out.reasons.join(' ')); }, `The hall clerk releases ${r.label} for ${r.price} CP.`);
             line.append(node('span', `${r.label}. ${r.text}${r.eligible ? '' : ` Not yet: ${r.reasons.join(' ')}`} `), b); hall.append(line);
         }
-        const got = Object.entries(v.hall.bought); if(got.length) hall.append(node('p', `Bought here: ${got.map(([k, n]) => `${v.hall.rows.find(r => r.id === k).label} x${n}`).join('; ')}.`, {'data-primordial-hall-held': ''}));
+        const got = Object.entries(v.hall.bought); if(got.length) hall.append(node('p', `Bought here: ${got.map(([k, n]) => `${v.hall.rows.find(r => r.id === k).label} ×${n}`).join('; ')}.`, {'data-primordial-hall-held': ''}));
         items.replaceChildren(node('h3', 'Ask the Library for'));
         for(const it of v.items) {
             const line = node('div', null, {'data-primordial-item': it.id});

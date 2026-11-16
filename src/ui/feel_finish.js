@@ -101,7 +101,8 @@ const unlockAudio = () => { if (setting('sound') === 'on') { try { audio ||= new
 // PS159: YAIR's own options stay where the page keeps them (load() reads them by id); the Feel group shows a
 // proxy row per option that clicks or sets the real input, and mirrors its state on each sweep. The settings
 // board re-renders its groups, so nothing of the real panel is ever moved into it.
-const CLASSIC_SKIP = new Set(['options_change_background_color']); // replaced by Time-of-day light
+// Replaced by Time-of-day light; bar values read on their own dark chip, so the bar outline changes nothing (PS133).
+const CLASSIC_SKIP = new Set(['options_change_background_color', 'options_bar_outline']);
 function placeClassicOptions() {
     const group = document.querySelector('.display-group[data-panel-settings="feel"]');
     const choices = document.querySelectorAll('#options_choices .options_choice');

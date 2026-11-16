@@ -59,10 +59,10 @@ test('HP school and trade show their own units, debt and stock live, and the nat
         rows = {'{"id":"book.hp.school.wand"}': row(1), '{"id":"book.hp.school.paper"}': row(6), '{"id":"book.hp.trade.wand"}': row(1), 'bread': row(3)};
         const school = ownHoldingsView('book.hp.school.world', res('book.hp.school.world', 8, 4));
         assert.equal(school.purse, '8 allowance units, 4 owed to the supply fund');
-        assert.equal(school.items, 'wand, paper x6', 'only the life\'s own stock, not the Village bread or the trade wand');
+        assert.equal(school.items, 'wand, paper ×6', 'only the life\'s own stock, not the Village bread or the trade wand');
         rows['{"id":"book.hp.school.paper"}'] = row(5);
         assert.equal(ownHoldingsView('book.hp.school.world', res('book.hp.school.world', 4, 0)).purse, '4 allowance units, no debt');
-        assert.equal(ownHoldingsView('book.hp.school.world', res('book.hp.school.world', 4, 0)).items, 'wand, paper x5', 'paper follows the spend');
+        assert.equal(ownHoldingsView('book.hp.school.world', res('book.hp.school.world', 4, 0)).items, 'wand, paper ×5', 'paper follows the spend');
         const trade = ownHoldingsView('book.hp.trade.world', res('book.hp.trade.world', 12, 6));
         assert.equal(trade.purse, '12 trade units, 6 rent owed');
         assert.equal(trade.items, 'wand');
@@ -77,7 +77,7 @@ test('a life item key with an extra field or other serialization still reads its
     const {hpLifeHoldingsReaders} = await import('../src/hp_life_holdings.js');
     const rows = {'{"id":"book.hp.school.wand","q":2}': {count: 1}, '{"q":1,"id":"book.hp.school.paper"}': {count: 3}, 'not json': {count: 1}, '{"id":"book.hp.trade.wand"}': {count: 1}, '{"id":"book.hp.school."}': {count: 1}};
     configureUiPorts({character: () => ({getItems: () => rows})});
-    try { assert.deepEqual(hpLifeHoldingsReaders({id: 'book.hp.school', labels: {wand: 'wand', paper: 'paper'}}).items(), ['wand', 'paper x3']); }
+    try { assert.deepEqual(hpLifeHoldingsReaders({id: 'book.hp.school', labels: {wand: 'wand', paper: 'paper'}}).items(), ['wand', 'paper ×3']); }
     finally { configureUiPorts(null); }
 });
 

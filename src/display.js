@@ -7,7 +7,7 @@ import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRec
 import {componentInputLots} from './processed_materials.js';
 import {mountMaterialChoice} from './material_choice_view.js';
 import {renderCraftingSelection} from './crafting_selection_detail.js';
-import {renderRecentLearning, notePractice} from './recent_learning.js'; const learning_readers = {visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName(), now: () => current_game_time.day_count*1440 + current_game_time.hour*60 + current_game_time.minute, capped: id => skills[id].getCurrentLvl?.() >= skills[id].max_level, level: id => skills[id].getCurrentLvl?.()};
+import {fastTravelMapBlock, bestiaryRateTitle, bestiaryRateNote} from './ui/discord_surfaces.js'; import {renderRecentLearning, notePractice} from './recent_learning.js'; const learning_readers = {practiceFacts: p => ({wearingArmor: character.isWearingArmor?.(), usingShield: character.hasShield?.(), fight: !!p?.node?.fight}), visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName(), now: () => current_game_time.day_count*1440 + current_game_time.hour*60 + current_game_time.minute, capped: id => skills[id].getCurrentLvl?.() >= skills[id].max_level, level: id => skills[id].getCurrentLvl?.()};
 import {equipmentComparisonHTML} from './equipment_comparison.js';
 import {centerModes} from './center_modes.js';
 import {expandWorkspaceModule,openWorkspaceModule} from './workspace_layout.js';
@@ -637,7 +637,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
                 }
                 if(equip_stats_0[effect_key].multiplier != null) {
                     item_tooltip += 
-                    `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: x${equip_stats_0[effect_key].multiplier} - ${equip_stats_1[effect_key].multiplier}`;
+                    `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: ×${equip_stats_0[effect_key].multiplier} - ${equip_stats_1[effect_key].multiplier}`;
                 }
             });
         } else {
@@ -670,7 +670,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
                 }
                 if(equip_stats[effect_key].multiplier != null) {
                         item_tooltip +=
-                    `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: x${equip_stats[effect_key].multiplier}`;
+                    `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: ×${equip_stats[effect_key].multiplier}`;
                     }
                 });
         }
@@ -698,7 +698,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
             item_tooltip += `<br>Attack power: +${item.attack_value}`;
         }
         if(item?.attack_multiplier && item.attack_multiplier !== 1) {
-            item_tooltip += `<br>Size-specific attack power: x${item.attack_multiplier}`;
+            item_tooltip += `<br>Size-specific attack power: ×${item.attack_multiplier}`;
         }
         if(item?.defense_value) {
             item_tooltip += `<br>Defense: +${item.defense_value}`;
@@ -712,7 +712,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
             }
             if(item.component_stats[effect_key].multiplier != null) {
                 item_tooltip += 
-                `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: x${item.component_stats[effect_key].multiplier}`;
+                `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: ×${item.component_stats[effect_key].multiplier}`;
             }
         });
     }
@@ -840,9 +840,9 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false, descript
         }
         if(stat_value.multiplier) {
             if(flat) {
-                tooltip_html_content += `, x${Math.round(100*stat_value.multiplier)/100}`;
+                tooltip_html_content += `, ×${Math.round(100*stat_value.multiplier)/100}`;
             } else {
-                tooltip_html_content += `: x${Math.round(100*stat_value.multiplier)/100}`;
+                tooltip_html_content += `: ×${Math.round(100*stat_value.multiplier)/100}`;
             }
         }
     }
@@ -854,13 +854,13 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false, descript
         //did not, so a category target would have asked the skill registry for it.
         const name = capitalize_first_letter(xp_target_name(xp_multipliers[0]));
         if(tooltip_html_content) {
-            tooltip_html_content += `<br>${name} xp gain: x${effects.xp_multipliers[xp_multipliers[0]]}`;
+            tooltip_html_content += `<br>${name} xp gain: ×${effects.xp_multipliers[xp_multipliers[0]]}`;
         } else {
-            tooltip_html_content = `${name} xp gain: x${effects.xp_multipliers[xp_multipliers[0]]}`;
+            tooltip_html_content = `${name} xp gain: ×${effects.xp_multipliers[xp_multipliers[0]]}`;
         }
         for(let i = 1; i < xp_multipliers.length; i++) {
             const name = capitalize_first_letter(xp_target_name(xp_multipliers[i]));
-            tooltip_html_content += `<br>${name} xp gain: x${effects.xp_multipliers[xp_multipliers[i]]}`;
+            tooltip_html_content += `<br>${name} xp gain: ×${effects.xp_multipliers[xp_multipliers[i]]}`;
         }
     }
 
@@ -1249,13 +1249,13 @@ function format_book_bonuses(bonuses) {
     if(bonuses.multipliers) {
         const multipliers = Object.keys(bonuses.multipliers);
         if(formatted) {
-            formatted += `, x${bonuses.multipliers[multipliers[0]]} ${stat_names[multipliers[0]]}`;
+            formatted += `, ×${bonuses.multipliers[multipliers[0]]} ${stat_names[multipliers[0]]}`;
         } else {
-            formatted = `x${bonuses.multipliers[multipliers[0]]} ${stat_names[multipliers[0]]}`;
+            formatted = `×${bonuses.multipliers[multipliers[0]]} ${stat_names[multipliers[0]]}`;
         }
 
         for(let i = 1; i < multipliers.length; i++) {
-            formatted += `, x${bonuses.multipliers[multipliers[i]]} ${stat_names[multipliers[i]]}`;
+            formatted += `, ×${bonuses.multipliers[multipliers[i]]} ${stat_names[multipliers[i]]}`;
         }
     }
     if(bonuses.xp_multipliers) {
@@ -1263,13 +1263,13 @@ function format_book_bonuses(bonuses) {
         const name = xp_target_name(xp_multipliers[0]);
 
         if(formatted) {
-            formatted += `, x${bonuses.xp_multipliers[xp_multipliers[0]]} ${name} xp gain`;
+            formatted += `, ×${bonuses.xp_multipliers[xp_multipliers[0]]} ${name} xp gain`;
         } else {
-            formatted = `x${bonuses.xp_multipliers[xp_multipliers[0]]} ${name} xp gain`;
+            formatted = `×${bonuses.xp_multipliers[xp_multipliers[0]]} ${name} xp gain`;
         }
         for(let i = 1; i < xp_multipliers.length; i++) {
             const name = xp_target_name(xp_multipliers[i]);
-            formatted += `, x${bonuses.xp_multipliers[xp_multipliers[i]]} ${name} xp gain`;
+            formatted += `, ×${bonuses.xp_multipliers[xp_multipliers[i]]} ${name} xp gain`;
         }
     }
 
@@ -1753,14 +1753,14 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
                 //item is present
                 
                 //grab the displayed count
-                let div_count = Number.parseInt(trader_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText.replace("x",""));
+                let div_count = Number.parseInt(trader_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText.replace(/[x×]/,""));
                 if(Number.isNaN(div_count)) {
                     div_count = 0;
                 }
                 //compare displayed count with actual count, update display to proper value if they differ
                 if(div_count != item_count) {
                     if(item_count > 1) {
-                        trader_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ` x${item_count}`;
+                        trader_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ` ×${item_count}`;
                     } else {
                         trader_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ``;
                     }
@@ -1790,7 +1790,7 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
                 let item_count = to_sell.items[i].count;
                 if(div_count !== item_count) {
                     if(item_count > 1) {
-                        item_selling_divs[key].getElementsByClassName("item_count")[0].innerText = ` x${item_count}`;
+                        item_selling_divs[key].getElementsByClassName("item_count")[0].innerText = ` ×${item_count}`;
                     } else {
                         item_selling_divs[key].getElementsByClassName("item_count")[0].innerText = ``;
                     }
@@ -1932,13 +1932,13 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                 // row's writes forced a layout per row. Rows are written only where
                 // their count, name, tooltip or price actually changed.
                 const count_span = item_divs[inventory_key].getElementsByClassName("item_count")[0];
-                let div_count = Number.parseInt(count_span.textContent.replace("x",""));
+                let div_count = Number.parseInt(count_span.textContent.replace(/[x×]/,""));
                 if(Number.isNaN(div_count)) {
                     div_count = 0;
                 }
                 if(div_count != item_count) {
                     if(item_count > 1) {
-                        count_span.textContent = ` x${item_count}`;
+                        count_span.textContent = ` ×${item_count}`;
                     } else {
                         count_span.textContent = ``;
                     }
@@ -1998,7 +1998,7 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                 let item_count = to_buy.items[i].count;
                 if(div_count !== item_count) {
                     if(item_count > 1) {
-                        item_buying_divs[key].getElementsByClassName("item_count")[0].innerText = ` x${item_count}`;
+                        item_buying_divs[key].getElementsByClassName("item_count")[0].innerText = ` ×${item_count}`;
                     } else {
                         item_buying_divs[key].getElementsByClassName("item_count")[0].innerText = ``;
                     }
@@ -2048,13 +2048,13 @@ function update_displayed_storage_inventory({item_key, sorting_direction="asc", 
                 was_anything_new_added = true;
             } else {
                 //in display, just update it
-                let div_count = Number.parseInt(storage_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText.replace("x",""));
+                let div_count = Number.parseInt(storage_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText.replace(/[x×]/,""));
                 if(Number.isNaN(div_count)) {
                     div_count = 0;
                 }
                 if(div_count != item_count) {
                     if(item_count > 1) {
-                        storage_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ` x${item_count}`;
+                        storage_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ` ×${item_count}`;
                     } else {
                         storage_item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ``;
                     }
@@ -2200,7 +2200,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
     }
 
     if(item_count > 1) {
-        item_name_div_content += `<span class="item_count"> x${item_count}</span>`;
+        item_name_div_content += `<span class="item_count"> ×${item_count}</span>`;
     } else {
         item_name_div_content += `<span class="item_count"></span>`;
     }
@@ -2985,7 +2985,7 @@ function create_fast_travel_choices() {
 
         choice_list.push(action);
     }
-    return choice_list;
+    const map = fastTravelMapBlock({hereId: current_location.id, distances: travel_times[current_location.id] || {}, exits: (current_location.connected_locations || []).map(c => ({id: c.location.id, minutes: travel_times[current_location.id]?.[c.location.id]})), known: id => !!locations[id]?.canBeStarted?.(get_context()), label: id => locations[id]?.name ?? id, onGo: id => window.change_location({location_id: id})}); if(map) choice_list.push(map); return choice_list; // PS164
 }
 
 function remove_fast_travel_choice({location_id}) {
@@ -3021,7 +3021,7 @@ function update_displayed_combat_location(location) {
 
     clear_count_div.style.display = "block";
     enemy_count_div.style.display = "block";
-    combat_div.style.display = "block";
+    combat_div.style.display = "block"; notePractice(location.name, ["Iron skin", "Evasion", "Fortitude"], {fight: true, get isConnected() {return current_location?.id === location.id;}}, learning_readers.now()); // PS168: a fight is a practice for the skills its gates decide
 
     if(!game_options.disable_combat_autoswitch) {
         combat_switch.click();
@@ -3083,9 +3083,9 @@ function create_location_types_display(current_location){
                 if(effects[stat].multiplier) {
                     const base = effects[stat].multiplier;
                     const actual = get_location_type_penalty(type, stage, stat, "multiplier");
-                    type_tooltip_html_content += `<br>${stat_names[stat]} x${Math.round(1000*actual)/1000}`;
+                    type_tooltip_html_content += `<br>${stat_names[stat]} ×${Math.round(1000*actual)/1000}`;
                     if(base != actual) {
-                        type_tooltip_html_content += ` [base: x${effects[stat].multiplier}]`;
+                        type_tooltip_html_content += ` [base: ×${effects[stat].multiplier}]`;
                     }
                 }
                 if(effects[stat].flat) {
@@ -3346,7 +3346,7 @@ function item_recipe_result_effects(item) {
 // Other unlocked recipes on this station page sharing a known, named ingredient or using this result.
 // Built only from rows the list already shows; unknown or "any type" materials never create links.
 function item_recipe_related_uses(selection) {
-    return relatedKnownRecipes(selection, known_recipe_variants(), item_templates).map(v=>({...v,target:{category:v.category,subcategory:v.subcategory,recipe_id:v.recipe_id,material_id:v.material_id},
+    return relatedKnownRecipes(selection, known_recipe_variants(), item_templates).map(v=>({...v,outputMaterialType:item_templates[v.outputId]?.material_type??null,target:{category:v.category,subcategory:v.subcategory,recipe_id:v.recipe_id,material_id:v.material_id},
         available: recipeMakeableNow({recipe:recipes[v.category][v.subcategory][v.recipe_id],stationTier:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked)[v.category],inventory:character.getItems(),itemTemplates:item_templates,isMaterialKnown:id=>item_log.is_known(id),canConsume:canConsumeNativeCraftingItem})}));
 }
 
@@ -3383,7 +3383,7 @@ function build_item_recipe_model(selection) {
         // Unknown ingredients stay unnamed: no item name and no material type (CP2).
         const unknown = m.material_type ? !material_type_known(m.material_type) : !req.known;
         const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : displayItemName(item_templates[m.material_id]);
-        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back, inspect: !unknown && m.material_id ? {id: m.material_id, name: label} : null, from: unknown ? [] : [...new Set((m.material_type ? Object.keys(item_log.items).filter(id => item_templates[id]?.material_type === m.material_type) : [m.material_id]).flatMap(id => knownBestiarySources(id, {knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates})))].slice(0, 4)}; // PS100: where to get it, from what you have met
+        return {label: req.heat ? `${label} (${req.heat.note})` : label, heat_reason: req.heat?.ok === false ? req.heat.reason : "", have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:displayItemName(e.item),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back, inspect: !unknown && m.material_id ? {id: m.material_id, name: label} : null, makesType: m.material_type ?? null, from: unknown ? [] : [...new Set((m.material_type ? Object.keys(item_log.items).filter(id => item_templates[id]?.material_type === m.material_type) : [m.material_id]).flatMap(id => knownBestiarySources(id, {knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates})))].slice(0, 4)}; // PS100: where to get it, from what you have met
     });
     const station_name = document.querySelector(`.crafting_mainpage_button[data-crafting_category="${category}"]`)?.textContent.trim() || category;
     const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
@@ -3576,7 +3576,7 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
         if(result_count > 1) {
             const count_span = document.createElement("span");
             count_span.classList.add("recipe_item_count");
-            count_span.innerText = ` x${result_count}`;
+            count_span.innerText = ` ×${result_count}`;
             recipe_name_span.after(count_span);
         }
         update_item_recipe_row_status(recipe_div, category, recipe);
@@ -3866,14 +3866,14 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
             let main_name = recipe.materials[i].material_type ? "Any " + recipe.materials[i].material_type + ":" : obscure_name_to_type(recipe.materials[i].material_id);
             let any_available = (material.need ?? recipe.materials[i].count) <= material.count;
 
-            tooltip += `<span style="color:${any_available?"lime":"red"}"><b>${main_name} x${material.count}/${material.need ?? recipe.materials[i].count}</b></span><br>${material.heat ? `<i>${material.heat.note}</i><br>` : ""}`;
+            tooltip += `<span style="color:${any_available?"lime":"red"}"><b>${main_name} ×${material.count}/${material.need ?? recipe.materials[i].count}</b></span><br>${material.heat ? `<i>${material.heat.note}</i><br>` : ""}`;
 
             //specific items - either material type, or materials with quality
             if (recipe.materials[i].material_type || (material.items.length > 0 && material.items[0].quality)) {
                 let mat_list = "";
                 for (let j = 0; j < material.items.length; j++) {
                     let sub_name = displayItemName(material.items[j].item);
-                    mat_list += `<span style="color:${material.items[j].count >= recipe.materials[i].count?"lime":"red"}"><b>${sub_name} x${material.items[j].count || 0}/${recipe.materials[i].count}</b></span><br>`;
+                    mat_list += `<span style="color:${material.items[j].count >= recipe.materials[i].count?"lime":"red"}"><b>${sub_name} ×${material.items[j].count || 0}/${recipe.materials[i].count}</b></span><br>`;
                 }
 
                 tooltip+=`<div class="crafting_tooltip_mat_list">${mat_list}</div>`;
@@ -3889,7 +3889,7 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
         const selectedKey=material.item_key || item_templates[material.material_id].getInventoryKey();
         const lots=componentInputLots(character.getItems(),selectedKey,material.result_id,get_context().worldId,canConsumeNativeCraftingItem);
         const count=lots.reduce((sum,row)=>sum+row.count,0);
-        tooltip += `Material required:<br><span style="color:${count>=material.count?'lime':'red'}"><b>${name} x${count}/${material.count}</b></span><br>`;
+        tooltip += `Material required:<br><span style="color:${count>=material.count?'lime':'red'}"><b>${name} ×${count}/${material.count}</b></span><br>`;
         if(lots.length>1) tooltip += 'Uses the selected lot first, then other available lots of the same grade.<br>';
 
         const result_tier = item_templates[material.result_id].component_tier ?? item_templates[material.result_id].item_tier;
@@ -3993,7 +3993,7 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
 
         for(let j = 0; j < components.length; j++) {
             const item_div = document.createElement("div");
-            insert_HTML(item_div, `<i class="material-icons icon selected_component_icon"> check </i>${components[j].item.name}, ${components[j].item.quality}%, x${components[j].count}`);
+            insert_HTML(item_div, `<i class="material-icons icon selected_component_icon"> check </i>${components[j].item.name}, ${components[j].item.quality}%, ×${components[j].count}`);
             item_div.classList.add("selectable_component");
             item_div.dataset.item_key = components[j].item.getInventoryKey();
             item_div.dataset.item_quality = components[j].item.quality;
@@ -4141,7 +4141,7 @@ function create_gathering_tooltip(location_activity) {
     tooltip_content += `Every ${format_working_time(gathering_time_needed)}, chance to find:`;
     for(let i = 0; i < gained_resources.length; i++) {
         const count = gained_resources[i].count;
-        tooltip_content += `<br>x${count[0]===count[1]?count[0]:`${count[0]}-${count[1]}`} "${obscure_name(gained_resources[i].name)}" at ${Math.round(100*gained_resources[i].chance)}%`;
+        tooltip_content += `<br>×${count[0]===count[1]?count[0]:`${count[0]}-${count[1]}`} "${obscure_name(gained_resources[i].name)}" at ${Math.round(100*gained_resources[i].chance)}%`;
     }
 
     tooltip_content += tool_tooltip_line(location_activity);
@@ -4191,7 +4191,7 @@ function update_gathering_tooltip(activity) {
     }
     tooltip_content += `Every ${format_working_time(gathering_time_needed)}, chance to find:`;
     for (let i = 0; i < gained_resources.length; i++) {
-        tooltip_content += `<br>x${gained_resources[i].count[0] === gained_resources[i].count[1] ? gained_resources[i].count[0] : `${gained_resources[i].count[0]}-${gained_resources[i].count[1]}`} "${obscure_name(gained_resources[i].name)} " at ${Math.round(100*gained_resources[i].chance)}%`;
+        tooltip_content += `<br>×${gained_resources[i].count[0] === gained_resources[i].count[1] ? gained_resources[i].count[0] : `${gained_resources[i].count[0]}-${gained_resources[i].count[1]}`} "${obscure_name(gained_resources[i].name)} " at ${Math.round(100*gained_resources[i].chance)}%`;
     }
     tooltip_content += tool_tooltip_line(activity);
     set_HTML(gathering_tooltip, tooltip_content); const gather_line = parent?.querySelector(".gather_line"); if(gather_line) gather_line.textContent = gatherLine({gathering_time_needed, gained_resources}, obscure_name);
@@ -4609,7 +4609,7 @@ function create_stat_breakdown(stat) {
 
     Object.keys(stats.multiplier).forEach(stat_type => {
         if(stats.multiplier[stat_type][stat] && stats.multiplier[stat_type][stat] !== 1) {
-            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: x${Math.round(100*stats.multiplier[stat_type][stat])/100}`;
+            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: ×${Math.round(100*stats.multiplier[stat_type][stat])/100}`;
         }
     });
 
@@ -4642,7 +4642,7 @@ function create_xp_bonus_breakdown(bonus, include_multipliers) {
     const xp_bonuses = character.getXPBonuses();
     Object.keys(xp_bonuses.multiplier).forEach(bonus_type => {
         if(xp_bonuses.multiplier[bonus_type]?.[bonus] && xp_bonuses.multiplier[bonus_type]?.[bonus] !== 1) {
-            html_string +=  `<br>${capitalize_first_letter(bonus_type.replace("_"," "))}: x${Math.round(100*xp_bonuses.multiplier[bonus_type][bonus])/100}`;
+            html_string +=  `<br>${capitalize_first_letter(bonus_type.replace("_"," "))}: ×${Math.round(100*xp_bonuses.multiplier[bonus_type][bonus])/100}`;
         }
     });
 
@@ -5565,9 +5565,9 @@ function update_displayed_skill_xp_gain(skill) {
         return;
     }
     const xp_gain = Math.round(100*skill.get_parent_xp_multiplier()*character.getSkillXPGain(skill.skill_id))/100;
-    let html_content = `XP gain: x${xp_gain}<br>`;
+    let html_content = `XP gain: ×${xp_gain}<br>`;
     if(skill.can_level) {
-        html_content += `<span>XP cost scaling: x${skill.xp_scaling}</span>`
+        html_content += `<span>XP cost scaling: ×${skill.xp_scaling}</span>`
     } else {
         html_content += "<br>This skill cannot receive xp and levels can only be gained from temporary sources."
     }
@@ -5759,7 +5759,7 @@ function create_stance_tooltip_stats(stance) {
     let desc = "";
     const stats = stance.getStats()
     Object.keys(stats).forEach(stat => {
-        desc += `<br>x${Math.round(100*stats[stat])/100} ${stat_names[stat]}`;
+        desc += `<br>×${Math.round(100*stats[stat])/100} ${stat_names[stat]}`;
     });
 
     return desc;
@@ -5933,7 +5933,7 @@ function create_bestiary_entry_tooltip(enemy_name) {
         const heading=document.createElement('div');heading.textContent='Observed drops';tooltip_drops.append(heading);
         const facts=nativeObservedDropReader(enemy_name);
         for(const fact of facts){const line=document.createElement('div');line.textContent=`${fact.label}: ${fact.count} acquired`;tooltip_drops.append(line);}
-        if(!facts.length){const line=document.createElement('div');line.textContent='No drops observed yet.';tooltip_drops.append(line);}
+        if(!facts.length){const line=document.createElement('div');line.textContent='No drops observed yet.';tooltip_drops.append(line);} const rateNote=bestiaryRateNote({skillName: enemy.tags?.beast ? 'Butchering' : null, skillFactor: enemy.get_droprate_modifier()}); if(rateNote){const line=document.createElement('div');line.dataset.dropRateCause='';line.textContent=rateNote;tooltip_drops.append(line);} // PS166
     } else {
         if(enemy.loot_list.length > 0)tooltip_drops.appendChild(create_bestiary_loot_line());
         for(const loot of enemy.loot_list)tooltip_drops.appendChild(create_bestiary_loot_line(enemy,loot));
@@ -5998,7 +5998,7 @@ function create_bestiary_loot_line(enemy, loot) {
         //create based on data passed
         loot_name.innerText = `${obscure_name(loot.item_name)}`;
         loot_chance_base.innerText = `[${loot.chance*100}%]`;
-        loot_chance_current.innerText = `${Math.round(10000*loot.chance*enemy.get_droprate_modifier())/100}%`;
+        loot_chance_current.innerText = `${Math.round(10000*loot.chance*enemy.get_droprate_modifier())/100}%`; loot_chance_current.title = bestiaryRateTitle(loot.chance, {skillName: enemy.tags?.beast ? 'Butchering' : null, skillFactor: enemy.get_droprate_modifier()}); // PS166
         loot_chance.append(loot_chance_current, loot_chance_base);
         loot_line.append(loot_name, loot_chance);
     } else {
@@ -6038,7 +6038,7 @@ function create_bestiary_stat_entry(enemy, stat_name) {
             stat_name_div.innerText = "Attack power:";
             stat_value_div.innerText = `${enemy.stats.attack}`;
             if(enemy.stats.attack_count > 1) {
-                stat_value_div.innerText += `x${enemy.stats.attack_count}`;
+                stat_value_div.innerText += `×${enemy.stats.attack_count}`;
             }
             stat_entry.append(stat_name_div, stat_value_div);
         break;
@@ -6416,7 +6416,7 @@ function create_race_tooltip(race, css_class) {
         Object.keys(race.stats).forEach(effect_key => {
             if(race.stats[effect_key].multiplier != null) {
                 tooltip_content +=
-            `\n${capitalize_first_letter(translate(effect_key+" long"))}: x${race.stats[effect_key].multiplier}`;
+            `\n${capitalize_first_letter(translate(effect_key+" long"))}: ×${race.stats[effect_key].multiplier}`;
             }
         });
     }
@@ -6429,7 +6429,7 @@ function create_race_tooltip(race, css_class) {
     Object.keys(race.xp_multipliers).forEach(effect_key => {
         if(race.xp_multipliers[effect_key] != null) {
             tooltip_content +=
-        `\n${capitalize_first_letter(translate(effect_key))}: x${race.xp_multipliers[effect_key]}`;
+        `\n${capitalize_first_letter(translate(effect_key))}: ×${race.xp_multipliers[effect_key]}`;
         }
     });
     */
@@ -6448,7 +6448,7 @@ function create_height_tooltip(height_key, css_class) {
     Object.keys(stats).forEach(effect_key => {
         if(stats[effect_key].multiplier != null) {
             tooltip_content +=
-        `${capitalize_first_letter(translate(effect_key+" long"))}: x${stats[effect_key].multiplier}\n`;
+        `${capitalize_first_letter(translate(effect_key+" long"))}: ×${stats[effect_key].multiplier}\n`;
         }
     });
     

@@ -20,7 +20,7 @@ export function projectPlaceTypes(types, {stageOf, penalty, statName}) {
 
 // Same wording as the native location tooltip.
 export function placeTypeEffectText({stat, kind, actual, base}) {
-    const value = kind === 'multiplier' ? `${stat} x${actual}` : `${stat}: ${actual}`;
+    const value = kind === 'multiplier' ? `${stat} ×${actual}` : `${stat}: ${actual}`;
     if (base == null) return value;
-    return `${value} [base: ${kind === 'multiplier' ? 'x' : ''}${base}]`;
+    return `${value} [base: ${kind === 'multiplier' ? '×' : ''}${base}]`;
 }

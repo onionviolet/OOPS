@@ -11,7 +11,7 @@ test('place types keep native label, description and effective effect text', () 
     const [type] = projectPlaceTypes([{type: 'open', stage: 1}], options(() => 0.75));
     assert.equal(type.label, 'open');
     assert.equal(type.description, 'Wide open');
-    assert.deepEqual(type.effects.map(placeTypeEffectText), ['EP x0.75']);
+    assert.deepEqual(type.effects.map(placeTypeEffectText), ['EP ×0.75']);
 });
 
 test('a reduced effect shows its base, a later stage shows its numeral, unknown types drop', () => {
@@ -19,7 +19,7 @@ test('a reduced effect shows its base, a later stage shows its numeral, unknown 
         options((type, stage, stat, kind) => kind === 'flat' ? -1 : 0.6123456));
     assert.equal(view.length, 1);
     assert.equal(view[0].label, 'open II');
-    assert.deepEqual(view[0].effects.map(placeTypeEffectText), ['EP x0.612 [base: x0.5]', 'AP: -1 [base: -2]']);
+    assert.deepEqual(view[0].effects.map(placeTypeEffectText), ['EP ×0.612 [base: ×0.5]', 'AP: -1 [base: -2]']);
 });
 
 test('no types gives an empty list', () => {

@@ -27,7 +27,7 @@ export function hpLifeHoldingsReaders(life) {
                 let id; try { id = JSON.parse(key)?.id; } catch { continue; }
                 if (typeof id !== 'string' || !id.startsWith(prefix) || id.length === prefix.length) continue;
                 const count = row?.count ?? 1, name = id.slice(prefix.length);
-                if (count > 0) out.push(`${life.labels[name] ?? name.replace(/_/g, ' ')}${count > 1 ? ` x${count}` : ''}`);
+                if (count > 0) out.push(`${life.labels[name] ?? name.replace(/_/g, ' ')}${count > 1 ? ` ×${count}` : ''}`);
             }
             return out;
         },
