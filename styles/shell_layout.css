@@ -110,3 +110,13 @@
 #main_content.workspace-active[data-parity="r3"][data-shell-fit="true"][data-centre-split="tall"]:not([data-center-task]):not([data-parity-combat="true"]):not([data-parity-item="true"]):not([data-shell-stats-open="true"]):not(:has(.combat-readout[open])) .workspace-board > [data-region="log"] {grid-row:1 / span 3;}
 #main_content.workspace-active[data-parity="r3"][data-shell-fit="true"][data-centre-split="tall"]:not([data-center-task]):not([data-parity-combat="true"]):not([data-parity-item="true"]):not([data-shell-stats-open="true"]):not(:has(.combat-readout[open])) .workspace-board > [data-region="journal"] {grid-row:1 / span 3;}
 }
+/* PS203, PS215 (round 20, proposals): a box takes the height its rows need, up to its slot, instead of stretching to fill
+   the column. The Journal and Skills boxes stop at their content and the column's own background shows below. Belongings
+   keeps filling its slot for now: its item list does not give a content height when fitted. */
+#main_content.workspace-active[data-parity="r3"] [data-region] > .workspace-module:is([data-module="records"],[data-module="skills"]) {flex:0 1 auto!important;min-height:0;}
+#main_content.workspace-active[data-parity="r3"] [data-region] > .workspace-module:is([data-module="records"],[data-module="skills"]) > .workspace-module-body {flex:0 1 auto!important;min-height:0;}
+/* Local actions fits its verbs while no centre view is open; a centre view (Crafting, Stats) still fills column 2. */
+#main_content.workspace-active[data-parity="r3"]:not([data-center-task]) [data-region] > .workspace-module[data-module="local-actions"] {flex:0 1 auto!important;min-height:0;}
+#main_content.workspace-active[data-parity="r3"]:not([data-center-task]) [data-region] > .workspace-module[data-module="local-actions"] > .workspace-module-body {flex:0 1 auto!important;min-height:0;}
+#main_content.workspace-active[data-parity="r3"]:not([data-center-task]) [data-module="local-actions"] #center_mode_content {flex:0 1 auto!important;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module[data-module="pane-navigation"] {margin-top:auto;}

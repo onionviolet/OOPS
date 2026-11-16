@@ -3,7 +3,9 @@
 // Unknown: "?". The caller says what the life knows (KNW); this module only words it, so every panel reads the same way.
 // UR157: an unknown mark keeps its subject and field in `title`, so the reader can ask what is not known.
 
-const plain = (n, digits) => (Number.isInteger(n) ? String(n) : n.toFixed(digits).replace(/\.?0+$/, ''));
+import {formatDecimal} from '../number_format.js';
+
+const plain = (n, digits) => formatDecimal(n, digits);
 
 /**
  * The words for a number as the life knows it.
