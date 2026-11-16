@@ -118,3 +118,25 @@
 :is(.item_tooltip, .job_tooltip, .location_tooltip, .recipe_tooltip, .stat_tooltip, .skill_tooltip, .character_bar_tooltip, .stance_tooltip, .location_action_tooltip) {
     pointer-events: none; font-variant-numeric: tabular-nums; max-width: min(28em, calc(100vw - var(--ui-space-4, 2em)));
 }
+
+/* PS186/PS187: fight numbers and the hit flash, on a fixed layer over the tempo card (src/ui/feel_finish.js).
+   They are skipped outright unless Effects is full, Look › Motion is not Reduce and the system allows motion. */
+:root {--feel-outline: black; --feel-float-duration: calc(var(--ui-motion-settle) + var(--ui-motion-fast)); --feel-float-rise: calc(var(--ui-space-3) * -3);}
+.feel-float-layer {position: fixed; inset: 0; pointer-events: none; z-index: var(--ui-layer-popover);}
+.feel-float {position: absolute; transform: translate(-50%, 0); font-weight: var(--ui-weight-strong); font-variant-numeric: tabular-nums;
+    color: var(--ui-state-blocked); text-shadow: -1px -1px 0 var(--feel-outline), 1px -1px 0 var(--feel-outline), -1px 1px 0 var(--feel-outline), 1px 1px 0 var(--feel-outline);
+    animation: feel-float-rise var(--feel-float-duration) var(--ui-motion-ease) 1 forwards; white-space: nowrap;}
+.feel-float[data-kind="heal"] {color: var(--ui-state-ready);}
+@keyframes feel-float-rise {
+    0% {opacity: 0; transform: translate(-50%, 0);}
+    15% {opacity: 1;}
+    70% {opacity: 1;}
+    100% {opacity: 0; transform: translate(-50%, var(--feel-float-rise));}
+}
+.feel-hit-flash {position: absolute; background: color-mix(in srgb, var(--ui-state-blocked) 28%, transparent);
+    animation: feel-hit-flash calc(var(--ui-motion-normal) * 2) var(--ui-motion-ease) 1 forwards;}
+@keyframes feel-hit-flash {from {opacity: 1;} to {opacity: 0;}}
+
+/* DU39: the classic backup and reset buttons, plain, the reset marked as the one that cannot be undone. */
+.feel-classic .feel-classic-action {justify-self: start; font: inherit;}
+.feel-classic .feel-classic-action[data-danger] {color: var(--ui-state-blocked); border-color: currentColor;}
