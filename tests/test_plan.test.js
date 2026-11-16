@@ -1,0 +1,26 @@
+// How a run uses the machine (scripts/test_plan.mjs) and what a push gate runs (scripts/push_gate.mjs).
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {concurrencyFor, longestFirst, MIN_CONCURRENCY} from '../scripts/test_plan.mjs';
+import {planGate} from '../scripts/push_gate.mjs';
+
+test('concurrency follows the free cores, never below the floor, and the env dial wins', () => {
+    assert.equal(concurrencyFor({cores: 18, load: 0.5, env: {}}), 17);
+    assert.equal(concurrencyFor({cores: 18, load: 0, env: {}}), 18);
+    assert.equal(concurrencyFor({cores: 18, load: 16.2, env: {}}), MIN_CONCURRENCY);
+    assert.equal(concurrencyFor({cores: 18, load: 40, env: {}}), MIN_CONCURRENCY);
+    assert.equal(concurrencyFor({cores: 18, load: 0, env: {YAIRPG_TEST_CONCURRENCY: '6'}}), 6);
+});
+
+test('the slowest known files start first; unknown files keep their order', () => {
+    assert.deepEqual(longestFirst(['a', 'b', 'c', 'd'], {c: 90, a: 5}), ['c', 'a', 'b', 'd']);
+    assert.deepEqual(longestFirst(['x', 'y'], {}), ['x', 'y']);
+});
+
+test('a push gate runs the reached tests, the full suite for wide paths or --full, and check:flow only for visible changes', () => {
+    assert.deepEqual(planGate(['src/lotm_be_acting.js', 'docs/x.md']), {tests: 'changed', why: 'the files this push can reach', flow: true});
+    assert.equal(planGate(['docs/x.md', 'scripts/aspect_pilot.mjs']).flow, false);
+    for (const wide of ['package.json', 'build.js', 'src/main.js', 'src/save_files.js', 'scripts/headless/runner.mjs', 'tests/fixtures/a.mjs'])
+        assert.equal(planGate([wide]).tests, 'full', wide);
+    assert.equal(planGate(['docs/x.md'], {full: true}).tests, 'full');
+});

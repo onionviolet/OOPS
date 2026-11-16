@@ -20,6 +20,7 @@ import path from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {importSpecs} from './check_architecture.mjs';
 import {loadBudget} from './test_budget_reporter.mjs';
+import {nodeTestArgs} from './test_plan.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CODE = /\.(m|c)?js$/;
@@ -230,11 +231,11 @@ async function main(argv) {
             status ||= r.status ?? 1;
         }
     }
-    const run = ['node', '--test', '--test-concurrency=4', '--test-reporter=spec', '--test-reporter-destination=stdout',
-        '--test-reporter=./scripts/test_budget_reporter.mjs', '--test-reporter-destination=stderr'];
-    if (mode === 'full') return slotRun([...run, ...tests]) || status;
+    // Slowest first, as many at once as the machine has free cores (scripts/test_plan.mjs).
+    const run = files => [process.execPath, ...nodeTestArgs(files, {cwd: root})];
+    if (mode === 'full') return slotRun(run(tests)) || status;
     if (!selected.length) { console.log('test:changed: no test file reaches these changes'); return status; }
-    return slotRun([...run, ...selected], {small: smallSelection(selected.length, tests.length)}) || status;
+    return slotRun(run(selected), {small: smallSelection(selected.length, tests.length)}) || status;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) process.exitCode = await main(process.argv.slice(2));

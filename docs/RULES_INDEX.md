@@ -381,6 +381,16 @@ task record and checks. No separate checklist file or universal compliance score
      `test:changed` runs it when it or a direct import changes, and the merge batch
      always runs it. Dial: `--slow`. Reason: lanes need fast feedback, and the play
      still runs before merge.
+   - **Pushes are gated by reach; wave closes run everything** (Weibao 2026-11-16,
+     approving tiered gates). `npm run gate:push` runs arch, rules, docs and the bundle
+     match, check:flow when a player would see the change, and the test files the push
+     reaches with the slow tier included. Dial: the full suite at every wave close
+     (`--full`), for pushes touching the harness, fixtures, build, `src/main.js` or saves,
+     and when the reach is half the suite anyway. Reason: a narrow push is gated in
+     minutes; the whole-suite run still catches what the reach map misses.
+   - **Runs use the machine.** Files start slowest first, as many at once as there are
+     free cores (cores minus the load, at least 4). Dial: `YAIRPG_TEST_CONCURRENCY`.
+     Reason: with many workers the slowest file sets the wall time.
    - **New files stay under `default_ms`.** Speed up setup first and label real play.
      Budgets only ratchet down (`npm run test:budget -- --tighten`). Re-profile when
      `npm test` reports total file time 25% over `suite_sum_ms`

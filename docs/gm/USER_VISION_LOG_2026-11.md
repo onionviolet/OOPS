@@ -1709,6 +1709,12 @@ Weibao: "make it a choice and then I can try both in the fuutre ⏎ I meant wast
 
 Direction: the growing layout ships as a Look choice with today's layout as default. The combat screen goes back to one fight view in YAIR's form. The wave closes with commits, a push and a handoff of every open idea, then ideaboarding starts. Saved as round 27 (PS296–PS302) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-27-2026-11-16-the-fight-drawn-twice-empty-space-and-closing-the-wave); the handoff is [HANDOFF.md](dispatch/play-surface-2026-11-14/HANDOFF.md).
 
+## Faster suite and tiered push gates, 2026-11-16
+
+Weibao, quoting two proposals (split `engine_game_seam.test.js`; gate a narrow push by the tests it reaches, the full suite once per wave close): "fix these, allow 18 core parallelization, consider if its even necissary, check online too?"
+
+Direction: tiered push gates are accepted, with the full suite kept at every wave close and for wide pushes. Test runs size their parallelism to free cores, up to all 18. The seam probe is split only where it pays: the engine-only week became its own file, and the game-day part is labelled slow. Recorded in AD36 item 2 of the [rules index](../RULES_INDEX.md#efficient-rule-verification-ad36) and AGENTS.md Verification.
+
 ## What Gu eat and batched research, 2026-11-16
 
 Weibao: "whatx next? send again? we can have some batched to do research and find the missing and required info? Do they just eat essense? more to consider?" Saved as GKM439–GKM447 (proposals) in the [Gu abilities and killer moves palette](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md#what-gu-eat-and-the-batched-passes-that-fill-the-gaps-2026-11-16-proposals).

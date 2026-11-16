@@ -141,7 +141,7 @@ Runtime completion and pre-commit commands are `npm run build`, `npm test`,
 `npm run check:arch` and `npm run check:rules`, at the stages assigned by AD36
 below. `check:rule-behavior` is an optional focused route into existing tests,
 not an additional universal gate. `npm test` already runs through the machine-wide
-limiter (`scripts/slot_run.mjs`, one full suite at a time, `--test-concurrency=4`; load above 12 delays the start at most 5 minutes, then it runs anyway; `YAIRPG_SLOT_MAX_LOAD=N` makes load a hard gate); never wrap it again
+limiter (`scripts/slot_run.mjs`, one full suite at a time; files run slowest first, as many at once as the machine has free cores (at least 4, `YAIRPG_TEST_CONCURRENCY=N` sets it; `scripts/test_plan.mjs`); load above 12 delays the start at most 5 minutes, then it runs anyway; `YAIRPG_SLOT_MAX_LOAD=N` makes load a hard gate); never wrap it again
 and use `npm run test:raw` only on a quiet machine. Docs-only changes use relevant document/link
 checks; changes to the rules index or registered codes run `check:rules`.
 
@@ -149,8 +149,10 @@ Follow [AD36: efficient rule verification](docs/RULES_INDEX.md#efficient-rule-ve
 A runtime slice is done only at [the six-line floor](docs/RULES_INDEX.md#definition-of-done-the-floor-ad43) (AD43, 2026-10-26); otherwise record it as "implemented, below floor".
 Lean tests (2026-10-22, FRC69 2026-11-10): lanes and subagents run `npm run test:changed`
 (the test files that import, name or walk what changed since the merge base, listed with
-why) or their focused test file; the merge batch runs the full `npm test` once as the
-gate. `test:changed` leaves slow-tier (play-length) files to that gate unless their own
+why) or their focused test file. A push runs `npm run gate:push` in a clean checkout of the
+commit: the files the push reaches (slow tier included), plus check:flow when a player would
+see the change; the full `npm test` runs at every wave close (`--full`) and for pushes that touch
+what every test leans on (Weibao, 2026-11-16). `test:changed` leaves slow-tier (play-length) files to that gate unless their own
 imports change. Write tests fast by default: one shared start per file, cloned per test;
 no real waits; play-length files labelled slow; new files under the budget, which
 `npm test` warns on and which only ratchets down (AD36 item 2). Organize tests by

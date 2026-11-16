@@ -67,6 +67,11 @@
    "tier": "slow",
    "why": "plays the game: built copy through save, reload, export and import"
   },
+  "tests/engine_game_seam.test.js": {
+   "ms": 100000,
+   "tier": "slow",
+   "why": "plays the game: boots it, plays a game day tick by tick, spends banked time, and saves, exports and imports; E21 split out to engine_week_seam"
+  },
   "tests/facts_frame.test.js": {
    "ms": 50000,
    "tier": "slow",
