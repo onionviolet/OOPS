@@ -26,7 +26,18 @@ Weibao: "Restart foundation run, but orient them better? More to consider? Make 
   - From `lotm-kjw42`, Neil's chart and tarot lessons at the Blackthorn office, then Hanass Vincent's club case (Glacis's iron-mine chart), move the line under Here from 4 to 5 of 6 readings given in the Seer's role (proposal, canon-close).
   - Full `npm test` on `683ebf416` plus this slice: 7,744 of 7,757 pass, 12 skipped; the 1 failure (`rule_routes`) needs git.
   - Agent-verified, not human-reviewed. No `dist/` this wave (the coordinator session builds before push).
-  - **Next:** give the tarot and numerology readings their contact and grounds keys through canon client cases (Bogda's operation, Joyce's birth date), so 6 of 6 and "settled" are reachable.
+  - **Wave 22, stopped at the 2026-11-16 hand-off (uncommitted, not yet played in the game). Next coordinator, start here.**
+    - Files changed: `src/lotm_be_div_learning.js`, `src/lotm_be_acting.js`, `tests/lotm_be_acting.test.js`. A patch copy and the walk script are in the coordinator group's notes folder, `wave22_klein_handoff/`.
+    - **Bug in the committed `c39e5f7dd`:** the club case leaves Klein at the Divination Club, which is not on the walking map. He has no way home, which also blocks the next pack story stage at the flat. The uncommitted work adds `lotm.be.club.home`, a 25-minute carriage back to the Moretti flat.
+    - **Canon fix:** Hanass Vincent is dead by kjw42 (pack act `kj3as.tea`). Angelica now books the clients (en v1 ch54 P068-P070).
+    - **Why no Bogda or Joyce cases:** the Bogda operation and Joyce's birth date repeat the pack's paid sessions (`kj3ao`, `kj3aa`), so they count once with their session.
+    - **Sixth reading:** Edward's lost keepsake by tarot (proposal; canon occasion zh 第115章 p78), giving 4 paid sessions + Glacis + Edward = 6 of 6 and "settled".
+    - **State:**
+      - `tests/lotm_be_acting.test.js`: 5 of 5.
+      - `check:arch` exit 0.
+      - `check:rules` exit 1, on another lane's `src/rune_bench_form.js:28` raw duration.
+      - Not done: the game run to 6 of 6 (headless and browser), `test:changed`, `check:flow` and the full suite.
+    - **To land it:** run the walk on kjw42 to 6 of 6 with save, reload and Import into a second origin; run the gates; commit those three files by path.
 - **Backlog (Wave 19, rechecked Wave 20).** Klein's digestion by acting is **not reachable**. Be-Klein's readings for others are compiled at `book_world_lotm_cast_host.js:205` and listed at `book_world_lotm_ui.js:383`, but they stay locked:
   - Each step needs `means`, `contact` and `grounds` facts (`book_world_lotm_div_supply.js:23-31`).
   - The cast grants only the astrolabe, numerology and dream-divination methods (act `kj3aa`). Nothing grants the chart or tarot methods, or any `book.lotm.div.contact.*` or `book.lotm.div.grounds.*` key.
