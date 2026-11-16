@@ -1671,3 +1671,9 @@ Saved as round 22 (PS229–PS242, proposals) in the [play-surface considerations
 Weibao: "how can we have the UI inherently cohesive and good looking? consider enchanting too? reforging? other aspects? absorbing all those mincraft mods?"
 
 Saved as round 23 (PS243–PS263, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-23-2026-11-15-cohesion-by-construction-enchanting-and-reforging-on-screen-and-what-the-minecraft-mods-teach). Mechanics stay with the gear depth (GDP) and crafting engine owners.
+
+## Looks as player choices, 2026-11-15
+
+Weibao on the borders-or-spacing pair: "Implement both and have the player choose, can leave border as default, lots of features can be like that ⏎ whats next to consider?"
+
+Direction: a tested look with no clear loser ships as a player choice, and the current look stays the default. Saved as round 24 (PS264–PS278, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-24-2026-11-15-looks-as-player-choices-and-what-comes-next). It amends PS234. ui-cohesion is building Display › Row style.

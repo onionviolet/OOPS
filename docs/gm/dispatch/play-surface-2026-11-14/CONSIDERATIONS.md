@@ -735,3 +735,37 @@ Existing owners this builds on, not restarts: the [gear depth considerations](..
 | PS261 | **"All the mods" means a pattern list, not a port list.** Default: a mod enters through the question it answers (where does this come from, what will this do, what is this thing), one pattern per question. The modpack scout's catalogue is the palette; the existing private decompiles are structure evidence only. |
 | PS262 | **Order.** PS243–PS246 come before any new bench screen, since every bench after them is drawn by the renderer and lint. PS248 (the item sheet) is the first consumer; reforging and enchanting follow on it. |
 | PS263 | **A deciding test for cohesion.** The blind panel (PS228) gets three screens from different features with labels removed, and is asked whether they look like one game. A "no" names the form that broke. |
+
+## Round 24, 2026-11-15: looks as player choices, and what comes next
+
+Weibao on the ps217 pair: "Implement both and have the player choose, can leave border as default, lots of features can be like that ⏎ whats next to consider?" ([log](../../USER_VISION_LOG_2026-11.md#looks-as-player-choices-2026-11-15)).
+
+### Looks as player choices
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS264 | **A tested look becomes a choice, not a replacement.** Default: when a variant pair has no clear loser, both ship. Display › Row style is Bordered (default) or Spacing. A look option registers its id, label, choices, default and one stylesheet per choice in a small registry, and the Display options list them. This amends PS234: the losing variant is deleted only when Weibao picks one over the other. Reason: Weibao, "lots of features can be like that". |
+| PS265 | **Look choices live with the player, not the save.** Default: they persist like the other Display and Feel settings, carry across lives and worlds, and never enter a save file, so a shared or imported save does not change how the screen looks. |
+| PS266 | **Presets bundle choices.** Default: Classic (YAIR's look, the defaults), Calm (spacing, quiet motion) and Dense (compact rows, small type), plus "Custom" once any single choice changes. Reason: a list of ten switches is work, and a named preset is one click. |
+| PS267 | **Test the defaults and each choice alone.** Default: visual baselines run on the defaults; each non-default choice gets one capture set by itself, and combinations are not baselined. Reason: choices multiply, and testing every combination costs more than it finds. |
+| PS268 | **What qualifies as a look choice.** A choice changes appearance or density only. A choice that changes what you learn or what the game does (the "?" rules, the day strip's timing, the crossing) is a play rule under Your own rules (PS210), with its own default and reason. |
+
+### What comes next (after the 2026-11-16 reset, in order)
+
+| Code | Item | Why this order |
+| --- | --- | --- |
+| PS269 | PS243–PS246: one renderer, the fixed vocabulary, the style lint and the per-feature kit rows. | Every later screen is drawn through them, so it comes out cohesive with no extra pass. |
+| PS270 | PS204: "Learning now" and the Here box in the room below Skills. | The empty space under Skills is the most visible gap left in today's captures. |
+| PS271 | The areas build (round 17, "Build both") on travel_legs, tested against PS223's tab alternative as a look/play pair. | It is Weibao's oldest open "build" and needs its own lane. |
+| PS272 | PS248: the item sheet, then reforging (PS249) and one enchanting bench (PS250) on it. | The first consumer of the renderer; it carries GDP's mechanics to the screen. |
+| PS273 | PS206–PS207: the fight box as YAIR's grid with the adjacent fight log, and the card folded to five moves. | Combat's remaining layout work; PS238 (wrong estimates) after it. |
+| PS274 | Round 15's open details by lane (PS209), and drafts D2–D6. | Already assigned; they run alongside. |
+| PS275 | PS216 (the layout grows with the life) and PS219/PS236's world mix as a second variant pair. | The next "borders or spacing" style question for Weibao. |
+
+### More to consider
+
+| Code | Consideration |
+| --- | --- |
+| PS276 | **A first-run look picker.** The first time a player opens the game, one screen offers the presets beside a live preview. It is skipped by default for Weibao's existing setup. |
+| PS277 | **Choices are named in reports.** A capture or bug note records the look choices in force, so a difference between two screenshots is never mistaken for a regression. |
+| PS278 | **Accessibility rides the same registry.** Text size, contrast outline (PS133) and reduced motion register as look options, so one Display page holds them all. |
