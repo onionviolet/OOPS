@@ -15,8 +15,6 @@ import {renderSceneCard} from './ui/scene_card.js';
 import {renderApproachStrip} from './ui/approach_strip.js';
 import {foeKind, TERMS_LABEL, LOSING_LABEL} from './fight_terms.js';
 import {getDisplaySetting} from './display_settings.js';
-import {versusWithEngine} from './read_models/combat_situation_bridge.js';
-import {harmRung} from './harm_state.js';
 import {worldFamily, currentWorldFamily} from './world_look.js';
 import {HANDOVER_LABEL, HANDOVER_TEXT, RUN_LABEL, RUN_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
 
@@ -50,7 +48,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
     section.hidden = true;
     // The card and its Withdraw row are built once per fight and leave choice; ticks only swap the
     // stakes text, the lines and the drawing, so the button never moves or rebuilds under a pointer (UR52).
-    let cardKey = '', textKey = '', stakes = null, lines = null, figure = null, notice = null, lastNotice = '';
+    let cardKey = '', textKey = '', stakes = null, lines = null, notice = null, lastNotice = '';
     notice = document.createElement('p'); notice.className = 'fight-situation-notice';
     notice.setAttribute('role', 'status'); notice.tabIndex = -1;
     // Keys 1 and 2 press the decision band's buttons (PS21) while focus is in the card and not in a text field.
@@ -265,6 +263,10 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
             const previousFocus = captureTempoFocus(section, ['fightOption', 'fightAim']);
             let view = null; try { view = domainRegistry.project('tempo_fight'); } catch { /* status below remains honest */ }
             delete section.dataset.fightMode; section.replaceChildren(); cardKey = textKey = '';
+            // PS289, PS51: the card stops drawing when the fight ends, so its result goes to Reports here, once, as one combat line (the last
+            // blow, how each side ended, what was taken or carried). "hero_missed" is the plain combat kind: filed under Combat, no hit colour.
+            const result = view?.account ? [view.account.head, ...view.account.items.filter(([k]) => k !== 'Asked').map(([k, text]) => `${k}: ${text}`)].join(' ') : view?.last ? `Fight ended: ${view.last}.` : '';
+            if (result) { try { reportTo?.(result, 'hero_missed'); } catch { /* Reports not mounted (tests) */ } }
             previousLog = []; previousNoticeWasError = false; lastNotice = '';
             if (previousFocus) {
                 section.dataset.fightFinished = 'true'; section.hidden = false;
@@ -291,20 +293,28 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         const leave = leaveChoice(), leaveText = leave?.textContent.replace(/\s+/g, ' ').trim() || '';
         if (cardKey !== `${place}\n${leaveText}`) {
             cardKey = `${place}\n${leaveText}`; textKey = ''; section.replaceChildren();
-            const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', header: {title: 'Fight', place}, stakes: ' ',
+            // PS296 (Weibao: "wasted space for the combat one... what happened to the original?"): in a native fight YAIR's own Opponent box
+            // above is the fight view. This card keeps no second copy of the fighters: only the folded approach line and Withdraw.
+            const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', header: {}, stakes: ' ',
                 options: [{id: 'leave', label: leaveText ? `Withdraw: ${leaveText}` : 'Withdraw', affects: 'Leaves this fight', attrs: {fightOption: 'leave'},
                     blocked: leave ? '' : 'No way out is shown from here.', onChoose: () => leaveChoice()?.click()}]});
             stakes = card.querySelector('.scene-card-stakes');
-            // Text first (LTU7): lines the chips cannot carry sit above the versus row (round 2, R2-S1).
             lines = document.createElement('ul'); lines.className = 'fight-situation-lines'; stakes.after(lines);
-            figure = document.createElement('div'); figure.className = 'fight-situation-versus'; card.append(figure);
+            const approach = document.createElement('details'); approach.className = 'fight-situation-approach'; approach.dataset.fightApproach = ''; approach.open = approachOpen;
+            const sum = document.createElement('summary'), quiet = document.createElement('span'); sum.title = 'Open to see how the fight stands and to change your stance and your terms.';
+            // The line states the approach itself; the shared group counter ("1 entry") would only count the tempo note.
+            quiet.dataset.groupOwnStatus = ''; quiet.hidden = true; const say = text => { sum.textContent = text; sum.append(quiet); }; say('How you fight');
+            approach.addEventListener('toggle', () => { approachOpen = approach.open; });
+            card.prepend(approach); approach.append(sum, stakes, lines);
             // The same approach strip as the fight card (PS39): stance and terms for each kind here. This loop cannot stop to ask yet,
             // so Ask me and losing terms are not offered in it.
             const stripFor = domainRegistry.command('tempo_fight', 'stripFor'), termsCommand = domainRegistry.command('tempo_fight', 'terms');
             const kinds = [...new Set((combat.defenders || []).map(d => foeKind(d)))];
             if (stripFor && kinds.length) {
-                const host = document.createElement('div'); host.dataset.nativeStrip = ''; card.append(host);
-                const draw = () => { host.replaceChildren(); renderApproachStrip(host, {strip: stripFor({kinds, frame: 'original'}), stakes: {frame: 'original'}, asks: false, losing: false,
+                const host = document.createElement('div'); host.dataset.nativeStrip = ''; approach.append(host);
+                const draw = () => { const strip = stripFor({kinds, frame: 'original'}), term = strip?.terms?.[0];
+                    say([strip?.stance?.name || '', term ? TERMS_LABEL[term.terms] : ''].filter(Boolean).join(' · ') || 'How you fight');
+                    host.replaceChildren(); renderApproachStrip(host, {strip, stakes: {frame: 'original'}, asks: false, losing: false,
                     on: {terms: (kind, value) => { try { lastNotice = termsCommand({kind, value}); } catch (error) { lastNotice = error.message; } draw(); }}}); };
                 draw();
             }
@@ -324,7 +334,6 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         }));
         // L13 bridge: the harm rung a shown blow reaches comes from the L9 ladder. Typed outcomes, readied abilities and appraisal reads
         // are not in the engine yet (bridge gaps G4, G5), so they stay unread and the card keeps today's words.
-        renderVersusRow(figure, versusWithEngine(situation.versus, {health: own.health, rungOf: harmRung}));
     }
     const timer = setInterval(render, every);
     return {render, stop: () => clearInterval(timer), node: section};

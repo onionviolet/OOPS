@@ -9,11 +9,11 @@
     --versus-danger: var(--theme-danger, var(--ui-meter-limit));
     --versus-track: var(--ui-meter-track-bg);
     --versus-pulse-time: var(--fig-pulse-time, var(--ui-motion-normal));
-    display: grid; grid-template-columns: minmax(10em, 14em) auto minmax(0, 1fr); gap: var(--ui-space-4); align-items: start;
+    display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, var(--versus-them, 1fr)); gap: var(--ui-space-4); align-items: start;
     min-width: 0; color: var(--versus-ink); font-size: var(--ui-type-body); line-height: var(--ui-line-body); overflow-wrap: anywhere;
 }
 .versus-side {display: grid; gap: var(--ui-space-2); min-width: 0; align-content: start;}
-.versus-side--them {grid-template-columns: repeat(auto-fill, minmax(14em, 1fr)); gap: var(--ui-space-3);}
+.versus-side--them {grid-template-columns: repeat(var(--versus-cols, 1), minmax(0, 1fr)); gap: var(--ui-space-3);}
 .versus-sep {align-self: center; color: var(--versus-muted); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
 .versus-name {margin: 0; font-size: var(--ui-type-body); font-weight: var(--ui-weight-strong); line-height: var(--ui-line-body);}
 .versus-hp, .versus-allies {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small); color: var(--versus-muted);}
@@ -103,3 +103,15 @@
 /* PS290, PS291: the folded approach line, and a status line kept for screen readers when the lines are in Reports. */
 .fight-situation-approach > summary {cursor: pointer; font-size: var(--ui-type-small); color: var(--versus-muted);}
 .fight-situation-notice--quiet {position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;}
+/* PS297: fighters in YAIR's Opponent-box form. Health is YAIR's bar (the You box's size and colours) with its words inside; the attack
+   bar is the Opponent box's cycle hairline under it. Every box is the same width (--versus-them, --versus-cols) and as tall as its content. */
+.versus-bar--hp, .versus-row .versus-bar--stamina {position: relative; height: 1.25em; min-height: 20px; background: var(--p23-track, var(--versus-track)); overflow: hidden;}
+.versus-bar--hp > .versus-bar-fill, .versus-card .versus-bar--hp > .versus-bar-fill {background: var(--p23-health-fill, var(--versus-accent));}
+.versus-row .versus-bar--stamina > .versus-bar-fill {background: var(--p23-energy-fill, var(--versus-muted));}
+.versus-bar-text {position: absolute; inset: 0; display: block; text-align: center; white-space: nowrap; overflow: hidden; font-variant-numeric: tabular-nums; line-height: max(1.25em, 20px);}
+.versus-bar--hp > .versus-bar-text {color: var(--p23-dark-value, var(--versus-ink));}
+.versus-bar--hp[data-health-known="false"] > .versus-bar-text, .versus-row .versus-bar--stamina > .versus-bar-text {color: var(--p23-text, var(--versus-ink)); text-shadow: var(--ui-text-shadow, none);}
+.versus-bar--hp .known-number[data-known="unknown"] {color: inherit; cursor: help;}
+#fight_situation .versus-row .versus-bar--timer {height: .25em; background: var(--p23-track, var(--versus-track));}
+#fight_situation .versus-row .versus-bar--timer > * {background: var(--p23-value, var(--versus-accent));}
+.versus-row > .versus-side--you, .versus-card {align-self: start; height: auto;}

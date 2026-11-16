@@ -167,7 +167,8 @@ export function createShellComposition({root, board, regions, resize}) {
         // The centre split follows the row it sits in; while a centre view holds the row, the split waits with it.
         if (!root.dataset.centerTask && !heldRow) {
             const own = id => [...(regions[id]?.querySelectorAll(':scope > .workspace-module[data-module]') || [])].filter(n => !n.hidden).map(n => n.dataset.module);
-            const defaults = !combat && regionFit(own('focus')) === 'combat' && own('focus').includes('focus') && regionFit(own('player')) === 'content'
+            // PS298: in a fight too, so the Opponent box is as tall as its rows and the fight card starts right under it (no blank band).
+            const defaults = regionFit(own('focus')) === 'combat' && own('focus').includes('focus') && regionFit(own('player')) === 'content'
                 && !board.style.getPropertyValue('grid-template-rows') && !board.style.getPropertyValue('grid-template-areas');
             const topRow = parseFloat(root.style.getPropertyValue('--shell-top-row')), gap = parseFloat(getComputedStyle(board).rowGap) || 0;
             // The action list keeps at least its bottom-row floor under a tall centre region.
