@@ -8,9 +8,9 @@ Weibao's standing goal for this run: "coordinate the opus chats and create new o
 
 ## State at handoff
 
-- origin/master was e53dbd33c, pushed with a green gate (7,758 pass, 0 fail). Commits after it are listed in the last checkpoint entry. The final close gate's result is recorded there too.
-- All lanes were told to stop, commit their checked work, and write their handovers. All have now stopped. Combat's last commit is 33e65b9ba (PS50). Daily-loops' last is 694edcafe (Harry's next-class line and the house-points owner proposal), which came after the close-out bundle and is not pushed.
-- The final bundle was built at 33e65b9ba. It clears PS303, where today's saves failed to load in the old bundle. Until that bundle lands, uncommitted combat edits in `src/combat_situation_ui.js` and `styles/combat_versus.css` add an import cycle and fail the manifest test in the shared tree.
+- origin/master is 7524c2f3b, pushed with a green gate (7,769 pass, 0 fail) on 2026-11-16. It holds every lane's committed work. Only the uncommitted items under Known risks remain outside it.
+- All lanes were told to stop, commit their checked work, and write their handovers. All have now stopped. Combat's last commit is 33e65b9ba (PS50). Daily-loops' last is 694edcafe (Harry's next-class line and the house-points owner proposal).
+- The pushed bundle clears PS303, where today's saves failed to load in the old bundle. Uncommitted combat edits in `src/combat_situation_ui.js` and `styles/combat_versus.css` add an import cycle and fail the manifest test in the shared tree.
 - Weekly usage was about 12% after the 2026-11-16 reset. The usage limit resets weekly on Monday at 18:00 UTC.
 
 ## Lanes (sessions) and their handovers

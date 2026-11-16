@@ -177,3 +177,7 @@ Landed after 95bdf13d3 and not pushed: discord surfaces 4d0cb17f5 and e4598c9f7,
 The pusher gated a clean checkout of 14a646680. The bundle matches, and arch, rules and docs exit 0. Flow shows only the known no-rain finding. npm test: 7,780 tests, 7,767 pass, 1 fail, 12 skipped, at a load average of about 6.
 
 The failure is an assertion, not a timeout. tests/ui_style_ratchet.test.js "no UI module adds raw style; counts only go down (PS245)" reports src/ui/bench_form.js: ownMarkup 0 -> 1. It came from e33ee6aa1, the enchanting bench form. The fix is to build that markup through src/ui/kit.js. Origin stays at e53dbd33c until a fixed hash passes the gate.
+
+## Close-out push 7524c2f3b, 2026-11-16 (pushed)
+
+7524c2f3b fixed the ratchet failure above: the bench form now builds its markup through the kit's `kitElement`. The pusher gated a clean checkout and fast-forwarded origin/master from e53dbd33c to 7524c2f3b. The bundle matches; arch, rules and docs exit 0; flow shows only the known no-rain finding. npm test: 7,781 tests, 7,769 pass, 0 fail, 12 skipped. This closes the play-surface wave. What's left is in COORDINATOR_HANDOFF.md.
