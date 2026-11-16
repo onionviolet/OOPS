@@ -280,6 +280,7 @@ function closeAccount(plan, w) {
     // Settled by the player's terms (PS36): the result says so, "as you meant to".
     if(them.some(f => f.byTerms)) account = {...account, items: account.items.map(([k, t]) => k === 'Them' ? [k, `${t.replace(/\.$/, '')}, as you meant to.`] : [k, t])};
     // What you carry away (PS26): a world's after-hook names it in player words.
+    if(plan.fightLines?.length) account = {...account, lines: plan.fightLines};
     if(plan.fightCarry?.length) account = {...account, items: [...account.items, ['Carried', plan.fightCarry.join(' ')]]};
     // What the side that downed you took (PS45, their terms).
     if(plan.fightTaken) account = {...account, items: [...account.items, ['Taken', plan.fightTaken]]};
