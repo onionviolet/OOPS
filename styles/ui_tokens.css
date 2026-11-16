@@ -1948,8 +1948,8 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
     --kit-gap-1: var(--ui-space-2); --kit-gap-2: var(--ui-space-4); --kit-gap-3: var(--ui-space-5); --kit-gap-4: var(--ui-space-6); --kit-gap-5: var(--ui-space-7);
     --kit-border: 1px;
 }
-.kit-row {display:flex;align-items:baseline;gap:var(--kit-gap-2);min-width:0;}
-.kit-row__label {min-width:0;}
+.kit-row {display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--kit-gap-2);min-width:0;}
+.kit-row__label {min-width:0;overflow-wrap:anywhere;}
 .kit-row__fact {color:var(--ui-muted);min-width:0;}
 .kit-row__from {margin-left:auto;color:var(--ui-muted);white-space:nowrap;}
 .kit-row--near .kit-row__fact {color:var(--ui-state-near);}

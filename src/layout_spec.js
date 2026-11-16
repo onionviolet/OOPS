@@ -344,7 +344,8 @@ export function gridTemplate({context = 'idle', atLeast, empty = []}, spec = LAY
     const band = bands.filter(b => atLeast(b.minWidth)).at(-1) || bands[0];
     const total = band.columns.reduce((a, b) => a + b, 0);
     const widths = [...band.columns], rows = band.areas.map(row => row.split(/\s+/));
-    for (let i = 1; i < widths.length; i++) if (rows.every(row => empty.includes(row[i]))) { widths[i - 1] += widths[i]; widths[i] = 0; }
+    // A folded column's width goes to the nearest open column before it, so two empty columns side by side both fold.
+    for (let i = 1; i < widths.length; i++) if (rows.every(row => empty.includes(row[i]))) { let j = i - 1; while (j > 0 && widths[j] === 0) j--; widths[j] += widths[i]; widths[i] = 0; }
     return {
         areas: band.areas.map(row => `"${row}"`).join(' '),
         columns: widths.map(c => `minmax(0,${c}fr)`).join(' '),

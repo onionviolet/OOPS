@@ -294,3 +294,9 @@ test('COV2 center lend gives the view the rest: You, a one-fr centre, the Journa
     const tight = centerLendColumns('14px', {...LAYOUT_SPEC, centerLend: {sideEm: 20, sideMaxPct: 18, logEm: 22, logMaxPct: 18}});
     assert.match(tight, /\*20\),18%\)/);
 });
+
+test('two empty columns side by side both fold into the open column before them (PS99, PS216)', () => {
+    const g = gridTemplate({context: 'idle', atLeast: () => true, empty: ['journal', 'log']});
+    const cols = g.columns.split(' ');
+    assert.equal(cols[2], 'minmax(0,0fr)'); assert.equal(cols[3], 'minmax(0,0fr)');
+});

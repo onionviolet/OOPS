@@ -22,3 +22,12 @@ test('look options: Row style is Bordered by default, Spacing loads the ps217 sh
     assert.equal(lookSheet(rows, 'nonsense'), '');
     for (const o of LOOK_OPTIONS) for (const [v] of o.choices) if (lookSheet(o, v)) assert.ok(existsSync(new URL(`../${lookSheet(o, v)}`, import.meta.url)));
 });
+
+test('PS216: a column opens when its content grows past a life\'s opening; the Journal also on the first skill', async () => {
+    const {columnsToOpen} = await import('../src/ui/grow_columns.js');
+    const opening = {quests: 1, reports: 2, skills: 0};
+    assert.deepEqual(columnsToOpen(opening), {});
+    assert.deepEqual(columnsToOpen({...opening, reports: 3}), {log: 'First report'});
+    assert.deepEqual(columnsToOpen({...opening, skills: 1}), {journal: 'First skill'});
+    assert.deepEqual(columnsToOpen({...opening, quests: 2}), {journal: 'A new quest'});
+});

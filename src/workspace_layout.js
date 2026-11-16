@@ -4,6 +4,7 @@ import {resolvePanel,selectSection,foldOf} from './panel_folds.js';
 import {seatAllowsPanel,panelPerspective} from './seat_profiles.js';
 import {centerModes} from './center_modes.js';
 import {moduleHasShownTab} from './ui/box_tabs.js';
+import {growEmpty} from './ui/grow_columns.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellResize} from './shell_resize.js';
 import {createShellComposition} from './shell_composition.js';
@@ -306,7 +307,7 @@ export function updateWorkspace() {
     setData(owner.root,'layoutContext',placementContext());
     // UM8: the parity grid's areas and column shares come from the spec; CSS has one generic rule.
     const empty=Object.entries(owner.regions||{}).filter(([,region])=>![...region.children].some(n=>n.classList?.contains('workspace-module')&&!n.hidden)).map(([id])=>id);
-    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches,empty});
+    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches,empty:growEmpty(empty)});
     setStyle(owner.board,'--shell-areas',grid.areas);setStyle(owner.board,'--shell-columns',grid.columns);
     setStyle(owner.board,'--shell-lend-columns',centerLendColumns());
     grid.shares.forEach((share,i)=>setStyle(owner.board,`--shell-share-${i+1}`,share));

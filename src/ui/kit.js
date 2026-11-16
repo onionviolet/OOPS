@@ -13,7 +13,10 @@ export const KIT_VOCABULARY = Object.freeze({
     states: Object.freeze(['empty', 'near', 'ready', 'running', 'unknown', 'crowded']),
 });
 
-const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+let kitDoc = null;
+/** Draw into another document (a card rendered into host.ownerDocument, MDL13). Pass null to return to the global one. */
+export function useKitDocument(doc) { kitDoc = doc || null; }
+const el = (tag, cls, text) => { const n = (kitDoc || globalThis.document).createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const tag = (node, data = {}) => { for (const [k, v] of Object.entries(data)) if (v != null) node.dataset[k] = String(v); return node; };
 
 /**
