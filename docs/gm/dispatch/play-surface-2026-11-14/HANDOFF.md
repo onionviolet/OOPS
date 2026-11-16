@@ -10,6 +10,7 @@ The play-surface wave (2026-11-14 to 2026-11-16) closes here, as Weibao asked: "
 | Bench and item-sheet layout | feature-ui's record | His look at the two-column bench, grouped processes, the one-line sheet summary, the "you at this forge" strip and the beat-what-you-have chance. |
 | Try "Grows with the life" | Display › Look › Customize › Layout | Try it in play. It stays a choice, with "Full" as default. |
 | Row style, presets, fight log | Display › Look | Try them in play. Classic is the original look. |
+| Klein's rent arrears after a move | daily-loops' audit note on 2d408371a | Proposal: old-flat arrears carry over as weeks, priced at the current week's rent. Keep the old price instead, if that reads better. |
 
 ## Open work by lane (each with a handover)
 
