@@ -688,3 +688,50 @@ Weibao: "how to consider what is better than more? how to make mock more accurat
 | PS240 | **Cost guard for variants.** A variant lane works on stylesheet and spec overrides, with no new engine code. Its done check is the capture pair plus `check:visual` with the flag off. |
 | PS241 | **Hold the comparisons still.** Fonts, window size, seed and the reduce-motion setting are pinned in capture runs, so a difference in a pair comes from the variant, not the run. |
 | PS242 | **One question per capture pair.** Each pair answers one question ("borders or spacing?"), so Weibao's pick says which change he liked. A pair that differs in five ways cannot be read. |
+
+## Round 23, 2026-11-15: cohesion by construction, enchanting and reforging on screen, and what the Minecraft mods teach
+
+Weibao: "how can we have the UI inherently cohesive and good looking? consider enchanting too? reforging? other aspects? absorbing all those mincraft mods?" ([log](../../USER_VISION_LOG_2026-11.md#cohesive-by-construction-enchanting-reforging-and-the-mods-2026-11-15)).
+
+Existing owners this builds on, not restarts: the [gear depth considerations](../../../GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md) (GDP1–GDP46: Silent Gear, Tetra and Tinkers' structure; part swaps, salvage, heat grades), [CRAFTING_ENGINE](../../../CRAFTING_ENGINE.md) XD7 (enchanting as runes with charge), `src/gear_affixes.js` (affix records on Apotheosis's structure, native names and numbers), `src/rune_grammar.js` (rune pairs, talisman order), the [modpack scout](../../../research/MINECRAFT_MODPACK_SCOUT_2026-10-14-report.md) and the round 14 [UI kit](../../../../prototypes/ui-kit-2026-11-15/). Mechanics stay with those owners; this round is how they look and feel, and how the screen stays one piece.
+
+### Cohesive by construction
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS243 | **Features declare content; one renderer draws it.** Default: a feature hands the shell rows, verbs, numbers, chips and a tooltip record (the kit's twelve forms), and the shared renderer draws them. A feature writes its own DOM only for a view the kit cannot express, and that view becomes a new kit form when a second feature needs it. Reason: Minecraft mods look like one game mostly because every mod draws into the same slot grid and tooltip; our features look apart because each drew its own panel. |
+| PS244 | **A small, fixed vocabulary.** Default: one spacing scale (4, 8, 12, 16, 24), one type scale (four sizes), one border weight, a short colour list from `ui_tokens.css` (text, dim, accent, the PS103 state tokens and rarity), and two densities. Reason: cohesion comes from the few values everything shares, more than from any single screen's polish. |
+| PS245 | **A lint keeps it.** Default: a check flags a raw colour, pixel size, border or `toFixed` in UI modules outside the tokens and number_format (the number ratchet already works this way), with a ratchet that only goes down. Reason: the gate found three new inline number formats in one day; style drifts the same way. |
+| PS246 | **A kit page per feature.** Default: each feature has a row on the live kit page showing its forms in their states (empty, near, ready, running, unknown, crowded), so a drift shows beside its neighbours before it reaches a screen. |
+| PS247 | **Good-looking means calm first.** Default: one accent per box, motion only for change (PS153's pulses), glow only for rarity and readiness, and the rest quiet. Reason: what makes YAIR read well is how little competes for the eye; the borderless variant (PS217) tests the same idea. |
+
+### Enchanting and reforging on screen
+
+| Code | Proposal (default, dial, reason) |
+| --- | --- |
+| PS248 | **One item, one sheet.** Default: an item's inspector shows its parts (Tetra and Silent Gear's structure in GDP), its affixes or enchantments with their ranges as the life knows them (PS236 rules: "+3–5 edge" known, "? something in the steel" not), its condition and history, and its "where it can go" verbs: wear, repair, reforge, enchant, salvage, sell. Every making system adds verbs to this sheet, not its own item view. |
+| PS249 | **Reforging shows the gamble before you pay.** Default: the reforge view shows what stays (the item, its history, its part bond), what is rerolled, the range each roll can land in as far as the smith can tell, the cost, and what the smith's skill and the metal's fatigue change. After the work, the old and new values sit side by side, with Keep and, where the world allows it, Revert at a cost. Mechanism first (AD38): reforging is reworking metal, so fatigue, heat and skill set the odds, not a slot-machine label. |
+| PS250 | **Enchanting is per world, one form.** Default: the bench differs by world (a Gu refinement in Fang Yuan's world, a charm in Harry's, a ritual or characteristic in Klein's, runes in the Village per XD7), but each shows the same form: inputs, a capacity bar (rune capacity from alloy and medium, XI2), interference with what is already on the item (SX4), the chance and range as known, and a preview of the item after. Reason: one form is learnt once and reads everywhere. |
+| PS251 | **Capacity and interference are visible.** Default: an item shows how much more it can hold and what clashes, as a bar and a short reason ("the iron fights the frost rune"), in the same place on every bench. Apotheosis and Tinkers both make the limit visible; a hidden limit reads as a bug. |
+| PS252 | **Unknown effects stay unknown until tried.** Default: a first-time enchantment or reforge result can carry "?" (PS239) until worn, tested or appraised, with a route on hover ("Wear it in a fight", "Show it to an appraiser"). Reason: discovery is part of making (rune_grammar's learning by contrast). |
+
+### What the mods teach, by question (patterns, not copies)
+
+| Code | Mod pattern | Default in our screens |
+| --- | --- | --- |
+| PS253 | JEI and REI: any item shows its recipes and its uses on a key. | The inspector's "From" and "Where it can go" (flow mock A) answer both for every item, on one key (R for recipes, U for uses) and by click. |
+| PS254 | Jade and WTHIT: look at a thing to learn what it is and its state. | Hovering anything in Around you shows a compact state card (a station's job and time, a person's mood as known), in the kit's tooltip form. |
+| PS255 | AppleSkin: show what eating will do before you eat. | Every use or consume verb previews its effect on the bars (a ghost segment on hunger, health or essence) before the click, per PS141's "say the outcome first". |
+| PS256 | FTB Quests and Patchouli: a quest tree and an in-game book. | The Journal's tabs hold a goal tree for long arcs and a notebook the life writes into as it learns (KNW), not a wiki. |
+| PS257 | Create: you see the machine work. | A long job shows its stages moving (the kiln's heat rising, the Gu eating), within the reduced-motion setting. |
+| PS258 | Applied Energistics and Sophisticated Storage: one searchable store. | Storage and inventory share one search and filter row, and a station can pull from storage when the life has the means. |
+| PS259 | Tough As Nails and Serene Seasons: temperature, thirst and seasons as mechanisms. | Supports PS208: cold and season act by mechanism, and the Condition rows say why. |
+| PS260 | Tinkers and Tetra: tools grow by use (modifiers earned, honing). | An item's sheet shows wear-in and earned traits as a history line ("held the wall for 3 nights: +grip"), from GDP. |
+
+### More to consider
+
+| Code | Consideration |
+| --- | --- |
+| PS261 | **"All the mods" means a pattern list, not a port list.** Default: a mod enters through the question it answers (where does this come from, what will this do, what is this thing), one pattern per question. The modpack scout's catalogue is the palette; the existing private decompiles are structure evidence only. |
+| PS262 | **Order.** PS243–PS246 come before any new bench screen, since every bench after them is drawn by the renderer and lint. PS248 (the item sheet) is the first consumer; reforging and enchanting follow on it. |
+| PS263 | **A deciding test for cohesion.** The blind panel (PS228) gets three screens from different features with labels removed, and is asked whether they look like one game. A "no" names the form that broke. |

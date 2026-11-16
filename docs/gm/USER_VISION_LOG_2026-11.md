@@ -1665,3 +1665,9 @@ The push brief went to the pusher chat. The challenges are round 21 (PS216–PS2
 Weibao: "how to consider what is better than more? how to make mock more accurate to the real deal without costing tooo much? bringing mock into reaslity? other aspects? ?/? has benefits. sometimes not knowing is part of it, more to consider?"
 
 Saved as round 22 (PS229–PS242, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-22-2026-11-15-better-versus-more-mocks-that-match-the-game-and-the-worth-of-not-knowing). PS236 amends PS219: "?" stays where the character cannot tell.
+
+## Cohesive by construction, enchanting, reforging and the mods, 2026-11-15
+
+Weibao: "how can we have the UI inherently cohesive and good looking? consider enchanting too? reforging? other aspects? absorbing all those mincraft mods?"
+
+Saved as round 23 (PS243–PS263, proposals) in the [play-surface considerations](dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#round-23-2026-11-15-cohesion-by-construction-enchanting-and-reforging-on-screen-and-what-the-minecraft-mods-teach). Mechanics stay with the gear depth (GDP) and crafting engine owners.
