@@ -179,6 +179,12 @@ export function typeChips(learned = {}, {reveal = null, worldId = null, label = 
         return {type: r.type, name, glyph, source: r.source, word: `${LEARNED_WORD[r.note] || r.note} ${name}`};
     });
 }
+// PS222: the latest fight line that names a fighter (its name, any case), or for you the latest line that starts with "You" or "Your".
+export function lastLineFor(lines = [], name = '') {
+    const you = name === 'You', bare = String(name).replace(/^(The|A|An) /i, '').toLowerCase();
+    for (let i = lines.length - 1; i >= 0; i--) { const l = String(lines[i]); if (you ? /^(You|Your)\b/.test(l) : bare && l.toLowerCase().includes(bare)) return l; }
+    return null;
+}
 export function tempoSituation(view, {place = '', worldId = null, dev = false} = {}) {
     const f = view?.fight;
     if (!f) return {active: false, mode: 'tempo'};
@@ -196,6 +202,7 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     const meansText = list => list?.length ? list.map(m => m.id === 'wand' ? (m.n > 0 ? 'Wand in hand' : 'No wand') : `${m.label[0].toUpperCase()}${m.label.slice(1)} ${Math.round(m.n)}`).join(' · ') : null;
     base.versus.you.stamina = bar(me.stamina, me.maxStamina, 'stamina');
     base.versus.you.means = meansText(me.means);
+    base.versus.you.last = lastLineFor(f.lines || [], 'You');
     base.versus.you.ready = me.ready ?? null; // DU10: the attack timer, a rhythm in words (readyWord), never a number
     const byId = new Map(f.foes.map(o => [o.id, o]));
     for (const o of base.versus.opponents) {
@@ -206,6 +213,7 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
         o.ready = foe.down ? null : foe.ready ?? null;
         o.wants = foe.wants || null; // what they want, as far as you can tell (PS41)
         o.sense = foe.sense || null; // PS236: what you can see of it, in words
+        o.last = lastLineFor(f.lines || [], foe.name); // PS222: its own latest line, for the card
         if (Number.isFinite(foe.seenAtk)) o.numbers = {...(o.numbers || {}), atk: foe.seenAtk, atkEstimated: true, ...(foe.heard ? {wasHeard: foe.heard.atk} : {})}; // PS237: learned by taking its blows; PS238: a rumour it replaced
         else if (foe.heard) o.numbers = {...(o.numbers || {}), atk: foe.heard.atk, atkEstimated: true, heardFrom: foe.heard.from}; // PS238: believed, maybe wrong
         o.types = typeChips(foe.learned, {reveal: foe.reveal, worldId});

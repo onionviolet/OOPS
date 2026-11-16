@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {fightSituation} from '../src/ui/combat_situation.js';
+import {fightSituation, lastLineFor} from '../src/ui/combat_situation.js';
 import {renderVersusRow, versusText, sigilPoints} from '../src/ui/combat_versus.js';
 import {DUEL_BOARD, BRAWL_BOARD} from '../src/ui/preview/fixtures/combat.js';
 
@@ -151,4 +151,15 @@ test('PS238: a rumoured attack reads "~12, from a rumour" and, once corrected, t
     c = cards(draw(versus))[3];
     assert.equal(c.find(n => n.has('versus-was'))[0].textContent, '~12');
     assert.ok(c.textContent.includes('Atk ~12 ~6'), c.textContent);
+});
+
+test('PS222: with the fight log on each card, every fighter shows its own latest line; off by default', () => {
+    const lines = ['You jab the wolf rat for 3.', 'The wolf rat bites you for 4.', 'Your guard holds.', 'A big rat lunges and misses.'];
+    assert.equal(lastLineFor(lines, 'You'), 'Your guard holds.');
+    assert.equal(lastLineFor(lines, 'The wolf rat'), 'The wolf rat bites you for 4.');
+    assert.equal(lastLineFor(lines, 'Nobody'), null);
+    const versus = brawl(); versus.you.last = 'Your guard holds.'; versus.opponents[0].last = 'The wolf rat bites you for 4.';
+    assert.equal(draw(versus).find(n => n.has('versus-last')).length, 0, 'off unless chosen');
+    const shown = draw({...versus, showLast: true}).find(n => n.has('versus-last')).map(n => n.textContent);
+    assert.deepEqual(shown, ['Your guard holds.', 'The wolf rat bites you for 4.']);
 });

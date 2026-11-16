@@ -30,6 +30,12 @@ export const LOOK_OPTIONS = Object.freeze([
         choices: Object.freeze([['bordered', 'Bordered'], ['spacing', 'Spacing']]),
         sheets: Object.freeze({bordered: '', spacing: 'styles/variants/ps217.css'}),
         description: 'Bordered draws a frame around each row. Spacing separates rows with space and a thin line, and shows each skill on one line.'}),
+    // PS206, PS222 (combat lane): where the fight tells what just happened. The box keeps its last six lines by default; "On each card"
+    // puts each fighter's own latest line under its card and folds the whole fight away in the box (tempo lines do not reach Reports yet).
+    Object.freeze({id: 'fightLog', label: 'Fight log', default: 'box',
+        choices: Object.freeze([['box', 'Last six lines in the fight box'], ['all', 'Every line in the fight box'], ['cards', 'On each card']]),
+        sheets: Object.freeze({box: '', all: '', cards: ''}),
+        description: 'Where a fight tells what just happened: the last six lines under the moves, every line, or each fighter\'s own latest line under its card.'}),
 ]);
 
 /** Pure: the variant code from a query string, or '' when absent or not a plain code. */

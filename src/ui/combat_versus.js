@@ -81,7 +81,9 @@ function named(doc, name) {
 }
 const chip = (doc, kind, text, extra = '') => make(doc, 'span', `versus-chip versus-chip--${kind}${extra ? ` ${extra}` : ''}`, text);
 
-function youSide(doc, you) {
+// PS222: under each card, its own latest line, when Display > Look > Fight log says "On each card".
+const lastLine = (doc, text) => { const p = make(doc, 'p', 'versus-last', text); p.dataset.versusLast = ''; return p; };
+function youSide(doc, you, showLast = false) {
     const side = make(doc, 'section', 'versus-side versus-side--you');
     side.setAttribute('aria-label', 'Your side');
     side.append(make(doc, 'h4', 'versus-name', you.name));
@@ -103,10 +105,11 @@ function youSide(doc, you) {
         }
     } else if (you.allies > 0) side.append(make(doc, 'p', 'versus-allies', you.alliesText ? `Beside you: ${you.alliesText}` : `+${you.allies} ${you.allies === 1 ? 'ally' : 'allies'}`));
     if (you.mix) side.append(make(doc, 'p', 'versus-mix', `Strikes: ${you.mix}`));
+    if (showLast && you.last) side.append(lastLine(doc, you.last));
     return side;
 }
 
-function card(doc, o) {
+function card(doc, o, showLast = false) {
     const c = make(doc, 'article', 'versus-card');
     c.dataset.threat = o.threat.level;
     c.dataset.known = String(o.known);
@@ -148,6 +151,7 @@ function card(doc, o) {
         c2.dataset.damageType = t.type; c2.dataset.source = t.source; chips.append(c2);
     }
     c.append(chips);
+    if (showLast && o.last) c.append(lastLine(doc, o.last));
     return c;
 }
 
@@ -162,8 +166,8 @@ export function renderVersusRow(host, versus) {
     // D6: the other side is named and counted; fallen foes keep their cards (DU11), so the count is who still stands.
     const standing = versus.opponents.filter(o => !o.down).length;
     them.append(make(doc, 'h5', 'versus-heading versus-heading--them', `Against you · ${standing}${standing < versus.opponents.length ? ` of ${versus.opponents.length}` : ''}`));
-    for (const o of versus.opponents) them.append(card(doc, o));
-    root.append(youSide(doc, versus.you), sep, them);
+    for (const o of versus.opponents) them.append(card(doc, o, !!versus.showLast));
+    root.append(youSide(doc, versus.you, !!versus.showLast), sep, them);
     host.replaceChildren(root);
     return root;
 }

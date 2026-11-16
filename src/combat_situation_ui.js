@@ -14,7 +14,7 @@ import {renderVersusRow} from './ui/combat_versus.js';
 import {renderSceneCard} from './ui/scene_card.js';
 import {renderApproachStrip} from './ui/approach_strip.js';
 import {foeKind} from './fight_terms.js';
-import {registerPanelSettings, getDisplaySetting} from './display_settings.js';
+import {getDisplaySetting} from './display_settings.js';
 import {versusWithEngine} from './read_models/combat_situation_bridge.js';
 import {harmRung} from './harm_state.js';
 import {worldFamily, currentWorldFamily} from './world_look.js';
@@ -24,11 +24,9 @@ import {HANDOVER_LABEL, HANDOVER_TEXT, RUN_LABEL, RUN_TEXT, captureTempoFocus, r
 const beats = n => `${n} beat${n === 1 ? '' : 's'}`;
 const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
 
-// PS206 (proposal): Display > Fight > Fight log, per browser. The box keeps the last six lines by default; "Every line" keeps them all.
-// Tempo fight lines are not sent to Reports yet, so there is no "Reports only" choice: it would hide them (a gap for the Reports owner).
-const FIGHT_LOG_LINES = 6;
-registerPanelSettings({id: 'fight', title: 'Fight', settings: [{key: 'log', label: 'Fight log in the fight box', options: [['six', 'Last six lines'], ['all', 'Every line']], default: 'six',
-    description: 'How much of the fight so far the fight box keeps under the moves. Presentation only.'}]});
+// PS206, PS222 (proposals): Display > Look > Fight log (src/ui/variant.js LOOK_OPTIONS): the last six lines in the box (default), every
+// line, or each card's own latest line. Tempo fight lines are not sent to Reports yet, so no choice hides them all from the box.
+const FIGHT_LOG_LINES = 6, fightLogMode = () => getDisplaySetting('panel.look.fightLog') || 'box';
 // PS207 (proposal): moves fold to the five you use most, counted per browser; Fight on and the hand-over stay out.
 const MOVE_USE_KEY = 'yairpg.fight.moveUse.v1', FOLD_AT = 5;
 const moveUse = () => { try { return JSON.parse(localStorage.getItem(MOVE_USE_KEY) || '{}') || {}; } catch { return {}; } };
@@ -138,7 +136,7 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         // Why the fight wants you now (the pause rule, CBD56): a line of its own, so it is not lost among the log lines.
         if (ask.length) { const why = document.createElement('p'); why.className = 'fight-situation-ask'; why.dataset.fightAsk = ''; why.textContent = `Worth a look: ${ask.join(' ')}`; notice.after(why); }
         const versus = document.createElement('div'); versus.className = 'fight-situation-versus'; next.after(versus);
-        renderVersusRow(versus, t.versus);
+        renderVersusRow(versus, {...t.versus, showLast: fightLogMode() === 'cards'});
         // What the fight is for, one line; the reasons one step away on hover (round 2 dials, WS1-WS3). Hold back sits beside it when a
         // downing blow could kill (CFC9, CBC32), free and saved with the fight.
         if (t.stakes) {
@@ -187,8 +185,11 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         // A move's detail (how it works, what fills it, what it can do) is one step away, on hover (new depth stays off the face of the card).
         for (const m of t.moves) if (m.detail) { const btn = card.querySelector(`button[data-fight-option="${m.id}"]`); if (btn && !btn.disabled) btn.title = m.detail; }
         const log = document.createElement('ol'); log.className = 'fight-situation-log'; log.setAttribute('aria-label', 'What happened in this fight');
-        for (const line of getDisplaySetting('panel.fight.log') === 'all' ? t.log : t.log.slice(-FIGHT_LOG_LINES)) { const li = document.createElement('li'); li.textContent = line; log.append(li); }
-        card.append(log);
+        const mode = fightLogMode();
+        for (const line of mode === 'box' ? t.log.slice(-FIGHT_LOG_LINES) : t.log) { const li = document.createElement('li'); li.textContent = line; log.append(li); }
+        if (mode === 'cards') { const whole = document.createElement('details'); whole.className = 'fight-situation-whole'; whole.dataset.fightWhole = '';
+            const sum = document.createElement('summary'); sum.textContent = `The whole fight (${t.log.length} line${t.log.length === 1 ? '' : 's'})`; whole.append(sum, log); card.append(whole); }
+        else card.append(log);
         if (t.dev.length) {
             const readout = document.createElement('ul'); readout.className = 'fight-situation-dev'; readout.setAttribute('aria-label', 'Developer readout: type split per hit');
             for (const line of t.dev) { const li = document.createElement('li'); li.textContent = line; readout.append(li); }
