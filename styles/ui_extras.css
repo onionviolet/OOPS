@@ -113,3 +113,10 @@ button[data-new-count]::after {
 :where(button.ui-native-control) { font: inherit; color: inherit; }
 :is(#main_content, body) button.ui-native-control[aria-pressed="true"] { text-decoration: underline; text-decoration-thickness: 2px; }
 :is(#main_content, body) button.ui-native-control:focus-visible { outline: 2px solid var(--workspace-focus); outline-offset: -2px; }
+
+/* Learning now: one line per skill. The rate and source read as quiet text after the name, not boxed chips, so the section stays as light as the skill rows above it. */
+.learning-now .ui-row {grid-template-columns: minmax(0, 1fr) auto; padding: var(--ui-space-1) 0;}
+.learning-now .ui-row-chips {flex-wrap: nowrap; justify-content: flex-end; gap: 0;}
+.learning-now .ui-chip {border: 0; padding: 0; color: var(--ui-muted); font-variant-numeric: tabular-nums;}
+.learning-now .ui-chip + .ui-chip::before {content: " · ";}
+.learning-now .ui-chip[data-guess] {border: 0;}

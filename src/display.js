@@ -5499,11 +5499,11 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
 
     if (skill.getCurrentXP() !== "Max") {
         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.remove("skill_bar_capped");
-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}% to next level`;
+        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}%`; // upstream's short label; the tooltip line says "XP to the next level"
         // GTL6: practice banked past the single-gain cap, per world (GTR16, GTR21).
         const digesting = domainRegistry.project('skill_overflow', 'bank', skill.skill_id) || 0;
         const xp_line = skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0];
-        xp_line.innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})}` + (digesting > 0 ? ` · digesting ${expo({number: digesting})}` : '');
+        xp_line.innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})} XP to the next level` + (digesting > 0 ? ` · digesting ${expo({number: digesting})}` : '');
         xp_line.title = digesting > 0 ? domainRegistry.project('skill_overflow', 'row')?.reason || '' : '';
 
     } else {

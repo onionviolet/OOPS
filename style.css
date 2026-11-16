@@ -1442,13 +1442,20 @@ input[type=checkbox], input[type=radio] {
 
 .skill_bar_name {
 	text-align: left;
-	width: 80%;
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
+/* The percent sits at its own width on the name's line, so it never wraps and the bar keeps its place (as upstream's short "49%"). */
 .skill_bar_xp {
 	text-align: right;
-	width: 20%;
-	float: right;
+	flex: 0 0 auto;
+	padding-left: var(--ui-space-2);
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
 }
 
 .skill_bar_text:after {
