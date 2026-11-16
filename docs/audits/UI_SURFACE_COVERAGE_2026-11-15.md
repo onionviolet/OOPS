@@ -60,9 +60,9 @@ Rank is set by what a lead meets on day 1 to 3 in the fixtures, then by what tha
 | Code | Capability | Today | Proposed home | Draft |
 | --- | --- | --- | --- | --- |
 | SFC30 | Village patrol and watchcraft | Here panel | **Find work** › Patrol | batch 3 (D12) |
-| SFC31 | The 47-file Here dump (Town, Exchange, Routes, Field, Observation, Pursuit, Promise, Party, Pocket realm, Storylet, Technique, Body and more) | Here | Each finds a verb by kind (PS120); a mapping table like PS125's, one row per file | table, not a draft |
-| SFC32 | Unrouted centre panels (SFC3) | discovery only | Each gets a box and tab in a PS125 extension; Deeds to Journal · Quests, Companions to Journal · People, Study to **Study** verb, Statistics to Journal · Data, Lives and inheritance to Journal · Beginning | table, not a draft |
-| SFC33 | Leads board | `quest-board` unrouted | Journal · Quests | with SFC32 |
+| SFC31 | The 47-file Here dump (Town, Exchange, Routes, Field, Observation, Pursuit, Promise, Party, Pocket realm, Storylet, Technique, Body and more) | Here | Each finds a verb by kind (PS120); a mapping table like PS125's, one row per file | [mapping table](UI_SURFACE_MAPPING_2026-11-16.md) |
+| SFC32 | Unrouted centre panels (SFC3) | discovery only | Each gets a box and tab in a PS125 extension; Deeds to Journal · Quests, Companions to Journal · People, Study to **Study** verb, Statistics to Journal · Data, Lives and inheritance to Journal · Beginning | [mapping table](UI_SURFACE_MAPPING_2026-11-16.md) |
+| SFC33 | Leads board | `quest-board` unrouted | Journal · Quests | [mapping table](UI_SURFACE_MAPPING_2026-11-16.md) |
 | SFC34 | Reports Ready and Story filters | missing (PS124) | Reports footer | in the kit (cell 12) |
 | SFC35 | Capability runs lists other lives inside Harry's life (audit G6) | top route | Menu › Tools (PS123) | build note |
 
@@ -100,3 +100,12 @@ Listed so the drafts leave room for them. None is drafted now.
 
 - Added this file, the kit page `prototypes/ui-kit-2026-11-15/` and the drafts `prototypes/ui-drafts-2026-11-15/`. No runtime code changed.
 - Checks: a docs-only change, so the link check is by eye plus `check:rules` for the new doc's wording. Captures are headless Chrome at 1920×1080.
+
+## Resume line (2026-11-16)
+
+Drafts D1–D12, the areas mock and the UI kit are done. D6 waits on ui-cohesion's fight slot selector and feel-finish's timer styling. Everything else waits on Weibao's look before a build lane takes it:
+- ui-cohesion: the frame, box tabs, the PS216 variant, the areas mock;
+- feature-ui: D1–D5 and D7–D12, the lead and feature panels;
+- combat: D6.
+
+SFC31 and SFC32 are mapped in [UI_SURFACE_MAPPING_2026-11-16.md](UI_SURFACE_MAPPING_2026-11-16.md). The PS216 handoff is in [PS216_HANDOFF.md](../../prototypes/ui-drafts-2026-11-15/PS216_HANDOFF.md). This lane is done for the wave.
