@@ -1713,3 +1713,7 @@ Direction: the growing layout ships as a Look choice with today's layout as defa
 
 Weibao: "whatx next? send again? we can have some batched to do research and find the missing and required info? Do they just eat essense? more to consider?" Saved as GKM439–GKM447 (proposals) in the [Gu abilities and killer moves palette](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md#what-gu-eat-and-the-batched-passes-that-fill-the-gaps-2026-11-16-proposals).
 
+## Advancement aspects across novels, 2026-11-16
+
+Weibao, with a screenshot of an LOTM potion page (Overview, Formula, Ritual, Backlash, Acting Method): "Consider aspects like this too, we can work on multiple novels at once? Price it". Saved as a proposal with prices in [advancement aspects](../research/advancement-aspects-2026-11-16/README.md): one five-aspect sheet for every world's advancement, rituals as conditions on world state, the LOTM Fool line first for Klein's digestion, one batch across novels.
+
