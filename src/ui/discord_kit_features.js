@@ -10,18 +10,18 @@ registerKitFeature({id: 'clear-bonus', label: 'Clear bonus (PS160)', samples: {
 }});
 
 registerKitFeature({id: 'stock-news', label: 'Keeper stock news (PS161)', samples: {
-    near: {form: 'row', state: 'near', label: 'Steel mail and the better blades', fact: 'with the next load, in 4 days', from: 'Quill, after the hideout clear'},
+    near: {form: 'row', state: 'near', label: 'Steel mail', fact: 'with the next load, in 4 days', from: 'Quill, after the hideout clear'},
     ready: {form: 'row', state: 'ready', label: 'Steel mail on the rack', fact: 'since the hideout gang is gone', from: 'Quill'},
     empty: {form: 'row', label: 'No stock news', fact: 'Nothing changed on this shelf.'},
 }});
 
 registerKitFeature({id: 'practice-cause', label: 'Why a practice is quiet (PS168)', samples: {
-    near: [{form: 'row', state: 'near', label: 'Fortitude', fact: 'it learns from wounds, and nothing has hurt you since you started', from: 'Infested field'},
+    near: [{form: 'row', state: 'near', label: 'Fortitude', fact: 'nothing has hurt you since you started', from: 'Infested field'},
         {form: 'row', state: 'near', label: 'Tough skin', fact: 'your armour takes the hits it learns from', from: 'Infested field'}],
-    unknown: {form: 'row', label: 'Cooking', fact: '?', from: 'no known cause; nothing is guessed'},
+    unknown: {form: 'row', label: 'Cooking', fact: '?', from: 'no known cause'},
 }});
 
 registerKitFeature({id: 'drop-rate-cause', label: 'Why drops changed (PS166)', samples: {
-    ready: [{form: 'row', label: 'Butchering', fact: 'raises what these drop for you', from: 'Bestiary'}, {form: 'number', value: 1.22, field: 'drop factor'}],
+    ready: {form: 'row', label: 'Butchering', fact: 'raises what these drop for you (×1.22)', from: 'Bestiary'},
     empty: {form: 'row', label: 'Wolf rat', fact: 'Butchering changes its processing, not its drops', from: 'Bestiary'},
 }});
