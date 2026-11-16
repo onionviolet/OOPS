@@ -641,3 +641,31 @@ purse seam.
   - The household line shows pence instead of rounding them away.
 - **Dial, proposal.** Arrears from the old flat carry over to the new rent under the same id, counted in weeks. Pricing them at the
   old week, or ending them with Mr. Franky's lease, would need a per-week amount in the ledger.
+
+### Handover from the daily-loops lane, 2026-11-16
+
+- **Done this wave.** All Chrome-proven at 1920x1080, without dist.
+  - D5 tide readout: 88d113af7.
+  - PS150 study leads: bce6c5dde.
+  - Harry's homework set and the "Next:" link: b66a13469.
+  - Klein's office shifts: 683ebf416. The import size fix: 79aab1e06.
+  - Klein's streets: dd8afb107.
+  - Rent by home: 2d408371a.
+- **Open, in order.**
+  1. **D5 patrol count and merit ledger (Fang Yuan).** The academy readout shows the tide phase and the wolves near the wall, but
+     not his own record. A count of patrols this tide and the merit they earned need saved history: today only totals exist (merit
+     is an item; the last report is one knowledge note). Proposal:
+     - Keep a small per-tide ledger in the RI lead's saved slice (`ri_lead_sea` stage, or actor facts keyed by tide occurrence).
+     - Write one row per patrol report (day, outcome, merit).
+     - Have `riAcademyTideLine` add "Patrols this tide: N, merit M."
+     - Done check: patrol twice, then reload and import, and the line holds.
+  2. **Harry's further days.** The week has classes, homework and Next links (cc7a1bdc9, b66a13469). Still missing:
+     - a "next class" line on the panel;
+     - meals and friends in his day;
+     - house points, which have no owner, and the finale fixes the Cup, so name one first.
+  3. **Klein.**
+     - Ready rows from `shiftRead` belong to the UI lane (`lotm_work_day.js`).
+     - The open shift question above (line "Open question for Weibao") waits on him.
+     - The street hours are authored; a Tingen week calendar (TMR2) would put the market on a named weekday.
+  4. **Rent arrears dial.** On Weibao's list in `docs/gm/dispatch/play-surface-2026-11-14/HANDOFF.md`.
+
