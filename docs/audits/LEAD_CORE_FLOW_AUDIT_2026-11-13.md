@@ -659,10 +659,27 @@ purse seam.
      - Merit is priced from the board's dials, so a dial change re-prices past tides. A tide first seen part-way through counts from then.
      - `place_descriptions.js` now redraws a place box on the registry's refresh when its text changed (`refreshPlaceDescription`), so the
        line moves after a report, and the same refresh replaced the LOTM-only tick redraw for Klein's streets.
-  2. **Harry's further days.** The week has classes, homework and Next links (cc7a1bdc9, b66a13469). Still missing:
-     - a "next class" line on the panel;
-     - meals and friends in his day;
-     - house points, which have no owner, and the finale fixes the Cup, so name one first.
+  2. **Harry's further days.**
+     - **Next class, built 2026-11-16 (proposal).** The school hall names the next class through the place hook
+       (`hpNextClassLine` in `book_world_hp_day.js`). It covers Monday's Charms and Potions and the week's timetable, says "today",
+       "tomorrow" or the weekday, and says when a class has started and how long the door stays open. It is hidden out of term,
+       before the Sorting, and away from school.
+       Verified: unit tests, check:arch, check:rules. In Chrome on hp-w7-halloween the page text read "Charms, tomorrow at 09:00"
+       and, 15 hours on, "Potions, today at 10:00". That run printed the wait in words; the committed line uses `formatDuration`
+       ("14 h 39 min", UR161), which is unit-tested only. The 1920x1080 capture was not retaken (the lanes were stopped).
+     - **House points: proposed owner (proposal under AD56, not built).**
+       - Today two places write points as their own world facts: the Halloween pack's award keys, and the Quidditch courtyard
+         deduction. `book_world_hp_positions.js` notes that no count exists.
+       - Proposal: one module, `book_world_hp_house_points.js`, owns the count. It holds a registry of point sources
+         (`registerHousePoints(fn)`; each source returns rows `{house, label, delta, at}`). The Halloween awards and the deduction
+         register as the first two sources, and day-loop awards (a marked essay, lateness) write facts under `hp.lead.points.*`,
+         which the module reads as one more source.
+       - The module returns per-house totals plus the rows, and the lead panel's points section reads it in place of the
+         Halloween-only list.
+       - Dial: canon fixes who wins the Cup at the finale, so his own points move Gryffindor's total and the finale's awards apply
+         on top. Whether his points can change the winner is a limit question for Weibao.
+     - **Still open.** Meals (the Great Hall's breakfast, lunch and supper as day rows with hunger) and friends (time with Ron and
+       Hermione as a day row that feeds the existing ties).
   3. **Klein.**
      - Ready rows from `shiftRead` belong to the UI lane (`lotm_work_day.js`).
      - The open shift question above (line "Open question for Weibao") waits on him.

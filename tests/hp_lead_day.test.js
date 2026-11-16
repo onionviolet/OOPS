@@ -2,7 +2,8 @@
 // class on its own hours in term with a quarter hour's grace, homework is owed only after a class, and both counts feed that subject's June paper.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {HP_TIMETABLE, HP_NOTES_ITEM, HP_MARKED_ITEM, HP_SET_ITEM, hpDayFacts, hpDayFact, hpTimetableWords} from '../src/book_world_hp_day.js';
+import {HP_TIMETABLE, HP_NOTES_ITEM, HP_MARKED_ITEM, HP_SET_ITEM, hpDayFacts, hpDayFact, hpTimetableWords, hpNextClassLine} from '../src/book_world_hp_day.js';
+import {describePlace} from '../src/place_descriptions.js';
 import {hpLeadDayExtension, HP_LEAD_DAY_COMMANDS} from '../src/world_packs/book_hp_lead_day.js';
 import {hpExamInputs, hpExamFacts} from '../src/book_world_hp_exams.js';
 
@@ -70,3 +71,14 @@ test('player words carry no source notes (PRS1)', () => {
     for(const t of [ext.label, ext.description, ...ext.items.flatMap(i => [i.label, i.description]), ...ext.commands.flatMap(c => [c.label, c.description])])
         assert.doesNotMatch(t, /\bch\d|stated|proposal|Authored/, t);
 });
+
+test('the school hall names the next class: Monday\'s Charms and Potions and the week\'s timetable, today, tomorrow or by day, and nothing out of term', () => {
+    assert.equal(hpNextClassLine(life(92, '18:21')), 'Next class: Charms, tomorrow at 09:00 in the Charms classroom, in 14 h 39 min.', 'Sunday evening');
+    assert.equal(hpNextClassLine(life(93, '09:05')), 'Charms has started in the Charms classroom; you can still go in until 09:15.');
+    assert.match(hpNextClassLine(life(93, '09:20')), /^Next class: Potions, today at 10:00 .* in 40 min\.$/);
+    assert.match(hpNextClassLine(life(95, '23:30')), /^Next class: Herbology, Thursday at 09:00|^Next class: Herbology, tomorrow at 09:00/);
+    assert.equal(hpNextClassLine(life(145, '09:00')), '', 'the Christmas holidays');
+    assert.equal(hpNextClassLine(life(94, '09:00', {'hp.lead.house': undefined})), '', 'not before the Sorting');
+    assert.match(describePlace('book.hp.lead.school_hall', 'The Great Hall.', life(92, '18:21')), /^The Great Hall\. Next class: Charms/);
+});
+
