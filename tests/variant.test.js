@@ -11,3 +11,14 @@ test('a variant is a plain code from the query, off by default, and each named s
     assert.equal(variantFrom('?variant=../secrets'), '');
     assert.ok(existsSync(new URL('../styles/variants/ps217.css', import.meta.url)));
 });
+
+test('look options: Row style is Bordered by default, Spacing loads the ps217 sheet, and each choice names its sheet', async () => {
+    const {LOOK_OPTIONS, lookSheet} = await import('../src/ui/variant.js');
+    const rows = LOOK_OPTIONS.find(o => o.id === 'rows');
+    assert.equal(rows.default, 'bordered');
+    assert.deepEqual(rows.choices.map(([v]) => v), ['bordered', 'spacing']);
+    assert.equal(lookSheet(rows, 'bordered'), '');
+    assert.equal(lookSheet(rows, 'spacing'), 'styles/variants/ps217.css');
+    assert.equal(lookSheet(rows, 'nonsense'), '');
+    for (const o of LOOK_OPTIONS) for (const [v] of o.choices) if (lookSheet(o, v)) assert.ok(existsSync(new URL(`../${lookSheet(o, v)}`, import.meta.url)));
+});
