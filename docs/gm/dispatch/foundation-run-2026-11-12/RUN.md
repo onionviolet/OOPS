@@ -26,7 +26,7 @@ Weibao: "Restart foundation run, but orient them better? More to consider? Make 
   - From `lotm-kjw42`, Neil's chart and tarot lessons at the Blackthorn office, then Hanass Vincent's club case (Glacis's iron-mine chart), move the line under Here from 4 to 5 of 6 readings given in the Seer's role (proposal, canon-close).
   - Full `npm test` on `683ebf416` plus this slice: 7,744 of 7,757 pass, 12 skipped; the 1 failure (`rule_routes`) needs git.
   - Agent-verified, not human-reviewed. No `dist/` this wave (the coordinator session builds before push).
-  - **Wave 22, stopped at the 2026-11-16 hand-off (uncommitted, not yet played in the game). Next coordinator, start here.**
+  - **Wave 22, landed 2026-11-16 as 0519d56b4 (bundle in the next commit).** Played: headless walk from lotm-kjw42 and a 1920×1080 browser walk on the clean bundle, both reaching 6 of 6 and "settled" with Klein home from the club, then save, reload and import into a second origin; no page errors; lotm_be_acting 5 of 5. Agent-verified, not human-reviewed. Not pushed yet.
     - Files changed: `src/lotm_be_div_learning.js`, `src/lotm_be_acting.js`, `tests/lotm_be_acting.test.js`. A patch copy and the walk script are in the coordinator group's notes folder, `wave22_klein_handoff/`.
     - **Bug in the committed `c39e5f7dd`:** the club case leaves Klein at the Divination Club, which is not on the walking map. He has no way home, which also blocks the next pack story stage at the flat. The uncommitted work adds `lotm.be.club.home`, a 25-minute carriage back to the Moretti flat.
     - **Canon fix:** Hanass Vincent is dead by kjw42 (pack act `kj3as.tea`). Angelica now books the clients (en v1 ch54 P068-P070).
