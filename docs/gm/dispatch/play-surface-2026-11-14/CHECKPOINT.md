@@ -141,3 +141,23 @@ The second gate ran on a clean checkout of c063b3183. The bundle matches. arch, 
   - Gap: the one-line skill's "% to next" is cut short in the narrow third column.
   - Follow-up: the Fight log setting moves into LOOK_OPTIONS.
 - Next push: everything after c063b3183, through one gate run by the pusher.
+
+## Resume wave after the weekly reset, 2026-11-16 18:10 UTC
+
+Weekly usage was 0%. Eight lanes were dispatched, each with these rules:
+- stop at 85% weekly, and pause at a commit point above 90% of the 5-hour window;
+- don't commit dist/ or index.html; the coordinator builds the bundle before each push gate.
+
+| Lane | Slices, in order |
+| --- | --- |
+| ui-cohesion | PS243–PS246 renderer, tokens, lint and kit rows; then PS279–PS284; then slice 4 and round 18 |
+| feature-ui | PS248 item sheet, PS249 reforging, PS250–PS251 enchanting bench; Learning now stall reasons; D2, D4 Refine, D3 exams |
+| combat | browser check of PS237; PS238; PS222 as a Fight log choice in LOOK_OPTIONS; PS45–PS52 and D6; fights across the three leads |
+| daily-loops | D5, PS150, PS143, Klein's streets and wage day, Harry's first school day |
+| feel-finish | PS132–PS134; PS278 and PS266 presets in LOOK_OPTIONS; PS186–PS189; DU39, DU41, DU42 |
+| discord-features | PS167, PS166/PS168, PS163 with DU45, DU38 trade last, PS162, PS164 |
+| ui-drafting | batch 2 (SFC12, SFC21–SFC25); PS216 as a variant pair; batch 3 |
+| foundation-run | Klein's acting slice (c4bc8f279), then its saved order |
+| areas | proposed as a new session card (task_4d3df568), because sessions start only on Weibao's word |
+
+Unpushed since adbcc4ff0: 6895cf083, 6b330ab8c, 16eee20f1 and this checkpoint.
