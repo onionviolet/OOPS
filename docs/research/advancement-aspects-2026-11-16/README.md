@@ -115,3 +115,27 @@ The two agree on filled versus empty for 142 of 180 fields; Haiku alone fills 32
 
 Pilot spend on both providers, including the two failed Haiku attempts: about $0.05.
 
+## Full Luna passes (2026-11-16, agent-verified, not human-reviewed)
+
+Weibao: "Run them". `python3 -I scripts/label_pass_packets.py` built private packets from the local wiki dumps and the paid reader claims; `node scripts/label_pass.mjs hp_potions gu_kinds ri_moves` ran GPT-6 Luna at low effort, synchronous, eight at a time; `python3 -I scripts/label_pass_check.py` checks them. Rows are in the gitignored `private/` folder and are not yet in any ledger.
+
+| Pass | Rows | Errors | Cost | Fields filled | Locator not in packet |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Hogwarts preparations (every non-topic potion row) | 284 | 0 | $0.074 | 1,324 | 10 (0.8%) |
+| Gu kinds blocked on rank or effect, with a Fandom page (787 of 1,065) | 787 | 0 | $0.146 | 2,304 | 41 (1.8%) |
+| Reverend Insanity move leads with claims or a Fandom page | 590 | 0 | $0.135 | 1,592 | 59 (3.7%) |
+
+Total $0.36 at standard rates; the batch route would have been half.
+
+**What it unblocks, before review.**
+
+- **Gu effects.** 270 of the 344 effect-blocked kinds now have a stated effect. They already have a rank, so mapping each effect onto a function family is the one step left before they can run.
+- **Gu ranks.** Only 28 of the 443 rank-blocked kinds got a single rank; 66 rows give a range and 29 write "unknown" into the value (a prompt miss to normalise). The wiki pages mostly lack ranks too, so rank needs the chapter route or an authored dial.
+- **Gu diets.** Food is stated for 44 of 787 kinds and a feeding interval for 4. The wiki is not where diets live, which supports the mechanism default (GKM440).
+- **Move components.** 167 moves list components; 312 of the 361 component names match a catalogue Gu, and 150 moves have at least one. Roles need a filter: some rows list Gu that the move refines rather than uses.
+- **Hogwarts routes.** Route is stated for 152 of 284 rows. Against the 17 held-out evidence labels, 14 could be compared and 11 agree. Of the three misses, one (Skele-Gro read as eaten) is the checker's keyword map, not Luna; one (Sleeping Draught) is a scene where it was put in food, so both readings are true; one (Shrinking Solution as topical) needs a source look.
+
+**Checker fix found on the way.** The first check reported 1,281 bad move locators; claim locators carry their own brackets (`b[63, 85]`) and Luna wraps locators in brackets, so the pattern cut them short. Matching a locator against the start of each evidence line gives the counts above.
+
+**Next, not started.** Normalise the rows (single integer rank, "unknown" to empty, components filtered by role and catalogue name), freeze the held-out splits (GKM429), then fold the wiki tier into the Gu and potion ledgers as its own label basis (GKM445) and rerun the coverage report.
+
