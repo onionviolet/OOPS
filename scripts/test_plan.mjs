@@ -36,6 +36,7 @@ export function knownDurations(cwd = process.cwd()) {
 
 /** The node --test arguments both npm test and test:changed use. */
 export function nodeTestArgs(files, {concurrency = concurrencyFor(), cwd = process.cwd()} = {}) {
+    process.env.YAIRPG_TEST_CONCURRENCY_USED = String(concurrency); // the budget reporter stretches limits by it
     return ['--test', `--test-concurrency=${concurrency}`, '--test-reporter=spec', '--test-reporter-destination=stdout',
         '--test-reporter=./scripts/test_budget_reporter.mjs', '--test-reporter-destination=stderr',
         ...longestFirst(files, knownDurations(cwd))];

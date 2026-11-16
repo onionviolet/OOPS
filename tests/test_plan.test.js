@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {concurrencyFor, longestFirst, MIN_CONCURRENCY} from '../scripts/test_plan.mjs';
 import {planGate} from '../scripts/push_gate.mjs';
+import {contentionScale} from '../scripts/test_budget_reporter.mjs';
 
 test('concurrency follows the free cores, never below the floor, and the env dial wins', () => {
     assert.equal(concurrencyFor({cores: 18, load: 0.5, env: {}}), 17);
@@ -23,4 +24,8 @@ test('a push gate runs the reached tests, the full suite for wide paths or --ful
     for (const wide of ['package.json', 'build.js', 'src/main.js', 'src/save_files.js', 'scripts/headless/runner.mjs', 'tests/fixtures/a.mjs'])
         assert.equal(planGate([wide]).tests, 'full', wide);
     assert.equal(planGate(['docs/x.md'], {full: true}).tests, 'full');
+});
+
+test('budget limits stretch with the files run at once, from none at four to double at sixteen', () => {
+    assert.deepEqual([4, 1, 13, 16, 18].map(contentionScale), [1, 1, 1.75, 2, 2]);
 });

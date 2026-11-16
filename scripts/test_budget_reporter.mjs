@@ -26,8 +26,13 @@ export function loadBudget(file = path.join(process.cwd(), BUDGET_FILE)) {
 export const lastRunFile = (cwd = process.cwd()) =>
     path.join(tmpdir(), 'yairpg-test-durations', `${createHash('sha256').update(cwd).digest('hex').slice(0, 16)}.json`);
 
-export function overBudget(durations, budget) {
-    return [...durations].map(([file, ms]) => ({file, ms, limit: budget.files?.[file]?.ms ?? budget.default_ms}))
+// Budgets were profiled four files at a time. A wider run shares the cores, so each file takes longer: limits stretch by
+// contentionScale (1 at four files, 1.75 at thirteen, 2 at sixteen or more). Dial: YAIRPG_TEST_CONCURRENCY_USED, set by
+// scripts/test_plan.mjs. Reason: a budget warning should mean the file got slower, not that the run used more cores.
+export const contentionScale = (used = Number(process.env.YAIRPG_TEST_CONCURRENCY_USED) || 4) => Math.min(2, Math.max(1, 1 + (used - 4) / 12));
+
+export function overBudget(durations, budget, scale = 1) {
+    return [...durations].map(([file, ms]) => ({file, ms, limit: (budget.files?.[file]?.ms ?? budget.default_ms) * scale}))
         .filter(r => r.ms > r.limit).sort((a, b) => b.ms - a.ms);
 }
 
@@ -52,17 +57,17 @@ const secs = ms => `${(ms / 1000).toFixed(1)}s`;
 
 export function budgetReport(durations, budget, {full = false} = {}) {
     if (!durations.size) return '';
-    const over = overBudget(durations, budget), lines = [];
+    const scale = contentionScale(), over = overBudget(durations, budget, scale), lines = [];
     const slowest = [...durations].sort((a, b) => b[1] - a[1]).slice(0, 5);
     lines.push(`test budget: slowest files ${slowest.map(([f, ms]) => `${path.basename(f)} ${secs(ms)}`).join(', ')}`);
     if (over.length) {
-        lines.push(`test budget: ${over.length} file(s) over budget (warning only; speed up the setup, or label real play in ${BUDGET_FILE}):`);
+        lines.push(`test budget: ${over.length} file(s) over budget${scale > 1 ? ` (limits ×${scale.toFixed(2)} for ${process.env.YAIRPG_TEST_CONCURRENCY_USED} files at once)` : ''} (warning only; speed up the setup, or label real play in ${BUDGET_FILE}):`);
         for (const r of over) lines.push(`  ${r.file} ${secs(r.ms)} > ${secs(r.limit)}`);
     }
     const loose = tighten(budget, durations).changes;
     if (loose.length) lines.push(`test budget: ${loose.length} labelled file(s) now run well under budget; ratchet with npm run test:budget -- --tighten`);
     const sum = [...durations.values()].reduce((a, b) => a + b, 0);
-    if (full && budget.suite_sum_ms && sum > budget.suite_sum_ms * REPROFILE_OVER)
+    if (full && budget.suite_sum_ms && sum > budget.suite_sum_ms * REPROFILE_OVER * scale)
         lines.push(`test budget: total file time ${secs(sum)} is ${Math.round((sum / budget.suite_sum_ms - 1) * 100)}% over the profiled ${secs(budget.suite_sum_ms)}; re-profile (docs/audits/TEST_SPEED_2026-11-10.md)`);
     return lines.join('\n') + '\n';
 }
@@ -83,7 +88,7 @@ export default async function* budgetReporter(source) {
     let total = 0;
     try { total = readdirSync(path.join(cwd, 'tests')).filter(f => f.endsWith('.test.js')).length; } catch { /* no suite here */ }
     const full = total > 0 && durations.size >= total * 0.9;
-    const run = {at: new Date().toISOString(), load1: loadavg()[0], full, files: Object.fromEntries([...durations].sort((a, b) => b[1] - a[1]))};
+    const run = {at: new Date().toISOString(), load1: loadavg()[0], concurrency: Number(process.env.YAIRPG_TEST_CONCURRENCY_USED) || 4, full, files: Object.fromEntries([...durations].sort((a, b) => b[1] - a[1]))};
     writeRun(lastRunFile(cwd), run);
     if (process.env.YAIRPG_TEST_DURATIONS) writeRun(process.env.YAIRPG_TEST_DURATIONS, run);
     yield budgetReport(durations, budget, {full});
@@ -96,6 +101,7 @@ function main(argv) {
         return 0;
     }
     const durations = new Map(Object.entries(run.files)), budget = loadBudget();
+    if (run.concurrency) process.env.YAIRPG_TEST_CONCURRENCY_USED = String(run.concurrency);
     console.log(`test budget: last run ${run.at}, ${durations.size} files, load ${run.load1?.toFixed?.(1) ?? '?'}${run.full ? ', full suite' : ''}`);
     process.stdout.write(budgetReport(durations, budget, {full: run.full}));
     const {budget: next, changes} = tighten(budget, durations, {full: run.full});
