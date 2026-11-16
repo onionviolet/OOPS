@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit features</title>
+<link rel="stylesheet" href="../../styles/ui_tokens.css">
+<style>body{background:var(--ui-navy,#101626);color:var(--ui-text,#dfe8f5);font:14px/1.4 monospace;margin:0;padding:var(--kit-gap-4,16px);}</style>
+</head><body>
+<h1>Kit features (PS246; proposal)</h1>
+<p>One row per feature that draws through <code>src/ui/kit.js</code>, in each state: empty, near, ready, running, unknown, crowded. A drift shows here beside its neighbours before it reaches a screen. Serve the repo root and open this page.</p>
+<main id="kit"></main>
+<script type="module">
+import {renderKitPage} from '../../src/ui/kit.js';
+import '../../src/ui/ready_hub.js';
+renderKitPage(document.getElementById('kit'));
+</script>
+</body></html>

@@ -2394,7 +2394,7 @@ One list so nothing from this round drops. Proposals unless marked (AD32). Updat
 | UIC129 (UR160) | A condition names what it does and what eases it | Open | After UIC127; needs a state with conditions to check against |
 | UIC130, UIC138 (UR161) | Long time in human units | Done, `804e0991a` | 109 older hand-written durations retire as their lines are rewritten |
 | UIC131 | The screen grows with the life | Answered 2026-11-16: both, as a Display › Look choice | Weibao: "Maybe show both?" Under looks-as-player-choices, the full layout with the place filling empty room (direction C) is the default and the growing screen is the option; off for developer starts and fixtures |
-| UIC132 (UR162) | Top bar by use | Accepted 2026-11-16 | Weibao chose group by use: daily routes stay visible, rare ones (Beginning, Connection, developer routes) go under one menu; fixes the clipped "All panels…" label |
+| UIC132 (UR162) | Top bar by use | Accepted 2026-11-16 | Weibao: "Group by use" ([direction log](../gm/USER_VISION_LOG_2026-11.md), 2026-11-16): daily routes stay visible, rare ones (Beginning, Connection, developer routes) go under one menu; fixes the clipped "All panels…" label |
 | UIC133 | Weather lines | Done, second batch | None |
 | UIC134 | Raw-duration lint | Done, `804e0991a` | None |
 | UIC135 | More states in the walk | Partly done | A life with conditions: needs a way to promise weather, or a played fixture |
@@ -2684,7 +2684,7 @@ Seen in headless Chrome at 1920×1080 on the `perf/mid` fixture unless a line sa
 | UIC161, UIC162, UIC179 | Empty columns; tooltip over the header; key list over its subject | UIC161 done `4aa60af84`; UIC162 closed as designed; UIC179 open | UIC162 is the shared locked-control line: it sits under the control it explains and clears in six seconds (UR52). UIC179 goes with direction A |
 | UIC163 | Panel template pass | Done `257ceca79` | |
 | UIC164 | Stubs | Done `5b82df7e9` | |
-| UIC168 | The Notebook as a second panel list | Accepted 2026-11-16 | Weibao chose split features out: each feature moves to its own panel or its place's box; the Notebook keeps notes and what the character has written down |
+| UIC168 | The Notebook as a second panel list | Accepted 2026-11-16 | Weibao: "Split features out" ([direction log](../gm/USER_VISION_LOG_2026-11.md), 2026-11-16): each feature moves to its own panel or its place's box; the Notebook keeps notes and what the character has written down |
 | UIC169 | "Local actions opens the Journal" | Closed, not a defect | |
 | UIC172 | Crafting readiness | Done `20d96a7cc` | Counts on tabs; sorting dropped because a "Makeable now" filter exists |
 | UIC173 | Mixing voice as the model | Noted | Quote it in briefs (PRS7) |

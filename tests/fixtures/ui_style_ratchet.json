@@ -1,0 +1,104 @@
+{
+ "src/causal_story_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 1
+ },
+ "src/chain_inspector_ui.js": {
+  "colour": 4,
+  "px": 9,
+  "border": 2,
+  "toFixed": 0
+ },
+ "src/chronicle_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 6
+ },
+ "src/continuation_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 2
+ },
+ "src/drainage_site_ui.js": {
+  "colour": 0,
+  "px": 1,
+  "border": 0,
+  "toFixed": 0
+ },
+ "src/habitat_care_ui.js": {
+  "colour": 0,
+  "px": 1,
+  "border": 0,
+  "toFixed": 0
+ },
+ "src/harvest_ui.js": {
+  "colour": 2,
+  "px": 8,
+  "border": 2,
+  "toFixed": 0
+ },
+ "src/mixture_ui.js": {
+  "colour": 0,
+  "px": 2,
+  "border": 0,
+  "toFixed": 0
+ },
+ "src/pocket_realm_ui.js": {
+  "colour": 0,
+  "px": 2,
+  "border": 1,
+  "toFixed": 0
+ },
+ "src/skill_expansion_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 1
+ },
+ "src/ui/bar_semantics.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 1
+ },
+ "src/ui/combat_display.js": {
+  "colour": 3,
+  "px": 0,
+  "border": 0,
+  "toFixed": 0
+ },
+ "src/ui/combat_situation.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 1
+ },
+ "src/ui/combat_versus.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 1
+ },
+ "src/ui/gu_house_view.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 1
+ },
+ "src/vessel_forks_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 2
+ },
+ "src/vessel_geometry_ui.js": {
+  "colour": 0,
+  "px": 0,
+  "border": 0,
+  "toFixed": 2
+ }
+}

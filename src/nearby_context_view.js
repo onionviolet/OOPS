@@ -1,4 +1,5 @@
 import {storyRecap} from './lore_history_view.js';
+import {kitChip} from './ui/kit.js';
 import {formatDuration} from './number_format.js';
 import {LAYOUT_SPEC} from './layout_spec.js';
 
@@ -84,8 +85,9 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     const openKind=(kind,selector)=>{const verb=selector&&doc.querySelector?.(`#location_actions_div ${selector}`);
         if(verb&&!verb.hidden&&verb.style?.display!=='none'){if(!verb.classList.contains('location_choice_dropdown_expanded'))verb.click();verb.scrollIntoView?.({block:'nearest'});verb.focus?.();return;}
         expanded=true;update(lastArgs);};
-    for(const [kind,selector] of [['people','.choice_dialogue'],['services',null],['exits','.choice_travel']]){const b=el('button');b.type='button';b.dataset.hereLink=kind;b.onclick=()=>openKind(kind,selector);hereLinks[kind]=b;}
-    const showAll=el('button');showAll.type='button';showAll.dataset.hereLink='all';showAll.onclick=()=>{expanded=!expanded;update(lastArgs);};
+    // PS243: the Here line's counts are kit chips; the frame keeps its data-here-link names for its styles and probes.
+    for(const [kind,selector] of [['people','.choice_dialogue'],['services',null],['exits','.choice_travel']]){const b=kitChip({label:'',run:()=>openKind(kind,selector)});b.dataset.hereLink=kind;hereLinks[kind]=b;}
+    const showAll=kitChip({label:'',run:()=>{expanded=!expanded;update(lastArgs);}});showAll.dataset.hereLink='all';
     hereLine.append(el('span','Here:'),hereLinks.people,hereLinks.services,hereLinks.exits,showAll);
     node.append(summary,placeLead,place,hereLine,split,empty);
     const groups=new Map(),buttons=new Map(),actionButtons=new Map();let model=null,lastPlace=null,returnId=null,missingNotice=false;

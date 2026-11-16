@@ -1941,3 +1941,25 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 #main_content.workspace-active[data-parity="r3"] #character_name_field { min-height: 24px; box-sizing: border-box; }
 /* UIC151: a control kept only as the thing other controls press. Out of sight, out of the tab order, still clickable by code. */
 .ui-mechanism-only { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; clip-path: inset(50%); opacity: 0; pointer-events: none; }
+
+/* The kit's shared forms (round 23, PS243-PS244; proposals). Only the fixed vocabulary: five gaps, four type sizes, one
+   border weight and the short colour list. A feature that draws through src/ui/kit.js looks like its neighbours. */
+:root {
+    --kit-gap-1: var(--ui-space-2); --kit-gap-2: var(--ui-space-4); --kit-gap-3: var(--ui-space-5); --kit-gap-4: var(--ui-space-6); --kit-gap-5: var(--ui-space-7);
+    --kit-border: 1px;
+}
+.kit-row {display:flex;align-items:baseline;gap:var(--kit-gap-2);min-width:0;}
+.kit-row__label {min-width:0;}
+.kit-row__fact {color:var(--ui-muted);min-width:0;}
+.kit-row__from {margin-left:auto;color:var(--ui-muted);white-space:nowrap;}
+.kit-row--near .kit-row__fact {color:var(--ui-state-near);}
+.kit-verb {display:flex;align-items:center;gap:var(--kit-gap-2);}
+.kit-chip {display:inline-flex;align-items:center;gap:var(--kit-gap-1);padding:0 var(--kit-gap-1);border:var(--kit-border) solid var(--ui-muted);}
+.kit-chip[aria-pressed="true"] {color:var(--ui-accent);border-color:var(--ui-accent);}
+.kit-tooltip__title {display:block;font-size:var(--ui-type-title);}
+.kit-tooltip__lines {display:grid;grid-template-columns:auto 1fr;gap:0 var(--kit-gap-2);margin:var(--kit-gap-1) 0;}
+.kit-tooltip__note {color:var(--ui-muted);margin:0;}
+.kit-number[data-known="unknown"] {color:var(--ui-muted);}
+.kit-page__feature {display:grid;grid-template-columns:10em repeat(6,minmax(0,1fr));gap:var(--kit-gap-2);padding:var(--kit-gap-2) 0;border-bottom:var(--kit-border) solid var(--ui-muted);}
+.kit-page__cell {display:flex;flex-direction:column;gap:var(--kit-gap-1);min-width:0;}
+.kit-page__state {color:var(--ui-muted);}

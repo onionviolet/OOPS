@@ -7,6 +7,7 @@
 // Pure view; nothing is saved.
 import {collectReady, readyCounts} from '../ready_rows.js';
 import {shownVerbs, unmarkedRows} from './verb_marks.js';
+import {kitRow, registerKitFeature} from './kit.js';
 
 const READY_SHOWN = 5, NEAR_SHOWN = 3;
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
@@ -44,17 +45,14 @@ export function mountReadyHub({spot = defaultSpot} = {}) {
     const held = () => root.matches(':hover') || root.contains(document.activeElement);
     // Folding or unfolding is the player's own act on the panel: the frame refits to it.
     const changedShape = () => document.dispatchEvent(new CustomEvent('shell-content-change', {detail: {part: 'ready-now'}}));
+    // PS243: the hub declares its row and the kit draws it; the hub's own class names stay for its styles.
     function rowNode(r) {
-        const li = el('li', `ready-hub__row ready-hub__row--${r.state}`); li.dataset.readyKey = r.key; if (r.urgent) li.dataset.urgent = 'true';
-        const go = el('button', 'ready-hub__go', r.label); go.type = 'button';
         const does = r.state === 'ready' && r.act ? 'act' : r.open ? 'open' : null;
-        go.title = does === 'act' ? `${r.label}. Does it now.` : does === 'open' ? `${r.label}. Opens where it is done.` : r.label;
-        if (!does) { go.disabled = true; go.title = `${r.label}. ${r.gap || 'Not ready yet.'}`; }
-        go.onclick = () => { try { if (does === 'act') r.act(); else r.open?.(); } catch (e) { note.hidden = false; note.textContent = e?.message || 'That did not work.'; } signature = ''; setTimeout(() => render(true), 0); };
-        const fact = el('small', r.state === 'near' ? 'ready-hub__gap' : 'ready-hub__detail', r.state === 'near' ? r.gap || '' : r.detail || '');
-        const from = el('small', 'ready-hub__from', r.sourceLabel || '');
-        li.append(go, fact, from);
-        return li;
+        const run = () => { try { if (does === 'act') r.act(); else r.open?.(); } catch (e) { note.hidden = false; note.textContent = e?.message || 'That did not work.'; } signature = ''; setTimeout(() => render(true), 0); };
+        return kitRow({tag: 'li', state: r.state, label: r.label, className: `ready-hub__row ready-hub__row--${r.state}`, labelClass: 'ready-hub__go',
+            action: {run, disabled: !does, title: does === 'act' ? `${r.label}. Does it now.` : does === 'open' ? `${r.label}. Opens where it is done.` : `${r.label}. ${r.gap || 'Not ready yet.'}`},
+            fact: r.state === 'near' ? r.gap || '' : r.detail || '', factClass: r.state === 'near' ? 'ready-hub__gap' : 'ready-hub__detail',
+            from: r.sourceLabel || '', fromClass: 'ready-hub__from', data: {readyKey: r.key, urgent: r.urgent ? 'true' : null}});
     }
     function render(force = false) {
         const place = spot();
@@ -89,3 +87,13 @@ export function mountReadyHub({spot = defaultSpot} = {}) {
     render();
     return {node: root, render, destroy() { clearInterval(timer); root.remove(); }};
 }
+
+// PS246: Ready now's row on the kit page, in each state it can show.
+registerKitFeature({id: 'ready-now', label: 'Ready now', samples: {
+    empty: {form: 'row', label: 'Nothing ready now', fact: 'Rows appear as things come within reach.'},
+    near: {form: 'row', state: 'near', label: 'Make Sinew string', action: {disabled: true}, fact: 'needs 2 sinew; you have 0', from: 'Crafting'},
+    ready: {form: 'row', state: 'ready', label: 'Feed the Moonglow Gu', action: {}, fact: 'missed a meal', from: 'Your Gu'},
+    running: {form: 'row', state: 'ready', label: 'Brewing', fact: 'about 1 day left', from: 'Mixing'},
+    unknown: {form: 'row', label: 'Something stirs', fact: '?', from: 'Your day'},
+    crowded: [{form: 'row', state: 'ready', label: 'Buy a bag of Moon Orchid petals · 10 for 1 stone', action: {}, fact: '20 min · uses 1 × Primeval stone', from: 'Your day'}, {form: 'chip', label: 'Show more', count: 12}],
+}});
