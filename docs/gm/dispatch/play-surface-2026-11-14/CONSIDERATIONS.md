@@ -748,7 +748,7 @@ Weibao on the ps217 pair: "Implement both and have the player choose, can leave 
 | PS265 | **Look choices live with the player, not the save.** Default: they persist like the other Display and Feel settings, carry across lives and worlds, and never enter a save file, so a shared or imported save does not change how the screen looks. |
 | PS266 | **Presets bundle choices.** Default: Classic (YAIR's look, the defaults), Calm (spacing, quiet motion) and Dense (compact rows, small type), plus "Custom" once any single choice changes. Reason: a list of ten switches is work, and a named preset is one click. |
 | PS267 | **Test the defaults and each choice alone.** Default: visual baselines run on the defaults; each non-default choice gets one capture set by itself, and combinations are not baselined. Reason: choices multiply, and testing every combination costs more than it finds. |
-| PS268 | **What qualifies as a look choice.** A choice changes appearance or density only. A choice that changes what you learn or what the game does (the "?" rules, the day strip's timing, the crossing) is a play rule under Your own rules (PS210), with its own default and reason. |
+| PS268 | **What qualifies as a look choice.** Default: a look choice changes appearance or density, and nothing the game does. A choice that changes what you learn or what the game does (the "?" rules, the day strip's timing, the crossing) is a play rule under Your own rules (PS210), with its own default and reason. |
 
 ### What comes next (after the 2026-11-16 reset, in order)
 
@@ -767,5 +767,5 @@ Weibao on the ps217 pair: "Implement both and have the player choose, can leave 
 | Code | Consideration |
 | --- | --- |
 | PS276 | **A first-run look picker.** The first time a player opens the game, one screen offers the presets beside a live preview. It is skipped by default for Weibao's existing setup. |
-| PS277 | **Choices are named in reports.** A capture or bug note records the look choices in force, so a difference between two screenshots is never mistaken for a regression. |
+| PS277 | **Choices are named in reports.** Default: a capture or bug note records the look choices in force; reason: a difference between two screenshots can otherwise be mistaken for a regression. |
 | PS278 | **Accessibility rides the same registry.** Text size, contrast outline (PS133) and reduced motion register as look options, so one Display page holds them all. |
