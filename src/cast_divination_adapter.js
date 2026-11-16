@@ -3,6 +3,7 @@
 import {validateSimulationEffect} from './simulation_contracts.js';
 import {defineRitual,ritualDial,fitScore,gradeRitual} from './ritual_conditions.js';
 import {energyCharge} from './energy_resources.js';
+import {evaluateRule} from './rules.js';
 const id=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
 // An answer with no named support reads as unclear rather than inventing one (WA51).
@@ -10,7 +11,12 @@ const UNCLEAR_SIGNAL='The answer will not settle; nothing you know bears on this
 const unclearBelief=source=>`I cannot read an answer from this. Nothing I know grounds it (source scene: ${source}).`;
 const eq=(fact,value,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
 const all=(...rules)=>({all:rules.filter(Boolean)});
-export function defineDivinations(data,{worldId,actorId='player',group,situationId,requires}={}){
+const UNMET='The required knowledge, means or circumstances are missing.';
+const unmetReasons=(rule,facts)=>!rule||!facts?[]:rule.all?rule.all.flatMap(r=>unmetReasons(r,facts)):rule.any||rule.not||!rule.reason?[]:
+ (r=>r.known&&!r.met?[rule.reason]:[])(evaluateRule(rule,facts));
+// interpretEffects(row,{grounded}) is a host hook: extra effects for a row's interpret step, per grounded/unclear variant
+// (Klein's acting counter, lotm_be_acting.js). Absent, nothing changes.
+export function defineDivinations(data,{worldId,actorId='player',group,situationId,requires,interpretEffects}={}){
  if(![worldId,actorId,group,situationId].every(id))throw Error('Invalid divination binding.');
  const commands=[],ids=new Set();
  const rowFields=new Set(['id','targetId','question','method','label','description','means','contact','requires','place','steps','ritual','dial','locator','sourceStepId','grounds']);
@@ -59,6 +65,7 @@ export function defineDivinations(data,{worldId,actorId='player',group,situation
     effects.push({type:'knowledge',actor:actorId,key:`divination.${row.id}.interpretation`,stage:'interpreted',value:v.grounded===false?unclearBelief(row.grounds.source):step.belief,basis:{...basis,evidence:[`divination.${row.id}.signal`]}});
    }
    if(step.effects!=null&&!Array.isArray(step.effects))throw Error('Rite effects need a list.');
+   if(step.kind==='interpret'&&interpretEffects)for(const e of interpretEffects(row,{grounded:v.grounded})){validateSimulationEffect(e);effects.push(structuredClone(e));}
    for(const [index,spec] of (step.effects||[]).entries()){
     let effect=structuredClone(spec);
     if(!['fact','knowledge','condition','relocate'].includes(effect.type)){
@@ -98,7 +105,9 @@ export function divinationCostText(state, command, costs) {
 export function quoteDivinations(state,commands,preview,{blocked='',decide=()=>({allowed:true}),facts=()=>({})}={}){
  return commands.flatMap(d=>{
   const q=preview(d);if(!q.visible)return [];
-  const decision=decide(d),reasons=[...(q.reasons||[]),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
+  // The compiled guard has no reason of its own; name the authored conditions that are known and unmet instead (UR70).
+  const named=q.eligible?[]:unmetReasons(d.requires,facts(d)),said=(q.reasons||[]).flatMap(r=>r===UNMET&&named.length?named:[r]);
+  const decision=decide(d),reasons=[...new Set(said)],shown=[...reasons,...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
   const costs=q.eligible?q.costs:d.costs;
   const m=d.divination,k=state.simulation?.knowledge?.[d.actorId]?.[m.receiptKey];
   // Frozen job effects and pack results are internal data, not a preview answer.
@@ -110,7 +119,7 @@ export function quoteDivinations(state,commands,preview,{blocked='',decide=()=>(
    effectText:d.description,...(k?{record:k.value}:{}),
    ...(m.kind==='attempt'&&known[`divination.${m.queryId}.signal`]?{signal:known[`divination.${m.queryId}.signal`].value}:{}),
    ...(m.kind==='interpret'&&known[`divination.${m.queryId}.interpretation`]?{belief:known[`divination.${m.queryId}.interpretation`].value}:{}),
-   ...(m.ritual?{grade:gradeRitual(m.ritual,facts(d),m.dial).grade}:{}),eligible:q.eligible&&!blocked&&decision.allowed,reasons}];
+   ...(m.ritual?{grade:gradeRitual(m.ritual,facts(d),m.dial).grade}:{}),eligible:q.eligible&&!blocked&&decision.allowed,reasons:shown}];
  });
 }
 export function pendingDivinationReports(state,commands,worldId){

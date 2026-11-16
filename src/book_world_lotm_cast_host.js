@@ -2,6 +2,7 @@ import {defineBodyCare,quoteBodyCare} from './cast_body_adapter.js';
 import {settleLotmEvents,lotmRestrictions,LOTM_EVENTS_SETTLED,lotmDay} from './book_world_lotm_events.js';
 import {CITY_PREFIX,TINGEN_STATION,journeyUnderRestrictions} from './book_world_lotm_cities.js';
 import {LOTM_DIVINATION_ROWS} from './lotm_divination_rows.js';
+import {lotmBeInterpretEffects} from './lotm_be_acting.js';import {lotmBeDivLearning} from './lotm_be_div_learning.js';
 import {constraintsFromPack} from './constraint_pack.js';
 import {conditionedDraw,reservationDecision,contradictedFills,constraintProvenance,PROVENANCE_CODES} from './constraint_store.js';
 import {createStreams} from './seeded_streams.js';
@@ -202,7 +203,7 @@ function deriveCast(pack){
  castInferenceCommands=defineInferences(pack.inferences,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castCardRows=defineCards(pack.eventCards ?? null,{worldId:I.world,actorId:'player',group:'book_lotm',situationId:LOTM_CAST_SITUATION});
  castAbilityCommands=defineCastAbilities(pack.abilityConflicts,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
- castDivinationCommands=defineDivinations({...pack.divinations,queries:[...(pack.divinations?.queries||[]),...LOTM_DIVINATION_ROWS.queries]},{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ castDivinationCommands=[...defineDivinations({...pack.divinations,queries:[...(pack.divinations?.queries||[]),...LOTM_DIVINATION_ROWS.queries]},{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be'),interpretEffects:lotmBeInterpretEffects}),...lotmBeDivLearning(pack,LOTM_CAST_SITUATION)];
  castActCommands=defineActs({situationId:LOTM_CAST_SITUATION,resolvePlace:resolveCastPlace,requires:eq('lotm.profile.be')}).commands;
  castRecordCommands=defineRecords({situationId:LOTM_CAST_SITUATION,resolvePlace:resolveCastPlace,resolvePerson:x=>pack.people.find(p=>p.indexId===x)?.id||null,hasPlace:x=>placesById.has(resolveCastPlace(x))}).commands;
  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
