@@ -121,3 +121,12 @@ The first gate on 4e3fd82e2 was red, with four items. Each was fixed by its owni
 - the stale bundle: c063b3183.
 
 The second gate ran on a clean checkout of c063b3183. The bundle matches. arch, rules and docs exit 0. Flow has only the known no-rain finding. npm test: 7,724 tests, 7,712 pass, 0 fail, 12 skipped. The pusher (local_2ce54229) pushed a fast-forward. Rounds 20–22 (PS203–PS242, proposals) are in this push. The lanes resume after the 2026-11-16 18:00 UTC reset in the saved order, with the round 21 prototype lane (PS216, PS217, PS219, as flag variants per PS232) added.
+
+## Last-4% slices, 2026-11-15 (not pushed)
+
+- Combat 64b8bcc6f (PS236, PS237): fight cards describe what the life can see in words, and each "?" names a way to learn it. The mid-fight learning is tested but not exercised in the browser.
+- ui-cohesion a2705c6c0 with bundle 37efe64bc (PS232, PS217, PS205): `?variant=` switch, the borderless variant and one-line skill rows. Captures are in side-session-notes round21-variants/ (a46bd96af).
+  - Gap: Beginning act rows and Gu tiles keep their own borders under ps217.
+- Rounds 20–23 (PS203–PS263) are saved as proposals.
+- Waiting on Weibao's pick: today or ps217.
+- Next push: everything after c063b3183, through one gate run by the pusher.
