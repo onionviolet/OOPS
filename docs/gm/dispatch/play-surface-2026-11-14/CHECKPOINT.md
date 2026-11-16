@@ -161,3 +161,13 @@ Weekly usage was 0%. Eight lanes were dispatched, each with these rules:
 | areas | proposed as a new session card (task_4d3df568), because sessions start only on Weibao's word |
 
 Unpushed since adbcc4ff0: 6895cf083, 6b330ab8c, 16eee20f1 and this checkpoint.
+
+## Push adbcc4ff0..95bdf13d3, 2026-11-16
+
+The pusher gated a clean checkout of 95bdf13d3. The bundle matches, and arch, rules and docs exit 0. Flow shows only the known no-rain finding. npm test: 7,741 tests, 7,727 pass, 2 fail, 12 skipped.
+
+The two failures were save workers killed at the 270 s timeout, with no failed assertion, at a load average near 32: cast_divination_adapter and cast_exchange_adapter. Both pass alone (12 of 12), and they take the same time at the parent under the same load.
+
+Standing risk: the cast_* live-save files run close to their worker timeout whenever the machine is busy. The fix is open: a longer worker timeout or the slow label.
+
+Landed after 95bdf13d3 and not pushed: discord surfaces 4d0cb17f5 and e4598c9f7, combat 4ab373717 and bcc8a92f7, ui-cohesion 1120c44cd, round 26, and others.
