@@ -1,0 +1,3806 @@
+{
+ "meta": {
+  "world": "dnd_srd",
+  "books": [
+   "D&D 5.2.1 SRD"
+  ],
+  "licence": [
+   "CC-BY-4.0"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+  "date": "2026-11-17",
+  "shards": 31
+ },
+ "rules": [
+  {
+   "id": "dnd_srd.rule.0001",
+   "world": "dnd_srd",
+   "statement": "A D20 test succeeds when the d20 roll plus relevant modifiers meets or exceeds its target. Ability checks and saves use a Difficulty Class; attacks use Armor Class.",
+   "locators": [
+    "D&D 5.2.1 SRD: Playing the Game — D20 Tests (pp. 6–7) (dnd-srd-5.2.1#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: meet target",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a single roll against a fixed target; a world can adjust target-setting to make challenges more or less demanding, reflecting their circumstances.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0002",
+   "world": "dnd_srd",
+   "statement": "Advantage or disadvantage adds a second d20 and uses the higher or lower result respectively. Multiple instances do not add more dice, and having both cancels them to one die.",
+   "locators": [
+    "D&D 5.2.1 SRD: Playing the Game — Advantage/Disadvantage (pp. 7–8) (dnd-srd-5.2.1#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one extra die with cancellation; a world can change how situational benefits combine, representing whether circumstances compound or offset.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0003",
+   "world": "dnd_srd",
+   "statement": "A creature can apply its proficiency bonus only once to a roll, though a rule may multiply or divide that bonus; it can be multiplied once and divided once.",
+   "locators": [
+    "D&D 5.2.1 SRD: Playing the Game — Proficiency (p. 8) (dnd-srd-5.2.1#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to one proficiency contribution; a world can tune its scale, with training and specialization determining the bonus.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0004",
+   "world": "dnd_srd",
+   "statement": "A creature can take one action at a time, and it may take only one bonus action on its turn when a feature grants one. After taking a reaction, it cannot take another until the start of its next turn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Playing the Game — Actions, Bonus Actions, Reactions (pp. 9–10) (dnd-srd-5.2.1#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one action, one granted bonus action, and one reaction per round interval; a world can relax these limits at the cost of faster, more complex turns.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0005",
+   "world": "dnd_srd",
+   "statement": "A successful search for a hidden object requires searching near its location; searching elsewhere cannot reveal it regardless of the check result.",
+   "locators": [
+    "D&D 5.2.1 SRD: Playing the Game — Finding Hidden Objects (p. 12) (dnd-srd-5.2.1#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to requiring proximity and a successful perception check; a world can allow remote detection, but that requires an exceptional sensing capability.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0006",
+   "world": "dnd_srd",
+   "statement": "Outside combat, fast travel covers 400 feet per minute, 4 miles per hour, or 30 miles per day and imposes disadvantage on Perception, Survival, and Stealth checks. Normal travel covers 300 feet, 3 miles, or 24 miles at those intervals and hinders Stealth; slow travel covers 200 feet, 2 miles, or 18 miles and grants advantage on Perception and Survival.",
+   "locators": [
+    "D&D 5.2.1 SRD: Playing the Game — Travel Pace (p. 12) (dnd-srd-5.2.1#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the three stated paces and their observation tradeoffs; a world can change travel distances or checks to reflect terrain and urgency.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0007",
+   "world": "dnd_srd",
+   "statement": "A combat round represents about 6 seconds, and participants take turns in initiative order; initiative is determined by Dexterity checks at combat’s start, with surprised combatants rolling at disadvantage.",
+   "locators": [
+    "D&D 5.2.1 SRD: Playing the Game — The Order of Combat (p. 13) (dnd-srd-5.2.1#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: turn order",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to six-second rounds and fixed initiative order; a world can alter round length or surprise handling to change the pace and consequences of combat.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0008",
+   "world": "dnd_srd",
+   "statement": "A creature starts with base Armor Class equal to 10 plus its Dexterity modifier. If multiple features offer different base calculations, only one can apply at a time.",
+   "locators": [
+    "D&D 5.2.1 SRD: Playing the Game — Armor Class (p. 7) (dnd-srd-5.2.1#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one Dexterity-based defense formula; a world can offer alternative formulas, but each creature must choose only one.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0009",
+   "world": "dnd_srd",
+   "statement": "Each foot moved through Difficult Terrain costs 1 extra foot, even when several features in the same space qualify. A creature can split its movement around an action, Bonus Action, or Reaction on its turn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Difficult Terrain; Breaking Up Your Move (dnd-srd-5.2.1#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to doubling movement cost in difficult spaces while allowing movement to be split; a world can change which surfaces qualify or the added cost to reflect how hazardous or obstructed travel is.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0010",
+   "world": "dnd_srd",
+   "statement": "On its turn, a creature can give itself the Prone condition without spending an action or movement, unless its Speed is 0. It can pass through an ally’s space, an incapacitated creature’s space, a Tiny creature’s space, or a creature at least two size categories larger or smaller; other creature spaces usually cost extra movement, and a creature cannot willingly end its move sharing a space.",
+   "locators": [
+    "D&D 5.2.1 SRD: Dropping Prone; Moving around Other Creatures (dnd-srd-5.2.1#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to free voluntary prone movement and restricted passage through occupied spaces; a world can tighten these permissions to make positioning more consequential.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0011",
+   "world": "dnd_srd",
+   "statement": "Half Cover grants +2 to AC and Dexterity saves, while Three-Quarters Cover grants +5; Total Cover prevents direct targeting. Cover applies only when it lies between the source of an attack or effect and its target, and only the best applicable degree counts.",
+   "locators": [
+    "D&D 5.2.1 SRD: Cover (p. 15) (dnd-srd-5.2.1#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to three cover grades with only the strongest applying; a world can change the bonuses or which effects cover blocks to reflect how protective obstacles are.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0012",
+   "world": "dnd_srd",
+   "statement": "A ranged attack beyond its normal range has Disadvantage, if it is within its long range, and cannot target beyond long range. A ranged attack roll also has Disadvantage when made within 5 feet of a seeing, non-incapacitated enemy.",
+   "locators": [
+    "D&D 5.2.1 SRD: Ranged Attacks (p. 15) (dnd-srd-5.2.1#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to reduced accuracy at long range and in close combat; a world can alter the distance limits or penalty to model different weapons and combat styles.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0013",
+   "world": "dnd_srd",
+   "statement": "A visible creature provokes an Opportunity Attack when it leaves an attacker’s reach: the attacker spends a Reaction to make one melee weapon attack or Unarmed Strike immediately before it leaves. Disengaging avoids this, as do teleportation and movement imposed without using the mover’s movement, action, Bonus Action, or Reaction.",
+   "locators": [
+    "D&D 5.2.1 SRD: Opportunity Attacks (p. 15) (dnd-srd-5.2.1#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one reaction-based melee strike when a foe leaves reach; a world can change what movement provokes it or what defenses evade it to tune the danger of disengaging.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0014",
+   "world": "dnd_srd",
+   "statement": "Resistance halves damage of its type, Vulnerability doubles it, and multiple instances of either do not stack. Apply bonuses, penalties, and multipliers first, Resistance second, and Vulnerability third; Immunity prevents damage of a type or prevents a condition from affecting its bearer.",
+   "locators": [
+    "D&D 5.2.1 SRD: Resistance and Vulnerability; Immunity (p. 17) (dnd-srd-5.2.1#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one halving or doubling adjustment in the stated order, with immunity negating the listed effect; a world can change these magnitudes or ordering to define how defenses interact.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0015",
+   "world": "dnd_srd",
+   "statement": "A creature at 0 Hit Points that has not died outright becomes Unconscious and makes a Death Saving Throw at the start of each of its turns. A d20 result of 10 or higher is a success; three successes make it Stable, while three failures kill it, and a 1 causes two failures while a 20 restores 1 Hit Point.",
+   "locators": [
+    "D&D 5.2.1 SRD: Falling Unconscious; Death Saving Throws (pp. 17–18) (dnd-srd-5.2.1#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to a three-success/three-failure death track with specified critical results; a world can make recovery easier or harder by changing thresholds, counts, or stabilization.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0016",
+   "world": "dnd_srd",
+   "statement": "At 0 Hit Points, any damage causes a Death Saving Throw failure, or two failures if the damage is a Critical Hit; damage at least equal to the creature’s Hit Point maximum kills it. A Stable creature remains Unconscious without making these throws, but damage ends its stability; if unhealed, it regains 1 Hit Point after 1d4 hours.",
+   "locators": [
+    "D&D 5.2.1 SRD: Death Saving Throws; Stabilizing a Character (p. 18) (dnd-srd-5.2.1#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to worsening death saves when damage lands and slow natural recovery after stabilization; a world can make the dying more resilient or more fragile by changing these triggers and delay.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0017",
+   "world": "dnd_srd",
+   "statement": "For a multiclass spellcaster, add all levels in spellcasting classes and half the levels in paladin or ranger, rounding down, to determine spell slots. A slot can cast a prepared spell of a lower level, and a spell’s higher-slot enhancement still applies; Pact Magic slots can also cast prepared Spellcasting-class spells, and Spellcasting slots can cast prepared warlock spells.",
+   "locators": [
+    "D&D 5.2.1 SRD: Multiclass Spellcaster, p. 26 (dnd-srd-5.2.1#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to combining class levels by the table and allow cross-use of slots; worlds can restrict that exchange to separate traditions, since each tradition normally has its own source.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0018",
+   "world": "dnd_srd",
+   "statement": "A barbarian can enter Rage as a Bonus Action if not wearing Heavy armor. It grants resistance to bludgeoning, piercing, and slashing damage, Strength-check and Strength-save Advantage, and bonus damage on Strength-based attacks; it prevents spellcasting and Concentration. It lasts until the end of the next turn, can be extended by attacking, forcing a save, or spending a Bonus Action, and can last at most 10 minutes; Heavy armor or Incapacitation ends it early.",
+   "locators": [
+    "D&D 5.2.1 SRD: Barbarian, Rage, pp. 28–29 (dnd-srd-5.2.1#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a short-lived combat state with limited uses and recovery through rest; a world can make the state harder to sustain, because maintaining it requires continued aggression or attention.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0019",
+   "world": "dnd_srd",
+   "statement": "While Rage is active, a Berserker using Reckless Attack adds damage to the first target hit each turn, rolling a number of d6s equal to the Rage Damage bonus. Rage also makes the Berserker immune to Charmed and Frightened, and removes either condition when Rage begins.",
+   "locators": [
+    "D&D 5.2.1 SRD: Path of the Berserker, pp. 30–31 (dnd-srd-5.2.1#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB19",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to fury improving attacks and suppressing fear or charm only while Rage lasts; a world can make the benefit exact greater damage, with the cost of entering the same uncontrolled combat state.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0020",
+   "world": "dnd_srd",
+   "statement": "Bardic Inspiration gives a creature within 60 feet that can see or hear the Bard one inspiration die, which it may add to a failed d20 test within the next hour. A creature can hold only one such die; the Bard has uses equal to Charisma modifier, at least one, and regains them on a Long Rest. The die advances from d6 to d8 at level 5, d10 at level 10, and d12 at level 15.",
+   "locators": [
+    "D&D 5.2.1 SRD: Bardic Inspiration, pp. 31–32 (dnd-srd-5.2.1#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB4",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to one temporary aid token per recipient, usable to improve a failed test; a world can vary its die and recovery schedule, since the Bard’s capacity is limited by Charisma and rest.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0021",
+   "world": "dnd_srd",
+   "statement": "A Bard can spend a Reaction when they or a creature within 30 feet fails a save against Charmed or Frightened, forcing a reroll with Advantage. A Cleric can instead spend a Reaction when a visible creature within 60 feet succeeds on a damage roll, attack roll, or ability check, expend Bardic Inspiration, and subtract its die result.",
+   "locators": [
+    "D&D 5.2.1 SRD: Bard: Countercharm, p. 33; College of Lore: Cutting Words, p. 35 (dnd-srd-5.2.1#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to reaction-based interference with a limited resource for the more potent subtraction; worlds can narrow which effects can be disrupted, because the response must be timely and visible.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0022",
+   "world": "dnd_srd",
+   "statement": "A Cleric can spend one of two Channel Divinity uses to restore a creature’s Hit Points, or make it save against equal radiant or necrotic damage; the amount is 1d8 plus Wisdom modifier, gaining another d8 at levels 7, 13, and 18. Alternatively, chosen Undead within 30 feet that fail a Wisdom save become Frightened and Incapacitated for 1 minute and flee; damage, Cleric Incapacitation, or the Cleric’s death ends this effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Cleric: Channel Divinity, p. 37 (dnd-srd-5.2.1#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "area-field",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a limited-use divine resource that can heal or repel nearby Undead; a world can change which divine effects it fuels, with uses restored through short or long rest.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0023",
+   "world": "dnd_srd",
+   "statement": "A Cleric can call on divine intervention to cast a Cleric spell of level 5 or lower without a slot or Material components, once per Long Rest. At level 20, the Cleric can choose Wish instead, but then must finish 2d4 Long Rests before using the feature again.",
+   "locators": [
+    "D&D 5.2.1 SRD: Cleric: Divine Intervention, pp. 38 (dnd-srd-5.2.1#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [
+    "power-granting"
+   ],
+   "default_dial_reason": "Default to a rare, deity-mediated casting that avoids ordinary resource costs; worlds can permit a more powerful request but impose a longer recovery, reflecting the scale of divine aid.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0024",
+   "world": "dnd_srd",
+   "statement": "A Druid can assume a known Beast form as a Bonus Action, for a duration of half their Druid level in hours. The form ends early if the Druid uses Wild Shape again, becomes Incapacitated, dies, or chooses to leave it as a Bonus Action; the Druid has two uses, regains one after a Short Rest and all after a Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Druid, Level 2: Wild Shape (pages 42–43) (dnd-srd-5.2.1#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to a limited, temporary animal transformation with two uses; a world can turn the duration or use count, reflecting how strongly nature’s power is available.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0025",
+   "world": "dnd_srd",
+   "statement": "Wild Shape grants Temporary Hit Points equal to Druid level and replaces most game statistics with the Beast’s, while preserving specified personal traits. The Druid cannot cast spells in that form, though existing Concentration continues; equipment can fall, merge, or be worn, and merged equipment has no effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Druid, Rules While Shape-Shifted (page 43) (dnd-srd-5.2.1#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB2",
+   "derives": [
+    "form-transformation",
+    "body-form",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a form that changes capabilities but preserves identity and selected traits; a world can make equipment merge or remain usable, with merged gear temporarily losing its effects.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0026",
+   "world": "dnd_srd",
+   "statement": "A Druid can spend a spell slot or Wild Shape use to cast Find Familiar without Material components; the summoned Fey familiar disappears after the Druid’s next Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Druid, Level 2: Wild Companion (page 43) (dnd-srd-5.2.1#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon"
+   ],
+   "default_dial_reason": "Default to a short-lived nature spirit summoned by spending another resource; a world can extend its stay, at the cost of limiting how often it can be called.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0027",
+   "world": "dnd_srd",
+   "statement": "Once on each turn, a Druid with no Wild Shape uses can expend a spell slot to regain one use. The Druid can also spend a Wild Shape use to gain a level 1 spell slot, but cannot do that again until finishing a Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Druid, Level 5: Wild Resurgence (page 43) (dnd-srd-5.2.1#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to exchanging power between two limited reserves, with a daily limit on turning shape energy into a spell slot; a world can change the exchange rate or recovery limits.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0028",
+   "world": "dnd_srd",
+   "statement": "At level 20, a Druid can convert unexpended Wild Shape uses into one spell slot, with each use contributing 2 spell levels. This conversion can be used once per Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Druid, Level 20: Archdruid (page 43) (dnd-srd-5.2.1#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to converting stored transformation power into spell capacity at a fixed rate; a world can change the rate, with stronger conversion consuming more reserve.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0029",
+   "world": "dnd_srd",
+   "statement": "A Monk has Focus Points equal to Monk level and regains all spent points after a Short or Long Rest. At level 2, spending 1 point can fuel extra unarmed attacks, defensive actions, or movement options.",
+   "locators": [
+    "D&D 5.2.1 SRD: Monk, Level 2: Monk’s Focus (pages 50–51) (dnd-srd-5.2.1#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to a level-scaled reserve that refreshes on rest; a world can change its size or refresh schedule, trading more frequent techniques against exhaustion of the reserve.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0030",
+   "world": "dnd_srd",
+   "statement": "Once per turn after hitting with a Monk weapon or Unarmed Strike, a Monk can spend 1 Focus Point to force a Constitution save. Failure stuns the target until the Monk’s next turn; success instead halves its Speed for that duration and gives the next attack against it Advantage.",
+   "locators": [
+    "D&D 5.2.1 SRD: Monk, Level 5: Stunning Strike (page 51) (dnd-srd-5.2.1#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB2",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a brief control effect with a save and a resource cost; a world can lengthen the effect or weaken the successful-save fallback, increasing the danger of each attempt.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0031",
+   "world": "dnd_srd",
+   "statement": "A Monk can spend 4 Focus Points on a hit to plant imperceptible vibrations in one creature for a number of days equal to Monk level. The Monk can end them while on the same plane, forcing a Constitution save for 10d12 Force damage on failure or half damage on success; only one creature can be affected at a time, and the effect can be ended harmlessly.",
+   "locators": [
+    "D&D 5.2.1 SRD: Warrior of the Open Hand, Level 17: Quivering Palm (page 52) (dnd-srd-5.2.1#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "body-code-decay",
+    "soul-binding"
+   ],
+   "default_dial_reason": "Default to a costly delayed harm effect that requires continued access to the target’s plane; a world can extend the delay or increase the cost, while retaining the one-target limit.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0032",
+   "world": "dnd_srd",
+   "statement": "A Paladin’s healing reserve holds Hit Points equal to five times the Paladin’s level. As a Bonus Action, the Paladin touches a creature and spends up to the remaining reserve to restore that many Hit Points; spending 5 points can instead remove Poisoned without healing.",
+   "locators": [
+    "D&D 5.2.1 SRD: Paladin Features, page 54 (dnd-srd-5.2.1#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a level-scaled healing pool that is spent on healing or poison removal; a world can change the reserve size or the fixed 5-point cleansing cost to reflect how readily restorative power is available.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0033",
+   "world": "dnd_srd",
+   "statement": "A Paladin has two Channel Divinity uses, regains one after a Short Rest and all after a Long Rest, and gains one additional use at level 11. The Paladin chooses which available class effect to create each time; any required save uses the class’s spell save DC.",
+   "locators": [
+    "D&D 5.2.1 SRD: Level 3: Channel Divinity, page 54 (dnd-srd-5.2.1#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a limited pool refreshed partly by a short break and fully by a long one; a world can increase or reduce the pool and recovery rate, making divine manifestations more or less frequent.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0034",
+   "world": "dnd_srd",
+   "statement": "Divine Sense, used as a Bonus Action, reveals the location and type of Celestials, Fiends, and Undead within 60 feet for 10 minutes, ending sooner if the Paladin becomes Incapacitated. It also detects consecrated or desecrated places and objects in that radius.",
+   "locators": [
+    "D&D 5.2.1 SRD: Divine Sense, page 55 (dnd-srd-5.2.1#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB33",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to a 60-foot, 10-minute supernatural detection with incapacitation as a break condition; a world can change the range, duration, or detectable categories to define what divine awareness can penetrate.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0035",
+   "world": "dnd_srd",
+   "statement": "A Paladin’s protective aura extends 10 feet and is inactive while the Paladin is Incapacitated; the Paladin and allies within it add the Paladin’s Charisma modifier to saving throws, to a minimum bonus of +1. At level 18 its radius becomes 30 feet, and a creature benefits from only one Paladin’s protection aura at a time.",
+   "locators": [
+    "D&D 5.2.1 SRD: Level 6: Aura of Protection, page 55; Level 18: Aura Expansion, page 55 (dnd-srd-5.2.1#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a 10-foot field that grants a Charisma-based defense bonus and expands to 30 feet at level 18; a world can tune its radius or bonus, with the effect representing a Paladin’s protective presence.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0036",
+   "world": "dnd_srd",
+   "statement": "A Ranger’s Nature’s Veil grants the Invisible condition as a Bonus Action until the end of the Ranger’s next turn. It can be used a number of times equal to the Ranger’s Wisdom modifier, minimum once, and all uses return after a Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Level 14: Nature’s Veil, page 59 (dnd-srd-5.2.1#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to brief self-concealment with Wisdom-scaled daily uses; a world can adjust duration or uses, making nature’s aid more or less dependable.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0037",
+   "world": "dnd_srd",
+   "statement": "When a Rogue deals Sneak Attack damage, the Rogue can forgo Sneak Attack dice to add a Cunning Strike effect: 1d6 for Poison, Trip, or Withdraw; the Poison option requires a Poisoner’s Kit. At level 11, up to two effects can be combined by paying each cost, and level 14 adds Daze for 2d6, Knock Out for 6d6, or Obscure for 3d6.",
+   "locators": [
+    "D&D 5.2.1 SRD: Level 5: Cunning Strike; Level 11: Improved Cunning Strike; Level 14: Devious Strikes, page 63 (dnd-srd-5.2.1#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to trading damage dice for a condition or movement effect, with larger effects costing more dice; a world can alter the menu or costs to set the balance between injury and control.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0038",
+   "world": "dnd_srd",
+   "statement": "A Sorcerer can spend a spell slot to gain Sorcery Points equal to the slot’s level, or use a Bonus Action to turn points into one spell slot of up to level 5. Slot creation costs 2, 3, 5, 6, or 7 points for slots of levels 1 through 5 respectively, has minimum Sorcerer levels 2, 3, 5, 7, and 9, and created slots vanish after a Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Level 2: Font of Magic, page 66 (dnd-srd-5.2.1#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB15",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to reversible exchange between spell slots and a capped point reserve, with created slots expiring at the next Long Rest; a world can change the exchange rates or expiry to determine how flexibly innate magic can be stored.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0039",
+   "world": "dnd_srd",
+   "statement": "A Sorcerer can use a Bonus Action to activate Innate Sorcery for 1 minute, gaining +1 to Sorcerer spell save DCs and Advantage on Sorcerer spell attack rolls. It has two uses per Long Rest; at level 7, a Sorcerer with no uses left can activate it by spending 2 Sorcery Points, and can use up to two Metamagic options on each spell while it is active.",
+   "locators": [
+    "D&D 5.2.1 SRD: Level 1: Innate Sorcery, page 65; Level 7: Sorcery Incarnate, page 66 (dnd-srd-5.2.1#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to two one-minute boosts per Long Rest, with a 2-point fallback and enhanced Metamagic at level 7; a world can change the duration, benefits, or resource cost to set the intensity of innate surges.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0040",
+   "world": "dnd_srd",
+   "statement": "A sorcerer can spend 1 Sorcery Point to protect up to their Charisma modifier (minimum 1) of a spell’s saving-throw targets: each chosen target succeeds automatically and takes no damage when a successful save would normally halve it. They can spend 1 point to double a spell’s range of at least 5 feet, or change Touch range to 30 feet.",
+   "locators": [
+    "D&D 5.2.1 SRD: Metamagic options, p. 67 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to allowing selective protection and range alteration for 1 point; a world can raise the cost or forbid a modification, reflecting scarce or tightly regulated sorcerous control.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0041",
+   "world": "dnd_srd",
+   "statement": "For 1 Sorcery Point, a sorcerer can reroll up to their Charisma modifier (minimum 1) of a spell’s damage dice and must keep the new rolls. For 1 point, they can also double a spell’s duration if it is at least 1 minute, to a maximum of 24 hours; if it requires Concentration, they have Advantage on saves to maintain it.",
+   "locators": [
+    "D&D 5.2.1 SRD: Metamagic options, p. 67 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to permitting one paid adjustment to damage or duration; a world can limit these adjustments to preserve magical reserves or keep extended effects from becoming disruptive.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0042",
+   "world": "dnd_srd",
+   "statement": "For 2 Sorcery Points, a sorcerer can impose Disadvantage on one target’s saves against a spell. They can also spend 2 points to change an action-cast spell to a Bonus Action, but cannot do so after casting a level 1+ spell that turn or cast a level 1+ spell later that turn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Metamagic options, p. 67 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to allowing costly precision or faster casting with the stated turn restriction; a world can increase the price or tighten the action limit to prevent burst casting.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0043",
+   "world": "dnd_srd",
+   "statement": "A sorcerer can spend 1 Sorcery Point to reroll a missed spell attack, omit its Verbal, Somatic, and ordinary Material components, or change its damage among Acid, Cold, Fire, Lightning, Poison, and Thunder. A point can also increase by 1 the effective level of an eligible spell that gains an additional target when cast with a higher-level slot.",
+   "locators": [
+    "D&D 5.2.1 SRD: Metamagic options, pp. 67–68 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to one point buying a single listed casting alteration; a world can restrict the available alteration or raise its price, citing the strain of reshaping magic.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0044",
+   "world": "dnd_srd",
+   "statement": "Warlock Pact Magic slots are all of the same level, cast Warlock spells of levels 1–5, and return after a Short or Long Rest. A one-minute rite restores expended slots up to half the warlock’s maximum, rounded up, once per Long Rest; at level 20, using that feature restores all expended Pact Magic slots.",
+   "locators": [
+    "D&D 5.2.1 SRD: Warlock, Pact Magic and Magical Cunning, pp. 71–72 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a small pool of equally leveled slots that refreshes on a short rest, with one limited extra recovery; a world can reduce recovery to make pact magic rarer, at the cost of fewer reliable spell uses.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0045",
+   "world": "dnd_srd",
+   "statement": "A warlock’s pact weapon bond ends if the warlock makes the feature’s Bonus Action again, the weapon is more than 5 feet away for at least 1 minute, or the warlock dies; a conjured weapon disappears when the bond ends. While bonded, the weapon can use Charisma for attack and damage rolls and deal one of three listed damage types or its normal type.",
+   "locators": [
+    "D&D 5.2.1 SRD: Eldritch Invocation Options: Pact of the Blade, p. 74 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a personal weapon bond that grants proficiency and keyed abilities but breaks under distance, death, or replacement; a world can make bonds harder to break, increasing the risk of losing access to the weapon.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0046",
+   "world": "dnd_srd",
+   "statement": "A creature named in the warlock’s special book drops to 1 Hit Point instead of 0 when reduced to 0 without being killed outright. The book holds names up to the warlock’s Charisma modifier (minimum 1), the protection triggers only once before a Long Rest, and the warlock can erase a name by touching the page.",
+   "locators": [
+    "D&D 5.2.1 SRD: Eldritch Invocation Options: Gift of the Protectors, p. 73 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to a limited roster of protected allies with one activation per Long Rest; a world can lower capacity or remove the rescue effect, making the protective bond less dependable.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0047",
+   "world": "dnd_srd",
+   "statement": "When a warlock hits a creature with an attack, the warlock can try once per turn to send it through the Lower Planes. On a failed Charisma save against the warlock’s spell DC, it vanishes, takes 8d10 Psychic damage if it is not a Fiend, and is Incapacitated until the end of the warlock’s next turn before returning; the use refreshes on a Long Rest or by spending a Pact Magic slot.",
+   "locators": [
+    "D&D 5.2.1 SRD: Fiend Patron: Hurl Through Hell, p. 76 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default to a save-gated, costly planar removal with a short incapacitation; a world can increase its cost or restrict eligible targets, reflecting the danger of calling on infernal realms.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0048",
+   "world": "dnd_srd",
+   "statement": "A wizard can restore spell slots after a Short Rest by choosing slots whose combined levels are no more than half the wizard level, rounded up; no recovered slot can be level 6 or higher. The wizard can use this once per Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Wizard: Arcane Recovery, p. 78 (dnd-srd-5.2.1#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to limited study-based spell recovery after a short rest; a world can lower the recovery cap, making magical reserves more dependent on long rests.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0049",
+   "world": "dnd_srd",
+   "statement": "To cast a level 1 or higher spell, expend a spell slot of that level or higher; a Long Rest restores expended slots. A cantrip uses no slot, and a Ritual takes 10 minutes longer but uses no slot if the caster has the spell prepared.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spells, p. 104 (dnd-srd-5.2.1#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to finite spell capacity restored by rest; a world can change slot recovery, with slower recovery making magic more costly.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0050",
+   "world": "dnd_srd",
+   "statement": "A spell cast with a higher-level slot counts as that level, and its description may improve its effects. A caster can expend only one spell slot to cast a spell on a turn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spells, pp. 104–105 (dnd-srd-5.2.1#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to higher slots scaling eligible spells and one slot-funded cast per turn; changing either dial alters burst power and resource pressure.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0051",
+   "world": "dnd_srd",
+   "statement": "A spell requiring at least 1 minute to cast requires the Magic action on each of the caster’s turns and maintained Concentration. If Concentration breaks, the cast fails without spending a slot, and casting again requires starting over.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spells, p. 105 (dnd-srd-5.2.1#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to interruption cancelling long casts without consuming their slot; a world can make interruption consume resources to raise the risk.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0052",
+   "world": "dnd_srd",
+   "statement": "Spell components are requirements: a caster unable to provide any required component cannot cast the spell. Verbal casting requires an audible normal speaking voice, Somatic casting requires a free hand, and Material casting requires the listed materials or an allowed substitute.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spells, pp. 105–106 (dnd-srd-5.2.1#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to components as hard casting gates; a world can waive selected components, trading constraints for easier spell use.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0053",
+   "world": "dnd_srd",
+   "statement": "A spell scroll lets a character cast its spell without a slot if the spell is on that character’s class list; use the normal casting time, but no Material components. A saving throw DC of 13 and attack bonus of +5 apply, and the scroll disintegrates after casting.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spell Scroll, p. 99 (dnd-srd-5.2.1#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a single-use item carrying a spell with fixed casting values; a world can allow reuse or broaden eligibility at the cost of scroll scarcity or control.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0054",
+   "world": "dnd_srd",
+   "statement": "Attuning to an item requires a focused Short Rest in physical contact with it, separate from a rest used to identify it; an interruption makes the attempt fail. A creature can attune to at most three items and not to duplicate copies of one item.",
+   "locators": [
+    "D&D 5.2.1 SRD: Magic Items—Attunement, pp. 102–103 (dnd-srd-5.2.1#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB21",
+   "derives": [
+    "bond-slots",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to three item bonds, each requiring focused time; a world can raise or lower capacity, with scarce bonds limiting access to magic.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0055",
+   "world": "dnd_srd",
+   "statement": "Attunement ends if its prerequisites cease, the item is more than 100 feet away for at least 24 hours, its bearer dies, or another creature attunes to it. A creature can also end it with another focused Short Rest unless the item is cursed.",
+   "locators": [
+    "D&D 5.2.1 SRD: Magic Items—Ending Attunement, p. 103 (dnd-srd-5.2.1#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to bonds breaking under the listed conditions or deliberate effort; a world can make bonds harder to break, increasing the risk of being tied to an item.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0056",
+   "world": "dnd_srd",
+   "statement": "To craft a nonmagical item, the maker needs the required tools and proficiency, plus raw materials worth half the item’s purchase price. Crafting takes one 8-hour workday per 10 GP of price, rounded up; one other proficient character can normally halve the time by assisting.",
+   "locators": [
+    "D&D 5.2.1 SRD: Crafting Nonmagical Items, p. 103 (dnd-srd-5.2.1#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "blueprint-craft"
+   ],
+   "default_dial_reason": "Default to tool-gated crafting with half-price materials and time based on price; a world can change materials, time, or assistance to tune production.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0057",
+   "world": "dnd_srd",
+   "statement": "A spell must have a clear path to its target, and its description determines what kinds of targets it can affect. A caster may target themself unless the spell requires a hostile creature or someone other than the caster; an imperceptible spell normally gives its target no awareness of being targeted.",
+   "locators": [
+    "D&D 5.2.1 SRD: Targets (dnd-srd-5.2.1#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Require a clear path and conceal imperceptible targeting by default; a world can relax either limit, at the cost of making spell defense and detection less predictable.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0058",
+   "world": "dnd_srd",
+   "statement": "If a target cannot be affected by a spell, nothing happens to it, but a spent spell slot is not refunded. When a successful save would ordinarily negate the spell, the invalid target appears to have succeeded; otherwise the caster can tell the spell did nothing.",
+   "locators": [
+    "D&D 5.2.1 SRD: Targets — Invalid Targets (dnd-srd-5.2.1#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Keep costs spent on invalid targets by default; a world can refund them, reducing the risk of testing unknown targets.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0059",
+   "world": "dnd_srd",
+   "statement": "A spell’s saving throw DC is 8 plus the caster’s spellcasting ability modifier and Proficiency Bonus. Its attack modifier is the spellcasting ability modifier plus Proficiency Bonus.",
+   "locators": [
+    "D&D 5.2.1 SRD: Saving Throws; Attack Rolls (dnd-srd-5.2.1#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Use the stated formulas by default; a world can substitute different aptitude or training measures, changing how spell accuracy scales.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0060",
+   "world": "dnd_srd",
+   "statement": "Different spells’ effects stack while their durations overlap, but repeated castings of the same spell do not stack: only the strongest applies. If equally strong castings overlap, the most recent one applies, and its duration determines when that effect ends.",
+   "locators": [
+    "D&D 5.2.1 SRD: Combining Spell Effects (dnd-srd-5.2.1#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Apply the strongest same-spell effect by default; a world can allow repeated effects to accumulate, making coordinated spellcasting more powerful.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0061",
+   "world": "dnd_srd",
+   "statement": "An antimagic aura extends 10 feet around its caster for up to 1 hour while concentration lasts. It prevents magic from being used or affecting things inside, suppresses ongoing spells there while their durations continue to run, and temporarily closes portals; artifact- or deity-created spells are exceptions, and antimagic auras do not cancel one another.",
+   "locators": [
+    "D&D 5.2.1 SRD: Antimagic Field, p. 109 (dnd-srd-5.2.1#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "power-interaction",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Use a 10-foot magic-blocking aura with the stated exceptions by default; a world can widen it or exempt more magic, changing the reach and reliability of magical defenses.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0062",
+   "world": "dnd_srd",
+   "statement": "A spell that requires concentration lasts only while the caster maintains it, up to its stated maximum; losing concentration ends its ongoing effects.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spell entries, pages 118–127 (dnd-srd-5.2.1#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: concentration limits simultaneous sustained effects; a world can relax the limit to enable layered magic, at the cost of greater magical stability.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0063",
+   "world": "dnd_srd",
+   "statement": "Several spells let a caster spend a higher-level spell slot to increase damage, healing, area, or the number of creatures affected; the amount added is specified by each spell.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spell entries, pages 118–127 (dnd-srd-5.2.1#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default: stronger results consume a higher-level slot; a world can change the scaling, with increased output paid for by scarcer resources.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0064",
+   "world": "dnd_srd",
+   "statement": "Some spells allow an affected target to repeat a saving throw at the end of its turns; a success can end the spell’s effect on that target, while some spells instead require a specified number of successes or failures.",
+   "locators": [
+    "D&D 5.2.1 SRD: Compulsion, page 118; Contagion, page 119 (dnd-srd-5.2.1#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: repeated resistance gives targets a chance to escape; a world can make effects more persistent, at the cost of reducing counterplay.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0065",
+   "world": "dnd_srd",
+   "statement": "Spells that conjure spirits or create other sustained effects keep them for the stated duration, often requiring concentration; some let the caster move or direct the created effect on later turns.",
+   "locators": [
+    "D&D 5.2.1 SRD: Conjure Animals, page 118; Conjure Celestial, page 118 (dnd-srd-5.2.1#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: summoned effects persist only for their listed duration and may need active direction; a world can make them autonomous, at the cost of greater control risk.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0066",
+   "world": "dnd_srd",
+   "statement": "Several spells sense specified things within a stated radius, but physical barriers can block the sense; some allow the caster to spend an action to learn more detail after detecting a presence.",
+   "locators": [
+    "D&D 5.2.1 SRD: Detect Evil and Good, Detect Magic, Detect Poison and Disease, and Detect Thoughts, pages 123–124 (dnd-srd-5.2.1#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: sensing is limited by range and listed barriers; a world can broaden what is detectable, with concealment and privacy becoming harder to maintain.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0067",
+   "world": "dnd_srd",
+   "statement": "Some effects make a target obey or move in a directed way, but the target can resist at the outset and, for some effects, repeat its resistance after taking damage or after acting under the effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Compulsion, page 118; Dominate Beast, page 125 (dnd-srd-5.2.1#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB14",
+   "derives": [
+    "mind-binding",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: control requires a failed resistance and can be broken under stated conditions; a world can make control harder to resist, at the cost of reduced agency.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0068",
+   "world": "dnd_srd",
+   "statement": "A spell maintained by concentration lasts no longer than its stated maximum, and losing concentration ends its effects. Some effects also end when a target succeeds on repeated saves, takes a specified action, or meets another stated condition.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spell entries, pp. 128–138 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to effects ending at their stated duration or interruption; a world can lengthen or shorten them, with greater duration increasing the value and risk of sustained magic.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0069",
+   "world": "dnd_srd",
+   "statement": "A higher-level spell slot can expand a spell’s targets, area, duration, or damage only where that spell says so; the stated increase applies for each slot level above the spell’s base level.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spell entries, pp. 128–137 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to the listed per-slot scaling; a world can reduce or amplify it, making scarce high-level magic more or less potent.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0070",
+   "world": "dnd_srd",
+   "statement": "A creature that succeeds on a saving throw against an effect often avoids or reduces it, but the result depends on the specific spell: it may take half damage, avoid the effect, or suffer a lesser outcome. Some targets automatically succeed, and some effects allow further saves or an action to end them.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spell entries, pp. 128–137 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to each spell’s stated save and consequence; a world can make resistance more or less reliable, shifting the cost of imposing powerful effects.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0071",
+   "world": "dnd_srd",
+   "statement": "A spell can create a bounded area with specified dimensions and duration, altering movement, visibility, entry, or harm within that space; certain spells can be dispersed, dispelled, or prevented from overlapping.",
+   "locators": [
+    "D&D 5.2.1 SRD: Entangle, pp. 128; Fog Cloud, p. 133; Forbiddance, p. 133; Guards and Wards, pp. 137–138 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to the spell’s exact area and end conditions; a world can enlarge or constrain warded territory, with larger protections requiring greater resources.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0072",
+   "world": "dnd_srd",
+   "statement": "Some spells summon an allied creature that follows commands, acts on a stated initiative schedule, and disappears when its duration ends or it reaches 0 Hit Points. Certain summoned creatures can be replaced, dismissed, or resummoned, subject to the spell’s limits.",
+   "locators": [
+    "D&D 5.2.1 SRD: Find Familiar, p. 130; Find Steed, pp. 130–131; Giant Insect, pp. 135–136 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: summon",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon",
+    "creature-control",
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to one active familiar or steed where specified and to spell duration or defeat as the limit; a world can permit more companions, at the cost of looser control or greater upkeep.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0073",
+   "world": "dnd_srd",
+   "statement": "Several spells move a target between planes or connect distant places through a portal; travel can be blocked by wards or planar rulers, and an occupied destination can force a traveler into a nearby open space or cause harm.",
+   "locators": [
+    "D&D 5.2.1 SRD: Etherealness, p. 128; Forbiddance, p. 133; Gate, p. 135 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel",
+    "portal-space",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default to the stated destination, duration, and ward restrictions; a world can make planar passage easier or harder, with access controlled by geography, cost, or powerful authorities.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0074",
+   "world": "dnd_srd",
+   "statement": "Some effects bind or direct a creature’s behavior, but the spell defines the scope and escape conditions; for example, one long-lasting command can cause psychic harm when deliberately disobeyed, while other effects impose fear or distraction only temporarily.",
+   "locators": [
+    "D&D 5.2.1 SRD: Enthrall, p. 128; Fear, p. 130; Geas, p. 135 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "mind-binding",
+    "speech-penalty"
+   ],
+   "default_dial_reason": "Default to the exact behavior limits and duration stated; a world can make compulsion stronger or weaker, with stronger control carrying a more severe cost or easier countermeasure.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0075",
+   "world": "dnd_srd",
+   "statement": "A glyph can remain concealed on a surface or inside a closable object, then trigger when its creator’s chosen conditions are met; it can release an area burst or a stored spell, but moving it more than 10 feet from where it was placed breaks it.",
+   "locators": [
+    "D&D 5.2.1 SRD: Glyph of Warding, pp. 136–137 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to a single trigger and the stated placement limit; a world can allow more complex triggers or longer-lasting glyphs, at the cost of greater components or risk of detection.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0076",
+   "world": "dnd_srd",
+   "statement": "A spell can transform a creature’s body or size, but the target may resist, and the transformation can constrain movement, speech, object use, or attacks. Some transformed targets return to normal when the effect ends, while others require a separate remedy.",
+   "locators": [
+    "D&D 5.2.1 SRD: Enlarge/Reduce, pp. 128–129; Flesh to Stone, p. 133; Gaseous Form, pp. 134–135 (dnd-srd-5.2.1#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to temporary transformation with the listed limits and reversal; a world can make bodily alteration more lasting, with increased risk of impairment or need for costly restoration.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0077",
+   "world": "dnd_srd",
+   "statement": "A warded area gains configured hazards and deceptions; after the spell is cast on the same area daily for 365 days, its effects persist until dispelled.",
+   "locators": [
+    "D&D 5.2.1 SRD: Wards ends (dnd-srd-5.2.1#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field"
+   ],
+   "default_dial_reason": "Default to a bounded, configurable ward that expires; a world can make repeated daily casting permanent, at the cost of a year of upkeep.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0078",
+   "world": "dnd_srd",
+   "statement": "A spell that creates a continuing effect can require concentration for a stated duration, and some effects end early when their trigger occurs or the caster repeats the spell.",
+   "locators": [
+    "D&D 5.2.1 SRD: Guidance; spell entries (dnd-srd-5.2.1#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the printed duration and ending conditions; a world can lengthen or shorten them, changing how long the caster must sustain the effect.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0079",
+   "world": "dnd_srd",
+   "statement": "Hallow creates an area up to 60 feet in radius, cannot overlap another Hallow area, and binds a chosen extra effect; its consumed incense costs at least 1,000 GP.",
+   "locators": [
+    "D&D 5.2.1 SRD: Hallow (dnd-srd-5.2.1#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "protection-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to one nonoverlapping area with a selected effect; a world can adjust area or price, with costly incense limiting widespread sanctification.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0080",
+   "world": "dnd_srd",
+   "statement": "Some effects force a saving throw to resist; several restraining spells allow another save at the end of each affected creature’s turn, while damage can also end Hideous Laughter.",
+   "locators": [
+    "D&D 5.2.1 SRD: Hideous Laughter; Hold Monster; Hold Person (dnd-srd-5.2.1#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to the stated resistance and escape checks; a world can alter how often they recur, trading reliable control against a target’s chance to recover.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0081",
+   "world": "dnd_srd",
+   "statement": "Imprisonment can hold a target without aging or needing food, water, or air; its caster names an observable ending trigger expected within a decade, and dispelling it requires a level 9 slot.",
+   "locators": [
+    "D&D 5.2.1 SRD: Imprisonment (dnd-srd-5.2.1#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule",
+    "dimension-travel",
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default to a long-lived prison with a specific release trigger; a world can widen the permitted trigger, while the powerful spell and costly dispelling constrain use.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0082",
+   "world": "dnd_srd",
+   "statement": "Magic Jar sends the caster’s soul into a container and can exchange it with a Humanoid’s soul; possession has a 100-foot reach, and destruction or loss of the container can kill souls whose bodies are unavailable.",
+   "locators": [
+    "D&D 5.2.1 SRD: Magic Jar (dnd-srd-5.2.1#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "soul-state",
+    "soul-binding",
+    "body-door"
+   ],
+   "default_dial_reason": "Default to the container as the soul’s anchor; a world can change the range or destruction risk, with the caster’s bodily safety as the cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0083",
+   "world": "dnd_srd",
+   "statement": "Instant Summons marks an object weighing no more than 10 pounds and no longer than 6 feet; crushing its named sapphire brings it to the caster unless another creature carries it, in which case the caster learns that creature’s identity and location.",
+   "locators": [
+    "D&D 5.2.1 SRD: Instant Summons (dnd-srd-5.2.1#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "spatial-storage",
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default to a marked object recoverable by consuming its sapphire; a world can change the weight or distance limits, balancing convenience against the costly consumable.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0084",
+   "world": "dnd_srd",
+   "statement": "Magic Circle can prevent selected creature types from entering or leaving a 10-foot-radius, 20-foot-high cylinder; teleporting entrants must first resist, and the circle can also hinder attacks and possession or mental influence.",
+   "locators": [
+    "D&D 5.2.1 SRD: Magic Circle (dnd-srd-5.2.1#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "containment-rule",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a fixed cylinder that can be reversed; a world can change the eligible types or duration, with consumed silver and salt limiting repeated use.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0085",
+   "world": "dnd_srd",
+   "statement": "A creature or object that crosses the planar boundary of the extradimensional space described immediately before Mending is expelled to the nearest unoccupied space to its entry point, takes 50 Force damage, and becomes Prone.",
+   "locators": [
+    "D&D 5.2.1 SRD: Immediately before Mending, p. 149 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: expel boundary-crossers with a fixed penalty; a world can change the damage or landing rule because crossing the boundary is hazardous.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0086",
+   "world": "dnd_srd",
+   "statement": "A spell that repairs an object can mend one break or tear no larger than 1 foot in any dimension, but repairing a magic item this way does not restore its magical function.",
+   "locators": [
+    "D&D 5.2.1 SRD: Mending, p. 149 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "object-surface"
+   ],
+   "default_dial_reason": "Default: repair only small physical damage; a world can widen the repair limit, but magical function requires a separate restoration method.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0087",
+   "world": "dnd_srd",
+   "statement": "A creature under Mind Blank is immune to Psychic damage and Charmed, cannot be sensed by emotion or alignment detection or have its thoughts read or location magically detected, and cannot be remotely observed, informed upon, or mentally controlled by any spell, even Wish, for 24 hours.",
+   "locators": [
+    "D&D 5.2.1 SRD: Mind Blank, p. 149 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: strong mental and divinatory protection lasts 24 hours; a world can shorten that duration because the protection blocks even exceptional magic.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0088",
+   "world": "dnd_srd",
+   "statement": "A successful Mind Spike save halves its damage, while a failed save also lets the caster know the target’s location for up to 1 hour while both remain on the same plane; the target cannot hide from that caster or benefit from invisibility against them. Higher slots add 1d8 damage per level above 2.",
+   "locators": [
+    "D&D 5.2.1 SRD: Mind Spike, p. 149 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default: a failed defense leaves a persistent same-plane locator; a world can shorten the tracking period because it is tied to maintained concentration.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0089",
+   "world": "dnd_srd",
+   "statement": "Modify Memory can change, erase, clarify, or implant memory of an event from the last 24 hours lasting at most 10 minutes; the target must fail a save and remain charmed and incapacitated while the caster describes the change. Higher slots extend the event’s age to 7, 30, or 365 days, or any time in the past at levels 6–9; damage or another spell interrupts the process, and Remove Curse or Greater Restoration restores the truth.",
+   "locators": [
+    "D&D 5.2.1 SRD: Modify Memory, p. 150 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "memory-transfer",
+    "memory-erasure",
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default: memory alteration requires an incapacitated, receptive target and time to describe it; a world can extend the reachable past at increasing spell cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0090",
+   "world": "dnd_srd",
+   "statement": "Planar Ally summons a loyal otherworldly servant, but the summoned creature can refuse service unless the caster negotiates payment; suggested payment is 100 GP per minute, 1,000 GP per hour, or 10,000 GP per day, up to 10 days, with adjustments for danger, safety, and alignment.",
+   "locators": [
+    "D&D 5.2.1 SRD: Planar Ally, p. 152 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "spirit-contract-judgement",
+    "familiar-summon",
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default: aid depends on bargaining rather than automatic control; a world can adjust payment because dangerous or misaligned work costs more.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0091",
+   "world": "dnd_srd",
+   "statement": "Planar Binding makes a Celestial, Elemental, Fey, or Fiend serve after a failed Charisma save; the creature must remain in range during the one-hour casting, and a consumed jewel worth at least 1,000 GP is required. The binding lasts 24 hours, increasing to 10, 30, 180, or 366 days with slots 6–9; a hostile servant may twist commands.",
+   "locators": [
+    "D&D 5.2.1 SRD: Planar Binding, pp. 152–153 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "spirit-contract-judgement",
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default: forced service requires a costly, lengthy rite and can be adversarial; a world can extend the term by spending higher-level power.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0092",
+   "world": "dnd_srd",
+   "statement": "Polymorph replaces a failed-save target’s statistics with those of a Beast whose Challenge Rating does not exceed the target’s, or its level if it has no Challenge Rating; the target keeps its identity and Hit Points, gains temporary Hit Points equal to the Beast’s, and cannot speak or cast spells in the new anatomy.",
+   "locators": [
+    "D&D 5.2.1 SRD: Polymorph, p. 153 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default: transformation is bounded by the target’s rating and temporary form vitality; a world can broaden eligible forms at the cost of weakening those limits.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0093",
+   "world": "dnd_srd",
+   "statement": "A Prismatic Wall is a layered barrier; creatures crossing it encounter seven layers in order, each with its own damage or condition, and each layer can be destroyed only by its specified counter. It blocks specified attacks, spells, and movement effects until the relevant layer is removed.",
+   "locators": [
+    "D&D 5.2.1 SRD: Prismatic Wall, pp. 155–156 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "protection-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: retain ordered layers and their specific counters; a world can remove layers more easily because the wall’s defense is designed to be overcome by targeted responses.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0094",
+   "world": "dnd_srd",
+   "statement": "Resurrection can restore a creature dead for up to a century, including missing body parts, but not one that died of old age or was Undead; it returns with full Hit Points and a −4 test penalty that decreases by 1 after each Long Rest. Reviving someone dead at least 365 days also prevents the caster from casting spells and gives them Disadvantage on tests until a Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Resurrection, p. 159 (dnd-srd-5.2.1#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "soul-state",
+    "body-form"
+   ],
+   "default_dial_reason": "Default: revival restores the whole body but burdens both revived creature and, for old deaths, caster; a world can adjust the age threshold because returning the dead strains life.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0095",
+   "world": "dnd_srd",
+   "statement": "Scrying a creature uses its Wisdom save, modified from +5 for secondhand knowledge to −5 for extensive knowledge, and by −2 for a likeness, −4 for a possession, or −10 for a body part. A successful save prevents the effect and bars another attempt on that target for 24 hours; a failed save creates a sensor that follows the target for up to 10 minutes.",
+   "locators": [
+    "D&D 5.2.1 SRD: Scrying, p. 160 (dnd-srd-5.2.1#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "divination-fate",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Use connection and familiarity to set access; a world could make the modifiers harsher or kinder because personal links aid magical observation.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0096",
+   "world": "dnd_srd",
+   "statement": "A warded creature is protected for up to 1 minute: attackers and harmful spellcasters must pass a Wisdom save or redirect their attack or spell, or lose it. The ward ends if its protected creature attacks, casts a spell, or deals damage, and it does not stop area effects.",
+   "locators": [
+    "D&D 5.2.1 SRD: Sanctuary (dnd-srd-5.2.1#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Require a save to attack the warded target; a world could broaden or narrow protection because the ward is broken by the beneficiary's aggression.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0097",
+   "world": "dnd_srd",
+   "statement": "Sequestering makes an object or willing creature invisible and immune to magical detection and remote viewing until dispelled, until a chosen nearby condition occurs, or until it takes damage. A sequestered creature is unconscious, does not age, and needs no food, water, or air.",
+   "locators": [
+    "D&D 5.2.1 SRD: Sequester, p. 161 (dnd-srd-5.2.1#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB20",
+   "derives": [
+    "conceal-or-sense",
+    "mind-state"
+   ],
+   "default_dial_reason": "Allow hidden targets to evade magical detection; a world could restrict what ends the concealment because long-term suspension carries the risk of being stranded.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0098",
+   "world": "dnd_srd",
+   "statement": "A harmful glyph can be hidden on a stationary surface or closed object, with a trigger and one of six effects. Once activated, it affects creatures in its 60-foot-radius area when it triggers, when they first enter on a turn, or when they end a turn there, at most once per creature per turn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Symbol, p. 167 (dnd-srd-5.2.1#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "object-surface",
+    "containment-rule",
+    "area-field"
+   ],
+   "default_dial_reason": "Let a prepared mark impose a selected effect on trigger; a world could vary trigger precision or area because the glyph is costly and can be broken by moving its object.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0099",
+   "world": "dnd_srd",
+   "statement": "Teleport carries the caster and up to eight willing creatures, or one eligible object, to a known destination on the same plane. Destination familiarity sets the chance of arrival; a mishap deals 3d10 force damage to each traveler or the object and requires another outcome roll.",
+   "locators": [
+    "D&D 5.2.1 SRD: Teleport, pp. 168–169 (dnd-srd-5.2.1#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Make familiarity govern accuracy; a world could make travel safer or riskier because unknown destinations disrupt the journey.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0100",
+   "world": "dnd_srd",
+   "statement": "Time Stop gives the caster 1d4 + 1 consecutive turns while no time passes for other creatures. It ends if an action or effect affects another creature or someone else's carried object, or if the caster moves more than 1,000 feet from the casting place.",
+   "locators": [
+    "D&D 5.2.1 SRD: Time Stop, p. 169 (dnd-srd-5.2.1#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: time pauses for others",
+   "seam": "none",
+   "derives": [
+    "time-stop"
+   ],
+   "default_dial_reason": "Permit a short private interval of action; a world could change its length or ending triggers because interference with others breaks the temporal isolation.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0101",
+   "world": "dnd_srd",
+   "statement": "A creature under Slow has half Speed, −2 AC and Dexterity saves, no Reactions, and can take either an action or a Bonus Action on its turn, not both; its Attack action allows only one attack. A somatic spell has a 25% failure chance, and the target repeats its save at each turn's end to end the effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Slow, p. 163 (dnd-srd-5.2.1#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "time-manipulation",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Apply a bundle of reduced actions and movement; a world could tune the restrictions because targets can resist again each turn.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0102",
+   "world": "dnd_srd",
+   "statement": "A simulacrum follows its creator's commands, acts on the creator's turn, cannot gain levels or rest, and has half the original's maximum Hit Points. Restoring it requires a Long Rest, proximity within 5 feet, and components worth 100 GP per Hit Point; it melts at 0 Hit Points, and casting the spell again destroys earlier copies.",
+   "locators": [
+    "D&D 5.2.1 SRD: Simulacrum, p. 163 (dnd-srd-5.2.1#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "copy",
+   "seam": "AB16",
+   "derives": [
+    "creature-control",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Model a loyal but limited duplicate with costly repair; a world could adjust upkeep because the copy cannot recover through ordinary rest.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0103",
+   "world": "dnd_srd",
+   "statement": "A Concentration effect ends if its creator starts another Concentration effect, becomes incapacitated, dies, or fails a Constitution save after taking damage. The save DC is 10 or half the damage taken, whichever is higher, to a maximum of 30; the creator can also end Concentration at any time without an action.",
+   "locators": [
+    "D&D 5.2.1 SRD: Concentration, p. 179 (dnd-srd-5.2.1#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to one maintained effect at a time; a world can loosen that limit, while damage and incapacitation provide the in-world disruption.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0104",
+   "world": "dnd_srd",
+   "statement": "A condition does not accumulate with itself: a recipient either has it or does not. Exhaustion is the exception.",
+   "locators": [
+    "D&D 5.2.1 SRD: Condition, p. 179 (dnd-srd-5.2.1#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: conditions do not stack",
+   "seam": "none",
+   "derives": [
+    "mind-state",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to a single instance of each condition; a world can allow stacking, at the cost of more severe or layered impairment.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0105",
+   "world": "dnd_srd",
+   "statement": "An area effect excludes locations where every straight line from its origin is blocked by Total Cover. If its origin is chosen unseen behind an obstruction, it appears on the creator’s near side of that obstruction.",
+   "locators": [
+    "D&D 5.2.1 SRD: Area of Effect, p. 177 (dnd-srd-5.2.1#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field"
+   ],
+   "default_dial_reason": "Default to cover blocking area effects; a world can let effects pass through barriers, weakening the value of solid protection.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0106",
+   "world": "dnd_srd",
+   "statement": "A creature with a damage threshold ignores an entire damage instance below the threshold; if one attack or effect meets or exceeds it, the creature takes that full instance of damage.",
+   "locators": [
+    "D&D 5.2.1 SRD: Damage Threshold, p. 180 (dnd-srd-5.2.1#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a per-hit threshold; a world can use lower thresholds to make large targets easier to wear down, or higher ones to make them resistant to small attacks.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0107",
+   "world": "dnd_srd",
+   "statement": "True Polymorph changes a visible creature or an unworn, uncarried nonmagical object within 30 feet into a creature or nonmagical object for up to 1 hour of Concentration. Maintaining Concentration for the full hour makes the change last until dispelled; a creature can resist with a successful Wisdom save.",
+   "locators": [
+    "D&D 5.2.1 SRD: True Polymorph, p. 171 (dnd-srd-5.2.1#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to temporary transformation with a resistance save; a world can make a fully maintained change permanent, with dispelling as the remaining remedy.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0108",
+   "world": "dnd_srd",
+   "statement": "Warding Bond gives a willing touched creature +1 AC, +1 to saves, and Resistance to all damage while it remains within 60 feet, but the caster takes damage whenever the target does. It ends if either creature reaches 0 HP, they separate beyond 60 feet, or the spell is cast again on either of them.",
+   "locators": [
+    "D&D 5.2.1 SRD: Warding Bond, p. 173 (dnd-srd-5.2.1#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to shared protection with shared harm; a world can increase the range or protection, but the bonded caster pays the target’s damage.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0109",
+   "world": "dnd_srd",
+   "statement": "Wish can duplicate any spell of level 8 or lower without its requirements, or produce listed reality changes. Any use other than duplicating a spell imposes unavoidable stress: until a Long Rest, each spell cast deals the caster 1d10 Necrotic damage per spell level, Strength becomes 3 for 2d4 days, and there is a 33% chance the caster can never cast Wish again.",
+   "locators": [
+    "D&D 5.2.1 SRD: Wish, p. 175 (dnd-srd-5.2.1#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB3",
+   "derives": [
+    "power-granting",
+    "concept-law",
+    "luck-mechanism"
+   ],
+   "default_dial_reason": "Default to broad reality alteration with severe personal costs; a world can relax the costs, risking less restraint on world-changing magic.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0110",
+   "world": "dnd_srd",
+   "statement": "A creature entering a Zone of Truth or starting its turn there makes a Charisma save; on failure, it cannot deliberately lie in the zone, and the caster knows whether it passed. The affected creature knows of the effect and may evade questions rather than answer falsely.",
+   "locators": [
+    "D&D 5.2.1 SRD: Zone of Truth, p. 176 (dnd-srd-5.2.1#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "area-field",
+    "speech-penalty"
+   ],
+   "default_dial_reason": "Default to a local truth constraint resisted by a save; a world can make it harder to resist, at the cost of limiting truthful subjects’ speech.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0111",
+   "world": "dnd_srd",
+   "statement": "A dead creature has no Hit Points and cannot regain them until magic revives it; its departed spirit knows who is attempting the revival and may refuse to return. Revival sets its current Hit Points, preserves still-running conditions, magical contagions, and curses, removes one Exhaustion level if it had any, and ends its magic-item attunements.",
+   "locators": [
+    "D&D 5.2.1 SRD: Dead, p. 181 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "spirit-contract-judgement",
+    "soul-state"
+   ],
+   "default_dial_reason": "Default to requiring the spirit’s consent and carrying over ongoing afflictions; a world could make consent automatic or add a return cost, reflecting the spirit’s independence.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0112",
+   "world": "dnd_srd",
+   "statement": "Each time a creature gains Exhaustion, its level rises by 1; at level 6 it dies. Each level subtracts 2 from D20 Tests and 5 feet from Speed; a Long Rest removes 1 level, and dehydration or malnutrition Exhaustion cannot be removed until the creature gets the required water or food.",
+   "locators": [
+    "D&D 5.2.1 SRD: Exhaustion, p. 181; Dehydration, p. 181; Malnutrition, p. 185 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to cumulative penalties and recovery through rest; a world could change the lethal threshold or require supplies to recover because deprivation has material causes.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0113",
+   "world": "dnd_srd",
+   "statement": "A grapple requires a free hand or permitted body part and can hold only one creature with that part. The target can escape using an action and a successful Strength (Athletics) or Dexterity (Acrobatics) check against the escape DC; the grappler can release it freely, and the hold ends if the grappler is incapacitated or the target moves beyond range.",
+   "locators": [
+    "D&D 5.2.1 SRD: Grappled and Grappling, p. 182 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB21",
+   "derives": [
+    "containment-rule",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to one held target per grappling body part and an action to escape; a world could allow more holds or different escape costs to reflect anatomy and technique.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0114",
+   "world": "dnd_srd",
+   "statement": "A magical illusion’s effect determines which senses or mental faculties it deceives. If it appears in a space, it has no substance or weight but can seem environmentally affected, such as casting a shadow or echoing.",
+   "locators": [
+    "D&D 5.2.1 SRD: Illusions, p. 183 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to sensory deception without physical substance; a world could let illusions affect more senses or interact physically, at the cost of greater power.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0115",
+   "world": "dnd_srd",
+   "statement": "A Long Rest takes at least 8 hours, including at least 6 hours of sleep and no more than 2 hours of light activity; after finishing one, a creature must wait 16 hours to start another. It restores all Hit Points and spent Hit Point Dice, restores reduced ability scores and Hit Point maximum, and removes 1 Exhaustion level; specified features also recharge. Interruptions include initiative, a non-cantrip spell, damage, or an hour of exertion; after at least an hour of rest, an interruption grants Short Rest benefits, and resuming adds an hour per interruption.",
+   "locators": [
+    "D&D 5.2.1 SRD: Long Rest, p. 185 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: restore",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to broad recovery after an 8-hour rest with a 16-hour interval; a world could make recovery less complete or rests harder to secure because danger and fatigue persist.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0116",
+   "world": "dnd_srd",
+   "statement": "A prepared spell with the Ritual tag can be cast as a ritual by adding 10 minutes to its casting time; doing so uses no spell slot, but it cannot be cast at a higher level this way.",
+   "locators": [
+    "D&D 5.2.1 SRD: Ritual, p. 187 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to exchanging extra casting time for no slot expenditure; a world could alter the time or resource tradeoff to set how accessible ritual magic is.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0117",
+   "world": "dnd_srd",
+   "statement": "A creature can hold its breath for 1 minute plus its Constitution modifier, with a minimum of 30 seconds. Once out of breath or choking, it gains 1 Exhaustion level at the end of each turn; when it can breathe again, all Exhaustion levels gained from suffocation are removed.",
+   "locators": [
+    "D&D 5.2.1 SRD: Suffocation, p. 189 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to turn-by-turn Exhaustion after a Constitution-based breath reserve; a world could change the reserve or penalty to reflect how forgiving its environment is.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0118",
+   "world": "dnd_srd",
+   "statement": "A telepath can start or end mental contact with a creature in range without an action and need not see it. The recipient must understand a language or itself be telepathic; a non-telepath can reply mentally after contact starts. Incapacitation, leaving range, or the telepath contacting someone else prevents or ends contact.",
+   "locators": [
+    "D&D 5.2.1 SRD: Telepathy, p. 190 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to two-way mental conversation only with a language-capable recipient and while in range; a world could permit one-way contact or broader reach at the cost of tighter limits.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0119",
+   "world": "dnd_srd",
+   "statement": "Teleportation instantly moves the traveler without crossing intervening space, using no movement and provoking no Opportunity Attacks. Carried or worn equipment travels too, but a touched creature does not unless specified; if the destination is occupied or blocked, the traveler appears in the nearest unoccupied space of their choice.",
+   "locators": [
+    "D&D 5.2.1 SRD: Teleportation, p. 190 (dnd-srd-5.2.1#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel",
+    "portal-space"
+   ],
+   "default_dial_reason": "Default to instantaneous travel with carried gear but no accompanying creature; a world could require a clear destination or charge movement because teleportation bypasses ordinary travel.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0120",
+   "world": "dnd_srd",
+   "statement": "After 8 hours of travel in a day, each additional hour requires a Constitution save; the DC is 10 plus 1 for each hour beyond the eighth, and failure adds 1 Exhaustion level. A group member whose Speed is reduced to half or less forces the group to travel at a Slow pace.",
+   "locators": [
+    "D&D 5.2.1 SRD: Travel Pace; Slower Travelers (dnd-srd-5.2.1#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to exhaustion risk after 8 hours; a world can raise or lower the save DC or change the pace restriction to reflect how taxing travel is.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0121",
+   "world": "dnd_srd",
+   "statement": "For extended special movement, hourly travel distance in miles equals Speed divided by 10; an 8-hour day is the usual basis, with Fast pace multiplying the distance by 1⅓ and Slow pace by ⅔, rounding down. Flight or movement that ignores Difficult Terrain permits Fast pace regardless of terrain; vehicles instead use their listed miles-per-hour speed and do not choose a pace.",
+   "locators": [
+    "D&D 5.2.1 SRD: Special Movement; Vehicles (dnd-srd-5.2.1#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "world-travel"
+   ],
+   "default_dial_reason": "Default to the listed speed conversions and pace multipliers; adjust hours, rates, or terrain benefits to reflect the setting’s travel technology and conditions.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0122",
+   "world": "dnd_srd",
+   "statement": "A magical contagion can be resisted through recuperation: after 3 days with no activity that interrupts a Long Rest, an infected creature makes a DC 15 Constitution save; success grants Advantage on saves against that contagion for 24 hours. Individual contagions can set their own infection routes, symptoms, and cure conditions.",
+   "locators": [
+    "D&D 5.2.1 SRD: Magical Contagions; Rest and Recuperation (dnd-srd-5.2.1#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift",
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to a three-day recuperation and a 24-hour advantage window; vary the recovery period, spread route, and remedy to suit the outbreak’s origin.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0123",
+   "world": "dnd_srd",
+   "statement": "A possessed creature with Demonic Possession makes a DC 15 Charisma save or is occupied by a bodiless demon. Each time it rolls a 1 on a D20 Test, the demon takes control; the creature saves again at the end of each later turn to regain control, and a successful DC 15 save after a Long Rest, Dispel Evil and Good, or curse-removing magic ends the effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Curses; Environmental Curses; Demonic Possession (p. 193) (dnd-srd-5.2.1#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB14",
+   "derives": [
+    "mind-binding",
+    "creature-control",
+    "spirit-contract-judgement"
+   ],
+   "default_dial_reason": "Default to possession triggered by a natural 1 and repeated saves to regain agency; change the trigger, control duration, or removal method to represent the demon’s strength.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0124",
+   "world": "dnd_srd",
+   "statement": "A magical contagion can have a delayed onset and specified routes of infection, then call for repeated saves to resist or end it. For example, Cackle Fever begins 1d4 days after infection, spreads to nearby Humanoids within a 10-foot Emanation on a failed DC 10 Constitution save, and ends after three successful DC 13 saves at Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Magical Contagions; Cackle Fever (p. 194) (dnd-srd-5.2.1#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "area-field",
+    "negative-effect-drift",
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to contagion-specific incubation, proximity spread, and repeated cure saves; tune distance, DC, and immunity windows to set outbreak severity.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0125",
+   "world": "dnd_srd",
+   "statement": "A creature that fails a DC 10 Constitution save after each hour swimming deeper than 100 feet without a Swim Speed gains 1 Exhaustion level. Extreme cold at 0°F or lower uses the same hourly save and DC, while extreme heat at 100°F or higher without drinkable water starts at DC 5 and rises by 1 each hour; relevant cold or fire Resistance or Immunity automatically succeeds.",
+   "locators": [
+    "D&D 5.2.1 SRD: Environmental Effects (p. 195) (dnd-srd-5.2.1#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to hourly exposure checks and Exhaustion; change thresholds, save intervals, or automatic protections to reflect local hazards and physiology.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0126",
+   "world": "dnd_srd",
+   "statement": "Supernatural fear typically calls for a Wisdom save and uses the Frightened condition; the suggested DCs are 10, 15, and 20 for increasingly terrifying examples. The target usually repeats the save at the end of each turn, ending the fear on a success.",
+   "locators": [
+    "D&D 5.2.1 SRD: Fear and Mental Stress; Fear Effects (p. 196) (dnd-srd-5.2.1#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to an end-of-turn save and a DC scaled to terror; increase the DC or add behavior limits when the source is especially overwhelming.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0127",
+   "world": "dnd_srd",
+   "statement": "Poisons take effect through contact with exposed skin, swallowing a full dose, inhalation, or a wound from a poisoned object. Contact and injury doses remain potent until triggered or washed off, while an inhaled cloud affects a 5-foot Cube and dissipates immediately; a creature harvesting venom spends 1d6 minutes and risks exposure on a failed DC 20 Nature check with a Poisoner’s Kit.",
+   "locators": [
+    "D&D 5.2.1 SRD: Poison; Harvesting Poison (p. 197) (dnd-srd-5.2.1#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "object-surface",
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to four distinct delivery routes and a one-dose harvest limit; adjust exposure, persistence, and harvesting danger to regulate poison availability.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0128",
+   "world": "dnd_srd",
+   "statement": "When two potions are mixed, roll d100: 1 destroys both and causes a 5-foot-radius blast for 4d10 Force damage; 2–8 destroys both and makes the mixture a poison; 9–15 destroys both; 16–25 destroys one; 26–35 halves both effects and durations, or destroys a potion with neither; 36–90 leaves both normal; 91–99 doubles one potion’s numerical effects and duration, or leaves both normal if neither can be doubled; 100 makes one potion’s simplest or most entertaining effect permanent. For more than two potions, roll again for each additional potion, combining results.",
+   "locators": [
+    "D&D 5.2.1 SRD: Potion Miscibility (dnd-srd-5.2.1#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to the listed d100 outcomes; a world can change their odds because potion ingredients interact unpredictably.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0129",
+   "world": "dnd_srd",
+   "statement": "Unless an item says otherwise, a ring’s magic works only while it is worn on a finger or similar digit.",
+   "locators": [
+    "D&D 5.2.1 SRD: Rings (dnd-srd-5.2.1#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to requiring a suitable digit; a world can broaden eligible body parts to account for different anatomy.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0130",
+   "world": "dnd_srd",
+   "statement": "A scroll is consumed when its magic is invoked: its writing disappears or the scroll crumbles. A creature able to understand a written language can read and try to activate one unless its description says otherwise.",
+   "locators": [
+    "D&D 5.2.1 SRD: Scrolls (dnd-srd-5.2.1#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to one use per scroll; a world can permit exceptions because particular scroll magic may resist consumption.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0131",
+   "world": "dnd_srd",
+   "statement": "Item spells are normally cast at the lowest possible spell and caster level, use no spell slot or components, and use their normal casting time, range, and duration; the user concentrates if required. An item can specify exceptions, and may require the user’s spellcasting ability; without one, the modifier is +0 and proficiency still applies.",
+   "locators": [
+    "D&D 5.2.1 SRD: Activating a Magic Item—Spells Cast from Items, p. 206 (dnd-srd-5.2.1#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to minimum-level, slot-free casting; a world can make item descriptions override these defaults because items may embody specialized magic.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0132",
+   "world": "dnd_srd",
+   "statement": "Some items spend charges to activate properties. Identify reveals how many charges remain; an attuned creature knows the remaining and regained charges. A recharge tied to an event such as dawn is timed by the GM if that event does not occur in the item’s current world or plane.",
+   "locators": [
+    "D&D 5.2.1 SRD: Activating a Magic Item—Charges and “The Next Dawn,” p. 206 (dnd-srd-5.2.1#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to the item’s stated charge and recharge schedule; a world can substitute a local recharge time when its specified event is absent.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0133",
+   "world": "dnd_srd",
+   "statement": "Most identification methods, including Identify, do not reveal a magic item’s curse. Attunement to a cursed item cannot be ended voluntarily until the curse is broken.",
+   "locators": [
+    "D&D 5.2.1 SRD: Cursed Items, p. 206 (dnd-srd-5.2.1#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "item-bound-power",
+    "soul-binding"
+   ],
+   "default_dial_reason": "Default to concealed curses that persist through unequipping; a world can make detection easier because curses may be less secretive.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0134",
+   "world": "dnd_srd",
+   "statement": "Crafting a magic item requires Arcana proficiency, the listed proficient tool, and any spells the item casts prepared on every crafting day. Work 8 hours per day; base time and cost are 5 days/50 GP for common, 10/200 for uncommon, 50/2,000 for rare, 125/20,000 for very rare, and 250/100,000 for legendary items. Consumables other than Spell Scrolls take and cost half as much; assistants divide the time, and unavailable materials require waiting at least 7 days before checking again.",
+   "locators": [
+    "D&D 5.2.1 SRD: Crafting Magic Items—Time and Cost, p. 207 (dnd-srd-5.2.1#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB16",
+   "derives": [
+    "blueprint-craft",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to the listed training, tool, time, and material gates; a world can alter availability because suitable materials may be scarce.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0135",
+   "world": "dnd_srd",
+   "statement": "A sentient item can object when its bearer acts against its alignment or purpose: the bearer makes a Charisma save against DC 12 plus the item’s Charisma modifier. On failure, the item can demand a change in conduct; if refused, it can block attunement, suppress activated properties, or try to control the bearer. That control uses the same save DC and, on failure, charms the bearer for 1d12 hours; damage allows another save to end it, and the item cannot try again until the next dawn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Conflict, pp. 208–209 (dnd-srd-5.2.1#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "mind-binding",
+    "mind-state",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to the item’s GM-controlled demands and stated save; a world can make sentient items more or less forceful because their relationship with bearers varies.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0136",
+   "world": "dnd_srd",
+   "statement": "A worn or held magic item can grant a continuing benefit, but some benefits work only while worn, held, or attuned; particular powers also require an action or a command.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 216–225, item descriptions (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to powers tied to an item and its use conditions; a world can loosen or tighten attunement and action requirements, with access to the item as the in-world limit.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0137",
+   "world": "dnd_srd",
+   "statement": "Some item powers spend charges, regain a stated amount at dawn, and cannot be used again until a specified time; single-use objects may lose their magic when activated.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 216–225, item descriptions (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to finite charges with the stated recovery schedule; a world can adjust reserves or recharge rates, with scarcity controlling repeated use.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0138",
+   "world": "dnd_srd",
+   "statement": "An item can summon a creature that follows commands for a limited duration, then disappears or returns to its object; some summoned creatures act independently or may disobey.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 220–223, Efreeti Bottle; Elemental Gem; Figurine of Wondrous Power (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to a commanded companion with a duration and dismissal condition; a world can alter obedience, duration, or recovery, with risk and upkeep limiting the bond.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0139",
+   "world": "dnd_srd",
+   "statement": "Some items impose a condition or control effect on a creature after a failed saving throw; the effect may allow repeat saves, end on a specified event, or persist while a cursed item is worn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 218–220, Dragon Orb; Dust of Sneezing and Choking (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB14",
+   "derives": [
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a bounded condition with its stated escape route; a world can change the save or duration, with loss of agency as the cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0140",
+   "world": "dnd_srd",
+   "statement": "A number of effects alter space: they can bar extradimensional movement, place a target elsewhere, or open a route between planes; these effects differ in which routes they block or permit.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 218, 220, 224–225, Dimensional Shackles; Cubic Gate; Energy Bow; Handy Haversack (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel",
+    "portal-space",
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default to the specific routes or storage limits listed for each effect; a world can broaden access, with confinement, capacity, or dangerous destinations as constraints.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0141",
+   "world": "dnd_srd",
+   "statement": "An illusion can conceal or misrepresent a creature or object, but physical interaction or close examination may reveal it; some illusions end when their source moves or is dismissed.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 217–218, Cloak of Displacement; Deck of Illusions; page 224, Glamoured Studded Leather (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to concealment that fails under the stated inspection or interaction; a world can make detection harder or easier, with exposure to scrutiny as the limitation.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0142",
+   "world": "dnd_srd",
+   "statement": "A creature can be transformed into another form by an item, sometimes retaining selected mental abilities; such transformations have a fixed duration or end when the item is no longer used.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 216, Cloak of the Bat; pages 222–223, Figurine of Wondrous Power (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to a temporary form with only expressly retained traits; a world can vary duration or retained abilities, with dependence on the item as the cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0143",
+   "world": "dnd_srd",
+   "statement": "An item can create a bounded area or barrier, or change conditions within an area, with its size and duration set by the item’s effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 216–221, Web; Cube of Force; Eversmoking Bottle; Feather Tokens (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field",
+    "protection-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to the listed area and duration; a world can turn the area or persistence dial, with charges, visibility, or environmental conditions limiting use.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0144",
+   "world": "dnd_srd",
+   "statement": "Some item effects end when the user takes a specified action, stops meeting a condition, takes damage, or reaches a stated time limit.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 216–225, item descriptions (dnd-srd-5.2.1#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to the stated ending trigger; a world can make effects more stable or fragile, with damage, movement, or time serving as the balancing cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0145",
+   "world": "dnd_srd",
+   "statement": "An Ioun Stone activated by tossing it into orbit grants its benefit while orbiting 1d3 feet from the user; no more than three stones can orbit one user at once. The stones count as worn objects and evade collisions and attempts to grab or strike them.",
+   "locators": [
+    "D&D 5.2.1 SRD: Ioun Stone, p. 227 (dnd-srd-5.2.1#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a limit of three orbiting stones; a world can raise or lower the cap, with greater capacity making stacked benefits easier to obtain.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0146",
+   "world": "dnd_srd",
+   "statement": "A Mysterious Deck user declares how many cards to draw, then draws them randomly, no more than 1 hour apart. Undrawn declared cards fly out and take effect together; each drawn card vanishes, then returns to the deck except the Fool and Jester.",
+   "locators": [
+    "D&D 5.2.1 SRD: Mysterious Deck, p. 231 (dnd-srd-5.2.1#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: declared random draws",
+   "seam": "none",
+   "derives": [
+    "luck-mechanism"
+   ],
+   "default_dial_reason": "Default to declared, random draws with a one-hour interval; a world can alter the interval or how many cards return, changing the risk of repeated effects.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0147",
+   "world": "dnd_srd",
+   "statement": "When an Iron Flask captures a qualifying creature, it holds that creature alone until someone releases it; the captive does not age or need air, food, or drink. Release makes the creature obey the releaser for 1 hour, subject to the stated exception for commands likely to cause its death or imprisonment.",
+   "locators": [
+    "D&D 5.2.1 SRD: Iron Flask, p. 228 (dnd-srd-5.2.1#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to one captive per flask and one hour of compelled service; a world can change either limit, with stronger control increasing the danger of capture.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0148",
+   "world": "dnd_srd",
+   "statement": "A creature confined in a closed Portable Hole can force its way out with a successful DC 10 Strength (Athletics) check. The hole contains enough air for 1 hour of breathing, divided among the breathing creatures inside.",
+   "locators": [
+    "D&D 5.2.1 SRD: Portable Hole, pp. 234–235 (dnd-srd-5.2.1#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB20",
+   "derives": [
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default to a break-out check and shared one-hour air supply; a world can adjust the check or air duration, making storage more or less survivable.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0149",
+   "world": "dnd_srd",
+   "statement": "A Spell Scroll can be read to cast its single spell without material components if the spell is on the reader’s spell list; the scroll is consumed after a completed casting, but not if casting is interrupted. A spell above the reader’s normal casting level requires an ability check against DC 10 plus the spell’s level, and failure consumes the scroll without effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spell Scroll, p. 244 (dnd-srd-5.2.1#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: consume",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: the scroll is single-use and accessible only to an eligible spellcaster; a world could relax the list restriction, at the cost of making stored magic easier to use.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0150",
+   "world": "dnd_srd",
+   "statement": "A Ring of Spell Storing holds at most 5 levels of spells. A creature can store a level 1–5 spell by casting it while touching the ring; its attuned wearer can later cast a stored spell using the original caster’s spell parameters, after which that spell’s capacity is freed.",
+   "locators": [
+    "D&D 5.2.1 SRD: Ring of Spell Storing, p. 239 (dnd-srd-5.2.1#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: store",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default: stored spells take up capacity measured in spell levels and retain the original caster’s parameters; a world could change capacity, with fewer or more reusable spells as the tradeoff.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0151",
+   "world": "dnd_srd",
+   "statement": "A Rod of Absorption can cancel a spell targeting only its holder if it creates no area, storing the spell’s level as energy instead; it can accumulate at most 50 levels over its lifetime. A spellcaster holding the rod may spend stored levels to create spell slots of level 5 or lower, never exceeding their own maximum slot level.",
+   "locators": [
+    "D&D 5.2.1 SRD: Rod of Absorption, p. 241 (dnd-srd-5.2.1#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: store",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction",
+    "power-transfer",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: the rod converts eligible incoming spells into a finite, reusable reserve; a world could raise the 50-level cap, increasing defensive and casting power.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0152",
+   "world": "dnd_srd",
+   "statement": "The Rod of Security transports its user and up to 199 willing creatures to a chosen demiplane, where an hour restores Hit Points as if a Hit Point Die were spent and visitors do not age. Visitors can stay up to 200 days divided by their number; ending the effect or reaching the limit returns them to their original location or the nearest unoccupied space, and the rod cannot be used again for 10 days.",
+   "locators": [
+    "D&D 5.2.1 SRD: Rod of Security, p. 242 (dnd-srd-5.2.1#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: the refuge is safe, temporary, and has a 10-day reuse delay; a world could alter the visitor limit or duration, trading greater shelter for weaker separation from danger.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0153",
+   "world": "dnd_srd",
+   "statement": "A Sphere of Annihilation destroys matter that passes through it, except for Artifacts not susceptible to its damage; partial contact deals 8d10 Force damage. A controlled sphere can be moved up to 5 feet per point of the controller’s Intelligence modifier, minimum 5 feet, and a creature reduced to 0 Hit Points by it is obliterated.",
+   "locators": [
+    "D&D 5.2.1 SRD: Sphere of Annihilation, p. 244 (dnd-srd-5.2.1#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB20",
+   "derives": [
+    "concept-law",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: passage through the sphere destroys matter and its damage can obliterate a victim; a world could narrow what counts as destructible, with reduced lethality.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0154",
+   "world": "dnd_srd",
+   "statement": "If a Sphere of Annihilation touches a planar portal or extradimensional space, roll d100: on 01–50 the sphere is destroyed, on 51–85 it enters the portal or space, and on 86–00 it and creatures and objects within 180 feet go to a random plane.",
+   "locators": [
+    "D&D 5.2.1 SRD: Sphere Interactions, p. 245 (dnd-srd-5.2.1#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "power-interaction",
+    "dimension-travel",
+    "portal-space"
+   ],
+   "default_dial_reason": "Default: contact produces one of three outcomes by the listed probability bands; a world could change the bands, making spatial collisions more or less hazardous.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0155",
+   "world": "dnd_srd",
+   "statement": "A Rope of Climbing has AC 20 and 20 Hit Points, is immune to Poison and Psychic damage, and recovers 1 Hit Point every 5 minutes while it has at least 1 Hit Point; at 0 Hit Points it is destroyed. A Rope of Entanglement has the same durability and recovery limits.",
+   "locators": [
+    "D&D 5.2.1 SRD: Rope of Climbing and Rope of Entanglement, pp. 242–243 (dnd-srd-5.2.1#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB16",
+   "derives": [
+    "construct-upkeep",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: these animated ropes repair themselves slowly but are destroyed at 0 Hit Points; a world could change their repair rate, balancing durability against the need to protect them.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0156",
+   "world": "dnd_srd",
+   "statement": "Several charged items recover a stated number of expended charges at dawn, while the Ring of Three Wishes becomes nonmagical after its third charge is spent. Some staves and rods also risk destruction when their last charge is used, as specified in their individual entries.",
+   "locators": [
+    "D&D 5.2.1 SRD: Items with charges, pp. 237–245 (dnd-srd-5.2.1#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: charge recovery and depletion are item-specific, with dawn as the reset point for many; a world could change recovery or depletion, affecting how often powerful effects can be used.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0157",
+   "world": "dnd_srd",
+   "statement": "A charged item spends its listed charges to produce effects and typically restores a specified random number of spent charges each dawn. Several items risk destruction or permanent loss of properties when their final charge is used, with the result determined by a d20 roll.",
+   "locators": [
+    "D&D 5.2.1 SRD: Staff of Healing; Staff of Power; page 246 (dnd-srd-5.2.1#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to dawn-based charge recovery with an item-specific last-charge risk; worlds can change recovery or failure odds, balancing repeatable magic against possible loss.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0158",
+   "world": "dnd_srd",
+   "statement": "The Staff of Power can absorb a spell that targets only its holder, canceling that spell and gaining charges equal to its level; exceeding its 50-charge capacity triggers its destructive release effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Staff of the Magi; page 246 (dnd-srd-5.2.1#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB21",
+   "derives": [
+    "power-interaction",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to cancellation and charge storage up to 50; a world can change capacity or absorption scope, with overflow causing a dangerous explosion.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0159",
+   "world": "dnd_srd",
+   "statement": "Breaking the Staff of Power releases an explosion in a 30-foot area: its holder has a 50 percent chance to escape to a random plane, otherwise taking 16 damage per charge; other creatures save at DC 17, taking 6 damage per charge or half on success.",
+   "locators": [
+    "D&D 5.2.1 SRD: Staff of Power; page 247 (dnd-srd-5.2.1#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB29",
+   "derives": [
+    "area-field",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default to a charge-scaled blast and a coin-flip planar escape; a world can alter the escape chance, with destruction of the staff as the price.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0160",
+   "world": "dnd_srd",
+   "statement": "A summoned monster disappears after 1 hour, on death, or when dismissed; a summoned monster is worth the experience listed in its statistics if defeated or otherwise neutralized, unless another rule says otherwise.",
+   "locators": [
+    "D&D 5.2.1 SRD: Stone of Controlling Earth Elementals; page 248; Experience Points; page 256 (dnd-srd-5.2.1#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "familiar-summon"
+   ],
+   "default_dial_reason": "Default to a timed, dismissible summon that still grants its listed reward if neutralized; a world can change duration or reward to limit summoning exploits.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0161",
+   "world": "dnd_srd",
+   "statement": "A staff can become a Giant Constrictor Snake under its user’s control; the user can command it mentally within 60 feet, and it can revert to staff form, but cannot be reused for 1 hour. If it dies, the staff is destroyed.",
+   "locators": [
+    "D&D 5.2.1 SRD: Staff of the Python (dnd-srd-5.2.1#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB16",
+   "derives": [
+    "form-transformation",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to a controlled creature-form with a one-hour reuse delay and destruction on death; a world can change the delay or survivability, with the living tool at risk.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0162",
+   "world": "dnd_srd",
+   "statement": "A creature summoned by magic is worth the experience shown in its stat block if defeated or otherwise neutralized, unless a rule specifies otherwise.",
+   "locators": [
+    "D&D 5.2.1 SRD: Experience Points; page 256 (dnd-srd-5.2.1#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: summoned creatures yield listed xp",
+   "seam": "none",
+   "derives": [
+    "familiar-summon"
+   ],
+   "default_dial_reason": "Default to awarding the creature’s listed reward even when summoned; a world can exclude summoned beings to prevent creating reward through magic.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0163",
+   "world": "dnd_srd",
+   "statement": "A monster’s type identifies categories that certain effects can target or treat specially, but the type categories themselves provide no rules; descriptive tags likewise add no rules by themselves.",
+   "locators": [
+    "D&D 5.2.1 SRD: Creature Type; Descriptive Tags; page 254 (dnd-srd-5.2.1#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: creature categories have no inherent rules",
+   "seam": "none",
+   "derives": [
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to using types and tags only when an effect calls for them; a world can attach additional category rules, defining what those categories change.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0164",
+   "world": "dnd_srd",
+   "statement": "Attack descriptions distinguish effects that happen only on a hit, only on a miss, or either way; saving-throw effects specify the save, DC, affected creatures, and outcomes of success and failure. A successful save that grants half damage also prevents every other part of that effect.",
+   "locators": [
+    "D&D 5.2.1 SRD: Saving Throw Effect Notation (dnd-srd-5.2.1#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to resolving only the outcome named for the hit, miss, or save result; a world can change how much successful saves mitigate, at the cost of making effects more or less dangerous.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0165",
+   "world": "dnd_srd",
+   "statement": "For damage shown as both a number and a die expression, use one or the other, never both. A monster spell of level 1 or higher is cast at its lowest listed level unless stated otherwise, and cannot be cast at a higher level.",
+   "locators": [
+    "D&D 5.2.1 SRD: Damage Notation; Spellcasting (dnd-srd-5.2.1#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: choose one damage value and spell level",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the fixed damage number and minimum spell level; a world can prefer rolled damage or permit stronger spell levels, trading simplicity or restraint for variation or power.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0166",
+   "world": "dnd_srd",
+   "statement": "A monster casting a spell with a casting time of at least 1 minute must use the Magic action on each of its turns and maintain Concentration, unless its action description says otherwise. A legendary action can be taken only after another creature’s turn ends, one at a time; the monster spends a use, regaining all uses at the start of its turn, and cannot use one while incapacitated or unable to act.",
+   "locators": [
+    "D&D 5.2.1 SRD: Spellcasting; Legendary Actions (dnd-srd-5.2.1#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: actions require time and uses",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to these action, concentration, and use limits; a world can relax them to make monsters more potent, at the cost of reducing opportunities to interrupt them.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0167",
+   "world": "dnd_srd",
+   "statement": "A use marked X/Day returns after a Long Rest. A use marked Recharge X–Y can be used once, then returns at the start of a turn when a d6 roll falls in that range; it also returns after a Short or Long Rest. A use marked for a Short or Long Rest returns after either rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Limited Usage (dnd-srd-5.2.1#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to the printed recovery schedule; a world can shorten or lengthen recovery, balancing frequent access against the strength of the ability.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0168",
+   "world": "dnd_srd",
+   "statement": "An aboleth’s underwater mucus can curse creatures in a 5-foot emanation at the end of its turn (DC 14 Constitution save). A failed save lets the target breathe air and water but prevents regaining Hit Points except underwater; outside water, it also takes 6 acid damage every 10 minutes unless its skin is moistened.",
+   "locators": [
+    "D&D 5.2.1 SRD: Aboleth — Mucus Cloud (dnd-srd-5.2.1#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to the listed area, save, and continuing costs; a world can change the curse’s persistence or damage interval, making water dependence more or less perilous.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0169",
+   "world": "dnd_srd",
+   "statement": "An aboleth can dominate one visible creature within 30 feet (DC 16 Wisdom save) twice per day. On failure the target is charmed, controlled as an ally while within 60 feet, and can communicate telepathically with the aboleth at any distance; it repeats the save when damaged and after spending 24 hours at least 1 mile away.",
+   "locators": [
+    "D&D 5.2.1 SRD: Aboleth — Dominate Mind (dnd-srd-5.2.1#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to the stated distance, repeat-save triggers, and until-death-or-planar-separation duration; a world can weaken the control or remove escape saves, trading reliability for a harsher effect.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0170",
+   "world": "dnd_srd",
+   "statement": "A creature reduced to 0 Hit Points by an aboleth’s memory-consuming action yields its memories to the aboleth if it is a Humanoid. The action can target a creature within 30 feet that is charmed or grappled; a successful DC 16 Intelligence save halves its 3d6 psychic damage.",
+   "locators": [
+    "D&D 5.2.1 SRD: Aboleth — Consume Memories (dnd-srd-5.2.1#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "copy",
+   "seam": "AB17",
+   "derives": [
+    "memory-transfer"
+   ],
+   "default_dial_reason": "Default to transferring memories only on the specified lethal result; a world can allow transfer without death, at the cost of making the ability easier to exploit.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0171",
+   "world": "dnd_srd",
+   "statement": "When destroyed, an aboleth returns with all its Hit Points in 5d10 days, in the Far Realm or another GM-chosen location. A balor killed outside the Abyss, or a devil killed outside the Nine Hells, instead returns there instantly with all its Hit Points.",
+   "locators": [
+    "D&D 5.2.1 SRD: Aboleth — Eldritch Restoration; Balor — Death Throes; Barbed Devil — Diabolical Restoration (dnd-srd-5.2.1#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default to the listed home-plane revival and delay; a world can change the delay or destination, at the cost of weakening or strengthening the consequences of killing such creatures.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0172",
+   "world": "dnd_srd",
+   "statement": "A failed save can be turned into a success a limited number of times: ancient brass dragons do this 4 times per day (5 in their lair), while ancient bronze and copper dragons do it 4 times (5 in a lair). Adult bronze and copper dragons can do so 3 times (4 in a lair).",
+   "locators": [
+    "D&D 5.2.1 SRD: Ancient Brass Dragon; Adult Bronze Dragon; Ancient Bronze Dragon; Adult Copper Dragon; Ancient Copper Dragon (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Use a small daily pool of save overrides; a world can raise the pool in a lair, reflecting the creature’s home-ground advantage.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0173",
+   "world": "dnd_srd",
+   "statement": "A breath weapon that lists Recharge 5–6 becomes usable again when the creature rolls a 5 or 6 at the start of its turn. Its area, save and effect vary by creature; successful saves often halve damage, while failures may impose conditions or movement effects.",
+   "locators": [
+    "D&D 5.2.1 SRD: Dragon stat blocks, pp. 269–277; Chimera; Dragon Turtle (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Allow a rechargeable area attack with its printed shape and save; a world can change the recharge range or area, with stronger effects costing more opportunities to act.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0174",
+   "world": "dnd_srd",
+   "statement": "A restrained target affected by the chuul’s tentacles repeats a Constitution save at the end of each turn; success ends the effect, and after 1 minute it succeeds automatically. A cockatrice’s bite similarly escalates from restrained to petrified after two failed saves, with petrification lasting 24 hours.",
+   "locators": [
+    "D&D 5.2.1 SRD: Chuul; Cockatrice (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Use repeated saves with a timed automatic end; a world can lengthen the buildup or duration, making the danger of remaining affected more severe.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0175",
+   "world": "dnd_srd",
+   "statement": "A chain devil’s conjured chain can restrain one visible target within 60 feet on a failed Dexterity save, deal 9 fire damage, and pull a Large or smaller target up to 30 feet toward the devil; the chain ends at the end of the devil’s next turn. On a successful save, it vanishes without restraining the target.",
+   "locators": [
+    "D&D 5.2.1 SRD: Chain Devil (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Use a short-lived binding attack that can also pull its target; a world can extend its duration or reach, making escape and interruption more important.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0176",
+   "world": "dnd_srd",
+   "statement": "The golem heals by an amount equal to acid damage directed at it instead of taking that damage. When it starts its turn Bloodied, a roll of 6 on 1d6 makes it attack the nearest creature it can see until destroyed or no longer Bloodied.",
+   "locators": [
+    "D&D 5.2.1 SRD: Clay Golem (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB14",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Use damage of one type as healing and a low-probability loss of control below half health; a world can alter the trigger or die size, trading resilience against predictability.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0177",
+   "world": "dnd_srd",
+   "statement": "A creature attached to a cloaker is blinded, and the cloaker takes half damage, rounded down, while the attached creature takes that same amount. The cloaker can detach by spending 5 feet of movement, or someone adjacent can use an action and succeed on a DC 14 Strength (Athletics) check to detach it.",
+   "locators": [
+    "D&D 5.2.1 SRD: Cloaker (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "body-door"
+   ],
+   "default_dial_reason": "Use attachment to transfer damage and impose blindness, with movement or an adjacent helper able to break it; a world can change the escape cost, shifting the burden between victim and ally.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0178",
+   "world": "dnd_srd",
+   "statement": "A death dog’s failed Constitution save poisons its target; the target’s Hit Point maximum then fails to recover after a Long Rest. It repeats the save every 24 hours, ending the effect on a success, but later failures reduce its maximum by 5 (1d10).",
+   "locators": [
+    "D&D 5.2.1 SRD: Death Dog (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Use a recurring save to end a lingering affliction, with further failures worsening it; a world can change the interval or loss, making the poison more or less urgent.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0179",
+   "world": "dnd_srd",
+   "statement": "A djinni’s whirlwind lasts while its concentration continues and can be moved up to 20 feet at the start of each of its turns. A creature caught in it must save against restraint, takes 21 thunder damage at the start of its turns while restrained, and repeats its save at the end of each turn to escape.",
+   "locators": [
+    "D&D 5.2.1 SRD: Djinni (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Use a movable, concentration-bound area that restrains and damages its occupants; a world can enlarge or shrink the area, with concentration limiting how long control can be maintained.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0180",
+   "world": "dnd_srd",
+   "statement": "A devil or celestial that dies away from its home plane re-forms there: the chain devil and deva return immediately with full Hit Points, while the djinni returns after 1d4 days. The dragon’s legendary actions provide a separate timing limit: it spends a limited pool after another creature’s turn and refreshes the pool at the start of its own turn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Chain Devil; Deva; Djinni; Dragon legendary actions (dnd-srd-5.2.1#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "death-checkpoint-rewind"
+   ],
+   "default_dial_reason": "Use home-plane revival with the stated delay and full recovery; a world can change the delay or restoration, making defeat a displacement rather than a permanent end.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0181",
+   "world": "dnd_srd",
+   "statement": "Some creatures climb difficult surfaces, including ceilings, without checks; sunlight imposes disadvantage on a drider’s ability checks and attack rolls.",
+   "locators": [
+    "D&D 5.2.1 SRD: Drider, page 282 (dnd-srd-5.2.1#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to effortless climbing and a sunlight penalty; a world can change which surfaces or light sources trigger these traits to reflect creature biology.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0182",
+   "world": "dnd_srd",
+   "statement": "A web walker ignores movement limits imposed by webs and senses the location of creatures touching the same web.",
+   "locators": [
+    "D&D 5.2.1 SRD: Drider, page 282 (dnd-srd-5.2.1#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to sensing others through a shared web; a world can limit the range or precision to make webs less reliable as an information network.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0183",
+   "world": "dnd_srd",
+   "statement": "The efreeti reforms on the Plane of Fire 1d4 days after dying elsewhere, restored to full Hit Points; the erinyes and glabrezu instead reform in their home planes immediately and at full Hit Points.",
+   "locators": [
+    "D&D 5.2.1 SRD: Efreeti, page 283; Erinyes, page 283; Glabrezu, page 289 (dnd-srd-5.2.1#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "place-release"
+   ],
+   "default_dial_reason": "Default to death triggering restoration at the listed home plane and delay; a world can change the return time or destination as the cost of planar dependence.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0184",
+   "world": "dnd_srd",
+   "statement": "A ghost that possesses a Humanoid within 5 feet on a failed DC 13 Charisma save disappears into the host, incapacitates the host, and controls its body while the host remains aware. The possession ends when the body reaches 0 Hit Points or the ghost leaves as a Bonus Action; afterward the host is immune to that ghost’s possession for 24 hours.",
+   "locators": [
+    "D&D 5.2.1 SRD: Ghost, page 288 (dnd-srd-5.2.1#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding",
+    "body-door"
+   ],
+   "default_dial_reason": "Default to temporary bodily control with the listed escape conditions and immunity; a world can turn the save, duration, or host awareness to set the danger of possession.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0185",
+   "world": "dnd_srd",
+   "statement": "An erinyes’s magic rope can restrain a visible creature within 120 feet on a failed DC 16 Strength save; the restraint lasts until the rope is destroyed, the erinyes releases the target as a Bonus Action, or it uses the rope again. The rope has AC 20 and 90 Hit Points, and can be restored after a Short or Long Rest if damaged or destroyed.",
+   "locators": [
+    "D&D 5.2.1 SRD: Erinyes, page 283 (dnd-srd-5.2.1#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB16",
+   "derives": [
+    "item-bound-power",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a destructible, recoverable rope that restrains at range; a world can adjust its durability or recovery interval to tune how costly the restraint is.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0186",
+   "world": "dnd_srd",
+   "statement": "A fire elemental deals 5 fire damage at the end of each of its turns to creatures in its 10-foot Emanation, and ignites creatures and flammable objects there. It also deals 5 fire damage the first time it enters a creature’s space on a turn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Fire Elemental, page 284 (dnd-srd-5.2.1#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to a persistent damaging aura and contact burn; a world can turn the aura’s size or frequency to reflect how intense the elemental’s heat is.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0187",
+   "world": "dnd_srd",
+   "statement": "A flesh golem absorbs lightning damage as healing equal to the damage dealt. When it starts its turn Bloodied, a roll of 6 on a d6 sends it berserk; it attacks the nearest visible creature, or an object if none is reachable, until destroyed or no longer Bloodied.",
+   "locators": [
+    "D&D 5.2.1 SRD: Flesh Golem, page 285 (dnd-srd-5.2.1#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to converting lightning damage into healing and a rare Bloodied-triggered rampage; a world can change the trigger or absorbed amount to tune the golem’s volatility.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0188",
+   "world": "dnd_srd",
+   "statement": "A gray ooze corrodes nonmagical weapons cumulatively by −1 to attack rolls each time they damage it, destroying them at −5; its touch similarly reduces nonmagical armor’s AC by 1, destroying it when its AC reaches 10. Mending removes either penalty, and the ooze can eat through 2-inch-thick nonmagical metal or wood in 1 round.",
+   "locators": [
+    "D&D 5.2.1 SRD: Gray Ooze, page 293 (dnd-srd-5.2.1#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [
+    "object-surface",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to accumulating corrosion with repair or destruction thresholds; a world can adjust the rate or materials affected to set the ooze’s environmental cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0189",
+   "world": "dnd_srd",
+   "statement": "Some creatures return after death: the guardian naga revives in 1d6 days unless a specified dispelling spell is used on its remains; certain fiends return instantly in their home plane, while a lich needs its spirit jar and reforms in 1d10 days in its lair.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 296, 298, 300–301, 304 (dnd-srd-5.2.1#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: revive",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "soul-binding",
+    "place-release"
+   ],
+   "default_dial_reason": "Default to restoring the creature with all Hit Points after its listed delay or at its listed destination; a world can make return conditional on destroying an anchor or using a countermeasure.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0190",
+   "world": "dnd_srd",
+   "statement": "The hydra loses one head when it takes at least 25 damage in a turn, but at the end of its turn regrows two heads per head lost since its previous turn and regains 20 Hit Points, unless it took fire damage in that interval; it dies when all heads are dead.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 300, Hydra traits (dnd-srd-5.2.1#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "body-form",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to regrowing heads and restoring 20 Hit Points unless fire interrupts the cycle; a world can vary the damage threshold or recovery amount to tune how costly it is to stop regeneration.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0191",
+   "world": "dnd_srd",
+   "statement": "A harpy’s song can charm Humanoids and Giants within 300 feet, incapacitating them and drawing them toward the singer; affected targets save again at turn’s end, after taking outside damage, or before entering hazardous terrain, and success grants 24-hour immunity to that harpy’s song.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 297, Harpy actions (dnd-srd-5.2.1#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to attraction and incapacitation until a successful repeat save; a world can alter the eligible targets or break conditions, with stronger control carrying a greater exposure cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0192",
+   "world": "dnd_srd",
+   "statement": "A creature swallowed by the kraken is restrained, protected from outside attacks by total cover, and takes 7d6 acid damage at the start of each of its turns; if the kraken dies it can escape using 15 feet of movement, while sufficient internal damage can force the kraken to regurgitate its victims.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 303, Kraken actions (dnd-srd-5.2.1#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: contain",
+   "seam": "none",
+   "derives": [
+    "containment-rule",
+    "body-door"
+   ],
+   "default_dial_reason": "Default to containment with ongoing damage and an escape route on the captor’s death; a world can change capacity or escape requirements, trading secure capture for greater danger to captives.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0193",
+   "world": "dnd_srd",
+   "statement": "An incubus’s touch curses a target for 24 hours or until the incubus dies, preventing benefits from Short Rests; its Nightmare knocks a target with 20 Hit Points or fewer unconscious, subject to listed waking and damage conditions.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 301, Incubus actions (dnd-srd-5.2.1#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to the stated curse duration and rest restriction, and to sleep only below the 20-Hit-Point threshold; a world can shorten the curse or change the threshold to adjust how debilitating the effect is.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0194",
+   "world": "dnd_srd",
+   "statement": "A homunculus and its master can communicate telepathically while on the same plane; its bite can poison a target, and failure by 5 or more makes the poison last 1 minute and renders the target unconscious until it takes damage.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 299, Homunculus (dnd-srd-5.2.1#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to one master-linked telepathic companion and the listed poison outcomes; a world can extend the bond across planes or limit communication, with distance and vulnerability as the cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0195",
+   "world": "dnd_srd",
+   "statement": "The archmage’s Mind Blank spell makes it immune to the Charmed condition, and the mage and archmage can use a limited number of reactions to cast Counterspell or Shield in response to their triggers.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 305, Mages (dnd-srd-5.2.1#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "mind-state",
+    "power-interaction",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to blocking charm for the duration of Mind Blank and allowing three protective reactions per day for these stat blocks; a world can raise or lower reaction capacity to trade defensive coverage against other actions.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0196",
+   "world": "dnd_srd",
+   "statement": "The marilith can teleport up to 120 feet to a visible unoccupied space when its teleport is available; a devil or demon listed with restoration returns with all Hit Points in its home plane if killed elsewhere.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 298, 300, 306, Restoration traits and Marilith actions (dnd-srd-5.2.1#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB17",
+   "derives": [
+    "dimension-travel",
+    "revival-on-death",
+    "place-release"
+   ],
+   "default_dial_reason": "Default to the stated teleport distance and home-plane return; a world can restrict destinations or make return conditional, balancing mobility and persistence against access to the home plane.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0197",
+   "world": "dnd_srd",
+   "statement": "A death-triggered burst affects creatures within a 5-foot emanation; a Dexterity save halves the listed damage. The mephit examples deal 7 (2d6) fire at DC 11 or 5 (2d4) fire at DC 10.",
+   "locators": [
+    "D&D 5.2.1 SRD: Traits, pages 307–308 (dnd-srd-5.2.1#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Resolve the burst when the creature dies; a world can vary the radius or damage, with the blast threatening nearby creatures.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0198",
+   "world": "dnd_srd",
+   "statement": "Some breath attacks affect creatures in a cone and allow a Dexterity save for half damage; the listed recharge range is 5–6 or 6, depending on the creature. Steam Breath also reduces a failed target’s Speed by 10 feet until the mephit’s next turn ends.",
+   "locators": [
+    "D&D 5.2.1 SRD: Actions, pages 307–308 and 318–319 (dnd-srd-5.2.1#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "area-field",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Use the stated cone, save, damage, and recharge; a world can tune the cone or recharge, balancing area damage against limited use.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0199",
+   "world": "dnd_srd",
+   "statement": "A hit can impose a condition or movement restriction for a stated duration, and some effects allow a save to avoid or end it. For example, the merfolk spear reduces Speed by 10 feet until the end of the attacker’s next turn, while a mummy’s failed glare save frightens its target until then.",
+   "locators": [
+    "D&D 5.2.1 SRD: Actions, pages 308–310 (dnd-srd-5.2.1#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Apply the listed condition and duration after a failed save or hit; a world can adjust duration or resistance, trading control for reliability.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0200",
+   "world": "dnd_srd",
+   "statement": "The mummy’s curse prevents healing and reduces the target’s Hit Point maximum by 10 (3d6) every 24 hours; a creature killed by the attack turns to dust. The mummy lord’s version also denies the benefit of a Long Rest.",
+   "locators": [
+    "D&D 5.2.1 SRD: Rotting Fist, pages 309–310 (dnd-srd-5.2.1#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Track the curse and its daily maximum loss until its removal or the target’s death; a world can alter the rate, with lasting harm as the cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0201",
+   "world": "dnd_srd",
+   "statement": "A mummy lord destroyed with its heart intact forms a new body after 24 hours, at full Hit Points, in an unoccupied space in its lair. Its Tiny heart has AC 17 and 10 Hit Points and is immune to damage except fire.",
+   "locators": [
+    "D&D 5.2.1 SRD: Undead Restoration, page 310 (dnd-srd-5.2.1#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "soul-binding"
+   ],
+   "default_dial_reason": "Revive it after 24 hours if the heart survives; a world can change the anchor’s vulnerability or delay, making the heart the price of permanence.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0202",
+   "world": "dnd_srd",
+   "statement": "A hag’s soul bag can hold souls and is required for her once-per-day Nightmare Haunting; destroying the bag releases its stored souls, and she can make another after 7 days. A soul killed by the haunting cannot be raised until released.",
+   "locators": [
+    "D&D 5.2.1 SRD: Soul Bag and Nightmare Haunting, page 311 (dnd-srd-5.2.1#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "soul-binding",
+    "item-bound-power",
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Make the bag a required, destructible soul anchor; a world can change its durability or replacement delay, limiting the hag’s power and trapping souls.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0203",
+   "world": "dnd_srd",
+   "statement": "A creature grappled by the purple worm or remorhaz can be swallowed on a failed Strength save. Inside, it is blinded and restrained, is protected from outside effects, and takes acid damage each turn; enough damage from inside may force the creature to regurgitate its victims.",
+   "locators": [
+    "D&D 5.2.1 SRD: Swallow, pages 317 and 319–320 (dnd-srd-5.2.1#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Use the stated size, capacity, save, and escape conditions; a world can change internal damage or regurgitation thresholds, making capture dangerous but escapable.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0204",
+   "world": "dnd_srd",
+   "statement": "Some creatures return to life through a body tied to a specific plane: the nalfeshnee and certain fiends regain a full-health body immediately on their home plane if killed elsewhere. Other restorations require an intact heart and 24 hours.",
+   "locators": [
+    "D&D 5.2.1 SRD: Restoration traits, pages 310–311 and 315 and 318 (dnd-srd-5.2.1#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "soul-binding"
+   ],
+   "default_dial_reason": "Return the creature in its linked plane or at its lair, under the stated conditions; a world can make the anchor destructible or the return slower.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0205",
+   "world": "dnd_srd",
+   "statement": "A roper’s tentacle can reach 60 feet and, on a hit, grapples a target and poisons it until the grapple ends. The target can escape at DC 14; destroying that tentacle (AC 20, 10 HP) frees it without harming the roper, and the tentacle regrows at the start of the roper’s next turn.",
+   "locators": [
+    "D&D 5.2.1 SRD: Roper — Actions (dnd-srd-5.2.1#027)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB21",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a separate, destructible restraint with a fixed escape DC; a world can change tentacle durability or recovery time to make escape easier or harder.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0206",
+   "world": "dnd_srd",
+   "statement": "A rust monster can damage a worn or carried nonmagical metal weapon or armor on a failed DC 11 Dexterity save. Repeated penalties destroy armor when its offered AC reaches 10 or a weapon when its attack penalty reaches −5; Mending removes the penalty. Its touch also destroys a one-foot cube of unattended nonmagical metal.",
+   "locators": [
+    "D&D 5.2.1 SRD: Rust Monster — Actions [Page 321] (dnd-srd-5.2.1#027)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "object-surface"
+   ],
+   "default_dial_reason": "Default to cumulative, repairable damage to mundane metal; a world can vary which materials resist the effect or how readily repair magic restores them.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0207",
+   "world": "dnd_srd",
+   "statement": "A sahuagin can magically control sharks within 120 feet through telepathy. It can breathe air and water, but must submerge at least once every four hours or risk suffocation outside water.",
+   "locators": [
+    "D&D 5.2.1 SRD: Sahuagin Warrior — Traits (dnd-srd-5.2.1#027)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to short-range control of sharks and a four-hour amphibious limit; a world can turn the range, creature type, or submersion interval to change the power’s reach and cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0208",
+   "world": "dnd_srd",
+   "statement": "A salamander damages creatures of its choice within 5 feet for 2d6 fire damage at the end of each of its turns. Its spear returns to its hand immediately after a ranged attack, whether or not the attack hits.",
+   "locators": [
+    "D&D 5.2.1 SRD: Salamander — Traits and Actions (dnd-srd-5.2.1#027)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a selective, close-range damage field and a magically returning weapon; a world can vary the field’s radius, damage, or whether the weapon returns.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0209",
+   "world": "dnd_srd",
+   "statement": "A shadow’s hit reduces a target’s Strength by 1d4; a target reduced to Strength 0 dies. If a humanoid dies this way, a new shadow rises from its corpse 1d4 hours later.",
+   "locators": [
+    "D&D 5.2.1 SRD: Shadow — Actions [Page 323] (dnd-srd-5.2.1#027)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [
+    "body-code-decay",
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to strength loss that can kill and a delayed undead consequence; a world can change the reduction, recovery, or creation delay to tune the danger and aftermath.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0210",
+   "world": "dnd_srd",
+   "statement": "A shield guardian is magically linked to an amulet: its wearer can call it across the same plane and knows it can locate the amulet. Within 60 feet, the guardian takes half the wearer’s damage, rounded up; it also regenerates 10 HP each turn while above 0 HP.",
+   "locators": [
+    "D&D 5.2.1 SRD: Shield Guardian — Traits [Page 323] (dnd-srd-5.2.1#027)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: transfer",
+   "seam": "AB17",
+   "derives": [
+    "soul-binding",
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to a same-plane amulet bond with nearby damage sharing and steady regeneration; a world can alter the bond’s range, damage share, or healing rate.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0211",
+   "world": "dnd_srd",
+   "statement": "Silver dragon paralyzing breath first incapacitates a creature that fails its save; at the end of its next turn it saves again, becoming paralyzed on a second failure. While paralyzed, it repeats the save at each turn’s end and ends the effect on a success; after 1 minute it succeeds automatically.",
+   "locators": [
+    "D&D 5.2.1 SRD: Silver Dragons — Paralyzing Breath [Pages 324–325] (dnd-srd-5.2.1#027)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to an escalating failed-save effect with repeated chances to recover and a one-minute limit; a world can change the number or timing of recovery saves.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0212",
+   "world": "dnd_srd",
+   "statement": "The tarrasque can swallow a creature it has grappled on a failed DC 27 Strength save, up to six creatures at once. A swallowed creature is blinded and restrained, cannot teleport, and takes 16d6 acid damage at the start of each of the tarrasque’s turns; sufficient damage from inside can force the tarrasque to regurgitate its swallowed victims.",
+   "locators": [
+    "D&D 5.2.1 SRD: Tarrasque — Bonus Actions [Page 332] (dnd-srd-5.2.1#027)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: contain",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule",
+    "body-door"
+   ],
+   "default_dial_reason": "Default to a limited-capacity internal prison that causes recurring harm and can be escaped by damaging the captor; a world can change capacity, damage, or the escape threshold.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0213",
+   "world": "dnd_srd",
+   "statement": "A treant can animate up to two visible trees within 60 feet once per day. They use its statistics except Intelligence and Charisma are 1, they cannot speak or animate other trees, act immediately after it, and obey it; animation ends after 1 day, when either treant dies, or when a tree is more than 120 feet away, after which it roots if possible.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 333 — Treant, Animate Trees (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB4",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to two subordinate tree-creatures for at most one day; a world could alter their number or tether distance, with the treant’s limited daily use constraining this command.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0214",
+   "world": "dnd_srd",
+   "statement": "A troll that ends a turn Bloodied after taking at least 15 Slashing damage that turn can lose a limb, up to four times per day. The limb becomes a separate creature; each missing limb gives the troll one Exhaustion level, and replacement limbs grow when it next regains Hit Points.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 333 — Troll, Loathsome Limbs (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to severed limbs becoming independent creatures under the stated damage and health conditions; a world could change the threshold or daily cap, trading bodily injury and Exhaustion for extra creatures.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0215",
+   "world": "dnd_srd",
+   "statement": "Trolls and troll limbs regain 15 and 5 Hit Points, respectively, at the start of their turns. Acid or Fire damage disables that regeneration for the following turn; either dies only if it starts a turn at 0 Hit Points without regenerating.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 333 — Troll and Troll Limb, Regeneration (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to recurring healing that can be interrupted for one turn by Acid or Fire; a world could vary the recovery amount or disabling damage, making those damage types strategically valuable.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0216",
+   "world": "dnd_srd",
+   "statement": "A vampire outside its resting place that reaches 0 Hit Points becomes mist without spending an action, unless it cannot shape-shift, in which case it is destroyed. At 0 Hit Points in mist form, it must reach its resting place within 2 hours or be destroyed; there it returns to vampire form, remains Paralyzed until it regains Hit Points, and regains 1 Hit Point after 1 hour.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 335–336 — Vampire, Misty Escape (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to a timed retreat-and-recovery route rather than immediate death; a world could change the deadline or recovery time, with the resting place serving as the costly safe haven.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0217",
+   "world": "dnd_srd",
+   "statement": "A vampire’s bite reduces a target’s Hit Point maximum by the Necrotic damage dealt and restores the same amount of Hit Points to the vampire. A Humanoid reduced to 0 Hit Points by this bite and then buried rises at the following sunset as a Vampire Spawn under the vampire’s control.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 336 — Vampire, Bite (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "negative-effect-drift",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to transferring vitality from victim to vampire, with a buried Humanoid’s death creating a controlled spawn; a world could change the conversion or delay, making victim loss the price of the vampire’s gain.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0218",
+   "world": "dnd_srd",
+   "statement": "A vampire can change into a Tiny bat or a Medium mist cloud, or back to vampire form, only when it is not in sunlight or running water; its worn items change with it. In mist form it cannot act, speak, or handle objects, but has resistance to all damage except sunlight damage and can pass through any space air can pass through, but not liquid.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 336 — Vampire, Shape-Shift (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to three forms with distinct movement and interaction limits; a world could change the available forms or environmental restriction, balancing infiltration and resilience against lost agency in mist.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0219",
+   "world": "dnd_srd",
+   "statement": "A Lycanthrope’s bite or gore can curse a Humanoid that fails a Constitution save; if the cursed target reaches 0 Hit Points, it instead becomes that attacker’s kind under the GM’s control with 10 Hit Points. A successful save grants immunity to that specific lycanthrope’s curse for 24 hours; the save DC is 14 for werebear, 12 for wereboar, 11 for wererat, 13 for weretiger, and 12 for werewolf.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 337–339 — Werebear through Werewolf, Bite or Gore (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB12",
+   "derives": [
+    "body-form",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to a kind-specific curse that converts a Humanoid at the brink of death into a controlled creature; a world could vary save difficulty or conversion conditions, with the risk of transformation as the cost.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0220",
+   "world": "dnd_srd",
+   "statement": "A wight’s Life Drain reduces a creature’s Hit Point maximum by the damage dealt. A Humanoid killed by it rises 24 hours later as a Zombie under the wight’s control unless restored to life or its body is destroyed; a wight can control at most twelve zombies this way.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 341 — Wight, Life Drain (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB17",
+   "derives": [
+    "negative-effect-drift",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to vitality loss followed by delayed controlled reanimation, capped at twelve servants; a world could adjust the delay or cap, while body destruction or restoration prevents the consequence.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0221",
+   "world": "dnd_srd",
+   "statement": "A wisp can turn itself and its light Invisible while concentrating; the effect ends early immediately after it attacks or consumes a life. It can also kill a living creature it can see within 5 feet if that creature has 0 Hit Points and fails a DC 10 Constitution save, restoring 10 Hit Points to the wisp.",
+   "locators": [
+    "D&D 5.2.1 SRD: Page 342 — Will-o’-Wisp, Vanish and Consume Life (dnd-srd-5.2.1#028)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to concentration-based invisibility that breaks on specified actions, plus a close-range execution that heals the wisp; a world could change the ending triggers or healing, with opportunity and risk limiting the benefits.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0222",
+   "world": "dnd_srd",
+   "statement": "Some creatures gain Advantage on attack rolls against a target when an ally is within 5 feet of that target and is not Incapacitated. A few instead gain Advantage while Bloodied, or when attacking a target that is missing any Hit Points.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 346, 349, 353, 356–357 (dnd-srd-5.2.1#029)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to these specific ally-or-injury triggers for attack bonuses; a world can widen or narrow the trigger, with stronger teamwork or injury making attacks more reliable.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0223",
+   "world": "dnd_srd",
+   "statement": "Several charging attacks add damage or knock a target Prone if the attacker moved at least 20 feet straight toward it immediately before the hit; the target’s maximum size varies by creature. Some attacks also grapple or knock Prone without a charge.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 346–352, 355, 357 (dnd-srd-5.2.1#029)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to requiring a straight 20-foot approach and the listed size limit; a world can relax either condition, trading stricter positioning for more frequent knockdowns.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0224",
+   "world": "dnd_srd",
+   "statement": "Certain attacks impose Grappled or Restrained, with escape DCs stated for particular creatures. Some creatures can swallow a creature they have grappled, imposing Blinded and Restrained and, in some cases, dealing acid damage at the end of their turns; death of the swallower or other stated conditions allow escape.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 347, 350–352, 354 (dnd-srd-5.2.1#029)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to the listed size limits, escape DCs, and release conditions; a world can make capture harder to escape, at the cost of greater danger to swallowed targets.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0225",
+   "world": "dnd_srd",
+   "statement": "An underwater octopus can release an ink cloud that heavily obscures an area for 1 minute, or until a strong current or similar effect disperses it, and then move up to its Swim Speed. The reaction is limited to once per day and has a creature-specific trigger and area.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 352, 358 (dnd-srd-5.2.1#029)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "area-field",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to a temporary, localized obscuring cloud with a dispersal condition and once-per-day use; a world can enlarge or prolong it, making escape easier but concealment more potent.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0226",
+   "world": "dnd_srd",
+   "statement": "Some creatures can breathe both air and water, while others can breathe only underwater or hold their breath for a stated duration, such as 1 hour, 30 minutes, or 10 minutes. These limits govern how long they can function in the other environment.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 347, 350, 352, 356, 358 (dnd-srd-5.2.1#029)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to each creature’s stated breathing mode and duration; a world can change these limits, trading environmental flexibility against aquatic specialization.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0227",
+   "world": "dnd_srd",
+   "statement": "Some creatures can climb difficult surfaces, including ceilings, without an ability check; a spider also ignores movement restrictions caused by webs and senses the location of creatures touching the same web. Other listed movement exceptions include narrow-space passage, long jumps, and avoiding opportunity attacks while moving or flying away.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 347, 352–355, 357–358 (dnd-srd-5.2.1#029)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the specific movement exceptions stated for each creature; a world can broaden them, granting greater mobility while reducing the value of terrain as an obstacle.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0228",
+   "world": "dnd_srd",
+   "statement": "A few creatures can restrain a target with a web or grapple it with attacks; one web can be destroyed and has AC 10, 5 Hit Points, Fire Vulnerability, and immunity to Poison and Psychic damage. A giant scorpion can grapple with one claw while making its other listed attacks.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 350, 353–354 (dnd-srd-5.2.1#029)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to the printed escape or destruction requirements and the web’s stated defenses; a world can make restraints more durable, at the cost of making trapped targets harder to free.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0229",
+   "world": "dnd_srd",
+   "statement": "A giant ape’s boulder attack recharges on a 6 and affects creatures in a 5-foot-radius area at a point it can see within 90 feet; a failed Dexterity save takes full damage and can cause Prone, while a success halves damage. The listed elephant and mammoth tramples target a nearby Prone creature, with a Dexterity save for half damage.",
+   "locators": [
+    "D&D 5.2.1 SRD: Pages 349, 350–351, 357 (dnd-srd-5.2.1#029)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to the stated recharge, range, area, target state, and save outcomes; a world can increase reach or area, making these attacks more powerful but less constrained.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0230",
+   "world": "dnd_srd",
+   "statement": "A swarm can share a creature’s space and pass through openings large enough for one of its Tiny members. It cannot regain Hit Points or gain Temporary Hit Points.",
+   "locators": [
+    "D&D 5.2.1 SRD: Swarm of Bats, p. 361 (Swarm trait) (dnd-srd-5.2.1#030)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: swarm movement and recovery",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to allowing shared-space movement through member-sized gaps but no healing; a world could relax either limit to make swarms more resilient or able to infiltrate tighter spaces.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0231",
+   "world": "dnd_srd",
+   "statement": "A swarm’s listed damage is reduced when it is Bloodied: the reduction varies by swarm, and some swarms have no listed reduction. The piranha swarm instead has Advantage against a target missing any Hit Points.",
+   "locators": [
+    "D&D 5.2.1 SRD: Swarm of Bats, p. 361; Swarm of Piranhas, p. 362 (dnd-srd-5.2.1#030)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [],
+   "default_dial_reason": "Default to the damage and bloodied values in each creature’s entry; a world could make injury affect swarm output more sharply, reflecting loss of members.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0232",
+   "world": "dnd_srd",
+   "statement": "A creature has Advantage on an attack against a target when one of its allies is within 5 feet of that target and the ally is not Incapacitated.",
+   "locators": [
+    "D&D 5.2.1 SRD: Reef Shark, p. 360 (Pack Tactics trait) (dnd-srd-5.2.1#030)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to requiring a nearby, active ally; a world could broaden or narrow the required teamwork, changing how readily packs gain an edge.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0233",
+   "world": "dnd_srd",
+   "statement": "A rhinoceros, triceratops, or warhorse that moves at least 20 feet straight toward a qualifying target immediately before hitting it deals extra damage and knocks the target Prone. The rhinoceros and warhorse limit the target to Large or smaller; the triceratops allows Huge or smaller.",
+   "locators": [
+    "D&D 5.2.1 SRD: Rhinoceros, p. 360; Triceratops, p. 363; Warhorse, p. 364 (dnd-srd-5.2.1#030)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to requiring the stated straight-line run-up and size limit; a world could alter the distance or size threshold, with greater reach making charges easier to land.",
+   "licence": "CC-BY-4.0"
+  },
+  {
+   "id": "dnd_srd.rule.0234",
+   "world": "dnd_srd",
+   "statement": "A tiger’s Rend knocks a Large or smaller target Prone. A tyrannosaurus’s Bite Grapples a Large or smaller target (escape DC 17), Restrains it while held, and prevents the tyrannosaurus from targeting it with its Tail; its Tail knocks a Huge or smaller target Prone.",
+   "locators": [
+    "D&D 5.2.1 SRD: Tiger, p. 363; Tyrannosaurus Rex, p. 363 (dnd-srd-5.2.1#030)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed size limits and grapple escape difficulty; a world could change which targets these attacks can disable, balancing control against creature size.",
+   "licence": "CC-BY-4.0"
+  }
+ ]
+}

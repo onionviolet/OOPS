@@ -18,7 +18,7 @@ test('one row per world, every corpus has exactly one well-formed cell', () => {
     for (const r of rows) {
         assert.deepEqual(Object.keys(r.cells), CORPORA, r.id);
         for (const [corpus, c] of Object.entries(r.cells)) {
-            const kinds = ['ledger', 'missing', 'none'].filter(k => k in c);
+            const kinds = ['ledger', 'missing', 'none', 'rules_file'].filter(k => k in c);
             assert.equal(kinds.length, 1, `${r.id}.${corpus}`);
             assert.equal(typeof c[kinds[0]], 'string');
             assert.ok(c[kinds[0]].length > 0);

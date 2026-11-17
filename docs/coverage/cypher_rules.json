@@ -1,0 +1,2567 @@
+{
+ "meta": {
+  "world": "cypher",
+  "books": [
+   "Cypher Reference Document"
+  ],
+  "licence": [
+   "Cypher Open License"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+  "date": "2026-11-17",
+  "shards": 20
+ },
+ "rules": [
+  {
+   "id": "cypher.rule.0001",
+   "world": "cypher",
+   "statement": "A core character begins with 8 points in each of Might, Speed, and Intellect, plus 6 points to distribute among those pools. Spending pool points activates abilities or improves actions; Edge reduces the pool cost, and a core character’s Edge is 0 in each stat.",
+   "locators": [
+    "Cypher Reference Document: Your Three Stats; Edge (cypher-rd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to pools as the spendable reserve and Edge as a discount; a world can change starting reserves or discounts to make abilities more or less costly.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0002",
+   "world": "cypher",
+   "statement": "A core character can record up to three wounds of each severity. Minor wounds have no penalty; when that track is full, another minor wound becomes moderate. Taking the last moderate wound hinders all actions, and later moderate wounds become major; each major wound hinders all actions, and taking the last one causes death.",
+   "locators": [
+    "Cypher Reference Document: Wounds (cypher-rd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to escalating injury tracks with action penalties and death at the final major wound; a world can adjust the track lengths or consequences to change how lethal injury is.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0003",
+   "world": "cypher",
+   "statement": "A trained skill eases related tasks, while specialization eases them by two steps; training in the same skill twice grants specialization. An inability hinders related tasks, and an expert can ease a task by three steps, usually through a special ability.",
+   "locators": [
+    "Cypher Reference Document: Skills (cypher-rd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to training and specialization as cumulative task advantages, with inabilities as disadvantages; a world can vary which skills can be learned at each tier.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0004",
+   "world": "cypher",
+   "statement": "Applying Effort costs 3 points from the relevant Pool and eases a task by one step per Effort applied. A core character has Effort 1, so can ease a task by only one step this way.",
+   "locators": [
+    "Cypher Reference Document: Effort (cypher-rd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a three-point cost for one step of task improvement; a world can raise the cost or Effort limit to make exceptional performance rarer.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0005",
+   "world": "cypher",
+   "statement": "An asset usually eases a task by one step; a particularly good asset or two ordinary assets can ease it by two steps. Assets cannot ease a task by more than two steps in total.",
+   "locators": [
+    "Cypher Reference Document: Asset (cypher-rd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a maximum two-step benefit from assets; a world can change that cap to reflect how much equipment, assistance, or favorable circumstances can help.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0006",
+   "world": "cypher",
+   "statement": "A character can hold at most two cyphers at once. Each cypher is a one-use ability; after using one, the character receives replacements when the GM decides.",
+   "locators": [
+    "Cypher Reference Document: Cyphers (cypher-rd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to two single-use abilities carried at a time and discretionary replacement; a world can change the capacity or replacement rate to control access to temporary effects.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0007",
+   "world": "cypher",
+   "statement": "A core character’s recovery restores a number of Pool points equal to a roll of 1d6 plus tier, distributed among Pools as desired but not beyond their normal maximum. Pool points can be recovered through rest and recovery; wounds can be healed through rallying, treatment, or rest.",
+   "locators": [
+    "Cypher Reference Document: Recoveries; Healing Wounds (cypher-rd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a tier-scaled recovery roll and several ways to heal wounds; a world can change recovery timing or methods to make resource loss more or less persistent.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0008",
+   "world": "cypher",
+   "statement": "A core character uses light weapons without an attack penalty, but attacks with medium or heavy weapons are hindered. Wearing any armor hinders some physical tasks for a core character, while shields are usable by any character.",
+   "locators": [
+    "Cypher Reference Document: Weapons and Armor (cypher-rd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to weapon and armor familiarity imposing task penalties; a world can vary which characters avoid those penalties to represent training or equipment handling.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0009",
+   "world": "cypher",
+   "statement": "An ability that keeps affecting its user ends when the user chooses, as a free extra action on their turn; effects specified to last until recovery instead end when recovery begins.",
+   "locators": [
+    "Cypher Reference Document: Genre Character Abilities from Types and Foci — Action or Enabler (cypher-rd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to ending a continuing effect freely on the user’s turn; a world can make effects harder to dismiss, at the cost of player control.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0010",
+   "world": "cypher",
+   "statement": "Each level of Effort used on an ability buys one listed improvement; separate listed improvements require separate levels, and the user can usually apply Effort to ease a roll or add attack damage even when the ability has no extra-cost marker.",
+   "locators": [
+    "Cypher Reference Document: Genre Character Abilities from Types and Foci — Effort (cypher-rd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to one improvement per Effort level; a world can change the cost of scaling effects, reflecting how demanding power use is.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0011",
+   "world": "cypher",
+   "statement": "In optional real-world action play, characters can take two additional minor wounds and one additional moderate wound. Treatment takes a Last action for a minor wound, one minute for a moderate wound, and ten minutes for a major wound.",
+   "locators": [
+    "Cypher Reference Document: Optional Rules for Real-World Action Games (cypher-rd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the added wound capacity and listed treatment times; a world can remove the bonus or lengthen treatment to make action less heroic.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0012",
+   "world": "cypher",
+   "statement": "While a character has at least two moderate wounds or one major wound, Desperate Actions grant one free reroll on one action each round, as though spending 1 XP.",
+   "locators": [
+    "Cypher Reference Document: Optional Rules for Real-World Action Games — Desperate Actions (cypher-rd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB31",
+   "derives": [],
+   "default_dial_reason": "Default to one free reroll per round when badly hurt; a world can change the wound threshold or remove the benefit, trading heroic resilience for danger.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0013",
+   "world": "cypher",
+   "statement": "A starting real-world character has no type or focus, and so receives none of their extra Pool points, Edge, or abilities; they also cannot use medium or heavy weapons without hindrance unless starting skill training cancels that inability for a specific weapon class.",
+   "locators": [
+    "Cypher Reference Document: Creating a Real-World Character (cypher-rd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default to no type or focus and an inability with medium and heavy weapons; a world can permit such training at the start, reflecting a character’s background.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0014",
+   "world": "cypher",
+   "statement": "Real-world wound treatment takes ten minutes for a minor wound, one hour for a moderate wound, and one week for a major wound.",
+   "locators": [
+    "Cypher Reference Document: Creating a Real-World Character — Wound Treatment (cypher-rd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the longer, realistic treatment times; a world can shorten them to support faster-paced heroic play.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0015",
+   "world": "cypher",
+   "statement": "In a dungeon-fantasy game, wound treatment takes one minute for a minor wound, ten minutes for a moderate wound, and one hour for a major wound.",
+   "locators": [
+    "Cypher Reference Document: Creating Dungeon Fantasy Characters — Wound Treatment (cypher-rd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed fantasy recovery times; a world can lengthen them to make injuries more consequential.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0016",
+   "world": "cypher",
+   "statement": "A Barbarian who has at least three moderate wounds or one major wound gains one free Effort level for one attack each round, rising to two free levels at tier 3.",
+   "locators": [
+    "Cypher Reference Document: Barbarian Abilities — Wounded Fury (cypher-rd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB31",
+   "derives": [],
+   "default_dial_reason": "Default to granting free attack Effort only at the stated injury threshold; a world can adjust the threshold or bonus, changing how injury fuels combat.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0017",
+   "world": "cypher",
+   "statement": "Healing Hand reduces one wound by one severity step: minor wounds disappear, moderate wounds become minor, and major wounds become moderate. The recipient cannot exceed the limit for the lower-severity wound; each use costs 1 Intellect more than the previous use until a recovery resets the cost to 1.",
+   "locators": [
+    "Cypher Reference Document: Cleric Abilities — Healing Hand (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to one-step wound reduction with rising Intellect cost; a world can change how much healing is possible, because divine power is tiring or scarce.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0018",
+   "world": "cypher",
+   "statement": "A beast companion is a level 2 follower no larger than its druid, and follows instructions. If it dies, the druid can spend resources to revive it or search for and befriend another; the companion’s movement depends on its creature type.",
+   "locators": [
+    "Cypher Reference Document: Druid Abilities — Beast Companion (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots",
+    "creature-control",
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to one level 2 companion; a world can alter its size or level, because the companion’s bond and availability set the limit.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0019",
+   "world": "cypher",
+   "statement": "A necromancer can animate a nearby dead creature about their size or smaller as a level 1 follower, with no memories, intelligence, or former special abilities. It obeys verbal commands until the necromancer takes a recovery of at least one hour, then becomes inert; animating another body makes the first inert, and damage carries over if it is reanimated.",
+   "locators": [
+    "Cypher Reference Document: Necromancer Abilities — Basic Necromancy (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB21",
+   "derives": [
+    "creature-control",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to one active corpse follower lasting until an hour-long recovery; a world can change capacity or duration, because animation requires ongoing necromantic control.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0020",
+   "world": "cypher",
+   "statement": "Preparing a low-power manifest cypher takes ten minutes and grants its effect as a spell that costs 2 Intellect to cast; unlike a cypher, the spell remains after use and does not count against the cypher limit. A ten-hour recovery can replace the prepared spell and ends durations from the old one; at tiers 3 and 6, medium and advanced cyphers become available for 4 and 6 Intellect respectively.",
+   "locators": [
+    "Cypher Reference Document: Mage Abilities — Prepare Spell (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to one prepared low-power cypher spell; a world can raise the available power or number prepared, because learning and holding arcane effects takes time and mental reserves.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0021",
+   "world": "cypher",
+   "statement": "Friend to Small Creatures influences a named type of nearby small creature after a difficulty 2 outdoor-survival task; those within short range will not harm the druid or designated allies until a recovery of at least ten minutes. It cannot affect hostile swarms of level 3 or higher, and Effort can make the creatures act as an NPC ally.",
+   "locators": [
+    "Cypher Reference Document: Druid Abilities — Friend to Small Creatures (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB13",
+   "derives": [
+    "creature-control",
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to peaceful influence over one nearby small-creature type until recovery; a world can widen the target or command more strongly, because hostile or powerful creatures resist control.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0022",
+   "world": "cypher",
+   "statement": "Divine Radiance can bless a short-range target so they gain an asset to one action before their next recovery of at least ten minutes; Effort adds two targets. Alternatively, it attacks up to five nearby undead of level 2 or less, which flee for their next turn; Effort adds two targets and raises the level limit by 1, and at tier 3 the effect can instead prevent actions for one turn.",
+   "locators": [
+    "Cypher Reference Document: Cleric Abilities — Divine Radiance (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "mind-state",
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to a single brief blessing or a limited undead repulse; a world can turn up targets or incapacitation, because greater divine influence costs effort.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0023",
+   "world": "cypher",
+   "statement": "When a druid’s seed attack hits, it deals 3 damage and sets the target on fire for 1 damage per round until the target spends an action extinguishing it or the druid next recovers.",
+   "locators": [
+    "Cypher Reference Document: Druid Abilities — Seeds of Fury (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to 3 initial damage and 1 recurring damage; a world can adjust the burn’s intensity or duration, because the flames persist only briefly unless actively doused.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0024",
+   "world": "cypher",
+   "statement": "Overwatch lets an archer attack a viable target entering a chosen limited area, ignoring benefits from cover, position, surprise, range, illumination, or visibility; the attack deals 1 extra damage. The archer may maintain the setup as long as reasonable.",
+   "locators": [
+    "Cypher Reference Document: Archer Abilities — Overwatch (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB2",
+   "derives": [
+    "area-field",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to one watched area and one triggered shot; a world can widen the area or limit duration, because maintaining vigilance and a ready weapon is demanding.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0025",
+   "world": "cypher",
+   "statement": "Swords-and-sorcery wound treatment takes 1 minute for a minor wound, 10 minutes for a moderate wound, and 1 hour for a major wound.",
+   "locators": [
+    "Cypher Reference Document: Swords & Sorcery — Wound Treatment (cypher-rd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default to progressively longer treatment for worse wounds; a world can change these times, because severe injuries require more sustained care.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0026",
+   "world": "cypher",
+   "statement": "Axe Hook can trade 2 damage for making a target drop a weapon or shield, which they must spend an action to retrieve; alternatively, it trades 1 damage to hinder the target’s tasks until the attacker’s next turn.",
+   "locators": [
+    "Cypher Reference Document: Axe Hook (cypher-rd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to letting a successful weapon attack impose a brief disarm or hindrance; a world can make recovery harder or easier depending on how exposed the dropped gear is.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0027",
+   "world": "cypher",
+   "statement": "Split Skull, Gut Ripper, and Swing Through each raise the attack’s GM intrusion range from a roll of 1 to rolls of 1–3. On a hit, each offers a choice of extra damage or another effect; their intrusions can damage the attacker or impair, dislodge, or break the weapon.",
+   "locators": [
+    "Cypher Reference Document: Split Skull; Gut Ripper; Swing Through (cypher-rd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB14",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to a stronger attack with a wider chance of mishap; a world can vary the consequences, with weapon trouble and self-injury as the cost.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0028",
+   "world": "cypher",
+   "statement": "An idol made in a ten-minute ritual lasts until its magic is exhausted and grants one selected benefit to anyone who prays to it as an action. Each use has a 1–2 depletion result on a d6; carrying the idol requires Effort.",
+   "locators": [
+    "Cypher Reference Document: Priest Abilities — Idol (cypher-rd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a reusable, placed blessing with a chance of depletion per use; a world can make the idol portable by charging Effort, or restrict its placement to protected solid surfaces.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0029",
+   "world": "cypher",
+   "statement": "The idol’s bestial-fury benefit changes the supplicant visibly, prevents Intellect spending except to regain composure, and makes them attack every living creature within short range, rolling twice and taking the better result. It ends after a ten-minute recovery or a successful difficulty 2 Intellect task, then inflicts two moderate wounds; a furious NPC is one level higher and takes 6 damage when it ends.",
+   "locators": [
+    "Cypher Reference Document: Priest Abilities — Idol: Bestial Fury (cypher-rd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB14",
+   "derives": [
+    "form-transformation",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a potent, uncontrolled combat state that exacts a substantial physical toll; a world can change the trigger or recovery method, but the supplicant risks harming allies and self.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0030",
+   "world": "cypher",
+   "statement": "Opening the sorcerer’s inner eye takes a ten-minute ritual and a blade puncture that causes a minor wound; it lasts until a ten-hour recovery. While open, physical perception tasks are hindered, but the sorcerer can use the listed spirit-sensing and mind-affecting abilities; from tier 3, activation takes one minute and the perception hindrance is removed.",
+   "locators": [
+    "Cypher Reference Document: Sorcerer Abilities — Open Inner Eye (cypher-rd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB34",
+   "derives": [
+    "conceal-or-sense",
+    "mind-binding",
+    "mind-ennoblement"
+   ],
+   "default_dial_reason": "Default to enhanced supernatural perception and mental powers in exchange for a lasting wound and impaired ordinary perception; a world can ease activation at higher tier while retaining the bodily price.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0031",
+   "world": "cypher",
+   "statement": "A successful Sorcerous Suggestion makes a target with a mind attempt one specified simple action on their next turn, such as answering a prompt, manipulating an object, moving an immediate distance, or staying still.",
+   "locators": [
+    "Cypher Reference Document: Sorcerer Abilities — Sorcerous Suggestion (cypher-rd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to one brief, limited compelled action after a successful attack; a world can broaden or narrow the permitted actions, with mindless creatures remaining outside the effect.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0032",
+   "world": "cypher",
+   "statement": "A Witch can brew a potion in ten minutes by choosing a manifest cypher effect. The potion counts against the brewer’s or recipient’s cypher limit, displacing one current cypher if necessary; higher tiers allow medium effects at tier 3 and advanced effects at tier 6, while Potion Cyphers permits two extra created potions to be carried.",
+   "locators": [
+    "Cypher Reference Document: Witch Abilities — Brew Potion; Potion Cyphers (cypher-rd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to making a chosen magical effect portable but subject to cypher capacity; a world can expand the available potency by tier, while excess potions force the loss of another cypher’s magic.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0033",
+   "world": "cypher",
+   "statement": "In epic fantasy, treating a minor wound takes 10 minutes, a moderate wound takes 1 hour, and a major wound takes 1 week. Manifest cyphers are rare in this setting, and genre abilities are gained at tiers 3 and 6, with one mid-tier ability replaceable at tier 6.",
+   "locators": [
+    "Cypher Reference Document: Epic Fantasy — Wound Treatment; Manifest Cyphers; Genre Abilities (cypher-rd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: recovery and advancement",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to slow recovery and scarce temporary magic to emphasize serious consequences; a world can shorten treatment or increase cypher frequency to make play less demanding.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0034",
+   "world": "cypher",
+   "statement": "A character can take three additional minor wounds and one additional moderate wound; the Swashbuckler and Warrior also gain +3 in their main combat Pool, while the Wizard gains +3 Intellect and +1 Might. Each of these types gains +1 Edge in a chosen Pool and may use the weapons and armor specified for the type without restriction.",
+   "locators": [
+    "Cypher Reference Document: Swashbuckler Abilities; Warrior Abilities; Wizard Abilities (cypher-rd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to these fixed type benefits; a world can change wound and Pool bonuses to tune resilience or specialization, reflecting how its training shapes characters.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0035",
+   "world": "cypher",
+   "statement": "A Swashbuckler may spend 1 Speed when attacking to accept a GM intrusion range increased by 2 (from a roll of 1 to rolls of 1–3 on a d20); on a hit, choose either +2 damage or deal 1 less damage and make the foe drop an item held in one hand, which takes an action to retrieve.",
+   "locators": [
+    "Cypher Reference Document: Swashbuckler Abilities — Flamboyant Swordplay (cypher-rd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB14",
+   "derives": [],
+   "default_dial_reason": "Default to the listed risk and benefits; a world can change the intrusion range or effect strength, with showy combat inviting mishaps.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0036",
+   "world": "cypher",
+   "statement": "A Wizard can spend 2 Intellect to prepare a low-power manifest cypher as a lasting spell after ten minutes; casting it takes an action and 2 Intellect, does not count against the cypher limit, and does not consume the spell. A ten-hour recovery allows a different choice and ends durations of the previous spell; at tiers 3 and 6, the available power and casting cost rise to medium/4 Intellect and advanced/6 Intellect.",
+   "locators": [
+    "Cypher Reference Document: Wizard Abilities — Prepare Spell (cypher-rd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to one prepared cypher-spell at a time, with tier-based access; a world can vary preparation slots or cost, reflecting the difficulty of sustaining learned magic.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0037",
+   "world": "cypher",
+   "statement": "A creature designated within immediate range can reduce wound severity from a chosen energy type by one step until it takes a one-hour or longer recovery; spending Effort reduces severity by another step. Each protected creature’s duration ends independently.",
+   "locators": [
+    "Cypher Reference Document: Mid-Tier Fantasy Abilities — Elemental Protection (cypher-rd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "protection-field",
+    "area-field"
+   ],
+   "default_dial_reason": "Default to one-step protection for a group until recovery; a world can change the area or severity reduction, reflecting how much magical shelter it can provide.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0038",
+   "world": "cypher",
+   "statement": "Invisibility lasts until the user reveals their presence or position, or takes a ten-minute or longer recovery. While invisible, the user’s attacks are eased by two steps and attacks against them are hindered by four steps, or are nearly impossible if the attacker cannot locate them; Effort can instead make a touched creature invisible.",
+   "locators": [
+    "Cypher Reference Document: High-Tier Fantasy Abilities — Invisibility (cypher-rd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to the stated visibility-ending actions and combat modifiers; a world can broaden or narrow what reveals the user, reflecting how fragile concealment is.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0039",
+   "world": "cypher",
+   "statement": "A portal made within long range connects to a location the caster can see or knows exists; it admits the caster and creatures no larger than them, and anything entering immediately emerges at the other end. It remains open until a ten-minute or longer recovery.",
+   "locators": [
+    "Cypher Reference Document: High-Tier Fantasy Abilities — Magic Portal (cypher-rd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "portal-space",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default to a two-way traversable opening that persists until recovery; a world can restrict destination knowledge, size, or duration, reflecting the hazards of crossing space.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0040",
+   "world": "cypher",
+   "statement": "A body’s appearance and carried or worn items can be changed to resemble someone else, without changing any statistics; the disguise lasts up to a day or ends when the user takes an action to revert. Close scrutiny eases disguise tasks by three steps.",
+   "locators": [
+    "Cypher Reference Document: High-Tier Fantasy Abilities — Mask (cypher-rd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to a day-long cosmetic transformation with unchanged capabilities; a world can shorten duration or limit copied details, reflecting the effort needed to sustain a convincing disguise.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0041",
+   "world": "cypher",
+   "statement": "A successful Intellect attack can end one ongoing magical effect within immediate range; against a cypher or magical device, success instead prevents it from functioning until a ten-minute or longer recovery. Effort lets the user attempt this defensively in response to an attack on another creature’s turn.",
+   "locators": [
+    "Cypher Reference Document: High-Tier Fantasy Abilities — Spellbreaker (cypher-rd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to ending one nearby magical effect on success; a world can limit eligible effects or allow defensive use, reflecting how readily magic can be disrupted.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0042",
+   "world": "cypher",
+   "statement": "When a rule sets a minimum result, a roll below that minimum is treated as the minimum; spending Effort can raise the minimum by 3, and some abilities improve their minimum at tier 3. The stated abilities that use this rule cost 1–3 Pool points, as specified in their descriptions.",
+   "locators": [
+    "Cypher Reference Document: Engineer Abilities; Operative Abilities; Pilot Abilities; Soldier Abilities; Android Abilities; Scoundrel Abilities (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to the listed minimums and costs; a world can adjust the minimum or Effort surcharge to represent how reliable trained specialists are.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0043",
+   "world": "cypher",
+   "statement": "A successful engineering task at difficulty equal to a device’s level plus 1 temporarily restores a broken device or inactive power source for a few uses. A full repair usually takes at least days, special tools and parts, and resource points.",
+   "locators": [
+    "Cypher Reference Document: Engineer Abilities—Repair (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB16",
+   "derives": [
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default to short-lived repairs with a full repair taking days and resources; a world can change the repair window to reflect how scarce parts and tools are.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0044",
+   "world": "cypher",
+   "statement": "A successful difficulty 3 engineering task can raise a device to about 25 percent above its rated performance, but after the user’s next ten-hour recovery it breaks and needs a full repair. A repaired or upgraded device depletes on a 1–6 result on a d20 per use, improving to 1–2 at tier 3; the process takes ten minutes and requires suitable tools and parts.",
+   "locators": [
+    "Cypher Reference Document: Engineer Abilities—Modify Device (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB16",
+   "derives": [
+    "tinker-device",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to a temporary performance boost with a per-use breakdown chance; a world can adjust the depletion range to make improvised engineering safer or riskier.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0045",
+   "world": "cypher",
+   "statement": "A medic can prepare a medical device as an attack against an adjacent creature; the eased attack prevents that creature from acting on its next turn. Spending two Effort levels instead makes the target unconscious until the medic uses a recovery; preparing the medicine and attacking each take an action.",
+   "locators": [
+    "Cypher Reference Document: Medic Abilities—Bad Medicine (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB13",
+   "derives": [
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to one lost turn or unconsciousness until recovery; a world can alter the duration or access to medical supplies to set how disabling misuse of medicine is.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0046",
+   "world": "cypher",
+   "statement": "When an operative rolls below 6 to pass as a generic member of a category, treat the result as 6; Effort raises that minimum by 3, and at tier 3 the minimum is 12. The successful disguise of identity lasts until a ten-minute recovery or until circumstances expose the operative, and it cannot imitate a specific person.",
+   "locators": [
+    "Cypher Reference Document: Operative Abilities—Spin Identity (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB2",
+   "derives": [
+    "mind-state",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to generic identities lasting until recovery; a world can shorten or lengthen persistence according to how pervasive identity checks are.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0047",
+   "world": "cypher",
+   "statement": "A psion can read a visible creature’s surface thoughts at short range, making an Intellect attack if the creature resists; after contact, reading lasts until the psion takes a ten-minute recovery. The ability costs 2 Intellect and takes an action.",
+   "locators": [
+    "Cypher Reference Document: Psion Abilities—Mind Reading (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB2",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to surface thoughts and a recovery-limited connection; a world can make contact easier or harder depending on how guarded minds are.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0048",
+   "world": "cypher",
+   "statement": "A psion can distort their appearance until a ten-minute recovery, easing their dodge and Intellect defense rolls; the distortion also reduces incoming mental wound severity by one step. The ability costs 1 Intellect.",
+   "locators": [
+    "Cypher Reference Document: Psion Abilities—Psychic Veil (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a persistent defensive veil with one-step severity reduction; a world can tune its duration or protection to reflect the prevalence of psychic threats.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0049",
+   "world": "cypher",
+   "statement": "An android needs engineering rather than healing to remove wounds: repair difficulty is level 1 for minor, level 3 for moderate, and level 5 for major wounds. Without a suitable power supply during a ten-hour recovery, the android loses its normal one-action recovery and its bonus power-connected recovery.",
+   "locators": [
+    "Cypher Reference Document: Android Abilities—Machine Not Flesh (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB16",
+   "derives": [
+    "body-code-decay"
+   ],
+   "default_dial_reason": "Default to wound repair and power-dependent recovery as written; a world can relax the power requirement or raise repair difficulties to change android resilience.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0050",
+   "world": "cypher",
+   "statement": "A soldier can make an additional attack as an extra action after attacking by activating a combat implant, but doing so inflicts a moderate wound on the soldier.",
+   "locators": [
+    "Cypher Reference Document: Soldier Abilities—Push Implant (cypher-rd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB34",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to one extra attack at the cost of a moderate wound; a world can change the wound cost to reflect how dangerous combat implants are.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0051",
+   "world": "cypher",
+   "statement": "Redline Maneuver costs 1 Speed or Intellect and raises the GM intrusion range by 2; on a successful piloting task of difficulty 2 or higher, it permits an unusually risky starcraft maneuver.",
+   "locators": [
+    "Cypher Reference Document: Starpilot Abilities — Redline Maneuver (cypher-rd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB14",
+   "derives": [
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default to difficulty 2 and +2 intrusion range; the GM can raise the difficulty for more extreme maneuvers, reflecting the risk of craft damage or failure.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0052",
+   "world": "cypher",
+   "statement": "A device made with Always Tinkering takes 10 minutes, is single-use, and counts against its bearer’s cypher limit; if that limit is already full, one existing cypher must be sacrificed or displaced. Its available effects expand at tiers 3 and 6.",
+   "locators": [
+    "Cypher Reference Document: Tech Abilities — Always Tinkering (cypher-rd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default to a single-use device that occupies a cypher slot; a world can restrict available device effects to reflect its technology.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0053",
+   "world": "cypher",
+   "statement": "Craft Device costs 5 or more Intellect and an hour, and requires success at a difficulty 3 engineering task. Its small, fragile product uses a selected low-power manifest-cypher effect, does not count against a cypher limit, and depletes on 1 in 1d6; higher-tier effects require Effort.",
+   "locators": [
+    "Cypher Reference Document: Tech Abilities — Craft Device (cypher-rd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB16",
+   "derives": [
+    "tinker-device",
+    "item-bound-power",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to a portable but fragile device with a 1-in-1d6 depletion chance; a world can change the effect tier or reliability to match available technology.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0054",
+   "world": "cypher",
+   "statement": "Smooth Operator reduces an expensive item’s price to a moderately priced item’s price; Effort allows further price reductions. It works only where goods and services are routinely traded and renews after reaching a new market or waiting at least a month; at tier 3 it can be used twice before renewal.",
+   "locators": [
+    "Cypher Reference Document: Trader Abilities — Smooth Operator (cypher-rd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "concept-law"
+   ],
+   "default_dial_reason": "Default to one discount per market per month; a world can alter the renewal interval, with access to markets determining how often the benefit returns.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0055",
+   "world": "cypher",
+   "statement": "After a successful positive social interaction or Fast Talk, if the other creature turns hostile within about a day, the Dealer reduces the severity of its first successful attack by one step; at tier 3, that attack instead causes no damage.",
+   "locators": [
+    "Cypher Reference Document: Dealer Abilities — When the Deal Bombs (cypher-rd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to one protected first hit within about a day; a world can adjust the window or protection, with the benefit arising from the earlier deal.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0056",
+   "world": "cypher",
+   "statement": "In a postapocalypse setting, removing a minor wound by treatment takes 10 minutes, a moderate wound takes one hour, and a major wound takes one week. A Tender with a scavenged doctor’s bag can halve treatment time or treat twice as many wounds for one character in the usual time.",
+   "locators": [
+    "Cypher Reference Document: Postapocalypse — Wound Treatment; Tender Abilities — Wasteland Healer (cypher-rd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB29",
+   "derives": [
+    "body-code-decay"
+   ],
+   "default_dial_reason": "Default to the listed recovery times and the Tender’s choice of faster or broader treatment; a world can change the duration to reflect how scarce effective care is.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0057",
+   "world": "cypher",
+   "statement": "A scavenged doctor’s bag depletes on 1 in 1d10; a Tender can restock it by spending at least an hour searching inhabited ruins and 1 resource point.",
+   "locators": [
+    "Cypher Reference Document: Tender Equipment Bundle (cypher-rd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "ingredient-properties"
+   ],
+   "default_dial_reason": "Default to a 1-in-1d10 depletion chance and a one-hour, one-resource restock; a world can change the scarcity or recovery cost of medical supplies.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0058",
+   "world": "cypher",
+   "statement": "The listed science-fiction abilities are gated by character tier: characters gain a mid-tier ability at tier 3 and a high-tier ability at tier 6, and at tier 6 may exchange one mid-tier choice for another. The GM may disallow choices that do not fit the campaign.",
+   "locators": [
+    "Cypher Reference Document: Science Fiction Genre Abilities (cypher-rd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to choices at tiers 3 and 6 with one tier-6 mid-tier exchange; a world can restrict options to preserve its technological assumptions.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0059",
+   "world": "cypher",
+   "statement": "A Human character may choose a second descriptor and add its benefits to the regular descriptor; a character whose type represents their species instead gains the benefit of two descriptors when other characters use the standard species options.",
+   "locators": [
+    "Cypher Reference Document: Human; Species or Type? (cypher-rd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default to granting the extra descriptor benefits; a setting can restrict this option to mixed-species groups to keep species choices distinct.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0060",
+   "world": "cypher",
+   "statement": "A Mutant ignores the GM intrusion normally triggered by rolling 1 on a Might defense task and adapts any tier 1 focus ability into a mutation, subject to GM agreement.",
+   "locators": [
+    "Cypher Reference Document: Mutant (cypher-rd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation"
+   ],
+   "default_dial_reason": "Default to one adapted tier 1 ability and immunity to this specific intrusion; a world can limit mutation choices to fit its biology and balance.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0061",
+   "world": "cypher",
+   "statement": "A Naron can telepathically communicate at short range with intelligent creatures without making vocal sounds, but cannot read thoughts or communicate with a creature that refuses contact.",
+   "locators": [
+    "Cypher Reference Document: Naron (cypher-rd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to willing, short-range mental conversation; a world can broaden targets or range, with privacy and mental resistance as limits.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0062",
+   "world": "cypher",
+   "statement": "A Prota can reshape its body over about 10 minutes into an evocative but not exact imitation; for a task specifically suited to the new shape it gains an asset, and it can take one extra minor wound.",
+   "locators": [
+    "Cypher Reference Document: Prota (cypher-rd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to task-specific body shaping after 10 minutes; a world can expand the forms or shorten the time, balanced by the inability to copy things exactly.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0063",
+   "world": "cypher",
+   "statement": "Superhero power shifts act as permanent free Effort for designated tasks, do not count against the Effort maximum, and are capped at three shifts per category. A shift to ability damage adds +3 damage; other shifts affect their listed task categories.",
+   "locators": [
+    "Cypher Reference Document: Power Shifts (cypher-rd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to permanent, category-limited bonuses of at most three shifts; a world can change the cap or bonus size to set the superheroes' power level.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0064",
+   "world": "cypher",
+   "statement": "A Flight shift permits flight at ordinary human running speed, with limited maneuverability, and lets the character carry one creature of their size or smaller. A Healing shift grants one extra one-action recovery per day; Increased Range moves an ability up one range band; Prodigy exchanges one tier 1 ability for a tier 2 focus ability or two tier 1 abilities for a tier 3 focus ability.",
+   "locators": [
+    "Cypher Reference Document: Power Shifts (cypher-rd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to the stated narrow benefits and daily recovery limit; a world can increase mobility, range, or ability access at the cost of broader balance.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0065",
+   "world": "cypher",
+   "statement": "A superhero can rally a major wound by taking an action and spending 10 Might. Treating wounds takes one Last action for a minor wound, one minute for a moderate wound, and ten minutes for a major wound.",
+   "locators": [
+    "Cypher Reference Document: Playing a Superhero Character (cypher-rd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to these recovery costs and times; a world can make treatment slower or more resource-intensive to emphasize danger.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0066",
+   "world": "cypher",
+   "statement": "For tasks using a chosen Pool, Superheroics adds the character's rank to the maximum Effort they can apply; the character may instead take a moderate wound to gain two free Effort levels, if that stays within the Pool's Effort limit. Recovery points from the ability go only to the chosen Pool and gain a bonus equal to rank.",
+   "locators": [
+    "Cypher Reference Document: Crimefighter Abilities; Superheroics (cypher-rd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB3",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to a rank-based Effort increase and a moderate wound for the optional boost; a world can change the wound cost or Effort ceiling to tune power.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0067",
+   "world": "cypher",
+   "statement": "Superhero task difficulty can reach 15 rather than stopping at 10; each level above 10 represents a further step beyond ordinary impossibility. Superheroes can also exceed the usual six levels of Effort through Superheroics.",
+   "locators": [
+    "Cypher Reference Document: Really Impossible Tasks (cypher-rd#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: superhero limits",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Default to a difficulty cap of 15 and permit Superheroics to exceed six Effort levels; a setting can lower either limit to make extraordinary feats rarer.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0068",
+   "world": "cypher",
+   "statement": "A character chooses two tier 1 abilities from a focus, then one ability at each later tier. Later choices must be at the character’s tier or lower and connected to an ability already chosen; an ability that modifies another requires the character to have that earlier ability.",
+   "locators": [
+    "Cypher Reference Document: Focus Abilities (cypher-rd#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: connected advancement",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to connected, tier-limited ability choices; a world can loosen the links to allow broader development, at the cost of less distinct progression.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0069",
+   "world": "cypher",
+   "statement": "Superheroics adds the character’s rank to the Effort they can apply on tasks using one chosen Pool, and adds that rank to recovery points placed in that Pool. The character may take a moderate wound to gain two free Effort levels for such a task, without exceeding their Effort limit.",
+   "locators": [
+    "Cypher Reference Document: Living God Abilities (cypher-rd#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB3",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to rank-based Effort and recovery bonuses with a wound traded for extra Effort; a world can change the wound cost or cap to tune the power of heroic exertion.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0070",
+   "world": "cypher",
+   "statement": "A duplicate lasts until a ten-minute recovery, dismissal, reuse of the ability, or its death. Only one normally exists at once; each duplicate’s death gives its creator a moderate wound, and its copied equipment disappears with it unless acquired separately.",
+   "locators": [
+    "Cypher Reference Document: Origin Superhero Abilities — Duplicate (cypher-rd#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: create",
+   "seam": "AB15",
+   "derives": [
+    "projection-body"
+   ],
+   "default_dial_reason": "Default to one temporary duplicate and a moderate wound on its death; a world can alter the number or the creator’s cost, with more duplicates making replication less risky.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0071",
+   "world": "cypher",
+   "statement": "A focus’s shroud of flame persists until a ten-minute recovery, harms creatures that touch or strike its user for 2 damage, and reduces flame or heat wound severity by one step. Its user can also make a light unarmed attack that deals 2 fire damage.",
+   "locators": [
+    "Cypher Reference Document: Blazes With Fire — Shroud of Flame (cypher-rd#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to persistent personal fire protection with contact damage; a world can change its duration or damage to make the shroud safer or more hazardous.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0072",
+   "world": "cypher",
+   "statement": "Stone Body means its user needs no food, drink, or air, can take two extra minor wounds, eases block tasks, and deals 2 extra damage with unarmed attacks. Its mineral stiffness makes dodge tasks an inability.",
+   "locators": [
+    "Cypher Reference Document: Abides in Stone — Stone Body (cypher-rd#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to durability and strength offset by poor dodging; a world can adjust the physical drawbacks to reflect how flexible mineral bodies are.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0073",
+   "world": "cypher",
+   "statement": "When a character uses Still As a Statue, they cannot move, take physical actions, or sense their surroundings, and time seems not to pass for them. After 24 hours they wake and remove three wounds of any severity; an ally can wake them earlier by spending at least 2 Might, but then no wounds are removed.",
+   "locators": [
+    "Cypher Reference Document: Abides in Stone — Still As a Statue (cypher-rd#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB34",
+   "derives": [
+    "soul-state"
+   ],
+   "default_dial_reason": "Default to a 24-hour inert recovery that heals three wounds, with an ally able to end it early for at least 2 Might; a world can change the healing or interruption cost.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0074",
+   "world": "cypher",
+   "statement": "An automaton follower can be repaired by its builder: the level 2 assistant regains 2 health after a few minutes of attention, and if destroyed can be restored by spending resources and several days tinkering. Gaining resource points also grants the builder one extra point restricted to crafting or repairs.",
+   "locators": [
+    "Cypher Reference Document: Builds Allies — Automaton Assistant; Efficient Builder (cypher-rd#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: repair",
+   "seam": "AB16",
+   "derives": [
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to time and resource costs for restoring constructs, with one bonus crafting-only point per resource gain; a world can raise those costs to make construct upkeep more demanding.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0075",
+   "world": "cypher",
+   "statement": "A command effect can force a machine to take one action within its capabilities on its next turn; if that action would directly harm it or its allies, the attack to command it is hindered. Some controlled intelligent machines may become hostile afterward.",
+   "locators": [
+    "Cypher Reference Document: Quick Control (cypher-rd#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB14",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to one forced action with a harm-related difficulty increase; a world could relax the limit, at the cost of making machine control easier to abuse.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0076",
+   "world": "cypher",
+   "statement": "A prepared spell is selected from a low-power manifest cypher after 10 minutes, costs 2 Intellect to cast, persists after casting, and can be changed after a 10-hour recovery; changing it ends the old spell’s ongoing durations. At tiers 3 and 6, medium- and advanced-power options cost 4 and 6 Intellect respectively.",
+   "locators": [
+    "Cypher Reference Document: Casts Spells — Prepare Spell (cypher-rd#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "copy",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to one daily prepared effect that is reusable but costs Intellect; a world could permit more preparations, at the cost of greater versatility.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0077",
+   "world": "cypher",
+   "statement": "An animal transformation can last until a recovery and grants animal movement and a minor animal ability, but makes equipment unusable and hinders tasks requiring hands; effort can permit speech, a hybrid form, or a creature-related skill asset.",
+   "locators": [
+    "Cypher Reference Document: Changes Shape — Animal Shape (cypher-rd#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to animal traits with practical limits on gear, speech, and hand use; a world could remove those limits, at the cost of making transformation broadly superior.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0078",
+   "world": "cypher",
+   "statement": "Telepathic contact may be limited by willingness, range, and duration; mental control instead requires a successful attack, touch, and a target of level 2 or lower, and ends at a 10-minute recovery. A controlled target forgets the control and its actions when the effect ends.",
+   "locators": [
+    "Cypher Reference Document: Commands Mental Powers — Telepathic; Mind Control (cypher-rd#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB21",
+   "derives": [
+    "mind-binding",
+    "memory-erasure"
+   ],
+   "default_dial_reason": "Default to constrained mental links and short-lived control with memory loss; a world could lengthen control, at the cost of stronger consent and autonomy concerns.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0079",
+   "world": "cypher",
+   "statement": "An animated corpse follows verbal commands until a one-hour recovery, then becomes inert; it can be animated again. More powerful animation raises the follower’s level and the Intellect cost for each additional body.",
+   "locators": [
+    "Cypher Reference Document: Consorts With the Dead — Basic, Greater, and True Necromancy (cypher-rd#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "creature-control",
+    "soul-state"
+   ],
+   "default_dial_reason": "Default to temporary animated bodies without their former memories or abilities; a world could grant them more agency, at the cost of less reliable obedience.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0080",
+   "world": "cypher",
+   "statement": "A beast companion is a follower, and a dead companion can be replaced through several days of searching and befriending; a mount takes about a week to replace. Some abilities instead influence nearby small creatures or plants, with stronger command requiring effort.",
+   "locators": [
+    "Cypher Reference Document: Controls Beasts — Beast Companion; Friend to Small Creatures; Mount (cypher-rd#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots",
+    "creature-control",
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to a small, replaceable roster of bonded followers and limited influence over local creatures; a world could allow larger groups, at the cost of greater upkeep and attention.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0081",
+   "world": "cypher",
+   "statement": "A level 5 force field protects its automaton and creatures within immediate range until a 10-minute recovery; protected creatures reduce incoming wounds by one severity, while NPCs take 3 less damage.",
+   "locators": [
+    "Cypher Reference Document: Tier 5 — Automaton Force Field Upgrade (cypher-rd#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "protection-field",
+    "area-field"
+   ],
+   "default_dial_reason": "Default to a local protective field with a recovery-based end condition; a world could extend its duration, at the cost of making safe zones easier to maintain.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0082",
+   "world": "cypher",
+   "statement": "When the shapeshifter would die, they instead fall unconscious for one round, then recover 1d6 + 6 Pool points and remove one moderate and one major wound; their tasks are hindered until a 10-hour recovery, and a second death before then is final.",
+   "locators": [
+    "Cypher Reference Document: Changes Shape — Not Dead Yet (cypher-rd#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB34",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to one costly reprieve before recovery; a world could allow repeated returns, at the cost of imposing a larger or accumulating penalty.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0083",
+   "world": "cypher",
+   "statement": "Beast Call spends 5 Intellect to summon one level 4 beast or a horde that collectively functions as a level 4 creature. The creatures obey only while the user focuses and spends an action directing them each turn; they must be local and able to reach the summoner themselves.",
+   "locators": [
+    "Cypher Reference Document: Beast Call (cypher-rd#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon"
+   ],
+   "default_dial_reason": "Default to a temporary, locally available companion that requires ongoing attention; a world can permit remote arrivals by changing the native-and-travel limitation, at the cost of weakening the place-based constraint.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0084",
+   "world": "cypher",
+   "statement": "Illusions made by Minor Illusion and Major Illusion last until the creator takes a ten-minute recovery; they vanish sooner if the creator moves beyond the specified range. Major changes to a minor image require renewed concentration, while the major scene can change as directed without it.",
+   "locators": [
+    "Cypher Reference Document: Crafts Illusions, Tier 1–3 (cypher-rd#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to recovery-bounded images that fail outside their range; a world can extend duration or remove the range limit, at the cost of making deception easier to sustain.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0085",
+   "world": "cypher",
+   "statement": "Move Metal can exert hand-like force on metal within short range, but cannot provide fine control or move an object beyond what the user could physically manage. Affecting an unwilling creature or its gear requires an Intellect attack; disrupting nearby electronics hinders them by two steps for one round.",
+   "locators": [
+    "Cypher Reference Document: Employs Magnetism, Tier 1 (cypher-rd#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to limited remote manipulation rather than precise telekinesis; a world can allow finer or stronger control, at the cost of removing the physical-hand constraint.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0086",
+   "world": "cypher",
+   "statement": "Electromagnetically Charge heals one wound severity or restores a mundane handheld electrical device’s charge. Each use before a recovery costs one more Intellect point than the previous use, beginning at 1, and a recovery resets the cost to 1.",
+   "locators": [
+    "Cypher Reference Document: Employs Magnetism, Tier 2 (cypher-rd#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to a repeat-use cost that escalates until recovery; a world can keep the cost fixed, at the cost of making repeated healing or device charging easier.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0087",
+   "world": "cypher",
+   "statement": "Magnetic Field grounds incoming ranged metallic projectiles and disperses attacks in the electromagnetic spectrum, making the user immune to them for one round. The user must be aware of the attack to stop it.",
+   "locators": [
+    "Cypher Reference Document: Employs Magnetism, Tier 4 (cypher-rd#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a brief defensive field that works only against specified attacks the user notices; a world can broaden its coverage, at the cost of reducing the importance of awareness and attack type.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0088",
+   "world": "cypher",
+   "statement": "Inspiring Ease gives allies who share a ten-hour recovery with the entertainer one task-easing use per day while they remain within long range. The effect is suspended beyond that distance and ends if the entertainer takes a ten-hour recovery away from them.",
+   "locators": [
+    "Cypher Reference Document: Entertains, Tier 2 (cypher-rd#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB4",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a daily benefit sustained by proximity and shared rest; a world can make inspiration persist at any distance, at the cost of removing its social and positional limits.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0089",
+   "world": "cypher",
+   "statement": "One With the Wild affects the user and allies within long range until an hour-long recovery: local natural animals and plants will not knowingly harm them, their three Edges each rise by 1, and their recoveries restore twice as many points.",
+   "locators": [
+    "Cypher Reference Document: Explores, Tier 6 (cypher-rd#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a temporary bounded wilderness benefit with several linked effects; a world can extend it beyond the wild or make it permanent, at the cost of its location and duration constraints.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0090",
+   "world": "cypher",
+   "statement": "When a character is attacked while using Taunting Defense, the foe’s attack is hindered; if it hits, it inflicts an additional minor wound.",
+   "locators": [
+    "Cypher Reference Document: Fights With Panache, Tier 1 (cypher-rd#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB27",
+   "derives": [],
+   "default_dial_reason": "Default to trading a harder incoming attack for worse consequences on a hit; a world can remove the added wound, at the cost of making the defensive taunt safer.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0091",
+   "world": "cypher",
+   "statement": "The HUD improves vision in darkness and through obscurants. With one Effort it can see 5 miles and through level 4 basic material for two rounds; with two Effort it can see through level 4 special material for two rounds, and a successful Intellect task extends this to level 5 or higher.",
+   "locators": [
+    "Cypher Reference Document: HUD (0+ Intellect) (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to short-range sensing through limited material; a world can raise the material threshold at the cost of Effort and a successful task.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0092",
+   "world": "cypher",
+   "statement": "Deep Reserves transfers up to 6 points among Pools, at one point per round, and refreshes after a ten-hour recovery. Fusion lets the character use fused manifest cyphers and artifacts as First actions; fusing or detaching takes an action.",
+   "locators": [
+    "Cypher Reference Document: Tier 4, Deep Reserves; Fusion (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "power-transfer",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to slow, limited resource transfer and faster use of body-bound devices; a world can raise the cap or speed by increasing the cost.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0093",
+   "world": "cypher",
+   "statement": "A machine contact requires a willing, able machine within range and lasts until a ten-minute recovery; tasks involving it take half the time, and actions become First actions. Effort can extend the contact to a one-hour recovery and increase range by one step.",
+   "locators": [
+    "Cypher Reference Document: Fuses Mind and Machine, Tier 1, Wireless Interface (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "mind-binding",
+    "system-interface"
+   ],
+   "default_dial_reason": "Default to temporary communication with willing machines; a world can extend range and duration by spending Effort.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0094",
+   "world": "cypher",
+   "statement": "Brainwashing controls a touched creature of level 3 or lower after a successful Intellect attack, lasting until a ten-minute recovery; the target forgets the control and its actions afterward. Effort raises the maximum affected level by one.",
+   "locators": [
+    "Cypher Reference Document: Infiltrates, Tier 6, Brainwashing (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB1",
+   "derives": [
+    "mind-binding",
+    "memory-erasure"
+   ],
+   "default_dial_reason": "Default to short-lived control of weak targets with erased recollection; a world can permit stronger targets at increasing Intellect cost.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0095",
+   "world": "cypher",
+   "statement": "Enlarge lasts until a recovery, increases Might Edge by 1, lets the character ignore the first moderate wound, and makes unarmed attacks deal 4 damage, but hinders dodging. Each use costs one more Might than the previous use until a recovery resets the cost; larger forms replace, rather than stack with, smaller-form benefits.",
+   "locators": [
+    "Cypher Reference Document: Grows to Towering Heights, Tier 1, Enlarge (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to temporary growth with a rising repeated-use cost; a world can allow larger forms by charging additional Might and imposing defensive drawbacks.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0096",
+   "world": "cypher",
+   "statement": "Beast Form occurs involuntarily on five consecutive nights each month and lasts until dawn’s first hint or moonset. In that form the character attacks every living creature within short range and cannot spend Intellect except to attempt a difficulty 4 return to normal; afterward tasks are hindered, more severely and longer if no substantial creature was killed and eaten.",
+   "locators": [
+    "Cypher Reference Document: Howls at the Moon, Tier 1, Beast Form (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB14",
+   "derives": [
+    "form-transformation",
+    "creature-control",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to a powerful but dangerous scheduled transformation; a world can reduce loss of control through abilities that make changing voluntary or easier.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0097",
+   "world": "cypher",
+   "statement": "Quarry selects one visible creature and grants an asset on tasks involving pursuit, understanding, interaction, attack, or defense against it; only one quarry can be active. Multiple Quarries permits four visible targets, with each additional target increasing the cost by 2 Intellect.",
+   "locators": [
+    "Cypher Reference Document: Hunts, Tier 2, Quarry; Tier 6, Multiple Quarries (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default to a single designated target that improves relevant actions; a world can broaden the target set at additional Intellect cost.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0098",
+   "world": "cypher",
+   "statement": "A follower or ally within short range can receive a command that makes their next action a First action, except a normally Last action remains so; this ability cannot be used again before a ten-minute recovery.",
+   "locators": [
+    "Cypher Reference Document: Leads, Tier 1, Lighting a Fire Under Them (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB4",
+   "derives": [
+    "power-granting"
+   ],
+   "default_dial_reason": "Default to one accelerated action for a nearby ally per recovery interval; a world can allow repeated commands by shortening the refresh period or changing the limitation.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0099",
+   "world": "cypher",
+   "statement": "Telekinesis affects a visible object within long range if it is no heavier than the user could handle by hand; it can move or manipulate it over one round, or hinder a creature through a successful attack. Reshape changes material only within a 5-foot cube, with complex work requiring ten minutes and a successful hindered crafting task.",
+   "locators": [
+    "Cypher Reference Document: Masters Telekinesis, Tier 1, Telekinesis; Tier 6, Reshape (cypher-rd#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "power-interaction",
+    "object-surface"
+   ],
+   "default_dial_reason": "Default to limited remote manipulation and shape changes that preserve material; a world can permit heavier or more complex effects by raising task difficulty and time.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0100",
+   "world": "cypher",
+   "statement": "An ability that sets a minimum roll treats any lower result as that minimum; spending Effort can raise the minimum by 3, and some abilities raise it again at tier 3. This does not make an impossible action succeed.",
+   "locators": [
+    "Cypher Reference Document: Perfect Attack; Escape; Naturally Strong; Natural Sneak (cypher-rd#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to raising low rolls without making impossible tasks possible; worlds can change the floor or Effort cost to tune reliability, since extraordinary training carries a resource cost.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0101",
+   "world": "cypher",
+   "statement": "Several attacks and defenses can prevent harm without an ordinary defense roll, but commonly impose a cost such as hindering later actions, reducing damage, or consuming ammunition. Some effects still inflict reduced damage on a failed attack.",
+   "locators": [
+    "Cypher Reference Document: Shot Collision; Spray; Supreme Retribution (cypher-rd#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "protection-field",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to allowing specified defensive or area effects with their stated action and resource costs; a world can make them more reliable or more costly, because protection and collateral damage are consequential.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0102",
+   "world": "cypher",
+   "statement": "Some abilities persist until the user takes a recovery, while others end when the affected target acts to counter them, or when the user spends a specified later action. Persistent effects can therefore be bounded by recovery or by a counteraction.",
+   "locators": [
+    "Cypher Reference Document: Tier 1, Rides the Lightning; Tier 2, Quells Evil (cypher-rd#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to the passage's stated recovery or counteraction limit; worlds can shorten or extend duration, with longer-lasting effects granting greater leverage.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0103",
+   "world": "cypher",
+   "statement": "Some powers require a successful attack or task against each target separately; others affect targets automatically, sometimes with a reduced effect even on a failed roll. Effort can raise target limits, damage, or the maximum level of creature affected where specified.",
+   "locators": [
+    "Cypher Reference Document: Tier 1, Quells Evil; Tier 4, Rides the Lightning (cypher-rd#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "area-field",
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to individual checks and explicit target caps; a world can broaden targets or remove checks by increasing cost or reducing potency, because affecting many creatures is a strong advantage.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0104",
+   "world": "cypher",
+   "statement": "The supernatural-force discipline allows telekinetic movement and manipulation at a distance, limited by sight, range, weight, and task or attack success; some actions take a full round to complete.",
+   "locators": [
+    "Cypher Reference Document: Tier 2, Reveres a Supernatural Force (cypher-rd#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to visible, range- and weight-limited manipulation that takes time; worlds can loosen those limits, with greater reach or force demanding greater expenditure.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0105",
+   "world": "cypher",
+   "statement": "Lightning abilities can move a user rapidly between visible or familiar locations, but travel is limited by barriers, planet, or access to the open sky depending on the ability.",
+   "locators": [
+    "Cypher Reference Document: Bolt Rider; Flash Across the Miles (cypher-rd#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel",
+    "portal-space"
+   ],
+   "default_dial_reason": "Default to the stated line-of-sight, barrier, and destination restrictions; worlds can permit more destinations at higher cost, since rapid travel bypasses ordinary obstacles.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0106",
+   "world": "cypher",
+   "statement": "A creature affected by a successful rebuke follows the user's specified goal, even if that goal risks harm to itself or allies; the control persists until the user's next ten-minute recovery.",
+   "locators": [
+    "Cypher Reference Document: Rebuke Evil (cypher-rd#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "mind-binding",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to one successfully targeted creature and a recovery-bounded command; worlds can allow more targets or longer control, at the cost of greater effort or risk.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0107",
+   "world": "cypher",
+   "statement": "Some abilities change wounds or restore resources: resilience can reduce a fall or poison wound by one severity step, while recovery effects may restore pools or remove wounds, sometimes with a delayed penalty or a limit before recovery.",
+   "locators": [
+    "Cypher Reference Document: Safe Fall; Wilderness Experience; Not Dead Yet (cypher-rd#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to the passage's fixed recovery and wound limits; worlds can make healing stronger or more frequent, balanced by exhaustion, hindrance, or a recovery requirement.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0108",
+   "world": "cypher",
+   "statement": "Natural foliage can hold a foe in place and hinder physical tasks until the user takes a recovery of at least ten minutes; the user can keep restraining a foe who tries to escape with another Intellect roll. The same power can clear entangling plants from an immediate area.",
+   "locators": [
+    "Cypher Reference Document: Nature’s Grip (cypher-rd#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "plant-or-creature-target",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a held target that cannot move and is hindered; a world can vary what counts as natural foliage or how long it holds, because the effect draws on local plant life.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0109",
+   "world": "cypher",
+   "statement": "A beast that can see and hear the user can be calmed until the user takes a ten-minute recovery, or only while the user spends actions calming it. Each additional beast costs 2 Intellect; aliens, extradimensional beings, very intelligent creatures, and robots are excluded.",
+   "locators": [
+    "Cypher Reference Document: Nature’s Voice (cypher-rd#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to calming ordinary nonhuman beasts within long range; a world can broaden or narrow the definition of beast, reflecting its ecology and the power’s limits.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0110",
+   "world": "cypher",
+   "statement": "Some abilities remain active until a specified recovery, while others need continuing concentration or actions; ending the duration may also impose a recovery penalty. For example, Moon Shape lasts until an hour recovery, and reverting voluntarily is a difficulty 2 Intellect task.",
+   "locators": [
+    "Cypher Reference Document: Moon Shape; various ability entries (cypher-rd#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: duration and recovery",
+   "seam": "AB2",
+   "derives": [
+    "negative-effect-drift",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to the duration and recovery stated for each effect; a world can change those durations, with longer transformations or control requiring greater lingering costs.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0111",
+   "world": "cypher",
+   "statement": "A character’s abilities can create or control persistent hazards and barriers: the weapon wall blocks an immediate area while maintained, and crossing it deals 10 damage; the storm lasts until a ten-minute recovery and can strike for 4 damage per action.",
+   "locators": [
+    "Cypher Reference Document: Weave an Iron Wall; Call the Storm (cypher-rd#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a maintained barrier or persistent storm with the listed effect; a world can adjust area and damage, with broad coverage making the wielder spend actions to sustain it.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0112",
+   "world": "cypher",
+   "statement": "Abilities can alter machines at range or through an accessible network, but security makes remote hacking harder and machine control can be resisted by the target’s level. Some effects persist only while the user concentrates; others last until a recovery.",
+   "locators": [
+    "Cypher Reference Document: Talks to Machines; Control Electric Device; Machine Control (cypher-rd#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "system-interface",
+    "tinker-device",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to control limited by network access, security, and the machine’s level; a world can change connectivity and machine autonomy, with stronger safeguards restricting remote influence.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0113",
+   "world": "cypher",
+   "statement": "A touch can reduce wound severity, cure maladies, or restore the dead if they are otherwise intact and the stated time limit is met. Repeated use of some healing abilities raises their Intellect cost until a recovery resets it.",
+   "locators": [
+    "Cypher Reference Document: Tends to the Wounded; Healing Hand; Resuscitate (cypher-rd#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to the listed wound changes and death limits, with escalating costs where given; a world can make revival harder or more expensive because death is difficult to reverse.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0114",
+   "world": "cypher",
+   "statement": "Time can be rewound a few seconds so a creature may redo its last action, without remembering the original action; using this ability renews only after a recovery.",
+   "locators": [
+    "Cypher Reference Document: Rewind Time (cypher-rd#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: time manipulation",
+   "seam": "AB20",
+   "derives": [
+    "time-manipulation",
+    "time-loop"
+   ],
+   "default_dial_reason": "Default to one creature redoing its immediately prior action; a world can change the window or number of uses, since rewriting events risks disrupting causality.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0115",
+   "world": "cypher",
+   "statement": "Phasing can let a character pass through physical barriers of level 5 or less at 1 foot per round, but not energy barriers; more powerful barriers require Effort. A phased character may also become wholly unable to affect or be affected by ordinary matter and energy, at the cost of being unable to act physically on it.",
+   "locators": [
+    "Cypher Reference Document: Walks Through Walls; Untouchable (cypher-rd#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB20",
+   "derives": [
+    "body-form",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default to slow passage through bounded physical barriers and temporary intangibility; a world can change barrier limits or duration, with greater phase depth risking loss or displacement.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0116",
+   "world": "cypher",
+   "statement": "Armor eases blocking by 1 step for light, 2 for medium, and 3 for heavy armor, while hindering dodging by the same number of steps. If the wearer cannot use that armor freely, its dodge penalty also hinders all Speed tasks; damaged armor loses 1 step of its block benefit but keeps its normal dodge penalty.",
+   "locators": [
+    "Cypher Reference Document: Armor (cypher-rd#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to these category-based block benefits and dodge penalties; a setting can change armor’s effectiveness, with damage reducing protection.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0117",
+   "world": "cypher",
+   "statement": "Light weapons deal 2 damage and ease attacks; medium weapons deal 4 damage; heavy weapons deal 6 damage and require two hands. A light weapon can be used as a First action, while a heavy weapon is a Last action; unfamiliar weapons hinder the attack.",
+   "locators": [
+    "Cypher Reference Document: Weapons (cypher-rd#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to fixed damage and timing by weapon class; a world can change access to weapon training, with unfamiliarity imposing a penalty.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0118",
+   "world": "cypher",
+   "statement": "Explosives can affect multiple creatures in an area, with a separate attack roll against each target unless the GM chooses one roll for all. A failed attack usually still deals 1 damage; each Effort level adds 2 damage, and player characters in the area defend with a block or dodge roll.",
+   "locators": [
+    "Cypher Reference Document: Explosive Weapons (cypher-rd#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to area attacks with reduced damage on a miss; a world can change the blast’s area or severity, at the cost of greater danger to everyone nearby.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0119",
+   "world": "cypher",
+   "statement": "Cyphers are single-use effects, normally level 4, and usually affect one task unless a duration is specified. They take no action to activate; an ongoing effect that lasts until a recovery can instead be ended early as an extra action at no cost.",
+   "locators": [
+    "Cypher Reference Document: Cyphers — Reading a Cypher Description (cypher-rd#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to one use and one task; a world can allow longer effects, balanced by an explicit duration or recovery-based endpoint.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0120",
+   "world": "cypher",
+   "statement": "Most characters can hold 2 cyphers at a time; a character’s type sets their limit, and some focus or higher-tier abilities raise it. Discarding a cypher as an action frees a slot, and significant rests are a usual opportunity to receive replacements.",
+   "locators": [
+    "Cypher Reference Document: Cypher Limit; Gaining New Cyphers (cypher-rd#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB21",
+   "derives": [
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to a two-cypher capacity and replacement around significant rests; a world can raise the limit, increasing the number of one-use options characters can stockpile.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0121",
+   "world": "cypher",
+   "statement": "When an artifact is activated, roll its depletion die; if the result falls in its listed depletion range, it works but this was its final use. An artifact marked with no depletion range never runs out.",
+   "locators": [
+    "Cypher Reference Document: Artifacts (cypher-rd#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a depletion roll on each use; a world can make artifacts inexhaustible, removing the risk of losing a powerful item.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0122",
+   "world": "cypher",
+   "statement": "A cypher used to help another character grants that character all of the cypher’s assets, and those assets count toward that task’s asset limit. If an unwilling target is to be affected, the user must succeed at an attack roll against them.",
+   "locators": [
+    "Cypher Reference Document: Use Them and Replace Them; Reading a Cypher Description (cypher-rd#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to transferring the full task benefit to the assisted character and requiring an attack to affect unwilling targets; a world can relax either limit, making assistance or coercion easier.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0123",
+   "world": "cypher",
+   "statement": "A level 3 guard dog attacks and perceives as level 4, but is suited to guarding an area rather than accompanying adventurers into dangerous places; a level 3 riding horse moves a long distance each round, while a level 4 warhorse does likewise.",
+   "locators": [
+    "Cypher Reference Document: Fantasy Equipment — Moderately Priced Items; Expensive Items; Very Expensive Items (cypher-rd#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB4",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to these stated creature levels and travel capability; a world can permit trained animals to accompany adventurers, exposing them to danger.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0124",
+   "world": "cypher",
+   "statement": "A manifest cypher uses your action to activate, and its choices—including the affected roll or target—are made when you use it. To affect an unwilling target, you must succeed at an attack roll against them.",
+   "locators": [
+    "Cypher Reference Document: Reading a Manifest Cypher Description (cypher-rd#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default activation takes an action and requires an attack against unwilling targets; a world can make activation faster or more reliable, at the cost of weaker counterplay.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0125",
+   "world": "cypher",
+   "statement": "A cypher with no stated duration affects only one task. A cypher that lasts until a recovery ends when you choose to begin that recovery, not after it is completed.",
+   "locators": [
+    "Cypher Reference Document: Reading a Manifest Cypher Description (cypher-rd#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default duration is one task unless specified, or until the chosen recovery begins; a world can extend durations, risking more persistent effects.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0126",
+   "world": "cypher",
+   "statement": "Your cypher limit counts both nonphysical and manifest cyphers. A physical manifest cypher can be given to an ally or hidden for later, but someone else can find and take a hidden one.",
+   "locators": [
+    "Cypher Reference Document: Manifest Cyphers (cypher-rd#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: cypher capacity and possession",
+   "seam": "AB21",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default capacity counts every cypher and physical ones can change hands; a world can raise the limit or restrict transfers, changing scarcity and access.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0127",
+   "world": "cypher",
+   "statement": "Manifest cyphers are level 6 effects; for most, level does not change their effect or duration. Some character abilities may interact with a cypher’s level.",
+   "locators": [
+    "Cypher Reference Document: Manifest Cypher Power Levels (cypher-rd#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: manifest cypher level",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default manifest level is 6 and usually has no mechanical impact; a world can make level matter more, increasing the importance of character abilities that reference it.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0128",
+   "world": "cypher",
+   "statement": "A contingent activator links to a manifest cypher you are touching and sets a condition that triggers it. The linked cypher remains usable normally, while the activator occupies capacity until the linked cypher is used, lost, or discarded.",
+   "locators": [
+    "Cypher Reference Document: Contingent Activator (cypher-rd#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default triggers are conditional and consume a capacity slot until the linked cypher is gone; a world can loosen either limit, at the cost of more automatic effects or less inventory pressure.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0129",
+   "world": "cypher",
+   "statement": "A cluster bomb upgrades another bomb cypher: it gains long range and produces four extra bombs that move a short distance in random directions, then explode next round like the original. The upgrade is expended when used, and no longer counts against capacity.",
+   "locators": [
+    "Cypher Reference Document: Cluster Bomb (cypher-rd#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default upgrade adds four delayed, randomly directed blasts and then disappears; a world can change their number or targeting, trading potency for unpredictability.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0130",
+   "world": "cypher",
+   "statement": "A cypher that restores a Pool returns 4 points; recovery, wound, duration, and target limits vary by effect. Some task-boosting cyphers provide three assets instead of the usual two, and permit use before or after the roll.",
+   "locators": [
+    "Cypher Reference Document: Cypher descriptions (cypher-rd#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default listed values and timing apply, including 4 restored points and three assets where specified; a world can adjust them, balancing reliable boosts against resource pressure.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0131",
+   "world": "cypher",
+   "statement": "Several effects require a second action after a successful attack, while others move, hinder, restrain, or incapacitate a target for a stated period. Targets may have escape opportunities, and stronger foes can impose penalties or resist effects.",
+   "locators": [
+    "Cypher Reference Document: Cypher descriptions (cypher-rd#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "creature-control",
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default effects use their listed action costs, resistance, and duration; a world can reduce target resistance or action costs, but risks making control effects dominant.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0132",
+   "world": "cypher",
+   "statement": "Most cypher effects last until the named recovery is taken; some instead end after a fixed number of uses, a specific event, or an explicit choice. Effects that end may impose a stated drawback, such as 4 Might or Speed damage after a size change.",
+   "locators": [
+    "Cypher Reference Document: Cypher descriptions (cypher-rd#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to the stated ending trigger and drawback; a setting can lengthen or shorten duration, with longer effects increasing the power and risk of cyphers.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0133",
+   "world": "cypher",
+   "statement": "A power boost cypher modifies one ability chosen when activated, and the user can describe the modification to fit the hero. If no duration is specified, it applies to one task; the GM decides whether these cyphers are available and whether they are physical or nonphysical.",
+   "locators": [
+    "Cypher Reference Document: Power Boost Cyphers (cypher-rd#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "power-interaction",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to one chosen ability and one task if no duration is given; a world can limit availability or physical form to control access to ability modification.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0134",
+   "world": "cypher",
+   "statement": "A damage-boost cypher adds damage equivalent to two levels of Effort; a source-boost cypher reduces the ability’s Pool cost by 6. Area, range, target-count, and burst boosts instead modify where or how many targets an ability affects, with burst attacks centered on the user at immediate range.",
+   "locators": [
+    "Cypher Reference Document: Power Boost Cypher Descriptions (cypher-rd#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction",
+    "area-field"
+   ],
+   "default_dial_reason": "Default to the listed numerical bonus and range changes; a world can vary which boost types exist, trading broader effects for balance against resource cost.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0135",
+   "world": "cypher",
+   "statement": "A gigantic bomb upgrades another bomb to affect a short area rather than an immediate area; an overpowered bomb adds 4 damage to a damage-inflicting bomb. Each upgrade is consumed when applied and then no longer counts toward the cypher limit.",
+   "locators": [
+    "Cypher Reference Document: Gigantic Bomb; Overpowered Bomb (cypher-rd#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to one consumed upgrade per bomb; a world can alter upgrade availability, with the tradeoff being greater area or damage from a single-use resource.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0136",
+   "world": "cypher",
+   "statement": "A force field is level 6, conforms to available space without pressing on solid obstacles, blocks gas, and lasts until a one-hour recovery. A cube or sphere can contain foes after successful Intellect attacks against them.",
+   "locators": [
+    "Cypher Reference Document: Force field effect (cypher-rd#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "protection-field",
+    "containment-rule",
+    "area-field"
+   ],
+   "default_dial_reason": "Default to the stated field shapes, duration, and containment check; a world can vary the field’s level or persistence, with stronger barriers being harder to obtain.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0137",
+   "world": "cypher",
+   "statement": "Some cyphers affect each creature in an area with separate attacks; on a failed attack, several still inflict reduced damage. Other effects specify a level threshold, such as being harder to affect when a target is level 7 or higher.",
+   "locators": [
+    "Cypher Reference Document: Cypher descriptions (cypher-rd#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "area-field",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to separate attacks and the stated success and failure outcomes; a world can adjust thresholds or failure damage, trading reliability against effect strength.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0138",
+   "world": "cypher",
+   "statement": "Resurrection works only on someone who died within the last hour, undoes the fatal injury or effect, and leaves the revived person hindered until recovery with one fewer permanent moderate-wound capacity. Revived NPCs instead suffer a 5-point maximum-health reduction, to a minimum of 1.",
+   "locators": [
+    "Cypher Reference Document: Resurrection (cypher-rd#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB34",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to the one-hour window and permanent capacity cost; a world can change the window or cost, with resurrection’s lasting bodily consequences limiting repeated use.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0139",
+   "world": "cypher",
+   "statement": "Each level of Effort costs 3 points from the Pool suited to the task and eases it by one step; later levels cost 2 points each. Subtract the matching Edge once from the total Pool cost for an action, to a minimum of 0; attacks may instead use Effort to add 3 damage per level.",
+   "locators": [
+    "Cypher Reference Document: Easing Tasks — Effort; Edge (cypher-rd#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: apply Effort before rolling and discount its total cost once per action; a world can change the point costs or discount rule; the in-world cost is depletion of the relevant Pool.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0140",
+   "world": "cypher",
+   "statement": "A task’s difficulty can be reduced by at most 11 steps in total: up to 3 from skill, 2 from assets, and 6 from Effort. An asset usually gives one step of ease, and assets together cannot give more than two.",
+   "locators": [
+    "Cypher Reference Document: Easing Tasks — Asset; Free Level of Effort (cypher-rd#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: enforce the stated source-specific caps and 11-step ceiling; a world can turn the caps up or down; the limit keeps stacked advantages from making tasks routine too easily.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0141",
+   "world": "cypher",
+   "statement": "A d20 result of 1 causes a GM-chosen complication without awarding XP. On a damage-dealing attack, 17 or 18 adds 1 or 2 damage; 19 adds 3 damage or grants a minor effect, and 20 adds 4 damage or grants a major effect, while also refunding all Pool points spent on that action.",
+   "locators": [
+    "Cypher Reference Document: Special Rolls; GM Intrusion; Damage Bonus (cypher-rd#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: apply these results only on the stated natural die faces; a world can change which results trigger them; the complication on a 1 and bonus effects on high rolls shape risk and reward.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0142",
+   "world": "cypher",
+   "statement": "After a failed task, another attempt is a new action taking the same time as the first and must use at least one level of Effort; further attempts each require Effort too. The GM may rule that no retry is possible, and a missed combat attack is not a retry because the situation changes each round.",
+   "locators": [
+    "Cypher Reference Document: Retrying a Task After Failure (cypher-rd#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: charge at least one Effort level for each retry; a world can make retries cheaper, costlier, or unavailable; repeated attempts consume the character’s Pool.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0143",
+   "world": "cypher",
+   "statement": "A character may move an immediate distance alongside an action, or use the whole action to move a short distance. Combining a short move with another task hinders all tasks until the end of the next turn; using the whole action to run a long distance hinders tasks by two steps for the same period.",
+   "locators": [
+    "Cypher Reference Document: Distance, Range, and Movement — Movement (cypher-rd#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: use the stated range categories and hindrances; a world can alter distances or penalties; moving quickly compromises the character’s other tasks.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0144",
+   "world": "cypher",
+   "statement": "Most ability durations that lack a more specific limit continue until the character takes a recovery of ten minutes or longer, which ends the effect. This lets the character preserve an ongoing effect by postponing recovery.",
+   "locators": [
+    "Cypher Reference Document: Timekeeping (cypher-rd#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: end such effects when a recovery of at least ten minutes is taken; a world can use fixed durations instead; delaying recovery preserves the effect but postpones restoring Pool points.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0145",
+   "world": "cypher",
+   "statement": "Each character gets one action per combat round, usually lasting about 5–10 seconds; a First action can resolve ahead of the normal initiative order, while a Last action resolves at round’s end and prevents other activity that round. A First action may be followed by a minor non-attack activity after everyone else acts.",
+   "locators": [
+    "Cypher Reference Document: Actions and Initiative — First Actions; Last Actions (cypher-rd#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: use one action per round and resolve First and Last actions at their specified points; a world can change action timing or availability; committing to a Last action gives up other activity that round.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0146",
+   "world": "cypher",
+   "statement": "An attack aimed at another creature or object requires a roll to hit or affect it unless the ability explicitly says otherwise. Ordinary attacks succeed when the roll meets or exceeds the target number; a missed touch-based ability is retained and can be retried on later turns until it hits or the user takes an incompatible action.",
+   "locators": [
+    "Cypher Reference Document: Attacks (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: attacks require hit rolls",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to requiring a fresh roll for each attack; a setting can allow automatic hits for particular abilities, justified by exceptional precision or effect.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0147",
+   "world": "cypher",
+   "statement": "A core character can take three wounds at each of three severities. Once minor capacity is full, further minor wounds become moderate; once moderate capacity is full, further moderate wounds become major, and filling the third major wound kills the character. Each major wound hinders all actions, and a full moderate track also hinders all actions.",
+   "locators": [
+    "Cypher Reference Document: Wounds (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to three boxes per severity with overflow and escalating penalties; a world can increase capacity or soften death, at the cost of making injury less consequential.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0148",
+   "world": "cypher",
+   "statement": "When damage reduces a character’s stat Pool to zero, later damage to that Pool—including excess from the same attack—becomes wounds: 1–4 points make a minor wound, 5–8 a moderate wound, and 9 or more a major wound.",
+   "locators": [
+    "Cypher Reference Document: Pool Damage to Wound Conversions (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB15",
+   "derives": [],
+   "default_dial_reason": "Default to converting depleted Pool damage into wounds at these thresholds; a world can change the thresholds to make depleted resources more or less dangerous.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0149",
+   "world": "cypher",
+   "statement": "NPC damage reduces health, commonly equal to three times the NPC’s level; at zero or less health the NPC is defeated. Physical Armor reduces incoming physical damage by its rating, while mental attacks generally ignore it; the attacker can choose whether a defeated NPC dies or is merely unconscious.",
+   "locators": [
+    "Cypher Reference Document: Inflicting Damage on NPCs (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to health loss, physical Armor reduction, and attacker choice at defeat; a world can make defeat nonlethal or Armor apply more broadly, changing lethality and protection.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0150",
+   "world": "cypher",
+   "statement": "An object’s level serves as both Armor and health: a successful attack must exceed that protection before excess damage lowers its level point for point. At level zero it is broken; damage equal to its original level after that destroys it, and a physical tool too soft for the object cannot damage it.",
+   "locators": [
+    "Cypher Reference Document: Damage to Objects (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "object-surface"
+   ],
+   "default_dial_reason": "Default to gradual level reduction followed by destruction; a world can use one-step breakage instead, trading durability detail for simplicity.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0151",
+   "world": "cypher",
+   "statement": "A character has four recoveries per day—one action, ten minutes, one hour, and ten hours. Each completed recovery restores a d6 plus tier points, freely divided among Pools up to their maxima; interruption delays its benefit until the full time is completed, and a one-action recovery used as a Last action adds 2 to its roll.",
+   "locators": [
+    "Cypher Reference Document: Recoveries (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to four timed recoveries with tier-scaled restoration; a world can grant fewer or slower recoveries, making resource management more restrictive.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0152",
+   "world": "cypher",
+   "statement": "Wounds can be removed by spending Might for a quick rally—2 points for a minor or 5 for a moderate wound—or by treatment or rest; rallying normally cannot remove major wounds. A ten-minute recovery removes all minor wounds, an hour removes one moderate or all minor wounds, and ten hours removes all moderate wounds and may remove a major wound with a difficulty 6 Might task.",
+   "locators": [
+    "Cypher Reference Document: Healing Wounds (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to these costs and recovery windows; a world can make treatment faster or allow rallying from major wounds, at the cost of reducing injury persistence.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0153",
+   "world": "cypher",
+   "statement": "Blocking uses a Might defense roll and on success reduces a wound by one severity; dodging uses Speed and on success avoids the wound entirely, though area attacks hinder dodging. A shield used in a successful block can take the whole wound instead, but it breaks when it takes a major wound; shields can absorb three minor, two moderate, and one major wound.",
+   "locators": [
+    "Cypher Reference Document: Defending; Armor and Shields (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to choosing either block or dodge and to shield damage capacity as given; a world can make shields tougher or blocking less effective, changing the balance of defense and equipment loss.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0154",
+   "world": "cypher",
+   "statement": "After a failed defense, some continuing hostile effects can be challenged again by spending a recovery of the required duration; that attempt grants none of the recovery’s usual Pool restoration or wound removal. Disease instead calls for a Might defense each day, with failure applying its specified effect.",
+   "locators": [
+    "Cypher Reference Document: Other Defenses; Special Damage (cypher-rd#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to recovery-gated attempts to end ongoing effects and daily disease checks; a world can shorten or lengthen the interval, changing how long afflictions persist.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0155",
+   "world": "cypher",
+   "statement": "Spend 1 XP to reroll any roll, including another player’s; keep the better result, and repeat as many times as you can afford. XP may also be spent on recovery or artifact-depletion rolls.",
+   "locators": [
+    "Cypher Reference Document: Spending Experience Points — Rerolling (cypher-rd#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: allow repeat rerolls for 1 XP each; a world can restrict eligible rolls to make XP scarcer, reflecting that experience is a limited resource.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0156",
+   "world": "cypher",
+   "statement": "Spend 1 XP to introduce a beneficial change to the campaign. A player cannot refuse a GM intrusion, but may spend 1 XP on their next turn to soften its consequences without undoing it.",
+   "locators": [
+    "Cypher Reference Document: Player Intrusion; React to a GM Intrusion (cypher-rd#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: permit one beneficial player-authored change for 1 XP; a world can limit its scope, preserving the GM’s intrusion while giving the player a response.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0157",
+   "world": "cypher",
+   "statement": "A character begins at tier 1 and buys four different advancement options, each for 4 XP, before reaching the next tier; each option can be bought only once per tier. Advancements add 4 Pool points, +1 Edge, +1 Effort (maximum 6), or skill improvements, and each also grants resource points.",
+   "locators": [
+    "Cypher Reference Document: Character Advancement (cypher-rd#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: require four 4-XP purchases per tier; a world can vary the XP price or benefits to change advancement pace, reflecting how quickly experience turns into ability.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0158",
+   "world": "cypher",
+   "statement": "Spending 1 XP can make an attack against a foe whose location is unknown succeed as a lucky shot, but the attack is hindered by four steps. Without spending the XP, the attack automatically fails.",
+   "locators": [
+    "Cypher Reference Document: Lucky Shot (cypher-rd#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: allow the costly, four-step-hindered shot; a world can forbid it, making uncertainty and impaired senses absolute barriers.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0159",
+   "world": "cypher",
+   "statement": "Each character advancement grants 1 resource point, rising to 2 per advancement at tier 3 and 3 at tier 5; the GM may award more. Resource points represent time, access, luck, and other means of achieving a chosen goal.",
+   "locators": [
+    "Cypher Reference Document: Resource Points — Gaining Resource Points (cypher-rd#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: award 1, 2, or 3 points according to tier; a world can award extra points when circumstances help, representing unusually available resources or opportunity.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0160",
+   "world": "cypher",
+   "statement": "After the required time has passed, spending resource points usually completes a goal without a roll. Crafting a genre-appropriate cypher costs 2 points for low power with trained crafting, 3 for medium power with specialized crafting, or 4 for advanced power with expert crafting.",
+   "locators": [
+    "Cypher Reference Document: Goals and Activities; Cypher Crafting Requirements (cypher-rd#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB15",
+   "derives": [
+    "blueprint-craft",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: require the listed training, point cost, and time; a world can alter costs or crafting access to reflect how difficult its technology or magic is to make.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0161",
+   "world": "cypher",
+   "statement": "With trained crafting, spend 1 resource point to craft or repair a genre-appropriate object up to level 4; higher-level or higher-technology work costs more and requires at least specialized crafting. A specialized or expert crafter can spend 5 or more points to make a genre-appropriate artifact up to level 5, usually with one benefit.",
+   "locators": [
+    "Cypher Reference Document: Craft Object; Repair Object; Craft Artifact (cypher-rd#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB15",
+   "derives": [
+    "blueprint-craft",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: cap ordinary work at level 4 and artifacts at level 5; a world can raise costs or restrict materials to reflect its crafting capabilities.",
+   "licence": "Cypher Open License"
+  },
+  {
+   "id": "cypher.rule.0162",
+   "world": "cypher",
+   "statement": "Resource points can restore a lost follower to their healthy, active state for half the follower’s level in points, rounded up to at least 1; this usually takes several days or about a week if no duration is specified. Research costs 1 point for information level 1–3, 2 for level 4–5, and 3 for level 6–7; higher-level information normally requires play rather than points.",
+   "locators": [
+    "Cypher Reference Document: Restore Follower; Research (cypher-rd#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default: allow restoration and research only within their stated costs and time or level limits; a world can raise those limits, making recovery or secrets harder to obtain through downtime.",
+   "licence": "Cypher Open License"
+  }
+ ]
+}

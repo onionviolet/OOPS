@@ -1,0 +1,3147 @@
+{
+ "meta": {
+  "world": "brp",
+  "books": [
+   "Basic Roleplaying ORC"
+  ],
+  "licence": [
+   "ORC"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+  "date": "2026-11-17",
+  "shards": 27
+ },
+ "rules": [
+  {
+   "id": "brp.rule.0001",
+   "world": "brp",
+   "statement": "A character’s maximum power-point reserve equals their POW. Spending power points fuels powers, and reaching 0 causes unconsciousness; rest restores the reserve to its maximum.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 4, Terms Used in Basic Roleplaying; Page 7, Step Five: Derived Characteristics (brp-orc#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a POW-sized reserve that returns with rest; a world can change its size or recovery rate, because power represents will or energy.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0002",
+   "world": "brp",
+   "statement": "If the optional fatigue system is used, a character starts with STR+CON fatigue points and loses them through exertion; rest and other recovery restore them rapidly.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 8, Fatigue Points (Option) (brp-orc#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to STR+CON as the exertion reserve; a world can slow recovery or increase exertion losses, because strenuous activity tires the body.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0003",
+   "world": "brp",
+   "statement": "If Sanity is used, its starting value is POW×5. At 0 Sanity the character is unplayable; losing too much at once can cause temporary or permanent insanity.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 8, Sanity (Option); Page 4, Terms Used in Basic Roleplaying (brp-orc#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a POW×5 mental-health track with play ending at zero; a world can change the threshold or consequences, because horrific experiences erode a character’s grasp on reality.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0004",
+   "world": "brp",
+   "statement": "A fatal wound inflicts more hit-point damage than the character currently has; without medical or other intervention, death follows at the end of the next 12-second combat round.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 3, Terms Used in Basic Roleplaying (brp-orc#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to death after one combat round unless intervention occurs; a world can shorten or extend that window, because catastrophic injury overwhelms the body.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0005",
+   "world": "brp",
+   "statement": "Power points are spent to use special abilities and can also be drained by other abilities. When the total reaches zero, the character falls unconscious.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 4, Terms Used in Basic Roleplaying (brp-orc#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to powers drawing from a shared reserve and unconsciousness at zero; a world can alter which effects drain it or what zero means, because the reserve represents usable will or energy.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0006",
+   "world": "brp",
+   "statement": "A character dies if CON reaches 0. A character whose POW reaches 0 loses their soul and becomes catatonic.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 11, Constitution (CON); Page 11, Power (POW) (brp-orc#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB17",
+   "derives": [
+    "soul-state"
+   ],
+   "default_dial_reason": "Default to death at zero CON and soul-loss with catatonia at zero POW; a world can make either threshold recoverable or change its consequence, at the cost of weakening the link between body, will, and life.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0007",
+   "world": "brp",
+   "statement": "In the optional hit-location system, head, abdomen, and each leg have one-third of total hit points, the chest has four-tenths, and each arm has one-quarter; fractions round up.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 7, Hit Points per Location (Option) (brp-orc#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to location-specific hit-point pools using the listed fractions; a world can adjust the proportions, because body regions differ in vulnerability.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0008",
+   "world": "brp",
+   "statement": "When a characteristic changes because of injury, magic, or another cause, immediately recalculate every derived characteristic based on it. For example, reducing CON from 16 to 10 with SIZ 14 lowers maximum hit points from 15 to 12 and the major-wound level from 8 to 6.",
+   "locators": [
+    "Basic Roleplaying ORC: Derived Characteristics, p. 13 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to recalculating dependent values immediately; a setting can change which values depend on a characteristic, reflecting different rules for how bodies and abilities relate.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0009",
+   "world": "brp",
+   "statement": "A character’s damage modifier comes from STR+SIZ and changes damage dealt by brawling and melee attacks; a result of zero or less inflicts no damage. For thrown weapons and bows, halve a positive modifier, rounding up, while firearms and other self-propelled weapons get none.",
+   "locators": [
+    "Basic Roleplaying ORC: Damage Modifier, p. 13 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to applying the modifier only to the listed attack types; a world can broaden or narrow its use, reflecting how much physical strength contributes to weapon damage.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0010",
+   "world": "brp",
+   "statement": "Maximum hit points are (CON+SIZ)/2, rounded up; at 2 or fewer hit points a character loses consciousness, and at 0 they die at the end of the following round. Lost hit points recover naturally at 1D3 per game week, with medical care able to speed recovery.",
+   "locators": [
+    "Basic Roleplaying ORC: Hit Points, p. 14 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to this hit-point total and recovery rate; a world can use the optional CON+SIZ total for hardier characters, reflecting greater survivability.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0011",
+   "world": "brp",
+   "statement": "With hit locations in use, humanoid location totals are based on fractions of maximum hit points: legs, abdomen, and head each get one-third; chest gets four-tenths; and each arm gets one-quarter, rounding up. Damage reduces both the struck location’s points and overall hit points; exceeding a location’s total disables it, and damage of twice that total crushes or severs it.",
+   "locators": [
+    "Basic Roleplaying ORC: Hit Points by Hit Location, p. 14 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed location shares and injury thresholds; a world can omit locations or change the fractions, trading detail for simplicity or different bodily vulnerability.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0012",
+   "world": "brp",
+   "statement": "Maximum power points usually equal POW. They recover at 1 per hour of sleep or total rest, or 1 per two hours of ordinary activity for POW 1–24; strenuous activity prevents recovery, and reaching 0 causes fainting until at least 1 is restored.",
+   "locators": [
+    "Basic Roleplaying ORC: Power Points, p. 15 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to POW-based capacity and rest-based recovery; a world can use the provided faster recovery rates at higher POW or set another reserve, reflecting the setting’s model of spiritual energy.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0013",
+   "world": "brp",
+   "statement": "Power points received from another source can raise a character’s own reserve to twice POW; further points are lost. While above the normal maximum, spending comes from the extra points first; extras neither regenerate normally nor renew, and disappear after a night’s sleep or another suitable point set by the gamemaster. Points stored in an item’s separate reserve do not count against this cap.",
+   "locators": [
+    "Basic Roleplaying ORC: Power Points, p. 15 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a temporary personal reserve cap of twice POW while allowing separate item reserves; a world can change the cap or duration, reflecting how unstable stored energy is.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0014",
+   "world": "brp",
+   "statement": "With fatigue points in use, the maximum is STR+CON, and strenuous activity generally costs 1 per combat round; sprinting or backbreaking labor costs 1 per turn, and forced marches cost 1 per hour. Below 0, each negative point imposes a −1% penalty on skill, characteristic, and resistance rolls; reaching a negative total equal to the starting fatigue value incapacitates the character, while one point returns per minute without expenditure.",
+   "locators": [
+    "Basic Roleplaying ORC: Fatigue Points, pp. 15–16 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to activity costs and penalties based on fatigue points; a world can use the simpler fatigue option instead, reflecting a preference for less resource tracking.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0015",
+   "world": "brp",
+   "statement": "With simple fatigue, uninterrupted combat or difficult physical activity makes all skill rolls Difficult after CON×3 rounds. After CON×4 rounds, skills are treated as one-quarter their normal rating and physical action requires a successful Stamina roll; after CON×10 rounds, even basic actions require a Difficult Stamina roll, and the gamemaster may make skills Impossible or limit them to POW×1.",
+   "locators": [
+    "Basic Roleplaying ORC: Simple Fatigue, p. 16 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to CON-based exhaustion thresholds; a world can use fatigue points or alter the thresholds, reflecting how much detail and endurance it wants physical exertion to have.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0016",
+   "world": "brp",
+   "statement": "Base sanity points equal POW×5. Exposure to horror or mind-bending strangeness calls for a roll against current SAN, with a loss possible even on success; losing at least half the current SAN in five minutes causes temporary insanity. SAN does not recover naturally, may rise to 99 in specific circumstances, and some blasphemous knowledge can limit its maximum.",
+   "locators": [
+    "Basic Roleplaying ORC: Sanity Points, p. 16 (brp-orc#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to POW-based SAN with loss from horrifying exposure and no natural recovery; a world can adjust recovery or knowledge-based limits, reflecting how lasting and corrosive its horrors are.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0017",
+   "world": "brp",
+   "statement": "With the gamemaster’s permission, add one-fifth of a single related skill rating to the main skill rating for a roll. This bonus does not stack with other complementary skills, and a successful main roll grants an experience check only for that main skill.",
+   "locators": [
+    "Basic Roleplaying ORC: Augments and Complementary skills, p. 34 (brp-orc#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to allowing one relevant supporting skill for a modest rating bonus; a setting can narrow which skills qualify, because expertise outside the task’s context should not help.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0018",
+   "world": "brp",
+   "statement": "A character may instead roll one supporting skill to adjust the main task’s difficulty by one step: success makes it easier, while failure makes it harder. This cannot be combined with the complementary-skill bonus; the supporting skill earns an experience check only if its roll succeeds and the main roll does not fail.",
+   "locators": [
+    "Basic Roleplaying ORC: Augments and Complementary skills, p. 34 (brp-orc#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a one-step difficulty change from one successful augment; a world can make augmenting riskier or unavailable, since conflicting preparation can make the task harder.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0019",
+   "world": "brp",
+   "statement": "A successful Command roll lets the leader add one-fifth of their Command rating as a skill bonus for subordinates each round they follow orders. The leader rolls each combat round, or each turn in mass combat; a fumble sparks insurrection and failure leaves the group confused or uninspired.",
+   "locators": [
+    "Basic Roleplaying ORC: Command, p. 36 (brp-orc#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a round-by-round bonus only for followers who obey; a world can change the benefit or duration, with coordination and loyalty as the limiting costs.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0020",
+   "world": "brp",
+   "statement": "Climbing generally uses one-fifth of normal movement, and a climber cannot take other actions while climbing. For an extended climb, call for a roll every minute or 10 meters; actions while clinging are difficult, and a fumble causes a fall.",
+   "locators": [
+    "Basic Roleplaying ORC: Climb, p. 36 (brp-orc#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to slow movement and periodic checks during sustained climbing; a world can relax these limits for special surfaces or climbers, because exposure and loss of grip create danger.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0021",
+   "world": "brp",
+   "statement": "A disguise can be detected by an onlooker who scrutinizes or speaks with the character, using an opposed Spot or Insight check; the disguised character may use Fast Talk in conversation to oppose detection. Suitable lighting, makeup, or facial changes may add up to 20% to the disguise roll at the gamemaster’s discretion.",
+   "locators": [
+    "Basic Roleplaying ORC: Disguise, p. 37 (brp-orc#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to opposed scrutiny and a possible bonus of up to 20%; a world can make particular identities harder or easier to impersonate, because props, familiarity, and close inspection matter.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0022",
+   "world": "brp",
+   "statement": "A successful Dodge changes a successful incoming attack into a failure; a special Dodge shifts the attack two result steps and a critical Dodge shifts it three, but no Dodge reduces an attack below failure. A character cannot Dodge and Parry in the same combat round, and each Dodge after the first in that round takes a cumulative −30% penalty.",
+   "locators": [
+    "Basic Roleplaying ORC: Dodge, p. 37 (brp-orc#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one defense choice and increasingly penalized repeated Dodges; a world can alter how many attacks can be avoided, because repeated evasions strain a defender’s reactions.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0023",
+   "world": "brp",
+   "statement": "Demolition skill is used to shape an explosion toward a specific result, such as bringing down a structure safely or breaching a door without damaging what is inside. At 60% skill or higher, ordinary uses succeed automatically; unstable explosives may require a check every round they are handled.",
+   "locators": [
+    "Basic Roleplaying ORC: Demolition, p. 37 (brp-orc#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to automatic success for ordinary work at 60% and checks for unstable explosives; a world can raise the threshold or require more checks, because dangerous materials and difficult targets increase risk.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0024",
+   "world": "brp",
+   "statement": "A successful First Aid attempt takes a full combat round and can treat one wound: it heals 1D3 hit points, revives an unconscious person, stops ongoing damage, or restores someone who reached 0 or fewer hit points in this or the prior round if healing raises them to at least 1. Special success heals 2D3, critical heals 3+1D3; failure prevents further First Aid on that wound, and each wound allows only one attempt.",
+   "locators": [
+    "Basic Roleplaying ORC: First Aid, pp. 39–40 (brp-orc#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to allowing one round-long attempt per wound with limited healing; a world can make treatment easier with equipment or harder in hazardous conditions, reflecting access to care and risk of infection.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0025",
+   "world": "brp",
+   "statement": "A successful Medicine treatment can choose a First Aid effect, double natural healing from 1D3 to 2D3 hit points per week, halt ongoing poison or disease damage, or stabilize the patient to recover 1D3–1 hit points or characteristic points per week. Special and critical successes improve wound healing to 2D3 and 1D3+3 hit points respectively, or characteristic recovery to 1D3 and 1D3+1; each use addresses one malady, and recovery from stabilization can be chosen only once per treatment week.",
+   "locators": [
+    "Basic Roleplaying ORC: Medicine, p. 46 (brp-orc#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to treating one malady at a time and limiting stabilization recovery to once weekly; a world can accelerate treatment with advanced medical technology, at the cost of requiring suitable resources.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0026",
+   "world": "brp",
+   "statement": "A grappler must establish a hold and then succeed at a Grapple roll each round to maintain it; the attacker may attempt one listed grapple effect per round starting the round after the hold is established. Taking another kind of action breaks the hold, and strangling removes the need for subsequent maintenance rolls but exposes the target to a CON×1% check each round or 1D3 damage.",
+   "locators": [
+    "Basic Roleplaying ORC: Grapple and Grapple Effects, pp. 40–41 (brp-orc#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to requiring repeated checks to keep a hold and limiting the attacker to one control effect per round; a world can make a choke more decisive, with the target risking recurring injury.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0027",
+   "world": "brp",
+   "statement": "A successful Fast Talk briefly persuades someone to act against their better judgment, usually for only a few minutes; after that, a successful Idea roll may let the target reconsider. Persuade instead lasts until another Persuade attempt or a dramatic experience changes the target’s view.",
+   "locators": [
+    "Basic Roleplaying ORC: Fast Talk, p. 39; Persuade, pp. 47–48 (brp-orc#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to brief, reversible influence for quick deception and longer-lived changes for deliberate persuasion; a world can make fast influence more durable, at the cost of stronger consequences when the target realizes what happened.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0028",
+   "world": "brp",
+   "statement": "A successful Martial Arts result doubles the attack’s base damage roll when the same roll is within both the combat skill and Martial Arts rating, without doubling the damage modifier. For multiple attacks in a round, the Martial Arts rating must be divided among the attacks or assigned to just one.",
+   "locators": [
+    "Basic Roleplaying ORC: Martial Arts, pp. 45–46 (brp-orc#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to a doubled base-damage roll only when both skills succeed, while keeping the damage modifier unchanged; a world can permit broader use across attacks, diluting training across them.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0029",
+   "world": "brp",
+   "statement": "A successful Psychotherapy treatment can restore 1D3–1 Sanity after a month, with special success restoring 1D3 and critical restoring 1D3+1; it can also diagnose an insanity or treat a diagnosed condition. Treatment takes four to five hours per month for each indefinite insanity and cannot raise Sanity above the applicable maximum.",
+   "locators": [
+    "Basic Roleplaying ORC: Psychotherapy, p. 48 (brp-orc#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to slow, capped recovery through recurring treatment; a world can permit faster or broader therapy, but it requires substantial time and the underlying condition must be addressed.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0030",
+   "world": "brp",
+   "statement": "To hide, a character needs adequate cover and is tested against an observer’s Spot; scant cover makes the attempt Difficult, no cover makes it impossible, and moving makes it Difficult. Moving more than a meter in a combat round requires both Hide and Stealth, while heat sensors or keen smell can still detect someone hidden from ordinary sight and sound.",
+   "locators": [
+    "Basic Roleplaying ORC: Hide, p. 42 (brp-orc#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to concealment from ordinary visual and aural detection only; a world can extend it to other senses, but specialized sensors and movement can defeat the concealment.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0031",
+   "world": "brp",
+   "statement": "A successful Pilot roll reaches the intended destination, while most routine piloting is automatic and rolls are reserved for adverse or exceptional situations; outside combat, checks are made every four hours, and combat or vehicle maneuvers require one each round.",
+   "locators": [
+    "Basic Roleplaying ORC: Pilot, p. 48 (brp-orc#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to automatic routine travel with checks at four-hour or round intervals when conditions demand them; a world can make routine operation more demanding, increasing the frequency of failure risks.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0032",
+   "world": "brp",
+   "statement": "Casting a spell costs power points even on failure: normally each level costs 1 point, while a failed attempt loses 1 point and a fumble costs the full successful-cast amount. Reaching 0 power points makes the caster unconscious.",
+   "locators": [
+    "Basic Roleplaying ORC: Costs of Magic [Page 56–57] (brp-orc#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to charging power points per spell level and incapacitating a caster at zero; a world can change the cost or zero-point consequence to make magic more or less dangerous, since exhaustion of magical reserves has bodily consequences.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0033",
+   "world": "brp",
+   "statement": "A caster may cast only one spell per combat round, but can cast several levels of that spell together; each level costs 1 DEX rank and the maximum spell level is half the caster’s INT, rounded up. If the casting rank falls below zero, the spell resolves in the next round.",
+   "locators": [
+    "Basic Roleplaying ORC: Casting Time / Spell Level [Page 57] (brp-orc#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to one spell per round, with added levels costing both power points and time; a world can loosen the casting limit or raise the level cap for faster, stronger magic, at the cost of diminishing tactical constraints.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0034",
+   "world": "brp",
+   "statement": "A spell affecting a living target must overcome either the target’s POW or power points in a resistance roll, as specified by the spell; determine power points before spending the spell’s cost. A willing recipient need not resist, but an unwilling recipient of a beneficial spell does, and an unconscious or debilitated target automatically fails.",
+   "locators": [
+    "Basic Roleplaying ORC: Overcoming POW [Page 57] (brp-orc#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to resistance by the target’s stated defense, bypassed by consent; a world can make even beneficial effects resistible or allow different defenses to matter, reflecting its view of agency and magical force.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0035",
+   "world": "brp",
+   "statement": "Two castings of the same spell never stack on one subject. When spells of unequal levels overlap, only the higher level works while it lasts; the lower level can resume afterward if its own duration remains, although all casting costs are paid.",
+   "locators": [
+    "Basic Roleplaying ORC: Combining Spells [Page 57] (brp-orc#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to strongest-spell-only overlap and no same-spell stacking; a world can permit stacking or suppress lingering weaker effects to change how readily repeated magic compounds.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0036",
+   "world": "brp",
+   "statement": "A magician can keep spells memorized up to half their INT, rounded up. Ready or dismiss each spell in 1 hour; spells beyond that capacity must be carried in a grimoire, and memorized spells remain available through sleep or unconsciousness until dismissed.",
+   "locators": [
+    "Basic Roleplaying ORC: Memorization of Magic [Page 57] (brp-orc#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB21",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a limited memorized repertoire and an hour per change; a world can expand capacity or shorten preparation time, trading constraints on flexibility for easier access to magic.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0037",
+   "world": "brp",
+   "statement": "Binding a familiar requires a suitable creature, three months of close ritual preparation with no separation longer than a day, a permanent 1 POW sacrifice, and success in a POW-versus-POW contest. Failure loses the POW and bars that creature from becoming a familiar; success expends all current power points and creates an unbreakable link.",
+   "locators": [
+    "Basic Roleplaying ORC: The Magician’s Familiar [Page 58] (brp-orc#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon",
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to one active familiar and a costly, extended binding; a world can reduce the time or sacrifice, or permit multiple bonds, with the cost representing the depth and exclusivity of the magical tie.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0038",
+   "world": "brp",
+   "statement": "While a familiar is within the magician’s POW in meters, the magician can spend its power or fatigue points instead of their own, perceive through its senses for 1 power point per full turn, issue a telepathic command for 1 point, and speak through it for 1 point per sentence. The creature loses consciousness at 0 power points or at fatigue equal to twice its normal total below zero.",
+   "locators": [
+    "Basic Roleplaying ORC: The Magician’s Familiar [Pages 58–59] (brp-orc#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: transfer",
+   "seam": "AB4",
+   "derives": [
+    "power-transfer",
+    "conceal-or-sense",
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to shared resources and remote sensory or command abilities only within the bond’s range; a world can widen the range or remove per-use costs, at the risk of making the companion a nearly consequence-free extension.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0039",
+   "world": "brp",
+   "statement": "A wizard’s staff takes six months to construct, requires constant oversight and a permanent 1 POW sacrifice, and can hold up to the maker’s POW at construction minus that sacrificed point. It regenerates power points at its owner’s rate, but cannot transfer them to the owner and dies permanently if reduced to 0.",
+   "locators": [
+    "Basic Roleplaying ORC: The Wizard’s Staff [Pages 59–60] (brp-orc#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: store",
+   "seam": "AB16",
+   "derives": [
+    "item-bound-power",
+    "spatial-storage",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to a durable but finite power reserve that cannot refill its owner and is destroyed at zero; a world can change capacity or allow transfer, with the sacrifice and construction effort explaining the staff’s limits.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0040",
+   "world": "brp",
+   "statement": "A fumbled spell loses all power points committed to it and prevents another use for one combat round; if it deals damage, a failed Luck roll redirects it to an unintended target. A failed spell costs 1 power point and has no useful effect, while success spends the required cost and works.",
+   "locators": [
+    "Basic Roleplaying ORC: Magic Spell Success Levels, p. 61 (brp-orc#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to these failure costs; a world can make mishaps harsher or gentler, reflecting how dangerous unstable magic is.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0041",
+   "world": "brp",
+   "statement": "A special spell success can add a fitting special damage quality, increase an aspect such as range or influence to 150%, or raise a resistance level by 1.5 times. A critical success ignores armor and deals maximum damage, or doubles a suitable non-damage effect or resistance level.",
+   "locators": [
+    "Basic Roleplaying ORC: Magic Spell Success Levels, p. 61 (brp-orc#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to enhanced effects at special and critical success; a world can narrow or broaden the bonus, reflecting how precisely magic responds to exceptional casting.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0042",
+   "world": "brp",
+   "statement": "Unless a spell says otherwise, its maximum range is 100 meters, and a directly affected target must be in line of sight. Spells ordinarily take effect in the casting round and last for the duration specified, commonly one round, 10 rounds, or 15 minutes.",
+   "locators": [
+    "Basic Roleplaying ORC: Magic Spells, p. 61 (brp-orc#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: spell range and duration",
+   "seam": "AB20",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to these range and duration conventions; a world can change them to make magic more local or persistent, reflecting its reach and stability.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0043",
+   "world": "brp",
+   "statement": "Change transforms 3 SIZ per level for 15 minutes and costs 1 power point per level; a resisting target requires overcoming its POW. The new form has its shape’s outward traits and natural abilities, but retains its characteristics, skills, wounds, and other existing conditions.",
+   "locators": [
+    "Basic Roleplaying ORC: Change, p. 62 (brp-orc#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to form-specific outward traits with retained statistics and injuries; a world can allow deeper transformation, at the cost of changing more than appearance and natural capabilities.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0044",
+   "world": "brp",
+   "statement": "Control costs 3 power points per level, lasts 10 rounds, and each level can affect one intelligent target if the caster wins a POW-versus-POW resistance roll. The caster must concentrate; distraction or fighting makes controlled targets collapse, while objectionable orders allow an Idea-based attempt to balk or break free.",
+   "locators": [
+    "Basic Roleplaying ORC: Control, p. 63 (brp-orc#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB14",
+   "derives": [
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to concentration and resistance as limits; a world can make control easier or harder to maintain, reflecting the strain and moral resistance involved.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0045",
+   "world": "brp",
+   "statement": "Countermagic costs 1 power point per level and lasts 5 minutes; incoming spells must overcome its level or rebound on their caster, and spells that fail to penetrate two such shields dissipate. Its protection interacts with Protection and is ineffective against Fire and Frost.",
+   "locators": [
+    "Basic Roleplaying ORC: Countermagic, p. 63 (brp-orc#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to spell-level resistance and the listed exceptions; a world can broaden or restrict what magic wards stop, reflecting the limits of its defensive tradition.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0046",
+   "world": "brp",
+   "statement": "Teleport moves 3 SIZ per level instantly, costs 1 power point per level, and normally reaches 1,000 meters; extra levels add 1,000 meters each. A resisting living target or an affixed object requires an overcoming roll, while deliberately placing a target inside solid matter costs 3 power points per level and a 0/1D3 Sanity roll.",
+   "locators": [
+    "Basic Roleplaying ORC: Teleport, p. 68 (brp-orc#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel",
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default to whole-object transport, resistance for unwilling or attached targets, and an added price for solid-matter placement; a world can change range or danger to reflect the risks of transit.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0047",
+   "world": "brp",
+   "statement": "Ward permanently protects a square of up to 9 square meters marked by four objects prepared in a preliminary ritual. Its boundary counters passing power at Countermagic 1 and blasts objects crossing it at Blast 1; additional levels enlarge a dimension by 3 meters or add one level to both effects, and moving or destroying the markers ends the ward.",
+   "locators": [
+    "Basic Roleplaying ORC: Ward, pp. 69–70 (brp-orc#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "formation-field",
+    "protection-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a marker-bounded ward that remains until disrupted or dispelled; a world can alter its size and defensive strength, with the cost of additional casting levels.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0048",
+   "world": "brp",
+   "statement": "A disease-carrying mutant is immune to its own disease, which has POT 2D10 and spreads by touch or another specified route within CON range; exposed creatures resist with CON against its POT. The major version has POT 4D10 or carries two diseases with separate routes.",
+   "locators": [
+    "Basic Roleplaying ORC: Disease Carrier, p. 73 (brp-orc#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB13",
+   "derives": [
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to one disease at 2D10 POT; a world can increase potency or add a second vector, at the cost of a more dangerous infection risk.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0049",
+   "world": "brp",
+   "statement": "A group-intelligent mutant shares experience with its linked colony. The minor link reaches CON meters and conveys vague sensations or behavioral urges; the major link permits full telepathic communication at unlimited distance.",
+   "locators": [
+    "Basic Roleplaying ORC: Group Intelligence, p. 73 (brp-orc#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to short-range impressions; a world can allow unlimited full communication, making the colony’s shared awareness far more capable.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0050",
+   "world": "brp",
+   "statement": "Minor Hardy halves rolled damage from one chosen injury type, rounding down. Major Hardy adds this resistance and allows action at 0 or negative hit points until reaching negative hit points equal to CON; without healing to at least 1 hit point within five minutes, the mutant dies.",
+   "locators": [
+    "Basic Roleplaying ORC: Hardy, p. 73 (brp-orc#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB11",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to halved damage from one selected source; a world can also permit action past zero health, with death threatened unless healing arrives within five minutes.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0051",
+   "world": "brp",
+   "statement": "Keen Sense grants +20% to relevant skills when minor and +40% when major; hearing and vision range double or quadruple, respectively. The heightened sense is also harmful: intense stimulation requires an Idea roll to avoid a round of stun, and the roll is Difficult for the major version.",
+   "locators": [
+    "Basic Roleplaying ORC: Keen Sense, p. 74 (brp-orc#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to a skill bonus and a heightened range; a world can make intense sensory exposure more dangerous, risking a lost round.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0052",
+   "world": "brp",
+   "statement": "Psychic abilities generally spend power points even on failure: failure costs 1, a fumble costs the full intended amount, and success costs the stated amount. A psychic at 0 power points is unconscious and cannot use abilities; a cost below 1 per combat round is charged only after the roll is resolved.",
+   "locators": [
+    "Basic Roleplaying ORC: Cost of Psychic Abilities, p. 76 (brp-orc#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to power-point expenditure with a reduced failure charge; a world can make failed attempts costly, with exhaustion as the limiting consequence.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0053",
+   "world": "brp",
+   "statement": "An ability used against an unwilling opponent generally requires a resistance roll, often POW against POW or current power points against current power points; willing targets need no resistance roll. Instant abilities resolve in the powers phase by INT rank, while longer abilities are announced and rolled on DEX rank, then take effect in the next round’s powers phase.",
+   "locators": [
+    "Basic Roleplaying ORC: Using Psychic Abilities, p. 77 (brp-orc#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to opposed resistance for unwilling targets and automatic effect on willing targets; a world can make psychic influence slower by requiring a later-round resolution.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0054",
+   "world": "brp",
+   "statement": "During astral psychic combat, combatants must be within the higher of their POW-in-meters ranges and attack with current power-point resistance rolls. If both succeed each loses 1D3 power points; if only one succeeds the other loses 1D3, and if neither succeeds there is no result; reaching 0 power points returns a combatant to their body unconscious.",
+   "locators": [
+    "Basic Roleplaying ORC: Psychic Combat, p. 78 (brp-orc#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB17",
+   "derives": [
+    "projection-body",
+    "soul-state"
+   ],
+   "default_dial_reason": "Default to power-point attrition that ejects an incapacitated astral combatant; a world can make the fight lethal by allowing a winner to continue against the unconscious opponent.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0055",
+   "world": "brp",
+   "statement": "Training a new psychic ability takes weeks equal to POW minus 30 and requires sacrificing 1 permanent POW plus a successful Luck roll; failure allows another attempt after further training and sacrifice. An involuntary awakening instead costs 2 permanent POW and grants the new ability at POW×5.",
+   "locators": [
+    "Basic Roleplaying ORC: Gaining New Psychic Abilities, p. 77 (brp-orc#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB1",
+   "derives": [
+    "power-granting"
+   ],
+   "default_dial_reason": "Default to learning through training with a permanent POW sacrifice; a world can permit sudden stress-triggered awakening, at a larger POW cost.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0056",
+   "world": "brp",
+   "statement": "Mind Control requires a successful power use and a successful POW-versus-POW resistance contest; its cost is 1 power point per 3 points of target POW, rounded up, plus 1 per further combat round. The psychic controls the target’s movement and speech but must concentrate for actions beyond sleeping; the target can resist once per round and can attempt a new escape contest each round.",
+   "locators": [
+    "Basic Roleplaying ORC: Mind Control, p. 84 (brp-orc#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB2",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to control of movement and speech with recurring power-point upkeep; a world can raise the escape difficulty or cost, justified by stronger mental defenses.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0057",
+   "world": "brp",
+   "statement": "Mind Shield costs at least 1 power point and lasts one full turn per point spent. Each point resists psychic attacks, can protect against 1 sanity loss per horrific encounter while active, and temporarily adds 3 POW for resistance against non-psychic influences; it must already be active to foil passive psychic detection.",
+   "locators": [
+    "Basic Roleplaying ORC: Mind Shield, p. 84 (brp-orc#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "protection-field",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to one-turn-per-point protection; a setting can narrow which threats it blocks, explained by differing psychic disciplines.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0058",
+   "world": "brp",
+   "statement": "Active Precognition costs 1 power point to activate plus points based on the requested time step: 1 reaches one combat round, 5 one day, 8 one year, and 10 one hundred years. Passive use has no power-point cost and is rolled secretly by the gamemaster; results range from misleading or unclear visions to detailed guidance on a special or critical success.",
+   "locators": [
+    "Basic Roleplaying ORC: Precognition, pp. 84–85 (brp-orc#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "precognition",
+    "future-vision"
+   ],
+   "default_dial_reason": "Default to costly active glimpses and free prompted passive visions; a world can increase the price or add fatigue or sanity costs because longer-range futures are harder to perceive.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0059",
+   "world": "brp",
+   "statement": "Psychometry senses impressions absorbed by an inanimate object or place, costing power points equal to its SIZ, minimum 1, plus points for the time step of its last use. A failed attempt cannot be repeated on that specific item or place until the skill improves; passive gamemaster-triggered use costs nothing.",
+   "locators": [
+    "Basic Roleplaying ORC: Psychometry, p. 85 (brp-orc#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "object-surface",
+    "memory-transfer"
+   ],
+   "default_dial_reason": "Default to one use-history impression at a SIZ- and age-based cost; a world can restrict what impressions survive because objects retain only strong traces.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0060",
+   "world": "brp",
+   "statement": "Telekinesis costs 1 power point per 3 SIZ per combat round and moves an object at normal movement within POW-meter range; extra points extend throwing range by 15 meters each or increase speed. Holding it requires continued power expenditure, and unconsciousness or a major wound drops it.",
+   "locators": [
+    "Basic Roleplaying ORC: Telekinesis, p. 86 (brp-orc#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to weight-scaled, round-by-round upkeep; a world can allow longer holds or heavier loads at increased cost, reflecting the strain of sustained force.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0061",
+   "world": "brp",
+   "statement": "Telepathy requires a successful power use and, for an unwilling target, a successful POW resistance contest; reading costs 1 point per 3 target POW, rounded up, and lasts through the current combat round. A link can convey thoughts or memories, read surface thoughts, implant a false memory or sensation, or search buried memories; each further round costs 1 point, and targets can try to break the link each round.",
+   "locators": [
+    "Basic Roleplaying ORC: Telepathy, pp. 86–87 (brp-orc#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "mind-binding",
+    "memory-transfer",
+    "memory-erasure"
+   ],
+   "default_dial_reason": "Default to brief, resisted mental access with per-round upkeep; a world can make implanted impressions last longer or be harder to detect, at the cost of stronger defenses or greater power.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0062",
+   "world": "brp",
+   "statement": "A sorcerer must have POW 16 or higher. Known spells must be readied in memory to cast, the mind holds spell levels up to INT, readying takes one combat round per spell point, casting usually takes one round and costs the spell’s points, and its duration is normally POW combat rounds; a cast spell cannot be recalled, though its effect can usually be ended early or extended by casting it again.",
+   "locators": [
+    "Basic Roleplaying ORC: Sorcery, pp. 87–90 (brp-orc#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: sorcery readiness and duration",
+   "seam": "AB21",
+   "derives": [
+    "system-interface"
+   ],
+   "default_dial_reason": "Default to an INT-limited ready-spell capacity and POW-based duration; a world can enlarge capacity or alter duration, justified by unusual training or magical traditions.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0063",
+   "world": "brp",
+   "statement": "A spell affects one person, entity, area, or thing; separate targets require separate castings. Only one spell can affect an object at a time, and adding another has no effect but still consumes its power points; compatible spells may coexist on a person at the gamemaster’s discretion.",
+   "locators": [
+    "Basic Roleplaying ORC: Spells per Object and Spells per Person, p. 93 (brp-orc#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB21",
+   "derives": [
+    "item-bound-power",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to one spell per object and discretionary stacking on people; a world can permit more effects on objects, justified by rare enchantment capacity.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0064",
+   "world": "brp",
+   "statement": "An effect that boosts a characteristic by its maximum listed amount can become permanent on a D100 roll of 00. The recipient then cannot benefit from that spell again and must permanently lose 9 points from other characteristics; where allegiance is used, the change also grants 1D8 allegiance to a force associated with change or randomness.",
+   "locators": [
+    "Basic Roleplaying ORC: Pages 97–102, characteristic-boosting spells (brp-orc#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB31",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to temporary boosts; a world can make a maximum boost permanent on 00, with a permanent 9-point characteristic loss and possible allegiance as the price.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0065",
+   "world": "brp",
+   "statement": "A demon summoned with Summon Demon costs 9 power points to appear. Binding it requires a resistance roll of the summoner’s POW against the demon’s POW and permanently costs 1 POW, or 3 POW to bind it permanently into an object; the sorcerer’s INT limits the total demon POW they can keep bound.",
+   "locators": [
+    "Basic Roleplaying ORC: Pages 99–100, Summon Demon (brp-orc#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "spirit-contract-judgement",
+    "soul-binding",
+    "item-bound-power",
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to a demon that obeys only its binder; a world can allow permanent object bindings, paid for with more POW and constrained by INT.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0066",
+   "world": "brp",
+   "statement": "An ordinary demon binding ends if the binder dismisses the demon, the demon or binder dies, or the demon’s true name is learned and used in a successful rebinding. A permanent binding ends only if its containing object or place is destroyed.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 100, Summon Demon (brp-orc#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB17",
+   "derives": [
+    "soul-binding",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to the listed release and destruction conditions; a world can make permanent bindings harder to break, at the cost of making their vessels critical.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0067",
+   "world": "brp",
+   "statement": "Summon Elemental brings an elemental after 1D6 combat rounds, once the sorcerer has spent 1D8 rounds specifying it and knows the spell linked to that element. The elemental arrives ready to perform one task.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 100, Summon Elemental (brp-orc#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: summon",
+   "seam": "AB1",
+   "derives": [
+    "familiar-summon",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to one task per summoned elemental; a world can change its arrival delay or permit binding, risking elemental hostility.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0068",
+   "world": "brp",
+   "statement": "Undo Sorcery removes one level of an affected spell or enchanted item per level cast; if insufficient, it reduces the effect’s level but does not end it. Refutation can contest Undo Sorcery, and the losing spell’s power points are spent without effect.",
+   "locators": [
+    "Basic Roleplaying ORC: Pages 98–99, Refutation and Undo Sorcery (brp-orc#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to one-for-one level removal; a world can let defensive Refutation contest dispelling, with the loser wasting its power points.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0069",
+   "world": "brp",
+   "statement": "Superpowers have levels bought with character-point budget; levels usually increase damage, range, or another listed attribute, and damage-dealing powers generally inflict 1D6 per level. Character failings can add budget, but are capped at half the starting budget rounded up; power modifiers cannot return more than half a power’s initial cost rounded down.",
+   "locators": [
+    "Basic Roleplaying ORC: Pages 103–105, How Superpowers Work; Character Failings and Power Modifiers (brp-orc#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-granting"
+   ],
+   "default_dial_reason": "Default to level-based powers bought from a limited budget; a world can raise the budget through failings or limitations, accepting real play disadvantages.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0070",
+   "world": "brp",
+   "statement": "A special weakness can harm a character within 15 meters, with the failing’s budget reward set by its damage or characteristic loss and the substance’s rarity. The character cannot buy a power that resists that chosen weakness.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 104, Benefits From Character Failings Table (brp-orc#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: damage",
+   "seam": "AB21",
+   "derives": [
+    "ingredient-properties"
+   ],
+   "default_dial_reason": "Default to the listed weakness damage and range; a world can make weaknesses more severe or common for more points, while forbidding resistance to the chosen weakness.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0071",
+   "world": "brp",
+   "statement": "A power modifier can limit a power’s uses, targets, range, cost, or operating conditions in return for budget points. Its reward applies to one power, and no power can gain more than half its initial cost, rounded down, from modifiers.",
+   "locators": [
+    "Basic Roleplaying ORC: Pages 104–105, Power Modifiers (brp-orc#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to individual, capped power limitations; a world can broaden the available modifiers, but each must impose a meaningful restriction.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0072",
+   "world": "brp",
+   "statement": "When a superpower is permanently removed, return its spent points to the character budget and remove any failings or modifiers that depended on it; the points may be spent later depending on why and how the power was lost. Removing a failing or modifier also requires GM permission and may require replacing its budget value with an equal failing or modifier, or deducting it from surplus or future rewards.",
+   "locators": [
+    "Basic Roleplaying ORC: Losing Superpowers; Losing Character Failings or Power Modifiers (brp-orc#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to returning power points and requiring equivalent replacement for shed limitations; the GM can loosen this for campaign reasons, while preserving the character-budget balance.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0073",
+   "world": "brp",
+   "statement": "Projection requires line of sight and uses DEX×2 as its base chance; damage modifier never adds to projected powers. On failure, the shot goes wide in a direction determined by 1D4, and a Luck roll determines whether it causes collateral damage; on a fumble, power points are lost and the user cannot use that power for one combat round after the fumble round.",
+   "locators": [
+    "Basic Roleplaying ORC: The Projection Skill (option) (brp-orc#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to requiring a clear line of sight and applying the stated miss and fumble risks; a setting can change those limits to suit its targeting technology or power style.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0074",
+   "world": "brp",
+   "statement": "For superpowers, failure spends the power points but produces no harmful complication, while success produces the stated effect. A fumble also loses the points and blocks that power for one further combat round; a special success increases effectiveness, and a critical doubles an appropriate non-damaging effect or ignores armor for damaging effects.",
+   "locators": [
+    "Basic Roleplaying ORC: Powers and Success Levels (brp-orc#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to spending power points on failed uses and scaling effects on special or critical results; a world can simplify outcome adjustments, trading nuance for speed.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0075",
+   "world": "brp",
+   "statement": "When Resistance, Protection, Armor, and Absorption all apply to an attack, resolve them in that order: Resistance may stop it, Protection lowers its power level, Armor reduces damage, and Absorption converts remaining damage into power points.",
+   "locators": [
+    "Basic Roleplaying ORC: Absorption, Armor, Protection, and Resistance (brp-orc#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to this fixed defensive sequence; a setting may alter the order, but doing so changes which defense can intercept or convert the attack.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0076",
+   "world": "brp",
+   "statement": "Absorption works continuously against one chosen damaging energy type, absorbing 1 damage point per level and storing it as power points. If the character or battery has no room for the stored points, excess damage affects the character; energy cannot be moved between a battery and the character’s reserve unless the battery also has Absorption.",
+   "locators": [
+    "Basic Roleplaying ORC: Absorption (brp-orc#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to type-specific absorption limited by available storage; a world can allow broader absorption or easier reserve transfers, at the cost of making energy storage less restrictive.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0077",
+   "world": "brp",
+   "statement": "Adaptation provides survival in one chosen hostile environment per level; activating it costs 1 power point per SIZ, followed by 1 power point per full turn, and its duration is 1 full turn. It protects against environmental conditions, not attacks that use those conditions, and some environments require multiple adaptations.",
+   "locators": [
+    "Basic Roleplaying ORC: Adaptation (brp-orc#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB11",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to one environment per level and ongoing power-point upkeep; the GM can let related environments share protection, balancing versatility against the cost of broader coverage.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0078",
+   "world": "brp",
+   "statement": "An Alternate Form costs no power points to use and switches bodies within a combat round; if the alternate body becomes unconscious, the character returns to the original. On switching back, each resource is set to the lower of its values in the two forms, and debilitating conditions persist across forms.",
+   "locators": [
+    "Basic Roleplaying ORC: Alternate Form (brp-orc#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to carrying the worse resource total and any debilitating condition across forms; a world can make forms more independent, at the cost of easing the consequences of transformation.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0079",
+   "world": "brp",
+   "statement": "Barrier creates a grounded wall within 15 meters that lasts 15 minutes and costs 3 power points per level; each level makes 1 cubic meter of material, and each meter of thickness has 30 hit points. When the power ends, the barrier disappears unless it consists of material that would normally remain.",
+   "locators": [
+    "Basic Roleplaying ORC: Barrier (brp-orc#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "formation-field",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a grounded, temporary barrier with durability tied to its thickness; a world can permit unsupported or lasting barriers, increasing the power’s ability to change the environment.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0080",
+   "world": "brp",
+   "statement": "Energy points can come from the character’s body or an external battery; the gamemaster may permit either source to fuel a power. A battery can be targeted, and several supplies may be assigned to different powers or shared among them.",
+   "locators": [
+    "Basic Roleplaying ORC: Power points (before Extra Hit Points) (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: energy sources and allocation",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to assigning internal energy to personal powers and batteries to external gear; a world can allow sources to cross-fuel, at the risk that an external supply can be targeted.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0081",
+   "world": "brp",
+   "statement": "A power may cost nothing to activate, charge once per activation, or require payment each round it remains active. Spent personal points return according to the power-point rules, while batteries must be recharged; matching-energy Absorption can replenish either.",
+   "locators": [
+    "Basic Roleplaying ORC: Power points (before Extra Hit Points) (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: activation and upkeep costs",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to the listed activation or maintenance cost; a world can make battery recharge the key constraint, since external reserves must be replenished.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0082",
+   "world": "brp",
+   "statement": "A Force Field supplies 10 armor per level against a specified attack or energy type, costs 1 power point per round and 1 per damage absorbed, and can cover a target within 15 meters. If one blow exceeds its specified protection or the user’s available points, the field dissipates.",
+   "locators": [
+    "Basic Roleplaying ORC: Force Field, p. 117 (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "protection-field",
+    "area-field"
+   ],
+   "default_dial_reason": "Default to protecting one SIZ of target per level against a chosen type; a world can allow broader or multiple-type coverage, with separate purchases and escalating energy costs.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0083",
+   "world": "brp",
+   "statement": "Protection reduces the level of an incoming superpower of its chosen energy type by its own level, potentially reducing it to zero. It costs 1 power point per level each combat round; protection against different types must be purchased separately.",
+   "locators": [
+    "Basic Roleplaying ORC: Protection, p. 118 (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "power-interaction",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to reducing only matching attack types; a world can broaden protection to additional types, but each type requires its own purchase.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0084",
+   "world": "brp",
+   "statement": "When active, Size Change alters SIZ by one point per level in the purchased direction and costs 1 point per level to activate, with no maintenance cost. Unconsciousness, sleep, depleted points, cancellation, or failure to hold the form after a major wound ends the change and restores normal size.",
+   "locators": [
+    "Basic Roleplaying ORC: Size Change, p. 120 (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to one-way growth or shrinkage per purchase; a world can permit both directions only by requiring separate purchases, and interruption risks losing the changed form.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0085",
+   "world": "brp",
+   "statement": "Stretching extends the body 1 meter per level; each meter extended reduces current STR by 1. At twice CON in levels, it permits exceptional squeezing and reshaping; imitating another power requires an Idea roll and double that power’s point cost, granting half the Stretching level temporarily.",
+   "locators": [
+    "Basic Roleplaying ORC: Stretching, p. 121 (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to limited extension with a strength penalty; a world can allow temporary imitation of other powers, paid for at double cost and limited to half the Stretching level.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0086",
+   "world": "brp",
+   "statement": "Teleport moves 1 SIZ per level instantly within 1,000 meters for 1 power point per level. Moving an unwilling target requires overcoming their power points; a failed fumble-related Luck check can cause 3D6 damage, while deliberate attacks using teleport have additional costs and avoidance rolls.",
+   "locators": [
+    "Basic Roleplaying ORC: Teleport, p. 124 (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default to voluntary transport within range; a world can allow offensive placement into solid matter, but it costs extra and gives the target a chance to avoid it.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0087",
+   "world": "brp",
+   "statement": "Transfer moves hit points, power points, fatigue points, or sanity points by touch at 1 point per level each round, never more than the giver has. Recipients cannot exceed their normal maximum except for power points, and unwilling targets may resist using the characteristic appropriate to the resource.",
+   "locators": [
+    "Basic Roleplaying ORC: Transfer, pp. 124–125 (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB15",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to a touch-based exchange capped by level and available resources; a world can allow transfers to unwilling targets, but resistance and the giver’s own resource loss limit the effect.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0088",
+   "world": "brp",
+   "statement": "Weather Control alters local conditions within 15 meters per level, changing temperature by 5°C per level or moving conditions one step per round; it costs 3 points per level to activate and 1 per round to maintain. When it ends, conditions drift back one step per round, and it cannot directly inflict damage.",
+   "locators": [
+    "Basic Roleplaying ORC: Weather Control, pp. 125–126 (brp-orc#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to non-damaging weather changes that gradually fade; a world can permit stronger atmospheric effects, but direct harm remains outside this power.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0089",
+   "world": "brp",
+   "statement": "Percentile rolls have five outcome grades: fumbles, failures, ordinary successes, special successes at 1/5 or less of the skill rating, and critical successes at 1/20 or less. A 00 is always a fumble; a fumble has harmful or obstructive consequences, while critical results provide the best outcome.",
+   "locators": [
+    "Basic Roleplaying ORC: Evaluating Success or Failure, p. 128 (brp-orc#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Use the five grades as the default; a world can soften fumbles or change the thresholds, trading swingy, dangerous outcomes for steadier resolution.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0090",
+   "world": "brp",
+   "statement": "A resistance test uses 50% + (active factor × 5) − (passive factor × 5), with each point of difference changing the chance by 5%. A difference of 10 or more normally makes the result automatic, though the GM may permit a 01 or 00 exception; power-point contests can determine whether a power affecting or controlling a target takes effect.",
+   "locators": [
+    "Basic Roleplaying ORC: Resistance Rolls, p. 129 (brp-orc#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "power-interaction",
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to the resistance formula and automatic outcomes at a 10-point gap; turn on exceptional rolls when dramatic reversals are desired, at the cost of certainty.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0091",
+   "world": "brp",
+   "statement": "For cooperative skill use, designate one lead and have helpers roll. A helper’s critical, special, or ordinary success raises the lead’s skill by 50%, 30%, or 20%, respectively; if all helpers fail, reduce it by 10%, and any helper fumble reduces it by 50%.",
+   "locators": [
+    "Basic Roleplaying ORC: Cooperative Skill Rolls, p. 130 (brp-orc#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Use one lead and these listed modifiers by default; a world can limit assistance to reflect practical constraints, making teamwork less powerful.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0092",
+   "world": "brp",
+   "statement": "In the default opposed-skill method, the higher degree of success wins, but each degree of success achieved by a successful loser reduces the winner’s result by one degree. Equal degrees are decided by the higher die roll.",
+   "locators": [
+    "Basic Roleplaying ORC: Opposed Skill Rolls, p. 130–131 (brp-orc#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Use degrees of success and downgrade the winner by the loser’s successful degrees; a world can choose one of the simpler alternate contests for faster resolution.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0093",
+   "world": "brp",
+   "statement": "Difficulty changes a skill rating before a roll: Easy doubles it, Average leaves it unchanged, and Difficult halves it, rounding up. Automatic tasks require no roll, while Impossible tasks fail outright, though the GM may allow a 1% chance in a suitably plausible case.",
+   "locators": [
+    "Basic Roleplaying ORC: Difficulty Modifiers, p. 132 (brp-orc#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Use the listed difficulty steps, with Automatic and Impossible at the extremes; a world can permit rare Impossible-task successes to favor extraordinary luck over strict limits.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0094",
+   "world": "brp",
+   "statement": "A character may spend 5 power points after a percentile roll to reroll it, with the second result final, or spend 5 to replace a skill test with a Difficult Luck roll. Spending 3 power points ignores 1 damage from one attack; reaching 0 power points causes exhaustion and fainting until at least 1 point returns.",
+   "locators": [
+    "Basic Roleplaying ORC: Fate Points, p. 133 (brp-orc#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "luck-mechanism"
+   ],
+   "default_dial_reason": "Allow these listed expenditures by default; a world can restrict or remove them to preserve uncertainty, since using them depletes the reserve and can cause fainting.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0095",
+   "world": "brp",
+   "statement": "Optional fate-point uses let a player spend 6 power points per result grade to improve their own roll, or spend power points equal to a weapon’s full damage range to deal that maximum damage on a successful strike. A variable GM-set cost can also establish a useful detail, resource, or contact; these uses do not earn experience checks.",
+   "locators": [
+    "Basic Roleplaying ORC: Fate Points, p. 134 (brp-orc#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "luck-mechanism"
+   ],
+   "default_dial_reason": "Keep these as optional high-adventure permissions; a world can exclude them, especially where preserving helplessness matters, while allowing them makes power points buy narrative control.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0096",
+   "world": "brp",
+   "statement": "A game turn lasts 5 minutes, a combat round lasts 12 seconds, and one turn contains 25 combat rounds. A character normally moves 10 movement units per combat round; the GM can temporarily reduce this for burdens, fatigue, caution, terrain, or weather.",
+   "locators": [
+    "Basic Roleplaying ORC: Turn and Combat Round, pp. 134–136 (brp-orc#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Use the stated durations and baseline movement; a world can adjust the unit’s distance or movement penalties to suit its scale and conditions.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0097",
+   "world": "brp",
+   "statement": "After a qualifying experience check, roll percentile dice and add half INT, rounded up; improvement succeeds only if the result exceeds the current skill rating. A success adds 1D6 skill points, or the player may choose +3 before rolling; epic and superhuman campaigns may use 1D8 or 1D10 instead, with fixed alternatives of +4 or +5.",
+   "locators": [
+    "Basic Roleplaying ORC: Making an Experience Roll / Increasing Skills by Experience, p. 139 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to gradual skill growth after successful experience; a world can raise the increase die for faster advancement, making characters improve more rapidly.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0098",
+   "world": "brp",
+   "statement": "Training with a more skilled teacher takes hours equal to the learner’s current skill rating. A successful Teach roll adds 1D6, failure adds nothing, and a fumble subtracts 1D3; training cannot raise a skill above 75% by default.",
+   "locators": [
+    "Basic Roleplaying ORC: Skill Training, p. 139 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to costly, teacher-led improvement capped at 75%; a setting can permit higher training, at the cost of time, compensation, and the risk of a fumbled lesson.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0099",
+   "world": "brp",
+   "statement": "Research takes as long as training but need not incur the same expense. Afterward, a successful experience roll adds 1D6–2 to the skill, or the character may choose +2; research can exceed 75%.",
+   "locators": [
+    "Basic Roleplaying ORC: Researching, p. 139 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to slower, self-directed learning that can surpass the training cap; a world can vary its research costs or require practical experience, reflecting access to resources.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0100",
+   "world": "brp",
+   "statement": "A successful POW resistance match against an opponent with equal or greater POW can earn a POW improvement check when the chance of success is 50% or less. The check succeeds on D100 at or below five times the gap between the character’s current POW and the species’ usual maximum-plus-minimum total; a success adds 1D3–1 POW, or the player may choose +1 before rolling.",
+   "locators": [
+    "Basic Roleplaying ORC: POW Increases, p. 140 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to small, uncertain POW growth earned through difficult contests; a world can change the allowed characteristics or maximums, with advancement tied to testing oneself.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0101",
+   "world": "brp",
+   "statement": "Characteristic training takes 25 hours per current characteristic point and then adds 1D3–1. STR and CON are capped by the highest original STR, CON, or SIZ; DEX and CHA are capped at one-and-a-half times their original value, rounded up.",
+   "locators": [
+    "Basic Roleplaying ORC: Characteristic Increase through Training, p. 140 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to demanding training with growth limits based on the character’s starting body and traits; a world can change the regimen or caps, trading plausibility for greater advancement.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0102",
+   "world": "brp",
+   "statement": "As an optional aging rule, starting at age 41 and each year afterward, roll 2D6 to determine characteristic-loss checks: results from 6–8 cause none, while other results cause 1–4 checks as listed. Each check rolls on the characteristic table; a characteristic reaching 0 causes death, while POW and EDU do not decline.",
+   "locators": [
+    "Basic Roleplaying ORC: Aging and Inaction (Option), pp. 140–141 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to gradual physical and social-trait decline from age 41; a world can disregard or alter it for longevity, self-care, or nonhuman lifespans.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0103",
+   "world": "brp",
+   "statement": "Combat rounds last 12 seconds. A character can activate one power per round; most powers take a full round to prepare and take effect at the beginning of the next round, and their power-point cost is paid at the INT rank when used.",
+   "locators": [
+    "Basic Roleplaying ORC: Powers, p. 143 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: power timing and limit",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to one power action per round with a delayed effect for most powers; a world can make powers faster through exceptions, while power points remain the expenditure.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0104",
+   "world": "brp",
+   "statement": "A character can move up to 30 meters in a round if doing nothing but defending. Moving 6–15 meters halves their DEX rank, while 16–29 meters reduces it to one-quarter; an attack can be combined with movement of up to 5 meters.",
+   "locators": [
+    "Basic Roleplaying ORC: Move / Attack, p. 144 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to distance reducing action speed; a world can adjust movement and rank penalties to suit its pace, with greater travel limiting when the character acts.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0105",
+   "world": "brp",
+   "statement": "Each parry or dodge after the first in a round takes a cumulative –30% skill penalty, and a chance below 1% cannot be attempted. A fully defensive stance allows parries and dodges together; fighting defensively instead trades attacks for one extra dodge that avoids the successive-action penalty.",
+   "locators": [
+    "Basic Roleplaying ORC: Parry / Dodge / Fight Defensively, pp. 144–145 (brp-orc#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to increasingly difficult repeated defense; a world can change the penalty or defensive options, balancing protection against the ability to attack.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0106",
+   "world": "brp",
+   "statement": "A special entangle made from at least 3 meters away (except a garrote at close range) stops the target moving until the end of the current round and through the next. On the following round the target can try Agility to escape, STR versus the attacker’s STR to wrench the weapon free, or cut it if able; a successful Dodge or Wrestle also negates it, but only on that next round.",
+   "locators": [
+    "Basic Roleplaying ORC: Entangling (brp-orc#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a one-round restraint with next-round escape attempts; a world can adjust duration or escape options to reflect weapon design and how securely it binds.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0107",
+   "world": "brp",
+   "statement": "A special success with a pointed or thrusting weapon doubles that weapon’s rolled damage dice and modifier, but does not double the attacker’s separate damage modifier. The weapon remains lodged until removed; significant movement causes another roll for half the weapon’s damage, without damage modifier or armor protection.",
+   "locators": [
+    "Basic Roleplaying ORC: Impaling (brp-orc#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "body-door"
+   ],
+   "default_dial_reason": "Default to a lodged weapon and movement-triggered wound damage; a world can reduce these consequences for cinematic combat, at the cost of less consequential injuries.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0108",
+   "world": "brp",
+   "statement": "A special unarmed throw or shield hit can knock a target back: compare rolled damage before armor against the target’s SIZ. If the target loses, push them 1 meter per 5 damage; striking an obstacle deals 1D6 damage per 3 meters or part thereof, and the target must pass Agility or fall prone.",
+   "locators": [
+    "Basic Roleplaying ORC: Knockback (brp-orc#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to damage-versus-SIZ resistance and distance-scaled collision harm; a world can change the displacement or collision severity to suit its desired combat physics.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0109",
+   "world": "brp",
+   "statement": "A character who gives up every attack for the round gets one extra Dodge attempt without the usual cumulative –30% penalty, and subsequent Dodge or parry attempts do not worsen an existing penalty. This cannot be combined with attacks or other offensive actions, and Dodge and parry cannot both occur at the same DEX rank.",
+   "locators": [
+    "Basic Roleplaying ORC: Fighting Defensively (brp-orc#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to trading offense for a penalty-free defensive attempt; a world can make defense more or less generous, with the cost expressed as foregoing all offensive action.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0110",
+   "world": "brp",
+   "statement": "A character with a combat skill of at least 100% may split it into attacks each rated at least 50%, allocating all skill points without rounding fractions upward. The first attack uses the normal DEX rank and each later attack occurs 5 DEX ranks later; an attack at rank 0 or below cannot be made.",
+   "locators": [
+    "Basic Roleplaying ORC: Attacks and Parries Over 100% (Option) (brp-orc#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to splitting excess skill into multiple later attacks; a world can disallow or expand this option to control how strongly exceptional skill increases attack frequency.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0111",
+   "world": "brp",
+   "statement": "When a character suffers a fatal wound, they may attempt one additional action if they pass Stamina. It must occur at their next available DEX rank; delaying it requires another Stamina roll for each round, and any failure means death before the action. After acting, they die.",
+   "locators": [
+    "Basic Roleplaying ORC: Dying Blows (Option) (brp-orc#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to one final action after a successful Stamina roll, followed by death; a world can remove the option or broaden eligible actions to set how dramatic a fatal injury can be.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0112",
+   "world": "brp",
+   "statement": "Armor’s value is subtracted from damage that gets through, and damage at or below zero causes no injury. When a shield and armor both apply, subtract both values; under the random-value option, roll armor separately for each damaging attack.",
+   "locators": [
+    "Basic Roleplaying ORC: Armor; Random Armor Values (Option) (brp-orc#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to fixed damage reduction, with an optional per-hit random value; a world can choose fixed or variable protection to set how reliable armor is.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0113",
+   "world": "brp",
+   "statement": "A character normally regains 1D3 hit points each week. First Aid success immediately restores 1D3 per wound; under poor care a Difficult First Aid or Medicine success is required for weekly healing, failure prevents healing, and a fumble causes 1D3 extra damage.",
+   "locators": [
+    "Basic Roleplaying ORC: Healing Naturally; Conditions of Medical Care (brp-orc#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to weekly recovery of 1D3 hit points; a world can alter recovery according to care and exertion, making inadequate treatment risky.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0114",
+   "world": "brp",
+   "statement": "Healing restores 1D6 hit points per spell level used in the example: Healing 1 restores 3 points, while Healing 2 restores 4. Each level used costs 3 power points, and healing can return an unconscious character to consciousness when the gamemaster judges their condition allows it.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 159–160, combat example (brp-orc#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to restoring a random 1D6 hit points per level for 3 power points per level; a world can change the recovery or price, with the caster’s reserve limiting repeated use.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0115",
+   "world": "brp",
+   "statement": "An aura attack makes visible targets resist with POW against the attacker’s aura total, calculated as the average of SIZ, POW, and CHA rounded up. A target that fails is unable to initiate actions until the round ends; a fumble instead demoralizes them for the rest of that round, making actions Difficult and potentially prompting surrender or flight.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 163, Aura Attacks (brp-orc#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a brief, round-long restriction on self-directed action after failed resistance; a setting can intensify or soften the response, with the target’s resistance and the attack’s visible, social nature setting its limits.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0116",
+   "world": "brp",
+   "statement": "Acid deals damage each round: weak acid causes 1D3−1, strong acid 1D4, and very strong acid 1D6+1. Armor halves damage, rounded up, for 1D3 rounds; very strong acid also destroys armor after 1D6 rounds of exposure.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 161, Acid (brp-orc#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to ongoing damage and temporary armor mitigation; a world can vary armor coverage or acid strength, with prolonged exposure consuming armor and harming the victim.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0117",
+   "world": "brp",
+   "statement": "A character exposed to environmental asphyxiation can initially hold their breath with a CON×10 roll, then faces progressively lower CON multipliers each round, starting at CON×5 in the second round. Once a roll fails, the character takes damage each subsequent round until escape, unconsciousness, or death; deliberate choking instead calls for CON×1 each round or causes 1D6 damage.",
+   "locators": [
+    "Basic Roleplaying ORC: Pages 167–168, Choking, Drowning, and Asphyxiation (brp-orc#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to worsening resistance followed by recurring damage; a world can change the starting grace period or damage by the hazard, with loss of breathable air driving the escalating cost.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0118",
+   "world": "brp",
+   "statement": "After contracting a disease, a character makes a recovery check each morning beginning on day two, starting at CON×2 and increasing the multiplier by 1 each day; a fumble reduces it by 1. Rest and care are required, and each outstanding strenuous or adverse condition reduces the multiplier by 1; medical treatment can help but cannot replace a successful natural recovery check.",
+   "locators": [
+    "Basic Roleplaying ORC: Disease, p. 170 (brp-orc#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to daily, progressively easier recovery while resting; a world can make diseases persist longer or recovery harder under strain, because illness requires time and care.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0119",
+   "world": "brp",
+   "statement": "For diseases that cause characteristic loss, each failed recovery check increases illness severity: after 1, 2, 3, or 4+ failures, the loss is respectively 1 characteristic point per week, day, hour, or minute. The first point is lost within 24 hours of infection, and reaching 0 in a characteristic usually means death or permanent debilitation.",
+   "locators": [
+    "Basic Roleplaying ORC: Illness Severity Table, p. 170 (brp-orc#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to escalating losses after failed recovery checks; a world can change the failure thresholds or loss rate to reflect how dangerous its diseases are.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0120",
+   "world": "brp",
+   "statement": "An explosion’s damage is set by its dice and radius, with a guideline of 2 meters of radius per D6; damage drops by 1D6 for every 2 meters from the center, reaching none beyond the radius. Demolition can increase damage and radius by up to 50%, or halve both to weaken the charge.",
+   "locators": [
+    "Basic Roleplaying ORC: Explosions, p. 171 (brp-orc#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to damage diminishing with distance; a world can change blast size or falloff, with explosive strength and demolition skill determining the cost.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0121",
+   "world": "brp",
+   "statement": "Fire damages exposed characters at the end of the round: a candle deals 1 point, a torch 1D6, a bonfire 1D6+2, a burning structure 2D6, and intense fire 3D6 per round. Intense fire also causes 1D6 extra damage each following turn; protection subtracts its value, while a fire can be extinguished in at least one round, with a failed Luck roll allowing it to continue.",
+   "locators": [
+    "Basic Roleplaying ORC: Fire and Heat, p. 172 (brp-orc#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to recurring exposure damage reduced by protection; a world can adjust intensity, duration, and ignition risk to reflect the hazard and available defenses.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0122",
+   "world": "brp",
+   "statement": "A declared knockback compares final damage against the target’s SIZ; if the target loses the resistance contest, they move 1 meter for each 5 damage points exceeding their SIZ and must pass Agility to stay upright. A mounted target can add the mount’s SIZ after a successful Ride, Drive, or Pilot check.",
+   "locators": [
+    "Basic Roleplaying ORC: Knockback, pp. 173–174 (brp-orc#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to knockback only when damage overcomes the target’s size; a world can lower the threshold to make powerful impacts more frequent, at the cost of greater displacement.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0123",
+   "world": "brp",
+   "statement": "A declared knockout attempt is a Difficult targeted attack against a living being with a defined head; if damage after armor reaches the major-wound threshold, the target takes 1 damage and is unconscious for 1D10+10 rounds. A lesser wound instead deals the weapon’s minimum damage after armor without knocking the target out.",
+   "locators": [
+    "Basic Roleplaying ORC: Knockout Attacks, p. 174 (brp-orc#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a nonlethal knockout only when a sufficiently severe hit lands; a world can broaden eligible targets or change unconsciousness duration, trading realism for cinematic control.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0124",
+   "world": "brp",
+   "statement": "Poison POT is resisted against CON: if it overcomes CON, it deals its full POT as damage; otherwise it usually deals half POT, rounded up. Each dose is resisted separately, and damage begins after the poison’s delay—usually three combat rounds for fast poisons or three turns for slower ones; an antidote taken within six turns subtracts its POT from the poison’s POT.",
+   "locators": [
+    "Basic Roleplaying ORC: Poisons and Poison Antidotes, p. 176 (brp-orc#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to delayed, potency-based harm reduced by a timely antidote; a world can vary onset and antidote compatibility because different poisons act differently.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0125",
+   "world": "brp",
+   "statement": "Radiation exposure is resisted with CON against radiation POT, with effects checked at a rate determined by intensity: every 30 days at POT 5, weekly at 10, daily at 15, hourly at 20, every minute at 25, and each combat round at 30+. Failed checks produce the listed escalating illness, damage, blindness, sterility, or death; at POT 25 death follows within CON/2 hours without suitable medical assistance, while at 30+ death follows in 1D3 combat rounds.",
+   "locators": [
+    "Basic Roleplaying ORC: Radiation Effects Table, pp. 177–178 (brp-orc#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to worsening effects as radiation potency rises and checks become more frequent; a world can make radiation beneficial or alter its severity to suit its genre.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0126",
+   "world": "brp",
+   "statement": "A magic item can cast spells it knows using its own power points, or its owner’s if the item uses the owner’s reserve. At 0 points it cannot be used; its user may transfer 1 point from their body into it each combat round to recharge it.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Powers, p. 188 (brp-orc#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to an item with a finite, damage-limited reserve; a setting can allow owner-powered items or larger reserves, at the cost of the owner’s power points.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0127",
+   "world": "brp",
+   "statement": "A magic item can store up to twice its maximum power points, but points above its normal maximum disappear in the same way as a character’s excess points. Damage reduces the item’s storage limit, and destroying it makes it mundane and permanently loses any POW invested in it.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Powers, p. 188 (brp-orc#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to capacity that falls as the item is damaged; a world can make items more durable or storage more generous, but must decide what happens to invested power if the item is destroyed.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0128",
+   "world": "brp",
+   "statement": "A magic spell bound permanently to an item is always active at full strength and needs no power points, but creating such an item costs five times the usual POW cost.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Powers, p. 188 (brp-orc#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a continuously active effect with a fivefold creation cost; a world can restrict which spells may be made permanent or change that cost to limit persistent magic.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0129",
+   "world": "brp",
+   "statement": "A mutated item is treated as alive and heals at its creator’s rate; anyone can use it after succeeding at a Stamina roll. If it is destroyed, its invested CON and mutations are lost.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Powers, pp. 188–189 (brp-orc#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB16",
+   "derives": [
+    "body-form",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a living item that requires a successful Stamina roll to use; a world can make access easier, but risks losing the invested traits if the item is destroyed.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0130",
+   "world": "brp",
+   "statement": "A character with a psychic ability recognizes that an item has psychic abilities automatically, and can work out how to use it with an Idea roll. A character without psychic abilities has more difficulty identifying it.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Psychic Abilities, p. 189 (brp-orc#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to psychic users detecting such items automatically and learning their use with a roll; a world can make detection harder or open to non-psychics, trading secrecy for broader access.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0131",
+   "world": "brp",
+   "statement": "Underwater, non-impaling weapons deal half damage, and characters gain 3 extra armor points against those weapons. A swimmer must roll Swim each turn to get into position, combat actions are limited by Swim skill in most cases, and combat costs twice the usual fatigue.",
+   "locators": [
+    "Basic Roleplaying ORC: Underwater Combat, p. 180 (brp-orc#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to these underwater penalties for ordinary characters; a world can exempt acclimated aquatic beings, while retaining the environmental costs for others.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0132",
+   "world": "brp",
+   "statement": "Without protection in vacuum, a character who does not first exhale takes 1D6+2 damage each combat round from lung collapse. Hemorrhage deals 1 damage in the first round, then 2, 4, 8, and so on each subsequent round; protective-suit armor may delay this by one round per armor point.",
+   "locators": [
+    "Basic Roleplaying ORC: Vacuum, p. 180 (brp-orc#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to escalating harm each round without protection; a world can reduce or delay it with suitable suits, making protection an equipment and availability question.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0133",
+   "world": "brp",
+   "statement": "In zero gravity, a character attempting combat or physical activity rolls Agility each round; failure makes those actions Difficult. Unless braced, an impact can knock back both the character and attacker, while impact damage is halved, rounded up.",
+   "locators": [
+    "Basic Roleplaying ORC: Zero-gravity Combat, p. 182 (brp-orc#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to an Agility roll each round and extra knockback when unbraced; a world can let specialized gear remove the orientation and impact problems.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0134",
+   "world": "brp",
+   "statement": "Creating an artifact costs its maker 1 permanent POW for each invested sorcery spell; its power-point capacity is the greater of the maker’s normal power points or the artifact’s SIZ. It can hold up to twice that capacity, but points above its normal capacity disappear as they do for a character.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Sorcery (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a finite, item-held reserve with costly creation; a world can make artifacts draw on users instead, shifting the burden to each user’s power points.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0135",
+   "world": "brp",
+   "statement": "An artifact at 0 power points becomes inert or unconscious, and a user can recharge it by transferring 1 power point from their body per combat round. Damage reduces its storage limit; if it is broken or destroyed, it cannot regain artifact status, and destruction also loses invested POW.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Sorcery (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to slow bodily recharging and damage-sensitive capacity; a world can make recharging easier, at the cost of weakening the item’s scarcity and vulnerability.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0136",
+   "world": "brp",
+   "statement": "A psychic item’s creator or the gamemaster chooses who may use it. A would-be user must either win a power-point-versus-power-point resistance contest or succeed at a Difficult Luck roll; the item has ordinary hit points, does not heal naturally, and stops working if destroyed.",
+   "locators": [
+    "Basic Roleplaying ORC: Psychic items (preceding Equipment with Sorcery) (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to creator-set access and a contest or Difficult Luck check to overcome it; a world can make access unrestricted, removing the item’s built-in gate.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0137",
+   "world": "brp",
+   "statement": "An artifact with a spell that remains active permanently costs twice the usual POW to create. Spells cast from an artifact otherwise follow their normal rules.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Sorcery (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to doubling creation cost for always-on effects; a world can lower that cost, making permanent enchantments more common.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0138",
+   "world": "brp",
+   "statement": "A gadget’s superpowers remain invested permanently unless the gadget is destroyed. Its characteristics and skills should support the powers it uses; it automatically fails a resistance roll if it lacks the relevant characteristic.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Superpowers (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB16",
+   "derives": [
+    "item-bound-power",
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default to persistent powers on a destructible device, with its own capabilities determining use; a world can make powers temporary or user-dependent, reducing device autonomy.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0139",
+   "world": "brp",
+   "statement": "When an item combines power types, all its powers use the same resource pool, and recharging must satisfy each power type’s rules. The item needs the characteristics or skills required by its powers, and when either of two values can be used for an action, use the higher where appropriate.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Multiple Power Types, p. 190 (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to one shared resource pool and all required capabilities; a world can keep separate pools, increasing bookkeeping and limiting cross-use of reserves.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0140",
+   "world": "brp",
+   "statement": "An item can require a minimum or maximum characteristic or a skill threshold to use. If someone tries to use it without meeting a requirement, the gamemaster may impose extra fatigue, make associated skill rolls Difficult, or require a characteristic roll to avoid mishaps.",
+   "locators": [
+    "Basic Roleplaying ORC: Equipment with Requirements, p. 190 (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to enforceable thresholds with possible fatigue, difficulty, or mishap costs; a world can waive them, allowing broader access at the cost of less distinction between users.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0141",
+   "world": "brp",
+   "statement": "Limited-use equipment is normally assumed to have adequate refills with enough time and planning. When supplies are hard to obtain, the gamemaster may require a Research, Status, or Luck roll; refilling resources are usually free or cost two or three Wealth levels less than the equipment.",
+   "locators": [
+    "Basic Roleplaying ORC: Charges or Limited-Use Equipment, p. 190 (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to abstracting routine supplies, with acquisition rolls when circumstances make them scarce; a world can make ammunition or fuel consistently scarce, adding a recurring supply cost.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0142",
+   "world": "brp",
+   "statement": "A weapon skill applies to weapons in its class. The gamemaster may let a character use a similar weapon from another class at a Difficult temporary rating; experience earned that way is checked against and added to the base chance, not the temporary rating.",
+   "locators": [
+    "Basic Roleplaying ORC: Using Weapons of the Same Class / Using Weapons of Different Classes, pp. 197–198 (brp-orc#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to class-based skill transfer, halved when treated as Difficult; a world can disallow cross-class use, making specialized training more restrictive.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0143",
+   "world": "brp",
+   "statement": "Primitive, ancient, and medieval armor provides half its normal protection against firearms; modern armor provides half protection against energy weapons, while advanced armor normally works at full value against all attacks. Apply the reduction after determining armor protection and round up; armor already listing separate protection values is not reduced again.",
+   "locators": [
+    "Basic Roleplaying ORC: Armor and Firearms, p. 203 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to halving protection across the stated technology gaps; a setting can change which weapons count as advanced, reflecting how armor materials fare against newer attacks.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0144",
+   "world": "brp",
+   "statement": "When a firearm’s attack roll reaches or exceeds its malfunction number, it cannot fire until cleared. A dud can be cycled or ejected in one round; clearing a jam takes 1D6 rounds and a successful firearm or Repair skill roll, whichever is higher, and a failed attempt can be repeated with another 1D6 rounds; a 96–00 repair roll destroys the weapon beyond casual repair.",
+   "locators": [
+    "Basic Roleplaying ORC: Malfunctions, p. 203 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed malfunction threshold and repair delays; a world can make weapons more or less reliable, with unreliable designs costing time and possibly the weapon.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0145",
+   "world": "brp",
+   "statement": "Reloading a handgun, rifle, or shotgun takes one combat round for every two rounds loaded, and exchanging a clip, energy cell, or battery takes one round; changing a machine-gun belt takes two rounds. Under time pressure, a character may load one round and fire a single shot at half their normal DEX rank, rounded up.",
+   "locators": [
+    "Basic Roleplaying ORC: Reloading Firearms, p. 203 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to these reload times; a world can speed up or slow down reloading to reflect equipment design and the value of exposing oneself while handling ammunition.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0146",
+   "world": "brp",
+   "statement": "Aiming-area fire doubles a ranged weapon’s attacks per round but reduces the chance to hit to one-fifth of the shooter’s skill; resolve a hit as a normal success, and choose randomly among multiple targets if needed. A prepared shooter with a laser sight or equivalent and a weapon skill above 60% may avoid this reduction at the gamemaster’s discretion.",
+   "locators": [
+    "Basic Roleplaying ORC: Unaimed Shots, p. 204 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to trading accuracy for twice as many attacks; allow targeting aids and preparation to relax that cost when the setting supports them.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0147",
+   "world": "brp",
+   "statement": "Energy armor can be set to any protection value from 1 to 20, taking 5 DEX ranks to adjust. It spends power charges each combat round equal to its set protection, plus one additional charge per damage point it absorbs; a standard supply holds 200 charges, and it cannot be worn with other armor.",
+   "locators": [
+    "Basic Roleplaying ORC: Advanced Armor, p. 208 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to adjustable protection paid for from a finite charge reserve; a world can change the capacity or charge drain, balancing stronger defense against shorter operating time.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0148",
+   "world": "brp",
+   "statement": "Layering soft, pliable armor adds its usual protection and encumbrance. When hard armor is layered with anything other than soft armor, add the protection values but triple the encumbrance of the less protective piece.",
+   "locators": [
+    "Basic Roleplaying ORC: Layering Armor, p. 209 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to combining protection while penalizing mismatched hard layers with triple encumbrance; a world can loosen or tighten the burden to represent its armor technology.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0149",
+   "world": "brp",
+   "statement": "Putting on armor takes one combat round per point of protection if the wearer is prepared and conditions are calm; removal allows 3 protection points per round, or 4 after a successful Agility roll. Difficult circumstances can increase donning time, and removing armor uses its maximum protection rating when armor values are random.",
+   "locators": [
+    "Basic Roleplaying ORC: Putting Armor On / Taking Armor Off, p. 209 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to slow donning and faster removal; a world can alter these times to reflect armor complexity, with rushed or adverse conditions imposing additional delay.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0150",
+   "world": "brp",
+   "statement": "A slung shield adds half its protection value, rounded up, to protection at a hit location it covers when that location is struck; bucklers, primitive shields, and energy shields cannot be slung. A thrown shield is an improvised attack with 10-meter range and a 5% base chance to hit.",
+   "locators": [
+    "Basic Roleplaying ORC: Slung Shields, p. 210 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to partial protection from a shield carried passively and the stated restriction on which shields can be slung; a world can vary coverage, trading active defense for protection while carried.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0151",
+   "world": "brp",
+   "statement": "Artillery normally attacks an area of SIZ 40, about four meters in radius; a smaller target incurs a 1% hit-chance penalty for each SIZ point below 40. Guided missiles make the operator’s skill use Easy, while a self-guided missile hits automatically except on 99 or 00; a target’s dodge is Difficult, and electronic jamming makes the missile attack Difficult.",
+   "locators": [
+    "Basic Roleplaying ORC: Artillery Weapon Effects / Guided Missiles, p. 212 (brp-orc#018)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to area targeting and guided accuracy with difficult evasion; a setting can make guidance or jamming more or less effective, changing the cost of relying on electronic systems.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0152",
+   "world": "brp",
+   "statement": "For explosions that inflict damage over a radius, damage decreases by 1D6 for each meter beyond the initial radius; in the advanced explosive notes, the reduction is 1D per range increment. Non-damaging effects such as illumination or smoke instead fill or affect the stated area.",
+   "locators": [
+    "Basic Roleplaying ORC: Modern Explosives, p. 216; Advanced Explosives, p. 217 (brp-orc#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to reducing blast damage by one die at each distance step; a setting can change the decrement or radius to reflect its explosives and desired lethality.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0153",
+   "world": "brp",
+   "statement": "A struck target hit by a flame-producing weapon must fail a Luck roll to catch fire, then takes 1D6 damage immediately and each following round until the fire is put out or neutralized. Plasma weapons require a Difficult Luck roll for this effect.",
+   "locators": [
+    "Basic Roleplaying ORC: Modern Explosives, p. 216; Advanced Explosives, p. 217 (brp-orc#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to ongoing 1D6 fire damage after a failed Luck check; a world can make ignition more or less likely to set the danger of incendiary weapons.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0154",
+   "world": "brp",
+   "statement": "A medi-kit makes First Aid attempts Easy and doubles the hit points restored by a successful attempt. An auto-doc has 100% Medicine and First Aid skill; a successful treatment restores double the hit points and halves recovery time.",
+   "locators": [
+    "Basic Roleplaying ORC: Medical Equipment, p. 223 (brp-orc#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to these fixed treatment bonuses; a setting can make advanced medical devices rarer or more costly to limit access.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0155",
+   "world": "brp",
+   "statement": "When damage exceeds an inanimate object’s armor value, subtract the armor from the damage, then reduce both its hit points and armor value by the remaining damage. At zero hit points, a smaller-than-human object is destroyed; a larger object has a human-sized hole in the damaged section.",
+   "locators": [
+    "Basic Roleplaying ORC: Damage to Inanimate Objects, p. 224 (brp-orc#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "object-surface"
+   ],
+   "default_dial_reason": "Default to armor and hit points degrading together under penetrating damage; a world can make structures tougher or allow repeated attacks to weaken them faster.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0156",
+   "world": "brp",
+   "statement": "Natural armor values of substances do not decline from repeated attacks. A gamemaster may instead rule that successful attacks aimed at the same spot reduce armor by 1 each time, until a later attack breaks through.",
+   "locators": [
+    "Basic Roleplaying ORC: Armor Value of Substances, p. 224–225 (brp-orc#019)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "object-surface"
+   ],
+   "default_dial_reason": "Default to durable natural armor; a world can allow focused attacks to wear down a specific spot to model cracking or deliberate breaching.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0157",
+   "world": "brp",
+   "statement": "Most powers consume power points; when a character has none left, they become unconscious.",
+   "locators": [
+    "Basic Roleplaying ORC: Teaching the Rules, p. 232 (brp-orc#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to power-point fuel and unconsciousness at zero; a world can change the reserve or consequence because powers exhaust their users.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0158",
+   "world": "brp",
+   "statement": "A character with 0 hit points dies.",
+   "locators": [
+    "Basic Roleplaying ORC: Teaching the Rules, p. 232 (brp-orc#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to death at zero hit points; a world can soften or replace this threshold to make injury less final.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0159",
+   "world": "brp",
+   "statement": "The optional Fate Points rule lets players spend power points to change dice results and introduce narrative elements.",
+   "locators": [
+    "Basic Roleplaying ORC: Optional Rule Checklist—Miscellaneous, p. 230 (brp-orc#020)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "luck-mechanism"
+   ],
+   "default_dial_reason": "Default to spending power points for a result adjustment or narrative addition; a world can limit such interventions because they draw on the same resource as powers.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0160",
+   "world": "brp",
+   "statement": "A personality trait is rated from 0 to 100; its paired opposite has the complementary value, so a rating of 90 corresponds to 10 in the opposite trait. A trait can be rolled against: success means the character follows that trait, while failure means they follow its opposite.",
+   "locators": [
+    "Basic Roleplaying ORC: Personality Traits, pp. 240–241 (brp-orc#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to complementary paired ratings and a roll to resolve behavior; a world can make traits more or less influential, with character agency as the main limit.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0161",
+   "world": "brp",
+   "statement": "For a nonplayer character’s trait, the gamemaster may use the rating directly as the success threshold: for example, Aggressive 90 means a roll of 01–90 produces an aggressive response and 91–100 a passive one. Traits may instead guide roleplaying without a roll.",
+   "locators": [
+    "Basic Roleplaying ORC: Personality Traits, p. 241 (brp-orc#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to rolling only when the response is uncertain; a world can make reactions automatic or routinely rolled, trading speed for unpredictability.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0162",
+   "world": "brp",
+   "statement": "A successful Psychology treatment can shift one paired personality trait by the amount of SAN that the same result would restore. Use the same treatment time as for SAN restoration.",
+   "locators": [
+    "Basic Roleplaying ORC: Skills and Personality Traits, p. 241 (brp-orc#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to allowing gradual change through Psychology at the SAN-restoration rate; a world can restrict or expand the permitted shift, with treatment time as its cost.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0163",
+   "world": "brp",
+   "statement": "For a player character, traits can augment activities or be consulted when provoked, and successful use can earn an experience check. If the player succeeds on one trait but chooses to act according to its opposite, they automatically receive an experience check for that opposite trait; increasing one trait reduces its opposite.",
+   "locators": [
+    "Basic Roleplaying ORC: Personality Traits and Player Characters, p. 241 (brp-orc#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to player control with trait-based checks and paired adjustments; a world can make traits more binding, at the cost of limiting choice.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0164",
+   "world": "brp",
+   "statement": "Successful rolls made by a player character whose player is absent do not award experience points, whether the character is run by the gamemaster or another player.",
+   "locators": [
+    "Basic Roleplaying ORC: Absent Player Characters (brp-orc#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to withholding experience for absent players’ characters; a world can award it anyway, trading attendance-based fairness for uninterrupted progression.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0165",
+   "world": "brp",
+   "statement": "During a break, the game world can be treated as having no time pass, or the break can represent an in-world time jump. If that jump is substantial, the group may resolve healing, experience checks, and training.",
+   "locators": [
+    "Basic Roleplaying ORC: Take a Break if You Need It (brp-orc#021)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to pausing world time unless the gamemaster declares a jump; a world can make breaks advance time, potentially triggering recovery and training.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0166",
+   "world": "brp",
+   "statement": "A character is allied with an allegiance only when its score is at least 20 points higher than every other score and the character consciously acknowledges it. Allegiance scores never fall below 0, and reaching 100 or more does not by itself make the character an ally or an apotheosis.",
+   "locators": [
+    "Basic Roleplaying ORC: Allegiance; Creating Allegiances (pp. 250–252) (brp-orc#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default to requiring both the 20-point lead and acknowledgment; a setting can change the threshold or omit allegiance benefits to reflect how demanding its beliefs are.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0167",
+   "world": "brp",
+   "statement": "After an adventure, a character whose conduct favored an allegiance may test it; success adds 1D6 points. When an allied character acts against that allegiance, the gamemaster may test it: a roll above the score adds 1D4–1D8 points to an opposed allegiance, according to the severity, while a roll equal to or below it has no consequence.",
+   "locators": [
+    "Basic Roleplaying ORC: Increasing Allegiance; Maintaining Allegiance (pp. 251–252) (brp-orc#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB18",
+   "derives": [
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default to awarding points for favored conduct and risking opposed-allegiance gains for violations; a world can make tests more or less frequent to set the pressure of religious or ideological commitment.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0168",
+   "world": "brp",
+   "statement": "A successful allegiance test can grant a reserve of power points equal to up to 10% of the current allegiance score, usable only as the character spends their last normal power points and at most three times per session. Alternatively, once per session a successful test can grant temporary hit points up to 20% of the score, or a pool equal to the whole score that can be assigned to skill rolls before rolling, up to three times per session; unused temporary hit points vanish at session end, and none of these benefits reduce the allegiance score.",
+   "locators": [
+    "Basic Roleplaying ORC: Benefits to Allegiance (p. 252) (brp-orc#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "power-granting"
+   ],
+   "default_dial_reason": "Default to allowing these benefits only after a successful allegiance test; a setting can change the options or limits to decide how concretely devotion sustains its adherents.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0169",
+   "world": "brp",
+   "statement": "An allied character can seek intervention from their power by rolling against the chance of a critical success; on a critical result, the power aids them directly, through an agent, or through a miraculous natural event. A character can attempt an allegiance test after using this benefit.",
+   "locators": [
+    "Basic Roleplaying ORC: Benefits to Allegiance (p. 252) (brp-orc#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB18",
+   "derives": [
+    "power-granting"
+   ],
+   "default_dial_reason": "Default to a rare, potentially extraordinary intervention on a critical result; a world can make aid more reliable or restrained to reflect the power’s reach and willingness to act.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0170",
+   "world": "brp",
+   "statement": "At 100 or more points in an allegiance, an allied character may be offered apotheosis, but it requires acceptance and demonstrated worth. The resulting living avatar keeps free will, may still betray the force, and can receive tailored benefits such as limited immunity to aging and disease, increased hit points, doubled ratings in three suitable skills, a powerful artifact, or doubled maximum power points; communication with the force is then possible at POW×3 and may become intrusive.",
+   "locators": [
+    "Basic Roleplaying ORC: Apotheosis (pp. 252–253) (brp-orc#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB18",
+   "derives": [
+    "body-form",
+    "power-granting"
+   ],
+   "default_dial_reason": "Default to making apotheosis an optional offer at 100+ points rather than an automatic change; a world can vary its rewards and intrusiveness to show what service to a force demands.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0171",
+   "world": "brp",
+   "statement": "A passion roll can inspire one skill for one task or situation, for no more than a day, and only once per scene; its benefit cannot combine with another skill augment. Critical, special, and ordinary success add 50%, 30%, and 20% respectively, while failure imposes −10% on further rolls in the scene; a fumble reduces the passion by 1D10% and causes despair, during which the character can generally only flee or hide. Despair lasts 1D10 rounds on 1–3, 1D10+10 rounds on 4–7, until sunset or a similar interval on 8–9, and 1D3 days on 10.",
+   "locators": [
+    "Basic Roleplaying ORC: Using Passions: Inspiration; Despair (p. 255) (brp-orc#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB19",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to one inspiration attempt per scene, with risky failure outcomes; a world can adjust duration and penalties to determine how forcefully emotion drives behavior.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0172",
+   "world": "brp",
+   "statement": "A passion rated at 80% or higher may prompt a mandatory roll when conduct conflicts with it; the gamemaster may reduce it below 80% or pit it against another passion, letting the winning passion guide the character’s choice. A passion reduced to 0% is removed and cannot normally be regained.",
+   "locators": [
+    "Basic Roleplaying ORC: Mandatory Rolls; Gaining a Passion (pp. 255–256) (brp-orc#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB19",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to treating ratings of 80% or higher as potentially compelling; a world can change that threshold or permit recovery to tune how binding strong feelings are.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0173",
+   "world": "brp",
+   "statement": "Reputation can identify a character or augment a suitable Communication skill. When used to augment, a critical, special, or ordinary success grants +50%, +30%, or +20%; failure gives −20%, and a fumble gives −50%. Recognition is rolled against the subject’s Reputation, and people farther away socially or geographically may apply modifiers.",
+   "locators": [
+    "Basic Roleplaying ORC: Using Reputation; Reputation Modifiers (pp. 258–259) (brp-orc#022)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to public deeds building durable reputation and to audience distance modifying recognition; a world can adjust the reach of news to determine how widely fame travels.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0174",
+   "world": "brp",
+   "statement": "Starting Sanity (SAN) is POW×5; the temporary-insanity threshold (TIS) is half starting SAN and remains fixed even when current SAN changes. A setting may instead set TIS equal to POW.",
+   "locators": [
+    "Basic Roleplaying ORC: Sanity Mechanics (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to half starting SAN as the crisis threshold; a setting may use POW for a lower threshold and more frequent breakdowns.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0175",
+   "world": "brp",
+   "statement": "When a Sanity roll fails, the character loses the amount determined by the gamemaster; some especially horrific events also cause a reduced loss on a successful roll. Losing SAN equal to or above TIS within five minutes causes temporary insanity, with a 1D6 result determining its form and 1D8 its duration.",
+   "locators": [
+    "Basic Roleplaying ORC: Sanity Mechanics; Temporary Insanity; Temporary Insanity Duration (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to the listed SAN checks and fixed five-minute accumulation window; a setting can adjust losses and thresholds to make psychological crises more or less common.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0176",
+   "world": "brp",
+   "statement": "At SAN 0, a character is permanently insane and leaves player control; recovery requires divine intervention or another major process, if the gamemaster permits it. Restored SAN cannot exceed the character’s starting maximum, which can be reduced to 100 minus a relevant skill rating.",
+   "locators": [
+    "Basic Roleplaying ORC: Sanity Mechanics; Maximum Sanity (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to removal from play at zero SAN; a setting can allow major recovery, at the cost of extensive treatment or intervention.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0177",
+   "world": "brp",
+   "statement": "SAN may be restored by defeating a source of SAN loss for up to half its threatened loss, successful psychotherapy for 1D3−1 points, or reaching 91% in a skill for a one-time 2D6 points. The gamemaster may also allow drugs or powers, and all recovery remains subject to the character’s maximum SAN.",
+   "locators": [
+    "Basic Roleplaying ORC: Restoring Sanity Points (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to the listed recovery methods and cap; a setting can broaden or restrict recovery according to available treatment and powers.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0178",
+   "world": "brp",
+   "statement": "Repeated exposure to the same SAN-loss source may have reduced effects or require no new roll if the character has become familiar with it. Successful and failed SAN rolls can cause different losses, including losses on success for some sources.",
+   "locators": [
+    "Basic Roleplaying ORC: Sanity Costs by Situation; Sanity Losses (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to the listed situation losses and allow desensitization; a setting can keep repeated exposure dangerous or reduce it as characters adapt.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0179",
+   "world": "brp",
+   "statement": "A creature lacking a characteristic cannot be affected by attacks or conditions that target that characteristic. For example, creatures without CON ignore CON-resisted poison and disease, while those without INT ignore effects on rational thought but may still be affected through emotion.",
+   "locators": [
+    "Basic Roleplaying ORC: Creatures Without Characteristics (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB21",
+   "derives": [
+    "containment-rule",
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to immunity when a creature has no relevant characteristic; a setting can decide which effects target emotion or other attributes instead.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0180",
+   "world": "brp",
+   "statement": "An insect swarm stings each attacked character every combat round until the swarm is escaped, deterred, or destroyed, and gives up after 2D6 rounds. After 1D6 hours, victims resist venom based on CON against potency calculated from the sting count; covering, protective gear, or antivenom can reduce or prevent the threat.",
+   "locators": [
+    "Basic Roleplaying ORC: Natural Animals; Insect Swarm (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "plant-or-creature-target",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to repeated stings followed by delayed venom; a setting can change swarm size, venom severity, or protection to tune the hazard.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0181",
+   "world": "brp",
+   "statement": "In ghostly combat, the ghost and target make a POW-versus-POW resistance roll; the loser usually loses 1D3 power points. The contest repeats each round until someone is unconscious or flees, and a ghost that reduces a target to zero power points may possess them but remains tied to its haunting site.",
+   "locators": [
+    "Basic Roleplaying ORC: Ghost (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB17",
+   "derives": [
+    "soul-state",
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to power-point attrition and site-bound possession; a setting can vary the ghost’s drain or possession behavior to reflect its nature.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0182",
+   "world": "brp",
+   "statement": "A ghoul gains 1 power point per 3 SIZ points of corpse consumed, spends 1 each morning to remain animated, and spends another 1 for each hour in sunlight. Its howl costs 1 power point and can stun targets that fail a power-points-versus-INT resistance roll.",
+   "locators": [
+    "Basic Roleplaying ORC: Ghoul (brp-orc#023)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "creature-control",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to corpse-fed upkeep and a paid stunning howl; a setting can change the sustenance rate or sunlight burden to alter the ghoul’s survival pressure.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0183",
+   "world": "brp",
+   "statement": "A mummy is twice as easy to ignite as a normal target. Once burning, it takes normal fire damage, but the chance that the fire goes out is halved; fire-based powers follow the same rule.",
+   "locators": [
+    "Basic Roleplaying ORC: Mummy, p. 273 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default to increased ignition and reduced chance of extinguishing; a setting can tune or omit this vulnerability to reflect how its undead bodies work.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0184",
+   "world": "brp",
+   "statement": "A skeleton has hit points equal to its SIZ and no CON. It ignores bleeding and impaling special effects, and thrusting weapons deal no damage unless the hit is special or critical; even then, secondary effects are ignored. Any damaging blow also has a destruction chance of damage dealt ×4 percent, which instantly shatters it if successful.",
+   "locators": [
+    "Basic Roleplaying ORC: Skeleton, p. 274 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "body-code-decay"
+   ],
+   "default_dial_reason": "Default to the listed immunities and damage-scaled shattering chance; a world can adjust the exceptions or multiplier to suit how brittle its animated bones are.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0185",
+   "world": "brp",
+   "statement": "A troll heals 1D3 hit points each combat round, or 1 hit point per wounded location if hit locations are used. Sunlight and fire damage do not regenerate; regeneration also stops once it is dead.",
+   "locators": [
+    "Basic Roleplaying ORC: Troll, p. 274 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to rapid round-by-round healing except against fire, sunlight, and death; a world can change the healing rate or its counters to define troll physiology.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0186",
+   "world": "brp",
+   "statement": "A unicorn can restore hit points by touching a wound with its horn, spending 1 power point per hit point healed. It can reattach a severed limb for at least 6 power points; curing each point of attribute loss from poison or disease costs 1 permanent POW, and it can detect poison by touch.",
+   "locators": [
+    "Basic Roleplaying ORC: Unicorn, p. 275 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to healing paid from power points, with permanent POW lost for curing attribute damage; a world can change these prices to make unicorn aid more or less scarce.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0187",
+   "world": "brp",
+   "statement": "A vampire that bites and damages a target may, while remaining attached, drain 1D6 STR or power points each later round. If the target has no STR left, it may drain CON instead; reaching 0 CON kills the victim. Drained STR, CON, or power points transfer to the vampire as power points, capped at its CON, and excess is lost.",
+   "locators": [
+    "Basic Roleplaying ORC: Vampire—Powers: Blood Drain, p. 276 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: transfer",
+   "seam": "AB15",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to a continuing grapple-based drain that converts the victim’s loss into the vampire’s power, capped by CON; a world can change the rate or cap to set the danger and feeding cost.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0188",
+   "world": "brp",
+   "statement": "An angel’s holy fire covers a three-meter-square area, costs 10 power points, and can be used once per day. Aligned pious characters may avoid damage with a successful allegiance roll; others take 10D6 damage, and the flames end at the end of the round.",
+   "locators": [
+    "Basic Roleplaying ORC: Angel—Powers: Holy Fire, p. 279 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to a short-lived area attack with a substantial power cost and one-use-per-day limit; a world can adjust its range, price, or alignment protection as expressions of divine authority.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0189",
+   "world": "brp",
+   "statement": "A greater demon’s blight automatically affects an area within POW ×100 meters. It takes 30 days minus the demon’s POW to become manifest, and recovery takes a number of months equal to its POW; the demon cannot hide or suppress the effect.",
+   "locators": [
+    "Basic Roleplaying ORC: Demon, Greater—Powers: Blight, p. 280 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to an unavoidable, slow environmental corruption with a longer recovery period; a world can change the radius and durations to set the scale of demonic aftermath.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0190",
+   "world": "brp",
+   "statement": "An elemental disappears when reduced to 0 hit points or when it spends its last power point. It does not heal lost hit points or regenerate power points, and normal weapons and firearms cannot harm it, though opposing elementals can.",
+   "locators": [
+    "Basic Roleplaying ORC: Elementals, p. 281 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB15",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a being sustained by its remaining body and power, vulnerable mainly to suitable supernatural opposition; a world can broaden its vulnerabilities or add recovery to change how it can be opposed.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0191",
+   "world": "brp",
+   "statement": "A werewolf can shift among human, hybrid, and wolf forms by spending 5 DEX ranks, with no power-point cost. It can move directly from any one form to another.",
+   "locators": [
+    "Basic Roleplaying ORC: Werewolf—Powers: Transformation, p. 278 (brp-orc#024)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to a form change paid in action capacity rather than power points; a world can change the DEX cost or make shifting voluntary or condition-triggered.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0192",
+   "world": "brp",
+   "statement": "A creature with the stench feature can nauseate nearby breathers; a failed Stamina roll makes actions against it Difficult for 1D6+2 rounds. A creature with the disorienting-appearance feature imposes the same duration and difficulty on attackers who fail a POW-versus-POW resistance roll.",
+   "locators": [
+    "Basic Roleplaying ORC: Chaotic Features table, pp. 285–286 (brp-orc#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed resistance test and 1D6+2-round penalty; a setting can change the trigger or duration to tune how strongly appearance and stench hinder combat.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0193",
+   "world": "brp",
+   "statement": "A creature with the reflection feature sends 1D6+2 points of incoming magic or sorcery back at its user; determine the reflected amount randomly on each turn a spell is cast against it.",
+   "locators": [
+    "Basic Roleplaying ORC: Chaotic Features table, p. 285 (brp-orc#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "power-interaction",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to reflecting a random 1D6+2 points each casting; a world can alter the amount or eligible magic, with stronger reflection making spellcasting against the creature riskier.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0194",
+   "world": "brp",
+   "statement": "A creature with acidic blood sprays corrosive acid when physically wounded. Those within one meter test Luck to avoid 1D3 damage; acid eats through armor round by round, and remains corrosive for 1D6+2 rounds unless neutralized sooner.",
+   "locators": [
+    "Basic Roleplaying ORC: Alien, Xenomorph, p. 286 (brp-orc#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [
+    "negative-effect-drift",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a one-meter spray, a Luck test, and 1D6+2 rounds of corrosion; a world can change spread or persistence, with armor and time limiting the hazard.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0195",
+   "world": "brp",
+   "statement": "A blob takes only 1 point of damage from physical weapons, and fire and electrical attacks deal half damage, rounded up. It can engulf a target on a successful attack, then digest it starting the next round for 1D3−1 damage each round; escape requires a successful Difficult Effort roll, and protective gear must fully enclose the victim and lasts rounds equal to its armor value.",
+   "locators": [
+    "Basic Roleplaying ORC: Blob, p. 286 (brp-orc#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule",
+    "power-interaction",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to the stated damage resistances, engulfment, and Difficult escape; a world can tune damage and gear duration, balancing the blob’s danger against escape opportunities.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0196",
+   "world": "brp",
+   "statement": "A blob regenerates 1 hit point per combat round until it reaches full hit points.",
+   "locators": [
+    "Basic Roleplaying ORC: Blob, p. 286 (brp-orc#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB11",
+   "derives": [],
+   "default_dial_reason": "Default to 1 hit point each round up to maximum; a world can raise, lower, or suppress recovery to set how quickly the creature can be worn down.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0197",
+   "world": "brp",
+   "statement": "A xenomorph can make two claw attacks in a round and bite 5 DEX ranks later; if both claws hit, it tries to grapple and bite on the next round. When appropriate, it can substitute a tail lash for its bite.",
+   "locators": [
+    "Basic Roleplaying ORC: Alien, Xenomorph, p. 286 (brp-orc#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the specified attack sequence and conditional follow-up; a world can change attack timing or substitutions to vary the creature’s combat pressure.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0198",
+   "world": "brp",
+   "statement": "A giant robot’s adaptation to high pressure and vacuum is always active and costs no power points; it also has 100 extra hit points beyond its listed base hit points.",
+   "locators": [
+    "Basic Roleplaying ORC: Robot, Giant, p. 287 (brp-orc#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to always-on environmental adaptation and the listed hit-point bonus; a world can require power expenditure or reduce the bonus, trading resilience for resource limits.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0199",
+   "world": "brp",
+   "statement": "A cyborg’s mechanical components take an extra 1D6 damage from magnetic-based attacks.",
+   "locators": [
+    "Basic Roleplaying ORC: Cyborg, p. 289 (brp-orc#025)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default to the additional 1D6 damage to components; a world can change the extra damage or the attacks that trigger it, making the drawback more or less costly.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0200",
+   "world": "brp",
+   "statement": "For each listed creature body plan, roll a d20 and use its table to select the hit location; the listed fraction of the creature’s total hit points determines that location’s hit points. The tables differ by body plan, with results such as a snake’s tail, body, or head, and a winged humanoid’s limbs, torso, wings, or head.",
+   "locators": [
+    "Basic Roleplaying ORC: Pages 301–302, creature hit location tables (brp-orc#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed d20 ranges and fractions; a world can change the body-plan tables to reflect anatomy, with location durability determined by the creature’s total hit points.",
+   "licence": "ORC"
+  },
+  {
+   "id": "brp.rule.0201",
+   "world": "brp",
+   "statement": "To find a location’s hit points, use the table matching the creature’s total hit points and the location’s fraction, rounding up as represented by the listed ranges. The passage also allows calculation from the stated fractions for greater precision.",
+   "locators": [
+    "Basic Roleplaying ORC: Page 302, Creature Hit Location Table; page 303 (brp-orc#026)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the range table for quick allocation; a world can use the fractions directly for precision, at the cost of more calculation.",
+   "licence": "ORC"
+  }
+ ]
+}
