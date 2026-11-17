@@ -195,15 +195,16 @@ function ledger() {
         if (stem) seen.add(stem);
         const parts = {verb: g.verb, object: g.object, target: g.target, time: g.time, carrier: 'gu', cost: g.cost, limits: []};
         const built = assembleEffect(guEffects, parts);
-        let state = 'runs-derived', blockedBy = null;
+        let state = 'runs-derived', blockedBy = null, needsInput = null;
         if (!built.ok) blockedBy = `grammar-${slug(built.receipt.violations[0]?.rule ?? built.receipt.violations[0]?.kind ?? 'invalid')}`;
-        else if (g.needs) blockedBy = `needs-${slug(g.needs)}`;
+        else if (g.needs) { blockedBy = 'needs-material'; needsInput = g.needs; }
         else if (built.value.derived.needs?.length) blockedBy = `key-${slug(built.value.derived.needs[0])}`;
         if (blockedBy) state = `blocked:${blockedBy}`;
         const owner = OBJECT_OWNER[g.object] ?? 'W';
         rows.push({id: `gen.${slug(g.name)}`, source: `generated: concept "${g.concept}"; ${g.model}; prompt ${promptHash}`, state, mechanisms: ['G', owner],
             test: state === 'runs-derived' ? 'tests/gu_generated.test.js' : null,
             note: `${g.name}. Path ${g.path}, rank ${g.rank}, ${g.verb} ${g.object} on ${g.target}, ${g.time}, pays ${g.cost}. ${g.effect} Nearest canon Gu: ${best?.name ?? 'none'} (name overlap ${Math.round(bestJ * 100) / 100}). Generated, not canon.`,
+            ...(needsInput ? {needs: String(needsInput).toLowerCase()} : {}),
             ...(state === 'runs-derived' ? {derived: {rule: 'gu.generated.concept', inputs: [g.concept, promptHash]}} : {}),
             tier: 'generated', model: g.model, concept: g.concept, promptHash, nearest: best?.id ?? null});
     }
@@ -211,7 +212,7 @@ function ledger() {
     const ids = new Set(); for (const r of rows) { let id = r.id, n = 2; while (ids.has(id)) id = `${r.id}-${n++}`; r.id = id; ids.add(id); }
     writeFileSync(join(root, LEDGER), rows.map(r => JSON.stringify(r)).join('\n') + '\n');
     writeFileSync(join(root, WORK, 'gu_generated_dropped.json'), JSON.stringify(dropped));
-    const states = {}; for (const r of rows) { const k = /^blocked:needs-/.test(r.state) ? 'blocked:needs-*' : r.state; states[k] = (states[k] ?? 0) + 1; }
+    const states = {}; for (const r of rows) { const k = r.state; states[k] = (states[k] ?? 0) + 1; }
     console.log(JSON.stringify({generated: gu.filter(x => !x.held).length, kept: rows.length, dropped: dropped.length, dropReasons: share(dropped, d => d.why), states}));
 }
 

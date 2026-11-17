@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {parseLedger, countLedger, renderReadme} from '../scripts/coverage_report.mjs';
+import {parseLedger, countLedger, renderReadme, canonicalSlugs} from '../scripts/coverage_report.mjs';
+import {normalizeRow, normalizeText, readMap} from '../scripts/slug_normalize.mjs';
 
 const exists = file => file === 'tests/gu_catalogue.test.js';
 const rows = [
@@ -260,4 +261,31 @@ test('a working case computes: a cast with its cost, a shortfall, a process that
     await assert.rejects(runCaseData(both), /a sentence or a working, not both/);
     const row = {id: 'r-blade', source: 'fixture', state: 'expressed-authored', mechanisms: ['F'], case: {module: 'tests/fixtures/coverage_cases/working_cases.mjs', id: 'tempered-blade'}};
     assert.equal((await runCase(row, {reachable: new Set()})).state, 'expressed-authored');
+});
+
+// PWC59: blocked slugs come from one map; a slug outside it warns unless the row says why.
+test('a blocked slug outside the canonical map warns unless the row carries a reason (PWC59)', () => {
+    const slugs = new Set(['area-field', 'needs-material']);
+    const line = (id, state, extra = {}) => JSON.stringify({id, source: 's', state, mechanisms: [], ...extra});
+    const text = [line('a', 'blocked:area-field'), line('b', 'blocked:needs-zither'), line('c', 'blocked:odd-new-slug', {reason: 'one-off, checked by hand'}),
+        line('d', 'blocked:needs-material', {needs: 'wax'})].join('\n');
+    const {problems, warnings} = parseLedger(text, {name: 'demo.jsonl', exists, slugs});
+    assert.deepEqual(problems, []);
+    assert.equal(warnings.length, 1);
+    assert.match(warnings[0], /demo\.jsonl:2: blocked slug needs-zither is not in/);
+    assert.deepEqual(parseLedger(text, {exists}).warnings, [], 'no map, no warnings');
+});
+
+test('the committed ledgers use only mapped blocked slugs, and the map folds needs-* with the input in a field (PWC59)', () => {
+    const map = readMap(), slugs = canonicalSlugs();
+    assert.ok(slugs.has('needs-material') && !slugs.has('time-stop'));
+    assert.deepEqual(normalizeRow({state: 'blocked:needs-wax'}, map), {state: 'blocked:needs-material', needs: 'wax'});
+    assert.deepEqual(normalizeRow({state: 'blocked:time-stop'}, map), {state: 'blocked:time-manipulation', was: 'time-stop'});
+    assert.equal(normalizeRow({state: 'blocked:area-field'}, map), null);
+    assert.equal(normalizeRow({state: 'blocked:never-seen'}, map).unknown, 'never-seen');
+    assert.equal(normalizeRow({state: 'blocked:never-seen', reason: 'checked'}, map), null);
+    const text = JSON.stringify({id: 'x', state: 'blocked:needs-fox'}) + '\n' + JSON.stringify({id: 'y', state: 'catalogued'}) + '\n';
+    const out = normalizeText(text, map);
+    assert.equal(out.changed, 1);
+    assert.equal(normalizeText(out.text, map).changed, 0, 'idempotent');
 });

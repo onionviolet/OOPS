@@ -12,6 +12,7 @@
 import {createHash} from 'node:crypto';
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {canonicalRow} from './slug_normalize.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
 
 const root = new URL('..', import.meta.url).pathname;
@@ -249,7 +250,7 @@ export function buildLedger(side) {
         const note = `${r.layer === 'bad-run' ? 'Bad Runs what-if layer, not main continuity. ' : ''}${r.category}. Name source ${r.nameSource.join(', ')}.${colour}`
             + (grammar && side.meta.scores?.grammarFolded ? ` Effect ${grammar}.` : grammar ? ` Effect ${grammar} (model tier, unchecked).` : '')
             + (slug ? ` Blocked: ${SLUGS[slug]}.` : '') + ' Full sheet in perfect_run_power_labels.json.';
-        return {id, source: [...r.nameSource].map(s => s.startsWith('digest') ? `perfect-run ${s}` : 'perfect-run paid claims 2026-11-01-pr').join('; '), state, mechanisms: [r.layer === 'bad-run' ? 'W' : 'W', ...(slug === 'mind-binding' ? ['A'] : [])], test: null, note};
+        return canonicalRow({id, source: [...r.nameSource].map(s => s.startsWith('digest') ? `perfect-run ${s}` : 'perfect-run paid claims 2026-11-01-pr').join('; '), state, mechanisms: [r.layer === 'bad-run' ? 'W' : 'W', ...(slug === 'mind-binding' ? ['A'] : [])], test: null, note});
     });
 }
 function build() {

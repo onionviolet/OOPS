@@ -24,7 +24,7 @@ test('every row is classified, ids are unique, the shared validator passes, bloc
     assert.ok(rows.length >= 100, 'a row per named power');
     for (const r of rows) {
         assert.notEqual(r.state, 'unclassified', r.id);
-        if (r.state.startsWith('blocked:')) assert.ok(SLUGS[r.state.slice(8)], `${r.id} names a slug the sidecar defines`);
+        if (r.state.startsWith('blocked:')) assert.ok(SLUGS[r.was ?? r.state.slice(8)], `${r.id} names a slug the sidecar defines`);
         assert.ok(r.note.length > 0 && !/—/.test(r.note), r.id);
     }
 });
@@ -63,5 +63,5 @@ test('stated colours are scored apart from inferred and conflicting ones; Quicks
     const basis = new Set(Object.values(side.rows).map(r => r.colour?.basis).filter(Boolean));
     for (const b of ['stated', 'inferred', 'conflict']) assert.ok(basis.has(b), b);
     assert.equal(rows.find(r => r.id === 'pr.power.quicksave').state, 'blocked:time-loop');
-    assert.equal(rows.find(r => r.id === 'pr.power.time-stop').state, 'blocked:time-stop');
+    assert.equal(rows.find(r => r.id === 'pr.power.time-stop').state, 'blocked:time-manipulation'); // folded from time-stop (PWC59)
 });

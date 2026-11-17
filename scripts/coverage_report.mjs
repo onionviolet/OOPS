@@ -107,11 +107,15 @@ export const DENOMINATORS = {
 const STATE = /^(runs-canon|runs-authored|runs-derived|expressed-canon|expressed-authored|expressed-derived|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
 // tier, concept, promptHash, nearest and model belong to generated rows (PWC30): the tier apart from canon and derived, the concept word,
 // the hash of the frozen prompt, the nearest canon Gu and the model that wrote the row (AU17).
-const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model']);
+const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model',
+    // PWC59: the input a needs-material row waits on, the slug a fold replaced, and why a slug outside the map is meant.
+    'needs', 'was', 'reason']);
+export const BLOCKED_SLUGS_FILE = 'docs/coverage/blocked_slugs.json';
+export const canonicalSlugs = (file = path.join(root, BLOCKED_SLUGS_FILE)) => fs.existsSync(file) ? new Set(JSON.parse(fs.readFileSync(file, 'utf8')).canonical) : null;
 
 // Validate one ledger's text. Returns {rows, problems}; a problem names its line.
-export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file))} = {}) {
-    const rows = [], problems = [], ids = new Set();
+export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file)), slugs = null} = {}) {
+    const rows = [], problems = [], warnings = [], ids = new Set();
     text.split('\n').forEach((line, i) => {
         if (!line.trim()) return;
         const at = `${name}:${i + 1}`;
@@ -124,6 +128,10 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
         else ids.add(row.id);
         if (typeof row.source !== 'string' || !row.source) problems.push(`${at}: source must be a nonempty locator`);
         if (typeof row.state !== 'string' || !STATE.test(row.state)) problems.push(`${at}: state must be runs-canon, runs-authored, runs-derived, expressed-canon, expressed-authored, expressed-derived, catalogued, blocked:<rule>, not-a-thing:<reason> or unclassified`);
+        // PWC59: a blocked slug outside the canonical map warns unless the row says why; slug_normalize.mjs --apply folds the known ones.
+        const slug = /^blocked:(.+)$/.exec(row.state ?? '')?.[1];
+        if (slugs && slug && !slugs.has(slug) && !(typeof row.reason === 'string' && row.reason)) warnings.push(`${at}: blocked slug ${slug} is not in ${BLOCKED_SLUGS_FILE}; add it there, give the row a reason, or run scripts/slug_normalize.mjs --apply`);
+        if (row.reason !== undefined && typeof row.reason !== 'string') problems.push(`${at}: reason must be a string`);
         if (!Array.isArray(row.mechanisms) || row.mechanisms.some(m => typeof m !== 'string' || !m)) problems.push(`${at}: mechanisms must be an array of owner names`);
         if (row.test !== undefined && row.test !== null && typeof row.test !== 'string') problems.push(`${at}: test must be a string or null`);
         if (/^runs-/.test(row.state ?? '')) {
@@ -143,7 +151,7 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
         if (row.note !== undefined && typeof row.note !== 'string') problems.push(`${at}: note must be a string`);
         rows.push(row);
     });
-    return {rows, problems};
+    return {rows, problems, warnings};
 }
 
 // Counts per ledger: states, the runs share (runs over things, excluding not-a-thing) and top blocking rules.
@@ -540,9 +548,10 @@ export function computedCounts(rows, computed = new Map()) {
 
 export function readLedgers(dir = path.join(root, COVERAGE_DIR)) {
     if (!fs.existsSync(dir)) return [];
+    const slugs = canonicalSlugs();
     return fs.readdirSync(dir).filter(f => f.endsWith('.jsonl') && f !== 'worlds.jsonl').sort().map(f => {
         const name = f.replace(/\.jsonl$/, '');
-        return {name, file: `${COVERAGE_DIR}/${f}`, ...parseLedger(fs.readFileSync(path.join(dir, f), 'utf8'), {name: f})};
+        return {name, file: `${COVERAGE_DIR}/${f}`, ...parseLedger(fs.readFileSync(path.join(dir, f), 'utf8'), {name: f, slugs})};
     });
 }
 
@@ -858,6 +867,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         const c = countLedger(l.rows), k = computedCounts(l.rows, computed.get(l.name));
         console.log(`${l.name}: ${c.total} rows, ${c.unclassified} unclassified, runs ${c.runsShare}%; computed expressed ${k.expressed}, runs ${k.runs}, typed runs without case ${k.noCase}`);
     }
+    const warnings = ledgers.flatMap(l => l.warnings ?? []);
+    if (warnings.length) console.error(`WARN: ${warnings.length} blocked slugs outside the map\n${warnings.slice(0, 20).join('\n')}${warnings.length > 20 ? `\n... ${warnings.length - 20} more` : ''}`);
     if (problems.length) { console.error(problems.join('\n')); console.error(`FAIL: ${problems.length} problems`); process.exit(1); }
     if (!argv.includes('--check')) {
         const files = srcFiles();
