@@ -165,7 +165,6 @@ Three ledgers, one power sheet per row (PWC1: effect grammar parts, cost, who_ma
 - Cost: three batches, 930 packets, about $0.15 (batch, cached prefix 63 to 74 percent). No chapter-backed checks yet (PWC15); every field is wiki tier, unchecked.
 - Not done: Worm Tinker tech and the Re:Zero and Perfect Run items have no wiki dump (PWC10); other dump worlds' item categories wait for the PWC9 census.
 
-
 ## R5: chapter-tier checks (PWC15, 2026-11-16; proposals, agent-verified)
 
 Weibao: "every cent is a cent, so feel free to send all as batch". The wiki-tier labels were checked against the novels' own text, by batch, with the same questions, schemas and hash split (GKM429). Fields that a chapter states fold as their own tier above the wiki tier (GKM445), with a chapter locator and a speaker, in `docs/coverage/chapter_tier_labels.json`. Raw chapter text stays in the gitignored private folder; only values, locators and speakers are committed.
@@ -191,7 +190,6 @@ Weibao: "every cent is a cent, so feel free to send all as batch". The wiki-tier
 
 **Gaps.** One reader per field; paragraph search is by exact name, so a Gu the novel calls by a variant spelling is a miss (41 Gu and 283 ingredients had no hit at all); Harry Potter windows are line-based, since the prepared text has no paragraph breaks. Rule codes cited: AU16, GKM429, GKM433, GKM443, GKM445, WPR codes not applicable.
 
-
 ## Lane A: Shadow Slave, Solo Leveling, Omniscient Reader's Viewpoint, A Regressor's Tale (2026-11-16, proposals, agent-verified, not human-reviewed)
 
 Ledgers `docs/coverage/shadow_slave_powers.jsonl` (436 rows), `solo_leveling_powers.jsonl` (38), `omniscient_reader_powers.jsonl` (102) and `regressors_tale_powers.jsonl` (184), sidecars `*_power_labels.json`, one shared builder `scripts/books_power_ledger.mjs` (`refresh`, `run`, `fold`, `build`; `build` reads committed sidecars only) with `scripts/books_power_denominators.mjs` (private reads), shape test `tests/books_powers_a.test.js`. Counts are in the [coverage README](../../coverage/README.md); regenerate it on merge (`node scripts/coverage_report.mjs`), do not hand-merge. All four books have a usable power system, so none is recorded as "no ledger".
@@ -209,7 +207,6 @@ Ledgers `docs/coverage/shadow_slave_powers.jsonl` (436 rows), `solo_leveling_pow
 **Not done.** `route_to_player` (PWC4) and per-row knowledge checks (PWC7) beyond the `known_by` enum; the long-tail singletons below the threshold; a hand check of every blocked row.
 
 **Cost.** Luna about $0.4 (Solo Leveling sync pilot $0.04, the rest batch), Haiku batches about $1 to $2 at the assumed $1 and $5 per million (the repo runner's table lists Haiku at the Luna rate, so its own figure is low); under the $5 allowance.
-
 
 ## Round 3: four books with no wiki dump (PWC17, 2026-11-16; proposals, agent-verified, not human-reviewed)
 
@@ -231,7 +228,6 @@ No row runs; `catalogued` means no missing capability was found, not that an eng
 **Links.** 39 Circle of Inevitability Sequence rows point to `lotm.potion.<pathway>_<n>`; their potion sheets live in `lotm_potions`, so the ledger row is `catalogued` and the CoI sheet is kept only for the score.
 
 **Gaps named.** (1) 13 Legendary Mechanic names and 1 Circle of Inevitability name had no evidence line beyond the name pass and are `blocked:effect-unknown`. (2) The name pass is model-tier on the claims, not a wiki category, so a missing name means an uncovered claim, not an unread volume. (3) Circle of Inevitability's Fated-line and Goddess-of-Fate steps are not in `lotm_potions` and need rows there before they can link. (4) Chapter-backed checks of the effect fields were not run (PWC15).
-
 
 ## R7 / PWC17: four LitRPG books with full reads and no wiki dump (2026-11-16, proposals, agent-verified)
 
@@ -325,7 +321,6 @@ Built [PWC24](#round-4-derive-what-the-books-never-state-one-ledger-of-worlds-ru
 - **Next cells:** ranked per PWC24's brief by how many of the world's blocked slugs other worlds also hold (ledger slugs plus the census's inferred ones), then the weight of those shared slugs, census rank and corpus order. Every empty cell of a world shares its world's score, so the README shows each world's first empty cell only. Top ten: Harry Potter creatures; Mother of Learning artifacts; Lord of the Mysteries powers; Circle of Inevitability artifacts; Fated Villain artifacts; The Legendary Mechanic artifacts; Speedrunning the Multiverse artifacts; Shadow Slave artifacts; A Regressor's Tale artifacts; A Novel Concept artifacts. The census wiki worlds (Naruto, Type-Moon) start at 12 and 13.
 - **Gaps, stated:** (1) The library index has about 1,300 lines of later acquisition rounds (Wandering Inn, Cradle, Riordan, d20 rulebooks and more); only the held-book tables (Prime, Batch-registered, TTKS, Wave 1, RR priority, Other things on disk, Translator captures) and the tutorial fiction are rows, and the test fails if one of those table rows has no world. Later rounds are not yet rows. (2) Paid-claim run ids come from the ledgers' own source strings plus `2026-11-01-worm`; the You Are Summoned, Wish Upon the Stars, Godclads and Super Supportive plans may have claims that no ledger cites yet, so those cells point at deep dives or chapter text. (3) Lord of the Mysteries' potions ledger holds pathway sequences, so its powers cell reads `missing` (wiki abilities) though the sequence powers are partly in `lotm_potions`; a lane can reclassify. (4) A `missing` source is the best one the registry names for that corpus, not a check that the corpus is on it (a deep dive may not list a book's places). (5) Original worlds name their world docs; their materials, creatures and places live in game content under `src`, which this version does not read.
 - **Checks:** `node --test tests/worlds_ledger.test.js` (8 tests: current build, cell shape, counts equal the ledgers, every ledger and every census world has a row, library table rows covered, tracked doc paths exist, next-cell order). All named private paths were confirmed on disk in the main checkout once when the registry was written.
-
 
 ## PWC23 Gu derived ranks (2026-11-17, proposals)
 
@@ -424,7 +419,6 @@ Weibao: "deeper reads into worlds too? HOw to use Luna in the fuutre? or would w
 | ACCOUNT FOR NOW | PWC44 | **Luna stays the bulk reader; Haiku stays its pair; Sol is the judge (AU17 extension).** Luna and Haiku cost the same and come from different families, so their disagreement is the cheapest quality signal (AU17). Sol costs twenty times more, so it goes where few calls decide a lot. It adjudicates fields where Luna and Haiku disagree (the book lanes alone have about 540 disputed fields; at batch rates that is a dollar or two), audits a hash sample of confirmed fields to measure how often agreement is wrong, writes and checks rule rows (PWC25) where a wrong rule spreads to every derived row, and runs the reconstruction score for generators (PWC31) when Luna and Haiku tie. Bulk reading stays off Sol unless a pilot shows Luna and Haiku miss what a book states and Sol does not. |
 | ACCOUNT FOR NOW | PWC45 | **Claude sessions stay the planners and the checkers of code.** A Sonnet session writes the scripts, freezes splits and merges; it is not a reader. Opus stays rare (the portable agreement). The paid API tiers and the Claude session tiers are separate budgets: API cents and Weibao's Claude usage. |
 | LATER / DELEGATE | PWC46 | **Measure Sol before using it as the judge.** On 100 disputed fields that already have a chapter-tier or hand answer, compare Sol, Luna and Haiku. If Sol does not beat the better of the two on that set, adjudication goes to source review instead. Level: Sonnet lane, Sol batch, under $2. Done when the three scores are in this file and in AU17. |
-
 
 ## Missing books (2026-11-17, proposals)
 
@@ -882,3 +876,23 @@ The method exists for effect sentences: the procedural core's generation fit (PC
 | ACCOUNT FOR NOW | PWC97 | **A rule that works in one world is tried in the next.** A passing rule's mechanism is restated world-neutral and scored on a second world; passing there makes it a core axiom candidate (PWC84's two-world gate). |
 | ACCOUNT FOR NOW | PWC98 | **Derived answers to canon mysteries are changed truths.** Rules will produce values for things the books keep hidden. Those stay derived (never shown as canon), go by ID in chat under the sealed-secret default, and are re-scored when later canon speaks (PWC87). |
 | LATER / DELEGATE | PWC99 | **First rule-search lane.** On Gu ranks and refinement (the densest family), run PWC90 to PWC95: folds frozen, Sonnet proposing rules as code, local scoring, exceptions pinned, blind sort by Haiku. Fold into PWC89's lane or run after it. Level: Sonnet, with Luna or Haiku for the blind sort (cap about $2). Done when one Gu rule set beats the family-median baseline (30% exact, 68% within one) on the frozen fold, with its exception list and facts-per-rule figure. |
+
+## Book pulls (2026-11-17)
+
+Weibao approved pulls for the ranked wishlist rows while WARP is on ([direction](../../gm/USER_VISION_LOG_2026-11.md#book-lanes-may-pull-from-the-wishlist-2026-11-17)). Preflight before each run: WARP connected, Anna's download host certificate issued by Let's Encrypt (not intercepted, AR52). Both runs used the local runner (`runner.py`, lists `list7_warhammer.json` and `list8_misc.json`, receipts `receipts7.jsonl` and `receipts8.jsonl` in the gitignored `novels/wave-2026-11-08/`): Anna's first, Z-Library only on `not_found` (AR53), size caps from real or 150 MB (AR54), md5 checked on arrival. No model calls.
+
+**Landed (13 files; wishlist rows carry DL code, size, SHA-256, MD5, source and date).** Anna's fast: *Dark Heresy* Core Rulebook 2nd Edition and *Black Crusade* Core Rulebook (DL133); *Winds of Magic*, WFRP 4e, Cubicle 7 (DL18, the "Winds of Magic as a new row" ask is covered by DL18's existing row); *Vampire: The Masquerade* 5th Edition core and *Wraith: The Oblivion* 20th (DL128); *Earthdawn* Fourth Edition Player's Guide (DL131); *Exalted Essence* (DL130); *Words of Radiance*, *Elantris* (Tenth Anniversary), *Warbreaker*, *Arcanum Unbounded* and *Mistborn: The Secret History* (DL129). Z-Library, after Anna's answered `not_found`: *Exalted* 3e *Abyssals: Sworn to the Grave* (DL130).
+
+**Verified.** Every PDF passed `qpdf --check` (hint-table warnings only on three; no syntax errors). Every EPUB passed a zip test and `library_coverage.py --series` finds it (one held record each). `pdf-screen` ran on *Dark Heresy* and *Black Crusade*: the one instruction hint is a rules sentence ("does not override or negate the previous Critical damage"), and the low-contrast and tiny-text flags sit on layout pages of a styled rulebook, so nothing is quarantined. The other PDFs were not screened and stay "qpdf-clean, pdf-screen not run" until a reading lane opens them. Not read for content here.
+
+**Not pulled, with reasons.**
+- DL75 (*WFRP 4e* core, *Up in Arms*) and DL43, DL44, DL121: already held (DL43 is 136 MB and whole, DL121 98 MB and 34 MB); no replacement needed.
+- M1 DL123, M3 DL124, M4 DL122 (chapter ranges): polite capture of translator pages, no A/Z file exists to pull; each needs its upstream length checked first. Deferred to a capture lane.
+- M2 DL125 (Fated Villain human edition): the row's own order puts a reader pass on the held parts first.
+- M5 DL127 (*Hunter x Hunter*): governor queue, not A/Z.
+- M10 DL137 (*Death After Death*): every route is closed; a retail copy is Weibao's call.
+- *Mage: The Ascension* 20th and *Werewolf: The Apocalypse* 20th (DL128): no 20th Anniversary core in the Z-Library search; World of Darkness cores beyond V5 and Wraith are otherwise buy-only.
+- *Exalted* 3e Solars, Lunars and Sidereals Charms books (DL130): the search returned 2nd Edition Manuals, a different edition; the held core's edition check is still open.
+- *Stormlight* 3 and later (DL129), Earthdawn Gamemaster's Guide (DL131), Lancer, Hero System and the other DL132-DL136 rows: outside this pass's scope.
+
+**Quota used.** Anna's fast 11 (50 to 39 left after the run). Z-Library 1 (10 to 9 left). One Z-Library file arrived from the fallback; no failed or bad file was counted.

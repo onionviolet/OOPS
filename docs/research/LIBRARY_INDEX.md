@@ -1438,3 +1438,8 @@ directory. Remaining identified candidates include *A Thousand Li* 11–12,
 *Irregular* 19–23 and 27, and 13 Mystara Gazetteers. GAZ9 remains unlocated.
 The manga governor was paused at 17 GB free against its 30 GB floor, and
 its runner was already halted on `naruto-extra` chapter 11537.
+
+
+## Book pulls, 2026-11-17 (DL18, DL128-DL131, DL133)
+
+Thirteen files from the ranked wishlist (Weibao's WARP-on approval): *Dark Heresy* 2e core, *Black Crusade* core, WFRP 4e *Winds of Magic*, *Vampire: The Masquerade* 5e core, *Wraith: The Oblivion* 20th, *Earthdawn* 4e Player's Guide, *Exalted Essence*, *Exalted* 3e *Abyssals*, and five Cosmere books (*Words of Radiance*, *Elantris*, *Warbreaker*, *Arcanum Unbounded*, *Mistborn: The Secret History*). Sizes and checksums are in each wishlist row; the section in the [power catalogues README](power-catalogues-2026-11-16/README.md#book-pulls-2026-11-17) lists what was not pulled and why. Anna's 11 uses, Z-Library 1.
