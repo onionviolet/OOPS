@@ -16,6 +16,8 @@ export const CORPORA = ['powers', 'artifacts', 'potions_and_recipes', 'materials
 const WIKI = slug => `~/.codex/research/wikis/${slug}.fandom.com/dump`;
 const NOVELS = 'docs/research/novels';
 const WD = 'docs/worlds';
+const UNREADABLE = {wfrp4e: 'the held PDF is damaged (broken cross-reference table, 0 pages extracted); a readable copy is wishlist DL121'};
+const SETTING_LEDGERS = {powers: 'powers', artifacts: 'artifacts', creatures: 'creatures', places: 'places', institutions: 'institutions', rules: 'rules'};
 const SL = 'docs/research/SOURCE_LIBRARY_CATALOGUE.md'; // held in the Source Library with no per-book folder
 
 // ---- The registry. Edit this, then rerun the builder. ----
@@ -106,6 +108,24 @@ export const REGISTRY = [
     W('bay-city', 'Bay City', 'original', {docs: {rules: 'docs/WORLD_CARDS.md'}}),
     W('salvage-reach', 'Salvage Reach', 'original', {docs: {rules: 'docs/WORLD_CARDS.md'}}),
     W('red-basin', 'The Red Basin', 'original', {docs: {rules: 'docs/WORLD_CARDS.md'}}),
+    // Tabletop setting books read as worlds (PWC37, 2026-11-17): the six corpora scripts/setting_ledgers.mjs reads get a ledger when
+    // its file exists; the other corpora stay missing with the private shard folder as source.
+    ...[
+        ['eclipse-phase', 'Eclipse Phase (2nd edition)'], ['numenera', 'Numenera (Ninth World)'], ['warhammer-40k', 'Warhammer 40,000 (9th edition core)'],
+        ['the-strange', 'The Strange (recursions)'], ['wfrp4e', 'Warhammer Fantasy Roleplay 4e (the Old World)'], ['aos-soulbound', 'Age of Sigmar: Soulbound'],
+        ['stars-without-number', 'Stars Without Number (Revised, free edition)'], ['forgotten-realms', 'Forgotten Realms (3e campaign setting and Grand History)'],
+        ['golarion', 'Golarion (Inner Sea World Guide and Lost Omens World Guide)'], ['the-dark-eye', 'The Dark Eye 5e (Aventuria)'],
+        ['cyberpunk', 'Cyberpunk (RED and 2020)'],
+    ].map(([id, name]) => {
+        const ledgers = {};
+        for (const [corpus, suffix] of Object.entries(SETTING_LEDGERS)) {
+            const n = `${id.replace(/-/g, '_')}_${suffix}`;
+            if (fs.existsSync(path.join(root, COVERAGE_DIR, `${n}.jsonl`))) ledgers[corpus] = [n];
+        }
+        const extra = id === 'cyberpunk' ? {docs: {rules: 'docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md', people: 'docs/research/CYBERPUNK_COMMUNITY_SCOUT_2026-11-03.md'}} : {};
+        const none = !Object.keys(ledgers).length && UNREADABLE[id] ? Object.fromEntries(CORPORA.map(c => [c, UNREADABLE[id]])) : {};
+        return W(id, name, 'setting', {none, text: `docs/research/tabletop-settings-2026-11-17/private/${id}`, ledgers, ...extra});
+    }),
 ];
 
 // Source order per corpus: the first source a world has becomes the cell's `missing` source.
@@ -117,7 +137,7 @@ const ORDER = {
     jobs_and_roles: ['docs', 'wiki', 'claims', 'deep', 'text'],
     rules: ['deep', 'docs', 'wiki', 'text'],
 };
-const local = p => /^docs\/research\/novels\//.test(p) ? ' (local, gitignored)' : '';
+const local = p => /^docs\/research\/(novels|tabletop-settings-2026-11-17\/private)\//.test(p) ? ' (local, gitignored)' : '';
 
 export function claimRuns(reg, ledgerRows) {
     const ids = new Set(reg.claims);

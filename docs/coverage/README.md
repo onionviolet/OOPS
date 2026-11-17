@@ -31,6 +31,63 @@
 | [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 0 | 323 | 8 | 0 | 100% | 0% |
 | [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 0 | 180 | 3 | 0 | 100% | 0% |
 | [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 0 | 226 | 10 | 0 | 100% | 0% |
+| [aos_soulbound_artifacts](aos_soulbound_artifacts.jsonl) |  | to build | 225 | 0 | 0 | 0 | 93 | 0 | 0 | 100% | 0% |
+| [aos_soulbound_creatures](aos_soulbound_creatures.jsonl) |  | to build | 256 | 0 | 0 | 0 | 109 | 0 | 0 | 100% | 0% |
+| [aos_soulbound_institutions](aos_soulbound_institutions.jsonl) |  | to build | 160 | 0 | 0 | 0 | 14 | 1 | 0 | 100% | 0% |
+| [aos_soulbound_places](aos_soulbound_places.jsonl) |  | to build | 203 | 0 | 0 | 0 | 13 | 0 | 0 | 100% | 0% |
+| [aos_soulbound_powers](aos_soulbound_powers.jsonl) |  | to build | 394 | 0 | 0 | 0 | 238 | 11 | 0 | 100% | 0% |
+| [aos_soulbound_rules](aos_soulbound_rules.jsonl) |  | to build | 94 | 0 | 0 | 0 | 42 | 9 | 0 | 100% | 0% |
+| [cyberpunk_artifacts](cyberpunk_artifacts.jsonl) |  | to build | 18 | 0 | 0 | 0 | 6 | 0 | 0 | 100% | 0% |
+| [cyberpunk_institutions](cyberpunk_institutions.jsonl) |  | to build | 19 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [cyberpunk_places](cyberpunk_places.jsonl) |  | to build | 21 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [cyberpunk_powers](cyberpunk_powers.jsonl) |  | to build | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [cyberpunk_rules](cyberpunk_rules.jsonl) |  | to build | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
+| [eclipse_phase_artifacts](eclipse_phase_artifacts.jsonl) |  | to build | 697 | 0 | 0 | 0 | 224 | 1 | 0 | 100% | 0% |
+| [eclipse_phase_creatures](eclipse_phase_creatures.jsonl) |  | to build | 447 | 0 | 0 | 0 | 128 | 20 | 0 | 100% | 0% |
+| [eclipse_phase_institutions](eclipse_phase_institutions.jsonl) |  | to build | 393 | 0 | 0 | 0 | 27 | 2 | 0 | 100% | 0% |
+| [eclipse_phase_places](eclipse_phase_places.jsonl) |  | to build | 322 | 0 | 0 | 0 | 9 | 0 | 0 | 100% | 0% |
+| [eclipse_phase_powers](eclipse_phase_powers.jsonl) |  | to build | 517 | 0 | 0 | 0 | 261 | 0 | 0 | 100% | 0% |
+| [eclipse_phase_rules](eclipse_phase_rules.jsonl) |  | to build | 489 | 0 | 0 | 0 | 182 | 54 | 0 | 100% | 0% |
+| [forgotten_realms_artifacts](forgotten_realms_artifacts.jsonl) |  | to build | 420 | 0 | 0 | 0 | 212 | 0 | 0 | 100% | 0% |
+| [forgotten_realms_creatures](forgotten_realms_creatures.jsonl) |  | to build | 676 | 0 | 0 | 0 | 153 | 1 | 0 | 100% | 0% |
+| [forgotten_realms_institutions](forgotten_realms_institutions.jsonl) |  | to build | 356 | 0 | 0 | 0 | 8 | 0 | 0 | 100% | 0% |
+| [forgotten_realms_places](forgotten_realms_places.jsonl) |  | to build | 1000 | 0 | 0 | 0 | 45 | 3 | 0 | 100% | 0% |
+| [forgotten_realms_powers](forgotten_realms_powers.jsonl) |  | to build | 498 | 0 | 0 | 0 | 319 | 2 | 0 | 100% | 0% |
+| [forgotten_realms_rules](forgotten_realms_rules.jsonl) |  | to build | 113 | 0 | 0 | 0 | 43 | 11 | 0 | 100% | 0% |
+| [golarion_artifacts](golarion_artifacts.jsonl) |  | to build | 46 | 0 | 0 | 0 | 30 | 0 | 0 | 100% | 0% |
+| [golarion_creatures](golarion_creatures.jsonl) |  | to build | 198 | 0 | 0 | 0 | 37 | 0 | 0 | 100% | 0% |
+| [golarion_institutions](golarion_institutions.jsonl) |  | to build | 154 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
+| [golarion_places](golarion_places.jsonl) |  | to build | 385 | 0 | 0 | 0 | 41 | 0 | 0 | 100% | 0% |
+| [golarion_powers](golarion_powers.jsonl) |  | to build | 107 | 0 | 0 | 0 | 65 | 0 | 0 | 100% | 0% |
+| [golarion_rules](golarion_rules.jsonl) |  | to build | 37 | 0 | 0 | 0 | 20 | 0 | 0 | 100% | 0% |
+| [numenera_artifacts](numenera_artifacts.jsonl) |  | to build | 1720 | 0 | 0 | 0 | 802 | 0 | 0 | 100% | 0% |
+| [numenera_creatures](numenera_creatures.jsonl) |  | to build | 897 | 0 | 0 | 0 | 322 | 1 | 0 | 100% | 0% |
+| [numenera_institutions](numenera_institutions.jsonl) |  | to build | 175 | 0 | 0 | 0 | 18 | 1 | 0 | 100% | 0% |
+| [numenera_places](numenera_places.jsonl) |  | to build | 601 | 0 | 0 | 0 | 64 | 3 | 0 | 100% | 0% |
+| [numenera_powers](numenera_powers.jsonl) |  | to build | 1106 | 0 | 0 | 0 | 458 | 9 | 0 | 100% | 0% |
+| [numenera_rules](numenera_rules.jsonl) |  | to build | 528 | 0 | 0 | 0 | 208 | 29 | 0 | 100% | 0% |
+| [stars_without_number_artifacts](stars_without_number_artifacts.jsonl) |  | to build | 425 | 0 | 0 | 0 | 62 | 0 | 0 | 100% | 0% |
+| [stars_without_number_creatures](stars_without_number_creatures.jsonl) |  | to build | 72 | 0 | 0 | 0 | 8 | 0 | 0 | 100% | 0% |
+| [stars_without_number_institutions](stars_without_number_institutions.jsonl) |  | to build | 41 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
+| [stars_without_number_places](stars_without_number_places.jsonl) |  | to build | 33 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [stars_without_number_powers](stars_without_number_powers.jsonl) |  | to build | 138 | 0 | 0 | 0 | 78 | 0 | 0 | 100% | 0% |
+| [stars_without_number_rules](stars_without_number_rules.jsonl) |  | to build | 169 | 0 | 0 | 0 | 20 | 36 | 0 | 100% | 0% |
+| [the_dark_eye_artifacts](the_dark_eye_artifacts.jsonl) |  | to build | 224 | 0 | 0 | 0 | 48 | 0 | 0 | 100% | 0% |
+| [the_dark_eye_creatures](the_dark_eye_creatures.jsonl) |  | to build | 206 | 0 | 0 | 0 | 32 | 0 | 0 | 100% | 0% |
+| [the_dark_eye_institutions](the_dark_eye_institutions.jsonl) |  | to build | 114 | 0 | 0 | 0 | 3 | 1 | 0 | 100% | 0% |
+| [the_dark_eye_places](the_dark_eye_places.jsonl) |  | to build | 142 | 0 | 0 | 0 | 5 | 1 | 0 | 100% | 0% |
+| [the_dark_eye_powers](the_dark_eye_powers.jsonl) |  | to build | 506 | 0 | 0 | 0 | 216 | 1 | 0 | 100% | 0% |
+| [the_dark_eye_rules](the_dark_eye_rules.jsonl) |  | to build | 189 | 0 | 0 | 0 | 39 | 20 | 0 | 100% | 0% |
+| [the_strange_artifacts](the_strange_artifacts.jsonl) |  | to build | 463 | 0 | 0 | 0 | 238 | 2 | 0 | 100% | 0% |
+| [the_strange_creatures](the_strange_creatures.jsonl) |  | to build | 437 | 0 | 0 | 0 | 179 | 2 | 0 | 100% | 0% |
+| [the_strange_institutions](the_strange_institutions.jsonl) |  | to build | 154 | 0 | 0 | 0 | 8 | 1 | 0 | 100% | 0% |
+| [the_strange_places](the_strange_places.jsonl) |  | to build | 347 | 0 | 0 | 0 | 64 | 1 | 0 | 100% | 0% |
+| [the_strange_powers](the_strange_powers.jsonl) |  | to build | 578 | 0 | 0 | 0 | 258 | 2 | 0 | 100% | 0% |
+| [the_strange_rules](the_strange_rules.jsonl) |  | to build | 305 | 0 | 0 | 0 | 138 | 12 | 0 | 100% | 0% |
+| [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_creatures](warhammer_40k_creatures.jsonl) |  | to build | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_institutions](warhammer_40k_institutions.jsonl) |  | to build | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_powers](warhammer_40k_powers.jsonl) |  | to build | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -39,9 +96,38 @@
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
 | a_novel_concept_powers | 0 | 0 | 0 | 0 |
+| aos_soulbound_artifacts | 0 | 0 | 0 | 0 |
+| aos_soulbound_creatures | 0 | 0 | 0 | 0 |
+| aos_soulbound_institutions | 0 | 0 | 0 | 0 |
+| aos_soulbound_places | 0 | 0 | 0 | 0 |
+| aos_soulbound_powers | 0 | 0 | 0 | 0 |
+| aos_soulbound_rules | 0 | 0 | 0 | 0 |
 | circle_of_inevitability_powers | 0 | 0 | 0 | 0 |
 | creatures | 17 | 82 | 0 | 17 |
+| cyberpunk_artifacts | 0 | 0 | 0 | 0 |
+| cyberpunk_institutions | 0 | 0 | 0 | 0 |
+| cyberpunk_places | 0 | 0 | 0 | 0 |
+| cyberpunk_powers | 0 | 0 | 0 | 0 |
+| cyberpunk_rules | 0 | 0 | 0 | 0 |
+| eclipse_phase_artifacts | 0 | 0 | 0 | 0 |
+| eclipse_phase_creatures | 0 | 0 | 0 | 0 |
+| eclipse_phase_institutions | 0 | 0 | 0 | 0 |
+| eclipse_phase_places | 0 | 0 | 0 | 0 |
+| eclipse_phase_powers | 0 | 0 | 0 | 0 |
+| eclipse_phase_rules | 0 | 0 | 0 | 0 |
 | fated_villain_powers | 0 | 0 | 0 | 0 |
+| forgotten_realms_artifacts | 0 | 0 | 0 | 0 |
+| forgotten_realms_creatures | 0 | 0 | 0 | 0 |
+| forgotten_realms_institutions | 0 | 0 | 0 | 0 |
+| forgotten_realms_places | 0 | 0 | 0 | 0 |
+| forgotten_realms_powers | 0 | 0 | 0 | 0 |
+| forgotten_realms_rules | 0 | 0 | 0 | 0 |
+| golarion_artifacts | 0 | 0 | 0 | 0 |
+| golarion_creatures | 0 | 0 | 0 | 0 |
+| golarion_institutions | 0 | 0 | 0 | 0 |
+| golarion_places | 0 | 0 | 0 | 0 |
+| golarion_powers | 0 | 0 | 0 | 0 |
+| golarion_rules | 0 | 0 | 0 | 0 |
 | gu_kinds | 696 | 16 | 0 | 696 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 209 | 0 | 20 |
@@ -53,6 +139,12 @@
 | lotm_artifacts | 0 | 0 | 0 | 0 |
 | lotm_potions | 0 | 207 | 0 | 0 |
 | mother_of_learning_powers | 0 | 0 | 0 | 0 |
+| numenera_artifacts | 0 | 0 | 0 | 0 |
+| numenera_creatures | 0 | 0 | 0 | 0 |
+| numenera_institutions | 0 | 0 | 0 | 0 |
+| numenera_places | 0 | 0 | 0 | 0 |
+| numenera_powers | 0 | 0 | 0 | 0 |
+| numenera_rules | 0 | 0 | 0 | 0 |
 | omniscient_reader_powers | 0 | 0 | 0 | 0 |
 | perfect_run_powers | 0 | 0 | 0 | 0 |
 | regressors_tale_powers | 0 | 0 | 0 | 0 |
@@ -61,6 +153,28 @@
 | shadow_slave_powers | 0 | 0 | 0 | 0 |
 | solo_leveling_powers | 0 | 0 | 0 | 0 |
 | speedrunning_multiverse_powers | 0 | 0 | 0 | 0 |
+| stars_without_number_artifacts | 0 | 0 | 0 | 0 |
+| stars_without_number_creatures | 0 | 0 | 0 | 0 |
+| stars_without_number_institutions | 0 | 0 | 0 | 0 |
+| stars_without_number_places | 0 | 0 | 0 | 0 |
+| stars_without_number_powers | 0 | 0 | 0 | 0 |
+| stars_without_number_rules | 0 | 0 | 0 | 0 |
+| the_dark_eye_artifacts | 0 | 0 | 0 | 0 |
+| the_dark_eye_creatures | 0 | 0 | 0 | 0 |
+| the_dark_eye_institutions | 0 | 0 | 0 | 0 |
+| the_dark_eye_places | 0 | 0 | 0 | 0 |
+| the_dark_eye_powers | 0 | 0 | 0 | 0 |
+| the_dark_eye_rules | 0 | 0 | 0 | 0 |
+| the_strange_artifacts | 0 | 0 | 0 | 0 |
+| the_strange_creatures | 0 | 0 | 0 | 0 |
+| the_strange_institutions | 0 | 0 | 0 | 0 |
+| the_strange_places | 0 | 0 | 0 | 0 |
+| the_strange_powers | 0 | 0 | 0 | 0 |
+| the_strange_rules | 0 | 0 | 0 | 0 |
+| warhammer_40k_artifacts | 0 | 0 | 0 | 0 |
+| warhammer_40k_creatures | 0 | 0 | 0 | 0 |
+| warhammer_40k_institutions | 0 | 0 | 0 | 0 |
+| warhammer_40k_powers | 0 | 0 | 0 | 0 |
 | worm_powers | 0 | 0 | 0 | 0 |
 | you_have_died_again_powers | 0 | 0 | 0 | 0 |
 
@@ -174,8 +288,19 @@
 | Bay City | original |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
 | Salvage Reach | original |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
 | The Red Basin | original |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
+| Eclipse Phase (2nd edition) | setting |  | eclipse_phase_powers (517) | eclipse_phase_artifacts (697) | missing | missing | eclipse_phase_creatures (447) | eclipse_phase_places (322) | eclipse_phase_institutions (393) | missing | missing | eclipse_phase_rules (489) | 6 | 4 | 0 |
+| Numenera (Ninth World) | setting |  | numenera_powers (1106) | numenera_artifacts (1720) | missing | missing | numenera_creatures (897) | numenera_places (601) | numenera_institutions (175) | missing | missing | numenera_rules (528) | 6 | 4 | 0 |
+| Warhammer 40,000 (9th edition core) | setting |  | warhammer_40k_powers (1) | warhammer_40k_artifacts (3) | missing | missing | warhammer_40k_creatures (2) | missing | warhammer_40k_institutions (3) | missing | missing | missing | 4 | 6 | 0 |
+| The Strange (recursions) | setting |  | the_strange_powers (578) | the_strange_artifacts (463) | missing | missing | the_strange_creatures (437) | the_strange_places (347) | the_strange_institutions (154) | missing | missing | the_strange_rules (305) | 6 | 4 | 0 |
+| Warhammer Fantasy Roleplay 4e (the Old World) | setting |  | none | none | none | none | none | none | none | none | none | none | 0 | 0 | 10 |
+| Age of Sigmar: Soulbound | setting |  | aos_soulbound_powers (394) | aos_soulbound_artifacts (225) | missing | missing | aos_soulbound_creatures (256) | aos_soulbound_places (203) | aos_soulbound_institutions (160) | missing | missing | aos_soulbound_rules (94) | 6 | 4 | 0 |
+| Stars Without Number (Revised, free edition) | setting |  | stars_without_number_powers (138) | stars_without_number_artifacts (425) | missing | missing | stars_without_number_creatures (72) | stars_without_number_places (33) | stars_without_number_institutions (41) | missing | missing | stars_without_number_rules (169) | 6 | 4 | 0 |
+| Forgotten Realms (3e campaign setting and Grand History) | setting |  | forgotten_realms_powers (498) | forgotten_realms_artifacts (420) | missing | missing | forgotten_realms_creatures (676) | forgotten_realms_places (1000) | forgotten_realms_institutions (356) | missing | missing | forgotten_realms_rules (113) | 6 | 4 | 0 |
+| Golarion (Inner Sea World Guide and Lost Omens World Guide) | setting |  | golarion_powers (107) | golarion_artifacts (46) | missing | missing | golarion_creatures (198) | golarion_places (385) | golarion_institutions (154) | missing | missing | golarion_rules (37) | 6 | 4 | 0 |
+| The Dark Eye 5e (Aventuria) | setting |  | the_dark_eye_powers (506) | the_dark_eye_artifacts (224) | missing | missing | the_dark_eye_creatures (206) | the_dark_eye_places (142) | the_dark_eye_institutions (114) | missing | missing | the_dark_eye_rules (189) | 6 | 4 | 0 |
+| Cyberpunk (RED and 2020) | setting |  | cyberpunk_powers (3) | cyberpunk_artifacts (18) | missing | missing | missing | cyberpunk_places (21) | cyberpunk_institutions (19) | missing | missing | cyberpunk_rules (3) | 5 | 5 | 0 |
 
-73 worlds, 730 cells: 24 ledgered, 675 missing with a source, 31 none.
+84 worlds, 840 cells: 81 ledgered, 718 missing with a source, 41 none.
 
 ### Next cells
 
@@ -183,33 +308,33 @@
 
 | # | World | Corpus | Shared slugs | Weight | Source |
 | ---: | --- | --- | ---: | ---: | --- |
-| 1 | harry-potter | creatures | 19 | 141 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
-| 2 | mother-of-learning | artifacts | 15 | 194 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 3 | lotm | powers | 15 | 154 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
-| 4 | circle-of-inevitability | artifacts | 13 | 192 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
-| 5 | fated-villain | artifacts | 13 | 185 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 6 | legendary-mechanic | artifacts | 13 | 156 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 7 | speedrunning-multiverse | artifacts | 11 | 136 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 8 | shadow-slave | artifacts | 9 | 167 | paid reader claims 2026-11-01-ss |
-| 9 | regressors-tale | artifacts | 9 | 159 | paid reader claims 2026-11-01-rtoc |
-| 10 | a-novel-concept | artifacts | 8 | 98 | deep dive docs/research/novels/a-novel-concept/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 11 | worm | artifacts | 8 | 93 | paid reader claims 2026-11-01-worm |
-| 12 | naruto | powers | 7 | 146 | wiki dump ~/.codex/research/wikis/naruto.fandom.com/dump |
-| 13 | typemoon | powers | 7 | 145 | wiki dump ~/.codex/research/wikis/typemoon.fandom.com/dump |
-| 14 | jujutsu-kaisen | powers | 7 | 145 | wiki dump ~/.codex/research/wikis/jujutsu-kaisen.fandom.com/dump |
-| 15 | omniscient-reader | artifacts | 7 | 117 | deep dive docs/research/novels/omniscient-reader/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 16 | hunterxhunter | powers | 6 | 129 | wiki dump ~/.codex/research/wikis/hunterxhunter.fandom.com/dump |
-| 17 | dresdenfiles | powers | 6 | 126 | wiki dump ~/.codex/research/wikis/dresdenfiles.fandom.com/dump |
-| 18 | blackclover | powers | 6 | 124 | wiki dump ~/.codex/research/wikis/blackclover.fandom.com/dump |
-| 19 | solo-leveling | artifacts | 6 | 119 | deep dive docs/research/novels/solo-leveling/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 20 | perfect-run | artifacts | 6 | 90 | paid reader claims 2026-11-01-pr |
-| 21 | you-have-died-again | artifacts | 6 | 82 | deep dive docs/research/novels/you-have-died-again/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 22 | reverend-insanity | potions_and_recipes | 6 | 42 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
-| 23 | bleach | powers | 5 | 118 | wiki dump ~/.codex/research/wikis/bleach.fandom.com/dump |
-| 24 | myheroacademia | powers | 5 | 117 | wiki dump ~/.codex/research/wikis/myheroacademia.fandom.com/dump |
-| 25 | towerofgod | powers | 5 | 111 | wiki dump ~/.codex/research/wikis/towerofgod.fandom.com/dump |
+| 1 | harry-potter | creatures | 19 | 244 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
+| 2 | aos-soulbound | potions_and_recipes | 17 | 310 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
+| 3 | forgotten-realms | potions_and_recipes | 17 | 310 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
+| 4 | numenera | potions_and_recipes | 17 | 310 | chapter text docs/research/tabletop-settings-2026-11-17/private/numenera (local, gitignored) |
+| 5 | the-strange | potions_and_recipes | 17 | 310 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-strange (local, gitignored) |
+| 6 | eclipse-phase | potions_and_recipes | 16 | 289 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
+| 7 | the-dark-eye | potions_and_recipes | 15 | 295 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-dark-eye (local, gitignored) |
+| 8 | stars-without-number | potions_and_recipes | 15 | 281 | chapter text docs/research/tabletop-settings-2026-11-17/private/stars-without-number (local, gitignored) |
+| 9 | mother-of-learning | artifacts | 15 | 267 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 10 | golarion | potions_and_recipes | 15 | 264 | chapter text docs/research/tabletop-settings-2026-11-17/private/golarion (local, gitignored) |
+| 11 | lotm | powers | 15 | 256 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
+| 12 | circle-of-inevitability | artifacts | 13 | 265 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
+| 13 | fated-villain | artifacts | 13 | 258 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 14 | legendary-mechanic | artifacts | 13 | 222 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 15 | speedrunning-multiverse | artifacts | 11 | 187 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 16 | shadow-slave | artifacts | 9 | 221 | paid reader claims 2026-11-01-ss |
+| 17 | regressors-tale | artifacts | 9 | 208 | paid reader claims 2026-11-01-rtoc |
+| 18 | a-novel-concept | artifacts | 8 | 133 | deep dive docs/research/novels/a-novel-concept/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 19 | worm | artifacts | 8 | 127 | paid reader claims 2026-11-01-worm |
+| 20 | naruto | powers | 7 | 191 | wiki dump ~/.codex/research/wikis/naruto.fandom.com/dump |
+| 21 | typemoon | powers | 7 | 190 | wiki dump ~/.codex/research/wikis/typemoon.fandom.com/dump |
+| 22 | jujutsu-kaisen | powers | 7 | 190 | wiki dump ~/.codex/research/wikis/jujutsu-kaisen.fandom.com/dump |
+| 23 | omniscient-reader | artifacts | 7 | 149 | deep dive docs/research/novels/omniscient-reader/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 24 | perfect-run | artifacts | 7 | 121 | paid reader claims 2026-11-01-pr |
+| 25 | hunterxhunter | powers | 6 | 169 | wiki dump ~/.codex/research/wikis/hunterxhunter.fandom.com/dump |
 
-70 worlds have a next cell and 675 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
+80 worlds have a next cell and 718 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
 
 ## Held-out canon scoring (PC72, tuned on / held out / matched)
 
@@ -218,9 +343,38 @@
 | Ledger | Tuned on | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route | Split |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | a_novel_concept_powers | 0 | 0 | | | | | none yet |
+| aos_soulbound_artifacts | 0 | 0 | | | | | none yet |
+| aos_soulbound_creatures | 0 | 0 | | | | | none yet |
+| aos_soulbound_institutions | 0 | 0 | | | | | none yet |
+| aos_soulbound_places | 0 | 0 | | | | | none yet |
+| aos_soulbound_powers | 0 | 0 | | | | | none yet |
+| aos_soulbound_rules | 0 | 0 | | | | | none yet |
 | circle_of_inevitability_powers | 0 | 0 | | | | | none yet |
 | creatures | 0 | 0 | | | | | none yet |
+| cyberpunk_artifacts | 0 | 0 | | | | | none yet |
+| cyberpunk_institutions | 0 | 0 | | | | | none yet |
+| cyberpunk_places | 0 | 0 | | | | | none yet |
+| cyberpunk_powers | 0 | 0 | | | | | none yet |
+| cyberpunk_rules | 0 | 0 | | | | | none yet |
+| eclipse_phase_artifacts | 0 | 0 | | | | | none yet |
+| eclipse_phase_creatures | 0 | 0 | | | | | none yet |
+| eclipse_phase_institutions | 0 | 0 | | | | | none yet |
+| eclipse_phase_places | 0 | 0 | | | | | none yet |
+| eclipse_phase_powers | 0 | 0 | | | | | none yet |
+| eclipse_phase_rules | 0 | 0 | | | | | none yet |
 | fated_villain_powers | 0 | 0 | | | | | none yet |
+| forgotten_realms_artifacts | 0 | 0 | | | | | none yet |
+| forgotten_realms_creatures | 0 | 0 | | | | | none yet |
+| forgotten_realms_institutions | 0 | 0 | | | | | none yet |
+| forgotten_realms_places | 0 | 0 | | | | | none yet |
+| forgotten_realms_powers | 0 | 0 | | | | | none yet |
+| forgotten_realms_rules | 0 | 0 | | | | | none yet |
+| golarion_artifacts | 0 | 0 | | | | | none yet |
+| golarion_creatures | 0 | 0 | | | | | none yet |
+| golarion_institutions | 0 | 0 | | | | | none yet |
+| golarion_places | 0 | 0 | | | | | none yet |
+| golarion_powers | 0 | 0 | | | | | none yet |
+| golarion_rules | 0 | 0 | | | | | none yet |
 | gu_kinds | 8 | 53 | 4 of 53 | not scored without an engine | 1 of 6 (47 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
@@ -232,6 +386,12 @@
 | lotm_artifacts | 0 | 0 | | | | | none yet |
 | lotm_potions | 0 | 0 | | | | | none yet |
 | mother_of_learning_powers | 0 | 0 | | | | | none yet |
+| numenera_artifacts | 0 | 0 | | | | | none yet |
+| numenera_creatures | 0 | 0 | | | | | none yet |
+| numenera_institutions | 0 | 0 | | | | | none yet |
+| numenera_places | 0 | 0 | | | | | none yet |
+| numenera_powers | 0 | 0 | | | | | none yet |
+| numenera_rules | 0 | 0 | | | | | none yet |
 | omniscient_reader_powers | 0 | 0 | | | | | none yet |
 | perfect_run_powers | 0 | 0 | | | | | none yet |
 | regressors_tale_powers | 0 | 0 | | | | | none yet |
@@ -240,6 +400,28 @@
 | shadow_slave_powers | 0 | 0 | | | | | none yet |
 | solo_leveling_powers | 0 | 0 | | | | | none yet |
 | speedrunning_multiverse_powers | 0 | 0 | | | | | none yet |
+| stars_without_number_artifacts | 0 | 0 | | | | | none yet |
+| stars_without_number_creatures | 0 | 0 | | | | | none yet |
+| stars_without_number_institutions | 0 | 0 | | | | | none yet |
+| stars_without_number_places | 0 | 0 | | | | | none yet |
+| stars_without_number_powers | 0 | 0 | | | | | none yet |
+| stars_without_number_rules | 0 | 0 | | | | | none yet |
+| the_dark_eye_artifacts | 0 | 0 | | | | | none yet |
+| the_dark_eye_creatures | 0 | 0 | | | | | none yet |
+| the_dark_eye_institutions | 0 | 0 | | | | | none yet |
+| the_dark_eye_places | 0 | 0 | | | | | none yet |
+| the_dark_eye_powers | 0 | 0 | | | | | none yet |
+| the_dark_eye_rules | 0 | 0 | | | | | none yet |
+| the_strange_artifacts | 0 | 0 | | | | | none yet |
+| the_strange_creatures | 0 | 0 | | | | | none yet |
+| the_strange_institutions | 0 | 0 | | | | | none yet |
+| the_strange_places | 0 | 0 | | | | | none yet |
+| the_strange_powers | 0 | 0 | | | | | none yet |
+| the_strange_rules | 0 | 0 | | | | | none yet |
+| warhammer_40k_artifacts | 0 | 0 | | | | | none yet |
+| warhammer_40k_creatures | 0 | 0 | | | | | none yet |
+| warhammer_40k_institutions | 0 | 0 | | | | | none yet |
+| warhammer_40k_powers | 0 | 0 | | | | | none yet |
 | worm_powers | 0 | 0 | | | | | none yet |
 | you_have_died_again_powers | 0 | 0 | | | | | none yet |
 
@@ -474,211 +656,715 @@
 | gu_moves | roles-unknown | 651 |
 | gu_kinds | effect-unknown | 516 |
 | gu_kinds | rank-unknown | 234 |
+| numenera_artifacts | area-field | 148 |
 | hp_ingredients | ingredient-no-recipe-edge | 134 |
+| the_dark_eye_powers | effect-unknown | 116 |
+| numenera_artifacts | item-bound-power | 114 |
 | circle_of_inevitability_powers | effect-unknown | 104 |
 | legendary_mechanic_powers | effect-unknown | 104 |
+| forgotten_realms_artifacts | effect-unknown | 93 |
+| numenera_artifacts | form-transformation | 92 |
 | fated_villain_powers | effect-unknown | 91 |
+| eclipse_phase_powers | mind-binding | 90 |
+| numenera_powers | area-field | 84 |
+| numenera_powers | form-transformation | 84 |
+| forgotten_realms_powers | effect-unknown | 81 |
 | rezero_powers | effect-unknown | 79 |
 | hp_objects | effect-unknown | 78 |
+| the_strange_artifacts | item-bound-power | 77 |
+| numenera_artifacts | effect-unknown | 74 |
+| eclipse_phase_rules | soul-state | 71 |
 | worm_powers | effect-unknown | 68 |
+| numenera_powers | effect-unknown | 67 |
+| eclipse_phase_creatures | form-transformation | 67 |
+| forgotten_realms_artifacts | item-bound-power | 67 |
+| numenera_creatures | form-transformation | 66 |
 | circle_of_inevitability_powers | item-bound-power | 64 |
+| forgotten_realms_powers | area-field | 63 |
+| numenera_artifacts | mind-binding | 63 |
 | gu_moves | roles-unchecked | 63 |
+| numenera_artifacts | divination | 58 |
+| numenera_creatures | mind-binding | 58 |
+| eclipse_phase_artifacts | area-field | 57 |
 | shadow_slave_powers | area-field | 55 |
+| numenera_powers | mind-binding | 54 |
+| aos_soulbound_powers | area-field | 53 |
+| aos_soulbound_powers | effect-unknown | 53 |
 | omniscient_reader_powers | sponsorship-contract | 50 |
 | regressors_tale_powers | area-field | 47 |
 | hp_potions | body-door | 46 |
 | lotm_artifacts | effect-unknown | 46 |
 | shadow_slave_powers | form-transformation | 46 |
+| the_strange_creatures | form-transformation | 44 |
+| numenera_artifacts | material-row | 44 |
+| numenera_creatures | area-field | 43 |
+| the_strange_artifacts | effect-unknown | 43 |
+| the_strange_powers | effect-unknown | 43 |
+| numenera_artifacts | spatial-storage | 43 |
+| numenera_powers | divination | 42 |
+| eclipse_phase_powers | effect-unknown | 42 |
+| eclipse_phase_artifacts | effect-unknown | 40 |
 | ri_treasures | effect-unknown | 40 |
+| forgotten_realms_creatures | form-transformation | 40 |
+| the_strange_powers | mind-binding | 40 |
+| numenera_creatures | effect-unknown | 39 |
+| the_strange_rules | soul-state | 38 |
+| eclipse_phase_powers | form-transformation | 37 |
+| eclipse_phase_artifacts | item-bound-power | 37 |
+| numenera_powers | item-bound-power | 36 |
+| numenera_rules | soul-state | 36 |
+| numenera_artifacts | power-interaction | 35 |
 | mother_of_learning_powers | soul-state | 35 |
 | mother_of_learning_powers | effect-unknown | 34 |
 | fated_villain_powers | item-bound-power | 34 |
 | hp_potions | effect-sentence | 33 |
+| numenera_artifacts | soul-state | 33 |
 | worm_powers | tinker-device | 33 |
+| the_strange_powers | area-field | 32 |
 | shadow_slave_powers | item-bound-power | 32 |
 | hp_potions | plant-or-creature-target | 32 |
+| forgotten_realms_powers | power-interaction | 32 |
+| the_strange_powers | divination | 31 |
+| forgotten_realms_creatures | effect-unknown | 31 |
+| golarion_powers | effect-unknown | 31 |
+| the_strange_powers | form-transformation | 31 |
+| forgotten_realms_powers | mind-binding | 31 |
+| the_strange_creatures | mind-binding | 31 |
 | hp_potions | mind-state | 31 |
+| numenera_powers | power-interaction | 31 |
+| the_strange_creatures | effect-unknown | 30 |
+| eclipse_phase_powers | soul-state | 30 |
+| forgotten_realms_powers | form-transformation | 29 |
+| forgotten_realms_creatures | soul-state | 29 |
+| eclipse_phase_artifacts | mind-binding | 28 |
 | gu_moves | unnamed-role | 28 |
 | shadow_slave_powers | power-interaction | 26 |
+| numenera_artifacts | time-stop | 26 |
+| numenera_artifacts | familiar-summon | 25 |
 | hp_potions | body-form | 24 |
+| forgotten_realms_powers | divination | 24 |
 | circle_of_inevitability_powers | divination-fate | 24 |
+| aos_soulbound_powers | mind-binding | 24 |
+| aos_soulbound_creatures | soul-state | 24 |
+| numenera_creatures | soul-state | 24 |
+| aos_soulbound_artifacts | effect-unknown | 23 |
 | circle_of_inevitability_powers | form-transformation | 23 |
+| forgotten_realms_creatures | familiar-summon | 22 |
+| numenera_creatures | item-bound-power | 22 |
 | circle_of_inevitability_powers | mind-binding | 21 |
 | circle_of_inevitability_powers | area-field | 20 |
+| numenera_rules | area-field | 20 |
+| the_strange_creatures | area-field | 20 |
+| numenera_rules | form-transformation | 20 |
+| the_strange_artifacts | area-field | 19 |
 | circle_of_inevitability_powers | dimension-travel | 19 |
+| aos_soulbound_powers | divination | 19 |
+| aos_soulbound_creatures | form-transformation | 19 |
+| the_dark_eye_artifacts | item-bound-power | 19 |
+| the_strange_artifacts | mind-binding | 19 |
+| stars_without_number_powers | power-interaction | 19 |
+| aos_soulbound_powers | soul-state | 19 |
 | fated_villain_powers | soul-state | 19 |
+| the_strange_creatures | soul-state | 19 |
+| numenera_rules | spatial-storage | 19 |
+| eclipse_phase_rules | area-field | 18 |
+| eclipse_phase_rules | form-transformation | 18 |
+| the_dark_eye_powers | form-transformation | 18 |
+| numenera_rules | item-state | 18 |
+| eclipse_phase_rules | mind-binding | 18 |
+| numenera_creatures | power-interaction | 18 |
+| aos_soulbound_rules | soul-state | 18 |
+| eclipse_phase_creatures | soul-state | 18 |
+| eclipse_phase_powers | divination | 17 |
 | regressors_tale_powers | form-transformation | 17 |
+| numenera_rules | item-bound-power | 17 |
+| eclipse_phase_creatures | mind-binding | 17 |
+| the_strange_powers | power-interaction | 17 |
 | gu_moves | role-cannot-run | 17 |
 | hp_objects | spatial-storage | 17 |
+| aos_soulbound_artifacts | area-field | 16 |
+| numenera_places | area-field | 16 |
+| golarion_creatures | effect-unknown | 16 |
+| the_strange_places | form-transformation | 16 |
+| the_dark_eye_powers | mind-binding | 16 |
 | fated_villain_powers | divination-fate | 15 |
+| aos_soulbound_powers | form-transformation | 15 |
+| the_strange_artifacts | form-transformation | 15 |
+| aos_soulbound_creatures | mind-binding | 15 |
 | lotm_artifacts | mind-binding | 15 |
 | mother_of_learning_powers | mind-binding | 15 |
+| numenera_artifacts | negative-effect-drift | 15 |
 | mother_of_learning_powers | power-interaction | 15 |
 | worm_powers | power-interaction | 15 |
 | circle_of_inevitability_powers | soul-state | 15 |
+| eclipse_phase_artifacts | soul-state | 15 |
+| the_strange_powers | soul-state | 15 |
+| eclipse_phase_powers | area-field | 14 |
+| numenera_rules | containment-rule | 14 |
+| the_strange_rules | form-transformation | 14 |
 | hp_ingredients | ingredient-effect-outside-axis-set | 14 |
 | hp_ingredients | ingredient-recipe-effect-unknown | 14 |
+| aos_soulbound_powers | item-bound-power | 14 |
+| forgotten_realms_powers | item-bound-power | 14 |
+| the_dark_eye_rules | item-bound-power | 14 |
+| the_strange_powers | item-bound-power | 14 |
+| the_strange_rules | item-state | 14 |
+| numenera_creatures | negative-effect-drift | 14 |
+| aos_soulbound_creatures | area-field | 13 |
+| forgotten_realms_artifacts | area-field | 13 |
 | worm_powers | body-form | 13 |
+| the_dark_eye_powers | divination | 13 |
+| the_dark_eye_creatures | familiar-summon | 13 |
+| aos_soulbound_artifacts | item-bound-power | 13 |
+| forgotten_realms_creatures | mind-binding | 13 |
 | lotm_artifacts | negative-effect-drift | 13 |
+| numenera_rules | negative-effect-drift | 13 |
+| the_dark_eye_powers | power-interaction | 13 |
+| forgotten_realms_rules | soul-state | 13 |
 | legendary_mechanic_powers | soul-state | 13 |
+| numenera_creatures | spatial-storage | 13 |
 | fated_villain_powers | system-interface | 13 |
 | legendary_mechanic_powers | system-interface | 13 |
 | mother_of_learning_powers | area-field | 12 |
 | speedrunning_multiverse_powers | concept-law | 12 |
+| aos_soulbound_artifacts | divination | 12 |
+| stars_without_number_powers | effect-unknown | 12 |
+| the_dark_eye_artifacts | effect-unknown | 12 |
 | lotm_potions | formula-wiki-unchecked | 12 |
+| the_dark_eye_powers | item-bound-power | 12 |
+| numenera_rules | material-row | 12 |
+| stars_without_number_powers | mind-binding | 12 |
 | worm_powers | mind-binding | 12 |
+| eclipse_phase_rules | negative-effect-drift | 12 |
 | perfect_run_powers | source-link | 12 |
 | fated_villain_powers | area-field | 11 |
+| the_dark_eye_powers | area-field | 11 |
 | worm_powers | area-field | 11 |
+| eclipse_phase_rules | containment-rule | 11 |
 | circle_of_inevitability_powers | familiar-summon | 11 |
+| forgotten_realms_powers | familiar-summon | 11 |
+| the_strange_powers | familiar-summon | 11 |
 | legendary_mechanic_powers | item-bound-power | 11 |
 | mother_of_learning_powers | item-bound-power | 11 |
 | speedrunning_multiverse_powers | item-bound-power | 11 |
+| stars_without_number_artifacts | item-bound-power | 11 |
+| aos_soulbound_powers | power-interaction | 11 |
+| eclipse_phase_powers | power-interaction | 11 |
+| numenera_rules | power-interaction | 11 |
+| forgotten_realms_places | spatial-storage | 11 |
 | rezero_powers | spirit-contract-judgement | 11 |
 | perfect_run_powers | area-field | 10 |
+| the_strange_rules | area-field | 10 |
+| numenera_artifacts | containment-rule | 10 |
+| the_strange_rules | containment-rule | 10 |
+| the_strange_artifacts | divination | 10 |
 | mother_of_learning_powers | divination-fate | 10 |
+| eclipse_phase_artifacts | form-transformation | 10 |
 | lotm_artifacts | form-transformation | 10 |
+| stars_without_number_artifacts | form-transformation | 10 |
 | labyrinth_mad_god_powers | item-bound-power | 10 |
+| the_strange_creatures | item-bound-power | 10 |
 | ri_treasures | material-row | 10 |
+| eclipse_phase_institutions | mind-binding | 10 |
 | hp_objects | mind-binding | 10 |
 | fated_villain_powers | power-interaction | 10 |
 | lotm_artifacts | power-interaction | 10 |
+| numenera_artifacts | power-transfer | 10 |
 | worm_powers | protection-field | 10 |
+| forgotten_realms_powers | soul-state | 10 |
+| the_strange_artifacts | soul-state | 10 |
+| the_strange_places | soul-state | 10 |
 | lotm_artifacts | spatial-storage | 10 |
+| numenera_places | spatial-storage | 10 |
+| the_strange_artifacts | spatial-storage | 10 |
+| forgotten_realms_creatures | area-field | 9 |
+| forgotten_realms_places | area-field | 9 |
+| golarion_places | area-field | 9 |
+| the_strange_places | area-field | 9 |
 | hp_potions | conceal-or-sense | 9 |
 | a_novel_concept_powers | concept-law | 9 |
 | hp_objects | containment-rule | 9 |
+| golarion_artifacts | effect-unknown | 9 |
+| stars_without_number_artifacts | effect-unknown | 9 |
+| aos_soulbound_powers | familiar-summon | 9 |
+| the_dark_eye_powers | familiar-summon | 9 |
+| stars_without_number_powers | form-transformation | 9 |
+| numenera_artifacts | item-state | 9 |
+| numenera_rules | mind-binding | 9 |
+| stars_without_number_artifacts | mind-binding | 9 |
+| the_strange_rules | mind-binding | 9 |
 | circle_of_inevitability_powers | power-interaction | 9 |
+| eclipse_phase_artifacts | power-interaction | 9 |
+| golarion_places | soul-state | 9 |
+| forgotten_realms_artifacts | spatial-storage | 9 |
+| golarion_places | spatial-storage | 9 |
 | mother_of_learning_powers | dimension-travel | 8 |
+| the_dark_eye_creatures | effect-unknown | 8 |
+| the_strange_places | effect-unknown | 8 |
+| numenera_creatures | familiar-summon | 8 |
 | fated_villain_powers | form-transformation | 8 |
 | legendary_mechanic_powers | form-transformation | 8 |
+| numenera_places | form-transformation | 8 |
+| eclipse_phase_powers | item-bound-power | 8 |
+| eclipse_phase_artifacts | item-state | 8 |
+| numenera_powers | item-state | 8 |
 | fated_villain_powers | mind-binding | 8 |
+| numenera_institutions | mind-binding | 8 |
 | hp_objects | negative-effect-drift | 8 |
+| stars_without_number_powers | negative-effect-drift | 8 |
+| the_strange_rules | negative-effect-drift | 8 |
 | hp_potions | object-surface | 8 |
 | a_novel_concept_powers | power-interaction | 8 |
+| forgotten_realms_powers | power-transfer | 8 |
+| numenera_powers | spatial-storage | 8 |
+| the_strange_rules | spatial-storage | 8 |
+| forgotten_realms_rules | area-field | 7 |
+| stars_without_number_artifacts | area-field | 7 |
 | hp_objects | divination | 7 |
 | lotm_artifacts | divination | 7 |
+| aos_soulbound_creatures | familiar-summon | 7 |
+| numenera_powers | familiar-summon | 7 |
+| eclipse_phase_institutions | form-transformation | 7 |
+| golarion_creatures | form-transformation | 7 |
 | hp_objects | formation-field | 7 |
 | hp_ingredients | ingredient-derived-below-confidence | 7 |
+| the_strange_rules | item-bound-power | 7 |
+| numenera_powers | material-row | 7 |
 | you_have_died_again_powers | memory-transfer | 7 |
 | legendary_mechanic_powers | mind-binding | 7 |
+| the_strange_places | mind-binding | 7 |
 | worm_powers | mind-state | 7 |
+| numenera_powers | negative-effect-drift | 7 |
 | worm_powers | portal-space | 7 |
+| eclipse_phase_rules | power-interaction | 7 |
 | hp_objects | power-interaction | 7 |
 | regressors_tale_powers | power-interaction | 7 |
 | speedrunning_multiverse_powers | power-interaction | 7 |
+| the_dark_eye_rules | power-interaction | 7 |
+| numenera_powers | power-transfer | 7 |
+| numenera_rules | power-transfer | 7 |
 | rezero_powers | power-transfer | 7 |
 | worm_powers | projection-body | 7 |
+| aos_soulbound_institutions | soul-state | 7 |
+| forgotten_realms_artifacts | soul-state | 7 |
+| golarion_rules | soul-state | 7 |
+| numenera_powers | soul-state | 7 |
+| eclipse_phase_artifacts | spatial-storage | 7 |
+| the_strange_powers | spatial-storage | 7 |
+| eclipse_phase_creatures | area-field | 6 |
 | lotm_potions | body-door | 6 |
 | worm_powers | conceal-or-sense | 6 |
+| forgotten_realms_places | containment-rule | 6 |
 | fated_villain_powers | dimension-travel | 6 |
+| aos_soulbound_creatures | divination | 6 |
+| golarion_places | effect-unknown | 6 |
 | fated_villain_powers | familiar-summon | 6 |
+| aos_soulbound_creatures | formation-field | 6 |
+| golarion_artifacts | item-bound-power | 6 |
+| golarion_powers | item-bound-power | 6 |
 | hp_objects | item-state | 6 |
+| aos_soulbound_powers | material-row | 6 |
 | shadow_slave_powers | mind-binding | 6 |
+| eclipse_phase_powers | negative-effect-drift | 6 |
+| stars_without_number_rules | negative-effect-drift | 6 |
+| the_strange_artifacts | negative-effect-drift | 6 |
 | hp_potions | place-release | 6 |
+| the_strange_creatures | power-interaction | 6 |
+| the_strange_rules | power-interaction | 6 |
+| eclipse_phase_institutions | soul-state | 6 |
+| forgotten_realms_places | soul-state | 6 |
+| golarion_creatures | soul-state | 6 |
+| the_strange_creatures | spatial-storage | 6 |
 | circle_of_inevitability_powers | vow-cost | 6 |
+| golarion_powers | area-field | 5 |
 | lotm_artifacts | area-field | 5 |
 | omniscient_reader_powers | area-field | 5 |
+| the_dark_eye_artifacts | area-field | 5 |
 | legendary_mechanic_powers | blueprint-craft | 5 |
 | perfect_run_powers | body-code-decay | 5 |
 | legendary_mechanic_powers | construct-upkeep | 5 |
 | worm_powers | creature-control | 5 |
+| golarion_powers | divination | 5 |
+| numenera_places | divination | 5 |
+| the_dark_eye_artifacts | divination | 5 |
+| aos_soulbound_creatures | effect-unknown | 5 |
+| eclipse_phase_creatures | effect-unknown | 5 |
+| forgotten_realms_places | effect-unknown | 5 |
+| numenera_places | effect-unknown | 5 |
+| the_strange_artifacts | familiar-summon | 5 |
+| the_strange_creatures | familiar-summon | 5 |
+| aos_soulbound_artifacts | form-transformation | 5 |
+| forgotten_realms_artifacts | form-transformation | 5 |
 | mother_of_learning_powers | form-transformation | 5 |
+| the_strange_institutions | form-transformation | 5 |
 | regressors_tale_powers | item-bound-power | 5 |
+| stars_without_number_rules | item-bound-power | 5 |
 | rezero_powers | memory-erasure | 5 |
+| forgotten_realms_artifacts | mind-binding | 5 |
+| numenera_places | negative-effect-drift | 5 |
+| aos_soulbound_artifacts | power-interaction | 5 |
+| forgotten_realms_artifacts | power-interaction | 5 |
+| forgotten_realms_rules | power-interaction | 5 |
+| golarion_powers | power-interaction | 5 |
 | legendary_mechanic_powers | power-interaction | 5 |
 | solo_leveling_powers | power-interaction | 5 |
+| stars_without_number_artifacts | power-interaction | 5 |
+| eclipse_phase_rules | power-transfer | 5 |
 | shadow_slave_powers | power-transfer | 5 |
+| the_strange_artifacts | power-transfer | 5 |
+| numenera_places | soul-state | 5 |
+| aos_soulbound_artifacts | spatial-storage | 5 |
+| eclipse_phase_rules | spatial-storage | 5 |
+| forgotten_realms_powers | spatial-storage | 5 |
 | worm_powers | time-manipulation | 5 |
+| numenera_powers | time-stop | 5 |
+| numenera_rules | time-stop | 5 |
+| golarion_rules | area-field | 4 |
 | legendary_mechanic_powers | area-field | 4 |
+| stars_without_number_powers | area-field | 4 |
+| eclipse_phase_artifacts | divination | 4 |
+| stars_without_number_powers | divination | 4 |
+| numenera_rules | effect-unknown | 4 |
+| the_strange_rules | effect-unknown | 4 |
 | solo_leveling_powers | familiar-summon | 4 |
+| the_dark_eye_rules | familiar-summon | 4 |
+| golarion_powers | form-transformation | 4 |
 | speedrunning_multiverse_powers | form-transformation | 4 |
+| the_dark_eye_creatures | form-transformation | 4 |
+| eclipse_phase_creatures | formation-field | 4 |
+| numenera_creatures | formation-field | 4 |
+| numenera_powers | formation-field | 4 |
 | ri_treasures | formation-field | 4 |
+| aos_soulbound_rules | item-bound-power | 4 |
+| eclipse_phase_rules | item-bound-power | 4 |
+| stars_without_number_powers | item-bound-power | 4 |
 | you_have_died_again_powers | item-bound-power | 4 |
+| the_strange_artifacts | item-state | 4 |
+| aos_soulbound_artifacts | material-row | 4 |
+| eclipse_phase_artifacts | material-row | 4 |
+| golarion_artifacts | material-row | 4 |
 | hp_objects | material-row | 4 |
+| the_strange_artifacts | material-row | 4 |
+| forgotten_realms_rules | mind-binding | 4 |
+| aos_soulbound_powers | negative-effect-drift | 4 |
+| aos_soulbound_rules | negative-effect-drift | 4 |
+| eclipse_phase_creatures | negative-effect-drift | 4 |
+| aos_soulbound_creatures | power-interaction | 4 |
+| forgotten_realms_creatures | power-interaction | 4 |
+| forgotten_realms_institutions | power-interaction | 4 |
+| the_strange_artifacts | power-interaction | 4 |
 | circle_of_inevitability_powers | power-transfer | 4 |
 | fated_villain_powers | power-transfer | 4 |
 | omniscient_reader_powers | power-transfer | 4 |
+| the_strange_powers | power-transfer | 4 |
 | a_novel_concept_powers | revival-on-death | 4 |
+| aos_soulbound_artifacts | soul-state | 4 |
+| eclipse_phase_places | soul-state | 4 |
+| the_dark_eye_places | soul-state | 4 |
+| aos_soulbound_places | spatial-storage | 4 |
 | mother_of_learning_powers | time-loop | 4 |
+| the_strange_powers | time-stop | 4 |
+| the_strange_rules | time-stop | 4 |
 | shadow_slave_powers | vow-cost | 4 |
+| eclipse_phase_places | area-field | 3 |
 | a_novel_concept_powers | body-conditioning-rank | 3 |
+| forgotten_realms_creatures | containment-rule | 3 |
 | lotm_artifacts | containment-rule | 3 |
+| the_strange_artifacts | containment-rule | 3 |
+| forgotten_realms_artifacts | divination | 3 |
+| numenera_creatures | divination | 3 |
+| stars_without_number_artifacts | divination | 3 |
+| the_strange_creatures | divination | 3 |
+| numenera_institutions | effect-unknown | 3 |
 | hp_objects | familiar-summon | 3 |
 | lotm_artifacts | familiar-summon | 3 |
+| cyberpunk_artifacts | form-transformation | 3 |
 | labyrinth_mad_god_powers | form-transformation | 3 |
+| stars_without_number_creatures | form-transformation | 3 |
+| aos_soulbound_powers | formation-field | 3 |
+| numenera_artifacts | formation-field | 3 |
 | solo_leveling_powers | item-bound-power | 3 |
+| aos_soulbound_rules | item-state | 3 |
+| eclipse_phase_rules | item-state | 3 |
+| numenera_creatures | item-state | 3 |
+| stars_without_number_rules | item-state | 3 |
+| the_strange_powers | item-state | 3 |
+| forgotten_realms_powers | material-row | 3 |
+| the_strange_powers | material-row | 3 |
+| aos_soulbound_artifacts | mind-binding | 3 |
+| aos_soulbound_institutions | mind-binding | 3 |
+| golarion_powers | mind-binding | 3 |
 | perfect_run_powers | mind-binding | 3 |
+| stars_without_number_creatures | mind-binding | 3 |
+| the_dark_eye_rules | negative-effect-drift | 3 |
+| the_strange_places | negative-effect-drift | 3 |
+| the_strange_powers | negative-effect-drift | 3 |
 | worm_powers | power-granting | 3 |
 | omniscient_reader_powers | power-interaction | 3 |
 | perfect_run_powers | power-interaction | 3 |
 | you_have_died_again_powers | power-interaction | 3 |
+| aos_soulbound_creatures | power-transfer | 3 |
+| eclipse_phase_powers | power-transfer | 3 |
+| the_strange_rules | power-transfer | 3 |
 | worm_powers | precognition | 3 |
 | lotm_artifacts | soul-binding | 3 |
+| aos_soulbound_places | soul-state | 3 |
+| golarion_artifacts | soul-state | 3 |
+| golarion_powers | soul-state | 3 |
+| the_dark_eye_creatures | soul-state | 3 |
+| the_dark_eye_rules | soul-state | 3 |
+| aos_soulbound_powers | spatial-storage | 3 |
+| eclipse_phase_powers | spatial-storage | 3 |
+| the_dark_eye_powers | spatial-storage | 3 |
 | circle_of_inevitability_powers | time-loop | 3 |
 | omniscient_reader_powers | time-loop | 3 |
 | perfect_run_powers | time-loop | 3 |
 | regressors_tale_powers | time-loop | 3 |
 | you_have_died_again_powers | time-loop | 3 |
+| eclipse_phase_rules | time-stop | 3 |
+| numenera_places | time-stop | 3 |
+| the_strange_artifacts | time-stop | 3 |
+| aos_soulbound_rules | area-field | 2 |
+| golarion_artifacts | area-field | 2 |
 | ri_treasures | area-field | 2 |
+| the_dark_eye_rules | area-field | 2 |
 | labyrinth_mad_god_powers | body-conditioning-rank | 2 |
 | perfect_run_powers | bond-slots | 2 |
+| eclipse_phase_artifacts | containment-rule | 2 |
+| eclipse_phase_creatures | containment-rule | 2 |
+| forgotten_realms_artifacts | containment-rule | 2 |
+| forgotten_realms_powers | containment-rule | 2 |
+| golarion_institutions | containment-rule | 2 |
+| golarion_places | containment-rule | 2 |
+| golarion_rules | containment-rule | 2 |
+| numenera_creatures | containment-rule | 2 |
+| the_strange_places | containment-rule | 2 |
 | legendary_mechanic_powers | dimension-travel | 2 |
+| aos_soulbound_places | divination | 2 |
+| eclipse_phase_institutions | divination | 2 |
+| eclipse_phase_rules | divination | 2 |
+| golarion_creatures | divination | 2 |
+| numenera_rules | divination | 2 |
 | legendary_mechanic_powers | divination-fate | 2 |
+| aos_soulbound_rules | effect-unknown | 2 |
+| forgotten_realms_rules | effect-unknown | 2 |
+| forgotten_realms_rules | familiar-summon | 2 |
 | mother_of_learning_powers | familiar-summon | 2 |
 | shadow_slave_powers | familiar-summon | 2 |
+| forgotten_realms_institutions | form-transformation | 2 |
+| forgotten_realms_places | form-transformation | 2 |
+| forgotten_realms_rules | form-transformation | 2 |
+| numenera_institutions | form-transformation | 2 |
 | omniscient_reader_powers | form-transformation | 2 |
 | solo_leveling_powers | form-transformation | 2 |
+| the_dark_eye_artifacts | form-transformation | 2 |
+| eclipse_phase_rules | formation-field | 2 |
+| forgotten_realms_powers | formation-field | 2 |
+| numenera_places | formation-field | 2 |
+| the_strange_places | formation-field | 2 |
 | a_novel_concept_powers | item-bound-power | 2 |
+| aos_soulbound_creatures | item-bound-power | 2 |
+| forgotten_realms_rules | item-bound-power | 2 |
+| aos_soulbound_artifacts | item-state | 2 |
+| aos_soulbound_powers | item-state | 2 |
+| forgotten_realms_artifacts | item-state | 2 |
+| golarion_rules | item-state | 2 |
+| the_dark_eye_rules | item-state | 2 |
+| the_strange_creatures | item-state | 2 |
 | hp_potions | luck-field | 2 |
 | a_novel_concept_powers | luck-mechanism | 2 |
+| eclipse_phase_rules | material-row | 2 |
+| the_dark_eye_artifacts | material-row | 2 |
+| the_dark_eye_rules | material-row | 2 |
 | perfect_run_powers | memory-transfer | 2 |
+| aos_soulbound_rules | mind-binding | 2 |
+| forgotten_realms_places | mind-binding | 2 |
+| golarion_institutions | mind-binding | 2 |
+| golarion_places | mind-binding | 2 |
+| golarion_rules | mind-binding | 2 |
+| numenera_places | mind-binding | 2 |
 | rezero_powers | mind-binding | 2 |
 | speedrunning_multiverse_powers | mind-binding | 2 |
+| stars_without_number_rules | mind-binding | 2 |
+| aos_soulbound_creatures | negative-effect-drift | 2 |
+| forgotten_realms_powers | negative-effect-drift | 2 |
+| forgotten_realms_rules | negative-effect-drift | 2 |
+| golarion_creatures | negative-effect-drift | 2 |
+| golarion_places | negative-effect-drift | 2 |
+| aos_soulbound_rules | power-interaction | 2 |
+| eclipse_phase_creatures | power-interaction | 2 |
 | labyrinth_mad_god_powers | power-interaction | 2 |
+| aos_soulbound_institutions | power-transfer | 2 |
+| aos_soulbound_powers | power-transfer | 2 |
+| aos_soulbound_rules | power-transfer | 2 |
+| eclipse_phase_artifacts | power-transfer | 2 |
 | mother_of_learning_powers | power-transfer | 2 |
+| numenera_creatures | power-transfer | 2 |
 | speedrunning_multiverse_powers | power-transfer | 2 |
+| stars_without_number_artifacts | power-transfer | 2 |
+| stars_without_number_powers | power-transfer | 2 |
+| the_dark_eye_powers | power-transfer | 2 |
 | hp_potions | protection-field | 2 |
 | hp_objects | soul-binding | 2 |
+| golarion_institutions | soul-state | 2 |
+| numenera_institutions | soul-state | 2 |
+| the_dark_eye_powers | soul-state | 2 |
 | speedrunning_multiverse_powers | source-link | 2 |
+| aos_soulbound_creatures | spatial-storage | 2 |
+| forgotten_realms_rules | spatial-storage | 2 |
+| the_strange_places | spatial-storage | 2 |
 | shadow_slave_powers | sponsorship-contract | 2 |
 | a_novel_concept_powers | time-loop | 2 |
+| numenera_creatures | time-stop | 2 |
 | perfect_run_powers | time-stop | 2 |
 | worm_powers | timeline-split | 2 |
 | mother_of_learning_powers | vow-cost | 2 |
 | perfect_run_powers | anti-power-site | 1 |
 | a_novel_concept_powers | area-field | 1 |
+| aos_soulbound_places | area-field | 1 |
+| golarion_creatures | area-field | 1 |
 | hp_objects | area-field | 1 |
 | solo_leveling_powers | area-field | 1 |
+| stars_without_number_rules | area-field | 1 |
+| the_dark_eye_creatures | area-field | 1 |
 | mother_of_learning_powers | blueprint-craft | 1 |
 | speedrunning_multiverse_powers | body-conditioning-rank | 1 |
 | you_have_died_again_powers | body-conditioning-rank | 1 |
 | mother_of_learning_powers | construct-upkeep | 1 |
+| aos_soulbound_artifacts | containment-rule | 1 |
+| aos_soulbound_creatures | containment-rule | 1 |
+| aos_soulbound_places | containment-rule | 1 |
+| aos_soulbound_powers | containment-rule | 1 |
+| eclipse_phase_institutions | containment-rule | 1 |
+| eclipse_phase_places | containment-rule | 1 |
+| forgotten_realms_rules | containment-rule | 1 |
+| golarion_creatures | containment-rule | 1 |
+| numenera_places | containment-rule | 1 |
+| stars_without_number_artifacts | containment-rule | 1 |
+| the_dark_eye_artifacts | containment-rule | 1 |
+| the_dark_eye_places | containment-rule | 1 |
+| the_strange_creatures | containment-rule | 1 |
+| the_strange_institutions | containment-rule | 1 |
 | rezero_powers | death-checkpoint-rewind | 1 |
+| aos_soulbound_rules | divination | 1 |
+| eclipse_phase_creatures | divination | 1 |
+| forgotten_realms_creatures | divination | 1 |
+| forgotten_realms_places | divination | 1 |
+| forgotten_realms_rules | divination | 1 |
+| golarion_artifacts | divination | 1 |
+| golarion_institutions | divination | 1 |
+| golarion_places | divination | 1 |
+| numenera_institutions | divination | 1 |
+| stars_without_number_rules | divination | 1 |
+| the_dark_eye_creatures | divination | 1 |
+| the_dark_eye_institutions | divination | 1 |
+| the_strange_places | divination | 1 |
+| the_strange_rules | divination | 1 |
 | a_novel_concept_powers | effect-unknown | 1 |
+| cyberpunk_artifacts | effect-unknown | 1 |
+| eclipse_phase_rules | effect-unknown | 1 |
+| forgotten_realms_institutions | effect-unknown | 1 |
+| golarion_rules | effect-unknown | 1 |
 | speedrunning_multiverse_powers | effect-unknown | 1 |
+| stars_without_number_creatures | effect-unknown | 1 |
+| stars_without_number_rules | effect-unknown | 1 |
+| the_dark_eye_rules | effect-unknown | 1 |
+| the_strange_institutions | effect-unknown | 1 |
+| warhammer_40k_artifacts | effect-unknown | 1 |
+| warhammer_40k_powers | effect-unknown | 1 |
+| aos_soulbound_institutions | familiar-summon | 1 |
+| forgotten_realms_artifacts | familiar-summon | 1 |
 | legendary_mechanic_powers | familiar-summon | 1 |
+| the_strange_places | familiar-summon | 1 |
+| aos_soulbound_places | form-transformation | 1 |
+| golarion_artifacts | form-transformation | 1 |
+| golarion_places | form-transformation | 1 |
 | hp_objects | form-transformation | 1 |
+| stars_without_number_institutions | form-transformation | 1 |
+| the_dark_eye_institutions | form-transformation | 1 |
 | you_have_died_again_powers | form-transformation | 1 |
+| golarion_powers | formation-field | 1 |
 | lotm_artifacts | formation-field | 1 |
+| numenera_rules | formation-field | 1 |
+| the_strange_artifacts | formation-field | 1 |
+| the_strange_rules | formation-field | 1 |
 | lotm_potions | formula-chapter-labelled | 1 |
 | speedrunning_multiverse_powers | future-vision | 1 |
 | hp_ingredients | ingredient-not-material | 1 |
 | a_novel_concept_powers | inner-world | 1 |
+| cyberpunk_artifacts | item-bound-power | 1 |
+| eclipse_phase_creatures | item-bound-power | 1 |
+| golarion_rules | item-bound-power | 1 |
+| the_strange_places | item-bound-power | 1 |
+| forgotten_realms_powers | item-state | 1 |
 | lotm_artifacts | item-state | 1 |
 | ri_treasures | item-state | 1 |
+| the_dark_eye_powers | item-state | 1 |
 | speedrunning_multiverse_powers | luck-mechanism | 1 |
+| aos_soulbound_rules | material-row | 1 |
 | hp_ingredients | material-row | 1 |
+| numenera_creatures | material-row | 1 |
+| numenera_places | material-row | 1 |
+| stars_without_number_artifacts | material-row | 1 |
+| stars_without_number_powers | material-row | 1 |
+| the_strange_rules | material-row | 1 |
+| eclipse_phase_places | mind-binding | 1 |
+| forgotten_realms_institutions | mind-binding | 1 |
+| golarion_artifacts | mind-binding | 1 |
+| golarion_creatures | mind-binding | 1 |
 | regressors_tale_powers | mind-binding | 1 |
+| the_dark_eye_artifacts | mind-binding | 1 |
+| the_dark_eye_creatures | mind-binding | 1 |
+| the_dark_eye_institutions | mind-binding | 1 |
+| the_dark_eye_rules | mind-binding | 1 |
 | a_novel_concept_powers | mind-ennoblement | 1 |
+| cyberpunk_rules | negative-effect-drift | 1 |
+| eclipse_phase_artifacts | negative-effect-drift | 1 |
+| forgotten_realms_places | negative-effect-drift | 1 |
+| golarion_artifacts | negative-effect-drift | 1 |
+| golarion_powers | negative-effect-drift | 1 |
+| golarion_rules | negative-effect-drift | 1 |
+| stars_without_number_artifacts | negative-effect-drift | 1 |
+| the_strange_creatures | negative-effect-drift | 1 |
+| forgotten_realms_places | power-interaction | 1 |
+| golarion_artifacts | power-interaction | 1 |
+| golarion_creatures | power-interaction | 1 |
+| numenera_places | power-interaction | 1 |
+| the_dark_eye_creatures | power-interaction | 1 |
+| the_strange_places | power-interaction | 1 |
+| eclipse_phase_creatures | power-transfer | 1 |
+| eclipse_phase_institutions | power-transfer | 1 |
+| forgotten_realms_creatures | power-transfer | 1 |
 | lotm_artifacts | power-transfer | 1 |
 | regressors_tale_powers | power-transfer | 1 |
+| the_strange_institutions | power-transfer | 1 |
+| cyberpunk_artifacts | soul-state | 1 |
+| stars_without_number_artifacts | soul-state | 1 |
+| stars_without_number_creatures | soul-state | 1 |
+| stars_without_number_powers | soul-state | 1 |
+| stars_without_number_rules | soul-state | 1 |
 | labyrinth_mad_god_powers | source-link | 1 |
+| aos_soulbound_institutions | spatial-storage | 1 |
+| golarion_powers | spatial-storage | 1 |
+| numenera_institutions | spatial-storage | 1 |
 | ri_treasures | spatial-storage | 1 |
+| stars_without_number_artifacts | spatial-storage | 1 |
+| stars_without_number_powers | spatial-storage | 1 |
+| the_dark_eye_artifacts | spatial-storage | 1 |
 | rezero_powers | speech-penalty | 1 |
 | regressors_tale_powers | sponsorship-contract | 1 |
 | solo_leveling_powers | time-loop | 1 |
 | speedrunning_multiverse_powers | time-loop | 1 |
+| aos_soulbound_places | time-stop | 1 |
+| aos_soulbound_rules | time-stop | 1 |
+| forgotten_realms_places | time-stop | 1 |
+| forgotten_realms_powers | time-stop | 1 |
+| golarion_artifacts | time-stop | 1 |
+| numenera_institutions | time-stop | 1 |
+| stars_without_number_artifacts | time-stop | 1 |
+| stars_without_number_powers | time-stop | 1 |
+| the_strange_creatures | time-stop | 1 |
+| the_strange_places | time-stop | 1 |
 | fated_villain_powers | vow-cost | 1 |
 | omniscient_reader_powers | vow-cost | 1 |
 | regressors_tale_powers | vow-cost | 1 |
