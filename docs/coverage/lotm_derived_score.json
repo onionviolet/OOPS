@@ -172,5 +172,62 @@
         "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
       }
     }
+  },
+  "naturalMains": {
+    "rule": "lotm.rule.natural-main-creature-part",
+    "frozen": {
+      "offset": 0,
+      "bandClass": {
+        "9-7": "crystal",
+        "6-5": "organ",
+        "4-1": "organ"
+      },
+      "majorityClass": "organ",
+      "classWords": "classOf() in this script"
+    },
+    "marks": {
+      "bothAxes": "24% (16 of 68)",
+      "pathwayBaseline": "15% (10 of 68)"
+    },
+    "all": {
+      "items": 117,
+      "determinable": 64,
+      "classRule": {
+        "right": 38,
+        "baseline": 35
+      },
+      "bothAxes": 12,
+      "pathway": 20,
+      "sequence": 21,
+      "identityRule": {
+        "bothAxes": 14,
+        "pathway": 22
+      }
+    },
+    "heldOut": {
+      "items": 19,
+      "determinable": 13,
+      "classRule": {
+        "right": 7,
+        "baseline": 6
+      },
+      "bothAxes": 0,
+      "pathway": 6,
+      "sequence": 3,
+      "identityRule": {
+        "bothAxes": 0,
+        "pathway": 6
+      }
+    },
+    "classes": {
+      "plant": 11,
+      "crystal": 31,
+      "other": 9,
+      "organ": 35,
+      "exterior": 9,
+      "blood": 10,
+      "characteristic": 12
+    },
+    "date": "2026-11-17"
   }
 }

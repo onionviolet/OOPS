@@ -14,7 +14,7 @@ const derived = ledger.filter(r => r.derived);
 test('every derived row cites a rule row, a case and its inputs, and no stated tier is overwritten', () => {
     const rules = read('docs/coverage/lotm_rules.json');
     const ids = new Set(rules.rules.map(r => r.id));
-    assert.equal(derived.length, 161);
+    assert.equal(derived.length, 162);
     for (const r of derived) {
         assert.equal(r.state, 'expressed-derived', r.id);
         assert.ok(ids.has(r.derived.rule), r.id);
@@ -25,7 +25,12 @@ test('every derived row cites a rule row, a case and its inputs, and no stated t
     const states = ledger.filter(r => !r.derived).map(r => r.state);
     assert.ok(!states.includes('blocked:formula-in-notes'));
     assert.ok(ledger.filter(r => r.state === 'blocked:formula-wiki-unchecked').length >= 12, 'wiki-tier rows keep their own state');
-    assert.deepEqual(rules, rulesFile(derived.map(r => r.id.replace('lotm.potion.', ''))));
+    // The rite rows (PWC21e) come from a paid pass and are kept by --write-rules; the formula rules are regenerated.
+    const expected = rulesFile(derived.map(r => r.id.replace('lotm.potion.', '')));
+    expected.rules.push(...rules.rules.filter(r => r.id.startsWith('lotm.rite.')));
+    expected.meta.pwc = rules.meta.pwc;
+    assert.deepEqual(rules, expected);
+    assert.equal(rules.rules.filter(r => r.id.startsWith('lotm.rite.')).length, 132);
 });
 
 test('a derived row brews through the brew law into a bottled potency, and the runner counts it as derived', async () => {

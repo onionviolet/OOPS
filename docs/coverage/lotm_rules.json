@@ -1,7 +1,7 @@
 {
   "meta": {
     "world": "book.lotm.tingen",
-    "pwc": "PWC21, PWC25 (first rules-as-rows file)",
+    "pwc": "PWC21, PWC21e, PWC25 (first rules-as-rows file)",
     "date": "2026-11-17",
     "status": "proposal (AD32)",
     "shape": "{id, world, statement (paraphrased), locators, speaker, mechanism, derives: [row slugs]}",
@@ -148,6 +148,7 @@
         "abyss_1",
         "chained_9",
         "chained_8",
+        "chained_7",
         "chained_6",
         "chained_5",
         "chained_3",
@@ -355,6 +356,7 @@
         "abyss_0",
         "chained_9",
         "chained_8",
+        "chained_7",
         "chained_6",
         "chained_5",
         "chained_3",
@@ -370,6 +372,1763 @@
         "wheel_of_fortune_3",
         "wheel_of_fortune_2",
         "wheel_of_fortune_1",
+        "wheel_of_fortune_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.fool_5",
+      "world": "lotm",
+      "statement": "Drink the potion while a mermaid sings at sea.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#fool",
+        "lotm_c_0254.xhtml",
+        "lotm_c_0685.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "fool_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.fool_4",
+      "world": "lotm",
+      "statement": "Put on a grand play in which a demigod is killed.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#fool",
+        "lotm_c_0871.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "fool_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.fool_3",
+      "world": "lotm",
+      "statement": "Stay out of reality for at least 300 years.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#fool",
+        "lotm_c_1086.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "fool_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.fool_2",
+      "world": "lotm",
+      "statement": "Bring a lost piece of history into the present era.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#fool",
+        "lotm_c_1204.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "fool_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.fool_1",
+      "world": "lotm",
+      "statement": "Found a town of puppets whose fates are designed.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#fool",
+        "lotm_c_1330.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "fool_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.fool_0",
+      "world": "lotm",
+      "statement": "Fool time, history or fate once.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#fool",
+        "lotm_c_1330.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "fool_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.error_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#error"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "error_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.error_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#error"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "error_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.error_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#error"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "error_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.error_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#error"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "error_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.error_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#error"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "error_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.error_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#error"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "error_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.door_5",
+      "world": "lotm",
+      "statement": "Use a Traveler characteristic in place of the main ingredient, plus an item from a Traveler's pack as an auxiliary; the ritual itself exists but its content is not given",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#door",
+        "lotm_c_1108.xhtml",
+        "lotm_c_1221.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "door_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.door_4",
+      "world": "lotm",
+      "statement": "Seal a hostile demigod-tier creature, which works better with less outside help",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#door",
+        "lotm_c_1333.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "door_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.door_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#door"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "door_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.door_2",
+      "world": "lotm",
+      "statement": "Leave a legend in nine places beyond this planet, with Star Worm, Time Worm, and Spirit-Body Worm as auxiliaries",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#door",
+        "lotm_c_1242.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "door_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.door_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#door"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "door_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.door_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#door"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "door_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.visionary_5",
+      "world": "lotm",
+      "statement": "Contract a spirit-world harpy and drink the potion with its tail feather while in intense joy or anger, so an outside pull keeps the drinker from sleeping forever.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#visionary",
+        "lotm_c_1045.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "visionary_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.visionary_4",
+      "world": "lotm",
+      "statement": "Drink the potion within a gathering of at least 10,000 people, amid their resonance.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#visionary",
+        "lotm_c_1085.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "visionary_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.visionary_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#visionary"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "visionary_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.visionary_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#visionary"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "visionary_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.visionary_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#visionary"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "visionary_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.visionary_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#visionary"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "visionary_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.sun_5",
+      "world": "lotm",
+      "statement": "Bury the whole body in non-melting ice in pure darkness, then drink.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#sun",
+        "lotm_c_0706.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "sun_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.sun_4",
+      "world": "lotm",
+      "statement": "Extract the strongest emotion you refuse to give up, drink, and pour it back during the process.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#sun",
+        "lotm_c_1064.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "sun_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.sun_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#sun"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "sun_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.sun_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#sun"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "sun_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.sun_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#sun"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "sun_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.sun_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#sun"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "sun_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.tyrant_5",
+      "world": "lotm",
+      "statement": "drink inside an Obnis, a three-headed sea monster mostly tamed by the Storm Church",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#tyrant",
+        "lotm_c_0740.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "tyrant_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.tyrant_4",
+      "world": "lotm",
+      "statement": "drink amid earthquakes and tsunamis that you provoke and survive",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#tyrant",
+        "lotm_c_0839.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "tyrant_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.tyrant_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#tyrant"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "tyrant_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.tyrant_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#tyrant"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "tyrant_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.tyrant_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#tyrant"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "tyrant_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.tyrant_0",
+      "world": "lotm",
+      "statement": "drink in the atmosphere of fear of hundreds of thousands, after fighting a true god and surviving",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#tyrant",
+        "lotm_c_0839.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "tyrant_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.white_tower_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#white_tower"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "white_tower_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.white_tower_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#white_tower"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "white_tower_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.white_tower_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#white_tower"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "white_tower_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.white_tower_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#white_tower"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "white_tower_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.white_tower_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#white_tower"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "white_tower_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.white_tower_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#white_tower"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "white_tower_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.hanged_man_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hanged_man"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hanged_man_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.hanged_man_4",
+      "world": "lotm",
+      "statement": "Lovia prepares the materials and ritual; their contents are not given",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hanged_man",
+        "lotm_c_1252.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hanged_man_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.hanged_man_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hanged_man"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hanged_man_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.hanged_man_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hanged_man"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hanged_man_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.hanged_man_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hanged_man"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hanged_man_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.hanged_man_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hanged_man"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hanged_man_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.darkness_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#darkness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "darkness_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.darkness_4",
+      "world": "lotm",
+      "statement": "Ince's route: a leftover Death-descendant characteristic plus Saint Selina's ashes, a one-off swap from Death Sequence 5",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#darkness",
+        "lotm_c_0212.xhtml",
+        "lotm_c_0214.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "darkness_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.darkness_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#darkness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "darkness_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.darkness_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#darkness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "darkness_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.darkness_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#darkness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "darkness_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.darkness_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#darkness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "darkness_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.death_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#death"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "death_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.death_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#death"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "death_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.death_3",
+      "world": "lotm",
+      "statement": "Needs a tomb as a special requirement for the potion.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#death",
+        "lotm_c_0222.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "death_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.death_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#death"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "death_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.death_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#death"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "death_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.death_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#death"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "death_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.twilight_giant_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#twilight_giant"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "twilight_giant_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.twilight_giant_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#twilight_giant"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "twilight_giant_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.twilight_giant_3",
+      "world": "lotm",
+      "statement": "Perform an altar rite using the remains of six strong creatures the drinker hunted personally, with a god's or angel's blessing.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#twilight_giant",
+        "lotm_c_1155.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "twilight_giant_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.twilight_giant_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#twilight_giant"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "twilight_giant_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.twilight_giant_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#twilight_giant"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "twilight_giant_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.twilight_giant_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#twilight_giant"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "twilight_giant_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.red_priest_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#red_priest"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "red_priest_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.red_priest_4",
+      "world": "lotm",
+      "statement": "needs a ritual plus auxiliary materials; the ritual's content is not given",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#red_priest",
+        "lotm_c_1070.xhtml",
+        "lotm_c_1073.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "red_priest_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.red_priest_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#red_priest"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "red_priest_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.red_priest_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#red_priest"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "red_priest_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.red_priest_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#red_priest"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "red_priest_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.red_priest_0",
+      "world": "lotm",
+      "statement": "start and win a continent-sweeping war decisively",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#red_priest",
+        "lotm_c_0978.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "red_priest_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.demoness_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#demoness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "demoness_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.demoness_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#demoness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "demoness_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.demoness_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#demoness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "demoness_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.demoness_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#demoness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "demoness_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.demoness_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#demoness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "demoness_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.demoness_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#demoness"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "demoness_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.paragon_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#paragon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "paragon_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.paragon_4",
+      "world": "lotm",
+      "statement": "Draining a whole region's vitality, turning soil to sand and drying lakes",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#paragon",
+        "lotm_c_0472.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "paragon_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.paragon_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#paragon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "paragon_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.paragon_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#paragon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "paragon_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.paragon_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#paragon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "paragon_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.paragon_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#paragon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "paragon_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.hermit_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hermit"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hermit_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.hermit_4",
+      "world": "lotm",
+      "statement": "Fully analyze one drop of mythical-creature blood; the choice shifts specialty",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hermit",
+        "lotm_c_1229.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hermit_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.hermit_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hermit"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hermit_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.hermit_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hermit"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hermit_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.hermit_1",
+      "world": "lotm",
+      "statement": "Refine a grade-0 artifact into a Seq 1 characteristic through a smooth ritual",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hermit",
+        "lotm_c_1137.xhtml"
+      ],
+      "speaker": "demonstration",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hermit_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.hermit_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#hermit"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "hermit_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.mother_5",
+      "world": "lotm",
+      "statement": "Write out accumulated knowledge and experience",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#mother",
+        "lotm_c_1133.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "mother_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.mother_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#mother"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "mother_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.mother_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#mother"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "mother_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.mother_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#mother"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "mother_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.mother_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#mother"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "mother_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.mother_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#mother"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "mother_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.moon_5",
+      "world": "lotm",
+      "statement": "Performed under a full moon, with metals and gems standing for the moon phases, plus blood of supernatural creatures; clan elite performed it free.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#moon",
+        "lotm_c_1039.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "moon_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.moon_4",
+      "world": "lotm",
+      "statement": "Requires semi-god approval and a rite; the characteristic supply is the bottleneck.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#moon",
+        "lotm_c_1039.xhtml",
+        "lotm_c_1255.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "moon_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.moon_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#moon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "moon_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.moon_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#moon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "moon_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.moon_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#moon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "moon_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.moon_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#moon"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "moon_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.black_emperor_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#black_emperor"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "black_emperor_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.black_emperor_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#black_emperor"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "black_emperor_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.black_emperor_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#black_emperor"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "black_emperor_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.black_emperor_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#black_emperor"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "black_emperor_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.black_emperor_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#black_emperor"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "black_emperor_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.black_emperor_0",
+      "world": "lotm",
+      "statement": "Own a kingdom, make your name and the title emperor common knowledge, set a strict and deliberately abnormal rule set, have the populace secretly build nine pyramid-like tombs, then drink inside one tomb during simultaneous mass sacrificial rites.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#black_emperor",
+        "lotm_c_0327.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "black_emperor_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.justiciar_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#justiciar"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "justiciar_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.justiciar_4",
+      "world": "lotm",
+      "statement": "Throne grants Seq 4 and above only with a prepared potion and a ritual; the ritual's content is not given",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#justiciar",
+        "lotm_c_1136.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "justiciar_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.justiciar_3",
+      "world": "lotm",
+      "statement": "Throne grants Seq 4 and above only with a prepared potion and a ritual; the ritual's content is not given",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#justiciar",
+        "lotm_c_1136.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "justiciar_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.justiciar_2",
+      "world": "lotm",
+      "statement": "Throne grants Seq 4 and above only with a prepared potion and a ritual; the ritual's content is not given",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#justiciar",
+        "lotm_c_1136.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "justiciar_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.justiciar_1",
+      "world": "lotm",
+      "statement": "Throne grants Seq 4 and above only with a prepared potion and a ritual; the ritual's content is not given",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#justiciar",
+        "lotm_c_1136.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "justiciar_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.justiciar_0",
+      "world": "lotm",
+      "statement": "Throne grants Seq 4 and above only with a prepared potion and a ritual; the ritual's content is not given",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#justiciar",
+        "lotm_c_1136.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "justiciar_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.abyss_5",
+      "world": "lotm",
+      "statement": "Rite of the removed organs: kill 13 to 49 victims at 3 to 9 day intervals (a longer gap resets the rite), and the demon eats the organs; a more complete rite improves the odds.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#abyss",
+        "lotm_c_0296.xhtml"
+      ],
+      "speaker": "character_claim",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "abyss_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.abyss_4",
+      "world": "lotm",
+      "statement": "A Fountain-of-Youth hoax and mass killings that may be part of Agaritu's rite.",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#abyss",
+        "lotm_c_0694.xhtml"
+      ],
+      "speaker": "reader_inference",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "abyss_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.abyss_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#abyss"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "abyss_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.abyss_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#abyss"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "abyss_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.abyss_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#abyss"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "abyss_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.abyss_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#abyss"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "abyss_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.chained_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#chained"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "chained_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.chained_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#chained"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "chained_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.chained_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#chained"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "chained_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.chained_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#chained"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "chained_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.chained_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#chained"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "chained_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.chained_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#chained"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "chained_0"
+      ]
+    },
+    {
+      "id": "lotm.rite.wheel_of_fortune_5",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#wheel_of_fortune"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "wheel_of_fortune_5"
+      ]
+    },
+    {
+      "id": "lotm.rite.wheel_of_fortune_4",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#wheel_of_fortune"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "wheel_of_fortune_4"
+      ]
+    },
+    {
+      "id": "lotm.rite.wheel_of_fortune_3",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#wheel_of_fortune"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "wheel_of_fortune_3"
+      ]
+    },
+    {
+      "id": "lotm.rite.wheel_of_fortune_2",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#wheel_of_fortune"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "wheel_of_fortune_2"
+      ]
+    },
+    {
+      "id": "lotm.rite.wheel_of_fortune_1",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#wheel_of_fortune"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
+        "wheel_of_fortune_1"
+      ]
+    },
+    {
+      "id": "lotm.rite.wheel_of_fortune_0",
+      "world": "lotm",
+      "statement": "none stated",
+      "locators": [
+        "docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md#wheel_of_fortune"
+      ],
+      "speaker": "unknown",
+      "mechanism": "rite step before the potion is drunk (read by no brew law today; a derived row attaches it by pathway and Sequence)",
+      "derives": [
         "wheel_of_fortune_0"
       ]
     }

@@ -116,7 +116,11 @@ export function score(items, labels, pathwayOf) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--write-rules')) {
     const rows = readFileSync('docs/coverage/lotm_potions.jsonl', 'utf8').trim().split('\n').map(l => JSON.parse(l)).filter(r => r.derived).map(r => r.id.replace(/^lotm\.potion\./, ''));
-    writeFileSync(RULES_FILE, JSON.stringify(rulesFile(rows), null, 2) + '\n');
+    const next = rulesFile(rows);
+    // The rite rows come from scripts/lotm_rites.mjs --fold (a paid pass); regenerating the formula rules keeps them.
+    next.rules.push(...JSON.parse(readFileSync(RULES_FILE, 'utf8')).rules.filter(r => r.id.startsWith('lotm.rite.')));
+    next.meta.pwc = 'PWC21, PWC21e, PWC25 (first rules-as-rows file)';
+    writeFileSync(RULES_FILE, JSON.stringify(next, null, 2) + '\n');
     console.log(`wrote ${RULES_FILE} (${rows.length} derived rows)`);
 }
 
