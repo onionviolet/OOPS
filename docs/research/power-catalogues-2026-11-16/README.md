@@ -877,6 +877,8 @@ The method exists for effect sentences: the procedural core's generation fit (PC
 | ACCOUNT FOR NOW | PWC98 | **Derived answers to canon mysteries are changed truths.** Rules will produce values for things the books keep hidden. Those stay derived (never shown as canon), go by ID in chat under the sealed-secret default, and are re-scored when later canon speaks (PWC87). |
 | LATER / DELEGATE | PWC99 | **First rule-search lane.** On Gu ranks and refinement (the densest family), run PWC90 to PWC95: folds frozen, Sonnet proposing rules as code, local scoring, exceptions pinned, blind sort by Haiku. Fold into PWC89's lane or run after it. Level: Sonnet, with Luna or Haiku for the blind sort (cap about $2). Done when one Gu rule set beats the family-median baseline (30% exact, 68% within one) on the frozen fold, with its exception list and facts-per-rule figure. |
 
+Audit of what the procedural system actually does, with a ranked revamp plan that feeds PWC60, PWC80 and PWC90-PWC99 through one runner: [Procedural system audit, 2026-11-17](../../audits/PROCEDURAL_SYSTEM_AUDIT_2026-11-17.md) (PSA1-PSA36, proposals).
+
 ## Book pulls (2026-11-17)
 
 Weibao approved pulls for the ranked wishlist rows while WARP is on ([direction](../../gm/USER_VISION_LOG_2026-11.md#book-lanes-may-pull-from-the-wishlist-2026-11-17)). Preflight before each run: WARP connected, Anna's download host certificate issued by Let's Encrypt (not intercepted, AR52). Both runs used the local runner (`runner.py`, lists `list7_warhammer.json` and `list8_misc.json`, receipts `receipts7.jsonl` and `receipts8.jsonl` in the gitignored `novels/wave-2026-11-08/`): Anna's first, Z-Library only on `not_found` (AR53), size caps from real or 150 MB (AR54), md5 checked on arrival. No model calls.
