@@ -18,7 +18,7 @@ import {WORLD_FIXTURES, buildWorldFixture, verifyWorldFixture} from './world_fix
 // PS192, PS67: with the Here box in column 3 a person's own Talk verb is the route; the place look still has the Talk to someone group.
 const talkHere = async (game, who) => {
     const verb = game.$(`[data-nearby-verb="talk:${who}"]`);
-    if (verb) return game.click(verb);
+    if (verb) { const row = game.$(`[data-inspect-nearby="${who}"]`); if (row) await game.click(row); return game.click(game.$(`[data-nearby-verb="talk:${who}"]`) || verb); } // picking the row first, as before, is what lets the Notebook find the person
     await game.click(game.$$('[data-native-choice="location"]').find(e => /Talk to someone/.test(e.textContent)));
     await game.click(`[data-dialogue="${who}"]`);
 };
