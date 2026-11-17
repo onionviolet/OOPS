@@ -41,12 +41,12 @@ export const SETTINGS = {
             {id: 'multiplicity', pdf: `${EP}PS+18021 - Multiplicity and Synthesis/EclipsePhase_MultiplicityandSynthesis.pdf`}]},
     numenera: {name: 'Numenera (Ninth World)', licence: 'commercial (Monte Cook Games); design reference only',
         classification: 'cypher or artifact level', books: ['Corebook', 'Ninth-World-Guidebook', 'Ninth-World-Bestiary', 'Technology-Compendium-Sir-Arthour-s-Guide-to-the-Numenera', 'Destiny', 'Into-the-Outside', 'Voices-of-the-Datasphere'].map(b => ({id: b.toLowerCase().slice(0, 14), pdf: `${TT}existing/Numenera-${b}.pdf`}))},
-    'warhammer-40k': {name: 'Warhammer 40,000 (9th edition core)', licence: 'commercial (Games Workshop); design reference only',
-        classification: 'psychic discipline', books: [{id: 'core9', pdf: `${TT}existing/Warhammer-40-000-Core-Book-9th-Edition.pdf`}]},
+    'warhammer-40k': {name: 'Warhammer 40,000 (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum)', licence: 'commercial (Games Workshop; Fantasy Flight Games and Cubicle 7 under licence); design reference only',
+        classification: 'psychic discipline', books: [{id: 'core9', pdf: sl('f80e85b8d1')}, {id: 'rogue-trader', pdf: sl('4ebd5cd0fc')}, {id: 'stars-of-inequity', pdf: sl('a356f4b85e')}, {id: 'wrath-glory', pdf: sl('9a7f3a72e5')}, {id: 'imperium-maledictum', pdf: `${TT}existing/Imperium-Maledictum-Core-Rulebook-by-Cubicle-7.pdf`}]},
     'the-strange': {name: 'The Strange (recursions)', licence: 'commercial (Monte Cook Games); design reference only',
         classification: 'recursion', books: ['The-Strange', 'The-Strange-Players-Guide', 'The-Strange-Worlds-Numberless-and-Strange', 'The-Strange-In-Translation-The-Strange-Character-Options'].map(b => ({id: b.toLowerCase().slice(-18).replace(/^-/, ''), pdf: `${TT}existing/${b}.pdf`}))},
     wfrp4e: {name: 'Warhammer Fantasy Roleplay 4e (the Old World)', licence: 'commercial (Cubicle 7 under Games Workshop licence); design reference only',
-        classification: 'lore of magic', books: [{id: 'core', pdf: `${TT}existing/Warhammer-Fantasy-Roleplay-4e-Core.pdf`}]},
+        classification: 'lore of magic', books: [{id: 'up-in-arms-rogues', pdf: sl('5b9abafc84')}, {id: 'up-in-arms-knights', pdf: sl('0671b27d0e')}]},
     'aos-soulbound': {name: 'Age of Sigmar: Soulbound', licence: 'commercial (Cubicle 7 under Games Workshop licence); design reference only',
         classification: 'realm', books: [{id: 'core', pdf: `${TT}existing/Warhammer-Age-of-Sigmar-Soulbound-Rulebook.pdf`}]},
     'stars-without-number': {name: 'Stars Without Number (Revised, free edition)', licence: 'free edition (Sine Nomine, DriveThruRPG); open-use terms checked in the book legal page',
@@ -54,7 +54,7 @@ export const SETTINGS = {
 };
 Object.assign(SETTINGS, {
     cyberpunk: {name: 'Cyberpunk (RED and 2020)', licence: 'commercial (R. Talsorian Games); design reference only; held under DL106, not fetched in this task',
-        classification: 'cyberware type', books: [{id: 'red', pdf: sl('c97bd6967f')}, {id: '2020', pdf: sl('c1f21f1e9a')}]},
+        classification: 'cyberware type', books: [{id: 'red', pdf: `${process.env.HOME}/.codex/research/rulebooks/repaired/cyberpunk-red-core.qpdf.pdf`}, {id: '2020', pdf: sl('c1f21f1e9a')}]},
     'forgotten-realms': {name: 'Forgotten Realms (3e campaign setting and Grand History)', licence: 'commercial (Wizards of the Coast); design reference only',
         classification: 'region', books: [{id: 'fr3e', pdf: sl('e570fd52d5')}, {id: 'grand-history', pdf: sl('e61edc5d86')}, {id: 'sword-coast', epub: slAny('6f450994a0')}]},
     golarion: {name: 'Golarion (Inner Sea World Guide and Lost Omens World Guide)', licence: 'commercial (Paizo); Inner Sea is Pathfinder-compatible Paizo content, Lost Omens uses the Paizo Community Use Policy only for fan work; design reference only',
@@ -126,12 +126,27 @@ function epubText(file) {
     const code = `import sys,zipfile,re,html\nz=zipfile.ZipFile(sys.argv[1]);out=[]\nfor i,n in enumerate(sorted(x for x in z.namelist() if re.search(r'\\.(x?html?)$',x))):\n    t=z.read(n).decode('utf8','replace');t=re.sub(r'<(script|style)[^>]*>.*?</\\1>','',t,flags=re.S);t=re.sub(r'</(p|div|h[1-6]|li|tr)>','\\n',t);t=html.unescape(re.sub(r'<[^>]+>','',t));out.append('[Page %d]\\n%s'%(i+1,re.sub(r'\\n\\s*\\n+','\\n',t)))\nprint('\\n'.join(out))`;
     return execFileSync('python3', ['-I', '-c', code, file], {encoding: 'utf8', maxBuffer: 1 << 28});
 }
+// Page-ordered merge of the readable and quarantined layers: a page's quarantined lines follow its readable lines.
+const pagesOf = t => { const m = new Map(); for (const b of t.split(/\n(?=\[Page \d+\]\n)/)) { const k = b.match(/^\[Page (\d+)\]\n?/); if (k) m.set(Number(k[1]), b.slice(k[0].length).trim()); } return m; };
+export function mergePages(readable, quarantine) {
+    const a = pagesOf(readable), b = pagesOf(quarantine), out = [];
+    for (const n of [...new Set([...a.keys(), ...b.keys()])].sort((x, y) => x - y)) out.push(`[Page ${n}]\n${[a.get(n), b.get(n)].filter(Boolean).join('\n')}`);
+    return out.join('\n');
+}
 function screened(pdf) {
     const out = execFileSync('pdf-screen', [pdf], {encoding: 'utf8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'pipe']});
     const m = out.match(/^readable\.txt: (.+)$/m);
     if (!m) throw Error(`pdf-screen gave no readable.txt for ${pdf}`);
     const summary = out.split('\n').filter(l => /^(PDF screening|Signals|OCR-needed)/.test(l)).join(' | ');
-    return {text: readFileSync(m[1], 'utf8'), summary, path: m[1]};
+    let text = readFileSync(m[1], 'utf8'), used = '';
+    // A book whose body is set in light-on-dark or low-contrast type has most of its text in quarantine.txt. When that layer outweighs
+    // the readable text twofold and no instruction-shaped text was flagged, it is the book (same rule as tabletop_corpus.py).
+    const q = out.match(/^quarantine\.txt: (.+)$/m);
+    if (q && !/"instruction_hint"/.test(summary)) {
+        const qt = readFileSync(q[1], 'utf8');
+        if (qt.split(/\s+/).length > 2 * text.split(/\s+/).length) { text = mergePages(text, qt); used = ' | quarantine layer used as the book text (no instruction hint)'; }
+    }
+    return {text, summary: summary + used, path: m[1]};
 }
 // Some Monte Cook Games PDFs (Numenera Corebook, 58 pages of its character abilities) carry bold run-in headings in a font whose
 // glyphs extract shifted by 0x1f ("5JFS" is "Tier", "3FTJMJFOU" is "Resilient"). A page is decoded only when it holds the

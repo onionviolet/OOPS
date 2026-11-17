@@ -34,6 +34,9 @@ for slug, i in {'dnd5e-phb-2014': 164, 'dnd5e-dmg-2014': 128, 'dnd5e-mm-2014': 1
                 'mm3e-heros-handbook': 194, 'blades-core-harper': 213}.items():
     p = cal(i)
     if p: SRC[slug] = [p]
+# PWC50: a qpdf rewrite of a damaged library copy (never the library file itself) replaces it when the rewrite exists.
+for slug, name in {'dnd5e-tasha': 'tasha-cauldron-of-everything.qpdf.pdf'}.items():
+    if os.path.exists(f'{RB}/repaired/{name}'): SRC[slug] = [f'{RB}/repaired/{name}']
 def screened(pdf):
     r = subprocess.run(['pdf-screen', pdf], capture_output=True, text=True).stdout
     m = re.search(r'readable\.txt: (\S.*)', r); s = re.search(r'Signals[^:]*: (\{.*\})', r)

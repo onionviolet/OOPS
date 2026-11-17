@@ -127,7 +127,7 @@ const COVERAGE = 'docs/coverage/';
 const KIND_FILE = {spell: 'spells', item: 'items', creature: 'creatures', condition: 'conditions', 'class-feature': 'class_features', feat: 'feats', 'background-or-species': 'backgrounds_species', 'surge-table-entry': 'surge_tables'};
 const readReplies = name => { // 'ttrpg_dnd_rules_luna' plus its '_late' wave ('ttrpg_dnd_rules_late_luna')
     const out = {}, [head, model] = [name.replace(/_[a-z]+$/, ''), name.split('_').pop()];
-    for (const f of [`${DIR}${name}.json`, `${DIR}${head}_late_${model}.json`, `${DIR}${head}_focus_${model}.json`]) if (fs.existsSync(f)) Object.assign(out, JSON.parse(fs.readFileSync(f, 'utf8')));
+    for (const f of [`${DIR}${name}.json`, `${DIR}${head}_late_${model}.json`, `${DIR}${head}_focus_${model}.json`, `${DIR}${head}_tasha_${model}.json`]) if (fs.existsSync(f)) Object.assign(out, JSON.parse(fs.readFileSync(f, 'utf8')));
     return out;
 }; // everything else is a power-like row
 const clean = t => String(t ?? '').replace(/\s+/g, ' ').trim();
