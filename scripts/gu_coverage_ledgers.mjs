@@ -50,7 +50,7 @@ function kindRow(indexed) {
     if (record.status === 'novel-checked') {
         const entry = guCatalogue[record.id];
         const row = coverage.get(record.id);
-        const chapters = record.observation?.chapters ?? [];
+        const chapters = [...new Set([...(record.observation?.chapters ?? []), ...(guCatalogue[record.id]?.parts?.chapters ?? [])])].sort((a, b) => a - b);
         const checked = {...base, source: [...base.source, ...chapters.map(ch => `ch${ch}`)], layer: 'chapter'};
         if (record.id === 'yaksha-octopus-king-wild-immortal') {
             return {...checked, state: 'not-a-thing:provisional-sighting', mechanisms: ['G'],
