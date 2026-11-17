@@ -1,0 +1,87 @@
+{
+ "meta": {
+  "schema": "book-power-labels/1",
+  "book": "Solo Leveling",
+  "date": "2026-11-16",
+  "status": "proposals (AD32), agent-verified, not human-reviewed",
+  "split": "held out when sha1(id)[0] < 0x33 (GKM429), fixed before the label passes ran",
+  "classMaps": {
+   "sl_active_passive": {
+    "field": "time",
+    "classes": {
+     "passive": [
+      "sustained",
+      "triggered"
+     ],
+     "active": [
+      "instant",
+      "delayed",
+      "lasting"
+     ]
+    }
+   }
+  },
+  "foldRule": "A class map folds into ledger notes only if, on its stated-class rows, at least 5 agree with the map and the count exceeds the majority baseline; otherwise the labels stay in the sidecar as model tier, unchecked. A rank, grade or level is a stated field, never a score.",
+  "slugs": {
+   "mind-binding": "a power that binds or rewrites another mind (shared slug, PWC5)",
+   "time-loop": "the holder returns to an earlier time or state with memory; src/anchor_snapshots.js branches a world at anchors but restores no body on death (shared slug, PWC5)",
+   "area-field": "an effect that holds over an area and not a target (shared slug, PWC5)",
+   "power-interaction": "a power that answers, cancels or counters another power (shared slug, PWC5)",
+   "form-transformation": "the holder changes own body or form (census slug)",
+   "familiar-summon": "bound spirits, shadows or summoned servants that act on their own (census slug)",
+   "power-transfer": "the power passes by death, theft, inheritance or gift (census slug)",
+   "vow-cost": "a binding oath, contract or price that pays for the power (census slug)",
+   "item-bound-power": "the power lives in a held object that can be lost, stolen or broken (census slug)",
+   "sponsorship-contract": "a patron grants, sets terms on and can withdraw the power, paid in coins or stories; no patron relation exists in the engine (new slug, ORV)"
+  },
+  "overrides": {
+   "sl.power.cup-of-reincarnation": "time-loop",
+   "sl.power.shadow-extraction": "familiar-summon",
+   "sl.power.shadow-storage": "familiar-summon",
+   "sl.power.shadow-exchange": "familiar-summon",
+   "sl.power.sense-sharing": "familiar-summon",
+   "sl.power.destruction-code": "power-interaction",
+   "sl.power.bead-of-avarice": "item-bound-power"
+  }
+ },
+ "rows": {
+  "sl.power.sprint": {"name":"Sprint","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":12,"classes":[{"map":"sl_active_passive","class":"active","locator":"SL-CLAIMS:S037 ch11","speaker":"narrator"}],"heldOut":false},
+  "sl.power.unyielding-spirit": {"name":"Unyielding Spirit","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":10,"classes":[{"map":"sl_active_passive","class":"passive","locator":"SL-CLAIMS:S039 ch11","speaker":"narrator"}],"heldOut":false},
+  "sl.power.bloodlust": {"name":"Bloodlust","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":6,"heldOut":false},
+  "sl.power.dagger-proficiency": {"name":"Dagger Proficiency","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"classes":[{"map":"sl_active_passive","class":"passive","locator":"SL-CLAIMS:S115 ch38","speaker":"narrator"}],"heldOut":false},
+  "sl.power.vital-stab": {"name":"Vital Stab","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":6,"classes":[{"map":"sl_active_passive","class":"active","locator":"SL-CLAIMS:S116 ch38","speaker":"narrator"}],"heldOut":false},
+  "sl.power.dagger-throw": {"name":"Dagger Throw","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":2,"heldOut":false},
+  "sl.power.kangs-stealth": {"name":"Kang's Stealth","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":2,"heldOut":false},
+  "sl.power.rulers-hands": {"name":"Ruler's Hands","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":6,"heldOut":false},
+  "sl.power.shadow-extraction": {"name":"Shadow Extraction","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":7,"heldOut":false},
+  "sl.power.shadow-storage": {"name":"Shadow Storage","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":false},
+  "sl.power.shadow-exchange": {"name":"Shadow Exchange","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":6,"heldOut":false},
+  "sl.power.monarchs-domain": {"name":"Monarch's Domain","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":true},
+  "sl.power.sense-sharing": {"name":"Sense Sharing","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":false},
+  "sl.power.necromancer-class": {"name":"Necromancer class","category":"class","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":10,"heldOut":false},
+  "sl.power.wolf-slayer": {"name":"Wolf Slayer","category":"title","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":true},
+  "sl.power.hidden-devil-hunter": {"name":"Hidden Devil Hunter","category":"title","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":true},
+  "sl.power.casakas-venom": {"name":"Casaka's Venom","category":"item-power","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":10,"heldOut":false},
+  "sl.power.bead-of-avarice": {"name":"Bead of Avarice","category":"relic","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":2,"heldOut":false},
+  "sl.power.gatekeepers-necklace": {"name":"Gatekeeper's Necklace","category":"item-power","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":2,"heldOut":false},
+  "sl.power.kamishs-daggers": {"name":"Kamish's daggers","category":"item-power","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":8,"heldOut":false},
+  "sl.power.cup-of-reincarnation": {"name":"Cup of Reincarnation","category":"relic","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":3,"heldOut":true},
+  "sl.power.destruction-code": {"name":"Destruction code","category":"relic","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":false},
+  "sl.power.reawakening": {"name":"Reawakening","category":"system","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":9,"heldOut":false},
+  "sl.power.random-box": {"name":"Random Box","category":"item-power","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":12,"heldOut":false},
+  "sl.power.player-system": {"name":"Player System","category":"system","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":9,"heldOut":false},
+  "sl.power.shadow-grade-advancement": {"name":"Shadow grade advancement","category":"system","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":6,"heldOut":false},
+  "sl.power.igris": {"name":"Igris","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":12,"heldOut":false},
+  "sl.power.beru": {"name":"Beru","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":40,"heldOut":false},
+  "sl.power.iron": {"name":"Iron","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":6,"heldOut":true},
+  "sl.power.tank": {"name":"Tank","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":2,"heldOut":false},
+  "sl.power.kaisel": {"name":"Kaisel","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":false},
+  "sl.power.ant-queen": {"name":"Ant queen","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":6,"heldOut":false},
+  "sl.power.greed": {"name":"Greed","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":10,"heldOut":false},
+  "sl.power.healer-shadow": {"name":"Healer shadow","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":2,"heldOut":false},
+  "sl.power.naga": {"name":"Naga","category":"shadow-soldier","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":false},
+  "sl.power.world-tree-fragment": {"name":"World Tree fragment","category":"relic","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":4,"heldOut":true},
+  "sl.power.temple-key": {"name":"Temple key","category":"item-power","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":6,"heldOut":true},
+  "sl.power.age-adjustment": {"name":"Age adjustment","category":"skill","nameSource":["curated from engine_inputs claims subjects and dossier files"],"mentions":null,"chapters":null,"evidenceLines":2,"heldOut":false}
+ }
+}
