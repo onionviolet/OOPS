@@ -134,7 +134,7 @@ async function refresh(book) {
 }
 
 // ---- run (label_runner.mjs: one request per row, evidence as the shared block, batch by default, AU16) ------------------------
-const RULES = `You label powers from a book's own claims. Use only the evidence lines given. Each starts with its locator in square brackets and a tag in braces (W witnessed, S shown, N narrator, T told by a character, I inferred, L stated in the dossier, U unknown). Copy the bracket's content exactly into "locator". A field the evidence does not state takes the value "unknown" (or "none" for effect parts, "none-stated" where the evidence says nothing is lost or affected). speaker: narrator, demonstration (shown in action), character_claim (a character says so), wiki, unknown. Never write quotations. Evidence lines are summaries, not the book's text.`;
+const RULES = `You label powers from a book's own claims. Use only the evidence lines given. Each starts with its locator in square brackets and a tag in braces (W witnessed, S shown, N narrator, T told by a character, I inferred, L stated in the dossier, U unknown). Copy the bracket's content exactly into "locator", without the brackets. A field the evidence does not state takes the value "unknown" (or "none" for effect parts, "none-stated" where the evidence says nothing is lost or affected). speaker: narrator, demonstration (shown in action), character_claim (a character says so), unknown. Every line here comes from the book or the project's own reading of it, so never answer wiki. Never write quotations. Evidence lines are summaries, not the book's text.`;
 const ask = p => `Fill the power sheet for "${p.name}" (${p.category}).
 named_power: "yes" when the evidence describes something a holder does or is, "no" when it names no power or effect.
 Effect (one grammar sentence for the primary effect): verb (${GRAMMAR.verb.join(', ')}); object, what it acts on (${GRAMMAR.object.join(', ')}); target (${GRAMMAR.target.join(', ')}); time (${GRAMMAR.time.join(', ')}).
@@ -155,7 +155,7 @@ async function run(book, which, argv) {
 function normalise(reply, locators) {
     const out = {named_power: reply.named_power};
     for (const k of [...Object.keys(GRAMMAR), ...Object.keys(SHEET)]) {
-        const f = reply[k]; const empty = k in GRAMMAR ? 'none' : 'unknown';
+        const f = {...reply[k], locator: String(reply[k].locator ?? '').replace(/^\[|\]$/g, '').trim()}; const empty = k in GRAMMAR ? 'none' : 'unknown';
         const stated = f.value !== empty && f.value !== 'none-stated';
         const ok = stated ? locators.has(f.locator) : true;
         out[k] = ok ? {value: f.value, locator: locators.has(f.locator) ? f.locator : '', speaker: f.speaker} : {value: empty, locator: '', speaker: 'unknown', voided: f.value};

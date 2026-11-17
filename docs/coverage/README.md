@@ -13,6 +13,10 @@
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
+| [shadow_slave_powers](shadow_slave_powers.jsonl) | W | 436 | 436 | 0 | 0 | 178 | 3 | 0 | 100% | 0% |
+| [solo_leveling_powers](solo_leveling_powers.jsonl) | W | 38 | 38 | 0 | 0 | 16 | 2 | 0 | 100% | 0% |
+| [omniscient_reader_powers](omniscient_reader_powers.jsonl) | W | 102 | 102 | 0 | 0 | 68 | 2 | 0 | 100% | 0% |
+| [regressors_tale_powers](regressors_tale_powers.jsonl) | W | 184 | 184 | 0 | 0 | 83 | 0 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -27,10 +31,14 @@
 | hp_potions | 1 | 34 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
 | lotm_potions | 0 | 46 | 0 | 0 |
+| omniscient_reader_powers | 0 | 0 | 0 | 0 |
+| regressors_tale_powers | 0 | 0 | 0 | 0 |
+| shadow_slave_powers | 0 | 0 | 0 | 0 |
+| solo_leveling_powers | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1642 of 1880 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1650 of 1889 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -47,6 +55,10 @@
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
 | lotm_potions | 0 | 0 | | | | | none yet |
+| omniscient_reader_powers | 0 | 0 | | | | | none yet |
+| regressors_tale_powers | 0 | 0 | | | | | none yet |
+| shadow_slave_powers | 0 | 0 | | | | | none yet |
+| solo_leveling_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -284,19 +296,50 @@
 | hp_ingredients | material-row | 96 |
 | hp_potions | body-door | 80 |
 | gu_moves | roles-unchecked | 63 |
+| shadow_slave_powers | area-field | 55 |
+| omniscient_reader_powers | sponsorship-contract | 50 |
+| regressors_tale_powers | area-field | 47 |
+| shadow_slave_powers | form-transformation | 46 |
 | hp_potions | mind-state | 40 |
 | hp_potions | body-form | 37 |
 | hp_potions | effect-sentence | 33 |
+| shadow_slave_powers | item-bound-power | 32 |
 | hp_potions | plant-or-creature-target | 32 |
 | gu_moves | unnamed-role | 28 |
+| shadow_slave_powers | power-interaction | 26 |
+| regressors_tale_powers | form-transformation | 17 |
 | gu_moves | role-cannot-run | 17 |
 | lotm_potions | formula-wiki-unchecked | 12 |
 | hp_potions | conceal-or-sense | 9 |
 | hp_potions | object-surface | 8 |
+| regressors_tale_powers | power-interaction | 7 |
 | lotm_potions | body-door | 6 |
+| shadow_slave_powers | mind-binding | 6 |
 | hp_potions | place-release | 6 |
+| omniscient_reader_powers | area-field | 5 |
+| regressors_tale_powers | item-bound-power | 5 |
+| solo_leveling_powers | power-interaction | 5 |
+| shadow_slave_powers | power-transfer | 5 |
+| solo_leveling_powers | familiar-summon | 4 |
+| omniscient_reader_powers | power-transfer | 4 |
+| shadow_slave_powers | vow-cost | 4 |
+| solo_leveling_powers | item-bound-power | 3 |
+| omniscient_reader_powers | power-interaction | 3 |
+| omniscient_reader_powers | time-loop | 3 |
+| regressors_tale_powers | time-loop | 3 |
+| shadow_slave_powers | familiar-summon | 2 |
+| omniscient_reader_powers | form-transformation | 2 |
+| solo_leveling_powers | form-transformation | 2 |
 | hp_potions | luck-field | 2 |
 | hp_potions | protection-field | 2 |
+| shadow_slave_powers | sponsorship-contract | 2 |
+| solo_leveling_powers | area-field | 1 |
+| regressors_tale_powers | mind-binding | 1 |
+| regressors_tale_powers | power-transfer | 1 |
+| regressors_tale_powers | sponsorship-contract | 1 |
+| solo_leveling_powers | time-loop | 1 |
+| omniscient_reader_powers | vow-cost | 1 |
+| regressors_tale_powers | vow-cost | 1 |
 
 ## Row format
 

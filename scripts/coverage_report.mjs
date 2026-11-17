@@ -73,6 +73,10 @@ export const DENOMINATORS = {
     lotm_potions: {expected: null, owner: 'B', what: 'pathway sequence and named potions, built first'},
     hp_spells: {expected: 117, owner: 'S', what: 'spellbook records'},
     creatures: {expected: null, owner: 'L', what: "G's catalogue plus L's inventory"},
+    shadow_slave_powers: {expected: 436, owner: 'W', what: 'Shadow Slave named powers from the paid claims (chapters 1-3000)'},
+    solo_leveling_powers: {expected: 38, owner: 'W', what: 'Solo Leveling named skills, titles, class, shadows and relics'},
+    omniscient_reader_powers: {expected: 102, owner: 'W', what: "Omniscient Reader's Viewpoint stigmas, constellation sponsorships and skills"},
+    regressors_tale_powers: {expected: 184, owner: 'W', what: "A Regressor's Tale named techniques, arts and the regression"},
 };
 const STATE = /^(runs-canon|runs-authored|expressed-canon|expressed-authored|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
 const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case']);
