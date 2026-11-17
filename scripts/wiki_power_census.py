@@ -160,14 +160,15 @@ EXCLUDE = re.compile(
 # (`report` without a spec prints them) on 2026-11-16. For each world:
 #   power:  [(label, [categories], [lead templates])]  one distinct-page union is the
 #           denominator, so a page in two lists counts once.
+#   Items (Naruto tools, One Piece weapons, Tower of God weapons, JJK cursed tools) and holders
+#   are not powers and are left out of the denominator.
 #   own:    [(label, [categories])]  the world's own classification, as held-out labels;
 #           these are mostly holder pages (users), so they are shown, not added to power.
 # Lead templates matter because many wikis add categories through the infobox, which never
 # appears as [[Category:]] in the wikitext.
 SPEC = {
     "naruto": {
-        "power": [("Jutsu", [], ["Infobox/Jutsu"]), ("Tools", [], ["Infobox/Tools"]),
-                  ("Bloodlines", [], ["Infobox/Naruto/Genetic"])],
+        "power": [("Jutsu", [], ["Infobox/Jutsu"]), ("Bloodlines", [], ["Infobox/Naruto/Genetic"])],
         "own": [("Chakra Natures", ["Chakra Natures"]), ("Jutsu Type", ["Jutsu Type"]),
                 ("Kekkei Genkai", ["Kekkei Genkai"]), ("Ninja Ranks", ["Ninja Ranks"])],
     },
@@ -176,15 +177,14 @@ SPEC = {
         "own": [("Emitters", ["Emitters"]), ("Mutants", ["Mutants"])],
     },
     "onepiece": {
-        "power": [("Devil Fruits", [], ["Devil Fruit Box"]), ("Fighting Styles", ["Fighting Styles"], []),
-                  ("Weapons", [], ["Weapon Box"])],
+        "power": [("Devil Fruits", [], ["Devil Fruit Box"]), ("Fighting Styles", ["Fighting Styles"], [])],
         "own": [("Paramecia", ["Paramecia"]), ("Zoan", ["Zoan"]), ("Logia", ["Logia"]),
                 ("Haki users (Armament, Observation, Supreme King)",
                  ["Armament Haki Users", "Observation Haki Users", "Supreme King Haki Users"])],
     },
     "mistborn": {
-        "power": [("Allomancy, metals, Feruchemy, Hemalurgy",
-                   ["Allomancy", "Metal", "Magic", "Hemalurgy", "Feruchemist", "Hemalurgist", "Allomancer", "Misting"],
+        "power": [("Allomancy, metals, magic and Hemalurgy pages",
+                   ["Allomancy", "Metal", "Magic", "Hemalurgy"],
                    ["Allomantic Metals"])],
         "own": [("Misting types", ["Misting"]), ("Metals", ["Metal"])],
     },
@@ -206,12 +206,12 @@ SPEC = {
         "own": [("Breathing Styles", ["Breathing Styles"]), ("Demon", ["Demon"])],
     },
     "towerofgod": {
-        "power": [("Shinsu and weapon techniques",
+        "power": [("Shinsu and weapon techniques (technique pages)",
                    ["Shinsu Techniques", "Projectile Techniques", "Fighting Techniques", "Weapon Techniques",
                     "Utility Techniques", "Control Techniques", "Lighthouse Techniques", "Abilities",
                     "Piercing Techniques", "Body Techniques", "Reel Techniques", "Canine Transformations",
                     "Transformations", "Spells", "Shinsu Orb"],
-                   ["Shinsu Technique", "Shinsoo Technique", "Canine Transformation", "Weapon"])],
+                   ["Shinsu Technique", "Shinsoo Technique", "Canine Transformation"])],
         "own": [("Positions", ["Scouts", "Spear Bearers", "Light Bearers", "Wave Controllers", "Guides"]),
                 ("Shinsu Quality", ["Shinsu Quality"])],
     },
@@ -224,7 +224,7 @@ SPEC = {
         "own": [],
     },
     "hunterxhunter": {
-        "power": [("Greed Island cards and spells", ["Short Range Spell", "Regular Spell", "Long Range Spell",
+        "power": [("Greed Island cards and spells (Nen abilities live on character pages, not counted)", ["Short Range Spell", "Regular Spell", "Long Range Spell",
                                                     "Attack Spell", "Defensive Spell", "Continuous Effect Spell",
                                                     "Special Spell", "Anti-Attack Spell", "Versus Spell",
                                                     "Nen based items"],
@@ -235,7 +235,7 @@ SPEC = {
     },
     "jujutsu-kaisen": {
         "power": [("Techniques", ["Innate Techniques", "Extension Techniques", "Domain Expansion",
-                                  "Inherited Techniques", "Cursed Tools"], ["Technique Infobox"])],
+                                  "Inherited Techniques"], ["Technique Infobox"])],
         "own": [("Innate Techniques", ["Innate Techniques"]), ("Extension Techniques", ["Extension Techniques"])],
     },
     "lazydungeonmaster": {

@@ -40,17 +40,17 @@
 
 | Rank | Proposed ledger | Expected | Denominator source | Likely blocking capabilities |
 | ---: | --- | ---: | --- | --- |
-| 1 | naruto_powers | 2724 | Jutsu 2506; Tools 188; Bloodlines 30; naruto.fandom.com dump, newest revision, ns 0 after redirects | area-field, power-interaction, form-transformation, familiar-summon, mind-binding, power-transfer, vow-cost |
+| 1 | naruto_powers | 2536 | Jutsu 2506; Bloodlines 30; naruto.fandom.com dump, newest revision, ns 0 after redirects | area-field, power-interaction, form-transformation, familiar-summon, mind-binding, power-transfer, vow-cost |
 | 2 | typemoon_powers | 2340 | Noble Phantasms 754; Skills 1481; Magecraft and Reality Marbles 163; typemoon.fandom.com dump, newest revision, ns 0 after redirects | item-bound-power, familiar-summon, area-field, mind-binding, vow-cost, power-transfer, power-interaction |
 | 3 | myheroacademia_powers | 508 | Quirks 286; Moves 222; myheroacademia.fandom.com dump, newest revision, ns 0 after redirects | power-interaction, power-transfer, form-transformation, mind-binding, area-field |
 | 4 | mtg_powers | 215 | Keyword abilities and ability words 215; mtg.fandom.com dump, newest revision, ns 0 after redirects | power-interaction, familiar-summon |
 | 5 | bleach_powers | 411 | Techniques 411; bleach.fandom.com dump, newest revision, ns 0 after redirects | item-bound-power, area-field, power-interaction, form-transformation, mind-binding |
 | 6 | blackclover_powers | 573 | Spells 454; Magic (attribute pages) 119; blackclover.fandom.com dump, newest revision, ns 0 after redirects | item-bound-power, familiar-summon, power-interaction, area-field, form-transformation, vow-cost |
-| 7 | onepiece_powers | 339 | Devil Fruits 205; Fighting Styles 32; Weapons 102; onepiece.fandom.com dump, newest revision, ns 0 after redirects | form-transformation, power-transfer, item-bound-power, power-interaction, mind-binding |
-| 8 | towerofgod_powers | 313 | Shinsu and weapon techniques 313; towerofgod.fandom.com dump, newest revision, ns 0 after redirects | item-bound-power, power-interaction, area-field, form-transformation, familiar-summon |
-| 9 | hunterxhunter_powers | 175 | Greed Island cards and spells 175; hunterxhunter.fandom.com dump, newest revision, ns 0 after redirects | vow-cost, power-interaction, mind-binding, item-bound-power, area-field, power-transfer |
-| 10 | jujutsu-kaisen_powers | 147 | Techniques 147; jujutsu-kaisen.fandom.com dump, newest revision, ns 0 after redirects | area-field, vow-cost, item-bound-power, familiar-summon, power-transfer, mind-binding, power-interaction |
-| 11 | mistborn_powers | 61 | Allomancy, metals, Feruchemy, Hemalurgy 61; mistborn.fandom.com dump, newest revision, ns 0 after redirects | power-interaction, mind-binding, power-transfer |
+| 7 | towerofgod_powers | 280 | Shinsu and weapon techniques (technique pages) 280; towerofgod.fandom.com dump, newest revision, ns 0 after redirects | item-bound-power, power-interaction, area-field, form-transformation, familiar-summon |
+| 8 | onepiece_powers | 237 | Devil Fruits 205; Fighting Styles 32; onepiece.fandom.com dump, newest revision, ns 0 after redirects | form-transformation, power-transfer, item-bound-power, power-interaction, mind-binding |
+| 9 | hunterxhunter_powers | 175 | Greed Island cards and spells (Nen abilities live on character pages, not counted) 175; hunterxhunter.fandom.com dump, newest revision, ns 0 after redirects | vow-cost, power-interaction, mind-binding, item-bound-power, area-field, power-transfer |
+| 10 | jujutsu-kaisen_powers | 134 | Techniques 134; jujutsu-kaisen.fandom.com dump, newest revision, ns 0 after redirects | area-field, vow-cost, item-bound-power, familiar-summon, power-transfer, mind-binding, power-interaction |
+| 11 | mistborn_powers | 36 | Allomancy, metals, magic and Hemalurgy pages 36; mistborn.fandom.com dump, newest revision, ns 0 after redirects | power-interaction, mind-binding, power-transfer |
 | 12 | chainsaw-man_powers | 66 | Devils and Fiends (power pages are characters) 66; chainsaw-man.fandom.com dump, newest revision, ns 0 after redirects | vow-cost, familiar-summon, form-transformation, mind-binding |
 | 13 | kimetsu-no-yaiba_powers | 27 | Breathing Styles and Abilities 27; kimetsu-no-yaiba.fandom.com dump, newest revision, ns 0 after redirects | form-transformation, item-bound-power, power-interaction, mind-binding, power-transfer |
 | 14 | fma_powers | 19 | Alchemy 19; fma.fandom.com dump, newest revision, ns 0 after redirects | power-interaction, area-field, power-transfer, vow-cost |

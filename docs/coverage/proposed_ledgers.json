@@ -5,8 +5,8 @@
    "rank": 1,
    "world": "naruto",
    "ledger": "naruto_powers",
-   "expected": 2724,
-   "denominator": "Jutsu 2506; Tools 188; Bloodlines 30",
+   "expected": 2536,
+   "denominator": "Jutsu 2506; Bloodlines 30",
    "source": "naruto.fandom.com dump, newest revision, ns 0 after redirects",
    "caps": [
     "area-field",
@@ -95,25 +95,10 @@
   },
   {
    "rank": 7,
-   "world": "onepiece",
-   "ledger": "onepiece_powers",
-   "expected": 339,
-   "denominator": "Devil Fruits 205; Fighting Styles 32; Weapons 102",
-   "source": "onepiece.fandom.com dump, newest revision, ns 0 after redirects",
-   "caps": [
-    "form-transformation",
-    "power-transfer",
-    "item-bound-power",
-    "power-interaction",
-    "mind-binding"
-   ]
-  },
-  {
-   "rank": 8,
    "world": "towerofgod",
    "ledger": "towerofgod_powers",
-   "expected": 313,
-   "denominator": "Shinsu and weapon techniques 313",
+   "expected": 280,
+   "denominator": "Shinsu and weapon techniques (technique pages) 280",
    "source": "towerofgod.fandom.com dump, newest revision, ns 0 after redirects",
    "caps": [
     "item-bound-power",
@@ -124,11 +109,26 @@
    ]
   },
   {
+   "rank": 8,
+   "world": "onepiece",
+   "ledger": "onepiece_powers",
+   "expected": 237,
+   "denominator": "Devil Fruits 205; Fighting Styles 32",
+   "source": "onepiece.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "form-transformation",
+    "power-transfer",
+    "item-bound-power",
+    "power-interaction",
+    "mind-binding"
+   ]
+  },
+  {
    "rank": 9,
    "world": "hunterxhunter",
    "ledger": "hunterxhunter_powers",
    "expected": 175,
-   "denominator": "Greed Island cards and spells 175",
+   "denominator": "Greed Island cards and spells (Nen abilities live on character pages, not counted) 175",
    "source": "hunterxhunter.fandom.com dump, newest revision, ns 0 after redirects",
    "caps": [
     "vow-cost",
@@ -143,8 +143,8 @@
    "rank": 10,
    "world": "jujutsu-kaisen",
    "ledger": "jujutsu-kaisen_powers",
-   "expected": 147,
-   "denominator": "Techniques 147",
+   "expected": 134,
+   "denominator": "Techniques 134",
    "source": "jujutsu-kaisen.fandom.com dump, newest revision, ns 0 after redirects",
    "caps": [
     "area-field",
@@ -160,8 +160,8 @@
    "rank": 11,
    "world": "mistborn",
    "ledger": "mistborn_powers",
-   "expected": 61,
-   "denominator": "Allomancy, metals, Feruchemy, Hemalurgy 61",
+   "expected": 36,
+   "denominator": "Allomancy, metals, magic and Hemalurgy pages 36",
    "source": "mistborn.fandom.com dump, newest revision, ns 0 after redirects",
    "caps": [
     "power-interaction",
