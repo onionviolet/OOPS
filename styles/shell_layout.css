@@ -66,8 +66,9 @@
 #main_content.workspace-active[data-parity="r3"] .parity-region #journal_control_div > [hidden] {display:none;}
 #main_content.workspace-active[data-parity="r3"] .parity-region #quests_header {display:none;}
 /* UR42: the top nav already names every Journal tab. Beside the actions the companion shows the
-   quest list without its tab strip; another tab chosen elsewhere brings the strip back. */
-#main_content.workspace-active[data-parity="r3"] .parity-region #journal_control_div:has(> #journal_show_quests.active_selection_button) {display:none;}
+   quest list without its tab strip; another tab chosen elsewhere brings the strip back. The third column (L2, PS122) is the
+   Journal's own home and keeps its strip: Knows, Notebook, People and Worlds are tabs of that box and have no other way in there. */
+#main_content.workspace-active[data-parity="r3"] .parity-region:not([data-region="journal"]) #journal_control_div:has(> #journal_show_quests.active_selection_button) {display:none;}
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#quest_hiding_div,#skill_hiding_div) {font-size:.85em;color:var(--p23-muted);padding:round(.1em, 1px) 0;}
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_content_div,#skills_and_stances_content_div) {font-size:inherit;}
 }

@@ -52,8 +52,15 @@ export function sync() {
 // first find (feature-ui, 2026-11-15). Keyed by the workspace module the box lives in.
 export function moduleHasShownTab(moduleId) {
     const box = Object.entries(BOX_TAB_HOMES).find(([, h]) => h.module === moduleId)?.[0];
-    return !!box && shownTabs(box).some(t => t.counts !== false);
+    return !!box && (shownTabs(box).some(t => t.counts !== false) || boxHasContent(box));
 }
+
+// A box can also count as found from what its pages hold (L2, PS122): the Journal in a book life has no village facts to
+// find it by, yet it holds a quest, an earlier life, something known, a notebook entry or a person met. `has()` must stay cheap (navigation polls it).
+const contents = new Map();
+const boxHasContent = box => { try { return !!contents.get(box)?.(); } catch { return false; } };
+/** Let a box count as found while `has()` holds. One per box; the owner of the box's pages registers it. */
+export function registerBoxContent(box, has) { if (BOX_TAB_HOMES[box] && typeof has === 'function') contents.set(box, has); }
 
 let timer = 0;
 export function mountBoxTabs() { if (!timer && typeof setInterval === 'function') timer = setInterval(sync, 1000); sync(); return {sync, destroy() { clearInterval(timer); timer = 0; }}; }
