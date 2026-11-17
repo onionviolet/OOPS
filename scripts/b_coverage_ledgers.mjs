@@ -109,6 +109,12 @@ const tierFile = () => tierLabels ??= (() => {
     try { return JSON.parse(readFileSync(at('docs/coverage/wiki_tier_labels.json'), 'utf8')); } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
 })();
 const tierOf = id => tierFile().hp_potions?.[id] ?? {};
+// Chapter-tier labels (R5 / PWC15, GKM445, scripts/chapter_tier_labels.mjs): a tier above the wiki tier, Luna over cited
+// chapter paragraphs with locators and speakers, one reader. Folded after the wiki tier so its notes and states win.
+let chapterLabels;
+const chapterFile = () => chapterLabels ??= (() => {
+    try { return JSON.parse(readFileSync(at('docs/coverage/chapter_tier_labels.json'), 'utf8')); } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
+})();
 
 function hpPotionRow(entry) {
     const row = hpPotionRowFromTitle(entry);
@@ -202,6 +208,14 @@ function foldIngredientTier(rows) {
             row.note = `Needs a material row in a world property set (MR37, BRG1). Wiki-tier axes ${t.axes.map(a => `${a.axis} ${a.level}`).join(', ')} at ${t.axes[0].locator}; levels and amounts would be authored.${row.note.startsWith('Needs property axes') ? '' : ` ${row.note}`}`;
         }
         row.note += ` Wiki tier (Luna, unchecked): ${parts.join('; ')}.`;
+        const c = chapterFile().hp_ingredients?.[row.id];
+        if (!c) continue;
+        if (c.axes && !NOT_MATERIAL.has(c.kind ?? t.kind) && row.state === 'blocked:ingredient-properties') {
+            row.state = 'blocked:material-row';
+            row.basis += `; state from chapter-tier axes (Luna over novel text, ${c.axes[0].speaker}, one reader)`;
+        }
+        row.note += c.axes ? ` Chapter tier (Luna over the novel text, one reader): axes ${c.axes.map(a => `${a.axis} ${a.level}`).join(', ')} at ${c.axes.map(a => a.locator).join(', ')}.`
+            : ` Chapter tier searched ${c.chapterHits} novel passage${c.chapterHits === 1 ? '' : 's'} and found no stated property.`;
     }
     return rows;
 }
@@ -246,19 +260,33 @@ function lotmInventory(text, brewRows) {
 // 3 of 3) moves a formula-in-notes row to formula-wiki-unchecked: the wiki names mains, and a brew row plus a
 // chapter check would run it. Ingredients with no stated role and the GKM433 authored default are noted only.
 const listOf = items => items.map(m => `${m.name} at ${m.locator}${m.cite ? ` (${m.cite})` : ''}`).join('; ');
+function foldLotmChapter(row) {
+    const c = chapterFile().lotm_potions?.[row.id];
+    if (!c || !['blocked:formula-in-notes', 'blocked:formula-wiki-unchecked'].includes(row.state)) return;
+    if (c.mains) {
+        Object.assign(row, {state: 'blocked:formula-chapter-labelled', basis: `${row.basis}; chapter-tier mains (Luna over novel text, one reader)`});
+        row.note += ` Chapter-tier mains: ${listOf(c.mains)}${c.supplementary ? `; supplementary: ${listOf(c.supplementary)}` : ''}. One reader, so a second reader or a brew row confirms them before the law runs it.`;
+    } else row.note += ` Chapter tier searched ${c.chapterHits} novel paragraph${c.chapterHits === 1 ? '' : 's'} and found no stated main.`;
+}
 function foldLotmTier(rows) {
     for (const row of rows) {
+        foldLotmWiki(row);
+        foldLotmChapter(row);
+    }
+    return rows;
+}
+function foldLotmWiki(row) {
+    {
         const tier = tierFile().lotm_potions?.[row.id];
-        if (!tier || row.state !== 'blocked:formula-in-notes') continue;
+        if (!tier || row.state !== 'blocked:formula-in-notes') return;
         if (tier.mains) {
             Object.assign(row, {state: 'blocked:formula-wiki-unchecked', basis: `${row.basis}; wiki-tier mains (${tier.mainsBasis}, unchecked against chapters)`});
             row.note += ` Wiki-tier mains: ${listOf(tier.mains)}. The list may be partial; supplementary ingredients and amounts are open, so the law runs it once a brew row and a chapter check confirm them.`;
-            continue;
+            return;
         }
         if (tier.roleUnstated) row.note += ` The wiki ties ${listOf(tier.roleUnstated)} to this potion without saying main or supplementary.`;
         if (tier.authoredDefault) row.note += ` Authored default (GKM433, not canon): ${tier.authoredDefault.mains} stands in for the mains.`;
     }
-    return rows;
 }
 
 async function nonPathwayRows() {

@@ -6,7 +6,7 @@
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 516 | 930 | 4 | 0 | 100% | 35.3% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 525 | 921 | 4 | 0 | 100% | 35.9% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 759 | 0 | 0 | 100% | 1.3% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 193 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 280 | 9 | 0 | 100% | 5% |
@@ -29,7 +29,7 @@
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
 | creatures | 17 | 82 | 0 | 17 |
-| gu_kinds | 516 | 16 | 0 | 516 |
+| gu_kinds | 525 | 16 | 0 | 525 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 100 | 0 | 20 |
 | hp_potions | 1 | 90 | 0 | 1 |
@@ -337,11 +337,11 @@
 | Ledger | Missing rule | Rows |
 | --- | --- | ---: |
 | gu_moves | roles-unknown | 651 |
-| gu_kinds | rank-unknown | 569 |
-| gu_kinds | effect-unknown | 361 |
-| hp_ingredients | ingredient-properties | 280 |
-| lotm_potions | formula-in-notes | 162 |
-| hp_ingredients | material-row | 96 |
+| gu_kinds | rank-unknown | 533 |
+| gu_kinds | effect-unknown | 388 |
+| hp_ingredients | ingredient-properties | 279 |
+| lotm_potions | formula-in-notes | 161 |
+| hp_ingredients | material-row | 97 |
 | hp_potions | body-door | 80 |
 | worm_powers | effect-unknown | 68 |
 
@@ -445,6 +445,8 @@
 | ri_treasures | item-state | 1 |
 | lotm_artifacts | power-transfer | 1 |
 | ri_treasures | spatial-storage | 1 |
+
+| lotm_potions | formula-chapter-labelled | 1 |
 
 ## Row format
 
