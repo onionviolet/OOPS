@@ -1,0 +1,836 @@
+{
+ "meta": {
+  "source": "Reverend Insanity Fandom pages_current dump, Infobox Gu previous_rank, fusion and next_rank link targets only (no prose)",
+  "date": "2026-11-17",
+  "rows": 112
+ },
+ "edges": {
+  "landscape-as-before": {
+   "precursors": [
+    "River as Before Gu",
+    "Mountain as Before Gu"
+   ]
+  },
+  "heavenly-essence-treasure-imperial-lotus": {
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Heavenly Essence Treasure Monarch Lotus"
+    }
+   ]
+  },
+  "photo-audio": {
+   "precursors": [
+    "Page List/Gu"
+   ]
+  },
+  "scale-armor": {
+   "precursors": [
+    "Fish Scale Gu"
+   ],
+   "fusion": [
+    "Fish Scale Gu"
+   ]
+  },
+  "stealth-scales": {
+   "precursors": [
+    "Stealth Rock Gu",
+    "Fish Scale Gu"
+   ],
+   "fusion": [
+    "Stealth Rock Gu",
+    "Fish Scale Gu"
+   ]
+  },
+  "nine-eyes-liquor-worm": {
+   "precursors": [
+    "Seven Fragrances Liquor Worm"
+   ]
+  },
+  "seven-fragrances-liquor-worm": {
+   "precursors": [
+    "Page List/Gu",
+    "Four Flavors Liquor Worm"
+   ],
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Nine Eyes Liquor Worm"
+    }
+   ]
+  },
+  "moonlight": {
+   "statesRank": [
+    {
+     "rank": 2,
+     "name": "Moonglow Gu"
+    },
+    {
+     "rank": 2,
+     "name": "Moon Raiment"
+    },
+    {
+     "rank": 2,
+     "name": "Moonscar Gu"
+    },
+    {
+     "rank": 2,
+     "name": "Moonwhirl Gu"
+    },
+    {
+     "rank": 2,
+     "name": "Page List/Gu"
+    },
+    {
+     "rank": 2,
+     "name": "Page List/Gu"
+    }
+   ]
+  },
+  "moonglow": {
+   "precursors": [
+    "Moonlight Gu",
+    "Little Light Gu"
+   ],
+   "statesRank": [
+    {
+     "rank": 3,
+     "name": "Blood Moon Gu"
+    },
+    {
+     "rank": 3,
+     "name": "Golden Moon"
+    },
+    {
+     "rank": 3,
+     "name": "Frost Moon Gu"
+    },
+    {
+     "rank": 3,
+     "name": "Illusory Moon Gu"
+    }
+   ]
+  },
+  "liquor-worm": {
+   "fusion": [
+    "Seven Fragrances Liquor Worm",
+    "Beast Kings"
+   ],
+   "statesRank": [
+    {
+     "rank": 2,
+     "name": "White Chrysalis"
+    },
+    {
+     "rank": 2,
+     "name": "Page List/Gu"
+    },
+    {
+     "rank": 2,
+     "name": "Four Flavors Liquor Worm"
+    },
+    {
+     "rank": 3,
+     "name": "Seven Fragrances Liquor Worm"
+    },
+    {
+     "rank": 4,
+     "name": "Nine Eyes Liquor Worm"
+    }
+   ]
+  },
+  "four-flavors-liquor-worm": {
+   "precursors": [
+    "Liquor Worm"
+   ],
+   "statesRank": [
+    {
+     "rank": 3,
+     "name": "Seven Fragrances Liquor Worm"
+    }
+   ]
+  },
+  "water-shield": {
+   "statesRank": [
+    {
+     "rank": 3,
+     "name": "Sky Canopy Gu"
+    }
+   ]
+  },
+  "white-jade": {
+   "precursors": [
+    "White Boar Gu",
+    "Jade Skin Gu"
+   ],
+   "fusion": [
+    "Jade Skin Gu",
+    "White Boar Gu"
+   ]
+  },
+  "fixed-immortal-travel": {
+   "fusion": [
+    "Divine Travel Gu"
+   ]
+  },
+  "candidate:ancient-bronze-skin-gu": {
+   "precursors": [
+    "Bronze Skin Gu"
+   ]
+  },
+  "candidate:atmosphere-gu": {
+   "precursors": [
+    "Strength Qi Gu"
+   ]
+  },
+  "candidate:azure-wolf-skin-gu": {
+   "precursors": [
+    "Golden Back Wolf Skin Gu"
+   ]
+  },
+  "candidate:big-family-qi-immortal-gu": {
+   "precursors": [
+    "Small Family Qi Gu"
+   ]
+  },
+  "candidate:big-snack-immortal-gu": {
+   "precursors": [
+    "Snack Immortal Gu"
+   ]
+  },
+  "candidate:black-mane-gu": {
+   "precursors": [
+    "Black Boar Gu",
+    "Green Silk Gu"
+   ],
+   "fusion": [
+    "Black Boar Gu",
+    "Green Silk Gu"
+   ]
+  },
+  "candidate:blood-deity": {
+   "precursors": [
+    "Blood Guillotine"
+   ]
+  },
+  "candidate:blood-guillotine-gu": {
+   "statesRank": [
+    {
+     "rank": 6,
+     "name": "Blood Deity"
+    }
+   ]
+  },
+  "candidate:blood-moon-gu": {
+   "precursors": [
+    "Moonglow Gu",
+    "Blood Essence Gu"
+   ]
+  },
+  "candidate:blood-qi-gu": {
+   "statesRank": [
+    {
+     "rank": 3,
+     "name": "Blood Moon Gu"
+    }
+   ]
+  },
+  "candidate:blue-sky-gu": {
+   "precursors": [
+    "Sky Granary Gu"
+   ],
+   "fusion": [
+    "Sky Granary Gu"
+   ]
+  },
+  "candidate:blue-sky-well-gu": {
+   "precursors": [
+    "Blue Sky Gu",
+    "Sky Well Gu"
+   ],
+   "fusion": [
+    "Blue Sky Gu",
+    "Sky Well Gu"
+   ]
+  },
+  "candidate:bone-wings-gu": {
+   "precursors": [
+    "Footless Bird"
+   ]
+  },
+  "candidate:bronze-skin-gu": {
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Ancient Bronze Skin Gu"
+    }
+   ]
+  },
+  "candidate:clear-wind-wheel-gu": {
+   "statesRank": [
+    {
+     "rank": 2,
+     "name": "Jade Wind Wheel Gu"
+    }
+   ]
+  },
+  "candidate:defecate-gu": {
+   "precursors": [
+    "Smelly Fart Gu"
+   ],
+   "fusion": [
+    "Smelly Fart Gu",
+    "Rice Bag Grass Gu"
+   ]
+  },
+  "candidate:destiny-gu": {
+   "precursors": [
+    "Fate Gu"
+   ]
+  },
+  "candidate:dog-guts-above-heaven-gu": {
+   "precursors": [
+    "Dog Guts Above Sea Gu"
+   ]
+  },
+  "candidate:dog-guts-above-mountain-gu": {
+   "precursors": [
+    "Dog Guts Gu"
+   ]
+  },
+  "candidate:dog-guts-above-sea-gu": {
+   "precursors": [
+    "Dog Guts Above Mountain Gu"
+   ]
+  },
+  "candidate:dragon-scales-immortal-gu": {
+   "precursors": [
+    "Dragon Scale Gu"
+   ]
+  },
+  "candidate:eagle-rise-gu": {
+   "precursors": [
+    "Eagle Wings Gu"
+   ]
+  },
+  "candidate:earth-treasury-flower-king-gu": {
+   "precursors": [
+    "Earth Treasury Flower Gu"
+   ]
+  },
+  "candidate:essence-iron-bone-gu": {
+   "precursors": [
+    "Iron Bone Gu"
+   ],
+   "fusion": [
+    "Iron Bone Gu"
+   ]
+  },
+  "candidate:extreme-past-immortal-gu": {
+   "precursors": [
+    "Looking Back Immortal Gu",
+    "Vivid Recollection Immortal Gu"
+   ]
+  },
+  "candidate:fire-pupil-gu": {
+   "precursors": [
+    "Fire Eye Gu",
+    "Sight Blow Gu"
+   ],
+   "fusion": [
+    "Fire Eye Gu",
+    "Sight Blow Gu"
+   ]
+  },
+  "candidate:frost-moon-gu": {
+   "precursors": [
+    "Moonglow Gu",
+    "Icicle Gu"
+   ]
+  },
+  "candidate:golden-bell-shield-gu": {
+   "precursors": [
+    "Golden Shield Gu"
+   ]
+  },
+  "candidate:green-silk-gu": {
+   "fusion": [
+    "Black Boar Gu"
+   ]
+  },
+  "candidate:habitual-strength-gu": {
+   "precursors": [
+    "Store Strength Gu"
+   ]
+  },
+  "candidate:heavenly-mugwort-gu": {
+   "precursors": [
+    "White Jade Gu"
+   ]
+  },
+  "candidate:horizontal-charge-gu": {
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Charging Crash Gu"
+    }
+   ]
+  },
+  "candidate:ice-edge-gu": {
+   "precursors": [
+    "Iceblade Gu"
+   ]
+  },
+  "candidate:illusory-moon-gu": {
+   "precursors": [
+    "Moonglow Gu"
+   ],
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Moonshadow Gu"
+    }
+   ]
+  },
+  "candidate:jade-wind-wheel-gu": {
+   "precursors": [
+    "Clear Wind Wheel Gu"
+   ]
+  },
+  "candidate:jun-strength-gu": {
+   "precursors": [
+    "Ten Jin Strength Gu"
+   ],
+   "fusion": [
+    "Ten Jin Strength Gu"
+   ]
+  },
+  "candidate:justice-gu": {
+   "precursors": [
+    "Wealth Gu"
+   ]
+  },
+  "candidate:kunlun-bull-strength-gu": {
+   "precursors": [
+    "Green Bull Labor Gu"
+   ]
+  },
+  "candidate:large-lizard-house-gu": {
+   "precursors": [
+    "Lizard House Gu"
+   ]
+  },
+  "candidate:looking-back-immortal-gu": {
+   "statesRank": [
+    {
+     "rank": 8,
+     "name": "Extreme Past Immortal Gu"
+    }
+   ]
+  },
+  "candidate:love-life-separation": {
+   "precursors": [
+    "Page List/Gu"
+   ]
+  },
+  "candidate:luck-inspection-immortal-gu": {
+   "precursors": [
+    "Luck Inspection Gu"
+   ]
+  },
+  "candidate:moon-raiment": {
+   "precursors": [
+    "Moonlight Gu",
+    "Jade Skin Gu"
+   ]
+  },
+  "candidate:moonshadow-gu": {
+   "precursors": [
+    "Illusory Moon Gu"
+   ]
+  },
+  "candidate:moonwhirl-gu": {
+   "precursors": [
+    "Moonlight Gu",
+    "Whirlwind Gu"
+   ],
+   "fusion": [
+    "Moonlight Gu",
+    "Whirlwind Gu"
+   ]
+  },
+  "candidate:mudskin-toad": {
+   "fusion": [
+    "Treasure Brass Toad"
+   ]
+  },
+  "candidate:reputation-gu": {
+   "precursors": [
+    "Qi Escape Gu"
+   ]
+  },
+  "candidate:silver-cup-gu": {
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Page List/Gu"
+    }
+   ]
+  },
+  "candidate:sky-canopy-gu": {
+   "precursors": [
+    "Page List/Gu",
+    "Water Shield Gu",
+    "White Jade Gu"
+   ]
+  },
+  "candidate:snack-immortal-gu": {
+   "statesRank": [
+    {
+     "rank": 7,
+     "name": "Big Snack Immortal Gu"
+    }
+   ]
+  },
+  "candidate:spiral-bone-spear-gu": {
+   "precursors": [
+    "Bone Spear Gu"
+   ]
+  },
+  "candidate:star-shoot-immortal-gu": {
+   "precursors": [
+    "Star Shoot Gu"
+   ]
+  },
+  "candidate:steel-mane-gu": {
+   "precursors": [
+    "Black Mane Gu"
+   ]
+  },
+  "candidate:strength-qi-gu": {
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Atmosphere Gu"
+    }
+   ]
+  },
+  "candidate:three-tasks-at-once-gu": {
+   "precursors": [
+    "Two Tasks At Once Gu"
+   ]
+  },
+  "candidate:treasure-brass-toad": {
+   "fusion": [
+    "Mudskin Toad"
+   ]
+  },
+  "candidate:tusita-lantern-gu": {
+   "precursors": [
+    "Tusita Flower"
+   ]
+  },
+  "candidate:vajra-thought-immortal-gu": {
+   "precursors": [
+    "Vajra Thought Gu"
+   ]
+  },
+  "candidate:vertical-crash-gu": {
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Charging Crash Gu"
+    }
+   ]
+  },
+  "candidate:vivid-recollection-immortal-gu": {
+   "statesRank": [
+    {
+     "rank": 8,
+     "name": "Extreme Past Immortal Gu"
+    }
+   ]
+  },
+  "candidate:wealth-gu": {
+   "statesRank": [
+    {
+     "rank": 7,
+     "name": "Justice Gu"
+    }
+   ]
+  },
+  "candidate:footless-bird-gu": {
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Bone Wings Gu"
+    }
+   ]
+  },
+  "candidate:golden-moon-gu": {
+   "precursors": [
+    "Moonglow Gu"
+   ]
+  },
+  "candidate:rock-crocodile-strength": {
+   "fusion": [
+    "Crocodile Strength Gu",
+    "All-Out Effort Gu",
+    "Beast Phantom"
+   ]
+  },
+  "candidate:thunder-boar-strength": {
+   "precursors": [
+    "Thunderclap Gu"
+   ],
+   "fusion": [
+    "Thunderclap Gu",
+    "Black Boar Gu",
+    "White Boar Gu",
+    "All-Out Effort Gu",
+    "Beast Phantom"
+   ]
+  },
+  "candidate:worldly-wave-trace": {
+   "precursors": [
+    "Wandering Wave Trace Gu",
+    "River Wave Trace Gu"
+   ]
+  },
+  "fandom:White_Chrysalis": {
+   "precursors": [
+    "Liquor Worm"
+   ]
+  },
+  "fandom:Moonveil_Gu": {
+   "precursors": [
+    "Moonlight Gu"
+   ],
+   "fusion": [
+    "Moonlight Gu"
+   ]
+  },
+  "fandom:Moonscar_Gu": {
+   "precursors": [
+    "Moonlight Gu",
+    "Scar Rock Gu"
+   ],
+   "fusion": [
+    "Moonlight Gu",
+    "Scar Rock Gu"
+   ]
+  },
+  "fandom:Double_Orifice_Stove_Gu": {
+   "precursors": [
+    "Single Aperture Charcoal Gu"
+   ],
+   "fusion": [
+    "Single Aperture Charcoal Gu"
+   ]
+  },
+  "fandom:Hundred-Years_Wood_Charm_Gu": {
+   "precursors": [
+    "Wood Charm Gu"
+   ],
+   "fusion": [
+    "Wood Charm Gu",
+    "Hundred-Years Lifespan Gu"
+   ]
+  },
+  "fandom:Thousand-Years_Wood_Charm_Gu": {
+   "precursors": [
+    "Hundred-Years Wood Charm Gu"
+   ],
+   "fusion": [
+    "Hundred-Years Wood Charm Gu",
+    "Thousand-Years Lifespan Gu"
+   ]
+  },
+  "fandom:Heavenly_Essence_Treasure_Imperial_Lotus": {
+   "precursors": [
+    "Heavenly Essence Treasure King Lotus"
+   ]
+  },
+  "fandom:Big_Strength_Defecate_Gu": {
+   "precursors": [
+    "Big Strength Gu",
+    "Defecate Gu"
+   ],
+   "fusion": [
+    "Big Strength Gu",
+    "Defecate Gu"
+   ]
+  },
+  "fandom:Heavenly_Essence_Treasure_Monarch_Lotus": {
+   "precursors": [
+    "Heavenly Essence Treasure Lotus"
+   ],
+   "statesRank": [
+    {
+     "rank": 5,
+     "name": "Heavenly Essence Treasure King Lotus"
+    }
+   ]
+  },
+  "fandom:Heavenly_Essence_Treasure_King_Lotus": {
+   "precursors": [
+    "Heavenly Essence Treasure Monarch Lotus"
+   ],
+   "statesRank": [
+    {
+     "rank": 6,
+     "name": "Heavenly Essence Treasure Imperial Lotus"
+    }
+   ]
+  },
+  "fandom:Four_Tasks_At_Once_Gu": {
+   "precursors": [
+    "Three Tasks At Once Gu"
+   ]
+  },
+  "fandom:Five_Tasks_At_Once_Gu": {
+   "precursors": [
+    "Four Tasks At Once Gu"
+   ]
+  },
+  "fandom:Gruel_Mud_Immortal_Gu": {
+   "precursors": [
+    "Gruel Mud Gu"
+   ]
+  },
+  "fandom:Wave_Trace_Gu": {
+   "precursors": [
+    "Water Trace Gu"
+   ]
+  },
+  "fandom:Wandering_Wave_Trace_Gu": {
+   "precursors": [
+    "Wave Trace Gu"
+   ]
+  },
+  "fandom:River_Wave_Trace_Gu": {
+   "precursors": [
+    "Wave Trace Gu"
+   ]
+  },
+  "fandom:Ten_Jin_Strength_Gu": {
+   "precursors": [
+    "Jin Strength Gu"
+   ],
+   "fusion": [
+    "Jin Strength Gu"
+   ]
+  },
+  "fandom:Ten_Jun_Strength_Gu": {
+   "precursors": [
+    "Jun Strength Gu"
+   ],
+   "fusion": [
+    "Jun Strength Gu"
+   ]
+  },
+  "fandom:Ghost_Flame_Gu": {
+   "precursors": [
+    "Ghost Fire Gu"
+   ]
+  },
+  "fandom:Ghost_Blaze_Gu": {
+   "precursors": [
+    "Ghost Flame Gu"
+   ]
+  },
+  "fandom:Brilliance_Of_Two_Stars_Gu": {
+   "precursors": [
+    "A Bit Of Star Gu"
+   ],
+   "statesRank": [
+    {
+     "rank": 3,
+     "name": "Three Stars In The Sky Gu"
+    }
+   ]
+  },
+  "fandom:A_Bit_Of_Star_Gu": {
+   "statesRank": [
+    {
+     "rank": 2,
+     "name": "Brilliance Of Two Stars Gu"
+    }
+   ]
+  },
+  "fandom:Three_Stars_In_The_Sky_Gu": {
+   "precursors": [
+    "Brilliance Of Two Stars Gu"
+   ],
+   "statesRank": [
+    {
+     "rank": 4,
+     "name": "Four Stars Cube Gu"
+    }
+   ]
+  },
+  "fandom:Four_Stars_Cube_Gu": {
+   "precursors": [
+    "Three Stars In The Sky Gu"
+   ],
+   "statesRank": [
+    {
+     "rank": 5,
+     "name": "Five Stars Aligned Gu"
+    }
+   ]
+  },
+  "fandom:Five_Stars_Aligned_Gu": {
+   "precursors": [
+    "Four Stars Cube Gu"
+   ]
+  },
+  "fandom:Big_Soul_Gu": {
+   "precursors": [
+    "Small Soul Gu"
+   ],
+   "fusion": [
+    "Small Soul Gu"
+   ]
+  },
+  "fandom:Flying_Vajra_Centipede": {
+   "precursors": [
+    "Chainsaw Golden Centipede"
+   ]
+  },
+  "fandom:Three_Orifices_Fire_Hut_Gu": {
+   "precursors": [
+    "Double Orifice Stove Gu"
+   ],
+   "fusion": [
+    "Double Orifice Stove Gu"
+   ]
+  },
+  "fandom:Four_Orifices_Fire_Tower_Gu": {
+   "precursors": [
+    "Three Orifices Fire Hut Gu"
+   ],
+   "fusion": [
+    "Three Orifices Fire Hut Gu"
+   ]
+  },
+  "fandom:Five_Orifices_Fire_Pagoda_Gu": {
+   "precursors": [
+    "Four Orifices Fire Tower Gu"
+   ],
+   "fusion": [
+    "Four Orifices Fire Tower Gu"
+   ]
+  },
+  "fandom:Dragon_Strength_Immortal_Gu": {
+   "precursors": [
+    "Dragon Strength Gu"
+   ]
+  },
+  "fandom:Sword_Qi_Immortal_Gu": {
+   "precursors": [
+    "Sword Qi Gu"
+   ]
+  }
+ }
+}

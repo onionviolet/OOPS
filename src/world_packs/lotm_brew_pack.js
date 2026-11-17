@@ -55,7 +55,7 @@ function lawFor(row) {
     return {parsed, properties, reaction, formulaPotency: Math.floor(parsed[carrier.id].amount / coeff[carrier.id]) * potency};
 }
 
-function packRow(row) {
+export function packRow(row) {
     const {parsed, properties, reaction, formulaPotency} = lawFor(row);
     const half = Math.floor(row.minutes / 2);
     const method = brewMethod({id: `lotm.brew.${row.id}`, slots: row.slots.map(s => ({id: s.id})),

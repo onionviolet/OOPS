@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "rule": "lotm.rule.characteristic-replaces-main",
+    "ruleFileSha1": "d2bae0bbfcb7f3c5b6b311887a1203ae4dcda98e",
+    "split": "sha1(id)[0] < 0x33 (GKM429), frozen in commit 13b7b765c before any label existed",
+    "labeler": "gpt-6-luna, low effort, one reader, prompt never states the rule; model recall, not a chapter read",
+    "tiers": [
+      "chapter",
+      "wiki",
+      "table"
+    ],
+    "date": "2026-11-17"
+  },
+  "byTier": {
+    "chapter": {
+      "all": {
+        "items": 29,
+        "rows": 15,
+        "determinable": 17,
+        "undeterminable": 12,
+        "ruleBothAxes": 4,
+        "rulePathwayRight": 8,
+        "ruleSeqRight": 7,
+        "rowsWithAMatch": 3,
+        "majorityPathway": {
+          "value": "Visionary",
+          "right": 3
+        },
+        "majoritySequence": {
+          "value": 9,
+          "right": 6
+        },
+        "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
+      },
+      "heldOut": {
+        "items": 5,
+        "rows": 3,
+        "determinable": 5,
+        "undeterminable": 0,
+        "ruleBothAxes": 1,
+        "rulePathwayRight": 4,
+        "ruleSeqRight": 1,
+        "rowsWithAMatch": 1,
+        "majorityPathway": {
+          "value": "Visionary",
+          "right": 2
+        },
+        "majoritySequence": {
+          "value": 5,
+          "right": 2
+        },
+        "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
+      }
+    },
+    "wiki": {
+      "all": {
+        "items": 27,
+        "rows": 22,
+        "determinable": 18,
+        "undeterminable": 9,
+        "ruleBothAxes": 2,
+        "rulePathwayRight": 2,
+        "ruleSeqRight": 6,
+        "rowsWithAMatch": 2,
+        "majorityPathway": {
+          "value": "Sun",
+          "right": 5
+        },
+        "majoritySequence": {
+          "value": 8,
+          "right": 8
+        },
+        "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
+      },
+      "heldOut": {
+        "items": 5,
+        "rows": 5,
+        "determinable": 3,
+        "undeterminable": 2,
+        "ruleBothAxes": 0,
+        "rulePathwayRight": 0,
+        "ruleSeqRight": 2,
+        "rowsWithAMatch": 0,
+        "majorityPathway": {
+          "value": "Paragon",
+          "right": 2
+        },
+        "majoritySequence": {
+          "value": 4,
+          "right": 1
+        },
+        "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
+      }
+    },
+    "table": {
+      "all": {
+        "items": 65,
+        "rows": 44,
+        "determinable": 33,
+        "undeterminable": 32,
+        "ruleBothAxes": 10,
+        "rulePathwayRight": 15,
+        "ruleSeqRight": 16,
+        "rowsWithAMatch": 10,
+        "majorityPathway": {
+          "value": "Fool",
+          "right": 5
+        },
+        "majoritySequence": {
+          "value": 9,
+          "right": 7
+        },
+        "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
+      },
+      "heldOut": {
+        "items": 10,
+        "rows": 7,
+        "determinable": 6,
+        "undeterminable": 4,
+        "ruleBothAxes": 0,
+        "rulePathwayRight": 3,
+        "ruleSeqRight": 2,
+        "rowsWithAMatch": 0,
+        "majorityPathway": {
+          "value": "Door",
+          "right": 2
+        },
+        "majoritySequence": {
+          "value": 7,
+          "right": 2
+        },
+        "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
+      }
+    },
+    "all": {
+      "all": {
+        "items": 121,
+        "rows": 57,
+        "determinable": 68,
+        "undeterminable": 53,
+        "ruleBothAxes": 16,
+        "rulePathwayRight": 25,
+        "ruleSeqRight": 29,
+        "rowsWithAMatch": 14,
+        "majorityPathway": {
+          "value": "Visionary",
+          "right": 10
+        },
+        "majoritySequence": {
+          "value": 8,
+          "right": 16
+        },
+        "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
+      },
+      "heldOut": {
+        "items": 20,
+        "rows": 10,
+        "determinable": 14,
+        "undeterminable": 6,
+        "ruleBothAxes": 1,
+        "rulePathwayRight": 7,
+        "ruleSeqRight": 5,
+        "rowsWithAMatch": 1,
+        "majorityPathway": {
+          "value": "Visionary",
+          "right": 4
+        },
+        "majoritySequence": {
+          "value": 7,
+          "right": 4
+        },
+        "note": "Pathway and Sequence are an identity prediction, so no non-trivial baseline exists; majority class shown per axis."
+      }
+    }
+  }
+}

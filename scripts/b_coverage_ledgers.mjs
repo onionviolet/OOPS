@@ -380,6 +380,8 @@ export async function buildLedgers() {
             'Engine case: formula or recorded partial ingredients settle from stock into a bottled potency. Administration and pathway effects are open.';
         attachCase(row, `lotm.${recipe.id}`, note, ['engine_brew_stock']);
     }
+    const {takesDerived, applyDerived} = await import('./derive_lotm_formulas.mjs'); // PWC21: stated tiers fold first, so a stated formula wins
+    for (const row of lotmPotions) if (takesDerived(row)) applyDerived(row);
     const hpIngredients = applyOverrides(ingredients, o.hp_ingredients, 'hp_ingredients');
     attachCase(hpIngredients.find(row => row.id === 'hp.ingredient.gurdyroot'), 'gurdyroot_infusion',
         'Engine case: prepared infusion is split into two servings, held sugar is dissolved directly into one cup, and that serving is drunk. Measures and stock composition are authored. Preparation and any magical response remain open.',
@@ -405,6 +407,7 @@ export async function buildLedgers() {
             ['brew_law', 'hp_property_set']);
         row.case.module = HP_PROPERTY_MODULE;
     }
+    (await import('./derive_hp_properties.mjs')).foldDerived(hpIngredients); // PWC22: derived tier for the rest
     return {hp_potions: hpPotions,
         hp_ingredients: hpIngredients,
         lotm_potions: lotmPotions};
@@ -413,7 +416,7 @@ export async function buildLedgers() {
 export function summarize(rows) {
     const count = prefix => rows.filter(r => r.state.startsWith(prefix)).length;
     const real = rows.length - count('not-a-thing');
-    const runs = count('runs-');
+    const runs = count('runs-canon') + count('runs-authored'); // derived rows (PWC20) stay out of the share
     return {rows: rows.length, runsCanon: count('runs-canon'), runsAuthored: count('runs-authored'), blocked: count('blocked:'),
         notAThing: count('not-a-thing:'), unclassified: count('unclassified'), real, runsShareOfReal: real ? Math.round(runs * 1000 / real) / 10 : 0};
 }
@@ -427,7 +430,7 @@ export function toLedgerRow(r) {
     const source = [r.source, ...(r.observations ?? [])].join('; ');
     return {id: r.id, source, state: r.state, mechanisms: r.mechanisms, test: r.test ?? null,
         note: [label + '.', r.note, extra && `(${extra})`].filter(Boolean).join(' '),
-        ...(r.case ? {case: r.case} : {})};
+        ...(r.case ? {case: r.case} : {}), ...(r.derived ? {derived: r.derived} : {})};
 }
 const serialize = rows => rows.map(r => JSON.stringify(toLedgerRow(r))).join('\n') + '\n';
 
