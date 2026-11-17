@@ -11,6 +11,7 @@ import {HP_POTION_EFFECTS, assemblePotionEffect} from '../src/world_packs/brew_e
 import {createHash} from 'node:crypto';
 import {kindWordFunction, keywordFunction} from './gu_function_words.mjs';
 import {potionFamily} from './b_coverage_ledgers.mjs';
+import {resolvePotion, normForm, FORM_WORDS} from './hp_ingredient_labels_check.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 // LABEL_SOURCE_ROOT: a checkout holding the gitignored private folders, for a worktree that lacks them.
@@ -167,6 +168,42 @@ for (const [id, row] of Object.entries(read('lotm_potions'))) {
 const out = {meta: {pass: 'docs/research/advancement-aspects-2026-11-16/README.md#full-luna-passes', model: 'gpt-6-luna (low effort)',
     date: '2026-11-16', tier: 'wiki (GKM445), unchecked against chapters', split: 'held out when sha1(id)[0] < 0x33 (GKM429)'},
     gu_kinds: sorted(gu), gu_moves: sorted(moves), hp_potions: sorted(potions), lotm_potions: sorted(lotm)};
+// Hogwarts ingredients (2026-11-16, scored by scripts/hp_ingredient_labels_check.mjs): kind, stated property axes,
+// roles, potions resolved to potion-ledger ids through the wiki's redirects, preparation forms in a closed word set,
+// and where hazards and direct effects are stated. Stated axes: Haiku confirms 25 of Luna's 26 on the held-out rows and
+// a hand check of 16 rows found 18 of 19 right. axisCandidates come from the families of the potions that use it
+// (the book-one sheet's recipe rule, an inference) and are recorded, never folded as properties.
+const FAMILY_AXIS = {'body-door': 'mend', 'mind-state': 'mind', 'body-form': 'form', 'luck-field': 'luck', 'conceal-or-sense': 'conceal-or-sense', 'protection-field': 'ward'};
+const potionTitle = new Map(readFileSync(`${root}docs/research/hogwarts-potion-evidence-2026-11-11/catalogue.jsonl`, 'utf8').trim().split('\n')
+    .map(l => JSON.parse(l)).filter(c => c.kinds.includes('potion_related')).map(c => [`hp.potion.${c.title.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')}`, c.title]));
+const second = existsSync(`${priv}hp_ingredients_haiku.json`) ? JSON.parse(readFileSync(`${priv}hp_ingredients_haiku.json`, 'utf8')) : {};
+// Hand check (2026-11-16, 16 rows): 18 of 19 stated axes right; the miss is dropped here and recorded.
+const AXIS_DROPS = {'hp.ingredient.chinese_chomping_cabbage': ['bite', 'read from the plant biting, not an irritant property']};
+const ingredients = {};
+for (const [id, row] of Object.entries(existsSync(`${priv}hp_ingredients_luna.json`) ? read('hp_ingredients') : {})) {
+    const r = row.reply;
+    if (!r) continue;
+    const loc = l => l.replace(/^\[|\]$/g, '');
+    const label = {heldOut: heldOut(id), kind: r.kind.value, ...(at(r.kind) ? {kindAt: at(r.kind)} : {})};
+    const drop = AXIS_DROPS[id];
+    const axes = r.axes.filter(a => a.axis !== drop?.[0]);
+    if (drop) label.axisDropped = {axis: drop[0], reason: `hand check: ${drop[1]}`};
+    if (axes.length) label.axes = axes.map(a => ({axis: a.axis, level: a.level, locator: loc(a.locator), speaker: a.speaker}));
+    const h = second[id]?.reply;
+    if (h && axes.length) label.axesSecond = axes.every(a => h.axes.some(b => b.axis === a.axis)) ? 'agree' : 'partial';
+    if (r.roles.length) label.roles = r.roles.map(a => ({role: a.role, locator: loc(a.locator), speaker: a.speaker}));
+    const potions = [...new Map(r.potions.map(p => [resolvePotion(p.potion), loc(p.locator)])).entries()].filter(([pid]) => pid);
+    if (potions.length) label.potions = potions.map(([potion, locator]) => ({potion, locator}));
+    const unresolved = r.potions.filter(p => !resolvePotion(p.potion)).length;
+    if (unresolved) label.potionsUnresolved = unresolved;
+    const forms = [...new Set(r.preparation.map(p => normForm(p.form)).filter(f => FORM_WORDS.includes(f) && f !== 'weighed'))];
+    if (forms.length) Object.assign(label, {forms, formsAt: loc(r.preparation[0].locator)});
+    const candidates = [...new Set(potions.map(([pid]) => FAMILY_AXIS[potionFamily(potionTitle.get(pid) ?? '')]).filter(Boolean))].sort();
+    if (candidates.length) Object.assign(label, {axisCandidates: candidates, axisCandidatesBasis: 'inference from the families of the potions that use it'});
+    for (const key of ['source', 'hazards', 'direct_effect']) if (at(r[key])) label[`${key}At`] = at(r[key]);
+    ingredients[id] = label;
+}
+out.hp_ingredients = sorted(ingredients);
 writeFileSync(`${root}docs/coverage/wiki_tier_labels.json`, JSON.stringify(out, null, 0).replace(/},"/g, '},\n"') + '\n');
 const count = (obj, f) => Object.values(obj).filter(f).length;
 console.log(JSON.stringify({gu: Object.keys(gu).length, guRank: count(gu, l => l.rank), guFunction: count(gu, l => l.function), guFunctionGuess: count(gu, l => l.functionGuess), guEffectFamily: count(gu, l => l.effectFamily), guDiet: count(gu, l => l.dietDefault), movesAgree: count(moves, l => l.secondRead === 'agree'),
@@ -174,3 +211,5 @@ console.log(JSON.stringify({gu: Object.keys(gu).length, guRank: count(gu, l => l
     potions: Object.keys(potions).length, potionRoute: count(potions, l => l.routes), potionFamily: count(potions, l => l.family),
     lotm: Object.keys(lotm).length, lotmMains: count(lotm, l => l.mains), lotmRoleUnstated: count(lotm, l => l.roleUnstated && !l.mains),
     heldOut: count(gu, l => l.heldOut) + count(moves, l => l.heldOut) + count(potions, l => l.heldOut)}));
+console.log(JSON.stringify({ingredients: Object.keys(ingredients).length, ingredientAxes: count(ingredients, l => l.axes), ingredientPotions: count(ingredients, l => l.potions),
+    ingredientForms: count(ingredients, l => l.forms), ingredientHazard: count(ingredients, l => l.hazardsAt), ingredientHeldOut: count(ingredients, l => l.heldOut)}));

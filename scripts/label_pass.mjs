@@ -18,6 +18,19 @@ const field = {type: 'object', additionalProperties: false, required: ['value', 
     properties: {value: {type: 'string'}, locator: {type: 'string'}, speaker: SPEAKER}};
 const obj = (props, extra = {}) => ({type: 'object', additionalProperties: false, required: Object.keys({...props, ...extra}),
     properties: {...Object.fromEntries(Object.keys(props).map(k => [k, field])), ...extra}});
+// Hogwarts ingredient vocabulary (proposal, AD32): one world property set (MR37). The first five effect axes are the
+// book-one sheet (docs/audits/WORLD_POTION_AXES_2026-11-09.md 1.2); the rest follow the potion ledger's families.
+// Roles are the functions the owner code already authors (water, mucus, hairs, bone meal, quills, egg and rose).
+export const HP_INGREDIENT_AXES = {mend: 'heals or repairs the body', calm: 'soothes, slows or brings sleep', bite: 'a sharp irritant, stinging or corrosive',
+    venom: 'poisons or harms the body', ward: 'counters poison or protects', form: 'changes body shape, size, hair or appearance',
+    mind: 'changes feeling, mood, love, belief, wits or will', memory: 'changes or removes memory', luck: 'changes luck or chance',
+    heat: 'warms, burns or resists fire and cold', 'conceal-or-sense': 'hides, reveals, detects or sharpens sight', vigour: 'energises, strengthens or restores stamina'};
+export const HP_INGREDIENT_ROLES = {carrier: 'the base or solvent others go into', thickener: 'thickens or binds the mixture', fixative: 'fixes or prolongs another effect',
+    identity: 'a sample that ties the potion to one person or creature', abrasive: 'a grit that scours or grinds', 'heat-reactive': 'reacts dangerously with heat or the wrong timing'};
+export const HP_INGREDIENT_KINDS = ['plant', 'fungus', 'creature-part', 'whole-creature', 'mineral-or-metal', 'liquid', 'prepared-substance',
+    'human-or-being-part', 'potion', 'person', 'place', 'concept', 'other'];
+const list = props => ({type: 'array', items: {type: 'object', additionalProperties: false, required: [...Object.keys(props), 'locator', 'speaker'],
+    properties: {...props, locator: {type: 'string'}, speaker: SPEAKER}}});
 
 export const RULES = `Use only the evidence lines given. Each line starts with its locator in square brackets; copy that bracket's content exactly into "locator". Write values as short paraphrases in your own words, never quotations. If the evidence does not state something, set value and locator to "" and speaker to "unknown": an empty field is correct, a guess is wrong. "speaker" says who states it: narrator, a character's claim (which may be wrong), a demonstration (shown happening), or the wiki.`;
 
@@ -26,7 +39,7 @@ const ingredient = {type: 'array', items: {type: 'object', additionalProperties:
 export const LOTM_ASPECTS = ['do', 'settle', 'go_wrong', 'change', 'who_may', 'where_from', 'how_long', 'others_notice', 'left_behind',
     'who_controls', 'mind', 'can_be_false', 'combines'];
 
-const PASSES = {
+export const PASSES = {
     lotm_potions: {
         schema: obj(Object.fromEntries(LOTM_ASPECTS.map(a => [a, 1])), {mains: ingredient, aux: ingredient}),
         prompt: p => `Fill the advancement sheet for the Lord of the Mysteries potion ${p.pathway} Pathway Sequence ${p.seq}: ${p.wikiName}.
@@ -50,6 +63,24 @@ ${RULES}`,
         schema: obj({effect: 1, route: 1, target: 1, ingredients: 1, brewing: 1, onset_and_duration: 1, side_effects: 1, antidote: 1, appearance: 1, users: 1}),
         prompt: p => `Describe the Harry Potter preparation "${p.name}". effect: what it does. route: how it is taken or used (drunk, eaten, applied to skin or hair or a wound, inhaled, sprayed, poured on an object...). target: who or what receives it (the user, another person, a creature, a plant, an object). ingredients. brewing: steps, equipment or brewing time. onset_and_duration: how fast it acts and how long it lasts. side_effects. antidote. appearance: colour, smell, texture. users: who is shown making or using it.
 ${RULES}`,
+    },
+    hp_ingredients: {
+        schema: {type: 'object', additionalProperties: false, required: ['kind', 'source', 'axes', 'roles', 'potions', 'preparation', 'hazards', 'direct_effect'],
+            properties: {kind: {...field, properties: {...field.properties, value: {type: 'string', enum: HP_INGREDIENT_KINDS}}},
+                source: field, hazards: field, direct_effect: field,
+                axes: list({axis: {type: 'string', enum: Object.keys(HP_INGREDIENT_AXES)}, level: {type: 'string', enum: ['trace', 'some', 'strong']}}),
+                roles: list({role: {type: 'string', enum: Object.keys(HP_INGREDIENT_ROLES)}}),
+                potions: list({potion: {type: 'string'}}), preparation: list({form: {type: 'string'}})}},
+        prompt: p => `Describe the Harry Potter potion ingredient "${p.name}" as a material.
+kind: one of ${HP_INGREDIENT_KINDS.join(', ')} (potion, person, place or concept when the page is not about a material).
+source: the creature, plant or place it comes from, in a few words.
+axes: properties the evidence says this ingredient itself has or gives a brew. Choose only from: ${Object.entries(HP_INGREDIENT_AXES).map(([k, v]) => `${k} (${v})`).join('; ')}. level: strong when it is what the ingredient is known for, some for one of its uses, trace for a minor one. Do not add an axis only because a potion that uses it has that effect; list the potion instead.
+roles: functions it serves in a brew, only if stated: ${Object.entries(HP_INGREDIENT_ROLES).map(([k, v]) => `${k} (${v})`).join('; ')}.
+potions: each potion or preparation the evidence says uses it, by name.
+preparation: each form it is prepared in before or as it goes in, one or two words each (sliced, crushed, powdered, dried, stewed, shredded, juiced, chopped, pickled, whole...).
+hazards: harm it can do to the brewer or user, or care it needs in handling.
+direct_effect: what it does on its own (eaten, drunk, touched or worn) without brewing.
+${RULES} Empty arrays are correct when nothing is stated.`,
     },
 };
 

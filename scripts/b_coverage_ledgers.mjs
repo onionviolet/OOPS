@@ -181,6 +181,31 @@ function hpIngredientRow(entry) {
             : 'Needs property axes; the catalogue has no linked observation, so values would be authored (BRG1, MR37).'};
 }
 
+// Wiki-tier ingredient labels (GKM445, scripts/wiki_tier_labels.mjs; scores in docs/research/advancement-aspects-
+// 2026-11-16/README.md#hogwarts-ingredients). Applied after the reviewed overrides, which replace notes. A row still
+// blocked on properties whose page states an axis moves to blocked:material-row; every labelled row gains a note.
+let ingredientTier;
+const ingredientTierOf = id => (ingredientTier ??= (() => {
+    try { return JSON.parse(readFileSync(at('docs/coverage/wiki_tier_labels.json'), 'utf8')).hp_ingredients ?? {}; } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
+})())[id];
+const NOT_MATERIAL = new Set(['potion', 'person', 'place', 'concept', 'other']);
+function foldIngredientTier(rows) {
+    for (const row of rows) {
+        const t = ingredientTierOf(row.id);
+        if (!t) continue;
+        const potions = (t.potions ?? []).map(p => p.potion.replace(/^hp\.potion\./, ''));
+        const parts = [t.kind, potions.length && `used in ${potions.slice(0, 4).join(', ')}${potions.length > 4 ? ` and ${potions.length - 4} more` : ''}`,
+            t.forms && `prepared ${t.forms.join(' or ')}`, t.hazardsAt && `hazard at ${t.hazardsAt.locator}`].filter(Boolean);
+        if (row.state === 'blocked:ingredient-properties' && t.axes && !NOT_MATERIAL.has(t.kind)) {
+            row.state = 'blocked:material-row';
+            row.basis += `; state from wiki-tier axes (Luna, ${t.axes[0].speaker}, unchecked)`;
+            row.note = `Needs a material row in a world property set (MR37, BRG1). Wiki-tier axes ${t.axes.map(a => `${a.axis} ${a.level}`).join(', ')} at ${t.axes[0].locator}; levels and amounts would be authored.${row.note.startsWith('Needs property axes') ? '' : ` ${row.note}`}`;
+        }
+        row.note += ` Wiki tier (Luna, unchecked): ${parts.join('; ')}.`;
+    }
+    return rows;
+}
+
 // ---------- Lord of the Mysteries potions ----------
 
 function lotmInventory(text, brewRows) {
@@ -325,6 +350,7 @@ export async function buildLedgers() {
     attachCase(hpIngredients.find(row => row.id === 'hp.ingredient.gillyweed'), 'gillyweed',
         'Engine case: eating raw plant stock gives a temporary gilled form that preserves breath through an underwater haul. Duration and task are authored.',
         ['hp.gillyweed', 'l.breathing', 'l.creature_form']);
+    foldIngredientTier(hpIngredients);
     return {hp_potions: hpPotions,
         hp_ingredients: hpIngredients,
         lotm_potions: lotmPotions};

@@ -195,3 +195,59 @@ The Luna-alone line is clean: zero-shot, judged against the frozen split. The Ha
 **Checks.** `node scripts/b_coverage_ledgers.mjs --check` and `coverage_report.mjs --check` pass. `tests/b_coverage_ledgers.test.js`, `tests/brew_heldout.test.js` and `tests/hp_potion_case_scenes.test.js` pass (115). `npm run test:changed` passes (4,532, 17 skipped). `npm run check:rules` passes; its one stale-glob warning was there before. `lotm_potions` is now 162 `formula-in-notes`, 12 `formula-wiki-unchecked`, 46 `expressed-authored` and 6 `body-door`. Running from a worktree: `LABEL_PRIVATE` (packets, Luna, follow-ups) and `LABEL_SOURCE_ROOT` (normaliser) point at the primary checkout's private folders.
 
 **Next, not started.** Chapter-check the 12 wiki rows at their cites and write brew rows for them. Get the module through a browser export by Weibao, which would fill formulas, rituals and acting for every Sequence at once.
+
+## Hogwarts ingredients (2026-11-16, agent-verified, not human-reviewed)
+
+`hp_ingredients` had 376 of 409 rows at `blocked:ingredient-properties`: each needs its property axes as a material row in one world property set (BRG1, MR37). The making seam has no such set yet. The HP material rows in `src/` still use per-recipe axes (`cure` and `sting` in `hp_lead_making.js`, `fixative`, `thickener` and `treacle` in `potion_working_rules.js`, `work` in `hp_ingredient_substitution.js`), which is the problem MR37 names.
+
+**Vocabulary (proposal, AD32).** Twelve effect axes: the book-one sheet's mend, calm, bite, venom and ward ([world potion axes](../../audits/WORLD_POTION_AXES_2026-11-09.md) 1.2), plus form, mind, memory, luck, heat, conceal-or-sense and vigour, keyed to the potion ledger's families. Six roles the owner code already authors: carrier, thickener, fixative, identity, abrasive and heat-reactive. Each axis has a level word (trace, some, strong), as in the book-one sheet. They are defined in `scripts/label_pass.mjs` beside the pass.
+
+**Run.** `python3 -I scripts/label_pass_packets.py hp_ingredients` (with `HP_DUMP_XML` pointing at the dump, unpacked into its own scratch directory and deleted afterwards) built 400 packets, one for every row that is a thing, the 20 runs-authored rows included. All 400 found a page. `node scripts/label_pass.mjs hp_ingredients` ran GPT-6 Luna at low effort: 400 of 400 parsed, $0.098. `node scripts/hp_ingredient_haiku.mjs` ran Haiku 5.5 as second reader on the 81 held-out rows and the 20 comparison rows (96 distinct): 96 of 96, $0.067. Total $0.17. Luna was asked only for what the page states. Axes implied by the potions an ingredient goes into are computed locally, not asked for.
+
+**Frozen before the first call.** The split is the wiki-tier hash (GKM429): 81 of 400 rows held out. The comparison sets are in `scripts/hp_ingredient_labels_check.mjs`:
+
+- **Authored.** The 20 runs-authored rows mapped from owner code onto the vocabulary: 9 axes, 8 roles, 12 forms and 17 potion memberships, each with its code locator.
+- **Novel.** The catalogue's linked observations, joined through `observation_ids`. Membership and use rows that name a potion-ledger potion score potions (32 rows). Preparation rows score form (13). Exposure and outcome rows score hazards (17).
+
+No comparison row is a prompt example.
+
+**Scores** (`node scripts/hp_ingredient_labels_check.mjs`):
+
+| Field | Luna, all | Luna, held out | Haiku, its 96 rows |
+| --- | --- | --- | --- |
+| Potions, authored rows | 16 of 17 | 4 of 5 | 16 of 17 |
+| Potions, novel links | 28 of 32 | 7 of 7 | 12 of 12 |
+| Forms, authored rows | 8 of 12 | 3 of 3 | 9 of 12 |
+| Forms, novel links | 12 of 13 | 4 of 4 | 7 of 7 |
+| Hazard stated where the novel shows harm | 14 of 17 | 3 of 4 | 3 of 4 |
+| Stated axes, authored rows | 1 of 9 | 0 of 4 | 4 of 9 |
+| Roles, authored rows | 3 of 8 | 0 of 2 | 3 of 8 |
+
+The first potion score was 29 of 54, and that was the scorer, not the labels. Observation subjects that are not potions (an unnamed family, a harvest, a divination scene) were dropped from the key. Names now resolve through the wiki's own redirects (`private/hp_redirects.json`, titles only, from the same dump), so Boil-Cure Potion is Cure for Boils. No label was changed to reach that number.
+
+**What the axis scores mean.** The authored axes come from recipe membership: nettles carry `cure` because they are in the Cure for Boils, which is the sheet's (R) basis. The wiki rarely says what a nettle itself does, and Luna correctly declines to invent it. So the authored set cannot score stated axes. Precision is scored instead:
+
+- **Second reader.** On the 81 held-out rows, Haiku confirms 25 of Luna's 26 axes and adds 17 of its own. That is the pilot's pattern: Haiku has more recall and more overreach.
+- **Hand check.** A seeded random sample of 16 rows with stated axes found 18 of 19 right against the packet text. The miss, Chinese Chomping Cabbage read as `bite` because the plant bites, is dropped in `wiki_tier_labels.mjs` and recorded as `axisDropped`.
+- **Infobox field.** The wiki's ingredient infobox has its own `properties` field, filled on 81 pages (Poisonous, Highly acidic, Antidote to most poisons). 59 of the 121 stated axes cite the intro section of a page where that field is filled.
+
+The axes implied by potion families hit 6 of the 9 authored axes, with 9 extra axes: the quill gets mend, mind and form, never bite. They are kept as `axisCandidates` and do not move a row.
+
+**Folded** (`node scripts/wiki_tier_labels.mjs`, then `node scripts/b_coverage_ledgers.mjs`):
+
+- **Sidecar.** `docs/coverage/wiki_tier_labels.json` gains an `hp_ingredients` section for 400 rows. Each holds the kind, stated axes and roles (with locator and speaker), potions resolved to potion-ledger ids (365 pairs on 216 rows; 49 names unresolved), forms in a closed word set (89 rows), axis candidates, and where the source, hazards and direct effect are stated. The other three sections are byte-identical.
+- **State change.** The ledger fold runs after the reviewed overrides, which replace notes. A row still at `blocked:ingredient-properties` whose page states an axis, and whose kind is a material, moves to `blocked:material-row`: 96 rows (21 held out). Its note names the axes and locator, and says the levels and amounts would be authored. Its basis keeps the earlier text and adds the wiki-tier source and speaker. By axis: venom 34, mend 27, mind 10, bite 8, ward 8, form 7, vigour 5, conceal-or-sense 4, heat 3, memory 3, calm 2. 280 rows stay `ingredient-properties`.
+- **Notes only.** Every labelled row, the 20 runs-authored and the 4 engine-case rows included, gains a short wiki-tier note: kind, up to four potions, forms, and a hazard locator. Their states are unchanged.
+- **Aliases.** No two rows share a page through a redirect, so no alias candidates.
+
+**Checks.**
+
+- `tests/b_coverage_ledgers.test.js` and `tests/brew_heldout.test.js`: 8 pass.
+- Pass: `node scripts/b_coverage_ledgers.mjs --check`, `node scripts/coverage_report.mjs --check` and `npm run check:rules` (one pre-existing stale-glob warning).
+- `npm run test:changed`: 618 of 1,074 files, 4,532 pass, 0 fail, 17 skipped.
+- Not run: the full suite.
+
+**Next, not started.**
+
+- **A world property set in `src/`.** Turn the vocabulary into one HP catalogue (`defineCatalogue` axes) and move the per-recipe axes of the 20 runs-authored rows onto it, so a canon recipe is one point in the space (MR37). The 96 `material-row` rows then need only authored levels.
+- **The 280 that stay.** Most have potions and forms but no stated property. The chapter route, or the candidate rule scored per family instead of as a union, is what would move them.

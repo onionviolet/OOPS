@@ -274,10 +274,11 @@
 | --- | --- | ---: |
 | gu_moves | roles-unknown | 631 |
 | gu_kinds | rank-unknown | 569 |
-| hp_ingredients | ingredient-properties | 376 |
 | gu_kinds | effect-unknown | 364 |
+| hp_ingredients | ingredient-properties | 280 |
 | lotm_potions | formula-in-notes | 162 |
 | gu_moves | roles-unchecked | 122 |
+| hp_ingredients | material-row | 96 |
 | hp_potions | body-door | 80 |
 | creatures | diet-unknown | 61 |
 | hp_potions | mind-state | 40 |
