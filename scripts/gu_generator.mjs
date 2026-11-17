@@ -14,6 +14,7 @@ import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES, lowerEffect,
 import {guEffects, GU_FUNCTION} from '../src/world_packs/gu_effect_pack.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
 import {typeFunction, nameFunction} from './gu_function_words.mjs';
+import {generatedRanker} from './derive_gu_ranks.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 export const DIR = 'docs/coverage/', WORK = 'docs/research/power-catalogues-2026-11-16/work/';
@@ -169,7 +170,9 @@ function score() {
 
 // ---- PWC32 filter and ledger ----
 const slug = t => String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
-function ledger() {
+// The generated Gu each concept resolves to (AU17 model pick) with its nearest canon Gu by name overlap. Shared by the ledger and by
+// scripts/gu_sameness.mjs, which judges the near-name pairs by meaning (PWC47).
+export function screened() {
     const frozen = rd(FROZEN), canon = canonRows();
     // AU17: Luna and Haiku tied on the held-out score, so each concept goes to the model its hash picks (even to Haiku, odd to Luna),
     // falling back to the other when the preferred one gave no usable answer; every row records its model.
@@ -182,15 +185,33 @@ function ledger() {
     const canonStems = new Map(canon.map(r => [stemOf(r.name), r]));
     const canonToks = canon.map(r => ({r, t: new Set(tokens(r.name))}));
     const jac = (a, b) => { const i = [...a].filter(x => b.has(x)).length; return i / (a.size + b.size - i || 1); };
-    const rows = [], dropped = [], seen = new Set();
-    for (const g of gu.filter(x => !x.held)) {
+    const list = gu.filter(x => !x.held).map(g => {
         const stem = stemOf(g.name), toks = new Set([...tokens(g.name)]);
         let best = null, bestJ = -1;
         for (const c of canonToks) { const j = jac(toks, c.t); if (j > bestJ) { bestJ = j; best = c.r; } }
         const same = stem ? canonStems.get(stem) : null;
-        const sameFn = best && best.fn && GU_FUNCTION[best.fn]?.verb === g.verb && best.path === g.path;
+        const sameFn = !!(best && best.fn && GU_FUNCTION[best.fn]?.verb === g.verb && best.path === g.path);
+        return {g, stem, best, bestJ, same, sameFn};
+    });
+    return {frozen, canon, gu, promptHash, list};
+}
+// PWC47: the sameness verdicts by meaning (scripts/gu_sameness.mjs), keyed by generated name. A verdict replaces the name-overlap
+// guess for the pairs it covers; a pair with no verdict keeps the old rule, so a rerun without new judging gives the same ledger.
+export const SAMENESS = `${DIR}gu_sameness.json`;
+function ledger() {
+    const {frozen, canon, gu, promptHash, list} = screened();
+    const verdicts = existsSync(join(root, SAMENESS)) ? rd(SAMENESS).verdicts : {};
+    // PWC49: a generated Gu takes its rank from the family-median rule (derive_gu_ranks.mjs); the model's own rank stays as a note.
+    const ranker = generatedRanker();
+    const rows = [], dropped = [], seen = new Set();
+    for (const {g, stem, best, bestJ, same, sameFn} of list) {
+        const v = verdicts[g.name]?.nearest === best?.id ? verdicts[g.name] : null;
+        let variantOf = null;
         if (same) { dropped.push({name: g.name, why: 'alias', of: same.name}); continue; }
-        if (bestJ >= 0.5 && sameFn) { dropped.push({name: g.name, why: 'near-duplicate', of: best.name}); continue; }
+        if (v) {
+            if (v.verdict === 'copy') { dropped.push({name: g.name, why: 'copy-by-meaning', of: best.name}); continue; }
+            if (v.verdict === 'variant_of') variantOf = best.id;
+        } else if (bestJ >= 0.5 && sameFn) { dropped.push({name: g.name, why: 'near-duplicate', of: best.name}); continue; }
         if (stem && seen.has(stem)) { dropped.push({name: g.name, why: 'duplicate-generated'}); continue; }
         if (stem) seen.add(stem);
         const parts = {verb: g.verb, object: g.object, target: g.target, time: g.time, carrier: 'gu', cost: g.cost, limits: []};
@@ -201,11 +222,13 @@ function ledger() {
         else if (built.value.derived.needs?.length) blockedBy = `key-${slug(built.value.derived.needs[0])}`;
         if (blockedBy) state = `blocked:${blockedBy}`;
         const owner = OBJECT_OWNER[g.object] ?? 'W';
+        const rk = ranker({path: g.path, modelRank: g.rank});
         rows.push({id: `gen.${slug(g.name)}`, source: `generated: concept "${g.concept}"; ${g.model}; prompt ${promptHash}`, state, mechanisms: ['G', owner],
             test: state === 'runs-derived' ? 'tests/gu_generated.test.js' : null,
-            note: `${g.name}. Path ${g.path}, rank ${g.rank}, ${g.verb} ${g.object} on ${g.target}, ${g.time}, pays ${g.cost}. ${g.effect} Nearest canon Gu: ${best?.name ?? 'none'} (name overlap ${Math.round(bestJ * 100) / 100}). Generated, not canon.`,
+            note: `${g.name}. Path ${g.path}, rank ${rk.rank}, ${g.verb} ${g.object} on ${g.target}, ${g.time}, pays ${g.cost}. ${g.effect} Nearest canon Gu: ${best?.name ?? 'none'} (name overlap ${Math.round(bestJ * 100) / 100}). Generated, not canon.`,
             ...(state === 'runs-derived' ? {derived: {rule: 'gu.generated.concept', inputs: [g.concept, promptHash]}} : {}),
-            tier: 'generated', model: g.model, concept: g.concept, promptHash, nearest: best?.id ?? null});
+            tier: 'generated', model: g.model, concept: g.concept, promptHash, nearest: best?.id ?? null,
+            ...(variantOf ? {variant_of: variantOf} : {}), rank: rk.rank, rankBasis: rk.basis, modelRank: g.rank});
     }
     rows.sort((a, b) => a.id.localeCompare(b.id));
     const ids = new Set(); for (const r of rows) { let id = r.id, n = 2; while (ids.has(id)) id = `${r.id}-${n++}`; r.id = id; ids.add(id); }

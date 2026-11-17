@@ -17,7 +17,7 @@ from collections import defaultdict
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 SRC = os.environ.get('CHAPTER_SOURCE_ROOT', '/Users/weiwei/code/yet-another-idle-rpg').rstrip('/')
 NOV = f'{SRC}/docs/research/novels'
-PRIV = f'{SRC}/docs/research/advancement-aspects-2026-11-16/private/'
+PRIV = os.environ.get('CHAPTER_OUT_DIR', f'{SRC}/docs/research/advancement-aspects-2026-11-16/private').rstrip('/') + '/'
 SPLIT = os.path.join(ROOT, 'docs/coverage/wiki_tier_labels.json')
 
 
@@ -120,6 +120,24 @@ def gu_terms(name):
 RANKW = r'(?:rank|grade)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine|\d))?'
 
 
+def alias_names():
+    """PWC48: every English name a ledger row is also known by (wiki redirects, infobox aliases, the other source's spelling, the
+    names of a merged duplicate), from docs/coverage/ri_aliases.json. Chinese names are not searched: the chapters are English."""
+    p = os.path.join(ROOT, 'docs/coverage/ri_aliases.json')
+    if not os.path.exists(p) or os.environ.get('NO_ALIASES'):
+        return {}
+    t = json.load(open(p, encoding='utf-8'))
+    out = {}
+    for i, v in t['names'].items():
+        out.setdefault(i, set()).update(v['names'] + v['redirects'])
+    for g in t['groups']:
+        members = [g['keep']] + g['drop']
+        names = set(g['names']) | {n for m in members for n in out.get(m, ())}
+        for m in members:
+            out[m] = names
+    return out
+
+
 def gu_universe():
     """Rank-blocked ledger rows (the work) plus kinds whose wiki category states a rank (the scoring cohort, GKM429 split by hash)."""
     idx = json.load(open(f'{NOV}/reverend-insanity/private/rule-derivation-2026-11-11/gu-identities.json'))['records']
@@ -142,7 +160,8 @@ def build_gu():
     universe = gu_universe()
     ri = load_ri()
     claims = [(c, norm(json.dumps(c, ensure_ascii=False)).lower()) for c in claims_index()]
-    wanted = {i: gu_terms(u['name']) for i, u in universe.items()}
+    aka = alias_names()
+    wanted = {i: sorted({t for n in [u['name'], *aka.get(i, ())] for t in gu_terms(n)}) for i, u in universe.items()}
     low = [(ch, k, norm(t), norm(t).lower()) for ch, k, t in ri]
     out, search = [], {}
     heldout = split('gu', list(universe))

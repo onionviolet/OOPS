@@ -6,8 +6,8 @@
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 521 | 171 | 651 | 4 | 0 | 100% | 35.6% |
-| [gu_generated](gu_generated.jsonl) | G | to build | 1312 | 0 | 0 | 1025 | 287 | 0 | 0 | 100% | 0% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 492 | 171 | 597 | 101 | 0 | 100% | 36% |
+| [gu_generated](gu_generated.jsonl) | G | to build | 1321 | 0 | 0 | 1036 | 285 | 0 | 0 | 100% | 0% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 0 | 759 | 0 | 0 | 100% | 1.3% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 0 | 193 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 0 | 171 | 9 | 0 | 100% | 5% |
@@ -316,8 +316,8 @@
 | golarion_places | 0 | 0 | 0 | 0 |
 | golarion_powers | 0 | 4 | 0 | 0 |
 | golarion_rules | 0 | 0 | 0 | 0 |
-| gu_generated | 1025 | 0 | 0 | 1025 |
-| gu_kinds | 692 | 16 | 0 | 692 |
+| gu_generated | 1036 | 0 | 0 | 1036 |
+| gu_kinds | 663 | 16 | 0 | 663 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_creatures | 0 | 0 | 0 | 0 |
 | hp_ingredients | 20 | 209 | 0 | 20 |
@@ -591,15 +591,15 @@
 
 | # | World | Corpus | Shared slugs | Weight | Source |
 | ---: | --- | --- | ---: | ---: | --- |
-| 1 | harry-potter | places | 24 | 590 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
+| 1 | harry-potter | places | 24 | 589 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
 | 2 | legendary-mechanic | potions_and_recipes | 22 | 673 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 3 | lotm | materials | 22 | 643 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
 | 4 | shadow-slave | potions_and_recipes | 21 | 646 | paid reader claims 2026-11-01-ss |
 | 5 | circle-of-inevitability | potions_and_recipes | 20 | 677 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
 | 6 | fated-villain | potions_and_recipes | 20 | 663 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 7 | mother-of-learning | potions_and_recipes | 20 | 616 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 8 | reverend-insanity | potions_and_recipes | 20 | 514 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
-| 9 | regressors-tale | potions_and_recipes | 19 | 637 | paid reader claims 2026-11-01-rtoc |
+| 8 | regressors-tale | potions_and_recipes | 19 | 637 | paid reader claims 2026-11-01-rtoc |
+| 9 | reverend-insanity | potions_and_recipes | 19 | 501 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
 | 10 | aos-soulbound | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
 | 11 | eberron | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/eberron (local, gitignored) |
 | 12 | forgotten-realms | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
@@ -613,7 +613,7 @@
 | 20 | ravenloft | potions_and_recipes | 16 | 607 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravenloft (local, gitignored) |
 | 21 | wildemount | potions_and_recipes | 16 | 607 | chapter text docs/research/tabletop-settings-2026-11-17/private/wildemount (local, gitignored) |
 | 22 | eclipse-phase | potions_and_recipes | 16 | 592 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
-| 23 | worm | artifacts | 16 | 317 | paid reader claims 2026-11-01-worm |
+| 23 | worm | artifacts | 16 | 316 | paid reader claims 2026-11-01-worm |
 | 24 | spelljammer | potions_and_recipes | 15 | 587 | chapter text docs/research/tabletop-settings-2026-11-17/private/spelljammer (local, gitignored) |
 | 25 | the-dark-eye | potions_and_recipes | 15 | 587 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-dark-eye (local, gitignored) |
 
@@ -1067,15 +1067,15 @@
 | --- | --- | ---: |
 | pf1_items | item-bound-power | 974 |
 | gu_moves | roles-unknown | 651 |
-| gu_kinds | effect-unknown | 315 |
 | hp_creatures | effect-unknown | 306 |
-| gu_kinds | rank-unknown | 245 |
+| gu_kinds | effect-unknown | 296 |
 | pf1_spells | area-field | 244 |
 | dnd_srd_items | item-bound-power | 225 |
+| gu_kinds | rank-unknown | 221 |
 | shadow_slave_creatures | effect-unknown | 202 |
 | fated_villain_artifacts | effect-unknown | 180 |
 | legendary_mechanic_artifacts | effect-unknown | 179 |
-| gu_generated | grammar-verb-object | 177 |
+| gu_generated | grammar-verb-object | 176 |
 | numenera_artifacts | area-field | 151 |
 | ars_magica_items | item-bound-power | 150 |
 | pf1_items | conceal-or-sense | 149 |
@@ -1661,7 +1661,6 @@
 | the_strange_artifacts | item-state | 11 |
 | pf1_items | memory-transfer | 11 |
 | brp_conditions | mind-state | 11 |
-| gu_kinds | mind-state | 11 |
 | pf1_powers | mind-state | 11 |
 | dnd5e_2014_powers | object-surface | 11 |
 | numenera_rules | power-interaction | 11 |
@@ -1704,6 +1703,7 @@
 | eclipse_phase_institutions | mind-binding | 10 |
 | hp_objects | mind-binding | 10 |
 | theros_creatures | mind-binding | 10 |
+| gu_kinds | mind-state | 10 |
 | cypher_powers | object-surface | 10 |
 | fate_powers | object-surface | 10 |
 | pf1_items | portal-space | 10 |
@@ -1788,7 +1788,6 @@
 | shadow_slave_artifacts | spatial-storage | 9 |
 | pf1_spells | spirit-contract-judgement | 9 |
 | dnd5e_2014_surge_tables | time-manipulation | 9 |
-| gu_kinds | time-manipulation | 9 |
 | pf1_items | tinker-device | 9 |
 | brp_items | area-field | 8 |
 | planescape_rules | area-field | 8 |
@@ -1851,6 +1850,7 @@
 | the_strange_rules | spatial-storage | 8 |
 | ars_magica_spells | spirit-contract-judgement | 8 |
 | pf1_items | spirit-contract-judgement | 8 |
+| gu_kinds | time-manipulation | 8 |
 | eclipse_phase_places | area-field | 7 |
 | fate_conditions | area-field | 7 |
 | spelljammer_rules | area-field | 7 |
@@ -1873,9 +1873,7 @@
 | ravenloft_rules | containment-rule | 7 |
 | theros_rules | containment-rule | 7 |
 | dnd_srd_powers | creature-control | 7 |
-| gu_kinds | creature-control | 7 |
 | dnd5e_2014_class_features | death-checkpoint-rewind | 7 |
-| gu_kinds | divination | 7 |
 | hp_objects | divination | 7 |
 | lotm_artifacts | divination | 7 |
 | aos_soulbound_creatures | familiar-summon | 7 |
@@ -1958,6 +1956,7 @@
 | ars_magica_conditions | creature-control | 6 |
 | cypher_creatures | creature-control | 6 |
 | cypher_spells | creature-control | 6 |
+| gu_kinds | creature-control | 6 |
 | pf1_creatures | creature-control | 6 |
 | fated_villain_powers | dimension-travel | 6 |
 | aos_soulbound_creatures | divination | 6 |
@@ -2067,7 +2066,6 @@
 | dnd_srd_class_features | creature-control | 5 |
 | dnd_srd_spells | creature-control | 5 |
 | worm_powers | creature-control | 5 |
-| gu_kinds | death-checkpoint-rewind | 5 |
 | ars_magica_conditions | dimension-travel | 5 |
 | cypher_powers | dimension-travel | 5 |
 | mm3e_powers | dimension-travel | 5 |
@@ -2105,7 +2103,6 @@
 | eclipse_phase_qs_items | item-bound-power | 5 |
 | regressors_tale_powers | item-bound-power | 5 |
 | stars_without_number_rules | item-bound-power | 5 |
-| gu_kinds | item-state | 5 |
 | cypher_powers | luck-mechanism | 5 |
 | dnd5e_2014_powers | luck-mechanism | 5 |
 | dnd_srd_class_features | luck-mechanism | 5 |
@@ -2207,11 +2204,13 @@
 | ravenloft_artifacts | containment-rule | 4 |
 | fate_powers | creature-control | 4 |
 | ironsworn_powers | creature-control | 4 |
+| gu_kinds | death-checkpoint-rewind | 4 |
 | dnd5e_2014_items | dimension-travel | 4 |
 | dnd_srd_creatures | dimension-travel | 4 |
 | circle_of_inevitability_artifacts | divination | 4 |
 | eclipse_phase_artifacts | divination | 4 |
 | forgotten_realms_artifacts | divination | 4 |
+| gu_kinds | divination | 4 |
 | mystara_artifacts | divination | 4 |
 | numenera_creatures | divination | 4 |
 | planescape_creatures | divination | 4 |
@@ -2262,6 +2261,7 @@
 | theros_artifacts | item-bound-power | 4 |
 | you_have_died_again_powers | item-bound-power | 4 |
 | forgotten_realms_artifacts | item-state | 4 |
+| gu_kinds | item-state | 4 |
 | mystara_artifacts | item-state | 4 |
 | planescape_artifacts | item-state | 4 |
 | ravenloft_artifacts | item-state | 4 |
@@ -2560,7 +2560,6 @@
 | dnd5e_2014_feats | protection-field | 3 |
 | dnd_srd_creatures | protection-field | 3 |
 | fate_creatures | protection-field | 3 |
-| gu_kinds | protection-field | 3 |
 | ironsworn_powers | protection-field | 3 |
 | ars_magica_spells | revival-on-death | 3 |
 | fate_powers | revival-on-death | 3 |
@@ -2922,6 +2921,7 @@
 | pf1_creatures | projection-body | 2 |
 | cypher_conditions | protection-field | 2 |
 | dnd5e_2014_backgrounds_species | protection-field | 2 |
+| gu_kinds | protection-field | 2 |
 | hp_potions | protection-field | 2 |
 | rezero_powers | protection-field | 2 |
 | brp_conditions | revival-on-death | 2 |
@@ -3006,7 +3006,6 @@
 | fate_items | area-field | 1 |
 | forgotten_realms_institutions | area-field | 1 |
 | golarion_creatures | area-field | 1 |
-| gu_kinds | area-field | 1 |
 | hp_objects | area-field | 1 |
 | ironsworn_powers | area-field | 1 |
 | solo_leveling_powers | area-field | 1 |
@@ -3063,7 +3062,6 @@
 | eclipse_phase_qs_powers | conceal-or-sense | 1 |
 | fate_conditions | conceal-or-sense | 1 |
 | fate_spells | conceal-or-sense | 1 |
-| gu_kinds | conceal-or-sense | 1 |
 | brp_creatures | concept-law | 1 |
 | cypher_powers | concept-law | 1 |
 | dnd5e_2014_creatures | concept-law | 1 |
@@ -3397,7 +3395,6 @@
 | gu_generated | needs-flock | 1 |
 | gu_generated | needs-forged-metal | 1 |
 | gu_generated | needs-formation-plate | 1 |
-| gu_generated | needs-fox | 1 |
 | gu_generated | needs-frost-jade-essence | 1 |
 | gu_generated | needs-garlic-bulb | 1 |
 | gu_generated | needs-glass-sand | 1 |
@@ -3447,6 +3444,7 @@
 | gu_generated | needs-saltpeter | 1 |
 | gu_generated | needs-smelting-furnace | 1 |
 | gu_generated | needs-snail-shell | 1 |
+| gu_generated | needs-solstice-alignment | 1 |
 | gu_generated | needs-spoken-promise | 1 |
 | gu_generated | needs-spoken-wish | 1 |
 | gu_generated | needs-spoken-words | 1 |
@@ -3461,7 +3459,6 @@
 | gu_generated | needs-thunder-echo | 1 |
 | gu_generated | needs-thyme-plant | 1 |
 | gu_generated | needs-truffle | 1 |
-| gu_generated | needs-two-marked-targets | 1 |
 | gu_generated | needs-valued-possession | 1 |
 | gu_generated | needs-wanderer-trail | 1 |
 | gu_generated | needs-water-surface | 1 |

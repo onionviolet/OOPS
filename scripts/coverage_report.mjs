@@ -105,9 +105,11 @@ export const DENOMINATORS = {
     shadow_slave_echoes: {expected: 37, owner: 'L', what: 'Shadow Slave Echoes as companions: census ids that name an Echo (PWC28)'},
 };
 const STATE = /^(runs-canon|runs-authored|runs-derived|expressed-canon|expressed-authored|expressed-derived|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
+// variant_of, rank, rankBasis and modelRank belong to generated rows too (PWC47, PWC49: the canon Gu a kept near-name is a series member of, the rank from the
+// family-median rule with its basis, and the model's own rank as a note).
 // tier, concept, promptHash, nearest and model belong to generated rows (PWC30): the tier apart from canon and derived, the concept word,
 // the hash of the frozen prompt, the nearest canon Gu and the model that wrote the row (AU17).
-const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model']);
+const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model', 'variant_of', 'rank', 'rankBasis', 'modelRank']);
 
 // Validate one ledger's text. Returns {rows, problems}; a problem names its line.
 export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file))} = {}) {

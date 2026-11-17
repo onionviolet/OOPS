@@ -218,6 +218,38 @@ export function deriveRows(world, blocked, scores) {
     return rows;
 }
 
+// ---- PWC49: ranks for generated Gu ----
+// A generated Gu (docs/coverage/gu_generated.jsonl) takes its rank from the family-median rule, over the canon Gu that state a rank,
+// so a rank band is never the model's guess (the reconstruction score showed both models lose to the baseline on rank band, PWC31).
+// Features: path as the model gave it; band immortal when the model's own rank is 6 or higher (a coarse mortal or immortal call that the
+// rule needs and the model is better placed to make than the path), otherwise unmarked. The median is taken over every ranked canon
+// Gu in the family (n and spread recorded), widest fit last; with fewer than MIN_FAMILY members the model's rank stays, marked as such.
+export function loadWorld() {
+    const index = loadIndex(), read = f => JSON.parse(readFileSync(join(root, f), 'utf8'));
+    return buildWorld({index, edges: read(EDGES_FILE).edges, chapterTier: read('docs/coverage/chapter_tier_labels.json').gu_kinds, wikiTier: read('docs/coverage/wiki_tier_labels.json').gu_kinds});
+}
+export function generatedRanker(world = loadWorld()) {
+    const pool = Object.keys(world.rank);
+    const fit = (band, path) => {
+        for (const [family, test] of [['band+path', x => x.band === band && path && x.path === path], ['band', x => x.band === band && band !== 'unmarked']]) {
+            const ranks = pool.filter(id => test(world.feat[id])).map(id => world.rank[id]);
+            if (ranks.length >= MIN_FAMILY) {
+                const s = [...ranks].sort((p, q) => p - q);
+                return {rank: median(ranks), basis: {rule: RULE_IDS.family, family: `${family}: ${[band, family.includes('path') && path].filter(Boolean).join('/')}`, n: ranks.length, min: s[0], max: s[s.length - 1]}};
+            }
+        }
+        return null;
+    };
+    return ({path, modelRank}) => {
+        const band = modelRank >= 6 ? 'immortal' : 'unmarked';
+        const hit = fit(band, path);
+        if (!hit) return {rank: modelRank, basis: {rule: 'model', family: null, n: 0}};
+        // Mortal Gu are rank 1 to 5 and Immortal Gu rank 6 to 9 in this world, so the median is held to its band (default; the dial is the band call).
+        const clamped = band === 'immortal' ? Math.max(6, hit.rank) : Math.min(5, hit.rank);
+        return clamped === hit.rank ? hit : {rank: clamped, basis: {...hit.basis, medianBeforeBand: hit.rank}};
+    };
+}
+
 const RULE_ROWS = (scores) => [
     {id: RULE_IDS.precursor, world: 'reverend-insanity',
         statement: 'A Gu refined from other Gu is one rank above the highest-ranked Gu it is refined from.',
