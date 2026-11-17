@@ -396,3 +396,51 @@ Read it as a modest lift over the majority guess on small samples (n of 12 and 1
 | LATER / DELEGATE | PWC22b | Wire `src/hp_property_set.js` to the brewing panel so a material row is reachable from `src/main.js`; then the 84 dosed rows can be typed `runs-derived`. Level: Sonnet lane, one registration line paid for by moving one out (AR1). |
 | LATER / DELEGATE | PWC22c | The optional Luna check of each derived set against its wiki description was not run: the score shows the rule is weak enough that a model check is better spent after PWC22a adds edges ($3 cap, `scripts/label_runner.mjs`, batch, AU16). |
 | ACCOUNT FOR NOW | PWC22d | Shared-file notes: `scripts/b_coverage_ledgers.mjs` gained one hook line (`foldDerived`), one `derived` pass-through in `toLedgerRow`, and the summary's runs share now counts canon and authored only; `src/brew_dose_response.js` gained two exports (`doseBody`, `doseResponse`) split out of `doseResponseCase` with no behavior change. A sibling lane editing the same lines should keep all four. |
+
+## PWC27 effect-unknown from chapters (2026-11-17, proposals)
+
+Weibao: "send more batched". PWC27 ran the R5 method on every `blocked:effect-unknown` row whose world has chapter text on disk, asking only what the power does. The brief counted 1,034 rows; the merged ledgers hold **1,162** in 12 files (Gu kinds 516, Circle of Inevitability 104, Legendary Mechanic 104, Fated Villain 91, Re:Zero 79, Hogwarts objects 78, Worm 68, Lord of the Mysteries artifacts 46, Reverend Insanity treasures 40, Mother of Learning 34, A Novel Concept 1, Speedrunning the Multiverse 1), so all 1,162 were run. Agent-verified, not human-reviewed.
+
+**Method.** `scripts/chapter_effect_packets.py` searches the private chapter text by name and aliases with no model call, keeps at most eight cited paragraphs per row (ranked by effect words) and records every row, zero-hit rows included. It reuses the R5 loaders for Reverend Insanity, Lord of the Mysteries and Harry Potter and adds a generic EPUB reader (locator `<book>:m<spine member>:p<paragraph>`) and the Re:Zero translation posts (`rz:<post>:p<k>`). Texts: the supplied EPUBs for Worm, Circle of Inevitability (the official English edition, not the MTL scrape the rows cite), The Legendary Mechanic, Mother of Learning, I Am the Fated Villain (the Gemini MTL edition), A Novel Concept and Speedrunning the Multiverse 1-4. `scripts/chapter_effect_pass.mjs` sends one request per row through `scripts/label_runner.mjs` (header first, paragraphs as `shared`, the question "what does this power do" last, AU16): one effect-grammar sentence (verb, object, target, time from `src/effect_grammar.js`) with locator and speaker, and the capability the sentence needs. Reader gpt-6-luna, low effort, one reader, no second pass. `scripts/chapter_effect_labels.mjs` keeps a sentence only if its locator opens a line of the packet that was sent, its speaker is narrator, character claim or demonstration, and every word is in the grammar; it writes the `effect_unknown` section of `docs/coverage/chapter_tier_labels.json` (words, locators and speakers only; paraphrases and text stay private).
+
+**Score first.** The cohort is rows that already hold a wiki-, claim- or model-tier sentence (up to 30 per ledger, half held out by the GKM429 hash), sent through the same prompt before any blocked row was read. 111 of 306 cohort rows came back with a chapter sentence (the rest were silent or unbacked); of those, the verb matched in 60 (54%), the object in 65 (59%) and both in 47 (42%). Held out (GKM429): 42 of 141 answered, verb 22, object 25, both 19 (45%). So the chapter sentence agrees with the earlier tier on about half the rows where both exist, and the earlier tier is itself a model reading of a summary, so disagreement is not proof either way. Fated Villain is the weak book (1 of 9 both): the MTL prose names the Talent and not its operation, and the earlier tier probably drew on the pass-2 notes. Gu has no cohort (the wiki tier states function families, not sentences). Reading: these are one-reader proposals; use them as catalogue lines, not as checked effects.
+
+**Yield per book.**
+
+| Ledger (book) | Effect-unknown rows | No chapter hit | Sent | Chapter states nothing | Sentence kept | Of those catalogued | Share of rows with a sentence |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Legendary Mechanic | 104 | 39 | 65 | 22 | 38 | 22 | 37% |
+| Mother of Learning | 34 | 13 | 21 | 10 | 10 | 6 | 29% |
+| Circle of Inevitability | 104 | 25 | 79 | 42 | 31 | 14 | 30% |
+| Fated Villain | 91 | 32 | 59 | 31 | 21 | 12 | 23% |
+| Re:Zero | 79 | 22 | 57 | 33 | 20 | 12 | 25% |
+| Worm | 68 | 7 | 61 | 39 | 19 | 10 | 28% |
+| Gu kinds (Reverend Insanity) | 516 | 41 | 475 | 230 | 196 | 103 | 38% |
+| Reverend Insanity treasures | 40 | 0 | 40 | 33 | 5 | 2 | 13% |
+| Lord of the Mysteries artifacts | 46 | 32 | 14 | 9 | 4 | 2 | 9% |
+| Hogwarts objects | 78 | 68 | 10 | 9 | 1 | 0 | 1% |
+| Speedrunning the Multiverse | 1 | 0 | 1 | 0 | 1 | 0 | 100% |
+| A Novel Concept | 1 | 0 | 1 | 1 | 0 | 0 | 0% |
+| **All** | **1,162** | **280** | **883** | **450** | **346** | **183** | **30%** |
+
+("Chapter states nothing" counts rows where the reader answered verb none or effect-unknown; 4 to 7 per ledger more were rejected because the locator was not a sent line or the speaker was not a chapter speaker, 49 of them in Gu, and are left blocked.)
+
+**What this says.**
+- **How often a book describes its powers differs a lot.** The two LitRPG-leaning books with system screens (Legendary Mechanic 37%) and the Gu catalogue (38%) answer most often; the literary ones (Re:Zero, Worm, Circle) sit near 25 to 30%; Fated Villain's Talents are named and rarely shown (23%). Items are worst: Hogwarts objects 1%, because 68 of 78 are wiki-only or game-only names the novels never use, and Lord of the Mysteries artifacts 9% (32 of 46 never named in the English text, and the sealed ones are described by their wiki pages, not the story). Treasures in Reverend Insanity are named often but their use is rarely stated (5 of 40).
+- **346 rows gain a sentence; 183 are catalogued, 163 move to a capability.** Blocked-after capabilities, summed: mind-state 25, body-form 20, divination 12, time-manipulation 11, death-checkpoint-rewind 10, then creature-control, protection-field, formation-field and area-field at 8 each and 12 others at 7 or fewer. Effect-unknown falls from 1,162 to 816 across the 12 ledgers (Gu 516 to 320; the rest in the table).
+- The 280 zero-hit rows mostly carry descriptive names ("Hila's mastered effects", "Valkyrie injection") or names with three letters or fewer; those need an alias list, not more reading (PWC27b).
+
+**Folding.** `scripts/chapter_effect_tier.mjs` (`foldChapterEffect`) is a tier above the model and wiki tiers (GKM445): a `blocked:effect-unknown` row with a kept sentence becomes `catalogued` when the sentence alone runs it, or `blocked:<capability>`, and its note gains `Chapter tier (PWC27 ...): effect verb.object/target/time at <locator> (<speaker>)` and its former state. Every ledger builder calls it (`gu_coverage_ledgers`, `artifact_ledgers`, `book_power_ledgers`, `litrpg_power_ledgers`, `worm_power_ledger`, `rezero_power_build`), so a rebuild keeps the fold; `scripts/chapter_effect_fold.mjs` applies it to the committed jsonl where a builder needs private replies (idempotent, `--check`). Each ledger keeps its own blocker vocabulary (PWC5), so the reader's capability maps to the nearest slug the ledger already defines (`NEAREST` in the module) and the note keeps the reader's word; Re:Zero gained six capability entries (protection-field, divination, mind-state, containment-rule, formation-field, power-interaction) in `rezero_power_frozen.mjs` for this, and `tests/gu_derived_ranks.test.js` now accepts `catalogued` or a capability slug for a derived-rank Gu row that gained a sentence. `scripts/chapter_tier_labels.mjs` now keeps the `effect_unknown` section when it rewrites the file. `docs/coverage/README.md` and `worlds.jsonl` were regenerated. Nothing here changes a row that already has an effect.
+
+**Cost.** 1,007 requests (883 blocked rows, 124 more in the scoring cohort that had hits) all gpt-6-luna at low effort: about $0.11 for the delivered answers (484,536 input, 5,520 cached, 633,898 written, 175,146 output tokens; batch rate for most, sync for the reruns), about $0.03 more on four batches I cancelled when their last 10 requests had run for more than 20 minutes (the cancelled batches' result files could not be fetched, so 257 Circle, Fated Villain and Re:Zero rows and 2 Gu rows were re-sent synchronously). About $0.15 of the $4 cap. Caching again saved almost nothing (1%): evidence is per row.
+
+**Dispositions.**
+
+| Disposition | Code | Finding |
+| --- | --- | --- |
+| ACT NOW (done) | PWC27 | Chapter sentences for 346 of 1,162 effect-unknown rows; 880 zero-hit or chapter-silent rows keep a hit count and stay blocked. |
+| ACCOUNT FOR NOW | PWC27a | The remaining 816 effect-unknown rows are no longer a reading gap in these twelve books; Gu (320) needs a wiki-and-claim pass for family, and items need the wiki tier's own effect text, not the novels. |
+| ACCOUNT FOR NOW | PWC27b | Zero-hit rows with descriptive names (Legendary Mechanic 39, Circle 25, Fated Villain 32, Re:Zero 22) need aliases from the books' own terms before a second search. Level: Sonnet lane, free (no model call), one alias list per book. |
+| LATER / DELEGATE | PWC27c | A second reader (Haiku) over the 346 sentences, and a check of the 183 `catalogued` rows against the world's effect grammar before any is typed `runs-*`. About $0.05. |
+
+**Gaps.** One reader per row; paragraph search is by exact name, so spelling variants and MTL names miss; Circle of Inevitability and Fated Villain are different editions from the ones the ledger rows cite, so a name may differ; Harry Potter is windowed by five prepared lines; nothing was exercised in the game (ledger rows only, no gameplay claim). Rule codes cited: AU16, GKM429, GKM445, AD32, WPR codes not applicable.

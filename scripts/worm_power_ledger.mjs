@@ -5,6 +5,7 @@
 // Usage: node scripts/worm_power_ledger.mjs [--check]
 import {readFileSync, writeFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {foldChapterEffect} from './chapter_effect_tier.mjs';
 
 const dir = new URL('../docs/coverage/', import.meta.url);
 export const readSidecar = () => JSON.parse(readFileSync(new URL('worm_power_labels.json', dir), 'utf8'));
@@ -32,7 +33,7 @@ export function buildWormLedger(sidecar = readSidecar()) {
         if (!runs) parts.push(`Missing: ${r.blocked}${r.blockedSecond === 'differ' ? ' (readers differ)' : ''}.`);
         else parts.push('Grammar sentence names a runnable effect; no case yet.');
         const source = [...r.sources, ...(r.claimCount > 6 ? [`+${r.claimCount - 6} claims`] : [])].join('; ') || 'denominator:merge-reply';
-        return {id, source, state, mechanisms: owners, test: null, note: parts.join(' ').replace(/\s*\u2014\s*/g, ', ')};
+        return foldChapterEffect('worm_powers', {id, source, state, mechanisms: owners, test: null, note: parts.join(' ').replace(/\s*\u2014\s*/g, ', ')});
     });
 }
 export const toLedgerText = rows => rows.map(r => JSON.stringify(r)).join('\n') + '\n';

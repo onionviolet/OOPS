@@ -58,6 +58,13 @@ export const CAPABILITIES = {
     'power-transfer': 'A power that moves to a successor on the holder\'s death or by selection (R6, R12)',
     'holder-mind-drift': 'The power warps its holder over time (PWC6)',
     'spirit-contract-judgement': 'Contract breach judged by the contractor\'s belief and wording (R30)',
+    // PWC27 (2026-11-17, proposal): capabilities a chapter-read effect sentence needs, from the shared reader list.
+    'protection-field': 'A ward or shield around a person or place that stops harm (PWC27)',
+    'divination': 'Learns what is hidden, distant or to come by a power (PWC27)',
+    'mind-state': 'Changes the holder\'s or another\'s mood, senses or will without binding it (PWC27)',
+    'containment-rule': 'A power held in a place or vessel by a rule or seal (PWC27)',
+    'formation-field': 'An arranged ground or circle that sets the field the power acts in (PWC27)',
+    'power-interaction': 'The effect depends on another power meeting or cancelling it (PWC27)',
     'effect-unknown': 'The evidence states no effect to express',
 };
 export const CAPABILITY_ORDER = Object.keys(CAPABILITIES);

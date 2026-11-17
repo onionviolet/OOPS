@@ -6,7 +6,7 @@
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 525 | 171 | 750 | 4 | 0 | 100% | 35.9% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 525 | 171 | 647 | 4 | 0 | 100% | 35.9% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 0 | 759 | 0 | 0 | 100% | 1.3% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 0 | 193 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 0 | 171 | 9 | 0 | 100% | 5% |
@@ -16,21 +16,21 @@
 | [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 0 | 19 | 29 | 0 | 100% | 0% |
 | [speedrunning_multiverse_powers](speedrunning_multiverse_powers.jsonl) | P | to build | 111 | 0 | 0 | 0 | 46 | 13 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
-| [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 0 | 207 | 0 | 0 | 100% | 0% |
+| [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 0 | 197 | 0 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 0 | 100% | 17.2% |
-| [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 0 | 106 | 26 | 0 | 100% | 0% |
+| [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 0 | 94 | 26 | 0 | 100% | 0% |
 | [perfect_run_powers](perfect_run_powers.jsonl) | W | 113 | 113 | 0 | 0 | 0 | 43 | 0 | 0 | 100% | 0% |
-| [lotm_artifacts](lotm_artifacts.jsonl) | A | 240 | 240 | 0 | 0 | 0 | 128 | 3 | 0 | 100% | 0% |
+| [lotm_artifacts](lotm_artifacts.jsonl) | A | 240 | 240 | 0 | 0 | 0 | 126 | 3 | 0 | 100% | 0% |
 | [hp_objects](hp_objects.jsonl) | A | 599 | 599 | 0 | 0 | 0 | 160 | 20 | 0 | 100% | 0% |
-| [ri_treasures](ri_treasures.jsonl) | A | 91 | 91 | 0 | 0 | 0 | 58 | 2 | 0 | 100% | 0% |
+| [ri_treasures](ri_treasures.jsonl) | A | 91 | 91 | 0 | 0 | 0 | 56 | 2 | 0 | 100% | 0% |
 | [shadow_slave_powers](shadow_slave_powers.jsonl) | W | 436 | 436 | 0 | 0 | 0 | 178 | 3 | 0 | 100% | 0% |
 | [solo_leveling_powers](solo_leveling_powers.jsonl) | W | 38 | 38 | 0 | 0 | 0 | 16 | 2 | 0 | 100% | 0% |
 | [omniscient_reader_powers](omniscient_reader_powers.jsonl) | W | 102 | 102 | 0 | 0 | 0 | 68 | 2 | 0 | 100% | 0% |
 | [regressors_tale_powers](regressors_tale_powers.jsonl) | W | 184 | 184 | 0 | 0 | 0 | 83 | 0 | 0 | 100% | 0% |
-| [mother_of_learning_powers](mother_of_learning_powers.jsonl) | W | 230 | 230 | 0 | 0 | 0 | 157 | 5 | 0 | 100% | 0% |
-| [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 0 | 323 | 8 | 0 | 100% | 0% |
-| [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 0 | 180 | 3 | 0 | 100% | 0% |
-| [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 0 | 226 | 10 | 0 | 100% | 0% |
+| [mother_of_learning_powers](mother_of_learning_powers.jsonl) | W | 230 | 230 | 0 | 0 | 0 | 151 | 5 | 0 | 100% | 0% |
+| [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 0 | 309 | 8 | 0 | 100% | 0% |
+| [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 0 | 158 | 3 | 0 | 100% | 0% |
+| [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 0 | 214 | 10 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -183,31 +183,31 @@
 
 | # | World | Corpus | Shared slugs | Weight | Source |
 | ---: | --- | --- | ---: | ---: | --- |
-| 1 | harry-potter | creatures | 19 | 141 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
-| 2 | mother-of-learning | artifacts | 15 | 194 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 3 | lotm | powers | 15 | 154 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
-| 4 | circle-of-inevitability | artifacts | 13 | 192 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
-| 5 | fated-villain | artifacts | 13 | 185 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 6 | legendary-mechanic | artifacts | 13 | 156 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 7 | speedrunning-multiverse | artifacts | 11 | 136 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 8 | shadow-slave | artifacts | 9 | 167 | paid reader claims 2026-11-01-ss |
-| 9 | regressors-tale | artifacts | 9 | 159 | paid reader claims 2026-11-01-rtoc |
-| 10 | a-novel-concept | artifacts | 8 | 98 | deep dive docs/research/novels/a-novel-concept/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 11 | worm | artifacts | 8 | 93 | paid reader claims 2026-11-01-worm |
-| 12 | naruto | powers | 7 | 146 | wiki dump ~/.codex/research/wikis/naruto.fandom.com/dump |
-| 13 | typemoon | powers | 7 | 145 | wiki dump ~/.codex/research/wikis/typemoon.fandom.com/dump |
-| 14 | jujutsu-kaisen | powers | 7 | 145 | wiki dump ~/.codex/research/wikis/jujutsu-kaisen.fandom.com/dump |
-| 15 | omniscient-reader | artifacts | 7 | 117 | deep dive docs/research/novels/omniscient-reader/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 16 | hunterxhunter | powers | 6 | 129 | wiki dump ~/.codex/research/wikis/hunterxhunter.fandom.com/dump |
-| 17 | dresdenfiles | powers | 6 | 126 | wiki dump ~/.codex/research/wikis/dresdenfiles.fandom.com/dump |
-| 18 | blackclover | powers | 6 | 124 | wiki dump ~/.codex/research/wikis/blackclover.fandom.com/dump |
-| 19 | solo-leveling | artifacts | 6 | 119 | deep dive docs/research/novels/solo-leveling/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 20 | perfect-run | artifacts | 6 | 90 | paid reader claims 2026-11-01-pr |
-| 21 | you-have-died-again | artifacts | 6 | 82 | deep dive docs/research/novels/you-have-died-again/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 22 | reverend-insanity | potions_and_recipes | 6 | 42 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
-| 23 | bleach | powers | 5 | 118 | wiki dump ~/.codex/research/wikis/bleach.fandom.com/dump |
-| 24 | myheroacademia | powers | 5 | 117 | wiki dump ~/.codex/research/wikis/myheroacademia.fandom.com/dump |
-| 25 | towerofgod | powers | 5 | 111 | wiki dump ~/.codex/research/wikis/towerofgod.fandom.com/dump |
+| 1 | reverend-insanity | potions_and_recipes | 20 | 141 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
+| 2 | harry-potter | creatures | 19 | 155 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
+| 3 | mother-of-learning | artifacts | 15 | 200 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 4 | legendary-mechanic | artifacts | 15 | 183 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 5 | lotm | powers | 15 | 163 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
+| 6 | fated-villain | artifacts | 14 | 199 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 7 | circle-of-inevitability | artifacts | 13 | 198 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
+| 8 | worm | artifacts | 11 | 103 | paid reader claims 2026-11-01-worm |
+| 9 | speedrunning-multiverse | artifacts | 10 | 132 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 10 | shadow-slave | artifacts | 9 | 172 | paid reader claims 2026-11-01-ss |
+| 11 | regressors-tale | artifacts | 9 | 166 | paid reader claims 2026-11-01-rtoc |
+| 12 | rezero | artifacts | 9 | 97 | deep dive docs/research/novels/rezero/DEEP_DIVE_2026-10-24.md (local, gitignored) |
+| 13 | a-novel-concept | artifacts | 8 | 101 | deep dive docs/research/novels/a-novel-concept/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 14 | naruto | powers | 7 | 151 | wiki dump ~/.codex/research/wikis/naruto.fandom.com/dump |
+| 15 | typemoon | powers | 7 | 149 | wiki dump ~/.codex/research/wikis/typemoon.fandom.com/dump |
+| 16 | jujutsu-kaisen | powers | 7 | 149 | wiki dump ~/.codex/research/wikis/jujutsu-kaisen.fandom.com/dump |
+| 17 | omniscient-reader | artifacts | 7 | 123 | deep dive docs/research/novels/omniscient-reader/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 18 | hunterxhunter | powers | 6 | 133 | wiki dump ~/.codex/research/wikis/hunterxhunter.fandom.com/dump |
+| 19 | dresdenfiles | powers | 6 | 130 | wiki dump ~/.codex/research/wikis/dresdenfiles.fandom.com/dump |
+| 20 | blackclover | powers | 6 | 128 | wiki dump ~/.codex/research/wikis/blackclover.fandom.com/dump |
+| 21 | solo-leveling | artifacts | 6 | 124 | deep dive docs/research/novels/solo-leveling/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 22 | perfect-run | artifacts | 6 | 95 | paid reader claims 2026-11-01-pr |
+| 23 | you-have-died-again | artifacts | 6 | 87 | deep dive docs/research/novels/you-have-died-again/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 24 | bleach | powers | 5 | 122 | wiki dump ~/.codex/research/wikis/bleach.fandom.com/dump |
+| 25 | myheroacademia | powers | 5 | 121 | wiki dump ~/.codex/research/wikis/myheroacademia.fandom.com/dump |
 
 70 worlds have a next cell and 675 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
 
@@ -472,26 +472,25 @@
 | Ledger | Missing rule | Rows |
 | --- | --- | ---: |
 | gu_moves | roles-unknown | 651 |
-| gu_kinds | effect-unknown | 516 |
+| gu_kinds | effect-unknown | 320 |
 | gu_kinds | rank-unknown | 234 |
 | hp_ingredients | ingredient-no-recipe-edge | 134 |
-| circle_of_inevitability_powers | effect-unknown | 104 |
-| legendary_mechanic_powers | effect-unknown | 104 |
-| fated_villain_powers | effect-unknown | 91 |
-| rezero_powers | effect-unknown | 79 |
-| hp_objects | effect-unknown | 78 |
-| worm_powers | effect-unknown | 68 |
+| hp_objects | effect-unknown | 77 |
+| circle_of_inevitability_powers | effect-unknown | 73 |
+| fated_villain_powers | effect-unknown | 70 |
+| legendary_mechanic_powers | effect-unknown | 66 |
 | circle_of_inevitability_powers | item-bound-power | 64 |
 | gu_moves | roles-unchecked | 63 |
+| rezero_powers | effect-unknown | 59 |
 | shadow_slave_powers | area-field | 55 |
 | omniscient_reader_powers | sponsorship-contract | 50 |
+| worm_powers | effect-unknown | 49 |
 | regressors_tale_powers | area-field | 47 |
 | hp_potions | body-door | 46 |
-| lotm_artifacts | effect-unknown | 46 |
 | shadow_slave_powers | form-transformation | 46 |
-| ri_treasures | effect-unknown | 40 |
+| lotm_artifacts | effect-unknown | 42 |
+| ri_treasures | effect-unknown | 35 |
 | mother_of_learning_powers | soul-state | 35 |
-| mother_of_learning_powers | effect-unknown | 34 |
 | fated_villain_powers | item-bound-power | 34 |
 | hp_potions | effect-sentence | 33 |
 | worm_powers | tinker-device | 33 |
@@ -499,41 +498,46 @@
 | hp_potions | plant-or-creature-target | 32 |
 | hp_potions | mind-state | 31 |
 | gu_moves | unnamed-role | 28 |
+| circle_of_inevitability_powers | divination-fate | 27 |
+| circle_of_inevitability_powers | mind-binding | 26 |
 | shadow_slave_powers | power-interaction | 26 |
 | hp_potions | body-form | 24 |
-| circle_of_inevitability_powers | divination-fate | 24 |
-| circle_of_inevitability_powers | form-transformation | 23 |
-| circle_of_inevitability_powers | mind-binding | 21 |
-| circle_of_inevitability_powers | area-field | 20 |
-| circle_of_inevitability_powers | dimension-travel | 19 |
+| mother_of_learning_powers | effect-unknown | 24 |
+| circle_of_inevitability_powers | form-transformation | 24 |
+| circle_of_inevitability_powers | area-field | 22 |
+| circle_of_inevitability_powers | dimension-travel | 21 |
 | fated_villain_powers | soul-state | 19 |
+| gu_kinds | body-form | 17 |
+| fated_villain_powers | divination-fate | 17 |
 | regressors_tale_powers | form-transformation | 17 |
+| lotm_artifacts | mind-binding | 17 |
 | gu_moves | role-cannot-run | 17 |
 | hp_objects | spatial-storage | 17 |
-| fated_villain_powers | divination-fate | 15 |
-| lotm_artifacts | mind-binding | 15 |
-| mother_of_learning_powers | mind-binding | 15 |
-| mother_of_learning_powers | power-interaction | 15 |
-| worm_powers | power-interaction | 15 |
-| circle_of_inevitability_powers | soul-state | 15 |
+| mother_of_learning_powers | mind-binding | 16 |
+| mother_of_learning_powers | power-interaction | 16 |
+| worm_powers | power-interaction | 16 |
+| circle_of_inevitability_powers | soul-state | 16 |
+| worm_powers | body-form | 15 |
+| mother_of_learning_powers | area-field | 14 |
+| worm_powers | area-field | 14 |
 | hp_ingredients | ingredient-effect-outside-axis-set | 14 |
 | hp_ingredients | ingredient-recipe-effect-unknown | 14 |
-| worm_powers | body-form | 13 |
+| legendary_mechanic_powers | soul-state | 14 |
 | lotm_artifacts | negative-effect-drift | 13 |
-| legendary_mechanic_powers | soul-state | 13 |
 | fated_villain_powers | system-interface | 13 |
 | legendary_mechanic_powers | system-interface | 13 |
-| mother_of_learning_powers | area-field | 12 |
+| fated_villain_powers | area-field | 12 |
 | speedrunning_multiverse_powers | concept-law | 12 |
 | lotm_potions | formula-wiki-unchecked | 12 |
+| legendary_mechanic_powers | item-bound-power | 12 |
 | worm_powers | mind-binding | 12 |
+| fated_villain_powers | power-interaction | 12 |
 | perfect_run_powers | source-link | 12 |
-| fated_villain_powers | area-field | 11 |
-| worm_powers | area-field | 11 |
 | circle_of_inevitability_powers | familiar-summon | 11 |
-| legendary_mechanic_powers | item-bound-power | 11 |
 | mother_of_learning_powers | item-bound-power | 11 |
 | speedrunning_multiverse_powers | item-bound-power | 11 |
+| gu_kinds | mind-state | 11 |
+| worm_powers | protection-field | 11 |
 | rezero_powers | spirit-contract-judgement | 11 |
 | perfect_run_powers | area-field | 10 |
 | mother_of_learning_powers | divination-fate | 10 |
@@ -541,34 +545,37 @@
 | labyrinth_mad_god_powers | item-bound-power | 10 |
 | ri_treasures | material-row | 10 |
 | hp_objects | mind-binding | 10 |
-| fated_villain_powers | power-interaction | 10 |
+| circle_of_inevitability_powers | power-interaction | 10 |
 | lotm_artifacts | power-interaction | 10 |
-| worm_powers | protection-field | 10 |
 | lotm_artifacts | spatial-storage | 10 |
+| legendary_mechanic_powers | blueprint-craft | 9 |
 | hp_potions | conceal-or-sense | 9 |
 | a_novel_concept_powers | concept-law | 9 |
 | hp_objects | containment-rule | 9 |
-| circle_of_inevitability_powers | power-interaction | 9 |
+| fated_villain_powers | form-transformation | 9 |
+| fated_villain_powers | mind-binding | 9 |
+| legendary_mechanic_powers | mind-binding | 9 |
+| gu_kinds | time-manipulation | 9 |
 | mother_of_learning_powers | dimension-travel | 8 |
-| fated_villain_powers | form-transformation | 8 |
 | legendary_mechanic_powers | form-transformation | 8 |
-| fated_villain_powers | mind-binding | 8 |
+| hp_objects | formation-field | 8 |
+| worm_powers | mind-state | 8 |
 | hp_objects | negative-effect-drift | 8 |
 | hp_potions | object-surface | 8 |
 | a_novel_concept_powers | power-interaction | 8 |
+| gu_kinds | creature-control | 7 |
+| gu_kinds | divination | 7 |
 | hp_objects | divination | 7 |
 | lotm_artifacts | divination | 7 |
-| hp_objects | formation-field | 7 |
 | hp_ingredients | ingredient-derived-below-confidence | 7 |
 | you_have_died_again_powers | memory-transfer | 7 |
-| legendary_mechanic_powers | mind-binding | 7 |
-| worm_powers | mind-state | 7 |
 | worm_powers | portal-space | 7 |
 | hp_objects | power-interaction | 7 |
 | regressors_tale_powers | power-interaction | 7 |
 | speedrunning_multiverse_powers | power-interaction | 7 |
 | rezero_powers | power-transfer | 7 |
 | worm_powers | projection-body | 7 |
+| legendary_mechanic_powers | area-field | 6 |
 | lotm_potions | body-door | 6 |
 | worm_powers | conceal-or-sense | 6 |
 | fated_villain_powers | dimension-travel | 6 |
@@ -576,103 +583,121 @@
 | hp_objects | item-state | 6 |
 | shadow_slave_powers | mind-binding | 6 |
 | hp_potions | place-release | 6 |
+| legendary_mechanic_powers | power-interaction | 6 |
 | circle_of_inevitability_powers | vow-cost | 6 |
 | lotm_artifacts | area-field | 5 |
 | omniscient_reader_powers | area-field | 5 |
-| legendary_mechanic_powers | blueprint-craft | 5 |
 | perfect_run_powers | body-code-decay | 5 |
 | legendary_mechanic_powers | construct-upkeep | 5 |
 | worm_powers | creature-control | 5 |
+| gu_kinds | death-checkpoint-rewind | 5 |
 | mother_of_learning_powers | form-transformation | 5 |
 | regressors_tale_powers | item-bound-power | 5 |
+| gu_kinds | item-state | 5 |
 | rezero_powers | memory-erasure | 5 |
-| legendary_mechanic_powers | power-interaction | 5 |
 | solo_leveling_powers | power-interaction | 5 |
 | shadow_slave_powers | power-transfer | 5 |
+| gu_kinds | spatial-storage | 5 |
+| circle_of_inevitability_powers | time-loop | 5 |
 | worm_powers | time-manipulation | 5 |
-| legendary_mechanic_powers | area-field | 4 |
 | solo_leveling_powers | familiar-summon | 4 |
+| gu_kinds | form-transformation | 4 |
 | speedrunning_multiverse_powers | form-transformation | 4 |
+| gu_kinds | formation-field | 4 |
 | ri_treasures | formation-field | 4 |
 | you_have_died_again_powers | item-bound-power | 4 |
 | hp_objects | material-row | 4 |
+| gu_kinds | portal-space | 4 |
 | circle_of_inevitability_powers | power-transfer | 4 |
 | fated_villain_powers | power-transfer | 4 |
 | omniscient_reader_powers | power-transfer | 4 |
+| worm_powers | precognition | 4 |
 | a_novel_concept_powers | revival-on-death | 4 |
 | mother_of_learning_powers | time-loop | 4 |
 | shadow_slave_powers | vow-cost | 4 |
+| ri_treasures | area-field | 3 |
 | a_novel_concept_powers | body-conditioning-rank | 3 |
+| gu_kinds | containment-rule | 3 |
 | lotm_artifacts | containment-rule | 3 |
+| legendary_mechanic_powers | dimension-travel | 3 |
 | hp_objects | familiar-summon | 3 |
 | lotm_artifacts | familiar-summon | 3 |
 | labyrinth_mad_god_powers | form-transformation | 3 |
 | solo_leveling_powers | item-bound-power | 3 |
+| gu_kinds | mind-binding | 3 |
 | perfect_run_powers | mind-binding | 3 |
+| rezero_powers | mind-binding | 3 |
+| speedrunning_multiverse_powers | mind-binding | 3 |
 | worm_powers | power-granting | 3 |
+| gu_kinds | power-interaction | 3 |
 | omniscient_reader_powers | power-interaction | 3 |
 | perfect_run_powers | power-interaction | 3 |
 | you_have_died_again_powers | power-interaction | 3 |
-| worm_powers | precognition | 3 |
+| gu_kinds | protection-field | 3 |
 | lotm_artifacts | soul-binding | 3 |
-| circle_of_inevitability_powers | time-loop | 3 |
 | omniscient_reader_powers | time-loop | 3 |
 | perfect_run_powers | time-loop | 3 |
 | regressors_tale_powers | time-loop | 3 |
 | you_have_died_again_powers | time-loop | 3 |
-| ri_treasures | area-field | 2 |
 | labyrinth_mad_god_powers | body-conditioning-rank | 2 |
 | perfect_run_powers | bond-slots | 2 |
-| legendary_mechanic_powers | dimension-travel | 2 |
+| rezero_powers | death-checkpoint-rewind | 2 |
 | legendary_mechanic_powers | divination-fate | 2 |
+| legendary_mechanic_powers | familiar-summon | 2 |
 | mother_of_learning_powers | familiar-summon | 2 |
 | shadow_slave_powers | familiar-summon | 2 |
 | omniscient_reader_powers | form-transformation | 2 |
 | solo_leveling_powers | form-transformation | 2 |
 | a_novel_concept_powers | item-bound-power | 2 |
+| ri_treasures | item-state | 2 |
 | hp_potions | luck-field | 2 |
 | a_novel_concept_powers | luck-mechanism | 2 |
 | perfect_run_powers | memory-transfer | 2 |
-| rezero_powers | mind-binding | 2 |
-| speedrunning_multiverse_powers | mind-binding | 2 |
 | labyrinth_mad_god_powers | power-interaction | 2 |
 | mother_of_learning_powers | power-transfer | 2 |
 | speedrunning_multiverse_powers | power-transfer | 2 |
 | hp_potions | protection-field | 2 |
+| rezero_powers | protection-field | 2 |
 | hp_objects | soul-binding | 2 |
 | speedrunning_multiverse_powers | source-link | 2 |
 | shadow_slave_powers | sponsorship-contract | 2 |
 | a_novel_concept_powers | time-loop | 2 |
+| fated_villain_powers | time-loop | 2 |
+| legendary_mechanic_powers | time-loop | 2 |
 | perfect_run_powers | time-stop | 2 |
 | worm_powers | timeline-split | 2 |
 | mother_of_learning_powers | vow-cost | 2 |
 | perfect_run_powers | anti-power-site | 1 |
 | a_novel_concept_powers | area-field | 1 |
+| gu_kinds | area-field | 1 |
 | hp_objects | area-field | 1 |
 | solo_leveling_powers | area-field | 1 |
 | mother_of_learning_powers | blueprint-craft | 1 |
 | speedrunning_multiverse_powers | body-conditioning-rank | 1 |
 | you_have_died_again_powers | body-conditioning-rank | 1 |
+| gu_kinds | conceal-or-sense | 1 |
 | mother_of_learning_powers | construct-upkeep | 1 |
-| rezero_powers | death-checkpoint-rewind | 1 |
+| rezero_powers | containment-rule | 1 |
+| rezero_powers | divination | 1 |
 | a_novel_concept_powers | effect-unknown | 1 |
-| speedrunning_multiverse_powers | effect-unknown | 1 |
-| legendary_mechanic_powers | familiar-summon | 1 |
 | hp_objects | form-transformation | 1 |
 | you_have_died_again_powers | form-transformation | 1 |
 | lotm_artifacts | formation-field | 1 |
+| rezero_powers | formation-field | 1 |
 | lotm_potions | formula-chapter-labelled | 1 |
 | speedrunning_multiverse_powers | future-vision | 1 |
 | hp_ingredients | ingredient-not-material | 1 |
 | a_novel_concept_powers | inner-world | 1 |
 | lotm_artifacts | item-state | 1 |
-| ri_treasures | item-state | 1 |
 | speedrunning_multiverse_powers | luck-mechanism | 1 |
 | hp_ingredients | material-row | 1 |
 | regressors_tale_powers | mind-binding | 1 |
+| ri_treasures | mind-binding | 1 |
 | a_novel_concept_powers | mind-ennoblement | 1 |
+| rezero_powers | power-interaction | 1 |
 | lotm_artifacts | power-transfer | 1 |
 | regressors_tale_powers | power-transfer | 1 |
+| gu_kinds | soul-binding | 1 |
 | labyrinth_mad_god_powers | source-link | 1 |
 | ri_treasures | spatial-storage | 1 |
 | rezero_powers | speech-penalty | 1 |
@@ -680,6 +705,7 @@
 | solo_leveling_powers | time-loop | 1 |
 | speedrunning_multiverse_powers | time-loop | 1 |
 | fated_villain_powers | vow-cost | 1 |
+| legendary_mechanic_powers | vow-cost | 1 |
 | omniscient_reader_powers | vow-cost | 1 |
 | regressors_tale_powers | vow-cost | 1 |
 | speedrunning_multiverse_powers | world-travel | 1 |
