@@ -13,14 +13,12 @@ const base=process.env.PROOF_BASE||'http://127.0.0.1:19477/',out=process.env.PRO
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&!/status of 404/.test(m.text()))errors.push(m.text());})/* Known noise: a plain static server has no private fonts or packs, so those 404s log console errors. They are collected in `missing`, not treated as failures. */;page.on('response',r=>{if(r.status()===404)missing.push(r.url());});
  await page.goto(base+'?test_hooks=1');await page.waitForFunction(()=>window.simulationTestHooks);await page.evaluate(()=>window.simulationTestHooks.pause());await startFresh(page);
  const bundle=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name.split('version=')[1]);
- await page.getByRole('button',{name:'Talk to someone'}).click(); // role, not text: the first text match is a hidden duplicate
- await page.locator('[data-dialogue="villageElder"]').click();
+ await page.locator('[data-nearby-verb="talk:villageElder"]').click(); // the Here box's own Talk (PS67)
  // The talk view (#talk_view_host) covers the native text lines, so choose through its own options.
  await page.locator('#talk_view_host .talk-view').waitFor({state:'visible'});
  for(const key of ['hello','what happened','ask to leave 1','need to']){const opt=page.locator(`#talk_view_host button[data-topic-id="${key}"][data-topic-state="new"]`);await opt.click();await opt.waitFor({state:'detached'});}
  await page.locator('#center_mode_back').click();
- await page.locator('#location_actions_div').getByText('Move somewhere else',{exact:false}).first().click();
- await page.locator('#location_actions_div .action_travel[data-travel="Infested field"]').click();await waitLocation(page,'Infested field');
+ await page.locator('[data-nearby-verb="go:Infested field"]').click();await waitLocation(page,'Infested field');
  await page.locator('#combat_div .fighter_div').first().waitFor({state:'attached'});
  await page.evaluate(()=>window.advanceTicks(8,{render:true}));
  const card=page.locator('#fight_situation');await card.waitFor({state:'visible'});

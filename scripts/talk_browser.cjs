@@ -24,8 +24,7 @@ fs.mkdirSync(output, {recursive: true});
         await page.waitForTimeout(400);
         const saved = await page.evaluate(() => localStorage.getItem('save data'));
         // Route: the place action, exactly as a player takes it.
-        await page.getByRole('button', {name: 'Talk to someone'}).click();
-        await page.locator('[data-dialogue="villageElder"]').click();
+        await page.locator('[data-nearby-verb="talk:villageElder"]').click();
         const view = page.locator('#talk_view_host .talk-view');
         await view.waitFor({state: 'visible', timeout: 5000});
         const shot = name => page.screenshot({path: path.join(output, name)});
@@ -69,8 +68,7 @@ fs.mkdirSync(output, {recursive: true});
         // Persistence: nothing new is saved by talk state itself; reload and the heard row is derived again.
         await page.evaluate(() => window.saveProgress && window.saveProgress());
         await page.reload(); await page.getByText('PLAY', {exact: true}).click(); await page.waitForTimeout(500);
-        await page.getByRole('button', {name: 'Talk to someone'}).click();
-        await page.locator('[data-dialogue="villageElder"]').click();
+        await page.locator('[data-nearby-verb="talk:villageElder"]').click();
         await page.locator('#talk_view_host .talk-view').waitFor({state: 'visible', timeout: 5000});
         const reloaded = await text();
         assert.match(reloaded, /Already covered:\n- .*\(heard\)/);

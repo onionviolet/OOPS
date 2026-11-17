@@ -43,7 +43,7 @@ const measure=()=>{
 const failShot=async()=>s.page?.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});
 try{
  await s.open();const p=s.page;
- await p.locator('#location_actions_div [data-lotm-door]').click();
+ await p.locator('[data-nearby-verb="way:place:lotm-door"]').click();
  await p.locator('#lotm_panel [data-lotm="pick_probationer"]').click();
  await p.locator('#lotm_panel [data-lotm="enroll"]').click();
  await p.waitForFunction(()=>/Tingen/.test(document.querySelector('#location_name_span')?.textContent||''),null,{timeout:30000});await p.waitForTimeout(350);

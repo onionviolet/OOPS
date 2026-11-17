@@ -10,8 +10,7 @@ const MIN_PER_DAY = 1440;
 export async function runVillageLeadLine() {
     const bot = await leadBot(null, {seed: SEED, wallStart: Date.UTC(2026, 0, 1, 12)});
     try {
-        await bot.click('.choice_dialogue');
-        await bot.click('[data-dialogue="villageElder"]');
+        await bot.click('[data-nearby-verb="talk:villageElder"]');
         await bot.click('[data-textline="hello"]');
         await bot.click('#center_mode_back');
         const minutes = [bot.minute()];

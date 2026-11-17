@@ -16,7 +16,13 @@ import {readFileSync} from 'node:fs';
 // origin. It never stands in for the floor's fresh-origin line when the feature is the start of a life (docs/RULES_INDEX.md, AD36).
 import {boot} from './runner.mjs';
 // Around you folds to one Here line (PS120, e1abe03a9); a script that picks a person opens the full list first, as a player would.
-const openAround = async game => { if (game.$('.nearby-context-view[data-compact="true"]')) await game.click('[data-here-link="all"]'); };
+// PS192, PS67: with the Here box in column 3 a person's own Talk verb is the route; the place look still has the Talk to someone group.
+const talkHere = async (game, who) => {
+    const verb = game.$(`[data-nearby-verb="talk:${who}"]`);
+    if (verb) return game.click(verb);
+    await game.click(game.$$('[data-native-choice="location"]').find(e => /Talk to someone/.test(e.textContent)));
+    await game.click(`[data-dialogue="${who}"]`);
+};
 
 const PANEL = '#workspace_navigation select[aria-label="Other known panels"]';
 const say = (...a) => process.env.YAIRPG_FIXTURE_QUIET ? undefined : process.stderr.write(`[fixture] ${a.join(' ')}\n`);
@@ -173,9 +179,7 @@ export const WORLD_FIXTURES = Object.freeze({
             const B = 'book.mol.', ex = () => game.snapshot().expansion;
             const card = id => `[data-action-legibility-key="action:${id}"] button.action-legibility__button`;
             await game.step(3);
-            await game.click(game.$$('[data-native-choice="location"]').find(e => /Talk to someone/.test(e.textContent)));
-            await game.settle(100);
-            await game.click('[data-dialogue="villageElder"]');
+            await talkHere(game, 'villageElder');
             for(const k of ['hello', 'what happened', 'ask to leave 1', 'need to']) await game.click(`.talk-view [data-topic-id="${k}"]`);
             await game.click('#center_mode_back');
             await game.step(3);
@@ -224,8 +228,7 @@ export const WORLD_FIXTURES = Object.freeze({
             inv[JSON.stringify({id: 'Hunter\'s arrow'})] = {count: 6};
             await game.load(save); // through the real load path
             for(const who of ['villageElder', 'oldCraftsman']) {
-                await openAround(game); await game.clickText(who === 'villageElder' ? /village elder\s*Village neighbor$/ : /old craftsman\s*Village neighbor$/);
-                await game.click(`[data-focus-action="talk:${who}"]`);
+                await talkHere(game, who);
                 await game.click('[data-textline="hello"]');
                 await game.click('#center_mode_back');
             }

@@ -1467,6 +1467,13 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 .scene-place-head > strong {display:block;font-weight:600;}
 .scene-place-head > p {margin:0!important;color:var(--p23-muted);line-height:1.35;}
 .scene-place-head > details > summary {cursor:pointer;color:var(--p23-muted);}
+/* PS67-PS70 (proposal): with the Here box in column 3, people and ways out live there only. Column 2 drops the "Talk to someone" and
+   "Move somewhere else" groups and the crossing door (the Here box lists the same people, exits and crossing, each with its verb). A resident's
+   "Nearby: ..." door stays: in a flat with nothing else to do it is all column 2 holds, and an empty box is worse than a repeat,
+   and keeps the verbs that have no noun in Here (Find work, Crafting, Sleep). The place look keeps today's lists. */
+#main_content[data-here-at="column"] #location_actions_div > .location_choice_dropdown[data-choice-key="Move somewhere else"],
+#main_content[data-here-at="column"] #location_actions_div > .location_choice_dropdown[data-choice-key="Talk to someone"],
+#main_content[data-here-at="column"] #location_actions_div > [data-lotm-door][data-lotm-local-entry="false"] {display:none!important;}
 @media(min-width:1001px){
 #main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="focus"] {display:none;}
 #main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="journal"] > .workspace-module[data-module="focus"] {flex:0 1 auto!important;min-height:0;}

@@ -18,7 +18,7 @@ const digest = (v) => crypto.createHash('sha256').update(JSON.stringify(strip(v)
         page.on('pageerror', e => result.errors.push(e.message)); page.on('console', m => { if (m.type() === 'error') result.errors.push(m.text()); });
         await page.goto(url); await page.getByText('PLAY', {exact: true}).click();
         if (await page.getByText('Confirm', {exact: true}).isVisible().catch(() => false)) await page.getByText('Confirm', {exact: true}).click();
-        await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+        await page.locator('[data-nearby-verb="talk:villageElder"]').click();
         await page.locator('[data-textline="hello"]').click(); await page.evaluate(() => window.end_dialogue());
         const read = () => page.evaluate(() => { window.saveProgress(); return JSON.parse(localStorage.getItem('save data')); });
         const first = await read(); result.keys = Object.keys(first).sort(); result.first = digest(first); fs.writeFileSync(out.replace(/\.json$/, '.save.json'), JSON.stringify(first));

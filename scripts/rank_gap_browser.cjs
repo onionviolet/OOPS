@@ -13,7 +13,7 @@ async function reachGoa({browser,errors,line}){
   await page.goto(url);await page.waitForFunction(()=>window.simulationTestHooks);await startFresh(page);
   const snap=()=>page.evaluate(()=>window.simulationTestHooks.snapshot());
   const a=page.locator('#location_actions_div');
-  await a.getByText('Talk to someone',{exact:false}).first().click();await a.getByText('Talk to village elder',{exact:false}).first().click();
+  await page.locator('[data-nearby-verb="talk:villageElder"]').click();
   for(const key of ['hello','what happened','ask to leave 1','need to']){const l=a.locator(`.dialogue_textline[data-textline="${key}"]`);await l.waitFor({state:'visible'});await l.evaluate(n=>n.click());await l.waitFor({state:'detached'});}
   await page.evaluate(()=>end_dialogue());await advanceGameMinutes(page,3);
   line('elder','four textlines done (village.elderMet is native, main.js metVillageElder)');

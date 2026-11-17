@@ -56,8 +56,8 @@ let p = session.page;
 await p.waitForTimeout(600);
 // M2: the fixture predates the saved log tail, so the walk plays a short errand (to the willow stand and back),
 // saves and reopens. Home is then read the way a returning player meets it: Reports opens on the last sitting.
-await p.locator('.location_choice[data-travel="Wild willow stand"]').first().click(); await session.step(6);
-await p.locator('.location_choice[data-travel="Village"]').first().click(); await session.step(6);
+await p.locator('[data-nearby-verb="go:Wild willow stand"]:visible, .location_choice[data-travel="Wild willow stand"]:visible').first().click(); await session.step(6);
+await p.locator('[data-nearby-verb="go:Village"]:visible, .location_choice[data-travel="Village"]:visible').first().click(); await session.step(6);
 await session.save();
 await session.open(JSON.parse(await p.evaluate(() => localStorage.getItem('save data'))));
 p = session.page;
@@ -277,7 +277,7 @@ const STATES = [
     // A fight: walk from the Village into the Infested field on the mid-life save and let the first exchange play.
     {label: 'a fight in the Infested field', open: async () => {
         const s = await openState(seed, WALL);
-        await s.page.locator('.location_choice[data-travel="Infested field"]').first().click();
+        await s.page.locator('[data-nearby-verb="go:Infested field"]:visible, .location_choice[data-travel="Infested field"]:visible').first().click();
         await s.step(20);
         return s;
     }, must: p => p.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /opponent/i.test(e.textContent) && /\d+\/\d+ hp/.test(e.textContent))

@@ -21,7 +21,7 @@ const openPledges = async () => {
 const tempering = () => [...doc().querySelectorAll('*')].map(n => n.childNodes.length === 1 && n.textContent).find(t => t && /^Current body tempering:/.test(t.trim()))?.trim() ?? null;
 
 try {
-    for (const sel of ['.choice_dialogue', '[data-dialogue="villageElder"]', '[data-textline="hello"]', '[data-textline="where am i"]',
+    for (const sel of ['[data-nearby-verb="talk:villageElder"]', '[data-textline="hello"]', '[data-textline="where am i"]',
         '[data-textline="ask to leave 1"]', '[data-textline="need to"]', '#center_mode_back']) await game.click(sel);
     await game.step(15);
     note('elder', {field: hasText('Infested field')});

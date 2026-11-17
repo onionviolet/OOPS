@@ -66,8 +66,7 @@ const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 try {
     await session.open();
     const local = session.page.locator('#location_actions_div');
-    await local.getByText('Talk to someone',{exact:false}).first().click();
-    await local.locator('[data-dialogue="villageElder"]').click();
+    await session.page.locator('[data-nearby-verb="talk:villageElder"]').click();
     for (const key of ['hello','what happened','ask to leave 1','need to']) {
         await local.locator(`.talk-view [data-topic-id="${key}"]`).click();
     }

@@ -12,8 +12,7 @@ let failed = '';
 try {
     await s.open();
     const p = s.page;
-    await p.getByRole('button', {name: 'Talk to someone'}).click();
-    await p.locator('[data-dialogue="villageElder"]').click();
+    await p.locator('[data-nearby-verb="talk:villageElder"]').click();
     await p.waitForTimeout(800);
     const native = await p.evaluate(() => {const n = document.querySelector('[data-textline="hello"]'); return n && {hidden: n.getAttribute('aria-hidden'), clipped: getComputedStyle(n).clipPath};});
     if(!native || native.hidden !== 'true' || native.clipped === 'none') failed = `native hello line is not hidden from sight and assistive tech: ${JSON.stringify(native)}`;

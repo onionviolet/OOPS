@@ -237,8 +237,7 @@ async function greetElder(c, seed) {
     // This regression proves the formerly hidden control is reachable and accepts a click.
     assert.equal((await c.tool('game_status')).errors.length, 0, 'Village action click raises no page error');
     await c.tool('game_new', {seed});
-    await c.tool('game_click', {key: '.choice_dialogue'});
-    await c.tool('game_click', {key: '[data-dialogue="villageElder"]'});
+    await c.tool('game_click', {key: '[data-nearby-verb="talk:villageElder"]'});
     await c.tool('game_click', {key: '[data-textline="hello"]'});
     await c.tool('game_step', {minutes: 15});
     return c.tool('game_save');
@@ -247,11 +246,9 @@ async function greetElder(c, seed) {
 async function nativeDropdownRoundtrip(c) {
     await c.tool('game_new', {seed: 251036});
     const local = () => c.tool('game_look', {scope: '#location_actions_div'});
+    // PS67: the way out is the Here box's own Go verb; the Move somewhere else group is hidden beside it.
+    await c.tool('game_click', {key: '[data-nearby-verb="go:Wild willow stand"]'});
     let v = await local();
-    await c.tool('game_click', {index: v.actions.find(a => /Move somewhere else/.test(a.text)).index});
-    v = await local();
-    await c.tool('game_click', {index: v.actions.find(a => /Go to \[Wild willow stand\]/.test(a.text)).index});
-    v = await local();
     assert.equal(v.location, 'Wild willow stand');
     const dropdown = v.actions.find(a => a.key === '.location_choice_dropdown' || a.key.includes('location_choice_dropdown') || a.key.includes('data-native-choice'));
     assert.ok(dropdown, 'native listener-only dropdown appears in action list');
@@ -295,8 +292,7 @@ async function blockedRoutes(c) {
     assert.doesNotMatch(v.screen, /A disposable test start/, 'enrollment retires the test-start choices');
 
     await c.tool('game_new', {seed: 251043});
-    await c.tool('game_click', {key: '.choice_dialogue'});
-    await c.tool('game_click', {key: '[data-dialogue="villageElder"]'});
+    await c.tool('game_click', {key: '[data-nearby-verb="talk:villageElder"]'});
     await c.tool('game_click', {key: '[data-textline="hello"]'});
     await c.tool('game_click', {key: '#center_mode_back'});
     await c.tool('game_step', {minutes: 1});
@@ -444,7 +440,7 @@ try {
     assert.ok(stepDelta.addedLineCount > 0 && stepDelta.addedLineCount < 40 && stepDelta.time.minute === 30, 'step delta carries the new clock line');
     const talk = (await c.tool('game_look', {sessionId: 'compact', view: 'compact'}));
     const fullNow = await c.tool('game_look', {sessionId: 'compact', offset: 0});
-    const dlg = fullNow.actions.find(a => a.key === '.choice_dialogue');
+    const dlg = fullNow.actions.find(a => /^\[data-nearby-verb="talk:/.test(a.key));
     if(dlg) {
         const d = await c.tool('game_click', {sessionId: 'compact', index: dlg.index, view: 'compact'});
         for(const a of d.newActions) assert.equal((await c.tool('game_look', {sessionId: 'compact'})).actionCount > a.index, true, 'new action index is valid in the full list');

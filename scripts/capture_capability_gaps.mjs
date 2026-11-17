@@ -63,9 +63,8 @@ try {
     await page.keyboard.press('Control+k'); await page.waitForTimeout(300);
     await shot(page, 'v03-after-ctrl-k', {palette: await page.evaluate(() => [...document.querySelectorAll('#command_palette_list li')].filter(li => li.getAttribute('role') === 'presentation').map(li => li.textContent))});
     await page.keyboard.press('Escape');
-    await actions.getByText('Talk to someone', {exact: false}).first().click(); await page.waitForTimeout(300);
-    await shot(page, 'v04-talk-menu');
-    await actions.getByText('Talk to village elder', {exact: false}).first().click(); await page.waitForTimeout(300);
+    await shot(page, 'v04-here-box');
+    await page.locator('[data-nearby-verb="talk:villageElder"]').click(); await page.waitForTimeout(300);
     await shot(page, 'v05-elder-dialogue');
     const hello = actions.locator('.dialogue_textline[data-textline="hello"]');
     await hello.waitFor({state: 'visible'}); await hello.evaluate(n => n.click()); await hello.waitFor({state: 'detached'});
@@ -81,7 +80,7 @@ try {
     const context2 = await browser.newContext({viewport: {width: 1920, height: 1080}}), lead = await context2.newPage();
     lead.on('pageerror', e => errors.push(e.message));
     await start(lead);
-    await lead.locator('#location_actions_div').getByText('Cross to another world', {exact: false}).first().click(); await lead.waitForTimeout(500);
+    await lead.locator('[data-nearby-verb="way:place:lotm-door"]').click(); await lead.waitForTimeout(500);
     await shot(lead, 't01-world-entry');
     await lead.getByRole('button', {name: /Be Klein Moretti/}).first().click(); await lead.waitForTimeout(400);
     await shot(lead, 't02-lead-confirm');

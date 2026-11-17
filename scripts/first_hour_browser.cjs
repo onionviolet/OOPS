@@ -15,7 +15,7 @@ const tag=mode==='on'?'after':'before';
   const log=[];const note=async n=>{const t=await text();log.push({stage:n,nextStep:t});await shot(n);};
   await note('minute0');
   if(mode==='on')assert.match(await text(),/Talk to the village elder/);
-  await page.locator('[data-native-choice="location"]',{hasText:'Talk to someone'}).first().click();await page.locator('[data-dialogue="villageElder"]').click();
+  await page.locator('[data-nearby-verb="talk:villageElder"]').click();
   await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(300);
   assert.ok(!(await page.locator('body').innerText()).includes('text not found'),'a dialogue option shows raw missing-text');
   await page.locator('[data-textline="what happened"]').click();await page.waitForTimeout(1300);
