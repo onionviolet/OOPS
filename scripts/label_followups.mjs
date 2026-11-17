@@ -63,7 +63,7 @@ Gu: ${nameOf(id)}${r.path.value ? ` (path: ${r.path.value})` : ''}
 Effect: ${r.effect.value}`}))};
 }
 
-function guDietJobs() {
+export function guDietJobs() {
     const dietSchema = object({category: enumOf(DIETS), food: str, reason: str, cost: str});
     const jobs = Object.entries(guRows).map(([id, r]) => ({id, schema: dietSchema,
         user: `Propose a default diet for the Reverend Insanity Gu "${nameOf(id)}" from how Gu work: a Gu eats a raw form of what it stores, makes or works with, its path's material (wood-path Gu eat plants, blood-path Gu blood), or a food that fits what it does. Primeval essence is what activating it costs, not its food. category: the kind of food. food: the default food in a few words. reason: one clause tying it to the path or effect. cost: how scarce or costly the food is to keep it fed, in a few words.
@@ -92,7 +92,7 @@ const evidenceOf = p => `Evidence:\n${p.evidence.join('\n')}`;
 const slug = t => t.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 export const hpSplit = () => splitLabelled(HP_POTION_SENTENCES.map(s => ({id: `hp.potion.${slug(s.title)}`, title: s.title,
     family: potionFamily(s.title), parts: s.parts})), {ruleSawTitles: Object.keys(HP_POTION_FAMILY_OVERRIDES)});
-function hpSentenceJobs() {
+export function hpSentenceJobs() {
     const {tuned} = hpSplit();
     const shown = new Set(tuned.map(r => r.id));
     const lines = tuned.map(r => `- ${r.title}: ${JSON.stringify(r.parts)}`).join('\n');

@@ -1,0 +1,649 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/README.md#second-readers-and-lotm-mains-2026-11-17-proposals",
+  "date": "2026-11-17",
+  "chapterReader": "claude-haiku-5-5, low effort, batch, one read each, same packets and prompts as R5",
+  "weakReader": "claude-haiku-5-5, medium effort, batch",
+  "wikiCheck": "gpt-6-luna, low effort, batch",
+  "split": "held out when sha1(id)[0] < 0x33 (GKM429)"
+ },
+ "scores": {
+  "gu_kinds": {
+   "fields": 41,
+   "status": {
+    "differ": 2,
+    "agree": 29,
+    "absent": 10
+   },
+   "heldOut": {
+    "agree": 10,
+    "differ": 1
+   }
+  },
+  "lotm_potions": {
+   "fields": 16,
+   "status": {
+    "agree": 12,
+    "differ": 3,
+    "partial": 1
+   },
+   "heldOut": {
+    "differ": 1,
+    "agree": 2
+   },
+   "mainsAgree": 26,
+   "mains": 30
+  },
+  "hp_ingredients": {
+   "fields": 13,
+   "status": {
+    "agree": 10,
+    "differ": 2,
+    "partial": 1
+   },
+   "heldOut": {
+    "agree": 1,
+    "partial": 1
+   },
+   "axesAgree": 11,
+   "axes": 14
+  },
+  "weak_diet": {
+   "rows": 44,
+   "heldOut": 11,
+   "luna": {
+    "agree": 12,
+    "heldOut": 5
+   },
+   "haiku": {
+    "agree": 13,
+    "heldOut": 7
+   },
+   "haikuAgreesWithLuna": 26,
+   "bothRight": 8,
+   "eitherRight": 17,
+   "majorityBaseline": 8
+  },
+  "weak_sentence": {
+   "heldOut": 17,
+   "luna": {
+    "answered": 17,
+    "verb": 10,
+    "object": 16,
+    "target": 15,
+    "time": 9,
+    "carrier": 15,
+    "verbAndObject": 10,
+    "allFive": 4,
+    "grammarValid": 13
+   },
+   "haiku": {
+    "answered": 17,
+    "verb": 9,
+    "object": 16,
+    "target": 14,
+    "time": 10,
+    "carrier": 16,
+    "verbAndObject": 9,
+    "allFive": 5,
+    "grammarValid": 12
+   },
+   "verbAgreement": 13,
+   "eitherVerbRight": 11
+  },
+  "hp_wiki_check": {
+   "derivedSets": 178,
+   "unlabelled": {
+    "sets": 121,
+    "axes": 141,
+    "verdicts": {
+     "not-stated": 134,
+     "supported": 7
+    },
+    "topSupported": 6,
+    "topContradicted": 0,
+    "supportedInStated": 0,
+    "supported": 7,
+    "contradictedInStated": 0,
+    "contradicted": 0,
+    "axesInStated": 0
+   },
+   "labelled": {
+    "sets": 57,
+    "axes": 75,
+    "verdicts": {
+     "supported": 28,
+     "not-stated": 43,
+     "contradicted": 4
+    },
+    "topSupported": 23,
+    "topContradicted": 2,
+    "supportedInStated": 27,
+    "supported": 28,
+    "contradictedInStated": 0,
+    "contradicted": 4,
+    "axesInStated": 29
+   },
+   "heldOut": {
+    "sets": 12,
+    "axes": 15,
+    "verdicts": {
+     "not-stated": 11,
+     "supported": 4
+    },
+    "topSupported": 4,
+    "topContradicted": 0,
+    "supportedInStated": 4,
+    "supported": 4,
+    "contradictedInStated": 0,
+    "contradicted": 0,
+    "axesInStated": 5
+   },
+   "derivedOwnHeldOutTop": "5 of 12 (docs/coverage/hp_derived_score.json)",
+   "fold": {
+    "rule": "supported precision on held-out rows must beat 5/12",
+    "precision": 1,
+    "folds": false
+   }
+  }
+ },
+ "gu_kinds": {
+  "blood-asset": {
+   "field": "rank",
+   "value": 6,
+   "haiku": 8,
+   "status": "differ"
+  },
+  "candidate:accumulate-virtue-gu": {
+   "field": "rank",
+   "value": 2,
+   "haiku": 2,
+   "status": "agree"
+  },
+  "candidate:giant-mountain-puppet-gu": {
+   "field": "rank",
+   "value": 5,
+   "haiku": 5,
+   "status": "agree"
+  },
+  "candidate:guts-gu": {
+   "field": "rank",
+   "value": 2,
+   "haiku": null,
+   "status": "absent"
+  },
+  "candidate:monolith-gu": {
+   "field": "rank",
+   "value": 2,
+   "haiku": 2,
+   "status": "agree"
+  },
+  "candidate:problem-nipped-in-the-bud-gu": {
+   "field": "rank",
+   "value": 4,
+   "haiku": 4,
+   "status": "agree"
+  },
+  "candidate:righteous-gu": {
+   "field": "rank",
+   "value": 5,
+   "haiku": null,
+   "status": "absent"
+  },
+  "fandom:Effect_Gu": {
+   "field": "rank",
+   "value": 5,
+   "haiku": 5,
+   "status": "agree"
+  },
+  "fandom:Footprint_Gu": {
+   "field": "rank",
+   "value": 4,
+   "haiku": null,
+   "status": "absent"
+  },
+  "fandom:Soul_Suppression_Hall": {
+   "field": "rank",
+   "value": 8,
+   "haiku": 8,
+   "status": "agree"
+  },
+  "ice-blade": {
+   "field": "rank",
+   "value": 2,
+   "haiku": 2,
+   "status": "agree"
+  },
+  "plunder": {
+   "field": "rank",
+   "value": 2,
+   "haiku": 2,
+   "status": "agree"
+  },
+  "saga:adaptation-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": 8,
+   "status": "agree"
+  },
+  "saga:anxiety-accumulation-gu": {
+   "field": "rank",
+   "value": 2,
+   "haiku": 2,
+   "status": "agree"
+  },
+  "saga:autumn-gu": {
+   "field": "rank",
+   "value": 7,
+   "haiku": 7,
+   "status": "agree"
+  },
+  "saga:capture-wind-gu": {
+   "field": "rank",
+   "value": 7,
+   "haiku": 7,
+   "status": "agree"
+  },
+  "saga:cleanse-soul": {
+   "field": "rank",
+   "value": 6,
+   "haiku": 6,
+   "status": "agree"
+  },
+  "saga:consecutive-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": 8,
+   "status": "agree"
+  },
+  "saga:departure-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": null,
+   "status": "absent"
+  },
+  "saga:earth-refinement-gu": {
+   "field": "rank",
+   "value": 4,
+   "haiku": 4,
+   "status": "agree"
+  },
+  "saga:fan-wind-gu": {
+   "field": "rank",
+   "value": 7,
+   "haiku": 8,
+   "status": "differ"
+  },
+  "saga:fate-armor": {
+   "field": "rank",
+   "value": 8,
+   "haiku": 8,
+   "status": "agree"
+  },
+  "saga:flash-of-inspiration-gu": {
+   "field": "rank",
+   "value": 3,
+   "haiku": 3,
+   "status": "agree"
+  },
+  "saga:great-shock-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": null,
+   "status": "absent"
+  },
+  "saga:great-thief": {
+   "field": "rank",
+   "value": 7,
+   "haiku": 7,
+   "status": "agree"
+  },
+  "saga:heavenly-gong": {
+   "field": "rank",
+   "value": 6,
+   "haiku": 6,
+   "status": "agree"
+  },
+  "saga:hero-gu": {
+   "field": "rank",
+   "value": 5,
+   "haiku": null,
+   "status": "absent"
+  },
+  "saga:huge-wave-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": 8,
+   "status": "agree"
+  },
+  "saga:kinship-bloodworm": {
+   "field": "rank",
+   "value": 5,
+   "haiku": 5,
+   "status": "agree"
+  },
+  "saga:mature-bamboo": {
+   "field": "rank",
+   "value": 6,
+   "haiku": 6,
+   "status": "agree"
+  },
+  "saga:mutation-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": null,
+   "status": "absent"
+  },
+  "saga:purple-crystal-relic-gu": {
+   "field": "rank",
+   "value": 5,
+   "haiku": 5,
+   "status": "agree"
+  },
+  "saga:purple-smoke-cicada": {
+   "field": "rank",
+   "value": 5,
+   "haiku": 5,
+   "status": "agree"
+  },
+  "saga:ringing-sound-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": null,
+   "status": "absent"
+  },
+  "saga:sandpit-gu": {
+   "field": "rank",
+   "value": 1,
+   "haiku": 1,
+   "status": "agree"
+  },
+  "saga:space-travel": {
+   "field": "rank",
+   "value": 7,
+   "haiku": null,
+   "status": "absent"
+  },
+  "saga:spring-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": 8,
+   "status": "agree"
+  },
+  "saga:summer-gu": {
+   "field": "rank",
+   "value": 8,
+   "haiku": null,
+   "status": "absent"
+  },
+  "saga:winter-gu": {
+   "field": "rank",
+   "value": 7,
+   "haiku": 7,
+   "status": "agree"
+  },
+  "self-strength": {
+   "field": "rank",
+   "value": 6,
+   "haiku": 6,
+   "status": "agree"
+  },
+  "tyrant-strength": {
+   "field": "rank",
+   "value": 4,
+   "haiku": 4,
+   "status": "agree"
+  }
+ },
+ "lotm_potions": {
+  "lotm.potion.black_emperor_0": {
+   "field": "mains",
+   "mains": {
+    "Uniqueness": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.black_emperor_8": {
+   "field": "mains",
+   "mains": {
+    "Grass of Madness": "agree",
+    "core horn crystal of a Land Rhinoceros": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.chained_7": {
+   "field": "mains",
+   "mains": {
+    "Werewolf Beyonder characteristic": "unconfirmed"
+   },
+   "haikuExtra": 0,
+   "status": "differ"
+  },
+  "lotm.potion.death_9": {
+   "field": "mains",
+   "mains": {
+    "desiccated mature black-spotted frog": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.door_6": {
+   "field": "mains",
+   "mains": {
+    "brain of an Asmann": "unconfirmed",
+    "ancient wraith's cursed item": "agree"
+   },
+   "haikuExtra": 1,
+   "status": "partial"
+  },
+  "lotm.potion.fool_1": {
+   "field": "mains",
+   "mains": {
+    "Attendant of Mysteries Beyonder characteristic": "unconfirmed"
+   },
+   "haikuExtra": 0,
+   "status": "differ"
+  },
+  "lotm.potion.fool_3": {
+   "field": "mains",
+   "mains": {
+    "One Demonic Wolf of Fog's transformed heart": "unconfirmed"
+   },
+   "haikuExtra": 0,
+   "status": "differ"
+  },
+  "lotm.potion.fool_4": {
+   "field": "mains",
+   "mains": {
+    "Bizarro Bane's main eye": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.fool_5": {
+   "field": "mains",
+   "mains": {
+    "All-Black Eye": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.fool_7": {
+   "field": "mains",
+   "mains": {
+    "spinal fluid of a Dark Patterned Black Panther": "agree",
+    "true root and juice of a Mist Treant": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.justiciar_7": {
+   "field": "mains",
+   "mains": {
+    "horn of a Flash-patterned Black Snake": "agree",
+    "dust of a Lake Spirit": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.sun_6": {
+   "field": "mains",
+   "mains": {
+    "crystallized roots of the Tree of Elders": "agree",
+    "feathers of a Spirit Pact Bird": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.sun_8": {
+   "field": "mains",
+   "mains": {
+    "Brilliance Rock": "agree",
+    "powder of Dazzling Soul": "agree",
+    "Blood of a Mirror Hedgehog": "agree",
+    "Heart of a Magma Titan": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.sun_9": {
+   "field": "mains",
+   "mains": {
+    "Crystal Sunflower": "agree",
+    "adult Flint Bird's tail feather": "agree",
+    "Fire Bird's tail feather": "agree",
+    "a piece of Siren Rock": "agree",
+    "Singing Sunflower": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.visionary_4": {
+   "field": "mains",
+   "mains": {
+    "an elderly mind dragon's complete brain": "agree",
+    "the crystalline heart of a Tree Mentor": "agree",
+    "a Beyonder characteristic of a Manipulator": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "lotm.potion.visionary_7": {
+   "field": "mains",
+   "mains": {
+    "a controllable item": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  }
+ },
+ "hp_ingredients": {
+  "hp.ingredient.bezoar": {
+   "field": "axes",
+   "axes": {
+    "ward": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.bubotuber_pus": {
+   "field": "axes",
+   "axes": {
+    "bite": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.cat_hair": {
+   "field": "axes",
+   "axes": {
+    "form": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.demiguise_hair": {
+   "field": "axes",
+   "axes": {
+    "conceal-or-sense": "unconfirmed"
+   },
+   "haikuExtra": 0,
+   "status": "differ"
+  },
+  "hp.ingredient.dittany": {
+   "field": "axes",
+   "axes": {
+    "mend": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.dragon_claw": {
+   "field": "axes",
+   "axes": {
+    "mind": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.gurdyroot": {
+   "field": "axes",
+   "axes": {
+    "ward": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.lovage": {
+   "field": "axes",
+   "axes": {
+    "mind": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.mandrake": {
+   "field": "axes",
+   "axes": {
+    "form": "unconfirmed"
+   },
+   "haikuExtra": 2,
+   "status": "differ"
+  },
+  "hp.ingredient.phoenix_tears": {
+   "field": "axes",
+   "axes": {
+    "mend": "agree",
+    "ward": "unconfirmed"
+   },
+   "haikuExtra": 0,
+   "status": "partial"
+  },
+  "hp.ingredient.scurvy_grass": {
+   "field": "axes",
+   "axes": {
+    "mind": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.snake": {
+   "field": "axes",
+   "axes": {
+    "venom": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  },
+  "hp.ingredient.sneezewort": {
+   "field": "axes",
+   "axes": {
+    "mind": "agree"
+   },
+   "haikuExtra": 0,
+   "status": "agree"
+  }
+ }
+}

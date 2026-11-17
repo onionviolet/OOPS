@@ -6,11 +6,11 @@
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 525 | 171 | 750 | 4 | 0 | 100% | 35.9% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 521 | 171 | 754 | 4 | 0 | 100% | 35.6% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 0 | 759 | 0 | 0 | 100% | 1.3% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 0 | 193 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 0 | 171 | 9 | 0 | 100% | 5% |
-| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 0 | 19 | 0 | 0 | 100% | 0% |
+| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 0 | 18 | 0 | 0 | 100% | 0% |
 | [a_novel_concept_powers](a_novel_concept_powers.jsonl) | P | to build | 128 | 0 | 0 | 0 | 34 | 39 | 0 | 100% | 0% |
 | [labyrinth_mad_god_powers](labyrinth_mad_god_powers.jsonl) | P | to build | 57 | 0 | 0 | 0 | 18 | 17 | 0 | 100% | 0% |
 | [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 0 | 19 | 29 | 0 | 100% | 0% |
@@ -42,7 +42,7 @@
 | circle_of_inevitability_powers | 0 | 0 | 0 | 0 |
 | creatures | 17 | 82 | 0 | 17 |
 | fated_villain_powers | 0 | 0 | 0 | 0 |
-| gu_kinds | 696 | 16 | 0 | 696 |
+| gu_kinds | 692 | 16 | 0 | 692 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 209 | 0 | 20 |
 | hp_objects | 0 | 0 | 0 | 0 |
@@ -51,7 +51,7 @@
 | labyrinth_mad_god_powers | 0 | 0 | 0 | 0 |
 | legendary_mechanic_powers | 0 | 0 | 0 | 0 |
 | lotm_artifacts | 0 | 0 | 0 | 0 |
-| lotm_potions | 0 | 207 | 0 | 0 |
+| lotm_potions | 0 | 208 | 0 | 0 |
 | mother_of_learning_powers | 0 | 0 | 0 | 0 |
 | omniscient_reader_powers | 0 | 0 | 0 | 0 |
 | perfect_run_powers | 0 | 0 | 0 | 0 |
@@ -472,8 +472,8 @@
 | Ledger | Missing rule | Rows |
 | --- | --- | ---: |
 | gu_moves | roles-unknown | 651 |
-| gu_kinds | effect-unknown | 516 |
-| gu_kinds | rank-unknown | 234 |
+| gu_kinds | effect-unknown | 509 |
+| gu_kinds | rank-unknown | 245 |
 | hp_ingredients | ingredient-no-recipe-edge | 134 |
 | circle_of_inevitability_powers | effect-unknown | 104 |
 | legendary_mechanic_powers | effect-unknown | 104 |
@@ -661,7 +661,6 @@
 | hp_objects | form-transformation | 1 |
 | you_have_died_again_powers | form-transformation | 1 |
 | lotm_artifacts | formation-field | 1 |
-| lotm_potions | formula-chapter-labelled | 1 |
 | speedrunning_multiverse_powers | future-vision | 1 |
 | hp_ingredients | ingredient-not-material | 1 |
 | a_novel_concept_powers | inner-world | 1 |
