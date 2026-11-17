@@ -13,8 +13,10 @@ import {kindWordFunction, keywordFunction} from './gu_function_words.mjs';
 import {potionFamily} from './b_coverage_ledgers.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
-const priv = `${root}docs/research/advancement-aspects-2026-11-16/private/`;
-const index = JSON.parse(readFileSync(`${root}docs/research/novels/reverend-insanity/private/rule-derivation-2026-11-11/gu-identities.json`, 'utf8'));
+// LABEL_SOURCE_ROOT: a checkout holding the gitignored private folders, for a worktree that lacks them.
+const src = process.env.LABEL_SOURCE_ROOT ? `${process.env.LABEL_SOURCE_ROOT.replace(/\/$/, '')}/` : root;
+const priv = `${src}docs/research/advancement-aspects-2026-11-16/private/`;
+const index = JSON.parse(readFileSync(`${src}docs/research/novels/reverend-insanity/private/rule-derivation-2026-11-11/gu-identities.json`, 'utf8'));
 const read = name => JSON.parse(readFileSync(`${priv}${name}_luna.json`, 'utf8'));
 // Follow-up passes (scripts/label_followups.mjs), scored by scripts/label_followups_check.mjs on 2026-11-16.
 const followup = name => existsSync(`${priv}${name}_followup.json`) ? Object.fromEntries(Object.entries(JSON.parse(
@@ -124,12 +126,51 @@ for (const [id, row] of Object.entries(read('hp_potions'))) {
     potions[id] = label;
 }
 
+// Lord of the Mysteries potions (2026-11-16). Luna lists each Sequence's ingredients from wiki paragraphs that tag
+// the Sequence; Haiku checks each one (scripts/label_followups.mjs lotm_check). Rule set before scoring: an
+// ingredient folds as a main only when Luna lists it and Haiku calls it main. On the 46 brew-pack rows that
+// gives 11 of 13 right by hand, held-out 3 of 3; Luna alone was 15 of 22. Names are short ingredient names, not
+// prose. Rows with no wiki main carry the GKM433 authored default.
+const lotmCheck = followup('lotm_check');
+const short = name => name.trim().split(/\s+/).length <= 8 && !/^\(|^$/.test(name.trim());
+const lotmPackets = new Map(JSON.parse(readFileSync(`${priv}lotm_potions_packets.json`, 'utf8')).map(p => [p.id, p]));
+const LOTM_FIELDS = ['do', 'settle', 'go_wrong', 'change', 'who_may', 'where_from', 'how_long', 'others_notice', 'left_behind',
+    'who_controls', 'mind', 'can_be_false', 'combines'];
+const lotm = {};
+for (const [id, row] of Object.entries(read('lotm_potions'))) {
+    const r = row.reply;
+    if (!r) continue;
+    const packet = lotmPackets.get(id);
+    const verdicts = new Map((lotmCheck[id]?.ingredients ?? []).map(v => [v.name.trim(), v.verdict]));
+    const item = m => ({name: m.name.trim(), locator: m.locator.replace(/^\[|\]$/g, ''), speaker: m.speaker, ...(m.cite ? {cite: m.cite} : {}),
+        ...(packet.evidence.some(e => e.includes(`[ingr:${m.name.trim()}]`)) ? {canonical: true} : {})});
+    const label = {heldOut: heldOut(id)};
+    const mains = r.mains.filter(m => short(m.name) && verdicts.get(m.name.trim()) === 'main').map(item);
+    const unstated = [...r.mains, ...r.aux].filter(m => short(m.name) && verdicts.get(m.name.trim()) === 'role-unstated').map(item);
+    const supplementary = r.aux.filter(m => short(m.name) && verdicts.get(m.name.trim()) === 'supplementary').map(item);
+    if (mains.length) Object.assign(label, {mains, mainsBasis: 'wiki-tier-luna-haiku-main (brew-pack rows 11 of 13, held-out 3 of 3)'});
+    if (supplementary.length) label.supplementary = supplementary;
+    if (unstated.length) label.roleUnstated = unstated;
+    // Haiku's misses are for review only: two of the three on blocked rows a hand look found are artifacts, not ingredients.
+    const missed = (lotmCheck[id]?.missed ?? []).filter(m => m.role === 'main' && short(m.name)).map(m => ({name: m.name.trim(),
+        locator: m.locator.replace(/^\[|\]$/g, ''), speaker: m.speaker}));
+    if (missed.length) label.reviewMains = missed;
+    if (!mains.length && packet.state === 'blocked:formula-in-notes') label.authoredDefault = {mains: `a Sequence ${packet.seq} ${packet.wikiName.replace(/\s*\(.*$/, '')} Beyonder characteristic`,
+        supplementary: 'open', basis: 'authored default (GKM433): the table rule that a same-Sequence characteristic replaces the mains (T 0214), not canon',
+        cost: 'a dead Beyonder of this Sequence; a polluted characteristic carries its residue (T 0209, 0403)'};
+    // An aspect locator is kept only when each of its ';'-joined parts starts a packet line (616 of 618 did).
+    const inPacket = loc => loc && loc.split(';').every(part => packet.evidence.some(e => e.startsWith(`[${part.trim().replace(/^\[|\]$/g, '')}]`)));
+    for (const key of LOTM_FIELDS) if (at(r[key]) && inPacket(at(r[key]).locator)) label[`${key}At`] = at(r[key]);
+    lotm[id] = label;
+}
+
 const out = {meta: {pass: 'docs/research/advancement-aspects-2026-11-16/README.md#full-luna-passes', model: 'gpt-6-luna (low effort)',
     date: '2026-11-16', tier: 'wiki (GKM445), unchecked against chapters', split: 'held out when sha1(id)[0] < 0x33 (GKM429)'},
-    gu_kinds: sorted(gu), gu_moves: sorted(moves), hp_potions: sorted(potions)};
+    gu_kinds: sorted(gu), gu_moves: sorted(moves), hp_potions: sorted(potions), lotm_potions: sorted(lotm)};
 writeFileSync(`${root}docs/coverage/wiki_tier_labels.json`, JSON.stringify(out, null, 0).replace(/},"/g, '},\n"') + '\n');
 const count = (obj, f) => Object.values(obj).filter(f).length;
 console.log(JSON.stringify({gu: Object.keys(gu).length, guRank: count(gu, l => l.rank), guFunction: count(gu, l => l.function), guFunctionGuess: count(gu, l => l.functionGuess), guEffectFamily: count(gu, l => l.effectFamily), guDiet: count(gu, l => l.dietDefault), movesAgree: count(moves, l => l.secondRead === 'agree'),
     moves: Object.keys(moves).length, movesWithComponents: count(moves, l => l.components), movesAllMatched: count(moves, l => l.components?.every(c => c.kind)),
     potions: Object.keys(potions).length, potionRoute: count(potions, l => l.routes), potionFamily: count(potions, l => l.family),
+    lotm: Object.keys(lotm).length, lotmMains: count(lotm, l => l.mains), lotmRoleUnstated: count(lotm, l => l.roleUnstated && !l.mains),
     heldOut: count(gu, l => l.heldOut) + count(moves, l => l.heldOut) + count(potions, l => l.heldOut)}));

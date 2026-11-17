@@ -2,15 +2,16 @@
 """Build private evidence packets for the Luna label passes (advancement-aspects-2026-11-16).
 
 Passes: ri_moves (paid reader claims plus the move's Fandom page), gu_kinds (the kind's Fandom page, for
-rank- or effect-blocked rows), hp_potions (the potion's Fandom page). Reads the gitignored Gu review index
+rank- or effect-blocked rows), hp_potions (the potion's Fandom page), lotm_potions (every pathway Sequence row:
+its Abilities section, wiki paragraphs that tag the Sequence with {{seq|...}}, character Progress entries). Reads the gitignored Gu review index
 and the local wiki dumps under ~/.codex/research/wikis; writes docs/research/advancement-aspects-2026-11-16/
 private/<pass>_packets.json. Wiki text stays private. Run with python3 -I.
 """
-import glob, json, os, re, sys, urllib.parse
+import glob, gzip, json, os, re, sys, urllib.parse
 import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, 'docs/research/advancement-aspects-2026-11-16/private')
+OUT = os.environ.get('LABEL_PRIVATE') or os.path.join(ROOT, 'docs/research/advancement-aspects-2026-11-16/private')
 WIKIS = os.path.expanduser('~/.codex/research/wikis')
 CAP = 9000  # characters of cleaned page text per packet
 
@@ -137,9 +138,93 @@ def hp_potions():
             for r in todo if want.get(r['id']) in wiki]
 
 
+LOTM_WIKI = os.path.join(WIKIS, 'lordofthemysteries.fandom.com/dump/lotm-wiki-current-pages-2026-11-03.jsonl.gz')
+# Adaptation and game pages are not novel canon.
+NOT_NOVEL = re.compile(r'(?i)\bepisode\b|donghua|manhua|audio drama|\(.*game\)|merchandise|cardiverse')
+LOTM_KEYS = re.compile(r'(?i)ingredient|formula|potion|ritual|acting|digest|lose control|loss of control|characteristic|rampag|madness|advance')
+
+
+def lotm_clean(text):
+    """LOTM wikitext to plain text; book citations become (B<book> ch<chapter>) so a later chapter check can find them."""
+    text = re.sub(r'<ref[^>]*>\s*\{\{Cite Book\|(\d)\|(\d+)[^}]*\}\}\s*</ref>', r' (B\1 ch\2)', text)
+    text = re.sub(r'\{\{Suplink\|(\d)\|(\d+)\}\}', r'B\1 ch\2', text)
+    def shown(m):
+        args = [a for a in m.group(2).split('|') if '=' not in a]
+        word = args[-1] if args else ''
+        # Keep the wiki's canonical ingredient name: it is the only ingredient text a ledger may commit.
+        return f'{word} [ingr:{args[0]}]' if m.group(1) == 'ingr' and args else word
+    text = re.sub(r'\{\{([Ss]eq|ingr|c|color\|\w+)\|([^{}]*)\}\}', shown, text)
+    text = re.sub(r'\{\{[^{}]*\}\}', '', text)
+    return clean(text)
+
+
+def lotm_potions():
+    pages = {}
+    with gzip.open(LOTM_WIKI, 'rt') as f:
+        for line in f:
+            page = json.loads(line)
+            pages[page['title']] = page['text']
+    rows = [json.loads(l) for l in open(os.path.join(ROOT, 'docs/coverage/lotm_potions.jsonl'))]
+    packets = []
+    for r in rows:
+        m = re.match(r'(.+?) Sequence (\d) (.+?)\. ', r['note'])
+        if not m:
+            continue
+        pathway, seq, name = m.group(1), int(m.group(2)), m.group(3)
+        adv = pages.get(f'{pathway} Pathway/Advancement', '')
+        wm = re.search(rf'==\s*Sequence {seq}:\s*(.+?)\s*==', adv)
+        wiki_name = wm.group(1).strip() if wm else name
+        names = {n.strip() for n in re.split(r'[(),/]', f'{wiki_name}/{name}') if n.strip() and 'name missing' not in n}
+        ev, size = [], 0
+
+        def add(line, cap):
+            nonlocal size
+            line = line[:cap]
+            if size + len(line) <= CAP:
+                ev.append(line)
+                size += len(line)
+
+        # Abilities section for this Sequence: what it changes and what others notice.
+        ab = pages.get(f'{pathway} Pathway/Abilities', '')
+        am = re.search(rf'==\s*Sequence {seq}:[^=]*==(.*?)(?=\n==[^=]|\Z)', ab, re.S)
+        if am:
+            add(f'[wiki:{pathway} Pathway/Abilities#Sequence {seq}] ' + ' '.join(lotm_clean(am.group(1)).split()), 2400)
+        # Character Progress entries naming this Sequence: where the potion or formula came from, digestion.
+        for title, text in pages.items():
+            if not title.endswith('/Progress'):
+                continue
+            for pm in re.finditer(r'\|\s*sequence (\d) name\s*=\s*([^\n|]+)', text):
+                if int(pm.group(1)) == seq and pm.group(2).strip() in names:
+                    dm = re.search(rf'\|\s*sequence {seq} detail\s*=\s*([^\n]+)', text)
+                    if dm:
+                        add(f'[wiki:{title}#sequence {seq}] ' + ' '.join(lotm_clean(dm.group(1)).split()), 500)
+        # Paragraphs anywhere that tag this Sequence and talk about potions, ingredients, rituals or acting.
+        tag = re.compile(r'\{\{[Ss]eq\|(' + '|'.join(re.escape(n) for n in names) + r')(?:\|[^}]*)?\}\}')
+        hits = []
+        for title, text in pages.items():
+            if title.endswith('/Progress') or title == f'{pathway} Pathway/Abilities' or NOT_NOVEL.search(title):
+                continue
+            head = 'intro'
+            for para in text.split('\n'):
+                hm = re.match(r'^\s*(=+)\s*(.+?)\s*\1\s*$', para)
+                if hm:
+                    head = hm.group(2)
+                    continue
+                if tag.search(para) and LOTM_KEYS.search(para):
+                    body = ' '.join(lotm_clean(para).split())
+                    if body:
+                        rank = 0 if re.search(r'(?i)ingredient|formula', para) else 1
+                        hits.append((rank, len(body), f'[wiki:{title}#{head}] {body}'))
+        for _, _, line in sorted(hits)[:30]:
+            add(line, 900)
+        packets.append({'id': r['id'], 'pathway': pathway, 'seq': seq, 'name': name, 'wikiName': wiki_name,
+                        'state': r['state'], 'evidence': ev})
+    return packets
+
+
 if __name__ == '__main__':
     os.makedirs(OUT, exist_ok=True)
-    for name in sys.argv[1:] or ['ri_moves', 'gu_kinds', 'hp_potions']:
+    for name in sys.argv[1:] or ['ri_moves', 'gu_kinds', 'hp_potions', 'lotm_potions']:
         packets = globals()[name]()
         json.dump(packets, open(os.path.join(OUT, f'{name}_packets.json'), 'w'))
         chars = sum(len(' '.join(p['evidence'])) for p in packets)

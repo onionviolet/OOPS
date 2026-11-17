@@ -155,3 +155,43 @@ Total $0.36 at standard rates; the batch route would have been half.
 
 **Next, not started.** Do a chapter check of the 122 agreed leads and give their kinds catalogue entries, Fang Yuan's carried Gu first (GKM446). Rewrite the potion-sentence verb prompt and rescore it on the same 17.
 
+
+## Lord of the Mysteries potions (2026-11-16, agent-verified, not human-reviewed)
+
+Weibao: "continue for LOTM and the other ones too". Wiki-tier pass for the 220 pathway Sequences in `lotm_potions`, 174 of them `blocked:formula-in-notes`.
+
+**Evidence.** `python3 -I scripts/label_pass_packets.py lotm_potions` builds one private packet per Sequence from the local wiki snapshot (ns 0, 2026-11-03): the Sequence's section of `<Pathway> Pathway/Abilities`, character `/Progress` entries for that Sequence, and up to 30 paragraphs on any page that tag the Sequence with `{{seq|...}}` and mention a potion, formula, ingredient, ritual, acting or loss of control. Ingredient templates keep the wiki's canonical name (`[ingr:Name]`), and book citations become `(B1 chNNN)` (B2 is Circle of Inevitability), so a later chapter check can find them. Adaptation and game pages are left out. 102 packets name an ingredient or formula. Two gaps:
+
+- **Module still blocked.** The per-Sequence formula, ritual and acting tabs live in `Module:Sequence/standard`. The `module/sequence_standard.lua` file on disk is the Cloudflare challenge page, not the module, and every `/Advancement` subpage is only module calls. Not retried. Most formulas reach this pass only through ingredient prose on `Creatures and Plants`.
+- **Reader claims left out.** The pilot found the paid LOTM claims are summaries that almost never carry a formula, so this pass is wiki tier only.
+
+**Split.** Frozen before any call (GKM429): `sha1(id)[0] < 0x33`, 46 of 220 held out, 7 of them among the 46 brew-pack rows. The list is in `private/lotm_potions_split.json`. Prompts are zero-shot, so nothing was fitted on any row.
+
+**Passes.**
+
+| Pass | Model | Rows | Cost |
+| --- | --- | ---: | ---: |
+| Aspect sheet: mains and supplementary ingredients as lists, plus the other 13 aspects (`label_pass.mjs lotm_potions`) | Luna, low | 220 | $0.086 |
+| Ingredient check: main, supplementary, role unstated, not formula or unclear for each Luna ingredient, plus misses (`label_followups.mjs lotm_check`) | Haiku, low | 102 | $0.049 |
+
+Total $0.135 at standard rates. Every committed ingredient locator starts a line of its packet. Of 618 committed locators, 13 cite several lines whose parts all check out; 2 aspect locators (one empty, one cut short at a `[[...]]` heading) are dropped by the normaliser.
+
+**Score.** Bar written down before scoring: mains precision of at least 80% overall and on held-out rows, judged by hand against the brew pack's mains (`src/world_packs/lotm_brew_pack.js`, 68 mains over 46 rows), counting translation variants as matches (Lavos Squid against Lavatan octopus, Illusory Chime Tree against wind-bell tree). A wiki main also counts when the pack leaves that main unnamed (Scribe's second main).
+
+| Rule | Mains right | Held out | Recall of pack mains |
+| --- | --- | --- | --- |
+| Luna's main list alone | 15 of 22 (68%) | 4 of 5 | 15 of 68 |
+| Luna lists it and Haiku calls it main | 11 of 13 (85%) | 3 of 3, not independent | 11 of 68 |
+
+The Luna-alone line is clean: zero-shot, judged against the frozen split. The Haiku rule was fixed before Haiku ran, but its verdict categories (role unstated, substitute, ritual material) were shaped after the Luna score had seen every comparison row, held-out ones included (GKM429), so its held-out cell is not a held-out result and three rows would be thin anyway. The fold rests on the hand check of all 12 folded rows below. Luna's misses are aux listed as mains where the wiki line says only "ingredients" (5), a Beyonder characteristic used as a substitute (2) and a ritual material, the mermaid's song (1). Haiku's check removes the five aux and one substitute; the other substitute and the mermaid remain. Recall is low because the evidence is thin, not the readers: most pack mains come from chapter notes the wiki snapshot does not repeat.
+
+**Folded (GKM445, every field marked wiki tier).** `node scripts/wiki_tier_labels.mjs` writes a `lotm_potions` section of `docs/coverage/wiki_tier_labels.json`: short ingredient names, each with its locator, speaker, book cite when the line has one, and `canonical` when it equals the line's `[ingr:]` name. The other 13 aspects keep only a locator and speaker (`<aspect>At`), unscored, so they move nothing. The Gu, move and Hogwarts sections are byte-identical to before.
+
+- **12 rows move from `formula-in-notes` to `blocked:formula-wiki-unchecked`.** These are White Tower 3 to 9, Red Priest 2, 6 and 7, Twilight Giant 5 and Error 2. The ledger note names each main and its locator. A hand check of all 12 against their evidence lines found every one stated as a main of that Sequence's potion. Most White Tower lines carry no chapter cite. The lists may be partial, and supplementary ingredients and amounts are open, so a row runs only once a brew row and a chapter check confirm it.
+- **Role unstated, noted only.** Red Priest 5 and Wheel of Fortune 1 get their wiki ingredients in the note. The state stays.
+- **Authored default (GKM433), noted only.** The other 162 blocked rows get the mechanism default "a Sequence N <name> Beyonder characteristic stands in for the mains". It is labelled authored, not canon. It comes from the table rule that a same-Sequence characteristic replaces the mains (T 0214), and its cost is a dead Beyonder of that Sequence with residue if polluted. Supplementary ingredients stay open. It is not scored, since it predicts nothing.
+- **For review, not folded.** Haiku's missed mains on 8 rows (`reviewMains`) are a mix: Sun 4's god blood and Door 9's characteristic match the pack, but Tyrant 3 names the Sea God Scepter, an artifact, and the rest need a source look.
+
+**Checks.** `node scripts/b_coverage_ledgers.mjs --check` and `coverage_report.mjs --check` pass. `tests/b_coverage_ledgers.test.js`, `tests/brew_heldout.test.js` and `tests/hp_potion_case_scenes.test.js` pass (115). `npm run test:changed` passes (4,532, 17 skipped). `npm run check:rules` passes; its one stale-glob warning was there before. `lotm_potions` is now 162 `formula-in-notes`, 12 `formula-wiki-unchecked`, 46 `expressed-authored` and 6 `body-door`. Running from a worktree: `LABEL_PRIVATE` (packets, Luna, follow-ups) and `LABEL_SOURCE_ROOT` (normaliser) point at the primary checkout's private folders.
+
+**Next, not started.** Chapter-check the 12 wiki rows at their cites and write brew rows for them. Get the module through a browser export by Weibao, which would fill formulas, rituals and acting for every Sequence at once.
