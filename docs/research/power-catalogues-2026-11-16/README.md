@@ -289,3 +289,33 @@ R5's result decides the first question: for LOTM formulas, Hogwarts ingredient p
 | LATER / DELEGATE | PWC29 | **Correct the Haiku cost figures.** Several lanes priced Haiku 5.5 at Haiku 4.5's $1 and $5 per million; the current rate is $0.10 and $0.50 for prompts up to 100K tokens, which the runner already uses. Their reported Haiku spend is about ten times too high. Done when the lane cost lines in this file are restated. |
 
 **Order (working default, AD56).** PWC24 first, because it gives every later pass its loop. Then PWC25 for the worlds with deep dives, then PWC21-PWC23 (they need the rule rows they cite), then PWC26 by histogram, with PWC27 and PWC28 running as batch lanes alongside.
+
+
+## PWC23 Gu derived ranks (2026-11-17, proposals)
+
+*Agent-verified, not human-reviewed. No model call; total API spend $0.* PWC20 gives derived values their own tier, below the chapter and wiki tiers, kept apart from canon. This pass derives a rank for the rank-blocked Gu from the world's own rules, scores each rule before any row folds, and folds only the rules that beat the baseline. Code: `scripts/derive_gu_ranks.mjs` (rules, scoring, rows), a small hook in `scripts/gu_coverage_ledgers.mjs`, tests in `tests/gu_derived_ranks.test.js`. Outputs: `docs/coverage/gu_derived_ranks.json` (scores and one row per derived Gu), `docs/coverage/gu_recipe_edges.json` (recipe link targets only, no prose), and three rule rows in `docs/coverage/ri_rules.json` (`gu.rank.precursor`, `gu.rank.series`, `gu.rank.family-median`, shape `{id, world, statement, locators, speaker, mechanism, derives}`).
+
+**Frozen before scoring (GKM429).** The split is `sha1(id)[0] < 0x33` (76 of the 392 held out). Family medians fit on the other rows only. The fold rule is in the script as code: a rule folds when it applies to at least 10 cohort rows, its exact agreement is above the baseline's on those rows and its within-one agreement is not below it. The baseline is the most common known rank in the training split (rank 3). Scoring cohort: the 392 Gu whose wiki category rank and chapter-tier rank agree, each scored with its own rank hidden. One disclosure: the plus-one-above-the-highest-input shape of rule 1 was read off a table of that cohort's rank differences before the script was written, so rule 1's held-out line (9 rows) is the cleaner one.
+
+**Rules, in priority order.**
+
+| Rule | What it says (default and dial) | Applies to (cohort) | Exact | Within one | Baseline exact / within one | Held out (exact, within one) | Folds |
+| --- | --- | ---: | ---: | ---: | --- | --- | --- |
+| `gu.rank.precursor` | Refined from known Gu: one rank above the highest-ranked input, read from the wiki's previous-rank and fusion fields. By default; a recipe that skips ranks is the exception | 57 | 50 (88%) | 54 (95%) | 10 / 41 | 9 of 9, 9 of 9 | yes |
+| `gu.rank.series` | A numbered series climbs by the step its two known members show | 1 | 1 | 1 | 0 / 1 | none held out | no (n under 10) |
+| `gu.rank.family-median` | Otherwise the median known rank of the Gu's band (mortal or immortal), path and type family, widest-fit order, family of at least three; n and spread recorded per row | 348 | 104 (30%) | 237 (68%) | 69 / 171 | 19 of 68, 44 of 68 (baseline 11, 29) | yes |
+
+Family rule by level: band, path and type 19 of 68 exact (baseline 19; within one 48 against 41); band and path 41 of 162 (baseline 24); band and type 39 of 103 (baseline 26); band alone 5 of 15 (baseline 0). Across the whole cohort the baseline is 78 of 392 exact and 191 within one. The family rule is a default with a wide dial: three in ten exact, seven in ten within one, so a derived rank is a plausible band, not a claim. Every row records its family size and its minimum, quartiles and maximum.
+
+**What the books and wiki give.** The blocked rows carry almost no recipe text: 523 wiki-layer rows were blocked, and only 1 has a named precursor with a known rank (Reputation Gu, from Qi Escape Gu at rank four, so rank five). The series rule found nothing it could score (one cohort Gu had a series with two known members, and no blocked row did). So the family median does nearly all the work.
+
+**Ledger effect.** Of the 523 wiki-layer rows (`blocked:rank-unknown` 533 before, 234 after):
+- 171 now `runs-derived`, each with `derived: {rule, inputs}`, and they run through `derivedAbilityFrom` in `tests/gu_coverage.test.js` like every wiki-layer run.
+- 128 have a derived rank but no function label, so they move to `blocked:effect-unknown` with the derived rank in the note. Their next gate is the effect, not the rank.
+- 224 stay `blocked:rank-unknown` with a narrower reason: no refinement recipe, no numbered series, and no path, type or mortal/immortal family with three ranked Gu (218 of the 224 have no path label, and 113 have no Fandom page).
+- 10 chapter-layer rank-blocked rows are untouched: the catalogue binds their fuel from chapter text, so a derived rank cannot enter, and 7 already have a wiki rank the catalogue lacks.
+A later stated rank (chapter, wiki category, wiki-tier or an Immortal Gu name) replaces a derived one, because the hook fills only a row that has none of them. The runs share stays canon and authored only.
+
+**Gaps.** The recipe fields come from the Fandom Infobox only; the 113 still-blocked rows that have no Fandom page, and any recipe the novel states in prose, are not read. Chain derivation (a derived rank as another row's input) is not used. The family rule's band feature leans on wiki categories ("Unranked Mortal Gu", "Immortal Gu"), which are themselves unchecked against the novel. One reader of the inputs, no second pass.
+
+**Checks.** `node scripts/derive_gu_ranks.mjs` then `node scripts/gu_coverage_ledgers.mjs` and `node scripts/coverage_report.mjs` (README regenerated); `tests/gu_derived_ranks.test.js` and `tests/gu_coverage.test.js` pass (22 tests); `npm run check:coverage` and `npm run check:rules` pass. Rule codes cited: GKM429, GKM443, GKM445, PWC20, PWC23, AU16 (no model call, so not exercised), AD32, AD56.

@@ -28,6 +28,10 @@ const tier = JSON.parse(readFileSync(join(root, 'docs/coverage/wiki_tier_labels.
 // (scripts/chapter_tier_labels.mjs). Where a wiki row has no category rank, a chapter-tier rank replaces the wiki-tier one.
 const chapterTier = existsSync(join(root, 'docs/coverage/chapter_tier_labels.json')) ? JSON.parse(readFileSync(join(root, 'docs/coverage/chapter_tier_labels.json'), 'utf8')) : {};
 const chapterRank = id => chapterTier.gu_kinds?.[id]?.rank ? chapterTier.gu_kinds[id] : null;
+// Derived ranks (PWC23, PWC20 tier below the wiki): scripts/derive_gu_ranks.mjs scores three rules on the Gu whose wiki and
+// chapter ranks agree and writes this sidecar for the rules that beat the baseline. A rank here fills only a row
+// that has no category, chapter, wiki-tier or Immortal-name rank, and the row says which rule and inputs it used.
+const derivedRanks = existsSync(join(root, 'docs/coverage/gu_derived_ranks.json')) ? JSON.parse(readFileSync(join(root, 'docs/coverage/gu_derived_ranks.json'), 'utf8')).rows : {};
 // Chapter check of the agreed move leads against the paid reader claims (scripts/ri_move_claim_fold.mjs, GKM427).
 const claimCheck = JSON.parse(readFileSync(join(root, 'docs/coverage/ri_move_claim_checks.json'), 'utf8'));
 
@@ -91,18 +95,22 @@ function kindRow(indexed) {
     const chapter = !ranks.length ? chapterRank(record.id) : null;
     const tierRank = !ranks.length ? chapter?.rank ?? luna.rank ?? null : null;
     const immortalByName = !ranks.length && !tierRank && /\bimmortal gu\b/i.test(nameOf(record));
-    const rank = ranks.length ? ranks[0] : tierRank ?? (immortalByName ? 6 : null);
+    const derivedRank = !ranks.length && !tierRank && !immortalByName ? derivedRanks[record.id] ?? null : null;
+    const rank = ranks.length ? ranks[0] : tierRank ?? (immortalByName ? 6 : derivedRank?.rank ?? null);
     const wiki = {...base, layer: 'wiki', status: record.status, rank, function: fn, path: pathOf(record),
-        rankBasis: ranks.length ? 'wiki-rank' : chapter ? chapter.rankBasis : tierRank ? luna.rankBasis : immortalByName ? 'name-immortal-lower-bound' : null,
+        rankBasis: ranks.length ? 'wiki-rank' : chapter ? chapter.rankBasis : tierRank ? luna.rankBasis : immortalByName ? 'name-immortal-lower-bound' : derivedRank ? 'derived' : null,
+        ...(derivedRank?.spread && {derivedSpread: derivedRank.spread}),
         labelBasis: byType ? 'wiki-type' : byName ? 'name-keyword-inference' : byTier ? tierBasis : null,
         tierAt: tierRank || byTier ? [tierRank && (chapter ? chapter.rankAt.locator : luna.rankAt?.locator), byTier && (luna.function ? luna.functionAt?.locator : luna.effectAt?.locator)].filter(Boolean) : null};
-    if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: ['G'], note: `No wiki rank label; ${chapterTier.gu_kinds?.[record.id] ? `the chapter tier searched ${chapterTier.gu_kinds[record.id].chapterHits} chapter paragraphs and found no stated rank` : 'no chapter search yet'}; needs a rank pass or an authored-rank dial.`};
-    if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: ['G'], note: luna.effectAt
+    if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: ['G'], note: `No wiki rank label; ${chapterTier.gu_kinds?.[record.id] ? `the chapter tier searched ${chapterTier.gu_kinds[record.id].chapterHits} chapter paragraphs and found no stated rank` : 'no chapter search yet'}; PWC23 derived no rank (no refinement recipe or numbered series, and no path, type or mortal/immortal family of three ranked Gu), so it needs a rank pass or an authored-rank dial.`};
+    const derivedNote = derivedRank ? ` Rank ${rank} is derived (${derivedRank.rule}; ${derivedRank.inputs.join(', ')}${derivedRank.spread ? `; family n=${derivedRank.spread.n}, spread ${derivedRank.spread.min}-${derivedRank.spread.max}` : ''}), not stated by any source (PWC23).` : '';
+    if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: ['G'], note: derivedNote.trim().concat(derivedNote ? ' ' : '', luna.effectAt
         ? `No effect family from type or name. The wiki-tier label (Luna, unchecked) states an effect at ${luna.effectAt.locator}; it needs mapping to an effect family (GL2).`
-        : 'No effect label from type or name; needs a chapter pass (GL2).'};
+        : 'No effect label from type or name; needs a chapter pass (GL2).')};
     if (!derivedAbilityFrom({rank, function: fn})) throw Error(`cannot derive ${record.id}`);
-    return {...wiki, state: 'runs-authored', mechanisms: owners(['activate']),
-        note: `Unchecked wiki identity (tentative, SKR3); ${immortalByName ? 'rank 6 as a lower bound from the Immortal Gu name (GKM443)'
+    return {...wiki, state: derivedRank ? 'runs-derived' : 'runs-authored', mechanisms: owners(['activate']),
+        ...(derivedRank && {derived: {rule: derivedRank.rule, inputs: derivedRank.inputs}}),
+        note: `Unchecked wiki identity (tentative, SKR3); ${derivedRank ? `rank ${rank} derived from the world's own rule ${derivedRank.rule} (${derivedRank.inputs.join(', ')}${derivedRank.spread ? `; family n=${derivedRank.spread.n}, spread ${derivedRank.spread.min}-${derivedRank.spread.max}` : ''}), below any stated rank (PWC23)` : immortalByName ? 'rank 6 as a lower bound from the Immortal Gu name (GKM443)'
             : chapter ? `rank ${rank} from the chapter tier (${chapter.rankBasis}, ${chapter.rankAt.speaker}, Luna over chapter text at ${chapter.rankAt.locator}, one reader)`
             : tierRank ? `rank ${rank} from the wiki-tier label (${luna.rankBasis}, Luna, unchecked)` : `lowest wiki rank ${rank}`}; ${byType ? 'function from wiki type'
             : byName ? 'function inferred from the name' : `function from the wiki-tier label (${tierBasis}, unchecked)`}; ability derived.`};
@@ -219,7 +227,7 @@ for (const rows of [kinds, moves]) {
 }
 // P's ledger format has six base fields and the optional case link. G's labels (layer, rank, function, roles and
 // their basis) go to a sidecar keyed by ledger and id, which the coverage test reads to run each row.
-const FIELDS = ['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case'];
+const FIELDS = ['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived'];
 const ledgerRow = row => ({...Object.fromEntries(FIELDS.map(f => [f, row[f]])), source: row.source.join('; ')});
 const labelsOf = rows => Object.fromEntries(rows.map(row => [row.id, Object.fromEntries(Object.entries(row)
     .filter(([key, value]) => !FIELDS.includes(key) && value !== null && value !== undefined))]));

@@ -1,0 +1,4290 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/README.md#pwc23-gu-derived-ranks-2026-11-17-proposals",
+  "date": "2026-11-17",
+  "tier": "derived (PWC20), below chapter and wiki; a later stated rank replaces it",
+  "split": "sha1(id)[0] < 0x33 held out (GKM429); family medians fit on the rest",
+  "fold": {
+   "minN": 10,
+   "rule": "exact above baseline, within-one not below, on the rows the rule applies to"
+  },
+  "minFamily": 3,
+  "scores": {
+   "baselineRank": 3,
+   "rules": {
+    "precursor": {
+     "n": 57,
+     "exact": 50,
+     "within1": 54,
+     "baselineExact": 10,
+     "baselineWithin1": 41,
+     "heldOut": {
+      "n": 9,
+      "exact": 9,
+      "within1": 9,
+      "baselineExact": 3,
+      "baselineWithin1": 8
+     },
+     "folds": true
+    },
+    "series": {
+     "n": 1,
+     "exact": 1,
+     "within1": 1,
+     "baselineExact": 0,
+     "baselineWithin1": 1,
+     "heldOut": {
+      "n": 0,
+      "exact": 0,
+      "within1": 0,
+      "baselineExact": 0,
+      "baselineWithin1": 0
+     },
+     "folds": false
+    },
+    "family": {
+     "n": 348,
+     "exact": 104,
+     "within1": 237,
+     "baselineExact": 69,
+     "baselineWithin1": 171,
+     "heldOut": {
+      "n": 68,
+      "exact": 19,
+      "within1": 44,
+      "baselineExact": 11,
+      "baselineWithin1": 29
+     },
+     "byLevel": {
+      "band+path": {
+       "n": 162,
+       "exact": 41,
+       "within1": 104,
+       "baselineExact": 24,
+       "baselineWithin1": 62
+      },
+      "band+path+type": {
+       "n": 68,
+       "exact": 19,
+       "within1": 48,
+       "baselineExact": 19,
+       "baselineWithin1": 41
+      },
+      "band+type": {
+       "n": 103,
+       "exact": 39,
+       "within1": 77,
+       "baselineExact": 26,
+       "baselineWithin1": 68
+      },
+      "band": {
+       "n": 15,
+       "exact": 5,
+       "within1": 8,
+       "baselineExact": 0,
+       "baselineWithin1": 0
+      }
+     },
+     "folds": true
+    }
+   },
+   "cohortBaseline": {
+    "n": 392,
+    "exact": 78,
+    "within1": 191
+   },
+   "cohort": {
+    "n": 392,
+    "heldOut": 76
+   }
+  },
+  "blockedRows": 523,
+  "derivedRows": 299,
+  "byRule": {
+   "gu.rank.family-median": 298,
+   "gu.rank.precursor": 1
+  }
+ },
+ "rows": {
+  "candidate:alert-bell-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/sound"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 4,
+    "max": 8,
+    "q1": 5,
+    "q3": 8
+   }
+  },
+  "candidate:battle-thought-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "candidate:battle-will-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "candidate:bear-palm-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/strength"
+   ],
+   "spread": {
+    "n": 41,
+    "min": 1,
+    "max": 9,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:biao-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/strength"
+   ],
+   "spread": {
+    "n": 41,
+    "min": 1,
+    "max": 9,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:black-hair-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:black-light-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:black-python-coiling-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/strength/offensive"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 4
+   }
+  },
+  "candidate:blitz-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/movement"
+   ],
+   "spread": {
+    "n": 35,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:blood-battle-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:blood-blade-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path+type: unmarked/blood/offensive"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 5,
+    "max": 5,
+    "q1": 5,
+    "q3": 5
+   }
+  },
+  "candidate:blood-demon-flower-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:blood-merge-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:blood-rope-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:blood-scar-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:blood-sweat-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path+type: unmarked/blood/offensive"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 5,
+    "max": 5,
+    "q1": 5,
+    "q3": 5
+   }
+  },
+  "candidate:blue-light-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:borrow-light-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:bury-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 1,
+   "inputs": [
+    "band+path: unmarked/earth"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:butterfly-transformation-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "candidate:chaotic-mind-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "candidate:chase-smoke-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:cognition-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "candidate:cold-wave-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/ice/offensive"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 2,
+    "max": 3,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:coptis-rhizome-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/soul/support"
+   ],
+   "spread": {
+    "n": 11,
+    "min": 3,
+    "max": 4,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:create-fog-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "candidate:dark-toss-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/dark"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 2,
+    "max": 6,
+    "q1": 4,
+    "q3": 6
+   }
+  },
+  "candidate:dazzling-light-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:deliberate-will-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:demon-ferret-blood": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:demon-ferret-bone": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:detection-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:doting-mother-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "candidate:earth-bacteria-king-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/house"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 2,
+    "max": 3,
+    "q1": 2,
+    "q3": 3
+   }
+  },
+  "candidate:earth-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/strength"
+   ],
+   "spread": {
+    "n": 41,
+    "min": 1,
+    "max": 9,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:eating-ones-words-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/rule"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 8,
+    "q1": 7,
+    "q3": 8
+   }
+  },
+  "candidate:estrus-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/consumable & expendable"
+   ],
+   "spread": {
+    "n": 23,
+    "min": 1,
+    "max": 8,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:fairness-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "candidate:fear-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "candidate:fire-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/strength"
+   ],
+   "spread": {
+    "n": 41,
+    "min": 1,
+    "max": 9,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:fish-bubble-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/storage"
+   ],
+   "spread": {
+    "n": 22,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:fist-stone-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 1,
+   "inputs": [
+    "band+path: unmarked/earth"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:fixed-star-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:flash-sword-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/sword"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 3,
+    "max": 7,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "candidate:flesh-laughter-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/storage"
+   ],
+   "spread": {
+    "n": 22,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:flower-rain-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/grass"
+   ],
+   "spread": {
+    "n": 11,
+    "min": 2,
+    "max": 6,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:fuel-oil-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:gentle-feelings-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/emotion"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 7,
+    "max": 8,
+    "q1": 7,
+    "q3": 8
+   }
+  },
+  "candidate:ghost-tears-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:golden-needle-mosquito-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/metal/offensive"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 2,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:golden-qi-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/qi"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 3,
+    "max": 8,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:grand-bear-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:grand-emperor-boar-strength": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:green-vine-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/wood"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 2,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:groundmat-grass-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wood/grass"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 3,
+    "max": 6,
+    "q1": 4,
+    "q3": 6
+   }
+  },
+  "candidate:hard-qi-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/qi"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 3,
+    "max": 8,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:hope-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/human"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:human-skin-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:immortal-showing-the-way-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "candidate:injury-wind-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/wind"
+   ],
+   "spread": {
+    "n": 9,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:inspiration-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "candidate:iron-blood-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:iron-cabinet-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "candidate:jade-light-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:jumping-grass-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:killing-intent-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:kindness-thought-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band+path: immortal/wisdom"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 6,
+    "max": 7,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "candidate:learning-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "candidate:life-tablet-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:lightning-spear-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/lightning"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 2,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:lightning-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:longevity-edict": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/information"
+   ],
+   "spread": {
+    "n": 13,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:lotus-cloth-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/grass"
+   ],
+   "spread": {
+    "n": 11,
+    "min": 2,
+    "max": 6,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:malicious-will-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:monkey-language-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:muddy-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 1,
+   "inputs": [
+    "band+path: unmarked/earth"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:mush-room-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/house"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 2,
+    "max": 3,
+    "q1": 2,
+    "q3": 3
+   }
+  },
+  "candidate:nether-ant-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:old-removal-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:painting-idea-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "candidate:pair-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:phantom-heaven": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/space"
+   ],
+   "spread": {
+    "n": 10,
+    "min": 4,
+    "max": 7,
+    "q1": 5,
+    "q3": 5
+   }
+  },
+  "candidate:pig-iron-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/healing"
+   ],
+   "spread": {
+    "n": 20,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "candidate:pine-island-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:play-will-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:poison-heart-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/poison/offensive"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 3,
+    "q1": 2,
+    "q3": 3
+   }
+  },
+  "candidate:polished-gold-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/metal"
+   ],
+   "spread": {
+    "n": 12,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:position-swap-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/movement"
+   ],
+   "spread": {
+    "n": 35,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:pride-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/human"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:primeval-break-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:profound-ice-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/ice"
+   ],
+   "spread": {
+    "n": 9,
+    "min": 2,
+    "max": 6,
+    "q1": 3,
+    "q3": 6
+   }
+  },
+  "candidate:puppet-control-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "candidate:raise-eyebrows-and-exhale-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "candidate:reflect-light-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:reform-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/consumable & expendable"
+   ],
+   "spread": {
+    "n": 23,
+    "min": 1,
+    "max": 8,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:reputation-gu": {
+   "rule": "gu.rank.precursor",
+   "rank": 5,
+   "inputs": [
+    "fandom:Qi_Escape_Gu@4"
+   ],
+   "spread": null
+  },
+  "candidate:return-light-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:return-to-childhood-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:rolling-meat-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/movement"
+   ],
+   "spread": {
+    "n": 35,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:rumbling-thunder-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/lightning"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 2,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:rust-flower-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:self-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 7,
+   "inputs": [
+    "band+path: immortal/human"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 5,
+    "max": 9,
+    "q1": 7,
+    "q3": 8
+   }
+  },
+  "candidate:sequence-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:shadow-bond-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:shared-sense-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:sharp-intent-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:sky-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:small-swamp-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 1,
+   "inputs": [
+    "band+path: unmarked/earth"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:snow-fairy-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:soul-ball-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:soul-language-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/soul/support"
+   ],
+   "spread": {
+    "n": 11,
+    "min": 3,
+    "max": 4,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:soul-lantern-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:soul-shield-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:sound-amplify-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/sound"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 4,
+    "max": 8,
+    "q1": 5,
+    "q3": 8
+   }
+  },
+  "candidate:space-escape-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/space"
+   ],
+   "spread": {
+    "n": 10,
+    "min": 4,
+    "max": 7,
+    "q1": 5,
+    "q3": 5
+   }
+  },
+  "candidate:space-piercing-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path+type: unmarked/space/movement"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 4,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:special-will-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "candidate:spirit-incubating-flea": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "candidate:spring-wind-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/wind"
+   ],
+   "spread": {
+    "n": 9,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:star-cloud-bed-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:star-rain-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/star"
+   ],
+   "spread": {
+    "n": 13,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:steel-shirt-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/defensive"
+   ],
+   "spread": {
+    "n": 40,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:stiff-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "candidate:stream-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/water"
+   ],
+   "spread": {
+    "n": 18,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "candidate:suffering-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/human"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:swift-ghost-cloud-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/movement"
+   ],
+   "spread": {
+    "n": 35,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:swift-shadow-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/movement"
+   ],
+   "spread": {
+    "n": 35,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:sword-tongue-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 7,
+   "inputs": [
+    "band+path: immortal/sword"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 6,
+    "max": 8,
+    "q1": 7,
+    "q3": 7
+   }
+  },
+  "candidate:third-aperture-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/consumable & expendable"
+   ],
+   "spread": {
+    "n": 23,
+    "min": 1,
+    "max": 8,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:thunder-shuttle": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/lightning"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 2,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:traveling-son-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "candidate:true-sight-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "candidate:turtle-tire-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:umbrella-lotus-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:unpredictable-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:vanity-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/human"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "candidate:violent-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:water-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:water-walking-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/water/movement"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "candidate:white-elephant-primeval-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:white-lotus-giant-silkworm-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "candidate:wind-flower-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 1,
+   "inputs": [
+    "band+path+type: unmarked/wind/movement"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 1,
+    "max": 4,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:wind-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:wish-power-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/consumable & expendable"
+   ],
+   "spread": {
+    "n": 23,
+    "min": 1,
+    "max": 8,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "candidate:wolf-strength-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "candidate:wood-path-mind-confusion-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/wood"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 2,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Air_Travel_Ghost": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Autumn_Light_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "fandom:Blue_Shine_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "fandom:Bountiful_Year": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 5,
+    "q3": 7
+   }
+  },
+  "fandom:Bull_Strength_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Casual_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "fandom:Changing_Intent_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Chaotic_Intent_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Clairaudience_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Cloud_Rope_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Cold_Intent_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Dark_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/dark"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 2,
+    "max": 6,
+    "q1": 4,
+    "q3": 6
+   }
+  },
+  "fandom:Days_Pass_Like_Years": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 5,
+    "q3": 7
+   }
+  },
+  "fandom:Demon_Ferret_Skin": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Disappointment_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Dragon_Eyes_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Dragon_Horn_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Dusty_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+type: unmarked/concealment"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Eagle_Claw_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Electric_Brain_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Elusive_Ghost_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Endless_Trouble": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 5,
+    "q3": 7
+   }
+  },
+  "fandom:Everlasting_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "fandom:Evil_Intent_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Evil_Thought_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Exert_Strength_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/strength"
+   ],
+   "spread": {
+    "n": 41,
+    "min": 1,
+    "max": 9,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Falling_Meteor_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/star"
+   ],
+   "spread": {
+    "n": 13,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Fire_Cloak_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/fire"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Fire_Crow_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Ghost_Axe_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/soul/offensive"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 3,
+    "max": 5,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Ghost_Cage_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/soul/offensive"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 3,
+    "max": 5,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Ghost_Eye_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Ghost_Hand_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/soul/offensive"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 3,
+    "max": 5,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Ghost_Hitting_Wall": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Ghost_Qi_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Ghost_Sealing_Shirt_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Ghost_Soldier_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Golden_Sand_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Grave_Yam_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/storage"
+   ],
+   "spread": {
+    "n": 22,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "fandom:Great_Tornado_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/wind"
+   ],
+   "spread": {
+    "n": 9,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "fandom:Gu_as_Before_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 7,
+   "inputs": [
+    "band+path: immortal/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 6,
+    "q3": 8
+   }
+  },
+  "fandom:Hand-Ear_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Heart_Blood_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "fandom:Horse_Strength_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Hostile_Intent_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:House_Type_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/house"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 2,
+    "max": 3,
+    "q1": 2,
+    "q3": 3
+   }
+  },
+  "fandom:Hundred_Years_Harmony": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 5,
+    "q3": 7
+   }
+  },
+  "fandom:Hypnosis_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Ice_Wall_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/ice"
+   ],
+   "spread": {
+    "n": 9,
+    "min": 2,
+    "max": 6,
+    "q1": 3,
+    "q3": 6
+   }
+  },
+  "fandom:Immortal_Tribulation_Tempering_Aperture": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "fandom:Impermanence_Ghost": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Injury_Mark_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 7,
+   "inputs": [
+    "band+path: immortal/human"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 5,
+    "max": 9,
+    "q1": 7,
+    "q3": 8
+   }
+  },
+  "fandom:Innocent_Mushroom": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Iron_Bone_Broad_Axe": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/bone"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Iron_Hook_Silver_Slash_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/metal/offensive"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 2,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "fandom:Iron_Snake_Vine_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/defensive"
+   ],
+   "spread": {
+    "n": 40,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "fandom:Jade_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 1,
+   "inputs": [
+    "band+path: unmarked/earth"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Keep_Will_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Kind_Thought_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Letter_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/information"
+   ],
+   "spread": {
+    "n": 13,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Lightning_Current_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/lightning"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 2,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Lightning_Net_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/lightning"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 2,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Lightning_Web_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/lightning"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 2,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Lion_Roar_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Longing_Thought_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Menses_Blood_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band+path: immortal/blood"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 4,
+    "max": 8,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "fandom:Mind_Reading_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Moat_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Months_Pass_Like_Years": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 5,
+    "q3": 7
+   }
+  },
+  "fandom:New_Will_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Nine_Son_Mother_Ghost_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Obsessed_Thought_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "fandom:One-stretch_Golden_Light_Worm": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/defensive"
+   ],
+   "spread": {
+    "n": 40,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "fandom:One%27s_Wishes_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "fandom:Ox_Strength_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Perfect_Pair": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "fandom:Poison_Flower_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/poison/offensive"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 3,
+    "q1": 2,
+    "q3": 3
+   }
+  },
+  "fandom:Prediction_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "fandom:Prodigal_Son_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Proud_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "fandom:Python_Strength_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Qi_Armor_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/qi"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 3,
+    "max": 8,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "fandom:Qi_Explosion_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/qi"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 3,
+    "max": 8,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "fandom:Qi_Harvest_Fruit": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/qi"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 3,
+    "max": 8,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "fandom:Quiet_Steps_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+type: unmarked/concealment"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Rabbit_Strength_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Reckless_Intent_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path+type: unmarked/wisdom/support"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Recollection_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Red_Face_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Red_Light_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "fandom:Red_Shine_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/light"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "fandom:Regulation_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/rule"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 8,
+    "q1": 7,
+    "q3": 8
+   }
+  },
+  "fandom:Revert_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Rhino_Horn_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Rules_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/rule"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 8,
+    "q1": 7,
+    "q3": 8
+   }
+  },
+  "fandom:Sabre_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/sword"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 3,
+    "max": 7,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "fandom:Searching_Will": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "fandom:Several_Hundred_Ghost_Face_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Silent_Step_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+type: unmarked/concealment"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Silver_Scales_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Single_Gate_Poison_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/poison/offensive"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 3,
+    "q1": 2,
+    "q3": 3
+   }
+  },
+  "fandom:Slow_Down_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 5,
+    "q3": 7
+   }
+  },
+  "fandom:Slow_Slicing_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/soul/support"
+   ],
+   "spread": {
+    "n": 11,
+    "min": 3,
+    "max": 4,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Smell_Lock_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+type: unmarked/concealment"
+   ],
+   "spread": {
+    "n": 7,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Soul_Fly_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 32,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Soundwave_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/sound"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 4,
+    "max": 8,
+    "q1": 5,
+    "q3": 8
+   }
+  },
+  "fandom:Staunch_Bleeding_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "fandom:Steel_Hair_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Steel_Vine_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Stellar_Fire_Prairie_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Stone_Barrier_Shield_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 1,
+   "inputs": [
+    "band+path: unmarked/earth"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Sun_and_Moon_Temple": {
+   "rule": "gu.rank.family-median",
+   "rank": 7,
+   "inputs": [
+    "band+path: immortal/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 6,
+    "q3": 8
+   }
+  },
+  "fandom:Swamp_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Sweat": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: immortal"
+   ],
+   "spread": {
+    "n": 166,
+    "min": 1,
+    "max": 9,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "fandom:Thunder_Roar_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Tiger_Claw_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Tiger_Skin_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path+type: unmarked/transformation/defensive"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 5,
+    "q1": 5,
+    "q3": 5
+   }
+  },
+  "fandom:Tiger_Strength_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Tiger_Tail_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Tiger_Tooth_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/transformation"
+   ],
+   "spread": {
+    "n": 25,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Token_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Tortoise_Breath_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/storage"
+   ],
+   "spread": {
+    "n": 22,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 4
+   }
+  },
+  "fandom:Tortoise_Head_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Tortoise_Leg_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Tortoise_Strength_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 2,
+   "inputs": [
+    "band+path+type: unmarked/strength/support"
+   ],
+   "spread": {
+    "n": 21,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Tortoise_Tail_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Underworld_Path_Butterfly": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 15,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Unprocessed_Jade_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 1,
+   "inputs": [
+    "band+path: unmarked/earth"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 5,
+    "q1": 1,
+    "q3": 5
+   }
+  },
+  "fandom:Water_Arrow_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/water/offensive"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 2,
+    "max": 4,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Water_Boar_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band: mortal"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 6
+   }
+  },
+  "fandom:Water_Cage_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path+type: unmarked/water/offensive"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 2,
+    "max": 4,
+    "q1": 3,
+    "q3": 3
+   }
+  },
+  "fandom:Water_Source_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/water"
+   ],
+   "spread": {
+    "n": 18,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Water_Wall_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/water"
+   ],
+   "spread": {
+    "n": 18,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Wind_Blade_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/wind"
+   ],
+   "spread": {
+    "n": 9,
+    "min": 1,
+    "max": 7,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "fandom:Wind_Snare_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Wolf_Fetus_Burial_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/support"
+   ],
+   "spread": {
+    "n": 99,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 4
+   }
+  },
+  "fandom:Wolf_Lure_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/offensive"
+   ],
+   "spread": {
+    "n": 95,
+    "min": 1,
+    "max": 8,
+    "q1": 3,
+    "q3": 4
+   }
+  },
+  "fandom:Wolf_Travel_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+type: unmarked/movement"
+   ],
+   "spread": {
+    "n": 35,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Wood_Origin_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/wood"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 2,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
+  "fandom:Yes_Or_No": {
+   "rule": "gu.rank.family-median",
+   "rank": 6,
+   "inputs": [
+    "band+path: immortal/information"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 6,
+    "max": 7,
+    "q1": 6,
+    "q3": 7
+   }
+  },
+  "fandom:Zombie_Qi_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/qi"
+   ],
+   "spread": {
+    "n": 5,
+    "min": 3,
+    "max": 8,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "saga:blood-relation-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "saga:blood-shadow-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "saga:empty-thought-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/wisdom"
+   ],
+   "spread": {
+    "n": 19,
+    "min": 1,
+    "max": 8,
+    "q1": 4,
+    "q3": 7
+   }
+  },
+  "saga:familial-emotion-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/blood"
+   ],
+   "spread": {
+    "n": 8,
+    "min": 3,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
+  "saga:leave-luck-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/luck"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 8
+   }
+  },
+  "saga:musician-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/human"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "saga:peach-blossom-luck": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/luck"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 8
+   }
+  },
+  "saga:seal-luck-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/luck"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 8
+   }
+  },
+  "saga:shadow-puppet-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/human"
+   ],
+   "spread": {
+    "n": 6,
+    "min": 1,
+    "max": 5,
+    "q1": 2,
+    "q3": 5
+   }
+  },
+  "saga:time-luck": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/luck"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 8
+   }
+  },
+  "saga:transfer-luck-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 8,
+   "inputs": [
+    "band+path: unmarked/luck"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 1,
+    "max": 8,
+    "q1": 1,
+    "q3": 8
+   }
+  },
+  "saga:universe-path-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/time"
+   ],
+   "spread": {
+    "n": 16,
+    "min": 1,
+    "max": 8,
+    "q1": 5,
+    "q3": 7
+   }
+  }
+ }
+}

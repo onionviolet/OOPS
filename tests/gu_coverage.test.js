@@ -20,7 +20,7 @@ const labels = JSON.parse(readFileSync(new URL('../docs/coverage/gu_labels.json'
 const withLabels = (rows, table) => rows.map(row => ({...table[row.id], ...row}));
 const kinds = withLabels(ledger('gu_kinds'), labels.kinds);
 const moves = withLabels(ledger('gu_moves'), labels.moves);
-const states = /^(runs-canon|runs-authored|expressed-authored|catalogued|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
+const states = /^(runs-canon|runs-authored|runs-derived|expressed-authored|catalogued|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
 const operator = {kind: 'operator', id: 'keeper'};
 const plenty = {reserves: {keeper: {primeval: 1000, immortal: 1000, mental: 1000}}};
 const fed = (id, kind, rank) => ({id, kind, rank, fedThrough: 1e9, alive: true, holder: 'keeper'});
