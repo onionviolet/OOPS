@@ -1,0 +1,1066 @@
+{
+ "meta": {
+  "date": "2026-11-17",
+  "pass": "PWC42",
+  "rates": "Luna $0.10/$0.01 cached/$0.50, Haiku $0.10/$0.01/$0.50 per million, standard (synchronous) rates"
+ },
+ "shards": {
+  "reverend-insanity": {
+   "words": 8308,
+   "cells": {
+    "power": {
+     "baseline": 0,
+     "luna:all": {
+      "listed": 7,
+      "invented": 0,
+      "new": 7,
+      "missed": 0
+     },
+     "luna:grouped": {
+      "listed": 0,
+      "invented": 0,
+      "new": 0,
+      "missed": 0
+     },
+     "haiku:all": {
+      "listed": 20,
+      "invented": 0,
+      "new": 20,
+      "missed": 0
+     },
+     "haiku:grouped": {
+      "listed": 4,
+      "invented": 0,
+      "new": 4,
+      "missed": 0
+     },
+     "agreement": {
+      "luna": 7,
+      "haiku": 20,
+      "both": 3
+     }
+    },
+    "artifact": {
+     "baseline": 12,
+     "luna:all": {
+      "listed": 32,
+      "invented": 0,
+      "new": 31,
+      "missed": 11
+     },
+     "luna:grouped": {
+      "listed": 28,
+      "invented": 0,
+      "new": 27,
+      "missed": 11
+     },
+     "haiku:all": {
+      "listed": 1,
+      "invented": 0,
+      "new": 0,
+      "missed": 11
+     },
+     "haiku:grouped": {
+      "listed": 19,
+      "invented": 0,
+      "new": 19,
+      "missed": 12
+     },
+     "agreement": {
+      "luna": 32,
+      "haiku": 1,
+      "both": 1
+     }
+    },
+    "recipe": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 1,
+      "invented": 0,
+      "new": 1,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 3,
+      "invented": 0,
+      "new": 3,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 3,
+      "invented": 3,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 2,
+      "invented": 1,
+      "new": 1,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 1,
+      "haiku": 0,
+      "both": 0
+     }
+    },
+    "material": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 17,
+      "invented": 0,
+      "new": 17,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 17,
+      "invented": 0,
+      "new": 17,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 11,
+      "invented": 0,
+      "new": 11,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 15,
+      "invented": 0,
+      "new": 15,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 17,
+      "haiku": 11,
+      "both": 9
+     }
+    },
+    "creature": {
+     "baseline": 0,
+     "luna:all": {
+      "listed": 16,
+      "invented": 0,
+      "new": 16,
+      "missed": 0
+     },
+     "luna:grouped": {
+      "listed": 19,
+      "invented": 0,
+      "new": 19,
+      "missed": 0
+     },
+     "haiku:all": {
+      "listed": 5,
+      "invented": 0,
+      "new": 5,
+      "missed": 0
+     },
+     "haiku:grouped": {
+      "listed": 13,
+      "invented": 0,
+      "new": 13,
+      "missed": 0
+     },
+     "agreement": {
+      "luna": 16,
+      "haiku": 5,
+      "both": 5
+     }
+    },
+    "place": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 10,
+      "invented": 0,
+      "new": 10,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 13,
+      "invented": 0,
+      "new": 13,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 7,
+      "invented": 0,
+      "new": 7,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 14,
+      "invented": 0,
+      "new": 14,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 10,
+      "haiku": 7,
+      "both": 6
+     }
+    },
+    "institution": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 6,
+      "invented": 0,
+      "new": 6,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 5,
+      "invented": 0,
+      "new": 5,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 7,
+      "invented": 1,
+      "new": 6,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 6,
+      "invented": 0,
+      "new": 6,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 6,
+      "haiku": 6,
+      "both": 5
+     }
+    },
+    "person": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 21,
+      "invented": 0,
+      "new": 21,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 1,
+      "invented": 0,
+      "new": 1,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 22,
+      "invented": 0,
+      "new": 22,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 26,
+      "invented": 0,
+      "new": 26,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 21,
+      "haiku": 22,
+      "both": 19
+     }
+    },
+    "job_or_role": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 3,
+      "invented": 0,
+      "new": 3,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 2,
+      "invented": 0,
+      "new": 2,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 3,
+      "invented": 0,
+      "new": 3,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 3,
+      "invented": 1,
+      "new": 2,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 3,
+      "haiku": 3,
+      "both": 0
+     }
+    },
+    "rule": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 8,
+      "invented": 8,
+      "new": 0,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 7,
+      "invented": 7,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 4,
+      "invented": 4,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 10,
+      "invented": 9,
+      "new": 1,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 0,
+      "haiku": 0,
+      "both": 0
+     }
+    }
+   }
+  },
+  "mother-of-learning": {
+   "words": 8145,
+   "cells": {
+    "power": {
+     "baseline": 25,
+     "luna:all": {
+      "listed": 29,
+      "invented": 0,
+      "new": 13,
+      "missed": 9
+     },
+     "luna:grouped": {
+      "listed": 28,
+      "invented": 0,
+      "new": 12,
+      "missed": 8
+     },
+     "haiku:all": {
+      "listed": 9,
+      "invented": 4,
+      "new": 0,
+      "missed": 20
+     },
+     "haiku:grouped": {
+      "listed": 10,
+      "invented": 5,
+      "new": 2,
+      "missed": 22
+     },
+     "agreement": {
+      "luna": 29,
+      "haiku": 5,
+      "both": 5
+     }
+    },
+    "artifact": {
+     "baseline": 15,
+     "luna:all": {
+      "listed": 17,
+      "invented": 0,
+      "new": 7,
+      "missed": 4
+     },
+     "luna:grouped": {
+      "listed": 15,
+      "invented": 0,
+      "new": 10,
+      "missed": 9
+     },
+     "haiku:all": {
+      "listed": 9,
+      "invented": 1,
+      "new": 1,
+      "missed": 4
+     },
+     "haiku:grouped": {
+      "listed": 12,
+      "invented": 2,
+      "new": 5,
+      "missed": 7
+     },
+     "agreement": {
+      "luna": 17,
+      "haiku": 8,
+      "both": 10
+     }
+    },
+    "recipe": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 2,
+      "invented": 0,
+      "new": 2,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 0,
+      "invented": 0,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 3,
+      "invented": 0,
+      "new": 3,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 0,
+      "invented": 0,
+      "new": 0,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 2,
+      "haiku": 3,
+      "both": 2
+     }
+    },
+    "material": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 5,
+      "invented": 0,
+      "new": 5,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 4,
+      "invented": 0,
+      "new": 4,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 1,
+      "invented": 1,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 3,
+      "invented": 0,
+      "new": 3,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 5,
+      "haiku": 0,
+      "both": 0
+     }
+    },
+    "creature": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 17,
+      "invented": 1,
+      "new": 16,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 13,
+      "invented": 0,
+      "new": 13,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 7,
+      "invented": 0,
+      "new": 7,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 10,
+      "invented": 0,
+      "new": 10,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 16,
+      "haiku": 7,
+      "both": 7
+     }
+    },
+    "place": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 12,
+      "invented": 1,
+      "new": 11,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 7,
+      "invented": 0,
+      "new": 7,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 6,
+      "invented": 0,
+      "new": 6,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 7,
+      "invented": 0,
+      "new": 7,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 11,
+      "haiku": 6,
+      "both": 5
+     }
+    },
+    "institution": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 5,
+      "invented": 1,
+      "new": 4,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 2,
+      "invented": 0,
+      "new": 2,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 0,
+      "invented": 0,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 3,
+      "invented": 1,
+      "new": 2,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 4,
+      "haiku": 0,
+      "both": 0
+     }
+    },
+    "person": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 11,
+      "invented": 0,
+      "new": 11,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 9,
+      "invented": 0,
+      "new": 9,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 4,
+      "invented": 0,
+      "new": 4,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 8,
+      "invented": 0,
+      "new": 8,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 11,
+      "haiku": 4,
+      "both": 4
+     }
+    },
+    "job_or_role": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 8,
+      "invented": 0,
+      "new": 8,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 10,
+      "invented": 0,
+      "new": 10,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 2,
+      "invented": 0,
+      "new": 2,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 6,
+      "invented": 2,
+      "new": 4,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 8,
+      "haiku": 2,
+      "both": 2
+     }
+    },
+    "rule": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 14,
+      "invented": 13,
+      "new": 1,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 15,
+      "invented": 15,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 3,
+      "invented": 3,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 9,
+      "invented": 9,
+      "new": 0,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 1,
+      "haiku": 0,
+      "both": 0
+     }
+    }
+   }
+  },
+  "eberron": {
+   "words": 7663,
+   "cells": {
+    "power": {
+     "baseline": 80,
+     "luna:all": {
+      "listed": 95,
+      "invented": 4,
+      "new": 12,
+      "missed": 2
+     },
+     "luna:grouped": {
+      "listed": 91,
+      "invented": 10,
+      "new": 6,
+      "missed": 6
+     },
+     "haiku:all": {
+      "listed": 24,
+      "invented": 0,
+      "new": 5,
+      "missed": 62
+     },
+     "haiku:grouped": {
+      "listed": 9,
+      "invented": 0,
+      "new": 0,
+      "missed": 71
+     },
+     "agreement": {
+      "luna": 91,
+      "haiku": 24,
+      "both": 19
+     }
+    },
+    "artifact": {
+     "baseline": 1,
+     "luna:all": {
+      "listed": 5,
+      "invented": 0,
+      "new": 4,
+      "missed": 0
+     },
+     "luna:grouped": {
+      "listed": 2,
+      "invented": 0,
+      "new": 2,
+      "missed": 1
+     },
+     "haiku:all": {
+      "listed": 2,
+      "invented": 1,
+      "new": 1,
+      "missed": 1
+     },
+     "haiku:grouped": {
+      "listed": 5,
+      "invented": 1,
+      "new": 4,
+      "missed": 1
+     },
+     "agreement": {
+      "luna": 5,
+      "haiku": 1,
+      "both": 1
+     }
+    },
+    "recipe": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 1,
+      "invented": 0,
+      "new": 1,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 0,
+      "invented": 0,
+      "new": 0,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 1,
+      "invented": 0,
+      "new": 1,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 0,
+      "invented": 0,
+      "new": 0,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 1,
+      "haiku": 1,
+      "both": 1
+     }
+    },
+    "material": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 2,
+      "invented": 0,
+      "new": 2,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 8,
+      "invented": 0,
+      "new": 8,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 1,
+      "invented": 0,
+      "new": 1,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 5,
+      "invented": 0,
+      "new": 5,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 2,
+      "haiku": 1,
+      "both": 0
+     }
+    },
+    "creature": {
+     "baseline": 10,
+     "luna:all": {
+      "listed": 14,
+      "invented": 0,
+      "new": 4,
+      "missed": 0
+     },
+     "luna:grouped": {
+      "listed": 14,
+      "invented": 0,
+      "new": 4,
+      "missed": 0
+     },
+     "haiku:all": {
+      "listed": 2,
+      "invented": 0,
+      "new": 0,
+      "missed": 8
+     },
+     "haiku:grouped": {
+      "listed": 8,
+      "invented": 0,
+      "new": 1,
+      "missed": 3
+     },
+     "agreement": {
+      "luna": 14,
+      "haiku": 2,
+      "both": 2
+     }
+    },
+    "place": {
+     "baseline": 11,
+     "luna:all": {
+      "listed": 24,
+      "invented": 0,
+      "new": 14,
+      "missed": 1
+     },
+     "luna:grouped": {
+      "listed": 30,
+      "invented": 0,
+      "new": 17,
+      "missed": 0
+     },
+     "haiku:all": {
+      "listed": 8,
+      "invented": 0,
+      "new": 3,
+      "missed": 6
+     },
+     "haiku:grouped": {
+      "listed": 25,
+      "invented": 0,
+      "new": 14,
+      "missed": 0
+     },
+     "agreement": {
+      "luna": 24,
+      "haiku": 8,
+      "both": 8
+     }
+    },
+    "institution": {
+     "baseline": 9,
+     "luna:all": {
+      "listed": 13,
+      "invented": 1,
+      "new": 5,
+      "missed": 2
+     },
+     "luna:grouped": {
+      "listed": 16,
+      "invented": 1,
+      "new": 6,
+      "missed": 0
+     },
+     "haiku:all": {
+      "listed": 12,
+      "invented": 0,
+      "new": 3,
+      "missed": 0
+     },
+     "haiku:grouped": {
+      "listed": 22,
+      "invented": 5,
+      "new": 8,
+      "missed": 0
+     },
+     "agreement": {
+      "luna": 12,
+      "haiku": 12,
+      "both": 9
+     }
+    },
+    "person": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 18,
+      "invented": 0,
+      "new": 18,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 24,
+      "invented": 0,
+      "new": 24,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 7,
+      "invented": 0,
+      "new": 7,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 10,
+      "invented": 0,
+      "new": 10,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 18,
+      "haiku": 7,
+      "both": 8
+     }
+    },
+    "job_or_role": {
+     "baseline": null,
+     "luna:all": {
+      "listed": 6,
+      "invented": 0,
+      "new": 6,
+      "missed": null
+     },
+     "luna:grouped": {
+      "listed": 27,
+      "invented": 3,
+      "new": 24,
+      "missed": null
+     },
+     "haiku:all": {
+      "listed": 5,
+      "invented": 0,
+      "new": 5,
+      "missed": null
+     },
+     "haiku:grouped": {
+      "listed": 5,
+      "invented": 0,
+      "new": 5,
+      "missed": null
+     },
+     "agreement": {
+      "luna": 6,
+      "haiku": 5,
+      "both": 4
+     }
+    },
+    "rule": {
+     "baseline": 4,
+     "luna:all": {
+      "listed": 7,
+      "invented": 4,
+      "new": 2,
+      "missed": 3
+     },
+     "luna:grouped": {
+      "listed": 15,
+      "invented": 11,
+      "new": 3,
+      "missed": 3
+     },
+     "haiku:all": {
+      "listed": 0,
+      "invented": 0,
+      "new": 0,
+      "missed": 4
+     },
+     "haiku:grouped": {
+      "listed": 11,
+      "invented": 9,
+      "new": 1,
+      "missed": 3
+     },
+     "agreement": {
+      "luna": 3,
+      "haiku": 0,
+      "both": 0
+     }
+    }
+   }
+  }
+ },
+ "cost": {
+  "luna:all": {
+   "requests": 3,
+   "in": 9,
+   "cached": 0,
+   "written": 37115,
+   "out": 66260,
+   "usd": 0.0378,
+   "cachedShare": 0,
+   "errors": 0
+  },
+  "luna:gA": {
+   "requests": 3,
+   "in": 9,
+   "cached": 37079,
+   "written": 75,
+   "out": 31789,
+   "usd": 0.0163,
+   "cachedShare": 0.998,
+   "errors": 0
+  },
+  "luna:gB": {
+   "requests": 3,
+   "in": 9,
+   "cached": 37079,
+   "written": 69,
+   "out": 19157,
+   "usd": 0.01,
+   "cachedShare": 0.998,
+   "errors": 0
+  },
+  "luna:gC": {
+   "requests": 3,
+   "in": 9,
+   "cached": 37079,
+   "written": 75,
+   "out": 21542,
+   "usd": 0.0112,
+   "cachedShare": 0.998,
+   "errors": 0
+  },
+  "haiku:all": {
+   "requests": 3,
+   "in": 48,
+   "cached": 5090,
+   "written": 54328,
+   "out": 44618,
+   "usd": 0.0332,
+   "cachedShare": 0.086,
+   "errors": 0
+  },
+  "haiku:gA": {
+   "requests": 3,
+   "in": 105,
+   "cached": 0,
+   "written": 59418,
+   "out": 24811,
+   "usd": 0.0243,
+   "cachedShare": 0,
+   "errors": 0
+  },
+  "haiku:gB": {
+   "requests": 3,
+   "in": 93,
+   "cached": 59418,
+   "written": 0,
+   "out": 29628,
+   "usd": 0.0154,
+   "cachedShare": 0.998,
+   "errors": 0
+  },
+  "haiku:gC": {
+   "requests": 3,
+   "in": 102,
+   "cached": 59418,
+   "written": 0,
+   "out": 22894,
+   "usd": 0.0121,
+   "cachedShare": 0.998,
+   "errors": 0
+  }
+ }
+}

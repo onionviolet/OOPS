@@ -1,0 +1,36 @@
+{
+ "date": "2026-11-17",
+ "pass": "PWC42",
+ "rule": "Window: the run of about 8,000 words starting at a multiple of 20 paragraphs with the most distinct names the existing ledgers carry (novels); Eberron: shard 004 (7,664 words, one of eight shards of 7,600 to 8,200 words). Frozen before any model call. Values only.",
+ "shards": {
+  "reverend-insanity": {
+   "type": "Chinese cultivation novel",
+   "source": "Reverend Insanity, English chapters",
+   "first": "ri:ch750:p21",
+   "last": "ri:ch753:p64",
+   "words": 8308,
+   "paragraphs": 297,
+   "sha1": "f63d06c80c9c01977173f1b7b009d4500435736d",
+   "distinctBaselineNamesPresent": 12
+  },
+  "mother-of-learning": {
+   "type": "English LitRPG / progression book",
+   "source": "Mother of Learning, epub",
+   "first": "mol:m85:p99",
+   "last": "mol:m86:p103",
+   "words": 8145,
+   "paragraphs": 132,
+   "sha1": "44fcbb884182cdb5cfe91b1dd059ddd13aec75fd",
+   "distinctBaselineNamesPresent": 37
+  },
+  "eberron": {
+   "type": "Tabletop setting book",
+   "source": "Eberron: Rising from the Last War, epub, existing shard eberron:rftlw:004",
+   "first": "eberron:rftlw:004",
+   "last": "eberron:rftlw:004",
+   "words": 7663,
+   "sha1": "1baa73f38fe001abdbf52aa9f2a658f863c2bde5",
+   "baseline": "existing gpt-6-luna six-cell reply for the same shard"
+  }
+ }
+}

@@ -329,3 +329,5 @@ The carry-out also holds [tie-in considerations](../PROCEDURAL_CARRY_OUT.md#tie-
 [Combat working defaults](../audits/COMBAT_DEFAULTS_FOR_DECISION_2026-11-13.md) (2026-11-13, proposals in use under AD56): ten defaults from combat rounds 10 to 31 with what each changes, costs and where it stands, plus one limit waiting on Weibao.
 
 [UI directions mocks](../../prototypes/ui-directions-2026-11-13/index.html) (2026-11-13, proposals): eight before-and-after sketches for the UI decisions held for Weibao (list and thing, one status line, empty space as the place, what can I do now, palette-led bar, day strip, growing screen, Notebook), each with what it fixes and costs. Records no decision. Ledger: [UI audit](../audits/UI_DESIGN_CORE_AUDIT.md#ui-ledger-revised-2026-11-13).
+
+[Procedural system audit](../audits/PROCEDURAL_SYSTEM_AUDIT_2026-11-17.md) (2026-11-17, proposals, agent-verified): 17 procedural pieces scored true and useful from reachability, coverage, tests and a played village life; computed `runs` is 0 against 1,765 typed, unbuilt pin store and derivation score file, and a ranked revamp plan PSA24-PSA33 with three limits for Weibao.

@@ -7,6 +7,7 @@ import {readFileSync, existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {BOOKS, buildLedger, SHEET, GRAMMAR, SPEAKERS, SLUGS, CLASS_MAPS, sidecarPath, ledgerPath} from '../scripts/books_power_ledger.mjs';
 import {parseLedger} from '../scripts/coverage_report.mjs';
+import {attachItemBoundRows} from '../scripts/item_bound_ledgers.mjs';
 
 for (const book of Object.keys(BOOKS)) {
     const side = JSON.parse(readFileSync(sidecarPath(book), 'utf8'));
@@ -14,8 +15,8 @@ for (const book of Object.keys(BOOKS)) {
     const rows = text.trim().split('\n').map(l => JSON.parse(l));
     const prefix = {ss: 'ss.', sl: 'sl.', orv: 'orv.', rt: 'rt.'}[book];
 
-    test(`${book}: the committed ledger equals a rebuild from the committed sidecar`, () => {
-        assert.deepEqual(rows, JSON.parse(JSON.stringify(buildLedger(book, side))));
+    test(`${book}: the committed ledger equals a rebuild from the committed sidecar`, async () => {
+        assert.deepEqual(rows, JSON.parse(JSON.stringify(await attachItemBoundRows(buildLedger(book, side)))));
     });
 
     test(`${book}: every row is classified, ids are unique and prefixed, the shared validator passes, blocked rows name a known slug`, () => {

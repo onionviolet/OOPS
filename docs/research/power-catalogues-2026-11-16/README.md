@@ -165,7 +165,6 @@ Three ledgers, one power sheet per row (PWC1: effect grammar parts, cost, who_ma
 - Cost: three batches, 930 packets, about $0.15 (batch, cached prefix 63 to 74 percent). No chapter-backed checks yet (PWC15); every field is wiki tier, unchecked.
 - Not done: Worm Tinker tech and the Re:Zero and Perfect Run items have no wiki dump (PWC10); other dump worlds' item categories wait for the PWC9 census.
 
-
 ## R5: chapter-tier checks (PWC15, 2026-11-16; proposals, agent-verified)
 
 Weibao: "every cent is a cent, so feel free to send all as batch". The wiki-tier labels were checked against the novels' own text, by batch, with the same questions, schemas and hash split (GKM429). Fields that a chapter states fold as their own tier above the wiki tier (GKM445), with a chapter locator and a speaker, in `docs/coverage/chapter_tier_labels.json`. Raw chapter text stays in the gitignored private folder; only values, locators and speakers are committed.
@@ -191,7 +190,6 @@ Weibao: "every cent is a cent, so feel free to send all as batch". The wiki-tier
 
 **Gaps.** One reader per field; paragraph search is by exact name, so a Gu the novel calls by a variant spelling is a miss (41 Gu and 283 ingredients had no hit at all); Harry Potter windows are line-based, since the prepared text has no paragraph breaks. Rule codes cited: AU16, GKM429, GKM433, GKM443, GKM445, WPR codes not applicable.
 
-
 ## Lane A: Shadow Slave, Solo Leveling, Omniscient Reader's Viewpoint, A Regressor's Tale (2026-11-16, proposals, agent-verified, not human-reviewed)
 
 Ledgers `docs/coverage/shadow_slave_powers.jsonl` (436 rows), `solo_leveling_powers.jsonl` (38), `omniscient_reader_powers.jsonl` (102) and `regressors_tale_powers.jsonl` (184), sidecars `*_power_labels.json`, one shared builder `scripts/books_power_ledger.mjs` (`refresh`, `run`, `fold`, `build`; `build` reads committed sidecars only) with `scripts/books_power_denominators.mjs` (private reads), shape test `tests/books_powers_a.test.js`. Counts are in the [coverage README](../../coverage/README.md); regenerate it on merge (`node scripts/coverage_report.mjs`), do not hand-merge. All four books have a usable power system, so none is recorded as "no ledger".
@@ -209,7 +207,6 @@ Ledgers `docs/coverage/shadow_slave_powers.jsonl` (436 rows), `solo_leveling_pow
 **Not done.** `route_to_player` (PWC4) and per-row knowledge checks (PWC7) beyond the `known_by` enum; the long-tail singletons below the threshold; a hand check of every blocked row.
 
 **Cost.** Luna about $0.4 (Solo Leveling sync pilot $0.04, the rest batch), Haiku batches about $1 to $2 at the assumed $1 and $5 per million (the repo runner's table lists Haiku at the Luna rate, so its own figure is low); under the $5 allowance.
-
 
 ## Round 3: four books with no wiki dump (PWC17, 2026-11-16; proposals, agent-verified, not human-reviewed)
 
@@ -231,7 +228,6 @@ No row runs; `catalogued` means no missing capability was found, not that an eng
 **Links.** 39 Circle of Inevitability Sequence rows point to `lotm.potion.<pathway>_<n>`; their potion sheets live in `lotm_potions`, so the ledger row is `catalogued` and the CoI sheet is kept only for the score.
 
 **Gaps named.** (1) 13 Legendary Mechanic names and 1 Circle of Inevitability name had no evidence line beyond the name pass and are `blocked:effect-unknown`. (2) The name pass is model-tier on the claims, not a wiki category, so a missing name means an uncovered claim, not an unread volume. (3) Circle of Inevitability's Fated-line and Goddess-of-Fate steps are not in `lotm_potions` and need rows there before they can link. (4) Chapter-backed checks of the effect fields were not run (PWC15).
-
 
 ## R7 / PWC17: four LitRPG books with full reads and no wiki dump (2026-11-16, proposals, agent-verified)
 
@@ -325,7 +321,6 @@ Built [PWC24](#round-4-derive-what-the-books-never-state-one-ledger-of-worlds-ru
 - **Next cells:** ranked per PWC24's brief by how many of the world's blocked slugs other worlds also hold (ledger slugs plus the census's inferred ones), then the weight of those shared slugs, census rank and corpus order. Every empty cell of a world shares its world's score, so the README shows each world's first empty cell only. Top ten: Harry Potter creatures; Mother of Learning artifacts; Lord of the Mysteries powers; Circle of Inevitability artifacts; Fated Villain artifacts; The Legendary Mechanic artifacts; Speedrunning the Multiverse artifacts; Shadow Slave artifacts; A Regressor's Tale artifacts; A Novel Concept artifacts. The census wiki worlds (Naruto, Type-Moon) start at 12 and 13.
 - **Gaps, stated:** (1) The library index has about 1,300 lines of later acquisition rounds (Wandering Inn, Cradle, Riordan, d20 rulebooks and more); only the held-book tables (Prime, Batch-registered, TTKS, Wave 1, RR priority, Other things on disk, Translator captures) and the tutorial fiction are rows, and the test fails if one of those table rows has no world. Later rounds are not yet rows. (2) Paid-claim run ids come from the ledgers' own source strings plus `2026-11-01-worm`; the You Are Summoned, Wish Upon the Stars, Godclads and Super Supportive plans may have claims that no ledger cites yet, so those cells point at deep dives or chapter text. (3) Lord of the Mysteries' potions ledger holds pathway sequences, so its powers cell reads `missing` (wiki abilities) though the sequence powers are partly in `lotm_potions`; a lane can reclassify. (4) A `missing` source is the best one the registry names for that corpus, not a check that the corpus is on it (a deep dive may not list a book's places). (5) Original worlds name their world docs; their materials, creatures and places live in game content under `src`, which this version does not read.
 - **Checks:** `node --test tests/worlds_ledger.test.js` (8 tests: current build, cell shape, counts equal the ledgers, every ledger and every census world has a row, library table rows covered, tracked doc paths exist, next-cell order). All named private paths were confirmed on disk in the main checkout once when the registry was written.
-
 
 ## PWC23 Gu derived ranks (2026-11-17, proposals)
 
@@ -424,7 +419,6 @@ Weibao: "deeper reads into worlds too? HOw to use Luna in the fuutre? or would w
 | ACCOUNT FOR NOW | PWC44 | **Luna stays the bulk reader; Haiku stays its pair; Sol is the judge (AU17 extension).** Luna and Haiku cost the same and come from different families, so their disagreement is the cheapest quality signal (AU17). Sol costs twenty times more, so it goes where few calls decide a lot. It adjudicates fields where Luna and Haiku disagree (the book lanes alone have about 540 disputed fields; at batch rates that is a dollar or two), audits a hash sample of confirmed fields to measure how often agreement is wrong, writes and checks rule rows (PWC25) where a wrong rule spreads to every derived row, and runs the reconstruction score for generators (PWC31) when Luna and Haiku tie. Bulk reading stays off Sol unless a pilot shows Luna and Haiku miss what a book states and Sol does not. |
 | ACCOUNT FOR NOW | PWC45 | **Claude sessions stay the planners and the checkers of code.** A Sonnet session writes the scripts, freezes splits and merges; it is not a reader. Opus stays rare (the portable agreement). The paid API tiers and the Claude session tiers are separate budgets: API cents and Weibao's Claude usage. |
 | LATER / DELEGATE | PWC46 | **Measure Sol before using it as the judge.** On 100 disputed fields that already have a chapter-tier or hand answer, compare Sol, Luna and Haiku. If Sol does not beat the better of the two on that set, adjudication goes to source review instead. Level: Sonnet lane, Sol batch, under $2. Done when the three scores are in this file and in AU17. |
-
 
 ## Missing books (2026-11-17, proposals)
 
@@ -824,7 +818,7 @@ Measured on master's 211 ledgers (61,756 rows) and every reply file in the prima
 | --- | --- | --- |
 | catalogued | 29,684 | 48% |
 | blocked | 28,772 | 47% |
-| runs (derived 1,196, authored 569) | 1,765 | 3% |
+| typed `runs-*` (derived 1,196, authored 569); computed runs 0, none has a case (correction, PWC120) | 1,765 | 3% typed, 0% computed |
 | expressed (authored 454, derived 271) | 725 | 1% |
 | not-a-thing | 810 | 1% |
 
@@ -832,7 +826,7 @@ Blocked rows use 182 slugs. The top 6 hold 50% of them and the top 15 hold 74%, 
 
 | Disposition | Code | Finding |
 | --- | --- | --- |
-| ACCOUNT FOR NOW | PWC57 | **The headline should be playable share per world, not rows labelled.** Only 4% of rows run or are expressed, and 205 ledgers have none. Default: the coverage README leads with each world's runs plus expressed share, so a wave is judged by what a player can do in which world. Dial: a world with no planned slice can sit at zero without counting as a gap. |
+| ACCOUNT FOR NOW | PWC57 | **The headline should be playable share per world, not rows labelled.** About 4% of rows were typed as running or expressed, and 205 ledgers have none; the computed share is 1.2%, expressed only (PWC120). Default: the coverage README leads with each world's runs plus expressed share, so a wave is judged by what a player can do in which world. Dial: a world with no planned slice can sit at zero without counting as a gap. |
 | ACCOUNT FOR NOW | PWC58 | **Law order follows slug rank.** Six laws (effect-unknown first needs reading, then item-bound, area-field, form-transformation, mind-binding, power-interaction) touch half of all blocked rows across 100 to 147 ledgers each, so each law lands in nearly every world. The 113 tail slugs go in one bundle per neighbouring law rather than laws of their own. |
 | ACCOUNT FOR NOW | PWC59 | **Slugs drift and want a slug plus a parameter.** About 120 `needs-<material>` slugs (needs-wax, needs-fox, needs-zither) are one slug, needs-material, with the material as a field; near pairs (divination and divination-fate, roles-unchecked and roles-unknown, soul-state and soul-binding, the time-* set) need one name each. Default: a local script maps them, no paid call, and the reporter rejects new slugs outside the list unless a row says why. Done when the slug count falls and the histogram is unchanged in total. |
 | ACCOUNT FOR NOW | PWC60 | **Fill a law's fields before building the law.** The item-bound law moved 108 of 2,897 rows (3.7%) because most rows lack the fields it reads. Default order per slug: name the law's fields, run a field-fill batch (B1 from the reply of 2026-11-17), dry-run the law over the rows to count how many it would take, then build. A law whose dry run takes under a quarter of its slug goes back to field design first. |
@@ -882,3 +876,107 @@ The method exists for effect sentences: the procedural core's generation fit (PC
 | ACCOUNT FOR NOW | PWC97 | **A rule that works in one world is tried in the next.** A passing rule's mechanism is restated world-neutral and scored on a second world; passing there makes it a core axiom candidate (PWC84's two-world gate). |
 | ACCOUNT FOR NOW | PWC98 | **Derived answers to canon mysteries are changed truths.** Rules will produce values for things the books keep hidden. Those stay derived (never shown as canon), go by ID in chat under the sealed-secret default, and are re-scored when later canon speaks (PWC87). |
 | LATER / DELEGATE | PWC99 | **First rule-search lane.** On Gu ranks and refinement (the densest family), run PWC90 to PWC95: folds frozen, Sonnet proposing rules as code, local scoring, exceptions pinned, blind sort by Haiku. Fold into PWC89's lane or run after it. Level: Sonnet, with Luna or Haiku for the blind sort (cap about $2). Done when one Gu rule set beats the family-median baseline (30% exact, 68% within one) on the frozen fold, with its exception list and facts-per-rule figure. |
+
+Audit of what the procedural system actually does, with a ranked revamp plan that feeds PWC60, PWC80 and PWC90-PWC99 through one runner: [Procedural system audit, 2026-11-17](../../audits/PROCEDURAL_SYSTEM_AUDIT_2026-11-17.md) (PSA1-PSA36, proposals).
+
+## Book pulls (2026-11-17)
+
+Weibao approved pulls for the ranked wishlist rows while WARP is on ([direction](../../gm/USER_VISION_LOG_2026-11.md#book-lanes-may-pull-from-the-wishlist-2026-11-17)). Preflight before each run: WARP connected, Anna's download host certificate issued by Let's Encrypt (not intercepted, AR52). Both runs used the local runner (`runner.py`, lists `list7_warhammer.json` and `list8_misc.json`, receipts `receipts7.jsonl` and `receipts8.jsonl` in the gitignored `novels/wave-2026-11-08/`): Anna's first, Z-Library only on `not_found` (AR53), size caps from real or 150 MB (AR54), md5 checked on arrival. No model calls.
+
+**Landed (13 files; wishlist rows carry DL code, size, SHA-256, MD5, source and date).** Anna's fast: *Dark Heresy* Core Rulebook 2nd Edition and *Black Crusade* Core Rulebook (DL133); *Winds of Magic*, WFRP 4e, Cubicle 7 (DL18, the "Winds of Magic as a new row" ask is covered by DL18's existing row); *Vampire: The Masquerade* 5th Edition core and *Wraith: The Oblivion* 20th (DL128); *Earthdawn* Fourth Edition Player's Guide (DL131); *Exalted Essence* (DL130); *Words of Radiance*, *Elantris* (Tenth Anniversary), *Warbreaker*, *Arcanum Unbounded* and *Mistborn: The Secret History* (DL129). Z-Library, after Anna's answered `not_found`: *Exalted* 3e *Abyssals: Sworn to the Grave* (DL130).
+
+**Verified.** Every PDF passed `qpdf --check` (hint-table warnings only on three; no syntax errors). Every EPUB passed a zip test and `library_coverage.py --series` finds it (one held record each). `pdf-screen` ran on *Dark Heresy* and *Black Crusade*: the one instruction hint is a rules sentence ("does not override or negate the previous Critical damage"), and the low-contrast and tiny-text flags sit on layout pages of a styled rulebook, so nothing is quarantined. The other PDFs were not screened and stay "qpdf-clean, pdf-screen not run" until a reading lane opens them. Not read for content here.
+
+**Not pulled, with reasons.**
+- DL75 (*WFRP 4e* core, *Up in Arms*) and DL43, DL44, DL121: already held (DL43 is 136 MB and whole, DL121 98 MB and 34 MB); no replacement needed.
+- M1 DL123, M3 DL124, M4 DL122 (chapter ranges): polite capture of translator pages, no A/Z file exists to pull; each needs its upstream length checked first. Deferred to a capture lane.
+- M2 DL125 (Fated Villain human edition): the row's own order puts a reader pass on the held parts first.
+- M5 DL127 (*Hunter x Hunter*): governor queue, not A/Z.
+- M10 DL137 (*Death After Death*): every route is closed; a retail copy is Weibao's call.
+- *Mage: The Ascension* 20th and *Werewolf: The Apocalypse* 20th (DL128): no 20th Anniversary core in the Z-Library search; World of Darkness cores beyond V5 and Wraith are otherwise buy-only.
+- *Exalted* 3e Solars, Lunars and Sidereals Charms books (DL130): the search returned 2nd Edition Manuals, a different edition; the held core's edition check is still open.
+- *Stormlight* 3 and later (DL129), Earthdawn Gamemaster's Guide (DL131), Lancer, Hero System and the other DL132-DL136 rows: outside this pass's scope.
+
+**Quota used.** Anna's fast 11 (50 to 39 left after the run). Z-Library 1 (10 to 9 left). One Z-Library file arrived from the fallback; no failed or bad file was counted.
+
+## PWC55 item-bound powers as engine law (2026-11-17, proposals)
+
+*Weibao approved the lane. Everything here is a proposal, agent-verified, not human-reviewed. Law: `src/item_bound_law.js`; ledger attach: `scripts/item_bound_ledgers.mjs`; test: `tests/item_bound_law.test.js`.*
+
+**Evidence (design before code).** 2,897 rows in 113 ledgers were `blocked:item-bound-power` (largest: PF1 items 974, D&D SRD items 225, Ars Magica items 150, Numenera artifacts 114, D&D 2014 items 95, Strange artifacts 77, Forgotten Realms artifacts 69). Rule rows read: Cypher `cypher.rule.0006` and `0126` (hold at most two cyphers; a physical one can change hands or be found), `0121` (an artifact rolls its depletion die on each use; no range means it never runs out), `0028` (an idol has a 1-2 on a d6 chance to deplete per use); Numenera `cypher-depletion`, `cypher-carrying-limit`; D&D 2014 attunement and consumed components; Ars Magica `0178` (a charged item yields one charge per five points of surplus Lab Total), `0016` (magic sold to mundanes must lose its power by charges or duration), `0181` (one talisman, anchored to its magus), `0049` and `0560` (a maker's items shut down at death), `0693` (an item-bound curse costs the holder). A hand sample of two to four blocked rows each from eight worlds (D&D SRD, PF1, Ars Magica, Numenera, The Strange, Eclipse Phase, Forgotten Realms, Shadow Slave) plus A Novel Concept shows the same pieces in each: a holder, a use count, a side cost, a way to lose it.
+
+**Finding that changes the build.** The engine already owns most of an item-bound power: `stored_working.js` (SW1-SW12; `storeEngineWorking`, `fireEngineStored`) keeps a charge reservoir, once, repeating or held mode, holder attunement (`actsFor: 'holder'`, a stranger pays `strangerFactor` times), a lost or broken carrier, and recharge, renew and break. Nothing in `docs/coverage` used it. The missing piece was one authored reading of "a power in an object" that a ledger row can name, plus the carry limit. So this lane adds no parallel system; the law composes stored workings (AREA_GUIDE: Powers and abilities, Making).
+
+| Need | Default | Dial and reason | Seam it extends |
+| --- | --- | --- | --- |
+| Binding to a holder | Item names its holder (`properties.holder`); only the holder works it at full price (`actsFor: 'holder'`); a stranger pays double charge and, on a one-charge item, gets nothing. | `strangerFactor`; D&D attunement, Ars talisman and a Sealed Artifact differ in how hard a stranger is stopped. | `stored_working.js` `bindings`/`attuned` |
+| Charges and depletion | Single use is `mode: once` (cypher, potion item); otherwise 2 charges of 1 (`charge {now, max, per}`), then dormant until recharged. | Charges, `per`, recharge price. Cypher's depletion die is not modelled: it needs a seeded draw, so it stays a later dial, not a claim. | `stored_working.js` `charge`, `rechargeStored`, `renewStored` |
+| Carry or attunement limit | `carryAdmit(held, limit)`: 3 attuned (D&D), 2 cyphers (Cypher); past it, one must be displaced. | `ITEM_BOUND_DIALS.limits` per world; Numenera's occultic and carry hazards differ. | Pure read for a host's `ports.stored.authority`; no case runs it |
+| Side effect on the holder | One extra effect on `$holder` in the same record (a cost in another account than the power's), paid each use. | Amount `strain`; a Sealed Artifact's negative effect, an Ars curse. | `stored_working.js` effects list |
+| Activation | `trigger: touch` by the holder. | Word, event, time triggers already exist. | `stored_working.js` triggers |
+| Transfer on loss or death | The power follows the `holder` property: a finder who is made the holder gets the effect, the old holder no longer does. | Re-binding price and "dies with the maker" (Ars) are per-world dials, not built. | One property write; `$holder` resolves at fire time |
+
+**The law.** Case id `item:<verb>.<object>.<time>.<pattern>`; patterns `single`, `charged`, `bound`, `costly`, `passed`; terms the law has a world account for: vitality, heat, moisture, sound, light, essence (add and remove) and form (transform). It saves nothing (the record is the engine's, so no migration; `holder` is the one new property declaration, `ITEM_HOLDER`). No `main.js` line: the module is a case library, so rows land as `expressed-authored`, not `runs-*`. Unchecked: a visible player route (no UI change; below the AD43 floor beyond the engine case).
+
+**Counts (`node scripts/item_bound_ledgers.mjs`).** Blocked `item-bound-power` rows 2,897 to 2,789; 108 rows now `expressed-authored`, in 30 ledgers (before to after, expressed in brackets): numenera_artifacts 114 to 102 (12), the_strange_artifacts 77 to 67 (10), circle_of_inevitability_powers 64 to 54 (10), forgotten_realms_artifacts 69 to 61 (8), strixhaven_artifacts 30 to 23 (7), eclipse_phase_powers 8 to 2 (6), mystara_powers 21 to 15 (6), mystara_artifacts 60 to 55 (5), wildemount_artifacts 27 to 22 (5), eclipse_phase_artifacts 37 to 33 (4), golarion_powers 6 to 2 (4), aos_soulbound_artifacts 14 to 11 (3), eberron_artifacts 40 to 37 (3), eberron_powers 21 to 18 (3), and one or two each in aos_soulbound_powers, fated_villain, forgotten_realms_powers, mother_of_learning, numenera_creatures and powers, planescape, shadow_slave, spelljammer, the_dark_eye (two ledgers), the_strange (two ledgers), theros, strixhaven_powers, wildemount_institutions. By pattern (read from each row's own words): charged 81, single 18, bound 6, passed 3, costly 0.
+
+**What did not move, and why.** 2,063 of the 2,897 rows (PF1, D&D, Ars Magica and Fate items above all) carry no labelled effect object (most only "[verb add]"), so no world account can be named without inventing one; they stay blocked until a label pass gives them an object. Another 726 are labelled with objects or targets the law has no account for (force, position, thing, working, information, mind, or an area target): their own slugs apply. The pattern is a reading of a row's wording, so a wrongly read row still passes: the holder's account moving proves the item mechanism, not that the book's item works that way (hence proposal, agent-verified only). `strangerFactor` of 0 is not usable: `fireStored` treats need 0 as free, a finding for the stored-working owner.
+
+**Next, for the next lane.** (a) A label pass giving the 2,063 verb-only rows an object, through the batch runner only (AU16, AU17). (b) The depletion die as a seeded chance. (c) A host caller of `carryAdmit` through the stored `authority` port, which would also make the module reachable from `main.js` and turn these rows from `expressed-` to `runs-`.
+
+## PWC42 and PWC46 measured (2026-11-17, proposals)
+
+*Agent-verified, not human-reviewed.* Two measurements from Round 7. Total API spend about $0.37 (Sol $0.13, Sonnet $0.09, deep-read pilot $0.14) against the $3 and $2 caps plus the $2 added for Sonnet. Scripts: `scripts/sol_judge_pilot.mjs`, `scripts/deep_read_shards.py`, `scripts/deep_read_pilot.mjs`; frozen sets and scores in `docs/coverage/sol_judge_set.json`, `sol_judge_scores.json`, `deep_read_pilot_shards.json` and `deep_read_pilot_scores.json` (values only; replies and shard text stay in the private folders).
+
+### PWC46: who judges Luna-Haiku disputes
+
+**The set is 47 fields, not 100, and the shortfall is the finding.** Most Luna-Haiku disagreements have no independent answer: the effect-sentence verbs, the roles in RI moves, the Hogwarts ingredient `kind` and the rank words are judgement calls or Luna-derived labels, so I left them out rather than pad the set with weak keys. Frozen before any judge call: 18 sentence fields (the four-part effect sentences of the 17 held-out Hogwarts potions, key = the authored sentence), 15 Gu diet fields (key = my hand sort of the book-stated food text) and 14 effect-chapter fields (key = my hand check of which reader's whole sentence fits the cited lines). **Bias, stated:** I wrote the hand keys after seeing both readers' values, and in the effect pool I chose rows where one reader was plainly better, and Luna won 11 of the 14. That pool tilts the totals toward Luna, so the figures are also shown without it.
+
+Each judge got the readers' own packet and question plus "A or B, or your own value" (A/B order fixed by `sha1(id+field)`, so Luna is first on half the rows). Sol ran synchronously: its batch sat 34 minutes with nothing finished, so I cancelled it (nothing billed) and reran it; Sonnet ran by batch. Right answers out of the frozen fields:
+
+| Pool (n) | Luna | Haiku | Either reader | Sol | Sonnet |
+| --- | --- | --- | --- | --- | --- |
+| Sentence (18) | 8 | 8 | 16 | 8 | 8 |
+| Diet (15) | 3 | 3 | 6 | 3 | 2 |
+| Effect (14, biased to Luna) | 11 | 3 | 14 | 9 | 5 |
+| **All (47)** | **22** | **14** | **36** | **20** | **15** |
+| Without the effect pool (33) | 11 | 11 | 22 | 11 | 10 |
+
+At n = 47 one field is 2 points and a 95% interval is about plus or minus 14 points (Luna 47%, Sol 43%, Sonnet 32%, Haiku 30%). So Sol and Luna are level, Sonnet and Haiku are level, and nothing here separates a judge from the better reader. Neither judge beats the better of the two readers (Luna, 22). **Default (AU17): disputes go to source review**, not to a judge, until a larger keyed set says otherwise. Dial: rerun the same script on any pool that later gains an independent key (the chapter-tier checks of PWC15 are the likeliest); Sol is the first judge to retry, as it ties Luna on the clean pools at about $0.13 for 47 fields.
+
+*Family lean.* Of their A/B picks Sol took Luna's value 22 times and Haiku's 11; Sonnet took Luna's 14 and Haiku's 13. On the 33 clean fields Sol took Luna's 13 and Haiku's 8 while the two were each right 11 times, so Sol may lean toward the OpenAI reader, but 13 against 8 is within chance and the effect pool explains most of the 22. Sonnet showed no lean toward Haiku. Both judges often wrote their own value instead of A or B (Sol 14 of 47, Sonnet 20), which rarely matched the key exactly; that is a cost of exact-match scoring and a reason to keep the answer lists closed. Neither judge broke ties better than the readers did.
+
+### PWC42: the all-cells deep read, measured
+
+Three shards of about 8,000 words, frozen first: Reverend Insanity ch. 750 to 753 (8,308 words), Mother of Learning members 85 to 86 (8,145 words) and Eberron shard `rftlw:004` (7,663 words). The two novel windows are the stretch with the most names the ledgers already hold, so a miss means something. One request per shard asks for all ten cells (power, artifact, recipe, material, creature, place, institution, person, job or role, rule) on the existing entity sheet, at low effort; a grouped variant asks for the same cells in three requests on the same shared block. Luna by synchronous call; Haiku's all-cells request by batch (the SDK refuses a 30,000-token synchronous request), its grouped requests synchronous.
+
+| | Cost for the 3 shards | Per million words (standard rates) | Cached share |
+| --- | --- | --- | --- |
+| Luna, all cells, one request | $0.038 | $1.57 | 0% (it writes the cache) |
+| Luna, grouped x3 | $0.038 | $1.55 | 99.8% |
+| Haiku, all cells, one request | $0.033 | $1.38 | 9% |
+| Haiku, grouped x3 | $0.052 | $2.15 | 0% then 99.8% |
+
+Against the old five-pass reads at $5 to $6 per million words, one all-cells pass is a third of the cost, about $0.8 per million by batch for Luna and about $2.9 for both readers at standard rates. The grouped requests read the shared block from cache at 99.8%, as the runner's layout predicts; for Luna that exactly offsets the extra requests (same cost, same yield, 426 against 425 entries), so one request wins on simplicity. Haiku differs: asked for everything at once it lists 189 entries and misses 116 of the baseline names (62 of them Eberron powers); asked in three groups it lists 280.
+
+*Yield.* Ignoring rules (a rule is a paraphrase, so a name-in-text check does not apply to it), Luna's all-cells pass listed 426 entries, 8 of them with a name not found in the shard (2%); 258 are not in the existing ledgers and 32 existing ledger names in the shard were missed. Haiku all-cells: 189 listed, 11 not in text, 123 new, 116 missed. Where both listed a name, they agreed on 135; Luna listed 389 names and Haiku 171 in those cells. **New:** the four cells no ledger holds for these worlds (recipe, material, person, job or role) gave Luna 95 entries, and Luna alone found 13 new powers and 7 new artifacts in Mother of Learning and 14 new places in Eberron. **Missed:** Luna missed 9 of 25 baseline powers and 4 of 15 artifacts in Mother of Learning; the baseline for Reverend Insanity is thin (12 names present), so its "new" counts are mostly unledgered names, not proof of a gap. The comparison is to the existing ledgers and, for Eberron, to the earlier Luna six-cell reply for the same shard; the old five-pass outputs are not machine-comparable by chapter, so that part is not measured.
+
+**Recommended default (proposal).** Luna reads every cell in one all-cells request at low effort, batch at half price (about $0.8 per million words); Haiku second-reads a hash sample of shards (AU17), asked in the three groups, not all at once, and only its person, institution, place and material answers are trusted to confirm (it under-lists powers, artifacts and creatures). Rules stay a separate pass over named rule text (PWC25), since a paraphrased rule cannot be name-checked. Dial: raise effort on a shard whose first read lists far fewer than its neighbours.
+
+**Projected cost.** The worlds ledger's top ten (PWC24: Harry Potter, Mother of Learning, Lord of the Mysteries, Circle of Inevitability, Fated Villain, The Legendary Mechanic, Speedrunning the Multiverse, Shadow Slave, A Regressor's Tale, A Novel Concept) run to roughly 20 to 30 million words by their approximate lengths (not measured here), so about $16 to $24 for the Luna read by batch, plus about $4 to $6 for Haiku on a quarter of the shards. Session time for the scripts and merges is the larger cost (PWC11).
+
+**Gaps.** Three shards, one per type; no second pilot on a different window; the Haiku all-cells figure is batch, not synchronous, so its cache share is not comparable; no human review of the new entries beyond the name-in-text check; the judge pool is small and partly hand-keyed. Rule codes cited: AU16, AU17, GKM429, PWC11, PWC12, PWC24, PWC25, PWC42, PWC44, PWC46, AD32, AD56.
+
+## Round 13: after the procedural audit, batches that move play, and GPT-6.2 Sol (2026-11-17)
+
+Weibao: "more to consider? other batches to send? Consider 6.2 sol too? more to consider?" Read with the [procedural system audit](../../audits/PROCEDURAL_SYSTEM_AUDIT_2026-11-17.md) (PSA1-PSA33). PWC67-PWC79 and PWC100-PWC119 belong to the two running lanes.
+
+| Disposition | Code | Finding |
+| --- | --- | --- |
+| ACT NOW | PWC120 | **Round 10's runs figure was wrong.** It counted 1,765 rows typed `runs-*` as running; none has a case, so computed runs is 0 (PSA19). What a player can reach from the ledgers today is 725 expressed rows (1.2%), library-side. The round 10 table now carries this correction; PSA25 makes the reporter compute the state instead of reading it. |
+| ACCOUNT FOR NOW | PWC121 | **Paid batches aim at the runner's shape, not more labels.** More labelling changes the denominator, not play (PSA20). Default: a batch is sent when its output is a `case` plus `expect` the one runner (PSA26) can execute, a law field a dry run counts (PWC60), or a score on a frozen fold. Label-only passes wait unless a law is ready to read them. |
+| ACCOUNT FOR NOW | PWC122 | **Batches worth sending, in order.** B5: the 47 frozen judge disputes (PWC46) re-read by `gpt-6.2-sol`, cents, to see whether a newer judge changes AU17's source-review default. B6: once PSA26's runner exists, Luna drafts `case` and `expect` for the 725 expressed rows and the runner keeps the ones that execute, which turns expressed into computed runs. B7: `gpt-6.2-sol` against Sonnet as the rule proposer in PWC94, scored by the local scorer on the frozen Gu fold, the one place a stronger model's output is checked by a number. B8: per unreachable pack (PSA24), one fresh-life scenario as a test, local, no paid call. |
+| ACCOUNT FOR NOW | PWC123 | **GPT-6.2 Sol is on the key; its price is not yet sourced.** The model list for the key (2026-11-17) shows `gpt-6.2-sol`, `gpt-6.2-astra` and `gpt-6.1-terra` beside `gpt-6.1-sol` and `gpt-6-luna`. Aggregators list GPT-6 Sol at $2 and $10 per million (batch half); 6.2's rate needs OpenAI's own page before a `RATES` row is written. Default: Sol goes where a score checks it (B5, B7) and where Luna fails a measured field, not to bulk reading, where Luna's measured agreement is already high. |
+| ACCOUNT FOR NOW | PWC124 | **The runner undercounts an unlisted model.** `cost()` in `scripts/label_runner.mjs` falls back to Luna's rate for a model missing from `RATES`, so a `gpt-6.2-sol` pass would be costed about twenty times too low and `--max-usd` would not stop it. Default: an unlisted model is refused until its rate row exists. Small fix, test in `tests/label_runner.test.js`. |
+| ACCOUNT FOR NOW | PWC125 | **Running lanes adjust to the audit.** The field-fill lane (PWC60) and the derivation lane (PWC80, PWC99) each define a row shape and score file; PSA21 says those should be the one runner's `case`, `expect` and a score column. Default: their outputs stay as they are and convert into PSA26's shape when it lands, rather than either lane building its own runner. |
+| LATER / DELEGATE | PWC126 | **Order of the next build wave.** PSA25 (computed runs, one day), then PSA24 with PSA26 (wire the unreachable packs and one runner), then B6 to move expressed rows to runs, then PSA27 (Gu and spell laws through `landEffect`). Level: Sonnet, with an advisor review on PSA27's joint. Done check per item as in the audit's revamp table. |

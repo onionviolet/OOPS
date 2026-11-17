@@ -1,0 +1,494 @@
+{
+ "meta": {
+  "date": "2026-11-17",
+  "pass": "PWC46",
+  "model": "gpt-6.1-sol",
+  "note": "Frozen before any Sol call. Values only, no chapter text. A/B order = sha1(id+field)[0]&1: LH puts Luna first, HL Haiku first."
+ },
+ "rows": [
+  {
+   "pool": "diet",
+   "id": "candidate:beggar-moth",
+   "field": "category",
+   "key": "plants",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "primeval-stones-or-essence",
+   "haiku": "liquor-or-prepared-food",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:day-gu",
+   "field": "category",
+   "key": "element-or-weather",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "element-or-weather",
+   "haiku": "other",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:derivation-gu",
+   "field": "category",
+   "key": "meat-or-blood",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "other",
+   "haiku": "emotion-thought-or-soul",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:eat-fragrance-immortal-gu",
+   "field": "category",
+   "key": "element-or-weather",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "element-or-weather",
+   "haiku": "liquor-or-prepared-food",
+   "order": "HL"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:eating-ones-words-gu",
+   "field": "category",
+   "key": "other-gu-or-insects",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "other",
+   "haiku": "emotion-thought-or-soul",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:mudskin-toad",
+   "field": "category",
+   "key": "minerals-or-metal",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "other",
+   "haiku": "element-or-weather",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:perseverance-gu",
+   "field": "category",
+   "key": "element-or-weather",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "emotion-thought-or-soul",
+   "haiku": "meat-or-blood",
+   "order": "HL"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:remembrance-immortal-gu",
+   "field": "category",
+   "key": "plants",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "emotion-thought-or-soul",
+   "haiku": "other",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:sneak-attack-gu",
+   "field": "category",
+   "key": "other-gu-or-insects",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "other",
+   "haiku": "meat-or-blood",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:vajra-thought-immortal-gu",
+   "field": "category",
+   "key": "plants",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "minerals-or-metal",
+   "haiku": "emotion-thought-or-soul",
+   "order": "HL"
+  },
+  {
+   "pool": "diet",
+   "id": "candidate:womans-heart",
+   "field": "category",
+   "key": "meat-or-blood",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "meat-or-blood",
+   "haiku": "plants",
+   "order": "HL"
+  },
+  {
+   "pool": "diet",
+   "id": "fandom:Dog_Shit_Luck_Immortal_Gu",
+   "field": "category",
+   "key": "other",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "primeval-stones-or-essence",
+   "haiku": "other",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "fandom:Star_Mark_Gu",
+   "field": "category",
+   "key": "meat-or-blood",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "element-or-weather",
+   "haiku": "minerals-or-metal",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "fandom:Ten_Thousand_Li_Silk_Corridor",
+   "field": "category",
+   "key": "other-gu-or-insects",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "other",
+   "haiku": "other-gu-or-insects",
+   "order": "LH"
+  },
+  {
+   "pool": "diet",
+   "id": "heavenly-secret",
+   "field": "category",
+   "key": "element-or-weather",
+   "keySource": "hand sort of the book-stated food text",
+   "luna": "other",
+   "haiku": "element-or-weather",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "candidate:demonic-blood-skull-gu",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "alter essence self lasting",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "alter essence self lasting",
+   "haiku": "add vitality touched instant",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "candidate:fish-enslavement-gu",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "bind mind marked instant",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "move position self instant",
+   "haiku": "bind mind marked instant",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "candidate:groundmat-grass-gu",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "alter mind area instant",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "alter mind area instant",
+   "haiku": "end vitality touched instant",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "candidate:old-removal-gu",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "remove form self instant",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "remove form self instant",
+   "haiku": "remove vitality touched instant",
+   "order": "LH"
+  },
+  {
+   "pool": "effect",
+   "id": "candidate:special-will-gu",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "remove mind touched instant",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "remove mind touched instant",
+   "haiku": "sense information marked instant",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "candidate:water-image-gu",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "copy form self instant",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "transform form self lasting",
+   "haiku": "copy form self instant",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "coi.power.giant_fireball",
+   "ledger": "circle_of_inevitability_powers",
+   "field": "effect",
+   "key": "move heat line instant",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "move heat line instant",
+   "haiku": "add heat area instant",
+   "order": "LH"
+  },
+  {
+   "pool": "effect",
+   "id": "fandom:Bai_Zhan_Wen",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "transform form self sustained",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "transform form self sustained",
+   "haiku": "end vitality self instant",
+   "order": "LH"
+  },
+  {
+   "pool": "effect",
+   "id": "fixed-space",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "alter position area lasting",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "alter position area lasting",
+   "haiku": "block working area sustained",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "lm.power.celestial_punishment_edge",
+   "ledger": "legendary_mechanic_powers",
+   "field": "effect",
+   "key": "remove thing line instant",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "remove thing line instant",
+   "haiku": "alter form touched instant",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "lm.power.indestructible_body",
+   "ledger": "legendary_mechanic_powers",
+   "field": "effect",
+   "key": "block force self sustained",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "block force self sustained",
+   "haiku": "block vitality self lasting",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "lm.power.one_hit",
+   "ledger": "legendary_mechanic_powers",
+   "field": "effect",
+   "key": "end vitality touched triggered",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "end vitality touched triggered",
+   "haiku": "end lifespan touched triggered",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "saga:dew-immortal-gu",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "alter essence area sustained",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "alter essence area sustained",
+   "haiku": "add vitality self sustained",
+   "order": "HL"
+  },
+  {
+   "pool": "effect",
+   "id": "saga:earth-prison",
+   "ledger": "gu_kinds",
+   "field": "effect",
+   "key": "bind position touched sustained",
+   "keySource": "hand check against the cited chapter lines",
+   "luna": "add thing touched instant",
+   "haiku": "bind position touched sustained",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.cure_for_boils",
+   "field": "object",
+   "key": "vitality",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "thing",
+   "haiku": "vitality",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.cure_for_boils",
+   "field": "time",
+   "key": "instant",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "lasting",
+   "haiku": "instant",
+   "order": "HL"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.dr_ubbly_s_oblivious_unction",
+   "field": "time",
+   "key": "lasting",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "instant",
+   "haiku": "lasting",
+   "order": "HL"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.dragon_dung_fertiliser",
+   "field": "time",
+   "key": "lasting",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "lasting",
+   "haiku": "instant",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.mandrake_restorative_draught",
+   "field": "target",
+   "key": "self",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "self",
+   "haiku": "touched",
+   "order": "HL"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.mandrake_restorative_draught",
+   "field": "time",
+   "key": "instant",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "lasting",
+   "haiku": "instant",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.murtlap_essence",
+   "field": "time",
+   "key": "instant",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "lasting",
+   "haiku": "instant",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.murtlap_essence",
+   "field": "verb",
+   "key": "add",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "alter",
+   "haiku": "add",
+   "order": "HL"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.pepperup_potion",
+   "field": "time",
+   "key": "instant",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "lasting",
+   "haiku": "instant",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.pepperup_potion",
+   "field": "verb",
+   "key": "add",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "remove",
+   "haiku": "end",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.potion_for_dreamless_sleep",
+   "field": "time",
+   "key": "sustained",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "instant",
+   "haiku": "lasting",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.potion_for_dreamless_sleep",
+   "field": "verb",
+   "key": "transform",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "transform",
+   "haiku": "alter",
+   "order": "HL"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.shrinking_solution",
+   "field": "time",
+   "key": "lasting",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "lasting",
+   "haiku": "instant",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.skele_gro",
+   "field": "object",
+   "key": "form",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "form",
+   "haiku": "vitality",
+   "order": "HL"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.sleekeazy_s_hair_potion",
+   "field": "time",
+   "key": "lasting",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "lasting",
+   "haiku": "instant",
+   "order": "HL"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.swelling_solution",
+   "field": "carrier",
+   "key": "topical",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "potion",
+   "haiku": "topical",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.swelling_solution",
+   "field": "time",
+   "key": "lasting",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "lasting",
+   "haiku": "instant",
+   "order": "LH"
+  },
+  {
+   "pool": "sentence",
+   "id": "hp.potion.wit_sharpening_potion",
+   "field": "verb",
+   "key": "transform",
+   "keySource": "authored held-out sentence (HP_POTION_SENTENCES)",
+   "luna": "transform",
+   "haiku": "alter",
+   "order": "LH"
+  }
+ ]
+}

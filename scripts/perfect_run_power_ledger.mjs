@@ -13,6 +13,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
+import {attachItemBoundRows} from './item_bound_ledgers.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 export const SIDECAR = `${root}docs/coverage/perfect_run_power_labels.json`;
@@ -252,8 +253,8 @@ export function buildLedger(side) {
         return {id, source: [...r.nameSource].map(s => s.startsWith('digest') ? `perfect-run ${s}` : 'perfect-run paid claims 2026-11-01-pr').join('; '), state, mechanisms: [r.layer === 'bad-run' ? 'W' : 'W', ...(slug === 'mind-binding' ? ['A'] : [])], test: null, note};
     });
 }
-function build() {
-    const rows = buildLedger(read(SIDECAR));
+async function build() {
+    const rows = await attachItemBoundRows(buildLedger(read(SIDECAR)));
     writeFileSync(LEDGER, `${rows.map(r => JSON.stringify(r)).join('\n')}\n`);
     console.log(JSON.stringify({rows: rows.length, states: tallyBy(rows.map(r => r.state.split(':')[0] + (r.state.startsWith('blocked') ? `:${r.state.split(':')[1]}` : '')))}));
 }
@@ -263,6 +264,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     if (cmd === 'refresh') await refresh();
     else if (cmd === 'run') for (const w of rest) await runModel(w);
     else if (cmd === 'fold') fold();
-    else if (cmd === 'build') build();
+    else if (cmd === 'build') await build();
     else { console.error('usage: refresh | run luna|haiku | fold | build'); process.exit(2); }
 }

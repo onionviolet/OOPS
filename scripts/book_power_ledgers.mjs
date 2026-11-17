@@ -16,6 +16,7 @@ import {readFileSync, writeFileSync, existsSync, readdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {foldChapterEffect} from './chapter_effect_tier.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
+import {attachItemBoundRows} from './item_bound_ledgers.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const PRIMARY = '/Users/weiwei/code/yet-another-idle-rpg/';
@@ -312,8 +313,8 @@ export function buildLedger(side) {
         return foldChapterEffect(`${side.meta.book ? BOOKS[Object.keys(BOOKS).find(k => BOOKS[k].title === side.meta.book)].slug : ''}_powers`, {id, source: `${src.split(':')[0]}; ${r.nameSource.slice(0, 3).join(', ') || 'index'}`, state: stateOf(r), mechanisms: ['W'], test: null, note: bits.join(' ')});
     });
 }
-function build(b) {
-    const rows = buildLedger(jread(sidecarPath(b)));
+async function build(b) {
+    const rows = await attachItemBoundRows(buildLedger(jread(sidecarPath(b))));
     writeFileSync(ledgerPath(b), rows.map(r => JSON.stringify(r)).join('\n') + '\n');
     const c = {}; for (const r of rows) c[r.state.split(':')[0] + (r.state.startsWith('blocked') ? '' : '')] = (c[r.state.split(':')[0]] ?? 0) + 1;
     console.log(JSON.stringify({book: b, rows: rows.length, states: c}));
