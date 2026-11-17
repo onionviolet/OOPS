@@ -1,0 +1,322 @@
+{
+ "meta": {
+  "pass": "PWC99, PWC100",
+  "date": "2026-11-17",
+  "note": "Fold 5 scored once, after the rule set was chosen on folds 1-4. All figures are over every fold-5 cohort row (abstain falls back to the baseline)."
+ },
+ "ruleSet": [
+  "precursor",
+  "inverse",
+  "nextRank",
+  "firstChapter",
+  "family"
+ ],
+ "clamp": false,
+ "final": {
+  "n": 76,
+  "exact": 34,
+  "within1": 61,
+  "by": {
+   "firstChapter": {
+    "n": 41,
+    "exact": 14,
+    "within1": 34
+   },
+   "inverse": {
+    "n": 7,
+    "exact": 6,
+    "within1": 6
+   },
+   "precursor": {
+    "n": 8,
+    "exact": 8,
+    "within1": 8
+   },
+   "family": {
+    "n": 17,
+    "exact": 5,
+    "within1": 12
+   },
+   "baseline": {
+    "n": 3,
+    "exact": 1,
+    "within1": 1
+   }
+  },
+  "misses": [
+   {
+    "id": "ant-nest",
+    "by": "firstChapter",
+    "derived": 7,
+    "truth": 8
+   },
+   {
+    "id": "candidate:addition-gu",
+    "by": "firstChapter",
+    "derived": 7,
+    "truth": 8
+   },
+   {
+    "id": "candidate:blood-handprint-gu",
+    "by": "firstChapter",
+    "derived": 2,
+    "truth": 5
+   },
+   {
+    "id": "candidate:calamity-beckoning-gu",
+    "by": "firstChapter",
+    "derived": 6,
+    "truth": 7
+   },
+   {
+    "id": "candidate:current-charge-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 5
+   },
+   {
+    "id": "candidate:derivation-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 9
+   },
+   {
+    "id": "candidate:djinn-heart-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 3
+   },
+   {
+    "id": "candidate:do-or-die-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 5
+   },
+   {
+    "id": "candidate:earth-treasury-flower-gu",
+    "by": "inverse",
+    "derived": 4,
+    "truth": 2
+   },
+   {
+    "id": "candidate:eating-wind-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 2
+   },
+   {
+    "id": "candidate:frost-demon-gu",
+    "by": "firstChapter",
+    "derived": 2,
+    "truth": 3
+   },
+   {
+    "id": "candidate:golden-needle-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 2
+   },
+   {
+    "id": "candidate:grass-tree-army-gu",
+    "by": "firstChapter",
+    "derived": 3,
+    "truth": 4
+   },
+   {
+    "id": "candidate:green-mountain-remains",
+    "by": "firstChapter",
+    "derived": 3,
+    "truth": 4
+   },
+   {
+    "id": "candidate:hairy-zombie-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 3
+   },
+   {
+    "id": "candidate:heaven-blazing-spark-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 5
+   },
+   {
+    "id": "candidate:hundred-ghost-night-travel-gu",
+    "by": "firstChapter",
+    "derived": 3,
+    "truth": 5
+   },
+   {
+    "id": "candidate:instant-success-gu",
+    "by": "firstChapter",
+    "derived": 3,
+    "truth": 4
+   },
+   {
+    "id": "candidate:lightning-gu",
+    "by": "firstChapter",
+    "derived": 7,
+    "truth": 8
+   },
+   {
+    "id": "candidate:regret-gu",
+    "by": "firstChapter",
+    "derived": 7,
+    "truth": 8
+   },
+   {
+    "id": "candidate:running-corpse-gu",
+    "by": "firstChapter",
+    "derived": 3,
+    "truth": 2
+   },
+   {
+    "id": "candidate:soul-beast-token",
+    "by": "firstChapter",
+    "derived": 6,
+    "truth": 8
+   },
+   {
+    "id": "candidate:space-thought-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 5
+   },
+   {
+    "id": "candidate:thunderclap-potato-gu",
+    "by": "firstChapter",
+    "derived": 3,
+    "truth": 4
+   },
+   {
+    "id": "candidate:turn-gold-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 5
+   },
+   {
+    "id": "candidate:white-form-immortal-snake",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 5
+   },
+   {
+    "id": "candidate:wind-barrier-gu",
+    "by": "firstChapter",
+    "derived": 4,
+    "truth": 5
+   },
+   {
+    "id": "fandom:Blessing_In_Disguise",
+    "by": "family",
+    "derived": 6,
+    "truth": 7
+   },
+   {
+    "id": "fandom:Dark_Prison",
+    "by": "family",
+    "derived": 4,
+    "truth": 6
+   },
+   {
+    "id": "fandom:Eight-Faced_Prestige_Wind_Gu",
+    "by": "family",
+    "derived": 6,
+    "truth": 8
+   },
+   {
+    "id": "fandom:Heaven_Overseeing_Tower",
+    "by": "baseline",
+    "derived": 3,
+    "truth": 9
+   },
+   {
+    "id": "fandom:Pine_Needle_Immortal_Gu",
+    "by": "family",
+    "derived": 6,
+    "truth": 7
+   },
+   {
+    "id": "fandom:Poison_Needle_Gu",
+    "by": "family",
+    "derived": 3,
+    "truth": 2
+   },
+   {
+    "id": "fandom:Profound_Ice_House",
+    "by": "family",
+    "derived": 3,
+    "truth": 6
+   },
+   {
+    "id": "fandom:Smelly_Fart_Gu",
+    "by": "family",
+    "derived": 3,
+    "truth": 1
+   },
+   {
+    "id": "fandom:Store_Strength_Gu",
+    "by": "family",
+    "derived": 4,
+    "truth": 3
+   },
+   {
+    "id": "fandom:Sword_Legged_Dragon_Centipede_Gu",
+    "by": "baseline",
+    "derived": 3,
+    "truth": 7
+   },
+   {
+    "id": "fandom:Time_Anchor_Gu",
+    "by": "family",
+    "derived": 5,
+    "truth": 6
+   },
+   {
+    "id": "fandom:Undying_Grass",
+    "by": "family",
+    "derived": 4,
+    "truth": 3
+   },
+   {
+    "id": "fandom:Water_Light_Gu",
+    "by": "family",
+    "derived": 3,
+    "truth": 1
+   },
+   {
+    "id": "fandom:Waterfall_Gu",
+    "by": "family",
+    "derived": 3,
+    "truth": 4
+   },
+   {
+    "id": "years-flow-like-water",
+    "by": "firstChapter",
+    "derived": 6,
+    "truth": 8
+   }
+  ]
+ },
+ "familyMedian": {
+  "n": 76,
+  "exact": 20,
+  "within1": 46,
+  "by": {
+   "baseline": {
+    "n": 8,
+    "exact": 3,
+    "within1": 4
+   },
+   "family": {
+    "n": 68,
+    "exact": 17,
+    "within1": 42
+   }
+  }
+ },
+ "baseline": {
+  "exact": 14,
+  "within1": 33
+ }
+}

@@ -16,7 +16,9 @@ export const CORPORA = ['powers', 'artifacts', 'potions_and_recipes', 'materials
 const WIKI = slug => `~/.codex/research/wikis/${slug}.fandom.com/dump`;
 const NOVELS = 'docs/research/novels';
 const WD = 'docs/worlds';
-const UNREADABLE = {wfrp4e: 'the held PDF is damaged (broken cross-reference table, 0 pages extracted); a readable copy is wishlist DL121'};
+const UNREADABLE = {wfrp4e: 'the held core copy is a truncated download (3 MB, no page tree; qpdf cannot rebuild it) and the Source Library entry labelled core is a second Up in Arms volume; a readable core is wishlist DL121'};
+// Fandom publishes whole-wiki dumps for these settings (PWC50-PWC52, 2026-11-17): dump slug by setting id.
+const SETTING_WIKI = {cyberpunk: 'cyberpunk', 'warhammer-40k': 'warhammer40k'};
 const SETTING_LEDGERS = {powers: 'powers', artifacts: 'artifacts', creatures: 'creatures', places: 'places', institutions: 'institutions', rules: 'rules'};
 const SL = 'docs/research/SOURCE_LIBRARY_CATALOGUE.md'; // held in the Source Library with no per-book folder
 
@@ -130,8 +132,8 @@ export const REGISTRY = [
     // Tabletop setting books read as worlds (PWC37, 2026-11-17): the six corpora scripts/setting_ledgers.mjs reads get a ledger when
     // its file exists; the other corpora stay missing with the private shard folder as source.
     ...[
-        ['eclipse-phase', 'Eclipse Phase (2nd edition)'], ['numenera', 'Numenera (Ninth World)'], ['warhammer-40k', 'Warhammer 40,000 (9th edition core)'],
-        ['the-strange', 'The Strange (recursions)'], ['wfrp4e', 'Warhammer Fantasy Roleplay 4e (the Old World)'], ['aos-soulbound', 'Age of Sigmar: Soulbound'],
+        ['eclipse-phase', 'Eclipse Phase (2nd edition)'], ['numenera', 'Numenera (Ninth World)'], ['warhammer-40k', 'Warhammer 40,000, the 41st millennium (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum)'],
+        ['the-strange', 'The Strange (recursions)'], ['wfrp4e', 'Warhammer: the Old World (WFRP 4e Up in Arms; core not yet read)'], ['aos-soulbound', 'Warhammer Age of Sigmar: the Mortal Realms (Soulbound)'],
         ['stars-without-number', 'Stars Without Number (Revised, free edition)'], ['forgotten-realms', 'Forgotten Realms (3e campaign setting and Grand History)'],
         ['golarion', 'Golarion (Inner Sea World Guide and Lost Omens World Guide)'], ['the-dark-eye', 'The Dark Eye 5e (Aventuria)'],
         ['cyberpunk', 'Cyberpunk (RED and 2020)'], ['planescape', 'Planescape (Adventures in the Multiverse, 2023)'], ['spelljammer', 'Spelljammer (Adventures in Space)'],
@@ -145,7 +147,7 @@ export const REGISTRY = [
         }
         const extra = id === 'cyberpunk' ? {docs: {rules: 'docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md', people: 'docs/research/CYBERPUNK_COMMUNITY_SCOUT_2026-11-03.md'}} : {};
         const none = !Object.keys(ledgers).length && UNREADABLE[id] ? Object.fromEntries(CORPORA.map(c => [c, UNREADABLE[id]])) : {};
-        return W(id, name, 'setting', {none, text: `docs/research/tabletop-settings-2026-11-17/private/${id}`, ledgers, ...extra});
+        return W(id, name, 'setting', {none, ...(SETTING_WIKI[id] ? {wiki: SETTING_WIKI[id]} : {}), text: `docs/research/tabletop-settings-2026-11-17/private/${id}`, ledgers, ...extra});
     }),
 ];
 

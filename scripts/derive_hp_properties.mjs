@@ -11,6 +11,7 @@
 // Derived levels are capped at `some`: a derived set says an axis is present, not how much (amounts stay authored).
 // Usage: node scripts/derive_hp_properties.mjs [--score]   (prints the held-out score; writes docs/coverage/hp_derived_score.json)
 import {readFileSync, writeFileSync} from 'node:fs';
+import {confidenceOf} from './derivation_confidence.mjs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
@@ -156,7 +157,7 @@ export function foldDerived(rows) {
         if (primary) row.test = DERIVE_TEST;
         row.mechanisms = [...new Set([...row.mechanisms, 'hp_property_set', ...(primary ? ['b.dose'] : [])])];
         row.case = {module: HP_PROPERTY_MODULE, id: derivedCaseId(d.axes)};
-        row.derived = {rule: DERIVE_RULE, inputs: d.inputs};
+        row.derived = {rule: DERIVE_RULE, inputs: d.inputs, confidence: confidenceOf(DERIVE_RULE)};
     }
     return rows;
 }

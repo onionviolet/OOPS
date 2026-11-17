@@ -1,0 +1,192 @@
+{
+ "meta": {
+  "pass": "PWC92, PWC99, PWC100",
+  "date": "2026-11-17",
+  "rule": "fold-5 misses of two ranks or more"
+ },
+ "exceptions": [
+  {
+   "id": "candidate:blood-handprint-gu",
+   "name": "Blood Handprint Gu",
+   "rule": "firstChapter",
+   "derived": 2,
+   "canon": 5,
+   "firstChapter": 274,
+   "state": "authored:early-appearance-high-rank",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "candidate:derivation-gu",
+   "name": "Derivation Gu",
+   "rule": "firstChapter",
+   "derived": 4,
+   "canon": 9,
+   "firstChapter": 181,
+   "state": "authored:early-appearance-high-rank",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "candidate:earth-treasury-flower-gu",
+   "name": "Earth Treasury Flower Gu",
+   "rule": "inverse",
+   "derived": 4,
+   "canon": 2,
+   "firstChapter": 63,
+   "state": "authored:low-rank-for-its-story-time",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "candidate:eating-wind-gu",
+   "name": "Eating Wind Gu",
+   "rule": "firstChapter",
+   "derived": 4,
+   "canon": 2,
+   "firstChapter": 308,
+   "state": "authored:low-rank-for-its-story-time",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "candidate:golden-needle-gu",
+   "name": "Golden Needle Gu",
+   "rule": "firstChapter",
+   "derived": 4,
+   "canon": 2,
+   "firstChapter": 374,
+   "state": "authored:low-rank-for-its-story-time",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "candidate:hundred-ghost-night-travel-gu",
+   "name": "Hundred Ghost Night Travel Gu",
+   "rule": "firstChapter",
+   "derived": 3,
+   "canon": 5,
+   "firstChapter": 446,
+   "state": "authored:later-appearance-higher-rank",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "candidate:soul-beast-token",
+   "name": "Soul Beast Token Gu",
+   "rule": "firstChapter",
+   "derived": 6,
+   "canon": 8,
+   "firstChapter": 1504,
+   "state": "authored:later-appearance-higher-rank",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "fandom:Dark_Prison",
+   "name": "Dark Prison",
+   "rule": "family",
+   "derived": 4,
+   "canon": 6,
+   "firstChapter": null,
+   "state": "authored:later-appearance-higher-rank",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "fandom:Eight-Faced_Prestige_Wind_Gu",
+   "name": "Eight-Faced Prestige Wind Gu",
+   "rule": "family",
+   "derived": 6,
+   "canon": 8,
+   "firstChapter": null,
+   "state": "authored:later-appearance-higher-rank",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "fandom:Heaven_Overseeing_Tower",
+   "name": "Heaven Overseeing Tower",
+   "rule": "baseline",
+   "derived": 3,
+   "canon": 9,
+   "firstChapter": null,
+   "state": "authored:no-family-no-first-chapter",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "fandom:Profound_Ice_House",
+   "name": "Profound Ice House",
+   "rule": "family",
+   "derived": 3,
+   "canon": 6,
+   "firstChapter": null,
+   "state": "authored:later-appearance-higher-rank",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "fandom:Smelly_Fart_Gu",
+   "name": "Smelly Fart Gu",
+   "rule": "family",
+   "derived": 3,
+   "canon": 1,
+   "firstChapter": null,
+   "state": "authored:low-rank-for-its-story-time",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "fandom:Sword_Legged_Dragon_Centipede_Gu",
+   "name": "Sword Legged Dragon Centipede Gu",
+   "rule": "baseline",
+   "derived": 3,
+   "canon": 7,
+   "firstChapter": null,
+   "state": "authored:no-family-no-first-chapter",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "fandom:Water_Light_Gu",
+   "name": "Water Light Gu",
+   "rule": "family",
+   "derived": 3,
+   "canon": 1,
+   "firstChapter": null,
+   "state": "authored:low-rank-for-its-story-time",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "years-flow-like-water",
+   "name": "Years Flow Like Water Immortal Gu",
+   "rule": "firstChapter",
+   "derived": 6,
+   "canon": 8,
+   "firstChapter": 1129,
+   "state": "authored:later-appearance-higher-rank",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  }
+ ],
+ "count": 15,
+ "foldFiveN": 76,
+ "factsPerRule": {
+  "firstChapter": {
+   "applied": 41,
+   "exact": 14,
+   "within1": 34
+  },
+  "inverse": {
+   "applied": 7,
+   "exact": 6,
+   "within1": 6
+  },
+  "precursor": {
+   "applied": 8,
+   "exact": 8,
+   "within1": 8
+  },
+  "family": {
+   "applied": 17,
+   "exact": 5,
+   "within1": 12
+  },
+  "baseline": {
+   "applied": 3,
+   "exact": 1,
+   "within1": 1
+  }
+ },
+ "coverage": {
+  "rankBlockedRows": 544,
+  "withFirstAppearance": 343
+ }
+}

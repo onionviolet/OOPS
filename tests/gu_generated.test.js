@@ -43,3 +43,27 @@ test('a runs row has a grammar-valid Gu sentence and a rule, a blocked row names
         } else assert.match(r.state, /^blocked:[a-z0-9]/);
     }
 });
+
+// PWC47 and PWC49: sameness by meaning and ranks from the family-median rule.
+test('a generated rank comes from the family-median rule, with the model rank kept as a note', () => {
+    for (const r of generated) {
+        assert.ok(Number.isInteger(r.rank) && r.rank >= 1 && r.rank <= 9, r.id);
+        assert.ok(Number.isInteger(r.modelRank), `${r.id} keeps the model's own rank`);
+        assert.match(r.rankBasis.rule, /^(gu\.rank\.family-median|model)$/, r.id);
+        assert.ok(r.note.includes(`rank ${r.rank},`), `${r.id}: the note shows the ledger rank`);
+        if (r.rankBasis.rule === 'gu.rank.family-median') assert.ok(r.rankBasis.n >= 3, `${r.id}: a family of at least three`);
+    }
+});
+
+test('a variant_of row links an existing canon Gu and a judged copy is not in the ledger', () => {
+    const ids = new Set(canon.map(r => r.id));
+    for (const r of generated) if (r.variant_of) assert.ok(ids.has(r.variant_of) || ids.has(r.nearest), `${r.id} links a canon row`);
+    const file = new URL('../docs/coverage/gu_sameness.json', import.meta.url);
+    if (!existsSync(file)) return;
+    const {verdicts} = JSON.parse(readFileSync(file, 'utf8'));
+    const names = new Set(generated.map(r => r.note.split('. ')[0]));
+    for (const [name, v] of Object.entries(verdicts)) {
+        if (v.verdict === 'copy') assert.ok(!names.has(name), `${name} is a judged copy`);
+        else if (v.verdict === 'variant_of') assert.equal(generated.find(r => r.note.startsWith(`${name}.`))?.variant_of, v.nearest, name);
+    }
+});
