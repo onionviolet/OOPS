@@ -10,6 +10,7 @@
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {foldChapterEffect} from './chapter_effect_tier.mjs';
 import {runPass} from './label_runner.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
 
@@ -127,7 +128,7 @@ export function build() {
         const s = score(corpus, entries);
         // Fold rule (PWC2): the guessed class becomes a sheet field only where the held-out score beats the baseline class.
         const folded = s.held_out.hit > s.held_out.baseline;
-        writeFileSync(`${coverage}${c.ledger}.jsonl`, entries.map(e => JSON.stringify(e.row)).join('\n') + '\n');
+        writeFileSync(`${coverage}${c.ledger}.jsonl`, entries.map(e => JSON.stringify(foldChapterEffect(c.ledger, e.row))).join('\n') + '\n');
         writeFileSync(`${coverage}${c.ledger}_labels.json`, JSON.stringify({
             ledger: c.ledger, what: c.what, denominator: c.denominator, count: entries.length, split_rule: SPLIT_RULE, score: s,
             fold: {class_guess: folded ? 'folded' : 'not folded (does not beat the baseline class on held-out rows)'},

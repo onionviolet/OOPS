@@ -67,6 +67,7 @@ export const COVERAGE_DIR = 'docs/coverage';
 // CV3 denominators, for the expected column. A ledger not listed still reports.
 export const DENOMINATORS = {
     gu_kinds: {expected: 1466, owner: 'G', what: 'Gu kinds, held review index records'},
+    gu_generated: {expected: null, owner: 'G', what: 'Generated Gu (PWC30-PWC34): concept words from real-world categories, canon name words and ri_treasures, invented in the canon catalogue\'s trend; a fourth tier apart from gu_kinds'},
     gu_moves: {expected: 776, owner: 'G', what: 'killer moves: 23 records plus 753 leads'},
     hp_potions: {expected: 316, owner: 'B', what: 'potion-related catalogue entries'},
     hp_ingredients: {expected: 409, owner: 'B', what: 'ingredient-related catalogue entries'},
@@ -91,9 +92,22 @@ export const DENOMINATORS = {
     circle_of_inevitability_powers: {expected: 445, owner: 'W', what: 'Circle of Inevitability named powers; Sequence rows link to lotm_potions (PWC17)'},
     legendary_mechanic_powers: {expected: 219, owner: 'W', what: 'The Legendary Mechanic named abilities, class steps, blueprints and system functions (PWC17)'},
     fated_villain_powers: {expected: 309, owner: 'W', what: 'I Am the Fated Villain named techniques, physiques, system functions and items (PWC17)'},
+    hp_creatures: {expected: 819, owner: 'L', what: 'Harry Potter wiki pages with a Creature infobox; the Ministry X rating is the held-out label (PWC28)'},
+    lotm_powers: {expected: 652, owner: 'P', what: 'Lord of the Mysteries Beyonder abilities, authorities and mythical forms per pathway Sequence, linked to lotm_potions (PWC28)'},
+    mother_of_learning_artifacts: {expected: null, owner: 'A', what: 'Mother of Learning named artifacts and items, a model listing over the reader evidence (PWC28)'},
+    circle_of_inevitability_artifacts: {expected: null, owner: 'A', what: 'Circle of Inevitability named artifacts and items, a model listing over the claims (PWC28)'},
+    fated_villain_artifacts: {expected: null, owner: 'A', what: 'I Am the Fated Villain named artifacts and items, a model listing over the claim ledger (PWC28)'},
+    legendary_mechanic_artifacts: {expected: null, owner: 'A', what: 'The Legendary Mechanic named equipment, blueprints and items, a model listing (PWC28)'},
+    speedrunning_multiverse_artifacts: {expected: null, owner: 'A', what: 'Speedrunning the Multiverse named artifacts and items, a model listing (PWC28)'},
+    shadow_slave_artifacts: {expected: 432, owner: 'A', what: 'Shadow Slave Memories and other items: census item ids in at least 3 windows (PWC28)'},
+    regressors_tale_artifacts: {expected: 674, owner: 'A', what: "A Regressor's Tale items: census item ids in at least 3 windows (PWC28)"},
+    shadow_slave_creatures: {expected: 365, owner: 'L', what: 'Shadow Slave Nightmare Creatures and other creatures: census creature ids in at least 3 windows (PWC28)'},
+    shadow_slave_echoes: {expected: 37, owner: 'L', what: 'Shadow Slave Echoes as companions: census ids that name an Echo (PWC28)'},
 };
 const STATE = /^(runs-canon|runs-authored|runs-derived|expressed-canon|expressed-authored|expressed-derived|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
-const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived']);
+// tier, concept, promptHash, nearest and model belong to generated rows (PWC30): the tier apart from canon and derived, the concept word,
+// the hash of the frozen prompt, the nearest canon Gu and the model that wrote the row (AU17).
+const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model']);
 
 // Validate one ledger's text. Returns {rows, problems}; a problem names its line.
 export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file))} = {}) {

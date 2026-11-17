@@ -1,0 +1,2653 @@
+{
+ "meta": {
+  "world": "mm3e_commercial",
+  "books": [
+   "M&M 3e Hero's Handbook"
+  ],
+  "licence": [
+   "commercial book, design reference only"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept. Commercial book: design reference only.",
+  "date": "2026-11-17",
+  "shards": 18
+ },
+ "rules": [
+  {
+   "id": "mm3e_commercial.rule.0001",
+   "world": "mm3e_commercial",
+   "statement": "A power may consist of one effect or several, and modifiers can change how its effects work. Power effects have ranks from 1 to 20, sometimes higher, and never have ranks below 1.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 11, Powers (mm3e-heros-handbook#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: effects are separately ranked and can be customized; dial: allow multiple effects and modifiers, with power-point costs not specified in this passage.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0002",
+   "world": "mm3e_commercial",
+   "statement": "Some power effects require a check to use, while others operate without one.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 11, Powers (mm3e-heros-handbook#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: whether an effect needs a check depends on the effect; dial: make use automatic or uncertain, as appropriate to the effect.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0003",
+   "world": "mm3e_commercial",
+   "statement": "For a direct comparison that does not involve luck, compare the relevant ranks; the higher rank wins. Ties are even, resolved by a die roll if a winner is needed.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 15, Comparison Checks (mm3e-heros-handbook#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: higher rank wins",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: rank alone decides a straight comparison; dial: extra effort, maneuvers, or tricks can change the comparison.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0004",
+   "world": "mm3e_commercial",
+   "statement": "Ranks map to approximate mass, time, distance, and volume measures. For travel, distance rank equals time rank plus speed rank; for throwing, distance rank equals Strength rank minus the object's mass rank.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Pages 11–13, Ranks & Measures (mm3e-heros-handbook#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: rank-to-measure",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: use the table as an approximate scale, with each rank doubling a measure; dial: use finer or coarser precision, since the values are explicitly estimates.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0005",
+   "world": "mm3e_commercial",
+   "statement": "When two characters actively contest each other, each makes a check and the higher result wins. If one side is unaware of the contest, the active side instead checks against the unaware character's modifier plus 10.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 15, Opposed Checks (mm3e-heros-handbook#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: active contests use opposed results, while unaware opposition is a fixed target; dial: use active opposition when a character is actively defending.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0006",
+   "world": "mm3e_commercial",
+   "statement": "A compelled character can take only free actions and one standard action each turn, and the controlling character chooses both; a controlled character has all actions dictated by the controller. Controlled replaces compelled.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Basic Conditions, pp. 18–19 (mm3e-heros-handbook#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0007",
+   "world": "mm3e_commercial",
+   "statement": "An outside agency can alter some or all of a character’s traits. The transformation cannot increase the character’s total power points, though it may reduce them for as long as the change lasts.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Basic Conditions, p. 19 (mm3e-heros-handbook#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0008",
+   "world": "mm3e_commercial",
+   "statement": "Using extra effort can grant one additional standard action, or improve one check by +2 (or to +5); it can also cancel a –2 penalty or reduce a –5 penalty to –2. At the start of the next turn, the user becomes fatigued; further use while fatigued causes exhaustion, and use while exhausted causes incapacitation.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Extra Effort, p. 20 (mm3e-heros-handbook#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0009",
+   "world": "mm3e_commercial",
+   "statement": "Extra effort can grant an immediate extra resistance check against an ongoing effect. A compelled or controlled character does not suffer the resulting fatigue until freed from that effect.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Using Hero Points, p. 21 (mm3e-heros-handbook#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0010",
+   "world": "mm3e_commercial",
+   "statement": "A hero point can raise one non-permanent power effect by 1 rank until the start of the user’s next turn, or temporarily grant an Alternate Effect until the scene ends or its duration expires, whichever comes first; permanent effects cannot be increased or used this way.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Using Hero Points, p. 21 (mm3e-heros-handbook#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0011",
+   "world": "mm3e_commercial",
+   "statement": "A hero point can immediately remove dazed, fatigued, or stunned, or change exhausted to fatigued. Spending a hero point at the start of the turn after extra effort prevents its fatigue consequence.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Recover, p. 22; Cost of Extra Effort, p. 21 (mm3e-heros-handbook#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0012",
+   "world": "mm3e_commercial",
+   "statement": "A hero point can provide an immediate additional resistance check against an ongoing effect, or let the character attempt to counter an effect used against them as a reaction.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Using Hero Points, pp. 21–22 (mm3e-heros-handbook#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0013",
+   "world": "mm3e_commercial",
+   "statement": "A hero point can reroll a die and keep the better result; if the second roll is 1–10, add 10, while 11–20 remains unchanged. It must be spent before the GM announces the original result, and it cannot affect another person’s roll without a specific power.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Improve Roll, p. 22 (mm3e-heros-handbook#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "luck-mechanism"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0014",
+   "world": "mm3e_commercial",
+   "statement": "When a complication causes a concrete problem and the player accepts its consequences, the GM awards the player 1 hero point. The GM may use injuries, distractions, or device malfunctions this way when they cause trouble.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Complications and Injuries, p. 30; Under the Hood: Complications and Up-Front Rewards, p. 31 (mm3e-heros-handbook#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: award 1 point when an accepted complication causes trouble; dial: the GM chooses when it applies, because the reward compensates for a drawback that may arise only occasionally.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0015",
+   "world": "mm3e_commercial",
+   "statement": "A power may fail or be lost under specified circumstances, including losing access to an object it depends on; temporary weakness can also follow loss of confidence. When that condition causes a challenge, it can trigger the complication reward.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Power Loss, p. 30 (mm3e-heros-handbook#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: specify the circumstance that disables or removes the power; dial: choose its scope and duration, because the cause may range from temporary weakness to loss of the power itself.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0016",
+   "world": "mm3e_commercial",
+   "statement": "A weakness can add degrees of effect or impose a different effect, such as an affliction, damage, or weakening. The GM decides the effect when the weakness is used, and it can trigger the complication reward when it causes trouble.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Weakness, p. 30 (mm3e-heros-handbook#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: agree on likely effects in advance; dial: the GM determines the actual effect, because the particular weakness may call for different harms.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0017",
+   "world": "mm3e_commercial",
+   "statement": "A hero’s origin can act as a descriptor: powers may detect the hero through that origin or affect them with origin-specific devices. The GM may restrict which origins are allowed, including requiring a shared origin for the group.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Origins as Descriptors; Origin Guidelines, p. 32 (mm3e-heros-handbook#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB1",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: origin can provide a basis for detection or specific countermeasures; dial: the GM sets origin limits, because the series may require a common background.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0018",
+   "world": "mm3e_commercial",
+   "statement": "A hero who changes into another persona may face complications about controlling the change or lacking powers or abilities in one persona. A costume is otherwise immune, at no point cost, to routine effects of its wearer’s own powers, though attacks or other circumstances can damage it.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Identity, p. 30; Costume, p. 33 (mm3e-heros-handbook#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation"
+   ],
+   "default_dial_reason": "Default: the costume withstands its wearer’s routine powers for free; dial: changes in control, capabilities, or damage remain possible, because they can create story complications.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0019",
+   "world": "mm3e_commercial",
+   "statement": "For a completed one-session adventure, heroes generally receive 1 power point; the GM may award 2 for especially difficult challenges. Longer adventures generally earn 1 per session plus a possible extra point at the end, and points may be saved or spent between adventures to improve traits within the series power level.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Hero Advancement & Improvement, p. 34 (mm3e-heros-handbook#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: 1 point per successful session, with a possible extra for exceptional difficulty; dial: the GM may vary or withhold awards, because the pace reflects the series’ style and the heroes’ results.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0020",
+   "world": "mm3e_commercial",
+   "statement": "As a guideline, consider raising the series power level by 1 after heroes have gained 15 power points since the start or last increase. After a raise, reassess opponents and challenges; player characters remain limited by the new power level, while non-player characters need not follow those limits.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Increasing Power Level, p. 34 (mm3e-heros-handbook#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: consider +1 power level per additional 15 earned points; dial: the GM decides whether to raise it and adjusts challenges, because advancement should preserve suitable opposition.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0021",
+   "world": "mm3e_commercial",
+   "statement": "Ability ranks can be raised by spending 2 power points per rank, or lowered by up to 5 ranks to gain 2 points per rank. A rank change also changes traits based on that ability.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Buying Ability Ranks; Altering Abilities (pp. 56, 58) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default; dial; changing an underlying ability also changes its dependent traits.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0022",
+   "world": "mm3e_commercial",
+   "statement": "An ability below rank −5 causes a specific severe impairment, such as collapse for physical coordination abilities or dying for Stamina; it cannot be reduced further. A missing ability instead gives 10 points to spend, but causes its own listed limitations and requires Gamemaster permission for heroes.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Debilitated Abilities; Absent Abilities (pp. 58–59) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: ability absence and impairment",
+   "seam": "AB11",
+   "derives": [
+    "body-form",
+    "body-code-decay"
+   ],
+   "default_dial_reason": "Default; dial; severe impairment and absence have distinct consequences, and absence is permission-gated.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0023",
+   "world": "mm3e_commercial",
+   "statement": "An ability rank may be normal or enhanced, at the same cost of 2 points per rank. Enhanced ranks can be nullified and used for power stunts with extra effort; normal ranks cannot.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Enhanced Abilities (p. 57) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB1",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default; dial; enhanced traits gain power-like flexibility but can be nullified.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0024",
+   "world": "mm3e_commercial",
+   "statement": "Defenses start at the rank of their associated ability and can generally be raised for 1 point per rank, subject to power-level limits. Toughness is the exception: it cannot be raised by direct point spending and must be improved through advantages or powers.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Defense Rank; Toughness Rank (pp. 59–60) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default; dial; Toughness improvement is restricted to special abilities rather than direct purchases.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0025",
+   "world": "mm3e_commercial",
+   "statement": "When a character is vulnerable, Dodge and Parry are halved, rounding up; when defenseless, both become 0. Defenses also set attack difficulty at the defense rank plus 10, and resistance checks use the relevant defense plus a die roll.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Active Defenses; Defense Class; Resistance Checks (p. 60) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default; dial; impaired mobility or readiness reduces active avoidance, while defenses also oppose attacks and hazards.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0026",
+   "world": "mm3e_commercial",
+   "statement": "An ability rank change updates all traits derived from it, including associated skills and defenses. For example, changing Agility also changes Agility-based skills and Dodge.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Altering Abilities (p. 58) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [],
+   "default_dial_reason": "Default; dial; dependent traits track changes to their governing ability.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0027",
+   "world": "mm3e_commercial",
+   "statement": "Skill ranks cost 1 power point for every 2 ranks, and a skill check adds the skill rank, its ability modifier, and other modifiers to a d20 roll. A skill that is trained-only automatically fails if attempted without training.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Acquiring Skills; Untrained Skill Checks (p. 62) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: skill check and training",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default; dial; training grants a defined bonus, while designated specialized tasks cannot be attempted untrained.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0028",
+   "world": "mm3e_commercial",
+   "statement": "Interaction skills require subjects who can perceive and understand the user; inability to hear or understand imposes a −5 penalty. They work best on subjects with Intellect −4 or higher, impose another −5 against Intellect −5 subjects, and cannot affect subjects lacking a mental ability; use against a group must seek the same result for everyone.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Interaction Skills (p. 63) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default; dial; communication, intelligence, and group uniformity limit social influence.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0029",
+   "world": "mm3e_commercial",
+   "statement": "Manipulation skills require prehensile limbs and Strength, or a suitable Precise effect; impaired handling can impose a situational penalty. Characters unable to manipulate objects may still oversee or assist others’ work.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Manipulation Skills (p. 63) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB11",
+   "derives": [],
+   "default_dial_reason": "Default; dial; physical handling requirements constrain direct use but permit indirect assistance.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0030",
+   "world": "mm3e_commercial",
+   "statement": "A fall deals damage rank 4 plus twice the distance rank, capped at rank 16, and leaves the character prone; falls of 6 feet or less deal no damage. Acrobatics can reduce fall damage by 1 per degree of success, and a reduction to rank 0 prevents damage and lets the character rise as a free action.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Falling; Tumbling (pp. 65–66) (mm3e-heros-handbook#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default; dial; fall distance sets harm, while an acrobatic check can reduce it.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0031",
+   "world": "mm3e_commercial",
+   "statement": "A disguise changes how a person appears; preparing it takes at least 10 minutes, and observers may check when they first meet the disguised person and again hourly or daily as circumstances warrant. Missing props can impose a penalty of up to –5, while people familiar with the impersonated individual gain Perception bonuses of +2, +5, or +10 depending on their closeness.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Disguise, p. 68 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: disguise needs preparation and can be detected; dial: scrutiny frequency and situational modifiers; the cost is time and a risk of recognition.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0032",
+   "world": "mm3e_commercial",
+   "statement": "A combat feint takes a standard action and pits Deception against the target’s better Deception or Insight; success leaves the target vulnerable to the feinter’s next attack until the end of the feinter’s next round. A trick can also draw an opponent into a hazard, but failure by more than one degree leaves the trickster vulnerable until the start of their next round.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Feinting and Tricking, p. 68 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: a successful deception briefly creates an opening; dial: the hazard and its consequences; the cost is an action and the trickster risks exposure.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0033",
+   "world": "mm3e_commercial",
+   "statement": "A covert spoken message has a DC of 10 for a basic message, 15 for a complex one, or 20 for new or detailed information; the recipient must meet that DC with Insight to understand it. An eavesdropper who meets the DC notices the hidden message, and with at least two degrees of success understands it; more than one degree of failure causes misinterpretation.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Innuendo, p. 68 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: hidden communication can be detected or misunderstood; dial: message complexity; the cost is reduced certainty and possible interception.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0034",
+   "world": "mm3e_commercial",
+   "statement": "A successful Insight check against the effect’s or skill’s rank plus 10 reveals that someone is not acting entirely of their own will; three or more degrees of success also give a general idea of what is influencing them and possibly who is responsible. Insight can also resist certain interaction attempts when its result exceeds the opponent’s.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Detect Influence and Resist Influence, pp. 69–70 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: influence is detectable and sometimes resistible; dial: how much its source is revealed; the cost is that stronger influence is harder to uncover.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0035",
+   "world": "mm3e_commercial",
+   "statement": "Successful intimidation can make a target act friendly toward the intimidator while they are present, but the target need not obey every demand or take direct danger upon themselves. More than one degree of failure may make the target do the opposite, and the target generally becomes hostile afterward regardless of the outcome.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Coercing, p. 70 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: threats can secure limited, temporary cooperation; dial: the target’s response to failure; the cost is lasting hostility and the risk of backlash.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0036",
+   "world": "mm3e_commercial",
+   "statement": "In combat, a successful intimidation check as a standard action makes a target impaired (–2 to checks) until the end of the attacker’s next round; four or more degrees of success instead make the target disabled (–5) for that duration. One check can affect a group of minions who can all see and hear the intimidator, but it must apply the same effect to everyone.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Demoralizing and Intimidating Minions, p. 71 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: intimidation briefly degrades confidence and performance; dial: group size and resistance; the cost is a standard action and the effect expires quickly.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0037",
+   "world": "mm3e_commercial",
+   "statement": "A successful Persuasion check against DC 15 improves a subject’s attitude by one step, with each two additional degrees of success improving it by another step; failure leaves the attitude unchanged, while failure by more than one degree worsens it by one step. Persuasion takes at least a standard action, may take longer, and a failed attempt cannot be retried in the same situation.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Persuasion, p. 74 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: persuasion can shift attitudes in measured steps; dial: starting attitude and whether circumstances allow another attempt; the cost is time and the possibility of worsening relations.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0038",
+   "world": "mm3e_commercial",
+   "statement": "A temporary repair can be attempted as a standard action with the repair DC reduced by 10, but it fixes only one problem and lasts only until the scene ends; the item must then be fully repaired and cannot be temporarily repaired again before that. A failed ordinary repair consumes the time without progress, while repair normally reduces the build DC by 5 and required time rank by 2.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Technology: Repairing and Jury-Rigging, p. 76 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB16",
+   "derives": [
+    "tinker-device",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: a quick fix restores limited function for one scene; dial: what single problem it addresses; the cost is temporary reliability and later full repair.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0039",
+   "world": "mm3e_commercial",
+   "statement": "An accurate attack can trade up to –5 on its effect modifier for the same amount of attack bonus; an all-out attack can trade up to –5 in active defenses for the same attack bonus. These adjustments shift accuracy, effect, or safety rather than creating additional power.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Advantage Descriptions, p. 80 (mm3e-heros-handbook#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: combatants can exchange effect or defense for accuracy; dial: the amount traded, capped at 5; the in-world cost is reduced impact or protection.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0040",
+   "world": "mm3e_commercial",
+   "statement": "Spending a hero point grants effective 5 ranks in one skill where you currently have 4 or fewer ranks, including an untrained skill that normally cannot be used untrained. The ranks last for the scene and provide the skill’s usual benefits.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 84 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: scene-long skill boost; dial: keep it to one low-ranked skill; the cost is a hero point.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0041",
+   "world": "mm3e_commercial",
+   "statement": "A qualifying benefit must matter in the setting and be worth at least 1 power point; as a guideline it should be no stronger than another advantage or a 1-point-per-rank effect. Benefits may have ranks, with the GM deciding what qualifies in the series.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Benefits (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: benefit qualification",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: allow significant setting-specific perks; dial: GM sets eligibility and rank scope; the cost is power-point value.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0042",
+   "world": "mm3e_commercial",
+   "statement": "A successful grab lets you impose suffocation for as long as you continue restraining the target.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 84 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: ongoing suffocation while restraint holds; dial: requires a successful grab and continued restraint; the cost is maintaining the hold.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0043",
+   "world": "mm3e_commercial",
+   "statement": "Calling on contacts requires a Persuasion check, with the GM setting a DC from 10 for a simple favor to 25 or higher for especially difficult, dangerous, or expensive help. A hero point may secure the favor automatically if the GM permits it; requests take at least minutes, require a way to contact allies, and may be vetoed if they are too involved or disruptive to the plot.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 84 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: check-based access to favors; dial: DC and veto authority scale with the request; the costs are time and contact access.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0044",
+   "world": "mm3e_commercial",
+   "statement": "Once per scene, after taking a standard action and spending a hero point, you can give allies who can interact with you a +1 circumstance bonus per rank on all checks until the start of your next turn, capped at +5. You receive no bonus, repeated uses do not stack, and power-level limits do not restrict the bonus.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Pages 86–87 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: short-lived group-wide boost; dial: cap at +5 and exclude the user; the costs are a standard action and hero point.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0045",
+   "world": "mm3e_commercial",
+   "statement": "Fascinating someone requires a standard action and an interaction-skill check against Insight or Will; success entrances the target. Each round, another standard action maintains it and allows a new resistance check; it ends if the target resists, the performance stops, or immediate danger arises. A group must be affected uniformly, and each use of the advantage covers a different chosen skill.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 85 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default: attention-holding ends on resistance, interruption, or danger; dial: group members must receive the same treatment; the cost is repeated actions.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0046",
+   "world": "mm3e_commercial",
+   "statement": "A hero point spent on a chosen check before rolling treats its die result as 20, but not as a natural 20. The chosen check type must be set when acquiring the advantage and approved by the GM; separate acquisitions can cover different checks.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Pages 89–90 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: fixed result on a designated check; dial: no use after rolling and no natural-20 benefits; the cost is a hero point.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0047",
+   "world": "mm3e_commercial",
+   "statement": "A minion incapacitated by your attack can trigger an immediate free attack against another minion near the first target; the sequence continues until you miss or no eligible target remains. At rank 2, targets need not be adjacent, but movement between attacks cannot exceed your normal speed for the round.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 89 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: chain attacks only against minions; dial: rank 2 expands target spacing but retains the movement limit; the cost is ending the chain on a miss or lack of targets.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0048",
+   "world": "mm3e_commercial",
+   "statement": "An effect check is a d20 roll plus the effect’s rank and applicable modifiers against a GM-set difficulty. When effects directly oppose one another, an opposed check may be used; if the contest depends only on power rank, the higher rank wins automatically.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 94 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: effect checks",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: rank-based checks and direct contests; dial: GM chooses difficulty or contest method; the cost is exposure to the opposing result.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0049",
+   "world": "mm3e_commercial",
+   "statement": "A sustained effect continues only while its user spends a free action each round; it ends if the user cannot take that action or chooses not to. A continuous effect needs no ongoing action and remains until the user deactivates it as a free action, while a permanent effect cannot be switched off or improved through extra effort.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 96 (mm3e-heros-handbook#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: duration determines upkeep and control; dial: sustained versus continuous versus permanent; the cost is recurring attention or loss of deactivation.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0050",
+   "world": "mm3e_commercial",
+   "statement": "Effects with opposing descriptors can cancel one another; in some cases, powers sharing a descriptor, such as magical or mental effects, can also oppose each other, at the GM’s discretion. A nullifying effect can oppose any effect with a chosen descriptor.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Countering Effects, p. 97 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB1",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: descriptor-based cancellation; dial: GM decides descriptor compatibility; the in-world source and nature of the powers determine whether they conflict.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0051",
+   "world": "mm3e_commercial",
+   "statement": "To interrupt a foe’s attempted power use, ready an effect usable in a standard action or less, then make opposed checks of d20 + effect rank. A win cancels both effects; a loss lets the opponent’s effect work normally. Reaction effects can counter without readying, and spending a hero point permits an otherwise readied counter attempt as a reaction.",
+   "locators": [
+    "M&M 3e Hero's Handbook: How Countering Works / Instant Countering, pp. 97–98 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: countering costs a prepared standard action and success cancels both powers; dial: a hero point enables a reaction counter; the cost is time or a scarce resource.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0052",
+   "world": "mm3e_commercial",
+   "statement": "An ongoing effect, or lingering result of an instant effect, can be opposed through normal use of the countering effect and an opposed check. On success the effect is negated, though its user may try to establish it again normally.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Countering Ongoing Effects, p. 97 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: an opposed check can end an ongoing effect; dial: the original user can reapply it; the contest does not permanently remove the source power.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0053",
+   "world": "mm3e_commercial",
+   "statement": "An affliction costs 1 point per rank and makes a close attack resisted by Fortitude or Will, chosen when acquired, against DC 10 + rank. Failure imposes one selected condition at each degree—higher degrees replace lower ones—and the target retries at the end of each turn to clear first- or second-degree conditions; a third-degree condition needs a minute or outside aid to recover.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Affliction, p. 98 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "mind-state",
+    "body-form"
+   ],
+   "default_dial_reason": "Default: fixed conditions and repeated resistance checks govern the effect; dial: the chosen resistance and condition set define its character; more severe effects take longer or require help to end.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0054",
+   "world": "mm3e_commercial",
+   "statement": "A cumulative affliction costs +1 point per rank and adds later degrees to existing degrees on the same target. A progressive affliction costs +2 per rank and, when a target fails to end it, advances one degree at the start of the next round; a successful resistance check ends it.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Affliction—Cumulative and Progressive, p. 99 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "negative-effect-drift",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: these modifiers make repeated exposure build or worsen an affliction; dial: added per-rank cost buys escalation, while successful resistance can still stop the progressive effect.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0055",
+   "world": "mm3e_commercial",
+   "statement": "A character can assume a different physical composition or alternate body by selecting a set of effects for that form. Taking a move action to transform reduces the effects’ total cost by 1 point; taking a standard action reduces it by 2 points.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Alternate Form, p. 99 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB1",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default: a form is built from its associated effects; dial: slower transformation reduces cost; the tradeoff is time spent changing form.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0056",
+   "world": "mm3e_commercial",
+   "statement": "A created object has maximum volume and Toughness equal to the effect rank, remains stationary, and vanishes when no longer maintained; it can be damaged like an ordinary object. It can provide cover or concealment, and a hollow object can trap a target after an attack check and a Dodge resistance check against the effect rank; the trapped target can break out normally.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Create, pp. 103–104 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: create",
+   "seam": "AB20",
+   "derives": [
+    "formation-field",
+    "containment-rule",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: objects have rank-bounded size and durability and require maintenance; dial: continuous or permanent forms cost more or constrain dismissal and repair; the object’s continued existence depends on its duration.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0057",
+   "world": "mm3e_commercial",
+   "statement": "A created object supporting weight has Strength equal to its rank. A standard action spent concentrating raises that Strength by 1 until the start of the next round; extra effort can also increase it for one round, and the increases combine.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Supporting Weight, p. 103 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: support capacity equals rank; dial: a temporary increase requires concentration or extra effort; the added burden is the user’s action or exertion.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0058",
+   "world": "mm3e_commercial",
+   "statement": "Communication is instantaneous within range, but the recipient must be able to receive the chosen medium and share a language; it is point-to-point by default, and a receiver can ignore it. Ranks 1–5 reach from 100 feet to effectively anywhere; an eavesdropper within sensory range may detect a transmission with a Perception check at DC 10 + rank.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Communication, p. 100–101 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: send",
+   "seam": "AB1",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: range, receiver access, and shared language limit contact; dial: area, selective, or subtle options change audience or detectability at extra cost; the medium and receiver determine whether a message gets through.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0059",
+   "world": "mm3e_commercial",
+   "statement": "A character can comprehend one listed subject category per rank; two ranks allow both understanding and speaking with animals, and two ranks also cover communication with machines, objects, or plants. Machine replies are limited by programming, while plants and objects only know about nearby events or matters affecting them directly.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Comprehend, pp. 101–102 (mm3e-heros-handbook#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB1",
+   "derives": [
+    "plant-or-creature-target",
+    "object-surface",
+    "system-interface"
+   ],
+   "default_dial_reason": "Default: comprehension is category-bound and information is limited by the subject’s knowledge; dial: additional ranks and type limits broaden or narrow access; each source only conveys what it can perceive or store.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0060",
+   "world": "mm3e_commercial",
+   "statement": "At rank 1, an Environment effect covers a 30-foot radius; each additional rank increases its distance rank, reaching about 2,000 miles at rank 20. Different environment effects are separate, and alternate effects let you use and maintain only one at a time; combining simultaneous effects costs more, while Selective costs +1 per rank and allows different conditions in different parts of the area.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Environment, pages 108–109 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0061",
+   "world": "mm3e_commercial",
+   "statement": "An energy aura costs 4 points per rank and damages anyone who touches you, requiring a Toughness check against its Damage rank; you can turn it on or off as a free action. Energy Absorption instead raises a chosen trait when you are hit by its chosen attack type, by the lower of the attack rank or your power rank; the increase fades by 1 point per turn and further hits can restore it up to that limit, but the power itself does not reduce incoming harm.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Energy Aura and Energy Absorption, page 108 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction",
+    "power-transfer"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0062",
+   "world": "mm3e_commercial",
+   "statement": "Each rank of Extra Limbs grants one additional limb, but does not grant extra actions. If you use all your limbs to grab, you gain +1 per rank to the attempt, to a maximum of +5; sustained limbs vanish or stop working if you cannot sustain the effect, while continuous limbs remain until deactivated even if you are incapacitated.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Extra Limbs, page 109 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB21",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0063",
+   "world": "mm3e_commercial",
+   "statement": "Growth temporarily adds 1 rank each of Strength, Stamina, and mass per rank, while each rank also imposes a –1 penalty to Stealth. Every 2 ranks add +1 Intimidation and subtract 1 from Dodge and Parry; every 4 ranks increase size by 1, and every 8 ranks add 1 Speed.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Growth, page 111 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "body-form",
+    "form-transformation"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0064",
+   "world": "mm3e_commercial",
+   "statement": "Healing requires touch and a standard action, plus a DC 10 check; each success degree removes one Damage condition, starting with the worst, and a dying subject is stabilized by the highest degree. On failure, another attempt requires waiting one minute or using extra effort; a dead subject can be restored if dead for fewer minutes than the Healing rank, with a DC 20 check, and failure permits another attempt only through extra effort.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Healing, pages 111–112 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0065",
+   "world": "mm3e_commercial",
+   "statement": "Illusions can affect one to five sense types for 1 to 5 points per rank, with visual senses counting as two; their maximum volume rank equals the effect rank. A viewer can test an encountered illusion with an Insight check against DC 10 + rank, but active illusions require a standard action each round to maintain, while static ones require only a free action.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Illusion, pages 112–113 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0066",
+   "world": "mm3e_commercial",
+   "statement": "Immortality returns you to life after a delay determined by subtracting your rank from time rank 19; at rank 20 you return at the start of each action round. Returning removes all Damage conditions but also erases all accumulated hero points.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Immortality, page 113 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0067",
+   "world": "mm3e_commercial",
+   "statement": "Immunity automatically succeeds on resistance checks against assigned effects, and its assignments are permanent unless modified. The listed costs range from 1 rank for examples such as aging or one environmental condition, to 10 for life support, 30 for all effects resisted by Fortitude or Will, and 80 for all effects resisted by Toughness.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Immunity, page 114 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0068",
+   "world": "mm3e_commercial",
+   "statement": "Insubstantial form can be switched to or from normal form as a free action once per round, but the effect is sustained. Its four ranks progress from flowing through openings that are not watertight, to gas with immunity to physical damage, to energy with similar immunity and limited passage through solids, to incorporeality with immunity to physical and energy damage; at the highest rank, you cannot exert Strength or affect the physical world without a suitable modifier.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Insubstantial, pages 115–116 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "body-form",
+    "body-door"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0069",
+   "world": "mm3e_commercial",
+   "statement": "Magic has a ranged damage blast as its basic effect and can include separately mastered alternate spells, subject to the character’s descriptors and the GM’s approval. All such effects carry the magic descriptor, and a spellcaster who cannot speak and gesture freely cannot use Magic or related powers that depend on spellcasting.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Magic, page 117 (mm3e-heros-handbook#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "power-interaction",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0070",
+   "world": "mm3e_commercial",
+   "statement": "Mind reading costs 2 points per rank and uses a standard action at perception range. An opposed check against the target’s Will sets contact: one success degree reveals current thoughts, two lets you ask one question, three reveals one remembered event per round, and four reaches subconscious memories; losing prevents reading, and two or more failure degrees make another attempt in that scene cost extra effort. The target can attempt a new Will check at the end of each turn to end the effect.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Mind Reading, pp. 118–119 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "mind-state",
+    "memory-transfer"
+   ],
+   "default_dial_reason": "default; dial the depth, detectability, or retry limits; intrusion risks resistance, exposure, or feedback.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0071",
+   "world": "mm3e_commercial",
+   "statement": "Mimic costs 8 points per rank and requires a move action to scan a character you can perceive. You gain traits worth up to five power points per Mimic rank, capped by the target’s rank and by your own Mimic limit; a version restricted to copying only some traits takes a limitation.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Mimic, p. 118 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "copy",
+   "seam": "AB1",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "default; dial which targets or traits can be copied; the scan and point cap constrain what can be gained.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0072",
+   "world": "mm3e_commercial",
+   "statement": "Mind control costs 4 points per rank and applies a cumulative Will-resisted affliction at perception range. Failed resistance first dazes the target, then compels them, and at three or more degrees of effect controls them so they obey commands.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Mind Control, p. 118 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "default; dial progression and resistance; the target can resist before control is established.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0073",
+   "world": "mm3e_commercial",
+   "statement": "Morph costs 5 points per rank and changes appearance without changing traits; it grants a +20 Deception bonus to disguise yourself. Rank 1 permits one alternate appearance, rank 2 a narrow group, rank 3 a broad group, and rank 4 any form of your mass; changing size or gaining a form’s other traits requires separate capabilities.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Morph, pp. 119–120 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "body-form",
+    "form-transformation"
+   ],
+   "default_dial_reason": "default; dial the breadth of available forms; appearance alone does not grant their physical capabilities.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0074",
+   "world": "mm3e_commercial",
+   "statement": "Move Object costs 2 points per rank and lets you move objects at range with effective lifting Strength equal to its rank, but it cannot directly damage or perform fine manipulation without an added capability. Concentrating as a move action raises effective Strength by 1 and changes the duration to concentration; the effect can also make disarm, grab, and trip attacks.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Move Object, pp. 120–121 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "default; dial precision, damage, and sustained control; lifting and manipulation are constrained by rank and attention.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0075",
+   "world": "mm3e_commercial",
+   "statement": "Time travel is a sustained personal movement option costing 2 points per rank: rank 1 connects the present to one fixed point, rank 2 reaches any point in either the past or future, and rank 3 reaches any time. It carries up to 50 pounds, or more with Increased Mass; the GM may restrict it, make it unreliable or uncontrolled, or treat it as a plot device.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Movement: Time Travel and Under the Hood, pp. 121–122 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "time-manipulation",
+    "timeline-split"
+   ],
+   "default_dial_reason": "default; dial access and temporal consequences; the GM’s oversight limits the effect’s plot impact.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0076",
+   "world": "mm3e_commercial",
+   "statement": "Nullify costs 1 point per rank and requires a ranged attack followed by an opposed check against the targeted effect’s rank or the target’s Will, whichever is higher; success turns off one effect of the chosen descriptor, which its user can reactivate normally. Two or more degrees of failure make another attempt against that subject in the scene cost extra effort; concentration can instead keep countered effects suppressed while maintained.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Nullify, pp. 122–123 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "default; dial descriptor breadth and suppression duration; resistance and reactivation prevent effortless permanent cancellation.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0077",
+   "world": "mm3e_commercial",
+   "statement": "Protection costs 1 point per rank and permanently adds that many points to Toughness. Making it sustained costs no additional points per rank but lets the user switch it on or off and improve it with extra effort.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Protection, p. 123 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "default; dial permanence; sustained protection is consciously maintained and can be switched off.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0078",
+   "world": "mm3e_commercial",
+   "statement": "Regeneration costs 1 point per rank and removes Toughness penalties and then other damage conditions at a rate equal to its rank per minute, spread over ten rounds and starting with the most severe condition. A source-limited version works only when the user has access to its specified replenishing source.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Regeneration, p. 124 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "default; dial recovery speed and source requirements; recovery takes time and may depend on access to a resource.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0079",
+   "world": "mm3e_commercial",
+   "statement": "Remote sensing costs 1–5 points per rank depending on how many sense types it displaces, reaches 60 feet at rank 1 and gains one range rank per additional rank, and replaces the user’s normal senses while active. The user can make ordinary Perception checks through it but is vulnerable at half normal active defenses; observed subjects can sense the observation with an Insight check against DC 10 plus the effect rank.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Remote Sensing, pp. 124–125 (mm3e-heros-handbook#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "divination-fate"
+   ],
+   "default_dial_reason": "default; dial range, senses, and exposure; remote observation costs awareness of one’s immediate surroundings and may be noticed.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0080",
+   "world": "mm3e_commercial",
+   "statement": "Each rank of Shrinking costs 2 points and can be activated as a free action for a sustained duration. Every 4 ranks reduce size rank by 1; each size-rank reduction costs 1 Strength, and every 2 reductions cost 1 ground-speed rank, while half the Shrinking rank (rounded down) is added to active defenses and the full rank to Stealth, but half the rank is subtracted from Intimidation.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Shrinking, p. 129 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default: shrinking trades strength, speed, and imposing presence for concealment and defense; dial: rank and duration; in-world cost: reduced physical force and mobility.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0081",
+   "world": "mm3e_commercial",
+   "statement": "At Shrinking 20, the character can reach atomic scale and pass through solid objects by moving between their atoms, taking at least a full turn and possibly longer for larger objects. At this scale the character is effectively immune to damage and many effects, though the GM decides what can still affect them.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Shrinking—Atomic extra, p. 129 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default: atomic passage takes time and can leave the character unreachable by many effects; dial: scale and traversal time; in-world cost: the delay and uncertain exposure to effects.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0082",
+   "world": "mm3e_commercial",
+   "statement": "A Shapeshift rank provides 5 power points for physical traits of an assumed form, and the user may reallocate points from their own physical traits. The assumed form must supply those traits; Shapeshift cannot grant mental traits, and the permitted forms can be restricted to a specified category.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Shapeshift, p. 129 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default: transformation grants only physical traits inherent to permitted forms; dial: points per rank and allowed form categories; in-world cost: mental capabilities do not change.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0083",
+   "world": "mm3e_commercial",
+   "statement": "A summoned minion is an independent character with 15 power points per Summon rank and a power level no higher than the Summon rank; it cannot itself have minions. It appears in the nearest open space as a standard action, is dazed and acts starting the next round, and needs the summoner to spend a move action to direct it.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Summon, pp. 129–130 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: summon",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon",
+    "creature-control",
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default: a minion is helpful and obedient but has restricted actions and requires direction; dial: rank and action costs; in-world cost: limited initiative and the summoner’s attention.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0084",
+   "world": "mm3e_commercial",
+   "statement": "A summoned minion disappears if incapacitated, or if the Summon effect is no longer maintained, countered, or nullified; an incapacitated minion must recover completely before it can be summoned again. Normally the same minion returns each time, unless a variable-type modifier allows different kinds.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Summon, p. 130 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: the summoned creature is temporary and unavailable while incapacitated; dial: maintenance and recovery; in-world cost: the summoner cannot replace a fallen minion immediately.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0085",
+   "world": "mm3e_commercial",
+   "statement": "An ordinary summoned minion is limited by the minion rules and takes only a standard action each round; the Active extra removes the dazed condition for an additional 1 point per rank. The Heroic extra costs 2 points per rank and makes the summoned character act as a normal non-player character with a full set of actions.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Summon extras, p. 130 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon"
+   ],
+   "default_dial_reason": "Default: minions have reduced actions; dial: added cost for full independent action; in-world cost: greater autonomy requires greater power investment.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0086",
+   "world": "mm3e_commercial",
+   "statement": "With Multiple Minions, each application doubles the number summoned, but each one normally takes a separate standard action to call; the modifier costs 2 points per rank. Horde allows one standard action to summon any number up to the maximum, costs 1 point per rank, and leaves the summoner vulnerable until the start of the next turn.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Summon extras, pp. 130–131 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: summon",
+   "seam": "AB21",
+   "derives": [
+    "familiar-summon",
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default: increasing numbers consumes time or creates an opening; dial: number and action cost; in-world cost: rapid mass summoning exposes the summoner.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0087",
+   "world": "mm3e_commercial",
+   "statement": "Snare is a ranged cumulative affliction resisted by Dodge: one degree of failure hinders and makes the target vulnerable, while two degrees make the target defenseless and immobilized, with no further worsening at three or more degrees. A target can escape by using Damage, including Strength-based Damage, or Sleight of Hand to break free or slip out.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Snare, p. 131 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: restraint escalates in defined stages and can be escaped by force or skill; dial: rank and cumulative application; in-world cost: the bonds can be broken or evaded.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0088",
+   "world": "mm3e_commercial",
+   "statement": "Teleport moves the user and up to 50 pounds of extra mass a distance determined by its rank as a move action; unwilling passengers may resist with Dodge. The user must accurately sense or know the destination, arrives with the same relative position and velocity, and extended travel covers rank +8 distance after two move actions but leaves the user dazed and vulnerable for one round.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Teleport, p. 132 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: travel is limited by destination knowledge, carried mass, and retained momentum; dial: range and extended-travel option; in-world cost: long jumps create a brief vulnerable aftermath.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0089",
+   "world": "mm3e_commercial",
+   "statement": "Transform changes touched objects into other objects or materials for a sustained duration, with a close attack check required for objects held or worn by another character. The price is 2–5 points per rank depending on how broadly the source and result materials can vary; affected mass is rank minus 6, and the target returns to normal when maintenance stops, unless the effect is continuous.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Transform, p. 133 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB15",
+   "derives": [
+    "object-surface",
+    "ingredient-properties"
+   ],
+   "default_dial_reason": "Default: transformations are temporary and limited by mass and material scope; dial: cost, rank, and duration; in-world cost: stopping maintenance restores the original object.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0090",
+   "world": "mm3e_commercial",
+   "statement": "Variable supplies 5 power points per rank to reallocate among effects on the user’s turn, within its stated descriptors and normal series limits; the GM may reject unsuitable allocations. The allocation lasts only while maintained, then resets to null, whereas a continuous Variable retains its configuration without maintenance; it cannot be permanent.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Variable, pp. 133–134 (mm3e-heros-handbook#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction",
+    "form-transformation"
+   ],
+   "default_dial_reason": "Default: flexible effects are constrained by descriptors, oversight, and maintenance; dial: points per rank and reconfiguration speed; in-world cost: losing upkeep erases the temporary configuration.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0091",
+   "world": "mm3e_commercial",
+   "statement": "Effects in one array cannot normally operate or be maintained together; switching to another takes a free action, at most once per turn. Disabling, nullifying, or draining one array effect affects all of them.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Alternate Effects (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: array effects are mutually exclusive; dial: allow simultaneous use only through the dynamic option, reflecting a shared power source.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0092",
+   "world": "mm3e_commercial",
+   "statement": "A dynamic alternate costs 2 power points and can share points with other dynamic alternates, so several can function at once at reduced ranks; the user reallocates points once per turn as a free action. Making an array’s base effect dynamic costs 1 point.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Dynamic Alternate Effect (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: one alternate at a time; dial: pay the extra points for simultaneous but weakened effects, representing divided output.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0093",
+   "world": "mm3e_commercial",
+   "statement": "An area effect fills a chosen shape without an attack check; targets usually get a Dodge check against DC 10 + effect rank, and success reduces the effect to half rank, rounding down to at least 1. Shapes include a 30-foot-radius burst, 15-foot-radius cloud that persists for one extra round, 60-foot cone, 30-foot-radius cylinder, 5-by-30-foot line, perception-based area, or contiguous 30-cubic-foot shapeable volume; each additional point per rank increases area distance rank by 1.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Area modifier, p. 140 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field"
+   ],
+   "default_dial_reason": "Default: use the listed shape and resistance; dial: increase area size by paying more per rank, with targets able to evade or reduce the effect.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0094",
+   "world": "mm3e_commercial",
+   "statement": "A personal-range effect made into an attack no longer works on its user; it targets one creature or up to 50 pounds of inanimate mass, uses close range and a standard action, and requires an attack check. The target’s chosen resistance check negates it on success, and the user controls and maintains it if its duration is longer than instant.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Attack modifier, p. 141 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB20",
+   "derives": [
+    "body-door",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: personal effects affect their user; dial: let one affect another target, but require contact, an attack, and a successful resistance failure.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0095",
+   "world": "mm3e_commercial",
+   "statement": "A contagious effect affects its initial target and anyone who contacts that target; each new target resists normally and can spread it in turn. It ends when its duration expires or all traces have been eliminated.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Contagious modifier, p. 141 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: spread",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: the effect stays with its target; dial: permit onward transmission, with contact and duration or eradication limiting spread.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0096",
+   "world": "mm3e_commercial",
+   "statement": "Dimensional ranks determine reach: rank 1 reaches one other dimension, rank 2 reaches any of a related group, and rank 3 reaches any dimension in the setting. An effect may need remote sensing to target something there; an unsensed target has total concealment.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Dimensional modifier, p. 141 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: effects act in the user’s dimension; dial: extend reach by rank, while lack of sensing can prevent targeting.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0097",
+   "world": "mm3e_commercial",
+   "statement": "A homing effect that misses gets another attack check at the start of the user’s next turn, maintained as a free action; each rank grants one additional attempt, but there is only one check per round. Concealment that defeats its tracking sense, a counter, or hitting a different target ends its remaining chances.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Homing modifier, p. 142 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "precognition"
+   ],
+   "default_dial_reason": "Default: a missed attack is over; dial: add later chances to hit, limited by tracking, counters, and one attempt per round.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0098",
+   "world": "mm3e_commercial",
+   "statement": "A concentrated instant effect can be maintained with a standard action each turn; after an initial attack check, no new attack check is needed, but the target makes a normal resistance check on each of the user’s turns. Stopping concentration ends the effect and allows normal recovery. A sustained effect can instead be made continuous.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Duration modifier, p. 142 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: effects use their normal duration; dial: maintain or extend them, at the cost of repeated actions or reduced ability to stop them.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0099",
+   "world": "mm3e_commercial",
+   "statement": "Multiattack can raise the resistance DC against one target by +2 for two degrees of attack success or +5 for three or more. Against multiple targets, make one attack check per target and take a penalty equal to the number of targets on each check; it can also provide cover to a visible ally against enemies in range and line of sight.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Multiattack, p. 144 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: one ordinary attack; dial: trade accuracy or use attack output to protect an ally, with limits based on targets and range.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0100",
+   "world": "mm3e_commercial",
+   "statement": "A reaction effect activates automatically when its specified trigger occurs, including outside the user’s turn, and can repeat whenever the trigger recurs. The user can prevent it only by deactivating the effect entirely; choosing which triggers count also requires Selective. It costs +1 per rank for a free-action effect or +3 per rank for a standard-action effect.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Reaction modifier, p. 145 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: trigger",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: the user chooses when to use an effect; dial: make it automatic on a defined trigger, at increased cost and with limited control.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0101",
+   "world": "mm3e_commercial",
+   "statement": "A fading effect loses 1 rank each time it is used; for an effect lasting beyond an instant, each round counts as a use. At 0 ranks it stops working, and recovery is set by the GM, generally outside combat and taking at least an hour; a hero point may restore it immediately and completely.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Fades flaw, p. 148–149 (mm3e-heros-handbook#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB32",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: use does not deplete the effect; dial: trade lasting output for reduced cost, with replenishment generally requiring time or resources.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0102",
+   "world": "mm3e_commercial",
+   "statement": "A removable power can be taken away only after its user is incapacitated or through a scheme outside the conflict; an easily removable one can also be taken with a disarm or grab. The discount is 1 point per 5 points of the power’s final cost, or 2 points per 5 for easily removable, and applies to the whole power.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Removable Point Value, pp. 150–151 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: removal limits access to the power; dial: increase the discount for an item that can be snatched in action.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0103",
+   "world": "mm3e_commercial",
+   "statement": "A removable device can be damaged or destroyed, but can eventually be repaired while the character still has points invested in it. Paying 1 point reduces the removable discount by 1 point and makes the device indestructible, though it can still be taken; this can eliminate the discount entirely.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Removable and Damage, p. 151 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: repair takes time and may require rare parts or help; dial: trade some or all of the discount for protection against damage.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0104",
+   "world": "mm3e_commercial",
+   "statement": "When this flaw is applied to an effect that normally has no resistance check, choose a defense and give the effect a check against it. If the effect already has a resistance check, add another; the target makes both checks and uses the better result.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Powers chapter, resistance-check flaw, p. 151 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: targets gain a way to resist or circumvent the effect; dial: choose the defense that fits how the effect can be overcome.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0105",
+   "world": "mm3e_commercial",
+   "statement": "A sense-dependent effect works only if the target can perceive it; the target gets a Dodge check to avert or block the relevant sense, and success prevents the effect. An aware opponent who deliberately blocks that sense gets +10 to resistance checks but grants others partial concealment from that sense; someone unable to use the sense is immune.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Powers chapter, Sense-Dependent, pp. 151–152 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: perception is a prerequisite; dial: blocking the sense improves resistance but limits the blocker’s own awareness.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0106",
+   "world": "mm3e_commercial",
+   "statement": "A failed use of an effect with this flaw causes a side effect, including a missed attack or a successful target resistance; the user gets a normal resistance check against it. The side effect is generally comparable in value to the flawed effect, affects only the user, and needs no attack check; if it occurs on every use regardless of success, the flaw is worth 2 points per rank.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Powers chapter, Side Effect, p. 152 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB29",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: failure rebounds on the user; dial: make the side effect occur on every use for a larger cost reduction.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0107",
+   "world": "mm3e_commercial",
+   "statement": "Using a tiring effect causes one level of fatigue, which recovers normally; a hero point spent at the start of the following round can overcome that fatigue. Tiring can apply only to some ranks, and combining it with extra effort causes at least two fatigue levels per use.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Powers chapter, Tiring, pp. 152–153 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default: fatigue limits repeated use; dial: reserve only some ranks for tiring use, or combine with extra effort at greater cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0108",
+   "world": "mm3e_commercial",
+   "statement": "An unreliable effect is checked each round before use or maintenance: on a roll of 10 or less it fails for that round, but the required action is still spent. Alternatively, it works for five uses and then stops until recovered; a hero point can guarantee success on the roll or may be allowed to recover a spent effect.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Powers chapter, Unreliable, p. 153 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: use can fail or be exhausted; dial: choose round-by-round uncertainty or a five-use limit, with recovery requirements.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0109",
+   "world": "mm3e_commercial",
+   "statement": "Descriptors can determine which effects counter or cooperate with each other, but should not substantially change an effect’s mechanics; a substantial change belongs in a modifier. A descriptor left undefined can be assigned during play, with a hero point awarded if the assignment creates a setback and potentially spent if a player chooses it for an advantage.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Descriptors; Applying Descriptors in Play, pp. 153–156 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: descriptors guide interaction without changing mechanics; dial: resolve an undisclosed descriptor during play, with hero points reflecting advantage or setback.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0110",
+   "world": "mm3e_commercial",
+   "statement": "An invention requires a design check at DC 10 plus its point cost, taking 1 hour per point, then a construction check at the same DC, taking 4 hours per point. A completed invention lasts one scene; each later use costs a hero point unless the character buys it as a regular power, and jury-rigging costs a hero point, skips design, and allows a construction check after 1 round per point at +5 DC.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Inventing; Jury-Rigging Devices, pp. 160–161 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB16",
+   "derives": [
+    "tinker-device",
+    "blueprint-craft",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: a temporary device takes substantial time and fails to persist beyond a scene; dial: spend a hero point to rush construction or obtain another use.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0111",
+   "world": "mm3e_commercial",
+   "statement": "A ritual uses Expertise: Magic checks: research takes 4 hours per point and performance takes 10 minutes per point. It lasts one scene; failed research makes it unusable, and three or more degrees of failure may cause a mishap. Jury-rigging costs a hero point, skips research, and takes a number of rounds equal to the ritual’s cost, with a performance check at DC 15 plus that cost.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Magical Rituals, p. 161 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "blueprint-craft"
+   ],
+   "default_dial_reason": "Default: rituals require research and preparation for a one-scene result; dial: spend a hero point to attempt a rushed performance with a higher DC.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0112",
+   "world": "mm3e_commercial",
+   "statement": "A temporary descriptor may be changed for one use as a power stunt using extra effort; the change must be reasonable given the power’s existing effects and descriptors. A stunt may change only the descriptor, or may change the effect itself to another suitable effect.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Changing Descriptors in Play, p. 157 (mm3e-heros-handbook#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: temporary changes cost extra effort; dial: the GM limits changes to what the existing power can plausibly support.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0113",
+   "world": "mm3e_commercial",
+   "statement": "Equipment is assumed to work without running out of fuel or ammunition and to be maintained between scenes; the GM can override this assumption or make failure a complication. Replacing damaged or lost equipment takes time and resources, with the GM setting how long it takes.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Equipment (preceding p. 163); Replacing damaged or destroyed equipment, p. 163 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB16",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to reliable equipment and off-scene upkeep; dial in shortages or repair delays when a dramatic complication suits the situation.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0114",
+   "world": "mm3e_commercial",
+   "statement": "Ordinary equipment is limited to technology commonly available in the setting, and the GM decides what is available or restricted. Carrying capacity also matters; an unusual item must have been brought along or obtained through the on-hand equipment procedure.",
+   "locators": [
+    "M&M 3e Hero's Handbook: The Limits of Equipment: Technological Limits; Availability, p. 163 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB21",
+   "derives": [
+    "item-bound-power",
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default to commonplace gear and plausible carrying limits; dial availability according to setting access and the item's restrictions.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0115",
+   "world": "mm3e_commercial",
+   "statement": "Equipment bonuses generally do not add together with one another or with bonuses from other effects; use only the highest bonus. Strength-based weapons are an exception, but their added damage is limited by the weapon's Toughness, and using greater Strength breaks the weapon.",
+   "locators": [
+    "M&M 3e Hero's Handbook: The Limits of Equipment: Bonus Stacking, p. 163; Melee Weapons, p. 165 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to the strongest applicable bonus and durable-but-limited weapons; dial weapon breakage through the stated Toughness limit.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0116",
+   "world": "mm3e_commercial",
+   "statement": "Equipment cannot be improved through extra effort, and extra effort cannot create power stunts with it; a hero point is required for a stunt. Pushing equipment beyond its normal limits can make it fail, and the GM may forbid such pushing when the item cannot exceed normal operation.",
+   "locators": [
+    "M&M 3e Hero's Handbook: The Limits of Equipment: No Extra Effort, p. 163 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to equipment operating within its designed limits; dial a hero-point stunt or failure risk when a character tries to exceed them.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0117",
+   "world": "mm3e_commercial",
+   "statement": "Equipment can be damaged, malfunction, run out of ammunition or fuel, or be lost or taken away, and the GM may introduce these as complications. It is more vulnerable to loss or failure than a removable device.",
+   "locators": [
+    "M&M 3e Hero's Handbook: The Limits of Equipment: Damage and Loss, p. 163 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB16",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to gear remaining available; dial in failures or loss when they create a meaningful complication.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0118",
+   "world": "mm3e_commercial",
+   "statement": "An array of alternate equipment lets a character switch among its items, and hero points can temporarily add an alternate item to a utility belt. The example array charges full cost for its most expensive item and 1 equipment point for each listed alternative.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Utility Belt; Sample Utility Belt, p. 165 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to a fixed set of carried options; dial a one-time additional item by spending a hero point.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0119",
+   "world": "mm3e_commercial",
+   "statement": "A vehicle’s size sets its base Strength, Toughness, and Defense; size increases cost 1 power point each, while raising Strength or Toughness above the size-based value costs 1 equipment point per rank. Vehicle movement uses the normal movement-effect cost, and additional movement modes can be alternate effects.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Vehicle Traits; Vehicle Size Categories; Vehicle Trait Cost, pp. 170–171 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "item-bound-power",
+    "dimension-travel",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default to size-defined vehicle capacity and defenses; dial special movement modes by purchasing their effects and alternate configurations.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0120",
+   "world": "mm3e_commercial",
+   "statement": "A vehicle may have its own power effects, including attacks and defenses, at their normal effect cost in equipment points; for its owner this is one-fifth the corresponding power-point cost. A vehicle may also have a cloaking system that conceals it from specified senses, costing 4 points for normal vision or all of another sense type, or 8 for all visual senses.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Vehicle Powers; Vehicle Features: Cloaking Device, pp. 171–172 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB16",
+   "derives": [
+    "item-bound-power",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to vehicle systems purchased as equipment; dial concealment by sense coverage and its listed equipment cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0121",
+   "world": "mm3e_commercial",
+   "statement": "A headquarters portal allows two-way travel to and from another dimension, possibly including related dimensions; the GM may require an appropriate Expertise or Technology check to operate it.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Headquarters Features: Dimensional Portal, p. 177 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel",
+    "portal-space"
+   ],
+   "default_dial_reason": "Default to a functioning two-way route; dial access through operating requirements and the GM's decision about reachable dimensions.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0122",
+   "world": "mm3e_commercial",
+   "statement": "A concealed headquarters increases the difficulty of checks to locate it by 10; each additional feature applied to concealment adds 5, to a maximum increase of 30. Concealment makes the base difficult to find, while isolation makes it difficult to reach.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Headquarters Features: Concealed, p. 176 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB20",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to ordinary discoverability; dial the search difficulty upward for concealment investments, capped at the stated maximum.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0123",
+   "world": "mm3e_commercial",
+   "statement": "A headquarters combat simulator can reproduce suitable attack effects up to the series power level; an added feature lets it project realistic illusions that recreate almost any environment. It can be used for training and simulated combat, but intruders may be trapped in it or take control of its systems.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Headquarters Features: Combat Simulator, p. 175 (mm3e-heros-handbook#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "copy",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "form-transformation"
+   ],
+   "default_dial_reason": "Default to a training simulation bounded by the series power level; dial realistic environments or dangerous use through the added feature and scenario circumstances.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0124",
+   "world": "mm3e_commercial",
+   "statement": "A headquarters may have an interior larger than its exterior; pay for the larger size plus this feature, and the exterior may be set at any smaller category. The exterior generally cannot be smaller than a minuscule structure large enough for an adult to enter.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Headquarters, Dual-Size (passage opening; page 178 context) (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default: the exterior remains large enough to enter; dial: allow smaller or larger-than-Awesome bases at added size cost, because the entrance must still provide access.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0125",
+   "world": "mm3e_commercial",
+   "statement": "A headquarters may take an approved power effect as a feature, but its total cost cannot exceed twice the headquarters’ power level and it must obey power-level limits. If an effect works on both the headquarters and its occupants, apply Affects Others or buy the effects separately.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Headquarters, Effect (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: cap the effect at twice the base’s power level and distinguish who it affects; dial: broaden the effect only with the required modifier or extra feature cost, because occupants and structure are separate targets.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0126",
+   "world": "mm3e_commercial",
+   "statement": "The fire system triggers when it detects a large open flame and functions as Nullify Fire 5. A computer-controlled system can be programmed to ignore specified fire sources, or switched to manual activation.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 178, Fire Prevention System (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "power-interaction",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: large open flames trigger the system; dial: let it ignore selected sources or require manual activation, because its automated response can interfere with fire-using occupants.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0127",
+   "world": "mm3e_commercial",
+   "statement": "Grounds may extend one size category beyond the building at no cost; taking this feature permits land up to three categories larger. Headquarters defenses and security features also cover the grounds.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 178, Grounds (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: extend",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field"
+   ],
+   "default_dial_reason": "Default: include one larger category of land without this feature; dial: extend to three categories by spending a feature, because expanded territory also expands the area that defenses must cover.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0128",
+   "world": "mm3e_commercial",
+   "statement": "Holding cells use either Nullify devices ranked at the headquarters’ power level or a 50% increase to their basic Toughness. The group must agree which option applies, and taking both options costs two features.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 178, Holding Cells (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: contain",
+   "seam": "AB21",
+   "derives": [
+    "containment-rule",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: choose either powered suppression or tougher cells; dial: provide both for two features, because stronger confinement requires greater base investment.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0129",
+   "world": "mm3e_commercial",
+   "statement": "An isolated headquarters supplies the life support needed for its location, but does not provide travel to or from the base; occupants need suitable powers, a vehicle, or another base feature.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 178, Isolated (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: protect",
+   "seam": "none",
+   "derives": [
+    "protection-field",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: the location is survivable but remote; dial: add a separate means of travel, because life support does not solve access.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0130",
+   "world": "mm3e_commercial",
+   "statement": "A sealed headquarters allows only its owner and designated guests to enter, though the GM determines how intruders might breach it, including through specified travel or movement powers.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 179, Sealed (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule",
+    "portal-space"
+   ],
+   "default_dial_reason": "Default: entry is restricted to the owner and invited guests; dial: permit particular breach methods, because the GM sets what can penetrate the barrier.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0131",
+   "world": "mm3e_commercial",
+   "statement": "A secret headquarters raises checks to discover it by +10, typically from DC 10; each additional application adds +5, up to +30.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 179, Secret (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: begin with a +10 increase and cap the accumulated increase at +30; dial: buy further applications, because keeping the location unknown requires additional investment.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0132",
+   "world": "mm3e_commercial",
+   "statement": "A headquarters repairs structural damage over time; taking this feature twice lets it rebuild within a week if destroyed. If it cannot return to its original site, it reappears at the nearest suitable location.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 179, Self-Repairing (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: repair",
+   "seam": "AB16",
+   "derives": [
+    "construct-upkeep",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: the base gradually recovers damage; dial: buy the feature twice for a one-week rebuild, because full replacement takes extra investment and may change location.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0133",
+   "world": "mm3e_commercial",
+   "statement": "Time inside the headquarters may run at half or twice the outside rate; each additional application doubles the difference, producing quarter- or four-times speed, then further doubled ratios. This lets occupants gain or lose relative time for planning, building, recovery, or waiting.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 179, Temporal Limbo (mm3e-heros-handbook#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "time-manipulation",
+    "time-stop"
+   ],
+   "default_dial_reason": "Default: begin at a half- or double-speed rate; dial: increase the ratio by additional applications, because greater temporal separation requires further investment.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0134",
+   "world": "mm3e_commercial",
+   "statement": "A successful hit creates a resistance check against the effect’s rank plus 10; failure imposes the conditions specified for that effect and degree of failure.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Resistance, p. 195 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: the effect’s rank sets resistance difficulty; dial: effect-specific conditions and failure degrees; reason: the target may resist the attack’s consequences.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0135",
+   "world": "mm3e_commercial",
+   "statement": "For an ongoing effect, the target checks resistance at the end of each turn; success ends the effect and removes its imposed conditions, while failure leaves them in place. A target using the recovery action may make an additional resistance check against an ongoing effect.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Ongoing Effects, p. 195; Recover, pp. 197–198 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: recurring checks give the target repeated chances to end the effect; dial: an extra check costs the target its once-per-conflict recovery; reason: the target actively tries to shake the effect off.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0136",
+   "world": "mm3e_commercial",
+   "statement": "Living targets recover one damage condition per minute of rest, beginning with the most severe and proceeding toward less severe conditions; objects do not recover without a recovery effect and otherwise require repair.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Recovery, pp. 193, 200 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB15",
+   "derives": [],
+   "default_dial_reason": "Default: living bodies heal damage gradually during rest; dial: objects need repair or a recovery effect; reason: inanimate materials do not heal themselves.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0137",
+   "world": "mm3e_commercial",
+   "statement": "An attack can be close, ranged, or perception-based: ranged attacks have no penalty to rank × 25 feet, take –2 at up to rank × 50 feet and –5 at up to rank × 100 feet, and cannot reach farther; perception attacks target something accurately perceived without an attack check.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Range, p. 193 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: attack reach and accuracy are constrained by range and perception; dial: longer ranges impose penalties and a hard limit; reason: distant or unperceived targets are harder or impossible to hit.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0138",
+   "world": "mm3e_commercial",
+   "statement": "Partial or total concealment imposes –2 or –5 on the attack check, respectively; complete cover makes a target unattackable, while partial and total cover impose the same penalties and give matching bonuses to Dodge checks against area effects originating on the far side.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Concealment, p. 193; Cover, p. 194 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "protection-field",
+    "area-field"
+   ],
+   "default_dial_reason": "Default: obscured or obstructed targets are harder to hit; dial: full cover blocks direct attacks and can protect against area effects; reason: attackers cannot target through what they cannot perceive or reach.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0139",
+   "world": "mm3e_commercial",
+   "statement": "A successful resistance check ends an ongoing effect; an unsuccessful check leaves its specified conditions in place until a later check succeeds.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Ongoing Effects, p. 195 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: effects persist until resisted; dial: the effect description determines what remains during failure; reason: the target has not yet overcome the effect.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0140",
+   "world": "mm3e_commercial",
+   "statement": "A grab can restrain a target after one degree of success or leave it bound after two or more; the grabber is hindered and vulnerable, must spend a free action each turn to maintain the hold, and releases the target if unable to do so.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Grab, pp. 196–197 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: a successful hold restricts the target’s movement and defenses; dial: stronger success increases restriction, while maintaining it occupies the grabber and uses a limb; reason: holding someone requires continued effort.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0141",
+   "world": "mm3e_commercial",
+   "statement": "A grabber can drag a restrained or bound target, but the target gets a Strength resistance check; on failure the target moves along, while success leaves the grabber immobilized for the turn unless the hold is released.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Grab, p. 197 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: the holder may move a captured target; dial: resistance can stop the movement and immobilize the holder; reason: the target can fight the pull.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0142",
+   "world": "mm3e_commercial",
+   "statement": "A character recovering during a conflict may remove their highest damage or fatigue level, or make an extra resistance check against an ongoing effect; this can be done only once per conflict and grants +2 to active defenses until the next turn begins.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Recover, pp. 197–198 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: recovery trades the whole turn for a limited respite; dial: choose between clearing a condition or trying to end an ongoing effect; reason: the character must pause to regain composure.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0143",
+   "world": "mm3e_commercial",
+   "statement": "Attackers can combine attacks only when they share an effect and resistance and are within 5 ranks; they delay to the slowest attacker’s initiative, and successful additional attacks add +2 to the strongest attack’s rank for one degree of success or +5 for three or more.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Team Attacks, p. 200 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: compatible attacks can reinforce one another; dial: matching effect, resistance, rank proximity, and coordinated timing limit combinations; reason: attackers must synchronize similar effects.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0144",
+   "world": "mm3e_commercial",
+   "statement": "A charging attacker may use movement rank or normal damage rank plus 1, whichever is higher, and gains a further +1 after moving full speed; the attacker then resists half the attack’s damage rank, rounded down.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Slam Attack, pp. 199–200 (mm3e-heros-handbook#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB15",
+   "derives": [],
+   "default_dial_reason": "Default: momentum increases attack impact; dial: the attacker risks taking half the attack’s damage; reason: collision force affects both participants.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0145",
+   "world": "mm3e_commercial",
+   "statement": "A player can attempt an unusual stunt outside the hero’s normal abilities by spending a hero point; this cost permits the attempt but does not itself guarantee success. Alternatively, the GM can treat an unusual feat as extra effort.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 206, Saying Yes to Your Players (mm3e-heros-handbook#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: keep attempts within established abilities; dial: allow broader stunts for a hero-point or extra-effort cost, because extraordinary acts should be occasional.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0146",
+   "world": "mm3e_commercial",
+   "statement": "The GM can award at least 1 hero point for each scene before an adventure’s finale, and can award more by introducing additional complications. The GM should generally give different heroes’ complications roughly equal opportunities to earn points over one adventure or, if needed, two or three.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 211, Awarding Hero Points (mm3e-heros-handbook#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB31",
+   "derives": [],
+   "default_dial_reason": "Default: roughly one point per pre-finale scene; dial: increase points by adding complications, because setbacks provide resources for later challenges.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0147",
+   "world": "mm3e_commercial",
+   "statement": "For a completed adventure that lasts one session, each hero generally gains 1 power point; especially difficult adventures can yield 2. Longer adventures generally grant 1 additional point per session, with a possible 1- or 2-point completion bonus; the GM may vary or withhold awards.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Pages 211–212, Awarding Power Points (mm3e-heros-handbook#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default: modest advancement for completion and session length; dial: change or withhold awards to match the series’ pace and how successfully the heroes dealt with the adventure.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0148",
+   "world": "mm3e_commercial",
+   "statement": "Between adventures, players can spend awarded power points to improve traits, subject to the series power-level limit, or save them until that limit rises. When heroes have accumulated about 15 additional points since the series began or its last power-level increase, the GM should consider raising the limit by 1; a slower pace of 20, 30, or more points, or no further increases, is also permitted.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Pages 211–212, Awarding Power Points; Increasing Power Level (mm3e-heros-handbook#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Default: improve traits within the current limit and consider a one-level increase at 15 earned points; dial: raise the threshold or freeze the limit to encourage broader development.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0149",
+   "world": "mm3e_commercial",
+   "statement": "A device intended to become a regular part of a hero’s abilities generally must be paid for with earned power points; the GM can require points to be set aside or future awards to go toward its cost. A one-time use of a captured device can instead cost 1 hero point, as with a stunt or invention.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 212, Equipment (mm3e-heros-handbook#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: permanent equipment costs advancement points; dial: permit a temporary use for a hero point, because captured technology may be usable without becoming a lasting ability.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0150",
+   "world": "mm3e_commercial",
+   "statement": "The GM can make damage more lethal by having an attack that incapacitates its target also make the target dying. Other options include treating a minion’s defeat as death, or making specified attack types always use this lethal rule.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 207, Going for the Kill (mm3e-heros-handbook#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default: incapacitation does not itself make a target dying; dial: apply the lethal option to chosen attacks or targets, because the series may portray greater danger.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0151",
+   "world": "mm3e_commercial",
+   "statement": "A further optional lethality rule makes four or more degrees of failure on a resistance check against Damage—or an Affliction that can cause dying—cause immediate death. Another option slows recovery from conditions caused by a killing attack to one condition per hour or per day.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 207, Going for the Kill (mm3e-heros-handbook#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default: no immediate death from this failure threshold and ordinary recovery; dial: impose the harsh death rule or slower recovery to make lethal attacks more consequential.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0152",
+   "world": "mm3e_commercial",
+   "statement": "When the GM allows heroes to keep equipment supplied by a patron, the GM decides whether it requires power-point expenditure or is free in point cost; patron support may carry future complications or other strings.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Page 212, Wealth; Equipment (mm3e-heros-handbook#015)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default: the GM sets whether sponsored resources cost points; dial: attach conditions or future complications because outside support may come with obligations.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0153",
+   "world": "mm3e_commercial",
+   "statement": "A campaign spanning multiple realities requires some means of traveling between dimensions; choosing a smaller geographic scope makes places easier for players to learn, while a larger scope supports greater threats, including danger to whole worlds.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Scale (p. 214) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: scope requires travel",
+   "seam": "AB20",
+   "derives": [
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: keep the campaign’s scale consistent; dial: widen it to enable interdimensional travel and world-scale stakes.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0154",
+   "world": "mm3e_commercial",
+   "statement": "A character asleep is defenseless, stunned, and unaware. A hearing Perception check with at least three degrees of success, sudden movement such as shaking, or an effect that permits a resistance check wakes the character and removes those conditions.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (p. 220) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: sleep sharply limits action and awareness; dial: allow more reliable waking only through specified stimuli or a successful hearing check.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0155",
+   "world": "mm3e_commercial",
+   "statement": "A character directed by an outside force while still resisting is limited to free actions and one standard action per turn, and the controller chooses both; that standard action may be traded for a move action. Full control overrides this lesser state.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (p. 220) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default: outside direction limits agency; dial: stronger control removes the target’s remaining choice.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0156",
+   "world": "mm3e_commercial",
+   "statement": "An effect can counter another by making an opposed power check; ordinarily this takes a readied action, but spending a hero point allows an immediate reaction instead.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (p. 221) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: countering costs preparation and an action; dial: permit immediate intervention at the cost of a hero point.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0157",
+   "world": "mm3e_commercial",
+   "statement": "A critical hit normally adds 5 damage, but the attacker may instead add an effect or use an alternate effect.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (p. 221) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: a critical hit increases harm; dial: exchange that increase for a different effect.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0158",
+   "world": "mm3e_commercial",
+   "statement": "An incapacitated character is defenseless, stunned, and unaware, and generally falls prone unless something keeps them standing.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (p. 222) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: incapacitation removes action and awareness; dial: external support can prevent the fall but not the other limitations.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0159",
+   "world": "mm3e_commercial",
+   "statement": "Effects have five durations: instant effects occur and end in the same turn; concentration effects require a standard action each round to maintain; sustained effects require a free action each round; continuous and permanent effects need no maintenance, but permanent effects cannot be switched off.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (p. 221) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: duration determines upkeep and whether an effect can be ended; dial: longer-lasting effects reduce maintenance but may sacrifice control.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0160",
+   "world": "mm3e_commercial",
+   "statement": "A dying character immediately makes a Fortitude check against DC 15. Success has no further result, two degrees of success stabilize the character, and three total degrees of failure cause death; checks repeat each round until death or stabilization, while a successful DC 15 Treatment check or Healing effect from another character stabilizes them.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (p. 221) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default: dying risks death over repeated checks; dial: provide aid to stabilize, while the check thresholds set the danger.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0161",
+   "world": "mm3e_commercial",
+   "statement": "A transformed character may have appearance or traits changed, including traits removed and others added, but the transformation cannot increase the character’s power-point total; it may reduce that total for its duration.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (p. 223) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default: transformation may alter traits but cannot grant a larger total; dial: permit temporary loss of capability as the cost of the change.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0162",
+   "world": "mm3e_commercial",
+   "statement": "A character with total visual concealment is harder to target: concealment gives a –2 attack-check penalty when partial and –5 when total. A character without sight treats everything as having full visual concealment and is hindered, visually unaware, and vulnerable.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Glossary (pp. 220–221) (mm3e-heros-handbook#016)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: impaired visibility hinders targeting and other visual tasks; dial: partial versus total concealment sets the severity.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0163",
+   "world": "mm3e_commercial",
+   "statement": "While vulnerable, a character’s active defenses are halved, rounding the final value up. If the character is also defenseless, that condition takes precedence.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Vulnerable (p. 223) (mm3e-heros-handbook#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: apply the defense reduction while the condition lasts; dial: none, since the passage gives no way to resist or end it.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0164",
+   "world": "mm3e_commercial",
+   "statement": "Weakened means a character has temporarily lost power points from one trait; debilitated takes precedence if both conditions apply.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Weakened (p. 223) (mm3e-heros-handbook#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: the trait loss is temporary; dial: none, as the passage does not specify its amount or recovery timing.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0165",
+   "world": "mm3e_commercial",
+   "statement": "Each rank step above rank 0 doubles the listed mass, time, distance, and volume measures; each step below halves them. The table gives, for example, rank 0 as 24 kg, 6 seconds, 8 m, and .025 m³, and rank 1 as 50 kg, 12 seconds, 16 m, and .05 m³.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Measurements Table: Metric (p. 225) (mm3e-heros-handbook#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: use the listed rank measures; dial: none, since the progression sets a scale rather than a power cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "mm3e_commercial.rule.0166",
+   "world": "mm3e_commercial",
+   "statement": "Size rank changes listed traits: larger ranks reduce active defense and stealth while increasing intimidation, Strength, Stamina, and sometimes speed; smaller ranks apply the reverse modifiers shown in the table. For example, size rank 1 gives –6 active defense, –12 stealth, +6 intimidation, +12 Strength, +12 Stamina, and +1 speed.",
+   "locators": [
+    "M&M 3e Hero's Handbook: Size Rank Modifiers (p. 225) (mm3e-heros-handbook#017)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default: apply the table’s modifiers for the character’s size; dial: none, because the passage specifies effects but no transformation cost.",
+   "licence": "commercial book, design reference only"
+  }
+ ]
+}

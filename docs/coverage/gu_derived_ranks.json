@@ -43,9 +43,9 @@
      "folds": false
     },
     "family": {
-     "n": 348,
-     "exact": 104,
-     "within1": 237,
+     "n": 347,
+     "exact": 100,
+     "within1": 233,
      "baselineExact": 69,
      "baselineWithin1": 171,
      "heldOut": {
@@ -57,11 +57,11 @@
      },
      "byLevel": {
       "band+path": {
-       "n": 162,
-       "exact": 41,
-       "within1": 104,
+       "n": 159,
+       "exact": 37,
+       "within1": 101,
        "baselineExact": 24,
-       "baselineWithin1": 62
+       "baselineWithin1": 61
       },
       "band+path+type": {
        "n": 68,
@@ -71,11 +71,11 @@
        "baselineWithin1": 41
       },
       "band+type": {
-       "n": 103,
+       "n": 105,
        "exact": 39,
-       "within1": 77,
+       "within1": 76,
        "baselineExact": 26,
-       "baselineWithin1": 68
+       "baselineWithin1": 69
       },
       "band": {
        "n": 15,
@@ -113,11 +113,11 @@
     "band+path: unmarked/sound"
    ],
    "spread": {
-    "n": 4,
+    "n": 3,
     "min": 4,
-    "max": 8,
-    "q1": 5,
-    "q3": 8
+    "max": 5,
+    "q1": 4,
+    "q3": 5
    }
   },
   "candidate:battle-thought-gu": {
@@ -127,11 +127,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "candidate:battle-will-gu": {
@@ -141,11 +141,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "candidate:bear-palm-gu": {
@@ -393,21 +393,21 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "candidate:chase-smoke-gu": {
    "rule": "gu.rank.family-median",
-   "rank": 4,
+   "rank": 3,
    "inputs": [
     "band+type: unmarked/investigative"
    ],
    "spread": {
-    "n": 15,
+    "n": 14,
     "min": 1,
     "max": 6,
     "q1": 3,
@@ -542,12 +542,12 @@
   },
   "candidate:detection-gu": {
    "rule": "gu.rank.family-median",
-   "rank": 4,
+   "rank": 3,
    "inputs": [
     "band+type: unmarked/investigative"
    ],
    "spread": {
-    "n": 15,
+    "n": 14,
     "min": 1,
     "max": 6,
     "q1": 3,
@@ -598,12 +598,12 @@
   },
   "candidate:eating-ones-words-gu": {
    "rule": "gu.rank.family-median",
-   "rank": 8,
+   "rank": 7,
    "inputs": [
     "band+path: unmarked/rule"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 1,
     "max": 8,
     "q1": 7,
@@ -617,7 +617,7 @@
     "band+type: unmarked/consumable & expendable"
    ],
    "spread": {
-    "n": 23,
+    "n": 22,
     "min": 1,
     "max": 8,
     "q1": 2,
@@ -785,7 +785,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -808,16 +808,16 @@
   },
   "candidate:golden-qi-gu": {
    "rule": "gu.rank.family-median",
-   "rank": 5,
+   "rank": 4,
    "inputs": [
     "band+path: unmarked/qi"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 3,
     "max": 8,
     "q1": 4,
-    "q3": 5
+    "q3": 8
    }
   },
   "candidate:grand-bear-gu": {
@@ -878,16 +878,16 @@
   },
   "candidate:hard-qi-gu": {
    "rule": "gu.rank.family-median",
-   "rank": 5,
+   "rank": 4,
    "inputs": [
     "band+path: unmarked/qi"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 3,
     "max": 8,
     "q1": 4,
-    "q3": 5
+    "q3": 8
    }
   },
   "candidate:hope-gu": {
@@ -897,7 +897,7 @@
     "band+path: unmarked/human"
    ],
    "spread": {
-    "n": 6,
+    "n": 5,
     "min": 1,
     "max": 5,
     "q1": 2,
@@ -953,11 +953,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "candidate:iron-blood-gu": {
@@ -1051,11 +1051,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "candidate:life-tablet-gu": {
@@ -1219,11 +1219,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "candidate:pair-gu": {
@@ -1247,9 +1247,9 @@
     "band+path: unmarked/space"
    ],
    "spread": {
-    "n": 10,
+    "n": 9,
     "min": 4,
-    "max": 7,
+    "max": 5,
     "q1": 5,
     "q3": 5
    }
@@ -1345,7 +1345,7 @@
     "band+path: unmarked/human"
    ],
    "spread": {
-    "n": 6,
+    "n": 5,
     "min": 1,
     "max": 5,
     "q1": 2,
@@ -1429,7 +1429,7 @@
     "band+type: unmarked/consumable & expendable"
    ],
    "spread": {
-    "n": 23,
+    "n": 22,
     "min": 1,
     "max": 8,
     "q1": 2,
@@ -1507,7 +1507,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -1633,7 +1633,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -1661,7 +1661,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -1675,7 +1675,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -1689,11 +1689,11 @@
     "band+path: unmarked/sound"
    ],
    "spread": {
-    "n": 4,
+    "n": 3,
     "min": 4,
-    "max": 8,
-    "q1": 5,
-    "q3": 8
+    "max": 5,
+    "q1": 4,
+    "q3": 5
    }
   },
   "candidate:space-escape-gu": {
@@ -1703,9 +1703,9 @@
     "band+path: unmarked/space"
    ],
    "spread": {
-    "n": 10,
+    "n": 9,
     "min": 4,
-    "max": 7,
+    "max": 5,
     "q1": 5,
     "q3": 5
    }
@@ -1745,7 +1745,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -1843,7 +1843,7 @@
     "band+path: unmarked/human"
    ],
    "spread": {
-    "n": 6,
+    "n": 5,
     "min": 1,
     "max": 5,
     "q1": 2,
@@ -1899,7 +1899,7 @@
     "band+type: unmarked/consumable & expendable"
    ],
    "spread": {
-    "n": 23,
+    "n": 22,
     "min": 1,
     "max": 8,
     "q1": 2,
@@ -1936,12 +1936,12 @@
   },
   "candidate:true-sight-gu": {
    "rule": "gu.rank.family-median",
-   "rank": 4,
+   "rank": 3,
    "inputs": [
     "band+type: unmarked/investigative"
    ],
    "spread": {
-    "n": 15,
+    "n": 14,
     "min": 1,
     "max": 6,
     "q1": 3,
@@ -1997,7 +1997,7 @@
     "band+path: unmarked/human"
    ],
    "spread": {
-    "n": 6,
+    "n": 5,
     "min": 1,
     "max": 5,
     "q1": 2,
@@ -2109,7 +2109,7 @@
     "band+type: unmarked/consumable & expendable"
    ],
    "spread": {
-    "n": 23,
+    "n": 22,
     "min": 1,
     "max": 8,
     "q1": 2,
@@ -2151,7 +2151,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -2193,10 +2193,10 @@
     "band+path: unmarked/time"
    ],
    "spread": {
-    "n": 16,
+    "n": 15,
     "min": 1,
     "max": 8,
-    "q1": 5,
+    "q1": 4,
     "q3": 7
    }
   },
@@ -2221,11 +2221,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "fandom:Changing_Intent_Gu": {
@@ -2258,12 +2258,12 @@
   },
   "fandom:Clairaudience_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 4,
+   "rank": 3,
    "inputs": [
     "band+type: unmarked/investigative"
    ],
    "spread": {
-    "n": 15,
+    "n": 14,
     "min": 1,
     "max": 6,
     "q1": 3,
@@ -2319,10 +2319,10 @@
     "band+path: unmarked/time"
    ],
    "spread": {
-    "n": 16,
+    "n": 15,
     "min": 1,
     "max": 8,
-    "q1": 5,
+    "q1": 4,
     "q3": 7
    }
   },
@@ -2431,7 +2431,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -2445,10 +2445,10 @@
     "band+path: unmarked/time"
    ],
    "spread": {
-    "n": 16,
+    "n": 15,
     "min": 1,
     "max": 8,
-    "q1": 5,
+    "q1": 4,
     "q3": 7
    }
   },
@@ -2585,7 +2585,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -2613,7 +2613,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -2627,7 +2627,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -2641,7 +2641,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -2655,7 +2655,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -2720,12 +2720,12 @@
   },
   "fandom:Hand-Ear_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 4,
+   "rank": 3,
    "inputs": [
     "band+type: unmarked/investigative"
    ],
    "spread": {
-    "n": 15,
+    "n": 14,
     "min": 1,
     "max": 6,
     "q1": 3,
@@ -2795,10 +2795,10 @@
     "band+path: unmarked/time"
    ],
    "spread": {
-    "n": 16,
+    "n": 15,
     "min": 1,
     "max": 8,
-    "q1": 5,
+    "q1": 4,
     "q3": 7
    }
   },
@@ -2851,7 +2851,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -3070,12 +3070,12 @@
   },
   "fandom:Mind_Reading_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 4,
+   "rank": 3,
    "inputs": [
     "band+type: unmarked/investigative"
    ],
    "spread": {
-    "n": 15,
+    "n": 14,
     "min": 1,
     "max": 6,
     "q1": 3,
@@ -3103,10 +3103,10 @@
     "band+path: unmarked/time"
    ],
    "spread": {
-    "n": 16,
+    "n": 15,
     "min": 1,
     "max": 8,
-    "q1": 5,
+    "q1": 4,
     "q3": 7
    }
   },
@@ -3131,7 +3131,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -3145,11 +3145,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "fandom:One-stretch_Golden_Light_Worm": {
@@ -3173,11 +3173,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "fandom:Ox_Strength_Gu": {
@@ -3229,11 +3229,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "fandom:Prodigal_Son_Gu": {
@@ -3257,11 +3257,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "fandom:Python_Strength_Gu": {
@@ -3280,44 +3280,44 @@
   },
   "fandom:Qi_Armor_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 5,
+   "rank": 4,
    "inputs": [
     "band+path: unmarked/qi"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 3,
     "max": 8,
     "q1": 4,
-    "q3": 5
+    "q3": 8
    }
   },
   "fandom:Qi_Explosion_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 5,
+   "rank": 4,
    "inputs": [
     "band+path: unmarked/qi"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 3,
     "max": 8,
     "q1": 4,
-    "q3": 5
+    "q3": 8
    }
   },
   "fandom:Qi_Harvest_Fruit": {
    "rule": "gu.rank.family-median",
-   "rank": 5,
+   "rank": 4,
    "inputs": [
     "band+path: unmarked/qi"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 3,
     "max": 8,
     "q1": 4,
-    "q3": 5
+    "q3": 8
    }
   },
   "fandom:Quiet_Steps_Gu": {
@@ -3364,12 +3364,12 @@
   },
   "fandom:Recollection_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 4,
+   "rank": 3,
    "inputs": [
     "band+type: unmarked/investigative"
    ],
    "spread": {
-    "n": 15,
+    "n": 14,
     "min": 1,
     "max": 6,
     "q1": 3,
@@ -3420,12 +3420,12 @@
   },
   "fandom:Regulation_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 8,
+   "rank": 7,
    "inputs": [
     "band+path: unmarked/rule"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 1,
     "max": 8,
     "q1": 7,
@@ -3462,12 +3462,12 @@
   },
   "fandom:Rules_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 8,
+   "rank": 7,
    "inputs": [
     "band+path: unmarked/rule"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 1,
     "max": 8,
     "q1": 7,
@@ -3495,11 +3495,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "fandom:Several_Hundred_Ghost_Face_Gu": {
@@ -3509,7 +3509,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -3565,10 +3565,10 @@
     "band+path: unmarked/time"
    ],
    "spread": {
-    "n": 16,
+    "n": 15,
     "min": 1,
     "max": 8,
-    "q1": 5,
+    "q1": 4,
     "q3": 7
    }
   },
@@ -3607,7 +3607,7 @@
     "band+path: unmarked/soul"
    ],
    "spread": {
-    "n": 32,
+    "n": 31,
     "min": 1,
     "max": 5,
     "q1": 3,
@@ -3621,11 +3621,11 @@
     "band+path: unmarked/sound"
    ],
    "spread": {
-    "n": 4,
+    "n": 3,
     "min": 4,
-    "max": 8,
-    "q1": 5,
-    "q3": 8
+    "max": 5,
+    "q1": 4,
+    "q3": 5
    }
   },
   "fandom:Staunch_Bleeding_Gu": {
@@ -3910,12 +3910,12 @@
   },
   "fandom:Underworld_Path_Butterfly": {
    "rule": "gu.rank.family-median",
-   "rank": 4,
+   "rank": 3,
    "inputs": [
     "band+type: unmarked/investigative"
    ],
    "spread": {
-    "n": 15,
+    "n": 14,
     "min": 1,
     "max": 6,
     "q1": 3,
@@ -4106,16 +4106,16 @@
   },
   "fandom:Zombie_Qi_Gu": {
    "rule": "gu.rank.family-median",
-   "rank": 5,
+   "rank": 4,
    "inputs": [
     "band+path: unmarked/qi"
    ],
    "spread": {
-    "n": 5,
+    "n": 4,
     "min": 3,
     "max": 8,
     "q1": 4,
-    "q3": 5
+    "q3": 8
    }
   },
   "saga:blood-relation-gu": {
@@ -4153,11 +4153,11 @@
     "band+path: unmarked/wisdom"
    ],
    "spread": {
-    "n": 19,
+    "n": 18,
     "min": 1,
     "max": 8,
     "q1": 4,
-    "q3": 7
+    "q3": 6
    }
   },
   "saga:familial-emotion-gu": {
@@ -4195,7 +4195,7 @@
     "band+path: unmarked/human"
    ],
    "spread": {
-    "n": 6,
+    "n": 5,
     "min": 1,
     "max": 5,
     "q1": 2,
@@ -4237,7 +4237,7 @@
     "band+path: unmarked/human"
    ],
    "spread": {
-    "n": 6,
+    "n": 5,
     "min": 1,
     "max": 5,
     "q1": 2,
@@ -4279,10 +4279,10 @@
     "band+path: unmarked/time"
    ],
    "spread": {
-    "n": 16,
+    "n": 15,
     "min": 1,
     "max": 8,
-    "q1": 5,
+    "q1": 4,
     "q3": 7
    }
   }

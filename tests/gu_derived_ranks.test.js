@@ -55,7 +55,7 @@ test('derived rows carry their rule in the ledger and the rule rows list their s
     const rows = kinds.filter(k => labels[k.id]?.rankBasis === 'derived');
     assert.equal(rows.length, Object.keys(derived.rows).length);
     for (const row of rows) {
-        assert.match(row.state, /^(runs-derived|blocked:effect-unknown)$/, row.id);
+        assert.match(row.state, /^(runs-derived|catalogued|blocked:effect-unknown|blocked:[a-z-]+)$/, row.id); // catalogued or a capability slug: a chapter-read effect sentence (PWC27)
         if (row.state === 'runs-derived') assert.deepEqual(row.derived, {rule: derived.rows[row.id].rule, inputs: derived.rows[row.id].inputs}, row.id);
         assert.equal(labels[row.id].rank, derived.rows[row.id].rank, row.id);
     }

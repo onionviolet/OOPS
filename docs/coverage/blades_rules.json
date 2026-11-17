@@ -1,0 +1,658 @@
+{
+ "meta": {
+  "world": "blades",
+  "books": [
+   "Blades in the Dark SRD"
+  ],
+  "licence": [
+   "CC-BY-3.0"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+  "date": "2026-11-17",
+  "shards": 5
+ },
+ "rules": [
+  {
+   "id": "blades.rule.0001",
+   "world": "blades",
+   "statement": "A character may resist an unwanted consequence; the resistance always reduces or avoids it, and the attribute roll determines the stress cost. The cost is 6 minus the highest resistance die, as in the example where a result of 2 costs 4 stress.",
+   "locators": [
+    "Blades in the Dark SRD: Resistance Roll; Stress (blades-in-the-dark-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: reduce",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to reducing or avoiding a consequence at a stress cost set by the roll; a world can raise or lower the stress burden to reflect how taxing resistance is.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0002",
+   "world": "blades",
+   "statement": "A character can spend 2 stress to add one die to a roll, increase its effect by one level, or act while incapacitated; each option can be chosen only once for a given action.",
+   "locators": [
+    "Blades in the Dark SRD: Pushing Yourself (blades-in-the-dark-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a 2-stress cost for one chosen boost; a world can change the cost or available boosts to make exertion more or less sustainable.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0003",
+   "world": "blades",
+   "statement": "When a character marks their final stress box, they gain a permanent trauma condition, leave the current conflict, return later with zero stress, and have their vice satisfied until the next downtime. At four trauma conditions, they must retire or go to prison.",
+   "locators": [
+    "Blades in the Dark SRD: Trauma (blades-in-the-dark-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to permanent personality changes and removal from the current conflict at the stress limit; a world can change the threshold or recovery benefit to alter the long-term cost.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0004",
+   "world": "blades",
+   "statement": "For a progress clock, an action with limited, standard, or great effect fills 1, 2, or 3 segments respectively. Danger complications can fill 1, 2, or 3 segments, and a full clock triggers the danger it tracks.",
+   "locators": [
+    "Blades in the Dark SRD: Effect; Danger Clocks (blades-in-the-dark-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "concept-law"
+   ],
+   "default_dial_reason": "Default to three effect levels and clocks that trigger at completion; a world can vary segment counts or tick rates to make obstacles and threats faster or slower.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0005",
+   "world": "blades",
+   "statement": "A clock can be filled or emptied by events to track a changing contest; linked clocks can unlock a new obstacle when the first fills, while racing clocks compare which side finishes first.",
+   "locators": [
+    "Blades in the Dark SRD: Tug-of-war Clocks; Racing Clocks; Linked Clocks (blades-in-the-dark-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "concept-law"
+   ],
+   "default_dial_reason": "Default to clocks that track visible progress and change with events; a world can decide which events move them and what completion releases.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0006",
+   "world": "blades",
+   "statement": "Harm is recorded at levels 1 through 3, with level 1 reducing effect, level 2 imposing a one-die penalty, and level 3 incapacitating the character unless helped or pushed. If the matching row is full, new harm moves up; further harm beyond the top row causes a permanent catastrophic result or death.",
+   "locators": [
+    "Blades in the Dark SRD: Consequences and Harm (blades-in-the-dark-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default to escalating injury penalties and a catastrophic overflow; a world can change the thresholds or consequences to make injury less or more lethal.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0007",
+   "world": "blades",
+   "statement": "An assisting teammate grants +1 die and takes 1 stress. For a further +1 die, the acting character may either take 2 stress to push themselves or accept a Devil's Bargain, whose agreed cost happens regardless of the roll.",
+   "locators": [
+    "Blades in the Dark SRD: Add Bonus Dice; The Devil's Bargain (blades-in-the-dark-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to one assistance die and one optional die paid for by stress or an unconditional bargain; a world can alter the costs or bargain consequences.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0008",
+   "world": "blades",
+   "statement": "When a character has zero or negative dice, they roll two dice and use the lower result, and cannot score a critical. Otherwise, the highest die determines the result: 6 succeeds, multiple sixes are critical, 4–5 succeeds with a consequence, and 1–3 is a bad outcome.",
+   "locators": [
+    "Blades in the Dark SRD: Rolling the Dice (blades-in-the-dark-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: roll outcome",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to highest-die resolution and a two-die lowest-result fallback for no dice; a world can change outcome bands or the fallback to tune uncertainty.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0009",
+   "world": "blades",
+   "statement": "To resist a consequence, roll one die per rating in the attribute the GM selects to match its nature: Insight for deception or understanding, Prowess for physical strain or injury, and Resolve for mental strain or willpower. Suffer 6 stress minus the highest die; a critical also clears 1 stress.",
+   "locators": [
+    "Blades in the Dark SRD: Resistance Roll (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to reducing a consequence and charging stress; the GM can make resistance avoid consequences more often for a daring tone, at the cost of less gritty outcomes.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0010",
+   "world": "blades",
+   "statement": "Resistance usually lowers a consequence’s severity, but the GM may instead rule that it is avoided completely. A character may roll against a particular consequence only once, and must commit to resisting before seeing the stress cost; if several consequences are threatened, the player may choose which to resist and roll separately for each.",
+   "locators": [
+    "Blades in the Dark SRD: Resistance Roll (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one resistance attempt per consequence, with reduction as the usual result; the GM can favor complete avoidance for a more daring world, changing how costly failure feels.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0011",
+   "world": "blades",
+   "statement": "Applicable armor can be marked instead of rolling to resist, reducing or avoiding a consequence. Each marked armor box is unavailable until restored, and all armor returns when the character chooses load for the next score; heavy armor can allow a second box to be marked to reduce harm again.",
+   "locators": [
+    "Blades in the Dark SRD: Armor (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to spending applicable armor boxes to reduce consequences; a world can make armor scarce by limiting restoration, with equipment availability as the cost.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0012",
+   "world": "blades",
+   "statement": "Unresisted level 4 fatal harm kills a character. If level 3 harm must be recorded while that level is already filled, a catastrophic consequence follows and may cause sudden death depending on circumstances.",
+   "locators": [
+    "Blades in the Dark SRD: Death (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to death from unresisted fatal harm and a circumstance-dependent catastrophe when level 3 is full; a world can soften either threshold, at the cost of reduced lethality.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0013",
+   "world": "blades",
+   "statement": "A fortune roll uses one die per applicable trait rating, plus one die per major advantage and minus one per major disadvantage. A critical gives an exceptional result, a 6 a good result, 4–5 a mixed result, and 1–3 a bad result; opposed parties roll separately and their performance levels are compared.",
+   "locators": [
+    "Blades in the Dark SRD: Fortune Roll (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default to using the relevant trait and major advantages or disadvantages to settle uncertain outcomes; a world can weight circumstance more heavily by adding or removing advantage dice, with uncertainty as the cost.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0014",
+   "world": "blades",
+   "statement": "For information gathering, the GM answers honestly with detail based on the effect: great effect yields exceptional detail and may open related follow-ups, standard yields good detail and permits clarification, and limited yields partial information requiring more inquiry. Each attempt takes time, and a fleeting opportunity may allow only one roll for a question.",
+   "locators": [
+    "Blades in the Dark SRD: Gather Information (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to truthful answers scaled to effect and to spending time per attempt; a world can make opportunities more fleeting, with lost chances as the cost.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0015",
+   "world": "blades",
+   "statement": "A crew’s war status gives it +1 heat from scores, reduces its hold by 1 temporarily, and limits PCs to one downtime action rather than two. A war can end by eliminating the enemy or negotiating a mutual agreement that establishes a new status.",
+   "locators": [
+    "Blades in the Dark SRD: Faction Status Levels (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default to applying all three war penalties until the conflict ends; a world can intensify or ease them, with pressure on crew resources and downtime as the cost.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0016",
+   "world": "blades",
+   "statement": "A crew may store 4 coin in its lair by default; a vault raises storage capacity to 8 and then 16. Coin beyond the applicable limit must be spent promptly or distributed, while carried bulk coin uses one load slot per unit.",
+   "locators": [
+    "Blades in the Dark SRD: Coin (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: containment",
+   "seam": "AB21",
+   "derives": [
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default to a 4-coin lair limit and the stated vault increases; a world can lower or raise capacity, trading convenience against the risk or burden of holding wealth.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0017",
+   "world": "blades",
+   "statement": "When a crew fills its 12-rep tracker, weak hold becomes strong and rep resets; with strong hold it may pay coin equal to 8 times its new Tier to advance one Tier, then rep resets and hold becomes weak. Each turf reduces the rep needed to develop by 1, to a maximum of 6 turf.",
+   "locators": [
+    "Blades in the Dark SRD: Development / Turf (blades-in-the-dark-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the 12-rep threshold, turf discounts, and Tier-based coin cost; a world can change these development requirements, with slower or costlier crew growth as the tradeoff.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0018",
+   "world": "blades",
+   "statement": "When inventing or crafting a creation with the relevant alchemical, spark-craft, or arcane feature, increase the roll result by one level; each such specialist begins knowing one special formula or design. During downtime, an Analyst adds two ticks among long-term investigation or learning projects.",
+   "locators": [
+    "Blades in the Dark SRD: Analyst / Artificer (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "blueprint-craft"
+   ],
+   "default_dial_reason": "Default to one result-level improvement and one starting design; a setting can change the bonus or initial stock to reflect how accessible specialized knowledge is.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0019",
+   "world": "blades",
+   "statement": "Special armor can be spent to fully avoid an appropriate consequence, or to gain a normal push benefit without paying the usual two stress; it is restored at the start of downtime. The consequence categories depend on the ability, such as fatigue or chemicals, detection, suspicion, or supernatural effects.",
+   "locators": [
+    "Blades in the Dark SRD: Fortitude (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to one use per downtime, with full avoidance or a stress-free push; a world can make armor scarcer or narrower because specialized protection must be replenished.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0020",
+   "world": "blades",
+   "statement": "Wrecking an area with arcane substances makes it supernatural-anathema or alluring for several days across roughly a small room: entities avoid or are tormented within anathema, while spirits seek an alluring area and are tormented if forced to leave. Powerful or prepared entities may roll quality or arcane magnitude to resist.",
+   "locators": [
+    "Blades in the Dark SRD: Supernatural ward (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "negative-effect-drift",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a small-room field lasting several days, with resistance for exceptional beings; a world can expand its reach or duration at the cost of stronger materials or greater supernatural backlash.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0021",
+   "world": "blades",
+   "statement": "A Sway can make a target forget it occurred until the next interaction with the user; at that interaction the target recalls the event and the memory effect. Two times per score, Foresight permits assisting without stress by describing preparation.",
+   "locators": [
+    "Blades in the Dark SRD: Mesmerism / Foresight (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "memory-erasure"
+   ],
+   "default_dial_reason": "Default to temporary, interaction-ended forgetting and two free assists per score; a world can extend either limit, but persistent memory alteration should carry an added cost.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0022",
+   "world": "blades",
+   "statement": "A user who pushes themself can perform superhuman athletic feats or briefly confuse enemies into attacking one another; the push also grants a normal push benefit if a roll is involved. A separate ability lets a character always identify lies.",
+   "locators": [
+    "Blades in the Dark SRD: The devil's footsteps / Like looking into a mirror (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "mind-state",
+    "body-form",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to short-lived confusion and reliable lie-sensing, with the athletic effect requiring a push; a world can make these more potent but should raise their cost or narrow their conditions.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0023",
+   "world": "blades",
+   "statement": "A crew's preferred operation in its hunting grounds grants +1d to information gathering and one extra downtime activity for that operation. A cohort's quality is its crew Tier for a gang and Tier +1 for an expert; applicable types determine whether it uses full quality, otherwise its quality is zero.",
+   "locators": [
+    "Blades in the Dark SRD: Establish your hunting grounds / Creating an expert (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to one local-operation bonus and type-gated cohort quality; a setting can widen territory or cohort specialties, balanced by the crew's investment in turf and upgrades.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0024",
+   "world": "blades",
+   "statement": "Cohorts can suffer four harm grades: weakened reduces effect, impaired reduces quality by one die, broken prevents action, and dead destroys the cohort. They remove one grade during downtime, or two if a PC spends an activity helping; replacing a destroyed cohort costs coin equal to Tier +2 and two downtime activities.",
+   "locators": [
+    "Blades in the Dark SRD: Cohort harm & Healing (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB16",
+   "derives": [
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to gradual downtime recovery and a meaningful replacement cost; a world can speed healing or make replacement cheaper if cohorts are less fragile or more readily recruited.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0025",
+   "world": "blades",
+   "statement": "A score's engagement starts with 1d, modified by one die per major advantage or disadvantage; critical, 6, 4/5, and 1–3 establish progressively worse initial positions from controlled through desperate, with a critical passing the first obstacle. This starting position ends after the initial actions, and later rolls use normal position rules.",
+   "locators": [
+    "Blades in the Dark SRD: Engagement Roll / How long does it last? (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a one-roll starting-position procedure that affects only the opening; a world can change the number or weight of advantages, reflecting how predictable or volatile operations are.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0026",
+   "world": "blades",
+   "statement": "A successful setup maneuver in a linked plan can improve teammates' position or effect; failure may cause trouble, such as imposing −1d on the engagement roll. The setup performer may rejoin the main operation when appropriate.",
+   "locators": [
+    "Blades in the Dark SRD: Linked Plans (blades-in-the-dark-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a single setup benefit or an engagement penalty on failure; a world can allow more elaborate linked plans, at the cost of additional opportunities for complications.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0027",
+   "world": "blades",
+   "statement": "A flashback lets a player establish a past action that affects the current operation, paying a GM-set cost of 0 stress for an ordinary, easily arranged action, 1 for a complex or unlikely one, or 2 or more for an elaborate one. Resolve it like a present action, including any needed roll; a downtime activity instead costs 1 coin or 1 rep, and a flashback cannot undo events already established in the present.",
+   "locators": [
+    "Blades in the Dark SRD: Flashbacks; Limits of flashbacks (blades-in-the-dark-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "time-loop"
+   ],
+   "default_dial_reason": "Default to allowing plausible past preparations at a stress cost scaled to complexity; a world can raise the cost or narrow what counts as plausible because elaborate preparations consume time, resources, or favors.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0028",
+   "world": "blades",
+   "statement": "An assisting character takes 1 stress to give one roller +1 die, and only one character may assist a given roll. In a group action, all participants use the same action and the best result applies to everyone who rolled, while the leader takes 1 stress for each participant whose result is 1–3; a participant who did not roll receives no effect.",
+   "locators": [
+    "Blades in the Dark SRD: Teamwork — Assist; Lead a group action (blades-in-the-dark-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB27",
+   "derives": [],
+   "default_dial_reason": "Default to these fixed teamwork bonuses and leader costs; a world can make coordination harder or cheaper because teammates may be unable to communicate or cover for one another.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0029",
+   "world": "blades",
+   "statement": "A character using Protect takes a teammate's consequence instead and may resist it normally. A successful setup action gives a teammate who follows through either +1 effect level or improved position, and multiple follow-up actions may benefit when the fiction supports it.",
+   "locators": [
+    "Blades in the Dark SRD: Teamwork — Protect; Set up (blades-in-the-dark-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to transferring a consequence or improving a follow-up when the described intervention fits; a world can restrict benefits to close coordination because assistance requires opportunity and exposure.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0030",
+   "world": "blades",
+   "statement": "A downtime phase normally gives each character two listed activities, reduced to one while the crew is at war; each extra activity costs 1 coin or 1 rep. A helpful friend or contact grants +1 die, and coin spent after a roll raises its result level by one per coin.",
+   "locators": [
+    "Blades in the Dark SRD: Downtime activities (blades-in-the-dark-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Default to two activities and a resource cost for extras; a world can increase the limit or price because time away from earning and active conflict constrain available effort.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0031",
+   "world": "blades",
+   "statement": "A score normally earns 2 rep, adjusted by +1 or −1 per Tier that the target is above or below the crew, with a minimum of zero; a completely quiet operation earns no rep. Coin rewards range from 2 for a minor job to 10 or more for a major one, and a paid tithe costs crew Tier +1 coin.",
+   "locators": [
+    "Blades in the Dark SRD: Payoff (blades-in-the-dark-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the stated rep and coin rewards; a world can shift them to reflect how visible, lucrative, or politically costly a job is.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0032",
+   "world": "blades",
+   "statement": "A score adds 0, 2, 4, or 6 heat for exposure, with extra heat for a prominent target, hostile turf, or faction war, and +2 if killing was involved. At 9 heat the crew gains a wanted level and clears heat, carrying any excess over; incarceration for an associated crime lowers wanted by 1 and clears heat.",
+   "locators": [
+    "Blades in the Dark SRD: Heat; Incarceration (blades-in-the-dark-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default to accumulating heat and converting each 9 into wanted status; a world can change thresholds or modifiers because evidence, public attention, and law-enforcement capacity vary.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0033",
+   "world": "blades",
+   "statement": "A vice roll uses dice equal to the character's lowest attribute and clears stress equal to the highest die; clearing more stress than marked causes overindulgence. If a character cannot or does not indulge during downtime, they take stress equal to their trauma.",
+   "locators": [
+    "Blades in the Dark SRD: Vice Roll; Indulging Your Vice (blades-in-the-dark-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB19",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to relief keyed to the weakest attribute, with excess relief creating trouble; a world can make indulgence more or less dangerous because habits may be easier to control or more consuming.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0034",
+   "world": "blades",
+   "statement": "A supernatural entity's magnitude can serve as the dice pool for a fortune roll when its effect is uncertain; magnitude levels may be combined for distinct effects, but the scale is a guideline rather than a fixed formula. A ritual's stress cost can reflect combined magnitude, while taking hours to perform can reduce that cost at the price of warning people in its reach.",
+   "locators": [
+    "Blades in the Dark SRD: Magnitude (blades-in-the-dark-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to magnitude as a flexible gauge of supernatural reach and force; a world can make larger or slower effects cheaper because preparation trades urgency for exposure.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0035",
+   "world": "blades",
+   "statement": "A character with the Ritual ability begins with one learned ritual. Learning another requires finding its source and usually completing an 8-segment long-term project.",
+   "locators": [
+    "Blades in the Dark SRD: Finding a ritual source; Learning a ritual (blades-in-the-dark-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default to one starting ritual and an 8-segment learning project; a world can shorten or lengthen the project based on how accessible the source is.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0036",
+   "world": "blades",
+   "statement": "A ritual takes at least one downtime activity and costs stress according to its magnitude; the GM may adjust that cost, and extra costs such as sacrifices or rare materials may also apply. Casting time, generally at least an hour, can reduce the stress cost.",
+   "locators": [
+    "Blades in the Dark SRD: Ritual Questions; Performing a Ritual (blades-in-the-dark-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: ritual cost and time",
+   "seam": "AB2",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to magnitude-based stress and at least an hour of casting; a world can make rituals cheaper or costlier by changing time, magnitude, or required offerings.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0037",
+   "world": "blades",
+   "statement": "A dangerous or troublesome ritual calls for an action roll, usually Attune; an uncertain ritual calls for a fortune roll. If both conditions apply, use both rolls. During a downtime fortune roll, coin spent one-for-one can raise its result level.",
+   "locators": [
+    "Blades in the Dark SRD: Performing a Ritual (blades-in-the-dark-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to separate tests for danger and uncertain outcomes; a world can require one or both depending on how risky and predictable its occult forces are.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0038",
+   "world": "blades",
+   "statement": "A ritual may advance a progress clock toward an arcane entity's agenda or a dark consequence. Each performance is a unique event, and the GM or players may redefine it with a new round of questions.",
+   "locators": [
+    "Blades in the Dark SRD: Performing a Ritual (blades-in-the-dark-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default to possible clock advancement and variable results; a world can make consequences more or less predictable according to the ritual's source.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0039",
+   "world": "blades",
+   "statement": "Inventing a new formula or design usually takes an 8-segment long-term project. Alchemist, Artificer, or Strange Methods grants one special formula upon taking that ability, without a separate learning project.",
+   "locators": [
+    "Blades in the Dark SRD: Inventing (blades-in-the-dark-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default to an 8-segment invention project, waived for one formula by the listed abilities; a world can adjust access to invention through training or materials.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0040",
+   "world": "blades",
+   "statement": "Crafting takes one downtime activity and a Tinker roll; base quality is the crew's Tier. A Workshop makes effective Tier one higher, and a critical yields Tier +2, a 6 yields Tier +1, a 4–5 yields Tier, and a 1–3 yields Tier −1. Coin can raise final quality one-for-one, even beyond Tier +2.",
+   "locators": [
+    "Blades in the Dark SRD: Crafting; CRAFTING ROLL (blades-in-the-dark-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to Tier-based quality with the listed roll results and coin spending; a world can turn quality upward through better workshops or more coin.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0041",
+   "world": "blades",
+   "statement": "Crafting requires a GM-set minimum quality based on effect magnitude. Modifications require Tier +1 for a simple useful change, Tier +2 for a significant change, and Tier +3 for an arcane, spark-craft, or alchemical change.",
+   "locators": [
+    "Blades in the Dark SRD: Crafting; Modifying an item (blades-in-the-dark-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: quality gates effects",
+   "seam": "AB20",
+   "derives": [],
+   "default_dial_reason": "Default to magnitude-based quality thresholds; a world can make powerful or unusual effects harder to create by raising those thresholds.",
+   "licence": "CC-BY-3.0"
+  },
+  {
+   "id": "blades.rule.0042",
+   "world": "blades",
+   "statement": "A creation may require multiple crafting stages, add 1 heat if used on an operation, have limited uses, require rare materials, perform unpredictably via a quality-based fortune roll, or cause a specified dangerous side effect. Alchemicals must be consumable, usually with one use.",
+   "locators": [
+    "Blades in the Dark SRD: Drawbacks (blades-in-the-dark-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB16",
+   "derives": [
+    "negative-effect-drift",
+    "ingredient-properties"
+   ],
+   "default_dial_reason": "Default to one or more drawbacks chosen by the GM, with alchemicals consumed on use; a world can increase an item's limits or risks to balance its effect.",
+   "licence": "CC-BY-3.0"
+  }
+ ]
+}

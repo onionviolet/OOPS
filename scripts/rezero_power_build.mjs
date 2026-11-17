@@ -3,6 +3,7 @@
 // functions are exported for the shape test; build() reads the private folder and writes both files.
 // Fold rule, held-out tables and capability order are frozen in rezero_power_frozen.mjs (written before any grammar output).
 import {writeFileSync} from 'node:fs';
+import {foldChapterEffect} from './chapter_effect_tier.mjs';
 import {PRIV, readJson, readIf, heldOut} from './rezero_power_chunks.mjs';
 import {predictAttribute, predictSin, CAPABILITIES, CAPABILITY_ORDER, ROUTE_TO_PLAYER, SIN_RULES, ATTR_RULES} from './rezero_power_frozen.mjs';
 
@@ -150,7 +151,7 @@ export function build({write = true} = {}) {
         const state = l.notAThing ? `not-a-thing:${l.notAThing}` : l.blockers.length ? `blocked:${l.blockers[0]}` : 'catalogued';
         const note = l.notAThing ? `${l.class} name, ${l.notAThing}` : [`${l.editions}`, `${l.sourceTier} tier`, l.grammar ? `${l.grammarFold} ${l.grammar.verb}.${l.grammar.object}.${l.grammar.target}.${l.grammar.time}` : 'no grammar',
             `route ${l.route}`, ...(l.blockers.length > 1 ? [`also ${l.blockers.slice(1).join(', ')}`] : []), l.heldOut ? 'held out' : null].filter(Boolean).join('; ');
-        return {id, source: [...l.nameSources.slice(0, 3), ...(l.evidence ?? []).slice(0, 2)].join('; ') || 'none', state, mechanisms: [l.class === 'spell' ? 'S' : 'W'], note};
+        return foldChapterEffect('rezero_powers', {id, source: [...l.nameSources.slice(0, 3), ...(l.evidence ?? []).slice(0, 2)].join('; ') || 'none', state, mechanisms: [l.class === 'spell' ? 'S' : 'W'], note});
     });
     if (write) {
         writeFileSync(SIDECAR, JSON.stringify(out, null, 1) + '\n');

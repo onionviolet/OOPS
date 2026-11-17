@@ -32,17 +32,8 @@ const backed = (packet, f) => {
     return l.split(';').every(part => packet.evidence.some(e => e.startsWith(`[${part.trim()}]`))) ? {locator: l, speaker: f.speaker} : null;
 };
 
-// Rank: the lowest stated rank, as in the wiki tier ("at least N" is a lower bound; a value with "?" or "unknown" gives none).
-export function normaliseRank(text) {
-    const t = (text ?? '').trim();
-    if (!t) return null;
-    const lower = /\bat least (?:rank )?([1-9])\b/i.exec(t);
-    if (lower) return {rank: Number(lower[1]), basis: 'chapter-lower-bound'};
-    if (/\?|unknown|uncertain|unclear/i.test(t)) return null;
-    const nums = [...t.matchAll(/(?<![\d.])([1-9])(?![\d.])/g)].map(m => Number(m[1]));
-    if (!nums.length) return null;
-    return {rank: Math.min(...nums), basis: nums.length > 1 ? 'chapter-lowest' : 'chapter-stated'};
-}
+import {normaliseRank} from './chapter_tier_labels_lib.mjs';
+export {normaliseRank};
 
 const pct = (n, d) => (d ? `${n} of ${d}` : 'none');
 const split = (rows, f) => ({all: rows.filter(f), heldOut: rows.filter(r => r.heldOut && f(r))});
@@ -131,6 +122,33 @@ if (h) {
         kindAgree: {n: kinds.length, same: kinds.filter(r => r.kind === r.wikiKind).length, heldOut: {n: kinds.filter(r => r.heldOut).length, same: kinds.filter(r => r.heldOut && r.kind === r.wikiKind).length}}};
 }
 out.hp_ingredients = sorted(hp);
+// Second reader (PWC19, scripts/second_readers_score.mjs): a field Haiku did not reproduce drops to unconfirmed, kept beside the label
+// under <field>Unconfirmed and read by no ledger. Scores above stay the one-reader scores.
+const checksFile = `${root}docs/coverage/second_reader_checks.json`;
+if (existsSync(checksFile)) {
+    const checks = json(checksFile), counts = {gu_kinds: 0, lotm_potions: 0, hp_ingredients: 0};
+    for (const [id, c] of Object.entries(checks.gu_kinds ?? {})) {
+        const l = out.gu_kinds[id]; if (!l) continue;
+        l.secondRead = c.status;
+        if (c.status !== 'agree') { l.rankUnconfirmed = {rank: l.rank, basis: l.rankBasis, at: l.rankAt}; delete l.rank; delete l.rankBasis; delete l.rankAt; counts.gu_kinds++; }
+    }
+    for (const [id, c] of Object.entries(checks.lotm_potions ?? {})) {
+        const l = out.lotm_potions[id]; if (!l) continue;
+        l.secondRead = c.status;
+        const drop = l.mains.filter(m => c.mains[m.name] !== 'agree');
+        if (drop.length) { l.mainsUnconfirmed = drop; l.mains = l.mains.filter(m => !drop.includes(m)); if (!l.mains.length) delete l.mains; counts.lotm_potions++; }
+    }
+    for (const [id, c] of Object.entries(checks.hp_ingredients ?? {})) {
+        const l = out.hp_ingredients[id]; if (!l) continue;
+        l.secondRead = c.status;
+        const drop = l.axes.filter(a => c.axes[a.axis] !== 'agree');
+        if (drop.length) { l.axesUnconfirmed = drop; l.axes = l.axes.filter(a => !drop.includes(a)); if (!l.axes.length) delete l.axes; counts.hp_ingredients++; }
+    }
+    scores.secondReader = {fieldsDropped: counts, source: 'docs/coverage/second_reader_checks.json'};
+}
 out.meta.scores = scores;
+// PWC27 writes its own section (scripts/chapter_effect_labels.mjs); keep it when this script rewrites the file.
+const prior = existsSync(`${root}docs/coverage/chapter_tier_labels.json`) ? json(`${root}docs/coverage/chapter_tier_labels.json`) : {};
+if (prior.effect_unknown) out.effect_unknown = prior.effect_unknown;
 writeFileSync(`${root}docs/coverage/chapter_tier_labels.json`, JSON.stringify(out).replace(/},"/g, '},\n"') + '\n');
 console.log(JSON.stringify(scores, null, 1));

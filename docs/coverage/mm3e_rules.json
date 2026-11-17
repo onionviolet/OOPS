@@ -1,0 +1,1006 @@
+{
+ "meta": {
+  "world": "mm3e",
+  "books": [
+   "Mutants & Masterminds 3e SRD"
+  ],
+  "licence": [
+   "OGL"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+  "date": "2026-11-17",
+  "shards": 8
+ },
+ "rules": [
+  {
+   "id": "mm3e.rule.0001",
+   "world": "mm3e",
+   "statement": "An effect’s ranks determine its strength, and its base cost is charged per rank; modifiers can raise or lower that cost, either per rank or as a flat amount for the whole power.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Power Effects — Power Costs; Modifiers (mm3e-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to effects scaling by rank with modifier-adjusted costs; a setting can change the price or rank limits to reflect how readily powers are obtained.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0002",
+   "world": "mm3e",
+   "statement": "An effect that targets another character allows a resistance check, unless its rules say otherwise; a willing target may forgo that check, but cannot forgo a Toughness check. Immunity can remove the need for a resistance check against effects it covers.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Power Effects — Resistance Check (mm3e-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to resistance checks for effects on others; a world can narrow which defenses apply, with the cost being more or less reliable power use.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0003",
+   "world": "mm3e",
+   "statement": "Opposed effects can counter one another when their descriptors conflict, or sometimes when they share a descriptor. To counter a power as it is used, a character readies an effect usable as a standard action or faster; both sides check d20 plus effect rank, and the higher result cancels both effects. Spending a victory point allows an attempt as a reaction instead.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Power Effects — Countering Effects (mm3e-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to descriptor-based countering with an opposed rank check; a setting can permit fewer or more descriptor interactions, trading tactical options against predictability.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0004",
+   "world": "mm3e",
+   "statement": "A power that remains in effect can be countered with a normal use of the countering effect and an opposed check; success ends it, but its user may try to establish it again. This can also end lingering results of an instant effect.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Power Effects — Countering Ongoing Effects (mm3e-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to allowing opposed counters to end ongoing effects; a world can make particular effects harder to dispel, at the cost of leaving their consequences in play.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0005",
+   "world": "mm3e",
+   "statement": "An Affliction sets one condition at each of three degrees when acquired. A target resists against DC 10 plus the effect’s rank using Fortitude or Will, chosen when the effect is taken; success avoids the effect, and failures by one, two, or three degrees impose the corresponding condition. Higher degrees replace lower ones rather than stacking. The target retries at the end of each turn to clear first- or second-degree conditions; a third-degree condition takes a minute or outside aid such as Healing or Treatment at DC 10 plus rank to remove.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Affliction (Attack) — Affliction Resistance Check (mm3e-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB14",
+   "derives": [
+    "mind-state",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to fixed conditions, three escalating degrees, and end-of-turn recovery for the first two; a setting can change recovery or condition severity, with longer-lasting impairment as the cost.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0006",
+   "world": "mm3e",
+   "statement": "An effect with instant, concentration, or sustained duration must be noticeable; continuous and permanent effects are not noticeable by default. Changing an effect’s duration through modifiers does not remove this requirement, and changing a continuous or permanent effect to one of those shorter durations makes it noticeable.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Powers — Noticing Power Effects (mm3e-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to visible or otherwise detectable short-duration powers; a world can make them harder to notice, while stronger concealment requires a special modifier.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0007",
+   "world": "mm3e",
+   "statement": "Descriptors can determine which powers interact: for example, Immunity or Nullify can apply to a descriptor, and opposing descriptors can allow powers to counter each other. A descriptor alone should not substantially change an effect’s rules; that is the role of modifiers.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Powers — Descriptors; Applying Descriptors (mm3e-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to flexible, consistently adjudicated descriptor interactions without changing an effect’s core mechanics; a world can specify strict descriptor pairings, at the cost of less improvisation.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0008",
+   "world": "mm3e",
+   "statement": "A significant new use of a power’s descriptors can be treated as a power stunt: choose a fitting effect as an Alternate Effect, then use extra effort and possibly a victory point for a one-use application. A descriptor-only change can also be a power stunt, subject to the GM’s judgment.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Descriptors — Creative Uses of Descriptors; Changing Descriptors in Play (mm3e-srd#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB1",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to allowing one-use creative applications through extra effort; a setting can restrict what stunts are possible, with versatility traded for a clear cost.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0009",
+   "world": "mm3e",
+   "statement": "A Progressive Affliction that a target fails to resist advances one degree at the start of the target’s next round; a successful resistance still ends it. This modifier costs 2 points per rank.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Progressive Affliction (preceding Burrowing) (mm3e-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to one-degree escalation after each failed resistance; a setting can alter the pace or remove escalation, reflecting how relentlessly the affliction worsens.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0010",
+   "world": "mm3e",
+   "statement": "An Affliction with Instant Recovery ends automatically, without a check, at the end of the round its duration expires; an instant-duration effect therefore lasts one round, while a sustained one lasts while maintained. It costs 1 point less per rank.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Flaws — Instant Recovery (preceding Burrowing) (mm3e-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to automatic recovery when duration expires; a setting can require a recovery check instead, reflecting the lingering nature of its conditions.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0011",
+   "world": "mm3e",
+   "statement": "A Burrowing rank gives a ground speed rank 5 lower than the effect rank; hard clay or packed earth lowers speed by 1 more, and solid rock by 2 more. Each new tunnel can be chosen to remain or collapse immediately, and the effect costs 1 point per rank.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Burrowing (Movement) (mm3e-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the stated material-based speed penalties and tunnel choice; a world can make tunnels collapse or restrict materials, reflecting ground conditions and stability.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0012",
+   "world": "mm3e",
+   "statement": "Communication is instantaneous within range: rank 1 reaches 100 feet, rank 2 reaches 1 mile, rank 3 reaches statewide or small-nation distances, rank 4 reaches worldwide, and rank 5 is effectively unlimited. It is point-to-point by default, requires a receiver and a shared language, and can be detected and understood by eavesdroppers who meet the stated Perception-check thresholds.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Communication (Sensory) (mm3e-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to instantaneous, detectable, point-to-point transmission with the listed range and language limits; a setting can permit broadcast or secure links, reflecting available receivers and privacy needs.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0013",
+   "world": "mm3e",
+   "statement": "Concealment grants total concealment from a chosen sense while active; each additional rank covers another sense, and 2 ranks cover a whole sense type. Visual concealment costs double, and tactile concealment is unavailable through this effect.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Concealment (Sensory) (mm3e-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to total concealment for the selected senses, with visual concealment costing double; a setting can allow partial or condition-limited concealment, reflecting the nature of the hiding effect.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0014",
+   "world": "mm3e",
+   "statement": "Create forms an object whose maximum volume rank and Toughness each equal the effect rank; it remains only while maintained unless modified, and can be damaged or broken. A created object can trap a target after an attack check and a Dodge resistance check, but imposing other conditions requires a separate effect.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Create (Control) (mm3e-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "blueprint-craft",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to stationary objects limited by the effect rank that vanish when maintenance stops; a setting can allow persistent or movable creations at extra cost, reflecting the power invested in them.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0015",
+   "world": "mm3e",
+   "statement": "Damage targets resist against a difficulty of the Damage rank plus 15; failure worsens by degrees, from a cumulative –1 to later damage resistance checks to dazed, staggered, incapacitated, then dying and dead on further failed checks. Living targets remove one damage condition per minute of rest, starting with the worst.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Damage (Attack) (mm3e-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to cumulative damage penalties and recovery of one condition per minute of rest; a setting can make injuries linger or heal faster, reflecting its tone and medical capabilities.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0016",
+   "world": "mm3e",
+   "statement": "Deflect uses its rank in place of an active defense when protecting another at range, but does not work against area effects, perception-range attacks, or attacks targeting defenses other than Dodge or Parry. Reflecting a deflected attack requires a successful deflection followed by a normal attack check; redirecting it also requires Reflect.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Deflect (Defense) (mm3e-srd#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a ranged defense with the listed attack exclusions; a setting can let the defense cover wider threats, reflecting a more encompassing protective power.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0017",
+   "world": "mm3e",
+   "statement": "Healing requires touching the subject and spending a standard action on a DC 10 check; each success degree removes one damage condition, beginning with the worst. If the target is dying, the highest degree stabilizes it; after a failed check, retry only after one minute or by spending extra effort.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: HEALING (GENERAL) (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB29",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to healing one target through touch with time and a check; a setting can make care faster or broader, at the cost of extra effort or added power.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0018",
+   "world": "mm3e",
+   "statement": "A successful Healing check can grant a bonus equal to the healer’s rank on the target’s next resistance check against disease or poison. Healing cannot help subjects unable to recover naturally, such as objects or creatures with no Stamina rank, unless modified to affect objects.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: HEALING (GENERAL) (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default to a temporary resistance bonus and natural-recovery limits; a world can extend healing to nonliving matter by paying for that broader reach.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0019",
+   "world": "mm3e",
+   "statement": "Healing can restore life if the subject has been dead for fewer minutes than the effect’s rank: a DC 20 check returns the subject as incapacitated but stabilized. Failure permits another attempt only through extra effort.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: HEALING (GENERAL), Resurrection (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to a narrow post-death window, a difficult check, and a debilitated return; a world can widen the window by investing more ranks.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0020",
+   "world": "mm3e",
+   "statement": "With Immortality, a dead character returns after a time rank equal to 19 minus the effect rank; at rank 20, return occurs at the start of each action round. Recovery removes all damage conditions but also clears accumulated victory points.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: IMMORTALITY (DEFENSE) (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to delayed return with a loss of accumulated advantage; a world can shorten the delay by increasing rank, while the return itself costs stored victory points.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0021",
+   "world": "mm3e",
+   "statement": "Immunity grants automatic success on resistance checks against assigned effects, with the assignments permanent. The listed costs range from 1 rank for examples such as disease or poison, through 30 ranks for all Fortitude- or Will-resisted effects, to 80 ranks for all Toughness-resisted effects.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: IMMUNITY (DEFENSE), Degrees of Immunity (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB21",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to permanent, specifically purchased immunity; worlds can broaden its scope at sharply higher rank costs.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0022",
+   "world": "mm3e",
+   "statement": "Insubstantiality has four progressively less physical forms: fluid slips through non-watertight openings, gas passes non-airtight openings and resists physical damage, energy passes through suitable solid matter, and incorporeality passes through solids while resisting physical and energy damage. Higher forms lose effective Strength; an incorporeal character who becomes solid inside an object takes damage equal to its Toughness and may be trapped if incapacitated.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: INSUBSTANTIAL (GENERAL) (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "body-form",
+    "body-door"
+   ],
+   "default_dial_reason": "Default to a sustained transformation with rank-specific access and vulnerabilities; a world can make intangibility safer or more versatile by adding effects, but must account for its risks.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0023",
+   "world": "mm3e",
+   "statement": "Mind Reading contests the user’s effect check against the target’s Will; success degrees grant, in order, surface thoughts, a question’s answer, memories, and subconscious material. The target can attempt to shut out the reader at the end of each turn with a check against DC 10 plus the reader’s rank; success ends the effect.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: MIND READING (SENSORY) (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "mind-state",
+    "memory-transfer"
+   ],
+   "default_dial_reason": "Default to escalating depth of access, resisted each turn; a world can make probing easier or harder, with privacy and resistance as the cost.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0024",
+   "world": "mm3e",
+   "statement": "Morph changes appearance without changing traits and grants +20 to Deception checks to disguise oneself. Ranks 1–4 allow, respectively, one other appearance, a narrow family of forms, a broad family, or any form of the same mass; Metamorph can add alternate trait sets that switch once per round as a free action.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: MORPH (GENERAL) (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation",
+    "body-form"
+   ],
+   "default_dial_reason": "Default to cosmetic changes limited by rank; a world can allow alternate traits through an added capability, while keeping those forms within the character’s point and power limits.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0025",
+   "world": "mm3e",
+   "statement": "Move Object applies effective Strength equal to its rank to move objects at range, but cannot perform fine manipulation without a modifier or directly deal damage without a damage modifier. Concentrating as a move action raises effective Strength by 1 and changes the duration to concentration.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: MOVE OBJECT (CONTROL) (mm3e-srd#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to ranged force with limited precision and no direct damage; a world can grant finer control or harm by adding cost and requiring focused attention.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0026",
+   "world": "mm3e",
+   "statement": "At 1 rank, time travel reaches the present and one fixed point; at 2 ranks it reaches any point in either the past or the future, and at 3 ranks it reaches any time. Travel to alternate timelines or parallel worlds requires at least 2 ranks of Dimension-Travel; the traveler can carry 50 lbs. of extra material, with Increased Mass raising that limit by its rank.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Time Travel (mm3e-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "time-manipulation",
+    "timeline-split",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default to travel within one timeline and a 50 lb. carry limit; a world can widen destinations or cargo capacity, at the cost of ranks or modifiers.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0027",
+   "world": "mm3e",
+   "statement": "A Trackless character leaves no visual trail and cannot be tracked by visual senses, but can still be tracked by scent or other means. Each additional rank defeats tracking by one more sense type; the effect also prevents tracks on soft sand or snow and grants total concealment from tremorsense.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: TRACKLESS (mm3e-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to hiding tracks from sight and tremorsense only; a world can broaden this to other senses, requiring additional ranks.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0028",
+   "world": "mm3e",
+   "statement": "Nullify costs 1 point per rank and counters one effect of a chosen descriptor per use, except innate effects. After a ranged hit, compare Nullify rank with the greater of the target effect’s rank or the user’s Will defense; success turns the effect off, while two or more degrees of failure require extra effort to retry against that subject during the same scene.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: NULLIFY (ATTACK) (mm3e-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to one temporary countered effect per use; a world can let counters suppress or affect broader groups of effects, at increased cost.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0029",
+   "world": "mm3e",
+   "statement": "Protection grants +1 Toughness per rank. If made sustained instead of permanent, it can be switched on or off and improved through extra effort.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: PROTECTION (DEFENSE) (mm3e-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a permanent defensive bonus; a world can make protection switchable, but then it must be actively maintained.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0030",
+   "world": "mm3e",
+   "statement": "Quickness reduces the time rank of routine tasks by the effect rank; it does not speed movement or affect non-routine checks. If a task takes less than a second, the GM may allow it as a free action, subject to the usual limit on free actions per turn.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: QUICKNESS (GENERAL) (mm3e-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to faster routine tasks only; a world can broaden what counts as routine, while keeping combat actions and movement outside the benefit.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0031",
+   "world": "mm3e",
+   "statement": "Each minute, Regeneration removes Toughness penalties equal to its rank, then recovers other damage conditions up to that rank, starting with the most severe and spreading recovery evenly across 10 rounds. One or more ranks let a character without Stamina recover; the Persistent extra allows recovery from Incurable conditions.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: REGENERATION (DEFENSE) (mm3e-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to gradual recovery over a minute; a world can limit recovery to a source or allow otherwise incurable damage to heal, with that source or extra as the cost.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0032",
+   "world": "mm3e",
+   "statement": "Remote Sensing displaces one or more senses to a location within 60 feet at rank 1, increasing range by one distance rank per additional rank. It overrides normal senses, leaving the user vulnerable at half active defenses; an observed subject can notice it with an Insight check against DC 10 + rank.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: REMOTE SENSING (SENSORY) (mm3e-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "projection-body",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to remote perception that replaces local perception and exposes the user; a world can allow simultaneous local and remote senses for an added cost.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0033",
+   "world": "mm3e",
+   "statement": "A Summon creates the same helpful minion as a standard action, with character points equal to 15 times the effect rank and Power Level no higher than the effect rank. It appears in the nearest open space, acts from the next round while dazed, and vanishes if the effect is not maintained or is countered; incapacitated minions cannot be summoned again until recovered.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: SUMMON (CONTROL) (mm3e-srd#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon",
+    "creature-control",
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to one recurring, helpful but dazed minion; a world can allow independent, multiple, or variable minions, at greater rank cost and increased action-management burden.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0034",
+   "world": "mm3e",
+   "statement": "Transform can change any material into another form, affecting inanimate objects automatically if their total mass is within its limit: rank 1 affects 1.5 pounds, rank 2 affects 3 pounds, and rank 20 affects 400 tons. The change lasts while maintained; stopping a sustained Transform restores the original form, while a continuous Transform requires another Transform to reverse it.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Transform (mm3e-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation"
+   ],
+   "default_dial_reason": "Default to reversible changes that need upkeep; a world can allow lasting changes, but reversing them then costs another use of the power.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0035",
+   "world": "mm3e",
+   "statement": "Variable provides a pool of rank × 5 character points that the user reallocates among effects matching its defined descriptors by taking an action. The allocation is sustained and resets when maintenance stops; continuous allocations persist, but cannot be permanent, and all configurations remain subject to power limits and GM approval.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Variable (General) (mm3e-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to descriptor-limited configurations that need upkeep; a world can permit faster reconfiguration, at extra cost and with greater flexibility.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0036",
+   "world": "mm3e",
+   "statement": "Weaken targets one chosen trait with a close attack and a Fortitude or Will resistance check against DC 10 + rank. On failure, the trait loses points equal to the gap between the check and DC, up to the effect rank; losses stack up to that rank and recover at 1 point per round, while objects’ weakened Toughness must be repaired.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Weaken (Attack) (mm3e-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to temporary trait loss capped by the effect rank; a world can make object damage persistent, with repair required to restore it.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0037",
+   "world": "mm3e",
+   "statement": "Effect cost is calculated as the base cost plus extras minus flaws, multiplied by rank, with flat modifiers then added or subtracted. If flaws lower the per-rank cost below 1 point, further reductions grant more ranks per point, with the GM setting any lower limit.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Modifiers (mm3e-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Default to rank-based pricing with a GM-set floor; a world can allow cheaper high-rank effects, increasing the reach of limited-cost powers.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0038",
+   "world": "mm3e",
+   "statement": "Alternate Effects in an array cannot be used or maintained simultaneously, and switching between them is a free action once per turn. Each alternate costs no more than the primary effect, and disabling, nullifying, or draining one affects the whole array.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Alternate Effect (mm3e-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB21",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to one active configuration per array; a world can allow Dynamic alternates to share points, but they operate at reduced effectiveness.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0039",
+   "world": "mm3e",
+   "statement": "An Area effect needs no attack check and fills its chosen shape; targets can make a Dodge check against DC 10 + rank to reduce its effect to half rank, minimum 1. A cloud remains for one extra round after its duration ends; a perception-area effect allows no Dodge check, though its targets still resist normally.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Area (mm3e-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field"
+   ],
+   "default_dial_reason": "Default to a fixed shape and ordinary target resistance; a world can enlarge the area by paying more per rank, increasing the effect’s coverage.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0040",
+   "world": "mm3e",
+   "statement": "Affects Others lets the user grant a personal effect by touch as a standard action; the recipient controls its use, while the grantor can withdraw it as a free action. The effect ends if the grantor cannot maintain it, even if the recipient is using it.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Affects Others (mm3e-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: transfer",
+   "seam": "AB1",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to maintained, touch-granted effects; a world can let the grantor affect others or themself for an added cost per rank.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0041",
+   "world": "mm3e",
+   "statement": "A Homing ranged attack that misses gets another attack check at the start of the user’s next turn, maintained with a free action; each rank grants one additional check, at most one per round. Losing its tracking sense to concealment, being countered, or hitting another target ends its remaining attempts.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Homing (mm3e-srd#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to repeated tracking attempts that depend on the original sense; a world can add more attempts, but concealment or countering can still break the lock.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0042",
+   "world": "mm3e",
+   "statement": "Linked effects work only together, must have the same range, and use the longest component action. They share one attack check; if their resistance types differ, each is resisted separately, and their costs are added together.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Linked (mm3e-srd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to one combined use with no separate activation; a setting could allow independent use at the cost of making the effects no longer a linked combination.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0043",
+   "world": "mm3e",
+   "statement": "A Multiattack costs +1 point per rank. Against one target, two degrees of success add +2 to the resistance DC and three or more add +5; against multiple targets, make a check for each and take a penalty equal to the number of targets. It can instead give an ally cover against enemies in range and line of sight, though an enemy who ignores that cover is automatically attacked.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Multiattack (mm3e-srd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one of the three stated attack modes; a world could make sweeping attacks more or less practical by changing their target-count penalty, with accuracy as the tradeoff.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0044",
+   "world": "mm3e",
+   "statement": "A Reaction effect costs +1 point per rank if its normal action is free, or +3 if it is standard. It activates automatically when its specified trigger occurs, including off-turn, and can repeat; the user can prevent it only by turning it off entirely. Selective is needed to choose which trigger instances affect.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Reaction (mm3e-srd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to automatic activation whenever the specified event occurs; a world could permit selective suppression by default, trading simpler control for less need to buy Selective.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0045",
+   "world": "mm3e",
+   "statement": "A Triggered instant effect costs 1 point per rank and is set to activate under a detectable circumstance that cannot later be changed. It can be detected with a Perception check at DC 10 plus effect rank, may be disarmed with an appropriate check at the same DC, and works once per rank before stopping.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Triggered (mm3e-srd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a fixed, sense-detectable trigger and finite uses; a world could make triggers changeable or harder to detect, at the cost of additional ranks or counterplay.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0046",
+   "world": "mm3e",
+   "statement": "A resistible effect with Split can divide its ranks among multiple targets, with no target receiving less than rank 1 or being affected more than once. Each added modifier rank permits one more target, up to the effect’s rank; one attack check, if needed, is compared with each target.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Split (mm3e-srd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: divide",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to dividing rather than duplicating total effect strength; a world could allow full-strength hits on every target, but that removes the rank-budget limit.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0047",
+   "world": "mm3e",
+   "statement": "Fades reduces an effect by 1 rank each time it is used, or each round for an effect lasting longer than an instant; at rank 0 it stops. Recovery is set by the GM and should generally happen outside combat and take at least an hour, though a victory point may restore it immediately.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Fades (mm3e-srd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB32",
+   "derives": [],
+   "default_dial_reason": "Default to one rank lost per use and slow recovery; a world could accelerate recovery, with more frequent use as the corresponding benefit.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0048",
+   "world": "mm3e",
+   "statement": "Check Required costs 1 point per rank and calls for a check at DC 10 plus its rank. Failure wastes the action and prevents use; success permits one effect rank for each point the result exceeds the DC, and a natural 1 always fails.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Check Required (mm3e-srd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to requiring the check before the effect works, with failed attempts still consuming the action; a world could waive the check for more reliable powers at a higher build cost.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0049",
+   "world": "mm3e",
+   "statement": "An Unreliable effect is checked each round before use or maintenance: a roll of 10 or less means it fails that round but still consumes its action, while 11 or more works. Alternatively, it works for five uses and then needs recovery; a victory point can ensure a successful roll or may restore a spent effect.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: Unreliable (mm3e-srd#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to the per-round roll, with roughly half the attempts failing; a world could use a fixed five-use supply instead, making reliability predictable but finite.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0050",
+   "world": "mm3e",
+   "statement": "The damaging aura affects anyone the user touches or who touches them, requiring a Toughness resistance check against its rank. The user can switch it on or off as a free action; selective targeting requires an appropriate modifier.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: ENERGY AURA (mm3e-srd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default to an always-contact damage effect that can be freely toggled; a world can restrict who it affects, at the cost of a selectivity modifier.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0051",
+   "world": "mm3e",
+   "statement": "Energy Control provides ranged energy damage, and its range of possible actions can be expanded with separately purchased alternate effects. Examples include changing temperature, immobilizing targets, moving metal, or disrupting electronics.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: ENERGY CONTROL (mm3e-srd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to ranged energy damage with purchased alternate effects; a world can broaden the control’s applications, at the cost of additional build resources.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0052",
+   "world": "mm3e",
+   "statement": "A sustained force field increases the user’s Toughness by its rank and is noticeable unless made subtle. It may also be made impervious to damage below certain thresholds.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: FORCE FIELD (mm3e-srd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to a maintained protective field that can be perceived; a world can conceal it or let it resist lesser damage, with those capabilities requiring added investment.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0053",
+   "world": "mm3e",
+   "statement": "Magic grants ranged force damage as a basic effect and can include separately mastered alternate spells. Spellcasting fails if the caster cannot freely speak and gesture, unless the relevant limitation is absent.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: MAGIC (mm3e-srd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [
+    "portal-space",
+    "conceal-or-sense",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to spoken-and-gestured magic with a basic ranged attack; a world can allow silent casting or wider spell options, at the cost of removing a meaningful limitation or buying more effects.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0054",
+   "world": "mm3e",
+   "statement": "Mental Blast deals damage resisted by Will instead of Toughness, and has no effect on targets immune to Will-resisted effects. Making it subtle costs 1 point.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: MENTAL BLAST (mm3e-srd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to an attack that tests mental resistance rather than bodily toughness; a world can make it hard to notice, at a flat 1-point cost.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0055",
+   "world": "mm3e",
+   "statement": "Mimic takes a move action to scan a perceived target and copies traits worth up to five times its rank in character points, capped by the target’s rank and the user’s total copying limit.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: MIMIC (mm3e-srd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "copy",
+   "seam": "AB1",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to temporary trait copying after a scan; a world can restrict eligible targets or copied trait types, reducing the power’s scope.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0056",
+   "world": "mm3e",
+   "statement": "Mind Control advances a failed target through dazed, compelled, and then controlled states; control begins at three or more degrees of failure. Failed resistance degrees accumulate, and a modifier can make the hold intensify with repeated failures.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: MIND CONTROL (mm3e-srd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to escalating mental influence through successive failed resistance; a world can make it accumulate faster, at the cost of a modifier.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0057",
+   "world": "mm3e",
+   "statement": "A complication earns its player a victory point when the Gamemaster brings it into play and the player accepts its consequences. A hero must have at least two complications, including a motivation and one other.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: COMPLICATIONS; CHOOSING COMPLICATIONS (mm3e-srd#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to rewarding complications only when they actually cause trouble; a world can require more or fewer complications, balancing added story burdens against rewards.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0058",
+   "world": "mm3e",
+   "statement": "A character immune to aging does not age and may remain alive for thousands of years.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: How old is the character? (mm3e-srd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to halting age-related decline and aging; a setting can vary what else immortality prevents, because the passage specifies only immunity to aging.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0059",
+   "world": "mm3e",
+   "statement": "A costume normally ignores routine damage caused by its wearer’s powers, including harm from flames or changes in size or shape, at no point cost. Attacks and other circumstances can still damage it.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: COSTUME (mm3e-srd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to protecting the costume from its wearer’s powers while leaving it vulnerable to external harm; a world can remove that protection, making the costume subject to those effects.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0060",
+   "world": "mm3e",
+   "statement": "A Speedster’s Quickness reduces the time rank for routine tasks by 10, allowing a task that normally takes two hours to be completed in six seconds.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: FAST FACTS (mm3e-srd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to subtracting 10 time ranks from routine tasks; a world can limit which tasks qualify, since the benefit applies to routine work rather than every possible action.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0061",
+   "world": "mm3e",
+   "statement": "The Paragon and Powerhouse each have 12 ranks of Impervious Toughness, letting them ignore damage from most conventional weapons without a resistance check; an exploding shell can penetrate their skin.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: FUN WITH STRENGTH (mm3e-srd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to ignoring conventional weapon damage at the stated rank; a world can adjust which weapons exceed that protection, with sufficiently powerful attacks remaining a threat.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0062",
+   "world": "mm3e",
+   "statement": "When adapting an archetype by one power level, increase or decrease its attack bonuses, defenses, and skill ranks by one, and change each power rank that calls for a resistance check by one. Changes may be shifted between paired traits, but the revised character must meet the new limits.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: HIGHER AND LOWER POWER LEVEL ARCHETYPES (mm3e-srd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to shifting the listed traits by one per power level; a world can shift changes among paired traits, while power-level limits and point totals constrain the final build.",
+   "licence": "OGL"
+  },
+  {
+   "id": "mm3e.rule.0063",
+   "world": "mm3e",
+   "statement": "A Mimic can copy traits from other characters, and a Mystic can use power stunts to improvise spells; the passage suggests reserving one or two victory points for those stunts.",
+   "locators": [
+    "Mutants & Masterminds 3e SRD: KNOW YOUR OPTIONS (mm3e-srd#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "copy",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to allowing copied traits and improvised spell effects as described; a world can restrict the available copied traits or stunt options, with victory points reserved as the stated resource.",
+   "licence": "OGL"
+  }
+ ]
+}

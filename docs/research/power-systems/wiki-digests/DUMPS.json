@@ -18328,7 +18328,8 @@
         "error_body_sha256": "15357f1e0f88490fda3a05bcd13fb11bca047b7252c01cff691d9843d1393843",
         "error_code": "InvalidObjectState",
         "finished": "2026-10-10T06:18:31.444793+00:00"
-      }
+      },
+      "note_2026_11_17": "not on the Internet Archive under wiki-worm*; S3 dump is archive-class (InvalidObjectState); fandom API returned 402; host dropped"
     },
     "mistborn.fandom.com": {
       "wiki": "mistborn.fandom.com",
@@ -34994,6 +34995,20 @@
           "finished": "2026-10-10T06:29:10.082045+00:00"
         }
       ]
+    },
+    "rezero.fandom.com": {
+      "wiki": "rezero.fandom.com",
+      "series": [
+        "Re:Zero"
+      ],
+      "state": "acquired_wikiteam_ia",
+      "route": "WikiTeam text-only history XML on the Internet Archive (item wiki-rezero.fandom.com-20231208); no Fandom host contacted; decode with zstd --long=30",
+      "url": "https://archive.org/download/wiki-rezero.fandom.com-20231208/rezero.fandom.com-20231208-history.xml.zst",
+      "compressed_bytes": 10001972,
+      "md5": "6a51b07819c2d4d962efbbd31ebb50cb",
+      "sha256": "2f5d956a3c59b7742c3abb4eb2bf60ca3deaa96995a6c4a163d3272a48c4fa6d",
+      "fetched": "2026-11-17",
+      "approval": "Weibao 2026-11-17 via parent session, confirmed in chat"
     }
   },
   "non_fandom_gate": "Cradle uses Abidan Archive, no qualified current Fandom wiki found. Other non-Fandom API stops remain unchanged."

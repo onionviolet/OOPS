@@ -1,0 +1,523 @@
+{
+ "meta": {
+  "world": "eclipse_phase",
+  "books": [
+   "Eclipse Phase 2e Quickstart"
+  ],
+  "licence": [
+   "CC-BY-NC-SA-4.0"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+  "date": "2026-11-17",
+  "shards": 4
+ },
+ "rules": [
+  {
+   "id": "eclipse_phase.rule.0001",
+   "world": "eclipse_phase",
+   "statement": "A character may spend at most 1 point from a pool on a test unless a specific pool use says otherwise. Pool points can alter a test before or after its roll, with the available alteration depending on the pool.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Pools — Using Pools, p. 7 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to one point per test; a world can raise or lower that cap, because stronger bursts of capability should cost more or less stored capacity.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0002",
+   "world": "eclipse_phase",
+   "statement": "A short recharge takes 10 minutes and restores 1d6 points, allocated among pools; it can be done twice per day. A long recharge takes 4 hours, restores pools to their full ratings, and can be done once per day; interrupted recharge loses all time invested, and no pool can exceed its original rating.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Pools — Recharging Pools, p. 7 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to the stated daily limits and recharge times; a world can change recovery speed, because pool recovery requires time spent at light activity.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0003",
+   "world": "eclipse_phase",
+   "statement": "Each action turn is about 3 seconds. A character may take one complex action and one quick action, one task action and one quick action, or three quick actions, plus any number of automatic actions.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Actions & Time — Action Turns, p. 5 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: action capacity per turn",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to these turn limits; a world can allow more or fewer actions, because concentrated effort competes with time and attention.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0004",
+   "world": "eclipse_phase",
+   "statement": "A failed task action consumes 25% of its timeframe, plus another 25% for each superior failure, before the character realizes it failed. For tasks lasting at least a day, eight hours of effort counts as one workday, adjusted if the character works more or less.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Actions & Time — Task Actions, p. 5 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to lost time on failure and eight-hour workdays; a world can change the penalty or workday length, because failed work still consumes effort.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0005",
+   "world": "eclipse_phase",
+   "statement": "A successful brute-force hack takes a complex action, uses an Infosec test at −30 opposed by the defender’s Infosec, and automatically alerts the target system. Careful probing takes an hour and uses an opposed Infosec test; success gains access without alerting the system.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Using the Mesh — Hacking, p. 10 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "system-interface",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to fast but noisy brute force versus slow, quiet probing; a world can change the time or alert risk, because stealth trades speed for care.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0006",
+   "world": "eclipse_phase",
+   "statement": "A short favor may be called in up to 3 times per week, a moderate favor once per week, and a major favor once per campaign; trivial favors have no limit. A failed reputation test does not use the favor unless it is a critical failure.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Reputation — Rep Limits, p. 11 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: favor limits",
+   "seam": "AB21",
+   "derives": [
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default to the listed favor limits; a world can loosen or tighten them, because social networks have limited willingness to provide help.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0007",
+   "world": "eclipse_phase",
+   "statement": "A character’s mind can be backed up and later restored into a body after death, or copied and downloaded into another body. The mind and its memories belong to the ego and persist when the current morph changes or dies.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: What is Eclipse Phase?, p. 2; Character Stats — Ego vs. Morph, p. 6 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "copy",
+   "seam": "AB17",
+   "derives": [
+    "memory-transfer",
+    "soul-state",
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to transferable and restorable minds; a world can restrict backup or copying, because continuity, access, and the consequences of death are setting choices.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0008",
+   "world": "eclipse_phase",
+   "statement": "Base movement can be taken automatically without a modifier, while a full move covers the morph’s listed full-move distance and imposes −20 on aim and other coordination-dependent physical tasks. The movement type must be declared at the start of the turn.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Movement — Movement Actions, p. 11 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed movement rates and −20 coordination penalty; a world can alter rates or penalties, because speed makes precise physical actions harder.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0009",
+   "world": "eclipse_phase",
+   "statement": "Brute-force hacking that succeeds gives access but alerts the system; a system defender may attempt an opposed Infosec test to trace the intruder, remove them, or shut down the system. A defender who wins an opposed test against an intruder’s privileged action is alerted to the hacker’s presence.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Using the Mesh — System Subversion and Defense, p. 10 (eclipse-phase-2e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "system-interface",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to opposed defense and alerting on defender success; a world can change how readily systems detect or evict intruders, because security depends on the system’s capabilities.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0010",
+   "world": "eclipse_phase",
+   "statement": "Across Kongyùn, a tram trip end to end takes 40 minutes, a marked route on foot takes 4 hours, and unmarked tunnels take 1d6 ÷ 2 hours per kilometer. Tests using the local mesh or grid in public areas take a –10 modifier.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Mission Theater: Kongyùn (eclipse-phase-2e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the stated travel times and –10 penalty; a world can make routes faster or infrastructure more reliable, at the cost of reducing Kongyùn’s isolation and logistical pressure.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0011",
+   "world": "eclipse_phase",
+   "statement": "The buried artifact can reach minds through stone and draw people toward its chamber; those it gets hold of have their minds rewritten. Its influence has caused madness, disappearances, and persistent mental distress.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: The Situation on Kongyùn (eclipse-phase-2e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to remote mental influence and rewriting; a world can narrow the range or effects, trading the artifact’s threat for fewer affected people and less need for containment.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0012",
+   "world": "eclipse_phase",
+   "statement": "Bves uses psychosurgery to remove parts of an infected person’s personality in an effort to excise the infection. The treated person may be released after a few hours and remember nothing about the procedure.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Confession Time (eclipse-phase-2e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB29",
+   "derives": [
+    "mind-state",
+    "memory-erasure"
+   ],
+   "default_dial_reason": "Default to personality removal with a memory gap; a world can make treatment less invasive or more reliable, at the cost of weakening its ability to remove the infection.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0013",
+   "world": "eclipse_phase",
+   "statement": "A self-replicating utility fog fills a roughly 100-meter spherical chamber in units about 8 meters across. It blocks sensors beyond a few meters and radio communications; a nanodetector can identify it as a likely TITAN-designed nanoswarm.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: The Chamber — The Fog (eclipse-phase-2e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to sensor and radio obstruction at the stated scale; a world can reduce the fog’s coverage or let specified sensors penetrate it, at the cost of its concealment.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0014",
+   "world": "eclipse_phase",
+   "statement": "The fog deals 1d10 damage per turn to drones or nanoswarms sent inside, reducing armor first. It can move objects up to 2 meters per turn or cancel movement up to 15 meters per turn, and gently guides people who leave the chamber wall toward the artifact.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: The Chamber — The Fog (eclipse-phase-2e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB15",
+   "derives": [
+    "area-field",
+    "power-interaction",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to the stated damage, movement, and guidance; a world can soften or intensify these effects, with weaker effects making entry safer and stronger ones making escape harder.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0015",
+   "world": "eclipse_phase",
+   "statement": "Fog units can reconfigure to perform nanoswarm functions and, given enough time, fabricate most tools and weapons comparable to transhuman technology. The units can also link into a physical lattice.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: The Chamber — The Fog (eclipse-phase-2e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB16",
+   "derives": [
+    "blueprint-craft",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to flexible nanoswarm functions and fabrication given time; a world can restrict the available forms or require more time, limiting the fog’s ability to adapt.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0016",
+   "world": "eclipse_phase",
+   "statement": "A deployed disassembler swarm dismantles objects in a 10-meter-diameter sphere and can be programmed to target or ignore types of matter. It deals 1d10 damage per turn, destroying armor first; its hive can produce a new swarm or replenish one existing swarm once per day.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Firewall Scratch Space — Gear Cache (eclipse-phase-2e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power",
+    "area-field",
+    "plant-or-creature-target",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default to the 10-meter area, selectable matter types, and once-daily replenishment; a world can limit targets or replenishment, at the cost of reducing the hive’s industrial usefulness.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0017",
+   "world": "eclipse_phase",
+   "statement": "Each single-use healing spray for biomorphs or repair spray for synthmorphs and equipment restores 1d10 damage per hour for 12 hours. The two sprays have different eligible targets.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Firewall Scratch Space — Gear Cache (eclipse-phase-2e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to 1d10 repair each hour for 12 hours from a single-use item; a world can shorten the duration or reduce the repair, at the cost of making recovery slower.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0018",
+   "world": "eclipse_phase",
+   "statement": "The fog deals 1d6 damage each action turn to anyone in its swarm; armor protects but loses value equal to the damage. Targets that fail a REF Check are blinded for 1 action turn plus one turn per superior success, suffer a 50% chance to miss attacks, and take –30 to physical actions.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Physical Forms and Mechanisms (eclipse-phase-2e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to an ongoing damaging field with blindness; a world can change its range or duration because the artifact uses the fog to defend itself.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0019",
+   "world": "eclipse_phase",
+   "statement": "A character trying to leave the fog’s volume must pass a REF Check or the swarm clings to them. The fog cannot leave the chamber unless the artifact is moved.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Physical Forms and Mechanisms (eclipse-phase-2e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a chamber-bound swarm that can cling to escaping targets; a world can loosen the boundary if the artifact is relocated.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0020",
+   "world": "eclipse_phase",
+   "statement": "The swarm is immune to wounds and shock; non-area attacks deal 1 damage, while area attacks deal half damage. It repairs 1d10 damage per hour and can make new FAE devices in 12 hours.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Self-Replicating Nanoswarm (eclipse-phase-2e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB16",
+   "derives": [
+    "construct-upkeep",
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default to a highly resistant, self-repairing swarm; a world can reduce its resilience or repair rate because its fabrication capacity is a major threat.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0021",
+   "world": "eclipse_phase",
+   "statement": "Within 10 meters, the artifact can use coded light to hack visual input. On a failed INT Check, a target takes 1d6 damage that armor cannot reduce and is incapacitated by a seizure for 1 minute.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Infamy, p. 21 (eclipse-phase-2e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "power-interaction",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a visual attack that causes damage and brief incapacitation; a world can change the range or trigger because the artifact exploits sight.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0022",
+   "world": "eclipse_phase",
+   "statement": "After 20 minutes of contact, a failed INT Check lets the artifact implant one post-hypnotic suggestion that the target believes is their own and tries to carry out.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Infamy, p. 21 (eclipse-phase-2e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default to one lasting suggestion per successful implantation; a world can vary contact time or resistance because the artifact uses hidden utility fog at a distance.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0023",
+   "world": "eclipse_phase",
+   "statement": "The artifact can attempt infection against multiple touching characters with one action, but only once every five turns. A failed INT Check at –30 puts a target offline for 10 minutes; after waking, the infection progresses for four hours before the artifact takes full control of the mind.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Infection, p. 21 (eclipse-phase-2e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB27",
+   "derives": [
+    "mind-state",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default to a staged infection with a four-hour takeover; a world can accelerate or interrupt it because treatment or containment may stop the process.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0024",
+   "world": "eclipse_phase",
+   "statement": "During infection, the fog distracts by making lights and ghostly shapes, defends the artifact, and can form AV 10/10 barriers and cages; a REF Check avoids capture by a cage.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Infection, p. 21 (eclipse-phase-2e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB20",
+   "derives": [
+    "formation-field",
+    "protection-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to fog-created defenses that obstruct attackers; a world can alter their strength or availability because they protect the artifact and infected victims.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0025",
+   "world": "eclipse_phase",
+   "statement": "Psychosurgery can reverse a completed infection, but doing so destroys memories and skills; a backup can later restore them. Infected characters become NPCs after the four-hour process completes.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Infected Characters, p. 22 (eclipse-phase-2e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB17",
+   "derives": [
+    "memory-erasure",
+    "memory-transfer",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to cure at the cost of memories and skills; a world can lessen the loss if backups are available because restoration depends on preserved data.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0026",
+   "world": "eclipse_phase",
+   "statement": "Infomorphs reduce mesh-task timeframes by 25%; this benefit does not apply to other forms.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Page 35, Traits — Digital Speed (eclipse-phase-2e-qs#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a 25% speedup for infomorphs only; a setting can widen or narrow eligibility to reflect how its systems support digital minds.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0027",
+   "world": "eclipse_phase",
+   "statement": "A morph with Exotic Morphology takes a −30 modifier on Integration Tests. At Level 3, the trait is listed with this same penalty.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Pages 35 and 37, Traits — Exotic Morphology (eclipse-phase-2e-qs#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [],
+   "default_dial_reason": "Default to a −30 integration penalty; a world can tune its severity to represent how difficult unusual bodies are to operate.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0028",
+   "world": "eclipse_phase",
+   "statement": "Hyper Linguistics at Level 2 grants +20 to INT Checks for understanding languages the character does not know.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Page 35, Traits — Hyper Linguistics (eclipse-phase-2e-qs#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a +20 comprehension bonus; a setting can change its scope to reflect how much linguistic pattern recognition can accomplish.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0029",
+   "world": "eclipse_phase",
+   "statement": "Enhanced Security imposes −10 on attempts to hack the system, or −30 while it is in defensive mode; in that mode it provides no Insight pool and reduces initiative by 3.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Page 35, Ware — Enhanced Security (eclipse-phase-2e-qs#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to stronger hacking resistance in defensive mode with the listed initiative and Insight tradeoffs; a world can adjust the protection or its operational cost.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0030",
+   "world": "eclipse_phase",
+   "statement": "Stress Control grants +10 to WIL Checks against stress and increases the Trauma Threshold by 1.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Page 34, Stress Control (eclipse-phase-2e-qs#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the stated resistance and threshold increase; a setting can alter their strength to determine how reliably characters withstand stress.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0031",
+   "world": "eclipse_phase",
+   "statement": "A Fixer Swarm repairs 1d10 damage per hour, or one wound per day, and can provide the wound repair for four days.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Page 37, Gear — Fixer Swarm (eclipse-phase-2e-qs#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed repair rates and four-day wound-repair limit; a world can vary the supply or speed to set the value of repair swarms.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "eclipse_phase.rule.0032",
+   "world": "eclipse_phase",
+   "statement": "Prehensile feet can serve as hands but impose −8 on full movement; a prehensile tail can grip and grants +10 to balance-based Athletics.",
+   "locators": [
+    "Eclipse Phase 2e Quickstart: Page 34, Prehensile Feet and Prehensile Tail (eclipse-phase-2e-qs#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB11",
+   "derives": [],
+   "default_dial_reason": "Default to added manipulation or balance with the stated movement tradeoff; a world can adjust the penalties and bonuses to suit its morph designs.",
+   "licence": "CC-BY-NC-SA-4.0"
+  }
+ ]
+}

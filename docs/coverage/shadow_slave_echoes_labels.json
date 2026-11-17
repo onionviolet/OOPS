@@ -1,0 +1,1809 @@
+{
+ "meta": {
+  "ledger": "shadow_slave_echoes",
+  "world": "Shadow Slave",
+  "what": "Echoes as companions: named Echoes and Echo kinds",
+  "denominator": "Shadow Slave paid-claim census: every creature, item and person record whose id contains \"echo\", merged by id",
+  "count": 37,
+  "split_rule": "Rows are ordered by sha1 of \"nextcells-v1:<id>\"; those whose first hex byte is below 0x40 are the tuning sample, the only rows the prompt or normaliser may be adjusted on; every other row is held out and reported. Dial: seed and fraction; the fixed seed is the reported one.",
+  "split": {
+   "tuned": 11,
+   "held_out": 26
+  },
+  "class_map": {
+   "classes": [],
+   "baseline": "majority class among labelled held-out rows (computed at build)",
+   "labelled": 0
+  },
+  "label": "none: no per-Echo classification is stated (unscored)",
+  "ids": [
+   "ss.echo.creature.bestial-echoes",
+   "ss.echo.creature.carapace-scavenger-echo",
+   "ss.echo.creature.crow-echo",
+   "ss.echo.creature.echo",
+   "ss.echo.creature.echo-jet-crow",
+   "ss.echo.creature.echo-mounts",
+   "ss.echo.creature.echo-of-dire-fang",
+   "ss.echo.creature.echo-of-saint",
+   "ss.echo.creature.echo-of-the-defiled-sybil",
+   "ss.echo.creature.echo-of-the-slain-sybil",
+   "ss.echo.creature.echo-of-torment",
+   "ss.echo.creature.echo-scavenger",
+   "ss.echo.creature.echoes",
+   "ss.echo.creature.fallen-devil-echo",
+   "ss.echo.creature.fiend-echo",
+   "ss.echo.creature.hound-echo",
+   "ss.echo.creature.human-echo",
+   "ss.echo.creature.nightmare-echo",
+   "ss.echo.creature.saint-echo",
+   "ss.echo.creature.scavenger-echo",
+   "ss.echo.creature.shadow-blade-kurt-echo",
+   "ss.echo.creature.six-armed-ascended-demon-echo",
+   "ss.echo.creature.sybil-echo",
+   "ss.echo.creature.tamar-echo",
+   "ss.echo.creature.temple-echo",
+   "ss.echo.creature.tortoise-echo",
+   "ss.echo.creature.transcendent-echo",
+   "ss.echo.creature.wolf-echo",
+   "ss.echo.item.clockwork-echo",
+   "ss.echo.item.echo",
+   "ss.echo.item.echoes",
+   "ss.echo.item.echoing-silence",
+   "ss.echo.item.golden-echo",
+   "ss.echo.item.stone-saint-echo",
+   "ss.echo.item.sybil-echo",
+   "ss.echo.item.transcendent-echoes",
+   "ss.echo.person.echo"
+  ],
+  "frozen": "2026-11-17",
+  "fold_rule": "A guessed class becomes a sheet field only where held-out hits beat the majority baseline over the labelled held-out rows (PWC2); otherwise the sheet drops it and the note says model tier, unchecked."
+ },
+ "score": {
+  "label": "none: no per-Echo classification is stated (unscored)",
+  "note": "no per-row classification stated: unscored"
+ },
+ "fold": {
+  "class_guess": "not folded (does not beat the majority class on held-out rows)"
+ },
+ "sheets": {
+  "ss.echo.creature.bestial-echoes": {
+   "name": "Bestial Echoes",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "touched",
+     "time": "sustained",
+     "locator": "en b1 c1609 p3",
+     "speaker": "wiki"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1609 p3",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c1609 p3",
+     "speaker": "wiki"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c1609 p3",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ss.echo.creature.carapace-scavenger-echo": {
+   "name": "Carapace Scavenger Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": true,
+     "locator": "en b1 c51 p43",
+     "speaker": "narrator"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.crow-echo": {
+   "name": "Crow Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 6 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1097 p18",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.echo": {
+   "name": "Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 301 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "swarm-or-kind",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c2431 p2",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": true,
+     "locator": "en b1 c83 p6",
+     "speaker": "narrator"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c2293 p12",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ss.echo.creature.echo-jet-crow": {
+   "name": "Echo (Jet's crow)",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "copy",
+     "object": "sound",
+     "target": "none",
+     "time": "none",
+     "locator": "en b1 c1360 p44",
+     "speaker": "narrator"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1360 p44",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.echo-mounts": {
+   "name": "Echo mounts",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 6 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "touched",
+     "time": "sustained",
+     "locator": "en b1 c1214 p19",
+     "speaker": "narrator"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": true,
+     "locator": "en b1 c1214 p19",
+     "speaker": "narrator"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c1214 p19",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "ss.echo.creature.echo-of-dire-fang": {
+   "name": "Echo of Dire Fang",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "en b1 c1209 p18",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.echo-of-saint": {
+   "name": "Echo of Saint",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 4 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c613 p12",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.echo-of-the-defiled-sybil": {
+   "name": "Echo of the Defiled Sybil",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "end",
+     "object": "vitality",
+     "target": "line",
+     "time": "instant",
+     "locator": "en b1 c1377 p30",
+     "speaker": "wiki"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1377 p30",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c1377 p30",
+     "speaker": "wiki"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.echo-of-the-slain-sybil": {
+   "name": "Echo of the Slain Sybil",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "spirit-or-ghost",
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "line",
+     "time": "sustained",
+     "locator": "en b1 c1517 p28",
+     "speaker": "narrator"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1517 p28",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c1517 p28",
+     "speaker": "narrator"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.echo-of-torment": {
+   "name": "Echo of Torment",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 6 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "remove",
+     "object": "memory",
+     "target": "none",
+     "time": "none",
+     "locator": "en b1 c1643 p14",
+     "speaker": "narrator"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1552 p3",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c1643 p14",
+     "speaker": "narrator"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.echo-scavenger": {
+   "name": "Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "swarm-or-kind",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.echoes": {
+   "name": "Echoes",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 6 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "swarm-or-kind",
+    "effect": {
+     "verb": "move",
+     "object": "thing",
+     "target": "touched",
+     "time": "sustained",
+     "locator": "en b1 c1802 p72",
+     "speaker": "narrator"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.fallen-devil-echo": {
+   "name": "Fallen Devil Echo",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "spirit-or-ghost",
+    "effect": {
+     "verb": "bind",
+     "object": "mind",
+     "target": "marked",
+     "time": "sustained",
+     "locator": "en b1 c2419 p51",
+     "speaker": "wiki"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.fiend-echo": {
+   "name": "Fiend",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c2328 p5",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c96 p47",
+     "speaker": "narrator"
+    },
+    "parts_uses": {
+     "stated": true,
+     "locator": "en b1 c1046 p53",
+     "speaker": "narrator"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c96 p47",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "ss.echo.creature.hound-echo": {
+   "name": "Hound Echo",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1597 p46",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.human-echo": {
+   "name": "Human Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 14 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "spirit-or-ghost",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": true,
+     "locator": "en b1 c557 p18",
+     "speaker": "narrator"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c557 p18",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "ss.echo.creature.nightmare-echo": {
+   "name": "Nightmare Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.saint-echo": {
+   "name": "Saint Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 6 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "move",
+     "object": "force",
+     "target": "line",
+     "time": "instant",
+     "locator": "en b1 c1737 p72",
+     "speaker": "demonstration"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1736 p98",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c1737 p72",
+     "speaker": "demonstration"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.scavenger-echo": {
+   "name": "Scavenger Echo",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "spirit-or-ghost",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c67 p1",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.shadow-blade-kurt-echo": {
+   "name": "Shadow Blade Kurt Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "en b1 c510 p14",
+     "speaker": "wiki"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.six-armed-ascended-demon-echo": {
+   "name": "Six-Armed Ascended Demon Echo",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.sybil-echo": {
+   "name": "Sybil Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 68 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "en b1 c1373 p30",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1373 p30",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c1412 p18",
+     "speaker": "narrator"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c1362 p24",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "ss.echo.creature.tamar-echo": {
+   "name": "Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1816 p36",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c2293 p12",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "ss.echo.creature.temple-echo": {
+   "name": "Temple Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "spirit-or-ghost",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.tortoise-echo": {
+   "name": "Tortoise Echo",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 6 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "move",
+     "object": "thing",
+     "target": "self",
+     "time": "sustained",
+     "locator": "en b1 c1185 p23",
+     "speaker": "narrator"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1168 p1",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.creature.transcendent-echo": {
+   "name": "Transcendent Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 6 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "spirit-or-ghost",
+    "effect": {
+     "verb": "alter",
+     "object": "position",
+     "target": "touched",
+     "time": "instant",
+     "locator": "en b1 c1216 p58",
+     "speaker": "narrator"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c1216 p58",
+     "speaker": "narrator"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c1216 p58",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "ss.echo.creature.wolf-echo": {
+   "name": "Wolf Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 28 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1826 p17",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c1826 p17",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ss.echo.item.clockwork-echo": {
+   "name": "Clockwork Echo",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1377 p29",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.item.echo": {
+   "name": "Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 8 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "swarm-or-kind",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c2293 p12",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c2293 p12",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ss.echo.item.echoes": {
+   "name": "Echoes",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 6 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "not-a-thing",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c2293 p12",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "ss.echo.item.echoing-silence": {
+   "name": "Echoing Silence",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "not-a-thing",
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "self",
+     "time": "sustained",
+     "locator": "en b1 c923 p44",
+     "speaker": "wiki"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1253 p24",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.item.golden-echo": {
+   "name": "Golden Echo",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c522 p52",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.item.stone-saint-echo": {
+   "name": "Stone Saint Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ss.echo.item.sybil-echo": {
+   "name": "Sybil Echo",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 2 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "individual",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "en b1 c1442 p31",
+     "speaker": "wiki"
+    },
+    "body": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c1362 p24",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ss.echo.item.transcendent-echoes": {
+   "name": "Transcendent Echoes",
+   "split": "tuned",
+   "label": null,
+   "locator": "private census, 10 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "alter",
+     "object": "position",
+     "target": "touched",
+     "time": "instant",
+     "locator": "en b1 c1216 p58",
+     "speaker": "narrator"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c1216 p9",
+     "speaker": "narrator"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": true,
+     "locator": "en b1 c1216 p58",
+     "speaker": "narrator"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c1216 p58",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "ss.echo.person.echo": {
+   "name": "Echo",
+   "split": "held-out",
+   "label": null,
+   "locator": "private census, 1 windows; ss paid claims 2026-11-01-ss (chapters 1-3000; census records whose id names an Echo)",
+   "sheet": {
+    "kind": "magical-beast",
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "bound",
+     "time": "sustained",
+     "locator": "en b1 c2382 p36",
+     "speaker": "wiki"
+    },
+    "body": {
+     "stated": true,
+     "locator": "en b1 c553 p8",
+     "speaker": "wiki"
+    },
+    "diet": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "habitat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "threat": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "parts_uses": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "en b1 c2423 p26",
+     "speaker": "wiki"
+    }
+   }
+  }
+ }
+}

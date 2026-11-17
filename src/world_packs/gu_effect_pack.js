@@ -12,7 +12,7 @@ export const guEffects = defineEffectGrammar({
 });
 // G's function families read as sentences. The world's reading, written before
 // the rules judged it.
-const GU_FUNCTION = {
+export const GU_FUNCTION = {
     attack: {verb: 'remove', object: 'vitality', target: 'line', time: 'instant'},
     guard: {verb: 'block', object: 'vitality', target: 'self', time: 'sustained'},
     conceal: {verb: 'conceal', object: 'information', target: 'self', time: 'sustained'},

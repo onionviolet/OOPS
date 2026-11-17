@@ -1,0 +1,164 @@
+{
+ "scoredOf": "135 of 148",
+ "path": {
+  "n": 106,
+  "generator": 73.6,
+  "baseline": 65.1
+ },
+ "band": {
+  "n": 128,
+  "generator": 54.7,
+  "baseline": 59.4
+ },
+ "verb": {
+  "n": 95,
+  "generator": 57.9,
+  "baseline": 55.8
+ },
+ "verbExcludingNameKeyword": {
+  "n": 86,
+  "generator": 55.8,
+  "baseline": 52.3
+ },
+ "verbByBasis": {
+  "wiki-tier": {
+   "n": 20,
+   "generator": 40,
+   "baseline": 40
+  },
+  "wiki-type": {
+   "n": 57,
+   "generator": 61.4,
+   "baseline": 56.1
+  },
+  "catalogue": {
+   "n": 9,
+   "generator": 55.6,
+   "baseline": 55.6
+  },
+  "name-keyword-inference": {
+   "n": 9,
+   "generator": 77.8,
+   "baseline": 88.9
+  }
+ },
+ "ships": true,
+ "shares": {
+  "poolSize": 1306,
+  "canonPath": {
+   "strength": 11.2,
+   "soul": 7.2,
+   "time": 7.1,
+   "wisdom": 6.6,
+   "transformation": 6.2,
+   "blood": 4.5,
+   "light": 3.5,
+   "enslavement": 3.2,
+   "rule": 3.2,
+   "qi": 3,
+   "water": 2.9,
+   "information": 2.9,
+   "earth": 2.7,
+   "luck": 2.7,
+   "space": 2.6,
+   "human": 2.6,
+   "fire": 2.4,
+   "star": 2.1,
+   "wind": 2,
+   "bone": 2,
+   "metal": 1.8,
+   "ice": 1.7,
+   "wood": 1.5,
+   "poison": 1.5,
+   "heaven": 1.4,
+   "sound": 1.4,
+   "sword": 1.4,
+   "lightning": 1.2,
+   "dark": 1.2,
+   "emotion": 1.1,
+   "dream": 0.9,
+   "refinement": 0.9,
+   "food": 0.8,
+   "formation": 0.6,
+   "theft": 0.6,
+   "blade": 0.5,
+   "cloud": 0.5,
+   "moon": 0.2,
+   "enchantment": 0.2,
+   "snow": 0.2,
+   "restriction": 0.2,
+   "phantom": 0.2,
+   "killing": 0.2
+  },
+  "poolPath": {
+   "strength": 7.6,
+   "earth": 6.3,
+   "wood": 6,
+   "information": 5.3,
+   "light": 4.3,
+   "food": 4.1,
+   "space": 4.1,
+   "water": 4,
+   "wind": 3.9,
+   "time": 3.6,
+   "poison": 3.4,
+   "wisdom": 3,
+   "metal": 2.9,
+   "sound": 2.9,
+   "transformation": 2.8,
+   "emotion": 2.8,
+   "fire": 2.5,
+   "dark": 2.4,
+   "none": 2.3,
+   "restriction": 2.1,
+   "blood": 1.9,
+   "human": 1.8,
+   "rule": 1.8,
+   "heaven": 1.6,
+   "blade": 1.5,
+   "soul": 1.5,
+   "refinement": 1.2,
+   "killing": 1.2,
+   "bone": 1.1,
+   "enslavement": 1.1,
+   "formation": 1.1,
+   "ice": 1.1,
+   "qi": 1,
+   "moon": 0.8,
+   "luck": 0.8,
+   "lightning": 0.8,
+   "star": 0.7,
+   "cloud": 0.6,
+   "enchantment": 0.4,
+   "phantom": 0.4,
+   "dream": 0.4,
+   "theft": 0.3,
+   "sword": 0.2,
+   "snow": 0.2,
+   "weapon": 0.1
+  },
+  "canonBand": {
+   "low": 35.7,
+   "high": 32.2,
+   "mid": 32.2
+  },
+  "poolBand": {
+   "low": 57.4,
+   "mid": 36.1,
+   "high": 6.6
+  },
+  "poolVerb": {
+   "add": 23.2,
+   "remove": 13,
+   "move": 12.3,
+   "sense": 10.6,
+   "block": 10,
+   "alter": 9.3,
+   "bind": 7.7,
+   "conceal": 6.1,
+   "transform": 4.9,
+   "copy": 2.1,
+   "end": 0.8
+  }
+ }
+}
