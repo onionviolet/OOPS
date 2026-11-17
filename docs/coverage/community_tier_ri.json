@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/README.md#pwc39-pwc41-wikis-beyond-dumps-and-community-discourse-2026-11-17-proposals",
+  "date": "2026-11-17",
+  "tier": "community (below wiki and chapter tiers; never overrides them)",
+  "speaker": "community",
+  "route": "WebSearch result excerpts plus page reads through WebFetch; no model extraction pass, $0 API spend",
+  "paraphrase": "all claims paraphrased; no quotes",
+  "scoreNote": "score and reply counts were not visible through these routes; null means not seen, not zero",
+  "agreementScore": "not computed: no row's claim could be matched to a chapter-tier combines value, because the sources reached carry no per-claim detail",
+  "access": [
+   {
+    "host": "reverend-insanity.fandom.com",
+    "result": "not fetched: same Fandom block seen on worm.fandom.com; stopped for the host"
+   },
+   {
+    "host": "r/ReverendInsanity",
+    "result": "two searches returned no thread with Gu-combination or killer-move discussion; mirrors not tried further"
+   },
+   {
+    "host": "Chinese forums (Baidu Tieba, Douban)",
+    "result": "not reached this pass"
+   }
+  ]
+ },
+ "world": "ri",
+ "rows": [
+  {
+   "id": "ri.c1",
+   "speaker": "community",
+   "kind": "clever-use",
+   "ledgerRow": null,
+   "thread": "https://www.themotte.org/post/2195/pokmon-for-unrepentant-sociopaths-a-review",
+   "date": null,
+   "score": null,
+   "replies": null,
+   "contested": false,
+   "seen": "search excerpt",
+   "claim": "A long review frames Gu raising as a collect-and-combine system where the pleasure is in ruthless planning around Fang Yuan's time-return Gu; no mechanics are checked in the excerpt."
+  },
+  {
+   "id": "ri.c2",
+   "speaker": "community",
+   "kind": "fan-interpretation",
+   "ledgerRow": null,
+   "thread": "https://redlib.belloworld.it/r/MartialMemes/comments/1f6sbbh/supreme_comprehension_or_qi_deviation",
+   "date": "2024-09-01",
+   "score": null,
+   "replies": null,
+   "contested": false,
+   "seen": "search excerpt",
+   "claim": "Jokes in a martial-arts meme thread treat Fang Yuan's single-minded pursuit of immortality as the series' defining trait; sentiment only."
+  }
+ ],
+ "wishes": [
+  {
+   "wish": "A game that lets Gu raising be the point: collect, refine, combine and defend a build",
+   "source": "https://vwhatevr.itch.io/reverend-insanity-thieving-heaven-demon-venerable/devlog/748084/reverend-insanity",
+   "seen": "search excerpt",
+   "who": "a fan game uploaded 2024-06-12 shows the demand exists; no wish text read"
+  }
+ ]
+}

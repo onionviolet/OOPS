@@ -1,0 +1,125 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/README.md#pwc39-pwc41-wikis-beyond-dumps-and-community-discourse-2026-11-17-proposals",
+  "date": "2026-11-17",
+  "tier": "community (below wiki and chapter tiers; never overrides them)",
+  "speaker": "community",
+  "route": "WebSearch result excerpts plus page reads through WebFetch; no model extraction pass, $0 API spend",
+  "paraphrase": "all claims paraphrased; no quotes",
+  "scoreNote": "score and reply counts were not visible through these routes; null means not seen, not zero",
+  "agreementScore": "not computed: no row's claim could be matched to a chapter-tier combines value, because the sources reached carry no per-claim detail",
+  "access": [
+   {
+    "host": "worm.fandom.com",
+    "result": "HTTP 402 on /wiki/Harbinger; stopped for this host (October's 403 and today's 402 agree)"
+   },
+   {
+    "host": "old.reddit.com",
+    "result": "refused by the fetch tool; no retry"
+   },
+   {
+    "host": "forums.spacebattles.com",
+    "result": "404 on a guessed URL; not retried"
+   },
+   {
+    "host": "tvtropes.org WMG/Worm",
+    "result": "HTTP 403; stopped for this host"
+   },
+   {
+    "host": "directforums.sufficientvelocity.com",
+    "result": "DNS failure; thread seen only as a search excerpt"
+   },
+   {
+    "host": "redlib mirror reallyaweso.me",
+    "result": "page loaded but comments absent; the three claims above come from the search excerpt"
+   }
+  ]
+ },
+ "world": "worm",
+ "rows": [
+  {
+   "id": "worm.c1",
+   "speaker": "community",
+   "kind": "contested",
+   "ledgerRow": "worm.cape.contessa",
+   "thread": "https://directforums.sufficientvelocity.com/posts/8532377",
+   "date": null,
+   "score": null,
+   "replies": null,
+   "contested": true,
+   "seen": "search excerpt",
+   "claim": "Posters argue whether Path to Victory is an oracle that searches outcomes across many possibilities, or something Coil's prediction power could stand in for; they note the two come from different sources."
+  },
+  {
+   "id": "worm.c2",
+   "speaker": "community",
+   "kind": "combines",
+   "ledgerRow": "worm.cape.tattletale",
+   "thread": "https://www.parahumans.net/2019/11/02/sundown-17-10",
+   "date": null,
+   "score": null,
+   "replies": null,
+   "contested": false,
+   "seen": "search excerpt, chapter-adjacent",
+   "claim": "Fans read Tattletale's clue-based Thinker power as unable to read Contessa, matching the canon scene where she calls Contessa unreadable. This is a reading of a chapter, so the chapter tier owns it."
+  },
+  {
+   "id": "worm.c3",
+   "speaker": "community",
+   "kind": "clever-use",
+   "ledgerRow": "worm.cape.faultline",
+   "thread": "https://redlib.reallyaweso.me/r/Parahumans/comments/1c3msu0/whats_the_most_creative_concept_in_a_wildbow_work",
+   "date": "2024-04-14",
+   "score": null,
+   "replies": null,
+   "contested": false,
+   "seen": "search excerpt",
+   "claim": "Commenters hold that Faultline's power is modest alone and strong through how she uses it; the same thread praises Trickster's swap power as an unusual concept."
+  },
+  {
+   "id": "worm.c4",
+   "speaker": "community",
+   "kind": "clever-use",
+   "ledgerRow": "worm.cape.skitter",
+   "thread": "https://www.goodreads.com/author_blog_posts/23985654-worm-by-wildbow",
+   "date": null,
+   "score": null,
+   "replies": null,
+   "contested": false,
+   "seen": "search excerpt",
+   "claim": "A reader essay says Taylor keeps finding new uses for a narrow power, and that every Worm power pairs unexpected uses with real limits."
+  },
+  {
+   "id": "worm.c5",
+   "speaker": "community",
+   "kind": "contested",
+   "ledgerRow": "worm.cape.echidna",
+   "thread": "https://cal1.lr.ggtyler.dev/r/Parahumans/comments/1i7z990/weird_baffling_and_bizarre_thinker_powers",
+   "date": "2025-01-23",
+   "score": null,
+   "replies": null,
+   "contested": true,
+   "seen": "search excerpt",
+   "claim": "A weird-Thinker-powers thread picks out Echidna's feedback-loop precognition as comic and weak for an ordinary person; an opinion, not a rule."
+  }
+ ],
+ "wishes": [
+  {
+   "wish": "Powers generated from small building blocks (skills, passives, mutations) with a type that shapes the kit, so each cape feels different",
+   "source": "https://shadowsoptional.itch.io/parahumans-srpg",
+   "seen": "page read",
+   "who": "fan SRPG prototype page and four commenters (dated '5 years ago')"
+  },
+  {
+   "wish": "Faithfulness to what makes the serial good: powers with drawbacks and unexpected uses rather than raw strength",
+   "source": "https://www.goodreads.com/author_blog_posts/23985654-worm-by-wildbow",
+   "seen": "search excerpt"
+  },
+  {
+   "wish": "Power-from-rating generation ('power this rating' threads): fans already play at inventing capes from a threat label",
+   "source": "https://cal1.lr.ggtyler.dev/r/Parahumans/comments/1d79aow/125th_power_generations_based_on_rating_thread",
+   "seen": "search excerpt",
+   "date": "2024-06-03"
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/README.md#pwc39-pwc41-wikis-beyond-dumps-and-community-discourse-2026-11-17-proposals",
+  "date": "2026-11-17",
+  "tier": "community (below wiki and chapter tiers; never overrides them)",
+  "speaker": "community",
+  "route": "WebSearch result excerpts plus page reads through WebFetch; no model extraction pass, $0 API spend",
+  "paraphrase": "all claims paraphrased; no quotes",
+  "scoreNote": "score and reply counts were not visible through these routes; null means not seen, not zero",
+  "agreementScore": "not computed: no row's claim could be matched to a chapter-tier combines value, because the sources reached carry no per-claim detail",
+  "access": [
+   {
+    "host": "lordofthemysteries.fandom.com",
+    "result": "not fetched; Fandom blocked elsewhere this pass. The local dump stays the wiki tier"
+   },
+   {
+    "host": "nyc1.lr.ggtyler.dev (Reddit mirror)",
+    "result": "connection refused; thread seen only as an excerpt"
+   },
+   {
+    "host": "Chinese forums (Baidu Tieba, Douban, Zhihu)",
+    "result": "not reached this pass"
+   }
+  ]
+ },
+ "world": "lotm",
+ "rows": [
+  {
+   "id": "lotm.c1",
+   "speaker": "community",
+   "kind": "contested",
+   "ledgerRow": null,
+   "thread": "https://cal1.lr.ggtyler.dev/r/LordofTheMysteries/comments/1hc2bsv/lotm_general_knowledge_of_pathways/m1ptrg3/",
+   "date": "2024-12-12",
+   "score": null,
+   "replies": null,
+   "contested": true,
+   "seen": "search excerpt",
+   "claim": "A commenter argues that Grafting could be set on dying Saints' and Angels' characteristics so enemies cannot take them, and that this would stretch a Sequence 0 who must also handle other tasks."
+  },
+  {
+   "id": "lotm.c2",
+   "speaker": "community",
+   "kind": "combines",
+   "ledgerRow": null,
+   "thread": "https://lordofthemysteries.fandom.com/wiki/Error_Pathway",
+   "date": null,
+   "score": null,
+   "replies": null,
+   "contested": false,
+   "seen": "search excerpt, wiki-adjacent",
+   "claim": "The Error pathway is often described as a counter to Hermit, because theft removes the information Hermit gathers. The page is the wiki tier, so only the 'often described' framing is community."
+  },
+  {
+   "id": "lotm.c3",
+   "speaker": "community",
+   "kind": "contested",
+   "ledgerRow": null,
+   "thread": "https://s1.felion.myaddr.io/novels/LordOfTheMysteries/1309.txt",
+   "date": null,
+   "score": null,
+   "replies": null,
+   "contested": true,
+   "seen": "search excerpt",
+   "claim": "Fool-versus-Error matchups hinge on whether a Fool's false condition is accepted as true by reality; fans split on it. No verdict seen."
+  }
+ ],
+ "wishes": [
+  {
+   "wish": "A player-run Tarot-club style society as a social layer with codenames and a guild hall",
+   "source": "https://thegameswiki.com/lord-of-mysteries/wiki/tarot-club",
+   "seen": "search excerpt",
+   "who": "fan wiki for the licensed MMO; details unverified"
+  },
+  {
+   "wish": "Stay faithful to the novel's tone: the author oversees the adaptation and fans welcomed that",
+   "source": "https://esports.gg/news/gaming/official-lord-of-mysteries-mmorpg-revealed-exciting-fans-of-the-anime",
+   "seen": "search excerpt"
+  }
+ ]
+}
