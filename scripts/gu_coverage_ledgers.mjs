@@ -36,6 +36,12 @@ const derivedRanks = existsSync(join(root, 'docs/coverage/gu_derived_ranks.json'
 // Chapter check of the agreed move leads against the paid reader claims (scripts/ri_move_claim_fold.mjs, GKM427).
 const claimCheck = JSON.parse(readFileSync(join(root, 'docs/coverage/ri_move_claim_checks.json'), 'utf8'));
 
+// Alias table (PWC48, scripts/ri_aliases.py): one canon Gu that the two sources name twice becomes one row; the repeated record is a
+// `not-a-thing:alias` row that points at the kept one and the kept row carries the names it is also known by.
+const aliasTable = existsSync(join(root, 'docs/coverage/ri_aliases.json')) ? JSON.parse(readFileSync(join(root, 'docs/coverage/ri_aliases.json'), 'utf8')) : {groups: [], names: {}};
+const aliasOf = new Map(aliasTable.groups.flatMap(g => g.drop.map(id => [id, g])));
+const aliasKeep = new Map(aliasTable.groups.map(g => [g.keep, g]));
+
 // Mechanism owners by chat letter (SC4): every Gu row sits on G; each running method adds its owner.
 const mechanismOf = {activate: 'K', convert: 'W', refine: 'F', grow: 'L', treat: 'L', move: 'K'};
 const owners = methods => ['G', ...new Set(methods.map(m => mechanismOf[m]))];
@@ -55,6 +61,14 @@ function kindRow(indexed) {
     const mapped = claimCheck.kinds[indexed.id]?.catalogue;
     const record = mapped ? {...indexed, id: mapped, status: 'novel-checked', observation: {chapters: guCatalogue[mapped].parts.chapters}} : indexed;
     const base = {id: record.id, name: nameOf(record), source: sourceOf(record), test, ...(mapped && {indexId: indexed.id})};
+    const dup = aliasOf.get(indexed.id);
+    if (dup && !mapped) {
+        const kept = index.records.find(r => r.id === dup.keep);
+        return {...base, layer: 'wiki', state: 'not-a-thing:alias', mechanisms: ['G'], aliasOf: dup.keepRow,
+            note: `One Gu under two names: an alias of ${kept ? nameOf(kept) : dup.keep}, merged by the alias table (${dup.basis[0] ?? 'judged same'}); the kept row carries the names.`};
+    }
+    const alias = aliasKeep.get(indexed.id);
+    if (alias) base.aliases = alias.names.filter(n => n !== base.name);
     if (record.status === 'reference-page') return {...base, layer: 'wiki', state: 'not-a-thing:wiki-reference-page', mechanisms: ['G'], note: 'A wiki list or overview page.'};
     if (record.status === 'novel-checked') {
         const entry = guCatalogue[record.id];

@@ -98,7 +98,7 @@
     "heldOut": 76
    }
   },
-  "blockedRows": 523,
+  "blockedRows": 510,
   "derivedRows": 299,
   "byRule": {
    "gu.rank.family-median": 298,
@@ -118,20 +118,6 @@
     "max": 5,
     "q1": 4,
     "q3": 5
-   }
-  },
-  "candidate:battle-thought-gu": {
-   "rule": "gu.rank.family-median",
-   "rank": 5,
-   "inputs": [
-    "band+path: unmarked/wisdom"
-   ],
-   "spread": {
-    "n": 18,
-    "min": 1,
-    "max": 8,
-    "q1": 4,
-    "q3": 6
    }
   },
   "candidate:battle-will-gu": {
@@ -876,6 +862,20 @@
     "q3": 6
    }
   },
+  "candidate:guts-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+path: unmarked/soul"
+   ],
+   "spread": {
+    "n": 31,
+    "min": 1,
+    "max": 5,
+    "q1": 3,
+    "q3": 3
+   }
+  },
   "candidate:hard-qi-gu": {
    "rule": "gu.rank.family-median",
    "rank": 4,
@@ -1472,6 +1472,20 @@
     "q3": 4
    }
   },
+  "candidate:righteous-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 4,
+   "inputs": [
+    "band+path: unmarked/qi"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 3,
+    "max": 8,
+    "q1": 4,
+    "q3": 8
+   }
+  },
   "candidate:rolling-meat-gu": {
    "rule": "gu.rank.family-median",
    "rank": 4,
@@ -1834,20 +1848,6 @@
     "max": 8,
     "q1": 3,
     "q3": 4
-   }
-  },
-  "candidate:suffering-gu": {
-   "rule": "gu.rank.family-median",
-   "rank": 5,
-   "inputs": [
-    "band+path: unmarked/human"
-   ],
-   "spread": {
-    "n": 5,
-    "min": 1,
-    "max": 5,
-    "q1": 2,
-    "q3": 5
    }
   },
   "candidate:swift-ghost-cloud-gu": {
@@ -2550,6 +2550,20 @@
     "q3": 6
    }
   },
+  "fandom:Footprint_Gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 3,
+   "inputs": [
+    "band+type: unmarked/investigative"
+   ],
+   "spread": {
+    "n": 14,
+    "min": 1,
+    "max": 6,
+    "q1": 3,
+    "q3": 5
+   }
+  },
   "fandom:Ghost_Axe_Gu": {
    "rule": "gu.rank.family-median",
    "rank": 3,
@@ -2999,20 +3013,6 @@
    }
   },
   "fandom:Lightning_Net_Gu": {
-   "rule": "gu.rank.family-median",
-   "rank": 3,
-   "inputs": [
-    "band+path: unmarked/lightning"
-   ],
-   "spread": {
-    "n": 4,
-    "min": 2,
-    "max": 5,
-    "q1": 3,
-    "q3": 5
-   }
-  },
-  "fandom:Lightning_Web_Gu": {
    "rule": "gu.rank.family-median",
    "rank": 3,
    "inputs": [
@@ -3516,20 +3516,6 @@
     "q3": 3
    }
   },
-  "fandom:Silent_Step_Gu": {
-   "rule": "gu.rank.family-median",
-   "rank": 2,
-   "inputs": [
-    "band+type: unmarked/concealment"
-   ],
-   "spread": {
-    "n": 7,
-    "min": 1,
-    "max": 5,
-    "q1": 1,
-    "q3": 4
-   }
-  },
   "fandom:Silver_Scales_Gu": {
    "rule": "gu.rank.family-median",
    "rank": 6,
@@ -3640,20 +3626,6 @@
     "max": 5,
     "q1": 4,
     "q3": 5
-   }
-  },
-  "fandom:Steel_Hair_Gu": {
-   "rule": "gu.rank.family-median",
-   "rank": 3,
-   "inputs": [
-    "band+type: unmarked/offensive"
-   ],
-   "spread": {
-    "n": 95,
-    "min": 1,
-    "max": 8,
-    "q1": 3,
-    "q3": 4
    }
   },
   "fandom:Steel_Vine_Gu": {
@@ -4118,20 +4090,6 @@
     "q3": 8
    }
   },
-  "saga:blood-relation-gu": {
-   "rule": "gu.rank.family-median",
-   "rank": 5,
-   "inputs": [
-    "band+path: unmarked/blood"
-   ],
-   "spread": {
-    "n": 8,
-    "min": 3,
-    "max": 5,
-    "q1": 4,
-    "q3": 5
-   }
-  },
   "saga:blood-shadow-gu": {
    "rule": "gu.rank.family-median",
    "rank": 5,
@@ -4146,7 +4104,21 @@
     "q3": 5
    }
   },
-  "saga:empty-thought-gu": {
+  "saga:departure-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 7,
+   "inputs": [
+    "band+path: unmarked/rule"
+   ],
+   "spread": {
+    "n": 4,
+    "min": 1,
+    "max": 8,
+    "q1": 7,
+    "q3": 8
+   }
+  },
+  "saga:great-shock-gu": {
    "rule": "gu.rank.family-median",
    "rank": 5,
    "inputs": [
@@ -4160,17 +4132,17 @@
     "q3": 6
    }
   },
-  "saga:familial-emotion-gu": {
+  "saga:hero-gu": {
    "rule": "gu.rank.family-median",
    "rank": 5,
    "inputs": [
-    "band+path: unmarked/blood"
+    "band+path: unmarked/human"
    ],
    "spread": {
-    "n": 8,
-    "min": 3,
+    "n": 5,
+    "min": 1,
     "max": 5,
-    "q1": 4,
+    "q1": 2,
     "q3": 5
    }
   },
@@ -4216,6 +4188,20 @@
     "q3": 8
    }
   },
+  "saga:ringing-sound-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/sound"
+   ],
+   "spread": {
+    "n": 3,
+    "min": 4,
+    "max": 5,
+    "q1": 4,
+    "q3": 5
+   }
+  },
   "saga:seal-luck-gu": {
    "rule": "gu.rank.family-median",
    "rank": 8,
@@ -4244,18 +4230,32 @@
     "q3": 5
    }
   },
-  "saga:time-luck": {
+  "saga:space-travel": {
    "rule": "gu.rank.family-median",
-   "rank": 8,
+   "rank": 5,
    "inputs": [
-    "band+path: unmarked/luck"
+    "band+path: unmarked/space"
    ],
    "spread": {
-    "n": 3,
+    "n": 9,
+    "min": 4,
+    "max": 5,
+    "q1": 5,
+    "q3": 5
+   }
+  },
+  "saga:summer-gu": {
+   "rule": "gu.rank.family-median",
+   "rank": 5,
+   "inputs": [
+    "band+path: unmarked/time"
+   ],
+   "spread": {
+    "n": 15,
     "min": 1,
     "max": 8,
-    "q1": 1,
-    "q3": 8
+    "q1": 4,
+    "q3": 7
    }
   },
   "saga:transfer-luck-gu": {

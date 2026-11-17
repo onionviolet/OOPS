@@ -30,7 +30,9 @@ import {makeOpenAIClient, strictSchema, toMessage, isOpenAIModel} from './lead_r
 // 1,024 tokens on its own at 1.25x input (measured 2026-11-16); Anthropic writes only marked blocks, 1.25x for 5 minutes and
 // 2x for an hour, so a block is marked only when something will read it again (`reuse`).
 export const RATES = {'gpt-6-luna': {in: 0.10, cached: 0.01, write: 0.125, out: 0.50},
-    'claude-haiku-5-5': {in: 0.10, cached: 0.01, write: 0.20, out: 0.50}};
+    'claude-haiku-5-5': {in: 0.10, cached: 0.01, write: 0.20, out: 0.50},
+    // Sol: about 20x Luna (PWC44, an estimate until measured); only for disagreements.
+    'gpt-6.1-sol': {in: 2.0, cached: 0.2, write: 2.5, out: 10.0}};
 
 const sha = s => createHash('sha1').update(s).digest('hex').slice(0, 12);
 const json = path => JSON.parse(readFileSync(path, 'utf8'));
