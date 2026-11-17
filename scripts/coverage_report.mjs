@@ -75,6 +75,8 @@ export const DENOMINATORS = {
     worm_powers: {expected: null, owner: 'P', what: 'named Worm capes, Endbringers and Entities, and named Tinker devices, from reader claims, the cape table and the people index (PWC3)'},
     creatures: {expected: null, owner: 'L', what: "G's catalogue plus L's inventory"},
     rezero_powers: {expected: 204, owner: 'W', what: 'Re:Zero named powers: 178 powers and 26 names that are not (PWC3)'},
+
+    perfect_run_powers: {expected: 113, owner: 'W', what: 'Perfect Run named powers: Genomes by holder, Elixir colours and conditions, Psychos, devices, Quicksave, Bad Runs layer'},
 };
 const STATE = /^(runs-canon|runs-authored|expressed-canon|expressed-authored|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
 const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case']);

@@ -386,6 +386,8 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 
 | Re:Zero powers (Authorities, Witch Factors, Divine Protections, spells by tier, curses, spirit contracts, Return by Death, other named arts) | `rezero_powers` | 204 names merged from the deep dives, reader digests and a free scan of the WN and IF captures (178 powers, 26 not-a-thing); [power catalogues PWC1-PWC7](research/power-catalogues-2026-11-16/README.md) | W (power sheet) |
 
+| Perfect Run powers | `perfect_run_powers` | 113 named powers from the deep-dive digests and the paid claims (PWC3): 109 main rows, 4 Bad Runs what-if rows | W |
+
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 
 ### Grammar layers (GL): what "defining the grammar" means

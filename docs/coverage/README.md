@@ -16,6 +16,8 @@
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
 | [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 106 | 26 | 0 | 100% | 0% |
 
+| [perfect_run_powers](perfect_run_powers.jsonl) | W | 113 | 113 | 0 | 0 | 43 | 0 | 0 | 100% | 0% |
+
 ## Typed and computed, side by side (PC9, PC10)
 
 *Typed states are the owners' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Whether headline numbers may fall is Weibao's call, so nothing is rewritten.*
@@ -32,6 +34,8 @@
 | worm_powers | 0 | 0 | 0 | 0 |
 
 | rezero_powers | 0 | 0 | 0 | 0 |
+
+| perfect_run_powers | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
@@ -80,6 +84,8 @@
 | worm_powers | 0 | 0 | | | | | none yet |
 
 | rezero_powers | 0 | 0 | | | | | none yet |
+
+| perfect_run_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -333,6 +339,9 @@
 | worm_powers | mind-binding | 12 |
 | worm_powers | area-field | 11 |
 | worm_powers | protection-field | 10 |
+
+| perfect_run_powers | source-link | 12 |
+| perfect_run_powers | area-field | 10 |
 | hp_potions | conceal-or-sense | 9 |
 | hp_potions | object-surface | 8 |
 | worm_powers | mind-state | 7 |
@@ -359,6 +368,17 @@
 
 | rezero_powers | death-checkpoint-rewind | 1 |
 | rezero_powers | speech-penalty | 1 |
+
+| perfect_run_powers | body-code-decay | 5 |
+| perfect_run_powers | mind-binding | 3 |
+| perfect_run_powers | power-interaction | 3 |
+| perfect_run_powers | time-loop | 3 |
+| perfect_run_powers | bond-slots | 2 |
+| hp_potions | luck-field | 2 |
+| perfect_run_powers | memory-transfer | 2 |
+| hp_potions | protection-field | 2 |
+| perfect_run_powers | time-stop | 2 |
+| perfect_run_powers | anti-power-site | 1 |
 
 ## Row format
 
