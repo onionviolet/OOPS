@@ -37,3 +37,23 @@ This is the owner palette for one coverage ledger of powers per world, built the
 ## Budget
 
 At the measured rate, about $0.0002 per Luna row and $0.0006 per Haiku row, a few thousand power rows cost a few dollars. The sessions keep each world under $5 without asking.
+
+## The Perfect Run pass (2026-11-16, proposals, agent-verified, not human-reviewed)
+
+Ledger `docs/coverage/perfect_run_powers.jsonl` (113 rows), sidecar `docs/coverage/perfect_run_power_labels.json`, builders `scripts/perfect_run_power_denominator.mjs` (private reads, names from data) and `scripts/perfect_run_power_ledger.mjs` (`refresh`, `run`, `fold`, `build`; `build` reads committed files only), shape test `tests/perfect_run_powers.test.js`. Counts are in the [coverage README](../../coverage/README.md).
+
+**Denominator (PWC3).** Tables 1.2 (digest A) and 1.1 (digest B) give 72 item rows; the paid claims `2026-11-01-pr` (657 ability, potion and reset rules after de-duplication) add holders the digests omit. Result: 109 main rows (73 Genome holders, 8 Elixir colours, true Elixirs, knockoffs, Psycho condition, devices, drugs, Quicksave, time-stop, Black Flux, Monaco) and 4 Bad Runs what-if rows in their own `pr.badrun.*` layer. Every row records its name source. Merges are recorded in the sidecar (Livia, Augustus, Fallout, Panda, Cancel, Shroud, Narcinia); aliases never cross people, so Ryan's "Mathias" does not pull in Shroud, and PSC1 stands. Excluded: ordinary firearms, collectives, skills. The world-design and readers folders added no new names.
+
+**Pre-registered before any model call (GKM429).** Hash split (`sha1(id)[0] < 0x33`), the grammar-object-to-colour map (from the Alchemist's seven domains, never fitted) and the fold rule are in the sidecar's `meta`. Colour words, "Genius" and "Flux" colour names were redacted from every scorable packet; a grep of the packets found no leak.
+
+**Held-out label, honestly small.** The world's own classification is Elixir colour, but the text states a holder's colour for only 8 rows (Ryan's two powers Violet; Leo, Fallout Red; Livia, Night Terror, Eva Blue; Narcinia Green). Ten more are reader inferences from the effect, which would make a score circular, and four conflict (Augustus, Shroud, Panda, Land). Only stated rows score; the others are reported apart.
+
+**Score.** Luna's effect grammar (object to colour), stated rows: held out 1 of 3 (majority baseline 3 of 3), all stated 3 of 6 answered (baseline 3). Reader-inferred, reported apart: 1 of 7. The grammar does not beat the baseline, so by the pre-registered rule it is **not folded**: ledger notes mark it "model tier, unchecked". The misses are one pattern: `thing` and `form` become Orange for powers that act on bodies or minds. A hand check of 16 rows found 7 plausible, 6 empty (Quicksave and Acid Rain among them) and 3 wrong (Psyshock's mind control read as "move"). The map or the object vocabulary needs a body-versus-matter split before this score means much; no rule was fitted to these answers.
+
+**Second reader.** Luna filled all 113 rows; Haiku 5.5 (low effort) read all 113 too. Across the four grammar parts they agree on 219 fields, dispute 45, Luna alone 153, Haiku alone 35. 162 locators that were not in a packet were voided. Haiku's additions stay review-only.
+
+**Blocking rules (PWC5).** 43 rows block: source-link 12, area-field 10 (set by the `area` target, noisy), body-code-decay 5, time-loop 3, power-interaction 3, mind-binding 3, time-stop 2, bond-slots 2, memory-transfer 2, anti-power-site 1; 70 are `catalogued`, 0 unclassified. Quicksave is `blocked:time-loop`: `src/anchor_snapshots.js` branches a world at anchors but does not restore a body on death, and `ability_records.js` has only fixed-minute cooldowns, so time-stop (cooldown equal to length, a world freeze) is its own `blocked:time-stop`. Shared slugs (time-loop, mind-binding, area-field, power-interaction) match PWC5; the new ones name their PR rule.
+
+**Sheet fields (PWC1, PWC4, PWC6, PWC7).** Each row carries who_may, where_from, go_wrong, mind, left_behind, combines, counters and known_by as enums with a locator and speaker. Not filled yet: `route_to_player` (PWC4), which needs WER answers per start and is the next slice. Quicksave's knowledge state needs a hand entry (Len knows, Livia infers, the Augusti were told a false story), because Luna left it unknown.
+
+**Cost.** Luna about $0.06; Haiku about $2.6 at an assumed $2 and $10 per million (sync, unverified rate); total under $3 of the $5 allowance.

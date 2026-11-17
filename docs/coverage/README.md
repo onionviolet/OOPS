@@ -13,6 +13,7 @@
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
+| [perfect_run_powers](perfect_run_powers.jsonl) | W | 113 | 113 | 0 | 0 | 43 | 0 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -27,10 +28,11 @@
 | hp_potions | 1 | 34 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
 | lotm_potions | 0 | 46 | 0 | 0 |
+| perfect_run_powers | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1642 of 1880 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1648 of 1887 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -47,6 +49,7 @@
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
 | lotm_potions | 0 | 0 | | | | | none yet |
+| perfect_run_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -291,12 +294,22 @@
 | gu_moves | unnamed-role | 28 |
 | gu_moves | role-cannot-run | 17 |
 | lotm_potions | formula-wiki-unchecked | 12 |
+| perfect_run_powers | source-link | 12 |
+| perfect_run_powers | area-field | 10 |
 | hp_potions | conceal-or-sense | 9 |
 | hp_potions | object-surface | 8 |
 | lotm_potions | body-door | 6 |
 | hp_potions | place-release | 6 |
+| perfect_run_powers | body-code-decay | 5 |
+| perfect_run_powers | mind-binding | 3 |
+| perfect_run_powers | power-interaction | 3 |
+| perfect_run_powers | time-loop | 3 |
+| perfect_run_powers | bond-slots | 2 |
 | hp_potions | luck-field | 2 |
+| perfect_run_powers | memory-transfer | 2 |
 | hp_potions | protection-field | 2 |
+| perfect_run_powers | time-stop | 2 |
+| perfect_run_powers | anti-power-site | 1 |
 
 ## Row format
 

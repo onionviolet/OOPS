@@ -382,6 +382,7 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 | Lord of the Mysteries potions | `lotm_potions` | Built first: one row per pathway sequence potion and named non-pathway potion, from the open canon (Weibao has read it in full, so it is open in development) | B |
 | Hogwarts spells | `hp_spells` | 117 spellbook records | S |
 | Gu as creatures, other creatures | `creatures` | Rows from G's catalogue plus L's inventory | L |
+| Perfect Run powers | `perfect_run_powers` | 113 named powers from the deep-dive digests and the paid claims (PWC3): 109 main rows, 4 Bad Runs what-if rows | W |
 
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 
