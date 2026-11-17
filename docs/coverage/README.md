@@ -6,13 +6,13 @@
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 513 | 933 | 4 | 0 | 100% | 35.1% |
-| [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 3 | 766 | 0 | 0 | 100% | 0.4% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 516 | 930 | 4 | 0 | 100% | 35.3% |
+| [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 759 | 0 | 0 | 100% | 1.3% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 249 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 376 | 9 | 0 | 100% | 5% |
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
-| [creatures](creatures.jsonl) | L | to build | 96 | 0 | 17 | 61 | 0 | 0 | 100% | 17.7% |
+| [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -20,9 +20,9 @@
 
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
-| creatures | 17 | 18 | 0 | 17 |
-| gu_kinds | 513 | 16 | 0 | 513 |
-| gu_moves | 3 | 9 | 0 | 3 |
+| creatures | 17 | 82 | 0 | 17 |
+| gu_kinds | 516 | 16 | 0 | 516 |
+| gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 4 | 0 | 20 |
 | hp_potions | 1 | 34 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
@@ -30,7 +30,7 @@
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1606 of 1843 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1642 of 1881 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -41,7 +41,7 @@
 | Ledger | Tuned on | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route | Split |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | creatures | 0 | 0 | | | | | none yet |
-| gu_kinds | 8 | 49 | 4 of 49 | not scored without an engine | 1 of 6 (43 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
+| gu_kinds | 8 | 53 | 4 of 53 | not scored without an engine | 1 of 6 (47 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
@@ -204,17 +204,17 @@
 
 ### gu_kinds
 
-- **Finding: the engine runs only authored abilities.** 18 of 49 held-out kinds carry an activation row (its effect, pool and charge are built from the scene's `observed` text and an `authored` quantity), so 43 cannot run an engine probe (no activation row, or no class predicted, or no probe effect for the class). The 5 refinement recipes are not scored: each names its own ingredients and stages by hand, and no rule predicts a stage list. A run needs a blind name lexicon (as the spell split used) before the rule can move this score.
+- **Finding: the engine runs only authored abilities.** 18 of 53 held-out kinds carry an activation row (its effect, pool and charge are built from the scene's `observed` text and an `authored` quantity), so 47 cannot run an engine probe (no activation row, or no class predicted, or no probe effect for the class). The 5 refinement recipes are not scored: each names its own ingredients and stages by hand, and no rule predicts a stage list. A run needs a blind name lexicon (as the spell split used) before the rule can move this score.
 
 | Held-out matches | Held out | Diagnostic outcome (function class) | Engine outcome (effect class) | Engine route (pool and charge) |
 | --- | ---: | ---: | ---: | ---: |
-| All held-out kinds | 49 | 4 | 1 of 6 (43 cannot run) | 4 of 6 |
+| All held-out kinds | 53 | 4 | 1 of 6 (47 cannot run) | 4 of 6 |
 
 - **Split rule** (`src/gu_heldout.js`): Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one).
 - **Tuned on** (8): fire-source, light-source, lightning-eye, moon-scar, nine-eyes-liquor-worm, starlight-firefly, stealth-scales, vitality-grass. On the tuning kinds, reported apart: diagnostic outcome 8 of 8.
-- **Out of scope** (21): kinds with no function reading in the catalogue.
+- **Out of scope** (20): kinds with no function reading in the catalogue.
 - **Rule**: class votes from wiki type and path labels and name words seen on the tuning kinds (ties alphabetical); pool from the wiki rank (6 and up immortal, else primeval); charge from the tuned rank band, else the tuned mode. The probe ability is the plainest effect of the predicted class, run through `resolveGuActivation`. Outcome and route are separate. No rule was changed after scoring, so there is no untouched-subset line.
-- **Misses** (30 missing rule, 27 missing data, 2 author's exception): per-kind line below.
+- **Misses** (30 missing rule, 31 missing data, 2 author's exception): per-kind line below.
 
 | Kind | Actual class | Predicted | Diagnostic | Engine outcome | Engine route | First miss |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -235,7 +235,10 @@
 | fixed-immortal-travel | travel | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 | formation-plate | formation | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 | four-flavors-liquor-worm | convert-essence | convert-essence | match | no activation row |  |  |
+| great-thief | steal | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 | group-strength | strength | convert-essence | miss | no activation row |  | missing rule: identity votes convert-essence/economize/illuminate; no feature in the fit votes the true class strength |
+| heavenly-secret | sense | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
+| heavenly-web | suppress | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 | ice-blade | attack | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 | landscape-as-before | restore | produce | miss | no activation row |  | missing rule: identity votes produce; no feature in the fit votes the true class restore |
 | liquor-worm | convert-essence | convert-essence | match | no activation row |  |  |
@@ -255,6 +258,7 @@
 | self-reliance | heal | produce | miss | no activation row |  | missing rule: identity votes produce; no feature in the fit votes the true class heal |
 | self-strength | strength | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 | seven-fragrances-liquor-worm | convert-essence | convert-essence | match | no activation row |  |  |
+| small | guard | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 | spring-autumn-cicada | time | none | miss | no activation row |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
 | stealth-rock | conceal | conceal | match | match | match |  |
 | thunder-shield | guard | none | miss | cannot run |  | missing data: no wiki label, rank-free name word or tuning row names a class for this identity |
@@ -272,19 +276,19 @@
 
 | Ledger | Missing rule | Rows |
 | --- | --- | ---: |
-| gu_moves | roles-unknown | 631 |
+| gu_moves | roles-unknown | 651 |
 | gu_kinds | rank-unknown | 569 |
 | hp_ingredients | ingredient-properties | 376 |
-| gu_kinds | effect-unknown | 364 |
+| gu_kinds | effect-unknown | 361 |
 | lotm_potions | formula-in-notes | 174 |
-| gu_moves | roles-unchecked | 122 |
 | hp_potions | body-door | 80 |
-| creatures | diet-unknown | 61 |
+| gu_moves | roles-unchecked | 63 |
 | hp_potions | mind-state | 40 |
 | hp_potions | body-form | 37 |
 | hp_potions | effect-sentence | 33 |
 | hp_potions | plant-or-creature-target | 32 |
-| gu_moves | unnamed-role | 13 |
+| gu_moves | unnamed-role | 28 |
+| gu_moves | role-cannot-run | 17 |
 | hp_potions | conceal-or-sense | 9 |
 | hp_potions | object-surface | 8 |
 | lotm_potions | body-door | 6 |

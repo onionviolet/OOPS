@@ -73,7 +73,7 @@ test('one executor: sentences run through W applyEffect (SB3, E8 shape)', async 
 
 test('the canon test runs on two worlds and lists what each is missing (EF1)', async () => {
     const out = await runEffects();
-    assert.deepEqual([out.canon.gu.rebuild.passed, out.canon.gu.rebuild.tested], [55, 57]);
+    assert.deepEqual([out.canon.gu.rebuild.passed, out.canon.gu.rebuild.tested], [59, 61]);
     assert.deepEqual([out.canon.hogwarts.rebuild.passed, out.canon.hogwarts.rebuild.tested], [85, 109]);
     assert.ok(out.canon.gu.missingRules.some(f => f.rule === 'verb-object' && f.examples.includes('gu:year-gu')));
     assert.ok(out.canon.hogwarts.missingRules.some(f => f.rule === 'family'));

@@ -426,9 +426,9 @@ const partsRows = {
         {rank: [8, 9], roles: ['product'], wiki: {rank: [3], path: ['wood'], type: ['grass']}},
         ['complete material schedule', 'how much of the old specimen is exposed at each stage',
             'whether and when the Gu can be activated during advancement', 'standalone effect']),
-    'heavenly-secret': parts([2275, 2279, 2285], 'A heaven-path Gu once taken for wisdom path; a destroyed specimen was refined anew and advanced.',
-        {rank: [9], path: 'heaven', roles: ['product'], wiki: {rank: [7, 8, 9], path: ['heaven'], type: ['investigative']}},
-        ['full ingredient list', 'exact activation requirements at each lower rank', 'timing and accounting of deferred material cost', 'standalone effect']),
+    'heavenly-secret': parts([2275, 2279, 2285, 2290], 'A heaven-path Gu once taken for wisdom path; a destroyed specimen was refined anew and advanced. Chapter 2290 says it was made to sense heaven and earth and draw answers from heaven\'s will.',
+        {rank: [9], path: 'heaven', roles: ['product', 'core'], fn: 'sense', wiki: {rank: [7, 8, 9], path: ['heaven'], type: ['investigative']}},
+        ['full ingredient list', 'exact activation requirements at each lower rank', 'timing and accounting of deferred material cost']),
     light: parts([2279, 2280, 2281, 2287, 2318, 2320], 'A wild rank-nine Gu flees by instinct and picks a carrier whose light-path dao marks are familiar.',
         {rank: [9], path: 'light', roles: ['wild'], marks: {carrierChoice: 'chapter 2280'}, wiki: {rank: [9], path: ['light']}},
         ['how the wild specimen originated', 'whether Light Emperor ultimately completes vital refinement', 'time and cost of recovery', 'standalone commanded use']),
@@ -507,6 +507,16 @@ const partsRows = {
         {roles: ['core'], wiki: {rank: [6], path: ['strength', 'earth']}}),
     'pulling-water': parts([961], 'One of three Immortal cores of Strength Reversing Life and Death.',
         {roles: ['core'], wiki: {rank: [6], path: ['strength', 'water']}}),
+    // Kinds added for claim-checked move leads (GKM427, GKM446, 2026-11-16): rank and function read in the cited chapters.
+    small: parts([801], 'A rule-path Immortal Gu at rank seven; as the core of Big to Small it shrinks oncoming killer moves until they do little, beating a rank-six attacker.',
+        {rank: [7], path: 'rule', roles: ['core'], fn: 'guard', wiki: {path: ['rule']}}, ['effect on attacks of its own rank or higher', 'exact activation cost'],
+        'Rank and function from paid reader claims checked by two readers (Luna, Haiku; scripts/ri_move_claim_check.mjs) and confirmed in the held chapter text; roles from the claims; wiki labels kept apart.'),
+    'great-thief': parts([1528, 1558, 2290], 'A rank-eight Immortal Gu, core of Great Thief Ghost Hand, Directional Confusion Fog and, with Heavenly Secret, Stealing Heavenly Secret.',
+        {rank: [8], path: 'theft', roles: ['core'], fn: 'steal', wiki: {rank: [8]}}, ['what it takes when activated alone', 'exact activation cost'],
+        'Rank and function from paid reader claims checked by two readers (Luna, Haiku; scripts/ri_move_claim_check.mjs) and confirmed in the held chapter text; roles from the claims; wiki labels kept apart. Function steal is a reviewed pick between the readers (steal, conceal) from chapter 2290.'),
+    'heavenly-web': parts([2306], 'A crystal-spider Gu with rank-eight and rank-nine forms; alone it throws a giant web that traps a target, and it is the core of Heavenly Web Protection Veil.',
+        {rank: [8, 9], path: 'heaven', roles: ['core'], fn: 'suppress', wiki: {rank: [9]}}, ['exact trap strength and duration', 'what the protection veil adds beyond the core'],
+        'Rank and function from paid reader claims checked by two readers (Luna, Haiku; scripts/ri_move_claim_check.mjs) and confirmed in the held chapter text; roles from the claims; wiki labels kept apart. Chapter 2306 calls the Gu offensive alone (a trap), so function is suppress where both readers said guard from the move.'),
     fight: parts([1394, 1395, 1396], 'A formation core, then sole Immortal core of Soaring Fighting Spirit; a failed activation spent three red date beads and destroyed the mortal supports.',
         {rank: [7], roles: ['core', 'formation'], fuel: 'immortal', wiki: {rank: [7], path: ['rule']}}),
 };
@@ -1081,6 +1091,20 @@ const bodyRows = {
         status: 'unknown',
         searchedChapters: [753, 754, 758, 769, 777, 780, 797, 800, 817, 824, 846, 850, 875, 910, 961, 972, 1079,
             1082, 1133, 1248, 1287, 1288, 1291, 1293, 1461, 1561, 1571, 1590, 1645, 1683, 1770],
+    },
+    // Name-hit chapters for the three kinds added 2026-11-16, each checked for feed, food, eat, starve and nourish
+    // within 200 characters of the name in the private English copy; none states a food.
+    'small': {
+        status: 'unknown',
+        searchedChapters: [718, 801, 901, 937, 971, 1323, 1380, 1414, 1680, 1749],
+    },
+    'great-thief': {
+        status: 'unknown',
+        searchedChapters: [1524, 1525, 1528, 1529, 1530, 1558, 1565, 1572, 1780, 1856, 2083, 2290],
+    },
+    'heavenly-web': {
+        status: 'unknown',
+        searchedChapters: [2227, 2229, 2306, 2309],
     },
     'fight': {
         status: 'unknown',

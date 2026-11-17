@@ -182,6 +182,11 @@ export const GU_CASE_GAPS = Object.freeze({
     'years-flow-like-water': 'L/K needs Year Gu creation with the Immortal uniqueness check, and A needs the aura response by Year Beasts.',
     'year-gu': 'W/R needs stored years, their expenditure and a rank reader of the remaining years.',
     after: 'L needs the monthly black ant Gu cohort and its delivery of food to the parent.',
+    // Kinds catalogued 2026-11-16 for the claim-checked move leads (GKM449).
+    'heavenly-secret': 'N/A needs a question put to heaven\'s will and a read answer; the sense channel has no heaven target yet.',
+    small: 'W/C needs a shrink applied to an incoming working that lowers its force before contact.',
+    'great-thief': 'K/N needs a taking working whose object can be knowledge or a held thing, with the source refusing it.',
+    'heavenly-web': 'W needs a trap field that holds a target, and the move needs a guard read of the same web.',
 });
 
 export const GU_CASE_MODULE = 'src/world_packs/gu_effect_pack.js';

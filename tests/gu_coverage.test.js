@@ -313,7 +313,7 @@ test('both Gu ledgers cover their denominators with no unclassified row (MS1, CV
         }
     }
     const checked = kinds.filter(row => row.layer === 'chapter');
-    assert.equal(checked.length, 78);
+    assert.equal(checked.length, 81);
     assert.ok(checked.every(row => row.state.startsWith('runs') || row.state === 'expressed-authored' || row.state === 'catalogued' || row.state.startsWith('blocked:') || row.state.startsWith('not-a-thing')));
 });
 
@@ -379,4 +379,24 @@ test('every runs move quotes and settles through typed composition, and blocked 
         bindings: {operator, ...Object.fromEntries(fire.roles.map(role => [role.id, guRef(role.id)]))}});
     const flame = quote.effects.find(effect => effect.kind === 'flame');
     assert.deepEqual([flame.count, flame.magnitude, quote.facts.reserves.keeper.primeval], [2, 2, 4]);
+});
+
+test('claim-checked move leads run only on chapter-placed roles whose kinds are catalogued (GKM427)', () => {
+    const checks = JSON.parse(readFileSync(new URL('../docs/coverage/ri_move_claim_checks.json', import.meta.url), 'utf8'));
+    const inMove = verdict => verdict === 'core' || verdict === 'support';
+    const running = moves.filter(row => row.id.startsWith('lead:') && row.state.startsWith('runs'));
+    assert.ok(running.length >= 7);
+    for (const row of running) {
+        const check = checks.leads[row.id];
+        assert.equal(check.result, 'pass', row.id);
+        assert.equal(row.layer, 'chapter', row.id);
+        assert.ok(row.claimRoles.every(role => inMove(role.luna) && inMove(role.haiku) && /^RI-c\d+-\d+$/.test(role.at)), row.id);
+        assert.ok(row.roles.every(role => guCatalogue[role.kind] && guAbility(role.kind)), row.id);
+    }
+    // A reader error the chapter text caught stays out: the rank-six claim is about Dark Limit, not Limit.
+    assert.equal(checks.kinds['fandom:Limit_Gu'].rank, null);
+    assert.equal(moves.find(row => row.id === 'lead:five-restriction-profound-light-qi').state, 'blocked:role-cannot-run');
+    // Both readers finding unnamed parts keeps the lead blocked on an unnamed role.
+    for (const [id, check] of Object.entries(checks.leads)) if (check.result === 'unnamed-parts')
+        assert.equal(moves.find(row => row.id === id).state, 'blocked:unnamed-role', id);
 });
