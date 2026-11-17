@@ -382,6 +382,9 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 | Lord of the Mysteries potions | `lotm_potions` | Built first: one row per pathway sequence potion and named non-pathway potion, from the open canon (Weibao has read it in full, so it is open in development) | B |
 | Hogwarts spells | `hp_spells` | 117 spellbook records | S |
 | Gu as creatures, other creatures | `creatures` | Rows from G's catalogue plus L's inventory | L |
+| LOTM Sealed Artifacts and mystical items | `lotm_artifacts` | 240 wiki-category pages (Sealed Artifacts 143, item categories); held-out label the Sealed Artifact grade (R6, PWC16) | A |
+| Hogwarts magical objects | `hp_objects` | 599 wiki-category pages (Magical objects, Cursed objects, Dark Magic artefacts, Broomsticks and others); held-out label the object category | A |
+| Reverend Insanity non-Gu treasures | `ri_treasures` | 91 wiki-category pages (Materials and Resources, Immortal Materials, formations, resource points, Items), Gu pages excluded | A |
 
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 

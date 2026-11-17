@@ -13,6 +13,9 @@
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
+| [lotm_artifacts](lotm_artifacts.jsonl) | A | 240 | 240 | 0 | 0 | 128 | 3 | 0 | 100% | 0% |
+| [hp_objects](hp_objects.jsonl) | A | 599 | 599 | 0 | 0 | 160 | 20 | 0 | 100% | 0% |
+| [ri_treasures](ri_treasures.jsonl) | A | 91 | 91 | 0 | 0 | 58 | 2 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -24,13 +27,16 @@
 | gu_kinds | 516 | 16 | 0 | 516 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 4 | 0 | 20 |
+| hp_objects | 0 | 0 | 0 | 0 |
 | hp_potions | 1 | 34 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
+| lotm_artifacts | 0 | 0 | 0 | 0 |
 | lotm_potions | 0 | 46 | 0 | 0 |
+| ri_treasures | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1642 of 1880 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1650 of 1889 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -44,9 +50,12 @@
 | gu_kinds | 8 | 53 | 4 of 53 | not scored without an engine | 1 of 6 (47 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
+| hp_objects | 0 | 0 | | | | | none yet |
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
+| lotm_artifacts | 0 | 0 | | | | | none yet |
 | lotm_potions | 0 | 0 | | | | | none yet |
+| ri_treasures | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -283,20 +292,54 @@
 | lotm_potions | formula-in-notes | 162 |
 | hp_ingredients | material-row | 96 |
 | hp_potions | body-door | 80 |
+| hp_objects | effect-unknown | 78 |
 | gu_moves | roles-unchecked | 63 |
+| lotm_artifacts | effect-unknown | 46 |
+| ri_treasures | effect-unknown | 40 |
 | hp_potions | mind-state | 40 |
 | hp_potions | body-form | 37 |
 | hp_potions | effect-sentence | 33 |
 | hp_potions | plant-or-creature-target | 32 |
 | gu_moves | unnamed-role | 28 |
 | gu_moves | role-cannot-run | 17 |
+| hp_objects | spatial-storage | 17 |
+| lotm_artifacts | mind-binding | 15 |
+| lotm_artifacts | negative-effect-drift | 13 |
 | lotm_potions | formula-wiki-unchecked | 12 |
+| lotm_artifacts | form-transformation | 10 |
+| ri_treasures | material-row | 10 |
+| hp_objects | mind-binding | 10 |
+| lotm_artifacts | power-interaction | 10 |
+| lotm_artifacts | spatial-storage | 10 |
 | hp_potions | conceal-or-sense | 9 |
+| hp_objects | containment-rule | 9 |
+| hp_objects | negative-effect-drift | 8 |
 | hp_potions | object-surface | 8 |
+| hp_objects | divination | 7 |
+| lotm_artifacts | divination | 7 |
+| hp_objects | formation-field | 7 |
+| hp_objects | power-interaction | 7 |
 | lotm_potions | body-door | 6 |
+| hp_objects | item-state | 6 |
 | hp_potions | place-release | 6 |
+| lotm_artifacts | area-field | 5 |
+| ri_treasures | formation-field | 4 |
+| hp_objects | material-row | 4 |
+| lotm_artifacts | containment-rule | 3 |
+| hp_objects | familiar-summon | 3 |
+| lotm_artifacts | familiar-summon | 3 |
+| lotm_artifacts | soul-binding | 3 |
+| ri_treasures | area-field | 2 |
 | hp_potions | luck-field | 2 |
 | hp_potions | protection-field | 2 |
+| hp_objects | soul-binding | 2 |
+| hp_objects | area-field | 1 |
+| hp_objects | form-transformation | 1 |
+| lotm_artifacts | formation-field | 1 |
+| lotm_artifacts | item-state | 1 |
+| ri_treasures | item-state | 1 |
+| lotm_artifacts | power-transfer | 1 |
+| ri_treasures | spatial-storage | 1 |
 
 ## Row format
 

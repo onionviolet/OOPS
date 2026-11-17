@@ -73,6 +73,9 @@ export const DENOMINATORS = {
     lotm_potions: {expected: null, owner: 'B', what: 'pathway sequence and named potions, built first'},
     hp_spells: {expected: 117, owner: 'S', what: 'spellbook records'},
     creatures: {expected: null, owner: 'L', what: "G's catalogue plus L's inventory"},
+    lotm_artifacts: {expected: 240, owner: 'A', what: 'LOTM Sealed Artifacts (143) and named mystical items, wiki categories'},
+    hp_objects: {expected: 599, owner: 'A', what: 'Harry Potter magical-object categories'},
+    ri_treasures: {expected: 91, owner: 'A', what: 'Reverend Insanity non-Gu treasures: materials, formations, resource points, items'},
 };
 const STATE = /^(runs-canon|runs-authored|expressed-canon|expressed-authored|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
 const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case']);
