@@ -14,6 +14,10 @@ import {WORLD_CALENDAR_PROFILES} from '../world_calendar_content.js';
 import {readPort} from '../ui_ports.js';
 import {registerPanelSettings, getDisplaySetting, subscribeDisplaySettings} from '../display_settings.js';
 import {CONTROLLED_ACTOR_ID} from '../observer_view.js';
+import {kitChip, kitElement} from './kit.js';
+import {setStatusText} from './status_line.js';
+import {collectReady} from '../ready_rows.js';
+import {todayDigest} from '../today_strip.js';
 
 const DEFAULT_UNITS = Object.freeze({minutesPerHour: 60, hoursPerDay: 24});
 const TEXT_MAX = 90;
@@ -24,6 +28,10 @@ const clamp01 = n => Math.min(1, Math.max(0, n));
 
 // Plain hour words: the hour number only. A world calendar names no parts of the day in this slice, so none are invented.
 export const hourWords = (minute, units = DEFAULT_UNITS) => String(Math.floor(minute / units.minutesPerHour) % units.hoursPerDay);
+
+// PS190: a clock time for a minute of the day ("14:30"), for the now line, tick tooltips and the chips ahead.
+const pad = n => String(n).padStart(2, '0');
+export const clockWords = (minute, units = DEFAULT_UNITS) => `${Math.floor(minute / units.minutesPerHour) % units.hoursPerDay}:${pad(Math.floor(minute % units.minutesPerHour))}`;
 
 export function unitsOf(calendar) {
     const profile = Object.values(WORLD_CALENDAR_PROFILES).find(p => p.id === calendar?.profileId);
@@ -42,7 +50,7 @@ export function dayStripModel({calendar, units = DEFAULT_UNITS, events = [], wor
     if (!calendar || !Number.isFinite(calendar.minuteWithinDay)) return {hidden: true, reason: 'unknown-calendar', marks: [], ahead: [], ticks: [], summary: {earlier: '', ahead: ''}};
     const dayMinutes = units.minutesPerHour * units.hoursPerDay, now = calendar.minuteWithinDay, at = m => clamp01(m / dayMinutes);
     const quarter = Math.round(units.hoursPerDay / 4);
-    const ticks = [1, 2, 3].map(i => ({fraction: at(i * quarter * units.minutesPerHour), label: String(i * quarter)}));
+    const ticks = [1, 2, 3].map(i => ({fraction: at(i * quarter * units.minutesPerHour), label: String(i * quarter), time: clockWords(i * quarter * units.minutesPerHour, units)}));
     // Past marks: one per hour, the lines of that hour folded into it (the newest names it).
     const buckets = new Map();
     for (const e of [...events].filter(e => Number.isFinite(e.minute) && e.minute >= 0 && e.minute <= now && clean(e.text)).sort((a, b) => a.minute - b.minute)) {
@@ -55,16 +63,16 @@ export function dayStripModel({calendar, units = DEFAULT_UNITS, events = [], wor
     const ahead = [];
     for (const w of work) {
         if (!Number.isFinite(w.endsIn)) continue;
-        const end = now + Math.max(0, w.endsIn), past = end >= dayMinutes, endHour = hourWords(end % dayMinutes, units);
+        const end = now + Math.max(0, w.endsIn), past = end >= dayMinutes, endHour = clockWords(end % dayMinutes, units);
         ahead.push({key: `work:${w.id}`, kind: 'work', to: at(Math.min(end, dayMinutes)), toMinute: end,
             text: past ? 'Work under way, ends tomorrow' : `Work under way, ends at ${endHour}`});
     }
     for (const p of plan) {
         if (!Number.isFinite(p.minute) || p.minute <= now || p.minute >= dayMinutes || !clean(p.text)) continue;
-        ahead.push({key: `plan:${p.id}`, kind: 'plan', at: at(p.minute), toMinute: p.minute, text: `${clip(p.text)} at ${hourWords(p.minute, units)}`});
+        ahead.push({key: `plan:${p.id}`, kind: 'plan', at: at(p.minute), toMinute: p.minute, text: `${clip(p.text)} at ${clockWords(p.minute, units)}`});
     }
     ahead.sort((a, b) => a.toMinute - b.toMinute);
-    return {hidden: false, ticks, nowFraction: at(now), now, marks, ahead,
+    return {hidden: false, ticks, nowFraction: at(now), now, nowLabel: clockWords(now, units), marks, ahead,
         summary: {earlier: marks.length ? marks.at(-1).label : '', ahead: ahead.map(a => a.text).slice(0, 2).join(' · ')}};
 }
 
@@ -86,7 +94,17 @@ registerPanelSettings({id: 'day-strip', title: 'Day strip', settings: [
 export const stripShows = (mode, model) => !model.hidden && mode !== 'off' && (mode === 'on' || model.ahead.length > 0);
 const mode = () => getDisplaySetting('panel.day-strip.visible');
 
-const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const el = kitElement; // one place draws the markup (PS292)
+
+// PS190: with nothing set for the rest of today the strip folds into the status line, and its height goes to the boxes.
+// `next` is the nearest thing to do (a ready row, else the next set hours here); words only, so the line has no state.
+export const todayLine = ({model, next = ''}) => (model.hidden ? '' : `Today: nothing planned${next ? ` · next: ${next}` : ''}`);
+export function nextThing({ready = [], digest = null} = {}) {
+    const row = ready.find(r => r.state === 'ready') || ready.find(r => r.state === 'near');
+    if (row) return row.state === 'near' && row.gap ? `${row.label} (${row.gap})` : row.label;
+    const later = digest?.later?.[0];
+    return later ? `${later.name} ${String(later.detail).replace(/^(?:shut|closed)[^,·;]*?[,·;]\s*/i, '')}`.trim() : '';
+}
 
 // What a Reports line says: its full original wording, without the Open button, voice line or border.
 const lineText = node => {
@@ -108,12 +126,14 @@ export function mountDayStrip({host = placeDock(), stream = document.getElementB
     const root = el('section'); root.id = 'day_strip'; root.className = 'day-strip'; root.hidden = true; root.dataset.surfaceType = 'timeline';
     root.setAttribute('aria-label', 'Today\'s hours');
     const track = el('div', 'day-strip-track'), past = el('i', 'day-strip-past'), nowMark = el('i', 'day-strip-now');
-    nowMark.setAttribute('aria-hidden', 'true'); past.setAttribute('aria-hidden', 'true');
+    const dayName = el('b', 'day-strip-day', 'Today'), nowTime = el('b', 'day-strip-now-time');
+    nowMark.append(nowTime); track.title = 'Today, midnight to midnight';
+    past.setAttribute('aria-hidden', 'true');
     const ticks = el('div', 'day-strip-ticks'), marks = el('div', 'day-strip-marks'), ahead = el('div', 'day-strip-ahead');
     ticks.setAttribute('aria-hidden', 'true'); ahead.setAttribute('aria-hidden', 'true');
-    track.append(past, ahead, ticks, nowMark, marks);
-    const legend = el('p', 'day-strip-legend'), earlier = el('span', 'day-strip-earlier'), later = el('span', 'day-strip-later');
-    legend.append(earlier, later);
+    track.append(past, ahead, dayName, ticks, nowMark, marks);
+    const legend = el('p', 'day-strip-legend'), earlier = el('span', 'day-strip-earlier');
+    legend.append(earlier);
     root.append(track, legend);
     host.prepend(root);
 
@@ -136,7 +156,7 @@ export function mountDayStrip({host = placeDock(), stream = document.getElementB
     }
     const sync = view => { const id = view?.dayIdentity ?? null; if (id !== dayId) { dayId = id; records = []; nodes.clear(); } };
 
-    let markKey = '', aheadKey = '', visible = null;
+    let markKey = '', aheadKey = '', chipKey = '', visible = null;
     const open = id => {
         const node = nodes.get(id)?.deref();
         if (!node?.isConnected) { legend.dataset.said = 'gone'; earlier.textContent = 'That line has scrolled out of Reports.'; return; }
@@ -150,8 +170,15 @@ export function mountDayStrip({host = placeDock(), stream = document.getElementB
         const model = dayStripModel({calendar: view, units: unitsOf(view), events: records, work: workFromExpansion(readPort('expansion')), plan: []});
         const hide = !stripShows(mode(), model) || (!!root.closest('#village_scene') && !!yieldsTo());
         if (hide !== visible) { visible = hide; root.hidden = hide; }
+        // Nothing planned: the status line says so in one line (PS190). Only when the strip is hidden for lack of anything timed.
+        const fold = mode() === 'timed' && !model.hidden && !model.ahead.length; // the status line shows in every view, so a centre view does not hide the fold
+        let line = '';
+        if (fold) { let ready = [], digest = null; try { ready = collectReady(); } catch { ready = []; } try { digest = todayDigest(); } catch { digest = null; } line = todayLine({model, next: nextThing({ready, digest})}); }
+        setStatusText('today', line, {idle: true, title: 'What is set for the rest of today, and what to do next.'});
         if (hide) return;
         root.style.setProperty('--day-now', `${model.nowFraction * 100}%`);
+        if (nowTime.textContent !== model.nowLabel) nowTime.textContent = model.nowLabel;
+        root.dataset.nowSide = model.nowFraction > 0.8 ? 'left' : 'right'; // the time stays on the strip near the end of the day
         const mk = JSON.stringify(model.marks.map(m => [m.key, m.fraction, m.count, m.text]));
         if (mk !== markKey) {
             markKey = mk;
@@ -160,7 +187,7 @@ export function mountDayStrip({host = placeDock(), stream = document.getElementB
                 b.style.setProperty('--day-at', `${m.fraction * 100}%`); b.title = m.label; b.setAttribute('aria-label', m.label);
                 b.onclick = () => open(m.openId); return b;
             }));
-            ticks.replaceChildren(...model.ticks.map(t => { const s = el('span', 'day-strip-tick', t.label); s.style.setProperty('--day-at', `${t.fraction * 100}%`); return s; }));
+            ticks.replaceChildren(...model.ticks.map(t => { const s = el('span', 'day-strip-tick', t.label); s.title = t.time; s.style.setProperty('--day-at', `${t.fraction * 100}%`); return s; }));
         }
         const ak = JSON.stringify(model.ahead.map(a => [a.key, a.to ?? a.at, a.text]));
         if (ak !== aheadKey) {
@@ -171,11 +198,14 @@ export function mountDayStrip({host = placeDock(), stream = document.getElementB
                 return s;
             }));
         }
-        if (legend.dataset.said !== 'gone' || model.summary.earlier) {
-            earlier.textContent = model.summary.earlier ? `Today: ${model.summary.earlier}` : '';
-            delete legend.dataset.said;
+        if (legend.dataset.said !== 'gone') earlier.textContent = '';
+        // PS190: what happened today and what is set show as chips: the newest earlier hours (press one to find its line), then what is ahead.
+        const ck = JSON.stringify([model.marks.slice(-3).map(m => [m.key, m.text]), model.ahead.slice(0, 3).map(a => a.text)]);
+        if (ck !== chipKey) {
+            chipKey = ck; delete legend.dataset.said; earlier.textContent = '';
+            legend.replaceChildren(earlier, ...model.marks.slice(-3).map(m => { const c = kitChip({label: `${m.hour}:00 ${m.text}`, run: () => open(m.openId)}); c.title = m.label; c.className += ' day-strip-chip'; return c; }),
+                ...model.ahead.slice(0, 3).map(a => { const c = kitChip({label: a.text}); c.className += ' day-strip-chip day-strip-chip--ahead'; c.title = a.text; return c; }));
         }
-        later.textContent = model.summary.ahead ? `Ahead: ${model.summary.ahead}` : '';
         root.dataset.empty = !model.marks.length && !model.ahead.length ? 'true' : 'false';
     }
     const timer = setInterval(render, 1000);

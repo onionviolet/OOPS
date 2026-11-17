@@ -15,7 +15,7 @@ import {readPort} from '../ui_ports.js';
 import {energyView} from '../energy_resources.js';
 import {centerModes} from '../center_modes.js';
 
-const SLOTS = ['place', 'when', 'weather', 'reserve', 'work', 'save'];
+const SLOTS = ['place', 'when', 'weather', 'reserve', 'today', 'work', 'save'];
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 
 // Pure: the reserve words for a list of energy views. Full pools read as "Primeval essence 40/40".

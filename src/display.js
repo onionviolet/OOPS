@@ -54,10 +54,11 @@ import { set_bar_fraction, mark_vital_meter } from "./ui/bar_semantics.js";
 import { playerAttributeDefinitions, ATTRIBUTE_DESCRIPTIONS, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR, affixSourceRows } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
+import { reportTags } from "./ui/report_filters.js";
 import { channelNote } from "./channels.js";
-import { rankOf } from "./faction_rank.js";
 import { watchSkillColumn, fullNameOnHover } from "./ui/skill_row.js";
 import { inventoryNameParts, inventoryControls } from "./ui/inventory_row.js";
+import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts, recipeStateWord} from "./crafting_visibility.js"; import {setCraftingReader, craftingReadyReader} from "./ready_sources.js"; import {groupRecipeRows} from "./ui/craft_groups.js"; import {gatherLine, stopOutcome} from "./ui/gather_line.js"; import {craftChanceParts} from "./ui/craft_glance.js";
 import {readPort,ports,whenPortsReady} from './ui_ports.js';
@@ -1180,7 +1181,7 @@ export function setNativeLogBufferReader(reader) {
         : getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
     if(batch_log) batched_log_following = log_was_following;
 
-    message.classList.add(class_to_add, group_to_add);
+    message.classList.add(class_to_add, group_to_add, ...reportTags(message_type, message_to_add, details).map(tag => `report-${tag}`)); // PS193: Story and Ready filters
     // Presentation metadata follows the native event kind, never inferred story
     // facts. Category and actor/outcome remain readable without color.
     message.dataset.logKind=message_type;

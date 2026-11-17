@@ -16,6 +16,10 @@
 //   leak       visible text shows engine words or a marker: text not found, undefined, NaN, [object Object] (PRS6, PRS9)
 //   repeat     one module shows the same sentence of 30+ characters twice (UR147)
 //   rawtime    a line shows a four-digit or larger minute count with no day or hour beside it (UR161)
+//   skillrows  a skill row or the Learning now line wraps, breaks a word or scrolls sideways at the narrowest column (PS284)
+//   twice      the same row (a fighter, item, person or action, same words and numbers) is drawn in two boxes at once (PS301)
+//   stray      a panel or action outside the layout registry, src/layout_spec.js; the count may fall and never rise (PS195;
+//              tests/fixtures/flow_strays.json; --write-strays accepts a lower count)
 //
 // States (UI audit round 48, UIC135): the route walk runs on the mid fixture. The home view is then read
 // again (oversized, leak, repeat, rawtime, placeholder) in an early life and in a day-4 life opened ten
@@ -28,6 +32,9 @@ import {prepareTree, build, serve} from './perf/lib.mjs';
 import {Session} from './playtest/lib.mjs';
 import {defaultCustomizationState} from '../src/customization_profiles.js';
 import {ENGINE_WORDS} from './check_player_text.mjs';
+import {collectRows, drawnTwice, collectStrays, strayVerdict} from './flow_checks.mjs';
+import {LAYOUT_SPEC} from '../src/layout_spec.js';
+import {skillRowWrap, learnOneSkill} from './check_skill_rows.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const jsonOut = process.argv.includes('--json') ? process.argv[process.argv.indexOf('--json') + 1] : null;
@@ -154,6 +161,12 @@ const smallTargets = async where => {
     });
     for(const row of rows) add('smalltarget', where, `${row}, under 24px to the pointer`);
 };
+// PS301: the same row in two boxes of one screen.
+const twice = async where => {for(const d of drawnTwice(await p.evaluate(collectRows))) add('twice', where, `"${d.text.slice(0, 60)}" is drawn in two boxes (${d.modules.join(', ')})`);};
+// PS195: panels and actions outside the layout registry, collected over every screen the walk visits.
+const strays = new Set();
+const strayKnown = {modules: [...Object.keys(LAYOUT_SPEC.surfaces), ...Object.keys(LAYOUT_SPEC.views || {})], routes: LAYOUT_SPEC.routes.map(r => r.id)};
+const collectStray = async () => {for(const s of await p.evaluate(collectStrays, strayKnown)) strays.add(s);};
 const oversized = async where => {for(const u of await usage()) if(u.area >= 10 && u.used < 25) add('oversized', where, `${u.module} takes ${u.area}% of the screen and uses ${u.used}% of its box`);};
 const moved = (before, after, where) => {
     for(const [id, b] of Object.entries(before)) {
@@ -173,6 +186,8 @@ await reading('home');
 await blockedWithoutReason('home');
 await duplicateWays('home');
 await smallTargets('home');
+await twice('home');
+await collectStray();
 const homeFrame = await frame();
 const home = await screen();
 for(const line of await placeholders()) add('placeholder', 'home', line);
@@ -187,6 +202,8 @@ for(const route of routes) {
     await oversized(route.name);
     await reading(route.name);
     await blockedWithoutReason(route.name);
+    await twice(route.name);
+    await collectStray();
     const target = await p.evaluate(id => document.querySelector(`[data-module="${id}"]`)?.dataset.module || id, route.id);
     if(now.sig === home.sig && now.focused !== target) add('response', route.name, 'the click changed nothing visible and left focus where it was');
     for(const line of await placeholders()) add('placeholder', route.name, line);
@@ -220,6 +237,10 @@ for(const [w, h, zoom] of [[1536, 864, '125%'], [1280, 720, '150%']]) {
     for(const c of z.clipped) add('zoom', zoom, c);
     for(const line of await placeholders()) add('placeholder', zoom, line);
 }
+// PS284: a learned skill's row keeps its name and percent on one line at the narrowest column the layout allows.
+await p.setViewportSize({width: 1920, height: 1080}); await p.waitForTimeout(300);
+try {await learnOneSkill(p, session); for(const f of await skillRowWrap(p)) add('skillrows', 'Skills', f);}
+catch(error) {add('skillrows', 'Skills', `could not be read: ${String(error.message || error).split('\n')[0].slice(0, 120)}`);}
 await session.close?.();
 const errors = session.errors.filter(e => e.kind === 'pageerror');
 for(const e of errors) add('error', 'page', e.text.split('\n')[0]);
@@ -228,6 +249,9 @@ for(const e of errors) add('error', 'page', e.text.split('\n')[0]);
 const WALL = Date.UTC(2026, 9, 26, 15), DAY = 24 * 60;
 const noPacks = {beforeOpen: async c => c.route('**/private_packs/manifest.json', r => r.fulfill({json: {schema: 1, packs: []}}))};
 const openState = async (save, wall) => {const s = new Session({url: server.url + '?test_hooks=1', seed: 87, wall, hooks: noPacks}); await s.start(); await s.open(save); return s;};
+// Where the weather line is read. The one-bar shell moved it from the place panel's body into the status line
+// (#game_status, 2026-11-14), so the rain state looks in both; weather itself did not change (rain falls on days 4 to 7 and 11 of 13).
+const rainShown = () => [...document.querySelectorAll('#game_status, #main_content .workspace-module-body')].some(e => e.offsetParent && /°C/.test(e.textContent) && /Rain/.test(e.textContent));
 const STATES = [
     {label: 'early life', open: () => openState(null, WALL)},
     // Three played days, saved, then opened ten days of wall time later: the return note is on screen.
@@ -242,14 +266,14 @@ const STATES = [
     // stands in it for two hours. `must` returns what is wrong, or '' when the state shows what its label says.
     {label: 'a rainy day, two hours in the rain', open: async () => {
         const s = await openState(null, WALL);
-        const raining = () => s.page.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /°C/.test(e.textContent) && /Rain/.test(e.textContent)));
+        const raining = () => s.page.evaluate(rainShown);
         for(let i = 0; i < 120 && !await raining(); i++) await s.step(120);
         if(await raining()) await s.step(120);
         return s;
-    }, must: p => p.evaluate(() => {
-        if(![...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /°C/.test(e.textContent) && /Rain/.test(e.textContent))) return 'no rain within ten played days';
-        return /Wet|Cold/.test(document.getElementById('shell_condition')?.textContent || '') ? '' : 'two hours in the rain and Condition names neither Wet nor Cold';
-    })},
+    }, must: async p => {
+        if(!await p.evaluate(rainShown)) return 'no rain within ten played days';
+        return /Wet|Cold/.test(await p.evaluate(() => document.getElementById('shell_condition')?.textContent || '')) ? '' : 'two hours in the rain and Condition names neither Wet nor Cold';
+    }},
     // A fight: walk from the Village into the Infested field on the mid-life save and let the first exchange play.
     {label: 'a fight in the Infested field', open: async () => {
         const s = await openState(seed, WALL);
@@ -276,6 +300,14 @@ for(const {label, open, expect = [], must} of STATES) {
     } catch(error) {add('state', label, `could not be read: ${String(error.message || error).split('\n')[0].slice(0, 120)}`);}
     finally {await other?.close?.();}
 }
+// PS195: the stray count against its accepted baseline (the ratchet: it may fall, it may not rise).
+const strayFile = new URL('../tests/fixtures/flow_strays.json', import.meta.url);
+const strayBase = JSON.parse(await readFile(strayFile, 'utf8')), strayList = [...strays].sort();
+const strayResult = strayVerdict({found: strayList, baseline: strayBase});
+for(const s of strayList) console.log(`stray       outside the layout registry: ${s}${strayBase.strays.includes(s) ? ' (in the baseline)' : ''}`);
+if(process.argv.includes('--write-strays')) await writeFile(strayFile, JSON.stringify({count: strayList.length, strays: strayList, note: strayBase.note}, null, 1) + '\n');
+else if(strayResult.rose) add('stray', 'walk', `${strayList.length} panels and actions sit outside the layout registry, up from ${strayBase.count}: ${strayResult.added.join('; ')}`);
+else if(strayResult.fell) console.log(`stray       ${strayList.length} outside the layout registry, down from ${strayBase.count}: run with --write-strays to keep the lower count`);
 // One cause usually shows on many routes: group by what was found, listing where.
 const grouped = new Map();
 for(const f of findings) {const k = f.check + '|' + f.detail; const g = grouped.get(k) || grouped.set(k, {check: f.check, detail: f.detail, where: []}).get(k); if(!g.where.includes(f.where)) g.where.push(f.where);}
@@ -289,8 +321,8 @@ for(const f of grouped.values()) {
 }
 for(const f of known) console.log(`known       ${f.detail}\n            ${f.owner}`);
 for(const f of unique) console.log(`${f.check.padEnd(11)} ${f.detail}\n            at: ${f.where.length > 4 ? `${f.where.slice(0, 3).join(', ')} and ${f.where.length - 3} more` : f.where.join(', ')}`);
-console.log(`check:flow: ${routes.length} routes walked at 1920x1080, zoom at 125% and 150%; home also read in ${statesRead.length} of ${STATES.length} other states (${statesRead.join('; ') || 'none'}); ${unique.length} finding${unique.length === 1 ? '' : 's'}.`);
-if(jsonOut) await writeFile(jsonOut, JSON.stringify({routes, states: statesRead, findings: unique}, null, 1));
+console.log(`check:flow: ${strayList.length} strays outside the layout registry (baseline ${strayBase.count}); ${routes.length} routes walked at 1920x1080, zoom at 125% and 150%; home also read in ${statesRead.length} of ${STATES.length} other states (${statesRead.join('; ') || 'none'}); ${unique.length} finding${unique.length === 1 ? '' : 's'}.`);
+if(jsonOut) await writeFile(jsonOut, JSON.stringify({routes, states: statesRead, strays: strayList, findings: unique}, null, 1));
 // The scratch build is not kept (finished tasks delete their extras, 2026-11-14).
 await rm(tree, {recursive: true, force: true});
 process.exit(unique.length ? 1 : 0);

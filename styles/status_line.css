@@ -24,6 +24,7 @@
 .game-status [data-condition-value="spring"] {color:var(--p23-season-spring);} .game-status [data-condition-value="summer"] {color:var(--p23-season-summer);}
 .game-status :is([data-condition-value="autumn"],[data-condition-value="fall"]) {color:var(--p23-season-autumn);}
 .game-status :is([data-condition-value="winter"],[data-condition-value="snow"]) {color:var(--p23-season-winter);} .game-status [data-condition-value="rain"] {color:var(--p23-rain);}
+.game-status-today {flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;color:var(--p23-muted);}
 .game-status-reserve {flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;color:var(--p23-value, var(--ui-accent));}
 .game-status-work {display:block!important;min-height:var(--ui-target-min);flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;max-width:40em;font:inherit;color:var(--p23-text);background:transparent;border:0;border-right:var(--ui-space-hairline) solid var(--p23-line);
     text-align:left;cursor:pointer;text-decoration:underline;text-underline-offset:.15em;}
@@ -35,7 +36,7 @@
 /* The day strip as the spine's last row: the track and its legend side by side, one line high. */
 #game_spine > .day-strip {--day-track:round(calc(var(--ui-control-sm) * .7), 1px);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:var(--ui-space-3);height:auto;padding:var(--ui-space-1) var(--ui-space-3);border-top:var(--ui-space-hairline) solid var(--p23-line);border-bottom:0;}
 #game_spine > .day-strip .day-strip-legend {max-width:40vw;}
-#game_spine > .day-strip .day-strip-legend:not(:has(> span:not(:empty))) {display:none;}
+#game_spine > .day-strip .day-strip-legend:not(:has(> :is(span,button):not(:empty))) {display:none;}
 #game_spine > .day-strip .day-strip-tick {line-height:var(--day-track);font-size:var(--ui-type-small);}
 #game_spine > .day-strip[hidden] {display:none;}
 #game_spine > .day-strip .day-strip-legend {font-size:var(--ui-type-small);}

@@ -531,13 +531,6 @@
   "toFixed": 0,
   "ownMarkup": 1
  },
- "src/ui/day_strip.js": {
-  "colour": 0,
-  "px": 0,
-  "border": 0,
-  "toFixed": 0,
-  "ownMarkup": 1
- },
  "src/ui/feel_finish.js": {
   "colour": 0,
   "px": 0,

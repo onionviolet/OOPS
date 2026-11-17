@@ -23,3 +23,14 @@
 .day-strip-legend > span { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .day-strip-later { color: var(--ui-accent); }
 .day-strip-found { outline: 2px solid var(--ui-accent); outline-offset: var(--ui-space-hairline); }
+/* PS190: the strip explains itself: a "Today" label, the time on the now line, and chips for what happened and what is set. */
+.day-strip-day { position: absolute; left: var(--ui-space-2); top: 0; bottom: 0; display: flex; align-items: center; font-weight: var(--ui-weight-strong); pointer-events: none; z-index: var(--ui-layer-raised); }
+.day-strip-now-time { position: absolute; top: 0; bottom: 0; left: var(--ui-space-2); display: flex; align-items: center; padding: 0 var(--ui-space-2); background: var(--ui-navy); color: var(--ui-accent); white-space: nowrap; z-index: var(--ui-layer-raised); }
+.day-strip[data-now-side="left"] .day-strip-now-time { left: auto; right: var(--ui-space-2); }
+.day-strip-legend > .day-strip-chip { max-width: 28em; overflow: hidden; text-overflow: ellipsis; font: inherit; color: var(--ui-text); background: transparent; }
+.day-strip-legend > .day-strip-chip--ahead { color: var(--ui-accent); border-color: var(--ui-accent); }
+button.day-strip-chip { cursor: pointer; }
+button.day-strip-chip:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: var(--ui-space-hairline); }
+/* The marks layer covers the whole track, so only its buttons take the pointer; otherwise the ticks under it never get a hover (PS190). */
+.day-strip-marks { pointer-events: none; }
+.day-strip-marks > .day-strip-mark, .day-strip-ticks > .day-strip-tick { pointer-events: auto; }

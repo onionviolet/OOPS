@@ -1975,3 +1975,11 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 .kit-page__feature {display:grid;grid-template-columns:10em repeat(6,minmax(0,1fr));gap:var(--kit-gap-2);padding:var(--kit-gap-2) 0;border-bottom:var(--kit-border) solid var(--ui-muted);}
 .kit-page__cell {display:flex;flex-direction:column;gap:var(--kit-gap-1);min-width:0;}
 .kit-page__state {color:var(--ui-muted);}
+/* PS193: the Reports filter row at the foot of Reports, and what the Ready and Story toggles hide. */
+.report-kinds {display:flex;flex-wrap:wrap;gap:var(--kit-gap-1);flex-shrink:0;padding:var(--kit-gap-1) 0;border-top:var(--kit-border) solid var(--ui-muted);}
+#main_content.workspace-active .report-kinds > .kit-chip {min-height:0;padding:0 var(--kit-gap-2);color:var(--ui-muted);background:transparent;border:var(--kit-border) solid var(--ui-muted);border-radius:0;cursor:pointer;}
+#main_content.workspace-active .report-kinds > .kit-chip[aria-pressed="true"] {color:var(--ui-accent);border-color:var(--ui-accent);}
+#main_content.workspace-active .report-kinds > .kit-chip[aria-pressed="false"] {text-decoration:line-through;}
+#main_content.workspace-active .report-kinds > .kit-chip:hover {background:var(--ui-swatch-131);}
+#main_content.workspace-active .report-kinds > [hidden] {display:none;}
+.report-hide-story #message_box_div .message_common.report-story, .report-hide-ready #message_box_div .message_common:has(> .report-next) {display:none!important;}

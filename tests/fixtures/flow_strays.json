@@ -1,0 +1,8 @@
+{
+ "count": 2,
+ "strays": [
+  "panel #shell_inspector",
+  "action summary \"Calculation and sources\""
+ ],
+ "note": "check:flow PS195: panels and actions outside the layout registry (src/layout_spec.js) found on the 1920x1080 walk. Counts only go down; lower it with: npm run check:flow -- --write-strays"
+}

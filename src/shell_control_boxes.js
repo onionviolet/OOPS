@@ -1,5 +1,6 @@
 import {createControlBox} from './ui/control_box.js';
 import {categoryOf} from './inventory_tabs.js';
+import {mountReportFilters} from './ui/report_filters.js';
 
 // R21 control boxes for the parity shell's Inventory and Reports (CB1–CB5). The boxes move the
 // panels' existing controls into their popovers and back; every control keeps its owner (native
@@ -39,17 +40,12 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
     clear.addEventListener('click', () => tabs.node.querySelector('.inventory-tabs-clear')?.click());
     row.append(inventory.node, clear);
     // Reports: [box][Latest] in the Reports header; filters, follow, stop and clear in the box.
-    const reports = createControlBox({id: 'reports', title: 'Reports view', triggerLabel: 'Filter', placement: 'beside'});
+    const reports = createControlBox({id: 'reports', title: 'Reports view', triggerLabel: 'View', placement: 'beside'});
     const reportsRow = document.createElement('span'); reportsRow.className = 'shell-header-tools';
     reportsRow.append(reports.node);
-    const toggles = document.createElement('div'); toggles.className = 'control-box-toggles'; toggles.setAttribute('role', 'group'); toggles.setAttribute('aria-label', 'Report kinds shown');
-    const proxies = new Map();
-    for (const id of ['message_show_unlocks', 'message_show_events', 'message_show_crafting', 'message_show_combat', 'message_show_loot', 'message_show_background']) {
-        const b = document.createElement('button'); b.type = 'button'; b.dataset.nativeFilter = id;
-        b.addEventListener('click', () => { document.getElementById(id)?.click(); render(); });
-        proxies.set(id, b); toggles.append(b);
-    }
-    const hiddenReports = document.createElement('p'); hiddenReports.className = 'shell-reports-empty'; hiddenReports.textContent = 'All report kinds are hidden. Choose kinds below to show existing history.'; hiddenReports.hidden = true;
+    // PS193: the kinds are a row of toggles at the foot of Reports (upstream's filters plus Ready and Story); the box keeps follow, stop and clear.
+    const kinds = mountReportFilters({onChange: () => render()}), toggles = kinds.row;
+    const hiddenReports = document.createElement('p'); hiddenReports.className = 'shell-reports-empty'; hiddenReports.textContent = 'All report kinds are hidden. Choose kinds at the foot of Reports to show existing history.'; hiddenReports.hidden = true;
     const options = document.createElement('div'); options.className = 'control-box-options';
     let wasParity = null, folded = null, lastSize = '';
     // Weibao 2026-10-17: the You header is the place to type your name (Proto23's "You" title).
@@ -72,7 +68,7 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
         if (tabs.node.parentNode !== compact) compact.prepend(tabs.node);
         row.remove();
         log.tools.append(log.filters, log.follow, log.latest, log.combatLog, log.clearLog);
-        reportsRow.remove(); hiddenReports.remove();
+        reportsRow.remove(); hiddenReports.remove(); toggles.remove();
         inventory.close({restore: false}); reports.close({restore: false});
     };
     const place = () => {
@@ -91,7 +87,9 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
         const header = document.querySelector('.workspace-module[data-module="messages"] > .workspace-module-header');
         if (header && reportsRow.parentNode !== header) header.querySelector('strong')?.after(reportsRow);
         if (log.latest.parentNode !== reportsRow) reportsRow.append(log.latest);
-        if (toggles.parentNode !== reports.body) reports.body.append(hiddenReports, toggles, options);
+        const foot = document.getElementById('message_controls');
+        if (foot && toggles.previousElementSibling !== foot) foot.after(toggles);
+        if (options.parentNode !== reports.body) reports.body.append(hiddenReports, options);
         for (const n of [log.follow, log.combatLog, log.clearLog]) if (n.parentNode !== options) options.append(n);
     };
     function render() {
@@ -108,18 +106,10 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
         clear.hidden = !folded; clear.disabled = !filtered; clear.dataset.active = String(filtered);
         const clearTitle = filtered ? 'Clear filter: show all items and clear the search' : 'Nothing to clear';
         if (clear.title !== clearTitle) { clear.title = clearTitle; clear.setAttribute('aria-label', clearTitle); }
-        let enabled = 0;
-        for (const [id, b] of proxies) {
-            const native = document.getElementById(id), pressed = !!native?.classList.contains('active_selection_button');
-            if (pressed) enabled++;
-            const text = native?.textContent.trim() || id;
-            if (b.textContent !== text) b.textContent = text;
-            if (b.getAttribute('aria-pressed') !== String(pressed)) b.setAttribute('aria-pressed', String(pressed));
-            b.hidden = !native || native.hidden;
-        }
-        const reportText = reportsLabel({enabled, total: proxies.size, follow: log.follow.value, combatStopped: log.combatLog.getAttribute('aria-pressed') === 'true'});
+        const enabled = kinds.render();
+        const reportText = reportsLabel({enabled, total: kinds.chips.size, follow: log.follow.value, combatStopped: log.combatLog.getAttribute('aria-pressed') === 'true'});
         hiddenReports.hidden = enabled !== 0;
-        reports.setLabel(reportText, `${reportText}. Opens report kinds, follow, stop combat log and clear.`);
+        reports.setLabel(reportText, `${reportText}. Opens follow, stop combat log and clear. The kinds are toggles at the foot of Reports.`);
     }
     return {render, inventory, reports, folded: () => folded};
 }
