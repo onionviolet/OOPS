@@ -11,6 +11,10 @@
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 249 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 376 | 9 | 0 | 100% | 5% |
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
+| [a_novel_concept_powers](a_novel_concept_powers.jsonl) | P | to build | 128 | 0 | 0 | 34 | 39 | 0 | 100% | 0% |
+| [labyrinth_mad_god_powers](labyrinth_mad_god_powers.jsonl) | P | to build | 57 | 0 | 0 | 18 | 17 | 0 | 100% | 0% |
+| [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 19 | 29 | 0 | 100% | 0% |
+| [speedrunning_multiverse_powers](speedrunning_multiverse_powers.jsonl) | P | to build | 111 | 0 | 0 | 46 | 13 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
 
@@ -20,17 +24,21 @@
 
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
+| a_novel_concept_powers | 0 | 0 | 0 | 0 |
 | creatures | 17 | 82 | 0 | 17 |
 | gu_kinds | 516 | 16 | 0 | 516 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 4 | 0 | 20 |
 | hp_potions | 1 | 34 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
+| labyrinth_mad_god_powers | 0 | 0 | 0 | 0 |
 | lotm_potions | 0 | 46 | 0 | 0 |
+| speedrunning_multiverse_powers | 0 | 0 | 0 | 0 |
+| you_have_died_again_powers | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1642 of 1880 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1650 of 1889 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -40,13 +48,17 @@
 
 | Ledger | Tuned on | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route | Split |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| a_novel_concept_powers | 0 | 0 | | | | | none yet |
 | creatures | 0 | 0 | | | | | none yet |
 | gu_kinds | 8 | 53 | 4 of 53 | not scored without an engine | 1 of 6 (47 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
+| labyrinth_mad_god_powers | 0 | 0 | | | | | none yet |
 | lotm_potions | 0 | 0 | | | | | none yet |
+| speedrunning_multiverse_powers | 0 | 0 | | | | | none yet |
+| you_have_died_again_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -290,13 +302,48 @@
 | hp_potions | plant-or-creature-target | 32 |
 | gu_moves | unnamed-role | 28 |
 | gu_moves | role-cannot-run | 17 |
+| speedrunning_multiverse_powers | concept-law | 12 |
 | lotm_potions | formula-wiki-unchecked | 12 |
+| speedrunning_multiverse_powers | item-bound-power | 11 |
+| labyrinth_mad_god_powers | item-bound-power | 10 |
 | hp_potions | conceal-or-sense | 9 |
+| a_novel_concept_powers | concept-law | 9 |
 | hp_potions | object-surface | 8 |
+| a_novel_concept_powers | power-interaction | 8 |
+| you_have_died_again_powers | memory-transfer | 7 |
+| speedrunning_multiverse_powers | power-interaction | 7 |
 | lotm_potions | body-door | 6 |
 | hp_potions | place-release | 6 |
+| speedrunning_multiverse_powers | form-transformation | 4 |
+| you_have_died_again_powers | item-bound-power | 4 |
+| a_novel_concept_powers | revival-on-death | 4 |
+| a_novel_concept_powers | body-conditioning-rank | 3 |
+| labyrinth_mad_god_powers | form-transformation | 3 |
+| you_have_died_again_powers | power-interaction | 3 |
+| you_have_died_again_powers | time-loop | 3 |
+| labyrinth_mad_god_powers | body-conditioning-rank | 2 |
+| a_novel_concept_powers | item-bound-power | 2 |
 | hp_potions | luck-field | 2 |
+| a_novel_concept_powers | luck-mechanism | 2 |
+| speedrunning_multiverse_powers | mind-binding | 2 |
+| labyrinth_mad_god_powers | power-interaction | 2 |
+| speedrunning_multiverse_powers | power-transfer | 2 |
 | hp_potions | protection-field | 2 |
+| speedrunning_multiverse_powers | source-link | 2 |
+| a_novel_concept_powers | time-loop | 2 |
+| a_novel_concept_powers | area-field | 1 |
+| speedrunning_multiverse_powers | body-conditioning-rank | 1 |
+| you_have_died_again_powers | body-conditioning-rank | 1 |
+| a_novel_concept_powers | effect-unknown | 1 |
+| speedrunning_multiverse_powers | effect-unknown | 1 |
+| you_have_died_again_powers | form-transformation | 1 |
+| speedrunning_multiverse_powers | future-vision | 1 |
+| a_novel_concept_powers | inner-world | 1 |
+| speedrunning_multiverse_powers | luck-mechanism | 1 |
+| a_novel_concept_powers | mind-ennoblement | 1 |
+| labyrinth_mad_god_powers | source-link | 1 |
+| speedrunning_multiverse_powers | time-loop | 1 |
+| speedrunning_multiverse_powers | world-travel | 1 |
 
 ## Row format
 
