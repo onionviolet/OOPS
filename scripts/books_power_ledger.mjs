@@ -13,6 +13,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
+import {attachItemBoundRows} from './item_bound_ledgers.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const PRIVATE = '/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-catalogues-2026-11-16/private/';
@@ -233,8 +234,8 @@ export function buildLedger(book, side) {
         return {id, source: `${BOOKS[book].source} ${r.nameSource[0]}`, state, mechanisms: ['W'], test: null, note};
     });
 }
-function build(book) {
-    const rows = buildLedger(book, read(sidecarPath(book)));
+async function build(book) {
+    const rows = await attachItemBoundRows(buildLedger(book, read(sidecarPath(book))));
     writeFileSync(ledgerPath(book), `${rows.map(r => JSON.stringify(r)).join('\n')}\n`);
     console.log(book, JSON.stringify({rows: rows.length, states: tally(rows.map(r => r.state))}));
 }
@@ -247,7 +248,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         if (cmd === 'refresh') await refresh(b);
         else if (cmd === 'run') for (const m of models.length ? models : ['luna']) await run(b, m, flags);
         else if (cmd === 'fold') fold(b);
-        else if (cmd === 'build') build(b);
+        else if (cmd === 'build') await build(b);
         else { console.error('usage: refresh|run|fold|build <ss|sl|orv|rt..> [luna|haiku] [--sync|--dry|--wait|--max-usd N]'); process.exit(2); }
     }
 }
