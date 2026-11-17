@@ -209,3 +209,25 @@ Ledgers `docs/coverage/shadow_slave_powers.jsonl` (436 rows), `solo_leveling_pow
 **Not done.** `route_to_player` (PWC4) and per-row knowledge checks (PWC7) beyond the `known_by` enum; the long-tail singletons below the threshold; a hand check of every blocked row.
 
 **Cost.** Luna about $0.4 (Solo Leveling sync pilot $0.04, the rest batch), Haiku batches about $1 to $2 at the assumed $1 and $5 per million (the repo runner's table lists Haiku at the Luna rate, so its own figure is low); under the $5 allowance.
+
+
+## Round 3: four books with no wiki dump (PWC17, 2026-11-16; proposals, agent-verified, not human-reviewed)
+
+Ledgers `docs/coverage/{mother_of_learning,circle_of_inevitability,legendary_mechanic,fated_villain}_powers.jsonl`, each with a sidecar `<book>_power_labels.json` (the PWC1 sheet as enums, locators and speakers; free text stays in the private folder). One builder serves all four: `scripts/book_power_ledgers.mjs` (refresh, names, merge, sheets, fold, build), shape test `tests/book_power_ledgers.test.js`.
+
+**Method.** Denominator (PWC3): a name pass over each book's reader claims and indexes (Mother of Learning: POWERS.md, the powers table and reader notes; Circle of Inevitability: 1,061 power claims plus POWERS.md; Legendary Mechanic: POWER_AND_PRODUCTION.md and engine tables; Fated Villain: system and ability-word claims in the MTL-edition ledger, pass 2 incomplete), alias-merged by normalised name. The sha1 split (GKM429) was written to the sidecar before the sheet pass. Sheets ran by batch (AU16), one request per row with every question in it. Total API spend about $0.38 at batch rates (names $0.05, sheets $0.33; worst-case bound under $5).
+
+| Book | Rows | catalogued | blocked | not-a-thing | Top blockers |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Mother of Learning | 230 | 68 | 157 | 5 | soul-state 35, effect-unknown 34, power-interaction 15, mind-binding 15, area-field 12 |
+| Circle of Inevitability | 445 | 114 | 323 | 8 | effect-unknown 104, item-bound-power 64, divination-fate 24, form-transformation 23, mind-binding 21 |
+| The Legendary Mechanic | 219 | 36 | 180 | 3 | effect-unknown 104, system-interface 13, soul-state 13, item-bound-power 11, form-transformation 8 |
+| Fated Villain | 309 | 73 | 226 | 10 | effect-unknown 91, item-bound-power 34, soul-state 19, divination-fate 15, system-interface 13 |
+
+No row runs; `catalogued` means no missing capability was found, not that an engine case exists. `effect-unknown` is the single biggest blocker in three books: the claims name the power but do not say what it does, so these rows need chapter reads (PWC15), not engine work. Of the real capabilities, `item-bound-power`, `soul-state`, `divination-fate`, `mind-binding`, `area-field` and `form-transformation` recur across these four books; summing them with the other worlds' ledgers is the PWC5 histogram, not done here.
+
+**Scores (PWC2).** Circle of Inevitability only: the pathway is the book's own class, hidden from the sheet pass (Sequence numbers and pathway words redacted), scored against a pre-registered object-to-pathway map. Held out 0 of 3 against a best-constant baseline of 2; all 22 scorable Sequence rows 9 against 10. The grammar does not beat the baseline, so it stays model-tier in the sidecar and the ledger notes mark it unchecked. The pool is small because only 39 Sequence names resolve to a lotm_potions id (the other 112 class-or-rank steps use names the potion ledger lacks) and the leak risk is real: Sequence names such as Seer let the model use LOTM prior knowledge, so even this score is an upper bound. Mother of Learning, The Legendary Mechanic and Fated Villain have no per-power classification (circle badges, grade A to E and ranks classify people and artifacts), so they are unscored, with the reason in each sidecar.
+
+**Links.** 39 Circle of Inevitability Sequence rows point to `lotm.potion.<pathway>_<n>`; their potion sheets live in `lotm_potions`, so the ledger row is `catalogued` and the CoI sheet is kept only for the score.
+
+**Gaps named.** (1) 13 Legendary Mechanic names and 1 Circle of Inevitability name had no evidence line beyond the name pass and are `blocked:effect-unknown`. (2) The name pass is model-tier on the claims, not a wiki category, so a missing name means an uncovered claim, not an unread volume. (3) Circle of Inevitability's Fated-line and Goddess-of-Fate steps are not in `lotm_potions` and need rows there before they can link. (4) Chapter-backed checks of the effect fields were not run (PWC15).
