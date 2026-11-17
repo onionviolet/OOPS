@@ -73,6 +73,8 @@ function kindRow(indexed) {
         const chapterNote = former.state === 'blocked:rank-unknown' && chapterRank(record.id)
             ? ` Chapter tier (Luna over chapter text, one reader, unchecked by a second): rank ${chapterRank(record.id).rank} at ${chapterRank(record.id).rankAt.locator} (${chapterRank(record.id).rankAt.speaker}); the catalogue still lacks it.` : '';
         former.note += chapterNote;
+        // PWC23: a chapter-layer row's rank and fuel come from its catalogue binding, so a derived rank cannot enter.
+        if (former.state === 'blocked:rank-unknown') former.note += ' PWC23 derives no rank here: the catalogue binds a chapter row\'s rank and fuel, so this row needs a catalogue rank binding, not a derived rank.';
         const seen = guCaseNote(record.id);
         const gap = GU_CASE_GAPS[record.id];
         if (!seen && !gap) return {...checked, ...former};
