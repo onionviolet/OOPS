@@ -22,6 +22,8 @@ for (const ledger of Object.keys(LEDGERS)) {
     const base = `${priv}ch_effect_${ledger}`;
     if (!existsSync(`${base}_luna.json`)) continue;
     const replies = json(`${base}_luna.json`), search = json(`${base}_search.json`), packets = new Map(json(`${base}_packets.json`).map(p => [p.id, p]));
+    const replies2 = existsSync(`${priv}ch_effect2_${ledger}_haiku.json`) ? json(`${priv}ch_effect2_${ledger}_haiku.json`) : null;
+    const second = {n: 0, confirmed: 0, differs: 0, nothing: 0, ho: {n: 0, confirmed: 0}};
     const labels = {}, coh = {n: 0, answered: 0, none: 0, verb: 0, object: 0, both: 0, ho: {n: 0, answered: 0, verb: 0, object: 0, both: 0}};
     let sent = 0, gained = 0, none = 0, rejected = 0, blockedRows = 0, errors = 0;
     const capCount = {};
@@ -50,11 +52,20 @@ for (const ledger of Object.keys(LEDGERS)) {
         if (p) sent++;
         const label = {heldOut: s.heldOut, chapterHits: s.paragraphHits ?? s.windowHits ?? 0};
         if (effect) { Object.assign(label, {effect, blocked}); gained++; capCount[blocked] = (capCount[blocked] ?? 0) + 1; }
+        // AU17 second reader (Haiku 5.5): a sentence both readers state (same verb and object) is confirmed; otherwise review-only.
+        const r2 = replies2?.[id]?.reply;
+        if (effect && r2 && p) {
+            const e2 = r2.effect, at2 = loc(e2.locator);
+            const ok2 = EFFECT_VERBS.includes(e2.verb) && OBJECTS.has(e2.object) && at2 && SPEAKERS.includes(e2.speaker) && e2.speaker !== 'unknown' && p.evidence.some(l => l.startsWith(`[${at2}]`));
+            label.second = !ok2 ? 'states-nothing' : e2.verb === effect.verb && e2.object === effect.object ? 'confirmed' : 'differs';
+            second.n++; second[label.second === 'confirmed' ? 'confirmed' : label.second === 'differs' ? 'differs' : 'nothing']++;
+            if (s.heldOut) { second.ho.n++; if (label.second === 'confirmed') second.ho.confirmed++; }
+        }
         labels[id] = label;
     }
     ledgers[ledger] = sorted(labels);
     scores[ledger] = {cohortRows: coh.n, cohortAnswered: coh.answered, cohortReaderSaidNone: coh.none, verbAgree: coh.verb, objectAgree: coh.object, bothAgree: coh.both,
-        heldOut: coh.ho};
+        heldOut: coh.ho, secondReader: second};
     yieldTable[ledger] = {effectUnknownRows: blockedRows, zeroHitRows: blockedRows - sent, sent, gainedSentence: gained, readerStatedNothing: none, rejected, requestErrors: errors, catalogued: capCount.none ?? 0,
         blockedAfter: sorted(Object.fromEntries(Object.entries(capCount).filter(([k]) => k !== 'none')))};
 }

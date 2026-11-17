@@ -6,6 +6,7 @@
 //   OPENAI_API_KEY="$(security find-generic-password -a "$USER" -s openai-api-yairpg -w)" \
 //   node scripts/chapter_effect_pass.mjs gu_kinds worm_powers ... [--sync|--dry|--wait] [--pilot N] [--max-usd N]
 import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {runPass} from './label_runner.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
@@ -32,7 +33,9 @@ export const SCHEMA = strict({effect: strict({verb: {type: 'string', enum: [...E
     summary: {type: 'string'}, locator: {type: 'string'}, speaker: {type: 'string', enum: SPEAKERS}}),
     blocked: {type: 'string', enum: CAPABILITIES}, blocked_reason: {type: 'string'}});
 
-export const heldOut = id => id; // the split is frozen in the search file (GKM429), not recomputed here
+const labelled = JSON.parse(readFileSync(new URL('../docs/coverage/chapter_tier_labels.json', import.meta.url), 'utf8')).effect_unknown.ledgers;
+/** Second-reader rows: a Luna sentence that is held out (GKM429) or whose sha1(id)[1] < 0x40 (25%). */
+export const sampled = (ledger, id) => { const r = labelled[ledger]?.[id]; return !!r?.effect && (r.heldOut || createHash('sha1').update(id).digest()[1] < 0x40); };
 export function itemsFor(ledger, packets) {
     return packets.map(p => ({id: p.id, shared: `Paragraphs (${LEDGERS[ledger]}):\n${p.evidence.join('\n')}`,
         user: `Question: what does this power do?\nSubject: ${p.name} (${LEDGERS[ledger]}).`}));
@@ -40,10 +43,12 @@ export function itemsFor(ledger, packets) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const argv = process.argv.slice(2), pilot = argv.includes('--pilot') ? Number(argv[argv.indexOf('--pilot') + 1]) : 0;
+    const second = argv.includes('--second');
     for (const ledger of argv.filter(a => LEDGERS[a])) {
         let packets = JSON.parse(readFileSync(`${dir}ch_effect_${ledger}_packets.json`, 'utf8'));
+        if (second) packets = packets.filter(p => sampled(ledger, p.id));
         if (pilot) packets = packets.filter((_, i) => i % Math.max(1, Math.floor(packets.length / pilot)) === 0).slice(0, pilot);
-        await runPass({name: `ch_effect_${ledger}`, dir, system: COMMON, schema: SCHEMA, items: itemsFor(ledger, packets), model: 'gpt-6-luna', effort: 'low', maxTokens: 1500},
-            argv.filter(a => !LEDGERS[a] && a !== '--pilot' && a !== String(pilot)));
+        await runPass({name: second ? `ch_effect2_${ledger}` : `ch_effect_${ledger}`, dir, system: COMMON, schema: SCHEMA, items: itemsFor(ledger, packets), model: second ? 'claude-haiku-5-5' : 'gpt-6-luna', effort: 'low', maxTokens: 1500},
+            argv.filter(a => !LEDGERS[a] && a !== '--pilot' && a !== String(pilot) && a !== '--second'));
     }
 }

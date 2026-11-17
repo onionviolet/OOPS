@@ -183,18 +183,18 @@
 
 | # | World | Corpus | Shared slugs | Weight | Source |
 | ---: | --- | --- | ---: | ---: | --- |
-| 1 | reverend-insanity | potions_and_recipes | 20 | 141 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
-| 2 | harry-potter | creatures | 19 | 155 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
+| 1 | reverend-insanity | potions_and_recipes | 20 | 142 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
+| 2 | harry-potter | creatures | 19 | 156 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
 | 3 | mother-of-learning | artifacts | 15 | 200 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 4 | legendary-mechanic | artifacts | 15 | 183 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 5 | lotm | powers | 15 | 163 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
 | 6 | fated-villain | artifacts | 14 | 199 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 7 | circle-of-inevitability | artifacts | 13 | 198 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
-| 8 | worm | artifacts | 11 | 103 | paid reader claims 2026-11-01-worm |
+| 8 | worm | artifacts | 11 | 104 | paid reader claims 2026-11-01-worm |
 | 9 | speedrunning-multiverse | artifacts | 10 | 132 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 10 | shadow-slave | artifacts | 9 | 172 | paid reader claims 2026-11-01-ss |
-| 11 | regressors-tale | artifacts | 9 | 166 | paid reader claims 2026-11-01-rtoc |
-| 12 | rezero | artifacts | 9 | 97 | deep dive docs/research/novels/rezero/DEEP_DIVE_2026-10-24.md (local, gitignored) |
+| 10 | rezero | artifacts | 10 | 100 | deep dive docs/research/novels/rezero/DEEP_DIVE_2026-10-24.md (local, gitignored) |
+| 11 | shadow-slave | artifacts | 9 | 172 | paid reader claims 2026-11-01-ss |
+| 12 | regressors-tale | artifacts | 9 | 166 | paid reader claims 2026-11-01-rtoc |
 | 13 | a-novel-concept | artifacts | 8 | 101 | deep dive docs/research/novels/a-novel-concept/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 14 | naruto | powers | 7 | 151 | wiki dump ~/.codex/research/wikis/naruto.fandom.com/dump |
 | 15 | typemoon | powers | 7 | 149 | wiki dump ~/.codex/research/wikis/typemoon.fandom.com/dump |
@@ -626,7 +626,6 @@
 | solo_leveling_powers | item-bound-power | 3 |
 | gu_kinds | mind-binding | 3 |
 | perfect_run_powers | mind-binding | 3 |
-| rezero_powers | mind-binding | 3 |
 | speedrunning_multiverse_powers | mind-binding | 3 |
 | worm_powers | power-granting | 3 |
 | gu_kinds | power-interaction | 3 |
@@ -653,6 +652,7 @@
 | hp_potions | luck-field | 2 |
 | a_novel_concept_powers | luck-mechanism | 2 |
 | perfect_run_powers | memory-transfer | 2 |
+| rezero_powers | mind-binding | 2 |
 | labyrinth_mad_god_powers | power-interaction | 2 |
 | mother_of_learning_powers | power-transfer | 2 |
 | speedrunning_multiverse_powers | power-transfer | 2 |
@@ -694,6 +694,7 @@
 | regressors_tale_powers | mind-binding | 1 |
 | ri_treasures | mind-binding | 1 |
 | a_novel_concept_powers | mind-ennoblement | 1 |
+| rezero_powers | mind-state | 1 |
 | rezero_powers | power-interaction | 1 |
 | lotm_artifacts | power-transfer | 1 |
 | regressors_tale_powers | power-transfer | 1 |
