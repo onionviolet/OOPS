@@ -56,6 +56,8 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 //import { stances } from "./combat_stances.js";
 import { channelNote } from "./channels.js";
 import { rankOf } from "./faction_rank.js";
+import { watchSkillColumn, fullNameOnHover } from "./ui/skill_row.js";
+import { inventoryNameParts, inventoryControls } from "./ui/inventory_row.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus, recipeRowSummary, paintRecipeTabCounts, recipeStateWord} from "./crafting_visibility.js"; import {setCraftingReader, craftingReadyReader} from "./ready_sources.js"; import {groupRecipeRows} from "./ui/craft_groups.js"; import {gatherLine, stopOutcome} from "./ui/gather_line.js"; import {craftChanceParts} from "./ui/craft_glance.js";
 import {readPort,ports,whenPortsReady} from './ui_ports.js';
@@ -245,7 +247,7 @@ const time_field = document.getElementById("time_div");
 const weather_field = document.getElementById("weather_div");
 
 const skill_bar_divs = {};
-const skill_list = document.getElementById("skill_list");
+const skill_list = document.getElementById("skill_list"); watchSkillColumn(skill_list); fullNameOnHover(skill_list); // PS281, PS282
 const skill_category_order = [];
 
 const stance_bar_divs = {};
@@ -2147,13 +2149,9 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
     }
 
     clear_HTML_content(item_name_div);
-    let item_name_div_content = "";
+    let name_tag, name_class = "", name_text = nativeItemView(target_item).name; // the row's name line is drawn by src/ui/inventory_row.js (PS292)
     if(target_item.tags?.equippable) {
-        if(target_item.tags.tool) {
-            item_name_div_content = `<span class = "item_slot" >[tool]</span> <span class="item_name">${nativeItemView(target_item).name}</span>`;
-        } else {
-            item_name_div_content = `<span class = "item_slot" >[${target_item.equip_slot}]</span> <span class="item_name">${nativeItemView(target_item).name}</span>`;
-        }
+        name_tag = {className: "item_slot", text: `[${target_item.tags.tool ? "tool" : target_item.equip_slot}]`};
         item_name_div.classList.add(`${item_class}_name`);
         item_div.appendChild(item_name_div);
 
@@ -2169,7 +2167,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         //
     } else if(target_item.tags.component) {
         //
-        item_name_div_content = `<span class = "item_category">[Comp]</span> <span class="item_name">${nativeItemView(target_item).name}</span>`;
+        name_tag = {className: "item_category", text: "[Comp]"};
         item_name_div.classList.add(`${item_class}_name`);
         item_div.appendChild(item_name_div);
 
@@ -2180,7 +2178,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         //
     } else if(target_item.tags.book) {
         //
-        item_name_div_content = `<span class = "item_category">[Book]</span> <span class = "book_name item_name">"${target_item.name}"</span>`;
+        name_tag = {className: "item_category", text: "[Book]"}; name_class = "book_name"; name_text = `"${target_item.name}"`;
         item_name_div.classList.add(`${item_class}`);
 
         if(target_item.isFinished()) {
@@ -2191,21 +2189,12 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         //
     } else {
         //
-        item_name_div_content = `<span class = "item_category"></span> <span class = "item_name">${nativeItemView(target_item).name}</span>`;
+        name_tag = {className: "item_category", text: ""};
     }
 
-    if (target_item.use_quality && target_item.quality) {
-        const item_rarity = target_item.getRarity();
-        item_name_div_content += ` <span class="item_quality">[<b class="${rarity_outline(item_rarity)}" data-rarity="${item_rarity}" style="color: ${ rarity_color(item_rarity) } ">${target_item.quality}%</b>]</span>`;
-    }
-
-    if(item_count > 1) {
-        item_name_div_content += `<span class="item_count"> ×${item_count}</span>`;
-    } else {
-        item_name_div_content += `<span class="item_count"></span>`;
-    }
-
-    insert_HTML(item_name_div, item_name_div_content);
+    const item_rarity = target_item.use_quality && target_item.quality ? target_item.getRarity() : null;
+    item_name_div.append(...inventoryNameParts({tag: name_tag, name: name_text, nameClass: name_class, count: item_count,
+        quality: item_rarity === null ? null : {value: target_item.quality, rarity: item_rarity, outline: rarity_outline(item_rarity), color: rarity_color(item_rarity)}}));
 
     item_name_div.classList.add(`${item_class}_name`);
 
@@ -2242,42 +2231,13 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
     item_control_div.appendChild(item_div);
 
     if(target === "character") {
-        if(target_item.item_type === "USABLE") {
-            const item_use_button = document.createElement("div");
-            item_use_button.classList.add("item_use_button");
-            item_use_button.innerText = target_item.tags.food ? "[eat]" : "[use]"; // UIC198: food says what using it does
-            const item_auto_use_button = document.createElement("div");
-            item_auto_use_button.classList.add("item_auto_use_button");
-            item_auto_use_button.innerText = "auto";
-
-            if(favourite_consumables[target_item.id]) {
-                item_auto_use_button.classList.add("item_auto_use_button_active");
-            }
-
-            item_additional.appendChild(item_use_button);
+        if(target_item.item_type === "BOOK") item_div.classList.add("item_book");
+        const equip_control = typeof trade_index === "undefined" && target_item.tags.equippable ? (is_equipped ? "off" : "on") : null;
+        item_additional.append(...inventoryControls({ // the controls are drawn by src/ui/inventory_row.js (PS292)
+            usable: target_item.item_type === "USABLE" ? (target_item.tags.food ? "[eat]" : "[use]") : null, // UIC198: food says what using it does
+            readable: target_item.item_type === "BOOK", autoActive: !!favourite_consumables[target_item.id],
             // Generated vials and manual-use tools (a lamp toggles) require deliberate use of their exact owned key.
-            if(!target_item.mixture&&!target_item.tags.manual_use)item_additional.appendChild(item_auto_use_button);
-        } else if(target_item.item_type === "BOOK") {
-            const item_read_button = document.createElement("div");
-            item_read_button.classList.add("item_use_button");
-            item_read_button.innerText = "[read]";
-            item_additional.appendChild(item_read_button);
-
-            item_div.classList.add("item_book");
-        }
-        if(typeof trade_index === "undefined" && target_item.tags.equippable) {
-            if(!is_equipped) {
-                let item_equip_span = document.createElement("span");
-                insert_HTML(item_equip_span, "[equip]")
-                item_equip_span.classList.add("equip_item_button", "item_controls");
-                item_additional.appendChild(item_equip_span);
-            } else {
-                let item_unequip_div = document.createElement("div");
-                insert_HTML(item_unequip_div, "[take off]")
-                item_unequip_div.classList.add("unequip_item_button", "item_controls");
-                item_additional.appendChild(item_unequip_div);
-            }
-        }
+            offerAuto: !target_item.mixture && !target_item.tags.manual_use, equip: equip_control}));
     } 
 
     let item_value_span = document.createElement("span");
@@ -5508,12 +5468,12 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
 
     } else {
         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.add("skill_bar_capped");
-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `Max!`;
+        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `Max`; // PS282: upstream's word in place of the percent
         skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0].innerText = `Maxed out!`;
     }
     //skill_bar_xp && tooltip_xp
 
-    skill_bar_divs[skill.category][skill.skill_id].children[0].children[1].style.width = `${100*skill.getCurrentXP()/skill.getXPToNextLvl()}%`;
+    skill_bar_divs[skill.category][skill.skill_id].children[0].children[1].style.width = skill.getCurrentXP() === "Max" ? "100%" : `${100*skill.getCurrentXP()/skill.getXPToNextLvl()}%`; // a maxed bar is full
     //skill_bar_current
 
     const unlockedRewards=get_unlocked_skill_rewards(skill.skill_id);

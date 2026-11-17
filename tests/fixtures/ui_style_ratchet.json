@@ -608,13 +608,6 @@
   "toFixed": 0,
   "ownMarkup": 1
  },
- "src/ui/item_card.js": {
-  "colour": 0,
-  "px": 0,
-  "border": 0,
-  "toFixed": 0,
-  "ownMarkup": 1
- },
  "src/ui/known_number.js": {
   "colour": 0,
   "px": 0,

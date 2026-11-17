@@ -75,3 +75,13 @@ test('PS249: the sheet draws the workshop reroll preview, with "?" spans when th
     const refused = draw({...model('affixed'), reforge: {preview: null, reason: 'A local crafting station is needed for this process.', open: null}});
     assert.match(refused.querySelector('[data-role="reforge"]').textContent, /crafting station is needed/);
 });
+
+test('PS292: the card body is drawn by the kit: chips and rows are kit forms, and the kit releases the host document afterwards', () => {
+    const host = draw(model('upgrade'));
+    assert.ok(host.querySelector('.item-card-chip.kit-chip[data-role="slot"]'), 'the slot chip is a kit chip');
+    const rows = host.querySelectorAll('.item-card-rows > .kit-row.item-card-row');
+    assert.equal(rows.length, model('upgrade').rows.length);
+    assert.ok(rows[0].dataset.direction && rows[0].querySelector('.item-card-value') && rows[0].querySelector('.item-card-delta'), 'each row keeps its direction, number and change');
+    assert.equal(host.querySelector('.item-card-rows').getAttribute('role'), 'list');
+    assert.equal(host.querySelector('table'), null, 'no table of its own');
+});

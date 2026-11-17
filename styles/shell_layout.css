@@ -135,3 +135,13 @@
 :root[data-look-rows="bordered"] #main_content .skill_bar_max {border-width:var(--kit-border);}
 #main_content .skill_div[data-practising] .skill_bar_name {color:var(--ui-accent);font-weight:var(--ui-weight-strong);}
 #main_content .skill_category_div:has(.skill_div[data-practising]) .skill_div:not([data-practising]) :is(.skill_bar_name,.skill_bar_xp) {color:var(--ui-muted);}
+/* PS281, PS282 (round 25, proposals): in a wide column the percent sits inside the bar's end (the list's width sets
+   data-skill-wide, src/ui/skill_row.js); a narrow one keeps it beside the name. Row style Spacing keeps its one-line rows. A
+   maxed skill reads "Max" in the capped colour. */
+:root:not([data-look-rows="spacing"]):not([data-variant="ps217"]) #skill_list[data-skill-wide="true"] .skill_bar_max {position:relative;}
+:root:not([data-look-rows="spacing"]):not([data-variant="ps217"]) #skill_list[data-skill-wide="true"] .skill_bar_current {height:var(--ui-line-prose, 1.4em);}
+:root:not([data-look-rows="spacing"]):not([data-variant="ps217"]) #skill_list[data-skill-wide="true"] .skill_bar_xp {position:absolute;right:var(--ui-space-2);bottom:0;padding:0;line-height:var(--ui-line-prose, 1.4em);text-shadow:0 0 var(--ui-space-2) var(--ui-navy);}
+#main_content .skill_bar_capped .skill_bar_xp {font-weight:var(--ui-weight-strong);}
+/* PS284: in a narrow column the "Learning now" chips drop under the name instead of squeezing it to a letter or two. */
+[data-module="skills"]:has(#skill_list[data-skill-wide="false"]) .learning-now .ui-row {grid-template-columns:minmax(0,1fr);}
+[data-module="skills"]:has(#skill_list[data-skill-wide="false"]) .learning-now .ui-row-chips {flex-wrap:wrap;justify-content:flex-start;}

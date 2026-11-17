@@ -9,10 +9,12 @@
 .item-card-chip[data-role="condition"][data-state="low"] {color:var(--p23-loss, inherit);border-color:currentColor;}
 .item-card-versus,.item-card-note,.item-card-unknown,.item-card-worth {margin:0;color:var(--p23-muted, inherit);}
 .item-card-unknown {font-style:italic;border-left:2px dashed var(--p23-line, currentColor);padding-left:var(--ui-space-1);}
-.item-card-rows {width:100%;border-collapse:collapse;}
-.item-card-rows th {text-align:left;font-weight:normal;padding:var(--ui-space-1) var(--ui-space-2) var(--ui-space-1) 0;}
-.item-card-value {font-variant-numeric:tabular-nums;text-align:right;padding:var(--ui-space-1) var(--ui-space-4);}
-.item-card-delta {white-space:normal;}
+/* The rows are kit rows (src/ui/kit.js) laid on one three-column grid so label, number and change line up as the table did. */
+.item-card-rows {display:grid;grid-template-columns:auto auto minmax(0,1fr);width:100%;background:var(--theme-surface, transparent);}
+.item-card-row {display:grid;grid-template-columns:subgrid;grid-column:1 / -1;align-items:baseline;gap:0;padding:var(--ui-space-2) 0;border-bottom:var(--kit-border) solid var(--theme-border, var(--p23-line, currentColor));}
+.item-card-row .kit-row__label {padding:0 var(--ui-space-3);}
+.item-card-value {font-size:inherit;color:inherit;font-variant-numeric:tabular-nums;text-align:left;padding:0 var(--ui-space-3);}
+.item-card-delta {font-size:inherit;margin-left:0;white-space:normal;padding:0 var(--ui-space-3);}
 .item-card-row[data-direction="better"] .item-card-delta {color:var(--p23-gain, inherit);}
 .item-card-row[data-direction="worse"] .item-card-delta {color:var(--p23-loss, inherit);}
 .item-card-row[data-direction="same"] .item-card-delta {color:var(--p23-muted, inherit);}

@@ -3,10 +3,17 @@
 // a delta is "+2 better", an unknown facet reads "Unknown to you", never zero. The tilde mark is reserved for a guess (shared with the sheet grammar). Roles, not looks, are named in
 // data attributes so a later motif pack can restyle them (item 20).
 import {renderReforgePreview} from './reforge_preview.js';
-const el = (doc, tag, cls, text) => { const n = doc.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+import {kitElement, kitChip, kitRow, useKitDocument} from './kit.js';
+// PS292: the body draws through the kit (src/ui/kit.js): its elements, chips and rows, into the host's document while useKitDocument(doc) holds.
+const el = (doc, tag, cls, text) => kitElement(tag, cls, text);
 const GLYPH = {better: '▲', worse: '▼', same: '＝'};
 
-export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
+export function renderItemCard(host, model, opts = {}) {
+    useKitDocument(host.ownerDocument);
+    try { return drawItemCard(host, model, opts); } finally { useKitDocument(null); }
+}
+
+function drawItemCard(host, model, {idPrefix = 'item-card'} = {}) {
     const doc = host.ownerDocument, root = el(doc, 'article', 'item-card');
     root.dataset.role = 'item'; root.dataset.appraisal = model.level;
     root.setAttribute('aria-label', `${model.name} item card`);
@@ -14,7 +21,7 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
     // Header: kind chips. Quality is a word and a number; condition and count sit beside it.
     const head = el(doc, 'header', 'item-card-head');
     const chips = el(doc, 'div', 'item-card-chips');
-    const chip = (role, text, extra = {}) => { const c = el(doc, 'span', 'item-card-chip', text); c.dataset.role = role; Object.assign(c.dataset, extra); chips.append(c); return c; };
+    const chip = (role, text, extra = {}) => { const c = kitChip({label: text, className: 'item-card-chip'}); c.dataset.role = role; Object.assign(c.dataset, extra); chips.append(c); return c; };
     chip('slot', model.slot.replaceAll('_', ' '));
     if (model.facets.band === 'known' && model.band) chip('band', model.facets.quality === 'known' && model.quality != null ? `${model.band} · ${model.quality}%` : model.band, {band: model.band});
     else if (model.facets.band === 'unknown') chip('band', 'quality unknown', {state: 'unknown'});
@@ -34,18 +41,14 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
     if (model.facets.stats === 'unknown') {
         root.append(el(doc, 'p', 'item-card-unknown', 'Unknown to you: its numbers are beyond what you can read from here.'));
     } else if (model.rows.length) {
-        const table = el(doc, 'table', 'item-card-rows');
-        table.setAttribute('aria-label', 'What this item contributes');
-        const body = el(doc, 'tbody');
+        const list = el(doc, 'div', 'item-card-rows');
+        list.setAttribute('role', 'list'); list.setAttribute('aria-label', 'What this item contributes');
         for (const r of model.rows) {
-            const tr = el(doc, 'tr', 'item-card-row'); tr.dataset.direction = r.direction;
-            const unit = r.unit || '';
-            tr.append(el(doc, 'th', null, r.label),
-                el(doc, 'td', 'item-card-value', `${unit}${r.value}`),
-                el(doc, 'td', 'item-card-delta', `${GLYPH[r.direction]} ${r.words}`));
-            body.append(tr);
+            const row = kitRow({label: r.label, fact: `${r.unit || ''}${r.value}`, from: `${GLYPH[r.direction]} ${r.words}`, className: 'item-card-row',
+                factClass: 'item-card-value', fromClass: 'item-card-delta', data: {direction: r.direction}});
+            row.setAttribute('role', 'listitem'); list.append(row);
         }
-        table.append(body); root.append(table);
+        root.append(list);
     } else root.append(el(doc, 'p', 'item-card-note', model.note || 'Wearing this adds nothing to your stats.'));
 
     // PS248: what is in its make, as the life knows it; "?" rows promise something to learn (PS236).
@@ -77,7 +80,7 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
     if (model.reforge) {
         const sec = el(doc, 'section', 'item-card-reforge'); sec.dataset.role = 'reforge';
         sec.append(el(doc, 'h4', null, 'Reroll a mark'));
-        if (model.reforge.preview) sec.append(renderReforgePreview(doc, model.reforge.preview, {known: model.reforge.known, cost: model.reforge.cost}));
+        if (model.reforge.preview) { sec.append(renderReforgePreview(doc, model.reforge.preview, {known: model.reforge.known, cost: model.reforge.cost})); useKitDocument(doc); } // its own draw releases the kit's document
         else sec.append(el(doc, 'p', 'ui-disabled-reason', model.reforge.reason));
         if (model.reforge.open) { const b = el(doc, 'button', null, 'Reroll at the bench'); b.type = 'button'; b.dataset.reforgeOpen = ''; b.onclick = model.reforge.open; sec.append(b); }
         root.append(sec);

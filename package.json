@@ -25,6 +25,7 @@
     "check:openings": "node scripts/check_openings.mjs",
     "check:feedback": "node scripts/check_feedback.mjs",
     "check:flow": "node scripts/check_flow.mjs",
+    "check:skill-rows": "node scripts/check_skill_rows.mjs",
     "check:receipts": "node scripts/check_receipts.mjs",
     "check:docs": "node scripts/check_doc_slips.mjs",
     "check:descriptions": "node scripts/check_descriptions.mjs",
