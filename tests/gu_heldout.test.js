@@ -7,11 +7,13 @@ const entries = Object.entries(guCatalogue);
 const split = splitGu(entries);
 const fit = fitGu(split.tuned, guCatalogue);
 
-test('the split is fixed and disjoint: 8 tuned, 49 held out, kinds without a function reading are out of scope', () => {
+test('the split is fixed and disjoint: 8 tuned, 53 held out, kinds without a function reading are out of scope', () => {
     assert.equal(split.tuned.length, 8);
-    assert.equal(split.heldOut.length, 49);
-    assert.equal(split.outOfScope.length, 21);
-    assert.equal(new Set([...split.tuned, ...split.heldOut]).size, 57);
+    // 2026-11-16: Small, Great Thief, Heavenly Web and Heavenly Secret gained chapter functions (GKM449) and fall
+    // into the held-out side of the unchanged split; the tuned eight and the fit are unchanged.
+    assert.equal(split.heldOut.length, 53);
+    assert.equal(split.outOfScope.length, 20);
+    assert.equal(new Set([...split.tuned, ...split.heldOut]).size, 61);
     assert.deepEqual(splitGu(entries), split);
     assert.notDeepEqual(splitGu(entries, 'other-seed').tuned, split.tuned);
 });
@@ -49,9 +51,9 @@ test('the probe runs through the real activation engine and refuses a class with
 
 test('measured held-out score (pinned at the measured result; no rule changed after scoring)', () => {
     const s = scoreGu(split.heldOut, fit, guCatalogue);
-    assert.deepEqual([s.n, s.diagOutcome, s.withAbility, s.ran, s.cannotRun, s.engineOutcome, s.engineRoute], [49, 4, 18, 6, 43, 1, 4]);
+    assert.deepEqual([s.n, s.diagOutcome, s.withAbility, s.ran, s.cannotRun, s.engineOutcome, s.engineRoute], [53, 4, 18, 6, 47, 1, 4]); // the four kinds added 2026-11-16 are four more misses, all missing data
     const cats = {};
     for (const r of s.misses) for (const m of r.misses) cats[m.category] = (cats[m.category] ?? 0) + 1;
-    assert.deepEqual(cats, {'missing rule': 30, 'missing data': 27, "author's exception": 2});
+    assert.deepEqual(cats, {'missing rule': 30, 'missing data': 31, "author's exception": 2});
     assert.equal(scoreGu(split.tuned, fit, guCatalogue).diagOutcome, 8);
 });

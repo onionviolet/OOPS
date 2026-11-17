@@ -11,7 +11,7 @@ import {GU_MOVE_CASE_MODULE, MOONBLADE_COVERAGE_ID, PLATE_SHELTER_COVERAGE_ID,
     TELEPORT_ARRAY_COVERAGE_ID, CLEANSING_ARRAY_COVERAGE_ID, THREE_HEADS_COVERAGE_ID,
     FUTURE_TRAVEL_COVERAGE_ID} from '../src/world_packs/gu_move_coverage_cases.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
-import {derivedAbilityFrom, guMethods, guRunnableCoverage} from '../src/gu_working_law.js';
+import {derivedAbilityFrom, guAbility, guMethods, guRunnableCoverage} from '../src/gu_working_law.js';
 import {typeFunction, nameFunction} from './gu_function_words.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
@@ -24,6 +24,8 @@ const test = 'tests/gu_coverage.test.js';
 // Wiki-tier labels (GKM445), normalised from the Luna passes by scripts/wiki_tier_labels.mjs. They fill a
 // wiki row's rank or function only where the category and name labels leave it empty, and say so.
 const tier = JSON.parse(readFileSync(join(root, 'docs/coverage/wiki_tier_labels.json'), 'utf8'));
+// Chapter check of the agreed move leads against the paid reader claims (scripts/ri_move_claim_fold.mjs, GKM427).
+const claimCheck = JSON.parse(readFileSync(join(root, 'docs/coverage/ri_move_claim_checks.json'), 'utf8'));
 
 // Mechanism owners by chat letter (SC4): every Gu row sits on G; each running method adds its owner.
 const mechanismOf = {activate: 'K', convert: 'W', refine: 'F', grow: 'L', treat: 'L', move: 'K'};
@@ -39,13 +41,16 @@ const pathOf = record => {
 const sourceOf = record => [record.saga?.url, record.fandom?.revision_url ?? record.fandom?.url].filter(Boolean);
 const nameOf = record => record.saga?.name ?? record.fandom?.name ?? record.id;
 
-function kindRow(record) {
-    const base = {id: record.id, name: nameOf(record), source: sourceOf(record), test};
+function kindRow(indexed) {
+    // A wiki record catalogued after its claim check (GKM449) is a chapter row under its catalogue id.
+    const mapped = claimCheck.kinds[indexed.id]?.catalogue;
+    const record = mapped ? {...indexed, id: mapped, status: 'novel-checked', observation: {chapters: guCatalogue[mapped].parts.chapters}} : indexed;
+    const base = {id: record.id, name: nameOf(record), source: sourceOf(record), test, ...(mapped && {indexId: indexed.id})};
     if (record.status === 'reference-page') return {...base, layer: 'wiki', state: 'not-a-thing:wiki-reference-page', mechanisms: ['G'], note: 'A wiki list or overview page.'};
     if (record.status === 'novel-checked') {
         const entry = guCatalogue[record.id];
         const row = coverage.get(record.id);
-        const chapters = record.observation?.chapters ?? [];
+        const chapters = [...new Set([...(record.observation?.chapters ?? []), ...(guCatalogue[record.id]?.parts?.chapters ?? [])])].sort((a, b) => a - b);
         const checked = {...base, source: [...base.source, ...chapters.map(ch => `ch${ch}`)], layer: 'chapter'};
         if (record.id === 'yaksha-octopus-king-wild-immortal') {
             return {...checked, state: 'not-a-thing:provisional-sighting', mechanisms: ['G'],
@@ -141,12 +146,45 @@ function leadState(luna) {
         ? `A wiki move lead. The wiki-tier label (Luna, unchecked) names ${named}; a component outside the kind index and the order need a chapter pass before it can run.`
         : 'A wiki move lead; its component Gu and order need a chapter pass before it can run.'};
 }
+// A lead whose components the chapter claims place in the move becomes a chapter-layer row with roles. A role
+// runs on its catalogue kind (a wiki kind now catalogued maps through `catalogue`); one with no catalogue
+// kind, or one whose catalogue kind cannot activate, blocks the row and says what the claims left open.
+function checkedLead(base, check) {
+    const named = check.components.map(c => `${c.catalogue ?? c.kind} (${c.luna === c.haiku ? c.luna : `${c.luna} or ${c.haiku}`}, ${c.at})`).join(', ');
+    if (check.result === 'unplaced') {
+        const open = check.components.filter(c => !(['core', 'support'].includes(c.luna) && ['core', 'support'].includes(c.haiku))).map(c => c.kind);
+        return {state: 'blocked:roles-unknown', mechanisms: ['G'], note: `A wiki move lead checked against chapter claims (Luna, Haiku): the claims do not place ${open.join(', ')} in the move; a chapter pass settles the roles.`};
+    }
+    const seen = new Map();
+    const roles = check.components.map(c => {
+        const kind = guCatalogue[c.kind] ? c.kind : c.catalogue ?? c.kind;
+        const stem = kind.replace(/^[a-z]+:/, '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        seen.set(stem, (seen.get(stem) ?? 0) + 1);
+        return {id: seen.get(stem) > 1 ? `${stem}-${seen.get(stem)}` : stem, kind};
+    });
+    const chapters = [...new Set(check.components.map(c => Number(/^RI-c(\d+)-/.exec(c.at ?? '')?.[1])).filter(Boolean))].sort((a, b) => a - b);
+    const row = {...base, source: [...base.source, ...chapters.map(ch => `ch${ch}`)], layer: 'chapter', roles, claimRoles: check.components.map(c => ({kind: c.kind, luna: c.luna, haiku: c.haiku, at: c.at, speaker: c.speaker}))};
+    if (check.result === 'unnamed-parts') return {...row, roles: [...roles, {id: 'unnamed', kind: null}], state: 'blocked:unnamed-role', mechanisms: ['G'],
+        note: `Chapter claims place ${named} in the move (Luna and Haiku agree), and both readers find a claim (${check.unnamedAt}) saying it uses further Gu it does not name.`};
+    const stuck = roles.filter(role => !guMethods(role.kind).activate);
+    if (stuck.length) return {...row, state: 'blocked:role-cannot-run', mechanisms: ['G'], note: `Chapter claims place ${named} in the move (Luna and Haiku agree). Kinds that cannot activate yet: ${stuck.map(role => {
+        const k = claimCheck.kinds[role.kind] ?? claimCheck.kinds[check.components.find(c => (c.catalogue ?? c.kind) === role.kind)?.kind];
+        const lacks = !guCatalogue[role.kind] ? 'no catalogue entry' : 'no chapter rank or function in the catalogue';
+        return `${role.kind} (${lacks}${k ? `; claims give ${k.rank === null ? 'no agreed rank' : `rank ${k.rank}`}, ${k.function ? `function ${k.function}` : 'no agreed function'}` : ''})`;
+    }).join(', ')}.`};
+    const effects = [...new Set(roles.map(role => guAbility(role.kind).effect?.kind).filter(Boolean))].join(', ');
+    return {...row, state: 'runs-authored', mechanisms: owners(['move']),
+        note: `Roles from chapter claims (${named}; Luna and Haiku agree)${check.unnamedOneReader ? `; one reader (${check.unnamedOneReader}) reads a claim as naming further parts` : ''}. Named cores only: supports the claims leave unstated are authored as none. The composed working settles each role's own effect (${effects}), not yet the move's stated effect; order, costs and magnitudes authored.`};
+}
 function leadRow(lead) {
     const name = lead.saga?.name ?? lead.fandom?.name;
     const slug = (lead.saga?.url ?? lead.fandom?.url).replace(/[?#].*$/, '').replace(/\/$/, '').split('/').pop().toLowerCase();
-    return {id: `lead:${slug}`, name, source: [lead.saga?.url, lead.fandom?.url].filter(Boolean), layer: 'wiki', status: lead.status,
-        tier: lead.saga?.tier ?? null, chapterHint: lead.saga?.chapter_hint ?? null, test,
-        ...leadState(tier.gu_moves[`lead:${slug}`])};
+    const base = {id: `lead:${slug}`, name, source: [lead.saga?.url, lead.fandom?.url].filter(Boolean), layer: 'wiki', status: lead.status,
+        tier: lead.saga?.tier ?? null, chapterHint: lead.saga?.chapter_hint ?? null, test};
+    const check = claimCheck.leads[`lead:${slug}`];
+    const state = leadState(tier.gu_moves[`lead:${slug}`]);
+    if (check) return {...base, ...state, ...checkedLead(base, check)};
+    return {...base, ...state, ...(state.state === 'blocked:roles-unchecked' && {note: `${state.note} No paid reader claim names a component beside the move (claim check 2026-11-16).`})};
 }
 
 const kinds = index.records.map(kindRow);

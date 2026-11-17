@@ -18,9 +18,9 @@ function land(scene, id) {
     return {before: engine.world, out};
 }
 
-test('each of the 57 chapter-labelled Gu kinds has a linked case or a specific gap', () => {
+test('each of the 61 chapter-labelled Gu kinds has a linked case or a specific gap', () => {
     const ids = labelled.map(row => row.id.slice(3)).sort();
-    assert.equal(ids.length, 57);
+    assert.equal(ids.length, 61);
     assert.deepEqual([...links.map(row => row.id), ...Object.keys(GU_CASE_GAPS)].sort(), ids);
     for (const row of labelled) {
         const id = row.id.slice(3);

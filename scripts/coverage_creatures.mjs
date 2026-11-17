@@ -32,12 +32,13 @@ async function classify(kind) {
             test: 'tests/heredity.test.js'};
     }
     if (kind.class === 'gu' && !kind.placeholder) {
-        const {row, durationMinutes} = guBodyRow(kind.id);
+        const {row, durationMinutes} = guBodyRow(kind.id, {defaults: true});
         const fields = {...row.bodyFields, rationMinutes: durationMinutes};
         const unknown = Object.entries(fields).filter(([, field]) => field.basis === 'unknown').map(([name]) => name);
         const chapters = Object.entries(fields).filter(([, field]) => field.basis === 'chapter')
             .map(([name, field]) => `${name} ch. ${field.chapters.join(', ')}`);
-        const hasDiet = fields.diet.basis === 'chapter';
+        const authoredDiet = fields.diet.basis === 'authored';
+        const hasDiet = fields.diet.basis === 'chapter' || authoredDiet;
         const fixture = hasDiet ? {module: 'src/world_packs/gu_body_cases.js', id: kind.id} : undefined;
         let state = 'blocked:diet-unknown';
         if (fixture) {
@@ -49,6 +50,7 @@ async function classify(kind) {
             state, fixture,
             note: [`unknown fields: ${unknown.join(', ')}`,
                 chapters.length ? `stated fields: ${chapters.join('; ')}` : null,
+                authoredDiet ? `diet authored (GKM440, ${fields.diet.source}): ${fields.diet.value.join(' and ')}; ${fields.diet.reason} Cost: ${fields.diet.cost}` : null,
                 hasDiet ? 'authored engine feeding timeline with unfed and wrong-food controls' : null,
                 `living roles: ${kind.living.join(', ') || 'none recorded'}`].filter(Boolean).join('; '),
         };

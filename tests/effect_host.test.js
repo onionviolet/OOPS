@@ -136,13 +136,13 @@ test('luck and soul are P objects that wait for their owners, and no canon sente
         assert.deepEqual([run.status, run.acts, run.waiting], ['waiting', [], [{kind: `effect.${verb}.${object}`, owner}]], `${verb} ${object}`);
         assert.deepEqual(run.world, w0);
     }
-    // The canon sentences of both fixture worlds assemble as before (55 of 57 Gu, 104 of 109 Hogwarts): none uses a new object.
+    // The canon sentences of both fixture worlds assemble as before (59 of 61 Gu, 104 of 109 Hogwarts): none uses a new object.
     const assembled = {};
     for (const w of await effectWorlds()) {
         assert.ok(w.canon.every(c => !['luck', 'soul'].includes(c.parts.object)));
         assembled[w.id] = `${w.canon.filter(c => assembleEffect(w.grammar, c.parts).ok).length} of ${w.canon.length}`;
     }
-    assert.deepEqual(assembled, {gu: '55 of 57', hogwarts: '104 of 109'});
+    assert.deepEqual(assembled, {gu: '59 of 61', hogwarts: '104 of 109'});
 });
 
 test('a sentence whose object lowers to nothing waits for its owner and changes nothing', () => {

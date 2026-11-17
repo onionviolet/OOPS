@@ -153,7 +153,9 @@ Total $0.36 at standard rates; the batch route would have been half.
 | Move role check | Haiku | 129 | 255 components core or support, 12 not part, 5 unclear | Yes. Not-part components are dropped. 122 leads where both readers agree stay `roles-unchecked`; the rest go back to `roles-unknown`. 5 leads state an order. |
 | Potion effect sentence. The four tuned rows are the examples. | Luna | 280 | Held out: object 16 of 17, verb 10, all five parts 4 | As `sentence` and `sentenceFamily` in the sidecar only. A hand check of the five rows only the sentence would move found three wrong, so no ledger row changes. |
 
-**Next, not started.** Do a chapter check of the 122 agreed leads and give their kinds catalogue entries, Fang Yuan's carried Gu first (GKM446). Rewrite the potion-sentence verb prompt and rescore it on the same 17.
+**Next, not started.** Rewrite the potion-sentence verb prompt and rescore it on the same 17.
+
+**Move-lead chapter check and diet defaults (2026-11-16, agent-verified, not human-reviewed).** `scripts/ri_move_claim_check.mjs` (Luna then Haiku over the paid reader claims, $0.09) and `scripts/ri_move_claim_fold.mjs`: of the 122 agreed leads, 59 have a claim naming a component, 24 pass, and 7 now run on three new catalogue kinds and Heavenly Secret's chapter function; every catalogue Gu gets a stated or authored diet (diet-unknown 61 to 0). Results and follow-ups are GKM448 to GKM456 in the [Gu palette](../../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md).
 
 
 ## Lord of the Mysteries potions (2026-11-16, agent-verified, not human-reviewed)

@@ -6,10 +6,10 @@ import {guBodyRow} from '../src/world_packs/gu_body_cases.js';
 import {advanceEngineWorld, createEngineWorld} from '../src/engine_world.js';
 import {livingKindRegistry} from '../src/living_kinds.js';
 
-test('chapter fields and explicit unknowns survive the join for all 78 kinds', () => {
+test('chapter fields and explicit unknowns survive the join for all 81 kinds', () => {
     const rows = Object.keys(guCatalogue).map(guBodyRow);
-    assert.equal(rows.length, 78);
-    assert.equal(Object.keys(livingKindRegistry({rows: rows.map(({row}) => row)}).kinds).length, 78);
+    assert.equal(rows.length, 81);
+    assert.equal(Object.keys(livingKindRegistry({rows: rows.map(({row}) => row)}).kinds).length, 81);
     for (const {row} of rows) {
         const body = guCatalogue[row.id].body;
         assert.deepEqual(row.bodyFields.diet, body.diet

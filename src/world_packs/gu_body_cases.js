@@ -6,6 +6,7 @@ import {guLivingRows, livingKindRegistry} from '../living_kinds.js';
 import {acquireCreature, restoreCreatureLifecycle, settleCohortStock} from '../creature_lifecycle.js';
 import {readLivingBody} from '../living_body.js';
 import {WORLD_QUANTITIES} from '../world_quantities.js';
+import {GU_DIET_DEFAULTS} from './gu_diet_defaults.js';
 
 const kinds = Object.fromEntries(guLivingRows(guCatalogue).map(row => [row.id, row]));
 // Structured quantities already stated in the catalogue's diet paraphrases.
@@ -14,13 +15,21 @@ const mealEvidence = {
     moonlight: {chapters: [23], value: {amount: 2, unit: 'petals'}},
     'fixed-immortal-travel': {chapters: [410, 672], value: {amount: 1, unit: 'bead'}},
 };
-const together = new Set(['vitality-grass', 'love', 'photo-audio']);
+// Foods eaten together in one meal; other lists are alternatives. Vitality Leaf's default keeps its grass's pair.
+const together = new Set(['vitality-grass', 'love', 'photo-audio', 'vitality-leaf']);
 // A meal for After represents nutrients already delivered by its ants. The
 // case does not settle the ants' processing or generate river or ambient inputs.
 const calibration = {rationMinutes: 12, mealAmount: 1, growthMinutes: 0, minutesPerDay: 1440};
 
-export function guBodyRow(id) {
-    return adaptGuBody(kinds[id], guCatalogue[id].body, {minutesPerDay: calibration.minutesPerDay, mealEvidence: mealEvidence[id]});
+// The chapter join alone by default. With `defaults`, a kind whose chapters state no food takes its GKM440
+// mechanism default (gu_diet_defaults.js), marked `basis: 'authored'` with its reason and cost; a stated diet
+// always wins.
+export function guBodyRow(id, {defaults = false} = {}) {
+    const joined = adaptGuBody(kinds[id], guCatalogue[id].body, {minutesPerDay: calibration.minutesPerDay, mealEvidence: mealEvidence[id]});
+    const fallback = defaults && joined.row.bodyFields.diet.basis === 'unknown' ? GU_DIET_DEFAULTS[id] : null;
+    if (!fallback) return joined;
+    const diet = {basis: 'authored', value: [...fallback.food], source: fallback.basis, reason: fallback.reason, cost: fallback.cost};
+    return {...joined, row: {...joined.row, diet: {food: [...fallback.food]}, bodyFields: {...joined.row.bodyFields, diet}}};
 }
 
 const stockKey = food => 'stock:' + food.toLowerCase().replaceAll(' ', '-');
@@ -28,7 +37,7 @@ const pack = 'l.living_body';
 const place = 'feeding-site';
 
 export function guBodyCase(id) {
-    const {row, durationMinutes} = guBodyRow(id);
+    const {row, durationMinutes} = guBodyRow(id, {defaults: true});
     const foods = row.diet.food;
     if (!foods) throw new Error(`Gu body case ${id}: diet unknown.`);
     const runtimeDuration = durationMinutes.basis === 'chapter' ? durationMinutes
