@@ -35,7 +35,7 @@ export function ownHoldingsView(worldId, state) {
     // G7: a reader may return rows ({label, detail}) as well as plain labels, so each owned thing gets its own line.
     const rows = Array.isArray(items) ? items.map(x => typeof x === 'string' ? {label: x, detail: ''} : {label: String(x?.label ?? ''), detail: String(x?.detail ?? '')}).filter(r => r.label) : [];
     const list = Array.isArray(items) ? rows.map(r => r.label).join(', ') : items;
-    return {purse: typeof purse === 'string' && purse ? purse : entry.purse, items: typeof list === 'string' && list ? list : entry.items, body: entry.body, ...(entry.carried ? {carried: entry.carried} : {}), ...(entry.name ? {name: entry.name} : {}), ...(rows.length ? {rows} : {})};
+    return {purse: typeof purse === 'string' && purse ? purse : entry.purse, items: typeof list === 'string' && list ? list : entry.items, body: entry.name ? '' : entry.body, ...(entry.carried ? {carried: entry.carried} : {}), ...(entry.name ? {name: entry.name} : {}), ...(rows.length ? {rows} : {})};
 }
 
 // Where each notice sits: inside the panel whose native content the veil hides.
@@ -61,7 +61,7 @@ export function syncOwnHoldingsNotices(root, entry) {
     for (const [hostId, key] of NOTICE_HOSTS) {
         const host = doc.getElementById(hostId), old = host?.querySelector(':scope > [data-own-holdings-notice]');
         if (!host) continue;
-        if (!entry) { old?.remove(); continue; }
+        if (!entry || !entry[key]) { old?.remove(); continue; } // PS307: a life with a named person says nothing about whose sheet it is not
         // G7: what this life owns is a list, one row per thing with what it is for; a row opens where it is used.
         if (key === 'items' && entry.rows?.length && doc.createElement('ul').append) {
             const signature = JSON.stringify(entry.rows);

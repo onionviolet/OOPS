@@ -139,7 +139,8 @@ test('a life with its own person names them in the header and puts the Village h
     const off = registerOwnHoldings(W, {...TEXT, name: 'Harry Potter'});
     try {
         const entry = ownHoldingsView(W, stateWith(0));
-        assert.equal(entry.name, 'Harry Potter'); assert.equal(entry.carried, undefined, 'the default note comes from the fold');
+        assert.equal(entry.name, 'Harry Potter'); assert.equal(entry.body, '', 'a named person needs no "not the Village hero\'s sheet" line'); assert.equal(ownHoldingsView(W, stateWith(0)).body, '');
+        off(); const plain = registerOwnHoldings(W, TEXT); assert.equal(ownHoldingsView(W, stateWith(0)).body, TEXT.body, 'an unnamed life keeps today\'s wording'); plain(); registerOwnHoldings(W, {...TEXT, name: 'Harry Potter'}); assert.equal(entry.carried, undefined, 'the default note comes from the fold');
         const field = {value: 'Hero', dataset: {}, readOnly: false, title: ''}, placed = [];
         const parent = {querySelector: () => placed[0] ?? null};
         const list = {parentNode: parent, before: n => placed.unshift(n)};
