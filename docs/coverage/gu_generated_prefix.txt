@@ -1,0 +1,1174 @@
+Canon Gu catalogue (name | path | rank | effect; rank suffix d = derived, ? = unknown; effect is verb + object in the effect grammar, - = unknown). Held-out Gu are not listed.
+Ability Gu | strength | r8 | -
+Abortion Gu | - | r? | -
+Accumulating Ash Gu | - | r3 | -
+Acupuncture Gu | - | r? | block vitality
+Adaptation Gu | - | r8 | -
+Adaptation Immortal Gu | transformation | r8 | -
+After Immortal Gu | time | r7 | add thing
+Afterlife Grass Gu | - | r? | -
+Air Travel Ghost | soul | r3d | move position
+Airsac Gu | qi | r3 | -
+Alert Bell Gu | sound | r5d | sense information
+All-out Effort Gu | strength | r1 | add force
+Amplify Effect Gu | rule | r1 | alter working
+Ancient Bronze Skin Gu | metal | r4 | block vitality
+Anger Will Gu | - | r? | -
+Anxiety Accumulation Gu | - | r2 | -
+Arm Bone Wings Gu | - | r3 | move position
+Arrow Formation Gu | - | r? | remove vitality
+Asura Zombie Gu | transformation | r5 | move position
+Atmosphere Gu | qi | r4 | -
+Attitude Gu | - | r8 | transform mind
+Aura Concealment Gu | - | r3 | conceal information
+Authority Gu | - | r? | -
+Autumn Gu | time | r7 | -
+Autumn Immortal Gu | time | r7 | -
+Autumn Light Gu | - | r6d | add light
+Autumn Voice Grass | - | r? | -
+Azure Wolf Skin Gu | - | r4 | block vitality
+Backtrack Gu | time | r5 | sense information
+Backwater Battle Gu | - | r5 | -
+Bai Clan Leader (Bai Gu Mountain) | - | r4 | -
+Bai Zhan Wen | - | r4 | -
+Bamboo Gentleman | - | r4 | sense information
+Bane Star Gu | - | r? | -
+Battle Bone Wheel | bone | r5 | remove vitality
+Battle Space Gu | space | r5 | -
+Battle Thought Gu | wisdom | r5d | block vitality
+Battle Will Gu | wisdom | r5d | alter working
+Bay Pavilion | - | r7 | sense information
+Bear Enslavement Gu | enslavement | r1 | -
+Bear Palm Gu | strength | r3d | add force
+Bear Strength Gu | strength | r1 | add force
+Beast Enslavement Immortal Gu | enslavement | r1 | -
+Beast Strength Gu | strength | r1 | add force
+Beast Strength Placenta Gu | - | r5 | add force
+Beast Tamer Gu | - | r? | -
+Beauty Immortal Gu | - | r6 | -
+Become Pregnant Gu | - | r? | -
+Become Real | rule | r6 | -
+Before Immortal Gu | time | r6 | -
+Beggar Gu | - | r? | -
+Beggar Moth | - | r2 | -
+Belief Gu | - | r? | -
+Benevolence Gu | - | r? | -
+Berserk Gu | strength | r4 | add force
+Bewilderment Gu | - | r? | -
+Bewitching Soul Immortal Gu | soul | r6 | -
+Big (rule path Immortal Gu) | rule | r6 | -
+Big Immortal Gu | rule | r7 | -
+Big Qi Immortal Gu | - | r6 | -
+Big Smoke Tea Gu | - | r? | remove vitality
+Big Soul Gu | soul | r2 | -
+Big Strength Defecate Gu | poison | r3 | remove vitality
+Big Strength Gu | strength | r2 | add force
+Bitter Strength Gu | strength | r4 | add force
+Black and White Boar Gu | - | r1 | -
+Black Ants | - | r? | -
+Black Boar Gu | strength | r1 | remove vitality
+Black Hair Gu | transformation | r6d | -
+Black Light Gu | light | r3d | add light
+Black Mane Gu | - | r2 | block vitality
+Black Python Coiling Strength Gu | strength | r4d | remove vitality
+Black Yellow Mother Qi Gu | - | r? | -
+Blacksmith Gu | - | r? | -
+Blade Aura Gu | - | r? | remove vitality
+Blade Gu | blade | r? | remove vitality
+Blade Qi Gu | qi | r7 | remove vitality
+Bladewing Blood Bat Gu | blood | r3 | remove vitality
+Bladewing Immortal Gu | - | r7 | -
+Blessing in Disguise Immortal Gu | luck | r7 | -
+Blitz Gu | - | r4d | move position
+Blood Asset Immortal Gu | blood | r7 | block working
+Blood Battle Gu | blood | r5d | -
+Blood Blade Gu | blood | r5d | remove vitality
+Blood Curtain Skyflower Gu | blood | r5 | block vitality
+Blood Deity | blood | r6 | remove vitality
+Blood Essence Gu | - | r? | -
+Blood Frenzy Gu | blood | r4 | remove vitality
+Blood Guillotine Gu | blood | r5 | remove vitality
+Blood Jasper Gu | - | r1 | -
+Blood Merge Gu | blood | r5d | add vitality
+Blood Moon Gu | - | r3 | remove vitality
+Blood Oath Immortal Gu | blood | r6 | -
+Blood Qi Gu | blood | r6 | add vitality
+Blood Relation Gu | blood | r5d | -
+Blood Relation Immortal Gu | blood | r8 | sense information
+Blood Revenge Immortal Gu | blood | r6 | -
+Blood River Chariot | - | r? | -
+Blood River Python Gu | blood | r5 | remove vitality
+Blood Scar Gu | blood | r5d | sense information
+Blood Sense Gu | blood | r5 | sense information
+Blood Shadow Gu | blood | r5d | -
+Blood Skull Gu | blood | r4 | -
+Blood Steps Gu | blood | r3 | move position
+Blood Sweat Gu | blood | r5d | remove vitality
+Blood Trace Immortal Gu | blood | r6 | sense information
+Blood Wight Gu | transformation | r5 | move position
+Bloodline Immortal Gu | blood | r7 | -
+Blue Bird Ice Coffin Gu | ice | r3 | remove vitality
+Blue Face Gu | transformation | r3 | -
+Blue Farm Slug Gu | - | r3 | move position
+Blue Halo Gu | - | r? | -
+Blue Light Gu | light | r3d | add light
+Blue Shine Gu | light | r3d | add vitality
+Blue Sky Gu | - | r4 | -
+Blue Sky Well Gu | - | r5 | -
+Boar Cage Gu | - | r? | -
+Bone Bamboo Gu | bone | r1 | -
+Bone Seal Immortal Gu | - | r6 | -
+Bone Shrinking Gu | - | r? | -
+Bone Spike Gu | bone | r3 | remove vitality
+Bone Wings Gu | bone | r4 | move position
+Borrow Light Gu | light | r3d | add light
+Borrow Strength Gu | strength | r5 | add force
+Bountiful Year | time | r5d | -
+Brain Explosion Gu | wisdom | r4 | remove vitality
+Brave Fight Gu | strength | r4 | add force
+Break Luck | luck | r6 | -
+Breath Concealment Gu | - | r3 | conceal information
+Bright Pearl Gu | - | r4 | add light
+Bright Spear Gu | - | r? | remove vitality
+Brilliance Of Two Stars Gu | star | r2 | alter working
+Broadsword Light Gu | - | r3 | remove vitality
+Bronze Skin Gu | metal | r1 | block vitality
+Build a Mountain Gu | - | r5 | -
+Bull Enslavement Gu | enslavement | r1 | -
+Bull Strength Gu | strength | r2d | add force
+Burial Soul Toad | - | r4 | -
+Bury Gu | earth | r1d | conceal information
+Butterfly Transformation Gu | - | r3d | remove vitality
+Cactus Pointer | - | r3 | sense information
+Calm Gu | - | r? | -
+Captain Gu | - | r? | -
+Carapace Gu | - | r2 | block vitality
+Care Gu | - | r7 | -
+Care Immortal Gu | rule | r7 | -
+Carefree Travel | - | r6 | move position
+Careful Gu | wisdom | r3 | -
+Casual Gu | wisdom | r5d | -
+Chainsaw Golden Centipede | - | r3 | remove vitality
+Chainsaw Killer Centipede | - | r4 | remove vitality
+Change Form Immortal Gu | transformation | r6 | conceal information
+Change Soul Immortal Gu | soul | r7 | -
+Changing Intent Gu | wisdom | r4d | -
+Charging Crash Gu | - | r4 | move position
+Chase Smoke Gu | - | r4d | sense information
+Chasing Wind Gu | wind | r4 | move position
+Clairaudience Gu | - | r4d | sense information
+Cleanse Soul | - | r6 | -
+Cleanse Soul Immortal Gu | soul | r6 | -
+Cleansing Water Gu | - | r1 | add vitality
+Clear Mind Gu | wisdom | r4 | add vitality
+Clear Wind Wheel Gu | wind | r1 | move position
+Clearing Heat Gu | - | r2 | add vitality
+Close Door Gu | space | r5 | -
+Cloud Rope Gu | - | r3d | remove vitality
+Cloud Spirit Gu | soul | r3 | alter working
+Cognition Gu | - | r6d | sense information
+Cold Blood Gu | blood | r6 | remove vitality
+Cold Intent Gu | wisdom | r4d | -
+Cold Wave Gu | ice | r3d | remove vitality
+Collusion Gu | - | r? | -
+Colored Light Gu | - | r? | add light
+Combat Relocation Gu | - | r? | -
+Commanding Leader Gu | human | r5 | -
+Concealing Gu | - | r? | conceal information
+Connect Luck | luck | r6 | -
+Connect Mind Gu | wisdom | r7 | -
+Connecting Heaven Gu | - | r5 | -
+Consecutive Gu | - | r8 | -
+Consecutive Slash Gu | - | r? | -
+Contact Heart Gu | wisdom | r3 | move relation
+Continuing Gu | - | r? | -
+Cool Wind Gu | - | r? | -
+Coptis Rhizome Gu | soul | r3d | -
+Corrosion Blood Grass Gu | - | r2 | remove vitality
+Courage Gu | - | r? | -
+Craftsman Gu | - | r? | -
+Crane Enslavement Gu | enslavement | r1 | -
+Create Fog Gu | - | r3d | remove vitality
+Creative Thinking Gu | - | r? | -
+Crescent Moon Gu | moon | r7 | -
+Crocodile Strength Gu | strength | r2 | add force
+Dark Arrow | - | r6 | remove vitality
+Dark Arrow Immortal Gu | dark | r6 | remove vitality
+Dark Flow Giant City | - | r? | -
+Dark Fog Gu | - | r? | -
+Dark Gu | dark | r4d | -
+Dark Limit Immortal Gu | dark | r6 | conceal information
+Dark Toss Gu | dark | r4d | conceal information
+Dark Vision Gu | - | r? | -
+Day Gu | time | r3 | -
+Days Pass Like Years | time | r5d | remove vitality
+Dazzling Light Gu | light | r3d | add light
+Death Gu | - | r? | -
+Death Sentence Awaits Immortal Gu | - | r7 | -
+Deer Enslavement Gu | enslavement | r1 | -
+Delight in Water and Mountain | wisdom | r6 | -
+Demon Ferret Blood | transformation | r4d | -
+Demon Ferret Bone | transformation | r4d | -
+Demon Suppression Iron Chain Gu | - | r? | remove vitality
+Departure Gu | rule | r8 | -
+Destiny Gu | heaven | r9 | -
+Detection Gu | - | r4d | sense information
+Difficulty Gu | - | r? | -
+Digital Shade Gu | - | r2 | -
+Disappointment Gu | - | r6d | -
+Disguise Gu | - | r? | -
+Disintegrate (rule path Immortal Gu) | - | r6 | -
+Disintegrate Immortal Gu | rule | r6 | -
+Distracting Thoughts Immortal Gu | wisdom | r6 | -
+Divert Disaster Immortal Gu | luck | r7 | -
+Divine Light Hall | - | r? | add light
+Divine Sense Gu | - | r5 | -
+Divine Travel | space | r6 | move position
+Divulge Information Gu | - | r? | -
+Djinn Body Gu | - | r4 | add force
+Djinn Mind Gu | - | r4 | add force
+Doctor Gu | - | r? | -
+Dog Enslavement Gu | enslavement | r1 | -
+Dog Guts Above Heaven Gu | enslavement | r5 | remove vitality
+Dog Guts Above Mountain Gu | enslavement | r3 | remove vitality
+Dog Guts Above Sea Gu | enslavement | r4 | remove vitality
+Dog Guts Gu | enslavement | r2 | remove vitality
+Dog Shit Luck Immortal Gu | luck | r6 | -
+Doting Mother Gu | emotion | r6d | -
+Double Orifice Stove Gu | fire | r2 | remove vitality
+Dragon Centipede | sword | r7 | remove vitality
+Dragon Centipede Immortal Gu | - | r7 | -
+Dragon Claw Gu | transformation | r5 | remove vitality
+Dragon Guts Gu | - | r? | -
+Dragon Horn Gu | transformation | r4d | remove vitality
+Dragon Pearl Gu | - | r? | -
+Dragon Soul Gu | soul | r3 | alter working
+Dragon Strength Gu | strength | r5 | remove vitality
+Dragon Strength Immortal Gu | strength | r7 | add force
+Dragon Travel Tiger Steps Gu | - | r4 | move position
+Dragon-elephant Huge Strength Gu | strength | r4 | remove vitality
+Dragonpill Cricket Gu | - | r1 | move position
+Dream Armor | dream | r7 | block vitality
+Dream Butterfly Gu | dream | r5 | sense information
+Dream Creation | - | r? | -
+Dream Pillow Gu | dream | r5 | -
+Dream Soul Gu | soul | r3 | alter working
+Dream Token | dream | r8 | remove vitality
+Dream Travel | dream | r6 | move position
+Dream Wings Immortal Gu | dream | r6 | move position
+Dreaming | - | r? | -
+Dried Pond Gu | water | r4 | alter working
+Duplicate Gu | - | r? | alter working
+Dusty Gu | - | r2d | conceal information
+Eagle Claw Gu | transformation | r4d | remove vitality
+Eagle Wings Gu | - | r3 | move position
+Early Autumn Immortal Gu | time | r6 | -
+Earth Chief Zombie Gu | transformation | r5 | move position
+Earth Communication Ear Grass | - | r2 | sense information
+Earth Dragon Gu | - | r? | -
+Earth Escape Gu | earth | r5 | move position
+Earth Mound Gu | - | r2 | -
+Earth Net | - | r7 | -
+Earth Net Immortal Gu | earth | r7 | -
+Earth Overlord Gu | strength | r5 | add force
+Earth Prison Immortal Gu | earth | r7 | remove vitality
+Earth Qi Gu | qi | r8 | -
+Earth Qi Immortal Gu | qi | r6 | -
+Earth Refinement Gu | - | r4 | -
+Earth Treasury Flower King Gu | - | r5 | -
+Earth Vein Gu | earth | r7 | -
+Earth Vein Immortal Gu | - | r6 | -
+Earth Wall Gu | - | r3 | -
+East Window Gu | information | r4 | -
+Eat Fragrance Immortal Gu | food | r6 | -
+Eat Strength Immortal Gu | strength | r6 | add force
+Eating One's Words Gu | rule | r8d | -
+Eating Wind Drinking Dew Gu | - | r? | -
+Edge Gu | blade | r6 | remove vitality
+Edge Immortal Gu | - | r6 | -
+Edge Link Camp | - | r? | sense information
+Effort Gu | - | r8 | -
+Eight-Faced Prestige Wind Immortal Gu | - | r6 | -
+Eighty-year Lifespan Gu | - | r? | -
+Electric Circuit Gu | - | r? | -
+Elephant Strength Gu | strength | r2 | add force
+Elixir Fire Gu | - | r? | -
+Elusive Ghost Gu | soul | r3d | move position
+Emotion Gu | emotion | r7 | -
+Emotion Poetry Gu | wisdom | r4 | -
+Empty Fist Gu | - | r? | remove vitality
+Endless Trouble | time | r5d | -
+Endless Vitality Gu | - | r3 | add vitality
+Essence Iron Bone Gu | bone | r4 | add force
+Estrus Gu | enchantment | r3d | -
+Eternal Gu | - | r10 | -
+Everlasting Gu | - | r6d | -
+Evil Thought Gu | wisdom | r4d | -
+Exert Strength Gu | strength | r3d | add force
+Expend Strength Gu | strength | r4 | remove vitality
+Exploding Egg Gu | - | r1 | -
+Exquisite Warp Gu | space | r6 | move position
+Extreme Light Gu | light | r5 | add light
+Extreme Past Immortal Gu | time | r8 | sense information
+Failure Gu | - | r? | -
+Fairy Wind Gu | - | r4 | -
+Faith Gu | - | r? | add light
+Falling Meteor Gu | star | r4d | -
+False Second Aperture Gu | - | r? | -
+Familial Emotion Gu | blood | r5d | -
+Fang Yuan/Gu | - | r? | -
+Fate Armor Immortal Gu | - | r8 | block vitality
+Fate Gu | heaven | r9 | -
+Fear Gu | emotion | r6d | -
+Fierce Wind Gu | wind | r? | block vitality
+Fiery Claw Gu | fire | r3 | remove vitality
+Fiery Dragon Gu | - | r5 | -
+Fiery Snake Gu | fire | r4 | remove vitality
+Fifteen-year Lifespan Gu | - | r? | -
+Fight Immortal Gu | rule | r7 | -
+Fire Cape Gu | fire | r5 | -
+Fire Cloak Gu | fire | r3d | block vitality
+Fire Discharge Gu | fire | r? | move position
+Fire Dragon Gu | fire | r4 | remove vitality
+Fire Eye Gu | fire | r3 | sense information
+Fire Pellet Gu | fire | r3 | remove vitality
+Fire Pupil Gu | fire | r4 | remove vitality
+Fire Source Gu | - | r? | alter working
+Firelight Gu | - | r? | -
+Fish Bubble Gu | - | r3d | -
+Fish Scale Gu | - | r1 | block vitality
+Fist Stone Gu | earth | r1d | remove vitality
+Five Element Bear Skin Gu | - | r5 | block vitality
+Five Hole Jade Flute Gu | enslavement | r5 | alter working
+Five Orifices Fire Pagoda Gu | fire | r5 | -
+Five String Zither Gu | - | r? | -
+Five Tasks At Once Gu | - | r5 | -
+Five-hundred-year Lifespan Gu | - | r? | -
+Fixed Immortal Travel | space | r6 | move position
+Fixed Sound Gu | - | r5 | remove vitality
+Fixed Star Gu | - | r6d | sense information
+Flame Heart Gu | fire | r3 | alter working
+Flash Blink Gu | light | r1 | add light
+Flash Bug Gu | space | r5 | move position
+Flash of Inspiration Gu | light | r3 | -
+Flash Sword Gu | sword | r4d | move position
+Flesh Laughter Gu | - | r3d | -
+Flesh-bone Gu | - | r3 | add vitality
+Flickering Flame Immortal Gu | - | r6 | -
+Flower Boar Gu | strength | r1 | add force
+Flower Rain Gu | - | r3d | -
+Flowerbud Gu | - | r2 | -
+Flying Bear Strength Immortal Gu | strength | r6 | add force
+Flying Bone Shield Gu | bone | r3 | block vitality
+Flying Cloud Gu | cloud | r4 | move position
+Flying Sand Moving Rock | - | r5 | remove vitality
+Flying Sand Pavilion | - | r? | move position
+Flying Smoke Gu | - | r5 | move position
+Flying Snow Gu | snow | r5 | move position
+Flying Soul Gu | soul | r3 | move position
+Flying Sword Gu | sword | r7 | remove vitality
+Flying Sword Letter Gu | information | r3 | move position
+Flying Vajra Centipede | - | r5 | move position
+Flying Zombie Gu | transformation | r5 | move position
+Footless Bird | bone | r3 | move position
+Footprint Gu | - | r4 | sense information
+Forest Gu | - | r7 | -
+Forgiveness Gu | - | r? | -
+Forgotten Sorrow Immortal Gu | - | r6 | -
+Formation Chart Immortal Gu | formation | r6 | -
+Formation Flag Immortal Gu | formation | r6 | -
+Formation Plate Immortal Gu | formation | r6 | alter law
+Formation Spirit Immortal Gu | formation | r6 | -
+Fortitude Gu | strength | r8 | -
+Fortuitous Encounter Immortal Gu | - | r6 | -
+Fortune Rivalling Heaven Gu | luck | r8 | move relation
+Fortune Rivalling Heaven Immortal Gu | luck | r6 | -
+Fountain Thoughts Gu | - | r? | -
+Four Elements Square Regret Blood Refinement Pool | refinement | r9 | -
+Four Flavors Liquor Worm | food | r2 | transform essence
+Four Orifices Fire Tower Gu | fire | r4 | -
+Four Stars Cube Gu | star | r4 | alter working
+Four Tasks At Once Gu | - | r4 | -
+Fox Enslavement Gu | enslavement | r1 | -
+Fox Skin Gu | - | r5 | block vitality
+Fragrant Bait Gu | - | r? | -
+Freedom Gu | - | r6 | sense information
+Frenzy Needle Bee Gu | - | r3 | remove vitality
+Frost Arrow Gu | - | r4 | remove vitality
+Frost Dragon Manor | - | r? | remove vitality
+Frost Fish Gu | - | r3 | remove vitality
+Frost Moon Gu | ice | r3 | remove vitality
+Fuel Oil Gu | - | r3d | -
+Galloping Horse Strength Gu | strength | r3 | remove vitality
+Gamble Gu | theft | r8 | move relation
+Gather Light Gu | - | r4 | add light
+Gather Oil Gu | - | r5 | -
+Gentle Feelings Gu | emotion | r8d | remove vitality
+Gentle Silk Spider | - | r1 | -
+Gentle Wind Gu | wind | r8 | remove vitality
+Ghost Axe Gu | soul | r3d | remove vitality
+Ghost Blaze Gu | soul | r4 | remove vitality
+Ghost Cage Gu | soul | r3d | remove vitality
+Ghost Cry Gu | soul | r3 | remove vitality
+Ghost Eye Gu | soul | r3d | sense information
+Ghost Face Gu | soul | r4 | remove vitality
+Ghost Fire Gu | fire | r1 | remove vitality
+Ghost Flame Gu | soul | r3 | remove vitality
+Ghost Hand Gu | soul | r3d | remove vitality
+Ghost Sealing Shirt Gu | soul | r3d | block vitality
+Ghost Tears Gu | soul | r3d | add vitality
+Gold and Silver Cup Gu | - | r4 | -
+Gold Cup Gu | - | r3 | -
+Gold Eating Flying Ant Gu | - | r3 | move position
+Golden Altar | - | r? | -
+Golden Armor Gu | metal | r5 | block vitality
+Golden Aurora Gu | metal | r4 | move position
+Golden Back Wolf Skin Gu | - | r3 | block vitality
+Golden Bell Shield Gu | - | r4 | block vitality
+Golden Breeze Gu | metal | r4 | add vitality
+Golden Coat Gu | metal | r4 | block vitality
+Golden Dawn Hall | - | r? | -
+Golden Dragon Gu | metal | r4 | remove vitality
+Golden Eye Gu | - | r? | sense information
+Golden Horn Centipede Gu | - | r5 | remove vitality
+Golden Lion Fur Gu | transformation | r5 | block vitality
+Golden Qi Gu | qi | r5d | -
+Golden Sand Gu | - | r6d | -
+Golden Shield Gu | - | r3 | block vitality
+Golden Silkworm Gu | - | r3 | remove vitality
+Golden Steel Tendon Gu | - | r4 | block vitality
+Good Deeds Gu | - | r5 | -
+Gourmet Food Box Gu | - | r5 | -
+Graceful Chaotic Duel Stage | time | r7 | block vitality
+Grand Bear Gu | strength | r2d | add force
+Grand Chaotic Dance Gu | - | r5 | alter working
+Grand Emperor Boar Strength | strength | r2d | remove vitality
+Grand Jade Gu | - | r? | -
+Grass Python Immortal Gu | strength | r6 | add force
+Grass Skirt Gu | - | r5 | -
+Grave Yam Gu | - | r3d | -
+Great Love Gu | - | r? | -
+Great Shock Gu | wisdom | r8 | -
+Great Thief | - | r7 | -
+Great Tornado Gu | wind | r3d | remove vitality
+Green Bull Labor Gu | strength | r3 | remove vitality
+Green Shine Gu | light | r4 | add vitality
+Green Silk Gu | - | r1 | block vitality
+Green Vine Gu | wood | r4d | remove vitality
+Green Wave Pavilion | - | r? | -
+Groundmat Grass Gu | wood | r4d | -
+Group Strength Gu | strength | r5 | add force
+Group Think Gu | - | r? | alter working
+Grudge Soul Gu | soul | r3 | alter working
+Gruel Mud | earth | r1 | remove vitality
+Gruel Mud Immortal Gu | earth | r6 | remove vitality
+Gu | - | r? | -
+Gu as Before Gu | time | r7d | -
+Guts Gu | soul | r2 | add vitality
+Hand Blade Gu | transformation | r3 | remove vitality
+Hand-Ear Gu | - | r4d | sense information
+Hao Zhen | - | r? | -
+Happiness Gu | - | r? | sense information
+Hard Liver Gu | - | r8 | add force
+Hard Liver Immortal Gu | transformation | r8 | -
+Hard Qi Gu | qi | r5d | block vitality
+Harmony Gu | - | r2 | -
+Hatred Gu | emotion | r8 | alter working
+Heart Blood Immortal Gu | blood | r6 | -
+Heart Engraved Gu | information | r1 | -
+Heart of Sympathy | - | r? | -
+Heart Sound Gu | - | r2 | -
+Heaven Earth Magnificent Sound Gu | sound | r5 | remove vitality
+Heaven Qi Gu | qi | r8 | -
+Heaven Qi Immortal Gu | qi | r6 | -
+Heaven's Envy Gu | heaven | r7 | -
+Heaven's Rage Immortal Gu | heaven | r6 | -
+Heaven's Sorrow Immortal Gu | heaven | r6 | -
+Heaven's Will Gu | - | r? | sense information
+Heavenly Birth Gu | - | r? | -
+Heavenly Demon Zombie Gu | transformation | r5 | move position
+Heavenly Essence Treasure Imperial Lotus | wood | r6 | -
+Heavenly Essence Treasure King Lotus | wood | r5 | -
+Heavenly Essence Treasure Lotus | wood | r3 | -
+Heavenly Essence Treasure Monarch Lotus | wood | r4 | -
+Heavenly Gong | - | r6 | -
+Heavenly Gong Immortal Gu | sound | r6 | -
+Heavenly Mugwort Gu | - | r3 | block vitality
+Heavenly Secret Gu | heaven | r7 | sense information
+Heavenly Web Gu | heaven | r9 | block working
+Hei Lou Lan's movement Gu | - | r? | -
+Herb Incense Gu | - | r? | -
+Hero Gu | human | r5 | -
+Heroic Soul Gu | soul | r3 | alter working
+High Observation Gu | - | r? | -
+Hints and Clues Gu | - | r5 | sense information
+Hole Earth Gu | space | r5 | move position
+Hope Gu | human | r5d | -
+Hopping Zombie Gu | transformation | r4 | -
+Horizontal Charge Gu | - | r3 | move position
+Horse Strength Gu | strength | r2d | add force
+Hostile Intent Gu | wisdom | r4d | -
+House Lizard Gu | - | r2 | -
+House Type Gu | - | r3d | -
+Human Medicine Gu | - | r3 | add vitality
+Human Qi Immortal Gu | qi | r7 | alter working
+Human Shaped Life Gu | - | r? | -
+Human Skin Gu | - | r3d | conceal information
+Human Torch Gu | - | r4 | alter working
+Human Will Gu | - | r? | -
+Humility Gu | human | r8 | -
+Hundred Years Harmony | time | r5d | -
+Hundred-year Lifespan Gu | - | r? | -
+Hundred-Years Wood Charm Gu | transformation | r4 | -
+Hypnosis Gu | - | r3d | remove vitality
+Ice Crystal Gu | transformation | r3 | -
+Ice Edge Gu | ice | r3 | remove vitality
+Ice Explosion Gu | ice | r3 | remove vitality
+Ice Muscle Gu | strength | r3 | block vitality
+Ice Muscles Gu | - | r3 | -
+Ice Soul Gu | soul | r3 | alter working
+Ice Wall Gu | ice | r3d | block vitality
+Iceblade Gu | ice | r2 | remove vitality
+Illusory Moon Gu | - | r3 | conceal information
+Imitation Gu | - | r8 | -
+Immobilization Gu | - | r4 | -
+Immortal Gu Kill | - | r6 | remove vitality
+Immortal Gu Promise | - | r6 | -
+Immortal Showing the Way Gu | - | r6d | -
+Immortal Slave | enslavement | r6 | -
+Immortal Tribulation Tempering Aperture | refinement | r6d | -
+Impermanence Ghost | soul | r3d | -
+Inch of Time Gu | time | r1 | -
+Injury Mark Gu | human | r7d | add vitality
+Injury Mark Immortal Gu | - | r6 | -
+Innocent Mushroom | - | r6d | -
+Inspiration Gu | wisdom | r5d | -
+Instant Chain Immortal Gu | - | r6 | -
+Instant Immortal Gu | time | r6 | -
+Instant Pause | time | r6 | remove vitality
+Intention Gu | - | r? | -
+Invisibility Gu | - | r5 | conceal information
+Iron Blood Gu | blood | r5d | -
+Iron Bone Broad Axe | bone | r3d | -
+Iron Bone Gu | bone | r3 | add force
+Iron Cabinet Gu | - | r3d | remove vitality
+Iron Crown Eagle Strength Gu | strength | r6 | add force
+Iron Feather Arrow Gu | - | r? | remove vitality
+Iron Hand Gu | metal | r3 | add force
+Iron Snake Vine Gu | - | r3d | block vitality
+Iron Thorn Thistle Gu | - | r3 | remove vitality
+Iron Wall Gu | metal | r6 | block vitality
+Ironfist Grappling Gu | - | r5 | remove vitality
+Ivory Armor Gu | strength | r4 | block vitality
+Jade Bone Gu | bone | r3 | remove vitality
+Jade Gu | earth | r1d | -
+Jade Light Gu | light | r3d | add light
+Jade Skin Gu | - | r1 | block vitality
+Jade Sky Gu | poison | r5 | remove vitality
+Jade Wind Wheel Gu | wind | r2 | alter working
+Jin Strength Gu | strength | r1 | add force
+Jumping Grass Gu | - | r6d | move position
+Jun Strength Gu | strength | r3 | add force
+Justice Gu | human | r5 | block vitality
+Keep Silent Gu | sound | r5 | -
+Kill Gu | killing | r8 | remove vitality
+Killing Intent Gu | wisdom | r4d | remove vitality
+Kind Thought Gu | wisdom | r4d | -
+Kinship Bloodworm | - | r5 | -
+Kunlun Bull Strength Gu | strength | r4 | remove vitality
+Labor Union Token Gu | - | r? | -
+Landscape as Before Gu | time | r6 | transform form
+Large Belly Frog | - | r2 | -
+Large Cave Toad Gu | - | r5 | -
+Lasting Gu | - | r? | -
+Late Autumn Immortal Gu | time | r6 | -
+Lava Explosion Gu | - | r3 | remove vitality
+Learning Gu | wisdom | r5d | -
+Leave Luck | luck | r8d | -
+Letter Gu | information | r4d | -
+Letter Seal Gu | - | r7 | -
+Letter Sending Green Bird Gu | information | r5 | sense information
+Lie Gu | - | r? | -
+Lieutenant Gu | - | r? | -
+Life breath grass | - | r1 | -
+Life Force Boosting Gu | - | r? | -
+Life Gu | - | r? | add vitality
+Life Tablet Gu | - | r6d | sense information
+Life-burial Jade Gu | - | r? | -
+Life-Retaining Jade Burial Gu | - | r5 | block vitality
+Lifespan Gu | heaven | r1 | add vitality
+Light Armor Immortal Gu | - | r7 | block vitality
+Light Gu | light | r9 | add light
+Light Source Gu | light | r? | alter working
+Light Sphere Gu | light | r2 | add light
+Lightning Charred Potato Gu | - | r2 | remove vitality
+Lightning Charred Potato Mother Gu | - | r3 | -
+Lightning Eye Gu | lightning | r3 | sense information
+Lightning Flash Gu | light | r5 | move position
+Lightning Net Gu | lightning | r3d | remove vitality
+Lightning Symbol Paper Crane Gu | information | r3 | -
+Lightning Web Gu | lightning | r3d | remove vitality
+Limit Gu | - | r7 | -
+Lion Roar Gu | - | r3d | remove vitality
+Liquid Metal Gu | metal | r5 | block vitality
+Liquor God Travel | - | r6 | move position
+Liquor Worm | food | r1 | transform essence
+Little Wind Drill Gu | - | r? | -
+Liu Wen Wu's Gu worm | - | r? | -
+Living Steel Gu | - | r2 | add vitality
+Lizard House Gu | - | r2 | -
+Location Swap Gu | space | r4 | move position
+Longevity Edict | information | r4d | -
+Longhorn Beetle Gu | strength | r1 | -
+Looking Back Immortal Gu | time | r7 | sense information
+Lotus Cloth Gu | - | r3d | block vitality
+Loud Thunder Hall | - | r? | -
+Love Gu | emotion | r9 | move position
+Love Life Separation | poison | r2 | remove vitality
+Loyalty Gu | - | r? | -
+Luck Deduction Immortal Gu | luck | r6 | sense information
+Luck Inspection Immortal Gu | luck | r6 | sense information
+Luck Plan Gu | luck | r6 | sense information
+Main (rule path Immortal Gu) | rule | r6 | -
+Malicious Thought Gu | wisdom | r1 | -
+Malicious Will Gu | wisdom | r4d | -
+Man as Before Gu | time | r5 | add vitality
+Man as Before Immortal Gu | time | r6 | -
+Man Qi Gu | - | r7 | -
+Man Triumphing Heaven Gu | - | r5 | -
+Man-Beast Life Burial Gu | - | r3 | -
+Master-Servant Gu | enslavement | r7 | -
+Mature Bamboo | - | r6 | -
+Mature Bamboo Immortal Gu | wood | r6 | sense information
+Meaning Gu | - | r? | -
+Medicine Cottage | - | r? | -
+Medicine Strength Gu | - | r? | add force
+Melt Ice | ice | r6 | -
+Melt Ice Immortal Gu | ice | r6 | -
+Memory Gu | - | r? | -
+Memory Thought Gu | wisdom | r1 | sense information
+Menses Blood Gu | blood | r6d | move relation
+Menses Blood Immortal Gu | blood | r6 | -
+Merchant Gu | - | r? | -
+Messenger Dove Gu | information | r5 | -
+Meteor Rain Gu | - | r? | -
+Mid Autumn Immortal Gu | time | r6 | -
+Mind Reading Gu | - | r4d | sense information
+Moat Gu | - | r6d | -
+Monkey Language Gu | - | r3d | -
+Months Pass Like Years | time | r5d | -
+Moon Demon Bat Claw Immortal Gu | transformation | r6 | remove vitality
+Moon Month Immortal Gu | - | r6 | -
+Moon Poison Gu | poison | r3 | remove vitality
+Moon Raiment | - | r2 | block vitality
+Moon Scar Gu | - | r? | remove vitality
+Moon Soul Gu | soul | r3 | alter working
+Moon-Invite Gu | - | r4 | remove vitality
+Moonglow Gu | - | r2 | remove vitality
+Moonlight Crawling Mountain Tiger | - | r? | -
+Moonlight Treasure King Gu | - | r5 | -
+Moonscar Gu | - | r2 | remove vitality
+Moonshadow Gu | - | r4 | -
+Moonveil Gu | - | r2 | block vitality
+Mortal Connect Luck Gu | - | r? | -
+Mortal Letter Gu | - | r5 | -
+Mountain As Before Gu | time | r5 | block form
+Mountain Back Toad | - | r3 | move position
+Mountain Pledge Gu | information | r6 | -
+Moving Fire Gu | - | r? | move position
+Moving Form Gu | - | r4 | -
+Moving Perspective Cup Gu | space | r5 | -
+Moving Perspective Gu | space | r5 | move position
+Muddy Gu | earth | r1d | remove vitality
+Mudskin Toad | - | r2 | -
+Muffled Thunder Potato Gu | - | r3 | remove vitality
+Multiple Pregnancy Gu | - | r? | -
+Multiple Sword Shadow Gu | dark | r4 | remove vitality
+Multitask Gu | - | r? | -
+Mush Room Gu | - | r3d | -
+Musician Gu | human | r5d | -
+Mutation Gu | - | r8 | -
+Mutation Immortal Gu | transformation | r8 | remove vitality
+Muted Mouth Gu | - | r3 | -
+Mutual Sense | information | r6 | sense information
+Mutual Sense Immortal Gu | - | r6 | -
+Nature Gu Refinement Technique | - | r? | -
+Nether Ghost Claw | - | r? | remove vitality
+New Will Gu | wisdom | r4d | -
+Nightmare Castle | - | r? | -
+Nine Feet Flame Gu | - | r? | -
+Nine Leaf Vitality Grass | - | r2 | add thing
+Nine Son Mother Ghost Gu | soul | r3d | -
+No Gu | - | r7 | -
+No Immortal Gu | rule | r7 | -
+No Loss Gu | - | r6 | move position
+Normal Gu | rule | r8 | add vitality
+Number Gu | - | r? | -
+Numbness Gu | - | r4 | remove vitality
+Obsessed Thought Gu | wisdom | r5d | -
+Officer Gu | - | r? | -
+Oil Dragon Gu | - | r4 | remove vitality
+Old Earth Chief Zombie Gu | - | r? | -
+Old Removal Gu | - | r3d | -
+One Gu | rule | r7 | -
+One's Own Movement Gu | - | r6 | move position
+One's Own Way Gu | - | r6 | -
+One's Own Way Immortal Gu | - | r6 | -
+One's Wishes Gu | wisdom | r5d | -
+Onion Explosion Gu | - | r2 | remove vitality
+Open Door Gu | space | r5 | -
+Organization Gu | - | r? | -
+Overlapping Shadow Gu | dark | r4 | alter working
+Overlord Gu | - | r? | -
+Ox Strength Gu | strength | r2d | add force
+Page List/Gu | - | r? | -
+Painting Idea Gu | wisdom | r5d | -
+Pair Gu | - | r6d | alter working
+Paper Crane Gu | - | r? | -
+Pass Immortal Gu | rule | r7 | alter working
+Peaceful Wind Immortal Gu | - | r6 | -
+Peach Wolf Strength Gu | strength | r6 | add force
+Perceivable Dao Immortal Gu | information | r6 | sense information
+Perfect Pair | - | r6d | -
+Permanence Gu | - | r? | -
+Perseverance Gu | human | r7 | alter working
+Petty Thief Gu | - | r? | -
+Phantom Heaven | space | r5d | -
+Pig Iron Gu | - | r3d | add vitality
+Pill Fire Gu | - | r? | -
+Pill Refiner Gu | human | r5 | -
+Pine Island Gu | - | r3d | -
+Pine Needle Gu | wood | r2 | remove vitality
+Pink Boar Gu | strength | r1 | -
+Pitch Black Gu | - | r5 | remove vitality
+Plague Zombie Gu | transformation | r5 | move position
+Plasma Gu | - | r2 | remove vitality
+Play Will Gu | wisdom | r4d | -
+Plunder Gu | theft | r2 | move relation
+Poem Soul Gu | soul | r3 | alter working
+Poem Wall Gu | information | r7 | block vitality
+Poetry Gu | information | r5 | -
+Poison Flower Gu | poison | r2d | remove vitality
+Poison Liquid Gu | - | r? | -
+Poison Scorpion Gu | poison | r3 | remove vitality
+Poison Swallowing Toad | - | r4 | add vitality
+Poison Vow Gu | - | r3 | remove vitality
+Polished Gold Gu | metal | r4d | -
+Possession Immortal Gu | - | r6 | remove vitality
+Precaution Immortal Gu | rule | r7 | block vitality
+Precognitive Gu | - | r? | -
+Pride Gu | human | r5d | -
+Primeval Break Gu | restriction | r3d | -
+Primeval Elder Gu | - | r3 | -
+Problem Nipped in the Bud Gu | - | r4 | remove vitality
+Prodigal Gu | - | r? | -
+Profound Ice Gu | ice | r3d | -
+Proud Gu | wisdom | r5d | -
+Pulling Mountain | strength | r6 | remove vitality
+Pulling Water | strength | r6 | -
+Puppet Control Gu | - | r3d | remove vitality
+Puppet Gu | - | r? | -
+Purple Smoke Cicada | - | r5 | -
+Python Strength Gu | strength | r2d | add force
+Qi Armor Gu | qi | r5d | block vitality
+Qi Escape Gu | qi | r4 | move position
+Qi Escape Immortal Gu | - | r6 | move position
+Qi Explosion Gu | qi | r5d | remove vitality
+Qi Flow Gu | qi | r6 | -
+Qi Grand Lion Strength Gu | strength | r6 | add force
+Qi Harvest Fruit | qi | r5d | -
+Qi Luck Immortal Gu | luck | r6 | -
+Qi Spirit Gu | soul | r3 | alter working
+Quantity Change Gu | rule | r8 | -
+Quiet Steps Gu | - | r2d | conceal information
+Rabbit Strength Gu | strength | r2d | add force
+Rainbow Light Gu | light | r3 | move position
+Rainbow Transformation Gu | transformation | r4 | move position
+Raindrop Gu | - | r? | -
+Raise Eyebrows & Exhale Gu | - | r3d | remove vitality
+Rebuilding Mount Dongshan | - | r6 | -
+Recollection Gu | - | r4d | sense information
+Red Copper Fire Ant | - | r6 | -
+Red Face Gu | transformation | r4d | -
+Red Fiend Divine Boat | - | r? | -
+Red Light Gu | light | r3d | add light
+Red Shine Gu | light | r3d | add vitality
+Red Steel Relic Gu | - | r2 | -
+Refine Essence Spirit Gu | soul | r4 | add vitality
+Refinement Cauldron | refinement | r8 | move relation
+Reflect Light Gu | light | r3d | add light
+Reform Gu | - | r3d | -
+Region Gu | - | r8 | -
+Regulation Gu | rule | r8d | -
+Relic Gu | human | r1 | alter working
+Remembrance Immortal Gu | wisdom | r6 | -
+Reminiscence Immortal Gu | - | r6 | -
+Remnant Life Gu | - | r5 | add vitality
+Reputation Gu | qi | r5d | move position
+Reputation Restriction Immortal Gu | information | r7 | -
+Response Gu | - | r6 | -
+Responsibility Gu | - | r? | -
+Responsive Luck | luck | r8 | -
+Resurrection From The Dead | transformation | r8 | add vitality
+Return Heart Gu | - | r3 | sense information
+Revealing Light Gu | light | r4 | add light
+Reverse Misfortune | luck | r7 | -
+Revert Gu | refinement | r6d | -
+Revolving Gu | - | r? | remove vitality
+Rewind Gu | time | r2 | -
+Ribcage Shield Gu | - | r3 | block vitality
+Rice Bag Grass Gu | - | r1 | -
+Right Gu | - | r? | -
+Righteous Gu | qi | r5 | remove vitality
+Ringing Sound Gu | sound | r8 | -
+Ripe Immortal Gu | - | r6 | -
+Rising Azure Cloud | cloud | r6 | move position
+Rising Dead Gu | - | r4 | add vitality
+River As Before Gu | time | r5 | block form
+River Swallowing Toad | - | r5 | move position
+River Under the Sun Gu | - | r5 | -
+River Wave Trace Gu | water | r5 | move position
+Roaming Zombie Gu | transformation | r2 | -
+Rock Crocodile Strength | strength | r4 | remove vitality
+Rock Skin Gu | earth | r1 | block vitality
+Rolling Meat Gu | - | r4d | move position
+Rules and Regulation Gu | - | r? | -
+Rules Gu | rule | r8d | -
+Rumbling Thunder Gu | lightning | r3d | move position
+Sabre Gu | sword | r4d | remove vitality
+Sacred Feather City | - | r? | -
+Sadness Gu | - | r? | -
+Safe Pregnancy Gu | - | r? | -
+Scale Armor Gu | - | r2 | block vitality
+Scar Rock Gu | earth | r1 | remove vitality
+Scorpion Faeces Gu | poison | r2 | remove vitality
+Sea Oath Gu | information | r6 | -
+Seal Luck | luck | r8d | -
+Search and Lock Gu | - | r5 | remove vitality
+Searching Will | wisdom | r5d | sense information
+Second Aperture Gu | heaven | r6 | -
+Sect Token Gu | - | r? | -
+Seize Gu | - | r? | -
+Self Gu | human | r7d | block vitality
+Self Love Immortal Gu | wisdom | r7 | -
+Self Strength | strength | r6 | add force
+Self Will Gu | wisdom | r5 | -
+Self-ignition Gu | enslavement | r3 | block vitality
+Self-reliance Gu | - | r2 | add vitality
+Sequence Gu | - | r6d | alter working
+Sergeant Gu | - | r? | -
+Serious Gu | - | r? | -
+Seven Fragrances Liquor Worm | food | r3 | transform essence
+Seven Shining Stars Gu | - | r? | -
+Several Hundred Ghost Face Gu | soul | r3d | remove vitality
+Shadow Attachment Gu | - | r? | -
+Shadow Bond Gu | - | r3d | remove vitality
+Shadow Follower Gu | dark | r2 | conceal information
+Shadow Image Gu | information | r1 | -
+Shadow Puppet Gu | human | r5d | -
+Shadow Tracing Gu | - | r? | -
+Sharp Intent Gu | wisdom | r4d | -
+Shine Back Spike Gu | - | r5 | add light
+Shooting Star Gu | - | r? | -
+Sight Light Immortal Gu | light | r6 | sense information
+Signal Gu | light | r1 | add light
+Silent Step Gu | - | r2d | conceal information
+Silent Wave Immortal Gu | - | r6 | -
+Silver Cup Gu | - | r3 | -
+Single Gate Poison Gu | poison | r2d | remove vitality
+Sinking Gu | - | r4 | -
+Six Flying Zombie Gu | - | r5 | move position
+Sky Granary Gu | - | r3 | -
+Sky Strength Gu | strength | r2d | alter working
+Slavery Gu | enslavement | r1 | -
+Slow Down Gu | time | r5d | -
+Slow Slicing Gu | soul | r3d | -
+Slow Steps Gu | time | r3 | remove vitality
+Slumber Gu | - | r? | -
+Small Family Qi Gu | qi | r5 | block vitality
+Small Immortal Gu | rule | r7 | block vitality
+Small Soul Gu | soul | r1 | -
+Small Swamp Gu | earth | r1d | -
+Small Tornado Gu | - | r? | -
+Smell Lock Gu | - | r2d | conceal information
+Smoke Dust Gu | - | r? | -
+Snack Immortal Gu | food | r6 | -
+Snake Communication Gu | - | r2 | sense information
+Snake Tongue Gu | - | r2 | sense information
+Sneak Attack Gu | theft | r6 | remove vitality
+Sneak Attack Immortal Gu | - | r6 | -
+Snow Fairy Gu | transformation | r4d | -
+Snow Wash Gu | - | r4 | add vitality
+Snowy Plain Gu | - | r? | -
+Soft Bones Gu | bone | r5 | remove vitality
+Sole Blade Gu | blade | r4 | remove vitality
+Soul Ball Gu | soul | r3d | -
+Soul Burial Toad | - | r4 | -
+Soul Chain Gu | soul | r3 | -
+Soul Combination Gu | soul | r4 | -
+Soul Explosion Gu | soul | r5 | remove vitality
+Soul Fly Gu | soul | r3d | move position
+Soul Howl Immortal Gu | soul | r7 | remove vitality
+Soul Language Gu | soul | r3d | sense information
+Soul Lantern Gu | soul | r3d | sense information
+Soul Search Gu | soul | r3 | sense information
+Soul Shield Gu | soul | r3d | block vitality
+Soul Suction Immortal Gu | soul | r6 | remove vitality
+Soul Suppression Hall | soul | r8 | sense information
+Sound Amplify Gu | sound | r5d | alter working
+Soundwave Gu | sound | r5d | remove vitality
+Sovereign Immortal Fetus Gu | human | r9 | -
+Space Escape Gu | space | r5d | move position
+Space Piercing Gu | space | r5d | move position
+Space Travel | space | r7 | move position
+Space Travel Immortal Gu | space | r7 | move position
+Special Will Gu | wisdom | r4d | -
+Spike Fur Worm | - | r? | -
+Spiral Bone Spear Gu | bone | r2 | remove vitality
+Spiral Water Arrow Gu | water | r3 | remove vitality
+Spirit Peach Gu | - | r5 | add vitality
+Split Shadow Immortal Gu | dark | r6 | -
+Spring Autumn Cicada | time | r6 | transform time
+Spring Egg Gu | - | r5 | -
+Spring Gu | time | r8 | -
+Spring Immortal Gu | time | r8 | -
+Spring Rain Gu | water | r3 | add vitality
+Spring Wind Gu | wind | r3d | -
+Star Constellation Chessboard | wisdom | r8 | remove vitality
+Star Dart Gu | star | r1 | -
+Star Desolate Hound Strength Gu | strength | r6 | add force
+Star Eyes Immortal Gu | - | r6 | sense information
+Star Fragment Grass | - | r? | -
+Star Letter Gu | star | r4 | -
+Star Lightning Speed Gu | - | r? | -
+Star Mark Gu | star | r6 | alter working
+Star Mark Immortal Gu | - | r6 | -
+Star River Gu | star | r5 | remove vitality
+Star Shield Gu | - | r? | block vitality
+Star Shoot Gu | star | r3 | -
+Star Shuttle Gu | star | r6 | move position
+Star Thought Gu | wisdom | r6 | -
+Star Thought Immortal Gu | wisdom | r6 | -
+Stargate Gu | star | r5 | move position
+Starlight Firefly Gu | star | r3 | add light
+Starlight Gu | star | r6 | add light
+Starlight Immortal Gu | - | r6 | -
+Starshine Fake Eye Gu | star | r5 | sense information
+Staunch Bleeding Gu | blood | r5d | add vitality
+Steal Life Immortal Gu | theft | r8 | move relation
+Stealth Rock Gu | earth | r1 | conceal information
+Stealth Scales Gu | - | r2 | conceal information
+Steel Hair Gu | - | r3d | remove vitality
+Steel Tendon Gu | - | r3 | add force
+Steel Vine Gu | - | r6d | remove vitality
+Stellar Fire Gu | - | r? | -
+Stiff Gu | - | r3d | remove vitality
+Stone Aperture Gu | - | r3 | -
+Stone Barrier Shield Gu | earth | r1d | block vitality
+Stone Scar Gu | - | r? | -
+Stone Skin Gu | transformation | r1 | block vitality
+Stone Turtle Strength Gu | strength | r3 | remove vitality
+Storage Gu | - | r5 | -
+Strength Gu | strength | r9 | add force
+Strength Huge Beast Twin-Headed Steel Rhino | - | r4 | add force
+Strength of a Thousand Jun | strength | r6 | add force
+Strength of Ten Jun Gu | strength | r4 | add force
+Strength Qi Gu | qi | r3 | add force
+Strength Qi Immortal Gu | strength | r6 | add force
+Strength to Climb a Cliff Gu | strength | r5 | add force
+Strong Gu | rule | r7 | alter working
+Stupidity Gu | - | r? | -
+Success Gu | - | r? | -
+Suffering Gu | human | r5d | -
+Summary Gu | information | r8 | sense information
+Summer Gu | time | r8 | -
+Summer Immortal Gu | time | r8 | -
+Sun and Moon Temple | time | r7d | -
+Sun Day Immortal Gu | - | r6 | -
+Supervisor Gu | - | r? | -
+Suppress Space Immortal Gu | - | r7 | -
+Suppression Immortal Gu | - | r6 | -
+Suspicion Gu | - | r? | -
+Swallow Fire Gu | fire | r4 | remove vitality
+Swallow Wings Gu | - | r4 | move position
+Swamp Gu | - | r3d | remove vitality
+Sweat Immortal Gu | - | r6 | -
+Swift Shadow Gu | - | r4d | move position
+Swimming Dragon Butterfly Gu | - | r3 | -
+Swimword Gu | - | r1 | -
+Swirl Gu | - | r? | move position
+Sword Eyebrows Gu | - | r7 | remove vitality
+Sword Eyebrows Immortal Gu | sword | r7 | remove vitality
+Sword Qi Gu | sword | r4 | remove vitality
+Sword Qi Immortal Gu | sword | r8 | remove vitality
+Sword Sheath Gu | sword | r5 | remove vitality
+Tactful Gu | - | r? | -
+Ten Days Immortal Gu | time | r6 | -
+Ten Jin Strength Gu | strength | r2 | add force
+Ten Jun Strength Gu | strength | r4 | add force
+Ten Thousand Heart Piercing Arrow Gu | - | r? | remove vitality
+Tendon Coiling Gu | - | r? | -
+Territory Gu | - | r7 | -
+That Time Immortal Gu | time | r6 | -
+Therapy Light Gu | - | r3 | add vitality
+Thief Gu | - | r? | -
+Third Watch Gu | time | r5 | -
+Thirty Heavenly Halls | - | r? | -
+Thirty-Three Heavenly Halls | - | r? | block vitality
+Thousand Jun Strength Gu | strength | r6 | add force
+Thousand Li Earthwolf Spider | - | r5 | move position
+Thousand-year Lifespan Gu | - | r? | -
+Thousand-Years Wood Charm Gu | transformation | r5 | -
+Thread Trace Gu | - | r5 | sense information
+Three Breaths Future Vision | time | r7 | sense information
+Three Gu | rule | r7 | -
+Three Hand Gu | - | r? | -
+Three Hearts Combination Soul | - | r? | -
+Three Orifices Fire Hut Gu | fire | r3 | -
+Three Star Cave | - | r3 | -
+Three Stars In The Sky Gu | star | r3 | alter working
+Three Step Fragrant Grass Gu | - | r2 | move position
+Three-hundred-year Lifespan Gu | - | r? | -
+Thunder Boar Strength | strength | r4 | remove vitality
+Thunder Hammer Gu | lightning | r5 | remove vitality
+Thunder Roar Gu | sound | r6d | remove vitality
+Thunder Shuttle | lightning | r3d | remove vitality
+Thunderclap Gu | lightning | r3 | remove vitality
+Thunderwings Gu | lightning | r3 | move position
+Tiger Claw Gu | transformation | r4d | remove vitality
+Tiger Enslavement Gu | enslavement | r1 | -
+Tiger Poison Gu | poison | r3 | remove vitality
+Tiger Roar Gu | sound | r4 | remove vitality
+Tiger Skin Gu | transformation | r5d | block vitality
+Tiger Strength Gu | strength | r2d | add force
+Tiger Tail Gu | transformation | r4d | add force
+Tiger Tooth Gu | transformation | r4d | remove vitality
+Time Anchor Immortal Gu | time | r6 | -
+Time Concealment Gu | time | r7 | conceal information
+Time Luck | luck | r8d | -
+Time Luck Immortal Gu | luck | r6 | alter working
+Time Needle Immortal Gu | time | r7 | -
+Tornado Gu | wind | r3 | remove vitality
+Tortoise Head Gu | transformation | r6d | -
+Tortoise Strength Gu | strength | r2d | add force
+Tortoise Tail Gu | transformation | r6d | -
+Transfer Luck | luck | r8d | -
+Traveling Son Gu | emotion | r6d | move position
+Treacherous Cloud Wave Gu | wisdom | r5 | remove vitality
+Treasure Light Gu | light | r1 | add light
+Triplet Gu | - | r? | -
+Turn Phantom Gu | phantom | r? | block vitality
+Turn Rock Gu | earth | r1 | remove vitality
+Turtle Jade Wolf Skin Gu | transformation | r5 | block vitality
+Turtle Tire Gu | strength | r6d | add force
+Tusita Flower | - | r3 | -
+Two Tasks At Once Gu | - | r2 | -
+Tyrant Strength Gu | strength | r4 | add force
+Undefeated Hundred Battles Gu | - | r5 | -
+Underworld Path Butterfly | - | r4d | sense information
+Union Head Gu | - | r? | -
+Universe Path Gu | time | r5d | -
+Unlimited Spring Light Gu | light | r5 | add vitality
+Unpredictable Gu | - | r3d | -
+Unprocessed Jade Gu | earth | r1d | -
+Vagrant Warrior Gu | - | r? | -
+Vajra Stare Gu | metal | r5 | remove vitality
+Vajra Thought Gu | wisdom | r5 | -
+Vajra Thought Immortal Gu | wisdom | r6 | remove vitality
+Vertical Crash Gu | - | r3 | move position
+Vine Claw Gu | transformation | r4 | remove vitality
+Vine Information Gu | information | r1 | -
+Violent Strength Gu | strength | r2d | add force
+Virus Cloud Moth | - | r? | -
+Vitality Gu | - | r? | add vitality
+Vitality Leaf | - | r1 | add vitality
+Vivid Recollection Immortal Gu | time | r7 | sense information
+Wailing Whale Strength Gu | strength | r6 | add force
+Wandering Wave Trace Gu | water | r5 | move position
+Warp Gu | space | r5 | move position
+Water Armor Gu | water | r2 | block vitality
+Water Arrow Gu | water | r3d | remove vitality
+Water Cage Gu | water | r3d | remove vitality
+Water Clothing Gu | - | r? | -
+Water Curtain Skyflower Gu | water | r4 | block vitality
+Water Dragon Gu | water | r3 | remove vitality
+Water Drill Gu | water | r2 | remove vitality
+Water Harmony Gu | - | r7 | -
+Water Image Gu | water | r4 | -
+Water Prison Gu | water | r3 | remove vitality
+Water Refinement Gu | refinement | r? | -
+Water Refinement Immortal Gu | refinement | r8 | -
+Water Shell Gu | - | r2 | block vitality
+Water Shield Gu | water | r2 | block vitality
+Water Spider Gu | - | r? | -
+Water Strength Gu | strength | r2d | alter working
+Water Text Gu | - | r? | -
+Water Trace Gu | water | r3 | move position
+Water Walking Gu | water | r4d | move position
+Water Wall Gu | water | r3d | block vitality
+Wave Sword Gu | sword | r6 | remove vitality
+Wave Trace Gu | water | r4 | move position
+Weak Gu | - | r? | -
+Wealth Gu | human | r5 | -
+Whale Enslavement Gu | enslavement | r1 | -
+Whirlwind Gu | wind | r1 | move position
+White Boar Gu | strength | r1 | remove vitality
+White Bone Wheel | bone | r5 | remove vitality
+White Chrysalis | - | r2 | -
+White Cloud Cushion Gu | cloud | r5 | -
+White Elephant Primeval Strength Gu | strength | r2d | remove vitality
+White Lotus Giant Silkworm Gu | - | r6d | -
+White Noodle Queen Ant | - | r6 | -
+White Silver Relic Gu | - | r3 | -
+Wind Blade Gu | wind | r3d | remove vitality
+Wind Flower Gu | wind | r1d | move position
+Wind Fog Hair Gu | - | r? | -
+Wind Overlord Gu | strength | r5 | add force
+Wind Snare Gu | - | r3d | remove vitality
+Wind Spirit Gu | soul | r3 | alter working
+Wind Sprint Immortal Gu | wind | r6 | move position
+Wind Strength Gu | strength | r2d | alter working
+Wind Tiger Cloud Dragon Gu | wind | r5 | remove vitality
+Wine Drinker Immortal Gu | human | r6 | -
+Winter Gu | time | r7 | -
+Wisdom Gu | wisdom | r6 | alter working
+Wisdom Obstacle Gu | wisdom | r7 | block vitality
+Wisdom Sword Gu | wisdom | r8 | remove vitality
+Wish Power Gu | - | r3d | add force
+Wolf Care Gu | enslavement | r4 | sense information
+Wolf Enslavement Gu | enslavement | r1 | -
+Wolf Fetus Burial Gu | - | r3d | block vitality
+Wolf Howl Gu | enslavement | r4 | alter working
+Wolf Lure Gu | - | r3d | remove vitality
+Wolf Smoke Gu | - | r4 | remove vitality
+Wolf Soul Gu | soul | r3 | -
+Wolf Sprint Gu | - | r4 | move position
+Wolf Strength Gu | strength | r2d | add force
+Wolf Totem Gu | - | r5 | -
+Wolf Travel Gu | - | r4d | move position
+Woman's Heart | poison | r6 | remove vitality
+Wood Charm Gu | transformation | r3 | alter working
+Wood Origin Gu | wood | r4d | -
+Wood Path Mind Confusion Gu | wood | r4d | remove vitality
+Wood Sprout Immortal Gu | - | r6 | -
+World Horizon Immortal Gu | - | r6 | move position
+Worldly Horizon Immortal Gu | - | r6 | move position
+Worldly Wave Trace | water | r6 | move position
+Wrong Gu | - | r? | -
+X-ray Vision Gu | - | r? | -
+Xue Song Zi | ice | r6 | -
+yaksha-octopus-king-wild-immortal | - | r? | -
+Yang Cloud Gu | - | r? | -
+Yang Gu | - | r4 | -
+Year Gu | time | r1 | transform time
+Yellow Camel Longhorn Beetle Gu | strength | r1 | block vitality
+Yellow Gold Relic Gu | - | r4 | -
+Yellow Sand Immortal Gu | earth | r6 | -
+Yes Or No | information | r6d | sense information
+Yes or No Immortal Gu | - | r6 | -
+Yesterday (time path Immortal Gu) | time | r6 | -
+Yin Yang Dual Cloud Gu | - | r3 | remove vitality
+Yin Yang Rotation Gu | transformation | r4 | add vitality
+Zombie Gu | transformation | r1 | move position
+Zombie Heart Gu | - | r3 | -
+Zombie Qi Gu | qi | r5d | -

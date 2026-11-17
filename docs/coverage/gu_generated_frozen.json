@@ -1,0 +1,7244 @@
+{
+ "frozen": "2026-11-17",
+ "proposal": "PWC30-PWC34",
+ "splitRule": "sha1(id)[0] < 0x33 on the review-index record id (GKM429); held-out canon Gu are absent from the shared prefix and from every prompt",
+ "perRequest": 20,
+ "model": "gpt-6-luna",
+ "counts": {
+  "canon": 1466,
+  "train": 1173,
+  "heldOut": 293,
+  "scoreSet": 148,
+  "concepts": 1341
+ },
+ "hashes": {
+  "prefix": "80a9dffdd05666db5f13020d1045dcca9b6d1cca",
+  "system": "89db105564070a5d870a4d2ba0827654d6427096",
+  "schema": "e7ceb4689d2a610ef11a232bb571c98ce01a1b00",
+  "concepts": "1c5b3b6a242a04c5637b0c4fac87cd091da32f9e",
+  "score": "f66d573fcfdfbedb564fe79257d218a9ab68a500"
+ },
+ "scoring": {
+  "bands": "low 1-3, mid 4-5, high 6-9",
+  "baseline": "most common path (and band, and function) among training canon Gu whose name contains the concept word; the global modal one when none does",
+  "verb": "a canon row has no grammar verb, so its function family reads through GU_FUNCTION to a verb; match = same verb; reported split by function basis, and name-keyword-inference rows do not count as evidence (the keyword table can leak the answer)",
+  "ship": "generator path agreement must beat the word baseline on the held-out set, or the full run does not ship (PWC31)"
+ },
+ "system": "You invent Gu for a Reverend Insanity-style world: living worms with one narrow ability, each bound to a Dao path and a rank (1 to 9), refined for a purpose. The user message names concept words. For each concept invent exactly one Gu that a Gu master of that world could plausibly refine and use, following the trend of the catalogue you were given: names read \"<Concept words> Gu\"; a Gu keeps to one path; rank follows how strong and rare the thing is (common creatures and plain materials sit low, abstract or large-scale concepts high); the effect is one narrow change, written as an effect sentence. Do not copy a catalogue Gu or reuse its name; a concept the catalogue already covers still gets a different angle. Effect sentence parts: verb, object, target, time, optional carrier cost (essence-primeval, essence-immortal or mental). If the effect needs something outside the objects given, set `needs` to a short slug naming it and give the nearest verb and object. Reply with JSON only.",
+ "paths": [
+  "blade",
+  "blood",
+  "bone",
+  "cloud",
+  "dark",
+  "dream",
+  "earth",
+  "emotion",
+  "enchantment",
+  "enslavement",
+  "fire",
+  "food",
+  "formation",
+  "heaven",
+  "human",
+  "ice",
+  "information",
+  "killing",
+  "light",
+  "lightning",
+  "luck",
+  "metal",
+  "moon",
+  "none",
+  "phantom",
+  "poison",
+  "qi",
+  "refinement",
+  "restriction",
+  "rule",
+  "snow",
+  "soul",
+  "sound",
+  "space",
+  "star",
+  "strength",
+  "sword",
+  "theft",
+  "time",
+  "transformation",
+  "water",
+  "weapon",
+  "wind",
+  "wisdom",
+  "wood"
+ ],
+ "schema": {
+  "type": "object",
+  "properties": {
+   "gu": {
+    "type": "array",
+    "items": {
+     "type": "object",
+     "properties": {
+      "concept": {
+       "type": "string"
+      },
+      "name": {
+       "type": "string"
+      },
+      "path": {
+       "type": "string",
+       "enum": [
+        "blade",
+        "blood",
+        "bone",
+        "cloud",
+        "dark",
+        "dream",
+        "earth",
+        "emotion",
+        "enchantment",
+        "enslavement",
+        "fire",
+        "food",
+        "formation",
+        "heaven",
+        "human",
+        "ice",
+        "information",
+        "killing",
+        "light",
+        "lightning",
+        "luck",
+        "metal",
+        "moon",
+        "none",
+        "phantom",
+        "poison",
+        "qi",
+        "refinement",
+        "restriction",
+        "rule",
+        "snow",
+        "soul",
+        "sound",
+        "space",
+        "star",
+        "strength",
+        "sword",
+        "theft",
+        "time",
+        "transformation",
+        "water",
+        "weapon",
+        "wind",
+        "wisdom",
+        "wood"
+       ]
+      },
+      "rank": {
+       "type": "integer",
+       "minimum": 1,
+       "maximum": 9
+      },
+      "verb": {
+       "type": "string",
+       "enum": [
+        "move",
+        "add",
+        "remove",
+        "transform",
+        "bind",
+        "release",
+        "sense",
+        "conceal",
+        "copy",
+        "block",
+        "end",
+        "alter"
+       ]
+      },
+      "object": {
+       "type": "string",
+       "enum": [
+        "vitality",
+        "heat",
+        "light",
+        "sound",
+        "essence",
+        "force",
+        "moisture",
+        "lifespan",
+        "position",
+        "form",
+        "mind",
+        "information",
+        "memory",
+        "relation",
+        "thing",
+        "working",
+        "law",
+        "time",
+        "luck",
+        "soul"
+       ]
+      },
+      "target": {
+       "type": "string",
+       "enum": [
+        "self",
+        "touched",
+        "bound",
+        "line",
+        "cone",
+        "area",
+        "marked"
+       ]
+      },
+      "time": {
+       "type": "string",
+       "enum": [
+        "instant",
+        "sustained",
+        "lasting",
+        "delayed",
+        "triggered"
+       ]
+      },
+      "cost": {
+       "type": "string",
+       "enum": [
+        "essence-primeval",
+        "essence-immortal",
+        "mental"
+       ]
+      },
+      "needs": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "effect": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "concept",
+      "name",
+      "path",
+      "rank",
+      "verb",
+      "object",
+      "target",
+      "time",
+      "cost",
+      "needs",
+      "effect"
+     ],
+     "additionalProperties": false
+    }
+   }
+  },
+  "required": [
+   "gu"
+  ],
+  "additionalProperties": false
+ },
+ "scoreSet": [
+  {
+   "concept": "keep will",
+   "id": "fandom:Keep_Will_Gu",
+   "name": "Keep Will Gu",
+   "path": "wisdom",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "scholar",
+   "id": "candidate:scholar-gu",
+   "name": "Scholar Gu",
+   "path": "human",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "overturn river",
+   "id": "candidate:overturn-river",
+   "name": "Overturn River",
+   "path": "strength",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "strength",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "conceal luck",
+   "id": "candidate:conceal-luck-immortal-gu",
+   "name": "Conceal Luck Immortal Gu",
+   "path": "luck",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "conceal",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "lightning spear",
+   "id": "candidate:lightning-spear-gu",
+   "name": "Lightning Spear Gu",
+   "path": "lightning",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "eagle rise",
+   "id": "candidate:eagle-rise-gu",
+   "name": "Eagle Rise Gu",
+   "path": null,
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "move",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "red fire",
+   "id": "red-fire",
+   "name": "red-fire",
+   "path": null,
+   "rank": null,
+   "band": null,
+   "rankBasis": null,
+   "fn": "attack",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "moonwhirl",
+   "id": "candidate:moonwhirl-gu",
+   "name": "Moonwhirl Gu",
+   "path": null,
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "bit star",
+   "id": "fandom:A_Bit_Of_Star_Gu",
+   "name": "A Bit Of Star Gu",
+   "path": "star",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "amplify",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "beast skin",
+   "id": "candidate:beast-skin-gu",
+   "name": "Beast Skin Gu",
+   "path": null,
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "unravel mystery",
+   "id": "candidate:unravel-mystery",
+   "name": "Unravel Mystery",
+   "path": "wisdom",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "sense",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "myriad self",
+   "id": "myriad-self",
+   "name": "Myriad Self Immortal Gu",
+   "path": "human",
+   "rank": 7,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "strength",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "instant success",
+   "id": "candidate:instant-success-gu",
+   "name": "Instant Success Gu",
+   "path": "time",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "sword tongue",
+   "id": "candidate:sword-tongue-gu",
+   "name": "Sword Tongue Gu",
+   "path": "sword",
+   "rank": 7,
+   "band": "high",
+   "rankBasis": "derived",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "thunderclap potato",
+   "id": "candidate:thunderclap-potato-gu",
+   "name": "Thunderclap Potato Gu",
+   "path": null,
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "hidden aura",
+   "id": "candidate:hidden-aura-gu",
+   "name": "Hidden Aura Gu",
+   "path": null,
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "conceal",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "cook",
+   "id": "candidate:cook-gu",
+   "name": "Cook",
+   "path": "food",
+   "rank": 7,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "impermanence bone",
+   "id": "candidate:impermanence-bone-gu",
+   "name": "Impermanence Bone Gu",
+   "path": "bone",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "strength",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "sword shadow",
+   "id": "candidate:sword-shadow-gu",
+   "name": "Sword Shadow Gu",
+   "path": "sword",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "blood handprint",
+   "id": "candidate:blood-handprint-gu",
+   "name": "Blood Handprint Gu",
+   "path": "blood",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "leather whip",
+   "id": "saga:leather-whip-gu",
+   "name": "Leather Whip Gu",
+   "path": "weapon",
+   "rank": null,
+   "band": null,
+   "rankBasis": null,
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "habitual strength",
+   "id": "candidate:habitual-strength-gu",
+   "name": "Habitual Strength Gu",
+   "path": "strength",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "current charge",
+   "id": "candidate:current-charge-gu",
+   "name": "Current Charge Gu",
+   "path": "water",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "move",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "reckless intent",
+   "id": "fandom:Reckless_Intent_Gu",
+   "name": "Reckless Intent Gu",
+   "path": "wisdom",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "fog sparrow",
+   "id": "candidate:fog-sparrow-gu",
+   "name": "Fog Sparrow Gu",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "sense",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "affection",
+   "id": "saga:affection-immortal-gu",
+   "name": "Affection Immortal Gu",
+   "path": "wisdom",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "name-bound",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "position swap",
+   "id": "candidate:position-swap-gu",
+   "name": "Position Swap Gu",
+   "path": null,
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": "move",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "golden needle",
+   "id": "candidate:golden-needle-gu",
+   "name": "Golden Needle Gu",
+   "path": "metal",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "expand space",
+   "id": "candidate:expand-space-immortal-gu",
+   "name": "Expand Space Immortal Gu",
+   "path": "space",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "name-bound",
+   "fn": "move",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "dragon scale",
+   "id": "fandom:Dragon_Scale_Gu",
+   "name": "Dragon Scale Gu",
+   "path": "transformation",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "deliberate will",
+   "id": "candidate:deliberate-will-gu",
+   "name": "Deliberate Will Gu",
+   "path": "wisdom",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "dark prison",
+   "id": "fandom:Dark_Prison",
+   "name": "Dark Prison",
+   "path": "dark",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "cauldron strength",
+   "id": "candidate:cauldron-strength-immortal-gu",
+   "name": "Cauldron Strength Immortal Gu",
+   "path": "strength",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "strength",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "general soul",
+   "id": "fandom:General_Soul_Gu",
+   "name": "General Soul Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "amplify",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "huge wave",
+   "id": "saga:huge-wave-gu",
+   "name": "Huge Wave Gu",
+   "path": "water",
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "chapter",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "fixed space",
+   "id": "fixed-space",
+   "name": "Fixed Space Immortal Gu",
+   "path": "space",
+   "rank": 7,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "ant nest",
+   "id": "ant-nest",
+   "name": "Ant Nest",
+   "path": null,
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "produce",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "wind whisper",
+   "id": "candidate:wind-whisper-immortal-gu",
+   "name": "Wind Whisper Immortal Gu",
+   "path": "wind",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "name-bound",
+   "fn": "sense",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "sword escape",
+   "id": "saga:sword-escape-immortal-gu",
+   "name": "Sword Escape Immortal Gu",
+   "path": "sword",
+   "rank": 7,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "accumulate virtue",
+   "id": "candidate:accumulate-virtue-gu",
+   "name": "Accumulate Virtue Gu",
+   "path": "human",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "chapter",
+   "fn": "attack",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "return light",
+   "id": "candidate:return-light-gu",
+   "name": "Return Light Gu",
+   "path": "light",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "illuminate",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "white jade",
+   "id": "white-jade",
+   "name": "White Jade Gu",
+   "path": null,
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "main luck",
+   "id": "saga:main-luck-immortal-gu",
+   "name": "Main Luck Immortal Gu",
+   "path": "luck",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "name-bound",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "bookworm",
+   "id": "candidate:bookworm",
+   "name": "Bookworm",
+   "path": "information",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "shared sense",
+   "id": "candidate:shared-sense-gu",
+   "name": "Shared-sense Gu",
+   "path": null,
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "derived",
+   "fn": "sense",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "practice",
+   "id": "candidate:practice-gu",
+   "name": "Practice Gu",
+   "path": null,
+   "rank": null,
+   "band": null,
+   "rankBasis": null,
+   "fn": "illuminate",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "sub luck",
+   "id": "saga:sub-luck-immortal-gu",
+   "name": "Sub Luck Immortal Gu",
+   "path": "luck",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "name-bound",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "addition",
+   "id": "candidate:addition-gu",
+   "name": "Addition Gu",
+   "path": "rule",
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "biao strength",
+   "id": "candidate:biao-strength-gu",
+   "name": "Biao Strength Gu",
+   "path": "strength",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "move",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "tortoise leg",
+   "id": "fandom:Tortoise_Leg_Gu",
+   "name": "Tortoise Leg Gu",
+   "path": "transformation",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "injury wind",
+   "id": "candidate:injury-wind-gu",
+   "name": "Injury Wind Gu",
+   "path": "wind",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "golden moon",
+   "id": "candidate:golden-moon-gu",
+   "name": "Golden Moon Gu",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "successive years",
+   "id": "saga:successive-years-immortal-gu",
+   "name": "Successive Years Immortal Gu",
+   "path": "time",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "dragon breath",
+   "id": "candidate:dragon-breath-gu",
+   "name": "Dragon Breath Gu",
+   "path": "transformation",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "hairy zombie",
+   "id": "candidate:hairy-zombie-gu",
+   "name": "Hairy Zombie Gu",
+   "path": "transformation",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "dragon scales",
+   "id": "candidate:dragon-scales-immortal-gu",
+   "name": "Dragon Scales Immortal Gu",
+   "path": "transformation",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "name-bound",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "enlarge",
+   "id": "enlarge",
+   "name": "Enlarge Gu",
+   "path": null,
+   "rank": null,
+   "band": null,
+   "rankBasis": null,
+   "fn": "amplify",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "divine soul",
+   "id": "candidate:divine-soul-gu",
+   "name": "Divine Soul Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "amplify",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "rhino horn",
+   "id": "fandom:Rhino_Horn_Gu",
+   "name": "Rhino Horn Gu",
+   "path": "transformation",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": "attack",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "defecate",
+   "id": "candidate:defecate-gu",
+   "name": "Defecate Gu",
+   "path": "poison",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "heal",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "formation heart",
+   "id": "candidate:formation-heart-gu",
+   "name": "Formation Heart Gu",
+   "path": "formation",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "longing thought",
+   "id": "fandom:Longing_Thought_Gu",
+   "name": "Longing Thought Gu",
+   "path": "wisdom",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "stars aligned",
+   "id": "fandom:Five_Stars_Aligned_Gu",
+   "name": "Five Stars Aligned Gu",
+   "path": "star",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "amplify",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "steel mane",
+   "id": "candidate:steel-mane-gu",
+   "name": "Steel Mane Gu",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "evil intent",
+   "id": "fandom:Evil_Intent_Gu",
+   "name": "Evil Intent Gu",
+   "path": "wisdom",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "heal injury",
+   "id": "saga:heal-injury-immortal-gu",
+   "name": "Heal Injury Immortal Gu",
+   "path": "human",
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "heal",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "moonlight",
+   "id": "moonlight",
+   "name": "Moonlight Gu",
+   "path": null,
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "burning firefly",
+   "id": "fandom:Burning_Firefly_Gu",
+   "name": "Burning Firefly Gu",
+   "path": "fire",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "wiki-tier",
+   "fn": "amplify",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "monolith",
+   "id": "candidate:monolith-gu",
+   "name": "Monolith Gu",
+   "path": "earth",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "chapter",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "body spirit",
+   "id": "candidate:body-spirit-gu",
+   "name": "Body Spirit Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "amplify",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "sword escape",
+   "id": "fandom:Sword_Escape_Gu",
+   "name": "Sword Escape Gu",
+   "path": "sword",
+   "rank": 7,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "move",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "umbrella lotus",
+   "id": "candidate:umbrella-lotus-gu",
+   "name": "Umbrella Lotus Gu",
+   "path": null,
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "derived",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "loving affection",
+   "id": "saga:loving-affection-gu",
+   "name": "Loving Affection Gu",
+   "path": "wisdom",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "iron skin",
+   "id": "fandom:Iron_Skin_Gu",
+   "name": "Iron Skin Gu",
+   "path": "metal",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "sight blow",
+   "id": "candidate:sight-blow-gu",
+   "name": "Sight Blow Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "sight",
+   "id": "candidate:true-sight-gu",
+   "name": "True Sight Gu",
+   "path": null,
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": "sense",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "lightning current",
+   "id": "fandom:Lightning_Current_Gu",
+   "name": "Lightning Current Gu",
+   "path": "lightning",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "wind barrier",
+   "id": "candidate:wind-barrier-gu",
+   "name": "Wind Barrier Gu",
+   "path": "wind",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "calamity beckoning",
+   "id": "candidate:calamity-beckoning-gu",
+   "name": "Calamity Beckoning Gu",
+   "path": "luck",
+   "rank": 7,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "bone spear",
+   "id": "candidate:bone-spear-gu",
+   "name": "Bone Spear Gu",
+   "path": "bone",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "stream",
+   "id": "candidate:stream-gu",
+   "name": "Stream Gu",
+   "path": "water",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "ice heart",
+   "id": "fandom:Ice_Heart_Immortal_Gu",
+   "name": "Ice Heart Immortal Gu",
+   "path": "ice",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "move",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "iron rod",
+   "id": "saga:iron-rod-gu",
+   "name": "Iron Rod Gu",
+   "path": "weapon",
+   "rank": null,
+   "band": null,
+   "rankBasis": null,
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "lightning strength",
+   "id": "candidate:lightning-strength-gu",
+   "name": "Lightning Strength Gu",
+   "path": "strength",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "amplify",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "ghost",
+   "id": "fandom:Ghost_Qi_Gu",
+   "name": "Ghost Qi Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "heal",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "poison needle",
+   "id": "fandom:Poison_Needle_Gu",
+   "name": "Poison Needle Gu",
+   "path": "poison",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "cleansing",
+   "id": "fandom:Cleansing_Gu",
+   "name": "Cleansing Gu",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "heal",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "water light",
+   "id": "fandom:Water_Light_Gu",
+   "name": "Water Light Gu",
+   "path": "water",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "illuminate",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "prediction",
+   "id": "fandom:Prediction_Gu",
+   "name": "Prediction Gu",
+   "path": "wisdom",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "heal injury",
+   "id": "fandom:Heal_Injury_Gu",
+   "name": "Heal Injury Gu",
+   "path": "human",
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "heal",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "turn gold",
+   "id": "candidate:turn-gold-gu",
+   "name": "Turn Gold Gu",
+   "path": null,
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "poison heart",
+   "id": "candidate:poison-heart-gu",
+   "name": "Poison Heart Gu",
+   "path": "poison",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "undying grass",
+   "id": "fandom:Undying_Grass",
+   "name": "Undying Grass",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "heal",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "prodigal son",
+   "id": "fandom:Prodigal_Son_Gu",
+   "name": "Prodigal Son Gu",
+   "path": "refinement",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "light fences",
+   "id": "candidate:light-fences-gu",
+   "name": "Light Fences Gu",
+   "path": "light",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "star rain",
+   "id": "candidate:star-rain-gu",
+   "name": "Star Rain Gu",
+   "path": "star",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "star arrow",
+   "id": "candidate:star-arrow-gu",
+   "name": "Star Arrow Gu",
+   "path": null,
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "intuition",
+   "id": "candidate:intuition-gu",
+   "name": "Intuition Gu",
+   "path": null,
+   "rank": null,
+   "band": null,
+   "rankBasis": null,
+   "fn": "sense",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "nether ant",
+   "id": "candidate:nether-ant-gu",
+   "name": "Nether Ant Gu",
+   "path": "soul",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "sleep lurk",
+   "id": "candidate:sleep-lurk-gu",
+   "name": "Sleep Lurk Gu",
+   "path": null,
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "conceal",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "medicine fragrance",
+   "id": "fandom:Medicine_Fragrance",
+   "name": "Medicine Fragrance",
+   "path": "food",
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "heal",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "ghost soldier",
+   "id": "fandom:Ghost_Soldier_Gu",
+   "name": "Ghost Soldier Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "rust flower",
+   "id": "candidate:rust-flower-gu",
+   "name": "Rust Flower Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "sense",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "eating wind",
+   "id": "candidate:eating-wind-gu",
+   "name": "Eating Wind Gu",
+   "path": "wind",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "fish enslavement",
+   "id": "candidate:fish-enslavement-gu",
+   "name": "Fish Enslavement Gu",
+   "path": "enslavement",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "vanity",
+   "id": "candidate:vanity-gu",
+   "name": "Vanity Gu",
+   "path": "human",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": "attack",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "chaotic mind",
+   "id": "candidate:chaotic-mind-gu",
+   "name": "Chaotic Mind Gu",
+   "path": "wisdom",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "earth strength",
+   "id": "candidate:earth-strength-gu",
+   "name": "Earth Strength Gu",
+   "path": "strength",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "amplify",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "sky canopy",
+   "id": "candidate:sky-canopy-gu",
+   "name": "Sky Canopy Gu",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "frost breath",
+   "id": "candidate:frost-breath-gu",
+   "name": "Frost Breath Gu",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "effect",
+   "id": "fandom:Effect_Gu",
+   "name": "Effect Gu",
+   "path": "wood",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "chapter",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "waterfall",
+   "id": "fandom:Waterfall_Gu",
+   "name": "Waterfall Gu",
+   "path": "water",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "smelly fart",
+   "id": "fandom:Smelly_Fart_Gu",
+   "name": "Smelly Fart Gu",
+   "path": "poison",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "luck suppression",
+   "id": "candidate:luck-suppression-immortal-gu",
+   "name": "Luck Suppression Immortal Gu",
+   "path": "luck",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "name-bound",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "water source",
+   "id": "fandom:Water_Source_Gu",
+   "name": "Water Source Gu",
+   "path": "water",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "snowball",
+   "id": "candidate:snowball-gu",
+   "name": "Snowball Gu",
+   "path": "snow",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "frost demon",
+   "id": "candidate:frost-demon-gu",
+   "name": "Frost Demon Gu",
+   "path": "transformation",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "thunder shield",
+   "id": "thunder-shield",
+   "name": "Thunder Shield Gu",
+   "path": null,
+   "rank": null,
+   "band": null,
+   "rankBasis": null,
+   "fn": "guard",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "chaotic intent",
+   "id": "fandom:Chaotic_Intent_Gu",
+   "name": "Chaotic Intent Gu",
+   "path": "wisdom",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "fire",
+   "id": "candidate:fire-gu",
+   "name": "Fire Gu",
+   "path": "fire",
+   "rank": 9,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "tiger spirit",
+   "id": "fandom:Tiger_Spirit_Gu",
+   "name": "Tiger Spirit Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "amplify",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "affection",
+   "id": "fandom:Affection_Gu",
+   "name": "Affection Gu",
+   "path": "wisdom",
+   "rank": 7,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "photo audio",
+   "id": "photo-audio",
+   "name": "Photo-audio Gu",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "record",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "fire strength",
+   "id": "candidate:fire-strength-gu",
+   "name": "Fire Strength Gu",
+   "path": "strength",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "amplify",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "store strength",
+   "id": "fandom:Store_Strength_Gu",
+   "name": "Store Strength Gu",
+   "path": "strength",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "horse soul",
+   "id": "fandom:Horse_Soul_Gu",
+   "name": "Horse Soul Gu",
+   "path": "soul",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "amplify",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "blood rope",
+   "id": "candidate:blood-rope-gu",
+   "name": "Blood Rope Gu",
+   "path": "blood",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": "sense",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "regret",
+   "id": "candidate:regret-gu",
+   "name": "Regret Gu",
+   "path": "emotion",
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "steel shirt",
+   "id": "candidate:steel-shirt-gu",
+   "name": "Steel Shirt Gu",
+   "path": null,
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "derived",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "forceful refinement",
+   "id": "saga:forceful-refinement-gu",
+   "name": "Forceful Refinement Gu",
+   "path": "refinement",
+   "rank": null,
+   "band": null,
+   "rankBasis": null,
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "kindness thought",
+   "id": "candidate:kindness-thought-gu",
+   "name": "Kindness Thought Gu",
+   "path": "wisdom",
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "space thought",
+   "id": "candidate:space-thought-gu",
+   "name": "Space Thought Gu",
+   "path": "wisdom",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "sense",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "advance refinement",
+   "id": "candidate:advance-refinement-gu",
+   "name": "Advance Refinement Gu",
+   "path": "refinement",
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "lightning",
+   "id": "candidate:lightning-gu",
+   "name": "Lightning Gu",
+   "path": "lightning",
+   "rank": 8,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-tier"
+  },
+  {
+   "concept": "strength jin",
+   "id": "saga:strength-of-ten-jin-gu",
+   "name": "Strength of Ten Jin Gu",
+   "path": "strength",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "strength",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "icicle",
+   "id": "candidate:icicle-gu",
+   "name": "Icicle Gu",
+   "path": "ice",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "attack",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "eyes liquor",
+   "id": "nine-eyes-liquor-worm",
+   "name": "Nine Eyes Liquor Worm",
+   "path": "food",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "convert-essence",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "lightning shield",
+   "id": "fandom:Lightning_Shield_Gu",
+   "name": "Lightning Shield Gu",
+   "path": "lightning",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "dragon eyes",
+   "id": "fandom:Dragon_Eyes_Gu",
+   "name": "Dragon Eyes Gu",
+   "path": "transformation",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": "sense",
+   "fnBasis": "name-keyword-inference"
+  },
+  {
+   "concept": "grass puppet",
+   "id": "candidate:grass-puppet-gu",
+   "name": "Grass Puppet Gu",
+   "path": "enslavement",
+   "rank": 1,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "month",
+   "id": "candidate:month-gu",
+   "name": "Month Gu",
+   "path": "time",
+   "rank": 3,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "empty thought",
+   "id": "saga:empty-thought-gu",
+   "name": "Empty Thought Gu",
+   "path": "wisdom",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "derived",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "nightmare zombie",
+   "id": "fandom:Nightmare_Zombie_Gu",
+   "name": "Nightmare Zombie Gu",
+   "path": "transformation",
+   "rank": 5,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": "move",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "silver scales",
+   "id": "fandom:Silver_Scales_Gu",
+   "name": "Silver Scales Gu",
+   "path": null,
+   "rank": 6,
+   "band": "high",
+   "rankBasis": "derived",
+   "fn": "guard",
+   "fnBasis": "wiki-type"
+  },
+  {
+   "concept": "awaken cloud",
+   "id": "candidate:awaken-cloud-gu",
+   "name": "Awaken Cloud Gu",
+   "path": "wisdom",
+   "rank": 4,
+   "band": "mid",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "running corpse",
+   "id": "candidate:running-corpse-gu",
+   "name": "Running Corpse Gu",
+   "path": "transformation",
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  },
+  {
+   "concept": "ice blade",
+   "id": "ice-blade",
+   "name": "Ice Blade Gu",
+   "path": null,
+   "rank": 2,
+   "band": "low",
+   "rankBasis": "chapter",
+   "fn": "attack",
+   "fnBasis": "catalogue"
+  },
+  {
+   "concept": "derivation",
+   "id": "candidate:derivation-gu",
+   "name": "Derivation Gu",
+   "path": "rule",
+   "rank": 9,
+   "band": "high",
+   "rankBasis": "stated",
+   "fn": null,
+   "fnBasis": null
+  }
+ ],
+ "concepts": [
+  {
+   "concept": "hut",
+   "source": "name-word"
+  },
+  {
+   "concept": "cloud",
+   "source": "name-word"
+  },
+  {
+   "concept": "dried",
+   "source": "name-word"
+  },
+  {
+   "concept": "sandstone",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "polished",
+   "source": "name-word"
+  },
+  {
+   "concept": "ringing",
+   "source": "name-word"
+  },
+  {
+   "concept": "thoughts",
+   "source": "name-word"
+  },
+  {
+   "concept": "body",
+   "source": "name-word"
+  },
+  {
+   "concept": "refiner",
+   "source": "name-word"
+  },
+  {
+   "concept": "inch",
+   "source": "name-word"
+  },
+  {
+   "concept": "poplar",
+   "source": "category:plants"
+  },
+  {
+   "concept": "flax",
+   "source": "category:plants"
+  },
+  {
+   "concept": "ferret",
+   "source": "name-word"
+  },
+  {
+   "concept": "claw",
+   "source": "name-word"
+  },
+  {
+   "concept": "dawn",
+   "source": "name-word"
+  },
+  {
+   "concept": "rope",
+   "source": "name-word"
+  },
+  {
+   "concept": "bladder",
+   "source": "category:body"
+  },
+  {
+   "concept": "immortal essence stone",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "cattail",
+   "source": "category:plants"
+  },
+  {
+   "concept": "affinity wood",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "dandelion",
+   "source": "category:plants"
+  },
+  {
+   "concept": "noodle",
+   "source": "name-word"
+  },
+  {
+   "concept": "leopard",
+   "source": "category:animals"
+  },
+  {
+   "concept": "rumbling",
+   "source": "name-word"
+  },
+  {
+   "concept": "minute",
+   "source": "category:time"
+  },
+  {
+   "concept": "bell",
+   "source": "name-word"
+  },
+  {
+   "concept": "rhino",
+   "source": "name-word"
+  },
+  {
+   "concept": "cicada",
+   "source": "name-word"
+  },
+  {
+   "concept": "incense",
+   "source": "name-word"
+  },
+  {
+   "concept": "eel",
+   "source": "category:animals"
+  },
+  {
+   "concept": "bright",
+   "source": "name-word"
+  },
+  {
+   "concept": "dove",
+   "source": "name-word"
+  },
+  {
+   "concept": "cabbage",
+   "source": "category:plants"
+  },
+  {
+   "concept": "asset",
+   "source": "name-word"
+  },
+  {
+   "concept": "lodestone",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "hornet",
+   "source": "category:animals"
+  },
+  {
+   "concept": "carefree",
+   "source": "name-word"
+  },
+  {
+   "concept": "bewitching",
+   "source": "name-word"
+  },
+  {
+   "concept": "space",
+   "source": "name-word"
+  },
+  {
+   "concept": "sesame",
+   "source": "category:plants"
+  },
+  {
+   "concept": "grafting",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "crystal",
+   "source": "name-word"
+  },
+  {
+   "concept": "sleet",
+   "source": "category:weather"
+  },
+  {
+   "concept": "sinew",
+   "source": "category:body"
+  },
+  {
+   "concept": "flea",
+   "source": "category:animals"
+  },
+  {
+   "concept": "horse",
+   "source": "name-word"
+  },
+  {
+   "concept": "saltpeter",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "olive",
+   "source": "category:plants"
+  },
+  {
+   "concept": "baking",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "flying",
+   "source": "name-word"
+  },
+  {
+   "concept": "guillotine",
+   "source": "name-word"
+  },
+  {
+   "concept": "coat",
+   "source": "name-word"
+  },
+  {
+   "concept": "bear",
+   "source": "name-word"
+  },
+  {
+   "concept": "gold",
+   "source": "name-word"
+  },
+  {
+   "concept": "eclipse",
+   "source": "category:weather"
+  },
+  {
+   "concept": "elephant",
+   "source": "name-word"
+  },
+  {
+   "concept": "apricot",
+   "source": "category:plants"
+  },
+  {
+   "concept": "grappling",
+   "source": "name-word"
+  },
+  {
+   "concept": "from",
+   "source": "name-word"
+  },
+  {
+   "concept": "labor",
+   "source": "name-word"
+  },
+  {
+   "concept": "starfish",
+   "source": "category:animals"
+  },
+  {
+   "concept": "rush thunder stone",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "donkey",
+   "source": "category:animals"
+  },
+  {
+   "concept": "wild",
+   "source": "name-word"
+  },
+  {
+   "concept": "coiling",
+   "source": "name-word"
+  },
+  {
+   "concept": "profound",
+   "source": "name-word"
+  },
+  {
+   "concept": "giant",
+   "source": "name-word"
+  },
+  {
+   "concept": "orpiment",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "moss",
+   "source": "category:plants"
+  },
+  {
+   "concept": "cloak",
+   "source": "name-word"
+  },
+  {
+   "concept": "hole",
+   "source": "name-word"
+  },
+  {
+   "concept": "boosting",
+   "source": "name-word"
+  },
+  {
+   "concept": "spear",
+   "source": "name-word"
+  },
+  {
+   "concept": "image",
+   "source": "name-word"
+  },
+  {
+   "concept": "jaw",
+   "source": "category:body"
+  },
+  {
+   "concept": "kind",
+   "source": "name-word"
+  },
+  {
+   "concept": "raven",
+   "source": "category:animals"
+  },
+  {
+   "concept": "seal",
+   "source": "name-word"
+  },
+  {
+   "concept": "rule",
+   "source": "name-word"
+  },
+  {
+   "concept": "chrysalis",
+   "source": "name-word"
+  },
+  {
+   "concept": "daisy",
+   "source": "category:plants"
+  },
+  {
+   "concept": "nightmare",
+   "source": "name-word"
+  },
+  {
+   "concept": "locksmithing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "patience",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "terror",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "catfish",
+   "source": "category:animals"
+  },
+  {
+   "concept": "flag",
+   "source": "name-word"
+  },
+  {
+   "concept": "tears",
+   "source": "name-word"
+  },
+  {
+   "concept": "beast",
+   "source": "name-word"
+  },
+  {
+   "concept": "blood zhi forest",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "mugwort",
+   "source": "name-word"
+  },
+  {
+   "concept": "obsessed",
+   "source": "name-word"
+  },
+  {
+   "concept": "keep",
+   "source": "name-word"
+  },
+  {
+   "concept": "glassblowing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "follower",
+   "source": "name-word"
+  },
+  {
+   "concept": "drill",
+   "source": "name-word"
+  },
+  {
+   "concept": "chrysanthemum",
+   "source": "category:plants"
+  },
+  {
+   "concept": "fiend",
+   "source": "name-word"
+  },
+  {
+   "concept": "violet",
+   "source": "category:plants"
+  },
+  {
+   "concept": "bull",
+   "source": "name-word"
+  },
+  {
+   "concept": "truffle",
+   "source": "category:plants"
+  },
+  {
+   "concept": "pickling",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "crab",
+   "source": "category:animals"
+  },
+  {
+   "concept": "merge",
+   "source": "name-word"
+  },
+  {
+   "concept": "chalk",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "snake",
+   "source": "name-word"
+  },
+  {
+   "concept": "radish",
+   "source": "category:plants"
+  },
+  {
+   "concept": "bronze",
+   "source": "name-word"
+  },
+  {
+   "concept": "skirt",
+   "source": "name-word"
+  },
+  {
+   "concept": "fang",
+   "source": "name-word"
+  },
+  {
+   "concept": "skull",
+   "source": "name-word"
+  },
+  {
+   "concept": "chili",
+   "source": "category:plants"
+  },
+  {
+   "concept": "duel",
+   "source": "name-word"
+  },
+  {
+   "concept": "attachment",
+   "source": "name-word"
+  },
+  {
+   "concept": "goat",
+   "source": "category:animals"
+  },
+  {
+   "concept": "clear",
+   "source": "name-word"
+  },
+  {
+   "concept": "sovereign",
+   "source": "name-word"
+  },
+  {
+   "concept": "relocation",
+   "source": "name-word"
+  },
+  {
+   "concept": "sending",
+   "source": "name-word"
+  },
+  {
+   "concept": "digital",
+   "source": "name-word"
+  },
+  {
+   "concept": "remorse",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "mint",
+   "source": "category:plants"
+  },
+  {
+   "concept": "glass",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "discharge",
+   "source": "name-word"
+  },
+  {
+   "concept": "tyrant",
+   "source": "name-word"
+  },
+  {
+   "concept": "whale",
+   "source": "name-word"
+  },
+  {
+   "concept": "pond",
+   "source": "name-word"
+  },
+  {
+   "concept": "tide",
+   "source": "category:weather"
+  },
+  {
+   "concept": "float ball tea",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "once",
+   "source": "name-word"
+  },
+  {
+   "concept": "wisteria",
+   "source": "category:plants"
+  },
+  {
+   "concept": "titanium",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "ruby",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "shoot",
+   "source": "name-word"
+  },
+  {
+   "concept": "pigeon",
+   "source": "category:animals"
+  },
+  {
+   "concept": "spiky metal",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "fetus",
+   "source": "name-word"
+  },
+  {
+   "concept": "nose",
+   "source": "category:body"
+  },
+  {
+   "concept": "ankle",
+   "source": "category:body"
+  },
+  {
+   "concept": "contact",
+   "source": "name-word"
+  },
+  {
+   "concept": "head",
+   "source": "name-word"
+  },
+  {
+   "concept": "yesterday",
+   "source": "name-word"
+  },
+  {
+   "concept": "bison",
+   "source": "category:animals"
+  },
+  {
+   "concept": "vertical",
+   "source": "name-word"
+  },
+  {
+   "concept": "kunlun",
+   "source": "name-word"
+  },
+  {
+   "concept": "transformation",
+   "source": "name-word"
+  },
+  {
+   "concept": "night",
+   "source": "category:time"
+  },
+  {
+   "concept": "vow",
+   "source": "name-word"
+  },
+  {
+   "concept": "remnant",
+   "source": "name-word"
+  },
+  {
+   "concept": "enslavement",
+   "source": "name-word"
+  },
+  {
+   "concept": "buffalo",
+   "source": "category:animals"
+  },
+  {
+   "concept": "black lanterns",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "mortal and immortal materials",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "equinox",
+   "source": "category:time"
+  },
+  {
+   "concept": "bond",
+   "source": "name-word"
+  },
+  {
+   "concept": "turquoise",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "platypus",
+   "source": "category:animals"
+  },
+  {
+   "concept": "antelope",
+   "source": "category:animals"
+  },
+  {
+   "concept": "lavender",
+   "source": "category:plants"
+  },
+  {
+   "concept": "temple",
+   "source": "name-word"
+  },
+  {
+   "concept": "swan",
+   "source": "category:animals"
+  },
+  {
+   "concept": "maize",
+   "source": "category:plants"
+  },
+  {
+   "concept": "silk",
+   "source": "name-word"
+  },
+  {
+   "concept": "pupil",
+   "source": "name-word"
+  },
+  {
+   "concept": "thousand",
+   "source": "name-word"
+  },
+  {
+   "concept": "great lake soil",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "float ball tea grass",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "grasshopper",
+   "source": "category:animals"
+  },
+  {
+   "concept": "chessboard",
+   "source": "name-word"
+  },
+  {
+   "concept": "eighty",
+   "source": "name-word"
+  },
+  {
+   "concept": "coconut",
+   "source": "category:plants"
+  },
+  {
+   "concept": "god",
+   "source": "name-word"
+  },
+  {
+   "concept": "fortuitous",
+   "source": "name-word"
+  },
+  {
+   "concept": "azure divine stone furnace fire",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "reading",
+   "source": "name-word"
+  },
+  {
+   "concept": "electric",
+   "source": "name-word"
+  },
+  {
+   "concept": "sun",
+   "source": "name-word"
+  },
+  {
+   "concept": "thyme",
+   "source": "category:plants"
+  },
+  {
+   "concept": "beetle",
+   "source": "name-word"
+  },
+  {
+   "concept": "saliva",
+   "source": "category:body"
+  },
+  {
+   "concept": "axe",
+   "source": "name-word"
+  },
+  {
+   "concept": "bitter",
+   "source": "name-word"
+  },
+  {
+   "concept": "rule eye blood",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "universe",
+   "source": "name-word"
+  },
+  {
+   "concept": "civet",
+   "source": "category:animals"
+  },
+  {
+   "concept": "east",
+   "source": "name-word"
+  },
+  {
+   "concept": "banana",
+   "source": "category:plants"
+  },
+  {
+   "concept": "gratitude",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "deduction",
+   "source": "name-word"
+  },
+  {
+   "concept": "frenzy",
+   "source": "name-word"
+  },
+  {
+   "concept": "vapor",
+   "source": "category:weather"
+  },
+  {
+   "concept": "door",
+   "source": "name-word"
+  },
+  {
+   "concept": "pity",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "harvest",
+   "source": "name-word"
+  },
+  {
+   "concept": "longing",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "room",
+   "source": "name-word"
+  },
+  {
+   "concept": "hints",
+   "source": "name-word"
+  },
+  {
+   "concept": "era",
+   "source": "category:time"
+  },
+  {
+   "concept": "oath",
+   "source": "name-word"
+  },
+  {
+   "concept": "peacock",
+   "source": "category:animals"
+  },
+  {
+   "concept": "shrimp",
+   "source": "category:animals"
+  },
+  {
+   "concept": "jade fallen grass",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "muffled",
+   "source": "name-word"
+  },
+  {
+   "concept": "bile",
+   "source": "category:body"
+  },
+  {
+   "concept": "delight",
+   "source": "name-word"
+  },
+  {
+   "concept": "boat",
+   "source": "name-word"
+  },
+  {
+   "concept": "yin yang tea",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "removal",
+   "source": "name-word"
+  },
+  {
+   "concept": "lacquer",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "sneak",
+   "source": "name-word"
+  },
+  {
+   "concept": "garlic",
+   "source": "category:plants"
+  },
+  {
+   "concept": "control",
+   "source": "name-word"
+  },
+  {
+   "concept": "multicolored overlord flower",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "aura",
+   "source": "name-word"
+  },
+  {
+   "concept": "city",
+   "source": "name-word"
+  },
+  {
+   "concept": "ivy",
+   "source": "category:plants"
+  },
+  {
+   "concept": "owl",
+   "source": "category:animals"
+  },
+  {
+   "concept": "printing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "pig",
+   "source": "name-word"
+  },
+  {
+   "concept": "chain",
+   "source": "name-word"
+  },
+  {
+   "concept": "pine",
+   "source": "name-word"
+  },
+  {
+   "concept": "relation",
+   "source": "name-word"
+  },
+  {
+   "concept": "golden wheat",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "tomorrow",
+   "source": "category:time"
+  },
+  {
+   "concept": "clan",
+   "source": "name-word"
+  },
+  {
+   "concept": "horizon",
+   "source": "name-word"
+  },
+  {
+   "concept": "totem",
+   "source": "name-word"
+  },
+  {
+   "concept": "sunbeam",
+   "source": "category:weather"
+  },
+  {
+   "concept": "year cycle powder",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "impatience",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "barnacle",
+   "source": "category:animals"
+  },
+  {
+   "concept": "twilight",
+   "source": "category:weather"
+  },
+  {
+   "concept": "crash",
+   "source": "name-word"
+  },
+  {
+   "concept": "eating",
+   "source": "name-word"
+  },
+  {
+   "concept": "orifices",
+   "source": "name-word"
+  },
+  {
+   "concept": "truthful floating ice",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "path",
+   "source": "name-word"
+  },
+  {
+   "concept": "stellar",
+   "source": "name-word"
+  },
+  {
+   "concept": "leave",
+   "source": "name-word"
+  },
+  {
+   "concept": "lynx",
+   "source": "category:animals"
+  },
+  {
+   "concept": "horizontal",
+   "source": "name-word"
+  },
+  {
+   "concept": "window",
+   "source": "name-word"
+  },
+  {
+   "concept": "hound",
+   "source": "name-word"
+  },
+  {
+   "concept": "hao",
+   "source": "name-word"
+  },
+  {
+   "concept": "violent",
+   "source": "name-word"
+  },
+  {
+   "concept": "star pupil",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "marble",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "basketry",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "halo",
+   "source": "name-word"
+  },
+  {
+   "concept": "that",
+   "source": "name-word"
+  },
+  {
+   "concept": "djinn",
+   "source": "name-word"
+  },
+  {
+   "concept": "tea making",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "transfer",
+   "source": "name-word"
+  },
+  {
+   "concept": "divine",
+   "source": "name-word"
+  },
+  {
+   "concept": "engraved",
+   "source": "name-word"
+  },
+  {
+   "concept": "flesh",
+   "source": "name-word"
+  },
+  {
+   "concept": "longevity",
+   "source": "name-word"
+  },
+  {
+   "concept": "gecko",
+   "source": "category:animals"
+  },
+  {
+   "concept": "yuan",
+   "source": "name-word"
+  },
+  {
+   "concept": "second",
+   "source": "category:time"
+  },
+  {
+   "concept": "search",
+   "source": "name-word"
+  },
+  {
+   "concept": "rat",
+   "source": "category:animals"
+  },
+  {
+   "concept": "swallowing",
+   "source": "name-word"
+  },
+  {
+   "concept": "petty",
+   "source": "name-word"
+  },
+  {
+   "concept": "pulling",
+   "source": "name-word"
+  },
+  {
+   "concept": "limestone",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "expend",
+   "source": "name-word"
+  },
+  {
+   "concept": "farm",
+   "source": "name-word"
+  },
+  {
+   "concept": "castle",
+   "source": "name-word"
+  },
+  {
+   "concept": "painting",
+   "source": "name-word"
+  },
+  {
+   "concept": "mustard",
+   "source": "category:plants"
+  },
+  {
+   "concept": "gong",
+   "source": "name-word"
+  },
+  {
+   "concept": "sparrowhawk",
+   "source": "category:animals"
+  },
+  {
+   "concept": "text",
+   "source": "name-word"
+  },
+  {
+   "concept": "tanning",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "unprocessed",
+   "source": "name-word"
+  },
+  {
+   "concept": "chameleon",
+   "source": "category:animals"
+  },
+  {
+   "concept": "brewing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "vine",
+   "source": "name-word"
+  },
+  {
+   "concept": "eternity",
+   "source": "category:time"
+  },
+  {
+   "concept": "tick",
+   "source": "category:animals"
+  },
+  {
+   "concept": "quince",
+   "source": "category:plants"
+  },
+  {
+   "concept": "rock",
+   "source": "name-word"
+  },
+  {
+   "concept": "shrinking",
+   "source": "name-word"
+  },
+  {
+   "concept": "deeds",
+   "source": "name-word"
+  },
+  {
+   "concept": "hei",
+   "source": "name-word"
+  },
+  {
+   "concept": "list",
+   "source": "name-word"
+  },
+  {
+   "concept": "altar",
+   "source": "name-word"
+  },
+  {
+   "concept": "net",
+   "source": "name-word"
+  },
+  {
+   "concept": "throat",
+   "source": "category:body"
+  },
+  {
+   "concept": "dawn hour",
+   "source": "category:time"
+  },
+  {
+   "concept": "arrow",
+   "source": "name-word"
+  },
+  {
+   "concept": "scales",
+   "source": "name-word"
+  },
+  {
+   "concept": "food",
+   "source": "name-word"
+  },
+  {
+   "concept": "quartz",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "camellia",
+   "source": "category:plants"
+  },
+  {
+   "concept": "pufferfish",
+   "source": "category:animals"
+  },
+  {
+   "concept": "musical tree",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "wheel",
+   "source": "name-word"
+  },
+  {
+   "concept": "mica",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "elbow",
+   "source": "category:body"
+  },
+  {
+   "concept": "seaweed",
+   "source": "category:plants"
+  },
+  {
+   "concept": "gate",
+   "source": "name-word"
+  },
+  {
+   "concept": "commanding",
+   "source": "name-word"
+  },
+  {
+   "concept": "ignition",
+   "source": "name-word"
+  },
+  {
+   "concept": "divine deer fruit",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "yak",
+   "source": "category:animals"
+  },
+  {
+   "concept": "fragrance",
+   "source": "name-word"
+  },
+  {
+   "concept": "sewing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "shine",
+   "source": "name-word"
+  },
+  {
+   "concept": "crack divine water",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "blessing",
+   "source": "name-word"
+  },
+  {
+   "concept": "squirrel",
+   "source": "category:animals"
+  },
+  {
+   "concept": "pear",
+   "source": "category:plants"
+  },
+  {
+   "concept": "potato",
+   "source": "name-word"
+  },
+  {
+   "concept": "fist",
+   "source": "name-word"
+  },
+  {
+   "concept": "iris",
+   "source": "category:plants"
+  },
+  {
+   "concept": "moving",
+   "source": "name-word"
+  },
+  {
+   "concept": "immortal soul grass",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "lan",
+   "source": "name-word"
+  },
+  {
+   "concept": "walrus",
+   "source": "category:animals"
+  },
+  {
+   "concept": "overlapping",
+   "source": "name-word"
+  },
+  {
+   "concept": "showing",
+   "source": "name-word"
+  },
+  {
+   "concept": "sprout",
+   "source": "name-word"
+  },
+  {
+   "concept": "distilling",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "resentment",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "queen",
+   "source": "name-word"
+  },
+  {
+   "concept": "smell",
+   "source": "name-word"
+  },
+  {
+   "concept": "mutual",
+   "source": "name-word"
+  },
+  {
+   "concept": "charcoal",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "leech",
+   "source": "category:animals"
+  },
+  {
+   "concept": "quarrying",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "fly",
+   "source": "name-word"
+  },
+  {
+   "concept": "rib",
+   "source": "category:body"
+  },
+  {
+   "concept": "coffin",
+   "source": "name-word"
+  },
+  {
+   "concept": "python",
+   "source": "name-word"
+  },
+  {
+   "concept": "cold",
+   "source": "name-word"
+  },
+  {
+   "concept": "sand",
+   "source": "name-word"
+  },
+  {
+   "concept": "pottery",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "turnip",
+   "source": "category:plants"
+  },
+  {
+   "concept": "encounter",
+   "source": "name-word"
+  },
+  {
+   "concept": "fuel",
+   "source": "name-word"
+  },
+  {
+   "concept": "coffee",
+   "source": "category:plants"
+  },
+  {
+   "concept": "falling heavenly river",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "falling",
+   "source": "name-word"
+  },
+  {
+   "concept": "liu",
+   "source": "name-word"
+  },
+  {
+   "concept": "zhen",
+   "source": "name-word"
+  },
+  {
+   "concept": "rock dragon eye",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "beech",
+   "source": "category:plants"
+  },
+  {
+   "concept": "liver",
+   "source": "name-word"
+  },
+  {
+   "concept": "camel",
+   "source": "name-word"
+  },
+  {
+   "concept": "nickel",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "octopus",
+   "source": "name-word"
+  },
+  {
+   "concept": "hearts",
+   "source": "name-word"
+  },
+  {
+   "concept": "opal",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "fountain",
+   "source": "name-word"
+  },
+  {
+   "concept": "black",
+   "source": "name-word"
+  },
+  {
+   "concept": "circuit",
+   "source": "name-word"
+  },
+  {
+   "concept": "porcupine",
+   "source": "category:animals"
+  },
+  {
+   "concept": "emerald",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "moon",
+   "source": "name-word"
+  },
+  {
+   "concept": "tiger",
+   "source": "name-word"
+  },
+  {
+   "concept": "rage",
+   "source": "name-word"
+  },
+  {
+   "concept": "gentle",
+   "source": "name-word"
+  },
+  {
+   "concept": "battles",
+   "source": "name-word"
+  },
+  {
+   "concept": "halls",
+   "source": "name-word"
+  },
+  {
+   "concept": "voice",
+   "source": "name-word"
+  },
+  {
+   "concept": "nether grass",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "king",
+   "source": "name-word"
+  },
+  {
+   "concept": "rivalling",
+   "source": "name-word"
+  },
+  {
+   "concept": "illusory",
+   "source": "name-word"
+  },
+  {
+   "concept": "metal",
+   "source": "name-word"
+  },
+  {
+   "concept": "lure",
+   "source": "name-word"
+  },
+  {
+   "concept": "accumulation",
+   "source": "name-word"
+  },
+  {
+   "concept": "swift",
+   "source": "name-word"
+  },
+  {
+   "concept": "face",
+   "source": "name-word"
+  },
+  {
+   "concept": "immortal farmer soil",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "gravel",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "coal",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "dragonfly",
+   "source": "category:animals"
+  },
+  {
+   "concept": "papermaking",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "footless",
+   "source": "name-word"
+  },
+  {
+   "concept": "dongshan",
+   "source": "name-word"
+  },
+  {
+   "concept": "nettle",
+   "source": "category:plants"
+  },
+  {
+   "concept": "hall",
+   "source": "name-word"
+  },
+  {
+   "concept": "muscle",
+   "source": "name-word"
+  },
+  {
+   "concept": "sealing",
+   "source": "name-word"
+  },
+  {
+   "concept": "dolphin",
+   "source": "category:animals"
+  },
+  {
+   "concept": "malicious",
+   "source": "name-word"
+  },
+  {
+   "concept": "revenge",
+   "source": "name-word"
+  },
+  {
+   "concept": "dread",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "eruption",
+   "source": "category:weather"
+  },
+  {
+   "concept": "blue",
+   "source": "name-word"
+  },
+  {
+   "concept": "drinking",
+   "source": "name-word"
+  },
+  {
+   "concept": "carving",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "acupuncture tree",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "drinker",
+   "source": "name-word"
+  },
+  {
+   "concept": "wandering",
+   "source": "name-word"
+  },
+  {
+   "concept": "pearl",
+   "source": "name-word"
+  },
+  {
+   "concept": "badger",
+   "source": "category:animals"
+  },
+  {
+   "concept": "star",
+   "source": "name-word"
+  },
+  {
+   "concept": "crescent",
+   "source": "name-word"
+  },
+  {
+   "concept": "link",
+   "source": "name-word"
+  },
+  {
+   "concept": "weevil",
+   "source": "category:animals"
+  },
+  {
+   "concept": "master",
+   "source": "name-word"
+  },
+  {
+   "concept": "goose",
+   "source": "category:animals"
+  },
+  {
+   "concept": "cricket",
+   "source": "name-word"
+  },
+  {
+   "concept": "shark",
+   "source": "category:animals"
+  },
+  {
+   "concept": "break",
+   "source": "name-word"
+  },
+  {
+   "concept": "egg",
+   "source": "name-word"
+  },
+  {
+   "concept": "rooster",
+   "source": "category:animals"
+  },
+  {
+   "concept": "salmon",
+   "source": "category:animals"
+  },
+  {
+   "concept": "rising",
+   "source": "name-word"
+  },
+  {
+   "concept": "snowy",
+   "source": "name-word"
+  },
+  {
+   "concept": "menses",
+   "source": "name-word"
+  },
+  {
+   "concept": "mother",
+   "source": "name-word"
+  },
+  {
+   "concept": "charging",
+   "source": "name-word"
+  },
+  {
+   "concept": "tendon",
+   "source": "name-word"
+  },
+  {
+   "concept": "play",
+   "source": "name-word"
+  },
+  {
+   "concept": "fragment",
+   "source": "name-word"
+  },
+  {
+   "concept": "pool",
+   "source": "name-word"
+  },
+  {
+   "concept": "bamboo",
+   "source": "name-word"
+  },
+  {
+   "concept": "algae",
+   "source": "category:plants"
+  },
+  {
+   "concept": "pushing cart stone",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "hostile",
+   "source": "name-word"
+  },
+  {
+   "concept": "white",
+   "source": "name-word"
+  },
+  {
+   "concept": "large",
+   "source": "name-word"
+  },
+  {
+   "concept": "hour",
+   "source": "category:time"
+  },
+  {
+   "concept": "typhoon",
+   "source": "category:weather"
+  },
+  {
+   "concept": "full moon",
+   "source": "category:time"
+  },
+  {
+   "concept": "elusive",
+   "source": "name-word"
+  },
+  {
+   "concept": "bleeding",
+   "source": "name-word"
+  },
+  {
+   "concept": "scar",
+   "source": "name-word"
+  },
+  {
+   "concept": "living",
+   "source": "name-word"
+  },
+  {
+   "concept": "gourmet",
+   "source": "name-word"
+  },
+  {
+   "concept": "sunrise",
+   "source": "category:weather"
+  },
+  {
+   "concept": "tower",
+   "source": "name-word"
+  },
+  {
+   "concept": "stealth",
+   "source": "name-word"
+  },
+  {
+   "concept": "heavenly chasm",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "desolate",
+   "source": "name-word"
+  },
+  {
+   "concept": "tasks",
+   "source": "name-word"
+  },
+  {
+   "concept": "cube",
+   "source": "name-word"
+  },
+  {
+   "concept": "killing",
+   "source": "name-word"
+  },
+  {
+   "concept": "borax",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "malachite",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "lantern",
+   "source": "name-word"
+  },
+  {
+   "concept": "sky",
+   "source": "name-word"
+  },
+  {
+   "concept": "envy",
+   "source": "name-word"
+  },
+  {
+   "concept": "changing",
+   "source": "name-word"
+  },
+  {
+   "concept": "eyes",
+   "source": "name-word"
+  },
+  {
+   "concept": "talc",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "tear",
+   "source": "category:body"
+  },
+  {
+   "concept": "slow",
+   "source": "name-word"
+  },
+  {
+   "concept": "sorghum",
+   "source": "category:plants"
+  },
+  {
+   "concept": "mud",
+   "source": "name-word"
+  },
+  {
+   "concept": "peony",
+   "source": "category:plants"
+  },
+  {
+   "concept": "quiet",
+   "source": "name-word"
+  },
+  {
+   "concept": "heron",
+   "source": "category:animals"
+  },
+  {
+   "concept": "killer",
+   "source": "name-word"
+  },
+  {
+   "concept": "centipede",
+   "source": "name-word"
+  },
+  {
+   "concept": "wailing",
+   "source": "name-word"
+  },
+  {
+   "concept": "bramble",
+   "source": "category:plants"
+  },
+  {
+   "concept": "flower",
+   "source": "name-word"
+  },
+  {
+   "concept": "reflect",
+   "source": "name-word"
+  },
+  {
+   "concept": "green pond rotten soil",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "gourd",
+   "source": "category:plants"
+  },
+  {
+   "concept": "black rock",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "creation",
+   "source": "name-word"
+  },
+  {
+   "concept": "marrow",
+   "source": "category:body"
+  },
+  {
+   "concept": "lentil",
+   "source": "category:plants"
+  },
+  {
+   "concept": "fat",
+   "source": "category:body"
+  },
+  {
+   "concept": "yaksha",
+   "source": "name-word"
+  },
+  {
+   "concept": "familial",
+   "source": "name-word"
+  },
+  {
+   "concept": "jun",
+   "source": "name-word"
+  },
+  {
+   "concept": "pebble",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "house",
+   "source": "name-word"
+  },
+  {
+   "concept": "tamer",
+   "source": "name-word"
+  },
+  {
+   "concept": "mound",
+   "source": "name-word"
+  },
+  {
+   "concept": "pitch",
+   "source": "name-word"
+  },
+  {
+   "concept": "jasmine",
+   "source": "category:plants"
+  },
+  {
+   "concept": "smoke",
+   "source": "name-word"
+  },
+  {
+   "concept": "monarch",
+   "source": "name-word"
+  },
+  {
+   "concept": "fifteen",
+   "source": "name-word"
+  },
+  {
+   "concept": "bewilderment fog",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "late",
+   "source": "name-word"
+  },
+  {
+   "concept": "alum",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "messenger",
+   "source": "name-word"
+  },
+  {
+   "concept": "toad",
+   "source": "name-word"
+  },
+  {
+   "concept": "sound",
+   "source": "name-word"
+  },
+  {
+   "concept": "crane",
+   "source": "name-word"
+  },
+  {
+   "concept": "charge",
+   "source": "name-word"
+  },
+  {
+   "concept": "cliff",
+   "source": "name-word"
+  },
+  {
+   "concept": "dead",
+   "source": "name-word"
+  },
+  {
+   "concept": "duck",
+   "source": "category:animals"
+  },
+  {
+   "concept": "pomegranate",
+   "source": "category:plants"
+  },
+  {
+   "concept": "dream",
+   "source": "name-word"
+  },
+  {
+   "concept": "pumpkin",
+   "source": "category:plants"
+  },
+  {
+   "concept": "open",
+   "source": "name-word"
+  },
+  {
+   "concept": "scale",
+   "source": "name-word"
+  },
+  {
+   "concept": "pangolin",
+   "source": "category:animals"
+  },
+  {
+   "concept": "anger",
+   "source": "name-word"
+  },
+  {
+   "concept": "communication",
+   "source": "name-word"
+  },
+  {
+   "concept": "relief",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "fragrances",
+   "source": "name-word"
+  },
+  {
+   "concept": "armadillo",
+   "source": "category:animals"
+  },
+  {
+   "concept": "flash",
+   "source": "name-word"
+  },
+  {
+   "concept": "heaven metal",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "reliance",
+   "source": "name-word"
+  },
+  {
+   "concept": "moonlight mound",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "dual",
+   "source": "name-word"
+  },
+  {
+   "concept": "back",
+   "source": "name-word"
+  },
+  {
+   "concept": "engraving",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "kidney",
+   "source": "category:body"
+  },
+  {
+   "concept": "vision",
+   "source": "name-word"
+  },
+  {
+   "concept": "ivory",
+   "source": "name-word"
+  },
+  {
+   "concept": "midnight",
+   "source": "category:weather"
+  },
+  {
+   "concept": "hawk",
+   "source": "category:animals"
+  },
+  {
+   "concept": "slug",
+   "source": "name-word"
+  },
+  {
+   "concept": "return",
+   "source": "name-word"
+  },
+  {
+   "concept": "lung",
+   "source": "category:body"
+  },
+  {
+   "concept": "tempering",
+   "source": "name-word"
+  },
+  {
+   "concept": "tooth",
+   "source": "name-word"
+  },
+  {
+   "concept": "corrosion",
+   "source": "name-word"
+  },
+  {
+   "concept": "tire",
+   "source": "name-word"
+  },
+  {
+   "concept": "triumphing",
+   "source": "name-word"
+  },
+  {
+   "concept": "spider",
+   "source": "name-word"
+  },
+  {
+   "concept": "group",
+   "source": "name-word"
+  },
+  {
+   "concept": "pepper",
+   "source": "category:plants"
+  },
+  {
+   "concept": "pregnancy",
+   "source": "name-word"
+  },
+  {
+   "concept": "location",
+   "source": "name-word"
+  },
+  {
+   "concept": "tongue",
+   "source": "name-word"
+  },
+  {
+   "concept": "fish",
+   "source": "name-word"
+  },
+  {
+   "concept": "sympathy",
+   "source": "name-word"
+  },
+  {
+   "concept": "ember",
+   "source": "category:weather"
+  },
+  {
+   "concept": "ant",
+   "source": "name-word"
+  },
+  {
+   "concept": "sheep",
+   "source": "category:animals"
+  },
+  {
+   "concept": "thorn",
+   "source": "name-word"
+  },
+  {
+   "concept": "fern",
+   "source": "category:plants"
+  },
+  {
+   "concept": "rush",
+   "source": "category:plants"
+  },
+  {
+   "concept": "steps",
+   "source": "name-word"
+  },
+  {
+   "concept": "raise",
+   "source": "name-word"
+  },
+  {
+   "concept": "treasure",
+   "source": "name-word"
+  },
+  {
+   "concept": "tribulation",
+   "source": "name-word"
+  },
+  {
+   "concept": "sole",
+   "source": "name-word"
+  },
+  {
+   "concept": "phosphorescent wood",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "grudge",
+   "source": "name-word"
+  },
+  {
+   "concept": "impermanence",
+   "source": "name-word"
+  },
+  {
+   "concept": "faced",
+   "source": "name-word"
+  },
+  {
+   "concept": "glazing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "imperial",
+   "source": "name-word"
+  },
+  {
+   "concept": "union",
+   "source": "name-word"
+  },
+  {
+   "concept": "feet",
+   "source": "name-word"
+  },
+  {
+   "concept": "bait",
+   "source": "name-word"
+  },
+  {
+   "concept": "wash",
+   "source": "name-word"
+  },
+  {
+   "concept": "glare",
+   "source": "category:weather"
+  },
+  {
+   "concept": "raiment",
+   "source": "name-word"
+  },
+  {
+   "concept": "elements",
+   "source": "name-word"
+  },
+  {
+   "concept": "spiral",
+   "source": "name-word"
+  },
+  {
+   "concept": "bug",
+   "source": "name-word"
+  },
+  {
+   "concept": "virus",
+   "source": "name-word"
+  },
+  {
+   "concept": "plain",
+   "source": "name-word"
+  },
+  {
+   "concept": "extreme",
+   "source": "name-word"
+  },
+  {
+   "concept": "rice",
+   "source": "name-word"
+  },
+  {
+   "concept": "cabinet",
+   "source": "name-word"
+  },
+  {
+   "concept": "poem",
+   "source": "name-word"
+  },
+  {
+   "concept": "cotton",
+   "source": "category:plants"
+  },
+  {
+   "concept": "serenity",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "quantity",
+   "source": "name-word"
+  },
+  {
+   "concept": "blizzard",
+   "source": "category:weather"
+  },
+  {
+   "concept": "loneliness",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "onion",
+   "source": "name-word"
+  },
+  {
+   "concept": "walking",
+   "source": "name-word"
+  },
+  {
+   "concept": "storm",
+   "source": "category:weather"
+  },
+  {
+   "concept": "glow",
+   "source": "category:weather"
+  },
+  {
+   "concept": "bay",
+   "source": "name-word"
+  },
+  {
+   "concept": "blood sickle grass",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "retaining",
+   "source": "name-word"
+  },
+  {
+   "concept": "weaving",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "breaths",
+   "source": "name-word"
+  },
+  {
+   "concept": "rabbit",
+   "source": "name-word"
+  },
+  {
+   "concept": "grand",
+   "source": "name-word"
+  },
+  {
+   "concept": "resin",
+   "source": "category:plants"
+  },
+  {
+   "concept": "water",
+   "source": "name-word"
+  },
+  {
+   "concept": "sage",
+   "source": "category:plants"
+  },
+  {
+   "concept": "prosperity soil",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "breeze",
+   "source": "name-word"
+  },
+  {
+   "concept": "dusk",
+   "source": "category:weather"
+  },
+  {
+   "concept": "inlay",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "perceivable",
+   "source": "name-word"
+  },
+  {
+   "concept": "perfumery",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "tablet",
+   "source": "name-word"
+  },
+  {
+   "concept": "sea",
+   "source": "name-word"
+  },
+  {
+   "concept": "prison",
+   "source": "name-word"
+  },
+  {
+   "concept": "squid",
+   "source": "category:animals"
+  },
+  {
+   "concept": "tobacco",
+   "source": "category:plants"
+  },
+  {
+   "concept": "chase",
+   "source": "name-word"
+  },
+  {
+   "concept": "weaponsmithing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "kelp",
+   "source": "category:plants"
+  },
+  {
+   "concept": "ceramic",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "forging",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "spark",
+   "source": "category:weather"
+  },
+  {
+   "concept": "trout",
+   "source": "category:animals"
+  },
+  {
+   "concept": "hail",
+   "source": "category:weather"
+  },
+  {
+   "concept": "monsoon",
+   "source": "category:weather"
+  },
+  {
+   "concept": "zinc",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "millet",
+   "source": "category:plants"
+  },
+  {
+   "concept": "louse",
+   "source": "category:animals"
+  },
+  {
+   "concept": "borrow",
+   "source": "name-word"
+  },
+  {
+   "concept": "pike",
+   "source": "category:animals"
+  },
+  {
+   "concept": "suppress",
+   "source": "name-word"
+  },
+  {
+   "concept": "shield",
+   "source": "name-word"
+  },
+  {
+   "concept": "shipbuilding",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "basil",
+   "source": "category:plants"
+  },
+  {
+   "concept": "clothing",
+   "source": "name-word"
+  },
+  {
+   "concept": "belly",
+   "source": "name-word"
+  },
+  {
+   "concept": "spike",
+   "source": "name-word"
+  },
+  {
+   "concept": "coptis",
+   "source": "name-word"
+  },
+  {
+   "concept": "cold ice stone",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "palm",
+   "source": "name-word"
+  },
+  {
+   "concept": "dance",
+   "source": "name-word"
+  },
+  {
+   "concept": "flickering",
+   "source": "name-word"
+  },
+  {
+   "concept": "turtle",
+   "source": "name-word"
+  },
+  {
+   "concept": "boredom",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "reverse",
+   "source": "name-word"
+  },
+  {
+   "concept": "tea",
+   "source": "name-word"
+  },
+  {
+   "concept": "change",
+   "source": "name-word"
+  },
+  {
+   "concept": "sloth",
+   "source": "category:animals"
+  },
+  {
+   "concept": "gnat",
+   "source": "category:animals"
+  },
+  {
+   "concept": "eyebrows",
+   "source": "name-word"
+  },
+  {
+   "concept": "century",
+   "source": "category:time"
+  },
+  {
+   "concept": "blood red immortal essence formation",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "stars",
+   "source": "name-word"
+  },
+  {
+   "concept": "idea",
+   "source": "name-word"
+  },
+  {
+   "concept": "groundmat",
+   "source": "name-word"
+  },
+  {
+   "concept": "page",
+   "source": "name-word"
+  },
+  {
+   "concept": "season",
+   "source": "category:time"
+  },
+  {
+   "concept": "heroic",
+   "source": "name-word"
+  },
+  {
+   "concept": "down",
+   "source": "name-word"
+  },
+  {
+   "concept": "formation",
+   "source": "name-word"
+  },
+  {
+   "concept": "frost",
+   "source": "name-word"
+  },
+  {
+   "concept": "barrier",
+   "source": "name-word"
+  },
+  {
+   "concept": "ram",
+   "source": "category:animals"
+  },
+  {
+   "concept": "hibiscus stalactite",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "combination",
+   "source": "name-word"
+  },
+  {
+   "concept": "persimmon",
+   "source": "category:plants"
+  },
+  {
+   "concept": "responsive",
+   "source": "name-word"
+  },
+  {
+   "concept": "red",
+   "source": "name-word"
+  },
+  {
+   "concept": "lamprey",
+   "source": "category:animals"
+  },
+  {
+   "concept": "staunch",
+   "source": "name-word"
+  },
+  {
+   "concept": "firefly",
+   "source": "name-word"
+  },
+  {
+   "concept": "demon",
+   "source": "name-word"
+  },
+  {
+   "concept": "eye",
+   "source": "name-word"
+  },
+  {
+   "concept": "chaotic",
+   "source": "name-word"
+  },
+  {
+   "concept": "koala",
+   "source": "category:animals"
+  },
+  {
+   "concept": "adder",
+   "source": "category:animals"
+  },
+  {
+   "concept": "deity",
+   "source": "name-word"
+  },
+  {
+   "concept": "constellation",
+   "source": "name-word"
+  },
+  {
+   "concept": "wish",
+   "source": "name-word"
+  },
+  {
+   "concept": "rose",
+   "source": "category:plants"
+  },
+  {
+   "concept": "fixed",
+   "source": "name-word"
+  },
+  {
+   "concept": "become",
+   "source": "name-word"
+  },
+  {
+   "concept": "island",
+   "source": "name-word"
+  },
+  {
+   "concept": "observation",
+   "source": "name-word"
+  },
+  {
+   "concept": "world",
+   "source": "name-word"
+  },
+  {
+   "concept": "charred",
+   "source": "name-word"
+  },
+  {
+   "concept": "bai",
+   "source": "name-word"
+  },
+  {
+   "concept": "false",
+   "source": "name-word"
+  },
+  {
+   "concept": "flint",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "hammer",
+   "source": "name-word"
+  },
+  {
+   "concept": "whittling",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "cold snap",
+   "source": "category:weather"
+  },
+  {
+   "concept": "drought",
+   "source": "category:weather"
+  },
+  {
+   "concept": "dust",
+   "source": "name-word"
+  },
+  {
+   "concept": "lip",
+   "source": "category:body"
+  },
+  {
+   "concept": "dazzling",
+   "source": "name-word"
+  },
+  {
+   "concept": "kangaroo",
+   "source": "category:animals"
+  },
+  {
+   "concept": "knitting",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "calligraphy",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "broad",
+   "source": "name-word"
+  },
+  {
+   "concept": "chestnut",
+   "source": "category:plants"
+  },
+  {
+   "concept": "bookbinding",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "cherry",
+   "source": "category:plants"
+  },
+  {
+   "concept": "cape",
+   "source": "name-word"
+  },
+  {
+   "concept": "bane",
+   "source": "name-word"
+  },
+  {
+   "concept": "ray",
+   "source": "name-word"
+  },
+  {
+   "concept": "wheat",
+   "source": "category:plants"
+  },
+  {
+   "concept": "shade",
+   "source": "name-word"
+  },
+  {
+   "concept": "awaits",
+   "source": "name-word"
+  },
+  {
+   "concept": "tortoise",
+   "source": "name-word"
+  },
+  {
+   "concept": "hopping",
+   "source": "name-word"
+  },
+  {
+   "concept": "build",
+   "source": "name-word"
+  },
+  {
+   "concept": "azure",
+   "source": "name-word"
+  },
+  {
+   "concept": "brass",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "symbol",
+   "source": "name-word"
+  },
+  {
+   "concept": "early",
+   "source": "name-word"
+  },
+  {
+   "concept": "manor",
+   "source": "name-word"
+  },
+  {
+   "concept": "pillow",
+   "source": "name-word"
+  },
+  {
+   "concept": "gu as before formation",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "gut",
+   "source": "category:body"
+  },
+  {
+   "concept": "undefeated",
+   "source": "name-word"
+  },
+  {
+   "concept": "source",
+   "source": "name-word"
+  },
+  {
+   "concept": "boulder",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "mantis",
+   "source": "category:animals"
+  },
+  {
+   "concept": "roaming",
+   "source": "name-word"
+  },
+  {
+   "concept": "bubble",
+   "source": "name-word"
+  },
+  {
+   "concept": "ibex",
+   "source": "category:animals"
+  },
+  {
+   "concept": "grave",
+   "source": "name-word"
+  },
+  {
+   "concept": "information",
+   "source": "name-word"
+  },
+  {
+   "concept": "embroidery",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "pulse",
+   "source": "category:body"
+  },
+  {
+   "concept": "vajra",
+   "source": "name-word"
+  },
+  {
+   "concept": "quail",
+   "source": "category:animals"
+  },
+  {
+   "concept": "heat",
+   "source": "name-word"
+  },
+  {
+   "concept": "weasel",
+   "source": "category:animals"
+  },
+  {
+   "concept": "cool",
+   "source": "name-word"
+  },
+  {
+   "concept": "feather",
+   "source": "name-word"
+  },
+  {
+   "concept": "otter",
+   "source": "category:animals"
+  },
+  {
+   "concept": "bones",
+   "source": "name-word"
+  },
+  {
+   "concept": "dragon side tooth",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "chariot",
+   "source": "name-word"
+  },
+  {
+   "concept": "shuttle",
+   "source": "name-word"
+  },
+  {
+   "concept": "dark inkstone",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "mouth",
+   "source": "name-word"
+  },
+  {
+   "concept": "yam",
+   "source": "name-word"
+  },
+  {
+   "concept": "scorpion",
+   "source": "name-word"
+  },
+  {
+   "concept": "guilt",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "multiple",
+   "source": "name-word"
+  },
+  {
+   "concept": "meteor",
+   "source": "name-word"
+  },
+  {
+   "concept": "cage",
+   "source": "name-word"
+  },
+  {
+   "concept": "thatching",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "woodpecker",
+   "source": "category:animals"
+  },
+  {
+   "concept": "bountiful",
+   "source": "name-word"
+  },
+  {
+   "concept": "misfortune",
+   "source": "name-word"
+  },
+  {
+   "concept": "epoch",
+   "source": "category:time"
+  },
+  {
+   "concept": "brain",
+   "source": "name-word"
+  },
+  {
+   "concept": "gu formation",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "elm",
+   "source": "category:plants"
+  },
+  {
+   "concept": "ball",
+   "source": "name-word"
+  },
+  {
+   "concept": "jackal",
+   "source": "category:animals"
+  },
+  {
+   "concept": "lead",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "marrow sucking stone",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "agate",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "midday",
+   "source": "category:time"
+  },
+  {
+   "concept": "minting",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "elixir",
+   "source": "name-word"
+  },
+  {
+   "concept": "lizard",
+   "source": "name-word"
+  },
+  {
+   "concept": "light shine fungus",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "spine",
+   "source": "category:body"
+  },
+  {
+   "concept": "ironfist",
+   "source": "name-word"
+  },
+  {
+   "concept": "fairy",
+   "source": "name-word"
+  },
+  {
+   "concept": "alert",
+   "source": "name-word"
+  },
+  {
+   "concept": "meteorite",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "wen",
+   "source": "name-word"
+  },
+  {
+   "concept": "plate",
+   "source": "name-word"
+  },
+  {
+   "concept": "snail",
+   "source": "category:animals"
+  },
+  {
+   "concept": "candle making",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "nectar",
+   "source": "category:plants"
+  },
+  {
+   "concept": "inspection",
+   "source": "name-word"
+  },
+  {
+   "concept": "magnolia",
+   "source": "category:plants"
+  },
+  {
+   "concept": "gypsum",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "mushroom",
+   "source": "name-word"
+  },
+  {
+   "concept": "bee",
+   "source": "name-word"
+  },
+  {
+   "concept": "servant",
+   "source": "name-word"
+  },
+  {
+   "concept": "liquid",
+   "source": "name-word"
+  },
+  {
+   "concept": "moon orchid",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "tungsten",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "ginger",
+   "source": "category:plants"
+  },
+  {
+   "concept": "tusita",
+   "source": "name-word"
+  },
+  {
+   "concept": "high",
+   "source": "name-word"
+  },
+  {
+   "concept": "seed",
+   "source": "category:plants"
+  },
+  {
+   "concept": "dark soft silk",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "speed",
+   "source": "name-word"
+  },
+  {
+   "concept": "walnut",
+   "source": "category:plants"
+  },
+  {
+   "concept": "saddlery",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "mush",
+   "source": "name-word"
+  },
+  {
+   "concept": "stove",
+   "source": "name-word"
+  },
+  {
+   "concept": "mango",
+   "source": "category:plants"
+  },
+  {
+   "concept": "pill",
+   "source": "name-word"
+  },
+  {
+   "concept": "panther",
+   "source": "category:animals"
+  },
+  {
+   "concept": "dragonpill",
+   "source": "name-word"
+  },
+  {
+   "concept": "obsidian",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "kinship",
+   "source": "name-word"
+  },
+  {
+   "concept": "split",
+   "source": "name-word"
+  },
+  {
+   "concept": "hemp",
+   "source": "category:plants"
+  },
+  {
+   "concept": "paper",
+   "source": "name-word"
+  },
+  {
+   "concept": "pelican",
+   "source": "category:animals"
+  },
+  {
+   "concept": "beekeeping",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "boar",
+   "source": "name-word"
+  },
+  {
+   "concept": "stork",
+   "source": "category:animals"
+  },
+  {
+   "concept": "cobra",
+   "source": "category:animals"
+  },
+  {
+   "concept": "pyrite",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "citron",
+   "source": "category:plants"
+  },
+  {
+   "concept": "muscles",
+   "source": "name-word"
+  },
+  {
+   "concept": "decade",
+   "source": "category:time"
+  },
+  {
+   "concept": "ribcage",
+   "source": "name-word"
+  },
+  {
+   "concept": "yellow",
+   "source": "name-word"
+  },
+  {
+   "concept": "smoky warm jade field",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "carp",
+   "source": "category:animals"
+  },
+  {
+   "concept": "despair",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "thousand year floating wood",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "compassion",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "leaf",
+   "source": "name-word"
+  },
+  {
+   "concept": "profound grey salt",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "mercy",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "restriction",
+   "source": "name-word"
+  },
+  {
+   "concept": "pellet",
+   "source": "name-word"
+  },
+  {
+   "concept": "cedar",
+   "source": "category:plants"
+  },
+  {
+   "concept": "underworld jellyfish",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "heel",
+   "source": "category:body"
+  },
+  {
+   "concept": "zhan",
+   "source": "name-word"
+  },
+  {
+   "concept": "spite",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "bag",
+   "source": "name-word"
+  },
+  {
+   "concept": "bat",
+   "source": "name-word"
+  },
+  {
+   "concept": "create",
+   "source": "name-word"
+  },
+  {
+   "concept": "copper",
+   "source": "name-word"
+  },
+  {
+   "concept": "vein",
+   "source": "name-word"
+  },
+  {
+   "concept": "coral",
+   "source": "category:animals"
+  },
+  {
+   "concept": "ancient",
+   "source": "name-word"
+  },
+  {
+   "concept": "feelings",
+   "source": "name-word"
+  },
+  {
+   "concept": "beaver",
+   "source": "category:animals"
+  },
+  {
+   "concept": "realgar",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "sacred",
+   "source": "name-word"
+  },
+  {
+   "concept": "cave",
+   "source": "name-word"
+  },
+  {
+   "concept": "cuckoo",
+   "source": "category:animals"
+  },
+  {
+   "concept": "mouse",
+   "source": "category:animals"
+  },
+  {
+   "concept": "subterranean adamantite",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "herb",
+   "source": "name-word"
+  },
+  {
+   "concept": "the legends of ren zu",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "gilding",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "treasury",
+   "source": "name-word"
+  },
+  {
+   "concept": "combat",
+   "source": "name-word"
+  },
+  {
+   "concept": "underworld",
+   "source": "name-word"
+  },
+  {
+   "concept": "above",
+   "source": "name-word"
+  },
+  {
+   "concept": "brave",
+   "source": "name-word"
+  },
+  {
+   "concept": "cry",
+   "source": "name-word"
+  },
+  {
+   "concept": "jasper",
+   "source": "name-word"
+  },
+  {
+   "concept": "exert",
+   "source": "name-word"
+  },
+  {
+   "concept": "vivid",
+   "source": "name-word"
+  },
+  {
+   "concept": "mosquito",
+   "source": "category:animals"
+  },
+  {
+   "concept": "porcelain",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "cauldron",
+   "source": "name-word"
+  },
+  {
+   "concept": "wight",
+   "source": "name-word"
+  },
+  {
+   "concept": "sentence",
+   "source": "name-word"
+  },
+  {
+   "concept": "tulip",
+   "source": "category:plants"
+  },
+  {
+   "concept": "eyelash",
+   "source": "category:body"
+  },
+  {
+   "concept": "asura",
+   "source": "name-word"
+  },
+  {
+   "concept": "solstice",
+   "source": "category:time"
+  },
+  {
+   "concept": "mole",
+   "source": "category:animals"
+  },
+  {
+   "concept": "womb",
+   "source": "category:body"
+  },
+  {
+   "concept": "piercing",
+   "source": "name-word"
+  },
+  {
+   "concept": "viper",
+   "source": "category:animals"
+  },
+  {
+   "concept": "prestige",
+   "source": "name-word"
+  },
+  {
+   "concept": "shooting",
+   "source": "name-word"
+  },
+  {
+   "concept": "pheasant",
+   "source": "category:animals"
+  },
+  {
+   "concept": "wolf",
+   "source": "name-word"
+  },
+  {
+   "concept": "sulfur",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "fiery",
+   "source": "name-word"
+  },
+  {
+   "concept": "shoulder",
+   "source": "category:body"
+  },
+  {
+   "concept": "vertical rainbow ointment",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "nature",
+   "source": "name-word"
+  },
+  {
+   "concept": "kingfisher",
+   "source": "category:animals"
+  },
+  {
+   "concept": "clockwork",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "maple",
+   "source": "category:plants"
+  },
+  {
+   "concept": "problem",
+   "source": "name-word"
+  },
+  {
+   "concept": "oil",
+   "source": "name-word"
+  },
+  {
+   "concept": "bean",
+   "source": "category:plants"
+  },
+  {
+   "concept": "sunflower",
+   "source": "category:plants"
+  },
+  {
+   "concept": "nostalgia",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "attack",
+   "source": "name-word"
+  },
+  {
+   "concept": "swallow",
+   "source": "name-word"
+  },
+  {
+   "concept": "lichen",
+   "source": "category:plants"
+  },
+  {
+   "concept": "soul cores",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "sunset",
+   "source": "category:weather"
+  },
+  {
+   "concept": "therapy",
+   "source": "name-word"
+  },
+  {
+   "concept": "sparrow",
+   "source": "category:animals"
+  },
+  {
+   "concept": "cloth",
+   "source": "name-word"
+  },
+  {
+   "concept": "primeval stone",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "suction",
+   "source": "name-word"
+  },
+  {
+   "concept": "breath",
+   "source": "name-word"
+  },
+  {
+   "concept": "shaped",
+   "source": "name-word"
+  },
+  {
+   "concept": "drunk immortal qi",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "perspective",
+   "source": "name-word"
+  },
+  {
+   "concept": "earthwolf",
+   "source": "name-word"
+  },
+  {
+   "concept": "delay",
+   "source": "category:time"
+  },
+  {
+   "concept": "backwater",
+   "source": "name-word"
+  },
+  {
+   "concept": "monkey",
+   "source": "name-word"
+  },
+  {
+   "concept": "parrot",
+   "source": "category:animals"
+  },
+  {
+   "concept": "laughter",
+   "source": "name-word"
+  },
+  {
+   "concept": "ape",
+   "source": "category:animals"
+  },
+  {
+   "concept": "disaster",
+   "source": "name-word"
+  },
+  {
+   "concept": "stage",
+   "source": "name-word"
+  },
+  {
+   "concept": "bud",
+   "source": "name-word"
+  },
+  {
+   "concept": "rotation",
+   "source": "name-word"
+  },
+  {
+   "concept": "peach",
+   "source": "name-word"
+  },
+  {
+   "concept": "anxiety",
+   "source": "name-word"
+  },
+  {
+   "concept": "cup",
+   "source": "name-word"
+  },
+  {
+   "concept": "llama",
+   "source": "category:animals"
+  },
+  {
+   "concept": "navigation",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "empty",
+   "source": "name-word"
+  },
+  {
+   "concept": "concealment",
+   "source": "name-word"
+  },
+  {
+   "concept": "swap",
+   "source": "name-word"
+  },
+  {
+   "concept": "pledge",
+   "source": "name-word"
+  },
+  {
+   "concept": "colored",
+   "source": "name-word"
+  },
+  {
+   "concept": "longhorn",
+   "source": "name-word"
+  },
+  {
+   "concept": "hip",
+   "source": "category:body"
+  },
+  {
+   "concept": "artery",
+   "source": "category:body"
+  },
+  {
+   "concept": "dragon",
+   "source": "name-word"
+  },
+  {
+   "concept": "hoof",
+   "source": "category:body"
+  },
+  {
+   "concept": "thought",
+   "source": "name-word"
+  },
+  {
+   "concept": "purple",
+   "source": "name-word"
+  },
+  {
+   "concept": "ice path crystal essence",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "vagrant",
+   "source": "name-word"
+  },
+  {
+   "concept": "steal",
+   "source": "name-word"
+  },
+  {
+   "concept": "turn",
+   "source": "name-word"
+  },
+  {
+   "concept": "hare",
+   "source": "category:animals"
+  },
+  {
+   "concept": "pink",
+   "source": "name-word"
+  },
+  {
+   "concept": "clues",
+   "source": "name-word"
+  },
+  {
+   "concept": "fig",
+   "source": "category:plants"
+  },
+  {
+   "concept": "magnet",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "leader",
+   "source": "name-word"
+  },
+  {
+   "concept": "origin",
+   "source": "name-word"
+  },
+  {
+   "concept": "main",
+   "source": "name-word"
+  },
+  {
+   "concept": "rope making",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "elk",
+   "source": "category:animals"
+  },
+  {
+   "concept": "salt",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "tracing",
+   "source": "name-word"
+  },
+  {
+   "concept": "several",
+   "source": "name-word"
+  },
+  {
+   "concept": "silent",
+   "source": "name-word"
+  },
+  {
+   "concept": "pointer",
+   "source": "name-word"
+  },
+  {
+   "concept": "frog",
+   "source": "name-word"
+  },
+  {
+   "concept": "technique",
+   "source": "name-word"
+  },
+  {
+   "concept": "gale",
+   "source": "category:weather"
+  },
+  {
+   "concept": "blaze",
+   "source": "name-word"
+  },
+  {
+   "concept": "moment",
+   "source": "category:time"
+  },
+  {
+   "concept": "power",
+   "source": "name-word"
+  },
+  {
+   "concept": "cypress",
+   "source": "category:plants"
+  },
+  {
+   "concept": "evil",
+   "source": "name-word"
+  },
+  {
+   "concept": "needle",
+   "source": "name-word"
+  },
+  {
+   "concept": "wings",
+   "source": "name-word"
+  },
+  {
+   "concept": "iron",
+   "source": "name-word"
+  },
+  {
+   "concept": "forgotten",
+   "source": "name-word"
+  },
+  {
+   "concept": "movement",
+   "source": "name-word"
+  },
+  {
+   "concept": "afterlife",
+   "source": "name-word"
+  },
+  {
+   "concept": "surveying",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "poppy",
+   "source": "category:plants"
+  },
+  {
+   "concept": "think",
+   "source": "name-word"
+  },
+  {
+   "concept": "chart",
+   "source": "name-word"
+  },
+  {
+   "concept": "spinning",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "rolling",
+   "source": "name-word"
+  },
+  {
+   "concept": "broadsword",
+   "source": "name-word"
+  },
+  {
+   "concept": "snow",
+   "source": "name-word"
+  },
+  {
+   "concept": "brilliance",
+   "source": "name-word"
+  },
+  {
+   "concept": "jealousy",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "sprint",
+   "source": "name-word"
+  },
+  {
+   "concept": "leek",
+   "source": "category:plants"
+  },
+  {
+   "concept": "termite",
+   "source": "category:animals"
+  },
+  {
+   "concept": "special",
+   "source": "name-word"
+  },
+  {
+   "concept": "flute",
+   "source": "name-word"
+  },
+  {
+   "concept": "sugarcane",
+   "source": "category:plants"
+  },
+  {
+   "concept": "butterfly",
+   "source": "name-word"
+  },
+  {
+   "concept": "peaceful",
+   "source": "name-word"
+  },
+  {
+   "concept": "thunder",
+   "source": "name-word"
+  },
+  {
+   "concept": "millipede",
+   "source": "category:animals"
+  },
+  {
+   "concept": "edict",
+   "source": "name-word"
+  },
+  {
+   "concept": "fierce",
+   "source": "name-word"
+  },
+  {
+   "concept": "meat",
+   "source": "name-word"
+  },
+  {
+   "concept": "neck",
+   "source": "category:body"
+  },
+  {
+   "concept": "swimming",
+   "source": "name-word"
+  },
+  {
+   "concept": "traveling",
+   "source": "name-word"
+  },
+  {
+   "concept": "fury",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "cloud smoke tea",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "grass",
+   "source": "name-word"
+  },
+  {
+   "concept": "fletching",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "zither",
+   "source": "name-word"
+  },
+  {
+   "concept": "hair",
+   "source": "name-word"
+  },
+  {
+   "concept": "green",
+   "source": "name-word"
+  },
+  {
+   "concept": "grape",
+   "source": "category:plants"
+  },
+  {
+   "concept": "divulge",
+   "source": "name-word"
+  },
+  {
+   "concept": "immemorial year beast fishing formation",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "garnet",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "refinement",
+   "source": "name-word"
+  },
+  {
+   "concept": "step",
+   "source": "name-word"
+  },
+  {
+   "concept": "wing",
+   "source": "category:body"
+  },
+  {
+   "concept": "horn",
+   "source": "name-word"
+  },
+  {
+   "concept": "well",
+   "source": "name-word"
+  },
+  {
+   "concept": "double",
+   "source": "name-word"
+  },
+  {
+   "concept": "stare",
+   "source": "name-word"
+  },
+  {
+   "concept": "taro",
+   "source": "category:plants"
+  },
+  {
+   "concept": "graceful",
+   "source": "name-word"
+  },
+  {
+   "concept": "chest",
+   "source": "category:body"
+  },
+  {
+   "concept": "twin",
+   "source": "name-word"
+  },
+  {
+   "concept": "thinking",
+   "source": "name-word"
+  },
+  {
+   "concept": "cottage",
+   "source": "name-word"
+  },
+  {
+   "concept": "plan",
+   "source": "name-word"
+  },
+  {
+   "concept": "slash",
+   "source": "name-word"
+  },
+  {
+   "concept": "trouble",
+   "source": "name-word"
+  },
+  {
+   "concept": "steam",
+   "source": "category:weather"
+  },
+  {
+   "concept": "safe",
+   "source": "name-word"
+  },
+  {
+   "concept": "jellyfish",
+   "source": "category:animals"
+  },
+  {
+   "concept": "nether",
+   "source": "name-word"
+  },
+  {
+   "concept": "doting",
+   "source": "name-word"
+  },
+  {
+   "concept": "sea urchin",
+   "source": "category:animals"
+  },
+  {
+   "concept": "square",
+   "source": "name-word"
+  },
+  {
+   "concept": "shit",
+   "source": "name-word"
+  },
+  {
+   "concept": "old",
+   "source": "name-word"
+  },
+  {
+   "concept": "fake",
+   "source": "name-word"
+  },
+  {
+   "concept": "week",
+   "source": "category:time"
+  },
+  {
+   "concept": "snare",
+   "source": "name-word"
+  },
+  {
+   "concept": "exploding",
+   "source": "name-word"
+  },
+  {
+   "concept": "crocodile",
+   "source": "name-word"
+  },
+  {
+   "concept": "dart",
+   "source": "name-word"
+  },
+  {
+   "concept": "panic",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "noon",
+   "source": "category:weather"
+  },
+  {
+   "concept": "cement",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "thread",
+   "source": "name-word"
+  },
+  {
+   "concept": "eagle",
+   "source": "name-word"
+  },
+  {
+   "concept": "carpentry",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "cooking",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "bloodworm",
+   "source": "name-word"
+  },
+  {
+   "concept": "twelve zodiac battle formation",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "wonder",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "desire",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "skyflower",
+   "source": "name-word"
+  },
+  {
+   "concept": "cactus",
+   "source": "name-word"
+  },
+  {
+   "concept": "howl",
+   "source": "name-word"
+  },
+  {
+   "concept": "ancient ink kelp",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "eyebrow",
+   "source": "category:body"
+  },
+  {
+   "concept": "jin",
+   "source": "name-word"
+  },
+  {
+   "concept": "chief",
+   "source": "name-word"
+  },
+  {
+   "concept": "like",
+   "source": "name-word"
+  },
+  {
+   "concept": "sky flower",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "thirty",
+   "source": "name-word"
+  },
+  {
+   "concept": "falcon",
+   "source": "category:animals"
+  },
+  {
+   "concept": "injury",
+   "source": "name-word"
+  },
+  {
+   "concept": "hedgehog",
+   "source": "category:animals"
+  },
+  {
+   "concept": "chasing",
+   "source": "name-word"
+  },
+  {
+   "concept": "melt",
+   "source": "name-word"
+  },
+  {
+   "concept": "awe",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "mining",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "resurrection",
+   "source": "name-word"
+  },
+  {
+   "concept": "cinnabar",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "sapphire",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "perfect",
+   "source": "name-word"
+  },
+  {
+   "concept": "mount",
+   "source": "name-word"
+  },
+  {
+   "concept": "joy",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "box",
+   "source": "name-word"
+  },
+  {
+   "concept": "sect",
+   "source": "name-word"
+  },
+  {
+   "concept": "exquisite",
+   "source": "name-word"
+  },
+  {
+   "concept": "curtain",
+   "source": "name-word"
+  },
+  {
+   "concept": "aurora",
+   "source": "name-word"
+  },
+  {
+   "concept": "granite",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "thunder sound leaves",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "tea stream",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "beard",
+   "source": "category:body"
+  },
+  {
+   "concept": "charm",
+   "source": "name-word"
+  },
+  {
+   "concept": "farming",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "shepherding",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "bowel",
+   "source": "category:body"
+  },
+  {
+   "concept": "topaz",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "blue degree grass",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "real",
+   "source": "name-word"
+  },
+  {
+   "concept": "pill azure incense",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "moth",
+   "source": "name-word"
+  },
+  {
+   "concept": "grand white moon gold",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "sharp",
+   "source": "name-word"
+  },
+  {
+   "concept": "bean sprout",
+   "source": "category:plants"
+  },
+  {
+   "concept": "willow",
+   "source": "category:plants"
+  },
+  {
+   "concept": "web",
+   "source": "name-word"
+  },
+  {
+   "concept": "hunting",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "ash",
+   "source": "name-word"
+  },
+  {
+   "concept": "crawling",
+   "source": "name-word"
+  },
+  {
+   "concept": "newt",
+   "source": "category:animals"
+  },
+  {
+   "concept": "casting",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "lime",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "pregnant",
+   "source": "name-word"
+  },
+  {
+   "concept": "bark",
+   "source": "category:plants"
+  },
+  {
+   "concept": "sorrow",
+   "source": "name-word"
+  },
+  {
+   "concept": "orchid",
+   "source": "category:plants"
+  },
+  {
+   "concept": "lava",
+   "source": "name-word"
+  },
+  {
+   "concept": "climb",
+   "source": "name-word"
+  },
+  {
+   "concept": "magnificent",
+   "source": "name-word"
+  },
+  {
+   "concept": "generation",
+   "source": "category:time"
+  },
+  {
+   "concept": "rosemary",
+   "source": "category:plants"
+  },
+  {
+   "concept": "bird",
+   "source": "name-word"
+  },
+  {
+   "concept": "crown",
+   "source": "name-word"
+  },
+  {
+   "concept": "almond",
+   "source": "category:plants"
+  },
+  {
+   "concept": "single",
+   "source": "name-word"
+  },
+  {
+   "concept": "galloping",
+   "source": "name-word"
+  },
+  {
+   "concept": "cartography",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "lobster",
+   "source": "category:animals"
+  },
+  {
+   "concept": "cowardice",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "hurry",
+   "source": "category:time"
+  },
+  {
+   "concept": "fragrant",
+   "source": "name-word"
+  },
+  {
+   "concept": "fur",
+   "source": "name-word"
+  },
+  {
+   "concept": "salamander",
+   "source": "category:animals"
+  },
+  {
+   "concept": "nail",
+   "source": "category:body"
+  },
+  {
+   "concept": "dao",
+   "source": "name-word"
+  },
+  {
+   "concept": "burial",
+   "source": "name-word"
+  },
+  {
+   "concept": "cold moon divine bravery",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "trapping",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "stomach",
+   "source": "category:body"
+  },
+  {
+   "concept": "confusion",
+   "source": "name-word"
+  },
+  {
+   "concept": "moonrise",
+   "source": "category:weather"
+  },
+  {
+   "concept": "form",
+   "source": "name-word"
+  },
+  {
+   "concept": "pollen",
+   "source": "category:plants"
+  },
+  {
+   "concept": "type",
+   "source": "name-word"
+  },
+  {
+   "concept": "apple",
+   "source": "category:plants"
+  },
+  {
+   "concept": "skin",
+   "source": "name-word"
+  },
+  {
+   "concept": "jumping",
+   "source": "name-word"
+  },
+  {
+   "concept": "trace",
+   "source": "name-word"
+  },
+  {
+   "concept": "onyx",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "obstacle",
+   "source": "name-word"
+  },
+  {
+   "concept": "loud",
+   "source": "name-word"
+  },
+  {
+   "concept": "air",
+   "source": "name-word"
+  },
+  {
+   "concept": "frost jade essence",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "knee",
+   "source": "category:body"
+  },
+  {
+   "concept": "masonry",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "mist",
+   "source": "category:weather"
+  },
+  {
+   "concept": "thumb",
+   "source": "category:body"
+  },
+  {
+   "concept": "primeval",
+   "source": "name-word"
+  },
+  {
+   "concept": "essence",
+   "source": "name-word"
+  },
+  {
+   "concept": "landslide",
+   "source": "category:weather"
+  },
+  {
+   "concept": "rebuilding",
+   "source": "name-word"
+  },
+  {
+   "concept": "toss",
+   "source": "name-word"
+  },
+  {
+   "concept": "vulture",
+   "source": "category:animals"
+  },
+  {
+   "concept": "mind",
+   "source": "name-word"
+  },
+  {
+   "concept": "chainsaw",
+   "source": "name-word"
+  },
+  {
+   "concept": "lotus root",
+   "source": "category:plants"
+  },
+  {
+   "concept": "shame",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "ice",
+   "source": "name-word"
+  },
+  {
+   "concept": "ox",
+   "source": "category:animals"
+  },
+  {
+   "concept": "evening",
+   "source": "category:time"
+  },
+  {
+   "concept": "melon",
+   "source": "category:plants"
+  },
+  {
+   "concept": "doubt",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "plum",
+   "source": "category:plants"
+  },
+  {
+   "concept": "toe",
+   "source": "category:body"
+  },
+  {
+   "concept": "wave",
+   "source": "name-word"
+  },
+  {
+   "concept": "gather",
+   "source": "name-word"
+  },
+  {
+   "concept": "fortnight",
+   "source": "category:time"
+  },
+  {
+   "concept": "future",
+   "source": "name-word"
+  },
+  {
+   "concept": "all",
+   "source": "name-word"
+  },
+  {
+   "concept": "eat",
+   "source": "name-word"
+  },
+  {
+   "concept": "carrot",
+   "source": "category:plants"
+  },
+  {
+   "concept": "plague",
+   "source": "name-word"
+  },
+  {
+   "concept": "cocoa",
+   "source": "category:plants"
+  },
+  {
+   "concept": "lust",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "phantom",
+   "source": "name-word"
+  },
+  {
+   "concept": "graphite",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "oak",
+   "source": "category:plants"
+  },
+  {
+   "concept": "close",
+   "source": "name-word"
+  },
+  {
+   "concept": "spleen",
+   "source": "category:body"
+  },
+  {
+   "concept": "looking",
+   "source": "name-word"
+  },
+  {
+   "concept": "under",
+   "source": "name-word"
+  },
+  {
+   "concept": "revealing",
+   "source": "name-word"
+  },
+  {
+   "concept": "treacherous",
+   "source": "name-word"
+  },
+  {
+   "concept": "winds of assimilation",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "cushion",
+   "source": "name-word"
+  },
+  {
+   "concept": "wolverine",
+   "source": "category:animals"
+  },
+  {
+   "concept": "fan door wind",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "past",
+   "source": "name-word"
+  },
+  {
+   "concept": "root",
+   "source": "category:plants"
+  },
+  {
+   "concept": "blink",
+   "source": "name-word"
+  },
+  {
+   "concept": "pagoda",
+   "source": "name-word"
+  },
+  {
+   "concept": "ginseng",
+   "source": "category:plants"
+  },
+  {
+   "concept": "avalanche",
+   "source": "category:weather"
+  },
+  {
+   "concept": "battle",
+   "source": "name-word"
+  },
+  {
+   "concept": "ear",
+   "source": "name-word"
+  },
+  {
+   "concept": "smelting",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "clay",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "searching",
+   "source": "name-word"
+  },
+  {
+   "concept": "element",
+   "source": "name-word"
+  },
+  {
+   "concept": "ants",
+   "source": "name-word"
+  },
+  {
+   "concept": "creative",
+   "source": "name-word"
+  },
+  {
+   "concept": "xue",
+   "source": "name-word"
+  },
+  {
+   "concept": "lemon",
+   "source": "category:plants"
+  },
+  {
+   "concept": "mane",
+   "source": "name-word"
+  },
+  {
+   "concept": "fog",
+   "source": "name-word"
+  },
+  {
+   "concept": "heaven attached fungi",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "roar",
+   "source": "name-word"
+  },
+  {
+   "concept": "accumulating",
+   "source": "name-word"
+  },
+  {
+   "concept": "bright light glorious ring fire",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "flavors",
+   "source": "name-word"
+  },
+  {
+   "concept": "old man stone",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "language",
+   "source": "name-word"
+  },
+  {
+   "concept": "lock",
+   "source": "name-word"
+  },
+  {
+   "concept": "innocent",
+   "source": "name-word"
+  },
+  {
+   "concept": "unlimited",
+   "source": "name-word"
+  },
+  {
+   "concept": "clearing",
+   "source": "name-word"
+  },
+  {
+   "concept": "years",
+   "source": "name-word"
+  },
+  {
+   "concept": "thistle",
+   "source": "name-word"
+  },
+  {
+   "concept": "stone",
+   "source": "name-word"
+  },
+  {
+   "concept": "intent",
+   "source": "name-word"
+  },
+  {
+   "concept": "oil water",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "heat wave",
+   "source": "category:weather"
+  },
+  {
+   "concept": "mudskin",
+   "source": "name-word"
+  },
+  {
+   "concept": "amethyst",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "birth",
+   "source": "name-word"
+  },
+  {
+   "concept": "dog",
+   "source": "name-word"
+  },
+  {
+   "concept": "muted",
+   "source": "name-word"
+  },
+  {
+   "concept": "nipped",
+   "source": "name-word"
+  },
+  {
+   "concept": "stone heart liquid",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "wine",
+   "source": "name-word"
+  },
+  {
+   "concept": "shining",
+   "source": "name-word"
+  },
+  {
+   "concept": "brick",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "drizzle",
+   "source": "category:weather"
+  },
+  {
+   "concept": "gruel",
+   "source": "name-word"
+  },
+  {
+   "concept": "pavilion",
+   "source": "name-word"
+  },
+  {
+   "concept": "secret",
+   "source": "name-word"
+  },
+  {
+   "concept": "archery",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "bewitching soup",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "fortune",
+   "source": "name-word"
+  },
+  {
+   "concept": "exhale",
+   "source": "name-word"
+  },
+  {
+   "concept": "poison",
+   "source": "name-word"
+  },
+  {
+   "concept": "gazelle",
+   "source": "category:animals"
+  },
+  {
+   "concept": "wind",
+   "source": "name-word"
+  },
+  {
+   "concept": "silkworm",
+   "source": "name-word"
+  },
+  {
+   "concept": "torch",
+   "source": "name-word"
+  },
+  {
+   "concept": "wood",
+   "source": "name-word"
+  },
+  {
+   "concept": "crow",
+   "source": "category:animals"
+  },
+  {
+   "concept": "earthquake",
+   "source": "category:weather"
+  },
+  {
+   "concept": "date",
+   "source": "category:plants"
+  },
+  {
+   "concept": "sense",
+   "source": "name-word"
+  },
+  {
+   "concept": "hundred",
+   "source": "name-word"
+  },
+  {
+   "concept": "cobalt",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "endless",
+   "source": "name-word"
+  },
+  {
+   "concept": "navel",
+   "source": "category:body"
+  },
+  {
+   "concept": "leap day",
+   "source": "category:time"
+  },
+  {
+   "concept": "medicine",
+   "source": "name-word"
+  },
+  {
+   "concept": "worldly",
+   "source": "name-word"
+  },
+  {
+   "concept": "fishing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "fire rainbow tea",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "song",
+   "source": "name-word"
+  },
+  {
+   "concept": "lion",
+   "source": "name-word"
+  },
+  {
+   "concept": "soft",
+   "source": "name-word"
+  },
+  {
+   "concept": "wall",
+   "source": "name-word"
+  },
+  {
+   "concept": "dyeing",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "shell",
+   "source": "name-word"
+  },
+  {
+   "concept": "finger",
+   "source": "category:body"
+  },
+  {
+   "concept": "string",
+   "source": "name-word"
+  },
+  {
+   "concept": "earthworm",
+   "source": "category:animals"
+  },
+  {
+   "concept": "way",
+   "source": "name-word"
+  },
+  {
+   "concept": "arm",
+   "source": "name-word"
+  },
+  {
+   "concept": "shadow",
+   "source": "name-word"
+  },
+  {
+   "concept": "woman",
+   "source": "name-word"
+  },
+  {
+   "concept": "refine",
+   "source": "name-word"
+  },
+  {
+   "concept": "heaven flying jade",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "twin ice heart",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "clover",
+   "source": "category:plants"
+  },
+  {
+   "concept": "platinum",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "orange",
+   "source": "category:plants"
+  },
+  {
+   "concept": "lemur",
+   "source": "category:animals"
+  },
+  {
+   "concept": "clam",
+   "source": "category:animals"
+  },
+  {
+   "concept": "grief",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "amber",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "heart",
+   "source": "name-word"
+  },
+  {
+   "concept": "pause",
+   "source": "name-word"
+  },
+  {
+   "concept": "words",
+   "source": "name-word"
+  },
+  {
+   "concept": "jaguar",
+   "source": "category:animals"
+  },
+  {
+   "concept": "mature",
+   "source": "name-word"
+  },
+  {
+   "concept": "fruit",
+   "source": "name-word"
+  },
+  {
+   "concept": "anchor",
+   "source": "name-word"
+  },
+  {
+   "concept": "son",
+   "source": "name-word"
+  },
+  {
+   "concept": "greed",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "distracting",
+   "source": "name-word"
+  },
+  {
+   "concept": "connect",
+   "source": "name-word"
+  },
+  {
+   "concept": "months",
+   "source": "name-word"
+  },
+  {
+   "concept": "magpie",
+   "source": "category:animals"
+  },
+  {
+   "concept": "mark",
+   "source": "name-word"
+  },
+  {
+   "concept": "rainbow",
+   "source": "name-word"
+  },
+  {
+   "concept": "huge",
+   "source": "name-word"
+  },
+  {
+   "concept": "slicing",
+   "source": "name-word"
+  },
+  {
+   "concept": "mid",
+   "source": "name-word"
+  },
+  {
+   "concept": "granary",
+   "source": "name-word"
+  },
+  {
+   "concept": "mongoose",
+   "source": "category:animals"
+  },
+  {
+   "concept": "tin",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "sphere",
+   "source": "name-word"
+  },
+  {
+   "concept": "barley",
+   "source": "category:plants"
+  },
+  {
+   "concept": "mercury",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "connecting",
+   "source": "name-word"
+  },
+  {
+   "concept": "flame",
+   "source": "name-word"
+  },
+  {
+   "concept": "elder",
+   "source": "name-word"
+  },
+  {
+   "concept": "sap",
+   "source": "category:plants"
+  },
+  {
+   "concept": "out",
+   "source": "name-word"
+  },
+  {
+   "concept": "warrior",
+   "source": "name-word"
+  },
+  {
+   "concept": "gentleman",
+   "source": "name-word"
+  },
+  {
+   "concept": "invite",
+   "source": "name-word"
+  },
+  {
+   "concept": "qi",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "cleanse",
+   "source": "name-word"
+  },
+  {
+   "concept": "placenta",
+   "source": "name-word"
+  },
+  {
+   "concept": "reed",
+   "source": "category:plants"
+  },
+  {
+   "concept": "acorn",
+   "source": "category:plants"
+  },
+  {
+   "concept": "tremor",
+   "source": "category:weather"
+  },
+  {
+   "concept": "birch",
+   "source": "category:plants"
+  },
+  {
+   "concept": "heavenly",
+   "source": "name-word"
+  },
+  {
+   "concept": "wrist",
+   "source": "category:body"
+  },
+  {
+   "concept": "divert",
+   "source": "name-word"
+  },
+  {
+   "concept": "deer",
+   "source": "name-word"
+  },
+  {
+   "concept": "black white overturning cloud",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "pea",
+   "source": "category:plants"
+  },
+  {
+   "concept": "headed",
+   "source": "name-word"
+  },
+  {
+   "concept": "locust",
+   "source": "category:animals"
+  },
+  {
+   "concept": "travel",
+   "source": "name-word"
+  },
+  {
+   "concept": "starshine",
+   "source": "name-word"
+  },
+  {
+   "concept": "separation",
+   "source": "name-word"
+  },
+  {
+   "concept": "silver",
+   "source": "name-word"
+  },
+  {
+   "concept": "diamond",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "contempt",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "lapis",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "curiosity",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "steel",
+   "source": "name-word"
+  },
+  {
+   "concept": "emperor",
+   "source": "name-word"
+  },
+  {
+   "concept": "sheath",
+   "source": "name-word"
+  },
+  {
+   "concept": "seahorse",
+   "source": "category:animals"
+  },
+  {
+   "concept": "wasp",
+   "source": "category:animals"
+  },
+  {
+   "concept": "oyster",
+   "source": "category:animals"
+  },
+  {
+   "concept": "shirt",
+   "source": "name-word"
+  },
+  {
+   "concept": "basalt",
+   "source": "category:minerals"
+  },
+  {
+   "concept": "camp",
+   "source": "name-word"
+  },
+  {
+   "concept": "force",
+   "source": "name-word"
+  },
+  {
+   "concept": "scribe grass",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "rhizome",
+   "source": "name-word"
+  },
+  {
+   "concept": "soap making",
+   "source": "category:crafts"
+  },
+  {
+   "concept": "faeces",
+   "source": "name-word"
+  },
+  {
+   "concept": "lou",
+   "source": "name-word"
+  },
+  {
+   "concept": "rain",
+   "source": "name-word"
+  },
+  {
+   "concept": "tail",
+   "source": "name-word"
+  },
+  {
+   "concept": "own",
+   "source": "name-word"
+  },
+  {
+   "concept": "good",
+   "source": "name-word"
+  },
+  {
+   "concept": "sky chief cloud",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "lotus",
+   "source": "name-word"
+  },
+  {
+   "concept": "orifice",
+   "source": "name-word"
+  },
+  {
+   "concept": "trust",
+   "source": "category:emotions"
+  },
+  {
+   "concept": "death water",
+   "source": "ri_treasures"
+  },
+  {
+   "concept": "hyena",
+   "source": "category:animals"
+  },
+  {
+   "concept": "lily",
+   "source": "category:plants"
+  },
+  {
+   "concept": "flood",
+   "source": "category:weather"
+  },
+  {
+   "concept": "fox",
+   "source": "name-word"
+  },
+  {
+   "concept": "new moon",
+   "source": "category:time"
+  },
+  {
+   "concept": "amplify",
+   "source": "name-word"
+  },
+  {
+   "concept": "haze",
+   "source": "category:weather"
+  },
+  {
+   "concept": "bone",
+   "source": "name-word"
+  }
+ ]
+}

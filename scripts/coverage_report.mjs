@@ -67,6 +67,7 @@ export const COVERAGE_DIR = 'docs/coverage';
 // CV3 denominators, for the expected column. A ledger not listed still reports.
 export const DENOMINATORS = {
     gu_kinds: {expected: 1466, owner: 'G', what: 'Gu kinds, held review index records'},
+    gu_generated: {expected: null, owner: 'G', what: 'Generated Gu (PWC30-PWC34): concept words from real-world categories, canon name words and ri_treasures, invented in the canon catalogue\'s trend; a fourth tier apart from gu_kinds'},
     gu_moves: {expected: 776, owner: 'G', what: 'killer moves: 23 records plus 753 leads'},
     hp_potions: {expected: 316, owner: 'B', what: 'potion-related catalogue entries'},
     hp_ingredients: {expected: 409, owner: 'B', what: 'ingredient-related catalogue entries'},
@@ -93,7 +94,9 @@ export const DENOMINATORS = {
     fated_villain_powers: {expected: 309, owner: 'W', what: 'I Am the Fated Villain named techniques, physiques, system functions and items (PWC17)'},
 };
 const STATE = /^(runs-canon|runs-authored|runs-derived|expressed-canon|expressed-authored|expressed-derived|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
-const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived']);
+// tier, concept, promptHash, nearest and model belong to generated rows (PWC30): the tier apart from canon and derived, the concept word,
+// the hash of the frozen prompt, the nearest canon Gu and the model that wrote the row (AU17).
+const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model']);
 
 // Validate one ledger's text. Returns {rows, problems}; a problem names its line.
 export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file))} = {}) {

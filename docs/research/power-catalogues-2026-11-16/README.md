@@ -553,6 +553,38 @@ Weibao: "send more batched". PWC27 ran the R5 method on every `blocked:effect-un
 
 **Cost.** 1,007 requests (883 blocked rows, 124 more in the scoring cohort that had hits) all gpt-6-luna at low effort: about $0.11 for the delivered answers (484,536 input, 5,520 cached, 633,898 written, 175,146 output tokens; batch rate for most, sync for the reruns), about $0.03 more on four batches I cancelled when their last 10 requests had run for more than 20 minutes (the cancelled batches' result files could not be fetched, so 257 Circle, Fated Villain and Re:Zero rows and 2 Gu rows were re-sent synchronously). About $0.15 of the $4 cap. Caching again saved almost nothing (1%): evidence is per row.
 
+## PWC30-PWC34 generated Gu (2026-11-17, proposals)
+
+Gu the novel never names, invented by Luna (gpt-6-luna) and Haiku 5.5 from real-world concepts in the trend of the canon Gu: `docs/coverage/gu_generated.jsonl` (1,312 rows, `tier: generated`, each naming its model), built by `scripts/gu_generator.mjs` (freeze, run, score, ledger). It is its own ledger beside `gu_kinds` (PWC30): not counted in the canon denominator or the worlds ledger, and in the coverage README it shows under runs-derived. `coverage_report.mjs` gained the ledger's denominator row and four row fields (`tier`, `concept`, `promptHash`, `nearest`); `gu_effect_pack.js` now exports `GU_FUNCTION`.
+
+**Frozen first, committed before any call (PWC34, GKM429).** Commit 81986fba8: 1,341 concepts (780 words from canon names, 88 `ri_treasures` names, 473 from eight fixed real-world categories, none equal to a canon Gu stem), the split (`sha1(id)[0] < 0x33`: 293 of 1,466 canon Gu held out, 148 scoreable), the prompt, the schema (enums from the effect grammar's verbs, objects, targets and times, and the canon path list) and the scoring rules. The shared prefix is the 1,173 training Gu as `name | path | rank | verb object` lines (rank marked `d` where derived by PWC23), about 15,100 tokens as the API counted it (not the 25K planned: the lines carry no effect prose, which stays private). Held-out Gu are absent from it, so the score is not a lookup.
+
+**Cache pilot (PWC33), measured.** Request layout under AU16: one header (`instructions`), the catalogue as a developer message, 20 concepts as the user message.
+
+| Run | Requests | cachedShare | Cost |
+| --- | ---: | ---: | ---: |
+| Sync, 1 warm-up | 1 | 0 (wrote 15,115) | $0.0027 |
+| Sync, after warm-up | 10 | 0.992 | $0.0094 |
+| Batch, submitted right after | 10 | 0.893 (1 request wrote 16,133, 9 read about 15,000 each) | $0.0054 |
+| Batch, full run | 64 | 0.977 | $0.0305 |
+| Haiku 5.5 sync, 1 warm-up (marked block, `reuse`) | 1 | 0 (wrote 25,867) | $0.0063 |
+| Haiku 5.5 sync, after warm-up | 10 | 0.994 | $0.0133 |
+| Haiku 5.5 batch, full run | 64 | 0.979 (one write, the rest read) | $0.0457 |
+
+OpenAI batches read the cache, and a batch warms itself: nine of ten requests read what the first wrote, though the batch followed the sync pilot within minutes, so a cold batch with an hour's gap is unmeasured. Batch was cheaper per request ($0.00054 against $0.00094), so the full run went by batch; it took about 55 minutes, with the last request the slowest. Haiku counts the same prefix as 25,867 tokens (Luna 15,115), under the 100K price step, and its batch also read the cache. Haiku's schema takes no integer minimum or maximum, so its copy of the frozen schema drops those two keys (ranks are range-checked after). Total spend of this pass: about $0.15 of the $5 cap.
+
+**Reconstruction score (PWC31), held-out canon Gu, both models (AU17).** Each generator saw only the concept word. Baseline: most common value among training Gu whose name contains the word, else the global mode. Scored on the 135 of 148 held-out concepts both models answered (n differs by measure because canon labels are missing for some):
+
+| Measure | n | Luna | Haiku 5.5 | Baseline |
+| --- | ---: | ---: | ---: | ---: |
+| Path | 106 | **77.4%** | 73.6% | 65.1% |
+| Rank band (1-3, 4-5, 6-9) | 128 | 53.1% | 54.7% | **59.4%** |
+| Effect verb without name-keyword labels | 86 | 46.5% | **55.8%** | 52.3% |
+
+Luna alone on all 148: path 78.6% against 65.8%, band 52.1% against 58.6%, verb 49.0% against 54.8% (all labels; the name-keyword rows leak the answer and are excluded in the table). Both pass the PWC31 ship test on path. Neither beats the baseline on rank band; only Haiku beats it on verb. The gaps between models are a few rows each (four on path), so this is a tie and the pool is split (AU17). Pool against canon: low rank 77% (Luna) and 69% (Haiku) against 36%, high 4% and 3% against 32%, because the concepts are mundane things and both models rate them low; wood is 9.5% of the Luna pool against 1.5% of canon. Default: a world seed draws a rank-balanced sample of the pool (dial: the band mix), so play does not drown in rank-1 Gu. Read generated ranks as proposals, not fitted values.
+
+**Filter and ledger (PWC32).** Each concept goes to the model its hash picks (sha1 of the concept, first byte even to Haiku, odd to Luna), falling back to the other when it gave no answer for that word; both models answered every concept in the full run (Haiku 1,306 usable). Of 1,341 generated, 29 dropped (20 near-duplicates of a canon Gu with the same path and verb and a name overlap of at least 0.5, 6 repeats inside the pool, 3 aliases); 1,312 kept (Luna 683, Haiku 629). 1,025 have an effect sentence the Gu grammar assembles and lowers (`runs-derived`, rule `gu.generated.concept`, test `tests/gu_generated.test.js`; Luna 517, Haiku 508); 177 are `blocked:grammar-verb-object` (a verb that does not act on its object kind: a missing primitive or a mislabel); 110 are `blocked:needs-<thing>`, where the model named a thing the effect needs (a seed, a scent, a coin). Each row records the concept, the model, the prompt hash and the nearest canon Gu. The thresholds were set before the results were read. The ledger sits in the Reverend Insanity powers cell of the worlds ledger (`GENERATED_LEDGERS` keeps it out of that cell's canon totals). Replies and the dropped list stay in the ignored `work/` folder; the ledger and the `gu_generated_score*.json` files hold the outcome.
+
 **Dispositions.**
 
 | Disposition | Code | Finding |
@@ -563,3 +595,8 @@ Weibao: "send more batched". PWC27 ran the R5 method on every `blocked:effect-un
 | LATER / DELEGATE | PWC27c | Haiku read the 132 held-out and sampled sentences (below); the other 214 stay one-reader. Check the 183 `catalogued` rows against the world's effect grammar before any is typed `runs-*`. |
 
 **Gaps.** One reader per row; paragraph search is by exact name, so spelling variants and MTL names miss; Circle of Inevitability and Fated Villain are different editions from the ones the ledger rows cite, so a name may differ; Harry Potter is windowed by five prepared lines; nothing was exercised in the game (ledger rows only, no gameplay claim). Rule codes cited: AU16, GKM429, GKM445, AD32, WPR codes not applicable.
+
+| ACCOUNT FOR NOW | PWC30a | The generated pool is a draft palette: its names, ranks and effects are model proposals, usable in play and marked in DEV views, never evidence about the novel. Canon Gu with the same stem take precedence. |
+| ACCOUNT FOR NOW | PWC31a | Rank and verb do not beat the baseline, so a second generation pass should give the model the concept's neighbours (canon Gu sharing a word, with their ranks) and ask for a rank by comparison; scored the same way on the same held-out set. Level: Sonnet script, Luna or Haiku batch, about $0.05. Done when band and verb agreement reach the baseline or the gap is recorded. |
+| LATER / DELEGATE | PWC32a | Map the 194 `grammar-verb-object` blocks to the primitive they point at (many say "change a thing's property"); a recurring pair is the evidence for a new effect object (EF2 needs a second consumer). Level: Haiku sweep over the ledger. |
+| LATER / DELEGATE | PWC35a | The same generator for other worlds (PWC35) reuses `scripts/gu_generator.mjs`'s freeze, run, score and ledger steps with the world's rules ledger as the prefix; the canon-trend score is what each world's generator must pass first. |
