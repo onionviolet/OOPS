@@ -6,6 +6,9 @@ YAIRPG uses Anthropic Message Batches and OpenAI Batch to build source indexes o
 
 ## Budget
 
+AU16 (2026-11-16): label and check passes outside the book reader use `scripts/label_runner.mjs`, which shares the OpenAI batch client below, sends by batch by default and puts the most shared text first.
+
+
 The original Anthropic schedule used a $100 credit assumption ([PLAN](../gm/dispatch/batch-reading-2026-10-27/PLAN.md)). For a current run, distinguish provider balance and expiry from the campaign ceiling, recorded receipt usage and uncollected reservations. The pricing observations below are dated.
 
 Measured per request (Haiku 5.5, batch, 2026-10-28; usage files under each book's private `batch/` folder):

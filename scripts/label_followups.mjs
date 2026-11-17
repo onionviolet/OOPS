@@ -20,8 +20,8 @@
 //   ANTHROPIC_API_KEY="$(security find-generic-password -a "$USER" -s anthropic-api-yairpg -w)" \
 //   node scripts/label_followups.mjs [pass ...]
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
-import Anthropic from '@anthropic-ai/sdk';
-import {luna, RULES, RATE, SPEAKER} from './label_pass.mjs';
+import {RULES, SPEAKER, COMMON} from './label_pass.mjs';
+import {runPass} from './label_runner.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
 import {HP_POTION_SENTENCES} from '../src/world_packs/brew_effects_pack.js';
 import {potionFamily, HP_POTION_FAMILY_OVERRIDES} from './b_coverage_ledgers.mjs';
@@ -55,7 +55,7 @@ function guFamilyJobs() {
     const shown = new Set(examples.map(([id]) => id));
     const lines = examples.map(([id, r]) => `- ${nameOf(id)}: ${r.effect.value} -> ${tier.gu_kinds[id].function}`).join('\n');
     return {examples: [...shown], jobs: withEffect.filter(([id]) => !shown.has(id)).map(([id, r]) => ({id, schema: object({family: enumOf([...FAMILIES, 'none']), reason: str}),
-        prompt: `Pick the one effect family that best names what this Reverend Insanity Gu does when activated. Families: attack (harms a target), guard (protects the user), move (moves the user over ground), fly, sense (finds or reads information), conceal (hides), heal, amplify (strengthens another Gu or move), strength (raises the user's own physical power), illuminate (makes light), steal (takes something from another). Answer "none" when the Gu stores, feeds, refines, binds, counts or does something none of these name; "none" is a correct answer, a stretch is wrong. reason: one short clause.
+        user: `Pick the one effect family that best names what this Reverend Insanity Gu does when activated. Families: attack (harms a target), guard (protects the user), move (moves the user over ground), fly, sense (finds or reads information), conceal (hides), heal, amplify (strengthens another Gu or move), strength (raises the user's own physical power), illuminate (makes light), steal (takes something from another). Answer "none" when the Gu stores, feeds, refines, binds, counts or does something none of these name; "none" is a correct answer, a stretch is wrong. reason: one short clause.
 Examples:
 ${lines}
 
@@ -66,12 +66,12 @@ Effect: ${r.effect.value}`}))};
 function guDietJobs() {
     const dietSchema = object({category: enumOf(DIETS), food: str, reason: str, cost: str});
     const jobs = Object.entries(guRows).map(([id, r]) => ({id, schema: dietSchema,
-        prompt: `Propose a default diet for the Reverend Insanity Gu "${nameOf(id)}" from how Gu work: a Gu eats a raw form of what it stores, makes or works with, its path's material (wood-path Gu eat plants, blood-path Gu blood), or a food that fits what it does. Primeval essence is what activating it costs, not its food. category: the kind of food. food: the default food in a few words. reason: one clause tying it to the path or effect. cost: how scarce or costly the food is to keep it fed, in a few words.
+        user: `Propose a default diet for the Reverend Insanity Gu "${nameOf(id)}" from how Gu work: a Gu eats a raw form of what it stores, makes or works with, its path's material (wood-path Gu eat plants, blood-path Gu blood), or a food that fits what it does. Primeval essence is what activating it costs, not its food. category: the kind of food. food: the default food in a few words. reason: one clause tying it to the path or effect. cost: how scarce or costly the food is to keep it fed, in a few words.
 Path: ${r.path.value || 'not stated'}
 Effect: ${r.effect.value || 'not stated'}
 Refinement: ${r.refinement.value || 'not stated'}`}));
     const stated = Object.entries(guRows).filter(([, r]) => r.food.value).map(([id, r]) => ({id, schema: object({category: enumOf(DIETS)}),
-        prompt: `Sort this stated food of a Reverend Insanity Gu into one category: ${DIETS.join(', ')}.\nFood: ${r.food.value}`}));
+        user: `Sort this stated food of a Reverend Insanity Gu into one category: ${DIETS.join(', ')}.\nFood: ${r.food.value}`}));
     return {jobs, stated};
 }
 
@@ -83,15 +83,12 @@ function moveCheckJobs() {
     return Object.entries(tier.gu_moves).filter(([, l]) => l.components?.length && l.components.every(c => c.kind)).map(([id]) => {
         const p = movePackets.get(id);
         const named = moveRows[id].components.map(c => c.gu.trim()).filter(g => /\bgu\.?$/i.test(g));
-        return {id, schema: check, prompt: `A first reader listed these Gu as components of the Reverend Insanity killer move "${p.move}": ${named.join('; ')}.
-Check each against the evidence. verdict: core (the move's central Gu), support (used in the move to help the core), not-part (named nearby but refined into it, a product of it, or used separately), or unclear (the evidence does not say). Keep the listed names exactly, one entry each. order: the activation order if the evidence states one, else "".
-${RULES}
-
-Evidence:
-${p.evidence.join('\n')}`};
+        return {id, schema: check, shared: evidenceOf(p), user: `A first reader listed these Gu as components of the Reverend Insanity killer move "${p.move}": ${named.join('; ')}.
+Check each against the evidence. verdict: core (the move's central Gu), support (used in the move to help the core), not-part (named nearby but refined into it, a product of it, or used separately), or unclear (the evidence does not say). Keep the listed names exactly, one entry each. order: the activation order if the evidence states one, else "".`};
     });
 }
 
+const evidenceOf = p => `Evidence:\n${p.evidence.join('\n')}`;
 const slug = t => t.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 export const hpSplit = () => splitLabelled(HP_POTION_SENTENCES.map(s => ({id: `hp.potion.${slug(s.title)}`, title: s.title,
     family: potionFamily(s.title), parts: s.parts})), {ruleSawTitles: Object.keys(HP_POTION_FAMILY_OVERRIDES)});
@@ -103,14 +100,10 @@ function hpSentenceJobs() {
         target: enumOf(EFFECT_TARGETS), time: enumOf(EFFECT_TIMES), carrier: enumOf(['potion', 'topical', 'spray', 'eaten']),
         limits: {type: 'array', items: enumOf(['dose', 'duration', 'donor-sample', 'blood-loss-remains', 'excess-harms', 'painful', 'counter-effect', 'mass'])},
         locator: str, speaker: SPEAKER});
-    return [...packets('hp_potions').values()].filter(p => !shown.has(p.id)).map(p => ({id: p.id, schema,
-        prompt: `Write the primary effect of the Harry Potter preparation "${p.name}" as one effect sentence. verb: ${EFFECT_VERBS.join(', ')}. object: what it acts on (${Object.keys(EFFECT_OBJECTS).join(', ')}). target: self (the one who takes it), touched (what it is applied to), bound, line, cone, area or marked. time: instant, sustained (while it is taken), lasting (for a while after), delayed or triggered. carrier: potion (drunk), topical, spray or eaten. limits: only those the evidence states. Side effects are not the primary effect. Use verb and object "none" when the evidence states no effect. locator and speaker: the line that states the effect.
+    return [...packets('hp_potions').values()].filter(p => !shown.has(p.id)).map(p => ({id: p.id, schema, shared: evidenceOf(p),
+        user: `Write the primary effect of the Harry Potter preparation "${p.name}" as one effect sentence. verb: ${EFFECT_VERBS.join(', ')}. object: what it acts on (${Object.keys(EFFECT_OBJECTS).join(', ')}). target: self (the one who takes it), touched (what it is applied to), bound, line, cone, area or marked. time: instant, sustained (while it is taken), lasting (for a while after), delayed or triggered. carrier: potion (drunk), topical, spray or eaten. limits: only those the evidence states. Side effects are not the primary effect. Use verb and object "none" when the evidence states no effect. locator and speaker: the line that states the effect.
 Examples (verb, object, target, time, carrier, cost, limits):
-${lines}
-${RULES}
-
-Evidence:
-${p.evidence.join('\n')}`}));
+${lines}`}));
 }
 
 export const LOTM_VERDICTS = ['main', 'supplementary', 'role-unstated', 'not-formula', 'unclear'];
@@ -122,55 +115,29 @@ function lotmCheckJobs() {
     return [...packets('lotm_potions').values()].filter(p => p.evidence.slice(1).some(e => /ingredient|formula/i.test(e))
         || rows[p.id]?.mains.length || rows[p.id]?.aux.length).map(p => {
         const listed = [...rows[p.id].mains.map(m => m.name), ...rows[p.id].aux.map(m => m.name)];
-        return {id: p.id, schema, prompt: `A first reader listed these as ingredients of the Lord of the Mysteries potion ${p.pathway} Pathway Sequence ${p.seq}: ${p.wikiName}: ${listed.length ? listed.join('; ') : '(none)'}.
+        return {id: p.id, schema, shared: evidenceOf(p), user: `A first reader listed these as ingredients of the Lord of the Mysteries potion ${p.pathway} Pathway Sequence ${p.seq}: ${p.wikiName}: ${listed.length ? listed.join('; ') : '(none)'}.
 Check each against the evidence. verdict: main (the evidence calls it a main ingredient of THIS Sequence's potion), supplementary (the evidence calls it supplementary or auxiliary), role-unstated (the evidence ties it to this potion's formula without saying main or supplementary), not-formula (a ritual material, a Beyonder characteristic used in place of the formula, another Sequence's ingredient, an artifact or not an ingredient at all), or unclear. Keep the listed names exactly, one entry each.
-missed: ingredients the evidence ties to THIS Sequence's potion formula that the first reader did not list, with the role the evidence gives; an empty list is correct.
-${RULES}
-Evidence:
-${p.evidence.join('\n')}`};
+missed: ingredients the evidence ties to THIS Sequence's potion formula that the first reader did not list, with the role the evidence gives; an empty list is correct.`};
     });
 }
 
-const anthropic = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
-async function haiku(prompt, schema) {
-    const msg = await anthropic.messages.create({model: 'claude-haiku-5-5', max_tokens: 8000,
-        output_config: {effort: 'low', format: {type: 'json_schema', schema}}, messages: [{role: 'user', content: prompt}]});
-    if (msg.stop_reason === 'refusal') throw Error('haiku refusal');
-    return {reply: JSON.parse(msg.content.filter(b => b.type === 'text').map(b => b.text).join('')),
-        usage: {in: msg.usage.input_tokens, out: msg.usage.output_tokens}};
-}
-
-async function run(name, jobs, call) {
-    const file = `${priv}${name}_followup.json`;
-    const done = existsSync(file) ? json(file) : {};
-    const queue = jobs.filter(j => !done[j.id]?.reply);
-    for (let i = 0; i < queue.length; i += 8) {
-        await Promise.all(queue.slice(i, i + 8).map(async j => {
-            for (let attempt = 0; ; attempt++) {
-                try { done[j.id] = await call(j.prompt, j.schema); break; }
-                catch (e) { if (attempt >= 2) { done[j.id] = {error: String(e.message ?? e)}; break; } await new Promise(r => setTimeout(r, 3000 * (attempt + 1))); }
-            }
-        }));
-        writeFileSync(file, JSON.stringify(done));
-    }
-    const ok = Object.values(done).filter(r => r.reply);
-    const tin = ok.reduce((s, r) => s + r.usage.in, 0), tout = ok.reduce((s, r) => s + r.usage.out, 0);
-    return {pass: name, jobs: jobs.length, ok: ok.length, errors: Object.values(done).filter(r => r.error).length,
-        cost: Number(((tin * RATE.in + tout * RATE.out) / 1e6).toFixed(4))};
-}
+// AU16: every pass goes through the shared runner, batch by default; replies keep the <pass>_followup.json name.
+const LUNA = 'gpt-6-luna', HAIKU = 'claude-haiku-5-5';
+const run = (name, jobs, model, argv) => runPass({name, dir: priv, suffix: 'followup', system: COMMON, model, effort: 'low',
+    maxTokens: model === HAIKU ? 8000 : 16000, schema: jobs[0]?.schema ?? {type: 'object'}, items: jobs}, argv);
 
 if (process.argv[1] === new URL(import.meta.url).pathname) {
-    const want = new Set(process.argv.slice(2));
+    const argv = process.argv.slice(2), want = new Set(argv.filter(a => !a.startsWith('--') && !/^\d/.test(a)));
     const on = name => !want.size || want.has(name);
     const family = guFamilyJobs(), diet = guDietJobs();
     const passes = [
-        on('gu_family') && run('gu_family', family.jobs, luna),
-        on('gu_diet') && run('gu_diet', diet.jobs, luna),
-        on('gu_diet') && run('gu_food_stated', diet.stated, luna),
-        on('move_check') && run('move_check', moveCheckJobs(), haiku),
-        on('hp_sentence') && run('hp_sentence', hpSentenceJobs(), luna),
-        on('lotm_check') && run('lotm_check', lotmCheckJobs(), haiku),
+        on('gu_family') && run('gu_family', family.jobs, LUNA, argv),
+        on('gu_diet') && run('gu_diet', diet.jobs, LUNA, argv),
+        on('gu_diet') && run('gu_food_stated', diet.stated, LUNA, argv),
+        on('move_check') && run('move_check', moveCheckJobs(), HAIKU, argv),
+        on('hp_sentence') && run('hp_sentence', hpSentenceJobs(), LUNA, argv),
+        on('lotm_check') && run('lotm_check', lotmCheckJobs(), HAIKU, argv),
     ].filter(Boolean);
-    for (const result of await Promise.all(passes)) console.log(JSON.stringify(result));
+    await Promise.all(passes);
     console.log(JSON.stringify({familyExamples: family.examples}));
 }

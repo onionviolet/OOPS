@@ -8,11 +8,13 @@
 
 export const OPENAI_BASE = 'https://api.openai.com/v1';
 export const OPENAI_DEFAULT = 'gpt-6-luna';
-// Cache writes are 1.25x input on the model page, but batch usage reports only cached reads; check the pilot's usage object and set the factor if writes appear.
-const P = (inPerM, outPerM, cached = 0.1) => ({inPerM, outPerM, batchFactor: 0.5, cacheReadFactor: cached, cacheWriteFactor: 0, promptCap: 272000});
+// Cache writes are 1.25x input on the model page. Usage reports them as `input_tokens_details.cache_write_tokens`: on
+// 2026-11-16 every gpt-6-luna request over 1,024 tokens wrote its prompt (30-minute TTL) without being asked, so they are
+// counted (AU16). A model whose page lists no write price keeps factor 0 until its usage shows writes.
+const P = (inPerM, outPerM, cached = 0.1, write = 0) => ({inPerM, outPerM, batchFactor: 0.5, cacheReadFactor: cached, cacheWriteFactor: write, promptCap: 272000});
 // Standard rates; the batch rate is half. 272K input is the long-context price step on the pricing page.
 export const OPENAI_PRICES = Object.freeze({
-    'gpt-6-luna': P(0.10, 0.50),
+    'gpt-6-luna': P(0.10, 0.50, 0.1, 1.25),
     'gpt-5.6-luna': P(0.20, 1.20),
     'gpt-6.1-terra': P(1.00, 5.00, 0.05),
     'gpt-5-nano': P(0.05, 0.40),
@@ -75,9 +77,9 @@ export function toMessage(body = {}) {
     const refused = parts.some(p => p.type === 'refusal');
     const reason = body.incomplete_details?.reason;
     const stop_reason = body.status === 'incomplete' ? (reason === 'max_output_tokens' ? 'max_tokens' : 'refusal') : refused && !text ? 'refusal' : 'end_turn';
-    const u = body.usage || {}, cached = u.input_tokens_details?.cached_tokens || 0;
+    const u = body.usage || {}, cached = u.input_tokens_details?.cached_tokens || 0, written = u.input_tokens_details?.cache_write_tokens || 0;
     return {stop_reason, content: [{type: 'text', text}],
-        usage: {input_tokens: Math.max(0, (u.input_tokens || 0) - cached), cache_read_input_tokens: cached, cache_creation_input_tokens: 0, output_tokens: u.output_tokens || 0,
+        usage: {input_tokens: Math.max(0, (u.input_tokens || 0) - cached - written), cache_read_input_tokens: cached, cache_creation_input_tokens: written, output_tokens: u.output_tokens || 0,
             reasoning_tokens: u.output_tokens_details?.reasoning_tokens || 0}};
 }
 

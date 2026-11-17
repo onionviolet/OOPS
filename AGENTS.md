@@ -129,7 +129,7 @@ The one-realm/one-prestige first milestone is no longer a required gate
 the broader vision in PROJECT.md: deeper existing systems, several progression
 paths and mechanically distinct worlds.
 
-Research and source rules (original worlds and book references, source-reading standing tasks, source acquisition tools, agent usage budget AU1-AU15): `.claude/rules/research-and-agents.md`. Read it before collecting books, running research passes, or spawning bulk readers; also see [agent usage rules](docs/AGENT_USAGE_RULES.md) and [source acquisition tools](docs/research/SOURCE_ACQUISITION_TOOLS.md).
+Research and source rules (original worlds and book references, source-reading standing tasks, source acquisition tools, agent usage budget AU1-AU16; paid API passes go by batch with the shared text first, AU16): `.claude/rules/research-and-agents.md`. Read it before collecting books, running research passes, or spawning bulk readers; also see [agent usage rules](docs/AGENT_USAGE_RULES.md) and [source acquisition tools](docs/research/SOURCE_ACQUISITION_TOOLS.md).
 
 Finish one playable slice before starting the next. A wave ends
 at a checkpoint where Weibao can play it, not when a context or batch boundary

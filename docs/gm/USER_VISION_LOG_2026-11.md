@@ -1749,3 +1749,15 @@ Weibao, after the three label-pass branches were merged: "Push it. Check more? m
 
 Recorded as direction for the catalogue work. The round and its order are proposals in the [power catalogue palette](../research/power-catalogues-2026-11-16/README.md) (PWC1-PWC10). Its working default (AD56): one session each for Worm, Re:Zero and The Perfect Run, building power ledgers from the reads already held; then a census of the 13 local wiki dumps; then a cross-world histogram of blocking rules as the build order. Wiki dumps not on disk wait for his yes per file.
 
+## Paid API passes go by batch, with the shared text first, 2026-11-16
+
+Weibao, after the API-use round (PWC11-PWC19): "Reorganize to take advantage of prompt caching, and make that a longstanding rule, Work on everhting from R1-R7, every cent is a cent, so feel free to send all as batch unless there is something that would benefit from faster back and forth"
+
+Recorded as standing rule AU16 in the [agent usage rules](../AGENT_USAGE_RULES.md). It replaces PWC12's "batch only above about $10".
+
+- Default: every paid pass goes by batch. Synchronous calls are kept for a pilot of a few calls, a debugging loop, or a step that waits on the answer.
+- Layout: the text identical across the most requests comes first, because a cache matches only a request's opening. One header is common to every pass, then the item's evidence (byte-identical for every pass that reads it), then the pass's own question. Passes over the same evidence go out together, and several questions about one packet go in one request.
+- Measured facts behind the layout (gpt-6-luna, 2026-11-16): caching starts at 1,024 identical leading tokens, every longer prompt is written to cache at 1.25x input, and reuse stops at the end of the instructions or a developer message, so shared evidence goes in a developer message. A second question on the same evidence then read 3,576 of 3,623 tokens from cache. The label passes' fixed text is about 150 to 240 tokens against about 900 to 1,800 of evidence, so the saving comes from shared evidence and merged questions, not from the fixed text.
+- Tool: `scripts/label_runner.mjs` (batch by default, `--sync`, `--dry`, `--wait`, `--max-usd`, cached tokens recorded), built on the book reader's existing batch client. `scripts/label_pass.mjs` runs through it.
+- R1-R7 from that round are the work list: [power catalogue palette](../research/power-catalogues-2026-11-16/README.md#round-2-coverage-and-api-use-2026-11-16).
+

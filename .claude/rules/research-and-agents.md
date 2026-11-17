@@ -58,7 +58,7 @@ apply to both Codex and Claude through CLAUDE.md's AGENTS.md import.
 ## Agent usage budget
 
 Before generating agents or bulk book readers, follow [agent usage rules](docs/AGENT_USAGE_RULES.md)
-AU1–AU15 / AD37. One coordinator, one shared budget including retries and successors;
+AU1–AU16 / AD37. Paid API passes go by batch with the most shared text first (AU16, `scripts/label_runner.mjs`). One coordinator, one shared budget including retries and successors;
 readers may spawn lesser agents from reserved portions of that same budget.
 For full-book requests, declare one finite whole-source plan (AU13), target one
 to three coordinating chats, and use fresh reader contexts: haiku first in

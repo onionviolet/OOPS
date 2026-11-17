@@ -158,6 +158,7 @@ How to use and update it:
 - **Manga sources:** SM5–SM7 high, SM9 next, anime deferred ([2026-10-18](gm/USER_VISION_LOG_2026-10.md#extensible-panels-and-layout-seams-2026-10-16)).
 - **Ahead sources, cross-checked (2026-11-10):** hold the source that runs furthest (often the web novel), keep a behind version when it adds something, prefer text that parses easily, and where a web novel and its rewrite both exist hold both and cross-check them; neither wins by default (AR56-AR59, [2026-11-10](gm/USER_VISION_LOG_2026-11.md#ahead-sources-and-cross-checking-versions-2026-11-10)).
 - **Book-reading budget:** conservative reader rules AU1–AU15 after one book used most of his tokens ([2026-10-16](gm/USER_VISION_LOG_2026-10.md#agent-generation-and-book-usage-2026-10-16)).
+- **Every cent is a cent:** paid API passes go by batch unless they need a quick back and forth, with the most shared text first so the prompt cache serves it (AU16) ([2026-11-16](gm/USER_VISION_LOG_2026-11.md#paid-api-passes-go-by-batch-with-the-shared-text-first-2026-11-16)).
 
 ## Working with agents
 
@@ -185,6 +186,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="paid-api-passes-go-by-batch-with-the-shared-text-first-2026-11-16"></a>[Paid API passes go by batch, with the shared text first, 2026-11-16](gm/USER_VISION_LOG_2026-11.md#paid-api-passes-go-by-batch-with-the-shared-text-first-2026-11-16)<br>
 <a id="each-merge-deletes-the-merged-lanes-extras-2026-11-16"></a>[Each merge deletes the merged lanes' extras, 2026-11-16](gm/USER_VISION_LOG_2026-11.md#each-merge-deletes-the-merged-lanes-extras-2026-11-16)<br>
 <a id="rule-statuses-made-coherent-reconcile-closes-the-loop-2026-11-14"></a>[Rule statuses made coherent; reconcile closes the loop, 2026-11-14](gm/USER_VISION_LOG_2026-11.md#rule-statuses-made-coherent-reconcile-closes-the-loop-2026-11-14)<br>
 <a id="process-sets-held-lines-preflight-card-and-rulebook-shape-2026-11-14"></a>[Process sets, held lines, preflight card and rulebook shape, 2026-11-14](gm/USER_VISION_LOG_2026-11.md#process-sets-held-lines-preflight-card-and-rulebook-shape-2026-11-14)<br>
