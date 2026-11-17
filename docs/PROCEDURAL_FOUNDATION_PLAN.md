@@ -402,6 +402,11 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 | The Legendary Mechanic powers | `legendary_mechanic_powers` | 219 named abilities, class steps, blueprints and system functions from the power index and engine inputs | W |
 | Fated Villain powers | `fated_villain_powers` | 309 named techniques, physiques, items and system functions from the MTL-edition claim ledger (pass 2 incomplete) | W |
 
+| A Novel Concept powers | `a_novel_concept_powers` | Names from the book's power index tables plus a model listing over its synthesis files (PWC3, proposal); counts in the ledger | P |
+| Labyrinth of the Mad God powers (books 1 and 2) | `labyrinth_mad_god_powers` | Names from the POWERS tables plus a model listing; one ledger for both volumes | P |
+| You Have Died Again powers | `you_have_died_again_powers` | Names from the taxonomy's mechanism column plus a model listing | P |
+| Speedrunning the Multiverse powers | `speedrunning_multiverse_powers` | Model listing over the cross-book findings and each book's notes (no index table of names) | P |
+
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 
 ### Grammar layers (GL): what "defining the grammar" means

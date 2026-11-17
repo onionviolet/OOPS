@@ -1,0 +1,113 @@
+{
+ "rule": "A row is held out when the last hex digit of sha1(id) is 0, 1, 2 or 3 (a quarter, fixed before any label call); every other row is the tuning sample. The book category word is never shown to the grammar pass.",
+ "books": {
+  "anc": {
+   "names": 128,
+   "heldOut": [
+    "anc.power.axolotl",
+    "anc.power.c_chulainn",
+    "anc.power.ciphered_record",
+    "anc.power.combustion",
+    "anc.power.conquest",
+    "anc.power.cores_and_external_rituals",
+    "anc.power.curse_bombs",
+    "anc.power.domain",
+    "anc.power.dragon_blood",
+    "anc.power.energy",
+    "anc.power.four_headed_hydra",
+    "anc.power.frozen_meditation",
+    "anc.power.he_who_eludes_death",
+    "anc.power.heavenly_dragon_gates",
+    "anc.power.heracles",
+    "anc.power.high_human_adaptation",
+    "anc.power.iron",
+    "anc.power.justice",
+    "anc.power.matter",
+    "anc.power.meditation",
+    "anc.power.mind_ennoblement",
+    "anc.power.mirror_of_soul",
+    "anc.power.movement_virtuoso",
+    "anc.power.necro_corruption",
+    "anc.power.new_moon",
+    "anc.power.order",
+    "anc.power.phoenix_tears",
+    "anc.power.promesse",
+    "anc.power.revelation_resilience",
+    "anc.power.save_token",
+    "anc.power.sun_wukong",
+    "anc.power.survivor_tips",
+    "anc.power.tempering_reset_pill",
+    "anc.power.urn"
+   ]
+  },
+  "lmg": {
+   "names": 57,
+   "heldOut": [
+    "lmg.power.ability_stone",
+    "lmg.power.battlefield_awareness",
+    "lmg.power.borrowed",
+    "lmg.power.dimensional_backpack",
+    "lmg.power.enhanced_survivor",
+    "lmg.power.force_acceleration",
+    "lmg.power.heavy_blow_fork",
+    "lmg.power.kineticist",
+    "lmg.power.mana_dart",
+    "lmg.power.piercing_ray",
+    "lmg.power.sophia_s_dagger",
+    "lmg.power.stamina_mana_control_and_arctic_clarity",
+    "lmg.power.survivor",
+    "lmg.power.throwing",
+    "lmg.power.wand",
+    "lmg.power.wand_of_force",
+    "lmg.power.woodsman"
+   ]
+  },
+  "yhda": {
+   "names": 58,
+   "heldOut": [
+    "yhda.power.core_system_levels_and_personal_cap",
+    "yhda.power.dark_axul",
+    "yhda.power.darkness_mark",
+    "yhda.power.disenchantment",
+    "yhda.power.essence_of_darkness",
+    "yhda.power.gaelith_s_darkness",
+    "yhda.power.goren",
+    "yhda.power.kinetic_shift",
+    "yhda.power.lumindew",
+    "yhda.power.mirror_leveling",
+    "yhda.power.noctyra_s_magic",
+    "yhda.power.persistent_branch_cleansing",
+    "yhda.power.spark_bomb",
+    "yhda.power.sword_of_radiance",
+    "yhda.power.temporal_trace"
+   ]
+  },
+  "smm": {
+   "names": 111,
+   "heldOut": [
+    "smm.power.bane_of_dragons",
+    "smm.power.dao_fruit",
+    "smm.power.death_aspected_bloodline",
+    "smm.power.death_law",
+    "smm.power.divinity_lotus",
+    "smm.power.earth_dao",
+    "smm.power.evernight_physique",
+    "smm.power.fist_of_rising_moon_falling_star",
+    "smm.power.hecate_blessing",
+    "smm.power.interspatial_ring",
+    "smm.power.jez_s_blessing",
+    "smm.power.jingu_bang",
+    "smm.power.midas_touch",
+    "smm.power.millennium_elixirs",
+    "smm.power.nightstalker",
+    "smm.power.perfect_copy",
+    "smm.power.shadow_strike",
+    "smm.power.shadowwalk",
+    "smm.power.shield_of_the_blood_moon",
+    "smm.power.spirit_weaponry",
+    "smm.power.torchdragon_bloodline",
+    "smm.power.worldbreaker"
+   ]
+  }
+ }
+}
