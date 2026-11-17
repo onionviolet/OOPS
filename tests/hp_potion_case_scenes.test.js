@@ -544,7 +544,8 @@ test('a restored Draught of Peace spends fuel but gives no silver vapour or reli
 test('the stock-backed Hogwarts potion cases earn authored expression through the common runner', async () => {
     const ledger = readLedgers().find(({name}) => name === 'hp_potions');
     assert.deepEqual(ledger.problems, []);
-    const cases = ledger.rows.filter(row => row.case);
+    // The dose-response law's rows have their own test (brew_dose_response.test.js).
+    const cases = ledger.rows.filter(row => row.case && row.case.module !== 'src/brew_dose_response.js');
     assert.equal(cases.length, 34);
     const row = cases.find(row => row.id === 'hp.potion.draught_of_living_death');
     assert.equal(row.state, 'expressed-authored');
