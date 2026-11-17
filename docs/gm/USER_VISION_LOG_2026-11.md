@@ -1773,3 +1773,12 @@ Same message, on the UI finish wave's open choices:
 - D1 "sure": Reports filters (all eight) are remembered as a display setting, not a save key.
 - D2 "we should improve, as long as it still looks good": inventory rows move onto the kit, judged on before and after captures.
 
+
+## Wiki dumps for the power ledgers are approved, 2026-11-17
+
+Weibao, on the wikis-beyond-the-dumps and community discourse lane (PWC39, PWC40): "Read and then dumo long term too, so go ahead". And: "Consider stuff from D&D too".
+
+- Whole-wiki dumps for the worlds the power ledgers and settings need (Worm, Re:Zero, The Perfect Run, the book worlds marked missing in `docs/coverage/worlds.jsonl`, Cyberpunk, and the D&D wikis such as the Forgotten Realms wiki) are approved without a per-file ask. This replaces PWC10's per-file yes for this scope.
+- Unchanged: official routes only (published dumps, Special:Export or the API, at a polite rate through the lncrawl-polite transport); no CAPTCHA or bot-check bypass, and no account creation; each dump gets a write-back in the [download wishlist](../research/DOWNLOAD_WISHLIST_2026-10-30.md) with name, source, size, date and SHA-256, and is registered in `DUMPS.json`. A single host's dump over about 2 GB is listed and skipped (proposal, dial).
+- D&D gets full weight in the TTRPG lanes: the 2014 core and SRD 5.2.1 as separate, version-locked rule systems, and its settings (Forgotten Realms, Planescape, Spelljammer and others held) as worlds.
+- Owner: [power catalogue palette Round 6](../research/power-catalogues-2026-11-16/README.md#round-6-setting-worlds-wikis-beyond-the-dumps-and-community-discourse-2026-11-17).
