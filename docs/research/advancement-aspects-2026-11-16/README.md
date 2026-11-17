@@ -189,14 +189,14 @@ The first potion score was 29 of 54, and that was the scorer, not the labels. Ob
 
 - **Second reader.** On the 81 held-out rows, Haiku confirms 25 of Luna's 26 axes and adds 17 of its own. That is the pilot's pattern: Haiku has more recall and more overreach.
 - **Hand check.** A seeded random sample of 16 rows with stated axes found 18 of 19 right against the packet text. The miss, Chinese Chomping Cabbage read as `bite` because the plant bites, is dropped in `wiki_tier_labels.mjs` and recorded as `axisDropped`.
-- **Infobox field.** The wiki's ingredient infobox has its own `properties` field, filled on 81 pages. That is where most stated axes come from (Poisonous, Highly acidic, Antidote to most poisons).
+- **Infobox field.** The wiki's ingredient infobox has its own `properties` field, filled on 81 pages (Poisonous, Highly acidic, Antidote to most poisons). 59 of the 121 stated axes cite the intro section of a page where that field is filled.
 
 The axes implied by potion families hit 6 of the 9 authored axes, with 9 extra axes: the quill gets mend, mind and form, never bite. They are kept as `axisCandidates` and do not move a row.
 
 **Folded** (`node scripts/wiki_tier_labels.mjs`, then `node scripts/b_coverage_ledgers.mjs`):
 
 - **Sidecar.** `docs/coverage/wiki_tier_labels.json` gains an `hp_ingredients` section for 400 rows. Each holds the kind, stated axes and roles (with locator and speaker), potions resolved to potion-ledger ids (365 pairs on 216 rows; 49 names unresolved), forms in a closed word set (89 rows), axis candidates, and where the source, hazards and direct effect are stated. The other three sections are byte-identical.
-- **State change.** The ledger fold runs after the reviewed overrides, which replace notes. A row still at `blocked:ingredient-properties` whose page states an axis, and whose kind is a material, moves to `blocked:material-row`: 96 rows (21 held out). Its note names the axes and locator, and says the levels and amounts would be authored. By axis: venom 34, mend 27, mind 10, bite 8, ward 8, form 7, vigour 5, conceal-or-sense 4, heat 3, memory 3, calm 2. 280 rows stay `ingredient-properties`.
+- **State change.** The ledger fold runs after the reviewed overrides, which replace notes. A row still at `blocked:ingredient-properties` whose page states an axis, and whose kind is a material, moves to `blocked:material-row`: 96 rows (21 held out). Its note names the axes and locator, and says the levels and amounts would be authored. Its basis keeps the earlier text and adds the wiki-tier source and speaker. By axis: venom 34, mend 27, mind 10, bite 8, ward 8, form 7, vigour 5, conceal-or-sense 4, heat 3, memory 3, calm 2. 280 rows stay `ingredient-properties`.
 - **Notes only.** Every labelled row, the 20 runs-authored and the 4 engine-case rows included, gains a short wiki-tier note: kind, up to four potions, forms, and a hazard locator. Their states are unchanged.
 - **Aliases.** No two rows share a page through a redirect, so no alias candidates.
 
@@ -204,7 +204,8 @@ The axes implied by potion families hit 6 of the 9 authored axes, with 9 extra a
 
 - `tests/b_coverage_ledgers.test.js` and `tests/brew_heldout.test.js`: 8 pass.
 - Pass: `node scripts/b_coverage_ledgers.mjs --check`, `node scripts/coverage_report.mjs --check` and `npm run check:rules` (one pre-existing stale-glob warning).
-- Not run: `test:changed` and the full suite.
+- `npm run test:changed`: 618 of 1,074 files, 4,532 pass, 0 fail, 17 skipped.
+- Not run: the full suite.
 
 **Next, not started.**
 

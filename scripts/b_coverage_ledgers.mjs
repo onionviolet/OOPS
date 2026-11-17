@@ -197,6 +197,7 @@ function foldIngredientTier(rows) {
             t.forms && `prepared ${t.forms.join(' or ')}`, t.hazardsAt && `hazard at ${t.hazardsAt.locator}`].filter(Boolean);
         if (row.state === 'blocked:ingredient-properties' && t.axes && !NOT_MATERIAL.has(t.kind)) {
             row.state = 'blocked:material-row';
+            row.basis += `; state from wiki-tier axes (Luna, ${t.axes[0].speaker}, unchecked)`;
             row.note = `Needs a material row in a world property set (MR37, BRG1). Wiki-tier axes ${t.axes.map(a => `${a.axis} ${a.level}`).join(', ')} at ${t.axes[0].locator}; levels and amounts would be authored.${row.note.startsWith('Needs property axes') ? '' : ` ${row.note}`}`;
         }
         row.note += ` Wiki tier (Luna, unchecked): ${parts.join('; ')}.`;
