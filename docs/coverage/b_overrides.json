@@ -333,6 +333,11 @@
       "note": "The official transformation method combines personally prepared inputs, repeated spellwork and a storm-timed administration. Evidence: HPPE102, HPPE103, HPPE104, HPPE105, HPPE106. Wiki-body review pending.",
       "basis": "linked observation reviewed; full wiki effect/medium review incomplete",
       "evidence": "docs/research/hogwarts-potion-evidence-2026-11-11/observations.jsonl#HPPE102,HPPE103,HPPE104,HPPE105,HPPE106; catalogue.jsonl title=Animagus potion; wiki revision 2002833 (inventory identity only; page body unavailable)"
+    },
+    "hp.potion.mundungus_fletcher_s_potion": {
+      "state": "blocked:mind-state",
+      "note": "Missing: A minds as quantities, read from L bodies (dose on a mind). The wiki-tier effect is a belief change in the drinker, so the effect-words family (body-form, from a beauty word) is corrected by review.",
+      "evidence": "docs/coverage/wiki_tier_labels.json hp.potion.mundungus_fletcher_s_potion familyAt wiki:Mundungus Fletcher's potion#intro"
     }
   },
   "hp_ingredients": {

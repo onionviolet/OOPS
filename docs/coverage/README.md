@@ -6,7 +6,7 @@
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 381 | 1065 | 4 | 0 | 100% | 26.1% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 423 | 1023 | 4 | 0 | 100% | 28.9% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 3 | 766 | 0 | 0 | 100% | 0.4% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 249 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 376 | 9 | 0 | 100% | 5% |
@@ -21,7 +21,7 @@
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
 | creatures | 17 | 18 | 0 | 17 |
-| gu_kinds | 381 | 16 | 0 | 381 |
+| gu_kinds | 423 | 16 | 0 | 423 |
 | gu_moves | 3 | 9 | 0 | 3 |
 | hp_ingredients | 20 | 4 | 0 | 20 |
 | hp_potions | 1 | 34 | 0 | 1 |
@@ -62,7 +62,7 @@
 - **Fitted defaults**: body-door: add vitality self via potion; mind-state: transform mind self via potion; body-form: transform form self via potion; plant-or-creature-target: remove vitality touched via spray. No default for conceal-or-sense (no evidence-labelled row).
 - **Rule saw these rows** (title override set against evidence; not held out): Wolfsbane Potion. Out of the five mechanisms (not counted): Felix Felicis (luck-field).
 - **Held out** (17): cure_for_boils, dr_ubbly_s_oblivious_unction, dragon_dung_fertiliser, draught_of_living_death, draught_of_peace, mandrake_restorative_draught, murtlap_essence, pepperup_potion, polyjuice_potion, potion_for_dreamless_sleep, shrinking_solution, skele_gro, sleekeazy_s_hair_potion, sleeping_draught, swelling_solution, veritaserum, wit_sharpening_potion.
-- **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: body-door 72, effect-sentence 47, mind-state 38, body-form 35, plant-or-creature-target 29, conceal-or-sense 9, object-surface 7, place-release 6, luck-field 2, protection-field 2. The wiki body of each (revision in its `source`) is the queued data; the wiki host refused automated reads on 2026-11-13.
+- **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: body-door 80, mind-state 40, body-form 36, effect-sentence 33, plant-or-creature-target 31, conceal-or-sense 9, object-surface 8, place-release 6, luck-field 2, protection-field 2. The wiki body of each (revision in its `source`) is the queued data; the wiki host refused automated reads on 2026-11-13.
 
 **Per held-out row** (diagnostic predicted / actual; engine result, or why it cannot run):
 
@@ -272,20 +272,21 @@
 
 | Ledger | Missing rule | Rows |
 | --- | --- | ---: |
-| gu_moves | roles-unknown | 753 |
-| gu_kinds | rank-unknown | 598 |
-| gu_kinds | effect-unknown | 467 |
+| gu_moves | roles-unknown | 624 |
+| gu_kinds | rank-unknown | 569 |
+| gu_kinds | effect-unknown | 454 |
 | hp_ingredients | ingredient-properties | 376 |
 | lotm_potions | formula-in-notes | 174 |
-| hp_potions | body-door | 72 |
+| gu_moves | roles-unchecked | 129 |
+| hp_potions | body-door | 80 |
 | creatures | diet-unknown | 61 |
-| hp_potions | effect-sentence | 47 |
-| hp_potions | mind-state | 38 |
-| hp_potions | body-form | 36 |
-| hp_potions | plant-or-creature-target | 30 |
+| hp_potions | mind-state | 40 |
+| hp_potions | body-form | 37 |
+| hp_potions | effect-sentence | 33 |
+| hp_potions | plant-or-creature-target | 32 |
 | gu_moves | unnamed-role | 13 |
 | hp_potions | conceal-or-sense | 9 |
-| hp_potions | object-surface | 7 |
+| hp_potions | object-surface | 8 |
 | lotm_potions | body-door | 6 |
 | hp_potions | place-release | 6 |
 | hp_potions | luck-field | 2 |

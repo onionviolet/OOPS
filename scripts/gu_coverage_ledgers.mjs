@@ -12,6 +12,7 @@ import {GU_MOVE_CASE_MODULE, MOONBLADE_COVERAGE_ID, PLATE_SHELTER_COVERAGE_ID,
     FUTURE_TRAVEL_COVERAGE_ID} from '../src/world_packs/gu_move_coverage_cases.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
 import {derivedAbilityFrom, guMethods, guRunnableCoverage} from '../src/gu_working_law.js';
+import {typeFunction, nameFunction} from './gu_function_words.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const privatePath = 'docs/research/novels/reverend-insanity/private/rule-derivation-2026-11-11/gu-identities.json';
@@ -20,21 +21,10 @@ const indexPath = candidates.find(path => path && existsSync(path));
 if (!indexPath) throw Error('The private Gu review index is needed (gitignored); pass its path.');
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const test = 'tests/gu_coverage.test.js';
+// Wiki-tier labels (GKM445), normalised from the Luna passes by scripts/wiki_tier_labels.mjs. They fill a
+// wiki row's rank or function only where the category and name labels leave it empty, and say so.
+const tier = JSON.parse(readFileSync(join(root, 'docs/coverage/wiki_tier_labels.json'), 'utf8'));
 
-// Wiki type categories that name an effect family (GG2). Support, Consumable, Grass, Storage and House name a
-// role or a form, not an effect, so they supply none.
-const typeFunction = {'Offensive Type Gu': 'attack', 'Defensive Type Gu': 'guard', 'Movement Type Gu': 'move',
-    'Flying Type Gu': 'fly', 'Steed Type Gu': 'move', 'Investigative Type Gu': 'sense', 'Concealment Type Gu': 'conceal',
-    'Healing Type Gu': 'heal', 'Amplification Type Gu': 'amplify'};
-// Name keywords, checked in order, whole words only. An inference, labelled as one in the row.
-const nameFunction = [
-    [/\b(strength|power|might)\b/i, 'strength'],
-    [/\b(shield|armou?r|skin|guard|shell|barrier)\b/i, 'guard'], [/\b(wings?|flight|fly|flying)\b/i, 'fly'],
-    [/\b(eye|eyes|ear|ears|sight|investigat\w*|probe|scout)\b/i, 'sense'], [/\b(stealth|hide|hidden|conceal\w*|invisib\w*)\b/i, 'conceal'],
-    [/\b(heal\w*|recover\w*|restor\w*|cure|vitality)\b/i, 'heal'], [/\b(blade|sword|spear|arrow|fist|claw|strike|cut|kill\w*)\b/i, 'attack'],
-[/\b(step|steps|dash|charge|travel|escape|leap|run)\b/i, 'move'],
-    [/\b(light|glow|shine|bright\w*)\b/i, 'illuminate'], [/\b(steal|theft|plunder|rob)\b/i, 'steal'],
-];
 // Mechanism owners by chat letter (SC4): every Gu row sits on G; each running method adds its owner.
 const mechanismOf = {activate: 'K', convert: 'W', refine: 'F', grow: 'L', treat: 'L', move: 'K'};
 const owners = methods => ['G', ...new Set(methods.map(m => mechanismOf[m]))];
@@ -80,19 +70,27 @@ function kindRow(record) {
     const types = (record.fandom?.categories ?? []).filter(c => typeFunction[c]);
     const byType = types.length ? typeFunction[types[0]] : null;
     const byName = byType ? null : nameFunction.find(([pattern]) => pattern.test(nameOf(record)))?.[1] ?? null;
-    const fn = byType ?? byName;
+    const luna = tier.gu_kinds[record.id] ?? {};
+    const byTier = byType || byName ? null : luna.function ?? null;
+    const fn = byType ?? byName ?? byTier;
     // GKM443: a kind the wiki names an Immortal Gu is rank six or higher. With no rank label, six is used as a
-    // lower bound and marked so; a wiki or chapter rank replaces it.
-    const immortalByName = !ranks.length && /\bimmortal gu\b/i.test(nameOf(record));
-    const rank = ranks.length ? ranks[0] : immortalByName ? 6 : null;
+    // lower bound and marked so; a wiki-tier rank replaces it, and a wiki category or chapter rank replaces both.
+    const tierRank = !ranks.length ? luna.rank ?? null : null;
+    const immortalByName = !ranks.length && !tierRank && /\bimmortal gu\b/i.test(nameOf(record));
+    const rank = ranks.length ? ranks[0] : tierRank ?? (immortalByName ? 6 : null);
     const wiki = {...base, layer: 'wiki', status: record.status, rank, function: fn, path: pathOf(record),
-        rankBasis: ranks.length ? 'wiki-rank' : immortalByName ? 'name-immortal-lower-bound' : null,
-        labelBasis: byType ? 'wiki-type' : byName ? 'name-keyword-inference' : null};
+        rankBasis: ranks.length ? 'wiki-rank' : tierRank ? luna.rankBasis : immortalByName ? 'name-immortal-lower-bound' : null,
+        labelBasis: byType ? 'wiki-type' : byName ? 'name-keyword-inference' : byTier ? luna.functionBasis : null,
+        tierAt: tierRank || byTier ? [tierRank && luna.rankAt?.locator, byTier && luna.functionAt?.locator].filter(Boolean) : null};
     if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: ['G'], note: 'No wiki rank label; needs a chapter pass or an authored-rank dial.'};
-    if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: ['G'], note: 'No effect label from type or name; needs a chapter pass (GL2).'};
+    if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: ['G'], note: luna.effectAt
+        ? `No effect family from type or name. The wiki-tier label (Luna, unchecked) states an effect at ${luna.effectAt.locator}; it needs mapping to an effect family (GL2).`
+        : 'No effect label from type or name; needs a chapter pass (GL2).'};
     if (!derivedAbilityFrom({rank, function: fn})) throw Error(`cannot derive ${record.id}`);
     return {...wiki, state: 'runs-authored', mechanisms: owners(['activate']),
-        note: `Unchecked wiki identity (tentative, SKR3); ${immortalByName ? 'rank 6 as a lower bound from the Immortal Gu name (GKM443)' : `lowest wiki rank ${rank}`}; ${byType ? 'function from wiki type' : 'function inferred from the name'}; ability derived.`};
+        note: `Unchecked wiki identity (tentative, SKR3); ${immortalByName ? 'rank 6 as a lower bound from the Immortal Gu name (GKM443)'
+            : tierRank ? `rank ${rank} from the wiki-tier label (${luna.rankBasis}, Luna, unchecked)` : `lowest wiki rank ${rank}`}; ${byType ? 'function from wiki type'
+            : byName ? 'function inferred from the name' : `function from the wiki-tier label (${luna.functionBasis}, Luna, unchecked)`}; ability derived.`};
 }
 
 function moveRow(move) {
@@ -128,12 +126,24 @@ function moveRow(move) {
     return {...base, state: 'runs-authored', mechanisms: owners(['move']),
         note: 'Composed working, one activate step per role; supports before cores (GG9), otherwise record order; order and costs authored where the chapters leave them open.'};
 }
+// A lead whose wiki-tier label names every component as a known kind is blocked on a chapter check of those
+// roles and their order, not on unknown roles. Kinds stay out of `roles`: no lead runs from wiki text alone.
+function leadState(luna) {
+    const parts = luna?.components ?? [];
+    const named = parts.map(c => `${c.kind ?? c.name} (${c.role})`).join(', ');
+    const tierFields = parts.length ? {wikiRoles: parts.map(c => ({kind: c.kind, role: c.role, at: c.locator}))} : {};
+    if (parts.length && parts.every(c => c.kind)) return {...tierFields, state: 'blocked:roles-unchecked', mechanisms: ['G'],
+        note: `A wiki move lead. The wiki-tier label (Luna, unchecked) names ${named}; the roles and their order need a chapter check before it can run.`};
+    return {...tierFields, state: 'blocked:roles-unknown', mechanisms: ['G'], note: parts.length
+        ? `A wiki move lead. The wiki-tier label (Luna, unchecked) names ${named}; a component outside the kind index and the order need a chapter pass before it can run.`
+        : 'A wiki move lead; its component Gu and order need a chapter pass before it can run.'};
+}
 function leadRow(lead) {
     const name = lead.saga?.name ?? lead.fandom?.name;
     const slug = (lead.saga?.url ?? lead.fandom?.url).replace(/[?#].*$/, '').replace(/\/$/, '').split('/').pop().toLowerCase();
     return {id: `lead:${slug}`, name, source: [lead.saga?.url, lead.fandom?.url].filter(Boolean), layer: 'wiki', status: lead.status,
         tier: lead.saga?.tier ?? null, chapterHint: lead.saga?.chapter_hint ?? null, test,
-        state: 'blocked:roles-unknown', mechanisms: ['G'], note: 'A wiki move lead; its component Gu and order need a chapter pass before it can run.'};
+        ...leadState(tier.gu_moves[`lead:${slug}`])};
 }
 
 const kinds = index.records.map(kindRow);

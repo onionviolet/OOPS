@@ -101,7 +101,27 @@ export function potionFamily(title) {
     return HP_POTION_FAMILIES.find(([, , pattern]) => pattern.test(lower))?.[0] ?? 'effect-sentence';
 }
 
+// Wiki-tier labels (GKM445) from scripts/wiki_tier_labels.mjs: a route note on every row, and a family for a
+// row whose title says nothing, both marked as unchecked Luna labels. Read lazily so the family rule above can
+// be imported by the normaliser that writes this file.
+let tierLabels;
+const tierOf = id => (tierLabels ??= (() => {
+    try { return JSON.parse(readFileSync(at('docs/coverage/wiki_tier_labels.json'), 'utf8')).hp_potions; } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
+})())[id] ?? {};
+
 function hpPotionRow(entry) {
+    const row = hpPotionRowFromTitle(entry);
+    const luna = tierOf(row.id);
+    if (luna.routes) row.tierRoute = `wiki-tier route ${luna.routes.join(' or ')} at ${luna.routeAt.locator} (Luna, unchecked)`;
+    if (row.state === 'blocked:effect-sentence' && luna.family) {
+        const owner = HP_POTION_FAMILIES.find(([rule]) => rule === luna.family)[1];
+        Object.assign(row, {state: `blocked:${luna.family}`, basis: `wiki-tier family (${luna.familyBasis}, Luna, unchecked)`,
+            note: `Missing: ${owner}. The family comes from the wiki-tier label at ${luna.familyAt.locator}.`});
+    }
+    return row;
+}
+
+function hpPotionRowFromTitle(entry) {
     const t = entry.title, novel = entry.exact_title_novel_hits.length > 0 || entry.observation_ids.length > 0;
     const base = {id: `hp.potion.${slug(t)}`, title: t, source: entry.source, layer: novel ? 'novel' : 'wiki-only',
         observations: entry.observation_ids, basis: 'title-classified (inference)'};
@@ -301,7 +321,7 @@ export function summarize(rows) {
 // test, note. Title, layer, basis and observations fold into source and note.
 export function toLedgerRow(r) {
     const label = r.title ?? [r.pathway, r.seq != null ? `Sequence ${r.seq}` : null, r.name ?? '(name missing in notes)'].filter(Boolean).join(' ');
-    const extra = [r.layer && `layer ${r.layer}`, r.basis, r.nameNote && `name note: ${r.nameNote}`,
+    const extra = [r.layer && `layer ${r.layer}`, r.basis, r.tierRoute, r.nameNote && `name note: ${r.nameNote}`,
         r.offered === false && 'not offered at a bench (formula incomplete in notes)'].filter(Boolean).join('; ');
     const source = [r.source, ...(r.observations ?? [])].join('; ');
     return {id: r.id, source, state: r.state, mechanisms: r.mechanisms, test: r.test ?? null,
