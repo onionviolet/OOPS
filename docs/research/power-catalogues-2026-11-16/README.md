@@ -37,3 +37,32 @@ This is the owner palette for one coverage ledger of powers per world, built the
 ## Budget
 
 At the measured rate, about $0.0002 per Luna row and $0.0006 per Haiku row, a few thousand power rows cost a few dollars. The sessions keep each world under $5 without asking.
+
+## Worm power ledger (2026-11-16)
+
+Proposals (AD32), agent-verified, not human-reviewed. Ledger [`worm_powers.jsonl`](../../coverage/worm_powers.jsonl), sheet and score in [`worm_power_labels.json`](../../coverage/worm_power_labels.json), test `tests/worm_power_ledger.test.js`. Private inputs and replies stay under `private/worm_*` (gitignored); only normalised values, locators and speakers are committed. Builders: `scripts/worm_power_labels.mjs` (private half, phases `candidates resolve merge mergecheck freeze packets label second score sidecar`) and `scripts/worm_power_ledger.mjs` (reads the sidecar alone).
+
+**Denominator (PWC3): 279 rows, 264 capes, Endbringers and Entities, 15 named Tinker devices.** Names come from data: every subject in the 2,112 paid reader claims (`2026-11-01-worm`, full-book `INDEX.json`), the 85-row cape table and the 35-profile people index (1,179 candidates after splitting on slashes). Luna sorted them into kinds and proposed alias groups, Haiku checked the groups, and the corrections made by hand are listed in the sidecar (`meta.mergeFixes`): Defiant's spear and knife are separate devices, Alexandria's Pretender copy and the Damsel of Distress clone are separate rows, Flechette and Wanton stay apart from Foil and Annex, William Manton is not the Siberian. 93 names went to `excluded` (groups, places, powerless civilians, generic "unknown cape" entries; reasons in the sidecar). All 85 cape-table rows match a row. Four rows have no claim and rest on the table or people index alone. Each row lists up to six claim IDs, its table row and its people heading under `source`.
+
+**Frozen before any grammar call (advisor note).** Ids first, then the split (`sha1(id)[0] < 0x33`, GKM429): 46 rows held out. The score constants (`CLASS_PREDICTS`, `FOLD_RULE`) sit in the script as code, written before any result. Match means the labelled verb is in the class's verb set; object and target agreement are secondary lines. Brute, Tinker and Breaker predict nothing clean and are unscored. Only page-stated ratings count (table basis S or T, or a "Class N" line in a claim naming one cape); reader-inferred ratings are dropped. Class words, "Shifter", "Shaper", "Rogue", "Class N" and "protocols" were stripped from every cape packet (zero class words left).
+
+**Score (PWC2), honest and thin.** 33 capes have a page-stated rating; 21 are scoreable (Master 6, Stranger 5, Shaker 3, Striker 3, Thinker 2, Blaster 1, Changer 1) and 12 are not (Tinker 7, Brute 3, Breaker 2).
+
+| Set | n | Verb match | Majority-verb baseline | Object match | Target match |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Held out | 4 | 1 | 2 | 1 | 1 |
+| All rated, unscored by the prompt | 21 | 10 | 7 | 11 | 5 |
+
+**The grammar does not fold.** On the 4 held-out rows it ties or loses to always guessing "add" (1 of 4 against 2 of 4); on all 21 it leads by 3 (10 against 7), which meets the 10-point margin, but the pre-registered rule needs the held-out rows to hold too. So `grammar.checked` is false for every row and the ledger says "unchecked". By class: Shaker 3 of 3 and Thinker 2 of 2 match; Striker 0 of 3 (Luna reads touch powers as `add` or `move` with another target); Master 2 of 6 (Luna labels mind and swarm control `bind thing`, not `bind mind`); Stranger 2 of 5. 18 sentences break the verb-object fit table. The mapping was not retuned after seeing this.
+
+**Second reader (Haiku, 112 rows: held-out, rated and a fixed 25% hash sample).** Agreement with Luna: mind 103 of 112, left_behind 106, route_to_player 93, where_from 94, who_may 92, knowledge 90, target 83, verb 78, go_wrong 80, blocked 72. A row's field shows "(readers differ)" in its note when they split, and only fields both read count as firm. Hand check: eight rows (Skitter, Imp, Lung, Contessa, Clockblocker, Siberian, Dragon suit, Containment foam) against their claims and table rows read true except Skitter's `one-person-only` for who_may, which is weak, and Clockblocker's `bind time` (invalid fit).
+
+**Blocking rules (PWC5), 207 blocked, 72 catalogued with a runnable grammar sentence and no case yet, 0 unclassified.** `effect-unknown` 68, `tinker-device` 33, `power-interaction` 15, `body-form` 13, `mind-binding` 12, `area-field` 11, `protection-field` 10, `mind-state` 7, `projection-body` 7, `portal-space` 7, `conceal-or-sense` 6, `creature-control` 5, `time-manipulation` 5, `precognition` 3, `power-granting` 3, `timeline-split` 2. Slugs shared with the Hogwarts ledgers: `effect-unknown`, `body-form`, `mind-state`, `conceal-or-sense`, `protection-field`. The Worm-only ones are candidates for the cross-world histogram.
+
+**Gaps named, not filled.**
+- `where_from` is unknown on 232 of 275 rows and `mind` is none-stated on 257, `knowledge` unknown on 254. The 14 claims per packet rarely state a trigger. A follow-up pass over the table's trigger-story section (POWERS_SHARDS 1) and the people and knowledge facets would fill PWC4, PWC6 and PWC7; Luna low effort, about $0.10.
+- 68 `effect-unknown` rows are mostly thin-claim names; the table-only and claim-light rows need the chapter text, not more labels.
+- `route_to_player` is the model's view of plausible routes, not a WER answer; the WER17 pass per start is not run.
+- No Worm wiki dump (PWC10); `worm.fandom.com` was not asked.
+
+**Cost.** Luna 0.55M in and 0.16M out across resolve, merge and labels (about $0.13); Haiku 0.44M in and 0.12M out (about $1, assuming $1 and $5 per million). Under $2 in all, inside the $5 budget.
