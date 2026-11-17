@@ -109,5 +109,5977 @@
   ],
   "frozen": "2026-11-17",
   "fold_rule": "A guessed class becomes a sheet field only where held-out hits beat the majority baseline over the labelled held-out rows (PWC2); otherwise the sheet drops it and the note says model tier, unchecked."
+ },
+ "score": {
+  "label": "none",
+  "note": "no per-row classification stated: unscored"
+ },
+ "fold": {
+  "class_guess": "not folded (does not beat the majority class on held-out rows)"
+ },
+ "sheets": {
+  "smm.item.albumen": {
+   "name": "albumen",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "PROPOSALS.md:L13",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "PROPOSALS.md:L13",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "PROPOSALS.md:L13",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "PROPOSALS.md:L13",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": true,
+     "locator": "PROPOSALS.md:L13",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "PROPOSALS.md:L13",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.arena_locket": {
+   "name": "Arena Locket",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "block",
+     "object": "vitality",
+     "target": "touched",
+     "time": "instant",
+     "locator": "/book-2:L511",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.bane_of_dragons": {
+   "name": "Bane of Dragons",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L68",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L68",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L68",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L68",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L68",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.baneofdragons": {
+   "name": "BaneofDragons",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "DETAILED_FINDINGS.md:L46",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L46",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L46",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.basilisk_scale": {
+   "name": "Basilisk scale",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "instant",
+     "locator": "/book-2:L276",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "/book-2:L268",
+     "speaker": "narrator"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.black_chrysanthemum_drum": {
+   "name": "Black Chrysanthemum drum",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "instant",
+     "locator": "TECHNIQUES_ITEMS.md:L110",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L110",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L110",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L110",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.black_chrysanthemum_elixir": {
+   "name": "Black Chrysanthemum elixir",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "/book-3:L259",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-3:L259",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-3:L265",
+     "speaker": "character_claim"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-3:L265",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-3:L259",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.black_tear": {
+   "name": "Black Tear",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "/book-2:L511",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L511",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L511",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L511",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.blacksteel": {
+   "name": "Blacksteel",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L135",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.blank_scroll": {
+   "name": "Blank Scroll",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "move",
+     "object": "information",
+     "target": "line",
+     "time": "sustained",
+     "locator": "/book-2:L527",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L527",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.blood_probe": {
+   "name": "Blood Probe",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "sense",
+     "object": "essence",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-3:L136",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-3:L222",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": true,
+     "locator": "/book-3:L222",
+     "speaker": "narrator"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.brightsteel": {
+   "name": "Brightsteel",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.carving_kit": {
+   "name": "carving kit",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-2:L132",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L132",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": true,
+     "locator": "/book-2:L132",
+     "speaker": "narrator"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L132",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.chamber_of_infinite_time": {
+   "name": "Chamber of Infinite Time",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "place-resource",
+    "effect": {
+     "verb": "alter",
+     "object": "time",
+     "target": "area",
+     "time": "sustained",
+     "locator": "TECHNIQUES_ITEMS.md:L58",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.chirons_ribs": {
+   "name": "Chiron’s ribs",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-3:L401",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-3:L401",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.clearwater_stew": {
+   "name": "Clearwater Stew",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "touched",
+     "time": "instant",
+     "locator": "/book-3:L71",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-3:L71",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-3:L71",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "/book-3:L71",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "smm.item.coldhearts_hoard": {
+   "name": "Coldheart's hoard",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "text-or-record",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L200",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L200",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "smm.item.compendium_of_artificing": {
+   "name": "Compendium of Artificing",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "text-or-record",
+    "effect": {
+     "verb": "add",
+     "object": "information",
+     "target": "self",
+     "time": "instant",
+     "locator": "TECHNIQUES_ITEMS.md:L130",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.dao_elixirs": {
+   "name": "Dao Elixirs",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L113",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L113",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L113",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L113",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L113",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L113",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.dao_fruit": {
+   "name": "Dao Fruit",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L115",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L115",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L115",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L115",
+     "speaker": "wiki"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-3:L202",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-3:L202",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.darkheart_sutra": {
+   "name": "Darkheart Sutra",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "text-or-record",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-2:L655",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L655",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-2:L655",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L655",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.devils_promise": {
+   "name": "Devil's Promise",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "transform",
+     "object": "lifespan",
+     "target": "self",
+     "time": "instant",
+     "locator": "/book-1:L37",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L106",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L106",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L106",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "stated": true,
+     "locator": "/book-2:L615",
+     "speaker": "narrator"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L156",
+     "speaker": "demonstration"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L615",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-1:L37",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L201",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "smm.item.devils_promise_elixir": {
+   "name": "Devil’s Promise elixir",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "/book-2:L479",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "/book-2:L479",
+     "speaker": "narrator"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-2:L479",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L479",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.divinity_lotus": {
+   "name": "Divinity Lotus",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "add",
+     "object": "soul",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "narrator"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "narrator"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.dragon_kings_tears": {
+   "name": "Dragon King's Tears",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "transform",
+     "object": "essence",
+     "target": "self",
+     "time": "instant",
+     "locator": "TECHNIQUES_ITEMS.md:L108",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L108",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L108",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.earthsteel": {
+   "name": "Earthsteel",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L135",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L135",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.elixir_of_minor_healing": {
+   "name": "Elixir of Minor Healing",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L100",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L100",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L100",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L100",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.embryonic_essence": {
+   "name": "Embryonic Essence",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L171",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L171",
+     "speaker": "demonstration"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.evergreen_brew": {
+   "name": "Evergreen Brew",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "touched",
+     "time": "instant",
+     "locator": "TECHNIQUES_ITEMS.md:L114",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L114",
+     "speaker": "narrator"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L114",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L114",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L114",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.evernight_basilisk_scale": {
+   "name": "Evernight Basilisk scale",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-2:L292",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L332",
+     "speaker": "character_claim"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-2:L332",
+     "speaker": "character_claim"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L65",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L332",
+     "speaker": "character_claim"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.evernight_basilisk_scales": {
+   "name": "Evernight Basilisk Scales",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "alter",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L169",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.fates_barrel": {
+   "name": "Fate's barrel",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.fates_barrels": {
+   "name": "Fate's barrels",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "alter",
+     "object": "working",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L112",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.fates_needle": {
+   "name": "Fate’s needle",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "alter",
+     "object": "form",
+     "target": "touched",
+     "time": "sustained",
+     "locator": "/book-3:L441",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "/book-3:L441",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.god_bone": {
+   "name": "God Bone",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "lasting",
+     "locator": "/book-1:L39",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "/book-1:L39",
+     "speaker": "narrator"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-1:L39",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-1:L45",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.godking_core": {
+   "name": "Godking core",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "add",
+     "object": "information",
+     "target": "bound",
+     "time": "lasting",
+     "locator": "REPORT.md:L9",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L188",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "REPORT.md:L9",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "REPORT.md:L9",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L188",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "REPORT.md:L9",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.grand_elixir": {
+   "name": "Grand Elixir",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "transform",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L109",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "/book-2:L316",
+     "speaker": "narrator"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L109",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L109",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L109",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.great_serpent_bone": {
+   "name": "Great Serpent bone",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L168",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L168",
+     "speaker": "demonstration"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.hand_knitted_cap": {
+   "name": "hand-knitted cap",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "add",
+     "object": "information",
+     "target": "self",
+     "time": "sustained",
+     "locator": "SMALL_TOUCHES.md:L27",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.heart_quickening_draught": {
+   "name": "Heart-Quickening draught",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "self",
+     "time": "sustained",
+     "locator": "TECHNIQUES_ITEMS.md:L101",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L101",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L101",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L101",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L101",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L101",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.heilong_javelin": {
+   "name": "Heilong Javelin",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "alter",
+     "object": "form",
+     "target": "bound",
+     "time": "sustained",
+     "locator": "TECHNIQUES_ITEMS.md:L65",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L65",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L65",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L65",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L65",
+     "speaker": "wiki"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L575",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L66",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L342",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "/book-2:L236",
+     "speaker": "character_claim"
+    }
+   }
+  },
+  "smm.item.infinity_hearts": {
+   "name": "Infinity Hearts",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-3:L454",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-3:L454",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.infinity_marked_card": {
+   "name": "infinity-marked card",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-2:L132",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L132",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L132",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.inherited_manual": {
+   "name": "inherited manual",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "text-or-record",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "SMALL_TOUCHES.md:L31",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "SMALL_TOUCHES.md:L31",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.interspatial_ring": {
+   "name": "interspatial ring",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "move",
+     "object": "thing",
+     "target": "bound",
+     "time": "sustained",
+     "locator": "/book-1:L31",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L132",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.interspatial_rings": {
+   "name": "Interspatial Rings",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "bound",
+     "time": "none",
+     "locator": "/book-2:L20",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "/book-2:L20",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": true,
+     "locator": "/book-2:L20",
+     "speaker": "narrator"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L20",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "/book-2:L20",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "smm.item.jani_zhang_statue": {
+   "name": "Jani Zhang statue",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "end",
+     "object": "working",
+     "target": "self",
+     "time": "triggered",
+     "locator": "/book-2:L925",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.jez_pendant": {
+   "name": "Jez pendant",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-2:L929",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L196",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "/book-2:L929",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "smm.item.jingu": {
+   "name": "Jingu",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "line",
+     "time": "instant",
+     "locator": "/book-3:L63",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "/book-3:L208",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-3:L63",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.jingu_bang": {
+   "name": "Jingu Bang",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "area",
+     "time": "instant",
+     "locator": "/book-3:L63",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "/book-3:L56",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-3:L63",
+     "speaker": "demonstration"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.kinzos_millennium_elixir": {
+   "name": "Kinzo's Millennium Elixir",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L111",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L111",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L111",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L111",
+     "speaker": "wiki"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L111",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.lira_coins": {
+   "name": "Lira coins",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "/book-2:L36",
+     "speaker": "narrator"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L36",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.lotus": {
+   "name": "lotus",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "alter",
+     "object": "information",
+     "target": "self",
+     "time": "sustained",
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "wiki"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "wiki"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L70",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.mark_of_the_goddess": {
+   "name": "Mark of the Goddess",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "phenomenon",
+    "effect": {
+     "verb": "move",
+     "object": "essence",
+     "target": "self",
+     "time": "sustained",
+     "locator": "TECHNIQUES_ITEMS.md:L91",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L91",
+     "speaker": "narrator"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L91",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L91",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L91",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L228",
+     "speaker": "narrator"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L91",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.millennium_elixirs": {
+   "name": "Millennium Elixirs",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "lasting",
+     "locator": "/book-3:L417",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L179",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L199",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-3:L417",
+     "speaker": "demonstration"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L179",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-3:L407",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L199",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "smm.item.moons_essence": {
+   "name": "Moon's Essence",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L108",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L108",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L108",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.notebook": {
+   "name": "Notebook",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "text-or-record",
+    "effect": {
+     "verb": "alter",
+     "object": "working",
+     "target": "self",
+     "time": "lasting",
+     "locator": "PROPOSALS.md:L7",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "PROPOSALS.md:L7",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "PROPOSALS.md:L7",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.one_punch_kill": {
+   "name": "One Punch Kill",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "text-or-record",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L44",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L44",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.prime_bone": {
+   "name": "Prime Bone",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "lasting",
+     "locator": "/book-1:L39",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L165",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L236",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L165",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L244",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L244",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.prime_grade_locket": {
+   "name": "Prime-grade locket",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L414",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L414",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.qi_gatherers_pill": {
+   "name": "Qi gatherer's pill",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "instant",
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.qi_suppression_cuffs": {
+   "name": "qi-suppression cuffs",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "block",
+     "object": "essence",
+     "target": "bound",
+     "time": "sustained",
+     "locator": "/book-3:L407",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": true,
+     "locator": "/book-3:L407",
+     "speaker": "narrator"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.rat_king_token": {
+   "name": "Rat-King token",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "bind",
+     "object": "relation",
+     "target": "area",
+     "time": "none",
+     "locator": "/book-2:L28",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "/book-2:L29",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.red_axe": {
+   "name": "Red Axe",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "remove",
+     "object": "vitality",
+     "target": "touched",
+     "time": "lasting",
+     "locator": "/book-2:L503",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.roc_egg": {
+   "name": "roc egg",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-1:L102",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-1:L102",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-1:L102",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.rotflowers_brew": {
+   "name": "Rotflower's Brew",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L116",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L116",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L116",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L116",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L116",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.salas_core": {
+   "name": "Salas core",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "add",
+     "object": "working",
+     "target": "touched",
+     "time": "lasting",
+     "locator": "DETAILED_FINDINGS.md:L43",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L43",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L43",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L43",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L43",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L43",
+     "speaker": "narrator"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L43",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.second_forme_toxic_spear": {
+   "name": "Second Forme, Toxic Spear",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "line",
+     "time": "lasting",
+     "locator": "/book-2:L575",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L67",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L575",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L67",
+     "speaker": "wiki"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L575",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.sheiko": {
+   "name": "Sheiko",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "touched",
+     "time": "lasting",
+     "locator": "/book-2:L462",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L462",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.silver_heart_pill": {
+   "name": "Silver Heart pill",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "self",
+     "time": "sustained",
+     "locator": "TECHNIQUES_ITEMS.md:L102",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L102",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L102",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.soulreaver": {
+   "name": "Soulreaver",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L69",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L69",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L69",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L69",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.spirit_stones": {
+   "name": "Spirit Stones",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "bound",
+     "time": "sustained",
+     "locator": "/book-2:L446",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L446",
+     "speaker": "demonstration"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.spirit_weapon": {
+   "name": "Spirit Weapon",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "self",
+     "time": "sustained",
+     "locator": "TECHNIQUES_ITEMS.md:L64",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L64",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L64",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L64",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L159",
+     "speaker": "wiki"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.spirit_stone": {
+   "name": "Spirit-Stone",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-2:L446",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L446",
+     "speaker": "demonstration"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-3:L239",
+     "speaker": "demonstration"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.spiritstone": {
+   "name": "SpiritStone",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L129",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L67",
+     "speaker": "demonstration"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.starsteel": {
+   "name": "Starsteel",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L135",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.steel_life_treasure_armband": {
+   "name": "steel life-treasure armband",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "remove",
+     "object": "vitality",
+     "target": "self",
+     "time": "sustained",
+     "locator": "/book-2:L414",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L414",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L414",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.stones_of_thond": {
+   "name": "Stones of Thond",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.suns_monkey_king_staff": {
+   "name": "Sun's Monkey King staff",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L71",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L71",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L71",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.three_suns_elixir": {
+   "name": "Three Suns Elixir",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "alter",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "locator": "TECHNIQUES_ITEMS.md:L104",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L104",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L104",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.tier_2_badge": {
+   "name": "Tier-2 badge",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-2:L188",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.torchdragon_core": {
+   "name": "Torchdragon Core",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "touched",
+     "time": "instant",
+     "locator": "/book-2:L575",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L575",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-2:L655",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L575",
+     "speaker": "narrator"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L575",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "/book-2:L575",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "smm.item.vigor_spirit_pill": {
+   "name": "Vigor Spirit Pill",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "none",
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L103",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.void_iron": {
+   "name": "Void Iron",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "block",
+     "object": "law",
+     "target": "bound",
+     "time": "sustained",
+     "locator": "/book-3:L153",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.windcore": {
+   "name": "Windcore",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L70",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L70",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "DETAILED_FINDINGS.md:L70",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "smm.item.wizards_stick": {
+   "name": "Wizard's Stick",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "add",
+     "object": "light",
+     "target": "area",
+     "time": "sustained",
+     "locator": "/book-2:L92",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "/book-2:L92",
+     "speaker": "demonstration"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "/book-2:L92",
+     "speaker": "demonstration"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-2:L92",
+     "speaker": "narrator"
+    },
+    "go_wrong": {
+     "stated": true,
+     "locator": "/book-2:L855",
+     "speaker": "narrator"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L92",
+     "speaker": "demonstration"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L196",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "/book-2:L196",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "smm.item.wizards_sticks": {
+   "name": "Wizard's Sticks",
+   "split": "tuned",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "remove",
+     "object": "vitality",
+     "target": "line",
+     "time": "instant",
+     "locator": "/book-2:L446",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "/book-2:L446",
+     "speaker": "narrator"
+    },
+    "who_may": {
+     "stated": true,
+     "locator": "/book-2:L350",
+     "speaker": "character_claim"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "TECHNIQUES_ITEMS.md:L32",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L446",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": true,
+     "locator": "/book-2:L446",
+     "speaker": "narrator"
+    }
+   }
+  },
+  "smm.item.yamas_chains": {
+   "name": "Yama’s Chains",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "move",
+     "object": "force",
+     "target": "line",
+     "time": "instant",
+     "locator": "/book-2:L647",
+     "speaker": "demonstration"
+    },
+    "cost": {
+     "stated": true,
+     "locator": "/book-2:L914",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": true,
+     "locator": "/book-1:L45",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": true,
+     "locator": "/book-2:L914",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-1:L45",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "smm.item.zhangs_identification_token": {
+   "name": "Zhang’s identification token",
+   "split": "held-out",
+   "label": null,
+   "locator": "Speedrunning the Multiverse TECHNIQUES_ITEMS.md, per-book NOTES.md and the findings files (local, gitignored)",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "locator": "/book-2:L36",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "stated": true,
+     "locator": "/book-2:L36",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "stated": false,
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  }
  }
 }

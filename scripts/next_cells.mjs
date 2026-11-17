@@ -197,7 +197,7 @@ export function loadCensus(cell) {
         const hits = names.length ? rulesRecs.filter(r => names.some(n => `${r.name} ${recText(r)}`.toLowerCase().includes(n))).slice(0, 5) : [];
         const evidence = [...[...g.notes].map(([note, loc]) => `[${String(loc).replace(/\]/g, '')}] ${clip(note, 400)}`),
             ...hits.map(r => `[${String(r.locator ?? `${c.census} rules`).replace(/\]/g, '')}] ${recText(r)}`)];
-        return {id: `${c.prefix}${g.id.replace(/^[a-z]+\.[a-z]+\./, '')}`, name: g.label ?? g.id, aliases: [...g.aliases], windows: g.windows, locator: `${cfg.dir.split('/').slice(-3)[0]} census, ${g.windows} windows; ${c.run}`, evidence: evidence.length ? evidence : [`[${g.first ?? 'census'}] ${g.label}`]};
+        return {id: `${c.prefix}${c.censusKind === 'echo' ? g.id.replace(/^[a-z]+\./, '') : g.id.replace(/^[a-z]+\.[a-z]+\./, '')}`, name: g.label ?? g.id, aliases: [...g.aliases], windows: g.windows, locator: `${cfg.dir.split('/').slice(-3)[0]} census, ${g.windows} windows; ${c.run}`, evidence: evidence.length ? evidence : [`[${g.first ?? 'census'}] ${g.label}`]};
     });
 }
 export function censusLabel(cell, p) {
