@@ -29,7 +29,7 @@ SRC['ars-magica-realms'] = [AM + f'5e - Realms of Power - {n}.md' for n in ('Mag
 SRC['ars-magica-magic'] = [AM + f'5e - Magic - {n}.md' for n in ('Ancient Magic', 'Hedge Magic (Revised)', 'Apprentices')] + [AM + '5e - The Mysteries (Revised).md']
 SRC['ars-magica-houses'] = [AM + f'5e - Houses of Hermes - {n}.md' for n in ('Societates', 'True Lineages', 'Mystery Cults')] + [AM + '5e - Covenants.md']
 # Commercial (design reference only)
-for slug, i in {'dnd5e-phb-2014': 164, 'dnd5e-dmg-2014': 128, 'dnd5e-xanathar': 190, 'dnd5e-tasha': 191, 'dnd5e-fizban': 226,
+for slug, i in {'dnd5e-phb-2014': 164, 'dnd5e-dmg-2014': 128, 'dnd5e-mm-2014': 133, 'dnd5e-xanathar': 190, 'dnd5e-tasha': 191, 'dnd5e-fizban': 226,
                 'dnd5e-motm': 228, 'dnd5e-planescape': 217, 'dnd5e-spelljammer': 227, 'gurps-powers': 197, 'gurps-thaumatology': 192,
                 'mm3e-heros-handbook': 194, 'blades-core-harper': 213}.items():
     p = cal(i)
