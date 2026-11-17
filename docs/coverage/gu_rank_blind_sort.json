@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "pass": "PWC95, PWC99, PWC100",
+  "date": "2026-11-17",
+  "model": "claude-haiku-5-5",
+  "items": 76,
+  "note": "Half the fold-5 Gu show the rule set's derived rank, half the canon rank (fixed seed). A Gu whose derived rank equals canon looks the same either way."
+ },
+ "sets": {
+  "chosen": {
+   "scored": 76,
+   "accuracy": 0.553,
+   "auc": 0.571,
+   "derivedRanksThatDifferFromCanon": 19,
+   "accuracyOnThoseDerived": 0.579,
+   "usage": {
+    "input_tokens": 3026,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1818,
+    "output_tokens_details": {
+     "thinking_tokens": 365
+    },
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "speed": "standard"
+   }
+  },
+  "familyMedian": {
+   "scored": 76,
+   "accuracy": 0.697,
+   "auc": 0.696,
+   "derivedRanksThatDifferFromCanon": 28,
+   "accuracyOnThoseDerived": 0.607,
+   "usage": {
+    "input_tokens": 3026,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1834,
+    "output_tokens_details": {
+     "thinking_tokens": 306
+    },
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "speed": "standard"
+   }
+  }
+ },
+ "usage": {
+  "input_tokens": 6052,
+  "output_tokens": 3652,
+  "calls": 2
+ },
+ "costUsd": 0.002431
+}

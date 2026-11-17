@@ -1,0 +1,213 @@
+{
+ "meta": {
+  "pass": "PWC86, PWC100",
+  "date": "2026-11-17",
+  "status": "proposal (AD32)",
+  "regenerate": "node scripts/derivation_consistency.mjs",
+  "note": "A clash sends the row to review; it changes no ledger. Counts: rows checked (had a recipe, product, input or Sequence neighbour) and clashes."
+ },
+ "counts": {
+  "gu": {
+   "derivedRows": 299,
+   "checked": 1,
+   "clashes": 0
+  },
+  "lotm": {
+   "derivedRows": 162,
+   "checked": 162,
+   "clashes": 0
+  },
+  "hp": {
+   "derivedRows": 109,
+   "checked": 105,
+   "clashes": 23
+  }
+ },
+ "clashes": [
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.asphodel",
+   "why": [
+    "its recipes disagree: mind vs mend"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.extract_of_gurdyroot",
+   "why": [
+    "axis ward comes from siblings, no recipe that uses it has it (recipes: mind)"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.fairy_wings",
+   "why": [
+    "its recipes disagree: form vs mend"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.honeywater",
+   "why": [
+    "its recipes disagree: mend vs ward"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.jobberknoll_feather",
+   "why": [
+    "its recipes disagree: mind vs venom"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.leaping_toadstool",
+   "why": [
+    "its recipes disagree: mind vs conceal-or-sense"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.leech_juice",
+   "why": [
+    "its recipes disagree: form vs vigour"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.moondew",
+   "why": [
+    "its recipes disagree: mend vs mind"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.moonstone",
+   "why": [
+    "its recipes disagree: mind vs venom"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.newt_spleen",
+   "why": [
+    "its recipes disagree: form vs mind"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.pearl_dust",
+   "why": [
+    "its recipes disagree: mind vs conceal-or-sense"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.peppermint",
+   "why": [
+    "axis bite comes from siblings, no recipe that uses it has it (recipes: mind)"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.powdered_root_of_asphodel",
+   "why": [
+    "its recipes disagree: mind vs mend"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.rat_spleen",
+   "why": [
+    "its recipes disagree: form vs mend"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.rose",
+   "why": [
+    "its recipes disagree: form vs mind"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.scarab_beetle",
+   "why": [
+    "its recipes disagree: mind vs form"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.sloth_brain",
+   "why": [
+    "its recipes disagree: mind vs mend"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.spine_of_lionfish",
+   "why": [
+    "its recipes disagree: mend vs venom vs form"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.standard_potioning_water",
+   "why": [
+    "its recipes disagree: mind vs form"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.sulphur_vive",
+   "why": [
+    "its recipes disagree: vigour vs mend"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.syrup_of_hellebore",
+   "why": [
+    "its recipes disagree: mind vs venom"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.valerian",
+   "why": [
+    "its recipes disagree: memory vs mind",
+    "axis calm comes from siblings, no recipe that uses it has it (recipes: memory, mind)"
+   ]
+  },
+  {
+   "world": "hp",
+   "rule": "hp.rule.recipe-carries-effect",
+   "id": "hp.ingredient.wormwood",
+   "why": [
+    "its recipes disagree: mind vs form vs mend"
+   ]
+  }
+ ]
+}

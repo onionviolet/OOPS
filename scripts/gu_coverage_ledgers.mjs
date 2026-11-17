@@ -5,6 +5,7 @@
 // categories, then a short name-keyword table marked as an inference.
 // Usage: node scripts/gu_coverage_ledgers.mjs [path/to/gu-identities.json]
 import {readFileSync, writeFileSync, mkdirSync, existsSync} from 'node:fs';
+import {confidenceOf} from './derivation_confidence.mjs';
 import {join} from 'node:path';
 import {foldChapterEffect} from './chapter_effect_tier.mjs';
 import {GU_CASE_GAPS, GU_CASE_MODULE, guCaseNote} from '../src/world_packs/gu_effect_pack.js';
@@ -112,7 +113,7 @@ function kindRow(indexed) {
         : 'No effect label from type or name; needs a chapter pass (GL2).')};
     if (!derivedAbilityFrom({rank, function: fn})) throw Error(`cannot derive ${record.id}`);
     return {...wiki, state: derivedRank ? 'runs-derived' : 'runs-authored', mechanisms: owners(['activate']),
-        ...(derivedRank && {derived: {rule: derivedRank.rule, inputs: derivedRank.inputs}}),
+        ...(derivedRank && {derived: {rule: derivedRank.rule, inputs: derivedRank.inputs, confidence: confidenceOf(derivedRank.rule)}}),
         note: `Unchecked wiki identity (tentative, SKR3); ${derivedRank ? `rank ${rank} derived from the world's own rule ${derivedRank.rule} (${derivedRank.inputs.join(', ')}${derivedRank.spread ? `; family n=${derivedRank.spread.n}, spread ${derivedRank.spread.min}-${derivedRank.spread.max}` : ''}), below any stated rank (PWC23)` : immortalByName ? 'rank 6 as a lower bound from the Immortal Gu name (GKM443)'
             : chapter ? `rank ${rank} from the chapter tier (${chapter.rankBasis}, ${chapter.rankAt.speaker}, Luna over chapter text at ${chapter.rankAt.locator}, one reader)`
             : tierRank ? `rank ${rank} from the wiki-tier label (${luna.rankBasis}, Luna, unchecked)` : `lowest wiki rank ${rank}`}; ${byType ? 'function from wiki type'

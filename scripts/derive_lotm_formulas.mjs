@@ -5,6 +5,7 @@
 // The law lives in src/lotm_derived_formulas.js (pure, so a row can be brewed in a test). This module decides which ledger rows
 // take it: only rows still `blocked:formula-in-notes` after the wiki and chapter tiers folded, so a stated formula always wins.
 import {createHash} from 'node:crypto';
+import {confidenceOf} from './derivation_confidence.mjs';
 import {readFileSync, writeFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {LOTM_DERIVE_RULES, derivedSpec, derivedRowId} from '../src/lotm_derived_formulas.js';
@@ -26,7 +27,7 @@ export function applyDerived(row) {
     row.mechanisms = [...new Set([...row.mechanisms, 'engine_brew_stock', 'lotm_derived_formulas'])];
     row.test = 'tests/lotm_derived_formulas.test.js';
     row.case = {module: DERIVED_CASE_MODULE, id: `lotm.derived.${derivedRowId(row.pathway, row.seq)}`};
-    row.derived = {rule: spec.rules[0], inputs: spec.inputs};
+    row.derived = {rule: spec.rules[0], inputs: spec.inputs, confidence: confidenceOf(spec.rules[0])};
 }
 
 export function rulesFile(derivedIds) {

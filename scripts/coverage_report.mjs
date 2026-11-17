@@ -110,7 +110,9 @@ const STATE = /^(runs-canon|runs-authored|runs-derived|expressed-canon|expressed
 const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model']);
 
 // Validate one ledger's text. Returns {rows, problems}; a problem names its line.
-export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file))} = {}) {
+// PWC80: the rules that have a score row in derivation_rules.json; a derived row citing any other rule is flagged.
+export const scoredRuleIds = () => new Set(JSON.parse(fs.readFileSync(path.join(root, 'docs/coverage/derivation_rules.json'), 'utf8')).rules.map(r => r.id));
+export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file)), scored = scoredRuleIds()} = {}) {
     const rows = [], problems = [], ids = new Set();
     text.split('\n').forEach((line, i) => {
         if (!line.trim()) return;
@@ -140,6 +142,8 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
         // A derived value (PWC20) comes from a world's own rule, not from a source that states it: it names the rule and its inputs.
         if (/-derived$/.test(row.state ?? '') && (!row.derived || typeof row.derived.rule !== 'string' || !row.derived.rule || !Array.isArray(row.derived.inputs)))
             problems.push(`${at}: a *-derived row names {"rule": "<rule id>", "inputs": [...]} in derived`);
+        if (/-derived$/.test(row.state ?? '') && typeof row.derived?.rule === 'string' && scored && !scored.has(row.derived.rule))
+            problems.push(`${at}: derived rule ${row.derived.rule} has no score row in docs/coverage/derivation_rules.json (PWC80)`);
         if (row.note !== undefined && typeof row.note !== 'string') problems.push(`${at}: note must be a string`);
         rows.push(row);
     });

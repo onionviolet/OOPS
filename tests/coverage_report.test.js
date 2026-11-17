@@ -38,13 +38,17 @@ test('only malformed rows fail, each by line', () => {
 
 test('a derived row (PWC20) names its rule and inputs and counts apart from the runs share', () => {
     const ok = {id: 'f', source: 'rule:LOTM-conservation', state: 'runs-derived', mechanisms: ['B'], test: 'tests/gu_catalogue.test.js', derived: {rule: 'lotm.conservation', inputs: ['pathway', 'sequence']}};
-    const {rows: parsed, problems} = parseLedger([text, JSON.stringify(ok)].join('\n'), {exists});
+    const {rows: parsed, problems} = parseLedger([text, JSON.stringify(ok)].join('\n'), {exists, scored: null});
     assert.deepEqual(problems, []);
     const c = countLedger(parsed);
     assert.equal(c['runs-derived'], 1);
     assert.equal(c.runsShare, 40);
     const bare = JSON.stringify({...ok, derived: undefined});
     assert.ok(parseLedger(bare, {exists}).problems.some(x => /derived row names/.test(x)));
+    // PWC80: the rule needs a score row; the shipped file scores the rule ids the ledgers cite.
+    const unscored = parseLedger(JSON.stringify(ok), {exists, scored: new Set(['gu.rank.family-median'])}).problems;
+    assert.ok(unscored.some(x => /no score row/.test(x)));
+    assert.equal(parseLedger(JSON.stringify({...ok, derived: {rule: 'gu.rank.family-median', inputs: []}}), {exists, scored: new Set(['gu.rank.family-median'])}).problems.length, 0);
 });
 
 test('the counts table lists every planned ledger, started or not', () => {

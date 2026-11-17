@@ -10,6 +10,7 @@
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
 import {join} from 'node:path';
 import {createHash} from 'node:crypto';
+import {confidenceOf} from './derivation_confidence.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES, lowerEffect, assembleEffect, OBJECT_OWNER} from '../src/effect_grammar.js';
 import {guEffects, GU_FUNCTION} from '../src/world_packs/gu_effect_pack.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
@@ -204,7 +205,7 @@ function ledger() {
         rows.push({id: `gen.${slug(g.name)}`, source: `generated: concept "${g.concept}"; ${g.model}; prompt ${promptHash}`, state, mechanisms: ['G', owner],
             test: state === 'runs-derived' ? 'tests/gu_generated.test.js' : null,
             note: `${g.name}. Path ${g.path}, rank ${g.rank}, ${g.verb} ${g.object} on ${g.target}, ${g.time}, pays ${g.cost}. ${g.effect} Nearest canon Gu: ${best?.name ?? 'none'} (name overlap ${Math.round(bestJ * 100) / 100}). Generated, not canon.`,
-            ...(state === 'runs-derived' ? {derived: {rule: 'gu.generated.concept', inputs: [g.concept, promptHash]}} : {}),
+            ...(state === 'runs-derived' ? {derived: {rule: 'gu.generated.concept', inputs: [g.concept, promptHash], confidence: confidenceOf('gu.generated.concept')}} : {}),
             tier: 'generated', model: g.model, concept: g.concept, promptHash, nearest: best?.id ?? null});
     }
     rows.sort((a, b) => a.id.localeCompare(b.id));
