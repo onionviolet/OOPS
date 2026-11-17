@@ -20,11 +20,11 @@ function show(tab) {
     tab.node.style.display = 'block';
 }
 
-/** Add a tab to a box: {box: 'skills'|'journal', id, label, node, when?}. Returns a release function. */
-export function registerBoxTab({box, id, label, node, when = () => true}) {
+/** Add a tab to a box: {box: 'skills'|'journal', id, label, node, when?, counts?}. `counts: false` keeps a tab from making its box count as found (a page with its own route). Returns a release function. */
+export function registerBoxTab({box, id, label, node, when = () => true, counts = true}) {
     const home = BOX_TAB_HOMES[box];
     if (!home || !id || !label || !node) throw Error('A box tab needs a known box, an id, a label and a node.');
-    const tab = {box, id, label, node, when, button: null};
+    const tab = {box, id, label, node, when, counts, button: null};
     tabs.set(`${box}:${id}`, tab);
     sync();
     return () => { tabs.delete(`${box}:${id}`); const open = tab.node.style.display !== 'none'; tab.button?.remove(); tab.node.remove(); if (open) document.getElementById(home.bar)?.querySelector('button:not([hidden])')?.click(); };
@@ -52,7 +52,7 @@ export function sync() {
 // first find (feature-ui, 2026-11-15). Keyed by the workspace module the box lives in.
 export function moduleHasShownTab(moduleId) {
     const box = Object.entries(BOX_TAB_HOMES).find(([, h]) => h.module === moduleId)?.[0];
-    return !!box && shownTabs(box).length > 0;
+    return !!box && shownTabs(box).some(t => t.counts !== false);
 }
 
 let timer = 0;

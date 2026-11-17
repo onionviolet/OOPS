@@ -3194,3 +3194,8 @@ i {
 #simulation_panel .workshop_section > summary {cursor: pointer; font-weight: var(--ui-weight-strong); padding: var(--ui-space-2) 0;}
 #simulation_panel .workshop_section > summary [data-group-status] {margin-left: var(--ui-space-3); font-weight: var(--ui-weight-regular); color: var(--theme-muted, var(--workspace-muted));}
 #simulation_panel .workshop_practice {display: block; color: var(--theme-muted, var(--workspace-muted));}
+
+/* PS306: earlier lives' quests sit under one fold; the current life's page leads. */
+#quests_box_div .journal-earlier {margin-top: var(--ui-space-2);}
+#quests_box_div .journal-earlier > summary {cursor: pointer; color: var(--ui-muted, var(--theme-muted, var(--workspace-muted)));}
+#quests_box_div .journal-note {margin: var(--ui-space-2) 0; color: var(--ui-muted, var(--theme-muted, var(--workspace-muted)));}

@@ -8,6 +8,7 @@ import {mountFeelFinish} from './ui/feel_finish.js';
 // Importing these registers their domains and panels before the registry initializes (main.js).
 import './known_things.js';
 import './knowledge_home.js';
+import './journal_home.js';
 import './naming_achievements_ui.js';
 import './deeds_ui.js';
 import './statistics_panel.js';

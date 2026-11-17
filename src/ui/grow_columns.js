@@ -9,7 +9,7 @@ const SETTLE_MS = 2400;
 export const OPENING = Object.freeze({quests: 1, reports: 2});
 const opened = new Set();
 
-const questCount = doc => [...(doc.getElementById('quests_box_div')?.children || [])].filter(n => n.textContent.trim() && !/^=.*=$/.test(n.textContent.trim())).length;
+const questCount = doc => [...(doc.getElementById('quests_box_div')?.children || [])].filter(n => !n.dataset?.journalNote && n.textContent.trim() && !/^=.*=$/.test(n.textContent.trim())).length; // the note a life with no quests of its own gets is not a quest (PS306)
 const reportCount = doc => doc.querySelectorAll('#message_box_div > .message_common:not(.message_notification)').length;
 
 /** Pure: which columns open now, and why. */

@@ -102,6 +102,19 @@ function syncShellEditing(){
 const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text) node.textContent = text; return node; };
 function button(label, action, id) { const b = el('button', '', label); b.type = 'button'; b.dataset.workspaceAction = action; if (id) b.dataset.module = id; return b; }
 export function workspaceOwns(node) { return !!owner && [...registry.values()].some(v => v.node === node); }
+// Box tabs (round 14 slice 4, PS122): a module's own node can show inside another box's tab page (the Journal's People, Worlds and Beginning).
+// The module stays registered, so its id still opens, lists and expands as before; only its own shell steps aside while hosted, and
+// the layout pass leaves the node where the page put it. `reveal` brings the page forward when something opens the module. Returns a release function.
+export function hostWorkspaceModule(id, page, reveal) {
+    const module = registry.get(id); if (!module || !owner || !page) return null;
+    makeShell(module); module.hosted = page; module.reveal = reveal; if (page !== module.node.parentNode) page.append(module.node); module.shell.hidden = true;
+    return () => { if (module.hosted !== page) return; module.hosted = null; module.reveal = null; updateWorkspace(); };
+}
+/** Whether a module has something to show now (the test the navigation applies), for a tab page that follows it. Cheap: no registry sweep. */
+export function workspaceModuleFound(id) {
+    const m = registry.get(id); if (!m) return false;
+    try { return panelAccessible(readPort('expansion'), m) && m.eligible() !== false && (m.known || m.discovered() !== false); } catch { return false; }
+}
 // A panel whose subject changes can update its registered label without replacing its shell.
 export function setWorkspaceModuleTitle(id, title) {
     const module=registry.get(id); if(!module || module.title===title) return;
@@ -329,7 +342,7 @@ export function updateWorkspace() {
     setData(owner.root, 'editorReflow', String(owner.context==='authoring'&&(['customization','customization-effects','customization-rules'].some(id=>parseFloat(getComputedStyle(registry.get(id)?.node||owner.root).fontSize)>20)||window.innerWidth/presentationScale()<1100)));
     if (owner.layout.mode === 'classic') {
         owner.layout.modules.forEach(state => {
-            const module = registry.get(state.id); makeShell(module);
+            const module = registry.get(state.id); makeShell(module); if (module.hosted) return;
             if (module.placeholder?.parentNode && module.node.previousSibling !== module.placeholder) module.placeholder.after(module.node);
             else if (!module.placeholder?.parentNode) { const home = (module.homeId && document.getElementById(module.homeId)) || module.home; if(home?.isConnected && module.node.parentNode !== home)home.append(module.node); }
             module.node.classList.toggle('workspace-user-hidden', state.hidden && !module.critical);
@@ -348,6 +361,7 @@ export function updateWorkspace() {
         const shell = module.shell; const eligible = module.eligible() !== false || moduleHasShownTab(module.id), known = moduleKnown(module, eligible); labelShell(module, known);
         // Undiscovered shells wait outside the labelled docks, so no dock label or text names them.
         if (!known) { setProp(shell, 'hidden', true); if (shell.parentNode !== owner.vault) owner.vault.append(shell); syncRestore(module, state, known, eligible, false); return; }
+        if(module.hosted){module.shell.hidden=true;return;}
         // Reach A2 proposal: restore the vital dock only on combat entry, not every render.
         if (state.id === 'combat') {
             if (eligible && !module.wasInCombat) {
@@ -613,6 +627,7 @@ export function openWorkspaceModule(requested) {
     const focus = owner && owner.layout.mode !== 'classic' && owner.editing ? module.shell.querySelector('.workspace-drag-handle') : first;
     // Opening a module the player is already working inside (for example the notebook
     // re-opening itself when a started job needs attention) keeps their keyboard focus.
+    if (module.hosted) { module.reveal?.(); return true; }
     if (module.node.contains?.(document.activeElement)) return true;
     focus?.focus({preventScroll:true}); return true;
 }
