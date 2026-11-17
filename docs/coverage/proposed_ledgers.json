@@ -1,0 +1,269 @@
+{
+ "census": "docs/research/power-catalogues-2026-11-16/CENSUS.md",
+ "rows": [
+  {
+   "rank": 1,
+   "world": "naruto",
+   "ledger": "naruto_powers",
+   "expected": 2724,
+   "denominator": "Jutsu 2506; Tools 188; Bloodlines 30",
+   "source": "naruto.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "area-field",
+    "power-interaction",
+    "form-transformation",
+    "familiar-summon",
+    "mind-binding",
+    "power-transfer",
+    "vow-cost"
+   ]
+  },
+  {
+   "rank": 2,
+   "world": "typemoon",
+   "ledger": "typemoon_powers",
+   "expected": 2340,
+   "denominator": "Noble Phantasms 754; Skills 1481; Magecraft and Reality Marbles 163",
+   "source": "typemoon.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "item-bound-power",
+    "familiar-summon",
+    "area-field",
+    "mind-binding",
+    "vow-cost",
+    "power-transfer",
+    "power-interaction"
+   ]
+  },
+  {
+   "rank": 3,
+   "world": "myheroacademia",
+   "ledger": "myheroacademia_powers",
+   "expected": 508,
+   "denominator": "Quirks 286; Moves 222",
+   "source": "myheroacademia.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "power-interaction",
+    "power-transfer",
+    "form-transformation",
+    "mind-binding",
+    "area-field"
+   ]
+  },
+  {
+   "rank": 4,
+   "world": "mtg",
+   "ledger": "mtg_powers",
+   "expected": 215,
+   "denominator": "Keyword abilities and ability words 215",
+   "source": "mtg.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "power-interaction",
+    "familiar-summon"
+   ]
+  },
+  {
+   "rank": 5,
+   "world": "bleach",
+   "ledger": "bleach_powers",
+   "expected": 411,
+   "denominator": "Techniques 411",
+   "source": "bleach.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "item-bound-power",
+    "area-field",
+    "power-interaction",
+    "form-transformation",
+    "mind-binding"
+   ]
+  },
+  {
+   "rank": 6,
+   "world": "blackclover",
+   "ledger": "blackclover_powers",
+   "expected": 573,
+   "denominator": "Spells 454; Magic (attribute pages) 119",
+   "source": "blackclover.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "item-bound-power",
+    "familiar-summon",
+    "power-interaction",
+    "area-field",
+    "form-transformation",
+    "vow-cost"
+   ]
+  },
+  {
+   "rank": 7,
+   "world": "onepiece",
+   "ledger": "onepiece_powers",
+   "expected": 339,
+   "denominator": "Devil Fruits 205; Fighting Styles 32; Weapons 102",
+   "source": "onepiece.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "form-transformation",
+    "power-transfer",
+    "item-bound-power",
+    "power-interaction",
+    "mind-binding"
+   ]
+  },
+  {
+   "rank": 8,
+   "world": "towerofgod",
+   "ledger": "towerofgod_powers",
+   "expected": 313,
+   "denominator": "Shinsu and weapon techniques 313",
+   "source": "towerofgod.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "item-bound-power",
+    "power-interaction",
+    "area-field",
+    "form-transformation",
+    "familiar-summon"
+   ]
+  },
+  {
+   "rank": 9,
+   "world": "hunterxhunter",
+   "ledger": "hunterxhunter_powers",
+   "expected": 175,
+   "denominator": "Greed Island cards and spells 175",
+   "source": "hunterxhunter.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "vow-cost",
+    "power-interaction",
+    "mind-binding",
+    "item-bound-power",
+    "area-field",
+    "power-transfer"
+   ]
+  },
+  {
+   "rank": 10,
+   "world": "jujutsu-kaisen",
+   "ledger": "jujutsu-kaisen_powers",
+   "expected": 147,
+   "denominator": "Techniques 147",
+   "source": "jujutsu-kaisen.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "area-field",
+    "vow-cost",
+    "item-bound-power",
+    "familiar-summon",
+    "power-transfer",
+    "mind-binding",
+    "power-interaction"
+   ]
+  },
+  {
+   "rank": 11,
+   "world": "mistborn",
+   "ledger": "mistborn_powers",
+   "expected": 61,
+   "denominator": "Allomancy, metals, Feruchemy, Hemalurgy 61",
+   "source": "mistborn.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "power-interaction",
+    "mind-binding",
+    "power-transfer"
+   ]
+  },
+  {
+   "rank": 12,
+   "world": "chainsaw-man",
+   "ledger": "chainsaw-man_powers",
+   "expected": 66,
+   "denominator": "Devils and Fiends (power pages are characters) 66",
+   "source": "chainsaw-man.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "vow-cost",
+    "familiar-summon",
+    "form-transformation",
+    "mind-binding"
+   ]
+  },
+  {
+   "rank": 13,
+   "world": "kimetsu-no-yaiba",
+   "ledger": "kimetsu-no-yaiba_powers",
+   "expected": 27,
+   "denominator": "Breathing Styles and Abilities 27",
+   "source": "kimetsu-no-yaiba.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "form-transformation",
+    "item-bound-power",
+    "power-interaction",
+    "mind-binding",
+    "power-transfer"
+   ]
+  },
+  {
+   "rank": 14,
+   "world": "fma",
+   "ledger": "fma_powers",
+   "expected": 19,
+   "denominator": "Alchemy 19",
+   "source": "fma.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "power-interaction",
+    "area-field",
+    "power-transfer",
+    "vow-cost"
+   ]
+  },
+  {
+   "rank": 15,
+   "world": "mysranks",
+   "ledger": "mysranks_powers",
+   "expected": 15,
+   "denominator": "Skills 15",
+   "source": "mysranks.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "power-interaction",
+    "item-bound-power"
+   ]
+  },
+  {
+   "rank": 16,
+   "world": "lazydungeonmaster",
+   "ledger": "lazydungeonmaster_powers",
+   "expected": 18,
+   "denominator": "Skills 18",
+   "source": "lazydungeonmaster.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "area-field",
+    "familiar-summon"
+   ]
+  },
+  {
+   "rank": 17,
+   "world": "dresdenfiles",
+   "ledger": "dresdenfiles_powers",
+   "expected": 14,
+   "denominator": "Curses and spell pages 14",
+   "source": "dresdenfiles.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "area-field",
+    "mind-binding",
+    "vow-cost",
+    "familiar-summon",
+    "power-interaction",
+    "power-transfer"
+   ]
+  },
+  {
+   "rank": 18,
+   "world": "frieren",
+   "ledger": "frieren_powers",
+   "expected": 0,
+   "denominator": "none in the wiki",
+   "source": "frieren.fandom.com dump, newest revision, ns 0 after redirects",
+   "caps": [
+    "area-field",
+    "mind-binding",
+    "power-interaction"
+   ]
+  }
+ ]
+}
