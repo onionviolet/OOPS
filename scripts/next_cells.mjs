@@ -250,7 +250,9 @@ export function mergeNames(cell) {
     }
     // Class map frozen from the stated ranks: a word stated for at least 3 objects is a class; the rest are unlabelled.
     const counts = new Map(); for (const p of out) if (p.rank) counts.set(p.rank, (counts.get(p.rank) ?? 0) + 1);
-    const classes = [...counts].filter(([, n]) => n >= 3).map(([w]) => w).sort();
+    let classes = [...counts].filter(([, n]) => n >= 3).map(([w]) => w).sort();
+    // Too thin to score: fewer than two classes or fewer than 20 labelled objects stays unscored, with the reason in the sidecar.
+    if (classes.length < 2 || out.filter(p => p.rank && classes.includes(p.rank)).length < 20) classes = [];
     for (const p of out) { p.label = p.rank && classes.includes(p.rank) ? p.rank : null; if (p.label) p.evidence = p.evidence.map(e => hide([p.label, ...classes], e)); }
     CELLS[cell].classes = classes; CELLS[cell].baseline = null;
     jwrite(pfile(cell, 'packets'), out, false); jwrite(pfile(cell, 'classes'), classes, false);
