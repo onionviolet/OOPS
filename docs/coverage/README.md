@@ -22,6 +22,11 @@
 | [hp_objects](hp_objects.jsonl) | A | 599 | 599 | 0 | 0 | 160 | 20 | 0 | 100% | 0% |
 | [ri_treasures](ri_treasures.jsonl) | A | 91 | 91 | 0 | 0 | 58 | 2 | 0 | 100% | 0% |
 
+| [shadow_slave_powers](shadow_slave_powers.jsonl) | W | 436 | 436 | 0 | 0 | 178 | 3 | 0 | 100% | 0% |
+| [solo_leveling_powers](solo_leveling_powers.jsonl) | W | 38 | 38 | 0 | 0 | 16 | 2 | 0 | 100% | 0% |
+| [omniscient_reader_powers](omniscient_reader_powers.jsonl) | W | 102 | 102 | 0 | 0 | 68 | 2 | 0 | 100% | 0% |
+| [regressors_tale_powers](regressors_tale_powers.jsonl) | W | 184 | 184 | 0 | 0 | 83 | 0 | 0 | 100% | 0% |
+
 ## Typed and computed, side by side (PC9, PC10)
 
 *Typed states are the owners' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Whether headline numbers may fall is Weibao's call, so nothing is rewritten.*
@@ -53,6 +58,13 @@
 `node scripts/reachable.mjs`: 1650 of 1891 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 | ri_treasures | 0 | 0 | 0 | 0 |
+
+## Reachability from `src/main.js` (PC14)
+
+| omniscient_reader_powers | 0 | 0 | 0 | 0 |
+| regressors_tale_powers | 0 | 0 | 0 | 0 |
+| shadow_slave_powers | 0 | 0 | 0 | 0 |
+| solo_leveling_powers | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
@@ -107,6 +119,11 @@
 | perfect_run_powers | 0 | 0 | | | | | none yet |
 
 | ri_treasures | 0 | 0 | | | | | none yet |
+
+| omniscient_reader_powers | 0 | 0 | | | | | none yet |
+| regressors_tale_powers | 0 | 0 | | | | | none yet |
+| shadow_slave_powers | 0 | 0 | | | | | none yet |
+| solo_leveling_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -357,10 +374,22 @@
 | hp_potions | body-form | 37 |
 | hp_potions | effect-sentence | 33 |
 | worm_powers | tinker-device | 33 |
+
+| shadow_slave_powers | area-field | 55 |
+| omniscient_reader_powers | sponsorship-contract | 50 |
+| regressors_tale_powers | area-field | 47 |
+| shadow_slave_powers | form-transformation | 46 |
+| hp_potions | mind-state | 40 |
+| hp_potions | body-form | 37 |
+| hp_potions | effect-sentence | 33 |
+| shadow_slave_powers | item-bound-power | 32 |
 | hp_potions | plant-or-creature-target | 32 |
 | hp_potions | mind-state | 31 |
 | gu_moves | unnamed-role | 28 |
 | hp_potions | body-form | 24 |
+
+| shadow_slave_powers | power-interaction | 26 |
+| regressors_tale_powers | form-transformation | 17 |
 | gu_moves | role-cannot-run | 17 |
 | worm_powers | power-interaction | 15 |
 | worm_powers | body-form | 13 |
@@ -418,6 +447,25 @@
 | lotm_artifacts | familiar-summon | 3 |
 | lotm_artifacts | soul-binding | 3 |
 | ri_treasures | area-field | 2 |
+
+| regressors_tale_powers | power-interaction | 7 |
+| lotm_potions | body-door | 6 |
+| shadow_slave_powers | mind-binding | 6 |
+| hp_potions | place-release | 6 |
+| omniscient_reader_powers | area-field | 5 |
+| regressors_tale_powers | item-bound-power | 5 |
+| solo_leveling_powers | power-interaction | 5 |
+| shadow_slave_powers | power-transfer | 5 |
+| solo_leveling_powers | familiar-summon | 4 |
+| omniscient_reader_powers | power-transfer | 4 |
+| shadow_slave_powers | vow-cost | 4 |
+| solo_leveling_powers | item-bound-power | 3 |
+| omniscient_reader_powers | power-interaction | 3 |
+| omniscient_reader_powers | time-loop | 3 |
+| regressors_tale_powers | time-loop | 3 |
+| shadow_slave_powers | familiar-summon | 2 |
+| omniscient_reader_powers | form-transformation | 2 |
+| solo_leveling_powers | form-transformation | 2 |
 | hp_potions | luck-field | 2 |
 | rezero_powers | mind-binding | 2 |
 | hp_potions | protection-field | 2 |
@@ -447,6 +495,15 @@
 | ri_treasures | spatial-storage | 1 |
 
 | lotm_potions | formula-chapter-labelled | 1 |
+
+| shadow_slave_powers | sponsorship-contract | 2 |
+| solo_leveling_powers | area-field | 1 |
+| regressors_tale_powers | mind-binding | 1 |
+| regressors_tale_powers | power-transfer | 1 |
+| regressors_tale_powers | sponsorship-contract | 1 |
+| solo_leveling_powers | time-loop | 1 |
+| omniscient_reader_powers | vow-cost | 1 |
+| regressors_tale_powers | vow-cost | 1 |
 
 ## Row format
 

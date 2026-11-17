@@ -392,6 +392,11 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 | Hogwarts magical objects | `hp_objects` | 599 wiki-category pages (Magical objects, Cursed objects, Dark Magic artefacts, Broomsticks and others); held-out label the object category | A |
 | Reverend Insanity non-Gu treasures | `ri_treasures` | 91 wiki-category pages (Materials and Resources, Immortal Materials, formations, resource points, Items), Gu pages excluded | A |
 
+| Shadow Slave powers | `shadow_slave_powers` | 436 named powers from the paid claims, chapters 1-3000 (names recurring in two chapters or reader-kinded) | W |
+| Solo Leveling powers | `solo_leveling_powers` | 38 curated named skills, titles, class, shadows and relics | W |
+| Omniscient Reader's Viewpoint powers | `omniscient_reader_powers` | 102 stigmas, constellation sponsorships and skills | W |
+| A Regressor's Tale powers | `regressors_tale_powers` | 184 named techniques, arts and the regression from the paid claims | W |
+
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 
 ### Grammar layers (GL): what "defining the grammar" means
