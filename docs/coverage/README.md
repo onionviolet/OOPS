@@ -10,7 +10,7 @@
 | [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 0 | 759 | 0 | 0 | 100% | 1.3% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 0 | 193 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 0 | 280 | 9 | 0 | 100% | 5% |
-| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
+| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 0 | 19 | 0 | 0 | 100% | 0% |
 | [a_novel_concept_powers](a_novel_concept_powers.jsonl) | P | to build | 128 | 0 | 0 | 0 | 34 | 39 | 0 | 100% | 0% |
 | [labyrinth_mad_god_powers](labyrinth_mad_god_powers.jsonl) | P | to build | 57 | 0 | 0 | 0 | 18 | 17 | 0 | 100% | 0% |
 | [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 0 | 19 | 29 | 0 | 100% | 0% |
@@ -51,7 +51,7 @@
 | labyrinth_mad_god_powers | 0 | 0 | 0 | 0 |
 | legendary_mechanic_powers | 0 | 0 | 0 | 0 |
 | lotm_artifacts | 0 | 0 | 0 | 0 |
-| lotm_potions | 0 | 46 | 0 | 0 |
+| lotm_potions | 0 | 207 | 0 | 0 |
 | mother_of_learning_powers | 0 | 0 | 0 | 0 |
 | omniscient_reader_powers | 0 | 0 | 0 | 0 |
 | perfect_run_powers | 0 | 0 | 0 | 0 |
@@ -66,7 +66,7 @@
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1651 of 1892 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1650 of 1893 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -359,7 +359,6 @@
 | gu_kinds | rank-unknown | 533 |
 | gu_kinds | effect-unknown | 388 |
 | hp_ingredients | ingredient-properties | 279 |
-| lotm_potions | formula-in-notes | 161 |
 | circle_of_inevitability_powers | effect-unknown | 104 |
 | legendary_mechanic_powers | effect-unknown | 104 |
 | fated_villain_powers | effect-unknown | 91 |

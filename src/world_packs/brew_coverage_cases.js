@@ -452,8 +452,7 @@ function withPour(method, divide = false) {
         {op: 'pour', bindings: {...binding, flask: 'flask'}, minutes: 1, options: {index: 0}}]};
 }
 
-function lotmCase(id, {blood = 11000, route = 'oral', halfServing = false} = {}) {
-    const row = lotmBrewRow(id);
+export function lotmCase(id, {blood = 11000, route = 'oral', halfServing = false} = {}, row = lotmBrewRow(id)) {
     if (!row) throw new Error(`Unknown LOTM brew ${id}.`);
     const seer = id === 'fool_9';
     const crystal = 48000;
