@@ -1,0 +1,14 @@
+{
+ "meta": {"world": "book.hp", "note": "Rule rows (PWC25 shape): id, world, statement, locators, speaker, mechanism, derives. Derived values cite a rule id (PWC20). Proposals, agent-written inference; no canon line states this rule.", "date": "2026-11-17"},
+ "rules": [
+  {
+   "id": "hp.rule.recipe-carries-effect",
+   "world": "book.hp",
+   "statement": "A potion's effect comes from what goes into it, so an ingredient carries the effect axes of the potions it is brewed in: support for an axis is the share of its recipes (with a known effect) that name it, weaker when there is one recipe; the same thing in another form (dittany leaf, essence of dittany) and, at a lower weight, other parts of the same source creature or plant lend the axes a source states for them. A derived set says an axis is present at trace or some, never strong, and a stated axis from a later wiki or chapter pass replaces it. Default: the authored effect-to-axis map in scripts/derive_hp_properties.mjs; dials: minimum confidence 0.25, cap 0.8, stem weights 0.55 and 0.3; reason: a recipe's effect is known more often than its ingredients' properties (R5: 13 of 117 stated in the novels).",
+   "locators": ["docs/coverage/wiki_tier_labels.json#hp_ingredients.*.potions", "docs/coverage/wiki_tier_labels.json#hp_potions.*.sentence", "docs/coverage/chapter_tier_labels.json#hp_ingredients"],
+   "speaker": "inference (agent proposal, PWC22); not stated in a source",
+   "mechanism": "src/hp_property_set.js (material row, derived case) + src/brew_dose_response.js (dose law)",
+   "derives": ["ingredient-properties"]
+  }
+ ]
+}

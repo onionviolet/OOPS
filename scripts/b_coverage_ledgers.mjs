@@ -405,6 +405,7 @@ export async function buildLedgers() {
             ['brew_law', 'hp_property_set']);
         row.case.module = HP_PROPERTY_MODULE;
     }
+    (await import('./derive_hp_properties.mjs')).foldDerived(hpIngredients); // PWC22: derived tier for the rest
     return {hp_potions: hpPotions,
         hp_ingredients: hpIngredients,
         lotm_potions: lotmPotions};
@@ -413,7 +414,7 @@ export async function buildLedgers() {
 export function summarize(rows) {
     const count = prefix => rows.filter(r => r.state.startsWith(prefix)).length;
     const real = rows.length - count('not-a-thing');
-    const runs = count('runs-');
+    const runs = count('runs-canon') + count('runs-authored'); // derived rows (PWC20) stay out of the share
     return {rows: rows.length, runsCanon: count('runs-canon'), runsAuthored: count('runs-authored'), blocked: count('blocked:'),
         notAThing: count('not-a-thing:'), unclassified: count('unclassified'), real, runsShareOfReal: real ? Math.round(runs * 1000 / real) / 10 : 0};
 }
@@ -427,7 +428,7 @@ export function toLedgerRow(r) {
     const source = [r.source, ...(r.observations ?? [])].join('; ');
     return {id: r.id, source, state: r.state, mechanisms: r.mechanisms, test: r.test ?? null,
         note: [label + '.', r.note, extra && `(${extra})`].filter(Boolean).join(' '),
-        ...(r.case ? {case: r.case} : {})};
+        ...(r.case ? {case: r.case} : {}), ...(r.derived ? {derived: r.derived} : {})};
 }
 const serialize = rows => rows.map(r => JSON.stringify(toLedgerRow(r))).join('\n') + '\n';
 
