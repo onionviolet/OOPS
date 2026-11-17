@@ -13,6 +13,10 @@
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
+| [mother_of_learning_powers](mother_of_learning_powers.jsonl) | W | 230 | 230 | 0 | 0 | 157 | 5 | 0 | 100% | 0% |
+| [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 323 | 8 | 0 | 100% | 0% |
+| [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 180 | 3 | 0 | 100% | 0% |
+| [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 226 | 10 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -20,17 +24,21 @@
 
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
+| circle_of_inevitability_powers | 0 | 0 | 0 | 0 |
 | creatures | 17 | 82 | 0 | 17 |
+| fated_villain_powers | 0 | 0 | 0 | 0 |
 | gu_kinds | 516 | 16 | 0 | 516 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 4 | 0 | 20 |
 | hp_potions | 1 | 34 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
+| legendary_mechanic_powers | 0 | 0 | 0 | 0 |
 | lotm_potions | 0 | 46 | 0 | 0 |
+| mother_of_learning_powers | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1642 of 1880 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1650 of 1889 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -40,13 +48,17 @@
 
 | Ledger | Tuned on | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route | Split |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| circle_of_inevitability_powers | 0 | 0 | | | | | none yet |
 | creatures | 0 | 0 | | | | | none yet |
+| fated_villain_powers | 0 | 0 | | | | | none yet |
 | gu_kinds | 8 | 53 | 4 of 53 | not scored without an engine | 1 of 6 (47 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
+| legendary_mechanic_powers | 0 | 0 | | | | | none yet |
 | lotm_potions | 0 | 0 | | | | | none yet |
+| mother_of_learning_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -281,22 +293,76 @@
 | gu_kinds | effect-unknown | 361 |
 | hp_ingredients | ingredient-properties | 280 |
 | lotm_potions | formula-in-notes | 162 |
+| circle_of_inevitability_powers | effect-unknown | 104 |
+| legendary_mechanic_powers | effect-unknown | 104 |
 | hp_ingredients | material-row | 96 |
+| fated_villain_powers | effect-unknown | 91 |
 | hp_potions | body-door | 80 |
+| circle_of_inevitability_powers | item-bound-power | 64 |
 | gu_moves | roles-unchecked | 63 |
 | hp_potions | mind-state | 40 |
 | hp_potions | body-form | 37 |
+| mother_of_learning_powers | soul-state | 35 |
+| mother_of_learning_powers | effect-unknown | 34 |
+| fated_villain_powers | item-bound-power | 34 |
 | hp_potions | effect-sentence | 33 |
 | hp_potions | plant-or-creature-target | 32 |
 | gu_moves | unnamed-role | 28 |
+| circle_of_inevitability_powers | divination-fate | 24 |
+| circle_of_inevitability_powers | form-transformation | 23 |
+| circle_of_inevitability_powers | mind-binding | 21 |
+| circle_of_inevitability_powers | area-field | 20 |
+| circle_of_inevitability_powers | dimension-travel | 19 |
+| fated_villain_powers | soul-state | 19 |
 | gu_moves | role-cannot-run | 17 |
+| fated_villain_powers | divination-fate | 15 |
+| mother_of_learning_powers | mind-binding | 15 |
+| mother_of_learning_powers | power-interaction | 15 |
+| circle_of_inevitability_powers | soul-state | 15 |
+| legendary_mechanic_powers | soul-state | 13 |
+| fated_villain_powers | system-interface | 13 |
+| legendary_mechanic_powers | system-interface | 13 |
+| mother_of_learning_powers | area-field | 12 |
 | lotm_potions | formula-wiki-unchecked | 12 |
+| fated_villain_powers | area-field | 11 |
+| circle_of_inevitability_powers | familiar-summon | 11 |
+| legendary_mechanic_powers | item-bound-power | 11 |
+| mother_of_learning_powers | item-bound-power | 11 |
+| mother_of_learning_powers | divination-fate | 10 |
+| fated_villain_powers | power-interaction | 10 |
 | hp_potions | conceal-or-sense | 9 |
+| circle_of_inevitability_powers | power-interaction | 9 |
+| mother_of_learning_powers | dimension-travel | 8 |
+| fated_villain_powers | form-transformation | 8 |
+| legendary_mechanic_powers | form-transformation | 8 |
+| fated_villain_powers | mind-binding | 8 |
 | hp_potions | object-surface | 8 |
+| legendary_mechanic_powers | mind-binding | 7 |
 | lotm_potions | body-door | 6 |
+| fated_villain_powers | dimension-travel | 6 |
+| fated_villain_powers | familiar-summon | 6 |
 | hp_potions | place-release | 6 |
+| circle_of_inevitability_powers | vow-cost | 6 |
+| legendary_mechanic_powers | blueprint-craft | 5 |
+| legendary_mechanic_powers | construct-upkeep | 5 |
+| mother_of_learning_powers | form-transformation | 5 |
+| legendary_mechanic_powers | power-interaction | 5 |
+| legendary_mechanic_powers | area-field | 4 |
+| circle_of_inevitability_powers | power-transfer | 4 |
+| fated_villain_powers | power-transfer | 4 |
+| mother_of_learning_powers | time-loop | 4 |
+| circle_of_inevitability_powers | time-loop | 3 |
+| legendary_mechanic_powers | dimension-travel | 2 |
+| legendary_mechanic_powers | divination-fate | 2 |
+| mother_of_learning_powers | familiar-summon | 2 |
 | hp_potions | luck-field | 2 |
+| mother_of_learning_powers | power-transfer | 2 |
 | hp_potions | protection-field | 2 |
+| mother_of_learning_powers | vow-cost | 2 |
+| mother_of_learning_powers | blueprint-craft | 1 |
+| mother_of_learning_powers | construct-upkeep | 1 |
+| legendary_mechanic_powers | familiar-summon | 1 |
+| fated_villain_powers | vow-cost | 1 |
 
 ## Row format
 

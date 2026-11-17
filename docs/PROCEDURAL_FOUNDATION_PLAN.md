@@ -382,6 +382,10 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 | Lord of the Mysteries potions | `lotm_potions` | Built first: one row per pathway sequence potion and named non-pathway potion, from the open canon (Weibao has read it in full, so it is open in development) | B |
 | Hogwarts spells | `hp_spells` | 117 spellbook records | S |
 | Gu as creatures, other creatures | `creatures` | Rows from G's catalogue plus L's inventory | L |
+| Mother of Learning powers | `mother_of_learning_powers` | 230 named spells, techniques, devices and loop rules from the reader claims and POWERS.md (PWC3, PWC17) | W |
+| Circle of Inevitability powers | `circle_of_inevitability_powers` | 445 named powers from 1,061 power claims; 39 Sequence rows link to `lotm_potions` | W |
+| The Legendary Mechanic powers | `legendary_mechanic_powers` | 219 named abilities, class steps, blueprints and system functions from the power index and engine inputs | W |
+| Fated Villain powers | `fated_villain_powers` | 309 named techniques, physiques, items and system functions from the MTL-edition claim ledger (pass 2 incomplete) | W |
 
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 
