@@ -30,7 +30,7 @@
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1606 of 1843 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1642 of 1880 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -276,7 +276,7 @@
 | gu_kinds | rank-unknown | 569 |
 | hp_ingredients | ingredient-properties | 376 |
 | gu_kinds | effect-unknown | 364 |
-| lotm_potions | formula-in-notes | 174 |
+| lotm_potions | formula-in-notes | 162 |
 | gu_moves | roles-unchecked | 122 |
 | hp_potions | body-door | 80 |
 | creatures | diet-unknown | 61 |
@@ -285,6 +285,7 @@
 | hp_potions | effect-sentence | 33 |
 | hp_potions | plant-or-creature-target | 32 |
 | gu_moves | unnamed-role | 13 |
+| lotm_potions | formula-wiki-unchecked | 12 |
 | hp_potions | conceal-or-sense | 9 |
 | hp_potions | object-surface | 8 |
 | lotm_potions | body-door | 6 |

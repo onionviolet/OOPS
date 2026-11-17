@@ -105,9 +105,10 @@ export function potionFamily(title) {
 // row whose title says nothing, both marked as unchecked Luna labels. Read lazily so the family rule above can
 // be imported by the normaliser that writes this file.
 let tierLabels;
-const tierOf = id => (tierLabels ??= (() => {
-    try { return JSON.parse(readFileSync(at('docs/coverage/wiki_tier_labels.json'), 'utf8')).hp_potions; } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
-})())[id] ?? {};
+const tierFile = () => tierLabels ??= (() => {
+    try { return JSON.parse(readFileSync(at('docs/coverage/wiki_tier_labels.json'), 'utf8')); } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
+})();
+const tierOf = id => tierFile().hp_potions?.[id] ?? {};
 
 function hpPotionRow(entry) {
     const row = hpPotionRowFromTitle(entry);
@@ -215,6 +216,26 @@ function lotmInventory(text, brewRows) {
     return rows.map(r => Object.fromEntries(Object.entries(r).filter(([, v]) => v !== undefined)));
 }
 
+// Wiki-tier formula labels (GKM445) from scripts/wiki_tier_labels.mjs, applied after the reviewed overrides so
+// their notes stay. A main that Luna lists and Haiku calls main (11 of 13 right on the brew-pack rows, held-out
+// 3 of 3) moves a formula-in-notes row to formula-wiki-unchecked: the wiki names mains, and a brew row plus a
+// chapter check would run it. Ingredients with no stated role and the GKM433 authored default are noted only.
+const listOf = items => items.map(m => `${m.name} at ${m.locator}${m.cite ? ` (${m.cite})` : ''}`).join('; ');
+function foldLotmTier(rows) {
+    for (const row of rows) {
+        const tier = tierFile().lotm_potions?.[row.id];
+        if (!tier || row.state !== 'blocked:formula-in-notes') continue;
+        if (tier.mains) {
+            Object.assign(row, {state: 'blocked:formula-wiki-unchecked', basis: `${row.basis}; wiki-tier mains (${tier.mainsBasis}, unchecked against chapters)`});
+            row.note += ` Wiki-tier mains: ${listOf(tier.mains)}. The list may be partial; supplementary ingredients and amounts are open, so the law runs it once a brew row and a chapter check confirm them.`;
+            continue;
+        }
+        if (tier.roleUnstated) row.note += ` The wiki ties ${listOf(tier.roleUnstated)} to this potion without saying main or supplementary.`;
+        if (tier.authoredDefault) row.note += ` Authored default (GKM433, not canon): ${tier.authoredDefault.mains} stands in for the mains.`;
+    }
+    return rows;
+}
+
 async function nonPathwayRows() {
     const {LOTM_AID_PREPARATIONS} = await import(at('src/lotm_potion_rule_rows.js'));
     return LOTM_AID_PREPARATIONS.rows.map(r => ({id: `lotm.potion.${slug(r.id.replace(/^lotm\.aid\./, 'aid_'))}`, pathway: null, seq: null,
@@ -284,7 +305,7 @@ export async function buildLedgers() {
     const hpPotions = applyOverrides(potions, o.hp_potions, 'hp_potions');
     for (const [id, note] of Object.entries(hpCases))
         attachCase(hpPotions.find(row => row.id === `hp.potion.${id}`), id, note, ['brew_law', 'b.dose']);
-    const lotmPotions = applyOverrides(lotm, o.lotm_potions, 'lotm_potions');
+    const lotmPotions = foldLotmTier(applyOverrides(lotm, o.lotm_potions, 'lotm_potions'));
     for (const recipe of LOTM_BREW_ROWS) {
         const row = lotmPotions.find(r => r.id === `lotm.potion.${recipe.id}`);
         const note = recipe.id === 'fool_9' ? 'Engine case: stock, bottling and oral transfer. Measured excess charge drives the authored hazard separately from potency. Advancement is open.' :

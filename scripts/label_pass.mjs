@@ -9,7 +9,8 @@
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 
-const dir = new URL('../docs/research/advancement-aspects-2026-11-16/private/', import.meta.url).pathname;
+// LABEL_PRIVATE points a worktree without the gitignored folder at the primary checkout's private folder.
+const dir = process.env.LABEL_PRIVATE ? `${process.env.LABEL_PRIVATE.replace(/\/$/, '')}/` : new URL('../docs/research/advancement-aspects-2026-11-16/private/', import.meta.url).pathname;
 export const RATE = {in: 0.10, out: 0.50}; // per million, standard; batch is half (BATCH_READING_WORKFLOW.md)
 
 export const SPEAKER = {type: 'string', enum: ['narrator', 'character_claim', 'demonstration', 'wiki', 'unknown']};
@@ -20,7 +21,19 @@ const obj = (props, extra = {}) => ({type: 'object', additionalProperties: false
 
 export const RULES = `Use only the evidence lines given. Each line starts with its locator in square brackets; copy that bracket's content exactly into "locator". Write values as short paraphrases in your own words, never quotations. If the evidence does not state something, set value and locator to "" and speaker to "unknown": an empty field is correct, a guess is wrong. "speaker" says who states it: narrator, a character's claim (which may be wrong), a demonstration (shown happening), or the wiki.`;
 
+const ingredient = {type: 'array', items: {type: 'object', additionalProperties: false, required: ['name', 'locator', 'speaker', 'cite'],
+    properties: {name: {type: 'string'}, locator: {type: 'string'}, speaker: SPEAKER, cite: {type: 'string'}}}};
+export const LOTM_ASPECTS = ['do', 'settle', 'go_wrong', 'change', 'who_may', 'where_from', 'how_long', 'others_notice', 'left_behind',
+    'who_controls', 'mind', 'can_be_false', 'combines'];
+
 const PASSES = {
+    lotm_potions: {
+        schema: obj(Object.fromEntries(LOTM_ASPECTS.map(a => [a, 1])), {mains: ingredient, aux: ingredient}),
+        prompt: p => `Fill the advancement sheet for the Lord of the Mysteries potion ${p.pathway} Pathway Sequence ${p.seq}: ${p.wikiName}.
+mains: the main ingredients of THIS Sequence's potion formula; aux: its supplementary ingredients. List an ingredient only when the evidence ties it to this Sequence's potion (not another Sequence's, not a ritual material, not an artifact). For each, "name" is the ingredient's name as the evidence gives it (when a line shows [ingr:Name], use that Name), and "cite" is the book citation in that line such as "B1 ch845", or "" if none. Empty lists are correct when no ingredient is tied to this Sequence.
+do: the advancement ritual. settle: the acting method or how the potion is digested. go_wrong: backlash or loss of control. change: abilities gained. who_may: prerequisites. where_from: where the formula or ingredients came from. how_long: digestion, brewing or waiting time. others_notice: what others can sense. left_behind: what remains after death. who_controls: who holds the formula. mind: effects on personality. can_be_false: false or incomplete formulas. combines: interactions with other pathways or items.
+${RULES}`,
+    },
     ri_moves: {
         schema: obj({cost: 1, conditions: 1, effect: 1, counters: 1, path: 1, rank: 1}, {components: {type: 'array', items: {
             type: 'object', additionalProperties: false, required: ['gu', 'role', 'locator', 'speaker'],

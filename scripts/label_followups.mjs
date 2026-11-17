@@ -9,6 +9,9 @@
 //                same categories to score it.
 //   move_check   Haiku, a second model, checks each component of the roles-unchecked move leads against the
 //                lead's evidence: core, support, not part of the move, or unclear, and the order if stated.
+//   lotm_check   Haiku checks each ingredient Luna tied to a Lord of the Mysteries Sequence (main, supplementary,
+//                role unstated, not part of the formula, unclear) and lists ingredients Luna missed, for every row
+//                whose packet names an ingredient or formula. Only "main" verdicts may fold (rule set before scoring).
 //   hp_sentence  Luna writes one effect-grammar sentence per Hogwarts preparation from its wiki evidence,
 //                with the four tuned evidence sentences as examples; the 17 held-out ones score it.
 // Replies go to private/<pass>_followup.json (resumable). Prints usage and cost per pass.
@@ -25,7 +28,7 @@ import {potionFamily, HP_POTION_FAMILY_OVERRIDES} from './b_coverage_ledgers.mjs
 import {splitLabelled} from '../src/brew_heldout.js';
 
 const root = new URL('..', import.meta.url).pathname;
-const priv = `${root}docs/research/advancement-aspects-2026-11-16/private/`;
+const priv = process.env.LABEL_PRIVATE ? `${process.env.LABEL_PRIVATE.replace(/\/$/, '')}/` : `${root}docs/research/advancement-aspects-2026-11-16/private/`;
 const json = path => JSON.parse(readFileSync(path, 'utf8'));
 const tier = json(`${root}docs/coverage/wiki_tier_labels.json`);
 const replies = name => Object.fromEntries(Object.entries(json(`${priv}${name}_luna.json`)).filter(([, r]) => r.reply).map(([id, r]) => [id, r.reply]));
@@ -110,6 +113,24 @@ Evidence:
 ${p.evidence.join('\n')}`}));
 }
 
+export const LOTM_VERDICTS = ['main', 'supplementary', 'role-unstated', 'not-formula', 'unclear'];
+function lotmCheckJobs() {
+    const rows = replies('lotm_potions');
+    const roleOf = enumOf(['main', 'supplementary', 'role-unstated']);
+    const schema = object({ingredients: {type: 'array', items: object({name: str, verdict: enumOf(LOTM_VERDICTS), locator: str, speaker: SPEAKER})},
+        missed: {type: 'array', items: object({name: str, role: roleOf, locator: str, speaker: SPEAKER})}});
+    return [...packets('lotm_potions').values()].filter(p => p.evidence.slice(1).some(e => /ingredient|formula/i.test(e))
+        || rows[p.id]?.mains.length || rows[p.id]?.aux.length).map(p => {
+        const listed = [...rows[p.id].mains.map(m => m.name), ...rows[p.id].aux.map(m => m.name)];
+        return {id: p.id, schema, prompt: `A first reader listed these as ingredients of the Lord of the Mysteries potion ${p.pathway} Pathway Sequence ${p.seq}: ${p.wikiName}: ${listed.length ? listed.join('; ') : '(none)'}.
+Check each against the evidence. verdict: main (the evidence calls it a main ingredient of THIS Sequence's potion), supplementary (the evidence calls it supplementary or auxiliary), role-unstated (the evidence ties it to this potion's formula without saying main or supplementary), not-formula (a ritual material, a Beyonder characteristic used in place of the formula, another Sequence's ingredient, an artifact or not an ingredient at all), or unclear. Keep the listed names exactly, one entry each.
+missed: ingredients the evidence ties to THIS Sequence's potion formula that the first reader did not list, with the role the evidence gives; an empty list is correct.
+${RULES}
+Evidence:
+${p.evidence.join('\n')}`};
+    });
+}
+
 const anthropic = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
 async function haiku(prompt, schema) {
     const msg = await anthropic.messages.create({model: 'claude-haiku-5-5', max_tokens: 8000,
@@ -148,6 +169,7 @@ if (process.argv[1] === new URL(import.meta.url).pathname) {
         on('gu_diet') && run('gu_food_stated', diet.stated, luna),
         on('move_check') && run('move_check', moveCheckJobs(), haiku),
         on('hp_sentence') && run('hp_sentence', hpSentenceJobs(), luna),
+        on('lotm_check') && run('lotm_check', lotmCheckJobs(), haiku),
     ].filter(Boolean);
     for (const result of await Promise.all(passes)) console.log(JSON.stringify(result));
     console.log(JSON.stringify({familyExamples: family.examples}));
