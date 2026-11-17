@@ -148,6 +148,14 @@ Weibao, 2026-10-14: merge finished work "each time" before a new wave
    with logs under `.git/merge-queue/<stamp>/`. It never stashes, resets, forces
    or pushes. Conflicts only in `dist/bundle.js`, its map or `index.html` take
    master's side and are rebuilt into the last merge commit.
+6. Delete each merged lane's extras in the same step, once the combined gates pass
+   (Weibao, 2026-11-16, [direction](USER_VISION_LOG_2026-11.md#each-merge-deletes-the-merged-lanes-extras-2026-11-16)):
+   `git worktree remove` its worktree (refused when dirty: keep it and name it for
+   its owner), then `git worktree prune`; `git branch -d` its branch, which refuses
+   anything not in master; delete its scratch, unpacked downloads and processes;
+   restore `dist/bundle.js`, its map and `index.html` if your gate's build rewrote
+   them while they were clean. Keep what a record cites. The merge report names
+   what was deleted and what was kept.
 
 Before dispatching, also check for same-day owner docs on the same topic.
 Parallel sessions often answer the same prompt (2026-10-14: duplicate comics pass).

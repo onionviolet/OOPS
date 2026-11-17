@@ -198,6 +198,9 @@ folders, background processes and superseded app builds. Keep what a record cite
 the adopted build and one rollback; a failed run keeps its scratch until read. Stale
 scratch from another task: check it is not cited or in use, then delete or name it
 ([direction](docs/gm/USER_VISION_LOG_2026-11.md#finished-tasks-delete-their-extras-2026-11-14)).
+Every merge does this in the same step for the lanes it merged: worktree, branch once
+in master, scratch and processes ([2026-11-16](docs/gm/USER_VISION_LOG_2026-11.md#each-merge-deletes-the-merged-lanes-extras-2026-11-16),
+[procedure](docs/gm/SHARED_WORKTREE_PRACTICE.md#merge-before-dispatch)).
 
 ## Sealed secrets
 

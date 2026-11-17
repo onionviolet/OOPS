@@ -1725,3 +1725,20 @@ Weibao, with a screenshot of an LOTM potion page (Overview, Formula, Ritual, Bac
 
 Same thread: "haiku or luna? whats more optimal? Check wikis and more too? other aspects?" Answered in the same doc: same batch price, use both with each as the other's check, a pilot per pass; the LOTM wiki is already on disk; nine more aspects; the price estimate corrected upward to $10 to $30.
 
+
+## Each merge deletes the merged lanes' extras, 2026-11-16
+
+Weibao, while three label-pass sessions were being merged into master: "delete useless too, write rule to do that each time merge"
+
+Recorded as a standing rule. It narrows the [finished-tasks cleanup of 2026-11-14](#finished-tasks-delete-their-extras-2026-11-14) to a fixed moment: every merge, not some later sweep.
+
+- Default: right after a merged branch lands and the combined gates pass, the integrator deletes that lane's extras in the same step:
+  - its worktree and registration (`git worktree remove`, then `git worktree prune`);
+  - its branch, once it is an ancestor of master (`git branch -d`, never `-D`);
+  - its scratch files and unpacked downloads, with the source archives kept;
+  - its background processes;
+  - build outputs the integrator's own gate rewrote (`dist/bundle.js`, its map, `index.html`), restored when they were clean before the build.
+  The merge report names what was deleted.
+- Keep: what an owner record cites as evidence (the private label folders are cited by their READMEs), the adopted build and one rollback.
+- Dial: a worktree with uncommitted files, a running process or an unmerged commit is kept and named for its owner, never forced. A failed gate keeps the lane's extras until the failure is read.
+- Reason: three merged lane worktrees were about 3.9 GB, and stale branches and worktrees are what later agents mistake for live work.
