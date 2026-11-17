@@ -127,6 +127,13 @@ Weibao, 2026-10-14: merge finished work "each time" before a new wave
    fails. Keep the gate's status through the wrapper, or read the recorded
    status and suite summary before applying the candidate.
    Pushing waits for Weibao's yes; there is no standing push authorization.
+   One pusher for master (Weibao, 2026-11-16, [direction](USER_VISION_LOG_2026-11.md#one-pusher-for-master-2026-11-16)):
+   while a wave is open, only its coordinator pushes `master`, and only the commit its gate passed.
+   Other sessions hand their branches or commits to that coordinator. Before pushing, the coordinator
+   checks that `origin/master` is an ancestor of the gated commit. If it moved, the coordinator reads
+   who moved it, records that in the wave record, and gates the combined tree again. Dial: with no
+   open wave, any session may push its own gated commit on Weibao's yes. Reason: on 2026-11-16 another
+   session pushed a commit whose gate had failed, and origin carried two regressions until the fix was pushed.
 3. Use the incumbent owner or its explicit handoff. If a supported task route
    reaches that owner, an addressing failure on another route does not justify
    a replacement writer. Preserve unknown or interrupted reservations.

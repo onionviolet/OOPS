@@ -1761,3 +1761,15 @@ Recorded as standing rule AU16 in the [agent usage rules](../AGENT_USAGE_RULES.m
 - Tool: `scripts/label_runner.mjs` (batch by default, `--sync`, `--dry`, `--wait`, `--max-usd`, cached tokens recorded), built on the book reader's existing batch client. `scripts/label_pass.mjs` runs through it.
 - R1-R7 from that round are the work list: [power catalogue palette](../research/power-catalogues-2026-11-16/README.md#round-2-coverage-and-api-use-2026-11-16).
 
+## One pusher for master, 2026-11-16
+
+Weibao, approving the coordinator's process fixes after the UI finish wave: "We can address all of those other thigns to improve too".
+
+- Default: while a wave is open, only its coordinator pushes `master`, after checking that `origin/master` is an ancestor of the gated commit. Other sessions hand their work over. Procedure: [merge before dispatch](SHARED_WORKTREE_PRACTICE.md#merge-before-dispatch), step 2.
+- Dial: with no wave open, a session pushes its own gated commit on his yes.
+- Reason: another session pushed 4f5aaa8fe at 22:16, after its gate had failed on two lead-life regressions, and origin carried them until c9c59e9cc.
+
+Same message, on the UI finish wave's open choices:
+- D1 "sure": Reports filters (all eight) are remembered as a display setting, not a save key.
+- D2 "we should improve, as long as it still looks good": inventory rows move onto the kit, judged on before and after captures.
+
