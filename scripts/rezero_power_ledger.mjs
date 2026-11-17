@@ -60,7 +60,16 @@ const wnChapters = () => wn ??= Object.values(readJson(`${NOVEL}witchcult/rezero
 
 export function evidenceFor(row, {lines = 10, snippets = 6} = {}) {
     const re = patternFor(row);
-    const found = allLines().filter(l => re.test(l.text));
+    let found = allLines().filter(l => re.test(l.text));
+    // A thin match falls back to every significant word of the name appearing in one line, or for a Factor its bare sin
+    // word on a line about Factors, Authorities or Archbishops (the digests' tables lead with the sin).
+    if (found.length < 2) {
+        const words = plain(row.name).split(/[^A-Za-z']+/).filter(w => w.length >= 4);
+        const loose = row.cls === 'witch_factor' ? new RegExp(`\\b${esc(plain(row.name))}\\b`, 'i') : null;
+        const more = allLines().filter(l => !found.includes(l) && (loose ? loose.test(l.text) && /factor|authority|archbishop|witch/i.test(l.text)
+            : words.length >= 2 && words.every(w => new RegExp(`\\b${esc(w)}`, 'i').test(l.text))));
+        found = [...found, ...more];
+    }
     // Prefer lines that carry a source tag, then longer ones, and cap the count.
     const rank = l => (lineSpeaker(l.text) ? 0 : 1);
     const picked = found.sort((a, b) => rank(a) - rank(b)).slice(0, lines).sort((a, b) => 0);

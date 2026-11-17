@@ -73,6 +73,7 @@ export const DENOMINATORS = {
     lotm_potions: {expected: null, owner: 'B', what: 'pathway sequence and named potions, built first'},
     hp_spells: {expected: 117, owner: 'S', what: 'spellbook records'},
     creatures: {expected: null, owner: 'L', what: "G's catalogue plus L's inventory"},
+    rezero_powers: {expected: 204, owner: 'W', what: 'Re:Zero named powers: 178 powers and 26 names that are not (PWC3)'},
 };
 const STATE = /^(runs-canon|runs-authored|expressed-canon|expressed-authored|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
 const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case']);

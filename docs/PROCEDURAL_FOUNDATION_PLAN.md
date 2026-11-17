@@ -382,6 +382,7 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 | Lord of the Mysteries potions | `lotm_potions` | Built first: one row per pathway sequence potion and named non-pathway potion, from the open canon (Weibao has read it in full, so it is open in development) | B |
 | Hogwarts spells | `hp_spells` | 117 spellbook records | S |
 | Gu as creatures, other creatures | `creatures` | Rows from G's catalogue plus L's inventory | L |
+| Re:Zero powers (Authorities, Witch Factors, Divine Protections, spells by tier, curses, spirit contracts, Return by Death, other named arts) | `rezero_powers` | 204 names merged from the deep dives, reader digests and a free scan of the WN and IF captures (178 powers, 26 not-a-thing); [power catalogues PWC1-PWC7](research/power-catalogues-2026-11-16/README.md) | W (power sheet) |
 
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 
