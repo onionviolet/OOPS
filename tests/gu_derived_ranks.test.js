@@ -56,7 +56,7 @@ test('derived rows carry their rule in the ledger and the rule rows list their s
     assert.equal(rows.length, Object.keys(derived.rows).length);
     for (const row of rows) {
         assert.match(row.state, /^(runs-derived|catalogued|blocked:effect-unknown|blocked:[a-z-]+)$/, row.id); // catalogued or a capability slug: a chapter-read effect sentence (PWC27)
-        if (row.state === 'runs-derived') assert.deepEqual(row.derived, {rule: derived.rows[row.id].rule, inputs: derived.rows[row.id].inputs}, row.id);
+        if (row.state === 'runs-derived') { const {confidence, ...rest} = row.derived; assert.deepEqual(rest, {rule: derived.rows[row.id].rule, inputs: derived.rows[row.id].inputs}, row.id); assert.ok(confidence?.verdict, `${row.id}: derived row carries its rule's confidence (PWC80)`); }
         assert.equal(labels[row.id].rank, derived.rows[row.id].rank, row.id);
     }
     for (const rule of rules.filter(r => r.id.startsWith('gu.rank.'))) {
