@@ -71,7 +71,8 @@ function kindRow(record) {
     const byType = types.length ? typeFunction[types[0]] : null;
     const byName = byType ? null : nameFunction.find(([pattern]) => pattern.test(nameOf(record)))?.[1] ?? null;
     const luna = tier.gu_kinds[record.id] ?? {};
-    const byTier = byType || byName ? null : luna.function ?? null;
+    const byTier = byType || byName ? null : luna.function ?? luna.effectFamily ?? null;
+    const tierBasis = luna.function ? luna.functionBasis : luna.effectFamilyBasis;
     const fn = byType ?? byName ?? byTier;
     // GKM443: a kind the wiki names an Immortal Gu is rank six or higher. With no rank label, six is used as a
     // lower bound and marked so; a wiki-tier rank replaces it, and a wiki category or chapter rank replaces both.
@@ -80,8 +81,8 @@ function kindRow(record) {
     const rank = ranks.length ? ranks[0] : tierRank ?? (immortalByName ? 6 : null);
     const wiki = {...base, layer: 'wiki', status: record.status, rank, function: fn, path: pathOf(record),
         rankBasis: ranks.length ? 'wiki-rank' : tierRank ? luna.rankBasis : immortalByName ? 'name-immortal-lower-bound' : null,
-        labelBasis: byType ? 'wiki-type' : byName ? 'name-keyword-inference' : byTier ? luna.functionBasis : null,
-        tierAt: tierRank || byTier ? [tierRank && luna.rankAt?.locator, byTier && luna.functionAt?.locator].filter(Boolean) : null};
+        labelBasis: byType ? 'wiki-type' : byName ? 'name-keyword-inference' : byTier ? tierBasis : null,
+        tierAt: tierRank || byTier ? [tierRank && luna.rankAt?.locator, byTier && (luna.function ? luna.functionAt?.locator : luna.effectAt?.locator)].filter(Boolean) : null};
     if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: ['G'], note: 'No wiki rank label; needs a chapter pass or an authored-rank dial.'};
     if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: ['G'], note: luna.effectAt
         ? `No effect family from type or name. The wiki-tier label (Luna, unchecked) states an effect at ${luna.effectAt.locator}; it needs mapping to an effect family (GL2).`
@@ -90,7 +91,7 @@ function kindRow(record) {
     return {...wiki, state: 'runs-authored', mechanisms: owners(['activate']),
         note: `Unchecked wiki identity (tentative, SKR3); ${immortalByName ? 'rank 6 as a lower bound from the Immortal Gu name (GKM443)'
             : tierRank ? `rank ${rank} from the wiki-tier label (${luna.rankBasis}, Luna, unchecked)` : `lowest wiki rank ${rank}`}; ${byType ? 'function from wiki type'
-            : byName ? 'function inferred from the name' : `function from the wiki-tier label (${luna.functionBasis}, Luna, unchecked)`}; ability derived.`};
+            : byName ? 'function inferred from the name' : `function from the wiki-tier label (${tierBasis}, unchecked)`}; ability derived.`};
 }
 
 function moveRow(move) {
@@ -132,8 +133,10 @@ function leadState(luna) {
     const parts = luna?.components ?? [];
     const named = parts.map(c => `${c.kind ?? c.name} (${c.role})`).join(', ');
     const tierFields = parts.length ? {wikiRoles: parts.map(c => ({kind: c.kind, role: c.role, at: c.locator}))} : {};
-    if (parts.length && parts.every(c => c.kind)) return {...tierFields, state: 'blocked:roles-unchecked', mechanisms: ['G'],
-        note: `A wiki move lead. The wiki-tier label (Luna, unchecked) names ${named}; the roles and their order need a chapter check before it can run.`};
+    if (parts.length && parts.every(c => c.kind) && luna.secondRead !== 'partial') return {...tierFields, state: 'blocked:roles-unchecked', mechanisms: ['G'],
+        note: `A wiki move lead. The wiki-tier label names ${named}${luna.secondRead === 'agree' ? ', and a second reader (Haiku) agrees on every role' : ' (Luna, unchecked)'}; the order and a chapter check remain before it can run.`};
+    if (luna?.secondRead === 'partial' && parts.length) return {...tierFields, state: 'blocked:roles-unknown', mechanisms: ['G'],
+        note: `A wiki move lead. The wiki-tier label names ${named}, but a second reader (Haiku) finds a role unclear or no part left; a chapter pass settles the roles and order.`};
     return {...tierFields, state: 'blocked:roles-unknown', mechanisms: ['G'], note: parts.length
         ? `A wiki move lead. The wiki-tier label (Luna, unchecked) names ${named}; a component outside the kind index and the order need a chapter pass before it can run.`
         : 'A wiki move lead; its component Gu and order need a chapter pass before it can run.'};

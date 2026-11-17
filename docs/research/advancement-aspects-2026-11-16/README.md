@@ -144,5 +144,14 @@ Total $0.36 at standard rates; the batch route would have been half.
 - **Hogwarts potions.** Every labelled row gets a route note (drunk, eaten, topical, inhaled, sprayed or object; 130 rows). 14 rows that were `effect-sentence` get a family from the stated target or effect words. A hand check found one wrong (Mundungus Fletcher's potion, a belief change read as body-form), corrected in `b_overrides.json` as a reviewed override. The title family rule, its overrides and the 17-row potion held-out split are unchanged.
 - **Checks.** The focused ledger tests pass (134). `test:changed` passes (4,835 pass, 2 skipped). `b_coverage_ledgers.mjs --check`, `coverage_report.mjs --check` and `check:rules` pass.
 
-**Next, not started.** Map the 270 stated Gu effects to effect families with a fitted pass on the non-held-out rows, and score it on the held-out ones. Do a chapter check of the 129 `roles-unchecked` leads, Fang Yuan's carried Gu first (GKM446).
+**Follow-up passes (2026-11-16, agent-verified, not human-reviewed).** `node scripts/label_followups.mjs` ran four passes at once over the private rows for $0.21: 1,809 calls with no errors. `node scripts/label_followups_check.mjs` scores them, and `wiki_tier_labels.mjs` folds them in.
+
+| Pass | Model | Rows | Score | Folded |
+| --- | --- | ---: | --- | --- |
+| Gu effect family. The kind field is hidden, and the examples come only from non-held-out rows. | Luna | 569 | 27 of 32 held-out kinds agree with the kind word (3 answer "none"); 84 of 113 non-held-out agree | Yes. A wiki row whose type, name and kind word give no function runs on this family. Gu runs-authored 423 to 513, effect-unknown 454 to 364; a hand check of 16 found about 3 doubtful. |
+| Gu diet default (GKM440). The stated food is hidden. | Luna | 787 | 12 of 44 stated foods share its category (5 of 11 held out) | As `dietDefault` in the sidecar, labelled authored. Stated canon diets are idiosyncratic, so the default is a mechanism guess, not a prediction. |
+| Move role check | Haiku | 129 | 255 components core or support, 12 not part, 5 unclear | Yes. Not-part components are dropped. 122 leads where both readers agree stay `roles-unchecked`; the rest go back to `roles-unknown`. 5 leads state an order. |
+| Potion effect sentence. The four tuned rows are the examples. | Luna | 280 | Held out: object 16 of 17, verb 10, all five parts 4 | As `sentence` and `sentenceFamily` in the sidecar only. A hand check of the five rows only the sentence would move found three wrong, so no ledger row changes. |
+
+**Next, not started.** Do a chapter check of the 122 agreed leads and give their kinds catalogue entries, Fang Yuan's carried Gu first (GKM446). Rewrite the potion-sentence verb prompt and rescore it on the same 17.
 

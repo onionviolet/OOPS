@@ -7,17 +7,18 @@
 //   OPENAI_API_KEY="$(security find-generic-password -a "$USER" -s openai-api-yairpg -w)" \
 //   node scripts/label_pass.mjs ri_moves gu_kinds hp_potions
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
 
 const dir = new URL('../docs/research/advancement-aspects-2026-11-16/private/', import.meta.url).pathname;
-const RATE = {in: 0.10, out: 0.50}; // per million, standard; batch is half (BATCH_READING_WORKFLOW.md)
+export const RATE = {in: 0.10, out: 0.50}; // per million, standard; batch is half (BATCH_READING_WORKFLOW.md)
 
-const SPEAKER = {type: 'string', enum: ['narrator', 'character_claim', 'demonstration', 'wiki', 'unknown']};
+export const SPEAKER = {type: 'string', enum: ['narrator', 'character_claim', 'demonstration', 'wiki', 'unknown']};
 const field = {type: 'object', additionalProperties: false, required: ['value', 'locator', 'speaker'],
     properties: {value: {type: 'string'}, locator: {type: 'string'}, speaker: SPEAKER}};
 const obj = (props, extra = {}) => ({type: 'object', additionalProperties: false, required: Object.keys({...props, ...extra}),
     properties: {...Object.fromEntries(Object.keys(props).map(k => [k, field])), ...extra}});
 
-const RULES = `Use only the evidence lines given. Each line starts with its locator in square brackets; copy that bracket's content exactly into "locator". Write values as short paraphrases in your own words, never quotations. If the evidence does not state something, set value and locator to "" and speaker to "unknown": an empty field is correct, a guess is wrong. "speaker" says who states it: narrator, a character's claim (which may be wrong), a demonstration (shown happening), or the wiki.`;
+export const RULES = `Use only the evidence lines given. Each line starts with its locator in square brackets; copy that bracket's content exactly into "locator". Write values as short paraphrases in your own words, never quotations. If the evidence does not state something, set value and locator to "" and speaker to "unknown": an empty field is correct, a guess is wrong. "speaker" says who states it: narrator, a character's claim (which may be wrong), a demonstration (shown happening), or the wiki.`;
 
 const PASSES = {
     ri_moves: {
@@ -39,7 +40,7 @@ ${RULES}`,
     },
 };
 
-async function luna(prompt, schema) {
+export async function luna(prompt, schema) {
     for (let attempt = 0; ; attempt++) {
         const res = await fetch('https://api.openai.com/v1/responses', {method: 'POST',
             headers: {'Content-Type': 'application/json', Authorization: `Bearer ${process.env.OPENAI_API_KEY}`},
@@ -54,7 +55,7 @@ async function luna(prompt, schema) {
     }
 }
 
-for (const name of process.argv.slice(2)) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) for (const name of process.argv.slice(2)) {
     const pass = PASSES[name];
     const packets = JSON.parse(readFileSync(`${dir}${name}_packets.json`, 'utf8'));
     const file = `${dir}${name}_luna.json`;
