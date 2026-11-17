@@ -1,0 +1,398 @@
+{
+ "meta": {
+  "world": "coc",
+  "books": [
+   "Call of Cthulhu 7e Quick-Start"
+  ],
+  "licence": [
+   "free quick-start, design reference only"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+  "date": "2026-11-17",
+  "shards": 3
+ },
+ "rules": [
+  {
+   "id": "coc.rule.0001",
+   "world": "coc",
+   "statement": "Spending Magic Points pays for spells or other magical effects; they recover at 1 point per hour. Once the reserve is empty, further magical expenditure comes from Hit Points as physical damage.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Page 9, Characteristics and key values (call-of-cthulhu-7e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a regenerating reserve and then bodily damage; a world can change the recovery rate or forbid this substitution, because magic draws on the investigator’s physical vitality.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0002",
+   "world": "coc",
+   "statement": "A failed skill or characteristic roll may be attempted again if the player justifies the retry. If the second attempt fails, the Keeper imposes a serious consequence, whether or not the goal is partly achieved.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Page 10, Skill Rolls and Difficulty Levels (call-of-cthulhu-7e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one risky retry; a world can allow more retries or make failure harsher, because persistence raises the stakes.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0003",
+   "world": "coc",
+   "statement": "A failed Sanity roll lets the Keeper dictate the investigator’s immediate action briefly. Losing at least 5 Sanity from one roll triggers an Intelligence roll: success causes temporary insanity for 1D10 hours, while failure leaves the investigator sane for now; insanity also produces a bout of madness.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Page 12, Sanity (call-of-cthulhu-7e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to brief loss of agency and possible 1D10-hour insanity after a 5-point loss; a world can adjust the threshold or duration, because exposure to horror destabilizes the mind.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0004",
+   "world": "coc",
+   "statement": "During temporary insanity, an investigator may experience delusions and can attempt a Sanity roll to recognize them; success reveals the hallucination, while failure deepens belief in it. Once the 1D10-hour episode ends, delusions stop, but acquired phobias, manias, or altered backstory entries remain.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Page 12, Sanity (call-of-cthulhu-7e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to persistent changes after a temporary episode; a world can make these changes fade or endure longer, because trauma leaves lasting marks.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0005",
+   "world": "coc",
+   "statement": "In combat, a successful Fighting maneuver can achieve a non-damaging goal such as disarming, knocking down, or restraining someone. A restrained target takes one penalty die until escaping with an opposed Strength roll; a smaller attacker takes one penalty die per Build difference, up to two, and a target at least three Build larger cannot be effectively maneuvered.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Page 13, Fighting Maneuvers (call-of-cthulhu-7e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to size-limited maneuvers and an opposed escape; a world can relax the size limit or strengthen restraints, because leverage and mass constrain control.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0006",
+   "world": "coc",
+   "statement": "A character whose Hit Points reach zero falls unconscious. A single blow dealing at least half maximum Hit Points causes a major wound and requires a Constitution roll to avoid unconsciousness; with a major wound at zero Hit Points, the character is dying and must pass a Constitution roll at the end of each subsequent round or die.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Page 14, Hit Points, Wounds, and Healing (call-of-cthulhu-7e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to escalating injury states with repeated death checks; a world can make the checks easier or harsher, because severe bodily trauma threatens survival.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0007",
+   "world": "coc",
+   "statement": "A character without a major wound heals 1 Hit Point per day. With a major wound, a successful weekly Constitution roll restores 1D3 Hit Points, or 2D3 on an Extreme success; the wound ends on an Extreme success or when current Hit Points reach at least half maximum.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Page 14, Hit Points, Wounds, and Healing (call-of-cthulhu-7e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to slow natural recovery and weekly checks for major injuries; a world can speed or slow healing, because recovery depends on bodily resilience.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0008",
+   "world": "coc",
+   "statement": "Successful First Aid restores 1 Hit Point and can rouse an unconscious character; on someone dying, it buys time for Medicine. Medicine restores 1D3 Hit Points after at least an hour with suitable supplies, and when used on someone dying it permits a healing roll after one week.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Page 14, Hit Points, Wounds, and Healing (call-of-cthulhu-7e-qs#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to modest immediate aid and slower medical recovery; a world can change the healing amounts or required supplies, because treatment depends on skill and resources.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0009",
+   "world": "coc",
+   "statement": "Damage from hazards is rated from moderate (1D6) through severe (1D10), deadly (2D10), terminal (4D10), and splat (8D10); examples range from a fall onto grass to being hit by a train. A ten-foot fall onto a hard surface is severe, while a fall onto grass is moderate.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Damage severity table, page 16 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Use the listed damage ratings by default; a world can turn hazard lethality up or down to reflect how dangerous its environment is.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0010",
+   "world": "coc",
+   "statement": "Corbitt can make a bed move fast enough to hit someone, and a witness must check Sanity, losing 1 point on a success or 1D4 on a failure. A person hit by the bed is thrown through a window and takes 1D6+2 hit points of damage from glass and the fall.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Bedroom 3 / Bed Attack, page 25 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Let Corbitt direct the bed within his room by default; a world can widen or limit the haunted area, with the smell serving as a sign of his influence.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0011",
+   "world": "coc",
+   "statement": "Corbitt can animate a floating knife for 1 Magic point per combat round, making one attack that round. A hit usually causes 1D4+2 damage, while an Extreme success causes 6+1D4+2; an investigator holding the knife can resist Corbitt’s attempt to wrench it away with an opposed STR-versus-POW roll.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: The Floating Knife / Having Hold of the Knife, pages 26–28 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Make the knife attack once per round for 1 Magic point; a world can change the upkeep cost, paid from Corbitt’s finite reserve.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0012",
+   "world": "coc",
+   "statement": "Corbitt can cast Dominate instantaneously, including during combat, but doing so uses his action for that round. For turn order in that round, count his DEX as 50 higher than usual.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Corbitt’s Spells, page 28 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB2",
+   "derives": [
+    "mind-binding"
+   ],
+   "default_dial_reason": "Allow an instantaneous casting that costs Corbitt his action; a world can change the speed or action cost to make mental control harder to use.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0013",
+   "world": "coc",
+   "statement": "Corbitt can spend 2 Magic points to move his body for five combat rounds, and is reluctant to do so because of the cost. He regains 1 Magic point per hour, up to his stated reserve of 18.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Corbitt’s body and statistics, pages 28, 31 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Use the stated cost, duration, and hourly recovery; a world can adjust the reserve or recovery rate to make bodily action rarer or more sustained.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0014",
+   "world": "coc",
+   "statement": "When Corbitt rises, investigators present make a Sanity roll, losing 1/1D8 points depending on success or failure. A failed roll also causes one involuntary action chosen by the Keeper; losing at least 5 Sanity points prompts an INT roll to determine whether temporary insanity follows.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Corbitt’s body and Sanity rolls, page 28 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB14",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Use the stated Sanity loss and involuntary response; a world can raise or lower the mental cost to reflect how overwhelming supernatural revelations are.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0015",
+   "world": "coc",
+   "statement": "If the investigators do not leave an escape route, a pack of rats attacks one person using an Overwhelm maneuver; treat a pack as ten rats. An investigator’s successful attack kills one or two rats and usually drives off the rest, and the remaining rats flee once one is killed.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Rats in the crawl space, page 27 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: attack",
+   "seam": "AB21",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Treat ten rats as one pack by default; a world can vary pack size and aggression to represent how threatened or trapped the animals feel.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0016",
+   "world": "coc",
+   "statement": "After reading Corbitt’s three diaries, learning the described summoning spell takes 2D6 weeks. An initial reading of the Liber Ivonis takes at least three hours and grants 2% Cthulhu Mythos knowledge while reducing maximum Sanity by the same amount.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Corbitt Diaries / Liber Ivonis, page 24 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "familiar-summon"
+   ],
+   "default_dial_reason": "Use the stated study times and gains by default; a world can increase the time or mental cost of acquiring occult knowledge.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0017",
+   "world": "coc",
+   "statement": "A failed Jump roll during the collapsing chapel floor makes the investigator fall ten feet into the basement and lose 1D6 hit points. A failed Pushed roll may also cost or break a personal possession instead of simply increasing the damage.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Chapel ruins, page 22 (call-of-cthulhu-7e-qs#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Use the fall damage and possible lost possession as the consequence; a world can make dangerous terrain more or less punishing.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0018",
+   "world": "coc",
+   "statement": "If Corbitt lands an attack, the target makes a Luck roll; on failure, a day later they become delirious and roll CON. Failure means delirium for 1D10 days and loss of 1D10 CON; success means 1D6 days without further CON loss. Repeat the procedure until recovery or death, and lost CON never returns.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Fighting attacks, [Page 31] (call-of-cthulhu-7e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default to permanent CON loss on failed recovery rolls; a world could make it recoverable, trading the lasting danger of Corbitt’s infection for a less severe aftermath.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0019",
+   "world": "coc",
+   "statement": "When an investigator questions a delusion, they may make a Reality Check using a Sanity roll. Success ends the delusions; failure costs 1 Sanity point, causes another Bout of Madness, and escalates the delusions.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Reality Checks, [Page 31] (call-of-cthulhu-7e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to a Sanity-based test that either ends or escalates delusions; a world could change the trigger or penalty, at the cost of weaker consequences for resisting false perceptions.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0020",
+   "world": "coc",
+   "statement": "Because the temporary insanity comes from a Mythos manifestation, add 5% to the investigator’s Cthulhu Mythos skill.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Reality Checks, [Page 31] (call-of-cthulhu-7e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default to granting 5% Mythos skill after this supernatural exposure; a world could omit the increase, giving up the lasting knowledge gained through trauma.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0021",
+   "world": "coc",
+   "statement": "Corbitt can spend 1 Magic point to make the floating dagger attack for one round, and doing so uses his combat action for that round.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Corbitt, [Page 32] (call-of-cthulhu-7e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to one attack per round for 1 Magic point and Corbitt’s action; a world could make the dagger act independently, at the cost of removing that action and resource limit.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0022",
+   "world": "coc",
+   "statement": "Flesh Ward costs a variable number of Magic points and takes 5 rounds to cast; each point spent grants 1D6 armor against non-magical attacks. The protection lasts 24 hours or until used up, cannot be reinforced, and cannot be cast again until its protection is gone.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Flesh Ward, [Page 32] (call-of-cthulhu-7e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to temporary, consumable protection that cannot be stacked or refreshed early; a world could allow recasting, but would weaken the spell’s resource and timing limits.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0023",
+   "world": "coc",
+   "statement": "Corbitt’s Dominate costs 1 Magic point and takes one round to cast; he contests POW 90 against one investigator who is inside his house. On success, the target is dazed for 1D6+1 combat rounds, receives telepathic commands, will not attempt suicide, and later remembers nothing.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Dominate (Corbitt’s variant), [Page 32] (call-of-cthulhu-7e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to one in-house target, an opposed POW roll, and a short daze with limited command scope; a world could broaden targets or commands, at the cost of weakening the house, resistance, and safety boundaries.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0024",
+   "world": "coc",
+   "statement": "If Corbitt’s damage exceeds his armor, his hit points fall normally; he never heals or loses consciousness, and at zero hit points he turns to dust permanently. A successful stab with his dagger destroys him regardless of his spells.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: Corbitt, [Page 32] (call-of-cthulhu-7e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB17",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default to ordinary damage eventually destroying Corbitt, with the dagger as an overriding weakness; a world could remove that exception, making his defeat depend solely on wearing him down.",
+   "licence": "free quick-start, design reference only"
+  },
+  {
+   "id": "coc.rule.0025",
+   "world": "coc",
+   "statement": "Destroying Corbitt grants each participating investigator 1D6 Sanity points.",
+   "locators": [
+    "Call of Cthulhu 7e Quick-Start: [Page 31] (call-of-cthulhu-7e-qs#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a 1D6 Sanity reward for each participant; a world could reduce or remove it, making victory less restorative after the ordeal.",
+   "licence": "free quick-start, design reference only"
+  }
+ ]
+}

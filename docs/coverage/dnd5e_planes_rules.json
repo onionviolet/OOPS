@@ -1,0 +1,2286 @@
+{
+ "meta": {
+  "world": "dnd5e_planes",
+  "books": [
+   "Planescape: Adventures in the Multiverse",
+   "Spelljammer: Adventures in Space"
+  ],
+  "licence": [
+   "commercial book, design reference only"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept. Commercial book: design reference only.",
+  "date": "2026-11-17",
+  "shards": 17
+ },
+ "rules": [
+  {
+   "id": "dnd5e_planes.rule.0001",
+   "world": "dnd5e_planes",
+   "statement": "A portal can open only at its assigned time, when its condition is met, after a command, or while a traveler carries its key. Once a keyed traveler crosses, it stays open until the start of that traveler’s next turn.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Portal Basics (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: open",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "dimension-travel",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: portals have a condition or key and may be inactive; dial: set the trigger and opening duration; in-world reason: the gateway is controlled by its own magical terms.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0002",
+   "world": "dnd5e_planes",
+   "statement": "Inactive portals are usually invisible, even to magic detection; true seeing or warp sense can reveal them. When activated, a portal is typically outlined by light and shows its destination.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Portal Basics (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: conceal inactive gateways; dial: allow specialized senses to find them; in-world reason: the portal becomes apparent when it activates.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0003",
+   "world": "dnd5e_planes",
+   "statement": "A portal key may be an object, a particular created key, or—in rarer cases—a creature type, memory, or whistled tune; it works from either side of the portal.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Portal Keys (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "dimension-travel",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: access is bound to a key; dial: choose whether that key is a thing, a remembered fact, or an action; in-world reason: the key matches the portal’s destination.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0004",
+   "world": "dnd5e_planes",
+   "statement": "A one-way portal works only in its stated direction and cannot be seen or detected from its exit side. A shifting portal moves one end between locations, while a tumbling-lock portal requires a different key each time it opens.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Portal Quirks (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "dimension-travel",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: portals may impose directional, location, or key restrictions; dial: choose which restriction applies; in-world reason: each portal has its own unusual magical behavior.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0005",
+   "world": "dnd5e_planes",
+   "statement": "A slow portal holds an entrant in unaware stasis for 2d4 days before arrival. A taxing portal requires a DC 10 Constitution save to avoid 1 exhaustion level, and a temporary portal vanishes after 1d6 + 6 travelers have crossed in either direction.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Portal Quirks (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "portal-space",
+    "time-manipulation",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: these portals can impose delay, bodily strain, or a limited number of crossings; dial: select the complication and its severity; in-world reason: unstable or specialized portal energy exacts a cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0006",
+   "world": "dnd5e_planes",
+   "statement": "In Sigil, effects that try to banish someone treat Sigil as that target’s home plane. Interplanar travel effects cannot enter or leave the city, and teleportation into or out of it fails, though teleportation within the city works normally.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Alterations to Magic (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel",
+    "portal-space",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: block travel across Sigil’s boundary while permitting local teleportation; dial: allow narrow exceptions; in-world reason: the Lady of Pain controls access to the city.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0007",
+   "world": "dnd5e_planes",
+   "statement": "Within Sigil, effects that summon creatures or objects from other planes instead draw them from inside the city if possible; otherwise they fail. An effect that calls a specific target from outside Sigil fails automatically.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Alterations to Magic (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "familiar-summon",
+    "dimension-travel",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: redirect a general summons locally or make it fail; dial: specific outside targets always fail; in-world reason: Sigil’s boundary prevents outside entities from being called in.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0008",
+   "world": "dnd5e_planes",
+   "statement": "Extradimensional spaces, demiplanes, and pocket dimensions function in Sigil, but they are subject to the city’s magical restrictions as if they were part of Sigil.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Alterations to Magic (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "spatial-storage",
+    "portal-space",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: allow pocket spaces but apply the local boundary rules to them; dial: decide whether a space counts as part of the restricted region; in-world reason: the city’s influence extends into these spaces.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0009",
+   "world": "dnd5e_planes",
+   "statement": "The Lady of Pain can block an individual creature from entering or leaving through a portal, and during severe faction conflict she can disable every portal in Sigil. When all portals stop, supplies cannot enter and refuse and unburied dead accumulate.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Locking the Cage (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "dimension-travel",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: the Lady may deny an individual’s passage; dial: citywide shutdown is reserved for major strife; in-world reason: isolation forces the factions to resolve their conflict.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0010",
+   "world": "dnd5e_planes",
+   "statement": "A creature that attacks, casts a spell at, or otherwise targets the Lady with a hostile or prying effect immediately drops to 1 hit point. If it persists, she sends it to the Mazes on the next blink.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — Interfering with the Lady (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "protection-field",
+    "negative-effect-drift",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: hostile or intrusive actions trigger immediate incapacitation; dial: continued defiance adds imprisonment; in-world reason: the Lady protects herself and Sigil by overwhelming intruders.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0011",
+   "world": "dnd5e_planes",
+   "statement": "The Mazes are demiplanar prisons that swallow chosen creatures instantly. Prisoners need no food, drink, or sleep, and no magic lets them escape or communicate with planes beyond; any escape portal, if one exists, cannot be found by magical detection.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Chapter 2: Sigil — The Mazes (dnd5e-planescape#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "containment-rule",
+    "dimension-travel",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: imprisonment isolates the target indefinitely without bodily needs; dial: an exit may exist but is extraordinarily hard to locate; in-world reason: the prison is made to contain threats to the city.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0012",
+   "world": "dnd5e_planes",
+   "statement": "Contracts ratified on gold are enforced by maruts and truth-seeking kolyaruts; those who break them are tracked down and banished to a teleportation circle in the hall.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: High Courts — Hall of Concordance [Page 43] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "spirit-contract-judgement",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: breach triggers pursuit and banishment; dial: the contract’s terms and the severity of enforcement; reason: the inevitables exist to make dealings orderly.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0013",
+   "world": "dnd5e_planes",
+   "statement": "Prison cells are adapted to their inmates: fire elementals are kept in freezing cells, while giants wear magic collars that weaken them and shrink them to a smaller stature. Especially dangerous prisoners can be held in isolated demiplanes saturated with antimagic.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Prison — Cells [Page 44] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule",
+    "body-form",
+    "power-interaction",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: confinement is tailored to the prisoner; dial: the restraint’s strength and the degree of suppression or reduction; reason: the prison must hold beings with very different capabilities.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0014",
+   "world": "dnd5e_planes",
+   "statement": "The Silent King’s throne grants authority over the undead who serve him, but only a living creature can occupy it, and death is the only way to leave its grip. The undead remain bound to serve until the king is killed or decays away.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Undersigil — Dead Nations [Page 54] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "soul-binding",
+    "creature-control",
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default: occupancy binds the living ruler to the throne and the undead to their ruler; dial: which undead are subject and how authority is expressed; reason: rulership comes with a lethal, inescapable obligation.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0015",
+   "world": "dnd5e_planes",
+   "statement": "The Loop is a closed tunnel fed by hidden, one-way portals, and its space and time do not follow ordinary rules. Travelers can encounter their own traces there; escape may take seconds inside but years outside, or release them in the distant past or future.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Undersigil — The Loop [Page 54] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "time-manipulation",
+    "time-loop",
+    "timeline-split",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: entry routes feed a trapped circular space with irregular time; dial: whether escape is possible and how far time displacement reaches; reason: the place is a dangerous maze used to imprison threats.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0016",
+   "world": "dnd5e_planes",
+   "statement": "The Great Foundry’s magical sculptors can shape objects from minimal raw material, making sturdy, delicate tools without coal or flame; one example elsewhere in the ward describes reshaping nearby material.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Lower Ward — Great Foundry [Page 47] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB15",
+   "derives": [
+    "blueprint-craft",
+    "object-surface",
+    "ingredient-properties"
+   ],
+   "default_dial_reason": "Default: material is reshaped into useful craft; dial: the quantity and complexity achievable; reason: skilled makers turn scarce resources into tools for the city.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0017",
+   "world": "dnd5e_planes",
+   "statement": "When the Athar destroy magic items made by priests of gods they reject, the released magic is gathered by the Luminous Arbor and concentrated in its fruit, which powers their priests.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Lower Ward — Shattered Temple, Luminous Arbor [Page 49] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB15",
+   "derives": [
+    "power-transfer",
+    "item-bound-power",
+    "power-granting"
+   ],
+   "default_dial_reason": "Default: destroyed items’ released magic accumulates in the tree and fruit; dial: how much power is captured and what a priest can draw from it; reason: their rites convert disputed divine relics into a usable source.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0018",
+   "world": "dnd5e_planes",
+   "statement": "The Planar Energy Cooperative monitors magical flows for anomalies, and its mages can combine their power to siphon magic from whole worlds to weaken dangerous artifacts or stop catastrophic spellcasting. The group is small, and this requires sustained intense concentration.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Market Ward — Planar Energy Cooperative [Page 53] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "power-interaction",
+    "area-field",
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default: group effort can drain magic at world scale for containment; dial: range, duration, and how much magic is diverted; reason: few mages can maintain the concentration, so they send others to handle threats.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0019",
+   "world": "dnd5e_planes",
+   "statement": "The Ditch’s corrosive water can leave creatures washed ashore hours later unrecognizable, smoothing away their physical features; rare portals to the River Oceanus briefly make the water clean and sweet instead.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Lower Ward — The Ditch [Page 46] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "body-code-decay",
+    "body-form",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: exposure alters a body over hours; dial: the severity and reversibility of the change; reason: toxic runoff and planar influence make the water hazardous, while an occasional portal temporarily changes its nature.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0020",
+   "world": "dnd5e_planes",
+   "statement": "The chaos mass in the Face of Gith continually changes its substance and form, and some patrons can mentally shape it into objects, creatures, or sensory displays. It is rumored to form a portal to Limbo, but the required key changes constantly.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Lower Ward — Face of Gith [Page 47] (dnd5e-planescape#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "mind-state",
+    "portal-space"
+   ],
+   "default_dial_reason": "Default: mental influence reshapes the unstable mass; dial: the forms, complexity, and whether a portal can be made; reason: primordial chaos is mutable and its portal key is unpredictable.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0021",
+   "world": "dnd5e_planes",
+   "statement": "When a location in the Outlands embodies an Outer Plane too strongly, that plane takes the location and its inhabitants, expanding its own realm and restoring balance to the Outlands.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Life in the Outlands — Cosmic Realignment, page 59 (dnd5e-planescape#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "place-release",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: trigger on excessive planar alignment; dial: define how much alignment qualifies; the in-world cost is losing the location and its inhabitants to that plane.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0022",
+   "world": "dnd5e_planes",
+   "statement": "Automata’s portal can be used from either side, but a creature must first receive clearance for gate travel from an authorized modron.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Automata — Gate, page 60 (dnd5e-planescape#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: require official clearance; dial: choose the approving authority and its criteria; the in-world cost is restricted access.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0023",
+   "world": "dnd5e_planes",
+   "statement": "In Bedlam, creatures within 1,000 feet of the gate are deafened by its constant winds. The winds can also dominate longstanding residents and compel them to commit evil acts.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Bedlam — Regional Effects, page 63 (dnd5e-planescape#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "mind-binding"
+   ],
+   "default_dial_reason": "Default: use the stated 1,000-foot boundary and ongoing exposure; dial: decide how often the compulsion takes hold; the in-world cost is impaired hearing and coerced behavior.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0024",
+   "world": "dnd5e_planes",
+   "statement": "In Curst, creatures’ speed is reduced by 5 feet, and attempts to leave by teleportation or extradimensional or interplanar travel fail unless they use the town’s gate. The burgomaster can use an action to suppress either effect for any number of creatures for 1 hour.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Curst — Regional Effects, pages 64–65 (dnd5e-planescape#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "dimension-travel",
+    "portal-space"
+   ],
+   "default_dial_reason": "Default: both restrictions apply in Curst; dial: the burgomaster chooses whom to exempt and which restriction to suppress; the in-world cost is curtailed movement and escape.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0025",
+   "world": "dnd5e_planes",
+   "statement": "A pacifying aura extends 300 feet from Ecstasy’s Bone Plinth. A creature that starts its turn within it is targeted by a calm emotions effect with save DC 15; a creature that succeeds cannot be affected by the aura again for 24 hours.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Ecstasy — Aura of Tranquility, page 66 (dnd5e-planescape#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: apply the aura at 300 feet, DC 15, with 24-hour immunity after a successful save; dial: adjust radius, difficulty, or immunity duration; the in-world cost is suppressed hostility.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0026",
+   "world": "dnd5e_planes",
+   "statement": "Faunel’s gate pool has the effects of an awaken spell: beasts that drink from it gain speech, and saplings raised on its water eventually uproot as wooden guardians. Creatures that submerge themselves in the pool travel to the Beastlands.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Faunel — Gate, page 70 (dnd5e-planescape#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB20",
+   "derives": [
+    "plant-or-creature-target",
+    "power-granting",
+    "portal-space",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: drinking grants the stated effects and submerging transports the creature; dial: set the duration and limits of the granted traits; the in-world cost is exposure to a transformative, one-way threshold.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0027",
+   "world": "dnd5e_planes",
+   "statement": "A creature that submerges itself in Ecstasy’s reflective pool emerges in Elysium’s innermost layer.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Ecstasy — Gate, page 66 (dnd5e-planescape#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: submerging transports the creature to the named destination; dial: decide whether passage is one-way and who can use it; the in-world cost is leaving the Outlands.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0028",
+   "world": "dnd5e_planes",
+   "statement": "In Fortitude, creatures appear more beautiful and symmetrical than usual. They are immune to the poisoned condition, resist poison damage, and have disease effects suppressed.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Fortitude — Regional Effects (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "body-form",
+    "negative-effect-drift",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: effects apply in the gate-town; dial: choose which listed effects are active; the in-world cause is Arcadian influence.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0029",
+   "world": "dnd5e_planes",
+   "statement": "At the Pavilion of Purity, confessing citizens shed darkness that drains away beneath the stage; that darkness can later emerge as hostile creatures, including dretches, oozes, and shadows.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Fortitude — Pavilion of Purity (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB29",
+   "derives": [
+    "negative-effect-drift",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: confession expels darkness and it may become hostile creatures; dial: determine when and what emerges; the cost is that the expelled guilt endangers the town.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0030",
+   "world": "dnd5e_planes",
+   "statement": "Glorium’s fjord portal reverses its tide twice each day, letting boats travel to Ysgard and back. Its hidden World Tree entrance can lead to Ysgard, or—with the corresponding portal key—almost anywhere in the multiverse.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Glorium — Gate (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: the fjord route cycles twice daily; dial: a matching key broadens the tree gate’s destination; the peril is that the open route also admits invaders.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0031",
+   "world": "dnd5e_planes",
+   "statement": "Glorium’s regional influence gives creatures advantage on death saving throws. When any conflict begins in town, a horn can be heard within 300 feet of its origin.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Glorium — Regional Effects (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "revival-on-death",
+    "area-field"
+   ],
+   "default_dial_reason": "Default: both effects apply around the gate; dial: none stated; the in-world cause is Ysgard’s influence.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0032",
+   "world": "dnd5e_planes",
+   "statement": "In Hopeless, residents are cheerless and indifferent, so attempts to influence them with Performance or Persuasion checks are made with disadvantage. The town also drains color from creatures’ skin, scales, or fur and from their nonmagical clothing and gear.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Hopeless — Regional Effects (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "mind-state",
+    "body-form"
+   ],
+   "default_dial_reason": "Default: both effects apply to residents and their surroundings; dial: none stated; the in-world cause is Hades’s influence.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0033",
+   "world": "dnd5e_planes",
+   "statement": "Entering the Wishless Well brings a creature to Hades covered in sticky black tar. Tossing coins into the well makes it spurt a jet of inky sludge.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Hopeless — Gate (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: entry transfers the creature and coins trigger the spray; dial: the gate can overflow; the cost is exposure to the well’s foul substance and creatures.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0034",
+   "world": "dnd5e_planes",
+   "statement": "In Plague-Mort, demon ichor that wildlife contacts can give them demonic features, such as extra heads, wings, or tentacles. Dead townsfolk periodically return as skeletons, zombies, or revenants.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Plague-Mort — Regional Effects (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB29",
+   "derives": [
+    "plant-or-creature-target",
+    "body-form",
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default: contact can deform wildlife and the dead periodically return; dial: the timing and specific forms are not fixed; the in-world cause is Abyssal pollution.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0035",
+   "world": "dnd5e_planes",
+   "statement": "Fiends and mages can alter Ribcage’s fiery gate to lead to Cania or Minauros instead of Avernus; only Asmodeus can connect it to Nessus. The duchess and senators can listen to messages and sending spells cast within Ribcage, and reflective surfaces may show fiendish eyes judging residents.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Ribcage — Gate; Regional Effects (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: the gate leads to Avernus; dial: powerful operators can redirect it, with Nessus reserved to Asmodeus; the in-world cost is that surveillance and judgment reach into private communications.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0036",
+   "world": "dnd5e_planes",
+   "statement": "In Rigus, the massive elevator responds only to the Crown Generals, who can lower the Crown district, armies, and weapons into the underground gate chamber. Creatures bear magical marks showing their rank, and rank affects intimidation: it is easier against lower-ranking creatures and harder against higher-ranking ones.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Rigus — Gate; Regional Effects (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "system-interface",
+    "concept-law"
+   ],
+   "default_dial_reason": "Default: the elevator is restricted to the generals and rank governs the stated social effect; dial: the DM may leave some nonsapient creatures unranked; the in-world reason is Rigus’s military hierarchy.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0037",
+   "world": "dnd5e_planes",
+   "statement": "Sylvania’s gate shifts location through the forest and does not remain in one place for long; the Seven Spiritors always know where it is. Creatures there have advantage on saving throws against the poisoned condition.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Sylvania — Gate; Regional Effects (dnd5e-planescape#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "place-release",
+    "divination-fate",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: the portal relocates unpredictably and the Spiritors track it; dial: its destination varies; the in-world cause is Arborean influence, which also protects guests from poison.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0038",
+   "world": "dnd5e_planes",
+   "statement": "The Trade Master can cast a gate spell whenever desired without material components. A traveler must barter to pass; the price is tailored to their wealth and may include intangible possessions such as memories, keepsakes, or songs.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Tradegate — Gate (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: passage requires an exchange; dial: the price and what counts as an asset; reason: travel is granted only through fair barter.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0039",
+   "world": "dnd5e_planes",
+   "statement": "The Trade Master knows everything a prospective traveler owns, including abstract holdings and sentimental things. Anyone who tries to cheat or threaten the gatekeeper may be sent to a remote plane.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Tradegate — Gate (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "portal-space"
+   ],
+   "default_dial_reason": "Default: holdings cannot be hidden from the gatekeeper and coercion risks displacement; dial: the destination and severity; reason: the gatekeeper enforces fair entry.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0040",
+   "world": "dnd5e_planes",
+   "statement": "In Tradegate, crafting nonmagical objects takes half the usual time and costs half as much. Damaged buildings, roads, and other structures are repaired by residents within 1d10 days.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Tradegate — Regional Effects (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "blueprint-craft"
+   ],
+   "default_dial_reason": "Default: crafting is accelerated and local structures recover; dial: the range of covered projects and repair conditions; reason: the region favors industrious work and rebuilding.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0041",
+   "world": "dnd5e_planes",
+   "statement": "When a creature in Xaos casts a spell that deals acid, cold, fire, or lightning damage, the region may replace one damage type in that casting. Roll 1d4 to determine the resulting type: 1 acid, 2 cold, 3 fire, or 4 lightning.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Xaos — Regional Effects (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: one eligible damage type per casting is subject to the 1d4 substitution; dial: whether the regional effect applies; reason: the region disrupts stable outcomes.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0042",
+   "world": "dnd5e_planes",
+   "statement": "Structures in Xaos randomly dissolve and re-form as different structures; these changes do not harm inhabitants.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Xaos — Regional Effects (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB11",
+   "derives": [
+    "form-transformation",
+    "area-field"
+   ],
+   "default_dial_reason": "Default: structures change unpredictably without injuring occupants; dial: the frequency and scale of changes; reason: the region's reality is unstable.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0043",
+   "world": "dnd5e_planes",
+   "statement": "Xaos's gate changes its form and location at unpredictable intervals. Some forms transport creatures by a specified action or condition, such as drinking a liquid gate or revealing a secret to a speaking gate.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Xaos — Gate (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "portal-space",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: the gate's location and form vary; dial: what condition a particular form imposes; reason: the portal reflects the region's shifting nature.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0044",
+   "world": "dnd5e_planes",
+   "statement": "Annam's hidden realm cannot be found by divination magic and cannot be seen with the naked eye.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Hidden Realm (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default: divination and ordinary sight do not reveal the realm; dial: whether other means can locate it; reason: the realm is deliberately hidden.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0045",
+   "world": "dnd5e_planes",
+   "statement": "Near the Spire, intermittent antimagic suppresses magic strongly enough to weaken archmages and reduce gods to mortal status; some creatures, including rilmani, appear unaffected.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: The Spire (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: magic is dampened intermittently near the Spire; dial: affected powers and exceptions; reason: the Spire radiates nullifying forces.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0046",
+   "world": "dnd5e_planes",
+   "statement": "Melvin Manyroads can collapse his tower into a magical map tube, carry it, and set it up elsewhere.",
+   "locators": [
+    "Planescape: Adventures in the Multiverse: Tradegate — Manyroads's Maps (dnd5e-planescape#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default: the tower can be packed into its tube and redeployed elsewhere; dial: limits on size, distance, and deployment time; reason: the portable stronghold lets its owner relocate.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0047",
+   "world": "dnd5e_planes",
+   "statement": "A spelljamming vessel can cover 100 million miles in 24 hours while cruising; its helm makes small automatic corrections to avoid obstacles. Near a sufficiently large body, it automatically slows to its ordinary flying speed, at which it handles about as well as a seagoing vessel of similar size.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, How Spelljamming Works—Speed (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: dial the cruise pace and encounter distance; the in-world tradeoff is fast travel that gives way to slower, more maneuverable approach.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0048",
+   "world": "dnd5e_planes",
+   "statement": "Only one helm on a ship can control it at a time. If a second pilot contests control, both make Constitution checks; the lower result loses, gains 1d4 exhaustion levels, immediately loses attunement, and cannot attune to any helm until all exhaustion is gone.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Spelljammer Duels (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: one active controller; dial whether a contest is possible, with exhaustion and lost access as the cost of losing.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0049",
+   "world": "dnd5e_planes",
+   "statement": "A creature or object entering Wildspace carries a breathable-air envelope until its air runs out. A creature’s envelope is a cube sized by its category, from 2½ feet for Tiny creatures to 20 feet for Gargantuan ones; a breathing creature depletes its personal supply in 1 minute.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Air Envelopes; Air Envelopes of Creatures (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: exposure creates a finite local air supply; dial its dimensions or duration, with eventual depletion as the survival cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0050",
+   "world": "dnd5e_planes",
+   "statement": "An object’s air envelope extends from its surface by a distance equal to its longest dimension; a typical ship’s envelope extends its keel length in every direction. A habitable planet or moon has an atmosphere that continually replenishes itself.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Air Envelopes of Objects (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: envelope scale follows the body’s size; dial the shape or replenishment, with smaller carried supplies lacking automatic renewal.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0051",
+   "world": "dnd5e_planes",
+   "statement": "A ship’s air remains fresh for 120 days with its normal crew complement. It becomes foul on day 121, poisoning breathing creatures until they reach fresh air, then becomes deadly 120 days later and causes creatures that breathe it to suffocate.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Air Quality (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: air quality degrades on a fixed schedule; dial the time or crew scaling, with poison and suffocation as escalating costs.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0052",
+   "world": "dnd5e_planes",
+   "statement": "When two air envelopes merge, the smaller body’s air changes to match the larger body’s air quality; once they separate, each keeps its own envelope. A ship can therefore refresh its air by entering a planet’s atmosphere, or contaminate it by merging with a body whose air is deadly.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Overlapping Air Envelopes (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: merged air adopts the larger body’s condition; dial which body governs, with contamination possible as well as renewal.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0053",
+   "world": "dnd5e_planes",
+   "statement": "Small spacefaring bodies have a two-sided gravity plane running through them and extending to the air-envelope boundary, so creatures can stand on either side. An object falling across that plane reverses direction and oscillates across it until something stops it.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Gravity Planes (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "concept-law"
+   ],
+   "default_dial_reason": "Default: the plane defines local down on both sides; dial its extent or behavior, with unsecured objects liable to repeated motion.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0054",
+   "world": "dnd5e_planes",
+   "statement": "When two ships’ gravity planes intersect, both remain active until the ships touch. Once touching, the ship with more hit points suppresses the other’s plane for as long as contact lasts; a ship touching down on a planet also has its plane suppressed.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Overlapping Gravity Planes (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: contact lets the more durable body impose its gravity; dial the precedence rule, with landing potentially disrupting the smaller ship’s orientation.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0055",
+   "world": "dnd5e_planes",
+   "statement": "An unanchored creature or object in a ship’s air envelope is weightless and drifts toward its edge at 10 feet per minute. Once outside, it is left behind as the ship continues moving.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Drifting (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default: drift is slow but constant; dial the rate, with separation from the moving ship as the danger.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0056",
+   "world": "dnd5e_planes",
+   "statement": "A floating creature entering a larger body’s air envelope immediately falls toward that body’s surface or gravity plane, whichever is nearer. Ordinary impact damage applies on striking a solid surface; crossing a gravity plane instead causes harmless oscillation.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 2, Falling (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "concept-law"
+   ],
+   "default_dial_reason": "Default: entering a larger gravity region redirects movement; dial impact consequences, with solid collisions harmful but plane crossing harmless.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0057",
+   "world": "dnd5e_planes",
+   "statement": "In the Astral Sea, creatures can breathe normally, remain indefinitely without aging or needing food and drink, and propel themselves through the void by thought alone.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Introduction, Terminology (dnd5e-spelljammer#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel",
+    "time-manipulation"
+   ],
+   "default_dial_reason": "Default: this environment suspends aging and basic bodily needs while enabling mental movement; dial which benefits apply, with the in-world tradeoff of exposure to its hazards.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0058",
+   "world": "dnd5e_planes",
+   "statement": "In the Astral Sea, a creature can survive indefinitely without aging, hunger, or thirst. If it travels by thought alone, it moves in any direction at a flying speed in feet equal to 5 times its Intelligence score.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Traversing the Astral Sea / Travel by Thought Alone, page 20 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "time-manipulation"
+   ],
+   "default_dial_reason": "Default: survival and thought-driven travel work for any creature there; dial: Intelligence sets speed; the in-world reason is the Astral Sea's unusual nature.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0059",
+   "world": "dnd5e_planes",
+   "statement": "Thinking of a destination in the Astral Sea or Wildspace gives a creature awareness of the most direct route to it, but not of the route's safety. The DM determines its distance and the dangers along the way.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Astral Sea Navigation, page 20 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: destination-focused route awareness is available to all creatures; dial: distance and peril remain uncertain; the in-world reason is that systems drift and have no reliable plotted courses.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0060",
+   "world": "dnd5e_planes",
+   "statement": "Wildspace overlaps the Astral and Material Planes, so teleportation magic can carry a creature between Wildspace and a nearby world. Travel between worlds otherwise requires a spelljamming ship, teleportation, or another kind of magic.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Travel Between Worlds, page 20 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "world-travel",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: the overlap permits magical travel between Wildspace and nearby worlds; dial: other world-to-world travel needs a ship or magic; the in-world reason is the planes' overlap.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0061",
+   "world": "dnd5e_planes",
+   "statement": "In a gravity-free place, a creature without a flying or swimming speed has disadvantage on melee attacks unless its weapon deals piercing damage. It can spend an action pushing off something heavier than itself to move in a straight line up to one of its walking, flying, or swimming speeds, continuing that course on later turns until stopped or redirected.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Weightlessness, page 21 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default: weightlessness changes movement and melee combat; dial: a heavier object and an available speed limit the push-off; the in-world reason is the absence of gravity.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0062",
+   "world": "dnd5e_planes",
+   "statement": "An air bubble spell creates a globe of fresh air around the head of a willing, visible creature within 60 feet, lasting 24 hours. A slot above 2nd level creates two additional globes for each slot level above 2nd.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Air Bubble, page 22 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "body-door",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: one willing creature receives breathable air for 24 hours; dial: higher slots add two globes per level; the in-world cost is use of a spell slot.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0063",
+   "world": "dnd5e_planes",
+   "statement": "A 5th-level spell can transform an unoccupied Large or smaller chair into a spelljamming helm. Casting takes an action, requires touching the chair and a crystal rod worth at least 5,000 gp, and consumes the rod.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Create Spelljamming Helm, page 22 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB1",
+   "derives": [
+    "form-transformation",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: the spell changes a qualifying chair into a helm; dial: size and occupancy restrict the target; the in-world cost is consuming a valuable rod and using a 5th-level spell.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0064",
+   "world": "dnd5e_planes",
+   "statement": "While attuned to a spelljamming helm, sitting in it, and maintaining concentration, a spellcaster can move a ship up to its speed, or—if in space with no other object of at least 1 ton within 1 mile—move it fast enough to cover 100 million miles in 24 hours. The spellcaster can steer it clumsily and perceive events aboard it from a chosen location.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Spelljamming Helm, page 23 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power",
+    "tinker-device",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: an attuned seated caster pilots and perceives from the ship; dial: concentration, ship speed, and nearby heavy objects limit operation; the in-world reason is the helm's dependence on its user and surroundings.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0065",
+   "world": "dnd5e_planes",
+   "statement": "A spellcaster attuned to a spelljamming helm can use an action to touch a willing spellcaster, who attunes immediately as the first caster's attunement ends.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Spelljamming Helm—Transfer Attunement, page 23 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: transfer",
+   "seam": "AB1",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default: one willing spellcaster takes over immediately; dial: touch and an action are required; the in-world reason is the helm's single transferred attunement.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0066",
+   "world": "dnd5e_planes",
+   "statement": "A creature attuned to a nautiloid's helm and touching the ship can use an action to transport the ship and everything aboard it to another plane, near an envisioned destination or to a random place if none is envisioned. Roll a d6 each use: on 5–6 it recharges after 1 minute; otherwise it cannot be used again for 24 hours.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Nautiloid, page 38 (dnd5e-spelljammer#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: the ship and all aboard travel together; dial: destination precision and recharge are uncertain; the in-world reason is the ship feature's limited availability.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0067",
+   "world": "dnd5e_planes",
+   "statement": "A turtle ship can travel underwater because sliding panels close its hull airtight; if it is damaged underwater, its internal hatches can be sealed to limit flooding. Its mounted weapons cannot be used underwater.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Turtle Ship, p. 52 (dnd5e-spelljammer#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: the closed hull permits underwater travel, but water ingress remains a threat and underwater combat is restricted.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0068",
+   "world": "dnd5e_planes",
+   "statement": "A tyrant ship’s spherical helm can be attuned to by any beholder occupying its chamber, and no other creature can attune to it. If the ship reaches 0 hit points, the ship, helm, and eyestalk cannons are all destroyed.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Tyrant Ship, p. 54 (dnd5e-spelljammer#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB1",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: access is limited by creature type and location, while the ship’s destruction also removes its special equipment.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0069",
+   "world": "dnd5e_planes",
+   "statement": "A beholder in a tyrant ship’s meditation pod can concentrate to see through an eyestalk cannon, then use an action to attack one target within 120 feet normally or 480 feet at long range. The attack has a +8 bonus and deals 35 force damage on a hit.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Eyestalk Cannons, p. 55 (dnd5e-spelljammer#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB16",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: remote sight and firing require a stationed beholder, concentration, and an action.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0070",
+   "world": "dnd5e_planes",
+   "statement": "A terrestrial creature adapted to dwell in Wildspace can be given a trait that removes its need for air, whether or not its ordinary form requires breathing.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Astral Variants, p. 4 (dnd5e-spelljammer#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default: the adaptation removes only the need for air; other survival requirements are not changed.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0071",
+   "world": "dnd5e_planes",
+   "statement": "Aartuks can climb difficult surfaces, including ceilings, without an ability check. The elder can make two branch attacks, two radiant pellet attacks, or one of each; branch attacks reach 10 feet, while pellets reach 60 feet.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Aartuk Elder, p. 8 (dnd5e-spelljammer#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default: climbing is unrestricted by surface difficulty, while the attack options are limited to two attacks per turn.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0072",
+   "world": "dnd5e_planes",
+   "statement": "An aartuk elder can cast calm emotions, detect magic, and sending once each per day, without components; Wisdom governs the spells and their save DC is 12.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Aartuk Elder, p. 8 (dnd5e-spelljammer#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "mind-state",
+    "conceal-or-sense",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: each spell is available only once daily, and the fixed save DC limits its potency.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0073",
+   "world": "dnd5e_planes",
+   "statement": "A ballista requires one action each to load, aim, and fire; it attacks one target at +6, with a range of 120 feet normally or 480 feet at long range, and deals 16 piercing damage on a hit. A mangonel requires two actions each to load and aim, then one to fire; it attacks one target at +5, has a 200-foot normal and 800-foot long range, cannot hit targets within 60 feet, and deals 27 bludgeoning damage on a hit.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Ballistae and Mangonel, pp. 50, 52 (dnd5e-spelljammer#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB16",
+   "derives": [
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default: these weapons deliver substantial damage but require crews, ammunition, and multiple actions to operate.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0074",
+   "world": "dnd5e_planes",
+   "statement": "The tongue can attempt to seize one visible creature within 30 feet, with the size limit depending on the aartuk: Large or smaller for one version, Medium or smaller for the others. A failed DC 11 or 12 Dexterity save leaves the target grappled (escape DC 11, 12, or 14 as specified) and pulls it up to 25 feet toward the aartuk; it can hold only one creature this way and recharges on a 6.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Aartuks, p. 77 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB21",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: bounded single-target restraint; dial: size, save and escape thresholds; in-world limits come from tongue reach and grip.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0075",
+   "world": "dnd5e_planes",
+   "statement": "An aristocrat can teleport itself and its carried or worn belongings up to 30 feet to a visible unoccupied space, three times per day; a star priest can do this twice per day.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Astral Elf Aristocrat, p. 79; Astral Elf Star Priest, p. 81 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: short relocation to a seen destination; dial: daily uses; the user cannot choose an occupied or unseen arrival point.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0076",
+   "world": "dnd5e_planes",
+   "statement": "An aristocrat can try once per day to call a young solar dragon into a visible unoccupied space; the attempt has a 50 percent chance of success. The dragon acts independently but is an ally, and remains for 10 minutes or until it or the summoner dies or the summoner dismisses it using an action.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Astral Elf Aristocrat, p. 79 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon"
+   ],
+   "default_dial_reason": "Default: one temporary ally; dial: uncertain success and once-daily use; the call ends at a time limit, death, or dismissal.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0077",
+   "world": "dnd5e_planes",
+   "statement": "A chwinga can give a visible humanoid within 5 feet a supernatural charm once per day. One alternative charm lets its recipient cast an air-bubble spell as an action three times before the charm disappears; another conjures one of three tool sets, after which the charm disappears but the tools remain.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chwinga Astronaut, p. 85 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: a one-time gift with an expressly limited use; dial: the air-bubble gift works three times, while the tools persist after the gift is spent.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0078",
+   "world": "dnd5e_planes",
+   "statement": "A chwinga can shelter inside a rock, bush, tree, or natural fresh-water source in its space; while sheltered, it cannot be targeted by attacks, spells, or other effects, and its blindsight still works. It can emerge using an action, or is forced out unharmed if the shelter is destroyed.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chwinga Astronaut, p. 85 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB20",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: protection lasts only while inside a natural shelter; dial: the shelter can be destroyed, forcing the chwinga out without injuring it.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0079",
+   "world": "dnd5e_planes",
+   "statement": "A tentacle hit can grapple a creature (escape DC 18 for the cosmic horror, DC 17 for the esthetic), and each tentacle can hold one target; while holding a target, that tentacle cannot attack another. The esthetic's grapple also deals 18 acid damage to its captive at the start of each of the captive's turns.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Cosmic Horror and Esthetic, pp. 86, 88 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB21",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: each appendage restrains at most one target; dial: the esthetic adds recurring damage, while both systems tie the appendage up until the hold ends.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0080",
+   "world": "dnd5e_planes",
+   "statement": "The esthetic can target a spelljamming ship within 300 feet to suppress one randomly selected helm for 2d10 days. The creature attuned to that helm may make a DC 17 Charisma save: failure causes 42 psychic damage and shortens suppression to 2d10 hours, while success halves the damage and shortens suppression to 2d10 minutes.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Esthetic, p. 88 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: a targeted device power is suppressed; dial: the attuned user's save reduces the duration, with psychic harm as the price.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0081",
+   "world": "dnd5e_planes",
+   "statement": "A creature swallowed by an eye monger is blinded and restrained, takes 35 acid damage at the start of each of its turns, and has total cover from effects originating outside. Magic inside the gullet is suppressed, including magic used by the captive; expended spell slots or item charges are wasted, and suppressed effects still lose duration. If the eye monger takes at least 25 damage in one turn from inside, it spits the creature out within 10 feet; if it dies, the captive can escape using 10 feet of movement.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Eye Monger, p. 89 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: the gullet confines and suppresses magic; dial: internal damage can force release, while the captive pays ongoing damage and may waste magical resources.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0082",
+   "world": "dnd5e_planes",
+   "statement": "A feyr can target one unconscious creature it can see within 10 feet once per day; a failed DC 13 Wisdom save deals 27 psychic damage and gives the feyr temporary hit points equal to the damage dealt.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Feyr, p. 90 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB19",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: the effect targets only an unconscious victim; dial: once daily and a saving throw limit access, while the feyr gains temporary vitality from the harm.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0083",
+   "world": "dnd5e_planes",
+   "statement": "A gaj can probe a creature it is grappling: on a failed DC 12 Wisdom save, the victim takes 16 psychic damage and the gaj extracts one desired piece of information; on a successful save, the victim takes half damage and yields no information.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Gaj, p. 91 (dnd5e-spelljammer#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: information can be extracted only from a grappled target; dial: the save can prevent disclosure but not all harm.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0084",
+   "world": "dnd5e_planes",
+   "statement": "A lunar dragon can become partly incorporeal 2 times per day when young or a wyrmling, and 3 times per day when adult or ancient; while it concentrates on the change, it resists bludgeoning, piercing, and slashing damage.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Lunar Dragons, pp. 32–35 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "form-transformation"
+   ],
+   "default_dial_reason": "Default: retain the limited daily uses and concentration requirement; this defensive change is powerful but temporary.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0085",
+   "world": "dnd5e_planes",
+   "statement": "A lunar dragon can create magical ice over a 20-foot-radius area it can see within 120 feet; the ground is difficult terrain for other creatures, and the ice lasts 10 minutes or until the dragon creates it again.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Lunar Dragons, pp. 32–34 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field"
+   ],
+   "default_dial_reason": "Default: keep the area and duration bounded; the field impedes movement without permanently changing the location.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0086",
+   "world": "dnd5e_planes",
+   "statement": "A hadozee that is neither incapacitated nor wearing heavy armor can glide horizontally up to 5 feet for each foot it descends; when it would take falling damage, it can instead extend its membranes and take none, subject to the same restrictions.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Hadozees, pp. 96–97 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB11",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default: retain the descent, incapacitation, and armor limits; safe travel depends on the creature's body and equipment.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0087",
+   "world": "dnd5e_planes",
+   "statement": "A jammer leech can attach to a ship's hull, dealing 1d4 damage that ignores the ship's damage threshold; that damage cannot be repaired until the leech is scraped off with a successful DC 18 Strength check.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Jammer Leech, p. 98 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB16",
+   "derives": [
+    "plant-or-creature-target",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: preserve the attachment and removal gate; the hull damage remains unrepaired while the living parasite is in place.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0088",
+   "world": "dnd5e_planes",
+   "statement": "When a jammer leech takes damage, it can once per day fire at a visible creature within 30 feet; a failed DC 13 Dexterity save causes 3d6 force damage and stun until the target's next turn ends.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Jammer Leech, p. 98 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB15",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: keep the once-daily trigger, range, and save; the leech discharges stolen magic in response to injury.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0089",
+   "world": "dnd5e_planes",
+   "statement": "A kindori can emit bright light in a 120-foot cone; creatures in it that fail a DC 14 Wisdom save are blinded for 1 minute and can repeat the save at the end of each of their turns to end the effect.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Kindori, p. 99 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "area-field",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: keep the cone, duration, and repeated escape chance; the blinding effect is strong but can be shaken off.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0090",
+   "world": "dnd5e_planes",
+   "statement": "When a neh-thalggu consumes a brain, it gains the ability to speak and understand languages its previous owner knew; its spells also require specific numbers of consumed brains, from 1 to 12 depending on the spell.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Neh-thalggu, p. 107 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB13",
+   "derives": [
+    "memory-transfer",
+    "power-granting"
+   ],
+   "default_dial_reason": "Default: tie each gained language or spell access to a consumed brain; knowledge and magical options have a costly living source.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0091",
+   "world": "dnd5e_planes",
+   "statement": "A neogi can attempt to charm one visible creature within 30 feet; on a failed DC 14 Wisdom save, the target obeys commands and loses reactions for up to 1 day, ending early if the neogi dies, moves more than 1 mile away, or the target succeeds on a new save after taking damage.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Neogi Pirate and Void Hunter, p. 109 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: retain the save, damage-triggered escape, and distance and death limits; control depends on maintaining proximity and survival.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0092",
+   "world": "dnd5e_planes",
+   "statement": "A githyanki can teleport itself and its carried or worn equipment up to 30 feet to an unoccupied space it can see; the ability recharges on a 4–6.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Githyanki Buccaneer and Star Seer, p. 95 (dnd5e-spelljammer#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: keep the short visible destination and recharge; the movement is limited in distance and availability.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0093",
+   "world": "dnd5e_planes",
+   "statement": "An apparition can exist only in the Astral Plane; sending it elsewhere destroys it. While it has at least 1 hit point, it sheds bright light for 20 feet and dim light for another 20 feet.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Starlight Apparition, Astral Existence; Illumination (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: plane-bound existence",
+   "seam": "none",
+   "derives": [
+    "place-release"
+   ],
+   "default_dial_reason": "Default: existence and light follow these fixed thresholds; dial: change the plane restriction or radii if the setting needs different boundaries.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0094",
+   "world": "dnd5e_planes",
+   "statement": "An apparition can pass through creatures and objects as though they were difficult terrain, but takes 5 (1d10) force damage if it ends its turn inside an object.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Starlight Apparition, Incorporeal Movement (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default: passage is possible but ending inside solid matter costs health; dial: adjust the damage to set the risk of lingering within objects.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0095",
+   "world": "dnd5e_planes",
+   "statement": "A successful hit from its radiant eruption deals 20 (5d6) radiant damage; a creature hit must also succeed on a DC 14 Wisdom save or be blinded for 1 minute. The target can repeat the save at the end of each of its turns, ending the blindness on a success.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Starlight Apparition, Actions: Radiant Eruption (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: the impairment can last up to a minute but offers repeated chances to end it; dial: alter the save DC or duration to tune its severity.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0096",
+   "world": "dnd5e_planes",
+   "statement": "When possession recharges, the apparition can target one visible humanoid within 5 feet; on a failed DC 14 Charisma save, the target is incapacitated and loses control of its body while remaining aware. The apparition controls the body, cannot be targeted by attacks or other effects, retains its alignment, mental ability scores, and immunity to being charmed and frightened, and otherwise uses the host’s statistics without gaining its knowledge, class features, or proficiencies.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Starlight Apparition, Actions: Possession (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "mind-binding",
+    "body-door",
+    "projection-body"
+   ],
+   "default_dial_reason": "Default: control requires close range and a failed save, with substantial limits on the possessor’s access; dial: adjust access or defenses to set how intrusive possession is.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0097",
+   "world": "dnd5e_planes",
+   "statement": "Possession ends if the host reaches 0 hit points, the apparition ends it as a bonus action, the host leaves the Astral Plane, or an effect forces the apparition out. The apparition then reappears in an unoccupied space within 5 feet; appearing outside the Astral Plane destroys it, and the host becomes immune to that apparition’s possession for 24 hours after a successful save or the possession ends.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Starlight Apparition, Actions: Possession (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB17",
+   "derives": [
+    "soul-binding",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: possession has several explicit termination conditions and grants the host temporary protection; dial: change the exit conditions or immunity period to tune repeat exposure.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0098",
+   "world": "dnd5e_planes",
+   "statement": "A thri-kreen mystic can use psionics without components, using Wisdom as its spellcasting ability: it can cast levitate on itself and create an invisible mage hand at will, and can cast freedom of movement on itself and invisibility on itself once per day each.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Thri-kreen Mystic, Spellcasting (Psionics) (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: two minor effects are unlimited while the stronger options are limited to once daily; dial: alter use frequency or scope to balance the utility.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0099",
+   "world": "dnd5e_planes",
+   "statement": "A mystic’s vitality drain targets one creature it can see within 30 feet, which makes a DC 14 Constitution save; it takes 32 (5d12) necrotic damage on a failure or half on a success, and the mystic regains hit points equal to the damage dealt. The ability recharges after a short or long rest.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Thri-kreen Mystic, Actions: Drain Vitality (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: transfer",
+   "seam": "AB15",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default: the user recovers only the amount actually drained, while a saving throw reduces the transfer; dial: change range, recharge, or damage to tune the exchange.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0100",
+   "world": "dnd5e_planes",
+   "statement": "A vampirate’s energy drain deals 11 (2d10) necrotic damage on a hit; if it reduces a humanoid to 0 hit points, that humanoid dies and immediately becomes a free-willed shadow controlled by the DM. A captain’s drain instead deals 22 (4d10) damage and allows the captain to choose a shadow or vampirate as the resulting creature.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Vampirates; Vampirate Captain, Actions: Energy Drain (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB29",
+   "derives": [
+    "creature-control",
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default: the transformation occurs only when a humanoid is reduced to 0 by this attack; dial: vary the resulting creature or trigger to set the cost and consequences of lethal feeding.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0101",
+   "world": "dnd5e_planes",
+   "statement": "When a vampirate or captain is reduced to 0 hit points, it explodes; creatures within 5 feet must succeed on a Constitution save or take necrotic damage. The basic vampirate deals 5 (1d10) damage at DC 14, while the captain deals 16 (3d10) at DC 15.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Vampirates; Vampirate Captain, Explode (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB29",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: destruction creates a nearby hazard with a save to avoid it; dial: change the radius, damage, or DC to tune the danger of taking the creature down.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0102",
+   "world": "dnd5e_planes",
+   "statement": "A captain can make its ship and everything aboard invisible to creatures not aboard it, while the captain remains on the ship and concentrates; the effect lasts up to 1 hour and ends if the captain leaves. It recharges after a short or long rest.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Vampirate Captain, Bonus Actions: Ship Invisibility (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense",
+    "area-field"
+   ],
+   "default_dial_reason": "Default: concealment covers the whole ship but depends on concentration, presence, and a one-hour limit; dial: adjust coverage or upkeep to balance group-scale concealment.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0103",
+   "world": "dnd5e_planes",
+   "statement": "A zodar can teleport a creature it sees within 60 feet to a visible, unoccupied space up to 60 feet away that can support it; on a failed DC 21 Constitution save, the target also takes 22 (4d10) force damage, while a success halves the damage and prevents teleportation. The zodar can use this as part of its multiattack, before or after its two fist attacks.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Zodar, Actions: Forced Teleport (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: displacement is limited by sight and a short range, and a save can prevent it; dial: change the range, save, or damage to tune forced movement.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0104",
+   "world": "dnd5e_planes",
+   "statement": "A zodar can cast wish without components, using Charisma with a save DC of 17; after casting it, the zodar turns to dust and is destroyed. It can also make a message of up to 25 words issue from the surrounding air up to three times in its life, understood by creatures with Intelligence 2 or higher.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Zodar, Disembodied Voice; Wish (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB15",
+   "derives": [
+    "power-granting",
+    "speech-penalty"
+   ],
+   "default_dial_reason": "Default: the most powerful effect is a one-use final act that destroys its user, while speech is tightly limited; dial: change the sacrifice or lifetime limits to set the price of exceptional power.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0105",
+   "world": "dnd5e_planes",
+   "statement": "The astral seeds root into a world and grow crystalline vines that drain its life energy over months; after exhausting the world, the vines send that energy back to their star. Destroying the star causes the vines to release their stored energy to the world, then wither and die.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Introduction, Xaryxis (dnd5e-spelljammer#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: energy drain and return",
+   "seam": "AB15",
+   "derives": [
+    "ingredient-properties",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: the drain takes months and the stored energy returns only if the star is destroyed; dial: change the duration or release condition to tune the stakes and reversibility.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0106",
+   "world": "dnd5e_planes",
+   "statement": "A creature with telepathy that comes within 5 feet of an interior door causes it to open; it closes soon after that creature and its companions pass. Otherwise, opening the door requires an action to pry or tickle it.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 3, The Lucent Edict—Interior Doors (p. 151) (dnd5e-spelljammer#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "body-door",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: proximity triggers passage; dial: set the trigger distance or closing delay; the door’s living barrier otherwise keeps the ship’s compartments separated.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0107",
+   "world": "dnd5e_planes",
+   "statement": "The Moondancer’s helm sensory input combines with Flapjack’s telepathy to detect telepathic activity on nearby vessels. Psurlons’ Alien Mind trait confounds that sense, leaving Flapjack with only a vague warning that something is aboard.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 3, The Lucent Edict (p. 150) (dnd5e-spelljammer#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: nearby telepathy can be sensed; dial: detection range and reliability; alien minds frustrate the warning without identifying the source.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0108",
+   "world": "dnd5e_planes",
+   "statement": "An ioun stone found by the nautiloid’s helm holds one casting of shield, making that spell available from the stone once.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 3, The Lucent Edict—Area 3: Spelljamming Helm (p. 151) (dnd5e-spelljammer#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: the stone stores one use; dial: the spell or number of stored castings; the stored charge is expended when used.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0109",
+   "world": "dnd5e_planes",
+   "statement": "A jolly boat cannot support a spelljamming helm and must be propelled and steered with oars. It becomes uncontrollable without a gravity plane; its air lasts 8 hours for one crew member or 2 hours for four.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 4, The Second Wind—Jolly Boats (p. 157) (dnd5e-spelljammer#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default: the boat works only in a gravity plane and has a limited air supply; dial: the plane requirement or air duration; small size prevents helm installation.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0110",
+   "world": "dnd5e_planes",
+   "statement": "After her ship is disabled, Topolah can magically fly the 60 feet per round needed to catch a fleeing ship moving at 35 feet per round; characters tied behind her can be pulled along, but must hold their breath in the airless void.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 168, Shipless Pursuit (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB1",
+   "derives": [
+    "body-form"
+   ],
+   "default_dial_reason": "Default: the flight and towing work as stated; dial: omit or change the pursuit speeds; the characters’ cost is enduring brief exposure to vacuum.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0111",
+   "world": "dnd5e_planes",
+   "statement": "Gargenhale can magically conceal the Second Wind while it searches for the mutineers; the concealment ends as soon as he leaves that ship.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 168–169, Aboard the Second Wind (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: the ship stays unseen until Gargenhale departs; dial: change the concealment’s duration or trigger; the cost is that it cannot protect the boarding party once he leaves.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0112",
+   "world": "dnd5e_planes",
+   "statement": "Agony cannot be permanently destroyed while the Last Breath has at least 1 hit point: if reduced to 0 hit points, it reforms in the cargo hold after 24 hours with full hit points. More than 100 feet from the ship, it vanishes and reappears in the hold; while away, it can use a bonus action to teleport back to the hold or a visible location aboard.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 168, Crew of the Last Breath (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: return",
+   "seam": "AB17",
+   "derives": [
+    "soul-state",
+    "projection-body",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: the ship serves as the ghost’s anchor; dial: alter the ship’s hit-point condition, return delay, or range; the anchor’s cost is that the ghost cannot remain far from it.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0113",
+   "world": "dnd5e_planes",
+   "statement": "A creature hit by a thrown keg of alchemist’s fire takes 6d6 fire damage and burns for that amount again each round. A nearby creature can use an action with a blanket or carpet to reduce the recurring damage by 2d6; three such actions extinguish the flames.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 169, Lower Cargo Hold (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: the fire persists until three successful smothering actions; dial: change its damage or extinguishing effort; the cost is repeated damage and actions spent putting it out.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0114",
+   "world": "dnd5e_planes",
+   "statement": "If a cargo-hold fire burns for 1 minute without being stopped, it ignites the other kegs and destroys the ship in an explosion; creatures and objects within 100 feet take 20d10 fire damage.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 169, Lower Cargo Hold (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB20",
+   "derives": [
+    "negative-effect-drift",
+    "area-field"
+   ],
+   "default_dial_reason": "Default: one minute of unchecked fire causes the explosion; dial: change the delay or blast radius; the cost is catastrophic damage to nearby targets and the ship.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0115",
+   "world": "dnd5e_planes",
+   "statement": "Xedalli says the crystal vines draining a world send its energy back to Xaryxis, replenishing the star; she also says destroying Xaryxis would make the vines die. The passage presents these as true claims, not as an immediately usable procedure.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 171, Princess Xedalli / What Xedalli Knows (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: energy returns to its star",
+   "seam": "AB15",
+   "derives": [
+    "concept-law",
+    "ingredient-properties"
+   ],
+   "default_dial_reason": "Default: the vines’ drain sustains the star and depends on it; dial: change the transfer or its dependency; the in-world cost is the world’s energy being drained.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0116",
+   "world": "dnd5e_planes",
+   "statement": "Entering the Astral Sea lets a spelljammer direct the ship toward a destination by thought, and the Sea carries it there; Doomspace is reached in 21 days. Crossing from the Sea into Doomspace takes three days, while travel onward to Aruun is described as seven days in Krux’s estimate and ten days in the later arrival instruction.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 172–173, Into the Astral Sea / Arrival in Doomspace / The Aartuks of Aruun (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: travel follows the destination chosen by thought and takes the stated times; dial: adjust routes or durations; the cost is extended travel and exposure to encounters en route.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0117",
+   "world": "dnd5e_planes",
+   "statement": "Topolah can make an opening up to 4 feet wide and 10 feet tall appear on any tower wall by touch, or make it vanish with a finger snap. Someone in the opening is pushed outside just before it disappears.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 162, Tower Features (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB20",
+   "derives": [
+    "object-surface",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: openings obey the stated size and displacement rule; dial: change their dimensions or what happens to occupants; the cost of closing one is forced ejection.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0118",
+   "world": "dnd5e_planes",
+   "statement": "Topolah can suppress or restore the bright light from continual-flame spells on a particular floor by clapping three times while on that floor.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 162, Tower Features (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB2",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default: three claps affect only the floor she occupies; dial: change the trigger or affected area; the effect is limited to control of that floor’s illumination.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0119",
+   "world": "dnd5e_planes",
+   "statement": "A rope-and-pulley elevator moves a creature one floor up or down when it grabs the rope and says the corresponding direction.",
+   "locators": [
+    "Spelljammer: Adventures in Space: p. 162, Tower Features (dnd5e-spelljammer#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default: the device moves one floor per command; dial: alter its range or trigger; its cost is reliance on the installed mechanism.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0120",
+   "world": "dnd5e_planes",
+   "statement": "A bearer of Vocath’s sigil tattoo can use an action to send a message spell that reaches Vocath alone. Vocath can also communicate telepathically with any creature on the base that he can see or that bears the sigil.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 8, “Tattooed Guards” and “Magical Effects” (p. 44) (dnd5e-spelljammer#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB1",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: the mark opens a narrow communication channel; access is limited to its bearer and Vocath.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0121",
+   "world": "dnd5e_planes",
+   "statement": "Vocath and creatures bearing his sigil can pass through the transparent, soundproof force walls. Vocath can suppress or restore one wall without an action, even when he cannot see it; otherwise nothing can physically pass through, and only disintegrate destroys one.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 8, “Magical Effects” (p. 44) (dnd5e-spelljammer#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: the walls separate areas and stop passage; marked access and Vocath’s remote control are the exceptions.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0122",
+   "world": "dnd5e_planes",
+   "statement": "While in the audience chamber, Vocath can use an action to teleport any number of creatures he can see there to the arena floor or his sanctum. From the sanctum, he can use an action to send any number of creatures he can see in that room to the audience chamber; each target can resist with a successful DC 14 Charisma save.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 8, “Audience Chamber” and “Vocath’s Sanctum” (pp. 45–46) (dnd5e-spelljammer#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "system-interface"
+   ],
+   "default_dial_reason": "Default: teleportation works only from designated rooms and requires sight; targets in the sanctum can resist.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0123",
+   "world": "dnd5e_planes",
+   "statement": "The mirror in Vocath’s private box holds named creatures; Vocath can release some of them, placing each in an unoccupied arena space as close to the mirror as possible. Shattering the mirror releases every creature trapped inside at once.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 8, “Arena” (p. 44) (dnd5e-spelljammer#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB20",
+   "derives": [
+    "spatial-storage",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: the mirror contains its captives until deliberately opened or broken; breaking it releases all of them.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0124",
+   "world": "dnd5e_planes",
+   "statement": "Arena combatants get 1 minute to prepare before the first match, then fight three matches with no rest between them. A match ends when one side has all its combatants at 0 hit points.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 8, “Arena Battles” (p. 46) (dnd5e-spelljammer#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: chained matches",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: recovery is withheld between consecutive fights, making accumulated damage and depletion the cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0125",
+   "world": "dnd5e_planes",
+   "statement": "Xeleth used divination to learn where Xedalli’s ring was. Xedalli used mislead to become invisible while an illusion acted in her place, then used sending to pass a short message to a trusted character.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 9, “The Xaryxian Threat” and “Roleplaying Xeleth and Xedalli” (pp. 48–49) (dnd5e-spelljammer#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "divination-fate",
+    "conceal-or-sense",
+    "projection-body"
+   ],
+   "default_dial_reason": "Default: remote location-finding and deceptive projection are available through specific spells; the message is directed to a chosen recipient.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0126",
+   "world": "dnd5e_planes",
+   "statement": "If Xeleth cannot obtain Xedalli or her ring, his fleet bombards the docked ships; after 5 rounds it destroys five named vessels before their crews can defend them. The characters’ ship and Vocath’s yacht survive that initial bombardment, but either is attacked if it attempts to leave.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 9, “Xeleth Denied” (p. 49) (dnd5e-spelljammer#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB20",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: the fleet’s attack destroys exposed ships after a fixed interval, while two vessels are spared initially but cannot safely flee.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0127",
+   "world": "dnd5e_planes",
+   "statement": "A faction joins the coalition if a character succeeds on a Charisma check using Deception, Intimidation, or Persuasion: DC 20 if hostile, 15 if indifferent, or 10 if friendly. After a failure, that representative cannot be persuaded again until another faction joins.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Chapter 9, “Forming a Coalition” (p. 50) (dnd5e-spelljammer#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default: joining depends on the faction’s attitude; failure closes that negotiation until the coalition gains another member.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0128",
+   "world": "dnd5e_planes",
+   "statement": "At initiative count 0 each round, each side loses one ship and its crew, in addition to any losses caused by the characters. Track each side’s remaining ships at the start of every round.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Battle Losses, p. 54 (dnd5e-spelljammer#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: one ship per side per round; dial: change the rate to reflect the battle’s scale; the ongoing conflict consumes ships and crews.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0129",
+   "world": "dnd5e_planes",
+   "statement": "An Xaryxian ship cannot attack another Xaryxian vessel unless an enemy has commandeered it. Showing Xedalli’s ring to a crew loyal to her and succeeding on a DC 15 Persuasion check changes that crew’s attitude from hostile to indifferent; it stops attacking but will not otherwise help.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Loyalty to Xedalli or Xeleth?, p. 54 (dnd5e-spelljammer#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB18",
+   "derives": [
+    "spirit-contract-judgement"
+   ],
+   "default_dial_reason": "Default: the ring and a successful DC 15 check improve attitude only to indifferent; dial: adjust the check or resulting attitude; political allegiance constrains violence and cooperation.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0130",
+   "world": "dnd5e_planes",
+   "statement": "If a solar dragon is reduced to 50 hit points or fewer, it flees. It also ends its attack if someone on the ship’s deck displays Xedalli’s ring, which the dragons were trained not to harm its bearers.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Here There Be Dragons, p. 54 (dnd5e-spelljammer#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB4",
+   "derives": [
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: the stated damage threshold or ring display ends the assault; dial: change the threshold or the trained response; survival and training limit the dragons’ aggression.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0131",
+   "world": "dnd5e_planes",
+   "statement": "A creature that starts its turn in the Astral Font’s light beam is teleported to Xaryxis’s radiant core with everything it wears or carries; the zodar is immune. A creature entering the star or starting its turn there takes 132 (24d10) radiant damage.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Astral Font, p. 60–61 (dnd5e-spelljammer#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel",
+    "portal-space",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: the beam transports creatures to the star, where 132 (24d10) damage applies; dial: change the destination or damage; the beam is a lethal route to the star.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0132",
+   "world": "dnd5e_planes",
+   "statement": "Water taken from the Astral Font glows dimly for 24 hours. A spellcaster who drinks at least an ounce must make a DC 16 Wisdom save: failure deals 24 (7d6) psychic damage, while success grants one chosen cleric or wizard spell of up to 7th level, cast with the caster’s ability and without material components; the spell fades from memory after one cast. A creature can hold only one such spell and cannot benefit from the water more than once per 24 hours.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Astral Font, p. 61 (dnd5e-spelljammer#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB32",
+   "derives": [
+    "ingredient-properties",
+    "power-granting",
+    "memory-erasure"
+   ],
+   "default_dial_reason": "Default: one temporary spell, with a save, damage risk, and 24-hour limit; dial: alter spell access or risk; the star’s power is potent but costly and short-lived.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0133",
+   "world": "dnd5e_planes",
+   "statement": "A trial by combat is won when the zodar reaches 0 hit points; it wins if all characters are at 0 hit points at the start of its turn or if the standing characters concede. Any character who leaves the temple forfeits the match. If the crowd was swayed for Xedalli, her champions each gain 20 temporary hit points before the battle.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Trial by Combat; Xedalli’s Favor, p. 61 (dnd5e-spelljammer#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "protection-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: the match is bounded by these win and forfeiture conditions, and crowd support grants 20 temporary hit points; dial: change the boundaries or bonus; public ritual determines the stakes and protection.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0134",
+   "world": "dnd5e_planes",
+   "statement": "After the succession, the zodar’s wish restores the characters to full hit points and gives each the benefit of greater restoration. If the zodar was reduced to 0 hit points in the preceding trial, it first regains 1 hit point.",
+   "locators": [
+    "Spelljammer: Adventures in Space: Dying Wish, p. 62 (dnd5e-spelljammer#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB29",
+   "derives": [
+    "revival-on-death",
+    "power-granting"
+   ],
+   "default_dial_reason": "Default: the intervention restores health and removes conditions as greater restoration does; dial: change its reach or benefits; the zodar’s final act aids the characters against the empire.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "dnd5e_planes.rule.0135",
+   "world": "dnd5e_planes",
+   "statement": "To destroy Xaryxis, someone bearing either royal ring must reach the star’s heart, by ship in three days or through the Astral Font’s beam; the journey has no return. The star’s destruction eliminates everything in Xaryxispace, but its shock waves do not reach the Astral Sea.",
+   "locators": [
+    "Spelljammer: Adventures in Space: No Coming Back; Death of a Star, pp. 63–64 (dnd5e-spelljammer#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: ring-bound destruction",
+   "seam": "AB17",
+   "derives": [
+    "item-bound-power",
+    "soul-binding",
+    "dimension-travel"
+   ],
+   "default_dial_reason": "Default: a ring-bearer’s arrival destroys the system and costs the traveler their return; dial: change the sacrifice or scope; using the royal ring turns the star’s power against the empire.",
+   "licence": "commercial book, design reference only"
+  }
+ ]
+}

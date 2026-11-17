@@ -1,0 +1,1860 @@
+{
+ "meta": {
+  "world": "blades_commercial",
+  "books": [
+   "Blades in the Dark core book"
+  ],
+  "licence": [
+   "commercial book, design reference only"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept. Commercial book: design reference only.",
+  "date": "2026-11-17",
+  "shards": 17
+ },
+ "rules": [
+  {
+   "id": "blades_commercial.rule.0001",
+   "world": "blades_commercial",
+   "statement": "A character may spend 2 stress to gain one extra die on a roll, improve the action’s effect by one level, or act while incapacitated; each option can be chosen only once for that action.",
+   "locators": [
+    "Blades in the Dark core book: Stress & Trauma — Pushing Yourself (p. 13) (blades-core-harper#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: the benefit costs stress and each benefit is limited to once per action, so extra performance is finite.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0002",
+   "world": "blades_commercial",
+   "statement": "When a character resists an unwanted consequence, roll the relevant attribute; resistance always reduces or deflects the consequence, and the roll result determines how much stress is paid. The example’s 2 result reduces a 6-stress cost to 4 and lessens level-3 harm to level 2.",
+   "locators": [
+    "Blades in the Dark core book: Actions & Attributes — Resistance Roll (p. 11); Stress & Trauma — Stress (p. 13) (blades-core-harper#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: resistance can soften a consequence, but its stress cost consumes the character’s limited reserve.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0003",
+   "world": "blades_commercial",
+   "statement": "Marking the final stress box causes one trauma condition and removes the character from the current conflict; they return later with zero stress and their vice satisfied for the next downtime. Trauma is permanent, and reaching four conditions forces retirement or imprisonment.",
+   "locators": [
+    "Blades in the Dark core book: Stress & Trauma — Trauma (pp. 13–14) (blades-core-harper#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: stress exhaustion creates lasting personality change and eventually ends the character’s active career.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0004",
+   "world": "blades_commercial",
+   "statement": "Possession inflicts one trauma at the end of each week; after the possessed body accumulates four trauma, it cannot sustain life, so the spirit must bind to the corpse or leave for another host.",
+   "locators": [
+    "Blades in the Dark core book: Stress & Trauma — Stress & the Supernatural (p. 14) (blades-core-harper#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "soul-binding",
+    "body-door"
+   ],
+   "default_dial_reason": "Default: possession is time-limited by accumulating bodily trauma, forcing the spirit to choose a new state or host.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0005",
+   "world": "blades_commercial",
+   "statement": "A progress clock tracks accumulated effort or an advancing danger; its segments are filled according to effect or consequence, and completion marks the tracked obstacle or danger’s fruition. Common sizes are 4 segments for complex, 6 for more complicated, and 8 for daunting obstacles.",
+   "locators": [
+    "Blades in the Dark core book: Progress Clocks (pp. 15–16) (blades-core-harper#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "formation-field"
+   ],
+   "default_dial_reason": "Default: clocks bound progress or escalation to a visible segment capacity, with size reflecting complexity.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0006",
+   "world": "blades_commercial",
+   "statement": "A danger clock advances by one, two, or three segments when complications occur, according to their severity; when full, the represented threat comes to pass. Opposed clocks can race, and a filled clock can unlock a linked clock.",
+   "locators": [
+    "Blades in the Dark core book: Progress Clocks — Danger, Racing, and Linked Clocks (p. 16) (blades-core-harper#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: danger unfolds in discrete increments and triggers a defined outcome only upon completion.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0007",
+   "world": "blades_commercial",
+   "statement": "A possessed character may resist a spirit’s fear or panic effect with Resolve; characters accustomed to spirits are less susceptible and suffer these effects only from exceptionally powerful entities.",
+   "locators": [
+    "Blades in the Dark core book: Stress & Trauma — Stress & the Supernatural (p. 14) (blades-core-harper#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB11",
+   "derives": [
+    "mind-state",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: supernatural fear can be resisted, while experience raises the threshold of entities that can cause it.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0008",
+   "world": "blades_commercial",
+   "statement": "The GM rates a dangerous action as controlled, risky, or desperate; risky is the default, with the rating reflecting how much danger or trouble the character faces. The GM sets this separately from effect, and the player may trade a worse position for greater effect, or the reverse, when it fits the situation.",
+   "locators": [
+    "Blades in the Dark core book: The Basics, pp. 27, 34, 37 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: position and effect",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to risky; dial safer or more dangerous to match the fictional threat and desired tone.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0009",
+   "world": "blades_commercial",
+   "statement": "Effect measures how much an action accomplishes: limited, standard, and great effect tick 1, 2, and 3 progress-clock segments respectively. Potency, scale, and quality can raise or lower effect, including to zero or beyond great; a dominant disadvantage can prevent an action from having any effect.",
+   "locators": [
+    "Blades in the Dark core book: Effect, pp. 24–26 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field"
+   ],
+   "default_dial_reason": "Default to standard effect; adjust for the action’s force, reach, and resources relative to its target.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0010",
+   "world": "blades_commercial",
+   "statement": "A character may gain one bonus die from a teammate’s assistance, which costs the teammate 1 stress. A second bonus die may come either from pushing oneself, at a cost of 2 stress, or from accepting a Devil’s Bargain; the bargain’s cost occurs regardless of the roll’s outcome.",
+   "locators": [
+    "Blades in the Dark core book: The Basics; The Devil’s Bargain, pp. 28–29 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB3",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to no bonus dice; add them only when help, exertion, or an agreed consequence justifies the extra chance.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0011",
+   "world": "blades_commercial",
+   "statement": "A Devil’s Bargain grants a bonus die in exchange for a consequence such as harm, lost property, collateral damage, or a new threat clock. Accepting it is optional, and the player may reject or negotiate it; the GM decides whether a proposed bargain is valid.",
+   "locators": [
+    "Blades in the Dark core book: The Devil’s Bargain, p. 29 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB18",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to no bargain; offer one when a fitting cost can make success more tempting without forcing the player.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0012",
+   "world": "blades_commercial",
+   "statement": "On a 4–5, an action succeeds with a consequence; on 1–3, it may fail, have partial effect, or not occur, as the GM judges. Worse position leads to more severe suggested consequences, and the GM may apply more than one when the situation warrants it.",
+   "locators": [
+    "Blades in the Dark core book: The Basics, pp. 30–31 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to consequences scaled to position and outcome; tune severity to the danger and the game’s tone.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0013",
+   "world": "blades_commercial",
+   "statement": "A character may resist a consequence, and the GM decides whether resistance reduces it or avoids it entirely. Roll the relevant attribute; the character takes 6 stress minus the highest die, clears 1 stress on a critical, and can resist a given consequence only once.",
+   "locators": [
+    "Blades in the Dark core book: Resistance & Armor, pp. 32–33 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to reducing consequences; allow avoidance when the desired tone is more daring, with stress as the cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0014",
+   "world": "blades_commercial",
+   "statement": "Applicable armor can reduce or avoid a consequence instead of making a resistance roll; each marked armor box is unavailable until restored when the character chooses load for the next score. Heavy armor may provide a second box for the same consequence.",
+   "locators": [
+    "Blades in the Dark core book: Resistance & Armor, p. 33 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default to requiring an applicable armor resource; its limited, recoverable use prevents repeated protection without cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0015",
+   "world": "blades_commercial",
+   "statement": "Harm is recorded in four levels: lesser, moderate, severe, and fatal. If the row for incoming harm is full, the harm moves up a level; severe harm incapacitates without help or pushing, and further harm beyond a full severe row causes a catastrophic permanent consequence that may be death.",
+   "locators": [
+    "Blades in the Dark core book: Consequences & Harm, pp. 30–31; Resistance & Armor, p. 33 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB34",
+   "derives": [
+    "body-code-decay",
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to lasting injury with escalating severity; dial consequences through available harm capacity and the fiction.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0016",
+   "world": "blades_commercial",
+   "statement": "When a character gathers information, the GM answers honestly with detail limited by the action’s effect: limited gives incomplete information, standard gives good detail, and great gives exceptional detail. Each attempt takes time, and a fleeting opportunity may allow only one attempt; complex investigations can instead be tracked by a clock.",
+   "locators": [
+    "Blades in the Dark core book: Gathering Information, pp. 36–37 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to information bounded by effect; make access cost time and restrict retries when the opportunity is fleeting.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0017",
+   "world": "blades_commercial",
+   "statement": "A fortune roll resolves uncertain events when no other roll applies or when the PCs are not directly involved; its dice may come from a relevant trait, or from sheer luck if none applies. For opposed parties, roll for each and compare their performance; outcomes range from bad or little effect on 1–3 to exceptional effect on a critical.",
+   "locators": [
+    "Blades in the Dark core book: Fortune Roll, pp. 34–35 (blades-core-harper#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "luck-mechanism"
+   ],
+   "default_dial_reason": "Default to the relevant trait; use luck or a situation-based pool when no trait fits, leaving uncertain events to chance.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0018",
+   "world": "blades_commercial",
+   "statement": "A character may resist a consequence by rolling the attribute the GM specifies; on a roll of 4, the example character takes 2 stress and avoids the consequence.",
+   "locators": [
+    "Blades in the Dark core book: The Basics, p. 48 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: resisting prevents the stated consequence; the cost is stress, so avoiding harm or complications strains the character.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0019",
+   "world": "blades_commercial",
+   "statement": "A teammate can assist by taking 1 stress to give the acting character +1 die. A Devil’s Bargain can also grant +1 die, but the bargain’s agreed fictional cost applies regardless of the roll’s outcome.",
+   "locators": [
+    "Blades in the Dark core book: The Basics, p. 48 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: extra dice come from help or a bargain; the cost is stress or an unavoidable consequence in the fiction.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0020",
+   "world": "blades_commercial",
+   "statement": "A critical success increases effect by one level; a character may take 2 stress to gain +1 effect. In the example, increasing effect from great to extreme is enough to make the opposing gang give way.",
+   "locators": [
+    "Blades in the Dark core book: The Basics, p. 48 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: a critical improves effect; further effect can be bought with stress when greater impact is worth the strain.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0021",
+   "world": "blades_commercial",
+   "statement": "When PC characters conflict, use the usual action, resistance, and fortune rolls, but pause first and agree on the resolution method and stakes. If the players cannot agree, the conflict does not proceed; once agreed, the players abide by the results, with resistance available as usual.",
+   "locators": [
+    "Blades in the Dark core book: PC vs. PC, p. 49 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: consent gates resolution",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: character conflicts use the normal procedures; unanimous agreement is required, and resistance is the permitted way to mitigate bad outcomes.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0022",
+   "world": "blades_commercial",
+   "statement": "A character’s load sets the maximum number of items they can declare on hand during an operation. Load 1–3 is light, 4–5 normal, 6 heavy, and 7–9 encumbered; at 7–9, the character can only move very slowly, while heavier loads also make them slower or more conspicuous.",
+   "locators": [
+    "Blades in the Dark core book: Character Creation Summary, p. 57 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB21",
+   "derives": [
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: load limits carried items; taking more weight reduces speed or restricts action, with some abilities raising the limit.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0023",
+   "world": "blades_commercial",
+   "statement": "One coin carried as silver or other bulk currency uses one load slot. More than 4 coin is impractical to keep on hand: spend the excess or place it in stash; a crew’s lair holds 4 coin by default, 8 with a vault, and up to 16 after expanding it.",
+   "locators": [
+    "Blades in the Dark core book: Coin, p. 50 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: contain",
+   "seam": "AB21",
+   "derives": [
+    "spatial-storage"
+   ],
+   "default_dial_reason": "Default: stored wealth has a capacity limit; carrying bulk costs load, and excess must be spent or stored elsewhere.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0024",
+   "world": "blades_commercial",
+   "statement": "Removing coin from stash converts it at a rate of 1 coin for every 2 stash removed, representing the sale of assets for quick cash.",
+   "locators": [
+    "Blades in the Dark core book: Stash & Retirement, p. 51 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: stash can become cash, but only at half value because assets must be sold off quickly.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0025",
+   "world": "blades_commercial",
+   "statement": "A faction at war causes the crew to take +1 heat from scores, temporarily lose 1 hold, and gives each PC only one downtime action instead of two. When the war ends, a crew whose weak hold caused a Tier loss returns to its pre-war Tier.",
+   "locators": [
+    "Blades in the Dark core book: Faction Status Levels, p. 46 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: war imposes continuing operational costs and weakens position; ending it restores the temporary Tier loss.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0026",
+   "world": "blades_commercial",
+   "statement": "A successful operation to reduce a faction’s hold lowers it by one level; if a faction with weak hold loses another level, it loses one Tier and remains weak. War also temporarily removes one hold.",
+   "locators": [
+    "Blades in the Dark core book: Faction Game, p. 45 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: successful attacks or war reduce hold; weak factions risk losing Tier as their position erodes.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0027",
+   "world": "blades_commercial",
+   "statement": "A character can gain stash from crew advancement: whenever the crew advances, each PC receives stash equal to crew Tier plus 2. At retirement, stash totals of 0–10, 11–20, 21–39, and 40 correspond to progressively better living circumstances.",
+   "locators": [
+    "Blades in the Dark core book: Crew Advancement, p. 57; Stash & Retirement, p. 51 (blades-core-harper#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: crew advancement generates personal stored wealth, and the final amount determines the character’s retirement circumstances.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0028",
+   "world": "blades_commercial",
+   "statement": "A Cutter can charge their hands, melee weapons, or tools with spirit energy, enabling strong interaction with ghosts and spirit-stuff and giving them an advantage in combat against supernatural targets; they can grapple spirits to restrain and capture them.",
+   "locators": [
+    "Blades in the Dark core book: Cutter Special Abilities, p. 62 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [
+    "power-interaction",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: spirit energy improves interaction and permits restraint; it does not specify duration or a separate cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0029",
+   "world": "blades_commercial",
+   "statement": "A Hound’s hunting pet can be imbued with spirit energy, gaining an advantage when tracking or fighting supernatural targets and one chosen arcane ability: become electroplasmic vapor, share senses and thoughts with the hunter, or move extremely quickly. Taking the ability again grants the pet one additional arcane ability.",
+   "locators": [
+    "Blades in the Dark core book: Hound Special Abilities, p. 66 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB4",
+   "derives": [
+    "body-form",
+    "mind-binding",
+    "familiar-summon"
+   ],
+   "default_dial_reason": "Default: the companion receives a limited supernatural benefit; each additional ability requires taking the ability again.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0030",
+   "world": "blades_commercial",
+   "statement": "A Leech can ruin a small-room-sized area with arcane substances, making it repellent or attractive to spirits for several days. Spirits forced into a repellent area, or forced out of an attractive one, suffer torment; particularly powerful or prepared spirits may resist using their quality or arcane magnitude.",
+   "locators": [
+    "Blades in the Dark core book: Leech Special Abilities, p. 70 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default: the effect is localized and lasts several days; powerful or prepared spirits may resist.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0031",
+   "world": "blades_commercial",
+   "statement": "A Leech chooses one drug or poison to which they are immune, then may push themselves to release it through skin, saliva, or breath. They can change the chosen substance only by completing a long-term project, and immunity does not extend to other alchemical substances.",
+   "locators": [
+    "Blades in the Dark core book: Leech Special Abilities, p. 71 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB11",
+   "derives": [
+    "body-code-decay",
+    "ingredient-properties"
+   ],
+   "default_dial_reason": "Default: immunity covers only one chosen substance; changing it takes a long-term project, and releasing it requires pushing oneself.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0032",
+   "world": "blades_commercial",
+   "statement": "A Lurk can shift partly into the ghost field, becoming shadowy and insubstantial for moments at a cost of 2 stress. Each extra feature costs 1 more stress: the effect lasts minutes instead of moments, makes the Lurk invisible instead of shadowy, or lets them float.",
+   "locators": [
+    "Blades in the Dark core book: Lurk Special Abilities, p. 75 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB2",
+   "derives": [
+    "form-transformation",
+    "dimension-travel",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: the shift costs 2 stress; greater duration or added capabilities each cost another stress.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0033",
+   "world": "blades_commercial",
+   "statement": "When a Slide influences someone, the target may fail to remember that it happened until their next interaction with the Slide; at that point, they remember the event and the strange effect clearly.",
+   "locators": [
+    "Blades in the Dark core book: Slide Special Abilities, p. 78 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "memory-erasure"
+   ],
+   "default_dial_reason": "Default: the altered memory lasts only until the next interaction, when it returns in full.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0034",
+   "world": "blades_commercial",
+   "statement": "A Spider’s handshake or written deal marks both partners with an oath. If either breaks it, the breaker suffers level 3 harm that incapacitates them until they fulfill the deal or find a way to heal the curse.",
+   "locators": [
+    "Blades in the Dark core book: Spider Special Abilities, p. 82 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "spirit-contract-judgement",
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default: either party’s breach triggers severe, incapacitating harm; relief requires fulfillment or a way to heal it.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0035",
+   "world": "blades_commercial",
+   "statement": "A Whisper can use the ghost field to make a nearby ghost appear and obey an order, without being supernaturally terrified by that ghost. The command ends when fulfilled or after one day, whichever comes first; broad orders are interpreted through the ghost’s own desires.",
+   "locators": [
+    "Blades in the Dark core book: Whisper Special Abilities, p. 86 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "familiar-summon",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: control ends on fulfillment or after a day, and vague commands leave interpretation to the ghost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0036",
+   "world": "blades_commercial",
+   "statement": "A Whisper can push themselves to unleash lightning as a weapon or summon a local storm with effects such as heavy rain, wind, fog, frost, or snow. Lightning can cause significant collateral damage, and using it against a threatening enemy still requires an action roll.",
+   "locators": [
+    "Blades in the Dark core book: Whisper Special Abilities, p. 87 (blades-core-harper#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [
+    "area-field",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: activating the power requires pushing oneself; lightning risks collateral damage and combat use still calls for a roll.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0037",
+   "world": "blades_commercial",
+   "statement": "A fine lightning hook can grapple a spirit and pull it into a spirit bottle; its collapsible build reduces its carried load to 1 despite requiring two hands when used.",
+   "locators": [
+    "Blades in the Dark core book: Whisper Items, p. 96 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB16",
+   "derives": [
+    "spirit-contract-judgement",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: spirit capture is possible with the custom hook and a bottle; the hook still takes up load and occupies both hands in use.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0038",
+   "world": "blades_commercial",
+   "statement": "A spirit mask lets a trained wearer see supernatural energies in detail and provides some protection against ghostly possession; each mask is unique.",
+   "locators": [
+    "Blades in the Dark core book: Whisper Items, p. 96 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: it grants detailed supernatural sight and limited protection, but does not promise complete immunity to possession.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0039",
+   "world": "blades_commercial",
+   "statement": "A ghost key can open ghost doors, which lead to an echo of the city preserved in the ghost field.",
+   "locators": [
+    "Blades in the Dark core book: Whisper Items, p. 96 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "portal-space",
+    "world-travel"
+   ],
+   "default_dial_reason": "Default: the key opens ghost doors, but finding such a door is uncertain and passage is not otherwise guaranteed.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0040",
+   "world": "blades_commercial",
+   "statement": "A spirit bottle traps a spirit; it is a metal-and-crystal cylinder about the size of a loaf of bread.",
+   "locators": [
+    "Blades in the Dark core book: Whisper Items, p. 96 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: contain",
+   "seam": "none",
+   "derives": [
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default: a bottle can hold a spirit, but the passage gives no capacity or duration beyond the listed item.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0041",
+   "world": "blades_commercial",
+   "statement": "When a crew acts on its preferred operation type within its hunting grounds, it gets +1 die on information-gathering rolls and one extra downtime activity to help prepare that operation.",
+   "locators": [
+    "Blades in the Dark core book: Establish Your Hunting Grounds, p. 93 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB20",
+   "derives": [
+    "area-field"
+   ],
+   "default_dial_reason": "Default: the bonus applies only to the crew’s chosen operation type in its small, claimed area.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0042",
+   "world": "blades_commercial",
+   "statement": "A hidden lair is disguised and concealed; if discovered, the crew must spend two downtime activities and coin equal to its Tier to relocate and conceal it again.",
+   "locators": [
+    "Blades in the Dark core book: Crew Upgrades, p. 95 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB20",
+   "derives": [
+    "conceal-or-sense",
+    "place-release"
+   ],
+   "default_dial_reason": "Default: concealment lasts until discovery, and restoring it costs time and coin based on Tier.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0043",
+   "world": "blades_commercial",
+   "statement": "A gang cohort’s scale and quality equal the crew’s Tier, while a single expert’s quality is Tier +1 and its scale is always zero; both improve in quality as the crew advances in Tier.",
+   "locators": [
+    "Blades in the Dark core book: Cohorts, p. 96 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default: cohort capability tracks crew Tier; gangs scale in numbers while experts remain one person.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0044",
+   "world": "blades_commercial",
+   "statement": "Cohorts can suffer four harm levels: weakened reduces effect, impaired reduces quality by 1 die, broken prevents action until recovery, and dead means destroyed.",
+   "locators": [
+    "Blades in the Dark core book: Cohort Harm & Healing, p. 97 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB4",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: harm progressively limits cohort performance and can destroy the cohort.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0045",
+   "world": "blades_commercial",
+   "statement": "During downtime each cohort removes one harm level if recovery conditions are suitable, or two if a PC spends a downtime activity helping; replacing a destroyed cohort costs coin equal to Tier +2 and two downtime activities.",
+   "locators": [
+    "Blades in the Dark core book: Cohort Harm & Healing, p. 97 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB4",
+   "derives": [
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: recovery is limited per downtime, and replacement consumes both coin and activities.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0046",
+   "world": "blades_commercial",
+   "statement": "The crew’s ancient obelisk reduces the stress cost of every arcane power and ritual by 1 for all cultists, wherever they are, while the deity is pleased.",
+   "locators": [
+    "Blades in the Dark core book: Cult Upgrades, p. 109 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default: the cost reduction is global but depends on the deity remaining pleased.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0047",
+   "world": "blades_commercial",
+   "statement": "A human sacrifice reduces the stress cost of any ritual by 3.",
+   "locators": [
+    "Blades in the Dark core book: Cult Special Abilities, p. 110 (blades-core-harper#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB13",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default: each sacrifice discounts ritual stress by 3, making the sacrifice the stated cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0048",
+   "world": "blades_commercial",
+   "statement": "One carried item may be kept perfectly hidden and does not count against the character’s load.",
+   "locators": [
+    "Blades in the Dark core book: Hawkers Upgrades, p. 112 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "conceal",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: one item. Dial: change how many items can be hidden; the cost is opportunity to carry other gear.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0049",
+   "world": "blades_commercial",
+   "statement": "The crew’s product can be prepared for sale to ghosts or demons; these buyers pay in something other than coin, to be determined with the GM.",
+   "locators": [
+    "Blades in the Dark core book: Hawker Special Abilities, p. 114 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB1",
+   "derives": [
+    "plant-or-creature-target"
+   ],
+   "default_dial_reason": "Default: supernatural buyers and non-coin payment. Dial: set what they pay; the cost is an uncertain, potentially game-shifting exchange.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0050",
+   "world": "blades_commercial",
+   "statement": "A crew’s merchandise has quality equal to its Tier +2. The GM can use that quality to judge client reactions, users’ enthrallment or incapacity, or possible side effects.",
+   "locators": [
+    "Blades in the Dark core book: Hawker Special Abilities, p. 114 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: quality is Tier +2. Dial: adjust quality; the in-world benefit comes with the possibility of harmful side effects or incapacitated users.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0051",
+   "world": "blades_commercial",
+   "statement": "When smugglers upgrade a vehicle, spending two upgrade boxes also gives it armor.",
+   "locators": [
+    "Blades in the Dark core book: Smugglers Upgrades, p. 120 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB16",
+   "derives": [
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: two upgrade boxes for armor. Dial: change the investment; the cost is crew resources spent on the vehicle.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0052",
+   "world": "blades_commercial",
+   "statement": "A crew may make one of its vehicles a cohort with quality equal to Tier +1. It can use teamwork actions based on that quality, but cannot lead a group action; a costly vehicle requires 1 coin per downtime to keep running, while a finicky one has -1 quality if operated by anyone other than its specialist.",
+   "locators": [
+    "Blades in the Dark core book: Smugglers Special Abilities, p. 122 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB16",
+   "derives": [
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: Tier +1 quality and the listed limits and flaws. Dial: vary quality or upkeep; costs include coin, reduced quality, or inability to lead group actions.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0053",
+   "world": "blades_commercial",
+   "statement": "Crew members cannot be possessed by spirits, but may choose to carry a ghost inside their body; the passage leaves consent and whether this can trap an unwilling ghost unresolved.",
+   "locators": [
+    "Blades in the Dark core book: Smugglers Special Abilities, p. 122 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB34",
+   "derives": [
+    "body-door",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: possession is prevented, voluntary carrying is allowed. Dial: define consent and whether unwilling spirits can be held; the cost or limit is left to the table.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0054",
+   "world": "blades_commercial",
+   "statement": "The engagement roll starts with 1 die for luck; each major advantage adds 1 die and each major disadvantage removes 1. Results of 1–3 start the score desperate, 4–5 risky, 6 controlled, and a critical means the first obstacle is already overcome and the crew begins controlled for what follows.",
+   "locators": [
+    "Blades in the Dark core book: Engagement Roll, pp. 128–129 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: the stated dice modifiers and result bands. Dial: change the modifiers or bands; this determines how dangerous the operation’s opening is.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0055",
+   "world": "blades_commercial",
+   "statement": "The engagement roll sets only the initial position; after the opening actions, position is established normally for each later roll.",
+   "locators": [
+    "Blades in the Dark core book: How Long Does It Last?, p. 130 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: opening position ends after initial actions. Dial: extend or shorten its duration; the limit prevents a single roll from controlling the whole score.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0056",
+   "world": "blades_commercial",
+   "statement": "A flashback lets a player roll for a past action that affects the current situation, but cannot undo events already established in the present. The GM sets its stress cost: 0 for an ordinary easy action, 1 for a complex or unlikely one, and 2 or more for elaborate plans involving special opportunities or contingencies.",
+   "locators": [
+    "Blades in the Dark core book: Flashbacks, p. 132 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "time-loop"
+   ],
+   "default_dial_reason": "Default: 0, 1, or 2+ stress by complexity, with no undoing present events. Dial: raise or lower the cost; the price reflects preparation difficulty.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0057",
+   "world": "blades_commercial",
+   "statement": "A flashback involving a downtime activity costs 1 coin or 1 rep instead of stress; after paying, resolve it as an ordinary action, fortune roll, or without a roll if its outcome is straightforward.",
+   "locators": [
+    "Blades in the Dark core book: Flashbacks, p. 132 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: 1 coin or 1 rep for a downtime activity. Dial: change the price; the cost is a crew resource rather than stress.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0058",
+   "world": "blades_commercial",
+   "statement": "A linked diversion can either be a setup maneuver within the operation—where failure may impose -1 die on the engagement roll—or a separate operation with its own engagement and downtime, payoff, heat, and other consequences when it is required for the later plan to happen.",
+   "locators": [
+    "Blades in the Dark core book: Linked Plans, p. 131 (blades-core-harper#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: choose between setup and separate operation. Dial: make the diversion more or less independent; a separate operation costs time and triggers its own consequences.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0059",
+   "world": "blades_commercial",
+   "statement": "When helping another character’s roll, describe the assistance, take 1 stress, and give that character +1 die; the helper may also face consequences from the roll. Only one character can assist a given roll.",
+   "locators": [
+    "Blades in the Dark core book: The Score, p. 135, “assist” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: one helper and +1 die; dial: whether the helper shares consequences; helping costs stress and may expose them to danger.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0060",
+   "world": "blades_commercial",
+   "statement": "In a group action, each participating PC rolls the same action and the best result applies to everyone who rolled. The leader takes 1 stress for each participant whose best result is 1–3; characters who do not roll are not covered.",
+   "locators": [
+    "Blades in the Dark core book: The Score, p. 135, “lead a group action” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: use the best group result; dial: the leader’s stress accumulates with each poor result, reflecting the burden of covering for the team.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0061",
+   "world": "blades_commercial",
+   "statement": "A character may step in and take a teammate’s consequence instead, describing the intervention; they may then resist that consequence normally.",
+   "locators": [
+    "Blades in the Dark core book: The Score, p. 135, “protect” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "protection-field"
+   ],
+   "default_dial_reason": "Default: the protector takes the consequence; dial: resistance remains available, so intervening risks harm or other costs to the protector.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0062",
+   "world": "blades_commercial",
+   "statement": "A successful setup action gives any teammate who follows through either +1 effect level or improved position, chosen to fit the setup. More than one follow-up action may benefit when that makes sense in the fiction.",
+   "locators": [
+    "Blades in the Dark core book: The Score, p. 135, “set up” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: one of two benefits, with multiple beneficiaries allowed; the in-world setup must plausibly enable each follow-through.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0063",
+   "world": "blades_commercial",
+   "statement": "Teamwork maneuvers are optional, and a character cannot use or benefit from them if they cannot communicate or coordinate with the team.",
+   "locators": [
+    "Blades in the Dark core book: The Score, p. 135, “Do we have to use teamwork?” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: coordination gates teamwork; dial: disabling communication removes shared support because the characters cannot act together.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0064",
+   "world": "blades_commercial",
+   "statement": "After a score, each PC gets two downtime activities, or one while the crew is at war. A PC may take additional activities by paying 1 coin or 1 rep for each extra activity.",
+   "locators": [
+    "Blades in the Dark core book: Downtime, p. 153, “downtime activities” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Default: two activities, reduced to one at war; dial: extra time consumes coin or reputation, representing the cost of making time.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0065",
+   "world": "blades_commercial",
+   "statement": "A crew gains heat after a score according to exposure: 0 for smooth and quiet, 2 for contained, 4 for loud and chaotic, or 6 for wild and devastating. Add 1 for a high-profile target, hostile turf, or being at war with a faction, and add 2 if anyone was killed; at 9 heat the crew gains a wanted level and clears heat, with excess carrying over.",
+   "locators": [
+    "Blades in the Dark core book: Downtime, pp. 147–148, “heat” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default: exposure sets heat and 9 triggers a wanted level; dial: target, territory, faction conflict, and deaths increase attention because they leave more conspicuous traces.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0066",
+   "world": "blades_commercial",
+   "statement": "When a crew member, friend, contact, or framed enemy is convicted and imprisoned for crimes tied to the crew, reduce the crew’s wanted level by 1 and clear its heat. The sentence depends on wanted level: level 4 means life or execution, level 3 a year or two, level 2 several months, level 1 a month or two, and level 0 a few weeks or a beating that causes level 3 harm without a resistance roll.",
+   "locators": [
+    "Blades in the Dark core book: Downtime, p. 148, “incarceration” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default: imprisonment clears heat and lowers wanted level; dial: sentence severity tracks wanted level, making someone bear the crew’s cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0067",
+   "world": "blades_commercial",
+   "statement": "After payoff and heat, generate an entanglement using the crew’s heat band and a roll with dice equal to wanted level; at wanted level 0, roll two dice and keep the lower. An entanglement manifests before the PCs can prevent it, though they can deal with it afterward.",
+   "locators": [
+    "Blades in the Dark core book: Downtime, p. 150, “entanglements” (blades-core-harper#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default: every score can bring trouble, selected by heat and wanted level; the crew cannot avert an entanglement before it happens because it represents offscreen pressures catching up.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0068",
+   "world": "blades_commercial",
+   "statement": "A downtime activity gets +1 die when a friend or contact assists. After its roll, coin can raise the result by one level per coin; raising a result beyond critical costs 2 coin for each added level.",
+   "locators": [
+    "Blades in the Dark core book: Downtime, p. 154 (blades-core-harper#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: assistance and coin improve outcomes; dial: set how widely coin can raise results, reflecting how much money can buy success.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0069",
+   "world": "blades_commercial",
+   "statement": "Acquiring an asset gives temporary use, usually for one score. A crew-Tier roll yields quality at Tier −1 on 1–3, Tier on 4/5, Tier +1 on 6, or Tier +2 on a critical; some assets require minimum quality, repeated acquisition adds +1 die, and restricted dangerous items add 2 heat.",
+   "locators": [
+    "Blades in the Dark core book: Acquire Asset, p. 154 (blades-core-harper#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default: access is temporary and quality follows crew Tier; dial: vary minimum quality and added heat to reflect scarcity and risk.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0070",
+   "world": "blades_commercial",
+   "statement": "A long-term project advances a clock by 1 segment on 1–3, 2 on 4/5, 3 on 6, or 5 on a critical. The goal determines the clock size and what actions can advance it; sometimes a separate project is needed to gain access to the goal.",
+   "locators": [
+    "Blades in the Dark core book: Long-Term Project, p. 154 (blades-core-harper#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: progress accumulates in bounded stages; dial: set clock size and eligible methods to match the difficulty and prerequisites.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0071",
+   "world": "blades_commercial",
+   "statement": "Treatment advances a healing clock by 1, 2, 3, or 5 segments according to the healer’s result (1–3, 4/5, 6, or critical). When the clock fills, each instance of harm drops one level and the clock clears, with extra segments carrying over; new harm clears existing ticks. Self-treatment with the relevant ability costs 2 stress, while attempting recovery without treatment costs 1 stress and rolls 0 dice.",
+   "locators": [
+    "Blades in the Dark core book: Recover, p. 155 (blades-core-harper#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: healing is gradual and new injuries erase accumulated progress; dial: tune clock length and stress costs to set recovery speed and risk.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0072",
+   "world": "blades_commercial",
+   "statement": "Indulging a vice clears stress equal to the highest die rolled using the character’s lowest attribute rating. Clearing more stress than marked causes an overindulgence, such as attracting another entanglement, adding 2 heat, being absent for weeks, or losing access to the current purveyor. Skipping or being unable to indulge during downtime adds stress equal to trauma.",
+   "locators": [
+    "Blades in the Dark core book: Indulging Your Vice, pp. 156–157 (blades-core-harper#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB19",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: relief is tied to the weakest attribute and excess relief has costs; dial: choose overindulgence consequences to suit the setting’s pressures.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0073",
+   "world": "blades_commercial",
+   "statement": "Training marks 1 XP on an attribute or playbook track once per downtime; the relevant crew upgrade adds 1 more XP.",
+   "locators": [
+    "Blades in the Dark core book: Train, p. 155 (blades-core-harper#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: training provides limited advancement; dial: upgrades and per-period caps control the pace of growth.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0074",
+   "world": "blades_commercial",
+   "statement": "Any character can attune to the ever-present ghost field to sense beyond ordinary sight or perceive echoes of recent events. Attuning is dangerous; occult powers based on the field need access to it and electroplasmic energy to manifest.",
+   "locators": [
+    "Blades in the Dark core book: Attune, p. 170 (blades-core-harper#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "AB2",
+   "derives": [
+    "conceal-or-sense",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: sensing is available but risky, and field-dependent powers require their source; dial: adjust danger and information detail to fit the situation.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0075",
+   "world": "blades_commercial",
+   "statement": "Command expects swift obedience from fear, respect, or another motivating advantage; when used on a PC, it can compel compliance only if that PC’s player agrees there is a reason to obey. Without such a reason, it can only disrupt the character.",
+   "locators": [
+    "Blades in the Dark core book: COMMAND, p. 171 (blades-core-harper#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: influence is not mind control; dial: allow compliance only when the target has a credible reason to obey, otherwise the cost is disruption rather than control.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0076",
+   "world": "blades_commercial",
+   "statement": "Sway requires situational leverage, such as convincing evidence, good arguments, or a quality the target wants to please; it manipulates rather than controls. Against a PC, leverage can compel agreement only if that player agrees it applies; without leverage, it can only distract or disrupt.",
+   "locators": [
+    "Blades in the Dark core book: SWAY, p. 179 (blades-core-harper#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: persuasion needs leverage; dial: decide what leverage fits the target, with the cost of lacking it being only distraction or disruption.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0077",
+   "world": "blades_commercial",
+   "statement": "A failed Prowl can advance a four-segment “Discovered” clock instead of immediately exposing the character; the GM may tick one or two segments, representing how close discovery is.",
+   "locators": [
+    "Blades in the Dark core book: PROWL, p. 175 (blades-core-harper#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: discovery builds gradually; dial: set the clock’s progress to reflect how alert the watchers are and how much exposure the character risks.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0078",
+   "world": "blades_commercial",
+   "statement": "Tinkering can precisely alter a device to produce a specific malfunction, often taking longer and leaving it easier to repair than breaking it outright. It is limited to devices, chemicals, and similar technical subjects.",
+   "locators": [
+    "Blades in the Dark core book: TINKER, p. 180 (blades-core-harper#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default: technical changes are deliberate and specific; dial: trade extra time and easier repair for a precise result.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0079",
+   "world": "blades_commercial",
+   "statement": "Wrecking rapidly and thoroughly ruins an object’s function and can create chaos; its effectiveness depends partly on scale, though exploiting a vulnerability can make a smaller force effective. Unlike Tinkering, it can target things such as walls, floors, and doors, not just devices or technical materials.",
+   "locators": [
+    "Blades in the Dark core book: WRECK, p. 181 (blades-core-harper#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: destruction is fast and disruptive; dial: scale the required force to the target, or reduce it by exploiting a weakness.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0080",
+   "world": "blades_commercial",
+   "statement": "A character can spend 2 stress to push themselves, or receive a teammate’s assistance, which costs that teammate 1 stress; spending stress improves the character’s odds of success.",
+   "locators": [
+    "Blades in the Dark core book: USE YOUR STRESS, p. 184 (blades-core-harper#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: exceptional effort consumes stress; dial: spend 2 stress to push, or accept help at the cost of 1 stress to the assisting teammate.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0081",
+   "world": "blades_commercial",
+   "statement": "A player can use a flashback to establish prior preparation once a problem appears, including a preparation action that creates an advantage for a later action. This replaces lengthy advance planning with a retrospective setup.",
+   "locators": [
+    "Blades in the Dark core book: ACT NOW, PLAN LATER, p. 185 (blades-core-harper#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: preparation can be established when relevant; dial: allow a prior setup suited to the present trouble, with its specific limits or costs not stated in this excerpt.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0082",
+   "world": "blades_commercial",
+   "statement": "When a person dies, their spirit usually separates from the body after 1–3 days and becomes a ghost; a player may transfer a dead character to the Ghost playbook if the spirit can escape before the body is destroyed. The transfer preserves current action ratings subject to a maximum of 4, retains ghost abilities, and replaces other abilities, stress, and trauma with ghost-specific traits and tracks.",
+   "locators": [
+    "Blades in the Dark core book: Spirit Characters, p. 213; Ghost, p. 214 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB17",
+   "derives": [
+    "soul-state"
+   ],
+   "default_dial_reason": "Default: death can change the character’s state; dial: allow the transfer only if the group wants it; the body may be destroyed before the spirit gets free.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0083",
+   "world": "blades_commercial",
+   "statement": "A ghost can disperse its vapor form to pass through solid objects, taking 1 drain plus 1 for each added feature: lasting longer (a minute, an hour, or a day), becoming invisible, or dangerously electrifying or freezing anything that passes through it.",
+   "locators": [
+    "Blades in the Dark core book: Ghost Traits: Dissipate, p. 215 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB2",
+   "derives": [
+    "form-transformation",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default: passing through a solid object costs 1 drain; dial: each extra feature adds 1 drain; dispersing the form carries supernatural risk.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0084",
+   "world": "blades_commercial",
+   "statement": "A ghost can spend 1 drain to travel instantly through the ghost field to a place it knew intimately in life, or to answer a summoning call. It can spend 1 drain to strongly interact with the physical world for a few moments, with greater reach or force costing 2–6 drain.",
+   "locators": [
+    "Blades in the Dark core book: Ghost Traits: Manifest and Poltergeist, p. 215 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB2",
+   "derives": [
+    "dimension-travel",
+    "portal-space",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: limited travel or physical interaction costs 1 drain; dial: stronger or broader interaction costs 2–6; exertion depletes the ghost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0085",
+   "world": "blades_commercial",
+   "statement": "A ghost can take control of a living body by attuning to the ghost field; if control is challenged, it must attune again, risking electroplasmic harm, or leave. Challenges occur when it consumes the host’s spirit energy, arcane powers act against it, or the host’s will reaches desperation.",
+   "locators": [
+    "Blades in the Dark core book: Ghost Traits: Possess, p. 215 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "body-door",
+    "mind-binding",
+    "soul-binding"
+   ],
+   "default_dial_reason": "Default: possession lasts until a challenge forces a response; dial: the GM determines whether the ghost risks harm or abandons the body; the host’s resistance and outside forces threaten control.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0086",
+   "world": "blades_commercial",
+   "statement": "A ghost must possess a living victim and consume spirit energy to satisfy its life-essence need; this can be done as a downtime activity and clears half its drain, rounded down. A ghost has 9 drain boxes, takes drain instead of stress, and takes gloom instead of trauma.",
+   "locators": [
+    "Blades in the Dark core book: Ghost, p. 214 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB13",
+   "derives": [
+    "ingredient-properties",
+    "soul-state"
+   ],
+   "default_dial_reason": "Default: feeding clears half of current drain, rounded down; dial: possession and feeding can be handled as downtime; the ghost’s continuing need makes recovery costly.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0087",
+   "world": "blades_commercial",
+   "statement": "A hull has 10 drain boxes and takes drain instead of stress; it recharges by connecting to an industrial-grade generator for one downtime activity, which clears 5 drain. It takes wear instead of trauma.",
+   "locators": [
+    "Blades in the Dark core book: Hull, p. 216 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [
+    "tinker-device",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: one downtime activity at an industrial generator clears 5 drain; dial: the hull’s power supply and access to a suitable generator limit its recovery.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0088",
+   "world": "blades_commercial",
+   "statement": "A vampire feeds on a living human as a downtime activity, using its Hunt vice; feeding marks four ticks on its healing clock and is its only way to heal. Each new vampire trait after its first adds a stricture, such as spending a downtime activity in dark silence or suffering 3 stress, or being barred from entering a private home without permission.",
+   "locators": [
+    "Blades in the Dark core book: Vampire, p. 218 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB18",
+   "derives": [
+    "ingredient-properties",
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default: feeding advances healing by four ticks and is the only healing method; dial: each additional trait adds a chosen stricture; immortality comes with recurring needs and restrictions.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0089",
+   "world": "blades_commercial",
+   "statement": "A demon can teleport between sites of its elemental affinity and may bring others; greater distances require greater power. A demon can also be summoned by forcing it to travel to a ritual presentation of its element, and can use that affinity for remote viewing, with greater distances likewise requiring more power.",
+   "locators": [
+    "Blades in the Dark core book: Demons: Demonic Powers, p. 212 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "AB20",
+   "derives": [
+    "dimension-travel",
+    "world-travel",
+    "precognition"
+   ],
+   "default_dial_reason": "Default: travel and viewing require a matching elemental site or affinity; dial: greater distance demands greater power; summoning risks bringing a dangerous entity into reach.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0090",
+   "world": "blades_commercial",
+   "statement": "A power’s magnitude measures aspects such as area, scale, duration, range, and force; the GM may use that magnitude as a fortune-roll dice pool when the result is uncertain. Magnitudes can be added for combined effects: a district-wide hurricane ritual assessed at force 6 plus range 5 costs 11 stress, or 8 if taking a few hours reduces the cost, with time for some people to flee.",
+   "locators": [
+    "Blades in the Dark core book: Magnitude, p. 220 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: magnitude sets power scale",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field",
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default: judge magnitude by comparison and use it as a dice pool when effects are uncertain; dial: combine aspects or reduce cost by extending the ritual; large-scale power costs heavily and may give targets warning.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0091",
+   "world": "blades_commercial",
+   "statement": "A summoned horror is highly resistant to harm but can remain in the world only briefly; its form decays to dust or ooze within a few hours or days. Ghosts, demons, and horrors can also make most witnesses freeze or flee, though player characters may resist that reaction.",
+   "locators": [
+    "Blades in the Dark core book: Summoned Horrors, p. 213 (blades-core-harper#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB20",
+   "derives": [
+    "familiar-summon",
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default: a summoned horror decays within hours or days; dial: choose the duration within that span; its alien form cannot sustain itself in this world.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0092",
+   "world": "blades_commercial",
+   "statement": "A character with the Ritual ability starts knowing one ritual. To learn another, they must first find its source and then complete a long-term project, usually an 8-segment clock; the ritual’s effect, method, price, and an associated new belief or fear are established before use.",
+   "locators": [
+    "Blades in the Dark core book: Finding a Ritual Source; Learning a Ritual, pp. 222–223 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB1",
+   "derives": [
+    "power-granting",
+    "spirit-contract-judgement"
+   ],
+   "default_dial_reason": "Default: a ritual requires a source and substantial study; dial: set the project length; the occult knowledge is difficult to obtain.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0093",
+   "world": "blades_commercial",
+   "statement": "Performing a ritual takes at least one downtime activity and costs stress set by its magnitude; taking longer, generally at least an hour, can reduce that cost. A ritual may also require a sacrifice or rare item, advance a danger clock, or call for an action roll if the performance is dangerous.",
+   "locators": [
+    "Blades in the Dark core book: Ritual Questions; Performing a Ritual, pp. 222–223 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "vow-cost",
+    "negative-effect-drift",
+    "power-granting"
+   ],
+   "default_dial_reason": "Default: stress reflects the magnitude of the forces used; dial: adjust stress and time to suit the ritual; occult power carries personal and sometimes escalating costs.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0094",
+   "world": "blades_commercial",
+   "statement": "A ritual that is only partly completed during downtime can be marked as primed and released later by completing its final incantation or action. Each performance is a distinct event and may work differently, so its effects and costs can be re-established when needed.",
+   "locators": [
+    "Blades in the Dark core book: Performing a Ritual, p. 223 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "release",
+   "seam": "AB2",
+   "derives": [
+    "item-bound-power",
+    "power-granting"
+   ],
+   "default_dial_reason": "Default: priming postpones only the final manifestation; dial: allow the ritual’s details to change between uses; abyssal forces are unreliable.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0095",
+   "world": "blades_commercial",
+   "statement": "When a ritual’s effect is uncertain, make a fortune roll; because it is a downtime activity, coin can be spent one-for-one to raise the result level. If it is both dangerous and uncertain, the GM may call for both an action roll and a fortune roll.",
+   "locators": [
+    "Blades in the Dark core book: Performing a Ritual, p. 223 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [
+    "power-granting"
+   ],
+   "default_dial_reason": "Default: uncertain outcomes are resolved separately from dangerous performance; dial: spending coin improves the manifestation; rare materials are costly.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0096",
+   "world": "blades_commercial",
+   "statement": "A design or formula for a new creation is learned through a long-term project, usually an 8-segment clock, and the creator and GM define its function, minimum quality, obscuring drawback or aspect, and possible drawbacks. Once learned, only the inventor or someone who later learns the design can craft it.",
+   "locators": [
+    "Blades in the Dark core book: Inventing, p. 224 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB1",
+   "derives": [
+    "blueprint-craft"
+   ],
+   "default_dial_reason": "Default: novel creations require a learned design; dial: set project length and drawbacks; specialized knowledge is not automatically shared.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0097",
+   "world": "blades_commercial",
+   "statement": "Crafting takes one downtime activity and a Tinker roll; the crew’s Tier sets the base quality, with a Workshop raising effective Tier by one. The GM sets minimum quality according to the creation’s effects, and coin can increase final quality one-for-one, even beyond Tier +2.",
+   "locators": [
+    "Blades in the Dark core book: Crafting, pp. 224–225 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB16",
+   "derives": [
+    "tinker-device",
+    "blueprint-craft"
+   ],
+   "default_dial_reason": "Default: quality is constrained by crew resources and the item’s effect; dial: coin and a Workshop raise quality; better materials and facilities cost resources.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0098",
+   "world": "blades_commercial",
+   "statement": "A modification requires minimum quality of Tier +1 for a simple improvement, Tier +2 for a significant one, and Tier +3 for an arcane, spark-craft, or alchemical change. Creations and modifications may also have drawbacks: complex work takes multiple downtime stages, consumables have limited uses, unreliable items require a quality-based fortune roll, and volatile items impose a dangerous side effect.",
+   "locators": [
+    "Blades in the Dark core book: Modifying an Item; Drawbacks, p. 225 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB16",
+   "derives": [
+    "tinker-device",
+    "item-bound-power",
+    "construct-upkeep"
+   ],
+   "default_dial_reason": "Default: greater or supernatural changes require higher quality; dial: choose drawbacks and stages; complexity, limited uses, and hazards constrain powerful items.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0099",
+   "world": "blades_commercial",
+   "statement": "A demon bound through an arcane ritual must obey its binder, but if its desire is not well-satisfied it may secretly work toward the binder’s destruction to escape. A bound demon can also be made to inhabit an arcane artifact, whose wielder controls its abilities while the demon’s desire is satisfied.",
+   "locators": [
+    "Blades in the Dark core book: Bound to the Demon, p. 235 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "spirit-contract-judgement",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: the binding grants command but not safety; dial: the demon’s desire determines whether it cooperates; neglect risks betrayal and destruction.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0100",
+   "world": "blades_commercial",
+   "statement": "A spirit bound into a Hull animates its body, with construction requiring six stages; the sensorium and soul vessel each require quality VII components, and the vessel requires a memento from the spirit’s life. The sensorium requires a rare spirit-crystal orb, while the whole project is classified as very complex.",
+   "locators": [
+    "Blades in the Dark core book: Sample Gadgets & Special Plans, p. 227 (blades-core-harper#011)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "construct-upkeep",
+    "soul-binding",
+    "tinker-device"
+   ],
+   "default_dial_reason": "Default: the animated body requires six separate construction stages and specific rare components; dial: set the stages’ requirements; housing a spirit demands substantial materials and labor.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0101",
+   "world": "blades_commercial",
+   "statement": "Plasm is made by distilling material already saturated with life energy; the resulting fuel can be used to do work. Different sources and processing methods yield fuel with different burn rates and levels of harmful Ghost Field static.",
+   "locators": [
+    "Blades in the Dark core book: The Marvel of Plasm, pp. 242–243 (blades-core-harper#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "AB15",
+   "derives": [
+    "ingredient-properties",
+    "item-bound-power"
+   ],
+   "default_dial_reason": "Default: fuel comes from life-saturated material; dial: source and refinement affect burn and static; the cost is hazardous residue and possible manifestations.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0102",
+   "world": "blades_commercial",
+   "statement": "Radiant energy can be infused into living plants and animals, and their glow can make nearby plants grow larger and faster or replace sunlight sufficiently for them to flower and fruit. Eating a radiant creature or plant can cause a voice associated with a death to intrude into the eater’s mind; a Whisper can usually remove it, though side effects may remain.",
+   "locators": [
+    "Blades in the Dark core book: What Is There to Eat in Duskwall?, p. 247 (blades-core-harper#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB13",
+   "derives": [
+    "ingredient-properties",
+    "mind-binding",
+    "mind-state"
+   ],
+   "default_dial_reason": "Default: radiant life feeds nearby growth; dial: infusion and exposure determine the effects; the cost of eating it is a dangerous mental intrusion and possible lasting side effects.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0103",
+   "world": "blades_commercial",
+   "statement": "Radiant plants and animals must be burned when disposed of, or their stored electroplasmic energy can cause trouble in the Ghost Field.",
+   "locators": [
+    "Blades in the Dark core book: What Is There to Eat in Duskwall?, p. 247 (blades-core-harper#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB29",
+   "derives": [
+    "soul-state"
+   ],
+   "default_dial_reason": "Default: burning safely ends the radiant organism; dial: other disposal methods risk supernatural fallout; the in-world cost is careful destruction.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0104",
+   "world": "blades_commercial",
+   "statement": "An echo repeats captured behavior without having a will of its own; it can still harm people through electrical discharge. It may appear spontaneously at the site of an extremely violent event, whether or not anyone died there.",
+   "locators": [
+    "Blades in the Dark core book: The Haunted City, p. 252 (blades-core-harper#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "move",
+   "seam": "none",
+   "derives": [
+    "time-loop",
+    "projection-body"
+   ],
+   "default_dial_reason": "Default: an echo repeats without agency; dial: a violent site can trigger its appearance; the danger is its electrical discharge.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0105",
+   "world": "blades_commercial",
+   "statement": "A specter may possess a victim to drain their life essence and take revenge on those it believes wronged it while alive.",
+   "locators": [
+    "Blades in the Dark core book: The Haunted City, p. 252 (blades-core-harper#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "mind-binding",
+    "soul-state",
+    "creature-control"
+   ],
+   "default_dial_reason": "Default: possession gives the spirit access to a victim; dial: its aims shape whom it targets; the cost is loss of bodily control and drained essence.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0106",
+   "world": "blades_commercial",
+   "statement": "Electroplasmic furnaces can destroy a recovered spirit, removing its echo from the Ghost Field and eliminating the danger of that vengeful spirit. Spirits that are not destroyed in time may escape their bodies, while some are removed beforehand for sale or processing.",
+   "locators": [
+    "Blades in the Dark core book: The Haunted City, p. 252 (blades-core-harper#012)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB17",
+   "derives": [
+    "soul-state",
+    "soul-binding"
+   ],
+   "default_dial_reason": "Default: electroplasmic destruction ends the spirit; dial: delaying or diverting the process allows escape or exploitation; the cost is the spirit’s complete destruction.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0107",
+   "world": "blades_commercial",
+   "statement": "For a violent action in Crow’s Foot, a character may accept a Devil’s Bargain to gain +1d; in return, a ghost also lashes out.",
+   "locators": [
+    "Blades in the Dark core book: Crow’s Foot, p. 275 (blades-core-harper#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB29",
+   "derives": [],
+   "default_dial_reason": "Default: the bonus comes with an immediate supernatural drawback; dial: allow or decline the bargain; the district’s bloodshed draws angry ghosts.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0108",
+   "world": "blades_commercial",
+   "statement": "Operations against ships while they are in port count as taking place on hostile turf when generating heat.",
+   "locators": [
+    "Blades in the Dark core book: The Docks, p. 277 (blades-core-harper#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: apply the hostile-turf treatment to these operations; dial: none stated; the docks’ local conditions make such work riskier.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0109",
+   "world": "blades_commercial",
+   "statement": "In Nightmarket, a character can gain +1d when acquiring an asset by paying 2 stress.",
+   "locators": [
+    "Blades in the Dark core book: Nightmarket, p. 281 (blades-core-harper#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: +1d costs 2 stress; dial: use or forgo the exchange; the district’s illicit and arcane trade offers an edge at a personal cost.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0110",
+   "world": "blades_commercial",
+   "statement": "After overindulging a vice in Silkshore, a character gets +1d on their next vice-indulgence roll there.",
+   "locators": [
+    "Blades in the Dark core book: Silkshore, p. 283 (blades-core-harper#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB19",
+   "derives": [],
+   "default_dial_reason": "Default: the next indulgence in this district gets the bonus; dial: none stated; overindulgence leaves the character with a stronger appetite.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0111",
+   "world": "blades_commercial",
+   "statement": "Engagement rolls for operations in Whitecrown suffer −2d because of heavy Bluecoat patrols. Operations against the nobility there count as taking place on hostile turf when generating heat.",
+   "locators": [
+    "Blades in the Dark core book: Whitecrown, p. 287 (blades-core-harper#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: apply the −2d and hostile-turf treatment in their stated situations; dial: none stated; patrols and the nobility’s control make operations difficult and conspicuous.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0112",
+   "world": "blades_commercial",
+   "statement": "Joining the Gondoliers grants the Whisper special ability Compel.",
+   "locators": [
+    "Blades in the Dark core book: The Gondoliers, p. 289 (blades-core-harper#013)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default: initiation grants the ability; dial: none stated; membership provides access to the group’s occult practice.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0113",
+   "world": "blades_commercial",
+   "statement": "The Reconciled can possess someone indefinitely without the usual harmful effects, and their spirits retain their minds instead of becoming vengeance-driven or losing themselves over time.",
+   "locators": [
+    "Blades in the Dark core book: The Reconciled, p. 293 (blades-core-harper#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB11",
+   "derives": [
+    "mind-binding",
+    "soul-state"
+   ],
+   "default_dial_reason": "default: possession lasts indefinitely without these adverse effects; dial: remove the exception for other spirits, whose minds deteriorate over time.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0114",
+   "world": "blades_commercial",
+   "statement": "Lord Scurlock cannot be affected by spirits, and ghosts cannot perceive or harm him. He makes no sound when moving and can be difficult to look at directly.",
+   "locators": [
+    "Blades in the Dark core book: Lord Scurlock, p. 294 (blades-core-harper#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "protection-field",
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "default: spirits cannot affect or perceive him; dial: narrow the immunity or remove the stealth traits, given his ancient arcane power.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0115",
+   "world": "blades_commercial",
+   "statement": "A silver-nail ring protects its wearer against possession.",
+   "locators": [
+    "Blades in the Dark core book: The Silver Nails, p. 295 (blades-core-harper#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "item-bound-power",
+    "protection-field",
+    "mind-binding"
+   ],
+   "default_dial_reason": "default: the ring blocks possession; dial: limit its protection to possession, reflecting the mercenaries’ specialized ghost-hunting gear.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0116",
+   "world": "blades_commercial",
+   "statement": "The Unseen use arcane rituals so core members can recognize one another through attuned second sight. When a non-member learns a member’s identity, a ritual removes that knowledge from the non-member’s mind after a few moments.",
+   "locators": [
+    "Blades in the Dark core book: The Unseen, p. 297 (blades-core-harper#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "conceal-or-sense",
+    "memory-erasure"
+   ],
+   "default_dial_reason": "default: members recognize one another and learned identities are erased after moments; dial: restrict recognition or make memory removal less complete, at the cost of weaker secrecy.",
+   "licence": "commercial book, design reference only"
+  },
+  {
+   "id": "blades_commercial.rule.0117",
+   "world": "blades_commercial",
+   "statement": "In conflicts, Lord Scurlock’s personal scale is treated as a large gang of 20 people.",
+   "locators": [
+    "Blades in the Dark core book: Lord Scurlock, p. 294 (blades-core-harper#014)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: conflict scale",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "default: count him as 20 people in conflicts; dial: change the scale to reflect how much his singular power outweighs ordinary opponents.",
+   "licence": "commercial book, design reference only"
+  }
+ ]
+}

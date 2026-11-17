@@ -1,0 +1,1246 @@
+{
+ "meta": {
+  "world": "ironsworn",
+  "books": [
+   "Ironsworn"
+  ],
+  "licence": [
+   "CC-BY-NC-SA-4.0"
+  ],
+  "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+  "date": "2026-11-17",
+  "shards": 11
+ },
+ "rules": [
+  {
+   "id": "ironsworn.rule.0001",
+   "world": "ironsworn",
+   "statement": "After a move roll, a character with positive momentum may cancel any challenge die lower than their current momentum, converting the result into a hit; canceling both gives a strong hit. This is optional, but doing it resets momentum to the reset value: +2 normally, +1 with one marked debility, or 0 with more than one.",
+   "locators": [
+    "Ironsworn: Momentum — Burning Momentum; Resetting Momentum, pp. 12–13 (ironsworn#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to allowing the optional cancellation and reset; a world can raise or lower the reset value, representing how readily hard-won advantage is spent.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0002",
+   "world": "ironsworn",
+   "statement": "When momentum is below 0 and equals the action die, cancel that die; resolve the move using the stat and adds alone. Momentum cannot fall below −6; a further required loss instead triggers a setback that reduces health, spirit, or supply, or undermines progress.",
+   "locators": [
+    "Ironsworn: Momentum — Suffering Negative Momentum; Minimum Momentum, p. 13 (ironsworn#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to canceling a matching action die and converting losses at −6 into a setback; a world can change the floor or setback severity, reflecting how far adversity can grind someone down.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0003",
+   "world": "ironsworn",
+   "statement": "A character’s maximum momentum begins at +10 and falls by 1 for each marked debility; momentum cannot be raised beyond that maximum. Each debility also lowers the reset value after momentum is burned, according to the reset rules.",
+   "locators": [
+    "Ironsworn: Momentum — Resetting Momentum; Max Momentum, pp. 12–14 (ironsworn#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to reducing both capacity and reset with debilities; a world can soften or intensify those penalties, reflecting the lasting effect of wounds and strain.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0004",
+   "world": "ironsworn",
+   "statement": "Challenges use a ten-box progress track, with advancement depending on rank: troublesome gives 3 progress per success, dangerous 2, formidable 1, extreme 2 ticks, and epic 1 tick. Bonds instead gain 1 tick at a time, unless a move says otherwise.",
+   "locators": [
+    "Ironsworn: Progress Tracks — Marking Progress, pp. 14–16 (ironsworn#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Default to rank-scaled progress and one tick for bonds; a world can change track sizes or advancement rates, making goals longer or shorter to complete.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0005",
+   "world": "ironsworn",
+   "statement": "A progress roll compares the number of fully filled boxes against two challenge dice: beating both is a strong hit, beating one is a weak hit, and beating neither is a miss. Momentum does not affect the roll, and cannot be burned or penalize it; allies sharing a challenge use one common track and one roll.",
+   "locators": [
+    "Ironsworn: Progress Rolls; Sharing Progress Tracks with Allies, p. 18 (ironsworn#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: progress roll resolution",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a shared, momentum-independent roll against filled boxes; a world can allow individual rolls or momentum effects, changing how teamwork and preparation matter.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0006",
+   "world": "ironsworn",
+   "statement": "A deadly weapon inflicts 2 harm on a successful attack, while an unarmed, improvised, or simple weapon inflicts 1; move options may add more. Harm suffered reduces health, and its rank ranges from 1 to 5 points, from troublesome through epic.",
+   "locators": [
+    "Ironsworn: Harm — Inflicting Harm; Enduring Harm, p. 19 (ironsworn#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to weapon-category damage and five harm levels; a world can adjust damage values, making fights more or less punishing.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0007",
+   "world": "ironsworn",
+   "statement": "Stress reduces spirit by its amount and is rated from 1 to 5, corresponding to troublesome through epic mental shocks. At 0 spirit, the character risks a debility or desolation; stress is not mechanically inflicted on others by this rule.",
+   "locators": [
+    "Ironsworn: Stress, p. 20 (ironsworn#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to stress depleting spirit and danger at zero; a world can alter the threshold or allow stress to be inflicted, changing the impact of fear and despair.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0008",
+   "world": "ironsworn",
+   "statement": "For a yes/no oracle question, choose the odds and roll percentile dice: yes is 11+ for almost certain, 26+ for likely, 51+ for even odds, 76+ for unlikely, and 91+ for a small chance. A matching result indicates an extreme outcome or twist.",
+   "locators": [
+    "Ironsworn: Ask the Oracle, p. 23 (ironsworn#000)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default to the listed probability thresholds and a match-triggered twist; a world can shift the thresholds, making answers more or less predictable.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0009",
+   "world": "ironsworn",
+   "statement": "A bond grants +1 to an action score only on moves that explicitly give a bond bonus; successfully creating one marks 1 bond-progress tick. At retirement, count filled bond boxes as the progress score for the epilogue.",
+   "locators": [
+    "Ironsworn: BONDS, pp. 24, 36 (ironsworn#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB4",
+   "derives": [],
+   "default_dial_reason": "Default: bonds provide only move-specific benefits and retirement progress; a world can increase or reduce their bonuses to reflect how much community ties matter.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0010",
+   "world": "ironsworn",
+   "statement": "NPCs have no moves or full mechanical profiles; they may use a rank to track progress in combat. Resolve attempts to affect them through the player character’s moves, and use an oracle or GM to establish their actions or motivations.",
+   "locators": [
+    "Ironsworn: OTHER CHARACTERS, p. 24 (ironsworn#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: npcs are character-facing",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default: NPCs act through fiction rather than rolls; a world can give important NPCs more mechanics, at the cost of added bookkeeping.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0011",
+   "world": "ironsworn",
+   "statement": "A companion is an asset with abilities and a health track. A 1 on the action die while using a companion ability means a negative outcome should put the companion at risk; at 0 health, the companion may be killed. If killed, gain 1 experience per marked ability and remove the asset.",
+   "locators": [
+    "Ironsworn: ALLIES AND COMPANIONS, pp. 24, 42 (ironsworn#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB4",
+   "derives": [],
+   "default_dial_reason": "Default: companion help carries risk and death removes the asset; a world can soften or intensify that risk to set the cost of relying on companions.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0012",
+   "world": "ironsworn",
+   "statement": "A deadly weapon inflicts 2 harm; being unarmed or using a simple or improvised weapon inflicts 1 harm. Losing access to a weapon can therefore reduce harm from 2 to 1.",
+   "locators": [
+    "Ironsworn: EQUIPMENT, p. 25; EQUIPMENT AND MOVES, p. 52 (ironsworn#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default: weapon category sets harm; a world can change these values to reflect how decisive equipment is, with weapon loss as a possible cost.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0013",
+   "world": "ironsworn",
+   "statement": "Health, spirit, and supply range from 0 to +5. At 0 health or spirit, a miss on the corresponding endure move risks a debility or death/desolation; at 0 supply, characters make Out of Supply, and further supply loss reduces health, spirit, or momentum by the excess amount.",
+   "locators": [
+    "Ironsworn: HEALTH, p. 33; SPIRIT and SUPPLY, p. 34 (ironsworn#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Default: tracks start at +5 and depletion creates escalating consequences; a world can change track limits or penalties to tune survival pressure.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0014",
+   "world": "ironsworn",
+   "statement": "Wounded, shaken, and unprepared prevent increases to health, spirit, and supply respectively until the condition is cleared by an appropriate move. Each marked debility reduces max momentum by 1; one debility sets reset to +1, and more than one sets it to 0.",
+   "locators": [
+    "Ironsworn: CONDITIONS, pp. 37–38; DEBILITIES, p. 36 (ironsworn#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB21",
+   "derives": [],
+   "default_dial_reason": "Default: conditions block recovery and debilities constrain momentum; a world can make recovery easier or harder to adjust the lasting cost of setbacks.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0015",
+   "world": "ironsworn",
+   "statement": "A progress move uses the progress score instead of an action die and stat: add 1 for each fully filled progress box, then compare that score against the challenge dice. Momentum cannot be burned and negative momentum has no effect on these rolls.",
+   "locators": [
+    "Ironsworn: MAKING PROGRESS MOVES, p. 51 (ironsworn#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: progress-roll resolution",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default: progress rolls ignore momentum and use completed boxes; a world can alter that exception to make momentum matter more in long challenges.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0016",
+   "world": "ironsworn",
+   "statement": "An asset’s first ability is usually selected when acquired; upgrading costs 2 experience. A new asset costs 3 experience, and some assets also require a narrative or mechanical prerequisite.",
+   "locators": [
+    "Ironsworn: ASSETS, p. 40; UPGRADING ASSETS, p. 42; EXPERIENCE, pp. 44–45 (ironsworn#001)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default: abilities are bought with experience and sometimes gated by story requirements; a world can change the costs or prerequisites to pace character advancement.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0017",
+   "world": "ironsworn",
+   "statement": "In combat, each character tracks initiative independently. Initiative means being able to take proactive actions; without it, a character responds to threats or tries to regain control, and it does not determine turn order.",
+   "locators": [
+    "Ironsworn: Page 53, initiative discussion (ironsworn#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to tracking initiative per character; a world can make it shared or turn-based, changing how control of a fight is represented.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0018",
+   "world": "ironsworn",
+   "statement": "A deadly weapon inflicts 2 harm and an unarmed, improvised, or simple weapon inflicts 1; each harm becomes progress according to the foe’s rank. Bonus harm is added only when the move results in harm being inflicted.",
+   "locators": [
+    "Ironsworn: Page 68, “INFLICT YOUR HARM” (ironsworn#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to weapon-category harm and rank-scaled progress; a world can raise or lower those values, changing how quickly foes are defeated.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0019",
+   "world": "ironsworn",
+   "statement": "A progress move uses only fully filled progress boxes as its score. Momentum cannot be burned on the roll, and negative momentum does not affect it.",
+   "locators": [
+    "Ironsworn: Page 69, “PROGRESS MOVE” (ironsworn#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to progress as a fixed, accumulated score; a world can allow momentum to affect it, making stored momentum more valuable at goal resolution.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0020",
+   "world": "ironsworn",
+   "statement": "For a journey, each waypoint marks 3 progress at troublesome rank, 2 at dangerous, 1 at formidable, 2 ticks at extreme, and 1 tick at epic. A miss marks no progress and instead introduces a perilous event.",
+   "locators": [
+    "Ironsworn: Page 76, “UNDERTAKE A JOURNEY” (ironsworn#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to rank-based progress with danger on a miss; a world can change waypoint values or miss consequences to set journey length and risk.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0021",
+   "world": "ironsworn",
+   "statement": "On a strong hit when reaching a destination, choose either to make a non-progress move immediately with +1 or to take +1 momentum. A weak hit means arrival with a complication; on a miss, if the journey continues, leave just one filled progress box and raise its rank by one, up to epic.",
+   "locators": [
+    "Ironsworn: Page 79, “REACH YOUR DESTINATION” (ironsworn#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to rewarding a strong arrival and worsening a failed journey; a world can soften or intensify these consequences to tune expedition stakes.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0022",
+   "world": "ironsworn",
+   "statement": "A formal duel can include boasts that impose costs: granting first strike gives the foe initiative; going without armor makes the foe’s harm +1; going without weapons sets your harm to 1; self-injury costs 1 harm; and a death vow requires the fight to end in death. The victor may make a lawful demand the loser must fulfill or suffer loss of honor and standing.",
+   "locators": [
+    "Ironsworn: Page 84, “DRAW THE CIRCLE” (ironsworn#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB3",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to optional duel handicaps traded for momentum and binding demands; a world can change which costs or social penalties apply, reflecting its honor code.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0023",
+   "world": "ironsworn",
+   "statement": "A weak hit when forging a bond requires an additional request to be fulfilled, or an iron vow to be sworn, before the bond is marked. When a bond is tested, a weak hit likewise requires proof of loyalty; refusing or failing clears the bond and incurs a price.",
+   "locators": [
+    "Ironsworn: Pages 85–87, “FORGE A BOND” and “TEST YOUR BOND” (ironsworn#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default to making bonds conditional on follow-through; a world can make obligations stricter or lighter, changing the social cost of connection.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0024",
+   "world": "ironsworn",
+   "statement": "When aiding an ally through Secure an Advantage, a hit lets the ally receive the move’s benefits instead. In combat, a strong hit gives both characters initiative; a weak hit or miss makes both lose it.",
+   "locators": [
+    "Ironsworn: Pages 87–88, “AID YOUR ALLY” (ironsworn#002)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "law: transfer",
+   "seam": "AB4",
+   "derives": [
+    "power-transfer"
+   ],
+   "default_dial_reason": "Default to transferring support benefits and sharing combat control; a world can limit or broaden who benefits, changing the value of coordinated action.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0025",
+   "world": "ironsworn",
+   "statement": "A foe’s rank sets both how much progress each point of inflicted harm earns and how much harm it deals: troublesome 3 progress per harm and 1 harm; dangerous 2 and 2; formidable 1 and 3; extreme 2 ticks and 4; epic 1 tick and 5. Packs of 3–5 troublesome or dangerous foes increase rank by one, and packs of 6–10 increase it by two.",
+   "locators": [
+    "Ironsworn: Enter the Fray, pp. 89–90 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB20",
+   "derives": [
+    "formation-field"
+   ],
+   "default_dial_reason": "Default to the listed rank values and pack adjustments; a world can change foe scale or grouping to reflect how numerous or dangerous its enemies are.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0026",
+   "world": "ironsworn",
+   "statement": "When the character has initiative, a close attack rolls +iron and a ranged attack rolls +edge. A strong hit deals the weapon’s usual harm plus 1 and retains initiative; a weak hit deals usual harm but loses initiative; a miss deals no harm and gives the foe initiative after the price is paid.",
+   "locators": [
+    "Ironsworn: Strike, p. 90 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to 2 harm with a deadly weapon and 1 without, plus 1 on a strong hit; a world can tune weapon damage, with higher harm making fights shorter and deadlier.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0027",
+   "world": "ironsworn",
+   "statement": "When fighting back against a foe with initiative, a strong hit deals usual harm and returns initiative, with a choice of +1 momentum or +1 harm. A weak hit deals usual harm but requires paying the price and leaves initiative with the foe; a miss deals no harm, requires paying the price, and also leaves initiative with the foe.",
+   "locators": [
+    "Ironsworn: Clash, p. 91 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the stated harm and initiative outcomes; a world can make counterattacks more or less rewarding to set how aggressively combatants trade control.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0028",
+   "world": "ironsworn",
+   "statement": "Once per fight, a character may take initiative from a foe and make a non-progress move with +1; on a hit, they also gain +1 momentum. If that move does not hit, they must suffer a dire consequence.",
+   "locators": [
+    "Ironsworn: Turn the Tide, p. 92 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one use per fight and a dire miss cost; a world can increase or limit uses to change how often a desperate comeback is possible.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0029",
+   "world": "ironsworn",
+   "statement": "After a strong hit on a decisive action, a character may resolve the fight by comparing challenge dice against filled progress boxes, ignoring momentum. A strong hit removes the foe from the fight; a weak hit does so but adds one listed cost; a miss means the character has lost the fight and must pay the price.",
+   "locators": [
+    "Ironsworn: End the Fight, pp. 93–94 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to requiring a preceding strong hit and to ignoring momentum; a world can alter the cost options or threshold to make combat conclusions more or less risky.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0030",
+   "world": "ironsworn",
+   "statement": "When physical harm is suffered, reduce health by the harm amount; if health is already zero, remaining loss reduces momentum. On a miss at zero health, mark an available injury debility or roll for the outcome; the table can lead to death, a need to heal within an hour or two, or temporary incapacity.",
+   "locators": [
+    "Ironsworn: Endure Harm, pp. 102–103 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [
+    "revival-on-death"
+   ],
+   "default_dial_reason": "Default to the listed harm by foe rank and zero-health consequences; a world can soften or intensify the injury table to determine how costly physical peril is.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0031",
+   "world": "ironsworn",
+   "statement": "When spirit reaches zero and a character misses Endure Stress, they must mark an available mental debility or roll for an outcome, which can include facing desolation, forsaking a relevant vow, or acting against their better instincts.",
+   "locators": [
+    "Ironsworn: Endure Stress, pp. 106–107 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "mind-state"
+   ],
+   "default_dial_reason": "Default to the listed zero-spirit consequences; a world can change the table or debilities to determine how psychological strain affects conduct.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0032",
+   "world": "ironsworn",
+   "statement": "When momentum is already at its minimum of −6 and more momentum is lost, each additional loss can instead reduce health, spirit, or supply, or clear progress on a relevant track. The progress cleared per point depends on rank: 3 for troublesome, 2 for dangerous, 1 for formidable, 2 ticks for extreme, and 1 tick for epic.",
+   "locators": [
+    "Ironsworn: Face a Setback, p. 108 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB15",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to converting excess momentum loss into tracks or progress; a world can change the eligible tracks and rank-based losses to shape how setbacks cascade.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0033",
+   "world": "ironsworn",
+   "statement": "A character who swears an iron vow writes the quest, sets its rank, and rolls +heart, adding +1 if the vow is made to someone they have a bond with. On a miss, they face a significant initial obstacle and either press on at −2 momentum or abandon the vow; overcoming that initial obstacle does not count as a quest milestone.",
+   "locators": [
+    "Ironsworn: Swear an Iron Vow, pp. 109–110 (ironsworn#003)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "vow-cost",
+    "sponsorship-contract"
+   ],
+   "default_dial_reason": "Default to vows creating ranked quests and to the stated miss cost; a world can change who can enforce or benefit from a vow, making social ties or obligations more consequential.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0034",
+   "world": "ironsworn",
+   "statement": "To resolve a completed vow, count only fully filled progress boxes and compare that score with the challenge dice. You cannot burn momentum or apply negative momentum to this roll; a strong hit completes the vow, clears it, and grants experience.",
+   "locators": [
+    "Ironsworn: Fulfill a Vow, pp. 101–102 (ironsworn#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to progress-only resolution; a world can alter how much progress counts, since fulfillment depends on how complete the quest is.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0035",
+   "world": "ironsworn",
+   "statement": "On a weak hit while fulfilling a vow, the quest remains unfinished or success is undermined. On a miss, the quest is defeated or its goal becomes unreachable; if you press on, most of its progress is undone, and you may either clear all but one filled progress and raise its rank by one (to a maximum of epic) or abandon it.",
+   "locators": [
+    "Ironsworn: Fulfill a Vow, pp. 101–113 (ironsworn#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a setback that preserves the quest’s nature; a world can turn the severity of setbacks, because failure may expose a larger threat or destroy progress.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0036",
+   "world": "ironsworn",
+   "statement": "When you abandon a vow or its goal is lost, clear it and lose spirit equal to its rank: troublesome 1, dangerous 2, formidable 3, extreme 4, or epic 5.",
+   "locators": [
+    "Ironsworn: Forsake Your Vow, p. 113 (ironsworn#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB3",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to spirit loss equal to quest rank; a world can change the penalty, reflecting how costly it is to break an oath.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0037",
+   "world": "ironsworn",
+   "statement": "Spend 3 experience to add an asset or 2 experience to upgrade one.",
+   "locators": [
+    "Ironsworn: Advance, p. 114 (ironsworn#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to these experience prices; a world can adjust them to make new abilities rarer or easier to gain.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0038",
+   "world": "ironsworn",
+   "statement": "When a move directs you to pay a price, choose an obvious negative outcome, use a yes/no oracle to choose between two possible outcomes, or roll the price table. Results include such costs as harm, stress, lost resources, delay, danger, and unintended effects; a 99–00 result requires two results, and identical results worsen.",
+   "locators": [
+    "Ironsworn: Pay the Price, pp. 116–117 (ironsworn#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a fitting negative consequence; a world can use a table or direct choice, because the price follows the fiction and the failed action.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0039",
+   "world": "ironsworn",
+   "statement": "After envisioning a price, apply an appropriate track penalty: physical hardship reduces health, fear or discouragement reduces spirit, lost gear reduces supply, and delay or disadvantage reduces momentum. If unsure, reduce the appropriate track by 2; an ally’s harm applies to them instead.",
+   "locators": [
+    "Ironsworn: Pay the Price, p. 117 (ironsworn#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a fiction-matched track loss, usually 2 when uncertain; a world can vary the amount to set the severity of consequences.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0040",
+   "world": "ironsworn",
+   "statement": "For a yes/no oracle, choose the odds and roll: yes requires 11+ for almost certain, 26+ for likely, 51+ for even odds, 76+ for unlikely, or 91+ for a small chance. A matched result triggers an extreme outcome or twist.",
+   "locators": [
+    "Ironsworn: Ask the Oracle, pp. 118–120 (ironsworn#004)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed thresholds and a twist on a match; a world can alter the odds or significance of matches to tune uncertainty.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0041",
+   "world": "ironsworn",
+   "statement": "An NPC’s rank sets combat progress and harm: troublesome foes take 3 progress per harm and inflict 1 harm; dangerous, 2 and 2; formidable, 1 and 3; extreme, 2 ticks and 4; epic, 1 tick and 5. A standard foe track has 10 boxes, and a foe may inflict stress equal to its rank when its frightening or demoralizing action is not resisted.",
+   "locators": [
+    "Ironsworn: Page 145, Rank (ironsworn#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the listed rank-to-progress and harm table; a world can raise or lower a foe’s rank for its unusual strength or weakness, reflecting the actual danger it poses.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0042",
+   "world": "ironsworn",
+   "statement": "A foe’s rank can be raised one step for an unusually powerful individual or lowered one step for a weaker one, within the troublesome-to-epic range. Significant narrative advantage or disadvantage before combat can also change its rank.",
+   "locators": [
+    "Ironsworn: Page 145, Rank (ironsworn#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to the typical rank for the foe; turn the rank up or down by one when the fiction establishes a meaningful difference in capability or circumstances.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0043",
+   "world": "ironsworn",
+   "statement": "A group of about 3–5 troublesome or dangerous foes can be represented by one track at one rank higher; a group of about 6–10 uses a rank two steps higher. Groups above 10 can be split into smaller packs, while formidable, extreme, and epic foes cannot be grouped this way.",
+   "locators": [
+    "Ironsworn: Page 147, NPC Packs (ironsworn#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "transform",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to combining eligible groups into a single stronger foe; split larger groups into packs, and keep powerful foes separate to preserve their individual threat.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0044",
+   "world": "ironsworn",
+   "statement": "An NPC helper does not grant mechanical bonuses or make moves of its own unless represented by a companion asset. Its aid can instead affect the fiction, the outcome of the character’s moves, or the challenge rank; for example, allies fighting alongside the character can reduce enemy rank.",
+   "locators": [
+    "Ironsworn: Page 147, Joining Forces with NPCs (ironsworn#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to fictional assistance rather than a numeric bonus; a world can let meaningful help lower challenge rank or create milestones, in exchange for the helper’s involvement and possible risk.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0045",
+   "world": "ironsworn",
+   "statement": "Many horrors can be beaten back through physical attacks but cannot be killed; a physical manifestation of a haunt can be overcome only temporarily, and the haunt rests only when its death is avenged or resolved.",
+   "locators": [
+    "Ironsworn: Pages 168–170, Horrors; Haunt (ironsworn#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB17",
+   "derives": [
+    "soul-state"
+   ],
+   "default_dial_reason": "Default to physical defeat delaying rather than ending a horror; a world can allow release through resolving the spirit’s death or grievance, making that resolution the price of lasting peace.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0046",
+   "world": "ironsworn",
+   "statement": "A haunt may be tied to a location, an object, or a person; a ritual may banish one, but the passage says that knowledge of such a ritual is rare.",
+   "locators": [
+    "Ironsworn: Page 170, Haunt (ironsworn#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "soul-binding"
+   ],
+   "default_dial_reason": "Default to anchoring a haunt to a place, object, or person; a world can make ritual release possible but hard to access, requiring rare knowledge.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0047",
+   "world": "ironsworn",
+   "statement": "A hollow can be temporarily defeated but not killed by physical means; vengeance is what binds it to the world.",
+   "locators": [
+    "Ironsworn: Page 171, Hollow (ironsworn#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "soul-state"
+   ],
+   "default_dial_reason": "Default to temporary defeat while its motive persists; a world can make vengeance or its resolution the condition for release.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0048",
+   "world": "ironsworn",
+   "statement": "An iron revenant is the surviving force of a dead Ironsworn’s unfinished vow, and cannot be killed; it stops only when the vow is fulfilled.",
+   "locators": [
+    "Ironsworn: Page 172, Iron Revenant (ironsworn#005)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB17",
+   "derives": [
+    "soul-state",
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to an enduring revenant bound to its vow; a world can make fulfillment the only way to end it, requiring the vow’s objective to be completed.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0049",
+   "world": "ironsworn",
+   "statement": "To consult an oracle, choose a suitable table and roll to produce a result from 1–100. Interpret it against the question and situation; if it does not fit, use the row above or below, or reverse the digits (for example, 37 becomes 73).",
+   "locators": [
+    "Ironsworn: How to Use the Tables, p. 178 (ironsworn#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default to one fitting table roll; allow adjacent-row or digit-reversal adjustments when results jar, to keep the fiction coherent.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0050",
+   "world": "ironsworn",
+   "statement": "Oracle results may be combined with results from other tables or clarified with a yes/no oracle, but repeated rolls should be limited so randomness does not take over play. Matches on oracle rolls have no special effect and may be ignored.",
+   "locators": [
+    "Ironsworn: When Answers Lead to More Questions / Oracle Tables and Matches, p. 179 (ironsworn#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "divination-fate"
+   ],
+   "default_dial_reason": "Default to a small number of linked rolls; increase or reduce follow-up rolls to tune randomness, preserving player judgment as the final guide.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0051",
+   "world": "ironsworn",
+   "statement": "On a 97–00 result on the Mystic Backlash table, roll twice more and apply both outcomes; if the same result occurs twice, make that consequence worse.",
+   "locators": [
+    "Ironsworn: Oracle 17: Mystic Backlash, p. 189 (ironsworn#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB29",
+   "derives": [
+    "negative-effect-drift"
+   ],
+   "default_dial_reason": "Default to two simultaneous backlash results, escalating a duplicate; a world can soften this by using only one result, at the cost of less severe magical consequences.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0052",
+   "world": "ironsworn",
+   "statement": "A character may begin with up to three background bonds, each marked with one tick; these do not require the bond-making move. Unassigned bonds may be kept in reserve and introduced later, then marked.",
+   "locators": [
+    "Ironsworn: Mark Your Background Bonds, p. 195 (ironsworn#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to up to three prepared relationship marks; a world can lower the limit or require bonds to be established in play, making starting connections scarcer.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0053",
+   "world": "ironsworn",
+   "statement": "A character begins with a background vow rated extreme or epic, without making the vow move. It may take months, years, or decades in the fiction, and need not receive significant progress during play.",
+   "locators": [
+    "Ironsworn: Write Your Background Vow, p. 195 (ironsworn#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB3",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to one long-term vow at extreme or epic rank; change rank or require active progress to tune how burdensome a character’s past goal is.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0054",
+   "world": "ironsworn",
+   "statement": "An inciting-incident vow is sworn through the normal vow move and is rated troublesome, dangerous, or formidable. It should be an urgent problem that worsens if ignored and can often be resolved within a session or two.",
+   "locators": [
+    "Ironsworn: Envision Your Inciting Incident, p. 196; Swear an Iron Vow, p. 199 (ironsworn#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB3",
+   "derives": [
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to a near-term vow in one of three lower ranks; raise the rank or lengthen the clock to make the opening crisis costlier.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0055",
+   "world": "ironsworn",
+   "statement": "When allies share a quest, one character makes the vow move; the others may represent commitment with the ally-aid move. Each ally records the vow, and all share progress marks.",
+   "locators": [
+    "Ironsworn: Sharing Your Vow with Allies, p. 199 (ironsworn#006)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to a single vow roll with shared progress; require separate rolls or separate progress in a world where each ally’s commitment carries an individual cost.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0056",
+   "world": "ironsworn",
+   "statement": "A quest advances only when the character overcomes a significant, quest-related obstacle or achieves another major turning point; a small or easy success is not enough. Each milestone marks 3 progress for a troublesome vow, 2 for dangerous, 1 for formidable, 2 ticks for extreme, and 1 tick for epic.",
+   "locators": [
+    "Ironsworn: Reaching Milestones / Marking Progress, pp. 213–214 (ironsworn#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to awarding progress only for costly, relevant turning points; a world can make milestones more or less frequent to set quest pace, reflecting how much effort the vow demands.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0057",
+   "world": "ironsworn",
+   "statement": "A secondary quest uses its own vow and progress track; progress on the main quest waits until the secondary vow is fulfilled. Completing it can then count as a milestone on the main quest.",
+   "locators": [
+    "Ironsworn: Undertaking New Quests—Secondary Quests, p. 216 (ironsworn#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to keeping related obligations mechanically separate until one is completed; a world can allow more overlap, changing how quickly parallel goals advance.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0058",
+   "world": "ironsworn",
+   "statement": "A vow made to satisfy an NPC can let the character continue the current quest, and significant aid from that NPC may also count as a milestone. Ignoring the promise means forsaking it, with serious narrative consequences such as enmity or lost reputation.",
+   "locators": [
+    "Ironsworn: Delayed Quests, p. 219 (ironsworn#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB18",
+   "derives": [
+    "sponsorship-contract",
+    "vow-cost"
+   ],
+   "default_dial_reason": "Default to treating sworn promises as enforceable social commitments; a world can make enforcement weaker or harsher, with reputation or relationships at stake.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0059",
+   "world": "ironsworn",
+   "statement": "Two related quests can both gain progress from one milestone, but this should be unusual and reserved for a significant shared breakthrough.",
+   "locators": [
+    "Ironsworn: Intersecting Quests, p. 220 (ironsworn#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one quest receiving progress per milestone; a world can permit rare shared awards for major intersections, accelerating both goals.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0060",
+   "world": "ironsworn",
+   "statement": "A character may make the vow-fulfillment move when the fiction suggests the quest is over, even if the progress track is not full. A successful fulfillment earns experience, with the example awarding 2 experience for a dangerous quest.",
+   "locators": [
+    "Ironsworn: Fulfilling Your Vow, p. 221 (ironsworn#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to letting the fiction determine when a vow is ready, not a full track; a world can require more recorded progress, making premature resolution riskier.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0061",
+   "world": "ironsworn",
+   "statement": "After successfully fulfilling a vow in service to a person or community, the character may reroll any dice when attempting to form a bond with that beneficiary.",
+   "locators": [
+    "Ironsworn: Forging New Bonds, p. 222 (ironsworn#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to granting a reroll after meaningful service; a world can remove or expand this benefit to make bond formation less or more dependable.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0062",
+   "world": "ironsworn",
+   "statement": "Experience may be spent to acquire or improve assets: a new asset costs 3 experience and an asset upgrade costs 2.",
+   "locators": [
+    "Ironsworn: Advancing Your Character, p. 222 (ironsworn#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "AB1",
+   "derives": [
+    "power-granting"
+   ],
+   "default_dial_reason": "Default to these prices for character advancement; a world can adjust the costs, representing how much training, inspiration, or reward is needed.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0063",
+   "world": "ironsworn",
+   "statement": "Challenge rank is set in light of the fiction: difficult conditions can raise it, while substantial allies can lower it by one or two steps. Rank may also be adjusted to control how much story focus the challenge receives.",
+   "locators": [
+    "Ironsworn: Adjusting Challenge Ranks, p. 209 (ironsworn#007)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to using fictional circumstances to set challenge rank; a world can make rank shifts more or less generous, representing environmental danger or assistance.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0064",
+   "world": "ironsworn",
+   "statement": "For an extended scene challenge, set a 10-box progress track and a separate 4-box countdown track. A strong hit on Face Danger marks progress; a weak hit marks progress and one countdown box; a miss marks one countdown box and pays a price. A miss on Secure an Advantage also marks a countdown box and pays a price.",
+   "locators": [
+    "Ironsworn: Scene Challenges, pp. 234–235 (ironsworn#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [
+    "formation-field"
+   ],
+   "default_dial_reason": "Default to a 10-box goal track and 4-box setback limit; adjust challenge rank to tune difficulty, reflecting how much opposition or disadvantage the scene presents.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0065",
+   "world": "ironsworn",
+   "statement": "Resolve the scene when the countdown track is full or you choose to finish: compare a challenge roll to progress, without burning momentum or applying negative momentum. A strong hit gives the goal outright, a weak hit achieves it with a minor cost, and a miss fails or brings a costly reversal.",
+   "locators": [
+    "Ironsworn: Resolving the Scene Challenge, p. 235 (ironsworn#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "none",
+   "derives": [
+    "formation-field"
+   ],
+   "default_dial_reason": "Default to no momentum adjustment and costs by success tier; a world can make setbacks harsher or gentler to suit the stakes and consequences of the challenge.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0066",
+   "world": "ironsworn",
+   "statement": "When two allies oppose one another through moves, both describe their actions and Face Danger. If either hits, the higher success tier controls; ties go to the higher action score, and a remaining tie is a stalemate. The winner chooses which move takes effect and ignores the other; if both miss, both pay the price.",
+   "locators": [
+    "Ironsworn: Conflict Using Moves, p. 232 (ironsworn#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "none",
+   "derives": [
+    "power-interaction"
+   ],
+   "default_dial_reason": "Default to one opposed exchange where only the winner’s move applies; a setting could allow repeated exchanges or more cooperative resolution to reduce the cost of player-against-player conflict.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0067",
+   "world": "ironsworn",
+   "statement": "For combat scenes with at least three player characters, enemies may be easier to defeat because every character can inflict harm and mark shared progress. Offset that by raising enemy rank or number, or splitting multiple foes among characters.",
+   "locators": [
+    "Ironsworn: Number of Players, p. 231 (ironsworn#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to stronger or more numerous foes for larger groups; adjust the increase to preserve the intended threat despite additional attackers.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0068",
+   "world": "ironsworn",
+   "statement": "When playing without assets, a character may spend 6 experience to raise one stat by +1, but no stat may exceed +4.",
+   "locators": [
+    "Ironsworn: Playing Without Assets, p. 238 (ironsworn#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to a six-experience cost and +4 ceiling; change the cost or ceiling to control long-term character growth.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0069",
+   "world": "ironsworn",
+   "statement": "A role can improve a non-progress move when it meaningfully frames the character’s action: before rolling, choose either +2 or +1 and, on a hit, +1 momentum. Each additional role costs 6 experience, and bonuses from multiple roles cannot stack on one move.",
+   "locators": [
+    "Ironsworn: Using Roles Instead of Assets, pp. 238–239 (ironsworn#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "add",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to one applicable role bonus per move and a 6-experience purchase; narrow or broaden role applicability to reflect how specialized the character’s expertise is.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0070",
+   "world": "ironsworn",
+   "statement": "A character can use an existing asset’s ability in a different genre by changing its fictional label or conditions, and can replace an ability to fit the new theme while retaining the underlying mechanical outcome.",
+   "locators": [
+    "Ironsworn: Reskinning Assets, p. 239 (ironsworn#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to retaining mechanics while changing fictional framing; loosen or tighten this permission according to how closely the setting should match the original asset assumptions.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0071",
+   "world": "ironsworn",
+   "statement": "An asset ability can grant a moderate bonus for common actions, a stronger benefit for rare or limited actions, trade one resource for another, permit unusual move framing, or substitute a stat. Strong benefits may require setup or strict fictional circumstances.",
+   "locators": [
+    "Ironsworn: Creating Assets and Abilities, p. 240 (ironsworn#008)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to moderate rewards for frequent use and stronger rewards when restricted; tune the restriction or payoff to the action’s frequency and fictional setup cost.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0072",
+   "world": "ironsworn",
+   "statement": "An asset ability can modify ordinary moves only when its trigger applies; it cannot modify a progress move unless that ability specifically says it can. An ability may specify a bonus, a resource gain or loss, a reroll, or another consequence.",
+   "locators": [
+    "Ironsworn: Assets and Progress Moves, p. 1 (ironsworn#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to applying an asset only to its stated move trigger; a world can broaden this to progress moves, but should do so because the asset explicitly grants that reach.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0073",
+   "world": "ironsworn",
+   "statement": "Several abilities require a particular situation or equipment, and some require an earlier event such as marking a bond, becoming maimed, or completing a vow. Apply their listed bonuses and costs only when those conditions are met.",
+   "locators": [
+    "Ironsworn: Assets, pp. 2–16 (ironsworn#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB1",
+   "derives": [],
+   "default_dial_reason": "Default to enforcing each ability’s prerequisite and stated cost; a world can loosen prerequisites for easier access, at the cost of weakening the importance of training, bonds, or history.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0074",
+   "world": "ironsworn",
+   "statement": "Some abilities offer a choice before a roll, while others allow a bonus or cost after the roll; resolve the option at the timing the ability specifies. Resource losses, added harm, stress, or altered outcomes remain part of the chosen effect.",
+   "locators": [
+    "Ironsworn: Assets, pp. 4–16 (ironsworn#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to the timing and costs printed for each ability; a world can let players choose later, increasing flexibility at the cost of less commitment to risk.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0075",
+   "world": "ironsworn",
+   "statement": "A companion can take harm through the companion harm move, and several companion abilities refer to the companion’s health or to what happens when it is hurt. Some creations are explicitly not companions and cannot be healed.",
+   "locators": [
+    "Ironsworn: Companions, p. 2; Awakening, p. 14 (ironsworn#009)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "AB4",
+   "derives": [
+    "bond-slots"
+   ],
+   "default_dial_reason": "Default to tracking companion harm and any stated healing limits; a world can make companions more durable, reducing the cost of keeping a bonded helper in play.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0076",
+   "world": "ironsworn",
+   "statement": "Several rituals grant their main effect on a strong hit and a reduced or complicated version on a weak hit, often with a stated cost such as stress, harm, momentum, or supply. Rituals also commonly give +1 and +1 momentum when performed on a hit.",
+   "locators": [
+    "Ironsworn: RITUAL (pages 17–19) (ironsworn#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "alter",
+   "seam": "none",
+   "derives": [],
+   "default_dial_reason": "Default to strong-hit and weak-hit outcomes with a modest cost; worlds can turn up the costs because supernatural work is taxing.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0077",
+   "world": "ironsworn",
+   "statement": "Some ongoing ritual effects end when the user rolls a 1 on the action die while using the effect. A blood rune instead grants its benefit once, then remains a debility until its thirst is quenched on a weak hit.",
+   "locators": [
+    "Ironsworn: BIND; KEEN; LEECH; TALISMAN; VISAGE; TOTEM (pages 17–18) (ironsworn#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "end",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a specific trigger that ends or impairs an effect; a world can make magic more fragile because it is unstable or demands payment.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0078",
+   "world": "ironsworn",
+   "statement": "The Invoke ritual stores captured essence up to 6; its user may spend 1 essence to create a minor mystical effect or illusion, gaining +1 momentum on a hit. The ritual’s weak-hit cost is 2 stress.",
+   "locators": [
+    "Ironsworn: INVOKE (page 17) (ironsworn#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to a capped personal reserve spent to power effects; a world can lower the cap or raise the stress cost because capturing energy is harrowing.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0079",
+   "world": "ironsworn",
+   "statement": "The Lightbearer sets a light reserve to 6 on a strong hit or 3 on a weak hit. Spending 1 light adds +2 to a move against darkness; against a dark-dwelling foe, the user can instead spend a chosen amount of light to attack, dealing 1 plus that amount as harm on a hit.",
+   "locators": [
+    "Ironsworn: LIGHTBEARER (page 17) (ironsworn#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "remove",
+   "seam": "AB2",
+   "derives": [],
+   "default_dial_reason": "Default to spending stored light for navigation or attack; a world can change the reserve or cost because the source of light is limited.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0080",
+   "world": "ironsworn",
+   "statement": "A Ward lets its creator choose two listed boundary effects on a strong hit and one on a weak hit: a first crossing grants momentum, a first harm-dealing move within the boundary adds harm, or the boundary is likely to trap a foe. Its improved form raises the bonuses and makes trapping almost certain.",
+   "locators": [
+    "Ironsworn: WARD (page 18) (ironsworn#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "block",
+   "seam": "AB20",
+   "derives": [
+    "area-field",
+    "formation-field",
+    "containment-rule"
+   ],
+   "default_dial_reason": "Default to a bounded area with a small number of selectable effects; a world can make the boundary stronger or weaker because its protections depend on the ritual.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0081",
+   "world": "ironsworn",
+   "statement": "A Tether lets the user return to a place using heart or spirit instead of wits, with momentum benefits on successful journey outcomes. It ends if the user performs the ritual elsewhere or faces desolation.",
+   "locators": [
+    "Ironsworn: TETHER (page 18) (ironsworn#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "place-release"
+   ],
+   "default_dial_reason": "Default to a persistent attachment to one place that improves return travel; a world can make the bond easier to break because it depends on local spirits.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0082",
+   "world": "ironsworn",
+   "statement": "A Totem binds its holder to an animal or beast companion, improving companion-ability outcomes; rolling a 1 on the action die while using such an ability ends the magic. An improved form lets the holder use the companion’s senses even at a distance.",
+   "locators": [
+    "Ironsworn: TOTEM (page 18) (ironsworn#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "bind",
+   "seam": "AB4",
+   "derives": [
+    "conceal-or-sense"
+   ],
+   "default_dial_reason": "Default to a companion bond with a fragile benefit; a world can allow remote sensing or make the link less reliable because the bond is unsettling.",
+   "licence": "CC-BY-NC-SA-4.0"
+  },
+  {
+   "id": "ironsworn.rule.0083",
+   "world": "ironsworn",
+   "statement": "Scrying requires prior knowledge of the remote person or place being studied. On a weak hit, the user must sacrifice blood, something precious, or provisions; an improved form can observe a past event instead.",
+   "locators": [
+    "Ironsworn: SCRY (page 17) (ironsworn#010)"
+   ],
+   "speaker": "rulebook",
+   "mechanism": "sense",
+   "seam": "none",
+   "derives": [
+    "divination-fate",
+    "future-vision"
+   ],
+   "default_dial_reason": "Default to remote observation requiring familiarity with the target; a world can raise the sacrifice or limit which times can be observed because the flames are hungry.",
+   "licence": "CC-BY-NC-SA-4.0"
+  }
+ ]
+}
