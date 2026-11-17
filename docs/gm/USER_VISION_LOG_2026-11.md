@@ -1742,3 +1742,10 @@ Recorded as a standing rule. It narrows the [finished-tasks cleanup of 2026-11-1
 - Keep: what an owner record cites as evidence (the private label folders are cited by their READMEs), the adopted build and one rollback.
 - Dial: a worktree with uncommitted files, a running process or an unmerged commit is kept and named for its owner, never forced. A failed gate keeps the lane's extras until the failure is read.
 - Reason: three merged lane worktrees were about 3.9 GB, and stale branches and worktrees are what later agents mistake for live work.
+
+## Power catalogues across worlds, 2026-11-16
+
+Weibao, after the three label-pass branches were merged: "Push it. Check more? more to consider? catalogue everything accordingly? document all the super powers in perfect run? worm? Re:zero? other implementable worlds?"
+
+Recorded as direction for the catalogue work. The round and its order are proposals in the [power catalogue palette](../research/power-catalogues-2026-11-16/README.md) (PWC1-PWC10). Its working default (AD56): one session each for Worm, Re:Zero and The Perfect Run, building power ledgers from the reads already held; then a census of the 13 local wiki dumps; then a cross-world histogram of blocking rules as the build order. Wiki dumps not on disk wait for his yes per file.
+

@@ -1,5 +1,7 @@
 # Writeup register and follow-up workflow (2026-10-27)
 
+[Power catalogues across worlds](../research/power-catalogues-2026-11-16/README.md) (2026-11-16, proposals): one power sheet for every world, PWC1-PWC10; Worm, Re:Zero and The Perfect Run ledgers first, then a census of the 13 local wiki dumps and a cross-world blocking-rule histogram as the build order.
+
 [Planned-idea audit continuation, 2026-11-06](../audits/IDEA_AUDIT_2026-11-06.md): eight lane reports, scoped evidence, current input census and explicit unread residue. This audits recorded plans without selecting new mechanics or changing build order.
 
 [Lane branch and worktree reconciliation, 2026-11-07](BRANCH_WORKTREE_RECONCILIATION_2026-11-07.md): 22 branches from the 2026-10-30 replication wave checked by content; all landed, none to merge; 8 worktrees removed and 22 branches dropped 2026-11-07, tips kept under `refs/archive/2026-11-07/` (New).
