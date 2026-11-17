@@ -1782,3 +1782,9 @@ Weibao, on the wikis-beyond-the-dumps and community discourse lane (PWC39, PWC40
 - Unchanged: official routes only (published dumps, Special:Export or the API, at a polite rate through the lncrawl-polite transport); no CAPTCHA or bot-check bypass, and no account creation; each dump gets a write-back in the [download wishlist](../research/DOWNLOAD_WISHLIST_2026-10-30.md) with name, source, size, date and SHA-256, and is registered in `DUMPS.json`. A single host's dump over about 2 GB is listed and skipped (proposal, dial).
 - D&D gets full weight in the TTRPG lanes: the 2014 core and SRD 5.2.1 as separate, version-locked rule systems, and its settings (Forgotten Realms, Planescape, Spelljammer and others held) as worlds.
 - Owner: [power catalogue palette Round 6](../research/power-catalogues-2026-11-16/README.md#round-6-setting-worlds-wikis-beyond-the-dumps-and-community-discourse-2026-11-17).
+
+## Luna and Haiku routed by measured fit, 2026-11-17
+
+Weibao: "Consider using luna too, and be optimal between the two, consider what books we are missing too"
+
+Recorded as standing rule AU17 in the [agent usage rules](../AGENT_USAGE_RULES.md). Same list price for both; Luna is the precise reader (declines to invent), Haiku the recall reader (adds more, overreaches more). Stated fields and scored labels go to Luna, enumeration and recall to Haiku, each is the other's second reader, and a new pass type pilots both against held-out labels before the winner runs the rest. The missing-books pass goes to its own lane and its acquisitions still need his yes per file (wiki dumps alone were approved in bulk, same date).

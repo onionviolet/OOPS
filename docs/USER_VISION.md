@@ -159,6 +159,7 @@ How to use and update it:
 - **Ahead sources, cross-checked (2026-11-10):** hold the source that runs furthest (often the web novel), keep a behind version when it adds something, prefer text that parses easily, and where a web novel and its rewrite both exist hold both and cross-check them; neither wins by default (AR56-AR59, [2026-11-10](gm/USER_VISION_LOG_2026-11.md#ahead-sources-and-cross-checking-versions-2026-11-10)).
 - **Book-reading budget:** conservative reader rules AU1–AU15 after one book used most of his tokens ([2026-10-16](gm/USER_VISION_LOG_2026-10.md#agent-generation-and-book-usage-2026-10-16)).
 - **Every cent is a cent:** paid API passes go by batch unless they need a quick back and forth, with the most shared text first so the prompt cache serves it (AU16) ([2026-11-16](gm/USER_VISION_LOG_2026-11.md#paid-api-passes-go-by-batch-with-the-shared-text-first-2026-11-16)).
+- **Two readers, used by fit:** Luna and Haiku cost the same; Luna reads stated fields, Haiku finds more, and each checks the other (AU17) ([2026-11-17](gm/USER_VISION_LOG_2026-11.md#luna-and-haiku-routed-by-measured-fit-2026-11-17)).
 
 ## Working with agents
 
