@@ -21,3 +21,15 @@ test('a box with a tab showing counts as found, so its page is reachable before 
         open = false; assert.equal(moduleHasShownTab('records'), false);
     } finally { release(); }
 });
+
+test('a box counts as found while its content holds, with no tab showing (the Journal in a book life, L2)', async () => {
+    const {moduleHasShownTab, registerBoxContent} = await import('../src/ui/box_tabs.js');
+    let held = false;
+    registerBoxContent('nowhere', () => true); // an unknown box is ignored
+    registerBoxContent('journal', () => { if (held === 'throws') throw Error('x'); return held; });
+    assert.equal(moduleHasShownTab('records'), false);
+    held = true; assert.equal(moduleHasShownTab('records'), true);
+    assert.equal(moduleHasShownTab('skills'), false);
+    held = 'throws'; assert.equal(moduleHasShownTab('records'), false);
+    registerBoxContent('journal', () => false);
+});

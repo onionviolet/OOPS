@@ -1,6 +1,8 @@
 import {registerDomain} from './domain_registry.js';
 import {readPort} from './ui_ports.js';
-import {registerBoxTab} from './ui/box_tabs.js';
+import {registerBoxTab, registerBoxContent} from './ui/box_tabs.js';
+import {observerView} from './observer_view.js';
+import {questCount} from './ui/grow_columns.js';
 import {hostWorkspaceModule, workspaceModuleFound} from './workspace_layout.js';
 import {kitElement} from './ui/kit.js';
 import {placeLives} from './ui/journal_lives.js';
@@ -17,6 +19,16 @@ export const PAGES = Object.freeze([
 ]);
 
 let hosts = null, watcher = null;
+// L2 (PS122, PS216): the Journal is column 3's home for what you work toward and what you know, so it shows from the first thing it can hold:
+// a quest or an earlier life's quests, a line known, a notebook entry or a person met. A life outside the village (a book life) has no
+// village facts to find it by, and without this the tabs above were unreachable there. The village keeps its own staged discovery (first hour).
+// Default: any one of those; dial: drop a line to leave that content out. Display only, nothing is saved.
+const VILLAGE = 'base.frontier';
+function holdsSomething() {
+    const state = readPort('expansion'); if (!state || state.actors?.player?.worldId === VILLAGE) return false;
+    if (questCount(document) > 0 || workspaceModuleFound('notebook') || workspaceModuleFound('known-people')) return true;
+    try { return Object.keys(observerView(state).knowledge()).length > 0; } catch { return false; }
+}
 const reveal = id => () => document.querySelector(`[data-box-tab="${id}"]`)?.click();
 const world = () => readPort('expansion')?.actors?.player?.worldId;
 // Hosting retries on each render pass until the workspace owns its modules; the quest groups also follow the quest list itself,
@@ -36,6 +48,7 @@ function mount() {
     });
     const box = document.getElementById('quests_box_div');
     if (box && typeof MutationObserver === 'function') { watcher = new MutationObserver(place); watcher.observe(box, {childList: true, subtree: true, attributes: true, attributeFilter: ['hidden']}); }
+    registerBoxContent('journal', holdsSomething);
     refresh();
 }
 

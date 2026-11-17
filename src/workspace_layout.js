@@ -628,7 +628,7 @@ export function openWorkspaceModule(requested) {
     if (['notebook','known-routes','known-people'].includes(id)) document.getElementById('journal_show_notebook')?.click();
     for (let parent=module.node.parentElement;parent;parent=parent.parentElement) if(parent.tagName==='DETAILS')parent.open=true;
     const target = owner && owner.layout.mode !== 'classic' ? module.shell : module.node;
-    if (!target || module.eligible() === false) return false;
+    if (!target || (module.eligible() === false && !moduleHasShownTab(id))) return false;
     if (module.hosted) { module.reveal?.(); return true; }
     if (owner && target.classList.contains('workspace-floating')) { owner.front = (owner.front || 200) + 1; target.style.zIndex=owner.front; }
     target.scrollIntoView?.({block:'nearest',behavior:'instant'});
@@ -664,14 +664,14 @@ export function setWorkspaceContext(context) {
 export function knownWorkspaceModules() {
     // G18: discovered() is asked once per panel per call (it was asked twice); a panel's discovered() must stay cheap, since navigation polls this.
     const state=readPort('expansion'),seen=new Map(),found=m=>{if(!seen.has(m)){let f=false;try{f=m.discovered()!==false||moduleHasShownTab(m.id);}catch{}seen.set(m,f);}return seen.get(m);};
-    return [...registry.values()].filter(m=>{try{return panelAccessible(state,m)&&(m.known||found(m));}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),found:found(m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
+    return [...registry.values()].filter(m=>{try{return panelAccessible(state,m)&&(m.known||found(m));}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),found:found(m),eligible:m.eligible()!==false||moduleHasShownTab(m.id),reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
 }
 export function expandWorkspaceModule(requested,{title}={}) {
     // COV5/COV12, UR13: a folded id opens its owner (and the owner's tab, when one is named).
     const {id,section}=resolvePanel(requested);
     if(id!==requested){const opened=expandWorkspaceModule(id,{title});if(opened)selectSection(id,section);return opened;}
     if(id==='local-actions'){centerModes().showHere();return true;}
-    const module=registry.get(id);if(!owner||!module||module.eligible()===false||!knownWorkspaceModules().some(m=>m.id===id))return false;
+    const module=registry.get(id);if(!owner||!module||(module.eligible()===false&&!moduleHasShownTab(id))||!knownWorkspaceModules().some(m=>m.id===id))return false;
     const mode=`workspace:${id}`,label=title||module.title;
     if(module.expanded){centerModes().open(mode,module.returnHome);return true;}
     const body=module.node.parentNode;
