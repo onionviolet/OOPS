@@ -1459,6 +1459,18 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 #main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="inventory"] {grid-column:1/2;}
 #main_content.workspace-active[data-parity="r3"][data-local-task="crafting_window"] :is(.crafting_mainpage_button,.crafting_subpage_button) {padding:round(.12em, 1px) round(.35em, 1px);}
 }
+/* UR144, PS192: with the Here box in the Journal column (Display > Look > Here box, the default) the focus region has no cell, and
+   column 2 is the place head and the actions top to bottom. The head shows only under that look. */
+.scene-place-head {display:none;}
+#main_content.workspace-active[data-parity="r3"][data-here-look="column"] .scene-place-head {display:block;padding:var(--ui-space-1) var(--ui-space-2);border-bottom:1px solid var(--p23-line);}
+#main_content.workspace-active[data-parity="r3"][data-here-look="column"] .scene-location-header > strong {display:none;}
+.scene-place-head > strong {display:block;font-weight:600;}
+.scene-place-head > p {margin:0!important;color:var(--p23-muted);line-height:1.35;}
+.scene-place-head > details > summary {cursor:pointer;color:var(--p23-muted);}
+@media(min-width:1001px){
+#main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="focus"] {display:none;}
+#main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="journal"] > .workspace-module[data-module="focus"] {flex:1 1 auto!important;min-height:9em;}
+}
 /* R13: inside a center view the destination Back bar is the one way back (UR9); the
    header's Expand toggle (relabelled Return) would be a second one. */
 #main_content.workspace-active #center_mode_content .expanded-panel-heading [data-workspace-action="expand"] {display:none;}

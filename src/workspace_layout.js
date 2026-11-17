@@ -8,9 +8,9 @@ import {growEmpty} from './ui/grow_columns.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellResize} from './shell_resize.js';
 import {createShellComposition} from './shell_composition.js';
-import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,workspaceRegions,gridTemplate,centerLendColumns,LAYOUT_SPEC} from './layout_spec.js';
+import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,workspaceRegions,gridTemplate,centerLendColumns,setHereLook,hereLookOn,hereInColumn,LAYOUT_SPEC} from './layout_spec.js';
 import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl,resizeContext,normalizePlacement} from './shell_layout_edit.js';
-import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
+import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap, subscribeDisplaySettings } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
 
 import {panelListing} from './panel_directory.js';
@@ -318,9 +318,13 @@ export function updateWorkspace() {
     setData(owner.root,'parity',owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'');
     setData(owner.root,'parityCombat',String(!!registry.get('combat')?.eligible()));
     setData(owner.root,'layoutContext',placementContext());
+    // PS192: the Here look (Display > Look > Here box). Grows with the life keeps the box in column 2, which is its place; a fight keeps it there too.
+    setHereLook(getDisplaySetting('panel.look.here')!=='place'&&getDisplaySetting('panel.look.layout')!=='grows');
+    const hereAt=hereInColumn(placementContext())&&!currentPlacement()?.boxes?.around;
+    setData(owner.root,'hereLook',hereLookOn()?'column':'place');setData(owner.root,'hereAt',hereAt?'column':'place');
     // UM8: the parity grid's areas and column shares come from the spec; CSS has one generic rule.
     const empty=Object.entries(owner.regions||{}).filter(([,region])=>![...region.children].some(n=>n.classList?.contains('workspace-module')&&!n.hidden)).map(([id])=>id);
-    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches,empty:growEmpty(empty)});
+    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches,empty:growEmpty(empty).filter(id=>!(hereAt&&id==='journal')),here:hereAt});
     setStyle(owner.board,'--shell-areas',grid.areas);setStyle(owner.board,'--shell-columns',grid.columns);
     setStyle(owner.board,'--shell-lend-columns',centerLendColumns());
     grid.shares.forEach((share,i)=>setStyle(owner.board,`--shell-share-${i+1}`,share));
@@ -357,11 +361,11 @@ export function updateWorkspace() {
         const module = registry.get(state.id); if (module.critical) { state.hidden = false; state.collapsed = false; } makeShell(module);
         module.node.classList.remove('workspace-user-hidden','workspace-discovery-hidden');
         if(module.expanded){module.shell.hidden=true;syncPanelHeader(module,state,module.eligible()!==false);return;}
+        if(module.hosted){module.shell.hidden=true;return;}
         if (module.node.parentNode !== module.body) module.body.append(module.node);
         const shell = module.shell; const eligible = module.eligible() !== false || moduleHasShownTab(module.id), known = moduleKnown(module, eligible); labelShell(module, known);
         // Undiscovered shells wait outside the labelled docks, so no dock label or text names them.
         if (!known) { setProp(shell, 'hidden', true); if (shell.parentNode !== owner.vault) owner.vault.append(shell); syncRestore(module, state, known, eligible, false); return; }
-        if(module.hosted){module.shell.hidden=true;return;}
         // Reach A2 proposal: restore the vital dock only on combat entry, not every render.
         if (state.id === 'combat') {
             if (eligible && !module.wasInCombat) {
@@ -553,6 +557,8 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     for(const {id,label} of workspaceRegions()){const region=el('div','workspace-dock parity-region');region.dataset.region=id;region.style.setProperty('--shell-area',id);region.setAttribute('aria-label',`${label} region`);regions[id]=region;board.append(region);}
     const media = window.matchMedia('(max-width: 1000px)'); owner = { root, toolbar, menu, menuSummary, shellTools, board, docks, regions, contextBar,context:'play',editing:false,picker, vault, config, status, media, narrow: media.matches, layout: read(media.matches), targets, preview, cleanup: [] };
     owner.composition=requestedComposition;owner.shell=false;owner.parity=paritySelected();loadPlacement();
+    // PS192: a change to Display > Look (the Here box, Layout) re-places the panels at once.
+    subscribeDisplaySettings(()=>{if(owner)updateWorkspace();});
     if(owner.parity||shellSelected()){owner.baseLayout=owner.layout;owner.baseComposition=owner.composition;owner.shell=true;owner.layout=makeShellLayout(owner.narrow);owner.composition=true;}
     presentation.value=owner.shell?(owner.parity?'proto23-parity':'proto23-shell'):'existing';
     root.classList.add('workspace-active'); root.prepend(toolbar,contextBar,board);
@@ -621,13 +627,13 @@ export function openWorkspaceModule(requested) {
     for (let parent=module.node.parentElement;parent;parent=parent.parentElement) if(parent.tagName==='DETAILS')parent.open=true;
     const target = owner && owner.layout.mode !== 'classic' ? module.shell : module.node;
     if (!target || module.eligible() === false) return false;
+    if (module.hosted) { module.reveal?.(); return true; }
     if (owner && target.classList.contains('workspace-floating')) { owner.front = (owner.front || 200) + 1; target.style.zIndex=owner.front; }
     target.scrollIntoView?.({block:'nearest',behavior:'instant'});
     const first = module.node.querySelector('button:not([hidden]):not(:disabled),summary,input:not([hidden]):not(:disabled),select:not([hidden]):not(:disabled),[data-native-keyboard]');
     const focus = owner && owner.layout.mode !== 'classic' && owner.editing ? module.shell.querySelector('.workspace-drag-handle') : first;
     // Opening a module the player is already working inside (for example the notebook
     // re-opening itself when a started job needs attention) keeps their keyboard focus.
-    if (module.hosted) { module.reveal?.(); return true; }
     if (module.node.contains?.(document.activeElement)) return true;
     focus?.focus({preventScroll:true}); return true;
 }

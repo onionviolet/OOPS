@@ -106,6 +106,13 @@ export const LAYOUT_SPEC = Object.freeze({
             Object.freeze({minWidth: 1700, areas: Object.freeze(['player focus journal log', 'inventory actions journal log']), columns: Object.freeze([372, 640, 470, 374])}),
             Object.freeze({minWidth: 2800, areas: Object.freeze(['player focus journal log', 'inventory actions journal log']), columns: Object.freeze([420, 900, 620, 460])}),
         ]),
+        // PS192 (round 28 UI finish, lane C): the Here box lives in the Journal column, so column 2 is the place head and the actions box
+        // top to bottom. `focus` is in no cell here: its region is hidden (styles/ui_tokens.css, the UR144 block) and its panel lives in `journal`.
+        here: Object.freeze([
+            Object.freeze({minWidth: 1001, hidden: Object.freeze(['focus']), areas: Object.freeze(['player actions journal log', 'inventory actions journal log']), columns: Object.freeze([300, 440, 320, 300])}),
+            Object.freeze({minWidth: 1700, hidden: Object.freeze(['focus']), areas: Object.freeze(['player actions journal log', 'inventory actions journal log']), columns: Object.freeze([372, 640, 470, 374])}),
+            Object.freeze({minWidth: 2800, hidden: Object.freeze(['focus']), areas: Object.freeze(['player actions journal log', 'inventory actions journal log']), columns: Object.freeze([420, 900, 620, 460])}),
+        ]),
     }),
     // COV2 / UR69 (2026-10-30): while a center view is open the side regions lend their width back.
     // Default: You and Inventory keep their home column (`sideEm`, up to `sideMaxPct` of the board),
@@ -339,8 +346,8 @@ export const contextLabel = (context, spec = LAYOUT_SPEC) => spec.contexts[conte
 // sizes against the default tracks (inventory composition).
 // `empty` names regions with nothing to show (round 14, PS99): a column held only by them gives its width to the
 // column before it, so a life with no Journal yet has no blank third column.
-export function gridTemplate({context = 'idle', atLeast, empty = []}, spec = LAYOUT_SPEC) {
-    const bands = spec.grids[spec.contexts[context]?.grid || 'standard'];
+export function gridTemplate({context = 'idle', atLeast, empty = [], here = false}, spec = LAYOUT_SPEC) {
+    const bands = spec.grids[here ? 'here' : spec.contexts[context]?.grid || 'standard'];
     const band = bands.filter(b => atLeast(b.minWidth)).at(-1) || bands[0];
     const total = band.columns.reduce((a, b) => a + b, 0);
     const widths = [...band.columns], rows = band.areas.map(row => row.split(/\s+/));
@@ -372,8 +379,19 @@ export function boxRegion(box, placement = null, spec = LAYOUT_SPEC) {
     return def.home || 'actions';
 }
 
+// PS192: the Here look (Display > Look > Here box). A display choice, never saved with a life: workspace_layout.js sets it from the display
+// settings. `hereInColumn` says whether the Here box sits in the Journal column in this context; a fight keeps Around you above the
+// actions, because the inspected opponent belongs beside the fight card.
+let hereLook = false;
+export const setHereLook = on => { hereLook = !!on; };
+export const hereLookOn = () => hereLook;
+export const hereInColumn = (context = 'idle', spec = LAYOUT_SPEC) => hereLook && context !== 'combat' && !!spec.grids.here;
+
 // Region for a panel ID in the parity shell.
 export function regionFor(id, {combat = false, context = null, placement = null} = {}, spec = LAYOUT_SPEC) {
+    // PS192: with the Here look on (display only), Around you is the Here box at the head of the Journal column, except in a fight and
+    // where the player has put the box somewhere with Move to.
+    if (id === 'focus' && hereInColumn(context || contextOf({combat}, spec), spec) && !placement?.boxes?.around) return 'journal';
     const contextual = spec.contextual[id];
     if (contextual) { const at = contextual[context || contextOf({combat}, spec)] || contextual.idle; return at.startsWith('box:') ? boxRegion(at.slice(4), placement, spec) : at; }
     const box = boxOf(id, spec);

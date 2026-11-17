@@ -2,7 +2,8 @@ import {lotmCastLife,lotmBe,castCalendar} from './book_world_lotm_cast_host.js';
 import {TIME_BANDS} from './cast_schedule.js';
 import {retainCombatInspection} from './combat_subject.js';
 import {bindSubjectGesture} from './recipe_connections.js';
-import {createNearbyContextView} from './nearby_context_view.js';
+import {createNearbyContextView,placeAccount} from './nearby_context_view.js';
+import {placeNoticed} from './place_noticed.js';
 export {placeExits, heardName} from './nearby_context_view.js';
 import {readTemperature} from './condition_facts.js';
 import {boardLayout} from './layout_spec.js';
@@ -66,7 +67,11 @@ export function createVillageWorkspace({read,act,placeDetail}) {
     // its own yet; a legacy bridge publishes 'place' when that list mutates.
     let optionsText='Options',stopOptions=()=>{},stopBridge=()=>{};
     const refreshOptions=()=>{optionsText=optionsLabel();const b=placeTabs.querySelector('[data-place-tab="options"]');if(b)setText(b,optionsText);};
-    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions',placeChosen=false;for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],...HERE_HOMES,['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{if(placeTab===id&&placeChosen){sayReason(b,`Already showing ${label}.`);return;}placeTab=id;placeChosen=true;render();};placeTabs.append(b);}placeFooter.append(placeTabs);scene.append(clock,placeFooter,upcomingStripNode(),...(placeDetail?[placeDetail]:[]),people,things,groups);
+    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions',placeChosen=false;for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],...HERE_HOMES,['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{if(placeTab===id&&placeChosen){sayReason(b,`Already showing ${label}.`);return;}placeTab=id;placeChosen=true;render();};placeTabs.append(b);}placeFooter.append(placeTabs);// PS192: with the Here box in column 3, column 2 keeps a compact place head (name, one line, More about this place) over the actions
+    // and over a fight card. It reads the same account as Around you (placeAccount) and shows only under that look (styles/ui_tokens.css).
+    const placeHead=node('header'),headName=node('strong'),headLead=node('p'),headMore=node('details'),headMoreBody=node('p');placeHead.className='scene-place-head';headLead.className='scene-place-lead';
+    headMore.append(node('summary','More about this place'),headMoreBody);placeHead.append(headName,headLead,headMore);
+    scene.append(placeHead,clock,placeFooter,upcomingStripNode(),...(placeDetail?[placeDetail]:[]),people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
     // R20 opponent board: one row per opponent, laid out by count (layout_spec opponentBoard), and
     // the inspected opponent's facts once below the rows instead of repeated on every card. Reads the
@@ -216,6 +221,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         renderPlaceTags(frame.placeTypes||[]);
         const header=sceneClock(frame),{date,season}=header;
         setText(placeName,frame.place);
+        {const account=placeAccount(document.getElementById('location_description_div')?.textContent||'');setText(headName,frame.place);setText(headLead,account.lead);headLead.hidden=!account.lead;setText(headMoreBody,account.rest);headMore.hidden=!account.rest;}
         const conditionRows=[['season',season],['weather',header.weather],['temperature',header.temperature]].filter(([,value])=>value);
         const temperature=parity&&(!frame.worldId||frame.worldId==='base.frontier')?readTemperature():null;
         const nativeTemperatureState=temperature?.cold?'cold_temperature':'normal_temperature';
@@ -293,12 +299,13 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         {const root=document.getElementById('main_content');if(root.dataset.enemyCards==='true')root.dataset.enemyCards='false';if(root.dataset.opponentBoard)delete root.dataset.opponentBoard;}
         // A2: one observer-safe place list/detail surface, over the same native action owner.
         if(shell){
-            const nearby=nearbyContext.update({frame,selected,description:document.getElementById('location_description_div')?.textContent.trim()||''});
+            const here=document.getElementById('main_content').dataset.hereAt==='column';
+            const nearby=nearbyContext.update({frame:{...frame,noticed:placeNoticed(frame)},selected,here,description:document.getElementById('location_description_div')?.textContent.trim()||''});
             if(selected&&!frame.dialogue)selected=nearby.selectedId;
             if(nearbyContext.node.parentNode!==focus)focus.replaceChildren(nearbyContext.node);
             focus.dataset.nearbySummary=nearby.summary;
             if(focus.dataset.subjectHeading!=='false')focus.dataset.subjectHeading='false';
-            if(heading){setText(heading,'Around you');setTitle(heading,nearby.summary);}
+            if(heading){setText(heading,here?'Here':'Around you');setTitle(heading,nearby.summary);}
             focusSignature='';return;
         }
         delete focus.dataset.nearbySummary;

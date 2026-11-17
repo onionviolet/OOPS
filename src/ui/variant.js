@@ -36,6 +36,12 @@ export const LOOK_OPTIONS = Object.freeze([
         choices: Object.freeze([['full', 'Full'], ['grows', 'Grows with the life']]),
         sheets: Object.freeze({full: '', grows: 'styles/variants/ps216.css'}),
         description: 'Full shows every column from the start. Grows with the life starts on you and the place, and opens the Journal and Reports columns when the life first gives them something.'}),
+    // PS192 (round 28 UI finish, lane C): where Around you sits. Third column (default) makes it the Here box at the head of the Journal column,
+    // with a compact place head over the actions; Above the actions is the original placement. Grows with the life and a fight keep it above.
+    Object.freeze({id: 'here', label: 'Here box', default: 'column3',
+        choices: Object.freeze([['column3', 'In the third column'], ['place', 'Above the actions']]),
+        sheets: Object.freeze({column3: '', place: ''}),
+        description: 'The third column opens with Here, the people, things and ways out of this place, over the Journal and Skills; column 2 keeps a short place head over the actions. Above the actions puts the full list back at the top of column 2, as before.'}),
     // PS206, PS222, PS289 (combat lane): where the fight tells what just happened. Reports (classic, default) carries every line;
     // the box can also keep its last six lines, or each card its own latest line with the whole fight folded in the box.
     // PS289 (Weibao 2026-11-16: "the old combat UI was better and more coherent"): Reports is the classic default.

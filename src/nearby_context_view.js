@@ -36,6 +36,22 @@ export function extraWayOuts() {
 const rows = value => Array.isArray(value) ? value : [];
 const admitted = row => row && row.id && row.known !== false && row.hidden !== true;
 const firstSentence = text => String(text || '').trim().match(/^.*?[.!?](?:\s|$)/)?.[0].trim() || String(text || '').trim();
+// PX46: a short account shows whole; a long one shows its first sentence with the rest behind More. The place head over the actions
+// (PS192) and Around you both read it, so the line has one author.
+export function placeAccount(description = '') {
+    const text = String(description || '').trim();
+    if (text.length <= 320) return {lead: text, rest: ''};
+    const lead = firstSentence(text);
+    return {lead, rest: text.slice(lead.length).trim()};
+}
+// PS192: the one word a row's button carries in the Here box, where the row already names its subject.
+export function shortVerb(subject, action) {
+    if (action.short) return action.short;
+    const label = String(action.label || '');
+    if (subject.kind === 'person') return /^(talk|speak|chat|meet)\b/i.test(label) ? label.split(/\s+/)[0] : label;
+    if (subject.kind === 'exit') return label.split(/\s+/)[0] || label;
+    return /^open\b/i.test(label) ? 'Open' : label;
+}
 
 // Read only the same observer-admitted frame used by villageFocus. No registry,
 // schedule, danger or secret lookup belongs to this presentation leaf.
@@ -48,9 +64,12 @@ export function projectNearbyContext(frame = {}, selected = null, description = 
         traits:row.met === true ? rows(row.traits) : [],
         relationship:row.met === true ? row.relationship : null,
         memory:row.met === true ? storyRecap(frame.history || {}, row.id)?.line : null,
-        actions:typeof row.run === 'function' ? [{id:`way:${row.id}`,label:row.act || row.name,run:row.run}] : rows(frame.actions).filter(admitted).filter(action => action.target === row.id)}));
+        // A source can give a row its own verbs (PS305: a noticed noun carries what the life can do with it); a way out gives its one door.
+        actions:Array.isArray(row.verbs) ? row.verbs.map(v => ({id:`${row.id}:${v.id}`,label:v.label,short:v.short,run:v.run,disabled:!!v.disabled,reason:v.reason || ''}))
+            : typeof row.run === 'function' ? [{id:`way:${row.id}`,label:row.act || row.name,run:row.run}] : rows(frame.actions).filter(admitted).filter(action => action.target === row.id)}));
     const people = add(frame.people, 'person');
-    const services = [...add(frame.services, 'service'), ...add(frame.things, 'station')];
+    // PS305: what a person here would notice (a world's place source) joins the stations, after the ones that open something.
+    const services = [...add(frame.services, 'service'), ...add(frame.things, 'station'), ...add(frame.noticed, 'station')];
     const exits = add(frame.exits, 'exit');
     const subjects = [...people, ...services, ...exits];
     const requested = frame.dialogue || selected;
@@ -61,7 +80,7 @@ export function projectNearbyContext(frame = {}, selected = null, description = 
     return {place:frame.place || 'This place',people,services,exits,subjects,subject,
         selectedId:subject?.id || null,summary,description:String(description || '').trim(),
         // A short account shows whole; a long one shows its first sentence with the rest behind More (PX46).
-        ...(String(description || '').trim().length <= 320 ? {descriptionLead:String(description || '').trim(),descriptionRest:''} : {descriptionLead:firstSentence(description),descriptionRest:String(description || '').trim().slice(firstSentence(description).length).trim()}),missing:!!requested && !subject};
+        descriptionLead:placeAccount(description).lead,descriptionRest:placeAccount(description).rest,missing:!!requested && !subject};
 }
 
 export function createNearbyContextView({choose,act,document:doc=globalThis.document} = {}) {
@@ -90,7 +109,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     const showAll=kitChip({label:'',run:()=>{expanded=!expanded;update(lastArgs);}});showAll.dataset.hereLink='all';
     hereLine.append(el('span','Here:'),hereLinks.people,hereLinks.services,hereLinks.exits,showAll);
     node.append(summary,placeLead,place,hereLine,split,empty);
-    const groups=new Map(),buttons=new Map(),actionButtons=new Map();let model=null,lastPlace=null,returnId=null,missingNotice=false;
+    const groups=new Map(),buttons=new Map(),rowOf=new Map(),verbButtons=new Map(),actionButtons=new Map();let model=null,lastPlace=null,returnId=null,missingNotice=false;
     const select=id=>{missingNotice=false;returnId=id || model?.selectedId || returnId;choose?.(id);};
     const move=direction=>{if(!model?.subjects.length)return;const index=model.subjects.findIndex(s=>s.id===model.selectedId);const target=model.subjects[(index+direction+model.subjects.length)%model.subjects.length];select(target.id);};
     previous.onclick=()=>move(-1);next.onclick=()=>move(1);
@@ -99,8 +118,20 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     // Keyboard navigation is local and ignores inputs, commands and modified keys.
     list.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey||!event.target.dataset.inspectNearby)return;
         const delta={ArrowDown:1,j:1,ArrowUp:-1,k:-1}[event.key];if(!delta)return;event.preventDefault();move(delta);buttons.get(returnId)?.focus();});
-    const update=({frame,selected=null,description=''}={})=>{
-        lastArgs={frame,selected,description};
+    // PS192: in the Here box each row carries its own verbs (Talk, Go, Open), so the box is the one list of who and what is here.
+    const syncVerbs=(box,subject,here)=>{
+        const wanted=here?subject.actions:[],keys=new Set(wanted.map(a=>`${subject.id}\0${a.id}`));
+        for(const b of [...box.children])if(!keys.has(b.dataset.verbKey)){verbButtons.delete(b.dataset.verbKey);b.remove();}
+        for(const [i,a] of wanted.entries()){
+            const key=`${subject.id}\0${a.id}`;let b=verbButtons.get(key);
+            if(!b){b=el('button');b.type='button';b.dataset.nearbyVerb=a.id;b.dataset.verbKey=key;verbButtons.set(key,b);
+                b.onclick=()=>{const now=model?.subjects.find(s=>s.id===subject.id)?.actions.find(x=>x.id===a.id);if(now&&!now.disabled){if(now.run)now.run();else act?.(now.id);}};}
+            if(box.children[i]!==b)box.insertBefore(b,box.children[i]||null);
+            text(b,shortVerb(subject,a));b.disabled=!!a.disabled;b.title=a.reason||a.label;
+        }
+    };
+    const update=({frame,selected=null,description='',here=false}={})=>{
+        lastArgs={frame,selected,description,here};node.dataset.here=String(!!here);
         const previousModel=model;model=projectNearbyContext({...frame,exits:[...rows(frame?.exits),...extraWayOuts()]},selected,description);
         if(lastPlace!==model.place){place.open=false;returnId=null;missingNotice=false;lastPlace=model.place;list.scrollTop=0;detail.scrollTop=0;}
         if(model.missing)missingNotice=true;
@@ -109,25 +140,28 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         const count=(n,one,many)=>n?`${n} ${n===1?one:many}`:'';
         for(const [kind,words] of [['people',count(model.people.length,'person','people')],['services',count(model.services.length,'station','stations')],['exits',count(model.exits.length,'way out','ways out')]]){text(hereLinks[kind],words);hereLinks[kind].hidden=!words;
             hereLinks[kind].title=kind==='people'?'Opens Talk to someone in the actions':kind==='exits'?'Opens Move somewhere else in the actions':'Shows the stations and services here';}
-        hereLine.hidden=!model.subjects.length;text(showAll,expanded?'Fold':'Show all');showAll.setAttribute('aria-expanded',String(expanded));
-        node.dataset.compact=String(!expanded&&!model.subject&&!model.missing&&model.subjects.length>0);text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead;
-        text(placeBody,model.descriptionRest);place.hidden=!model.descriptionRest;text(back,`← ${model.place} overview`);
+        hereLine.hidden=!model.subjects.length||here;text(showAll,expanded?'Fold':'Show all');showAll.setAttribute('aria-expanded',String(expanded));
+        node.dataset.compact=String(!here&&!expanded&&!model.subject&&!model.missing&&model.subjects.length>0);text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead||here;
+        text(placeBody,model.descriptionRest);place.hidden=!model.descriptionRest||here;text(back,`← ${model.place} overview`);
         // PS98: the pinned band's folded This place line reads these, so the counts have one author.
         // The frame re-measures when what this view holds changes shape (the centre split sizes the region to it).
         if(node.dataset.place!==model.place||node.dataset.placeSummary!==model.summary){node.dataset.place=model.place;node.dataset.placeSummary=model.summary;if(typeof CustomEvent==='function')doc.dispatchEvent?.(new CustomEvent('shell-content-change',{detail:{part:'around-you'}}));}
         node.dataset.selected=String(!!model.subject);node.dataset.selectionMissing=String(model.missing);
-        for(const [kind,label,subjects] of [['people','People here',model.people],['services','Services & stations',model.services],['exits','Ways out',model.exits]]){
+        for(const [kind,label,subjects] of [['people',here?'People here':'People here',model.people],['services',here?'Things here':'Services & stations',model.services],['exits','Ways out',model.exits]]){
             let group=groups.get(kind);if(!group){group=el('section');group.dataset.nearbyGroup=kind;const heading=el('h3'),body=el('div');group.append(heading,body);groups.set(kind,group);list.append(group);}
             group.hidden=!subjects.length;text(group.firstChild,`${label} · ${subjects.length}`);
             const body=group.lastChild;
             for(const [index,subject] of subjects.entries()){
-                let button=buttons.get(subject.id);if(!button){button=el('button');button.type='button';button.append(el('strong'),el('small'));button.dataset.inspectNearby=subject.id;button.onclick=()=>select(subject.id);buttons.set(subject.id,button);}
-                if(body.children[index]!==button)body.insertBefore(button,body.children[index]||null);
+                let button=buttons.get(subject.id);if(!button){button=el('button');button.type='button';button.append(el('strong'),el('small'));button.dataset.inspectNearby=subject.id;button.onclick=()=>select(subject.id);buttons.set(subject.id,button);
+                    const made=el('div');made.className='nearby-row';const verbBox=el('span');verbBox.className='nearby-row-verbs';made.append(button,verbBox);rowOf.set(subject.id,made);}
+                const row=rowOf.get(subject.id);
+                if(body.children[index]!==row)body.insertBefore(row,body.children[index]||null);
+                syncVerbs(row.lastChild,subject,here);
                 text(button.firstChild,subject.name);text(button.lastChild,subject.role);button.lastChild.hidden=!subject.role;
                 button.dataset.nearbyKind=subject.kind;button.setAttribute('aria-pressed',String(subject.id===model.selectedId));button.title=subject.kind==='exit'?`${subject.name}: see the way there`:`Inspect ${subject.name}`;
             }
         }
-        let removedFocus=false;for(const [id,button] of buttons)if(!model.subjects.some(s=>s.id===id)){removedFocus ||= doc.activeElement===button;button.remove();buttons.delete(id);}
+        let removedFocus=false;for(const [id,button] of buttons)if(!model.subjects.some(s=>s.id===id)){removedFocus ||= doc.activeElement===button;rowOf.get(id)?.remove();rowOf.delete(id);for(const key of [...verbButtons.keys()])if(key.startsWith(`${id}\0`))verbButtons.delete(key);button.remove();buttons.delete(id);}
         const subject=model.subject;detail.hidden=!subject;
         // PX90: the populated Village list already shows what can be inspected.
         empty.hidden=!!subject || (frame?.inVillage===true && model.subjects.length>0 && !missingNotice);

@@ -267,11 +267,11 @@ test('a column whose regions have nothing to show gives its width to the column 
     assert.equal(g.columns, 'minmax(0,372fr) minmax(0,1110fr) minmax(0,0fr) minmax(0,374fr)');
     assert.equal(gridTemplate({atLeast: px => px <= 1920, empty: ['actions']}).columns, gridTemplate({atLeast: px => px <= 1920}).columns, 'a column another region still holds keeps its width');
 });
-test('UM8 every area names a spec region and every region has an area', () => {
+test('UM8 every area names a spec region and every region has an area, unless the band names it in `hidden` (PS192: the focus region has no cell under the Here look)', () => {
     const regions = Object.keys(LAYOUT_SPEC.regions);
     for (const bands of Object.values(LAYOUT_SPEC.grids)) for (const band of bands) {
         const names = new Set(band.areas.join(' ').split(/\s+/));
-        assert.deepEqual([...names].sort(), [...regions].sort());
+        assert.deepEqual([...names, ...(band.hidden || [])].sort(), [...regions].sort());
         for (const row of band.areas) assert.equal(row.split(' ').length, band.columns.length);
     }
 });
@@ -299,4 +299,20 @@ test('two empty columns side by side both fold into the open column before them 
     const g = gridTemplate({context: 'idle', atLeast: () => true, empty: ['journal', 'log']});
     const cols = g.columns.split(' ');
     assert.equal(cols[2], 'minmax(0,0fr)'); assert.equal(cols[3], 'minmax(0,0fr)');
+});
+
+test('PS192: the Here look puts Around you in the Journal column and column 2 spans both rows, except in a fight', async () => {
+    const {setHereLook, hereInColumn, regionFor, gridTemplate} = await import('../src/layout_spec.js');
+    try {
+        setHereLook(true);
+        assert.equal(regionFor('focus', {context: 'idle'}), 'journal');
+        assert.equal(regionFor('focus', {context: 'combat'}), 'focus');
+        assert.equal(regionFor('focus', {context: 'idle', placement: {boxes: {around: 'inventory'}}}), 'inventory', 'a player’s Move to wins');
+        assert.equal(hereInColumn('service'), true);
+        const here = gridTemplate({atLeast: px => px <= 1920, here: true}), classic = gridTemplate({atLeast: px => px <= 1920});
+        assert.match(here.areas, /"player actions journal log" "inventory actions journal log"/);
+        assert.match(classic.areas, /"player focus journal log"/);
+        setHereLook(false);
+        assert.equal(regionFor('focus', {context: 'idle'}), 'focus');
+    } finally { setHereLook(false); }
 });
