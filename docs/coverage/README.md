@@ -12,6 +12,7 @@
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 376 | 9 | 0 | 100% | 5% |
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
+| [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 207 | 0 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
 
 ## Typed and computed, side by side (PC9, PC10)
@@ -27,10 +28,11 @@
 | hp_potions | 1 | 34 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
 | lotm_potions | 0 | 46 | 0 | 0 |
+| worm_powers | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1642 of 1880 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1648 of 1887 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -72,6 +74,7 @@
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
 | lotm_potions | 0 | 0 | | | | | none yet |
+| worm_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -308,20 +311,36 @@
 | lotm_potions | formula-in-notes | 162 |
 | hp_ingredients | material-row | 96 |
 | hp_potions | body-door | 80 |
+| worm_powers | effect-unknown | 68 |
 | gu_moves | roles-unchecked | 63 |
 | hp_potions | mind-state | 40 |
 | hp_potions | body-form | 37 |
 | hp_potions | effect-sentence | 33 |
+| worm_powers | tinker-device | 33 |
 | hp_potions | plant-or-creature-target | 32 |
 | gu_moves | unnamed-role | 28 |
 | gu_moves | role-cannot-run | 17 |
+| worm_powers | power-interaction | 15 |
+| worm_powers | body-form | 13 |
 | lotm_potions | formula-wiki-unchecked | 12 |
+| worm_powers | mind-binding | 12 |
+| worm_powers | area-field | 11 |
+| worm_powers | protection-field | 10 |
 | hp_potions | conceal-or-sense | 9 |
 | hp_potions | object-surface | 8 |
+| worm_powers | mind-state | 7 |
+| worm_powers | portal-space | 7 |
+| worm_powers | projection-body | 7 |
 | lotm_potions | body-door | 6 |
+| worm_powers | conceal-or-sense | 6 |
 | hp_potions | place-release | 6 |
+| worm_powers | creature-control | 5 |
+| worm_powers | time-manipulation | 5 |
+| worm_powers | power-granting | 3 |
+| worm_powers | precognition | 3 |
 | hp_potions | luck-field | 2 |
 | hp_potions | protection-field | 2 |
+| worm_powers | timeline-split | 2 |
 
 ## Row format
 

@@ -72,6 +72,7 @@ export const DENOMINATORS = {
     hp_ingredients: {expected: 409, owner: 'B', what: 'ingredient-related catalogue entries'},
     lotm_potions: {expected: null, owner: 'B', what: 'pathway sequence and named potions, built first'},
     hp_spells: {expected: 117, owner: 'S', what: 'spellbook records'},
+    worm_powers: {expected: null, owner: 'P', what: 'named Worm capes, Endbringers and Entities, and named Tinker devices, from reader claims, the cape table and the people index (PWC3)'},
     creatures: {expected: null, owner: 'L', what: "G's catalogue plus L's inventory"},
 };
 const STATE = /^(runs-canon|runs-authored|expressed-canon|expressed-authored|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
