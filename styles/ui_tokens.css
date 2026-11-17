@@ -1469,7 +1469,9 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 .scene-place-head > details > summary {cursor:pointer;color:var(--p23-muted);}
 @media(min-width:1001px){
 #main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="focus"] {display:none;}
-#main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="journal"] > .workspace-module[data-module="focus"] {flex:1 1 auto!important;min-height:9em;}
+#main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="journal"] > .workspace-module[data-module="focus"] {flex:0 1 auto!important;min-height:0;}
+#main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="journal"] > .workspace-module[data-module="focus"] > .workspace-module-body {flex:0 1 auto!important;}
+#main_content.workspace-active[data-parity="r3"][data-here-at="column"] [data-region="journal"] #current_focus {height:auto!important;max-height:none!important;overflow:visible!important;}
 }
 /* R13: inside a center view the destination Back bar is the one way back (UR9); the
    header's Expand toggle (relabelled Return) would be a second one. */

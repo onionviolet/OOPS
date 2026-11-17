@@ -321,10 +321,12 @@ export function updateWorkspace() {
     // PS192: the Here look (Display > Look > Here box). Grows with the life keeps the box in column 2, which is its place; a fight keeps it there too.
     setHereLook(getDisplaySetting('panel.look.here')!=='place'&&getDisplaySetting('panel.look.layout')!=='grows');
     const hereAt=hereInColumn(placementContext())&&!currentPlacement()?.boxes?.around;
+    // A Here box with nothing in it folds away, so the Journal column counts as empty under the fold rules (PS99) instead of showing a blank box.
+    const hereBare=hereAt&&document.querySelector('.nearby-context-view')?.dataset.placeSummary==='';
     setData(owner.root,'hereLook',hereLookOn()?'column':'place');setData(owner.root,'hereAt',hereAt?'column':'place');
     // UM8: the parity grid's areas and column shares come from the spec; CSS has one generic rule.
     const empty=Object.entries(owner.regions||{}).filter(([,region])=>![...region.children].some(n=>n.classList?.contains('workspace-module')&&!n.hidden)).map(([id])=>id);
-    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches,empty:growEmpty(empty).filter(id=>!(hereAt&&id==='journal')),here:hereAt});
+    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches,empty:growEmpty(empty),here:hereAt});
     setStyle(owner.board,'--shell-areas',grid.areas);setStyle(owner.board,'--shell-columns',grid.columns);
     setStyle(owner.board,'--shell-lend-columns',centerLendColumns());
     grid.shares.forEach((share,i)=>setStyle(owner.board,`--shell-share-${i+1}`,share));
@@ -389,7 +391,7 @@ export function updateWorkspace() {
             setProperty(heading,'title','Your native character. Open Stats for biography, attributes and equipment.');
         }
         const placedHidden=owner.parity&&owner.root.dataset.parity==='r3'&&currentPlacement()?.companions?.[Object.keys(LEADS).find(b=>LEADS[b]===state.id)]==='hidden';
-        setProp(shell,'hidden',state.hidden || placedHidden || !eligible || parked || (composed&&!owner.parity&&state.id==='belongings'&&document.documentElement.style.getPropertyValue('--inventory_div_display')==='none')); shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
+        setProp(shell,'hidden',state.hidden || placedHidden || (hereBare&&state.id==='focus') || !eligible || parked || (composed&&!owner.parity&&state.id==='belongings'&&document.documentElement.style.getPropertyValue('--inventory_div_display')==='none')); shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
         setStyle(shell, '--workspace-width', `${state.width}px`); setStyle(shell, '--workspace-height', `${state.height}px`);
         setData(shell, 'pinned', String(state.pinned));
         shell.querySelectorAll('[data-resize], [data-workspace-action=width], [data-workspace-action=height]').forEach(grip => {setProperty(grip,'disabled',state.pinned);});

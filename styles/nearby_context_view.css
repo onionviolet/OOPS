@@ -64,3 +64,4 @@
 .nearby-row-verbs > button:disabled {color:var(--p23-muted);cursor:default;border-style:dashed;}
 .nearby-context-view[data-here="true"][data-selected="false"] .nearby-context-list {display:block;}
 .nearby-context-view[data-here="true"] > p:last-child {display:none;}
+#current_focus > .nearby-context-view[data-here="true"] {height:auto;}
