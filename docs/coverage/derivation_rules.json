@@ -1,0 +1,274 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/README.md#pwc100-pwc119-derivation-rule-scores-and-core-axioms-2026-11-17-proposals",
+  "date": "2026-11-17",
+  "status": "proposal (AD32)",
+  "split": "GKM429: sha1(id)[0] < 0x33 held out, frozen before scoring",
+  "floor": 10,
+  "verdicts": "passes | fails-baseline | insufficient-held-out; written in scripts/derivation_rules_backtest.mjs before the table was filled",
+  "regenerate": "node scripts/derivation_rules_backtest.mjs"
+ },
+ "rules": [
+  {
+   "id": "gu.rank.family-median",
+   "mechanism": "Gu rank = median known rank of its band, path and type family (resemblance; PWC83 second voice)",
+   "fit": "family medians from training rows",
+   "inputs": [
+    "band, path and type family",
+    "known ranks of the family (training rows only)"
+   ],
+   "version": "fe62076e88",
+   "split": "GKM429 hash split; cohort = rows whose wiki and chapter ranks agree",
+   "baselineRule": "most common training rank (3)",
+   "set": "held-out cohort rows the rule applies to",
+   "heldOutN": 68,
+   "exact": 19,
+   "withinBand": 44,
+   "baseline": {
+    "name": "most common training rank (3)",
+    "exact": 11,
+    "withinBand": 29
+   },
+   "allHeldOut": {
+    "n": 76,
+    "exact": 19,
+    "baselineExact": 14,
+    "note": "abstain counted as a miss"
+   },
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.279,
+    "withinBand": 0.647,
+    "n": 68,
+    "verdict": "passes"
+   },
+   "note": "Within-band = rank within one. A rule that rests on name resemblance, not on what the Gu does."
+  },
+  {
+   "id": "gu.rank.precursor",
+   "mechanism": "Gu rank = highest known precursor rank + 1 (refinement process; PWC93)",
+   "fit": "none (the +1 is a constant, nothing is fitted from training ranks)",
+   "inputs": [
+    "band, path and type family",
+    "known ranks of the family (training rows only)"
+   ],
+   "version": "fe62076e88",
+   "split": "GKM429 hash split; cohort = rows whose wiki and chapter ranks agree",
+   "baselineRule": "most common training rank (3)",
+   "set": "whole cohort rows with a precursor edge (nothing fitted, so no hold-out needed); held-out slice is n=9",
+   "heldOutN": 57,
+   "exact": 50,
+   "withinBand": 54,
+   "baseline": {
+    "name": "most common training rank (3)",
+    "exact": 10,
+    "withinBand": 41
+   },
+   "allHeldOut": {
+    "n": 76,
+    "exact": 9,
+    "baselineExact": 14,
+    "heldOutSlice": {
+     "n": 9,
+     "exact": 9,
+     "within1": 9,
+     "baselineExact": 3,
+     "baselineWithin1": 8
+    },
+    "note": "abstain counted as a miss"
+   },
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.877,
+    "withinBand": 0.947,
+    "n": 57,
+    "verdict": "passes"
+   },
+   "note": "Held-out slice alone is below the floor; the rule fits nothing, so the whole cohort is a fair test."
+  },
+  {
+   "id": "gu.rank.search-set-v1",
+   "mechanism": "Ordered set: precursor rank + 1, inverse (below its products), next-rank link, story-time neighbours (first appearance), family median fallback (PWC99)",
+   "fit": "nothing fitted beyond k=7 neighbours, chosen on folds 1-4",
+   "inputs": [
+    "refinement edges",
+    "first appearance chapter",
+    "band, path, type family"
+   ],
+   "version": "e8b2b7ec71",
+   "split": "five frozen folds (gu_rank_folds.json); fold 5 scored once",
+   "baselineRule": "family-median set on the same fold",
+   "set": "frozen fold 5, every cohort row (abstain falls back to family median)",
+   "heldOutN": 76,
+   "exact": 34,
+   "withinBand": 61,
+   "baseline": {
+    "name": "gu.rank.family-median set",
+    "exact": 20,
+    "withinBand": 46
+   },
+   "allHeldOut": null,
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.447,
+    "withinBand": 0.803,
+    "n": 76,
+    "verdict": "passes"
+   },
+   "note": "Proposal, not wired into any builder. Story-time is a narrative proxy, not an in-world process (PWC93).",
+   "proposed": true
+  },
+  {
+   "id": "gu.rank.series",
+   "mechanism": "Gu rank climbs by the step a numbered series shows",
+   "fit": "none",
+   "inputs": [
+    "band, path and type family",
+    "known ranks of the family (training rows only)"
+   ],
+   "version": "fe62076e88",
+   "split": "GKM429 hash split; cohort = rows whose wiki and chapter ranks agree",
+   "baselineRule": "most common training rank (3)",
+   "set": "whole cohort rows in a series",
+   "heldOutN": 1,
+   "exact": 1,
+   "withinBand": 1,
+   "baseline": {
+    "name": "most common training rank (3)",
+    "exact": 0,
+    "withinBand": 1
+   },
+   "allHeldOut": null,
+   "verdict": "insufficient-held-out",
+   "confidence": {
+    "exact": 1,
+    "withinBand": 1,
+    "n": 1,
+    "verdict": "insufficient-held-out"
+   },
+   "note": "Not among the six rules the ledgers cite (it produced no row); scored for completeness."
+  },
+  {
+   "id": "hp.rule.recipe-carries-effect",
+   "mechanism": "An ingredient carries the property axis of the potions whose recipes use it (recipe edges; PWC93)",
+   "inputs": [
+    "recipe edges ingredient to potion",
+    "potion effect axis",
+    "sibling ingredients (training axes only)"
+   ],
+   "version": "ff4dd7bc1f",
+   "fit": "axis votes from training siblings; dials in DERIVE_DIALS",
+   "split": "GKM429, held-out ingredients hide their own stated axes",
+   "set": "held-out ingredients the rule derives",
+   "heldOutN": 12,
+   "exact": 5,
+   "withinBand": 5,
+   "baseline": {
+    "name": "always venom",
+    "exact": 2,
+    "withinBand": 2
+   },
+   "allHeldOut": {
+    "n": 25,
+    "exact": 5,
+    "baselineExact": 6,
+    "note": "abstain counted as a miss; the rule alone loses to \"always venom\" here, the rule with baseline fallback wins"
+   },
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.417,
+    "withinBand": 0.417,
+    "n": 12,
+    "verdict": "passes"
+   },
+   "note": "Misses are pinned in hp_derived_score.json heldRun.misses."
+  },
+  {
+   "id": "lotm.rule.characteristic-replaces-main",
+   "mechanism": "A same-Sequence characteristic can stand in for the potion main (brew_law main slot)",
+   "inputs": [
+    "pathway",
+    "Sequence"
+   ],
+   "version": "06952eea35",
+   "fit": "none (identity prediction; stated in scene)",
+   "split": "GKM429 (frozen in 13b7b765c); labels = Luna recall of the natural main, not a chapter read",
+   "set": "held-out rows with a determinable natural main, both axes right",
+   "heldOutN": 14,
+   "exact": 1,
+   "withinBand": 7,
+   "baseline": {
+    "name": "majority pathway and Sequence (upper bound: the smaller single-axis majority count)",
+    "exact": 4,
+    "withinBand": 4
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.071,
+    "withinBand": 0.5,
+    "n": 14,
+    "verdict": "fails-baseline"
+   },
+   "note": "The rule says a characteristic CAN replace a main; it never claimed it is the natural main, so a miss here is partly a mismatch of claim and test (edge case E1)."
+  },
+  {
+   "id": "lotm.rule.seq0-uniqueness-and-seq1-characteristics",
+   "mechanism": "Sequence 0 potion = the pathway Uniqueness plus Sequence 1 characteristics",
+   "inputs": [
+    "pathway"
+   ],
+   "version": "06952eea35",
+   "fit": "fitted to the two stated Sequence 0 formulas (Blasphemy Card, Fool 0)",
+   "split": "none: no Sequence 0 formula is left to hold out",
+   "set": "no held-out Sequence 0 formula",
+   "heldOutN": 0,
+   "exact": 0,
+   "withinBand": null,
+   "baseline": {
+    "name": "no baseline",
+    "exact": 0,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "insufficient-held-out",
+   "confidence": {
+    "exact": null,
+    "withinBand": null,
+    "n": 0,
+    "verdict": "insufficient-held-out"
+   },
+   "note": "Scored, not judged. Needs a later Sequence 0 formula from the books (PWC87)."
+  },
+  {
+   "id": "gu.generated.concept",
+   "mechanism": "A model drafts a Gu from a concept word and the catalogue prefix; rank band, path and verb checked against canon Gu of the same concept",
+   "inputs": [
+    "concept word",
+    "prompt hash",
+    "catalogue prefix"
+   ],
+   "version": "723417ab4a",
+   "fit": "none (prompted, frozen set gu_generated_frozen.json)",
+   "split": "concepts frozen before generation; scored on canon Gu that share the concept",
+   "set": "rank band, every scored concept (path and verb in note)",
+   "heldOutN": 140,
+   "exact": 73,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common band",
+    "exact": 82,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.521,
+    "withinBand": null,
+    "n": 140,
+    "verdict": "fails-baseline"
+   },
+   "note": "Ahead of baseline on path (78.6% against 65.8%, n=117), behind on band and verb (49% against 54.8%, n=104). These rows already carry tier generated; no relabel needed, the palette says why."
+  }
+ ]
+}

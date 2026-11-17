@@ -1,0 +1,542 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/README.md#pwc100-pwc119-derivation-rule-scores-and-core-axioms-2026-11-17-proposals",
+  "date": "2026-11-17",
+  "status": "proposal (AD32, AD56): none is adopted",
+  "gate": "core only when it beats its baseline in at least two worlds (PWC84); descriptive-only and no-checkable-field are not scores",
+  "taught": "8345 tabletop and book rule rows in 19 files",
+  "regenerate": "node scripts/core_axioms.mjs",
+  "sheets": {
+   "a_novel_concept": {
+    "powerRows": 93,
+    "statedLimitOrCounter": 0.376,
+    "statedChannel": 0.398,
+    "statedStacking": 0.312,
+    "verbInTwelve": 0.366
+   },
+   "labyrinth_mad_god": {
+    "powerRows": 42,
+    "statedLimitOrCounter": 0.738,
+    "statedChannel": 0.857,
+    "statedStacking": 0.476,
+    "verbInTwelve": 0.738
+   },
+   "speedrunning_multiverse": {
+    "powerRows": 93,
+    "statedLimitOrCounter": 0.581,
+    "statedChannel": 0.774,
+    "statedStacking": 0.72,
+    "verbInTwelve": 0.785
+   },
+   "you_have_died_again": {
+    "powerRows": 38,
+    "statedLimitOrCounter": 0.526,
+    "statedChannel": 0.711,
+    "statedStacking": 0.5,
+    "verbInTwelve": 0.447
+   }
+  }
+ },
+ "axioms": [
+  {
+   "id": "CR1",
+   "statement": "Cost grows with magnitude, reach and duration.",
+   "taughtBy": {
+    "ruleRows": 1375,
+    "tabletopWorlds": 16,
+    "byWorld": {
+     "ars_magica": 310,
+     "blades_commercial": 27,
+     "blades": 15,
+     "brp": 49,
+     "coc": 6,
+     "cypher": 38,
+     "dnd5e_2014": 402,
+     "dnd5e_planes": 12,
+     "dnd_srd": 116,
+     "eclipse_phase": 2,
+     "fate": 39,
+     "gurps": 161,
+     "ironsworn": 6,
+     "mm3e_commercial": 54,
+     "mm3e": 16,
+     "pf1": 122
+    },
+    "dialsStated": {
+     "blades_commercial": [
+      "change how many items can be hidden",
+      "adjust quality"
+     ],
+     "dnd5e_2014": [
+      "treat the sequence as especially taxing above the one-third daily-XP mark, because resources cannot be refreshed between",
+      "expect fewer encounters when they are deadlier and more when they are easier, because adventurers’ resources are finite"
+     ],
+     "dnd5e_planes": [
+      "select the complication and its severity",
+      "range, duration, and how much magic is diverted"
+     ],
+     "dnd_srd": [
+      "one stored use limits repeated correction, and using it commits the new result",
+      "use limits and spell/concentration lockout constrain it"
+     ],
+     "gurps": [
+      "vary how severe they are according to the power’s circumstances and countermeasures",
+      "allow higher aptitude only with GM approval, reflecting exceptional mastery"
+     ],
+     "mm3e_commercial": [
+      "allow multiple effects and modifiers, with power-point costs not specified in this passage",
+      "make use automatic or uncertain, as appropriate to the effect"
+     ]
+    },
+    "counting": {
+     "seams": [
+      "AB2"
+     ],
+     "mechanisms": [],
+     "statementPattern": "/\\b(costs?|pay|spend|spent)\\b.*\\b(level|more|per|each|double)/i"
+    }
+   },
+   "novelField": null,
+   "score": null,
+   "verdict": "no-checkable-field",
+   "note": "No ledger field states this in two worlds on held-out rows. Field needed: a stated per-power cost amount beside its rank."
+  },
+  {
+   "id": "CR2",
+   "statement": "A higher rank or tier overcomes a lower one unless a stated counter applies.",
+   "taughtBy": {
+    "ruleRows": 18,
+    "tabletopWorlds": 6,
+    "byWorld": {
+     "brp": 1,
+     "dnd5e_2014": 6,
+     "dnd_srd": 6,
+     "fate": 2,
+     "mm3e_commercial": 2,
+     "pf1": 1
+    },
+    "dialsStated": {
+     "dnd5e_2014": [
+      "slot level and rest cadence",
+      "which spells qualify"
+     ],
+     "dnd_srd": [
+      "spell preparation restricts what those slots can cast",
+      "the target spell’s level and slot level"
+     ],
+     "mm3e_commercial": [
+      "extra effort, maneuvers, or tricks can change the comparison",
+      "GM chooses difficulty or contest method"
+     ]
+    },
+    "counting": {
+     "seams": [],
+     "mechanisms": [],
+     "statementPattern": "/\\b(higher|greater|superior)\\s+(rank|tier|level|grade|sequence)\\b|\\boutrank/i"
+    }
+   },
+   "novelField": null,
+   "score": null,
+   "verdict": "no-checkable-field",
+   "note": "No ledger field states this in two worlds on held-out rows. Field needed: a stated per-power outcome of a contest between ranks."
+  },
+  {
+   "id": "CR3",
+   "statement": "Every effect has a limit, a counter or an upkeep.",
+   "taughtBy": {
+    "ruleRows": 1675,
+    "tabletopWorlds": 16,
+    "byWorld": {
+     "ars_magica": 367,
+     "blades_commercial": 20,
+     "blades": 9,
+     "brp": 34,
+     "coc": 5,
+     "cypher": 42,
+     "dnd5e_2014": 417,
+     "dnd5e_planes": 23,
+     "dnd_srd": 168,
+     "eclipse_phase": 6,
+     "fate": 84,
+     "gurps": 150,
+     "ironsworn": 12,
+     "mm3e_commercial": 44,
+     "mm3e": 15,
+     "pf1": 279
+    },
+    "dialsStated": {
+     "blades_commercial": [
+      "change the investment",
+      "vary quality or upkeep"
+     ],
+     "dnd5e_2014": [
+      "set the strength and coverage of its defenses",
+      "alter what it knows or how refusal works"
+     ],
+     "dnd5e_planes": [
+      "allow narrow exceptions",
+      "citywide shutdown is reserved for major strife"
+     ],
+     "dnd_srd": [
+      "voluntary failure permits accepting the effect, at the creature’s choice",
+      "a creature with alternatives chooses one, limiting simultaneous defenses"
+     ],
+     "gurps": [
+      "broaden the permitted set when the fiction gives a coherent reason",
+      "allow the GM to restrict unusual traits to powers so their modifiers govern them"
+     ],
+     "mm3e_commercial": [
+      "make use automatic or uncertain, as appropriate to the effect",
+      "use active opposition when a character is actively defending"
+     ]
+    },
+    "counting": {
+     "seams": [
+      "AB16",
+      "AB21",
+      "AB14",
+      "AB27"
+     ],
+     "mechanisms": [
+      "block",
+      "end"
+     ],
+     "statementPattern": null
+    }
+   },
+   "novelField": [
+    "go_wrong",
+    "counters"
+   ],
+   "descriptiveShares": {
+    "a_novel_concept": 0.376,
+    "labyrinth_mad_god": 0.738,
+    "speedrunning_multiverse": 0.581,
+    "you_have_died_again": 0.526
+   },
+   "score": null,
+   "verdict": "descriptive-only",
+   "note": "The novel sheets record whether a source states the field, not whether the world has it, so absence is not a miss and there is no baseline to beat. Shares are the dial evidence."
+  },
+  {
+   "id": "CR4",
+   "statement": "What a power consumes is conserved inside its world (essence, sanity, lifespan, material).",
+   "taughtBy": {
+    "ruleRows": 657,
+    "tabletopWorlds": 17,
+    "byWorld": {
+     "ars_magica": 173,
+     "blades_commercial": 4,
+     "blades": 1,
+     "brp": 16,
+     "coc": 1,
+     "cypher": 21,
+     "dnd5e_2014": 86,
+     "dnd5e_planes": 10,
+     "dnd_srd": 49,
+     "eclipse_phase": 3,
+     "fate": 21,
+     "gurps": 51,
+     "ironsworn": 1,
+     "lotm": 1,
+     "mm3e_commercial": 10,
+     "mm3e": 3,
+     "pf1": 206
+    },
+    "dialsStated": {
+     "blades_commercial": [
+      "define consent and whether unwilling spirits can be held",
+      "possession and feeding can be handled as downtime"
+     ],
+     "dnd5e_2014": [
+      "adjust the threshold or repair rate to set ship resilience",
+      "activation takes an action, and some applications may take longer"
+     ],
+     "dnd5e_planes": [
+      "the quantity and complexity achievable",
+      "how much power is captured and what a priest can draw from it"
+     ],
+     "dnd_srd": [
+      "limit the slot-to-use conversion to once each turn and the reverse to once per Long Rest",
+      "an oil’s application time is set by its description"
+     ],
+     "gurps": [
+      "Empathic is worth -50% and excludes Capped",
+      "reattachment requires a minute and cannot restore a permanently crippled part"
+     ],
+     "mm3e_commercial": [
+      "cost, rank, and duration",
+      "allow simultaneous use only through the dynamic option, reflecting a shared power source"
+     ]
+    },
+    "counting": {
+     "seams": [
+      "AB15",
+      "AB32",
+      "AB34"
+     ],
+     "mechanisms": [],
+     "statementPattern": "/\\bconserv|\\bconsum(e|es|ed)\\b.*\\b(material|vis|essence)/i"
+    }
+   },
+   "novelField": null,
+   "score": null,
+   "verdict": "no-checkable-field",
+   "note": "No ledger field states this in two worlds on held-out rows. Field needed: a stated per-power conserved quantity before and after use."
+  },
+  {
+   "id": "CR5",
+   "statement": "Effects act through the twelve grammar verbs on the fixed objects.",
+   "taughtBy": {
+    "ruleRows": 7545,
+    "tabletopWorlds": 16,
+    "byWorld": {
+     "ars_magica": 1525,
+     "blades_commercial": 111,
+     "blades": 37,
+     "brp": 191,
+     "coc": 24,
+     "cypher": 152,
+     "dnd5e_2014": 2381,
+     "dnd5e_planes": 126,
+     "dnd_srd": 684,
+     "eclipse_phase": 30,
+     "fate": 327,
+     "gurps": 455,
+     "ironsworn": 79,
+     "mm3e_commercial": 149,
+     "mm3e": 61,
+     "pf1": 1213
+    },
+    "dialsStated": {
+     "blades_commercial": [
+      "change how many items can be hidden",
+      "set what they pay"
+     ],
+     "dnd5e_2014": [
+      "the trigger and duration are unclear in this passage, and the cost is reduced survival and readiness",
+      "1 or 2 points"
+     ],
+     "dnd5e_planes": [
+      "allow specialized senses to find them",
+      "choose whether that key is a thing, a remembered fact, or an action"
+     ],
+     "dnd_srd": [
+      "voluntary failure permits accepting the effect, at the creature’s choice",
+      "a creature with alternatives chooses one, limiting simultaneous defenses"
+     ],
+     "gurps": [
+      "permit exceptions only if the campaign wants abilities that escape the power’s shared rules",
+      "broaden the permitted set when the fiction gives a coherent reason"
+     ],
+     "mm3e_commercial": [
+      "allow multiple effects and modifiers, with power-point costs not specified in this passage",
+      "make use automatic or uncertain, as appropriate to the effect"
+     ]
+    },
+    "counting": {
+     "seams": [],
+     "mechanisms": "the twelve verbs",
+     "statementPattern": null
+    }
+   },
+   "novelField": [
+    "grammar.verb"
+   ],
+   "descriptiveShares": {
+    "a_novel_concept": 0.366,
+    "labyrinth_mad_god": 0.738,
+    "speedrunning_multiverse": 0.785,
+    "you_have_died_again": 0.447
+   },
+   "score": null,
+   "verdict": "descriptive-only",
+   "note": "The novel sheets record whether a source states the field, not whether the world has it, so absence is not a miss and there is no baseline to beat. Shares are the dial evidence."
+  },
+  {
+   "id": "CR6",
+   "statement": "A power passes on only by a stated channel (inheritance, ritual, item, teaching).",
+   "taughtBy": {
+    "ruleRows": 522,
+    "tabletopWorlds": 15,
+    "byWorld": {
+     "ars_magica": 149,
+     "blades_commercial": 6,
+     "blades": 3,
+     "brp": 5,
+     "coc": 1,
+     "cypher": 7,
+     "dnd5e_2014": 182,
+     "dnd5e_planes": 7,
+     "dnd_srd": 25,
+     "fate": 18,
+     "gurps": 52,
+     "ironsworn": 4,
+     "mm3e_commercial": 13,
+     "mm3e": 4,
+     "pf1": 46
+    },
+    "dialsStated": {
+     "blades_commercial": [
+      "set what they pay",
+      "vary minimum quality and added heat to reflect scarcity and risk"
+     ],
+     "dnd5e_2014": [
+      "1 or 2 points",
+      "the GM sets each perk"
+     ],
+     "dnd5e_planes": [
+      "size and occupancy restrict the target",
+      "touch and an action are required"
+     ],
+     "dnd_srd": [
+      "relevant training improves the result, but duplicate training does not stack",
+      "armor restriction and limited, rest-based choice changes"
+     ],
+     "gurps": [
+      "allow multiple or mismatched sources and focuses when the setting’s explanation supports them",
+      "permit exceptions only if the campaign wants abilities that escape the power’s shared rules"
+     ],
+     "mm3e_commercial": [
+      "choose its scope and duration, because the cause may range from temporary weakness to loss of the power itself",
+      "the GM sets origin limits, because the series may require a common background"
+     ]
+    },
+    "counting": {
+     "seams": [
+      "AB1",
+      "AB12",
+      "AB33"
+     ],
+     "mechanisms": [],
+     "statementPattern": null
+    }
+   },
+   "novelField": [
+    "route_to_player",
+    "where_from"
+   ],
+   "descriptiveShares": {
+    "a_novel_concept": 0.398,
+    "labyrinth_mad_god": 0.857,
+    "speedrunning_multiverse": 0.774,
+    "you_have_died_again": 0.711
+   },
+   "score": null,
+   "verdict": "descriptive-only",
+   "note": "The novel sheets record whether a source states the field, not whether the world has it, so absence is not a miss and there is no baseline to beat. Shares are the dial evidence."
+  },
+  {
+   "id": "CR7",
+   "statement": "Stacking follows a world rule (add, highest only, diminishing).",
+   "taughtBy": {
+    "ruleRows": 142,
+    "tabletopWorlds": 11,
+    "byWorld": {
+     "ars_magica": 32,
+     "brp": 5,
+     "cypher": 1,
+     "dnd5e_2014": 18,
+     "dnd_srd": 12,
+     "fate": 3,
+     "gurps": 13,
+     "ironsworn": 1,
+     "mm3e_commercial": 4,
+     "mm3e": 3,
+     "pf1": 50
+    },
+    "dialsStated": {
+     "dnd5e_2014": [
+      "choose effect strength, frequency, and whether attunement is needed",
+      "how potency is compared"
+     ],
+     "dnd_srd": [
+      "cover degree",
+      "healing or temporary-point amount"
+     ],
+     "gurps": [
+      "apply -5% per applicable class, to reflect deliberate anti-power tools or capabilities",
+      "multiple channels can remain established, at a growing penalty and with focused reading still limited to one mind"
+     ],
+     "mm3e_commercial": [
+      "cap at +5 and exclude the user",
+      "added per-rank cost buys escalation, while successful resistance can still stop the progressive effect"
+     ]
+    },
+    "counting": {
+     "seams": [],
+     "mechanisms": [],
+     "statementPattern": "/\\bstack|\\bcumulative|\\bhighest\\b.*\\bapplies|\\bdoes not add/i"
+    }
+   },
+   "novelField": [
+    "combines"
+   ],
+   "descriptiveShares": {
+    "a_novel_concept": 0.312,
+    "labyrinth_mad_god": 0.476,
+    "speedrunning_multiverse": 0.72,
+    "you_have_died_again": 0.5
+   },
+   "score": null,
+   "verdict": "descriptive-only",
+   "note": "The novel sheets record whether a source states the field, not whether the world has it, so absence is not a miss and there is no baseline to beat. Shares are the dial evidence."
+  },
+  {
+   "id": "CR8",
+   "statement": "A made thing sits a fixed tier offset from the highest-tier input it is made from; the offset is the world dial.",
+   "proposedBy": "PWC100, drafted from the Gu precursor rule (gu.rank.precursor) and tested on LOTM",
+   "taughtBy": null,
+   "novelField": [
+    "product tier",
+    "input tier"
+   ],
+   "worlds": {
+    "reverend-insanity": {
+     "what": "Gu rank against its highest known precursor rank (the dial is +1)",
+     "all": {
+      "n": 90,
+      "dial": 1,
+      "share": 0.833,
+      "baselineMean": 0.219,
+      "baselineP95": 0.278,
+      "verdict": "passes"
+     },
+     "heldOut": {
+      "n": 17,
+      "dial": 1,
+      "share": 0.941,
+      "baselineMean": 0.297,
+      "baselineP95": 0.412,
+      "verdict": "passes"
+     },
+     "heldOutN": 17,
+     "fittedOn": "this world (the axiom is read from it)"
+    },
+    "lotm": {
+     "what": "potion Sequence against the Sequence of its stated main material (Luna recall label, not a chapter read; characteristic mains left out as circular); the dial is a Sequence offset",
+     "all": {
+      "n": 56,
+      "dial": 0,
+      "share": 0.393,
+      "baselineMean": 0.202,
+      "baselineP95": 0.25,
+      "verdict": "passes"
+     },
+     "heldOut": {
+      "n": 12,
+      "dial": 0,
+      "share": 0.333,
+      "baselineMean": 0.258,
+      "baselineP95": 0.333,
+      "verdict": "fails-baseline"
+     },
+     "heldOutN": 12,
+     "fittedOn": "not fitted (test world)"
+    }
+   },
+   "verdict": "passes-two-worlds",
+   "note": "Passes a world when its modal offset share beats the 95th percentile of 1,000 seeded shuffles of input tiers against product tiers. Gu is where the axiom was read, so LOTM is the only unfitted test."
+  }
+ ]
+}
