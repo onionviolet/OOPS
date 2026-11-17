@@ -578,7 +578,7 @@ import {registerQuestBoard} from './quest_board_ui.js';
 import {restoreGeneratedPeople, generatedPeopleSnapshot, registerGeneratedPeople} from './generated_people_ui.js';
 import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
 import {createVillageCareerControls} from './village_career_ui.js';
-import {askTypedConfirm} from './typed_confirm.js';
+import {askTypedConfirm} from './typed_confirm.js';import {showLoadFailureNotice} from './load_failure_notice.js';
 let customization = defaultCustomizationState();
 let customizationPanel, workLedgerAuthor;
 let workLedger = createWorkLedger();
@@ -8519,7 +8519,7 @@ function load_from_localstorage() {
         is_loading_error = true;
         set_loading_screen_progress("Something went wrong 😭");
         set_loading_screen_errors_warning();
-        console.error("Something went wrong on loading from localStorage!");
+        showLoadFailureNotice(error,{download:()=>{const k=is_on_dev()&&activeNativeBytes(dev_save_key)?dev_save_key:save_key;const bytes=activeNativeBytes(k);if(bytes)downloadAuthorityData('YAIRPG-kept-save.txt',bytes);}}); // PS303
         console.error(error);
     }
 }
