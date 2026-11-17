@@ -6,14 +6,14 @@ import {kitElement} from './ui/kit.js';
 import {placeLives} from './ui/journal_lives.js';
 
 // Round 14 slice 4 (PS122) and PS306: the Journal box is YAIR's column 3. Beside Quests, Bestiary, Anthology, Data, Knows and
-// Notebook it carries People, Worlds and Beginning, the pages that also have a button in the bottom bar. Each page is the
+// Notebook it carries People and Worlds, the pages that also have a button in the bottom bar. Each page is the
 // module's own node (AR3), hosted through workspace_layout's hostWorkspaceModule, so the bar button (an expanded view of the
 // same node), a log link and the tab all open one page. A tab shows while its module has something to show. Nothing is saved.
 // Default: the tabs sit after the notes tabs, in the bar's order. Dial: a page that should not join the Journal is dropped from PAGES.
+// Beginning is not hosted: a lead life's day buttons live on that page and it opens in the centre, and one node cannot sit in two places (ri_lead_day_journey).
 export const PAGES = Object.freeze([
     {id: 'people', module: 'known-people', label: 'People'},
     {id: 'worlds', module: 'optional-worlds', label: 'Worlds'},
-    {id: 'beginning', module: 'beginning', label: 'Beginning'},
 ]);
 
 let hosts = null, watcher = null;

@@ -1,4 +1,4 @@
-// PS306 and slice 4 (PS122): the Journal leads with the current life, and its People, Worlds and Beginning pages are tabs.
+// PS306 and slice 4 (PS122): the Journal leads with the current life, and its People and Worlds pages are tabs.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {splitLives, planLives, HOME_WORLD} from '../src/ui/journal_lives.js';
@@ -22,8 +22,8 @@ test('Klein after a crossing: the village quest folds, the page says this life h
     assert.deepEqual(planLives([{cards: 0}], 'book.lotm.tingen'), {fold: false, earlierCount: 0, note: false}, 'an empty earlier list makes no fold');
 });
 
-test('People, Worlds and Beginning join the Journal in the bar\'s order, each as the module\'s own page', () => {
-    assert.deepEqual(PAGES.map(p => [p.id, p.module]), [['people', 'known-people'], ['worlds', 'optional-worlds'], ['beginning', 'beginning']]);
+test('People and Worlds join the Journal in the bar\'s order, each as the module\'s own page; Beginning stays in the centre', () => {
+    assert.deepEqual(PAGES.map(p => [p.id, p.module]), [['people', 'known-people'], ['worlds', 'optional-worlds']]);
 });
 
 test('a hosted page with its own bar route does not make the Journal count as found', () => {
