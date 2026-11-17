@@ -1,0 +1,61 @@
+{
+ "meta": {
+  "ledger": "shadow_slave_echoes",
+  "world": "Shadow Slave",
+  "what": "Echoes as companions: named Echoes and Echo kinds",
+  "denominator": "Shadow Slave paid-claim census: every creature, item and person record whose id contains \"echo\", merged by id",
+  "count": 37,
+  "split_rule": "Rows are ordered by sha1 of \"nextcells-v1:<id>\"; those whose first hex byte is below 0x40 are the tuning sample, the only rows the prompt or normaliser may be adjusted on; every other row is held out and reported. Dial: seed and fraction; the fixed seed is the reported one.",
+  "split": {
+   "tuned": 7,
+   "held_out": 30
+  },
+  "class_map": {
+   "classes": [],
+   "baseline": "majority class among labelled held-out rows (computed at build)",
+   "labelled": 0
+  },
+  "label": "none: no per-Echo classification is stated (unscored)",
+  "ids": [
+   "ss.echo.bestial-echoes",
+   "ss.echo.carapace-scavenger-echo",
+   "ss.echo.crow-echo",
+   "ss.echo.echo",
+   "ss.echo.echo-jet-crow",
+   "ss.echo.echo-mounts",
+   "ss.echo.echo-of-dire-fang",
+   "ss.echo.echo-of-saint",
+   "ss.echo.echo-of-the-defiled-sybil",
+   "ss.echo.echo-of-the-slain-sybil",
+   "ss.echo.echo-of-torment",
+   "ss.echo.echo-scavenger",
+   "ss.echo.echoes",
+   "ss.echo.fallen-devil-echo",
+   "ss.echo.fiend-echo",
+   "ss.echo.hound-echo",
+   "ss.echo.human-echo",
+   "ss.echo.nightmare-echo",
+   "ss.echo.saint-echo",
+   "ss.echo.scavenger-echo",
+   "ss.echo.shadow-blade-kurt-echo",
+   "ss.echo.six-armed-ascended-demon-echo",
+   "ss.echo.sybil-echo",
+   "ss.echo.tamar-echo",
+   "ss.echo.temple-echo",
+   "ss.echo.tortoise-echo",
+   "ss.echo.transcendent-echo",
+   "ss.echo.wolf-echo",
+   "ss.echo.clockwork-echo",
+   "ss.echo.echo",
+   "ss.echo.echoes",
+   "ss.echo.echoing-silence",
+   "ss.echo.golden-echo",
+   "ss.echo.stone-saint-echo",
+   "ss.echo.sybil-echo",
+   "ss.echo.transcendent-echoes",
+   "ss.echo.echo"
+  ],
+  "frozen": "2026-11-17",
+  "fold_rule": "A guessed class becomes a sheet field only where held-out hits beat the majority baseline over the labelled held-out rows (PWC2); otherwise the sheet drops it and the note says model tier, unchecked."
+ }
+}
