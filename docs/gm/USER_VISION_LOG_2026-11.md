@@ -1788,3 +1788,10 @@ Weibao, on the wikis-beyond-the-dumps and community discourse lane (PWC39, PWC40
 Weibao: "Consider using luna too, and be optimal between the two, consider what books we are missing too"
 
 Recorded as standing rule AU17 in the [agent usage rules](../AGENT_USAGE_RULES.md). Same list price for both; Luna is the precise reader (declines to invent), Haiku the recall reader (adds more, overreaches more). Stated fields and scored labels go to Luna, enumeration and recall to Haiku, each is the other's second reader, and a new pass type pilots both against held-out labels before the winner runs the rest. The missing-books pass goes to its own lane and its acquisitions still need his yes per file (wiki dumps alone were approved in bulk, same date).
+
+## Book lanes may pull from the wishlist, 2026-11-17
+
+Weibao, after Round 8 (PWC47-PWC52) and the missing-books ranking (M1-M11, DL122-DL140): "Start it, can send the book lanes to pull too, I have warp on, more to consider? Other batched to send? ohw much is left in api?"
+
+- Book lanes may run Anna's and Z-Library pulls for the ranked wishlist rows (the missing-books top ten, the Warhammer rows DL75 and DL133, and the replacement rows the qpdf rewrite cannot fix) without a per-file ask, while WARP is on. This replaces the per-file yes for those rows on this date.
+- Unchanged: the [run procedure](../research/DOWNLOAD_WISHLIST_2026-10-30.md#how-annas-and-z-library-runs-use-this-list-2026-11-04) and the quota guards AR52-AR55 in [source acquisition tools](../research/SOURCE_ACQUISITION_TOOLS.md) (check the route is not intercepted, Anna's before Z-Library with no blind fallback, real file sizes, verify each file); no purchases, no account creation, no CAPTCHA or bot-check bypass; a write-back with DL code, size and checksum for every file. If WARP drops, the run stops.
