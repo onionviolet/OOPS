@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {build, toText, WORLDS_FILE, CORPORA, REGISTRY, readCensus, libraryRows, uncoveredLibraryRows} from '../scripts/worlds_ledger.mjs';
+import {build, toText, WORLDS_FILE, CORPORA, GENERATED_LEDGERS, REGISTRY, readCensus, libraryRows, uncoveredLibraryRows} from '../scripts/worlds_ledger.mjs';
 import {readLedgers, countLedger, DENOMINATORS, nextCells, renderWorlds} from '../scripts/coverage_report.mjs';
 
 const root = new URL('../', import.meta.url).pathname;
@@ -30,7 +30,7 @@ test('ledger cells name real ledgers and carry their counts', () => {
     const byName = new Map(ledgers.map(l => [l.name, l]));
     for (const r of rows) for (const c of Object.values(r.cells)) {
         if (!c.ledger) continue;
-        const names = [c.ledger, ...(c.also ?? [])], total = names.reduce((n, x) => n + countLedger(byName.get(x).rows).total, 0);
+        const names = [c.ledger, ...(c.also ?? [])], total = names.filter(x => !GENERATED_LEDGERS.has(x)).reduce((n, x) => n + countLedger(byName.get(x).rows).total, 0);
         assert.equal(c.rows, total, `${r.id}.${c.ledger}`);
     }
 });

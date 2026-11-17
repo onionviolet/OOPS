@@ -7,6 +7,7 @@
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 525 | 171 | 750 | 4 | 0 | 100% | 35.9% |
+| [gu_generated](gu_generated.jsonl) | G | to build | 1312 | 0 | 0 | 1025 | 287 | 0 | 0 | 100% | 0% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 0 | 759 | 0 | 0 | 100% | 1.3% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 0 | 193 | 32 | 0 | 100% | 0.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 0 | 171 | 9 | 0 | 100% | 5% |
@@ -42,6 +43,7 @@
 | circle_of_inevitability_powers | 0 | 0 | 0 | 0 |
 | creatures | 17 | 82 | 0 | 17 |
 | fated_villain_powers | 0 | 0 | 0 | 0 |
+| gu_generated | 1025 | 0 | 0 | 1025 |
 | gu_kinds | 696 | 16 | 0 | 696 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 209 | 0 | 20 |
@@ -221,6 +223,7 @@
 | circle_of_inevitability_powers | 0 | 0 | | | | | none yet |
 | creatures | 0 | 0 | | | | | none yet |
 | fated_villain_powers | 0 | 0 | | | | | none yet |
+| gu_generated | 0 | 0 | | | | | none yet |
 | gu_kinds | 8 | 53 | 4 of 53 | not scored without an engine | 1 of 6 (47 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
@@ -474,6 +477,7 @@
 | gu_moves | roles-unknown | 651 |
 | gu_kinds | effect-unknown | 516 |
 | gu_kinds | rank-unknown | 234 |
+| gu_generated | grammar-verb-object | 177 |
 | hp_ingredients | ingredient-no-recipe-edge | 134 |
 | circle_of_inevitability_powers | effect-unknown | 104 |
 | legendary_mechanic_powers | effect-unknown | 104 |
@@ -609,6 +613,7 @@
 | labyrinth_mad_god_powers | form-transformation | 3 |
 | solo_leveling_powers | item-bound-power | 3 |
 | perfect_run_powers | mind-binding | 3 |
+| gu_generated | needs-silk-thread | 3 |
 | worm_powers | power-granting | 3 |
 | omniscient_reader_powers | power-interaction | 3 |
 | perfect_run_powers | power-interaction | 3 |
@@ -635,6 +640,9 @@
 | perfect_run_powers | memory-transfer | 2 |
 | rezero_powers | mind-binding | 2 |
 | speedrunning_multiverse_powers | mind-binding | 2 |
+| gu_generated | needs-scent | 2 |
+| gu_generated | needs-tea-leaves | 2 |
+| gu_generated | needs-timber | 2 |
 | labyrinth_mad_god_powers | power-interaction | 2 |
 | mother_of_learning_powers | power-transfer | 2 |
 | speedrunning_multiverse_powers | power-transfer | 2 |
@@ -671,6 +679,107 @@
 | hp_ingredients | material-row | 1 |
 | regressors_tale_powers | mind-binding | 1 |
 | a_novel_concept_powers | mind-ennoblement | 1 |
+| gu_generated | needs-additional-head | 1 |
+| gu_generated | needs-altar-stone | 1 |
+| gu_generated | needs-approaching-event | 1 |
+| gu_generated | needs-armored-shell | 1 |
+| gu_generated | needs-arrow | 1 |
+| gu_generated | needs-azure-divine-stone-furnace | 1 |
+| gu_generated | needs-bees | 1 |
+| gu_generated | needs-blood-soaked-soil | 1 |
+| gu_generated | needs-brine | 1 |
+| gu_generated | needs-clay-fired | 1 |
+| gu_generated | needs-coin | 1 |
+| gu_generated | needs-cup-shaped-vessel | 1 |
+| gu_generated | needs-destination | 1 |
+| gu_generated | needs-dough | 1 |
+| gu_generated | needs-dove | 1 |
+| gu_generated | needs-dried-leaf | 1 |
+| gu_generated | needs-edible-leaf | 1 |
+| gu_generated | needs-elixir-furnace | 1 |
+| gu_generated | needs-fabric | 1 |
+| gu_generated | needs-fastening | 1 |
+| gu_generated | needs-fat-and-ash | 1 |
+| gu_generated | needs-ferret-scent | 1 |
+| gu_generated | needs-fertility | 1 |
+| gu_generated | needs-fiber-material | 1 |
+| gu_generated | needs-flavor | 1 |
+| gu_generated | needs-flock | 1 |
+| gu_generated | needs-forged-metal | 1 |
+| gu_generated | needs-formation-plate | 1 |
+| gu_generated | needs-fox | 1 |
+| gu_generated | needs-frost-jade-essence | 1 |
+| gu_generated | needs-garlic-bulb | 1 |
+| gu_generated | needs-glass-sand | 1 |
+| gu_generated | needs-gourd-vessel | 1 |
+| gu_generated | needs-head-ornament | 1 |
+| gu_generated | needs-heaven-attached-fungus | 1 |
+| gu_generated | needs-hemp-rope | 1 |
+| gu_generated | needs-hide | 1 |
+| gu_generated | needs-horse | 1 |
+| gu_generated | needs-hyena | 1 |
+| gu_generated | needs-ice-path-primeval-essence | 1 |
+| gu_generated | needs-illusion | 1 |
+| gu_generated | needs-impurity | 1 |
+| gu_generated | needs-incense-stick | 1 |
+| gu_generated | needs-ink | 1 |
+| gu_generated | needs-iron-object | 1 |
+| gu_generated | needs-jade-setting | 1 |
+| gu_generated | needs-jasmine-fragrance | 1 |
+| gu_generated | needs-lacquer-resin | 1 |
+| gu_generated | needs-leather-strap | 1 |
+| gu_generated | needs-ledger-slate | 1 |
+| gu_generated | needs-legend-record-tablet | 1 |
+| gu_generated | needs-lemon-fruit | 1 |
+| gu_generated | needs-lentil-seed | 1 |
+| gu_generated | needs-lime | 1 |
+| gu_generated | needs-llama | 1 |
+| gu_generated | needs-loose-earth | 1 |
+| gu_generated | needs-loose-snow | 1 |
+| gu_generated | needs-malachite-stone | 1 |
+| gu_generated | needs-marked-location | 1 |
+| gu_generated | needs-metal | 1 |
+| gu_generated | needs-moisture | 1 |
+| gu_generated | needs-mold | 1 |
+| gu_generated | needs-mount | 1 |
+| gu_generated | needs-mutual-oath | 1 |
+| gu_generated | needs-offspring | 1 |
+| gu_generated | needs-olive-fruit | 1 |
+| gu_generated | needs-outer-garment | 1 |
+| gu_generated | needs-pagoda-structure | 1 |
+| gu_generated | needs-pill-ingredients | 1 |
+| gu_generated | needs-planted-flag | 1 |
+| gu_generated | needs-prepared-pattern | 1 |
+| gu_generated | needs-projectile | 1 |
+| gu_generated | needs-recent-traces | 1 |
+| gu_generated | needs-remembered-location | 1 |
+| gu_generated | needs-rule-eye-blood | 1 |
+| gu_generated | needs-saltpeter | 1 |
+| gu_generated | needs-smelting-furnace | 1 |
+| gu_generated | needs-snail-shell | 1 |
+| gu_generated | needs-spoken-promise | 1 |
+| gu_generated | needs-spoken-wish | 1 |
+| gu_generated | needs-spoken-words | 1 |
+| gu_generated | needs-star-dust | 1 |
+| gu_generated | needs-stinging-hairs | 1 |
+| gu_generated | needs-stone-mass | 1 |
+| gu_generated | needs-subterranean-adamantite-ore | 1 |
+| gu_generated | needs-sulfur | 1 |
+| gu_generated | needs-surface | 1 |
+| gu_generated | needs-task | 1 |
+| gu_generated | needs-thatch | 1 |
+| gu_generated | needs-thunder-echo | 1 |
+| gu_generated | needs-thyme-plant | 1 |
+| gu_generated | needs-truffle | 1 |
+| gu_generated | needs-two-marked-targets | 1 |
+| gu_generated | needs-valued-possession | 1 |
+| gu_generated | needs-wanderer-trail | 1 |
+| gu_generated | needs-water-surface | 1 |
+| gu_generated | needs-wax | 1 |
+| gu_generated | needs-written-mark | 1 |
+| gu_generated | needs-written-verse | 1 |
+| gu_generated | needs-zinc-ore | 1 |
+| gu_generated | needs-zither | 1 |
 | lotm_artifacts | power-transfer | 1 |
 | regressors_tale_powers | power-transfer | 1 |
 | labyrinth_mad_god_powers | source-link | 1 |

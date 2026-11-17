@@ -39,7 +39,7 @@ export const REGISTRY = [
     W('godclads', 'Godclads', 'book', {library: ['Godclads 1-2'], text: `${NOVELS}/godclads`}),
     W('perfect-run', 'The Perfect Run', 'book', {library: ['The Perfect Run (Royal Road', 'The Perfect Run: Bad Runs'], deep: `${NOVELS}/perfect-run/DEEP_DIVE_2026-10-25.md`, text: `${NOVELS}/perfect-run`, ledgers: {powers: ['perfect_run_powers']}}),
     W('super-supportive', 'Super Supportive', 'book', {library: ['Super Supportive (Royal Road'], deep: `${NOVELS}/super-supportive/DEEP_DIVE_2026-10-25.md`, text: `${NOVELS}/super-supportive`}),
-    W('reverend-insanity', 'Reverend Insanity', 'book', {library: ['Reverend Insanity (Gu Zhen Ren)'], wiki: 'reverend-insanity', deep: `${NOVELS}/reverend-insanity/SYSTEMS_DEEP_DIVE_2026-10-10.md`, text: `${NOVELS}/reverend-insanity`, docs: inst('REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md'), ledgers: {powers: ['gu_moves', 'gu_kinds'], artifacts: ['ri_treasures'], creatures: ['creatures']}}),
+    W('reverend-insanity', 'Reverend Insanity', 'book', {library: ['Reverend Insanity (Gu Zhen Ren)'], wiki: 'reverend-insanity', deep: `${NOVELS}/reverend-insanity/SYSTEMS_DEEP_DIVE_2026-10-10.md`, text: `${NOVELS}/reverend-insanity`, docs: inst('REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md'), ledgers: {powers: ['gu_moves', 'gu_kinds', 'gu_generated'], artifacts: ['ri_treasures'], creatures: ['creatures']}}),
     W('regressors-tale', "A Regressor's Tale of Cultivation", 'book', {library: ["A Regressor's Tale of Cultivation (Tremendous)"], deep: `${NOVELS}/regressors-tale/SYSTEMS_DEEP_DIVE_2026-10-10.md`, text: `${NOVELS}/regressors-tale`, docs: inst('REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md'), ledgers: {powers: ['regressors_tale_powers']}}),
     // The five TTKS books and the two other Chinese captures
     W('ttks-b1', "Wizard, Hello, I'm an Imposter (TTKS B1)", 'book', {library: ['B1'], text: `${NOVELS}/ttks-novels-2026-10-10`, docs: inst('TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md')}),
@@ -140,9 +140,12 @@ function sourceFor(reg, corpus, claims) {
     return null;
 }
 
+// Generated ledgers (PWC30) sit in their world's cell but never add to its canon totals.
+export const GENERATED_LEDGERS = new Set(['gu_generated']);
 function mergeCounts(names, countsBy) {
     const sum = {rows: 0, runs: 0, blocked: 0, not_a_thing: 0, unclassified: 0};
     for (const n of names) {
+        if (GENERATED_LEDGERS.has(n)) continue;
         const c = countsBy.get(n);
         sum.rows += c.total; sum.runs += c['runs-canon'] + c['runs-authored'] + (c['runs-derived'] ?? 0);
         sum.blocked += c.blocked; sum.not_a_thing += c['not-a-thing']; sum.unclassified += c.unclassified;

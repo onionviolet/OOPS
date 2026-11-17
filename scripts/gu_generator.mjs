@@ -10,7 +10,7 @@
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
 import {join} from 'node:path';
 import {createHash} from 'node:crypto';
-import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES, lowerEffect} from '../src/effect_grammar.js';
+import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES, lowerEffect, assembleEffect, OBJECT_OWNER} from '../src/effect_grammar.js';
 import {guEffects, GU_FUNCTION} from '../src/world_packs/gu_effect_pack.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
 import {typeFunction, nameFunction} from './gu_function_words.mjs';
@@ -97,6 +97,124 @@ export const schemaOf = paths => ({type: 'object', properties: {gu: {type: 'arra
 export const questionOf = concepts => `Concepts (${concepts.length}):\n${concepts.map(c => `- ${c}`).join('\n')}\n\nReturn {"gu": [...]} with one Gu per concept, in order. \`effect\` is one plain sentence of at most 20 words.`;
 export const PER_REQUEST = 20;
 
+// ---- paid passes ----
+// `run --pilot-sync` warms with one request, then 10 by --sync; `run --pilot-batch` submits requests 1-10 by batch (PWC33);
+// `run --full [--sync]` sends every request not already answered by the pilots. All through label_runner.mjs (AU16).
+async function run(argv) {
+    const {runPass} = await import('./label_runner.mjs');
+    mkdirSync(join(root, WORK), {recursive: true});
+    const frozen = rd(FROZEN), all = items(frozen), dir = join(root, WORK) + '/';
+    const model = argv.includes('--model') ? argv[argv.indexOf('--model') + 1] : frozen.model;
+    argv = argv.filter((a, i) => a !== '--model' && argv[i - 1] !== '--model');
+    const pass = (name, list) => ({name, dir, system: frozen.system, schema: /^claude/.test(model) ? JSON.parse(JSON.stringify(frozen.schema, (k, v) => k === 'minimum' || k === 'maximum' ? undefined : v)) : frozen.schema, items: list, model, effort: 'low', maxTokens: 8000, maxUsd: 1.5, reuse: true});
+    const mk = list => list.map(({concepts, ...rest}) => rest);
+    if (argv.includes('--pilot-sync')) { await runPass(pass('gu_pilot_warm', mk(all.slice(0, 1))), ['--sync']); await runPass(pass('gu_pilot_sync', mk(all.slice(1, 11))), ['--sync']); }
+    else if (argv.includes('--pilot-batch')) await runPass(pass('gu_pilot_batch', mk(all.slice(1, 11))), argv.filter(a => a !== '--pilot-batch'));
+    else if (argv.includes('--full')) await runPass(pass(`gu_full_${argv.includes('--sync') ? 'sync' : 'batch'}`, mk(all.slice(11))), argv.filter(a => a !== '--full'));
+    else console.log('usage: run --pilot-sync | --pilot-batch [--wait] | --full [--sync] [--wait]');
+}
+
+// ---- replies ----
+export function replies(model = 'luna') {
+    model = /^claude|haiku/.test(model) ? 'haiku' : 'luna';
+    const out = {};
+    for (const f of ['gu_pilot_warm', 'gu_pilot_sync', 'gu_pilot_batch', 'gu_full_batch', 'gu_full_sync'].map(n => `${n}_${model}`)) {
+        const p = join(root, WORK, `${f}.json`);
+        if (existsSync(p)) Object.assign(out, JSON.parse(readFileSync(p, 'utf8')));
+    }
+    const frozen = rd(FROZEN), byId = Object.fromEntries(items(frozen).map(i => [i.id, i]));
+    const gu = [];
+    for (const [id, r] of Object.entries(out)) for (const g of r.reply?.gu ?? []) gu.push({...g, request: id, held: frozen.scoreSet.some(x => x.concept === g.concept)});
+    return {gu, answered: Object.values(out).filter(r => r.reply).length, requests: Object.keys(byId).length};
+}
+const modal = list => { const c = new Map(); for (const x of list) if (x != null) c.set(x, (c.get(x) ?? 0) + 1); return [...c].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null; };
+const pct = (a, b) => b ? Math.round(a / b * 1000) / 10 : null;
+const share = (list, key) => { const c = {}; for (const x of list) { const k = key(x); if (k != null) c[k] = (c[k] ?? 0) + 1; } const n = Object.values(c).reduce((a, b) => a + b, 0); return Object.fromEntries(Object.entries(c).sort((a, b) => b[1] - a[1]).map(([k, v]) => [k, pct(v, n)])); };
+
+// ---- PWC31 score ----
+function score() {
+    const model = process.argv.includes('--model') ? process.argv[process.argv.indexOf('--model') + 1] : 'luna';
+    const frozen = rd(FROZEN), {gu} = replies(model), train = canonRows().filter(r => !r.held);
+    const globalPath = modal(train.map(r => r.path)), globalBand = modal(train.map(r => bandOf(r.rank))), globalFn = modal(train.map(r => r.fn));
+    const verbOf = fn => GU_FUNCTION[fn]?.verb ?? null;
+    const gen = new Map(gu.map(g => [g.concept, g]));
+    // --both: only concepts both models answered, so the two scores compare like with like (AU17).
+    const both = process.argv.includes('--both') ? new Set(replies('luna').gu.map(g => g.concept).filter(c => new Set(replies('haiku').gu.map(g => g.concept)).has(c))) : null;
+    const tally = () => ({n: 0, gen: 0, base: 0});
+    const T = {path: tally(), band: tally(), verb: tally(), verbEvidence: tally(), verbByBasis: {}};
+    let scored = 0;
+    for (const s of frozen.scoreSet) {
+        const g = gen.get(s.concept); if (!g || (both && !both.has(s.concept))) continue; scored++;
+        const hits = tokens(s.concept), near = train.filter(r => hits.some(t => tokens(r.name).includes(t)));
+        const pick = (key, fallback) => modal(near.map(key)) ?? fallback;
+        if (s.path) { T.path.n++; T.path.gen += g.path === s.path; T.path.base += pick(r => r.path, globalPath) === s.path; }
+        if (s.band) { T.band.n++; T.band.gen += bandOf(g.rank) === s.band; T.band.base += pick(r => bandOf(r.rank), globalBand) === s.band; }
+        if (s.fn && verbOf(s.fn)) {
+            const hit = g.verb === verbOf(s.fn), base = verbOf(pick(r => r.fn, globalFn)) === verbOf(s.fn);
+            T.verb.n++; T.verb.gen += hit; T.verb.base += base;
+            const b = (T.verbByBasis[s.fnBasis] ??= tally()); b.n++; b.gen += hit; b.base += base;
+            if (s.fnBasis !== 'name-keyword-inference') { T.verbEvidence.n++; T.verbEvidence.gen += hit; T.verbEvidence.base += base; }
+        }
+    }
+    const view = t => ({n: t.n, generator: pct(t.gen, t.n), baseline: pct(t.base, t.n)});
+    const pool = gu.filter(g => !g.held);
+    const result = {scoredOf: `${scored} of ${frozen.scoreSet.length}`, path: view(T.path), band: view(T.band), verb: view(T.verb), verbExcludingNameKeyword: view(T.verbEvidence),
+        verbByBasis: Object.fromEntries(Object.entries(T.verbByBasis).map(([k, v]) => [k, view(v)])), ships: T.path.gen > T.path.base,
+        shares: {poolSize: pool.length, canonPath: share(train, r => r.path), poolPath: share(pool, g => g.path), canonBand: share(train, r => bandOf(r.rank)), poolBand: share(pool, g => bandOf(g.rank)),
+            poolVerb: share(pool, g => g.verb)}};
+    mkdirSync(join(root, WORK), {recursive: true});
+    writeFileSync(join(root, `${DIR}gu_generated_score${/^claude|haiku/.test(model) ? '_haiku' : ''}${process.argv.includes('--both') ? '_paired' : ''}.json`), JSON.stringify(result, null, 1) + '\n');
+    console.log(JSON.stringify(result, null, 1));
+}
+
+// ---- PWC32 filter and ledger ----
+const slug = t => String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+function ledger() {
+    const frozen = rd(FROZEN), canon = canonRows();
+    // AU17: Luna and Haiku tied on the held-out score, so each concept goes to the model its hash picks (even to Haiku, odd to Luna),
+    // falling back to the other when the preferred one gave no usable answer; every row records its model.
+    const byModel = {luna: new Map(replies('luna').gu.map(g => [g.concept, g])), haiku: new Map(replies('haiku').gu.map(g => [g.concept, g]))};
+    const gu = frozen.concepts.flatMap(({concept}) => {
+        const first = parseInt(sha(concept).slice(0, 2), 16) % 2 === 0 ? 'haiku' : 'luna', second = first === 'haiku' ? 'luna' : 'haiku';
+        const g = byModel[first].get(concept) ?? byModel[second].get(concept), m = byModel[first].has(concept) ? first : second;
+        return g ? [{...g, held: false, model: m === 'haiku' ? 'claude-haiku-5-5' : 'gpt-6-luna'}] : [];
+    }), promptHash = sha(frozen.system + frozen.hashes.schema + frozen.hashes.prefix).slice(0, 12);
+    const canonStems = new Map(canon.map(r => [stemOf(r.name), r]));
+    const canonToks = canon.map(r => ({r, t: new Set(tokens(r.name))}));
+    const jac = (a, b) => { const i = [...a].filter(x => b.has(x)).length; return i / (a.size + b.size - i || 1); };
+    const rows = [], dropped = [], seen = new Set();
+    for (const g of gu.filter(x => !x.held)) {
+        const stem = stemOf(g.name), toks = new Set([...tokens(g.name)]);
+        let best = null, bestJ = -1;
+        for (const c of canonToks) { const j = jac(toks, c.t); if (j > bestJ) { bestJ = j; best = c.r; } }
+        const same = stem ? canonStems.get(stem) : null;
+        const sameFn = best && best.fn && GU_FUNCTION[best.fn]?.verb === g.verb && best.path === g.path;
+        if (same) { dropped.push({name: g.name, why: 'alias', of: same.name}); continue; }
+        if (bestJ >= 0.5 && sameFn) { dropped.push({name: g.name, why: 'near-duplicate', of: best.name}); continue; }
+        if (stem && seen.has(stem)) { dropped.push({name: g.name, why: 'duplicate-generated'}); continue; }
+        if (stem) seen.add(stem);
+        const parts = {verb: g.verb, object: g.object, target: g.target, time: g.time, carrier: 'gu', cost: g.cost, limits: []};
+        const built = assembleEffect(guEffects, parts);
+        let state = 'runs-derived', blockedBy = null;
+        if (!built.ok) blockedBy = `grammar-${slug(built.receipt.violations[0]?.rule ?? built.receipt.violations[0]?.kind ?? 'invalid')}`;
+        else if (g.needs) blockedBy = `needs-${slug(g.needs)}`;
+        else if (built.value.derived.needs?.length) blockedBy = `key-${slug(built.value.derived.needs[0])}`;
+        if (blockedBy) state = `blocked:${blockedBy}`;
+        const owner = OBJECT_OWNER[g.object] ?? 'W';
+        rows.push({id: `gen.${slug(g.name)}`, source: `generated: concept "${g.concept}"; ${g.model}; prompt ${promptHash}`, state, mechanisms: ['G', owner],
+            test: state === 'runs-derived' ? 'tests/gu_generated.test.js' : null,
+            note: `${g.name}. Path ${g.path}, rank ${g.rank}, ${g.verb} ${g.object} on ${g.target}, ${g.time}, pays ${g.cost}. ${g.effect} Nearest canon Gu: ${best?.name ?? 'none'} (name overlap ${Math.round(bestJ * 100) / 100}). Generated, not canon.`,
+            ...(state === 'runs-derived' ? {derived: {rule: 'gu.generated.concept', inputs: [g.concept, promptHash]}} : {}),
+            tier: 'generated', model: g.model, concept: g.concept, promptHash, nearest: best?.id ?? null});
+    }
+    rows.sort((a, b) => a.id.localeCompare(b.id));
+    const ids = new Set(); for (const r of rows) { let id = r.id, n = 2; while (ids.has(id)) id = `${r.id}-${n++}`; r.id = id; ids.add(id); }
+    writeFileSync(join(root, LEDGER), rows.map(r => JSON.stringify(r)).join('\n') + '\n');
+    writeFileSync(join(root, WORK, 'gu_generated_dropped.json'), JSON.stringify(dropped));
+    const states = {}; for (const r of rows) { const k = /^blocked:needs-/.test(r.state) ? 'blocked:needs-*' : r.state; states[k] = (states[k] ?? 0) + 1; }
+    console.log(JSON.stringify({generated: gu.filter(x => !x.held).length, kept: rows.length, dropped: dropped.length, dropReasons: share(dropped, d => d.why), states}));
+}
+
 // ---- freeze ----
 function freeze() {
     const rows = canonRows();
@@ -145,6 +263,8 @@ export function items(frozen = rd(FROZEN), prefix = readFileSync(join(root, PREF
 const mode = process.argv[2];
 if (import.meta.url === `file://${process.argv[1]}`) {
     if (mode === 'freeze') freeze();
-    else if (mode !== 'run' && mode !== 'score' && mode !== 'ledger') console.log('usage: freeze | run | score | ledger');
+    else if (mode === 'run') await run(process.argv.slice(3));
+    else if (mode === 'score') score();
+    else if (mode === 'ledger') ledger();
+    else console.log('usage: freeze | run | score | ledger');
 }
-export {guEffects, lowerEffect, mkdirSync};
