@@ -137,6 +137,30 @@ def hp_potions():
             for r in todo if want.get(r['id']) in wiki]
 
 
+# Sections that list appearances or references rather than what the ingredient is or does.
+HP_SKIP = re.compile(r'(?i)^(appearances|see also|notes and references|references|notes|external links|gallery|etymology|behind the scenes)$')
+
+
+def hp_ingredients():
+    """Every Hogwarts ingredient row that is a thing (runs-authored rows included, since they are the
+    comparison set). HP_DUMP_XML points at the unpacked dump when it is not beside the archive."""
+    rows = [json.loads(l) for l in open(os.path.join(ROOT, 'docs/coverage/hp_ingredients.jsonl'))]
+    todo = [r for r in rows if not r['state'].startswith('not-a-thing')]
+    want = {r['id']: title_of(r['source'].split(';')[0].strip()) for r in todo}
+    xml = os.environ.get('HP_DUMP_XML') or os.path.join(WIKIS, 'harrypotter.fandom.com/dump/harrypotter_pages_current.xml')
+    wiki = pages(xml, {t for t in want.values() if t})
+    out = []
+    for r in todo:
+        t = want.get(r['id'])
+        if t not in wiki:
+            continue
+        ev = [line for line in sections(t, re.sub(r'(?ms)^\s*(=+)\s*(?:Appearances|See also|Notes and references|External links|Gallery)\s*\1.*', '', wiki[t][1]))
+              if not HP_SKIP.match(re.match(r'\[wiki:[^#]*#([^\]]*)\]', line).group(1))]
+        if ev:
+            out.append({'id': r['id'], 'name': t, 'state': r['state'], 'evidence': ev})
+    return out
+
+
 if __name__ == '__main__':
     os.makedirs(OUT, exist_ok=True)
     for name in sys.argv[1:] or ['ri_moves', 'gu_kinds', 'hp_potions']:
