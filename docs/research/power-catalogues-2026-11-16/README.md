@@ -813,3 +813,32 @@ Weibao: "Start it, can send the book lanes to pull too, I have warp on, more to 
 | ACCOUNT FOR NOW | PWC54 | **New books re-rank the work.** When a pull lands, rerun the library catalogue, the series coverage and the worlds ledger, and queue the chapter-tier passes (R5, PWC27) for the rows whose world gained text. A held book that no pass reads is a gap of its own. |
 | ACCOUNT FOR NOW | PWC55 | **The ledgers now outrun the engine.** 211 ledgers classify what exists, and the runs share barely moves (PWC14). The TTRPG rule rows now give, per blocked slug, the rules other systems use (item-bound powers, area fields, power interactions, form changes, mind binding). The next large gain is a design-and-build lane per top slug that turns those rule rows into one engine law and re-runs the ledgers, as R4 did for potion doses. Level: Sonnet or Opus per slug, runtime code under AR1-AR16. Done per slug when rows move from blocked to expressed or runs. |
 | LATER / DELEGATE | PWC56 | **A human spot check per new ledger.** Everything in this wave is agent-verified, not human-reviewed. Ten rows per ledger, picked by the hash split, in one page Weibao can tick through, would say which ledgers to trust. Level: Haiku to assemble, a generated page. Done when each ledger has a tick count. |
+
+## Round 10: overarching trends across the ledgers (2026-11-17)
+
+Weibao: "consider overarching analysis and trends too? more to consider?"
+
+Measured on master's 211 ledgers (61,756 rows) and every reply file in the primary and lane worktrees, 2026-11-17:
+
+| State | Rows | Share |
+| --- | --- | --- |
+| catalogued | 29,684 | 48% |
+| blocked | 28,772 | 47% |
+| runs (derived 1,196, authored 569) | 1,765 | 3% |
+| expressed (authored 454, derived 271) | 725 | 1% |
+| not-a-thing | 810 | 1% |
+
+Blocked rows use 182 slugs. The top 6 hold 50% of them and the top 15 hold 74%, each spread over 44 to 147 ledgers; 113 slugs have fewer than 10 rows. 205 of 211 ledgers have no runs row. Recorded API spend is $12.57 (Luna $9.21, Haiku $2.88, Sol $0.39, Sonnet $0.09).
+
+| Disposition | Code | Finding |
+| --- | --- | --- |
+| ACCOUNT FOR NOW | PWC57 | **The headline should be playable share per world, not rows labelled.** Only 4% of rows run or are expressed, and 205 ledgers have none. Default: the coverage README leads with each world's runs plus expressed share, so a wave is judged by what a player can do in which world. Dial: a world with no planned slice can sit at zero without counting as a gap. |
+| ACCOUNT FOR NOW | PWC58 | **Law order follows slug rank.** Six laws (effect-unknown first needs reading, then item-bound, area-field, form-transformation, mind-binding, power-interaction) touch half of all blocked rows across 100 to 147 ledgers each, so each law lands in nearly every world. The 113 tail slugs go in one bundle per neighbouring law rather than laws of their own. |
+| ACCOUNT FOR NOW | PWC59 | **Slugs drift and want a slug plus a parameter.** About 120 `needs-<material>` slugs (needs-wax, needs-fox, needs-zither) are one slug, needs-material, with the material as a field; near pairs (divination and divination-fate, roles-unchecked and roles-unknown, soul-state and soul-binding, the time-* set) need one name each. Default: a local script maps them, no paid call, and the reporter rejects new slugs outside the list unless a row says why. Done when the slug count falls and the histogram is unchanged in total. |
+| ACCOUNT FOR NOW | PWC60 | **Fill a law's fields before building the law.** The item-bound law moved 108 of 2,897 rows (3.7%) because most rows lack the fields it reads. Default order per slug: name the law's fields, run a field-fill batch (B1 from the reply of 2026-11-17), dry-run the law over the rows to count how many it would take, then build. A law whose dry run takes under a quarter of its slug goes back to field design first. |
+| ACCOUNT FOR NOW | PWC61 | **Derivation is the cheapest route to runs.** Derived rows that run (1,196) outnumber authored ones (569) two to one. A derivation rule moves a whole family of rows at once, so a rule that turns rows into runs ranks above another reading pass of the same world. |
+| ACCOUNT FOR NOW | PWC62 | **Half the corpus is places, creatures and artifacts with no verdict yet.** The catalogued rows sit mostly in tabletop setting ledgers (Forgotten Realms places 1,176, Numenera artifacts 928, Mystara places 756). These are not powers; their verdict belongs to the site rules (SR) and to creature and item templates. Rows carry no `kind` field, so kind comes from the ledger name today. Default: the reporter derives kind, and the verdict pass routes places, creatures and items to their own engine owners. |
+| ACCOUNT FOR NOW | PWC63 | **The constraint is engine build and review, not API money.** Twenty thousand paid calls cost about $12.60, less than a few coordinator turns. Default: spend paid passes on what de-risks engine work (field fills, test scenarios from rule rows, a Sonnet review of each law against its rows) before more cataloguing. |
+| ACCOUNT FOR NOW | PWC64 | **Per-world dials come from where rule rows disagree.** For each slug, the rule rows from different systems state different stack, range and duration rules. The law takes those as per-world dials (AD5) and the field fill records which system each value came from, so a world's choice is visible and changeable. |
+| LATER / DELEGATE | PWC65 | **A trend line, not a snapshot.** The coverage README holds the current count and no history. Default: each merge appends one dated line (rows, states, top slugs, spend) to a history file the reporter writes, so trends over waves can be read. Level: Haiku-sized script change. Done when two merges show two lines. |
+| LATER / DELEGATE | PWC66 | **Single-ledger blocks are lookups.** roles-unknown (651 rows) sits in one ledger; a block confined to one ledger is that ledger's missing table, fixed by a lookup pass, not a law. Level: Haiku. Done when the slug is gone or explained. |
