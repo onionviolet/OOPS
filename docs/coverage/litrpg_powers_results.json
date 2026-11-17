@@ -1,0 +1,189 @@
+{
+ "anc": {
+  "rows": 128,
+  "missing": 0,
+  "states": {
+   "not-a-thing": 39,
+   "catalogued": 55,
+   "blocked": 34
+  },
+  "slugs": {
+   "time-loop": 2,
+   "luck-mechanism": 2,
+   "concept-law": 9,
+   "area-field": 1,
+   "power-interaction": 8,
+   "revival-on-death": 4,
+   "effect-unknown": 1,
+   "body-conditioning-rank": 3,
+   "mind-ennoblement": 1,
+   "item-bound-power": 2,
+   "inner-world": 1
+  },
+  "score": {
+   "tuning": 38,
+   "heldOut": 12,
+   "majority": "concept",
+   "grammarHits": 2,
+   "majorityHits": 2,
+   "words": [
+    "bloodline",
+    "concept",
+    "grand concept",
+    "item",
+    "merit",
+    "skill",
+    "supremacy",
+    "talent",
+    "title"
+   ]
+  }
+ },
+ "lmg": {
+  "rows": 57,
+  "missing": 0,
+  "states": {
+   "blocked": 18,
+   "not-a-thing": 17,
+   "catalogued": 22
+  },
+  "slugs": {
+   "item-bound-power": 10,
+   "source-link": 1,
+   "form-transformation": 3,
+   "body-conditioning-rank": 2,
+   "power-interaction": 2
+  },
+  "score": {
+   "tuning": 19,
+   "heldOut": 9,
+   "majority": "skill",
+   "grammarHits": 0,
+   "majorityHits": 1,
+   "words": [
+    "ability",
+    "art",
+    "bloodline",
+    "class",
+    "item",
+    "skill",
+    "technique",
+    "title",
+    "trait"
+   ]
+  }
+ },
+ "yhda": {
+  "rows": 58,
+  "missing": 0,
+  "states": {
+   "blocked": 19,
+   "not-a-thing": 29,
+   "catalogued": 10
+  },
+  "slugs": {
+   "memory-transfer": 7,
+   "power-interaction": 3,
+   "time-loop": 3,
+   "form-transformation": 1,
+   "item-bound-power": 4,
+   "body-conditioning-rank": 1
+  },
+  "score": {
+   "tuning": 11,
+   "heldOut": 9,
+   "majority": "item",
+   "grammarHits": 1,
+   "majorityHits": 3,
+   "words": [
+    "class",
+    "darkness fragment",
+    "essence",
+    "item",
+    "magic",
+    "passive",
+    "skill",
+    "system"
+   ]
+  }
+ },
+ "smm": {
+  "rows": 111,
+  "missing": 0,
+  "states": {
+   "blocked": 46,
+   "catalogued": 52,
+   "not-a-thing": 13
+  },
+  "slugs": {
+   "form-transformation": 4,
+   "item-bound-power": 11,
+   "power-interaction": 7,
+   "body-conditioning-rank": 1,
+   "concept-law": 12,
+   "time-loop": 1,
+   "effect-unknown": 1,
+   "source-link": 2,
+   "mind-binding": 2,
+   "world-travel": 1,
+   "luck-mechanism": 1,
+   "power-transfer": 2,
+   "future-vision": 1
+  },
+  "score": {
+   "tuning": 59,
+   "heldOut": 15,
+   "majority": "technique",
+   "grammarHits": 0,
+   "majorityHits": 2,
+   "words": [
+    "alchemy",
+    "artifact",
+    "blessing",
+    "bloodline",
+    "bone",
+    "breath attack",
+    "cannon",
+    "combat skills",
+    "cultivator",
+    "cure for illness",
+    "curse",
+    "dao",
+    "dungeon",
+    "effect",
+    "elixir",
+    "elixirs",
+    "fist",
+    "fruit",
+    "item",
+    "law",
+    "laws",
+    "lineage",
+    "lock",
+    "manual",
+    "needle",
+    "network",
+    "node",
+    "path",
+    "physique",
+    "prize",
+    "qi",
+    "recipe",
+    "ring",
+    "shadow control",
+    "shield",
+    "species",
+    "spirit weapon",
+    "star",
+    "sutra",
+    "sword",
+    "system",
+    "technique",
+    "title",
+    "tool",
+    "transformations",
+    "weapon"
+   ]
+  }
+ }
+}

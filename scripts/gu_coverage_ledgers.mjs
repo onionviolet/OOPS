@@ -24,6 +24,10 @@ const test = 'tests/gu_coverage.test.js';
 // Wiki-tier labels (GKM445), normalised from the Luna passes by scripts/wiki_tier_labels.mjs. They fill a
 // wiki row's rank or function only where the category and name labels leave it empty, and say so.
 const tier = JSON.parse(readFileSync(join(root, 'docs/coverage/wiki_tier_labels.json'), 'utf8'));
+// Chapter-tier labels (R5 / PWC15, GKM445), a tier above the wiki tier: Luna over cited chapter paragraphs
+// (scripts/chapter_tier_labels.mjs). Where a wiki row has no category rank, a chapter-tier rank replaces the wiki-tier one.
+const chapterTier = existsSync(join(root, 'docs/coverage/chapter_tier_labels.json')) ? JSON.parse(readFileSync(join(root, 'docs/coverage/chapter_tier_labels.json'), 'utf8')) : {};
+const chapterRank = id => chapterTier.gu_kinds?.[id]?.rank ? chapterTier.gu_kinds[id] : null;
 // Chapter check of the agreed move leads against the paid reader claims (scripts/ri_move_claim_fold.mjs, GKM427).
 const claimCheck = JSON.parse(readFileSync(join(root, 'docs/coverage/ri_move_claim_checks.json'), 'utf8'));
 
@@ -62,6 +66,9 @@ function kindRow(indexed) {
                 note: row.derived ? 'Chapter rank and function; ability derived by gu.working dials (labelled derived).'
                     : 'Chapter-checked identity; numbers that the chapters leave open are authored in the catalogue binding.'}
             : {state: `blocked:${rule}`, mechanisms: ['G'], note: row?.gap ?? 'not catalogued'};
+        const chapterNote = former.state === 'blocked:rank-unknown' && chapterRank(record.id)
+            ? ` Chapter tier (Luna over chapter text, one reader, unchecked by a second): rank ${chapterRank(record.id).rank} at ${chapterRank(record.id).rankAt.locator} (${chapterRank(record.id).rankAt.speaker}); the catalogue still lacks it.` : '';
+        former.note += chapterNote;
         const seen = guCaseNote(record.id);
         const gap = GU_CASE_GAPS[record.id];
         if (!seen && !gap) return {...checked, ...former};
@@ -81,20 +88,22 @@ function kindRow(indexed) {
     const fn = byType ?? byName ?? byTier;
     // GKM443: a kind the wiki names an Immortal Gu is rank six or higher. With no rank label, six is used as a
     // lower bound and marked so; a wiki-tier rank replaces it, and a wiki category or chapter rank replaces both.
-    const tierRank = !ranks.length ? luna.rank ?? null : null;
+    const chapter = !ranks.length ? chapterRank(record.id) : null;
+    const tierRank = !ranks.length ? chapter?.rank ?? luna.rank ?? null : null;
     const immortalByName = !ranks.length && !tierRank && /\bimmortal gu\b/i.test(nameOf(record));
     const rank = ranks.length ? ranks[0] : tierRank ?? (immortalByName ? 6 : null);
     const wiki = {...base, layer: 'wiki', status: record.status, rank, function: fn, path: pathOf(record),
-        rankBasis: ranks.length ? 'wiki-rank' : tierRank ? luna.rankBasis : immortalByName ? 'name-immortal-lower-bound' : null,
+        rankBasis: ranks.length ? 'wiki-rank' : chapter ? chapter.rankBasis : tierRank ? luna.rankBasis : immortalByName ? 'name-immortal-lower-bound' : null,
         labelBasis: byType ? 'wiki-type' : byName ? 'name-keyword-inference' : byTier ? tierBasis : null,
-        tierAt: tierRank || byTier ? [tierRank && luna.rankAt?.locator, byTier && (luna.function ? luna.functionAt?.locator : luna.effectAt?.locator)].filter(Boolean) : null};
-    if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: ['G'], note: 'No wiki rank label; needs a chapter pass or an authored-rank dial.'};
+        tierAt: tierRank || byTier ? [tierRank && (chapter ? chapter.rankAt.locator : luna.rankAt?.locator), byTier && (luna.function ? luna.functionAt?.locator : luna.effectAt?.locator)].filter(Boolean) : null};
+    if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: ['G'], note: `No wiki rank label; ${chapterTier.gu_kinds?.[record.id] ? `the chapter tier searched ${chapterTier.gu_kinds[record.id].chapterHits} chapter paragraphs and found no stated rank` : 'no chapter search yet'}; needs a rank pass or an authored-rank dial.`};
     if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: ['G'], note: luna.effectAt
         ? `No effect family from type or name. The wiki-tier label (Luna, unchecked) states an effect at ${luna.effectAt.locator}; it needs mapping to an effect family (GL2).`
         : 'No effect label from type or name; needs a chapter pass (GL2).'};
     if (!derivedAbilityFrom({rank, function: fn})) throw Error(`cannot derive ${record.id}`);
     return {...wiki, state: 'runs-authored', mechanisms: owners(['activate']),
         note: `Unchecked wiki identity (tentative, SKR3); ${immortalByName ? 'rank 6 as a lower bound from the Immortal Gu name (GKM443)'
+            : chapter ? `rank ${rank} from the chapter tier (${chapter.rankBasis}, ${chapter.rankAt.speaker}, Luna over chapter text at ${chapter.rankAt.locator}, one reader)`
             : tierRank ? `rank ${rank} from the wiki-tier label (${luna.rankBasis}, Luna, unchecked)` : `lowest wiki rank ${rank}`}; ${byType ? 'function from wiki type'
             : byName ? 'function inferred from the name' : `function from the wiki-tier label (${tierBasis}, unchecked)`}; ability derived.`};
 }

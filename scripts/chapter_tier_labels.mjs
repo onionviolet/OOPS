@@ -1,0 +1,136 @@
+#!/usr/bin/env node
+// Chapter-tier labels (R5 / PWC15, GKM445): normalises the private chapter passes (scripts/chapter_tier_pass.mjs, packets from
+// scripts/chapter_tier_packets.py) into docs/coverage/chapter_tier_labels.json, a tier above the wiki tier
+// (docs/coverage/wiki_tier_labels.json). Only normalised values, locators and speakers are committed; paraphrases and the
+// chapter text stay in the gitignored private folder. A cited locator is kept only when it starts a line of the packet that
+// was sent (a model cannot cite a paragraph it was not shown), and a speaker "wiki" or "unknown" is not a chapter speaker.
+// Scores (meta.scores) put the held-out rows (GKM429: sha1(id)[0] < 0x33) apart from the rest.
+// Usage: node scripts/chapter_tier_labels.mjs
+import {readFileSync, writeFileSync, existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+
+const root = new URL('..', import.meta.url).pathname;
+const src = process.env.LABEL_SOURCE_ROOT ? `${process.env.LABEL_SOURCE_ROOT.replace(/\/$/, '')}/` : root;
+const priv = `${src}docs/research/advancement-aspects-2026-11-16/private/`;
+const json = p => JSON.parse(readFileSync(p, 'utf8'));
+const heldOut = id => createHash('sha1').update(id).digest()[0] < 0x33;
+const wiki = json(`${root}docs/coverage/wiki_tier_labels.json`);
+const sorted = o => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
+const loc = l => (l ?? '').replace(/^\[|\]$/g, '').trim();
+const SPEAKERS = new Set(['narrator', 'character_claim', 'demonstration']);
+
+const corpus = name => {
+    const f = `${priv}ch_${name}_luna.json`;
+    if (!existsSync(f)) return null;
+    return {replies: json(f), packets: new Map(json(`${priv}ch_${name}_packets.json`).map(p => [p.id, p])), search: json(`${priv}ch_${name}_search.json`)};
+};
+// A field is chapter-backed when it has a value, a locator that starts a sent packet line, and a chapter speaker.
+const backed = (packet, f) => {
+    if (!f?.value) return null;
+    const l = loc(f.locator);
+    if (!l || !SPEAKERS.has(f.speaker)) return null;
+    return l.split(';').every(part => packet.evidence.some(e => e.startsWith(`[${part.trim()}]`))) ? {locator: l, speaker: f.speaker} : null;
+};
+
+// Rank: the lowest stated rank, as in the wiki tier ("at least N" is a lower bound; a value with "?" or "unknown" gives none).
+export function normaliseRank(text) {
+    const t = (text ?? '').trim();
+    if (!t) return null;
+    const lower = /\bat least (?:rank )?([1-9])\b/i.exec(t);
+    if (lower) return {rank: Number(lower[1]), basis: 'chapter-lower-bound'};
+    if (/\?|unknown|uncertain|unclear/i.test(t)) return null;
+    const nums = [...t.matchAll(/(?<![\d.])([1-9])(?![\d.])/g)].map(m => Number(m[1]));
+    if (!nums.length) return null;
+    return {rank: Math.min(...nums), basis: nums.length > 1 ? 'chapter-lowest' : 'chapter-stated'};
+}
+
+const pct = (n, d) => (d ? `${n} of ${d}` : 'none');
+const split = (rows, f) => ({all: rows.filter(f), heldOut: rows.filter(r => r.heldOut && f(r))});
+const out = {meta: {pass: 'docs/research/power-catalogues-2026-11-16/README.md#r5-chapter-tier-checks', model: 'gpt-6-luna (low effort, batch)', date: '2026-11-16',
+    tier: 'chapter (GKM445): Luna over cited chapter paragraphs, one reader, above the wiki tier', split: 'held out when sha1(id)[0] < 0x33 (GKM429)'}};
+const scores = {};
+
+// ---------- Gu kinds ----------
+const gu = {}, g = corpus('gu_kinds');
+if (g) {
+    const rows = [];
+    for (const [id, s] of Object.entries(g.search)) {
+        const label = {heldOut: heldOut(id), role: s.role, chapterHits: s.paragraphHits, claimHits: s.claimHits};
+        const r = g.replies[id]?.reply, p = g.packets.get(id);
+        const rank = r && p ? normaliseRank(r.rank.value) : null;
+        const at = r && p ? backed(p, r.rank) : null;
+        if (rank && at) Object.assign(label, {rank: rank.rank, rankBasis: rank.basis, rankAt: at});
+        // Kinds named in the wiki tier (Luna on wiki text): the score is against the wiki rank where there is one.
+        const luna = wiki.gu_kinds[id]?.rank ?? null;
+        rows.push({id, heldOut: label.heldOut, role: s.role, sent: s.sent, chapterRank: label.rank ?? null, wikiCategory: s.wikiRank, wikiTier: luna});
+        gu[id] = label;
+    }
+    const cohort = rows.filter(r => r.role === 'cohort' && r.chapterRank !== null), blocked = rows.filter(r => r.role === 'blocked');
+    const agree = rs => ({n: rs.length, exact: rs.filter(r => r.chapterRank === r.wikiCategory).length, within1: rs.filter(r => Math.abs(r.chapterRank - r.wikiCategory) <= 1).length});
+    const bw = blocked.filter(r => r.wikiTier !== null && r.chapterRank !== null);
+    scores.gu_kinds = {
+        blockedRows: blocked.length, blockedWithChapterText: blocked.filter(r => r.sent).length, blockedNowRanked: blocked.filter(r => r.chapterRank !== null).length,
+        blockedNowRankedHeldOut: blocked.filter(r => r.chapterRank !== null && r.heldOut).length,
+        cohortRows: rows.filter(r => r.role === 'cohort').length, cohortRanked: cohort.length,
+        cohortAgainstWikiCategory: agree(cohort), cohortAgainstWikiCategoryHeldOut: agree(cohort.filter(r => r.heldOut)),
+        blockedAgainstWikiTier: {n: bw.length, exact: bw.filter(r => r.chapterRank === r.wikiTier).length}};
+}
+out.gu_kinds = sorted(gu);
+
+// ---------- Lord of the Mysteries potions ----------
+const key = n => n.toLowerCase().replace(/[’']/g, "'").replace(/\b(the|a|an|of)\b/g, '').replace(/[^a-z' ]/g, ' ').replace(/\s+/g, ' ').trim();
+const same = (a, b) => key(a) && key(b) && (key(a) === key(b) || key(a).includes(key(b)) || key(b).includes(key(a)));
+const lotm = {}, l = corpus('lotm_potions');
+if (l) {
+    const rows = [];
+    for (const [id, s] of Object.entries(l.search)) {
+        const label = {heldOut: heldOut(id), chapterHits: s.paragraphHits};
+        const r = l.replies[id]?.reply, p = l.packets.get(id);
+        if (r && p) {
+            const item = m => { const at = backed(p, {value: m.name, locator: m.locator, speaker: m.speaker}); return at && m.name.trim().split(/\s+/).length <= 8 ? {name: m.name.trim(), ...at, ...(m.cite ? {cite: m.cite} : {})} : null; };
+            const mains = r.mains.map(item).filter(Boolean), aux = r.aux.map(item).filter(Boolean);
+            if (mains.length) label.mains = mains;
+            if (aux.length) label.supplementary = aux;
+        }
+        rows.push({id, heldOut: label.heldOut, sent: s.sent, mains: (label.mains ?? []).map(m => m.name), wikiMains: (wiki.lotm_potions[id]?.mains ?? []).map(m => m.name)});
+        lotm[id] = label;
+    }
+    const both = rows.filter(r => r.mains.length && r.wikiMains.length);
+    const cmp = rs => ({n: rs.length, anyMainShared: rs.filter(r => r.mains.some(m => r.wikiMains.some(w => same(m, w)))).length,
+        wikiMainsFound: rs.reduce((s, r) => s + r.wikiMains.filter(w => r.mains.some(m => same(m, w))).length, 0), wikiMains: rs.reduce((s, r) => s + r.wikiMains.length, 0),
+        chapterMainsInWiki: rs.reduce((s, r) => s + r.mains.filter(m => r.wikiMains.some(w => same(m, w))).length, 0), chapterMains: rs.reduce((s, r) => s + r.mains.length, 0)});
+    scores.lotm_potions = {rows: rows.length, withChapterText: rows.filter(r => r.sent).length, withChapterMains: rows.filter(r => r.mains.length).length,
+        rowsWithWikiMains: rows.filter(r => r.wikiMains.length).length, bothTiers: cmp(both), bothTiersHeldOut: cmp(both.filter(r => r.heldOut))};
+}
+out.lotm_potions = sorted(lotm);
+
+// ---------- Hogwarts ingredients ----------
+const hp = {}, h = corpus('hp_ingredients');
+if (h) {
+    const rows = [];
+    for (const [id, s] of Object.entries(h.search)) {
+        const label = {heldOut: heldOut(id), chapterHits: s.windowHits};
+        const r = h.replies[id]?.reply, p = h.packets.get(id);
+        if (r && p) {
+            const kindAt = backed(p, r.kind);
+            if (kindAt) Object.assign(label, {kind: r.kind.value, kindAt});
+            const axes = r.axes.map(a => ({axis: a.axis, level: a.level, ...backed(p, {value: a.axis, locator: a.locator, speaker: a.speaker})})).filter(a => a.locator);
+            if (axes.length) label.axes = axes;
+            for (const k of ['hazards', 'direct_effect']) { const at = backed(p, r[k]); if (at) label[`${k}At`] = at; }
+        }
+        const w = wiki.hp_ingredients[id];
+        rows.push({id, heldOut: label.heldOut, sent: s.sent, axes: (label.axes ?? []).map(a => a.axis), wikiAxes: (w?.axes ?? []).map(a => a.axis), kind: label.kind ?? null, wikiKind: w?.kind ?? null});
+        hp[id] = label;
+    }
+    const both = rows.filter(r => r.axes.length && r.wikiAxes.length);
+    const cmp = rs => ({n: rs.length, anyAxisShared: rs.filter(r => r.axes.some(a => r.wikiAxes.includes(a))).length,
+        wikiAxesFound: rs.reduce((s, r) => s + r.wikiAxes.filter(a => r.axes.includes(a)).length, 0), wikiAxes: rs.reduce((s, r) => s + r.wikiAxes.length, 0)});
+    const kinds = rows.filter(r => r.kind && r.wikiKind);
+    scores.hp_ingredients = {rows: rows.length, withChapterText: rows.filter(r => r.sent).length, withChapterAxes: rows.filter(r => r.axes.length).length,
+        bothTiers: cmp(both), bothTiersHeldOut: cmp(both.filter(r => r.heldOut)),
+        kindAgree: {n: kinds.length, same: kinds.filter(r => r.kind === r.wikiKind).length, heldOut: {n: kinds.filter(r => r.heldOut).length, same: kinds.filter(r => r.heldOut && r.kind === r.wikiKind).length}}};
+}
+out.hp_ingredients = sorted(hp);
+out.meta.scores = scores;
+writeFileSync(`${root}docs/coverage/chapter_tier_labels.json`, JSON.stringify(out).replace(/},"/g, '},\n"') + '\n');
+console.log(JSON.stringify(scores, null, 1));

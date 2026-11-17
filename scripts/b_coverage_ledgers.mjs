@@ -109,6 +109,12 @@ const tierFile = () => tierLabels ??= (() => {
     try { return JSON.parse(readFileSync(at('docs/coverage/wiki_tier_labels.json'), 'utf8')); } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
 })();
 const tierOf = id => tierFile().hp_potions?.[id] ?? {};
+// Chapter-tier labels (R5 / PWC15, GKM445, scripts/chapter_tier_labels.mjs): a tier above the wiki tier, Luna over cited
+// chapter paragraphs with locators and speakers, one reader. Folded after the wiki tier so its notes and states win.
+let chapterLabels;
+const chapterFile = () => chapterLabels ??= (() => {
+    try { return JSON.parse(readFileSync(at('docs/coverage/chapter_tier_labels.json'), 'utf8')); } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
+})();
 
 function hpPotionRow(entry) {
     const row = hpPotionRowFromTitle(entry);
@@ -202,6 +208,14 @@ function foldIngredientTier(rows) {
             row.note = `Needs a material row in a world property set (MR37, BRG1). Wiki-tier axes ${t.axes.map(a => `${a.axis} ${a.level}`).join(', ')} at ${t.axes[0].locator}; levels and amounts would be authored.${row.note.startsWith('Needs property axes') ? '' : ` ${row.note}`}`;
         }
         row.note += ` Wiki tier (Luna, unchecked): ${parts.join('; ')}.`;
+        const c = chapterFile().hp_ingredients?.[row.id];
+        if (!c) continue;
+        if (c.axes && !NOT_MATERIAL.has(c.kind ?? t.kind) && row.state === 'blocked:ingredient-properties') {
+            row.state = 'blocked:material-row';
+            row.basis += `; state from chapter-tier axes (Luna over novel text, ${c.axes[0].speaker}, one reader)`;
+        }
+        row.note += c.axes ? ` Chapter tier (Luna over the novel text, one reader): axes ${c.axes.map(a => `${a.axis} ${a.level}`).join(', ')} at ${c.axes.map(a => a.locator).join(', ')}.`
+            : ` Chapter tier searched ${c.chapterHits} novel passage${c.chapterHits === 1 ? '' : 's'} and found no stated property.`;
     }
     return rows;
 }
@@ -246,19 +260,33 @@ function lotmInventory(text, brewRows) {
 // 3 of 3) moves a formula-in-notes row to formula-wiki-unchecked: the wiki names mains, and a brew row plus a
 // chapter check would run it. Ingredients with no stated role and the GKM433 authored default are noted only.
 const listOf = items => items.map(m => `${m.name} at ${m.locator}${m.cite ? ` (${m.cite})` : ''}`).join('; ');
+function foldLotmChapter(row) {
+    const c = chapterFile().lotm_potions?.[row.id];
+    if (!c || !['blocked:formula-in-notes', 'blocked:formula-wiki-unchecked'].includes(row.state)) return;
+    if (c.mains) {
+        Object.assign(row, {state: 'blocked:formula-chapter-labelled', basis: `${row.basis}; chapter-tier mains (Luna over novel text, one reader)`});
+        row.note += ` Chapter-tier mains: ${listOf(c.mains)}${c.supplementary ? `; supplementary: ${listOf(c.supplementary)}` : ''}. One reader, so a second reader or a brew row confirms them before the law runs it.`;
+    } else row.note += ` Chapter tier searched ${c.chapterHits} novel paragraph${c.chapterHits === 1 ? '' : 's'} and found no stated main.`;
+}
 function foldLotmTier(rows) {
     for (const row of rows) {
+        foldLotmWiki(row);
+        foldLotmChapter(row);
+    }
+    return rows;
+}
+function foldLotmWiki(row) {
+    {
         const tier = tierFile().lotm_potions?.[row.id];
-        if (!tier || row.state !== 'blocked:formula-in-notes') continue;
+        if (!tier || row.state !== 'blocked:formula-in-notes') return;
         if (tier.mains) {
             Object.assign(row, {state: 'blocked:formula-wiki-unchecked', basis: `${row.basis}; wiki-tier mains (${tier.mainsBasis}, unchecked against chapters)`});
             row.note += ` Wiki-tier mains: ${listOf(tier.mains)}. The list may be partial; supplementary ingredients and amounts are open, so the law runs it once a brew row and a chapter check confirm them.`;
-            continue;
+            return;
         }
         if (tier.roleUnstated) row.note += ` The wiki ties ${listOf(tier.roleUnstated)} to this potion without saying main or supplementary.`;
         if (tier.authoredDefault) row.note += ` Authored default (GKM433, not canon): ${tier.authoredDefault.mains} stands in for the mains.`;
     }
-    return rows;
 }
 
 async function nonPathwayRows() {
@@ -330,6 +358,21 @@ export async function buildLedgers() {
     const hpPotions = applyOverrides(potions, o.hp_potions, 'hp_potions');
     for (const [id, note] of Object.entries(hpCases))
         attachCase(hpPotions.find(row => row.id === `hp.potion.${id}`), id, note, ['brew_law', 'b.dose']);
+    // BRC12: one dose-response law runs every body-door row whose labelled sentence names a body account
+    // (src/brew_dose_response.js). Sentence and route come from the label; amounts are authored dials.
+    const {canRunDose, doseCaseId, doseRouteOf, DOSE_CASE_MODULE, DOSE_DIALS} = await import(at('src/brew_dose_response.js'));
+    for (const row of hpPotions) {
+        if (!['blocked:body-door', 'blocked:mind-state', 'blocked:body-form'].includes(row.state)) continue;
+        const luna = tierOf(row.id);
+        if (!canRunDose(luna.sentence)) continue;
+        const picked = doseRouteOf(luna.routes, luna.sentence.carrier);
+        if (!picked) continue;
+        const sentence = `${luna.sentence.verb} ${luna.sentence.object} (${luna.sentence.time ?? 'instant'})`;
+        attachCase(row, doseCaseId(luna.sentence, picked.route),
+            `Dose-response law (BRC12): the labelled sentence "${sentence}" delivered by ${picked.route} ${picked.defaulted ? '(route taken from the sentence carrier, authored)' : '(route from the wiki-tier label)'} moves the flask stock into the body's dose account and changes the body as the sentence says, with timed mind effects recovering. Amounts are authored dials (vitality ${DOSE_DIALS.vitality.amount}, mind ${DOSE_DIALS.mind.amount} over ${DOSE_DIALS.minutes} minutes), the same for every row.`,
+            ['brew_law', 'b.dose']);
+        row.case.module = DOSE_CASE_MODULE;
+    }
     const lotmPotions = foldLotmTier(applyOverrides(lotm, o.lotm_potions, 'lotm_potions'));
     for (const recipe of LOTM_BREW_ROWS) {
         const row = lotmPotions.find(r => r.id === `lotm.potion.${recipe.id}`);
@@ -351,6 +394,17 @@ export async function buildLedgers() {
         'Engine case: eating raw plant stock gives a temporary gilled form that preserves breath through an underwater haul. Duration and task are authored.',
         ['hp.gillyweed', 'l.breathing', 'l.creature_form']);
     foldIngredientTier(hpIngredients);
+    // MR37: a row whose wiki-tier axes fit the one Hogwarts property set runs as a material row (src/hp_property_set.js).
+    const {hpMaterialRow, materialCaseId, HP_PROPERTY_MODULE, HP_LEVELS} = await import(at('src/hp_property_set.js'));
+    for (const row of hpIngredients) {
+        if (row.state !== 'blocked:material-row') continue;
+        const axes = tierFile().hp_ingredients?.[row.id]?.axes;
+        if (!axes || !hpMaterialRow(axes)) continue;
+        attachCase(row, materialCaseId(axes),
+            `Material-row case (MR37): its stated axes (${axes.map(a => `${a.axis} ${a.level}`).join(', ')}) are constituents of a lot in the one Hogwarts property set; dissolved into a flask they put each axis into the flask's stock in proportion to its level. Level shares are authored (trace ${HP_LEVELS.trace}, some ${HP_LEVELS.some}, strong ${HP_LEVELS.strong} permille), the same for every row.`,
+            ['brew_law', 'hp_property_set']);
+        row.case.module = HP_PROPERTY_MODULE;
+    }
     return {hp_potions: hpPotions,
         hp_ingredients: hpIngredients,
         lotm_potions: lotmPotions};

@@ -382,6 +382,24 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 | Lord of the Mysteries potions | `lotm_potions` | Built first: one row per pathway sequence potion and named non-pathway potion, from the open canon (Weibao has read it in full, so it is open in development) | B |
 | Hogwarts spells | `hp_spells` | 117 spellbook records | S |
 | Gu as creatures, other creatures | `creatures` | Rows from G's catalogue plus L's inventory | L |
+| Worm powers | `worm_powers` | 279 named capes, Endbringers and Entities, and named Tinker devices, from reader claims, the cape table and the people index (PWC3; [palette](research/power-catalogues-2026-11-16/README.md#worm-power-ledger-2026-11-16)) | P |
+| Re:Zero powers (Authorities, Witch Factors, Divine Protections, spells by tier, curses, spirit contracts, Return by Death, other named arts) | `rezero_powers` | 204 names merged from the deep dives, reader digests and a free scan of the WN and IF captures (178 powers, 26 not-a-thing); [power catalogues PWC1-PWC7](research/power-catalogues-2026-11-16/README.md) | W (power sheet) |
+| Perfect Run powers | `perfect_run_powers` | 113 named powers from the deep-dive digests and the paid claims (PWC3): 109 main rows, 4 Bad Runs what-if rows | W |
+| LOTM Sealed Artifacts and mystical items | `lotm_artifacts` | 240 wiki-category pages (Sealed Artifacts 143, item categories); held-out label the Sealed Artifact grade (R6, PWC16) | A |
+| Hogwarts magical objects | `hp_objects` | 599 wiki-category pages (Magical objects, Cursed objects, Dark Magic artefacts, Broomsticks and others); held-out label the object category | A |
+| Reverend Insanity non-Gu treasures | `ri_treasures` | 91 wiki-category pages (Materials and Resources, Immortal Materials, formations, resource points, Items), Gu pages excluded | A |
+| Shadow Slave powers | `shadow_slave_powers` | 436 named powers from the paid claims, chapters 1-3000 (names recurring in two chapters or reader-kinded) | W |
+| Solo Leveling powers | `solo_leveling_powers` | 38 curated named skills, titles, class, shadows and relics | W |
+| Omniscient Reader's Viewpoint powers | `omniscient_reader_powers` | 102 stigmas, constellation sponsorships and skills | W |
+| A Regressor's Tale powers | `regressors_tale_powers` | 184 named techniques, arts and the regression from the paid claims | W |
+| Mother of Learning powers | `mother_of_learning_powers` | 230 named spells, techniques, devices and loop rules from the reader claims and POWERS.md (PWC3, PWC17) | W |
+| Circle of Inevitability powers | `circle_of_inevitability_powers` | 445 named powers from 1,061 power claims; 39 Sequence rows link to `lotm_potions` | W |
+| The Legendary Mechanic powers | `legendary_mechanic_powers` | 219 named abilities, class steps, blueprints and system functions from the power index and engine inputs | W |
+| Fated Villain powers | `fated_villain_powers` | 309 named techniques, physiques, items and system functions from the MTL-edition claim ledger (pass 2 incomplete) | W |
+| A Novel Concept powers | `a_novel_concept_powers` | Names from the book's power index tables plus a model listing over its synthesis files (PWC3, proposal); counts in the ledger | P |
+| Labyrinth of the Mad God powers (books 1 and 2) | `labyrinth_mad_god_powers` | Names from the POWERS tables plus a model listing; one ledger for both volumes | P |
+| You Have Died Again powers | `you_have_died_again_powers` | Names from the taxonomy's mechanism column plus a model listing | P |
+| Speedrunning the Multiverse powers | `speedrunning_multiverse_powers` | Model listing over the cross-book findings and each book's notes (no index table of names) | P |
 
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 
