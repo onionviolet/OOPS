@@ -4,33 +4,33 @@
 
 ## Counts
 
-| Ledger | Owner | Expected | Rows | runs-canon | runs-authored | blocked | not-a-thing | unclassified | Classified | Runs share |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 525 | 921 | 4 | 0 | 100% | 35.9% |
-| [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 759 | 0 | 0 | 100% | 1.3% |
-| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 193 | 32 | 0 | 100% | 0.4% |
-| [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 280 | 9 | 0 | 100% | 5% |
-| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
-| [a_novel_concept_powers](a_novel_concept_powers.jsonl) | P | to build | 128 | 0 | 0 | 34 | 39 | 0 | 100% | 0% |
-| [labyrinth_mad_god_powers](labyrinth_mad_god_powers.jsonl) | P | to build | 57 | 0 | 0 | 18 | 17 | 0 | 100% | 0% |
-| [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 19 | 29 | 0 | 100% | 0% |
-| [speedrunning_multiverse_powers](speedrunning_multiverse_powers.jsonl) | P | to build | 111 | 0 | 0 | 46 | 13 | 0 | 100% | 0% |
-| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
-| [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 207 | 0 | 0 | 100% | 0% |
-| [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
-| [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 106 | 26 | 0 | 100% | 0% |
-| [perfect_run_powers](perfect_run_powers.jsonl) | W | 113 | 113 | 0 | 0 | 43 | 0 | 0 | 100% | 0% |
-| [lotm_artifacts](lotm_artifacts.jsonl) | A | 240 | 240 | 0 | 0 | 128 | 3 | 0 | 100% | 0% |
-| [hp_objects](hp_objects.jsonl) | A | 599 | 599 | 0 | 0 | 160 | 20 | 0 | 100% | 0% |
-| [ri_treasures](ri_treasures.jsonl) | A | 91 | 91 | 0 | 0 | 58 | 2 | 0 | 100% | 0% |
-| [shadow_slave_powers](shadow_slave_powers.jsonl) | W | 436 | 436 | 0 | 0 | 178 | 3 | 0 | 100% | 0% |
-| [solo_leveling_powers](solo_leveling_powers.jsonl) | W | 38 | 38 | 0 | 0 | 16 | 2 | 0 | 100% | 0% |
-| [omniscient_reader_powers](omniscient_reader_powers.jsonl) | W | 102 | 102 | 0 | 0 | 68 | 2 | 0 | 100% | 0% |
-| [regressors_tale_powers](regressors_tale_powers.jsonl) | W | 184 | 184 | 0 | 0 | 83 | 0 | 0 | 100% | 0% |
-| [mother_of_learning_powers](mother_of_learning_powers.jsonl) | W | 230 | 230 | 0 | 0 | 157 | 5 | 0 | 100% | 0% |
-| [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 323 | 8 | 0 | 100% | 0% |
-| [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 180 | 3 | 0 | 100% | 0% |
-| [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 226 | 10 | 0 | 100% | 0% |
+| Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 525 | 0 | 921 | 4 | 0 | 100% | 35.9% |
+| [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 10 | 0 | 759 | 0 | 0 | 100% | 1.3% |
+| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 1 | 0 | 193 | 32 | 0 | 100% | 0.4% |
+| [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 0 | 280 | 9 | 0 | 100% | 5% |
+| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 0 | 180 | 0 | 0 | 100% | 0% |
+| [a_novel_concept_powers](a_novel_concept_powers.jsonl) | P | to build | 128 | 0 | 0 | 0 | 34 | 39 | 0 | 100% | 0% |
+| [labyrinth_mad_god_powers](labyrinth_mad_god_powers.jsonl) | P | to build | 57 | 0 | 0 | 0 | 18 | 17 | 0 | 100% | 0% |
+| [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 0 | 19 | 29 | 0 | 100% | 0% |
+| [speedrunning_multiverse_powers](speedrunning_multiverse_powers.jsonl) | P | to build | 111 | 0 | 0 | 0 | 46 | 13 | 0 | 100% | 0% |
+| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
+| [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 0 | 207 | 0 | 0 | 100% | 0% |
+| [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 0 | 100% | 17.2% |
+| [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 0 | 106 | 26 | 0 | 100% | 0% |
+| [perfect_run_powers](perfect_run_powers.jsonl) | W | 113 | 113 | 0 | 0 | 0 | 43 | 0 | 0 | 100% | 0% |
+| [lotm_artifacts](lotm_artifacts.jsonl) | A | 240 | 240 | 0 | 0 | 0 | 128 | 3 | 0 | 100% | 0% |
+| [hp_objects](hp_objects.jsonl) | A | 599 | 599 | 0 | 0 | 0 | 160 | 20 | 0 | 100% | 0% |
+| [ri_treasures](ri_treasures.jsonl) | A | 91 | 91 | 0 | 0 | 0 | 58 | 2 | 0 | 100% | 0% |
+| [shadow_slave_powers](shadow_slave_powers.jsonl) | W | 436 | 436 | 0 | 0 | 0 | 178 | 3 | 0 | 100% | 0% |
+| [solo_leveling_powers](solo_leveling_powers.jsonl) | W | 38 | 38 | 0 | 0 | 0 | 16 | 2 | 0 | 100% | 0% |
+| [omniscient_reader_powers](omniscient_reader_powers.jsonl) | W | 102 | 102 | 0 | 0 | 0 | 68 | 2 | 0 | 100% | 0% |
+| [regressors_tale_powers](regressors_tale_powers.jsonl) | W | 184 | 184 | 0 | 0 | 0 | 83 | 0 | 0 | 100% | 0% |
+| [mother_of_learning_powers](mother_of_learning_powers.jsonl) | W | 230 | 230 | 0 | 0 | 0 | 157 | 5 | 0 | 100% | 0% |
+| [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 0 | 323 | 8 | 0 | 100% | 0% |
+| [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 0 | 180 | 3 | 0 | 100% | 0% |
+| [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 0 | 226 | 10 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -66,7 +66,7 @@
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1650 of 1891 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1651 of 1892 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -571,7 +571,8 @@
 {"id": "stealth-scales", "source": "gu-identity-evidence.json#stealth-scales; ch. 127", "state": "runs-canon", "mechanisms": ["G", "L"], "test": "tests/gu_catalogue.test.js", "note": ""}
 ```
 
-- `state`: `runs-canon`, `runs-authored`, `blocked:<rule>`, `not-a-thing:<reason>` or `unclassified` (CV2). Rules and reasons are short slugs, such as `blocked:PGB2` or `not-a-thing:alias`.
+- `state`: `runs-canon`, `runs-authored`, `runs-derived`, `blocked:<rule>`, `not-a-thing:<reason>` or `unclassified` (CV2). Rules and reasons are short slugs, such as `blocked:PGB2` or `not-a-thing:alias`.
+- `runs-derived` and `expressed-derived` (PWC20): the value comes from a world rule, not a source that states it, and the row carries `derived: {"rule": "<rule id>", "inputs": [...]}`. The runs share counts canon and authored only, so derivation shows apart.
 - A `runs-*` row names an existing test file in `test` (optionally `#test name`).
 - `catalogued` is a typed state for identity parts with a source and no executed effect. `expressed-*` is computed by the runner; a row carrying `case` is the one place it is typed, because the runner checks it there.
 - `case`: optional `{"module": "<repo-relative js>", "id": "<case id>"}`; the module exports `coverageCase(id)` (shape in the header of `scripts/coverage_report.mjs`). `check:coverage` fails when a typed state disagrees with the computed one, a case module is missing or lacks the export, or a case throws.

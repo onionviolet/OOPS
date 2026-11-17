@@ -36,9 +36,20 @@ test('only malformed rows fail, each by line', () => {
     }
 });
 
+test('a derived row (PWC20) names its rule and inputs and counts apart from the runs share', () => {
+    const ok = {id: 'f', source: 'rule:LOTM-conservation', state: 'runs-derived', mechanisms: ['B'], test: 'tests/gu_catalogue.test.js', derived: {rule: 'lotm.conservation', inputs: ['pathway', 'sequence']}};
+    const {rows: parsed, problems} = parseLedger([text, JSON.stringify(ok)].join('\n'), {exists});
+    assert.deepEqual(problems, []);
+    const c = countLedger(parsed);
+    assert.equal(c['runs-derived'], 1);
+    assert.equal(c.runsShare, 40);
+    const bare = JSON.stringify({...ok, derived: undefined});
+    assert.ok(parseLedger(bare, {exists}).problems.some(x => /derived row names/.test(x)));
+});
+
 test('the counts table lists every planned ledger, started or not', () => {
     const md = renderReadme([{name: 'hp_spells', rows: parseLedger(text, {exists}).rows}]);
-    assert.match(md, /\| \[hp_spells\]\(hp_spells.jsonl\) \| S \| 117 \| 5 \| 1 \| 1 \| 1 \| 1 \| 1 \| 80% \| 50% \|/);
+    assert.match(md, /\| \[hp_spells\]\(hp_spells.jsonl\) \| S \| 117 \| 5 \| 1 \| 1 \| 0 \| 1 \| 1 \| 1 \| 80% \| 50% \|/);
     assert.match(md, /\| gu_kinds \| G \| 1466 \| not started/);
     assert.match(md, /\| hp_spells \| PGB2 \| 1 \|/);
 });

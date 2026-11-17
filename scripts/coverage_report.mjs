@@ -10,7 +10,7 @@
 //
 // Cases (PC5, PC9, PC10, PC51 P1.1). A row may carry `"case": {"module": "<repo-relative js>", "id": "<case id>"}`.
 // The module exports `coverageCase(id)`, returning plain data:
-//   {basis?: 'canon'|'authored',            // else taken from the typed state, else 'authored'
+//   {basis?: 'canon'|'authored'|'derived',          // else taken from the typed state, else 'authored'
 //    world: {clock?, holders: [...], lawFields?},
 //    engine?: {packs?, settings?, shared?, dials?,   // plain createEngineWorld config
 //              host?: {things?, costs?, keys?}},     // plain host data for workings: bound things, the price list, world keys
@@ -92,8 +92,8 @@ export const DENOMINATORS = {
     legendary_mechanic_powers: {expected: 219, owner: 'W', what: 'The Legendary Mechanic named abilities, class steps, blueprints and system functions (PWC17)'},
     fated_villain_powers: {expected: 309, owner: 'W', what: 'I Am the Fated Villain named techniques, physiques, system functions and items (PWC17)'},
 };
-const STATE = /^(runs-canon|runs-authored|expressed-canon|expressed-authored|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
-const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case']);
+const STATE = /^(runs-canon|runs-authored|runs-derived|expressed-canon|expressed-authored|expressed-derived|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
+const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived']);
 
 // Validate one ledger's text. Returns {rows, problems}; a problem names its line.
 export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file))} = {}) {
@@ -109,7 +109,7 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
         else if (ids.has(row.id)) problems.push(`${at}: duplicate id ${row.id}`);
         else ids.add(row.id);
         if (typeof row.source !== 'string' || !row.source) problems.push(`${at}: source must be a nonempty locator`);
-        if (typeof row.state !== 'string' || !STATE.test(row.state)) problems.push(`${at}: state must be runs-canon, runs-authored, expressed-canon, expressed-authored, catalogued, blocked:<rule>, not-a-thing:<reason> or unclassified`);
+        if (typeof row.state !== 'string' || !STATE.test(row.state)) problems.push(`${at}: state must be runs-canon, runs-authored, runs-derived, expressed-canon, expressed-authored, expressed-derived, catalogued, blocked:<rule>, not-a-thing:<reason> or unclassified`);
         if (!Array.isArray(row.mechanisms) || row.mechanisms.some(m => typeof m !== 'string' || !m)) problems.push(`${at}: mechanisms must be an array of owner names`);
         if (row.test !== undefined && row.test !== null && typeof row.test !== 'string') problems.push(`${at}: test must be a string or null`);
         if (/^runs-/.test(row.state ?? '')) {
@@ -123,6 +123,9 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
                 || Object.keys(k).some(x => x !== 'module' && x !== 'id')) problems.push(`${at}: case must be {"module": "<repo path>", "id": "<case id>"}`);
         }
         if (/^expressed-/.test(row.state ?? '') && row.case === undefined) problems.push(`${at}: an expressed-* row names its case; the runner computes expressed`);
+        // A derived value (PWC20) comes from a world's own rule, not from a source that states it: it names the rule and its inputs.
+        if (/-derived$/.test(row.state ?? '') && (!row.derived || typeof row.derived.rule !== 'string' || !row.derived.rule || !Array.isArray(row.derived.inputs)))
+            problems.push(`${at}: a *-derived row names {"rule": "<rule id>", "inputs": [...]} in derived`);
         if (row.note !== undefined && typeof row.note !== 'string') problems.push(`${at}: note must be a string`);
         rows.push(row);
     });
@@ -131,7 +134,7 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
 
 // Counts per ledger: states, the runs share (runs over things, excluding not-a-thing) and top blocking rules.
 export function countLedger(rows) {
-    const c = {total: rows.length, 'runs-canon': 0, 'runs-authored': 0, blocked: 0, 'not-a-thing': 0, unclassified: 0, catalogued: 0, 'expressed-canon': 0, 'expressed-authored': 0, rules: {}};
+    const c = {total: rows.length, 'runs-canon': 0, 'runs-authored': 0, 'runs-derived': 0, blocked: 0, 'not-a-thing': 0, unclassified: 0, catalogued: 0, 'expressed-canon': 0, 'expressed-authored': 0, 'expressed-derived': 0, rules: {}};
     for (const r of rows) {
         const [head, detail] = [r.state.split(':')[0], r.state.split(':').slice(1).join(':')];
         if (head in c) c[head]++;
@@ -299,7 +302,7 @@ const WORKING_FAMILIES = {
 /** Run one case's plain data. Returns {state, detail}; hard failures throw. */
 export async function runCaseData(data, {id = 'case', typedState = '', moduleReachable = false} = {}) {
     if (!data || typeof data !== 'object') throw new Error(`case ${id}: coverageCase must return an object`);
-    const suffix = data.basis ?? (/-(canon|authored)$/.exec(typedState)?.[1]) ?? 'authored';
+    const suffix = data.basis ?? (/-(canon|authored|derived)$/.exec(typedState)?.[1]) ?? 'authored';
     const timeline = data.timeline;
     if (timeline === undefined) {
         if (data.working === undefined && (!data.sentence || typeof data.sentence !== 'object')) throw new Error(`case ${id}: a case carries a sentence or a working or a timeline`);
@@ -740,14 +743,14 @@ export function renderReadme(ledgers, {computed = new Map(), reach = null, held 
     const lines = ['# Coverage ledgers', '',
         '*Generated by `node scripts/coverage_report.mjs`; do not edit by hand. Format and states: [plan CV1-CV4](../PROCEDURAL_FOUNDATION_PLAN.md#coverage-ledgers-cv). Each corpus owner writes its own `<corpus>.jsonl`. `npm run check:coverage` fails only on malformed rows; the percentages are a report, not a gate.*', '',
         '## Counts', '',
-        '| Ledger | Owner | Expected | Rows | runs-canon | runs-authored | blocked | not-a-thing | unclassified | Classified | Runs share |',
-        '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |'];
+        '| Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |',
+        '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |'];
     const names = [...new Set([...Object.keys(DENOMINATORS), ...ledgers.map(l => l.name)])];
     for (const name of names) {
         const l = ledgers.find(x => x.name === name), d = DENOMINATORS[name] ?? {};
-        if (!l) { lines.push(`| ${name} | ${d.owner ?? ''} | ${d.expected ?? 'to build'} | not started | | | | | | | |`); continue; }
+        if (!l) { lines.push(`| ${name} | ${d.owner ?? ''} | ${d.expected ?? 'to build'} | not started | | | | | | | | |`); continue; }
         const c = countLedger(l.rows);
-        lines.push(`| [${name}](${name}.jsonl) | ${d.owner ?? ''} | ${d.expected ?? 'to build'} | ${c.total} | ${c['runs-canon']} | ${c['runs-authored']} | ${c.blocked} | ${c['not-a-thing']} | ${c.unclassified} | ${c.classifiedShare}% | ${c.runsShare}% |`);
+        lines.push(`| [${name}](${name}.jsonl) | ${d.owner ?? ''} | ${d.expected ?? 'to build'} | ${c.total} | ${c['runs-canon']} | ${c['runs-authored']} | ${c['runs-derived']} | ${c.blocked} | ${c['not-a-thing']} | ${c.unclassified} | ${c.classifiedShare}% | ${c.runsShare}% |`);
     }
     lines.push('', '## Typed and computed, side by side (PC9, PC10)', '',
         '*Typed states are the owners\' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Whether headline numbers may fall is Weibao\'s call, so nothing is rewritten.*', '',
@@ -769,7 +772,8 @@ export function renderReadme(ledgers, {computed = new Map(), reach = null, held 
     lines.push('', '## Row format', '', '```json',
         '{"id": "stealth-scales", "source": "gu-identity-evidence.json#stealth-scales; ch. 127", "state": "runs-canon", "mechanisms": ["G", "L"], "test": "tests/gu_catalogue.test.js", "note": ""}',
         '```', '',
-        '- `state`: `runs-canon`, `runs-authored`, `blocked:<rule>`, `not-a-thing:<reason>` or `unclassified` (CV2). Rules and reasons are short slugs, such as `blocked:PGB2` or `not-a-thing:alias`.',
+        '- `state`: `runs-canon`, `runs-authored`, `runs-derived`, `blocked:<rule>`, `not-a-thing:<reason>` or `unclassified` (CV2). Rules and reasons are short slugs, such as `blocked:PGB2` or `not-a-thing:alias`.',
+        '- `runs-derived` and `expressed-derived` (PWC20): the value comes from a world rule, not a source that states it, and the row carries `derived: {"rule": "<rule id>", "inputs": [...]}`. The runs share counts canon and authored only, so derivation shows apart.',
         '- A `runs-*` row names an existing test file in `test` (optionally `#test name`).',
         '- `catalogued` is a typed state for identity parts with a source and no executed effect. `expressed-*` is computed by the runner; a row carrying `case` is the one place it is typed, because the runner checks it there.',
         '- `case`: optional `{"module": "<repo-relative js>", "id": "<case id>"}`; the module exports `coverageCase(id)` (shape in the header of `scripts/coverage_report.mjs`). `check:coverage` fails when a typed state disagrees with the computed one, a case module is missing or lacks the export, or a case throws.',
