@@ -174,16 +174,16 @@ Weibao: "continue for LOTM and the other ones too". Wiki-tier pass for the 220 p
 | Aspect sheet: mains and supplementary ingredients as lists, plus the other 13 aspects (`label_pass.mjs lotm_potions`) | Luna, low | 220 | $0.086 |
 | Ingredient check: main, supplementary, role unstated, not formula or unclear for each Luna ingredient, plus misses (`label_followups.mjs lotm_check`) | Haiku, low | 102 | $0.049 |
 
-Total $0.135 at standard rates. No locator falls outside its packet.
+Total $0.135 at standard rates. Every committed ingredient locator starts a line of its packet. Of 618 committed locators, 13 cite several lines whose parts all check out; 2 aspect locators (one empty, one cut short at a `[[...]]` heading) are dropped by the normaliser.
 
 **Score.** Bar written down before scoring: mains precision of at least 80% overall and on held-out rows, judged by hand against the brew pack's mains (`src/world_packs/lotm_brew_pack.js`, 68 mains over 46 rows), counting translation variants as matches (Lavos Squid against Lavatan octopus, Illusory Chime Tree against wind-bell tree). A wiki main also counts when the pack leaves that main unnamed (Scribe's second main).
 
 | Rule | Mains right | Held out | Recall of pack mains |
 | --- | --- | --- | --- |
 | Luna's main list alone | 15 of 22 (68%) | 4 of 5 | 15 of 68 |
-| Luna lists it and Haiku calls it main (rule fixed before Haiku ran) | 11 of 13 (85%) | 3 of 3 | 11 of 68 |
+| Luna lists it and Haiku calls it main | 11 of 13 (85%) | 3 of 3, not independent | 11 of 68 |
 
-Luna's misses are aux listed as mains where the wiki line says only "ingredients" (5), a Beyonder characteristic used as a substitute (2) and a ritual material, the mermaid's song (1). Haiku's check removes the five aux and one substitute; the other substitute and the mermaid remain. Recall is low because the evidence is thin, not the readers: most pack mains come from chapter notes the wiki snapshot does not repeat.
+The Luna-alone line is clean: zero-shot, judged against the frozen split. The Haiku rule was fixed before Haiku ran, but its verdict categories (role unstated, substitute, ritual material) were shaped after the Luna score had seen every comparison row, held-out ones included (GKM429), so its held-out cell is not a held-out result and three rows would be thin anyway. The fold rests on the hand check of all 12 folded rows below. Luna's misses are aux listed as mains where the wiki line says only "ingredients" (5), a Beyonder characteristic used as a substitute (2) and a ritual material, the mermaid's song (1). Haiku's check removes the five aux and one substitute; the other substitute and the mermaid remain. Recall is low because the evidence is thin, not the readers: most pack mains come from chapter notes the wiki snapshot does not repeat.
 
 **Folded (GKM445, every field marked wiki tier).** `node scripts/wiki_tier_labels.mjs` writes a `lotm_potions` section of `docs/coverage/wiki_tier_labels.json`: short ingredient names, each with its locator, speaker, book cite when the line has one, and `canonical` when it equals the line's `[ingr:]` name. The other 13 aspects keep only a locator and speaker (`<aspect>At`), unscored, so they move nothing. The Gu, move and Hogwarts sections are byte-identical to before.
 
@@ -192,6 +192,6 @@ Luna's misses are aux listed as mains where the wiki line says only "ingredients
 - **Authored default (GKM433), noted only.** The other 162 blocked rows get the mechanism default "a Sequence N <name> Beyonder characteristic stands in for the mains". It is labelled authored, not canon. It comes from the table rule that a same-Sequence characteristic replaces the mains (T 0214), and its cost is a dead Beyonder of that Sequence with residue if polluted. Supplementary ingredients stay open. It is not scored, since it predicts nothing.
 - **For review, not folded.** Haiku's missed mains on 8 rows (`reviewMains`) are a mix: Sun 4's god blood and Door 9's characteristic match the pack, but Tyrant 3 names the Sea God Scepter, an artifact, and the rest need a source look.
 
-**Checks.** `node scripts/b_coverage_ledgers.mjs --check` and `coverage_report.mjs --check` pass. `tests/b_coverage_ledgers.test.js`, `tests/brew_heldout.test.js` and `tests/hp_potion_case_scenes.test.js` pass (115). `npm run check:rules` passes; its one stale-glob warning was there before. `lotm_potions` is now 162 `formula-in-notes`, 12 `formula-wiki-unchecked`, 46 `expressed-authored` and 6 `body-door`. Running from a worktree: `LABEL_PRIVATE` (packets, Luna, follow-ups) and `LABEL_SOURCE_ROOT` (normaliser) point at the primary checkout's private folders.
+**Checks.** `node scripts/b_coverage_ledgers.mjs --check` and `coverage_report.mjs --check` pass. `tests/b_coverage_ledgers.test.js`, `tests/brew_heldout.test.js` and `tests/hp_potion_case_scenes.test.js` pass (115). `npm run test:changed` passes (4,532, 17 skipped). `npm run check:rules` passes; its one stale-glob warning was there before. `lotm_potions` is now 162 `formula-in-notes`, 12 `formula-wiki-unchecked`, 46 `expressed-authored` and 6 `body-door`. Running from a worktree: `LABEL_PRIVATE` (packets, Luna, follow-ups) and `LABEL_SOURCE_ROOT` (normaliser) point at the primary checkout's private folders.
 
 **Next, not started.** Chapter-check the 12 wiki rows at their cites and write brew rows for them. Get the module through a browser export by Weibao, which would fill formulas, rituals and acting for every Sequence at once.

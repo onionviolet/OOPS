@@ -158,7 +158,9 @@ for (const [id, row] of Object.entries(read('lotm_potions'))) {
     if (!mains.length && packet.state === 'blocked:formula-in-notes') label.authoredDefault = {mains: `a Sequence ${packet.seq} ${packet.wikiName.replace(/\s*\(.*$/, '')} Beyonder characteristic`,
         supplementary: 'open', basis: 'authored default (GKM433): the table rule that a same-Sequence characteristic replaces the mains (T 0214), not canon',
         cost: 'a dead Beyonder of this Sequence; a polluted characteristic carries its residue (T 0209, 0403)'};
-    for (const key of LOTM_FIELDS) if (at(r[key])) label[`${key}At`] = at(r[key]);
+    // An aspect locator is kept only when each of its ';'-joined parts starts a packet line (616 of 618 did).
+    const inPacket = loc => loc && loc.split(';').every(part => packet.evidence.some(e => e.startsWith(`[${part.trim().replace(/^\[|\]$/g, '')}]`)));
+    for (const key of LOTM_FIELDS) if (at(r[key]) && inPacket(at(r[key]).locator)) label[`${key}At`] = at(r[key]);
     lotm[id] = label;
 }
 
