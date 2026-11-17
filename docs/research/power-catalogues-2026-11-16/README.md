@@ -842,3 +842,46 @@ Blocked rows use 182 slugs. The top 6 hold 50% of them and the top 15 hold 74%, 
 | ACCOUNT FOR NOW | PWC64 | **Per-world dials come from where rule rows disagree.** For each slug, the rule rows from different systems state different stack, range and duration rules. The law takes those as per-world dials (AD5) and the field fill records which system each value came from, so a world's choice is visible and changeable. |
 | LATER / DELEGATE | PWC65 | **A trend line, not a snapshot.** The coverage README holds the current count and no history. Default: each merge appends one dated line (rows, states, top slugs, spend) to a history file the reporter writes, so trends over waves can be read. Level: Haiku-sized script change. Done when two merges show two lines. |
 | LATER / DELEGATE | PWC66 | **Single-ledger blocks are lookups.** roles-unknown (651 rows) sits in one ledger; a block confined to one ledger is that ledger's missing table, fixed by a lookup pass, not a law. Level: Haiku. Done when the slug is gone or explained. |
+
+## PWC50-PWC52 Warhammer and repairs (2026-11-17, proposals)
+
+Agent-verified, not human-reviewed. Spend about $1.6 of the $10 cap (Luna about $1.3, Haiku about $0.3, from the reader logs; the first 40k pass was stopped once and its partial cost is estimated). Raw book text stays in the gitignored `docs/research/*/private/` folders; every row paraphrases.
+
+**What was wrong with the "damaged" list (PWC50).** The premise that a qpdf rewrite fixes them held for two books and failed for the rest, and the better answer for three of the five was a copy already held.
+
+| Book | Result | Evidence |
+|---|---|---|
+| Tasha's Cauldron of Everything | Rewritten by qpdf, 194 pages, text extracts | `~/.codex/research/rulebooks/repaired/tasha-cauldron-of-everything.qpdf.pdf`, SHA-256 `8d194f02d31801b564b1f9cbbde487d609ceaa69c12002cec926c7897cf89672` |
+| Cyberpunk RED core | Rewritten by qpdf, 458 pages, 213,769 words after screening | `repaired/cyberpunk-red-core.qpdf.pdf`, SHA-256 `8cf8d71aa500bc7aa6ef6dce3c566374ac095fe4c22f30a63162eb027ff2a77a`; the screener's one `instruction_hint` is page 259, in-fiction prose about an election, reviewed and benign |
+| Warhammer 40,000 9th core | Fixed without a repair: the held Source Library copy `f80e85b8d1` (383 pages, 122,832 words after screening) | the tabletop-library copy (20 MB) is a truncated download |
+| WFRP 4e core | **Not fixed.** The 3 MB tabletop-library copy is truncated (no page tree, no trailer; `qpdf` and `gs` both fail, `pdftotext` gives 68 words) | the Source Library entry labelled core (`5b9abafc84`) is a second *Up in Arms* volume |
+| Numenera Into the Outside, The Strange In Translation | **Not fixed.** Same truncation (15.7 MB and 3.2 MB, `qpdf` and `gs` fail) | need a replacement (DL121) |
+
+Rule for a later lane (default, dial, reason): try `qpdf` first only on a file that has a page tree; a file whose `qpdf` error is "root of pages tree has no /Kids" or "unable to find trailer dictionary" is a cut-off download and a rewrite cannot restore pages that are not in it. Before asking for a replacement, search the Source Library for a second copy by title (`python3 -I scripts/library_catalogue.py`): two books here were held twice and the catalogue label was wrong once. Dial: a scanned or low-contrast book is not damaged either; Wrath & Glory's body type is low-contrast, so the screener quarantined 151,000 of its 184,000 words. `scripts/setting_ledgers.mjs` now merges the quarantine layer page by page when it outweighs the readable text twofold and no instruction hint was flagged (the rule `tabletop_corpus.py` already used). The wishlist rows DL43, DL44, DL121, DL133, DL75 and DL118 carry the write-backs.
+
+**What was read.**
+
+| Book or wiki | Result |
+|---|---|
+| Cyberpunk RED (qpdf copy) and Cyberpunk 2020 (re-OCRed, 16,459 words; the older 10,134-word read was replaced) | 1,524 rows in six ledgers: powers 261, artifacts 523, creatures 67, places 264, institutions 262, rules 147 |
+| Warhammer 40,000: 9th core, Rogue Trader core, Stars of Inequity, Wrath & Glory, Imperium Maledictum | 4,823 rows (was 9): powers 1,284, artifacts 1,216, creatures 546, places 560, institutions 653, rules 564 |
+| WFRP 4e: *Up in Arms*, both volumes (about 159,000 words) | 1,046 rows (was none): powers 136, artifacts 287, creatures 197, places 176, institutions 167, rules 83 |
+| Tasha's Cauldron of Everything | **Repaired but not read.** `pdf-screen` did not finish on the 77 MB rewrite in 1 h 50 min of CPU, nor on four 49-page parts of it (24 min each, stopped), so no text was cleared for the reader. `scripts/tabletop_corpus.py` already points the `dnd5e-tasha` slug at the rewrite; the next step is `python3 -I scripts/tabletop_corpus.py dnd5e-tasha` run alone with time, or a lighter screening route, then `tabletop_rules_pass.mjs run dnd --only dnd5e-tasha --tag tasha` (the collector reads a `_tasha_` reply file). The D&D 2014 system is unchanged until then. |
+
+Second readers (AU17): Haiku re-read a hash sample of each setting's shards (35 of 114 for 40k, 6 of 32 for Cyberpunk, 5 of 21 for WFRP). Gaps: 3 of the 35 sampled 40k shards returned unterminated JSON and carry no second reading; the first Luna pass hit the same truncation on 3 40k and 2 Cyberpunk shards, which were rerun with a larger output limit and now read.
+
+**Warhammer books not held when this lane finished (PWC51).** *Dark Heresy* 2e, *Black Crusade* (DL133) and *Winds of Magic* were not in the Source Library catalogue; each is reported and stopped. *Wrath & Glory* and *Rogue Trader* were not in it either at the start; the sibling book lane landed them (core, Stars of Inequity, W&G core) during this run and they are read. Re-run `python3 -I scripts/library_catalogue.py` and add the new book ids to `books` in `scripts/setting_ledgers.mjs` for the three missing titles when they arrive.
+
+**Lexicanum (PWC51), stopped at the bot check.** `wh40k.lexicanum.com/robots.txt` answers (Crawl-delay 5) but the API, `Special:Export` and article pages all return Cloudflare's managed challenge (403) on 2026-11-17. That challenge is the bot check the approval excludes, and clearing it in a browser would be bypassing it, so nothing was fetched from Lexicanum. Substitute inside the same Warhammer wiki-tier scope, by an official route (Fandom's published dump, one request, no crawl): `warhammer40k_pages_current.xml.7z`, last modified 2026-08-17, 29,437,342 bytes, SHA-256 `5679716725c5cded4a7da6e2dad895b24054f44dd420a68aa3f57fe27a502220`, 88,170 pages, at `~/.codex/research/wikis/warhammer40k.fandom.com/dump/`. The Old World dump (`warhammerfantasy`, 2017, 251 KB) sits in S3 Glacier Deep Archive and cannot be fetched, so the Old World has no wiki tier. DL118's Cyberpunk wiki dump came by the same route: `cyberpunk_pages_current.xml.7z`, 2026-03-11, 7,300,334 bytes, SHA-256 `9f2c0f841ca0f5a3469fc258bb6087a9afba735861b6b278f8c1d5ff31a60f4b`, 34,362 pages. Neither wiki has had a reader pass yet; each is registered as its world row's wiki source.
+
+**Warhammer as worlds (PWC52).** Three world rows, ids unchanged because the ledger filenames use them, names now say which Warhammer each is: `warhammer-40k` (the 41st millennium), `wfrp4e` (the Old World) and `aos-soulbound` (the Mortal Realms). The test for a world is whether the in-world laws differ, not whether the dice do. Default: the lines inside 40k are **starts**, not worlds, because they share one cosmos and one set of laws (the Warp as an area field, psychic peril, corruption and Chaos marks, the Astra Militarum and the Inquisition as institutions of the same Imperium) and differ in who the character is and what they can reach:
+
+| Line | Source held | Start answer (WER2, WER6, WER11) |
+|---|---|---|
+| Inquisition acolyte | Imperium Maledictum (Dark Heresy not landed) | born-there, a warband under an Inquisitor; era a standing 41st millennium date |
+| Rogue Trader dynasty | Rogue Trader, Stars of Inequity | born-there, a ship and a warrant of trade; the Koronus Expanse |
+| Imperial Guard | 9th core, Imperium Maledictum | born-there, conscripted; a regiment's home world sets the body |
+| Chaos cultist or renegade | Wrath & Glory, 9th core (Black Crusade not landed) | born-there or fallen; corruption is the same field the other lines resist |
+| Gilead System, Wrath & Glory | Wrath & Glory | born-there, a faction and an archetype; one sector of the same galaxy |
+
+Dial and reason: a line becomes its own world only if its laws diverge (a different Warp, no psykers, no Chaos). None of these does, so each is a start whose WER answers (who notices, what carries, the former life's state) go in the world pass for `warhammer-40k`; the WER2-WER12 answers above are one-line defaults, not a finished pass (WER14 still owns that). The Old World and the Mortal Realms are separate worlds because their laws differ: the Winds of Magic and the Chaos Wastes, versus Realmgates, the Soulbound and Azyr; the End Times link them, which is a crossing with a named carrier (WER1), not a shared world. The Old World row reads *Up in Arms* only until the WFRP 4e core is replaced, so its places, creatures and rules are thin on the core's own lores of magic and careers (DL43).

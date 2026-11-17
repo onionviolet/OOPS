@@ -68,11 +68,12 @@
 | [coc_items](coc_items.jsonl) |  | to build | 4 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
 | [coc_powers](coc_powers.jsonl) |  | to build | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
 | [coc_spells](coc_spells.jsonl) |  | to build | 4 | 0 | 0 | 0 | 3 | 0 | 0 | 100% | 0% |
-| [cyberpunk_artifacts](cyberpunk_artifacts.jsonl) |  | to build | 18 | 0 | 0 | 0 | 6 | 0 | 0 | 100% | 0% |
-| [cyberpunk_institutions](cyberpunk_institutions.jsonl) |  | to build | 19 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
-| [cyberpunk_places](cyberpunk_places.jsonl) |  | to build | 21 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
-| [cyberpunk_powers](cyberpunk_powers.jsonl) |  | to build | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
-| [cyberpunk_rules](cyberpunk_rules.jsonl) |  | to build | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
+| [cyberpunk_artifacts](cyberpunk_artifacts.jsonl) |  | to build | 523 | 0 | 0 | 0 | 85 | 1 | 0 | 100% | 0% |
+| [cyberpunk_creatures](cyberpunk_creatures.jsonl) |  | to build | 67 | 0 | 0 | 0 | 23 | 0 | 0 | 100% | 0% |
+| [cyberpunk_institutions](cyberpunk_institutions.jsonl) |  | to build | 262 | 0 | 0 | 0 | 4 | 3 | 0 | 100% | 0% |
+| [cyberpunk_places](cyberpunk_places.jsonl) |  | to build | 264 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
+| [cyberpunk_powers](cyberpunk_powers.jsonl) |  | to build | 261 | 0 | 0 | 0 | 80 | 0 | 0 | 100% | 0% |
+| [cyberpunk_rules](cyberpunk_rules.jsonl) |  | to build | 147 | 0 | 0 | 0 | 28 | 25 | 0 | 100% | 0% |
 | [cypher_conditions](cypher_conditions.jsonl) |  | to build | 18 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
 | [cypher_creatures](cypher_creatures.jsonl) |  | to build | 38 | 0 | 0 | 0 | 21 | 0 | 0 | 100% | 0% |
 | [cypher_items](cypher_items.jsonl) |  | to build | 118 | 0 | 0 | 0 | 87 | 0 | 0 | 100% | 0% |
@@ -206,11 +207,18 @@
 | [theros_places](theros_places.jsonl) |  | to build | 131 | 0 | 0 | 0 | 23 | 0 | 0 | 100% | 0% |
 | [theros_powers](theros_powers.jsonl) |  | to build | 280 | 0 | 0 | 0 | 146 | 0 | 0 | 100% | 0% |
 | [theros_rules](theros_rules.jsonl) |  | to build | 86 | 0 | 0 | 0 | 53 | 0 | 0 | 100% | 0% |
-| [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
-| [warhammer_40k_creatures](warhammer_40k_creatures.jsonl) |  | to build | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
-| [warhammer_40k_institutions](warhammer_40k_institutions.jsonl) |  | to build | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
-| [warhammer_40k_places](warhammer_40k_places.jsonl) |  | to build | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
-| [warhammer_40k_powers](warhammer_40k_powers.jsonl) |  | to build | 2 | 0 | 0 | 0 | 2 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 1216 | 0 | 0 | 0 | 292 | 16 | 0 | 100% | 0% |
+| [warhammer_40k_creatures](warhammer_40k_creatures.jsonl) |  | to build | 546 | 0 | 0 | 0 | 135 | 2 | 0 | 100% | 0% |
+| [warhammer_40k_institutions](warhammer_40k_institutions.jsonl) |  | to build | 653 | 0 | 0 | 0 | 27 | 14 | 0 | 100% | 0% |
+| [warhammer_40k_places](warhammer_40k_places.jsonl) |  | to build | 560 | 0 | 0 | 0 | 41 | 2 | 0 | 100% | 0% |
+| [warhammer_40k_powers](warhammer_40k_powers.jsonl) |  | to build | 1284 | 0 | 0 | 0 | 533 | 1 | 0 | 100% | 0% |
+| [warhammer_40k_rules](warhammer_40k_rules.jsonl) |  | to build | 564 | 0 | 0 | 0 | 164 | 41 | 0 | 100% | 0% |
+| [wfrp4e_artifacts](wfrp4e_artifacts.jsonl) |  | to build | 287 | 0 | 0 | 0 | 30 | 6 | 0 | 100% | 0% |
+| [wfrp4e_creatures](wfrp4e_creatures.jsonl) |  | to build | 197 | 0 | 0 | 0 | 28 | 1 | 0 | 100% | 0% |
+| [wfrp4e_institutions](wfrp4e_institutions.jsonl) |  | to build | 167 | 0 | 0 | 0 | 0 | 1 | 0 | 100% | 0% |
+| [wfrp4e_places](wfrp4e_places.jsonl) |  | to build | 176 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
+| [wfrp4e_powers](wfrp4e_powers.jsonl) |  | to build | 136 | 0 | 0 | 0 | 70 | 27 | 0 | 100% | 0% |
+| [wfrp4e_rules](wfrp4e_rules.jsonl) |  | to build | 83 | 0 | 0 | 0 | 2 | 20 | 0 | 100% | 0% |
 | [wildemount_artifacts](wildemount_artifacts.jsonl) |  | to build | 205 | 0 | 0 | 0 | 91 | 3 | 0 | 100% | 0% |
 | [wildemount_creatures](wildemount_creatures.jsonl) |  | to build | 461 | 0 | 0 | 0 | 129 | 1 | 0 | 100% | 0% |
 | [wildemount_institutions](wildemount_institutions.jsonl) |  | to build | 175 | 0 | 0 | 0 | 11 | 0 | 0 | 100% | 0% |
@@ -254,6 +262,7 @@
 | coc_spells | 0 | 0 | 0 | 0 |
 | creatures | 17 | 82 | 0 | 17 |
 | cyberpunk_artifacts | 0 | 0 | 0 | 0 |
+| cyberpunk_creatures | 0 | 0 | 0 | 0 |
 | cyberpunk_institutions | 0 | 0 | 0 | 0 |
 | cyberpunk_places | 0 | 0 | 0 | 0 |
 | cyberpunk_powers | 0 | 0 | 0 | 0 |
@@ -427,6 +436,13 @@
 | warhammer_40k_institutions | 0 | 0 | 0 | 0 |
 | warhammer_40k_places | 0 | 0 | 0 | 0 |
 | warhammer_40k_powers | 0 | 0 | 0 | 0 |
+| warhammer_40k_rules | 0 | 0 | 0 | 0 |
+| wfrp4e_artifacts | 0 | 0 | 0 | 0 |
+| wfrp4e_creatures | 0 | 0 | 0 | 0 |
+| wfrp4e_institutions | 0 | 0 | 0 | 0 |
+| wfrp4e_places | 0 | 0 | 0 | 0 |
+| wfrp4e_powers | 0 | 0 | 0 | 0 |
+| wfrp4e_rules | 0 | 0 | 0 | 0 |
 | wildemount_artifacts | 0 | 0 | 0 | 0 |
 | wildemount_creatures | 0 | 0 | 0 | 0 |
 | wildemount_institutions | 0 | 0 | 0 | 0 |
@@ -564,15 +580,15 @@
 | Blades in the Dark core book (design reference) | tabletop |  | none | none | none | none | none | none | none | none | none | none | 0 | 0 | 10 |
 | Eclipse Phase (2nd edition) | setting |  | eclipse_phase_powers (547) | eclipse_phase_artifacts (719) | missing | missing | eclipse_phase_creatures (474) | eclipse_phase_places (346) | eclipse_phase_institutions (414) | missing | missing | eclipse_phase_rules (489) | 6 | 4 | 0 |
 | Numenera (Ninth World) | setting |  | numenera_powers (1114) | numenera_artifacts (1746) | missing | missing | numenera_creatures (933) | numenera_places (622) | numenera_institutions (179) | missing | missing | numenera_rules (528) | 6 | 4 | 0 |
-| Warhammer 40,000 (9th edition core) | setting |  | warhammer_40k_powers (2) | warhammer_40k_artifacts (3) | missing | missing | warhammer_40k_creatures (2) | warhammer_40k_places (1) | warhammer_40k_institutions (3) | missing | missing | missing | 5 | 5 | 0 |
+| Warhammer 40,000, the 41st millennium (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum) | setting |  | warhammer_40k_powers (1284) | warhammer_40k_artifacts (1216) | missing | missing | warhammer_40k_creatures (546) | warhammer_40k_places (560) | warhammer_40k_institutions (653) | missing | missing | warhammer_40k_rules (564) | 6 | 4 | 0 |
 | The Strange (recursions) | setting |  | the_strange_powers (585) | the_strange_artifacts (489) | missing | missing | the_strange_creatures (458) | the_strange_places (365) | the_strange_institutions (160) | missing | missing | the_strange_rules (305) | 6 | 4 | 0 |
-| Warhammer Fantasy Roleplay 4e (the Old World) | setting |  | none | none | none | none | none | none | none | none | none | none | 0 | 0 | 10 |
-| Age of Sigmar: Soulbound | setting |  | aos_soulbound_powers (401) | aos_soulbound_artifacts (230) | missing | missing | aos_soulbound_creatures (264) | aos_soulbound_places (210) | aos_soulbound_institutions (175) | missing | missing | aos_soulbound_rules (94) | 6 | 4 | 0 |
+| Warhammer: the Old World (WFRP 4e Up in Arms; core not yet read) | setting |  | wfrp4e_powers (136) | wfrp4e_artifacts (287) | missing | missing | wfrp4e_creatures (197) | wfrp4e_places (176) | wfrp4e_institutions (167) | missing | missing | wfrp4e_rules (83) | 6 | 4 | 0 |
+| Warhammer Age of Sigmar: the Mortal Realms (Soulbound) | setting |  | aos_soulbound_powers (401) | aos_soulbound_artifacts (230) | missing | missing | aos_soulbound_creatures (264) | aos_soulbound_places (210) | aos_soulbound_institutions (175) | missing | missing | aos_soulbound_rules (94) | 6 | 4 | 0 |
 | Stars Without Number (Revised, free edition) | setting |  | stars_without_number_powers (139) | stars_without_number_artifacts (427) | missing | missing | stars_without_number_creatures (80) | stars_without_number_places (52) | stars_without_number_institutions (42) | missing | missing | stars_without_number_rules (169) | 6 | 4 | 0 |
 | Forgotten Realms (3e campaign setting and Grand History) | setting |  | forgotten_realms_powers (638) | forgotten_realms_artifacts (530) | missing | missing | forgotten_realms_creatures (868) | forgotten_realms_places (1234) | forgotten_realms_institutions (531) | missing | missing | forgotten_realms_rules (153) | 6 | 4 | 0 |
 | Golarion (Inner Sea World Guide and Lost Omens World Guide) | setting |  | golarion_powers (107) | golarion_artifacts (49) | missing | missing | golarion_creatures (201) | golarion_places (407) | golarion_institutions (165) | missing | missing | golarion_rules (37) | 6 | 4 | 0 |
 | The Dark Eye 5e (Aventuria) | setting |  | the_dark_eye_powers (523) | the_dark_eye_artifacts (235) | missing | missing | the_dark_eye_creatures (212) | the_dark_eye_places (145) | the_dark_eye_institutions (116) | missing | missing | the_dark_eye_rules (189) | 6 | 4 | 0 |
-| Cyberpunk (RED and 2020) | setting |  | cyberpunk_powers (3) | cyberpunk_artifacts (18) | missing | missing | missing | cyberpunk_places (21) | cyberpunk_institutions (19) | missing | missing | cyberpunk_rules (3) | 5 | 5 | 0 |
+| Cyberpunk (RED and 2020) | setting |  | cyberpunk_powers (261) | cyberpunk_artifacts (523) | missing | missing | cyberpunk_creatures (67) | cyberpunk_places (264) | cyberpunk_institutions (262) | missing | missing | cyberpunk_rules (147) | 6 | 4 | 0 |
 | Planescape (Adventures in the Multiverse, 2023) | setting |  | planescape_powers (17) | planescape_artifacts (47) | missing | missing | planescape_creatures (245) | planescape_places (158) | planescape_institutions (46) | missing | missing | planescape_rules (49) | 6 | 4 | 0 |
 | Spelljammer (Adventures in Space) | setting |  | spelljammer_powers (155) | spelljammer_artifacts (115) | missing | missing | spelljammer_creatures (187) | spelljammer_places (82) | spelljammer_institutions (33) | missing | missing | spelljammer_rules (55) | 6 | 4 | 0 |
 | Eberron (Rising from the Last War) | setting |  | eberron_powers (400) | eberron_artifacts (357) | missing | missing | eberron_creatures (398) | eberron_places (438) | eberron_institutions (289) | missing | missing | eberron_rules (125) | 6 | 4 | 0 |
@@ -583,7 +599,7 @@
 | Strixhaven (Curriculum of Chaos) | setting |  | strixhaven_powers (277) | strixhaven_artifacts (117) | missing | missing | strixhaven_creatures (158) | strixhaven_places (58) | strixhaven_institutions (42) | missing | missing | strixhaven_rules (37) | 6 | 4 | 0 |
 | Mystara (Gazetteers GAZ1-GAZ14) | setting |  | mystara_powers (542) | mystara_artifacts (542) | missing | missing | mystara_creatures (641) | mystara_places (792) | mystara_institutions (510) | missing | missing | mystara_rules (374) | 6 | 4 | 0 |
 
-109 worlds, 1090 cells: 180 ledgered, 743 missing with a source, 167 none.
+109 worlds, 1090 cells: 188 ledgered, 745 missing with a source, 157 none.
 
 ### Next cells
 
@@ -591,33 +607,33 @@
 
 | # | World | Corpus | Shared slugs | Weight | Source |
 | ---: | --- | --- | ---: | ---: | --- |
-| 1 | harry-potter | places | 24 | 590 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
-| 2 | legendary-mechanic | potions_and_recipes | 22 | 673 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 3 | lotm | materials | 22 | 643 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
-| 4 | shadow-slave | potions_and_recipes | 21 | 646 | paid reader claims 2026-11-01-ss |
-| 5 | circle-of-inevitability | potions_and_recipes | 20 | 677 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
-| 6 | fated-villain | potions_and_recipes | 20 | 663 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 7 | mother-of-learning | potions_and_recipes | 20 | 616 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 8 | reverend-insanity | potions_and_recipes | 20 | 514 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
-| 9 | regressors-tale | potions_and_recipes | 19 | 637 | paid reader claims 2026-11-01-rtoc |
-| 10 | aos-soulbound | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
-| 11 | eberron | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/eberron (local, gitignored) |
-| 12 | forgotten-realms | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
-| 13 | numenera | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/numenera (local, gitignored) |
-| 14 | planescape | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/planescape (local, gitignored) |
-| 15 | strixhaven | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/strixhaven (local, gitignored) |
-| 16 | the-strange | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-strange (local, gitignored) |
-| 17 | theros | potions_and_recipes | 17 | 633 | chapter text docs/research/tabletop-settings-2026-11-17/private/theros (local, gitignored) |
-| 18 | speedrunning-multiverse | potions_and_recipes | 17 | 462 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 19 | mystara | potions_and_recipes | 16 | 607 | chapter text docs/research/tabletop-settings-2026-11-17/private/mystara (local, gitignored) |
-| 20 | ravenloft | potions_and_recipes | 16 | 607 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravenloft (local, gitignored) |
-| 21 | wildemount | potions_and_recipes | 16 | 607 | chapter text docs/research/tabletop-settings-2026-11-17/private/wildemount (local, gitignored) |
-| 22 | eclipse-phase | potions_and_recipes | 16 | 592 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
-| 23 | worm | artifacts | 16 | 317 | paid reader claims 2026-11-01-worm |
-| 24 | spelljammer | potions_and_recipes | 15 | 587 | chapter text docs/research/tabletop-settings-2026-11-17/private/spelljammer (local, gitignored) |
-| 25 | the-dark-eye | potions_and_recipes | 15 | 587 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-dark-eye (local, gitignored) |
+| 1 | harry-potter | places | 24 | 620 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
+| 2 | legendary-mechanic | potions_and_recipes | 22 | 706 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 3 | lotm | materials | 22 | 674 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
+| 4 | shadow-slave | potions_and_recipes | 21 | 681 | paid reader claims 2026-11-01-ss |
+| 5 | circle-of-inevitability | potions_and_recipes | 20 | 712 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
+| 6 | fated-villain | potions_and_recipes | 20 | 695 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 7 | mother-of-learning | potions_and_recipes | 20 | 644 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 8 | reverend-insanity | potions_and_recipes | 20 | 540 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
+| 9 | regressors-tale | potions_and_recipes | 19 | 669 | paid reader claims 2026-11-01-rtoc |
+| 10 | aos-soulbound | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
+| 11 | eberron | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/eberron (local, gitignored) |
+| 12 | forgotten-realms | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
+| 13 | numenera | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/numenera (local, gitignored) |
+| 14 | planescape | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/planescape (local, gitignored) |
+| 15 | strixhaven | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/strixhaven (local, gitignored) |
+| 16 | the-strange | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-strange (local, gitignored) |
+| 17 | theros | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/theros (local, gitignored) |
+| 18 | warhammer-40k | potions_and_recipes | 17 | 670 | wiki dump ~/.codex/research/wikis/warhammer40k.fandom.com/dump |
+| 19 | speedrunning-multiverse | potions_and_recipes | 17 | 481 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 20 | mystara | potions_and_recipes | 16 | 642 | chapter text docs/research/tabletop-settings-2026-11-17/private/mystara (local, gitignored) |
+| 21 | ravenloft | potions_and_recipes | 16 | 642 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravenloft (local, gitignored) |
+| 22 | wildemount | potions_and_recipes | 16 | 642 | chapter text docs/research/tabletop-settings-2026-11-17/private/wildemount (local, gitignored) |
+| 23 | eclipse-phase | potions_and_recipes | 16 | 627 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
+| 24 | worm | artifacts | 16 | 327 | paid reader claims 2026-11-01-worm |
+| 25 | spelljammer | potions_and_recipes | 15 | 620 | chapter text docs/research/tabletop-settings-2026-11-17/private/spelljammer (local, gitignored) |
 
-89 worlds have a next cell and 743 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
+90 worlds have a next cell and 745 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
 
 ## Held-out canon scoring (PC72, tuned on / held out / matched)
 
@@ -655,6 +671,7 @@
 | coc_spells | 0 | 0 | | | | | none yet |
 | creatures | 0 | 0 | | | | | none yet |
 | cyberpunk_artifacts | 0 | 0 | | | | | none yet |
+| cyberpunk_creatures | 0 | 0 | | | | | none yet |
 | cyberpunk_institutions | 0 | 0 | | | | | none yet |
 | cyberpunk_places | 0 | 0 | | | | | none yet |
 | cyberpunk_powers | 0 | 0 | | | | | none yet |
@@ -828,6 +845,13 @@
 | warhammer_40k_institutions | 0 | 0 | | | | | none yet |
 | warhammer_40k_places | 0 | 0 | | | | | none yet |
 | warhammer_40k_powers | 0 | 0 | | | | | none yet |
+| warhammer_40k_rules | 0 | 0 | | | | | none yet |
+| wfrp4e_artifacts | 0 | 0 | | | | | none yet |
+| wfrp4e_creatures | 0 | 0 | | | | | none yet |
+| wfrp4e_institutions | 0 | 0 | | | | | none yet |
+| wfrp4e_places | 0 | 0 | | | | | none yet |
+| wfrp4e_powers | 0 | 0 | | | | | none yet |
+| wfrp4e_rules | 0 | 0 | | | | | none yet |
 | wildemount_artifacts | 0 | 0 | | | | | none yet |
 | wildemount_creatures | 0 | 0 | | | | | none yet |
 | wildemount_institutions | 0 | 0 | | | | | none yet |
@@ -1076,6 +1100,7 @@
 | fated_villain_artifacts | effect-unknown | 180 |
 | legendary_mechanic_artifacts | effect-unknown | 179 |
 | gu_generated | grammar-verb-object | 177 |
+| warhammer_40k_powers | effect-unknown | 172 |
 | numenera_artifacts | area-field | 151 |
 | ars_magica_items | item-bound-power | 150 |
 | pf1_items | conceal-or-sense | 149 |
@@ -1108,13 +1133,16 @@
 | eberron_powers | effect-unknown | 91 |
 | pf1_spells | form-transformation | 89 |
 | ars_magica_spells | area-field | 88 |
+| warhammer_40k_powers | area-field | 88 |
 | pf1_spells | item-bound-power | 86 |
 | numenera_powers | area-field | 85 |
+| warhammer_40k_powers | form-transformation | 85 |
 | numenera_powers | form-transformation | 84 |
 | pf1_items | protection-field | 84 |
 | pf1_spells | protection-field | 84 |
 | lotm_powers | effect-unknown | 82 |
 | eberron_artifacts | effect-unknown | 80 |
+| warhammer_40k_artifacts | effect-unknown | 79 |
 | hp_objects | effect-unknown | 77 |
 | ars_magica_powers | item-bound-power | 77 |
 | the_strange_artifacts | item-bound-power | 77 |
@@ -1134,6 +1162,7 @@
 | forgotten_realms_artifacts | item-bound-power | 69 |
 | numenera_powers | effect-unknown | 67 |
 | numenera_creatures | form-transformation | 67 |
+| warhammer_40k_artifacts | area-field | 66 |
 | legendary_mechanic_powers | effect-unknown | 66 |
 | ars_magica_powers | ingredient-properties | 65 |
 | lotm_powers | form-transformation | 64 |
@@ -1156,6 +1185,8 @@
 | ars_magica_conditions | negative-effect-drift | 58 |
 | numenera_powers | mind-binding | 57 |
 | shadow_slave_powers | area-field | 55 |
+| warhammer_40k_artifacts | item-bound-power | 54 |
+| warhammer_40k_powers | mind-binding | 54 |
 | aos_soulbound_powers | area-field | 53 |
 | aos_soulbound_powers | effect-unknown | 53 |
 | theros_powers | effect-unknown | 53 |
@@ -1184,6 +1215,7 @@
 | ars_magica_spells | item-bound-power | 45 |
 | numenera_artifacts | material-row | 45 |
 | lotm_powers | mind-binding | 45 |
+| warhammer_40k_creatures | effect-unknown | 44 |
 | dnd5e_2014_creatures | form-transformation | 44 |
 | dnd5e_2014_powers | negative-effect-drift | 44 |
 | ars_magica_spells | power-interaction | 44 |
@@ -1203,6 +1235,7 @@
 | mystara_powers | mind-binding | 41 |
 | ars_magica_powers | plant-or-creature-target | 41 |
 | dnd5e_2014_powers | power-granting | 41 |
+| warhammer_40k_powers | divination | 40 |
 | lotm_powers | divination-fate | 40 |
 | eclipse_phase_artifacts | effect-unknown | 40 |
 | eberron_artifacts | item-bound-power | 40 |
@@ -1238,6 +1271,7 @@
 | eclipse_phase_powers | soul-state | 35 |
 | mother_of_learning_powers | soul-state | 35 |
 | pf1_spells | dimension-travel | 34 |
+| wfrp4e_powers | effect-unknown | 34 |
 | fated_villain_powers | item-bound-power | 34 |
 | hp_creatures | venom-or-disease | 34 |
 | dnd5e_2014_class_features | conceal-or-sense | 33 |
@@ -1305,6 +1339,7 @@
 | dnd5e_2014_class_features | area-field | 27 |
 | dnd_srd_spells | conceal-or-sense | 27 |
 | circle_of_inevitability_powers | divination-fate | 27 |
+| warhammer_40k_creatures | form-transformation | 27 |
 | wildemount_creatures | form-transformation | 27 |
 | wildemount_artifacts | item-bound-power | 27 |
 | dnd5e_2014_creatures | mind-state | 27 |
@@ -1320,6 +1355,7 @@
 | ars_magica_creatures | form-transformation | 26 |
 | eberron_creatures | form-transformation | 26 |
 | circle_of_inevitability_powers | mind-binding | 26 |
+| warhammer_40k_rules | negative-effect-drift | 26 |
 | dnd5e_2014_class_features | power-granting | 26 |
 | shadow_slave_powers | power-interaction | 26 |
 | ars_magica_powers | projection-body | 26 |
@@ -1331,11 +1367,14 @@
 | speedrunning_multiverse_artifacts | effect-unknown | 25 |
 | spelljammer_powers | effect-unknown | 25 |
 | numenera_artifacts | familiar-summon | 25 |
+| warhammer_40k_rules | form-transformation | 25 |
 | dnd5e_2014_surge_tables | item-bound-power | 25 |
 | pf1_items | object-surface | 25 |
 | ars_magica_powers | soul-state | 25 |
+| warhammer_40k_rules | soul-state | 25 |
 | cypher_powers | area-field | 24 |
 | hp_potions | body-form | 24 |
+| cyberpunk_powers | effect-unknown | 24 |
 | mother_of_learning_powers | effect-unknown | 24 |
 | circle_of_inevitability_powers | form-transformation | 24 |
 | dnd_srd_items | luck-mechanism | 24 |
@@ -1343,6 +1382,7 @@
 | ravenloft_powers | mind-binding | 24 |
 | ars_magica_spells | negative-effect-drift | 24 |
 | dnd_srd_powers | negative-effect-drift | 24 |
+| warhammer_40k_powers | power-interaction | 24 |
 | aos_soulbound_creatures | soul-state | 24 |
 | eclipse_phase_creatures | soul-state | 24 |
 | pf1_spells | soul-state | 24 |
@@ -1366,6 +1406,8 @@
 | pf1_conditions | mind-state | 22 |
 | dnd5e_2014_creatures | plant-or-creature-target | 22 |
 | dnd5e_2014_surge_tables | portal-space | 22 |
+| warhammer_40k_powers | soul-state | 22 |
+| warhammer_40k_places | area-field | 21 |
 | ars_magica_conditions | body-form | 21 |
 | dnd5e_2014_surge_tables | body-form | 21 |
 | dnd5e_2014_creatures | construct-upkeep | 21 |
@@ -1375,6 +1417,7 @@
 | strixhaven_artifacts | effect-unknown | 21 |
 | ars_magica_creatures | ingredient-properties | 21 |
 | pf1_items | ingredient-properties | 21 |
+| cyberpunk_powers | item-bound-power | 21 |
 | cypher_powers | item-bound-power | 21 |
 | eberron_powers | item-bound-power | 21 |
 | mystara_powers | item-bound-power | 21 |
@@ -1431,6 +1474,7 @@
 | numenera_rules | spatial-storage | 19 |
 | eclipse_phase_rules | area-field | 18 |
 | numenera_places | area-field | 18 |
+| warhammer_40k_rules | area-field | 18 |
 | wildemount_powers | area-field | 18 |
 | dnd5e_2014_powers | body-form | 18 |
 | dnd5e_2014_class_features | form-transformation | 18 |
@@ -1443,6 +1487,7 @@
 | dnd5e_2014_class_features | mind-binding | 18 |
 | eclipse_phase_rules | mind-binding | 18 |
 | ravenloft_creatures | mind-binding | 18 |
+| warhammer_40k_creatures | mind-binding | 18 |
 | dnd5e_2014_spells | mind-state | 18 |
 | ars_magica_spells | object-surface | 18 |
 | the_strange_powers | power-interaction | 18 |
@@ -1465,6 +1510,7 @@
 | wildemount_creatures | soul-state | 17 |
 | hp_objects | spatial-storage | 17 |
 | aos_soulbound_artifacts | area-field | 16 |
+| cyberpunk_artifacts | area-field | 16 |
 | ravenloft_powers | area-field | 16 |
 | shadow_slave_creatures | area-field | 16 |
 | ars_magica_spells | containment-rule | 16 |
@@ -1472,8 +1518,10 @@
 | dnd5e_2014_items | creature-control | 16 |
 | pf1_items | dimension-travel | 16 |
 | cypher_powers | divination-fate | 16 |
+| cyberpunk_artifacts | effect-unknown | 16 |
 | golarion_creatures | effect-unknown | 16 |
 | strixhaven_powers | familiar-summon | 16 |
+| cyberpunk_powers | form-transformation | 16 |
 | shadow_slave_creatures | form-transformation | 16 |
 | the_strange_places | form-transformation | 16 |
 | the_strange_powers | item-bound-power | 16 |
@@ -1535,10 +1583,12 @@
 | mystara_powers | familiar-summon | 14 |
 | hp_creatures | form-transformation | 14 |
 | the_strange_rules | form-transformation | 14 |
+| warhammer_40k_artifacts | form-transformation | 14 |
 | hp_ingredients | ingredient-effect-outside-axis-set | 14 |
 | hp_ingredients | ingredient-recipe-effect-unknown | 14 |
 | aos_soulbound_artifacts | item-bound-power | 14 |
 | aos_soulbound_powers | item-bound-power | 14 |
+| cyberpunk_artifacts | item-bound-power | 14 |
 | dnd5e_2014_class_features | item-bound-power | 14 |
 | the_dark_eye_rules | item-bound-power | 14 |
 | the_strange_rules | item-state | 14 |
@@ -1548,6 +1598,7 @@
 | numenera_creatures | negative-effect-drift | 14 |
 | hp_creatures | power-interaction | 14 |
 | the_dark_eye_powers | power-interaction | 14 |
+| warhammer_40k_artifacts | power-interaction | 14 |
 | wildemount_creatures | power-transfer | 14 |
 | ars_magica_conditions | protection-field | 14 |
 | cypher_items | protection-field | 14 |
@@ -1555,6 +1606,7 @@
 | eberron_rules | soul-state | 14 |
 | legendary_mechanic_powers | soul-state | 14 |
 | lotm_powers | soul-state | 14 |
+| warhammer_40k_creatures | soul-state | 14 |
 | numenera_creatures | spatial-storage | 14 |
 | aos_soulbound_creatures | area-field | 13 |
 | ars_magica_creatures | area-field | 13 |
@@ -1562,6 +1614,7 @@
 | forgotten_realms_places | area-field | 13 |
 | mystara_artifacts | area-field | 13 |
 | strixhaven_powers | area-field | 13 |
+| wfrp4e_artifacts | area-field | 13 |
 | pf1_items | blueprint-craft | 13 |
 | pf1_spells | blueprint-craft | 13 |
 | pf1_powers | body-form | 13 |
@@ -1580,6 +1633,8 @@
 | the_dark_eye_powers | item-bound-power | 13 |
 | dnd5e_2014_class_features | luck-mechanism | 13 |
 | fate_powers | luck-mechanism | 13 |
+| warhammer_40k_artifacts | mind-binding | 13 |
+| warhammer_40k_rules | mind-binding | 13 |
 | dnd5e_2014_class_features | mind-state | 13 |
 | lotm_artifacts | negative-effect-drift | 13 |
 | numenera_rules | negative-effect-drift | 13 |
@@ -1604,6 +1659,7 @@
 | dnd_srd_spells | divination-fate | 12 |
 | stars_without_number_powers | effect-unknown | 12 |
 | the_dark_eye_artifacts | effect-unknown | 12 |
+| wfrp4e_artifacts | effect-unknown | 12 |
 | mystara_creatures | familiar-summon | 12 |
 | eclipse_phase_artifacts | form-transformation | 12 |
 | pf1_spells | formation-field | 12 |
@@ -1652,6 +1708,7 @@
 | dnd5e_2014_powers | familiar-summon | 11 |
 | forgotten_realms_powers | familiar-summon | 11 |
 | the_strange_powers | familiar-summon | 11 |
+| warhammer_40k_creatures | familiar-summon | 11 |
 | theros_creatures | form-transformation | 11 |
 | theros_powers | form-transformation | 11 |
 | ars_magica_conditions | ingredient-properties | 11 |
@@ -1660,6 +1717,7 @@
 | speedrunning_multiverse_powers | item-bound-power | 11 |
 | stars_without_number_artifacts | item-bound-power | 11 |
 | the_strange_artifacts | item-state | 11 |
+| warhammer_40k_artifacts | item-state | 11 |
 | pf1_items | memory-transfer | 11 |
 | brp_conditions | mind-state | 11 |
 | gu_kinds | mind-state | 11 |
@@ -1667,6 +1725,7 @@
 | dnd5e_2014_powers | object-surface | 11 |
 | numenera_rules | power-interaction | 11 |
 | forgotten_realms_powers | power-transfer | 11 |
+| warhammer_40k_powers | power-transfer | 11 |
 | blades_powers | protection-field | 11 |
 | brp_powers | protection-field | 11 |
 | dnd_srd_powers | protection-field | 11 |
@@ -1693,6 +1752,8 @@
 | dnd5e_2014_powers | divination-fate | 10 |
 | mother_of_learning_powers | divination-fate | 10 |
 | theros_artifacts | effect-unknown | 10 |
+| warhammer_40k_rules | effect-unknown | 10 |
+| wfrp4e_creatures | effect-unknown | 10 |
 | dnd_srd_spells | familiar-summon | 10 |
 | fate_powers | familiar-summon | 10 |
 | lotm_artifacts | form-transformation | 10 |
@@ -1705,10 +1766,12 @@
 | eclipse_phase_institutions | mind-binding | 10 |
 | hp_objects | mind-binding | 10 |
 | theros_creatures | mind-binding | 10 |
+| warhammer_40k_powers | negative-effect-drift | 10 |
 | cypher_powers | object-surface | 10 |
 | fate_powers | object-surface | 10 |
 | pf1_items | portal-space | 10 |
 | circle_of_inevitability_powers | power-interaction | 10 |
+| cyberpunk_artifacts | power-interaction | 10 |
 | lotm_artifacts | power-interaction | 10 |
 | ravnica_powers | power-interaction | 10 |
 | numenera_artifacts | power-transfer | 10 |
@@ -1725,6 +1788,7 @@
 | brp_spells | area-field | 9 |
 | eberron_artifacts | area-field | 9 |
 | golarion_places | area-field | 9 |
+| warhammer_40k_creatures | area-field | 9 |
 | wildemount_artifacts | area-field | 9 |
 | legendary_mechanic_powers | blueprint-craft | 9 |
 | ars_magica_spells | body-code-decay | 9 |
@@ -1755,6 +1819,7 @@
 | cypher_items | item-bound-power | 9 |
 | fate_powers | item-bound-power | 9 |
 | eclipse_phase_artifacts | item-state | 9 |
+| warhammer_40k_rules | item-state | 9 |
 | shadow_slave_artifacts | material-row | 9 |
 | fated_villain_powers | mind-binding | 9 |
 | legendary_mechanic_powers | mind-binding | 9 |
@@ -1782,6 +1847,7 @@
 | planescape_creatures | soul-state | 9 |
 | theros_places | soul-state | 9 |
 | theros_powers | soul-state | 9 |
+| wfrp4e_creatures | soul-state | 9 |
 | eclipse_phase_artifacts | spatial-storage | 9 |
 | golarion_places | spatial-storage | 9 |
 | numenera_powers | spatial-storage | 9 |
@@ -1793,21 +1859,26 @@
 | brp_items | area-field | 8 |
 | planescape_rules | area-field | 8 |
 | theros_creatures | area-field | 8 |
+| wfrp4e_powers | area-field | 8 |
 | pf1_spells | body-door | 8 |
 | pf1_items | bond-slots | 8 |
 | blades_powers | conceal-or-sense | 8 |
 | cypher_spells | conceal-or-sense | 8 |
+| warhammer_40k_rules | containment-rule | 8 |
 | dnd_srd_powers | dimension-travel | 8 |
 | dnd_srd_spells | dimension-travel | 8 |
 | mother_of_learning_powers | dimension-travel | 8 |
 | pf1_powers | dimension-travel | 8 |
 | spelljammer_powers | divination | 8 |
+| warhammer_40k_artifacts | divination | 8 |
 | fate_powers | divination-fate | 8 |
 | planescape_powers | effect-unknown | 8 |
 | ravnica_powers | effect-unknown | 8 |
 | the_dark_eye_creatures | effect-unknown | 8 |
 | the_strange_places | effect-unknown | 8 |
 | strixhaven_creatures | familiar-summon | 8 |
+| warhammer_40k_powers | familiar-summon | 8 |
+| cyberpunk_artifacts | form-transformation | 8 |
 | legendary_mechanic_powers | form-transformation | 8 |
 | ars_magica_powers | formation-field | 8 |
 | hp_objects | formation-field | 8 |
@@ -1837,6 +1908,8 @@
 | a_novel_concept_powers | power-interaction | 8 |
 | brp_powers | power-interaction | 8 |
 | ravenloft_powers | power-interaction | 8 |
+| warhammer_40k_creatures | power-interaction | 8 |
+| warhammer_40k_rules | power-interaction | 8 |
 | cypher_powers | power-transfer | 8 |
 | eberron_powers | power-transfer | 8 |
 | pf1_items | projection-body | 8 |
@@ -1846,6 +1919,7 @@
 | ars_magica_conditions | soul-binding | 8 |
 | dnd5e_2014_creatures | soul-state | 8 |
 | ravenloft_places | soul-state | 8 |
+| warhammer_40k_artifacts | soul-state | 8 |
 | wildemount_rules | soul-state | 8 |
 | dnd5e_2014_items | spatial-storage | 8 |
 | mystara_artifacts | spatial-storage | 8 |
@@ -1888,7 +1962,9 @@
 | dnd_srd_creatures | form-transformation | 7 |
 | eclipse_phase_institutions | form-transformation | 7 |
 | golarion_creatures | form-transformation | 7 |
+| wfrp4e_powers | form-transformation | 7 |
 | hp_ingredients | ingredient-derived-below-confidence | 7 |
+| cyberpunk_creatures | item-bound-power | 7 |
 | dnd5e_2014_spells | item-bound-power | 7 |
 | the_strange_rules | item-bound-power | 7 |
 | mystara_rules | item-state | 7 |
@@ -1897,15 +1973,18 @@
 | numenera_powers | material-row | 7 |
 | you_have_died_again_powers | memory-transfer | 7 |
 | ars_magica_conditions | mind-binding | 7 |
+| cyberpunk_rules | mind-binding | 7 |
 | cypher_spells | mind-binding | 7 |
 | dnd_srd_creatures | mind-binding | 7 |
 | mystara_artifacts | mind-binding | 7 |
 | planescape_creatures | mind-binding | 7 |
 | the_strange_places | mind-binding | 7 |
+| warhammer_40k_institutions | mind-binding | 7 |
 | ars_magica_spells | mind-ennoblement | 7 |
 | mm3e_powers | mind-state | 7 |
 | ars_magica_creatures | negative-effect-drift | 7 |
 | numenera_powers | negative-effect-drift | 7 |
+| wfrp4e_powers | negative-effect-drift | 7 |
 | dnd5e_2014_creatures | object-surface | 7 |
 | dnd_srd_spells | object-surface | 7 |
 | pf1_spells | place-release | 7 |
@@ -1981,13 +2060,18 @@
 | golarion_artifacts | item-bound-power | 6 |
 | golarion_powers | item-bound-power | 6 |
 | hp_objects | item-state | 6 |
+| warhammer_40k_powers | item-state | 6 |
 | aos_soulbound_powers | material-row | 6 |
+| warhammer_40k_artifacts | material-row | 6 |
 | ars_magica_spells | memory-erasure | 6 |
+| cyberpunk_artifacts | mind-binding | 6 |
+| cyberpunk_powers | mind-binding | 6 |
 | dnd_srd_powers | mind-binding | 6 |
 | mystara_rules | mind-binding | 6 |
 | shadow_slave_powers | mind-binding | 6 |
 | spelljammer_powers | mind-binding | 6 |
 | strixhaven_creatures | mind-binding | 6 |
+| warhammer_40k_places | mind-binding | 6 |
 | dnd_srd_conditions | mind-state | 6 |
 | dnd_srd_conditions | negative-effect-drift | 6 |
 | eclipse_phase_powers | negative-effect-drift | 6 |
@@ -2038,11 +2122,14 @@
 | mother_of_learning_artifacts | spatial-storage | 6 |
 | regressors_tale_artifacts | spatial-storage | 6 |
 | the_strange_creatures | spatial-storage | 6 |
+| warhammer_40k_artifacts | spatial-storage | 6 |
 | ars_magica_conditions | speech-penalty | 6 |
 | pf1_spells | system-interface | 6 |
 | ars_magica_spells | time-manipulation | 6 |
+| warhammer_40k_powers | time-stop | 6 |
 | circle_of_inevitability_powers | vow-cost | 6 |
 | dnd5e_2014_class_features | vow-cost | 6 |
+| cyberpunk_rules | area-field | 5 |
 | eberron_creatures | area-field | 5 |
 | golarion_powers | area-field | 5 |
 | lotm_artifacts | area-field | 5 |
@@ -2079,6 +2166,7 @@
 | theros_rules | divination | 5 |
 | ars_magica_conditions | divination-fate | 5 |
 | aos_soulbound_creatures | effect-unknown | 5 |
+| cyberpunk_creatures | effect-unknown | 5 |
 | eberron_places | effect-unknown | 5 |
 | eclipse_phase_creatures | effect-unknown | 5 |
 | numenera_places | effect-unknown | 5 |
@@ -2134,6 +2222,7 @@
 | pf1_spells | power-granting | 5 |
 | aos_soulbound_artifacts | power-interaction | 5 |
 | brp_items | power-interaction | 5 |
+| cyberpunk_powers | power-interaction | 5 |
 | cypher_spells | power-interaction | 5 |
 | dnd_srd_spells | power-interaction | 5 |
 | forgotten_realms_creatures | power-interaction | 5 |
@@ -2155,9 +2244,12 @@
 | brp_items | protection-field | 5 |
 | dnd_srd_class_features | revival-on-death | 5 |
 | regressors_tale_artifacts | soul-binding | 5 |
+| cyberpunk_artifacts | soul-state | 5 |
 | mystara_places | soul-state | 5 |
 | numenera_places | soul-state | 5 |
 | strixhaven_powers | soul-state | 5 |
+| warhammer_40k_institutions | soul-state | 5 |
+| warhammer_40k_places | soul-state | 5 |
 | aos_soulbound_artifacts | spatial-storage | 5 |
 | ars_magica_powers | spatial-storage | 5 |
 | dnd5e_2014_powers | spatial-storage | 5 |
@@ -2174,6 +2266,7 @@
 | worm_powers | time-manipulation | 5 |
 | numenera_powers | time-stop | 5 |
 | numenera_rules | time-stop | 5 |
+| warhammer_40k_rules | time-stop | 5 |
 | ironsworn_powers | vow-cost | 5 |
 | ars_magica_powers | world-travel | 5 |
 | ars_magica_spells | world-travel | 5 |
@@ -2187,6 +2280,7 @@
 | mystara_creatures | area-field | 4 |
 | ravnica_powers | area-field | 4 |
 | stars_without_number_powers | area-field | 4 |
+| warhammer_40k_institutions | area-field | 4 |
 | cypher_powers | blueprint-craft | 4 |
 | ars_magica_creatures | body-code-decay | 4 |
 | brp_conditions | body-code-decay | 4 |
@@ -2234,9 +2328,12 @@
 | ravenloft_powers | familiar-summon | 4 |
 | solo_leveling_powers | familiar-summon | 4 |
 | the_dark_eye_rules | familiar-summon | 4 |
+| warhammer_40k_artifacts | familiar-summon | 4 |
+| warhammer_40k_rules | familiar-summon | 4 |
 | wildemount_powers | familiar-summon | 4 |
 | ars_magica_conditions | form-transformation | 4 |
 | brp_powers | form-transformation | 4 |
+| cyberpunk_creatures | form-transformation | 4 |
 | eberron_places | form-transformation | 4 |
 | forgotten_realms_institutions | form-transformation | 4 |
 | golarion_powers | form-transformation | 4 |
@@ -2262,6 +2359,7 @@
 | forgotten_realms_rules | item-bound-power | 4 |
 | stars_without_number_powers | item-bound-power | 4 |
 | theros_artifacts | item-bound-power | 4 |
+| warhammer_40k_rules | item-bound-power | 4 |
 | you_have_died_again_powers | item-bound-power | 4 |
 | forgotten_realms_artifacts | item-state | 4 |
 | mystara_artifacts | item-state | 4 |
@@ -2283,6 +2381,7 @@
 | hp_creatures | mind-binding | 4 |
 | ravenloft_places | mind-binding | 4 |
 | ravenloft_rules | mind-binding | 4 |
+| wfrp4e_powers | mind-binding | 4 |
 | wildemount_institutions | mind-binding | 4 |
 | dnd5e_2014_powers | mind-ennoblement | 4 |
 | ars_magica_items | mind-state | 4 |
@@ -2291,6 +2390,8 @@
 | ironsworn_powers | mind-state | 4 |
 | aos_soulbound_powers | negative-effect-drift | 4 |
 | aos_soulbound_rules | negative-effect-drift | 4 |
+| cyberpunk_artifacts | negative-effect-drift | 4 |
+| cyberpunk_rules | negative-effect-drift | 4 |
 | cypher_powers | negative-effect-drift | 4 |
 | dnd5e_2014_items | negative-effect-drift | 4 |
 | eberron_powers | negative-effect-drift | 4 |
@@ -2313,6 +2414,7 @@
 | fated_villain_artifacts | power-interaction | 4 |
 | pf1_powers | power-interaction | 4 |
 | the_strange_artifacts | power-interaction | 4 |
+| wfrp4e_powers | power-interaction | 4 |
 | wildemount_creatures | power-interaction | 4 |
 | circle_of_inevitability_powers | power-transfer | 4 |
 | eclipse_phase_powers | power-transfer | 4 |
@@ -2346,6 +2448,8 @@
 | forgotten_realms_rules | spatial-storage | 4 |
 | mystara_rules | spatial-storage | 4 |
 | ravenloft_places | spatial-storage | 4 |
+| warhammer_40k_places | spatial-storage | 4 |
+| warhammer_40k_powers | spatial-storage | 4 |
 | ars_magica_spells | speech-penalty | 4 |
 | dnd5e_2014_powers | spirit-contract-judgement | 4 |
 | fate_conditions | sponsorship-contract | 4 |
@@ -2358,6 +2462,7 @@
 | pf1_spells | time-manipulation | 4 |
 | the_strange_powers | time-stop | 4 |
 | the_strange_rules | time-stop | 4 |
+| warhammer_40k_artifacts | time-stop | 4 |
 | pf1_spells | tinker-device | 4 |
 | shadow_slave_creatures | venom-or-disease | 4 |
 | shadow_slave_powers | vow-cost | 4 |
@@ -2405,6 +2510,7 @@
 | spelljammer_creatures | containment-rule | 3 |
 | the_strange_artifacts | containment-rule | 3 |
 | theros_creatures | containment-rule | 3 |
+| warhammer_40k_artifacts | containment-rule | 3 |
 | wildemount_rules | containment-rule | 3 |
 | brp_creatures | creature-control | 3 |
 | fate_creatures | creature-control | 3 |
@@ -2421,6 +2527,7 @@
 | spelljammer_creatures | divination | 3 |
 | stars_without_number_artifacts | divination | 3 |
 | the_strange_creatures | divination | 3 |
+| wfrp4e_powers | divination | 3 |
 | wildemount_artifacts | divination | 3 |
 | ars_magica_items | divination-fate | 3 |
 | pf1_powers | divination-fate | 3 |
@@ -2437,7 +2544,6 @@
 | spelljammer_creatures | familiar-summon | 3 |
 | spelljammer_powers | familiar-summon | 3 |
 | theros_powers | familiar-summon | 3 |
-| cyberpunk_artifacts | form-transformation | 3 |
 | cypher_items | form-transformation | 3 |
 | cypher_spells | form-transformation | 3 |
 | dnd5e_2014_backgrounds_species | form-transformation | 3 |
@@ -2448,6 +2554,8 @@
 | ravenloft_rules | form-transformation | 3 |
 | speedrunning_multiverse_artifacts | form-transformation | 3 |
 | stars_without_number_creatures | form-transformation | 3 |
+| warhammer_40k_institutions | form-transformation | 3 |
+| wfrp4e_creatures | form-transformation | 3 |
 | aos_soulbound_powers | formation-field | 3 |
 | fated_villain_artifacts | formation-field | 3 |
 | numenera_artifacts | formation-field | 3 |
@@ -2466,9 +2574,11 @@
 | spelljammer_creatures | item-bound-power | 3 |
 | spelljammer_powers | item-bound-power | 3 |
 | strixhaven_creatures | item-bound-power | 3 |
+| warhammer_40k_powers | item-bound-power | 3 |
 | aos_soulbound_artifacts | item-state | 3 |
 | aos_soulbound_powers | item-state | 3 |
 | aos_soulbound_rules | item-state | 3 |
+| cyberpunk_artifacts | item-state | 3 |
 | eclipse_phase_rules | item-state | 3 |
 | numenera_creatures | item-state | 3 |
 | stars_without_number_rules | item-state | 3 |
@@ -2578,6 +2688,7 @@
 | mother_of_learning_artifacts | soul-binding | 3 |
 | pf1_items | soul-binding | 3 |
 | aos_soulbound_places | soul-state | 3 |
+| cyberpunk_creatures | soul-state | 3 |
 | dnd5e_2014_powers | soul-state | 3 |
 | golarion_artifacts | soul-state | 3 |
 | golarion_powers | soul-state | 3 |
@@ -2593,6 +2704,7 @@
 | ravenloft_powers | spatial-storage | 3 |
 | strixhaven_powers | spatial-storage | 3 |
 | the_dark_eye_powers | spatial-storage | 3 |
+| warhammer_40k_rules | spatial-storage | 3 |
 | ars_magica_creatures | spirit-contract-judgement | 3 |
 | dnd5e_2014_spells | spirit-contract-judgement | 3 |
 | ars_magica_creatures | sponsorship-contract | 3 |
@@ -2621,12 +2733,16 @@
 | aos_soulbound_rules | area-field | 2 |
 | blades_powers | area-field | 2 |
 | brp_creatures | area-field | 2 |
+| cyberpunk_powers | area-field | 2 |
 | cypher_spells | area-field | 2 |
 | dnd5e_2014_surge_tables | area-field | 2 |
 | dnd_srd_conditions | area-field | 2 |
 | eberron_institutions | area-field | 2 |
 | golarion_artifacts | area-field | 2 |
 | the_dark_eye_rules | area-field | 2 |
+| wfrp4e_creatures | area-field | 2 |
+| wfrp4e_places | area-field | 2 |
+| wfrp4e_rules | area-field | 2 |
 | dnd5e_2014_creatures | blueprint-craft | 2 |
 | dnd5e_2014_spells | blueprint-craft | 2 |
 | dnd_srd_spells | blueprint-craft | 2 |
@@ -2662,6 +2778,8 @@
 | pf1_creatures | concept-law | 2 |
 | ars_magica_conditions | construct-upkeep | 2 |
 | pf1_items | construct-upkeep | 2 |
+| cyberpunk_artifacts | containment-rule | 2 |
+| cyberpunk_rules | containment-rule | 2 |
 | dnd_srd_conditions | containment-rule | 2 |
 | eberron_powers | containment-rule | 2 |
 | eclipse_phase_artifacts | containment-rule | 2 |
@@ -2708,6 +2826,7 @@
 | spelljammer_artifacts | divination | 2 |
 | strixhaven_artifacts | divination | 2 |
 | theros_artifacts | divination | 2 |
+| warhammer_40k_rules | divination | 2 |
 | brp_powers | divination-fate | 2 |
 | dnd5e_2014_backgrounds_species | divination-fate | 2 |
 | dnd5e_2014_creatures | divination-fate | 2 |
@@ -2720,7 +2839,7 @@
 | mystara_rules | effect-unknown | 2 |
 | planescape_creatures | effect-unknown | 2 |
 | planescape_rules | effect-unknown | 2 |
-| warhammer_40k_powers | effect-unknown | 2 |
+| warhammer_40k_institutions | effect-unknown | 2 |
 | wildemount_institutions | effect-unknown | 2 |
 | brp_powers | familiar-summon | 2 |
 | cypher_creatures | familiar-summon | 2 |
@@ -2773,12 +2892,14 @@
 | brp_creatures | item-bound-power | 2 |
 | brp_powers | item-bound-power | 2 |
 | coc_items | item-bound-power | 2 |
+| cyberpunk_rules | item-bound-power | 2 |
 | eberron_creatures | item-bound-power | 2 |
 | ironsworn_items | item-bound-power | 2 |
 | mm3e_powers | item-bound-power | 2 |
 | mystara_creatures | item-bound-power | 2 |
 | ravenloft_creatures | item-bound-power | 2 |
 | wildemount_rules | item-bound-power | 2 |
+| cyberpunk_rules | item-state | 2 |
 | eberron_artifacts | item-state | 2 |
 | golarion_artifacts | item-state | 2 |
 | golarion_rules | item-state | 2 |
@@ -2841,6 +2962,7 @@
 | gu_generated | needs-tea-leaves | 2 |
 | gu_generated | needs-timber | 2 |
 | aos_soulbound_creatures | negative-effect-drift | 2 |
+| cyberpunk_powers | negative-effect-drift | 2 |
 | dnd5e_2014_surge_tables | negative-effect-drift | 2 |
 | eberron_rules | negative-effect-drift | 2 |
 | fate_creatures | negative-effect-drift | 2 |
@@ -2856,6 +2978,8 @@
 | regressors_tale_artifacts | negative-effect-drift | 2 |
 | strixhaven_rules | negative-effect-drift | 2 |
 | theros_creatures | negative-effect-drift | 2 |
+| warhammer_40k_institutions | negative-effect-drift | 2 |
+| warhammer_40k_places | negative-effect-drift | 2 |
 | wildemount_places | negative-effect-drift | 2 |
 | ars_magica_creatures | object-surface | 2 |
 | dnd5e_2014_class_features | object-surface | 2 |
@@ -2874,6 +2998,7 @@
 | pf1_powers | portal-space | 2 |
 | brp_powers | power-granting | 2 |
 | aos_soulbound_rules | power-interaction | 2 |
+| cyberpunk_rules | power-interaction | 2 |
 | dnd5e_2014_surge_tables | power-interaction | 2 |
 | dnd_srd_items | power-interaction | 2 |
 | eclipse_phase_creatures | power-interaction | 2 |
@@ -2907,6 +3032,7 @@
 | strixhaven_creatures | power-transfer | 2 |
 | the_dark_eye_powers | power-transfer | 2 |
 | theros_rules | power-transfer | 2 |
+| warhammer_40k_rules | power-transfer | 2 |
 | ars_magica_conditions | precognition | 2 |
 | ars_magica_spells | precognition | 2 |
 | brp_powers | precognition | 2 |
@@ -2932,6 +3058,7 @@
 | ars_magica_items | soul-binding | 2 |
 | hp_objects | soul-binding | 2 |
 | ars_magica_spells | soul-state | 2 |
+| cyberpunk_rules | soul-state | 2 |
 | dnd5e_2014_class_features | soul-state | 2 |
 | dnd_srd_spells | soul-state | 2 |
 | eberron_institutions | soul-state | 2 |
@@ -2947,6 +3074,7 @@
 | aos_soulbound_creatures | spatial-storage | 2 |
 | ars_magica_conditions | spatial-storage | 2 |
 | ars_magica_items | spatial-storage | 2 |
+| cyberpunk_powers | spatial-storage | 2 |
 | cypher_powers | spatial-storage | 2 |
 | dnd_srd_spells | spatial-storage | 2 |
 | eberron_places | spatial-storage | 2 |
@@ -2957,6 +3085,7 @@
 | ravenloft_artifacts | spatial-storage | 2 |
 | strixhaven_artifacts | spatial-storage | 2 |
 | the_strange_places | spatial-storage | 2 |
+| warhammer_40k_creatures | spatial-storage | 2 |
 | wildemount_powers | spatial-storage | 2 |
 | fate_creatures | speech-penalty | 2 |
 | dnd5e_2014_class_features | spirit-contract-judgement | 2 |
@@ -3000,6 +3129,7 @@
 | a_novel_concept_powers | area-field | 1 |
 | aos_soulbound_places | area-field | 1 |
 | brp_conditions | area-field | 1 |
+| cyberpunk_creatures | area-field | 1 |
 | dnd5e_2014_backgrounds_species | area-field | 1 |
 | eclipse_phase_qs_powers | area-field | 1 |
 | fate_creatures | area-field | 1 |
@@ -3110,6 +3240,9 @@
 | the_dark_eye_places | containment-rule | 1 |
 | the_strange_creatures | containment-rule | 1 |
 | the_strange_institutions | containment-rule | 1 |
+| warhammer_40k_institutions | containment-rule | 1 |
+| warhammer_40k_places | containment-rule | 1 |
+| wfrp4e_artifacts | containment-rule | 1 |
 | wildemount_institutions | containment-rule | 1 |
 | wildemount_powers | containment-rule | 1 |
 | brp_powers | creature-control | 1 |
@@ -3150,6 +3283,8 @@
 | the_strange_places | divination | 1 |
 | the_strange_rules | divination | 1 |
 | theros_institutions | divination | 1 |
+| warhammer_40k_institutions | divination | 1 |
+| wfrp4e_creatures | divination | 1 |
 | wildemount_creatures | divination | 1 |
 | brp_items | divination-fate | 1 |
 | brp_spells | divination-fate | 1 |
@@ -3162,7 +3297,7 @@
 | pf1_conditions | divination-fate | 1 |
 | pf1_creatures | divination-fate | 1 |
 | a_novel_concept_powers | effect-unknown | 1 |
-| cyberpunk_artifacts | effect-unknown | 1 |
+| cyberpunk_institutions | effect-unknown | 1 |
 | eclipse_phase_rules | effect-unknown | 1 |
 | golarion_rules | effect-unknown | 1 |
 | ravenloft_institutions | effect-unknown | 1 |
@@ -3172,7 +3307,8 @@
 | the_strange_institutions | effect-unknown | 1 |
 | theros_institutions | effect-unknown | 1 |
 | theros_places | effect-unknown | 1 |
-| warhammer_40k_artifacts | effect-unknown | 1 |
+| warhammer_40k_places | effect-unknown | 1 |
+| wfrp4e_places | effect-unknown | 1 |
 | wildemount_places | effect-unknown | 1 |
 | aos_soulbound_institutions | familiar-summon | 1 |
 | ars_magica_conditions | familiar-summon | 1 |
@@ -3190,9 +3326,12 @@
 | regressors_tale_artifacts | familiar-summon | 1 |
 | strixhaven_artifacts | familiar-summon | 1 |
 | the_strange_places | familiar-summon | 1 |
+| wfrp4e_creatures | familiar-summon | 1 |
 | wildemount_artifacts | familiar-summon | 1 |
 | wildemount_institutions | familiar-summon | 1 |
 | aos_soulbound_places | form-transformation | 1 |
+| cyberpunk_institutions | form-transformation | 1 |
+| cyberpunk_rules | form-transformation | 1 |
 | cypher_creatures | form-transformation | 1 |
 | dnd_srd_backgrounds_species | form-transformation | 1 |
 | dnd_srd_conditions | form-transformation | 1 |
@@ -3215,6 +3354,7 @@
 | the_dark_eye_institutions | form-transformation | 1 |
 | theros_institutions | form-transformation | 1 |
 | theros_places | form-transformation | 1 |
+| wfrp4e_artifacts | form-transformation | 1 |
 | wildemount_institutions | form-transformation | 1 |
 | wildemount_rules | form-transformation | 1 |
 | you_have_died_again_powers | form-transformation | 1 |
@@ -3236,6 +3376,8 @@
 | the_strange_powers | formation-field | 1 |
 | the_strange_rules | formation-field | 1 |
 | theros_places | formation-field | 1 |
+| warhammer_40k_rules | formation-field | 1 |
+| wfrp4e_powers | formation-field | 1 |
 | ars_magica_creatures | future-vision | 1 |
 | ars_magica_powers | future-vision | 1 |
 | dnd5e_2014_class_features | future-vision | 1 |
@@ -3254,7 +3396,7 @@
 | ironsworn_powers | ingredient-properties | 1 |
 | a_novel_concept_powers | inner-world | 1 |
 | blades_powers | item-bound-power | 1 |
-| cyberpunk_artifacts | item-bound-power | 1 |
+| cyberpunk_institutions | item-bound-power | 1 |
 | dnd5e_2014_backgrounds_species | item-bound-power | 1 |
 | dnd5e_2014_feats | item-bound-power | 1 |
 | dnd_srd_creatures | item-bound-power | 1 |
@@ -3273,6 +3415,8 @@
 | the_strange_places | item-bound-power | 1 |
 | theros_creatures | item-bound-power | 1 |
 | theros_rules | item-bound-power | 1 |
+| warhammer_40k_institutions | item-bound-power | 1 |
+| wfrp4e_artifacts | item-bound-power | 1 |
 | wildemount_creatures | item-bound-power | 1 |
 | wildemount_institutions | item-bound-power | 1 |
 | wildemount_places | item-bound-power | 1 |
@@ -3290,6 +3434,7 @@
 | strixhaven_artifacts | item-state | 1 |
 | the_dark_eye_powers | item-state | 1 |
 | theros_powers | item-state | 1 |
+| wfrp4e_powers | item-state | 1 |
 | wildemount_creatures | item-state | 1 |
 | brp_powers | luck-mechanism | 1 |
 | cypher_items | luck-mechanism | 1 |
@@ -3300,6 +3445,8 @@
 | pf1_creatures | luck-mechanism | 1 |
 | speedrunning_multiverse_powers | luck-mechanism | 1 |
 | aos_soulbound_rules | material-row | 1 |
+| cyberpunk_creatures | material-row | 1 |
+| cyberpunk_rules | material-row | 1 |
 | forgotten_realms_rules | material-row | 1 |
 | hp_ingredients | material-row | 1 |
 | numenera_creatures | material-row | 1 |
@@ -3311,6 +3458,8 @@
 | stars_without_number_powers | material-row | 1 |
 | the_strange_rules | material-row | 1 |
 | theros_creatures | material-row | 1 |
+| warhammer_40k_creatures | material-row | 1 |
+| warhammer_40k_rules | material-row | 1 |
 | wildemount_rules | material-row | 1 |
 | ars_magica_conditions | memory-erasure | 1 |
 | ars_magica_creatures | memory-erasure | 1 |
@@ -3331,6 +3480,7 @@
 | brp_spells | mind-binding | 1 |
 | coc_creatures | mind-binding | 1 |
 | coc_spells | mind-binding | 1 |
+| cyberpunk_creatures | mind-binding | 1 |
 | cypher_creatures | mind-binding | 1 |
 | cypher_items | mind-binding | 1 |
 | dnd5e_2014_conditions | mind-binding | 1 |
@@ -3474,7 +3624,7 @@
 | gu_generated | needs-zither | 1 |
 | ars_magica_items | negative-effect-drift | 1 |
 | blades_conditions | negative-effect-drift | 1 |
-| cyberpunk_rules | negative-effect-drift | 1 |
+| cyberpunk_institutions | negative-effect-drift | 1 |
 | cypher_spells | negative-effect-drift | 1 |
 | dnd5e_2014_backgrounds_species | negative-effect-drift | 1 |
 | dnd5e_2014_conditions | negative-effect-drift | 1 |
@@ -3499,6 +3649,9 @@
 | strixhaven_artifacts | negative-effect-drift | 1 |
 | strixhaven_powers | negative-effect-drift | 1 |
 | the_strange_creatures | negative-effect-drift | 1 |
+| warhammer_40k_artifacts | negative-effect-drift | 1 |
+| wfrp4e_artifacts | negative-effect-drift | 1 |
+| wfrp4e_creatures | negative-effect-drift | 1 |
 | wildemount_artifacts | negative-effect-drift | 1 |
 | wildemount_creatures | negative-effect-drift | 1 |
 | wildemount_powers | negative-effect-drift | 1 |
@@ -3533,6 +3686,7 @@
 | pf1_creatures | power-granting | 1 |
 | blades_powers | power-interaction | 1 |
 | brp_creatures | power-interaction | 1 |
+| cyberpunk_creatures | power-interaction | 1 |
 | cypher_items | power-interaction | 1 |
 | dnd_srd_feats | power-interaction | 1 |
 | eberron_creatures | power-interaction | 1 |
@@ -3555,6 +3709,7 @@
 | the_dark_eye_creatures | power-interaction | 1 |
 | the_strange_places | power-interaction | 1 |
 | theros_rules | power-interaction | 1 |
+| wfrp4e_creatures | power-interaction | 1 |
 | wildemount_artifacts | power-interaction | 1 |
 | wildemount_rules | power-interaction | 1 |
 | ars_magica_items | power-transfer | 1 |
@@ -3575,6 +3730,8 @@
 | regressors_tale_powers | power-transfer | 1 |
 | the_strange_institutions | power-transfer | 1 |
 | theros_powers | power-transfer | 1 |
+| warhammer_40k_artifacts | power-transfer | 1 |
+| warhammer_40k_institutions | power-transfer | 1 |
 | ars_magica_items | precognition | 1 |
 | cypher_spells | precognition | 1 |
 | dnd5e_2014_class_features | precognition | 1 |
@@ -3618,7 +3775,7 @@
 | speedrunning_multiverse_artifacts | soul-binding | 1 |
 | brp_creatures | soul-state | 1 |
 | coc_powers | soul-state | 1 |
-| cyberpunk_artifacts | soul-state | 1 |
+| cyberpunk_powers | soul-state | 1 |
 | cypher_powers | soul-state | 1 |
 | dnd5e_2014_backgrounds_species | soul-state | 1 |
 | dnd5e_2014_spells | soul-state | 1 |
@@ -3640,12 +3797,16 @@
 | stars_without_number_powers | soul-state | 1 |
 | stars_without_number_rules | soul-state | 1 |
 | theros_artifacts | soul-state | 1 |
+| wfrp4e_artifacts | soul-state | 1 |
+| wfrp4e_places | soul-state | 1 |
+| wfrp4e_powers | soul-state | 1 |
 | wildemount_institutions | soul-state | 1 |
 | wildemount_places | soul-state | 1 |
 | labyrinth_mad_god_powers | source-link | 1 |
 | aos_soulbound_institutions | spatial-storage | 1 |
 | blades_items | spatial-storage | 1 |
 | brp_spells | spatial-storage | 1 |
+| cyberpunk_places | spatial-storage | 1 |
 | cypher_items | spatial-storage | 1 |
 | dnd5e_2014_feats | spatial-storage | 1 |
 | forgotten_realms_creatures | spatial-storage | 1 |
@@ -3722,6 +3883,8 @@
 | pf1_conditions | time-manipulation | 1 |
 | aos_soulbound_places | time-stop | 1 |
 | aos_soulbound_rules | time-stop | 1 |
+| cyberpunk_artifacts | time-stop | 1 |
+| cyberpunk_powers | time-stop | 1 |
 | dnd_srd_spells | time-stop | 1 |
 | eberron_places | time-stop | 1 |
 | eberron_powers | time-stop | 1 |
@@ -3742,6 +3905,8 @@
 | the_strange_creatures | time-stop | 1 |
 | the_strange_places | time-stop | 1 |
 | theros_places | time-stop | 1 |
+| warhammer_40k_creatures | time-stop | 1 |
+| warhammer_40k_places | time-stop | 1 |
 | wildemount_powers | time-stop | 1 |
 | wildemount_rules | time-stop | 1 |
 | ars_magica_powers | timeline-split | 1 |
