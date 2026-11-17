@@ -1,0 +1,62 @@
+{
+ "baseline": "venom",
+ "rule": "7f59588907ce",
+ "heldRun": {
+  "label": "held-out (sha1(id)[0] < 0x33), siblings lend training axes only",
+  "n": 25,
+  "derived": 12,
+  "top": 5,
+  "any": 5,
+  "baseTop": 6,
+  "baseTopOnDerived": 2,
+  "candAny": 6,
+  "candN": 14,
+  "withEdges": 13,
+  "edgeTop": 5,
+  "edgeN": 12,
+  "misses": [
+   "ashwinder_egg: derived luck+mind vs stated heat+mend",
+   "infusion_of_wormwood: derived mind vs stated venom",
+   "mandrake_root: derived form vs stated mend",
+   "occamy_egg: derived luck+mind vs stated form",
+   "spider_fang: derived vigour vs stated venom",
+   "wiggentree: derived mend vs stated ward",
+   "wiggentree_bark: derived mend vs stated ward"
+  ]
+ },
+ "chapRun": {
+  "label": "the 13 chapter-stated rows hidden (siblings lend training axes minus these)",
+  "n": 13,
+  "derived": 10,
+  "top": 6,
+  "any": 9,
+  "baseTop": 1,
+  "baseTopOnDerived": 0,
+  "candAny": 8,
+  "candN": 10,
+  "withEdges": 10,
+  "edgeTop": 6,
+  "edgeN": 10,
+  "misses": [
+   "gurdyroot: derived mind vs stated ward",
+   "lovage: derived mend+mind vs stated mind+vigour",
+   "scurvy_grass: derived mend+mind vs stated mind",
+   "sneezewort: derived mend+mind vs stated mind"
+  ]
+ },
+ "looRun": {
+  "label": "every labelled row, leave one out (not held out)",
+  "n": 106,
+  "derived": 57,
+  "top": 23,
+  "any": 29,
+  "baseTop": 35,
+  "baseTopOnDerived": 18,
+  "candAny": 23,
+  "candN": 62,
+  "withEdges": 59,
+  "edgeTop": 21,
+  "edgeN": 54,
+  "misses": []
+ }
+}

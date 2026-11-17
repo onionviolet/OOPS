@@ -36,20 +36,31 @@ export function doseRouteOf(routes = [], carrier) {
 
 export function canRunDose(sentence) { return Boolean(sentence && DOSE_TERMS[`${sentence.verb}.${sentence.object}`]); }
 
-export function doseResponseCase(id) {
-    const [verb, object, time, route] = id.replace(/^dose:/, '').split('.');
-    const term = DOSE_TERMS[`${verb}.${object}`];
-    if (!term || !['oral', 'surface'].includes(route)) throw new Error(`no dose response for ${id}`);
+/** The recipient body a dose of (object) is checked on, and the response a labelled (verb, object, time) sentence names for a part. */
+export function doseBody(object, route = 'oral') {
     const D = DOSE_DIALS;
     const body = {id: 'recipient', kind: 'body', place: 'bench', properties: {mind_awake: true, mind_mood: D.mind.start, mind_confusion: 0}};
     if (route === 'surface') body.properties.marks = [`surface:${D.surface}`];
     if (object === 'vitality') body.quantities = {vitality: D.vitality.start};
     if (object === 'form') body.properties.form = D.form.start;
+    return body;
+}
+export function doseResponse({verb, object, time = 'instant'}, part = ACTIVE) {
+    const D = DOSE_DIALS;
     const sentence = {verb, object, time: object === 'mind' ? 'sustained' : time};
     const response = object === 'vitality' ? {sentence, details: {amount: D.vitality.amount}}
         : object === 'form' ? {sentence, details: {value: D.form.value}}
             : {sentence, details: {minutes: D.minutes, mind: {faculty: D.mind.faculty, amount: D.mind.amount}}};
-    const responses = [{part: ACTIVE, minimum: 1, ...response}];
+    return {part, minimum: 1, ...response};
+}
+
+export function doseResponseCase(id) {
+    const [verb, object, time, route] = id.replace(/^dose:/, '').split('.');
+    const term = DOSE_TERMS[`${verb}.${object}`];
+    if (!term || !['oral', 'surface'].includes(route)) throw new Error(`no dose response for ${id}`);
+    const D = DOSE_DIALS;
+    const body = doseBody(object, route);
+    const responses = [doseResponse({verb, object, time}, ACTIVE)];
     const method = route === 'oral' ? brewDoseMethod({id: `dose-law.${id}`, route: 'oral', responses})
         : brewApplyMethod({id: `dose-law.${id}`, surface: D.surface, contact: D.contact, responses});
     // A surface dose reaches the body in part (uptake), so the account check is "took some", not the full amount.

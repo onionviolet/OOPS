@@ -5,7 +5,7 @@ import {runCaseData} from '../scripts/coverage_report.mjs';
 import {HP_PROPERTY_MODULE, hpMaterialRow, materialCase} from '../src/hp_property_set.js';
 
 const rows = readFileSync(new URL('../docs/coverage/hp_ingredients.jsonl', import.meta.url), 'utf8').trim().split('\n').map(l => JSON.parse(l))
-    .filter(r => r.case?.module === HP_PROPERTY_MODULE);
+    .filter(r => r.case?.module === HP_PROPERTY_MODULE && r.case.id.startsWith('material:'));
 
 test('every material row in the Hogwarts property set runs: stated axes reach the flask in proportion to level', async () => {
     assert.ok(rows.length >= 90, `rows: ${rows.length}`);

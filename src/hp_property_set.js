@@ -4,13 +4,21 @@
 // permille a level word stands for is authored, the same for every ingredient. A material row's stated
 // axes become the constituents of a lot, which the brew law dissolves, brews and doses like any other.
 import {BREW_PUBLISHES, BREW_LAW} from './brew_law.js';
+import {WORLD_PROPERTIES, WORLD_QUANTITIES} from './world_quantities.js';
 import {brewDoseQuantity, brewMeasureQuantity} from './engine_brew_stock.js';
+import {brewDoseMethod} from './brew_dose_delivery.js';
+import {DOSE_TERMS, doseBody, doseResponse} from './brew_dose_response.js';
 
 export const HP_PROPERTY_MODULE = 'src/hp_property_set.js';
 export const HP_AXES = Object.freeze(['mend', 'calm', 'bite', 'venom', 'ward', 'form', 'mind', 'memory', 'luck', 'heat', 'conceal-or-sense', 'vigour']);
 /** Level words to permille of a measured lot (authored, one scale for all rows). A lot's shares sum to at
  * most the whole, so a row whose axes would exceed it is scaled down together (see hpMaterialRow). */
 export const HP_LEVELS = Object.freeze({trace: 100, some: 250, strong: 500});
+
+/** The effect sentence a derived primary axis is dosed as (PWC22): the axes the dose law has a body account for (DOSE_TERMS). */
+export const HP_AXIS_DOSE = Object.freeze({mend: {verb: 'add', object: 'vitality'}, venom: {verb: 'remove', object: 'vitality'},
+    form: {verb: 'transform', object: 'form'}, mind: {verb: 'transform', object: 'mind'}});
+export const derivedCaseId = axes => `derived:${axes.map(a => `${a.axis}.${a.level}`).join(',')}`;
 
 export const materialCaseId = axes => `material:${axes.map(a => `${a.axis}.${a.level}`).join(',')}`;
 
@@ -31,7 +39,8 @@ const ref = (kind, id) => ({kind, id});
 /** Case data: the ingredient lot dissolved into a flask puts each stated axis into the flask's stock in
  * proportion to its level, and the lot is drawn down. The measure is the same authored dial for every row. */
 export function materialCase(id) {
-    const axes = id.replace(/^material:/, '').split(',').map(s => { const [axis, level] = s.split('.'); return {axis, level}; });
+    const derived = id.startsWith('derived:');
+    const axes = id.replace(/^(material|derived):/, '').split(',').map(s => { const [axis, level] = s.split('.'); return {axis, level}; });
     const constituents = hpMaterialRow(axes);
     if (!constituents) throw new Error(`no material row in the Hogwarts property set for ${id}`);
     const lot = {id: 'ingredient', amount: 100}, take = 100;
@@ -41,11 +50,30 @@ export function materialCase(id) {
     const expect = [{holder: lot.id, quantity: brewMeasureQuantity, direction: 'down', to: 0},
         ...Object.entries(constituents).map(([axis, permille]) =>
             ({holder: 'flask', quantity: brewDoseQuantity(axis), direction: 'up', to: Math.floor(take * permille / 1000)}))];
-    return {basis: 'authored', engine: {packs: ['a.mind'], host: {things: {'lot:ingredient': {material: 'ingredient', properties: {constituents}}}},
-        shared: {effectKinds: BREW_PUBLISHES}},
-        world: {holders: [{id: 'bench', kind: 'place'}, {id: 'flask', kind: 'thing', as: ['flask'], place: 'bench', quantities: {[brewDoseQuantity('water')]: 12}},
-            {id: lot.id, kind: 'thing', as: ['lot'], place: 'bench', quantities: {[brewMeasureQuantity]: lot.amount}}]},
-        timeline: [{id: 'dissolve', working: {family: 'brew', method, bindings}}, {id: 'dissolved', advanceTo: 1, expect}], expect};
+    const timeline = [{id: 'dissolve', working: {family: 'brew', method, bindings}}, {id: 'dissolved', advanceTo: 1, expect}];
+    const holders = [{id: 'bench', kind: 'place'}, {id: 'flask', kind: 'thing', as: ['flask'], place: 'bench', quantities: {[brewDoseQuantity('water')]: 12}},
+        {id: lot.id, kind: 'thing', as: ['lot'], place: 'bench', quantities: {[brewMeasureQuantity]: lot.amount}}];
+    const shared = {effectKinds: BREW_PUBLISHES};
+    // A derived set whose first axis the dose law has a body account for is also served to a body through that law (PWC22),
+    // so the derived property is brewed, dosed and checked, not only dissolved.
+    const sentence = derived ? HP_AXIS_DOSE[axes[0].axis] : null;
+    if (sentence) {
+        const term = DOSE_TERMS[`${sentence.verb}.${sentence.object}`];
+        const dose = doseResponse(sentence, axes[0].axis);
+        const doseMethod = brewDoseMethod({id: `hp.derived.dose.${axes[0].axis}`, route: 'oral', responses: [dose]});
+        const quantity = brewDoseQuantity(axes[0].axis);
+        // The flask is checked in the dissolve step (it gains the axis); the dose then moves it into the body's account.
+        const settle = [{holder: 'recipient', quantity, direction: 'up'}, {holder: 'recipient', ...term}];
+        holders.push(doseBody(sentence.object));
+        shared.quantities = [...Object.values(WORLD_QUANTITIES)];
+        if (sentence.object === 'form') shared.properties = [WORLD_PROPERTIES.form, WORLD_PROPERTIES.marks];
+        timeline.push({id: 'serve', working: {family: 'brew-dose', method: doseMethod, bindings: {flask: ref('flask', 'flask'), recipient: ref('body', 'recipient')}}},
+            {id: 'settle', advanceTo: 5, expect: settle});
+        return {basis: 'derived', engine: {packs: ['a.mind'], host: {things: {'lot:ingredient': {material: 'ingredient', properties: {constituents}}}}, shared},
+            world: {holders}, timeline, expect: settle};
+    }
+    return {basis: derived ? 'derived' : 'authored', engine: {packs: ['a.mind'], host: {things: {'lot:ingredient': {material: 'ingredient', properties: {constituents}}}}, shared},
+        world: {holders}, timeline, expect};
 }
 
 export const coverageCase = materialCase;
