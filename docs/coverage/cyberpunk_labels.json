@@ -1,0 +1,1191 @@
+{
+ "meta": {
+  "setting": "Cyberpunk (RED and 2020)",
+  "licence": "commercial (R. Talsorian Games); design reference only; held under DL106, not fetched in this task",
+  "pass": "PWC37, book tier, gpt-6-luna reader, unchecked against a second reader",
+  "dropped_names_not_in_shard": 7,
+  "level_lines_in_text": 0,
+  "entities_listed": 64,
+  "second_reader": {
+   "sampled_shards": 0,
+   "luna_names": 0,
+   "haiku_names": 0,
+   "both": 0,
+   "haiku_only_added": 0,
+   "blocked_agree": 0,
+   "verb_agree": 0
+  },
+  "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
+ },
+ "score": {
+  "cyberpunk_powers": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "cyberpunk_artifacts": {
+   "labelled": 1,
+   "tuned": 0,
+   "held_out": 1,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "cyberpunk_places": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "cyberpunk_institutions": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "cyberpunk_rules": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  }
+ },
+ "sheets": {
+  "cyberpunk_powers": {
+   "cyberpunk.power.sandevistan": {
+    "corpus": "power",
+    "name": "Sandevistan",
+    "kind": "cyberware",
+    "locator": "p85",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "time",
+     "target": "self",
+     "time": "sustained",
+     "summary": "A speedware boost accelerates the user's reactions."
+    },
+    "cost_or_limit": "The boost lasts for a limited period and requires a wait before reuse.",
+    "who_may": "A character with the appropriate speedware.",
+    "where_from": "Cyberware.",
+    "combines": "Speedware and neural interface equipment.",
+    "blocked_reason": "A temporary self-directed boost can be represented as a sustained alteration.",
+    "split": "held-out"
+   },
+   "cyberpunk.power.sonar": {
+    "corpus": "power",
+    "name": "Sonar",
+    "kind": "cyberware sensor",
+    "locator": "p88",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Detects surroundings by sonar within a stated range."
+    },
+    "cost_or_limit": "Range is given as 80% detection effectiveness.",
+    "who_may": "A character with the implant.",
+    "where_from": "Cyberware.",
+    "blocked_reason": "Area sensing can be represented by the basic effect grammar.",
+    "split": "tuned"
+   },
+   "cyberpunk.power.healing": {
+    "corpus": "power",
+    "name": "healing",
+    "kind": "cyberware capability",
+    "locator": "p89",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Some modifications double the rate of healing."
+    },
+    "cost_or_limit": "Applies only to the described modification.",
+    "who_may": "A character with the relevant modification.",
+    "where_from": "Cyberware.",
+    "blocked_reason": "Accelerated recovery is represented as restoring vitality.",
+    "split": "held-out"
+   }
+  },
+  "cyberpunk_artifacts": {
+   "cyberpunk.artifact.dartgun": {
+    "corpus": "artifact",
+    "name": "Dartgun",
+    "kind": "weapon",
+    "locator": "p34",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "line",
+     "time": "instant",
+     "summary": "Fires darts; darts may carry drugs or poison."
+    },
+    "cost_or_limit": "Darts require ammunition.",
+    "go_wrong": "The effect depends on the drug or poison loaded.",
+    "mind": "Depends on the substance used.",
+    "who_may": "A wielder.",
+    "combines": "Drugs or poison may be loaded into it.",
+    "blocked_reason": "Its stated effect is a conventional ranged attack.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.kendachi": {
+    "corpus": "artifact",
+    "name": "Kendachi",
+    "kind": "weapon",
+    "locator": "p67",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "A high-tech katana used to attack in melee."
+    },
+    "who_may": "A wielder.",
+    "blocked_reason": "Its stated use is a conventional melee attack.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.audio-vox": {
+    "corpus": "artifact",
+    "name": "Audio Vox",
+    "kind": "cyberware",
+    "stated_class": "M",
+    "locator": "p81",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "sound",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Provides a voice-related audio modification."
+    },
+    "cost_or_limit": "Requires implantation.",
+    "who_may": "A character with the implant.",
+    "where_from": "Cyberware.",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The surviving passage names the device but does not preserve its specific function.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.chemskin": {
+    "corpus": "artifact",
+    "name": "Chemskin",
+    "kind": "cyberware",
+    "locator": "p84",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Changes the user's skin appearance, including through reactive pigments."
+    },
+    "cost_or_limit": "Requires installation; particular effects depend on the version.",
+    "who_may": "A character with the modification.",
+    "where_from": "Cyberware.",
+    "combines": "Related to synthskins and other skin modifications.",
+    "blocked": "form-transformation",
+    "blocked_reason": "It changes the character's body appearance, which the basic effect grammar cannot model.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.synthskins": {
+    "corpus": "artifact",
+    "name": "Synthskins",
+    "kind": "cyberware",
+    "locator": "p84",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "lasting",
+     "summary": "A bonded outer skin can shift color or display patterns."
+    },
+    "cost_or_limit": "Requires installation.",
+    "who_may": "A character with the modification.",
+    "where_from": "Cyberware.",
+    "combines": "A more sophisticated alternative to simpler skin modifications.",
+    "blocked": "form-transformation",
+    "blocked_reason": "It alters the user's bodily appearance.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.smartgun": {
+    "corpus": "artifact",
+    "name": "Smartgun",
+    "kind": "cyberware interface",
+    "locator": "p86",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "line",
+     "time": "sustained",
+     "summary": "Links a gun to the user's interface for rapid target tracking and firing."
+    },
+    "cost_or_limit": "Requires compatible interface hardware and a suitably adapted gun.",
+    "who_may": "A user with the required cyberware interface.",
+    "where_from": "Cyberware.",
+    "combines": "Smartgun-compatible weapons and interface plugs.",
+    "blocked": "item-bound-power",
+    "blocked_reason": "The capability is an interaction between a weapon and installed cyberware.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.machine-tech": {
+    "corpus": "artifact",
+    "name": "Machine/Tech",
+    "kind": "cyberware interface",
+    "locator": "p86",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "working",
+     "target": "touched",
+     "time": "sustained",
+     "summary": "Interfaces the user with machinery for direct control."
+    },
+    "cost_or_limit": "Requires installation and a compatible machine interface.",
+    "who_may": "A character with the interface.",
+    "where_from": "Cyberware.",
+    "combines": "Autofactories and heavy machinery.",
+    "blocked_reason": "Direct control of machinery can be represented as binding a working.",
+    "split": "tuned"
+   },
+   "cyberpunk.artifact.data-term": {
+    "corpus": "artifact",
+    "name": "Data Term",
+    "kind": "cyberware interface",
+    "locator": "p86",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "touched",
+     "time": "sustained",
+     "summary": "Provides access to information through a computer connection."
+    },
+    "cost_or_limit": "Requires installation and connection to a data system.",
+    "who_may": "A character with the interface.",
+    "where_from": "Cyberware.",
+    "combines": "Computer systems and neural interface equipment.",
+    "blocked_reason": "Accessing information fits the basic effect grammar.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.memory-chip": {
+    "corpus": "artifact",
+    "name": "Memory chip",
+    "kind": "chipware",
+    "locator": "p87",
+    "is_thing": true,
+    "effect": {
+     "verb": "copy",
+     "object": "memory",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Stores memories for later use."
+    },
+    "cost_or_limit": "Capacity is limited by the chip's storage.",
+    "mind": "Can affect recall or skill use as described for its type.",
+    "who_may": "A character with a chipware socket.",
+    "where_from": "Chipware.",
+    "combines": "Chipware sockets; chips of the same type can provide an improved benefit.",
+    "blocked": "soul-state",
+    "blocked_reason": "The passage treats stored memories as chipware but does not specify a basic memory-copy procedure.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.wolvers": {
+    "corpus": "artifact",
+    "name": "Wolvers",
+    "kind": "cyberware weapon",
+    "locator": "p90",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Implanted blades allow the user to make melee attacks."
+    },
+    "cost_or_limit": "Requires implantation; concealed when not in use.",
+    "who_may": "A character with the implants.",
+    "where_from": "Cyberware.",
+    "combines": "May be concealed as an implanted weapon.",
+    "blocked_reason": "The stated effect is a melee attack.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.cyberarm": {
+    "corpus": "artifact",
+    "name": "cyberarm",
+    "kind": "cyberlimb",
+    "locator": "p92",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Replaces an arm with a cybernetic limb that can accept added features."
+    },
+    "cost_or_limit": "Requires surgery and installation.",
+    "go_wrong": "May suffer cyberlimb malfunction from certain attacks.",
+    "who_may": "A character with the limb.",
+    "where_from": "Cyberware.",
+    "combines": "Can be fitted with weapons and tools.",
+    "blocked": "form-transformation",
+    "blocked_reason": "Replacing a body part is a body-form transformation.",
+    "split": "tuned"
+   },
+   "cyberpunk.artifact.extension": {
+    "corpus": "artifact",
+    "name": "Extension",
+    "kind": "cyberarm option",
+    "locator": "p94",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "position",
+     "target": "self",
+     "time": "instant",
+     "summary": "Extends from the wrist as a telescoping mechanism."
+    },
+    "cost_or_limit": "Requires a cyberarm.",
+    "who_may": "A character with a suitably modified cyberarm.",
+    "where_from": "Cyberware.",
+    "combines": "Cyberarm.",
+    "blocked_reason": "Extending a limb component is a simple positional effect.",
+    "split": "tuned"
+   },
+   "cyberpunk.artifact.federated-arms-x-22": {
+    "corpus": "artifact",
+    "name": "Federated Arms X-22",
+    "kind": "weapon",
+    "locator": "p184",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "line",
+     "time": "instant",
+     "summary": "A firearm mentioned as an example of a personal weapon."
+    },
+    "who_may": "A wielder.",
+    "where_from": "Federated Arms.",
+    "blocked_reason": "Its stated use is a conventional ranged attack.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.ospreys": {
+    "corpus": "artifact",
+    "name": "Ospreys",
+    "kind": "vehicle",
+    "locator": "p185",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Tilt-wing aircraft used for commuting or corporate travel."
+    },
+    "cost_or_limit": "Requires a pilot and suitable landing or airpad access.",
+    "who_may": "A pilot.",
+    "combines": "Available as commuter or corporate aircraft.",
+    "blocked_reason": "Vehicle movement can be represented by the basic effect grammar.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.av-4": {
+    "corpus": "artifact",
+    "name": "AV-4",
+    "kind": "vehicle",
+    "locator": "p186",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "sustained",
+     "summary": "An aerodyne vehicle chassis used as the basis for an armed variant."
+    },
+    "cost_or_limit": "Requires a pilot.",
+    "who_may": "A pilot.",
+    "combines": "A more capable variant has cyber-assisted turrets and rockets.",
+    "blocked_reason": "Vehicle movement can be represented by the basic effect grammar.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.cyberbike": {
+    "corpus": "artifact",
+    "name": "Cyberbike",
+    "kind": "vehicle",
+    "locator": "p199",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "sustained",
+     "summary": "A cybernetic motorcycle used for travel."
+    },
+    "cost_or_limit": "Requires a rider.",
+    "who_may": "A rider.",
+    "blocked_reason": "Vehicle movement can be represented by the basic effect grammar.",
+    "split": "held-out"
+   },
+   "cyberpunk.artifact.boeing-c-25": {
+    "corpus": "artifact",
+    "name": "Boeing C-25",
+    "kind": "heavy transport aircraft",
+    "locator": "p217",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "thing",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Transports people or cargo by air."
+    },
+    "blocked_reason": "Its transport function can be represented with the basic effect grammar.",
+    "split": "tuned"
+   },
+   "cyberpunk.artifact.12gauge": {
+    "corpus": "artifact",
+    "name": "12gauge",
+    "kind": "shotgun",
+    "locator": "p246",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "line",
+     "time": "instant",
+     "summary": "Fires a shot at a target."
+    },
+    "cost_or_limit": "Requires ammunition.",
+    "blocked_reason": "A basic force effect can represent its stated use.",
+    "split": "held-out"
+   }
+  },
+  "cyberpunk_places": {
+   "cyberpunk.place.night-city": {
+    "corpus": "place",
+    "name": "Night City",
+    "kind": "city",
+    "locator": "p148",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "split": "tuned"
+   },
+   "cyberpunk.place.rustbelt": {
+    "corpus": "place",
+    "name": "Rustbelt",
+    "kind": "region",
+    "locator": "p151",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "split": "tuned"
+   },
+   "cyberpunk.place.san-francisco": {
+    "corpus": "place",
+    "name": "San Francisco",
+    "kind": "city",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.tokyo": {
+    "corpus": "place",
+    "name": "Tokyo",
+    "kind": "city",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.london": {
+    "corpus": "place",
+    "name": "London",
+    "kind": "city",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "tuned"
+   },
+   "cyberpunk.place.paris": {
+    "corpus": "place",
+    "name": "Paris",
+    "kind": "city",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.munich": {
+    "corpus": "place",
+    "name": "Munich",
+    "kind": "city",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.rome": {
+    "corpus": "place",
+    "name": "Rome",
+    "kind": "city",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "tuned"
+   },
+   "cyberpunk.place.caracas": {
+    "corpus": "place",
+    "name": "Caracas",
+    "kind": "city",
+    "locator": "p217",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "tuned"
+   },
+   "cyberpunk.place.trieste": {
+    "corpus": "place",
+    "name": "Trieste",
+    "kind": "city",
+    "locator": "p217",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.los-angeles": {
+    "corpus": "place",
+    "name": "Los Angeles",
+    "kind": "city",
+    "locator": "p242",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city, here associated with a floating raft settlement."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.toronto": {
+    "corpus": "place",
+    "name": "Toronto",
+    "kind": "city",
+    "locator": "p218",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.florida": {
+    "corpus": "place",
+    "name": "Florida",
+    "kind": "region",
+    "locator": "p218",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named region."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.combat-zone": {
+    "corpus": "place",
+    "name": "Combat Zone",
+    "kind": "district",
+    "locator": "p221",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named urban district."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.the-ante-chamber": {
+    "corpus": "place",
+    "name": "The Ante-Chamber",
+    "kind": "venue",
+    "locator": "p222",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named venue."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.marina-district": {
+    "corpus": "place",
+    "name": "Marina district",
+    "kind": "district",
+    "locator": "p232",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named district identified as gang territory."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "tuned"
+   },
+   "cyberpunk.place.geneva": {
+    "corpus": "place",
+    "name": "Geneva",
+    "kind": "city",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "tuned"
+   },
+   "cyberpunk.place.marseilles": {
+    "corpus": "place",
+    "name": "Marseilles",
+    "kind": "city",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named city hosting a management center."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.france": {
+    "corpus": "place",
+    "name": "France",
+    "kind": "country",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named country."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.durango": {
+    "corpus": "place",
+    "name": "Durango",
+    "kind": "city",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named location."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "held-out"
+   },
+   "cyberpunk.place.las-vegas-new-mexico": {
+    "corpus": "place",
+    "name": "Las Vegas, New Mexico",
+    "kind": "city",
+    "locator": "p254",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named location of the laboratory site."
+    },
+    "blocked_reason": "Not a power, artifact, or creature.",
+    "split": "tuned"
+   }
+  },
+  "cyberpunk_institutions": {
+   "cyberpunk.institution.netwatch": {
+    "corpus": "institution",
+    "name": "NetWatch",
+    "kind": "organisation",
+    "locator": "p5",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "split": "held-out"
+   },
+   "cyberpunk.institution.arasaka": {
+    "corpus": "institution",
+    "name": "Arasaka",
+    "kind": "corporation",
+    "locator": "p218",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Corporation with substantial resources and facilities."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "tuned"
+   },
+   "cyberpunk.institution.eurocorps": {
+    "corpus": "institution",
+    "name": "Eurocorps",
+    "kind": "corporate group",
+    "locator": "p151",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "split": "tuned"
+   },
+   "cyberpunk.institution.trauma-team": {
+    "corpus": "institution",
+    "name": "Trauma Team",
+    "kind": "emergency medical service",
+    "locator": "p120",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Provides emergency medical response and patient transport."
+    },
+    "cost_or_limit": "Service fees are steep and may depend on coverage.",
+    "who_may": "Clients with access to its services.",
+    "combines": "Tracking equipment and an ambulance response.",
+    "blocked_reason": "This is an organization rather than a game-effect entity.",
+    "split": "tuned"
+   },
+   "cyberpunk.institution.microtech": {
+    "corpus": "institution",
+    "name": "Microtech",
+    "kind": "corporation",
+    "locator": "p215",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Technology company."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.biotechnica": {
+    "corpus": "institution",
+    "name": "Biotechnica",
+    "kind": "corporation",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Biochemical and biotechnology company."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.city-library": {
+    "corpus": "institution",
+    "name": "City Library",
+    "kind": "library",
+    "locator": "p222",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named public institution."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.booster-gangs": {
+    "corpus": "institution",
+    "name": "Booster gangs",
+    "kind": "gangs",
+    "locator": "p226",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Gang groups are mentioned collectively."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.genma-corp": {
+    "corpus": "institution",
+    "name": "Genma Corp",
+    "kind": "corporation",
+    "locator": "p247",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named corporation."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.westtech": {
+    "corpus": "institution",
+    "name": "WestTech",
+    "kind": "corporation",
+    "locator": "p247",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named corporation."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.petrochem": {
+    "corpus": "institution",
+    "name": "Petrochem",
+    "kind": "corporation",
+    "locator": "p247",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named corporation."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "tuned"
+   },
+   "cyberpunk.institution.calhua-mexica-gang": {
+    "corpus": "institution",
+    "name": "Calhua-Mexica gang",
+    "kind": "gang",
+    "locator": "p242",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named gang."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.grimmers": {
+    "corpus": "institution",
+    "name": "Grimmers",
+    "kind": "gang",
+    "locator": "p243",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named gang."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.red": {
+    "corpus": "institution",
+    "name": "Red",
+    "kind": "terrorist organization",
+    "locator": "p249",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Organization credited with an attack."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.consolidated-factions": {
+    "corpus": "institution",
+    "name": "Consolidated Factions",
+    "kind": "organization",
+    "locator": "p249",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named entity in a takeover report."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.federal-reserve": {
+    "corpus": "institution",
+    "name": "Federal Reserve",
+    "kind": "financial institution",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named financial institution."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.rand": {
+    "corpus": "institution",
+    "name": "Rand",
+    "kind": "corporation",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named participant in the corporate data-base market."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.nippon-data": {
+    "corpus": "institution",
+    "name": "Nippon Data",
+    "kind": "corporation",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named participant in the corporate data-base market."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "cyberpunk.institution.sanger-labs": {
+    "corpus": "institution",
+    "name": "Sanger Labs",
+    "kind": "laboratory",
+    "locator": "p254",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Named laboratory site."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "tuned"
+   }
+  },
+  "cyberpunk_rules": {
+   "cyberpunk.rule.death-saves": {
+    "corpus": "rule",
+    "name": "Death Saves",
+    "kind": "mortality rule",
+    "locator": "p108",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A dying character must make recurring Death Saves."
+    },
+    "cost_or_limit": "Checks recur each turn while the character is in a mortal state.",
+    "go_wrong": "Failure leads to death.",
+    "who_may": "Characters suffering mortal wounds.",
+    "combines": "Stun and wound states.",
+    "mechanism": "recurring death check",
+    "blocked_reason": "The passage gives a repeated check and a terminal outcome.",
+    "split": "tuned"
+   },
+   "cyberpunk.rule.cyberpsychosis": {
+    "corpus": "rule",
+    "name": "Cyberpsychosis",
+    "kind": "cyberware humanity rule",
+    "locator": "p73",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Extensive cybernetic enhancement can cause psychological deterioration."
+    },
+    "cost_or_limit": "Risk increases with cybernetic modification and its associated humanity loss.",
+    "go_wrong": "Can lead to cyberpsychosis.",
+    "mind": "Psychological harm is the rule's core effect.",
+    "who_may": "Characters who acquire cybernetic enhancements.",
+    "where_from": "Cyberware rules.",
+    "combines": "Cybernetic installations and humanity loss.",
+    "mechanism": "cyberware-induced mental drift",
+    "blocked": "negative-effect-drift",
+    "blocked_reason": "The passage describes accumulating psychological deterioration rather than a single basic effect.",
+    "split": "held-out"
+   },
+   "cyberpunk.rule.mortal-wound-care": {
+    "corpus": "rule",
+    "name": "Mortal wound care",
+    "kind": "medical recovery rule",
+    "locator": "p120",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Treatment and nursing care can stabilize and recover a critically wounded patient."
+    },
+    "cost_or_limit": "Treatment requires suitable medical care and repeated nursing.",
+    "go_wrong": "Without stabilization, the patient can continue toward death.",
+    "who_may": "Medical personnel treating the patient.",
+    "where_from": "Medical rules.",
+    "combines": "Trauma Team and clinic care.",
+    "mechanism": "stabilization and recovery",
+    "blocked_reason": "The passage describes medical treatment and recovery in game terms.",
+    "split": "held-out"
+   }
+  }
+ }
+}

@@ -31,68 +31,118 @@
 | [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 0 | 323 | 8 | 0 | 100% | 0% |
 | [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 0 | 180 | 3 | 0 | 100% | 0% |
 | [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 0 | 226 | 10 | 0 | 100% | 0% |
-| [ars_magica_conditions](ars_magica_conditions.jsonl) |  | to build | 577 | 0 | 0 | 0 | 390 | 0 | 0 | 100% | 0% |
-| [ars_magica_creatures](ars_magica_creatures.jsonl) |  | to build | 471 | 0 | 0 | 0 | 331 | 0 | 0 | 100% | 0% |
-| [ars_magica_items](ars_magica_items.jsonl) |  | to build | 341 | 0 | 0 | 0 | 245 | 0 | 0 | 100% | 0% |
-| [ars_magica_powers](ars_magica_powers.jsonl) |  | to build | 2470 | 0 | 0 | 0 | 1793 | 0 | 0 | 100% | 0% |
-| [ars_magica_spells](ars_magica_spells.jsonl) |  | to build | 914 | 0 | 0 | 0 | 805 | 0 | 0 | 100% | 0% |
-| [blades_conditions](blades_conditions.jsonl) |  | to build | 23 | 0 | 0 | 0 | 9 | 0 | 0 | 100% | 0% |
-| [blades_creatures](blades_creatures.jsonl) |  | to build | 6 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
-| [blades_items](blades_items.jsonl) |  | to build | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
-| [blades_powers](blades_powers.jsonl) |  | to build | 158 | 0 | 0 | 0 | 39 | 0 | 0 | 100% | 0% |
-| [brp_conditions](brp_conditions.jsonl) |  | to build | 58 | 0 | 0 | 0 | 32 | 0 | 0 | 100% | 0% |
-| [brp_creatures](brp_creatures.jsonl) |  | to build | 57 | 0 | 0 | 0 | 31 | 0 | 0 | 100% | 0% |
-| [brp_items](brp_items.jsonl) |  | to build | 73 | 0 | 0 | 0 | 47 | 0 | 0 | 100% | 0% |
-| [brp_powers](brp_powers.jsonl) |  | to build | 250 | 0 | 0 | 0 | 145 | 0 | 0 | 100% | 0% |
-| [brp_spells](brp_spells.jsonl) |  | to build | 75 | 0 | 0 | 0 | 54 | 0 | 0 | 100% | 0% |
-| [coc_conditions](coc_conditions.jsonl) |  | to build | 5 | 0 | 0 | 0 | 3 | 0 | 0 | 100% | 0% |
-| [coc_creatures](coc_creatures.jsonl) |  | to build | 2 | 0 | 0 | 0 | 2 | 0 | 0 | 100% | 0% |
-| [coc_items](coc_items.jsonl) |  | to build | 4 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
-| [coc_powers](coc_powers.jsonl) |  | to build | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
-| [coc_spells](coc_spells.jsonl) |  | to build | 4 | 0 | 0 | 0 | 3 | 0 | 0 | 100% | 0% |
-| [cypher_conditions](cypher_conditions.jsonl) |  | to build | 18 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
-| [cypher_creatures](cypher_creatures.jsonl) |  | to build | 38 | 0 | 0 | 0 | 21 | 0 | 0 | 100% | 0% |
-| [cypher_items](cypher_items.jsonl) |  | to build | 118 | 0 | 0 | 0 | 87 | 0 | 0 | 100% | 0% |
-| [cypher_powers](cypher_powers.jsonl) |  | to build | 819 | 0 | 0 | 0 | 381 | 0 | 0 | 100% | 0% |
-| [cypher_spells](cypher_spells.jsonl) |  | to build | 76 | 0 | 0 | 0 | 70 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_backgrounds_species](dnd5e_2014_backgrounds_species.jsonl) |  | to build | 86 | 0 | 0 | 0 | 54 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_class_features](dnd5e_2014_class_features.jsonl) |  | to build | 611 | 0 | 0 | 0 | 454 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_conditions](dnd5e_2014_conditions.jsonl) |  | to build | 24 | 0 | 0 | 0 | 11 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_creatures](dnd5e_2014_creatures.jsonl) |  | to build | 751 | 0 | 0 | 0 | 574 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_feats](dnd5e_2014_feats.jsonl) |  | to build | 63 | 0 | 0 | 0 | 34 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_items](dnd5e_2014_items.jsonl) |  | to build | 391 | 0 | 0 | 0 | 342 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_powers](dnd5e_2014_powers.jsonl) |  | to build | 1073 | 0 | 0 | 0 | 774 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_spells](dnd5e_2014_spells.jsonl) |  | to build | 466 | 0 | 0 | 0 | 398 | 0 | 0 | 100% | 0% |
-| [dnd5e_2014_surge_tables](dnd5e_2014_surge_tables.jsonl) |  | to build | 133 | 0 | 0 | 0 | 114 | 0 | 0 | 100% | 0% |
-| [dnd_srd_backgrounds_species](dnd_srd_backgrounds_species.jsonl) |  | to build | 17 | 0 | 0 | 0 | 12 | 0 | 0 | 100% | 0% |
-| [dnd_srd_class_features](dnd_srd_class_features.jsonl) |  | to build | 213 | 0 | 0 | 0 | 143 | 0 | 0 | 100% | 0% |
-| [dnd_srd_conditions](dnd_srd_conditions.jsonl) |  | to build | 41 | 0 | 0 | 0 | 21 | 0 | 0 | 100% | 0% |
-| [dnd_srd_creatures](dnd_srd_creatures.jsonl) |  | to build | 338 | 0 | 0 | 0 | 207 | 0 | 0 | 100% | 0% |
-| [dnd_srd_feats](dnd_srd_feats.jsonl) |  | to build | 13 | 0 | 0 | 0 | 6 | 0 | 0 | 100% | 0% |
-| [dnd_srd_items](dnd_srd_items.jsonl) |  | to build | 375 | 0 | 0 | 0 | 343 | 0 | 0 | 100% | 0% |
-| [dnd_srd_powers](dnd_srd_powers.jsonl) |  | to build | 494 | 0 | 0 | 0 | 222 | 0 | 0 | 100% | 0% |
-| [dnd_srd_spells](dnd_srd_spells.jsonl) |  | to build | 339 | 0 | 0 | 0 | 279 | 0 | 0 | 100% | 0% |
-| [dnd_srd_surge_tables](dnd_srd_surge_tables.jsonl) |  | to build | 17 | 0 | 0 | 0 | 10 | 0 | 0 | 100% | 0% |
-| [eclipse_phase_conditions](eclipse_phase_conditions.jsonl) |  | to build | 16 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
-| [eclipse_phase_creatures](eclipse_phase_creatures.jsonl) |  | to build | 5 | 0 | 0 | 0 | 5 | 0 | 0 | 100% | 0% |
-| [eclipse_phase_items](eclipse_phase_items.jsonl) |  | to build | 48 | 0 | 0 | 0 | 28 | 0 | 0 | 100% | 0% |
-| [eclipse_phase_powers](eclipse_phase_powers.jsonl) |  | to build | 30 | 0 | 0 | 0 | 19 | 0 | 0 | 100% | 0% |
-| [fate_conditions](fate_conditions.jsonl) |  | to build | 150 | 0 | 0 | 0 | 75 | 0 | 0 | 100% | 0% |
-| [fate_creatures](fate_creatures.jsonl) |  | to build | 40 | 0 | 0 | 0 | 33 | 0 | 0 | 100% | 0% |
-| [fate_items](fate_items.jsonl) |  | to build | 71 | 0 | 0 | 0 | 37 | 0 | 0 | 100% | 0% |
-| [fate_powers](fate_powers.jsonl) |  | to build | 940 | 0 | 0 | 0 | 511 | 0 | 0 | 100% | 0% |
-| [fate_spells](fate_spells.jsonl) |  | to build | 15 | 0 | 0 | 0 | 14 | 0 | 0 | 100% | 0% |
-| [ironsworn_conditions](ironsworn_conditions.jsonl) |  | to build | 8 | 0 | 0 | 0 | 2 | 0 | 0 | 100% | 0% |
-| [ironsworn_creatures](ironsworn_creatures.jsonl) |  | to build | 39 | 0 | 0 | 0 | 16 | 0 | 0 | 100% | 0% |
-| [ironsworn_items](ironsworn_items.jsonl) |  | to build | 2 | 0 | 0 | 0 | 2 | 0 | 0 | 100% | 0% |
-| [ironsworn_powers](ironsworn_powers.jsonl) |  | to build | 128 | 0 | 0 | 0 | 58 | 0 | 0 | 100% | 0% |
-| [mm3e_conditions](mm3e_conditions.jsonl) |  | to build | 3 | 0 | 0 | 0 | 3 | 0 | 0 | 100% | 0% |
-| [mm3e_powers](mm3e_powers.jsonl) |  | to build | 157 | 0 | 0 | 0 | 107 | 0 | 0 | 100% | 0% |
-| [pf1_conditions](pf1_conditions.jsonl) |  | to build | 170 | 0 | 0 | 0 | 137 | 0 | 0 | 100% | 0% |
-| [pf1_creatures](pf1_creatures.jsonl) |  | to build | 125 | 0 | 0 | 0 | 106 | 0 | 0 | 100% | 0% |
-| [pf1_items](pf1_items.jsonl) |  | to build | 2151 | 0 | 0 | 0 | 2002 | 0 | 0 | 100% | 0% |
-| [pf1_powers](pf1_powers.jsonl) |  | to build | 411 | 0 | 0 | 0 | 241 | 0 | 0 | 100% | 0% |
-| [pf1_spells](pf1_spells.jsonl) |  | to build | 1710 | 0 | 0 | 0 | 1568 | 0 | 0 | 100% | 0% |
+| [aos_soulbound_artifacts](aos_soulbound_artifacts.jsonl) |  | to build | 230 | 0 | 0 | 0 | 95 | 0 | 0 | 100% | 0% |
+| [aos_soulbound_creatures](aos_soulbound_creatures.jsonl) |  | to build | 264 | 0 | 0 | 0 | 109 | 0 | 0 | 100% | 0% |
+| [aos_soulbound_institutions](aos_soulbound_institutions.jsonl) |  | to build | 175 | 0 | 0 | 0 | 14 | 1 | 0 | 100% | 0% |
+| [aos_soulbound_places](aos_soulbound_places.jsonl) |  | to build | 210 | 0 | 0 | 0 | 13 | 0 | 0 | 100% | 0% |
+| [aos_soulbound_powers](aos_soulbound_powers.jsonl) |  | to build | 401 | 0 | 0 | 0 | 241 | 11 | 0 | 100% | 0% |
+| [aos_soulbound_rules](aos_soulbound_rules.jsonl) |  | to build | 94 | 0 | 0 | 0 | 42 | 9 | 0 | 100% | 0% |
+| [cyberpunk_artifacts](cyberpunk_artifacts.jsonl) |  | to build | 18 | 0 | 0 | 0 | 6 | 0 | 0 | 100% | 0% |
+| [cyberpunk_institutions](cyberpunk_institutions.jsonl) |  | to build | 19 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [cyberpunk_places](cyberpunk_places.jsonl) |  | to build | 21 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [cyberpunk_powers](cyberpunk_powers.jsonl) |  | to build | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [cyberpunk_rules](cyberpunk_rules.jsonl) |  | to build | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
+| [eberron_artifacts](eberron_artifacts.jsonl) |  | to build | 357 | 0 | 0 | 0 | 173 | 2 | 0 | 100% | 0% |
+| [eberron_creatures](eberron_creatures.jsonl) |  | to build | 398 | 0 | 0 | 0 | 125 | 1 | 0 | 100% | 0% |
+| [eberron_institutions](eberron_institutions.jsonl) |  | to build | 289 | 0 | 0 | 0 | 8 | 1 | 0 | 100% | 0% |
+| [eberron_places](eberron_places.jsonl) |  | to build | 438 | 0 | 0 | 0 | 40 | 3 | 0 | 100% | 0% |
+| [eberron_powers](eberron_powers.jsonl) |  | to build | 400 | 0 | 0 | 0 | 263 | 9 | 0 | 100% | 0% |
+| [eberron_rules](eberron_rules.jsonl) |  | to build | 125 | 0 | 0 | 0 | 56 | 0 | 0 | 100% | 0% |
+| [eclipse_phase_artifacts](eclipse_phase_artifacts.jsonl) |  | to build | 719 | 0 | 0 | 0 | 233 | 1 | 0 | 100% | 0% |
+| [eclipse_phase_creatures](eclipse_phase_creatures.jsonl) |  | to build | 474 | 0 | 0 | 0 | 138 | 20 | 0 | 100% | 0% |
+| [eclipse_phase_institutions](eclipse_phase_institutions.jsonl) |  | to build | 414 | 0 | 0 | 0 | 27 | 2 | 0 | 100% | 0% |
+| [eclipse_phase_places](eclipse_phase_places.jsonl) |  | to build | 346 | 0 | 0 | 0 | 13 | 0 | 0 | 100% | 0% |
+| [eclipse_phase_powers](eclipse_phase_powers.jsonl) |  | to build | 547 | 0 | 0 | 0 | 280 | 0 | 0 | 100% | 0% |
+| [eclipse_phase_rules](eclipse_phase_rules.jsonl) |  | to build | 489 | 0 | 0 | 0 | 182 | 54 | 0 | 100% | 0% |
+| [forgotten_realms_artifacts](forgotten_realms_artifacts.jsonl) |  | to build | 530 | 0 | 0 | 0 | 231 | 0 | 0 | 100% | 0% |
+| [forgotten_realms_creatures](forgotten_realms_creatures.jsonl) |  | to build | 868 | 0 | 0 | 0 | 189 | 1 | 0 | 100% | 0% |
+| [forgotten_realms_institutions](forgotten_realms_institutions.jsonl) |  | to build | 531 | 0 | 0 | 0 | 13 | 2 | 0 | 100% | 0% |
+| [forgotten_realms_places](forgotten_realms_places.jsonl) |  | to build | 1234 | 0 | 0 | 0 | 54 | 4 | 0 | 100% | 0% |
+| [forgotten_realms_powers](forgotten_realms_powers.jsonl) |  | to build | 638 | 0 | 0 | 0 | 371 | 2 | 0 | 100% | 0% |
+| [forgotten_realms_rules](forgotten_realms_rules.jsonl) |  | to build | 153 | 0 | 0 | 0 | 59 | 11 | 0 | 100% | 0% |
+| [golarion_artifacts](golarion_artifacts.jsonl) |  | to build | 49 | 0 | 0 | 0 | 33 | 0 | 0 | 100% | 0% |
+| [golarion_creatures](golarion_creatures.jsonl) |  | to build | 201 | 0 | 0 | 0 | 37 | 0 | 0 | 100% | 0% |
+| [golarion_institutions](golarion_institutions.jsonl) |  | to build | 165 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
+| [golarion_places](golarion_places.jsonl) |  | to build | 407 | 0 | 0 | 0 | 41 | 0 | 0 | 100% | 0% |
+| [golarion_powers](golarion_powers.jsonl) |  | to build | 107 | 0 | 0 | 0 | 65 | 0 | 0 | 100% | 0% |
+| [golarion_rules](golarion_rules.jsonl) |  | to build | 37 | 0 | 0 | 0 | 20 | 0 | 0 | 100% | 0% |
+| [mystara_artifacts](mystara_artifacts.jsonl) |  | to build | 542 | 0 | 0 | 0 | 173 | 2 | 0 | 100% | 0% |
+| [mystara_creatures](mystara_creatures.jsonl) |  | to build | 641 | 0 | 0 | 0 | 133 | 3 | 0 | 100% | 0% |
+| [mystara_institutions](mystara_institutions.jsonl) |  | to build | 510 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
+| [mystara_places](mystara_places.jsonl) |  | to build | 792 | 0 | 0 | 0 | 29 | 7 | 0 | 100% | 0% |
+| [mystara_powers](mystara_powers.jsonl) |  | to build | 542 | 0 | 0 | 0 | 314 | 3 | 0 | 100% | 0% |
+| [mystara_rules](mystara_rules.jsonl) |  | to build | 374 | 0 | 0 | 0 | 83 | 33 | 0 | 100% | 0% |
+| [numenera_artifacts](numenera_artifacts.jsonl) |  | to build | 1746 | 0 | 0 | 0 | 818 | 0 | 0 | 100% | 0% |
+| [numenera_creatures](numenera_creatures.jsonl) |  | to build | 933 | 0 | 0 | 0 | 337 | 1 | 0 | 100% | 0% |
+| [numenera_institutions](numenera_institutions.jsonl) |  | to build | 179 | 0 | 0 | 0 | 18 | 1 | 0 | 100% | 0% |
+| [numenera_places](numenera_places.jsonl) |  | to build | 622 | 0 | 0 | 0 | 72 | 3 | 0 | 100% | 0% |
+| [numenera_powers](numenera_powers.jsonl) |  | to build | 1114 | 0 | 0 | 0 | 463 | 9 | 0 | 100% | 0% |
+| [numenera_rules](numenera_rules.jsonl) |  | to build | 528 | 0 | 0 | 0 | 208 | 29 | 0 | 100% | 0% |
+| [planescape_artifacts](planescape_artifacts.jsonl) |  | to build | 47 | 0 | 0 | 0 | 19 | 2 | 0 | 100% | 0% |
+| [planescape_creatures](planescape_creatures.jsonl) |  | to build | 245 | 0 | 0 | 0 | 46 | 0 | 0 | 100% | 0% |
+| [planescape_institutions](planescape_institutions.jsonl) |  | to build | 46 | 0 | 0 | 0 | 5 | 1 | 0 | 100% | 0% |
+| [planescape_places](planescape_places.jsonl) |  | to build | 158 | 0 | 0 | 0 | 27 | 0 | 0 | 100% | 0% |
+| [planescape_powers](planescape_powers.jsonl) |  | to build | 17 | 0 | 0 | 0 | 15 | 0 | 0 | 100% | 0% |
+| [planescape_rules](planescape_rules.jsonl) |  | to build | 49 | 0 | 0 | 0 | 25 | 0 | 0 | 100% | 0% |
+| [ravenloft_artifacts](ravenloft_artifacts.jsonl) |  | to build | 196 | 0 | 0 | 0 | 48 | 0 | 0 | 100% | 0% |
+| [ravenloft_creatures](ravenloft_creatures.jsonl) |  | to build | 354 | 0 | 0 | 0 | 156 | 0 | 0 | 100% | 0% |
+| [ravenloft_institutions](ravenloft_institutions.jsonl) |  | to build | 73 | 0 | 0 | 0 | 9 | 0 | 0 | 100% | 0% |
+| [ravenloft_places](ravenloft_places.jsonl) |  | to build | 233 | 0 | 0 | 0 | 29 | 1 | 0 | 100% | 0% |
+| [ravenloft_powers](ravenloft_powers.jsonl) |  | to build | 251 | 0 | 0 | 0 | 135 | 0 | 0 | 100% | 0% |
+| [ravenloft_rules](ravenloft_rules.jsonl) |  | to build | 101 | 0 | 0 | 0 | 65 | 0 | 0 | 100% | 0% |
+| [ravnica_artifacts](ravnica_artifacts.jsonl) |  | to build | 5 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
+| [ravnica_creatures](ravnica_creatures.jsonl) |  | to build | 47 | 0 | 0 | 0 | 5 | 0 | 0 | 100% | 0% |
+| [ravnica_institutions](ravnica_institutions.jsonl) |  | to build | 21 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [ravnica_places](ravnica_places.jsonl) |  | to build | 24 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [ravnica_powers](ravnica_powers.jsonl) |  | to build | 88 | 0 | 0 | 0 | 42 | 0 | 0 | 100% | 0% |
+| [ravnica_rules](ravnica_rules.jsonl) |  | to build | 5 | 0 | 0 | 0 | 3 | 0 | 0 | 100% | 0% |
+| [spelljammer_artifacts](spelljammer_artifacts.jsonl) |  | to build | 115 | 0 | 0 | 0 | 30 | 0 | 0 | 100% | 0% |
+| [spelljammer_creatures](spelljammer_creatures.jsonl) |  | to build | 187 | 0 | 0 | 0 | 37 | 0 | 0 | 100% | 0% |
+| [spelljammer_institutions](spelljammer_institutions.jsonl) |  | to build | 33 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [spelljammer_places](spelljammer_places.jsonl) |  | to build | 82 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
+| [spelljammer_powers](spelljammer_powers.jsonl) |  | to build | 155 | 0 | 0 | 0 | 77 | 0 | 0 | 100% | 0% |
+| [spelljammer_rules](spelljammer_rules.jsonl) |  | to build | 55 | 0 | 0 | 0 | 23 | 4 | 0 | 100% | 0% |
+| [stars_without_number_artifacts](stars_without_number_artifacts.jsonl) |  | to build | 427 | 0 | 0 | 0 | 62 | 0 | 0 | 100% | 0% |
+| [stars_without_number_creatures](stars_without_number_creatures.jsonl) |  | to build | 80 | 0 | 0 | 0 | 8 | 0 | 0 | 100% | 0% |
+| [stars_without_number_institutions](stars_without_number_institutions.jsonl) |  | to build | 42 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
+| [stars_without_number_places](stars_without_number_places.jsonl) |  | to build | 52 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [stars_without_number_powers](stars_without_number_powers.jsonl) |  | to build | 139 | 0 | 0 | 0 | 78 | 0 | 0 | 100% | 0% |
+| [stars_without_number_rules](stars_without_number_rules.jsonl) |  | to build | 169 | 0 | 0 | 0 | 20 | 36 | 0 | 100% | 0% |
+| [strixhaven_artifacts](strixhaven_artifacts.jsonl) |  | to build | 117 | 0 | 0 | 0 | 64 | 0 | 0 | 100% | 0% |
+| [strixhaven_creatures](strixhaven_creatures.jsonl) |  | to build | 158 | 0 | 0 | 0 | 66 | 0 | 0 | 100% | 0% |
+| [strixhaven_institutions](strixhaven_institutions.jsonl) |  | to build | 42 | 0 | 0 | 0 | 0 | 1 | 0 | 100% | 0% |
+| [strixhaven_places](strixhaven_places.jsonl) |  | to build | 58 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
+| [strixhaven_powers](strixhaven_powers.jsonl) |  | to build | 277 | 0 | 0 | 0 | 164 | 1 | 0 | 100% | 0% |
+| [strixhaven_rules](strixhaven_rules.jsonl) |  | to build | 37 | 0 | 0 | 0 | 12 | 10 | 0 | 100% | 0% |
+| [the_dark_eye_artifacts](the_dark_eye_artifacts.jsonl) |  | to build | 235 | 0 | 0 | 0 | 49 | 0 | 0 | 100% | 0% |
+| [the_dark_eye_creatures](the_dark_eye_creatures.jsonl) |  | to build | 212 | 0 | 0 | 0 | 33 | 0 | 0 | 100% | 0% |
+| [the_dark_eye_institutions](the_dark_eye_institutions.jsonl) |  | to build | 116 | 0 | 0 | 0 | 3 | 1 | 0 | 100% | 0% |
+| [the_dark_eye_places](the_dark_eye_places.jsonl) |  | to build | 145 | 0 | 0 | 0 | 5 | 1 | 0 | 100% | 0% |
+| [the_dark_eye_powers](the_dark_eye_powers.jsonl) |  | to build | 523 | 0 | 0 | 0 | 220 | 1 | 0 | 100% | 0% |
+| [the_dark_eye_rules](the_dark_eye_rules.jsonl) |  | to build | 189 | 0 | 0 | 0 | 39 | 20 | 0 | 100% | 0% |
+| [the_strange_artifacts](the_strange_artifacts.jsonl) |  | to build | 489 | 0 | 0 | 0 | 246 | 2 | 0 | 100% | 0% |
+| [the_strange_creatures](the_strange_creatures.jsonl) |  | to build | 458 | 0 | 0 | 0 | 184 | 2 | 0 | 100% | 0% |
+| [the_strange_institutions](the_strange_institutions.jsonl) |  | to build | 160 | 0 | 0 | 0 | 9 | 1 | 0 | 100% | 0% |
+| [the_strange_places](the_strange_places.jsonl) |  | to build | 365 | 0 | 0 | 0 | 66 | 1 | 0 | 100% | 0% |
+| [the_strange_powers](the_strange_powers.jsonl) |  | to build | 585 | 0 | 0 | 0 | 263 | 2 | 0 | 100% | 0% |
+| [the_strange_rules](the_strange_rules.jsonl) |  | to build | 305 | 0 | 0 | 0 | 138 | 12 | 0 | 100% | 0% |
+| [theros_artifacts](theros_artifacts.jsonl) |  | to build | 82 | 0 | 0 | 0 | 28 | 0 | 0 | 100% | 0% |
+| [theros_creatures](theros_creatures.jsonl) |  | to build | 305 | 0 | 0 | 0 | 89 | 0 | 0 | 100% | 0% |
+| [theros_institutions](theros_institutions.jsonl) |  | to build | 75 | 0 | 0 | 0 | 6 | 0 | 0 | 100% | 0% |
+| [theros_places](theros_places.jsonl) |  | to build | 131 | 0 | 0 | 0 | 23 | 0 | 0 | 100% | 0% |
+| [theros_powers](theros_powers.jsonl) |  | to build | 280 | 0 | 0 | 0 | 146 | 0 | 0 | 100% | 0% |
+| [theros_rules](theros_rules.jsonl) |  | to build | 86 | 0 | 0 | 0 | 53 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_creatures](warhammer_40k_creatures.jsonl) |  | to build | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_institutions](warhammer_40k_institutions.jsonl) |  | to build | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_places](warhammer_40k_places.jsonl) |  | to build | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
+| [warhammer_40k_powers](warhammer_40k_powers.jsonl) |  | to build | 2 | 0 | 0 | 0 | 2 | 0 | 0 | 100% | 0% |
+| [wildemount_artifacts](wildemount_artifacts.jsonl) |  | to build | 205 | 0 | 0 | 0 | 91 | 3 | 0 | 100% | 0% |
+| [wildemount_creatures](wildemount_creatures.jsonl) |  | to build | 461 | 0 | 0 | 0 | 129 | 1 | 0 | 100% | 0% |
+| [wildemount_institutions](wildemount_institutions.jsonl) |  | to build | 175 | 0 | 0 | 0 | 11 | 0 | 0 | 100% | 0% |
+| [wildemount_places](wildemount_places.jsonl) |  | to build | 473 | 0 | 0 | 0 | 13 | 1 | 0 | 100% | 0% |
+| [wildemount_powers](wildemount_powers.jsonl) |  | to build | 198 | 0 | 0 | 0 | 94 | 5 | 0 | 100% | 0% |
+| [wildemount_rules](wildemount_rules.jsonl) |  | to build | 99 | 0 | 0 | 0 | 41 | 11 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -101,90 +151,140 @@
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
 | a_novel_concept_powers | 0 | 0 | 0 | 0 |
-| ars_magica_conditions | 0 | 0 | 0 | 0 |
-| ars_magica_creatures | 0 | 0 | 0 | 0 |
-| ars_magica_items | 0 | 0 | 0 | 0 |
-| ars_magica_powers | 0 | 0 | 0 | 0 |
-| ars_magica_spells | 0 | 0 | 0 | 0 |
-| blades_conditions | 0 | 0 | 0 | 0 |
-| blades_creatures | 0 | 0 | 0 | 0 |
-| blades_items | 0 | 0 | 0 | 0 |
-| blades_powers | 0 | 0 | 0 | 0 |
-| brp_conditions | 0 | 0 | 0 | 0 |
-| brp_creatures | 0 | 0 | 0 | 0 |
-| brp_items | 0 | 0 | 0 | 0 |
-| brp_powers | 0 | 0 | 0 | 0 |
-| brp_spells | 0 | 0 | 0 | 0 |
+| aos_soulbound_artifacts | 0 | 0 | 0 | 0 |
+| aos_soulbound_creatures | 0 | 0 | 0 | 0 |
+| aos_soulbound_institutions | 0 | 0 | 0 | 0 |
+| aos_soulbound_places | 0 | 0 | 0 | 0 |
+| aos_soulbound_powers | 0 | 0 | 0 | 0 |
+| aos_soulbound_rules | 0 | 0 | 0 | 0 |
 | circle_of_inevitability_powers | 0 | 0 | 0 | 0 |
-| coc_conditions | 0 | 0 | 0 | 0 |
-| coc_creatures | 0 | 0 | 0 | 0 |
-| coc_items | 0 | 0 | 0 | 0 |
-| coc_powers | 0 | 0 | 0 | 0 |
-| coc_spells | 0 | 0 | 0 | 0 |
 | creatures | 17 | 82 | 0 | 17 |
-| cypher_conditions | 0 | 0 | 0 | 0 |
-| cypher_creatures | 0 | 0 | 0 | 0 |
-| cypher_items | 0 | 0 | 0 | 0 |
-| cypher_powers | 0 | 0 | 0 | 0 |
-| cypher_spells | 0 | 0 | 0 | 0 |
-| dnd5e_2014_backgrounds_species | 0 | 0 | 0 | 0 |
-| dnd5e_2014_class_features | 0 | 0 | 0 | 0 |
-| dnd5e_2014_conditions | 0 | 0 | 0 | 0 |
-| dnd5e_2014_creatures | 0 | 0 | 0 | 0 |
-| dnd5e_2014_feats | 0 | 0 | 0 | 0 |
-| dnd5e_2014_items | 0 | 0 | 0 | 0 |
-| dnd5e_2014_powers | 0 | 0 | 0 | 0 |
-| dnd5e_2014_spells | 0 | 0 | 0 | 0 |
-| dnd5e_2014_surge_tables | 0 | 0 | 0 | 0 |
-| dnd_srd_backgrounds_species | 0 | 0 | 0 | 0 |
-| dnd_srd_class_features | 0 | 0 | 0 | 0 |
-| dnd_srd_conditions | 0 | 0 | 0 | 0 |
-| dnd_srd_creatures | 0 | 0 | 0 | 0 |
-| dnd_srd_feats | 0 | 0 | 0 | 0 |
-| dnd_srd_items | 0 | 0 | 0 | 0 |
-| dnd_srd_powers | 0 | 0 | 0 | 0 |
-| dnd_srd_spells | 0 | 0 | 0 | 0 |
-| dnd_srd_surge_tables | 0 | 0 | 0 | 0 |
-| eclipse_phase_conditions | 0 | 0 | 0 | 0 |
+| cyberpunk_artifacts | 0 | 0 | 0 | 0 |
+| cyberpunk_institutions | 0 | 0 | 0 | 0 |
+| cyberpunk_places | 0 | 0 | 0 | 0 |
+| cyberpunk_powers | 0 | 0 | 0 | 0 |
+| cyberpunk_rules | 0 | 0 | 0 | 0 |
+| eberron_artifacts | 0 | 0 | 0 | 0 |
+| eberron_creatures | 0 | 0 | 0 | 0 |
+| eberron_institutions | 0 | 0 | 0 | 0 |
+| eberron_places | 0 | 0 | 0 | 0 |
+| eberron_powers | 0 | 0 | 0 | 0 |
+| eberron_rules | 0 | 0 | 0 | 0 |
+| eclipse_phase_artifacts | 0 | 0 | 0 | 0 |
 | eclipse_phase_creatures | 0 | 0 | 0 | 0 |
-| eclipse_phase_items | 0 | 0 | 0 | 0 |
+| eclipse_phase_institutions | 0 | 0 | 0 | 0 |
+| eclipse_phase_places | 0 | 0 | 0 | 0 |
 | eclipse_phase_powers | 0 | 0 | 0 | 0 |
-| fate_conditions | 0 | 0 | 0 | 0 |
-| fate_creatures | 0 | 0 | 0 | 0 |
-| fate_items | 0 | 0 | 0 | 0 |
-| fate_powers | 0 | 0 | 0 | 0 |
-| fate_spells | 0 | 0 | 0 | 0 |
+| eclipse_phase_rules | 0 | 0 | 0 | 0 |
 | fated_villain_powers | 0 | 0 | 0 | 0 |
+| forgotten_realms_artifacts | 0 | 0 | 0 | 0 |
+| forgotten_realms_creatures | 0 | 0 | 0 | 0 |
+| forgotten_realms_institutions | 0 | 0 | 0 | 0 |
+| forgotten_realms_places | 0 | 0 | 0 | 0 |
+| forgotten_realms_powers | 0 | 0 | 0 | 0 |
+| forgotten_realms_rules | 0 | 0 | 0 | 0 |
+| golarion_artifacts | 0 | 0 | 0 | 0 |
+| golarion_creatures | 0 | 0 | 0 | 0 |
+| golarion_institutions | 0 | 0 | 0 | 0 |
+| golarion_places | 0 | 0 | 0 | 0 |
+| golarion_powers | 0 | 0 | 0 | 0 |
+| golarion_rules | 0 | 0 | 0 | 0 |
 | gu_kinds | 696 | 16 | 0 | 696 |
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 209 | 0 | 20 |
 | hp_objects | 0 | 0 | 0 | 0 |
 | hp_potions | 1 | 90 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
-| ironsworn_conditions | 0 | 0 | 0 | 0 |
-| ironsworn_creatures | 0 | 0 | 0 | 0 |
-| ironsworn_items | 0 | 0 | 0 | 0 |
-| ironsworn_powers | 0 | 0 | 0 | 0 |
 | labyrinth_mad_god_powers | 0 | 0 | 0 | 0 |
 | legendary_mechanic_powers | 0 | 0 | 0 | 0 |
 | lotm_artifacts | 0 | 0 | 0 | 0 |
 | lotm_potions | 0 | 207 | 0 | 0 |
-| mm3e_conditions | 0 | 0 | 0 | 0 |
-| mm3e_powers | 0 | 0 | 0 | 0 |
 | mother_of_learning_powers | 0 | 0 | 0 | 0 |
+| mystara_artifacts | 0 | 0 | 0 | 0 |
+| mystara_creatures | 0 | 0 | 0 | 0 |
+| mystara_institutions | 0 | 0 | 0 | 0 |
+| mystara_places | 0 | 0 | 0 | 0 |
+| mystara_powers | 0 | 0 | 0 | 0 |
+| mystara_rules | 0 | 0 | 0 | 0 |
+| numenera_artifacts | 0 | 0 | 0 | 0 |
+| numenera_creatures | 0 | 0 | 0 | 0 |
+| numenera_institutions | 0 | 0 | 0 | 0 |
+| numenera_places | 0 | 0 | 0 | 0 |
+| numenera_powers | 0 | 0 | 0 | 0 |
+| numenera_rules | 0 | 0 | 0 | 0 |
 | omniscient_reader_powers | 0 | 0 | 0 | 0 |
 | perfect_run_powers | 0 | 0 | 0 | 0 |
-| pf1_conditions | 0 | 0 | 0 | 0 |
-| pf1_creatures | 0 | 0 | 0 | 0 |
-| pf1_items | 0 | 0 | 0 | 0 |
-| pf1_powers | 0 | 0 | 0 | 0 |
-| pf1_spells | 0 | 0 | 0 | 0 |
+| planescape_artifacts | 0 | 0 | 0 | 0 |
+| planescape_creatures | 0 | 0 | 0 | 0 |
+| planescape_institutions | 0 | 0 | 0 | 0 |
+| planescape_places | 0 | 0 | 0 | 0 |
+| planescape_powers | 0 | 0 | 0 | 0 |
+| planescape_rules | 0 | 0 | 0 | 0 |
+| ravenloft_artifacts | 0 | 0 | 0 | 0 |
+| ravenloft_creatures | 0 | 0 | 0 | 0 |
+| ravenloft_institutions | 0 | 0 | 0 | 0 |
+| ravenloft_places | 0 | 0 | 0 | 0 |
+| ravenloft_powers | 0 | 0 | 0 | 0 |
+| ravenloft_rules | 0 | 0 | 0 | 0 |
+| ravnica_artifacts | 0 | 0 | 0 | 0 |
+| ravnica_creatures | 0 | 0 | 0 | 0 |
+| ravnica_institutions | 0 | 0 | 0 | 0 |
+| ravnica_places | 0 | 0 | 0 | 0 |
+| ravnica_powers | 0 | 0 | 0 | 0 |
+| ravnica_rules | 0 | 0 | 0 | 0 |
 | regressors_tale_powers | 0 | 0 | 0 | 0 |
 | rezero_powers | 0 | 0 | 0 | 0 |
 | ri_treasures | 0 | 0 | 0 | 0 |
 | shadow_slave_powers | 0 | 0 | 0 | 0 |
 | solo_leveling_powers | 0 | 0 | 0 | 0 |
 | speedrunning_multiverse_powers | 0 | 0 | 0 | 0 |
+| spelljammer_artifacts | 0 | 0 | 0 | 0 |
+| spelljammer_creatures | 0 | 0 | 0 | 0 |
+| spelljammer_institutions | 0 | 0 | 0 | 0 |
+| spelljammer_places | 0 | 0 | 0 | 0 |
+| spelljammer_powers | 0 | 0 | 0 | 0 |
+| spelljammer_rules | 0 | 0 | 0 | 0 |
+| stars_without_number_artifacts | 0 | 0 | 0 | 0 |
+| stars_without_number_creatures | 0 | 0 | 0 | 0 |
+| stars_without_number_institutions | 0 | 0 | 0 | 0 |
+| stars_without_number_places | 0 | 0 | 0 | 0 |
+| stars_without_number_powers | 0 | 0 | 0 | 0 |
+| stars_without_number_rules | 0 | 0 | 0 | 0 |
+| strixhaven_artifacts | 0 | 0 | 0 | 0 |
+| strixhaven_creatures | 0 | 0 | 0 | 0 |
+| strixhaven_institutions | 0 | 0 | 0 | 0 |
+| strixhaven_places | 0 | 0 | 0 | 0 |
+| strixhaven_powers | 0 | 0 | 0 | 0 |
+| strixhaven_rules | 0 | 0 | 0 | 0 |
+| the_dark_eye_artifacts | 0 | 0 | 0 | 0 |
+| the_dark_eye_creatures | 0 | 0 | 0 | 0 |
+| the_dark_eye_institutions | 0 | 0 | 0 | 0 |
+| the_dark_eye_places | 0 | 0 | 0 | 0 |
+| the_dark_eye_powers | 0 | 0 | 0 | 0 |
+| the_dark_eye_rules | 0 | 0 | 0 | 0 |
+| the_strange_artifacts | 0 | 0 | 0 | 0 |
+| the_strange_creatures | 0 | 0 | 0 | 0 |
+| the_strange_institutions | 0 | 0 | 0 | 0 |
+| the_strange_places | 0 | 0 | 0 | 0 |
+| the_strange_powers | 0 | 0 | 0 | 0 |
+| the_strange_rules | 0 | 0 | 0 | 0 |
+| theros_artifacts | 0 | 0 | 0 | 0 |
+| theros_creatures | 0 | 0 | 0 | 0 |
+| theros_institutions | 0 | 0 | 0 | 0 |
+| theros_places | 0 | 0 | 0 | 0 |
+| theros_powers | 0 | 0 | 0 | 0 |
+| theros_rules | 0 | 0 | 0 | 0 |
+| warhammer_40k_artifacts | 0 | 0 | 0 | 0 |
+| warhammer_40k_creatures | 0 | 0 | 0 | 0 |
+| warhammer_40k_institutions | 0 | 0 | 0 | 0 |
+| warhammer_40k_places | 0 | 0 | 0 | 0 |
+| warhammer_40k_powers | 0 | 0 | 0 | 0 |
+| wildemount_artifacts | 0 | 0 | 0 | 0 |
+| wildemount_creatures | 0 | 0 | 0 | 0 |
+| wildemount_institutions | 0 | 0 | 0 | 0 |
+| wildemount_places | 0 | 0 | 0 | 0 |
+| wildemount_powers | 0 | 0 | 0 | 0 |
+| wildemount_rules | 0 | 0 | 0 | 0 |
 | worm_powers | 0 | 0 | 0 | 0 |
 | you_have_died_again_powers | 0 | 0 | 0 | 0 |
 
@@ -298,24 +398,28 @@
 | Bay City | original |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
 | Salvage Reach | original |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
 | The Red Basin | original |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
-| D&D 5.2.1 SRD | tabletop |  | dnd_srd_powers (1134) | dnd_srd_items (375) | none | none | dnd_srd_creatures (338) | none | none | none | none | none | 3 | 0 | 7 |
-| Ars Magica 5e | tabletop |  | ars_magica_powers (3961) | ars_magica_items (341) | none | none | ars_magica_creatures (471) | none | none | none | none | none | 3 | 0 | 7 |
-| Blades in the Dark SRD | tabletop |  | blades_powers (181) | blades_items (3) | none | none | blades_creatures (6) | none | none | none | none | none | 3 | 0 | 7 |
-| Fate SRD | tabletop |  | fate_powers (1105) | fate_items (71) | none | none | fate_creatures (40) | none | none | none | none | none | 3 | 0 | 7 |
-| Mutants & Masterminds 3e SRD | tabletop |  | mm3e_powers (160) | none | none | none | none | none | none | none | none | none | 1 | 0 | 9 |
-| Basic Roleplaying ORC | tabletop |  | brp_powers (383) | brp_items (73) | none | none | brp_creatures (57) | none | none | none | none | none | 3 | 0 | 7 |
-| Ironsworn | tabletop |  | ironsworn_powers (136) | ironsworn_items (2) | none | none | ironsworn_creatures (39) | none | none | none | none | none | 3 | 0 | 7 |
-| Cypher Reference Document | tabletop |  | cypher_powers (913) | cypher_items (118) | none | none | cypher_creatures (38) | none | none | none | none | none | 3 | 0 | 7 |
-| Eclipse Phase 2e Quickstart | tabletop |  | eclipse_phase_powers (46) | eclipse_phase_items (48) | none | none | eclipse_phase_creatures (5) | none | none | none | none | none | 3 | 0 | 7 |
-| Call of Cthulhu 7e Quick-Start | tabletop |  | coc_powers (10) | coc_items (4) | none | none | coc_creatures (2) | none | none | none | none | none | 3 | 0 | 7 |
-| Pathfinder 1e (d20pfsrd pages) | tabletop |  | pf1_powers (2291) | pf1_items (2151) | none | none | pf1_creatures (125) | none | none | none | none | none | 3 | 0 | 7 |
-| D&D 5e 2014 core and supplements (design reference; PHB, DMG, MM, Xanathar, Fizban, MotM) | tabletop |  | dnd5e_2014_powers (2456) | dnd5e_2014_items (391) | none | none | dnd5e_2014_creatures (751) | none | none | none | none | none | 3 | 0 | 7 |
-| D&D 5e Planescape and Spelljammer rules (design reference; places and factions left to the setting worlds) | tabletop |  | none | none | none | none | none | none | none | none | none | none | 0 | 0 | 10 |
-| GURPS Powers and Thaumatology (design reference) | tabletop |  | none | none | none | none | none | none | none | none | none | none | 0 | 0 | 10 |
-| M&M 3e Hero's Handbook (design reference) | tabletop |  | none | none | none | none | none | none | none | none | none | none | 0 | 0 | 10 |
-| Blades in the Dark core book (design reference) | tabletop |  | none | none | none | none | none | none | none | none | none | none | 0 | 0 | 10 |
+| Eclipse Phase (2nd edition) | setting |  | eclipse_phase_powers (547) | eclipse_phase_artifacts (719) | missing | missing | eclipse_phase_creatures (474) | eclipse_phase_places (346) | eclipse_phase_institutions (414) | missing | missing | eclipse_phase_rules (489) | 6 | 4 | 0 |
+| Numenera (Ninth World) | setting |  | numenera_powers (1114) | numenera_artifacts (1746) | missing | missing | numenera_creatures (933) | numenera_places (622) | numenera_institutions (179) | missing | missing | numenera_rules (528) | 6 | 4 | 0 |
+| Warhammer 40,000 (9th edition core) | setting |  | warhammer_40k_powers (2) | warhammer_40k_artifacts (3) | missing | missing | warhammer_40k_creatures (2) | warhammer_40k_places (1) | warhammer_40k_institutions (3) | missing | missing | missing | 5 | 5 | 0 |
+| The Strange (recursions) | setting |  | the_strange_powers (585) | the_strange_artifacts (489) | missing | missing | the_strange_creatures (458) | the_strange_places (365) | the_strange_institutions (160) | missing | missing | the_strange_rules (305) | 6 | 4 | 0 |
+| Warhammer Fantasy Roleplay 4e (the Old World) | setting |  | none | none | none | none | none | none | none | none | none | none | 0 | 0 | 10 |
+| Age of Sigmar: Soulbound | setting |  | aos_soulbound_powers (401) | aos_soulbound_artifacts (230) | missing | missing | aos_soulbound_creatures (264) | aos_soulbound_places (210) | aos_soulbound_institutions (175) | missing | missing | aos_soulbound_rules (94) | 6 | 4 | 0 |
+| Stars Without Number (Revised, free edition) | setting |  | stars_without_number_powers (139) | stars_without_number_artifacts (427) | missing | missing | stars_without_number_creatures (80) | stars_without_number_places (52) | stars_without_number_institutions (42) | missing | missing | stars_without_number_rules (169) | 6 | 4 | 0 |
+| Forgotten Realms (3e campaign setting and Grand History) | setting |  | forgotten_realms_powers (638) | forgotten_realms_artifacts (530) | missing | missing | forgotten_realms_creatures (868) | forgotten_realms_places (1234) | forgotten_realms_institutions (531) | missing | missing | forgotten_realms_rules (153) | 6 | 4 | 0 |
+| Golarion (Inner Sea World Guide and Lost Omens World Guide) | setting |  | golarion_powers (107) | golarion_artifacts (49) | missing | missing | golarion_creatures (201) | golarion_places (407) | golarion_institutions (165) | missing | missing | golarion_rules (37) | 6 | 4 | 0 |
+| The Dark Eye 5e (Aventuria) | setting |  | the_dark_eye_powers (523) | the_dark_eye_artifacts (235) | missing | missing | the_dark_eye_creatures (212) | the_dark_eye_places (145) | the_dark_eye_institutions (116) | missing | missing | the_dark_eye_rules (189) | 6 | 4 | 0 |
+| Cyberpunk (RED and 2020) | setting |  | cyberpunk_powers (3) | cyberpunk_artifacts (18) | missing | missing | missing | cyberpunk_places (21) | cyberpunk_institutions (19) | missing | missing | cyberpunk_rules (3) | 5 | 5 | 0 |
+| Planescape (Adventures in the Multiverse, 2023) | setting |  | planescape_powers (17) | planescape_artifacts (47) | missing | missing | planescape_creatures (245) | planescape_places (158) | planescape_institutions (46) | missing | missing | planescape_rules (49) | 6 | 4 | 0 |
+| Spelljammer (Adventures in Space) | setting |  | spelljammer_powers (155) | spelljammer_artifacts (115) | missing | missing | spelljammer_creatures (187) | spelljammer_places (82) | spelljammer_institutions (33) | missing | missing | spelljammer_rules (55) | 6 | 4 | 0 |
+| Eberron (Rising from the Last War) | setting |  | eberron_powers (400) | eberron_artifacts (357) | missing | missing | eberron_creatures (398) | eberron_places (438) | eberron_institutions (289) | missing | missing | eberron_rules (125) | 6 | 4 | 0 |
+| Ravenloft (Van Richten's Guide) | setting |  | ravenloft_powers (251) | ravenloft_artifacts (196) | missing | missing | ravenloft_creatures (354) | ravenloft_places (233) | ravenloft_institutions (73) | missing | missing | ravenloft_rules (101) | 6 | 4 | 0 |
+| Wildemount (Explorer's Guide) | setting |  | wildemount_powers (198) | wildemount_artifacts (205) | missing | missing | wildemount_creatures (461) | wildemount_places (473) | wildemount_institutions (175) | missing | missing | wildemount_rules (99) | 6 | 4 | 0 |
+| Ravnica (Guildmasters' Guide) | setting |  | ravnica_powers (88) | ravnica_artifacts (5) | missing | missing | ravnica_creatures (47) | ravnica_places (24) | ravnica_institutions (21) | missing | missing | ravnica_rules (5) | 6 | 4 | 0 |
+| Theros (Mythic Odysseys) | setting |  | theros_powers (280) | theros_artifacts (82) | missing | missing | theros_creatures (305) | theros_places (131) | theros_institutions (75) | missing | missing | theros_rules (86) | 6 | 4 | 0 |
+| Strixhaven (Curriculum of Chaos) | setting |  | strixhaven_powers (277) | strixhaven_artifacts (117) | missing | missing | strixhaven_creatures (158) | strixhaven_places (58) | strixhaven_institutions (42) | missing | missing | strixhaven_rules (37) | 6 | 4 | 0 |
+| Mystara (Gazetteers GAZ1-GAZ14) | setting |  | mystara_powers (542) | mystara_artifacts (542) | missing | missing | mystara_creatures (641) | mystara_places (792) | mystara_institutions (510) | missing | missing | mystara_rules (374) | 6 | 4 | 0 |
 
-89 worlds, 890 cells: 58 ledgered, 675 missing with a source, 157 none.
+93 worlds, 930 cells: 136 ledgered, 753 missing with a source, 41 none.
 
 ### Next cells
 
@@ -323,33 +427,33 @@
 
 | # | World | Corpus | Shared slugs | Weight | Source |
 | ---: | --- | --- | ---: | ---: | --- |
-| 1 | harry-potter | creatures | 22 | 313 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
-| 2 | worm | artifacts | 16 | 232 | paid reader claims 2026-11-01-worm |
-| 3 | mother-of-learning | artifacts | 15 | 325 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 4 | lotm | powers | 15 | 265 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
-| 5 | circle-of-inevitability | artifacts | 13 | 307 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
-| 6 | fated-villain | artifacts | 13 | 302 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 7 | legendary-mechanic | artifacts | 13 | 273 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 8 | speedrunning-multiverse | artifacts | 13 | 223 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 9 | a-novel-concept | artifacts | 10 | 167 | deep dive docs/research/novels/a-novel-concept/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 10 | shadow-slave | artifacts | 9 | 256 | paid reader claims 2026-11-01-ss |
-| 11 | regressors-tale | artifacts | 9 | 243 | paid reader claims 2026-11-01-rtoc |
-| 12 | perfect-run | artifacts | 9 | 156 | paid reader claims 2026-11-01-pr |
-| 13 | typemoon | powers | 7 | 217 | wiki dump ~/.codex/research/wikis/typemoon.fandom.com/dump |
-| 14 | jujutsu-kaisen | powers | 7 | 217 | wiki dump ~/.codex/research/wikis/jujutsu-kaisen.fandom.com/dump |
-| 15 | naruto | powers | 7 | 216 | wiki dump ~/.codex/research/wikis/naruto.fandom.com/dump |
-| 16 | omniscient-reader | artifacts | 7 | 177 | deep dive docs/research/novels/omniscient-reader/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 17 | rezero | artifacts | 7 | 99 | deep dive docs/research/novels/rezero/DEEP_DIVE_2026-10-24.md (local, gitignored) |
-| 18 | hunterxhunter | powers | 6 | 191 | wiki dump ~/.codex/research/wikis/hunterxhunter.fandom.com/dump |
-| 19 | dresdenfiles | powers | 6 | 186 | wiki dump ~/.codex/research/wikis/dresdenfiles.fandom.com/dump |
-| 20 | blackclover | powers | 6 | 185 | wiki dump ~/.codex/research/wikis/blackclover.fandom.com/dump |
-| 21 | solo-leveling | artifacts | 6 | 178 | deep dive docs/research/novels/solo-leveling/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 22 | you-have-died-again | artifacts | 6 | 128 | deep dive docs/research/novels/you-have-died-again/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 23 | reverend-insanity | potions_and_recipes | 6 | 69 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
-| 24 | bleach | powers | 5 | 174 | wiki dump ~/.codex/research/wikis/bleach.fandom.com/dump |
-| 25 | myheroacademia | powers | 5 | 170 | wiki dump ~/.codex/research/wikis/myheroacademia.fandom.com/dump |
+| 1 | harry-potter | creatures | 19 | 354 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
+| 2 | aos-soulbound | potions_and_recipes | 17 | 454 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
+| 3 | eberron | potions_and_recipes | 17 | 454 | chapter text docs/research/tabletop-settings-2026-11-17/private/eberron (local, gitignored) |
+| 4 | forgotten-realms | potions_and_recipes | 17 | 454 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
+| 5 | numenera | potions_and_recipes | 17 | 454 | chapter text docs/research/tabletop-settings-2026-11-17/private/numenera (local, gitignored) |
+| 6 | planescape | potions_and_recipes | 17 | 454 | chapter text docs/research/tabletop-settings-2026-11-17/private/planescape (local, gitignored) |
+| 7 | strixhaven | potions_and_recipes | 17 | 454 | chapter text docs/research/tabletop-settings-2026-11-17/private/strixhaven (local, gitignored) |
+| 8 | the-strange | potions_and_recipes | 17 | 454 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-strange (local, gitignored) |
+| 9 | theros | potions_and_recipes | 17 | 454 | chapter text docs/research/tabletop-settings-2026-11-17/private/theros (local, gitignored) |
+| 10 | mystara | potions_and_recipes | 16 | 442 | chapter text docs/research/tabletop-settings-2026-11-17/private/mystara (local, gitignored) |
+| 11 | ravenloft | potions_and_recipes | 16 | 442 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravenloft (local, gitignored) |
+| 12 | wildemount | potions_and_recipes | 16 | 442 | chapter text docs/research/tabletop-settings-2026-11-17/private/wildemount (local, gitignored) |
+| 13 | eclipse-phase | potions_and_recipes | 16 | 424 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
+| 14 | spelljammer | potions_and_recipes | 15 | 428 | chapter text docs/research/tabletop-settings-2026-11-17/private/spelljammer (local, gitignored) |
+| 15 | the-dark-eye | potions_and_recipes | 15 | 428 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-dark-eye (local, gitignored) |
+| 16 | stars-without-number | potions_and_recipes | 15 | 412 | chapter text docs/research/tabletop-settings-2026-11-17/private/stars-without-number (local, gitignored) |
+| 17 | golarion | potions_and_recipes | 15 | 390 | chapter text docs/research/tabletop-settings-2026-11-17/private/golarion (local, gitignored) |
+| 18 | lotm | powers | 15 | 367 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
+| 19 | mother-of-learning | artifacts | 15 | 348 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 20 | ravnica | potions_and_recipes | 13 | 394 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravnica (local, gitignored) |
+| 21 | circle-of-inevitability | artifacts | 13 | 346 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
+| 22 | fated-villain | artifacts | 13 | 339 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 23 | legendary-mechanic | artifacts | 13 | 294 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 24 | speedrunning-multiverse | artifacts | 11 | 241 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 25 | shadow-slave | artifacts | 9 | 284 | paid reader claims 2026-11-01-ss |
 
-70 worlds have a next cell and 675 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
+89 worlds have a next cell and 753 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
 
 ## Held-out canon scoring (PC72, tuned on / held out / matched)
 
@@ -358,90 +462,140 @@
 | Ledger | Tuned on | Held out | Diagnostic outcome | Diagnostic route | Engine outcome | Engine route | Split |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | a_novel_concept_powers | 0 | 0 | | | | | none yet |
-| ars_magica_conditions | 0 | 0 | | | | | none yet |
-| ars_magica_creatures | 0 | 0 | | | | | none yet |
-| ars_magica_items | 0 | 0 | | | | | none yet |
-| ars_magica_powers | 0 | 0 | | | | | none yet |
-| ars_magica_spells | 0 | 0 | | | | | none yet |
-| blades_conditions | 0 | 0 | | | | | none yet |
-| blades_creatures | 0 | 0 | | | | | none yet |
-| blades_items | 0 | 0 | | | | | none yet |
-| blades_powers | 0 | 0 | | | | | none yet |
-| brp_conditions | 0 | 0 | | | | | none yet |
-| brp_creatures | 0 | 0 | | | | | none yet |
-| brp_items | 0 | 0 | | | | | none yet |
-| brp_powers | 0 | 0 | | | | | none yet |
-| brp_spells | 0 | 0 | | | | | none yet |
+| aos_soulbound_artifacts | 0 | 0 | | | | | none yet |
+| aos_soulbound_creatures | 0 | 0 | | | | | none yet |
+| aos_soulbound_institutions | 0 | 0 | | | | | none yet |
+| aos_soulbound_places | 0 | 0 | | | | | none yet |
+| aos_soulbound_powers | 0 | 0 | | | | | none yet |
+| aos_soulbound_rules | 0 | 0 | | | | | none yet |
 | circle_of_inevitability_powers | 0 | 0 | | | | | none yet |
-| coc_conditions | 0 | 0 | | | | | none yet |
-| coc_creatures | 0 | 0 | | | | | none yet |
-| coc_items | 0 | 0 | | | | | none yet |
-| coc_powers | 0 | 0 | | | | | none yet |
-| coc_spells | 0 | 0 | | | | | none yet |
 | creatures | 0 | 0 | | | | | none yet |
-| cypher_conditions | 0 | 0 | | | | | none yet |
-| cypher_creatures | 0 | 0 | | | | | none yet |
-| cypher_items | 0 | 0 | | | | | none yet |
-| cypher_powers | 0 | 0 | | | | | none yet |
-| cypher_spells | 0 | 0 | | | | | none yet |
-| dnd5e_2014_backgrounds_species | 0 | 0 | | | | | none yet |
-| dnd5e_2014_class_features | 0 | 0 | | | | | none yet |
-| dnd5e_2014_conditions | 0 | 0 | | | | | none yet |
-| dnd5e_2014_creatures | 0 | 0 | | | | | none yet |
-| dnd5e_2014_feats | 0 | 0 | | | | | none yet |
-| dnd5e_2014_items | 0 | 0 | | | | | none yet |
-| dnd5e_2014_powers | 0 | 0 | | | | | none yet |
-| dnd5e_2014_spells | 0 | 0 | | | | | none yet |
-| dnd5e_2014_surge_tables | 0 | 0 | | | | | none yet |
-| dnd_srd_backgrounds_species | 0 | 0 | | | | | none yet |
-| dnd_srd_class_features | 0 | 0 | | | | | none yet |
-| dnd_srd_conditions | 0 | 0 | | | | | none yet |
-| dnd_srd_creatures | 0 | 0 | | | | | none yet |
-| dnd_srd_feats | 0 | 0 | | | | | none yet |
-| dnd_srd_items | 0 | 0 | | | | | none yet |
-| dnd_srd_powers | 0 | 0 | | | | | none yet |
-| dnd_srd_spells | 0 | 0 | | | | | none yet |
-| dnd_srd_surge_tables | 0 | 0 | | | | | none yet |
-| eclipse_phase_conditions | 0 | 0 | | | | | none yet |
+| cyberpunk_artifacts | 0 | 0 | | | | | none yet |
+| cyberpunk_institutions | 0 | 0 | | | | | none yet |
+| cyberpunk_places | 0 | 0 | | | | | none yet |
+| cyberpunk_powers | 0 | 0 | | | | | none yet |
+| cyberpunk_rules | 0 | 0 | | | | | none yet |
+| eberron_artifacts | 0 | 0 | | | | | none yet |
+| eberron_creatures | 0 | 0 | | | | | none yet |
+| eberron_institutions | 0 | 0 | | | | | none yet |
+| eberron_places | 0 | 0 | | | | | none yet |
+| eberron_powers | 0 | 0 | | | | | none yet |
+| eberron_rules | 0 | 0 | | | | | none yet |
+| eclipse_phase_artifacts | 0 | 0 | | | | | none yet |
 | eclipse_phase_creatures | 0 | 0 | | | | | none yet |
-| eclipse_phase_items | 0 | 0 | | | | | none yet |
+| eclipse_phase_institutions | 0 | 0 | | | | | none yet |
+| eclipse_phase_places | 0 | 0 | | | | | none yet |
 | eclipse_phase_powers | 0 | 0 | | | | | none yet |
-| fate_conditions | 0 | 0 | | | | | none yet |
-| fate_creatures | 0 | 0 | | | | | none yet |
-| fate_items | 0 | 0 | | | | | none yet |
-| fate_powers | 0 | 0 | | | | | none yet |
-| fate_spells | 0 | 0 | | | | | none yet |
+| eclipse_phase_rules | 0 | 0 | | | | | none yet |
 | fated_villain_powers | 0 | 0 | | | | | none yet |
+| forgotten_realms_artifacts | 0 | 0 | | | | | none yet |
+| forgotten_realms_creatures | 0 | 0 | | | | | none yet |
+| forgotten_realms_institutions | 0 | 0 | | | | | none yet |
+| forgotten_realms_places | 0 | 0 | | | | | none yet |
+| forgotten_realms_powers | 0 | 0 | | | | | none yet |
+| forgotten_realms_rules | 0 | 0 | | | | | none yet |
+| golarion_artifacts | 0 | 0 | | | | | none yet |
+| golarion_creatures | 0 | 0 | | | | | none yet |
+| golarion_institutions | 0 | 0 | | | | | none yet |
+| golarion_places | 0 | 0 | | | | | none yet |
+| golarion_powers | 0 | 0 | | | | | none yet |
+| golarion_rules | 0 | 0 | | | | | none yet |
 | gu_kinds | 8 | 53 | 4 of 53 | not scored without an engine | 1 of 6 (47 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
 | hp_objects | 0 | 0 | | | | | none yet |
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
-| ironsworn_conditions | 0 | 0 | | | | | none yet |
-| ironsworn_creatures | 0 | 0 | | | | | none yet |
-| ironsworn_items | 0 | 0 | | | | | none yet |
-| ironsworn_powers | 0 | 0 | | | | | none yet |
 | labyrinth_mad_god_powers | 0 | 0 | | | | | none yet |
 | legendary_mechanic_powers | 0 | 0 | | | | | none yet |
 | lotm_artifacts | 0 | 0 | | | | | none yet |
 | lotm_potions | 0 | 0 | | | | | none yet |
-| mm3e_conditions | 0 | 0 | | | | | none yet |
-| mm3e_powers | 0 | 0 | | | | | none yet |
 | mother_of_learning_powers | 0 | 0 | | | | | none yet |
+| mystara_artifacts | 0 | 0 | | | | | none yet |
+| mystara_creatures | 0 | 0 | | | | | none yet |
+| mystara_institutions | 0 | 0 | | | | | none yet |
+| mystara_places | 0 | 0 | | | | | none yet |
+| mystara_powers | 0 | 0 | | | | | none yet |
+| mystara_rules | 0 | 0 | | | | | none yet |
+| numenera_artifacts | 0 | 0 | | | | | none yet |
+| numenera_creatures | 0 | 0 | | | | | none yet |
+| numenera_institutions | 0 | 0 | | | | | none yet |
+| numenera_places | 0 | 0 | | | | | none yet |
+| numenera_powers | 0 | 0 | | | | | none yet |
+| numenera_rules | 0 | 0 | | | | | none yet |
 | omniscient_reader_powers | 0 | 0 | | | | | none yet |
 | perfect_run_powers | 0 | 0 | | | | | none yet |
-| pf1_conditions | 0 | 0 | | | | | none yet |
-| pf1_creatures | 0 | 0 | | | | | none yet |
-| pf1_items | 0 | 0 | | | | | none yet |
-| pf1_powers | 0 | 0 | | | | | none yet |
-| pf1_spells | 0 | 0 | | | | | none yet |
+| planescape_artifacts | 0 | 0 | | | | | none yet |
+| planescape_creatures | 0 | 0 | | | | | none yet |
+| planescape_institutions | 0 | 0 | | | | | none yet |
+| planescape_places | 0 | 0 | | | | | none yet |
+| planescape_powers | 0 | 0 | | | | | none yet |
+| planescape_rules | 0 | 0 | | | | | none yet |
+| ravenloft_artifacts | 0 | 0 | | | | | none yet |
+| ravenloft_creatures | 0 | 0 | | | | | none yet |
+| ravenloft_institutions | 0 | 0 | | | | | none yet |
+| ravenloft_places | 0 | 0 | | | | | none yet |
+| ravenloft_powers | 0 | 0 | | | | | none yet |
+| ravenloft_rules | 0 | 0 | | | | | none yet |
+| ravnica_artifacts | 0 | 0 | | | | | none yet |
+| ravnica_creatures | 0 | 0 | | | | | none yet |
+| ravnica_institutions | 0 | 0 | | | | | none yet |
+| ravnica_places | 0 | 0 | | | | | none yet |
+| ravnica_powers | 0 | 0 | | | | | none yet |
+| ravnica_rules | 0 | 0 | | | | | none yet |
 | regressors_tale_powers | 0 | 0 | | | | | none yet |
 | rezero_powers | 0 | 0 | | | | | none yet |
 | ri_treasures | 0 | 0 | | | | | none yet |
 | shadow_slave_powers | 0 | 0 | | | | | none yet |
 | solo_leveling_powers | 0 | 0 | | | | | none yet |
 | speedrunning_multiverse_powers | 0 | 0 | | | | | none yet |
+| spelljammer_artifacts | 0 | 0 | | | | | none yet |
+| spelljammer_creatures | 0 | 0 | | | | | none yet |
+| spelljammer_institutions | 0 | 0 | | | | | none yet |
+| spelljammer_places | 0 | 0 | | | | | none yet |
+| spelljammer_powers | 0 | 0 | | | | | none yet |
+| spelljammer_rules | 0 | 0 | | | | | none yet |
+| stars_without_number_artifacts | 0 | 0 | | | | | none yet |
+| stars_without_number_creatures | 0 | 0 | | | | | none yet |
+| stars_without_number_institutions | 0 | 0 | | | | | none yet |
+| stars_without_number_places | 0 | 0 | | | | | none yet |
+| stars_without_number_powers | 0 | 0 | | | | | none yet |
+| stars_without_number_rules | 0 | 0 | | | | | none yet |
+| strixhaven_artifacts | 0 | 0 | | | | | none yet |
+| strixhaven_creatures | 0 | 0 | | | | | none yet |
+| strixhaven_institutions | 0 | 0 | | | | | none yet |
+| strixhaven_places | 0 | 0 | | | | | none yet |
+| strixhaven_powers | 0 | 0 | | | | | none yet |
+| strixhaven_rules | 0 | 0 | | | | | none yet |
+| the_dark_eye_artifacts | 0 | 0 | | | | | none yet |
+| the_dark_eye_creatures | 0 | 0 | | | | | none yet |
+| the_dark_eye_institutions | 0 | 0 | | | | | none yet |
+| the_dark_eye_places | 0 | 0 | | | | | none yet |
+| the_dark_eye_powers | 0 | 0 | | | | | none yet |
+| the_dark_eye_rules | 0 | 0 | | | | | none yet |
+| the_strange_artifacts | 0 | 0 | | | | | none yet |
+| the_strange_creatures | 0 | 0 | | | | | none yet |
+| the_strange_institutions | 0 | 0 | | | | | none yet |
+| the_strange_places | 0 | 0 | | | | | none yet |
+| the_strange_powers | 0 | 0 | | | | | none yet |
+| the_strange_rules | 0 | 0 | | | | | none yet |
+| theros_artifacts | 0 | 0 | | | | | none yet |
+| theros_creatures | 0 | 0 | | | | | none yet |
+| theros_institutions | 0 | 0 | | | | | none yet |
+| theros_places | 0 | 0 | | | | | none yet |
+| theros_powers | 0 | 0 | | | | | none yet |
+| theros_rules | 0 | 0 | | | | | none yet |
+| warhammer_40k_artifacts | 0 | 0 | | | | | none yet |
+| warhammer_40k_creatures | 0 | 0 | | | | | none yet |
+| warhammer_40k_institutions | 0 | 0 | | | | | none yet |
+| warhammer_40k_places | 0 | 0 | | | | | none yet |
+| warhammer_40k_powers | 0 | 0 | | | | | none yet |
+| wildemount_artifacts | 0 | 0 | | | | | none yet |
+| wildemount_creatures | 0 | 0 | | | | | none yet |
+| wildemount_institutions | 0 | 0 | | | | | none yet |
+| wildemount_places | 0 | 0 | | | | | none yet |
+| wildemount_powers | 0 | 0 | | | | | none yet |
+| wildemount_rules | 0 | 0 | | | | | none yet |
 | worm_powers | 0 | 0 | | | | | none yet |
 | you_have_died_again_powers | 0 | 0 | | | | | none yet |
 
@@ -673,1467 +827,1215 @@
 
 | Ledger | Missing rule | Rows |
 | --- | --- | ---: |
-| pf1_items | item-bound-power | 974 |
 | gu_moves | roles-unknown | 651 |
 | gu_kinds | effect-unknown | 516 |
-| pf1_spells | area-field | 244 |
 | gu_kinds | rank-unknown | 234 |
-| dnd_srd_items | item-bound-power | 225 |
-| ars_magica_items | item-bound-power | 150 |
-| pf1_items | conceal-or-sense | 149 |
-| ars_magica_powers | conceal-or-sense | 138 |
-| ars_magica_powers | mind-state | 138 |
+| numenera_artifacts | area-field | 151 |
 | hp_ingredients | ingredient-no-recipe-edge | 134 |
-| ars_magica_powers | power-interaction | 130 |
-| pf1_spells | conceal-or-sense | 127 |
-| pf1_spells | mind-state | 112 |
-| ars_magica_powers | divination-fate | 107 |
-| pf1_spells | body-form | 106 |
+| the_dark_eye_powers | effect-unknown | 117 |
+| numenera_artifacts | item-bound-power | 114 |
+| mystara_powers | effect-unknown | 106 |
 | circle_of_inevitability_powers | effect-unknown | 104 |
 | legendary_mechanic_powers | effect-unknown | 104 |
-| dnd5e_2014_powers | area-field | 101 |
-| ars_magica_powers | area-field | 100 |
-| pf1_items | area-field | 100 |
-| ars_magica_powers | power-granting | 99 |
-| ars_magica_powers | body-form | 98 |
-| dnd5e_2014_items | item-bound-power | 95 |
-| ars_magica_spells | conceal-or-sense | 94 |
-| ars_magica_powers | protection-field | 93 |
+| forgotten_realms_artifacts | effect-unknown | 100 |
+| forgotten_realms_powers | effect-unknown | 100 |
+| eclipse_phase_powers | mind-binding | 97 |
+| numenera_artifacts | form-transformation | 94 |
+| eberron_powers | effect-unknown | 91 |
 | fated_villain_powers | effect-unknown | 91 |
-| pf1_spells | form-transformation | 89 |
-| ars_magica_spells | area-field | 88 |
-| pf1_spells | item-bound-power | 86 |
-| pf1_items | protection-field | 84 |
-| pf1_spells | protection-field | 84 |
+| numenera_powers | area-field | 85 |
+| numenera_powers | form-transformation | 84 |
+| eberron_artifacts | effect-unknown | 80 |
 | rezero_powers | effect-unknown | 79 |
 | hp_objects | effect-unknown | 78 |
-| ars_magica_powers | item-bound-power | 77 |
-| dnd_srd_spells | area-field | 76 |
-| pf1_powers | area-field | 76 |
-| pf1_spells | power-interaction | 76 |
-| dnd5e_2014_class_features | power-interaction | 75 |
-| pf1_spells | mind-binding | 73 |
-| pf1_items | form-transformation | 70 |
-| ars_magica_powers | form-transformation | 69 |
+| the_strange_artifacts | item-bound-power | 77 |
+| forgotten_realms_powers | area-field | 74 |
+| numenera_artifacts | effect-unknown | 74 |
+| eclipse_phase_rules | soul-state | 71 |
+| eclipse_phase_creatures | form-transformation | 69 |
+| forgotten_realms_artifacts | item-bound-power | 69 |
 | worm_powers | effect-unknown | 68 |
-| ars_magica_powers | ingredient-properties | 65 |
+| numenera_powers | effect-unknown | 67 |
+| numenera_creatures | form-transformation | 67 |
 | circle_of_inevitability_powers | item-bound-power | 64 |
-| fate_powers | conceal-or-sense | 63 |
-| pf1_spells | familiar-summon | 63 |
-| ars_magica_spells | mind-state | 63 |
+| numenera_artifacts | mind-binding | 64 |
+| strixhaven_powers | effect-unknown | 63 |
 | gu_moves | roles-unchecked | 63 |
-| fate_powers | area-field | 62 |
-| dnd5e_2014_spells | area-field | 58 |
-| dnd5e_2014_creatures | creature-control | 58 |
-| ars_magica_conditions | negative-effect-drift | 58 |
+| numenera_creatures | mind-binding | 62 |
+| eclipse_phase_artifacts | area-field | 60 |
+| mystara_artifacts | item-bound-power | 60 |
+| numenera_artifacts | divination | 58 |
+| numenera_powers | mind-binding | 57 |
 | shadow_slave_powers | area-field | 55 |
-| dnd5e_2014_powers | conceal-or-sense | 52 |
-| pf1_spells | object-surface | 52 |
-| pf1_items | power-interaction | 52 |
-| dnd_srd_creatures | area-field | 50 |
-| cypher_powers | conceal-or-sense | 50 |
-| fate_powers | mind-state | 50 |
+| aos_soulbound_powers | area-field | 53 |
+| aos_soulbound_powers | effect-unknown | 53 |
+| theros_powers | effect-unknown | 53 |
 | omniscient_reader_powers | sponsorship-contract | 50 |
-| dnd5e_2014_creatures | conceal-or-sense | 48 |
-| pf1_conditions | area-field | 47 |
+| ravenloft_creatures | effect-unknown | 48 |
+| forgotten_realms_creatures | form-transformation | 48 |
 | regressors_tale_powers | area-field | 47 |
-| dnd5e_2014_creatures | power-interaction | 47 |
-| dnd5e_2014_class_features | protection-field | 47 |
-| fate_powers | protection-field | 47 |
+| the_strange_creatures | form-transformation | 47 |
 | hp_potions | body-door | 46 |
 | lotm_artifacts | effect-unknown | 46 |
 | shadow_slave_powers | form-transformation | 46 |
-| pf1_items | creature-control | 45 |
-| ars_magica_spells | item-bound-power | 45 |
-| dnd5e_2014_creatures | form-transformation | 44 |
-| dnd5e_2014_powers | negative-effect-drift | 44 |
-| ars_magica_spells | power-interaction | 44 |
-| pf1_items | spatial-storage | 44 |
-| ars_magica_powers | creature-control | 43 |
-| ars_magica_conditions | mind-state | 43 |
-| ars_magica_spells | protection-field | 43 |
-| pf1_items | body-form | 42 |
-| ars_magica_powers | plant-or-creature-target | 41 |
-| dnd5e_2014_powers | power-granting | 41 |
+| numenera_creatures | area-field | 45 |
+| forgotten_realms_creatures | effect-unknown | 45 |
+| numenera_artifacts | material-row | 45 |
+| eclipse_phase_powers | effect-unknown | 43 |
+| the_strange_artifacts | effect-unknown | 43 |
+| the_strange_powers | effect-unknown | 43 |
+| numenera_artifacts | spatial-storage | 43 |
+| numenera_powers | divination | 42 |
+| eclipse_phase_powers | form-transformation | 41 |
+| mystara_powers | mind-binding | 41 |
+| eclipse_phase_artifacts | effect-unknown | 40 |
 | ri_treasures | effect-unknown | 40 |
-| ars_magica_powers | negative-effect-drift | 40 |
-| pf1_spells | negative-effect-drift | 40 |
-| dnd5e_2014_powers | power-interaction | 40 |
-| ars_magica_spells | form-transformation | 39 |
-| ars_magica_powers | mind-binding | 39 |
-| dnd5e_2014_creatures | body-form | 38 |
-| ars_magica_powers | familiar-summon | 38 |
-| pf1_items | familiar-summon | 38 |
-| dnd5e_2014_creatures | mind-binding | 38 |
-| dnd5e_2014_spells | protection-field | 38 |
-| pf1_creatures | area-field | 37 |
-| pf1_items | mind-state | 37 |
-| pf1_spells | creature-control | 36 |
-| dnd5e_2014_powers | mind-state | 36 |
-| dnd5e_2014_powers | protection-field | 36 |
-| dnd5e_2014_powers | mind-binding | 35 |
+| eberron_artifacts | item-bound-power | 40 |
+| the_strange_powers | mind-binding | 40 |
+| mystara_artifacts | effect-unknown | 39 |
+| numenera_creatures | effect-unknown | 39 |
+| forgotten_realms_powers | mind-binding | 39 |
+| the_strange_rules | soul-state | 38 |
+| mystara_powers | area-field | 37 |
+| eclipse_phase_artifacts | item-bound-power | 37 |
+| eberron_powers | mind-binding | 37 |
+| ravenloft_creatures | form-transformation | 36 |
+| numenera_powers | item-bound-power | 36 |
+| numenera_artifacts | power-interaction | 36 |
+| numenera_rules | soul-state | 36 |
+| eclipse_phase_powers | soul-state | 35 |
 | mother_of_learning_powers | soul-state | 35 |
-| pf1_spells | dimension-travel | 34 |
 | mother_of_learning_powers | effect-unknown | 34 |
 | fated_villain_powers | item-bound-power | 34 |
-| dnd5e_2014_class_features | conceal-or-sense | 33 |
-| dnd_srd_powers | conceal-or-sense | 33 |
 | hp_potions | effect-sentence | 33 |
-| ars_magica_powers | power-transfer | 33 |
+| wildemount_powers | effect-unknown | 33 |
+| forgotten_realms_powers | power-interaction | 33 |
+| numenera_artifacts | soul-state | 33 |
 | worm_powers | tinker-device | 33 |
-| ars_magica_conditions | area-field | 32 |
-| dnd5e_2014_powers | creature-control | 32 |
+| eberron_powers | area-field | 32 |
+| the_strange_powers | area-field | 32 |
+| forgotten_realms_powers | form-transformation | 32 |
+| mystara_creatures | form-transformation | 32 |
 | shadow_slave_powers | item-bound-power | 32 |
 | hp_potions | plant-or-creature-target | 32 |
-| pf1_items | power-transfer | 32 |
-| ars_magica_powers | spirit-contract-judgement | 32 |
-| mm3e_powers | conceal-or-sense | 31 |
-| ars_magica_spells | familiar-summon | 31 |
-| pf1_items | mind-binding | 31 |
+| eberron_creatures | soul-state | 32 |
+| forgotten_realms_creatures | soul-state | 32 |
+| the_strange_powers | divination | 31 |
+| golarion_powers | effect-unknown | 31 |
+| mystara_powers | form-transformation | 31 |
+| the_strange_powers | form-transformation | 31 |
+| the_strange_creatures | mind-binding | 31 |
+| wildemount_creatures | mind-binding | 31 |
 | hp_potions | mind-state | 31 |
-| dnd5e_2014_creatures | negative-effect-drift | 31 |
-| cypher_powers | body-form | 30 |
-| dnd5e_2014_items | conceal-or-sense | 30 |
-| dnd5e_2014_spells | conceal-or-sense | 30 |
-| ars_magica_powers | concept-law | 30 |
-| ars_magica_powers | dimension-travel | 30 |
-| pf1_items | divination-fate | 30 |
-| ars_magica_creatures | mind-state | 30 |
-| ars_magica_spells | plant-or-creature-target | 30 |
-| ars_magica_powers | sponsorship-contract | 30 |
-| dnd5e_2014_powers | body-code-decay | 29 |
-| ars_magica_creatures | body-form | 29 |
-| ars_magica_spells | body-form | 29 |
-| brp_powers | conceal-or-sense | 29 |
-| ars_magica_creatures | creature-control | 29 |
-| dnd5e_2014_powers | portal-space | 29 |
-| cypher_powers | protection-field | 29 |
-| dnd5e_2014_powers | dimension-travel | 28 |
-| pf1_spells | divination-fate | 28 |
-| fate_conditions | mind-state | 28 |
-| ars_magica_powers | object-surface | 28 |
-| pf1_spells | power-transfer | 28 |
+| numenera_powers | power-interaction | 31 |
+| the_strange_creatures | effect-unknown | 30 |
+| strixhaven_artifacts | item-bound-power | 30 |
+| ravenloft_creatures | soul-state | 30 |
+| mystara_creatures | effect-unknown | 29 |
+| mystara_creatures | soul-state | 29 |
+| eclipse_phase_artifacts | mind-binding | 28 |
 | gu_moves | unnamed-role | 28 |
-| dnd5e_2014_class_features | area-field | 27 |
-| dnd_srd_spells | conceal-or-sense | 27 |
-| dnd5e_2014_creatures | mind-state | 27 |
-| dnd_srd_class_features | power-granting | 27 |
-| dnd5e_2014_items | protection-field | 27 |
-| ars_magica_powers | vow-cost | 27 |
-| pf1_powers | conceal-or-sense | 26 |
-| ars_magica_creatures | form-transformation | 26 |
-| dnd5e_2014_class_features | power-granting | 26 |
+| wildemount_creatures | form-transformation | 27 |
+| wildemount_artifacts | item-bound-power | 27 |
+| numenera_creatures | soul-state | 27 |
+| theros_creatures | soul-state | 27 |
+| forgotten_realms_powers | divination | 26 |
+| mystara_powers | divination | 26 |
+| wildemount_artifacts | effect-unknown | 26 |
+| eberron_creatures | form-transformation | 26 |
 | shadow_slave_powers | power-interaction | 26 |
-| ars_magica_powers | projection-body | 26 |
-| dnd5e_2014_creatures | area-field | 25 |
-| pf1_items | containment-rule | 25 |
-| dnd5e_2014_surge_tables | item-bound-power | 25 |
-| pf1_items | object-surface | 25 |
-| ars_magica_powers | soul-state | 25 |
-| cypher_powers | area-field | 24 |
+| numenera_artifacts | time-stop | 26 |
+| eberron_powers | divination | 25 |
+| ravenloft_powers | effect-unknown | 25 |
+| spelljammer_powers | effect-unknown | 25 |
+| numenera_artifacts | familiar-summon | 25 |
 | hp_potions | body-form | 24 |
 | circle_of_inevitability_powers | divination-fate | 24 |
-| dnd_srd_items | luck-mechanism | 24 |
-| ars_magica_spells | negative-effect-drift | 24 |
-| dnd_srd_powers | negative-effect-drift | 24 |
-| pf1_spells | soul-state | 24 |
-| fate_powers | body-form | 23 |
-| ars_magica_powers | containment-rule | 23 |
-| ars_magica_spells | divination-fate | 23 |
+| aos_soulbound_powers | mind-binding | 24 |
+| ravenloft_powers | mind-binding | 24 |
+| aos_soulbound_creatures | soul-state | 24 |
+| eclipse_phase_creatures | soul-state | 24 |
+| aos_soulbound_artifacts | effect-unknown | 23 |
+| strixhaven_creatures | effect-unknown | 23 |
+| forgotten_realms_creatures | familiar-summon | 23 |
 | circle_of_inevitability_powers | form-transformation | 23 |
-| ars_magica_items | ingredient-properties | 23 |
-| pf1_spells | plant-or-creature-target | 23 |
-| fate_powers | power-granting | 23 |
-| dnd_srd_powers | power-interaction | 23 |
-| dnd_srd_creatures | conceal-or-sense | 22 |
-| dnd5e_2014_spells | creature-control | 22 |
-| ars_magica_spells | mind-binding | 22 |
-| cypher_powers | mind-state | 22 |
-| pf1_conditions | mind-state | 22 |
-| dnd5e_2014_creatures | plant-or-creature-target | 22 |
-| dnd5e_2014_surge_tables | portal-space | 22 |
-| ars_magica_conditions | body-form | 21 |
-| dnd5e_2014_surge_tables | body-form | 21 |
-| dnd5e_2014_creatures | construct-upkeep | 21 |
-| dnd5e_2014_powers | containment-rule | 21 |
-| pf1_spells | containment-rule | 21 |
-| ars_magica_creatures | ingredient-properties | 21 |
-| pf1_items | ingredient-properties | 21 |
-| cypher_powers | item-bound-power | 21 |
-| ars_magica_powers | memory-transfer | 21 |
+| theros_rules | soul-state | 23 |
+| numenera_creatures | item-bound-power | 22 |
+| strixhaven_artifacts | effect-unknown | 21 |
+| eberron_powers | item-bound-power | 21 |
+| mystara_powers | item-bound-power | 21 |
 | circle_of_inevitability_powers | mind-binding | 21 |
-| dnd_srd_spells | mind-binding | 21 |
-| pf1_items | negative-effect-drift | 21 |
-| ars_magica_conditions | power-interaction | 21 |
-| cypher_powers | power-interaction | 21 |
-| dnd_srd_class_features | power-interaction | 21 |
-| fate_powers | power-transfer | 21 |
-| pf1_spells | projection-body | 21 |
-| dnd5e_2014_creatures | soul-binding | 21 |
+| eberron_creatures | mind-binding | 21 |
+| strixhaven_powers | mind-binding | 21 |
 | circle_of_inevitability_powers | area-field | 20 |
-| brp_powers | body-form | 20 |
-| dnd_srd_creatures | body-form | 20 |
-| ars_magica_conditions | conceal-or-sense | 20 |
-| pf1_conditions | negative-effect-drift | 20 |
-| cypher_powers | tinker-device | 20 |
-| dnd_srd_powers | area-field | 19 |
-| ars_magica_creatures | conceal-or-sense | 19 |
-| ars_magica_spells | creature-control | 19 |
-| dnd5e_2014_class_features | creature-control | 19 |
+| numenera_rules | area-field | 20 |
+| the_strange_creatures | area-field | 20 |
+| wildemount_creatures | effect-unknown | 20 |
+| numenera_rules | form-transformation | 20 |
+| ravenloft_powers | form-transformation | 20 |
+| the_dark_eye_artifacts | item-bound-power | 20 |
+| the_strange_creatures | soul-state | 20 |
+| the_strange_artifacts | area-field | 19 |
 | circle_of_inevitability_powers | dimension-travel | 19 |
-| dnd5e_2014_items | familiar-summon | 19 |
-| dnd5e_2014_powers | form-transformation | 19 |
-| fate_items | item-bound-power | 19 |
-| ars_magica_creatures | mind-binding | 19 |
-| brp_powers | mind-state | 19 |
-| dnd5e_2014_spells | power-interaction | 19 |
-| dnd5e_2014_class_features | power-transfer | 19 |
-| pf1_items | revival-on-death | 19 |
-| ars_magica_conditions | soul-state | 19 |
+| aos_soulbound_powers | divination | 19 |
+| eberron_creatures | effect-unknown | 19 |
+| aos_soulbound_creatures | form-transformation | 19 |
+| eclipse_phase_creatures | mind-binding | 19 |
+| the_strange_artifacts | mind-binding | 19 |
+| numenera_creatures | power-interaction | 19 |
+| stars_without_number_powers | power-interaction | 19 |
+| aos_soulbound_powers | soul-state | 19 |
 | fated_villain_powers | soul-state | 19 |
-| dnd5e_2014_powers | body-form | 18 |
-| dnd5e_2014_class_features | form-transformation | 18 |
-| dnd5e_2014_spells | form-transformation | 18 |
-| dnd5e_2014_powers | item-bound-power | 18 |
-| dnd5e_2014_class_features | mind-binding | 18 |
-| dnd5e_2014_spells | mind-state | 18 |
-| ars_magica_spells | object-surface | 18 |
-| pf1_spells | spatial-storage | 18 |
-| ars_magica_conditions | vow-cost | 18 |
+| numenera_rules | spatial-storage | 19 |
+| eclipse_phase_rules | area-field | 18 |
+| numenera_places | area-field | 18 |
+| wildemount_powers | area-field | 18 |
+| eclipse_phase_rules | form-transformation | 18 |
+| strixhaven_powers | form-transformation | 18 |
+| the_dark_eye_powers | form-transformation | 18 |
+| numenera_rules | item-state | 18 |
+| eclipse_phase_rules | mind-binding | 18 |
+| ravenloft_creatures | mind-binding | 18 |
+| the_strange_powers | power-interaction | 18 |
+| aos_soulbound_rules | soul-state | 18 |
+| theros_powers | area-field | 17 |
+| eclipse_phase_powers | divination | 17 |
 | regressors_tale_powers | form-transformation | 17 |
-| brp_items | item-bound-power | 17 |
+| numenera_rules | item-bound-power | 17 |
+| numenera_artifacts | item-state | 17 |
+| the_dark_eye_powers | mind-binding | 17 |
 | gu_moves | role-cannot-run | 17 |
+| forgotten_realms_rules | soul-state | 17 |
+| ravenloft_rules | soul-state | 17 |
+| wildemount_creatures | soul-state | 17 |
 | hp_objects | spatial-storage | 17 |
-| ars_magica_spells | containment-rule | 16 |
-| cypher_powers | creature-control | 16 |
-| dnd5e_2014_items | creature-control | 16 |
-| pf1_items | dimension-travel | 16 |
-| cypher_powers | divination-fate | 16 |
-| ars_magica_spells | luck-mechanism | 16 |
-| ars_magica_spells | memory-transfer | 16 |
-| pf1_spells | memory-transfer | 16 |
-| dnd5e_2014_spells | mind-binding | 16 |
-| dnd_srd_creatures | negative-effect-drift | 16 |
-| ars_magica_creatures | plant-or-creature-target | 16 |
-| dnd5e_2014_powers | soul-binding | 16 |
-| dnd5e_2014_powers | world-travel | 16 |
-| fate_conditions | body-form | 15 |
-| dnd_srd_creatures | containment-rule | 15 |
-| fate_powers | dimension-travel | 15 |
+| aos_soulbound_artifacts | area-field | 16 |
+| ravenloft_powers | area-field | 16 |
+| golarion_creatures | effect-unknown | 16 |
+| strixhaven_powers | familiar-summon | 16 |
+| the_strange_places | form-transformation | 16 |
+| the_strange_powers | item-bound-power | 16 |
+| theros_powers | mind-binding | 16 |
+| eclipse_phase_artifacts | soul-state | 16 |
+| eberron_places | area-field | 15 |
+| forgotten_realms_artifacts | area-field | 15 |
+| ravenloft_powers | divination | 15 |
 | fated_villain_powers | divination-fate | 15 |
-| ars_magica_creatures | familiar-summon | 15 |
-| dnd5e_2014_class_features | familiar-summon | 15 |
-| dnd5e_2014_spells | familiar-summon | 15 |
-| cypher_powers | form-transformation | 15 |
-| ars_magica_spells | ingredient-properties | 15 |
-| cypher_powers | mind-binding | 15 |
-| fate_powers | mind-binding | 15 |
+| theros_creatures | effect-unknown | 15 |
+| aos_soulbound_powers | form-transformation | 15 |
+| eberron_powers | form-transformation | 15 |
+| the_strange_artifacts | form-transformation | 15 |
+| forgotten_realms_powers | item-bound-power | 15 |
+| aos_soulbound_creatures | mind-binding | 15 |
+| forgotten_realms_creatures | mind-binding | 15 |
 | lotm_artifacts | mind-binding | 15 |
 | mother_of_learning_powers | mind-binding | 15 |
-| ars_magica_powers | portal-space | 15 |
-| dnd5e_2014_creatures | power-granting | 15 |
-| dnd5e_2014_items | power-interaction | 15 |
-| fate_powers | power-interaction | 15 |
+| numenera_artifacts | negative-effect-drift | 15 |
 | mother_of_learning_powers | power-interaction | 15 |
 | worm_powers | power-interaction | 15 |
-| ars_magica_spells | projection-body | 15 |
-| dnd5e_2014_powers | revival-on-death | 15 |
 | circle_of_inevitability_powers | soul-state | 15 |
-| dnd_srd_creatures | creature-control | 14 |
-| ironsworn_powers | divination-fate | 14 |
-| dnd5e_2014_creatures | familiar-summon | 14 |
+| mystara_rules | soul-state | 15 |
+| the_strange_powers | soul-state | 15 |
+| eclipse_phase_powers | area-field | 14 |
+| ravenloft_rules | area-field | 14 |
+| spelljammer_powers | area-field | 14 |
+| numenera_rules | containment-rule | 14 |
+| theros_powers | divination | 14 |
+| mystara_powers | familiar-summon | 14 |
+| the_strange_rules | form-transformation | 14 |
 | hp_ingredients | ingredient-effect-outside-axis-set | 14 |
 | hp_ingredients | ingredient-recipe-effect-unknown | 14 |
-| dnd5e_2014_class_features | item-bound-power | 14 |
-| dnd_srd_powers | mind-state | 14 |
-| dnd_srd_spells | mind-state | 14 |
-| dnd5e_2014_class_features | negative-effect-drift | 14 |
-| ars_magica_conditions | protection-field | 14 |
-| cypher_items | protection-field | 14 |
-| dnd5e_2014_creatures | protection-field | 14 |
-| ars_magica_creatures | area-field | 13 |
-| cypher_items | area-field | 13 |
-| pf1_items | blueprint-craft | 13 |
-| pf1_spells | blueprint-craft | 13 |
-| pf1_powers | body-form | 13 |
+| aos_soulbound_artifacts | item-bound-power | 14 |
+| aos_soulbound_powers | item-bound-power | 14 |
+| the_dark_eye_rules | item-bound-power | 14 |
+| the_strange_rules | item-state | 14 |
+| numenera_creatures | negative-effect-drift | 14 |
+| the_dark_eye_powers | power-interaction | 14 |
+| wildemount_creatures | power-transfer | 14 |
+| eberron_rules | soul-state | 14 |
+| numenera_creatures | spatial-storage | 14 |
+| aos_soulbound_creatures | area-field | 13 |
+| forgotten_realms_places | area-field | 13 |
+| mystara_artifacts | area-field | 13 |
+| strixhaven_powers | area-field | 13 |
 | worm_powers | body-form | 13 |
-| dnd_srd_items | conceal-or-sense | 13 |
-| dnd5e_2014_powers | concept-law | 13 |
-| fate_powers | containment-rule | 13 |
-| dnd5e_2014_creatures | dimension-travel | 13 |
-| dnd_srd_items | familiar-summon | 13 |
-| dnd5e_2014_items | form-transformation | 13 |
-| fate_powers | form-transformation | 13 |
-| pf1_powers | item-bound-power | 13 |
-| dnd5e_2014_class_features | luck-mechanism | 13 |
-| fate_powers | luck-mechanism | 13 |
-| dnd5e_2014_class_features | mind-state | 13 |
+| the_dark_eye_powers | divination | 13 |
+| the_dark_eye_creatures | familiar-summon | 13 |
+| planescape_creatures | form-transformation | 13 |
+| spelljammer_artifacts | item-bound-power | 13 |
+| the_dark_eye_powers | item-bound-power | 13 |
 | lotm_artifacts | negative-effect-drift | 13 |
-| dnd5e_2014_spells | object-surface | 13 |
-| pf1_items | plant-or-creature-target | 13 |
-| pf1_powers | power-granting | 13 |
-| dnd_srd_class_features | power-transfer | 13 |
+| numenera_rules | negative-effect-drift | 13 |
+| mystara_powers | power-interaction | 13 |
 | legendary_mechanic_powers | soul-state | 13 |
-| ars_magica_powers | speech-penalty | 13 |
 | fated_villain_powers | system-interface | 13 |
 | legendary_mechanic_powers | system-interface | 13 |
-| dnd5e_2014_items | area-field | 12 |
-| dnd_srd_items | area-field | 12 |
 | mother_of_learning_powers | area-field | 12 |
-| ars_magica_conditions | body-code-decay | 12 |
-| dnd_srd_powers | body-form | 12 |
-| ars_magica_powers | bond-slots | 12 |
-| cypher_items | conceal-or-sense | 12 |
 | speedrunning_multiverse_powers | concept-law | 12 |
-| dnd_srd_spells | divination-fate | 12 |
-| pf1_spells | formation-field | 12 |
+| eberron_rules | containment-rule | 12 |
+| aos_soulbound_artifacts | divination | 12 |
+| stars_without_number_powers | effect-unknown | 12 |
+| the_dark_eye_artifacts | effect-unknown | 12 |
+| mystara_creatures | familiar-summon | 12 |
+| eclipse_phase_artifacts | form-transformation | 12 |
 | lotm_potions | formula-wiki-unchecked | 12 |
-| ars_magica_powers | luck-mechanism | 12 |
+| numenera_rules | material-row | 12 |
+| stars_without_number_powers | mind-binding | 12 |
 | worm_powers | mind-binding | 12 |
-| dnd5e_2014_surge_tables | mind-state | 12 |
-| dnd5e_2014_items | object-surface | 12 |
-| dnd5e_2014_backgrounds_species | power-granting | 12 |
-| ars_magica_creatures | power-interaction | 12 |
-| ars_magica_creatures | precognition | 12 |
-| dnd_srd_class_features | protection-field | 12 |
-| dnd_srd_spells | protection-field | 12 |
-| dnd5e_2014_creatures | revival-on-death | 12 |
-| ars_magica_powers | soul-binding | 12 |
+| eclipse_phase_rules | negative-effect-drift | 12 |
+| aos_soulbound_powers | power-interaction | 12 |
+| eberron_powers | power-interaction | 12 |
+| eclipse_phase_powers | power-interaction | 12 |
+| theros_powers | power-interaction | 12 |
+| forgotten_realms_powers | soul-state | 12 |
 | perfect_run_powers | source-link | 12 |
-| pf1_spells | speech-penalty | 12 |
-| cypher_powers | system-interface | 12 |
-| ars_magica_powers | time-manipulation | 12 |
+| forgotten_realms_places | spatial-storage | 12 |
+| numenera_places | spatial-storage | 12 |
+| eberron_rules | area-field | 11 |
 | fated_villain_powers | area-field | 11 |
+| forgotten_realms_creatures | area-field | 11 |
+| the_dark_eye_powers | area-field | 11 |
+| the_strange_places | area-field | 11 |
 | worm_powers | area-field | 11 |
-| ars_magica_powers | blueprint-craft | 11 |
-| dnd5e_2014_spells | body-form | 11 |
-| dnd5e_2014_spells | containment-rule | 11 |
-| ars_magica_spells | dimension-travel | 11 |
-| dnd5e_2014_spells | divination-fate | 11 |
+| eberron_artifacts | containment-rule | 11 |
+| eclipse_phase_rules | containment-rule | 11 |
 | circle_of_inevitability_powers | familiar-summon | 11 |
-| dnd5e_2014_powers | familiar-summon | 11 |
-| ars_magica_conditions | ingredient-properties | 11 |
+| forgotten_realms_powers | familiar-summon | 11 |
+| the_strange_powers | familiar-summon | 11 |
+| theros_creatures | form-transformation | 11 |
+| theros_powers | form-transformation | 11 |
 | legendary_mechanic_powers | item-bound-power | 11 |
 | mother_of_learning_powers | item-bound-power | 11 |
+| ravenloft_artifacts | item-bound-power | 11 |
 | speedrunning_multiverse_powers | item-bound-power | 11 |
-| pf1_items | memory-transfer | 11 |
-| brp_conditions | mind-state | 11 |
-| pf1_powers | mind-state | 11 |
-| dnd5e_2014_powers | object-surface | 11 |
-| blades_powers | protection-field | 11 |
-| brp_powers | protection-field | 11 |
-| dnd_srd_powers | protection-field | 11 |
-| ars_magica_powers | revival-on-death | 11 |
-| dnd_srd_creatures | revival-on-death | 11 |
+| stars_without_number_artifacts | item-bound-power | 11 |
+| the_strange_artifacts | item-state | 11 |
+| numenera_rules | power-interaction | 11 |
+| forgotten_realms_powers | power-transfer | 11 |
+| mystara_powers | soul-state | 11 |
+| the_strange_artifacts | spatial-storage | 11 |
 | rezero_powers | spirit-contract-judgement | 11 |
-| ars_magica_conditions | sponsorship-contract | 11 |
-| ars_magica_items | tinker-device | 11 |
+| forgotten_realms_rules | area-field | 10 |
 | perfect_run_powers | area-field | 10 |
-| dnd5e_2014_spells | body-code-decay | 10 |
-| dnd_srd_class_features | conceal-or-sense | 10 |
-| pf1_spells | construct-upkeep | 10 |
-| dnd5e_2014_powers | divination-fate | 10 |
+| the_strange_rules | area-field | 10 |
+| wildemount_rules | area-field | 10 |
+| numenera_artifacts | containment-rule | 10 |
+| the_strange_rules | containment-rule | 10 |
+| strixhaven_powers | divination | 10 |
+| the_strange_artifacts | divination | 10 |
 | mother_of_learning_powers | divination-fate | 10 |
-| dnd_srd_spells | familiar-summon | 10 |
-| fate_powers | familiar-summon | 10 |
+| theros_artifacts | effect-unknown | 10 |
 | lotm_artifacts | form-transformation | 10 |
-| dnd_srd_powers | item-bound-power | 10 |
+| stars_without_number_artifacts | form-transformation | 10 |
+| wildemount_powers | form-transformation | 10 |
 | labyrinth_mad_god_powers | item-bound-power | 10 |
+| the_strange_creatures | item-bound-power | 10 |
 | ri_treasures | material-row | 10 |
+| eclipse_phase_institutions | mind-binding | 10 |
 | hp_objects | mind-binding | 10 |
-| cypher_powers | object-surface | 10 |
-| fate_powers | object-surface | 10 |
-| pf1_items | portal-space | 10 |
+| theros_creatures | mind-binding | 10 |
 | fated_villain_powers | power-interaction | 10 |
 | lotm_artifacts | power-interaction | 10 |
-| pf1_powers | protection-field | 10 |
+| ravnica_powers | power-interaction | 10 |
+| numenera_artifacts | power-transfer | 10 |
 | worm_powers | protection-field | 10 |
+| ravenloft_powers | soul-state | 10 |
+| the_strange_artifacts | soul-state | 10 |
+| the_strange_places | soul-state | 10 |
+| forgotten_realms_artifacts | spatial-storage | 10 |
 | lotm_artifacts | spatial-storage | 10 |
-| dnd5e_2014_powers | sponsorship-contract | 10 |
-| ars_magica_powers | tinker-device | 10 |
-| fate_powers | tinker-device | 10 |
-| brp_powers | area-field | 9 |
-| brp_spells | area-field | 9 |
-| ars_magica_spells | body-code-decay | 9 |
-| dnd5e_2014_creatures | body-code-decay | 9 |
-| brp_conditions | body-form | 9 |
-| dnd5e_2014_items | body-form | 9 |
-| eclipse_phase_items | conceal-or-sense | 9 |
+| eberron_artifacts | area-field | 9 |
+| golarion_places | area-field | 9 |
+| wildemount_artifacts | area-field | 9 |
 | hp_potions | conceal-or-sense | 9 |
 | a_novel_concept_powers | concept-law | 9 |
-| cypher_powers | containment-rule | 9 |
 | hp_objects | containment-rule | 9 |
-| dnd5e_2014_class_features | dimension-travel | 9 |
-| dnd5e_2014_spells | dimension-travel | 9 |
-| dnd_srd_spells | form-transformation | 9 |
-| mm3e_powers | form-transformation | 9 |
-| pf1_spells | ingredient-properties | 9 |
-| ars_magica_conditions | item-bound-power | 9 |
-| cypher_items | item-bound-power | 9 |
-| fate_powers | item-bound-power | 9 |
-| ars_magica_powers | mind-ennoblement | 9 |
-| dnd5e_2014_spells | negative-effect-drift | 9 |
-| dnd5e_2014_spells | plant-or-creature-target | 9 |
-| dnd5e_2014_feats | power-granting | 9 |
+| golarion_artifacts | effect-unknown | 9 |
+| stars_without_number_artifacts | effect-unknown | 9 |
+| aos_soulbound_powers | familiar-summon | 9 |
+| numenera_creatures | familiar-summon | 9 |
+| the_dark_eye_powers | familiar-summon | 9 |
+| numenera_places | form-transformation | 9 |
+| stars_without_number_powers | form-transformation | 9 |
+| strixhaven_creatures | form-transformation | 9 |
+| eclipse_phase_artifacts | item-state | 9 |
+| mystara_creatures | mind-binding | 9 |
+| numenera_rules | mind-binding | 9 |
+| stars_without_number_artifacts | mind-binding | 9 |
+| the_strange_rules | mind-binding | 9 |
+| ravenloft_rules | negative-effect-drift | 9 |
 | circle_of_inevitability_powers | power-interaction | 9 |
-| mm3e_powers | power-interaction | 9 |
-| ars_magica_powers | precognition | 9 |
-| fate_powers | projection-body | 9 |
-| dnd5e_2014_class_features | revival-on-death | 9 |
-| dnd5e_2014_spells | revival-on-death | 9 |
-| dnd_srd_powers | revival-on-death | 9 |
-| dnd_srd_spells | revival-on-death | 9 |
-| ars_magica_creatures | soul-state | 9 |
-| pf1_spells | spirit-contract-judgement | 9 |
-| dnd5e_2014_surge_tables | time-manipulation | 9 |
-| pf1_items | tinker-device | 9 |
-| brp_items | area-field | 8 |
-| pf1_spells | body-door | 8 |
-| pf1_items | bond-slots | 8 |
-| blades_powers | conceal-or-sense | 8 |
-| cypher_spells | conceal-or-sense | 8 |
-| dnd_srd_powers | dimension-travel | 8 |
-| dnd_srd_spells | dimension-travel | 8 |
+| eclipse_phase_artifacts | power-interaction | 9 |
+| golarion_places | soul-state | 9 |
+| mystara_artifacts | soul-state | 9 |
+| planescape_creatures | soul-state | 9 |
+| theros_places | soul-state | 9 |
+| theros_powers | soul-state | 9 |
+| eclipse_phase_artifacts | spatial-storage | 9 |
+| golarion_places | spatial-storage | 9 |
+| numenera_powers | spatial-storage | 9 |
+| planescape_rules | area-field | 8 |
+| theros_creatures | area-field | 8 |
 | mother_of_learning_powers | dimension-travel | 8 |
-| pf1_powers | dimension-travel | 8 |
-| fate_powers | divination-fate | 8 |
+| spelljammer_powers | divination | 8 |
+| planescape_powers | effect-unknown | 8 |
+| ravnica_powers | effect-unknown | 8 |
+| the_dark_eye_creatures | effect-unknown | 8 |
+| the_strange_places | effect-unknown | 8 |
+| strixhaven_creatures | familiar-summon | 8 |
 | fated_villain_powers | form-transformation | 8 |
 | legendary_mechanic_powers | form-transformation | 8 |
-| ars_magica_powers | formation-field | 8 |
-| dnd_srd_spells | item-bound-power | 8 |
-| pf1_items | luck-mechanism | 8 |
-| dnd5e_2014_items | mind-binding | 8 |
+| eclipse_phase_powers | item-bound-power | 8 |
+| mystara_rules | item-bound-power | 8 |
+| theros_powers | item-bound-power | 8 |
+| numenera_powers | item-state | 8 |
 | fated_villain_powers | mind-binding | 8 |
-| blades_conditions | mind-state | 8 |
-| cypher_spells | mind-state | 8 |
-| dnd_srd_creatures | mind-state | 8 |
-| fate_powers | negative-effect-drift | 8 |
+| numenera_institutions | mind-binding | 8 |
+| ravnica_powers | mind-binding | 8 |
+| wildemount_powers | mind-binding | 8 |
 | hp_objects | negative-effect-drift | 8 |
+| mystara_rules | negative-effect-drift | 8 |
+| stars_without_number_powers | negative-effect-drift | 8 |
+| the_strange_rules | negative-effect-drift | 8 |
 | hp_potions | object-surface | 8 |
-| ars_magica_spells | power-granting | 8 |
 | a_novel_concept_powers | power-interaction | 8 |
-| brp_powers | power-interaction | 8 |
-| cypher_powers | power-transfer | 8 |
-| pf1_items | projection-body | 8 |
-| ars_magica_items | protection-field | 8 |
-| mm3e_powers | protection-field | 8 |
-| ars_magica_creatures | revival-on-death | 8 |
-| ars_magica_conditions | soul-binding | 8 |
-| dnd5e_2014_creatures | soul-state | 8 |
-| dnd5e_2014_items | spatial-storage | 8 |
-| ars_magica_spells | spirit-contract-judgement | 8 |
-| pf1_items | spirit-contract-judgement | 8 |
-| fate_conditions | area-field | 7 |
-| ars_magica_spells | blueprint-craft | 7 |
-| dnd5e_2014_powers | blueprint-craft | 7 |
-| ars_magica_powers | body-door | 7 |
-| ars_magica_spells | body-door | 7 |
-| dnd5e_2014_class_features | body-form | 7 |
-| dnd_srd_spells | body-form | 7 |
-| pf1_spells | bond-slots | 7 |
-| dnd5e_2014_backgrounds_species | conceal-or-sense | 7 |
-| dnd5e_2014_powers | construct-upkeep | 7 |
-| dnd_srd_powers | containment-rule | 7 |
-| dnd_srd_powers | creature-control | 7 |
-| dnd5e_2014_class_features | death-checkpoint-rewind | 7 |
+| ravenloft_powers | power-interaction | 8 |
+| eberron_powers | power-transfer | 8 |
+| ravenloft_places | soul-state | 8 |
+| wildemount_rules | soul-state | 8 |
+| mystara_artifacts | spatial-storage | 8 |
+| the_strange_powers | spatial-storage | 8 |
+| the_strange_rules | spatial-storage | 8 |
+| eclipse_phase_places | area-field | 7 |
+| spelljammer_rules | area-field | 7 |
+| stars_without_number_artifacts | area-field | 7 |
+| strixhaven_places | area-field | 7 |
+| strixhaven_rules | area-field | 7 |
+| wildemount_creatures | area-field | 7 |
+| forgotten_realms_places | containment-rule | 7 |
+| mystara_artifacts | containment-rule | 7 |
+| ravenloft_rules | containment-rule | 7 |
+| theros_rules | containment-rule | 7 |
 | hp_objects | divination | 7 |
 | lotm_artifacts | divination | 7 |
-| dnd_srd_creatures | form-transformation | 7 |
+| aos_soulbound_creatures | familiar-summon | 7 |
+| eberron_creatures | familiar-summon | 7 |
+| numenera_powers | familiar-summon | 7 |
+| eclipse_phase_institutions | form-transformation | 7 |
+| golarion_creatures | form-transformation | 7 |
 | hp_objects | formation-field | 7 |
 | hp_ingredients | ingredient-derived-below-confidence | 7 |
-| dnd5e_2014_spells | item-bound-power | 7 |
-| pf1_spells | luck-mechanism | 7 |
+| the_strange_rules | item-bound-power | 7 |
+| mystara_rules | item-state | 7 |
+| numenera_powers | material-row | 7 |
 | you_have_died_again_powers | memory-transfer | 7 |
-| ars_magica_conditions | mind-binding | 7 |
-| cypher_spells | mind-binding | 7 |
-| dnd_srd_creatures | mind-binding | 7 |
 | legendary_mechanic_powers | mind-binding | 7 |
-| ars_magica_spells | mind-ennoblement | 7 |
-| mm3e_powers | mind-state | 7 |
+| mystara_artifacts | mind-binding | 7 |
+| planescape_creatures | mind-binding | 7 |
+| the_strange_places | mind-binding | 7 |
 | worm_powers | mind-state | 7 |
-| ars_magica_creatures | negative-effect-drift | 7 |
-| dnd5e_2014_creatures | object-surface | 7 |
-| dnd_srd_spells | object-surface | 7 |
-| pf1_spells | place-release | 7 |
-| brp_creatures | plant-or-creature-target | 7 |
-| dnd5e_2014_class_features | plant-or-creature-target | 7 |
-| dnd5e_2014_powers | plant-or-creature-target | 7 |
-| pf1_spells | portal-space | 7 |
+| numenera_powers | negative-effect-drift | 7 |
 | worm_powers | portal-space | 7 |
-| dnd5e_2014_feats | power-interaction | 7 |
-| dnd_srd_creatures | power-interaction | 7 |
+| eclipse_phase_rules | power-interaction | 7 |
 | hp_objects | power-interaction | 7 |
 | regressors_tale_powers | power-interaction | 7 |
 | speedrunning_multiverse_powers | power-interaction | 7 |
-| dnd5e_2014_powers | power-transfer | 7 |
+| the_dark_eye_rules | power-interaction | 7 |
+| numenera_powers | power-transfer | 7 |
+| numenera_rules | power-transfer | 7 |
 | rezero_powers | power-transfer | 7 |
-| fate_powers | precognition | 7 |
-| dnd5e_2014_powers | projection-body | 7 |
-| dnd5e_2014_spells | projection-body | 7 |
-| dnd_srd_spells | projection-body | 7 |
 | worm_powers | projection-body | 7 |
-| dnd5e_2014_class_features | sponsorship-contract | 7 |
-| dnd5e_2014_powers | time-manipulation | 7 |
-| fate_powers | time-manipulation | 7 |
-| mm3e_powers | area-field | 6 |
-| pf1_powers | blueprint-craft | 6 |
-| ars_magica_powers | body-code-decay | 6 |
-| dnd5e_2014_items | body-code-decay | 6 |
+| aos_soulbound_institutions | soul-state | 7 |
+| eberron_powers | soul-state | 7 |
+| forgotten_realms_artifacts | soul-state | 7 |
+| golarion_rules | soul-state | 7 |
+| numenera_powers | soul-state | 7 |
+| ravenloft_artifacts | soul-state | 7 |
+| wildemount_powers | soul-state | 7 |
+| eclipse_phase_creatures | area-field | 6 |
+| planescape_places | area-field | 6 |
+| spelljammer_creatures | area-field | 6 |
 | lotm_potions | body-door | 6 |
-| cypher_items | body-form | 6 |
-| pf1_conditions | conceal-or-sense | 6 |
 | worm_powers | conceal-or-sense | 6 |
-| dnd5e_2014_creatures | containment-rule | 6 |
-| dnd5e_2014_items | containment-rule | 6 |
-| dnd_srd_items | containment-rule | 6 |
-| pf1_powers | containment-rule | 6 |
-| ars_magica_conditions | creature-control | 6 |
-| cypher_creatures | creature-control | 6 |
-| cypher_spells | creature-control | 6 |
-| pf1_creatures | creature-control | 6 |
 | fated_villain_powers | dimension-travel | 6 |
-| ars_magica_creatures | divination-fate | 6 |
-| fate_creatures | familiar-summon | 6 |
+| aos_soulbound_creatures | divination | 6 |
+| eberron_artifacts | divination | 6 |
+| ravenloft_artifacts | divination | 6 |
+| theros_creatures | divination | 6 |
+| theros_places | divination | 6 |
+| wildemount_powers | divination | 6 |
+| forgotten_realms_places | effect-unknown | 6 |
+| golarion_places | effect-unknown | 6 |
 | fated_villain_powers | familiar-summon | 6 |
-| pf1_items | formation-field | 6 |
-| pf1_powers | ingredient-properties | 6 |
-| brp_spells | item-bound-power | 6 |
+| mystara_rules | form-transformation | 6 |
+| aos_soulbound_creatures | formation-field | 6 |
+| golarion_artifacts | item-bound-power | 6 |
+| golarion_powers | item-bound-power | 6 |
 | hp_objects | item-state | 6 |
-| ars_magica_spells | memory-erasure | 6 |
-| dnd_srd_powers | mind-binding | 6 |
+| aos_soulbound_powers | material-row | 6 |
+| mystara_rules | mind-binding | 6 |
 | shadow_slave_powers | mind-binding | 6 |
-| dnd_srd_conditions | mind-state | 6 |
-| dnd_srd_conditions | negative-effect-drift | 6 |
+| spelljammer_powers | mind-binding | 6 |
+| strixhaven_creatures | mind-binding | 6 |
+| eclipse_phase_powers | negative-effect-drift | 6 |
+| mystara_places | negative-effect-drift | 6 |
+| mystara_powers | negative-effect-drift | 6 |
+| ravenloft_creatures | negative-effect-drift | 6 |
+| stars_without_number_rules | negative-effect-drift | 6 |
+| the_strange_artifacts | negative-effect-drift | 6 |
 | hp_potions | place-release | 6 |
-| dnd_srd_spells | plant-or-creature-target | 6 |
-| fate_powers | plant-or-creature-target | 6 |
-| pf1_creatures | plant-or-creature-target | 6 |
-| dnd5e_2014_creatures | portal-space | 6 |
-| dnd5e_2014_spells | portal-space | 6 |
-| ars_magica_conditions | power-granting | 6 |
-| ars_magica_items | power-granting | 6 |
-| brp_spells | power-interaction | 6 |
-| dnd5e_2014_backgrounds_species | power-interaction | 6 |
-| pf1_conditions | power-interaction | 6 |
-| ars_magica_spells | power-transfer | 6 |
-| brp_powers | power-transfer | 6 |
-| dnd_srd_powers | power-transfer | 6 |
-| pf1_spells | precognition | 6 |
-| dnd5e_2014_class_features | projection-body | 6 |
-| dnd_srd_items | protection-field | 6 |
-| dnd_srd_surge_tables | protection-field | 6 |
-| pf1_conditions | protection-field | 6 |
-| cypher_powers | revival-on-death | 6 |
-| pf1_spells | revival-on-death | 6 |
-| dnd5e_2014_items | soul-binding | 6 |
-| dnd_srd_items | spatial-storage | 6 |
-| ars_magica_conditions | speech-penalty | 6 |
-| pf1_spells | system-interface | 6 |
-| ars_magica_spells | time-manipulation | 6 |
+| forgotten_realms_artifacts | power-interaction | 6 |
+| mystara_artifacts | power-interaction | 6 |
+| mystara_rules | power-interaction | 6 |
+| strixhaven_powers | power-interaction | 6 |
+| the_strange_creatures | power-interaction | 6 |
+| the_strange_rules | power-interaction | 6 |
+| eberron_artifacts | soul-state | 6 |
+| eclipse_phase_institutions | soul-state | 6 |
+| forgotten_realms_places | soul-state | 6 |
+| golarion_creatures | soul-state | 6 |
+| spelljammer_creatures | soul-state | 6 |
+| spelljammer_powers | soul-state | 6 |
+| strixhaven_creatures | soul-state | 6 |
+| the_strange_creatures | spatial-storage | 6 |
 | circle_of_inevitability_powers | vow-cost | 6 |
-| dnd5e_2014_class_features | vow-cost | 6 |
+| eberron_creatures | area-field | 5 |
+| golarion_powers | area-field | 5 |
 | lotm_artifacts | area-field | 5 |
+| mystara_rules | area-field | 5 |
 | omniscient_reader_powers | area-field | 5 |
+| ravenloft_creatures | area-field | 5 |
+| the_dark_eye_artifacts | area-field | 5 |
+| wildemount_places | area-field | 5 |
 | legendary_mechanic_powers | blueprint-craft | 5 |
-| dnd5e_2014_class_features | body-code-decay | 5 |
 | perfect_run_powers | body-code-decay | 5 |
-| pf1_spells | body-code-decay | 5 |
-| dnd5e_2014_powers | body-door | 5 |
-| pf1_items | body-door | 5 |
-| dnd_srd_items | body-form | 5 |
-| dnd5e_2014_feats | conceal-or-sense | 5 |
-| pf1_spells | concept-law | 5 |
-| dnd5e_2014_spells | construct-upkeep | 5 |
 | legendary_mechanic_powers | construct-upkeep | 5 |
-| ars_magica_conditions | containment-rule | 5 |
-| dnd_srd_class_features | creature-control | 5 |
-| dnd_srd_spells | creature-control | 5 |
+| eberron_creatures | containment-rule | 5 |
+| forgotten_realms_artifacts | containment-rule | 5 |
+| wildemount_artifacts | containment-rule | 5 |
 | worm_powers | creature-control | 5 |
-| ars_magica_conditions | dimension-travel | 5 |
-| cypher_powers | dimension-travel | 5 |
-| mm3e_powers | dimension-travel | 5 |
-| ars_magica_conditions | divination-fate | 5 |
-| dnd_srd_class_features | familiar-summon | 5 |
-| dnd_srd_powers | familiar-summon | 5 |
-| dnd_srd_class_features | form-transformation | 5 |
-| dnd_srd_powers | form-transformation | 5 |
+| golarion_powers | divination | 5 |
+| numenera_places | divination | 5 |
+| the_dark_eye_artifacts | divination | 5 |
+| theros_rules | divination | 5 |
+| aos_soulbound_creatures | effect-unknown | 5 |
+| eberron_places | effect-unknown | 5 |
+| eclipse_phase_creatures | effect-unknown | 5 |
+| numenera_places | effect-unknown | 5 |
+| spelljammer_artifacts | effect-unknown | 5 |
+| mystara_artifacts | familiar-summon | 5 |
+| the_strange_artifacts | familiar-summon | 5 |
+| the_strange_creatures | familiar-summon | 5 |
+| wildemount_creatures | familiar-summon | 5 |
+| aos_soulbound_artifacts | form-transformation | 5 |
+| forgotten_realms_artifacts | form-transformation | 5 |
 | mother_of_learning_powers | form-transformation | 5 |
-| dnd5e_2014_creatures | formation-field | 5 |
-| dnd5e_2014_spells | formation-field | 5 |
-| fate_powers | formation-field | 5 |
-| cypher_powers | ingredient-properties | 5 |
-| dnd5e_2014_items | ingredient-properties | 5 |
-| dnd_srd_class_features | item-bound-power | 5 |
-| eclipse_phase_items | item-bound-power | 5 |
+| the_strange_institutions | form-transformation | 5 |
+| wildemount_artifacts | form-transformation | 5 |
 | regressors_tale_powers | item-bound-power | 5 |
-| cypher_powers | luck-mechanism | 5 |
-| dnd5e_2014_powers | luck-mechanism | 5 |
-| dnd_srd_class_features | luck-mechanism | 5 |
-| dnd_srd_powers | luck-mechanism | 5 |
+| stars_without_number_rules | item-bound-power | 5 |
+| mystara_powers | material-row | 5 |
 | rezero_powers | memory-erasure | 5 |
-| cypher_items | mind-state | 5 |
-| eclipse_phase_conditions | mind-state | 5 |
-| fate_spells | mind-state | 5 |
-| ars_magica_conditions | place-release | 5 |
-| ars_magica_creatures | place-release | 5 |
-| pf1_powers | plant-or-creature-target | 5 |
-| dnd_srd_spells | portal-space | 5 |
-| ars_magica_creatures | power-granting | 5 |
-| pf1_spells | power-granting | 5 |
-| brp_items | power-interaction | 5 |
-| cypher_spells | power-interaction | 5 |
-| dnd_srd_spells | power-interaction | 5 |
+| eberron_places | mind-binding | 5 |
+| forgotten_realms_artifacts | mind-binding | 5 |
+| forgotten_realms_rules | mind-binding | 5 |
+| wildemount_artifacts | mind-binding | 5 |
+| wildemount_rules | mind-binding | 5 |
+| mystara_artifacts | negative-effect-drift | 5 |
+| numenera_places | negative-effect-drift | 5 |
+| aos_soulbound_artifacts | power-interaction | 5 |
+| forgotten_realms_creatures | power-interaction | 5 |
+| forgotten_realms_rules | power-interaction | 5 |
+| golarion_powers | power-interaction | 5 |
 | legendary_mechanic_powers | power-interaction | 5 |
+| mystara_creatures | power-interaction | 5 |
+| planescape_rules | power-interaction | 5 |
 | solo_leveling_powers | power-interaction | 5 |
-| dnd5e_2014_creatures | power-transfer | 5 |
-| dnd5e_2014_items | power-transfer | 5 |
+| stars_without_number_artifacts | power-interaction | 5 |
+| eclipse_phase_rules | power-transfer | 5 |
+| forgotten_realms_creatures | power-transfer | 5 |
 | shadow_slave_powers | power-transfer | 5 |
-| cypher_powers | precognition | 5 |
-| ars_magica_conditions | projection-body | 5 |
-| brp_items | protection-field | 5 |
-| dnd_srd_class_features | revival-on-death | 5 |
-| ars_magica_powers | spatial-storage | 5 |
-| dnd5e_2014_powers | spatial-storage | 5 |
-| dnd5e_2014_powers | speech-penalty | 5 |
-| pf1_items | speech-penalty | 5 |
-| dnd5e_2014_creatures | spirit-contract-judgement | 5 |
+| the_strange_artifacts | power-transfer | 5 |
+| mystara_places | soul-state | 5 |
+| numenera_places | soul-state | 5 |
+| strixhaven_powers | soul-state | 5 |
+| aos_soulbound_artifacts | spatial-storage | 5 |
+| eclipse_phase_rules | spatial-storage | 5 |
+| forgotten_realms_powers | spatial-storage | 5 |
+| mystara_places | spatial-storage | 5 |
+| planescape_places | spatial-storage | 5 |
 | worm_powers | time-manipulation | 5 |
-| ironsworn_powers | vow-cost | 5 |
-| ars_magica_powers | world-travel | 5 |
-| ars_magica_spells | world-travel | 5 |
-| dnd5e_2014_items | world-travel | 5 |
-| pf1_items | world-travel | 5 |
-| pf1_spells | world-travel | 5 |
-| dnd_srd_class_features | area-field | 4 |
+| numenera_powers | time-stop | 5 |
+| numenera_rules | time-stop | 5 |
+| golarion_rules | area-field | 4 |
 | legendary_mechanic_powers | area-field | 4 |
-| cypher_powers | blueprint-craft | 4 |
-| ars_magica_creatures | body-code-decay | 4 |
-| brp_conditions | body-code-decay | 4 |
-| dnd5e_2014_class_features | body-door | 4 |
-| dnd5e_2014_creatures | body-door | 4 |
-| ars_magica_items | body-form | 4 |
-| mm3e_powers | body-form | 4 |
-| fate_powers | bond-slots | 4 |
-| ars_magica_items | conceal-or-sense | 4 |
-| brp_spells | conceal-or-sense | 4 |
-| fate_items | conceal-or-sense | 4 |
-| pf1_creatures | conceal-or-sense | 4 |
-| ars_magica_conditions | concept-law | 4 |
-| ars_magica_creatures | concept-law | 4 |
-| ars_magica_powers | construct-upkeep | 4 |
-| fate_powers | creature-control | 4 |
-| ironsworn_powers | creature-control | 4 |
-| dnd5e_2014_items | dimension-travel | 4 |
-| dnd_srd_creatures | dimension-travel | 4 |
-| cypher_spells | divination-fate | 4 |
-| dnd5e_2014_class_features | divination-fate | 4 |
-| dnd_srd_items | divination-fate | 4 |
-| pf1_creatures | familiar-summon | 4 |
+| mystara_creatures | area-field | 4 |
+| ravnica_powers | area-field | 4 |
+| stars_without_number_powers | area-field | 4 |
+| mystara_creatures | containment-rule | 4 |
+| mystara_rules | containment-rule | 4 |
+| ravenloft_artifacts | containment-rule | 4 |
+| eclipse_phase_artifacts | divination | 4 |
+| forgotten_realms_artifacts | divination | 4 |
+| mystara_artifacts | divination | 4 |
+| numenera_creatures | divination | 4 |
+| planescape_creatures | divination | 4 |
+| stars_without_number_powers | divination | 4 |
+| numenera_rules | effect-unknown | 4 |
+| planescape_places | effect-unknown | 4 |
+| ravenloft_artifacts | effect-unknown | 4 |
+| ravenloft_places | effect-unknown | 4 |
+| the_strange_rules | effect-unknown | 4 |
+| wildemount_rules | effect-unknown | 4 |
+| eberron_powers | familiar-summon | 4 |
+| ravenloft_powers | familiar-summon | 4 |
 | solo_leveling_powers | familiar-summon | 4 |
-| ars_magica_conditions | form-transformation | 4 |
-| brp_powers | form-transformation | 4 |
+| the_dark_eye_rules | familiar-summon | 4 |
+| wildemount_powers | familiar-summon | 4 |
+| eberron_places | form-transformation | 4 |
+| forgotten_realms_institutions | form-transformation | 4 |
+| golarion_powers | form-transformation | 4 |
+| ravnica_powers | form-transformation | 4 |
 | speedrunning_multiverse_powers | form-transformation | 4 |
-| ars_magica_spells | formation-field | 4 |
-| cypher_powers | formation-field | 4 |
+| spelljammer_creatures | form-transformation | 4 |
+| spelljammer_powers | form-transformation | 4 |
+| the_dark_eye_creatures | form-transformation | 4 |
+| theros_rules | form-transformation | 4 |
+| eclipse_phase_creatures | formation-field | 4 |
+| numenera_creatures | formation-field | 4 |
+| numenera_powers | formation-field | 4 |
 | ri_treasures | formation-field | 4 |
-| dnd5e_2014_creatures | item-bound-power | 4 |
+| aos_soulbound_rules | item-bound-power | 4 |
+| eclipse_phase_rules | item-bound-power | 4 |
+| forgotten_realms_rules | item-bound-power | 4 |
+| stars_without_number_powers | item-bound-power | 4 |
+| theros_artifacts | item-bound-power | 4 |
 | you_have_died_again_powers | item-bound-power | 4 |
-| dnd5e_2014_items | luck-mechanism | 4 |
+| forgotten_realms_artifacts | item-state | 4 |
+| mystara_artifacts | item-state | 4 |
+| planescape_artifacts | item-state | 4 |
+| ravenloft_artifacts | item-state | 4 |
+| aos_soulbound_artifacts | material-row | 4 |
+| eclipse_phase_artifacts | material-row | 4 |
+| golarion_artifacts | material-row | 4 |
 | hp_objects | material-row | 4 |
-| dnd5e_2014_creatures | memory-erasure | 4 |
-| pf1_spells | memory-erasure | 4 |
-| brp_items | memory-transfer | 4 |
-| brp_powers | mind-binding | 4 |
-| dnd5e_2014_powers | mind-ennoblement | 4 |
-| ars_magica_items | mind-state | 4 |
-| dnd5e_2014_items | mind-state | 4 |
-| dnd_srd_class_features | mind-state | 4 |
-| ironsworn_powers | mind-state | 4 |
-| cypher_powers | negative-effect-drift | 4 |
-| dnd5e_2014_items | negative-effect-drift | 4 |
-| fate_conditions | negative-effect-drift | 4 |
-| ars_magica_items | object-surface | 4 |
-| brp_spells | object-surface | 4 |
-| ars_magica_powers | place-release | 4 |
-| pf1_items | place-release | 4 |
-| pf1_powers | place-release | 4 |
-| dnd_srd_creatures | plant-or-creature-target | 4 |
-| fate_creatures | plant-or-creature-target | 4 |
-| dnd5e_2014_items | portal-space | 4 |
-| dnd5e_2014_spells | power-granting | 4 |
-| pf1_items | power-granting | 4 |
-| pf1_powers | power-interaction | 4 |
+| the_strange_artifacts | material-row | 4 |
+| eberron_rules | mind-binding | 4 |
+| ravenloft_places | mind-binding | 4 |
+| ravenloft_rules | mind-binding | 4 |
+| wildemount_institutions | mind-binding | 4 |
+| aos_soulbound_powers | negative-effect-drift | 4 |
+| aos_soulbound_rules | negative-effect-drift | 4 |
+| eberron_powers | negative-effect-drift | 4 |
+| eclipse_phase_creatures | negative-effect-drift | 4 |
+| ravenloft_powers | negative-effect-drift | 4 |
+| theros_rules | negative-effect-drift | 4 |
+| aos_soulbound_creatures | power-interaction | 4 |
+| the_strange_artifacts | power-interaction | 4 |
+| wildemount_creatures | power-interaction | 4 |
 | circle_of_inevitability_powers | power-transfer | 4 |
+| eclipse_phase_powers | power-transfer | 4 |
 | fated_villain_powers | power-transfer | 4 |
-| mm3e_powers | power-transfer | 4 |
+| mystara_rules | power-transfer | 4 |
 | omniscient_reader_powers | power-transfer | 4 |
-| brp_spells | protection-field | 4 |
-| fate_items | protection-field | 4 |
+| the_strange_powers | power-transfer | 4 |
 | a_novel_concept_powers | revival-on-death | 4 |
-| dnd5e_2014_spells | soul-binding | 4 |
-| pf1_creatures | soul-binding | 4 |
-| pf1_spells | soul-binding | 4 |
-| pf1_creatures | soul-state | 4 |
-| pf1_items | soul-state | 4 |
-| dnd5e_2014_class_features | spatial-storage | 4 |
-| dnd5e_2014_creatures | spatial-storage | 4 |
-| dnd5e_2014_spells | spatial-storage | 4 |
-| ars_magica_spells | speech-penalty | 4 |
-| dnd5e_2014_powers | spirit-contract-judgement | 4 |
-| fate_conditions | sponsorship-contract | 4 |
-| ironsworn_powers | sponsorship-contract | 4 |
-| pf1_items | sponsorship-contract | 4 |
-| pf1_items | system-interface | 4 |
+| aos_soulbound_artifacts | soul-state | 4 |
+| eclipse_phase_places | soul-state | 4 |
+| spelljammer_rules | soul-state | 4 |
+| the_dark_eye_places | soul-state | 4 |
+| wildemount_artifacts | soul-state | 4 |
+| aos_soulbound_places | spatial-storage | 4 |
+| eberron_artifacts | spatial-storage | 4 |
+| eberron_rules | spatial-storage | 4 |
+| forgotten_realms_rules | spatial-storage | 4 |
+| mystara_rules | spatial-storage | 4 |
+| ravenloft_places | spatial-storage | 4 |
 | mother_of_learning_powers | time-loop | 4 |
-| dnd_srd_class_features | time-manipulation | 4 |
-| pf1_powers | time-manipulation | 4 |
-| pf1_spells | time-manipulation | 4 |
-| pf1_spells | tinker-device | 4 |
+| the_strange_powers | time-stop | 4 |
+| the_strange_rules | time-stop | 4 |
 | shadow_slave_powers | vow-cost | 4 |
-| dnd5e_2014_spells | world-travel | 4 |
-| fate_powers | world-travel | 4 |
-| ars_magica_items | area-field | 3 |
-| eclipse_phase_items | area-field | 3 |
-| blades_powers | blueprint-craft | 3 |
-| dnd5e_2014_class_features | blueprint-craft | 3 |
-| pf1_conditions | body-code-decay | 3 |
-| pf1_items | body-code-decay | 3 |
+| mystara_places | area-field | 3 |
+| planescape_creatures | area-field | 3 |
+| planescape_powers | area-field | 3 |
+| ravenloft_artifacts | area-field | 3 |
+| ravenloft_places | area-field | 3 |
+| theros_places | area-field | 3 |
 | a_novel_concept_powers | body-conditioning-rank | 3 |
-| ars_magica_creatures | body-door | 3 |
-| cypher_creatures | body-form | 3 |
-| cypher_spells | body-form | 3 |
-| dnd5e_2014_backgrounds_species | body-form | 3 |
-| dnd5e_2014_conditions | body-form | 3 |
-| dnd_srd_class_features | body-form | 3 |
-| pf1_creatures | body-form | 3 |
-| ars_magica_conditions | bond-slots | 3 |
-| ironsworn_powers | conceal-or-sense | 3 |
-| pf1_powers | concept-law | 3 |
-| cypher_creatures | construct-upkeep | 3 |
-| dnd_srd_spells | construct-upkeep | 3 |
-| pf1_powers | construct-upkeep | 3 |
-| ars_magica_creatures | containment-rule | 3 |
-| brp_creatures | containment-rule | 3 |
-| cypher_items | containment-rule | 3 |
-| dnd_srd_spells | containment-rule | 3 |
+| forgotten_realms_creatures | containment-rule | 3 |
+| forgotten_realms_powers | containment-rule | 3 |
+| forgotten_realms_rules | containment-rule | 3 |
 | lotm_artifacts | containment-rule | 3 |
-| brp_creatures | creature-control | 3 |
-| fate_creatures | creature-control | 3 |
-| pf1_powers | creature-control | 3 |
-| dnd5e_2014_powers | death-checkpoint-rewind | 3 |
-| dnd5e_2014_surge_tables | dimension-travel | 3 |
-| dnd_srd_items | dimension-travel | 3 |
-| ars_magica_items | divination-fate | 3 |
-| pf1_powers | divination-fate | 3 |
-| brp_spells | familiar-summon | 3 |
+| numenera_creatures | containment-rule | 3 |
+| spelljammer_creatures | containment-rule | 3 |
+| the_strange_artifacts | containment-rule | 3 |
+| theros_creatures | containment-rule | 3 |
+| wildemount_rules | containment-rule | 3 |
+| eberron_creatures | divination | 3 |
+| mystara_rules | divination | 3 |
+| ravenloft_creatures | divination | 3 |
+| spelljammer_creatures | divination | 3 |
+| stars_without_number_artifacts | divination | 3 |
+| the_strange_creatures | divination | 3 |
+| wildemount_artifacts | divination | 3 |
+| numenera_institutions | effect-unknown | 3 |
+| planescape_artifacts | effect-unknown | 3 |
+| ravenloft_rules | effect-unknown | 3 |
+| ravnica_artifacts | effect-unknown | 3 |
+| spelljammer_creatures | effect-unknown | 3 |
+| eberron_rules | familiar-summon | 3 |
 | hp_objects | familiar-summon | 3 |
 | lotm_artifacts | familiar-summon | 3 |
-| cypher_items | form-transformation | 3 |
-| cypher_spells | form-transformation | 3 |
-| dnd5e_2014_backgrounds_species | form-transformation | 3 |
-| dnd_srd_items | form-transformation | 3 |
+| mystara_rules | familiar-summon | 3 |
+| spelljammer_creatures | familiar-summon | 3 |
+| spelljammer_powers | familiar-summon | 3 |
+| theros_powers | familiar-summon | 3 |
+| cyberpunk_artifacts | form-transformation | 3 |
 | labyrinth_mad_god_powers | form-transformation | 3 |
-| ars_magica_spells | future-vision | 3 |
-| pf1_items | future-vision | 3 |
-| dnd5e_2014_class_features | ingredient-properties | 3 |
-| dnd5e_2014_powers | ingredient-properties | 3 |
-| fate_powers | ingredient-properties | 3 |
-| ars_magica_creatures | item-bound-power | 3 |
-| cypher_spells | item-bound-power | 3 |
+| planescape_places | form-transformation | 3 |
+| ravenloft_places | form-transformation | 3 |
+| ravenloft_rules | form-transformation | 3 |
+| stars_without_number_creatures | form-transformation | 3 |
+| aos_soulbound_powers | formation-field | 3 |
+| numenera_artifacts | formation-field | 3 |
+| eberron_rules | item-bound-power | 3 |
+| planescape_artifacts | item-bound-power | 3 |
+| ravenloft_powers | item-bound-power | 3 |
 | solo_leveling_powers | item-bound-power | 3 |
-| dnd5e_2014_feats | luck-mechanism | 3 |
-| fate_spells | luck-mechanism | 3 |
-| pf1_conditions | luck-mechanism | 3 |
-| pf1_powers | luck-mechanism | 3 |
-| fate_powers | memory-transfer | 3 |
-| dnd_srd_items | mind-binding | 3 |
-| fate_conditions | mind-binding | 3 |
+| spelljammer_creatures | item-bound-power | 3 |
+| spelljammer_powers | item-bound-power | 3 |
+| strixhaven_creatures | item-bound-power | 3 |
+| aos_soulbound_artifacts | item-state | 3 |
+| aos_soulbound_powers | item-state | 3 |
+| aos_soulbound_rules | item-state | 3 |
+| eclipse_phase_rules | item-state | 3 |
+| numenera_creatures | item-state | 3 |
+| stars_without_number_rules | item-state | 3 |
+| the_strange_creatures | item-state | 3 |
+| the_strange_powers | item-state | 3 |
+| theros_artifacts | item-state | 3 |
+| wildemount_artifacts | item-state | 3 |
+| eberron_artifacts | material-row | 3 |
+| eberron_powers | material-row | 3 |
+| forgotten_realms_powers | material-row | 3 |
+| planescape_creatures | material-row | 3 |
+| the_strange_powers | material-row | 3 |
+| aos_soulbound_artifacts | mind-binding | 3 |
+| aos_soulbound_institutions | mind-binding | 3 |
+| eberron_artifacts | mind-binding | 3 |
+| golarion_powers | mind-binding | 3 |
 | perfect_run_powers | mind-binding | 3 |
-| pf1_creatures | mind-binding | 3 |
-| pf1_powers | mind-binding | 3 |
-| dnd_srd_items | mind-ennoblement | 3 |
-| pf1_spells | mind-ennoblement | 3 |
-| brp_spells | mind-state | 3 |
-| coc_conditions | mind-state | 3 |
-| dnd_srd_class_features | negative-effect-drift | 3 |
-| dnd_srd_spells | negative-effect-drift | 3 |
-| ars_magica_conditions | object-surface | 3 |
-| brp_powers | object-surface | 3 |
-| cypher_items | object-surface | 3 |
-| pf1_creatures | object-surface | 3 |
-| fate_powers | place-release | 3 |
-| ars_magica_conditions | plant-or-creature-target | 3 |
-| brp_powers | plant-or-creature-target | 3 |
-| dnd5e_2014_items | plant-or-creature-target | 3 |
-| ars_magica_conditions | portal-space | 3 |
-| ars_magica_items | portal-space | 3 |
-| ars_magica_spells | portal-space | 3 |
-| dnd5e_2014_items | power-granting | 3 |
-| dnd_srd_backgrounds_species | power-granting | 3 |
-| dnd_srd_powers | power-granting | 3 |
+| ravenloft_institutions | mind-binding | 3 |
+| spelljammer_creatures | mind-binding | 3 |
+| stars_without_number_creatures | mind-binding | 3 |
+| theros_rules | mind-binding | 3 |
+| wildemount_places | mind-binding | 3 |
+| eberron_creatures | negative-effect-drift | 3 |
+| eberron_places | negative-effect-drift | 3 |
+| forgotten_realms_rules | negative-effect-drift | 3 |
+| planescape_places | negative-effect-drift | 3 |
+| spelljammer_rules | negative-effect-drift | 3 |
+| the_dark_eye_rules | negative-effect-drift | 3 |
+| the_strange_places | negative-effect-drift | 3 |
+| the_strange_powers | negative-effect-drift | 3 |
+| wildemount_rules | negative-effect-drift | 3 |
 | worm_powers | power-granting | 3 |
-| ars_magica_items | power-interaction | 3 |
+| eberron_artifacts | power-interaction | 3 |
+| forgotten_realms_institutions | power-interaction | 3 |
+| mystara_places | power-interaction | 3 |
 | omniscient_reader_powers | power-interaction | 3 |
 | perfect_run_powers | power-interaction | 3 |
+| ravenloft_creatures | power-interaction | 3 |
+| spelljammer_powers | power-interaction | 3 |
+| spelljammer_rules | power-interaction | 3 |
+| strixhaven_creatures | power-interaction | 3 |
 | you_have_died_again_powers | power-interaction | 3 |
-| ars_magica_creatures | power-transfer | 3 |
-| dnd5e_2014_spells | power-transfer | 3 |
-| pf1_items | precognition | 3 |
+| aos_soulbound_creatures | power-transfer | 3 |
+| aos_soulbound_powers | power-transfer | 3 |
+| strixhaven_powers | power-transfer | 3 |
+| the_strange_rules | power-transfer | 3 |
 | worm_powers | precognition | 3 |
-| ars_magica_creatures | projection-body | 3 |
-| cypher_spells | projection-body | 3 |
-| ars_magica_creatures | protection-field | 3 |
-| cypher_spells | protection-field | 3 |
-| dnd5e_2014_feats | protection-field | 3 |
-| dnd_srd_creatures | protection-field | 3 |
-| fate_creatures | protection-field | 3 |
-| ironsworn_powers | protection-field | 3 |
-| ars_magica_spells | revival-on-death | 3 |
-| fate_powers | revival-on-death | 3 |
-| ironsworn_powers | revival-on-death | 3 |
-| mm3e_powers | revival-on-death | 3 |
-| pf1_creatures | revival-on-death | 3 |
-| pf1_powers | revival-on-death | 3 |
-| ars_magica_creatures | soul-binding | 3 |
-| ars_magica_spells | soul-binding | 3 |
-| dnd_srd_creatures | soul-binding | 3 |
 | lotm_artifacts | soul-binding | 3 |
-| pf1_items | soul-binding | 3 |
-| dnd5e_2014_powers | soul-state | 3 |
-| ironsworn_creatures | soul-state | 3 |
-| ars_magica_spells | spatial-storage | 3 |
-| fate_items | spatial-storage | 3 |
-| ars_magica_creatures | spirit-contract-judgement | 3 |
-| dnd5e_2014_spells | spirit-contract-judgement | 3 |
-| ars_magica_creatures | sponsorship-contract | 3 |
-| dnd5e_2014_backgrounds_species | sponsorship-contract | 3 |
-| fate_powers | sponsorship-contract | 3 |
-| eclipse_phase_items | system-interface | 3 |
-| ars_magica_spells | time-loop | 3 |
+| aos_soulbound_places | soul-state | 3 |
+| golarion_artifacts | soul-state | 3 |
+| golarion_powers | soul-state | 3 |
+| the_dark_eye_creatures | soul-state | 3 |
+| the_dark_eye_rules | soul-state | 3 |
+| aos_soulbound_powers | spatial-storage | 3 |
+| eclipse_phase_powers | spatial-storage | 3 |
+| planescape_artifacts | spatial-storage | 3 |
+| ravenloft_powers | spatial-storage | 3 |
+| strixhaven_powers | spatial-storage | 3 |
+| the_dark_eye_powers | spatial-storage | 3 |
 | circle_of_inevitability_powers | time-loop | 3 |
 | omniscient_reader_powers | time-loop | 3 |
 | perfect_run_powers | time-loop | 3 |
 | regressors_tale_powers | time-loop | 3 |
 | you_have_died_again_powers | time-loop | 3 |
-| dnd5e_2014_class_features | time-manipulation | 3 |
-| dnd5e_2014_items | time-manipulation | 3 |
-| dnd5e_2014_spells | time-manipulation | 3 |
-| brp_powers | tinker-device | 3 |
-| cypher_powers | vow-cost | 3 |
-| ars_magica_conditions | world-travel | 3 |
-| ars_magica_creatures | world-travel | 3 |
-| dnd5e_2014_class_features | world-travel | 3 |
-| dnd5e_2014_creatures | world-travel | 3 |
-| blades_powers | area-field | 2 |
-| brp_creatures | area-field | 2 |
-| cypher_spells | area-field | 2 |
-| dnd5e_2014_surge_tables | area-field | 2 |
-| dnd_srd_conditions | area-field | 2 |
+| eclipse_phase_rules | time-stop | 3 |
+| numenera_places | time-stop | 3 |
+| the_strange_artifacts | time-stop | 3 |
+| aos_soulbound_rules | area-field | 2 |
+| eberron_institutions | area-field | 2 |
+| golarion_artifacts | area-field | 2 |
 | ri_treasures | area-field | 2 |
-| dnd5e_2014_creatures | blueprint-craft | 2 |
-| dnd5e_2014_spells | blueprint-craft | 2 |
-| dnd_srd_spells | blueprint-craft | 2 |
-| pf1_creatures | blueprint-craft | 2 |
-| brp_items | body-code-decay | 2 |
-| cypher_powers | body-code-decay | 2 |
-| fate_powers | body-code-decay | 2 |
+| the_dark_eye_rules | area-field | 2 |
 | labyrinth_mad_god_powers | body-conditioning-rank | 2 |
-| dnd5e_2014_items | body-door | 2 |
-| dnd5e_2014_spells | body-door | 2 |
-| brp_creatures | body-form | 2 |
-| brp_spells | body-form | 2 |
-| cypher_conditions | body-form | 2 |
-| dnd5e_2014_feats | body-form | 2 |
-| eclipse_phase_powers | body-form | 2 |
-| fate_creatures | body-form | 2 |
-| pf1_conditions | body-form | 2 |
-| ars_magica_creatures | bond-slots | 2 |
-| cypher_creatures | bond-slots | 2 |
-| dnd_srd_creatures | bond-slots | 2 |
-| ironsworn_creatures | bond-slots | 2 |
 | perfect_run_powers | bond-slots | 2 |
-| cypher_creatures | conceal-or-sense | 2 |
-| dnd5e_2014_conditions | conceal-or-sense | 2 |
-| dnd5e_2014_surge_tables | conceal-or-sense | 2 |
-| dnd_srd_feats | conceal-or-sense | 2 |
-| fate_creatures | conceal-or-sense | 2 |
-| ironsworn_creatures | conceal-or-sense | 2 |
-| dnd5e_2014_class_features | concept-law | 2 |
-| dnd5e_2014_surge_tables | concept-law | 2 |
-| fate_conditions | concept-law | 2 |
-| fate_powers | concept-law | 2 |
-| pf1_creatures | concept-law | 2 |
-| ars_magica_conditions | construct-upkeep | 2 |
-| pf1_items | construct-upkeep | 2 |
-| dnd_srd_conditions | containment-rule | 2 |
-| eclipse_phase_items | containment-rule | 2 |
-| mm3e_powers | containment-rule | 2 |
-| ars_magica_items | creature-control | 2 |
-| brp_spells | creature-control | 2 |
-| cypher_items | creature-control | 2 |
-| dnd5e_2014_backgrounds_species | creature-control | 2 |
-| dnd5e_2014_conditions | creature-control | 2 |
-| dnd5e_2014_feats | creature-control | 2 |
-| dnd_srd_items | creature-control | 2 |
-| pf1_conditions | creature-control | 2 |
-| pf1_spells | death-checkpoint-rewind | 2 |
-| brp_powers | dimension-travel | 2 |
-| dnd5e_2014_backgrounds_species | dimension-travel | 2 |
-| dnd_srd_surge_tables | dimension-travel | 2 |
+| eberron_powers | containment-rule | 2 |
+| eclipse_phase_artifacts | containment-rule | 2 |
+| eclipse_phase_creatures | containment-rule | 2 |
+| golarion_institutions | containment-rule | 2 |
+| golarion_places | containment-rule | 2 |
+| golarion_rules | containment-rule | 2 |
+| numenera_places | containment-rule | 2 |
+| planescape_places | containment-rule | 2 |
+| spelljammer_artifacts | containment-rule | 2 |
+| spelljammer_places | containment-rule | 2 |
+| spelljammer_rules | containment-rule | 2 |
+| strixhaven_artifacts | containment-rule | 2 |
+| the_strange_places | containment-rule | 2 |
+| theros_artifacts | containment-rule | 2 |
 | legendary_mechanic_powers | dimension-travel | 2 |
-| pf1_creatures | dimension-travel | 2 |
-| brp_powers | divination-fate | 2 |
-| dnd5e_2014_backgrounds_species | divination-fate | 2 |
-| dnd5e_2014_creatures | divination-fate | 2 |
-| dnd_srd_creatures | divination-fate | 2 |
+| aos_soulbound_places | divination | 2 |
+| eclipse_phase_institutions | divination | 2 |
+| eclipse_phase_rules | divination | 2 |
+| forgotten_realms_places | divination | 2 |
+| golarion_creatures | divination | 2 |
+| mystara_creatures | divination | 2 |
+| numenera_rules | divination | 2 |
+| planescape_places | divination | 2 |
+| planescape_rules | divination | 2 |
+| ravenloft_rules | divination | 2 |
+| spelljammer_artifacts | divination | 2 |
+| strixhaven_artifacts | divination | 2 |
+| theros_artifacts | divination | 2 |
 | legendary_mechanic_powers | divination-fate | 2 |
-| brp_powers | familiar-summon | 2 |
-| cypher_creatures | familiar-summon | 2 |
-| cypher_powers | familiar-summon | 2 |
-| cypher_spells | familiar-summon | 2 |
-| dnd_srd_creatures | familiar-summon | 2 |
-| mm3e_powers | familiar-summon | 2 |
+| aos_soulbound_rules | effect-unknown | 2 |
+| forgotten_realms_institutions | effect-unknown | 2 |
+| forgotten_realms_rules | effect-unknown | 2 |
+| mystara_places | effect-unknown | 2 |
+| mystara_rules | effect-unknown | 2 |
+| planescape_creatures | effect-unknown | 2 |
+| planescape_rules | effect-unknown | 2 |
+| warhammer_40k_powers | effect-unknown | 2 |
+| wildemount_institutions | effect-unknown | 2 |
+| eberron_artifacts | familiar-summon | 2 |
+| forgotten_realms_rules | familiar-summon | 2 |
 | mother_of_learning_powers | familiar-summon | 2 |
+| ravenloft_creatures | familiar-summon | 2 |
+| ravnica_powers | familiar-summon | 2 |
 | shadow_slave_powers | familiar-summon | 2 |
-| ars_magica_items | form-transformation | 2 |
-| brp_creatures | form-transformation | 2 |
-| brp_spells | form-transformation | 2 |
+| theros_creatures | familiar-summon | 2 |
+| eberron_artifacts | form-transformation | 2 |
+| eberron_rules | form-transformation | 2 |
+| forgotten_realms_places | form-transformation | 2 |
+| forgotten_realms_rules | form-transformation | 2 |
+| mystara_artifacts | form-transformation | 2 |
+| numenera_institutions | form-transformation | 2 |
 | omniscient_reader_powers | form-transformation | 2 |
-| pf1_powers | form-transformation | 2 |
+| planescape_institutions | form-transformation | 2 |
+| ravenloft_artifacts | form-transformation | 2 |
+| ravenloft_institutions | form-transformation | 2 |
 | solo_leveling_powers | form-transformation | 2 |
-| brp_spells | formation-field | 2 |
-| cypher_spells | formation-field | 2 |
-| ars_magica_conditions | future-vision | 2 |
-| brp_powers | ingredient-properties | 2 |
-| dnd5e_2014_spells | ingredient-properties | 2 |
-| dnd_srd_items | ingredient-properties | 2 |
-| pf1_conditions | ingredient-properties | 2 |
-| pf1_creatures | ingredient-properties | 2 |
+| strixhaven_artifacts | form-transformation | 2 |
+| the_dark_eye_artifacts | form-transformation | 2 |
+| theros_artifacts | form-transformation | 2 |
+| eclipse_phase_rules | formation-field | 2 |
+| forgotten_realms_powers | formation-field | 2 |
+| numenera_places | formation-field | 2 |
+| planescape_creatures | formation-field | 2 |
+| the_strange_places | formation-field | 2 |
 | a_novel_concept_powers | item-bound-power | 2 |
-| brp_creatures | item-bound-power | 2 |
-| brp_powers | item-bound-power | 2 |
-| coc_items | item-bound-power | 2 |
-| ironsworn_items | item-bound-power | 2 |
-| mm3e_powers | item-bound-power | 2 |
+| aos_soulbound_creatures | item-bound-power | 2 |
+| eberron_creatures | item-bound-power | 2 |
+| mystara_creatures | item-bound-power | 2 |
+| ravenloft_creatures | item-bound-power | 2 |
+| wildemount_rules | item-bound-power | 2 |
+| eberron_artifacts | item-state | 2 |
+| golarion_artifacts | item-state | 2 |
+| golarion_rules | item-state | 2 |
+| spelljammer_artifacts | item-state | 2 |
+| spelljammer_rules | item-state | 2 |
+| the_dark_eye_rules | item-state | 2 |
+| wildemount_rules | item-state | 2 |
 | hp_potions | luck-field | 2 |
 | a_novel_concept_powers | luck-mechanism | 2 |
-| ars_magica_conditions | luck-mechanism | 2 |
-| ars_magica_creatures | luck-mechanism | 2 |
-| dnd5e_2014_backgrounds_species | luck-mechanism | 2 |
-| dnd5e_2014_spells | luck-mechanism | 2 |
-| mm3e_powers | luck-mechanism | 2 |
-| ars_magica_powers | memory-erasure | 2 |
-| cypher_powers | memory-erasure | 2 |
-| dnd5e_2014_powers | memory-erasure | 2 |
-| fate_powers | memory-erasure | 2 |
-| dnd5e_2014_creatures | memory-transfer | 2 |
-| dnd5e_2014_powers | memory-transfer | 2 |
-| eclipse_phase_powers | memory-transfer | 2 |
+| eclipse_phase_rules | material-row | 2 |
+| mystara_artifacts | material-row | 2 |
+| ravenloft_artifacts | material-row | 2 |
+| strixhaven_powers | material-row | 2 |
+| the_dark_eye_artifacts | material-row | 2 |
+| the_dark_eye_rules | material-row | 2 |
+| theros_artifacts | material-row | 2 |
+| theros_rules | material-row | 2 |
 | perfect_run_powers | memory-transfer | 2 |
-| pf1_creatures | memory-transfer | 2 |
-| blades_powers | mind-binding | 2 |
-| dnd_srd_conditions | mind-binding | 2 |
-| eclipse_phase_powers | mind-binding | 2 |
-| ironsworn_creatures | mind-binding | 2 |
-| ironsworn_powers | mind-binding | 2 |
+| aos_soulbound_rules | mind-binding | 2 |
+| eberron_institutions | mind-binding | 2 |
+| forgotten_realms_places | mind-binding | 2 |
+| golarion_institutions | mind-binding | 2 |
+| golarion_places | mind-binding | 2 |
+| golarion_rules | mind-binding | 2 |
+| mystara_places | mind-binding | 2 |
+| numenera_places | mind-binding | 2 |
+| ravenloft_artifacts | mind-binding | 2 |
+| ravnica_creatures | mind-binding | 2 |
 | rezero_powers | mind-binding | 2 |
 | speedrunning_multiverse_powers | mind-binding | 2 |
-| blades_powers | mind-state | 2 |
-| brp_creatures | mind-state | 2 |
-| coc_items | mind-state | 2 |
-| eclipse_phase_items | mind-state | 2 |
-| dnd5e_2014_surge_tables | negative-effect-drift | 2 |
-| fate_creatures | negative-effect-drift | 2 |
-| ironsworn_powers | negative-effect-drift | 2 |
-| mm3e_conditions | negative-effect-drift | 2 |
-| mm3e_powers | negative-effect-drift | 2 |
-| pf1_creatures | negative-effect-drift | 2 |
-| ars_magica_creatures | object-surface | 2 |
-| dnd5e_2014_class_features | object-surface | 2 |
-| dnd_srd_items | object-surface | 2 |
-| pf1_conditions | object-surface | 2 |
-| pf1_powers | object-surface | 2 |
-| dnd5e_2014_powers | place-release | 2 |
-| brp_items | plant-or-creature-target | 2 |
-| cypher_powers | plant-or-creature-target | 2 |
-| dnd5e_2014_surge_tables | plant-or-creature-target | 2 |
-| fate_conditions | plant-or-creature-target | 2 |
-| pf1_conditions | plant-or-creature-target | 2 |
-| dnd_srd_items | portal-space | 2 |
-| fate_powers | portal-space | 2 |
-| mm3e_powers | portal-space | 2 |
-| pf1_powers | portal-space | 2 |
-| brp_powers | power-granting | 2 |
-| dnd5e_2014_surge_tables | power-interaction | 2 |
-| dnd_srd_items | power-interaction | 2 |
+| stars_without_number_rules | mind-binding | 2 |
+| strixhaven_artifacts | mind-binding | 2 |
+| the_dark_eye_creatures | mind-binding | 2 |
+| aos_soulbound_creatures | negative-effect-drift | 2 |
+| eberron_rules | negative-effect-drift | 2 |
+| forgotten_realms_powers | negative-effect-drift | 2 |
+| golarion_creatures | negative-effect-drift | 2 |
+| golarion_places | negative-effect-drift | 2 |
+| mystara_creatures | negative-effect-drift | 2 |
+| planescape_rules | negative-effect-drift | 2 |
+| strixhaven_rules | negative-effect-drift | 2 |
+| theros_creatures | negative-effect-drift | 2 |
+| wildemount_places | negative-effect-drift | 2 |
+| aos_soulbound_rules | power-interaction | 2 |
+| eclipse_phase_creatures | power-interaction | 2 |
 | labyrinth_mad_god_powers | power-interaction | 2 |
-| ars_magica_conditions | power-transfer | 2 |
-| cypher_spells | power-transfer | 2 |
-| dnd_srd_items | power-transfer | 2 |
-| ironsworn_powers | power-transfer | 2 |
+| mystara_institutions | power-interaction | 2 |
+| numenera_places | power-interaction | 2 |
+| planescape_artifacts | power-interaction | 2 |
+| planescape_creatures | power-interaction | 2 |
+| ravenloft_places | power-interaction | 2 |
+| spelljammer_artifacts | power-interaction | 2 |
+| theros_creatures | power-interaction | 2 |
+| wildemount_powers | power-interaction | 2 |
+| aos_soulbound_institutions | power-transfer | 2 |
+| aos_soulbound_rules | power-transfer | 2 |
+| eclipse_phase_artifacts | power-transfer | 2 |
 | mother_of_learning_powers | power-transfer | 2 |
+| numenera_creatures | power-transfer | 2 |
+| ravenloft_powers | power-transfer | 2 |
+| ravenloft_rules | power-transfer | 2 |
 | speedrunning_multiverse_powers | power-transfer | 2 |
-| ars_magica_conditions | precognition | 2 |
-| ars_magica_spells | precognition | 2 |
-| brp_powers | precognition | 2 |
-| dnd5e_2014_spells | precognition | 2 |
-| dnd_srd_spells | precognition | 2 |
-| mm3e_powers | precognition | 2 |
-| brp_powers | projection-body | 2 |
-| cypher_items | projection-body | 2 |
-| dnd5e_2014_creatures | projection-body | 2 |
-| dnd5e_2014_items | projection-body | 2 |
-| dnd_srd_creatures | projection-body | 2 |
-| pf1_conditions | projection-body | 2 |
-| pf1_creatures | projection-body | 2 |
-| cypher_conditions | protection-field | 2 |
-| dnd5e_2014_backgrounds_species | protection-field | 2 |
+| spelljammer_creatures | power-transfer | 2 |
+| spelljammer_powers | power-transfer | 2 |
+| stars_without_number_artifacts | power-transfer | 2 |
+| stars_without_number_powers | power-transfer | 2 |
+| strixhaven_creatures | power-transfer | 2 |
+| the_dark_eye_powers | power-transfer | 2 |
+| theros_rules | power-transfer | 2 |
 | hp_potions | protection-field | 2 |
-| brp_conditions | revival-on-death | 2 |
-| brp_powers | revival-on-death | 2 |
-| dnd5e_2014_items | revival-on-death | 2 |
-| ironsworn_creatures | revival-on-death | 2 |
-| ars_magica_items | soul-binding | 2 |
 | hp_objects | soul-binding | 2 |
-| ars_magica_spells | soul-state | 2 |
-| dnd5e_2014_class_features | soul-state | 2 |
-| dnd_srd_spells | soul-state | 2 |
-| eclipse_phase_items | soul-state | 2 |
-| fate_powers | soul-state | 2 |
-| pf1_powers | soul-state | 2 |
+| eberron_institutions | soul-state | 2 |
+| eberron_places | soul-state | 2 |
+| golarion_institutions | soul-state | 2 |
+| numenera_institutions | soul-state | 2 |
+| the_dark_eye_powers | soul-state | 2 |
+| theros_institutions | soul-state | 2 |
 | speedrunning_multiverse_powers | source-link | 2 |
-| ars_magica_conditions | spatial-storage | 2 |
-| ars_magica_items | spatial-storage | 2 |
-| cypher_powers | spatial-storage | 2 |
-| dnd_srd_spells | spatial-storage | 2 |
-| fate_powers | spatial-storage | 2 |
-| pf1_powers | spatial-storage | 2 |
-| fate_creatures | speech-penalty | 2 |
-| dnd5e_2014_class_features | spirit-contract-judgement | 2 |
-| dnd_srd_spells | spirit-contract-judgement | 2 |
-| ironsworn_powers | spirit-contract-judgement | 2 |
+| aos_soulbound_creatures | spatial-storage | 2 |
+| eberron_places | spatial-storage | 2 |
+| mystara_creatures | spatial-storage | 2 |
+| ravenloft_artifacts | spatial-storage | 2 |
+| strixhaven_artifacts | spatial-storage | 2 |
+| the_strange_places | spatial-storage | 2 |
+| wildemount_powers | spatial-storage | 2 |
 | shadow_slave_powers | sponsorship-contract | 2 |
-| ars_magica_powers | system-interface | 2 |
-| dnd5e_2014_items | system-interface | 2 |
-| eclipse_phase_creatures | system-interface | 2 |
-| eclipse_phase_powers | system-interface | 2 |
 | a_novel_concept_powers | time-loop | 2 |
-| ars_magica_powers | time-loop | 2 |
-| dnd5e_2014_powers | time-loop | 2 |
-| pf1_spells | time-loop | 2 |
-| dnd5e_2014_creatures | time-manipulation | 2 |
-| dnd_srd_spells | time-manipulation | 2 |
-| pf1_creatures | time-manipulation | 2 |
-| pf1_items | time-manipulation | 2 |
-| dnd5e_2014_spells | time-stop | 2 |
+| forgotten_realms_powers | time-stop | 2 |
+| mystara_artifacts | time-stop | 2 |
+| mystara_rules | time-stop | 2 |
+| numenera_creatures | time-stop | 2 |
 | perfect_run_powers | time-stop | 2 |
-| pf1_spells | time-stop | 2 |
+| strixhaven_creatures | time-stop | 2 |
+| strixhaven_powers | time-stop | 2 |
 | worm_powers | timeline-split | 2 |
-| ars_magica_spells | vow-cost | 2 |
-| dnd5e_2014_creatures | vow-cost | 2 |
-| dnd5e_2014_items | vow-cost | 2 |
-| dnd_srd_class_features | vow-cost | 2 |
 | mother_of_learning_powers | vow-cost | 2 |
-| cypher_powers | world-travel | 2 |
-| dnd_srd_class_features | world-travel | 2 |
-| dnd_srd_spells | world-travel | 2 |
 | perfect_run_powers | anti-power-site | 1 |
 | a_novel_concept_powers | area-field | 1 |
-| brp_conditions | area-field | 1 |
-| dnd5e_2014_backgrounds_species | area-field | 1 |
-| eclipse_phase_powers | area-field | 1 |
-| fate_creatures | area-field | 1 |
-| fate_items | area-field | 1 |
+| aos_soulbound_places | area-field | 1 |
+| forgotten_realms_institutions | area-field | 1 |
+| golarion_creatures | area-field | 1 |
 | hp_objects | area-field | 1 |
-| ironsworn_powers | area-field | 1 |
 | solo_leveling_powers | area-field | 1 |
-| ars_magica_items | blueprint-craft | 1 |
-| dnd5e_2014_items | blueprint-craft | 1 |
-| dnd_srd_class_features | blueprint-craft | 1 |
-| fate_powers | blueprint-craft | 1 |
-| ironsworn_powers | blueprint-craft | 1 |
+| spelljammer_artifacts | area-field | 1 |
+| stars_without_number_rules | area-field | 1 |
+| strixhaven_creatures | area-field | 1 |
+| the_dark_eye_creatures | area-field | 1 |
+| theros_artifacts | area-field | 1 |
+| theros_institutions | area-field | 1 |
+| theros_rules | area-field | 1 |
 | mother_of_learning_powers | blueprint-craft | 1 |
-| brp_creatures | body-code-decay | 1 |
-| brp_powers | body-code-decay | 1 |
-| cypher_conditions | body-code-decay | 1 |
-| dnd5e_2014_conditions | body-code-decay | 1 |
-| dnd5e_2014_surge_tables | body-code-decay | 1 |
-| dnd_srd_class_features | body-code-decay | 1 |
-| dnd_srd_powers | body-code-decay | 1 |
-| dnd_srd_spells | body-code-decay | 1 |
-| pf1_creatures | body-code-decay | 1 |
 | speedrunning_multiverse_powers | body-conditioning-rank | 1 |
 | you_have_died_again_powers | body-conditioning-rank | 1 |
-| ars_magica_conditions | body-door | 1 |
-| brp_conditions | body-door | 1 |
-| brp_powers | body-door | 1 |
-| dnd_srd_creatures | body-door | 1 |
-| fate_powers | body-door | 1 |
-| mm3e_powers | body-door | 1 |
-| pf1_creatures | body-door | 1 |
-| blades_powers | body-form | 1 |
-| brp_items | body-form | 1 |
-| dnd_srd_backgrounds_species | body-form | 1 |
-| dnd_srd_surge_tables | body-form | 1 |
-| eclipse_phase_conditions | body-form | 1 |
-| ironsworn_powers | body-form | 1 |
-| ars_magica_spells | bond-slots | 1 |
-| brp_creatures | bond-slots | 1 |
-| cypher_powers | bond-slots | 1 |
-| dnd5e_2014_backgrounds_species | bond-slots | 1 |
-| dnd5e_2014_creatures | bond-slots | 1 |
-| dnd5e_2014_powers | bond-slots | 1 |
-| ironsworn_powers | bond-slots | 1 |
-| brp_conditions | conceal-or-sense | 1 |
-| brp_creatures | conceal-or-sense | 1 |
-| brp_items | conceal-or-sense | 1 |
-| dnd_srd_backgrounds_species | conceal-or-sense | 1 |
-| dnd_srd_conditions | conceal-or-sense | 1 |
-| eclipse_phase_powers | conceal-or-sense | 1 |
-| fate_conditions | conceal-or-sense | 1 |
-| fate_spells | conceal-or-sense | 1 |
-| brp_creatures | concept-law | 1 |
-| cypher_powers | concept-law | 1 |
-| dnd5e_2014_creatures | concept-law | 1 |
-| dnd5e_2014_items | concept-law | 1 |
-| dnd5e_2014_spells | concept-law | 1 |
-| dnd_srd_items | concept-law | 1 |
-| fate_items | concept-law | 1 |
-| ars_magica_items | construct-upkeep | 1 |
-| ars_magica_spells | construct-upkeep | 1 |
-| blades_powers | construct-upkeep | 1 |
-| cypher_powers | construct-upkeep | 1 |
-| dnd5e_2014_items | construct-upkeep | 1 |
-| dnd_srd_powers | construct-upkeep | 1 |
-| eclipse_phase_creatures | construct-upkeep | 1 |
-| fate_powers | construct-upkeep | 1 |
 | mother_of_learning_powers | construct-upkeep | 1 |
-| brp_conditions | containment-rule | 1 |
-| brp_powers | containment-rule | 1 |
-| brp_spells | containment-rule | 1 |
-| dnd5e_2014_class_features | containment-rule | 1 |
-| eclipse_phase_powers | containment-rule | 1 |
-| fate_conditions | containment-rule | 1 |
-| fate_items | containment-rule | 1 |
-| ironsworn_creatures | containment-rule | 1 |
-| pf1_conditions | containment-rule | 1 |
-| pf1_creatures | containment-rule | 1 |
-| brp_powers | creature-control | 1 |
-| coc_creatures | creature-control | 1 |
-| dnd5e_2014_surge_tables | creature-control | 1 |
-| ars_magica_spells | death-checkpoint-rewind | 1 |
-| dnd_srd_powers | death-checkpoint-rewind | 1 |
+| aos_soulbound_artifacts | containment-rule | 1 |
+| aos_soulbound_creatures | containment-rule | 1 |
+| aos_soulbound_places | containment-rule | 1 |
+| aos_soulbound_powers | containment-rule | 1 |
+| eberron_institutions | containment-rule | 1 |
+| eberron_places | containment-rule | 1 |
+| eclipse_phase_institutions | containment-rule | 1 |
+| eclipse_phase_places | containment-rule | 1 |
+| golarion_creatures | containment-rule | 1 |
+| mystara_places | containment-rule | 1 |
+| mystara_powers | containment-rule | 1 |
+| spelljammer_powers | containment-rule | 1 |
+| stars_without_number_artifacts | containment-rule | 1 |
+| strixhaven_creatures | containment-rule | 1 |
+| the_dark_eye_artifacts | containment-rule | 1 |
+| the_dark_eye_places | containment-rule | 1 |
+| the_strange_creatures | containment-rule | 1 |
+| the_strange_institutions | containment-rule | 1 |
+| wildemount_institutions | containment-rule | 1 |
+| wildemount_powers | containment-rule | 1 |
 | rezero_powers | death-checkpoint-rewind | 1 |
-| ars_magica_creatures | dimension-travel | 1 |
-| ars_magica_items | dimension-travel | 1 |
-| brp_spells | dimension-travel | 1 |
-| cypher_items | dimension-travel | 1 |
-| cypher_spells | dimension-travel | 1 |
-| dnd_srd_backgrounds_species | dimension-travel | 1 |
-| dnd_srd_feats | dimension-travel | 1 |
-| ironsworn_powers | dimension-travel | 1 |
-| brp_items | divination-fate | 1 |
-| brp_spells | divination-fate | 1 |
-| cypher_items | divination-fate | 1 |
-| dnd5e_2014_feats | divination-fate | 1 |
-| dnd5e_2014_items | divination-fate | 1 |
-| dnd5e_2014_surge_tables | divination-fate | 1 |
-| dnd_srd_powers | divination-fate | 1 |
-| mm3e_powers | divination-fate | 1 |
-| pf1_conditions | divination-fate | 1 |
-| pf1_creatures | divination-fate | 1 |
+| aos_soulbound_rules | divination | 1 |
+| eberron_places | divination | 1 |
+| eclipse_phase_creatures | divination | 1 |
+| forgotten_realms_creatures | divination | 1 |
+| forgotten_realms_rules | divination | 1 |
+| golarion_artifacts | divination | 1 |
+| golarion_institutions | divination | 1 |
+| golarion_places | divination | 1 |
+| mystara_places | divination | 1 |
+| numenera_institutions | divination | 1 |
+| planescape_powers | divination | 1 |
+| ravenloft_institutions | divination | 1 |
+| ravnica_powers | divination | 1 |
+| spelljammer_rules | divination | 1 |
+| stars_without_number_rules | divination | 1 |
+| strixhaven_creatures | divination | 1 |
+| strixhaven_rules | divination | 1 |
+| the_dark_eye_creatures | divination | 1 |
+| the_dark_eye_institutions | divination | 1 |
+| the_strange_places | divination | 1 |
+| the_strange_rules | divination | 1 |
+| theros_institutions | divination | 1 |
+| wildemount_creatures | divination | 1 |
 | a_novel_concept_powers | effect-unknown | 1 |
+| cyberpunk_artifacts | effect-unknown | 1 |
+| eclipse_phase_rules | effect-unknown | 1 |
+| golarion_rules | effect-unknown | 1 |
+| ravenloft_institutions | effect-unknown | 1 |
 | speedrunning_multiverse_powers | effect-unknown | 1 |
-| ars_magica_conditions | familiar-summon | 1 |
-| blades_powers | familiar-summon | 1 |
-| brp_creatures | familiar-summon | 1 |
-| coc_spells | familiar-summon | 1 |
-| cypher_items | familiar-summon | 1 |
-| dnd5e_2014_surge_tables | familiar-summon | 1 |
-| fate_spells | familiar-summon | 1 |
+| stars_without_number_creatures | effect-unknown | 1 |
+| stars_without_number_rules | effect-unknown | 1 |
+| the_dark_eye_rules | effect-unknown | 1 |
+| the_strange_institutions | effect-unknown | 1 |
+| theros_institutions | effect-unknown | 1 |
+| theros_places | effect-unknown | 1 |
+| warhammer_40k_artifacts | effect-unknown | 1 |
+| wildemount_places | effect-unknown | 1 |
+| aos_soulbound_institutions | familiar-summon | 1 |
+| forgotten_realms_artifacts | familiar-summon | 1 |
+| forgotten_realms_places | familiar-summon | 1 |
 | legendary_mechanic_powers | familiar-summon | 1 |
-| pf1_powers | familiar-summon | 1 |
-| cypher_creatures | form-transformation | 1 |
-| dnd_srd_backgrounds_species | form-transformation | 1 |
-| dnd_srd_conditions | form-transformation | 1 |
-| eclipse_phase_powers | form-transformation | 1 |
-| fate_conditions | form-transformation | 1 |
-| fate_spells | form-transformation | 1 |
+| planescape_artifacts | familiar-summon | 1 |
+| strixhaven_artifacts | familiar-summon | 1 |
+| the_strange_places | familiar-summon | 1 |
+| wildemount_artifacts | familiar-summon | 1 |
+| wildemount_institutions | familiar-summon | 1 |
+| aos_soulbound_places | form-transformation | 1 |
+| eberron_institutions | form-transformation | 1 |
+| golarion_artifacts | form-transformation | 1 |
+| golarion_places | form-transformation | 1 |
 | hp_objects | form-transformation | 1 |
-| ironsworn_creatures | form-transformation | 1 |
-| pf1_conditions | form-transformation | 1 |
-| pf1_creatures | form-transformation | 1 |
+| planescape_artifacts | form-transformation | 1 |
+| planescape_rules | form-transformation | 1 |
+| ravnica_creatures | form-transformation | 1 |
+| spelljammer_artifacts | form-transformation | 1 |
+| stars_without_number_institutions | form-transformation | 1 |
+| the_dark_eye_institutions | form-transformation | 1 |
+| theros_institutions | form-transformation | 1 |
+| theros_places | form-transformation | 1 |
+| wildemount_institutions | form-transformation | 1 |
+| wildemount_rules | form-transformation | 1 |
 | you_have_died_again_powers | form-transformation | 1 |
-| ars_magica_items | formation-field | 1 |
-| brp_powers | formation-field | 1 |
-| dnd5e_2014_class_features | formation-field | 1 |
-| dnd5e_2014_items | formation-field | 1 |
-| dnd5e_2014_powers | formation-field | 1 |
-| dnd_srd_creatures | formation-field | 1 |
-| eclipse_phase_creatures | formation-field | 1 |
+| eberron_places | formation-field | 1 |
+| golarion_powers | formation-field | 1 |
 | lotm_artifacts | formation-field | 1 |
+| numenera_rules | formation-field | 1 |
+| strixhaven_rules | formation-field | 1 |
+| the_strange_artifacts | formation-field | 1 |
+| the_strange_powers | formation-field | 1 |
+| the_strange_rules | formation-field | 1 |
+| theros_places | formation-field | 1 |
 | lotm_potions | formula-chapter-labelled | 1 |
-| ars_magica_creatures | future-vision | 1 |
-| ars_magica_powers | future-vision | 1 |
-| dnd5e_2014_class_features | future-vision | 1 |
-| dnd5e_2014_powers | future-vision | 1 |
-| dnd_srd_class_features | future-vision | 1 |
-| fate_conditions | future-vision | 1 |
-| fate_powers | future-vision | 1 |
 | speedrunning_multiverse_powers | future-vision | 1 |
 | hp_ingredients | ingredient-not-material | 1 |
-| cypher_items | ingredient-properties | 1 |
-| cypher_spells | ingredient-properties | 1 |
-| dnd5e_2014_creatures | ingredient-properties | 1 |
-| dnd_srd_creatures | ingredient-properties | 1 |
-| dnd_srd_powers | ingredient-properties | 1 |
-| dnd_srd_spells | ingredient-properties | 1 |
-| ironsworn_powers | ingredient-properties | 1 |
 | a_novel_concept_powers | inner-world | 1 |
-| blades_powers | item-bound-power | 1 |
-| dnd5e_2014_backgrounds_species | item-bound-power | 1 |
-| dnd5e_2014_feats | item-bound-power | 1 |
-| dnd_srd_creatures | item-bound-power | 1 |
-| dnd_srd_surge_tables | item-bound-power | 1 |
-| fate_spells | item-bound-power | 1 |
-| ironsworn_powers | item-bound-power | 1 |
+| cyberpunk_artifacts | item-bound-power | 1 |
+| eclipse_phase_creatures | item-bound-power | 1 |
+| forgotten_realms_institutions | item-bound-power | 1 |
+| golarion_rules | item-bound-power | 1 |
+| mystara_places | item-bound-power | 1 |
+| planescape_rules | item-bound-power | 1 |
+| ravenloft_rules | item-bound-power | 1 |
+| ravnica_artifacts | item-bound-power | 1 |
+| ravnica_powers | item-bound-power | 1 |
+| strixhaven_powers | item-bound-power | 1 |
+| the_strange_places | item-bound-power | 1 |
+| theros_creatures | item-bound-power | 1 |
+| theros_rules | item-bound-power | 1 |
+| wildemount_creatures | item-bound-power | 1 |
+| wildemount_institutions | item-bound-power | 1 |
+| wildemount_places | item-bound-power | 1 |
+| wildemount_powers | item-bound-power | 1 |
+| eberron_powers | item-state | 1 |
+| forgotten_realms_powers | item-state | 1 |
 | lotm_artifacts | item-state | 1 |
+| planescape_rules | item-state | 1 |
+| ravenloft_creatures | item-state | 1 |
+| ravenloft_rules | item-state | 1 |
+| ravnica_powers | item-state | 1 |
 | ri_treasures | item-state | 1 |
-| brp_powers | luck-mechanism | 1 |
-| cypher_items | luck-mechanism | 1 |
-| cypher_spells | luck-mechanism | 1 |
-| dnd_srd_backgrounds_species | luck-mechanism | 1 |
-| dnd_srd_feats | luck-mechanism | 1 |
-| fate_creatures | luck-mechanism | 1 |
-| pf1_creatures | luck-mechanism | 1 |
+| spelljammer_powers | item-state | 1 |
+| strixhaven_artifacts | item-state | 1 |
+| the_dark_eye_powers | item-state | 1 |
+| theros_powers | item-state | 1 |
+| wildemount_creatures | item-state | 1 |
 | speedrunning_multiverse_powers | luck-mechanism | 1 |
+| aos_soulbound_rules | material-row | 1 |
+| forgotten_realms_rules | material-row | 1 |
 | hp_ingredients | material-row | 1 |
-| ars_magica_conditions | memory-erasure | 1 |
-| ars_magica_creatures | memory-erasure | 1 |
-| blades_powers | memory-erasure | 1 |
-| brp_conditions | memory-erasure | 1 |
-| cypher_items | memory-erasure | 1 |
-| dnd5e_2014_class_features | memory-erasure | 1 |
-| dnd5e_2014_spells | memory-erasure | 1 |
-| dnd_srd_spells | memory-erasure | 1 |
-| eclipse_phase_powers | memory-erasure | 1 |
-| pf1_items | memory-erasure | 1 |
-| pf1_powers | memory-erasure | 1 |
-| brp_powers | memory-transfer | 1 |
-| cypher_powers | memory-transfer | 1 |
-| dnd_srd_powers | memory-transfer | 1 |
-| pf1_powers | memory-transfer | 1 |
-| brp_creatures | mind-binding | 1 |
-| brp_spells | mind-binding | 1 |
-| coc_creatures | mind-binding | 1 |
-| coc_spells | mind-binding | 1 |
-| cypher_creatures | mind-binding | 1 |
-| cypher_items | mind-binding | 1 |
-| dnd5e_2014_conditions | mind-binding | 1 |
-| dnd5e_2014_surge_tables | mind-binding | 1 |
-| dnd_srd_class_features | mind-binding | 1 |
-| eclipse_phase_conditions | mind-binding | 1 |
-| fate_creatures | mind-binding | 1 |
-| fate_spells | mind-binding | 1 |
-| mm3e_powers | mind-binding | 1 |
-| pf1_conditions | mind-binding | 1 |
+| numenera_creatures | material-row | 1 |
+| numenera_places | material-row | 1 |
+| planescape_artifacts | material-row | 1 |
+| ravenloft_powers | material-row | 1 |
+| spelljammer_artifacts | material-row | 1 |
+| stars_without_number_artifacts | material-row | 1 |
+| stars_without_number_powers | material-row | 1 |
+| the_strange_rules | material-row | 1 |
+| theros_creatures | material-row | 1 |
+| wildemount_rules | material-row | 1 |
+| eclipse_phase_places | mind-binding | 1 |
+| forgotten_realms_institutions | mind-binding | 1 |
+| golarion_artifacts | mind-binding | 1 |
+| golarion_creatures | mind-binding | 1 |
+| mystara_institutions | mind-binding | 1 |
+| planescape_powers | mind-binding | 1 |
+| planescape_rules | mind-binding | 1 |
 | regressors_tale_powers | mind-binding | 1 |
+| spelljammer_rules | mind-binding | 1 |
+| the_dark_eye_artifacts | mind-binding | 1 |
+| the_dark_eye_institutions | mind-binding | 1 |
+| the_dark_eye_rules | mind-binding | 1 |
+| the_strange_institutions | mind-binding | 1 |
+| theros_artifacts | mind-binding | 1 |
 | a_novel_concept_powers | mind-ennoblement | 1 |
-| ars_magica_conditions | mind-ennoblement | 1 |
-| dnd5e_2014_spells | mind-ennoblement | 1 |
-| dnd_srd_spells | mind-ennoblement | 1 |
-| eclipse_phase_creatures | mind-ennoblement | 1 |
-| pf1_items | mind-ennoblement | 1 |
-| cypher_conditions | mind-state | 1 |
-| dnd5e_2014_conditions | mind-state | 1 |
-| eclipse_phase_powers | mind-state | 1 |
-| fate_creatures | mind-state | 1 |
-| mm3e_conditions | mind-state | 1 |
-| pf1_creatures | mind-state | 1 |
-| ars_magica_items | negative-effect-drift | 1 |
-| blades_conditions | negative-effect-drift | 1 |
-| cypher_spells | negative-effect-drift | 1 |
-| dnd5e_2014_backgrounds_species | negative-effect-drift | 1 |
-| dnd5e_2014_conditions | negative-effect-drift | 1 |
-| dnd_srd_backgrounds_species | negative-effect-drift | 1 |
-| dnd_srd_items | negative-effect-drift | 1 |
-| cypher_spells | object-surface | 1 |
-| dnd_srd_backgrounds_species | object-surface | 1 |
-| dnd_srd_creatures | object-surface | 1 |
-| dnd_srd_powers | object-surface | 1 |
-| fate_conditions | object-surface | 1 |
-| fate_items | object-surface | 1 |
-| mm3e_powers | object-surface | 1 |
-| ars_magica_items | place-release | 1 |
-| cypher_items | place-release | 1 |
-| cypher_powers | place-release | 1 |
-| dnd_srd_creatures | place-release | 1 |
-| ironsworn_powers | place-release | 1 |
-| ars_magica_items | plant-or-creature-target | 1 |
-| brp_conditions | plant-or-creature-target | 1 |
-| dnd_srd_class_features | plant-or-creature-target | 1 |
-| dnd_srd_items | plant-or-creature-target | 1 |
-| ironsworn_creatures | plant-or-creature-target | 1 |
-| mm3e_powers | plant-or-creature-target | 1 |
-| cypher_spells | portal-space | 1 |
-| dnd5e_2014_class_features | portal-space | 1 |
-| pf1_conditions | portal-space | 1 |
-| pf1_creatures | portal-space | 1 |
-| cypher_items | power-granting | 1 |
-| dnd5e_2014_surge_tables | power-granting | 1 |
-| dnd_srd_creatures | power-granting | 1 |
-| dnd_srd_feats | power-granting | 1 |
-| dnd_srd_items | power-granting | 1 |
-| dnd_srd_spells | power-granting | 1 |
-| pf1_creatures | power-granting | 1 |
-| blades_powers | power-interaction | 1 |
-| brp_creatures | power-interaction | 1 |
-| cypher_items | power-interaction | 1 |
-| dnd_srd_feats | power-interaction | 1 |
-| eclipse_phase_powers | power-interaction | 1 |
-| fate_conditions | power-interaction | 1 |
-| fate_items | power-interaction | 1 |
-| ironsworn_creatures | power-interaction | 1 |
-| pf1_creatures | power-interaction | 1 |
-| ars_magica_items | power-transfer | 1 |
-| brp_spells | power-transfer | 1 |
-| dnd_srd_spells | power-transfer | 1 |
+| cyberpunk_rules | negative-effect-drift | 1 |
+| eberron_artifacts | negative-effect-drift | 1 |
+| eclipse_phase_artifacts | negative-effect-drift | 1 |
+| forgotten_realms_places | negative-effect-drift | 1 |
+| golarion_artifacts | negative-effect-drift | 1 |
+| golarion_powers | negative-effect-drift | 1 |
+| golarion_rules | negative-effect-drift | 1 |
+| mystara_institutions | negative-effect-drift | 1 |
+| ravenloft_artifacts | negative-effect-drift | 1 |
+| ravnica_powers | negative-effect-drift | 1 |
+| ravnica_rules | negative-effect-drift | 1 |
+| spelljammer_creatures | negative-effect-drift | 1 |
+| spelljammer_places | negative-effect-drift | 1 |
+| spelljammer_powers | negative-effect-drift | 1 |
+| stars_without_number_artifacts | negative-effect-drift | 1 |
+| strixhaven_artifacts | negative-effect-drift | 1 |
+| strixhaven_powers | negative-effect-drift | 1 |
+| the_strange_creatures | negative-effect-drift | 1 |
+| wildemount_artifacts | negative-effect-drift | 1 |
+| wildemount_creatures | negative-effect-drift | 1 |
+| wildemount_powers | negative-effect-drift | 1 |
+| eberron_creatures | power-interaction | 1 |
+| eberron_rules | power-interaction | 1 |
+| forgotten_realms_places | power-interaction | 1 |
+| golarion_artifacts | power-interaction | 1 |
+| golarion_creatures | power-interaction | 1 |
+| planescape_institutions | power-interaction | 1 |
+| planescape_powers | power-interaction | 1 |
+| ravenloft_institutions | power-interaction | 1 |
+| ravnica_creatures | power-interaction | 1 |
+| strixhaven_rules | power-interaction | 1 |
+| the_dark_eye_creatures | power-interaction | 1 |
+| the_strange_places | power-interaction | 1 |
+| theros_rules | power-interaction | 1 |
+| wildemount_artifacts | power-interaction | 1 |
+| wildemount_rules | power-interaction | 1 |
+| eberron_artifacts | power-transfer | 1 |
+| eberron_creatures | power-transfer | 1 |
+| eclipse_phase_creatures | power-transfer | 1 |
+| eclipse_phase_institutions | power-transfer | 1 |
 | lotm_artifacts | power-transfer | 1 |
-| pf1_conditions | power-transfer | 1 |
+| mystara_powers | power-transfer | 1 |
+| numenera_places | power-transfer | 1 |
+| planescape_institutions | power-transfer | 1 |
+| ravnica_rules | power-transfer | 1 |
 | regressors_tale_powers | power-transfer | 1 |
-| ars_magica_items | precognition | 1 |
-| cypher_spells | precognition | 1 |
-| dnd5e_2014_class_features | precognition | 1 |
-| dnd5e_2014_items | precognition | 1 |
-| dnd_srd_class_features | precognition | 1 |
-| dnd_srd_powers | precognition | 1 |
-| eclipse_phase_powers | precognition | 1 |
-| ironsworn_conditions | precognition | 1 |
-| ironsworn_creatures | precognition | 1 |
-| cypher_powers | projection-body | 1 |
-| dnd_srd_powers | projection-body | 1 |
-| eclipse_phase_items | projection-body | 1 |
-| fate_conditions | projection-body | 1 |
-| fate_creatures | projection-body | 1 |
-| fate_items | projection-body | 1 |
-| coc_spells | protection-field | 1 |
-| eclipse_phase_items | protection-field | 1 |
-| eclipse_phase_powers | protection-field | 1 |
-| fate_spells | protection-field | 1 |
-| pf1_creatures | protection-field | 1 |
-| ars_magica_conditions | revival-on-death | 1 |
-| ars_magica_items | revival-on-death | 1 |
-| blades_powers | revival-on-death | 1 |
-| brp_spells | revival-on-death | 1 |
-| cypher_conditions | revival-on-death | 1 |
-| cypher_items | revival-on-death | 1 |
-| cypher_spells | revival-on-death | 1 |
-| dnd5e_2014_backgrounds_species | revival-on-death | 1 |
-| dnd5e_2014_surge_tables | revival-on-death | 1 |
-| dnd_srd_backgrounds_species | revival-on-death | 1 |
-| dnd_srd_conditions | revival-on-death | 1 |
-| fate_creatures | revival-on-death | 1 |
-| pf1_conditions | revival-on-death | 1 |
-| dnd5e_2014_class_features | soul-binding | 1 |
-| dnd5e_2014_surge_tables | soul-binding | 1 |
-| fate_powers | soul-binding | 1 |
-| ironsworn_conditions | soul-binding | 1 |
-| pf1_conditions | soul-binding | 1 |
-| brp_creatures | soul-state | 1 |
-| coc_powers | soul-state | 1 |
-| cypher_powers | soul-state | 1 |
-| dnd5e_2014_backgrounds_species | soul-state | 1 |
-| dnd5e_2014_spells | soul-state | 1 |
-| dnd_srd_powers | soul-state | 1 |
-| eclipse_phase_powers | soul-state | 1 |
-| fate_conditions | soul-state | 1 |
-| ironsworn_powers | soul-state | 1 |
-| pf1_conditions | soul-state | 1 |
+| the_strange_institutions | power-transfer | 1 |
+| theros_powers | power-transfer | 1 |
+| cyberpunk_artifacts | soul-state | 1 |
+| planescape_artifacts | soul-state | 1 |
+| planescape_institutions | soul-state | 1 |
+| planescape_places | soul-state | 1 |
+| planescape_powers | soul-state | 1 |
+| ravenloft_institutions | soul-state | 1 |
+| ravnica_creatures | soul-state | 1 |
+| ravnica_powers | soul-state | 1 |
+| ravnica_rules | soul-state | 1 |
+| stars_without_number_artifacts | soul-state | 1 |
+| stars_without_number_creatures | soul-state | 1 |
+| stars_without_number_powers | soul-state | 1 |
+| stars_without_number_rules | soul-state | 1 |
+| theros_artifacts | soul-state | 1 |
+| wildemount_institutions | soul-state | 1 |
+| wildemount_places | soul-state | 1 |
 | labyrinth_mad_god_powers | source-link | 1 |
-| blades_items | spatial-storage | 1 |
-| brp_spells | spatial-storage | 1 |
-| cypher_items | spatial-storage | 1 |
-| dnd5e_2014_feats | spatial-storage | 1 |
+| aos_soulbound_institutions | spatial-storage | 1 |
+| forgotten_realms_creatures | spatial-storage | 1 |
+| forgotten_realms_institutions | spatial-storage | 1 |
+| golarion_artifacts | spatial-storage | 1 |
+| golarion_powers | spatial-storage | 1 |
+| numenera_institutions | spatial-storage | 1 |
+| planescape_creatures | spatial-storage | 1 |
+| planescape_rules | spatial-storage | 1 |
+| ravenloft_creatures | spatial-storage | 1 |
+| ravenloft_rules | spatial-storage | 1 |
+| ravnica_powers | spatial-storage | 1 |
 | ri_treasures | spatial-storage | 1 |
-| ars_magica_creatures | speech-penalty | 1 |
-| brp_powers | speech-penalty | 1 |
-| cypher_powers | speech-penalty | 1 |
-| dnd5e_2014_backgrounds_species | speech-penalty | 1 |
-| dnd5e_2014_surge_tables | speech-penalty | 1 |
-| fate_conditions | speech-penalty | 1 |
-| fate_powers | speech-penalty | 1 |
-| pf1_conditions | speech-penalty | 1 |
+| spelljammer_artifacts | spatial-storage | 1 |
+| spelljammer_places | spatial-storage | 1 |
+| stars_without_number_artifacts | spatial-storage | 1 |
+| stars_without_number_powers | spatial-storage | 1 |
+| strixhaven_creatures | spatial-storage | 1 |
+| the_dark_eye_artifacts | spatial-storage | 1 |
+| theros_creatures | spatial-storage | 1 |
+| theros_places | spatial-storage | 1 |
+| theros_powers | spatial-storage | 1 |
+| wildemount_artifacts | spatial-storage | 1 |
 | rezero_powers | speech-penalty | 1 |
-| ars_magica_conditions | spirit-contract-judgement | 1 |
-| blades_creatures | spirit-contract-judgement | 1 |
-| blades_powers | spirit-contract-judgement | 1 |
-| cypher_powers | spirit-contract-judgement | 1 |
-| cypher_spells | spirit-contract-judgement | 1 |
-| dnd5e_2014_backgrounds_species | spirit-contract-judgement | 1 |
-| dnd_srd_class_features | spirit-contract-judgement | 1 |
-| dnd_srd_powers | spirit-contract-judgement | 1 |
-| fate_creatures | spirit-contract-judgement | 1 |
-| fate_powers | spirit-contract-judgement | 1 |
-| blades_powers | sponsorship-contract | 1 |
-| dnd5e_2014_creatures | sponsorship-contract | 1 |
-| dnd_srd_class_features | sponsorship-contract | 1 |
-| dnd_srd_creatures | sponsorship-contract | 1 |
-| dnd_srd_powers | sponsorship-contract | 1 |
-| pf1_spells | sponsorship-contract | 1 |
 | regressors_tale_powers | sponsorship-contract | 1 |
-| brp_items | system-interface | 1 |
-| cypher_items | system-interface | 1 |
-| dnd5e_2014_powers | system-interface | 1 |
-| dnd5e_2014_spells | system-interface | 1 |
-| fate_items | system-interface | 1 |
-| fate_powers | system-interface | 1 |
-| pf1_conditions | system-interface | 1 |
-| pf1_powers | system-interface | 1 |
-| ars_magica_conditions | time-loop | 1 |
-| ars_magica_creatures | time-loop | 1 |
-| blades_powers | time-loop | 1 |
-| dnd_srd_spells | time-loop | 1 |
-| pf1_creatures | time-loop | 1 |
 | solo_leveling_powers | time-loop | 1 |
 | speedrunning_multiverse_powers | time-loop | 1 |
-| ars_magica_conditions | time-manipulation | 1 |
-| ars_magica_creatures | time-manipulation | 1 |
-| cypher_items | time-manipulation | 1 |
-| cypher_powers | time-manipulation | 1 |
-| dnd_srd_powers | time-manipulation | 1 |
-| fate_creatures | time-manipulation | 1 |
-| mm3e_powers | time-manipulation | 1 |
-| pf1_conditions | time-manipulation | 1 |
-| dnd_srd_spells | time-stop | 1 |
-| fate_powers | time-stop | 1 |
-| pf1_powers | time-stop | 1 |
-| ars_magica_powers | timeline-split | 1 |
-| pf1_creatures | timeline-split | 1 |
-| pf1_spells | timeline-split | 1 |
-| blades_powers | tinker-device | 1 |
-| cypher_creatures | tinker-device | 1 |
-| cypher_items | tinker-device | 1 |
-| dnd5e_2014_backgrounds_species | tinker-device | 1 |
-| dnd5e_2014_class_features | tinker-device | 1 |
-| dnd5e_2014_powers | tinker-device | 1 |
-| dnd_srd_backgrounds_species | tinker-device | 1 |
-| dnd_srd_items | tinker-device | 1 |
-| dnd_srd_powers | tinker-device | 1 |
-| fate_creatures | tinker-device | 1 |
-| ironsworn_powers | tinker-device | 1 |
-| ars_magica_items | vow-cost | 1 |
-| dnd5e_2014_powers | vow-cost | 1 |
-| dnd_srd_powers | vow-cost | 1 |
-| fate_conditions | vow-cost | 1 |
-| fate_powers | vow-cost | 1 |
+| aos_soulbound_places | time-stop | 1 |
+| aos_soulbound_rules | time-stop | 1 |
+| eberron_places | time-stop | 1 |
+| eberron_powers | time-stop | 1 |
+| forgotten_realms_places | time-stop | 1 |
+| golarion_artifacts | time-stop | 1 |
+| mystara_creatures | time-stop | 1 |
+| mystara_powers | time-stop | 1 |
+| numenera_institutions | time-stop | 1 |
+| planescape_places | time-stop | 1 |
+| planescape_rules | time-stop | 1 |
+| ravenloft_creatures | time-stop | 1 |
+| ravenloft_places | time-stop | 1 |
+| ravenloft_rules | time-stop | 1 |
+| stars_without_number_artifacts | time-stop | 1 |
+| stars_without_number_powers | time-stop | 1 |
+| the_strange_creatures | time-stop | 1 |
+| the_strange_places | time-stop | 1 |
+| theros_places | time-stop | 1 |
+| wildemount_powers | time-stop | 1 |
+| wildemount_rules | time-stop | 1 |
 | fated_villain_powers | vow-cost | 1 |
 | omniscient_reader_powers | vow-cost | 1 |
-| pf1_spells | vow-cost | 1 |
 | regressors_tale_powers | vow-cost | 1 |
-| dnd5e_2014_backgrounds_species | world-travel | 1 |
-| dnd5e_2014_surge_tables | world-travel | 1 |
-| eclipse_phase_powers | world-travel | 1 |
-| mm3e_powers | world-travel | 1 |
 | speedrunning_multiverse_powers | world-travel | 1 |
 
 ## Row format

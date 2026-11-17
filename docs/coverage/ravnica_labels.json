@@ -1,0 +1,4030 @@
+{
+ "meta": {
+  "setting": "Ravnica (Guildmasters' Guide)",
+  "licence": "commercial (Wizards of the Coast); design reference only",
+  "pass": "PWC37, book tier, gpt-6-luna reader, unchecked against a second reader",
+  "dropped_names_not_in_shard": 2,
+  "level_lines_in_text": 0,
+  "entities_listed": 190,
+  "second_reader": {
+   "sampled_shards": 1,
+   "luna_names": 45,
+   "haiku_names": 30,
+   "both": 19,
+   "haiku_only_added": 9,
+   "blocked_agree": 14,
+   "verb_agree": 14
+  },
+  "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
+ },
+ "score": {
+  "ravnica_powers": {
+   "labelled": 33,
+   "tuned": 9,
+   "held_out": 24,
+   "verb_rule_hits": 8,
+   "majority_hits": 8,
+   "majority": "gruul guild spells"
+  },
+  "ravnica_artifacts": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "ravnica_creatures": {
+   "labelled": 2,
+   "tuned": 1,
+   "held_out": 1,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": "medium celestial, lawful evil;"
+  },
+  "ravnica_places": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "ravnica_institutions": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "ravnica_rules": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  }
+ },
+ "sheets": {
+  "ravnica_powers": {
+   "ravnica.power.horns": {
+    "corpus": "power",
+    "name": "Horns",
+    "kind": "racial trait",
+    "locator": "p20",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "The minotaur can make horn strikes that deal piercing damage."
+    },
+    "cost_or_limit": "Used for unarmed strikes; damage is 1d6 plus Strength modifier.",
+    "who_may": "Minotaur characters",
+    "where_from": "Minotaur racial traits",
+    "combines": "Goring Rush and Hammering Horns use the horns.",
+    "mechanism": "Natural weapon attack",
+    "blocked_reason": "A straightforward attack can use the basic effect grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.power.goring-rush": {
+    "corpus": "power",
+    "name": "Goring Rush",
+    "kind": "racial trait",
+    "locator": "p20",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "After dashing far enough, the minotaur can make a horn attack as a bonus action."
+    },
+    "cost_or_limit": "Requires the Dash action and at least 20 feet of movement that turn.",
+    "who_may": "Minotaur characters",
+    "where_from": "Minotaur racial traits",
+    "combines": "Uses the Horns trait.",
+    "mechanism": "Conditional bonus attack",
+    "blocked_reason": "The trigger and attack can be represented with basic effects.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.power.hammering-horns": {
+    "corpus": "power",
+    "name": "Hammering Horns",
+    "kind": "racial trait",
+    "locator": "p20",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "touched",
+     "time": "instant",
+     "summary": "After hitting with a melee attack, the minotaur may try to shove the target up to 10 feet."
+    },
+    "cost_or_limit": "Bonus action; target must be within 5 feet and no more than one size larger; a Strength save resists.",
+    "who_may": "Minotaur characters",
+    "where_from": "Minotaur racial traits",
+    "combines": "Requires a melee hit and uses the horns.",
+    "mechanism": "Resisted forced movement",
+    "blocked_reason": "Forced movement and a resistance test fit the basic effect grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "tuned"
+   },
+   "ravnica.power.imposing-presence": {
+    "corpus": "power",
+    "name": "Imposing Presence",
+    "kind": "racial trait",
+    "locator": "p20",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "information",
+     "target": "self",
+     "time": "lasting",
+     "summary": "The minotaur gains proficiency in Intimidation or Persuasion."
+    },
+    "cost_or_limit": "Choose one of the two skills.",
+    "who_may": "Minotaur characters",
+    "where_from": "Minotaur racial traits",
+    "mechanism": "Skill proficiency",
+    "blocked_reason": "A persistent skill benefit needs no unsupported capability.",
+    "split": "held-out"
+   },
+   "ravnica.power.voice-of-authority": {
+    "corpus": "power",
+    "name": "Voice of Authority",
+    "kind": "subclass feature",
+    "stated_class": "Order Domain",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "marked",
+     "time": "instant",
+     "summary": "When a qualifying spell targets an ally, that ally can immediately make a weapon attack."
+    },
+    "cost_or_limit": "Requires a spell slot of 1st level or higher and an ally as target; choose one ally if several are targeted.",
+    "who_may": "Order Domain clerics",
+    "where_from": "Order Domain feature",
+    "combines": "Triggered by casting a spell on an ally.",
+    "mechanism": "Triggered ally action",
+    "blocked": "power-interaction",
+    "blocked_reason": "The feature depends on detecting a spell cast and adding an action in response.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.power.order-s-demand": {
+    "corpus": "power",
+    "name": "Order’s Demand",
+    "kind": "Channel Divinity feature",
+    "stated_class": "Order Domain",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "mind",
+     "target": "area",
+     "time": "lasting",
+     "summary": "Selected nearby creatures that fail a save are charmed briefly, and may be made to drop what they hold."
+    },
+    "cost_or_limit": "Action; visible or audible targets within 30 feet; charm ends after one turn or if the target takes damage.",
+    "mind": "Charms affected creatures.",
+    "who_may": "Order Domain clerics",
+    "where_from": "Order Domain Channel Divinity",
+    "combines": "A failed Wisdom save is required; can also make failed targets drop held items.",
+    "mechanism": "Area mental control",
+    "blocked": "mind-binding",
+    "blocked_reason": "The effect imposes a charm state on multiple targets.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.power.embodiment-of-the-law": {
+    "corpus": "power",
+    "name": "Embodiment of the Law",
+    "kind": "subclass feature",
+    "stated_class": "Order Domain",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "time",
+     "target": "self",
+     "time": "instant",
+     "summary": "The cleric can shorten an eligible enchantment spell’s casting time to a bonus action."
+    },
+    "cost_or_limit": "Only spells normally cast as an action and using a slot; uses per long rest equal Wisdom modifier, minimum one.",
+    "who_may": "Order Domain clerics",
+    "where_from": "Order Domain feature",
+    "combines": "Applies to enchantment spells.",
+    "mechanism": "Casting-time modification",
+    "blocked": "power-interaction",
+    "blocked_reason": "It changes the casting parameters of another power.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.power.divine-strike": {
+    "corpus": "power",
+    "name": "Divine Strike",
+    "kind": "subclass feature",
+    "stated_class": "Order Domain",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "A weapon hit can deal additional psychic damage once on each of the cleric’s turns."
+    },
+    "cost_or_limit": "Once per turn; damage increases at 14th level.",
+    "who_may": "Order Domain clerics",
+    "where_from": "Order Domain feature",
+    "combines": "Triggers on a weapon hit.",
+    "mechanism": "Bonus damage",
+    "blocked_reason": "Additional damage on a hit fits the basic effect grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.power.order-s-wrath": {
+    "corpus": "power",
+    "name": "Order’s Wrath",
+    "kind": "subclass feature",
+    "stated_class": "Order Domain",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "marked",
+     "time": "triggered",
+     "summary": "After the cleric deals Divine Strike damage, an ally’s next hit against that enemy deals extra psychic damage."
+    },
+    "cost_or_limit": "Curse lasts until the cleric’s next turn; once per turn.",
+    "who_may": "Order Domain clerics",
+    "where_from": "Order Domain feature",
+    "combines": "Requires Divine Strike damage and an ally’s attack.",
+    "mechanism": "Marked-target triggered damage",
+    "blocked": "power-interaction",
+    "blocked_reason": "It depends on one power applying a curse that modifies a later ally attack.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
+    "split": "tuned"
+   },
+   "ravnica.power.halo-of-spores": {
+    "corpus": "power",
+    "name": "Halo of Spores",
+    "kind": "subclass feature",
+    "stated_class": "Circle of Spores",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "area",
+     "time": "instant",
+     "summary": "Spores harm a nearby creature when the feature’s conditions are met."
+    },
+    "cost_or_limit": "The passage names the feature but its operational details are not fully visible here.",
+    "who_may": "Circle of Spores druids",
+    "where_from": "Circle of Spores features",
+    "mechanism": "Spore damage",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The excerpt names the feature but does not provide enough of its mechanics to specify its effect.",
+    "split": "tuned"
+   },
+   "ravnica.power.symbiotic-entity": {
+    "corpus": "power",
+    "name": "Symbiotic Entity",
+    "kind": "subclass feature",
+    "stated_class": "Circle of Spores",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "self",
+     "time": "lasting",
+     "summary": "The druid gains temporary hit points through a fungal symbiosis."
+    },
+    "cost_or_limit": "The excerpt indicates four temporary hit points in a later fragment; other conditions are incomplete.",
+    "who_may": "Circle of Spores druids",
+    "where_from": "Circle of Spores features",
+    "combines": "Tied to the druid’s fungal symbiosis.",
+    "mechanism": "Temporary vitality",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The excerpt omits the full activation and duration rules.",
+    "split": "held-out"
+   },
+   "ravnica.power.fungal-infestation": {
+    "corpus": "power",
+    "name": "Fungal Infestation",
+    "kind": "subclass feature",
+    "stated_class": "Circle of Spores",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A feature listed for Circle of Spores druids, without its mechanics in this excerpt."
+    },
+    "who_may": "Circle of Spores druids",
+    "where_from": "Circle of Spores features",
+    "mechanism": "Unspecified feature",
+    "blocked": "effect-unknown",
+    "blocked_reason": "No working effect is given in the excerpt.",
+    "split": "tuned"
+   },
+   "ravnica.power.spreading-spores": {
+    "corpus": "power",
+    "name": "Spreading Spores",
+    "kind": "subclass feature",
+    "stated_class": "Circle of Spores",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A feature listed for Circle of Spores druids, without its mechanics in this excerpt."
+    },
+    "who_may": "Circle of Spores druids",
+    "where_from": "Circle of Spores features",
+    "mechanism": "Unspecified feature",
+    "blocked": "effect-unknown",
+    "blocked_reason": "No working effect is given in the excerpt.",
+    "split": "held-out"
+   },
+   "ravnica.power.fungal-body": {
+    "corpus": "power",
+    "name": "Fungal Body",
+    "kind": "subclass feature",
+    "stated_class": "Circle of Spores",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A feature listed for Circle of Spores druids, without its mechanics in this excerpt."
+    },
+    "who_may": "Circle of Spores druids",
+    "where_from": "Circle of Spores features",
+    "mechanism": "Unspecified feature",
+    "blocked": "effect-unknown",
+    "blocked_reason": "No working effect is given in the excerpt.",
+    "split": "held-out"
+   },
+   "ravnica.power.circle-spells": {
+    "corpus": "power",
+    "name": "Circle Spells",
+    "kind": "subclass feature",
+    "stated_class": "Circle of Spores",
+    "locator": "p27",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "information",
+     "target": "self",
+     "time": "lasting",
+     "summary": "The druid gains specified spells as always-prepared options, including chill touch."
+    },
+    "cost_or_limit": "Granted at stated druid levels; these spells do not count against daily prepared spells.",
+    "who_may": "Circle of Spores druids",
+    "where_from": "Circle of Spores feature",
+    "combines": "Grants chill touch and additional listed spells.",
+    "mechanism": "Spell access",
+    "blocked": "power-interaction",
+    "blocked_reason": "The feature grants access to other powers, which the basic effect grammar cannot represent.",
+    "split": "held-out"
+   },
+   "ravnica.power.rubblebelt-refuge": {
+    "corpus": "power",
+    "name": "Rubblebelt Refuge",
+    "kind": "background feature",
+    "stated_class": "Gruul Anarch",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "conceal",
+     "object": "thing",
+     "target": "area",
+     "time": "lasting",
+     "summary": "The character can find a hidden resting place, food, and fresh water in abandoned urban wilds."
+    },
+    "cost_or_limit": "Food and water support the character and up to five others each day.",
+    "who_may": "Gruul Anarch characters",
+    "where_from": "Gruul Anarch background",
+    "combines": "Uses familiarity with ruined districts, parks, and rubblebelts.",
+    "mechanism": "Shelter and sustenance access",
+    "blocked_reason": "Locating shelter and resources can be handled as a straightforward area effect.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
+    "split": "tuned"
+   },
+   "ravnica.power.fire-bolt": {
+    "corpus": "power",
+    "name": "fire bolt",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "heat",
+     "target": "line",
+     "time": "instant",
+     "summary": "A bolt of fire strikes a target."
+    },
+    "cost_or_limit": "Cantrip.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Ranged fire spell",
+    "blocked_reason": "A simple ranged attack can use the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.power.produce-flame": {
+    "corpus": "power",
+    "name": "produce flame",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "heat",
+     "target": "self",
+     "time": "sustained",
+     "summary": "The caster produces a flame that can be used or thrown."
+    },
+    "cost_or_limit": "Cantrip.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Flame creation",
+    "blocked_reason": "Creating and directing flame fits the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.power.compelled-duel": {
+    "corpus": "power",
+    "name": "compelled duel",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "mind",
+     "target": "marked",
+     "time": "lasting",
+     "summary": "The spell pressures one creature to focus on the caster in combat."
+    },
+    "cost_or_limit": "1st-level spell.",
+    "mind": "Influences a target’s combat choices.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Mental compulsion",
+    "blocked": "mind-binding",
+    "blocked_reason": "The spell alters a target’s behavior through compulsion.",
+    "split": "held-out"
+   },
+   "ravnica.power.speak-with-animals": {
+    "corpus": "power",
+    "name": "speak with animals",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "touched",
+     "time": "lasting",
+     "summary": "The caster can communicate verbally with beasts."
+    },
+    "cost_or_limit": "1st-level spell.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Cross-species communication",
+    "blocked_reason": "Communication can be represented as information exchange.",
+    "split": "held-out"
+   },
+   "ravnica.power.thunderwave": {
+    "corpus": "power",
+    "name": "thunderwave",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "sound",
+     "target": "area",
+     "time": "instant",
+     "summary": "A thunderous blast affects nearby creatures."
+    },
+    "cost_or_limit": "1st-level spell.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Area sound blast",
+    "blocked_reason": "An instantaneous area effect fits the basic grammar.",
+    "split": "held-out"
+   },
+   "ravnica.power.beast-sense": {
+    "corpus": "power",
+    "name": "beast sense",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "bound",
+     "time": "sustained",
+     "summary": "The caster perceives through a willing beast’s senses."
+    },
+    "cost_or_limit": "2nd-level spell; requires a beast to serve as the sensory link.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "combines": "Links the caster to a beast’s senses.",
+    "mechanism": "Remote sensory link",
+    "blocked": "power-interaction",
+    "blocked_reason": "The caster’s perception is routed through another creature.",
+    "split": "tuned"
+   },
+   "ravnica.power.shatter": {
+    "corpus": "power",
+    "name": "shatter",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "sound",
+     "target": "area",
+     "time": "instant",
+     "summary": "A sharp resonant burst harms creatures and objects nearby."
+    },
+    "cost_or_limit": "2nd-level spell.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Area sonic attack",
+    "blocked_reason": "A burst of sound and damage fits the basic effect grammar.",
+    "split": "tuned"
+   },
+   "ravnica.power.conjure-animals": {
+    "corpus": "power",
+    "name": "conjure animals",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "area",
+     "time": "sustained",
+     "summary": "The caster summons beasts to appear and assist."
+    },
+    "cost_or_limit": "3rd-level spell.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "combines": "Creates animal allies.",
+    "mechanism": "Creature summoning",
+    "blocked": "familiar-summon",
+    "blocked_reason": "Summoning independent creatures requires a capability beyond the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.power.conjure-barrage": {
+    "corpus": "power",
+    "name": "conjure barrage",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "area",
+     "time": "instant",
+     "summary": "A barrage of weapon-like effects strikes an area."
+    },
+    "cost_or_limit": "3rd-level spell.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Area attack",
+    "blocked_reason": "A straightforward area attack fits the basic effect grammar.",
+    "split": "tuned"
+   },
+   "ravnica.power.dominate-beast": {
+    "corpus": "power",
+    "name": "dominate beast",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "mind",
+     "target": "marked",
+     "time": "sustained",
+     "summary": "The caster controls a beast’s actions."
+    },
+    "cost_or_limit": "4th-level spell.",
+    "mind": "Dominates the target beast.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Creature mind control",
+    "blocked": "mind-binding",
+    "blocked_reason": "The spell imposes sustained control over another creature’s mind.",
+    "split": "tuned"
+   },
+   "ravnica.power.stoneskin": {
+    "corpus": "power",
+    "name": "stoneskin",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "touched",
+     "time": "sustained",
+     "summary": "The target’s skin becomes resistant to harm."
+    },
+    "cost_or_limit": "4th-level spell.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Protective body alteration",
+    "blocked": "form-transformation",
+    "blocked_reason": "The effect alters the target’s body into a hardened state.",
+    "split": "held-out"
+   },
+   "ravnica.power.destructive-wave": {
+    "corpus": "power",
+    "name": "destructive wave",
+    "kind": "spell",
+    "stated_class": "Gruul Guild Spells",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "area",
+     "time": "instant",
+     "summary": "A destructive burst harms nearby creatures."
+    },
+    "cost_or_limit": "5th-level spell.",
+    "who_may": "Characters with access to the Gruul guild spell list",
+    "where_from": "Gruul Guild Spells table",
+    "mechanism": "Area attack",
+    "blocked_reason": "An instantaneous area attack fits the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.power.exploitation-of-the-debtors": {
+    "corpus": "power",
+    "name": "Exploitation of the Debtors",
+    "kind": "special ability",
+    "locator": "p192",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "marked",
+     "time": "instant",
+     "summary": "Hurts a charmed creature and grants the angel temporary vitality equal to the damage."
+    },
+    "cost_or_limit": "Bonus action; target must be charmed, visible, and within 30 feet.",
+    "mind": "Requires the target to be charmed by the angel.",
+    "who_may": "Deathpact angel",
+    "where_from": "Deathpact angel stat block",
+    "combines": "Uses the angel's charm on a target.",
+    "mechanism": "Transfer-like hit-point gain",
+    "blocked_reason": "Damage and temporary vitality can be represented by the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.power.flyby": {
+    "corpus": "power",
+    "name": "Flyby",
+    "kind": "special ability",
+    "locator": "p192",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "force",
+     "target": "self",
+     "time": "instant",
+     "summary": "Prevents opportunity attacks when the angel flies beyond an enemy's reach."
+    },
+    "cost_or_limit": "Only while flying out of an enemy's reach",
+    "who_may": "Deathpact angel",
+    "where_from": "Deathpact angel stat block",
+    "mechanism": "Movement protection",
+    "blocked_reason": "The basic grammar can represent a temporary attack-prevention effect.",
+    "split": "held-out"
+   },
+   "ravnica.power.innate-spellcasting": {
+    "corpus": "power",
+    "name": "Innate Spellcasting",
+    "kind": "special ability",
+    "locator": "p192",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "line",
+     "time": "instant",
+     "summary": "Enables the angel to cast its listed spells, including commands, charms, darkness, suggestions, and resurrection magic."
+    },
+    "cost_or_limit": "Spell uses vary from at will to once per day.",
+    "mind": "Some listed spells influence minds.",
+    "who_may": "Deathpact angel",
+    "where_from": "Deathpact angel stat block",
+    "combines": "Provides access to listed spells.",
+    "mechanism": "Spellcasting",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The spell list contains multiple distinct magical effects that the basic grammar cannot fully represent.",
+    "split": "held-out"
+   },
+   "ravnica.power.magic-resistance": {
+    "corpus": "power",
+    "name": "Magic Resistance",
+    "kind": "special ability",
+    "locator": "p192",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "force",
+     "target": "self",
+     "time": "instant",
+     "summary": "Improves the angel's saves against spells and magical effects."
+    },
+    "cost_or_limit": "Applies against spells and other magical effects",
+    "who_may": "Deathpact angel",
+    "where_from": "Deathpact angel stat block",
+    "mechanism": "Defensive resistance",
+    "blocked_reason": "A resistance to incoming effects can be represented as blocking.",
+    "split": "held-out"
+   },
+   "ravnica.power.chains-of-obligation": {
+    "corpus": "power",
+    "name": "Chains of Obligation",
+    "kind": "special ability",
+    "locator": "p192",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "position",
+     "target": "marked",
+     "time": "lasting",
+     "summary": "Can paralyze a charmed creature that fails a saving throw."
+    },
+    "cost_or_limit": "Target must be charmed, visible, and within 90 feet; the paralysis lasts up to a minute or ends when the target takes damage.",
+    "go_wrong": "The target can resist with a successful saving throw.",
+    "mind": "Requires the target to be charmed.",
+    "who_may": "Deathpact angel",
+    "where_from": "Deathpact angel stat block",
+    "combines": "May replace one scythe attack.",
+    "mechanism": "Paralysis and restraint",
+    "blocked_reason": "A bounded paralysis effect can be represented as binding position.",
+    "split": "held-out"
+   },
+   "ravnica.power.summon-mount": {
+    "corpus": "power",
+    "name": "Summon Mount",
+    "kind": "special ability",
+    "locator": "p195",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "area",
+     "time": "lasting",
+     "summary": "Summons a plant mount that remains for up to eight hours."
+    },
+    "cost_or_limit": "Once per day; mount appears within 60 feet and ends if it or the dryad dies or the dryad dismisses it.",
+    "mind": "The dryad can communicate telepathically with the mount within one mile.",
+    "who_may": "Conclave dryad",
+    "where_from": "Conclave dryad stat block",
+    "combines": "Mount uses an elk-like form with plant nature and Sylvan understanding.",
+    "mechanism": "Creature summoning",
+    "blocked": "familiar-summon",
+    "blocked_reason": "The effect creates a persistent creature with a specified form and telepathic link.",
+    "split": "held-out"
+   },
+   "ravnica.power.suppress-magic": {
+    "corpus": "power",
+    "name": "Suppress Magic",
+    "kind": "special ability",
+    "locator": "p195",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "working",
+     "target": "marked",
+     "time": "lasting",
+     "summary": "Suppresses the magical properties of a visible magic item."
+    },
+    "cost_or_limit": "One item within 120 feet; lasts ten minutes unless ended early; does not affect artifacts.",
+    "go_wrong": "The effect ends if the dryad is incapacitated or dies.",
+    "who_may": "Conclave dryad",
+    "where_from": "Conclave dryad stat block",
+    "combines": "Targets a magic item and excludes artifacts.",
+    "mechanism": "Item power suppression",
+    "blocked": "item-bound-power",
+    "blocked_reason": "It specifically suppresses an item's embedded magical properties.",
+    "split": "tuned"
+   },
+   "ravnica.power.furious-defense": {
+    "corpus": "power",
+    "name": "Furious Defense",
+    "kind": "reaction",
+    "locator": "p201",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "force",
+     "target": "line",
+     "time": "instant",
+     "summary": "Makes a chain attack against a nearby foe after that foe damages a creature the giant can see."
+    },
+    "cost_or_limit": "Reaction; foe must be within 20 feet.",
+    "who_may": "Bloodfray giant",
+    "where_from": "Bloodfray giant stat block",
+    "combines": "Triggers on an ally being damaged.",
+    "mechanism": "Triggered counterattack",
+    "blocked_reason": "A triggered attack can be represented as a conditional instant effect.",
+    "split": "held-out"
+   },
+   "ravnica.power.vigilant": {
+    "corpus": "power",
+    "name": "Vigilant",
+    "kind": "special ability",
+    "locator": "p202",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Prevents the giant from being surprised."
+    },
+    "who_may": "Guardian giant",
+    "where_from": "Guardian giant stat block",
+    "mechanism": "Awareness and surprise prevention",
+    "blocked_reason": "The effect can be represented as sensing and blocking surprise.",
+    "split": "tuned"
+   },
+   "ravnica.power.protection": {
+    "corpus": "power",
+    "name": "Protection",
+    "kind": "reaction",
+    "locator": "p202",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "force",
+     "target": "marked",
+     "time": "instant",
+     "summary": "Imposes disadvantage on an attack aimed at a nearby creature."
+    },
+    "cost_or_limit": "Reaction; attacker must be visible and target within 10 feet.",
+    "who_may": "Guardian giant",
+    "where_from": "Guardian giant stat block",
+    "combines": "Interferes with an incoming attack.",
+    "mechanism": "Defensive intervention",
+    "blocked_reason": "The effect can be represented as blocking an attack.",
+    "split": "held-out"
+   },
+   "ravnica.power.focus": {
+    "corpus": "power",
+    "name": "Focus",
+    "kind": "creature ability",
+    "locator": "p203",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "marked",
+     "time": "lasting",
+     "summary": "The giant improves attacks against a chosen visible creature and worsens attacks against others."
+    },
+    "cost_or_limit": "Bonus action; target must be visible within 30 feet; lasts up to one minute.",
+    "go_wrong": "Attacking another target incurs a penalty.",
+    "who_may": "Orzhov giant",
+    "where_from": "Orzhov giant",
+    "combines": "Changes attack rolls against focused and other targets.",
+    "blocked_reason": "A marked-target attack modifier is representable in the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.power.reckless": {
+    "corpus": "power",
+    "name": "Reckless",
+    "kind": "creature trait",
+    "locator": "p203",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "self",
+     "time": "lasting",
+     "summary": "The giant gains melee attack advantage while attacks against it gain advantage."
+    },
+    "cost_or_limit": "Chosen at the start of its turn; lasts through that turn.",
+    "go_wrong": "Enemies gain advantage against the giant.",
+    "who_may": "Sunder shaman",
+    "where_from": "Sunder shaman",
+    "combines": "Modifies melee attack rolls and attacks against the user.",
+    "blocked_reason": "Attack-roll advantages are representable in the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.power.siege-monster": {
+    "corpus": "power",
+    "name": "Siege Monster",
+    "kind": "creature trait",
+    "locator": "p203",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "touched",
+     "time": "lasting",
+     "summary": "The giant deals double damage to objects and structures."
+    },
+    "cost_or_limit": "Applies to damage against objects and structures.",
+    "who_may": "Sunder shaman; wurm",
+    "combines": "Enhances damage against objects and structures.",
+    "blocked_reason": "A damage multiplier is representable as an effect on force.",
+    "split": "held-out"
+   },
+   "ravnica.power.stone-camouflage": {
+    "corpus": "power",
+    "name": "Stone Camouflage",
+    "kind": "creature trait",
+    "locator": "p203",
+    "is_thing": true,
+    "effect": {
+     "verb": "conceal",
+     "object": "none",
+     "target": "self",
+     "time": "lasting",
+     "summary": "The giant gains an advantage when hiding in rocky terrain."
+    },
+    "cost_or_limit": "Only applies to Dexterity (Stealth) checks in rocky terrain.",
+    "who_may": "Sunder shaman",
+    "where_from": "Sunder shaman",
+    "combines": "Improves hiding in rocky surroundings.",
+    "blocked_reason": "A situational concealment benefit needs no missing capability.",
+    "split": "held-out"
+   },
+   "ravnica.power.frightening-screech": {
+    "corpus": "power",
+    "name": "Frightening Screech",
+    "kind": "creature ability",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "area",
+     "time": "lasting",
+     "summary": "A hearing creature that fails a save is frightened of the horror."
+    },
+    "cost_or_limit": "30-foot radius; DC 13 Wisdom save; recharges on 5–6; repeat saves at turn ends; success grants 24-hour immunity.",
+    "go_wrong": "Failure causes fear and can contribute to madness.",
+    "mind": "Frightens targets.",
+    "who_may": "Flying horror",
+    "where_from": "Flying horror",
+    "combines": "Failure can trigger the encounter madness rule.",
+    "mechanism": "Area fear effect",
+    "blocked": "negative-effect-drift",
+    "blocked_reason": "Fear and the associated madness are persistent mental conditions.",
+    "split": "held-out"
+   },
+   "ravnica.power.incorporeal-movement": {
+    "corpus": "power",
+    "name": "Incorporeal Movement",
+    "kind": "creature trait",
+    "locator": "p207",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "sustained",
+     "summary": "The spirit passes through creatures and objects as if they were difficult terrain."
+    },
+    "cost_or_limit": "It takes force damage if it ends its turn inside an object.",
+    "go_wrong": "Ending inside an object causes force damage.",
+    "who_may": "Indentured spirit",
+    "where_from": "Indentured spirit",
+    "combines": "Enables passage through solid matter.",
+    "blocked_reason": "Movement through obstacles and a damage consequence are representable.",
+    "split": "held-out"
+   },
+   "ravnica.power.death-burst": {
+    "corpus": "power",
+    "name": "Death Burst",
+    "kind": "creature trait",
+    "locator": "p210",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "area",
+     "time": "triggered",
+     "summary": "When the weird dies, nearby creatures take lightning damage on a failed save or half on a success."
+    },
+    "cost_or_limit": "Triggers on death; 10-foot radius; DC 13 Dexterity save.",
+    "go_wrong": "The explosion can harm nearby allies as well as enemies.",
+    "who_may": "Galvanice weird",
+    "where_from": "Galvanice weird",
+    "combines": "Burst combines ice and lightning imagery.",
+    "mechanism": "Death-triggered area damage",
+    "blocked_reason": "A death trigger and area damage can be represented by the basic effect grammar.",
+    "split": "tuned"
+   },
+   "ravnica.power.hive-mind": {
+    "corpus": "power",
+    "name": "Hive Mind",
+    "kind": "creature trait",
+    "locator": "p214",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "mind",
+     "target": "self",
+     "time": "lasting",
+     "summary": "The kraul is immune to charm and fear while another kraul is nearby."
+    },
+    "cost_or_limit": "Requires another kraul within 30 feet.",
+    "go_wrong": "Protection ends when no other kraul is close enough.",
+    "mind": "Blocks charm and fear effects.",
+    "who_may": "Kraul",
+    "where_from": "Kraul",
+    "combines": "Depends on a nearby member of the same kind.",
+    "mechanism": "Conditional mental-effect immunity",
+    "blocked_reason": "A conditional immunity is directly representable.",
+    "split": "held-out"
+   },
+   "ravnica.power.pack-tactics": {
+    "corpus": "power",
+    "name": "Pack Tactics",
+    "kind": "creature trait",
+    "locator": "p214",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "touched",
+     "time": "lasting",
+     "summary": "The kraul gains attack advantage against a foe engaged by an able ally."
+    },
+    "cost_or_limit": "Ally must be within 5 feet of the target and not incapacitated.",
+    "who_may": "Kraul",
+    "where_from": "Kraul",
+    "combines": "Requires an ally near the target.",
+    "blocked_reason": "An attack-roll modifier is representable.",
+    "split": "held-out"
+   },
+   "ravnica.power.spider-climb": {
+    "corpus": "power",
+    "name": "Spider Climb",
+    "kind": "creature trait",
+    "locator": "p214",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "lasting",
+     "summary": "The user climbs difficult surfaces, including ceilings, without a check."
+    },
+    "who_may": "Kraul; hybrid spy",
+    "where_from": "Kraul; Simic hybrid",
+    "combines": "Enables climbing on difficult surfaces.",
+    "blocked_reason": "Enhanced movement is representable.",
+    "split": "held-out"
+   },
+   "ravnica.power.mind-twist": {
+    "corpus": "power",
+    "name": "Mind Twist",
+    "kind": "creature ability",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "cone",
+     "time": "lasting",
+     "summary": "Psychic energy damages creatures in a cone and can stun those failing a save."
+    },
+    "cost_or_limit": "60-foot cone; DC 15 Wisdom save; recharges on 5–6; repeat saves at turn ends.",
+    "go_wrong": "Failed saves cause damage and stun.",
+    "mind": "Stuns affected creatures.",
+    "who_may": "Nightveil specter",
+    "where_from": "Nightveil specter",
+    "combines": "Psychic damage accompanies the stun.",
+    "mechanism": "Cone mental control",
+    "blocked": "mind-binding",
+    "blocked_reason": "Stunning targets imposes a persistent action-preventing mental state.",
+    "split": "tuned"
+   },
+   "ravnica.power.reap-memory": {
+    "corpus": "power",
+    "name": "Reap Memory",
+    "kind": "creature ability",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "remove",
+     "object": "memory",
+     "target": "touched",
+     "time": "lasting",
+     "summary": "The specter can erase an incapacitated creature’s memory of one hour from the past day."
+    },
+    "cost_or_limit": "Three times daily; target must be incapacitated and fails a DC 15 Intelligence save; memory returns if specter dies within 24 hours.",
+    "go_wrong": "Memory may be lost unless the specter dies soon afterward.",
+    "mind": "Removes a selected hour of memory.",
+    "who_may": "Nightveil specter",
+    "where_from": "Nightveil specter",
+    "combines": "Requires an incapacitated target; undoing depends on the specter’s death.",
+    "mechanism": "Memory alteration with a death-linked reversal",
+    "blocked": "soul-state",
+    "blocked_reason": "The effect's recovery depends on a distinct death-linked state condition.",
+    "split": "held-out"
+   },
+   "ravnica.power.death-link": {
+    "corpus": "power",
+    "name": "Death Link",
+    "kind": "creature trait",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "end",
+     "object": "thing",
+     "target": "bound",
+     "time": "triggered",
+     "summary": "The gloamwing is destroyed when its specter rider reaches 0 hit points."
+    },
+    "cost_or_limit": "Triggered by rider reaching 0 hit points.",
+    "go_wrong": "The mount is destroyed.",
+    "who_may": "Gloamwing",
+    "where_from": "Gloamwing",
+    "combines": "Binds mount survival to rider state.",
+    "mechanism": "Linked entity state",
+    "blocked": "power-interaction",
+    "blocked_reason": "The mount's state depends directly on another creature's hit-point state.",
+    "split": "held-out"
+   },
+   "ravnica.power.spell-vitalization": {
+    "corpus": "power",
+    "name": "Spell Vitalization",
+    "kind": "creature reaction",
+    "locator": "p217",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "instant",
+     "summary": "After a nearby creature casts a spell, the cyclops moves and may make a slam attack."
+    },
+    "cost_or_limit": "Triggered by a spell of at least first level within 120 feet; movement is up to twice its speed.",
+    "who_may": "Nivix cyclops",
+    "where_from": "Nivix cyclops",
+    "combines": "Movement may be followed by a slam against a chosen target.",
+    "mechanism": "Spell-triggered reaction",
+    "blocked": "power-interaction",
+    "blocked_reason": "The reaction is triggered by another creature's spellcasting.",
+    "split": "held-out"
+   },
+   "ravnica.power.electrified-body": {
+    "corpus": "power",
+    "name": "Electrified Body",
+    "kind": "creature trait",
+    "locator": "p219",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "A creature touching the hybrid or hitting it in melee takes lightning damage."
+    },
+    "cost_or_limit": "Applies to touch and melee hits within five feet.",
+    "go_wrong": "Contact damages the other creature.",
+    "who_may": "Hybrid shocker",
+    "where_from": "Simic hybrid",
+    "combines": "Triggered by contact or a close melee hit.",
+    "mechanism": "Contact-triggered damage",
+    "blocked_reason": "Contact-triggered damage is directly representable.",
+    "split": "held-out"
+   },
+   "ravnica.power.chameleon-skin": {
+    "corpus": "power",
+    "name": "Chameleon Skin",
+    "kind": "creature trait",
+    "locator": "p219",
+    "is_thing": true,
+    "effect": {
+     "verb": "conceal",
+     "object": "none",
+     "target": "self",
+     "time": "lasting",
+     "summary": "The hybrid has an advantage when hiding."
+    },
+    "cost_or_limit": "Applies to Dexterity (Stealth) checks made to hide.",
+    "who_may": "Hybrid spy",
+    "where_from": "Simic hybrid",
+    "combines": "Improves hiding.",
+    "blocked_reason": "A concealment bonus needs no missing capability.",
+    "split": "tuned"
+   },
+   "ravnica.power.petrifying-gaze": {
+    "corpus": "power",
+    "name": "Petrifying Gaze",
+    "kind": "creature ability",
+    "locator": "p223",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "line",
+     "time": "lasting",
+     "summary": "The medusa's gaze can restrain a failing target and eventually turn it to stone."
+    },
+    "cost_or_limit": "One visible creature within 60 feet; DC 14 Constitution save; second save at the end of the target's next turn.",
+    "go_wrong": "Failure can cause lasting petrification until powerful magic frees the victim.",
+    "who_may": "Undercity medusa",
+    "where_from": "Undercity medusa",
+    "combines": "Requires the target to see the medusa's eyes; surprise or friendliness can make the gaze harmless.",
+    "mechanism": "Gaze-triggered bodily transformation",
+    "blocked": "form-transformation",
+    "blocked_reason": "The effect changes a living body into stone and can persist until magically reversed.",
+    "split": "held-out"
+   },
+   "ravnica.power.tunneler": {
+    "corpus": "power",
+    "name": "Tunneler",
+    "kind": "creature trait",
+    "locator": "p226",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "sustained",
+     "summary": "The wurm burrows through solid rock and leaves a tunnel behind."
+    },
+    "cost_or_limit": "Moves through rock at half its burrowing speed; tunnel is 10 feet across.",
+    "who_may": "Wurm",
+    "where_from": "Wurm",
+    "combines": "The passage describes earth liquefying ahead and closing behind the wurm.",
+    "blocked_reason": "Burrowing movement and leaving a passage are representable.",
+    "split": "held-out"
+   },
+   "ravnica.power.earth-tremors": {
+    "corpus": "power",
+    "name": "Earth Tremors",
+    "kind": "creature trait",
+    "locator": "p226",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "area",
+     "time": "triggered",
+     "summary": "A moving wurm shakes the ground, damaging and knocking down nearby creatures and damaging grounded structures."
+    },
+    "cost_or_limit": "Triggers when a creature or structure comes within 30 feet of the moving wurm for the first time on a turn; DC 20 Dexterity save for creatures.",
+    "go_wrong": "Nearby creatures can take damage and fall prone; objects and structures can be damaged.",
+    "who_may": "Wurm",
+    "where_from": "Wurm",
+    "combines": "Works while the wurm moves overland or underground.",
+    "mechanism": "Movement-triggered area effect",
+    "blocked": "area-field",
+    "blocked_reason": "The effect repeatedly applies to entities entering a radius around a moving creature.",
+    "split": "tuned"
+   },
+   "ravnica.power.inscrutable": {
+    "corpus": "power",
+    "name": "Inscrutable",
+    "kind": "creature trait",
+    "locator": "p228",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "mind",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Isperia blocks attempts to sense her emotions, read her thoughts, or use divination she refuses."
+    },
+    "cost_or_limit": "Applies to refused divination and mental sensing.",
+    "mind": "Blocks mental sensing and thought reading.",
+    "who_may": "Isperia",
+    "where_from": "Isperia",
+    "combines": "Insight checks about her intentions or sincerity are hindered.",
+    "mechanism": "Mental information defense",
+    "blocked": "divination",
+    "blocked_reason": "The trait blocks specified divination and mental-information effects.",
+    "split": "tuned"
+   },
+   "ravnica.power.supreme-legal-authority": {
+    "corpus": "power",
+    "name": "Supreme Legal Authority",
+    "kind": "creature ability",
+    "locator": "p228",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "working",
+     "target": "marked",
+     "time": "lasting",
+     "summary": "Isperia chooses an action that a target cannot take."
+    },
+    "cost_or_limit": "Up to three visible targets within 90 feet; DC 23 Intelligence save; lasts one minute with repeat saves; success grants 24-hour immunity.",
+    "go_wrong": "Failed saves prevent the chosen action until the target succeeds at a later save.",
+    "mind": "Limits targets' action choices.",
+    "who_may": "Isperia",
+    "where_from": "Isperia",
+    "combines": "Can be used as a legendary action.",
+    "mechanism": "Action restriction",
+    "blocked": "mind-binding",
+    "blocked_reason": "The effect dictates a target's permitted action choices for an extended duration.",
+    "split": "tuned"
+   },
+   "ravnica.power.glimpse-the-temporal-flood": {
+    "corpus": "power",
+    "name": "Glimpse the Temporal Flood",
+    "kind": "creature ability",
+    "locator": "p229",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "marked",
+     "time": "instant",
+     "summary": "The mage deals psychic damage to a visible target and may stun it."
+    },
+    "cost_or_limit": "One visible target within 120 feet; recharges on 5–6; DC 14 Intelligence save against stun.",
+    "go_wrong": "A failed save stuns the target until its next turn ends.",
+    "mind": "Can stun the target.",
+    "who_may": "Precognitive mage",
+    "where_from": "Precognitive mage",
+    "combines": "Psychic damage accompanies possible stun.",
+    "mechanism": "Targeted psychic attack",
+    "blocked_reason": "Damage and a brief stun are representable as combat effects.",
+    "split": "tuned"
+   },
+   "ravnica.power.precognitive-insight": {
+    "corpus": "power",
+    "name": "Precognitive Insight",
+    "kind": "creature reaction",
+    "locator": "p229",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "luck",
+     "target": "marked",
+     "time": "instant",
+     "summary": "The mage gives an observed attack, save, or ability check advantage or disadvantage."
+    },
+    "cost_or_limit": "Three uses daily; triggered by a visible creature's roll.",
+    "who_may": "Precognitive mage",
+    "where_from": "Precognitive mage",
+    "combines": "Alters a roll by granting advantage or disadvantage.",
+    "mechanism": "Roll outcome alteration",
+    "blocked_reason": "A roll modifier is representable as an alteration.",
+    "split": "held-out"
+   },
+   "ravnica.power.guided-attack": {
+    "corpus": "power",
+    "name": "Guided Attack",
+    "kind": "creature reaction",
+    "locator": "p232",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "marked",
+     "time": "instant",
+     "summary": "The firefist grants a large bonus to an attack roll."
+    },
+    "cost_or_limit": "Recharges after a short or long rest; applies to itself or a visible creature within 30 feet.",
+    "who_may": "Firefist",
+    "where_from": "Firefist",
+    "combines": "Improves an attack roll.",
+    "mechanism": "Attack-roll alteration",
+    "blocked_reason": "A numerical roll bonus is representable.",
+    "split": "held-out"
+   },
+   "ravnica.power.lightning-backlash": {
+    "corpus": "power",
+    "name": "Lightning Backlash",
+    "kind": "creature reaction",
+    "locator": "p232",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "An attacker that hits the reckoner takes lightning damage proportional to the attack's damage."
+    },
+    "cost_or_limit": "Recharges on 5–6; triggers when a creature hits the reckoner.",
+    "go_wrong": "The attacker is injured in return.",
+    "who_may": "Reckoner",
+    "where_from": "Reckoner",
+    "combines": "Damage is half the triggering attack's damage.",
+    "mechanism": "Hit-triggered retaliation",
+    "blocked": "power-interaction",
+    "blocked_reason": "Damage depends on the value of another attack's damage.",
+    "split": "held-out"
+   },
+   "ravnica.power.blood-witch-dance": {
+    "corpus": "power",
+    "name": "Blood Witch Dance",
+    "kind": "creature ability",
+    "locator": "p249",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "marked",
+     "time": "instant",
+     "summary": "The witch forces a cursed visible creature to move in a chosen direction."
+    },
+    "cost_or_limit": "Bonus action; 30-foot range; DC 15 Charisma save; requires the target to be cursed by its hex spell.",
+    "go_wrong": "On a failed save, the target spends its reaction moving up to 30 feet.",
+    "mind": "Overrides the target's choice of movement.",
+    "who_may": "Blood witch",
+    "where_from": "Blood witch",
+    "combines": "Requires hex to curse the target.",
+    "mechanism": "Cursed-target movement control",
+    "blocked": "mind-binding",
+    "blocked_reason": "The effect compels a creature to use its reaction and move as directed.",
+    "split": "held-out"
+   },
+   "ravnica.power.devil-s-sight": {
+    "corpus": "power",
+    "name": "Devil’s Sight",
+    "kind": "creature trait",
+    "locator": "p249",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "light",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Magical darkness does not hinder the witch's darkvision."
+    },
+    "cost_or_limit": "Applies to magical darkness.",
+    "who_may": "Blood witch",
+    "where_from": "Blood witch",
+    "combines": "Enhances darkvision against magical darkness.",
+    "mechanism": "Vision enhancement",
+    "blocked_reason": "Improved perception through darkness is representable.",
+    "split": "held-out"
+   },
+   "ravnica.power.legendary-resistance": {
+    "corpus": "power",
+    "name": "Legendary Resistance",
+    "kind": "trait",
+    "stated_class": "3/Day",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "luck",
+     "target": "self",
+     "time": "instant",
+     "summary": "Turns a failed saving throw into a success."
+    },
+    "cost_or_limit": "Three uses per day.",
+    "who_may": "Trostani",
+    "combines": "Applies when she fails a saving throw.",
+    "mechanism": "Saving throw alteration",
+    "split": "held-out"
+   },
+   "ravnica.power.magic-weapons": {
+    "corpus": "power",
+    "name": "Magic Weapons",
+    "kind": "trait",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Makes Trostani's weapon attacks magical."
+    },
+    "cost_or_limit": "Applies to her weapon attacks.",
+    "who_may": "Trostani",
+    "combines": "Changes the nature of her weapon attacks.",
+    "mechanism": "Attack property",
+    "blocked": "power-interaction",
+    "blocked_reason": "The effect changes how attacks interact with magic-related defenses.",
+    "split": "held-out"
+   },
+   "ravnica.power.speak-with-beasts-and-plants": {
+    "corpus": "power",
+    "name": "Speak with Beasts and Plants",
+    "kind": "trait",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "information",
+     "target": "none",
+     "time": "lasting",
+     "summary": "Enables communication with beasts and plants as though sharing a language."
+    },
+    "cost_or_limit": "Limited to communication with beasts and plants.",
+    "who_may": "Trostani",
+    "combines": "Allows conversation with beasts and plants.",
+    "mechanism": "Communication",
+    "split": "held-out"
+   },
+   "ravnica.power.tree-stride": {
+    "corpus": "power",
+    "name": "Tree Stride",
+    "kind": "trait",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Moves Trostani between two nearby living trees."
+    },
+    "cost_or_limit": "Once on her turn; spends 10 feet of movement; trees must be Large or larger and within 60 feet of each other.",
+    "who_may": "Trostani",
+    "combines": "Requires two qualifying living trees and an unoccupied arrival space.",
+    "mechanism": "Tree-to-tree transit",
+    "blocked": "spatial-storage",
+    "blocked_reason": "The basic effect grammar does not represent transit through a spatially linked pair of trees.",
+    "split": "held-out"
+   },
+   "ravnica.power.multiattack": {
+    "corpus": "power",
+    "name": "Multiattack",
+    "kind": "action",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "instant",
+     "summary": "Trostani uses Constrict, Touch of Order, and a one-action spell."
+    },
+    "cost_or_limit": "The spell must have a casting time of one action.",
+    "who_may": "Trostani",
+    "combines": "Constrict, Touch of Order, and spellcasting.",
+    "mechanism": "Combat procedure",
+    "split": "held-out"
+   },
+   "ravnica.power.constrict": {
+    "corpus": "power",
+    "name": "Constrict",
+    "kind": "action",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "force",
+     "target": "touched",
+     "time": "sustained",
+     "summary": "Damages and grapples one creature, restraining it until the grapple ends."
+    },
+    "cost_or_limit": "Five-foot reach; escape DC 19; at most three targets grappled.",
+    "who_may": "Trostani",
+    "combines": "A successful attack initiates a grapple.",
+    "mechanism": "Attack and grapple",
+    "split": "held-out"
+   },
+   "ravnica.power.touch-of-order": {
+    "corpus": "power",
+    "name": "Touch of Order",
+    "kind": "action",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "working",
+     "target": "touched",
+     "time": "delayed",
+     "summary": "Damages a creature and suppresses one visible magic item it carries until Trostani's next turn."
+    },
+    "cost_or_limit": "Five-foot reach; the item cannot be an artifact.",
+    "who_may": "Trostani",
+    "combines": "Can suppress a magic item carried by the target.",
+    "mechanism": "Magic suppression",
+    "blocked": "item-state",
+    "blocked_reason": "The item-specific suppression and artifact exception need item-state handling.",
+    "split": "tuned"
+   },
+   "ravnica.power.wrath-of-mat-selesnya": {
+    "corpus": "power",
+    "name": "Wrath of Mat’Selesnya",
+    "kind": "action",
+    "stated_class": "Recharge 5–6",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "area",
+     "time": "instant",
+     "summary": "Creates a burst of branches and vines that damages creatures in a cube."
+    },
+    "cost_or_limit": "Recharges on a 5 or 6; point within 60 feet; 30-foot cube.",
+    "who_may": "Trostani",
+    "combines": "Creatures in the area make Dexterity saves for reduced damage.",
+    "mechanism": "Area attack",
+    "blocked": "area-field",
+    "blocked_reason": "A damaging effect applies to creatures throughout a defined area.",
+    "split": "tuned"
+   },
+   "ravnica.power.voice-of-harmony": {
+    "corpus": "power",
+    "name": "Voice of Harmony",
+    "kind": "action",
+    "stated_class": "Legendary action",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Makes one melee attack with advantage."
+    },
+    "cost_or_limit": "One legendary action; only at another creature's turn end.",
+    "who_may": "Trostani",
+    "combines": "Uses a melee attack.",
+    "mechanism": "Attack",
+    "split": "held-out"
+   },
+   "ravnica.power.voice-of-life": {
+    "corpus": "power",
+    "name": "Voice of Life",
+    "kind": "action",
+    "stated_class": "Legendary action",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "line",
+     "time": "lasting",
+     "summary": "Gives another visible creature 20 temporary hit points."
+    },
+    "cost_or_limit": "Target within 120 feet; one legendary action.",
+    "who_may": "Trostani",
+    "combines": "Targets another creature she can see.",
+    "mechanism": "Temporary vitality",
+    "split": "tuned"
+   },
+   "ravnica.power.voice-of-order": {
+    "corpus": "power",
+    "name": "Voice of Order",
+    "kind": "action",
+    "stated_class": "Legendary action",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "remove",
+     "object": "working",
+     "target": "none",
+     "time": "instant",
+     "summary": "Casts dispel magic."
+    },
+    "cost_or_limit": "One legendary action.",
+    "who_may": "Trostani",
+    "combines": "Uses dispel magic.",
+    "mechanism": "Spellcasting",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The spell's particular target and outcome depend on the effect being dispelled.",
+    "split": "held-out"
+   },
+   "ravnica.power.chorus-of-the-conclave": {
+    "corpus": "power",
+    "name": "Chorus of the Conclave",
+    "kind": "action",
+    "stated_class": "Costs 2 legendary actions",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "none",
+     "time": "instant",
+     "summary": "Casts suggestion, consuming a daily use."
+    },
+    "cost_or_limit": "Costs two legendary actions and counts against daily spell uses.",
+    "mind": "Suggestion influences the target's mind.",
+    "who_may": "Trostani",
+    "combines": "Casts suggestion.",
+    "mechanism": "Spellcasting",
+    "blocked": "mind-binding",
+    "blocked_reason": "Suggestion imposes an influence on another creature's mind.",
+    "split": "held-out"
+   },
+   "ravnica.power.awaken-grove-guardians": {
+    "corpus": "power",
+    "name": "Awaken Grove Guardians",
+    "kind": "action",
+    "stated_class": "Costs 3 legendary actions",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "marked",
+     "time": "lasting",
+     "summary": "Animates one or two trees as obedient awakened trees."
+    },
+    "cost_or_limit": "Trees within 120 feet; lasts one minute or until ended with a bonus action.",
+    "mind": "Animated trees understand Druidic and obey spoken commands.",
+    "who_may": "Trostani",
+    "combines": "Creates awakened trees that follow commands, or Dodge if given none.",
+    "mechanism": "Animate and command trees",
+    "blocked": "form-transformation",
+    "blocked_reason": "It transforms trees into creatures and gives them an obedience relationship.",
+    "split": "held-out"
+   },
+   "ravnica.power.speak-with-beasts": {
+    "corpus": "power",
+    "name": "Speak with Beasts",
+    "kind": "trait",
+    "locator": "p254",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "information",
+     "target": "none",
+     "time": "lasting",
+     "summary": "Enables communication with beasts as though sharing a language."
+    },
+    "cost_or_limit": "Limited to communication with beasts.",
+    "who_may": "The horncaller",
+    "combines": "Allows conversation with beasts.",
+    "mechanism": "Communication",
+    "split": "held-out"
+   },
+   "ravnica.power.one-with-the-worldsoul": {
+    "corpus": "power",
+    "name": "One with the Worldsoul",
+    "kind": "action",
+    "locator": "p254",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "marked",
+     "time": "instant",
+     "summary": "Prompts a nearby beast to use its reaction to make a melee attack."
+    },
+    "cost_or_limit": "Beast within 30 feet must hear the horncaller; attack target must be visible to the horncaller.",
+    "who_may": "The horncaller",
+    "combines": "Uses the beast's reaction and melee attack.",
+    "mechanism": "Command another creature's action",
+    "blocked": "mind-binding",
+    "blocked_reason": "It directs another creature to perform an action.",
+    "split": "held-out"
+   },
+   "ravnica.power.amphibious": {
+    "corpus": "power",
+    "name": "Amphibious",
+    "kind": "trait",
+    "locator": "p256",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Allows Zegana to breathe both air and water."
+    },
+    "who_may": "Zegana",
+    "combines": "Works in air and water.",
+    "mechanism": "Breathing capability",
+    "split": "held-out"
+   },
+   "ravnica.power.spellcasting": {
+    "corpus": "power",
+    "name": "Spellcasting",
+    "kind": "spellcasting trait",
+    "stated_class": "16th-level Simic spellcaster",
+    "locator": "p257",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Allows the biomancer to cast prepared wizard spells."
+    },
+    "cost_or_limit": "Uses the listed spell slots and at-will cantrips; Intelligence is the casting ability.",
+    "mind": "Some listed spells can affect minds.",
+    "who_may": "The biomancer",
+    "where_from": "Simic spellcasting",
+    "combines": "Includes the spells listed in its stat block.",
+    "mechanism": "Spell use",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The listed spells have varied and distinct effects.",
+    "split": "held-out"
+   },
+   "ravnica.power.deluge": {
+    "corpus": "power",
+    "name": "Deluge",
+    "kind": "action",
+    "stated_class": "Recharge 4–6",
+    "locator": "p256",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "area",
+     "time": "instant",
+     "summary": "Drops a wave on an area, damaging and knocking creatures prone; the water then extinguishes exposed flames and vanishes."
+    },
+    "cost_or_limit": "Recharges on a 4–6; area within 120 feet, up to 30 by 10 by 10 feet.",
+    "who_may": "Zegana",
+    "combines": "Creatures save to reduce damage and avoid falling prone; water extinguishes unprotected flames.",
+    "mechanism": "Area attack and extinguishing",
+    "blocked": "area-field",
+    "blocked_reason": "It affects creatures and flames across a defined area.",
+    "split": "held-out"
+   },
+   "ravnica.power.adaptive-skin": {
+    "corpus": "power",
+    "name": "Adaptive Skin",
+    "kind": "action",
+    "stated_class": "Legendary action",
+    "locator": "p256",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Grants resistance to one chosen damage type."
+    },
+    "cost_or_limit": "Choose acid, fire, lightning, or thunder; lasts until her next turn.",
+    "who_may": "Zegana",
+    "combines": "Changes resistance to a selected damage type.",
+    "mechanism": "Resistance change",
+    "blocked": "power-interaction",
+    "blocked_reason": "It alters how later damage effects apply.",
+    "split": "held-out"
+   },
+   "ravnica.power.trident": {
+    "corpus": "power",
+    "name": "Trident",
+    "kind": "action",
+    "stated_class": "Legendary action",
+    "locator": "p256",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Makes one melee attack with the Prime Speaker's Trident."
+    },
+    "cost_or_limit": "One legendary action.",
+    "who_may": "Zegana",
+    "combines": "Uses the Prime Speaker's Trident.",
+    "mechanism": "Weapon attack",
+    "split": "held-out"
+   },
+   "ravnica.power.enlarge": {
+    "corpus": "power",
+    "name": "Enlarge",
+    "kind": "action",
+    "stated_class": "Costs 2 legendary actions",
+    "locator": "p256",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Casts enlarge/reduce on herself using its enlarge option."
+    },
+    "cost_or_limit": "Costs two legendary actions; no spell slot expended.",
+    "who_may": "Zegana",
+    "combines": "Uses enlarge/reduce.",
+    "mechanism": "Spellcasting",
+    "blocked": "form-transformation",
+    "blocked_reason": "It changes the target's size and form.",
+    "split": "held-out"
+   },
+   "ravnica.power.bolstering-presence": {
+    "corpus": "power",
+    "name": "Bolstering Presence",
+    "kind": "trait",
+    "locator": "p257",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "area",
+     "time": "triggered",
+     "summary": "Emanates life energy that restores hit points to allies starting their turn nearby."
+    },
+    "cost_or_limit": "30-foot range; restores 5 hit points to each qualifying ally.",
+    "who_may": "Biomancer",
+    "where_from": "Magical emanation",
+    "combines": "Affects allies that begin their turn within range.",
+    "mechanism": "Triggered area healing",
+    "blocked": "area-field",
+    "blocked_reason": "It continually affects qualifying allies across a radius.",
+    "split": "tuned"
+   },
+   "ravnica.power.gruul-guild-spells": {
+    "corpus": "power",
+    "name": "Gruul Guild Spells",
+    "kind": "spell list",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "working",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Adds listed Gruul spells to the spell list of the character's spellcasting class."
+    },
+    "cost_or_limit": "Requires Spellcasting or Pact Magic",
+    "who_may": "Spellcasters joining the Gruul",
+    "where_from": "Gruul guild",
+    "combines": "Multiclass spell lists",
+    "mechanism": "spell list addition",
+    "blocked_reason": "Adds spells to a list, which is a simple grant.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   }
+  },
+  "ravnica_artifacts": {
+   "ravnica.artifact.mizzium-apparatus": {
+    "corpus": "artifact",
+    "name": "mizzium apparatus",
+    "kind": "magical device",
+    "locator": "p70",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An Izzet laboratory device that a researcher can help construct."
+    },
+    "cost_or_limit": "Construction takes 10 days in a workshop; replacement costs 50 gp and another 10 days.",
+    "go_wrong": "May be lost or destroyed.",
+    "who_may": "Izzet researchers",
+    "where_from": "Izzet workshop",
+    "combines": "Used in Izzet experiments.",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The excerpt names the device but does not describe what it does.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.artifact.izzet-charm": {
+    "corpus": "artifact",
+    "name": "Izzet charm",
+    "kind": "magic item",
+    "locator": "p70",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A charm issued to supervisors for an outside-laboratory mission."
+    },
+    "cost_or_limit": "Provided at the start of a qualifying mission.",
+    "who_may": "Izzet supervisors sent on missions",
+    "where_from": "Izzet League",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The excerpt does not state what the charm does.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.artifact.vizkopa-bank": {
+    "corpus": "artifact",
+    "name": "VIZKOPA BANK",
+    "kind": "bank",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "tuned"
+   },
+   "ravnica.artifact.spies-murmur": {
+    "corpus": "artifact",
+    "name": "spies’ murmur",
+    "kind": "equipment",
+    "locator": "p234",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A named item of special equipment worn by a mind mage."
+    },
+    "cost_or_limit": "Its properties are referred to elsewhere and are not provided here.",
+    "who_may": "Mind mage",
+    "where_from": "Chapter 5 reference",
+    "combines": "Worn by the mind mage.",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The passage names the item but does not describe its operation.",
+    "split": "held-out"
+   },
+   "ravnica.artifact.prime-speaker-s-trident": {
+    "corpus": "artifact",
+    "name": "Prime Speaker's Trident",
+    "kind": "weapon",
+    "locator": "p256",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "force",
+     "target": "area",
+     "time": "instant",
+     "summary": "Strikes a target and emits a thunderous burst that can push creatures away."
+    },
+    "cost_or_limit": "Melee reach 5 feet or range 20/60 feet; burst fills a 15-foot cube; Constitution save DC 18.",
+    "who_may": "Zegana",
+    "combines": "Burst deals thunder damage and pushes on a failed save; underwater damage increases.",
+    "mechanism": "Weapon with burst effect",
+    "blocked": "item-bound-power",
+    "blocked_reason": "The trident carries a special magical burst effect.",
+    "split": "held-out"
+   }
+  },
+  "ravnica_creatures": {
+   "ravnica.creature.elves": {
+    "corpus": "creature",
+    "name": "Elves",
+    "kind": "species",
+    "locator": "p15",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A people described as having distinctive hair and often living underground."
+    },
+    "where_from": "Ravnica",
+    "blocked_reason": "No special engine capability is needed.",
+    "split": "tuned"
+   },
+   "ravnica.creature.angels": {
+    "corpus": "creature",
+    "name": "angels",
+    "kind": "species",
+    "locator": "p40",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Draconic-winged beings serving in the Boros Legion."
+    },
+    "where_from": "Ravnica; prominent in the Boros Legion",
+    "blocked_reason": "No special engine capability is needed.",
+    "split": "held-out"
+   },
+   "ravnica.creature.deathpact-angel": {
+    "corpus": "creature",
+    "name": "deathpact angel",
+    "kind": "angel",
+    "stated_class": "Medium celestial, lawful evil; challenge 14",
+    "locator": "p192",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "relation",
+     "target": "marked",
+     "time": "lasting",
+     "summary": "Uses gifts to secure devoted debtors who serve it even after death."
+    },
+    "cost_or_limit": "Can restore itself if an indentured spirit sacrifices its undead existence when the angel falls to 0 hit points.",
+    "go_wrong": "Debtors become bound to enduring service.",
+    "mind": "Can charm creatures and demand their devotion.",
+    "where_from": "Orzhov cathedrals",
+    "combines": "Indentured spirits can sacrifice themselves to revive it.",
+    "mechanism": "Death-linked debt and spirit servitude",
+    "blocked": "soul-state",
+    "blocked_reason": "The debtor's continued service after death and self-sacrifice to revive the angel require soul-state mechanics.",
+    "split": "tuned"
+   },
+   "ravnica.creature.conclave-dryad": {
+    "corpus": "creature",
+    "name": "CONCLAVE DRYAD",
+    "kind": "dryad",
+    "stated_class": "Medium fey, lawful good; challenge 9",
+    "locator": "p195",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A Selesnya spiritual leader and architect attuned to Mat’Selesnya."
+    },
+    "where_from": "Selesnya enclaves on Ravnica",
+    "combines": "Can summon a mount woven from plant life and a fey spirit.",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.creature.bloodfray-giant": {
+    "corpus": "creature",
+    "name": "BLOODFRAY GIANT",
+    "kind": "giant",
+    "stated_class": "Huge giant, chaotic evil; challenge 6",
+    "locator": "p201",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A Rakdos giant who serves as an enforcer and performer."
+    },
+    "where_from": "Cult of Rakdos",
+    "combines": "May act as a bouncer or support mobile performance stages.",
+    "blocked_reason": "Not applicable.",
+    "split": "tuned"
+   },
+   "ravnica.creature.guardian-giant": {
+    "corpus": "creature",
+    "name": "GUARDIAN GIANT",
+    "kind": "giant",
+    "stated_class": "Huge giant, lawful neutral; challenge 8",
+    "locator": "p202",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A vigilant Boros giant, often from the Skorskal clan, who protects soldiers and garrisons."
+    },
+    "where_from": "Boros Legion; often stationed at Sunhome",
+    "combines": "Can protect nearby allies from attacks.",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.creature.arclight-phoenix": {
+    "corpus": "creature",
+    "name": "arclight phoenix",
+    "kind": "phoenix",
+    "locator": "p194",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "instant",
+     "summary": "A lightning-associated phoenix that can bolt from place to place; its egg can be used to create it through expended spell slots."
+    },
+    "cost_or_limit": "The egg requires spell slots whose combined levels meet the stated threshold.",
+    "where_from": "Ravnica",
+    "combines": "The phoenix's egg contains its embryo.",
+    "mechanism": "Teleportation and egg-based creation",
+    "blocked": "form-transformation",
+    "blocked_reason": "Its unusual movement and egg-to-creature process require capabilities beyond the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.creature.orzhov-giant": {
+    "corpus": "creature",
+    "name": "ORZHOV GIANT",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 6",
+    "locator": "p203",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A lawful evil giant in plate armor."
+    },
+    "cost_or_limit": "Focus lasts up to a minute or until either creature reaches 0 hit points.",
+    "go_wrong": "Attacks against other targets suffer while it has a focus.",
+    "where_from": "Orzhov",
+    "combines": "Focus modifies attack rolls.",
+    "blocked_reason": "Its stated combat traits need no missing basic effect capability.",
+    "split": "tuned"
+   },
+   "ravnica.creature.sunder-shaman": {
+    "corpus": "creature",
+    "name": "SUNDER SHAMAN",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 10",
+    "locator": "p203",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A huge chaotic neutral giant with stone armor."
+    },
+    "cost_or_limit": "Reckless attacks grant enemies advantage against it until its next turn.",
+    "go_wrong": "Reckless attacks leave it more vulnerable.",
+    "combines": "Stone camouflage; enhanced damage against structures.",
+    "blocked_reason": "Its stated combat traits need no missing basic effect capability.",
+    "split": "held-out"
+   },
+   "ravnica.creature.horrors": {
+    "corpus": "creature",
+    "name": "HORRORS",
+    "kind": "creature kind",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Evil, cunning beings associated with fear and madness."
+    },
+    "mind": "They embody terror and madness.",
+    "who_may": "House Dimir, Cult of Rakdos, and Golgari Swarm are described as compelling them into service.",
+    "where_from": "Ravnica",
+    "combines": "Different guilds use different horror kinds.",
+    "blocked_reason": "No specific supernatural effect is stated for this general creature kind.",
+    "split": "held-out"
+   },
+   "ravnica.creature.flying-horror": {
+    "corpus": "creature",
+    "name": "FLYING HORROR",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 3",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A medium aberration that flies and attacks with claws and a frightening screech."
+    },
+    "cost_or_limit": "Screech recharges on a roll of 5–6.",
+    "go_wrong": "Sunlight hinders its attacks and sight-based perception.",
+    "mind": "Its screech can frighten victims.",
+    "where_from": "Ravnica",
+    "combines": "Fear Frenzy improves attacks against frightened creatures.",
+    "blocked_reason": "Its listed creature abilities can be resolved as combat effects.",
+    "split": "held-out"
+   },
+   "ravnica.creature.shadow-horror": {
+    "corpus": "creature",
+    "name": "shadow horror",
+    "kind": "creature kind",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A horror kind favored by the Cult of Rakdos."
+    },
+    "mind": "Its claw attack can contribute to madness.",
+    "who_may": "Cult of Rakdos uses it.",
+    "where_from": "Ravnica",
+    "combines": "Its claw attack is referenced by the madness rule.",
+    "blocked_reason": "No complete creature entry appears in the passage.",
+    "split": "held-out"
+   },
+   "ravnica.creature.skittering-horror": {
+    "corpus": "creature",
+    "name": "skittering horror",
+    "kind": "creature kind",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A horror kind used by the Golgari Swarm."
+    },
+    "mind": "Its Maddening Presence can contribute to madness.",
+    "who_may": "Golgari Swarm uses it.",
+    "where_from": "Ravnica",
+    "combines": "Its Maddening Presence is referenced by the madness rule.",
+    "blocked_reason": "No complete creature entry appears in the passage.",
+    "split": "held-out"
+   },
+   "ravnica.creature.indentured-spirit": {
+    "corpus": "creature",
+    "name": "INDENTURED SPIRIT",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 1",
+    "locator": "p207",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "sustained",
+     "summary": "The spirit passes through creatures and objects, taking force damage if it ends inside an object."
+    },
+    "cost_or_limit": "Movement through solid matter treats it as difficult terrain; ending inside an object deals force damage.",
+    "go_wrong": "It takes force damage if it ends its turn inside an object.",
+    "where_from": "Orzhov Syndicate",
+    "combines": "Incorporeal movement; withering touch.",
+    "blocked_reason": "Its movement and damage effects fit the basic effect grammar.",
+    "split": "held-out"
+   },
+   "ravnica.creature.galvanice-weird": {
+    "corpus": "creature",
+    "name": "GALVANICE WEIRD",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 1",
+    "locator": "p210",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An elemental ice body animated by lightning, used as an Izzet workshop guardian and laborer."
+    },
+    "cost_or_limit": "Its destruction triggers an explosion affecting nearby creatures.",
+    "go_wrong": "Death causes a dangerous burst of ice and lightning.",
+    "mind": "Cheerfully stupid.",
+    "where_from": "Izzet workshops",
+    "combines": "Its ice body houses an animating lightning core.",
+    "blocked_reason": "Its attacks and death explosion can be resolved as ordinary combat effects.",
+    "split": "held-out"
+   },
+   "ravnica.creature.kraul": {
+    "corpus": "creature",
+    "name": "KRAUL",
+    "kind": "species",
+    "locator": "p214",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Six-legged, insectile beings in the Golgari Swarm, described as literal-minded."
+    },
+    "mind": "They have little grasp of metaphor or nuance.",
+    "where_from": "Golgari Swarm",
+    "combines": "Organized into roles and castes.",
+    "blocked_reason": "No species-wide supernatural effect is stated.",
+    "split": "tuned"
+   },
+   "ravnica.creature.kraul-warrior": {
+    "corpus": "creature",
+    "name": "KRAUL WARRIOR",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 1/2",
+    "locator": "p214",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A medium humanoid kraul soldier able to climb walls and fight effectively alongside allies."
+    },
+    "cost_or_limit": "Hive Mind immunity applies only near another kraul.",
+    "mind": "Hive Mind grants immunity to charm and fear under its condition.",
+    "where_from": "Golgari Swarm",
+    "combines": "Pack Tactics and Spider Climb.",
+    "blocked_reason": "Its traits can be resolved with ordinary combat and movement rules.",
+    "split": "held-out"
+   },
+   "ravnica.creature.kraul-death-priest": {
+    "corpus": "creature",
+    "name": "KRAUL DEATH PRIEST",
+    "kind": "creature role",
+    "locator": "p214",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A senior kraul caste member who leads rites and channels necromantic power."
+    },
+    "mind": "Described as inscrutable.",
+    "where_from": "Golgari Swarm",
+    "combines": "Draws power from defeated enemies and channels it to followers.",
+    "blocked": "power-interaction",
+    "blocked_reason": "The described power transfer from enemies to followers needs an interaction beyond the basic grammar.",
+    "split": "tuned"
+   },
+   "ravnica.creature.mazirek": {
+    "corpus": "creature",
+    "name": "Mazirek",
+    "kind": "named creature",
+    "locator": "p214",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "The current leader of the kraul, identified as a death priest."
+    },
+    "where_from": "Golgari Swarm",
+    "combines": "Kraul death priest.",
+    "blocked_reason": "Named individual creature.",
+    "split": "held-out"
+   },
+   "ravnica.creature.winged-kraul-warriors": {
+    "corpus": "creature",
+    "name": "WINGED KRAUL WARRIORS",
+    "kind": "creature variant",
+    "locator": "p214",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Some kraul warriors fly using gossamer wings."
+    },
+    "cost_or_limit": "Flying speed is 40 feet.",
+    "who_may": "Some kraul warriors",
+    "where_from": "Golgari Swarm",
+    "combines": "Used as scouts and shock troops.",
+    "blocked_reason": "Flight is representable as movement.",
+    "split": "held-out"
+   },
+   "ravnica.creature.nightveil-specter": {
+    "corpus": "creature",
+    "name": "NIGHTVEIL SPECTER",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 10",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A medium undead specter that fights from a gloamwing mount."
+    },
+    "cost_or_limit": "Teleport to its mount requires a bonus action and the same plane.",
+    "go_wrong": "If its rider is reduced to 0 hit points, the gloamwing is destroyed.",
+    "mind": "Mind Twist stuns; Reap Memory erases a chosen hour temporarily.",
+    "where_from": "Ravnica",
+    "combines": "Mounts and teleports onto a gloamwing; can use its mind-affecting abilities.",
+    "blocked_reason": "Its listed attacks are ordinary combat effects, though memory and mental states are separate powers.",
+    "split": "held-out"
+   },
+   "ravnica.creature.gloamwing": {
+    "corpus": "creature",
+    "name": "GLOAMWING",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 8",
+    "locator": "p216",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A large undead flying mount bound to its nightveil specter rider."
+    },
+    "cost_or_limit": "Destroyed if its rider is reduced to 0 hit points.",
+    "go_wrong": "Sunlight hinders its attacks and sight-based perception.",
+    "where_from": "Ravnica",
+    "combines": "Death Link binds its survival to a specter rider.",
+    "blocked_reason": "Its stated traits are standard combat and movement effects.",
+    "split": "held-out"
+   },
+   "ravnica.creature.nivix-cyclops": {
+    "corpus": "creature",
+    "name": "Nivix Cyclops",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 8",
+    "locator": "p217",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A large giant serving the Izzet League as a guardian and laborer."
+    },
+    "cost_or_limit": "Spell Vitalization triggers after a nearby creature casts a spell.",
+    "mind": "Immune to charm and fear.",
+    "where_from": "Izzet League",
+    "combines": "Can move and attack in response to spellcasting.",
+    "blocked_reason": "The listed combat abilities can be represented as ordinary actions and reactions.",
+    "split": "tuned"
+   },
+   "ravnica.creature.hybrid-shocker": {
+    "corpus": "creature",
+    "name": "HYBRID SHOCKER",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 1",
+    "locator": "p219",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A Simic hybrid whose body electrifies attackers and whose tentacles grapple prey."
+    },
+    "cost_or_limit": "Tentacles can hold only one creature at a time.",
+    "go_wrong": "Touching or striking it in melee causes lightning damage.",
+    "where_from": "Simic",
+    "combines": "Illumination; shocking touch; grappling tentacles.",
+    "blocked_reason": "Its combat effects are representable as damage and movement.",
+    "split": "held-out"
+   },
+   "ravnica.creature.hysrip-spy": {
+    "corpus": "creature",
+    "name": "Hysrip Spy",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 1/2",
+    "locator": "p219",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A Simic hybrid spy that hides well and climbs difficult surfaces."
+    },
+    "where_from": "Simic",
+    "combines": "Chameleon Skin and Spider Climb.",
+    "blocked_reason": "Its listed traits are ordinary concealment and movement.",
+    "split": "tuned"
+   },
+   "ravnica.creature.skyjek-roc": {
+    "corpus": "creature",
+    "name": "SKYJEK ROC",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 2",
+    "locator": "p220",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A large unaligned avian mount used by Boros skyknights."
+    },
+    "go_wrong": "Described as headstrong and impulsive.",
+    "mind": "Headstrong and impulsive, but brave.",
+    "where_from": "Ravnica",
+    "combines": "Typically armored and ridden by Boros knights.",
+    "blocked_reason": "No special effect beyond ordinary creature actions is stated.",
+    "split": "held-out"
+   },
+   "ravnica.creature.skyswimmer": {
+    "corpus": "creature",
+    "name": "SKYSWIMMER",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 13",
+    "locator": "p221",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A gargantuan predatory leviathan that flies above Ravnica and can breathe air and water."
+    },
+    "cost_or_limit": "Can swallow Large or smaller targets; swallowed creatures take acid damage each turn.",
+    "go_wrong": "A swallowed victim is blinded and restrained; damage may force the creature to regurgitate it.",
+    "where_from": "Clouds above Ravnica",
+    "combines": "Bites, slams, and swallows prey.",
+    "blocked_reason": "Swallowing and damage are ordinary combat effects.",
+    "split": "held-out"
+   },
+   "ravnica.creature.undercity-medusa": {
+    "corpus": "creature",
+    "name": "UNDERCITY MEDUSA",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 6",
+    "locator": "p223",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A gorgon-like creature with cable-like serpents for hair and petrifying eyes."
+    },
+    "cost_or_limit": "Gaze requires a visible target within 60 feet that can see its eyes.",
+    "go_wrong": "Failed saves can turn victims to stone.",
+    "where_from": "Ravnica's undercity",
+    "combines": "Has innate spells and a gaze that petrifies.",
+    "blocked_reason": "Petrification is a body-form transformation.",
+    "split": "held-out"
+   },
+   "ravnica.creature.ludmilla-the-tunnel-viper": {
+    "corpus": "creature",
+    "name": "LUDMILLA, THE TUNNEL VIPER",
+    "kind": "named creature",
+    "locator": "p223",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "The last surviving member of the Sisters of Stone Death, a medusa dwelling in the undercity."
+    },
+    "cost_or_limit": "Has lost the collective power she once shared with her sisters.",
+    "go_wrong": "Surrounded by her petrified victims.",
+    "mind": "Wants to regain Golgari control or harm its guildmaster.",
+    "where_from": "Ravnica's undercity",
+    "combines": "Associated with the Golgari Swarm and the Sisters of Stone Death.",
+    "blocked_reason": "Named individual creature.",
+    "split": "held-out"
+   },
+   "ravnica.creature.wurm": {
+    "corpus": "creature",
+    "name": "WURM",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 14",
+    "locator": "p226",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A huge, limbless, wingless burrowing creature that eats nearly anything."
+    },
+    "cost_or_limit": "Burrows through rock at half speed and leaves a 10-foot-diameter tunnel.",
+    "go_wrong": "Its movement causes tremors that damage or knock down nearby creatures and damage anchored structures.",
+    "where_from": "Ravnica's rubblebelts and earth",
+    "combines": "Gruul sometimes lure wurms into civilized areas.",
+    "blocked_reason": "Its described movement, damage, and swallowing are ordinary game effects.",
+    "split": "held-out"
+   },
+   "ravnica.creature.isperia": {
+    "corpus": "creature",
+    "name": "ISPERIA",
+    "kind": "named creature",
+    "stated_class": "Challenge 21",
+    "locator": "p228",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A gargantuan sphinx and Azorius legal authority with powerful magic."
+    },
+    "cost_or_limit": "Legendary resistance three times daily; imprisonment twice daily; Supreme Legal Authority affects up to three targets.",
+    "mind": "Immune to emotion sensing and thought reading; can dictate which action a target cannot take.",
+    "where_from": "Azorius Senate",
+    "combines": "Spellcasting and innate magic; claws can punish attacks against her.",
+    "blocked": "mind-binding",
+    "blocked_reason": "Supreme Legal Authority controls which actions targets can take for an extended period.",
+    "split": "held-out"
+   },
+   "ravnica.creature.geetra": {
+    "corpus": "creature",
+    "name": "GEETRA",
+    "kind": "named creature",
+    "locator": "p229",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A precognitive mage employed by the Azorius Senate, formerly a street thief."
+    },
+    "mind": "Believes her future visions can protect society.",
+    "where_from": "Azorius Senate",
+    "combines": "Uses precognitive talents in guild service.",
+    "blocked_reason": "Named individual.",
+    "split": "held-out"
+   },
+   "ravnica.creature.lawmage": {
+    "corpus": "creature",
+    "name": "LAWMAGE",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 6",
+    "locator": "p229",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An Azorius spellcaster trained in law and magic."
+    },
+    "cost_or_limit": "Spell slots limit its spellcasting.",
+    "where_from": "Azorius Senate",
+    "combines": "Prepared wizard spells.",
+    "blocked_reason": "Creature entry.",
+    "split": "tuned"
+   },
+   "ravnica.creature.precognitive-mage": {
+    "corpus": "creature",
+    "name": "PRECOGNITIVE MAGE",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 3",
+    "locator": "p229",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An Azorius mage with future-oriented sight and limited innate spells."
+    },
+    "cost_or_limit": "Limited daily spell uses; insight reaction three times daily.",
+    "where_from": "Azorius Senate",
+    "combines": "Can glimpse temporal possibilities and affect rolls.",
+    "blocked_reason": "Creature entry.",
+    "split": "held-out"
+   },
+   "ravnica.creature.firefist": {
+    "corpus": "creature",
+    "name": "FIREFIST",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 7",
+    "locator": "p232",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A lawful good Boros spellcaster and fighter."
+    },
+    "cost_or_limit": "Spell slots limit prepared spells.",
+    "where_from": "Boros Legion",
+    "combines": "Spellcasting and a guided-attack reaction.",
+    "blocked_reason": "Creature entry.",
+    "split": "held-out"
+   },
+   "ravnica.creature.frontline-medic": {
+    "corpus": "creature",
+    "name": "FRONTLINE MEDIC",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 1/4",
+    "locator": "p232",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A Boros healer equipped for front-line service."
+    },
+    "cost_or_limit": "Spell slots limit prepared spells.",
+    "where_from": "Boros Legion",
+    "combines": "Uses healing and restorative magic.",
+    "blocked_reason": "Creature entry.",
+    "split": "held-out"
+   },
+   "ravnica.creature.reckoner": {
+    "corpus": "creature",
+    "name": "RECKONER",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 4",
+    "locator": "p232",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A Boros spellcaster with a first-strike advantage and lightning retaliation."
+    },
+    "cost_or_limit": "Lightning Backlash recharges on 5–6.",
+    "go_wrong": "Attackers take lightning damage after hitting it.",
+    "where_from": "Boros Legion",
+    "combines": "Prepared wizard spells and reactive damage.",
+    "blocked_reason": "Its listed abilities are ordinary combat effects.",
+    "split": "held-out"
+   },
+   "ravnica.creature.mind-mage": {
+    "corpus": "creature",
+    "name": "MIND MAGE",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 5",
+    "locator": "p234",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A Dimir mind mage using psionic spells and special equipment."
+    },
+    "cost_or_limit": "Innate spells have limited daily uses; some spells are at will.",
+    "mind": "Uses charm, suggestion, domination, and memory alteration spells.",
+    "where_from": "House Dimir",
+    "combines": "Wears a spies’ murmur; uses psionic magic.",
+    "blocked_reason": "Creature entry.",
+    "split": "held-out"
+   },
+   "ravnica.creature.thought-spy": {
+    "corpus": "creature",
+    "name": "THOUGHT SPY",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 1",
+    "locator": "p234",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A Dimir spy skilled in stealth, deception, and psionic magic."
+    },
+    "cost_or_limit": "Some innate spells have limited daily uses.",
+    "mind": "Can charm, detect thoughts, and encode thoughts.",
+    "where_from": "House Dimir",
+    "combines": "Uses disguise and movement-related magic.",
+    "blocked_reason": "Creature entry.",
+    "split": "tuned"
+   },
+   "ravnica.creature.blood-witch": {
+    "corpus": "creature",
+    "name": "BLOOD WITCH",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 7",
+    "locator": "p249",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A chaotic evil spellcaster who uses curses and can direct a cursed creature's movement."
+    },
+    "cost_or_limit": "Movement control is a bonus action; target must be cursed, visible, and within 30 feet.",
+    "go_wrong": "A failed save makes the target use its reaction to move as directed.",
+    "mind": "Spells can charm, enthrall, suggest, or dominate.",
+    "where_from": "Rakdos",
+    "combines": "Blood Witch Dance works on a target cursed by its hex spell.",
+    "blocked": "mind-binding",
+    "blocked_reason": "The dance forces a target's reaction and movement through a mental influence.",
+    "split": "held-out"
+   },
+   "ravnica.creature.rakdos-lampooner": {
+    "corpus": "creature",
+    "name": "RAKDOS LAMPOONER",
+    "kind": "bestiary entry",
+    "stated_class": "Challenge 2",
+    "locator": "p249",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A chaotic evil Rakdos spellcaster who performs with mockery and illusion."
+    },
+    "cost_or_limit": "Spell slots limit prepared spells.",
+    "mind": "Can use spells that cause fear, laughter, madness, and suggestion.",
+    "where_from": "Rakdos",
+    "combines": "Bard spellcasting.",
+    "blocked_reason": "Creature entry.",
+    "split": "held-out"
+   },
+   "ravnica.creature.trostani": {
+    "corpus": "creature",
+    "name": "TROSTANI",
+    "kind": "bestiary entry",
+    "stated_class": "Large fey",
+    "locator": "p253",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A fey creature with the listed statistics and abilities."
+    },
+    "cost_or_limit": "Tree Stride requires a living tree at least Large and another within 60 feet; can grapple at most three targets.",
+    "who_may": "Trostani",
+    "combines": "Uses the listed spells and abilities.",
+    "blocked_reason": "The creature entry itself is usable; individual abilities are listed separately.",
+    "split": "held-out"
+   },
+   "ravnica.creature.horncaller": {
+    "corpus": "creature",
+    "name": "HORNCALLER",
+    "kind": "bestiary entry",
+    "stated_class": "Medium humanoid (any race)",
+    "locator": "p254",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A humanoid creature with the listed statistics and abilities."
+    },
+    "combines": "Uses the listed spells and actions.",
+    "blocked_reason": "The creature entry itself is usable; individual abilities are listed separately.",
+    "split": "held-out"
+   },
+   "ravnica.creature.emmara-tandris": {
+    "corpus": "creature",
+    "name": "EMMARA TANDRIS",
+    "kind": "named character",
+    "stated_class": "Elf priest",
+    "locator": "p254",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An elf priest who advocates peace and cooperation among the guilds."
+    },
+    "where_from": "Ravnica",
+    "combines": "Has personal connections across guilds and is a friend of Jace Beleren.",
+    "split": "held-out"
+   },
+   "ravnica.creature.zegana": {
+    "corpus": "creature",
+    "name": "ZEGANA",
+    "kind": "bestiary entry",
+    "stated_class": "Medium humanoid (merfolk)",
+    "locator": "p256",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A merfolk creature with the listed statistics and abilities."
+    },
+    "combines": "Uses the listed spells, trident, and abilities.",
+    "blocked_reason": "The creature entry itself is usable; individual abilities are listed separately.",
+    "split": "held-out"
+   },
+   "ravnica.creature.biomancer": {
+    "corpus": "creature",
+    "name": "BIOMANCER",
+    "kind": "bestiary entry",
+    "stated_class": "Medium humanoid (any race)",
+    "locator": "p257",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A humanoid creature with the listed statistics and abilities."
+    },
+    "where_from": "Simic",
+    "combines": "Uses the listed spells and abilities.",
+    "blocked_reason": "The creature entry itself is usable; individual abilities are listed separately.",
+    "split": "held-out"
+   },
+   "ravnica.creature.minotaur": {
+    "corpus": "creature",
+    "name": "minotaur",
+    "kind": "race",
+    "locator": "p20",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Stocky horned humanoid of over 6 feet, Medium size, walking speed 30 feet."
+    },
+    "who_may": "Minotaur characters",
+    "where_from": "Ordruun, Kharran, Drendaa and Tazgral family lines",
+    "combines": "Horns, Goring Rush, Hammering Horns",
+    "mechanism": "playable race",
+    "blocked_reason": "Race entry; its powers are listed separately.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   }
+  },
+  "ravnica_places": {
+   "ravnica.place.ravnica": {
+    "corpus": "place",
+    "name": "Ravnica",
+    "kind": "world",
+    "locator": "p258",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A densely built cosmopolis and the setting's world."
+    },
+    "combines": "Home to ten guilds and the Guildpact.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.place.new-prahv": {
+    "corpus": "place",
+    "name": "New Prahv",
+    "kind": "headquarters",
+    "locator": "p33",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A named site associated with the Azorius."
+    },
+    "where_from": "Ravnica",
+    "combines": "Associated with the Azorius.",
+    "blocked_reason": "No special engine capability is needed.",
+    "split": "held-out"
+   },
+   "ravnica.place.chamber-of-the-guildpact": {
+    "corpus": "place",
+    "name": "CHAMBER OF THE GUILDPACT",
+    "kind": "landmark",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.plaza-avenue": {
+    "corpus": "place",
+    "name": "PLAZA AVENUE",
+    "kind": "street",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.tenth-district-plaza": {
+    "corpus": "place",
+    "name": "TENTH DISTRICT PLAZA",
+    "kind": "plaza",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.orzhova": {
+    "corpus": "place",
+    "name": "ORZHOVA",
+    "kind": "district landmark",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "tuned"
+   },
+   "ravnica.place.augustin-station": {
+    "corpus": "place",
+    "name": "AUGUSTIN STATION",
+    "kind": "station",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.vitu-ghazi": {
+    "corpus": "place",
+    "name": "ViTu-GHAzI",
+    "kind": "guildhall",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A towering tree that serves as a guildhall and cathedral."
+    },
+    "who_may": "Visitors without ill intent may enter public areas.",
+    "where_from": "Ravnica",
+    "combines": "Selesnya culture and law",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.skarrg": {
+    "corpus": "place",
+    "name": "SKARRG",
+    "kind": "site",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.sunhome": {
+    "corpus": "place",
+    "name": "Sunhome",
+    "kind": "guildhall fortress",
+    "locator": "p113",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "force",
+     "target": "area",
+     "time": "lasting",
+     "summary": "Serves as the Boros Legion's fortified headquarters and spiritual center."
+    },
+    "cost_or_limit": "Believed to be impregnable",
+    "who_may": "Boros Legion",
+    "where_from": "Precinct Four, Ravnica",
+    "combines": "Boros defense against northern threats",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.nivix": {
+    "corpus": "place",
+    "name": "NIVIx",
+    "kind": "guildhall tower",
+    "locator": "p113",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A tower containing Izzet laboratories, testing facilities, and inventor housing."
+    },
+    "who_may": "Izzet researchers and inventors",
+    "where_from": "South end of Precinct Four, Ravnica",
+    "combines": "Izzet innovation",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.zonot-seven": {
+    "corpus": "place",
+    "name": "ZONOT SEVEN",
+    "kind": "zonot",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "where_from": "Ravnica",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.prism-university": {
+    "corpus": "place",
+    "name": "PRISM UNIVERSITY",
+    "kind": "university",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "tuned"
+   },
+   "ravnica.place.deadbridge-chasm": {
+    "corpus": "place",
+    "name": "DEADBRIDGE CHASM",
+    "kind": "chasm",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "tuned"
+   },
+   "ravnica.place.gore-house": {
+    "corpus": "place",
+    "name": "GORE HOUSE",
+    "kind": "site",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.kamen-fortress": {
+    "corpus": "place",
+    "name": "KAMEN FORTRESS",
+    "kind": "fortress",
+    "locator": "p101",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.precinct-three": {
+    "corpus": "place",
+    "name": "PRECINCT THREE",
+    "kind": "district",
+    "locator": "p110",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A green, settled precinct of gardens, stables, and old buildings."
+    },
+    "who_may": "Residents and visitors",
+    "where_from": "Tenth District, Ravnica",
+    "combines": "Strong Selesnya influence",
+    "blocked_reason": "Not applicable.",
+    "split": "tuned"
+   },
+   "ravnica.place.the-canopy": {
+    "corpus": "place",
+    "name": "THE CANOPY",
+    "kind": "neighborhood",
+    "locator": "p110",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A tree-covered northern neighborhood with buildings among branches."
+    },
+    "who_may": "Residents and visitors",
+    "where_from": "Precinct Three, Ravnica",
+    "combines": "Vitu-Ghazi and elevated walkways",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.the-great-concourse": {
+    "corpus": "place",
+    "name": "THE GREAT CONCOURSE",
+    "kind": "roadway network and marketplace",
+    "locator": "p110",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "thing",
+     "target": "area",
+     "time": "lasting",
+     "summary": "Elevated roads connect Selesnya communities and form a marketplace."
+    },
+    "who_may": "Travelers and traders",
+    "where_from": "Near Vitu-Ghazi",
+    "combines": "Roadways, greenery, and a central gathering hub",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.concordance": {
+    "corpus": "place",
+    "name": "Concordance",
+    "kind": "neighborhood",
+    "locator": "p110",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "The oldest section of Precinct Three, formerly known as the Old City."
+    },
+    "who_may": "Residents and visitors",
+    "where_from": "Eastern Precinct Three",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.precinct-four": {
+    "corpus": "place",
+    "name": "Precinct Four",
+    "kind": "district",
+    "locator": "p113",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A conflict-prone district with markets, laboratories, and fortifications."
+    },
+    "cost_or_limit": "Frequent battles and raids",
+    "who_may": "Residents and visitors",
+    "where_from": "Tenth District, Ravnica",
+    "combines": "Boros, Izzet, Gruul, and Rakdos activity",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.red-wastes": {
+    "corpus": "place",
+    "name": "RED WASTES",
+    "kind": "wasteland",
+    "locator": "p113",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A northern rubblebelt of ruins, debris, and dangerous creatures."
+    },
+    "cost_or_limit": "Hazardous living conditions",
+    "go_wrong": "Ferocious beasts and monsters threaten inhabitants",
+    "who_may": "Gruul and stubborn holdouts",
+    "where_from": "North of Precinct Four",
+    "combines": "Gruul Clans and ruined urban terrain",
+    "blocked_reason": "Not applicable.",
+    "split": "held-out"
+   },
+   "ravnica.place.horizon-military-academy": {
+    "corpus": "place",
+    "name": "Horizon Military Academy",
+    "kind": "training site",
+    "locator": "p40",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Academy where new Boros Legion recruits train."
+    },
+    "who_may": "Boros recruits",
+    "mechanism": "background location",
+    "blocked_reason": "Location with no direct mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "ravnica.place.rubblebelts": {
+    "corpus": "place",
+    "name": "rubblebelts",
+    "kind": "wild region",
+    "locator": "p61",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Broken, abandoned terrain of the city where Gruul hide and find food."
+    },
+    "who_may": "Gruul characters",
+    "combines": "Rubblebelt Refuge",
+    "mechanism": "exploration area",
+    "blocked_reason": "Region with no direct mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   }
+  },
+  "ravnica_institutions": {
+   "ravnica.institution.gruul-clans": {
+    "corpus": "institution",
+    "name": "Gruul Clans",
+    "kind": "guild",
+    "locator": "p217",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A faction that primarily includes cyclopes and appreciates the devastation caused by wurms."
+    },
+    "where_from": "Ravnica",
+    "combines": "Sometimes recruits cyclopes; may lure wurms into civilized areas.",
+    "blocked_reason": "Institution entry.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.institution.boros-legion": {
+    "corpus": "institution",
+    "name": "Boros Legion",
+    "kind": "guild",
+    "locator": "p217",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A guild that has occasionally recruited cyclopes and fields aerial forces."
+    },
+    "where_from": "Ravnica",
+    "combines": "Fields skyknights mounted on Skyjek rocs.",
+    "blocked_reason": "Institution entry.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.institution.selesnya-conclave": {
+    "corpus": "institution",
+    "name": "Selesnya Conclave",
+    "kind": "guild",
+    "locator": "p14",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A community guild associated with nature and harmony."
+    },
+    "where_from": "Ravnica",
+    "blocked_reason": "No special engine capability is needed.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.institution.orzhov-syndicate": {
+    "corpus": "institution",
+    "name": "Orzhov Syndicate",
+    "kind": "guild",
+    "locator": "p207",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A syndicate whose unpaid dead can be bound to work off their debts."
+    },
+    "go_wrong": "Debtors can endure prolonged or everlasting service after death.",
+    "where_from": "Ravnica",
+    "combines": "Its spirit servitude is described in the passage.",
+    "blocked_reason": "Institution entry.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "tuned"
+   },
+   "ravnica.institution.golgari-swarm": {
+    "corpus": "institution",
+    "name": "Golgari Swarm",
+    "kind": "guild",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A guild whose horrors scavenge sewers and guard its territory."
+    },
+    "where_from": "Ravnica",
+    "combines": "Uses skittering horrors.",
+    "blocked_reason": "Institution entry.",
+    "split": "tuned"
+   },
+   "ravnica.institution.cult-of-rakdos": {
+    "corpus": "institution",
+    "name": "Cult of Rakdos",
+    "kind": "guild",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A guild that uses horrors as frightening stage weapons."
+    },
+    "where_from": "Ravnica",
+    "combines": "Prefers shadow horrors.",
+    "blocked_reason": "Institution entry.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.institution.izzet-league": {
+    "corpus": "institution",
+    "name": "Izzet League",
+    "kind": "guild",
+    "locator": "p14",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A guild known for explosive magical and technological experiments."
+    },
+    "where_from": "Ravnica",
+    "blocked_reason": "No special engine capability is needed.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.institution.azorius": {
+    "corpus": "institution",
+    "name": "Azorius",
+    "kind": "guild",
+    "locator": "p14",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A law-focused guild that seeks to maintain order."
+    },
+    "where_from": "Ravnica",
+    "blocked_reason": "No special engine capability is needed.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
+    "split": "held-out"
+   },
+   "ravnica.institution.dimir": {
+    "corpus": "institution",
+    "name": "Dimir",
+    "kind": "guild",
+    "locator": "p14",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A covert guild associated with secrets and espionage."
+    },
+    "where_from": "Ravnica",
+    "blocked_reason": "No special engine capability is needed.",
+    "split": "held-out"
+   },
+   "ravnica.institution.horizon-military-academy": {
+    "corpus": "institution",
+    "name": "Horizon Military Academy",
+    "kind": "military academy",
+    "locator": "p40",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A prestigious academy where Boros recruits train."
+    },
+    "cost_or_limit": "Training is deliberately harsh.",
+    "who_may": "Boros Legion recruits",
+    "where_from": "Boros Legion",
+    "combines": "Trains recruits for the legion.",
+    "blocked_reason": "No special engine capability is needed.",
+    "split": "held-out"
+   },
+   "ravnica.institution.house-dimir": {
+    "corpus": "institution",
+    "name": "House Dimir",
+    "kind": "guild",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A guild that employs horrors for fear, despair, assassinations, and kidnappings."
+    },
+    "where_from": "Ravnica",
+    "combines": "Employs all three base horror kinds.",
+    "blocked_reason": "Institution entry.",
+    "split": "tuned"
+   },
+   "ravnica.institution.wojek-league": {
+    "corpus": "institution",
+    "name": "Wojek League",
+    "kind": "organization",
+    "locator": "p220",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An organization whose skyknights are also called Skyjeks."
+    },
+    "where_from": "Ravnica",
+    "combines": "Its Skyjeks give Skyjek rocs their name.",
+    "blocked_reason": "Institution entry.",
+    "split": "held-out"
+   },
+   "ravnica.institution.sisters-of-stone-death": {
+    "corpus": "institution",
+    "name": "Sisters of Stone Death",
+    "kind": "group",
+    "locator": "p223",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A trio of ambitious medusas who killed the original Golgari guildmaster."
+    },
+    "cost_or_limit": "Only Ludmilla survives.",
+    "go_wrong": "Their collective power was lost after the sisters were gone.",
+    "where_from": "Golgari Swarm",
+    "combines": "Ludmilla was their last surviving member.",
+    "blocked_reason": "Institution or group entry.",
+    "split": "held-out"
+   },
+   "ravnica.institution.azorius-senate": {
+    "corpus": "institution",
+    "name": "Azorius Senate",
+    "kind": "government",
+    "locator": "p229",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A guild government that employs precognitive mages and lawmages."
+    },
+    "where_from": "Ravnica",
+    "combines": "Employs Geetra and Azorius spellcasters.",
+    "blocked_reason": "Institution entry.",
+    "split": "held-out"
+   },
+   "ravnica.institution.rakdos": {
+    "corpus": "institution",
+    "name": "Rakdos",
+    "kind": "guild",
+    "locator": "p249",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "The guild associated with the blood witch and lampooner."
+    },
+    "where_from": "Ravnica",
+    "combines": "Employs Rakdos spellcasters.",
+    "blocked_reason": "Institution entry.",
+    "split": "tuned"
+   },
+   "ravnica.institution.guildpact": {
+    "corpus": "institution",
+    "name": "Guildpact",
+    "kind": "magical pact",
+    "locator": "p258",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A magical force that held the guilds in an uneasy peace."
+    },
+    "cost_or_limit": "Its disappearance leaves guild rivalry unchecked.",
+    "go_wrong": "The pact is gone, or appears to be.",
+    "where_from": "Ravnica",
+    "combines": "Restrains conflict among the guilds.",
+    "mechanism": "Magical peacekeeping pact",
+    "split": "held-out"
+   },
+   "ravnica.institution.izmagnus": {
+    "corpus": "institution",
+    "name": "Izmagnus",
+    "kind": "faction body",
+    "locator": "p70",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Top governing body of the Izzet League, held as a coveted position."
+    },
+    "who_may": "Highest-ranked Izzet members",
+    "mechanism": "rank position within faction",
+    "blocked_reason": "Faction body with no direct mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "ravnica.institution.swiftblades": {
+    "corpus": "institution",
+    "name": "Swiftblades",
+    "kind": "faction",
+    "locator": "p40",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Vanguard of the Boros Legion specialising in assault and occupation."
+    },
+    "who_may": "Boros fighters and similar martial members",
+    "mechanism": "faction unit",
+    "blocked_reason": "Unit entry with no direct mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "ravnica.institution.golgari": {
+    "corpus": "institution",
+    "name": "Golgari",
+    "kind": "faction",
+    "locator": "p30",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Guild of decay and the undercity, devoted to nature's cycle."
+    },
+    "mechanism": "faction membership",
+    "blocked_reason": "Faction entry with no direct mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "ravnica.institution.simic": {
+    "corpus": "institution",
+    "name": "Simic",
+    "kind": "faction",
+    "locator": "p14",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Guild that modifies life forms to suit its vision."
+    },
+    "mechanism": "faction membership",
+    "blocked_reason": "Faction entry with no direct mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "ravnica.institution.living-guildpact": {
+    "corpus": "institution",
+    "name": "Living Guildpact",
+    "kind": "governing body",
+    "locator": "p3",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Body that disclaims responsibility for the fates of those who join or leave guilds."
+    },
+    "mechanism": "publisher disclaimer",
+    "blocked_reason": "Disclaimer text with no game effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   }
+  },
+  "ravnica_rules": {
+   "ravnica.rule.guild-renown-cannot-fall-below-zero": {
+    "corpus": "rule",
+    "name": "Guild renown cannot fall below zero",
+    "kind": "world rule",
+    "locator": "p32",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A character’s renown with a guild has a floor of zero."
+    },
+    "cost_or_limit": "Renown losses cannot reduce a score below zero.",
+    "who_may": "Guild members",
+    "where_from": "Guild membership rules",
+    "combines": "Falling below a rank threshold removes its benefits.",
+    "mechanism": "Renown floor",
+    "blocked_reason": "A numerical minimum is a simple game rule.",
+    "split": "held-out"
+   },
+   "ravnica.rule.changing-guilds-removes-old-privileges": {
+    "corpus": "rule",
+    "name": "Changing guilds removes old privileges",
+    "kind": "world rule",
+    "locator": "p32",
+    "is_thing": true,
+    "effect": {
+     "verb": "remove",
+     "object": "working",
+     "target": "self",
+     "time": "instant",
+     "summary": "Leaving a guild removes its privileges and usually resets its renown to zero."
+    },
+    "cost_or_limit": "The new guild does not automatically grant benefits requiring prior experience.",
+    "who_may": "Characters who change guilds",
+    "where_from": "Guild membership rules",
+    "combines": "The former guild expects its insignia back; the new guild supplies one.",
+    "mechanism": "Membership transfer",
+    "blocked": "power-transfer",
+    "blocked_reason": "Tracking transfer and loss of multiple membership benefits exceeds the basic effect grammar.",
+    "split": "tuned"
+   },
+   "ravnica.rule.horrors-and-madness": {
+    "corpus": "rule",
+    "name": "Horrors and madness",
+    "kind": "madness rule",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "After the encounter, characters who failed relevant horror saves make a Wisdom save; failure causes madness based on failed-save count."
+    },
+    "cost_or_limit": "One failed save gives short-term, two or three long-term, and four or more indefinite madness; DC 13 Wisdom save.",
+    "go_wrong": "A failed final save causes madness.",
+    "mind": "Imposes madness on affected characters.",
+    "who_may": "Characters failing saves against specified horror effects",
+    "where_from": "Ravnica",
+    "combines": "Uses madness rules; triggered by flying horror screech, shadow horror claw, or skittering horror presence.",
+    "mechanism": "Triggered mental-state change",
+    "blocked": "negative-effect-drift",
+    "blocked_reason": "The rule imposes a lasting mental condition whose severity depends on accumulated failures.",
+    "split": "held-out"
+   },
+   "ravnica.rule.orzhov-spirit-servitude": {
+    "corpus": "rule",
+    "name": "Orzhov spirit servitude",
+    "kind": "soul-state rule",
+    "locator": "p207",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "soul",
+     "target": "bound",
+     "time": "lasting",
+     "summary": "People who die owing the Syndicate serve as spirits until their debts are worked off; some Orzhov leaders willingly separate soul from body."
+    },
+    "cost_or_limit": "Debt may require years or millennia of service.",
+    "go_wrong": "The indebted dead may face everlasting servitude.",
+    "mind": "Pampered spirits can lose personality nuances and become caricatures.",
+    "who_may": "Orzhov debtors and willing heads of old Orzhov families",
+    "where_from": "Orzhov Syndicate",
+    "combines": "Some spirits begin as ghosts and may become specters over time.",
+    "mechanism": "Post-death soul state and debt-bound service",
+    "blocked": "soul-state",
+    "blocked_reason": "The rule specifies post-death soul existence, voluntary separation, and long-term transformation of personality.",
+    "split": "tuned"
+   },
+   "ravnica.rule.the-guildpact-holds-the-guilds-in-peace": {
+    "corpus": "rule",
+    "name": "The Guildpact holds the guilds in peace",
+    "kind": "world rule",
+    "locator": "p258",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A magical force keeps the guilds in an uneasy peace, but does not prevent intrigue or political schemes."
+    },
+    "cost_or_limit": "It does not stop subterfuge or political machinations; it may be gone.",
+    "go_wrong": "Its absence may allow guild ambition and rivalry to erupt.",
+    "who_may": "Applies to the guilds of Ravnica.",
+    "where_from": "The Guildpact",
+    "combines": "Constrains open conflict without ending intrigue.",
+    "mechanism": "Magical factional constraint",
+    "split": "held-out"
+   }
+  }
+ }
+}

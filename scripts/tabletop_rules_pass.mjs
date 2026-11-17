@@ -28,7 +28,7 @@ export const SYSTEMS = {
     'brp-orc': {system: 'brp', label: 'Basic Roleplaying ORC', licence: 'ORC'},
     'ironsworn': {system: 'ironsworn', label: 'Ironsworn', licence: 'CC-BY-NC-SA-4.0'},
     'cypher-rd': {system: 'cypher', label: 'Cypher Reference Document', licence: 'Cypher Open License'},
-    'eclipse-phase-2e-qs': {system: 'eclipse_phase', label: 'Eclipse Phase 2e Quickstart', licence: 'CC-BY-NC-SA-4.0'},
+    'eclipse-phase-2e-qs': {system: 'eclipse_phase_qs', label: 'Eclipse Phase 2e Quickstart', licence: 'CC-BY-NC-SA-4.0'},
     'call-of-cthulhu-7e-qs': {system: 'coc', label: 'Call of Cthulhu 7e Quick-Start', licence: 'free quick-start, design reference only'},
     'pf1-spells': {system: 'pf1', label: 'Pathfinder 1e spells (d20pfsrd)', licence: 'OGL 1.0a'},
     'pf1-wondrous-items': {system: 'pf1', label: 'Pathfinder 1e wondrous items (d20pfsrd)', licence: 'OGL 1.0a'},

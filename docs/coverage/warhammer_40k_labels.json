@@ -1,0 +1,273 @@
+{
+ "meta": {
+  "setting": "Warhammer 40,000 (9th edition core)",
+  "licence": "commercial (Games Workshop); design reference only",
+  "pass": "PWC37, book tier, gpt-6-luna reader, unchecked against a second reader",
+  "dropped_names_not_in_shard": 0,
+  "level_lines_in_text": 0,
+  "entities_listed": 11,
+  "second_reader": {
+   "sampled_shards": 2,
+   "luna_names": 5,
+   "haiku_names": 2,
+   "both": 0,
+   "haiku_only_added": 2,
+   "blocked_agree": 0,
+   "verb_agree": 0
+  },
+  "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
+ },
+ "score": {
+  "warhammer_40k_powers": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "warhammer_40k_artifacts": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "warhammer_40k_creatures": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "warhammer_40k_places": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "warhammer_40k_institutions": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  }
+ },
+ "sheets": {
+  "warhammer_40k_powers": {
+   "warhammer-40k.power.warp-rites": {
+    "corpus": "power",
+    "name": "Warp Rites",
+    "kind": "psychic action",
+    "locator": "p353",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect beyond performing the mission action is stated."
+    },
+    "cost_or_limit": "A Psyker Character within 9 inches of the Ritual Site attempts it in the Psychic phase; Warp Charge 3.",
+    "who_may": "A Psyker Character",
+    "combines": "Completing it earns the Defender mission victory points.",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The passage gives its timing and charge but does not describe a psychic effect.",
+    "split": "tuned"
+   },
+   "warhammer-40k.power.scry-battle-plans": {
+    "corpus": "power",
+    "name": "Scry Battle Plans",
+    "kind": "psychic action",
+    "stated_class": "Warp Charge 4",
+    "locator": "p345",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "a psychic action by a psyker character within 18 inches of an enemy character; success adds to an experience tally"
+    },
+    "cost_or_limit": "Warp Charge 4; needs an enemy character within 18 inches",
+    "who_may": "PSYKER CHARACTER units",
+    "combines": "tally feeds the Warpcraft agenda for experience",
+    "mechanism": "psychic action with experience tally",
+    "blocked": "effect-unknown",
+    "blocked_reason": "the passage gives no game effect beyond incrementing an agenda tally",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   }
+  },
+  "warhammer_40k_artifacts": {
+   "warhammer-40k.artifact.stc-device": {
+    "corpus": "artifact",
+    "name": "STC device",
+    "kind": "device",
+    "locator": "p353",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "touched",
+     "time": "none",
+     "summary": "It is used to extract vital information."
+    },
+    "blocked_reason": "Its stated information-extraction use fits the basic effect grammar.",
+    "split": "held-out"
+   },
+   "warhammer-40k.artifact.the-relic": {
+    "corpus": "artifact",
+    "name": "The Relic",
+    "kind": "relic",
+    "locator": "p350",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "touched",
+     "time": "lasting",
+     "summary": "A model can carry it after its unit completes the Carry Relic action."
+    },
+    "cost_or_limit": "A unit carrying it cannot embark in a Transport or use rules to leave and return to the battlefield; if its carrier is destroyed, the marker is placed nearby.",
+    "who_may": "A model in a unit that completes the Carry Relic action",
+    "where_from": "It begins at the battlefield centre.",
+    "combines": "It is represented by an objective marker.",
+    "blocked_reason": "Its stated carrying and relocation can be represented with the basic position effect.",
+    "split": "tuned"
+   },
+   "warhammer-40k.artifact.crusade-relic": {
+    "corpus": "artifact",
+    "name": "Crusade Relic",
+    "kind": "relic",
+    "locator": "p350",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No particular effect is stated."
+    },
+    "cost_or_limit": "Normal rules and restrictions apply; details are not given here.",
+    "who_may": "A qualifying Character unit selected by the victor",
+    "where_from": "Awarded as the mission victor bonus.",
+    "combines": "Its rules and restrictions are referenced but not described.",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The passage names the item but does not describe what it does.",
+    "split": "held-out"
+   }
+  },
+  "warhammer_40k_creatures": {
+   "warhammer-40k.creature.star-children": {
+    "corpus": "creature",
+    "name": "Star Children",
+    "kind": "named beings",
+    "locator": "p343",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect stated."
+    },
+    "blocked_reason": "The passage names them but describes no game effect.",
+    "split": "held-out"
+   },
+   "warhammer-40k.creature.four-armed-emperor": {
+    "corpus": "creature",
+    "name": "Four-armed Emperor",
+    "kind": "named being",
+    "locator": "p343",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect stated."
+    },
+    "blocked_reason": "The passage names it but describes no game effect.",
+    "split": "held-out"
+   }
+  },
+  "warhammer_40k_places": {
+   "warhammer-40k.place.centre-ground-area": {
+    "corpus": "place",
+    "name": "Centre Ground area",
+    "kind": "map region",
+    "locator": "p346",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "where_from": "deployment map",
+    "combines": "objective markers placed here during setup",
+    "mechanism": "map zone for placing objectives",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   }
+  },
+  "warhammer_40k_institutions": {
+   "warhammer-40k.institution.t-au-empi-re": {
+    "corpus": "institution",
+    "name": "T'AU EMPI RE",
+    "kind": "faction",
+    "locator": "p335",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect stated."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   },
+   "warhammer-40k.institution.imperial-knights": {
+    "corpus": "institution",
+    "name": "IMPERIAL KNIGHTS",
+    "kind": "faction",
+    "locator": "p340",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect stated."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "tuned"
+   },
+   "warhammer-40k.institution.chaos-knights": {
+    "corpus": "institution",
+    "name": "CHAOS KNIGHTS",
+    "kind": "faction",
+    "locator": "p340",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect stated."
+    },
+    "blocked_reason": "No game effect is described.",
+    "split": "held-out"
+   }
+  }
+ }
+}
