@@ -14,6 +14,7 @@
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
 | [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 207 | 0 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 17 | 0 | 0 | 0 | 100% | 17.2% |
+| [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 106 | 26 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -29,6 +30,8 @@
 | hp_spells | 0 | 111 | 0 | 0 |
 | lotm_potions | 0 | 46 | 0 | 0 |
 | worm_powers | 0 | 0 | 0 | 0 |
+
+| rezero_powers | 0 | 0 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
 
@@ -75,6 +78,8 @@
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
 | lotm_potions | 0 | 0 | | | | | none yet |
 | worm_powers | 0 | 0 | | | | | none yet |
+
+| rezero_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -312,6 +317,8 @@
 | hp_ingredients | material-row | 96 |
 | hp_potions | body-door | 80 |
 | worm_powers | effect-unknown | 68 |
+
+| rezero_powers | effect-unknown | 79 |
 | gu_moves | roles-unchecked | 63 |
 | hp_potions | mind-state | 40 |
 | hp_potions | body-form | 37 |
@@ -331,6 +338,11 @@
 | worm_powers | mind-state | 7 |
 | worm_powers | portal-space | 7 |
 | worm_powers | projection-body | 7 |
+
+| rezero_powers | spirit-contract-judgement | 11 |
+| hp_potions | conceal-or-sense | 9 |
+| hp_potions | object-surface | 8 |
+| rezero_powers | power-transfer | 7 |
 | lotm_potions | body-door | 6 |
 | worm_powers | conceal-or-sense | 6 |
 | hp_potions | place-release | 6 |
@@ -338,9 +350,15 @@
 | worm_powers | time-manipulation | 5 |
 | worm_powers | power-granting | 3 |
 | worm_powers | precognition | 3 |
+
+| rezero_powers | memory-erasure | 5 |
 | hp_potions | luck-field | 2 |
+| rezero_powers | mind-binding | 2 |
 | hp_potions | protection-field | 2 |
 | worm_powers | timeline-split | 2 |
+
+| rezero_powers | death-checkpoint-rewind | 1 |
+| rezero_powers | speech-penalty | 1 |
 
 ## Row format
 

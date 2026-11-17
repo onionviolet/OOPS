@@ -84,3 +84,45 @@ Proposals (AD32), agent-verified, not human-reviewed. Ledger [`worm_powers.jsonl
 - No Worm wiki dump (PWC10); `worm.fandom.com` was not asked.
 
 **Cost.** Luna 0.55M in and 0.16M out across resolve, merge and labels (about $0.13); Haiku 0.44M in and 0.12M out (about $1, assuming $1 and $5 per million). Under $2 in all, inside the $5 budget.
+
+## Re:Zero ledger (2026-11-16, agent-verified, not human-reviewed)
+
+`docs/coverage/rezero_powers.jsonl` has 204 rows: 178 powers and 26 names that are not powers (generic words, tier prefixes, attribute words, a non-canon and a fan-invented name). Zero are unclassified. Sidecar: `docs/coverage/rezero_power_labels.json` (normalised values, locators and speakers; paraphrases stay in the gitignored `private/rezero_*` files). Builder: `scripts/rezero_power_ledger.mjs` with `rezero_power_names.mjs`, `rezero_power_canon.mjs`, `rezero_power_wn_scan.py`, `rezero_power_frozen.mjs` and `rezero_power_build.mjs`; shape test `tests/rezero_power_ledger.test.js`.
+
+**Denominator (PWC3, SKR1).** Luna read 31 chunks of the round 1 and round 2 deep dives and the four reader digests and listed 288 named powers; a free regex scan of the 504 Witch Cult chapters and the six web-novel IF epubs added names the notes never list (Arc 9 chapter 14 alone names about 30 Divine Protections). A hand-checked merge table joins translation variants into one row with both editions, for example Fiend Manipulation with Demon Manipulation, Earthsoul with Earth Spirits, Windbreaker with Wind Evasion and Xenoglossy with Soul of Language. Every row keeps its name sources and an edition tag (LN, WN or LN+WN). The light-novel text itself was not scanned; LN names come only from the digests.
+
+| Class | Rows |
+| --- | ---: |
+| Divine Protection | 64 |
+| Spell, root or tiered | 51 |
+| Other named art | 20 |
+| Authority (named working) | 16 |
+| Spirit contract kind | 11 |
+| Witch Factor (one per sin) | 9 |
+| Curse | 5 |
+| Return by Death and its telling penalty | 2 |
+
+**Split and tables frozen first (GKM429, PWC2).** The hash rule (sha1 of the id, first byte below 0x33) gives 38 held-out powers. The attribute and sin prediction tables, the capability order and the fold rule were committed in `rezero_power_frozen.mjs` before any grammar pass ran. The grammar prompt saw each spell, Factor and Authority under a neutral token with its own names and the attribute or sin words masked. Holder names stayed, so a model's memory of who held what can still leak.
+
+**Labels.** Luna at low effort filled the grammar parts and nine PWC1 fields per power ($0.07), Haiku 5.5 re-read the grammar on every row ($0.27) and Luna read the unmasked evidence for the stated attribute and sin ($0.01). The name pass cost $0.02, so the whole ledger cost about $0.4. Speaker comes from the digest's own SHOWN, STATED, WIKI or INFERRED tag when the cited line has exactly one, otherwise from Luna. Nine of 443 filled fields cited a locator outside the packet and are flagged `locatorMissing`. Free-text fields are committed only as keyword tags.
+
+**Scores (held-out, small n).**
+
+| Label | Held out | Rest | Baseline on held-out | Beats |
+| --- | --- | --- | --- | --- |
+| Attribute from grammar | 0 of 1 | 1 of 15 | 1 (yin) | No |
+| Sin from grammar | 1 of 4 | 6 of 16 | 0 (greed) | Yes, by one row |
+
+The first held-out pass stated 23 spell attributes and 13 Authority sins; a hand check found it took a scene's incidental word ("water" in a library, "wind" beside a mist) for a label. A stated label now counts only when the cited or another evidence line puts the label word beside the power's name (60 characters for spells, 90 for sins, or a catalogue row that leads with the label). That dropped Huma's labels (the digest says Ice, which is not one of the six) and left 16 attributes and 11 Authority sins (plus the 9 Factors, which state their own). The frozen attribute table does not beat its baseline, so spell grammar stays `grammarGuess`. The sin table beats it by one row of four, which is too thin to trust; the fold rule applies as written and the numbers are here so nobody reads that as a result. Luna and Haiku agree on verb for 52 of the 91 rows where both gave one, and on verb and object for 30, so only 22 rows fold as `grammar`.
+
+**What the ledger shows.**
+
+- 81 of 178 powers have no stated effect in the sources read (39 of 64 Divine Protections, 28 of 51 spells). The deep dives list names, not effects; this is a source gap, not a labelling failure. The route to close it is the light-novel text for spells and a wiki cross-check for blessings (round 2 L2); no wiki dump is on disk and PWC10 asks Weibao's yes per file.
+- Where a power comes from is unstated for 147 rows. Contract is the one clear route (15), then Witch Factor transfer (6) and birth (3).
+- Blocking capabilities (PWC5), counted over every row they touch, not just the first: `effect-unknown` 81, `spirit-contract-judgement` 11, `power-transfer` 7, `memory-erasure` 5, `mind-binding` 2, `death-checkpoint-rewind` 1, `speech-penalty` 1. 72 rows are `catalogued` (grammar and source, no executed effect), 106 blocked.
+- **Return by Death is not `blocked:time-loop`.** The engine already has fixed-start month loops (`src/mol_zorian_loop.js`, `src/harm_loops.js`) and a player-marked return point that restores world and body with memory carried (`src/continuation_state.js`, TT1 in the time-travel doc). The missing piece is a rewind the holder's death triggers to a hidden checkpoint that moves on events (R1, R2), so it is `blocked:death-checkpoint-rewind`, with the telling penalty (R25) as `blocked:speech-penalty`.
+- `holder-mind-drift` (PWC6) fires on no row: the sources read state almost no mind effect for Authorities, so the Archbishops' lying about their powers shows up only as speaker tags, not as a drift field.
+
+**Hand corrections.** Return by Death's in-world knowledge is set by hand (the holder; a bystander learns only foresight, round 2 section 3.2), because Luna had no line. Name Eating carries a review flag: the lines found for it name Star Eating, so its effect read is Star Eating's. Little King is Regulus's Greed Authority with its substitute-heart wives and Cor Leonis is Subaru's use of it, checked in WN Arc 5 chapters 52 and 56 and Arc 6 chapter 87; Regulus's time stop keeps its own row from the round 1 catalogue.
+
+**Gaps.** Light-novel volumes 11 to 29 are held but unread; the IF epubs were scanned for names only. `route_to_player` is an authored proposal from the round 2 start kit, not a source fact. Rows with one evidence line (many Arc 9 blessings) are thin by construction.
