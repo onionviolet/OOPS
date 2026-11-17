@@ -29,6 +29,7 @@ export const LEDGER_OF = {power: 'powers', artifact: 'artifacts', creature: 'cre
 // A Source Library book by the first characters of its sha256 (docs/research/SOURCE_LIBRARY_CATALOGUE.md lists them).
 import {readdirSync} from 'node:fs';
 const sl = prefix => { const d = readdirSync(SL).find(x => x.startsWith(prefix)); const f = d && readdirSync(`${SL}${d}`).find(x => /\.pdf$/i.test(x)); return f ? `${SL}${d}/${f}` : `${SL}${prefix}-missing.pdf`; };
+const slAny = prefix => { const d = readdirSync(SL).find(x => x.startsWith(prefix)); const f = d && readdirSync(`${SL}${d}`).find(x => /\.(pdf|epub)$/i.test(x)); return f ? `${SL}${d}/${f}` : `${SL}${prefix}-missing`; };
 const EP = `${TT}sources/eclipse-phase/extracted/`;
 export const SETTINGS = {
     'eclipse-phase': {name: 'Eclipse Phase (2nd edition)', licence: 'commercial (Posthuman Studios); parts are Creative Commons BY-NC-SA, checked per book in its legal page; design reference only',
@@ -55,11 +56,26 @@ Object.assign(SETTINGS, {
     cyberpunk: {name: 'Cyberpunk (RED and 2020)', licence: 'commercial (R. Talsorian Games); design reference only; held under DL106, not fetched in this task',
         classification: 'cyberware type', books: [{id: 'red', pdf: sl('c97bd6967f')}, {id: '2020', pdf: sl('c1f21f1e9a')}]},
     'forgotten-realms': {name: 'Forgotten Realms (3e campaign setting and Grand History)', licence: 'commercial (Wizards of the Coast); design reference only',
-        classification: 'region', books: [{id: 'fr3e', pdf: sl('e570fd52d5')}, {id: 'grand-history', pdf: sl('e61edc5d86')}]},
+        classification: 'region', books: [{id: 'fr3e', pdf: sl('e570fd52d5')}, {id: 'grand-history', pdf: sl('e61edc5d86')}, {id: 'sword-coast', epub: slAny('6f450994a0')}]},
     golarion: {name: 'Golarion (Inner Sea World Guide and Lost Omens World Guide)', licence: 'commercial (Paizo); Inner Sea is Pathfinder-compatible Paizo content, Lost Omens uses the Paizo Community Use Policy only for fan work; design reference only',
         classification: 'nation or region', books: [{id: 'inner-sea', pdf: sl('08c36b62d8'), skip: 'pdf-screen ran over an hour of CPU on this file without finishing (2026-11-17), stopped; retry alone or with a lighter route'}, {id: 'lost-omens', pdf: sl('f2c15bff9b')}]},
     'the-dark-eye': {name: 'The Dark Eye 5e (Aventuria)', licence: 'commercial (Ulisses Spiele); design reference only',
         classification: 'region', books: [{id: 'core', pdf: sl('698a4b4db2')}]},
+});
+const CAL = `${process.env.HOME}/Calibre Library/Wizards RPG Team/`;
+const gaz = [['gaz1', '3328dbc5e8'], ['gaz2', '1d5df839d8'], ['gaz3', '5769001c9c'], ['gaz4', '7eeb3a9aa1'], ['gaz5', '1c893a43b7'], ['gaz6', 'a09b3429f2'], ['gaz7', '03ca9eb53d'],
+    ['gaz8', '02739f622b'], ['gaz9', 'd5118ab45d'], ['gaz10', 'b7395a303b'], ['gaz11', 'fb5cdde1df'], ['gaz12', '9b9e7e74f2'], ['gaz13', 'ae1b1293d1'], ['gaz14', '4013f8d847']];
+const DND = 'commercial (Wizards of the Coast); design reference only';
+Object.assign(SETTINGS, {
+    planescape: {name: 'Planescape (Adventures in the Multiverse, 2023)', licence: DND, classification: 'plane', books: [{id: 'aitm', pdf: `${CAL}Planescape_ Adventures in the Multiverse (D&D 5e, 2023) (217)/Planescape_ Adventures in the Multiverse ( - Wizards RPG Team.pdf`}]},
+    spelljammer: {name: 'Spelljammer (Adventures in Space)', licence: DND, classification: 'vessel or crew', books: [{id: 'ais', pdf: `${CAL}Spelljammer_ Adventures in Space (227)/Spelljammer_ Adventures in Space - Wizards RPG Team.pdf`}]},
+    eberron: {name: 'Eberron (Rising from the Last War)', licence: DND, classification: 'dragonmark or house', books: [{id: 'rftlw', epub: slAny('9aa844f587')}]},
+    ravenloft: {name: "Ravenloft (Van Richten's Guide)", licence: DND, classification: 'domain', books: [{id: 'vrgr', pdf: sl('a3ee23c124')}]},
+    wildemount: {name: 'Wildemount (Explorer\'s Guide)', licence: DND, classification: 'region', books: [{id: 'egtw', pdf: sl('15b34ddd1b')}]},
+    ravnica: {name: "Ravnica (Guildmasters' Guide)", licence: DND, classification: 'guild', books: [{id: 'ggtr', pdf: sl('857059410a')}]},
+    theros: {name: 'Theros (Mythic Odysseys)', licence: DND, classification: 'god or domain', books: [{id: 'moot', pdf: sl('2ebb70c885')}]},
+    strixhaven: {name: 'Strixhaven (Curriculum of Chaos)', licence: DND, classification: 'college', books: [{id: 'acoc', pdf: sl('3d7f4fc1e0')}]},
+    mystara: {name: 'Mystara (Gazetteers GAZ1-GAZ14)', licence: 'commercial (TSR, now Wizards of the Coast); design reference only', classification: 'nation', books: gaz.map(([id, h]) => ({id, pdf: sl(h)}))},
 });
 const PWC2 = {numenera: 'level', 'warhammer-40k': 'discipline', 'eclipse-phase': 'type'};
 
@@ -106,12 +122,16 @@ const dirOf = id => `${privateDir}${id}/`;
 const SHARD_WORDS = 8000;
 
 // ---- shard ----
+function epubText(file) {
+    const code = `import sys,zipfile,re,html\nz=zipfile.ZipFile(sys.argv[1]);out=[]\nfor i,n in enumerate(sorted(x for x in z.namelist() if re.search(r'\\.(x?html?)$',x))):\n    t=z.read(n).decode('utf8','replace');t=re.sub(r'<(script|style)[^>]*>.*?</\\1>','',t,flags=re.S);t=re.sub(r'</(p|div|h[1-6]|li|tr)>','\\n',t);t=html.unescape(re.sub(r'<[^>]+>','',t));out.append('[Page %d]\\n%s'%(i+1,re.sub(r'\\n\\s*\\n+','\\n',t)))\nprint('\\n'.join(out))`;
+    return execFileSync('python3', ['-I', '-c', code, file], {encoding: 'utf8', maxBuffer: 1 << 28});
+}
 function screened(pdf) {
     const out = execFileSync('pdf-screen', [pdf], {encoding: 'utf8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'pipe']});
     const m = out.match(/^readable\.txt: (.+)$/m);
     if (!m) throw Error(`pdf-screen gave no readable.txt for ${pdf}`);
     const summary = out.split('\n').filter(l => /^(PDF screening|Signals|OCR-needed)/.test(l)).join(' | ');
-    return {text: readFileSync(m[1], 'utf8'), summary};
+    return {text: readFileSync(m[1], 'utf8'), summary, path: m[1]};
 }
 // Some Monte Cook Games PDFs (Numenera Corebook, 58 pages of its character abilities) carry bold run-in headings in a font whose
 // glyphs extract shifted by 0x1f ("5JFS" is "Tier", "3FTJMJFOU" is "Resilient"). A page is decoded only when it holds the
@@ -143,11 +163,17 @@ function shard(id) {
     const manifest = [];
     for (const b of s.books) {
         if (b.skip) { manifest.push({book: b.id, failed: b.skip}); console.log(`${id} ${b.id}: SKIPPED ${b.skip}`); continue; }
-        if (!existsSync(b.pdf)) { manifest.push({book: b.id, missing: b.pdf}); continue; }
+        if (!existsSync(b.pdf ?? b.epub)) { manifest.push({book: b.id, missing: b.pdf ?? b.epub}); continue; }
         let got;
-        try { got = b.text ? {text: readFileSync(b.text, 'utf8'), summary: 'text from ' + b.text.split('/').pop()} : screened(b.pdf); }
+        try { got = b.epub ? {text: epubText(b.epub), summary: 'epub text, not a PDF; no hidden-text screen applies'} : b.text ? {text: readFileSync(b.text, 'utf8'), summary: 'text from ' + b.text.split('/').pop()} : screened(b.pdf); }
         catch (e) { manifest.push({book: b.id, failed: String(e.stderr ?? e.message).split('\n')[0].slice(0, 160)}); console.log(`${id} ${b.id}: FAILED ${manifest.at(-1).failed}`); continue; }
-        const {text, summary} = got;
+        let {text, summary} = got;
+        // A scanned book with a thin text layer (under 80 words a page) goes through local tesseract (same route as pdf-screen --ocr).
+        if (got.path && /\d{2,} pages/.test(summary) && text.split(/\s+/).length < 80 * Number(summary.match(/(\d+) pages/)[1])) {
+            const out = `${dirOf(id)}${b.id}_ocr.txt`;
+            if (!existsSync(out)) execFileSync(`${process.env.HOME}/.local/share/pdf2md/.venv/bin/python`, ['-I', `${root}scripts/ocr_textpoor_pages.py`, b.pdf, got.path, out], {stdio: 'ignore', timeout: 3 * 3600 * 1000});
+            text = readFileSync(out, 'utf8'); summary += ' | local OCR of text-poor pages';
+        }
         const shards = shardPages(text);
         if (!shards.length) manifest.push({book: b.id, failed: `no text extracted (${summary.slice(0, 60)})`});
         shards.forEach((t, i) => {
@@ -169,6 +195,12 @@ function itemsOf(id, argv = []) {
         user: 'List the entities of the six kinds in this passage, as instructed.'}));
 }
 export const pass = (id, argv) => runPass({name: `${id}_entities`, dir: dirOf(id), system: SYSTEM, schema: SCHEMA, items: itemsOf(id, argv), model: 'gpt-6-luna', effort: 'low', maxTokens: Number(process.env.MAXTOK ?? 16000), maxUsd: 4}, argv);
+
+// Second reader (AU17, 2026-11-17): the other model, claude-haiku-5-5, reads a fixed 25% hash sample of the shards with the same
+// prompt. A name both readers list is confirmed; a field (blocked slug, effect verb) both readers state the same is confirmed; a name
+// only Haiku lists (and that is in the shard text) joins the ledger as review-only; anything only one reader states stays review-only.
+export const sampled = shardId => parseInt(sha1(`second-reader-v1:${shardId}`).slice(0, 2), 16) < 0x40;
+export const check = (id, argv) => runPass({name: `${id}_entities`, dir: dirOf(id), system: SYSTEM, schema: SCHEMA, items: itemsOf(id, argv).filter(i => sampled(i.id)), model: 'claude-haiku-5-5', effort: 'low', maxTokens: 16000, maxUsd: 3}, argv);
 
 // ---- build ----
 export const split = key => (parseInt(sha1(`settings-v1:${key}`).slice(0, 2), 16) < 0x40 ? 'tuned' : 'held-out');
@@ -192,7 +224,29 @@ export function entitiesOf(id) {
             out.set(key, {e, where: [where], shard: m.id, mentions: 1});
         }
     }
-    return {entries: [...out.values()], dropped};
+    const second = {sampled_shards: 0, luna_names: 0, haiku_names: 0, both: 0, haiku_only_added: 0, blocked_agree: 0, verb_agree: 0};
+    const hf = `${dirOf(id)}${id}_entities_haiku.json`, haiku = existsSync(hf) ? json(hf) : {};
+    for (const m of manifestOf(id)) {
+        const h = haiku[m.id]?.reply, l = replies[m.id]?.reply; if (!h || !l) continue;
+        second.sampled_shards++;
+        const hay = norm(shardText(id, m.id));
+        const lk = new Map(l.entities.filter(e => e.corpus !== 'rule').map(e => [`${e.corpus}:${norm(e.name)}`, e]));
+        const hk = new Map(h.entities.filter(e => e.corpus !== 'rule' && hay.includes(norm(e.name))).map(e => [`${e.corpus}:${norm(e.name)}`, e]));
+        second.luna_names += lk.size; second.haiku_names += hk.size;
+        for (const [k, he] of hk) {
+            const le = lk.get(k), entry = out.get(k);
+            if (le) {
+                second.both++;
+                const a = le.blocked === he.blocked, b = le.effect.verb === he.effect.verb;
+                second.blocked_agree += a; second.verb_agree += b;
+                if (entry) entry.second = {blocked: a ? 'confirmed' : 'disputed', verb: b ? 'confirmed' : 'disputed'};
+            } else if (!out.has(k)) {
+                second.haiku_only_added++;
+                out.set(k, {e: he, where: [`${m.book} ${he.locator || `p${m.first}`}`], shard: m.id, mentions: 1, haikuOnly: true});
+            }
+        }
+    }
+    return {entries: [...out.values()], dropped, second};
 }
 
 export function rowsOf(id, corpus, entries) {
@@ -205,7 +259,7 @@ export function rowsOf(id, corpus, entries) {
         const eff = e.effect.verb === 'none' ? 'effect not stated' : `${e.effect.verb}.${e.effect.object}/${e.effect.target}/${e.effect.time}`;
         const note = `${clip(e.name, 60)}. ${e.kind}${e.stated_class !== 'none' ? ` (${clip(e.stated_class, 40)})` : ''}. ${corpus === 'rule' ? `Mechanism: ${clip(e.mechanism, 80)}` : `Effect ${eff} (book tier, Luna, unchecked): ${clip(e.effect.summary, 110)}`}.`
             + (state.startsWith('blocked:') ? ` Blocked: ${clip(e.blocked_reason || e.blocked, 120)}.` : '') + ` Full sheet in ${id.replace(/-/g, '_')}_labels.json.`;
-        return {row: {id: rid, source: `${x.where.slice(0, 3).join('; ')}; book text, paid reader gpt-6-luna (shard ${x.shard})`, state, mechanisms: ['T'], test: null, note}, sheet: e, split: split(rid)};
+        return {row: {id: rid, source: `${x.where.slice(0, 3).join('; ')}; book text, paid reader gpt-6-luna (shard ${x.shard})${x.haikuOnly ? '; listed by the second reader only, review-only' : ''}`, state, mechanisms: ['T'], test: null, note}, sheet: {...e, ...(x.second ? {second_reader: x.second} : {}), ...(x.haikuOnly ? {second_reader: 'haiku-only, review-only'} : {})}, split: split(rid)};
     });
 }
 
@@ -227,7 +281,7 @@ export function statBlockCount(id) {
     return n;
 }
 export function build(id) {
-    const {entries, dropped} = entitiesOf(id), sheets = {}, score = {};
+    const {entries, dropped, second} = entitiesOf(id), sheets = {}, score = {};
     const ledgers = {};
     for (const corpus of CORPORA) {
         const rows = rowsOf(id, corpus, entries); if (!rows.length) continue;
@@ -237,7 +291,7 @@ export function build(id) {
         sheets[name] = Object.fromEntries(rows.map(r => [r.row.id, {...Object.fromEntries(Object.entries(r.sheet).filter(([, v]) => !/^(none|none stated|no effect stated\.?)$/i.test(String(v)))), split: r.split}]));
         score[name] = scoreOwnClass(rows);
     }
-    writeFileSync(`${coverage}${id.replace(/-/g, '_')}_labels.json`, JSON.stringify({meta: {setting: SETTINGS[id].name, licence: SETTINGS[id].licence, pass: 'PWC37, book tier, gpt-6-luna reader, unchecked against a second reader', dropped_names_not_in_shard: dropped.absent, level_lines_in_text: statBlockCount(id), entities_listed: entries.length, split: 'tuned when sha1("settings-v1:"+id) first byte < 0x40, else held-out (GKM429)'}, score, sheets}, null, 1) + '\n');
+    writeFileSync(`${coverage}${id.replace(/-/g, '_')}_labels.json`, JSON.stringify({meta: {setting: SETTINGS[id].name, licence: SETTINGS[id].licence, pass: 'PWC37, book tier, gpt-6-luna reader, unchecked against a second reader', dropped_names_not_in_shard: dropped.absent, level_lines_in_text: statBlockCount(id), entities_listed: entries.length, second_reader: second, split: 'tuned when sha1("settings-v1:"+id) first byte < 0x40, else held-out (GKM429)'}, score, sheets}, null, 1) + '\n');
     return {ledgers: Object.fromEntries(Object.entries(ledgers).map(([n, r]) => [n, r.length])), dropped, score};
 }
 
@@ -246,8 +300,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     for (const id of ids.length ? ids : Object.keys(SETTINGS)) {
         if (cmd === 'shard') shard(id);
         else if (cmd === 'pass') await pass(id, argv);
+        else if (cmd === 'check') await check(id, argv);
         else if (cmd === 'build') console.log(id, JSON.stringify(build(id)));
         else if (cmd === 'report') console.log(id, JSON.stringify(build(id)));
-        else throw Error('usage: shard|pass|build|report [setting]');
+        else throw Error('usage: shard|pass|check|build|report [setting]');
     }
 }

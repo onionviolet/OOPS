@@ -115,7 +115,9 @@ export const REGISTRY = [
         ['the-strange', 'The Strange (recursions)'], ['wfrp4e', 'Warhammer Fantasy Roleplay 4e (the Old World)'], ['aos-soulbound', 'Age of Sigmar: Soulbound'],
         ['stars-without-number', 'Stars Without Number (Revised, free edition)'], ['forgotten-realms', 'Forgotten Realms (3e campaign setting and Grand History)'],
         ['golarion', 'Golarion (Inner Sea World Guide and Lost Omens World Guide)'], ['the-dark-eye', 'The Dark Eye 5e (Aventuria)'],
-        ['cyberpunk', 'Cyberpunk (RED and 2020)'],
+        ['cyberpunk', 'Cyberpunk (RED and 2020)'], ['planescape', 'Planescape (Adventures in the Multiverse, 2023)'], ['spelljammer', 'Spelljammer (Adventures in Space)'],
+        ['eberron', 'Eberron (Rising from the Last War)'], ['ravenloft', "Ravenloft (Van Richten's Guide)"], ['wildemount', "Wildemount (Explorer's Guide)"], ['ravnica', "Ravnica (Guildmasters' Guide)"],
+        ['theros', 'Theros (Mythic Odysseys)'], ['strixhaven', 'Strixhaven (Curriculum of Chaos)'], ['mystara', 'Mystara (Gazetteers GAZ1-GAZ14)'],
     ].map(([id, name]) => {
         const ledgers = {};
         for (const [corpus, suffix] of Object.entries(SETTING_LEDGERS)) {

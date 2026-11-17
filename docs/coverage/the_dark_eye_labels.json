@@ -5,7 +5,16 @@
   "pass": "PWC37, book tier, gpt-6-luna reader, unchecked against a second reader",
   "dropped_names_not_in_shard": 43,
   "level_lines_in_text": 13,
-  "entities_listed": 1381,
+  "entities_listed": 1420,
+  "second_reader": {
+   "sampled_shards": 6,
+   "luna_names": 255,
+   "haiku_names": 143,
+   "both": 96,
+   "haiku_only_added": 39,
+   "blocked_agree": 76,
+   "verb_agree": 78
+  },
   "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
  },
  "score": {
@@ -605,6 +614,10 @@
     "combines": "Can be strengthened with a Fate Point.",
     "blocked": "effect-unknown",
     "blocked_reason": "The passage does not describe the spell’s specific effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.ignifaxius": {
@@ -629,6 +642,10 @@
     "mechanism": "Ranged elemental attack",
     "blocked": "power-interaction",
     "blocked_reason": "Resolving defense, protection, shield damage, and ignition requires combat interactions.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.horriphobus": {
@@ -649,6 +666,10 @@
     "where_from": "Irrhalk",
     "blocked": "effect-unknown",
     "blocked_reason": "The passage gives no actual effect for this spell.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.paralysis": {
@@ -673,6 +694,10 @@
     "mechanism": "Bodily transformation and paralysis",
     "blocked": "form-transformation",
     "blocked_reason": "The target's body changes material properties and becomes nearly indestructible, requiring form-transformation support.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.inured-to-encumbrance-i": {
@@ -957,6 +982,10 @@
     "where_from": "Wyldrunner profession package.",
     "blocked": "effect-unknown",
     "blocked_reason": "The passage names the spell but gives no effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.breathe-water": {
@@ -977,6 +1006,10 @@
     "where_from": "Wyldrunner profession package.",
     "blocked": "effect-unknown",
     "blocked_reason": "The passage names the spell but gives no effect.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.fulminictus": {
@@ -1020,6 +1053,10 @@
     "mechanism": "Magical detection and analysis",
     "blocked": "divination",
     "blocked_reason": "Detecting magic and identifying its presence or strength requires divination.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.silentium": {
@@ -1060,6 +1097,10 @@
     "where_from": "Wyldrunner profession package.",
     "blocked": "effect-unknown",
     "blocked_reason": "The passage names the spell but gives no effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.song-of-friendship": {
@@ -3608,6 +3649,10 @@
     "where_from": "Elven spell list",
     "blocked": "effect-unknown",
     "blocked_reason": "No effect is given.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.signature": {
@@ -3648,6 +3693,10 @@
     "mechanism": "Mind reading.",
     "blocked": "divination",
     "blocked_reason": "The passage does not specify a procedure or limits for probing minds.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.odem": {
@@ -3685,6 +3734,10 @@
     },
     "cost_or_limit": "Five minutes; cannot dry already-wet clothes.",
     "blocked_reason": "Blocking moisture on the caster is covered by the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.flying-balm": {
@@ -3763,6 +3816,10 @@
     },
     "cost_or_limit": "Range 8 yards; one action.",
     "blocked_reason": "Producing and locating a brief sound fits the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.cat-eyes": {
@@ -3784,6 +3841,10 @@
     "where_from": "Used especially by the Sisterhood of the Beauties of the Night",
     "mechanism": "Enhanced vision",
     "blocked_reason": "Improved perception under reduced light fits the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.harmless-shape": {
@@ -3807,6 +3868,10 @@
     "combines": "Appearance is chosen automatically to avoid attracting attention in the current location.",
     "mechanism": "Appearance illusion",
     "blocked_reason": "Changing perceived appearance without changing the body fits the basic grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.motoricus": {
@@ -3830,6 +3895,10 @@
     "combines": "Items move sluggishly and can be grabbed or pushed against the effect.",
     "mechanism": "Telekinesis",
     "blocked_reason": "Moving an object with stated weight and speed limits fits the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.powerful-greed": {
@@ -3854,6 +3923,10 @@
     "mechanism": "Compulsion and desire",
     "blocked": "mind-binding",
     "blocked_reason": "Imposing an intense compulsion on a target requires mind-binding support.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.satuaria-s-splendor": {
@@ -3900,6 +3973,10 @@
     "mechanism": "Corrosive ranged attack",
     "blocked": "power-interaction",
     "blocked_reason": "Damage, defense, protection, and item damage require combat interactions.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.resistant-to-aging": {
@@ -3981,6 +4058,10 @@
     "mechanism": "Unknown.",
     "blocked": "effect-unknown",
     "blocked_reason": "Only the name appears here.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.placidity": {
@@ -4003,6 +4084,10 @@
     "where_from": "Aventurian spell formula",
     "mechanism": "Animal calming",
     "blocked_reason": "A temporary change in an animal's behavior fits the basic grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.rainbow-eyes": {
@@ -4080,6 +4165,10 @@
     "who_may": "Witch tradition",
     "blocked": "effect-unknown",
     "blocked_reason": "Its effect is not explained in this passage.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.corpofesso": {
@@ -4102,6 +4191,10 @@
     "combines": "Pain level and duration depend on QL.",
     "mechanism": "Pain and impairment",
     "blocked_reason": "The stated bodily impairment and condition fit the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.respondami": {
@@ -4167,6 +4260,10 @@
     "mechanism": "Unknown.",
     "blocked": "effect-unknown",
     "blocked_reason": "Only the name appears here.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.salander": {
@@ -4192,6 +4289,10 @@
     "mechanism": "Living-body transformation",
     "blocked": "form-transformation",
     "blocked_reason": "Changing a creature into another living form requires form-transformation support.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.visibili-elf": {
@@ -4233,6 +4334,10 @@
     "mechanism": "Unknown.",
     "blocked": "effect-unknown",
     "blocked_reason": "Only the name appears here.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.banish-fear": {
@@ -8044,6 +8149,10 @@
     "mechanism": "Initiative modification.",
     "blocked": "effect-unknown",
     "blocked_reason": "The passage only names the spell and its initiative interaction.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.trample": {
@@ -8616,6 +8725,10 @@
     "who_may": "General tradition",
     "blocked": "effect-unknown",
     "blocked_reason": "Its effect is not explained in this passage.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.spellblade": {
@@ -9204,6 +9317,10 @@
     },
     "cost_or_limit": "Range 4 yards; cannot break a glass bottle.",
     "blocked_reason": "The brief telekinetic movement fits the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.balsam-salabunde": {
@@ -9227,6 +9344,10 @@
     "combines": "Can save a mortally wounded character if started within their Constitution-defined period.",
     "mechanism": "Healing over time",
     "blocked_reason": "Restoring vitality over a stated delay fits the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.blinding-flash": {
@@ -9249,6 +9370,10 @@
     "where_from": "Aventurian spell formula",
     "mechanism": "Sensory impairment",
     "blocked_reason": "A temporary condition can be represented as an alteration.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.disruptivo": {
@@ -9273,6 +9398,10 @@
     "mechanism": "Area field disrupting magic",
     "blocked": "area-field",
     "blocked_reason": "A moving or stationary field that penalizes workings throughout an area requires area-field support.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.duplicatus": {
@@ -9297,6 +9426,10 @@
     "mechanism": "Illusory copies",
     "blocked": "power-interaction",
     "blocked_reason": "Redirecting attacks between a target and its copies needs a special interaction with incoming attacks.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.eagle-eye": {
@@ -9342,6 +9475,10 @@
     "mechanism": "Area shield with damage capacity",
     "blocked": "area-field",
     "blocked_reason": "A moving area shield that protects multiple creatures and depletes under attacks needs area-field mechanics.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.hawk-eye": {
@@ -9365,6 +9502,10 @@
     "combines": "Applies to the recipient's next ranged attack.",
     "mechanism": "Attack enhancement",
     "blocked_reason": "A temporary bonus to one attack fits the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.manus-miracula": {
@@ -9388,6 +9529,10 @@
     "combines": "For physical skill checks, linked attributes count as QL + 7.",
     "mechanism": "Telekinesis",
     "blocked_reason": "Remote movement of light objects is covered by the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.oculus-illusionis": {
@@ -9410,6 +9555,10 @@
     "combines": "Other variants can affect other senses.",
     "mechanism": "Sensory illusion",
     "blocked_reason": "Creating visual images in an area fits the basic grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.somnigravis": {
@@ -9451,6 +9600,10 @@
     "where_from": "Aventurian spell formula",
     "mechanism": "Surface adhesion",
     "blocked_reason": "Adhesion and climbing are representable as a physical alteration.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.traceless": {
@@ -9472,6 +9625,10 @@
     "where_from": "Aventurian spell formula",
     "mechanism": "Concealing tracks",
     "blocked_reason": "Concealing traces and penalizing attempts to follow them fits the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.transversalis": {
@@ -9497,6 +9654,10 @@
     "mechanism": "Teleportation",
     "blocked": "spatial-storage",
     "blocked_reason": "Moving a creature and selected equipment between distant locations requires spatial-transit support.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.wall-of-fog": {
@@ -9516,6 +9677,10 @@
     "who_may": "Elf tradition",
     "blocked": "effect-unknown",
     "blocked_reason": "The effect is not explained beyond its name and duration.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.witch-s-claws": {
@@ -9535,6 +9700,10 @@
     "who_may": "Witch tradition",
     "blocked": "effect-unknown",
     "blocked_reason": "Its effect is not explained in this passage.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.strong-blessings": {
@@ -9865,6 +10034,10 @@
     "combines": "Caster chooses whether the zone moves with them or stays fixed; other visibility penalties still apply.",
     "blocked": "area-field",
     "blocked_reason": "The moving or stationary darkness zone is an area field that the basic effect grammar cannot model.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.power.bless": {
@@ -10287,6 +10460,10 @@
     "who_may": "Demons that know the spell.",
     "where_from": "Demonic spell tradition.",
     "combines": "Gotongis and other demons may know it.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.power.charge-bite-claws": {
@@ -10672,6 +10849,377 @@
     "blocked": "effect-unknown",
     "blocked_reason": "The passage does not explain the trade secret's effect.",
     "split": "held-out"
+   },
+   "the-dark-eye.power.paralysis-spell": {
+    "corpus": "power",
+    "name": "Paralysis spell",
+    "kind": "spell",
+    "locator": "p36",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "form",
+     "target": "none",
+     "time": "lasting",
+     "summary": "Causes Paralysis, here 4 levels, for the spell's duration."
+    },
+    "mind": "Victim conscious but cannot act.",
+    "who_may": "spellcasters",
+    "combines": "Paralysis condition",
+    "mechanism": "paralysis spell",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.karma-powers": {
+    "corpus": "power",
+    "name": "karma powers",
+    "kind": "karma power",
+    "locator": "p80",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "none",
+     "target": "self",
+     "time": "instant",
+     "summary": "Blessed One of Peraine may use karma powers when mundane means fail."
+    },
+    "cost_or_limit": "Used only when necessary; mundane solutions come first.",
+    "who_may": "Blessed One of Peraine",
+    "where_from": "Church of Peraine",
+    "mechanism": "undefined karmic ability",
+    "blocked": "effect-unknown",
+    "blocked_reason": "The passage names karma powers but does not describe their effects.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.magical-attunement-creature-of-the-ice": {
+    "corpus": "power",
+    "name": "Magical Attunement (Creature of the Ice)",
+    "kind": "advantage",
+    "locator": "p118",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Gives a firnelf a magical link to the ice realm."
+    },
+    "who_may": "firnelves",
+    "where_from": "culture",
+    "blocked": "power-interaction",
+    "blocked_reason": "Attunement's specific magical effects are not stated in this passage.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.bound-to-artifact-soul-instrument": {
+    "corpus": "power",
+    "name": "Bound to Artifact (Soul Instrument)",
+    "kind": "disadvantage",
+    "locator": "p118",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "thing",
+     "target": "bound",
+     "time": "lasting",
+     "summary": "Elves are tied to a soul instrument artifact."
+    },
+    "who_may": "firnelves, glade elves, wood elves",
+    "where_from": "culture",
+    "combines": "Soul Instrument artifact",
+    "blocked": "item-bound-power",
+    "blocked_reason": "The effects of the bond and how the instrument is carried are not stated.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "the-dark-eye.power.persuasion": {
+    "corpus": "power",
+    "name": "Persuasion",
+    "kind": "skill",
+    "locator": "p199",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "touched",
+     "time": "lasting",
+     "summary": "Convinces a target of an opinion, and can change their belief permanently."
+    },
+    "cost_or_limit": "Improvement cost B; a check is needed and degree of success sets how many people and how long.",
+    "go_wrong": "Failure means the target does not believe; botch leaves the target insulted.",
+    "mind": "Can permanently change the target's belief.",
+    "who_may": "Any character; important for Blessed Ones.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Resisted by Willpower (Resist Persuasion).",
+    "mechanism": "social check with lasting mind change",
+    "blocked": "mind-binding",
+    "blocked_reason": "Permanent change of another's beliefs needs a mind-binding capability the basic grammar lacks.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.seduction": {
+    "corpus": "power",
+    "name": "Seduction",
+    "kind": "skill",
+    "locator": "p200",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Gets a target to act as desired, briefly, through charm, flirting or make-up."
+    },
+    "cost_or_limit": "Improvement cost B; encumbrance situational (for example plate armour).",
+    "go_wrong": "Botch makes the target slap the character.",
+    "mind": "Brief influence on the target's interest.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Resisted by Willpower (Resist Seduction).",
+    "mechanism": "social check with brief advantage",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.streetwise": {
+    "corpus": "power",
+    "name": "Streetwise",
+    "kind": "skill",
+    "locator": "p200",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "area",
+     "time": "instant",
+     "summary": "Finds contacts, fences, cheap lodging, and judges city locations; can shadow a target."
+    },
+    "cost_or_limit": "Improvement cost C; encumbrance mostly no.",
+    "go_wrong": "Botch walks you into a gang ambush.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Shadowing is a competitive check against Perception.",
+    "mechanism": "information check in cities",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.willpower": {
+    "corpus": "power",
+    "name": "Willpower",
+    "kind": "skill",
+    "locator": "p201",
+    "is_thing": true,
+    "effect": {
+     "verb": "block",
+     "object": "mind",
+     "target": "self",
+     "time": "instant",
+     "summary": "Resists mental influence such as Fast-Talk, Intimidation, Persuasion or Seduction."
+    },
+    "cost_or_limit": "Improvement cost D; a -1 or +1 modifier for distraction.",
+    "go_wrong": "Botch makes the hero succumb or faint.",
+    "mind": "Protects the holder's mind from influence.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Competitive check against Fast-Talk, Intimidation, Persuasion or Seduction.",
+    "mechanism": "resistance check",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "the-dark-eye.power.fishing": {
+    "corpus": "power",
+    "name": "Fishing",
+    "kind": "skill",
+    "locator": "p201",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "area",
+     "time": "instant",
+     "summary": "Catches edible fish or aquatic creatures, faster with nets and weirs."
+    },
+    "cost_or_limit": "Improvement cost A; encumbrance only for spearfishing.",
+    "go_wrong": "Botch makes the fisher fall in and lose gear.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Uses tools such as nets, weirs, spear or line.",
+    "mechanism": "gathering check",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "the-dark-eye.power.orienting": {
+    "corpus": "power",
+    "name": "Orienting",
+    "kind": "skill",
+    "locator": "p202",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "position",
+     "target": "self",
+     "time": "instant",
+     "summary": "Navigates outdoors by sun, moss, night sky and other signs."
+    },
+    "cost_or_limit": "Improvement cost B; of little worth in cities.",
+    "go_wrong": "Botch makes the heroes move unknowingly the wrong way.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Streetwise needed for shortest routes in cities.",
+    "mechanism": "navigation check",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.ropes": {
+    "corpus": "power",
+    "name": "Ropes",
+    "kind": "skill",
+    "locator": "p202",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "thing",
+     "target": "bound",
+     "time": "lasting",
+     "summary": "Ties knots and bindings, splices ropes, and secures prisoners."
+    },
+    "cost_or_limit": "Improvement cost A; needs rope.",
+    "go_wrong": "Failure gives easy-to-escape knots; botch gives knots that slip open.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Escape by Body Control (Squirm) or Feat of Strength.",
+    "mechanism": "binding check",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.survival": {
+    "corpus": "power",
+    "name": "Survival",
+    "kind": "skill",
+    "locator": "p203",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "working",
+     "target": "area",
+     "time": "instant",
+     "summary": "Finds or builds campsites, makes fire, and predicts weather."
+    },
+    "cost_or_limit": "Improvement cost C; needs survival gear.",
+    "go_wrong": "Failure gives a poor campsite with a regeneration penalty; botch floods or swarms the camp.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Regeneration phases.",
+    "mechanism": "wilderness check",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "the-dark-eye.power.tracking": {
+    "corpus": "power",
+    "name": "Tracking",
+    "kind": "skill",
+    "locator": "p203",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "position",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Finds and follows trails, and hides one's own tracks."
+    },
+    "cost_or_limit": "Improvement cost C; encumbrance yes.",
+    "go_wrong": "Botch makes the hero follow the wrong trail.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Hide Trail is a competitive check against Humanoid Tracks.",
+    "mechanism": "trail check",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.astrology": {
+    "corpus": "power",
+    "name": "Astrology",
+    "kind": "skill",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "none",
+     "time": "instant",
+     "summary": "Observes heavenly bodies, navigates by stars, makes calendars and horoscopes."
+    },
+    "cost_or_limit": "Improvement cost A.",
+    "go_wrong": "Botch gives a horoscope or eclipse prediction error.",
+    "who_may": "Any character; Blessed Ones of Hesinde common.",
+    "where_from": "Stated skill of the core book.",
+    "mechanism": "knowledge check",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.gambling": {
+    "corpus": "power",
+    "name": "Gambling",
+    "kind": "skill",
+    "locator": "p204",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "luck",
+     "target": "none",
+     "time": "instant",
+     "summary": "Knows game rules and strategy and wins games against other gamblers."
+    },
+    "cost_or_limit": "Improvement cost A; complex games need trade secrets.",
+    "go_wrong": "Botch makes others suspect cheating and loses the stake.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "combines": "Competitive check against other gamblers.",
+    "mechanism": "competitive game check",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.power.geography": {
+    "corpus": "power",
+    "name": "Geography",
+    "kind": "skill",
+    "locator": "p205",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "area",
+     "time": "instant",
+     "summary": "Finds routes, passes, fords, and journey lengths; reads maps."
+    },
+    "cost_or_limit": "Improvement cost B.",
+    "go_wrong": "Botch misremembers geographic details.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "mechanism": "knowledge check",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "the-dark-eye.power.history": {
+    "corpus": "power",
+    "name": "History",
+    "kind": "skill",
+    "locator": "p205",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "none",
+     "time": "instant",
+     "summary": "Recalls historical events, persons and epochs."
+    },
+    "cost_or_limit": "Improvement cost B.",
+    "go_wrong": "Botch makes the hero wrong about dates and events.",
+    "who_may": "Any character.",
+    "where_from": "Stated skill of the core book.",
+    "mechanism": "knowledge check",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "the_dark_eye_artifacts": {
@@ -10775,6 +11323,10 @@
      "summary": "A legendary sword associated with Raidri Conchobair."
     },
     "blocked_reason": "No special effect is described.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.regular-clothing-fur-or-naked": {
@@ -11170,6 +11722,10 @@
     },
     "who_may": "Wulfgrimm",
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.barbarian-war-axe": {
@@ -11187,6 +11743,10 @@
     },
     "who_may": "Ylwa",
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.high-elf-relics": {
@@ -11439,6 +11999,10 @@
      "summary": "A large two-handed sword named for Nostria."
     },
     "where_from": "Nostria",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.khunchomer": {
@@ -11456,6 +12020,10 @@
     },
     "who_may": "Novadi",
     "where_from": "Novadi tradition",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.dshadra": {
@@ -11506,6 +12074,10 @@
     },
     "who_may": "Novadi",
     "where_from": "Novadi custom",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.raven-s-beak": {
@@ -11523,6 +12095,10 @@
     },
     "who_may": "Fighters in the south",
     "where_from": "Southern Aventuria",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.longships": {
@@ -11561,6 +12137,10 @@
     "mechanism": "Personal magical artifact",
     "blocked": "item-bound-power",
     "blocked_reason": "The described binding requires an item to carry a power relationship.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.mamra": {
@@ -11578,6 +12158,10 @@
     },
     "who_may": "Firnelves",
     "where_from": "Firnelven tradition",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.yara": {
@@ -11596,6 +12180,10 @@
     "who_may": "Elves",
     "where_from": "Elven tradition",
     "combines": "Sometimes made from ice-hedgehog crystal",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.ice-hedgehog": {
@@ -13194,6 +13782,10 @@
     "combines": "Magical or opposing-deity-blessed weapon rules apply to attacks against demons, not this weapon's special parry rule.",
     "blocked": "item-bound-power",
     "blocked_reason": "The weapon's demon-loan service and disappearance are item-bound behavior not represented by the basic grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.heshthot-whip": {
@@ -13215,6 +13807,10 @@
     "combines": "May be loaned together with the long sword for two services.",
     "blocked": "item-bound-power",
     "blocked_reason": "The weapon's demon-loan service and disappearance are item-bound behavior not represented by the basic grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.artifact.candle-holder": {
@@ -14996,6 +15592,211 @@
     "blocked": "item-bound-power",
     "blocked_reason": "The passage identifies magical objects but gives no rules for their powers.",
     "split": "held-out"
+   },
+   "the-dark-eye.artifact.travois": {
+    "corpus": "artifact",
+    "name": "travois",
+    "kind": "improvised sled",
+    "locator": "p71",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "touched",
+     "time": "sustained",
+     "summary": "Branch frame used to drag a wounded person through the woods."
+    },
+    "where_from": "built from branches",
+    "mechanism": "drag",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.tarnels-ointment": {
+    "corpus": "artifact",
+    "name": "tarnels' ointment",
+    "kind": "healing ointment",
+    "locator": "p79",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "vitality",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Salve applied to a cut to aid healing, though it failed on a deep wound."
+    },
+    "cost_or_limit": "Too weak for a deep cut.",
+    "combines": "liturgical chant",
+    "mechanism": "healing salve",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.orc-nose-axe": {
+    "corpus": "artifact",
+    "name": "orc-nose axe",
+    "kind": "weapon",
+    "locator": "p84",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "vitality",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Heavy axe used by Thorwalers to cut down orcs and monsters."
+    },
+    "who_may": "Thorwalers",
+    "mechanism": "melee weapon",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.fencing-sword": {
+    "corpus": "artifact",
+    "name": "fencing sword",
+    "kind": "weapon",
+    "locator": "p83",
+    "is_thing": true,
+    "effect": {
+     "verb": "transform",
+     "object": "vitality",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Thin dueling blade that a sailor dismisses as a sewing needle."
+    },
+    "mechanism": "melee weapon",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.broom": {
+    "corpus": "artifact",
+    "name": "broom",
+    "kind": "animated servant",
+    "locator": "p72",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Broom that sweeps the floor on a witch's silent command."
+    },
+    "cost_or_limit": "Needs the witch's mental command.",
+    "who_may": "witches",
+    "mechanism": "animated tool",
+    "blocked": "item-bound-power",
+    "blocked_reason": "A tool carrying a power with a command requirement needs item-bound-power rules the grammar lacks.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.andergaster": {
+    "corpus": "artifact",
+    "name": "Andergaster",
+    "kind": "two-handed sword",
+    "locator": "p116",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Andergastan name for the Nostrier blade."
+    },
+    "where_from": "Andergast",
+    "blocked_reason": "Weapon description with no stated effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "the-dark-eye.artifact.larza": {
+    "corpus": "artifact",
+    "name": "larza",
+    "kind": "wolf-knife",
+    "locator": "p120",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Slender fencing weapon kept by wood elves at all times."
+    },
+    "who_may": "wood elves",
+    "where_from": "wood elf craft",
+    "blocked_reason": "Weapon description with no stated effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.dragon-slayer": {
+    "corpus": "artifact",
+    "name": "dragon-slayer",
+    "kind": "spear",
+    "locator": "p124",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Spear wielded by five ore dwarves at once against dragon spawn."
+    },
+    "who_may": "true Angroshim",
+    "where_from": "ore dwarf craft",
+    "blocked_reason": "Weapon description with no stated effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.dragon-tooth-dagger": {
+    "corpus": "artifact",
+    "name": "dragon tooth dagger",
+    "kind": "dagger",
+    "locator": "p125",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Traditional forge dwarf dagger."
+    },
+    "who_may": "forge dwarves",
+    "where_from": "forge dwarf craft",
+    "blocked_reason": "Weapon description with no stated effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.dwarf-cudgel": {
+    "corpus": "artifact",
+    "name": "dwarf cudgel",
+    "kind": "warhammer",
+    "locator": "p125",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Warhammer used as a faithful companion by forge dwarves."
+    },
+    "who_may": "forge dwarves",
+    "where_from": "forge dwarf craft",
+    "blocked_reason": "Weapon description with no stated effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.artifact.wirsel-herb": {
+    "corpus": "artifact",
+    "name": "Wirsel Herb",
+    "kind": "herb",
+    "locator": "p349",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "vitality",
+     "target": "touched",
+     "time": "delayed",
+     "summary": "Heals wounds as poultice or tea, adding one extra LP per dose at the next Regeneration Phase."
+    },
+    "cost_or_limit": "No more than 3 LP per Regeneration Phase; costs 2 to 2.2 silverthalers; uses 3 to 5 per use level.",
+    "where_from": "Grows on steppes and meadows, looks like other grasses.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "the_dark_eye_creatures": {
@@ -15015,6 +15816,10 @@
     "where_from": "The Orclands and elsewhere in Aventuria.",
     "combines": "Associated with Oloarkh and Ologhaijan.",
     "blocked_reason": "No creature ability is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.dwarves": {
@@ -15461,6 +16266,10 @@
     "combines": "Listed alongside other possible causes of Confusion.",
     "blocked": "effect-unknown",
     "blocked_reason": "The passage does not say how the butterfly causes confusion or how it targets someone.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.creature.ogre": {
@@ -15478,6 +16287,10 @@
     },
     "blocked": "effect-unknown",
     "blocked_reason": "The passage mentions the creature but gives no abilities or form details.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.creature.goblin": {
@@ -15495,6 +16308,10 @@
     },
     "combines": "Used as the target of a weapon damage example.",
     "blocked_reason": "No special effect or ability is described.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.human": {
@@ -15711,6 +16528,10 @@
     "where_from": "Port Corrad",
     "combines": "Identified as Forest Folk.",
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.creature.ogres": {
@@ -15730,6 +16551,10 @@
     "where_from": "Aventuria.",
     "combines": "May learn Oloarkh.",
     "blocked_reason": "No creature ability is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.black-ogres": {
@@ -15749,6 +16574,10 @@
     "where_from": "Meridianan jungles",
     "combines": "A more cunning kind of ogre.",
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.creature.krakennewt": {
@@ -15768,6 +16597,10 @@
     "where_from": "The sea near Havena",
     "combines": "Multiple tentacles attack the boat’s occupants.",
     "blocked_reason": "The described grab is a direct force effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.creature.boron": {
@@ -16328,6 +17161,10 @@
     },
     "where_from": "Thorwaler belief",
     "combines": "Eternal adversary Hranngar",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.hranngar": {
@@ -16345,6 +17182,10 @@
     },
     "where_from": "Thorwaler belief",
     "combines": "Eternal adversary Swafnir",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.ice-hedgehog": {
@@ -16362,6 +17203,10 @@
     },
     "where_from": "Icy northern regions",
     "combines": "Its crystal can be used to craft yara bows",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.diamond-dwarf": {
@@ -16378,6 +17223,10 @@
      "summary": "A dwarven people known for trade, art, and refined living."
     },
     "where_from": "Rashtul’s Wall and other settlements",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.forge-dwarf": {
@@ -16394,6 +17243,10 @@
      "summary": "A dwarven people known for fighting, smithing, and adventurous journeys."
     },
     "where_from": "Forestguard and other mountain settlements",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.creature.hill-dwarf": {
@@ -16410,6 +17263,10 @@
      "summary": "A home-oriented dwarven people who favor comfort, food, and settled life."
     },
     "where_from": "Kosh Mountains foothills and Angbar Lake",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.creature.ore-dwarf": {
@@ -16426,6 +17283,10 @@
      "summary": "A traditional and numerous dwarven people living mainly in underground settlements."
     },
     "where_from": "Kosh Mountains, Iron Forest, and Ingra Crests",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.folk-of-light": {
@@ -17952,6 +18813,10 @@
     "combines": "Knows Great Confusion, Horriphobus, Powerful Greed, and Visibili.",
     "blocked": "familiar-summon",
     "blocked_reason": "Summoning a creature as a servant is beyond the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.ghost": {
@@ -18521,6 +19386,10 @@
     "combines": "Uses Darkness and Horriphobus; can loan one or both weapons as a service.",
     "blocked": "familiar-summon",
     "blocked_reason": "Summoning and commanding a demon is beyond the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.creature.irrhalk": {
@@ -18544,6 +19413,10 @@
     "combines": "Resembles a griffon but has black feathers and fiery embers visible in its chest.",
     "blocked": "familiar-summon",
     "blocked_reason": "Summoning a creature and transporting a passenger are beyond the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.creature.asqarath": {
@@ -18797,6 +19670,117 @@
     "blocked": "effect-unknown",
     "blocked_reason": "No abilities or other creature details are given.",
     "split": "tuned"
+   },
+   "the-dark-eye.creature.ghoul": {
+    "corpus": "creature",
+    "name": "ghoul",
+    "kind": "creature",
+    "locator": "p36",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Its attack can leave a victim paralysed."
+    },
+    "go_wrong": "Paralysis takes hold of the victim.",
+    "combines": "Paralysis condition",
+    "mechanism": "paralysing attack",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.creature.katzinka": {
+    "corpus": "creature",
+    "name": "Katzinka",
+    "kind": "familiar cat",
+    "locator": "p71",
+    "is_thing": true,
+    "effect": {
+     "verb": "sense",
+     "object": "mind",
+     "target": "marked",
+     "time": "sustained",
+     "summary": "Familiar cat whose mind the witch can read while it wanders."
+    },
+    "mind": "Her witch can see what the cat sees.",
+    "who_may": "Irinja",
+    "combines": "familiar soul bond",
+    "mechanism": "mind link to animal",
+    "blocked": "mind-binding",
+    "blocked_reason": "Reading another being's mind through a bond needs mind-binding, which the grammar lacks.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.creature.coal-pelts": {
+    "corpus": "creature",
+    "name": "coal pelts",
+    "kind": "orc",
+    "locator": "p71",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Coal-furred orc-like creatures that attack travellers in the woods."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.creature.firnelf": {
+    "corpus": "creature",
+    "name": "firnelf",
+    "kind": "elf species",
+    "locator": "p118",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Elves of the northern ice who hunt birds and animals and fight cold and darkness."
+    },
+    "where_from": "northern regions",
+    "blocked_reason": "Species description with no stated mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "the-dark-eye.creature.glade-elf": {
+    "corpus": "creature",
+    "name": "glade elf",
+    "kind": "elf species",
+    "locator": "p119",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Elves of the river valleys living in stilt villages and tree settlements, known for bows and beauty."
+    },
+    "where_from": "river valleys",
+    "blocked_reason": "Species description with no stated mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.creature.wood-elf": {
+    "corpus": "creature",
+    "name": "wood elf",
+    "kind": "elf species",
+    "locator": "p120",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Elves of the Salamander Stone forests living in harmony with nature."
+    },
+    "where_from": "Salamander Stones forests",
+    "blocked_reason": "Species description with no stated mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
    }
   },
   "the_dark_eye_places": {
@@ -18945,6 +19929,10 @@
     },
     "where_from": "West of the Orclands.",
     "blocked_reason": "",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.nostria": {
@@ -19048,6 +20036,10 @@
     },
     "combines": "One regional Boron faction is based here.",
     "blocked_reason": "",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.far-south": {
@@ -19117,6 +20109,10 @@
     },
     "where_from": "East of the Horasian Empire.",
     "blocked_reason": "",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.arania": {
@@ -19186,6 +20182,10 @@
     },
     "combines": "Named as a place where dark priests and demons dwell.",
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.salamander-stones": {
@@ -19256,6 +20256,10 @@
     "where_from": "North of Bornland.",
     "combines": "Home to Fjarnings, yetis, and dark elves.",
     "blocked_reason": "",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.riesland": {
@@ -19431,6 +20435,10 @@
     "where_from": "Middenrealmish culture example.",
     "combines": "Area Knowledge (Havena).",
     "blocked_reason": "It is a place, not an effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.mengbilla": {
@@ -19482,6 +20490,10 @@
     },
     "where_from": "Aventuria.",
     "blocked_reason": "Not applicable.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.place.port-corrad": {
@@ -19498,6 +20510,10 @@
      "summary": "A coastal city marking the northern limit referenced for southern settlements."
     },
     "where_from": "Southern Aventuria",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.place.khunchom": {
@@ -19514,6 +20530,10 @@
      "summary": "A city with an arcane academy and back alleys."
     },
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.punin": {
@@ -19530,6 +20550,10 @@
      "summary": "A city where Nevinia meets Elwene and the dark priest’s trail leads."
     },
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.ice-pinnacle": {
@@ -20117,6 +21141,10 @@
      "time": "none",
      "summary": "Northern home of firnelves."
     },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.breakice-bay": {
@@ -20177,6 +21205,10 @@
      "target": "none",
      "time": "none",
      "summary": "A region where diamond dwarves settled."
+    },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
     },
     "split": "held-out"
    },
@@ -20340,6 +21372,10 @@
      "summary": "A region mentioned as the site of Rohaja's squire education."
     },
     "blocked_reason": "This is a named region, not a game effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.rohaja": {
@@ -20634,6 +21670,10 @@
     },
     "combines": "Gates to Limbo; brewing mishaps",
     "blocked_reason": "Place entry.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.first-sphere": {
@@ -20896,6 +21936,10 @@
     "combines": "Invocatio Minima summons its substance.",
     "mechanism": "Demon realm",
     "blocked_reason": "This is a setting location.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.place.reichsforst": {
@@ -21184,6 +22228,56 @@
      "summary": "A region named in the index."
     },
     "blocked_reason": "This is a location, not a game effect.",
+    "split": "held-out"
+   },
+   "the-dark-eye.place.palace-of-the-emir-of-dingsdabad": {
+    "corpus": "place",
+    "name": "palace of the Emir of Dingsdabad",
+    "kind": "place",
+    "locator": "p29",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "The guarded palace of the Emir that Geron tries to sneak into."
+    },
+    "mechanism": "site",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.place.kannemunde": {
+    "corpus": "place",
+    "name": "Kannemunde",
+    "kind": "harbor town",
+    "locator": "p83",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Harbor where a ghost ship was seen sailing."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.place.angbar": {
+    "corpus": "place",
+    "name": "Angbar",
+    "kind": "town and lake",
+    "locator": "p123",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Lake and home area where some hill dwarves settled."
+    },
+    "blocked_reason": "Descriptive location with no mechanical effect.",
+    "second_reader": "haiku-only, review-only",
     "split": "held-out"
    }
   },
@@ -22186,6 +23280,10 @@
     "where_from": "Arania",
     "combines": "Its members make pilgrimages to help those in need.",
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.institution.church-of-phex": {
@@ -22262,6 +23360,10 @@
     "where_from": "Al’Anfa",
     "combines": "Associated with Kor, the mercenaries’ patron god.",
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "the-dark-eye.institution.cult": {
@@ -22300,6 +23402,10 @@
     "where_from": "Thorwal",
     "combines": "Members have joined raids on coastal settlements and whaling communities.",
     "blocked_reason": "No special effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.institution.ilaris-sect": {
@@ -22406,6 +23512,10 @@
     "cost_or_limit": "Dissolved after the orc attack in 1010 FB",
     "who_may": "Towns along the Svellt River",
     "where_from": "Svellt Valley",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.institution.brotherhoods": {
@@ -23104,6 +24214,10 @@
     "cost_or_limit": "Teachers may request coin or services.",
     "who_may": "Spellcasters seeking to learn spells.",
     "combines": "Written spell theory can serve as a teacher.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "the-dark-eye.institution.magical-academies": {
@@ -23286,6 +24400,40 @@
     },
     "blocked_reason": "No special capability is described.",
     "split": "tuned"
+   },
+   "the-dark-eye.institution.blessed-ones-of-rondra": {
+    "corpus": "institution",
+    "name": "Blessed Ones of Rondra",
+    "kind": "church",
+    "locator": "p77",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Church of the goddess Rondra whose priests defend temples and fight evil."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "the-dark-eye.institution.mawdliyat": {
+    "corpus": "institution",
+    "name": "Mawdliyat",
+    "kind": "scholars",
+    "locator": "p116",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Novadi scholars who interpret Rastullah's words and hold great influence."
+    },
+    "who_may": "Novadi scholars",
+    "blocked_reason": "Descriptive religious office with no mechanical effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "the_dark_eye_rules": {

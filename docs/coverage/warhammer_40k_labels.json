@@ -5,7 +5,16 @@
   "pass": "PWC37, book tier, gpt-6-luna reader, unchecked against a second reader",
   "dropped_names_not_in_shard": 0,
   "level_lines_in_text": 0,
-  "entities_listed": 9,
+  "entities_listed": 11,
+  "second_reader": {
+   "sampled_shards": 2,
+   "luna_names": 5,
+   "haiku_names": 2,
+   "both": 0,
+   "haiku_only_added": 2,
+   "blocked_agree": 0,
+   "verb_agree": 0
+  },
   "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
  },
  "score": {
@@ -26,6 +35,14 @@
    "majority": null
   },
   "warhammer_40k_creatures": {
+   "labelled": 0,
+   "tuned": 0,
+   "held_out": 0,
+   "verb_rule_hits": 0,
+   "majority_hits": 0,
+   "majority": null
+  },
+  "warhammer_40k_places": {
    "labelled": 0,
    "tuned": 0,
    "held_out": 0,
@@ -63,6 +80,29 @@
     "blocked": "effect-unknown",
     "blocked_reason": "The passage gives its timing and charge but does not describe a psychic effect.",
     "split": "tuned"
+   },
+   "warhammer-40k.power.scry-battle-plans": {
+    "corpus": "power",
+    "name": "Scry Battle Plans",
+    "kind": "psychic action",
+    "stated_class": "Warp Charge 4",
+    "locator": "p345",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "a psychic action by a psyker character within 18 inches of an enemy character; success adds to an experience tally"
+    },
+    "cost_or_limit": "Warp Charge 4; needs an enemy character within 18 inches",
+    "who_may": "PSYKER CHARACTER units",
+    "combines": "tally feeds the Warpcraft agenda for experience",
+    "mechanism": "psychic action with experience tally",
+    "blocked": "effect-unknown",
+    "blocked_reason": "the passage gives no game effect beyond incrementing an agenda tally",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "warhammer_40k_artifacts": {
@@ -155,6 +195,27 @@
      "summary": "No effect stated."
     },
     "blocked_reason": "The passage names it but describes no game effect.",
+    "split": "held-out"
+   }
+  },
+  "warhammer_40k_places": {
+   "warhammer-40k.place.centre-ground-area": {
+    "corpus": "place",
+    "name": "Centre Ground area",
+    "kind": "map region",
+    "locator": "p346",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "where_from": "deployment map",
+    "combines": "objective markers placed here during setup",
+    "mechanism": "map zone for placing objectives",
+    "second_reader": "haiku-only, review-only",
     "split": "held-out"
    }
   },

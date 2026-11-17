@@ -5,7 +5,16 @@
   "pass": "PWC37, book tier, gpt-6-luna reader, unchecked against a second reader",
   "dropped_names_not_in_shard": 8,
   "level_lines_in_text": 0,
-  "entities_listed": 878,
+  "entities_listed": 909,
+  "second_reader": {
+   "sampled_shards": 5,
+   "luna_names": 185,
+   "haiku_names": 120,
+   "both": 79,
+   "haiku_only_added": 31,
+   "blocked_agree": 41,
+   "verb_agree": 49
+  },
   "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
  },
  "score": {
@@ -325,6 +334,10 @@
     "combines": "Level 2 benefit is contested by others with Alert.",
     "mechanism": "Awareness and initiative bonuses",
     "blocked_reason": "Awareness and turn-order advantages can be represented as direct bonuses and restrictions.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.armsman": {
@@ -348,6 +361,10 @@
     "mechanism": "Weapon skill and damage bonuses",
     "blocked": "power-interaction",
     "blocked_reason": "The focus requires excluding its thrown-weapon benefits when Gunslinger is also used.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.assassin": {
@@ -370,6 +387,10 @@
     "combines": "Uses the Execution Attack procedure; concealment defeats ordinary TL4 detection.",
     "mechanism": "Concealment and combat actions",
     "blocked_reason": "The stated concealment and attack benefits can be modeled as direct permissions and modifiers.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.authority": {
@@ -394,6 +415,10 @@
     "mechanism": "Social influence and follower bonuses",
     "blocked": "mind-binding",
     "blocked_reason": "The focus can compel NPC compliance and loyalty, an effect beyond the basic grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.close-combatant": {
@@ -416,6 +441,10 @@
     "combines": "Applies to pistol-sized ranged weapons used in melee.",
     "mechanism": "Combat modifiers and action permissions",
     "blocked_reason": "The effects are combat modifiers and permissions.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.connected": {
@@ -438,6 +467,10 @@
     "combines": "The GM determines contacts and the extent of favors.",
     "mechanism": "Social contacts and favor access",
     "blocked_reason": "The ability introduces contacts and favors rather than a mechanically unsupported effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.die-hard": {
@@ -460,6 +493,10 @@
     "combines": "Level 1 hit point benefit applies retroactively.",
     "mechanism": "Hit point and injury prevention rules",
     "blocked_reason": "The health bonuses and injury prevention can be handled as direct changes to vitality.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.diplomat": {
@@ -483,6 +520,10 @@
     "combines": "Improves skill checks involving diplomacy or negotiation.",
     "mechanism": "Social reaction and skill modifiers",
     "blocked_reason": "The effect alters a reaction in a limited, defined way.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.gunslinger": {
@@ -506,6 +547,10 @@
     "mechanism": "Ranged weapon bonuses",
     "blocked": "power-interaction",
     "blocked_reason": "Thrown weapons cannot benefit from this focus and Armsman simultaneously.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.hacker": {
@@ -529,6 +574,10 @@
     "combines": "Level 2 removes the need to learn unfamiliar system protocols.",
     "mechanism": "Computer intrusion and system control",
     "blocked_reason": "Computer control and its duration can be represented as a working alteration with a time limit.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.healer": {
@@ -551,6 +600,10 @@
     "combines": "Increases healing from stims and other technological devices.",
     "mechanism": "Medical recovery and stabilization",
     "blocked_reason": "The effects alter vitality and stabilize injuries.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.henchkeeper": {
@@ -576,6 +629,10 @@
     "mechanism": "Recruitment and loyalty",
     "blocked": "mind-binding",
     "blocked_reason": "The focus establishes lasting loyalty and obedience in recruited NPCs.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.ironhide": {
@@ -598,6 +655,10 @@
     "combines": "Armor benefits do not stack, but Dexterity and shield modifiers apply.",
     "mechanism": "Innate armor and damage immunity",
     "blocked_reason": "The protection can be represented as a defensive block with stated limits.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.psychic-training": {
@@ -621,6 +682,10 @@
     "mechanism": "Psychic skill and Effort advancement",
     "blocked": "effect-unknown",
     "blocked_reason": "The focus can grant unspecified discipline techniques whose effects are not given here.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.savage-fray": {
@@ -643,6 +708,10 @@
     "combines": "Uses the character’s weapon Shock damage and melee combat context.",
     "mechanism": "Melee damage and attack negation",
     "blocked_reason": "The effect is limited to direct combat damage and attack outcomes.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.shocking-assault": {
@@ -665,6 +734,10 @@
     "combines": "Applies to melee weapons and unarmed attacks.",
     "mechanism": "Melee damage modification",
     "blocked_reason": "The effect directly adjusts damage.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.sniper": {
@@ -687,6 +760,10 @@
     "combines": "Uses the Execution Attack procedure and Physical saving throws.",
     "mechanism": "Ranged attack and injury modifiers",
     "blocked_reason": "The effects are attack and damage modifiers.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.specialist": {
@@ -709,6 +786,10 @@
     "combines": "Higher level improves the same selected skill.",
     "mechanism": "Skill check dice improvement",
     "blocked_reason": "The effect is a skill-check modifier.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.star-captain": {
@@ -732,6 +813,10 @@
     "combines": "Uses ship Command Points, ship hit points, and Crisis procedures.",
     "mechanism": "Ship combat bonuses and crisis resolution",
     "blocked_reason": "The stated effects are combat resource additions and a limited action.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.starfarer": {
@@ -754,6 +839,10 @@
     "combines": "Applies to ships the character navigates and drills they personally oversee.",
     "mechanism": "Interstellar navigation and drill timing",
     "blocked_reason": "The navigation bonuses and time reduction have defined targets and limits.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.tinker": {
@@ -910,6 +999,10 @@
     "combines": "Improves with Biopsionics skill; Mastered Succor removes its ordinary Effort cost.",
     "mechanism": "Touch-based stabilization and healing.",
     "blocked_reason": "The stated touch, timing, healing, and resource limits are directly actionable.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.mastered-succor": {
@@ -1099,6 +1192,10 @@
     "mechanism": "Sustained bodily transformation.",
     "blocked": "form-transformation",
     "blocked_reason": "The technique changes a person’s body, including anatomy and DNA, which the basic effect grammar cannot represent.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.teratic-overload": {
@@ -1195,6 +1292,10 @@
     "combines": "Can detect powers and psychics; level-4 torching may be stabilized if it drops the adept to zero hit points.",
     "blocked": "effect-unknown",
     "blocked_reason": "It combines detection, saving-throw bonuses, Effort capacity, and a special torching cost beyond one basic effect.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.cloak-powers": {
@@ -1217,6 +1318,10 @@
     "where_from": "Metapsionics training.",
     "combines": "Counters Psychic Refinement detection.",
     "blocked_reason": "Concealment of the adept’s psychic abilities fits the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.mindtracing": {
@@ -1239,6 +1344,10 @@
     "combines": "Treats the traced user as visible for the adept’s other abilities; can reveal a teleporter’s destination view or a biopsion behind a changed form.",
     "blocked": "divination",
     "blocked_reason": "Tracing a power user’s location and viewing through their senses requires remote detection.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.synthetic-adaptation": {
@@ -1262,6 +1371,10 @@
     "combines": "Extends Telepathy or Biopsion powers to intelligent machines.",
     "blocked": "power-interaction",
     "blocked_reason": "It modifies which targets other powers can affect and reallocates their System Strain cost.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.neural-trap": {
@@ -1285,6 +1398,10 @@
     "combines": "The next psychic power aimed at the assailant allows no save.",
     "blocked": "power-interaction",
     "blocked_reason": "It changes the saving-throw rules of a later power against a specific attacker.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.psychic-static": {
@@ -1308,6 +1425,10 @@
     "combines": "Directly contests another psychic power.",
     "blocked": "power-interaction",
     "blocked_reason": "It negates an active power through an opposed expenditure of Effort.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.suspended-manifestation": {
@@ -1330,6 +1451,10 @@
     "combines": "Releases the suspended power later as an Instant action, or On Turn if it permits a save.",
     "blocked": "item-bound-power",
     "blocked_reason": "It stores a power in the adept and preserves committed expenditure until that power is released.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.concert-of-minds": {
@@ -1354,6 +1479,10 @@
     "combines": "Members use others’ abilities with their own Effort and the original user’s skill level.",
     "blocked": "power-transfer",
     "blocked_reason": "It grants participants access to one another’s held powers and techniques.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.metadimensional-friction": {
@@ -1377,6 +1506,10 @@
     "combines": "Triggers on Effort commitment or NPC power initiation.",
     "blocked": "negative-effect-drift",
     "blocked_reason": "It inflicts recurring damage in response to the target’s later actions.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.psychic-tutelage": {
@@ -1401,6 +1534,10 @@
     "combines": "Other psychics may assist with effective training.",
     "blocked": "power-transfer",
     "blocked_reason": "The technique teaches and develops another person’s psychic abilities over time.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.surge-momentum": {
@@ -1423,6 +1560,10 @@
     "combines": "Augments another power’s saving-throw effect.",
     "blocked": "power-interaction",
     "blocked_reason": "It modifies the save and outcome of another power.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.flawless-mastery": {
@@ -1445,6 +1586,10 @@
     "combines": "Other techniques augmenting the mastered technique may still cost Effort.",
     "blocked": "power-interaction",
     "blocked_reason": "It changes the activation costs and potentially the duration of another technique.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.impervious-pavis-of-will": {
@@ -1467,6 +1612,10 @@
     "combines": "Shared protection covers every discipline the adept has chosen to negate.",
     "blocked": "power-interaction",
     "blocked_reason": "It makes the adept and allies immune to an entire category of powers.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.oracle": {
@@ -1490,6 +1639,10 @@
     "combines": "Answers concern actions and events, not abstract facts.",
     "blocked": "divination",
     "blocked_reason": "It supplies information about possible future events.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.intuitive-response": {
@@ -1513,6 +1666,10 @@
     "combines": "Interacts with other initiative-granting abilities.",
     "blocked": "effect-unknown",
     "blocked_reason": "It changes turn order rather than an effect represented by the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.sense-the-need": {
@@ -1535,6 +1692,10 @@
     "where_from": "A vague premonition in the recent past.",
     "blocked": "spatial-storage",
     "blocked_reason": "It retroactively adds an object to the character’s carried inventory.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.terminal-reflection": {
@@ -1558,6 +1719,10 @@
     "combines": "Can protect companions from combat surprise.",
     "blocked": "divination",
     "blocked_reason": "It produces a triggered vision of imminent danger.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.alternate-outcome": {
@@ -1580,6 +1745,10 @@
     "combines": "Applies to a failed hit roll, save, or skill check.",
     "blocked": "negative-effect-drift",
     "blocked_reason": "It rewrites an already resolved random result.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.destiny-s-shield": {
@@ -1603,6 +1772,10 @@
     "combines": "Can alter an attack roll against the psychic, not vehicle attacks or harm without an attack roll.",
     "blocked": "negative-effect-drift",
     "blocked_reason": "It rewrites an already successful attack roll and changes the consequences of a second result.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.anguished-vision": {
@@ -1627,6 +1800,10 @@
     "mechanism": "time reversal",
     "blocked": "time-stop",
     "blocked_reason": "It reverses elapsed time and negates events that occurred.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.cursed-luck": {
@@ -1650,6 +1827,10 @@
     "combines": "Affects the target’s attacks, damage, checks, and saves, as well as attempts to hit or damage it.",
     "blocked": "negative-effect-drift",
     "blocked_reason": "It persistently alters multiple future rolls and requires asymmetric roll selection.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.forced-outcome": {
@@ -1672,6 +1853,10 @@
     "where_from": "Manipulation of probability.",
     "combines": "Examples include a roulette result or shuffled-card order.",
     "mechanism": "probability manipulation",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.not-my-time": {
@@ -1697,6 +1882,10 @@
     "mechanism": "probability manipulation",
     "blocked": "negative-effect-drift",
     "blocked_reason": "It guarantees survival by causing unspecified external events and consequences.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.prophecy": {
@@ -1720,6 +1909,10 @@
     "mechanism": "probability and causality",
     "blocked": "negative-effect-drift",
     "blocked_reason": "It establishes and guarantees a future outcome subject to narrative conditions.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.telekinetic-manipulation": {
@@ -1743,6 +1936,10 @@
     "combines": "Can hold objects in place; higher skill allows stronger or multiple-object manipulation.",
     "blocked": "effect-unknown",
     "blocked_reason": "The technique covers movement, restraint, and object damage with skill-dependent capacities.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.kinetic-transversal": {
@@ -1763,6 +1960,10 @@
     "who_may": "Telekinesis adepts.",
     "where_from": "Telekinetic movement.",
     "blocked_reason": "Movement over surfaces and liquids fits the basic effect grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.pressure-field": {
@@ -1785,6 +1986,10 @@
     "combines": "Can support orbital insertion when paired with Telekinetic Flight.",
     "blocked": "area-field",
     "blocked_reason": "It creates an ongoing protective environmental field around multiple people.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.telekinetic-armory": {
@@ -1807,6 +2012,10 @@
     "combines": "Weapons act like TL4 rifles or advanced melee weapons; armor can be modified by Dexterity or shields.",
     "blocked": "item-bound-power",
     "blocked_reason": "It creates functional weapons and armor whose existence depends on committed Effort.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.impact-sump": {
@@ -1827,6 +2036,10 @@
     "who_may": "Telekinesis adepts suffering physical damage.",
     "where_from": "Telekinetic force.",
     "blocked_reason": "It blocks one instance of physical damage.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.slip-field": {
@@ -1850,6 +2063,10 @@
     "combines": "Can affect selected targets or a ground vehicle.",
     "blocked": "area-field",
     "blocked_reason": "It creates a persistent area effect that constrains multiple targets’ movement.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.telekinetic-expertise": {
@@ -1872,6 +2089,10 @@
     "combines": "Modifies Telekinetic Manipulation.",
     "blocked": "power-interaction",
     "blocked_reason": "It changes the activation cost of another technique.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.thermokinesis": {
@@ -1895,6 +2116,10 @@
     "combines": "Can affect non-sentient robots; does not affect objects held or used by intelligent creatures.",
     "blocked": "material-row",
     "blocked_reason": "It changes an object’s temperature and material state rather than only moving or damaging it.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.tangible-force-construct": {
@@ -1918,6 +2143,10 @@
     "combines": "May be visible or invisible and can remain unsupported.",
     "blocked": "item-bound-power",
     "blocked_reason": "It creates a persistent, destructible object from a power.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.telekinetic-ram": {
@@ -1941,6 +2170,10 @@
     "combines": "Can destroy a civilian vehicle, breach ordinary barriers, or deal heavy-weapon damage.",
     "blocked": "effect-unknown",
     "blocked_reason": "It has delayed detonation, a movement-sensitive trigger, and several distinct damage and destruction outcomes.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.reactive-telekinesis": {
@@ -1964,6 +2197,10 @@
     "combines": "Triggers only after an attacker misses the psychic.",
     "blocked": "power-interaction",
     "blocked_reason": "It redirects and re-resolves another creature’s attack.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.force-puppetry": {
@@ -1988,6 +2225,10 @@
     "combines": "Controlled attacks and checks use the psychic’s skill and hit bonus.",
     "blocked": "mind-binding",
     "blocked_reason": "It imposes direct control over a sapient target’s physical actions.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.telekinetic-flight": {
@@ -2010,6 +2251,10 @@
     "where_from": "Telekinetic force.",
     "combines": "Can negate falling damage and can be combined with Pressure Field for orbital insertion.",
     "blocked_reason": "Flight and carrying willing passengers fit the basic movement effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.telepathic-contact": {
@@ -2034,6 +2279,10 @@
     "combines": "Provides the link used by several other Telepathy techniques.",
     "blocked": "mind-binding",
     "blocked_reason": "It directly accesses another being’s thoughts, language, and memories.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.facile-mind": {
@@ -2056,6 +2305,10 @@
     "combines": "Modifies Telepathic Contact.",
     "blocked": "power-interaction",
     "blocked_reason": "It changes another technique’s activation cost and action timing.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.transmit-thought": {
@@ -2078,6 +2331,10 @@
     "where_from": "Telepathic Contact.",
     "combines": "Uses an existing Telepathic Contact.",
     "blocked_reason": "Sending thoughts through an established link fits the basic information-transfer effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.far-thought": {
@@ -2102,6 +2359,10 @@
     "combines": "Permits other techniques only when they do not allow the target a saving throw.",
     "blocked": "mind-binding",
     "blocked_reason": "It establishes and maintains a remote mental link to another being.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.suppress-cognition": {
@@ -2126,6 +2387,10 @@
     "combines": "The chosen subject may be an action, the telepath’s presence, a person, or another single idea.",
     "blocked": "mind-binding",
     "blocked_reason": "It directly blocks a target’s thoughts and cognition.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.reflex-response": {
@@ -2150,6 +2415,10 @@
     "combines": "The target acts to the best of their ability on their next available action.",
     "blocked": "mind-binding",
     "blocked_reason": "It imposes an impulse on another person’s mind and behavior.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "stars-without-number.power.telepathic-assault": {
@@ -2173,6 +2442,10 @@
     "where_from": "Metadimensional energy forced through the target’s brain.",
     "combines": "Uses Telepathic Contact; target may make a Mental save.",
     "blocked_reason": "It deals damage with a defined nonlethal outcome.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.memory-editing": {
@@ -2197,6 +2470,10 @@
     "combines": "Level-4 Telepathic Contact can provide fuller understanding before editing.",
     "blocked": "mind-binding",
     "blocked_reason": "It directly alters another being’s stored memories.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.unity-of-thought": {
@@ -2221,6 +2498,10 @@
     "combines": "Shares best initiative and grants one chosen gestalt member an extra round each combat turn; allows brief player coordination.",
     "blocked": "mind-binding",
     "blocked_reason": "It links multiple minds and shares their thoughts and sensory impressions.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.power.personal-apportation": {
@@ -3158,6 +3439,29 @@
     "mechanism": "conditional attack bonus",
     "blocked_reason": "The tag’s roll bonus is directly implementable.",
     "split": "held-out"
+   },
+   "stars-without-number.power.bot-scrapping": {
+    "corpus": "power",
+    "name": "Bot Scrapping",
+    "kind": "psychic technique",
+    "locator": "p43",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "thing",
+     "target": "marked",
+     "time": "instant",
+     "summary": "Telekinetic lifts and drops non-sentient bots to destroy them, one per manipulation."
+    },
+    "cost_or_limit": "Only non-sentient robots; number limited by manipulation capacity",
+    "go_wrong": "Some military bots survive with 1d10 damage per skill level",
+    "who_may": "Telekinetic",
+    "where_from": "Telekinesis discipline",
+    "combines": "Uses Telekinetic Manipulation",
+    "mechanism": "destruction by drop",
+    "blocked_reason": "Runs as a destruction effect.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "stars_without_number_artifacts": {
@@ -3648,6 +3952,10 @@
     "combines": "Can cut and join TL4 synthetic rope; can work with instapanels.",
     "mechanism": "",
     "blocked_reason": "",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.artifact.spare-parts": {
@@ -3793,6 +4101,10 @@
     "combines": "One-shot diagnostic suite and medical substances.",
     "mechanism": "",
     "blocked_reason": "",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.artifact.thermal-knife": {
@@ -3999,6 +4311,10 @@
     "who_may": "A hacker.",
     "combines": "Used with a physical data-line connection.",
     "blocked_reason": "No effect beyond speeding up a procedure is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.artifact.line-shunt": {
@@ -4021,6 +4337,10 @@
     "combines": "One or more must be placed at required locations; only needs to be within centimeters of a data line.",
     "mechanism": "Concealed hacking interface",
     "blocked_reason": "Concealment and data access fit the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.artifact.primitive-armor": {
@@ -10563,6 +10883,10 @@
     "combines": "Faction hit points and homeworld rules",
     "mechanism": "prerequisite asset with linked damage",
     "blocked_reason": "Its prerequisites and damage behavior are expressible as ordinary rules.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.artifact.blackmail": {
@@ -10695,6 +11019,10 @@
     "mechanism": "conditional counterattack redirection",
     "blocked": "power-interaction",
     "blocked_reason": "The defender redirects an attack to its attacker after resolving a successful defense.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.artifact.cyberninjas": {
@@ -10980,6 +11308,10 @@
     "combines": "One Special Forces unit",
     "mechanism": "interstellar transport",
     "blocked_reason": "Movement and its range and price are directly implementable.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.artifact.stealth": {
@@ -11159,6 +11491,10 @@
     "combines": "Planetary government permission",
     "mechanism": "interstellar movement and maintenance",
     "blocked_reason": "Movement, upkeep, and permission are ordinary game rules.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.artifact.counterintel-units": {
@@ -12161,6 +12497,40 @@
     "blocked": "form-transformation",
     "blocked_reason": "Their engineered bodies are a form-changing capability not covered by the basic effect grammar.",
     "split": "tuned"
+   },
+   "stars-without-number.artifact.integral-mag-rifle": {
+    "corpus": "artifact",
+    "name": "Integral mag rifle",
+    "kind": "firearm",
+    "locator": "p57",
+    "is_thing": true,
+    "effect": {
+     "verb": "remove",
+     "object": "vitality",
+     "target": "touched",
+     "time": "instant",
+     "summary": "A built-in rifle whose shot can knock a character to zero hit points."
+    },
+    "mechanism": "",
+    "blocked_reason": "Runs with the basic grammar.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.artifact.abandoned-vehicle": {
+    "corpus": "artifact",
+    "name": "Abandoned vehicle",
+    "kind": "vehicle",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A derelict vehicle found in the wild; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "stars_without_number_creatures": {
@@ -13635,6 +14005,137 @@
     "combines": "Might have Aptitude for Violence and an Origin Skill.",
     "blocked_reason": "No special game effect is specified.",
     "split": "held-out"
+   },
+   "stars-without-number.creature.decaying-security-bots": {
+    "corpus": "creature",
+    "name": "Decaying security bots",
+    "kind": "bot",
+    "locator": "p57",
+    "is_thing": true,
+    "effect": {
+     "verb": "remove",
+     "object": "vitality",
+     "target": "area",
+     "time": "sustained",
+     "summary": "A swarm of decayed security robots that attacks the party."
+    },
+    "where_from": "Mandate research station defense systems",
+    "mechanism": "",
+    "blocked_reason": "Runs with the basic grammar.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.creature.rabid-or-diseased-large-predator": {
+    "corpus": "creature",
+    "name": "Rabid or diseased large predator",
+    "kind": "bestiary entry",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A large predator that is sick or rabid; a hostile wilderness encounter."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.creature.pack-of-hungry-hunting-beasts": {
+    "corpus": "creature",
+    "name": "Pack of hungry hunting beasts",
+    "kind": "bestiary entry",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A pack of hungry hunting animals that attacks in groups."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.creature.herd-of-potentially-dangerous-prey-animals": {
+    "corpus": "creature",
+    "name": "Herd of potentially dangerous prey animals",
+    "kind": "bestiary entry",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A herd of prey animals that can turn dangerous."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "stars-without-number.creature.swarm-of-dangerous-vermin": {
+    "corpus": "creature",
+    "name": "Swarm of dangerous vermin",
+    "kind": "bestiary entry",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A swarm of vermin that is hazardous to meet."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.creature.harmless-looking-but-dangerous-beast": {
+    "corpus": "creature",
+    "name": "Harmless-looking but dangerous beast",
+    "kind": "bestiary entry",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A beast that seems harmless but is dangerous."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "stars-without-number.creature.local-herd-animal-let-loose-to-graze": {
+    "corpus": "creature",
+    "name": "Local herd animal let loose to graze",
+    "kind": "bestiary entry",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A local herd animal wandering free to graze; usually friendly."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.creature.curious-local-animal": {
+    "corpus": "creature",
+    "name": "Curious local animal",
+    "kind": "bestiary entry",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A local animal that approaches out of curiosity; usually friendly."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "stars_without_number_places": {
@@ -13735,6 +14236,10 @@
     },
     "combines": "Its defense systems are activated during the exploration.",
     "blocked_reason": "No missing capability is described.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "stars-without-number.place.home-sector": {
@@ -14183,6 +14688,310 @@
     },
     "combines": "The Vothites use it as a base and salvage site.",
     "split": "tuned"
+   },
+   "stars-without-number.place.overgrown-homestead": {
+    "corpus": "place",
+    "name": "Overgrown homestead",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A neglected old homestead in the wild; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "stars-without-number.place.stream-prone-to-flash-flooding": {
+    "corpus": "place",
+    "name": "Stream prone to flash-flooding",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A stream that can suddenly flood; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.narrow-bridge-or-beam-over-deep-cleft": {
+    "corpus": "place",
+    "name": "Narrow bridge or beam over deep cleft",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A narrow crossing over a deep chasm; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "stars-without-number.place.box-canyon-with-steep-sides": {
+    "corpus": "place",
+    "name": "Box canyon with steep sides",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A closed canyon with steep walls; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.unstable-hillside-that-slides-if-disturbed": {
+    "corpus": "place",
+    "name": "Unstable hillside that slides if disturbed",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A hillside that collapses when disturbed; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.long-lost-crash-site-of-a-gravflyer": {
+    "corpus": "place",
+    "name": "Long-lost crash site of a gravflyer",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An old wreck site of a gravflyer; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.once-inhabited-cave-or-tunnel": {
+    "corpus": "place",
+    "name": "Once-inhabited cave or tunnel",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A cave or tunnel that was once lived in; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.steep-and-dangerous-cliff": {
+    "corpus": "place",
+    "name": "Steep and dangerous cliff",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A steep, hazardous cliff; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "stars-without-number.place.quicksand-laden-swamp-or-dust-pit": {
+    "corpus": "place",
+    "name": "Quicksand-laden swamp or dust pit",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A swamp or dust pit full of quicksand; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.ruins-of-a-ghost-town-or-lost-hamlet": {
+    "corpus": "place",
+    "name": "Ruins of a ghost town or lost hamlet",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Ruined remains of an abandoned settlement; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.hunting-cabin-with-necessities": {
+    "corpus": "place",
+    "name": "Hunting cabin with necessities",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A cabin stocked with supplies; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.ill-tended-graveyard-of-a-lost-family-stead": {
+    "corpus": "place",
+    "name": "Ill-tended graveyard of a lost family stead",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A neglected graveyard of a lost family homestead; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.narrow-pass-that-s-easily-blocked": {
+    "corpus": "place",
+    "name": "Narrow pass that's easily blocked",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A narrow pass that can be shut off; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "stars-without-number.place.dilapidated-resort-building": {
+    "corpus": "place",
+    "name": "Dilapidated resort building",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A rundown resort building; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.remote-government-monitoring-outpost": {
+    "corpus": "place",
+    "name": "Remote government monitoring outpost",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A distant government monitoring post; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.illicit-substance-farm-or-processing-center": {
+    "corpus": "place",
+    "name": "Illicit substance farm or processing center",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A hidden drug farm or processing site; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.old-and-forgotten-battleground": {
+    "corpus": "place",
+    "name": "Old and forgotten battleground",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A long-abandoned battle site; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.zone-overrun-by-dangerous-plants": {
+    "corpus": "place",
+    "name": "Zone overrun by dangerous plants",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An area where hazardous plants have spread; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "stars-without-number.place.thick-growth-that-lights-up-at-a-spark": {
+    "corpus": "place",
+    "name": "Thick growth that lights up at a spark",
+    "kind": "wilderness feature",
+    "locator": "p251",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Dense vegetation that ignites readily when sparked; no effect stated."
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "stars_without_number_institutions": {
@@ -14290,6 +15099,10 @@
     },
     "combines": "Its credit is commonly imitated by worlds.",
     "blocked_reason": "No missing capability is described.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "stars-without-number.institution.terran-mandate": {
@@ -14737,6 +15550,10 @@
     },
     "combines": "Factions with ties to it gain its tag benefits.",
     "blocked_reason": "Not applicable.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "stars-without-number.institution.preceptor-archive": {
@@ -14886,6 +15703,25 @@
      "summary": "A pretech-worshipping cult with a hidden base on Singularity."
     },
     "combines": "Uses limited pretech artifacts to manipulate less-developed societies.",
+    "split": "held-out"
+   },
+   "stars-without-number.institution.mercenary-group": {
+    "corpus": "institution",
+    "name": "Mercenary Group",
+    "kind": "faction tag",
+    "locator": "p228",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "instant",
+     "summary": "All faction assets can move themselves to any world within one hex as an action."
+    },
+    "who_may": "Factions that sell services to the highest bidder.",
+    "mechanism": "action-based movement",
+    "blocked_reason": "",
+    "second_reader": "haiku-only, review-only",
     "split": "held-out"
    }
   },

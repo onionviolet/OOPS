@@ -5,7 +5,16 @@
   "pass": "PWC37, book tier, gpt-6-luna reader, unchecked against a second reader",
   "dropped_names_not_in_shard": 3,
   "level_lines_in_text": 0,
-  "entities_listed": 927,
+  "entities_listed": 966,
+  "second_reader": {
+   "sampled_shards": 2,
+   "luna_names": 205,
+   "haiku_names": 109,
+   "both": 66,
+   "haiku_only_added": 39,
+   "blocked_agree": 55,
+   "verb_agree": 50
+  },
   "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
  },
  "score": {
@@ -681,6 +690,10 @@
     "where_from": "Knights of Lastwall training",
     "combines": "Grants Reactive Shield; blocks further dedication feats until two more archetype feats are gained",
     "mechanism": "training and feat prerequisite",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.power.eye-of-ozem": {
@@ -702,6 +715,10 @@
     "where_from": "Sentry training",
     "combines": "Perception initiative; Scouting",
     "mechanism": "perception and initiative bonuses",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "golarion.power.necromantic-resistance": {
@@ -723,6 +740,10 @@
     "where_from": "Repeated exposure during training",
     "combines": "Necromancy effects and negative damage",
     "mechanism": "defense against damage and effects",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.power.grave-sense": {
@@ -746,6 +767,10 @@
     "mechanism": "proximity detection and concealment contest",
     "blocked": "divination",
     "blocked_reason": "It provides supernatural detection of creatures, including a concealment contest.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.power.necromantic-tenacity": {
@@ -767,6 +792,10 @@
     "where_from": "Training against necromancy",
     "combines": "Saving throws against necromancy",
     "mechanism": "outcome adjustment",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.power.lastwall-warden": {
@@ -788,6 +817,10 @@
     "where_from": "Shield training",
     "combines": "Shield Block; Step",
     "mechanism": "reaction and movement",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.power.godless-healing": {
@@ -1341,6 +1374,10 @@
     "mechanism": "Identity concealment and conditional ability loss",
     "blocked": "negative-effect-drift",
     "blocked_reason": "Losing and regaining archetype abilities under discovery and retraining conditions is not represented by the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.power.magic-warrior-aspect": {
@@ -1364,6 +1401,10 @@
     "mechanism": "Partial shapechange with granted senses and movement",
     "blocked": "form-transformation",
     "blocked_reason": "The spell changes form and grants type-specific speeds and senses.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.power.magic-warrior-transformation": {
@@ -1387,6 +1428,10 @@
     "mechanism": "Full shapechange",
     "blocked": "form-transformation",
     "blocked_reason": "The spell transforms the caster into a creature form with the effects of another spell.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.power.nameless-anonymity": {
@@ -1411,6 +1456,10 @@
     "mechanism": "Divination protection",
     "blocked": "divination",
     "blocked_reason": "The effect specifically blocks divination, which the basic effect grammar does not model.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.power.arcane-fighting-style-practiced-by-the-sisterhoo": {
@@ -1607,6 +1656,10 @@
     "where_from": "Hellknight citadels and orders",
     "combines": "Resistance scales with class feats from this and other Hellknight archetypes; grants Intimidation and Hell Lore training.",
     "mechanism": "Mental resistance and skill training",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.power.ardent-armiger": {
@@ -1631,6 +1684,10 @@
     "mechanism": "Mental defense and conditional escape from compulsion",
     "blocked": "mind-binding",
     "blocked_reason": "Breaking free from a mental compulsion requires representing and overriding mind control.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.power.diabolic-certitude": {
@@ -1653,6 +1710,10 @@
     "where_from": "Hellknight training",
     "combines": "Uses Recall Knowledge about a devil being observed.",
     "mechanism": "Knowledge check with a softened failure outcome",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.power.mortification": {
@@ -1674,6 +1735,10 @@
     "where_from": "Physical reckonings",
     "combines": "Resistance scales with feats from this and other Hellknight archetypes.",
     "mechanism": "Damage resistance",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.power.armiger-s-mobility": {
@@ -1695,6 +1760,10 @@
     "where_from": "Hellknight training",
     "combines": "Interacts with heavy armor and the dwarf feat Unburdened Iron.",
     "mechanism": "Movement adjustment while armored",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.power.nondetection": {
@@ -2666,6 +2735,10 @@
     "mechanism": "addictive staged drug",
     "blocked": "negative-effect-drift",
     "blocked_reason": "Its escalating timed stages and addiction require tracking effects over time.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.artifact.sun-orchid-elixir": {
@@ -2690,6 +2763,10 @@
     "mechanism": "bodily rejuvenation and lifespan extension",
     "blocked": "form-transformation",
     "blocked_reason": "It rewrites the drinker’s body, cures multiple conditions, and changes lifespan.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "golarion.artifact.ka-stone": {
@@ -3307,6 +3384,69 @@
     },
     "blocked": "effect-unknown",
     "blocked_reason": "The passage names the item but does not describe its effect.",
+    "split": "held-out"
+   },
+   "golarion.artifact.onyx-key": {
+    "corpus": "artifact",
+    "name": "Onyx Key",
+    "kind": "artifact",
+    "locator": "p45",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "area",
+     "time": "instant",
+     "summary": "Opens dimensional pathways to chosen locations, letting the legion move supplies and troops."
+    },
+    "who_may": "General Azaersi",
+    "combines": "Stone Roads to the Onyx Citadel",
+    "mechanism": "",
+    "blocked": "spatial-storage",
+    "blocked_reason": "Teleport-like pathways between planes need a spatial rule outside the basic grammar.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.artifact.magical-scorpion-boats": {
+    "corpus": "artifact",
+    "name": "Magical scorpion boats",
+    "kind": "vehicle",
+    "locator": "p54",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Fleet of magical boats used to protect the cities of Osirion."
+    },
+    "where_from": "Ipeq militia",
+    "mechanism": "",
+    "blocked": "item-state",
+    "blocked_reason": "Vehicle operating state with a crew and fleet is not in the basic grammar.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.artifact.kintargo-contract": {
+    "corpus": "artifact",
+    "name": "Kintargo Contract",
+    "kind": "infernal document",
+    "locator": "p105",
+    "is_thing": true,
+    "effect": {
+     "verb": "release",
+     "object": "relation",
+     "target": "area",
+     "time": "instant",
+     "summary": "A long-forgotten infernal document whose loophole let the Silver Ravens legally break House Thrune's hold on Ravounel."
+    },
+    "cost_or_limit": "Binds by its legal terms",
+    "where_from": "Found by the Silver Ravens",
+    "combines": "Infernal contract rules",
+    "mechanism": "legal loophole document",
+    "blocked": "item-state",
+    "blocked_reason": "Its legal effect depends on contract state that the item rules do not cover.",
+    "second_reader": "haiku-only, review-only",
     "split": "held-out"
    }
   },
@@ -3938,6 +4078,10 @@
     "mechanism": "terraforming",
     "blocked": "form-transformation",
     "blocked_reason": "Their world-shaping work changes extensive terrain and environment.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "golarion.creature.janni": {
@@ -5678,6 +5822,10 @@
      "summary": "Enigmatic black-winged humanoids, often disparaged by Chelaxians."
     },
     "where_from": "Devil’s Perch and other regional lands",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.creature.goblins": {
@@ -5745,6 +5893,10 @@
     },
     "where_from": "Old Calignos; present in Nidal",
     "combines": "Their culture exists within broader Nidalese society.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.creature.kayal": {
@@ -5764,6 +5916,10 @@
     "combines": "Often blend into human society.",
     "blocked": "form-transformation",
     "blocked_reason": "Their ancestry includes lasting physical alteration by planar magic, which the basic effect grammar cannot represent.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.creature.fetchlings": {
@@ -6790,6 +6946,58 @@
     "where_from": "Vudra",
     "combines": "Humans",
     "split": "held-out"
+   },
+   "golarion.creature.ulunat": {
+    "corpus": "creature",
+    "name": "Ulunat",
+    "kind": "Spawn of Rovagug",
+    "locator": "p54",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.creature.mouthpiece": {
+    "corpus": "creature",
+    "name": "Mouthpiece",
+    "kind": "cyclops prophet",
+    "locator": "p56",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.creature.velstrac": {
+    "corpus": "creature",
+    "name": "Velstrac",
+    "kind": "fiend",
+    "locator": "p104",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Sinister fiends from the Shadow Plane who flaunt their nature and hold privileged positions in Nidal."
+    },
+    "where_from": "Shadow Plane",
+    "blocked_reason": "Descriptive kind with no power.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
    }
   },
   "golarion_places": {
@@ -9012,6 +9220,10 @@
      "summary": "The Whispering Tyrant’s former prison, once looming over Virlych."
     },
     "where_from": "Virlych",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.vigil": {
@@ -9083,6 +9295,10 @@
     "where_from": "Between the Tusk, Kodar, and Mindspin Mountains.",
     "combines": "Contains Urgir and the Flood Road.",
     "blocked_reason": "",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.urgir": {
@@ -9120,6 +9336,10 @@
     },
     "cost_or_limit": "Reckless harvesting is not permitted by the fey.",
     "mechanism": "resource-harvest restriction",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.accressiel-palace": {
@@ -9173,6 +9393,10 @@
     },
     "where_from": "Central Avistan",
     "combines": "Molthune",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.place.canorate": {
@@ -9204,6 +9428,10 @@
      "summary": "A forbidding range separating several nations and containing a number of cities and sites."
     },
     "combines": "Home to settlements, monsters, and ancient ruins.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.crystalhurst": {
@@ -9218,6 +9446,10 @@
      "target": "none",
      "time": "none",
      "summary": "An ancient Fangwood settlement whose druids aid Nirmathas."
+    },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
     },
     "split": "tuned"
    },
@@ -9234,6 +9466,10 @@
      "time": "none",
      "summary": "An ancient, reclusive dwarven stronghold inside Nirmathas."
     },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.oprak": {
@@ -9248,6 +9484,10 @@
      "target": "none",
      "time": "none",
      "summary": "A hobgoblin homeland established by General Azaersi."
+    },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
     },
     "split": "held-out"
    },
@@ -9284,6 +9524,10 @@
     "mechanism": "dimensional travel and extradimensional base",
     "blocked": "spatial-storage",
     "blocked_reason": "The castle occupies an expansive extradimensional space and provides routes to distant locations.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.place.nidal": {
@@ -9298,6 +9542,10 @@
      "target": "none",
      "time": "none",
      "summary": "A nation bordering Oprak and party to a nonaggression pact."
+    },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
     },
     "split": "held-out"
    },
@@ -9339,6 +9587,10 @@
     "mechanism": "self-contained extradimensional environment",
     "blocked": "spatial-storage",
     "blocked_reason": "It is an immense interior realm with its own environmental cycles.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.stone-roads": {
@@ -9361,6 +9613,10 @@
     "mechanism": "dimensional travel",
     "blocked": "spatial-storage",
     "blocked_reason": "The paths connect distant locations to an extradimensional realm.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.hunthul": {
@@ -9423,6 +9679,10 @@
      "time": "none",
      "summary": "An ancient, misty land divided into distinct regions."
     },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.soivoda": {
@@ -9438,6 +9698,10 @@
      "time": "none",
      "summary": "Ustalav’s populous heartland."
     },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.caliphas": {
@@ -9452,6 +9716,10 @@
      "target": "none",
      "time": "none",
      "summary": "Ustalav’s crowded capital and port."
+    },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
     },
     "split": "tuned"
    },
@@ -9503,6 +9771,10 @@
     "mechanism": "necromantic environmental corruption",
     "blocked": "negative-effect-drift",
     "blocked_reason": "Necromantic influence persistently warps a region and its weather.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.place.gallowgarden": {
@@ -9521,6 +9793,10 @@
     "cost_or_limit": "Dangerous mutated growth",
     "where_from": "Virlych",
     "combines": "Whispering Tyrant’s corruption",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.place.golden-road": {
@@ -9535,6 +9811,10 @@
      "target": "none",
      "time": "none",
      "summary": "A regional grouping of nations in northern Garund."
+    },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
     },
     "split": "held-out"
    },
@@ -9569,6 +9849,10 @@
      "summary": "A nation under the Padishah Empire of Kelesh that took control of Osirion."
     },
     "combines": "Kelesh",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.place.rahadoum": {
@@ -9606,6 +9890,10 @@
     },
     "where_from": "Garund",
     "combines": "Pactmasters",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.barrier-wall": {
@@ -12067,6 +12355,10 @@
     },
     "where_from": "Southwest Avistan",
     "combines": "Cheliax",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.jaha": {
@@ -12316,6 +12608,10 @@
      "time": "none",
      "summary": "Chelish city associated with dissent and a rebellion."
     },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.isger": {
@@ -12332,6 +12628,10 @@
      "summary": "A Chelish vassal nation with several goblin clans."
     },
     "where_from": "Southern central Avistan",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.egorian": {
@@ -12394,6 +12694,10 @@
      "summary": "An independent city-state known for its entertainments and masks."
     },
     "where_from": "Cheliax region",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.place.shackles": {
@@ -12427,6 +12731,10 @@
     },
     "where_from": "Cheliax",
     "combines": "Strix and human prospectors are in conflict.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.whisperwood": {
@@ -12445,6 +12753,10 @@
     "go_wrong": "Those venturing to close the rumored gate have not returned.",
     "where_from": "Cheliax",
     "combines": "Scar Thicket lies near its heart.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.scar-thicket": {
@@ -12761,6 +13073,10 @@
     },
     "where_from": "Ravounel",
     "combines": "Site of the Kintargo Contract’s political use.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.place.dismal-nitch": {
@@ -13678,6 +13994,380 @@
     },
     "where_from": "Far east of Inner Sea region",
     "split": "tuned"
+   },
+   "golarion.place.university-of-lepidstadt": {
+    "corpus": "place",
+    "name": "University of Lepidstadt",
+    "kind": "university",
+    "locator": "p46",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.sky-citadel-of-kraggodan": {
+    "corpus": "place",
+    "name": "Sky Citadel of Kraggodan",
+    "kind": "stronghold",
+    "locator": "p44",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.okeno": {
+    "corpus": "place",
+    "name": "Okeno",
+    "kind": "city",
+    "locator": "p53",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.stonespine-island": {
+    "corpus": "place",
+    "name": "Stonespine Island",
+    "kind": "island",
+    "locator": "p53",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.fleshfairs": {
+    "corpus": "place",
+    "name": "Fleshfairs",
+    "kind": "slave market",
+    "locator": "p53",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.sothis": {
+    "corpus": "place",
+    "name": "Sothis",
+    "kind": "city",
+    "locator": "p54",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.black-dome": {
+    "corpus": "place",
+    "name": "Black Dome",
+    "kind": "ruin",
+    "locator": "p54",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.ipeq": {
+    "corpus": "place",
+    "name": "Ipeq",
+    "kind": "militia bastion",
+    "locator": "p54",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.shiman-sekh": {
+    "corpus": "place",
+    "name": "Shiman-Sekh",
+    "kind": "oasis city",
+    "locator": "p54",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "golarion.place.golden-oasis": {
+    "corpus": "place",
+    "name": "Golden Oasis",
+    "kind": "site",
+    "locator": "p54",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.slave-trenches-of-hakotep": {
+    "corpus": "place",
+    "name": "Slave Trenches of Hakotep",
+    "kind": "site",
+    "locator": "p54",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.pyramid-of-broken-earth": {
+    "corpus": "place",
+    "name": "Pyramid of Broken Earth",
+    "kind": "flying pyramid",
+    "locator": "p55",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "golarion.place.pyramid-of-crashing-waves": {
+    "corpus": "place",
+    "name": "Pyramid of Crashing Waves",
+    "kind": "flying pyramid",
+    "locator": "p55",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.pyramid-of-righteous-fire": {
+    "corpus": "place",
+    "name": "Pyramid of Righteous Fire",
+    "kind": "flying pyramid",
+    "locator": "p55",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.pyramid-of-sounding-gales": {
+    "corpus": "place",
+    "name": "Pyramid of Sounding Gales",
+    "kind": "flying pyramid",
+    "locator": "p55",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.sedeq": {
+    "corpus": "place",
+    "name": "Sedeq",
+    "kind": "slaving port",
+    "locator": "p55",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.katheer": {
+    "corpus": "place",
+    "name": "Katheer",
+    "kind": "caravan city",
+    "locator": "p55",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.gurat": {
+    "corpus": "place",
+    "name": "Gurat",
+    "kind": "enclave",
+    "locator": "p56",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "golarion.place.al-bashir": {
+    "corpus": "place",
+    "name": "Al-Bashir",
+    "kind": "ruins",
+    "locator": "p56",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.shadun": {
+    "corpus": "place",
+    "name": "Shadun",
+    "kind": "ruins",
+    "locator": "p56",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.place.shepherd-s-rock": {
+    "corpus": "place",
+    "name": "Shepherd's Rock",
+    "kind": "fortress",
+    "locator": "p56",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "golarion.place.uskwood": {
+    "corpus": "place",
+    "name": "Uskwood",
+    "kind": "forest",
+    "locator": "p105",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Dense black-leaved ancient forest at the heart of Nidal, shaped into a garden of nightmares."
+    },
+    "blocked_reason": "Region.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
    }
   },
   "golarion_institutions": {
@@ -13730,6 +14420,10 @@
     },
     "where_from": "Kelesh",
     "combines": "Qadira",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.institution.outer-planes": {
@@ -14011,6 +14705,10 @@
     "where_from": "Tyrant’s Grasp",
     "combines": "Its followers seek the return of the Whispering Tyrant.",
     "blocked_reason": "",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.knights-of-the-aeon-star": {
@@ -14305,6 +15003,10 @@
      "time": "none",
      "summary": "A hobgoblin army that conquered territory and founded Oprak."
     },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.institution.druids-of-crystalhurst": {
@@ -14335,6 +15037,10 @@
      "time": "none",
      "summary": "Azaersi’s advisers who helped define Oprak’s borders."
     },
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.umbral-court": {
@@ -14352,6 +15058,10 @@
     },
     "where_from": "Nidal",
     "combines": "Intertwined with the church, Uskwood druids, and magical academies.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.havenguard-greeters": {
@@ -14368,6 +15078,10 @@
      "summary": "Locals who claim to remove squatters but use violence to indulge bloodlust."
     },
     "where_from": "Caliphas",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.university-of-lepidstadt": {
@@ -14404,6 +15118,10 @@
     "where_from": "Ustalav",
     "combines": "Coded messages and symbolic clues",
     "mechanism": "surveillance and secret communication",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.institution.knights-of-lastwall": {
@@ -14422,6 +15140,10 @@
     "who_may": "Members",
     "where_from": "Lastwall",
     "combines": "Lastwall Sentry archetype",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.jistka-imperium": {
@@ -14441,6 +15163,10 @@
     "mechanism": "magical binding for power",
     "blocked": "mind-binding",
     "blocked_reason": "Binding genies entails controlling beings rather than a basic physical effect.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.institution.tekritanin-league": {
@@ -14459,6 +15185,10 @@
     "who_may": "Member peoples",
     "where_from": "Garund",
     "combines": "Ancient Osirion",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.sarenrae-s-church": {
@@ -14496,6 +15226,10 @@
     "mechanism": "combat and imprisonment",
     "blocked": "containment-rule",
     "blocked_reason": "Their imprisonment of a powerful being requires a durable containment mechanism.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "golarion.institution.ouat": {
@@ -14550,6 +15284,10 @@
     "who_may": "Seven-foot-tall masked beings",
     "where_from": "Parts unknown",
     "combines": "Pactbroker; aluums",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.institution.rahadoum": {
@@ -15487,6 +16225,10 @@
     },
     "where_from": "Cheliax",
     "combines": "Pact with Hell; backed by devils and armies.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.hell": {
@@ -15576,6 +16318,10 @@
     },
     "where_from": "Isger and Cheliax",
     "combines": "Orphanage graduates include practitioners of the Sisterhood’s fighting style.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.asmodeus": {
@@ -15609,6 +16355,10 @@
     },
     "where_from": "Kintargo and Ravounel",
     "combines": "Used the Kintargo Contract to challenge Thrune rule.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "golarion.institution.glorious-reclamation": {
@@ -15663,6 +16413,10 @@
     "who_may": "Female members meeting the stated alignments",
     "where_from": "Founded in Cheliax; especially successful in Isger",
     "combines": "Its fighting style is inspired by the sadism of barbed devils.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.eiseth": {
@@ -15907,6 +16661,10 @@
     "where_from": "Strong presence in Ravounel",
     "combines": "Operates in a nation that has outlawed slavery.",
     "mechanism": "People smuggling",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "golarion.institution.hellknight-order-of-the-chain": {
@@ -15924,6 +16682,10 @@
     },
     "where_from": "Cheliax",
     "combines": "Pressures Ravounel over the Bellflower Network’s escapees.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "golarion.institution.norgorber": {
@@ -16451,6 +17213,195 @@
      "summary": "A close-knit group of criminal families in Varisia."
     },
     "where_from": "Varisia",
+    "split": "held-out"
+   },
+   "golarion.institution.molthune": {
+    "corpus": "institution",
+    "name": "Molthune",
+    "kind": "nation",
+    "locator": "p44",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "golarion.institution.umbral-court-of-nidal": {
+    "corpus": "institution",
+    "name": "Umbral Court of Nidal",
+    "kind": "court",
+    "locator": "p45",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.institution.whispering-tyrant": {
+    "corpus": "institution",
+    "name": "Whispering Tyrant",
+    "kind": "undead lich-king",
+    "locator": "p45",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "golarion.institution.palatinates": {
+    "corpus": "institution",
+    "name": "Palatinates",
+    "kind": "region government",
+    "locator": "p46",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.institution.whispering-way-scion": {
+    "corpus": "institution",
+    "name": "Whispering Way Scion",
+    "kind": "background",
+    "locator": "p47",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.institution.ancient-osirion": {
+    "corpus": "institution",
+    "name": "Ancient Osirion",
+    "kind": "empire",
+    "locator": "p51",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.institution.pactbroker-hashim-ibn-sayyid": {
+    "corpus": "institution",
+    "name": "Pactbroker Hashim ibn Sayyid",
+    "kind": "figure",
+    "locator": "p53",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "golarion.institution.peerless": {
+    "corpus": "institution",
+    "name": "Peerless",
+    "kind": "hero group",
+    "locator": "p55",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "golarion.institution.venicaan-college-of-medicaments-and-chirurgery": {
+    "corpus": "institution",
+    "name": "Venicaan College of Medicaments and Chirurgery",
+    "kind": "college",
+    "locator": "p55",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.institution.pure-legion": {
+    "corpus": "institution",
+    "name": "Pure Legion",
+    "kind": "military organization",
+    "locator": "p56",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "golarion.institution.shades-of-the-uskwood": {
+    "corpus": "institution",
+    "name": "Shades of the Uskwood",
+    "kind": "druidic order",
+    "locator": "p105",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Albino druids sworn to the Uskwood's mysteries who must worship Zon-Kuthon."
+    },
+    "who_may": "Lawful evil or neutral evil albino worshippers of Zon-Kuthon",
+    "where_from": "Uskwood",
+    "blocked_reason": "Institution.",
+    "second_reader": "haiku-only, review-only",
     "split": "held-out"
    }
   },

@@ -5,7 +5,16 @@
   "pass": "PWC37, book tier, gpt-6-luna reader, unchecked against a second reader",
   "dropped_names_not_in_shard": 11,
   "level_lines_in_text": 0,
-  "entities_listed": 1332,
+  "entities_listed": 1374,
+  "second_reader": {
+   "sampled_shards": 5,
+   "luna_names": 274,
+   "haiku_names": 207,
+   "both": 112,
+   "haiku_only_added": 42,
+   "blocked_agree": 88,
+   "verb_agree": 95
+  },
   "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
  },
  "score": {
@@ -850,6 +859,10 @@
     "mechanism": "magic detection",
     "blocked": "divination",
     "blocked_reason": "Tracking and locating particular magic requires open-ended supernatural information gathering.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.power.miracles-of-the-ethersea": {
@@ -2678,6 +2691,10 @@
     "combines": "Mettle may increase healing.",
     "mechanism": "area healing",
     "blocked_reason": "It restores a numerical vitality value to a defined Zone.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.power.inspire-zeal": {
@@ -3769,6 +3786,10 @@
     "mechanism": "weapon enhancement Endeavour",
     "blocked": "item-state",
     "blocked_reason": "The enhancement alters the weapon’s lasting traits, an item-state capability not covered by the basic grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.power.recuperate": {
@@ -4282,6 +4303,10 @@
     "combines": "Associated with Ghur’s wild energies.",
     "blocked": "effect-unknown",
     "blocked_reason": "The passage does not define the invoked effects.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.power.necromancy": {
@@ -4302,6 +4327,10 @@
     "where_from": "Nagash",
     "blocked": "soul-state",
     "blocked_reason": "The passage links the discipline to the undead and does not define its soul effects.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.power.amber-magic": {
@@ -8601,6 +8630,163 @@
     "mechanism": "Leap and attack",
     "blocked_reason": "The action combines a direct leap with a conventional attack effect.",
     "split": "held-out"
+   },
+   "aos-soulbound.power.last-stand": {
+    "corpus": "power",
+    "name": "Last Stand",
+    "kind": "special ability",
+    "locator": "p154",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "lifespan",
+     "target": "self",
+     "time": "instant",
+     "summary": "A Mortally Wounded hero sacrifices themselves for a final burst: they lose Stunned and Conditions, refill Mettle, become immune to Damage, raise Melee and Accuracy one step, and ignore Armour."
+    },
+    "cost_or_limit": "Only when Mortally Wounded, declared at the start of turn before Actions; cannot be used after a failed final Death Test",
+    "go_wrong": "The hero dies when their turn ends; Soulfire refills instead of Doom rising",
+    "who_may": "Any Soulbound character who is Mortally Wounded",
+    "combines": "Stormcast Eternal death leads to Soulfire refill",
+    "mechanism": "one-time death-triggered buff",
+    "blocked_reason": "Runs as a timed buff with a death trigger.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.power.forsake": {
+    "corpus": "power",
+    "name": "Forsake",
+    "kind": "endeavour",
+    "locator": "p158",
+    "is_thing": true,
+    "effect": {
+     "verb": "bind",
+     "object": "relation",
+     "target": "self",
+     "time": "instant",
+     "summary": "Undertaking this Endeavour lets a Blessed character switch to being Blessed by a different god"
+    },
+    "cost_or_limit": "Requires a Blessed talent; the old god may be angered",
+    "go_wrong": "Gods punish those who spurn their gifts",
+    "who_may": "Blessed (any) talent holders",
+    "combines": "Blessed talent",
+    "mechanism": "",
+    "blocked": "power-transfer",
+    "blocked_reason": "Moving divine blessing from one god to another transfers a power between patrons.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.power.shared-spellcasting": {
+    "corpus": "power",
+    "name": "Shared spellcasting",
+    "kind": "Help action",
+    "locator": "p265",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "working",
+     "target": "touched",
+     "time": "instant",
+     "summary": "A caster with Spellcasting can help another cast by adding dice to the pool."
+    },
+    "cost_or_limit": "Both characters must be in the same zone; a failed spell harms both.",
+    "go_wrong": "A failed spell affects both casters.",
+    "who_may": "Characters with the Spellcasting talent",
+    "combines": "Adds dice from Channelling training and a shared Lore.",
+    "mechanism": "",
+    "blocked": "power-interaction",
+    "blocked_reason": "Two casters pooling dice needs a multi-caster interaction the basic grammar lacks.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.power.endless-spell": {
+    "corpus": "power",
+    "name": "Endless Spell",
+    "kind": "living spell",
+    "locator": "p264",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "working",
+     "target": "area",
+     "time": "lasting",
+     "summary": "A spell that lingers on, often seeming sentient, and may turn on its caster."
+    },
+    "cost_or_limit": "Grows in power with time if not dispelled.",
+    "go_wrong": "Turns on its caster or harms bystanders.",
+    "mind": "Can seem sentient.",
+    "who_may": "Arcane wielders who act as conduits",
+    "where_from": "the Necroquake",
+    "combines": "Tied to the energy of a specific realm.",
+    "mechanism": "",
+    "blocked": "item-state",
+    "blocked_reason": "A lingering, sentient spell that grows over time needs persistent state the basic grammar lacks.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "aos-soulbound.power.realm-spells": {
+    "corpus": "power",
+    "name": "Realm Spells",
+    "kind": "realm magic",
+    "locator": "p264",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "working",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Casters standing in the realm of their Lore can grasp new spells and greater power."
+    },
+    "cost_or_limit": "Requires standing in the matching realm.",
+    "who_may": "Arcane wielders of the realm's Lore",
+    "where_from": "the realm",
+    "mechanism": "",
+    "blocked_reason": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.power.blessed-talent": {
+    "corpus": "power",
+    "name": "Blessed Talent",
+    "kind": "talent",
+    "locator": "p298",
+    "is_thing": true,
+    "effect": {
+     "verb": "add",
+     "object": "mind",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Relies on Mettle; under the heroic Mettle variant it may regain one Mettle at the start of its turn in combat."
+    },
+    "cost_or_limit": "Uses Mettle.",
+    "combines": "Heroic Mettle variant.",
+    "mechanism": "",
+    "blocked_reason": "Mettle regeneration can be modelled with a simple counter.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "aos-soulbound.power.lifesurge": {
+    "corpus": "power",
+    "name": "Lifesurge",
+    "kind": "spell",
+    "stated_class": "DN 6:1",
+    "locator": "p299",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "vitality",
+     "target": "touched",
+     "time": "instant",
+     "summary": "A Jade lore spell, cast at DN 6:1."
+    },
+    "cost_or_limit": "Complexity rises by 2 if the caster lacks the lore.",
+    "who_may": "Jade lore casters",
+    "where_from": "Jade lore",
+    "combines": "Spells of other Lores variant.",
+    "mechanism": "",
+    "blocked_reason": "Healing effect fits basic grammar.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "aos_soulbound_artifacts": {
@@ -8660,6 +8846,10 @@
     "mechanism": "Consumable healing item",
     "blocked": "item-bound-power",
     "blocked_reason": "The item carries a healing effect, but the passage gives no general item-power model.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.artifact.arkanaut-armour": {
@@ -11748,6 +11938,10 @@
     "where_from": "Weapon example",
     "combines": "The Thrown Trait affects its use",
     "blocked_reason": "Throwing a weapon is an ordinary ranged attack.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.kurnoth-greatsword": {
@@ -11768,6 +11962,10 @@
     "where_from": "Weapon example",
     "combines": "Damage is reduced by the target’s Armour",
     "blocked_reason": "Its stated combat effect uses the basic damage grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.witchbrew": {
@@ -11792,6 +11990,10 @@
     "mechanism": "Consumable item with a carried effect",
     "blocked": "item-bound-power",
     "blocked_reason": "The brew carries an effect on its consumer, but no general item-power mechanism is specified.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.ur-gold": {
@@ -12017,6 +12219,10 @@
     "where_from": "Brass Citadel",
     "combines": "Part of the Brass Citadel.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.cauldron-of-blood": {
@@ -12040,6 +12246,10 @@
     "mechanism": "Blood offering with non-overflowing capacity",
     "blocked": "item-state",
     "blocked_reason": "A vessel that never overflows despite ongoing additions requires a special item-capacity state rule.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.black-arks": {
@@ -12872,6 +13082,10 @@
     "combines": "Can focus or disrupt magic.",
     "blocked": "material-row",
     "blocked_reason": "It has multiple loosely specified effects, including manipulating magical energy.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.amber-bones-of-ghur": {
@@ -12895,6 +13109,10 @@
     "combines": "Aids shapeshifting magic.",
     "blocked": "form-transformation",
     "blocked_reason": "The stated shapeshifting effect changes a being into an animal.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.celestium-of-azyr": {
@@ -12917,6 +13135,10 @@
     "combines": "Can power large orreries.",
     "blocked": "area-field",
     "blocked_reason": "The thundercloud effect alters weather across an unspecified area.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.artifact.chamonite-of-chamon": {
@@ -12939,6 +13161,10 @@
     "combines": "Can be forged with nearly any other metal.",
     "blocked": "material-row",
     "blocked_reason": "The range of possible transformations and potion effects is unspecified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.artifact.cyclestone-of-ghyran": {
@@ -12961,6 +13187,10 @@
     "combines": "Powers the waystones that hide Sylvaneth glades.",
     "blocked": "material-row",
     "blocked_reason": "It supports several distinct effects without specifying their game operation.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.artifact.emberstone-of-aqshy": {
@@ -12984,6 +13214,10 @@
     "combines": "Used in flame- or emotion-manipulating devices and weapon forging.",
     "blocked": "mind-binding",
     "blocked_reason": "The material can manipulate emotions, with no rules for limits or resistance.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.falsestone-of-ulgu": {
@@ -13007,6 +13241,10 @@
     "combines": "Can be used to spin illusions.",
     "blocked": "effect-unknown",
     "blocked_reason": "Lethal illusions and corrupted truth lack defined mechanics.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.grave-sand-of-shyish": {
@@ -13029,6 +13267,10 @@
     "combines": "Powerful tool for life-and-death magic.",
     "blocked": "soul-state",
     "blocked_reason": "It affects ageing and raises the dead, with no defined soul-state rules.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.warpstone-of-chaos": {
@@ -13051,6 +13293,10 @@
     "combines": "Powers devices and strengthens spells.",
     "blocked": "item-bound-power",
     "blocked_reason": "It powers devices and augments spells without specifying capacity or depletion.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.varanite": {
@@ -13073,6 +13319,10 @@
     "combines": "Solidified Varanite can be forged into weapons.",
     "blocked": "form-transformation",
     "blocked_reason": "Its lethal, spontaneous mutation changes the victim’s body in an unspecified way.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.arcanoscope": {
@@ -13093,6 +13343,10 @@
     "where_from": "Construction secrets are kept by Azyrheim astromancers.",
     "blocked": "divination",
     "blocked_reason": "The device detects magical energy without stated range or accuracy rules.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.kronuscounter": {
@@ -13114,6 +13368,10 @@
     "combines": "Can track Endless Spells and reveal ethereal undead.",
     "blocked": "divination",
     "blocked_reason": "Tracking and detecting entities lack stated ranges and resolution rules.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.artifact.collars-of-khorne": {
@@ -13268,6 +13526,109 @@
     "blocked": "item-bound-power",
     "blocked_reason": "The mushroom carries a spellcasting benefit and is consumed on use.",
     "split": "tuned"
+   },
+   "aos-soulbound.artifact.rivet-gun": {
+    "corpus": "artifact",
+    "name": "Rivet gun",
+    "kind": "weapon",
+    "locator": "p147",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Rapid-fire ranged weapon with Medium Range."
+    },
+    "cost_or_limit": "Medium Range, reduced accuracy at Close Range",
+    "combines": "Can be dual wielded with ranged weapons",
+    "mechanism": "damage weapon",
+    "blocked_reason": "Plain weapon rules.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.artifact.warblade": {
+    "corpus": "artifact",
+    "name": "Warblade",
+    "kind": "weapon",
+    "locator": "p148",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Melee sword wielded by Vel."
+    },
+    "combines": "Dual wielded with a warhammer",
+    "mechanism": "damage weapon",
+    "blocked_reason": "Plain weapon rules.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "aos-soulbound.artifact.aether-rig": {
+    "corpus": "artifact",
+    "name": "Aether-rig",
+    "kind": "artifact",
+    "locator": "p158",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Kharadron device with a Power Capacity that powers equipment; needs regular maintenance and aetheric ingots"
+    },
+    "cost_or_limit": "Power Capacity drops by 1 each adventure without maintenance",
+    "go_wrong": "Equipment may stop working",
+    "who_may": "Kharadron",
+    "combines": "Aetheric power ingots",
+    "mechanism": "",
+    "blocked": "item-state",
+    "blocked_reason": "Its capacity decays over time and must be tracked as item state.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.artifact.aether-gold": {
+    "corpus": "artifact",
+    "name": "Aether-gold",
+    "kind": "aether element",
+    "locator": "p194",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "cost_or_limit": "Without it skyships cannot stay aloft",
+    "go_wrong": "Sky-ports would crash to the ground",
+    "where_from": "aether-gold veins",
+    "combines": "powers skyship technology",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.artifact.jade-sceptre": {
+    "corpus": "artifact",
+    "name": "Jade Sceptre",
+    "kind": "sacred artefact",
+    "locator": "p252",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A magical sceptre, the most prized possession of Slaanesh, seldom far from his hand."
+    },
+    "who_may": "Slaanesh",
+    "where_from": "Slaanesh's possessions",
+    "mechanism": "",
+    "blocked": "item-bound-power",
+    "blocked_reason": "The sceptre is a magical item whose power is not stated, so it cannot be run as an item-bound power.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
    }
   },
   "aos_soulbound_creatures": {
@@ -13337,6 +13698,10 @@
     "combines": "A Last Stand refills the Binding’s Soulfire even when its maker is not bound",
     "blocked": "soul-state",
     "blocked_reason": "The passage ties a heroic death and spirit to a group resource, which needs soul-state handling.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.creature.orruks": {
@@ -13617,6 +13982,10 @@
     "combines": "Their survival relies on spirit essence taken from others.",
     "blocked": "soul-state",
     "blocked_reason": "Their defining survival problem and soul essence require rules for souls and their states.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.wanderers": {
@@ -14225,6 +14594,10 @@
     "mechanism": "Proximity-based combat bonus",
     "blocked": "area-field",
     "blocked_reason": "The bonus depends on counting creatures in a shared Zone.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.a-bittergrub-sylvaneth": {
@@ -14719,6 +15092,10 @@
     "mechanism": "Regeneration, magic resistance, and grappling",
     "blocked": "area-field",
     "blocked_reason": "Its followers create a hazard affecting non-Greenskins across its Zone.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.jabberslythe": {
@@ -14852,6 +15229,10 @@
      "summary": "A creature used as an example."
     },
     "blocked_reason": "No effect requiring a missing capability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.bloodreaver": {
@@ -14874,6 +15255,10 @@
     "who_may": "Khorne devotee corrupted from a mortal tribe.",
     "where_from": "Blades of Khorne.",
     "combines": "May wield an Axe or Meatripper Axe.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.blood-warrior": {
@@ -14898,6 +15283,10 @@
     "combines": "Uses Gorefist for a counter-punch; Death and Blood allows a final attack.",
     "blocked": "soul-state",
     "blocked_reason": "The creature makes an attack at the instant it would die, requiring a special death-state trigger.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.creature.grots": {
@@ -14969,6 +15358,10 @@
      "summary": "Jungle-dwelling beings who arrived to destroy the undead attackers and then stayed nearby."
     },
     "where_from": "Crucible of Life",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.flagellants": {
@@ -15026,6 +15419,10 @@
     },
     "where_from": "Aqshy",
     "blocked_reason": "No creature ability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.great-worms-of-ghur": {
@@ -15117,6 +15514,10 @@
     "where_from": "The wilds",
     "combines": "Associated with other dangerous beasts.",
     "blocked_reason": "No creature ability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.jabberslythes": {
@@ -15136,6 +15537,10 @@
     "where_from": "The wilds",
     "combines": "Associated with other dangerous beasts.",
     "blocked_reason": "No creature ability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.gargants": {
@@ -15260,6 +15665,10 @@
     "mechanism": "Inter-realm travel and risky substance use",
     "blocked": "spatial-storage",
     "blocked_reason": "Gnawholes connect distant realms through impossible tunnels.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.salamanders": {
@@ -15681,6 +16090,10 @@
     "where_from": "Hushed Hills",
     "combines": "Follow Ogwotz Da Magnificent.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.creature.plaguebearers": {
@@ -16909,6 +17322,10 @@
     "combines": "Its personalities may coalesce into a body.",
     "blocked": "form-transformation",
     "blocked_reason": "The passage describes a conditional change into a distinct physical form.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.the-three-eyed-king": {
@@ -16951,6 +17368,10 @@
     "combines": "Empowered by multiple gods.",
     "blocked": "power-transfer",
     "blocked_reason": "The description depends on divine empowerment with no defined transfer mechanism.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.creature.neferata": {
@@ -17006,6 +17427,10 @@
     "where_from": "Ghur",
     "combines": "Its jaws contain the Mawgate.",
     "blocked_reason": "No playable creature effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.argentine": {
@@ -17081,6 +17506,10 @@
     "who_may": "Chimerac",
     "blocked": "form-transformation",
     "blocked_reason": "The passage describes a being with multiple changing forms.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.creature.the-darkling-sorceresses": {
@@ -18517,6 +18946,149 @@
     "blocked": "mind-binding",
     "blocked_reason": "The madness described for the Courts imposes a continuing delusion.",
     "split": "held-out"
+   },
+   "aos-soulbound.creature.ghoul": {
+    "corpus": "creature",
+    "name": "Ghoul",
+    "kind": "creature",
+    "locator": "p153",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Hungry undead that keeps attacking fallen heroes."
+    },
+    "mechanism": "enemy stat block",
+    "blocked_reason": "Enemy stat block only.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.creature.ghyrlions": {
+    "corpus": "creature",
+    "name": "Ghyrlions",
+    "kind": "beast",
+    "locator": "p167",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Performing beasts kept by the Ys wanderers of Ghyran"
+    },
+    "where_from": "Ghyran",
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.creature.darkwalkers": {
+    "corpus": "creature",
+    "name": "Darkwalkers",
+    "kind": "Greatfray of Beastmen",
+    "locator": "p163",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Beastmen who hide realmgates and lead Chaos forces through them"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.creature.argentine-the-silver-wyrm-of-anvrok": {
+    "corpus": "creature",
+    "name": "Argentine, the Silver Wyrm of Anvrok",
+    "kind": "wyrm",
+    "locator": "p258",
+    "is_thing": true,
+    "effect": {
+     "verb": "alter",
+     "object": "heat",
+     "target": "area",
+     "time": "instant",
+     "summary": "Once heated the metals of Chamon so they flowed like rivers, before Chaos overthrew him."
+    },
+    "mechanism": "",
+    "blocked_reason": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.creature.dracothion-the-celestial-drake": {
+    "corpus": "creature",
+    "name": "Dracothion, the Celestial Drake",
+    "kind": "godbeast",
+    "locator": "p258",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A noble near-omniscient godbeast who rescued Sigmar and is part of Azyr's power."
+    },
+    "mechanism": "",
+    "blocked_reason": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.creature.greenskinz": {
+    "corpus": "creature",
+    "name": "Greenskinz",
+    "kind": "species",
+    "locator": "p292",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Ravening hordes barely held at bay."
+    },
+    "mechanism": "",
+    "blocked_reason": "Flavour entry.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.creature.megolofins": {
+    "corpus": "creature",
+    "name": "Megolofins",
+    "kind": "bestiary entry",
+    "locator": "p293",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Monstrous beasts of the trackless seas that are hunted."
+    },
+    "mechanism": "",
+    "blocked_reason": "Flavour entry.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.creature.godbeasts": {
+    "corpus": "creature",
+    "name": "Godbeasts",
+    "kind": "bestiary entry",
+    "locator": "p293",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Mighty beasts that play a role in the cosmos."
+    },
+    "mechanism": "",
+    "blocked_reason": "Flavour entry.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
    }
   },
   "aos_soulbound_places": {
@@ -18551,6 +19123,10 @@
     },
     "where_from": "Azyr.",
     "blocked_reason": "Not applicable.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.mount-celestian": {
@@ -18758,6 +19334,10 @@
     "where_from": "Mortal Realms",
     "combines": "Connected to the Eightpoints by a formerly available portal.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.shadowlands": {
@@ -18794,6 +19374,10 @@
     "where_from": "Umbral Veil, Ulgu",
     "combines": "Associated with Morathi and the Daughters of Khaine.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.khelt-narr": {
@@ -18917,6 +19501,10 @@
      "summary": "A port city whose ruling conclave may employ corsairs."
     },
     "combines": "Scourge Privateers may work for its ruling conclave.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.place.ghur": {
@@ -18994,6 +19582,10 @@
     "where_from": "Aqshy",
     "combines": "Contains ruins of interest to the Collegiate Arcane.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.stormrift-realmgate": {
@@ -19028,6 +19620,10 @@
     },
     "where_from": "Mortal Realms",
     "blocked_reason": "No effect requiring a missing capability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.anvilgard": {
@@ -19136,6 +19732,10 @@
      "summary": "A city engaged in an ongoing war with Tzeentch’s forces."
     },
     "combines": "Celestial Warbringers consulted on its war.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.mallus": {
@@ -19170,6 +19770,10 @@
      "summary": "A forest where an example battle takes place."
     },
     "blocked_reason": "No effect requiring a missing capability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.aetheric-void": {
@@ -19211,6 +19815,10 @@
     "mechanism": "Realm-wide transformation",
     "blocked": "soul-state",
     "blocked_reason": "The stated reshaping of souls and daemon persistence requires soul-state rules beyond the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.allpoints": {
@@ -19230,6 +19838,10 @@
     "where_from": "The aetheric emptiness between realms",
     "combines": "Once held eight towering portals and routes to realms and beyond.",
     "blocked_reason": "It is a location.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.free-cities": {
@@ -19269,6 +19881,10 @@
     "where_from": "Mortal Realms",
     "combines": "Associated with Aelven families and the Cities of Sigmar.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.tempest-s-eye": {
@@ -19291,6 +19907,10 @@
     "combines": "Castle Regal, seers, and ocular devices",
     "blocked": "divination",
     "blocked_reason": "Seeing through deception and time requires a divination capability beyond the basic effect grammar.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.place.phoenicium": {
@@ -20084,6 +20704,10 @@
     "where_from": "Ulgu",
     "combines": "Divided among competing kingdoms.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.place.umbral-veil": {
@@ -20123,6 +20747,10 @@
     "mechanism": "Mobile, modular settlement",
     "blocked": "spatial-storage",
     "blocked_reason": "Representing a city that can split into many component vessels requires spatial or modular storage beyond the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.place.cape-tenebrax": {
@@ -20140,6 +20768,10 @@
     },
     "combines": "Associated with Misthåvn.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.place.penumbral-sea": {
@@ -20158,6 +20790,10 @@
     "where_from": "Ulgu",
     "combines": "Borders Misthåvn and the Akkan Princedoms.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.place.host-duplicitous": {
@@ -20195,6 +20831,10 @@
     "where_from": "Ulgu",
     "combines": "Home to the Badsnatchers.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.akkan-princedoms": {
@@ -20213,6 +20853,10 @@
     "where_from": "Ulgu",
     "combines": "Border the Penumbral Sea.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.duskwall": {
@@ -20231,6 +20875,10 @@
     "where_from": "Ulgu",
     "combines": "Its merchant-princes include a victim of Skaven.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.brass-citadel": {
@@ -20249,6 +20897,10 @@
     "who_may": "Khorne.",
     "where_from": "Realm of Chaos.",
     "combines": "Associated with Khorne’s armies.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.garden-of-nurgle": {
@@ -20270,6 +20922,10 @@
     "where_from": "Realm of Chaos",
     "combines": "Frequently invaded from the Crystal Labyrinth.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.crystal-labyrinth": {
@@ -20292,6 +20948,10 @@
     "combines": "Its spikes penetrate the Garden of Nurgle.",
     "mechanism": "Changing environment",
     "blocked_reason": "A changing environment can be represented with basic form alteration.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "disputed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.slaanesh-s-realm": {
@@ -20330,6 +20990,10 @@
      "summary": "The Horned Rat’s seat of power and a natural source of warpstone."
     },
     "blocked_reason": "No playable effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.eightpoints": {
@@ -20352,6 +21016,10 @@
     "combines": "Contains Carngrad, Flayhaunt, and the Varanspire.",
     "mechanism": "Gateway network",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.carngrad": {
@@ -20415,6 +21083,10 @@
     "mechanism": "Non-Euclidean interior",
     "blocked": "spatial-storage",
     "blocked_reason": "An interior that violates ordinary spatial laws needs spatial-storage rules beyond the basic grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.fangathrak": {
@@ -20454,6 +21126,10 @@
     "where_from": "Ulgu",
     "combines": "The sects owe it obedience.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.barak-thryng": {
@@ -20473,6 +21149,10 @@
     "where_from": "Mortal Realms",
     "combines": "Its people follow the letter of the Kharadron Code.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.place.barak-mhornar": {
@@ -20492,6 +21172,10 @@
     "where_from": "Mortal Realms",
     "combines": "Its people creatively interpret the Kharadron Code.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.place.flamescar-plateau": {
@@ -22139,6 +22823,126 @@
     "combines": "Nurgle crafts diseases there.",
     "blocked_reason": "A location has no specific playable effect stated.",
     "split": "held-out"
+   },
+   "aos-soulbound.place.ulgu-the-realm-of-shadow": {
+    "corpus": "place",
+    "name": "Ulgu, the Realm of Shadow",
+    "kind": "realm",
+    "locator": "p182",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.place.morladron": {
+    "corpus": "place",
+    "name": "Morladron",
+    "kind": "Idoneth enclave",
+    "locator": "p182",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "aos-soulbound.place.khailebron": {
+    "corpus": "place",
+    "name": "Khailebron",
+    "kind": "city",
+    "locator": "p189",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.place.uhl-gysh-the-hidden-gloaming": {
+    "corpus": "place",
+    "name": "Uhl-Gysh, the Hidden Gloaming",
+    "kind": "realm between Hysh and Ulgu",
+    "locator": "p252",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "A hidden region between Hysh and Ulgu where the Aelf gods trapped Slaanesh."
+    },
+    "mechanism": "",
+    "blocked_reason": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.place.mawgate": {
+    "corpus": "place",
+    "name": "Mawgate",
+    "kind": "realmgate",
+    "locator": "p258",
+    "is_thing": true,
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "area",
+     "time": "instant",
+     "summary": "The Realmgate leading from Ghur to the All-Points."
+    },
+    "mechanism": "",
+    "blocked_reason": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "aos-soulbound.place.purple-sun-of-shyish": {
+    "corpus": "place",
+    "name": "Purple Sun of Shyish",
+    "kind": "endless spell",
+    "locator": "p264",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "An example endless spell, named on page 282 and only referenced here."
+    },
+    "mechanism": "",
+    "blocked_reason": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.place.underworlds-of-the-undying-king": {
+    "corpus": "place",
+    "name": "Underworlds of the Undying King",
+    "kind": "realm",
+    "locator": "p296",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Afterlife where souls may pass after death."
+    },
+    "mechanism": "",
+    "blocked_reason": "Setting description.",
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
    }
   },
   "aos_soulbound_institutions": {
@@ -22225,6 +23029,10 @@
     "combines": "Ur-gold.",
     "mechanism": "None stated.",
     "blocked_reason": "No game effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.institution.kharadron-overlords": {
@@ -22248,6 +23056,10 @@
     "combines": "Grungni’s teachings.",
     "mechanism": "None stated.",
     "blocked_reason": "No game effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.dispossessed-clans": {
@@ -22282,6 +23094,10 @@
     "where_from": "Cities of Sigmar",
     "combines": "Defends homes against monstrous and daemonic forces.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.ironweld-arsenal": {
@@ -22301,6 +23117,10 @@
     "where_from": "Cities of Sigmar",
     "combines": "Supplies the God-King’s armies.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.institution.grungni": {
@@ -22387,6 +23207,10 @@
     "who_may": "Wizards and students.",
     "where_from": "Founded in Azyrheim.",
     "blocked_reason": "Not applicable.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.institution.darkling-covens": {
@@ -22411,6 +23235,10 @@
     "mechanism": "Mind control",
     "blocked": "mind-binding",
     "blocked_reason": "Enslaving a target’s mind requires persistent mind-binding beyond the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "disputed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.institution.devoted-of-sigmar": {
@@ -22430,6 +23258,10 @@
     "where_from": "Across the Mortal Realms, especially Azyr.",
     "combines": "Some are empowered to perform miracles.",
     "blocked_reason": "Not applicable.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.scourge-privateers": {
@@ -22470,6 +23302,10 @@
     "where_from": "Azyr and the Mortal Realms",
     "combines": "Part of Sigmarite religious activity.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.free-peoples": {
@@ -22490,6 +23326,10 @@
     "where_from": "Mortal Realms",
     "combines": "United against common foes.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.daughters-of-khaine": {
@@ -22513,6 +23353,10 @@
     "combines": "Morathi; Witch Aelves.",
     "mechanism": "None stated.",
     "blocked_reason": "No game effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.morathi": {
@@ -22665,6 +23509,10 @@
     "who_may": "Aether-Khemists",
     "combines": "Membership is represented by a Talent",
     "blocked_reason": "No effect requiring a missing capability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.endrineers-guild": {
@@ -22683,6 +23531,10 @@
     "who_may": "Endrineers",
     "combines": "Membership is represented by a Talent",
     "blocked_reason": "No effect requiring a missing capability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.zharrgrim": {
@@ -22775,6 +23627,10 @@
     "where_from": "The Mortal Realms.",
     "combines": "Kharadron skyships, sky-ports, and Kharadron Code are mentioned.",
     "blocked_reason": "An institution or group entry has no special effect.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.stormhost": {
@@ -22793,6 +23649,10 @@
     "who_may": "Stormcast Eternals",
     "combines": "Recalled members rejoin its wars",
     "blocked_reason": "No effect requiring a missing capability is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.stormcast-eternals": {
@@ -22817,6 +23677,10 @@
     "mechanism": "Reforging after death",
     "blocked": "soul-state",
     "blocked_reason": "Returning a dead soul and repeatedly remaking its mind and body is beyond the basic effect grammar.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.ruinous-powers": {
@@ -22872,6 +23736,10 @@
      "summary": "An organisation whose mortal auxiliaries may support Stormcast Chambers."
     },
     "combines": "Supports Stormcast Chambers.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.sacrosanct-chambers": {
@@ -22908,6 +23776,10 @@
     "where_from": "Mortal Realms",
     "combines": "Led by Warden Kings.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.darkwalkers": {
@@ -22947,6 +23819,10 @@
     "where_from": "The Mortal Realms",
     "combines": "Employ catspaws to claim gates.",
     "blocked_reason": "They are organisations.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.institution.amethyst-princedoms": {
@@ -23257,6 +24133,10 @@
     "where_from": "Ulgu",
     "combines": "Associated with assassin-rats.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.wanderers": {
@@ -23276,6 +24156,10 @@
     "where_from": "Formerly Ghyran; took refuge in Azyr.",
     "combines": "Remnants of Ghyran’s fallen Aelven kingdoms.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.amber-college": {
@@ -23296,6 +24180,10 @@
     "where_from": "Ghur",
     "combines": "Part of the Collegiate Arcane.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.bright-college": {
@@ -23315,6 +24203,10 @@
     "where_from": "Mortal Realms",
     "combines": "Funds expeditions to the Great Parch.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.aspiria": {
@@ -23409,6 +24301,10 @@
     "where_from": "Excelsis",
     "combines": "Part of the Dispossessed.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.institution.gazul-zagaz": {
@@ -23428,6 +24324,10 @@
     "where_from": "Southern Shyish",
     "combines": "Part of the Dispossessed.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.kharadron-code": {
@@ -23450,6 +24350,10 @@
     "combines": "Structures relations among sky-ports and commercial ventures.",
     "mechanism": "Social and commercial code",
     "blocked_reason": "This is an institution’s code rather than a supernatural game mechanism.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.geldraad": {
@@ -23470,6 +24374,10 @@
     "where_from": "Kharadron society",
     "combines": "Oversees Admirals Councils.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.nav-league": {
@@ -23489,6 +24397,10 @@
     "where_from": "Kharadron sky-ports",
     "combines": "One of the common skyfarer guilds.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.arkanaut-training-academies": {
@@ -23527,6 +24439,10 @@
     "where_from": "Kharadron society",
     "combines": "Supplies Kharadron crews and officers.",
     "blocked_reason": "No game effect is specified.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.chambers": {
@@ -23948,6 +24864,10 @@
      "summary": "A group alleged to trade secrets and favours for study access."
     },
     "combines": "Associated with study at the House of Rising Embers.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.institution.searing-guard": {
@@ -24624,6 +25544,10 @@
     "combines": "Directly empowered by Nagash.",
     "blocked": "power-transfer",
     "blocked_reason": "Their defining power comes from direct divine empowerment.",
+    "second_reader": {
+     "blocked": "disputed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.mortis-crusades": {
@@ -24727,6 +25651,10 @@
      "summary": "A Skaven clan that worships the Great Corruptor aspect of the Horned Rat."
     },
     "blocked_reason": "No playable effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.clans-eshin": {
@@ -24743,6 +25671,10 @@
      "summary": "Skaven clans that commonly entreat the Deceiver aspect."
     },
     "blocked_reason": "No playable effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "tuned"
    },
    "aos-soulbound.institution.clans-skryre": {
@@ -24759,6 +25691,10 @@
      "summary": "A powerful Skaven clan whose rivalry with Pestilens threatens civil war."
     },
     "blocked_reason": "No playable effect is stated.",
+    "second_reader": {
+     "blocked": "confirmed",
+     "verb": "confirmed"
+    },
     "split": "held-out"
    },
    "aos-soulbound.institution.the-six-smiths": {
@@ -25085,6 +26021,261 @@
     "combines": "The WAAAGH! is described as a wave of violence and green energy.",
     "mechanism": "Faction and collective war culture",
     "blocked_reason": "The passage describes a faction and its beliefs, not a required mechanical effect.",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.binding": {
+    "corpus": "institution",
+    "name": "Binding",
+    "kind": "group",
+    "locator": "p152",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Group of Soulbound heroes sharing a Soulfire pool."
+    },
+    "who_may": "Soulbound characters",
+    "combines": "Shares Soulfire",
+    "mechanism": "group pool",
+    "blocked_reason": "Group pool only.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.fyreslayer-lodge": {
+    "corpus": "institution",
+    "name": "Fyreslayer Lodge",
+    "kind": "guild",
+    "locator": "p158",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Duardin lodges whose members undergo Grundtogg at home"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.hawthorns": {
+    "corpus": "institution",
+    "name": "Hawthorns",
+    "kind": "mercenary network",
+    "locator": "p168",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Professional killers who hunt Soulblight vampires"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.black-pipers": {
+    "corpus": "institution",
+    "name": "Black Pipers",
+    "kind": "guild",
+    "locator": "p168",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Freelance underjacks who eliminate Skaven infestations"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.the-folly": {
+    "corpus": "institution",
+    "name": "The Folly",
+    "kind": "theatre troupe",
+    "locator": "p168",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Aelven acrobats and singers who expose Slaaneshi cults"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.red-sisters": {
+    "corpus": "institution",
+    "name": "Red Sisters",
+    "kind": "troupe",
+    "locator": "p167",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Nomadic acrobats known across the realms"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.hotspur-guild": {
+    "corpus": "institution",
+    "name": "Hotspur Guild",
+    "kind": "guild",
+    "locator": "p167",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Bardic journeymen who carry news across The Great Parch"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.conclaves-of-sigmar": {
+    "corpus": "institution",
+    "name": "Conclaves of Sigmar",
+    "kind": "government",
+    "locator": "p168",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "City governing bodies that employ Freeguild police"
+    },
+    "mechanism": "",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.varanguard": {
+    "corpus": "institution",
+    "name": "Varanguard",
+    "kind": "warriors",
+    "locator": "p185",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.clans-skryre-and-pestilens": {
+    "corpus": "institution",
+    "name": "Clans Skryre and Pestilens",
+    "kind": "Skaven clans",
+    "locator": "p185",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.executioners": {
+    "corpus": "institution",
+    "name": "Executioners",
+    "kind": "warrior order",
+    "locator": "p188",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.black-guard": {
+    "corpus": "institution",
+    "name": "Black Guard",
+    "kind": "warriors",
+    "locator": "p188",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "tuned"
+   },
+   "aos-soulbound.institution.azyrite-church": {
+    "corpus": "institution",
+    "name": "Azyrite church",
+    "kind": "church",
+    "locator": "p190",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "none stated"
+    },
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.black-ark-corsairs": {
+    "corpus": "institution",
+    "name": "Black Ark Corsairs",
+    "kind": "faction",
+    "locator": "p293",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Corsair faction that hunts megolofins on the trackless seas."
+    },
+    "mechanism": "",
+    "blocked_reason": "Flavour entry.",
+    "second_reader": "haiku-only, review-only",
+    "split": "held-out"
+   },
+   "aos-soulbound.institution.bloodreavers": {
+    "corpus": "institution",
+    "name": "Bloodreavers",
+    "kind": "faction",
+    "locator": "p297",
+    "is_thing": true,
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Raiding group that can be snuck up on while feasting."
+    },
+    "mechanism": "",
+    "blocked_reason": "Flavour entry.",
+    "second_reader": "haiku-only, review-only",
     "split": "held-out"
    }
   },

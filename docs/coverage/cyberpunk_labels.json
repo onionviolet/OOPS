@@ -6,6 +6,15 @@
   "dropped_names_not_in_shard": 7,
   "level_lines_in_text": 0,
   "entities_listed": 64,
+  "second_reader": {
+   "sampled_shards": 0,
+   "luna_names": 0,
+   "haiku_names": 0,
+   "both": 0,
+   "haiku_only_added": 0,
+   "blocked_agree": 0,
+   "verb_agree": 0
+  },
   "split": "tuned when sha1(\"settings-v1:\"+id) first byte < 0x40, else held-out (GKM429)"
  },
  "score": {
