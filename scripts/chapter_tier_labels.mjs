@@ -147,5 +147,8 @@ if (existsSync(checksFile)) {
     scores.secondReader = {fieldsDropped: counts, source: 'docs/coverage/second_reader_checks.json'};
 }
 out.meta.scores = scores;
+// PWC27 writes its own section (scripts/chapter_effect_labels.mjs); keep it when this script rewrites the file.
+const prior = existsSync(`${root}docs/coverage/chapter_tier_labels.json`) ? json(`${root}docs/coverage/chapter_tier_labels.json`) : {};
+if (prior.effect_unknown) out.effect_unknown = prior.effect_unknown;
 writeFileSync(`${root}docs/coverage/chapter_tier_labels.json`, JSON.stringify(out).replace(/},"/g, '},\n"') + '\n');
 console.log(JSON.stringify(scores, null, 1));

@@ -6,6 +6,7 @@
 // Usage: node scripts/gu_coverage_ledgers.mjs [path/to/gu-identities.json]
 import {readFileSync, writeFileSync, mkdirSync, existsSync} from 'node:fs';
 import {join} from 'node:path';
+import {foldChapterEffect} from './chapter_effect_tier.mjs';
 import {GU_CASE_GAPS, GU_CASE_MODULE, guCaseNote} from '../src/world_packs/gu_effect_pack.js';
 import {GU_MOVE_CASE_MODULE, MOONBLADE_COVERAGE_ID, PLATE_SHELTER_COVERAGE_ID,
     TELEPORT_ARRAY_COVERAGE_ID, CLEANSING_ARRAY_COVERAGE_ID, THREE_HEADS_COVERAGE_ID,
@@ -235,7 +236,7 @@ const labelsOf = rows => Object.fromEntries(rows.map(row => [row.id, Object.from
     .filter(([key, value]) => !FIELDS.includes(key) && value !== null && value !== undefined))]));
 const out = join(root, 'docs/coverage');
 mkdirSync(out, {recursive: true});
-const write = (name, rows) => writeFileSync(join(out, name), rows.map(row => JSON.stringify(ledgerRow(row))).join('\n') + '\n');
+const write = (name, rows) => writeFileSync(join(out, name), rows.map(row => JSON.stringify(name === 'gu_kinds.jsonl' ? foldChapterEffect('gu_kinds', ledgerRow(row)) : ledgerRow(row))).join('\n') + '\n');
 write('gu_kinds.jsonl', kinds);
 write('gu_moves.jsonl', moves);
 writeFileSync(join(out, 'gu_labels.json'), JSON.stringify({kinds: labelsOf(kinds), moves: labelsOf(moves)}) + '\n');

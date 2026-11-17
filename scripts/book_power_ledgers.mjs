@@ -14,6 +14,7 @@
 import {createHash} from 'node:crypto';
 import {readFileSync, writeFileSync, existsSync, readdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {foldChapterEffect} from './chapter_effect_tier.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
 
 const root = new URL('..', import.meta.url).pathname;
@@ -308,7 +309,7 @@ export function buildLedger(side) {
             const stated = STATED.filter(k => l[k].stated); if (stated.length) bits.push(`Stated: ${stated.join(', ')}.`); }
         if (!l) bits.push('No evidence lines found for a sheet.');
         bits.push(`Full sheet in ${BOOKS[Object.keys(BOOKS).find(k => BOOKS[k].title === side.meta.book)].slug}_power_labels.json.`);
-        return {id, source: `${src.split(':')[0]}; ${r.nameSource.slice(0, 3).join(', ') || 'index'}`, state: stateOf(r), mechanisms: ['W'], test: null, note: bits.join(' ')};
+        return foldChapterEffect(`${side.meta.book ? BOOKS[Object.keys(BOOKS).find(k => BOOKS[k].title === side.meta.book)].slug : ''}_powers`, {id, source: `${src.split(':')[0]}; ${r.nameSource.slice(0, 3).join(', ') || 'index'}`, state: stateOf(r), mechanisms: ['W'], test: null, note: bits.join(' ')});
     });
 }
 function build(b) {

@@ -16,6 +16,7 @@
 //   OPENAI_API_KEY="$(security find-generic-password -a "$USER" -s openai-api-yairpg -w)" node scripts/litrpg_power_ledgers.mjs label --wait
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {foldChapterEffect} from './chapter_effect_tier.mjs';
 import {runPass} from './label_runner.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
 
@@ -213,7 +214,7 @@ export function build(argv) {
         const sheets = [], missing = [];
         for (const r of rows) { const rep = replies[r.id]?.reply; if (rep) sheets.push(sheetRow(r, rep)); else missing.push(r.id); }
         sheets.sort((a, b) => a.id.localeCompare(b.id));
-        writeFileSync(`${COVERAGE}${cfg.ledger}_powers.jsonl`, sheets.map(s => JSON.stringify(ledgerRow(s, book))).join('\n') + '\n');
+        writeFileSync(`${COVERAGE}${cfg.ledger}_powers.jsonl`, sheets.map(s => JSON.stringify(foldChapterEffect(`${cfg.ledger}_powers`, ledgerRow(s, book)))).join('\n') + '\n');
         writeFileSync(`${COVERAGE}${cfg.ledger}_powers_sheet.json`, JSON.stringify(sheets) + '\n');
         const states = {};
         for (const s of sheets) { const st = ledgerRow(s, book).state.split(':')[0]; states[st] = (states[st] ?? 0) + 1; }
