@@ -2,12 +2,17 @@
 // so the shell stops showing the native hero's purse, items and stat sheet over it. Nothing is stored, changed
 // or saved: the native hero and its inventory stay exactly as they are and show again in any other world.
 // The world supplies the words; the veil itself is CSS keyed on :root[data-own-holdings] (styles/world_look.css).
+import {syncCarriedSkills} from './ui/carried_skills.js';
 const worlds = new Map();
+// PS307: what a life's header and Skills say about the Village hero's things. `name` is the life's own person (the header shows it
+// instead of the native hero's "Hero"); `carried` is the note under the Skills "Carried from before" fold. WER9 says what carries is
+// stated per crossing and no start records it yet, so the default says that plainly instead of inventing an answer.
+export const CARRIED_SKILLS_NOTE = 'Carried across from before. Which of these your body here can use has not been settled.';
 // `readers` is optional: {purse(state) -> text, items(state) -> label[] | text}. They get the read-only expansion state the
 // shell already reads (see lifeHoldings) and win over the static text only while they return something usable.
 export function registerOwnHoldings(worldId, text, readers = {}) {
     if (typeof worldId !== 'string' || !worldId || !text?.purse || !text.items || !text.body) throw new TypeError('A world id and purse, items and body text are required.');
-    worlds.set(worldId, Object.freeze({purse: String(text.purse), items: String(text.items), body: String(text.body), readers: Object.freeze({purse: readers?.purse, items: readers?.items})}));
+    worlds.set(worldId, Object.freeze({purse: String(text.purse), items: String(text.items), body: String(text.body), ...(text.name ? {name: String(text.name)} : {}), ...(text.carried ? {carried: String(text.carried)} : {}), readers: Object.freeze({purse: readers?.purse, items: readers?.items})}));
     return () => worlds.delete(worldId);
 }
 export const ownHoldings = worldId => worlds.get(worldId) ?? null;
@@ -30,14 +35,29 @@ export function ownHoldingsView(worldId, state) {
     // G7: a reader may return rows ({label, detail}) as well as plain labels, so each owned thing gets its own line.
     const rows = Array.isArray(items) ? items.map(x => typeof x === 'string' ? {label: x, detail: ''} : {label: String(x?.label ?? ''), detail: String(x?.detail ?? '')}).filter(r => r.label) : [];
     const list = Array.isArray(items) ? rows.map(r => r.label).join(', ') : items;
-    return {purse: typeof purse === 'string' && purse ? purse : entry.purse, items: typeof list === 'string' && list ? list : entry.items, body: entry.body, ...(rows.length ? {rows} : {})};
+    return {purse: typeof purse === 'string' && purse ? purse : entry.purse, items: typeof list === 'string' && list ? list : entry.items, body: entry.body, ...(entry.carried ? {carried: entry.carried} : {}), ...(entry.name ? {name: entry.name} : {}), ...(rows.length ? {rows} : {})};
 }
 
 // Where each notice sits: inside the panel whose native content the veil hides.
 const NOTICE_HOSTS = [['inventory_div', 'items'], ['basic_character_info_div', 'body']];
+// PS307: the You header names the life's own person while that life is on screen; the player's own name comes back after. Display only.
+function syncLifeName(doc, entry) {
+    const field = doc.getElementById('character_name_field');
+    if (!field) return;
+    if (entry?.name) {
+        if (field.dataset.lifeName !== entry.name) {
+            if (!field.dataset.lifeName) field.dataset.ownName = field.value;
+            field.dataset.lifeName = entry.name; field.value = entry.name; field.readOnly = true; field.title = 'The name of the person you are here. Your own name comes back in your own life.';
+        }
+    } else if (field.dataset.lifeName) {
+        if (field.value === field.dataset.lifeName) field.value = field.dataset.ownName ?? field.value;
+        delete field.dataset.lifeName; delete field.dataset.ownName; field.readOnly = false; field.title = 'Your name. Click to rename.';
+    }
+}
 export function syncOwnHoldingsNotices(root, entry) {
     const doc = root?.ownerDocument;
     if (!doc) return;
+    syncLifeName(doc, entry); syncCarriedSkills(doc, entry && {carried: entry.carried ?? CARRIED_SKILLS_NOTE});
     for (const [hostId, key] of NOTICE_HOSTS) {
         const host = doc.getElementById(hostId), old = host?.querySelector(':scope > [data-own-holdings-notice]');
         if (!host) continue;

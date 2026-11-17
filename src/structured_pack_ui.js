@@ -1,3 +1,4 @@
+import {getDisplaySetting,subscribeDisplaySettings} from './display_settings.js';
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, expandWorkspaceModule} from './workspace_layout.js';
 import {setText} from './dom_sync.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
@@ -187,9 +188,9 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     row.repeat.hidden=!action.repeatable||times<2;row.repeat.disabled=row.act.disabled;
                     // A blocked repeat gives the act's own reason to the shared disabled-reason note, not its name (title), which it would print as a line.
                     const repeatWhy=row.repeat.disabled?(action.reasons[0]||'Not available now.'):'';if((row.repeat.dataset.disabledReason||'')!==repeatWhy){if(repeatWhy)row.repeat.dataset.disabledReason=repeatWhy;else delete row.repeat.dataset.disabledReason;}
-                    // A repeatable action, or one done before that can be done again, is the ordinary day, not the road ahead (G15): when it is blocked it stays here with its
-                    // reason in view, rather than joining the capped "Not available yet" list where shut story steps hide it.
-                    const home=action.eligible||pending||action.repeatable||action.completed>0&&!action.once?actions:notYetList;if(home===actions&&row.card.hidden)row.card.hidden=false;
+                    // PS304: an act that cannot run yet, ordinary or story, folds into the one "Not yet" line with its reason; only story steps are capped (G15).
+                    row.done=action.once&&action.completed>0&&!action.eligible&&!pending; // a finished one-off is history, not a thing not yet possible
+                    const home=action.eligible||pending?actions:notYetList;if(home===actions&&row.card.hidden)row.card.hidden=false;
                     if(row.card.parentNode!==home){const had=row.card.contains(document.activeElement);home.append(row.card);if(had)row.act.focus?.();}
                 }
             }
@@ -202,7 +203,10 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
             if(want.some((n,k)=>body.children[k]!==n))for(const n of [...want].reverse())body.prepend(n);}
         trim(actionRows,new Set(view.active?view.actions.map(a=>a.id):[]));
         // G15: the closed list shows the next few steps, not the whole road ahead; later ones appear as these open.
-        {const n=notYetList.children.length;notYet.hidden=!n;[...notYetList.children].forEach((card,i)=>{const hide=i>=NOT_YET_SHOWN;if(card.hidden!==hide)card.hidden=hide;});setText(notYetSummary,n>NOT_YET_SHOWN?`Not available yet (the next ${NOT_YET_SHOWN})`:`Not available yet (${n})`);if(notYet.parentElement!==story||story.lastChild!==notYet)story.append(notYet);story.hidden=live.steps.hidden&&notYet.hidden||!live.steps.childElementCount&&notYet.hidden;}
+        {const dial=getDisplaySetting('panel.look.notYet')??'folded',held=[...actionRows.values()].filter(r=>r.card.parentElement===notYetList);let shown=0;
+            for(const r of held){const hide=r.done||r.card.dataset.uiState==='blocked'&&shown++>=NOT_YET_SHOWN;if(r.card.hidden!==hide)r.card.hidden=hide;r.card.title=r.blockers.textContent||'';}
+            const open=held.filter(r=>!r.card.hidden),n=open.length;notYet.hidden=!n||dial==='hidden';if(notYet.dataset.dial!==dial){notYet.dataset.dial=dial;notYet.open=dial==='open';}
+            setText(notYetSummary,`Not yet (${n})`);notYetSummary.title=open.map(r=>`${r.act.textContent}: ${r.blockers.textContent}`).join('\n');if(notYet.parentElement!==story||story.lastChild!==notYet)story.append(notYet);story.hidden=live.steps.hidden&&notYet.hidden||!live.steps.childElementCount&&notYet.hidden;}
 trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         // PS55: a result line ends with "Next:" links to the ready or near rows that use what it names (next_steps.js reads the same rows as the hub),
         // and only on a Done line, once the gain is in hand rather than while it runs.
@@ -232,5 +236,5 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         });}});
     // G10: a life's own timed work stays with the life. Without an owner the Notebook claimed it and took the centre on every press (as UIC182 for the courtyard).
     const releaseWork=registerOwnedWorkPanel(work=>lastView?.actions.some(a=>a.id===work.commandId)||lastView?.jobs.some(j=>j.id===work.id)?'structured_pack_panel':null);
-    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){clearInterval(timer);releaseWork();releaseReady();releaseGuTab?.();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
+    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const offDial=subscribeDisplaySettings(()=>render(true)),timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){offDial();clearInterval(timer);releaseWork();releaseReady();releaseGuTab?.();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
 }

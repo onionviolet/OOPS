@@ -43,6 +43,12 @@ export const LOOK_OPTIONS = Object.freeze([
         choices: Object.freeze([['reports', 'In Reports (classic)'], ['box', 'In the fight box'], ['cards', 'On each card']]),
         sheets: Object.freeze({reports: '', box: '', cards: ''}),
         description: 'Where a fight tells what just happened: in Reports under Combat, as the original game does; also the last six lines under the moves; or also each fighter\'s own latest line under its card.'}),
+    // PS304 (proposal, default folded): a life's centre leads with what can be done now; acts that cannot run yet fold into one
+    // "Not yet (n)" line, each with its reason. Open lists them with their reasons; Hidden removes the line (Ready now still shows them).
+    Object.freeze({id: 'notYet', label: 'Not yet acts', default: 'folded',
+        choices: Object.freeze([['folded', 'Folded'], ['open', 'Open'], ['hidden', 'Hidden']]),
+        sheets: Object.freeze({folded: '', open: '', hidden: ''}),
+        description: 'Acts that cannot run yet (a missing input or a lesson first): Folded puts them in one "Not yet" line you can open, Open lists each with its reason, Hidden leaves them to Ready now.'}),
 ]);
 
 /** Pure: the variant code from a query string, or '' when absent or not a plain code. */

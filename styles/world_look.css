@@ -31,3 +31,9 @@
 /* G6: a life with its own body and belongings is not the home hero, so the home hero's pacing and gear-wear
    boxes do not sit under Here in it. They return in any world the home hero walks. */
 :root[data-own-holdings="on"] :is(#pacing_status_panel, #durability_panel) { display: none !important; }
+
+/* PS307: the native level is the Village hero's, not this life's; the carried-skills fold hides the list while shut. */
+:root[data-own-holdings="on"] #character_vitals_level { display: none; }
+details.skills-carried:not([open]) ~ #skill_list, details.skills-carried:not(:has(~ #skill_list .skill_div)) { display: none; }
+details.skills-carried > summary { cursor: pointer; }
+details.skills-carried > p { margin: var(--ui-space-hairline) 0; color: var(--ui-muted); font-size: var(--ui-type-small); }

@@ -95,7 +95,7 @@ export function registerHpLeadDomain(register,getState,ports=null,data){
     registerDutySet('hp',hpDutySet(getState)); // FD8: inactive until a later act sets hp.lead.atSchool
 
     // The life holds nothing of its own to spend or carry (hpLeadLife.items is empty, no resources), so the shell says so.
-    if(ports)registerOwnHoldings(`${LEAD_ID}.world`,{purse:'no money of your own',items:'You carry nothing of your own.',body:'Your body here is not the Village hero\'s sheet.'},hpLeadHoldingsReaders());
+    if(ports)registerOwnHoldings(`${LEAD_ID}.world`,{purse:'no money of your own',items:'You carry nothing of your own.',body:'Your body here is not the Village hero\'s sheet.',name:'Harry Potter'},hpLeadHoldingsReaders());
     registerHpPeopleSource();
     return register({id:'hp',deps:[],projection:()=>hpLeadProjection(getState(),data),refresh:()=>panel?.render(),
         panels:ports?[()=>{panel=createHpLeadPanel({project:()=>hpLeadProjection(getState(),data),read:ports.read,command:ports.command,keepSlot:()=>keepClassSlot(domainRegistry),homeAct:request=>domainRegistry.command('homes','execute')(domainRegistry.command('homes','quote')(request)),study:{rows:()=>hpStudyRows(domainRegistry),start:id=>hpStudyStart(domainRegistry,id),writeNote:id=>hpStudyWriteNote(domainRegistry,id)}});}]:[]});

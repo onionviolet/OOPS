@@ -132,3 +132,24 @@ test('purseEffect: one effect shape for native and actor purses', async () => {
     assert.equal(purseBalance({}, NATIVE_PURSE), undefined);
     assert.throws(() => purseEffect(NaN), TypeError);
 });
+
+// PS307 (proposal): the header names the life's own person; skills still listed are carried, under their own fold with the WER9 gap said plainly.
+test('a life with its own person names them in the header and puts the Village hero\'s skills under a Carried fold', async () => {
+    const {syncOwnHoldingsNotices, CARRIED_SKILLS_NOTE} = await import('../src/own_holdings.js');
+    const off = registerOwnHoldings(W, {...TEXT, name: 'Harry Potter'});
+    try {
+        const entry = ownHoldingsView(W, stateWith(0));
+        assert.equal(entry.name, 'Harry Potter'); assert.equal(entry.carried, undefined, 'the default note comes from the fold');
+        const field = {value: 'Hero', dataset: {}, readOnly: false, title: ''}, placed = [];
+        const parent = {querySelector: () => placed[0] ?? null};
+        const list = {parentNode: parent, before: n => placed.unshift(n)};
+        const made = [];
+        globalThis.document = {createElement: tag => { const n = {tag, className: '', textContent: '', open: false, children: [], append(...k) { this.children.push(...k); }, remove() { placed.shift(); }, querySelector() { return this.children[1] ?? null; }}; made.push(n); return n; }};
+        const doc = {getElementById: id => ({character_name_field: field, skill_list: list})[id] ?? null, createElement: () => ({dataset: {}})};
+        syncOwnHoldingsNotices({ownerDocument: doc}, entry);
+        assert.equal(field.value, 'Harry Potter'); assert.equal(field.readOnly, true);
+        assert.equal(placed.length, 1, 'the fold sits before the Skills list'); assert.equal(placed[0].tag, 'details'); assert.equal(placed[0].children[1].textContent, CARRIED_SKILLS_NOTE);
+        syncOwnHoldingsNotices({ownerDocument: doc}, null);
+        assert.equal(field.value, 'Hero', 'the player\'s own name comes back'); assert.equal(field.readOnly, false); assert.equal(placed.length, 0, 'and the fold goes');
+    } finally { off(); delete globalThis.document; }
+});
