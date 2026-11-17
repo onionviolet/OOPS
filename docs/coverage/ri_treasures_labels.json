@@ -1,0 +1,6216 @@
+{
+ "ledger": "ri_treasures",
+ "what": "non-Gu treasures: heaven-and-earth materials, Immortal materials, formations, resource points and items",
+ "denominator": "Reverend Insanity wiki categories Materials and Resources (75), Items, Immortal Materials, Gu Formation(s), Immortal Gu Formation(s), Ancient Battle Formations, Natural Formations, Resource Points, World Objects and Phenomena, minus every page in a Gu category, union by page title (reverendinsanity_pages_current)",
+ "count": 91,
+ "split_rule": "Rows are ordered by sha1 of \"artifacts-v1:<id>\" and the first quarter (first hex byte below 0x40) are the tuning sample, the only rows the prompt or normaliser was adjusted on; every other row is held out and reported (GKM429). Dial: seed and fraction; the fixed seed is the reported one.",
+ "score": {
+  "label": "the wiki category kind (material, immortal-material, formation, resource-point, item, phenomenon; first match; hidden). Weak: the page rarely hides what it is",
+  "baseline_class": "material",
+  "tuned": {
+   "n": 22,
+   "hit": 12,
+   "baseline": 20,
+   "within1": null
+  },
+  "held_out": {
+   "n": 69,
+   "hit": 33,
+   "baseline": 55,
+   "within1": null
+  }
+ },
+ "fold": {
+  "class_guess": "not folded (does not beat the baseline class on held-out rows)"
+ },
+ "sheets": {
+  "ri.treasure.acupuncture_tree": {
+   "name": "Acupuncture Tree",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50064",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu refiners can use its parts as materials for Gu refinement.",
+     "locator": "wiki:Acupuncture Tree#Use",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "It grows in deserts in Western Desert.",
+     "locator": "wiki:Acupuncture Tree#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "Find or acquire the plant in a desert; its parts can be used for Gu refinement. No cost is stated.",
+     "locator": "wiki:Acupuncture Tree#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.affinity_wood": {
+   "name": "Affinity Wood",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 64326",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It grows as floating, rootless trees in the air; it is found in Iron Eagle Blessed Land.",
+     "locator": "wiki:Affinity Wood#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Any disturbance during gathering can destroy the fragile material.",
+     "locator": "wiki:Affinity Wood#intro",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.ancient_ink_kelp": {
+   "name": "Ancient Ink Kelp",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50095",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "transform",
+     "object": "thing",
+     "target": "area",
+     "time": "lasting",
+     "summary": "When its skin is torn, it dyes the surrounding water pitch black like ink.",
+     "locator": "wiki:Ancient Ink Kelp#Background",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "A Gu Master or Immortal could use it as an immortal material, but no specific use or user is stated.",
+     "locator": "wiki:Ancient Ink Kelp#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer might acquire it as a Rank 6 immortal material; no source or acquisition method is stated.",
+     "locator": "wiki:Ancient Ink Kelp#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.azure_divine_stone_furnace_fire": {
+   "name": "Azure Divine Stone Furnace Fire",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 57070",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It is rarely, if ever, found in the current era.",
+     "locator": "wiki:Azure Divine Stone Furnace Fire#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer might encounter it by finding it in the Gu World, though it is rarely, if ever, found in the current era; no acquisition cost is stated.",
+     "locator": "wiki:Azure Divine Stone Furnace Fire#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "The material is mentioned in the Legends of Ren Zu account of the three flames of Heaven, Earth, and Human.",
+     "locator": "wiki:Azure Divine Stone Furnace Fire#Legend of Ren Zu",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ri.treasure.bewilderment_fog": {
+   "name": "Bewilderment Fog",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50222",
+   "sheet": {
+    "kind": "phenomenon",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.bewitching_soup": {
+   "name": "Bewitching Soup",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50226",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.black_lanterns": {
+   "name": "Black lanterns",
+   "split": "held-out",
+   "label": "phenomenon",
+   "locator": "reverendinsanity pages_current oldid 62758",
+   "sheet": {
+    "kind": "phenomenon",
+    "effect": {
+     "verb": "alter",
+     "object": "light",
+     "target": "line",
+     "time": "lasting",
+     "summary": "Its blind fire causes permanent blindness in those who observe it.",
+     "locator": "wiki:Black lanterns#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Masters and Immortals may encounter it; it is hazardous to observers, not something stated to be used for refining, feeding, defence, or trade.",
+     "locator": "wiki:Black lanterns#Volume 4",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "A natural phenomenon found in Black Heaven.",
+     "locator": "wiki:Black lanterns#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Prolonged or direct observation weakens and blurs vision, eventually causing permanent blindness; investigative killer moves accelerate the harm.",
+     "locator": "wiki:Black lanterns#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "Investigative killer moves expose perception directly and accelerate blindness.",
+     "locator": "wiki:Black lanterns#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "Closing one's eyes prevents further damage.",
+     "locator": "wiki:Black lanterns#Volume 4",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "value": "A newcomer could encounter it while traveling through Black Heaven; no cost is stated.",
+     "locator": "wiki:Black lanterns#Volume 4",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.black_rock": {
+   "name": "Black Rock",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 54294",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect is stated.",
+     "locator": "wiki:Black Rock",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.black_white_overturning_cloud": {
+   "name": "Black-White Overturning Cloud",
+   "split": "held-out",
+   "label": "phenomenon",
+   "locator": "reverendinsanity pages_current oldid 63710",
+   "sheet": {
+    "kind": "phenomenon",
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Connects black heaven and white heaven, allowing anything to pass between them, but the destination is uncertain.",
+     "locator": "wiki:Black-White Overturning Cloud#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Occurs naturally in black heaven and white heaven.",
+     "locator": "wiki:Black-White Overturning Cloud#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Travel through it may lead to an uncertain destination.",
+     "locator": "wiki:Black-White Overturning Cloud#intro",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.blood_jasper": {
+   "name": "Blood Jasper",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50321",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "transform",
+     "object": "thing",
+     "target": "self",
+     "time": "delayed",
+     "summary": "After seven days and nights, a Blood Jasper may transform into a Rank 1 Blood Jasper Gu.",
+     "locator": "wiki:Blood Jasper#Background",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Dew from flowers and plants may transform under dawn rays; if it endures seven cold nights, it becomes a Blood Jasper.",
+     "locator": "wiki:Blood Jasper#Background",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.blood_red_immortal_essence_formation": {
+   "name": "Blood Red Immortal Essence Formation",
+   "split": "held-out",
+   "label": "formation",
+   "locator": "reverendinsanity pages_current oldid 64238",
+   "sheet": {
+    "kind": "formation",
+    "effect": {
+     "verb": "transform",
+     "object": "essence",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Converts immortal essence stones placed inside it into red date immortal essence.",
+     "locator": "wiki:Blood Red Immortal Essence Formation#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "Immortal essence stones are converted in the formation.",
+     "locator": "wiki:Blood Red Immortal Essence Formation#intro",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "value": "Fang Yuan is listed as a user; the formation is used to convert immortal essence stones into red date immortal essence.",
+     "locator": "wiki:Blood Red Immortal Essence Formation#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Created by Fang Yuan.",
+     "locator": "wiki:Blood Red Immortal Essence Formation#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.blood_sickle_grass": {
+   "name": "Blood Sickle Grass",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50338",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No independent effect is stated; it is used to refine Rank 3 Gu.",
+     "locator": "wiki:Blood Sickle Grass#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu refiners can use it to refine Rank 3 Gu.",
+     "locator": "wiki:Blood Sickle Grass#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.blood_zhi_forest": {
+   "name": "Blood Zhi Forest",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50354",
+   "sheet": {
+    "kind": "place-resource",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Its function is stated to match an ordinary Zhi Forest, but that function is not specified.",
+     "locator": "wiki:Blood Zhi Forest#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "A Blood Poison Kerria calamity transforms ordinary Zhi Forests into Blood Zhi Forests.",
+     "locator": "wiki:Blood Zhi Forest#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.blue_degree_grass": {
+   "name": "Blue Degree Grass",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50359",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No independent effect is stated; it is used to refine Rank 1–2 Gu.",
+     "locator": "wiki:Blue Degree Grass#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Masters or Immortals may use it to refine Rank 1–2 Gu.",
+     "locator": "wiki:Blue Degree Grass#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could acquire it for use in refining Rank 1–2 Gu; how to obtain it and any cost are unstated.",
+     "locator": "wiki:Blue Degree Grass#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.bright_light_glorious_ring_fire": {
+   "name": "Bright Light Glorious Ring Fire",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50403",
+   "sheet": {
+    "kind": "artifact",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.cloud_smoke_tea": {
+   "name": "Cloud Smoke Tea",
+   "split": "held-out",
+   "label": "item",
+   "locator": "reverendinsanity pages_current oldid 50555",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect or use is stated.",
+     "locator": "wiki:Cloud Smoke Tea",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Its main ingredient is float ball tea grass.",
+     "locator": "wiki:Cloud Smoke Tea#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.cold_ice_stone": {
+   "name": "Cold Ice Stone",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50564",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.cold_moon_divine_bravery": {
+   "name": "Cold Moon Divine Bravery",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50567",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No use or active effect is stated.",
+     "locator": "wiki:Cold Moon Divine Bravery",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "No user or use is stated.",
+     "locator": "wiki:Cold Moon Divine Bravery",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Condenses from moonlight at the center of the desert over ten thousand years.",
+     "locator": "wiki:Cold Moon Divine Bravery#Background",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "Could be acquired through Treasure Yellow Heaven, where it is priceless; a specific acquisition method is not stated.",
+     "locator": "wiki:Cold Moon Divine Bravery#Background",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.crack_divine_water": {
+   "name": "Crack Divine Water",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50595",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Extracted from the deepest part of a Great Lake; only about ten to fifteen kilograms may be found in a hundred years.",
+     "locator": "wiki:Crack Divine Water#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.dark_inkstone": {
+   "name": "Dark Inkstone",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50632",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect or use is stated.",
+     "locator": "wiki:Dark Inkstone",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.dark_soft_silk": {
+   "name": "Dark Soft Silk",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 64325",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "It can be used in a formation to create Coiling Thread Caves.",
+     "locator": "wiki:Dark Soft Silk#intro",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.death_water": {
+   "name": "Death Water",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50646",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.divine_deer_fruit": {
+   "name": "Divine Deer Fruit",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50711",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Grows on the antlers of Fruit Deer, a type of deer desolate beast; it does not grow on trees or plants.",
+     "locator": "wiki:Divine Deer Fruit#Background",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.dragon_side_tooth": {
+   "name": "Dragon-Side Tooth",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50759",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No direct effect is stated.",
+     "locator": "wiki:Dragon-Side Tooth",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Used as refinement material; who can use it is not specified.",
+     "locator": "wiki:Dragon-Side Tooth#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.drunk_immortal_qi": {
+   "name": "Drunk Immortal Qi",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50806",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "none",
+     "time": "none",
+     "summary": "Can make even Gu Immortals drunk.",
+     "locator": "wiki:Drunk Immortal Qi#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It can only be created in a special environment.",
+     "locator": "wiki:Drunk Immortal Qi#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.falling_heavenly_river": {
+   "name": "Falling Heavenly River",
+   "split": "held-out",
+   "label": "phenomenon",
+   "locator": "reverendinsanity pages_current oldid 64123",
+   "sheet": {
+    "kind": "phenomenon",
+    "effect": {
+     "verb": "move",
+     "object": "force",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Its powerful current sweeps through the riverbed; it is much stronger by day than by night.",
+     "locator": "wiki:Falling Heavenly River#Nature",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It comes from the heavens; its source is where Bo Qing perished.",
+     "locator": "wiki:Falling Heavenly River#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Hidden currents, whirlpools, and other natural traps can kill even a Gu Immortal.",
+     "locator": "wiki:Falling Heavenly River#intro",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "Central Continent Gu Immortals have differing theories about its origin.",
+     "locator": "wiki:Falling Heavenly River#Origin",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ri.treasure.fan_door_wind": {
+   "name": "Fan Door Wind",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 50947",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "alter",
+     "object": "form",
+     "target": "touched",
+     "time": "lasting",
+     "summary": "Its production leaves the mortal’s door unable to close and stuck open.",
+     "locator": "wiki:Fan Door Wind#Background",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Masters quickly notice it, and Gu Immortals come to collect it; its use was initially unknown.",
+     "locator": "wiki:Fan Door Wind#Background",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "It grows in the doors of mortal homes, rather than in forests, mountains, or the sky.",
+     "locator": "wiki:Fan Door Wind#Background",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "When it appears, the mortal’s door cannot close and remains open.",
+     "locator": "wiki:Fan Door Wind#Background",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A Gu Immortal could collect it from a mortal’s home after it appears; its use was initially unknown.",
+     "locator": "wiki:Fan Door Wind#Background",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "Its use was initially unknown, though profound methods and plans for making use of it existed.",
+     "locator": "wiki:Fan Door Wind#Background",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ri.treasure.fire_rainbow_tea": {
+   "name": "Fire Rainbow Tea",
+   "split": "held-out",
+   "label": "item",
+   "locator": "reverendinsanity pages_current oldid 51027",
+   "sheet": {
+    "kind": "consumable",
+    "effect": {
+     "verb": "sense",
+     "object": "information",
+     "target": "self",
+     "time": "instant",
+     "summary": "After drinking it in one mouthful, the drinker can taste the true fire rainbow tea.",
+     "locator": "wiki:Fire Rainbow Tea#Appearance",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.float_ball_tea": {
+   "name": "Float Ball Tea",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51072",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Mature plants yield large quantities of Float Ball Tea Grass.",
+     "locator": "wiki:Float Ball Tea#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "It takes a few years for the plants to mature.",
+     "locator": "wiki:Float Ball Tea#intro",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "value": "A Gu Master can cultivate it, harvest it, and sell the harvest.",
+     "locator": "wiki:Float Ball Tea#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Seeds are very common; the plants grow slowly while floating in the air.",
+     "locator": "wiki:Float Ball Tea#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A Gu Master could obtain common seeds, cultivate the plants for a few years, then harvest and sell them.",
+     "locator": "wiki:Float Ball Tea#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.float_ball_tea_grass": {
+   "name": "Float Ball Tea Grass",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51073",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Masters or Immortals may trade it; no specific use is stated.",
+     "locator": "wiki:Float Ball Tea Grass#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "It originated from Float Ball Tea.",
+     "locator": "wiki:Float Ball Tea Grass#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A Gu Master or Immortal could acquire it through the market; its price is not stated.",
+     "locator": "wiki:Float Ball Tea Grass#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.frost_jade_essence": {
+   "name": "Frost Jade Essence",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51161",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect or use is stated.",
+     "locator": "wiki:Frost Jade Essence",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Its listed location is Frosty Peak.",
+     "locator": "wiki:Frost Jade Essence#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.golden_wheat": {
+   "name": "Golden Wheat",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 62764",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Metal essence grown as golden wheat; no specific power is stated.",
+     "locator": "wiki:Golden Wheat#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "The Hei Tribe grows it; Gu Immortals have limited direct use for it, and it can be traded in bulk.",
+     "locator": "wiki:Golden Wheat#Characteristics",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Grown in the Hei Tribe’s wheat field in Northern Plains; harvested every two years.",
+     "locator": "wiki:Golden Wheat#Characteristics",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could acquire it by buying it in bulk; the wheat field has also been plundered. No purchase price is specified.",
+     "locator": "wiki:Golden Wheat#Characteristics",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.grand_white_moon_gold": {
+   "name": "Grand White Moon Gold",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51281",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect is stated.",
+     "locator": "wiki:Grand White Moon Gold",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Used for refinement; who can use it is not specified.",
+     "locator": "wiki:Grand White Moon Gold#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.great_lake_soil": {
+   "name": "Great Lake Soil",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51299",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.green_pond_rotten_soil": {
+   "name": "Green Pond Rotten Soil",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 54315",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It originates ten thousand feet beneath a rotten, poisonous marsh.",
+     "locator": "wiki:Green Pond Rotten Soil#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "It is extremely toxic.",
+     "locator": "wiki:Green Pond Rotten Soil#intro",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.gu_as_before_formation": {
+   "name": "Gu As Before Formation",
+   "split": "held-out",
+   "label": "formation",
+   "locator": "reverendinsanity pages_current oldid 61636",
+   "sheet": {
+    "kind": "formation",
+    "effect": {
+     "verb": "transform",
+     "object": "form",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Restores damaged Gu or objects to a stable prior state and can halt self-destruction.",
+     "locator": "wiki:Gu As Before Formation#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Fang Yuan is listed as its user; Gu Masters or Immortals could use it for repair and stopping self-destruction.",
+     "locator": "wiki:Gu As Before Formation#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Fang Yuan constructed it using prior research and deductions.",
+     "locator": "wiki:Gu As Before Formation#Volume 6",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "It requires millions of mortal Gu and more than twenty Immortal Gu from Refinement, Time, and Rule paths.",
+     "locator": "wiki:Gu As Before Formation#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could plausibly acquire or use it by obtaining the formation Fang Yuan constructed; it requires millions of mortal Gu and over twenty Immortal Gu.",
+     "locator": "wiki:Gu As Before Formation#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "Fang Yuan developed it; the evidence does not say who else knows how it works.",
+     "locator": "wiki:Gu As Before Formation#Volume 6",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ri.treasure.gu_formation": {
+   "name": "Gu Formation",
+   "split": "tuned",
+   "label": "formation",
+   "locator": "reverendinsanity pages_current oldid 63696",
+   "sheet": {
+    "kind": "formation",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Assembles multiple Gu to produce a specific effect, which varies by formation.",
+     "locator": "wiki:Gu Formation#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "Mental energy is needed to control the Gu when the formation is first set up and activated.",
+     "locator": "wiki:Gu Formation#intro",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "value": "A user able to control its Gu; making an immortal formation from mortal Gu in an area with abundant natural dao marks requires sufficient formation-path attainment.",
+     "locator": "wiki:Gu Formation#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Set up by placing Gu in a designated area; immortal formations can use immortal materials, or mortal Gu with abundant natural dao marks and sufficient formation-path attainment.",
+     "locator": "wiki:Gu Formation#Gu Formations VS Battlefield Killer Moves",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "If destroyed, it causes lighter backlash to its user than a battlefield killer move; its core Gu can be destroyed or removed.",
+     "locator": "wiki:Gu Formation#Gu Formations VS Battlefield Killer Moves",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "Consists of multiple Gu and can itself consist of a main formation and sub-formations.",
+     "locator": "wiki:Gu Formation#intro",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "Destroying or removing its core Gu can undermine it.",
+     "locator": "wiki:Gu Formation#Gu Formations VS Battlefield Killer Moves",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "value": "A newcomer could encounter one placed at a key location of a large organization, or use one for teleportation, concealment from investigative methods, more efficient refinement or deduction, or defence.",
+     "locator": "wiki:Gu Formation#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.heaven_attached_fungi": {
+   "name": "Heaven Attached Fungi",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 64324",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No active effect is stated.",
+     "locator": "wiki:Heaven Attached Fungi",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Native to the Immemorial Nine Heavens; it grows only where there are no foreign dao marks.",
+     "locator": "wiki:Heaven Attached Fungi#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.heaven_flying_jade": {
+   "name": "Heaven Flying Jade",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51475",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "move",
+     "object": "position",
+     "target": "self",
+     "time": "sustained",
+     "summary": "Allows a person to fly in Azure Heaven.",
+     "locator": "wiki:Heaven Flying Jade#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.heaven_metal": {
+   "name": "Heaven Metal",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53891",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No use or effect is stated.",
+     "locator": "wiki:Heaven Metal",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "Its value is on par with Rule Eye Blood.",
+     "locator": "wiki:Heaven Metal#intro",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It originated from the immemorial nine heavens.",
+     "locator": "wiki:Heaven Metal#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.heavenly_chasm": {
+   "name": "Heavenly Chasm",
+   "split": "tuned",
+   "label": "immortal-material",
+   "locator": "reverendinsanity pages_current oldid 64507",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "block",
+     "object": "position",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Forms a massive, invisible, impassable spatial barrier.",
+     "locator": "wiki:Heavenly Chasm#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Found in White Heaven, including around Crazed Demon Cave.",
+     "locator": "wiki:Heavenly Chasm#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Its scale can trap Gu Immortals or force them to detour; investigative methods may fail to map its boundaries.",
+     "locator": "wiki:Heavenly Chasm#Appearance and Properties",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "Fang Yuan destroyed Heavenly Chasm to clear the battlefield and harvest the region's heaven path dao marks.",
+     "locator": "wiki:Heavenly Chasm#Volume 6",
+     "speaker": "wiki"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "Overwhelming power can break through it; it can also be destroyed.",
+     "locator": "wiki:Heavenly Chasm#Volume 6",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "Investigative methods may fail to map its full boundaries or distribution.",
+     "locator": "wiki:Heavenly Chasm#Appearance and Properties",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ri.treasure.hibiscus_stalactite": {
+   "name": "Hibiscus Stalactite",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51534",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "self",
+     "time": "delayed",
+     "summary": "Produces one drop of Stone Heart Liquid each year.",
+     "locator": "wiki:Hibiscus Stalactite#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.ice_heart": {
+   "name": "Ice Heart",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51631",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Can be used to create Rank 6 Immortal Gu; the user is not specified.",
+     "locator": "wiki:Ice Heart#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Grows only on ten-million-year-old ice mountains.",
+     "locator": "wiki:Ice Heart#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.ice_path_crystal_essence": {
+   "name": "Ice Path Crystal Essence",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51636",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "alter",
+     "object": "form",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Its icy smoke can spread and alter the surroundings, carving ice and snow path dao marks and making habitat for snowmen and snow monsters.",
+     "locator": "wiki:Ice Path Crystal Essence#Uses",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Generally found in Hu Land.",
+     "locator": "wiki:Ice Path Crystal Essence#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.immemorial_year_beast_fishing_formation": {
+   "name": "Immemorial Year Beast Fishing Formation",
+   "split": "held-out",
+   "label": "formation",
+   "locator": "reverendinsanity pages_current oldid 64497",
+   "sheet": {
+    "kind": "formation",
+    "effect": {
+     "verb": "bind",
+     "object": "thing",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Attracts ancient desolate and immemorial year beasts and traps them without controlling them.",
+     "locator": "wiki:Immemorial Year Beast Fishing Formation#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Hei Fan created it, and Fang Yuan constructed and used it after acquiring Hei Fan’s true inheritance to capture beasts for battle strength and resources.",
+     "locator": "wiki:Immemorial Year Beast Fishing Formation#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Hei Fan created it near the end of his life as part of his Time Path true inheritance.",
+     "locator": "wiki:Immemorial Year Beast Fishing Formation#Remote Antiquity Era",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "Captured beasts require separate enslavement methods to subdue; Fang Yuan also integrated the formation with a flood discharge formation for resource gathering.",
+     "locator": "wiki:Immemorial Year Beast Fishing Formation#Volume 5",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could acquire Hei Fan’s true inheritance, construct the formation, then use it to lure beasts for battle strength or resources; no acquisition cost is stated.",
+     "locator": "wiki:Immemorial Year Beast Fishing Formation#Volume 5",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.immortal_essence_stone": {
+   "name": "Immortal Essence Stone",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 63583",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "sustained",
+     "summary": "A Gu Immortal can use the stone to replenish immortal essence during or after a fight.",
+     "locator": "wiki:Immortal Essence Stone#Use in Cultivation",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Immortals use the stones as currency and to replenish immortal essence in cultivation.",
+     "locator": "wiki:Immortal Essence Stone#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Artificially created by Heavenly Court.",
+     "locator": "wiki:Immortal Essence Stone#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A Gu Immortal could obtain one through trade, since the stones are common currency for goods and services.",
+     "locator": "wiki:Immortal Essence Stone#Use as Currency",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "The evidence describes their uses, but does not say who knows how they work.",
+     "locator": "wiki:Immortal Essence Stone",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.immortal_farmer_soil": {
+   "name": "Immortal Farmer Soil",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51674",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.immortal_soul_grass": {
+   "name": "Immortal Soul Grass",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51679",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No direct effect is stated; it is used as a refinement material for Keep Silent Gu.",
+     "locator": "wiki:Immortal Soul Grass#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Its stated use is as a refinement material for Keep Silent Gu; who can use it is not specified.",
+     "locator": "wiki:Immortal Soul Grass#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.jade_fallen_grass": {
+   "name": "Jade Fallen Grass",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 51746",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Used to nurture a Gu Master's Blessed Land.",
+     "locator": "wiki:Jade Fallen Grass#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Masters may use it to nurture their Blessed Lands.",
+     "locator": "wiki:Jade Fallen Grass#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A Gu Master could acquire it as a resource for nurturing a Blessed Land; how to obtain it and its cost are unstated.",
+     "locator": "wiki:Jade Fallen Grass#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.light_shine_fungus": {
+   "name": "Light Shine Fungus",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 64181",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "light",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Emits light that can illuminate the dark sea; in unsuitable conditions it gives only weak, candle-like light.",
+     "locator": "wiki:Light Shine Fungus#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "Without suitable environmental conditions, it shrivels and emits weak light.",
+     "locator": "wiki:Light Shine Fungus#intro",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.marrow_sucking_stone": {
+   "name": "Marrow Sucking Stone",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52041",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "move",
+     "object": "thing",
+     "target": "area",
+     "time": "sustained",
+     "summary": "It sucks nearby life forms with bone marrow inside.",
+     "locator": "wiki:Marrow Sucking Stone#Function",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.moon_orchid": {
+   "name": "Moon Orchid",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 54856",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "touched",
+     "time": "instant",
+     "summary": "Its petals serve as food for many of the clan’s Gu.",
+     "locator": "wiki:Moon Orchid#Use",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu can be fed its petals; Gu Masters may use them for feeding.",
+     "locator": "wiki:Moon Orchid#Use",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Created and cultivated by the Gu Yue Clan; it grows in dark places, preferably near the clan’s Spirit Spring.",
+     "locator": "wiki:Moon Orchid#Use",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "The petals wither after two days.",
+     "locator": "wiki:Moon Orchid#Use",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could seek the plant from the Gu Yue Clan or find it growing near its Spirit Spring; its petals can be used to feed Gu. No price is stated.",
+     "locator": "wiki:Moon Orchid#Use",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.moonlight_mound": {
+   "name": "Moonlight Mound",
+   "split": "held-out",
+   "label": "resource-point",
+   "locator": "reverendinsanity pages_current oldid 64509",
+   "sheet": {
+    "kind": "place-resource",
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Produces moonlight mushrooms.",
+     "locator": "wiki:Moonlight Mound#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "Producing the mushrooms takes decades of meticulous care, effort, time, and a large expenditure of immortal essence.",
+     "locator": "wiki:Moonlight Mound#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "value": "Fairy Yue Hua owns and operates it; an Immortal can cultivate it to produce valuable mushrooms, which can provide income.",
+     "locator": "wiki:Moonlight Mound#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "A resource point located in Central Continent; its origin is not stated.",
+     "locator": "wiki:Moonlight Mound#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Its valuable mushrooms make it a target for rogue cultivators seeking quick wealth.",
+     "locator": "wiki:Moonlight Mound#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "An Immortal could operate it to grow mushrooms for income; raiders have also stolen its crop. No acquisition price is stated.",
+     "locator": "wiki:Moonlight Mound#Volume 5",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "Fairy Yue Hua tends it, and the account describes the effort and time needed to grow its mushrooms.",
+     "locator": "wiki:Moonlight Mound#Mechanics and Effects",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ri.treasure.mortal_and_immortal_materials": {
+   "name": "Mortal and Immortal Materials",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 63695",
+   "sheet": {
+    "kind": "text-or-record",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "The listed materials contain dao marks used in Gu feeding, Gu refinement, and immortal-aperture environmental creation.",
+     "locator": "wiki:Mortal and Immortal Materials#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.multicolored_overlord_flower": {
+   "name": "Multicolored Overlord Flower",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53498",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect is stated.",
+     "locator": "wiki:Multicolored Overlord Flower",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Used as food for Wisdom Sword Gu.",
+     "locator": "wiki:Multicolored Overlord Flower#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.musical_tree": {
+   "name": "Musical Tree",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52165",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.nether_grass": {
+   "name": "Nether Grass",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52198",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "alter",
+     "object": "law",
+     "target": "area",
+     "time": "lasting",
+     "summary": "Over time, its soul-path dao marks influence nearby surroundings, making them a breeding ground for soul-path Gu and altering a Blessed Land or Grotto-Heaven's environment.",
+     "locator": "wiki:Nether Grass#Value",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "A stalk is useful to a soul-path Gu Immortal; the text does not state who can hold or use it or a specific use such as refining, feeding, defence, or trade.",
+     "locator": "wiki:Nether Grass#Value",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "It poses little threat unless someone gets close.",
+     "locator": "wiki:Nether Grass#intro",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "It is rooted and cannot move; avoiding close contact avoids its stated threat.",
+     "locator": "wiki:Nether Grass#intro",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "value": "A soul-path Gu Immortal could plausibly seek a stalk for its usefulness, but acquisition and any cost are unstated.",
+     "locator": "wiki:Nether Grass#Value",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.oil_water": {
+   "name": "Oil Water",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 57123",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Used as a Gu Refinement material; no specific effect is stated.",
+     "locator": "wiki:Oil Water#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "It has low value, and small quantities are rarely worth trading.",
+     "locator": "wiki:Oil Water#Value",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "value": "Cultivators use it for Gu refinement; mortal Gu Masters specialize in extracting it.",
+     "locator": "wiki:Oil Water#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "It occurs in deep water and large trenches, especially in the Eastern Sea.",
+     "locator": "wiki:Oil Water#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A Gu Master could acquire it by using specialized inherited Gu worms to dive into the sea and extract it; alternatively, a cultivator can produce more in a pool connected to deep underground, adding clear water and letting the mixture sit.",
+     "locator": "wiki:Oil Water#Extraction",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.old_man_stone": {
+   "name": "Old Man Stone",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52270",
+   "sheet": {
+    "kind": "not-a-thing",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.phosphorescent_wood": {
+   "name": "Phosphorescent Wood",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52348",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No use or effect is stated.",
+     "locator": "wiki:Phosphorescent Wood",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It grew in Fierce Ghost Desert within Western Desert Zombie Alliance territory; the local branch accumulated a large supply over many years.",
+     "locator": "wiki:Phosphorescent Wood#Background",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.pill_azure_incense": {
+   "name": "Pill Azure Incense",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52354",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "alter",
+     "object": "form",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Makes a large area mistier with fragrant, long-lasting jade-like smoke.",
+     "locator": "wiki:Pill Azure Incense#Background",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "Using it consumes it permanently; it does not renew itself.",
+     "locator": "wiki:Pill Azure Incense#Background",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It grows where Primeval Essence, Pill Crane groups, Azure Pine Forests, Ink Bamboo Forests, and Herb Incense Gu are present in sufficient quantities.",
+     "locator": "wiki:Pill Azure Incense#Background",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "Its growth requires the listed beasts, plants, and Gu in sufficient quantities.",
+     "locator": "wiki:Pill Azure Incense#Background",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.primeval_stone": {
+   "name": "Primeval Stone",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 63536",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "essence",
+     "target": "self",
+     "time": "instant",
+     "summary": "Supplies primeval essence for cultivation or Gu refinement.",
+     "locator": "wiki:Primeval Stone#Use in Cultivation",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "It is consumed when its essence is extracted, shrinking to powder and dust.",
+     "locator": "wiki:Primeval Stone#Use in Cultivation",
+     "speaker": "wiki"
+    },
+    "who_may": {
+     "value": "Gu Masters use it for cultivation and Gu refinement; it is also used as currency in the mortal Gu World.",
+     "locator": "wiki:Primeval Stone#Use as Currency",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Forms inside scarce spirit springs.",
+     "locator": "wiki:Primeval Stone#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "Acquire it as currency or use it to replenish primeval essence, support cultivation, or supply essence during Gu refinement; extracting its essence consumes it.",
+     "locator": "wiki:Primeval Stone",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "Its common uses as currency and in cultivation are described as widely known.",
+     "locator": "wiki:Primeval Stone#Use in Cultivation",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ri.treasure.profound_grey_salt": {
+   "name": "Profound Grey Salt",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52420",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No active effect is stated.",
+     "locator": "wiki:Profound Grey Salt",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "No users or uses are stated.",
+     "locator": "wiki:Profound Grey Salt",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It comes from the Salt Bed.",
+     "locator": "wiki:Profound Grey Salt#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "It could be acquired from the Salt Bed; no use or cost is stated.",
+     "locator": "wiki:Profound Grey Salt#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.prosperity_soil": {
+   "name": "Prosperity Soil",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52429",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "touched",
+     "time": "sustained",
+     "summary": "It can grow all sorts of flowers.",
+     "locator": "wiki:Prosperity Soil#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Immortals highly seek it; no use is specified.",
+     "locator": "wiki:Prosperity Soil#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer might acquire it as a sought-after material, but no means or cost is stated.",
+     "locator": "wiki:Prosperity Soil#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.pushing_cart_stone": {
+   "name": "Pushing Cart Stone",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52448",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.qi": {
+   "name": "Qi",
+   "split": "held-out",
+   "label": "phenomenon",
+   "locator": "reverendinsanity pages_current oldid 64138",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No single effect is stated for Qi as a whole; it is used in refinement, killer moves, and Gu formations.",
+     "locator": "wiki:Qi#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Masters and Immortals use Qi for Gu refinement, activating killer moves, and constructing Gu formations.",
+     "locator": "wiki:Qi#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Qi occurs everywhere; human Qi is produced by living humans and variant humans.",
+     "locator": "wiki:Qi#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Near heaven or earth Qi, activating ordinary Gu can cause severe backlash, potentially threatening a Gu Immortal.",
+     "locator": "wiki:Qi#Heaven Qi and Earth Qi",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "Heaven, earth, and human Qi can be balanced and condensed together into Qi of Unified Essence during immortal ascension.",
+     "locator": "wiki:Qi#Qi of Unified Essence",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer may encounter Qi because it is found everywhere; Gu Masters and Immortals use it for refinement, killer moves, and formations. No acquisition cost is stated.",
+     "locator": "wiki:Qi#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.rock_dragon_eye": {
+   "name": "Rock Dragon Eye",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52616",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No active effect is stated.",
+     "locator": "wiki:Rock Dragon Eye",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "A Gu Master or Immortal could use it as an immortal material, but no specific use is stated.",
+     "locator": "wiki:Rock Dragon Eye",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It comes from the eyes of the ancient desolate beast Rock Dragon.",
+     "locator": "wiki:Rock Dragon Eye#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "Acquire it from a Rock Dragon’s eyes as an immortal material; no method or cost is stated.",
+     "locator": "wiki:Rock Dragon Eye#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.rule_eye_blood": {
+   "name": "Rule Eye Blood",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52630",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Can serve as the main material for a Rank 6 Immortal Gu or a supplementary material for a Rank 7 Immortal Gu.",
+     "locator": "wiki:Rule Eye Blood#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "A Gu Master or Immortal refining Immortal Gu may use it as a main or supplementary material.",
+     "locator": "wiki:Rule Eye Blood#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Obtained by piercing the rule eye during the rule eye tribulation.",
+     "locator": "wiki:Rule Eye Blood#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could obtain it by piercing the rule eye during the rule eye tribulation, then use it in Immortal Gu refinement; no cost is stated.",
+     "locator": "wiki:Rule Eye Blood#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.rush_thunder_stone": {
+   "name": "Rush Thunder Stone",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 56591",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No active effect is stated; it is used as a Gu Refinement material.",
+     "locator": "wiki:Rush Thunder Stone#Usage",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Masters, especially those refining Gu during the flourishing of thunder path Gu Masters, used it for refinement.",
+     "locator": "wiki:Rush Thunder Stone#Usage",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Created when thunder in the nine heavens exploded together, from the essence of lightning and thunder.",
+     "locator": "wiki:Rush Thunder Stone#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A Gu Master might acquire it through Treasure Yellow Heaven, where it is very rarely sold; it is used for Gu refinement.",
+     "locator": "wiki:Rush Thunder Stone#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.scribe_grass": {
+   "name": "Scribe Grass",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52665",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.sky_chief_cloud": {
+   "name": "Sky Chief Cloud",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52819",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "alter",
+     "object": "working",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Creates an environment in a Blessed Land that greatly increases cloud path Gu production.",
+     "locator": "wiki:Sky Chief Cloud#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "The environment’s effect is greater when Sky Chief Beasts live in it; proper management can produce a continuing supply of Sky Chief Clouds.",
+     "locator": "wiki:Sky Chief Cloud#intro",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.sky_flower": {
+   "name": "Sky Flower",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52821",
+   "sheet": {
+    "kind": "not-a-thing",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.smoky_warm_jade_field": {
+   "name": "Smoky Warm Jade Field",
+   "split": "held-out",
+   "label": "resource-point",
+   "locator": "reverendinsanity pages_current oldid 64531",
+   "sheet": {
+    "kind": "place-resource",
+    "effect": {
+     "verb": "add",
+     "object": "thing",
+     "target": "area",
+     "time": "sustained",
+     "summary": "Its spiritual fields naturally generate and cultivate Smoke Luo Warm Jade.",
+     "locator": "wiki:Smoky Warm Jade Field#Mechanics and Features",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Super forces value and contest ownership of it; Gu Immortals can harvest it, but lower-ranked harvesters face the subterranean beast. The material's specific uses are not stated.",
+     "locator": "wiki:Smoky Warm Jade Field",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "The resource point is in Northern Plains; its spiritual fields naturally generate and cultivate Smoke Luo Warm Jade.",
+     "locator": "wiki:Smoky Warm Jade Field",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Disturbing the territory can provoke the Rank 8-equivalent ancient water monster, which can slaughter lower-ranked Gu Immortals.",
+     "locator": "wiki:Smoky Warm Jade Field#Mechanics and Features",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "Proper suppression or preparation can reduce the danger of harvesting; the exact method is not stated.",
+     "locator": "wiki:Smoky Warm Jade Field#Mechanics and Features",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "value": "A newcomer could encounter it through a territorial contest; the clans used a mortal proxy gamble to decide ownership. The cost of participating is not stated.",
+     "locator": "wiki:Smoky Warm Jade Field#Volume 5",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.soul_cores": {
+   "name": "Soul cores",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 64153",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No active effect is stated; it is used as a refinement material and for a soul-cultivation breakthrough.",
+     "locator": "wiki:Soul cores#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Refiners may use it as a refinement material, and soul cultivators may use it for a Desolate Soul breakthrough.",
+     "locator": "wiki:Soul cores#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Produced by killing soul beasts; found in places including Green Ghost Desert and Black Heaven.",
+     "locator": "wiki:Soul cores#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could acquire one by obtaining it from a killed soul beast, then use it for refinement or a Desolate Soul breakthrough; no cost is stated.",
+     "locator": "wiki:Soul cores#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.spiky_metal": {
+   "name": "Spiky Metal",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52929",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.star_fragment_grass": {
+   "name": "Star Fragment Grass",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 56593",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No use or active effect is stated.",
+     "locator": "wiki:Star Fragment Grass",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "It grows on clouds in the sky; high-quality cloud soil improves its growth rate.",
+     "locator": "wiki:Star Fragment Grass#Farming Method",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "Excessive sunlight can kill it, though it still needs some light.",
+     "locator": "wiki:Star Fragment Grass#Farming Method",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "Starlight Fireflies living in it help spread its seeds and may increase its growing area and quality.",
+     "locator": "wiki:Star Fragment Grass#Farming Method",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "Excessive sunlight can kill it.",
+     "locator": "wiki:Star Fragment Grass#Farming Method",
+     "speaker": "wiki"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.star_pupil": {
+   "name": "Star Pupil",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 52981",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Originates from Blue Heaven and cannot be found in the five regions.",
+     "locator": "wiki:Star Pupil#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.stone_heart_liquid": {
+   "name": "Stone Heart Liquid",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53023",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.subterranean_adamantite": {
+   "name": "Subterranean Adamantite",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53050",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No use or active effect is stated; it is exceptionally hard to break.",
+     "locator": "wiki:Subterranean Adamantite",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.tea_stream": {
+   "name": "Tea Stream",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53126",
+   "sheet": {
+    "kind": "place-resource",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No effect is stated beyond its physical description.",
+     "locator": "wiki:Tea Stream#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.the_legends_of_ren_zu": {
+   "name": "The Legends of Ren Zu",
+   "split": "held-out",
+   "label": "item",
+   "locator": "reverendinsanity pages_current oldid 62955",
+   "sheet": {
+    "kind": "text-or-record",
+    "effect": {
+     "verb": "add",
+     "object": "information",
+     "target": "self",
+     "time": "lasting",
+     "summary": "Contains Human Path secrets, Gu recipes and conceptual natures, origins of the Ten Extreme Physiques, and locations of secluded domains.",
+     "locator": "wiki:The Legends of Ren Zu#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.thousand_year_floating_wood": {
+   "name": "Thousand Year Floating Wood",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53166",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.thunder_sound_leaves": {
+   "name": "Thunder Sound Leaves",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53195",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No use or active effect is stated.",
+     "locator": "wiki:Thunder Sound Leaves",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "Created by strong lightning tribulations.",
+     "locator": "wiki:Thunder Sound Leaves#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.truthful_floating_ice": {
+   "name": "Truthful Floating Ice",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 64334",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "alter",
+     "object": "mind",
+     "target": "area",
+     "time": "none",
+     "summary": "People standing on it experience intense emotions that vary by piece.",
+     "locator": "wiki:Truthful Floating Ice#Appearance and Characteristics",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "It can be used to store deduction information, including Gu recipes and attainments, or as material for a temporary human body.",
+     "locator": "wiki:Truthful Floating Ice#Usage",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "It was formerly located in the River of Time and the Crazed Demon Ninth Void Formation.",
+     "locator": "wiki:Truthful Floating Ice#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "Standing on it can induce strong emotions; the type varies by piece.",
+     "locator": "wiki:Truthful Floating Ice#Appearance and Characteristics",
+     "speaker": "wiki"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could encounter it at one of its formerly listed locations and use it to preserve deductions or as material for a temporary human body.",
+     "locator": "wiki:Truthful Floating Ice#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.twelve_zodiac_battle_formation": {
+   "name": "Twelve Zodiac Battle Formation",
+   "split": "held-out",
+   "label": "formation",
+   "locator": "reverendinsanity pages_current oldid 61633",
+   "sheet": {
+    "kind": "formation",
+    "effect": {
+     "verb": "alter",
+     "object": "force",
+     "target": "bound",
+     "time": "sustained",
+     "summary": "When integrated with the Myriad Year Flying Warship, it removes Myriad Year Hunting’s drawbacks and boosts the vessel’s offense and defense in combat.",
+     "locator": "wiki:Twelve Zodiac Battle Formation#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Fang Yuan is identified as its user; it is used with the Myriad Year Flying Warship for combat and resource gathering.",
+     "locator": "wiki:Twelve Zodiac Battle Formation#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "Created by Fang Yuan.",
+     "locator": "wiki:Twelve Zodiac Battle Formation#intro",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "It integrates with the Myriad Year Flying Warship and supports the Myriad Year Hunting killer move.",
+     "locator": "wiki:Twelve Zodiac Battle Formation#Mechanics and Effects",
+     "speaker": "wiki"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could plausibly encounter it by acquiring or joining Fang Yuan’s formation; it was made to improve resource gathering in the River of Time. No acquisition cost is stated.",
+     "locator": "wiki:Twelve Zodiac Battle Formation#Volume 5",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "Fang Yuan created and used it; the evidence does not say who else knows how it works.",
+     "locator": "wiki:Twelve Zodiac Battle Formation#intro",
+     "speaker": "wiki"
+    }
+   }
+  },
+  "ri.treasure.twin_ice_heart": {
+   "name": "Twin Ice Heart",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53313",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No direct effect is stated; it can be used to create Rank 6 Immortal Gu.",
+     "locator": "wiki:Twin Ice Heart#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "A Gu refiner can use it to create Rank 6 Immortal Gu; who may hold it is not stated.",
+     "locator": "wiki:Twin Ice Heart#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.underworld_jellyfish": {
+   "name": "Underworld Jellyfish",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53324",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Serves as food for Worldly Wave Trace Gu.",
+     "locator": "wiki:Underworld Jellyfish#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "A Gu Master or Immortal may use it to feed Worldly Wave Trace Gu.",
+     "locator": "wiki:Underworld Jellyfish#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.vertical_rainbow_ointment": {
+   "name": "Vertical Rainbow Ointment",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53355",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "No direct effect is stated; it is identified as a Gu Refinement material.",
+     "locator": "wiki:Vertical Rainbow Ointment#intro",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Gu Masters or Immortals may use it as a Gu Refinement material.",
+     "locator": "wiki:Vertical Rainbow Ointment#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A Gu Master or Immortal could acquire it for Gu Refinement, but no acquisition method or cost is stated.",
+     "locator": "wiki:Vertical Rainbow Ointment#intro",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.winds_of_assimilation": {
+   "name": "Winds of Assimilation",
+   "split": "held-out",
+   "label": "phenomenon",
+   "locator": "reverendinsanity pages_current oldid 62732",
+   "sheet": {
+    "kind": "phenomenon",
+    "effect": {
+     "verb": "remove",
+     "object": "vitality",
+     "target": "area",
+     "time": "sustained",
+     "summary": "The winds can trap and kill those caught within them.",
+     "locator": "wiki:Winds of Assimilation#Mechanics",
+     "speaker": "wiki"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "A Gu Immortal can trigger them by self-detonating an aperture, but not every aperture can produce them.",
+     "locator": "wiki:Winds of Assimilation#intro",
+     "speaker": "wiki"
+    },
+    "where_from": {
+     "value": "They arise when an immortal aperture's structure collapses, its foundation is destroyed, or its heaven and earth qi are depleted.",
+     "locator": "wiki:Winds of Assimilation#Mechanics",
+     "speaker": "wiki"
+    },
+    "go_wrong": {
+     "value": "The winds are highly destructive and can trap and kill those caught within them.",
+     "locator": "wiki:Winds of Assimilation#Mechanics",
+     "speaker": "wiki"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "A newcomer could encounter them when an immortal aperture collapses or its owner deliberately self-detonates it; no cost is stated.",
+     "locator": "wiki:Winds of Assimilation#Mechanics",
+     "speaker": "wiki"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.year_cycle_powder": {
+   "name": "Year Cycle Powder",
+   "split": "held-out",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53739",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "knowledge": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    }
+   }
+  },
+  "ri.treasure.yin_yang_tea": {
+   "name": "Yin-Yang Tea",
+   "split": "tuned",
+   "label": "material",
+   "locator": "reverendinsanity pages_current oldid 53771",
+   "sheet": {
+    "kind": "material",
+    "effect": {
+     "verb": "none",
+     "object": "none",
+     "target": "none",
+     "time": "none",
+     "summary": "Its taste clearly distinguishes yin from yang.",
+     "locator": "wiki:Yin-Yang Tea#intro",
+     "speaker": "narrator"
+    },
+    "cost": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "who_may": {
+     "value": "Qiao Si Liu was offered the tea to taste; no eligibility restriction is stated.",
+     "locator": "wiki:Yin-Yang Tea#Reference",
+     "speaker": "narrator"
+    },
+    "where_from": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "go_wrong": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "mind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "left_behind": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "combines": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "counters": {
+     "value": "",
+     "locator": "",
+     "speaker": "unknown"
+    },
+    "route_to_player": {
+     "value": "Lun Fei offered it to Qiao Si Liu for tasting; no cost is stated.",
+     "locator": "wiki:Yin-Yang Tea#Reference",
+     "speaker": "narrator"
+    },
+    "knowledge": {
+     "value": "Lun Fei had heard of the tea and described three brewing levels; Qiao Si Liu identified the offered tea as the second level after tasting it.",
+     "locator": "wiki:Yin-Yang Tea#Reference",
+     "speaker": "character_claim"
+    }
+   }
+  }
+ }
+}

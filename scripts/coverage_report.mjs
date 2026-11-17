@@ -77,6 +77,10 @@ export const DENOMINATORS = {
     rezero_powers: {expected: 204, owner: 'W', what: 'Re:Zero named powers: 178 powers and 26 names that are not (PWC3)'},
 
     perfect_run_powers: {expected: 113, owner: 'W', what: 'Perfect Run named powers: Genomes by holder, Elixir colours and conditions, Psychos, devices, Quicksave, Bad Runs layer'},
+
+    lotm_artifacts: {expected: 240, owner: 'A', what: 'LOTM Sealed Artifacts (143) and named mystical items, wiki categories'},
+    hp_objects: {expected: 599, owner: 'A', what: 'Harry Potter magical-object categories'},
+    ri_treasures: {expected: 91, owner: 'A', what: 'Reverend Insanity non-Gu treasures: materials, formations, resource points, items'},
 };
 const STATE = /^(runs-canon|runs-authored|expressed-canon|expressed-authored|catalogued|unclassified|blocked:[a-z0-9][\w.:-]*|not-a-thing:[a-z0-9][\w.:-]*)$/i;
 const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case']);

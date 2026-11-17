@@ -388,6 +388,10 @@ The phase 1 goal undershot "all the Gu, all the possibilities of moves, all the 
 
 | Perfect Run powers | `perfect_run_powers` | 113 named powers from the deep-dive digests and the paid claims (PWC3): 109 main rows, 4 Bad Runs what-if rows | W |
 
+| LOTM Sealed Artifacts and mystical items | `lotm_artifacts` | 240 wiki-category pages (Sealed Artifacts 143, item categories); held-out label the Sealed Artifact grade (R6, PWC16) | A |
+| Hogwarts magical objects | `hp_objects` | 599 wiki-category pages (Magical objects, Cursed objects, Dark Magic artefacts, Broomsticks and others); held-out label the object category | A |
+| Reverend Insanity non-Gu treasures | `ri_treasures` | 91 wiki-category pages (Materials and Resources, Immortal Materials, formations, resource points, Items), Gu pages excluded | A |
+
 - **CV4 · Done means zero `unclassified`.** The `runs` share is the progress number, so a run that stops halfway still reports exactly how far it got. A `check:coverage` script reports the counts and fails only on malformed rows. Coverage percent is a report, not a gate.
 
 ### Grammar layers (GL): what "defining the grammar" means

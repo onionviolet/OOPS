@@ -18,6 +18,10 @@
 
 | [perfect_run_powers](perfect_run_powers.jsonl) | W | 113 | 113 | 0 | 0 | 43 | 0 | 0 | 100% | 0% |
 
+| [lotm_artifacts](lotm_artifacts.jsonl) | A | 240 | 240 | 0 | 0 | 128 | 3 | 0 | 100% | 0% |
+| [hp_objects](hp_objects.jsonl) | A | 599 | 599 | 0 | 0 | 160 | 20 | 0 | 100% | 0% |
+| [ri_treasures](ri_treasures.jsonl) | A | 91 | 91 | 0 | 0 | 58 | 2 | 0 | 100% | 0% |
+
 ## Typed and computed, side by side (PC9, PC10)
 
 *Typed states are the owners' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Whether headline numbers may fall is Weibao's call, so nothing is rewritten.*
@@ -29,7 +33,12 @@
 | gu_moves | 10 | 9 | 0 | 10 |
 | hp_ingredients | 20 | 100 | 0 | 20 |
 | hp_potions | 1 | 90 | 0 | 1 |
+
+| hp_ingredients | 20 | 4 | 0 | 20 |
+| hp_objects | 0 | 0 | 0 | 0 |
+| hp_potions | 1 | 34 | 0 | 1 |
 | hp_spells | 0 | 111 | 0 | 0 |
+| lotm_artifacts | 0 | 0 | 0 | 0 |
 | lotm_potions | 0 | 46 | 0 | 0 |
 | worm_powers | 0 | 0 | 0 | 0 |
 
@@ -42,6 +51,12 @@
 `node scripts/reachable.mjs`: 1648 of 1887 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 `node scripts/reachable.mjs`: 1650 of 1891 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+
+| ri_treasures | 0 | 0 | 0 | 0 |
+
+## Reachability from `src/main.js` (PC14)
+
+`node scripts/reachable.mjs`: 1650 of 1889 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -80,14 +95,18 @@
 | gu_kinds | 8 | 53 | 4 of 53 | not scored without an engine | 1 of 6 (47 cannot run) | 4 of 6 | Among catalogue kinds whose parts row names a function, kinds are ordered by an FNV-1a hash of "gu-heldout-1:<id>" and the first 8 are the tuning sample; every other such kind is held out. Dial: seed and sample size (a different seed is a different split, and the fixed one is the reported one). |
 | gu_moves | 0 | 0 | | | | | none yet |
 | hp_ingredients | 0 | 0 | | | | | none yet |
+| hp_objects | 0 | 0 | | | | | none yet |
 | hp_potions | 4 | 17 | 11 of 17 | 11 of 17 | 15 of 17 | 13 of 17 | Among evidence-labelled rows in the five mechanisms whose family was not set by an override, the first row by id in each mechanism is the tuning sample; every other such row is held out. |
 | hp_spells | 6 | 99 | 33 of 99 | 22 of 99 (targeting) | 13 of 99 (82 cannot run) | not an engine distinction | Among rows whose label is evidence-backed (no effectSource naming an authored ruling or reading) and that are not in a reserved family, the first row by id in each of the six families is the tuning sample; every other evidence-labelled row is held out. |
+| lotm_artifacts | 0 | 0 | | | | | none yet |
 | lotm_potions | 0 | 0 | | | | | none yet |
 | worm_powers | 0 | 0 | | | | | none yet |
 
 | rezero_powers | 0 | 0 | | | | | none yet |
 
 | perfect_run_powers | 0 | 0 | | | | | none yet |
+
+| ri_treasures | 0 | 0 | | | | | none yet |
 
 ### hp_potions
 
@@ -329,6 +348,13 @@
 | rezero_powers | effect-unknown | 79 |
 | gu_moves | roles-unchecked | 63 |
 | hp_potions | body-door | 46 |
+
+| hp_objects | effect-unknown | 78 |
+| gu_moves | roles-unchecked | 63 |
+| lotm_artifacts | effect-unknown | 46 |
+| ri_treasures | effect-unknown | 40 |
+| hp_potions | mind-state | 40 |
+| hp_potions | body-form | 37 |
 | hp_potions | effect-sentence | 33 |
 | worm_powers | tinker-device | 33 |
 | hp_potions | plant-or-creature-target | 32 |
@@ -345,7 +371,19 @@
 
 | perfect_run_powers | source-link | 12 |
 | perfect_run_powers | area-field | 10 |
+
+| hp_objects | spatial-storage | 17 |
+| lotm_artifacts | mind-binding | 15 |
+| lotm_artifacts | negative-effect-drift | 13 |
+| lotm_potions | formula-wiki-unchecked | 12 |
+| lotm_artifacts | form-transformation | 10 |
+| ri_treasures | material-row | 10 |
+| hp_objects | mind-binding | 10 |
+| lotm_artifacts | power-interaction | 10 |
+| lotm_artifacts | spatial-storage | 10 |
 | hp_potions | conceal-or-sense | 9 |
+| hp_objects | containment-rule | 9 |
+| hp_objects | negative-effect-drift | 8 |
 | hp_potions | object-surface | 8 |
 | worm_powers | mind-state | 7 |
 | worm_powers | portal-space | 7 |
@@ -364,6 +402,22 @@
 | worm_powers | precognition | 3 |
 
 | rezero_powers | memory-erasure | 5 |
+
+| hp_objects | divination | 7 |
+| lotm_artifacts | divination | 7 |
+| hp_objects | formation-field | 7 |
+| hp_objects | power-interaction | 7 |
+| lotm_potions | body-door | 6 |
+| hp_objects | item-state | 6 |
+| hp_potions | place-release | 6 |
+| lotm_artifacts | area-field | 5 |
+| ri_treasures | formation-field | 4 |
+| hp_objects | material-row | 4 |
+| lotm_artifacts | containment-rule | 3 |
+| hp_objects | familiar-summon | 3 |
+| lotm_artifacts | familiar-summon | 3 |
+| lotm_artifacts | soul-binding | 3 |
+| ri_treasures | area-field | 2 |
 | hp_potions | luck-field | 2 |
 | rezero_powers | mind-binding | 2 |
 | hp_potions | protection-field | 2 |
@@ -382,6 +436,15 @@
 | hp_potions | protection-field | 2 |
 | perfect_run_powers | time-stop | 2 |
 | perfect_run_powers | anti-power-site | 1 |
+
+| hp_objects | soul-binding | 2 |
+| hp_objects | area-field | 1 |
+| hp_objects | form-transformation | 1 |
+| lotm_artifacts | formation-field | 1 |
+| lotm_artifacts | item-state | 1 |
+| ri_treasures | item-state | 1 |
+| lotm_artifacts | power-transfer | 1 |
+| ri_treasures | spatial-storage | 1 |
 
 ## Row format
 
