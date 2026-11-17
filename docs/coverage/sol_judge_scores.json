@@ -1,0 +1,91 @@
+{
+ "meta": {
+  "date": "2026-11-17",
+  "pass": "PWC46",
+  "model": "gpt-6.1-sol",
+  "note": "Frozen before any Sol call. Values only, no chapter text. A/B order = sha1(id+field)[0]&1: LH puts Luna first, HL Haiku first.",
+  "scored": "2026-11-17"
+ },
+ "pools": {
+  "diet": {
+   "n": 15,
+   "luna": 3,
+   "haiku": 3,
+   "either": 6,
+   "sol": 3,
+   "sonnet": 2,
+   "solAnswered": 15,
+   "sonnetAnswered": 15,
+   "solPicksLuna": 6,
+   "solPicksHaiku": 3,
+   "sonnetPicksLuna": 3,
+   "sonnetPicksHaiku": 2,
+   "solOther": 6,
+   "sonnetOther": 10
+  },
+  "effect": {
+   "n": 14,
+   "luna": 11,
+   "haiku": 3,
+   "either": 14,
+   "sol": 9,
+   "sonnet": 5,
+   "solAnswered": 14,
+   "sonnetAnswered": 14,
+   "solPicksLuna": 9,
+   "solPicksHaiku": 3,
+   "sonnetPicksLuna": 4,
+   "sonnetPicksHaiku": 3,
+   "solOther": 2,
+   "sonnetOther": 7
+  },
+  "sentence": {
+   "n": 18,
+   "luna": 8,
+   "haiku": 8,
+   "either": 16,
+   "sol": 8,
+   "sonnet": 8,
+   "solAnswered": 18,
+   "sonnetAnswered": 18,
+   "solPicksLuna": 7,
+   "solPicksHaiku": 5,
+   "sonnetPicksLuna": 7,
+   "sonnetPicksHaiku": 8,
+   "solOther": 6,
+   "sonnetOther": 3
+  }
+ },
+ "usage": {
+  "sol": {
+   "in": 15930,
+   "cached": 2929,
+   "written": 26980,
+   "out": 2885,
+   "usdBatch": 0.0642
+  },
+  "sonnet": {
+   "in": 68432,
+   "cached": 9646,
+   "written": 742,
+   "out": 4351,
+   "usdBatch": 0.0926
+  }
+ },
+ "all": {
+  "n": 47,
+  "luna": 22,
+  "haiku": 14,
+  "either": 36,
+  "sol": 20,
+  "sonnet": 15,
+  "solAnswered": 47,
+  "sonnetAnswered": 47,
+  "solPicksLuna": 22,
+  "solPicksHaiku": 11,
+  "sonnetPicksLuna": 14,
+  "sonnetPicksHaiku": 13,
+  "solOther": 14,
+  "sonnetOther": 20
+ }
+}
