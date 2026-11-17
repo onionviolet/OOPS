@@ -424,3 +424,75 @@ Weibao: "deeper reads into worlds too? HOw to use Luna in the fuutre? or would w
 | ACCOUNT FOR NOW | PWC44 | **Luna stays the bulk reader; Haiku stays its pair; Sol is the judge (AU17 extension).** Luna and Haiku cost the same and come from different families, so their disagreement is the cheapest quality signal (AU17). Sol costs twenty times more, so it goes where few calls decide a lot. It adjudicates fields where Luna and Haiku disagree (the book lanes alone have about 540 disputed fields; at batch rates that is a dollar or two), audits a hash sample of confirmed fields to measure how often agreement is wrong, writes and checks rule rows (PWC25) where a wrong rule spreads to every derived row, and runs the reconstruction score for generators (PWC31) when Luna and Haiku tie. Bulk reading stays off Sol unless a pilot shows Luna and Haiku miss what a book states and Sol does not. |
 | ACCOUNT FOR NOW | PWC45 | **Claude sessions stay the planners and the checkers of code.** A Sonnet session writes the scripts, freezes splits and merges; it is not a reader. Opus stays rare (the portable agreement). The paid API tiers and the Claude session tiers are separate budgets: API cents and Weibao's Claude usage. |
 | LATER / DELEGATE | PWC46 | **Measure Sol before using it as the judge.** On 100 disputed fields that already have a chapter-tier or hand answer, compare Sol, Luna and Haiku. If Sol does not beat the better of the two on that set, adjudication goes to source review instead. Level: Sonnet lane, Sol batch, under $2. Done when the three scores are in this file and in AU17. |
+
+
+## Missing books (2026-11-17, proposals)
+
+Weibao: "consider what books we are missing too". Method: every ledgered series went through `python3 -I scripts/library_coverage.py --series` (a gap is an uncovered chapter range, AR36b), the worlds ledger's `missing:` and `none:` cells were read against the library index and both catalogues, and the cross-world slug histogram (PWC26) was read for books that would fill a blocked engine slug. Nothing was fetched and no model was called. New wishlist rows are DL122-DL139 in the [download wishlist](../DOWNLOAD_WISHLIST_2026-10-30.md); each needs Weibao's yes per file and follows the Anna's and Z-Library procedure and quota guards (AR52-AR55). Codes M1-M11 are this section's ranks.
+
+**The finding that changes the order.** Most `missing:` cells are reading work, not missing books: the book worlds mostly have their text on disk, and the cells say `missing` because no pass has read them yet. The registry also lists no library entry for about a dozen worlds whose text is held (DL139), so the next-cells lane may chase books that exist. Real gaps are few: a handful of chapter ranges, three machine-translated editions, one world with no edition, and worlds and rulebooks the ledger does not yet hold. The coverage tool reads the Source Library database only, so Calibre-held books (Omniscient Reader's Viewpoint, Calibre 18 and 44) show as manhwa chapters there; their chapter ranges need a Calibre-side check.
+
+### Coverage lines (one per ledgered series)
+
+| Series (ledger) | Held, by `library_coverage.py` | Gap |
+| --- | --- | --- |
+| Lord of the Mysteries (artifacts, potions) | English 1-1430, two copies, plus 66 comic chapters | None found |
+| Circle of Inevitability | 1-1179, two copies; a third edition has a gap at 1026 | None in the first two |
+| Shadow Slave | 1-3242 in consecutive files (volumes 2, 9, 10, 11, 3001-3242 and a 1-1840 compilation) | Upstream past 3242 not checked (DL6, recheck monthly) |
+| Mother of Learning | 1-106 | None found |
+| Harry Potter (potions, spells, ingredients, objects) | Books 1-7 as a PDF compilation; companions held | None for the ledgers; the wiki dump is the gap |
+| Worm | 1-304 complete, plus Ward, Pact and Twig | None |
+| The Perfect Run | 1-130 plus Bad Runs | Later books not checked |
+| Reverend Insanity (Gu) | 1-2334 as one file plus 100-chapter parts | None |
+| A Regressor's Tale of Cultivation | 0-639, continuation 641-874, a missing-chapter file | Chapter 808; 875 onward (M4, DL122) |
+| Re:Zero | Light novels 1-29, Ex 1-6, Short Stories 1-5; web novel arcs 1-10 (arcs 3 and 4 by the Nov 3 round) | Arc 2 after 49, Arc 10 after 26 (ongoing), later arcs, Arc 1 whole-check (M1, DL123) |
+| The Legendary Mechanic | 1463 parts | Chapter 811; tail after 1463; the tool's maximum (8111) is a title artifact (M3, DL124) |
+| I Am the Fated Villain | 128 parts under headings to 1,924; machine translation | Edition quality; part contents unchecked (M2, DL125) |
+| A Novel Concept | 1-438 | None found |
+| Omniscient Reader's Viewpoint | Novel in Calibre (18, 44); 315 comic files | Calibre chapter range unchecked (DL139) |
+| Solo Leveling | Web compilation 1-270 (gaps at 57 and 90-92), Yen On novels 1-8 | Three small gaps |
+| Labyrinth of the Mad God | Books 1-3 | Later books not checked |
+| Speedrunning the Multiverse | Books 1-4 | Later books not checked |
+| You Have Died Again | One book | Sequels not checked |
+| Reincarnation Paradise, Second Life Ranker (no ledger yet) | Machine files, 4,620 and 805 parts | Gaps near 1396, 1698, 2191, 2221 and 99, 156, 272, 368 (M11, DL126) |
+
+### Kind 1: chapter-range gaps (they cap R5 and PWC27)
+
+Ranked by blocked rows the ledger holds against how much text is unheld. Gaps that look small (Legendary Mechanic's) rank by the 180 rows behind them, with the upstream length checked first.
+
+| Rank | Book | Gap | Moves | Row |
+| --- | --- | --- | --- | --- |
+| M1 | Re:Zero web novel | Arc 2 after 49, Arc 10 after 26, later arcs | 106 rows, 32-world power-interaction | DL123 |
+| M2 | I Am the Fated Villain | Edition and part contents, not a missing range | 226 rows | DL125 |
+| M3 | The Legendary Mechanic | Chapter 811 and the tail | 180 rows | DL124 |
+| M4 | A Regressor's Tale | Chapter 808 and 875 onward | 83 rows | DL122 |
+| M11 | Reincarnation Paradise, Second Life Ranker | Small chapter gaps | New cells | DL126 |
+
+### Kind 2: worlds with no book source
+
+Death After Death is the one ledgered world with no edition on disk (M10, DL137; every route is closed or refused, so a retail copy is Weibao's call). The simulator-cultivation worlds are captured but unregistered or short (DL138, free polite capture). Wiki worlds have no book by design; their primary text is manga, held in the governor queue (DL110, DL111) apart from Hunter x Hunter (M5). Original worlds have none by design. Mob Psycho 100 and World Trigger have no wiki dump on disk, which the approved dump route covers.
+
+### Kind 3: tabletop settings and rulebooks
+
+Held already (checked 2026-11-17): Cyberpunk RED with its supplements, Shadowrun 5e and 6e, Exalted core (edition unchecked), RuneQuest in Glorantha, HarnMaster 3e and HarnManor, Legend of the Five Rings, Savage Worlds, Genesys, Cortex Prime, Fabula Ultima, Wrath and Glory, Rogue Trader, Numenera, Eclipse Phase, Warhammer 40,000 9th, WFRP 4e and The Old World, Delta Green, Call of Cthulhu, Mothership, Ironsworn, Mutants and Masterminds, Pathfinder 1e, Eberron, Ravenloft and Mystara. Not held: the World of Darkness lines (M6, DL128), Exalted's setting books (M8, DL130), Earthdawn (M9, DL131), Lancer (DL132), Dark Heresy and Black Crusade (DL133), Hero System (DL134), the Dresden Files RPG (DL135), Dark Sun, Planescape and Spelljammer (DL136), Torg Eternity (DL17), HârnWorld (DL84) and Fate Core. The setting-worlds and TTRPG lanes had not written their lists when this was done, so the merge should drop any row a lane already asks for. The Guide to Glorantha stays skipped for size (DL83, 736-790 MB).
+
+### Kind 4: books that fill a blocked engine slug (PWC26)
+
+The histogram counts item-bound-power (187 rows, 20 worlds), area-field (185, 26), power-interaction (135, 32), form-transformation (130, 21), mind-binding (102, 24), soul-state (82, 4), divination-fate (51, 4) and vow-cost (no ledger rows, 8 inferred worlds). The engine capability, not a missing book, decides most of them. Books that would add rows to the slugs: Hunter x Hunter (vow-cost, power-interaction), the World of Darkness (soul-state, mind-binding), Exalted (divination-fate, item-bound-power), Earthdawn (item-bound-power) and the Cosmere (mind-binding, power-transfer).
+
+### Top ten (default order; dial: move a row up when a pass needs that world)
+
+| Rank | Row | What it unblocks |
+| --- | --- | --- |
+| M1 | DL123 Re:Zero web novel beyond the held arcs | 106 blocked rows; no quota (polite capture) |
+| M2 | DL125 Fated Villain human edition | 226 rows read from a machine translation |
+| M3 | DL124 Legendary Mechanic gap and tail | 180 rows |
+| M4 | DL122 A Regressor's Tale 808 and 875+ | 83 rows |
+| M5 | DL127 Hunter x Hunter manga | A new world and the vow-cost slug (census rank 9) |
+| M6 | DL128 World of Darkness line | Five new worlds; soul-state, mind-binding |
+| M7 | DL129 The Cosmere beyond Mistborn | A new Stormlight world; deeper Mistborn (census rank 11) |
+| M8 | DL130 Exalted supplements and edition check | A distinct world; divination-fate and item-bound-power |
+| M9 | DL131 Earthdawn | A direct model for item-bound-power |
+| M10 | DL137 Death After Death | The one ledger world with no source |
+
+Free and quota-free first: M1, M3, M4 (polite capture) and the DL139 registry fix. A one-time pass of checks before asking for any file would confirm the upstream length of M3 and M4 and the part contents of M2; the three share one reading step. No model run was needed for edition matching.
