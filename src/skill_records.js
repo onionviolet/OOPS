@@ -21,6 +21,7 @@ export function validateSkillRecords(r) {
     check(object(r)&&r.schema===1&&object(r.tracked)&&object(r.rustOn)&&Array.isArray(r.nearMisses)&&r.nearMisses.length<=NEAR_MISS_LIMIT&&Object.keys(r.tracked).length<=512);
     for(const [id,e] of Object.entries(r.tracked))check(ref(id)&&object(e)&&nat(e.peak)&&nat(e.level)&&e.level<=e.peak&&Number.isFinite(e.seen)&&e.seen>=0&&nat(e.idle)&&nat(e.rust)&&(e.nm==null||nat(e.nm)));
     for(const [w,on] of Object.entries(r.rustOn))check(ref(w)&&typeof on==='boolean');
+    if(r.carried!==undefined){check(object(r.carried)&&Object.keys(r.carried).length<=16);for(const [w,c] of Object.entries(r.carried)){check(ref(w)&&object(c)&&Object.keys(c).length<=512);for(const [id,n] of Object.entries(c))check(ref(id)&&nat(n)&&n>0);}}
     for(const n of r.nearMisses)check(object(n)&&ref(n.skill)&&nat(n.level)&&nat(n.short)&&nat(n.at)&&ref(n.cause));
     return r;
 }
