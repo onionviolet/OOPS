@@ -63,7 +63,7 @@ const LIVES = [
     {name: 'fang-yuan-day', scenario: 'ri-fang-yuan-ice-crystal', go: async page => {
         await page.evaluate(() => {const b = document.querySelector('[data-structured-extension="book.ri.lead.day"]'); b?.closest('details')?.setAttribute('open', ''); b?.click();});
         await page.waitForTimeout(1500);
-        const here = page.locator('#workspace_pane_navigation button', {hasText: 'Here'}).first();
+        const here = page.locator('#workspace_pane_navigation button', {hasText: 'Actions'}).first();
         if(await here.count()) {await here.click(); await page.waitForTimeout(800);}
     }},
     {name: 'klein-kjw42', scenario: 'lotm-kjw42', go: async page => page.waitForTimeout(800)},
