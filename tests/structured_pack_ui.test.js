@@ -177,3 +177,16 @@ test('UIC278: the story block is one marked node that stays where another owner 
     assert.equal(story.parentElement, elsewhere, 'the panel does not pull it back'); assert.match(text(story), /Fang Yuan before the elder/, 'and still renders into it');
     panel.destroy();
 }));
+
+// PS304: stored act names can be shared (the two brewing methods are in the school extension's content hash), so the row tells them apart at render time.
+test('two acts with one stored name are told apart on their rows by what each does', () => withDom(({host, find, text, tick}) => {
+    const v = view(), base = v.actions[0];
+    v.actions = [{...base, id: 'a', label: 'Simmer it', description: 'Follow the written steps.', eligible: true, reasons: []},
+        {...base, id: 'b', label: 'Simmer it', description: 'Drop the quills in early.', eligible: true, reasons: []},
+        {...base, id: 'c', label: 'Rest', description: 'Sit down.', eligible: true, reasons: []}];
+    const panel = createStructuredPackPanel({read: () => v, command: () => {}}); tick();
+    const quote = id => text(find(host.children[0], 'structuredAction', id).parentElement.children.find(c => c.className === 'action-legibility__quote'));
+    assert.match(quote('a'), /Follow the written steps\./); assert.match(quote('b'), /Drop the quills in early\./);
+    assert.doesNotMatch(quote('c'), /Sit down/, 'a name used once stays plain');
+    panel.destroy();
+}));

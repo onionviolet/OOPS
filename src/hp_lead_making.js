@@ -51,7 +51,7 @@ const row = ({name, label, description, report, minutes, process, product, use})
     procedure: {steps: process.map((s,i)=>({id:s.op,minutes: i===0?30:process.length===2?10:5,
         ...(s.op==='add_quills_cool'||s.op==='add_quills_hot'?{condition:{fact:'actor.hp.lead.potions.onFire',op:'eq',value:s.op==='add_quills_hot',reason:s.op==='add_quills_hot'?'Keep the cauldron over the fire.':'Take the cauldron off the fire first.'}}:{}),
         ...(s.op==='simmer'||s.op==='take_off_fire'?{effects:[{type:'fact',scope:'actor',actor:'player',key:'hp.lead.potions.onFire',value:s.op==='simmer'}]}:{}),
-        label: ({simmer:process===early?'Simmer the nettles, fangs and slugs, quills going in early':'Simmer the nettles, fangs and slugs',take_off_fire:'Take the cauldron off the fire',add_quills_cool:'Add the quills off the fire',add_quills_hot:'Add the quills over the fire'})[s.op]}))},
+        label: ({simmer:'Simmer the nettles, fangs and slugs',take_off_fire:'Take the cauldron off the fire',add_quills_cool:'Add the quills off the fire',add_quills_hot:'Add the quills over the fire'})[s.op]}))},
     product, use,
 });
 
@@ -83,7 +83,7 @@ export const HP_LEAD_MAKING = Object.freeze({
             description: 'Follow the written steps: simmer, take the cauldron off the fire, then add the quills.',
             report: 'You brewed the Cure for Boils by the written steps, quills in after the fire was out.', minutes: 40, process: written,
             product: {key: K.cure, label: 'Flask of Cure for Boils'},
-            use: {label: 'Hand in your flask of cure · 5 min', description: 'Ladle some of the cure into a flask and take it to the front of the class.', report: 'You handed in your flask.', minutes: 5,
+            use: {label: 'Hand in your flask · 5 min', description: 'Ladle some of the cure into a flask and take it to the front of the class.', report: 'You handed in your flask.', minutes: 5,
                 effects: [{type: 'fact', scope: 'actor', key: FLASK_FACT, value: 'cure'},
                     {type: 'knowledge', key: `${P}.potions.flask_last`, stage: 'seen', basis: {...basis},
                         value: 'Your potion came out a clear, steady colour. The master gave it a sniff and moved on.'}]}}),
@@ -91,7 +91,7 @@ export const HP_LEAD_MAKING = Object.freeze({
             description: 'Simmer it, then drop the quills in while the cauldron is still on the fire.',
             report: 'You dropped the quills in while the cauldron was still on the fire.', minutes: 40, process: early,
             product: {key: K.corrosive, label: 'Flask of green sludge'},
-            use: {label: 'Hand in your flask of green sludge · 5 min', description: 'Take the flask to the front of the class.', report: 'You handed in your flask.', minutes: 5,
+            use: {label: 'Hand in your flask · 5 min', description: 'Take the flask to the front of the class.', report: 'You handed in your flask.', minutes: 5,
                 effects: [{type: 'fact', scope: 'actor', key: FLASK_FACT, value: 'corrosive'},
                     {type: 'knowledge', key: `${P}.potions.flask_last`, stage: 'seen', basis: {...basis},
                         value: 'The potion turned acid green and hissed through the bottom of the cauldron. The master was not pleased.'}]}}),

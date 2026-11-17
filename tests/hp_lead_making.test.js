@@ -79,10 +79,3 @@ test('the handed-in flask feeds the next Potions chance', () => {
     assert.equal(with_('corrosive'), with_(null));
 });
 
-// PS304: two methods are two acts, so no two acts of the lesson read the same on screen.
-test('the two potion methods name their own steps and hand-ins (no act drawn twice)', async () => {
-    const {HP_LEAD_MAKING} = await import('../src/hp_lead_making.js');
-    const labels = HP_LEAD_MAKING.rows.flatMap(r => [r.label, r.use.label, ...r.procedure.steps.map(s => s.label)]);
-    const dup = labels.filter((l, i) => labels.indexOf(l) !== i && !/^(Take the cauldron off the fire)$/.test(l));
-    assert.deepEqual(dup, []);
-});

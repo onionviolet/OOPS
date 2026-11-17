@@ -162,6 +162,8 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     for(const reason of view.renewal.reasons||[])p(reason,renewal);
                     add(renewal,'Accept renewal',{structuredRenewal:'accept'},{type:'renewal'},!view.canWrite||!view.renewal.eligible);
                 }
+                // PS304: two acts that share a stored name (the two brewing methods; the name is in the content hash) are told apart on the row's quote line by what each does.
+                const seen=new Set(),same=new Set();for(const a of view.actions){if(seen.has(a.label))same.add(a.label);seen.add(a.label);}
                 for(const action of view.actions){
                     let row=actionRows.get(action.id);
                     if(!row){const card=node('section',actions);card.className='action-legibility__card';card.dataset.structuredRow=action.id;
@@ -173,7 +175,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     // UIC191: one row per thing (UR158). The heading only repeated the button's words, so the button is the row's name;
                     // the clock and the inputs sit beside the button, one step away, as upstream's plain rows do (UIC130 human time).
                     setText(row.heading,action.label);row.heading.hidden=true;setText(row.description,action.description||'');
-                    setText(row.quote,`${action.duration>0?formatDuration(action.duration):'At once'}${action.costs.length?' · uses '+action.costs.join(', '):''}`);
+                    setText(row.quote,`${same.has(action.label)&&action.description?action.description+' · ':''}${action.duration>0?formatDuration(action.duration):'At once'}${action.costs.length?' · uses '+action.costs.join(', '):''}`);
                     const pending=view.jobs.find(j=>j.commandId===action.id);setText(row.state,pending?(view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused. ':'Running. ')+formatDuration(pending.remaining)+' to go.':action.completed>0?'Settled completions: '+action.completed+'.':action.eligible?'Available.':'Unavailable.');
                     setText(row.duration,'Takes '+(action.duration>0?`${formatDuration(action.duration)}.`:'no time.'));
                     setText(row.costs,'Inputs: '+(action.costs.length?action.costs.join(', ')+'.':'None quoted.'));
