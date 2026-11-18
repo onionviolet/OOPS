@@ -1179,3 +1179,20 @@ Rule rows: change 59%, abilities 19%, duration 29%, reversal 29%.
 | PWC77 | ACCOUNT FOR NOW | **Disagreement is a signal.** 227 area-field rows and 124 form-transformation rows dispute `fits`; those are the ambiguous-law rows to review first. |
 | PWC78 | LATER / DELEGATE | **Batch tails stall.** An OpenAI batch can sit at 98% for hours; cancel after about two hours, collect the finished items and run the tail sync. Default for AU16 passes. Level: Haiku-sized runner change (a `--cancel-after` flag). |
 | PWC79 | ACCOUNT FOR NOW | **Eight Haiku errors remain** on area-field rows (a parse or token cap on long notes); they count as one reader and cost under a cent to re-run once the cap is raised. |
+
+## Round 14: from runnable rows to ordinary play (2026-11-18, proposals)
+
+Weibao: "Proceduralness helps creates all the ideas, but do we have a similar engine to get all the dirived things working? Or will we need to code each thing? How can we improve the older simpler system?"
+
+Measured 2026-11-18: computed runs is 370 of 68,016 things once PSA24's packs are reachable (branch `claude/wire-packs-1eadcc`), and the packs fire through a Workshop capability run, not through ordinary life. The audit's PSA23 still holds: what a village life shows comes from addressed draws, the story director and ambient lines.
+
+| Disposition | Code | Finding |
+| --- | --- | --- |
+| ACCOUNT FOR NOW | PWC127 | **The engine is per law and per entry point, not per thing.** A derived row runs when it is an effect sentence (`effect_grammar`, lowered to W ops) that a K law settles and `landEffect` applies. Cost grows with the number of laws (75 canonical blocked slugs, six hold half the blocked rows) and with the number of life actions that call a law, not with row count. Form-transformation (PSA28) moved about 1,200 rows with one law. |
+| ACCOUNT FOR NOW | PWC128 | **The headline is effects that fire in ordinary play.** Default measure: a headless season of a fresh life with no workshop or debug act, counting `landEffect` landings by cause and world. A rows-that-run share is a secondary number. |
+| ACCOUNT FOR NOW | PWC129 | **The older systems become the delivery layer.** The story director and the derived deck (`story_director.js`, `storylet_deck2.js`) pick what happens; effect rows supply happenings (a neighbour brews, a Gu swarm passes, a ward fails), each landing through `landEffect`, and `world_events_knowledge` and ambient lines report the changed W quantities. Draws choose, the procedural core supplies content and consequences. |
+| ACCOUNT FOR NOW | PWC130 | **People use powers in their routines.** A generated person whose sheet names a power row uses it in ordinary acts (work, care, a fight), through the same law and joint, so effects reach play without the player opening a panel. |
+| ACCOUNT FOR NOW | PWC131 | **Entry points before rows.** First hooks, one writer per area: drinking or serving a brew (brew law), using a Gu in a fight or chore (PSA27 joint), a household ward (substrate pack). Each proves PWC128's count above zero for its world. |
+| ACCOUNT FOR NOW | PWC132 | **Laws by reach.** Next laws come from the six slugs that hold half the blocked rows, each dry-run first (PSA28 bar: 25% of its slug), then wired into the builders, not left out of them (PSA28 excluded 103 rows to keep builder tests green). |
+| ACCOUNT FOR NOW | PWC133 | **Catalogue growth pauses (default) until PWC128 reads above zero.** New ledgers and derivers only for families whose law and entry point exist; reopen per world when one does. |
+| LATER / DELEGATE | PWC134 | **Gate gaps found this round.** The merge gate runs without `private_packs/`, so private-pack tests (two LOTM tests fail today) are skipped there; lanes reverted `dist/` builds, so the push gate found the bundle behind source. Add a private-pack test run to the coordinator's wave close and have lanes commit the rebuilt bundle. |
