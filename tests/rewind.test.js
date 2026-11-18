@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as K from '../src/rewind_kit.js';
-import {commands, configureRewind, registerRewind, rewindStore} from '../src/rewind_domain.js';
+import {commands, configureRewind, registerRewind, rewindStore, restoreIndex, restoreAddress} from '../src/rewind_domain.js';
 import {domainRegistry} from '../src/domain_registry.js';
 
 // In-memory "domains": the same slice values the save holds.
@@ -169,4 +169,10 @@ test('inspector lines say what came back, what stayed and who remembers, without
     const lines = commands.rewind('t').lines.join(' ');
     assert.match(lines, /Came back to how it was at the mark/); assert.match(lines, /Stayed as it is/); assert.match(lines, /rowan: remembers nothing/);
     assert.doesNotMatch(lines, /slice|path|capture/i);
+});
+test('held restore points are indexed by pin address with a time and a digest', () => {
+    setup(); const idx = restoreIndex(), cap = rewindStore().anchors.t.capture;
+    const row = idx[restoreAddress('t', cap)];
+    assert.equal(row.at, 0); assert.ok(Number.isSafeInteger(row.digest));
+    assert.deepEqual(idx[restoreAddress('t', cap)], restoreIndex()[restoreAddress('t', cap)]);
 });

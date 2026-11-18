@@ -378,7 +378,7 @@ By default a new slice declares data through the seam named here and does not ad
 - State: slice `rewind@1`, written only when something is held; captures hold cells (paths), never the whole envelope (`REWIND_DIALS`: 12 captures, 400 cells, 120k chars). Newer schema is refused on load.
 - Test: `tests/rewind.test.js`; browser: `scripts/playtest/rewind-browser.mjs`.
 - Limits/traps: restores only domain slices (native clock, inventories and character are not domains), so it cannot yet rewind the world clock or items; per-holder clocks (stop or skip time) belong to the advance loop; a person's horizon uses the nearest held capture, so a finer horizon than the capture spacing keeps their time; echoes (`deja_vu`, `fragments`) are rewind-owned knowledge rows, a world that wants richer residue reads them. A rewind that spends time is a cost the host supplies; here the cost is a cooldown.
-- Rules: AR2, AR3, AR4, AR6, AR7, AR8, AR10, AD38, CHT4, PSA29.
+- Named gaps: (1) the landEffect/W adapter: restores go through slice `validate`/`load`, not W property ops with cause=restore, so they sit outside the chain budget and the W inspector (to write once the substrate world is a tracked slice); (2) restore points are indexed by `restoreIndex()` at `pinAddress('time.restore', specId, captureId)` -> `{at, digest}`, derived on read, not written to the pin store's saved layer; (3) `expires` on a restore point is not built; (4) hooks owed by others: per-holder clock field (advance loop), a death event, a main.js save-snapshot port, `record()` calls for undo.
 - Do not: capture the whole envelope for an area or object rewind; write a rewind's result into another owner's slice around its `validate`.
 
 ## Time and calendar

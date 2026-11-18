@@ -12,6 +12,7 @@ import {calendarMinutes} from './world_rhythm.js';
 import {definePanel} from './panel_kit.js';
 import {node} from './reference_kit.js';
 import {formatDuration} from './number_format.js';
+import {fnv1a} from './hash_rng.js';
 import {testHooksEnabled} from './simulation_clock.js';
 import {decodeMemory, decodeClaims, encodeMemory} from './person_memory.js';
 
@@ -32,6 +33,21 @@ let ports = defaultPorts();
 export const configureRewind = (next = {}) => { ports = {...defaultPorts(), ...next}; };
 
 export function registerRewind(spec) { K.validateSpec(spec); specs.set(spec.id, Object.freeze(structuredClone(spec))); render(); return spec; }
+// Index of held restore points by pin address (`time.restore`, owner, capture id) -> {at, digest}. Derived from the captures on
+// read, so the pin store's saved layer is not written twice (one authority); the pin store answers the address, this owns the row.
+export const restoreAddress = (specId, captureId) => pinAddress('time.restore', specId, captureId);
+export function restoreIndex() {
+    const out = {};
+    for (const [specId, a] of Object.entries(store.anchors)) {
+        const c = store.captures.find(x => x.id === a.capture);
+        if (c) out[restoreAddress(specId, c.id)] = {at: c.at, digest: fnv1a(2166136261, JSON.stringify(c.cells))};
+    }
+    for (const c of store.captures) {
+        const addr = restoreAddress('captured', c.id);
+        out[addr] = {at: c.at, digest: fnv1a(2166136261, JSON.stringify(c.cells))};
+    }
+    return out;
+}
 export const rewindSpecs = () => [...specs.values()];
 export const rewindStore = () => structuredClone(store);
 
@@ -144,6 +160,7 @@ export const commands = {
     // Branching: go back to a kept line; the line you leave becomes a branch in turn.
     switchBranch(id, captureId) { return commands.rewind(id, {capture: captureId}); },
     read: () => structuredClone(store),
+    index: restoreIndex,
     event(name) { safely(() => { for (const s of specs.values()) if (K.anchorDue(s, store, {clock: ports.clock(), events: [name]})) markNow(s, s.markLabel ?? 'your mark'); render(); }); },
 };
 
