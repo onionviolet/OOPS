@@ -1,4 +1,6 @@
 import test from 'node:test';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import assert from 'node:assert/strict';
 import {definePlaceActs,seedPlaceObjects,objectNoticeability,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports,placeStockViews,placeActRecords,placeActVisitors} from '../src/place_acts.js';
 import {fresh,ctx,wait,registry,I} from './lotm_helpers.js';
@@ -239,8 +241,6 @@ test('be-seat native pending and settled acts survive save, reload, export and i
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
 import {writeFileSync,appendFileSync} from 'node:fs';
-// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
-const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const progress=stage=>{if(${Boolean(process.env.H2_REAL_FULL)})appendFileSync('/tmp/h2-real-progress',stage+'\\n');};
 if(${Boolean(process.env.H2_REAL_FULL)})writeFileSync('/tmp/h2-real-progress','');
 progress('boot');

@@ -1,4 +1,6 @@
 import test from 'node:test';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import assert from 'node:assert/strict';
 
 const key=id=>JSON.stringify(id==='fixture.cloth'?{id,quality:100}:{id});
@@ -58,8 +60,6 @@ export const cuAct=id=>{domainRegistry.refresh();document.querySelector('[data-l
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
-// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
-const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});
 try {
  await g.module.cuReady();g.module.cuEnroll();

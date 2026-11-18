@@ -1,4 +1,6 @@
 // R5/U3 live floor: the real bundle in a disposable build, a fixture BE life, one altar rite performed through the
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 // rendered buttons, with Save, reload, Export and Import in the middle and at the end. In-process DOM: no layout, so
 // the 1920x1080 target is not measured here (receipt gap).
 import test from 'node:test';
@@ -39,8 +41,6 @@ export const r5Act=id=>{domainRegistry.refresh();document.querySelector('[data-l
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
-// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
-const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const key=id=>JSON.stringify({id});
 const g=await boot(null,{seed:41,heroName:null});
 const CALL='lotm.rite.spirit-call',ids=['set-candle-north','set-candle-east','set-candle-south','set-candle-west','altar','petition','answer'];

@@ -1,4 +1,6 @@
 import test from 'node:test';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import assert from 'node:assert/strict';
 
 test('current card host integration preserves pending and settled card state through the real validator', {timeout:300000*TS}, async t=>{
@@ -20,8 +22,6 @@ test('current card host integration preserves pending and settled card state thr
  const {createHash}=await import('node:crypto');t.diagnostic('Disposable build SHA-256: '+createHash('sha256').update(await readFile(join(dir,'candidate/dist/bundle.js'))).digest('hex'));
  const worker=join(dir,'cr2-save-worker.mjs');await writeFile(worker,`
 import assert from 'node:assert/strict';import {boot} from './scripts/headless/runner.mjs';
-// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
-const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});try{
  await g.module.cr2Ready();g.module.cr2Enroll();let saved=await g.save();assert.equal(saved.expansion.actors.player.facts['fixture.card.open'],undefined,'future card has no early effect');assert.equal(g.internals.foundationSaveBlocked,false);assert.equal(g.module.cr2NextBoundary(g.internals.expansionState,g.internals.expansionState.clock+10,g.module.cr2Ledger()),saved.expansion.lotm.initializedAt+1,'native wait splitter sees the within-day card');
  // Pending state uses native reload; settled state below uses literal Export/Import.

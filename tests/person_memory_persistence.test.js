@@ -1,4 +1,6 @@
 import test from 'node:test';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import {mkdtemp, cp, readdir, symlink, writeFile, readFile, rm} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
@@ -40,8 +42,6 @@ const settleNative=HeadlessGame.prototype.settle;
 HeadlessGame.prototype.settle=function(ms){this.attributeObservers?.clear();return settleNative.call(this,ms);};
 import {freshMemory, remember, tellMemory, episode, decodeMemory, recallMemory} from './src/person_memory.js';
 import {calendarMinutes} from './src/world_rhythm.js';
-// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
-const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g = new HeadlessGame({seed:37,heroName:null}); g.settleMs=0; await g.reload();
 try {
  let saved = await g.save();

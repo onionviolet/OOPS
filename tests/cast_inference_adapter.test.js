@@ -1,4 +1,6 @@
 import test from 'node:test';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import assert from 'node:assert/strict';
 import {defineInferences,quoteInferences,pendingInferenceReports,settleInferenceReports} from '../src/cast_inference_adapter.js';
 import {fresh,ctx,wait,registry,I} from './lotm_helpers.js';
@@ -136,8 +138,6 @@ test('live integration crosses native UI and real save validator in a disposable
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
-// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
-const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});
 try {
  await g.module.kn1CastReady();g.module.kn1EnrollBe();

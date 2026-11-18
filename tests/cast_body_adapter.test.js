@@ -1,4 +1,6 @@
 import test from 'node:test';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import assert from 'node:assert/strict';
 import {defineBodyCare,quoteBodyCare} from '../src/cast_body_adapter.js';
 import {fresh,ctx,registry,I} from './lotm_helpers.js';
@@ -113,8 +115,6 @@ test('native sleep, waking, meals and real validator Save/reload/Export/Import',
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
-// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
-const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});
 try {
  await g.module.bd1Ready();g.module.bd1Enroll();

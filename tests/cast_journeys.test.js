@@ -1,4 +1,6 @@
 import test from 'node:test';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import assert from 'node:assert/strict';
 import {defineJourneys,quoteJourneys,pendingJourneyReports,settleJourneyReports} from '../src/cast_journeys.js';
 import {defineDivinations} from '../src/cast_divination_adapter.js';
@@ -145,8 +147,6 @@ test('native place-panel journey validates pending Save/reload, arrival and lite
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
-// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
-const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});
 try {
  await g.module.t2Ready();g.module.t2Enroll();
