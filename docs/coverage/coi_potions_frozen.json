@@ -1,0 +1,93 @@
+{
+ "meta": {
+  "pwc": "PWC97",
+  "date": "2026-11-17",
+  "status": "proposal (AD32)",
+  "split": "GKM429: held out when sha1(id)[0] < 0x33",
+  "rulesFrom": "src/lotm_derived_formulas.js (unchanged, no refit)",
+  "lawVersion": "06952eea35",
+  "verdictRule": "scripts/derivation_rules_backtest.mjs verdictOf (PWC100), floor 10 held-out rows; nothing is fitted, so the whole stated set is the fair test when the held-out slice is under the floor (precedent: gu.rank.precursor)"
+ },
+ "axes": {
+  "A": {
+   "id": "coi.rule.lotm-characteristic-transfer",
+   "claim": "the potion is made with a same-Sequence characteristic of its pathway in the main slot (formula states it, or a scene or price shows it used or accepted as the main)",
+   "classes": [
+    "characteristic",
+    "natural-only"
+   ],
+   "rulePredicts": "characteristic",
+   "baseline": "majority class of the training split; a tie goes to natural-only (the reading with no characteristic law)",
+   "verdictBasis": true
+  },
+  "B": {
+   "id": "coi.rule.lotm-main-slot-count",
+   "claim": "number of main-slot entries on the formula sheet",
+   "rulePredicts": "the number of main slots in derivedSpec (1 for Sequence 9 to 1)",
+   "baseline": "modal count in the training split",
+   "verdictBasis": false
+  },
+  "C": {
+   "id": "lotm.rule.supplementary-themed",
+   "claim": "at least one supplementary item is listed",
+   "rulePredicts": "yes",
+   "baseline": "no supplementary item (no rule)",
+   "verdictBasis": false,
+   "note": "every formula lists some, so this axis cannot separate the rule from anything; reported for completeness"
+  }
+ },
+ "cohort": [
+  {
+   "id": "coi.potion.red_priest_9",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.red_priest_8",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.red_priest_7",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.demoness_8",
+   "heldOut": true
+  },
+  {
+   "id": "coi.potion.demoness_7",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.red_priest_6",
+   "heldOut": true
+  },
+  {
+   "id": "coi.potion.demoness_5",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.red_priest_5",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.red_priest_4",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.demoness_4",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.demoness_3",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.red_priest_3",
+   "heldOut": false
+  },
+  {
+   "id": "coi.potion.red_priest_2",
+   "heldOut": false
+  }
+ ]
+}

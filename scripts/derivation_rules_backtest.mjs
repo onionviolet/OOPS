@@ -111,7 +111,7 @@ function generator() {
 }
 
 export async function build() {
-    const rules = [...(await guRank()), hp(), ...lotm(), generator(), ...(await import('./ss_rank_rules.mjs')).ssRankRows(row, sha), ...(await import('./derive_worm_prt.mjs')).backtestRows(row, sha(['scripts/worm_prt_rules.mjs']))];
+    const rules = [...(await guRank()), hp(), ...lotm(), generator(), ...(await import('./ss_rank_rules.mjs')).ssRankRows(row, sha), ...(await import('./derive_worm_prt.mjs')).backtestRows(row, sha(['scripts/worm_prt_rules.mjs'])), ...(await import('./derive_coi_potions.mjs')).coiRuleRows(row, verdictOf)];
     return {meta: {pass: 'docs/research/power-catalogues-2026-11-16/README.md#pwc100-pwc119-derivation-rule-scores-and-core-axioms-2026-11-17-proposals', date: '2026-11-17', status: 'proposal (AD32)',
         split: 'GKM429: sha1(id)[0] < 0x33 held out, frozen before scoring', floor: FLOOR,
         verdicts: 'passes | fails-baseline | insufficient-held-out; written in scripts/derivation_rules_backtest.mjs before the table was filled',

@@ -1,0 +1,191 @@
+{
+ "meta": {
+  "pwc": "PWC97",
+  "reader": "one reader, local English chapter text; paraphrased, chapter numbers only",
+  "note": "Labels written after the freeze file; Demoness 0 (chapter 1031: Uniqueness plus three Sequence 1 characteristics) was found after the freeze and is scored outside the cohort as the Sequence 0 branch."
+ },
+ "seq0": {
+  "id": "coi.potion.demoness_0",
+  "pathway": "Demoness",
+  "seq": 0,
+  "ch": [
+   1031
+  ],
+  "uniqueness": true,
+  "seq1CharacteristicCount": 3
+ },
+ "rows": [
+  {
+   "id": "coi.potion.red_priest_9",
+   "pathway": "Red Priest",
+   "seq": 9,
+   "ch": [
+    27
+   ],
+   "A": "characteristic",
+   "mains": 1,
+   "supp": 4,
+   "extra": "Sheet lists the characteristic itself as the main."
+  },
+  {
+   "id": "coi.potion.red_priest_8",
+   "pathway": "Red Priest",
+   "seq": 8,
+   "ch": [
+    101,
+    102
+   ],
+   "A": "characteristic",
+   "mains": 1,
+   "supp": 4,
+   "extra": "Sheet lists the characteristic itself as the main; a character says a whole flower may replace the extract."
+  },
+  {
+   "id": "coi.potion.red_priest_7",
+   "pathway": "Red Priest",
+   "seq": 7,
+   "ch": [
+    232,
+    235,
+    237
+   ],
+   "A": "characteristic",
+   "mains": 2,
+   "supp": 4,
+   "extra": "Sheet lists two natural mains; a character prices the two mains against a single characteristic and Lumian plans to buy the characteristic."
+  },
+  {
+   "id": "coi.potion.demoness_8",
+   "pathway": "Demoness",
+   "seq": 8,
+   "ch": [
+    301,
+    309,
+    310
+   ],
+   "A": "natural-only",
+   "mains": 2,
+   "supp": 5,
+   "extra": "Sheet and scenes use the natural mains; no characteristic route is shown for this Sequence."
+  },
+  {
+   "id": "coi.potion.demoness_7",
+   "pathway": "Demoness",
+   "seq": 7,
+   "ch": [
+    427,
+    441,
+    444
+   ],
+   "A": "characteristic",
+   "mains": 2,
+   "supp": 4,
+   "extra": "Sheet lists two natural mains; the characteristic is handed over as the main with the supplementary items."
+  },
+  {
+   "id": "coi.potion.red_priest_6",
+   "pathway": "Red Priest",
+   "seq": 6,
+   "ch": [
+    426,
+    436
+   ],
+   "A": "characteristic",
+   "mains": 2,
+   "supp": 4,
+   "extra": "Sheet lists two natural mains; a character confirms a characteristic plus the other items can be combined for the potion."
+  },
+  {
+   "id": "coi.potion.demoness_5",
+   "pathway": "Demoness",
+   "seq": 5,
+   "ch": [
+    502
+   ],
+   "A": "natural-only",
+   "mains": 2,
+   "supp": 4,
+   "extra": "Sheet and scene use the natural mains; no characteristic route is shown."
+  },
+  {
+   "id": "coi.potion.red_priest_5",
+   "pathway": "Red Priest",
+   "seq": 5,
+   "ch": [
+    521
+   ],
+   "A": "characteristic",
+   "mains": 2,
+   "supp": 4,
+   "extra": "The sheet carries a note that one named person's characteristic can replace both mains."
+  },
+  {
+   "id": "coi.potion.red_priest_4",
+   "pathway": "Red Priest",
+   "seq": 4,
+   "ch": [
+    748,
+    751
+   ],
+   "A": "natural-only",
+   "mains": 2,
+   "supp": 4,
+   "extra": "Sheet lists natural mains; the only characteristic shown is made into a sword, not used as the main."
+  },
+  {
+   "id": "coi.potion.demoness_4",
+   "pathway": "Demoness",
+   "seq": 4,
+   "ch": [
+    754,
+    1006,
+    1007
+   ],
+   "A": "characteristic",
+   "mains": 2,
+   "supp": 4,
+   "extra": "Sheet lists two natural mains; the potion is later made from a characteristic and the supplementary materials."
+  },
+  {
+   "id": "coi.potion.demoness_3",
+   "pathway": "Demoness",
+   "seq": 3,
+   "ch": [
+    1031,
+    1045,
+    1046
+   ],
+   "A": "characteristic",
+   "mains": 2,
+   "supp": 4,
+   "extra": "Sheet lists two natural mains; the potion is later made from a characteristic with replacement ingredients."
+  },
+  {
+   "id": "coi.potion.red_priest_3",
+   "pathway": "Red Priest",
+   "seq": 3,
+   "ch": [
+    1045
+   ],
+   "A": "natural-only",
+   "mains": 2,
+   "supp": 4,
+   "extra": "Sheet lists natural mains; no characteristic route is shown."
+  },
+  {
+   "id": "coi.potion.red_priest_2",
+   "pathway": "Red Priest",
+   "seq": 2,
+   "ch": [
+    1082,
+    1086,
+    1087,
+    1090
+   ],
+   "A": "characteristic",
+   "mains": 2,
+   "supp": 5,
+   "extra": "Sheet lists two natural mains the novel says are extinct; the cast hunts the Sequence 2 characteristic as the stand-in."
+  }
+ ]
+}
