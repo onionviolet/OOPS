@@ -34,7 +34,7 @@ Persistence: the run lives in the existing `capabilityRuns` slice under a new ru
 
 Gaps, named:
 
-- The run's result shows in the capability panel ("What happened"), not in the Reports log. Wiring the run to Reports needs a port from `capability_runs_domain.js` to the report writer; not done.
+- Reports (follow-up, 2026-11-17): a played act now also writes its line to the Reports log through a `logMessage` port that `native_tool_domains.js` passes to `capability_runs_domain.js`. Seen in the Game MCP on a fresh origin after the Ward act: the Reports view ends with "Ward · the ward took 4 of 4 and the wearer lost 0." The panel keeps its own list too.
 - The numbers are the packs' own, but the scene is a workshop demonstration, not a story beat. The fresh-life lives named in the audit (Gu academy, Tingen, Hogwarts) do not yet call these packs from their own play. PSA18's "a played life runs a sentence" is met by an opt-in run, not yet by the lives' own days.
 - 60-odd other `world_packs/*` files stay unreachable and were left alone (scope).
 

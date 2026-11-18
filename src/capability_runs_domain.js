@@ -53,6 +53,9 @@ function commit(id, action) {
         if (!durable) saved = previous;
         throw error;
     }
+    // The run's own line also goes to Reports, so a played act is on the record beside everything else that happened.
+    const line = run.view(run.restore(saved.runs[id])).result;
+    if (line && line !== (current ? run.view(run.restore(current)).result : undefined)) ports.logMessage?.(line, 'notification');
 }
 
 registerDomain({id: 'capabilityRuns', initialState: empty,
