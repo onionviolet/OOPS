@@ -4,7 +4,7 @@
 //   node scripts/coverage_report.mjs --check   validate rows only; exit 1 on malformed rows
 // A ledger is docs/coverage/<corpus>.jsonl, one JSON object per line:
 //   {"id": "...", "source": "...", "state": "...", "mechanisms": ["G", ...], "test": "tests/x.test.js" | null, "note": "..."}
-// Coverage percent is a report, never a gate (CV4): only malformed rows and the three case
+// Coverage percent is a report, never a gate (CV4): only malformed rows, a runs-* row with no case (PSA25: runs is computed, never typed) and the three case
 // checks below fail (PC10): a typed state that disagrees with the computed one, a case module that
 // is missing or lacks `coverageCase`, and a case that throws.
 //
@@ -109,7 +109,7 @@ const STATE = /^(runs-canon|runs-authored|runs-derived|expressed-canon|expressed
 // family-median rule with its basis, and the model's own rank as a note).
 // tier, concept, promptHash, nearest and model belong to generated rows (PWC30): the tier apart from canon and derived, the concept word,
 // the hash of the frozen prompt, the nearest canon Gu and the model that wrote the row (AU17).
-const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model', 'variant_of', 'rank', 'rankBasis', 'modelRank']);
+const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model', 'variant_of', 'rank', 'rankBasis', 'modelRank', 'typed']);
 
 // Validate one ledger's text. Returns {rows, problems}; a problem names its line.
 // PWC80: the rules that have a score row in derivation_rules.json; a derived row citing any other rule is flagged.
@@ -130,6 +130,10 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
         if (typeof row.state !== 'string' || !STATE.test(row.state)) problems.push(`${at}: state must be runs-canon, runs-authored, runs-derived, expressed-canon, expressed-authored, expressed-derived, catalogued, blocked:<rule>, not-a-thing:<reason> or unclassified`);
         if (!Array.isArray(row.mechanisms) || row.mechanisms.some(m => typeof m !== 'string' || !m)) problems.push(`${at}: mechanisms must be an array of owner names`);
         if (row.test !== undefined && row.test !== null && typeof row.test !== 'string') problems.push(`${at}: test must be a string or null`);
+        // PSA25: runs is computed, never typed. A runs-* row must carry a case the runner executes (computeLedgers
+        // then checks the typed state against the computed one). The old label of a demoted row lives in `typed`.
+        if (/^runs-/.test(row.state ?? '') && row.case === undefined) problems.push(`${at}: a ${row.state} row has no case; runs is computed from a case that executes (PSA25), so type it catalogued and keep the old label in typed`);
+        if (row.typed !== undefined && (typeof row.typed !== 'string' || !/^runs-(canon|authored|derived)$/.test(row.typed))) problems.push(`${at}: typed must be the old runs-canon, runs-authored or runs-derived label`);
         if (/^runs-/.test(row.state ?? '')) {
             const file = typeof row.test === 'string' ? row.test.split('#')[0] : '';
             if (!file) problems.push(`${at}: a runs-* row names the test that runs it`);
@@ -810,9 +814,38 @@ export function readWorlds() {
     return fs.existsSync(file) ? fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)) : [];
 }
 
+// PSA25: the headline. Per world, computed runs and expressed over its things (rows that are not not-a-thing), with the
+// typed runs label the owners once wrote shown beside it as `typed` (rows demoted to catalogued keep it in `typed`).
+export function worldHeadline(ledgers, computed = new Map(), worlds = readWorlds()) {
+    const owner = new Map();
+    for (const w of worlds) for (const c of Object.values(w.cells ?? {})) for (const l of [c.ledger, ...(c.also ?? [])]) if (l) owner.set(l, w.name);
+    const by = new Map();
+    for (const l of ledgers) {
+        const name = owner.get(l.name) ?? l.name;
+        const w = by.get(name) ?? by.set(name, {name, things: 0, runs: 0, expressed: 0, typed: 0}).get(name);
+        const comp = computed.get(l.name) ?? new Map();
+        for (const r of l.rows) {
+            if (/^not-a-thing/.test(r.state)) continue;
+            w.things++;
+            const c = comp.get(r.id)?.state ?? '';
+            if (/^runs-/.test(c)) w.runs++;
+            else if (/^expressed-/.test(c)) w.expressed++;
+            if (/^runs-/.test(r.state) || /^runs-/.test(r.typed ?? '')) w.typed++;
+        }
+    }
+    return [...by.values()].sort((a, b) => b.things - a.things || a.name.localeCompare(b.name));
+}
+const pct = (n, d) => d ? `${Math.round(n / d * 1000) / 10}%` : '0%';
+
 export function renderReadme(ledgers, {computed = new Map(), reach = null, held = new Map()} = {}) {
+    const head = worldHeadline(ledgers, computed), tot = head.reduce((a, w) => ({things: a.things + w.things, runs: a.runs + w.runs, expressed: a.expressed + w.expressed, typed: a.typed + w.typed}), {things: 0, runs: 0, expressed: 0, typed: 0});
     const lines = ['# Coverage ledgers', '',
-        '*Generated by `node scripts/coverage_report.mjs`; do not edit by hand. Format and states: [plan CV1-CV4](../PROCEDURAL_FOUNDATION_PLAN.md#coverage-ledgers-cv). Each corpus owner writes its own `<corpus>.jsonl`. `npm run check:coverage` fails only on malformed rows; the percentages are a report, not a gate.*', '',
+        '*Generated by `node scripts/coverage_report.mjs`; do not edit by hand. Format and states: [plan CV1-CV4](../PROCEDURAL_FOUNDATION_PLAN.md#coverage-ledgers-cv). Each corpus owner writes its own `<corpus>.jsonl`. `npm run check:coverage` fails on malformed rows, a `runs-*` row with no executing case (PSA25) and case disagreements; the percentages are a report, not a gate.*', '',
+        '## Headline: computed runs and expressed per world (PSA25)', '',
+        '*`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world\'s things (rows that are not `not-a-thing`).*', '',
+        `All worlds: ${tot.things} things, computed runs ${tot.runs} (${pct(tot.runs, tot.things)}), computed expressed ${tot.expressed} (${pct(tot.expressed, tot.things)}), typed ${tot.typed} (${pct(tot.typed, tot.things)}).`, '',
+        '| World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: |',
+        ...head.map(w => `| ${w.name} | ${w.things} | ${w.runs} | ${pct(w.runs, w.things)} | ${w.expressed} | ${pct(w.expressed, w.things)} | ${w.typed} |`), '',
         '## Counts', '',
         '| Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |',
         '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |'];
@@ -824,7 +857,7 @@ export function renderReadme(ledgers, {computed = new Map(), reach = null, held 
         lines.push(`| [${name}](${name}.jsonl) | ${d.owner ?? ''} | ${d.expected ?? 'to build'} | ${c.total} | ${c['runs-canon']} | ${c['runs-authored']} | ${c['runs-derived']} | ${c.blocked} | ${c['not-a-thing']} | ${c.unclassified} | ${c.classifiedShare}% | ${c.runsShare}% |`);
     }
     lines.push('', '## Typed and computed, side by side (PC9, PC10)', '',
-        '*Typed states are the owners\' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Whether headline numbers may fall is Weibao\'s call, so nothing is rewritten.*', '',
+        '*Typed states are the owners\' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Rows typed `runs-*` with no case were rewritten to `catalogued` (PSA25, PSA34) and keep the label in `typed`, so "Typed runs, no case" is now zero and `check:coverage` fails on a new one.*', '',
         '| Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |', '| --- | ---: | ---: | ---: | ---: |');
     for (const l of ledgers) {
         const k = computedCounts(l.rows, computed.get(l.name));
@@ -846,7 +879,7 @@ export function renderReadme(ledgers, {computed = new Map(), reach = null, held 
         '```', '',
         '- `state`: `runs-canon`, `runs-authored`, `runs-derived`, `blocked:<rule>`, `not-a-thing:<reason>` or `unclassified` (CV2). Rules and reasons are short slugs, such as `blocked:PGB2` or `not-a-thing:alias`.',
         '- `runs-derived` and `expressed-derived` (PWC20): the value comes from a world rule, not a source that states it, and the row carries `derived: {"rule": "<rule id>", "inputs": [...]}`. The runs share counts canon and authored only, so derivation shows apart.',
-        '- A `runs-*` row names an existing test file in `test` (optionally `#test name`).',
+        '- A `runs-*` row carries a `case` that executes (PSA25) and names an existing test file in `test` (optionally `#test name`). Without a case the row is `catalogued` and the old label stays in `typed`.',
         '- `catalogued` is a typed state for identity parts with a source and no executed effect. `expressed-*` is computed by the runner; a row carrying `case` is the one place it is typed, because the runner checks it there.',
         '- `case`: optional `{"module": "<repo-relative js>", "id": "<case id>"}`; the module exports `coverageCase(id)` (shape in the header of `scripts/coverage_report.mjs`). `check:coverage` fails when a typed state disagrees with the computed one, a case module is missing or lacks the export, or a case throws.',
         '- `mechanisms`: the owners the thing appears on (SC4), by chat letter or owner name.', '');
