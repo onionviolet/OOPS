@@ -610,12 +610,15 @@ const lifeSaveStorage = {get length(){return localStorage.length;},key:i=>localS
     if(authorityBootError)throw authorityBootError;
     if(authorityBootPending)throw Error('The enrolled save is awaiting complete native preflight.');
     if(authorityEnrolled()){durableSaves.forget();nativeAuthority.commitPreparedSave(JSON.stringify(save));}
-    else if(stepperSaves&&!force){
+    else if(stepperSaves&&!force&&!onDurable&&nativeP23Transaction?.status!=='pending'){
         // S1 (2026-11-18): inside a dev stepper batch only the newest envelope per key is made durable, once, when the batch closes.
         if(deferredDurable&&deferredDurable.key!==key)flushDeferredDurable();
         deferredDurable={key,save};
     }
-    else {if(deferredDurable?.key===key)deferredDurable=null;durableSaves.write(key, save, {force});}
+    else {
+        durableSaves.write(key, save, {force});
+        if(deferredDurable?.key===key)deferredDurable=null;
+    }
     onDurable?.();
     if(nativeP23Transaction?.status==='pending')nativeP23Transaction.markDurable();
     villageCareer = migrateVillageCareer(save);
