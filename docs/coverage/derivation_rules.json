@@ -156,7 +156,7 @@
     "potion effect axis",
     "sibling ingredients (training axes only)"
    ],
-   "version": "ff4dd7bc1f",
+   "version": "4e0977c0bb",
    "fit": "axis votes from training siblings; dials in DERIVE_DIALS",
    "split": "GKM429, held-out ingredients hide their own stated axes",
    "set": "held-out ingredients the rule derives",
