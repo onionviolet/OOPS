@@ -6,7 +6,7 @@ Lane `jojo-readers`. Research and proposals, not accepted design. Method: [sourc
 
 | Source | State | Coverage claim |
 |---|---|---|
-| J9 wiki dump (2,439 article pages in the snapshot) | Read: 172 Stand infobox pages, the Ripple and Spin pages, the Stand, Stand Types and Stand Parameters pages, the gameplay sections of four game pages | The snapshot stops in mid-Part 8 and has no Stand Ocean or later additions; 19 Stand pages carry no letters. Model readings are unchecked |
+| J9 wiki dump (2,439 article pages in the snapshot) | Read: 172 Stand infobox pages, the Ripple and Spin pages, the Stand, Stand Types and Stand Parameters pages, the gameplay sections of four game pages | The snapshot stops in mid-Part 8 and has no Stone Ocean or later additions; 19 Stand pages carry no letters. Model readings are unchecked |
 | J1 *Jorge Joestar*, J2 *Purple Haze Feedback*, J3 *Purple Smoke Distortion*, J4 *Over Heaven*, J5 *The Book* | Read by Luna in 49 chunks of about 12,000 words (about 445k words) and by Haiku for recall | Every chunk read once by each model; no consecutive human reading. J2 and J3 are two translations of one novel |
 | J6 compilation | Not read. The collector flagged overlap with J1 to J5; not compared here. It has no Stand sheets, which J3 does | Open |
 | J8 manga | Not downloaded when this ran (governor window opens 18:00) | Open |
@@ -98,7 +98,7 @@ Questions per chunk: which abilities have a mechanism shown or stated, of the ki
 
 | Work | Chunks | Luna readings (distinct names) | Haiku names | Haiku names also in Luna | Rows written |
 |---|---:|---:|---:|---:|---|
-| JoJo novels (J1 to J5) | 49 | 185 | 459 | 82 | 199 in `jojo_powers.jsonl` |
+| JoJo novels (J1 to J5) | 49 | 185 | 459 | 82 | 172 new rows in `jojo_powers.jsonl` (376 rows in all) and 27 readings merged into wiki rows |
 | A Certain Magical Index (22 vols, New Testament 1-5, 7, 8, 10, 11) | 210 | 862 | 2,368 | 239 | `toaru_powers.jsonl` (with Railgun) |
 | Railgun (novel, SS1 to SS3) | 29 | 100 | 258 | 32 | in `toaru_powers.jsonl` (1,071 rows together) |
 | Wish Upon the Stars 1 to 8 | 97 | 523 | 1,445 | 218 | `wus_powers.jsonl` (648) |
@@ -132,8 +132,8 @@ Blocked slugs on the rows: `power-interaction` (169 in the Index, 107 WUS, 213 W
 
 ### Spend and runs
 
-- The first Luna batches (OpenAI) sat queued for over three hours with no progress and the connection dropped several times; the JoJo, Toaru, Railgun, WUS, MoL and Ward Luna passes were rerun synchronously (about double the batch rate) and the queued batches left to finish or expire. Haiku batches (Anthropic) finished in under half an hour; 10 percent of the first Haiku run hit the output cap and were rerun with a larger cap.
-- Recorded spend from the replies files: Luna about $1.74 (JoJo wiki tier $0.06 included), Haiku about $0.95, total about $2.7. The six queued OpenAI batches have not been billed in that figure (bound about $1.2 if they complete). Lane cap $10, not reached. Keys came from the Keychain into the process only. <!-- slip-ok: states what a source shows or what a count covers, not a design rule -->
+- The first Luna batches (OpenAI) sat queued for over three hours with almost no progress and the connection dropped several times; the JoJo, Toaru, Railgun, WUS, MoL and Ward Luna passes were rerun synchronously (about double the batch rate) and the queued batches then cancelled. Haiku batches (Anthropic) finished in under half an hour; 10 percent of the first Haiku run hit the output cap and were rerun with a larger cap.
+- Recorded spend from the replies files: Luna about $1.74 (JoJo wiki tier $0.06 included), Haiku about $0.95, total $2.69. That figure misses the 110 Ward requests the cancelled OpenAI batch had completed (about $0.12 at batch rate) and the roughly 70 first-run Haiku calls that hit the output cap (their error entries carry no usage). Total about $3, under the $10 lane cap. The six queued OpenAI batches were cancelled once the synchronous reruns covered them. Keys came from the Keychain into the process only. <!-- slip-ok: describes how this run handled keys, not a design rule -->
 - Raw model replies and chunk text are in the gitignored private folder `docs/research/novels/jojo-collection-2026-11-18/readers/` (main checkout). The committed rows are paraphrases.
 
 ## F. What to feed the design lane
@@ -141,7 +141,7 @@ Blocked slugs on the rows: `power-interaction` (169 in the Index, 107 WUS, 213 W
 1. Take the five shapes above as row kinds; the rule-imposing and conditional-trigger shapes need a `when` test and a stored rule object.
 2. A wish, a vow and a time-loop are three different mechanisms in these books (priced transfer with a reach bound, standing restriction that powers, memory-keeping reset); do not collapse them.
 3. Default: use the stat letters as a display band over a rule. Dial: how much of the band a world shows. Reason: the strongest rules in the dump score no better than brawlers on letters.
-4. Treat every row in the new ledgers as a lead: model tier, unchecked, no case.
+4. The "stand" kind on Ward (76) and Index (17) readings is noise from the shared schema, and one ability can appear as several rows because the model split it finely (for example Imagine Breaker and its cancellation of one attack). Mother of Learning was handled as an overlay, not an edit: `mol_mechanisms.json` holds 53 readings matched by name to existing `mother_of_learning_powers` rows and 610 unmatched, because that ledger is generated elsewhere and its validator rejects extra fields. Treat every row in the new ledgers as a lead: model tier, unchecked, no case.
 
 
 ## Open items

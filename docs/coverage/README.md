@@ -6,7 +6,7 @@
 
 *`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world's things (rows that are not `not-a-thing`).*
 
-All worlds: 71375 things, computed runs 376 (0.5%), computed expressed 1667 (2.3%), typed 2123 (3%).
+All worlds: 71348 things, computed runs 376 (0.5%), computed expressed 1667 (2.3%), typed 2123 (3%).
 
 | World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -47,7 +47,7 @@ All worlds: 71375 things, computed runs 376 (0.5%), computed expressed 1667 (2.3
 | Spelljammer (Adventures in Space) | 623 | 0 | 0% | 9 | 1.4% | 0 |
 | Planescape (Adventures in the Multiverse, 2023) | 559 | 0 | 0% | 13 | 2.3% | 0 |
 | Basic Roleplaying ORC | 513 | 0 | 0% | 6 | 1.2% | 0 |
-| JoJo's Bizarre Adventure | 403 | 0 | 0% | 0 | 0% | 0 |
+| JoJo's Bizarre Adventure | 376 | 0 | 0% | 0 | 0% | 0 |
 | Mother of Learning | 371 | 0 | 0% | 6 | 1.6% | 0 |
 | Worm | 279 | 0 | 0% | 0 | 0% | 0 |
 | Blades in the Dark SRD | 190 | 0 | 0% | 0 | 0% | 0 |
@@ -80,7 +80,7 @@ All worlds: 71375 things, computed runs 376 (0.5%), computed expressed 1667 (2.3
 | [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 0 | 18 | 29 | 0 | 100% | 0% |
 | [speedrunning_multiverse_powers](speedrunning_multiverse_powers.jsonl) | P | to build | 111 | 0 | 0 | 0 | 43 | 13 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 108 | 0 | 0 | 6 | 0 | 100% | 97.3% |
-| [jojo_powers](jojo_powers.jsonl) | P | to build | 403 | 0 | 0 | 0 | 218 | 0 | 0 | 100% | 0% |
+| [jojo_powers](jojo_powers.jsonl) | P | to build | 376 | 0 | 0 | 0 | 216 | 0 | 0 | 100% | 0% |
 | [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 0 | 197 | 0 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
 | [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 0 | 94 | 26 | 0 | 100% | 0% |
@@ -1513,7 +1513,6 @@ All worlds: 71375 things, computed runs 376 (0.5%), computed expressed 1667 (2.3
 | brp_powers | body-form | 20 |
 | dnd_srd_creatures | body-form | 20 |
 | ars_magica_conditions | conceal-or-sense | 20 |
-| jojo_powers | concept-law | 20 |
 | wildemount_creatures | effect-unknown | 20 |
 | regressors_tale_artifacts | formation-field | 20 |
 | numenera_creatures | item-bound-power | 20 |
@@ -1523,6 +1522,7 @@ All worlds: 71375 things, computed runs 376 (0.5%), computed expressed 1667 (2.3
 | dnd_srd_powers | area-field | 19 |
 | the_strange_artifacts | area-field | 19 |
 | ars_magica_creatures | conceal-or-sense | 19 |
+| jojo_powers | concept-law | 19 |
 | ars_magica_spells | creature-control | 19 |
 | dnd5e_2014_class_features | creature-control | 19 |
 | aos_soulbound_powers | divination | 19 |
@@ -1631,7 +1631,6 @@ All worlds: 71375 things, computed runs 376 (0.5%), computed expressed 1667 (2.3
 | dnd5e_2014_creatures | power-granting | 15 |
 | dnd5e_2014_items | power-interaction | 15 |
 | fate_powers | power-interaction | 15 |
-| jojo_powers | power-transfer | 15 |
 | ars_magica_spells | projection-body | 15 |
 | dnd5e_2014_powers | revival-on-death | 15 |
 | mystara_rules | soul-state | 15 |
@@ -1665,6 +1664,7 @@ All worlds: 71375 things, computed runs 376 (0.5%), computed expressed 1667 (2.3
 | hp_creatures | power-interaction | 14 |
 | the_dark_eye_powers | power-interaction | 14 |
 | warhammer_40k_artifacts | power-interaction | 14 |
+| jojo_powers | power-transfer | 14 |
 | wildemount_creatures | power-transfer | 14 |
 | ars_magica_conditions | protection-field | 14 |
 | cypher_items | protection-field | 14 |

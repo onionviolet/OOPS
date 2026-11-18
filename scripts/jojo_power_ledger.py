@@ -215,10 +215,26 @@ if __name__ == '__main__':
     rp = PRIV / 'private' / 'jojo_wiki_luna.json'
     if rp.exists(): print('folded', apply_replies(rows, labels, json.load(open(rp))), 'model readings')
     if '--novels' in a:
+        # A novel reading of an ability the wiki tier already has is appended to that row (note and source), not added as a second row.
+        by_name = {}
+        for r in rows:
+            lab = labels.get(r['id'], {})
+            for nm in (lab.get('stand'), lab.get('technique')):
+                if nm: by_name.setdefault(re.sub(r'[^a-z0-9]+', ' ', re.sub(r"[’']s\b", '', nm.lower())).strip(), r)
+        merged = 0
         for line in open(a[a.index('--novels') + 1]):
             r = json.loads(line)
             if r['id'] in labels: continue
+            nm = re.sub(r'[^a-z0-9]+', ' ', re.sub(r"[’']s\b", '', r['note'].split(' (')[0].lower())).strip()
+            hit = by_name.get(nm)
+            if hit:
+                hit['note'] += ' Novel reading: ' + r['note'].split('Kind ', 1)[-1].split(' Missing:')[0]
+                hit['source'] += '; ' + r['source'].split('chunk locators ')[-1]
+                if hit['state'] == 'catalogued' and r['state'] != 'catalogued': hit['state'] = r['state']
+                merged += 1
+                continue
             rows.append({k: r[k] for k in ('id', 'source', 'state', 'mechanisms', 'test', 'note')}); labels[r['id']] = r.get('label', {})
+        print('novel readings merged into wiki rows', merged)
     (ROOT / 'docs/coverage/jojo_powers.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows))
     (ROOT / 'docs/coverage/jojo_power_labels.json').write_text(json.dumps({'about': 'JoJo power sidecar (jojo-readers lane, 2026-11-18): Stand stat letters (Power, Speed, Range, Durability, Precision, Potential; A-E plus Infinite and Null) and shape tags per ledger row. Keyword tags and model readings are unchecked.', 'rows': labels}, ensure_ascii=False, indent=1) + '\n')
     print(len(rows), 'rows')
