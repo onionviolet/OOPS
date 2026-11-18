@@ -30,6 +30,7 @@ By default a new slice declares data through the seam named here and does not ad
 | [Practice mastery and its pool](#practice-mastery-and-its-pool) | mastery_pool.js (pure leaf) over the engine's practice power | `simulation.powers.<actor>.<power>.mastery`; pool is the actor resource `<worldId>.mastery.pool` | mastery_pool.test.js |
 | [Travel and journeys](#travel-and-journeys) | travel_legs.js | None (caller applies clock, purse, location) | lotm_next_city.test.js |
 | [Time and calendar](#time-and-calendar) | world_calendar.js | Native `current_game_time`; derived | world_calendar.test.js |
+| [Rewinds and restores](#rewinds-and-restores) | rewind_kit.js (pure) + rewind_domain.js | Save slice `rewind@1` (bounded captures, anchors, branches, echoes, log) | rewind.test.js |
 | [Institutions, rank and law](#institutions-rank-and-law) | institution_store.js, institution_access.js | World adapter (no shared slice) | institution_store.test.js |
 | [Situations, story cards and requests](#situations-story-cards-and-requests) | causal_situations.js, storylet_deck2.js, world_events.js | Simulation situations; the rest derived | world_events.test.js, tingen_deck.test.js |
 | [Generation](#generation) | gen_kit.js, seeded_streams.js | `expansion.streams` (streams) | gen_kit.test.js |
@@ -368,6 +369,19 @@ By default a new slice declares data through the seam named here and does not ad
 - Limits/traps: `quoteRoute` reads only; fare needs `sum`, `unstated: true` or `perKm`+`km`; ids must match `/^[a-z][a-z0-9_.:-]*$/i`; the bridge drops places the seat does not label and does not pass hazards on; service hours come from `world_events.openUnder` restrictions.
 - Do not: build a fresh per-world journey command set; `book_world_hp_*` has no travel seam to copy.
 - Competing: two (travel_legs routes for regions, cast_journeys for cast-pack commands); the map seat's own moves are a third, bridged by `legsFromMoves`.
+
+## Rewinds and restores
+
+- Use this: `rewind_kit.js` (pure planner, XG6, 2026-11-18, proposal) and `rewind_domain.js` (owns the `rewind` slice, runs the pipeline over other domains' saved slices through their own `validate`/`load`). Seven kinds are data rows in `KIND_ROWS` that only pick the restore set: `global` (every tracked path to the pin), `area` (named paths of one place), `object` (one thing, a wound or a broken item), `personal` (the holder keeps mind and powers, moving or fixed anchor), `perception` (only others' memory), `undo` (one action from the event log, `planUndo`), `branch` (the line you leave stays reachable). Do not add a code path per kind or a second loop vocabulary: carry classes and loop dials stay in `harm_loops.js`; whole-life restarts stay in `continuation_state` (this restores slices inside a life).
+- Declare: a spec `{id, kind, label, track:[paths], select, holder, carry:{paths}, anchor:{kind:'fixed'|'moving', every, on}, horizons:{actor: minutes|'outside'}, awareness:{actor|'*': none|deja_vu|fragments|full}, nesting: rank|earliest|latest|own, minds:['slice/holders/{actor}'], actorsFrom, cost:{cooldown}, terms:{gain, limits}}` through `registerRewind` (`validateSpec`). A compact slice that cannot be cut apart raw registers a codec (`registerRewindCodec`; memory's shared id table is the first). Shipped ability: `RETURN_TO_MARK` (panel "Return to the mark").
+- Write: `commands.mark`, `rewind` (plans on copies, validates every touched slice through its owner, then loads, rolling back on a failed load; a refused plan changes nothing), `record` and `undo`, `switchBranch`, `event(name)` (moves a moving anchor). A path the pin store holds (`rewind.hold` address) is never restored.
+- Read: `commands.quote` (cooldown, terms line), `inspectorLines(report, names)` (what came back, what stayed, who remembers, no engine words), `projection`.
+- State: slice `rewind@1`, written only when something is held; captures hold cells (paths), never the whole envelope (`REWIND_DIALS`: 12 captures, 400 cells, 120k chars). Newer schema is refused on load.
+- Test: `tests/rewind.test.js`; browser: `scripts/playtest/rewind-browser.mjs`.
+- Limits/traps: restores only domain slices (native clock, inventories and character are not domains), so it cannot yet rewind the world clock or items; per-holder clocks (stop or skip time) belong to the advance loop; a person's horizon uses the nearest held capture, so a finer horizon than the capture spacing keeps their time; echoes (`deja_vu`, `fragments`) are rewind-owned knowledge rows, a world that wants richer residue reads them. A rewind that spends time is a cost the host supplies; here the cost is a cooldown.
+- Named gaps: (1) the landEffect/W adapter: restores go through slice `validate`/`load`, not W property ops with cause=restore, so they sit outside the chain budget and the W inspector (to write once the substrate world is a tracked slice); (2) restore points are indexed by `restoreIndex()` at `pinAddress('time.restore', specId, captureId)` -> `{at, digest}`, derived on read, not written to the pin store's saved layer; (3) `expires` on a restore point is not built; (4) hooks owed by others: per-holder clock field (advance loop), a death event, a main.js save-snapshot port, `record()` calls for undo.
+- Rules: AR2, AR3, AR4, AR6, AR7, AR8, AR10, AD38, CHT4, PSA29.
+- Do not: capture the whole envelope for an area or object rewind; write a rewind's result into another owner's slice around its `validate`.
 
 ## Time and calendar
 

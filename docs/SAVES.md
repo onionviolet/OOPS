@@ -299,6 +299,17 @@ Current source inspection confirms `save data`/`dev save data`, `importSaveFile`
 Preserve the distinction between a slice's deliberate compatibility choice and new product authority. G1's actual loader coverage, G3's exact-field rejection, G4's schema-2 test weakness and G5/G6 completeness remain open at their documented scope. A test-hook reveal/one-pack crossing receipt cannot close all world fact, edge, exception, pack revision or real-action persistence. The early engineering targets are proposals, with mobile and host migration still deferred unless selected; personal saves stay untouched (AD32, AD36, AR6).
 
 
+### 6f. Rewind slice (2026-11-18, compatibility decision, proposal until Weibao names it)
+
+**Decision.** The `rewind` domain (`src/rewind_domain.js`) owns one optional top-level key `rewind: {schema:1, seq, captures, anchors, branches, echoes, events, log, lastUsed}`. Captures hold cells (path to value) of the slices a spec tracks, never the whole envelope; caps: 12 captures, 400 cells, 120,000 characters (`REWIND_DIALS`).
+
+- **Old saves:** no migration; a save without the key loads fresh (`migrate(null)`). A slice from a newer schema is refused on load, not guessed at.
+- **Writes:** nothing held writes no key, so existing saves stay byte-identical.
+- **A restore cannot corrupt a save:** a rewind plans on copies, runs each touched slice through its owner's `migrate`/`validate`, and loads only if all pass; a failed load rolls the loaded slices back. A tampered capture is refused with its reason and every slice stays as it was (`tests/rewind.test.js`).
+- **Not covered:** native clock, inventories, character (not domains); a downgrade drops the key (old-save compatibility is deferred, 2026-10-17).
+
+**Checked (agent-verified, not human-reviewed).** `node --test tests/rewind.test.js`; `scripts/playtest/rewind-browser.mjs` (save, reload, literal Export/Import on a fresh origin).
+
 ## Historical chest-adapter finding B143, 2026-11-04
 
 The entire [October 4 engine checkpoint](ENGINE_GM_CHECKPOINT.md) was reviewed. Its proposed next adapter said native chest transfers bypassed the durable/custody path. Current named source qualifies that absence claim: `data/storage.js` routes deposit/withdraw through its bound handler; `main.js` binds `commitNativeStorage`, checks an accessible open chest, stages both inventory owners and publishes through `persistExpansion`; `native_storage_transaction.js` checks request sequence/counts, validates the whole selected batch and returns a staged player/chest ownership plan. Companion stock has its separate actual custody-loan path.
