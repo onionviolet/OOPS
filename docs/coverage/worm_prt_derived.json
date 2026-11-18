@@ -1,0 +1,1259 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/lanes/derive-worm.md",
+  "date": "2026-11-17",
+  "status": "proposal (AD32)",
+  "rulesCommit": "38159016a (rules and stated numbers frozen before this scorer ran)",
+  "rulesHash": "3b3a38b01d",
+  "split": "GKM429: sha1(id)[0] < 0x33 held out",
+  "baselines": {
+   "class": "most common training primary (Tinker)",
+   "rating": "most common training stated number (4)"
+  },
+  "bandDefinitions": {
+   "class": "primaryInCanonSet = the derived primary appears anywhere in the canon class set",
+   "rating": "within1 = within one of any stated value"
+  }
+ },
+ "class": {
+  "whole": {
+   "label": "every rated cape row the rule fires on (labels seen while writing, not blind)",
+   "rated": 33,
+   "abstained": 5,
+   "n": 28,
+   "primaryExact": 18,
+   "primaryInCanonSet": 19,
+   "setExact": 9,
+   "baseline": {
+    "primary": "Tinker",
+    "primaryExact": 7,
+    "primaryInCanonSet": 7,
+    "setExact": 6
+   },
+   "misses": [
+    {
+     "id": "worm.cape.weld",
+     "canon": [
+      "Brute",
+      "Changer"
+     ],
+     "derived": [
+      "Changer"
+     ],
+     "derivedPrimary": "Changer"
+    },
+    {
+     "id": "worm.cape.lung",
+     "canon": [
+      "Brute",
+      "Blaster"
+     ],
+     "derived": [
+      "Brute",
+      "Changer"
+     ],
+     "derivedPrimary": "Changer"
+    },
+    {
+     "id": "worm.cape.clockblocker",
+     "canon": [
+      "Striker"
+     ],
+     "derived": [
+      "Brute"
+     ],
+     "derivedPrimary": "Brute"
+    },
+    {
+     "id": "worm.cape.nice_guy",
+     "canon": [
+      "Stranger"
+     ],
+     "derived": [
+      "Stranger",
+      "Thinker"
+     ],
+     "derivedPrimary": "Thinker"
+    },
+    {
+     "id": "worm.cape.pretender",
+     "canon": [
+      "Stranger"
+     ],
+     "derived": [
+      "Changer"
+     ],
+     "derivedPrimary": "Changer"
+    },
+    {
+     "id": "worm.cape.siberian",
+     "canon": [
+      "Master"
+     ],
+     "derived": [
+      "Striker"
+     ],
+     "derivedPrimary": "Striker"
+    },
+    {
+     "id": "worm.cape.wanton",
+     "canon": [
+      "Breaker",
+      "Stranger",
+      "Shaker"
+     ],
+     "derived": [
+      "Changer"
+     ],
+     "derivedPrimary": "Changer"
+    },
+    {
+     "id": "worm.cape.flechette",
+     "canon": [
+      "Striker",
+      "Blaster"
+     ],
+     "derived": [
+      "Blaster",
+      "Breaker",
+      "Striker",
+      "Trump"
+     ],
+     "derivedPrimary": "Trump"
+    },
+    {
+     "id": "worm.cape.hookwolf",
+     "canon": [
+      "Shaker",
+      "Brute"
+     ],
+     "derived": [
+      "Changer"
+     ],
+     "derivedPrimary": "Changer"
+    },
+    {
+     "id": "worm.cape.valefor",
+     "canon": [
+      "Stranger"
+     ],
+     "derived": [
+      "Master",
+      "Stranger"
+     ],
+     "derivedPrimary": "Master"
+    }
+   ]
+  },
+  "heldOut": {
+   "label": "held-out rated cape rows (frozen split)",
+   "rated": 6,
+   "abstained": 1,
+   "n": 5,
+   "primaryExact": 2,
+   "primaryInCanonSet": 2,
+   "setExact": 0,
+   "baseline": {
+    "primary": "Tinker",
+    "primaryExact": 1,
+    "primaryInCanonSet": 1,
+    "setExact": 0
+   },
+   "misses": [
+    {
+     "id": "worm.cape.pretender",
+     "canon": [
+      "Stranger"
+     ],
+     "derived": [
+      "Changer"
+     ],
+     "derivedPrimary": "Changer"
+    },
+    {
+     "id": "worm.cape.wanton",
+     "canon": [
+      "Breaker",
+      "Stranger",
+      "Shaker"
+     ],
+     "derived": [
+      "Changer"
+     ],
+     "derivedPrimary": "Changer"
+    },
+    {
+     "id": "worm.cape.flechette",
+     "canon": [
+      "Striker",
+      "Blaster"
+     ],
+     "derived": [
+      "Blaster",
+      "Breaker",
+      "Striker",
+      "Trump"
+     ],
+     "derivedPrimary": "Trump"
+    }
+   ]
+  }
+ },
+ "rating": {
+  "whole": {
+   "rated": 15,
+   "abstained": 5,
+   "n": 10,
+   "exact": 3,
+   "within1": 5,
+   "baseline": {
+    "value": 4,
+    "exact": 2,
+    "within1": 5
+   },
+   "misses": [
+    {
+     "id": "worm.cape.bakuda",
+     "stated": [
+      6
+     ],
+     "derived": 9
+    },
+    {
+     "id": "worm.cape.tattletale",
+     "stated": [
+      7
+     ],
+     "derived": 5
+    },
+    {
+     "id": "worm.cape.kid_win",
+     "stated": [
+      4
+     ],
+     "derived": 5
+    },
+    {
+     "id": "worm.cape.hookwolf",
+     "stated": [
+      4
+     ],
+     "derived": 3
+    },
+    {
+     "id": "worm.cape.purity",
+     "stated": [
+      8
+     ],
+     "derived": 5
+    },
+    {
+     "id": "worm.cape.labyrinth",
+     "stated": [
+      12
+     ],
+     "derived": 9
+    },
+    {
+     "id": "worm.cape.imp",
+     "stated": [
+      5
+     ],
+     "derived": 9
+    }
+   ]
+  },
+  "heldOut": {
+   "rated": 2,
+   "abstained": 1,
+   "n": 1,
+   "exact": 1,
+   "within1": 1,
+   "baseline": {
+    "value": 4,
+    "exact": 0,
+    "within1": 1
+   },
+   "misses": []
+  }
+ },
+ "fanTier": {
+  "communityRows": 5,
+  "rowsNamingAClass": 2,
+  "comparable": 1,
+  "agree": 1,
+  "numericRatingsStated": 0,
+  "detail": [
+   {
+    "id": "worm.c2",
+    "row": "worm.cape.tattletale",
+    "fanClasses": [
+     "Thinker"
+    ],
+    "canon": [
+     "Thinker"
+    ],
+    "agrees": true
+   },
+   {
+    "id": "worm.c5",
+    "row": "worm.cape.echidna",
+    "fanClasses": [
+     "Thinker"
+    ],
+    "canon": null,
+    "agrees": null
+   }
+  ]
+ },
+ "derived": {
+  "worm.cape.grue": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.coil": {
+   "class": "Mover",
+   "classSet": [
+    "Mover"
+   ],
+   "rating": 4
+  },
+  "worm.cape.brandish": {
+   "class": "Tinker",
+   "classSet": [
+    "Changer",
+    "Tinker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.flashbang": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.glory_girl": {
+   "class": "Brute",
+   "classSet": [
+    "Brute",
+    "Mover"
+   ],
+   "rating": 4
+  },
+  "worm.cape.panacea": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.marquis": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.jack_slash": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ]
+  },
+  "worm.cape.sundancer": {
+   "class": "Master",
+   "classSet": [
+    "Blaster",
+    "Master",
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.ballistic": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.garotte": {
+   "class": "Master",
+   "classSet": [
+    "Master",
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.number_man": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.contessa": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.parian": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.aegis": {
+   "class": "Brute",
+   "classSet": [
+    "Brute"
+   ],
+   "rating": 3
+  },
+  "worm.cape.agnes_court": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.annex": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.arbiter": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.barker": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ],
+   "rating": 5
+  },
+  "worm.cape.battery": {
+   "class": "Tinker",
+   "classSet": [
+    "Brute",
+    "Mover",
+    "Tinker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.biter": {
+   "class": "Changer",
+   "classSet": [
+    "Changer"
+   ],
+   "rating": 3
+  },
+  "worm.cape.blasto": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.blowout": {
+   "class": "Brute",
+   "classSet": [
+    "Brute"
+   ],
+   "rating": 4
+  },
+  "worm.cape.breed": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.butcher": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 10
+  },
+  "worm.cape.butcher_fourteen": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ],
+   "rating": 5
+  },
+  "worm.cape.chariot": {
+   "class": "Mover",
+   "classSet": [
+    "Mover"
+   ],
+   "rating": 3
+  },
+  "worm.cape.cherish": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 6
+  },
+  "worm.cape.chevalier": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.citrine": {
+   "class": "Trump",
+   "classSet": [
+    "Shaker",
+    "Trump"
+   ],
+   "rating": 10
+  },
+  "worm.cape.clairvoyant": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.crane_the_harmonious": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.crawler": {
+   "class": "Brute",
+   "classSet": [
+    "Brute"
+   ],
+   "rating": 2
+  },
+  "worm.cape.crucible": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.crusader": {
+   "class": "Breaker",
+   "classSet": [
+    "Breaker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.cuff": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.custodian": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.dauntless": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.dodge": {
+   "class": "Tinker",
+   "classSet": [
+    "Mover",
+    "Tinker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.dovetail": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.eligos": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ],
+   "rating": 6
+  },
+  "worm.cape.elle": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.flor": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.floret": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.fog": {
+   "class": "Breaker",
+   "classSet": [
+    "Breaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.foil": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Striker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.galvanate": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 4
+  },
+  "worm.cape.gavel": {
+   "class": "Brute",
+   "classSet": [
+    "Brute"
+   ],
+   "rating": 3
+  },
+  "worm.cape.gregor": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.halo": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ],
+   "rating": 6
+  },
+  "worm.cape.hannah": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.hatchet_face": {
+   "class": "Trump",
+   "classSet": [
+    "Shaker",
+    "Trump"
+   ],
+   "rating": 10
+  },
+  "worm.cape.heartbreaker": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 10
+  },
+  "worm.cape.ingenue": {
+   "class": "Trump",
+   "classSet": [
+    "Master",
+    "Striker",
+    "Trump"
+   ],
+   "rating": 4
+  },
+  "worm.cape.jacklight": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.jamie_rinke": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.jouster": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.justin": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.kaiser": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.king": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.king_of_cups": {
+   "class": "Changer",
+   "classSet": [
+    "Changer"
+   ],
+   "rating": 3
+  },
+  "worm.cape.lab_rat": {
+   "class": "Changer",
+   "classSet": [
+    "Changer"
+   ],
+   "rating": 2
+  },
+  "worm.cape.lady_photon": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.laserdream": {
+   "class": "Mover",
+   "classSet": [
+    "Mover"
+   ],
+   "rating": 3
+  },
+  "worm.cape.leet": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.leonid": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.ligeia": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.lily": {
+   "class": "Trump",
+   "classSet": [
+    "Striker",
+    "Trump"
+   ],
+   "rating": 4
+  },
+  "worm.cape.lustrum": {
+   "class": "Trump",
+   "classSet": [
+    "Master",
+    "Striker",
+    "Trump"
+   ],
+   "rating": 3
+  },
+  "worm.cape.manpower": {
+   "class": "Brute",
+   "classSet": [
+    "Brute"
+   ],
+   "rating": 4
+  },
+  "worm.cape.mantellum": {
+   "class": "Trump",
+   "classSet": [
+    "Shaker",
+    "Trump"
+   ],
+   "rating": 10
+  },
+  "worm.cape.miss_militia": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.moord_nag": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.myrddin": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 2
+  },
+  "worm.cape.narwhal": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.nero": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.night": {
+   "class": "Changer",
+   "classSet": [
+    "Changer"
+   ],
+   "rating": 2
+  },
+  "worm.cape.nyx": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.one": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.oni_lee": {
+   "class": "Breaker",
+   "classSet": [
+    "Breaker",
+    "Mover"
+   ],
+   "rating": 2
+  },
+  "worm.cape.othello": {
+   "class": "Breaker",
+   "classSet": [
+    "Breaker",
+    "Mover"
+   ],
+   "rating": 2
+  },
+  "worm.cape.pandora": {
+   "class": "Trump",
+   "classSet": [
+    "Trump"
+   ],
+   "rating": 6
+  },
+  "worm.cape.particulate": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ],
+   "rating": 4
+  },
+  "worm.cape.pendragon": {
+   "class": "Mover",
+   "classSet": [
+    "Mover"
+   ],
+   "rating": 3
+  },
+  "worm.cape.pendragon_ii": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 5
+  },
+  "worm.cape.persecutor": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.phir_se": {
+   "class": "Breaker",
+   "classSet": [
+    "Breaker"
+   ],
+   "rating": 4
+  },
+  "worm.cape.prefab": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.prism": {
+   "class": "Brute",
+   "classSet": [
+    "Brute",
+    "Mover"
+   ],
+   "rating": 3
+  },
+  "worm.cape.queen_of_swords": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.raymancer": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ],
+   "rating": 5
+  },
+  "worm.cape.rime": {
+   "class": "Master",
+   "classSet": [
+    "Master",
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.rosary": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.rune": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.saint": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.sanguine": {
+   "class": "Master",
+   "classSet": [
+    "Master",
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.satyr": {
+   "class": "Changer",
+   "classSet": [
+    "Changer"
+   ],
+   "rating": 3
+  },
+  "worm.cape.scanner": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.scapegoat": {
+   "class": "Striker",
+   "classSet": [
+    "Striker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.shatterbird": {
+   "class": "Master",
+   "classSet": [
+    "Master",
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.shielder": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.shuffle": {
+   "class": "Breaker",
+   "classSet": [
+    "Breaker",
+    "Shaker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.sierra": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ]
+  },
+  "worm.cape.sifara": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.silk_road": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.skidmark": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.skinslip": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 5
+  },
+  "worm.cape.spitfire": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.squealer": {
+   "class": "Tinker",
+   "classSet": [
+    "Shaker",
+    "Tinker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.stormtiger": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ],
+   "rating": 5
+  },
+  "worm.cape.string_theory": {
+   "class": "Tinker",
+   "classSet": [
+    "Tinker"
+   ],
+   "rating": 5
+  },
+  "worm.cape.theo": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.topsy": {
+   "class": "Trump",
+   "classSet": [
+    "Shaker",
+    "Trump"
+   ],
+   "rating": 10
+  },
+  "worm.cape.trainwreck": {
+   "class": "Tinker",
+   "classSet": [
+    "Brute",
+    "Changer",
+    "Tinker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.triumph": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.two": {
+   "class": "Trump",
+   "classSet": [
+    "Master",
+    "Trump"
+   ],
+   "rating": 6
+  },
+  "worm.cape.tong_ling_ta": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.velocity": {
+   "class": "Mover",
+   "classSet": [
+    "Mover"
+   ],
+   "rating": 3
+  },
+  "worm.cape.victor": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 3
+  },
+  "worm.cape.watch": {
+   "class": "Thinker",
+   "classSet": [
+    "Thinker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.white_fairy": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.william_manton": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.gallant": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ]
+  },
+  "worm.cape.browbeat": {
+   "class": "Changer",
+   "classSet": [
+    "Changer"
+   ],
+   "rating": 3
+  },
+  "worm.cape.cricket": {
+   "class": "Master",
+   "classSet": [
+    "Master",
+    "Shaker"
+   ],
+   "rating": 9
+  },
+  "worm.cape.legend": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster"
+   ],
+   "rating": 5
+  },
+  "worm.cape.scrub": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 8
+  },
+  "worm.cape.burnscar": {
+   "class": "Blaster",
+   "classSet": [
+    "Blaster",
+    "Shaker"
+   ],
+   "rating": 10
+  },
+  "worm.cape.taylor_swarm": {
+   "class": "Master",
+   "classSet": [
+    "Master"
+   ],
+   "rating": 5
+  },
+  "worm.cape.golem": {
+   "class": "Shaker",
+   "classSet": [
+    "Shaker"
+   ],
+   "rating": 9
+  }
+ }
+}
