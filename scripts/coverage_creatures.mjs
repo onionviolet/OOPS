@@ -3,7 +3,7 @@
 // CV2: runs-canon, runs-authored, blocked:<rule>, not-a-thing:<reason>; never unclassified.
 // Rerun after either catalogue changes:  node scripts/coverage_creatures.mjs [--check]
 import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
-import {demoteTypedRuns} from './typed_runs.mjs';
+import {settleState as demoteTypedRuns} from './typed_runs.mjs';
 import {LIVING_KIND_ROWS, guLivingRows, livingKindRegistry} from '../src/living_kinds.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
 import {guBodyRow} from '../src/world_packs/gu_body_cases.js';

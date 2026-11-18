@@ -5,7 +5,7 @@
 // categories, then a short name-keyword table marked as an inference.
 // Usage: node scripts/gu_coverage_ledgers.mjs [path/to/gu-identities.json]
 import {readFileSync, writeFileSync, mkdirSync, existsSync} from 'node:fs';
-import {demoteTypedRuns} from './typed_runs.mjs';
+import {settleState as demoteTypedRuns} from './typed_runs.mjs';
 import {confidenceOf} from './derivation_confidence.mjs';
 import {join} from 'node:path';
 import {foldChapterEffect} from './chapter_effect_tier.mjs';

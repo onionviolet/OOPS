@@ -11,6 +11,7 @@
 // Derived levels are capped at `some`: a derived set says an axis is present, not how much (amounts stay authored).
 // Usage: node scripts/derive_hp_properties.mjs [--score]   (prints the held-out score; writes docs/coverage/hp_derived_score.json)
 import {readFileSync, writeFileSync} from 'node:fs';
+import {liftReachable} from './typed_runs.mjs';
 import {confidenceOf} from './derivation_confidence.mjs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
@@ -152,12 +153,13 @@ export function foldDerived(rows) {
         const list = d.axes.map(a => `${a.axis} ${a.level} (${a.confidence})`).join(', ');
         const primary = HP_AXIS_DOSE[d.axes[0].axis];
         row.note += ` Derived tier (PWC22, ${DERIVE_RULE}, deterministic, unchecked against a source): ${list} from ${d.inputs.length} edge${d.inputs.length === 1 ? '' : 's'}${d.intersect ? ', the recipes agree' : ''}. A stated axis from a later wiki or chapter pass replaces it.`;
-        // runs-derived needs a case module the game reaches from src/main.js; the property set is library-only today, so every derived row is expressed-derived and a dosed one names its test.
+        // runs-derived needs a case module the game reaches from src/main.js; liftReachable below settles which (PSA24 wired the property set).
         row.state = 'expressed-derived';
         if (primary) row.test = DERIVE_TEST;
         row.mechanisms = [...new Set([...row.mechanisms, 'hp_property_set', ...(primary ? ['b.dose'] : [])])];
         row.case = {module: HP_PROPERTY_MODULE, id: derivedCaseId(d.axes)};
         row.derived = {rule: DERIVE_RULE, inputs: d.inputs, confidence: confidenceOf(DERIVE_RULE)};
+        row.state = liftReachable(row).state;
     }
     return rows;
 }
