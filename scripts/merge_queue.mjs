@@ -2,7 +2,7 @@
 // Merge queue (FRC71): the isolated merge procedure used by hand on 2026-11-10.
 //
 // Usage: node scripts/merge_queue.mjs [--apply] [--no-checks] [--target master]
-//          [--primary <path>] [--keep-scratch] <branch> [<branch>...]
+//          [--regen-all] [--checks a,b] [--primary <path>] [--keep-scratch] <branch> [<branch>...]
 //
 // 1. Records the target's commit H and refuses if the primary index has staged entries.
 // 2. Merges each branch in order with `git merge-tree --write-tree` and `git commit-tree`
@@ -26,7 +26,7 @@
 // Never stashes, resets, forces or pushes. Exit codes: 0 pass, 1 refused or failed, 2 usage.
 import {spawnSync} from 'node:child_process';
 import {existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, symlinkSync, writeFileSync} from 'node:fs';
-import {tmpdir} from 'node:os';
+import {availableParallelism, loadavg, tmpdir} from 'node:os';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {REGENERABLE, regenerate} from './regen_generated.mjs';
@@ -44,12 +44,13 @@ const DEFAULT_CHECKS = [
 const ZERO = '0000000000000000000000000000000000000000';
 
 function parseArgs(argv) {
-  const o = {apply: false, checks: true, only: null, target: 'master', primary: null, keepScratch: false, branches: []};
+  const o = {apply: false, checks: true, only: null, regenAll: false, target: 'master', primary: null, keepScratch: false, branches: []};
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === '--apply') o.apply = true;
     else if (a === '--no-checks') o.checks = false;
     else if (a === '--keep-scratch') o.keepScratch = true;
+    else if (a === '--regen-all') o.regenAll = true;
     else if (a === '--checks') o.only = String(argv[++i]).split(',');
     else if (a === '--target') o.target = argv[++i];
     else if (a === '--primary') o.primary = argv[++i];
@@ -168,7 +169,10 @@ function runChecks(scratch, logDir, checks) {
   const results = [];
   for (const [name, cmd] of checks) {
     const started = Date.now();
-    const r = spawnSync(cmd, {cwd: scratch, shell: true, env: childEnv(), encoding: 'utf8', maxBuffer: 1 << 28});
+    // Live save-worker tests multiply their wall-clock timeouts by YAIRPG_TIMEOUT_SCALE (default 1); a loaded machine
+    // (ten lanes running suites pushed load to 100) cancelled them on unchanged code. Scale by load per core unless set.
+    const scale = process.env.YAIRPG_TIMEOUT_SCALE || String(Math.min(8, Math.max(1, Math.ceil(loadavg()[0] / availableParallelism()))));
+    const r = spawnSync(cmd, {cwd: scratch, shell: true, env: childEnv({YAIRPG_TIMEOUT_SCALE: scale}), encoding: 'utf8', maxBuffer: 1 << 28});
     const out = `${r.stdout || ''}${r.stderr || ''}`;
     const log = join(logDir, `${name.replace(/[^\w.-]/g, '_')}.out`);
     writeFileSync(log, out);
@@ -372,7 +376,7 @@ export function run(argv, {cwd = process.cwd(), checks = DEFAULT_CHECKS} = {}) {
     const scratch = addScratch(repo, primary, result, scratchRoot);
     r.scratch = scratch;
     const started = Date.now();
-    r.regen = regenerate(scratch, {log: (l) => writeFileSync(join(outDir, 'regenerate.out'), `${l}\n`, {flag: 'a'})});
+    r.regen = regenerate(scratch, {all: o.regenAll, log: (l) => writeFileSync(join(outDir, 'regenerate.out'), `${l}\n`, {flag: 'a'})});
     const regenOk = r.regen.every((x) => x.status === 0);
     const only = o.only ? checks.filter(([n]) => o.only.includes(n)) : checks;
     r.checks = regenOk ? runChecks(scratch, outDir, only) : [{name: 'regenerate', cmd: 'scripts/regen_generated.mjs', status: 1, ok: false,

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Regenerate every generated output that is computed from tracked inputs, in dependency order (merge friction, 2026-11-18).
-//   node scripts/regen_generated.mjs [--list] [--dry]   run the steps in this checkout (cwd), printing each step's seconds
+//   node scripts/regen_generated.mjs [--all] [--list]   run the steps (--all adds the slow ones) in this checkout (cwd), printing each step's seconds
 // The merge queue runs this in its scratch tree after merging, and takes the queue side for a conflicted file in
 // REGENERABLE (it is rewritten here from the merged inputs), then folds the result into the merge commit. A step that
 // edits ledgers in place (settle, form, item-bound) is not listed in REGENERABLE: a conflict there is a real one.
@@ -19,7 +19,7 @@ export const STEPS = [
     {name: 'creatures', cmd: ['scripts/coverage_creatures.mjs'], writes: ['docs/coverage/creatures.jsonl']},
     {name: 'worm powers', cmd: ['scripts/worm_power_ledger.mjs'], writes: ['docs/coverage/worm_powers.jsonl']},
     {name: 'form transformation cases (in place)', cmd: ['scripts/form_transformation_ledgers.mjs'], writes: []},
-    {name: 'item-bound cases (in place)', cmd: ['scripts/item_bound_ledgers.mjs'], writes: []},
+    {name: 'item-bound cases (in place)', cmd: ['scripts/item_bound_ledgers.mjs'], writes: [], slow: true},
     {name: 'settle typed runs (in place)', cmd: ['scripts/typed_runs.mjs'], writes: []},
     {name: 'derivation rule scores', cmd: ['scripts/derivation_rules_backtest.mjs'], writes: ['docs/coverage/derivation_rules.json']},
     {name: 'B ledgers', cmd: ['scripts/b_coverage_ledgers.mjs'],
@@ -32,9 +32,10 @@ export const STEPS = [
 /** Files the queue may take from its own side on a conflict, because a step above rewrites them from the merged inputs. */
 export const REGENERABLE = STEPS.flatMap(s => s.writes);
 
-export function regenerate(cwd, {log = () => {}, steps = STEPS} = {}) {
+// slow steps (item-bound cases: 50 s on a quiet machine, many minutes under load) run only with all: true / --all
+export function regenerate(cwd, {log = () => {}, steps = STEPS, all = false} = {}) {
     const results = [];
-    for (const s of steps) {
+    for (const s of steps.filter(x => all || !x.slow)) {
         const started = Date.now();
         // A tree without the step's script (an older branch, a fixture repo) has nothing to regenerate there.
         if (!existsSync(join(cwd, s.cmd[0]))) { results.push({name: s.name, status: 0, seconds: 0, skipped: true}); log(`  regen ${s.name}: skipped (no ${s.cmd[0]})`); continue; }
@@ -50,6 +51,6 @@ export function regenerate(cwd, {log = () => {}, steps = STEPS} = {}) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     if (process.argv.includes('--list')) { for (const s of STEPS) console.log(`${s.name}: node ${s.cmd.join(' ')}`); process.exit(0); }
-    const res = regenerate(process.cwd(), {log: console.log});
-    process.exit(res.every(r => r.status === 0) && res.length === STEPS.length ? 0 : 1);
+    const res = regenerate(process.cwd(), {log: console.log, all: process.argv.includes('--all')});
+    process.exit(res.every(r => r.status === 0) ? 0 : 1);
 }
