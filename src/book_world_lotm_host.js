@@ -329,7 +329,7 @@ export function createLotmHost(ports){
   if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();
  }
  // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
- const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
+ const purseBalance=()=>{const m=ports.money?ports.money():ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
  // Read the current life's actual inventory. Unknown or protected goods have no seizure value.
  function heldGoods(){
   const s=state(),c=ports.context(),plan=base(s,c),worn=Object.values(s.simulation.equipment?.player||{}).concat(Object.values(c.equipment?.player||{}));

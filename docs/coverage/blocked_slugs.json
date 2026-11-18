@@ -97,6 +97,7 @@
   "unnamed-role",
   "venom-or-disease",
   "vow-cost",
+  "wish-grant",
   "world-travel"
  ],
  "distinct": {
@@ -119,6 +120,7 @@
   "effect-unknown": "the source does not state the effect; needs reading",
   "mind-state": "a condition of the mind (mood, focus, impairment)",
   "mind-binding": "binds, rules or compels another mind",
-  "mind-ennoblement": "raises a mind or nature; 32 rows kept apart until they are read for a law"
+  "mind-ennoblement": "raises a mind or nature; 32 rows kept apart until they are read for a law",
+  "wish-grant": "a request routes to a grant the wish-maker can deliver, subject to stated reach, time and price"
  }
 }

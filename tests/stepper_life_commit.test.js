@@ -12,13 +12,13 @@ import {createDurableSaveWriter} from '../src/save_files.js';
 const source=fs.readFileSync(new URL('../src/main.js',import.meta.url),'utf8');
 const owner=source.slice(source.indexOf('const lifeSaveStorage ='),source.indexOf('\nfunction nativeMistglassContext'));
 // The owner ends before the next declaration; keep extraction independent of later helpers.
-const definition=owner.slice(0,owner.indexOf('\n}};')+5);
+const definition=owner.slice(0,owner.indexOf('// Display-only panels'));
 const fixture=JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/absorb-all-2026-10-14/checks/sim-stepper/fixtures/opening.json',import.meta.url)));
 function host({enrolled=false,fail=false,bootError=null}={}) {
     const writes=[],events=[];
     const write=(key,bytes)=>{events.push('write');if(fail)throw Error('quota');writes.push([key,bytes]);};
     const context=vm.createContext({JSON,structuredClone,domainRegistry:{command:()=>undefined},rebaseFurnaceSave,observeLifeSave,createLifeRecord,advanceVillageLives,
-        authorityBootError:bootError,authorityBootPending:false,authorityEnrolled:()=>enrolled,
+        authorityBootError:bootError,authorityBootPending:false,authorityEnrolled:()=>enrolled,stepperSaves:null,
         nativeAuthority:{commitPreparedSave:bytes=>write('authority',bytes)},localStorage:{},writeGuardedSave:(_,key,bytes)=>write(key,bytes),
         // The real D3 writer over the same stub, so unchanged-write skipping is exercised too.
         durableSaves:createDurableSaveWriter({getItem:()=>null},(_,key,bytes)=>write(key,bytes)),
@@ -29,7 +29,7 @@ function host({enrolled=false,fail=false,bootError=null}={}) {
         refreshCustomization(){},update_displayed_crafting_recipes(){},setCheatState:x=>{context.cheatState=x??{};},validateCheatState:x=>x,defaultCheatState:()=>({}),validatePackState:x=>x,emptyPackState:()=>({}),restoreGeneratedPeople(){},
         workLedger:structuredClone(fixture.work_ledger),villageCareer:{},customization:{},cheatState:{},optionalPackState:{},lifeRecord:null,npcLives:null,
         workLedgerPanel:null,optionalPackPanel:null,villageCareerControls:null,lifeRecordPanel:null,villageLivesPanel:null});
-    vm.runInContext(definition+'\nglobalThis.storage=lifeSaveStorage;',context);
+    vm.runInContext(definition+'\nglobalThis.storage=lifeSaveStorage;globalThis.flush=flushDeferredDurable;',context);
     return {storage:context.storage,writes,events,context};
 }
 function run(host,object,mutate=()=>{}) {
@@ -51,4 +51,30 @@ test('both paths reject malformed envelopes and failed durable writes before pub
         const failure=host({fail:true});assert.throws(()=>run(failure,object),/quota/);assert.deepEqual(failure.events,['validate','write']);assert.equal(failure.context.nativeP23Transaction.status,'pending');
         const blocked=host({bootError:Error('boot blocked')});assert.throws(()=>run(blocked,object),/boot blocked/);assert.deepEqual(blocked.events,['validate']);
     }
+});
+
+test('stepper writes that promise transaction durability fail before publishing', () => {
+    for (const explicitCallback of [false, true]) {
+        const h = host({fail:true});
+        h.context.stepperSaves = new Set();
+        if (explicitCallback) h.context.nativeP23Transaction = null;
+        const callback = explicitCallback ? () => h.events.push('durable') : undefined;
+        assert.throws(() => h.storage.setEnvelope('test', structuredClone(fixture), callback), /quota/);
+        assert.deepEqual(h.events, ['write']);
+        if (!explicitCallback) assert.equal(h.context.nativeP23Transaction.status, 'pending');
+    }
+});
+
+test('ordinary stepper autosaves still retain the newest envelope for the batch close', () => {
+    const h = host();
+    h.context.nativeP23Transaction = null;
+    h.context.stepperSaves = new Set();
+    const first = structuredClone(fixture), last = structuredClone(fixture);
+    last.character.money += 1;
+    h.storage.setEnvelope('test', first);
+    h.storage.setEnvelope('test', last);
+    assert.equal(h.writes.length, 0);
+    h.context.flush();
+    assert.equal(h.writes.length, 1);
+    assert.equal(JSON.parse(h.writes[0][1]).character.money, last.character.money);
 });
