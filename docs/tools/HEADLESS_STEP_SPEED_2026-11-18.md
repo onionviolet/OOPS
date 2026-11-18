@@ -41,6 +41,16 @@ Reference after S1+S3 (profile): `advanceChroniclePlan` context build 16%, `pers
 
 `runner.spans` has one function, `spanMinutes(want)`, that decides how far the clock may move. A per-holder clock hook belongs there (and in the clock owner, `src/clock_owner.js`, which already takes a minutes argument per call). Stepper batch: `openStepperBatch` in `main.js`, now exposed to the harness.
 
+## Per-holder clock hook (request from the coordinator, 2026-11-18; design note, nothing built)
+
+The mechanism-foundation lane proposes a law field of kind `clock` on a holder or place scope, params `{rate (default 1; 0 = hold), until}`; a holder's effective rate is its own field times its place's. Compatibility of what exists here:
+
+- **S1 (deferred durable write):** touches only when the whole envelope is written, never how far any holder advanced. No assumption about rates.
+- **S3 (purse port):** reads `character.money`, a single value; unaffected.
+- **S2:** not built. If added later, key a context cache on each holder's own clock and rate, never on one shared `clock`.
+- **S5 (`runner.spans`):** it moves one global clock by `k` minutes, where `k` comes from `spanMinutes(want)`. That function is the hook. With per-holder rates it should return the largest `k` such that no holder's next boundary falls inside the span, where a holder's boundary is `(boundary - its clock) / rate` in global minutes and rate 0 contributes none, plus the rate-change times (`until`). `nextSimulationBoundary` currently reads one clock; it would take a per-holder time map the way `controllerWakes` already does. Today every holder gets the same `k`; the span test would then need a fixture with a rate-2 and a rate-0 holder.
+- The real advance of each holder by `rate * k` belongs in the clock owner (`src/clock_owner.js`, `update_timer`), which already takes a minutes argument per call.
+
 ## Area guide
 
 Time and calendar entry updated: stepper persistence is deferred per batch, the LOTM purse reads through a `money` port, and span mode exists.
