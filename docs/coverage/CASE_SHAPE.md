@@ -31,6 +31,7 @@ ledger row, then `case` plus `expect`, then `runCase` in [scripts/case_runner.mj
 | Pass runner (PWC18, `label_runner.mjs`) | items from rows with no case; replies become rows | `passItems`, `passRows` |
 | Field fill (PWC60, `fields/<slug>.jsonl`) | a row whose required fields both readers confirmed gets the law's case; any unknown field leaves it `catalogued` | `fieldRow` |
 | Derivation (PWC80, `derivation_rules_backtest.mjs`) | rule scores read through `confidenceOf`; no change to its file | `runRows`, the runner's `confidence` |
+| Law defaults (PSA28, `law_defaults.mjs`) | a law's composed case per blocked row; `take()` returns runner rows with a `take` column (the case was expressed); held-out scores are `law.*` rows in `derivation_rules.json` | none; it calls `runCaseData` and the runner's `confidence` reads the score row |
 | Rule search (PWC94, `gu_rank_search.mjs`) | one output row per rule from `final.by`, confidence as a column | `searchOutputRows` |
 
 ## Still its own shape

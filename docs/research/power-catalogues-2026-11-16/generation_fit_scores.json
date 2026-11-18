@@ -1,0 +1,514 @@
+{
+ "schema": "generation-fit@1",
+ "method": "PC11 (docs/PROCEDURAL_CORE.md); PSA30",
+ "dials": {
+  "foldSeed": "canon-test",
+  "folds": 5,
+  "heldFold": 0,
+  "count": 200,
+  "levels": [
+   0,
+   1
+  ],
+  "smoothing": 0,
+  "pairs": [
+   [
+    "object",
+    "target"
+   ],
+   [
+    "object",
+    "time"
+   ]
+  ],
+  "tuple": [
+   "verb",
+   "object",
+   "target",
+   "time"
+  ],
+  "closedSlots": [
+   "verb",
+   "object",
+   "target",
+   "time",
+   "carrier",
+   "cost"
+  ],
+  "targets": {
+   "pairSupport": 0.8,
+   "rediscoveryRatio": 2,
+   "shareShift": 0.25
+  },
+  "smallN": 8
+ },
+ "worlds": [
+  {
+   "id": "gu",
+   "title": "Gu (effect sentences from the catalogue)",
+   "rows": 61,
+   "train": 49,
+   "held": 12,
+   "heldFold": 0,
+   "smoothing": 0,
+   "smallN": false,
+   "levels": {
+    "0": {
+     "proposed": 200,
+     "built": 157,
+     "pairSupport": {
+      "items": 157,
+      "supported": 93,
+      "rate": 0.592,
+      "copiesOfTrain": 43,
+      "copyRate": 0.274
+     },
+     "rediscovery": {
+      "held": 12,
+      "hits": 10,
+      "rate": 0.833,
+      "novel": 1,
+      "novelHits": 0,
+      "novelRate": 0,
+      "baseline": 0.024,
+      "ratio": 0,
+      "space": 8400,
+      "n": 200
+     },
+     "shareShift": {
+      "perSlot": {
+       "verb": 0.128,
+       "object": 0.155,
+       "target": 0.086,
+       "time": 0.112,
+       "carrier": 0,
+       "cost": 0.054
+      },
+      "worst": "object",
+      "worstValue": 0.155
+     },
+     "executes": {
+      "n": 157,
+      "ran": 79,
+      "landed": 77,
+      "publishedOnly": 2,
+      "lookupOnly": 0,
+      "notBuilt": 0,
+      "failed": {
+       "refused: World effects: transform needs a quantity, `into` a": 12,
+       "idle": 10,
+       "waiting": 42,
+       "refused: World effects: remove material needs a declared qua": 2,
+       "refused: World effects: conceal needs a channel.": 5,
+       "refused: World effects: add material needs one target and a ": 5,
+       "refused: World effects: alter adds a field with an id and ki": 1,
+       "refused: World effects: move a gripped holder needs a grip m": 1
+      },
+      "mindPublishes": 2,
+      "rate": 0.503,
+      "landedRate": 0.49
+     }
+    },
+    "1": {
+     "proposed": 200,
+     "built": 147,
+     "pairSupport": {
+      "items": 147,
+      "supported": 41,
+      "rate": 0.279,
+      "copiesOfTrain": 0,
+      "copyRate": 0
+     },
+     "rediscovery": {
+      "held": 12,
+      "hits": 1,
+      "rate": 0.083,
+      "novel": 1,
+      "novelHits": 1,
+      "novelRate": 1,
+      "baseline": 0.024,
+      "ratio": 42.499,
+      "space": 8400,
+      "n": 200
+     },
+     "shareShift": {
+      "perSlot": {
+       "verb": 0.122,
+       "object": 0.163,
+       "target": 0.116,
+       "time": 0.095,
+       "carrier": 0,
+       "cost": 0.02
+      },
+      "worst": "object",
+      "worstValue": 0.163
+     },
+     "executes": {
+      "n": 147,
+      "ran": 62,
+      "landed": 60,
+      "publishedOnly": 2,
+      "lookupOnly": 0,
+      "notBuilt": 0,
+      "failed": {
+       "refused: World effects: transform needs a quantity, `into` a": 7,
+       "waiting": 46,
+       "refused: World effects: conceal needs a channel.": 10,
+       "refused: World effects: move a gripped holder needs a grip m": 1,
+       "idle": 13,
+       "refused: World effects: remove material needs a declared qua": 2,
+       "refused: World effects: add material needs one target and a ": 2,
+       "refused: World effects: transform material needs explicit de": 2,
+       "refused: World effects: copy needs a property and a holder `": 1,
+       "refused: World effects: release needs a mark or a channel.": 1
+      },
+      "mindPublishes": 2,
+      "rate": 0.422,
+      "landedRate": 0.408
+     }
+    }
+   },
+   "traps": [
+    [
+     "label",
+     "T1 label read from the predicted field: labelGuEffect maps parts.function through GU_FUNCTION (src/world_packs/gu_effect_pack.js), so a held-out sentence is the author's function reading as a sentence; limits come from regexes over the scene text. Rediscovery here is partly the table reproducing itself."
+    ],
+    [
+     "executes",
+     "E1 a probe world with one body and one place; a pass shows the sentence changes that world, not that it does what the Gu does. Gu verbs that need an essence reserve may read as probe gaps (see failed statuses)."
+    ]
+   ]
+  },
+  {
+   "id": "spells",
+   "title": "Spells (Hogwarts spellbook leads)",
+   "rows": 109,
+   "train": 84,
+   "held": 25,
+   "heldFold": 0,
+   "smoothing": 0,
+   "smallN": false,
+   "levels": {
+    "0": {
+     "proposed": 200,
+     "built": 160,
+     "pairSupport": {
+      "items": 160,
+      "supported": 104,
+      "rate": 0.65,
+      "copiesOfTrain": 62,
+      "copyRate": 0.388
+     },
+     "rediscovery": {
+      "held": 25,
+      "hits": 14,
+      "rate": 0.56,
+      "novel": 12,
+      "novelHits": 3,
+      "novelRate": 0.25,
+      "baseline": 0.024,
+      "ratio": 10.625,
+      "space": 8400,
+      "n": 200
+     },
+     "shareShift": {
+      "perSlot": {
+       "verb": 0.102,
+       "object": 0.058,
+       "target": 0.323,
+       "time": 0.12,
+       "carrier": 0.02,
+       "cost": 0
+      },
+      "worst": "target",
+      "worstValue": 0.323
+     },
+     "executes": {
+      "n": 160,
+      "ran": 67,
+      "landed": 61,
+      "publishedOnly": 6,
+      "lookupOnly": 0,
+      "notBuilt": 0,
+      "failed": {
+       "refused: World effects: conceal needs a channel.": 12,
+       "idle": 14,
+       "refused: World effects: transform material needs explicit de": 5,
+       "refused: World effects: release needs a mark or a channel.": 14,
+       "refused: World effects: bind needs a mark.": 12,
+       "waiting": 17,
+       "refused: World effects: add material needs one target and a ": 9,
+       "refused: World effects: move amount needs a quantity, an amo": 1,
+       "refused: World effects: remove material needs a declared qua": 4,
+       "refused: World effects: transform needs a quantity, `into` a": 4,
+       "refused: World effects: copy needs a property and a holder `": 1
+      },
+      "mindPublishes": 6,
+      "rate": 0.419,
+      "landedRate": 0.381
+     }
+    },
+    "1": {
+     "proposed": 200,
+     "built": 158,
+     "pairSupport": {
+      "items": 158,
+      "supported": 69,
+      "rate": 0.437,
+      "copiesOfTrain": 24,
+      "copyRate": 0.152
+     },
+     "rediscovery": {
+      "held": 25,
+      "hits": 13,
+      "rate": 0.52,
+      "novel": 12,
+      "novelHits": 6,
+      "novelRate": 0.5,
+      "baseline": 0.024,
+      "ratio": 21.25,
+      "space": 8400,
+      "n": 200
+     },
+     "shareShift": {
+      "perSlot": {
+       "verb": 0.117,
+       "object": 0.159,
+       "target": 0.379,
+       "time": 0.307,
+       "carrier": 0.002,
+       "cost": 0
+      },
+      "worst": "target",
+      "worstValue": 0.379
+     },
+     "executes": {
+      "n": 158,
+      "ran": 62,
+      "landed": 58,
+      "publishedOnly": 4,
+      "lookupOnly": 0,
+      "notBuilt": 0,
+      "failed": {
+       "idle": 12,
+       "refused: World effects: add material needs one target and a ": 5,
+       "refused: World effects: transform needs a quantity, `into` a": 5,
+       "refused: World effects: transform material needs explicit de": 9,
+       "refused: World effects: bind needs a mark.": 14,
+       "refused: World effects: conceal needs a channel.": 7,
+       "waiting": 19,
+       "refused: World effects: release needs a mark or a channel.": 18,
+       "refused: World effects: move a gripped holder needs a grip m": 2,
+       "refused: World effects: remove material needs a declared qua": 4,
+       "refused: World effects: copy needs a property and a holder `": 1
+      },
+      "mindPublishes": 4,
+      "rate": 0.392,
+      "landedRate": 0.367
+     }
+    }
+   },
+   "traps": [
+    [
+     "label",
+     "T1 label read from the predicted field: labelHpEffect picks verb, object, target and time by regex over the row's own lead text (src/world_packs/hp_effect_pack.js), the text the sentence is said to describe. The pack's `intent` field also reproduces the truth sentence (src/spell_heldout.js header) and is never an input."
+    ],
+    [
+     "executes",
+     "E1 a probe world with one body and one place; E2 a mind owner that answers any transform.mind publish, so mind effects pass by publishing."
+    ]
+   ]
+  },
+  {
+   "id": "brews",
+   "title": "Brews (Hogwarts potions, evidence-labelled)",
+   "rows": 23,
+   "train": 21,
+   "held": 2,
+   "heldFold": 0,
+   "smoothing": 0,
+   "smallN": true,
+   "levels": {
+    "0": {
+     "proposed": 200,
+     "built": 169,
+     "pairSupport": {
+      "items": 169,
+      "supported": 101,
+      "rate": 0.598,
+      "copiesOfTrain": 67,
+      "copyRate": 0.396
+     },
+     "rediscovery": {
+      "held": 2,
+      "hits": 2,
+      "rate": 1,
+      "novel": 1,
+      "novelHits": 1,
+      "novelRate": 1,
+      "baseline": 0.024,
+      "ratio": 42.499,
+      "space": 8400,
+      "n": 200
+     },
+     "shareShift": {
+      "perSlot": {
+       "verb": 0.074,
+       "object": 0.087,
+       "target": 0.14,
+       "time": 0.056,
+       "carrier": 0.073,
+       "cost": 0
+      },
+      "worst": "target",
+      "worstValue": 0.14
+     },
+     "executes": {
+      "n": 169,
+      "ran": 116,
+      "landed": 68,
+      "publishedOnly": 48,
+      "lookupOnly": 0,
+      "notBuilt": 0,
+      "failed": {
+       "refused: World effects: transform needs a quantity, `into` a": 12,
+       "refused: World effects: alter adds a field with an id and ki": 7,
+       "idle": 3,
+       "refused: World effects: conceal needs a channel.": 3,
+       "waiting": 10,
+       "refused: World effects: release needs a mark or a channel.": 13,
+       "refused: World effects: transform material needs explicit de": 4,
+       "refused: World effects: copy needs a property and a holder `": 1
+      },
+      "mindPublishes": 48,
+      "rate": 0.686,
+      "landedRate": 0.402
+     }
+    },
+    "1": {
+     "proposed": 200,
+     "built": 144,
+     "pairSupport": {
+      "items": 144,
+      "supported": 55,
+      "rate": 0.382,
+      "copiesOfTrain": 13,
+      "copyRate": 0.09
+     },
+     "rediscovery": {
+      "held": 2,
+      "hits": 2,
+      "rate": 1,
+      "novel": 1,
+      "novelHits": 1,
+      "novelRate": 1,
+      "baseline": 0.024,
+      "ratio": 42.499,
+      "space": 8400,
+      "n": 200
+     },
+     "shareShift": {
+      "perSlot": {
+       "verb": 0.225,
+       "object": 0.215,
+       "target": 0.2,
+       "time": 0.082,
+       "carrier": 0.091,
+       "cost": 0
+      },
+      "worst": "verb",
+      "worstValue": 0.225
+     },
+     "executes": {
+      "n": 144,
+      "ran": 65,
+      "landed": 50,
+      "publishedOnly": 15,
+      "lookupOnly": 0,
+      "notBuilt": 0,
+      "failed": {
+       "refused: World effects: transform needs a quantity, `into` a": 22,
+       "refused: World effects: release needs a mark or a channel.": 11,
+       "waiting": 20,
+       "refused: World effects: transform material needs explicit de": 2,
+       "refused: World effects: copy needs a property and a holder `": 2,
+       "refused: World effects: move amount needs a quantity, an amo": 1,
+       "refused: World effects: remove material needs a declared qua": 1,
+       "idle": 10,
+       "refused: World effects: alter adds a field with an id and ki": 4,
+       "refused: World effects: conceal needs a channel.": 4,
+       "refused: World effects: bind needs a mark.": 2
+      },
+      "mindPublishes": 15,
+      "rate": 0.451,
+      "landedRate": 0.347
+     }
+    }
+   },
+   "traps": [
+    [
+     "label",
+     "T1 sentences are authored readings of paraphrased evidence rows (HP_POTION_SENTENCES); the potion family is read from the title (b_coverage_ledgers.mjs), and three titles were corrected after scoring (RULE_INFORMED in src/brew_heldout.js)."
+    ],
+    [
+     "executes",
+     "E1 probe world with one body; brews run through the spell keys (the brewing grammar declares none), so a needs-key count is a probe gap, not a brew failure."
+    ]
+   ]
+  }
+ ],
+ "heldoutRunner": {
+  "gu": {
+   "heldOut": 53,
+   "withAbility": 18,
+   "ran": 6,
+   "cannotRun": 47,
+   "note": "scoreGu builds a probe ability from the predicted class and runs it through resolveGuActivation; only kinds with an authored activation row can run"
+  },
+  "spells": {
+   "heldOut": 99,
+   "results": 99,
+   "shape": [
+    "id",
+    "outcome",
+    "missing"
+   ],
+   "note": "executeSpellRows runs each predicted sentence through runCaseData and compares with the label in world terms",
+   "summary": {
+    "missing": {
+     "data": 37,
+     "probe": 7,
+     "mechanism": 38
+    },
+    "outcome": {
+     "match": 13,
+     "mismatch": 4
+    }
+   }
+  },
+  "brews": {
+   "heldOut": 17,
+   "results": 17,
+   "summary": {
+    "family": {
+     "body-door": 5,
+     "plant-or-creature-target": 1,
+     "mind-state": 6,
+     "body-form": 5
+    },
+    "outcome": {
+     "match": 15,
+     "mismatch": 2
+    },
+    "route": {
+     "match": 13,
+     "mismatch": 4
+    },
+    "labelRoute": {
+     "match": 17
+    }
+   },
+   "note": "executeRows runs each fitted mechanism as a brew dose case through runCaseData"
+  }
+ }
+}

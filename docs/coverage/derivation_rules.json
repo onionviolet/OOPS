@@ -17,7 +17,7 @@
     "band, path and type family",
     "known ranks of the family (training rows only)"
    ],
-   "version": "fe62076e88",
+   "version": "fd759c536c",
    "split": "GKM429 hash split; cohort = rows whose wiki and chapter ranks agree",
    "baselineRule": "most common training rank (3)",
    "set": "held-out cohort rows the rule applies to",
@@ -52,7 +52,7 @@
     "band, path and type family",
     "known ranks of the family (training rows only)"
    ],
-   "version": "fe62076e88",
+   "version": "fd759c536c",
    "split": "GKM429 hash split; cohort = rows whose wiki and chapter ranks agree",
    "baselineRule": "most common training rank (3)",
    "set": "whole cohort rows with a precursor edge (nothing fitted, so no hold-out needed); held-out slice is n=9",
@@ -126,7 +126,7 @@
     "band, path and type family",
     "known ranks of the family (training rows only)"
    ],
-   "version": "fe62076e88",
+   "version": "fd759c536c",
    "split": "GKM429 hash split; cohort = rows whose wiki and chapter ranks agree",
    "baselineRule": "most common training rank (3)",
    "set": "whole cohort rows in a series",
@@ -156,7 +156,7 @@
     "potion effect axis",
     "sibling ingredients (training axes only)"
    ],
-   "version": "ff4dd7bc1f",
+   "version": "4e0977c0bb",
    "fit": "axis votes from training siblings; dials in DERIVE_DIALS",
    "split": "GKM429, held-out ingredients hide their own stated axes",
    "set": "held-out ingredients the rule derives",
@@ -269,6 +269,500 @@
     "verdict": "fails-baseline"
    },
    "note": "Ahead of baseline on path (78.6% against 65.8%, n=117), behind on band and verb (49% against 54.8%, n=104). These rows already carry tier generated; no relabel needed, the palette says why."
+  },
+  {
+   "id": "law.area-field.time-from-duration",
+   "mechanism": "Area time (instant, sustained, lasting) from the confirmed duration: instant, until-ended = sustained, minutes, hours-days, permanent = lasting",
+   "inputs": [
+    "confirmed duration"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (sustained)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 79,
+   "exact": 75,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (sustained)",
+    "exact": 12,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.949,
+    "withinBand": null,
+    "n": 79,
+    "verdict": "passes"
+   },
+   "note": "Truth is the Luna effect label time; the label is unchecked, so this measures agreement of two sources, not the label.",
+   "proposed": true
+  },
+  {
+   "id": "law.area-field.time-default",
+   "mechanism": "Area time default: the commonest label time of the row's kind (spell, power, creature, artifact ...), fitted on development rows",
+   "inputs": [
+    "ledger kind"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "commonest label time per kind on development rows",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (sustained)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 203,
+   "exact": 80,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (sustained)",
+    "exact": 80,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.394,
+    "withinBand": null,
+    "n": 203,
+    "verdict": "fails-baseline"
+   },
+   "note": "The default a row with no label time and no duration receives. A dial per world, not a fact.",
+   "proposed": true
+  },
+  {
+   "id": "law.area-field.sentence-from-inside",
+   "mechanism": "Area sentence from the confirmed inside: damage = remove.vitality, protect-or-heal = add.vitality",
+   "inputs": [
+    "confirmed inside"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (add.force)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 62,
+   "exact": 10,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (add.force)",
+    "exact": 22,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.161,
+    "withinBand": null,
+    "n": 62,
+    "verdict": "fails-baseline"
+   },
+   "note": "Truth is the label sentence, which the same readers wrote.",
+   "proposed": true
+  },
+  {
+   "id": "law.area-field.ends-from-time",
+   "mechanism": "Area ends from time: instant = none, sustained = dismissed, lasting = timeout",
+   "inputs": [
+    "label time"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (timeout)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 6,
+   "exact": 3,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (timeout)",
+    "exact": 4,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "insufficient-held-out",
+   "confidence": {
+    "exact": 0.5,
+    "withinBand": null,
+    "n": 6,
+    "verdict": "insufficient-held-out"
+   },
+   "note": "Truth is the confirmed ends (removed-by-counter and source-lost are left out: the law has no counter model for an area yet).",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.sentence-from-change",
+   "mechanism": "A confirmed change of body-or-species, looks-only, size or abilities-only is a form sentence (the route for rows with no label)",
+   "inputs": [
+    "confirmed change"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (form)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 112,
+   "exact": 107,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (form)",
+    "exact": 107,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.955,
+    "withinBand": null,
+    "n": 112,
+    "verdict": "fails-baseline"
+   },
+   "note": "Truth is the label sentence. Prediction and baseline agree when most such rows are form labels; the rule earns its place only if it beats a no-route baseline of \"other\".",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.reversal-from-duration",
+   "mechanism": "Form reversal from the confirmed duration: instant, permanent = none; until-ended = at-will; minutes, hours-days = timeout",
+   "inputs": [
+    "confirmed duration"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (at-will)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 16,
+   "exact": 10,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (at-will)",
+    "exact": 7,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.625,
+    "withinBand": null,
+    "n": 16,
+    "verdict": "passes"
+   },
+   "note": "Truth is the confirmed reversal. Counter-effects are never predicted: no duration implies one.",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.reversal-from-time",
+   "mechanism": "Form reversal from the label time: instant = none, sustained = at-will, lasting = timeout",
+   "inputs": [
+    "label time"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (at-will)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 6,
+   "exact": 0,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (at-will)",
+    "exact": 2,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "insufficient-held-out",
+   "confidence": {
+    "exact": 0,
+    "withinBand": null,
+    "n": 6,
+    "verdict": "insufficient-held-out"
+   },
+   "note": "Truth is the confirmed reversal.",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.reversal-default",
+   "mechanism": "Form reversal default: the commonest development reversal (at-will)",
+   "inputs": [],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (at-will)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 20,
+   "exact": 9,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (at-will)",
+    "exact": 9,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.45,
+    "withinBand": null,
+    "n": 20,
+    "verdict": "fails-baseline"
+   },
+   "note": "The default a row with no stated reversal, duration or label time receives.",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.target-from-label",
+   "mechanism": "Form target from the label target: self = holder, touched = other",
+   "inputs": [
+    "label target"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (holder)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 109,
+   "exact": 102,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (holder)",
+    "exact": 96,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.936,
+    "withinBand": null,
+    "n": 109,
+    "verdict": "passes"
+   },
+   "note": "Truth is the confirmed fill target.",
+   "proposed": true
+  },
+  {
+   "id": "ss.rank.creatures-story-time",
+   "mechanism": "Nightmare Creature tier = tier of the creatures first met at nearly the same chapter (story time, k=3; the Nightmare the story is in sets the tier it spawns); source and class rules abstain on the rows that matter (PWC93, PWC99)",
+   "fit": "k=3 neighbours chosen on dev folds 1-4; nothing else fitted",
+   "inputs": [
+    "first chapter in the evidence",
+    "tiers stated by other records (visible folds only)"
+   ],
+   "version": "dc49da54e4",
+   "split": "five frozen folds (ss_rank_folds.json); fold 5 scored once",
+   "baselineRule": "most common visible tier in the pool",
+   "set": "frozen fold 5, every stated creatures row (abstain falls back to the baseline)",
+   "heldOutN": 12,
+   "exact": 5,
+   "withinBand": 11,
+   "baseline": {
+    "name": "most common visible tier",
+    "exact": 6,
+    "withinBand": 9
+   },
+   "allHeldOut": {
+    "n": 12,
+    "exact": 5,
+    "baselineExact": 6,
+    "resemblanceExact": 6,
+    "resemblanceWithin1": 9,
+    "note": "resemblance = shared name stem; tier order is the ledger class_map order (a default)"
+   },
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.417,
+    "withinBand": 0.917,
+    "n": 12,
+    "verdict": "fails-baseline"
+   },
+   "note": "Stated rows are mostly kind names that carry the tier in the name, so this scores story time against name-stated tiers. Within-one depends on the ladder order. Exact is below baseline; within-one is above it."
+  },
+  {
+   "id": "ss.rank.artifacts-story-time",
+   "mechanism": "Memory and item tier = tier of the Memories first met at nearly the same chapter (story time, k=3: a Memory is the tier of the creature or Nightmare of its day); the source-creature link fires on one row (PWC93, PWC99)",
+   "fit": "k=3 neighbours chosen on dev folds 1-4; nothing else fitted",
+   "inputs": [
+    "first chapter in the evidence",
+    "tiers stated by other records (visible folds only)"
+   ],
+   "version": "dc49da54e4",
+   "split": "five frozen folds (ss_rank_folds.json); fold 5 scored once",
+   "baselineRule": "most common visible tier in the pool",
+   "set": "frozen fold 5, every stated artifacts row (abstain falls back to the baseline)",
+   "heldOutN": 9,
+   "exact": 6,
+   "withinBand": 7,
+   "baseline": {
+    "name": "most common visible tier",
+    "exact": 0,
+    "withinBand": 4
+   },
+   "allHeldOut": {
+    "n": 9,
+    "exact": 6,
+    "baselineExact": 0,
+    "resemblanceExact": 0,
+    "resemblanceWithin1": 3,
+    "note": "resemblance = shared name stem; tier order is the ledger class_map order (a default)"
+   },
+   "verdict": "insufficient-held-out",
+   "confidence": {
+    "exact": 0.667,
+    "withinBand": 0.778,
+    "n": 9,
+    "verdict": "insufficient-held-out"
+   },
+   "note": "Stated rows are mostly kind names that carry the tier in the name, so this scores story time against name-stated tiers. Within-one depends on the ladder order. Fold 5 has fewer than ten stated rows, so it is scored, not judged."
+  },
+  {
+   "id": "worm.prt.class-from-effect",
+   "mechanism": "PRT class set and primary from what the power does: ranged energy is Blaster, area effect is Shaker, controls others is Master, and so on per the page definitions",
+   "inputs": [
+    "effect grammar verb, object, target, time (valid fits only)",
+    "effect sentence keywords"
+   ],
+   "version": "3b3a38b01d",
+   "fit": "none (written from the page's class definitions before scoring; rules frozen in 38159016a)",
+   "split": "GKM429 hash split; nothing fitted, so the whole stated cohort is the comparison set (the author had read the cape table: labels seen while writing, not blind)",
+   "set": "rated cape rows the rule fires on (5 abstain); primary class exact, within = primary is in the canon class set",
+   "heldOutN": 28,
+   "exact": 18,
+   "withinBand": 19,
+   "baseline": {
+    "name": "most common training primary (Tinker)",
+    "exact": 7,
+    "withinBand": 7
+   },
+   "allHeldOut": {
+    "n": 33,
+    "exact": 18,
+    "baselineExact": 7,
+    "heldOutSlice": {
+     "n": 5,
+     "exact": 2,
+     "baselineExact": 1,
+     "setExact": 0
+    },
+    "setExact": {
+     "n": 28,
+     "rule": 9,
+     "baseline": 6
+    },
+    "note": "abstain counted as a miss; set-exact is reported alongside"
+   },
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.643,
+    "withinBand": 0.679,
+    "n": 28,
+    "verdict": "passes"
+   },
+   "note": "Misses are pinned in worm_prt_derived.json class.whole.misses. Held-out slice alone is n=5."
+  },
+  {
+   "id": "worm.prt.rating-from-reach-and-output",
+   "mechanism": "PRT number from reach (self/touch 0, one target or line 1, cone 2, area 3), whether it lasts, and a high-output object",
+   "inputs": [
+    "effect grammar verb, object, target, time (valid fits only)",
+    "effect sentence keywords"
+   ],
+   "version": "3b3a38b01d",
+   "fit": "none (constants fixed before scoring)",
+   "split": "GKM429 hash split; nothing fitted, so the whole stated cohort is the comparison set (the author had read the cape table: labels seen while writing, not blind)",
+   "set": "capes with a stated number the rule fires on (5 abstain); exact or within one of any stated value",
+   "heldOutN": 10,
+   "exact": 3,
+   "withinBand": 5,
+   "baseline": {
+    "name": "most common training stated number (4)",
+    "exact": 2,
+    "withinBand": 5
+   },
+   "allHeldOut": {
+    "n": 15,
+    "exact": 3,
+    "baselineExact": 2,
+    "heldOutSlice": {
+     "n": 1,
+     "exact": 1,
+     "baselineExact": 0
+    },
+    "note": "abstain counted as a miss"
+   },
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.3,
+    "withinBand": 0.5,
+    "n": 10,
+    "verdict": "passes"
+   },
+   "note": "Passes the written verdict rule by one exact hit and ties within-one; read as no evidence either way. Misses pinned in worm_prt_derived.json rating.whole.misses."
+  },
+  {
+   "id": "coi.rule.lotm-characteristic-transfer",
+   "mechanism": "LOTM law applied to CoI: a same-Sequence characteristic stands in for the potion main (PWC97 transfer, no refit)",
+   "inputs": [
+    "pathway",
+    "Sequence"
+   ],
+   "version": "e525075bb2",
+   "fit": "none (the LOTM law, unchanged; the baseline class is the only fitted value, from the training split)",
+   "split": "GKM429 hash split; the stated set is small, so the whole set is scored and the held-out slice is stored beside it",
+   "set": "whole stated CoI formula set (held-out slice n=2, 1 of 2 right)",
+   "heldOutN": 13,
+   "exact": 9,
+   "withinBand": null,
+   "baseline": {
+    "name": "majority training class (characteristic)",
+    "exact": 9,
+    "withinBand": null
+   },
+   "allHeldOut": {
+    "n": 2,
+    "exact": 1,
+    "baselineExact": 1,
+    "note": "held-out slice alone"
+   },
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.692,
+    "withinBand": null,
+    "n": 13,
+    "verdict": "fails-baseline"
+   },
+   "note": "Misses are named exceptions in docs/coverage/coi_potions_score.json (PWC92). The rule claims a characteristic CAN stand in; a natural-only row is a sheet or scene that shows the natural mains and no characteristic route, which the rule does not contradict, so the miss is partly claim versus test (LOTM edge case E1)."
+  },
+  {
+   "id": "coi.rule.lotm-main-slot-count",
+   "mechanism": "LOTM derived row carries one main slot (the characteristic) for Sequence 9 to 1",
+   "inputs": [
+    "pathway",
+    "Sequence"
+   ],
+   "version": "e525075bb2",
+   "fit": "none (the LOTM law, unchanged; the baseline class is the only fitted value, from the training split)",
+   "split": "GKM429 hash split; the stated set is small, so the whole set is scored and the held-out slice is stored beside it",
+   "set": "whole stated CoI formula set",
+   "heldOutN": 13,
+   "exact": 2,
+   "withinBand": null,
+   "baseline": {
+    "name": "modal training count (2)",
+    "exact": 11,
+    "withinBand": null
+   },
+   "allHeldOut": {
+    "n": 2,
+    "exact": 0,
+    "baselineExact": 2,
+    "note": "held-out slice alone"
+   },
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.154,
+    "withinBand": null,
+    "n": 13,
+    "verdict": "fails-baseline"
+   },
+   "note": "The sheets list the natural parts the characteristic fuses (two for most Sequences), so a one-slot row is a different count of the same stuff, not a wrong potion. Named exception X1; the derived rows still carry one characteristic slot, which the novel states is the fusion of the two main ingredients."
   }
  ]
 }

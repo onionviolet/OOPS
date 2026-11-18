@@ -34,7 +34,7 @@ test('each of the 61 chapter-labelled Gu kinds has a linked case or a specific g
             assert.throws(() => coverageCase(id), /no coverage scene/, id);
         } else {
             assert.deepEqual(ledgerRow.case, {id, module: GU_CASE_MODULE});
-            assert.equal(ledgerRow.state, 'expressed-authored', id);
+            assert.equal(ledgerRow.state, 'runs-authored', id); // the pack is reachable from main.js (PSA24)
         }
     }
 });

@@ -2,7 +2,7 @@
 // every row has a valid state, the denominators hold and every running row
 // names a test that exists.
 import test from 'node:test';
-import {demoteTypedRuns} from '../scripts/typed_runs.mjs';
+import {settleState as demoteTypedRuns} from '../scripts/typed_runs.mjs';
 import assert from 'node:assert/strict';
 import {existsSync, readFileSync} from 'node:fs';
 import {buildLedgers, summarize, toLedgerRow} from '../scripts/b_coverage_ledgers.mjs';
@@ -10,7 +10,7 @@ import {parseLedger} from '../scripts/coverage_report.mjs';
 import {LOTM_BREW_ROWS} from '../src/world_packs/lotm_brew_pack.js';
 
 const read = name => readFileSync(new URL(`../docs/coverage/${name}.jsonl`, import.meta.url), 'utf8').trim().split('\n').map(l => JSON.parse(l));
-const STATE = /^(catalogued|runs-canon|runs-authored|expressed-authored|expressed-derived|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
+const STATE = /^(catalogued|runs-canon|runs-authored|runs-derived|expressed-authored|expressed-derived|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
 
 test('committed B ledgers equal a fresh build', async () => {
     const built = await buildLedgers();
@@ -39,5 +39,5 @@ test('denominators: 316 potion and 409 ingredient entries; 220 pathway Sequences
     assert.equal(lotm.filter(r => /Sequence \d/.test(r.note)).length, 220);
     const ids = new Set(lotm.map(r => r.id));
     for (const row of LOTM_BREW_ROWS) assert.ok(ids.has(`lotm.potion.${row.id}`), `${row.id} is in the inventory`);
-    assert.equal(lotm.filter(r => r.state === 'expressed-authored' && r.case).length, LOTM_BREW_ROWS.length);
+    assert.equal(lotm.filter(r => /^(expressed|runs)-authored$/.test(r.state) && r.case).length, LOTM_BREW_ROWS.length);
 });

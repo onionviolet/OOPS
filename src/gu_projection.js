@@ -1,4 +1,4 @@
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 import {stableId} from './simulation_ids.js';
 
 // The host authorizes the time-path method and supplies the resolved state
@@ -64,7 +64,7 @@ export function invokeProjectedGu(request) {
     const {projection, operator, now, kind} = request;
     const capability = reachableGuCapability(request);
     if (capability.witness) throw Error('The projected Gu must choose to help.');
-    const result = resolveGuActivation({
+    const result = runGuActivations({
         stages: [{
             gu: {id: `projection:${kind}`, kind, rank: capability.rank, fedThrough: now, traits: capability.traits},
             operator, ability: capability.ability, supply: capability.supply,

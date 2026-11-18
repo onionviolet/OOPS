@@ -245,7 +245,9 @@ test('after the wild arrival, a rival quotes and settles Moonlight from its own 
     assert.equal(choice.choice, cast.id);
     assert.deepEqual(choice.cause.terms.map(({want, value}) => [want, value]), [['hunt', 1], ['cost', -0.4]]);
     assert.equal(choice.quote.facts.reserves[keeper][essencePool], 2);
-    assert.deepEqual(choice.quote.effects, [{kind: 'damage', magnitude: 1, range: 1, source: blade}]);
+    // The law also settles the effect as a sentence the world lands (PSA27).
+    assert.deepEqual(choice.quote.effects.map(({sentence, details, ...rest}) => rest), [{kind: 'damage', magnitude: 1, range: 1, source: blade}]);
+    assert.deepEqual(choice.quote.effects.map(({sentence, details}) => [sentence.verb, sentence.object, details.amount]), [['remove', 'vitality', 1]]);
     assert.equal(readQuantity(seen.world, keeper, essencePool), 6);
     assert.equal(readQuantity(seen.world, guId, 'vitality'), 3);
 

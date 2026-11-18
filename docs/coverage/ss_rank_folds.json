@@ -1,0 +1,137 @@
+{
+ "meta": {
+  "pass": "PWC99, PWC100",
+  "date": "2026-11-17",
+  "rule": "stated rows = records whose packet states a tier word (creatures 61, artifacts 27). Fold 5 = sha1(id)[0] < 0x33 (GKM429); folds 1-4 = floor((sha1(id)[0] - 0x33) * 4 / 205) + 1. Frozen before any candidate is scored.",
+  "counts": {
+   "creatures": {
+    "1": 14,
+    "2": 10,
+    "3": 11,
+    "4": 14,
+    "5": 12
+   },
+   "artifacts": {
+    "1": 9,
+    "2": 3,
+    "3": 4,
+    "4": 2,
+    "5": 9
+   }
+  }
+ },
+ "folds": {
+  "creatures": {
+   "1": [
+    "ss.creature.awakened-beast",
+    "ss.creature.awakened-monster",
+    "ss.creature.awakened-tyrant",
+    "ss.creature.cavern-terror",
+    "ss.creature.corrupted-devil",
+    "ss.creature.crimson-terror",
+    "ss.creature.fallen-abomination",
+    "ss.creature.fallen-demons",
+    "ss.creature.first-seeker",
+    "ss.creature.gate-guardian",
+    "ss.creature.remnant-of-the-jade-queen",
+    "ss.creature.transcendent-echo",
+    "ss.creature.tyrant",
+    "ss.creature.wormvine"
+   ],
+   "2": [
+    "ss.creature.awakened-abomination",
+    "ss.creature.awakened-abominations",
+    "ss.creature.awakened-iron-spider",
+    "ss.creature.corrupted-creatures",
+    "ss.creature.corrupted-immortal",
+    "ss.creature.corrupted-tyrant",
+    "ss.creature.dread-lord",
+    "ss.creature.fallen-terror",
+    "ss.creature.mordant-mimic",
+    "ss.creature.transcendent-terror"
+   ],
+   "3": [
+    "ss.creature.corrupted-beast",
+    "ss.creature.corrupted-monster",
+    "ss.creature.dormant-beast",
+    "ss.creature.fallen",
+    "ss.creature.fallen-ones",
+    "ss.creature.fallen-titan",
+    "ss.creature.lord-of-the-dead",
+    "ss.creature.skull-centipede",
+    "ss.creature.soul-stealer",
+    "ss.creature.transcendent-devils",
+    "ss.creature.worm"
+   ],
+   "4": [
+    "ss.creature.black-knight",
+    "ss.creature.corrupted-demon",
+    "ss.creature.corrupted-nightmare-creatures",
+    "ss.creature.corrupted-titan",
+    "ss.creature.defiled-seeker-of-truth",
+    "ss.creature.fallen-demon",
+    "ss.creature.fallen-immortals",
+    "ss.creature.fallen-nightmare-creature",
+    "ss.creature.fallen-tyrant",
+    "ss.creature.goliath",
+    "ss.creature.nightmare",
+    "ss.creature.spire-messenger",
+    "ss.creature.transcendent-dragon",
+    "ss.creature.winter-beast"
+   ],
+   "5": [
+    "ss.creature.awakened-terror",
+    "ss.creature.chain-worm",
+    "ss.creature.corrupted",
+    "ss.creature.corrupted-terror",
+    "ss.creature.dusk",
+    "ss.creature.dusk-of-fallen-grace",
+    "ss.creature.fallen-beast",
+    "ss.creature.fallen-devil",
+    "ss.creature.fallen-monster",
+    "ss.creature.nightmare-creature",
+    "ss.creature.supreme-devil",
+    "ss.creature.transcendent-devil"
+   ]
+  },
+  "artifacts": {
+   "1": [
+    "ss.item.alabaster-phalanx",
+    "ss.item.ascended-memories",
+    "ss.item.divine-soul-shard",
+    "ss.item.sacred-soul-shards",
+    "ss.item.sacred-tree",
+    "ss.item.silver-blade",
+    "ss.item.sin-of-solace",
+    "ss.item.supreme-soul-shard",
+    "ss.item.weavers-mask"
+   ],
+   "2": [
+    "ss.item.divine-memory",
+    "ss.item.dormant-memory",
+    "ss.item.transcendent-bow"
+   ],
+   "3": [
+    "ss.item.divine-flame",
+    "ss.item.sacred-soul-shard",
+    "ss.item.transcendent-arrow",
+    "ss.item.transcendent-memory"
+   ],
+   "4": [
+    "ss.item.shadow-lantern",
+    "ss.item.transcendent-echoes"
+   ],
+   "5": [
+    "ss.item.effie-transcendent-armor",
+    "ss.item.guiding-light",
+    "ss.item.gunlaugs-golden-armor",
+    "ss.item.sacred-memory",
+    "ss.item.supreme-armor",
+    "ss.item.supreme-memory",
+    "ss.item.transcendent-armor",
+    "ss.item.transcendent-soul-shard",
+    "ss.item.undying-chain"
+   ]
+  }
+ }
+}

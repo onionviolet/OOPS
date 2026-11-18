@@ -1,0 +1,312 @@
+{
+ "version": "law-defaults-v1",
+ "split": "sha1(split:id) mod 5 = 0 held out",
+ "slugs": {
+  "area-field": {
+   "rows": 2921,
+   "labelled": 1431,
+   "taken": 245,
+   "takeRate": 0.084,
+   "distinctCases": 47,
+   "blocked": {
+    "no stated sentence": 1281,
+    "read as not an area effect": 278,
+    "end.vitality has no world account": 11,
+    "time delayed has no pulse model": 22,
+    "block.vitality has no world account": 3,
+    "remove.thing has no world account": 14,
+    "add.force has no world account": 167,
+    "time triggered has no pulse model": 70,
+    "alter.force has no world account": 57,
+    "conceal.thing has no world account": 7,
+    "block.essence has no world account": 10,
+    "transform.moisture has no world account": 3,
+    "move.position has no world account": 50,
+    "block.mind has no world account": 8,
+    "move.force has no world account": 20,
+    "alter.mind has no world account": 64,
+    "conceal.information has no world account": 14,
+    "block.position has no world account": 21,
+    "conceal.light has no world account": 23,
+    "alter.heat has no world account": 20,
+    "move.thing has no world account": 18,
+    "remove.force has no world account": 7,
+    "bind.thing has no world account": 8,
+    "time none has no pulse model": 66,
+    "add.thing has no world account": 14,
+    "alter.position has no world account": 8,
+    "alter.relation has no world account": 4,
+    "bind.relation has no world account": 6,
+    "alter.moisture has no world account": 13,
+    "remove.law has no world account": 2,
+    "block.force has no world account": 64,
+    "transform.thing has no world account": 19,
+    "bind.position has no world account": 13,
+    "alter.working has no world account": 16,
+    "end.working has no world account": 4,
+    "block.thing has no world account": 17,
+    "block.working has no world account": 22,
+    "alter.law has no world account": 21,
+    "alter.form has no world account": 4,
+    "block.sound has no world account": 12,
+    "sense.mind has no world account": 3,
+    "add.mind has no world account": 10,
+    "sense.information has no world account": 19,
+    "block.information has no world account": 11,
+    "block.light has no world account": 4,
+    "add.relation has no world account": 2,
+    "alter.light has no world account": 8,
+    "alter.information has no world account": 4,
+    "alter.time has no world account": 5,
+    "transform.working has no world account": 1,
+    "end.thing has no world account": 6,
+    "add.working has no world account": 4,
+    "add.none has no world account": 2,
+    "transform.heat has no world account": 2,
+    "alter.luck has no world account": 7,
+    "alter.thing has no world account": 13,
+    "bind.law has no world account": 1,
+    "sense.vitality has no world account": 1,
+    "remove.mind has no world account": 2,
+    "sense.position has no world account": 1,
+    "remove.memory has no world account": 2,
+    "release.essence has no world account": 2,
+    "block.moisture has no world account": 1,
+    "end.mind has no world account": 2,
+    "block.heat has no world account": 6,
+    "transform.information has no world account": 3,
+    "move.sound has no world account": 3,
+    "move.moisture has no world account": 5,
+    "transform.light has no world account": 1,
+    "transform.vitality has no world account": 3,
+    "bind.vitality has no world account": 1,
+    "transform.force has no world account": 3,
+    "sense.force has no world account": 1,
+    "alter.vitality has no world account": 2,
+    "alter.sound has no world account": 2,
+    "sense.sound has no world account": 4,
+    "conceal.sound has no world account": 3,
+    "sense.memory has no world account": 1,
+    "transform.law has no world account": 1,
+    "block.soul has no world account": 2,
+    "release.force has no world account": 3,
+    "move.working has no world account": 1,
+    "alter.essence has no world account": 1,
+    "bind.working has no world account": 1,
+    "move.heat has no world account": 1,
+    "transform.memory has no world account": 1,
+    "bind.force has no world account": 4,
+    "copy.information has no world account": 1,
+    "move.light has no world account": 2,
+    "remove.soul has no world account": 1,
+    "add.information has no world account": 13,
+    "end.force has no world account": 1,
+    "block.time has no world account": 1,
+    "block.law has no world account": 2,
+    "alter.lifespan has no world account": 1,
+    "add.form has no world account": 1,
+    "move.information has no world account": 1,
+    "remove.information has no world account": 1,
+    "conceal.essence has no world account": 1,
+    "sense.thing has no world account": 1,
+    "bind.mind has no world account": 1,
+    "end.position has no world account": 1
+   },
+   "dials": {
+    "time": {
+     "all": "sustained",
+     "byKind": {
+      "powers": "sustained",
+      "creatures": "sustained",
+      "artifacts": "sustained",
+      "places": "sustained"
+     }
+    }
+   },
+   "leaning": {
+    "taken": 245,
+    "noDefault": 51,
+    "oneDefault": 194,
+    "twoPlus": 0,
+    "byField": {
+     "sentence": {
+      "label": 245
+     },
+     "time": {
+      "label": 245
+     },
+     "anchor": {
+      "stated": 245
+     },
+     "who": {
+      "fill": 51,
+      "default": 194
+     }
+    },
+    "statedSample": 4
+   },
+   "heldOutTake": {
+    "n": 46,
+    "taken": 46
+   },
+   "scores": [
+    {
+     "id": "law.area-field.time-from-duration",
+     "n": 79,
+     "exact": 75,
+     "baseline": 12,
+     "verdict": "passes"
+    },
+    {
+     "id": "law.area-field.time-default",
+     "n": 203,
+     "exact": 80,
+     "baseline": 80,
+     "verdict": "fails-baseline"
+    },
+    {
+     "id": "law.area-field.sentence-from-inside",
+     "n": 62,
+     "exact": 10,
+     "baseline": 22,
+     "verdict": "fails-baseline"
+    },
+    {
+     "id": "law.area-field.ends-from-time",
+     "n": 6,
+     "exact": 3,
+     "baseline": 4,
+     "verdict": "insufficient-held-out"
+    }
+   ]
+  },
+  "form-transformation": {
+   "rows": 2019,
+   "labelled": 1317,
+   "taken": 1307,
+   "takeRate": 0.647,
+   "distinctCases": 10,
+   "blocked": {
+    "read as not a form change": 136,
+    "no stated sentence": 360,
+    "move.position is another law": 15,
+    "transform.thing is another law": 14,
+    "add.force is another law": 21,
+    "release.force is another law": 1,
+    "add.thing is another law": 8,
+    "alter.force is another law": 6,
+    "conceal.light is another law": 2,
+    "a form change over an area waits for the area law to carry it": 57,
+    "add.information is another law": 3,
+    "alter.position is another law": 1,
+    "alter.mind is another law": 7,
+    "transform.mind is another law": 4,
+    "add.form is another law": 7,
+    "remove.form is another law": 1,
+    "end.vitality is another law": 2,
+    "add.light is another law": 2,
+    "transform.vitality is another law": 3,
+    "sense.information is another law": 6,
+    "alter.vitality is another law": 2,
+    "block.position is another law": 1,
+    "conceal.form is another law": 4,
+    "copy.form is another law": 5,
+    "alter.lifespan is another law": 2,
+    "alter.light is another law": 1,
+    "move.thing is another law": 7,
+    "bind.thing is another law": 2,
+    "remove.thing is another law": 2,
+    "bind.mind is another law": 1,
+    "remove.essence is another law": 1,
+    "alter.law is another law": 1,
+    "add.position is another law": 4,
+    "sense.light is another law": 2,
+    "remove.vitality is another law": 1,
+    "add.vitality is another law": 2,
+    "alter.moisture is another law": 1,
+    "copy.memory is another law": 1,
+    "transform.essence is another law": 1,
+    "end.soul is another law": 1,
+    "alter.working is another law": 1,
+    "add.essence is another law": 1,
+    "move.force is another law": 1,
+    "remove.position is another law": 2,
+    "bind.vitality is another law": 1,
+    "copy.thing is another law": 1,
+    "move.form is another law": 2,
+    "transform.position is another law": 2,
+    "block.form is another law": 1,
+    "alter.relation is another law": 1,
+    "transform.lifespan is another law": 1
+   },
+   "dials": {
+    "reversal": {
+     "all": "at-will"
+    }
+   },
+   "leaning": {
+    "taken": 1307,
+    "noDefault": 199,
+    "oneDefault": 1004,
+    "twoPlus": 104,
+    "byField": {
+     "sentence": {
+      "label": 1025,
+      "fill": 282
+     },
+     "target": {
+      "stated": 1180,
+      "default": 127
+     },
+     "reversal": {
+      "default": 1085,
+      "derived-duration": 174,
+      "fill": 48
+     }
+    },
+    "statedSample": 2
+   },
+   "heldOutTake": {
+    "n": 274,
+    "taken": 274
+   },
+   "scores": [
+    {
+     "id": "law.form-transformation.sentence-from-change",
+     "n": 112,
+     "exact": 107,
+     "baseline": 107,
+     "verdict": "fails-baseline"
+    },
+    {
+     "id": "law.form-transformation.reversal-from-duration",
+     "n": 16,
+     "exact": 10,
+     "baseline": 7,
+     "verdict": "passes"
+    },
+    {
+     "id": "law.form-transformation.reversal-from-time",
+     "n": 6,
+     "exact": 0,
+     "baseline": 2,
+     "verdict": "insufficient-held-out"
+    },
+    {
+     "id": "law.form-transformation.reversal-default",
+     "n": 20,
+     "exact": 9,
+     "baseline": 9,
+     "verdict": "fails-baseline"
+    },
+    {
+     "id": "law.form-transformation.target-from-label",
+     "n": 109,
+     "exact": 102,
+     "baseline": 96,
+     "verdict": "passes"
+    }
+   ]
+  }
+ }
+}

@@ -7,6 +7,7 @@
 import {createHash} from 'node:crypto';
 import {confidenceOf} from './derivation_confidence.mjs';
 import {readFileSync, writeFileSync} from 'node:fs';
+import {liftReachable} from './typed_runs.mjs';
 import {fileURLToPath} from 'node:url';
 import {LOTM_DERIVE_RULES, derivedSpec, derivedRowId} from '../src/lotm_derived_formulas.js';
 
@@ -28,6 +29,7 @@ export function applyDerived(row) {
     row.test = 'tests/lotm_derived_formulas.test.js';
     row.case = {module: DERIVED_CASE_MODULE, id: `lotm.derived.${derivedRowId(row.pathway, row.seq)}`};
     row.derived = {rule: spec.rules[0], inputs: spec.inputs, confidence: confidenceOf(spec.rules[0])};
+    row.state = liftReachable(row).state; // runs-derived once the case module is reachable (PSA24)
 }
 
 export function rulesFile(derivedIds) {

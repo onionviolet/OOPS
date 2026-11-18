@@ -1,5 +1,5 @@
 import {moonbladeSheets} from './gu_ability_profiles.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 import {searchGuMoves} from './gu_move_search.js';
 import {applyEnergyEffect} from './energy_resources.js';
 import {heldMoonlightStockStage, moonlightStockMoveIds} from './gu_moonlight_stock.js';
@@ -172,7 +172,7 @@ function applyTrayMove(state, operation, registry) {
         if (!trayHasPlan(options, notes.plan)) throw Error('The exact tray Gu or its support is unavailable.');
         const {core, operation: source} = notes.plan;
         const stages = [...trayWrites[source], core].map(id => available.find(stage => stage.gu.id === id));
-        const result = resolveGuActivation({stages, reserves: {player: {primeval: reserve}}, day: state.clock});
+        const result = runGuActivations({stages, reserves: {player: {primeval: reserve}}, day: state.clock});
         const sheets = moonbladeSheets(result);
         for (let unit = 0; unit < reserve - result.remaining.player.primeval; unit++) {
             applyEnergyEffect(state, 'player', {energyId, operation: 'use', output: 1, control: 1}, registry);

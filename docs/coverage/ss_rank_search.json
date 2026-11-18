@@ -1,0 +1,275 @@
+{
+ "meta": {
+  "pass": "PWC99, PWC100",
+  "date": "2026-11-17",
+  "note": "Fold 5 scored once per pool, after each rule set was chosen on folds 1-4. Resemblance = the stem rule on the same fold; baseline = most common visible tier. Abstain falls back to the baseline. Within-one is order-dependent (ladder order is a default)."
+ },
+ "pools": {
+  "creatures": {
+   "ruleSet": [
+    "source",
+    "story3",
+    "klass"
+   ],
+   "ladder": [
+    "dormant",
+    "awakened",
+    "fallen",
+    "corrupted",
+    "transcendent",
+    "supreme",
+    "divine"
+   ],
+   "final": {
+    "n": 12,
+    "exact": 5,
+    "within1": 11,
+    "by": {
+     "story3": {
+      "n": 12,
+      "exact": 5,
+      "within1": 11,
+      "baseExact": 6,
+      "baseWithin1": 9
+     }
+    },
+    "misses": [
+     {
+      "id": "ss.creature.awakened-terror",
+      "name": "Awakened Terror",
+      "by": "story3",
+      "derived": "fallen",
+      "canon": "awakened",
+      "off": 1
+     },
+     {
+      "id": "ss.creature.corrupted",
+      "name": "Corrupted",
+      "by": "story3",
+      "derived": "fallen",
+      "canon": "corrupted",
+      "off": 1
+     },
+     {
+      "id": "ss.creature.dusk",
+      "name": "Dusk",
+      "by": "story3",
+      "derived": "awakened",
+      "canon": "fallen",
+      "off": 1
+     },
+     {
+      "id": "ss.creature.dusk-of-fallen-grace",
+      "name": "Dusk of Fallen Grace",
+      "by": "story3",
+      "derived": "awakened",
+      "canon": "fallen",
+      "off": 1
+     },
+     {
+      "id": "ss.creature.nightmare-creature",
+      "name": "Nightmare Creatures",
+      "by": "story3",
+      "derived": "awakened",
+      "canon": "dormant",
+      "off": 1
+     },
+     {
+      "id": "ss.creature.supreme-devil",
+      "name": "Supreme Devil",
+      "by": "story3",
+      "derived": "corrupted",
+      "canon": "supreme",
+      "off": 2
+     },
+     {
+      "id": "ss.creature.transcendent-devil",
+      "name": "Transcendent Devil",
+      "by": "story3",
+      "derived": "corrupted",
+      "canon": "transcendent",
+      "off": 1
+     }
+    ]
+   },
+   "resemblance": {
+    "rule": "stem",
+    "n": 12,
+    "exact": 6,
+    "within1": 9,
+    "by": {
+     "stem": {
+      "n": 5,
+      "exact": 2,
+      "within1": 4,
+      "baseExact": 2,
+      "baseWithin1": 4
+     },
+     "baseline": {
+      "n": 7,
+      "exact": 4,
+      "within1": 5,
+      "baseExact": 4,
+      "baseWithin1": 5
+     }
+    }
+   },
+   "baseline": {
+    "exact": 6,
+    "within1": 9
+   },
+   "singleRules": {
+    "source": {
+     "n": 12,
+     "exact": 6,
+     "within1": 9,
+     "applied": {
+      "n": 0,
+      "exact": 0,
+      "within1": 0
+     }
+    },
+    "story3": {
+     "n": 12,
+     "exact": 5,
+     "within1": 11,
+     "applied": {
+      "n": 12,
+      "exact": 5,
+      "within1": 11,
+      "baseExact": 6,
+      "baseWithin1": 9
+     }
+    },
+    "klass": {
+     "n": 12,
+     "exact": 5,
+     "within1": 9,
+     "applied": {
+      "n": 10,
+      "exact": 4,
+      "within1": 8,
+      "baseExact": 5,
+      "baseWithin1": 8
+     }
+    }
+   }
+  },
+  "artifacts": {
+   "ruleSet": [
+    "crossSource",
+    "source",
+    "story3"
+   ],
+   "ladder": [
+    "dormant",
+    "awakened",
+    "ascended",
+    "transcendent",
+    "supreme",
+    "divine",
+    "sacred"
+   ],
+   "final": {
+    "n": 9,
+    "exact": 6,
+    "within1": 7,
+    "by": {
+     "story3": {
+      "n": 9,
+      "exact": 6,
+      "within1": 7,
+      "baseExact": 0,
+      "baseWithin1": 4
+     }
+    },
+    "misses": [
+     {
+      "id": "ss.item.guiding-light",
+      "name": "Guiding Light",
+      "by": "story3",
+      "derived": "transcendent",
+      "canon": "sacred",
+      "off": 3
+     },
+     {
+      "id": "ss.item.sacred-memory",
+      "name": "Sacred Memory",
+      "by": "story3",
+      "derived": "supreme",
+      "canon": "sacred",
+      "off": 2
+     },
+     {
+      "id": "ss.item.supreme-memory",
+      "name": "Supreme Memory",
+      "by": "story3",
+      "derived": "transcendent",
+      "canon": "supreme",
+      "off": 1
+     }
+    ]
+   },
+   "resemblance": {
+    "rule": "stem",
+    "n": 9,
+    "exact": 0,
+    "within1": 3,
+    "by": {
+     "baseline": {
+      "n": 6,
+      "exact": 0,
+      "within1": 2,
+      "baseExact": 0,
+      "baseWithin1": 2
+     },
+     "stem": {
+      "n": 3,
+      "exact": 0,
+      "within1": 1,
+      "baseExact": 0,
+      "baseWithin1": 2
+     }
+    }
+   },
+   "baseline": {
+    "exact": 0,
+    "within1": 4
+   },
+   "singleRules": {
+    "crossSource": {
+     "n": 9,
+     "exact": 0,
+     "within1": 4,
+     "applied": {
+      "n": 0,
+      "exact": 0,
+      "within1": 0
+     }
+    },
+    "source": {
+     "n": 9,
+     "exact": 0,
+     "within1": 4,
+     "applied": {
+      "n": 0,
+      "exact": 0,
+      "within1": 0
+     }
+    },
+    "story3": {
+     "n": 9,
+     "exact": 6,
+     "within1": 7,
+     "applied": {
+      "n": 9,
+      "exact": 6,
+      "within1": 7,
+      "baseExact": 0,
+      "baseWithin1": 4
+     }
+    }
+   }
+  }
+ }
+}

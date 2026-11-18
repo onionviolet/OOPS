@@ -1,7 +1,7 @@
 import {acquireCreature, advanceWildHabitat, habitatOccupancy, openWildHabitat, restoreCreatureLifecycle,
     settleCohortStock, transferCreature} from './creature_lifecycle.js';
 import {guCatalogue} from './gu_catalogue.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 import {drawGuTraits} from './gu_traits.js';
 import {applyCrown, crownActions, crownView, scoutingPinned, settleCrownMigration, validateCrown,
     wolfScoutOperations, wolfScouting} from './gu_wolf_scouting.js';
@@ -186,7 +186,7 @@ export function applyWolfRidge(state, record, operation, original) {
     } else if (operation === 'refine_wings') row.tracks[held(row, 'captured')].custody = 'refined';
     else if (operation === 'fly_shelf') {
         const gu = row.tracks[held(row, 'refined')].gu;
-        const result = resolveGuActivation({stages: [{operator: 'player', ability: wings,
+        const result = runGuActivations({stages: [{operator: 'player', ability: wings,
             gu: {id: gu, kind: 'thunderwings', rank: 3, fedThrough: clock},
             supply: {pool: 'white-silver', family: 'primeval', rank: 3, source: 'stored'}}],
         reserves: {player: {'white-silver': wings.cost}}, day: clock});

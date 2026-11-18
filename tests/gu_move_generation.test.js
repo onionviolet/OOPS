@@ -53,7 +53,8 @@ test('a new fire composition settles on K and freezes its cause and grammar in a
         [['runs', true], ['pays', true], ['allows', true], ['explains', true]]);
     assert.equal(move.checks[1].price, 4);
     assert.deepEqual(move.preview.costs, [1, 1, 3].map(primevalCost));
-    assert.deepEqual(move.preview.effects, [{kind: 'flame', magnitude: 2, count: 1, source: 'core'}]);
+    assert.deepEqual(move.preview.effects.map(({sentence, details, ...rest}) => rest), [{kind: 'flame', magnitude: 2, count: 1, source: 'core'}]);
+    assert.equal(move.preview.effects[0].sentence.verb, 'remove');
     assert.deepEqual(archive.niches, {});
 
     const weaker = generated.results.find(row => row.recipe.roles[0].kind === 'fire-source' && row.recipe.roles.length === 2);

@@ -15,6 +15,7 @@ import {fileURLToPath} from 'node:url';
 import {canonicalRow} from './slug_normalize.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
 import {attachItemBoundRows} from './item_bound_ledgers.mjs';
+import {attachFormRows} from './form_transformation_ledgers.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 export const SIDECAR = `${root}docs/coverage/perfect_run_power_labels.json`;
@@ -255,7 +256,7 @@ export function buildLedger(side) {
     });
 }
 async function build() {
-    const rows = await attachItemBoundRows(buildLedger(read(SIDECAR)));
+    const rows = await attachFormRows(await attachItemBoundRows(buildLedger(read(SIDECAR))));
     writeFileSync(LEDGER, `${rows.map(r => JSON.stringify(r)).join('\n')}\n`);
     console.log(JSON.stringify({rows: rows.length, states: tallyBy(rows.map(r => r.state.split(':')[0] + (r.state.startsWith('blocked') ? `:${r.state.split(':')[1]}` : '')))}));
 }

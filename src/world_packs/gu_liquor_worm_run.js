@@ -3,7 +3,7 @@
 import {beginContest, defineContestLaw, runContest, stepContest} from '../contest.js';
 import {CONTEST_RESOLVERS} from '../contest_resolvers.js';
 import {contestBody} from '../contest_bodies.js';
-import {GU_CONTEST, GU_ESSENCE, guBridge} from '../contest_packs/gu_world.js';
+import {GU_CONTEST, GU_ESSENCE, guBridge, guContestEffects} from '../contest_packs/gu_world.js';
 import {advanceEngineWorld, applyEngineOps, createEngineWorld, restoreEngineWorld} from '../engine_world.js';
 import {guBodyHolder} from '../gu_living_body.js';
 import {guCatalogue} from '../gu_catalogue.js';
@@ -53,8 +53,7 @@ const specimen = (engine, kind) => ({id: kind, kind, rank: 1, alive: true, fedTh
 // reserve on the entrant's body to the named pool for that working.
 const refinedMethod = guMethods(moon).activate;
 refinedMethod.steps[0].options = {ability: academyBlade, pool: poolMiddle, stage: 'middle', rank: 1, source: 'aperture'};
-const practiceBridge = method => ({...guBridge(method), effects: rows => rows.filter(row => row.kind === 'damage')
-    .map(row => ({verb: 'remove', object: 'vitality', amount: Math.round(row.magnitude * academyDamage)}))});
+const practiceBridge = method => ({...guBridge(method), effects: rows => guContestEffects(rows, academyDamage)});
 const refinedBridge = {...practiceBridge(refinedMethod),
     facts: actor => ({reserves: {[actor.id]: {[poolMiddle]: actor.quantities[middle]}}}),
     spent: (actor, facts) => ({[middle]: actor.quantities[middle] - facts.reserves[actor.id][poolMiddle]}),

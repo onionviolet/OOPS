@@ -9,12 +9,14 @@ import {foldChapterEffect} from './chapter_effect_tier.mjs';
 
 const dir = new URL('../docs/coverage/', import.meta.url);
 export const readSidecar = () => JSON.parse(readFileSync(new URL('worm_power_labels.json', dir), 'utf8'));
+// Derived PRT class and number (derive-worm lane): read from the committed worm_prt_derived.json, never recomputed here.
+const readPrt = () => { try { return JSON.parse(readFileSync(new URL('worm_prt_derived.json', dir), 'utf8')).derived ?? {}; } catch { return {}; } };
 const FIELD_WORDS = {who_may: 'held by', where_from: 'from', go_wrong: 'cost', mind: 'mind', left_behind: 'after death', route_to_player: 'route', knowledge: 'known to'};
 const speakerMark = at => (at?.speaker && at.speaker !== 'unknown' ? ` [${at.speaker}${at.locator ? ` ${at.locator.split(' ')[0]}` : ''}]` : '');
 // Owner letters from effect_grammar's OBJECT_OWNER, W for the quantity substrate.
 const OWNER = {working: 'K', information: 'N', memory: 'N', mind: 'A', force: 'L', lifespan: 'L', luck: 'P', soul: 'L'};
 
-export function buildWormLedger(sidecar = readSidecar()) {
+export function buildWormLedger(sidecar = readSidecar(), prt = readPrt()) {
     return Object.entries(sidecar.rows).map(([id, r]) => {
         const g = r.grammar;
         const runs = r.blocked === 'runs-now';
@@ -32,8 +34,12 @@ export function buildWormLedger(sidecar = readSidecar()) {
         }
         if (!runs) parts.push(`Missing: ${r.blocked}${r.blockedSecond === 'differ' ? ' (readers differ)' : ''}.`);
         else parts.push('Grammar sentence names a runnable effect; no case yet.');
+        const dv = prt[id];
+        if (dv) parts.push(`Derived PRT class ${dv.class}${dv.classSet.length > 1 ? ` (set ${dv.classSet.join('/')})` : ''}${dv.rating != null ? `, number ${dv.rating}` : ''} from what the effect does (worm.prt.class-from-effect; not a stated rating).`);
         const source = [...r.sources, ...(r.claimCount > 6 ? [`+${r.claimCount - 6} claims`] : [])].join('; ') || 'denominator:merge-reply';
-        return foldChapterEffect('worm_powers', {id, source, state, mechanisms: owners, test: null, note: parts.join(' ').replace(/\s*\u2014\s*/g, ', ')});
+        const out = {id, source, state, mechanisms: owners, test: null, note: parts.join(' ').replace(/\s*\u2014\s*/g, ', ')};
+        if (dv) out.derived = {rule: 'worm.prt.class-from-effect', inputs: ['effect grammar verb, object, target, time', 'effect sentence keywords'], class: dv.class, classSet: dv.classSet, ...(dv.rating != null ? {rating: dv.rating, ratingRule: 'worm.prt.rating-from-reach-and-output'} : {})};
+        return foldChapterEffect('worm_powers', out);
     });
 }
 export const toLedgerText = rows => rows.map(r => JSON.stringify(r)).join('\n') + '\n';

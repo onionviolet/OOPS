@@ -63,7 +63,7 @@ export function configureNativeToolDomains(operations) {
     configureIntents(operations);
     configureRootRetuning({...operations,writable:operations.tradeWritable||operations.writable,blocked:operations.worldWorkBlocked});
     configureVesselThread({...operations,writable:operations.tradeWritable||operations.writable,blocked:operations.worldWorkBlocked});
-    configureCapabilityRuns({writable: neutralWritable(operations), persist: operations.persist});
+    configureCapabilityRuns({writable: neutralWritable(operations), persist: operations.persist, logMessage: operations.logMessage});
     configurePersonalJournal({...operations, writable: neutralWritable(operations)});
     configureDojoTower(operations);
     configureShopLocks({...operations,writable:operations.tradeWritable||operations.writable});

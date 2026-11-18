@@ -8,6 +8,7 @@
 import {defineWorkingLaw, interruptWorking, quoteWorking} from './kernel_working.js';
 import {AIRWAY_OBSTRUCTION, EFFECT_VERBS, EFFECT_TARGETS, speechObstruction, unsteadyFooting} from './spell_effects.js';
 import {sentenceCosts} from './effect_grammar.js';
+import {spellLabel} from './spell_label.js';
 import {KNOWLEDGE_KINDS} from './knowledge_record.js';
 import {brewDoseContents, brewDoseQuantity, brewFlaskStamp} from './engine_brew_stock.js';
 import {storedBrewDose} from './brew_law.js';
@@ -107,7 +108,7 @@ function operation(verb, target, grip = false) {
                 ...(options.contact ? {contact: {...options.contact, from: options.inFlight ? caster.place : caster.holder,
                     ...(options.inFlight && options.contact.reflectable === true ? {releasedBy: caster.holder} : {})}} : {})}
                 : options.details ?? {target: {shape: 'holder', id: thing.id}};
-            const effect = {kind: `spell.${sentence.verb}.${sentence.object}`, target: thing.id, sentence,
+            const effect = {kind: spellLabel(sentence), target: thing.id, sentence,
                 details: verb === 'release' && sentence.object === 'airway'
                     ? {...details, mark: AIRWAY_OBSTRUCTION, channel: null}
                     : verb === 'release' && sentence.object === 'mark' && sentence.direction === 'ink'
