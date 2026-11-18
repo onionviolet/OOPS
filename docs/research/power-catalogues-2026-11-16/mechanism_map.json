@@ -87,6 +87,7 @@
   "unnamed-role": {"class": "reading"},
   "venom-or-disease": {"substrate": "body", "verbs": ["add", "remove"]},
   "vow-cost": {"substrate": "relations", "verbs": ["oath"]},
+  "wish-grant": {"substrate": "powers", "verbs": ["route", "create"]},
   "world-travel": {"substrate": "space", "verbs": ["enter"]}
  },
  "abilities": {
