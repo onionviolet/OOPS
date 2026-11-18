@@ -4,7 +4,9 @@
 // seed and the same clock give the same card on every read, reload and replay.
 //
 // deck = {id, slotMinutes, quiet, cooldown, dry:{after, relief, floor}, cards}
-// card = {id, text, cooldown?, needs?, plus?}   needs/plus read a facts object the caller supplies per slot:
+// card = {id, text, cooldown?, needs?, plus?, effect?}   effect (PWC129): {row, sentence, amount?, line?} makes the card an effect-carrying beat; the
+//   one path that lands it is story_effect_cards.js (landEffect), and `row` is the source ledger row id (debug view only, never player text).
+//   needs/plus read a facts object the caller supplies per slot:
 //   needs:{fact: value | [values] | predicate}  all must match, else the card cannot be drawn this slot (weight 0)
 //   plus:[{when:{...same matcher}, add?, mult?}] add first, then mult, so a state can lift or damp a card
 //   base weight is `weight` (default 1).
@@ -29,6 +31,7 @@ export function validateDeck2(deck) {
     const ids = new Set();
     for(const c of deck.cards || []) {
         if(!c.id || ids.has(c.id) || typeof c.text !== 'string' || !c.text) bad(`card ${c.id}`);
+        if(c.effect !== undefined && (!c.effect || typeof c.effect.row !== 'string' || !c.effect.row || typeof c.effect.sentence?.verb !== 'string' || typeof c.effect.sentence?.object !== 'string')) bad(`card ${c.id} effect`);
         ids.add(c.id);
     }
     return deck;

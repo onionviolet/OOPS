@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {directWindow, runDirector, validateDirector, quietWeight, whyLine} from '../src/story_director.js';
-import {tingenDirected, tingenDraws, TINGEN_DIRECTOR, slotFacts} from '../src/book_world_lotm_deck.js';
+import {tingenDirected, tingenDraws, tingenEffectDraws, TINGEN_DIRECTOR, slotFacts} from '../src/book_world_lotm_deck.js';
 import {eventFeed} from '../src/event_feed.js';
 import {createExpansionState} from '../src/expansion_engine.js';
 import {initializeExpedition} from '../src/expedition_content.js';
@@ -56,7 +56,7 @@ test('validation and plain-words reading', () => {
     assert.match(whyLine({surfaced: 'a', tension: .9, comfort: 0}), /on edge/);
 });
 test('Tingen: the director only surfaces cards the deck drew, heat shifts the mix, the feed carries a why line, nothing is saved', () => {
-    const s = tingen(7, 60), drawn = new Set(tingenDraws(s, none).map((d, i) => d.cardId && `${d.cardId}@${i}`));
+    const s = tingen(7, 60), drawn = new Set([...tingenDraws(s, none), ...tingenEffectDraws(s, none)].map((d, i) => d.cardId && `${d.cardId}@${i % (tingenDraws(s, none).length)}`));
     const calm = tingenDirected(s, none), tense = tingenDirected(s, {heat: () => ({heat: [{level: 3}]}), positions: () => []});
     for(const o of calm) if(o.surfaced) assert.ok(drawn.has(`${o.surfaced.id}@${o.surfaced.born}`));
     const prs = run => run.filter(o => o.surfaced?.category === 'pressure').length, shown = run => run.filter(o => o.surfaced).length;
@@ -75,10 +75,10 @@ test('kind and per-category cooldown: repeated occurrences of one kind sit out t
     for(let i = 1; i < at.length; i++) assert.ok(at[i] - at[i - 1] >= 3);
     assert.throws(() => validateDirector({...sp, categories: {texture: {weight: 1, hold: 0, cooldown: -1}}}));
 });
-test('Tingen paces the same after the second-world words change (golden captured before it, 2026-11-10)', () => {
+test('Tingen paces the same after the second-world words change (golden re-captured for effect cards, 2026-11-18)', () => {
     const s = tingen(7, 60), hot = {heat: () => ({heat: [{level: 3}]}), positions: () => []};
     const rows = r => r.map(o => o.surfaced ? `${o.window}:${o.surfaced.id}@${o.surfaced.born}/${o.surfaced.category}|${whyLine(o.receipt)}` : `${o.window}:-`).join('\n');
     const out = rows(tingenDirected(s, none)) + '\n#\n' + rows(tingenDirected(s, hot));
-    assert.equal(createHash('sha256').update(out).digest('hex').slice(0, 16), 'e5f4dc98f4189502');
+    assert.equal(createHash('sha256').update(out).digest('hex').slice(0, 16), 'aba1d10899b49771'); // re-captured 2026-11-18 (PWC129): the effect deck's 'happening' candidates joined the pool, so picks moved on purpose
     assert.equal(whyLine({surfaced: 'a', tension: 0, comfort: 0, late: true}, {calm: 'Calm.', late: 'Late.'}), 'Calm. Late.');
 });

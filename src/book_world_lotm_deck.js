@@ -11,6 +11,7 @@ import {positionsOf} from './positions.js';
 import {domainRegistry} from './domain_registry.js';
 import {runDeck2, validateDeck2, matches, cardWeight} from './storylet_deck2.js';
 import {runDirector, validateDirector, whyLine} from './story_director.js';
+import {guRow, potionRow, withEffect} from './story_effect_cards.js';
 
 const DAY = 1440, SLOT = 360, SLOTS_PER_DAY = DAY / SLOT;
 // Dials (default, reason):
@@ -56,13 +57,38 @@ export const TINGEN_CARDS = Object.freeze([
         {needs: {slotOfDay: m(0, 1)}, weight: 1.5, plus: [{when: {fog: true}, add: 1.5}]}),
 ]);
 export const TINGEN_DECK = validateDeck2({id: 'tingen.daily', slotMinutes: SLOT, quiet: 3, cooldown: 12, dry: {after: 3, relief: .5, floor: .15}, cards: TINGEN_CARDS});
+// Effect cards (PWC129): household happenings drawn from their own deck id, so the ambient draws above keep their hash stream. Each
+// carries a ledger row's own sentence (story_effect_cards.js) and, when the director surfaces it, lands on the household through
+// `landEffect`; `line` is what the player reads in Reports, `thought` the lead's mood for a day (moodThoughts). Mechanism over world kind
+// (AD38): a hot tonic, a boiled-over pot and a lightning shock work the same in any city, whatever grammar the row was read from.
+const fx = (id, text, source, line, thought, o = {}) => withEffect(`tingen.fx.${id}`, text, source, {line, thought}, o);
+const m2 = (...v) => v;
+export const TINGEN_EFFECT_CARDS = Object.freeze([
+    fx('neighbour_tonic', 'Your neighbour leans out of her door with a mug of something hot and peppery. "Drink," she says, and does not take no for an answer.',
+        potionRow('pepperup_potion'), 'The peppery tonic leaves you warmer and steadier.', {magnitude: 4, line: 'A neighbour\'s hot tonic steadied you.'},
+        {needs: {slotOfDay: m2(0, 1, 3)}, weight: 2, plus: [{when: {fog: true}, add: 1}]}),
+    fx('pot_boils_over', 'Something in the kitchen downstairs boils over, and a sour yellow fume rolls up the stairwell.',
+        potionRow('doxycide'), 'The fumes catch in your throat and leave you coughing.', {magnitude: -4, line: 'Sour fumes from downstairs left you coughing.'},
+        {needs: {slotOfDay: m2(1, 2, 3)}, weight: 2}),
+    fx('storm_strike', 'A late storm breaks over the roofs. A bolt strikes the chimney stack and the old rod on the landing gives up with a crack.',
+        guRow('thunderclap'), 'The shock runs down through the floor and leaves your hands numb and your ears ringing.', {magnitude: -5, line: 'A lightning shock rattled you.'},
+        {needs: {slotOfDay: m2(3, 0)}, weight: 1.5, plus: [{when: {fog: true}, add: 1}]}),
+    fx('herb_poultice', 'The landlady\'s sister leaves a poultice of crushed leaves on your step with a note that says only "for the ache".',
+        guRow('vitality-leaf'), 'The poultice eases an ache you had stopped noticing.', {magnitude: 3, line: 'A poultice from the landing eased an ache.'},
+        {needs: {slotOfDay: m2(1, 2)}, weight: 2}),
+    fx('blood_restorative', 'A doctor\'s boy works down the stair selling a red restorative, three bottles for a coin, and nobody asks what is in it.',
+        potionRow('blood_replenishing_potion'), 'The restorative sits warm in your chest.', {magnitude: 3, line: 'A cheap red restorative left you warmer.'},
+        {needs: {slotOfDay: m2(1, 2, 3)}, weight: 1}),
+]);
+export const TINGEN_EFFECT_DECK = validateDeck2({id: 'tingen.effects', slotMinutes: SLOT, quiet: 40, cooldown: 12, dry: {after: 3, relief: .5, floor: .15}, cards: TINGEN_EFFECT_CARDS});
 // Story director for the deck (STY10, STY11): the deck above causes the ambient happenings; the director chooses which of them reach the
 // lead's Events list and when. Dials (default, reason): one pick per six-hour window at most; city pressure (constable's lantern, a cab
 // in the dark) grows with heat and crowds out street texture; civic news may wait two windows and pressure one, texture is of the moment;
 // a long lull brings texture back. Calendar days (market, service) are fixed points and never pass through it.
 export const TINGEN_DIRECTOR = validateDirector({id: 'tingen.director', quiet: 2, tensionQuiet: .5, cooldown: 4, attempts: 2, dry: {after: 3, relief: .6, floor: .2},
-    categories: {texture: {weight: 3, hold: 0, tension: -.6, comfort: 1}, civic: {weight: 2, hold: 2}, pressure: {weight: 1, hold: 1, tension: 5}}});
-const CARD_BY_ID = new Map(TINGEN_CARDS.map(c => [c.id, c]));
+    categories: {texture: {weight: 3, hold: 0, tension: -.6, comfort: 1}, civic: {weight: 2, hold: 2}, pressure: {weight: 1, hold: 1, tension: 5},
+        happening: {weight: 1, hold: 1}}});
+export const CARD_BY_ID = new Map([...TINGEN_CARDS, ...TINGEN_EFFECT_CARDS].map(c => [c.id, c]));
 const text = (id, e) => `${id}:${e}`;
 
 const gated = state => state?.actors?.player?.worldId === LOTM_IDS.world && Number.isFinite(state.lotm?.initializedAt) && Number.isFinite(state.clock);
@@ -95,19 +121,24 @@ export function tingenDraws(state, readers) {
     const slow = slowFacts(state, readers), upto = tingenSlot(state);
     return runDeck2(TINGEN_DECK, tingenDeckSeed(state), upto, s => slotFacts(s, slow), JSON.stringify(slow));
 }
+export function tingenEffectDraws(state, readers) {
+    if(!gated(state)) return [];
+    const slow = slowFacts(state, readers);
+    return runDeck2(TINGEN_EFFECT_DECK, tingenDeckSeed(state), tingenSlot(state), s => slotFacts(s, slow), JSON.stringify(slow));
+}
 export const tingenTension = slow => Math.min(1, (slow.heat || 0) / 3);
 // The director's run over the deck's draws: per six-hour window which drawn card surfaced (and why). Derived, no save field.
 export function tingenDirected(state, readers) {
     if(!gated(state)) return [];
-    const slow = slowFacts(state, readers), upto = tingenSlot(state), draws = tingenDraws(state, readers);
+    const slow = slowFacts(state, readers), upto = tingenSlot(state), draws = tingenDraws(state, readers), fxDraws = tingenEffectDraws(state, readers);
     const factsAt = s => ({...slotFacts(s, slow), tension: tingenTension(slow)});
-    const born = s => { const c = draws[s]?.cardId && CARD_BY_ID.get(draws[s].cardId); return c ? [{id: c.id, category: c.category ?? 'texture', weight: cardWeight(c, factsAt(s)) || 1, recheck: f => matches(c.needs, f)}] : []; };
+    const born = s => [draws[s], fxDraws[s]].flatMap(d => { const c = d?.cardId && CARD_BY_ID.get(d.cardId); return c ? [{id: c.id, category: c.category ?? 'texture', weight: cardWeight(c, factsAt(s)) || 1, recheck: f => matches(c.needs, f)}] : []; });
     return runDirector(TINGEN_DIRECTOR, tingenDeckSeed(state), upto, born, factsAt, JSON.stringify(slow));
 }
 // The feed adapter: news rows {id, at, text, why}. Empty outside a Tingen life.
 export function tingenDeckNews(state, readers) {
     if(!gated(state)) return [];
-    const epoch = state.lotm.initializedAt, upto = tingenSlot(state), out = [], byId = new Map(TINGEN_CARDS.map(c => [c.id, c]));
+    const epoch = state.lotm.initializedAt, upto = tingenSlot(state), out = [], byId = CARD_BY_ID;
     const directed = tingenDirected(state, readers);
     for(let s = upto, n = 0; s >= 0 && n < SHOW_CARDS && s > upto - SHOW_DAYS * SLOTS_PER_DAY - 1; s--) {
         const d = directed[s]?.surfaced;
