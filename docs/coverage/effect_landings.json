@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "season": {
+    "seed": 1,
+    "minutes": 2880,
+    "actions": 300,
+    "dt": 10,
+    "policy": "work"
+  },
+  "starts": [
+    {
+      "start": "village",
+      "landed": 0,
+      "attempted": 0,
+      "excluded": 0,
+      "byLaw": {},
+      "byEntry": {},
+      "byLawEntry": {},
+      "minutes": 2881,
+      "presses": 285,
+      "ended": "minutes",
+      "errors": []
+    },
+    {
+      "start": "book.ri.keeper",
+      "landed": 0,
+      "attempted": 0,
+      "excluded": 0,
+      "byLaw": {},
+      "byEntry": {},
+      "byLawEntry": {},
+      "minutes": 2740,
+      "presses": 300,
+      "ended": "actions",
+      "errors": []
+    }
+  ],
+  "landed": 0
+}
