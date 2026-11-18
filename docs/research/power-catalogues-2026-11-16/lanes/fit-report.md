@@ -13,7 +13,7 @@ Scores: [generation_fit_scores.json](../generation_fit_scores.json) (determinist
 - **Fold** (default fold 0 of 5, dial `--fold`): rows hash into folds with the canonTest hash; the grammar fits on the other four and the held-out fold is scored once. Never rotated or averaged, so no rule is tuned against a fold it was scored on. Reason: the `*_heldout` splits tune on 5 to 8 rows by design for the identity rule, too few to fit a generator.
 - **Proposals** (default N = 200, novelty 0 and 1, smoothing 0): `proposeEffects` from the train fold; only proposals that assemble count.
 - **Pair support**: pairs object+target and object+time (the pairs `grammar_canon_effects.mjs` uses), checked against train rows. Printed beside it: the share of proposals that copy a train sentence.
-- **Rediscovery**: held-out (verb, object, target, time) tuples reached. Headline counts only tuples absent from train; the raw number is printed beside it. Uniform baseline is 1-(1-1/S)^N over the declared slot values, exact.
+- **Rediscovery**: held-out (verb, object, target, time) tuples reached. Default headline counts tuples absent from train (reason: a train tuple is a copy); the raw number is printed beside it. Uniform baseline is 1-(1-1/S)^N over the declared slot values, exact.
 - **Share shift**: total variation per closed slot against train shares; headline is the worst slot.
 - **Executes**: `checkEffect`'s runs check against a probe world (one hall, one yard, one body), through the effect host (PC16). Splits changed-the-world from published-only; lookup-only is printed and excluded; refusals are grouped by the host's own reason so a probe gap reads as a probe gap.
 - **Companion lines**: the identity-predicted held-out items of `gu_heldout`, `spell_heldout` and `brew_heldout` through the PSA26 runner (`runCaseData`).
@@ -25,7 +25,7 @@ T1 labels read from the predicted field (Gu function table, spell lead-text rege
 ## What the first run shows (fold 0, 2026-11-17; read counts, not rates)
 
 - Pair support is 59% to 65% at novelty 0 and 28% to 44% at novelty 1 against the 80% dial; copies of a train sentence are 27% to 40% at novelty 0.
-- Rediscovery beats the uniform baseline wherever a novel tuple exists, but there are only 1 (Gu), 12 (spells) and 1 (brews) novel held-out tuples. Brews hold out 2 rows in fold 0: small n.
+- Rediscovery beats the uniform baseline where a novel tuple exists, but the report has just 1 (Gu), 12 (spells) and 1 (brews) novel held-out tuples. Brews hold out 2 rows in fold 0: small n.
 - Share shift passes the 0.25 dial except spell target (0.32 to 0.38) at both levels.
 - Executes is 39% to 69%; refusals are mostly the host asking for a channel, a mark or a quantity the probe does not give, so a richer probe is the first lever.
 
