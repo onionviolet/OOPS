@@ -1,7 +1,7 @@
 import {moonlightBlade} from './gu_ability_profiles.js';
 import {runGuProcedure, runGuProcedureFollowup, searchGuProcedures} from './gu_procedures.js';
 import {applyEnergyEffect} from './energy_resources.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 import {beamCondensationMinutes, beamCondensationProfile, deriveGuCondensation} from './gu_condensation.js';
 export {beamCondensationMinutes, beamCondensationProfile} from './gu_condensation.js';
 import {beginGuRefinement, cancelGuRefinement, stepGuRefinement} from './gu_refinement.js';
@@ -324,7 +324,7 @@ function applyBeamCondensation(state, operation, registry) {
 
 function activateBeamCatch(state, row, reserve) {
     const {ability} = beamDesign(row.source);
-    return resolveGuActivation({stages: [{gu: {...row.world.gu[0], fedThrough: state.clock}, ability, operator: 'player'}],
+    return runGuActivations({stages: [{gu: {...row.world.gu[0], fedThrough: state.clock}, ability, operator: 'player'}],
         reserves: {player: {primeval: reserve}}, day: state.clock});
 }
 

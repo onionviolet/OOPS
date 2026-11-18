@@ -1,6 +1,6 @@
 import {acquireCreature, creatureHealth, injureCreature, restoreCreatureLifecycle, settleCohortStock,
     startCreatureCare, transferCreature} from './creature_lifecycle.js';
-import {runGuActivations as resolveGuActivation} from './gu_working_host.js';
+import {runGuActivations} from './gu_working_host.js';
 import {separateHostedGu} from './gu_host_custody.js';
 import {applyWolfRidge, controlledRidgeEye, ridgeFacts, ridgeOperations, ridgeView, validateWolfRidge, wolfRidge} from './gu_wolf_ridge.js';
 import {applySmokePassage, smokeFacts, smokeOperations, smokeOperationSite, smokePassage, smokeView,
@@ -72,7 +72,7 @@ export function hostedThunderclapReady(state) {
 }
 
 function thunderStrike(row, clock, stage, reserve) {
-    const result = resolveGuActivation({stages: [{operator: 'player', ability: thunderclap, supply: {...stored, ...(stage && {stage})},
+    const result = runGuActivations({stages: [{operator: 'player', ability: thunderclap, supply: {...stored, ...(stage && {stage})},
         gu: {id: row.gu.id, kind: 'thunderclap', rank: 3, fedThrough: clock}}],
         reserves: {player: {[charge]: reserve}}, day: clock});
     const hit = result.effects.find(effect => effect.kind === 'lightning');

@@ -18,6 +18,10 @@ export const GU_CONTEST_DIALS = Object.freeze({
     bladeForce: {value: 14, why: 'Vitality one unit of Gu damage magnitude removes from an unarmoured body; a direct hit can drop a mortal hunter. Localized contact can route most of a hit into a limb.'},
 });
 const carried = actor => Object.fromEntries((actor.profile.gu ?? []).map(g => [g.id, g]));
+// The contest reads the sentence the law settled (PC8), not a kind label: a Gu effect that removes vitality
+// lands as that many units (`scale` is the world's vitality per unit of magnitude, a dial per world).
+export const guContestEffects = (rows, scale) => rows.filter(({sentence}) => sentence?.verb === 'remove' && sentence.object === 'vitality')
+    .map(({sentence, details}) => ({verb: sentence.verb, object: sentence.object, amount: Math.round(details.amount * scale)}));
 export function guBridge(method) {
     return {
         law: guWorkingLaw, method,
@@ -30,8 +34,7 @@ export function guBridge(method) {
         facts: actor => ({reserves: {[actor.id]: {primeval: actor.quantities.primeval_essence ?? 0}}}),
         ports: actor => ({read: ref => ref.kind === 'operator' ? ref
             : carried(actor)[ref.id] ? asBoundGu({fedThrough: 1e9, alive: true, holder: actor.id, ...carried(actor)[ref.id]}) : null}),
-        effects: rows => rows.filter(row => row.kind === 'damage')
-            .map(row => ({verb: 'remove', object: 'vitality', amount: Math.round(row.magnitude * GU_CONTEST_DIALS.bladeForce.value)})),
+        effects: rows => guContestEffects(rows, GU_CONTEST_DIALS.bladeForce.value),
         spent: (actor, facts) => ({primeval_essence: (actor.quantities.primeval_essence ?? 0) - (facts.reserves?.[actor.id]?.primeval ?? 0)}),
     };
 }

@@ -7,6 +7,7 @@
 import {defineWorkingLaw} from './kernel_working.js';
 import {guCatalogue} from './gu_catalogue.js';
 import {resolveGuActivation} from './gu_activation.js';
+import {guLanding} from './gu_effect_sentence.js';
 import {beginGuRefinement, stepGuRefinement} from './gu_refinement.js';
 
 // Dials (authored defaults, adjustable per world pack). The novel gives no stage duration or derived cost.
@@ -47,7 +48,7 @@ function activate({bound, facts, options, at}) {
         reserves, day: facts.day ?? at, modifiers: facts.modifiers ?? []});
     if (result.outcome !== 'complete') return {ok: false, reason: result.reason, observed: {stopped: gu.kind}};
     return {ok: true, facts: {reserves: result.remaining, modifiers: result.modifiers},
-        effects: result.effects.map(effect => ({...effect, source: gu.id})),
+        effects: result.effects.map(effect => ({...effect, ...guLanding(effect), source: gu.id})),
         observed: {activated: gu.kind, cost: result.activations[0].cost}};
 }
 
@@ -109,7 +110,8 @@ function treat({bound, facts, at}) {
     const last = facts.treatedAt?.[patient.id];
     if (last !== undefined && at - last < row.restMinutes) return fail('the last leaf is still working');
     return {ok: true, facts: {treatedAt: {...facts.treatedAt, [patient.id]: at}},
-        effects: [{kind: 'heal', target: patient.id, amount: row.health, consumed: consumable.id}], observed: {healed: row.health}};
+        effects: [{kind: 'heal', target: patient.id, amount: row.health, consumed: consumable.id,
+        ...guLanding({kind: 'heal', magnitude: row.health}), details: {amount: row.health, target: {shape: 'holder', id: patient.id}}}], observed: {healed: row.health}};
 }
 
 export const guWorkingLaw = defineWorkingLaw({id: 'gu.working', revision: 1, operations: {

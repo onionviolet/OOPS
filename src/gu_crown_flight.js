@@ -1,7 +1,7 @@
 import {transferCreature} from './creature_lifecycle.js';
 import {guCatalogue} from './gu_catalogue.js';
 import {captureFleeingGu, fleeingGu, guFlightStatus, startGuFlight} from './gu_flight.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 
 export const crownFlight = 'book.ri.keeper.crown_flight';
 export const sparkScrub = `${crownFlight}.scrub`;
@@ -63,7 +63,7 @@ export function validateCrownFlight(row, state, record) {
 }
 
 function use(gu, ability, clock, {rank, reserve, source = 'stored'}) {
-    const result = resolveGuActivation({stages: [{operator: 'player', ability,
+    const result = runGuActivations({stages: [{operator: 'player', ability,
         gu: {id: gu.id, kind: ability.effect.kind, rank, fedThrough: clock},
         supply: {pool: 'essence', family: 'primeval', rank, source}}],
     reserves: {player: {essence: reserve}}, day: clock});

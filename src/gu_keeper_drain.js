@@ -1,4 +1,4 @@
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 import {applyEnergyEffect} from './energy_resources.js';
 import {keeperMoonbladeStages} from './gu_keeper_move_trial.js';
 import {detonatePotatoBuyer, potatoBuyerPlot, potatoMarketStore} from './gu_keeper_potato_market.js';
@@ -64,7 +64,7 @@ export function applyDrainOperation(state, row, op, registry) {
             ...(delay !== null ? {failAt: state.clock + delay} : {})}};
     }
     const before = reserveFor(state);
-    const result = resolveGuActivation({stages: [bladeFor(state)], reserves: {player: {primeval: before}}, day: state.clock});
+    const result = runGuActivations({stages: [bladeFor(state)], reserves: {player: {primeval: before}}, day: state.clock});
     if (result.outcome !== 'complete') throw Error('The blade could not reach the cord.');
     const spent = before - result.remaining.player.primeval;
     for (let unit = 0; unit < spent; unit++) {

@@ -8,6 +8,8 @@
 import {existsSync, readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {guCatalogue} from '../src/gu_catalogue.js';
+import {guLanding} from '../src/gu_effect_sentence.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // --baseline <path> reads another baseline file, so a test never rewrites the tracked one.
@@ -88,8 +90,11 @@ export function measure() {
     const count = (file, re) => existsSync(join(ROOT, file)) ? (stripComments(read(join(ROOT, file))).match(re) ?? []).length : 0;
     const wOpFiles = [...text].filter(([, s]) => /\bop:\s*'(?:set|add|publish|state|move|property)'/.test(s)).length;
     const evidence = {
-        guFamilyEffects: count('src/gu_catalogue.js', /effect:\s*\{\s*kind:/g) + count('src/gu_working_law.js', /\bkind:\s*['`]/g),
-        spellLabels: count('src/spell_law.js', /['"`]spell\.[a-z$]/g),
+        // PSA27 measure fix (separate from the progress claim): a vocabulary is a label the law emits with no sentence
+        // reading. Gu: catalogue ability kinds the adapter cannot read. Spells: a kind label written in spell_law itself.
+        guFamilyEffects: new Set(Object.values(guCatalogue).map(row => row.ability?.value?.effect?.kind)
+            .filter(kind => kind && !guLanding({kind, magnitude: 1}).sentence)).size,
+        spellLabels: count('src/spell_law.js', /\bkind:\s*['"`]spell\./g),
         wOps: wOpFiles,
         pSentences: ['src/effect_grammar.js', 'src/spell_grammar.js', 'src/world_effects.js'].reduce((n, f) => n + count(f, /\bsentence/gi), 0),
     };

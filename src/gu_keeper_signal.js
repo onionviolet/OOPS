@@ -1,4 +1,4 @@
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 import {moonlightBlade} from './gu_ability_profiles.js';
 import {heldMoonlightStockStage, moonlightStockMoveIds} from './gu_moonlight_stock.js';
 import {borrowGuMilestone, invokeProjectedGu, recordGuMilestone} from './gu_projection.js';
@@ -83,7 +83,7 @@ export function keeperSignalView(state, record) {
 
 function castLive(state, held, registry) {
     const before = reserve(state);
-    const result = resolveGuActivation({stages: [held], reserves: {player: {primeval: before}}, day: state.clock});
+    const result = runGuActivations({stages: [held], reserves: {player: {primeval: before}}, day: state.clock});
     if (result.outcome !== 'complete') throw Error('The tray Gu could not cast the light.');
     const spent = before - result.remaining.player.primeval;
     for (let unit = 0; unit < spent; unit++) {

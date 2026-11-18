@@ -1,5 +1,5 @@
 // PC95. The directed cocoon uses the ordinary precursor refinement rule.
-import {resolveGuActivation} from '../gu_activation.js';
+import {runGuActivations} from '../gu_working_host.js';
 import {beginGuRefinement, stepGuRefinement} from '../gu_refinement.js';
 import {defineWorkingLaw} from '../kernel_working.js';
 import {EARTH_QI, GREEN_GRAPE, HEAVEN_QI} from './gu_ascension_working.js';
@@ -61,7 +61,7 @@ export const GU_VITAL_ADVANCEMENT_LAW = defineWorkingLaw({id: pack, revision: 1,
             return refuse('Restoration needs the advanced vital Gu and a living patient with vitality to restore.');
         }
         const ability = {fuel: 'immortal', cost: 1, effect: {kind: 'restore-vitality', magnitude: 4}};
-        const cast = resolveGuActivation({stages: [{gu: {...gu, fedThrough: specimen.quantities.satiety > 0 ? at : at - 1},
+        const cast = runGuActivations({stages: [{gu: {...gu, fedThrough: specimen.quantities.satiety > 0 ? at : at - 1},
             operator: operator.id, ability}], reserves: {[operator.id]: {immortal: operator.quantities[GREEN_GRAPE] ?? 0}}, day: at});
         if (cast.outcome !== 'complete') return refuse(cast.reason);
         return {ok: true, costs: [price(GREEN_GRAPE, operator.holder)], effects: [{
