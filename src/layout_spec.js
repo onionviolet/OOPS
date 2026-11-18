@@ -249,6 +249,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'carcass-processing': surface('ST4', {home:'Place services; native processing owner',frequency:'frequent',status:'proposal',reads:['inventory','work','place'],contexts:['idle','service']}),
         'region-view': surface('ST2', {home: 'Beside the actions; tabs for today, the roads and session notes', frequency: 'frequent', status: 'proposal', reads: ['place', 'time', 'work', 'inventory', 'knowledge'], contexts: ['idle', 'travel', 'service']}),
         'companions': surface('ST6', {home: 'Side column beside You', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
+        'dev-pins': surface('ST6', {home: 'Centre view in dev mode only; sets cheat pins apart from canon pins', frequency: 'rare', status: 'proposal', reads: ['knowledge'], contexts: ['idle']}),
         'canon-pull': surface('ST6', {home: 'Side column beside You; how the story leans and where it bent', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'family': surface('ST6', {home: 'Side column beside You', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'stock_view': surface('ST6', {home: 'Main column with the records', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
