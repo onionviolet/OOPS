@@ -31,7 +31,7 @@ test('the ledger has the stated rows blocked, the derived rows expressed with a 
     const derived = ledger.filter(r => r.derived);
     assert.equal(derived.length, DERIVED_ONLY.length);
     for (const r of derived) {
-        assert.equal(r.state, 'expressed-derived');
+        assert.match(r.state, /^(expressed|runs)-derived$/); // runs once PSA24 wires the case module into play
         assert.equal(r.derived.rule, RULE_A);
         assert.ok(r.case.module && r.case.id.startsWith('lotm.derived.'));
     }
