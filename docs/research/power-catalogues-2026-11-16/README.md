@@ -842,3 +842,78 @@ Blocked rows use 182 slugs. The top 6 hold 50% of them and the top 15 hold 74%, 
 | ACCOUNT FOR NOW | PWC64 | **Per-world dials come from where rule rows disagree.** For each slug, the rule rows from different systems state different stack, range and duration rules. The law takes those as per-world dials (AD5) and the field fill records which system each value came from, so a world's choice is visible and changeable. |
 | LATER / DELEGATE | PWC65 | **A trend line, not a snapshot.** The coverage README holds the current count and no history. Default: each merge appends one dated line (rows, states, top slugs, spend) to a history file the reporter writes, so trends over waves can be read. Level: Haiku-sized script change. Done when two merges show two lines. |
 | LATER / DELEGATE | PWC66 | **Single-ledger blocks are lookups.** roles-unknown (651 rows) sits in one ledger; a block confined to one ledger is that ledger's missing table, fixed by a lookup pass, not a law. Level: Haiku. Done when the slug is gone or explained. |
+
+## Round 10 lane: one canonical slug list and the field fill (2026-11-17, PWC67-PWC79)
+
+Weibao approved the lane ("Yes, start it", 2026-11-17). Part 1 acts on PWC59 and is committed (`8e52c0e4c`); Part 2 acts on PWC60 and PWC64. Agent-verified, not human-reviewed.
+
+### Part 1: blocked slugs fold to one list (PWC67-PWC70)
+
+| Code | Kind | Line |
+| --- | --- | --- |
+| PWC67 | ACT NOW (done) | `scripts/slug_normalize.mjs` with `--check` and `--apply` reads `docs/coverage/blocked_slugs.json`: `fold` for three near twins, `foldPrefix` that turns `needs-<input>` into `blocked:needs-material` with the input in a `needs` row field and the old slug in `was`, 75 `canonical` slugs and 20 `distinct` ones. Default: ledger builders pass rows through `canonicalRow`, so a rebuild matches the committed rows. |
+| PWC68 | ACT NOW (done) | The reporter warns on a blocked slug outside the map unless the row gives a `reason` (tests in `tests/coverage_report.test.js`, 17 pass). |
+| PWC69 | ACCOUNT FOR NOW | Kept apart, with the reason in the map: divination (read hidden facts) vs divination-fate (foretell or bend a fated outcome); roles-unchecked (named by a wiki label, confirmed by a second reader) vs roles-unknown (none; a single-ledger lookup, PWC66); soul-state vs soul-binding; memory-transfer vs memory-erasure; effect-sentence vs effect-unknown (a lookup vs a source that is silent); time-loop, death-checkpoint-rewind and timeline-split (reset vs branch laws); portal-space, dimension-travel and world-travel; mind-state, mind-binding and mind-ennoblement. A dial can merge any of these later. |
+| PWC70 | Result | Before and after below. |
+
+| | Before | After |
+| --- | ---: | ---: |
+| Blocked slugs | 182 | 75 |
+| Blocked rows | 28,772 | 28,772 |
+| Slugs with under 10 rows | 113 | 7 |
+| `needs-*` slugs | 105 | 1 (`needs-material`, 110 rows) |
+| time-manipulation | 92 (+100 time-stop) | 192 |
+| precognition | 67 (+16 future-vision) | 83 |
+| luck-mechanism | 149 (+2 luck-field) | 151 |
+
+The top six slugs do not change (effect-unknown 3,949; item-bound-power 2,897; area-field 2,665; form-transformation 1,827; mind-binding 1,619; power-interaction 1,340). 228 rows were rewritten.
+
+### Part 2: field fill for area-field and form-transformation (PWC71-PWC79)
+
+Method: `scripts/field_fill.mjs`. Each row (and each TTRPG rule row that derives the slug) gets fixed fields from Luna and Haiku, each the other's second reader (AU17). A field both readers state the same is confirmed; one reader's value is review-only; a disagreement counts as unknown. A hash split (sha1 of slug:id, 60 rows and 30 rule rows, GKM429) was frozen before the pilot. Fields live in the sidecar `docs/coverage/fields/<slug>.jsonl` (`f` confirmed, `r` review, `one` for a single reader); the pilot id sets sit beside them. The dry run is `report`, a counting script, not a case runner.
+
+Spend, from the reply files: pilots about $0.06; full runs Luna $0.62 and Haiku $0.30, **$0.92 total** against the $6 cap. Luna's two batches stalled at 98% for about eight hours, so I cancelled them, collected the finished items and ran the leftovers sync.
+
+**area-field** (2,665 ledger rows; 876 rule rows). Required: shape, size, duration, affects, inside, ends.
+
+| Field | Confirmed | One reader | Agreement | Disputed |
+| --- | ---: | ---: | ---: | ---: |
+| fits | 74% | 22% | 77% | 227 |
+| shape (required) | 27% | 25% | 52% | 61 |
+| size (required) | 18% | 18% | 49% | 152 |
+| duration (required) | 23% | 22% | 51% | 39 |
+| affects (required) | 20% | 33% | 38% | 197 |
+| inside (required) | 51% | 33% | 61% | 327 |
+| stacking | 0% | 0% | 10% | 1 |
+| cost | 6% | 12% | 34% | 14 |
+| ends (required) | 7% | 20% | 25% | 18 |
+
+Rule rows confirm more (shape 44%, size 31%, duration 30%, inside 44%, ends 23%); stacking is 2%.
+
+**form-transformation** (1,827 ledger rows; 343 rule rows). Required: change, abilities, duration, reversal.
+
+| Field | Confirmed | One reader | Agreement | Disputed |
+| --- | ---: | ---: | ---: | ---: |
+| fits | 69% | 28% | 71% | 124 |
+| change (required) | 55% | 30% | 64% | 109 |
+| target | 48% | 27% | 64% | 28 |
+| abilities (required) | 11% | 17% | 39% | 14 |
+| duration (required) | 16% | 22% | 42% | 17 |
+| trigger | 15% | 29% | 35% | 41 |
+| reversal (required) | 4% | 10% | 28% | 1 |
+| cost | 4% | 11% | 25% | 9 |
+| limits | 12% | 19% | 38% | 22 |
+
+Rule rows: change 59%, abilities 19%, duration 29%, reversal 29%.
+
+| Code | Kind | Line |
+| --- | --- | --- |
+| PWC71 | Result | **Dry-run take, strict** (every required field confirmed): area-field 8 of 2,665 ledger rows (0%) and 13 of 876 rule rows (1%); form-transformation 9 of 1,827 (0%) and 16 of 343 (5%). Counting a lone reader: 4% and 7%; 4% and 17%. Both slugs are under a quarter, so both go back to field design. |
+| PWC72 | Result | **Missing fields.** area-field: ends (7% confirmed), size (18%), affects (20%), duration (23%). form-transformation: reversal (4%), abilities (11%), duration (16%). Ledger blurbs name what a power does, not how long, how far or how it ends. 278 area-field and 136 form-transformation ledger rows read as not that effect; those are mis-slugged and go back to the verdict pass. |
+| PWC73 | Result | **Agreement is low where the blurb is silent** (25-52% on the rare fields): the two readers mostly fill different values from thin text, so a one-reader value is not a fact. Default: only confirmed fields count; review-only ones guide a source pass. |
+| PWC74 | ACT NOW (done) | **Dry run with law defaults** (no new spend). For each unstated required field the law supplies a default: the commonest confirmed value in the row's own ledger when it has 5 or more confirmed rows and that value holds half of them, else the commonest across the slug. Rows override only what they state. Complete under that rule: area-field 90% of ledger rows and 84% of rule rows; form-transformation 93% and 87%. The weakness: most complete rows lean on 3 or more defaults (area-field 2,167 of 2,387; form-transformation 1,333 of 1,691), so the take is high by construction, and the defaults rest on a small confirmed base (for example ends: 170 rows). Read it as "the law can run on defaults with per-world dials", not as filled data. |
+| PWC75 | ACCOUNT FOR NOW | **Law defaults as dials (PWC64).** Slug-wide modes, each a per-world dial rather than a rule: area-field shape site-or-region (37%), size short (54%), duration instant (48%), affects everyone (41%), inside damage (39%), ends timeout (57%); form-transformation change body-or-species (71%), abilities gains (55%), duration hours-days (23%), reversal at-will (41%). Across the tabletop systems the rule rows already differ: area-field duration is minutes in 4 systems and until-ended in 3, and ends is timeout in 5; form-transformation duration is until-ended in 3 and hours-days in 2, and reversal at-will in 4. Reason: those splits are real per-system dials. |
+| PWC76 | LATER / DELEGATE | **Field redesign for the two slugs.** Make shape, inside and change the required fields (confirmed at 27-59%); move duration, ends, reversal, abilities and affects to world-dial fields with a default and a source pass over the book or rules text where a world wants the real value. Level: Sonnet for the schema, Haiku and Luna for a second pass over source passages. Done when the strict take on the redesigned required set passes a quarter. |
+| PWC77 | ACCOUNT FOR NOW | **Disagreement is a signal.** 227 area-field rows and 124 form-transformation rows dispute `fits`; those are the ambiguous-law rows to review first. |
+| PWC78 | LATER / DELEGATE | **Batch tails stall.** An OpenAI batch can sit at 98% for hours; cancel after about two hours, collect the finished items and run the tail sync. Default for AU16 passes. Level: Haiku-sized runner change (a `--cancel-after` flag). |
+| PWC79 | ACCOUNT FOR NOW | **Eight Haiku errors remain** on area-field rows (a parse or token cap on long notes); they count as one reader and cost under a cent to re-run once the cap is raised. |
