@@ -1,4 +1,5 @@
 import {actionModifiers} from './harm_state.js';
+import {takenUseReason,settleTakenPowers} from './power_taking.js';
 import {hashStreamSeed as hash, xorshift32} from './hash_rng.js';
 import {createWakeQueue} from './wake_queue.js';
 import {scheduleFacts} from './npc_schedule.js';
@@ -180,6 +181,7 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
         const power = registry.simulation.powers.get(d.powerId), owned = s.powers[context.actorId]?.[d.powerId];
         if(!owned?.owned) reasons.push("Learn this power first.");
         reasons.push(...ruleReason(power.execution, facts));
+        if(owned?.owned){const lapse=takenUseReason(owned,state.clock);if(lapse)reasons.push(lapse);}
         if(owned?.readyAt > state.clock) reasons.push(`Power recovers in ${owned.readyAt - state.clock} game minutes.`);
         if(owned) {model = previewPowerModel(power, owned, d, {state, context, facts}); reasons.push(...model.reasons);}
         if(power.worlds && !power.worlds.includes(state.actors[context.actorId].worldId)) reasons.push("This world does not support the power's local rule or fuel.");
@@ -664,6 +666,7 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         const beforeJob=j.commandId.startsWith("world.completion.")?cloneData(state):null;
         s.jobs = s.jobs.filter(job => job.id !== j.id); completeJob(out, j, registry, contexts,beforeJob); work++;
     }
+    work += settleTakenPowers(state);
     work += advanceKeeperRainbow(state);
     work += advanceKeeperDrain(state);
     work += advanceRoamingWorm(state);

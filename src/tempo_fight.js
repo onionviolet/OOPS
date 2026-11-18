@@ -8,6 +8,7 @@ import {runConflictFrame} from './conflict_frame.js';
 import {validateExpansionState} from './expansion_engine.js';
 import {savedBattleLoss} from './defeat_domain.js';
 import {finishRoadContest} from './native_battle.js';
+import {takeOnHit, negateAfterWin, PT_KNOWLEDGE} from './power_taking.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {allyMove, hearOrder, coverChance, activeOrder, orderChance, oddsWord, ALLY_ORDERS, ALLY_ORDER_IDS, ALLY_DIALS} from './tempo_allies.js';
 import {SLOTS, SLOT_IDS, LOCATION_DIALS, weights as slotWeights, pickSlot, defenceAt, oddsOf, injuryFor, partLabel} from './tempo_location.js';
@@ -280,6 +281,10 @@ function finishFight(plan, registry, result) {
         const facts = b.exit.followedBy.length ? [{type: 'fact', scope: 'actor', key: 'tempo.followed_by', value: b.exit.followedBy.join(',')}] : [];
         if(left.length || facts.length) applySimulationEffects(plan, [...left, ...facts], {actorId: 'player'}, registry, `tempo-exit:${state.sequence}`);
     }
+    if(result === 'lost' && session.definitionId === 'rival.native_duel') {
+        const held = negateAfterWin(state, registry, {takerId: 'roadRival', targetId: 'player'});
+        if(held?.observed) applySimulationEffects(plan, [{type: 'knowledge', key: PT_KNOWLEDGE, stage: 'seen', value: held.observed}], {actorId: 'player'}, registry, `power-taking:${state.sequence}`);
+    }
     // A tempo contest standing in for the road duel closes that pursuit exactly as the native duel does.
     if(session.definitionId === 'rival.native_duel') return finishRoadContest(plan, registry, result === 'yielded' ? 'withdrawn' : result);
     state.simulation.log.push({at: state.clock, text: `${b.title}: ${result}.`, cause: session.id});
@@ -415,6 +420,11 @@ function runMove(plan, registry, command, publish) {
                 const w = (b.worst ||= {})[`${foeId}>${id}`] ||= {holder: foeId, subject: id, severity: 0, amount: 0, place};
                 w.amount = round1(w.amount + dmg); w.severity = Math.max(w.severity, severity);
             }
+        }
+        // PT1: Mara's intake needs a landed hit (delivery, then payload); the log and a knowledge row carry only what you saw.
+        if(dmg && id === 'roadRival' && foeId === 'player') {
+            const took = takeOnHit(plan.state, registry, {takerId: id, targetId: foeId, sessionId: plan.state.simulation.sessions.player.id});
+            if(took?.observed) {say(b, took.observed); applySimulationEffects(plan, [{type: 'knowledge', key: PT_KNOWLEDGE, stage: 'seen', value: took.observed}], {actorId: 'player'}, registry, `power-taking:${plan.state.sequence}`);}
         }
         const foeName = foeId === 'player' ? 'you' : foe.name;
         say(b, `${name} ${strike.kind === 'hit' ? `hit${id === 'player' ? '' : 's'} ${foeName} ${slot === 'head' ? 'in the head' : slot === 'torso' ? 'in the body' : `on the ${SLOTS[slot].label}`} for ${round1(dmg)}${typed ? ` ${typed.kind}` : ''}${strike.critted ? ' (critical)' : ''}${typed?.note ? `, ${typed.note}` : ''}${stopped ? `, armour stopped ${stopped}` : ''}` : strike.kind === 'blocked' ? `meet${id === 'player' ? '' : 's'} a full block` : `miss${id === 'player' ? '' : 'es'}`}.`);
