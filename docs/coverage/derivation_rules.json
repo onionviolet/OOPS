@@ -269,6 +269,80 @@
     "verdict": "fails-baseline"
    },
    "note": "Ahead of baseline on path (78.6% against 65.8%, n=117), behind on band and verb (49% against 54.8%, n=104). These rows already carry tier generated; no relabel needed, the palette says why."
+  },
+  {
+   "id": "ss.rank.creatures-story-time",
+   "mechanism": "Nightmare Creature tier = tier of the creatures first met at nearly the same chapter (story time, k=3; the Nightmare the story is in sets the tier it spawns); source and class rules abstain on the rows that matter (PWC93, PWC99)",
+   "fit": "k=3 neighbours chosen on dev folds 1-4; nothing else fitted",
+   "inputs": [
+    "first chapter in the evidence",
+    "tiers stated by other records (visible folds only)"
+   ],
+   "version": "dc49da54e4",
+   "split": "five frozen folds (ss_rank_folds.json); fold 5 scored once",
+   "baselineRule": "most common visible tier in the pool",
+   "set": "frozen fold 5, every stated creatures row (abstain falls back to the baseline)",
+   "heldOutN": 12,
+   "exact": 5,
+   "withinBand": 11,
+   "baseline": {
+    "name": "most common visible tier",
+    "exact": 6,
+    "withinBand": 9
+   },
+   "allHeldOut": {
+    "n": 12,
+    "exact": 5,
+    "baselineExact": 6,
+    "resemblanceExact": 6,
+    "resemblanceWithin1": 9,
+    "note": "resemblance = shared name stem; tier order is the ledger class_map order (a default)"
+   },
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.417,
+    "withinBand": 0.917,
+    "n": 12,
+    "verdict": "fails-baseline"
+   },
+   "note": "Stated rows are mostly kind names that carry the tier in the name, so this scores story time against name-stated tiers. Within-one depends on the ladder order. Exact is below baseline; within-one is above it."
+  },
+  {
+   "id": "ss.rank.artifacts-story-time",
+   "mechanism": "Memory and item tier = tier of the Memories first met at nearly the same chapter (story time, k=3: a Memory is the tier of the creature or Nightmare of its day); the source-creature link fires on one row (PWC93, PWC99)",
+   "fit": "k=3 neighbours chosen on dev folds 1-4; nothing else fitted",
+   "inputs": [
+    "first chapter in the evidence",
+    "tiers stated by other records (visible folds only)"
+   ],
+   "version": "dc49da54e4",
+   "split": "five frozen folds (ss_rank_folds.json); fold 5 scored once",
+   "baselineRule": "most common visible tier in the pool",
+   "set": "frozen fold 5, every stated artifacts row (abstain falls back to the baseline)",
+   "heldOutN": 9,
+   "exact": 6,
+   "withinBand": 7,
+   "baseline": {
+    "name": "most common visible tier",
+    "exact": 0,
+    "withinBand": 4
+   },
+   "allHeldOut": {
+    "n": 9,
+    "exact": 6,
+    "baselineExact": 0,
+    "resemblanceExact": 0,
+    "resemblanceWithin1": 3,
+    "note": "resemblance = shared name stem; tier order is the ledger class_map order (a default)"
+   },
+   "verdict": "insufficient-held-out",
+   "confidence": {
+    "exact": 0.667,
+    "withinBand": 0.778,
+    "n": 9,
+    "verdict": "insufficient-held-out"
+   },
+   "note": "Stated rows are mostly kind names that carry the tier in the name, so this scores story time against name-stated tiers. Within-one depends on the ladder order. Fold 5 has fewer than ten stated rows, so it is scored, not judged."
   }
  ]
 }

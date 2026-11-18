@@ -1,0 +1,5316 @@
+{
+ "meta": {
+  "pass": "PWC92, PWC99, PWC100",
+  "date": "2026-11-17",
+  "note": "Derived tiers for rows that state none. Visible = every stated row (all folds). A rule fires only when its inputs exist; rows no rule reaches stay unranked, never baseline."
+ },
+ "pools": {
+  "creatures": {
+   "rows": 304,
+   "derived": 304,
+   "byRule": {
+    "story3": {
+     "n": 304,
+     "tiers": {
+      "fallen": 121,
+      "corrupted": 115,
+      "transcendent": 33,
+      "awakened": 35
+     }
+    }
+   },
+   "ladder": [
+    "dormant",
+    "awakened",
+    "fallen",
+    "corrupted",
+    "transcendent",
+    "supreme",
+    "divine"
+   ],
+   "items": {
+    "ss.creature.abjuration": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2364"
+     ]
+    },
+    "ss.creature.abominable-immortals": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2673"
+     ]
+    },
+    "ss.creature.abomination": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 921"
+     ]
+    },
+    "ss.creature.abundance": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2340"
+     ]
+    },
+    "ss.creature.ariel": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 995"
+     ]
+    },
+    "ss.creature.ash-beasts": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2352"
+     ]
+    },
+    "ss.creature.ash-tyrant": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2400"
+     ]
+    },
+    "ss.creature.asura-of-condemnation": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1674"
+     ]
+    },
+    "ss.creature.asuras-of-condemnation": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2286"
+     ]
+    },
+    "ss.creature.azure-serpent": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1239"
+     ]
+    },
+    "ss.creature.barrow-wraiths": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 495"
+     ]
+    },
+    "ss.creature.beast-of-twilight": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 731"
+     ]
+    },
+    "ss.creature.black-crow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1050"
+     ]
+    },
+    "ss.creature.black-millipede": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2285"
+     ]
+    },
+    "ss.creature.black-millipede-swarm": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1435"
+     ]
+    },
+    "ss.creature.black-millipedes": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1418"
+     ]
+    },
+    "ss.creature.black-rot": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 444"
+     ]
+    },
+    "ss.creature.black-tar-monster": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 632"
+     ]
+    },
+    "ss.creature.black-tongues": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 917"
+     ]
+    },
+    "ss.creature.black-turtle": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1241"
+     ]
+    },
+    "ss.creature.blackie": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 921"
+     ]
+    },
+    "ss.creature.blade-mannequin": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1382"
+     ]
+    },
+    "ss.creature.blood-fiend": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 96"
+     ]
+    },
+    "ss.creature.blood-flower": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 229"
+     ]
+    },
+    "ss.creature.blood-lord": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 302"
+     ]
+    },
+    "ss.creature.blood-weave": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 832"
+     ]
+    },
+    "ss.creature.bloodwave": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1014"
+     ]
+    },
+    "ss.creature.bone-soldier": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1084"
+     ]
+    },
+    "ss.creature.brass-giant": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2441"
+     ]
+    },
+    "ss.creature.brood-beast": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 927"
+     ]
+    },
+    "ss.creature.brood-beasts": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 927"
+     ]
+    },
+    "ss.creature.builder": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 257"
+     ]
+    },
+    "ss.creature.carapace-centurion": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 52"
+     ]
+    },
+    "ss.creature.carapace-centurions": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1242"
+     ]
+    },
+    "ss.creature.carapace-demon": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 62"
+     ]
+    },
+    "ss.creature.carapace-legion": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 205"
+     ]
+    },
+    "ss.creature.carapace-scavenger": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 35"
+     ]
+    },
+    "ss.creature.carapace-scavengers": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1242"
+     ]
+    },
+    "ss.creature.carnivorous-worm": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 59"
+     ]
+    },
+    "ss.creature.castellan": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2488"
+     ]
+    },
+    "ss.creature.catacomb-skeleton": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 193"
+     ]
+    },
+    "ss.creature.centipede-monster": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 59"
+     ]
+    },
+    "ss.creature.centurion": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 62"
+     ]
+    },
+    "ss.creature.chain-worms": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 402"
+     ]
+    },
+    "ss.creature.chalice-knight": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1708"
+     ]
+    },
+    "ss.creature.clockwork-giant": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2323"
+     ]
+    },
+    "ss.creature.clockwork-swordsman": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1373"
+     ]
+    },
+    "ss.creature.colossal-tentacle": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 36"
+     ]
+    },
+    "ss.creature.condemnation": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1681"
+     ]
+    },
+    "ss.creature.coral-golem": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 334"
+     ]
+    },
+    "ss.creature.corpse-eater": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 203"
+     ]
+    },
+    "ss.creature.crazy-shadow": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1471"
+     ]
+    },
+    "ss.creature.creature-of-the-lake": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 698"
+     ]
+    },
+    "ss.creature.creatures-of-the-void": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2565"
+     ]
+    },
+    "ss.creature.creepy": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 549"
+     ]
+    },
+    "ss.creature.creepy-shadow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 549"
+     ]
+    },
+    "ss.creature.crow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 961"
+     ]
+    },
+    "ss.creature.crow-crow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1062"
+     ]
+    },
+    "ss.creature.crow-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1097"
+     ]
+    },
+    "ss.creature.crystal-wasp": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2330"
+     ]
+    },
+    "ss.creature.crystal-wasps": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2328"
+     ]
+    },
+    "ss.creature.cursed-demon": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2297"
+     ]
+    },
+    "ss.creature.cursed-devil": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2369"
+     ]
+    },
+    "ss.creature.cursed-monster": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2375"
+     ]
+    },
+    "ss.creature.cursed-nightmare-creatures": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2375"
+     ]
+    },
+    "ss.creature.cursed-one": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1793"
+     ]
+    },
+    "ss.creature.cursed-ones": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2337"
+     ]
+    },
+    "ss.creature.cursed-terror": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1580"
+     ]
+    },
+    "ss.creature.cursed-tyrant": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1680"
+     ]
+    },
+    "ss.creature.daemon": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 790"
+     ]
+    },
+    "ss.creature.daemons": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1074"
+     ]
+    },
+    "ss.creature.dancer": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 218"
+     ]
+    },
+    "ss.creature.dark-beetles": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 941"
+     ]
+    },
+    "ss.creature.dark-butterflies": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1542"
+     ]
+    },
+    "ss.creature.dark-butterfly": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1269"
+     ]
+    },
+    "ss.creature.dark-sea": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 31"
+     ]
+    },
+    "ss.creature.dead-dragon": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 457"
+     ]
+    },
+    "ss.creature.dead-leviathan": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 72"
+     ]
+    },
+    "ss.creature.defiled": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1320"
+     ]
+    },
+    "ss.creature.defiled-abominations": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1517"
+     ]
+    },
+    "ss.creature.defiled-herald": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 920"
+     ]
+    },
+    "ss.creature.defiled-saint": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1418"
+     ]
+    },
+    "ss.creature.defiled-seeker": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2635"
+     ]
+    },
+    "ss.creature.defiled-sybil": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1369"
+     ]
+    },
+    "ss.creature.defiled-witness": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 848"
+     ]
+    },
+    "ss.creature.demon": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 4"
+     ]
+    },
+    "ss.creature.demon-of-choice": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1765"
+     ]
+    },
+    "ss.creature.demon-of-desire": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 622"
+     ]
+    },
+    "ss.creature.demon-of-dread": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1113"
+     ]
+    },
+    "ss.creature.demon-of-imagination": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1748"
+     ]
+    },
+    "ss.creature.demon-of-repose": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2262"
+     ]
+    },
+    "ss.creature.depth-dweller": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 149"
+     ]
+    },
+    "ss.creature.devil": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 4"
+     ]
+    },
+    "ss.creature.devouring-beast": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1309"
+     ]
+    },
+    "ss.creature.devouring-cloud": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 946"
+     ]
+    },
+    "ss.creature.dire-fang": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1178"
+     ]
+    },
+    "ss.creature.dread-wolf": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 379"
+     ]
+    },
+    "ss.creature.dream-wraith": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1162"
+     ]
+    },
+    "ss.creature.dreamspawn": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 353"
+     ]
+    },
+    "ss.creature.drowned": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1011"
+     ]
+    },
+    "ss.creature.drowned-outcasts": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1345"
+     ]
+    },
+    "ss.creature.drowned-thralls": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1011"
+     ]
+    },
+    "ss.creature.dutchman": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2613"
+     ]
+    },
+    "ss.creature.echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 57"
+     ]
+    },
+    "ss.creature.echo-mounts": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1214"
+     ]
+    },
+    "ss.creature.echo-of-saint": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 613"
+     ]
+    },
+    "ss.creature.echo-of-torment": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1552"
+     ]
+    },
+    "ss.creature.echoes": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 291"
+     ]
+    },
+    "ss.creature.ember-queen": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1454"
+     ]
+    },
+    "ss.creature.fiend": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 96"
+     ]
+    },
+    "ss.creature.fiend-shadow": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 96"
+     ]
+    },
+    "ss.creature.first-nightmare": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 498"
+     ]
+    },
+    "ss.creature.flesh-of-kanakht": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2654"
+     ]
+    },
+    "ss.creature.forsaken-knight": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 931"
+     ]
+    },
+    "ss.creature.fourth-nightmare": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 244"
+     ]
+    },
+    "ss.creature.frankenstein": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 964"
+     ]
+    },
+    "ss.creature.gate-guardians": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1729"
+     ]
+    },
+    "ss.creature.giant-butterfly": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1261"
+     ]
+    },
+    "ss.creature.giant-spider": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 829"
+     ]
+    },
+    "ss.creature.gloomy": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 533"
+     ]
+    },
+    "ss.creature.gloomy-shadow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 533"
+     ]
+    },
+    "ss.creature.great-beast": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1249"
+     ]
+    },
+    "ss.creature.great-beasts": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1680"
+     ]
+    },
+    "ss.creature.great-demon": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1592"
+     ]
+    },
+    "ss.creature.great-devil": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 4"
+     ]
+    },
+    "ss.creature.great-monster": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1244"
+     ]
+    },
+    "ss.creature.great-monsters": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1416"
+     ]
+    },
+    "ss.creature.great-nightmare-creature": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1203"
+     ]
+    },
+    "ss.creature.great-nightmare-creatures": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1574"
+     ]
+    },
+    "ss.creature.great-terror": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1237"
+     ]
+    },
+    "ss.creature.great-titan": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 839"
+     ]
+    },
+    "ss.creature.great-tyrant": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1244"
+     ]
+    },
+    "ss.creature.gremlin": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1047"
+     ]
+    },
+    "ss.creature.happy": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 393"
+     ]
+    },
+    "ss.creature.happy-shadow": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 393"
+     ]
+    },
+    "ss.creature.harvester": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1442"
+     ]
+    },
+    "ss.creature.haughty": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 702"
+     ]
+    },
+    "ss.creature.haughty-shadow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 702"
+     ]
+    },
+    "ss.creature.headless-knight": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 221"
+     ]
+    },
+    "ss.creature.heart-of-darkness": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 940"
+     ]
+    },
+    "ss.creature.heart-of-kanakht": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1720"
+     ]
+    },
+    "ss.creature.hollow": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 29"
+     ]
+    },
+    "ss.creature.hollow-butterfly": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1244"
+     ]
+    },
+    "ss.creature.hope": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 515"
+     ]
+    },
+    "ss.creature.horror-of-the-depths": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 149"
+     ]
+    },
+    "ss.creature.human-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 510"
+     ]
+    },
+    "ss.creature.hunter": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 128"
+     ]
+    },
+    "ss.creature.huntsman": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 66"
+     ]
+    },
+    "ss.creature.imp": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 36"
+     ]
+    },
+    "ss.creature.invisible-guardian": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1574"
+     ]
+    },
+    "ss.creature.iron-spider": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 102"
+     ]
+    },
+    "ss.creature.iron-spiders": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 215"
+     ]
+    },
+    "ss.creature.jade-queen-remnant": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1043"
+     ]
+    },
+    "ss.creature.jets-crow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 995"
+     ]
+    },
+    "ss.creature.kanakht": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2654"
+     ]
+    },
+    "ss.creature.knight": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 329"
+     ]
+    },
+    "ss.creature.leviathan": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 62"
+     ]
+    },
+    "ss.creature.ling-ling": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1599"
+     ]
+    },
+    "ss.creature.living-statues": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 98"
+     ]
+    },
+    "ss.creature.lost": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 360"
+     ]
+    },
+    "ss.creature.mad-prince": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1309"
+     ]
+    },
+    "ss.creature.madness-of-kanakht": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2688"
+     ]
+    },
+    "ss.creature.malignant-grave-root": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1095"
+     ]
+    },
+    "ss.creature.marble-saint": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 310"
+     ]
+    },
+    "ss.creature.marvelous-mimic": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 23"
+     ]
+    },
+    "ss.creature.messengers": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 318"
+     ]
+    },
+    "ss.creature.millipedes": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1426"
+     ]
+    },
+    "ss.creature.mimic": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 23"
+     ]
+    },
+    "ss.creature.mirror-beast": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 189"
+     ]
+    },
+    "ss.creature.mongrel": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 475"
+     ]
+    },
+    "ss.creature.monster": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 4"
+     ]
+    },
+    "ss.creature.mordrets-reflection": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1174"
+     ]
+    },
+    "ss.creature.mordrets-reflections": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 736"
+     ]
+    },
+    "ss.creature.mountain-king": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 5"
+     ]
+    },
+    "ss.creature.mountain-king-larva": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 201"
+     ]
+    },
+    "ss.creature.mountain-kings-larva": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 4"
+     ]
+    },
+    "ss.creature.myriad-eater": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 844"
+     ]
+    },
+    "ss.creature.naughty-shadow": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1471"
+     ]
+    },
+    "ss.creature.nephilim": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 353"
+     ]
+    },
+    "ss.creature.nightmare-creatures": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1029"
+     ]
+    },
+    "ss.creature.nightmare-shadow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1007"
+     ]
+    },
+    "ss.creature.nightmare-steed": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 700"
+     ]
+    },
+    "ss.creature.nothing-creatures": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1752"
+     ]
+    },
+    "ss.creature.obsidian-wasp": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2330"
+     ]
+    },
+    "ss.creature.obsidian-wasps": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2330"
+     ]
+    },
+    "ss.creature.old-tom": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2407"
+     ]
+    },
+    "ss.creature.onyx-devil": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 98"
+     ]
+    },
+    "ss.creature.onyx-saint": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1080"
+     ]
+    },
+    "ss.creature.onyx-serpent": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1375"
+     ]
+    },
+    "ss.creature.others": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1643"
+     ]
+    },
+    "ss.creature.oxen": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 7"
+     ]
+    },
+    "ss.creature.plague-terror": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 829"
+     ]
+    },
+    "ss.creature.porcelain-dolls": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 446"
+     ]
+    },
+    "ss.creature.possessing-creature": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1208"
+     ]
+    },
+    "ss.creature.priestess": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 329"
+     ]
+    },
+    "ss.creature.puppeteer": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2343"
+     ]
+    },
+    "ss.creature.puppeteer-moth": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2324"
+     ]
+    },
+    "ss.creature.puppeteer-worm": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 24"
+     ]
+    },
+    "ss.creature.quiet-dancer": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 193"
+     ]
+    },
+    "ss.creature.rat-king": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2345"
+     ]
+    },
+    "ss.creature.ravenous-fiend": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1078"
+     ]
+    },
+    "ss.creature.reflection": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 576"
+     ]
+    },
+    "ss.creature.reflections": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 686"
+     ]
+    },
+    "ss.creature.rhino": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 817"
+     ]
+    },
+    "ss.creature.river-locust": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1270"
+     ]
+    },
+    "ss.creature.rolling-stone": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 123"
+     ]
+    },
+    "ss.creature.rotting-leopard": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1423"
+     ]
+    },
+    "ss.creature.sailor-doll": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 418"
+     ]
+    },
+    "ss.creature.sailor-dolls": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 513"
+     ]
+    },
+    "ss.creature.saint": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1026"
+     ]
+    },
+    "ss.creature.saint-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1137"
+     ]
+    },
+    "ss.creature.saint-shadow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1007"
+     ]
+    },
+    "ss.creature.scavenger": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 35"
+     ]
+    },
+    "ss.creature.sea-monster": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2599"
+     ]
+    },
+    "ss.creature.second-nightmare": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 17"
+     ]
+    },
+    "ss.creature.second-titan": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 968"
+     ]
+    },
+    "ss.creature.serpent": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2283"
+     ]
+    },
+    "ss.creature.serpent-king": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1309"
+     ]
+    },
+    "ss.creature.serpent-shadow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 574"
+     ]
+    },
+    "ss.creature.sevirax": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 676"
+     ]
+    },
+    "ss.creature.sevras": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 676"
+     ]
+    },
+    "ss.creature.shadow": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 57"
+     ]
+    },
+    "ss.creature.shadow-colossus": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1813"
+     ]
+    },
+    "ss.creature.shadow-saint": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 117"
+     ]
+    },
+    "ss.creature.shadow-wolves": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2368"
+     ]
+    },
+    "ss.creature.shadow-wraith": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1006"
+     ]
+    },
+    "ss.creature.shadows": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1485"
+     ]
+    },
+    "ss.creature.shadowspawn": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 710"
+     ]
+    },
+    "ss.creature.shell": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1240"
+     ]
+    },
+    "ss.creature.silent-shades": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2285"
+     ]
+    },
+    "ss.creature.silent-stalker": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1133"
+     ]
+    },
+    "ss.creature.silver-tiger": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2637"
+     ]
+    },
+    "ss.creature.sin-of-solace": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1001"
+     ]
+    },
+    "ss.creature.six-armed-demon": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1210"
+     ]
+    },
+    "ss.creature.six-plagues": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1453"
+     ]
+    },
+    "ss.creature.skinwalker": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2263"
+     ]
+    },
+    "ss.creature.slayer": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 329"
+     ]
+    },
+    "ss.creature.snow-abomination": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2314"
+     ]
+    },
+    "ss.creature.snow-abominations": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2322"
+     ]
+    },
+    "ss.creature.snow-beast": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2314"
+     ]
+    },
+    "ss.creature.snow-beasts": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2341"
+     ]
+    },
+    "ss.creature.snow-demon": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2316"
+     ]
+    },
+    "ss.creature.snow-devil": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2316"
+     ]
+    },
+    "ss.creature.snow-devils": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2379"
+     ]
+    },
+    "ss.creature.snow-tyrant": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2311"
+     ]
+    },
+    "ss.creature.snow-wolves": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2327"
+     ]
+    },
+    "ss.creature.snow-worm": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2320"
+     ]
+    },
+    "ss.creature.soul-devourer": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 77"
+     ]
+    },
+    "ss.creature.soul-devouring-tree": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 86"
+     ]
+    },
+    "ss.creature.soul-of-kanakht": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2287"
+     ]
+    },
+    "ss.creature.soul-reaper": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 860"
+     ]
+    },
+    "ss.creature.soul-serpent": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1035"
+     ]
+    },
+    "ss.creature.soul-tree": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 77"
+     ]
+    },
+    "ss.creature.spawn-of-vile-thieving-bird": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1020"
+     ]
+    },
+    "ss.creature.spider-matriarch": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 223"
+     ]
+    },
+    "ss.creature.spire-messengers": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 477"
+     ]
+    },
+    "ss.creature.stone-abomination": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 251"
+     ]
+    },
+    "ss.creature.stone-colossus": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 224"
+     ]
+    },
+    "ss.creature.stone-gargoyle": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 608"
+     ]
+    },
+    "ss.creature.stone-gargoyles": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 525"
+     ]
+    },
+    "ss.creature.stone-golem": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 317"
+     ]
+    },
+    "ss.creature.stone-saint": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 103"
+     ]
+    },
+    "ss.creature.stone-saints": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1257"
+     ]
+    },
+    "ss.creature.stone-worm": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 829"
+     ]
+    },
+    "ss.creature.stranger": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 305"
+     ]
+    },
+    "ss.creature.sun-prince": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1134"
+     ]
+    },
+    "ss.creature.sunnys-shadow": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 76"
+     ]
+    },
+    "ss.creature.sybil-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1362"
+     ]
+    },
+    "ss.creature.sybil-of-the-fallen-grace": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1020"
+     ]
+    },
+    "ss.creature.temple-guardian": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 14"
+     ]
+    },
+    "ss.creature.terror": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 4"
+     ]
+    },
+    "ss.creature.terror-of-crimson-spire": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1753"
+     ]
+    },
+    "ss.creature.terror-of-lo49": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 986"
+     ]
+    },
+    "ss.creature.thieving-bird": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 180"
+     ]
+    },
+    "ss.creature.thralls": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1011"
+     ]
+    },
+    "ss.creature.titan": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 4"
+     ]
+    },
+    "ss.creature.titan-forest": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1640"
+     ]
+    },
+    "ss.creature.titans": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 4"
+     ]
+    },
+    "ss.creature.torment": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1309"
+     ]
+    },
+    "ss.creature.tortoise-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1168"
+     ]
+    },
+    "ss.creature.undying-slaughter": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1309"
+     ]
+    },
+    "ss.creature.unholy-horror": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2525"
+     ]
+    },
+    "ss.creature.unholy-titan": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 23"
+     ]
+    },
+    "ss.creature.unknown": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 173"
+     ]
+    },
+    "ss.creature.vessel": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 353"
+     ]
+    },
+    "ss.creature.vile-thieving-bird": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 80"
+     ]
+    },
+    "ss.creature.vile-thieving-birds-spawn": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 80"
+     ]
+    },
+    "ss.creature.voiceless": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 918"
+     ]
+    },
+    "ss.creature.voiceless-prelate": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 919"
+     ]
+    },
+    "ss.creature.void-beings": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1386"
+     ]
+    },
+    "ss.creature.void-creature": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2593"
+     ]
+    },
+    "ss.creature.void-creatures": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1568"
+     ]
+    },
+    "ss.creature.walking-colossus": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 242"
+     ]
+    },
+    "ss.creature.weaver": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 361"
+     ]
+    },
+    "ss.creature.whispering-legion": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 945"
+     ]
+    },
+    "ss.creature.white-dragon": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2380"
+     ]
+    },
+    "ss.creature.winged-abomination": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 75"
+     ]
+    },
+    "ss.creature.wolf": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2362"
+     ]
+    },
+    "ss.creature.wolf-echo": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1826"
+     ]
+    },
+    "ss.creature.wraith": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 100"
+     ]
+    },
+    "ss.creature.wraith-armada": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2612"
+     ]
+    },
+    "ss.creature.wraith-army": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2632"
+     ]
+    },
+    "ss.creature.wraiths": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 525"
+     ]
+    },
+    "ss.creature.wyvern": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 598"
+     ]
+    }
+   }
+  },
+  "artifacts": {
+   "rows": 405,
+   "derived": 405,
+   "byRule": {
+    "story3": {
+     "n": 404,
+     "tiers": {
+      "supreme": 78,
+      "sacred": 51,
+      "divine": 96,
+      "ascended": 42,
+      "transcendent": 137
+     }
+    },
+    "crossSource": {
+     "n": 1,
+     "tiers": {
+      "divine": 1
+     }
+    }
+   },
+   "ladder": [
+    "dormant",
+    "awakened",
+    "ascended",
+    "transcendent",
+    "supreme",
+    "divine",
+    "sacred"
+   ],
+   "items": {
+    "ss.item.amphora": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1263"
+     ]
+    },
+    "ss.item.ananke-ketch": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1494"
+     ]
+    },
+    "ss.item.ananke-mantle": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1339"
+     ]
+    },
+    "ss.item.anankes-mantle": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1543"
+     ]
+    },
+    "ss.item.anvil-amulet": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 577"
+     ]
+    },
+    "ss.item.ariadne": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 881"
+     ]
+    },
+    "ss.item.armor-memories": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1533"
+     ]
+    },
+    "ss.item.armored-sleeping-pod": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 390"
+     ]
+    },
+    "ss.item.arrow": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1133"
+     ]
+    },
+    "ss.item.arrows": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 120"
+     ]
+    },
+    "ss.item.artificial-sun": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 250"
+     ]
+    },
+    "ss.item.aspect-legacy": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2683"
+     ]
+    },
+    "ss.item.austere-tachi": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 195"
+     ]
+    },
+    "ss.item.automatic-turret": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 491"
+     ]
+    },
+    "ss.item.autumn-leaf": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 392"
+     ]
+    },
+    "ss.item.azure-blade": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 30"
+     ]
+    },
+    "ss.item.azure-serpent-memory": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1279"
+     ]
+    },
+    "ss.item.bag-of-withholding": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2294"
+     ]
+    },
+    "ss.item.ballistae": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 316"
+     ]
+    },
+    "ss.item.battleaxe": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 764"
+     ]
+    },
+    "ss.item.beast-locket": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1546"
+     ]
+    },
+    "ss.item.belated-apology": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1606"
+     ]
+    },
+    "ss.item.bitter-cusp": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 922"
+     ]
+    },
+    "ss.item.black-altar": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 459"
+     ]
+    },
+    "ss.item.black-beast-locket": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1523"
+     ]
+    },
+    "ss.item.black-bodysuit": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 54"
+     ]
+    },
+    "ss.item.black-bow": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1065"
+     ]
+    },
+    "ss.item.black-chains": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1008"
+     ]
+    },
+    "ss.item.black-door": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 276"
+     ]
+    },
+    "ss.item.black-gem": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 274"
+     ]
+    },
+    "ss.item.black-khopesh": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1723"
+     ]
+    },
+    "ss.item.black-odachi": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1615"
+     ]
+    },
+    "ss.item.black-silk": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 286"
+     ]
+    },
+    "ss.item.black-silk-tunic": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1068"
+     ]
+    },
+    "ss.item.black-sphere": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 47"
+     ]
+    },
+    "ss.item.black-stone": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1000"
+     ]
+    },
+    "ss.item.black-stone-altar": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 557"
+     ]
+    },
+    "ss.item.black-stone-lantern": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1682"
+     ]
+    },
+    "ss.item.black-sword": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 154"
+     ]
+    },
+    "ss.item.black-thread": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 24"
+     ]
+    },
+    "ss.item.black-throne": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1506"
+     ]
+    },
+    "ss.item.black-venom": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 923"
+     ]
+    },
+    "ss.item.blackhorn-bow": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 550"
+     ]
+    },
+    "ss.item.blessing": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2263"
+     ]
+    },
+    "ss.item.blood-arrow": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 204"
+     ]
+    },
+    "ss.item.blood-blossom": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 241"
+     ]
+    },
+    "ss.item.blood-sample": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2465"
+     ]
+    },
+    "ss.item.blood-weave": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 368"
+     ]
+    },
+    "ss.item.bloodbane": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 3"
+     ]
+    },
+    "ss.item.bodysuit": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 54"
+     ]
+    },
+    "ss.item.bone-flute": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 176"
+     ]
+    },
+    "ss.item.bone-javelins": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1476"
+     ]
+    },
+    "ss.item.bone-singer": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 848"
+     ]
+    },
+    "ss.item.bone-torch": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 68"
+     ]
+    },
+    "ss.item.bone-weave": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 456"
+     ]
+    },
+    "ss.item.bouquet-of-flowers": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 387"
+     ]
+    },
+    "ss.item.bow": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1338"
+     ]
+    },
+    "ss.item.broken-oath": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 376"
+     ]
+    },
+    "ss.item.bronze-spear": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 193"
+     ]
+    },
+    "ss.item.bullet": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 987"
+     ]
+    },
+    "ss.item.candle-altar": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 388"
+     ]
+    },
+    "ss.item.carbine": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 844"
+     ]
+    },
+    "ss.item.cassia-armor": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 37"
+     ]
+    },
+    "ss.item.casters-jian": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 197"
+     ]
+    },
+    "ss.item.centipede-oil": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 59"
+     ]
+    },
+    "ss.item.chain-breaker": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1163"
+     ]
+    },
+    "ss.item.chains-of-longing": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 522"
+     ]
+    },
+    "ss.item.chair-memory": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1"
+     ]
+    },
+    "ss.item.champagne": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 791"
+     ]
+    },
+    "ss.item.changing-star": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 25"
+     ]
+    },
+    "ss.item.chocolate-milk": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2469"
+     ]
+    },
+    "ss.item.clan-coins": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1599"
+     ]
+    },
+    "ss.item.cloak": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 88"
+     ]
+    },
+    "ss.item.coin": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 68"
+     ]
+    },
+    "ss.item.communicator": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 363"
+     ]
+    },
+    "ss.item.contribution-points": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 371"
+     ]
+    },
+    "ss.item.corrupted-devil-carcass": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 988"
+     ]
+    },
+    "ss.item.covetous-coffer": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1026"
+     ]
+    },
+    "ss.item.credits": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 371"
+     ]
+    },
+    "ss.item.crown-of-dawn": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1345"
+     ]
+    },
+    "ss.item.crown-of-twilight": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1289"
+     ]
+    },
+    "ss.item.cruel-sight": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1001"
+     ]
+    },
+    "ss.item.daeron-stele": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2624"
+     ]
+    },
+    "ss.item.dagger": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 98"
+     ]
+    },
+    "ss.item.dark-shaper": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1246"
+     ]
+    },
+    "ss.item.dark-wing": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 241"
+     ]
+    },
+    "ss.item.dawn-shard": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 255"
+     ]
+    },
+    "ss.item.death-dealer": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 671"
+     ]
+    },
+    "ss.item.definitely-not-me": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1685"
+     ]
+    },
+    "ss.item.demon-bone-boat": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 88"
+     ]
+    },
+    "ss.item.demon-mask": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 276"
+     ]
+    },
+    "ss.item.devils-needle": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 988"
+     ]
+    },
+    "ss.item.diamond-sickle": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 630"
+     ]
+    },
+    "ss.item.diamond-string": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 105"
+     ]
+    },
+    "ss.item.diamond-thread": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1064"
+     ]
+    },
+    "ss.item.diamond-weapon": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1680"
+     ]
+    },
+    "ss.item.dollhouse": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2307"
+     ]
+    },
+    "ss.item.dream-blade": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 353"
+     ]
+    },
+    "ss.item.dream-gate": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1784"
+     ]
+    },
+    "ss.item.dreamscape": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 391"
+     ]
+    },
+    "ss.item.dreamscape-pod": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 390"
+     ]
+    },
+    "ss.item.drop-of-ichor": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 81"
+     ]
+    },
+    "ss.item.drop-of-shadow-gods-blood": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 81"
+     ]
+    },
+    "ss.item.drop-of-weavers-blood": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 450"
+     ]
+    },
+    "ss.item.dusk-shard": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 60"
+     ]
+    },
+    "ss.item.dying-wish": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 730"
+     ]
+    },
+    "ss.item.echo": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 87"
+     ]
+    },
+    "ss.item.echoes": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1"
+     ]
+    },
+    "ss.item.effie-armor": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1719"
+     ]
+    },
+    "ss.item.effies-bronze-spear": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 197"
+     ]
+    },
+    "ss.item.effies-locket": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1499"
+     ]
+    },
+    "ss.item.effies-round-shield": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 157"
+     ]
+    },
+    "ss.item.effies-spear": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 255"
+     ]
+    },
+    "ss.item.ember-knife": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 637"
+     ]
+    },
+    "ss.item.emerald-amulet": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 647"
+     ]
+    },
+    "ss.item.emerald-bone-flute": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 176"
+     ]
+    },
+    "ss.item.enchanted-bow": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1817"
+     ]
+    },
+    "ss.item.enchanted-cloak": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 347"
+     ]
+    },
+    "ss.item.enchanted-jian": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 224"
+     ]
+    },
+    "ss.item.enchanted-lanterns": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1605"
+     ]
+    },
+    "ss.item.enchantment-key": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1457"
+     ]
+    },
+    "ss.item.endless-spring": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 104"
+     ]
+    },
+    "ss.item.essence": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1715"
+     ]
+    },
+    "ss.item.essence-pearl": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1013"
+     ]
+    },
+    "ss.item.estuary-key": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1237"
+     ]
+    },
+    "ss.item.eternal-spring": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 360"
+     ]
+    },
+    "ss.item.evening-star": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2392"
+     ]
+    },
+    "ss.item.evertwine": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 36"
+     ]
+    },
+    "ss.item.evil-eye": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 848"
+     ]
+    },
+    "ss.item.exhibition-statues": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2538"
+     ]
+    },
+    "ss.item.extraordinary-rock": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 104"
+     ]
+    },
+    "ss.item.falcata": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 193"
+     ]
+    },
+    "ss.item.feather-of-truth": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 487"
+     ]
+    },
+    "ss.item.flagon": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 8"
+     ]
+    },
+    "ss.item.flesh-weave": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1752"
+     ]
+    },
+    "ss.item.flint-dagger": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 894"
+     ]
+    },
+    "ss.item.flying-rapier": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 196"
+     ]
+    },
+    "ss.item.flying-ship": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 598"
+     ]
+    },
+    "ss.item.food": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 18"
+     ]
+    },
+    "ss.item.fragment": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1459"
+     ]
+    },
+    "ss.item.fragment-of-shadow-realm": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1302"
+     ]
+    },
+    "ss.item.fragment-of-the-shadow-realm": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1302"
+     ]
+    },
+    "ss.item.full-quiver": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 550"
+     ]
+    },
+    "ss.item.gate-of-shadow": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2693"
+     ]
+    },
+    "ss.item.gateway": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 23"
+     ]
+    },
+    "ss.item.gauss-rifle": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 826"
+     ]
+    },
+    "ss.item.gem-crown": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 371"
+     ]
+    },
+    "ss.item.ghostly-torches": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 276"
+     ]
+    },
+    "ss.item.glaive": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 860"
+     ]
+    },
+    "ss.item.glass-knife": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 638"
+     ]
+    },
+    "ss.item.golden-armor": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 143"
+     ]
+    },
+    "ss.item.golden-chain": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1357"
+     ]
+    },
+    "ss.item.golden-coin": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 399"
+     ]
+    },
+    "ss.item.golden-coins": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 426"
+     ]
+    },
+    "ss.item.golden-fruit": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1468"
+     ]
+    },
+    "ss.item.golden-fruits": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1474"
+     ]
+    },
+    "ss.item.golden-needle": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 448"
+     ]
+    },
+    "ss.item.golden-rope": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 35"
+     ]
+    },
+    "ss.item.golden-shackles": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1357"
+     ]
+    },
+    "ss.item.graceless-dusk": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1022"
+     ]
+    },
+    "ss.item.great-chains": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 601"
+     ]
+    },
+    "ss.item.great-mirror": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2297"
+     ]
+    },
+    "ss.item.handy-bracelet": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1592"
+     ]
+    },
+    "ss.item.heart-of-kanakht": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1720"
+     ]
+    },
+    "ss.item.heavenly-burden": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 512"
+     ]
+    },
+    "ss.item.heavenly-chains": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 401"
+     ]
+    },
+    "ss.item.honey": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 793"
+     ]
+    },
+    "ss.item.hourglass-memory": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1730"
+     ]
+    },
+    "ss.item.hunting-knife": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1821"
+     ]
+    },
+    "ss.item.huntsmans-axe": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1781"
+     ]
+    },
+    "ss.item.ice-cream": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 465"
+     ]
+    },
+    "ss.item.in-case-of-emergency": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2287"
+     ]
+    },
+    "ss.item.incandescent-dagger": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1263"
+     ]
+    },
+    "ss.item.internal-combustion-engine": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2461"
+     ]
+    },
+    "ss.item.iron-chest": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 100"
+     ]
+    },
+    "ss.item.iron-key": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 202"
+     ]
+    },
+    "ss.item.iron-locket": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1483"
+     ]
+    },
+    "ss.item.ivory-armor": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1157"
+     ]
+    },
+    "ss.item.ivory-knife": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 459"
+     ]
+    },
+    "ss.item.jade-blade": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1060"
+     ]
+    },
+    "ss.item.jade-board": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2308"
+     ]
+    },
+    "ss.item.jade-figure": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2358"
+     ]
+    },
+    "ss.item.jade-figurine": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2358"
+     ]
+    },
+    "ss.item.jade-figurines": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2356"
+     ]
+    },
+    "ss.item.jade-jian": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 193"
+     ]
+    },
+    "ss.item.jade-mantle": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2286"
+     ]
+    },
+    "ss.item.jade-sword": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 951"
+     ]
+    },
+    "ss.item.javelin": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 764"
+     ]
+    },
+    "ss.item.ketch": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1286"
+     ]
+    },
+    "ss.item.key-of-the-estuary": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1237"
+     ]
+    },
+    "ss.item.kinslayer": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1667"
+     ]
+    },
+    "ss.item.kunai": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 96"
+     ]
+    },
+    "ss.item.lantern": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1276"
+     ]
+    },
+    "ss.item.legacy-relic": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 644"
+     ]
+    },
+    "ss.item.light-eater": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 415"
+     ]
+    },
+    "ss.item.lineage-memories": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 353"
+     ]
+    },
+    "ss.item.lineage-memory": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 250"
+     ]
+    },
+    "ss.item.liquor-bottle": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 35"
+     ]
+    },
+    "ss.item.living-stone": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 377"
+     ]
+    },
+    "ss.item.loader-robot": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 998"
+     ]
+    },
+    "ss.item.luck-charm": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 872"
+     ]
+    },
+    "ss.item.luminous-memory": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1170"
+     ]
+    },
+    "ss.item.mantle": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 512"
+     ]
+    },
+    "ss.item.mantle-of-lies": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 278"
+     ]
+    },
+    "ss.item.mantle-of-the-underworld": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 376"
+     ]
+    },
+    "ss.item.mantle-of-underworld": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 625"
+     ]
+    },
+    "ss.item.marble-saint": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 359"
+     ]
+    },
+    "ss.item.marble-shell": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 975"
+     ]
+    },
+    "ss.item.mark": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1573"
+     ]
+    },
+    "ss.item.marvelous-mimic": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1599"
+     ]
+    },
+    "ss.item.masons-hammer": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 230"
+     ]
+    },
+    "ss.item.masts": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1322"
+     ]
+    },
+    "ss.item.memories": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1"
+     ]
+    },
+    "ss.item.memories-for-rain": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1766"
+     ]
+    },
+    "ss.item.memory": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 56"
+     ]
+    },
+    "ss.item.memory-armor": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 764"
+     ]
+    },
+    "ss.item.memory-chair": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 825"
+     ]
+    },
+    "ss.item.memory-lantern": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1434"
+     ]
+    },
+    "ss.item.memory-of-fire": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 512"
+     ]
+    },
+    "ss.item.memory-of-ice": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 540"
+     ]
+    },
+    "ss.item.midnight-shard": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 74"
+     ]
+    },
+    "ss.item.military-bodysuit": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1823"
+     ]
+    },
+    "ss.item.mind-weave": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1752"
+     ]
+    },
+    "ss.item.mirage-dams": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2499"
+     ]
+    },
+    "ss.item.mirror-of-truth": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1122"
+     ]
+    },
+    "ss.item.mirror-shard": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 413"
+     ]
+    },
+    "ss.item.mirror-trap": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 288"
+     ]
+    },
+    "ss.item.mist-blade": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1486"
+     ]
+    },
+    "ss.item.mobile-war-platform": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 963"
+     ]
+    },
+    "ss.item.monster-core": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1512"
+     ]
+    },
+    "ss.item.moon-shard": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 261"
+     ]
+    },
+    "ss.item.moonlight-shard": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1001"
+     ]
+    },
+    "ss.item.mordrets-map": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 561"
+     ]
+    },
+    "ss.item.mordrets-reflection": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1227"
+     ]
+    },
+    "ss.item.morgans-warbow": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1026"
+     ]
+    },
+    "ss.item.mrw": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 968"
+     ]
+    },
+    "ss.item.mural-column": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1311"
+     ]
+    },
+    "ss.item.mwp": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 969"
+     ]
+    },
+    "ss.item.mwp-war-machines": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1724"
+     ]
+    },
+    "ss.item.nameless-sun": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 353"
+     ]
+    },
+    "ss.item.nebulous-mantle": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1591"
+     ]
+    },
+    "ss.item.nephis-radiant-longsword": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 197"
+     ]
+    },
+    "ss.item.nephis-sword": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 25"
+     ]
+    },
+    "ss.item.night-garden": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2262"
+     ]
+    },
+    "ss.item.night-silk": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 646"
+     ]
+    },
+    "ss.item.nightmare-gate": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1070"
+     ]
+    },
+    "ss.item.nightmare-seed": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 471"
+     ]
+    },
+    "ss.item.nightmare-seeds": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1207"
+     ]
+    },
+    "ss.item.nightmare-spell": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 15"
+     ]
+    },
+    "ss.item.nimble-catch": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 974"
+     ]
+    },
+    "ss.item.noctis-coins": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 433"
+     ]
+    },
+    "ss.item.northern-dam": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2489"
+     ]
+    },
+    "ss.item.oath-key": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 314"
+     ]
+    },
+    "ss.item.obel-scale": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 507"
+     ]
+    },
+    "ss.item.obsidian-arch": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 453"
+     ]
+    },
+    "ss.item.obsidian-knife": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 399"
+     ]
+    },
+    "ss.item.obsidian-spear": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 491"
+     ]
+    },
+    "ss.item.odachi": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1617"
+     ]
+    },
+    "ss.item.onyx-armor": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 173"
+     ]
+    },
+    "ss.item.onyx-mantle": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1112"
+     ]
+    },
+    "ss.item.onyx-serpent-shell": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2265"
+     ]
+    },
+    "ss.item.ordinary-rock": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 104"
+     ]
+    },
+    "ss.item.overpriced-saddle": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 950"
+     ]
+    },
+    "ss.item.paper-lantern": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 117"
+     ]
+    },
+    "ss.item.parrot-rock": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 96"
+     ]
+    },
+    "ss.item.patient-avenger": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 550"
+     ]
+    },
+    "ss.item.porcelain-dolls": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 451"
+     ]
+    },
+    "ss.item.powered-armor-suits": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1724"
+     ]
+    },
+    "ss.item.prince-of-the-underworld": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 377"
+     ]
+    },
+    "ss.item.projector": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1259"
+     ]
+    },
+    "ss.item.prowling-thorn": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 96"
+     ]
+    },
+    "ss.item.ptv": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 389"
+     ]
+    },
+    "ss.item.pupetters-shroud": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 56"
+     ]
+    },
+    "ss.item.puppeteer-limbs": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2409"
+     ]
+    },
+    "ss.item.puppeteer-wings": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2409"
+     ]
+    },
+    "ss.item.puppeteers-shroud": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 15"
+     ]
+    },
+    "ss.item.quiet-dance": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 46"
+     ]
+    },
+    "ss.item.quiet-dancer": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 218"
+     ]
+    },
+    "ss.item.quintessence-pearl": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1592"
+     ]
+    },
+    "ss.item.quiver": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1707"
+     ]
+    },
+    "ss.item.radiant-memory": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 192"
+     ]
+    },
+    "ss.item.rapier": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 222"
+     ]
+    },
+    "ss.item.ration-pack": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1256"
+     ]
+    },
+    "ss.item.razor-wire-traps": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2326"
+     ]
+    },
+    "ss.item.refrigerator": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 390"
+     ]
+    },
+    "ss.item.revolver": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2508"
+     ]
+    },
+    "ss.item.rhino": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 817"
+     ]
+    },
+    "ss.item.rifle": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 834"
+     ]
+    },
+    "ss.item.rope-bridge": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 197"
+     ]
+    },
+    "ss.item.round-shield": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 157"
+     ]
+    },
+    "ss.item.ruby-knife": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 459"
+     ]
+    },
+    "ss.item.runic-array": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2441"
+     ]
+    },
+    "ss.item.sailor-dolls": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 516"
+     ]
+    },
+    "ss.item.sails": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1152"
+     ]
+    },
+    "ss.item.saint": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 605"
+     ]
+    },
+    "ss.item.scarlet-moss": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2270"
+     ]
+    },
+    "ss.item.scarlet-odachi": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 675"
+     ]
+    },
+    "ss.item.seawave-cloak": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1223"
+     ]
+    },
+    "ss.item.seaweed-rucksack": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 67"
+     ]
+    },
+    "ss.item.second-nightmares": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1106"
+     ]
+    },
+    "ss.item.seed": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 566"
+     ]
+    },
+    "ss.item.seed-of-nightmare": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 458"
+     ]
+    },
+    "ss.item.seeds-of-nightmare": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1106"
+     ]
+    },
+    "ss.item.serpent-crown": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1354"
+     ]
+    },
+    "ss.item.serpent-king-s-crown": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1375"
+     ]
+    },
+    "ss.item.seven-chains": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 457"
+     ]
+    },
+    "ss.item.seven-knives": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 646"
+     ]
+    },
+    "ss.item.severing-blade": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2383"
+     ]
+    },
+    "ss.item.shadow-chair": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1026"
+     ]
+    },
+    "ss.item.shadow-core": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 16"
+     ]
+    },
+    "ss.item.shadow-cores": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 352"
+     ]
+    },
+    "ss.item.shadow-fragment": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 16"
+     ]
+    },
+    "ss.item.shadow-fragments": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 16"
+     ]
+    },
+    "ss.item.shadow-god-domain-fragment": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1427"
+     ]
+    },
+    "ss.item.shadow-odachi": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1620"
+     ]
+    },
+    "ss.item.shadow-serpent": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 489"
+     ]
+    },
+    "ss.item.shadow-shell": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1036"
+     ]
+    },
+    "ss.item.shadow-weave": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1752"
+     ]
+    },
+    "ss.item.shadowbound-charm": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2571"
+     ]
+    },
+    "ss.item.shadowbound-memory": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2284"
+     ]
+    },
+    "ss.item.sharp-needle": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 448"
+     ]
+    },
+    "ss.item.shield": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 947"
+     ]
+    },
+    "ss.item.ship": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 990"
+     ]
+    },
+    "ss.item.shroud-of-dusk": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1022"
+     ]
+    },
+    "ss.item.shroud-of-graceless-dusk": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1022"
+     ]
+    },
+    "ss.item.siege-souvenir": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1030"
+     ]
+    },
+    "ss.item.silver-anklets": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1263"
+     ]
+    },
+    "ss.item.silver-bell": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 8"
+     ]
+    },
+    "ss.item.silver-coin": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 993"
+     ]
+    },
+    "ss.item.silver-longsword": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 72"
+     ]
+    },
+    "ss.item.silver-sword": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 88"
+     ]
+    },
+    "ss.item.simple-trick": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 278"
+     ]
+    },
+    "ss.item.sleeping-bag": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1256"
+     ]
+    },
+    "ss.item.sleeping-pod": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 404"
+     ]
+    },
+    "ss.item.sling": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 231"
+     ]
+    },
+    "ss.item.snow-beast-figure": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2320"
+     ]
+    },
+    "ss.item.snow-beast-figurine": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2320"
+     ]
+    },
+    "ss.item.somber-glaive": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 493"
+     ]
+    },
+    "ss.item.soul-coin": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1661"
+     ]
+    },
+    "ss.item.soul-core": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 9"
+     ]
+    },
+    "ss.item.soul-flame": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1124"
+     ]
+    },
+    "ss.item.soul-of-kanakht": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2686"
+     ]
+    },
+    "ss.item.soul-serpent": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 359"
+     ]
+    },
+    "ss.item.soul-shard": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 9"
+     ]
+    },
+    "ss.item.soul-shards": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 110"
+     ]
+    },
+    "ss.item.soul-tree-fruit": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 77"
+     ]
+    },
+    "ss.item.soul-weave": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1580"
+     ]
+    },
+    "ss.item.spell": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 40"
+     ]
+    },
+    "ss.item.spirit-weave": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1752"
+     ]
+    },
+    "ss.item.star-lantern": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2604"
+     ]
+    },
+    "ss.item.star-map": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2602"
+     ]
+    },
+    "ss.item.star-sigil": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 323"
+     ]
+    },
+    "ss.item.starlight-legion-armor": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 52"
+     ]
+    },
+    "ss.item.starlight-shard": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 281"
+     ]
+    },
+    "ss.item.statue-of-the-knight": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1765"
+     ]
+    },
+    "ss.item.steel-collar": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 603"
+     ]
+    },
+    "ss.item.stifled-scream": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 923"
+     ]
+    },
+    "ss.item.stiletto": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 342"
+     ]
+    },
+    "ss.item.stimulants": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 368"
+     ]
+    },
+    "ss.item.stone-chalice": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 663"
+     ]
+    },
+    "ss.item.stone-worm-fangs": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1627"
+     ]
+    },
+    "ss.item.stone-worm-hide": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1627"
+     ]
+    },
+    "ss.item.storm-god-lineage": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2626"
+     ]
+    },
+    "ss.item.storm-gods-lineage": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2657"
+     ]
+    },
+    "ss.item.strike-of-thunder": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 550"
+     ]
+    },
+    "ss.item.string-of-fate": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 439"
+     ]
+    },
+    "ss.item.strings-of-fate": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 612"
+     ]
+    },
+    "ss.item.sun-god-chain": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2571"
+     ]
+    },
+    "ss.item.sun-prince-armor": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1550"
+     ]
+    },
+    "ss.item.sunglasses": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 993"
+     ]
+    },
+    "ss.item.sunlight-shard": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 281"
+     ]
+    },
+    "ss.item.sunny-sword": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 37"
+     ]
+    },
+    "ss.item.synthpaste": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 568"
+     ]
+    },
+    "ss.item.tachi": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 109"
+     ]
+    },
+    "ss.item.talking-rock": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 117"
+     ]
+    },
+    "ss.item.tarnished-crown": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1309"
+     ]
+    },
+    "ss.item.the-spell": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 104"
+     ]
+    },
+    "ss.item.toothpaste": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 465"
+     ]
+    },
+    "ss.item.tower-shield": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 104"
+     ]
+    },
+    "ss.item.training-swords": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1135"
+     ]
+    },
+    "ss.item.transcendent-charm": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 310"
+     ]
+    },
+    "ss.item.undertemple-component": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1666"
+     ]
+    },
+    "ss.item.underworld-armament": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 487"
+     ]
+    },
+    "ss.item.universal-ration-pack": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 568"
+     ]
+    },
+    "ss.item.video-recording": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2465"
+     ]
+    },
+    "ss.item.wake-of-ruin": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1116"
+     ]
+    },
+    "ss.item.warbow": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 735"
+     ]
+    },
+    "ss.item.weaver-lineage": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2409"
+     ]
+    },
+    "ss.item.weaver-lineage-fragment": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2446"
+     ]
+    },
+    "ss.item.weaver-mask": {
+     "rank": "divine",
+     "rule": "crossSource",
+     "inputs": [
+      "ss.item.weavers-mask"
+     ]
+    },
+    "ss.item.weaver-needle": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 627"
+     ]
+    },
+    "ss.item.weaver-s-mask": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1019"
+     ]
+    },
+    "ss.item.weavers-eye": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 82"
+     ]
+    },
+    "ss.item.weavers-lineage": {
+     "rank": "sacred",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2308"
+     ]
+    },
+    "ss.item.weavers-needle": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 627"
+     ]
+    },
+    "ss.item.wheelchair": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 373"
+     ]
+    },
+    "ss.item.white-altar": {
+     "rank": "ascended",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 386"
+     ]
+    },
+    "ss.item.white-plate-armor": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 54"
+     ]
+    },
+    "ss.item.white-tunic": {
+     "rank": "supreme",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1263"
+     ]
+    },
+    "ss.item.wooden-knife": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 520"
+     ]
+    },
+    "ss.item.wooden-mask": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 689"
+     ]
+    },
+    "ss.item.wooden-staff": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 35"
+     ]
+    },
+    "ss.item.wooden-sword": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 611"
+     ]
+    },
+    "ss.item.word-of-power": {
+     "rank": "divine",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 923"
+     ]
+    },
+    "ss.item.zenith-shard": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 221"
+     ]
+    }
+   }
+  },
+  "echoes": {
+   "rows": 37,
+   "derived": 37,
+   "byRule": {
+    "story3": {
+     "n": 37,
+     "tiers": {
+      "transcendent": 8,
+      "awakened": 2,
+      "corrupted": 16,
+      "fallen": 11
+     }
+    }
+   },
+   "ladder": [
+    "dormant",
+    "awakened",
+    "fallen",
+    "corrupted",
+    "transcendent",
+    "supreme",
+    "divine"
+   ],
+   "items": {
+    "ss.echo.creature.bestial-echoes": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1609"
+     ]
+    },
+    "ss.echo.creature.carapace-scavenger-echo": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 51"
+     ]
+    },
+    "ss.echo.creature.crow-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1097"
+     ]
+    },
+    "ss.echo.creature.echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 57"
+     ]
+    },
+    "ss.echo.creature.echo-jet-crow": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1360"
+     ]
+    },
+    "ss.echo.creature.echo-mounts": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1214"
+     ]
+    },
+    "ss.echo.creature.echo-of-dire-fang": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1209"
+     ]
+    },
+    "ss.echo.creature.echo-of-saint": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 613"
+     ]
+    },
+    "ss.echo.creature.echo-of-the-defiled-sybil": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1377"
+     ]
+    },
+    "ss.echo.creature.echo-of-the-slain-sybil": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1517"
+     ]
+    },
+    "ss.echo.creature.echo-of-torment": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1552"
+     ]
+    },
+    "ss.echo.creature.echo-scavenger": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 62"
+     ]
+    },
+    "ss.echo.creature.echoes": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 291"
+     ]
+    },
+    "ss.echo.creature.fallen-devil-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 2419"
+     ]
+    },
+    "ss.echo.creature.fiend-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 96"
+     ]
+    },
+    "ss.echo.creature.hound-echo": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1597"
+     ]
+    },
+    "ss.echo.creature.human-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 510"
+     ]
+    },
+    "ss.echo.creature.nightmare-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1137"
+     ]
+    },
+    "ss.echo.creature.saint-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1137"
+     ]
+    },
+    "ss.echo.creature.scavenger-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 67"
+     ]
+    },
+    "ss.echo.creature.shadow-blade-kurt-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 510"
+     ]
+    },
+    "ss.echo.creature.six-armed-ascended-demon-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 781"
+     ]
+    },
+    "ss.echo.creature.sybil-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1362"
+     ]
+    },
+    "ss.echo.creature.tamar-echo": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1816"
+     ]
+    },
+    "ss.echo.creature.temple-echo": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1684"
+     ]
+    },
+    "ss.echo.creature.tortoise-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1168"
+     ]
+    },
+    "ss.echo.creature.transcendent-echo": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1039"
+     ]
+    },
+    "ss.echo.creature.wolf-echo": {
+     "rank": "transcendent",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1826"
+     ]
+    },
+    "ss.echo.item.clockwork-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1377"
+     ]
+    },
+    "ss.echo.item.echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 87"
+     ]
+    },
+    "ss.echo.item.echoes": {
+     "rank": "awakened",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1"
+     ]
+    },
+    "ss.echo.item.echoing-silence": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 923"
+     ]
+    },
+    "ss.echo.item.golden-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 522"
+     ]
+    },
+    "ss.echo.item.stone-saint-echo": {
+     "rank": "fallen",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 103"
+     ]
+    },
+    "ss.echo.item.sybil-echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1362"
+     ]
+    },
+    "ss.echo.item.transcendent-echoes": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 1100"
+     ]
+    },
+    "ss.echo.person.echo": {
+     "rank": "corrupted",
+     "rule": "story3",
+     "inputs": [
+      "first chapter 553"
+     ]
+    }
+   }
+  }
+ }
+}

@@ -26,7 +26,6 @@ export const LADDER = {
 };
 const POOLS = {creatures: 'ss.creature.', artifacts: 'ss.item.'};
 const PRIVATE = ['/Users/weiwei/code/yet-another-idle-rpg/', root].map(b => join(b, 'docs/research/power-catalogues-2026-11-16/private/')).find(d => existsSync(join(d, 'nc_shadow_slave_creatures_packets.json')));
-const packets = name => rd(join(PRIVATE, `nc_shadow_slave_${name}_packets.json`).replace(root, ''));
 const readAbs = p => JSON.parse(readFileSync(p, 'utf8'));
 const STOP = new Set(['the', 'of', 'a', 'an', 'and', 'in', 'to', 'for', 'with', 'from', 's']);
 const RANKWORDS = new Set([...LADDER.creatures, ...LADDER.artifacts, 'tier', 'rank']);
@@ -107,7 +106,7 @@ export function scoreSet(pool, order, fold) {
 }
 const sum = rs => ({n: rs.reduce((a, r) => a + r.n, 0), exact: rs.reduce((a, r) => a + r.exact, 0), within1: rs.reduce((a, r) => a + r.within1, 0), baseExact: rs.reduce((a, r) => a + r.baseExact, 0), baseWithin1: rs.reduce((a, r) => a + r.baseWithin1, 0)});
 export const SETS = {
-    creatures: ['source', 'story', 'klass'], artifacts: ['crossSource', 'source', 'story'],
+    creatures: ['source', 'story3', 'klass'], artifacts: ['crossSource', 'source', 'story3'],
 };
 const names = Object.keys(RULES).filter(x => x !== 'baseline');
 const cmd = process.argv[2];
@@ -140,9 +139,37 @@ if (cmd === 'freeze') {
     for (const pool of [...Object.keys(POOLS), 'echoes']) {
         const base = pool === 'echoes' ? 'creatures' : pool, ladder = LADDER[base], c = context(base, ladder, []);
         const order = res.pools[base].ruleSet, rows = DATA.pools[pool].filter(r => !r.stated), byRule = {}, derived = {};
-        for (const r of rows) for (const name of order) { const v = RULES[name](c, r); if (v != null) { derived[r.id] = {rank: ladder[v - 1], rule: name, inputs: name === 'source' || name === 'crossSource' ? r.links.filter(i => c.cross(i)) : name === 'story' ? [`first chapter ${r.first}`] : [`class ${r.klass}`]}; (byRule[name] ??= {n: 0, tiers: {}}).n++; byRule[name].tiers[ladder[v - 1]] = (byRule[name].tiers[ladder[v - 1]] ?? 0) + 1; break; } }
+        for (const r of rows) for (const name of order) { const v = RULES[name](c, r); if (v != null) { derived[r.id] = {rank: ladder[v - 1], rule: name, inputs: name === 'source' || name === 'crossSource' ? r.links.filter(i => c.cross(i)) : name.startsWith('story') ? [`first chapter ${r.first}`] : [`class ${r.klass}`]}; (byRule[name] ??= {n: 0, tiers: {}}).n++; byRule[name].tiers[ladder[v - 1]] = (byRule[name].tiers[ladder[v - 1]] ?? 0) + 1; break; } }
         out.pools[pool] = {rows: rows.length, derived: Object.keys(derived).length, byRule, ladder, items: derived};
         console.log(pool, rows.length, Object.keys(derived).length, JSON.stringify(Object.fromEntries(Object.entries(byRule).map(([k, v]) => [k, v.n]))));
     }
     writeFileSync(join(root, DERIVED_FILE), `${JSON.stringify(out, null, 1)}\n`);
+}
+
+if (cmd === 'exceptions') {
+    // Fold-5 misses of two tiers or more become named exceptions (PWC92, PC84); one-tier misses stay in ss_rank_search.json as misses.
+    const res = rd(RESULT_FILE), rows = [];
+    for (const [pool, p] of Object.entries(res.pools)) for (const m of p.final.misses) if (m.off >= 2) rows.push({id: m.id, name: m.name, pool, rule: m.by, derived: m.derived, canon: m.canon, tiersOff: m.off, state: 'authored:story-time-lags-stated-tier', reason: 'mechanical class only; the in-world reason needs a chapter read (not done)'});
+    const out = {meta: {pass: 'PWC92, PWC99, PWC100', date: '2026-11-17', rule: 'fold-5 misses of two tiers or more'}, exceptions: rows, count: rows.length, factsPerRule: Object.fromEntries(Object.entries(rd(DERIVED_FILE).pools).map(([p, v]) => [p, Object.fromEntries(Object.entries(v.byRule).map(([k, b]) => [k, b.n]))]))};
+    writeFileSync(join(root, 'docs/coverage/ss_rank_exceptions.json'), `${JSON.stringify(out, null, 1)}\n`);
+    console.log(JSON.stringify({count: rows.length}));
+}
+
+if (cmd === 'ledger') {
+    // Write rank, rankBasis and a derived block on artifact rows whose derived tier came from a scored rule (idempotent). Creature rows get none while
+    // the creature rule fails its baseline (PWC100: scored, never relabelled by script); echoes are unscored. Needs derivation_rules.json regenerated first.
+    const scored = rd('docs/coverage/derivation_rules.json').rules, d = rd(DERIVED_FILE).pools.artifacts.items;
+    const file = join(root, 'docs/coverage/shadow_slave_artifacts.jsonl');
+    const rule = scored.find(r => r.id === 'ss.rank.artifacts-story-time');
+    let n = 0;
+    const lines = readFileSync(file, 'utf8').split('\n').map(l => {
+        if (!l.trim()) return l;
+        const row = JSON.parse(l), x = d[row.id];
+        if (!x) return l;
+        n++;
+        const {rank: _r, rankBasis: _b, derived: _d, ...rest} = row;
+        return JSON.stringify({...rest, rank: x.rank, rankBasis: 'derived', derived: {rule: rule.id, inputs: x.inputs, confidence: {...rule.confidence, version: rule.version}}});
+    });
+    writeFileSync(file, lines.join('\n'));
+    console.log('patched', n);
 }
