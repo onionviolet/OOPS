@@ -66,7 +66,7 @@ const lines = f => fs.readFileSync(f, 'utf8').split('\n').filter(l => l.trim()).
 /** Every blocked row of the slug (ledger rows) plus the rule rows that derive it (the per-world dial source, PWC64). */
 export function rowsOf(slug) {
     const out = [];
-    for (const f of fs.readdirSync(COVERAGE).filter(f => f.endsWith('.jsonl') && f !== 'worlds.jsonl').sort())
+    for (const f of fs.readdirSync(COVERAGE).filter(f => f.endsWith('.jsonl') && !['worlds.jsonl', 'interaction_oracle.jsonl'].includes(f)).sort())
         for (const r of lines(path.join(COVERAGE, f)))
             if (r.state === `blocked:${slug}`) out.push({id: r.id, kind: 'row', ledger: f.replace('.jsonl', ''), text: r.note});
     for (const f of fs.readdirSync(COVERAGE).filter(f => f.endsWith('_rules.json')).sort()) {

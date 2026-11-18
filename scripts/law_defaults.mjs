@@ -138,7 +138,7 @@ export const FROZEN_DIALS = Object.freeze({'form-transformation': {reversal: {al
 /** Every ledger row of the slug: still blocked on it, or already carrying the law's case (so a rerun after wiring keeps its denominator). */
 export function slugRows(slug) {
     const dir = path.join(root, 'docs/coverage'), mod = slug === 'area-field' ? 'src/area_field_law.js' : 'src/form_transformation_law.js', out = [];
-    for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.jsonl') && f !== 'worlds.jsonl').sort())
+    for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.jsonl') && !['worlds.jsonl', 'interaction_oracle.jsonl'].includes(f)).sort())
         for (const r of readLines(path.join(dir, f))) if (r.state === `blocked:${slug}` || r.case?.module === mod) out.push({id: r.id, ledger: f.replace('.jsonl', ''), text: r.note});
     return out;
 }
