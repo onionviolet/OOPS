@@ -13,6 +13,7 @@ const build=path.resolve(process.argv[2]||'/private/tmp/claude-501/gu-keeper-bui
 const out=path.resolve(process.argv[3]||'/private/tmp/claude-501/gu-keeper-evidence');
 await mkdir(out,{recursive:true});
 const coordinationOnly=process.argv[4] === '--coordination-only';
+const giantHandWardOnly = process.argv[4] === '--giant-hand-ward-only';
 const P=coordinationOnly?'book.ri.coordination':'book.ri.keeper',id=n=>`${P}.${n}`,key=n=>JSON.stringify({id:id(n)});
 const server=createServer(async(req,res)=>{try{
     let file=path.resolve(build,'.'+new URL(req.url,'http://local').pathname);if(!file.startsWith(build+'/')){if(file!==build)throw Error('path');}
@@ -53,6 +54,13 @@ const sim=s=>s.expansion.simulation;
 const gu=(s,n)=>sim(s).people[id(n)];
 const stones=s=>s.inventories.person.main_character[key('stone')]?.count||0;
 const DAY=1440;
+async function showGuHouse() {
+    const house = p.locator('.gu-house');
+    if (await house.isVisible()) return;
+    await p.locator('[data-panel-path="skills"]:visible').first().click();
+    await p.locator('#skill_and_stance_control_div [data-box-tab="gu"]').click();
+    await house.waitFor();
+}
 const shot=async name=>{
     if (raisedMoonbladeOnly) await p.locator('.gu-house').evaluate(node => node.scrollIntoView());
     else await p.locator('.gu-house').scrollIntoViewIfNeeded();
@@ -1953,6 +1961,7 @@ async function runGiantHandWard() {
     const button = name => p.locator(`[data-structured-action='${id(`giant_hand_ward.${name}`)}']`);
     const admit = name => p.locator(`[data-structured-extension='${id(name)}']`).click({noWaitAfter:true});
     const line = p.locator('[data-gu="giant-hand-ward"]');
+    const outcome = s => s.expansion.worlds[id('world')].facts[id('giant_hand_ward.result')];
     const beads = s => s.inventories.person.main_character[key('giant_hand.red_date')]?.count ?? 0;
     const reserve = s => sim(s).energies.player[id('primeval')].reserve;
     await admit('giant_hand'); await hand('enter');
@@ -1966,10 +1975,13 @@ async function runGiantHandWard() {
     const before = await save();
     await ward('ward_plain');
     const held = await save();
+    assert.equal(outcome(held), 'held');
     assert.equal(beads(before) - beads(held), 1);
     assert.equal(reserve(before) - reserve(held), 2);
     assert.equal(await button('cross').isDisabled(), true);
     assert.match(await line.innerText(), /ward held against the last strike/);
+    await showGuHouse();
+    await shot('giant-hand-ward-held');
     await roundTrip('giant-hand-ward-held');
     await hand('borrow_older');
     assert.match(await line.innerText(), /Self Strength · force 6 of 6 needed.*breaks the ward/);
@@ -1980,9 +1992,19 @@ async function runGiantHandWard() {
     const ready = await save();
     await ward('ward_self');
     const broken = await save();
+    assert.equal(outcome(broken), 'broken');
     assert.equal(beads(ready) - beads(broken), 2);
     assert.equal(reserve(ready) - reserve(broken), 2);
     assert.match(await line.innerText(), /reinforced hand broke the ward/);
+    assert.equal(await button('ward_self').isDisabled(), true);
+    await showGuHouse();
+    await shot('giant-hand-ward-broken');
+    await roundTrip('giant-hand-ward-broken');
+    const restored = await save();
+    assert.equal(outcome(restored), 'broken');
+    assert.equal(beads(restored), beads(broken));
+    assert.equal(reserve(restored), reserve(broken));
+    assert.equal(await button('ward_self').isDisabled(), true);
     await ward('cross');
     assert.equal(sim(await save()).people.player.location, id('giant_hand_ward.far_path'));
     await roundTrip('giant-hand-ward-crossed');
@@ -2899,8 +2921,10 @@ try {
         await p.locator(`[data-structured-action='${id('cue')}']`).waitFor();
         await runCoordination();
     } else {
-    await p.locator('.gu-house').waitFor();
+    if (giantHandWardOnly) await showGuHouse();
+    else await p.locator('.gu-house').waitFor();
     let s=await save();assert.equal(stones(s),3);await shot('01-start');
+    if (giantHandWardOnly) await open();
     result.checks.push('refused at 3 stones: '+await why('take_worm'));
     if(process.argv[4] === '--defense-research-only') {
         result.route='Gu Keeper → research a blast crossing → lose a route to recovery → trade a hunted eye and refine armor → generate and use a new plan';
@@ -3054,7 +3078,7 @@ try {
     } else if(process.argv[4] === '--giant-hand-variants-layout-only') {
         result.route='Earned written pair → 1536×864 → inspect force, essence and the cast at 14px and 21px';
         await runKeeperLayout(process.argv[5], 'giant-hand-variants', 'giant_hand_variants.cast_written', /Written pair · second \+ focused/);
-    } else if(process.argv[4] === '--giant-hand-ward-only') {
+    } else if(giantHandWardOnly) {
         result.route='Gu Keeper → refine Myriad Self → generate ward plans → compare force and cost → cross';
         await runGiantHandWard();
     } else if(process.argv[4] === '--giant-hand-ward-layout-only') {

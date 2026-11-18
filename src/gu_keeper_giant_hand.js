@@ -1,3 +1,7 @@
+import {composeSubstrate, createWorld} from './world_substrate.js';
+import {landEffect} from './effect_host.js';
+import {guLanding} from './gu_effect_sentence.js';
+import {createLayeredProtectionPack} from './world_substrate_packs/layered_protection.js';
 import {applyEnergyEffect} from './energy_resources.js';
 import {beginGuRefinement, stepGuRefinement} from './gu_refinement.js';
 import {livingGuClaim, validateGuClaims} from './gu_world_claims.js';
@@ -243,9 +247,21 @@ export function applyGiantHandWard(state, record, operation, registry) {
     const result = castGiantHandWard(input, plan.binding);
     const hand = result.effects.find(row => row.kind === 'giant-hand');
     if (!hand) throw Error('Giant Hand did not form.');
+    // Each practice strike starts against a restored ward. The existing saved
+    // trial result owns the crossing; the engine settles the hit for that result.
+    const ward = 'practice-ward';
+    const rules = composeSubstrate({packs: [createLayeredProtectionPack()]});
+    const world = createWorld(rules, {
+        holders: [{id: giantHandYard, kind: 'place'},
+            {id: ward, kind: 'thing', place: giantHandYard, quantities: {vitality: giantHandWardForce}}],
+    });
+    const hit = guLanding({kind: 'attack', magnitude: hand.magnitude});
+    const landed = landEffect(rules, world, {...hit, details: {...hit.details, target: {shape: 'holder', id: ward}}},
+        {cause: `${keeperGiantHandWard}:${operation}`, by: 'player'});
+    if (landed.status !== 'landed') throw Error('The hand could not strike the ward.');
     const used = input.essence - result.remaining.player.primeval;
     spendPrimeval(state, used, registry);
-    state.worlds[giantHandWorld].facts[wardKey] = hand.magnitude >= giantHandWardForce ? 'broken' : 'held';
+    state.worlds[giantHandWorld].facts[wardKey] = landed.world.holders[ward].quantities.vitality === 0 ? 'broken' : 'held';
 }
 
 export function applyGiantHand(state, record, operation, registry) {
