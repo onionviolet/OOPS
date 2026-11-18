@@ -1,3 +1,6 @@
+import {supervisedDoseCondition} from './book_world_lotm_mind.js';
+import {readPort} from './ui_ports.js';
+import {minutesText} from './reference_kit.js';
 import {createBodyExpression} from './body_expression.js';
 import {definePanel} from './panel_kit.js';
 import {registerPanelSettings,getDisplaySetting,setDisplaySettings} from './display_settings.js';
@@ -13,6 +16,9 @@ export function mountConditionPanel({home,rates,readRows,notice,inspect,isInspec
     list.className='condition-effects';list.setAttribute('aria-label','Active status effects');empty.className='condition-summary';
     const temperature=createTemperatureBand(),expression=createBodyExpression();
     bodyTitle.append(bodyName,expression.node);body.append(bodyTitle,bodyText,expression.detail,temperature.node);panel.append(empty,list,body,rates);
+    const doseRow=node('p'),doseLine=node('span'),doseTime=node('small');
+    doseRow.dataset.supervisedDoseCondition='';doseRow.hidden=true;
+    doseRow.append(doseLine,doseTime);list.append(doseRow);
     const records=new Map();
     const active=()=>home.dataset.presentation==='proto23-shell'&&home.dataset.parity==='r3';
     definePanel({id:'condition',title:'Condition',role:'character',node:panel,home,after:'shell-character',defaultDock:'left',eligible:active,discovered:active});
@@ -50,9 +56,16 @@ export function mountConditionPanel({home,rates,readRows,notice,inspect,isInspec
                 record.button.dataset.ended='true';write(record.duration,'Ended');record.button.setAttribute('aria-label',record.label.textContent+' · Ended');record.button.nativeEffectView={...record.button.nativeEffectView,ended:true};
             }else {record.button.remove();records.delete(id);}
         }
-        empty.hidden=records.size>0;panel.dataset.effectCount=String(native.length);panel.dataset.rateCount=String(readRows().length);
+        const expansion=readPort('expansion'),dose=supervisedDoseCondition(expansion);
+        doseRow.hidden=!dose;
+        if(dose){
+            write(doseLine,dose.line);
+            write(doseTime,' · Fades on its own in '+minutesText(dose.until-expansion.clock));
+        }
+        const effectCount=native.length+Number(!!dose);
+        empty.hidden=records.size>0||!!dose;panel.dataset.effectCount=String(effectCount);panel.dataset.rateCount=String(readRows().length);
         const heading=panel.closest('.workspace-module')?.querySelector('.workspace-module-header > strong');
-        if(heading)write(heading,'Condition'+(native.length?' · '+native.length+(native.length===1?' effect':' effects'):''));
+        if(heading)write(heading,'Condition'+(effectCount?' · '+effectCount+(effectCount===1?' effect':' effects'):''));
         if(getDisplaySetting('panel.condition.introduced')!=='seen'&&document.documentElement.dataset.startScreen==='closed'){
             setDisplaySettings({'panel.condition.introduced':'seen'});
             const route=document.querySelector('[data-route-id="condition"]');if(route){route.dataset.newHome='true';route.title='Effects, body and active rates. Weather and cold exposure are in the place header.';}

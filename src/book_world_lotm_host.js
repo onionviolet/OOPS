@@ -253,6 +253,7 @@ export function createLotmHost(ports){
   const plan=def.castAbility?commitCastAbility(castAbilityCommands,id,{state:s,context:ctx(s,def),commit}):commit(id);
   recordEmergent(plan,def);
   syncLotmCast(plan.state);
+  if(id==='book.lotm.ingest' && plan.state.actors.player.completed[id]>(s.actors.player.completed[id]??0)) plan.earnedTingenDose=true;
   persist(plan);
   accrueHarm(plan.state,def);
   noteStage(plan.state);

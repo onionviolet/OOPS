@@ -56,7 +56,7 @@ function contactDetails(world, details, contact, sentence) {
 // waiting (publishes only, no owner answers), needs-key (a keyed family has no key), unmapped (the
 // sentence uses a word with no P reading; `word` and the reason name it), label-only (the effect carries no sentence).
 // A vitality preview reports which removals would land and keeps the input world.
-export function landEffect(rules, world, effect, {cause, by, keys = {}, read = null, previewVitality = false} = {}) {
+function land(rules, world, effect, {cause, by, keys = {}, read = null, previewVitality = false} = {}) {
     const out = empty(world);
     if (!effect?.sentence) return {...out, status: 'label-only', reason: `effect ${effect?.kind ?? '(none)'} carries no sentence, so nothing can land it`};
     const {contact, ...aim} = effect.details ?? {};
@@ -88,4 +88,28 @@ export function landEffect(rules, world, effect, {cause, by, keys = {}, read = n
         : [resolved.reflection, blocked].filter(Boolean).join(' ') || null;
     return {world: run.world, status, changed, acts: lowered.acts, outcomes: run.outcomes, published: run.published, waiting, needs: [],
         reason};
+}
+
+// PWC128: an opt-in observer of what actually lands. `globalThis[LAND_TAP]` is a function a script sets (the headless
+// counter in scripts/effect_landing_count.mjs); it is a no-op otherwise and nothing here is saved. A host that lands
+// effects for a played action names its `entry` (the action) and `law` (the engine law) in the landEffect options, or
+// wraps the action in `withLandingEntry` so every landing inside it carries the same labels. A preview that keeps the
+// input world is not a landing and is not reported.
+export const LAND_TAP = Symbol.for('yairpg.landTap');
+let context = null;
+export function withLandingEntry(labels, run) {
+    const outer = context;
+    context = {...outer, ...labels};
+    try { return run(); } finally { context = outer; }
+}
+
+export function landEffect(rules, world, effect, options = {}) {
+    const result = land(rules, world, effect, options);
+    const tap = globalThis[LAND_TAP];
+    if (tap && !options.previewVitality) {
+        const labels = {...context, ...(options.entry && {entry: options.entry}), ...(options.law && {law: options.law})};
+        tap({status: result.status, changed: result.changed, entry: labels.entry ?? 'unlabelled', law: labels.law ?? effect?.law ?? effect?.kind ?? 'unlabelled',
+            cause: options.cause ?? null, verb: effect?.sentence?.verb ?? null, object: effect?.sentence?.object ?? null});
+    }
+    return result;
 }

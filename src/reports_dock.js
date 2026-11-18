@@ -29,6 +29,13 @@ export const undoubled = line => { const t = String(line), h = t.length / 2; ret
 export const isDivider = text => /^\[ .* \]$/.test(String(text || '').replace(/\s+/g, ' ').trim());
 const saveTail = () => { if (typeof document === 'undefined') return undefined; const stream = document.getElementById('message_box_div'); return stream ? tailOf([...stream.children].filter(n => !n.classList.contains('report-earlier-head')).map(visibleLine).filter(text => !isDivider(text)), worldNow()) : undefined; };
 
+// Stage a successful action's receipt with its gameplay state. The caller publishes the live
+// log row after the write; a reload sees the staged copy through the ordinary Reports tail.
+export function stageReportLine(plan, line) {
+    const tail = saveTail();
+    plan.nativePatch = {...plan.nativePatch, reports_dock: tailOf([...(tail?.lines ?? []), line], worldNow())};
+}
+
 // Pure: the rows the card shows, or none once the log has enough lines of its own.
 // UIC146: where the place header already shows the date and hour, the card keeps only the day's note.
 export function dockRows({logLines, next, today, headerHasClock = false}) {
@@ -101,6 +108,8 @@ function mount() {
     // AT25: a timer alone left the Now line stale after a 1440-minute step (timers are throttled in a hidden or
     // headless page). Any change to the log, or the page coming back into view, repaints at once.
     new MutationObserver(render).observe(stream, {childList: true});
+    // Save slices load before the workspace stamps the restored world's id.
+    new MutationObserver(showEarlier).observe(document.documentElement, {attributes: true, attributeFilter: ['data-world']});
     document.addEventListener('visibilitychange', render);
 }
 
