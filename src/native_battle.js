@@ -1,4 +1,5 @@
 import {ensureRehearsedFoe,rehearseOpening} from './rehearsed_foe.js';
+import {takeOnHit,negateAfterWin,PT_KNOWLEDGE} from './power_taking.js';
 import {savedBattleLoss} from './defeat_domain.js';
 import {check} from './basics.js';
 import {rollCombatStrike,mitigateCombatDamageFromStats} from "./combat_math.js";
@@ -57,9 +58,13 @@ const roadConflict={id:'road.duel',revision:1,sides:[['player'],[ROAD_RIVAL]],ob
                 check(victim?.health > 1,"The target has already yielded.");
                 const damage=strike.kind === "hit" ? mitigateCombatDamageFromStats(strike.values,target.stats,0,attacker.stats.armor_penetration??0) : 0;
                 victim.health=Math.max(1,victim.health-damage);battle.actions++;
+                // PT1: her intake needs a landed hit; delivery then payload, and what you saw is what you learn (AD6).
+                const taken=actorId === ROAD_RIVAL && strike.kind === "hit" ? takeOnHit(plan.state,registry,{takerId:ROAD_RIVAL,targetId,sessionId:session.id}) : null;
+                if(taken?.observed)applySimulationEffects(plan,[{type:'knowledge',key:PT_KNOWLEDGE,stage:'seen',value:taken.observed}],{actorId:targetId},registry,session.id);
                 battle.last=`${actorId === "player" ? "You" : "Mara"} ${strike.kind === "hit" ? `hit for ${Math.round(damage*10)/10}${strike.critted ? " (critical)" : ""}` : strike.kind === "blocked" ? "met a full block" : "missed"}.`;
                 plan.native={hpToFull:plan.vitals.player.max_health-plan.vitals.player.health,staminaToFull:plan.vitals.player.max_stamina-plan.vitals.player.stamina};
                 plan.state.sequence++;
+                if(victim.health === 1 && targetId === "player") {const held=negateAfterWin(plan.state,registry,{takerId:ROAD_RIVAL,targetId});if(held?.observed)applySimulationEffects(plan,[{type:'knowledge',key:PT_KNOWLEDGE,stage:'seen',value:held.observed}],{actorId:targetId},registry,session.id);}
                 if(victim.health === 1) {publishResult(targetId === ROAD_RIVAL ? "won" : "lost");if(targetId === "player") plan.defeat=savedBattleLoss(["Mara"]);}
             }}
         ]};

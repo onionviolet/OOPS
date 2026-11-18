@@ -18781,7 +18781,7 @@
     "object": "working",
     "target": "marked",
     "time": "instant",
-    "valid": false,
+    "valid": true,
     "at": {
      "locator": "W156-C02 W155:p143-p144",
      "speaker": "character_claim"
@@ -27664,7 +27664,7 @@
     "object": "working",
     "target": "self",
     "time": "sustained",
-    "valid": false,
+    "valid": true,
     "at": {
      "locator": "W273-C01 W273:p002-p020",
      "speaker": "demonstration"

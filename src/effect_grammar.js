@@ -32,9 +32,9 @@ export const EFFECT_OBJECTS = Object.freeze({
 // What each verb can act on, by object kind. Reason: a verb is a kind of
 // change; it reads the property it changes (PFP22), never a category.
 export const VERB_ACCEPTS = Object.freeze({
-    move: ['state', 'thing', 'relation', 'quantity'],
-    add: ['quantity', 'thing', 'knowledge'],
-    remove: ['quantity', 'thing', 'knowledge'],
+    move: ['state', 'thing', 'relation', 'quantity', 'working'],
+    add: ['quantity', 'thing', 'knowledge', 'working'],
+    remove: ['quantity', 'thing', 'knowledge', 'working'],
     transform: ['state', 'quantity', 'thing'],
     bind: ['state', 'thing', 'relation'],
     release: ['state', 'thing', 'relation', 'working'],
