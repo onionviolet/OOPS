@@ -1,11 +1,11 @@
 import {guCatalogue} from './gu_catalogue.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 import {detectGuApproach} from './gu_senses.js';
 
 export function resolveGuCloak({gu, clock, reserve}) {
     const ability = guCatalogue[gu.kind]?.ability?.value;
     if (!ability?.maskedSurfaces) throw Error('This Gu cannot cloak those surfaces.');
-    const result = resolveGuActivation({stages: [{gu: {...gu, fedThrough: clock}, operator: 'player', ability,
+    const result = runGuActivations({stages: [{gu: {...gu, fedThrough: clock}, operator: 'player', ability,
         supply: {pool: 'essence', family: 'primeval', rank: 1, source: 'aperture'}}],
     reserves: {player: {essence: reserve}}, day: clock});
     const mask = result.effects.find(effect => effect.kind === 'visual-concealment');

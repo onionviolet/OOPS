@@ -1,6 +1,6 @@
 import {bindGuMove} from './gu_move_roles.js';
 import {moonglowBlade} from './gu_ability_profiles.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 
 export const moonFusionMaterials = 'furnace-stone';
 export const moonFusionKinds = {
@@ -50,7 +50,7 @@ export function moonFusionAbility(gu) {
 }
 
 export function testMoonFusion(gu, operator, day, reserve) {
-    return resolveGuActivation({stages: [{gu: {...gu, fedThrough: day}, operator, ability: moonFusionAbility(gu),
+    return runGuActivations({stages: [{gu: {...gu, fedThrough: day}, operator, ability: moonFusionAbility(gu),
         supply: moonFusionSupply}],
         reserves: {[operator]: {'red-steel': reserve}}, day});
 }

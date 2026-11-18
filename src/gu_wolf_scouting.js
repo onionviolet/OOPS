@@ -1,6 +1,6 @@
 import {acquireCreature, habitatOccupancy, settleCohortStock, transferCreature} from './creature_lifecycle.js';
 import {guCatalogue} from './gu_catalogue.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 import {detectGuApproach} from './gu_senses.js';
 import {observeGuCloak, resolveGuCloak} from './gu_concealment.js';
 import {controlledStealthScales} from './world_packs/book_gu_keeper_refinement_trials.js';
@@ -86,7 +86,7 @@ export function validateCrown(row, state, record, habitat, wolfCohort) {
 
 function activate(kind, id, rank, clock, supplyRank, reserve, source) {
     const ability = guCatalogue[kind].ability.value;
-    const result = resolveGuActivation({stages: [{gu: {id, kind, rank, fedThrough: clock}, operator: 'scout', ability,
+    const result = runGuActivations({stages: [{gu: {id, kind, rank, fedThrough: clock}, operator: 'scout', ability,
         supply: {pool: 'essence', family: 'primeval', rank: supplyRank, source}}],
     reserves: {scout: {essence: reserve}}, day: clock});
     const effect = result.effects.find(row => row.kind === ability.effect.kind);

@@ -1,5 +1,5 @@
 import {habitatOccupancy, settleCohortStock} from './creature_lifecycle.js';
-import {resolveGuActivation} from './gu_activation.js';
+import {runGuActivations} from './gu_working_host.js';
 
 export const antNestKind = 'ant-nest';
 export const antNestRank = 8;
@@ -25,7 +25,7 @@ export function produceArmyAnts(lifecycle, {gu, operator, reserve, material, now
         throw Error('Ant Nest needs its living Gu and suitable immortal material.');
     }
     if (!Number.isSafeInteger(reserve) || reserve < antNestCost) throw Error('Ant Nest needs enough stored immortal essence.');
-    const activation = resolveGuActivation({
+    const activation = runGuActivations({
         stages: [{gu, operator, ability: {fuel: 'immortal', cost: antNestCost},
             supply: {pool: 'rank-eight-dose', family: 'immortal', rank: antNestRank, source: 'stored'}}],
         reserves: {[operator]: {'rank-eight-dose': reserve}}, day: now,
