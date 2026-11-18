@@ -4,7 +4,7 @@
 //   node scripts/coverage_report.mjs --check   validate rows only; exit 1 on malformed rows
 // A ledger is docs/coverage/<corpus>.jsonl, one JSON object per line:
 //   {"id": "...", "source": "...", "state": "...", "mechanisms": ["G", ...], "test": "tests/x.test.js" | null, "note": "..."}
-// Coverage percent is a report, never a gate (CV4): only malformed rows and the three case
+// Coverage percent is a report, never a gate (CV4): only malformed rows, a runs-* row with no case (PSA25: runs is computed, never typed) and the three case
 // checks below fail (PC10): a typed state that disagrees with the computed one, a case module that
 // is missing or lacks `coverageCase`, and a case that throws.
 //
@@ -52,12 +52,9 @@
 // blocked:runner-unmapped, blocked:runner-waiting, blocked:runner-working-case (the working names no
 // family the runner knows) or blocked:runner-working-interrupted (a step failed; the detail has its reason).
 import fs from 'node:fs';
-import {isDeepStrictEqual} from 'node:util';
 import path from 'node:path';
-import {fileURLToPath, pathToFileURL} from 'node:url';
+import {fileURLToPath} from 'node:url';
 import {reachableFrom, walkFrom, srcFiles} from './reachable.mjs';
-import {recordsOf} from '../src/knowledge_record.js';
-import {readLineage} from '../src/world_substrate.js';
 import {MECHANISMS, SPLIT_RULE, splitLabelled, fitMechanisms, scoreHeldOut} from '../src/brew_heldout.js';
 import {SPLIT_RULE as GU_SPLIT_RULE, splitGu, fitGu, scoreGu} from '../src/gu_heldout.js';
 import {SPLIT_RULE as SPELL_SPLIT_RULE, splitSpells, fitSpells, scoreSpells, singletonIntentRows} from '../src/spell_heldout.js';
@@ -109,13 +106,17 @@ const STATE = /^(runs-canon|runs-authored|runs-derived|expressed-canon|expressed
 // family-median rule with its basis, and the model's own rank as a note).
 // tier, concept, promptHash, nearest and model belong to generated rows (PWC30): the tier apart from canon and derived, the concept word,
 // the hash of the frozen prompt, the nearest canon Gu and the model that wrote the row (AU17).
-const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model', 'variant_of', 'rank', 'rankBasis', 'modelRank']);
+const FIELDS = new Set(['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case', 'derived', 'tier', 'concept', 'promptHash', 'nearest', 'model', 'variant_of', 'rank', 'rankBasis', 'modelRank', 'typed',
+    // PWC59: the input a needs-material row waits on, the slug a fold replaced, and why a slug outside the map is meant.
+    'needs', 'was', 'reason']);
+export const BLOCKED_SLUGS_FILE = 'docs/coverage/blocked_slugs.json';
+export const canonicalSlugs = (file = path.join(root, BLOCKED_SLUGS_FILE)) => fs.existsSync(file) ? new Set(JSON.parse(fs.readFileSync(file, 'utf8')).canonical) : null;
 
-// Validate one ledger's text. Returns {rows, problems}; a problem names its line.
+// Validate one ledger's text. Returns {rows, problems, warnings}; a problem names its line.
 // PWC80: the rules that have a score row in derivation_rules.json; a derived row citing any other rule is flagged.
 export const scoredRuleIds = () => new Set(JSON.parse(fs.readFileSync(path.join(root, 'docs/coverage/derivation_rules.json'), 'utf8')).rules.map(r => r.id));
-export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file)), scored = scoredRuleIds()} = {}) {
-    const rows = [], problems = [], ids = new Set();
+export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSync(path.join(root, file)), scored = scoredRuleIds(), slugs = null} = {}) {
+    const rows = [], problems = [], warnings = [], ids = new Set();
     text.split('\n').forEach((line, i) => {
         if (!line.trim()) return;
         const at = `${name}:${i + 1}`;
@@ -128,8 +129,16 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
         else ids.add(row.id);
         if (typeof row.source !== 'string' || !row.source) problems.push(`${at}: source must be a nonempty locator`);
         if (typeof row.state !== 'string' || !STATE.test(row.state)) problems.push(`${at}: state must be runs-canon, runs-authored, runs-derived, expressed-canon, expressed-authored, expressed-derived, catalogued, blocked:<rule>, not-a-thing:<reason> or unclassified`);
+        // PWC59: a blocked slug outside the canonical map warns unless the row says why; slug_normalize.mjs --apply folds the known ones.
+        const slug = /^blocked:(.+)$/.exec(row.state ?? '')?.[1];
+        if (slugs && slug && !slugs.has(slug) && !(typeof row.reason === 'string' && row.reason)) warnings.push(`${at}: blocked slug ${slug} is not in ${BLOCKED_SLUGS_FILE}; add it there, give the row a reason, or run scripts/slug_normalize.mjs --apply`);
+        if (row.reason !== undefined && typeof row.reason !== 'string') problems.push(`${at}: reason must be a string`);
         if (!Array.isArray(row.mechanisms) || row.mechanisms.some(m => typeof m !== 'string' || !m)) problems.push(`${at}: mechanisms must be an array of owner names`);
         if (row.test !== undefined && row.test !== null && typeof row.test !== 'string') problems.push(`${at}: test must be a string or null`);
+        // PSA25: runs is computed, never typed. A runs-* row must carry a case the runner executes (computeLedgers
+        // then checks the typed state against the computed one). The old label of a demoted row lives in `typed`.
+        if (/^runs-/.test(row.state ?? '') && row.case === undefined) problems.push(`${at}: a ${row.state} row has no case; runs is computed from a case that executes (PSA25), so type it catalogued and keep the old label in typed`);
+        if (row.typed !== undefined && (typeof row.typed !== 'string' || !/^runs-(canon|authored|derived)$/.test(row.typed))) problems.push(`${at}: typed must be the old runs-canon, runs-authored or runs-derived label`);
         if (/^runs-/.test(row.state ?? '')) {
             const file = typeof row.test === 'string' ? row.test.split('#')[0] : '';
             if (!file) problems.push(`${at}: a runs-* row names the test that runs it`);
@@ -149,7 +158,7 @@ export function parseLedger(text, {name = 'ledger', exists = file => fs.existsSy
         if (row.note !== undefined && typeof row.note !== 'string') problems.push(`${at}: note must be a string`);
         rows.push(row);
     });
-    return {rows, problems};
+    return {rows, problems, warnings};
 }
 
 // Counts per ledger: states, the runs share (runs over things, excluding not-a-thing) and top blocking rules.
@@ -166,351 +175,8 @@ export function countLedger(rows) {
     return c;
 }
 
-// ---- The generic case runner (PC9, PC10) ----
-const FLAGS = ['position', 'exists', 'creationParents'];
-const TERMS = ['quantity', 'property', 'lawField', 'belief', ...FLAGS];
-const EXPECT_KEYS = new Set(['holder', ...TERMS, 'direction', 'amount', 'to']);
-const CHANGE = ['changed', 'unchanged'];
-const QUANTITY_CHANGE = ['up', 'down', ...CHANGE];
-const named = value => typeof value === 'string' && value.length > 0;
-const createsHolder = e => e?.exists === true && e.direction === 'changed' && e.to === true;
-
-function checkExpect(world, expect, id, requireChange = true) {
-    const bad = m => { throw new Error(`case ${id}: ${m}`); };
-    if (!Array.isArray(expect) || !expect.length) bad('expect must be a nonempty array of world outcomes');
-    const created = new Set(expect.filter(createsHolder).map(e => e.holder));
-    for (const e of expect) {
-        if (!e || typeof e !== 'object') bad('an expect entry must be an object');
-        for (const k of Object.keys(e)) if (!EXPECT_KEYS.has(k)) bad(`expect key ${k} is not a world term`);
-        const kinds = TERMS.filter(k => e[k] !== undefined);
-        if (kinds.length !== 1) bad('an expect entry names exactly one world term');
-        const [kind] = kinds;
-        if (!(FLAGS.includes(kind) ? e[kind] === true : named(e[kind]))) bad(`invalid ${kind} observation`);
-        if (kind === 'creationParents' && e.to !== undefined && e.to !== null &&
-            (!Array.isArray(e.to) || !e.to.every(named))) bad('creation parents must be an array of holder IDs or null');
-        const directions = kind === 'quantity' ? QUANTITY_CHANGE : CHANGE;
-        if (!directions.includes(e.direction)) bad(`direction for ${kind} is one of ${directions.join(', ')}`);
-        if (e.amount !== undefined && (kind !== 'quantity' || !Number.isFinite(e.amount) || e.amount < 0))
-            bad('amount must be a nonnegative number on a quantity observation');
-        if (kind === 'lawField') {
-            if (e.holder !== undefined) bad('a law field is named by its id');
-        } else if (!named(e.holder) || !(Object.hasOwn(world.holders, e.holder) || created.has(e.holder))) {
-            bad(`expect names holder ${e.holder}, which the case world does not define or expect to create`);
-        }
-        if (createsHolder(e) && Object.hasOwn(world.holders, e.holder)) bad(`expected new holder ${e.holder} already exists`);
-    }
-    if (requireChange && !expect.some(e => e.direction !== 'unchanged')) bad('expect must name at least one change');
-}
-
-const readTerm = (world, e) => {
-    if (e.lawField !== undefined) {
-        const field = world.laws.find(f => f.id === e.lawField);
-        if (!field) return null;
-        const {scope, kind, params, until} = field;
-        return {scope, kind, params, ...(until === undefined ? {} : {until})};
-    }
-    if (e.exists) return Object.hasOwn(world.holders, e.holder);
-    if (e.creationParents) return readLineage(world, e.holder)
-        .find(row => row.act === 'create' && row.parents !== undefined)?.parents ?? null;
-    const h = world.holders[e.holder];
-    if (e.quantity !== undefined) return h?.quantities?.[e.quantity] ?? 0;
-    if (e.property !== undefined) return h?.properties?.[e.property] ?? null;
-    if (e.belief !== undefined) {
-        const records = recordsOf(world, e.holder);
-        return Object.hasOwn(records, e.belief) ? records[e.belief].believed.value ?? null : null;
-    }
-    return h?.place ?? null;
-};
-
-// Does the world, before to after, change as `expect` says?
-export function expectHolds(before, after, expect) {
-    return expect.every(e => {
-        const a = readTerm(before, e), b = readTerm(after, e);
-        const same = isDeepStrictEqual(a, b);
-        if (same !== (e.direction === 'unchanged')) return false;
-        if (e.direction === 'up' && !(b > a)) return false;
-        if (e.direction === 'down' && !(b < a)) return false;
-        if (e.amount !== undefined && Math.abs(b - a) !== e.amount) return false;
-        if (e.to !== undefined && !isDeepStrictEqual(b, e.to)) return false;
-        return true;
-    });
-}
-
-// Law families a working case may name. Each turns plain case data into {law, method, bindings}.
-const WORKING_FAMILIES = {
-    'lantern-fleece': async w => {
-        const {LANTERN_EVOLUTION, LANTERN_FLEECE_LAW, LANTERN_FLASH, LANTERN_MOONBEAM, LANTERN_WISP_GLOW} =
-            await import('../src/world_packs/meadow_lantern_fleece.js');
-        const ability = {'flash': LANTERN_FLASH, 'moonbeam': LANTERN_MOONBEAM, 'wisp-glow': LANTERN_WISP_GLOW};
-        const evolution = Object.hasOwn(LANTERN_EVOLUTION.methods, w.method) && LANTERN_EVOLUTION.methods[w.method];
-        const method = evolution || (Object.hasOwn(ability, w.method) && ability[w.method]);
-        if (!method) return {blocked: 'unknown Lantern Fleece working'};
-        return {law: evolution ? LANTERN_EVOLUTION.law : LANTERN_FLEECE_LAW, method, bindings: w.bindings};
-    },
-    'gu-coupled': async w => {
-        const {compileGuCoupledBeat} = await import('../src/gu_coupled_working.js');
-        return {...compileGuCoupledBeat(w.beat), bindings: w.bindings};
-    },
-    'gu-moonblade-contact': async w => {
-        const {GU_MOONBLADE_CONTACT_LAW, moonbladeContactWorking} = await import('../src/world_packs/gu_moonblade_contact.js');
-        return {law: GU_MOONBLADE_CONTACT_LAW, method: moonbladeContactWorking({supported: w.supported === true}), bindings: w.bindings};
-    },
-    'gu-formation-plate': async w => {
-        const {GU_FORMATION_PLATE_LAW, guFormationPlateMethod} = await import('../src/world_packs/gu_formation_plate.js');
-        return {law: GU_FORMATION_PLATE_LAW, method: guFormationPlateMethod(w.options), bindings: w.bindings};
-    },
-    'gu-teleport-array': async w => {
-        const {GU_FORMATION_PLATE_LAW, guTeleportArrayMethod} = await import('../src/world_packs/gu_formation_plate.js');
-        return {law: GU_FORMATION_PLATE_LAW, method: guTeleportArrayMethod(w.options), bindings: w.bindings};
-    },
-    'gu-three-heads': async w => {
-        const {GU_THREE_HEADS_LAW, threeHeadsWorking} = await import('../src/world_packs/gu_three_heads_working.js');
-        return {law: GU_THREE_HEADS_LAW, method: threeHeadsWorking(w.operation), bindings: w.bindings};
-    },
-    'gu-fixed-travel': async w => {
-        const {GU_FIXED_TRAVEL_LAW, fixedTravelWorking} = await import('../src/world_packs/gu_fixed_travel_working.js');
-        return {law: GU_FIXED_TRAVEL_LAW, method: fixedTravelWorking(w.options), bindings: w.bindings};
-    },
-    'gu-revised-giant-hand': async w => {
-        const {GU_GIANT_HAND_LAW, revisedGiantHandWorking, prepareGiantHandWorking, releaseGiantHandWorking} =
-            await import('../src/world_packs/gu_giant_hand_working.js');
-        const methods = {revised: revisedGiantHandWorking, prepare: prepareGiantHandWorking, release: releaseGiantHandWorking};
-        const name = w.method ?? 'revised';
-        if (!Object.hasOwn(methods, name)) return {blocked: 'unknown Giant Hand working'};
-        return {law: GU_GIANT_HAND_LAW, method: methods[name], bindings: w.bindings};
-    },
-    spell: async w => (await import('../src/spell_law.js')).spellEffectMethod(w.spells, w.method ? {id: w.method} : {}),
-    occlumency: async w => (await import('../src/world_packs/hp_occlumency.js')).occlumencyMethod(w),
-    process: async w => {
-        const {PROCESS_LAW, processMethod} = await import('../src/process_law.js');
-        return {law: PROCESS_LAW, method: processMethod(w.method), bindings: w.bindings};
-    },
-    brew: async w => ({law: (await import('../src/brew_law.js')).BREW_LAW, method: w.method, bindings: w.bindings}),
-    'brew-from-identification': async (w, engine) => {
-        const {selectIdentifiedBrewRecipe} = await import('../src/brew_dose_delivery.js');
-        const recipe = selectIdentifiedBrewRecipe(engine, w.request);
-        if (!recipe) return {blocked: 'no known recipe matches the observer’s full sample reading'};
-        return {law: (await import('../src/brew_law.js')).BREW_LAW, method: recipe.method, bindings: recipe.bindings};
-    },
-    'brew-dose': async w => ({law: (await import('../src/brew_dose_delivery.js')).BREW_DOSE_LAW, method: w.method, bindings: w.bindings}),
-    knowledge: async w => ({law: (await import('../src/knowledge_record.js')).KNOWLEDGE_LAW, method: w.method, bindings: w.bindings}),
-    evolution: async w => {
-        const {defineCreatureEvolution} = await import('../src/creature_evolution.js');
-        const {law, methods} = defineCreatureEvolution(w.definition);
-        return {law, method: methods[w.method], bindings: w.bindings};
-    },
-    'age-line': async w => (await import('../src/world_packs/hp_age_line.js')).ageLineWorking(w.bindings),
-    'body-haul': async w => (await import('../src/body_haul.js')).bodyHaulWorking(w.bindings, w.minutes),
-    gillyweed: async w => (await import('../src/world_packs/hp_gillyweed.js')).gillyweedWorking(w.bindings),
-    bubotuber: async w => (await import('../src/world_packs/hp_bubotuber.js')).bubotuberWorking(w.bindings),
-    'brew-dose-from-identification': async (w, engine) => {
-        const {BREW_DOSE_LAW, bindIdentifiedBrewRemedy} = await import('../src/brew_dose_delivery.js');
-        const remedy = bindIdentifiedBrewRemedy(engine, w.request, w.method);
-        if (!remedy) return {blocked: 'no stocked remedy and serving match the observer’s identification'};
-        return {law: BREW_DOSE_LAW,
-            method: remedy.method, bindings: {...w.bindings, flask: {kind: 'flask', id: remedy.flask}}};
-    },
-    'brew-assay': async w => ({law: (await import('../src/brew_assay.js')).BREW_ASSAY_LAW, method: w.method, bindings: w.bindings}),
-    'brew-from-assays': async (w, engine) => {
-        const {generateObservedBrewWorking} = await import('../src/brew_generation.js');
-        const plan = generateObservedBrewWorking(engine, w.request);
-        if (!plan) return {blocked: 'current assays and stock cannot supply the requested brew'};
-        return {law: (await import('../src/brew_law.js')).BREW_LAW, ...plan};
-    },
-};
-
-/** Run one case's plain data. Returns {state, detail}; hard failures throw. */
-export async function runCaseData(data, {id = 'case', typedState = '', moduleReachable = false} = {}) {
-    if (!data || typeof data !== 'object') throw new Error(`case ${id}: coverageCase must return an object`);
-    const suffix = data.basis ?? (/-(canon|authored|derived)$/.exec(typedState)?.[1]) ?? 'authored';
-    const timeline = data.timeline;
-    if (timeline === undefined) {
-        if (data.working === undefined && (!data.sentence || typeof data.sentence !== 'object')) throw new Error(`case ${id}: a case carries a sentence or a working or a timeline`);
-        if (data.working !== undefined && data.sentence !== undefined) throw new Error(`case ${id}: a case carries a sentence or a working, not both`);
-    } else if (!Array.isArray(timeline) || !timeline.length || data.sentence !== undefined || data.working !== undefined) {
-        throw new Error(`case ${id}: a timeline is a nonempty array and replaces the sentence or working`);
-    }
-    const {createEngineWorld, applyEngineOps, advanceEngineWorld, startEngineWorking, storeEngineWorking, fireEngineStored,
-        serializeEngineWorld, restoreEngineWorld} = await import('../src/engine_world.js');
-    const {WORLD_QUANTITIES, WORLD_PROPERTIES} = await import('../src/world_quantities.js');
-    const {landEffect} = await import('../src/effect_host.js');
-    const config = data.engine ?? {};
-    if (typeof config !== 'object' || Array.isArray(config) || !isDeepStrictEqual(config, JSON.parse(JSON.stringify(config))))
-        throw new Error(`case ${id}: engine must be a plain JSON configuration object`);
-    const {packs = ['w.sky'], settings, shared, dials, host = {}} = config;
-    // The reader maps a domain's own words (spell words) onto the shared vocabulary; it is asked for no other sentence.
-    const {sharedEffect} = await import('../src/spell_effects.js');
-    // The sky pack needs no caller settings and runs no clock laws in these
-    // instant probes. Keep the legacy vocabulary unless a case declares its own.
-    const ownPacks = packs.includes('l.creature_form')
-        ? [(await import('../src/creature_evolution.js')).CREATURE_FORM_PACK] : [];
-    if (packs.includes('l.lantern_coat') || packs.includes('l.lantern_moon_cycle')) {
-        const {LANTERN_COAT_PACK, LANTERN_MOON_CYCLE_PACK} = await import('../src/world_packs/meadow_lantern_fleece.js');
-        if (packs.includes('l.lantern_coat')) ownPacks.push(LANTERN_COAT_PACK);
-        if (packs.includes('l.lantern_moon_cycle')) ownPacks.push(LANTERN_MOON_CYCLE_PACK);
-    }
-    if (packs.includes('b.splash'))
-        ownPacks.push((await import('../src/world_substrate_packs/brew_splash.js')).createBrewSplashPack(settings?.['b.splash']));
-    if (packs.includes('b.body_steam'))
-        ownPacks.push((await import('../src/world_substrate_packs/brew_vapor.js')).BREW_BODY_STEAM);
-    if (packs.includes('b.cloud'))
-        ownPacks.push((await import('../src/world_substrate_packs/brew_vapor.js')).createBrewCloudPack(settings?.['b.cloud']));
-    if (packs.includes('hp.descent')) ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_DESCENT);
-    if (packs.includes('hp.camp-warning')) ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_CAMP_WARNING);
-    if (packs.includes('l.breathing')) {
-        const {BREATHING_PACK, GILLED_BREATHING_PACK} = await import('../src/world_substrate_packs/breathing.js');
-        ownPacks.push(settings?.['l.breathing']?.gills ? GILLED_BREATHING_PACK : BREATHING_PACK);
-    }
-    if (packs.includes('s.focus')) ownPacks.push((await import('../src/world_substrate_packs/spell_sustain.js')).SPELL_SUSTAIN_PACK);
-    if (packs.includes('hp.fiendfyre')) ownPacks.push((await import('../src/world_substrate_packs/fiendfyre.js')).FIENDFYRE_PACK);
-    if (packs.includes('hp.accidental-lift')) ownPacks.push((await import('../src/world_packs/hp_accidental_magic.js')).HP_ACCIDENTAL_LIFT);
-    if (packs.includes('hp.protean_coins'))
-        ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_PROTEAN_COINS);
-    if (packs.includes('hp.taboo'))
-        ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_TABOO);
-    if (packs.includes('hp.trace'))
-        ownPacks.push((await import('../src/world_packs/hp_effect_pack.js')).HP_TRACE);
-    if (packs.includes('g.travel-carry'))
-        ownPacks.push((await import('../src/world_packs/gu_fixed_travel_working.js')).guTravelCarryPack);
-    if (packs.includes('gu.self-cleansing'))
-        ownPacks.push((await import('../src/world_packs/gu_formation_plate.js')).guCleansingArrayPack);
-    if (packs.includes('g.three-heads'))
-        ownPacks.push((await import('../src/world_packs/gu_three_heads_working.js')).guThreeHeadsPack);
-    const engineConfig = {packs, ownPacks, settings, dials, shared: {
-        quantities: Object.values(WORLD_QUANTITIES), properties: Object.values(WORLD_PROPERTIES), ...shared,
-    }, host: {things: host.things ?? {}, costs: host.costs ?? null, effects: {keys: host.keys ?? {}, read: sharedEffect}}};
-    let engine = createEngineWorld({...data.world, ...engineConfig});
-    // What the host could not land or settle since the last look, as the runner's blocked states.
-    const seen = {};
-    const acknowledged = new Set();
-    const hostProblem = (step) => {
-        const expected = step.interruption;
-        let matched = false;
-        for (const [wid, entry] of Object.entries(engine.records.workings)) {
-            const fresh = entry.landed.slice(seen[wid] ?? 0);
-            seen[wid] = entry.landed.length;
-            const failed = entry.record.status === 'interrupted' && entry.record.receipts.at(-1);
-            if (failed && !acknowledged.has(wid)) {
-                if (expected?.working !== wid || expected.reason !== failed.reason)
-                    return {state: 'blocked:runner-working-interrupted', detail: `${wid} step ${failed.step}: ${failed.reason}`};
-                acknowledged.add(wid);
-                matched = true;
-            }
-            for (const [status, state] of [['needs-key', 'needs'], ['waiting', 'waiting'], ['unmapped', 'unmapped'], ['label-only', 'unmapped']]) {
-                const row = fresh.find(l => l.status === status);
-                if (row) return {state: `blocked:runner-${state}`, detail: `${wid} step ${row.step}: ${row.reason}`};
-            }
-        }
-        if (expected && !matched) return {state: 'blocked:runner-expect-mismatch',
-            detail: `${step.id}: the expected working interruption did not occur`};
-        return null;
-    };
-    const before = engine.world;
-    checkExpect(before, data.expect, id);
-    const names = new Set();
-    for (const step of timeline ?? [data]) {
-        let action = data.working !== undefined ? 'working' : 'sentence';
-        if (timeline) {
-            if (!named(step?.id) || names.has(step.id)) throw new Error(`case ${id}: timeline steps need distinct names`);
-            names.add(step.id);
-            const actions = ['sentence', 'ops', 'advanceTo', 'working', 'store', 'fire', 'restore', 'resumeBrewPour', 'resumeBrewStir',
-                'sealVowClause', 'awakenLanternHusk']
-                .filter(key => Object.hasOwn(step, key));
-            if (actions.length !== 1) throw new Error(`case ${id} step ${step.id}: expected one action`);
-            [action] = actions;
-        }
-        const stepBefore = engine.world;
-        const at = timeline ? ` step ${step.id}` : '';
-        const cause = step.cause ?? `coverage:${id}${at}`;
-        if (action === 'advanceTo') {
-            const advanced = advanceEngineWorld(engine, step.advanceTo);
-            if (advanced.pending !== false) return {state: 'blocked:runner-clock-advance',
-                detail: `${step.id}: advance to ${step.advanceTo} is pending at ${advanced.engine.world.clock}`};
-            engine = advanced.engine;
-        } else if (action === 'restore') {
-            if (step.restore !== true) throw new Error(`case ${id}${at}: restore must be true`);
-            const saved = serializeEngineWorld(engine);
-            engine = restoreEngineWorld(JSON.parse(JSON.stringify(saved)), {
-                ...engineConfig, host: {...engineConfig.host, laws: engine.host.laws},
-            });
-            if (!isDeepStrictEqual(serializeEngineWorld(engine), saved))
-                return {state: 'blocked:runner-restore', detail: `${step.id}: restored engine save differs`};
-        } else if (action === 'ops') {
-            engine = applyEngineOps(engine, step.ops, cause);
-        } else if (action === 'working') {
-            const bound = await WORKING_FAMILIES[step.working?.family]?.(step.working, engine);
-            if (!bound) return {state: 'blocked:runner-working-case', detail: `no law family named ${step.working?.family ?? '(none)'} is known to the runner`};
-            if (bound.blocked) return {state: 'blocked:runner-working-inputs', detail: `${step.id}: ${bound.blocked}`};
-            engine = startEngineWorking(engine, {...bound, id: step.working.id ?? `case.${timeline ? step.id : 'working'}`, payer: step.working.payer ?? null});
-        } else if (action === 'resumeBrewPour') {
-            const {resumeBrewPour} = await import('../src/engine_brew_resume.js');
-            engine = resumeBrewPour(engine, {...step.resumeBrewPour, id: `case.${step.id}`});
-        } else if (action === 'resumeBrewStir') {
-            const {resumeBrewStir} = await import('../src/engine_brew_resume.js');
-            engine = resumeBrewStir(engine, {...step.resumeBrewStir, id: `case.${step.id}`});
-        } else if (action === 'sealVowClause') {
-            const {sealVowClause} = await import('../src/world_packs/hp_unbreakable_vow.js');
-            const result = sealVowClause(engine, step.sealVowClause);
-            if (result.ok !== (step.refusal === undefined) || result.reason !== step.refusal)
-                return {state: 'blocked:runner-expect-mismatch', detail: `${step.id}: unexpected Vow response`};
-            engine = result.engine;
-        } else if (action === 'awakenLanternHusk') {
-            const {awakenLanternHusk} = await import('../src/world_packs/meadow_lantern_fleece.js');
-            const result = awakenLanternHusk(engine, step.awakenLanternHusk);
-            if (result.ok !== (step.refusal === undefined) || result.reason !== step.refusal)
-                return {state: 'blocked:runner-expect-mismatch', detail: `${step.id}: unexpected husk awakening response`};
-            engine = result.engine;
-        } else if (action === 'store') {
-            engine = storeEngineWorking(engine, step.store, {id: step.id, by: step.by ?? cause});
-        } else if (action === 'fire') {
-            engine = fireEngineStored(engine, step.fire, {stimulus: step.stimulus});
-        } else {
-            const run = landEffect(engine.rules, stepBefore, {sentence: step.sentence, details: step.details},
-                {keys: step.keys ?? {}, cause, by: step.by});
-            if (run.needs.length) return {state: 'blocked:runner-needs', detail: `needs ${run.needs.join(', ')}`};
-            if (run.waiting.length) return {state: 'blocked:runner-waiting',
-                detail: `waiting for an owner: ${run.waiting.map(effect => effect.kind).join(', ')}`};
-            if (run.status === 'unmapped') return {state: 'blocked:runner-unmapped', detail: run.reason};
-            engine = {...engine, world: run.world};
-        }
-        const problem = hostProblem(step);
-        if (problem) return problem;
-        if (timeline && step.expectObserved !== undefined) {
-            const {working, step: index, to} = step.expectObserved ?? {};
-            if (!named(working) || !Number.isSafeInteger(index) || index < 0 || !to ||
-                typeof to !== 'object' || Array.isArray(to) || !Object.keys(to).length)
-                throw new Error(`case ${id}${at}: expectObserved needs a working, step index and observed fields`);
-            const entry = Object.hasOwn(engine.records.workings, working) ? engine.records.workings[working] : undefined;
-            const receipt = entry?.record.receipts.find(row => row.step === index && row.ok);
-            if (!receipt?.observed || Object.entries(to).some(([key, value]) =>
-                !Object.hasOwn(receipt.observed, key) || !isDeepStrictEqual(receipt.observed[key], value)))
-                return {state: 'blocked:runner-expect-mismatch', detail: `${step.id}: working observation did not match`};
-        }
-        if (timeline && step.expect !== undefined) {
-            checkExpect(stepBefore, step.expect, id + at, false);
-            if (!expectHolds(stepBefore, engine.world, step.expect)) return {state: 'blocked:runner-expect-mismatch',
-                detail: `${step.id}: the world did not change as step expect says`};
-        }
-    }
-    if (!expectHolds(before, engine.world, data.expect)) return {state: 'blocked:runner-expect-mismatch', detail: 'the world did not change as expect says'};
-    return {state: `${moduleReachable ? 'runs' : 'expressed'}-${suffix}`, detail: moduleReachable ? 'case module reachable from src/main.js' : 'case module is library or test only'};
-}
-
-/** Load a row's case module and run it. Throws on a missing module, a missing export or a throwing case. */
-export async function runCase(row, {reachable = null, rootDir = root} = {}) {
-    const {module: mod, id} = row.case;
-    const file = path.resolve(rootDir, mod);
-    if (!fs.existsSync(file)) throw new Error(`case module ${mod} does not exist`);
-    let m;
-    try { m = await import(pathToFileURL(file).href); } catch (e) { throw new Error(`case module ${mod} failed to load: ${e.message}`); }
-    if (typeof m.coverageCase !== 'function') throw new Error(`case module ${mod} does not export coverageCase`);
-    let out;
-    try {
-        out = await runCaseData(m.coverageCase(id), {id, typedState: row.state, moduleReachable: (reachable ?? reachableFrom()).has(file)});
-    } catch (e) { throw new Error(`case ${mod}#${id} threw: ${e.message}`); }
-    return out;
-}
-
+import {expectHolds, runCaseData, runCase} from './case_runner.mjs';
+export {expectHolds, runCaseData, runCase};
 /** Compute every case row of every ledger. Returns {computed: Map ledger -> Map row id -> {state, detail}, problems}. */
 export async function computeLedgers(ledgers, {reachable = null, rootDir = root} = {}) {
     const computed = new Map(), problems = [];
@@ -546,9 +212,10 @@ export function computedCounts(rows, computed = new Map()) {
 
 export function readLedgers(dir = path.join(root, COVERAGE_DIR)) {
     if (!fs.existsSync(dir)) return [];
+    const slugs = canonicalSlugs();
     return fs.readdirSync(dir).filter(f => f.endsWith('.jsonl') && f !== 'worlds.jsonl').sort().map(f => {
         const name = f.replace(/\.jsonl$/, '');
-        return {name, file: `${COVERAGE_DIR}/${f}`, ...parseLedger(fs.readFileSync(path.join(dir, f), 'utf8'), {name: f})};
+        return {name, file: `${COVERAGE_DIR}/${f}`, ...parseLedger(fs.readFileSync(path.join(dir, f), 'utf8'), {name: f, slugs})};
     });
 }
 
@@ -810,9 +477,38 @@ export function readWorlds() {
     return fs.existsSync(file) ? fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)) : [];
 }
 
+// PSA25: the headline. Per world, computed runs and expressed over its things (rows that are not not-a-thing), with the
+// typed runs label the owners once wrote shown beside it as `typed` (rows demoted to catalogued keep it in `typed`).
+export function worldHeadline(ledgers, computed = new Map(), worlds = readWorlds()) {
+    const owner = new Map();
+    for (const w of worlds) for (const c of Object.values(w.cells ?? {})) for (const l of [c.ledger, ...(c.also ?? [])]) if (l) owner.set(l, w.name);
+    const by = new Map();
+    for (const l of ledgers) {
+        const name = owner.get(l.name) ?? l.name;
+        const w = by.get(name) ?? by.set(name, {name, things: 0, runs: 0, expressed: 0, typed: 0}).get(name);
+        const comp = computed.get(l.name) ?? new Map();
+        for (const r of l.rows) {
+            if (/^not-a-thing/.test(r.state)) continue;
+            w.things++;
+            const c = comp.get(r.id)?.state ?? '';
+            if (/^runs-/.test(c)) w.runs++;
+            else if (/^expressed-/.test(c)) w.expressed++;
+            if (/^runs-/.test(r.state) || /^runs-/.test(r.typed ?? '')) w.typed++;
+        }
+    }
+    return [...by.values()].sort((a, b) => b.things - a.things || a.name.localeCompare(b.name));
+}
+const pct = (n, d) => d ? `${Math.round(n / d * 1000) / 10}%` : '0%';
+
 export function renderReadme(ledgers, {computed = new Map(), reach = null, held = new Map()} = {}) {
+    const head = worldHeadline(ledgers, computed), tot = head.reduce((a, w) => ({things: a.things + w.things, runs: a.runs + w.runs, expressed: a.expressed + w.expressed, typed: a.typed + w.typed}), {things: 0, runs: 0, expressed: 0, typed: 0});
     const lines = ['# Coverage ledgers', '',
-        '*Generated by `node scripts/coverage_report.mjs`; do not edit by hand. Format and states: [plan CV1-CV4](../PROCEDURAL_FOUNDATION_PLAN.md#coverage-ledgers-cv). Each corpus owner writes its own `<corpus>.jsonl`. `npm run check:coverage` fails only on malformed rows; the percentages are a report, not a gate.*', '',
+        '*Generated by `node scripts/coverage_report.mjs`; do not edit by hand. Format and states: [plan CV1-CV4](../PROCEDURAL_FOUNDATION_PLAN.md#coverage-ledgers-cv). Each corpus owner writes its own `<corpus>.jsonl`. `npm run check:coverage` fails on malformed rows, a `runs-*` row with no executing case (PSA25) and case disagreements; the percentages are a report, not a gate.*', '',
+        '## Headline: computed runs and expressed per world (PSA25)', '',
+        '*`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world\'s things (rows that are not `not-a-thing`).*', '',
+        `All worlds: ${tot.things} things, computed runs ${tot.runs} (${pct(tot.runs, tot.things)}), computed expressed ${tot.expressed} (${pct(tot.expressed, tot.things)}), typed ${tot.typed} (${pct(tot.typed, tot.things)}).`, '',
+        '| World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: |',
+        ...head.map(w => `| ${w.name} | ${w.things} | ${w.runs} | ${pct(w.runs, w.things)} | ${w.expressed} | ${pct(w.expressed, w.things)} | ${w.typed} |`), '',
         '## Counts', '',
         '| Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |',
         '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |'];
@@ -824,7 +520,7 @@ export function renderReadme(ledgers, {computed = new Map(), reach = null, held 
         lines.push(`| [${name}](${name}.jsonl) | ${d.owner ?? ''} | ${d.expected ?? 'to build'} | ${c.total} | ${c['runs-canon']} | ${c['runs-authored']} | ${c['runs-derived']} | ${c.blocked} | ${c['not-a-thing']} | ${c.unclassified} | ${c.classifiedShare}% | ${c.runsShare}% |`);
     }
     lines.push('', '## Typed and computed, side by side (PC9, PC10)', '',
-        '*Typed states are the owners\' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Whether headline numbers may fall is Weibao\'s call, so nothing is rewritten.*', '',
+        '*Typed states are the owners\' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Rows typed `runs-*` with no case were rewritten to `catalogued` (PSA25, PSA34) and keep the label in `typed`, so "Typed runs, no case" is now zero and `check:coverage` fails on a new one.*', '',
         '| Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |', '| --- | ---: | ---: | ---: | ---: |');
     for (const l of ledgers) {
         const k = computedCounts(l.rows, computed.get(l.name));
@@ -846,7 +542,7 @@ export function renderReadme(ledgers, {computed = new Map(), reach = null, held 
         '```', '',
         '- `state`: `runs-canon`, `runs-authored`, `runs-derived`, `blocked:<rule>`, `not-a-thing:<reason>` or `unclassified` (CV2). Rules and reasons are short slugs, such as `blocked:PGB2` or `not-a-thing:alias`.',
         '- `runs-derived` and `expressed-derived` (PWC20): the value comes from a world rule, not a source that states it, and the row carries `derived: {"rule": "<rule id>", "inputs": [...]}`. The runs share counts canon and authored only, so derivation shows apart.',
-        '- A `runs-*` row names an existing test file in `test` (optionally `#test name`).',
+        '- A `runs-*` row carries a `case` that executes (PSA25) and names an existing test file in `test` (optionally `#test name`). Without a case the row is `catalogued` and the old label stays in `typed`.',
         '- `catalogued` is a typed state for identity parts with a source and no executed effect. `expressed-*` is computed by the runner; a row carrying `case` is the one place it is typed, because the runner checks it there.',
         '- `case`: optional `{"module": "<repo-relative js>", "id": "<case id>"}`; the module exports `coverageCase(id)` (shape in the header of `scripts/coverage_report.mjs`). `check:coverage` fails when a typed state disagrees with the computed one, a case module is missing or lacks the export, or a case throws.',
         '- `mechanisms`: the owners the thing appears on (SC4), by chat letter or owner name.', '');
@@ -864,6 +560,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         const c = countLedger(l.rows), k = computedCounts(l.rows, computed.get(l.name));
         console.log(`${l.name}: ${c.total} rows, ${c.unclassified} unclassified, runs ${c.runsShare}%; computed expressed ${k.expressed}, runs ${k.runs}, typed runs without case ${k.noCase}`);
     }
+    const warnings = ledgers.flatMap(l => l.warnings ?? []);
+    if (warnings.length) console.error(`WARN: ${warnings.length} blocked slugs outside the map\n${warnings.slice(0, 20).join('\n')}${warnings.length > 20 ? `\n... ${warnings.length - 20} more` : ''}`);
     if (problems.length) { console.error(problems.join('\n')); console.error(`FAIL: ${problems.length} problems`); process.exit(1); }
     if (!argv.includes('--check')) {
         const files = srcFiles();

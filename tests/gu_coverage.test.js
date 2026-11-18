@@ -330,7 +330,7 @@ test('legacy chapter-checked working rows still quote through the Gu working law
 });
 
 test('every wiki-layer runs row runs on an ability derived from its labels', () => {
-    const rows = kinds.filter(entry => entry.layer === 'wiki' && entry.state.startsWith('runs'));
+    const rows = kinds.filter(entry => entry.layer === 'wiki' && (entry.typed ?? entry.state).startsWith('runs')); // typed: the label a no-case row kept (PSA25)
     assert.ok(rows.length > 300);
     for (const row of rows) {
         const ability = derivedAbilityFrom(row);
@@ -384,7 +384,7 @@ test('every runs move quotes and settles through typed composition, and blocked 
 test('claim-checked move leads run only on chapter-placed roles whose kinds are catalogued (GKM427)', () => {
     const checks = JSON.parse(readFileSync(new URL('../docs/coverage/ri_move_claim_checks.json', import.meta.url), 'utf8'));
     const inMove = verdict => verdict === 'core' || verdict === 'support';
-    const running = moves.filter(row => row.id.startsWith('lead:') && row.state.startsWith('runs'));
+    const running = moves.filter(row => row.id.startsWith('lead:') && (row.typed ?? row.state).startsWith('runs'));
     assert.ok(running.length >= 7);
     for (const row of running) {
         const check = checks.leads[row.id];

@@ -8,6 +8,7 @@
 // Keys: OPENAI_API_KEY="$(security find-generic-password -a "$USER" -s openai-api-yairpg -w)" (header of label_runner.mjs).
 // The private Gu review index is gitignored; the built prefix text and its sha are committed so a rerun is comparable (PWC34).
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
+import {demoteTypedRuns} from './typed_runs.mjs';
 import {join} from 'node:path';
 import {createHash} from 'node:crypto';
 import {confidenceOf} from './derivation_confidence.mjs';
@@ -200,6 +201,8 @@ export function screened() {
 // guess for the pairs it covers; a pair with no verdict keeps the old rule, so a rerun without new judging gives the same ledger.
 export const SAMENESS = `${DIR}gu_sameness.json`;
 function ledger() {
+    // The raw replies live in the gitignored work folder; with them missing the build would write an empty ledger.
+    if (!replies().answered && !replies("haiku").answered) throw new Error(`no generator replies under ${WORK}; the committed ${LEDGER} stays as is (its raw replies were lost 2026-11-17, so it is the source now)`);
     const {frozen, canon, gu, promptHash, list} = screened();
     const verdicts = existsSync(join(root, SAMENESS)) ? rd(SAMENESS).verdicts : {};
     // PWC49: a generated Gu takes its rank from the family-median rule (derive_gu_ranks.mjs); the model's own rank stays as a note.
@@ -217,9 +220,9 @@ function ledger() {
         if (stem) seen.add(stem);
         const parts = {verb: g.verb, object: g.object, target: g.target, time: g.time, carrier: 'gu', cost: g.cost, limits: []};
         const built = assembleEffect(guEffects, parts);
-        let state = 'runs-derived', blockedBy = null;
+        let state = 'runs-derived', blockedBy = null, needsInput = null;
         if (!built.ok) blockedBy = `grammar-${slug(built.receipt.violations[0]?.rule ?? built.receipt.violations[0]?.kind ?? 'invalid')}`;
-        else if (g.needs) blockedBy = `needs-${slug(g.needs)}`;
+        else if (g.needs) { blockedBy = 'needs-material'; needsInput = g.needs; }
         else if (built.value.derived.needs?.length) blockedBy = `key-${slug(built.value.derived.needs[0])}`;
         if (blockedBy) state = `blocked:${blockedBy}`;
         const owner = OBJECT_OWNER[g.object] ?? 'W';
@@ -229,13 +232,14 @@ function ledger() {
             note: `${g.name}. Path ${g.path}, rank ${rk.rank}, ${g.verb} ${g.object} on ${g.target}, ${g.time}, pays ${g.cost}. ${g.effect} Nearest canon Gu: ${best?.name ?? 'none'} (name overlap ${Math.round(bestJ * 100) / 100}). Generated, not canon.`,
             ...(state === 'runs-derived' ? {derived: {rule: 'gu.generated.concept', inputs: [g.concept, promptHash], confidence: confidenceOf('gu.generated.concept')}} : {}),
             tier: 'generated', model: g.model, concept: g.concept, promptHash, nearest: best?.id ?? null,
+            ...(needsInput ? {needs: String(needsInput).toLowerCase()} : {}),
             ...(variantOf ? {variant_of: variantOf} : {}), rank: rk.rank, rankBasis: rk.basis, modelRank: g.rank});
     }
     rows.sort((a, b) => a.id.localeCompare(b.id));
     const ids = new Set(); for (const r of rows) { let id = r.id, n = 2; while (ids.has(id)) id = `${r.id}-${n++}`; r.id = id; ids.add(id); }
-    writeFileSync(join(root, LEDGER), rows.map(r => JSON.stringify(r)).join('\n') + '\n');
+    writeFileSync(join(root, LEDGER), rows.map(r => JSON.stringify(demoteTypedRuns(r))).join('\n') + '\n');
     writeFileSync(join(root, WORK, 'gu_generated_dropped.json'), JSON.stringify(dropped));
-    const states = {}; for (const r of rows) { const k = /^blocked:needs-/.test(r.state) ? 'blocked:needs-*' : r.state; states[k] = (states[k] ?? 0) + 1; }
+    const states = {}; for (const r of rows) { const k = r.state; states[k] = (states[k] ?? 0) + 1; }
     console.log(JSON.stringify({generated: gu.filter(x => !x.held).length, kept: rows.length, dropped: dropped.length, dropReasons: share(dropped, d => d.why), states}));
 }
 
