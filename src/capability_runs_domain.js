@@ -1,6 +1,7 @@
 import {registerDomain} from './domain_registry.js';
 import {readPort} from './ui_ports.js';
 import {serializeEngineWorld} from './engine_world.js';
+import {withLandingEntry} from './effect_host.js';
 import {createCapabilityRunsPanel} from './ui/capability_runs.js';
 import {fangLiquorWormRun} from './world_packs/gu_liquor_worm_run.js';
 import {kleinGlacisRun} from './world_packs/lotm_bogda_consultation.js';
@@ -44,7 +45,7 @@ function commit(id, action) {
     const run = runs[id];
     if (!run) throw Error('Choose a capability run.');
     const current = saved.runs[id];
-    const engine = action === 'begin' && !current ? run.create() : current && action !== 'begin' ? run.act(run.restore(current), action) : null;
+    const engine = withLandingEntry({entry: 'capability-run'}, () => action === 'begin' && !current ? run.create() : current && action !== 'begin' ? run.act(run.restore(current), action) : null);
     if (!engine) throw Error('That action is unavailable.');
     const previous = saved;
     saved = {...saved, runs: {...saved.runs, [id]: serializeEngineWorld(engine)}};

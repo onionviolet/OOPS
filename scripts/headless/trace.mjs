@@ -260,7 +260,7 @@ export async function listStarts() {
  * Record one trace. Options: seed (1), minutes (2880 game minutes), actions (300), dt (10).
  * Returns {meta, steps, end, records}. Throws {skip:true} when the start is not offered.
  */
-export async function recordTrace(startId, {seed = 1, minutes = 2880, actions = 300, dt = 10, panelDt = 1, policy = 'unseen-first'} = {}) {
+export async function recordTrace(startId, {seed = 1, minutes = 2880, actions = 300, dt = 10, panelDt = 1, policy = 'unseen-first', deny = null} = {}) {
     if(!['unseen-first', 'work'].includes(policy)) throw new Error(`Unknown policy ${policy}`);
     const bot = await leadBot(null, {seed, wallStart: Date.UTC(2026, 0, 1, 12)});
     const g = bot.game, records = [], errors = [];
@@ -285,7 +285,7 @@ export async function recordTrace(startId, {seed = 1, minutes = 2880, actions = 
         const groupOf = el => {for(let e = el.parentElement; e && e !== g.document.body; e = e.parentElement) if([...e.querySelectorAll('button')].filter(b => /^choose /i.test(b.textContent.trim())).length > 1) return e; return el.parentElement;}; const workAt = new Map();
         const chooseWork = () => {
             const cands = g.clickables().filter(c => !c.el.matches?.('input, select, textarea, a, strong, section.workspace-module') && !c.el.closest?.(CHROME)
-                && !DENY_KEY.test(c.key) && !DENY_TEXT.test(c.text) && !c.el.closest?.(NAV));
+                && !DENY_KEY.test(c.key) && !DENY_TEXT.test(c.text) && !deny?.test(c.key) && !c.el.closest?.(NAV));
             const end = cands.find(c => c.key === '#action_end_div');
             if(end) {
                 // One paid round is gathering_time_needed worked minutes (a Village job: 120); stop just after it.
@@ -323,7 +323,7 @@ export async function recordTrace(startId, {seed = 1, minutes = 2880, actions = 
         };
         const chooseDefault = () => {
             const cands = g.clickables().filter(c => !c.el.matches?.('input, select, textarea, a, strong, section.workspace-module') && !c.el.closest?.(CHROME)
-                && !DENY_KEY.test(c.key) && !DENY_TEXT.test(c.text));
+                && !DENY_KEY.test(c.key) && !DENY_TEXT.test(c.text) && !deny?.test(c.key));
             const fresh = cands.filter(c => !clickedSigs.has(sig(c)) && !c.el.closest?.(NAV));
             // Newly revealed controls first (a dialogue's choices, a started job's buttons), then the scene's own actions.
             const appeared = fresh.filter(c => !lastCands.has(sig(c)));

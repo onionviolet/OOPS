@@ -13,6 +13,11 @@ import {BE_SEER_SOURCE} from './book_world_lotm_be_seer.js';
 import {LOTM_IDS as I} from './book_world_lotm_ids.js';
 // The lead of this life (a mark belongs to the person who saw it, not to whoever plays next).
 export const LOTM_MIND_HOLDER = 'player.book.lotm.tingen';
+export const SUPERVISED_DOSE_THOUGHT = 'tingen-supervised-dose';
+export function supervisedDoseCondition(state) {
+    if(state?.actors?.player?.worldId !== I.world || !Number.isSafeInteger(state.clock)) return null;
+    return moodRows(LOTM_MIND_HOLDER, state.clock).find(row => row.key === SUPERVISED_DOSE_THOUGHT) ?? null;
+}
 // Producers by place-act id (the private cast pack's ids; lines are short authored paraphrases, PRS, not book text).
 const dread = line => ({kind: 'dread', line}), fasc = line => ({kind: 'fascination', line}), calm = line => ({kind: 'contentment', line});
 const SLEEP = {kind: 'sleep'};
@@ -87,6 +92,8 @@ export function lotmMindView(s) {
         if(m.stage === 'warned') lines.push(WORDS[kind].warned(m.lines));
         if(m.stage === 'route') lines.push(WORDS[kind].route(m.lines, m, b) + (m.passes ? ' If nothing more comes, the oldest of it fades before then.' : ''));
     }
+    const dose = supervisedDoseCondition(s);
+    if(dose) lines.push(dose.line);
     return {lines, stages};
 }
 // FBK: one Reports line when a kind reaches its forewarning or its route; the first read after load only records (no repeat on reload).
