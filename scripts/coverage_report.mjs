@@ -74,6 +74,7 @@ export const DENOMINATORS = {
     you_have_died_again_powers: {expected: null, owner: 'P', what: 'You Have Died Again: named powers from its taxonomy and a model listing (PWC3)'},
     speedrunning_multiverse_powers: {expected: null, owner: 'P', what: 'Speedrunning the Multiverse: named powers from a model listing over per-book notes (PWC3)'},
     hp_spells: {expected: 117, owner: 'S', what: 'spellbook records'},
+    jojo_powers: {expected: null, owner: 'P', what: 'JoJo Stands, Ripple (Hamon) techniques and Spin from the 2020 Fandom wiki dump read by Luna, plus novel-only abilities from the light novels (jojo-readers lane)'},
     worm_powers: {expected: null, owner: 'P', what: 'named Worm capes, Endbringers and Entities, and named Tinker devices, from reader claims, the cape table and the people index (PWC3)'},
     creatures: {expected: null, owner: 'L', what: "G's catalogue plus L's inventory"},
     rezero_powers: {expected: 204, owner: 'W', what: 'Re:Zero named powers: 178 powers and 26 names that are not (PWC3)'},

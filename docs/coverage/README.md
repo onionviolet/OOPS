@@ -6,7 +6,7 @@
 
 *`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world's things (rows that are not `not-a-thing`).*
 
-All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5%), typed 2123 (3.1%).
+All worlds: 71348 things, computed runs 376 (0.5%), computed expressed 1667 (2.3%), typed 2123 (3%).
 
 | World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -28,9 +28,11 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | The Dark Eye 5e (Aventuria) | 1397 | 0 | 0% | 20 | 1.4% | 0 |
 | Warhammer Age of Sigmar: the Mortal Realms (Soulbound) | 1353 | 0 | 0% | 35 | 2.6% | 0 |
 | Shadow Slave | 1237 | 0 | 0% | 45 | 3.6% | 0 |
+| Ward | 1217 | 0 | 0% | 0 | 0% | 0 |
 | Fate SRD | 1216 | 0 | 0% | 7 | 0.6% | 0 |
 | Ravenloft (Van Richten's Guide) | 1207 | 0 | 0% | 44 | 3.6% | 0 |
 | Lord of the Mysteries | 1112 | 208 | 18.7% | 0 | 0% | 208 |
+| A Certain Magical Index and Railgun | 1071 | 0 | 0% | 0 | 0% | 0 |
 | Cypher Reference Document | 1069 | 0 | 0% | 12 | 1.1% | 0 |
 | Warhammer: the Old World (WFRP 4e Up in Arms; core not yet read) | 991 | 0 | 0% | 9 | 0.9% | 0 |
 | Golarion (Inner Sea World Guide and Lost Omens World Guide) | 966 | 0 | 0% | 11 | 1.1% | 0 |
@@ -41,9 +43,11 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | Circle of Inevitability | 722 | 6 | 0.8% | 30 | 4.2% | 6 |
 | A Regressor's Tale of Cultivation | 698 | 0 | 0% | 14 | 2% | 0 |
 | Strixhaven (Curriculum of Chaos) | 677 | 0 | 0% | 31 | 4.6% | 0 |
+| Wish Upon the Stars | 648 | 0 | 0% | 0 | 0% | 0 |
 | Spelljammer (Adventures in Space) | 623 | 0 | 0% | 9 | 1.4% | 0 |
 | Planescape (Adventures in the Multiverse, 2023) | 559 | 0 | 0% | 13 | 2.3% | 0 |
 | Basic Roleplaying ORC | 513 | 0 | 0% | 6 | 1.2% | 0 |
+| JoJo's Bizarre Adventure | 376 | 0 | 0% | 0 | 0% | 0 |
 | Mother of Learning | 371 | 0 | 0% | 6 | 1.6% | 0 |
 | Worm | 279 | 0 | 0% | 0 | 0% | 0 |
 | Blades in the Dark SRD | 190 | 0 | 0% | 0 | 0% | 0 |
@@ -76,6 +80,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 0 | 18 | 29 | 0 | 100% | 0% |
 | [speedrunning_multiverse_powers](speedrunning_multiverse_powers.jsonl) | P | to build | 111 | 0 | 0 | 0 | 43 | 13 | 0 | 100% | 0% |
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 108 | 0 | 0 | 6 | 0 | 100% | 97.3% |
+| [jojo_powers](jojo_powers.jsonl) | P | to build | 376 | 0 | 0 | 0 | 216 | 0 | 0 | 100% | 0% |
 | [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 0 | 197 | 0 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
 | [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 0 | 94 | 26 | 0 | 100% | 0% |
@@ -267,6 +272,8 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | [theros_places](theros_places.jsonl) |  | to build | 131 | 0 | 0 | 0 | 23 | 0 | 0 | 100% | 0% |
 | [theros_powers](theros_powers.jsonl) |  | to build | 280 | 0 | 0 | 0 | 136 | 0 | 0 | 100% | 0% |
 | [theros_rules](theros_rules.jsonl) |  | to build | 86 | 0 | 0 | 0 | 51 | 0 | 0 | 100% | 0% |
+| [toaru_powers](toaru_powers.jsonl) |  | to build | 1071 | 0 | 0 | 0 | 304 | 0 | 0 | 100% | 0% |
+| [ward_powers](ward_powers.jsonl) |  | to build | 1217 | 0 | 0 | 0 | 349 | 0 | 0 | 100% | 0% |
 | [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 1216 | 0 | 0 | 0 | 283 | 16 | 0 | 100% | 0% |
 | [warhammer_40k_creatures](warhammer_40k_creatures.jsonl) |  | to build | 546 | 0 | 0 | 0 | 116 | 2 | 0 | 100% | 0% |
 | [warhammer_40k_institutions](warhammer_40k_institutions.jsonl) |  | to build | 653 | 0 | 0 | 0 | 24 | 14 | 0 | 100% | 0% |
@@ -285,6 +292,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | [wildemount_places](wildemount_places.jsonl) |  | to build | 473 | 0 | 0 | 0 | 13 | 1 | 0 | 100% | 0% |
 | [wildemount_powers](wildemount_powers.jsonl) |  | to build | 198 | 0 | 0 | 0 | 86 | 5 | 0 | 100% | 0% |
 | [wildemount_rules](wildemount_rules.jsonl) |  | to build | 99 | 0 | 0 | 0 | 41 | 11 | 0 | 100% | 0% |
+| [wus_powers](wus_powers.jsonl) |  | to build | 648 | 0 | 0 | 0 | 247 | 0 | 0 | 100% | 0% |
 
 ## Typed and computed, side by side (PC9, PC10)
 
@@ -398,6 +406,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | ironsworn_creatures | 0 | 0 | 0 | 0 |
 | ironsworn_items | 0 | 0 | 0 | 0 |
 | ironsworn_powers | 0 | 0 | 0 | 0 |
+| jojo_powers | 0 | 0 | 0 | 0 |
 | labyrinth_mad_god_powers | 0 | 1 | 0 | 0 |
 | legendary_mechanic_artifacts | 0 | 0 | 0 | 0 |
 | legendary_mechanic_powers | 0 | 8 | 0 | 0 |
@@ -492,6 +501,8 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | theros_places | 0 | 0 | 0 | 0 |
 | theros_powers | 0 | 10 | 0 | 0 |
 | theros_rules | 0 | 2 | 0 | 0 |
+| toaru_powers | 0 | 0 | 0 | 0 |
+| ward_powers | 0 | 0 | 0 | 0 |
 | warhammer_40k_artifacts | 0 | 9 | 0 | 0 |
 | warhammer_40k_creatures | 0 | 19 | 0 | 0 |
 | warhammer_40k_institutions | 0 | 3 | 0 | 0 |
@@ -511,6 +522,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | wildemount_powers | 0 | 8 | 0 | 0 |
 | wildemount_rules | 0 | 0 | 0 | 0 |
 | worm_powers | 0 | 0 | 0 | 0 |
+| wus_powers | 0 | 0 | 0 | 0 |
 | you_have_died_again_powers | 0 | 1 | 0 | 0 |
 
 ## Reachability from `src/main.js` (PC14)
@@ -558,7 +570,10 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | A Soldier's Life | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
 | Worm | book |  | worm_powers (279) | missing | missing | missing | missing | missing | missing | missing | missing | missing | 1 | 9 | 0 |
 | You Are Summoned | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
-| Wish Upon the Stars | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
+| Wish Upon the Stars | book |  | wus_powers (648) | missing | missing | missing | missing | missing | missing | missing | missing | missing | 1 | 9 | 0 |
+| JoJo's Bizarre Adventure | book |  | jojo_powers (403) | missing | missing | missing | missing | missing | missing | missing | missing | missing | 1 | 9 | 0 |
+| A Certain Magical Index and Railgun | book |  | toaru_powers (1071) | missing | missing | missing | missing | missing | missing | missing | missing | missing | 1 | 9 | 0 |
+| Ward | book |  | ward_powers (1217) | missing | missing | missing | missing | missing | missing | missing | missing | missing | 1 | 9 | 0 |
 | Godclads | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
 | The Perfect Run | book |  | perfect_run_powers (113) | missing | missing | missing | missing | missing | missing | missing | missing | missing | 1 | 9 | 0 |
 | Super Supportive | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
@@ -660,7 +675,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | Strixhaven (Curriculum of Chaos) | setting |  | strixhaven_powers (277) | strixhaven_artifacts (117) | missing | missing | strixhaven_creatures (158) | strixhaven_places (58) | strixhaven_institutions (42) | missing | missing | strixhaven_rules (37) | 6 | 4 | 0 |
 | Mystara (Gazetteers GAZ1-GAZ14) | setting |  | mystara_powers (542) | mystara_artifacts (542) | missing | missing | mystara_creatures (641) | mystara_places (792) | mystara_institutions (510) | missing | missing | mystara_rules (374) | 6 | 4 | 0 |
 
-109 worlds, 1090 cells: 189 ledgered, 744 missing with a source, 157 none.
+112 worlds, 1120 cells: 193 ledgered, 770 missing with a source, 157 none.
 
 ### Next cells
 
@@ -668,33 +683,33 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 
 | # | World | Corpus | Shared slugs | Weight | Source |
 | ---: | --- | --- | ---: | ---: | --- |
-| 1 | harry-potter | places | 25 | 626 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
-| 2 | legendary-mechanic | potions_and_recipes | 22 | 703 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 3 | lotm | materials | 22 | 671 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
-| 4 | shadow-slave | potions_and_recipes | 21 | 683 | paid reader claims 2026-11-01-ss |
-| 5 | circle-of-inevitability | materials | 20 | 709 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
-| 6 | fated-villain | potions_and_recipes | 20 | 692 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 7 | mother-of-learning | potions_and_recipes | 20 | 641 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 8 | regressors-tale | potions_and_recipes | 19 | 671 | paid reader claims 2026-11-01-rtoc |
-| 9 | reverend-insanity | potions_and_recipes | 19 | 543 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
-| 10 | aos-soulbound | potions_and_recipes | 17 | 672 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
-| 11 | eberron | potions_and_recipes | 17 | 672 | chapter text docs/research/tabletop-settings-2026-11-17/private/eberron (local, gitignored) |
-| 12 | forgotten-realms | potions_and_recipes | 17 | 672 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
-| 13 | numenera | potions_and_recipes | 17 | 672 | chapter text docs/research/tabletop-settings-2026-11-17/private/numenera (local, gitignored) |
-| 14 | planescape | potions_and_recipes | 17 | 672 | chapter text docs/research/tabletop-settings-2026-11-17/private/planescape (local, gitignored) |
-| 15 | strixhaven | potions_and_recipes | 17 | 672 | chapter text docs/research/tabletop-settings-2026-11-17/private/strixhaven (local, gitignored) |
-| 16 | the-strange | potions_and_recipes | 17 | 672 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-strange (local, gitignored) |
-| 17 | theros | potions_and_recipes | 17 | 672 | chapter text docs/research/tabletop-settings-2026-11-17/private/theros (local, gitignored) |
-| 18 | warhammer-40k | potions_and_recipes | 17 | 672 | wiki dump ~/.codex/research/wikis/warhammer40k.fandom.com/dump |
-| 19 | speedrunning-multiverse | potions_and_recipes | 17 | 485 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 20 | mystara | potions_and_recipes | 16 | 644 | chapter text docs/research/tabletop-settings-2026-11-17/private/mystara (local, gitignored) |
-| 21 | ravenloft | potions_and_recipes | 16 | 644 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravenloft (local, gitignored) |
-| 22 | wildemount | potions_and_recipes | 16 | 644 | chapter text docs/research/tabletop-settings-2026-11-17/private/wildemount (local, gitignored) |
-| 23 | eclipse-phase | potions_and_recipes | 16 | 629 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
-| 24 | worm | artifacts | 16 | 346 | paid reader claims 2026-11-01-worm |
-| 25 | spelljammer | potions_and_recipes | 15 | 617 | chapter text docs/research/tabletop-settings-2026-11-17/private/spelljammer (local, gitignored) |
+| 1 | jojo | artifacts | 41 | 871 | chapter text docs/research/novels/jojo-collection-2026-11-18 (local, gitignored) |
+| 2 | harry-potter | places | 25 | 651 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
+| 3 | legendary-mechanic | potions_and_recipes | 22 | 731 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 4 | lotm | materials | 22 | 700 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
+| 5 | shadow-slave | potions_and_recipes | 21 | 708 | paid reader claims 2026-11-01-ss |
+| 6 | circle-of-inevitability | materials | 20 | 735 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
+| 7 | fated-villain | potions_and_recipes | 20 | 718 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 8 | mother-of-learning | potions_and_recipes | 20 | 668 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 9 | reverend-insanity | potions_and_recipes | 20 | 563 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
+| 10 | regressors-tale | potions_and_recipes | 19 | 696 | paid reader claims 2026-11-01-rtoc |
+| 11 | aos-soulbound | potions_and_recipes | 17 | 692 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
+| 12 | eberron | potions_and_recipes | 17 | 692 | chapter text docs/research/tabletop-settings-2026-11-17/private/eberron (local, gitignored) |
+| 13 | forgotten-realms | potions_and_recipes | 17 | 692 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
+| 14 | numenera | potions_and_recipes | 17 | 692 | chapter text docs/research/tabletop-settings-2026-11-17/private/numenera (local, gitignored) |
+| 15 | planescape | potions_and_recipes | 17 | 692 | chapter text docs/research/tabletop-settings-2026-11-17/private/planescape (local, gitignored) |
+| 16 | strixhaven | potions_and_recipes | 17 | 692 | chapter text docs/research/tabletop-settings-2026-11-17/private/strixhaven (local, gitignored) |
+| 17 | the-strange | potions_and_recipes | 17 | 692 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-strange (local, gitignored) |
+| 18 | theros | potions_and_recipes | 17 | 692 | chapter text docs/research/tabletop-settings-2026-11-17/private/theros (local, gitignored) |
+| 19 | warhammer-40k | potions_and_recipes | 17 | 692 | wiki dump ~/.codex/research/wikis/warhammer40k.fandom.com/dump |
+| 20 | speedrunning-multiverse | potions_and_recipes | 17 | 510 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 21 | mystara | potions_and_recipes | 16 | 664 | chapter text docs/research/tabletop-settings-2026-11-17/private/mystara (local, gitignored) |
+| 22 | ravenloft | potions_and_recipes | 16 | 664 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravenloft (local, gitignored) |
+| 23 | wildemount | potions_and_recipes | 16 | 664 | chapter text docs/research/tabletop-settings-2026-11-17/private/wildemount (local, gitignored) |
+| 24 | eclipse-phase | potions_and_recipes | 16 | 648 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
+| 25 | worm | artifacts | 16 | 361 | paid reader claims 2026-11-01-worm |
 
-90 worlds have a next cell and 744 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
+93 worlds have a next cell and 770 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
 
 ## Held-out canon scoring (PC72, tuned on / held out / matched)
 
@@ -808,6 +823,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | ironsworn_creatures | 0 | 0 | | | | | none yet |
 | ironsworn_items | 0 | 0 | | | | | none yet |
 | ironsworn_powers | 0 | 0 | | | | | none yet |
+| jojo_powers | 0 | 0 | | | | | none yet |
 | labyrinth_mad_god_powers | 0 | 0 | | | | | none yet |
 | legendary_mechanic_artifacts | 0 | 0 | | | | | none yet |
 | legendary_mechanic_powers | 0 | 0 | | | | | none yet |
@@ -902,6 +918,8 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | theros_places | 0 | 0 | | | | | none yet |
 | theros_powers | 0 | 0 | | | | | none yet |
 | theros_rules | 0 | 0 | | | | | none yet |
+| toaru_powers | 0 | 0 | | | | | none yet |
+| ward_powers | 0 | 0 | | | | | none yet |
 | warhammer_40k_artifacts | 0 | 0 | | | | | none yet |
 | warhammer_40k_creatures | 0 | 0 | | | | | none yet |
 | warhammer_40k_institutions | 0 | 0 | | | | | none yet |
@@ -921,6 +939,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | wildemount_powers | 0 | 0 | | | | | none yet |
 | wildemount_rules | 0 | 0 | | | | | none yet |
 | worm_powers | 0 | 0 | | | | | none yet |
+| wus_powers | 0 | 0 | | | | | none yet |
 | you_have_died_again_powers | 0 | 0 | | | | | none yet |
 
 ### hp_potions
@@ -1158,11 +1177,13 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | pf1_spells | area-field | 244 |
 | dnd_srd_items | item-bound-power | 225 |
 | gu_kinds | rank-unknown | 221 |
+| ward_powers | power-interaction | 213 |
 | shadow_slave_creatures | effect-unknown | 202 |
 | fated_villain_artifacts | effect-unknown | 180 |
 | legendary_mechanic_artifacts | effect-unknown | 179 |
 | gu_generated | grammar-verb-object | 176 |
 | warhammer_40k_powers | effect-unknown | 172 |
+| toaru_powers | power-interaction | 169 |
 | numenera_artifacts | area-field | 151 |
 | ars_magica_items | item-bound-power | 150 |
 | pf1_items | conceal-or-sense | 149 |
@@ -1176,6 +1197,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | pf1_spells | mind-state | 112 |
 | gu_generated | needs-material | 109 |
 | ars_magica_powers | divination-fate | 107 |
+| wus_powers | power-interaction | 107 |
 | pf1_spells | body-form | 106 |
 | mystara_powers | effect-unknown | 106 |
 | circle_of_inevitability_artifacts | effect-unknown | 104 |
@@ -1200,6 +1222,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | pf1_items | protection-field | 84 |
 | pf1_spells | protection-field | 84 |
 | lotm_powers | effect-unknown | 82 |
+| toaru_powers | concept-law | 81 |
 | eberron_artifacts | effect-unknown | 80 |
 | warhammer_40k_artifacts | effect-unknown | 79 |
 | hp_objects | effect-unknown | 77 |
@@ -1214,6 +1237,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | pf1_spells | mind-binding | 73 |
 | eclipse_phase_rules | soul-state | 71 |
 | fated_villain_powers | effect-unknown | 70 |
+| ward_powers | power-transfer | 68 |
 | numenera_powers | effect-unknown | 67 |
 | the_strange_artifacts | item-bound-power | 67 |
 | warhammer_40k_artifacts | area-field | 66 |
@@ -1243,6 +1267,8 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | warhammer_40k_artifacts | item-bound-power | 54 |
 | warhammer_40k_powers | mind-binding | 54 |
 | aos_soulbound_powers | area-field | 53 |
+| ward_powers | concept-law | 53 |
+| wus_powers | concept-law | 53 |
 | aos_soulbound_powers | effect-unknown | 53 |
 | theros_powers | effect-unknown | 53 |
 | dnd5e_2014_powers | conceal-or-sense | 52 |
@@ -1258,6 +1284,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | pf1_conditions | area-field | 47 |
 | regressors_tale_powers | area-field | 47 |
 | dnd5e_2014_creatures | power-interaction | 47 |
+| toaru_powers | power-transfer | 47 |
 | dnd5e_2014_class_features | protection-field | 47 |
 | fate_powers | protection-field | 47 |
 | hp_potions | body-door | 46 |
@@ -1267,6 +1294,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | ars_magica_spells | item-bound-power | 45 |
 | numenera_artifacts | material-row | 45 |
 | lotm_powers | mind-binding | 45 |
+| wus_powers | power-transfer | 45 |
 | warhammer_40k_creatures | effect-unknown | 44 |
 | numenera_powers | form-transformation | 44 |
 | dnd5e_2014_powers | negative-effect-drift | 44 |
@@ -1318,6 +1346,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd5e_2014_powers | mind-binding | 35 |
 | eclipse_phase_powers | soul-state | 35 |
 | mother_of_learning_powers | soul-state | 35 |
+| wus_powers | wish-grant | 35 |
 | pf1_spells | dimension-travel | 34 |
 | wfrp4e_powers | effect-unknown | 34 |
 | numenera_powers | item-bound-power | 34 |
@@ -1387,6 +1416,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd5e_2014_class_features | area-field | 27 |
 | dnd_srd_spells | conceal-or-sense | 27 |
 | circle_of_inevitability_powers | divination-fate | 27 |
+| jojo_powers | form-transformation | 27 |
 | dnd5e_2014_creatures | mind-state | 27 |
 | dnd_srd_class_features | power-granting | 27 |
 | dnd5e_2014_items | protection-field | 27 |
@@ -1492,6 +1522,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd_srd_powers | area-field | 19 |
 | the_strange_artifacts | area-field | 19 |
 | ars_magica_creatures | conceal-or-sense | 19 |
+| jojo_powers | concept-law | 19 |
 | ars_magica_spells | creature-control | 19 |
 | dnd5e_2014_class_features | creature-control | 19 |
 | aos_soulbound_powers | divination | 19 |
@@ -1582,6 +1613,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | gu_kinds | body-form | 15 |
 | worm_powers | body-form | 15 |
 | dnd_srd_creatures | containment-rule | 15 |
+| jojo_powers | creature-control | 15 |
 | fate_powers | dimension-travel | 15 |
 | ravenloft_powers | divination | 15 |
 | theros_creatures | effect-unknown | 15 |
@@ -1632,6 +1664,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | hp_creatures | power-interaction | 14 |
 | the_dark_eye_powers | power-interaction | 14 |
 | warhammer_40k_artifacts | power-interaction | 14 |
+| jojo_powers | power-transfer | 14 |
 | wildemount_creatures | power-transfer | 14 |
 | ars_magica_conditions | protection-field | 14 |
 | cypher_items | protection-field | 14 |
@@ -1641,6 +1674,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | lotm_powers | soul-state | 14 |
 | warhammer_40k_creatures | soul-state | 14 |
 | numenera_creatures | spatial-storage | 14 |
+| ward_powers | time-loop | 14 |
 | aos_soulbound_creatures | area-field | 13 |
 | ars_magica_creatures | area-field | 13 |
 | cypher_items | area-field | 13 |
@@ -1678,6 +1712,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd5e_2014_items | area-field | 12 |
 | dnd_srd_items | area-field | 12 |
 | fated_villain_powers | area-field | 12 |
+| jojo_powers | area-field | 12 |
 | ars_magica_conditions | body-code-decay | 12 |
 | dnd_srd_powers | body-form | 12 |
 | ars_magica_powers | bond-slots | 12 |
@@ -1775,6 +1810,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | lotm_powers | blueprint-craft | 10 |
 | dnd5e_2014_spells | body-code-decay | 10 |
 | dnd_srd_class_features | conceal-or-sense | 10 |
+| jojo_powers | conceal-or-sense | 10 |
 | pf1_spells | construct-upkeep | 10 |
 | numenera_artifacts | containment-rule | 10 |
 | the_strange_rules | containment-rule | 10 |
@@ -1883,6 +1919,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | numenera_powers | spatial-storage | 9 |
 | shadow_slave_artifacts | spatial-storage | 9 |
 | pf1_spells | spirit-contract-judgement | 9 |
+| jojo_powers | time-loop | 9 |
 | dnd5e_2014_surge_tables | time-manipulation | 9 |
 | pf1_items | tinker-device | 9 |
 | brp_items | area-field | 8 |
@@ -1933,6 +1970,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | stars_without_number_powers | negative-effect-drift | 8 |
 | the_strange_rules | negative-effect-drift | 8 |
 | hp_potions | object-surface | 8 |
+| jojo_powers | portal-space | 8 |
 | ars_magica_spells | power-granting | 8 |
 | a_novel_concept_powers | power-interaction | 8 |
 | brp_powers | power-interaction | 8 |
@@ -1972,6 +2010,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | ars_magica_spells | body-door | 7 |
 | dnd5e_2014_class_features | body-form | 7 |
 | dnd_srd_spells | body-form | 7 |
+| jojo_powers | body-form | 7 |
 | pf1_spells | bond-slots | 7 |
 | dnd5e_2014_backgrounds_species | conceal-or-sense | 7 |
 | dnd5e_2014_powers | construct-upkeep | 7 |
@@ -2011,6 +2050,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | the_strange_places | mind-binding | 7 |
 | warhammer_40k_institutions | mind-binding | 7 |
 | ars_magica_spells | mind-ennoblement | 7 |
+| jojo_powers | mind-state | 7 |
 | mm3e_powers | mind-state | 7 |
 | ars_magica_creatures | negative-effect-drift | 7 |
 | numenera_powers | negative-effect-drift | 7 |
@@ -2027,6 +2067,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd_srd_creatures | power-interaction | 7 |
 | eclipse_phase_rules | power-interaction | 7 |
 | hp_objects | power-interaction | 7 |
+| jojo_powers | power-interaction | 7 |
 | regressors_tale_powers | power-interaction | 7 |
 | speedrunning_multiverse_powers | power-interaction | 7 |
 | the_dark_eye_rules | power-interaction | 7 |
@@ -2055,6 +2096,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | pf1_powers | blueprint-craft | 6 |
 | ars_magica_powers | body-code-decay | 6 |
 | dnd5e_2014_items | body-code-decay | 6 |
+| jojo_powers | body-code-decay | 6 |
 | lotm_potions | body-door | 6 |
 | cypher_items | body-form | 6 |
 | pf1_conditions | conceal-or-sense | 6 |
@@ -2161,6 +2203,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | warhammer_40k_powers | time-manipulation | 6 |
 | circle_of_inevitability_powers | vow-cost | 6 |
 | dnd5e_2014_class_features | vow-cost | 6 |
+| wus_powers | vow-cost | 6 |
 | cyberpunk_rules | area-field | 5 |
 | eberron_creatures | area-field | 5 |
 | golarion_powers | area-field | 5 |
@@ -2184,6 +2227,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | ars_magica_conditions | containment-rule | 5 |
 | eberron_creatures | containment-rule | 5 |
 | forgotten_realms_artifacts | containment-rule | 5 |
+| jojo_powers | containment-rule | 5 |
 | wildemount_artifacts | containment-rule | 5 |
 | dnd_srd_class_features | creature-control | 5 |
 | dnd_srd_spells | creature-control | 5 |
@@ -2243,6 +2287,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | fate_spells | mind-state | 5 |
 | mystara_artifacts | negative-effect-drift | 5 |
 | numenera_places | negative-effect-drift | 5 |
+| jojo_powers | object-surface | 5 |
 | ars_magica_conditions | place-release | 5 |
 | ars_magica_creatures | place-release | 5 |
 | pf1_powers | plant-or-creature-target | 5 |
@@ -2294,12 +2339,14 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | circle_of_inevitability_powers | time-loop | 5 |
 | lotm_powers | time-loop | 5 |
 | dnd5e_2014_spells | time-manipulation | 5 |
+| jojo_powers | time-manipulation | 5 |
 | numenera_powers | time-manipulation | 5 |
 | numenera_rules | time-manipulation | 5 |
 | pf1_powers | time-manipulation | 5 |
 | warhammer_40k_rules | time-manipulation | 5 |
 | worm_powers | time-manipulation | 5 |
 | ironsworn_powers | vow-cost | 5 |
+| toaru_powers | wish-grant | 5 |
 | ars_magica_powers | world-travel | 5 |
 | ars_magica_spells | world-travel | 5 |
 | dnd5e_2014_items | world-travel | 5 |
@@ -2387,6 +2434,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd5e_2014_creatures | item-bound-power | 4 |
 | eclipse_phase_rules | item-bound-power | 4 |
 | forgotten_realms_rules | item-bound-power | 4 |
+| jojo_powers | item-bound-power | 4 |
 | stars_without_number_powers | item-bound-power | 4 |
 | theros_artifacts | item-bound-power | 4 |
 | warhammer_40k_rules | item-bound-power | 4 |
@@ -2410,6 +2458,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | brp_powers | mind-binding | 4 |
 | eberron_rules | mind-binding | 4 |
 | hp_creatures | mind-binding | 4 |
+| jojo_powers | mind-binding | 4 |
 | ravenloft_places | mind-binding | 4 |
 | ravenloft_rules | mind-binding | 4 |
 | wfrp4e_powers | mind-binding | 4 |
@@ -2459,6 +2508,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | worm_powers | precognition | 4 |
 | brp_spells | protection-field | 4 |
 | fate_items | protection-field | 4 |
+| jojo_powers | protection-field | 4 |
 | a_novel_concept_powers | revival-on-death | 4 |
 | dnd5e_2014_spells | soul-binding | 4 |
 | pf1_creatures | soul-binding | 4 |
@@ -2478,6 +2528,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | eberron_rules | spatial-storage | 4 |
 | fated_villain_artifacts | spatial-storage | 4 |
 | forgotten_realms_rules | spatial-storage | 4 |
+| jojo_powers | spatial-storage | 4 |
 | mystara_rules | spatial-storage | 4 |
 | ravenloft_places | spatial-storage | 4 |
 | warhammer_40k_places | spatial-storage | 4 |
@@ -2494,6 +2545,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | the_strange_rules | time-manipulation | 4 |
 | warhammer_40k_artifacts | time-manipulation | 4 |
 | pf1_spells | tinker-device | 4 |
+| jojo_powers | venom-or-disease | 4 |
 | shadow_slave_creatures | venom-or-disease | 4 |
 | shadow_slave_powers | vow-cost | 4 |
 | dnd5e_2014_spells | world-travel | 4 |
@@ -2550,6 +2602,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd_srd_items | dimension-travel | 3 |
 | legendary_mechanic_powers | dimension-travel | 3 |
 | eberron_creatures | divination | 3 |
+| jojo_powers | divination | 3 |
 | legendary_mechanic_artifacts | divination | 3 |
 | mystara_rules | divination | 3 |
 | ravenloft_creatures | divination | 3 |
@@ -2560,7 +2613,9 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | wfrp4e_powers | divination | 3 |
 | wildemount_artifacts | divination | 3 |
 | ars_magica_items | divination-fate | 3 |
+| jojo_powers | divination-fate | 3 |
 | pf1_powers | divination-fate | 3 |
+| jojo_powers | effect-unknown | 3 |
 | numenera_institutions | effect-unknown | 3 |
 | planescape_artifacts | effect-unknown | 3 |
 | ravenloft_rules | effect-unknown | 3 |
@@ -2699,9 +2754,11 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | mm3e_powers | revival-on-death | 3 |
 | pf1_creatures | revival-on-death | 3 |
 | pf1_powers | revival-on-death | 3 |
+| jojo_powers | sentient-agent | 3 |
 | ars_magica_creatures | soul-binding | 3 |
 | ars_magica_spells | soul-binding | 3 |
 | dnd_srd_creatures | soul-binding | 3 |
+| jojo_powers | soul-binding | 3 |
 | lotm_artifacts | soul-binding | 3 |
 | mother_of_learning_artifacts | soul-binding | 3 |
 | pf1_items | soul-binding | 3 |
@@ -2771,6 +2828,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | labyrinth_mad_god_powers | body-conditioning-rank | 2 |
 | dnd5e_2014_items | body-door | 2 |
 | dnd5e_2014_spells | body-door | 2 |
+| jojo_powers | body-door | 2 |
 | brp_creatures | body-form | 2 |
 | brp_spells | body-form | 2 |
 | cypher_conditions | body-form | 2 |
@@ -2866,6 +2924,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd_srd_creatures | familiar-summon | 2 |
 | eberron_artifacts | familiar-summon | 2 |
 | forgotten_realms_rules | familiar-summon | 2 |
+| jojo_powers | familiar-summon | 2 |
 | legendary_mechanic_powers | familiar-summon | 2 |
 | mm3e_powers | familiar-summon | 2 |
 | mother_of_learning_powers | familiar-summon | 2 |
@@ -2949,9 +3008,11 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | cypher_powers | memory-erasure | 2 |
 | dnd5e_2014_powers | memory-erasure | 2 |
 | fate_powers | memory-erasure | 2 |
+| jojo_powers | memory-erasure | 2 |
 | dnd5e_2014_creatures | memory-transfer | 2 |
 | dnd5e_2014_powers | memory-transfer | 2 |
 | eclipse_phase_qs_powers | memory-transfer | 2 |
+| jojo_powers | memory-transfer | 2 |
 | perfect_run_powers | memory-transfer | 2 |
 | pf1_creatures | memory-transfer | 2 |
 | aos_soulbound_rules | mind-binding | 2 |
@@ -2978,6 +3039,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | brp_creatures | mind-state | 2 |
 | coc_items | mind-state | 2 |
 | eclipse_phase_qs_items | mind-state | 2 |
+| jojo_powers | needs-material | 2 |
 | aos_soulbound_creatures | negative-effect-drift | 2 |
 | cyberpunk_powers | negative-effect-drift | 2 |
 | dnd5e_2014_surge_tables | negative-effect-drift | 2 |
@@ -3008,6 +3070,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | cypher_powers | plant-or-creature-target | 2 |
 | dnd5e_2014_surge_tables | plant-or-creature-target | 2 |
 | fate_conditions | plant-or-creature-target | 2 |
+| jojo_powers | plant-or-creature-target | 2 |
 | pf1_conditions | plant-or-creature-target | 2 |
 | dnd_srd_items | portal-space | 2 |
 | fate_powers | portal-space | 2 |
@@ -3084,10 +3147,12 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | eclipse_phase_qs_items | soul-state | 2 |
 | fate_powers | soul-state | 2 |
 | golarion_institutions | soul-state | 2 |
+| jojo_powers | soul-state | 2 |
 | numenera_institutions | soul-state | 2 |
 | pf1_powers | soul-state | 2 |
 | the_dark_eye_powers | soul-state | 2 |
 | theros_institutions | soul-state | 2 |
+| jojo_powers | source-link | 2 |
 | speedrunning_multiverse_powers | source-link | 2 |
 | aos_soulbound_creatures | spatial-storage | 2 |
 | ars_magica_conditions | spatial-storage | 2 |
@@ -3137,9 +3202,11 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd5e_2014_items | vow-cost | 2 |
 | dnd_srd_class_features | vow-cost | 2 |
 | mother_of_learning_powers | vow-cost | 2 |
+| toaru_powers | vow-cost | 2 |
 | cypher_powers | world-travel | 2 |
 | dnd_srd_class_features | world-travel | 2 |
 | dnd_srd_spells | world-travel | 2 |
+| jojo_powers | world-travel | 2 |
 | perfect_run_powers | anti-power-site | 1 |
 | a_novel_concept_powers | area-field | 1 |
 | aos_soulbound_places | area-field | 1 |
@@ -3167,6 +3234,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd_srd_class_features | blueprint-craft | 1 |
 | fate_powers | blueprint-craft | 1 |
 | ironsworn_powers | blueprint-craft | 1 |
+| jojo_powers | blueprint-craft | 1 |
 | mother_of_learning_powers | blueprint-craft | 1 |
 | brp_creatures | body-code-decay | 1 |
 | brp_powers | body-code-decay | 1 |
@@ -3412,6 +3480,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd_srd_powers | ingredient-properties | 1 |
 | dnd_srd_spells | ingredient-properties | 1 |
 | ironsworn_powers | ingredient-properties | 1 |
+| jojo_powers | ingredient-properties | 1 |
 | a_novel_concept_powers | inner-world | 1 |
 | blades_powers | item-bound-power | 1 |
 | cyberpunk_institutions | item-bound-power | 1 |
@@ -3440,6 +3509,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | circle_of_inevitability_artifacts | item-state | 1 |
 | eberron_powers | item-state | 1 |
 | forgotten_realms_powers | item-state | 1 |
+| jojo_powers | item-state | 1 |
 | lotm_artifacts | item-state | 1 |
 | mother_of_learning_artifacts | item-state | 1 |
 | planescape_rules | item-state | 1 |
@@ -3458,6 +3528,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd_srd_backgrounds_species | luck-mechanism | 1 |
 | dnd_srd_feats | luck-mechanism | 1 |
 | fate_creatures | luck-mechanism | 1 |
+| jojo_powers | luck-mechanism | 1 |
 | pf1_creatures | luck-mechanism | 1 |
 | speedrunning_multiverse_powers | luck-mechanism | 1 |
 | aos_soulbound_rules | material-row | 1 |
@@ -3582,6 +3653,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | cypher_powers | place-release | 1 |
 | dnd_srd_creatures | place-release | 1 |
 | ironsworn_powers | place-release | 1 |
+| jojo_powers | place-release | 1 |
 | ars_magica_items | plant-or-creature-target | 1 |
 | brp_conditions | plant-or-creature-target | 1 |
 | dnd_srd_class_features | plant-or-creature-target | 1 |
@@ -3663,6 +3735,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | fate_conditions | projection-body | 1 |
 | fate_creatures | projection-body | 1 |
 | fate_items | projection-body | 1 |
+| jojo_powers | projection-body | 1 |
 | coc_spells | protection-field | 1 |
 | eclipse_phase_qs_items | protection-field | 1 |
 | eclipse_phase_qs_powers | protection-field | 1 |
@@ -3779,6 +3852,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | dnd5e_2014_spells | system-interface | 1 |
 | fate_items | system-interface | 1 |
 | fate_powers | system-interface | 1 |
+| jojo_powers | system-interface | 1 |
 | lotm_powers | system-interface | 1 |
 | pf1_conditions | system-interface | 1 |
 | pf1_powers | system-interface | 1 |
@@ -3789,6 +3863,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | pf1_creatures | time-loop | 1 |
 | solo_leveling_powers | time-loop | 1 |
 | speedrunning_multiverse_powers | time-loop | 1 |
+| wus_powers | time-loop | 1 |
 | aos_soulbound_places | time-manipulation | 1 |
 | aos_soulbound_rules | time-manipulation | 1 |
 | ars_magica_conditions | time-manipulation | 1 |
@@ -3846,6 +3921,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | omniscient_reader_powers | vow-cost | 1 |
 | pf1_spells | vow-cost | 1 |
 | regressors_tale_powers | vow-cost | 1 |
+| ward_powers | vow-cost | 1 |
 | dnd5e_2014_backgrounds_species | world-travel | 1 |
 | dnd5e_2014_surge_tables | world-travel | 1 |
 | eclipse_phase_qs_powers | world-travel | 1 |
