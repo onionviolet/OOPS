@@ -666,30 +666,30 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 
 | # | World | Corpus | Shared slugs | Weight | Source |
 | ---: | --- | --- | ---: | ---: | --- |
-| 1 | harry-potter | places | 24 | 619 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
+| 1 | harry-potter | places | 25 | 629 | wiki dump ~/.codex/research/wikis/harrypotter.fandom.com/dump |
 | 2 | legendary-mechanic | potions_and_recipes | 22 | 706 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 3 | lotm | materials | 22 | 674 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
-| 4 | shadow-slave | potions_and_recipes | 21 | 681 | paid reader claims 2026-11-01-ss |
+| 4 | shadow-slave | potions_and_recipes | 21 | 686 | paid reader claims 2026-11-01-ss |
 | 5 | circle-of-inevitability | potions_and_recipes | 20 | 712 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
 | 6 | fated-villain | potions_and_recipes | 20 | 695 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 7 | mother-of-learning | potions_and_recipes | 20 | 644 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 8 | regressors-tale | potions_and_recipes | 19 | 669 | paid reader claims 2026-11-01-rtoc |
-| 9 | reverend-insanity | potions_and_recipes | 19 | 527 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
-| 10 | aos-soulbound | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
-| 11 | eberron | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/eberron (local, gitignored) |
-| 12 | forgotten-realms | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
-| 13 | numenera | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/numenera (local, gitignored) |
-| 14 | planescape | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/planescape (local, gitignored) |
-| 15 | strixhaven | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/strixhaven (local, gitignored) |
-| 16 | the-strange | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-strange (local, gitignored) |
-| 17 | theros | potions_and_recipes | 17 | 670 | chapter text docs/research/tabletop-settings-2026-11-17/private/theros (local, gitignored) |
-| 18 | warhammer-40k | potions_and_recipes | 17 | 670 | wiki dump ~/.codex/research/wikis/warhammer40k.fandom.com/dump |
-| 19 | speedrunning-multiverse | potions_and_recipes | 17 | 481 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
-| 20 | mystara | potions_and_recipes | 16 | 642 | chapter text docs/research/tabletop-settings-2026-11-17/private/mystara (local, gitignored) |
-| 21 | ravenloft | potions_and_recipes | 16 | 642 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravenloft (local, gitignored) |
-| 22 | wildemount | potions_and_recipes | 16 | 642 | chapter text docs/research/tabletop-settings-2026-11-17/private/wildemount (local, gitignored) |
-| 23 | eclipse-phase | potions_and_recipes | 16 | 627 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
-| 24 | worm | artifacts | 16 | 326 | paid reader claims 2026-11-01-worm |
+| 8 | regressors-tale | potions_and_recipes | 19 | 674 | paid reader claims 2026-11-01-rtoc |
+| 9 | reverend-insanity | potions_and_recipes | 19 | 546 | wiki dump ~/.codex/research/wikis/reverend-insanity.fandom.com/dump |
+| 10 | aos-soulbound | potions_and_recipes | 17 | 675 | chapter text docs/research/tabletop-settings-2026-11-17/private/aos-soulbound (local, gitignored) |
+| 11 | eberron | potions_and_recipes | 17 | 675 | chapter text docs/research/tabletop-settings-2026-11-17/private/eberron (local, gitignored) |
+| 12 | forgotten-realms | potions_and_recipes | 17 | 675 | chapter text docs/research/tabletop-settings-2026-11-17/private/forgotten-realms (local, gitignored) |
+| 13 | numenera | potions_and_recipes | 17 | 675 | chapter text docs/research/tabletop-settings-2026-11-17/private/numenera (local, gitignored) |
+| 14 | planescape | potions_and_recipes | 17 | 675 | chapter text docs/research/tabletop-settings-2026-11-17/private/planescape (local, gitignored) |
+| 15 | strixhaven | potions_and_recipes | 17 | 675 | chapter text docs/research/tabletop-settings-2026-11-17/private/strixhaven (local, gitignored) |
+| 16 | the-strange | potions_and_recipes | 17 | 675 | chapter text docs/research/tabletop-settings-2026-11-17/private/the-strange (local, gitignored) |
+| 17 | theros | potions_and_recipes | 17 | 675 | chapter text docs/research/tabletop-settings-2026-11-17/private/theros (local, gitignored) |
+| 18 | warhammer-40k | potions_and_recipes | 17 | 675 | wiki dump ~/.codex/research/wikis/warhammer40k.fandom.com/dump |
+| 19 | speedrunning-multiverse | potions_and_recipes | 17 | 488 | deep dive docs/research/novels/speedrunning-multiverse/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
+| 20 | mystara | potions_and_recipes | 16 | 647 | chapter text docs/research/tabletop-settings-2026-11-17/private/mystara (local, gitignored) |
+| 21 | ravenloft | potions_and_recipes | 16 | 647 | chapter text docs/research/tabletop-settings-2026-11-17/private/ravenloft (local, gitignored) |
+| 22 | wildemount | potions_and_recipes | 16 | 647 | chapter text docs/research/tabletop-settings-2026-11-17/private/wildemount (local, gitignored) |
+| 23 | eclipse-phase | potions_and_recipes | 16 | 632 | chapter text docs/research/tabletop-settings-2026-11-17/private/eclipse-phase (local, gitignored) |
+| 24 | worm | artifacts | 16 | 346 | paid reader claims 2026-11-01-worm |
 | 25 | spelljammer | potions_and_recipes | 15 | 620 | chapter text docs/research/tabletop-settings-2026-11-17/private/spelljammer (local, gitignored) |
 
 90 worlds have a next cell and 745 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
@@ -934,7 +934,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 - **Fitted defaults**: body-door: add vitality self via potion; mind-state: transform mind self via potion; body-form: transform form self via potion; plant-or-creature-target: remove vitality touched via spray. No default for conceal-or-sense (no evidence-labelled row).
 - **Rule saw these rows** (title override set against evidence; not held out): Wolfsbane Potion. Out of the five mechanisms (not counted): Felix Felicis (luck-field).
 - **Held out** (17): cure_for_boils, dr_ubbly_s_oblivious_unction, dragon_dung_fertiliser, draught_of_living_death, draught_of_peace, mandrake_restorative_draught, murtlap_essence, pepperup_potion, polyjuice_potion, potion_for_dreamless_sleep, shrinking_solution, skele_gro, sleekeazy_s_hair_potion, sleeping_draught, swelling_solution, veritaserum, wit_sharpening_potion.
-- **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: body-door 46, effect-sentence 33, mind-state 31, plant-or-creature-target 31, body-form 23, conceal-or-sense 9, object-surface 8, place-release 6, luck-field 2, protection-field 2. The wiki body of each (revision in its `source`) is the queued data; the wiki host refused automated reads on 2026-11-13.
+- **Unscorable, missing data queued**: rows with no evidence-labelled sentence cannot be scored, since a title is the thing predicted. Per mechanism: body-door 46, effect-sentence 33, mind-state 31, plant-or-creature-target 31, body-form 23, conceal-or-sense 9, object-surface 8, place-release 6, luck-mechanism 2, protection-field 2. The wiki body of each (revision in its `source`) is the queued data; the wiki host refused automated reads on 2026-11-13.
 
 **Per held-out row** (diagnostic predicted / actual; engine result, or why it cannot run):
 
@@ -1171,6 +1171,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | pf1_spells | conceal-or-sense | 127 |
 | the_dark_eye_powers | effect-unknown | 117 |
 | pf1_spells | mind-state | 112 |
+| gu_generated | needs-material | 109 |
 | ars_magica_powers | divination-fate | 107 |
 | pf1_spells | body-form | 106 |
 | mystara_powers | effect-unknown | 106 |
@@ -1416,7 +1417,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | dnd5e_2014_class_features | power-granting | 26 |
 | shadow_slave_powers | power-interaction | 26 |
 | ars_magica_powers | projection-body | 26 |
-| numenera_artifacts | time-stop | 26 |
+| numenera_artifacts | time-manipulation | 26 |
 | dnd5e_2014_creatures | area-field | 25 |
 | pf1_items | containment-rule | 25 |
 | eberron_powers | divination | 25 |
@@ -1698,6 +1699,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | pf1_powers | power-granting | 13 |
 | mystara_powers | power-interaction | 13 |
 | dnd_srd_class_features | power-transfer | 13 |
+| ars_magica_creatures | precognition | 13 |
 | ars_magica_powers | speech-penalty | 13 |
 | fated_villain_powers | system-interface | 13 |
 | legendary_mechanic_powers | system-interface | 13 |
@@ -1737,7 +1739,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | eclipse_phase_powers | power-interaction | 12 |
 | fated_villain_powers | power-interaction | 12 |
 | theros_powers | power-interaction | 12 |
-| ars_magica_creatures | precognition | 12 |
 | dnd_srd_class_features | protection-field | 12 |
 | dnd_srd_spells | protection-field | 12 |
 | dnd5e_2014_creatures | revival-on-death | 12 |
@@ -1833,6 +1834,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | lotm_artifacts | power-interaction | 10 |
 | ravnica_powers | power-interaction | 10 |
 | numenera_artifacts | power-transfer | 10 |
+| ars_magica_powers | precognition | 10 |
 | pf1_powers | protection-field | 10 |
 | ravenloft_powers | soul-state | 10 |
 | the_strange_artifacts | soul-state | 10 |
@@ -1894,7 +1896,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | eclipse_phase_artifacts | power-interaction | 9 |
 | mm3e_powers | power-interaction | 9 |
 | regressors_tale_artifacts | power-interaction | 9 |
-| ars_magica_powers | precognition | 9 |
 | fate_powers | projection-body | 9 |
 | dnd5e_2014_class_features | revival-on-death | 9 |
 | dnd5e_2014_spells | revival-on-death | 9 |
@@ -1968,6 +1969,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | warhammer_40k_rules | power-interaction | 8 |
 | cypher_powers | power-transfer | 8 |
 | eberron_powers | power-transfer | 8 |
+| fate_powers | precognition | 8 |
 | pf1_items | projection-body | 8 |
 | ars_magica_items | protection-field | 8 |
 | mm3e_powers | protection-field | 8 |
@@ -1983,6 +1985,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | the_strange_rules | spatial-storage | 8 |
 | ars_magica_spells | spirit-contract-judgement | 8 |
 | pf1_items | spirit-contract-judgement | 8 |
+| fate_powers | time-manipulation | 8 |
 | gu_kinds | time-manipulation | 8 |
 | eclipse_phase_places | area-field | 7 |
 | fate_conditions | area-field | 7 |
@@ -2060,7 +2063,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | numenera_powers | power-transfer | 7 |
 | numenera_rules | power-transfer | 7 |
 | rezero_powers | power-transfer | 7 |
-| fate_powers | precognition | 7 |
 | dnd5e_2014_powers | projection-body | 7 |
 | dnd5e_2014_spells | projection-body | 7 |
 | dnd_srd_spells | projection-body | 7 |
@@ -2074,7 +2076,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | wildemount_powers | soul-state | 7 |
 | dnd5e_2014_class_features | sponsorship-contract | 7 |
 | dnd5e_2014_powers | time-manipulation | 7 |
-| fate_powers | time-manipulation | 7 |
 | eclipse_phase_creatures | area-field | 6 |
 | legendary_mechanic_powers | area-field | 6 |
 | mm3e_powers | area-field | 6 |
@@ -2159,6 +2160,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | ars_magica_spells | power-transfer | 6 |
 | brp_powers | power-transfer | 6 |
 | dnd_srd_powers | power-transfer | 6 |
+| pf1_items | precognition | 6 |
 | pf1_spells | precognition | 6 |
 | dnd5e_2014_class_features | projection-body | 6 |
 | dnd_srd_items | protection-field | 6 |
@@ -2182,7 +2184,8 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | ars_magica_conditions | speech-penalty | 6 |
 | pf1_spells | system-interface | 6 |
 | ars_magica_spells | time-manipulation | 6 |
-| warhammer_40k_powers | time-stop | 6 |
+| pf1_spells | time-manipulation | 6 |
+| warhammer_40k_powers | time-manipulation | 6 |
 | circle_of_inevitability_powers | vow-cost | 6 |
 | dnd5e_2014_class_features | vow-cost | 6 |
 | cyberpunk_rules | area-field | 5 |
@@ -2293,6 +2296,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | forgotten_realms_creatures | power-transfer | 5 |
 | shadow_slave_powers | power-transfer | 5 |
 | the_strange_artifacts | power-transfer | 5 |
+| ars_magica_spells | precognition | 5 |
 | cypher_powers | precognition | 5 |
 | ars_magica_conditions | projection-body | 5 |
 | brp_items | protection-field | 5 |
@@ -2317,10 +2321,12 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | dnd5e_2014_creatures | spirit-contract-judgement | 5 |
 | circle_of_inevitability_powers | time-loop | 5 |
 | lotm_powers | time-loop | 5 |
+| dnd5e_2014_spells | time-manipulation | 5 |
+| numenera_powers | time-manipulation | 5 |
+| numenera_rules | time-manipulation | 5 |
+| pf1_powers | time-manipulation | 5 |
+| warhammer_40k_rules | time-manipulation | 5 |
 | worm_powers | time-manipulation | 5 |
-| numenera_powers | time-stop | 5 |
-| numenera_rules | time-stop | 5 |
-| warhammer_40k_rules | time-stop | 5 |
 | ironsworn_powers | vow-cost | 5 |
 | ars_magica_powers | world-travel | 5 |
 | ars_magica_spells | world-travel | 5 |
@@ -2481,6 +2487,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | mystara_rules | power-transfer | 4 |
 | omniscient_reader_powers | power-transfer | 4 |
 | the_strange_powers | power-transfer | 4 |
+| ars_magica_conditions | precognition | 4 |
 | worm_powers | precognition | 4 |
 | brp_spells | protection-field | 4 |
 | fate_items | protection-field | 4 |
@@ -2515,11 +2522,9 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | pf1_items | system-interface | 4 |
 | mother_of_learning_powers | time-loop | 4 |
 | dnd_srd_class_features | time-manipulation | 4 |
-| pf1_powers | time-manipulation | 4 |
-| pf1_spells | time-manipulation | 4 |
-| the_strange_powers | time-stop | 4 |
-| the_strange_rules | time-stop | 4 |
-| warhammer_40k_artifacts | time-stop | 4 |
+| the_strange_powers | time-manipulation | 4 |
+| the_strange_rules | time-manipulation | 4 |
+| warhammer_40k_artifacts | time-manipulation | 4 |
 | pf1_spells | tinker-device | 4 |
 | shadow_slave_creatures | venom-or-disease | 4 |
 | shadow_slave_powers | vow-cost | 4 |
@@ -2617,8 +2622,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | fated_villain_artifacts | formation-field | 3 |
 | numenera_artifacts | formation-field | 3 |
 | shadow_slave_artifacts | formation-field | 3 |
-| ars_magica_spells | future-vision | 3 |
-| pf1_items | future-vision | 3 |
 | dnd5e_2014_class_features | ingredient-properties | 3 |
 | dnd5e_2014_powers | ingredient-properties | 3 |
 | fate_powers | ingredient-properties | 3 |
@@ -2674,7 +2677,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | pf1_spells | mind-ennoblement | 3 |
 | brp_spells | mind-state | 3 |
 | coc_conditions | mind-state | 3 |
-| gu_generated | needs-silk-thread | 3 |
 | circle_of_inevitability_artifacts | negative-effect-drift | 3 |
 | dnd_srd_class_features | negative-effect-drift | 3 |
 | dnd_srd_spells | negative-effect-drift | 3 |
@@ -2721,7 +2723,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | dnd5e_2014_spells | power-transfer | 3 |
 | strixhaven_powers | power-transfer | 3 |
 | the_strange_rules | power-transfer | 3 |
-| pf1_items | precognition | 3 |
 | ars_magica_creatures | projection-body | 3 |
 | cypher_spells | projection-body | 3 |
 | ars_magica_creatures | protection-field | 3 |
@@ -2773,11 +2774,11 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | you_have_died_again_powers | time-loop | 3 |
 | dnd5e_2014_class_features | time-manipulation | 3 |
 | dnd5e_2014_items | time-manipulation | 3 |
-| dnd5e_2014_spells | time-manipulation | 3 |
-| eclipse_phase_rules | time-stop | 3 |
-| numenera_places | time-stop | 3 |
-| shadow_slave_artifacts | time-stop | 3 |
-| the_strange_artifacts | time-stop | 3 |
+| dnd_srd_spells | time-manipulation | 3 |
+| eclipse_phase_rules | time-manipulation | 3 |
+| numenera_places | time-manipulation | 3 |
+| shadow_slave_artifacts | time-manipulation | 3 |
+| the_strange_artifacts | time-manipulation | 3 |
 | brp_powers | tinker-device | 3 |
 | cypher_powers | vow-cost | 3 |
 | lotm_powers | vow-cost | 3 |
@@ -2936,7 +2937,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | numenera_places | formation-field | 2 |
 | planescape_creatures | formation-field | 2 |
 | the_strange_places | formation-field | 2 |
-| ars_magica_conditions | future-vision | 2 |
 | brp_powers | ingredient-properties | 2 |
 | dnd5e_2014_spells | ingredient-properties | 2 |
 | dnd_srd_items | ingredient-properties | 2 |
@@ -2968,12 +2968,12 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | spelljammer_rules | item-state | 2 |
 | the_dark_eye_rules | item-state | 2 |
 | wildemount_rules | item-state | 2 |
-| hp_potions | luck-field | 2 |
 | a_novel_concept_powers | luck-mechanism | 2 |
 | ars_magica_conditions | luck-mechanism | 2 |
 | ars_magica_creatures | luck-mechanism | 2 |
 | dnd5e_2014_backgrounds_species | luck-mechanism | 2 |
 | dnd5e_2014_spells | luck-mechanism | 2 |
+| hp_potions | luck-mechanism | 2 |
 | mm3e_powers | luck-mechanism | 2 |
 | eclipse_phase_rules | material-row | 2 |
 | mystara_artifacts | material-row | 2 |
@@ -3016,9 +3016,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | brp_creatures | mind-state | 2 |
 | coc_items | mind-state | 2 |
 | eclipse_phase_qs_items | mind-state | 2 |
-| gu_generated | needs-scent | 2 |
-| gu_generated | needs-tea-leaves | 2 |
-| gu_generated | needs-timber | 2 |
 | aos_soulbound_creatures | negative-effect-drift | 2 |
 | cyberpunk_powers | negative-effect-drift | 2 |
 | dnd5e_2014_surge_tables | negative-effect-drift | 2 |
@@ -3091,10 +3088,10 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | the_dark_eye_powers | power-transfer | 2 |
 | theros_rules | power-transfer | 2 |
 | warhammer_40k_rules | power-transfer | 2 |
-| ars_magica_conditions | precognition | 2 |
-| ars_magica_spells | precognition | 2 |
 | brp_powers | precognition | 2 |
+| dnd5e_2014_class_features | precognition | 2 |
 | dnd5e_2014_spells | precognition | 2 |
+| dnd_srd_class_features | precognition | 2 |
 | dnd_srd_spells | precognition | 2 |
 | mm3e_powers | precognition | 2 |
 | brp_powers | projection-body | 2 |
@@ -3162,19 +3159,16 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | legendary_mechanic_powers | time-loop | 2 |
 | pf1_spells | time-loop | 2 |
 | dnd5e_2014_creatures | time-manipulation | 2 |
-| dnd_srd_spells | time-manipulation | 2 |
+| forgotten_realms_powers | time-manipulation | 2 |
+| mystara_artifacts | time-manipulation | 2 |
+| mystara_rules | time-manipulation | 2 |
+| numenera_creatures | time-manipulation | 2 |
+| perfect_run_powers | time-manipulation | 2 |
 | pf1_creatures | time-manipulation | 2 |
 | pf1_items | time-manipulation | 2 |
-| dnd5e_2014_spells | time-stop | 2 |
-| forgotten_realms_powers | time-stop | 2 |
-| mystara_artifacts | time-stop | 2 |
-| mystara_rules | time-stop | 2 |
-| numenera_creatures | time-stop | 2 |
-| perfect_run_powers | time-stop | 2 |
-| pf1_spells | time-stop | 2 |
-| regressors_tale_artifacts | time-stop | 2 |
-| strixhaven_creatures | time-stop | 2 |
-| strixhaven_powers | time-stop | 2 |
+| regressors_tale_artifacts | time-manipulation | 2 |
+| strixhaven_creatures | time-manipulation | 2 |
+| strixhaven_powers | time-manipulation | 2 |
 | worm_powers | timeline-split | 2 |
 | ars_magica_spells | vow-cost | 2 |
 | dnd5e_2014_creatures | vow-cost | 2 |
@@ -3435,14 +3429,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | theros_places | formation-field | 1 |
 | warhammer_40k_rules | formation-field | 1 |
 | wfrp4e_powers | formation-field | 1 |
-| ars_magica_creatures | future-vision | 1 |
-| ars_magica_powers | future-vision | 1 |
-| dnd5e_2014_class_features | future-vision | 1 |
-| dnd5e_2014_powers | future-vision | 1 |
-| dnd_srd_class_features | future-vision | 1 |
-| fate_conditions | future-vision | 1 |
-| fate_powers | future-vision | 1 |
-| speedrunning_multiverse_powers | future-vision | 1 |
 | hp_ingredients | ingredient-not-material | 1 |
 | cypher_items | ingredient-properties | 1 |
 | cypher_spells | ingredient-properties | 1 |
@@ -3576,106 +3562,6 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | mm3e_conditions | mind-state | 1 |
 | pf1_creatures | mind-state | 1 |
 | rezero_powers | mind-state | 1 |
-| gu_generated | needs-additional-head | 1 |
-| gu_generated | needs-altar-stone | 1 |
-| gu_generated | needs-approaching-event | 1 |
-| gu_generated | needs-armored-shell | 1 |
-| gu_generated | needs-arrow | 1 |
-| gu_generated | needs-azure-divine-stone-furnace | 1 |
-| gu_generated | needs-bees | 1 |
-| gu_generated | needs-blood-soaked-soil | 1 |
-| gu_generated | needs-brine | 1 |
-| gu_generated | needs-clay-fired | 1 |
-| gu_generated | needs-coin | 1 |
-| gu_generated | needs-cup-shaped-vessel | 1 |
-| gu_generated | needs-destination | 1 |
-| gu_generated | needs-dough | 1 |
-| gu_generated | needs-dove | 1 |
-| gu_generated | needs-dried-leaf | 1 |
-| gu_generated | needs-edible-leaf | 1 |
-| gu_generated | needs-elixir-furnace | 1 |
-| gu_generated | needs-fabric | 1 |
-| gu_generated | needs-fastening | 1 |
-| gu_generated | needs-fat-and-ash | 1 |
-| gu_generated | needs-ferret-scent | 1 |
-| gu_generated | needs-fertility | 1 |
-| gu_generated | needs-fiber-material | 1 |
-| gu_generated | needs-flavor | 1 |
-| gu_generated | needs-flock | 1 |
-| gu_generated | needs-forged-metal | 1 |
-| gu_generated | needs-formation-plate | 1 |
-| gu_generated | needs-frost-jade-essence | 1 |
-| gu_generated | needs-garlic-bulb | 1 |
-| gu_generated | needs-glass-sand | 1 |
-| gu_generated | needs-gourd-vessel | 1 |
-| gu_generated | needs-head-ornament | 1 |
-| gu_generated | needs-heaven-attached-fungus | 1 |
-| gu_generated | needs-hemp-rope | 1 |
-| gu_generated | needs-hide | 1 |
-| gu_generated | needs-horse | 1 |
-| gu_generated | needs-hyena | 1 |
-| gu_generated | needs-ice-path-primeval-essence | 1 |
-| gu_generated | needs-illusion | 1 |
-| gu_generated | needs-impurity | 1 |
-| gu_generated | needs-incense-stick | 1 |
-| gu_generated | needs-ink | 1 |
-| gu_generated | needs-iron-object | 1 |
-| gu_generated | needs-jade-setting | 1 |
-| gu_generated | needs-jasmine-fragrance | 1 |
-| gu_generated | needs-lacquer-resin | 1 |
-| gu_generated | needs-leather-strap | 1 |
-| gu_generated | needs-ledger-slate | 1 |
-| gu_generated | needs-legend-record-tablet | 1 |
-| gu_generated | needs-lemon-fruit | 1 |
-| gu_generated | needs-lentil-seed | 1 |
-| gu_generated | needs-lime | 1 |
-| gu_generated | needs-llama | 1 |
-| gu_generated | needs-loose-earth | 1 |
-| gu_generated | needs-loose-snow | 1 |
-| gu_generated | needs-malachite-stone | 1 |
-| gu_generated | needs-marked-location | 1 |
-| gu_generated | needs-metal | 1 |
-| gu_generated | needs-moisture | 1 |
-| gu_generated | needs-mold | 1 |
-| gu_generated | needs-mount | 1 |
-| gu_generated | needs-mutual-oath | 1 |
-| gu_generated | needs-offspring | 1 |
-| gu_generated | needs-olive-fruit | 1 |
-| gu_generated | needs-outer-garment | 1 |
-| gu_generated | needs-pagoda-structure | 1 |
-| gu_generated | needs-pill-ingredients | 1 |
-| gu_generated | needs-planted-flag | 1 |
-| gu_generated | needs-prepared-pattern | 1 |
-| gu_generated | needs-projectile | 1 |
-| gu_generated | needs-recent-traces | 1 |
-| gu_generated | needs-remembered-location | 1 |
-| gu_generated | needs-rule-eye-blood | 1 |
-| gu_generated | needs-saltpeter | 1 |
-| gu_generated | needs-smelting-furnace | 1 |
-| gu_generated | needs-snail-shell | 1 |
-| gu_generated | needs-solstice-alignment | 1 |
-| gu_generated | needs-spoken-promise | 1 |
-| gu_generated | needs-spoken-wish | 1 |
-| gu_generated | needs-spoken-words | 1 |
-| gu_generated | needs-star-dust | 1 |
-| gu_generated | needs-stinging-hairs | 1 |
-| gu_generated | needs-stone-mass | 1 |
-| gu_generated | needs-subterranean-adamantite-ore | 1 |
-| gu_generated | needs-sulfur | 1 |
-| gu_generated | needs-surface | 1 |
-| gu_generated | needs-task | 1 |
-| gu_generated | needs-thatch | 1 |
-| gu_generated | needs-thunder-echo | 1 |
-| gu_generated | needs-thyme-plant | 1 |
-| gu_generated | needs-truffle | 1 |
-| gu_generated | needs-valued-possession | 1 |
-| gu_generated | needs-wanderer-trail | 1 |
-| gu_generated | needs-water-surface | 1 |
-| gu_generated | needs-wax | 1 |
-| gu_generated | needs-written-mark | 1 |
-| gu_generated | needs-written-verse | 1 |
-| gu_generated | needs-zinc-ore | 1 |
-| gu_generated | needs-zither | 1 |
 | ars_magica_items | negative-effect-drift | 1 |
 | blades_conditions | negative-effect-drift | 1 |
 | cyberpunk_institutions | negative-effect-drift | 1 |
@@ -3788,13 +3674,14 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | warhammer_40k_institutions | power-transfer | 1 |
 | ars_magica_items | precognition | 1 |
 | cypher_spells | precognition | 1 |
-| dnd5e_2014_class_features | precognition | 1 |
 | dnd5e_2014_items | precognition | 1 |
-| dnd_srd_class_features | precognition | 1 |
+| dnd5e_2014_powers | precognition | 1 |
 | dnd_srd_powers | precognition | 1 |
 | eclipse_phase_qs_powers | precognition | 1 |
+| fate_conditions | precognition | 1 |
 | ironsworn_conditions | precognition | 1 |
 | ironsworn_creatures | precognition | 1 |
+| speedrunning_multiverse_powers | precognition | 1 |
 | cypher_powers | projection-body | 1 |
 | dnd_srd_powers | projection-body | 1 |
 | eclipse_phase_qs_items | projection-body | 1 |
@@ -3927,42 +3814,39 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | pf1_creatures | time-loop | 1 |
 | solo_leveling_powers | time-loop | 1 |
 | speedrunning_multiverse_powers | time-loop | 1 |
+| aos_soulbound_places | time-manipulation | 1 |
+| aos_soulbound_rules | time-manipulation | 1 |
 | ars_magica_conditions | time-manipulation | 1 |
 | ars_magica_creatures | time-manipulation | 1 |
+| cyberpunk_artifacts | time-manipulation | 1 |
+| cyberpunk_powers | time-manipulation | 1 |
 | cypher_items | time-manipulation | 1 |
 | cypher_powers | time-manipulation | 1 |
 | dnd_srd_powers | time-manipulation | 1 |
+| eberron_places | time-manipulation | 1 |
+| eberron_powers | time-manipulation | 1 |
 | fate_creatures | time-manipulation | 1 |
+| forgotten_realms_places | time-manipulation | 1 |
+| golarion_artifacts | time-manipulation | 1 |
 | mm3e_powers | time-manipulation | 1 |
+| mystara_creatures | time-manipulation | 1 |
+| mystara_powers | time-manipulation | 1 |
+| numenera_institutions | time-manipulation | 1 |
 | pf1_conditions | time-manipulation | 1 |
-| aos_soulbound_places | time-stop | 1 |
-| aos_soulbound_rules | time-stop | 1 |
-| cyberpunk_artifacts | time-stop | 1 |
-| cyberpunk_powers | time-stop | 1 |
-| dnd_srd_spells | time-stop | 1 |
-| eberron_places | time-stop | 1 |
-| eberron_powers | time-stop | 1 |
-| fate_powers | time-stop | 1 |
-| forgotten_realms_places | time-stop | 1 |
-| golarion_artifacts | time-stop | 1 |
-| mystara_creatures | time-stop | 1 |
-| mystara_powers | time-stop | 1 |
-| numenera_institutions | time-stop | 1 |
-| pf1_powers | time-stop | 1 |
-| planescape_places | time-stop | 1 |
-| planescape_rules | time-stop | 1 |
-| ravenloft_creatures | time-stop | 1 |
-| ravenloft_places | time-stop | 1 |
-| ravenloft_rules | time-stop | 1 |
-| stars_without_number_artifacts | time-stop | 1 |
-| stars_without_number_powers | time-stop | 1 |
-| the_strange_creatures | time-stop | 1 |
-| the_strange_places | time-stop | 1 |
-| theros_places | time-stop | 1 |
-| warhammer_40k_creatures | time-stop | 1 |
-| warhammer_40k_places | time-stop | 1 |
-| wildemount_powers | time-stop | 1 |
-| wildemount_rules | time-stop | 1 |
+| planescape_places | time-manipulation | 1 |
+| planescape_rules | time-manipulation | 1 |
+| ravenloft_creatures | time-manipulation | 1 |
+| ravenloft_places | time-manipulation | 1 |
+| ravenloft_rules | time-manipulation | 1 |
+| stars_without_number_artifacts | time-manipulation | 1 |
+| stars_without_number_powers | time-manipulation | 1 |
+| the_strange_creatures | time-manipulation | 1 |
+| the_strange_places | time-manipulation | 1 |
+| theros_places | time-manipulation | 1 |
+| warhammer_40k_creatures | time-manipulation | 1 |
+| warhammer_40k_places | time-manipulation | 1 |
+| wildemount_powers | time-manipulation | 1 |
+| wildemount_rules | time-manipulation | 1 |
 | ars_magica_powers | timeline-split | 1 |
 | pf1_creatures | timeline-split | 1 |
 | pf1_spells | timeline-split | 1 |
