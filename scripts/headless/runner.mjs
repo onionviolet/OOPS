@@ -31,7 +31,7 @@ const INTERNALS = ['expansionState','character','current_location','current_game
     'current_combat','current_dialogue','current_trader','is_sleeping','is_reading','expansionError','foundationSaveBlocked','is_loading_error',
     'ownsSave','tickrate','global_flags','game_options','skills','locations','recipes','item_templates','dialogues','traders','activities',
     'questManager','inventories','availabilities','expeditionRegistry','authorityBootError','authorityOperationBusy','lifeStorageFailure','game_version'];
-const FUNCTIONS = ['create_save','load','update_timer','advanceTicks','gameplaySnapshot','campaignContext','nativeOccupationReason','feedbackClockPauseReason','is_in_trade'];
+const FUNCTIONS = ['progress_time','openStepperBatch','create_save','load','update_timer','advanceTicks','gameplaySnapshot','campaignContext','nativeOccupationReason','feedbackClockPauseReason','is_in_trade'];
 const HARNESS_TAIL = `
 ${LAMP_SCENARIO_BRIDGE}
 export {scenarioLampOperations};
@@ -504,6 +504,38 @@ export class HeadlessGame {
         const r = globalThis.advanceTicks(n, {render});
         this.stats.ticks += n; this.stats.stepMs += performance.now() - t0;
         return r;
+    }
+
+    /**
+     * SPAN MODE (S5, 2026-11-18). Not byte-identical to single ticks. Jumps idle minutes to the next kernel
+     * boundary (nextSimulationBoundary with controller wakes) through the clock owner's multi-minute path.
+     * World and kernel state match stepped play (tests/headless/span_mode.test.js); the per-minute native
+     * passives in simulateTick (idle Breathing/Patience XP, rest, effect decay) are skipped for jumped minutes.
+     * Falls back to real ticks whenever the player is sleeping, fighting, talking, trading or the clock stalls.
+     * Seam for a per-holder clock: spanMinutes() is the one place that decides how far the clock may move.
+     */
+    async spans(minutes, {maxSpan = 15} = {}) {
+        const {nextSimulationBoundary, controllerWakeTimes} = await import('../../src/simulation.js');
+        const i = this.internals, start = this.minutes(), target = start + minutes;
+        const spanMinutes = want => {
+            const st = i.expansionState;
+            if(!st?.simulation || i.is_sleeping || i.current_combat || i.current_dialogue || i.is_in_trade() || i.current_game_action) return 1;
+            const at = nextSimulationBoundary(st, {controllerWakes:controllerWakeTimes(st, i.expeditionRegistry, {})});
+            return Math.max(1, Math.min(want, maxSpan, Number.isFinite(at) ? Math.ceil(at - st.clock) : maxSpan));
+        };
+        let stalled = 0;
+        while(this.minutes() < target) {
+            const before = this.minutes(), k = spanMinutes(target - before);
+            if(k > 1) {
+                const close = i.openStepperBatch(false);
+                try {i.progress_time({value:k, source:'wait'});} finally {close();}
+            } else this.ticks(1);
+            this.check({before});
+            if(this.minutes() === before) {await this._settleAction(); if(++stalled > 3) throw new Error(`Game clock stopped at ${before}.`);} else stalled = 0;
+        }
+        await this._settleAction();
+        this.stats.minutes += this.minutes() - start;
+        return {minutes:this.minutes() - start};
     }
 
     /** Game clock in minutes, from the live calendar. */
