@@ -201,6 +201,8 @@ export function screened() {
 // guess for the pairs it covers; a pair with no verdict keeps the old rule, so a rerun without new judging gives the same ledger.
 export const SAMENESS = `${DIR}gu_sameness.json`;
 function ledger() {
+    // The raw replies live in the gitignored work folder; with them missing the build would write an empty ledger.
+    if (!replies().answered && !replies("haiku").answered) throw new Error(`no generator replies under ${WORK}; the committed ${LEDGER} stays as is (its raw replies were lost 2026-11-17, so it is the source now)`);
     const {frozen, canon, gu, promptHash, list} = screened();
     const verdicts = existsSync(join(root, SAMENESS)) ? rd(SAMENESS).verdicts : {};
     // PWC49: a generated Gu takes its rank from the family-median rule (derive_gu_ranks.mjs); the model's own rank stays as a note.

@@ -202,6 +202,16 @@ function hashFile(primary, path) {
 }
 
 // `dirty` is read before the target moves; afterwards every changed path differs from HEAD in the index.
+const isLink = (file) => { try { return lstatSync(file).isSymbolicLink(); } catch { return false; } };
+
+// Refuse a result that adds a symlink (mode 120000): merge scratch trees link node_modules and private work folders,
+// and a link that reaches the target replaces the primary's real folder on sync.
+export function newSymlinks(cwd, H, next) {
+  const links = (rev) => new Set(gitText(cwd, ['ls-tree', '-r', '-z', rev]).split('\0').filter((l) => l.startsWith('120000 ')).map((l) => l.split('\t')[1]));
+  const before = links(H);
+  return [...links(next)].filter((p) => !before.has(p));
+}
+
 function syncPrimary(primary, H, next, reviewDir, dirty) {
   const raw = gitText(primary, ['diff', '--name-status', '--no-renames', '-z', H, next]);
   const parts = raw.split('\0').filter(Boolean);
@@ -215,6 +225,12 @@ function syncPrimary(primary, H, next, reviewDir, dirty) {
     const onDisk = existsSync(file) && !lstatSync(file).isDirectory();
     // Re-check right before touching: other sessions are live in the primary.
     const stillClean = !dirty.has(path) && (oldE ? onDisk && hashFile(primary, path) === oldE.oid : !onDisk);
+    // A path new to the target must not land on anything already on disk: a directory there holds files git may
+    // treat as expendable (ignored), so checking out over it deletes them (2026-11-17, a committed work/ symlink).
+    if (!oldE && (existsSync(file) || isLink(file))) {
+      report.skipped.push(`${path} (new path, but something already exists there in the primary; review by hand)`);
+      continue;
+    }
     if (stillClean) { clean.push({status, path}); continue; }
     const newE = treeEntry(primary, next, path);
     if (!onDisk) {
@@ -324,6 +340,8 @@ export function run(argv, {cwd = process.cwd(), checks = DEFAULT_CHECKS} = {}) {
     if (m.stop) { r.stop = m.stop; return finish(); }
     let result = m.cur;
     r.mergedPaths = gitText(repo, ['diff', '--name-only', '-z', r.H, result]).split('\0').filter(Boolean);
+    const links = newSymlinks(repo, r.H, result);
+    if (links.length) { r.refused = `the result adds symlinks (${links.join(', ')}); untrack them and rerun`; return finish(); }
     if (result === r.H) {
       r.result = result;
       r.checksNote = 'skipped (nothing to merge)';
