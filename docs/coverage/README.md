@@ -6,7 +6,7 @@
 
 *`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world's things (rows that are not `not-a-thing`).*
 
-All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), typed 1747 (2.6%).
+All worlds: 68036 things, computed runs 0 (0%), computed expressed 839 (1.2%), typed 1747 (2.6%).
 
 | World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -38,7 +38,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | Stars Without Number (Revised, free edition) | 873 | 0 | 0% | 0 | 0% | 0 |
 | The Legendary Mechanic | 799 | 0 | 0% | 0 | 0% | 0 |
 | I Am the Fated Villain | 740 | 0 | 0% | 2 | 0.3% | 0 |
-| Circle of Inevitability | 702 | 0 | 0% | 10 | 1.4% | 0 |
+| Circle of Inevitability | 722 | 0 | 0% | 16 | 2.2% | 0 |
 | A Regressor's Tale of Cultivation | 698 | 0 | 0% | 0 | 0% | 0 |
 | Strixhaven (Curriculum of Chaos) | 677 | 0 | 0% | 8 | 1.2% | 0 |
 | Spelljammer (Adventures in Space) | 623 | 0 | 0% | 1 | 0.2% | 0 |
@@ -88,6 +88,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | [omniscient_reader_powers](omniscient_reader_powers.jsonl) | W | 102 | 102 | 0 | 0 | 0 | 68 | 2 | 0 | 100% | 0% |
 | [regressors_tale_powers](regressors_tale_powers.jsonl) | W | 184 | 184 | 0 | 0 | 0 | 83 | 0 | 0 | 100% | 0% |
 | [mother_of_learning_powers](mother_of_learning_powers.jsonl) | W | 230 | 230 | 0 | 0 | 0 | 150 | 5 | 0 | 100% | 0% |
+| [circle_of_inevitability_potions](circle_of_inevitability_potions.jsonl) | W | to build | 20 | 0 | 0 | 0 | 14 | 0 | 0 | 100% | 0% |
 | [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 0 | 299 | 8 | 0 | 100% | 0% |
 | [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 0 | 158 | 3 | 0 | 100% | 0% |
 | [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 0 | 212 | 10 | 0 | 100% | 0% |
@@ -313,6 +314,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | brp_powers | 0 | 0 | 0 | 0 |
 | brp_spells | 0 | 0 | 0 | 0 |
 | circle_of_inevitability_artifacts | 0 | 0 | 0 | 0 |
+| circle_of_inevitability_potions | 0 | 6 | 0 | 0 |
 | circle_of_inevitability_powers | 0 | 10 | 0 | 0 |
 | coc_conditions | 0 | 0 | 0 | 0 |
 | coc_creatures | 0 | 0 | 0 | 0 |
@@ -549,7 +551,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | World | Kind | Census | powers | artifacts | potions_and_recipes | materials | creatures | places | institutions | people | jobs_and_roles | rules | Ledgered | Missing | None |
 | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: |
 | Lord of the Mysteries | book |  | lotm_powers (652) | lotm_artifacts (240) | lotm_potions (226) | missing | missing | missing | missing | missing | missing | missing | 3 | 7 | 0 |
-| Circle of Inevitability | book |  | circle_of_inevitability_powers (445) | circle_of_inevitability_artifacts (275) | missing | missing | missing | missing | missing | missing | missing | missing | 2 | 8 | 0 |
+| Circle of Inevitability | book |  | circle_of_inevitability_powers (445) | circle_of_inevitability_artifacts (275) | circle_of_inevitability_potions (20) | missing | missing | missing | missing | missing | missing | missing | 3 | 7 | 0 |
 | Shadow Slave | book |  | shadow_slave_powers (436) | shadow_slave_artifacts (432) | missing | missing | shadow_slave_creatures (402) | missing | missing | missing | missing | missing | 3 | 7 | 0 |
 | Mother of Learning | book |  | mother_of_learning_powers (230) | mother_of_learning_artifacts (149) | missing | missing | missing | missing | missing | missing | missing | missing | 2 | 8 | 0 |
 | Harry Potter | book |  | hp_spells (117) | hp_objects (599) | hp_potions (316) | hp_ingredients (409) | hp_creatures (819) | missing | missing | missing | missing | missing | 5 | 5 | 0 |
@@ -658,7 +660,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | Strixhaven (Curriculum of Chaos) | setting |  | strixhaven_powers (277) | strixhaven_artifacts (117) | missing | missing | strixhaven_creatures (158) | strixhaven_places (58) | strixhaven_institutions (42) | missing | missing | strixhaven_rules (37) | 6 | 4 | 0 |
 | Mystara (Gazetteers GAZ1-GAZ14) | setting |  | mystara_powers (542) | mystara_artifacts (542) | missing | missing | mystara_creatures (641) | mystara_places (792) | mystara_institutions (510) | missing | missing | mystara_rules (374) | 6 | 4 | 0 |
 
-109 worlds, 1090 cells: 188 ledgered, 745 missing with a source, 157 none.
+109 worlds, 1090 cells: 189 ledgered, 744 missing with a source, 157 none.
 
 ### Next cells
 
@@ -670,7 +672,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | 2 | legendary-mechanic | potions_and_recipes | 22 | 706 | deep dive docs/research/novels/legendary-mechanic/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 3 | lotm | materials | 22 | 674 | wiki dump ~/.codex/research/wikis/lordofthemysteries.fandom.com/dump |
 | 4 | shadow-slave | potions_and_recipes | 21 | 686 | paid reader claims 2026-11-01-ss |
-| 5 | circle-of-inevitability | potions_and_recipes | 20 | 712 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
+| 5 | circle-of-inevitability | materials | 20 | 712 | chapter text docs/research/novels/circle-of-inevitability (local, gitignored) |
 | 6 | fated-villain | potions_and_recipes | 20 | 695 | deep dive docs/research/novels/fated-villain/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 7 | mother-of-learning | potions_and_recipes | 20 | 644 | deep dive docs/research/novels/mother-of-learning/SYSTEMS_DEEP_DIVE_2026-10-10.md (local, gitignored) |
 | 8 | regressors-tale | potions_and_recipes | 19 | 674 | paid reader claims 2026-11-01-rtoc |
@@ -692,7 +694,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | 24 | worm | artifacts | 16 | 346 | paid reader claims 2026-11-01-worm |
 | 25 | spelljammer | potions_and_recipes | 15 | 620 | chapter text docs/research/tabletop-settings-2026-11-17/private/spelljammer (local, gitignored) |
 
-90 worlds have a next cell and 745 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
+90 worlds have a next cell and 744 empty cells have a source in all; the full ranked list is a function of `worlds.jsonl` (`nextCells` in `scripts/coverage_report.mjs`).
 
 ## Held-out canon scoring (PC72, tuned on / held out / matched)
 
@@ -722,6 +724,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | brp_powers | 0 | 0 | | | | | none yet |
 | brp_spells | 0 | 0 | | | | | none yet |
 | circle_of_inevitability_artifacts | 0 | 0 | | | | | none yet |
+| circle_of_inevitability_potions | 0 | 0 | | | | | none yet |
 | circle_of_inevitability_powers | 0 | 0 | | | | | none yet |
 | coc_conditions | 0 | 0 | | | | | none yet |
 | coc_creatures | 0 | 0 | | | | | none yet |
@@ -1642,6 +1645,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | hp_creatures | form-transformation | 14 |
 | the_strange_rules | form-transformation | 14 |
 | warhammer_40k_artifacts | form-transformation | 14 |
+| circle_of_inevitability_potions | formula-in-notes | 14 |
 | hp_ingredients | ingredient-effect-outside-axis-set | 14 |
 | hp_ingredients | ingredient-recipe-effect-unknown | 14 |
 | cyberpunk_artifacts | item-bound-power | 14 |

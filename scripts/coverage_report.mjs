@@ -86,6 +86,7 @@ export const DENOMINATORS = {
     omniscient_reader_powers: {expected: 102, owner: 'W', what: "Omniscient Reader's Viewpoint stigmas, constellation sponsorships and skills"},
     regressors_tale_powers: {expected: 184, owner: 'W', what: "A Regressor's Tale named techniques, arts and the regression"},
     mother_of_learning_powers: {expected: 230, owner: 'W', what: 'Mother of Learning named powers from the reader claims and POWERS.md (PWC17)'},
+    circle_of_inevitability_potions: {expected: null, owner: 'W', what: 'Circle of Inevitability stated potion formula sheets plus rows derived by the LOTM law, unchanged (PWC97 transfer test)'},
     circle_of_inevitability_powers: {expected: 445, owner: 'W', what: 'Circle of Inevitability named powers; Sequence rows link to lotm_potions (PWC17)'},
     legendary_mechanic_powers: {expected: 219, owner: 'W', what: 'The Legendary Mechanic named abilities, class steps, blueprints and system functions (PWC17)'},
     fated_villain_powers: {expected: 309, owner: 'W', what: 'I Am the Fated Villain named techniques, physiques, system functions and items (PWC17)'},

@@ -1,0 +1,228 @@
+{
+ "meta": {
+  "pwc": "PWC97",
+  "date": "2026-11-17",
+  "split": "GKM429: held out when sha1(id)[0] < 0x33",
+  "lawVersion": "06952eea35",
+  "lawVersionNow": "06952eea35",
+  "labelsVersion": "e525075bb2",
+  "baselineA": "characteristic",
+  "baselineB": 2,
+  "trainN": 11,
+  "heldN": 2,
+  "reader": "one reader (the lane), formula sheets and scenes in the local English chapter text; no model call"
+ },
+ "all": {
+  "n": 13,
+  "A": {
+   "rule": 9,
+   "baseline": 9,
+   "noRule": 4
+  },
+  "B": {
+   "rule": 2,
+   "baseline": 11
+  },
+  "C": {
+   "rule": 13,
+   "baseline": 0
+  }
+ },
+ "heldOut": {
+  "n": 2,
+  "A": {
+   "rule": 1,
+   "baseline": 1,
+   "noRule": 1
+  },
+  "B": {
+   "rule": 0,
+   "baseline": 2
+  },
+  "C": {
+   "rule": 2,
+   "baseline": 0
+  }
+ },
+ "train": {
+  "n": 11,
+  "A": {
+   "rule": 8,
+   "baseline": 8,
+   "noRule": 3
+  },
+  "B": {
+   "rule": 2,
+   "baseline": 9
+  },
+  "C": {
+   "rule": 11,
+   "baseline": 0
+  }
+ },
+ "seq0": {
+  "id": "coi.potion.demoness_0",
+  "outsideCohort": "found after the freeze; the Sequence 0 branch is fitted to two LOTM rows, so it is reported, not scored",
+  "compositionRight": true,
+  "predictedSeq1Characteristics": 2,
+  "statedSeq1Characteristics": 3
+ },
+ "exceptions": [
+  {
+   "id": "X1",
+   "axis": "B",
+   "rows": [
+    "coi.potion.red_priest_7",
+    "coi.potion.demoness_8",
+    "coi.potion.demoness_7",
+    "coi.potion.red_priest_6",
+    "coi.potion.demoness_5",
+    "coi.potion.red_priest_5",
+    "coi.potion.red_priest_4",
+    "coi.potion.demoness_4",
+    "coi.potion.demoness_3",
+    "coi.potion.red_priest_3",
+    "coi.potion.red_priest_2"
+   ],
+   "reason": "the sheets list the natural parts a characteristic fuses (two for Sequence 7 and below); the derived row counts the characteristic once. Same stuff, different count; stated in the novel (chapters 289, 455)."
+  },
+  {
+   "id": "X2",
+   "axis": "seq0",
+   "rows": [
+    "coi.potion.demoness_0"
+   ],
+   "reason": "three Sequence 1 characteristics stated against two derived; the Sequence 0 branch was fitted to two LOTM rows and is a default, not a prediction."
+  },
+  {
+   "id": "XA1",
+   "axis": "A",
+   "rows": [
+    "coi.potion.demoness_8"
+   ],
+   "reason": "the sheets and scenes show only natural mains for this Sequence. The rule says a characteristic CAN stand in and the novel states that in general (chapters 232, 289, 300, 455); no scene for this Sequence uses one, so the row is an untested case for the rule, not a contradiction."
+  },
+  {
+   "id": "XA2",
+   "axis": "A",
+   "rows": [
+    "coi.potion.demoness_5"
+   ],
+   "reason": "the sheets and scenes show only natural mains for this Sequence. The rule says a characteristic CAN stand in and the novel states that in general (chapters 232, 289, 300, 455); no scene for this Sequence uses one, so the row is an untested case for the rule, not a contradiction."
+  },
+  {
+   "id": "XA3",
+   "axis": "A",
+   "rows": [
+    "coi.potion.red_priest_4"
+   ],
+   "reason": "the sheets and scenes show only natural mains for this Sequence. The rule says a characteristic CAN stand in and the novel states that in general (chapters 232, 289, 300, 455); no scene for this Sequence uses one, so the row is an untested case for the rule, not a contradiction."
+  },
+  {
+   "id": "XA4",
+   "axis": "A",
+   "rows": [
+    "coi.potion.red_priest_3"
+   ],
+   "reason": "the sheets and scenes show only natural mains for this Sequence. The rule says a characteristic CAN stand in and the novel states that in general (chapters 232, 289, 300, 455); no scene for this Sequence uses one, so the row is an untested case for the rule, not a contradiction."
+  }
+ ],
+ "classCountsA": {
+  "all": {
+   "characteristic": 9,
+   "natural-only": 4
+  }
+ },
+ "misses": [
+  {
+   "id": "coi.potion.demoness_8",
+   "axis": "A",
+   "stated": "natural-only",
+   "predicted": "characteristic"
+  },
+  {
+   "id": "coi.potion.demoness_5",
+   "axis": "A",
+   "stated": "natural-only",
+   "predicted": "characteristic"
+  },
+  {
+   "id": "coi.potion.red_priest_4",
+   "axis": "A",
+   "stated": "natural-only",
+   "predicted": "characteristic"
+  },
+  {
+   "id": "coi.potion.red_priest_3",
+   "axis": "A",
+   "stated": "natural-only",
+   "predicted": "characteristic"
+  },
+  {
+   "id": "coi.potion.red_priest_7",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.demoness_8",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.demoness_7",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.red_priest_6",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.demoness_5",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.red_priest_5",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.red_priest_4",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.demoness_4",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.demoness_3",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.red_priest_3",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  },
+  {
+   "id": "coi.potion.red_priest_2",
+   "axis": "B",
+   "stated": 2,
+   "predicted": 1
+  }
+ ]
+}
