@@ -2,6 +2,7 @@
 // every row has a valid state, the denominators hold and every running row
 // names a test that exists.
 import test from 'node:test';
+import {demoteTypedRuns} from '../scripts/typed_runs.mjs';
 import assert from 'node:assert/strict';
 import {existsSync, readFileSync} from 'node:fs';
 import {buildLedgers, summarize, toLedgerRow} from '../scripts/b_coverage_ledgers.mjs';
@@ -9,11 +10,11 @@ import {parseLedger} from '../scripts/coverage_report.mjs';
 import {LOTM_BREW_ROWS} from '../src/world_packs/lotm_brew_pack.js';
 
 const read = name => readFileSync(new URL(`../docs/coverage/${name}.jsonl`, import.meta.url), 'utf8').trim().split('\n').map(l => JSON.parse(l));
-const STATE = /^(runs-canon|runs-authored|expressed-authored|expressed-derived|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
+const STATE = /^(catalogued|runs-canon|runs-authored|expressed-authored|expressed-derived|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
 
 test('committed B ledgers equal a fresh build', async () => {
     const built = await buildLedgers();
-    for (const [name, rows] of Object.entries(built)) assert.deepEqual(read(name), JSON.parse(JSON.stringify(rows.map(toLedgerRow))), name);
+    for (const [name, rows] of Object.entries(built)) assert.deepEqual(read(name), JSON.parse(JSON.stringify(rows.map(r => demoteTypedRuns(toLedgerRow(r))))), name);
 });
 
 test('every row is classified with a valid state and unique id, and passes the shared validator', () => {

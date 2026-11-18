@@ -2,10 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {parseLedger, countLedger, renderReadme} from '../scripts/coverage_report.mjs';
 
+const CASE = {module: 'tests/x.js', id: 'x'};
 const exists = file => file === 'tests/gu_catalogue.test.js';
 const rows = [
-    {id: 'a', source: 'idx#a', state: 'runs-canon', mechanisms: ['G'], test: 'tests/gu_catalogue.test.js'},
-    {id: 'b', source: 'idx#b', state: 'runs-authored', mechanisms: ['G', 'L'], test: 'tests/gu_catalogue.test.js#rank'},
+    {id: 'a', source: 'idx#a', state: 'runs-canon', mechanisms: ['G'], test: 'tests/gu_catalogue.test.js', case: CASE},
+    {id: 'b', source: 'idx#b', state: 'runs-authored', mechanisms: ['G', 'L'], test: 'tests/gu_catalogue.test.js#rank', case: CASE},
     {id: 'c', source: 'idx#c', state: 'blocked:PGB2', mechanisms: ['B'], test: null},
     {id: 'd', source: 'idx#d', state: 'not-a-thing:alias', mechanisms: []},
     {id: 'e', source: 'idx#e', state: 'unclassified', mechanisms: []},
@@ -31,13 +32,13 @@ test('only malformed rows fail, each by line', () => {
     ].join('\n');
     const {problems} = parseLedger(bad, {exists, name: 'demo.jsonl'});
     for (const want of [/demo.jsonl:1: not JSON/, /2: test file tests\/gone.test.js does not exist/, /3: duplicate id a/,
-        /3: a runs-\* row names the test/, /4: unknown field extra/, /4: source/, /4: state/, /4: mechanisms/]) {
+        /3: a runs-canon row has no case/, /4: unknown field extra/, /4: source/, /4: state/, /4: mechanisms/]) {
         assert.ok(problems.some(p => want.test(p)), String(want));
     }
 });
 
 test('a derived row (PWC20) names its rule and inputs and counts apart from the runs share', () => {
-    const ok = {id: 'f', source: 'rule:LOTM-conservation', state: 'runs-derived', mechanisms: ['B'], test: 'tests/gu_catalogue.test.js', derived: {rule: 'lotm.conservation', inputs: ['pathway', 'sequence']}};
+    const ok = {id: 'f', source: 'rule:LOTM-conservation', state: 'runs-derived', mechanisms: ['B'], test: 'tests/gu_catalogue.test.js', case: CASE, derived: {rule: 'lotm.conservation', inputs: ['pathway', 'sequence']}};
     const {rows: parsed, problems} = parseLedger([text, JSON.stringify(ok)].join('\n'), {exists, scored: null});
     assert.deepEqual(problems, []);
     const c = countLedger(parsed);
@@ -264,4 +265,34 @@ test('a working case computes: a cast with its cost, a shortfall, a process that
     await assert.rejects(runCaseData(both), /a sentence or a working, not both/);
     const row = {id: 'r-blade', source: 'fixture', state: 'expressed-authored', mechanisms: ['F'], case: {module: 'tests/fixtures/coverage_cases/working_cases.mjs', id: 'tempered-blade'}};
     assert.equal((await runCase(row, {reachable: new Set()})).state, 'expressed-authored');
+});
+
+test('a runs-* row with no case fails; a demoted row keeps its typed label (PSA25)', () => {
+    const typedOnly = JSON.stringify({id: 'a', source: 's', state: 'runs-authored', mechanisms: ['G'], test: 'tests/gu_catalogue.test.js'});
+    assert.ok(parseLedger(typedOnly, {exists, name: 'd.jsonl'}).problems.some(p => /d.jsonl:1: a runs-authored row has no case/.test(p)));
+    const demoted = JSON.stringify({id: 'a', source: 's', state: 'catalogued', mechanisms: ['G'], test: 'tests/gu_catalogue.test.js', typed: 'runs-authored'});
+    assert.deepEqual(parseLedger(demoted, {exists}).problems, []);
+    const badTyped = JSON.stringify({id: 'a', source: 's', state: 'catalogued', mechanisms: ['G'], typed: 'blocked:x'});
+    assert.ok(parseLedger(badTyped, {exists}).problems.some(p => /typed must be/.test(p)));
+});
+
+test('the headline counts computed runs and expressed, with typed beside, per world (PSA25)', async () => {
+    const {worldHeadline} = await import('../scripts/coverage_report.mjs');
+    const ledgers = [{name: 'l1', rows: [
+        {id: 'a', state: 'catalogued', typed: 'runs-canon'}, {id: 'b', state: 'expressed-authored', case: CASE},
+        {id: 'c', state: 'runs-authored', case: CASE}, {id: 'd', state: 'not-a-thing:alias'}]}];
+    const computed = new Map([['l1', new Map([['b', {state: 'expressed-authored'}], ['c', {state: 'runs-authored'}]])]]);
+    const [w] = worldHeadline(ledgers, computed, [{name: 'World', cells: {powers: {ledger: 'l1'}}}]);
+    assert.deepEqual([w.name, w.things, w.runs, w.expressed, w.typed], ['World', 3, 1, 1, 2]);
+});
+
+test('demoteTypedRuns is idempotent and reversible, and leaves rows with a case alone (PSA34)', async () => {
+    const {demoteTypedRuns, restoreTyped} = await import('../scripts/typed_runs.mjs');
+    const row = {id: 'a', state: 'runs-derived', test: 't'};
+    const down = demoteTypedRuns(row);
+    assert.deepEqual([down.state, down.typed], ['catalogued', 'runs-derived']);
+    assert.equal(demoteTypedRuns(down), down);
+    assert.deepEqual(restoreTyped(down), row);
+    const withCase = {...row, case: CASE};
+    assert.equal(demoteTypedRuns(withCase), withCase);
 });

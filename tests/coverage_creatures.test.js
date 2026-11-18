@@ -10,10 +10,10 @@ test('creatures ledger computes stated and authored diets and keeps the unresolv
     const rows = readFileSync(new URL('../docs/coverage/creatures.jsonl', import.meta.url), 'utf8')
         .trimEnd().split('\n').map(line => JSON.parse(line));
     const gu = rows.filter(row => row.mechanisms.includes('G') && row.id !== 'insight-moth');
-    assert.equal(rows.find(row => row.id === 'insight-moth').state, 'runs-authored');
+    assert.equal(rows.find(row => row.id === 'insight-moth').typed, 'runs-authored'); // PSA25: no case, so catalogued with the old label kept
     assert.equal(rows.length, 99);
     assert.equal(gu.length, 81);
-    assert.equal(rows.filter(row => row.state === 'runs-authored').length, 17);
+    assert.equal(rows.filter(row => row.typed === 'runs-authored').length, 17);
     assert.deepEqual(gu.map(row => row.id).sort(), Object.keys(guCatalogue).sort());
     for (const row of gu) {
         const diet = guCatalogue[row.id].body.diet;

@@ -34,7 +34,7 @@ test('no generated name is a canon Gu under another spelling', () => {
 
 test('a runs row has a grammar-valid Gu sentence and a rule, a blocked row names its slug', () => {
     for (const r of generated) {
-        if (r.state === 'runs-derived') {
+        if ((r.typed ?? r.state) === 'runs-derived') {
             assert.equal(r.derived.rule, 'gu.generated.concept');
             const m = /, (\w+) (\w+) on (\w+), (\w+), pays ([\w-]+)\./.exec(r.note);
             assert.ok(m, r.id);

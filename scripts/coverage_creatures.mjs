@@ -3,6 +3,7 @@
 // CV2: runs-canon, runs-authored, blocked:<rule>, not-a-thing:<reason>; never unclassified.
 // Rerun after either catalogue changes:  node scripts/coverage_creatures.mjs [--check]
 import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
+import {demoteTypedRuns} from './typed_runs.mjs';
 import {LIVING_KIND_ROWS, guLivingRows, livingKindRegistry} from '../src/living_kinds.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
 import {guBodyRow} from '../src/world_packs/gu_body_cases.js';
@@ -72,10 +73,10 @@ const rows = await Promise.all(Object.values(registry.kinds).sort((a, b) => a.id
         note: [`class=${kind.class}`, heredity(kind), note].filter(Boolean).join('; '),
         case: fixture};
 }));
-const text = rows.map(row => JSON.stringify(row)).join('\n') + '\n';
+const text = rows.map(row => JSON.stringify(demoteTypedRuns(row))).join('\n') + '\n';
 
 const counts = {};
-for (const row of rows) { const key = row.state.split(':')[0]; counts[key] = (counts[key] ?? 0) + 1; }
+for (const row of rows) { const key = demoteTypedRuns(row).state.split(':')[0]; counts[key] = (counts[key] ?? 0) + 1; }
 if (process.argv.includes('--check')) {
     const saved = readFileSync(OUT, 'utf8');
     if (saved !== text) { console.error('creatures.jsonl is stale: rerun node scripts/coverage_creatures.mjs'); process.exit(1); }

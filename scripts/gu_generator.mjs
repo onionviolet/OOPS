@@ -8,6 +8,7 @@
 // Keys: OPENAI_API_KEY="$(security find-generic-password -a "$USER" -s openai-api-yairpg -w)" (header of label_runner.mjs).
 // The private Gu review index is gitignored; the built prefix text and its sha are committed so a rerun is comparable (PWC34).
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
+import {demoteTypedRuns} from './typed_runs.mjs';
 import {join} from 'node:path';
 import {createHash} from 'node:crypto';
 import {confidenceOf} from './derivation_confidence.mjs';
@@ -233,7 +234,7 @@ function ledger() {
     }
     rows.sort((a, b) => a.id.localeCompare(b.id));
     const ids = new Set(); for (const r of rows) { let id = r.id, n = 2; while (ids.has(id)) id = `${r.id}-${n++}`; r.id = id; ids.add(id); }
-    writeFileSync(join(root, LEDGER), rows.map(r => JSON.stringify(r)).join('\n') + '\n');
+    writeFileSync(join(root, LEDGER), rows.map(r => JSON.stringify(demoteTypedRuns(r))).join('\n') + '\n');
     writeFileSync(join(root, WORK, 'gu_generated_dropped.json'), JSON.stringify(dropped));
     const states = {}; for (const r of rows) { const k = /^blocked:needs-/.test(r.state) ? 'blocked:needs-*' : r.state; states[k] = (states[k] ?? 0) + 1; }
     console.log(JSON.stringify({generated: gu.filter(x => !x.held).length, kept: rows.length, dropped: dropped.length, dropReasons: share(dropped, d => d.why), states}));
