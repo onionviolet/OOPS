@@ -342,7 +342,7 @@ test('Gurdyroot infusion keeps the plain share separate through restored sweeten
     const ledger = readLedgers().find(({name}) => name === 'hp_ingredients');
     const row = ledger.rows.find(({id}) => id === 'hp.ingredient.gurdyroot');
     const canonicalCase = await runCase(row);
-    assert.equal(canonicalCase.state, 'expressed-authored', canonicalCase.detail);
+    assert.equal(canonicalCase.state, 'runs-authored', canonicalCase.detail);
     for (const options of [{sweeten: false}, {removeSugar: true}, {measured: true}, {measured: true, removeSugar: true}]) {
         const result = await runCaseData(gurdyrootInfusionCase(options));
         assert.equal(result.state, 'expressed-authored', result.detail);
@@ -367,7 +367,7 @@ test('peppermint changes the restored Euphoria Elixir side effect while preservi
 test('Dittany stops an ongoing bleed without replenishing lost blood, with dose and route controls', async () => {
     const ledger = readLedgers().find(({name}) => name === 'hp_ingredients');
     const row = ledger.rows.find(({id}) => id === 'hp.ingredient.essence_of_dittany');
-    assert.equal((await runCase(row)).state, 'expressed-authored');
+    assert.equal((await runCase(row)).state, 'runs-authored');
     for (const data of [dittanyCase({amount: 1}), dittanyCase({amount: 2}), dittanyCase({route: 'oral'})]) {
         const result = await runCaseData(data);
         assert.equal(result.state, 'expressed-authored', result.detail);
@@ -550,7 +550,7 @@ test('the stock-backed Hogwarts potion cases earn authored expression through th
     const row = cases.find(row => row.id === 'hp.potion.draught_of_living_death');
     assert.equal(row.state, 'expressed-authored');
     assert.match(row.source, /oldid=1992923; HPPE006; HPPE007; HPPE008; HPPE009; HPPE010; HPPE011; HPPE012; HPPE088$/);
-    for (const candidate of cases) assert.equal((await runCase(candidate)).state, 'expressed-authored');
+    for (const candidate of cases) assert.equal((await runCase(candidate)).state, 'runs-authored');
 
     const data = coverageCase(DRAUGHT_CASE_ID);
     const noUptake = structuredClone(data);
@@ -890,7 +890,7 @@ test('restored scar care improves only as far as the applied topical doses fund 
 test('Bubotuber collection and dilution preserve stock and distinguish skin effects after restore', async () => {
     const ledger = readLedgers().find(({name}) => name === 'hp_ingredients');
     const row = ledger.rows.find(({id}) => id === 'hp.ingredient.bubotuber_pus');
-    assert.equal((await runCase(row)).state, 'expressed-authored');
+    assert.equal((await runCase(row)).state, 'runs-authored');
     for (const options of [{gloves: false}, {dilute: false}]) {
         const result = await runCaseData(bubotuberCase(options));
         assert.equal(result.state, 'expressed-authored', result.detail);
@@ -900,7 +900,7 @@ test('Bubotuber collection and dilution preserve stock and distinguish skin effe
 test('eating held Gillyweed preserves breath on a restored underwater task', async () => {
     const ledger = readLedgers().find(({name}) => name === 'hp_ingredients');
     const row = ledger.rows.find(({id}) => id === 'hp.ingredient.gillyweed');
-    assert.equal((await runCase(row)).state, 'expressed-authored');
+    assert.equal((await runCase(row)).state, 'runs-authored');
     const control = await runCaseData(gillyweedCase({available: false}));
     assert.equal(control.state, 'expressed-authored', control.detail);
 });

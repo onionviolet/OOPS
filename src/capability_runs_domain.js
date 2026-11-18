@@ -5,8 +5,9 @@ import {createCapabilityRunsPanel} from './ui/capability_runs.js';
 import {fangLiquorWormRun} from './world_packs/gu_liquor_worm_run.js';
 import {kleinGlacisRun} from './world_packs/lotm_bogda_consultation.js';
 import {paradisePracticeRun} from './world_packs/paradise_sword_practice.js';
+import {effectsWorkshopRun} from './world_packs/effects_workshop.js';
 
-const runs = {fang: fangLiquorWormRun, klein: kleinGlacisRun, su: paradisePracticeRun};
+const runs = {fang: fangLiquorWormRun, klein: kleinGlacisRun, su: paradisePracticeRun, workshop: effectsWorkshopRun};
 // G6: whose world each run belongs to. The home hero's list shows all three; a lead's shows their own, or none.
 export const RUN_WORLDS = Object.freeze({fang: 'book.ri.', klein: 'book.lotm.', su: 'book.paradise.'});
 export const runShows = (id, world) => !world || world === 'base.frontier' || world.startsWith(RUN_WORLDS[id] || '\0');
