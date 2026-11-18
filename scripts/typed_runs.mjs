@@ -33,7 +33,7 @@ export function liftReachable(row, reachable = reachedSet()) {
 /** Builders call this on every output row: lift by reachability, then demote typed runs with no case. */
 // A runs row must name the test that runs it. Where a case module has one test that runs every case in it, a lifted
 // row without a `test` takes that one (default; a row's own `test` always wins).
-const MODULE_TEST = {'src/world_packs/brew_coverage_cases.js': 'tests/hp_potion_case_scenes.test.js'};
+const MODULE_TEST = {'src/world_packs/brew_coverage_cases.js': 'tests/hp_potion_case_scenes.test.js', 'src/brew_dose_response.js': 'tests/brew_dose_response.test.js'};
 const nameTest = row => /^runs-/.test(row.state ?? '') && !row.test && MODULE_TEST[row.case?.module] ? {...row, test: MODULE_TEST[row.case.module]} : row;
 export const settleState = row => demoteTypedRuns(nameTest(liftReachable(row)));
 /** The reverse: the typed label back into `state` (only rows that were demoted). */
