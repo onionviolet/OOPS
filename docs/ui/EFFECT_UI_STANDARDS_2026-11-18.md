@@ -97,7 +97,8 @@ All five lanes are in flight on their own branches (`claude/entry-points-89eb18`
 
 | Lane | Floor (meet in this slice) | Next |
 | --- | --- | --- |
-| entry-points | EU9 (CHT16 line in the confirm step, from card data), EU12 (carried and lost ledger on return), EU2 (source names the method and the body), EU10 (does the world know the outsider; WER12 dial as a chip) | EU11 for loops that begin at entry |
+| entry-points (ordinary-play entry points: drink or serve a brew, a Gu in a fight or chore, a household ward; PWC131) | EU1 and EU2 (one line naming what changed, why, and the brew, Gu or ward as source), EU6 (a timed brew or ward effect stands in Condition), EU17 (repeated ward or Gu effects fold into one counted row), EU3 (no grammar tokens) | EU5 (why the dose or ward resolved) |
+| world entry (crossing into a world; not a lane yet, coordinator correction 2026-11-18) | EU9 (CHT16 line in the confirm step, from card data), EU12 (carried and lost ledger on return), EU2 (source names the method and the body), EU10 (does the world know the outsider; WER12 dial as a chip) | EU11 for loops that begin at entry |
 | director-cards (cards carrying effects) | EU1 and EU22 (one authored line, three slots), EU3 (no tokens), EU17 and EU18 (fold and no interrupts unless stop-list), EU19 (forewarn the coming effect) | EU4 nested detail; EU5 once the inspector can read a card's resolution |
 | power-target (absorb, copy, negate) | EU7 (terms, origin, state on the card), EU8 (the one power-sheet shape), EU1 and EU2 (source naming), EU6 (a standing negation in Condition) | EU5 (why a negate resolved: reach against resistance) |
 | timeline (rewind, loop) | EU11 (timeline view with undo preview), EU10 (awareness chips), EU12 (what carried), EU15 (no replay on navigation), EU13 (held actors, if the slice has a stop) | EU14 for the forecast side of a loop |
