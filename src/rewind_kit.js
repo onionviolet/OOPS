@@ -170,8 +170,9 @@ export function anchorDue(spec, store, {clock, events = []}) {
     const a = spec.anchor ?? {kind: 'fixed'};
     if (a.kind !== 'moving') return false;
     const held = store.anchors[spec.id];
-    if (!held) return true;
+    // Nothing is captured until a first mark exists (the player's button, or a named event): a life that never uses the ability saves nothing.
     if (Array.isArray(a.on) && events.some(e => a.on.includes(e))) return true;
+    if (!held) return false;
     return Number.isFinite(a.every) && clock - held.movedAt >= a.every;
 }
 

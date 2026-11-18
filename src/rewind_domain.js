@@ -95,6 +95,9 @@ function commit(s, plan, stage) {
     catch (error) { for (const id of done) { try { ports.load(id, before[id]); } catch { /* best effort */ } } throw Error(`A rewind failed to load and was rolled back: ${error.message}`); }
 }
 
+// The registry tick is shared by every domain: a failure here is recorded for the panel and never thrown into it.
+const safely = fn => { try { fn(); } catch (error) { lastError = error.message; } };
+
 export const commands = {
     // Set a fixed mark here (a moving mark advances by itself and also answers this).
     mark(id, label = 'your mark') { const s = spec(id); const c = markNow(s, label); render(); return {id: c.id, at: c.at, label: c.label}; },
@@ -141,7 +144,7 @@ export const commands = {
     // Branching: go back to a kept line; the line you leave becomes a branch in turn.
     switchBranch(id, captureId) { return commands.rewind(id, {capture: captureId}); },
     read: () => structuredClone(store),
-    event(name) { for (const s of specs.values()) if (K.anchorDue(s, store, {clock: ports.clock(), events: [name]})) markNow(s, s.markLabel ?? 'your mark'); render(); },
+    event(name) { safely(() => { for (const s of specs.values()) if (K.anchorDue(s, store, {clock: ports.clock(), events: [name]})) markNow(s, s.markLabel ?? 'your mark'); render(); }); },
 };
 
 registerDomain({id: 'rewind', deps: [], initialState: () => null,
@@ -150,7 +153,7 @@ registerDomain({id: 'rewind', deps: [], initialState: () => null,
     migrate: slice => { if (slice == null) return K.freshStore(); if (slice.schema > K.REWIND_SCHEMA) throw Error('This save has rewinds from a newer game version.'); return slice; },
     load: slice => { store = slice ?? K.freshStore(); lastLines = []; lastError = ''; render(); },
     // The registry's tick carries game minutes (AR3: no second timer): moving anchors advance here.
-    tick: () => { const clock = ports.clock(); for (const s of specs.values()) if (K.anchorDue(s, store, {clock})) markNow(s, s.markLabel ?? 'your mark'); render(); },
+    tick: () => safely(() => { const clock = ports.clock(); for (const s of specs.values()) if (K.anchorDue(s, store, {clock})) markNow(s, s.markLabel ?? 'your mark'); render(); }),
     refresh: render,
     projection: () => ({store, specs: rewindSpecs(), lines: lastLines, error: lastError}),
     commands,

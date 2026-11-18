@@ -120,6 +120,14 @@ test('a moving anchor advances on a period and on events; a fixed one does not',
     assert.equal(K.anchorDue(mv, st, {clock: 10, events: ['rest']}), true);
     assert.equal(K.anchorDue(spec(), st, {clock: 9999}), false);
 });
+test('nothing is captured or saved until a first mark exists, and a tick failure never throws into the registry', () => {
+    world(base()); registerRewind(spec({anchor: {kind: 'moving', every: 60, on: ['rest']}}));
+    const dom = domainRegistry.list().find(d => d.id === 'rewind');
+    dom.tick(30);
+    assert.equal(rewindStore().captures.length, 0); assert.equal(dom.save(), undefined);
+    commands.event('rest'); assert.ok(rewindStore().captures.length >= 1);
+    configureRewind({clock: () => { throw Error('clock down'); }}); assert.doesNotThrow(() => dom.tick(30));
+});
 test('a refused restore changes nothing (a restored slice a domain rejects)', () => {
     const w = setup(); change(w);
     // tamper the stored capture so the restored slice is invalid
