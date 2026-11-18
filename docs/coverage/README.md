@@ -6,7 +6,7 @@
 
 *`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world's things (rows that are not `not-a-thing`).*
 
-All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), typed 1747 (2.6%).
+All worlds: 68016 things, computed runs 370 (0.5%), computed expressed 463 (0.7%), typed 2117 (3.1%).
 
 | World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -15,12 +15,12 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | Warhammer 40,000, the 41st millennium (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum) | 4747 | 0 | 0% | 0 | 0% | 0 |
 | Pathfinder 1e (d20pfsrd pages) | 4567 | 0 | 0% | 0 | 0% | 0 |
 | Forgotten Realms (3e campaign setting and Grand History) | 3934 | 0 | 0% | 9 | 0.2% | 0 |
-| Reverend Insanity | 3652 | 0 | 0% | 107 | 2.9% | 1726 |
+| Reverend Insanity | 3652 | 16 | 0.4% | 91 | 2.5% | 1742 |
 | D&D 5e 2014 core and supplements (design reference; PHB, DMG, MM, Xanathar, Fizban, MotM) | 3598 | 0 | 0% | 0 | 0% | 0 |
 | Mystara (Gazetteers GAZ1-GAZ14) | 3353 | 0 | 0% | 11 | 0.3% | 0 |
 | Eclipse Phase (2nd edition) | 2912 | 0 | 0% | 10 | 0.3% | 0 |
 | The Strange (recursions) | 2342 | 0 | 0% | 13 | 0.6% | 0 |
-| Harry Potter | 2191 | 0 | 0% | 410 | 18.7% | 21 |
+| Harry Potter | 2191 | 146 | 6.7% | 264 | 12% | 167 |
 | Eberron (Rising from the Last War) | 1991 | 0 | 0% | 6 | 0.3% | 0 |
 | D&D 5.2.1 SRD | 1847 | 0 | 0% | 0 | 0% | 0 |
 | Wildemount (Explorer's Guide) | 1590 | 0 | 0% | 6 | 0.4% | 0 |
@@ -30,7 +30,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | Shadow Slave | 1237 | 0 | 0% | 1 | 0.1% | 0 |
 | Fate SRD | 1216 | 0 | 0% | 0 | 0% | 0 |
 | Ravenloft (Van Richten's Guide) | 1207 | 0 | 0% | 0 | 0% | 0 |
-| Lord of the Mysteries | 1112 | 0 | 0% | 208 | 18.7% | 0 |
+| Lord of the Mysteries | 1112 | 208 | 18.7% | 0 | 0% | 208 |
 | Cypher Reference Document | 1069 | 0 | 0% | 0 | 0% | 0 |
 | Warhammer: the Old World (WFRP 4e Up in Arms; core not yet read) | 991 | 0 | 0% | 0 | 0% | 0 |
 | Golarion (Inner Sea World Guide and Lost Omens World Guide) | 966 | 0 | 0% | 4 | 0.4% | 0 |
@@ -65,17 +65,17 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 0 | 0 | 597 | 101 | 0 | 100% | 0% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 16 | 0 | 597 | 101 | 0 | 100% | 1.2% |
 | [gu_generated](gu_generated.jsonl) | G | to build | 1321 | 0 | 0 | 0 | 285 | 0 | 0 | 100% | 0% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 0 | 0 | 759 | 0 | 0 | 100% | 0% |
-| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 0 | 0 | 193 | 32 | 0 | 100% | 0% |
-| [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 0 | 0 | 171 | 9 | 0 | 100% | 0% |
-| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 0 | 0 | 18 | 0 | 0 | 100% | 0% |
+| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 34 | 0 | 193 | 32 | 0 | 100% | 12% |
+| [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 4 | 0 | 171 | 9 | 0 | 100% | 1% |
+| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 46 | 162 | 18 | 0 | 0 | 100% | 20.4% |
 | [a_novel_concept_powers](a_novel_concept_powers.jsonl) | P | to build | 128 | 0 | 0 | 0 | 34 | 39 | 0 | 100% | 0% |
 | [labyrinth_mad_god_powers](labyrinth_mad_god_powers.jsonl) | P | to build | 57 | 0 | 0 | 0 | 18 | 17 | 0 | 100% | 0% |
 | [you_have_died_again_powers](you_have_died_again_powers.jsonl) | P | to build | 58 | 0 | 0 | 0 | 19 | 29 | 0 | 100% | 0% |
 | [speedrunning_multiverse_powers](speedrunning_multiverse_powers.jsonl) | P | to build | 111 | 0 | 0 | 0 | 46 | 13 | 0 | 100% | 0% |
-| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 0 | 0 | 0 | 6 | 0 | 100% | 0% |
+| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 108 | 0 | 0 | 6 | 0 | 100% | 97.3% |
 | [worm_powers](worm_powers.jsonl) | P | to build | 279 | 0 | 0 | 0 | 197 | 0 | 0 | 100% | 0% |
 | [creatures](creatures.jsonl) | L | to build | 99 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
 | [rezero_powers](rezero_powers.jsonl) | W | 204 | 204 | 0 | 0 | 0 | 94 | 26 | 0 | 100% | 0% |
@@ -385,13 +385,13 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | golarion_powers | 0 | 4 | 0 | 0 |
 | golarion_rules | 0 | 0 | 0 | 0 |
 | gu_generated | 0 | 0 | 0 | 0 |
-| gu_kinds | 0 | 16 | 0 | 0 |
+| gu_kinds | 16 | 16 | 16 | 0 |
 | gu_moves | 0 | 9 | 0 | 0 |
 | hp_creatures | 0 | 0 | 0 | 0 |
-| hp_ingredients | 0 | 209 | 0 | 0 |
+| hp_ingredients | 4 | 209 | 4 | 0 |
 | hp_objects | 0 | 0 | 0 | 0 |
-| hp_potions | 0 | 90 | 0 | 0 |
-| hp_spells | 0 | 111 | 0 | 0 |
+| hp_potions | 34 | 90 | 34 | 0 |
+| hp_spells | 108 | 111 | 108 | 0 |
 | ironsworn_conditions | 0 | 0 | 0 | 0 |
 | ironsworn_creatures | 0 | 0 | 0 | 0 |
 | ironsworn_items | 0 | 0 | 0 | 0 |
@@ -400,7 +400,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 | legendary_mechanic_artifacts | 0 | 0 | 0 | 0 |
 | legendary_mechanic_powers | 0 | 0 | 0 | 0 |
 | lotm_artifacts | 0 | 0 | 0 | 0 |
-| lotm_potions | 0 | 208 | 0 | 0 |
+| lotm_potions | 208 | 208 | 208 | 0 |
 | lotm_powers | 0 | 0 | 0 | 0 |
 | mm3e_conditions | 0 | 0 | 0 | 0 |
 | mm3e_powers | 0 | 0 | 0 | 0 |
@@ -513,7 +513,7 @@ All worlds: 68016 things, computed runs 0 (0%), computed expressed 833 (1.2%), t
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1650 of 1894 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1677 of 1896 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 

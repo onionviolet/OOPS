@@ -10,7 +10,7 @@
 // Usage: node scripts/b_coverage_ledgers.mjs [--check]  (--check fails if the
 // committed ledgers differ from a fresh build).
 import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
-import {demoteTypedRuns} from './typed_runs.mjs';
+import {settleState as demoteTypedRuns} from './typed_runs.mjs';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {canonicalRow} from './slug_normalize.mjs';

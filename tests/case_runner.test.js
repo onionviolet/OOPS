@@ -8,6 +8,7 @@ import {coverageCase as lotmDerived} from '../src/world_packs/lotm_derived_cases
 import {coverageCase as hpSpell} from '../src/world_packs/hp_effect_pack.js';
 
 // reachable: new Set() fixes the library-only reading so a pack gaining an import (PSA24) cannot flip these to runs-*.
+import {reachableFrom} from '../scripts/reachable.mjs';
 const NONE = {reachable: new Set()};
 const ledgerRow = (file, id) => fs.readFileSync(new URL(`../docs/coverage/${file}.jsonl`, import.meta.url), 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)).find(r => r.id === id);
 
@@ -35,7 +36,8 @@ test('inline data and a module are not both allowed; a row with no case is catal
 test('coverage_report re-exports the same runner; the existing case ledgers still compute', async () => {
     assert.equal(reexported, runCase);
     const rows = ['gu_kinds', 'hp_spells'].map(f => ({name: f, rows: fs.readFileSync(new URL(`../docs/coverage/${f}.jsonl`, import.meta.url), 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)).slice(0, 5)}));
-    const {problems} = await computeLedgers(rows, NONE);
+    // The typed runs-* rows in these ledgers follow reachability (PSA24), so compute them against the real graph.
+    const {problems} = await computeLedgers(rows, {reachable: reachableFrom()});
     assert.deepEqual(problems, []);
 });
 

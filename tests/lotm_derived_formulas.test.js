@@ -16,7 +16,7 @@ test('every derived row cites a rule row, a case and its inputs, and no stated t
     const ids = new Set(rules.rules.map(r => r.id));
     assert.equal(derived.length, 162);
     for (const r of derived) {
-        assert.equal(r.state, 'expressed-derived', r.id);
+        assert.equal(r.state, 'runs-derived', r.id); // the case module is reachable from main.js (PSA24)
         assert.ok(ids.has(r.derived.rule), r.id);
         assert.ok(r.derived.inputs.length >= 2, r.id);
         assert.equal(r.case.module, 'src/world_packs/lotm_derived_cases.js');

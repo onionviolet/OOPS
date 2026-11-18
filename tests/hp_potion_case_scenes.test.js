@@ -548,7 +548,7 @@ test('the stock-backed Hogwarts potion cases earn authored expression through th
     const cases = ledger.rows.filter(row => row.case && row.case.module !== 'src/brew_dose_response.js');
     assert.equal(cases.length, 34);
     const row = cases.find(row => row.id === 'hp.potion.draught_of_living_death');
-    assert.equal(row.state, 'expressed-authored');
+    assert.equal(row.state, 'runs-authored');
     assert.match(row.source, /oldid=1992923; HPPE006; HPPE007; HPPE008; HPPE009; HPPE010; HPPE011; HPPE012; HPPE088$/);
     for (const candidate of cases) assert.equal((await runCase(candidate)).state, 'runs-authored');
 

@@ -318,7 +318,7 @@ test('both Gu ledgers cover their denominators with no unclassified row (MS1, CV
 });
 
 test('legacy chapter-checked working rows still quote through the Gu working law', () => {
-    for (const row of kinds.filter(entry => entry.layer === 'chapter' && (entry.state.startsWith('runs') || entry.note.includes('Former state: runs-authored.')))) {
+    for (const row of kinds.filter(entry => entry.layer === 'chapter' && !entry.case && (entry.state.startsWith('runs') || entry.note.includes('Former state: runs-authored.')))) {
         const methods = guMethods(row.id);
         assert.ok(Object.keys(methods).length, row.id);
         if (methods.activate) {
