@@ -1,0 +1,31 @@
+{
+ "meta": {
+  "pass": "docs/research/power-catalogues-2026-11-16/lanes/derive-worm.md",
+  "date": "2026-11-17",
+  "what": "Numbers the PRT gives a cape, stated in the serial. Numbers and chapter headings only, no prose. Found by a case-insensitive search of the local text for a class word beside a digit or a number word, then checked by eye.",
+  "targetRule": "A cape's target is the number beside its primary class in the sidecar's class set. A re-rated cape lists every stated value and a prediction hits when it equals (or is within one of) any of them.",
+  "excluded": {
+   "worm.cape.lung": "stated as a range with an asterisk (Brute 4-9, Blaster 2-6); no single number",
+   "worm.cape.nilbog": "posted rating (Changer 7, Trump 4) is stated to be wrong; the true class is Master",
+   "unattached": "the Archer's Bridge Merchants (Shaker 2, Tinker 2/Mover 3, Shifter 4), the Pure's Breaker 9, Shifter 8 and Master 6, a Mover-shaker 6, a blaster-shaker 4, a master-stranger 3, Mockshow's master-shaker 6, a 'Blaster-eight' ex-Merchant: no ledger row to attach them to (10 ratings)"
+  },
+  "scale": "1 to 12"
+ },
+ "rows": {
+  "worm.cape.skitter": {"primary": "Master", "values": [5, 8], "at": "Extermination 8.7 (5); Cell 22.1 (8, with Thinker 1)"},
+  "worm.cape.bakuda": {"primary": "Tinker", "values": [6], "at": "Interlude 6"},
+  "worm.cape.canary": {"primary": "Master", "values": [8], "at": "Interlude 6"},
+  "worm.cape.tattletale": {"primary": "Thinker", "values": [7], "at": "Extermination 8.7"},
+  "worm.cape.clockblocker": {"primary": "Striker", "values": [7], "at": "Sentinel 9.1"},
+  "worm.cape.vista": {"primary": "Shaker", "values": [9], "at": "Sentinel 9.1"},
+  "worm.cape.kid_win": {"primary": "Tinker", "values": [4], "at": "Sentinel 9.1"},
+  "worm.cape.shadow_stalker": {"primary": "Breaker", "values": [3], "at": "Sentinel 9.1 (sublabels Stranger 2, Mover 1)"},
+  "worm.cape.hookwolf": {"primary": "Shaker", "values": [4], "at": "Sentinel 9.1 (also Brute 7)"},
+  "worm.cape.purity": {"primary": "Blaster", "values": [8], "at": "Sentinel 9.1 (also Mover 4)"},
+  "worm.cape.labyrinth": {"primary": "Shaker", "values": [12], "at": "Sentinel 9.1"},
+  "worm.cape.psychosoma": {"primary": "Stranger", "values": [4], "at": "Sting 26.5 (also Master 7)"},
+  "worm.cape.imp": {"primary": "Stranger", "values": [5], "at": "found by text search; chapter not recorded"},
+  "worm.cape.genesis": {"primary": "Changer", "values": [9], "at": "Sentinel 9.3 (the reader table names Weld as speaker)"},
+  "worm.cape.madcap": {"primary": "Striker", "values": [7], "at": "found by text search; chapter not recorded"}
+ }
+}
