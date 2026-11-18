@@ -15,6 +15,7 @@ import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {scoreRows as lawDefaultScores} from './law_defaults.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 export const RULES_FILE = 'docs/coverage/derivation_rules.json';
@@ -111,7 +112,7 @@ function generator() {
 }
 
 export async function build() {
-    const rules = [...(await guRank()), hp(), ...lotm(), generator()];
+    const rules = [...(await guRank()), hp(), ...lotm(), generator(), ...lawDefaultScores()];
     return {meta: {pass: 'docs/research/power-catalogues-2026-11-16/README.md#pwc100-pwc119-derivation-rule-scores-and-core-axioms-2026-11-17-proposals', date: '2026-11-17', status: 'proposal (AD32)',
         split: 'GKM429: sha1(id)[0] < 0x33 held out, frozen before scoring', floor: FLOOR,
         verdicts: 'passes | fails-baseline | insufficient-held-out; written in scripts/derivation_rules_backtest.mjs before the table was filled',

@@ -269,6 +269,274 @@
     "verdict": "fails-baseline"
    },
    "note": "Ahead of baseline on path (78.6% against 65.8%, n=117), behind on band and verb (49% against 54.8%, n=104). These rows already carry tier generated; no relabel needed, the palette says why."
+  },
+  {
+   "id": "law.area-field.time-from-duration",
+   "mechanism": "Area time (instant, sustained, lasting) from the confirmed duration: instant, until-ended = sustained, minutes, hours-days, permanent = lasting",
+   "inputs": [
+    "confirmed duration"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (sustained)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 79,
+   "exact": 75,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (sustained)",
+    "exact": 12,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.949,
+    "withinBand": null,
+    "n": 79,
+    "verdict": "passes"
+   },
+   "note": "Truth is the Luna effect label time; the label is unchecked, so this measures agreement of two sources, not the label.",
+   "proposed": true
+  },
+  {
+   "id": "law.area-field.time-default",
+   "mechanism": "Area time default: the commonest label time of the row's kind (spell, power, creature, artifact ...), fitted on development rows",
+   "inputs": [
+    "ledger kind"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "commonest label time per kind on development rows",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (sustained)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 203,
+   "exact": 80,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (sustained)",
+    "exact": 80,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.394,
+    "withinBand": null,
+    "n": 203,
+    "verdict": "fails-baseline"
+   },
+   "note": "The default a row with no label time and no duration receives. A dial per world, not a fact.",
+   "proposed": true
+  },
+  {
+   "id": "law.area-field.sentence-from-inside",
+   "mechanism": "Area sentence from the confirmed inside: damage = remove.vitality, protect-or-heal = add.vitality",
+   "inputs": [
+    "confirmed inside"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (add.force)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 62,
+   "exact": 10,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (add.force)",
+    "exact": 22,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.161,
+    "withinBand": null,
+    "n": 62,
+    "verdict": "fails-baseline"
+   },
+   "note": "Truth is the label sentence, which the same readers wrote.",
+   "proposed": true
+  },
+  {
+   "id": "law.area-field.ends-from-time",
+   "mechanism": "Area ends from time: instant = none, sustained = dismissed, lasting = timeout",
+   "inputs": [
+    "label time"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (timeout)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 6,
+   "exact": 3,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (timeout)",
+    "exact": 4,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "insufficient-held-out",
+   "confidence": {
+    "exact": 0.5,
+    "withinBand": null,
+    "n": 6,
+    "verdict": "insufficient-held-out"
+   },
+   "note": "Truth is the confirmed ends (removed-by-counter and source-lost are left out: the law has no counter model for an area yet).",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.sentence-from-change",
+   "mechanism": "A confirmed change of body-or-species, looks-only, size or abilities-only is a form sentence (the route for rows with no label)",
+   "inputs": [
+    "confirmed change"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (form)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 112,
+   "exact": 107,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (form)",
+    "exact": 107,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.955,
+    "withinBand": null,
+    "n": 112,
+    "verdict": "fails-baseline"
+   },
+   "note": "Truth is the label sentence. Prediction and baseline agree when most such rows are form labels; the rule earns its place only if it beats a no-route baseline of \"other\".",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.reversal-from-duration",
+   "mechanism": "Form reversal from the confirmed duration: instant, permanent = none; until-ended = at-will; minutes, hours-days = timeout",
+   "inputs": [
+    "confirmed duration"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (at-will)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 16,
+   "exact": 10,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (at-will)",
+    "exact": 7,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.625,
+    "withinBand": null,
+    "n": 16,
+    "verdict": "passes"
+   },
+   "note": "Truth is the confirmed reversal. Counter-effects are never predicted: no duration implies one.",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.reversal-from-time",
+   "mechanism": "Form reversal from the label time: instant = none, sustained = at-will, lasting = timeout",
+   "inputs": [
+    "label time"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (at-will)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 6,
+   "exact": 0,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (at-will)",
+    "exact": 2,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "insufficient-held-out",
+   "confidence": {
+    "exact": 0,
+    "withinBand": null,
+    "n": 6,
+    "verdict": "insufficient-held-out"
+   },
+   "note": "Truth is the confirmed reversal.",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.reversal-default",
+   "mechanism": "Form reversal default: the commonest development reversal (at-will)",
+   "inputs": [],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (at-will)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 20,
+   "exact": 9,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (at-will)",
+    "exact": 9,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "fails-baseline",
+   "confidence": {
+    "exact": 0.45,
+    "withinBand": null,
+    "n": 20,
+    "verdict": "fails-baseline"
+   },
+   "note": "The default a row with no stated reversal, duration or label time receives.",
+   "proposed": true
+  },
+  {
+   "id": "law.form-transformation.target-from-label",
+   "mechanism": "Form target from the label target: self = holder, touched = other",
+   "inputs": [
+    "label target"
+   ],
+   "version": "law-defaults-v1",
+   "fit": "none (authored from what the values mean)",
+   "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
+   "baselineRule": "most common development value (holder)",
+   "set": "held-out rows that state both the input and the truth",
+   "heldOutN": 109,
+   "exact": 102,
+   "withinBand": null,
+   "baseline": {
+    "name": "most common development value (holder)",
+    "exact": 96,
+    "withinBand": null
+   },
+   "allHeldOut": null,
+   "verdict": "passes",
+   "confidence": {
+    "exact": 0.936,
+    "withinBand": null,
+    "n": 109,
+    "verdict": "passes"
+   },
+   "note": "Truth is the confirmed fill target.",
+   "proposed": true
   }
  ]
 }
