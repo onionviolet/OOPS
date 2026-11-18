@@ -15,6 +15,7 @@
 // split file was written, so the labels are not blind to the rule; the rule and split are fixed code, and nothing was tuned afterwards.
 import {createHash} from 'node:crypto';
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
+import {settleState} from './typed_runs.mjs';
 import {fileURLToPath} from 'node:url';
 import {derivedSpec, derivedRowId, lotmSequenceName, LOTM_DERIVE_RULES} from '../src/lotm_derived_formulas.js';
 import {confidenceOf} from './derivation_confidence.mjs';
@@ -149,5 +150,5 @@ function ledgerRows() {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     if (process.argv.includes('--freeze')) freeze();
     if (process.argv.includes('--score')) { const s = score(); writeFileSync(root + SCORE_FILE, JSON.stringify(s, null, 1) + '\n'); console.log(JSON.stringify({all: s.all, heldOut: s.heldOut, base: [s.meta.baselineA, s.meta.baselineB]}, null, 1)); }
-    if (process.argv.includes('--build')) { const rows = ledgerRows(); writeFileSync(root + LEDGER_FILE, rows.map(r => JSON.stringify(r)).join('\n') + '\n'); console.log(`wrote ${LEDGER_FILE} (${rows.length} rows)`); }
+    if (process.argv.includes('--build')) { const rows = ledgerRows().map(settleState); writeFileSync(root + LEDGER_FILE, rows.map(r => JSON.stringify(r)).join('\n') + '\n'); console.log(`wrote ${LEDGER_FILE} (${rows.length} rows)`); }
 }
