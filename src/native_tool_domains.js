@@ -15,6 +15,7 @@ import './material_lineage_domain.js';
 import './beat_ledger.js';
 import './canon_pull.js';
 import './pin_store_domain.js'; // PSA29: pins slice, manifests, dev panel
+import './rewind_domain.js'; // XG6: rewind kit, `rewind` slice, Return to the mark
 import './canon_pull_panel.js';
 import './duties_domain.js';
 import './mood_thoughts_domain.js';
