@@ -8,5 +8,6 @@ test('Capability runs lists every run for the home hero and only a lead\'s own r
     assert.deepEqual(shown(undefined), ids, 'before a world is known nothing is hidden');
     assert.deepEqual(shown('book.ri.lead.world'), ['fang']);
     assert.deepEqual(shown('book.lotm.tingen'), ['klein']);
-    assert.deepEqual(shown('book.hp.lead.world'), [], 'a life with no run of its own does not list other lives');
+    assert.deepEqual(shown('book.hp.lead.world'), ['harry']);
+    assert.deepEqual(shown('book.paradise.lead.world'), ['su'], 'a life lists its own run and no other lives');
 });
