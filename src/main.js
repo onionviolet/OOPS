@@ -610,7 +610,12 @@ const lifeSaveStorage = {get length(){return localStorage.length;},key:i=>localS
     if(authorityBootError)throw authorityBootError;
     if(authorityBootPending)throw Error('The enrolled save is awaiting complete native preflight.');
     if(authorityEnrolled()){durableSaves.forget();nativeAuthority.commitPreparedSave(JSON.stringify(save));}
-    else durableSaves.write(key, save, {force});
+    else if(stepperSaves&&!force){
+        // S1 (2026-11-18): inside a dev stepper batch only the newest envelope per key is made durable, once, when the batch closes.
+        if(deferredDurable&&deferredDurable.key!==key)flushDeferredDurable();
+        deferredDurable={key,save};
+    }
+    else {if(deferredDurable?.key===key)deferredDurable=null;durableSaves.write(key, save, {force});}
     onDurable?.();
     if(nativeP23Transaction?.status==='pending')nativeP23Transaction.markDurable();
     villageCareer = migrateVillageCareer(save);
@@ -626,6 +631,11 @@ const lifeSaveStorage = {get length(){return localStorage.length;},key:i=>localS
     restoreGeneratedPeople(save);
     if(!deferWhileHidden(renderSavedPanels,renderSavedPanels))renderSavedPanels();
 }};
+let deferredDurable=null;
+function flushDeferredDurable(){
+    const held=deferredDurable;deferredDurable=null;
+    if(held)durableSaves.write(held.key,held.save,{force:false});
+}
 // Display-only panels that follow each durable save.
 function renderSavedPanels(){workLedgerPanel?.render();optionalPackPanel?.render();villageCareerControls?.render();lifeRecordPanel?.render();villageLivesPanel?.render();}
 
@@ -1136,7 +1146,7 @@ const paradiseNative=createParadiseNativeBindings({NPC,NPCRegistry,SafeLocation,
 }});
 paradiseNative.register();
 const molNative=createMolNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
-molNative.register();configureLotm({item:getItemFromKey,assertDisposition:key=>assertNativeItemDisposition(expansionState,key),planTime:minutes=>advanceChroniclePlan(p23Plan(),minutes,true),refreshLocationIdentity:location=>{if(current_location===location)update_displayed_location_identity(location);},advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>freshLifeStart.probe||ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,writeBlockReason:()=>!ownsSave?'This tab is read-only: close the other game tab and reload.':expansionError?`Progress paused: ${expansionError}`:foundationSaveBlocked?'Saving failed earlier: reload to continue.':importProbeToken?'An import is being checked.':restoringNativeSave?'A saved game is being restored.':'',startBe:()=>freshLifeStart.start(true),restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),idle:()=>!!current_activity&&activities[current_activity.activity_name]?.type==='TRAINING'&&!(current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),stopIdle:()=>{const text=activities[current_activity?.activity_name]?.action_text;end_activity();return text;},sleeping:()=>is_sleeping,skipping:()=>!!fastForwarding,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},die:async cause=>{if(!continuationState)await commandContinuation('enroll').catch(error=>log_message(error.message,'notification'));const c=continuationState;if(!c||c.lives[c.active]?.ended)return;return commandContinuation('die:'+cause).catch(error=>log_message(error.message,'notification'));},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
+molNative.register();configureLotm({item:getItemFromKey,assertDisposition:key=>assertNativeItemDisposition(expansionState,key),planTime:minutes=>advanceChroniclePlan(p23Plan(),minutes,true),refreshLocationIdentity:location=>{if(current_location===location)update_displayed_location_identity(location);},advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),money:()=>character.money,persist:plan=>persistExpansion(plan),writable:()=>freshLifeStart.probe||ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,writeBlockReason:()=>!ownsSave?'This tab is read-only: close the other game tab and reload.':expansionError?`Progress paused: ${expansionError}`:foundationSaveBlocked?'Saving failed earlier: reload to continue.':importProbeToken?'An import is being checked.':restoringNativeSave?'A saved game is being restored.':'',startBe:()=>freshLifeStart.start(true),restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),idle:()=>!!current_activity&&activities[current_activity.activity_name]?.type==='TRAINING'&&!(current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),stopIdle:()=>{const text=activities[current_activity?.activity_name]?.action_text;end_activity();return text;},sleeping:()=>is_sleeping,skipping:()=>!!fastForwarding,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},die:async cause=>{if(!continuationState)await commandContinuation('enroll').catch(error=>log_message(error.message,'notification'));const c=continuationState;if(!c||c.lives[c.active]?.ended)return;return commandContinuation('die:'+cause).catch(error=>log_message(error.message,'notification'));},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
 const proto23Native=createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
 proto23Native.register();
 item_templates[PROFILE.tonicId] ||= new OtherItem({id:PROFILE.tonicId,name:PROFILE.tonicId,value:PROFILE.tonicPrice,saturates_market:false,description:'Optional learned visitor tonic: +2 raw max-health on the enrolled body, no healing.'});
@@ -9126,6 +9136,7 @@ function openStepperBatch(render) {
     return () => {
         const saves = stepperSaves; stepperSaves = null;
         let failure = null; try {settleBatchValidation();} catch(error) {failure = error;}
+        try {flushDeferredDurable();} catch(error) {failure ??= error;}
         if(!failure) for(const key of saves) {
             const savedAt = save_to_localStorage({key});
             if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
