@@ -1196,3 +1196,16 @@ Measured 2026-11-18: computed runs is 370 of 68,016 things once PSA24's packs ar
 | ACCOUNT FOR NOW | PWC132 | **Laws by reach.** Next laws come from the six slugs that hold half the blocked rows, each dry-run first (PSA28 bar: 25% of its slug), then wired into the builders, not left out of them (PSA28 excluded 103 rows to keep builder tests green). |
 | ACCOUNT FOR NOW | PWC133 | **Catalogue growth pauses (default) until PWC128 reads above zero.** New ledgers and derivers only for families whose law and entry point exist; reopen per world when one does. |
 | LATER / DELEGATE | PWC134 | **Gate gaps found this round.** The merge gate runs without `private_packs/`, so private-pack tests (two LOTM tests fail today) are skipped there; lanes reverted `dist/` builds, so the push gate found the bundle behind source. Add a private-pack test run to the coordinator's wave close and have lanes commit the rebuilt bundle. |
+
+## Round 16: a foundation that can express nearly any ability (2026-11-18, proposals)
+
+Weibao: how do we build foundational pieces that cover anything and everything (stopping time, cutting time, rewinds, real-time precognition, conceptual powers), and have we covered all the mechanisms? Full note: [MECHANISM_FOUNDATION_2026-11-18](MECHANISM_FOUNDATION_2026-11-18.md); map and script: [mechanism_map.json](mechanism_map.json), `node scripts/mechanism_coverage.mjs`.
+
+| Disposition | Code | Finding |
+| --- | --- | --- |
+| ACT NOW (done) | MF1-MF3 | One shape (trigger, delivery, payload, scope, duration, terms, limits) over the seven existing slots; nine substrates (time, space, body, mind, chance, powers, rules, relations, beings) plus an open `property:<name>` slot and a narrative-only fallback tier; a measuring script. Measured: 100% of the 22,922 mechanism-naming blocked rows map to a substrate, **53.8% sit on a substrate whose owner has every verb built** (a ceiling, not rows running), and 6,033 rows are label debt. |
+| ACCOUNT FOR NOW | MF3 | The real gap list is verbs with no owner, ranked by rows: compel 2,191, resolve 1,417, anchor 1,232, contain 947, alter-state 890, forecast 647, open-slot 511, pin and draw 402 each. Unmapped: fourth wall and save awareness (narrative-only). |
+| ACCOUNT FOR NOW | MF4 | Stated reach decides same-substrate clashes (default not bypassed), seven settlement layers order simultaneous effects, an interaction budget bounds chains, and an inspector records which laws were consulted. |
+| ACCOUNT FOR NOW | MF7 | Real-time precognition: layer an analytic forecast from scheduled events, a budgeted forked run, seed sampling for odds and a revision-keyed cache; visions are read-only forecasts by default, fixed visions use the pin store; seer-vs-seer depth cap 1. Costs are estimates until MF7-M measures them. |
+| LATER / DELEGATE | MF9 | Diffs for the grammar, W layer and `landEffect` (trigger part, open object slot, clock and restore acts, `consulted`, `world.restored`); level: runtime owners, one writer each; done check: a loop, a stop and a rewind land through `landEffect` with an inspector chain. |
+| LATER / DELEGATE | MF10 | Second reader rechecks the ten largest slug mappings; a dry-run at the PSA28 bar turns the ceiling into rows that run. |
