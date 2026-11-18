@@ -1196,3 +1196,15 @@ Measured 2026-11-18: computed runs is 370 of 68,016 things once PSA24's packs ar
 | ACCOUNT FOR NOW | PWC132 | **Laws by reach.** Next laws come from the six slugs that hold half the blocked rows, each dry-run first (PSA28 bar: 25% of its slug), then wired into the builders, not left out of them (PSA28 excluded 103 rows to keep builder tests green). |
 | ACCOUNT FOR NOW | PWC133 | **Catalogue growth pauses (default) until PWC128 reads above zero.** New ledgers and derivers only for families whose law and entry point exist; reopen per world when one does. |
 | LATER / DELEGATE | PWC134 | **Gate gaps found this round.** The merge gate runs without `private_packs/`, so private-pack tests (two LOTM tests fail today) are skipped there; lanes reverted `dist/` builds, so the push gate found the bundle behind source. Add a private-pack test run to the coordinator's wave close and have lanes commit the rebuilt bundle. |
+
+## Round 15: extreme abilities on paper (2026-11-18, proposals)
+
+Weibao asked for the insane abilities, the paper stress test and the idea that weird abilities target the engine itself. Full note: [EXTREME_ABILITIES_2026-11-18](EXTREME_ABILITIES_2026-11-18.md) (XA1-XA26, XC1-XC8, XM1-XM5, XG1-XG13). Paper only, no code run.
+
+| Disposition | Code | Finding |
+| --- | --- | --- |
+| ACT NOW (done) | PWC135 | **26 extreme abilities written as seven-slot sentences,** each with mechanism, variants and two interactions. Four conceptual powers (distance, sharpness, ownership, notice) coexist in one world by one owner per fact, stated reach, scoped resistance and a default of not bypassed (XC1-XC8). |
+| ACCOUNT FOR NOW | PWC136 | **Three meta-targets (powers, rules, timeline) cover 22 of 26 abilities** by one reader's tags; the other four are agents and souls (a fourth target, XM1). Rules as targets are mostly built (`alter` on law fields); powers and timeline are not. |
+| ACCOUNT FOR NOW | PWC137 | **Power rows cannot be moved by the grammar:** `move`, `add`, `remove` exclude `working` and `working` lowers to no W act (XG1). Sent to the coordinator for the power-target slice. |
+| ACCOUNT FOR NOW | PWC138 | **Top five gaps by blocked-row ceiling:** power-vs-power resolver (1,417), soul object (1,342), belief and divination (966), movable power rows (398, build first), timeline restore with pin store (258). Ceilings overlap and are undry-run. |
+| LATER / DELEGATE | PWC139 | **Interaction budget (a speed guard, default 64 landings per cause root) and a landing inspector** that records which law rows were consulted (XG12). Sonnet, one slice, after XG1. |
