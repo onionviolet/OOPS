@@ -1,0 +1,55 @@
+{
+ "meta": {
+  "pass": "PWC92, PWC99, PWC100",
+  "date": "2026-11-17",
+  "rule": "fold-5 misses of two tiers or more"
+ },
+ "exceptions": [
+  {
+   "id": "ss.creature.supreme-devil",
+   "name": "Supreme Devil",
+   "pool": "creatures",
+   "rule": "story3",
+   "derived": "corrupted",
+   "canon": "supreme",
+   "tiersOff": 2,
+   "state": "authored:story-time-lags-stated-tier",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "ss.item.guiding-light",
+   "name": "Guiding Light",
+   "pool": "artifacts",
+   "rule": "story3",
+   "derived": "transcendent",
+   "canon": "sacred",
+   "tiersOff": 3,
+   "state": "authored:story-time-lags-stated-tier",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  },
+  {
+   "id": "ss.item.sacred-memory",
+   "name": "Sacred Memory",
+   "pool": "artifacts",
+   "rule": "story3",
+   "derived": "supreme",
+   "canon": "sacred",
+   "tiersOff": 2,
+   "state": "authored:story-time-lags-stated-tier",
+   "reason": "mechanical class only; the in-world reason needs a chapter read (not done)"
+  }
+ ],
+ "count": 3,
+ "factsPerRule": {
+  "creatures": {
+   "story3": 304
+  },
+  "artifacts": {
+   "story3": 404,
+   "crossSource": 1
+  },
+  "echoes": {
+   "story3": 37
+  }
+ }
+}
