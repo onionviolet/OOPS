@@ -260,3 +260,4 @@ work
 # A screenshot linked from a doc outside docs/gm/dispatch stays tracked: add it with git add -f.
 /docs/gm/dispatch/**/*.png
 tests/fixtures/visual/*.new.png
+/docs/gm/dispatch/life-walk-2026-11-18/private/
