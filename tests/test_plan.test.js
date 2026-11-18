@@ -29,3 +29,11 @@ test('a push gate runs the reached tests, the full suite for wide paths or --ful
 test('budget limits stretch with the files run at once, from none at four to double at sixteen', () => {
     assert.deepEqual([4, 1, 13, 16, 18].map(contentionScale), [1, 1, 1.75, 2, 2]);
 });
+
+test('shardFiles balances files by known duration and loses none', async () => {
+    const {shardFiles} = await import('../scripts/test_plan.mjs');
+    const known = {a: 10, b: 9, c: 4, d: 3, e: 2};
+    const groups = shardFiles(['a', 'b', 'c', 'd', 'e'], 2, known);
+    assert.deepEqual(groups, [['a', 'd', 'e'], ['b', 'c']]);
+    assert.deepEqual(shardFiles(['x', 'y'], 4).flat().sort(), ['x', 'y']);
+});

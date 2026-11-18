@@ -6,13 +6,13 @@
 
 *`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world's things (rows that are not `not-a-thing`).*
 
-All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5%), typed 2123 (3.1%).
+All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1671 (2.5%), typed 2123 (3.1%).
 
 | World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Numenera (Ninth World) | 5079 | 0 | 0% | 164 | 3.2% | 0 |
 | Ars Magica 5e | 4773 | 0 | 0% | 68 | 1.4% | 0 |
-| Warhammer 40,000, the 41st millennium (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum) | 4747 | 0 | 0% | 105 | 2.2% | 0 |
+| Warhammer 40,000, the 41st millennium (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum) | 4747 | 0 | 0% | 109 | 2.3% | 0 |
 | Pathfinder 1e (d20pfsrd pages) | 4567 | 0 | 0% | 89 | 1.9% | 0 |
 | Forgotten Realms (3e campaign setting and Grand History) | 3934 | 0 | 0% | 78 | 2% | 0 |
 | Reverend Insanity | 3652 | 16 | 0.4% | 91 | 2.5% | 1742 |
@@ -267,7 +267,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | [theros_places](theros_places.jsonl) |  | to build | 131 | 0 | 0 | 0 | 23 | 0 | 0 | 100% | 0% |
 | [theros_powers](theros_powers.jsonl) |  | to build | 280 | 0 | 0 | 0 | 136 | 0 | 0 | 100% | 0% |
 | [theros_rules](theros_rules.jsonl) |  | to build | 86 | 0 | 0 | 0 | 51 | 0 | 0 | 100% | 0% |
-| [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 1216 | 0 | 0 | 0 | 283 | 16 | 0 | 100% | 0% |
+| [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 1216 | 0 | 0 | 0 | 279 | 16 | 0 | 100% | 0% |
 | [warhammer_40k_creatures](warhammer_40k_creatures.jsonl) |  | to build | 546 | 0 | 0 | 0 | 116 | 2 | 0 | 100% | 0% |
 | [warhammer_40k_institutions](warhammer_40k_institutions.jsonl) |  | to build | 653 | 0 | 0 | 0 | 24 | 14 | 0 | 100% | 0% |
 | [warhammer_40k_places](warhammer_40k_places.jsonl) |  | to build | 560 | 0 | 0 | 0 | 41 | 2 | 0 | 100% | 0% |
@@ -492,7 +492,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | theros_places | 0 | 0 | 0 | 0 |
 | theros_powers | 0 | 10 | 0 | 0 |
 | theros_rules | 0 | 2 | 0 | 0 |
-| warhammer_40k_artifacts | 0 | 9 | 0 | 0 |
+| warhammer_40k_artifacts | 0 | 13 | 0 | 0 |
 | warhammer_40k_creatures | 0 | 19 | 0 | 0 |
 | warhammer_40k_institutions | 0 | 3 | 0 | 0 |
 | warhammer_40k_places | 0 | 0 | 0 | 0 |
@@ -515,7 +515,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1680 of 1901 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1689 of 1910 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -1240,7 +1240,6 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | shadow_slave_powers | area-field | 55 |
 | mystara_artifacts | item-bound-power | 55 |
 | circle_of_inevitability_powers | item-bound-power | 54 |
-| warhammer_40k_artifacts | item-bound-power | 54 |
 | warhammer_40k_powers | mind-binding | 54 |
 | aos_soulbound_powers | area-field | 53 |
 | aos_soulbound_powers | effect-unknown | 53 |
@@ -1250,6 +1249,7 @@ All worlds: 68036 things, computed runs 376 (0.6%), computed expressed 1667 (2.5
 | pf1_items | power-interaction | 52 |
 | dnd_srd_creatures | area-field | 50 |
 | cypher_powers | conceal-or-sense | 50 |
+| warhammer_40k_artifacts | item-bound-power | 50 |
 | fate_powers | mind-state | 50 |
 | omniscient_reader_powers | sponsorship-contract | 50 |
 | worm_powers | effect-unknown | 49 |

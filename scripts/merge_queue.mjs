@@ -7,10 +7,14 @@
 // 1. Records the target's commit H and refuses if the primary index has staged entries.
 // 2. Merges each branch in order with `git merge-tree --write-tree` and `git commit-tree`
 //    ("Merge <branch>", no trailers). A branch already in the result is skipped. On a conflict
-//    it stops and names the branch and paths. Conflicts limited to generated build outputs
-//    (dist/bundle.js, its map, index.html) take the queue's side and are rebuilt in step 3.
-// 3. Checks the result in a detached scratch worktree with a node_modules symlink:
-//    npm run build, check:arch, check:rules, then one npm test (already behind the limiter).
+//    it stops and names the branch and paths. Conflicts limited to generated outputs (the bundle, its map,
+//    index.html, and every file scripts/regen_generated.mjs rewrites: coverage README, worlds ledger, derivation
+//    rule scores, B ledgers, hp spells, the capability-runs barrel ...) take the queue's side and are rebuilt in step 3.
+// 3. Checks the result in a detached scratch worktree with a node_modules symlink. First scripts/regen_generated.mjs
+//    runs there in dependency order (builders and settle, derivation scores, B ledgers, worlds ledger, coverage
+//    report), always, so a clean merge that leaves a generated file stale is repaired too; then npm run build,
+//    check:arch, check:rules, then one npm test (already behind the limiter). Regenerated and rebuilt outputs are
+//    folded into the last merge commit.
 // 4. Dry run by default. With --apply and a pass: guarded `git update-ref <target> <new> <H>`,
 //    then syncs the primary checkout. Clean paths: `git checkout HEAD -- <path>`. Paths dirty in
 //    the primary: three-way `git merge-file` of the working copy, H's blob and the new blob, with
@@ -25,8 +29,12 @@ import {existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, realpathSyn
 import {tmpdir} from 'node:os';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {REGENERABLE, regenerate} from './regen_generated.mjs';
 
-const GENERATED = ['dist/bundle.js', 'dist/bundle.js.map', 'index.html'];
+const BUILD_OUTPUTS = ['dist/bundle.js', 'dist/bundle.js.map', 'index.html'];
+const GENERATED = [...BUILD_OUTPUTS, ...REGENERABLE];
+// In-place ledger steps (settle, form, item-bound) edit tracked ledgers; fold their changes but never auto-resolve a conflict there.
+const foldable = p => GENERATED.includes(p) || p.startsWith('docs/coverage/');
 const DEFAULT_CHECKS = [
   ['build', 'npm run build'],
   ['check:arch', 'npm run check:arch'],
@@ -36,12 +44,13 @@ const DEFAULT_CHECKS = [
 const ZERO = '0000000000000000000000000000000000000000';
 
 function parseArgs(argv) {
-  const o = {apply: false, checks: true, target: 'master', primary: null, keepScratch: false, branches: []};
+  const o = {apply: false, checks: true, only: null, target: 'master', primary: null, keepScratch: false, branches: []};
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === '--apply') o.apply = true;
     else if (a === '--no-checks') o.checks = false;
     else if (a === '--keep-scratch') o.keepScratch = true;
+    else if (a === '--checks') o.only = String(argv[++i]).split(',');
     else if (a === '--target') o.target = argv[++i];
     else if (a === '--primary') o.primary = argv[++i];
     else if (a === '-h' || a === '--help') o.help = true;
@@ -50,6 +59,7 @@ function parseArgs(argv) {
   }
   if (!o.help && !o.branches.length) throw new Error('name at least one branch');
   if (o.apply && !o.checks) throw new Error('--apply needs the checks; drop --no-checks');
+  if (o.apply && o.only) throw new Error('--apply needs every check; drop --checks');
   return o;
 }
 
@@ -185,9 +195,13 @@ function removeScratch(repo, root) {
   git(repo, ['worktree', 'prune']);
 }
 
-// Fold rebuilt generated outputs into the final merge commit (only after a generated-path conflict).
+// Fold regenerated and rebuilt outputs into the final merge commit.
 function foldRebuilt(repo, scratch, commit) {
-  const present = GENERATED.filter((p) => existsSync(join(scratch, p)));
+  const dirty = String(git(scratch, ['status', '--porcelain=v1', '-z', '--untracked-files=all', '--no-renames']).out).split('\0')
+    .filter((e) => e.length > 3).map((e) => ({code: e.slice(0, 2), path: e.slice(3)}));
+  // Tracked changes under a foldable path, and new files only where a regeneration step owns the path. Never a symlink.
+  const present = dirty.filter(({code, path}) => foldable(path) && (code !== '??' || GENERATED.includes(path)) && !isLink(join(scratch, path)))
+    .map(({path}) => path).filter((p) => existsSync(join(scratch, p)) || treeEntry(scratch, 'HEAD', p));
   if (!present.length) return commit;
   git(scratch, ['add', '--', ...present]);
   const tree = gitText(scratch, ['write-tree']);
@@ -291,6 +305,7 @@ function receiptText(r) {
   if (r.result) L.push(`result ${r.result}${r.result === r.H ? ' (no-op: every branch already in the target)' : ''}`);
   if (r.mergedPaths) L.push(`merged paths (${r.mergedPaths.length}):${r.mergedPaths.length ? `\n    ${r.mergedPaths.slice(0, 60).join('\n    ')}${r.mergedPaths.length > 60 ? `\n    ... ${r.mergedPaths.length - 60} more` : ''}` : ' none'}`);
   if (r.checksNote) L.push(`checks: ${r.checksNote}`);
+  if (r.regen) L.push(`regenerate: ${r.regen.map((x) => `${x.name} ${x.status === 0 ? 'ok' : 'FAIL'} ${x.seconds}s`).join('; ')}`);
   for (const c of r.checks || []) {
     const counts = c.counts ? ` tests ${c.counts.tests} pass ${c.counts.pass} fail ${c.counts.fail}${c.counts.skipped ? ` skipped ${c.counts.skipped}` : ''}` : '';
     L.push(`  ${c.name}: ${c.ok ? 'pass' : `FAIL (exit ${c.status})`} ${c.seconds}s${counts}  log ${c.log}`);
@@ -356,14 +371,20 @@ export function run(argv, {cwd = process.cwd(), checks = DEFAULT_CHECKS} = {}) {
     }
     const scratch = addScratch(repo, primary, result, scratchRoot);
     r.scratch = scratch;
-    r.checks = runChecks(scratch, outDir, checks);
-    if (m.regenerate && r.checks[0]?.ok) {
+    const started = Date.now();
+    r.regen = regenerate(scratch, {log: (l) => writeFileSync(join(outDir, 'regenerate.out'), `${l}\n`, {flag: 'a'})});
+    const regenOk = r.regen.every((x) => x.status === 0);
+    const only = o.only ? checks.filter(([n]) => o.only.includes(n)) : checks;
+    r.checks = regenOk ? runChecks(scratch, outDir, only) : [{name: 'regenerate', cmd: 'scripts/regen_generated.mjs', status: 1, ok: false,
+      seconds: Math.round((Date.now() - started) / 1000), log: join(outDir, 'regenerate.out'), error: r.regen.find((x) => x.status !== 0)?.error}];
+    if (regenOk) r.regenSeconds = r.regen.reduce((t, x) => t + x.seconds, 0);
+    if (r.checks[0]?.ok && r.checks[0].name === 'build') {
       const folded = foldRebuilt(repo, scratch, result);
-      if (folded !== result) { r.checksNote = 'rebuilt generated outputs folded into the last merge commit'; result = folded; }
+      if (folded !== result) { r.checksNote = 'regenerated and rebuilt outputs folded into the last merge commit'; result = folded; }
     }
     r.result = result;
     r.mergedPaths = gitText(repo, ['diff', '--name-only', '-z', r.H, result]).split('\0').filter(Boolean);
-    if (!r.checks.every((c) => c.ok) || r.checks.length < checks.length) return finish();
+    if (!r.checks.every((c) => c.ok) || r.checks.length < only.length) return finish();
     if (!o.apply) { r.verdict = 'pass (dry run; rerun with --apply to move the target)'; return finish(); }
 
     const head = git(primary, ['symbolic-ref', '-q', 'HEAD'], {ok: [0, 1]}).text;
