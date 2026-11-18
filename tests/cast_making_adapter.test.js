@@ -83,7 +83,7 @@ test('timed preparation and document handling retain action/object facts without
  }
 });
 
-test('live joins preserve pending and used batches through native Save, reload, Export and Import', {timeout:300000}, async t=>{
+test('live joins preserve pending and used batches through native Save, reload, Export and Import', {timeout:300000*TS}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -115,13 +115,15 @@ export const mkAct=id=>{domainRegistry.refresh();document.querySelector('[data-l
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
  const buildOut=join(dir,'mk1-build');
- await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:60000,maxBuffer:1024*1024});
+ await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:60000*TS,maxBuffer:1024*1024});
  const {createHash}=await import('node:crypto');
  t.diagnostic('Disposable integrated build SHA-256: '+createHash('sha256').update(await readFile(join(buildOut,'dist/bundle.js'))).digest('hex'));
  const worker=join(dir,'mk1-save-worker.mjs');
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const key=id=>JSON.stringify({id});
 const g=await boot(null,{seed:37,heroName:null});
 try {
@@ -172,6 +174,6 @@ try {
  assert.deepEqual(g.errors,[]);assert.equal(g.internals.foundationSaveBlocked,false);
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native making fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

@@ -74,7 +74,7 @@ test('pack fact-waking does not substitute native sleep state, and interruption 
  assert.equal(woke.state.simulation.knowledge.player['body.care.fixture.wake'].value,'You regain wakeful movement.');
 });
 
-test('native sleep, waking, meals and real validator Save/reload/Export/Import', {timeout:300000}, async t=>{
+test('native sleep, waking, meals and real validator Save/reload/Export/Import', {timeout:300000*TS}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -113,6 +113,8 @@ test('native sleep, waking, meals and real validator Save/reload/Export/Import',
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});
 try {
  await g.module.bd1Ready();g.module.bd1Enroll();
@@ -158,6 +160,6 @@ try {
  await g.settle();
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native body fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

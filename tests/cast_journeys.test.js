@@ -105,7 +105,7 @@ for(const [kind,make] of [
  assert.equal(out.state.simulation.people.player.location,b);assert.equal(out.nativeLocation,b);assert.equal(out.nativePatch['current location'],b);
 });
 
-test('native place-panel journey validates pending Save/reload, arrival and literal Export/Import', {timeout:300000}, async t=>{
+test('native place-panel journey validates pending Save/reload, arrival and literal Export/Import', {timeout:300000*TS}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -145,6 +145,8 @@ test('native place-panel journey validates pending Save/reload, arrival and lite
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});
 try {
  await g.module.t2Ready();g.module.t2Enroll();
@@ -198,6 +200,6 @@ try {
 } finally {g.close();}
 `);
  // Keep pending reload and literal pending/arrival imports; avoid duplicate boots for the same state.
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native journey fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

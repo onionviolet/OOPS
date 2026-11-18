@@ -12,7 +12,7 @@ const data={schema:1,rows:[
 return data;};
 // C1/G3/G4: facts written as the effects would leave them pass the live save validators and survive Save, reload, Export and Import (the effects themselves are exercised in lotm_be_clients.test.js and lotm_pay.test.js).
 // The fixture builds the live source with the same disposable cast pack as tests/cast_exchange_adapter.test.js.
-test('C1/G3/G4 client, pay-line and commission facts round-trip native Save, reload, Export and Import in the Tingen seat', {timeout:300000}, async t=>{
+test('C1/G3/G4 client, pay-line and commission facts round-trip native Save, reload, Export and Import in the Tingen seat', {timeout:300000*TS}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -26,8 +26,8 @@ test('C1/G3/G4 client, pay-line and commission facts round-trip native Save, rel
 
  await mkdir(join(dir,'tests'));await cp(join(root,'tests/perspective_controls.test.js'),join(dir,'tests/perspective_controls.test.js'));
  t.diagnostic('CU1 fixture tests the live integrated source.');
- await exec(process.execPath,['--test','tests/perspective_controls.test.js'],{cwd:dir,timeout:30000});
- const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:30000});t.diagnostic(arch.stdout.trim());
+ await exec(process.execPath,['--test','tests/perspective_controls.test.js'],{cwd:dir,timeout:30000*TS});
+ const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:30000*TS});t.diagnostic(arch.stdout.trim());
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`
 export {whenCastLoaded as cuReady} from './book_world_lotm_cast_days.js';
@@ -51,13 +51,15 @@ export const cuAct=id=>{domainRegistry.refresh();document.querySelector('[data-l
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
  const buildOut=join(dir,'c1-build');
- await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:60000,maxBuffer:1024*1024});
+ await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:60000*TS,maxBuffer:1024*1024});
  const {createHash}=await import('node:crypto');
  t.diagnostic('Live-source disposable build SHA-256: '+createHash('sha256').update(await readFile(join(buildOut,'dist/bundle.js'))).digest('hex'));
  const worker=join(dir,'c1-save-worker.mjs');
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});
 const F='book.lotm.be.client.',CM='book.lotm.commission.',PL='book.lotm.pay.';
 try {
@@ -79,6 +81,6 @@ try {
  console.log('c1/g3/g4 facts survive save, export, import, reload and 2 steps; money '+saved.character.money);
 } finally {g.close();}
 `);
- try{const r=await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});t.diagnostic(r.stdout.trim());}
+ try{const r=await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});t.diagnostic(r.stdout.trim());}
  catch(error){assert.fail(`C1 save fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

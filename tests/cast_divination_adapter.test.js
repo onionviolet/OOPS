@@ -109,7 +109,7 @@ test('partial rites accept unknown cost and native side effects without fabricat
  assert.throws(()=>defineDivinations({queries:[reordered]},binding),/ordered known stages/);
 });
 
-test('live integration crosses native UI and real save validator in a disposable copy',{timeout:300000},async t=>{
+test('live integration crosses native UI and real save validator in a disposable copy',{timeout:300000*TS},async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -120,7 +120,7 @@ test('live integration crosses native UI and real save validator in a disposable
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
- const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:60000,maxBuffer:1024*1024});t.diagnostic(arch.stdout.trim());
+ const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:60000*TS,maxBuffer:1024*1024});t.diagnostic(arch.stdout.trim());
  // Check production architecture before adding fixture-only exports.
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as dv1CastReady} from './book_world_lotm_cast_days.js';\nexport const dv1EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const dv1Validate=save=>validateSaveEnvelope(save,game_version);\nexport const dv1Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
@@ -140,12 +140,14 @@ test('live integration crosses native UI and real save validator in a disposable
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
 
- await exec('npm',['run','build'],{cwd:dir,env:{...process.env,BUILD_OUT:join(dir,'candidate')},timeout:60000,maxBuffer:1024*1024});
+ await exec('npm',['run','build'],{cwd:dir,env:{...process.env,BUILD_OUT:join(dir,'candidate')},timeout:60000*TS,maxBuffer:1024*1024});
  const {createHash}=await import('node:crypto');t.diagnostic('Disposable integrated build SHA-256: '+createHash('sha256').update(await readFile(join(dir,'candidate/dist/bundle.js'))).digest('hex'));
  const worker=join(dir,'dv1-save-worker.mjs');
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});
 try {
  await g.module.dv1CastReady();g.module.dv1EnrollBe();
@@ -197,7 +199,7 @@ try {
  process.stdout.write('native ordered rite, paid attempt, pending/settled Save/reload/Export/Import, support/effect tamper: PASS');
 } finally {g.close();}
  `);
- const {stdout}=await exec(process.execPath,['--max-old-space-size=8192',worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});
+ const {stdout}=await exec(process.execPath,['--max-old-space-size=8192',worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});
  assert.match(stdout,/tamper: PASS/);
 });
 

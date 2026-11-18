@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-test('current card host integration preserves pending and settled card state through the real validator', {timeout:300000}, async t=>{
+test('current card host integration preserves pending and settled card state through the real validator', {timeout:300000*TS}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -16,10 +16,12 @@ test('current card host integration preserves pending and settled card state thr
  const card={schema:'event-card/1',id:'card:fixture.scene.two#1',stepId:'fixture.scene.two#1',scene:'fixture.scene.two',threadId:'fixture.thread',verb:'opens',object:'the box',kind:'act',actor:'lead',place:'fixture.room',present:[],time:{date:{offsetDays:1},timeOfDay:null,precision:'day'},order:{sceneOrder:2,step:1,steps:1},inputs:[],outputs:[],gains:[],requires:[],effects:[{type:'fact',key:'fixture.card.open',value:true,class:'state'}],choices:[],lockedOptions:[],evidence:[],source:'script'};
  const pack={schema:'lotm-cast/1',people:[person],references:[],remoteWhereabouts:[],placeAliases:[],clockClaims:[],beats:[beat],anchors:[],schedule:[],places:[{id:'fixture.room',indexId:'fixture.room',name:'Room',openingHours:[],travel:{district:'evernight',basis:'fixture'},...ev}],host:{profile:{id:'lotm.early_tingen.canon_beside@1',key:'beside',blurb:'Fixture'},situation:{label:'Fixture'}},bindings:{days:[{scene:'fixture.scene.one',day:1,from:0,to:1},{scene:'fixture.scene.two',day:1,from:1,to:1440}],schedule:[],beats:[beat]},leadLife:{actorId:person.id,profile:{id:'book.lead.be@1',key:'be',label:'Be a person',beyonderTrack:false,cash:1,home:null,start:'fixture.room',blurb:'Begin at home.'},knownPlaces:['fixture.room'],history:[],relations:[],intentions:[],untakenChoices:[]},eventCards:{cards:[card]}};
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
- await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:join(dir,'candidate')},timeout:60000,maxBuffer:1024*1024});
+ await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:join(dir,'candidate')},timeout:60000*TS,maxBuffer:1024*1024});
  const {createHash}=await import('node:crypto');t.diagnostic('Disposable build SHA-256: '+createHash('sha256').update(await readFile(join(dir,'candidate/dist/bundle.js'))).digest('hex'));
  const worker=join(dir,'cr2-save-worker.mjs');await writeFile(worker,`
 import assert from 'node:assert/strict';import {boot} from './scripts/headless/runner.mjs';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g=await boot(null,{seed:37,heroName:null});try{
  await g.module.cr2Ready();g.module.cr2Enroll();let saved=await g.save();assert.equal(saved.expansion.actors.player.facts['fixture.card.open'],undefined,'future card has no early effect');assert.equal(g.internals.foundationSaveBlocked,false);assert.equal(g.module.cr2NextBoundary(g.internals.expansionState,g.internals.expansionState.clock+10,g.module.cr2Ledger()),saved.expansion.lotm.initializedAt+1,'native wait splitter sees the within-day card');
  // Pending state uses native reload; settled state below uses literal Export/Import.
@@ -31,5 +33,5 @@ const g=await boot(null,{seed:37,heroName:null});try{
  const encoded=await g.exportFile();await g.importFile(encoded);saved=await g.save();assert.equal(saved.expansion.actors.player.facts['fixture.card.open'],true);assert.equal(g.internals.foundationSaveBlocked,false);assert.deepEqual(g.errors,[]);
 }finally{g.close();}
 `);
- await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});
+ await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});
 });

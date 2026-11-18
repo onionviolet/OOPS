@@ -187,7 +187,7 @@ test('unobserved source detail stays absent while a visible action can explain a
  p.state.worlds[I.world].facts['fixture.scene_visible']=false;assert.deepEqual(offers(),[]);
 });
 
-test('be-seat native pending and settled acts survive save, reload, export and import', {timeout:300000}, async t=>{
+test('be-seat native pending and settled acts survive save, reload, export and import', {timeout:300000*TS}, async t=>{
  // Run the real native save owner in a disposable copy, with a synthetic cast pack.
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
@@ -239,6 +239,8 @@ test('be-seat native pending and settled acts survive save, reload, export and i
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
 import {writeFileSync,appendFileSync} from 'node:fs';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const progress=stage=>{if(${Boolean(process.env.H2_REAL_FULL)})appendFileSync('/tmp/h2-real-progress',stage+'\\n');};
 if(${Boolean(process.env.H2_REAL_FULL)})writeFileSync('/tmp/h2-real-progress','');
 progress('boot');
@@ -314,7 +316,7 @@ try {
  }
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
+ try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native save fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });
 

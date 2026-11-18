@@ -8,7 +8,7 @@ import {createHash} from 'node:crypto';
 
 // Copy mutable inputs; symlink dependencies. No private pack, user profile or
 // localStorage is read. Only this scratch copy receives the prepared host hunk.
-test('real Save, reload, Export and literal Import retain episodes, hearsay and a folded impression', {timeout: 300000}, async t => {
+test('real Save, reload, Export and literal Import retain episodes, hearsay and a folded impression', {timeout:300000*TS}, async t => {
     const exec = promisify(execFile), root = process.cwd(), dir = await mkdtemp(join(tmpdir(), 'yairpg-mr1-save-'));
     t.after(() => rm(dir, {recursive: true, force: true}));
     for (const name of ['src', 'scripts']) await cp(join(root, name), join(dir, name), {recursive: true});
@@ -21,7 +21,7 @@ test('real Save, reload, Export and literal Import retain episodes, hearsay and 
     let integrated = (await readFile(join(root, 'src/domain_registry.js'), 'utf8')).includes('createMemoryDomain');
     if (!integrated) try { await exec('git', ['apply', '-R', '--check', join(root, patch)], {cwd: root}); integrated = true; } catch {}
     if (!integrated) await exec('git', ['apply', join(root, patch)], {cwd: dir});
-    const arch = await exec(process.execPath, ['scripts/check_architecture.mjs'], {cwd: dir, timeout: 60000, maxBuffer: 1024 * 1024});
+    const arch = await exec(process.execPath, ['scripts/check_architecture.mjs'], {cwd: dir, timeout:60000*TS, maxBuffer: 1024 * 1024});
     t.diagnostic('Prepared integration architecture: ' + arch.stdout.trim());
     // Named native fixture: background tab, decorative mutation observers paused; no browser UI proof.
     const main = join(dir, 'src/main.js');
@@ -29,7 +29,7 @@ test('real Save, reload, Export and literal Import retain episodes, hearsay and 
 export const mr1Validate = save => validateSaveEnvelope(save, game_version);
 export const mr1Install = memory => domainRegistry.load({...JSON.parse(create_save()), memory});
 `);
-    await exec(process.execPath, ['build.js'], {cwd: dir, env: {...process.env, BUILD_OUT: join(dir, 'candidate')}, timeout: 60000, maxBuffer: 1024 * 1024});
+    await exec(process.execPath, ['build.js'], {cwd: dir, env: {...process.env, BUILD_OUT: join(dir, 'candidate')}, timeout:60000*TS, maxBuffer: 1024 * 1024});
     t.diagnostic('Disposable build SHA-256: ' + createHash('sha256').update(await readFile(join(dir, 'candidate/dist/bundle.js'))).digest('hex'));
     const worker = join(dir, 'mr1-save-worker.mjs');
     await writeFile(worker, `
@@ -40,6 +40,8 @@ const settleNative=HeadlessGame.prototype.settle;
 HeadlessGame.prototype.settle=function(ms){this.attributeObservers?.clear();return settleNative.call(this,ms);};
 import {freshMemory, remember, tellMemory, episode, decodeMemory, recallMemory} from './src/person_memory.js';
 import {calendarMinutes} from './src/world_rhythm.js';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const g = new HeadlessGame({seed:37,heroName:null}); g.settleMs=0; await g.reload();
 try {
  let saved = await g.save();
@@ -71,6 +73,6 @@ try {
  assert.equal(g.internals.foundationSaveBlocked, false); assert.deepEqual(g.errors, []);
 } finally { g.close(); }
 `);
-    try { await exec(process.execPath, [worker], {cwd: dir, timeout: 270000, maxBuffer: 1024 * 1024}); }
+    try { await exec(process.execPath, [worker], {cwd: dir, timeout:270000*TS, maxBuffer: 1024 * 1024}); }
     catch (error) { throw Error(`${error.message}\n${error.stdout ?? ''}\n${error.stderr ?? ''}`); }
 });

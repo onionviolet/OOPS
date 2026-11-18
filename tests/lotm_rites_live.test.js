@@ -3,7 +3,7 @@
 // the 1920x1080 target is not measured here (receipt gap).
 import test from 'node:test';
 import assert from 'node:assert/strict';
-test('R5/U3: the altar rite is performed from the panel, survives reload and import mid-run, and charges backlash once', {timeout:300000}, async t=>{
+test('R5/U3: the altar rite is performed from the panel, survives reload and import mid-run, and charges backlash once', {timeout:300000*TS}, async t=>{
  const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
@@ -34,11 +34,13 @@ export const r5Act=id=>{domainRegistry.refresh();document.querySelector('[data-l
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
  const buildOut=join(dir,'r5-build');
- await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:90000,maxBuffer:1024*1024});
+ await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:90000*TS,maxBuffer:1024*1024});
  const worker=join(dir,'r5-worker.mjs');
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
+// Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
+const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 const key=id=>JSON.stringify({id});
 const g=await boot(null,{seed:41,heroName:null});
 const CALL='lotm.rite.spirit-call',ids=['set-candle-north','set-candle-east','set-candle-south','set-candle-west','altar','petition','answer'];
@@ -76,6 +78,6 @@ try {
  assert.deepEqual(g.errors,[]);assert.equal(g.internals.foundationSaveBlocked,false);
 } finally {g.close();}
 `);
- try{const out=await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});t.diagnostic(out.stdout.trim());}
+ try{const out=await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});t.diagnostic(out.stdout.trim());}
  catch(error){assert.fail(`Altar rite live run failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });
