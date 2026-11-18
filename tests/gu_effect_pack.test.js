@@ -29,7 +29,7 @@ test('each of the 61 chapter-labelled Gu kinds has a linked case or a specific g
         assert.match(ledgerRow.note, /Former state: (runs-authored|blocked:rank-unknown)\./, id);
         if (Object.hasOwn(GU_CASE_GAPS, id)) {
             const formerState = /Former state: ([^.]+)\./.exec(ledgerRow.note)[1];
-            assert.equal(ledgerRow.state, formerState, id);
+            assert.equal(ledgerRow.typed ?? ledgerRow.state, formerState, id); // PSA25: a typed runs label sits in typed
             assert.ok(ledgerRow.note.includes(GU_CASE_GAPS[id]), id);
             assert.throws(() => coverageCase(id), /no coverage scene/, id);
         } else {

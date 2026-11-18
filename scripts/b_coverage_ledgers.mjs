@@ -10,8 +10,10 @@
 // Usage: node scripts/b_coverage_ledgers.mjs [--check]  (--check fails if the
 // committed ledgers differ from a fresh build).
 import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
+import {demoteTypedRuns} from './typed_runs.mjs';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {canonicalRow} from './slug_normalize.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const at = p => join(root, p);
@@ -428,11 +430,11 @@ export function toLedgerRow(r) {
     const extra = [r.layer && `layer ${r.layer}`, r.basis, r.tierRoute, r.nameNote && `name note: ${r.nameNote}`,
         r.offered === false && 'not offered at a bench (formula incomplete in notes)'].filter(Boolean).join('; ');
     const source = [r.source, ...(r.observations ?? [])].join('; ');
-    return {id: r.id, source, state: r.state, mechanisms: r.mechanisms, test: r.test ?? null,
+    return canonicalRow({id: r.id, source, state: r.state, mechanisms: r.mechanisms, test: r.test ?? null,
         note: [label + '.', r.note, extra && `(${extra})`].filter(Boolean).join(' '),
-        ...(r.case ? {case: r.case} : {}), ...(r.derived ? {derived: r.derived} : {})};
+        ...(r.case ? {case: r.case} : {}), ...(r.derived ? {derived: r.derived} : {})});
 }
-const serialize = rows => rows.map(r => JSON.stringify(toLedgerRow(r))).join('\n') + '\n';
+const serialize = rows => rows.map(r => JSON.stringify(demoteTypedRuns(toLedgerRow(r)))).join('\n') + '\n';
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
     const ledgers = await buildLedgers();

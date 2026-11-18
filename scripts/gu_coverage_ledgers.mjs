@@ -5,6 +5,7 @@
 // categories, then a short name-keyword table marked as an inference.
 // Usage: node scripts/gu_coverage_ledgers.mjs [path/to/gu-identities.json]
 import {readFileSync, writeFileSync, mkdirSync, existsSync} from 'node:fs';
+import {demoteTypedRuns} from './typed_runs.mjs';
 import {confidenceOf} from './derivation_confidence.mjs';
 import {join} from 'node:path';
 import {foldChapterEffect} from './chapter_effect_tier.mjs';
@@ -251,7 +252,7 @@ const labelsOf = rows => Object.fromEntries(rows.map(row => [row.id, Object.from
     .filter(([key, value]) => !FIELDS.includes(key) && value !== null && value !== undefined))]));
 const out = join(root, 'docs/coverage');
 mkdirSync(out, {recursive: true});
-const write = (name, rows) => writeFileSync(join(out, name), rows.map(row => JSON.stringify(name === 'gu_kinds.jsonl' ? foldChapterEffect('gu_kinds', ledgerRow(row)) : ledgerRow(row))).join('\n') + '\n');
+const write = (name, rows) => writeFileSync(join(out, name), rows.map(row => JSON.stringify(demoteTypedRuns(name === 'gu_kinds.jsonl' ? foldChapterEffect('gu_kinds', ledgerRow(row)) : ledgerRow(row)))).join('\n') + '\n');
 write('gu_kinds.jsonl', kinds);
 write('gu_moves.jsonl', moves);
 writeFileSync(join(out, 'gu_labels.json'), JSON.stringify({kinds: labelsOf(kinds), moves: labelsOf(moves)}) + '\n');
