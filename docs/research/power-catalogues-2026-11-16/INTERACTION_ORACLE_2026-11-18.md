@@ -1,16 +1,17 @@
 # Interaction oracle (2026-11-18, proposals)
 
-Register status: Proposal (AD32, AD56). Agent-generated, not human-reviewed: two cheap models (gpt-6-luna, claude-haiku-5-5) answered each case from the rule digest in `scripts/interaction_oracle.mjs`; agreement is a screen, not a ruling. Cases are built by script from XA1-XA26 and the nine substrates; rows in [interaction_oracle.jsonl](../../coverage/interaction_oracle.jsonl), agreed fixtures in [interaction_oracle_agreed.json](../../coverage/fixtures/interaction_oracle_agreed.json).
+Register status: Proposal (AD32, AD56). Agent-generated, not human-reviewed: gpt-6-luna and claude-haiku-5-5 supplied paired replies using the rule digest in `scripts/interaction_oracle.mjs`; agreement is a screen, not a ruling. Cases are built by script from XA1-XA26 and the nine substrates; rows in [interaction_oracle.jsonl](../../coverage/interaction_oracle.jsonl), agreed fixtures in [interaction_oracle_agreed.json](../../coverage/fixtures/interaction_oracle_agreed.json).
 
 ## Numbers
 
-- 499 cases answered by both models. Agree on outcome and deciding-rule kind: **138 (27.7%)**. Agree on outcome alone: 272 (54.5%).
+- Generated 500 prompts and collected 499 paired replies. Of those, 28 contradictory anchor prompts both grant and deny a pre-theft restore point. The JSONL retains their replies with `input_issue`; the fixtures and analysis below exclude them.
+- Of the 471 remaining pairs, **132 (28.0%)** agree on outcome and deciding-rule kind. 266 (56.5%) agree on outcome alone.
 - Both said the rules do not decide the case ("undecided"): 213. These are missing-dial signals, not fixtures.
-- Fixtures: 37 agreed, decided cases.
+- Candidate fixtures: 31 agreed, decided cases. Check the actual rule and the expected state changes before promoting a candidate to a resolver test.
 
 | Family | Cases | Agree (outcome + kind) | Agree (outcome) |
 | --- | ---: | ---: | ---: |
-| steal-time-travel-rewind | 109 | 35.8% | 38.5% |
+| steal-time-travel-rewind | 81 | 40.7% | 44.4% |
 | two-in-one-time-stop | 36 | 16.7% | 41.7% |
 | speed-vs-stop-precog-domain | 54 | 24.1% | 51.9% |
 | precog-vs-luck-edit | 24 | 25.0% | 41.7% |
@@ -25,12 +26,12 @@ Register status: Proposal (AD32, AD56). Agent-generated, not human-reviewed: two
 
 Heuristic, deterministic: cases are grouped by family and the pair of deciding-rule kinds the two models named; a group's weight is its case count times mean severity (opposite winners 3, decided vs undecided or a winner vs both/neither 2, otherwise 1, plus 1 when the kinds differ, plus 1 when both are high confidence). A big group means one unsettled rule decides many cases. Each is a decision for Weibao, not a settled ruling.
 
-### D1 steal-time-travel-rewind: backing_anchor vs backing_anchor (47 cases, mean severity 2.0)
-> Example: `io-steal-time-travel-rewind-029`. Order of events: the victim has the time-travel power, and a restore point to the time before the theft exists. The thief steals the power. Then the thief tries to use it to rewind to before the theft. Anchor ownership: no restore point exists from before the theft; the earliest point is after it.
+### D1 steal-time-travel-rewind: backing_anchor vs backing_anchor (25 cases, mean severity 2.0)
+> Example: `io-steal-time-travel-rewind-067`. Order of events: the victim has the time-travel power, and a restore point to the time before the theft exists. The thief steals the power. Then the thief tries to use it to rewind to before the theft. Anchor ownership: the restore point to before the theft was taken by the victim, who still owns it.
 >
-> Luna: a_prevails, backing_anchor: restore requires the anchor; the earliest point is after the theft. The thief cannot rewind to before the theft: the earliest available restore point is after it. The thief retains the stolen rewind-use row because the user's power rows are carried; the victim remains without it, and the row's limited reach restores only the thief's own body.
+> Luna: a_prevails, backing_anchor: Restoring needs the anchor; the victim owns this restore point.. The theft succeeds: the thief gets a complete copy, while the victim retains the original. The thief cannot rewind because the victim owns the restore-point anchor; no restore occurs, so both copies remain as they were after the theft.
 >
-> Haiku: b_prevails, backing_anchor: Anchor ownership: the holder who took the restore point owns it; restoring needs the anchor. Backing (CHT5) lists item, name, debt, soul thread; anchor not listed as moving with the row.. The thief does not rewind to before the theft. The row moves to the thief as a lossy copy with the old holder's lien, but the restore point is owned by the victim as its anchor holder, and the anchor is not in the backing list that transfers with the row, so the thief cannot restore to it. The victim keeps the anchor and the pre-theft point. The setup contradicts itself on whether a pre-theft point exists; if none exists, the thief's target is absent and the result is neither.
+> Haiku: b_prevails, backing_anchor: Anchor ownership: the holder who took the restore point owns it, and restoring needs the anchor; the anchor is not among the backing items (item, name, debt, soul thread) carried by the stolen row, so the copy does not confer it. The thief's rewind does not land: the thief holds a copy of the time-travel row but not the anchor, and the pre-theft restore point belongs to the victim, who keeps it along with their own power. No restore occurs, so the world, the thief, and the victim stay in their post-theft state. The victim keeps the original power and its anchor, and the thief's copy cannot restore that point. The case also conflicts with the stated XA4 steal, which is a move with a lien; the copy transference is a dial change that the rules here do not justify, so the outcome holds only under the stated copy setting.
 
 ### D2 xa-pair: mechanism_other vs stated_reach (42 cases, mean severity 1.0)
 > Example: `io-xa-pair-391`. Holder A uses Power over distance on, or against, holder B's Auto-acting Stand, in one tick. Both have reasonable reach.

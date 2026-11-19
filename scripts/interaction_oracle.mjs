@@ -247,6 +247,15 @@ export function outcomeDistance(x, y) {
 }
 const PREFIX = 'docs/research/power-catalogues-2026-11-16/';
 
+// The historical prompt asserted that a pre-theft point exists before adding the anchor variant.
+function inputIssue(c) {
+    if (c.family === 'steal-time-travel-rewind' && c.tag.endsWith('/none')
+        && c.setup.includes('a restore point to the time before the theft exists')) {
+        return 'contradictory_restore_point';
+    }
+    return null;
+}
+
 function normalise() {
     const all = buildCases(), luna = JSON.parse(readFileSync(DIR + 'oracle_luna.json', 'utf8')), haiku = JSON.parse(readFileSync(DIR + 'oracle_haiku.json', 'utf8'));
     const rows = [], pick = r => ({outcome: r.outcome, resolution: r.resolution, kind: r.deciding_kind, rule: r.deciding_rule, confidence: r.confidence});
@@ -254,26 +263,31 @@ function normalise() {
         const l = luna[c.id]?.reply, h = haiku[c.id]?.reply;
         if (!l || !h) continue;
         const outcomeAgree = l.outcome === h.outcome, agree = outcomeAgree && l.deciding_kind === h.deciding_kind;
+        const issue = inputIssue(c);
         rows.push({id: c.id, family: c.family, tag: c.tag, a: c.a, b: c.b, setup: c.setup, question: c.question, luna: pick(l), haiku: pick(h),
-            agree, outcome_agree: outcomeAgree, deciding_rule: agree ? l.deciding_rule : `luna: ${l.deciding_rule} | haiku: ${h.deciding_rule}`});
+            ...(issue ? {input_issue: issue} : {}), agree, outcome_agree: outcomeAgree, deciding_rule: agree ? l.deciding_rule : `luna: ${l.deciding_rule} | haiku: ${h.deciding_rule}`});
     }
     writeFileSync(OUT, rows.map(r => JSON.stringify(r)).join('\n') + '\n');
-    // Agreed and decided cases become fixtures a future resolver test reads.
-    const fx = rows.filter(r => r.agree && r.luna.outcome !== 'undecided').map(r => ({id: r.id, family: r.family, tag: r.tag, a: r.a, b: r.b, setup: r.setup, expect: {outcome: r.luna.outcome, deciding_kind: r.luna.kind}, resolution: [r.luna.resolution, r.haiku.resolution], deciding_rule: [r.luna.rule, r.haiku.rule], status: 'oracle-agreed, not human-reviewed'}));
-    writeFileSync(path.join(root, 'docs/coverage/fixtures/interaction_oracle_agreed.json'), JSON.stringify({note: 'Cases where Luna and Haiku agreed on outcome and deciding-rule kind and the outcome was decided by the rules. A future resolver test reads these; no resolver exists yet. Proposals under review (AD32), not accepted rulings.', cases: fx}, null, 0).replace(/},{"id"/g, '},\n{"id"'));
+    const usable = rows.filter(r => !r.input_issue);
+    const excluded = rows.length - usable.length;
+    // Agreement on a consistent prompt is evidence for review, not an accepted game rule.
+    const fx = usable.filter(r => r.agree && r.luna.outcome !== 'undecided').map(r => ({id: r.id, family: r.family, tag: r.tag, a: r.a, b: r.b, setup: r.setup, expect: {outcome: r.luna.outcome, deciding_kind: r.luna.kind}, resolution: [r.luna.resolution, r.haiku.resolution], deciding_rule: [r.luna.rule, r.haiku.rule], status: 'oracle-agreed, not human-reviewed'}));
+    writeFileSync(path.join(root, 'docs/coverage/fixtures/interaction_oracle_agreed.json'), JSON.stringify({note: 'Candidate cases from consistent prompts where Luna and Haiku agreed on a decided outcome and rule kind. Check the rule and the state changes before using them in resolver tests. Proposals under review (AD32).', cases: fx}, null, 0).replace(/},{"id"/g, '},\n{"id"'));
     // Disagreements, grouped by family and the pair of deciding kinds; ranked by cases x severity.
-    const dis = rows.filter(r => !r.agree).map(r => ({...r, score: outcomeDistance(r.luna.outcome, r.haiku.outcome) + (r.luna.kind !== r.haiku.kind ? 1 : 0) + (r.luna.confidence === 'high' && r.haiku.confidence === 'high' ? 1 : 0)}));
+    const dis = usable.filter(r => !r.agree).map(r => ({...r, score: outcomeDistance(r.luna.outcome, r.haiku.outcome) + (r.luna.kind !== r.haiku.kind ? 1 : 0) + (r.luna.confidence === 'high' && r.haiku.confidence === 'high' ? 1 : 0)}));
     const groups = new Map();
     for (const r of dis) { const k = `${r.family}|${[r.luna.kind, r.haiku.kind].sort().join(' vs ')}`; (groups.get(k) ?? groups.set(k, []).get(k)).push(r); }
     const ranked = [...groups.entries()].map(([k, rs]) => ({key: k, n: rs.length, mean: rs.reduce((s, r) => s + r.score, 0) / rs.length, top: rs.sort((a, b) => b.score - a.score)[0]}))
         .map(g => ({...g, weight: g.n * g.mean})).sort((a, b) => b.weight - a.weight);
     const pct = (n, d) => d ? `${(100 * n / d).toFixed(1)}%` : 'n/a';
-    const fam = {}; for (const r of rows) { const f = fam[r.family] ??= {n: 0, agree: 0, outcome: 0}; f.n++; f.agree += r.agree; f.outcome += r.outcome_agree; }
-    const undec = rows.filter(r => r.luna.outcome === 'undecided' && r.haiku.outcome === 'undecided').length;
+    const fam = {}; for (const r of usable) { const f = fam[r.family] ??= {n: 0, agree: 0, outcome: 0}; f.n++; f.agree += r.agree; f.outcome += r.outcome_agree; }
+    const undec = usable.filter(r => r.luna.outcome === 'undecided' && r.haiku.outcome === 'undecided').length;
     const lines = [`# Interaction oracle (2026-11-18, proposals)`, '',
-        `Register status: Proposal (AD32, AD56). Agent-generated, not human-reviewed: two cheap models (gpt-6-luna, claude-haiku-5-5) answered each case from the rule digest in \`scripts/interaction_oracle.mjs\`; agreement is a screen, not a ruling. Cases are built by script from XA1-XA26 and the nine substrates; rows in [interaction_oracle.jsonl](../../coverage/interaction_oracle.jsonl), agreed fixtures in [interaction_oracle_agreed.json](../../coverage/fixtures/interaction_oracle_agreed.json).`, '',
-        `## Numbers`, '', `- ${rows.length} cases answered by both models. Agree on outcome and deciding-rule kind: **${rows.filter(r => r.agree).length} (${pct(rows.filter(r => r.agree).length, rows.length)})**. Agree on outcome alone: ${rows.filter(r => r.outcome_agree).length} (${pct(rows.filter(r => r.outcome_agree).length, rows.length)}).`,
-        `- Both said the rules do not decide the case ("undecided"): ${undec}. These are missing-dial signals, not fixtures.`, `- Fixtures: ${fx.length} agreed, decided cases.`, '', '| Family | Cases | Agree (outcome + kind) | Agree (outcome) |', '| --- | ---: | ---: | ---: |',
+        `Register status: Proposal (AD32, AD56). Agent-generated, not human-reviewed: gpt-6-luna and claude-haiku-5-5 supplied paired replies using the rule digest in \`scripts/interaction_oracle.mjs\`; agreement is a screen, not a ruling. Cases are built by script from XA1-XA26 and the nine substrates; rows in [interaction_oracle.jsonl](../../coverage/interaction_oracle.jsonl), agreed fixtures in [interaction_oracle_agreed.json](../../coverage/fixtures/interaction_oracle_agreed.json).`, '',
+        `## Numbers`, '',
+        `- Generated ${all.length} prompts and collected ${rows.length} paired replies. Of those, ${excluded} contradictory anchor prompts both grant and deny a pre-theft restore point. The JSONL retains their replies with \`input_issue\`; the fixtures and analysis below exclude them.`,
+        `- Of the ${usable.length} remaining pairs, **${usable.filter(r => r.agree).length} (${pct(usable.filter(r => r.agree).length, usable.length)})** agree on outcome and deciding-rule kind. ${usable.filter(r => r.outcome_agree).length} (${pct(usable.filter(r => r.outcome_agree).length, usable.length)}) agree on outcome alone.`,
+        `- Both said the rules do not decide the case ("undecided"): ${undec}. These are missing-dial signals, not fixtures.`, `- Candidate fixtures: ${fx.length} agreed, decided cases. Check the actual rule and the expected state changes before promoting a candidate to a resolver test.`, '', '| Family | Cases | Agree (outcome + kind) | Agree (outcome) |', '| --- | ---: | ---: | ---: |',
         ...Object.entries(fam).map(([f, v]) => `| ${f} | ${v.n} | ${pct(v.agree, v.n)} | ${pct(v.outcome, v.n)} |`), '',
         `## Disagreements ranked by design-rule impact`, '',
         `Heuristic, deterministic: cases are grouped by family and the pair of deciding-rule kinds the two models named; a group's weight is its case count times mean severity (opposite winners 3, decided vs undecided or a winner vs both/neither 2, otherwise 1, plus 1 when the kinds differ, plus 1 when both are high confidence). A big group means one unsettled rule decides many cases. Each is a decision for Weibao, not a settled ruling.`, ''];
@@ -283,7 +297,7 @@ function normalise() {
     });
     lines.push(`${ranked.length} groups in all; the rest are in the jsonl (\`agree: false\`).`);
     writeFileSync(path.join(root, PREFIX + 'INTERACTION_ORACLE_2026-11-18.md'), lines.join('\n') + '\n');
-    console.log(JSON.stringify({cases: rows.length, agree: rows.filter(r => r.agree).length, outcomeAgree: rows.filter(r => r.outcome_agree).length, undecidedBoth: undec, fixtures: fx.length, groups: ranked.length, top: ranked.slice(0, 10).map(g => [g.key, g.n, +g.mean.toFixed(1)])}));
+    console.log(JSON.stringify({cases: rows.length, excluded, agree: usable.filter(r => r.agree).length, outcomeAgree: usable.filter(r => r.outcome_agree).length, undecidedBoth: undec, fixtures: fx.length, groups: ranked.length, top: ranked.slice(0, 10).map(g => [g.key, g.n, +g.mean.toFixed(1)])}));
 }
 
 async function main() {
