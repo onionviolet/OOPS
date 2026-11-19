@@ -249,13 +249,23 @@ async function hereGoRoundtrip(c) {
     let view = await here();
     const outward = view.actions.find(a => a.key === '[data-nearby-verb="go:Wild willow stand"]');
     assert.ok(outward, 'Here exposes Go in the MCP action list');
-    view = await c.tool('game_click', {index: outward.index});
+    const button = await c.tool('game_look', {scope: outward.key});
+    assert.deepEqual(button.actions, [{...outward, index: 0}], 'an actionable scope root appears as the first action');
+    assert.deepEqual(button.time, view.time, 'scope keeps the live clock');
+    view = await c.tool('game_click', {index: 0});
     assert.equal(view.location, 'Wild willow stand');
     view = await here();
     const back = view.actions.find(a => a.key === '[data-nearby-verb="go:Village"]');
     assert.ok(back, 'Here exposes the return verb');
     const returned = await c.tool('game_click', {index: back.index});
     assert.equal(returned.location, 'Village');
+    const before = returned.time;
+    const stepped = await c.tool('game_step', {minutes: 2, view: 'compact'});
+    const minute = t => t.day * 1440 + t.hour * 60 + t.minute;
+    assert.equal(minute(stepped.time) - minute(before), 2);
+    const saved = await c.tool('game_save');
+    assert.deepEqual((await c.tool('game_look', {scope: 'reports'})).time, stepped.time);
+    assert.ok(saved.heroCreated, 'clock check uses the normal save action');
 }
 
 async function blockedRoutes(c) {

@@ -18,7 +18,7 @@ let game = null, last = [], seen = new Map();   // seen: scope -> {lines, action
 
 const need = () => {if(!game) throw new Error('No game yet. Call game_new first.'); return game;};
 const text = id => game.document.getElementById(id)?.textContent.trim() ?? '';
-const clock = () => {const t = game.snapshot()['current time']; return {day: t.day_count, hour: t.hour, minute: t.minute};};
+const clock = () => {const t = need().internals.current_game_time; return {day: t.day_count, hour: t.hour, minute: t.minute};};
 const sha = s => createHash('sha256').update(s).digest('hex').slice(0, 16);
 
 // The DOM shim's innerText includes hidden descendants. Walk visible text instead.
@@ -37,10 +37,13 @@ function visibleText(root) {
 
 // Native travel/resource dropdowns use addEventListener on a div, without role,
 // tabindex or inline onclick. Include that known player-control seam explicitly.
-function controls(g) {
-    const rows = g.clickables();
-    for(const el of g.document.querySelectorAll('.location_choice_dropdown')) {
-        if(!rows.some(c => c.el === el) && !el.disabled && !el.closest('[aria-disabled="true"]') && !g.css.hiddenReason(el)) {
+function controls(g, root = g.document.body) {
+    const rows = g.clickables(root);
+    const found = new Set(rows.map(({el}) => el));
+    const dropdowns = [...root.querySelectorAll('.location_choice_dropdown')];
+    if(root.matches?.('.location_choice_dropdown')) dropdowns.unshift(root);
+    for(const el of dropdowns) {
+        if(!found.has(el) && !el.disabled && !el.closest('[aria-disabled="true"]') && !g.css.hiddenReason(el)) {
             rows.push({el, key: '.location_choice_dropdown', text: el.textContent.trim().slice(0, 60)});
         }
     }
@@ -100,7 +103,7 @@ function lookFull({scope, offset = 0, all = false} = {}) {
     const g = need();
     const root = scopeRoot(g, scope);
     if(!root) throw new Error(`No view for ${scope}. Use a CSS selector, "reports", or "panel:<title>" with a title from the All panels list.`);
-    last = controls(g).filter(c => root === c.el || root.contains(c.el));
+    last = controls(g, root);
     offset = Math.max(0, Math.floor(Number(offset) || 0));
     return {
         time: clock(), location: text('location_name_span'),
@@ -175,7 +178,7 @@ const ops = {
             await g.click(hit.el);
         } else if(key) await g.click(key);
         else if(label) {
-            const hit = controls(g).find(c => c.el.textContent.trim() === label || c.text === label);
+            const hit = controls(g, g.document).find(c => c.el.textContent.trim() === label || c.text === label);
             if(!hit) throw new Error(`No clickable element with text ${label}`);
             await g.click(hit.el);
         }
