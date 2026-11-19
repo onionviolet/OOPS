@@ -14,8 +14,9 @@ import {lastRunFile} from './test_budget_reporter.mjs';
 
 const argv = process.argv.slice(2);
 const flag = argv.indexOf('--shards');
-const shards = Math.max(1, Number(flag >= 0 ? argv[flag + 1] : process.env.YAIRPG_TEST_SHARDS) || 1);
 const concurrency = concurrencyFor();
+const requestedShards = Number(flag >= 0 ? argv[flag + 1] : process.env.YAIRPG_TEST_SHARDS);
+const shards = Math.min(concurrency, Math.max(1, Math.floor(requestedShards) || 1));
 const files = suiteFiles();
 
 if (shards === 1) {
@@ -24,13 +25,15 @@ if (shards === 1) {
     process.exitCode = r.status ?? 1;
 } else {
     const groups = shardFiles(files, shards, knownDurations()).filter(g => g.length);
-    const each = Math.max(1, Math.ceil(concurrency / groups.length));
-    console.error(`test suite: ${groups.length} shards, ${each} files at once in each (${each * groups.length} total; YAIRPG_TEST_CONCURRENCY=N sets the total)`);
+    const perShard = Math.floor(concurrency / groups.length);
+    const remainder = concurrency % groups.length;
+    const slots = groups.map((_, i) => perShard + Number(i < remainder));
+    console.error(`test suite: ${groups.length} shards, slot counts ${slots.join(', ')} (${concurrency} total; YAIRPG_TEST_CONCURRENCY=N sets the total)`);
     const tmp = mkdtempSync(path.join(tmpdir(), 'yairpg-shards-'));
     const started = Date.now();
     const runs = groups.map((group, i) => new Promise(resolve => {
         const durations = path.join(tmp, `shard-${i}.json`);
-        const child = spawn(process.execPath, nodeTestArgs(group, {concurrency: each}),
+        const child = spawn(process.execPath, nodeTestArgs(group, {concurrency: slots[i]}),
             {stdio: ['ignore', 'pipe', 'pipe'], env: {...process.env, YAIRPG_TEST_DURATIONS: durations}});
         let out = '';
         child.stdout.on('data', d => { out += d; });
@@ -42,9 +45,9 @@ if (shards === 1) {
     }));
     const done = await Promise.all(runs);
     // Each shard's reporter wrote the checkout's last-run file for its own files; put the whole run back (LPT order and budgets read it).
-    const merged = {files: {}};
+    const merged = {concurrency, files: {}};
     for (const {durations} of done) {
-        try { const r = JSON.parse(readFileSync(durations, 'utf8')); Object.assign(merged, {at: r.at, load1: r.load1, concurrency: r.concurrency}); Object.assign(merged.files, r.files); } catch { /* shard reported nothing */ }
+        try { const r = JSON.parse(readFileSync(durations, 'utf8')); Object.assign(merged, {at: r.at, load1: r.load1}); Object.assign(merged.files, r.files); } catch { /* shard reported nothing */ }
     }
     merged.full = Object.keys(merged.files).length >= files.length * 0.9;
     try { const f = lastRunFile(process.cwd()); mkdirSync(path.dirname(f), {recursive: true}); writeFileSync(f, JSON.stringify(merged, null, 1)); } catch { /* best effort */ }
