@@ -662,10 +662,13 @@ export class HeadlessGame {
     /** Why a user could not see this element (stylesheet display/visibility, hidden, closed details), or null. */
     hiddenReason(el) {this.css.reset(); return this.css.hiddenReason(el);}
     /** Every currently actionable control: buttons, summaries, inputs, links and on* handlers that are visible and enabled. */
-    clickables() {
+    clickables(root = this.document) {
         this.css.reset();
-        return this.$$('button, summary, a[href], a[onclick], input, select, textarea, [onclick], [role="button"], [data-village-action], [data-expedition-action], [data-dialogue], [data-textline], [data-trader_item], [data-character_item], [tabindex]')
-            .filter(e => !e.disabled && !e.closest('[aria-disabled="true"]') && !this.css.hiddenReason(e)).map(e => ({key:entryKey(e), text:e.textContent.trim().slice(0, 60), el:e}));
+        const selector = 'button, summary, a[href], a[onclick], input, select, textarea, [onclick], [role="button"], [data-village-action], [data-expedition-action], [data-dialogue], [data-textline], [data-trader_item], [data-character_item], [tabindex]';
+        const candidates = [...root.querySelectorAll(selector)];
+        if(root.matches?.(selector)) candidates.unshift(root);
+        return candidates.filter(e => !e.disabled && !e.closest('[aria-disabled="true"]') && !this.css.hiddenReason(e))
+            .map(e => ({key:entryKey(e), text:e.textContent.trim().slice(0, 60), el:e}));
     }
     /** Window functions installed by the game and index.html (the console/markup command surface). */
     windowEntryPoints() {
