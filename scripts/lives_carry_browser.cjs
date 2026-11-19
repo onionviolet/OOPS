@@ -24,7 +24,7 @@ const panel=async page=>{await page.locator('[data-route-id="known-people"]').cl
 const shot=(page,f)=>page.screenshot({path:path.join(OUT,`${f}-${W}.png`)});
 // 1 fresh enrol
 let {page,ctx}=await open();
-await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(800);await page.locator('.end_dialogue_button:visible, button:has-text("Village"):visible').first().click({timeout:5000});
+await page.locator('[data-nearby-verb="talk:villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(800);await page.locator('.end_dialogue_button:visible, button:has-text("Village"):visible').first().click({timeout:5000});
 await panel(page);await page.locator('[data-chronicle="begin-open"]').click();
 const enrolled=await save(page);assert.ok(enrolled.expansion.chronicle);assert.deepEqual(enrolled.discovery_codex.schema,1);assert.equal(enrolled.inheritance_law,undefined);
 ok('fresh game saves discovery_codex slice; law slice absent at default');
@@ -55,7 +55,7 @@ const heirKeys=Object.keys(heirSave.inventories.person.main_character);const hk=
 assert.deepEqual(JSON.parse(hk).lineage.deeds.map(d=>[d.kind,d.holder]),[['passed','the heir']]);
 ok('heir save keeps codex + law slices and the heirloom gains a passed line');
 // remember
-await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(600);await page.locator('.end_dialogue_button:visible, button:has-text("Village"):visible').first().click();await page.waitForTimeout(600);
+await page.locator('[data-nearby-verb="talk:villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(600);await page.locator('.end_dialogue_button:visible, button:has-text("Village"):visible').first().click();await page.waitForTimeout(600);
 await panel(page);const rem=page.locator('[data-chronicle="remember"]');console.log('loc',await page.evaluate(()=>JSON.parse(localStorage.getItem('save data'))['current location']));await panel(page);assert.ok(await rem.isVisible(),'remember option visible');
 await shot(page,'04-remember-offered');await rem.click();const after=await save(page);assert.equal(after.expansion.chronicle.relationships.villageElder.ties.rememberedConcession,true);assert.ok(await rem.isHidden());
 ok('remembers option appears in life 2 and resolves once');

@@ -533,7 +533,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1697 of 1917 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1699 of 1919 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 

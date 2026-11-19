@@ -28,7 +28,7 @@ const receipt={bundleSha256:createHash('sha256').update(await fs.readFile(path.j
 try{
  await s.open();const p=s.page;
  // The door lives in the Village place actions list (it only opens the panel and commits nothing); the list is collapsed at this width, so click it directly.
- await p.locator('#location_actions_div [data-lotm-door]').evaluate(n=>n.click());
+ await p.locator('[data-nearby-verb="way:place:lotm-door"]').evaluate(n=>n.click());
  await p.locator('#lotm_panel [data-lotm="pick_probationer"]').click();
  await p.locator('#lotm_panel [data-lotm="enroll"]').click();
  await p.waitForFunction(()=>/Tingen/.test(document.querySelector('#location_name_span')?.textContent||''),null,{timeout:30000});await p.waitForTimeout(350);

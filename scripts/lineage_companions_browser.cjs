@@ -22,7 +22,7 @@ const ticks=async(page,n)=>{for(let left=n;left>0;left-=500)await page.evaluate(
 // 1 enrol through the real menus so generated people exist
 let {page,ctx}=await open();
 {const f=await save(page);assert.equal(f.inherited_traits,undefined);ok('fresh save has no inherited_traits slice (older saves unchanged)');}
-await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(800);
+await page.locator('[data-nearby-verb="talk:villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(800);
 await page.locator('.end_dialogue_button:visible, #center_mode_back').first().click().catch(()=>{});
 await page.locator('[data-route-id="known-people"]').click();await page.waitForTimeout(500);
 {const t=page.locator('[data-notebook-view="people"]');if(await t.isVisible())await t.click();

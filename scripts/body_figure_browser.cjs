@@ -12,7 +12,7 @@ const step=process.argv[2]||'all';
  page.on('pageerror',e=>errors.push(String(e.stack||e)));
  await page.goto(`http://localhost:${port}/?test_hooks=1`);await page.getByText('PLAY',{exact:true}).click();
  // The talk view covers the native text lines, so choose through its own options.
- for(const sel of ['.choice_dialogue','[data-dialogue="villageElder"]','#talk_view_host button[data-topic-id="hello"]','#talk_view_host button[data-topic-id="where am i"]','#center_mode_back'])await page.locator(sel).first().click();
+ for(const sel of ['[data-nearby-verb="talk:villageElder"]','#talk_view_host button[data-topic-id="hello"]','#talk_view_host button[data-topic-id="where am i"]','#center_mode_back'])await page.locator(sel).first().click();
  await advanceGameMinutes(page,15);
  const info=await page.evaluate(()=>{const p=document.getElementById('body_panel');const chain=[];for(let n=p;n;n=n.parentElement)chain.push(n.id||n.className||n.tagName);return {exists:!!p,hidden:p?.hidden,chain:chain.slice(0,8),routes:[...document.querySelectorAll('[data-route-id]')].map(b=>b.dataset.routeId+':'+(b.offsetParent?'v':'h')+':'+b.textContent.trim().slice(0,20)),nb:document.getElementById('adventure_notebook')?.offsetParent!=null,mod:document.querySelector('.workspace-module:has(#adventure_notebook)')?.dataset.moduleId,views:[...document.querySelectorAll('[data-notebook-view]')].map(b=>b.dataset.notebookView+':'+(b.offsetParent?'v':'h')),};});
  console.log(JSON.stringify(info));

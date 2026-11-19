@@ -107,6 +107,7 @@ export function beginStructuredCampaign(state,d,context,receipt,selection=null) 
     next.worlds[d.world.id].facts[`${d.id}.instance`]=record.instanceId;
     validateStructuredRecord(record);validateSimulationState(s,next,context.registry.simulation);
     out.nativeLocation=b.locationId;out.nativePatch={'current location':b.locationId};
+    out.skillCrossing={worldId:record.worldId,instanceId:record.instanceId};
     return {plan:out,record};
 }
 

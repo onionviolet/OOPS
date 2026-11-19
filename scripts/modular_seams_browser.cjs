@@ -17,8 +17,7 @@ const viewport=lifecycleProof||shellProof ? {width:1920,height:1080} : {width:13
  await context.addInitScript(()=>{Date.now=()=>1792108800000;crypto.getRandomValues=a=>{for(let i=0;i<a.length;i++)a[i]=12345+i;return a;};let n=41;Math.random=()=>((n=Math.imul(n,1664525)+1013904223>>>0)/4294967296);});
  async function boot(){await page.waitForFunction(()=>window.simulationTestHooks);await page.evaluate(()=>window.simulationTestHooks.pause());await startFresh(page);}
  console.log('goto');await page.goto(url);console.log('boot');await boot();console.log('actions');
- await page.getByText('Talk to someone',{exact:false}).first().click();
- await page.locator('[data-dialogue="villageElder"]').click();
+ await page.locator('[data-nearby-verb="talk:villageElder"]').click();
  await page.locator('#talk_view_host button[data-topic-id="hello"]').click();
  await page.locator('#center_mode_back').click();
  if(process.env.PROOF_DOMAINS==='1' || lifecycleProof) {

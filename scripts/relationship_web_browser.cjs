@@ -24,7 +24,7 @@ const output = process.env.YAIRPG_PROOF_DIR || 'docs/representations/evidence/re
 
     let {page, context} = await open();
     const fingerprint = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
-    await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+    await page.locator('[data-nearby-verb="talk:villageElder"]').click();
     await page.locator('[data-textline="hello"]').dispatchEvent('click'); // the talk view covers the native line (TALK.md); same handler
     await people(page);
     const web = page.locator('#known_people_panel > #relationship_web');

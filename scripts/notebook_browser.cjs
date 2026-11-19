@@ -19,7 +19,7 @@ const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-notebook-proof';fs.mkd
  assert.equal(await page.locator('#adventure_notebook').isVisible(),false); assert.equal(await page.locator('#journal_show_notebook').isVisible(),false);
  assert.equal(await page.locator('#world_identity_note').isVisible(),false);
  assert.ok(!((await page.locator('#world_identity_note').getAttribute('title')) || '').includes('YAIRPG'));
- await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
+ await page.locator('[data-nearby-verb="talk:villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
  await openNotebook(page); await page.locator('#adventure_notebook').waitFor({state:'visible'});
  assert.equal(await tab(page,'here').getAttribute('aria-selected'),'true');assert.equal(await page.locator('#chronicle_panel').isVisible(),false);
  const base=await save(page);await page.screenshot({path:path.join(output,'village-here.png'),fullPage:true});

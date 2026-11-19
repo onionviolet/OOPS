@@ -1,4 +1,5 @@
-import {registerPlaceNoticed,noticedFromActs} from './place_noticed.js';
+import {registerPlaceNoticed,noticedFromPlace} from './place_noticed.js';
+import {noticedRecordsFor} from './book_world_lotm_noticed.js';
 import {lotmTaskSummary,renderLotmTaskSummary} from './ui/lotm_task_summary.js';
 import {definePanel} from './panel_kit.js';
 import {crossFreely,CROSS_FREELY_EVENT} from './ui/cross_freely.js';
@@ -135,8 +136,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   if(expandWorkspaceModule('lotm')&&first){tabsUi.select('here');findControl(first.id,{focusAction:true});}});
  // PS305: the nouns the life's own acts here are about (the desk, the wall lamp) are things in Here, each with its verbs. A verb takes the
  // player to the act's own control, as the Nearby door does, and presses nothing itself.
- let hereActs=[];
- registerPlaceNoticed({id:'lotm-acts',rows:()=>noticedFromActs(hereActs,{open:id=>{if(expandWorkspaceModule('lotm')){tabsUi.select('here');findControl(id,{focusAction:true});}}})});
+ let hereActs=[],hereAtId=null;
+ registerPlaceNoticed({id:'lotm-acts',rows:()=>noticedFromPlace(noticedRecordsFor(hereAtId),hereActs,{open:id=>{if(expandWorkspaceModule('lotm')){tabsUi.select('here');findControl(id,{focusAction:true});}}})});
  const localActions=()=>document.getElementById('location_actions_div');
  function syncDoor(v){const place=localActions(),local=v.resident&&currentObserver().sees({capability:'lotm.local-task-entry'}),first=local?v.objectActs?.find(a=>a.eligible):null;
   door.hidden=!local&&(!!v.enrolled||!v.atVillage||!crossFreely());door.dataset.lotmLocalEntry=local?'true':'false';
@@ -145,7 +146,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
  let doorObserver=null;
  (globalThis.window||globalThis).addEventListener?.(CROSS_FREELY_EVENT,()=>syncDoor(read(selected)));
  function render(){
-  const v={...read(selected),duties:duties?.()?.items||[]};setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);hereActs=v.resident&&currentObserver().sees({capability:'lotm.local-task-entry'})?v.objectActs||[]:[];if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
+  const v={...read(selected),duties:duties?.()?.items||[]};setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);hereActs=v.resident&&currentObserver().sees({capability:'lotm.local-task-entry'})?v.objectActs||[]:[];hereAtId=v.resident?v.atId||null:null;if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
   // The seat filter owns hidden on workroom blocks; slot availability is separate.
   if(encounterSlot.inert!==!v.resident)encounterSlot.inert=!v.resident;
   // Countdown-only changes update the existing control so pointer/focus stays

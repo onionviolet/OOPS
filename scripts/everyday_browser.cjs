@@ -32,7 +32,7 @@ runBrowser(async browser => {
     let {page, context} = await open();
     const fingerprint = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
     assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
-    await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+    await page.locator('[data-nearby-verb="talk:villageElder"]').click();
     await page.locator('[data-textline="hello"]').click(); await page.locator('.end_dialogue_button').click(); await panel(page);
     await village(page, 'village.waypost'); await waitForPage(page, () => document.querySelector('[data-village-read]')?.hidden === false);
     await page.locator('[data-village-bridge="inspect"]').click();
@@ -41,7 +41,7 @@ runBrowser(async browser => {
     const ready = structuredClone(found); ready.character.money = 30; ready.inventories.person.main_character[wood] = {count: 6};
     ready.availabilities.person.oldCraftsman |= 1; ready.availabilities.dialogue.oldCraftsman |= 1; ready.availabilities.location.Shack |= 1;
     ({page,context} = await open(ready));
-    await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="oldCraftsman"]').click();
+    await page.locator('[data-nearby-verb="talk:oldCraftsman"]').click();
     await page.locator('[data-textline="hello"]').click(); await page.locator('.end_dialogue_button').click(); await panel(page);
     const prepared = await save(page);
     await village(page, 'village.route_lesson'); const tuition = await save(page);

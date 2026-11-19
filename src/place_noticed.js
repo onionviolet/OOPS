@@ -59,3 +59,34 @@ export function noticedFromActs(acts = [], {open, max = NOTICED_MAX} = {}) {
     }
     return [...byNoun.values()].slice(0, max);
 }
+
+const slug = text => String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const cap = text => text[0].toUpperCase() + text.slice(1);
+const SPACE_VERB = /^[A-Za-z]+(?: (?:over|out|off|up|on|down|at|through))?/;
+
+/**
+ * Pure: a place's noticed rows from its own records and the acts the life can take there. A record is
+ * `{noun, acts?: [id | {id, verb}]}` (a world's place data, PS305): what a person there would notice, and the acts that touch it.
+ * An act of the list that the place offers becomes a verb on that noun (disabled with its reason when the life cannot take it
+ * yet); a noun with no offered act stays a plain noun, which is still something the place has. Acts whose label reads as verb and
+ * noun (noticedFromActs) add the nouns the records did not name. Default: the records' order, then the acts', capped at `max` (the dial).
+ */
+export function noticedFromPlace(records = [], acts = [], {open, max = NOTICED_MAX} = {}) {
+    const byId = new Map(acts.map(a => [a.id, a]));
+    const verbOf = (act, verb) => ({id: act.id, label: String(act.label).split(' · ')[0],
+        short: verb || nounOf(act.label)?.verb || String(act.label).match(SPACE_VERB)?.[0] || act.label,
+        run: () => open?.(act.id), disabled: act.eligible === false, reason: act.eligible === false ? [...new Set(act.reasons || [])].join(' ') : ''});
+    const rows = new Map();
+    for (const record of records) {
+        const noun = String(record?.noun || '').trim();
+        if (!noun || rows.has(slug(noun))) continue;
+        const verbs = (record.acts || []).map(a => typeof a === 'string' ? {id: a} : a).filter(a => byId.has(a.id)).map(a => verbOf(byId.get(a.id), a.verb));
+        rows.set(slug(noun), {id: `noticed:${slug(noun)}`, name: cap(noun), role: '', verbs});
+    }
+    for (const row of noticedFromActs(acts, {open, max: Infinity})) {
+        const key = row.id.slice('noticed:'.length), have = rows.get(key);
+        if (!have) rows.set(key, row);
+        else for (const v of row.verbs) if (!have.verbs.some(x => x.id === v.id)) have.verbs.push(v);
+    }
+    return [...rows.values()].slice(0, max);
+}

@@ -25,7 +25,7 @@ fixture.availabilities.person.oldCraftsman=1;fixture.availabilities.dialogue.old
  const reload=async page=>{await page.reload();await page.getByText('PLAY',{exact:true}).click();await panel(page);};
  let {page,context}=await open();const fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
  assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
- await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="oldCraftsman"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
+ await page.locator('[data-nearby-verb="talk:oldCraftsman"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
  const original=await save(page),quests=structuredClone(original.quests),profile=structuredClone(original.character.bio);await panel(page);
  assert.equal(original.expansion.simulation,null);await click(page,'body.begin');const begun=await save(page);
  assert.equal(begun.expansion.actors.player.facts['body.enrolled'],true);assert.equal(begun.expansion.chronicle,null);assert.equal(begun.character.money,30);

@@ -41,7 +41,7 @@ test('voices go place row first, then the world row, then the generic line (DSG1
     assert.ok(street.flavour && street.useful, 'unlisted places get the world row');
     assert.deepEqual(reportVoice({worldId: 'book.lotm.tingen', kind: 'message_travel', text: '[ Entering Some Tingen street ]'}), street, 'same place, same words (RPT12)');
     const opened = reportVoice({worldId: 'base.frontier', kind: 'location_unlocked', text: 'Unlocked location "Forest road"'});
-    assert.match(opened.useful, /Move somewhere else/, 'a newly opened place learns the route, not the place row');
+    assert.match(opened.useful, /Ways out/, 'a newly opened place learns the route, not the place row');
     assert.equal(reportVoice({worldId: 'base.frontier', kind: 'location_unlocked', text: 'You have learned a new stance: "Guard"'}), null);
     assert.equal(reportVoice({worldId: 'pocket.folded_glasshouse', kind: 'message_travel', text: '[ Entering Elsewhere ]'}), null, 'a world without a general row stays generic');
     assert.equal(reportVoice({worldId: 'feature.other', kind: 'message_travel', text: '[ Entering Tidemark landing ]'}), null, 'generic families never voice a world they were not written for');
@@ -85,7 +85,7 @@ test('titles speak in every voiced world; frontier unlocks say where the new thi
     assert.equal(reportVoice({worldId: 'base.frontier', kind: 'level_up', text: 'Reached level 3'}), null, 'level-ups that are not titles stay generic');
     const act = reportVoice({worldId: 'base.frontier', kind: 'activity_unlocked', text: 'The elder shows you:\nUnlocked activity "Woodcutting" in location "Village"'});
     assert.equal(act.useful, 'Woodcutting is in Local actions while you are at Village.');
-    assert.match(reportVoice({worldId: 'base.frontier', kind: 'activity_unlocked', text: 'Unlocked action "Spar" with "village elder"'}).useful, /Talk to someone/);
+    assert.match(reportVoice({worldId: 'base.frontier', kind: 'activity_unlocked', text: 'Unlocked action "Spar" with "village elder"'}).useful, /press Talk/);
     assert.equal(reportVoice({worldId: 'book.mol.cyoria', kind: 'activity_unlocked', text: 'Unlocked activity "X" in location "Y"'}), null);
 });
 

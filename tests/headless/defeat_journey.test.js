@@ -14,9 +14,7 @@ function cave(save) {
 // Walk the way a player does, then stay in the fight until the hero goes down.
 async function loseInCaveRoom(game) {
     for(const id of ['Nearby cave', 'Cave room']) {
-        const target = game.$(`[data-travel="${id}"]`), dropdown = target.closest('.location_choice_dropdown');
-        if(game.hiddenReason(target) && dropdown) await game.click(dropdown.firstElementChild);
-        await game.click(target);
+        await game.click(`[data-nearby-verb="go:${id}"]`); // the Here box's own Go or Enter (PS67)
     }
     assert.equal(game.internals.current_location.id, 'Cave room');
     for(let i = 0; i < 60 && !(await game.save()).total_deaths; i++) await game.step(10, {chunk:1});

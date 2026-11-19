@@ -13,7 +13,7 @@ const receipt={bundleSha256:createHash('sha256').update(await fs.readFile(path.j
 try{
  await s.open();let p=s.page;
  assert(!(new URL(p.url()).searchParams.has('lotm_probe')));
- const door=p.locator('#location_actions_div [data-lotm-door]'),panel=p.locator('#lotm_panel');
+ const door=p.locator('[data-nearby-verb="way:place:lotm-door"]'),panel=p.locator('#lotm_panel');
  assert(await door.isVisible());assert(!(await panel.isVisible()));await door.click();
  assert.match(await panel.innerText(),/Year: 1349, early Tingen/);assert.match(await panel.innerText(),/Not written yet/);assert.match(await panel.innerText(),/The money you held before crossing stays behind/);
  assert.equal(await panel.locator('[data-lotm="enroll"]').count(),0,'no life commits before its entry answers are shown');
@@ -56,7 +56,7 @@ try{
  await p.screenshot({path:path.join(out,'tingen-paused-village-1920.png')});
  await hop('resume:life-1');
  let village=await s.save();assert.equal(await p.locator('#location_name_span').innerText(),'Village');assert.equal(village.character.money,held);assert.equal(village.expansion.lotm,undefined,'the Village life holds no Tingen branch');
- assert(await p.locator('#location_actions_div [data-lotm-door]').isVisible(),'the Village life can see the Tingen door again');
+ assert(await p.locator('[data-nearby-verb="way:place:lotm-door"]').isVisible(),'the Village life can see the Tingen door again');
  await p.screenshot({path:path.join(out,'village-resumed-1920.png')});
  await hop(`resume:${crossed.continuation.active}`);
  const tingen=await s.save();assert.equal(await p.locator('#location_name_span').innerText(),loc);assert.equal(tingen.character.money,480);assert.equal(JSON.stringify(tingen.expansion.lotm),lotm);

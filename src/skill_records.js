@@ -21,10 +21,21 @@ export function validateSkillRecords(r) {
     check(object(r)&&r.schema===1&&object(r.tracked)&&object(r.rustOn)&&Array.isArray(r.nearMisses)&&r.nearMisses.length<=NEAR_MISS_LIMIT&&Object.keys(r.tracked).length<=512);
     for(const [id,e] of Object.entries(r.tracked))check(ref(id)&&object(e)&&nat(e.peak)&&nat(e.level)&&e.level<=e.peak&&Number.isFinite(e.seen)&&e.seen>=0&&nat(e.idle)&&nat(e.rust)&&(e.nm==null||nat(e.nm)));
     for(const [w,on] of Object.entries(r.rustOn))check(ref(w)&&typeof on==='boolean');
+    if(r.crossing!==undefined){
+        const {worldId,instanceId,levels}=r.crossing??{};
+        check(ref(worldId)&&ref(instanceId)&&object(levels)&&Object.keys(levels).length<=512);
+        for(const [id,level] of Object.entries(levels))check(ref(id)&&nat(level)&&level>0);
+    }
     for(const n of r.nearMisses)check(object(n)&&ref(n.skill)&&nat(n.level)&&nat(n.short)&&nat(n.at)&&ref(n.cause));
     return r;
 }
-export const migrateSkillRecords=slice=>slice==null?freshSkillRecords():structuredClone(validateSkillRecords(slice));
+export function migrateSkillRecords(slice) {
+    if (slice == null) return freshSkillRecords();
+    const next = structuredClone(validateSkillRecords(slice));
+    // An old world-only observation cannot identify which life crossed.
+    delete next.carried;
+    return next;
+}
 export const rustCeiling=(peak,dial)=>Math.max(0,peak-Math.ceil(peak*dial.floor));
 export const rustActive=(rec,worldId)=>!!dialFor(worldId)&&rec.rustOn[worldId]===true;
 // rows: [{id, level, totalXp, xp, toNext}] for skills the hero has any XP in. Returns a new record (the input is not mutated).

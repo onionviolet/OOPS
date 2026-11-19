@@ -25,7 +25,7 @@ const wood=JSON.stringify({id:'Rough wood log'}),sid='promise.visitor',visitor='
   await open();assert.equal(await page.locator('#promise_panel').isVisible(),false);
   fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
   assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
-  await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();
+  await page.locator('[data-nearby-verb="talk:villageElder"]').click();
   await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
   const base=await save();assert.equal(base.expansion.simulation,null);
   const legacyEncoded=await page.evaluate(()=>window.save_to_file());

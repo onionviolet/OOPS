@@ -23,12 +23,11 @@ const STEPS=[0,1,2,3,5,8,12,16,20,25,30,40,50,60,200],SEED=Number(process.env.PR
   return {rows,projection,clock:window.simulationTestHooks.snapshot()['current time']??null};
  });
  // Elder lines unlock Infested field; the dialogue closes through the shared center Back (the shell hides the old exit).
- async function unlockCombatRoute(){await page.getByText('Talk to someone',{exact:false}).first().click();await page.locator('[data-dialogue="villageElder"]').click();
+ async function unlockCombatRoute(){await page.locator('[data-nearby-verb="talk:villageElder"]').click();
   for(const key of ['hello','what happened','ask to leave 1','need to']){const line=page.locator(`.dialogue_textline[data-textline="${key}"]`);await line.click();await line.waitFor({state:'detached'});}
   await page.locator('#center_mode_back').click();}
  await page.goto(url);await boot();await unlockCombatRoute();
- await page.locator('#location_actions_div').getByText('Move somewhere else',{exact:false}).first().click();
- await page.locator('#location_actions_div .action_travel[data-travel="Infested field"]').click();await waitLocation(page,'Infested field');
+  await page.locator('[data-nearby-verb="go:Infested field"]').click();await waitLocation(page,'Infested field');
  await page.locator('#combat_div .fighter_div').first().waitFor({state:'attached'});
  const frames=[];let done=0;
  for(const at of STEPS){if(at>done){await page.evaluate(n=>window.advanceTicks(n,{render:true}),at-done);done=at;}frames.push({ticks:at,...await view()});}

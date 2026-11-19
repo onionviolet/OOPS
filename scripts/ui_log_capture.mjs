@@ -77,13 +77,13 @@ const villageActions = (() => {
 })();
 
 const idleActions = [
-    ['talk elder', async g => {await g.click('.choice_dialogue'); await g.click('[data-dialogue="villageElder"]'); await g.click('[data-textline="hello"]'); await g.click('#center_mode_back');}],
+    ['talk elder', async g => {await g.click('[data-nearby-verb="talk:villageElder"]'); await g.click('[data-textline="hello"]'); await g.click('#center_mode_back');}],
     ['idle 12h', async g => g.step(720)],
     ['idle 12h more', async g => g.step(720)],
 ];
 
 const tingenActions = [
-    ['cross to Tingen', async g => g.clickText('blur_onCross to another world: Tingen')],
+    ['cross to Tingen', async g => g.click('[data-nearby-verb="way:place:lotm-door"]')],
     ['begin as Nighthawk probationer', async g => g.clickText('Begin as a Nighthawk probationer')],
     ['confirm crossing', async g => g.clickText('Confirm and cross to Tingen')],
     ['wait 6h', async g => g.step(360)],

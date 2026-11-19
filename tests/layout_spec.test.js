@@ -114,13 +114,13 @@ test('R21 placement: swaps main boxes, places companions, keeps the log and defa
 // UIL1: v3 keeps every R21 navigation route, label and hotkey, and v2 placements read unchanged.
 test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar order', async () => {
     const {routeTable, routeById} = await import('../src/layout_spec.js');
-    const r21 = [['Here','h','local-actions'],['Stats','e','preparation'],['Condition','o','condition'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
+    const r21 = [['Actions','h','local-actions'],['Stats','e','preparation'],['Condition','o','condition'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
         ['Journal','j','records','journal_show_quests'],['Bestiary','b','records','journal_show_bestiary'],['Books','a','records','journal_show_books'],
         ['Data','d','records','journal_show_data'],['Knows','f','records','journal_show_knows'],['Notebook','n','notebook'],['Skills','k','skills'],
         ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],['Organizations','x','management'],
         ['Worlds','w','optional-worlds'],['Beginning','g','beginning'],['Capability runs','u','capability-runs'],['Connection','y','continuation'],['Settings','s','customization']];
     assert.deepEqual(routeTable().map(r => [r.label, r.key, r.target, ...(r.tab ? [r.tab] : [])]), r21);
-    assert.deepEqual(routeTable().filter(r => r.pane).sort((x, y) => x.pane - y.pane).map(r => r.label), ['Here', 'Skills', 'Crafting', 'Mixing'], 'Center views keep their R21 order');
+    assert.deepEqual(routeTable().filter(r => r.pane).sort((x, y) => x.pane - y.pane).map(r => r.label), ['Actions', 'Skills', 'Crafting', 'Mixing'], 'Center views keep their R21 order');
     assert.equal(routeById('records:bestiary').tab, 'journal_show_bestiary');
     // The Notebook content is the workspace-owned 'notebook' module; the Journal tab alone showed an empty box.
     assert.equal(routeById('records:notebook').target, 'notebook');

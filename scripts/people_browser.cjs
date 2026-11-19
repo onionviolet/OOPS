@@ -17,13 +17,13 @@ const output = process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-people-proof'; fs.mk
     };
     const save = async page => {await page.evaluate(() => window.saveProgress()); return page.evaluate(() => JSON.parse(localStorage.getItem('save data')));};
     const people = async page => {await openNotebook(page); await page.locator('[data-notebook-view="people"]').click();};
-    const travel = async (page, id) => {await page.getByText('Move somewhere else', {exact:false}).click(); await page.locator(`[data-travel="${id}"]`).click();};
+    const travel = async (page, id) => {await page.locator(`[data-nearby-verb="go:${id}"]`).click();};
     let {page, context} = await open();
     const fingerprint = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
     assert.ok(fingerprint.endsWith(fs.readFileSync(process.env.YAIRPG_BUILD_INDEX || 'index.html', 'utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
     assert.equal(await page.locator('#journal_show_notebook').isVisible(), false);
     assert.equal(await page.locator('[data-known-person]').count(), 0);
-    await page.getByRole('button',{name:'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+    await page.locator('[data-nearby-verb="talk:villageElder"]').click();
     await page.locator('[data-textline="hello"]').click();
     await people(page); assert.equal(await page.locator('[data-known-person="villageElder"]').isVisible(), true);
     assert.equal(await page.locator('#chronicle_panel').isVisible(), false);

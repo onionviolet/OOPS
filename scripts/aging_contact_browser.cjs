@@ -29,7 +29,7 @@ fs.mkdirSync(output, {recursive: true});
   const text = page => page.locator('#aging_contact_panel').innerText();
   // 1 enroll through the real menus
   let {page, context} = await open();
-  await page.getByRole('button', {name: 'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('#center_mode_back').click();
+  await page.locator('[data-nearby-verb="talk:villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('#center_mode_back').click();
   await notebook(page, 'people');
   if(!(await page.locator('#chronicle_panel').evaluate(n => n.open))) await page.locator('#chronicle_panel summary').click();
   await page.locator('[data-chronicle="begin-mortal"]').click();

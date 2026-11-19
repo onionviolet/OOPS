@@ -10,7 +10,7 @@ const url = process.env.YAIRPG_PROOF_URL, output = process.env.YAIRPG_PROOF_DIR 
         await page.goto(url); await page.getByText('PLAY', {exact: true}).click();
         if (await page.getByText('Confirm', {exact: true}).isVisible()) await page.getByText('Confirm', {exact: true}).click();
         const bundle = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
-        await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+        await page.locator('[data-nearby-verb="talk:villageElder"]').click();
         await page.locator('[data-textline="hello"]').evaluate(n => n.click());
         await page.evaluate(() => end_dialogue());
         await page.locator('[data-route-id="known-people"]').first().click(); await page.locator('#known_people_panel').waitFor({state: 'visible'});
