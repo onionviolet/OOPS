@@ -130,6 +130,10 @@ test('forbidden, underpriced, unmapped and underfunded workings do not enter the
     assert.equal(changed.archive, archive);
     const underpriced = benchMove(generateGuMoves({...inputs, world: {...world, priceQuantity: 'essence.immortal'}}).results);
     assert.match(underpriced.checks.find(row => row.id === 'pays').reason, /underpriced: 0 below 4/);
+    // An underpriced move still passes and ranks lower by its shortfall (LLR49).
+    assert.equal(underpriced.pass, true);
+    assert.equal(underpriced.entry.breakdown.underpriced, 4);
+    assert.equal(underpriced.entry.score, preview.entry.score - 4);
     const unmapped = benchMove(generateGuMoves({...inputs, world: {...world, project: () => null}}).results);
     assert.equal(unmapped.reason, 'effect-projection-unknown');
 

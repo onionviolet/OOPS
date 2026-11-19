@@ -1,7 +1,7 @@
 // One operator, one path and one effect core, with ordered direct supports.
 // The host supplies custody, knowledge and world policy and owns publication.
 import {check, sameStructural} from './basics.js';
-import {archiveOffer, checkEffect, createNicheArchive, keepSpread} from './effect_checks.js';
+import {archiveOffer, checkEffect, createNicheArchive, gatesPass, keepSpread} from './effect_checks.js';
 import {EFFECT_OBJECTS} from './effect_grammar.js';
 import {compareCodePoints} from './gen_kit.js';
 import {compileGuMove} from './gu_move_roles.js';
@@ -33,12 +33,14 @@ function checkCandidate(candidate, quote, world) {
     const projection = world.project(output);
     if (!projection) return {pass: false, reason: 'effect-projection-unknown'};
 
-    // The curve is an admission dial in one named fuel. Actual debits come
-    // from the Gu law; unlike fuels cannot be added to meet this price.
+    // The curve prices in one named fuel. Actual debits come from the Gu law;
+    // unlike fuels cannot be added to meet this price. An underpriced move still
+    // passes: the pays row reports the shortfall and the spread score drops by
+    // it (PGC17, PC73, LLR49 2026-11-14).
     const {parts, fit = 0} = projection;
     const amount = quote.costs.filter(cost => cost.quantity === world.priceQuantity &&
         cost.holder === candidate.bindings.operator.id).reduce((sum, cost) => sum + cost.amount, 0);
-    const {checks, built} = checkEffect(world.fitted, {id: recipe.id, parts, amount}, world);
+    const {checks, built, underpriced} = checkEffect(world.fitted, {id: recipe.id, parts, amount}, world);
     const law = `${parts.verb}|${EFFECT_OBJECTS[parts.object]}`;
     const exception = world.forbid?.find(rule => rule.law === law)?.exception;
     if (exception) {
@@ -46,13 +48,13 @@ function checkCandidate(candidate, quote, world) {
         // filler that can settle an exception's separate cost.
         Object.assign(checks.find(row => row.id === 'allows'), {pass: false, reason: 'exception-cost-unsettled'});
     }
-    if (!checks.every(row => row.pass)) return {pass: false, reason: 'effect-check-failed', checks};
+    if (!gatesPass(checks)) return {pass: false, reason: 'effect-check-failed', checks};
     if (recipe.roles.length < 2) return {pass: false, reason: 'no-composition', checks};
     const kinds = recipe.roles.map(role => role.kind);
     if (world.canonMoves.some(move => sameStructural(move, kinds))) {
         return {pass: false, reason: 'known-composition', checks};
     }
-    const [scored] = keepSpread([{id: recipe.id, parts}], world.canonParts,
+    const [scored] = keepSpread([{id: recipe.id, parts, underpriced}], world.canonParts,
         {k: 1, weights: world.weights, fit: () => fit}).kept;
     check(Number.isSafeInteger(scored.score), 'Gu archive scores must be safe integers.');
     return {pass: true, checks, entry: {id: recipe.id, parts: scored.parts, score: scored.score,

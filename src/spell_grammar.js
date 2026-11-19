@@ -36,6 +36,9 @@ export function defineSpellGrammar({id = 'spell', revision = 4, dials = {}} = {}
             {id: 'cost', type: 'one', values: EFFECT_COSTS},
             {id: 'access', type: 'one', open: true},
         ],
+        // Checks flag by default (PGC4, LLR47). sentence-runs is shape (PFP16);
+        // target-fits-verb and living-target are canon laws with a dial, so they
+        // declare reject. carrier-pays is a usual account and stays a flag (AD56).
         rules: [
             {id: 'sentence', kind: 'derive', reads: ['intent', 'target', 'execution', 'carrier', 'cost'],
                 default: 'The intent law turns will, target and execution into an effect sentence.',
@@ -48,14 +51,14 @@ export function defineSpellGrammar({id = 'spell', revision = 4, dials = {}} = {}
                 default: 'Incantation, gesture, focus and attention are separate; a skipped one raises the cost and lowers reliability (SPD1).',
                 reason: 'Wordless and wandless casting are harder, not forbidden (canon nonverbal lessons). Unrecorded parts cost nothing.',
                 run: ({parts}) => ({components: spellComponents(parts)})},
-            {id: 'sentence-runs', kind: 'check', default: 'A spell needs a sentence the effect law can run.',
+            {id: 'sentence-runs', kind: 'check', severity: 'reject', default: 'A spell needs a sentence the effect law can run.',
                 reason: 'Generated means runnable (PFP16).',
                 run: ({derived}) => derived.sentence ? null : {reason: derived.sentenceError ?? 'no sentence'}},
-            {id: 'target-fits-verb', kind: 'check', default: 'A running effect is a target only for verbs that end, remove, block, sense, copy or hide it.',
+            {id: 'target-fits-verb', kind: 'check', severity: 'reject', default: 'A running effect is a target only for verbs that end, remove, block, sense, copy or hide it.',
                 reason: 'An effect has no position, size or mind to change (canon: Finite, Nox, Liberacorpus).',
                 run: ({derived}) => derived.sentence?.target === 'effect' && !EFFECT_VERBS_ON_EFFECTS.has(derived.sentence.verb)
                     ? {reason: `${derived.sentence.verb} cannot act on a running effect`} : null},
-            {id: 'living-target', kind: 'check', dial: 'mindedObjects',
+            {id: 'living-target', kind: 'check', severity: 'reject', dial: 'mindedObjects',
                 default: 'Mind, mood, memory, pain, vitality, voice and sight belong to a living target (creature, body or self).',
                 reason: 'A board has no mind to stun (properties, not categories: PFP22). Dial: a world where things have minds sets mindedObjects.',
                 run: ({derived, dials}) => {

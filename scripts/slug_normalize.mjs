@@ -45,7 +45,7 @@ export function normalizeText(text, map) {
     return {text: out.join('\n'), changed, unknown};
 }
 
-export const ledgerFiles = (dir = path.join(root, COVERAGE)) => fs.readdirSync(dir).filter(f => f.endsWith('.jsonl') && f !== 'worlds.jsonl').sort();
+export const ledgerFiles = (dir = path.join(root, COVERAGE)) => fs.readdirSync(dir).filter(f => f.endsWith('.jsonl') && !['worlds.jsonl', 'interaction_oracle.jsonl'].includes(f)).sort();
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const apply = process.argv.includes('--apply'), map = readMap();

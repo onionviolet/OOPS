@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync} from 'node:fs';
+import {mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -139,5 +139,30 @@ test('refuses when master moves underneath, and when the primary index has stage
   const s = queue(dir, 'late');
   assert.equal(s.status, 1);
   assert.match(s.out, /REFUSED: primary index has 1 staged entries \(b\.txt\)/);
+  rmSync(dir, {recursive: true, force: true});
+});
+
+test('generated outputs: a conflict in one takes the queue side and the queue regenerates it from the merged inputs', () => {
+  const dir = makeRepo();
+  // A stub of scripts/worlds_ledger.mjs: the output is every in/*.txt, one line each. Each lane adds its input and its own regenerated output.
+  mkdirSync(join(dir, 'scripts'));
+  mkdirSync(join(dir, 'docs/coverage'), {recursive: true});
+  mkdirSync(join(dir, 'in'));
+  writeFileSync(join(dir, 'scripts/worlds_ledger.mjs'), `import fs from 'node:fs';
+const names = fs.readdirSync('in').sort();
+fs.writeFileSync('docs/coverage/worlds.jsonl', names.map(n => fs.readFileSync('in/' + n, 'utf8').trim()).join('\\n') + '\\n');
+`);
+  writeFileSync(join(dir, 'in/0.txt'), 'zero\n');
+  writeFileSync(join(dir, 'docs/coverage/worlds.jsonl'), 'zero\n');
+  git(dir, 'add', '.');
+  git(dir, 'commit', '-q', '-m', 'ledger stub');
+  branch(dir, 'one', {'in/1.txt': 'one\n', 'docs/coverage/worlds.jsonl': 'zero\none\n'});
+  branch(dir, 'two', {'in/2.txt': 'two\n', 'docs/coverage/worlds.jsonl': 'zero\ntwo\n'});
+  const r = queue(dir, '--apply', 'one', 'two');
+  assert.equal(r.status, 0, r.out);
+  assert.match(r.out, /generated outputs taken from the queue side: docs\/coverage\/worlds\.jsonl/);
+  assert.match(r.out, /regenerate: .*worlds ledger ok/);
+  assert.equal(readFileSync(join(dir, 'docs/coverage/worlds.jsonl'), 'utf8'), 'zero\none\ntwo\n');
+  assert.equal(git(dir, 'status', '--porcelain'), '', 'primary matches the new master');
   rmSync(dir, {recursive: true, force: true});
 });

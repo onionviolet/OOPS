@@ -3,7 +3,8 @@
 // object, target, time, carrier, cost and limits. The intent law below says what
 // a caster's will to do something means in those terms; it names no world (PFP3).
 // Proposal under AD56: every list is a working default, extended when a canon
-// effect cannot be said with it and a second consumer needs the part (EF2).
+// effect cannot be said with it and its first known consumer needs the part
+// (EF2 as opened by LLR48, 2026-11-14; AD51). A second consumer is not required.
 // Owner note: W owns effect primitives and P composition (seam SB3); this is the
 // spell-side vocabulary until a second domain shares it (request in S checkpoint).
 
@@ -86,13 +87,13 @@ export const INTENT_LAW = Object.freeze({
     conjure: {verb: 'add', object: 'material'},
     reveal: {verb: 'sense', object: 'presence'},
     inspect_properties: {verb: 'sense', object: 'composition'},
-    // Added for Legilimens (EF2); second consumer: Lord of the Mysteries mind reading.
+    // Added for Legilimens (EF2); also used by Lord of the Mysteries mind reading.
     read_mind: {verb: 'sense', object: 'mind'},
-    // Added 2026-11-12 after the D&D canon test missed Detect Magic (EF2); second
-    // consumer: Lord of the Mysteries Spirit Vision senses hidden spiritual properties.
+    // Added 2026-11-12 after the D&D canon test missed Detect Magic (EF2); also used
+    // by Lord of the Mysteries Spirit Vision, which senses hidden spiritual properties.
     sense_magic: {verb: 'sense', object: 'magic'},
     // Added for Lord of the Mysteries divination (nine canon rows ask a question and
-    // read an answer); second consumer: Hogwarts Divination lessons (prophecy, tea leaves).
+    // read an answer); also used by Hogwarts Divination lessons (prophecy, tea leaves).
     divine: {verb: 'sense', object: 'answer'},
     read: {verb: 'sense', object: 'mark'},
     guide: {verb: 'sense', object: 'position'},

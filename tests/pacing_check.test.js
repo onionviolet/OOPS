@@ -76,6 +76,19 @@ test('ratchet: a recorded miss passes, a new miss fails, a worse value fails, a 
     assert.equal(compareToBaseline([fast], base).ok, true);
 });
 
+test('a start that states a reason to exceed a target reports instead of failing (PAC3, LLR39)', () => {
+    const slow = analyzeTrace(trace(Array.from({length: 20}, (_, i) => step(i, (i + 1) * 10, i === 15 ? {unlocks: ['a']} : {})), 'village'));
+    const reasoned = id => ({...targetFor(id), exceeds: {firstPayoffMin: 'the life opens on a long, named wait', longestPayoffGapMin: 'same wait'}});
+    const cmp = compareToBaseline([slow], {starts: {}}, {targetOf: reasoned});
+    assert.ok(cmp.reported.some(r => r.measure === 'firstPayoffMin' && r.reason === 'the life opens on a long, named wait'));
+    assert.ok(!cmp.regressions.some(g => g.measure === 'firstPayoffMin' || g.measure === 'longestPayoffGapMin'), 'a reasoned miss never fails');
+    assert.ok(cmp.misses.find(m => m.measure === 'firstPayoffMin').reason, 'the miss row carries its reason');
+    // The ratchet still fails a new miss with no reason, and a blank reason is no reason.
+    const blank = id => ({...targetFor(id), exceeds: {firstPayoffMin: '  '}});
+    assert.ok(compareToBaseline([slow], {starts: {}}, {targetOf: blank}).regressions.some(g => g.measure === 'firstPayoffMin' && g.note === 'new miss'));
+    assert.ok(compareToBaseline([slow], {starts: {}}, {targetOf: reasoned}).regressions.some(g => g.measure === 'firstActedPayoffMin'));
+});
+
 test('targets are per start with a default and a reason (PAC3)', () => {
     for(const [id, t] of Object.entries(TARGETS)) assert.ok(t.reason && t.reason.length > 10, `${id} states a reason`);
     for(const id of START_IDS) assert.ok(targetFor(id).longestPayoffGapMin > 0, `${id} has a gap target`);

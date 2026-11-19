@@ -215,7 +215,7 @@ export function computedCounts(rows, computed = new Map()) {
 export function readLedgers(dir = path.join(root, COVERAGE_DIR)) {
     if (!fs.existsSync(dir)) return [];
     const slugs = canonicalSlugs();
-    return fs.readdirSync(dir).filter(f => f.endsWith('.jsonl') && f !== 'worlds.jsonl').sort().map(f => {
+    return fs.readdirSync(dir).filter(f => f.endsWith('.jsonl') && !['worlds.jsonl', 'interaction_oracle.jsonl'].includes(f)).sort().map(f => {
         const name = f.replace(/\.jsonl$/, '');
         return {name, file: `${COVERAGE_DIR}/${f}`, ...parseLedger(fs.readFileSync(path.join(dir, f), 'utf8'), {name: f, slugs})};
     });

@@ -125,13 +125,16 @@ export function defineEffectGrammar({world, carriers, limits = [], keys = {}, re
             {id: 'cost', type: 'one', values: costs, given: 'carrier'},
             {id: 'limits', type: 'set', values: limits, open: true, min: 0},
         ],
+        // Checks flag by default (PGC4, LLR47). verb-object is a property law and
+        // carrier-cost is the world's own account table (opened by the anyCost
+        // dial), so both declare reject as world laws.
         rules: [
-            {id: 'verb-object', kind: 'check', reads: ['verb', 'object'],
+            {id: 'verb-object', kind: 'check', severity: 'reject', reads: ['verb', 'object'],
                 default: 'A verb acts on the object kinds it can change (VERB_ACCEPTS).',
                 reason: 'Laws read properties, not categories (PFP22); a mismatch is a missing primitive or a mislabel.',
                 run: ({parts}) => VERB_ACCEPTS[parts.verb]?.includes(EFFECT_OBJECTS[parts.object]) ? null
                     : {reason: `${parts.verb} does not act on ${EFFECT_OBJECTS[parts.object] ?? parts.object}`, pair: `${parts.verb}|${parts.object}`}},
-            {id: 'carrier-cost', kind: 'check', reads: ['carrier', 'cost'],
+            {id: 'carrier-cost', kind: 'check', severity: 'reject', reads: ['carrier', 'cost'],
                 default: 'A carrier pays from the accounts its world gives it.', dial: 'anyCost',
                 reason: 'A Gu runs on essence, a spoken spell on the caster; a different account needs an in-world reason.',
                 run: ({parts, dials}) => dials.anyCost || carriers[parts.carrier]?.includes(parts.cost) ? null : {reason: `${parts.carrier} cannot pay with ${parts.cost}`}},

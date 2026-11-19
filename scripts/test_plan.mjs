@@ -41,3 +41,13 @@ export function nodeTestArgs(files, {concurrency = concurrencyFor(), cwd = proce
         '--test-reporter=./scripts/test_budget_reporter.mjs', '--test-reporter-destination=stderr',
         ...longestFirst(files, knownDurations(cwd))];
 }
+
+/** Pure: split files into n groups balanced by known duration (longest first onto the lightest group), each group slowest first. */
+export function shardFiles(files, n, known = {}, fallbackMs = 1000) {
+    const groups = Array.from({length: n}, () => ({files: [], ms: 0}));
+    for (const f of longestFirst(files, known, fallbackMs)) {
+        const g = groups.reduce((a, b) => (b.ms < a.ms ? b : a));
+        g.files.push(f); g.ms += known[f] ?? fallbackMs;
+    }
+    return groups.map(g => g.files);
+}

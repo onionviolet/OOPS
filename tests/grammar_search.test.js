@@ -10,7 +10,7 @@ const dish = defineGrammar({id: 'toy.dish', revision: 1,
     slots: [{id: 'base', type: 'one', values: ['grain', 'root', 'fish']}, {id: 'method', type: 'one', values: ['boil', 'roast', 'raw'], given: 'base'},
         {id: 'extras', type: 'set', values: ['salt', 'herb'], min: 0, max: 2}],
     rules: [{id: 'warm', kind: 'derive', reads: ['method'], default: 'Boiled and roasted dishes are warm.', reason: 'Test.', run: ({parts}) => ({warm: parts.method !== 'raw'})},
-        {id: 'raw-grain', kind: 'check', reads: ['base', 'method'], default: 'Grain is not eaten raw.', reason: 'Test.', run: ({parts}) => parts.base === 'grain' && parts.method === 'raw' ? {reason: 'raw grain'} : null}],
+        {id: 'raw-grain', kind: 'check', severity: 'reject', reads: ['base', 'method'], default: 'Grain is not eaten raw.', reason: 'Test.', run: ({parts}) => parts.base === 'grain' && parts.method === 'raw' ? {reason: 'raw grain'} : null}],
     fallback: {id: 'toy.f', parts: {base: 'grain', method: 'boil', extras: []}}});
 const fitted = fitGrammar(dish, [
     {id: 'a', parts: {base: 'grain', method: 'boil', extras: ['salt']}}, {id: 'b', parts: {base: 'root', method: 'roast', extras: []}},
@@ -53,7 +53,7 @@ test('nested slots search over the child things an actor holds (GL3)', () => {
     const role = defineGrammar({id: 'toy.role', revision: 1, slots: [{id: 'role', type: 'one', open: true}, {id: 'kind', type: 'one', open: true}],
         fallback: {id: 'toy.role.f', parts: {role: 'core', kind: 'moon'}}});
     const move = defineGrammar({id: 'toy.move', revision: 1, slots: [{id: 'roles', type: 'parts', grammar: role, min: 1, max: 3}],
-        rules: [{id: 'one-core', kind: 'check', reads: ['roles'], default: 'A move has one core.', reason: 'Test.',
+        rules: [{id: 'one-core', kind: 'check', severity: 'reject', reads: ['roles'], default: 'A move has one core.', reason: 'Test.',
             run: ({parts}) => parts.roles.filter(r => r.role === 'core').length === 1 ? null : {reason: 'core count'}}],
         fallback: {id: 'toy.move.f', parts: {roles: [{role: 'core', kind: 'moon'}]}}});
     const f = fitGrammar(move, [{id: 'm1', parts: {roles: [{role: 'core', kind: 'moon'}, {role: 'support', kind: 'light'}]}}]);
