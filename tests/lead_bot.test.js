@@ -43,9 +43,9 @@ test('lead bot: logs every action with verb, target, cost and world minute', asy
     const bot = await leadBot(null, {seed: 20261014, wallStart: Date.UTC(2026, 0, 1, 12)});
     t.after(() => bot.close());
     const start = bot.minute();
-    await bot.click('.choice_dialogue');
-    await bot.click('[data-dialogue="villageElder"]');
-    await bot.click('[data-textline="hello"]');
+    await bot.click('[data-inspect-nearby="villageElder"]');
+    await bot.click('[data-nearby-verb="talk:villageElder"]');
+    await bot.click('.talk-view [data-topic-id="hello"]');
     await bot.click('#center_mode_back');
     await bot.step(15);
     await bot.save('after-talk');
