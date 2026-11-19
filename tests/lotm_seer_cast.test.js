@@ -1,13 +1,15 @@
 import assert from 'node:assert/strict';
 import {existsSync, readFileSync} from 'node:fs';
 import test from 'node:test';
+import {castPackGap, readCastPack} from './helpers/lotm_cast_pack.mjs';
 
 const root = new URL('../', import.meta.url);
-const castAvailable = existsSync(new URL('private_packs/lotm-cast/cast.json', root)) &&
-    existsSync(new URL('private_packs/manifest.json', root));
+const castGap = existsSync(new URL('private_packs/manifest.json', root))
+    ? castPackGap(readCastPack(), {acts: ['book.lotm.kj3o.cup', 'book.lotm.kj3p.drink']})
+    : 'Requires the local LOTM cast pack';
 
 test('the installed Seer cast consumes the shared allocation and grants source and spirituality after restore',
-    {skip: castAvailable ? false : 'Requires the local LOTM cast pack'}, async () => {
+    {skip: castGap ?? false}, async () => {
         const originalFetch = globalThis.fetch;
         globalThis.fetch = async path => {
             try {

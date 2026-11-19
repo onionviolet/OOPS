@@ -11,11 +11,10 @@
 //   passes                  exact above baseline exact and within-band not below baseline within-band.
 //   fails-baseline          otherwise. Proposal only: relabel its rows `generated`; this script never relabels.
 // Confidence on a derived row = the rule's exact and within-band rates on that set, plus n and verdict (read from derivation_rules.json).
-import {readFileSync, writeFileSync, existsSync} from 'node:fs';
+import {readFileSync, writeFileSync, existsSync, readdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {scoreRows as lawDefaultScores} from './law_defaults.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 export const RULES_FILE = 'docs/coverage/derivation_rules.json';
@@ -111,8 +110,21 @@ function generator() {
         `Ahead of baseline on path (${s.path.generator}% against ${s.path.baseline}%, n=${s.path.n}), behind on band and verb (${s.verb.generator}% against ${s.verb.baseline}%, n=${s.verb.n}). These rows already carry tier generated; no relabel needed, the palette says why.`);
 }
 
+// Rule sources register themselves: every scripts/derivation_rule_sources/*.mjs adds its rows (README there), so lanes never share a line.
+export async function ruleSources() {
+    const dir = join(root, 'scripts/derivation_rule_sources');
+    const mods = [];
+    for (const f of readdirSync(dir).filter(f => f.endsWith('.mjs')).sort()) {
+        const m = await import(`./derivation_rule_sources/${f}`);
+        if (typeof m.default !== 'function') throw new Error(`${f}: derivation rule sources export a default function`);
+        mods.push({f, order: m.order ?? 100, make: m.default});
+    }
+    return mods.sort((a, b) => a.order - b.order || (a.f < b.f ? -1 : 1));
+}
+
 export async function build() {
-    const rules = [...(await guRank()), hp(), ...lotm(), generator(), ...lawDefaultScores(), ...(await import('./ss_rank_rules.mjs')).ssRankRows(row, sha), ...(await import('./derive_worm_prt.mjs')).backtestRows(row, sha(['scripts/worm_prt_rules.mjs'])), ...(await import('./derive_coi_potions.mjs')).coiRuleRows(row, verdictOf)];
+    const rules = [...(await guRank()), hp(), ...lotm(), generator()];
+    for (const src of await ruleSources()) rules.push(...await src.make({row, sha, verdictOf}));
     return {meta: {pass: 'docs/research/power-catalogues-2026-11-16/README.md#pwc100-pwc119-derivation-rule-scores-and-core-axioms-2026-11-17-proposals', date: '2026-11-17', status: 'proposal (AD32)',
         split: 'GKM429: sha1(id)[0] < 0x33 held out, frozen before scoring', floor: FLOOR,
         verdicts: 'passes | fails-baseline | insufficient-held-out; written in scripts/derivation_rules_backtest.mjs before the table was filled',

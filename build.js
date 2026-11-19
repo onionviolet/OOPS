@@ -9,6 +9,7 @@ import {execFileSync} from 'node:child_process';
 import {readManifest, renderStylesheets} from './scripts/stylesheet_manifest.mjs';
 
 // A runtime cursor requires this exact authored source/compiler/artifact join.
+execFileSync(process.execPath,['scripts/gen_capability_runs.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/compile_feature_ink.mjs','--check'],{stdio:'inherit'});
 const inkNotices=fs.readFileSync('docs/gm/feature-wave/ink/COMPILER.md','utf8');
 const buildOut = process.env.BUILD_OUT;

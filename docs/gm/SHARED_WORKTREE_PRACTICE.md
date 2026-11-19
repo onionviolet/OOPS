@@ -153,8 +153,20 @@ Weibao, 2026-10-14: merge finished work "each time" before a new wave
    working file untouched and saves the marked copy for review. The receipt
    (commits, checks, test counts, synced and merged paths) prints and is saved
    with logs under `.git/merge-queue/<stamp>/`. It never stashes, resets, forces
-   or pushes. Conflicts only in `dist/bundle.js`, its map or `index.html` take
-   master's side and are rebuilt into the last merge commit.
+   or pushes. Conflicts only in generated outputs (`dist/bundle.js`, its map,
+   `index.html`, and every file `scripts/regen_generated.mjs` rewrites: the coverage
+   README, `worlds.jsonl`, `derivation_rules.json`, the B ledgers, `hp_spells.jsonl`,
+   `creatures.jsonl`, `worm_powers.jsonl` and the capability-runs barrel) take master's side.
+   In the scratch tree the queue always runs `regen_generated.mjs` before the build, in
+   dependency order (builders and settle, derivation rule scores, B ledgers, worlds
+   ledger, coverage report), so a clean merge that leaves a generated file stale is
+   repaired too, and the regenerated and rebuilt outputs are folded into the last merge
+   commit. Lanes need not hand-merge generated files: regenerate (`node
+   scripts/regen_generated.mjs`) or leave them to the queue. `--checks build,check:arch`
+   limits a dry run to named checks. New shared lists are replaced by self-registering
+   folders: a derivation rule source is one file in `scripts/derivation_rule_sources/`,
+   a capability run is one file in `src/capability_runs/` (`npm run build` rewrites the
+   barrel). Never run `gu_generator.mjs ledger` from a regeneration.
 6. Delete each merged lane's extras in the same step, once the combined gates pass
    (Weibao, 2026-11-16, [direction](USER_VISION_LOG_2026-11.md#each-merge-deletes-the-merged-lanes-extras-2026-11-16)):
    `git worktree remove` its worktree (refused when dirty: keep it and name it for
