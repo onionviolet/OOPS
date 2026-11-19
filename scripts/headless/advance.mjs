@@ -15,12 +15,7 @@ export const MINUTES_PER_DAY = 1440;
 
 /** Minutes until the next simulation boundary, or null when nothing is scheduled. Reads the live state only. */
 export async function minutesToNextEvent(game) {
-    const state = game.internals.expansionState;
-    if(!state) return null;
-    // Loaded on demand: a frozen game build ships no src/, and plain minutes/days steps never need it.
-    const {nextSimulationBoundary} = await import('../../src/simulation.js');
-    const at = nextSimulationBoundary(state);
-    return Number.isFinite(at) ? Math.max(1, Math.ceil(at - state.clock)) : null;
+    return game.internals.nextEventMinutes();
 }
 
 /**

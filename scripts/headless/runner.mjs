@@ -37,6 +37,7 @@ ${LAMP_SCENARIO_BRIDGE}
 export {scenarioLampOperations};
 export const __headless = {
 ${INTERNALS.map(n => `    get ${n}() {try {return ${n};} catch {return undefined;}},`).join('\n')}
+    nextEventMinutes() {const at = nextSimulationBoundary(expansionState); return Number.isFinite(at) ? Math.max(1, Math.ceil(at - expansionState.clock)) : null;},
 ${FUNCTIONS.map(n => `    ${n}: (...args) => ${n}(...args),`).join('\n')}
 };
 `;

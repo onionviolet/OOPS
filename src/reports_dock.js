@@ -2,6 +2,7 @@ import {registerDomain} from './domain_registry.js';
 import {todayDigest} from './today_strip.js';
 import {minutesText, plural} from './reference_kit.js';
 import {sayReason} from './locked_control.js';
+import {readPort, whenPortsReady} from './ui_ports.js';
 
 // COV11 / UR11: the Reports column is 500 px wide and held three lines for the first hour. Until the log
 // has LOG_TAKES_OVER lines it also shows what to do next and what the day offers, then the log has the column
@@ -16,7 +17,11 @@ export const TAIL_LINES = 24;
 export const tailOf = (lines, world) => { const kept = lines.map(l => String(l || '').replace(/\s+/g, ' ').trim()).filter(Boolean).slice(-TAIL_LINES); return kept.length ? {world, lines: kept} : undefined; };
 export const tailFor = (slice, world) => (slice && slice.world === world && Array.isArray(slice.lines) ? slice.lines.filter(l => typeof l === 'string').map(undoubled).slice(-TAIL_LINES) : []);
 let restored = null, showEarlier = () => {};
-const worldNow = () => (typeof document === 'undefined' ? 'native' : document.documentElement.dataset.world || 'native');
+const worldNow = () => {
+    const world = readPort('expansion')?.actors?.player?.worldId;
+    if(world) return world === 'base.frontier' ? 'native' : world;
+    return typeof document === 'undefined' ? 'native' : document.documentElement.dataset.world || 'native';
+};
 // What the player read: the line as shown, without its buttons or the spoken-aloud copy.
 // UIC189: a line keeps a full and a compact copy of its words; a page saved without layout (headless, a hidden tab) has no
 // innerText and read both, so the tail held every line twice. The full copy is read when the line has one.
@@ -27,7 +32,18 @@ export const undoubled = line => { const t = String(line), h = t.length / 2; ret
 // A place or day divider ("[ Home · 01/04/999 ]") is written afresh by every sitting, so it is not part of the tail:
 // saving, reloading and saving again with nothing done leaves the save the same.
 export const isDivider = text => /^\[ .* \]$/.test(String(text || '').replace(/\s+/g, ' ').trim());
-const saveTail = () => { if (typeof document === 'undefined') return undefined; const stream = document.getElementById('message_box_div'); return stream ? tailOf([...stream.children].filter(n => !n.classList.contains('report-earlier-head')).map(visibleLine).filter(text => !isDivider(text)), worldNow()) : undefined; };
+const saveTail = () => {
+    const stream = typeof document === 'undefined' ? null : document.getElementById('message_box_div');
+    if(!stream) return undefined;
+    const lines = [...stream.children].filter(n => !n.classList.contains('report-earlier-head') && !n.hasAttribute('data-report-session-only'))
+        .map(visibleLine).filter(text => !isDivider(text));
+    return tailOf(lines, worldNow());
+};
+function captureTail(envelope) {
+    const tail = saveTail();
+    if(tail) envelope.reports_dock = tail;
+    else delete envelope.reports_dock;
+}
 
 // Stage a successful action's receipt with its gameplay state. The caller publishes the live
 // log row after the write; a reload sees the staged copy through the ordinary Reports tail.
@@ -73,6 +89,8 @@ function mount() {
         stream.scrollTop = stream.scrollHeight;
     };
     showEarlier();
+    // On reload, the saved tail loads before the live world port is bound.
+    whenPortsReady(showEarlier);
     let signature = '';
     const render = () => {
         const nextCard = document.getElementById('next_step');
@@ -113,4 +131,4 @@ function mount() {
     document.addEventListener('visibilitychange', render);
 }
 
-registerDomain({id: 'reports_dock', deps: [], initialState: () => null, save: saveTail, load: slice => { restored = slice || null; showEarlier(); }, panels: [() => { mount(); }]});
+registerDomain({id: 'reports_dock', deps: [], initialState: () => null, save: saveTail, commands: {captureTail}, load: slice => { restored = slice || null; showEarlier(); }, panels: [() => { mount(); }]});

@@ -22,8 +22,8 @@ if (['localhost','127.0.0.1','[::1]'].includes(location.hostname) && new URLSear
  * Hash src/locales/stories and runtime-imported docs plus host/presentation,
  * harness and fixture files. The caller hashes the actual prepared fixture too.
  */
-export async function scenarioInputIdentity(root, fixture, save) {
-    const hash = createHash('sha256'), files = new Set();
+export async function scenarioSourceIdentity(root, {extras = [], privatePacks = false} = {}) {
+    const hash = createHash('sha256'), files = new Set(), optional = new Set();
     async function walk(path) {
         for (const entry of (await readdir(join(root,path), {withFileTypes:true})).sort((a,b) => a.name.localeCompare(b.name))) {
             const p = join(path, entry.name);
@@ -31,17 +31,54 @@ export async function scenarioInputIdentity(root, fixture, save) {
         }
     }
     for (const path of ['src','locales','stories','styles','scripts/headless']) await walk(path);
-    for (const path of ['index.html','style.css','package.json','package-lock.json','build.js','tests/fixtures/deep_engine/ordinary_lamp.mjs']) files.add(path);
+    for (const path of ['index.html','style.css','package.json','package-lock.json','build.js',...extras]) files.add(path);
     for (const path of [...files].filter(p => p.startsWith('src/') && p.endsWith('.js'))) {
         const source = await readFile(join(root,path),'utf8');
+        if(privatePacks) {
+            for(const [path] of source.matchAll(/(?<=['"])private_packs\/[a-z0-9_-]+\/[a-z0-9_.-]+\.json(?=['"])/gi)) optional.add(path);
+        }
         for (const match of source.matchAll(/['"]((?:\.\.\/)+(docs\/[^'"]+))['"]/g)) {
             const target = relative(root, new URL(match[1], 'file://' + join(root,path)).pathname);
             files.add(target);
         }
     }
-    for (const path of [...files].sort()) {hash.update(path + '\0'); hash.update(await readFile(join(root,path))); hash.update('\0');}
+    if (privatePacks) {
+        const manifestPath = 'private_packs/manifest.json';
+        const manifest = await readFile(join(root, manifestPath), 'utf8').catch(error => {
+            if (error.code === 'ENOENT') return null;
+            throw error;
+        });
+        if (manifest !== null) {
+            files.add(manifestPath);
+            const {packs = [], supplements = []} = JSON.parse(manifest);
+            for (const descriptor of packs) {
+                if (!/^[a-z0-9_-]+\/pack\.json$/i.test(descriptor)) continue;
+                await walk(join('private_packs', descriptor.split('/')[0])).catch(error => {
+                    if(error.code !== 'ENOENT') throw error;
+                });
+            }
+            for (const entry of supplements) {
+                if (/^[a-z0-9_-]+\/[a-z0-9_.-]+\.json$/i.test(entry)) optional.add(join('private_packs',entry));
+            }
+        }
+    }
+    let inputFiles = 0;
+    for (const path of [...new Set([...files,...optional])].sort()) {
+        const bytes = await readFile(join(root,path)).catch(error => {
+            if(optional.has(path) && error.code === 'ENOENT') return null;
+            throw error;
+        });
+        if(bytes === null) continue;
+        hash.update(path + '\0'); hash.update(bytes); hash.update('\0');
+        inputFiles++;
+    }
+    return {sourceSha256:hash.digest('hex'), inputFiles};
+}
+
+export async function scenarioInputIdentity(root, fixture, save) {
+    const source = await scenarioSourceIdentity(root, {extras: ['tests/fixtures/deep_engine/ordinary_lamp.mjs']});
     return {fixture:{...fixture, saveSha256:createHash('sha256').update(JSON.stringify(save)).digest('hex')},
-        sourceSha256:hash.digest('hex'), inputFiles:files.size,
+        ...source,
         replay:{covered:['fixture bytes','seeded Math.random/crypto per boot','frozen wall time','explicit command order','paused native tick requests'],
             uncovered:['whole-game RNG draw ledger','ambient optional/private pack responses','browser versus Node timer ordering','cross-reload RNG continuation','concurrent games in one Node realm'],
             claim:'Selected fixture journey only; not whole-game deterministic or reentrant replay.'}};

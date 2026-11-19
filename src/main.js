@@ -47,7 +47,7 @@ import {installTrainingLink,trainingView} from './absorb_p23/long_life/training.
 import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
 import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks,suspendEngine} from './simulation_clock.js';
 import {createPlanningReadFrame} from './planning_read_frame.js';
-import {withFactsFrame as withSimulationFrame,withDisplayFactsFrame} from './facts_frame.js';import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,deferWhileHidden} from './simulation_render.js';
+import {withFactsFrame as withSimulationFrame,withDisplayFactsFrame} from './facts_frame.js';import {deferSimulationRender,beginSimulationRenderBatch,finishStepperRenders,framedSimulationRead,deferWhileHidden} from './simulation_render.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
 import {readingPresentation} from './absorb_p23/reading/presentation.js';
@@ -635,9 +635,14 @@ const lifeSaveStorage = {get length(){return localStorage.length;},key:i=>localS
     if(!deferWhileHidden(renderSavedPanels,renderSavedPanels))renderSavedPanels();
 }};
 let deferredDurable=null;
-function flushDeferredDurable(){
+function flushDeferredDurable({refreshCheckpoint = false} = {}){
     const held=deferredDurable;deferredDurable=null;
-    if(held)durableSaves.write(held.key,held.save,{force:false});
+    if(!held)return;
+    if(refreshCheckpoint && held.save.expansion === expansionState) {
+        domainRegistry.command('reports_dock','captureTail')?.(held.save);
+        domainRegistry.command('skillRecords','captureCheckpoint')?.(held.save);
+    }
+    durableSaves.write(held.key,held.save,{force:false});
 }
 // Display-only panels that follow each durable save.
 function renderSavedPanels(){workLedgerPanel?.render();optionalPackPanel?.render();villageCareerControls?.render();lifeRecordPanel?.render();villageLivesPanel?.render();}
@@ -8972,7 +8977,7 @@ function simulateTick() {
                 //no current activity
 
                 add_xp_to_skill({skill: skills["Breathing"], xp_to_add: 0.1});
-                const divs = document.getElementsByClassName("activity_div");
+                const divs = document.getElementById("location_actions_div")?.getElementsByClassName("activity_div") ?? [];
                 //go through all displayed activities, if they are of proper type check if they are available and if there's a change, modify their display
                 for(let i = 0; i < divs.length; i++) {
                     const activity = current_location.activities[divs[i].getAttribute("data-activity")];
@@ -9139,15 +9144,15 @@ function openStepperBatch(render) {
     return () => {
         const saves = stepperSaves; stepperSaves = null;
         let failure = null; try {settleBatchValidation();} catch(error) {failure = error;}
-        try {flushDeferredDurable();} catch(error) {failure ??= error;}
+        stepperRenderSuppressed=false;
+        const renderFailure = finishStepperRenders(expansionState, restore);
+        try {flushDeferredDurable({refreshCheckpoint: !renderFailure});} catch(error) {failure ??= error;}
         if(!failure) for(const key of saves) {
             const savedAt = save_to_localStorage({key});
             if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
         }
-        stepperRenderSuppressed=false;
-        for(const reset of restore) reset();
-        if(!render) endSimulationRenderBatch(expansionState);
         if(failure) throw failure;
+        if(renderFailure) throw renderFailure;
         return saves.size;
     };
 }
@@ -9997,7 +10002,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
     setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();zorianLoop.tick();}},500);
     mountWorkspace();mountDayStrip();
-    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,refreshGear:()=>{update_displayed_equipment();for(const [slot,worn] of Object.entries(character.getEquipment()))if(worn?.getInventoryKey)try{update_displayed_character_inventory({equip_slot:slot});}catch{}},logAchievement:text=>log_message(text,'level_up'),gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,continuation:()=>continuationState,lifeRecord:()=>lifeRecord,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
+    mountWorkspaceNavigation({notice:(text,panelId,options)=>log_message(text,'notification',{safeText:true,panelId,...options}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,refreshGear:()=>{update_displayed_equipment();for(const [slot,worn] of Object.entries(character.getEquipment()))if(worn?.getInventoryKey)try{update_displayed_character_inventory({equip_slot:slot});}catch{}},logAchievement:text=>log_message(text,'level_up'),gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,continuation:()=>continuationState,lifeRecord:()=>lifeRecord,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);
