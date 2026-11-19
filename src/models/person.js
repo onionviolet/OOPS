@@ -544,6 +544,7 @@ class Person{
                     + (levelable.bonus_skill_levels.flat.active_effects[bonus_target] || 0) 
                     + (levelable.bonus_skill_levels.flat.skills[bonus_target] || 0)
                     + (levelable.bonus_skill_levels.flat.rust?.[bonus_target] || 0)
+                    + (levelable.bonus_skill_levels.flat.carried?.[bonus_target] || 0)
                     + (levelable.bonus_skill_levels.flat.equipment[category] || 0) 
                     + (levelable.bonus_skill_levels.flat.active_effects[category] || 0) 
                     + (levelable.bonus_skill_levels.flat.skills[category] || 0);
@@ -612,6 +613,7 @@ class Person{
                     * (levelable.xp_bonuses.multiplier.books[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.titles?.[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.aptitude?.[bonus_target] || 1)
+                    * (levelable.xp_bonuses.multiplier.carried?.[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.ladder?.[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.active_effects[bonus_target] || 1);
         });

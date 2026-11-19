@@ -1,4 +1,5 @@
 import {readPort} from './ui_ports.js';
+import {domainRegistry} from './domain_registry.js';
 import {ownHoldings, ownHoldingsView, syncOwnHoldingsNotices} from './own_holdings.js';
 
 // Per-world look (DESIGN.md DSG12, PLAN M3). Display only: reads the player's current world,
@@ -40,7 +41,10 @@ export function applyWorldLook(root, worldId) {
     const registered = ownHoldings(worldId);
     if (registered) { if (root.dataset.ownHoldings !== 'on') root.dataset.ownHoldings = 'on'; }
     else if (root.dataset.ownHoldings !== undefined) delete root.dataset.ownHoldings;
-    syncOwnHoldingsNotices(root, registered ? ownHoldingsView(worldId, readPort('expansion')) : null);
+    // F4 (WER9): a life with a recorded carried-skills answer shows it in the Skills fold even when it keeps the native purse (Klein).
+    let carry = null; try { carry = domainRegistry.command('skillRecords', 'carry')?.() ?? null; } catch { /* no skill domain yet: no answer to show */ }
+    const view = registered ? ownHoldingsView(worldId, readPort('expansion')) : null;
+    syncOwnHoldingsNotices(root, view || carry ? {...view, ...(carry ? {carry} : {})} : null);
     return look.family;
 }
 

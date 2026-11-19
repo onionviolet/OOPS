@@ -28,7 +28,7 @@ fs.mkdirSync(output, {recursive: true});
     let {page, context} = await open();
     const fingerprint = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
     assert.ok(fingerprint.endsWith(fs.readFileSync(process.env.YAIRPG_BUILD_INDEX || 'index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
-    await page.getByRole('button',{name:'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+    await page.locator('[data-nearby-verb="talk:villageElder"]').click();
     await page.locator('[data-textline="hello"]').click(); await page.locator('.end_dialogue_button').click(); await openNotebook(page);
     assert.equal(await page.locator('#simulation_panel').isVisible(),false);
     const base = await save(page); assert.equal(base.expansion.simulation,null); await context.close();

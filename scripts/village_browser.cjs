@@ -40,7 +40,7 @@ runBrowser(async browser => {
     let {page, context} = await open();
     const fingerprint = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
     assert.ok(fingerprint.endsWith(fs.readFileSync('index.html', 'utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
-    await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+    await page.locator('[data-nearby-verb="talk:villageElder"]').click();
     await page.locator('[data-textline="hello"]').click(); await page.locator('.end_dialogue_button').click(); await panel(page);
     const base = await save(page);
     await click(page, 'village.waypost'); const pending = await save(page); assert.equal(pending.expansion.pending[0].actionId, 'village.waypost');
@@ -75,7 +75,7 @@ runBrowser(async browser => {
     progressed.availabilities.person.oldCraftsman = 1; progressed.availabilities.dialogue.oldCraftsman = 1;
     progressed.availabilities.location.Shack = 1; progressed.inventories.person.main_character[LOG_KEY] = {count: 3};
     ({page, context} = await open(progressed));
-    await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="oldCraftsman"]').click();
+    await page.locator('[data-nearby-verb="talk:oldCraftsman"]').click();
     await page.locator('[data-textline="hello"]').click(); await page.locator('.end_dialogue_button').click(); await panel(page);
     const beforeReturn = await save(page); await click(page, 'village.return_token'); const returned = await save(page);
     assert.equal(returned.inventories.person.main_character[TOKEN_KEY], undefined); assert.equal(returned.inventories.person.main_character[NOTES_KEY].count, 1);

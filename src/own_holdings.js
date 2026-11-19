@@ -57,7 +57,7 @@ function syncLifeName(doc, entry) {
 export function syncOwnHoldingsNotices(root, entry) {
     const doc = root?.ownerDocument;
     if (!doc) return;
-    syncLifeName(doc, entry); syncCarriedSkills(doc, entry && {carried: entry.carried ?? CARRIED_SKILLS_NOTE});
+    syncLifeName(doc, entry); syncCarriedSkills(doc, !entry ? null : entry.carry ? {carry: entry.carry} : entry.purse ? {carried: entry.carried ?? CARRIED_SKILLS_NOTE} : null); // F4: a recorded WER9 answer (entry.carry) replaces the unsettled note
     for (const [hostId, key] of NOTICE_HOSTS) {
         const host = doc.getElementById(hostId), old = host?.querySelector(':scope > [data-own-holdings-notice]');
         if (!host) continue;

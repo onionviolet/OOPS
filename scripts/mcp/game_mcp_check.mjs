@@ -237,28 +237,23 @@ async function greetElder(c, seed) {
     // This regression proves the formerly hidden control is reachable and accepts a click.
     assert.equal((await c.tool('game_status')).errors.length, 0, 'Village action click raises no page error');
     await c.tool('game_new', {seed});
-    await c.tool('game_click', {key: '.choice_dialogue'});
-    await c.tool('game_click', {key: '[data-dialogue="villageElder"]'});
-    await c.tool('game_click', {key: '[data-textline="hello"]'});
+    await c.tool('game_click', {key: '[data-nearby-verb="talk:villageElder"]'});
+    await c.tool('game_click', {key: '.talk-view [data-topic-id="hello"]'});
     await c.tool('game_step', {minutes: 15});
     return c.tool('game_save');
 }
 
-async function nativeDropdownRoundtrip(c) {
+async function hereGoRoundtrip(c) {
     await c.tool('game_new', {seed: 251036});
-    const local = () => c.tool('game_look', {scope: '#location_actions_div'});
-    let v = await local();
-    await c.tool('game_click', {index: v.actions.find(a => /Move somewhere else/.test(a.text)).index});
-    v = await local();
-    await c.tool('game_click', {index: v.actions.find(a => /Go to \[Wild willow stand\]/.test(a.text)).index});
-    v = await local();
-    assert.equal(v.location, 'Wild willow stand');
-    const dropdown = v.actions.find(a => a.key === '.location_choice_dropdown' || a.key.includes('location_choice_dropdown') || a.key.includes('data-native-choice'));
-    assert.ok(dropdown, 'native listener-only dropdown appears in action list');
-    await c.tool('game_click', {index: dropdown.index});
-    v = await local();
-    const back = v.actions.find(a => /Return to Village/.test(a.text));
-    assert.ok(back, 'native dropdown reveals a return route');
+    const here = () => c.tool('game_look', {scope: '.nearby-context-view'});
+    let view = await here();
+    const outward = view.actions.find(a => a.key === '[data-nearby-verb="go:Wild willow stand"]');
+    assert.ok(outward, 'Here exposes Go in the MCP action list');
+    view = await c.tool('game_click', {index: outward.index});
+    assert.equal(view.location, 'Wild willow stand');
+    view = await here();
+    const back = view.actions.find(a => a.key === '[data-nearby-verb="go:Village"]');
+    assert.ok(back, 'Here exposes the return verb');
     const returned = await c.tool('game_click', {index: back.index});
     assert.equal(returned.location, 'Village');
 }
@@ -295,9 +290,8 @@ async function blockedRoutes(c) {
     assert.doesNotMatch(v.screen, /A disposable test start/, 'enrollment retires the test-start choices');
 
     await c.tool('game_new', {seed: 251043});
-    await c.tool('game_click', {key: '.choice_dialogue'});
-    await c.tool('game_click', {key: '[data-dialogue="villageElder"]'});
-    await c.tool('game_click', {key: '[data-textline="hello"]'});
+    await c.tool('game_click', {key: '[data-nearby-verb="talk:villageElder"]'});
+    await c.tool('game_click', {key: '.talk-view [data-topic-id="hello"]'});
     await c.tool('game_click', {key: '#center_mode_back'});
     await c.tool('game_step', {minutes: 1});
     await c.tool('game_click', {key: '[data-place-tab="options"]'});
@@ -358,6 +352,21 @@ try {
 
     if(process.argv.includes('--loop-only')) {
         await loopReload(c);
+    } else if(process.argv.includes('--here-only')) {
+        await hereGoRoundtrip(c);
+        const visible = await c.tool('game_look', {scope: '.nearby-context-view'});
+        const elder = visible.actions.find(a => a.key === '[data-nearby-verb="talk:villageElder"]');
+        assert.ok(elder, 'Here exposes Talk in the MCP action list');
+        await c.tool('game_click', {index: elder.index});
+        const topics = await c.tool('game_look', {scope: '.talk-view'});
+        const hello = topics.actions.find(a => a.key === '[data-topic-id="hello"]');
+        assert.ok(hello, 'MCP exposes the visible topic');
+        await c.tool('game_click', {key: hello.key});
+        const talk = await c.tool('game_look', {scope: '.talk-view'});
+        assert.match(talk.screen, /Already covered/i);
+        await c.tool('game_click', {key: '#center_mode_back'});
+        assert.equal((await c.tool('game_status')).errors.length, 0);
+        console.log(JSON.stringify({slice: 'here-go-talk', result: 'PASS'}));
     } else if(process.argv.includes('--native-only')) {
         await nativeOnly(c);
     } else if(process.argv.includes('--faster-time-only')) {
@@ -422,7 +431,7 @@ try {
     console.log(JSON.stringify({slice:'quote/sessions',result:'PASS'}));
     await frozenAndNative(c);
     await blockedRoutes(c);
-    await nativeDropdownRoundtrip(c);
+    await hereGoRoundtrip(c);
     const a = await greetElder(c, 11);
     assert.ok(a.heroCreated);
     const looked = await c.tool('game_look');
@@ -444,7 +453,7 @@ try {
     assert.ok(stepDelta.addedLineCount > 0 && stepDelta.addedLineCount < 40 && stepDelta.time.minute === 30, 'step delta carries the new clock line');
     const talk = (await c.tool('game_look', {sessionId: 'compact', view: 'compact'}));
     const fullNow = await c.tool('game_look', {sessionId: 'compact', offset: 0});
-    const dlg = fullNow.actions.find(a => a.key === '.choice_dialogue');
+    const dlg = fullNow.actions.find(a => /^\[data-nearby-verb="talk:/.test(a.key));
     if(dlg) {
         const d = await c.tool('game_click', {sessionId: 'compact', index: dlg.index, view: 'compact'});
         for(const a of d.newActions) assert.equal((await c.tool('game_look', {sessionId: 'compact'})).actionCount > a.index, true, 'new action index is valid in the full list');

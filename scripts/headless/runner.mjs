@@ -701,6 +701,9 @@ function classicScript(code) {
 }
 
 function entryKey(el) {
+    for (const attribute of ['data-nearby-verb', 'data-topic-id']) {
+        if (el.hasAttribute(attribute)) return `[${attribute}=${JSON.stringify(el.getAttribute(attribute))}]`;
+    }
     const data = el.getAttributeNames().filter(a => a.startsWith('data-') && /action|dialogue|textline|location|recipe|choice|command|activity|trade|item|village|expedition/.test(a));
     if(data.length) return data.map(a => `[${a}="${el.getAttribute(a)}"]`).join('');
     if(el.id) return '#' + el.id;

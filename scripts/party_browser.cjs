@@ -34,7 +34,7 @@ fs.mkdirSync(out,{recursive:true});
  const closed=()=>waitForPage(page, ()=>!JSON.parse(localStorage.getItem('save data')).expansion.simulation.sessions.player);
  try{
   await open();assert.equal(await page.locator('#party_panel').isVisible(),false);
-  await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();const base=await save();assert.equal(base.expansion.actors.partyPartner,undefined);await context.close();
+  await page.locator('[data-nearby-verb="talk:villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();const base=await save();assert.equal(base.expansion.actors.partyPartner,undefined);await context.close();
   const legacy=structuredClone(base);delete legacy.expansion;await open(legacy);const migrated=await imported();assert.equal(migrated.expansion.actors.partyPartner,undefined);await context.close();
   const joined=f.joinField(),fixture=structuredClone(base);fixture.expansion=joined.state;fixture.character.money=joined.external.money;fixture.inventories.person.main_character[f.wood]={count:20};
   await open(fixture);fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));

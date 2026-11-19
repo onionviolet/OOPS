@@ -49,12 +49,10 @@ test('lamplight: buy, light, reveal the Cave depths wall, persist through reload
     assert.deepEqual((await game.save()).lamplight, save.lamplight, 'reload keeps the lit lamp and its oil');
     assert.equal(game.internals.character.nativeLightBonus(), 40);
 
-    // Walk the way a player does: open "Move somewhere else" if needed, then pick the place.
+    // Walk the way a player does: press the way out in Here (Go or Enter).
     // A village trade starts the market owner, so this also covers the p23 travel branch.
     const travel = async id => {
-        const target = game.$(`[data-travel="${id}"]`), dropdown = target.closest('.location_choice_dropdown');
-        if(game.hiddenReason(target) && dropdown) await game.click(dropdown.firstElementChild);
-        await game.click(target);
+        await game.click(`[data-nearby-verb="go:${id}"]`);
     };
     const walkStart = game.minutes();
     await travel('Nearby cave');

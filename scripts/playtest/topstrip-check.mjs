@@ -36,7 +36,7 @@ try {
     await sweep('village');
     if(tingen) {
         await s.page.keyboard.press('Escape');
-        await s.page.getByRole('button', {name: /Cross to another world: Tingen/}).click();
+        await s.page.locator('[data-nearby-verb="way:place:lotm-door"]').click();
         await s.page.waitForTimeout(500);
         await s.page.getByRole('button', {name: /Begin as a Nighthawk probationer/}).first().click();
         await s.page.waitForTimeout(1500);

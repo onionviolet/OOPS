@@ -291,7 +291,7 @@ export const LAYOUT_SPEC = Object.freeze({
     // `pane` is the route's position in the Center views panel, if it has one. Route IDs are stable: quick jump (UR28),
     // log links (UR29) and Back history (UR22) address surfaces by them.
     routes: Object.freeze([
-        {id: 'local-actions', label: 'Here', key: 'h', target: 'local-actions', open: 'here', pane: 1},
+        {id: 'local-actions', label: 'Actions', key: 'h', target: 'local-actions', open: 'here', pane: 1},
         {id: 'preparation', label: 'Stats', key: 'e', target: 'preparation', select: 'character_show_stats'},
         {id: 'condition', label: 'Condition', key: 'o', target: 'condition'},
         {id: 'belongings', label: 'Inventory', key: 'i', target: 'belongings', open: 'in-place'},

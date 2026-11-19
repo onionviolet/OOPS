@@ -26,8 +26,7 @@ async function browserFixtures(url) {
     const save = async () => { await page.evaluate(() => window.saveProgress()); return page.evaluate(() => JSON.parse(localStorage.getItem('save data'))); };
     const fresh = await save();
     // Native elder greeting, as in scripts/systems_workshop_browser.cjs.
-    await page.getByText('Talk to someone', {exact: false}).click({noWaitAfter: true});
-    await page.locator('[data-dialogue="villageElder"]').click({noWaitAfter: true});
+    await page.locator('[data-nearby-verb="talk:villageElder"]').click({noWaitAfter: true});
     await page.locator('[data-textline="hello"]').click({noWaitAfter: true});
     for (const id of ['what happened', 'ask to leave 1', 'need to']) await page.locator(`[data-textline="${id}"]`).click({noWaitAfter: true});
     await page.locator('.end_dialogue_button').click({noWaitAfter: true});

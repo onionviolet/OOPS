@@ -31,7 +31,7 @@ const out=path.resolve('docs/research/hogwarts-legacy/lp5-evidence'),url='http:/
  let {page:p,ctx}=await open();
  const fingerprint=await p.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
  assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
- await p.getByText('Talk to someone',{exact:false}).click();await p.locator('[data-dialogue="villageElder"]').click();await p.locator('[data-textline="hello"]').click();await p.locator('.end_dialogue_button').click();
+ await p.locator('[data-nearby-verb="talk:villageElder"]').click();await p.locator('[data-textline="hello"]').click();await p.locator('.end_dialogue_button').click();
  await action(p,'village.waypost');await wait(p,()=>document.querySelector('[data-village-read]')?.hidden===false);
  const old=await save(p);assert.equal(old.expansion.actors.player.facts['village.waypostChapterClosed'],undefined);await ctx.close();
  // Fixture only unlocks the known craftsman and supplies ordinary input logs.
@@ -40,7 +40,7 @@ const out=path.resolve('docs/research/hogwarts-legacy/lp5-evidence'),url='http:/
  ready.character.money=30;ready.inventories.person.main_character[wood]={count:4};
  ready.availabilities.person.oldCraftsman|=1;ready.availabilities.dialogue.oldCraftsman|=1;
  ({page:p,ctx}=await open(ready));
- await p.getByText('Talk to someone',{exact:false}).click();await p.locator('[data-dialogue="oldCraftsman"]').click();await p.locator('[data-textline="hello"]').click();await p.locator('.end_dialogue_button').click();await panel(p);
+ await p.locator('[data-nearby-verb="talk:oldCraftsman"]').click();await p.locator('[data-textline="hello"]').click();await p.locator('.end_dialogue_button').click();await panel(p);
  await wait(p,()=>!document.querySelector('[data-village-action="village.route_lesson"]').disabled);
  await shot(p,'01-normal-window');const beforeOrder=await save(p);
  await panel(p,true);await p.locator('[data-simulation="enroll"]').click();await p.locator('[data-simulation="village.commission"]').click();

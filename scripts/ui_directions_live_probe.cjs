@@ -21,7 +21,7 @@ const out=process.env.YAIRPG_PROOF_DIR||'docs/audits/evidence/ui-directions-2026
       fontPx:getComputedStyle(document.body).fontSize};});
   const res={};
   res.village_t0=await measure();await page.screenshot({path:path.join(out,'current-village-t0.png')});
-  await page.locator('[data-native-choice="location"]',{hasText:'Talk to someone'}).first().click();await page.locator('[data-dialogue="villageElder"]').click();
+  await page.locator('[data-nearby-verb="talk:villageElder"]').click();
   await page.locator('[data-textline="hello"]').click();await page.waitForTimeout(300);
   await page.locator('[data-textline="what happened"]').click();await page.waitForTimeout(1300);
   res.village_dialogue=await measure();await page.screenshot({path:path.join(out,'current-village-dialogue.png')});

@@ -22,16 +22,14 @@ export function progress(save) {
 }
 
 export const ROUTE = [
-    {op:'click', sel:'.choice_dialogue'},
-    {op:'click', sel:'[data-dialogue="villageElder"]'},
+    {op:'click', sel:'[data-nearby-verb="talk:villageElder"]'}, // the Here box's own Talk (PS67)
     {op:'click', sel:'[data-textline="hello"]'},
     {op:'click', sel:'[data-textline="where am i"]'},
     {op:'click', sel:'#center_mode_back'}, // center mode hides .end_dialogue_button; the shared back bar ends the talk
     {op:'step', minutes:15},
     {op:'save', name:'talked'},
     {op:'load', from:'talked', patch:'progress'},
-    {op:'click', sel:'.choice_dialogue'},
-    {op:'click', sel:'[data-dialogue="oldCraftsman"]'},
+    {op:'click', sel:'[data-nearby-verb="talk:oldCraftsman"]'},
     {op:'click', sel:'[data-textline="hello"]'},
     {op:'click', sel:'[data-textline="learn"]'},
     {op:'click', sel:'#center_mode_back'},

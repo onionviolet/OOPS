@@ -33,7 +33,7 @@ fs.mkdirSync(output,{recursive:true});
         const fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
         assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
         assert.equal(await page.locator('#world_event_feed').isVisible(),false);
-        await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();
+        await page.locator('[data-nearby-verb="talk:villageElder"]').click();
         await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
         const base=await save(page);
         await people(page);await page.locator('#chronicle_panel summary').click();await page.locator('[data-chronicle="begin-open"]').click();

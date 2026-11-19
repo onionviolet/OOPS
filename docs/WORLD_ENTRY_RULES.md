@@ -28,6 +28,7 @@ It composes existing owners:
 | [World pass rules](WORLD_PASS_RULES.md) WPR1–WPR32 | How a world pass runs | Entry becomes a pass coverage item (WER14) |
 | [Progression gate rules](PROGRESSION_GATE_RULES.md) GTR1–GTR35 | Start and admission gates | Age and access gates (WER10) |
 | Pack `starts[]` records | Location, body, effects | The record that carries WER2–WER9 fields |
+| `src/skill_carry.js` `CARRY_DIALS` | Per-start WER9 answer for the Village hero's skills (proposal, F4 2026-11-16) | Lives here, not in `starts[]`, until the pack-hash work lands: a field in a pinned `starts[]` row changes the pinned hash and strands saves |
 | [Intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md) | Start palettes and history | Design history behind these rules |
 
 ## Rules
@@ -55,7 +56,11 @@ It composes existing owners:
 ## Current worlds against these rules (2026-10-26)
 
 Start records today carry location, body and effects; none declares method,
-era, origin or carry (WER2–WER9). The answers below are what each world pass
+era or origin (WER2–WER7). The carried-skills part of WER9 is recorded for the three lead
+lives in `src/skill_carry.js` (default, dial and reason per start; mind skills carry as
+memory, body skills do not carry their trained body and learn back faster; a start's
+`carriers` row lets a body skill cross whole). Money and items stay as each life's own
+holdings say. The answers below are what each world pass
 should settle; canon claims are to be checked against saved sources (WER4).
 
 | World | Current start(s) | Entry questions to settle |

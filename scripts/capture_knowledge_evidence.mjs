@@ -51,7 +51,7 @@ try {
     // Earned step: meeting the village elder discovers the Journal on a fresh life (main.js records gate).
     note('journal hidden before meeting the elder', {visible: await page.locator('#journal_div').isVisible()});
     const actions = page.locator('#location_actions_div');
-    await actions.getByText('Talk to someone', {exact: false}).first().click(); await actions.getByText('Talk to village elder', {exact: false}).first().click();
+    await page.locator('[data-nearby-verb="talk:villageElder"]').click();
     const hello = actions.locator('.dialogue_textline[data-textline="hello"]');
     await hello.waitFor({state: 'visible'}); await hello.evaluate(n => n.click()); await hello.waitFor({state: 'detached'});
     await page.evaluate(() => end_dialogue()); await page.evaluate(() => advanceTicks(3)); await page.waitForTimeout(500);
@@ -61,12 +61,10 @@ try {
     // craftsman meeting, normally earned after the rats. Then real clicks: meet him, ask about his habits.
     await page.evaluate(() => { saveProgress(); const save = JSON.parse(localStorage.getItem('save data')); save.availabilities.dialogue.oldCraftsman = 1; localStorage.setItem('save data', JSON.stringify(save)); });
     await page.reload(); await page.locator('#loading_screen_play_button').waitFor({state: 'visible', timeout: 60000}); await page.locator('#loading_screen_play_button').click(); await page.waitForTimeout(800);
-    // A reload can keep the Journal in the center; the center's own Here tab brings the actions back.
-    const here = page.getByRole('button', {name: 'Here', exact: true});
+    // A reload can keep the Journal in the center; the center's own Actions tab brings the actions back.
+    const here = page.getByRole('button', {name: 'Actions', exact: true});
     if (!(await actions.isVisible())) { for (const b of await here.all()) if (await b.isVisible()) { await b.click(); break; } await page.waitForTimeout(400); }
-    const craftsman = actions.getByText('Talk to old craftsman', {exact: false}).first();
-    for (let i = 0; i < 3 && !(await craftsman.isVisible()); i++) { await actions.getByText('Talk to someone', {exact: false}).first().click(); await page.waitForTimeout(500); }
-    await craftsman.click();
+    await page.locator('[data-nearby-verb="talk:oldCraftsman"]').click();
     const meet = actions.locator('.dialogue_textline[data-textline="hello"]');
     await meet.waitFor({state: 'visible'}); await meet.evaluate(n => n.click()); await meet.waitFor({state: 'detached'});
     await page.evaluate(() => end_dialogue()); await page.evaluate(() => advanceTicks(2)); await page.waitForTimeout(400);

@@ -29,9 +29,9 @@ const WORLDS = freeze([
         key: 'frontier', match: id => id === 'base.frontier',
         title: 'A name earned out here on the frontier.',
         places: freeze({
-            'Village': row('Rooftops at the foot of the mountains, rocks closing off the north.', 'Talk to someone, Find work and Move somewhere else are in the Actions list here.', 'local-actions'),
+            'Village': row('Rooftops at the foot of the mountains, rocks closing off the north.', 'Here lists the people and ways out, and Find work is in Actions.', 'local-actions'),
             'Shack': row('The only spare building in the village, and a roof of your own.', 'Sleep here to recover; it is the short walk back from the Village.'),
-            'Eastern mill': row('Flour dust in the corners of a tidy mill run by a young pair.', 'Ask the millers through Talk to someone; work offered here shows under Find work.', 'local-actions'),
+            'Eastern mill': row('Flour dust in the corners of a tidy mill run by a young pair.', 'Ask the millers with Talk in Here; work offered here shows under Find work.', 'local-actions'),
             'Forest road': row('Trees close in around the road out of the village.', 'Wolves hunt this road: a fight starts on arrival and shows under Combat; moving away ends it.'),
             'Nearby cave': row('Glowing mushrooms light a cave full of rats.', 'A fight starts on arrival and shows under Combat; moving away ends it.'),
             'Riverbank': row('Crabs as far along the shoreline as you can see.', 'A fight starts on arrival and shows under Combat; moving away ends it.'),
@@ -39,7 +39,7 @@ const WORLDS = freeze([
         general: freeze({
             day: freeze(['Mountain air and the village road behind you.', 'Wind off the northern rocks.', 'Village rooftops below the mountains.', 'Dust on the path and birds in the hedges.']),
             night: freeze(['Stars over the mountains and a lamp or two in the village.', 'Cold air off the rocks and owls in the trees.']),
-            useful: 'Move somewhere else in Actions lists every route from here, the way back included.',
+            useful: 'Ways out in Here lists every route from here, the way back included.',
             panel: 'local-actions',
         }),
     }),
@@ -160,7 +160,7 @@ const WORLDS = freeze([
 // Frontier unlocks (upstream activity and action lines): where the new thing is used.
 const FRONTIER_UNLOCKS = freeze([
     [/Unlocked (?:activity|action) "(.+)" in location "(.+)"$/, (thing, place) => `${thing} is in Local actions while you are at ${place}.`],
-    [/Unlocked action "(.+)" with "(.+)"$/, (thing, who) => `Find ${who} through Talk to someone to use ${thing}.`],
+    [/Unlocked action "(.+)" with "(.+)"$/, (thing, who) => `Find ${who} in Here and press Talk to use ${thing}.`],
     [/Gained the ability of "(.+)"$/, thing => `${thing} shows in Local actions wherever it can be done.`],
 ]);
 const FRONTIER_UNLOCK_FLAVOUR = freeze(['Something new to try in the village\'s round.', 'One more thing you know how to do out here.']);
