@@ -102,6 +102,22 @@ test('ratchet: a recorded flag passes, a new or worse flag fails, a cleared one 
     assert.equal(compareToBaseline([pending], traceBase).tighten.length, 0, 'a pending trace does not clear trace flags');
 });
 
+test('a start that states a reason to exceed a budget reports instead of failing (OPN2, OPN5, LLR39, LLR41)', () => {
+    const scene = good(); scene.blocks = [{text: prose(DIALS.proseWords + 100), region: 'scene'}];
+    const flagged = analyzeOpening({start: 'x', scene});
+    assert.deepEqual(codes(flagged).sort(), ['long-block', 'prose-wall']);
+    const why = 'the player opened this premise to read it';
+    const cmp = compareToBaseline([flagged], {starts: {}}, {exceeds: {x: {'prose-wall': why, 'long-block': why}}});
+    assert.equal(cmp.ok, true);
+    assert.deepEqual(cmp.reported.map(r => r.code).sort(), ['long-block', 'prose-wall']);
+    // A budget with no reason, or a blank one, still goes through the ratchet as a new flag.
+    const partial = compareToBaseline([flagged], {starts: {}}, {exceeds: {x: {'prose-wall': why, 'long-block': ' '}}});
+    assert.deepEqual(partial.regressions.map(g => [g.code, g.note]), [['long-block', 'new flag']]);
+    const empty = {...good(), controls: []};
+    const noAction = analyzeOpening({start: 'x', scene: empty});
+    assert.equal(compareToBaseline([noAction], {starts: {}}, {exceeds: {x: {'no-action': 'a reason'}}}).ok, false);
+});
+
 test('the committed baseline parses and is consistent with itself (no boots)', () => {
     assert.ok(existsSync(BASELINE_PATH), 'run check_openings.mjs --update-baseline');
     const base = JSON.parse(readFileSync(BASELINE_PATH, 'utf8'));
