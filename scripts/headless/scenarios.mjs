@@ -7,12 +7,13 @@
 // demand through the real stepper and cached under the OS temp folder, keyed by name and source stamp, so
 // a code change rebuilds them. Callers get save text to boot a COPY from; the cache file is never handed
 // out for writing. The game MCP exposes the same names as game_new({scenario}).
-import {readFile, writeFile, mkdir, readdir, stat} from 'node:fs/promises';
+import {readFile, writeFile, mkdir, mkdtemp, readdir, rename, rm, stat} from 'node:fs/promises';
 import {join, resolve} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
 import {boot, canonicalSave, diffSaves, ROOT} from './runner.mjs';
 import {advanceGame} from './advance.mjs';
+import {scenarioSourceIdentity} from './scenario.mjs';
 import {WORLD_FIXTURES, buildWorldFixture, verifyWorldFixture} from './world_fixtures.mjs';
 // Around you folds to one Here line (PS120, e1abe03a9); a script that picks a person opens the full list first, as a player would.
 // PS192, PS67: with the Here box in column 3 a person's own Talk verb is the route; the place look still has the Talk to someone group.
@@ -205,13 +206,33 @@ async function prepareVillage(game, kind) {
 }
 export const CACHE_DIR = join(tmpdir(), 'yairpg-scenarios');
 
-async function sourceStamp() {
-    let newest = 0, count = 0;
-    for(const dir of ['src', 'scripts/headless']) for(const f of await readdir(join(ROOT, dir))) {
-        if(!f.endsWith('.js') && !f.endsWith('.mjs')) continue;
-        newest = Math.max(newest, (await stat(join(ROOT, dir, f))).mtimeMs); count++;
+let readingIdentity;
+function sourceStamp() {
+    // Coalesce simultaneous readers. A later live request sees subsequent edits.
+    readingIdentity ??= readSourceStamp().finally(() => {readingIdentity = undefined;});
+    return readingIdentity;
+}
+async function readSourceStamp() {
+    const manifest = await readFile(join(ROOT, 'snapshot.json'), 'utf8').catch(error => {
+        if (error.code === 'ENOENT') return null;
+        throw error;
+    });
+    if (manifest && JSON.parse(manifest).kind === 'yairpg-mcp-frozen') {
+        return createHash('sha256').update(manifest).digest('hex');
     }
-    return createHash('sha256').update(`${Math.floor(newest)}:${count}`).digest('hex').slice(0, 10);
+    return (await scenarioSourceIdentity(ROOT, {privatePacks: true})).sourceSha256;
+}
+
+async function publishCachedSave(path, text) {
+    await mkdir(CACHE_DIR, {recursive: true});
+    const dir = await mkdtemp(join(CACHE_DIR, '.writing-'));
+    const temp = join(dir, 'save.json');
+    try {
+        await writeFile(temp, text);
+        await rename(temp, path);
+    } finally {
+        await rm(dir, {recursive: true, force: true});
+    }
 }
 
 /** Save text for a scenario (null = brand new hero). Recipes are built once per source stamp. */
@@ -220,8 +241,10 @@ export async function scenarioSave(name, {seed = 1} = {}) {
     if(!def) throw new Error(`Unknown scenario ${name}. Known: ${Object.keys(SCENARIOS).join(', ')}.`);
     if(def.file) return readFile(join(ROOT, def.file), 'utf8');
     if(def.fixture) { // built once per source stamp and seed; cached only after it loads and proves
-        const cached = join(CACHE_DIR, `${name}-s${seed}-${await sourceStamp()}.json`);
-        try {return await readFile(cached, 'utf8');} catch {/* reuse or build below */}
+        const cached = join(CACHE_DIR, `${name}-s${seed}-v2-${await sourceStamp()}.json`);
+        if(process.env.YAIRPG_FIXTURE_REBUILD !== '1') {
+            try {return await readFile(cached, 'utf8');} catch(error) {if(error.code !== 'ENOENT') throw error;}
+        }
         // Code moved since the last build: the newest earlier build is reused when it still loads and proves on this tree (the same
         // test an old player save meets). Dial: YAIRPG_FIXTURE_REBUILD=1 always rebuilds. Reason: a played build can take many minutes.
         let text = null;
@@ -239,16 +262,17 @@ export async function scenarioSave(name, {seed = 1} = {}) {
             text = await buildWorldFixture(def.fixture, {seed});
             await verifyWorldFixture(def.fixture, text, {seed});
         }
-        await mkdir(CACHE_DIR, {recursive: true});
-        await writeFile(cached, text);
+        await publishCachedSave(cached, text);
         return text;
     }
     if(!def.recipe.days && !def.recipe.patch && !def.recipe.prepare && !def.recipe.finish) return null;
     const finish = def.recipe.finish ? FINISH[def.recipe.finish] : null;
     if(def.recipe.finish && !finish) throw new Error(`Unknown scenario finish ${def.recipe.finish}.`);
     const parse = v => typeof v === 'string' ? JSON.parse(v) : v;
-    const cached = join(CACHE_DIR, `${name}-s${seed}-${await sourceStamp()}.json`);
-    try {return await readFile(cached, 'utf8');} catch {/* build below */}
+    const cached = join(CACHE_DIR, `${name}-s${seed}-v2-${await sourceStamp()}.json`);
+    if(process.env.YAIRPG_FIXTURE_REBUILD !== '1') {
+        try {return await readFile(cached, 'utf8');} catch(error) {if(error.code !== 'ENOENT') throw error;}
+    }
     const game = await boot(null, {seed});
     let text;
     try {
@@ -264,8 +288,7 @@ export async function scenarioSave(name, {seed = 1} = {}) {
         } else text = JSON.stringify(finish ? finish(parse(save)) : save); // a finish applies with or without a prepare step
     }
     finally {game.close();}
-    await mkdir(CACHE_DIR, {recursive: true});
-    await writeFile(cached, text);
+    await publishCachedSave(cached, text);
     return text;
 }
 

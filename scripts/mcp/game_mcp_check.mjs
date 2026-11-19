@@ -377,6 +377,36 @@ try {
         await c.tool('game_click', {key: '#center_mode_back'});
         assert.equal((await c.tool('game_status')).errors.length, 0);
         console.log(JSON.stringify({slice: 'here-go-talk', result: 'PASS'}));
+    } else if(process.argv.includes('--narrow-replies-only')) {
+        const go = '[data-nearby-verb="go:Wild willow stand"]';
+        await c.tool('game_new', {seed:251036});
+        const here = await c.tool('game_look',{scope:go});
+        assert.equal(here.actions.length,1);
+        const gone = await c.tool('game_click',{index:here.actions[0].index,scope:go});
+        assert.equal(gone.view,'receipt');
+        assert.equal(gone.scopeUnavailable,go);
+        assert.equal(gone.location,'Wild willow stand');
+        const stale = await c.rpc('tools/call',{name:'game_click',arguments:{index:0}});
+        assert.equal(stale.result.isError,true);
+        const back = await c.tool('game_click',{key:'[data-nearby-verb="go:Village"]',scope:'.nearby-context-view'});
+        assert.equal(back.location,'Village');
+        assert.ok(back.actions.some(action=>action.key.includes('talk:villageElder')));
+        const talk = await c.tool('game_click',{key:'[data-nearby-verb="talk:villageElder"]',view:'receipt'});
+        assert.equal(talk.view,'receipt');
+        assert.ok(!Object.hasOwn(talk,'actions'));
+        assert.match((await c.tool('game_look',{scope:'.talk-view'})).screen,/Hello/i);
+
+        // Use the public crowded save on both live and frozen workers.
+        await c.tool('game_new',{scenario:'perf-crowded',seed:251036});
+        const exported = await c.tool('game_export');
+        const live = await c.tool('game_step',{until:'event'});
+        assert.ok(live.advance.advanced > 0);
+        const frozen = await c.tool('game_freeze');
+        await c.tool('game_new',{path:exported.path,seed:251036,...frozen});
+        const replay = await c.tool('game_step',{until:'event'});
+        assert.equal(replay.advance.requested,live.advance.requested);
+        assert.equal(replay.advance.advanced,live.advance.advanced);
+        console.log(JSON.stringify({slice:'narrow-replies-and-frozen-boundary',result:'PASS',frozenAdvance:replay.advance.advanced}));
     } else if(process.argv.includes('--native-only')) {
         await nativeOnly(c);
     } else if(process.argv.includes('--faster-time-only')) {

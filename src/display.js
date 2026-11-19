@@ -1012,6 +1012,7 @@ export function setNativeLogBufferReader(reader) {
 
     let message = document.createElement("div");
     message.classList.add("message_common");
+    if(details.sessionOnly) message.dataset.reportSessionOnly = '';
     if(details.damageType === 'physical') {
         message.dataset.damageType = 'physical';
         message.dataset.damageTarget = message_type.startsWith('hero_') ? 'hero' : 'enemy';

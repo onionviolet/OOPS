@@ -59,6 +59,16 @@ export function endSimulationRenderBatch(frameKey) {
     const work = [...refreshes.values()]; refreshes.clear();
     withSimulationFrame(frameKey, () => {for(const render of work) render();});
 }
+// Deferred refreshes can append Reports. Return a display failure so the
+// caller can still persist the checkpoint it prepared before rendering.
+export function finishStepperRenders(frameKey, restore) {
+    for(const reset of restore) reset();
+    if(batching) {
+        try {endSimulationRenderBatch(frameKey);}
+        catch(error) {return error;}
+    }
+    return null;
+}
 // A hidden document keeps ticking, simulating and saving; only display refreshes wait.
 // Each skipped refresh (latest per key) runs once in the visibilitychange task that
 // reveals the document, before its first visible frame paints.

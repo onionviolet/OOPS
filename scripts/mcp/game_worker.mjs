@@ -163,7 +163,7 @@ const ops = {
         return fresh();
     },
     look: args => look(args),
-    async click({index, key, text: label, panel, value, view}) {
+    async click({index, key, text: label, panel, value, scope, view}) {
         const g = need();
         if(panel) await openPanel(panel);
         else if(value !== undefined && index !== undefined) {
@@ -183,7 +183,16 @@ const ops = {
             await g.click(hit.el);
         }
         else throw new Error('Give index, key, text or panel.');
-        return look({view});
+        let scopeAvailable = true;
+        if(view !== 'receipt' && scope) {
+            try {scopeAvailable = !!scopeRoot(g, scope);}
+            catch {scopeAvailable = false;}
+        }
+        if(view !== 'receipt' && scopeAvailable) return look({scope, view});
+        // The action has settled, so return its receipt even if it closed the requested panel.
+        last = [];
+        return {view:'receipt', time:clock(), location:text('location_name_span'), pageErrors:g.errors.length,
+            ...(scopeAvailable ? {} : {scopeUnavailable:scope})};
     },
     async step({minutes, days, until, view}) {
         const g = need();

@@ -5,8 +5,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
 import {boot, canonicalSave, diffSaves, ROOT} from '../../scripts/headless/runner.mjs';
 import {advanceGame, minutesToNextEvent} from '../../scripts/headless/advance.mjs';
+import {scenarioSave} from '../../scripts/headless/scenarios.mjs';
 import {join} from 'node:path';
 
 const DAYS = Number(process.env.ADVANCE_DAYS || 2);
@@ -42,4 +44,22 @@ test('until-event stops at the engine boundary', async () => {
         if(want == null) assert.equal(r.reason, 'no scheduled event');
         else assert.ok(r.advanced >= want, `advanced ${r.advanced} of ${want}`);
     } finally {game.close();}
+});
+
+test('a deed published at batch close is included in the durable Reports tail across chunk sizes', {
+    skip: !existsSync(join(ROOT, 'private_packs/lotm-cast')),
+}, async () => {
+    const fixture = await scenarioSave('lotm-tingen-day3');
+    const saved = [];
+    for(const chunk of [60, 120]) {
+        const game = await boot(fixture, {seed: 1});
+        try {
+            await game.step(240, {chunk});
+            const durable = JSON.parse(game.storage.getItem('save data'));
+            assert.deepEqual(durable.reports_dock, game.snapshot().reports_dock);
+            assert.ok(durable.reports_dock.lines.some(line => line.startsWith('Deed done:')));
+            saved.push(canonicalSave(durable));
+        } finally {game.close();}
+    }
+    assert.deepEqual(diffSaves(...saved), []);
 });

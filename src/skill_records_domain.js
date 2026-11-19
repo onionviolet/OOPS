@@ -72,10 +72,16 @@ export function setRust(on) {
     catch(error){if(tx.status==='pending')tx.rollback();throw error;}
     panel?.render();
 }
+const checkpoint = ()=>JSON.stringify(records)===JSON.stringify(freshSkillRecords())?undefined:structuredClone(records);
+function captureCheckpoint(envelope) {
+    const slice = checkpoint();
+    if(slice) envelope.skillRecords = slice;
+    else delete envelope.skillRecords;
+}
 registerDomain({id:'skillRecords',initialState:()=>null,
- save:()=>JSON.stringify(records)===JSON.stringify(freshSkillRecords())?undefined:structuredClone(records),
+ save:checkpoint,
  validate:slice=>{if(slice!=null)validateSkillRecords(slice);},
  migrate:migrateSkillRecords,
  load:slice=>{records=slice??freshSkillRecords();applied='';apply();},
  stage:stageCrossing, tick:minutes=>observe(minutes),refresh:()=>{observe(0);panel?.render();},
- projection:()=>({...structuredClone(records),carry:carryView(),learning:[...new Set([...(ports?.continuation?.()?.knownMastery||[]),...Object.keys(records.tracked)])].filter(id=>catalog()[id]&&((ports?.continuation?.()?.knownMastery||[]).includes(id)||nativeSkillDiscovery(catalog()[id],ports.actor()))).map(skill=>({skill,echo:aptitudeMultipliers(ports?.continuation?.())[skill]||1,nativeRate:ports.actor().getSkillXPGain(skill)}))}),commands:{carry:carryView,setRust,summary:skillSummary,observeProgress:()=>observe(0)}});
+ projection:()=>({...structuredClone(records),carry:carryView(),learning:[...new Set([...(ports?.continuation?.()?.knownMastery||[]),...Object.keys(records.tracked)])].filter(id=>catalog()[id]&&((ports?.continuation?.()?.knownMastery||[]).includes(id)||nativeSkillDiscovery(catalog()[id],ports.actor()))).map(skill=>({skill,echo:aptitudeMultipliers(ports?.continuation?.())[skill]||1,nativeRate:ports.actor().getSkillXPGain(skill)}))}),commands:{carry:carryView,captureCheckpoint,setRust,summary:skillSummary,observeProgress:()=>observe(0)}});

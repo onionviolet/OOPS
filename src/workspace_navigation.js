@@ -134,7 +134,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     // COV5/COV12, UR13: the first load that finds an old panel id in a saved layout says where it went and dots the owner.
     const announce=setInterval(()=>{if(!nav.isConnected){clearInterval(announce);return;}if(document.documentElement.dataset.startScreen!=='closed')return;clearInterval(announce);
         const known=knownWorkspaceModules();for(const move of movedNotices({titleOf:id=>known.find(m=>m.id===id)?.title||id})){arrivals.add(move.into);notice?.(move.text,move.into);}refresh();},700);
-    document.addEventListener('workspace-panel-arrival',event=>{const{id}=event.detail||{};if(id==='pane-navigation')return;const known=knownWorkspaceModules().find(m=>m.id===id);if(!known)return;arrivals.add(id);notice?.(`${known.title} is now available in navigation.`,id);publishChange('knowledge','panel-arrival');});
+    document.addEventListener('workspace-panel-arrival',event=>{const{id}=event.detail||{};if(id==='pane-navigation')return;const known=knownWorkspaceModules().find(m=>m.id===id);if(!known)return;arrivals.add(id);notice?.(`${known.title} is now available in navigation.`,id,{sessionOnly:true});publishChange('knowledge','panel-arrival');});
     // A held route change lands once the pointer leaves the bar or focus moves off it.
     const release=()=>{if(held)queueMicrotask(()=>{if(held&&!interacting())refresh();});};
     document.addEventListener('pointerout',release);document.addEventListener('focusout',release);
