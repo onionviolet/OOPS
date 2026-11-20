@@ -4,6 +4,10 @@
 //   node scripts/push_gate.mjs [--base origin/master] [--full] [--list]
 // Always: check:arch, check:rules, check:docs, and the bundle rebuilt from HEAD matching dist/.
 // check:flow: when the push changes what a player sees (src/, styles/, index.html, dist/, resources/).
+// Idle ceiling: on the same visible changes, the crowded fixture's idle main-thread busy share from the save probe
+// must stay under scripts/perf/budgets.json (crowded.taskBusyPct). It fails only when two runs both exceed it, so one
+// noisy run on a loaded host does not block. Reason: a sweep that re-queued itself every frame ran four days unseen
+// (docs/audits/PERF_AND_DEVTOOLS_REVIEW_2026-11-19.md, F10). --no-idle skips it, and the summary says so.
 // Tests, default: the files the push can reach (test:changed against --base, slow tier included). The full suite
 // runs instead with --full (every wave close), or when the push touches something every test leans on (WIDE below),
 // or when the reach is half the suite or more anyway. Reason: a narrow push gets a gate in minutes; the wave close
@@ -44,12 +48,36 @@ function bundleMatches() {
     finally { rmSync(tree, {recursive: true, force: true}); }
 }
 
+/** Pure: whether idle samples break the ceiling. Every sample must exceed it, so a single noisy run passes. */
+export function idleVerdict(samples, ceiling) {
+    return {over: samples.length > 0 && samples.every(v => v > ceiling), samples, ceiling};
+}
+
+function idleSample() {
+    const r = spawnSync(process.execPath, ['scripts/perf/save_probe.mjs', '--rev', 'HEAD', '--fixtures', 'crowded', '--saves', '3'], {cwd: root, encoding: 'utf8', maxBuffer: 64 << 20});
+    if (r.status) { console.error(`push gate: idle probe failed\n${(r.stderr || r.stdout || '').slice(-2000)}`); return null; }
+    return JSON.parse(r.stdout).fixtures.crowded.idle.taskBusyPct;
+}
+
+function idleCeiling() {
+    const ceiling = JSON.parse(readFileSync(path.join(root, 'scripts/perf/budgets.json'), 'utf8')).fixtures.crowded.taskBusyPct;
+    const samples = [];
+    for (let i = 0; i < 2; i++) {
+        const v = idleSample(); if (v == null) return 1;
+        samples.push(v); if (v <= ceiling) break;
+    }
+    const verdict = idleVerdict(samples, ceiling);
+    console.log(`push gate: crowded idle task busy ${samples.map(v => `${v}%`).join(', ')} against ceiling ${ceiling}%${verdict.over ? ' (over in every run)' : ''}`);
+    return verdict.over ? 1 : 0;
+}
+
 async function main(argv) {
     const opt = {base: 'origin/master', full: false, list: false};
     for (let i = 0; i < argv.length; i++) {
         if (argv[i] === '--base') opt.base = argv[++i];
         else if (argv[i] === '--full') opt.full = true;
         else if (argv[i] === '--list') opt.list = true;
+        else if (argv[i] === '--no-idle') opt.noIdle = true;
         else { console.error(`push_gate: unknown argument ${argv[i]}`); return 2; }
     }
     const dirty = git(['status', '--porcelain', '--untracked-files=no']);
@@ -68,6 +96,8 @@ async function main(argv) {
     const steps = [['check:arch', () => npm('check:arch')], ['check:rules', () => npm('check:rules')], ['check:docs', () => npm('check:docs')],
         ['bundle matches HEAD', bundleMatches]];
     if (plan.flow) steps.push(['check:flow', () => npm('check:flow')]);
+    if (plan.flow && !opt.noIdle) steps.push(['crowded idle ceiling', idleCeiling]);
+    else if (plan.flow) console.log('push gate: crowded idle ceiling skipped (--no-idle)');
     steps.push(tests === 'full' ? ['npm test (full suite)', () => npm('test')]
         : ['test:changed --slow', () => spawnSync(process.execPath, ['scripts/test_changed.mjs', '--base', opt.base, '--slow'], {cwd: root, stdio: 'inherit'}).status ?? 1]);
     const results = [];

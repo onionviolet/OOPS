@@ -42,6 +42,7 @@ function ensureWorker(id, create = false, frozen = null, checkout = null) {
     worker.on('message', msg => {
         const pending = slot.waiting.get(msg.id);
         if(!pending) return;
+        if(msg.progress) {pending.arm(); return;} // a long step finished another slice: the timeout restarts
         slot.waiting.delete(msg.id); clearTimeout(pending.timer);
         msg.ok ? pending.resolve({...msg.result, sessionId:id, build:slot.frozen ? {kind:"frozen",manifestSha256:slot.frozen.manifestSha256,bundleSha256:slot.frozen.bundleSha256,inputCount:slot.frozen.inputCount} : {kind:"live",...(slot.checkout ? {checkout:slot.checkout.root} : {})}}) : pending.reject(new Error(msg.error));
     });
@@ -66,8 +67,13 @@ function call(op, args = {}) {
     const slot = ensureWorker(key, op === 'new', frozen, checkout);
     return new Promise((resolve, reject) => {
         const id = nextId++;
-        const timer = setTimeout(() => {slot.waiting.delete(id); slot.worker.kill(); reject(Error(`${op} timed out after ${OP_TIMEOUT_MS} ms; session ${key} was stopped.`));}, OP_TIMEOUT_MS);
-        slot.waiting.set(id, {resolve,reject,timer});
+        // OP_TIMEOUT_MS bounds one unit of work: a whole op, or one reported slice of a long game_step.
+        const pending = {resolve, reject, timer: null, arm() {
+            clearTimeout(this.timer);
+            this.timer = setTimeout(() => {slot.waiting.delete(id); slot.worker.kill(); reject(Error(`${op} made no progress for ${OP_TIMEOUT_MS} ms; session ${key} was stopped.`));}, OP_TIMEOUT_MS);
+        }};
+        pending.arm();
+        slot.waiting.set(id, pending);
         slot.worker.send({id,op,args});
     });
 }
@@ -97,7 +103,7 @@ const tools = [
     {name: 'game_click', description: 'Do one native player action. Prefer index from game_look; key/text clicks, key+value selects, and panel navigation also work. Returns the new view.',
         inputSchema: obj({value: {type: 'string', description: 'Choose an available option in the visible native select identified by key, or type this text into the visible text field identified by key or by index (not submitted; click its button next).'}, panel: {type: 'string', description: 'Open a known panel using the native More panels select. No discovery bypass.'}, index: {type: 'integer'}, key: {type: 'string', description: 'CSS selector from an action key.'}, text: {type: 'string', description: 'Exact button text.'}, scope: {type: 'string', description: 'Optional view scope after the action, as in game_look.'}, view: {type: 'string', enum: ['full', 'compact', 'receipt'], description: 'full (default) returns actions and screen. compact returns changes for this scope. receipt returns time and location. Read again before using an index after a receipt.'}}),
         handler: a => call('click', a).then(view)},
-    {name: 'game_step', description: 'Let game time pass: minutes (1 to 10080), days (up to 400) or until:"event" (the next scheduled simulation event). Runs as fast as the CPU allows; replies with an advance receipt (minutes advanced, wall ms).', inputSchema: obj({minutes: {type: 'integer'}, days: {type: 'integer', description: 'Whole days, 1 to 400.'}, until: {type: 'string', enum: ['event'], description: 'Advance to the next scheduled simulation event.'}, view: {type: 'string', enum: ['full', 'compact'], description: 'compact returns only what changed since the last reply for this scope: header (time, location, job), added and removed screen lines, new actions. Indices stay absolute. Default full.'}}),
+    {name: 'game_step', description: 'Let game time pass: minutes (1 to 10080), days (up to 400) or until:"event" (the next scheduled simulation event). Runs as fast as the CPU allows; replies with an advance receipt (minutes advanced, wall ms, mode). The timeout applies per game day stepped, so long steps finish. mode:"span" is about 3x faster for multi-day lead-life steps but not identical to single ticks (idle per-minute passives such as Breathing XP are skipped for jumped minutes; do not use it in the Village or when exact results matter).', inputSchema: obj({mode: {type: 'string', enum: ['exact', 'span'], description: 'exact (default) is byte-identical to single ticks; span jumps idle minutes to the next simulation boundary.'}, minutes: {type: 'integer'}, days: {type: 'integer', description: 'Whole days, 1 to 400.'}, until: {type: 'string', enum: ['event'], description: 'Advance to the next scheduled simulation event.'}, view: {type: 'string', enum: ['full', 'compact'], description: 'compact returns only what changed since the last reply for this scope: header (time, location, job), added and removed screen lines, new actions. Indices stay absolute. Default full.'}}),
         handler: a => call('step', a).then(view)},
     {name: 'game_status', description: 'Game time, location, boot count, step stats and the last page errors.', readOnly: true, handler: a => call('status', a).then(view)},
     {name: 'game_save', description: 'Save through the game and return a hash and size only, never the raw save.', handler: a => call('save', a).then(view)},

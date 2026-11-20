@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {concurrencyFor, longestFirst, MIN_CONCURRENCY} from '../scripts/test_plan.mjs';
-import {planGate} from '../scripts/push_gate.mjs';
+import {planGate, idleVerdict} from '../scripts/push_gate.mjs';
 import {contentionScale} from '../scripts/test_budget_reporter.mjs';
 
 test('concurrency follows the free cores, never below the floor, and the env dial wins', () => {
@@ -36,4 +36,11 @@ test('shardFiles balances files by known duration and loses none', async () => {
     const groups = shardFiles(['a', 'b', 'c', 'd', 'e'], 2, known);
     assert.deepEqual(groups, [['a', 'd', 'e'], ['b', 'c']]);
     assert.deepEqual(shardFiles(['x', 'y'], 4).flat().sort(), ['x', 'y']);
+});
+
+test('the crowded idle ceiling fails only when every sample is over it', () => {
+    assert.equal(idleVerdict([101, 100], 78).over, true);
+    assert.equal(idleVerdict([101, 66], 78).over, false, 'a noisy first run is retried and the quiet one passes');
+    assert.equal(idleVerdict([66], 78).over, false);
+    assert.equal(idleVerdict([], 78).over, false);
 });

@@ -47,3 +47,21 @@ test('cues follow the message log\'s own classes and words (PS189)', async () =>
     assert.equal(cueForMessage('message_common message_unlocks', 'You can now fish here'), 'gate');
     assert.equal(cueForMessage('message_common message_loot'), null);
 });
+
+test('the classic options sync writes a value only when it changed, so its own observer settles (2026-11-19, F10)', async () => {
+    const {syncClassic} = await import('../src/ui/feel_finish.js');
+    let writes = 0, shown = '';
+    const out = {get textContent() { return shown; }, set textContent(v) { writes++; shown = v; }};
+    const proxy = {value: '3'}, real = {type: 'range', value: '3'};
+    const row = {dataset: {feelProxy: 'number_threshold'}, querySelector: s => s === 'input' ? proxy : s === 'output' ? out : null};
+    const box = {querySelectorAll: () => [row]};
+    const saved = globalThis.document;
+    globalThis.document = {getElementById: () => real, activeElement: null};
+    try {
+        syncClassic(box); syncClassic(box); syncClassic(box);
+        assert.equal(shown, '1e3');
+        assert.equal(writes, 1, 'repeat sweeps with nothing changed write nothing, so no childList mutation queues another sweep');
+        real.value = '5'; syncClassic(box);
+        assert.equal(shown, '1e5'); assert.equal(writes, 2);
+    } finally { globalThis.document = saved; }
+});

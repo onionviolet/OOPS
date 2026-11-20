@@ -1,3 +1,4 @@
+import {createDisplayGate} from './display_gate.js';
 import {registerDomain} from './domain_registry.js';
 import {withDisplayFactsFrame} from './facts_frame.js';
 import {check} from './basics.js';
@@ -350,6 +351,8 @@ function mount() {
     const root = node('details'); root.id = 'tempo_fight_panel'; root.className = 'expedition_panel';
     const body = node('div'), notice = node('p'); notice.setAttribute('role', 'status'); notice.tabIndex = -1; const summary = node('summary', 'Road contest · tempo'); root.append(summary, notice, body);
     let signature = '', previousLog = [];
+    // Off screen, the slot search and view build wait for a command, a layout change or the slow fallback (O21).
+    const gate = createDisplayGate(root, {onShow: () => panel?.render()});
     const act = (fn, request) => {
         const before = view().fight?.lines || [];
         try { const feedback = fn(request); notice.textContent = typeof feedback === 'string' ? feedback : newTempoLines(before, view().fight?.lines || []).join(' '); }
@@ -363,6 +366,7 @@ function mount() {
         // screen does not leave the fight panel under Here until the Notebook's next draw (village_wave2).
         return placePanel(root, open.find(onScreen), document.querySelector(`[data-notebook-panel="${PANEL_ID}"]`) || document.getElementById('location_actions_div')); }; // only a slot on screen; otherwise the panel goes home, where the Notebook files it
     const render = force => {
+        if(!gate.due(ports?.root()?.sequence, force === true)) return;
         place();
         if(!root.isConnected) return;
         const v = view();

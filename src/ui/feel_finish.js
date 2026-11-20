@@ -223,12 +223,14 @@ function placeClassicOptions() {
     box.hidden = setting('yair') === 'hide';
     syncClassic(box);
 }
-function syncClassic(box) {
+export function syncClassic(box) {
     for (const row of box.querySelectorAll('[data-feel-proxy]')) {
         const real = document.getElementById(row.dataset.feelProxy), proxy = row.querySelector('input');
         if (!real || !proxy) continue;
         if (real.type === 'checkbox') proxy.checked = real.checked; else if (document.activeElement !== proxy) proxy.value = real.value;
-        const out = row.querySelector('output'); if (out) out.textContent = `1e${proxy.value}`;
+        // Write only on change: the sweep's own MutationObserver watches childList, so an unconditional text write
+        // queued the next sweep every frame and kept a crowded page at 100% main-thread busy (2026-11-19 review, F10).
+        const out = row.querySelector('output'), shown = `1e${proxy.value}`; if (out && out.textContent !== shown) out.textContent = shown;
     }
 }
 
