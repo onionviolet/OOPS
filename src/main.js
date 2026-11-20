@@ -9744,7 +9744,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         cancelDuty: () => {const j = expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"); if(j) cancelExpedition(j.id, expansionState.sequence);},
         exportSave: () => {const serialized = create_save(); if(!serialized) return; const url = URL.createObjectURL(new Blob([encodeSaveFile(serialized)], {type: "text/plain"})); const a = document.createElement("a"); a.href = url; a.download = "YAIRPG-ended-life.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);}, reset: hard_reset,
         beginHeir, heirPreview: previewHeir,beginIndependent:beginIndependentLife,archiveExports:listStructuredLifeArchives({storage:localStorage,key:is_on_dev()?dev_save_key:save_key}).map(a=>({label:a.label,export:()=>{const url=URL.createObjectURL(new Blob([encodeSaveFile(a.serialized)],{type:'text/plain'}));const link=document.createElement('a');link.href=url;link.download='YAIRPG-archived-life.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}}))});
-    knownRoutesPanel=createKnownRoutesPanel({container:document.getElementById('location_actions_div'),focusFallback:document.getElementById('journal_show_notebook'),
+    knownRoutesPanel=createKnownRoutesPanel({container:document.getElementById('location_actions_div'),focusFallback:document.getElementById('journal_show_notebook'),key:()=>expansionState.sequence,
         read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),
         present:snapshot=>{
             if(snapshot.inDialogue||snapshot.inCombat)return {visible:false,section:null};

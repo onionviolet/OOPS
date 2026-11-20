@@ -1,5 +1,6 @@
 import { sameKnownRouteQuote } from './known_routes.js';
 import { recordRouteTraffic, routeTraffic } from './economy_standing_domain.js';
+import { createDisplayGate, setText } from './display_gate.js';
 
 const node = (tag, text = '', className = '') => {
     const element = document.createElement(tag);
@@ -10,7 +11,7 @@ const node = (tag, text = '', className = '') => {
 const reasonsText = rows => (rows || []).map(row => typeof row === 'string' ? row : row?.text || '').filter(Boolean).join(' ');
 
 /** Mount a compact read-only route overview inside the existing Notebook. */
-export function createKnownRoutesPanel({ container, read, present, command, focusFallback = null }) {
+export function createKnownRoutesPanel({ container, read, present, command, focusFallback = null, key = null }) {
     if (!container || typeof read !== 'function' || typeof present !== 'function' || typeof command !== 'function') {
         throw new TypeError('Known Routes needs the existing Notebook container, reader, presenter and command dispatcher.');
     }
@@ -25,6 +26,8 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
     status.setAttribute('role', 'status');
     panel.append(heading, current, commitments, routes, status);
     container.append(panel);
+    // Off screen, redraw on a command (key) or the slow fallback, not every tick (O21).
+    const gate = createDisplayGate(panel, { onShow: () => render(true) });
 
     let notice = '';
     const routeRows = new Map(), commitmentNodes = new Map();
@@ -52,9 +55,10 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
         } catch (error) {
             notice = error?.message || String(error);
         }
-        render();
+        render(true);
     }
-    function render() {
+    function render(force = false) {
+        if (!gate.due(key?.(), force)) return;
         // This projection owns discovery. The workspace parks undiscovered panels
         // in its hidden vault, so waiting for a visible parent would prevent the
         // first known route from ever revealing this panel. Native presenters
@@ -63,7 +67,7 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
         if (!section && !panel.hidden && panel.contains(document.activeElement)) moveFocus(fallback());
         panel.hidden = !section;
         if (!section) return;
-        current.textContent = `You are at ${section.current}.`;
+        setText(current, `You are at ${section.current}.`);
         current.hidden = !section.current;
         const commitmentRows = (section.commitments || []).filter(row => row.text);
         const commitmentIds = new Set();
@@ -71,7 +75,7 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
             commitmentIds.add(row.id);
             let item = commitmentNodes.get(row.id);
             if (!item) { item = document.createElement('li'); commitmentNodes.set(row.id, item); commitments.append(item); }
-            item.textContent = row.text;
+            setText(item, row.text);
         }
         for (const [id, item] of commitmentNodes) if (!commitmentIds.has(id)) { item.remove(); commitmentNodes.delete(id); }
         commitments.hidden = !commitmentIds.size;
@@ -91,16 +95,16 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
             }
             entry.current = route;
             const { button, destination, description, terms, blocker, commitment, wear } = entry;
-            button.textContent = route.label;
+            setText(button, route.label);
             button.disabled = !snapshot.canWrite || !!snapshot.error || !route.eligible;
             button.setAttribute('aria-label', `${route.direction === 'return' ? 'Return to' : 'Travel to'} ${route.destinationLabel}: ${route.label}`);
-            destination.textContent = `${route.direction === 'return' ? 'Return route' : 'Onward route'} · ${route.destinationLabel}`;
-            description.textContent = route.description;
-            terms.textContent = route.costText;
-            blocker.textContent = route.blockerText || reasonsText(route.reasons);
-            commitment.textContent = route.commitmentText;
+            setText(destination, `${route.direction === 'return' ? 'Return route' : 'Onward route'} · ${route.destinationLabel}`);
+            setText(description, route.description);
+            setText(terms, route.costText);
+            setText(blocker, route.blockerText || reasonsText(route.reasons));
+            setText(commitment, route.commitmentText);
             const worn = routeTraffic(route.id);
-            wear.textContent = worn.count ? `Walked ${worn.count} time${worn.count === 1 ? '' : 's'}; worn in ${Math.round(worn.gain * 1000) / 10}% (these doorway routes are instant; the wear shortens ordinary journeys between places).` : '';
+            setText(wear, worn.count ? `Walked ${worn.count} time${worn.count === 1 ? '' : 's'}; worn in ${Math.round(worn.gain * 1000) / 10}% (these doorway routes are instant; the wear shortens ordinary journeys between places).` : '');
             for (const row of [description, terms, blocker, commitment, wear]) row.hidden = !row.textContent;
         }
         const currentRouteIds = new Set((section.routes || []).map(route => route.id));
