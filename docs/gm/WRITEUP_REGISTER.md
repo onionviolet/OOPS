@@ -331,3 +331,7 @@ The carry-out also holds [tie-in considerations](../PROCEDURAL_CARRY_OUT.md#tie-
 [UI directions mocks](../../prototypes/ui-directions-2026-11-13/index.html) (2026-11-13, proposals): eight before-and-after sketches for the UI decisions held for Weibao (list and thing, one status line, empty space as the place, what can I do now, palette-led bar, day strip, growing screen, Notebook), each with what it fixes and costs. Records no decision. Ledger: [UI audit](../audits/UI_DESIGN_CORE_AUDIT.md#ui-ledger-revised-2026-11-13).
 
 [Procedural system audit](../audits/PROCEDURAL_SYSTEM_AUDIT_2026-11-17.md) (2026-11-17, proposals, agent-verified): 17 procedural pieces scored true and useful from reachability, coverage, tests and a played village life; computed `runs` is 0 against 1,765 typed, unbuilt pin store and derivation score file, and a ranked revamp plan PSA24-PSA33 with three limits for Weibao.
+
+## UI rules trim and keep-or-retire pass, 2026-11-19
+
+[UI rules keep or retire](../audits/UI_RULES_KEEP_RETIRE_2026-11-19.md) (proposal; nothing retired until Weibao says yes): all 176 UR codes classified, 149 keep, 22 merge, 5 retire, about 2,700 words removable. Done the same day: history notes moved to [UI rules history notes](../audits/UI_RULES_HISTORY_NOTES.md), the UI path rule cut from 873 to 204 words, and the cohesion section UR163–UR176 compressed.

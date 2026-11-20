@@ -1795,3 +1795,9 @@ Weibao, after Round 8 (PWC47-PWC52) and the missing-books ranking (M1-M11, DL122
 
 - Book lanes may run Anna's and Z-Library pulls for the ranked wishlist rows (the missing-books top ten, the Warhammer rows DL75 and DL133, and the replacement rows the qpdf rewrite cannot fix) without a per-file ask, while WARP is on. This replaces the per-file yes for those rows on this date.
 - Unchanged: the [run procedure](../research/DOWNLOAD_WISHLIST_2026-10-30.md#how-annas-and-z-library-runs-use-this-list-2026-11-04) and the quota guards AR52-AR55 in [source acquisition tools](../research/SOURCE_ACQUISITION_TOOLS.md) (check the route is not intercepted, Anna's before Z-Library with no blind fallback, real file sizes, verify each file); no purchases, no account creation, no CAPTCHA or bot-check bypass; a write-back with DL code, size and checksum for every file. If WARP drops, the run stops.
+
+## UI cohesion rules, 2026-11-19
+
+Weibao: "Ui cohesion rules and more for future UI implementation and more?"
+
+Recorded as UR163–UR176 in the [UI rules](../UI_RULES.md#cohesive-by-construction-2026-11-19), distilled from play-surface rounds 23 to 36 (PS243–PS337), which had stayed proposals in a dispatch file no UI lane is routed to. UR167 (YAIR's form first, combat included) and UR169 (looks as player choices) restate his 2026-11-16 and 2026-11-15 direction. UR163–UR166, UR168, UR170 and UR172–UR175 are working defaults under AD56. UR171 and UR176 are process rules and stay proposals. The path rule `.claude/rules/player-ui.md` and the small-fix checklist point at them.

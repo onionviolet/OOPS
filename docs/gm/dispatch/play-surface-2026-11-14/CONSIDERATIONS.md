@@ -848,3 +848,7 @@ Weibao: "ideaboarding, show me the UI too". Captures at 1920×1080 in headless C
 | PS310 | **Plan a day, then let it run.** An idle game's strength is the run you set up and leave. Default proposal: a life can queue its day (Klein: office shift, a reading, the club) and the clock plays it, stopping on anything that needs a choice; Reports then tells the day as one paragraph. Builds on Repeat ×n and the work queue. |
 | PS311 | **"While you were away" as a diary.** Klein's Reports opens with "about 9 weeks" and a bullet tree. Default: the summary of time away is a few sentences in the life's voice, with the tree under a fold. Dial: diary, tree, or both. |
 | PS312 | **A look per world.** Default stays one look for the game. Option: a world can carry its own look (Tingen in a newsprint face, Hogwarts on parchment), applied while a life is in that world and set in Display › Look by world. Pairs with feel-finish's per-world rarity glow. |
+
+### Promoted to UI rules, 2026-11-19
+
+The cohesion rows of rounds 23 to 36 are now UR163–UR176 in the [UI rules](../../../UI_RULES.md#cohesive-by-construction-2026-11-19): PS243/PS292 → UR163; PS244/PS245 → UR164; PS247 → UR165; PS246/PS248/PS250/PS251/PS300 → UR166; PS289–PS291/PS297 → UR167; PS296/PS301 → UR168; PS264/PS266/PS295/PS299 → UR169; PS265/PS268/PS278 → UR170; PS267/PS277 → UR171; PS325/PS331 → UR172; PS327 → UR173; PS298/PS316–PS318/PS328 → UR174; PS332 → UR175; PS263/PS285/PS293/PS294 → UR176. The rows here keep the evidence and detail.
