@@ -55,9 +55,7 @@ export function checkBaseline(current,baseline,previous,lineCounts) {
   for(const edge of baseline[key])if(!current[key].includes(edge))errors.push(`Remove resolved baseline ${key}: ${edge}`);
   if(previous)for(const edge of baseline[key])if(!previous[key].includes(edge))errors.push(`Baseline may only shrink (${key}): ${edge}`);
  }
- // Growth over the recorded line count fails (AR1). The baseline itself may only shrink against HEAD.
- for(const [file,count]of Object.entries(lineCounts||{}))if(count>baseline.lineCounts[file])errors.push(`${file} grew past its baseline (${count} > ${baseline.lineCounts[file]}): move code into a domain module instead of growing it.`);
- if(previous&&!process.env.ARCHITECTURE_BASELINE_RESET)for(const [file,count]of Object.entries(baseline.lineCounts))if(count>previous.lineCounts[file])errors.push(`Line baseline may only shrink: ${file} (${count} > ${previous.lineCounts[file]}). A reviewed reset needs ARCHITECTURE_BASELINE_RESET=1.`);
+ // AR1's line ratchet is off for the UI push (Weibao, 2026-11-20). Line counts are printed, not enforced.
  return errors;
 }
 async function main() {

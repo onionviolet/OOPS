@@ -43,9 +43,8 @@ test('every relative import under src resolves to a file in the graph',async()=>
  for(const [from,targets] of graph)for(const to of targets)if(!graph.has(to))missing.push(`${from} -> ${to}`);
  assert.deepEqual(missing,[]);
 });
-test('architecture check fails when a ratcheted file grows past its line baseline',()=>{
+test('line growth is reported, not enforced, while AR1 is off (2026-11-20)',()=>{
  const edges={mainImports:[],cycleEdges:[]},baseline={...edges,lineCounts:{'src/main.js':10}};
- assert.deepEqual(checkBaseline(edges,baseline,undefined,{'src/main.js':10}),[]);
- assert.deepEqual(checkBaseline(edges,baseline,undefined,{'src/main.js':9}),[]);
- assert.ok(checkBaseline(edges,baseline,undefined,{'src/main.js':11}).some(x=>x.includes('grew past its baseline')));
+ assert.deepEqual(checkBaseline(edges,baseline,undefined,{'src/main.js':11}),[]);
+ assert.deepEqual(checkBaseline(edges,{...edges,lineCounts:{'src/main.js':12}},{...edges,lineCounts:{'src/main.js':10}},{'src/main.js':12}),[]);
 });

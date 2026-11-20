@@ -1805,3 +1805,7 @@ Recorded as UR163–UR176 in the [UI rules](../UI_RULES.md#cohesive-by-construct
 ## Reference pictures are the floor, 2026-11-20
 
 Weibao, reviewing the Discord-picture implementation: it "lacks the coloring differentials and more from the sample and example imagery" and is "lesser than the sum of its parts." Then: add the rule, "but make it so that it is the target and can also be improved beyond the target." Recorded as [UR177](../UI_RULES.md): match a supplied picture's look first (visual spec, shared colour tokens, side-by-side gate), and any difference must be a named improvement, never a quiet loss. A Sol run was sent to redo the dwelling colour language, the atlas map and the creature tree under it.
+
+## AR1 line ratchet off for the UI push, 2026-11-20
+
+Weibao, after the drift reviews showed every lane's fix blocked by `main.js` at 10117 lines against a 10115 baseline: "we can realign the limits accordingly, remove limits and stuff until we finish implementing the Ui and more?" Offered raise-with-headroom or removal; he chose "Remove the ratchet". `scripts/check_architecture.mjs` no longer fails on line growth or a raised line baseline; it still prints counts, and the main-import and cycle checks stay on. To restore after the UI work: put the two checks back in `checkBaseline` and run `npm run check:arch -- --shrink`.
