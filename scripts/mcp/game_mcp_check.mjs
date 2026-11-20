@@ -288,10 +288,19 @@ async function hereGoRoundtrip(c) {
 
 async function blockedRoutes(c) {
     // Native startup must leave the launch-screen mode, not merely hide its text.
+    // Opening the Connection panel presses its open button itself (layout_spec select: continuation_open), so the
+    // view may already be open; otherwise the button is there to press. Either way the connection is reachable.
+    const openConnection = async () => {
+        const view = await c.tool('game_look', {scope: '#continuation_view'});
+        if(view.actions.some(a => a.text === 'Return')) return true;
+        const home = await c.tool('game_look', {scope: '#continuation_panel'});
+        if(!home.actions.some(a => a.key === '#continuation_open')) return false;
+        await c.tool('game_click', {key: '#continuation_open'});
+        return true;
+    };
     await c.tool('game_new', {seed: 251041, panel: 'continuation'});
-    let v = await c.tool('game_look', {scope: '#continuation_panel'});
-    assert.ok(v.actions.some(a => a.key === '#continuation_open'), 'BLD3 native continuing connection is reachable');
-    await c.tool('game_click', {key: '#continuation_open'});
+    assert.ok(await openConnection(), 'BLD3 native continuing connection is reachable');
+    let v;
     // The connection view opens on "Anchors & study" (2026-10-25); return routes live on the Return tab.
     await c.tool('game_click', {key: '[data-connection-tab="return"]'});
     v = await c.tool('game_look', {scope: '#continuation_view'});
@@ -299,7 +308,7 @@ async function blockedRoutes(c) {
     await c.tool('game_click', {key: '[data-continuation-action="fresh"]'});
     await c.tool('game_click', {key: '[data-continuation-action="fresh"]'});
     await c.tool('game_click', {panel: 'continuation'});
-    await c.tool('game_click', {key: '#continuation_open'});
+    assert.ok(await openConnection(), 'the connection reopens after the fresh-life reload');
     v = await c.tool('game_look', {scope: '#continuation_view'});
     assert.match(v.screen, /arrival paused/, 'fresh confirmation waits for native validation and reload into the new life');
     assert.ok(v.actions.some(a => /Continue this life/.test(a.text)), 'new-life arrival has its normal continuation control');
