@@ -58,4 +58,4 @@ and field, with evidence reachable by keyboard and pointer.
 UI mocks follow [MW9](docs/MOCKUP_SYSTEM.md#standing-rules) (2026-11-19): each variant is
 a real-code `mock/<topic>-<date>` branch rendered from a scenario save, absorbed by
 merge and retired at the decision. No new standalone mock pages under `prototypes/`;
-`check_mock_pages.mjs` in `check:rules` enforces that.
+build on the existing views, data and tests, and let the merge run the normal gates.
