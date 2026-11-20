@@ -206,9 +206,23 @@ at 0.4% (it was 10%, because each wasted sweep also woke the reveal checks).
 
 ### Merge state
 
-The primary checkout has other lanes' uncommitted edits in files this branch
-also changes (`src/main.js`, `scripts/mcp/*.mjs`, `scripts/perf/lib.mjs`,
-`tests/known_routes_ui.test.js`, the untracked `src/display_gate.js`). The
-display gate, `lib.mjs` and `main.js` lines on the branch equal those
-uncommitted edits. A merge into the shared checkout needs those owners to
-commit or a careful hunk-level merge; push waits for Weibao's yes.
+Merged into `master` as `7f32e5850` (Weibao: "Merge file by file"), built with
+`git merge-tree` and `commit-tree` so the shared working tree was not checked
+out. Other lanes' uncommitted edits stay uncommitted on top:
+
+- `src/display_gate.js`, its test, `known_routes_ui.js`, `tempo_fight_domain.js`,
+  `tests/known_routes_ui.test.js` and `scripts/perf/lib.mjs` were identical to
+  the branch, so they are now clean.
+- `src/main.js` keeps the other lane's hunks; only the known-routes key line
+  moved into HEAD (HEAD stays 10,115 lines).
+- `scripts/mcp/game_mcp.mjs`, `game_worker.mjs` and `game_mcp_check.mjs` were
+  3-way merged by hand: the other lane's uncommitted receipt view and 400-day
+  cap sit on top of the committed span mode and per-day timeout.
+- Checks on the merged checkout: `BUILD_OUT` build passes with tracked `dist/`
+  untouched; feel finish, display gate, known routes and test plan 17/17;
+  `check:arch` pass at HEAD; `game_mcp_check.mjs --faster-time-only` and
+  `--step-receipt-only` both pass on the combined tree.
+- Backups of every touched dirty file, their diff and the index are under
+  this session's scratchpad (`merge-backup/`), which may be cleared.
+
+The branch and its worktree are retired. Not pushed.
