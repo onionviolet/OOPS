@@ -1801,3 +1801,7 @@ Weibao, after Round 8 (PWC47-PWC52) and the missing-books ranking (M1-M11, DL122
 Weibao: "Ui cohesion rules and more for future UI implementation and more?"
 
 Recorded as UR163–UR176 in the [UI rules](../UI_RULES.md#cohesive-by-construction-2026-11-19), distilled from play-surface rounds 23 to 36 (PS243–PS337), which had stayed proposals in a dispatch file no UI lane is routed to. UR167 (YAIR's form first, combat included) and UR169 (looks as player choices) restate his 2026-11-16 and 2026-11-15 direction. UR163–UR166, UR168, UR170 and UR172–UR175 are working defaults under AD56. UR171 and UR176 are process rules and stay proposals. The path rule `.claude/rules/player-ui.md` and the small-fix checklist point at them.
+
+## Reference pictures are the floor, 2026-11-20
+
+Weibao, reviewing the Discord-picture implementation: it "lacks the coloring differentials and more from the sample and example imagery" and is "lesser than the sum of its parts." Then: add the rule, "but make it so that it is the target and can also be improved beyond the target." Recorded as [UR177](../UI_RULES.md): match a supplied picture's look first (visual spec, shared colour tokens, side-by-side gate), and any difference must be a named improvement, never a quiet loss. A Sol run was sent to redo the dwelling colour language, the atlas map and the creature tree under it.
