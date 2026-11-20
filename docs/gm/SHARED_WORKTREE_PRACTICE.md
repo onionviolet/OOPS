@@ -169,8 +169,13 @@ Weibao, 2026-10-14: merge finished work "each time" before a new wave
    barrel). Never run `gu_generator.mjs ledger` from a regeneration.
 6. Delete each merged lane's extras in the same step, once the combined gates pass
    (Weibao, 2026-11-16, [direction](USER_VISION_LOG_2026-11.md#each-merge-deletes-the-merged-lanes-extras-2026-11-16)):
-   `git worktree remove` its worktree (refused when dirty: keep it and name it for
-   its owner), then `git worktree prune`; `git branch -d` its branch, which refuses
+   when the lane is a desktop-app session, copy any ignored outputs it made
+   (`private/`, logs) into the primary's `private/retired-worktrees/<name>/`, then
+   archive the session (`archive_session`), which removes its worktree with it; a
+   plain `git worktree remove` leaves the session pointing at a missing folder.
+   Otherwise `git worktree remove` its worktree (refused when dirty: keep it and name
+   it for its owner), then `git worktree prune`. Skip worktrees git marks locked:
+   a running subagent holds them; `git branch -d` its branch, which refuses
    anything not in master; delete its scratch, unpacked downloads and processes;
    restore `dist/bundle.js`, its map and `index.html` if your gate's build rewrote
    them while they were clean. Keep what a record cites. The merge report names
@@ -178,6 +183,50 @@ Weibao, 2026-10-14: merge finished work "each time" before a new wave
 
 Before dispatching, also check for same-day owner docs on the same topic.
 Parallel sessions often answer the same prompt (2026-10-14: duplicate comics pass).
+
+## Worktree storage, 2026-11-19
+
+Weibao, 2026-11-19: "how to make sure worktree gets cleaned up and doesnt take up
+excess storage", then "save and address long term". The rule above (step 6) already
+said to retire merged lanes; the gap was execution. Coordinators merged lane
+branches but left their app sessions open, so merged, clean worktrees piled up
+(20 GB in `.claude/worktrees`, about 1.3 GB each).
+
+What a worktree costs: each copy carries the whole tracked tree, and `docs/` is
+most of it (834 MB per copy: `docs/gm`, `docs/representations`, `docs/reviews`
+evidence images). `node_modules` and `private_packs` are symlinked, so they cost
+nothing.
+
+What the app does on its own: archiving a session moves its worktree into the app's
+reuse pool ("kept ready for new sessions"), which the app reuses or reaps itself, so
+disk drops when the pool is reaped, not at once. Sessions idle for 7 days are
+archived automatically (`auto_archive_inactive_days`, an account setting).
+`auto_archive_on_pr_close` does not help here because lanes merge locally, not
+through pull requests.
+
+Standing practice:
+- Merges retire lanes by step 6: archive the lane's session in the same step as the
+  merge.
+- Mock variants follow [MW9](../MOCKUP_SYSTEM.md#standing-rules): the decision
+  retires every variant's worktree.
+- Before any cleanup, list worktrees with branch, merged or open, dirty count and
+  locked state, and check `list_sessions` for the session that owns each one.
+
+Proposals, not in force: P1 compress committed evidence captures (JPG, or one
+folder outside the tracked tree) to cut the per-copy weight; P2 sparse-checkout
+worktrees that only run the game (mocks, play checks), after measuring that
+`game_new {checkout}` needs nothing under `docs/`; P3 lower
+`auto_archive_inactive_days` from 7 to 2 for this account, which would also archive
+idle planning-vault chats he follows up in.
+
+Receipt, 2026-11-19: of the ten merged, clean, unlocked worktrees, one with no session
+(`friendly-saha-9d80ec`) was removed with `git worktree remove`; eight idle sessions
+were archived (interaction-oracle, director-cards, entry-points, merge-friction,
+timeline, step-speed, mechanism-foundation, prior-art). interaction-oracle's
+ignored `private/` run outputs (3.3 MB) were copied byte-identical to
+`private/retired-worktrees/interaction-oracle-a224ce/` first. jojo-readers was
+refused because it still has live work; three locked agent worktrees and every
+dirty or unmerged one were left alone.
 
 ## Long Codex runs
 

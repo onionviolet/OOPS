@@ -36,10 +36,10 @@ Open the workbench with `?study=launch`. It compares identity/choices/summary co
 and a stacked layout, preserving choices. Its starts/personality recommendations
 remain proposals; [receipt](../prototypes/workbench/REPORT.md#launch-choice-and-personality-study-2026-10-20).
 
-Proposed direction, 2026-10-16: studies should mount the real game views over
-fixture data rather than redraw a copy. See
-[UI engine round 3, UIE17–UIE26](ENGINE_EXPANSION.md#round-3-one-renderer-for-the-game-and-its-mockups-2026-10-16).
-Not accepted yet; the rules below still apply.
+Accepted direction (proposed 2026-10-16; Weibao, 2026-11-19: "Yes, write it"): studies
+mount the real game views over real or fixture state rather than redraw a copy.
+See [UI engine round 3, UIE17–UIE26](ENGINE_EXPANSION.md#round-3-one-renderer-for-the-game-and-its-mockups-2026-10-16)
+for the preview host design; MW9 below is the default way to build a mock.
 
 ## Standing rules
 
@@ -53,6 +53,7 @@ Not accepted yet; the rules below still apply.
 | MW6 | Isolate from personal gameplay startup, saves, credentials and production storage. Reduced studies use disposable in-memory fixtures. Under the 2026-10-26 current-shell correction, native studies may start a frozen bundle with fixture storage on a fresh disposable loopback origin; use an explicit/manual clock unless time itself is under study. Never import sealed truths into a public fixture. | Review should be reversible, reproducible and safe for the director to play. |
 | MW7 | Export a review with fixture state, build revision, viewport, text and limitations. Keep evidence with the experiment. Record recommendations separately from human selection and native integration. Accepted choices go in the existing feature owner and PROJECT summary. | Passing checks or exporting a file does not establish visual acceptance. |
 | MW8 | **Show freshness and fidelity separately.** Register each study as archived, sketch or native. Native UI comparisons use the current populated shell/navigation and representative dependencies; reduced fixtures remain visibly labelled sketches. Record source and built-output hashes, recheck them on open and while reviewing, and flag missing/changed inputs before using the study as current UI evidence. Refresh and repeat affected journeys after drift; do not silently relabel a rebuild as verified. | A freshly built sparse mockup can still misrepresent the game; a once-faithful mockup can drift behind its sources. |
+| MW9 | **A mock is a branch, not a page.** Build each variant as a real change on a `mock/<topic>-<date>` worktree in the owning files (`layout_spec.js`, the view or `*_ui.js` panel, `styles/`). Content that does not exist yet is labelled stub data inside its future owner. Render every variant and today's master from the same scenario save and seed (Game MCP `game_new` with `checkout`), captured at the MW4 sizes. Early ideas also start in the real shell: rough styling and stub data are fine, a separate drawn page is not, because a mock has to show how the change sits with every other panel. A change that spans several screens is one branch, so they are judged together. Taking a variant means merging its branch and replacing its stubs. The decision retires every variant's worktree and branch in the same step. Mock branches stay local unless Weibao says to push one. | Hand-built pages (for example the 2026-11-15 YAIR columns mock) had to be rebuilt to adopt, drifted from what was approved and showed copied rather than live state (Weibao, 2026-11-19: mocks should be 1:1 absorbable and build on the current game; "everything has to be cohesive together"). |
 
 The workbench controls are review tooling outside the game viewport. Its own
 scrolling at actual size is expected; the fixture must meet the game's region
