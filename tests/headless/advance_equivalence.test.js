@@ -28,7 +28,12 @@ test('one call, 60-minute chunks and day-by-day give the same save', async t => 
     const once = await run([{days: DAYS, chunk: 1440}]);
     const chunked = await run([{days: DAYS, chunk: 60}]);
     const daily = await run(Array.from({length: DAYS}, () => ({days: 1, chunk: 240})));
-    for(const [name, other] of [['60-minute chunks', chunked], ['day by day', daily]]) {
+    // The MCP's per-day progress slices (onSlice) must not change the result either.
+    const slices = [];
+    const sliced = await run([{days: DAYS, chunk: 60, slice: 600, onSlice: async p => {slices.push(p.advanced);}}]);
+    assert.ok(slices.length >= Math.floor(DAYS * 1440 / 600), `reported ${slices.length} slices`);
+    assert.equal(sliced.receipts[0].mode, 'exact');
+    for(const [name, other] of [['60-minute chunks', chunked], ['day by day', daily], ['600-minute progress slices', sliced]]) {
         const diffs = diffSaves(canonicalSave(once.snap), canonicalSave(other.snap));
         assert.deepEqual(diffs, [], `${name} differs from one call at: ${diffs.map(d => d.path).join(', ')}`);
     }

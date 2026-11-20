@@ -21,8 +21,11 @@ export async function minutesToNextEvent(game) {
 /**
  * Advance an already-booted game. Exactly one of days/minutes/untilEvent.
  * chunk is the dev time multiplier: game minutes per stepper call between invariant checks.
+ * onSlice(progress), when given, runs after every `slice` game minutes (default one day), so a caller can report
+ * progress or keep a timeout alive. Exact stepping is still byte-identical to single ticks (RT8): a slice ends on a
+ * stepper call boundary and the stepper result does not depend on how calls are grouped.
  */
-export async function advanceGame(game, {days, minutes, untilEvent = false, span = false, chunk = 60, maxMinutes = 60 * MINUTES_PER_DAY} = {}) {
+export async function advanceGame(game, {days, minutes, untilEvent = false, span = false, chunk = 60, maxMinutes = 60 * MINUTES_PER_DAY, onSlice = null, slice = MINUTES_PER_DAY} = {}) {
     const modes = [days != null, minutes != null, untilEvent].filter(Boolean).length;
     if(modes !== 1) throw new Error('Give exactly one of days, minutes or untilEvent.');
     const want = untilEvent ? await minutesToNextEvent(game) : minutes ?? days * MINUTES_PER_DAY;
@@ -31,10 +34,23 @@ export async function advanceGame(game, {days, minutes, untilEvent = false, span
     const asked = Math.min(want, maxMinutes);
     const startCalendar = game.minutes(), t0 = performance.now(), cpu0 = process.cpuUsage();
     const clock0 = game.internals.expansionState?.clock;
-    const r = asked ? (span ? await game.spans(asked) : await game.step(asked, {chunk})) : {minutes:0};
+    const run = n => span ? game.spans(n) : game.step(n, {chunk});
+    let r = {minutes:0};
+    if(asked && !onSlice) r = await run(asked);
+    else if(asked) {
+        const target = startCalendar + asked;
+        while(game.minutes() < target) {
+            const before = game.minutes(), boots = game.boots;
+            await run(Math.min(slice, target - before));
+            // Stop where a single call would: a stopped clock, or a new page (cycle, life switch) the stepper ended on.
+            if(game.minutes() === before || game.boots !== boots) break;
+            await onSlice({advanced:game.minutes() - startCalendar, requested:asked, wallMs:Math.round(performance.now() - t0)});
+        }
+        r = {minutes:game.minutes() - startCalendar};
+    }
     const cpu = process.cpuUsage(cpu0);
     const wallMs = Math.round(performance.now() - t0);
-    return {requested:want, capped:asked < want, advanced:r.minutes, startCalendar, endCalendar:game.minutes(),
+    return {requested:want, capped:asked < want, advanced:r.minutes, mode:span ? 'span' : 'exact', startCalendar, endCalendar:game.minutes(),
         expansionClock:[clock0, game.internals.expansionState?.clock], wallMs,
         cpuMs:Math.round((cpu.user + cpu.system) / 1000), minPerWallS:wallMs ? Math.round(r.minutes / wallMs * 1000) : null};
 }

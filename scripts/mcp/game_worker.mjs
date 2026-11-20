@@ -194,14 +194,19 @@ const ops = {
         return {view:'receipt', time:clock(), location:text('location_name_span'), pageErrors:g.errors.length,
             ...(scopeAvailable ? {} : {scopeUnavailable:scope})};
     },
-    async step({minutes, days, until, view}) {
+    async step({minutes, days, until, view, mode = 'exact'}, {progress} = {}) {
         const g = need();
         if([minutes != null, days != null, until != null].filter(Boolean).length !== 1) throw new Error('Give exactly one of minutes, days or until.');
         if(until != null && until !== 'event') throw new Error("until must be 'event'.");
         if(minutes != null && !(minutes > 0 && minutes <= 10080)) throw new Error('minutes must be 1 to 10080; use days for longer.');
         if(days != null && !(days > 0 && days <= 400)) throw new Error('days must be above 0 and at most 400.');
-        // Same stepper as minutes (RT8: byte-identical to single ticks); days and until:event just lift the per-call cap.
-        const advance = await advanceGame(g, minutes != null ? {minutes} : days != null ? {days} : {untilEvent: true, maxMinutes: 400 * 1440});
+        if(!['exact', 'span'].includes(mode)) throw new Error("mode must be 'exact' or 'span'.");
+        // exact: the same stepper as minutes (RT8: byte-identical to single ticks); days and until:event just lift the per-call cap.
+        // span: the labelled faster mode (runner.spans, not RT8). Both report progress once per game day so the
+        // MCP timeout covers one day of stepping, not the whole call.
+        const amount = minutes != null ? {minutes} : days != null ? {days} : {untilEvent: true, maxMinutes: 400 * 1440};
+        const advance = await advanceGame(g, {...amount, span: mode === 'span',
+            onSlice: async p => {progress?.(p); await new Promise(r => setImmediate(r));}});
         return {advance, ...look({view})};
     },
     status() {
@@ -233,7 +238,7 @@ function safePath(p) {
 }
 
 process.on('message', async ({id, op, args}) => {
-    try {send({id, ok: true, result: await ops[op](args ?? {})});}
+    try {send({id, ok: true, result: await ops[op](args ?? {}, {progress: p => send({id, progress: p})})});}
     catch(error) {send({id, ok: false, error: String(error?.message ?? error)});}
 });
 send({ready: true});

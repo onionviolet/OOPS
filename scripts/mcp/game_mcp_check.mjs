@@ -17,8 +17,8 @@ const LEDGER = join(mkdtempSync(join(tmpdir(), 'yairpg-limits-')), 'limits.jsonl
 const ROOT=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const SERVER = fileURLToPath(new URL('./game_mcp.mjs', import.meta.url));
 
-function client() {
-    const child = spawn(process.execPath, [SERVER], {stdio: ['pipe', 'pipe', 'inherit'], env: {...process.env, YAIRPG_MCP_LIMITS: LEDGER}});
+function client(env = {}) {
+    const child = spawn(process.execPath, [SERVER], {stdio: ['pipe', 'pipe', 'inherit'], env: {...process.env, YAIRPG_MCP_LIMITS: LEDGER, ...env}});
     let buffer = '', next = 1;
     const waiting = new Map();
     child.on('exit',(code,signal)=>{for(const pending of waiting.values()) pending({error:{message:`MCP server exited (${code ?? signal})`}});waiting.clear();});
@@ -133,13 +133,31 @@ async function fasterTime(c) {
     assert.ok(a.advance.wallMs >= 0 && a.advance.startCalendar < a.advance.endCalendar);
     const ev = await c.tool('game_step', {sessionId: 'days', until: 'event'});
     assert.ok(ev.advance.reason === 'no scheduled event' || ev.advance.advanced >= 1, 'until event advances to a boundary or says none');
-    for(const bad of [{days: 1, minutes: 5}, {days: 401}, {until: 'dawn'}, {}]) {
+    assert.equal(a.advance.mode, 'exact', 'default steps are exact');
+    const sp = await c.tool('game_step', {sessionId: 'days', days: 1, mode: 'span'});
+    assert.equal(sp.advance.mode, 'span', 'span steps say so in the receipt');
+    assert.ok(sp.advance.advanced >= 1440, 'a span day is at least 1440 minutes');
+    for(const bad of [{days: 1, minutes: 5}, {days: 401}, {until: 'dawn'}, {}, {days: 1, mode: 'fast'}]) {
         const r = (await c.rpc('tools/call', {name: 'game_step', arguments: {sessionId: 'days', ...bad}})).result;
         assert.equal(r.isError, true, `rejects ${JSON.stringify(bad)}`);
     }
     const unknown = (await c.rpc('tools/call', {name: 'game_new', arguments: {scenario: 'nope', sessionId: 'days'}})).result;
     assert.equal(unknown.isError, true, 'unknown scenario names are refused');
     await c.tool('game_close', {sessionId: 'days'});
+}
+
+// The timeout bounds one game day of stepping, not a whole call: with a timeout shorter than the step, a
+// multi-day step still finishes because the worker reports each day (2026-11-19, PERF_AND_DEVTOOLS_REVIEW O26).
+async function longStepHeartbeat() {
+    const h = client({YAIRPG_MCP_TIMEOUT_MS: '20000'});
+    try {
+        await h.tool('game_new', {scenario: 'perf-fresh', seed: 3, sessionId: 'beat'});
+        const r = await h.tool('game_step', {sessionId: 'beat', days: 4, view: 'compact'});
+        assert.ok(r.advance.advanced >= 4 * 1440, `four days advanced (${r.advance.advanced})`);
+        assert.ok(r.advance.wallMs > 20000, `the step outlasted one timeout (${r.advance.wallMs} ms), so only the per-day progress kept it alive`);
+        console.log(JSON.stringify({slice: 'long-step-heartbeat', timeoutMs: 20000, wallMs: r.advance.wallMs}));
+        await h.tool('game_close', {sessionId: 'beat'});
+    } finally {await h.close();}
 }
 
 // DEV SEEDED scenarios (scripts/headless/scenarios.mjs): each boots straight to a feature that otherwise needs years or a wanted level.
@@ -411,6 +429,7 @@ try {
         await nativeOnly(c);
     } else if(process.argv.includes('--faster-time-only')) {
         await fasterTime(c);
+        await longStepHeartbeat();
         console.log(JSON.stringify({slice: 'faster-time', result: 'PASS'}));
     } else if(process.argv.includes('--freeze-only')) {
         await frozenAndNative(c);
@@ -524,6 +543,7 @@ try {
     assert.equal(noted.ledgerEntries, 1);
     assert.match(readFileSync(LEDGER, 'utf8'), /screenshot of the village/);
     await fasterTime(c);
+    await longStepHeartbeat();
     await loopReload(c);
     await seededScenarios(c);
     await worldFixtures(c);
