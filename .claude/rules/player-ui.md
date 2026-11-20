@@ -7,6 +7,8 @@ paths:
   - "index.html"
   - "ui-preview.html"
   - "docs/UI_RULES.md"
+  - "prototypes/**"
+  - "docs/MOCKUP_SYSTEM.md"
 ---
 
 Player-facing UI also follows [UI rules](docs/UI_RULES.md) (2026-10-15): declare
@@ -52,3 +54,8 @@ Elements: UR100–UR127 (working defaults under AD56); build guards UR128–UR13
 For folded controls and knowledge views, apply UR156–UR157. Keep the active
 choice readable and existing methods reachable. Give an unknown mark a subject
 and field, with evidence reachable by keyboard and pointer.
+
+UI mocks follow [MW9](docs/MOCKUP_SYSTEM.md#standing-rules) (2026-11-19): each variant is
+a real-code `mock/<topic>-<date>` branch rendered from a scenario save, absorbed by
+merge and retired at the decision. No new standalone mock pages under `prototypes/`;
+`check_mock_pages.mjs` in `check:rules` enforces that.
