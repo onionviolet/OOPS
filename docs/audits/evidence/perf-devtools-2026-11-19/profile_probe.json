@@ -1,0 +1,126 @@
+{
+ "rev": "HEAD",
+ "minified": false,
+ "bundle": {
+  "bytes": 17941444,
+  "gzip": 4256821
+ },
+ "fixtures": {
+  "fresh": {
+   "size": {
+    "rawKB": 88,
+    "storageKB": 177,
+    "exportBase64KB": 118,
+    "gzipKB": 19,
+    "gzipRatio": 4.6
+   },
+   "manualSaveMs": {
+    "best": 11.7,
+    "median": 12.6
+   },
+   "storageWriteMs": 0.1,
+   "idle": {
+    "storageWritesPerMin": 60,
+    "scriptBusyPct": 16.2,
+    "taskBusyPct": 75.8,
+    "longTasks": 15,
+    "longTaskMaxMs": 100,
+    "layoutsPerSec": 67.8,
+    "heapMB": 79.9,
+    "domNodes": 28354
+   },
+   "churn": {
+    "commits": 12,
+    "partsPerSave": 74,
+    "changedPartsPerCommit": 6.8,
+    "changedShare": 0.187,
+    "usualChanges": [
+     "current time (12/12)",
+     "levels (12/12)",
+     "absorb_local_life (12/12)",
+     "expansion (12/12)",
+     "saved_at (11/12)",
+     "total_playtime (11/12)",
+     "skillRecords (11/12)",
+     "reports_dock (1/12)"
+    ]
+   },
+   "profileTopSelf": [
+    "  7906 ms  51.5%  (program) :0",
+    "  1021 ms   6.6%  querySelectorAll :0",
+    "   499 ms   3.2%  checkVisibility :0",
+    "   307 ms   2.0%  place5 bundle.js?version=v0.6-4982a5ebcad4:233339",
+    "   293 ms   1.9%  render6 bundle.js?version=v0.6-4982a5ebcad4:234382",
+    "   252 ms   1.6%  refresh2 bundle.js?version=v0.6-4982a5ebcad4:200192",
+    "   138 ms   0.9%  querySelector :0",
+    "   114 ms   0.7%  proto23Context bundle.js?version=v0.6-4982a5ebcad4:88232",
+    "    41 ms   0.3%  (garbage collector) :0",
+    "    36 ms   0.2%  frontierNativeEvidence bundle.js?version=v0.6-4982a5ebcad4:317737",
+    "    35 ms   0.2%  molFacts bundle.js?version=v0.6-4982a5ebcad4:86912",
+    "    26 ms   0.2%  check bundle.js?version=v0.6-4982a5ebcad4:500",
+    "    25 ms   0.2%  auditRemainderCombinedFacts bundle.js?version=v0.6-4982a5ebcad4:91267",
+    "    24 ms   0.2%  previewMolCommand bundle.js?version=v0.6-4982a5ebcad4:147443",
+    "    21 ms   0.1%  syncClassic bundle.js?version=v0.6-4982a5ebcad4:237453"
+   ],
+   "pageErrors": 0
+  },
+  "crowded": {
+   "size": {
+    "rawKB": 317,
+    "storageKB": 634,
+    "exportBase64KB": 423,
+    "gzipKB": 36,
+    "gzipRatio": 8.7
+   },
+   "manualSaveMs": {
+    "best": 38.2,
+    "median": 39.7
+   },
+   "storageWriteMs": 0.1,
+   "idle": {
+    "storageWritesPerMin": 60,
+    "scriptBusyPct": 42.1,
+    "taskBusyPct": 100.9,
+    "longTasks": 86,
+    "longTaskMaxMs": 416,
+    "layoutsPerSec": 22.3,
+    "heapMB": 154.7,
+    "domNodes": 114903
+   },
+   "churn": {
+    "commits": 12,
+    "partsPerSave": 102,
+    "changedPartsPerCommit": 8,
+    "changedShare": 0.156,
+    "usualChanges": [
+     "current time (12/12)",
+     "saved_at (12/12)",
+     "total_playtime (12/12)",
+     "levels (12/12)",
+     "skillRecords (12/12)",
+     "absorb_local_life (12/12)",
+     "expansion (12/12)",
+     "expansion.simulation/controllers (12/12)"
+    ]
+   },
+   "profileTopSelf": [
+    "  5349 ms  33.2%  (program) :0",
+    "  1611 ms  10.0%  checkVisibility :0",
+    "   839 ms   5.2%  refresh2 bundle.js?version=v0.6-4982a5ebcad4:200192",
+    "   776 ms   4.8%  place5 bundle.js?version=v0.6-4982a5ebcad4:233339",
+    "   772 ms   4.8%  render6 bundle.js?version=v0.6-4982a5ebcad4:234382",
+    "   563 ms   3.5%  querySelectorAll :0",
+    "   362 ms   2.2%  worldCompletionBridgeFacts bundle.js?version=v0.6-4982a5ebcad4:58230",
+    "   286 ms   1.8%  normalizedWorldCompletionFacts bundle.js?version=v0.6-4982a5ebcad4:59703",
+    "   277 ms   1.7%  buildSimulationNativeContexts bundle.js?version=v0.6-4982a5ebcad4:317715",
+    "   196 ms   1.2%  buildSimulationFacts bundle.js?version=v0.6-4982a5ebcad4:109284",
+    "   185 ms   1.2%  visit bundle.js?version=v0.6-4982a5ebcad4:109179",
+    "   178 ms   1.1%  inputs2 bundle.js?version=v0.6-4982a5ebcad4:54027",
+    "   176 ms   1.1%  worldCompletionSimulationContexts bundle.js?version=v0.6-4982a5ebcad4:109899",
+    "   172 ms   1.1%  auditRemainderCombinedFacts bundle.js?version=v0.6-4982a5ebcad4:91267",
+    "   149 ms   0.9%  projectFeatureCommands bundle.js?version=v0.6-4982a5ebcad4:93184"
+   ],
+   "pageErrors": 0
+  }
+ }
+}

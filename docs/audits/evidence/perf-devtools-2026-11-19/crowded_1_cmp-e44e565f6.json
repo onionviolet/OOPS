@@ -1,0 +1,51 @@
+{
+ "rev": "e44e565f6",
+ "minified": true,
+ "bundle": {
+  "bytes": 11036393,
+  "gzip": 3352266
+ },
+ "fixtures": {
+  "crowded": {
+   "size": {
+    "rawKB": 317,
+    "storageKB": 633,
+    "exportBase64KB": 422,
+    "gzipKB": 36,
+    "gzipRatio": 8.7
+   },
+   "manualSaveMs": {
+    "best": 45.1,
+    "median": 60.9
+   },
+   "storageWriteMs": 0.1,
+   "idle": {
+    "storageWritesPerMin": 60,
+    "scriptBusyPct": 41.5,
+    "taskBusyPct": 75.1,
+    "longTasks": 27,
+    "longTaskMaxMs": 377,
+    "layoutsPerSec": 12.5,
+    "heapMB": 86.9,
+    "domNodes": 48452
+   },
+   "churn": {
+    "commits": 12,
+    "partsPerSave": 102,
+    "changedPartsPerCommit": 8,
+    "changedShare": 0.156,
+    "usualChanges": [
+     "current time (12/12)",
+     "saved_at (12/12)",
+     "total_playtime (12/12)",
+     "levels (12/12)",
+     "skillRecords (12/12)",
+     "absorb_local_life (12/12)",
+     "expansion (12/12)",
+     "expansion.simulation/controllers (12/12)"
+    ]
+   },
+   "pageErrors": 0
+  }
+ }
+}
