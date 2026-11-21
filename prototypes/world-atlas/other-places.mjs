@@ -39,14 +39,14 @@ export function otherDiagram(rows) {
     return {nodes, edges: [...edges.values()], captions};
 }
 
-export function otherPlaces({main, data, controls, finder, list, closeCanvas}) {
+export function otherPlaces({main, data, controls, finder, list, closeCanvas, group, title = 'Other game places'}) {
     main.replaceChildren();
-    const rows = data.others || [];
+    const rows = (data.others || []).filter(r => !group || r.group === group);
     const bar = controls();
-    bar.append(el('small', `${rows.length} registered places outside the Village walk. Book worlds walk through their own hosts.`));
+    bar.append(el('small', group ? `${rows.length} registered locations, not reached from the Village walk` : `${rows.length} registered places outside the Village walk. Book worlds walk through their own hosts.`));
     const byId = new Map(rows.map(r => [r.id, r]));
     const board = boxCanvas({
-        parent: main, title: 'Other game places', ...otherDiagram(rows), marks: otherMarks, kind: 'village', close: closeCanvas,
+        parent: main, title, ...otherDiagram(rows), marks: otherMarks, kind: 'village', close: closeCanvas,
         select(id, side) {
             const p = byId.get(id);
             side.append(el('small', p.group + (p.combat ? ' · Combat area' : '')), el('h2', p.label), el('p', 'Location id: ' + p.id));

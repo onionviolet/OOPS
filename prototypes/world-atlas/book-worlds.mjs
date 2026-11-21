@@ -90,7 +90,9 @@ export function bookDiagram(ix, focus) {
     return {nodes, edges, hidden: rows.length - shown.length};
 }
 
-export function bookWorlds({main, data, controls, finder, routeButtons, button, list, closeCanvas, worldId, focus}) {
+// fixed: the shell already names the world, so the world tabs are left out.
+// pick: the place to select once its parent is open (a search result).
+export function bookWorlds({main, data, controls, finder, routeButtons, button, list, closeCanvas, worldId, focus, fixed = false, pick}) {
     main.replaceChildren();
     const worlds = Object.keys(data.books || {});
     const bar = controls();
@@ -100,8 +102,8 @@ export function bookWorlds({main, data, controls, finder, routeButtons, button, 
     }
     const wid = worlds.includes(worldId) ? worldId : worlds[0];
     const ix = data.bookIndex[wid] ||= indexWorld(data.books[wid]);
-    const open = (id, w = wid) => bookWorlds({main, data, controls, finder, routeButtons, button, list, closeCanvas, worldId: w, focus: id});
-    for (const w of worlds) {
+    const open = (id, w = wid, target) => bookWorlds({main, data, controls, finder, routeButtons, button, list, closeCanvas, worldId: w, focus: id, fixed, pick: target});
+    for (const w of fixed ? [] : worlds) {
         const tab = button(WORLD_NAMES[w] || w, () => open(undefined, w));
         tab.setAttribute('aria-pressed', String(w === wid));
         bar.append(tab);
@@ -115,7 +117,7 @@ export function bookWorlds({main, data, controls, finder, routeButtons, button, 
     const searchable = all.map(p => ({...p, label: p.name}));
     finder(bar, searchable, p => {
         const target = ix.byId.get(p.id);
-        open(target.parent || undefined, wid);
+        open(target.parent || undefined, wid, target.id);
     });
 
     const diagram = bookDiagram(ix, focus);
@@ -124,7 +126,7 @@ export function bookWorlds({main, data, controls, finder, routeButtons, button, 
     const captions = diagram.hidden ? [{label: diagram.hidden + ' more · search to reach them', x: 0, y: -40}] : [];
     boxCanvas({
         parent: main, title, nodes: diagram.nodes, edges: diagram.edges, marks: bookMarks, kind: 'book', captions,
-        initial: focus && diagram.nodes.some(n => n.id === focus) ? focus : diagram.nodes[0]?.id, close: closeCanvas,
+        initial: [pick, focus].find(id => id && diagram.nodes.some(n => n.id === id)) || diagram.nodes[0]?.id, close: closeCanvas,
         select(id, side) {
             if (id.startsWith('bucket:')) {
                 const rows = focusRows(ix, id);

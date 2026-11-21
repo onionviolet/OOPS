@@ -244,3 +244,14 @@ body > header h1, .box-canvas :is(h2,h3), .canvas-box { font-family: var(--ui-fo
 .box-canvas[data-canvas-kind="library"] .canvas-box[data-group="gap"] { border-color: #e39a8f; }
 .box-canvas[data-canvas-kind="library"] .canvas-box[data-group="shelf"],
 .box-canvas[data-canvas-kind="library"] .canvas-box[data-group="aspect"] { border-width: 2px; border-color: #a5c8e0; }
+/* Shell: sections, breadcrumb and world views share one bar. */
+.atlas-trail { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.2rem; padding: .55rem clamp(.8rem,2vw,2rem); border-bottom: 1px solid #40545c; }
+.trail-crumbs, .trail-views { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
+.trail-link { background: none; border-color: transparent; padding: .2rem .4rem; color: #cfe3d4; }
+.trail-link:last-child { color: #edffe8; font-weight: 600; }
+.trail-sep { color: #7f8c86; }
+.trail-views button { padding: .25rem .7rem; }
+.box-canvas[data-canvas-kind="worlds"] .canvas-box { font-size: 13px; line-height: 1.1; }
+.box-canvas[data-canvas-kind="worlds"] .canvas-box[data-group="walk"] { border-color: #ace79e; }
+.box-canvas[data-canvas-kind="worlds"] .canvas-box[data-group="registered"] { border-color: #a5c8e0; }
+.box-canvas[data-canvas-kind="worlds"] .canvas-box[data-group="library"] { border-style: dashed; border-color: #e0c27a; }

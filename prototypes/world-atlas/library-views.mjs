@@ -25,8 +25,10 @@ const TITLES = {
     sth: 'Small Town Hero', vs: 'Virtuous Sons', bdm: 'Beneath the Dragoneye Moons', fod: 'Forge of Destiny', rune: 'The Runesmith', ark: 'Ar’Kendrithyst',
 };
 // Where a world's reading reaches the game. Cast packs join by registry id; groups are registered locations.
+// The key is also the atlas world id, so a reading world links straight to its world page.
 const CONSUMERS = {lotm: {cast: 'lotm', group: 'Lord of the Mysteries'}, mol: {cast: 'mol', group: 'Mother of Learning'},
     hp: {group: 'Harry Potter'}, ri: {group: 'Reverend Insanity'}, ss: {group: 'Shadow Slave'}};
+const worldLink = (w, button) => w.consumer ? button('Open ' + w.label + ' in Worlds', () => {location.hash = 'world/' + w.id;}) : null;
 export const ASPECT_LABELS = {procedures: 'Procedures and crafts', generation: 'Generation and chance', progression: 'Learning and progression',
     institutions: 'Institutions and law', economy: 'Money and trade', knowledge: 'Knowledge and secrets', life: 'Daily life and travel', conflict: 'Harm, combat and healing'};
 export const STAGES = [
@@ -78,16 +80,17 @@ function worldFacts(w, side, list) {
 }
 
 // O4: columns are the stage where each world's lane stops.
-export function readingPipeline({main, data, controls, finder, list, button, closeCanvas, worldId}) {
+// fixed: shown inside a world page, so there is no way back to the all-worlds view here.
+export function readingPipeline({main, data, controls, finder, list, button, closeCanvas, worldId, fixed = false}) {
     main.replaceChildren();
     const worlds = libraryWorlds(data), byId = new Map(worlds.map(w => [w.id, w]));
     const bar = controls();
     const funnel = STAGES.map(s => `${worlds.filter(w => w.reached[s.key]).length} ${s.label.toLowerCase()}`).join(' → ');
     bar.append(el('small', `${worlds.length} reading worlds: ${funnel}`));
-    const open = id => readingPipeline({main, data, controls, finder, list, button, closeCanvas, worldId: id});
-    finder(bar, worlds, w => open(w.id));
+    const open = id => readingPipeline({main, data, controls, finder, list, button, closeCanvas, worldId: id, fixed});
+    if (!fixed) finder(bar, worlds, w => open(w.id));
     if (worldId && byId.has(worldId)) {
-        bar.append(button('All worlds', () => open()));
+        if (!fixed) bar.append(button('All reading worlds', () => open()));
         const w = byId.get(worldId);
         const nodes = STAGES.map((s, i) => ({id: s.key, label: s.label, x: i * 190, y: 0, w: 160, h: 50,
             group: w.reached[s.key] ? 'reached' : 'missing', marks: s.key === w.stop ? [{key: 'stop', icon: 'block', label: 'Lane stops here'}] : []}));
@@ -106,8 +109,8 @@ export function readingPipeline({main, data, controls, finder, list, button, clo
                     walkable: w.walkVia === 'host' && w.castPlaces ? 'Walked by its own host' : `${w.onWalk} places on a walk`,
                 }[id];
                 side.append(el('p', facts));
-                if (id === 'inGame' && w.consumer?.cast) side.append(button('Open in Book worlds', () => {location.hash = 'book-worlds';}));
-                if (id === 'inGame' && w.located) side.append(button('Open in Other game places', () => {location.hash = 'other-game-places';}));
+                if (id === 'inGame' && w.consumer?.cast) side.append(button('Open places', () => {location.hash = `world/${w.id}/places`;}));
+                if (id === 'inGame' && w.located) side.append(button('Open registered locations', () => {location.hash = `world/${w.id}/locations`;}));
                 if (id === 'walkable' && !w.reached.walkable && w.consumer && !w.consumer.cast) side.append(el('p', 'Not established: these locations have no walk projection in the atlas yet.'));
             }});
         return;
@@ -130,6 +133,8 @@ export function readingPipeline({main, data, controls, finder, list, button, clo
             side.append(el('small', w.stop === 'done' ? 'Reaches every stage' : 'Lane stops at: ' + STAGES.find(s => s.key === w.stop).label), el('h2', w.label));
             worldFacts(w, side, list);
             side.append(button('Open lane', () => open(id)));
+            const link = worldLink(w, button);
+            if (link) side.append(link);
         }});
 }
 
@@ -167,6 +172,8 @@ export function libraryShelves({main, data, controls, finder, list, button, clos
                 worldFacts(w, side, list);
                 const others = SHELVES.filter(s => s.id !== shelf.id && s.worlds.includes(id));
                 if (others.length) side.append(el('p', 'Also on: ' + others.map(s => s.label).join(' · ')));
+                const link = worldLink(w, button);
+                if (link) side.append(link);
             }});
         return;
     }
@@ -219,6 +226,8 @@ export function mechanicReadiness({main, data, controls, finder, list, button, c
                 side.append(el('small', {backed: 'In the game, with source pointers', gap: 'In the game, no source pointers yet', unused: 'Source pointers, no game use yet', none: 'Nothing yet'}[s]), el('h2', w.label));
                 side.append(el('p', `${w.aspects[aspect] || 0} rows point at ${ASPECT_LABELS[aspect].toLowerCase()}.`));
                 worldFacts(w, side, list);
+                const link = worldLink(w, button);
+                if (link) side.append(link);
                 const done = requests.filter(r => r.world === id && r.aspect === aspect);
                 if (done.length) side.append(el('p', `Requested · ${done[0].route}: ${done[0].next}`));
                 else {

@@ -102,7 +102,7 @@ export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, 
     centered.setAttribute('aria-label', 'Map scale');
     toolbar.append(element('h2', title), control('−', () => zoomBy(1 / 1.25), 'Zoom out'),
         centered, control('+', () => zoomBy(1.25), 'Zoom in'),
-        control('Fit', fit, 'Fit whole canvas'), control('×', close, 'Close canvas'));
+        control('Fit', fit, 'Fit whole canvas'), ...(close ? [control('×', close, 'Close canvas')] : []));
     legend.append(element('strong', 'Map key'));
     for (const mark of marks) {
         const entry = element('span', null, 'canvas-key');

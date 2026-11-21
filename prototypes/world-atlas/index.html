@@ -22,7 +22,7 @@ header,main{max-width:none;padding-inline:clamp(.8rem,2vw,2rem)}
 @media(max-width:750px){.atlas-workspace{grid-template-columns:1fr}.atlas-plane{min-width:480px}.atlas-workspace aside{max-height:none}}
 .map-scale{display:flex;justify-content:flex-end;align-items:center;gap:.4rem;margin-top:.35rem}.map-scale button{padding:.1em .6em}.map-scale output{font-variant-numeric:tabular-nums}.atlas-stop{max-width:13rem}
 </style><link rel="stylesheet" href="/styles/ui_tokens.css"><link rel="stylesheet" href="/styles/material_icons.css"><link rel="stylesheet" href="/field-record.css"><link rel="stylesheet" href="/canvas.css">
-<header><h1>World atlas</h1><nav aria-label="Atlas pages"></nav></header><main id="main">Loading world records…</main>
+<header><h1>World atlas</h1><nav aria-label="Atlas sections"></nav></header><div class="atlas-trail" aria-label="Where you are"></div><main id="main">Loading world records…</main>
 <script type="module">
 import {boxCanvas, element as el} from '/canvas.mjs';
 import {createCreatureRecord} from '/creature-record.js';
@@ -30,20 +30,75 @@ import {dangerLabel} from '/map-marks.js';
 import {placeMarks, villageDiagram} from '/village-layout.mjs';
 import {bookWorlds} from '/book-worlds.mjs';
 import {otherPlaces} from '/other-places.mjs';
-import {readingPipeline, libraryShelves, mechanicReadiness} from '/library-views.mjs';
+import {readingPipeline, libraryShelves, mechanicReadiness, libraryWorlds} from '/library-views.mjs';
 import {creatureMarks, creatureOverview, creatureShelf, creatureNeighborhood, libraryEdges} from '/creature-layout.mjs';
 
 const main=document.querySelector('main'), nav=document.querySelector('nav');
 const button=(label,fn)=>{const b=el('button',label);b.type='button';b.onclick=fn;return b};
-const list=rows=>{const ul=el('ul');for(const r of rows)ul.append(el('li',r));return ul};
+const list=rows=>{const ul=el('ul');for(const r of rows)ul.append(el('li',r));return ul};const listOf=list;
 const detail=(title,value)=>{const d=el('details');d.append(el('summary',title),el('pre',value));return d};
 const data=await (await fetch('/data')).json();data.bookIndex={};
 let draft={...data.draft};
-const pages={'Village region':regionalMap,'Other game places':()=>otherPlaces({main,data,controls,finder,list,closeCanvas}),'Book worlds':()=>bookWorlds({main,data,controls,finder,routeButtons,button,list,closeCanvas}),'Reading pipeline':()=>readingPipeline({main,data,controls,finder,list,button,closeCanvas}),'Library shelves':()=>libraryShelves({main,data,controls,finder,list,button,closeCanvas}),'Mechanic readiness':()=>mechanicReadiness({main,data,controls,finder,list,button,closeCanvas}),'Tingen districts':map,'World library':worldLibrary,'Entity library':library,'Village site workshop':editor,'Cyoria encounter':encounter,'Identified target':target};
-const slug=name=>name.toLowerCase().replaceAll(' ','-');
-function showPage(){const name=Object.keys(pages).find(n=>'#'+slug(n)===location.hash)||Object.keys(pages)[0];
- for(const b of nav.children)b.setAttribute('aria-pressed',String(b.textContent===name));main.replaceChildren();pages[name]();}
-for(const name of Object.keys(pages))nav.append(button(name,()=>{location.hash=slug(name)}));
+// One shell: four sections; a world owns its places, walks and reading. Old tab links still land.
+const WORLDS=[
+ {id:'village',label:'The Village',note:'Native region, where a fresh game starts',views:['places']},
+ {id:'lotm',label:'Lord of the Mysteries',cast:'lotm',group:'Lord of the Mysteries',views:['places','locations','districts','reading']},
+ {id:'mol',label:'Mother of Learning',cast:'mol',group:'Mother of Learning',views:['places','locations','encounter','reading']},
+ {id:'hp',label:'Harry Potter',group:'Harry Potter',views:['locations','reading']},
+ {id:'ri',label:'Reverend Insanity',group:'Reverend Insanity',views:['locations','reading']},
+ {id:'ss',label:'Shadow Slave',group:'Shadow Slave',views:['locations','reading']},
+ {id:'paradise',label:'Reincarnation Paradise',group:'Reincarnation Paradise',views:['locations']},
+ {id:'proto23',label:'Proto23 reference',group:'Proto23 reference',views:['locations']},
+ {id:'testpacks',label:'Private test packs',group:'Private test packs',views:['locations']},
+ {id:'frontier',label:'Frontier outposts',note:'Registered, but no route from the Village at a fresh start',group:'Frontier, not reached from the Village',views:['locations']},
+];
+const worldById=new Map(WORLDS.map(w=>[w.id,w]));
+const VIEW_LABELS={places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
+ pipeline:'Reading pipeline',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds',observations:'Identified target',site:'Village site workshop'};
+const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'library',label:'Library',views:['pipeline','shelves','mechanics']},
+ {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'workbench',label:'Workbench',views:['site']}];
+const LEGACY={'village-region':'world/village/places','other-game-places':'worlds','book-worlds':'world/lotm/places','reading-pipeline':'library/pipeline',
+ 'library-shelves':'library/shelves','mechanic-readiness':'library/mechanics','tingen-districts':'world/lotm/districts','world-library':'worlds',
+ 'entity-library':'creatures/kinds','village-site-workshop':'workbench/site','cyoria-encounter':'world/mol/encounter','identified-target':'creatures/observations'};
+const go=hash=>{location.hash=hash};
+function route(){
+ const raw=location.hash.slice(1);if(LEGACY[raw]){history.replaceState(null,'','#'+LEGACY[raw]);return route()}
+ const [section='worlds',a,b]=raw.split('/');
+ if(section==='world'&&worldById.has(a)){const w=worldById.get(a);return {section:'worlds',world:w,view:w.views.includes(b)?b:w.views[0]}}
+ const s=SECTIONS.find(x=>x.id===section)||SECTIONS[0];
+ return {section:s.id,view:s.views?.includes(a)?a:s.views?.[0]};
+}
+const trail=document.querySelector('.atlas-trail');
+function crumb(label,hash){const b=button(label,()=>go(hash));b.className='trail-link';return b}
+function showPage(){
+ const r=route();
+ for(const b of nav.children)b.setAttribute('aria-pressed',String(b.dataset.section===r.section));
+ trail.replaceChildren();
+ const crumbs=el('nav',null,'trail-crumbs');crumbs.setAttribute('aria-label','Breadcrumb');
+ const views=el('nav',null,'trail-views');views.setAttribute('aria-label','Views');
+ const section=SECTIONS.find(s=>s.id===r.section);
+ crumbs.append(crumb(section.label,r.section==='worlds'?'worlds':r.section));
+ let list=[];
+ if(r.world){crumbs.append(el('span','›','trail-sep'),crumb(r.world.label,'world/'+r.world.id));list=r.world.views.map(v=>[v,'world/'+r.world.id+'/'+v])}
+ else if(section.views)list=section.views.map(v=>[v,r.section+'/'+v]);
+ for(const [v,hash] of list){const b=button(VIEW_LABELS[v],()=>go(hash));b.setAttribute('aria-pressed',String(v===r.view));views.append(b)}
+ trail.append(crumbs);if(list.length>1)trail.append(views);
+ main.replaceChildren();
+ const shared={main,data,controls,finder,list:listOf,button,routeButtons,closeCanvas};
+ if(r.world)return worldView(r.world,r.view,shared);
+ if(r.section==='worlds')return worldsIndex();
+ ({pipeline:()=>readingPipeline(shared),shelves:()=>libraryShelves(shared),mechanics:()=>mechanicReadiness(shared),
+   kinds:()=>library(),observations:target,site:editor})[r.view]();
+}
+function worldView(w,view,shared){
+ if(view==='places'&&w.id==='village')return regionalMap();
+ if(view==='places')return bookWorlds({...shared,worldId:w.cast,fixed:true});
+ if(view==='locations')return otherPlaces({...shared,group:w.group,title:w.label+' · registered locations'});
+ if(view==='districts')return map();
+ if(view==='encounter')return encounter();
+ if(view==='reading')return readingPipeline({...shared,worldId:w.id,fixed:true});
+}
+for(const s of SECTIONS){const b=button(s.label,()=>go(s.id));b.dataset.section=s.id;nav.append(b)}
 window.addEventListener('hashchange',showPage);
 const recById=new Map(data.library.map(r=>[r.id,r]));
 function tree(parent,label,value,opened=false){
@@ -55,13 +110,6 @@ function tree(parent,label,value,opened=false){
  for(const [k,v] of Object.entries(value))tree(branch,k,v);parent.append(branch);
 }
 function controls(){const bar=el('nav');bar.className='atlas-tools';main.append(bar);return bar}
-function localCanvas({center,peers,describe,follow,relation}){
- const columns=Math.min(4,Math.max(1,Math.ceil(peers.length/3)));
- const rows=Math.ceil(peers.length/columns)||1;
- const nodes=[{kind:center.kind,label:center.label,x:50,y:8},...peers.map((p,i)=>({kind:p.kind,label:p.label,x:(i%columns+.5)*100/columns,y:26+Math.floor(i/columns)*65/Math.max(1,rows-1)}))];
- const edges=peers.map((_,i)=>[0,i+1]);
- return graph(nodes,edges,(i,side)=>{const record=i?peers[i-1]:center;side.append(el('small',record.kind),el('h2',record.label));if(i){side.append(el('p',relation(record)));if(!record.facet)side.append(button('Center on '+record.label,()=>follow(record)))}describe(record,side)},Math.max(470,rows*105+130));
-}
 function finder(bar,records,open){
  const search=el('input'),choices=el('div');search.type='search';search.placeholder='Find a record';search.setAttribute('aria-label',search.placeholder);
  bar.append(search,choices);search.oninput=()=>{choices.replaceChildren();const q=search.value.trim().toLowerCase();if(!q)return;
@@ -78,7 +126,8 @@ function routeButtons(links, go) {
  }
  return rows;
 }
-const closeCanvas = () => {location.hash = 'world-library'};
+// Closing a canvas goes up one level: a world view to its world's first view, anything else to Worlds.
+const closeCanvas = () => {const r=route();go(r.world&&r.view!==r.world.views[0]?'world/'+r.world.id:'worlds')};
 function regionalMap(id, local = false) {
  main.replaceChildren();
  const byId = new Map(data.frontier.map(place => [place.id, place]));
@@ -121,16 +170,45 @@ function regionalMap(id, local = false) {
   }
  });
 }
-function worldLibrary(world){
- main.replaceChildren();const locations=data.library.filter(r=>r.group==='Locations'),groups=Map.groupBy(locations,r=>r.world);
- const names={'base.frontier':'Frontier residences','book.mol':'Cyoria','book.hp.lead':'Harry’s starting locations','book.hp.lead.world':'Harry’s residences','reference.proto23.village':'Proto23 Village','Tingen':'Tingen districts'};
- const bar=controls();bar.append(el('strong','World library'),el('small','Boxes group indexed locations by source collection.'));
- if(world)bar.append(button('All collections',()=>worldLibrary()));
- const scope=world?groups.get(world):locations;finder(bar,scope,rec=>library(rec.id));
- const center={kind:world?'Source collection':'Atlas',label:world?(names[world]||world):'Indexed worlds'};
- const peers=world?scope.map(r=>({...r,kind:'Location'})):[...groups].map(([id,rows])=>({id,label:names[id]||id,kind:'Source collection',count:rows.length}));
- localCanvas({center,peers,follow:r=>world?library(r.id):worldLibrary(r.id),relation:()=>world?'Location in collection':'Indexed collection',
- describe:(r,side)=>{if(r.count)side.append(el('p',r.count+' location records'));if(r.fields)for(const [k,v] of Object.entries(r.fields))tree(side,k,v);if(!r.id)side.append(el('p',scope.length+' locations in this view.'))}});
+const worldMarks=[{key:'walk',icon:'directions_walk',label:'Has places you can walk'},{key:'partial',icon:'hourglass_bottom',label:'Reading in progress'},
+ {key:'read',icon:'menu_book',label:'Read through'},{key:'selected',label:'Selected'}];
+function worldStats(w){
+ const reading=libraryWorlds(data).find(r=>r.id===w.id),cast=w.cast&&data.books?.[w.cast];
+ const located=w.group?data.others.filter(r=>r.group===w.group).length:0;
+ const places=w.id==='village'?data.frontier.length:(cast?cast.places.length:0);
+ const walk=w.id==='village'?data.frontier.length:cast?(cast.places.some(p=>p.district)?cast.places.filter(p=>p.district).length:cast.places.length):0;
+ return {reading,places,located,walk};
+}
+function worldsIndex(){
+ const stats=new Map(WORLDS.map(w=>[w.id,worldStats(w)]));
+ const readingOnly=libraryWorlds(data).filter(r=>!worldById.has(r.id));
+ const bar=controls();
+ bar.append(el('small',`${WORLDS.length} worlds in the game · ${readingOnly.length} more read but not used by the game yet`));
+ finder(bar,WORLDS,w=>go('world/'+w.id));
+ const order=[['village','lotm','mol'],['hp','ri','ss','paradise'],['proto23','testpacks','frontier','library']];
+ const nodes=[];
+ order.forEach((row,r)=>row.forEach((id,c)=>{
+  const x=(c-(row.length-1)/2)*250,y=r*110;
+  if(id==='library')return nodes.push({id,label:`Read, not in the game · ${readingOnly.length}`,x,y,w:220,h:58,group:'library',marks:[]});
+  const w=worldById.get(id),st=stats.get(id),count=st.places||st.located;
+  nodes.push({id,label:`${w.label} · ${count}`,x,y,w:220,h:58,group:st.walk?'walk':'registered',
+   marks:[...(st.walk?[worldMarks[0]]:[]),...(st.reading?.readState==='partial'?[worldMarks[1]]:[]),...(st.reading?.readState==='complete'?[worldMarks[2]]:[])]});
+ }));
+ boxCanvas({parent:main,title:'Worlds',nodes,edges:[],marks:worldMarks,kind:'worlds',initial:'village',
+  select(id,side){
+   if(id==='library'){side.append(el('small','Library'),el('h2','Read, not in the game'),el('p',readingOnly.length+' reading worlds have no game consumer yet.'),
+    listOf(readingOnly.slice(0,8).map(r=>r.label+' · '+{complete:'read through',partial:'partly read',none:'prepared'}[r.readState])),button('Open reading pipeline',()=>go('library/pipeline')));return}
+   const w=worldById.get(id),st=stats.get(id);
+   side.append(el('small',st.walk?'In the game · walkable':'In the game · registered locations'),el('h2',w.label));
+   if(w.note)side.append(el('p',w.note));
+   side.append(listOf([
+    st.places?`${st.places} places${w.cast?' from the cast pack':''}`:null,
+    st.located&&w.id!=='village'?`${st.located} registered locations`:null,
+    st.walk&&w.cast?`${st.walk} on a walk`:null,
+    st.reading?`Reading: ${st.reading.keys.length} keys, ${Math.round(st.reading.coverage*100)}% of passes done`:'No reading keys',
+   ].filter(Boolean)));
+   side.append(routeButtons(w.views.map(v=>({id:v,label:VIEW_LABELS[v]})),v=>go('world/'+id+'/'+v)));
+  }});
 }
 const libraryGroup = rec => rec.group === 'Living kinds' ? rec.world : rec.group;
 const groupNames = new Map([
@@ -143,7 +221,7 @@ function inspectRecord(rec, side) {
  if (rec.id === 'household.moss') {
   const record = createCreatureRecord(document, {expanded:true});
   record.update(data.target[0]);
-  side.append(record.node, button('Compare observations', () => {location.hash = 'identified-target'}));
+  side.append(record.node, button('Compare observations', () => go('creatures/observations')));
   return;
  }
  const family = el('div', null, 'canvas-record');
@@ -232,18 +310,20 @@ function graph(nodes,edges,onSelect,height){
  return {select,rename:(i,text)=>buttons[i].lastChild.textContent=text,focus:i=>buttons[i].focus({preventScroll:true}),reveal:i=>{const b=buttons[i];viewport.scrollTo({left:b.offsetLeft-viewport.clientWidth/2,top:b.offsetTop-viewport.clientHeight/2})}};
 }
 function map(){
- const places=data.places;
- const search=el('input'),matches=el('div');search.type='search';search.placeholder='Find a place, officer or command';search.setAttribute('aria-label',search.placeholder);main.append(search,matches);
- const nodes=places.map((p,i)=>({kind:p.district,label:p.name.replace(/^Tingen /,''),x:[20,50,80,50][i],y:[50,19,50,81][i]}));
- const edges=[];places.forEach((p,i)=>p.routes.forEach(r=>{const j=places.findIndex(v=>v.name===r.dest);if(j>i)edges.push([i,j])}));
- const board=graph(nodes,edges,(i,side,select)=>{const p=places[i];side.append(el('small',p.district),el('h2',p.name),el('p',p.team+' jurisdiction'),el('h3','Walks'));
-  for(const r of p.routes)side.append(button(r.dest.replace(/^Tingen /,'')+' · '+r.minutes+' min',()=>select(places.findIndex(v=>v.name===r.dest))));
-  if(p.actions.length)side.append(el('h3','Local actions'));
-  for(const a of p.actions){const row=el('section');row.append(el('strong',a.label));if(a.target)row.append(el('small',data.actors[a.target]||a.target));row.append(detail('Command definition',[a.id,JSON.stringify(a.requires,null,2)].join('\n')));side.append(row)}
- });
- search.oninput=()=>{matches.replaceChildren();const q=search.value.trim().toLowerCase();if(!q)return;places.forEach((p,i)=>{
-  if([p.name,...p.actions.flatMap(a=>[a.label,a.id,a.target,data.actors[a.target]])].join(' ').toLowerCase().includes(q))matches.append(button(p.name,()=>{board.select(i);board.focus(i)}))});
-  if(!matches.childElementCount)matches.textContent='No matching places.'};
+ const places=data.places,short=n=>n.replace(/^Tingen /,'');
+ const at=[[-240,0],[0,-140],[240,0],[0,140]];
+ const nodes=places.map((p,i)=>({id:p.name,label:short(p.name),x:at[i]?.[0]??i*200,y:at[i]?.[1]??260,w:190,h:50,marks:[]}));
+ const edges=[];places.forEach((p,i)=>p.routes.forEach(r=>{const j=places.findIndex(v=>v.name===r.dest);if(j>i)edges.push({from:p.name,to:r.dest,both:true})}));
+ const bar=controls();bar.append(el('small',places.length+' supervised districts with walks and local actions'));
+ // Search reaches officers and commands too, as before.
+ finder(bar,[...places.map(p=>({id:p.name,label:short(p.name)})),...places.flatMap(p=>p.actions.map(a=>({id:p.name+'|'+a.id+' '+(data.actors[a.target]||''),label:a.label+' · '+short(p.name),place:p.name})))],r=>board.select(r.place||r.id,true));
+ const board=boxCanvas({parent:main,title:'Tingen walk districts',nodes,edges,kind:'village',close:closeCanvas,
+  marks:[{key:'route',label:'Walk'},{key:'selected',label:'Selected'}],
+  select(id,side,select){const p=places.find(x=>x.name===id);side.append(el('small',p.district),el('h2',p.name),el('p',p.team+' jurisdiction'),el('h3','Walks'),
+   routeButtons(p.routes.map(r=>({id:r.dest,label:short(r.dest),detail:r.minutes+' min'})),dest=>select(dest,true)));
+   if(p.actions.length)side.append(el('h3','Local actions'));
+   for(const a of p.actions){const row=el('section');row.append(el('strong',a.label));if(a.target)row.append(el('small',data.actors[a.target]||a.target));row.append(detail('Command definition',[a.id,JSON.stringify(a.requires,null,2)].join('\n')));side.append(row)}
+  }});
 }
 function encounter(){for(const e of data.encounters){const a=el('article');a.className='sheet';a.append(el('small',e.place),el('h2',e.name),el('p','Target · '+e.target),el('h3','Opponent actions assigned here'),list(e.actions),detail('Opening conditions',JSON.stringify(e.requires,null,2)));e.turns.forEach((turn,i)=>a.append(el('h3','Exchange '+(i+1)),list(turn)));main.append(a)}}
 function target(){
