@@ -60,6 +60,11 @@ export function validateTempoBattle(b, session, state) {
     check(b.fate === undefined || (b.fate && typeof b.fate === 'object' && Object.entries(b.fate).every(([id, by]) => b.fighters?.[id]?.end === 'downed' && b.fighters?.[by])), 'Invalid tempo fate window.');
     check(Array.isArray(b.log) && b.log.length <= TEMPO_LOG_LINES && typeof b.last === 'string' && b.last.length <= 500 && b.result === null, 'Invalid tempo log.');
     const ids = Object.keys(b.fighters || {});
+    // Crowds (TF4, 2026-11-21): optional, so a fight saved without one reads as before and the schema stays 7. Each names its members
+    // once, front first; every member is a fighter on the far side of the player.
+    const inCrowds = Object.values(b.crowds || {}).flatMap(c => c?.order || []);
+    check(b.crowds === undefined || (b.crowds && typeof b.crowds === 'object' && Object.values(b.crowds).every(c => c && typeof c.name === 'string' && c.name.length > 0 && c.name.length <= 80 &&
+        Array.isArray(c.order) && c.order.length > 1 && c.order.every(m => b.fighters?.[m]?.side === 'b')) && new Set(inCrowds).size === inCrowds.length), 'Invalid tempo crowd.');
     check(ids.includes('player') && b.fighters.player.side === 'a' && ids.some(id => b.fighters[id].side === 'b'), 'Invalid tempo roster.');
     const essence = b.fighters.player.means?.essence;
     check(b.startEssence === undefined || (natural(b.startEssence) && natural(essence) && essence <= b.startEssence), 'Invalid tempo starting essence.');

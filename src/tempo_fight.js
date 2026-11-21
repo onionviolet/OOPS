@@ -68,12 +68,38 @@ export const TEMPO_MOVES = {
     order: {label: 'Give an order', kind: 'order', cost: 2, safe: false, text: 'Say it to an ally. Costs a little time and may not be heard.'},
     // Stock moves (FD3/FD17): only fighters granted them and carrying stock see them. Odds come from the world's own scale, set when the fight begins.
     shoot: {label: 'Fire', kind: 'shoot', cost: 3, safe: false, text: 'Spend one loaded round on the nearest foe. Misses still spend it.'},
-    reload: {label: 'Reload', kind: 'reload', cost: 6, safe: true, text: 'Load carried rounds into the empty chambers. Slow, and you are open while you do it.'}
+    reload: {label: 'Reload', kind: 'reload', cost: 6, safe: true, text: 'Load carried rounds into the empty chambers. Slow, and you are open while you do it.'},
+    // Crowd moves (TF4, TF5, MS2; Weibao, 2026-11-21: "only attack the outermost hp bar unless I have multihit", then "implement entirely").
+    // Offered by a crowd in the fight, not carried in a move list, so fights without a crowd and their saves are unchanged.
+    sweep: {label: 'Sweep', kind: 'strike', cost: 6, power: .6, sweep: 2, safe: false, text: 'A wide blow across the front of a crowd. The two nearest each take a lighter hit of their own; nothing carries past them.'},
+    single_out: {label: 'Single out', kind: 'single_out', cost: 4, safe: false, text: 'Drive the one you picked to the front of the crowd, where your blows can reach it. The rest may close in while you do.'},
+    fall_back: {label: 'Fall back', kind: 'fall_back', cost: 2, safe: true, text: 'A hurt fighter at the front gives way to a fresher one behind.'}
+};
+// Crowds (TF4, TF5, MS2, MS7): a crowd is ordinary fighters plus a rank order kept on the battle (`b.crowds`). A blow at any member lands on
+// the front one; overkill stays with that body, because each layer is its own body (spare, finish, parts and kills count per body, MS9).
+// Front width (MS4), rout (MS6) and an observed count (MS8) are not modelled yet.
+export const CROWD_DIALS = {
+    closeIn: {value: .5, why: 'Singling one out means reaching into the crowd: about half the time the rest press in while you do.'},
+    closeBeats: {value: 2, why: 'When a crowd presses in, each of the others acts about two beats sooner (it cannot act before now).'},
+    fallBackAt: {value: .5, why: 'A front fighter below half its health gives way, the way a tired rank swaps out.'},
+    fallBackGap: {value: .25, why: 'Only for one at least a quarter of its health fresher, so a crowd does not shuffle between equals.'},
 };
 const KEEP = TEMPO_MOVE_IDS.filter(m => m !== 'order');
 const natural = n => Number.isSafeInteger(n) && n >= 0;
 const sideOf = (b, id) => b.fighters[id].side;
 const active = (b, side) => Object.keys(b.fighters).filter(id => b.fighters[id].status === 'active' && (!side || b.fighters[id].side === side)).sort();
+export const crowdOf = (b, id) => Object.keys(b.crowds || {}).find(cid => b.crowds[cid].order.includes(id)) ?? null;
+// Standing members, front first.
+export const crowdRanks = (b, cid) => b.crowds[cid].order.filter(id => b.fighters[id]?.status === 'active');
+const crowdFront = (b, cid) => crowdRanks(b, cid)[0] ?? null;
+// Who a blow at `id` can reach: the front, or the first `sweep` ranks for a sweeping blow. Outside a crowd, the one aimed at.
+const reachOf = (b, id, sweep = 0) => { const cid = crowdOf(b, id); return cid ? crowdRanks(b, cid).slice(0, Math.max(1, sweep)) : [id]; };
+const crowdsStanding = b => Object.keys(b.crowds || {}).filter(cid => crowdRanks(b, cid).length);
+function fallBackDue(b, id) {
+    const cid = crowdOf(b, id), f = b.fighters[id];
+    if(!cid || crowdFront(b, cid) !== id || f.hp / f.maxHp >= CROWD_DIALS.fallBackAt.value) return false;
+    return crowdRanks(b, cid).slice(1).some(x => b.fighters[x].hp / b.fighters[x].maxHp >= f.hp / f.maxHp + CROWD_DIALS.fallBackGap.value);
+}
 const newBattles = new WeakSet();
 // A view can consume committed reactions and log lines without replaying them
 // from the saved tail. Conflict plans clone the battle on each step.
@@ -119,9 +145,19 @@ const carries = f => Number.isSafeInteger(f?.purse) && f.purse > 0 && !f.robbed;
 const canBind = (actor, target) => foeKind(target) === 'person' && canTakeAlive(actor);
 const fateIds = (actor, target) => ['finish', 'spare', ...(carries(target) ? ['rob'] : []), ...(canBind(actor, target) ? ['bind_fate'] : [])];
 export function offered(b, actorId) {
-    if(!b.stakes || b.fighters[actorId]?.status !== 'active') return [];
-    const choices = new Set(fates(b, actorId).flatMap(id => fateIds(b.fighters[actorId], b.fighters[id])));
-    if(actorId === 'player' && active(b, 'b').length) choices.add(b.stakes.lethal ? 'plead' : 'escalate');
+    if(b.fighters[actorId]?.status !== 'active') return [];
+    const choices = new Set();
+    if(b.stakes) {
+        for(const m of fates(b, actorId).flatMap(id => fateIds(b.fighters[actorId], b.fighters[id]))) choices.add(m);
+        if(actorId === 'player' && active(b, 'b').length) choices.add(b.stakes.lethal ? 'plead' : 'escalate');
+    }
+    // A crowd on the other side offers the sweep, and singling one out while more than one stands; its own front can fall back.
+    const facing = crowdsStanding(b).filter(cid => sideOf(b, b.crowds[cid].order[0]) !== sideOf(b, actorId));
+    if(actorId === 'player' && facing.length) {
+        choices.add('sweep');
+        if(facing.some(cid => crowdRanks(b, cid).length > 1)) choices.add('single_out');
+    }
+    if(fallBackDue(b, actorId)) choices.add('fall_back');
     return [...choices];
 }
 export const moveRow = (f, id) => TEMPO_MOVES[id] ?? (f.kit?.[id] ? {...f.kit[id], kind: f.kit[id].ward ? 'ward' : 'kit', safe: !!f.kit[id].ward || !!f.kit[id].safe} : null);
@@ -220,8 +256,9 @@ function channelLine(b, actorId, f, moveId) {
 }
 function target(b, actorId, wanted) {
     const foes = active(b).filter(id => sideOf(b, id) !== sideOf(b, actorId));
-    if(wanted && foes.includes(wanted)) return wanted;
-    return foes.sort((x, y) => b.fighters[x].hp - b.fighters[y].hp || (x < y ? -1 : 1))[0] || null;
+    const pick = wanted && foes.includes(wanted) ? wanted : foes.sort((x, y) => b.fighters[x].hp - b.fighters[y].hp || (x < y ? -1 : 1))[0] || null;
+    // A blow at a crowd lands on its front (MS2): picking one behind it takes Single out first.
+    return pick ? reachOf(b, pick)[0] : null;
 }
 
 // Named policies choose a move for any fighter. Headless drivers and foes use
@@ -236,6 +273,7 @@ export function policyMove(b, actorId, policy) {
 function policyChoice(b, actorId, policy) {
     const f = b.fighters[actorId], hp = f.hp / f.maxHp, has = id => f.moves.includes(id);
     const foe = target(b, actorId);
+    if(fallBackDue(b, actorId)) return {moveId: 'fall_back', targetId: null};
     if(f.ally && policy === 'steady') return allyMove(b, actorId, {target});
     const pick = id => ({moveId: id, targetId: id === 'jab' || id === 'swing' || id === 'shoot' || isAttack(moveRow(f, id)) && moveRow(f, id).kind === 'kit' ? foe : null});
     // A body down at this fighter's feet is decided first: a careful policy spares; a hunt or skirmish finishes, anything else spares.
@@ -435,11 +473,16 @@ function runMove(plan, registry, command, publish, vitalsBefore) {
             const guard = active(b, 'a').find(x => x !== 'player' && activeOrder(b, b.fighters[x])?.id === 'cover' && b.fighters[x].hp > 0);
             if(guard && draw(b, 'cover', guard, {foe: id}) < coverChance(b, b.fighters[guard])) {foeId = guard; say(b, `${b.fighters[guard].name} steps into the blow.`);}
         }
-        const foe = b.fighters[foeId], had = f.stamina > 0;
+        const had = f.stamina > 0;
+        // A sweep (MS3) lands its own lighter blow on each of the crowd's first ranks; stamina and aim are paid once.
+        const reach = move.sweep && foeId !== 'player' ? reachOf(b, foeId, move.sweep) : [foeId];
+        if(reach.length > 1) say(b, `${name} sweep${id === 'player' ? '' : 's'} across the front.`);
+        for(const [n, foeId] of reach.entries()) {
+        const foe = b.fighters[foeId];
         const odds = oddsOf(f), foeOdds = oddsOf(foe), aim = SLOT_IDS.includes(command.aim) ? command.aim : null;
         check(odds.allowed, `${odds.blockedBy?.reason || 'An injury'} stops you striking.`);
-        if(aim) cost += LOCATION_DIALS.aimCost.value;
-        f.stamina = Math.max(0, f.stamina - staminaForStrike(f));
+        if(aim && !n) cost += LOCATION_DIALS.aimCost.value;
+        if(!n) f.stamina = Math.max(0, f.stamina - staminaForStrike(f));
         let k = 0;
         const random = () => drawFraction(b.seed, checkKey({subject: `${b.id}:strike`, method: 'strike', period: {at: b.actions}, targetState: {draw: k++}, attemptState: {actor: id, foe: foeId}}));
         const strike = rollCombatStrike({attackPower: move.power * f.profile.attackPower * (had && f.stamina === 0 ? (f.profile.emptyStaminaMultiplier || .5) : 1),
@@ -508,6 +551,29 @@ function runMove(plan, registry, command, publish, vitalsBefore) {
         say(b, `${name} ${strike.kind === 'hit' ? `hit${id === 'player' ? '' : 's'} ${foeName} ${slot === 'head' ? 'in the head' : slot === 'torso' ? 'in the body' : `on the ${SLOTS[slot].label}`} for ${round1(dmg)}${typed ? ` ${typed.kind}` : ''}${strike.critted ? ' (critical)' : ''}${typed?.note ? `, ${typed.note}` : ''}${stopped ? `, armour stopped ${stopped}` : ''}` : strike.kind === 'blocked' ? `meet${id === 'player' ? '' : 's'} a full block` : `miss${id === 'player' ? '' : 'es'}`}.`);
         if(injury) say(b, `${foeId === 'player' ? 'Your' : `${foe.name}'s`} ${injury.replace(': ', ' are ').toLowerCase()}.`);
         if(foe.status === 'down') say(b, endLine(foeId, foe));
+        }
+    } else if(move.kind === 'single_out') {
+        // TF4: pull the one you picked to the front of its crowd, so the next blow can reach it. The rest may press in (keyed draw).
+        const pick = command.targetId, cid = pick && crowdOf(b, pick);
+        check(cid && b.fighters[pick].status === 'active' && sideOf(b, pick) !== sideOf(b, id), 'Pick one of the crowd to single out.');
+        check(crowdFront(b, cid) !== pick, 'That one is already at the front.');
+        const crowd = b.crowds[cid];
+        crowd.order = [pick, ...crowd.order.filter(x => x !== pick)];
+        mark(b, pick, 'singled out');
+        say(b, `${name} drive${id === 'player' ? '' : 's'} ${names.get(pick) ?? b.fighters[pick].name} to the front of ${crowd.name.toLowerCase()}.`);
+        if(draw(b, 'close_in', id, {crowd: cid}) < CROWD_DIALS.closeIn.value) {
+            for(const other of crowdRanks(b, cid).slice(1)) b.fighters[other].ready = Math.max(b.now, b.fighters[other].ready - CROWD_DIALS.closeBeats.value);
+            say(b, `${crowd.name} presses in while you do.`);
+        }
+    } else if(move.kind === 'fall_back') {
+        // TF5: a hurt front member gives way; the freshest one behind steps up.
+        const cid = crowdOf(b, id);
+        check(cid && fallBackDue(b, id), 'Only a hurt fighter at the front of a crowd can fall back.');
+        const crowd = b.crowds[cid], behind = crowdRanks(b, cid).slice(1);
+        const fresh = behind.reduce((x, y) => b.fighters[y].hp / b.fighters[y].maxHp > b.fighters[x].hp / b.fighters[x].maxHp ? y : x);
+        crowd.order = [fresh, ...crowd.order.filter(x => x !== fresh && x !== id), id];
+        mark(b, id, 'fell back');
+        say(b, `${name} falls back; ${names.get(fresh) ?? b.fighters[fresh].name} steps up.`);
     } else if(move.kind === 'fate') {
         const foeId = fates(b, id).includes(command.targetId) ? command.targetId : fates(b, id)[0];
         check(foeId, 'No one is down at your feet.');
@@ -690,6 +756,11 @@ export function beginTempoFight(state, registry, context, spec) {
     if(Object.values(fighters).some(f => f.side === 'a' && f.ally)) fighters.player.moves.push('order');
     const b = {schema: TEMPO_SCHEMA, id: spec.id, title: spec.title || 'A fight', seed, actions: 0, now: 0, seconds: 0, held: 0, floor: spec.floor ?? 0,
         conditions: {light: 'day', footing: 'firm', weather: 'clear', ...spec.conditions}, fighters, log: [], last: '', result: null, surprised: null, ...(spec.stakes ? {stakes: tempoStakes(spec.stakes)} : {}), ...(spec.terms ? {terms: {...spec.terms}} : {})};
+    // A crowd (TF4, MS7) is named by the encounter: its members in rank order, front first.
+    for(const c of spec.crowds || []) {
+        const order = c.members.filter(m => fighters[m]?.side === 'b' && !crowdOf(b, m));
+        if(order.length > 1) (b.crowds ||= {})[c.id] = {name: c.name, order};
+    }
     presentation.set(b, []);
     if(spec.startEssence !== undefined) b.startEssence = spec.startEssence;
     // Who notices first sets the opening (LSD341): aware side vs the other's best stealth.
@@ -767,13 +838,15 @@ function perceivedTraits(b, foe, me) {
 export const senseOf = (b, foe, me) => perceivedTraits(b, foe, me).sense;
 
 const MOVE_EFFECT = {strike: 'harm', shoot: 'harm', guard: 'protect', ward: 'protect', remedy: 'protect', reload: 'protect',
-    escalate: 'influence', plead: 'influence', order: 'influence', yield: 'influence', withdraw: 'escape'};
+    escalate: 'influence', plead: 'influence', order: 'influence', yield: 'influence', withdraw: 'escape', single_out: 'influence', fall_back: 'escape'};
 const moveEffect = row => row.binds || row.stun || Object.keys(row.takes || {}).length ? 'hinder' : MOVE_EFFECT[row.kind] ?? 'harm';
 const observedHealth = (hp, max) => hp / max > .66 ? 'fresh' : hp / max > .33 ? 'hurt' : 'barely standing';
 function harmRead(b, me, moveId, targetId) {
     const row = moveRow(me, moveId), foe = b.fighters[targetId];
     if (moveId === RAT_STEP_MOVE && targetId !== openingFor(b, me)) return null;
     if (row.kind === 'shoot' && !me.stock?.vs[targetId]) return null;
+    // Inside a crowd, only the ranks a blow can reach would take it (MS2).
+    if (!reachOf(b, targetId, row.sweep).includes(targetId)) return null;
     const power = row.force ?? (row.power ?? 0) * me.profile.attackPower;
     if (!power && row.kind !== 'shoot') return null;
     const guard = foe.guard ? (foe.ward ?? TEMPO_DIALS.guardBonus.value) : 0;
@@ -817,7 +890,9 @@ function rosterFor(b, readyOf) {
         }
         return {id, name: id === 'player' ? 'You' : f.name, side: f.side,
             ...state, causes, ready: readyOf(id), next: id === next, rank: ranks.get(id),
-            ...(f.side === 'b' && f.tags?.includes('beast') && !f.tags.some(tag => ['elite', 'named', 'large'].includes(tag)) ? {packKind: f.name} : {}),
+            // A crowd draws as one layered bar (TF3, LB1), so its members do not also fold as a pack.
+            ...(crowdOf(b, id) ? {crowd: {id: crowdOf(b, id), name: b.crowds[crowdOf(b, id)].name, rank: crowdRanks(b, crowdOf(b, id)).indexOf(id)}} :
+                f.side === 'b' && f.tags?.includes('beast') && !f.tags.some(tag => ['elite', 'named', 'large'].includes(tag)) ? {packKind: f.name} : {}),
             ...(f.side === 'a' ? {hp: f.hp, maxHp: f.maxHp} : {})};
     });
     return rows.sort((a, b) => Number(b.id === 'player') - Number(a.id === 'player') || a.side.localeCompare(b.side));
@@ -869,6 +944,8 @@ export function tempoView(b) {
         place: b.conditions.place || null, scene: {light: b.conditions.light, footing: b.conditions.footing,
             weather: b.conditions.weather, visibility: b.conditions.visibility}, holdRisk: holdRisk(b),
         roster: rosterFor(b, readyOf),
+        // Standing crowds, front first (TF3, TF4): the card draws one layered bar per crowd and Single out picks from `order`.
+        crowds: crowdsStanding(b).map(cid => ({id: cid, name: b.crowds[cid].name, order: crowdRanks(b, cid)})),
         aims: mine ? SLOT_IDS.map(id => ({id, label: SLOTS[id].label === 'body' ? 'Body' : SLOTS[id].label[0].toUpperCase() + SLOTS[id].label.slice(1), text: SLOTS[id].why})) : [],
         hurt: Object.entries(me.parts || {}).map(([id, rung]) => ({id, label: partLabel(id), rung, shift: oddsOf({parts: {[id]: rung}}).shift})),
         orders: mine && me.moves.includes('order') ? active(b, 'a').filter(id => b.fighters[id].ally).flatMap(id => ALLY_ORDER_IDS.map(o => ({allyId: id, orderId: o, label: `${b.fighters[id].name}: ${ALLY_ORDERS[o].label}`,
