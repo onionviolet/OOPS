@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>World atlas · OOPS</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3eee1;color:#19382f;font:16px/1.5 "Source Sans 3",system-ui,sans-serif}header,main{max-width:1250px;margin:auto;padding:1rem clamp(1rem,4vw,3rem)}header{border-bottom:1px solid #a7ad99}h1,h2,h3{font-family:Spectral,Georgia,serif;line-height:1.12}h1{font-size:2.75rem;margin:.6rem 0}nav{display:flex;flex-wrap:wrap;gap:.45rem}button,input,textarea{font:inherit;color:inherit}button,summary{cursor:pointer}button{background:#fbf8ed;border:1px solid #7d9385;border-radius:4px;padding:.45rem .8rem}button[aria-pressed=true]{background:#214a40;color:white}button:focus-visible,summary:focus-visible{outline:3px solid #ab611a;outline-offset:2px}.view{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(250px,1fr);gap:1.4rem}.chart{position:relative;min-height:385px;background-color:#e8e5d5;background-image:linear-gradient(#4b6c5810 1px,transparent 1px),linear-gradient(90deg,#4b6c5810 1px,transparent 1px);background-size:22px 22px;border:1px solid #a0ac97;border-radius:6px}.node{position:absolute;transform:translate(-50%,-50%);width:39%;padding:1rem .4rem;box-shadow:0 3px 7px #213a2720}.node small{display:block;font-size:.78em}.chart canvas{position:absolute;width:100%;height:100%}aside,.sheet{background:#fffdf5;border-top:4px solid #446f5b;padding:1.2rem;overflow-wrap:anywhere}aside h2{margin-top:.3rem}details{margin:.6rem 0}pre{white-space:pre-wrap;font-size:.85rem}.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}input,textarea{width:100%;padding:.45rem;border:1px solid #9dada1;background:#fff}label{display:block}button+output{margin-left:1rem}ul{padding-left:1.4rem}li{margin:.3rem 0}article>p{max-width:75ch}@media(max-width:740px){.view{grid-template-columns:1fr}.chart{min-height:320px}.node{font-size:.9rem}}
+select{font:inherit;padding:.3rem}.sky{padding:.85rem;background:#152534;color:#f3f1df;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}.skyline{display:flex;align-items:center;gap:.7rem;font-family:Georgia,serif}.skyline b{padding:.2rem .5rem;border-radius:2px}.sky [data-season="0"]{color:#acdba2}.sky [data-season="1"]{color:#cef49a}.sky [data-season="2"]{color:#f5bf81}.sky [data-season="3"]{color:#b5e6fa}.sky [data-phase="0"]{background:#753127;color:#ffdb95}.sky [data-phase="1"]{background:#58461d;color:#ffedb3}.sky [data-phase="2"]{background:#673850;color:#ffcad9}.sky [data-phase="3"]{background:#343a69;color:#e0dfff}.sky [data-phase="4"]{color:#d9dce0}.sheet dl{display:grid;grid-template-columns:max-content 1fr;gap:.5rem 1.25rem}.sheet dd{margin:0;color:#20654f;font-weight:600}
+.sheet details details{margin:.4rem 0 .4rem .9rem;padding-left:.8rem;border-left:2px solid #c2cdba}.sheet details p{margin:.3rem 1rem}.sheet details button,.sheet details a{display:block;margin:.3rem}.sheet summary:focus-visible{outline:2px solid #875317}
+main:has(.field-index){container-type:inline-size}main:has(.field-index)>nav{margin:.7rem 0}
+body{background:#121b21;color:#e3e9e3}header{border-color:#40545c}header,main{max-width:1450px}header h1{font-size:2rem}button,.sheet,aside{background:#22323a;color:#e3e9e3}input,textarea{color:#172927}button[aria-pressed=true]{background:#315a45;border-color:#a9e59a;color:#edffe8}
+.atlas-workspace{display:grid;grid-template-columns:minmax(0,2.6fr) minmax(17rem,1fr);margin-top:.8rem;border:1px solid #52666a}
+.atlas-viewport{overflow:auto;background-color:#10191e;background-image:radial-gradient(#384749 1px,transparent 1px);background-size:18px 18px}
+.atlas-plane{position:relative;min-width:420px;height:clamp(24rem,60vh,45rem)}
+.atlas-plane svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.atlas-plane line{stroke:#627479;stroke-width:1.5}.atlas-plane line.traced{stroke:#abca95;stroke-width:2}
+.atlas-stop{position:absolute;transform:translate(-50%,-50%);width:25%;padding:.55rem .3rem;line-height:1.13;border-radius:1px;touch-action:none;cursor:grab}.atlas-stop:active{cursor:grabbing}
+.atlas-stop small,.atlas-workspace aside small{display:block;color:#b6cdb9;font-size:.78rem}.atlas-stop strong{display:block;margin-top:.25rem}.atlas-workspace aside{border:0;border-inline-start:1px solid #52666a}.atlas-workspace aside section{border-top:1px solid #546169;padding:.5em 0}.atlas-workspace aside button{display:block;margin:.3em 0}.atlas-workspace label{margin:.6rem 0}.sheet dd{color:#add6af}
+@media(max-width:750px){.atlas-workspace{grid-template-columns:minmax(0,1fr)}.atlas-plane{height:22rem}.atlas-workspace aside{border-inline-start:0}}
+
+header,main{max-width:none;padding-inline:clamp(.8rem,2vw,2rem)}
+.atlas-viewport{max-height:72vh}.atlas-workspace{grid-template-columns:minmax(0,3.5fr) minmax(17rem,1fr)}.atlas-workspace aside{max-height:72vh;overflow:auto}
+.atlas-tools{align-items:center;gap:.7rem}.atlas-tools input{width:min(18rem,100%)}.atlas-tools small{color:#bdd3c4}.atlas-tools div:empty,.library-picks:empty{display:none}.library-index{margin:.55rem 0}.library-picks{max-height:8rem;overflow:auto}
+.tree-branch{border-inline-start:1px solid #758981;padding-left:.7em}.tree-branch summary{color:#d6e7da}.tree-fact{margin:.25em 0}.tree-fact b{color:#b6d3c1}
+.atlas-workspace:has(.atlas-stop:only-of-type) .atlas-plane{min-height:25em}
+@media(max-width:750px){.atlas-workspace{grid-template-columns:1fr}.atlas-plane{min-width:480px}.atlas-workspace aside{max-height:none}}
+.map-scale{display:flex;justify-content:flex-end;align-items:center;gap:.4rem;margin-top:.35rem}.map-scale button{padding:.1em .6em}.map-scale output{font-variant-numeric:tabular-nums}.atlas-stop{max-width:13rem}
+</style><link rel="stylesheet" href="/styles/ui_tokens.css"><link rel="stylesheet" href="/styles/material_icons.css"><link rel="stylesheet" href="/field-record.css"><link rel="stylesheet" href="/canvas.css">
+<header><h1>World atlas</h1><nav aria-label="Atlas pages"></nav></header><main id="main">Loading world records…</main>
+<script type="module">
+import {boxCanvas, element as el} from '/canvas.mjs';
+import {createCreatureRecord} from '/creature-record.js';
+import {dangerLabel} from '/map-marks.js';
+import {placeMarks, villageDiagram} from '/village-layout.mjs';
+import {bookWorlds} from '/book-worlds.mjs';
+import {otherPlaces} from '/other-places.mjs';
+import {readingPipeline, libraryShelves, mechanicReadiness} from '/library-views.mjs';
+import {creatureMarks, creatureOverview, creatureShelf, creatureNeighborhood, libraryEdges} from '/creature-layout.mjs';
+
+const main=document.querySelector('main'), nav=document.querySelector('nav');
+const button=(label,fn)=>{const b=el('button',label);b.type='button';b.onclick=fn;return b};
+const list=rows=>{const ul=el('ul');for(const r of rows)ul.append(el('li',r));return ul};
+const detail=(title,value)=>{const d=el('details');d.append(el('summary',title),el('pre',value));return d};
+const data=await (await fetch('/data')).json();data.bookIndex={};
+let draft={...data.draft};
+const pages={'Village region':regionalMap,'Other game places':()=>otherPlaces({main,data,controls,finder,list,closeCanvas}),'Book worlds':()=>bookWorlds({main,data,controls,finder,routeButtons,button,list,closeCanvas}),'Reading pipeline':()=>readingPipeline({main,data,controls,finder,list,button,closeCanvas}),'Library shelves':()=>libraryShelves({main,data,controls,finder,list,button,closeCanvas}),'Mechanic readiness':()=>mechanicReadiness({main,data,controls,finder,list,button,closeCanvas}),'Tingen districts':map,'World library':worldLibrary,'Entity library':library,'Village site workshop':editor,'Cyoria encounter':encounter,'Identified target':target};
+const slug=name=>name.toLowerCase().replaceAll(' ','-');
+function showPage(){const name=Object.keys(pages).find(n=>'#'+slug(n)===location.hash)||Object.keys(pages)[0];
+ for(const b of nav.children)b.setAttribute('aria-pressed',String(b.textContent===name));main.replaceChildren();pages[name]();}
+for(const name of Object.keys(pages))nav.append(button(name,()=>{location.hash=slug(name)}));
+window.addEventListener('hashchange',showPage);
+const recById=new Map(data.library.map(r=>[r.id,r]));
+function tree(parent,label,value,opened=false){
+ if(value==null||value===''||(typeof value==='object'&&!Object.keys(value).length))return;
+ if(typeof value!=='object'||Array.isArray(value)){
+  const row=el('p');row.className='tree-fact';row.append(el('b',label+' '),document.createTextNode(Array.isArray(value)?value.map(v=>String(v).replaceAll('_',' ').replace(/([a-z])([A-Z])/g,'$1 $2')).join(' · '):value));parent.append(row);return;
+ }
+ const branch=el('details');branch.className='tree-branch';branch.open=opened;branch.append(el('summary',label));
+ for(const [k,v] of Object.entries(value))tree(branch,k,v);parent.append(branch);
+}
+function controls(){const bar=el('nav');bar.className='atlas-tools';main.append(bar);return bar}
+function localCanvas({center,peers,describe,follow,relation}){
+ const columns=Math.min(4,Math.max(1,Math.ceil(peers.length/3)));
+ const rows=Math.ceil(peers.length/columns)||1;
+ const nodes=[{kind:center.kind,label:center.label,x:50,y:8},...peers.map((p,i)=>({kind:p.kind,label:p.label,x:(i%columns+.5)*100/columns,y:26+Math.floor(i/columns)*65/Math.max(1,rows-1)}))];
+ const edges=peers.map((_,i)=>[0,i+1]);
+ return graph(nodes,edges,(i,side)=>{const record=i?peers[i-1]:center;side.append(el('small',record.kind),el('h2',record.label));if(i){side.append(el('p',relation(record)));if(!record.facet)side.append(button('Center on '+record.label,()=>follow(record)))}describe(record,side)},Math.max(470,rows*105+130));
+}
+function finder(bar,records,open){
+ const search=el('input'),choices=el('div');search.type='search';search.placeholder='Find a record';search.setAttribute('aria-label',search.placeholder);
+ bar.append(search,choices);search.oninput=()=>{choices.replaceChildren();const q=search.value.trim().toLowerCase();if(!q)return;
+  const matches=records.filter(r=>(r.label+' '+r.id).toLowerCase().includes(q));for(const r of matches.slice(0,16))choices.append(button(r.label,()=>open(r)));
+  if(!matches.length)choices.textContent='No matching records.';else if(matches.length>16)choices.append(el('small','Refine your search for more matches.'))};
+}
+function routeButtons(links, go) {
+ const rows = el('div', null, 'canvas-links');
+ for (const {label, detail, id} of links) {
+  const row = button('', () => go(id));
+  row.append(el('span', label));
+  if (detail) row.append(el('small', detail));
+  rows.append(row);
+ }
+ return rows;
+}
+const closeCanvas = () => {location.hash = 'world-library'};
+function regionalMap(id, local = false) {
+ main.replaceChildren();
+ const byId = new Map(data.frontier.map(place => [place.id, place]));
+ const near = new Set(local ? [id] : byId.keys());
+ if (local) {
+  for (let step = 0; step < 2; step++) {
+   for (const placeId of [...near]) for (const route of byId.get(placeId).routes) near.add(route.id);
+  }
+ }
+ const places = data.frontier.filter(place => near.has(place.id));
+ const start = places.find(place => place.current);
+ const bar = controls();
+ finder(bar, data.frontier, place => near.has(place.id) ? board.select(place.id, true) : regionalMap(place.id, true));
+ bar.append(el('small', places.length + ' registered places'));
+ const board = boxCanvas({
+  parent: main, title: local ? 'Local routes' : 'Village region', ...villageDiagram(places), marks: placeMarks, kind: 'village',
+  initial: id || start?.id, close: closeCanvas,
+  select(placeId, side, select) {
+   const place = byId.get(placeId);
+   const kind = place.danger ? dangerLabel(place.danger) : place.housing ? 'Dwelling' : 'Location';
+   side.append(el('small', place.current ? 'You are here · Fresh game start' : kind), el('h2', place.label),
+    button(local ? 'Whole region' : 'Inspect local area', () => regionalMap(placeId, !local)));
+   const facts = el('div', null, 'canvas-facts');
+   for (const [label, values] of [['Residents', place.people], ['Crafts', place.craft], ['Activities', place.activities]]) {
+    if (!values.length) continue;
+    const group = el('details');
+    group.open = label === 'Residents';
+    group.append(el('summary', label + ' · ' + values.length), list(values.map(v => v.replaceAll('_', ' ').replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, first => first.toUpperCase()))));
+    facts.append(group);
+   }
+   if (facts.childElementCount) side.append(facts);
+   if (place.routes.length) {
+    side.append(el('h3', 'Connected places'), routeButtons(place.routes.map(route => ({
+     id: route.id, label: byId.get(route.id).label,
+     detail: route.minutes == null ? 'Return' : route.minutes < 60 ? route.minutes + ' min'
+      : Math.floor(route.minutes / 60) + 'h' + (route.minutes % 60 ? ' ' + route.minutes % 60 + 'm' : '')
+    })), dest => near.has(dest) ? select(dest, true) : regionalMap(dest, true)));
+   }
+   side.append(el('small', 'Routes may require progress in your life.'));
+  }
+ });
+}
+function worldLibrary(world){
+ main.replaceChildren();const locations=data.library.filter(r=>r.group==='Locations'),groups=Map.groupBy(locations,r=>r.world);
+ const names={'base.frontier':'Frontier residences','book.mol':'Cyoria','book.hp.lead':'Harry’s starting locations','book.hp.lead.world':'Harry’s residences','reference.proto23.village':'Proto23 Village','Tingen':'Tingen districts'};
+ const bar=controls();bar.append(el('strong','World library'),el('small','Boxes group indexed locations by source collection.'));
+ if(world)bar.append(button('All collections',()=>worldLibrary()));
+ const scope=world?groups.get(world):locations;finder(bar,scope,rec=>library(rec.id));
+ const center={kind:world?'Source collection':'Atlas',label:world?(names[world]||world):'Indexed worlds'};
+ const peers=world?scope.map(r=>({...r,kind:'Location'})):[...groups].map(([id,rows])=>({id,label:names[id]||id,kind:'Source collection',count:rows.length}));
+ localCanvas({center,peers,follow:r=>world?library(r.id):worldLibrary(r.id),relation:()=>world?'Location in collection':'Indexed collection',
+ describe:(r,side)=>{if(r.count)side.append(el('p',r.count+' location records'));if(r.fields)for(const [k,v] of Object.entries(r.fields))tree(side,k,v);if(!r.id)side.append(el('p',scope.length+' locations in this view.'))}});
+}
+const libraryGroup = rec => rec.group === 'Living kinds' ? rec.world : rec.group;
+const groupNames = new Map([
+ ['animal', 'Animals'], ['person', 'People (kind)'], ['plant', 'Plants'], ['construct', 'Constructs'], ['gu', 'Gu']
+]);
+const creatures = creatureOverview(data.library);
+const libraryGroups = Map.groupBy(data.library, libraryGroup);
+
+function inspectRecord(rec, side) {
+ if (rec.id === 'household.moss') {
+  const record = createCreatureRecord(document, {expanded:true});
+  record.update(data.target[0]);
+  side.append(record.node, button('Compare observations', () => {location.hash = 'identified-target'}));
+  return;
+ }
+ const family = el('div', null, 'canvas-record');
+ const root = el('details');
+ root.open = true;
+ const name = el('span', rec.label, 'canvas-record-name');
+ name.title = rec.label;
+ const summary = el('summary');
+ summary.append(name);
+ root.append(summary);
+ const fields = {...rec.fields};
+ for (const [label, value] of Object.entries(fields)) tree(root, label, value, label === 'Body');
+ if (root.children.length === 1) root.append(el('p', 'No further details recorded.', 'tree-fact'));
+ family.append(root);
+ side.append(el('small', groupNames.get(libraryGroup(rec)) || rec.group), family);
+}
+
+function library(id, scope = id ? 'neighbors' : 'connections') {
+ main.replaceChildren();
+ const bar = controls();
+ finder(bar, data.library, rec => board.has(rec.id) ? board.select(rec.id, true) : library(rec.id));
+ const groups = el('nav', null, 'canvas-index');
+ groups.setAttribute('aria-label', 'Library views');
+ for (const group of ['connections', ...libraryGroups.keys()]) {
+  const label = group === 'connections' ? 'Connections' : groupNames.get(group) || group;
+  const tab = button(label, () => library(undefined, group));
+  tab.setAttribute('aria-pressed', String(scope === group));
+  groups.append(tab);
+ }
+ main.append(groups);
+
+ let diagram, title;
+ if (scope === 'connections') {
+  diagram = creatures;
+  title = 'Creature connections';
+ } else if (scope === 'neighbors') {
+  const rec = recById.get(id);
+  const records = [...new Set([rec.id, ...rec.links.map(link => link.id)])].map(key => recById.get(key));
+  diagram = {nodes: creatureNeighborhood(rec, records), edges: libraryEdges(records)};
+  title = 'Connections around ' + rec.label;
+ } else {
+  const records = libraryGroups.get(scope);
+  diagram = {nodes: creatureShelf(records), edges: libraryEdges(records)};
+  title = groupNames.get(scope) || scope;
+ }
+
+ const board = boxCanvas({
+  parent: main, title, ...diagram, marks: creatureMarks, initial: id || (scope === 'connections' ? 'household.moss' : undefined), close: closeCanvas,
+  select(key, side, select) {
+   const rec = recById.get(key);
+   inspectRecord(rec, side);
+   if (rec.links.length) {
+    side.append(el('h3', 'Relationships'), routeButtons(rec.links.map(link => ({
+     id: link.id, label: recById.get(link.id).label, detail: link.relation
+    })), dest => board.has(dest) ? select(dest, true) : library(dest)));
+    if (scope !== 'neighbors') side.append(button('Show direct links', () => library(rec.id)));
+   }
+  }
+ });
+}
+function graph(nodes,edges,onSelect,height){
+ const layout=el('div'),viewport=el('div'),plane=el('div'),inspector=el('aside');
+ layout.className='atlas-workspace';viewport.className='atlas-viewport';plane.className='atlas-plane';if(height)plane.style.height=height+'px'
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+ svg.setAttribute('aria-hidden','true');plane.append(svg);viewport.append(plane);layout.append(viewport,inspector);main.append(layout);
+ const zoom=el('div');zoom.className='map-scale';let scale=1;
+ function resize(factor){scale=Math.max(1,Math.min(3,factor));plane.style.width=(scale*100)+'%';plane.style.height=(baseHeight*scale)+'px';out.textContent=Math.round(scale*100)+'%'}
+ const out=el('output','100%'),baseHeight=plane.offsetHeight;
+ zoom.append(button('−',()=>resize(scale-.25)),out,button('+',()=>resize(scale+.25)));
+ zoom.firstChild.setAttribute('aria-label','Zoom out');zoom.lastChild.setAttribute('aria-label','Zoom in');layout.before(zoom);
+ let pan;viewport.onpointerdown=e=>{if(e.button!==0||e.target.closest('button'))return;pan={x:e.clientX,y:e.clientY,left:viewport.scrollLeft,top:viewport.scrollTop};viewport.setPointerCapture(e.pointerId)};
+ viewport.onpointermove=e=>{if(pan)viewport.scrollTo(pan.left+pan.x-e.clientX,pan.top+pan.y-e.clientY)};viewport.onlostpointercapture=()=>{pan=null};
+ const lines=edges.map(([from,to])=>{const line=document.createElementNS(svg.namespaceURI,'line');svg.append(line);return {line,from,to}});
+ let active=0;
+ function position(){nodes.forEach((n,i)=>{buttons[i].style.left=n.x+'%';buttons[i].style.top=n.y+'%'});
+  for(const {line,from,to} of lines){const a=nodes[from],b=nodes[to];for(const [i,n] of [a,b].entries()){
+    line.setAttribute('x'+(i+1),n.x+'%');line.setAttribute('y'+(i+1),n.y+'%')}
+    line.classList.toggle('traced',from===active||to===active)}}
+ function select(i){active=i;buttons.forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));position();inspector.replaceChildren();onSelect(i,inspector,select)}
+ const buttons=nodes.map((n,i)=>{const b=button('',()=>select(i));b.className='atlas-stop';b.append(el('small',n.kind),el('strong',n.label));plane.append(b);
+  let drag;
+  b.onpointerdown=e=>{if(e.button!==0)return;drag={x:e.clientX,y:e.clientY,left:n.x,top:n.y};b.setPointerCapture(e.pointerId)};
+  b.onpointermove=e=>{if(!drag)return;n.x=Math.max(12,Math.min(88,drag.left+(e.clientX-drag.x)*100/plane.clientWidth));n.y=Math.max(7,Math.min(94,drag.top+(e.clientY-drag.y)*100/plane.clientHeight));position()};
+  b.onlostpointercapture=()=>{drag=null};return b});
+ select(0);
+ return {select,rename:(i,text)=>buttons[i].lastChild.textContent=text,focus:i=>buttons[i].focus({preventScroll:true}),reveal:i=>{const b=buttons[i];viewport.scrollTo({left:b.offsetLeft-viewport.clientWidth/2,top:b.offsetTop-viewport.clientHeight/2})}};
+}
+function map(){
+ const places=data.places;
+ const search=el('input'),matches=el('div');search.type='search';search.placeholder='Find a place, officer or command';search.setAttribute('aria-label',search.placeholder);main.append(search,matches);
+ const nodes=places.map((p,i)=>({kind:p.district,label:p.name.replace(/^Tingen /,''),x:[20,50,80,50][i],y:[50,19,50,81][i]}));
+ const edges=[];places.forEach((p,i)=>p.routes.forEach(r=>{const j=places.findIndex(v=>v.name===r.dest);if(j>i)edges.push([i,j])}));
+ const board=graph(nodes,edges,(i,side,select)=>{const p=places[i];side.append(el('small',p.district),el('h2',p.name),el('p',p.team+' jurisdiction'),el('h3','Walks'));
+  for(const r of p.routes)side.append(button(r.dest.replace(/^Tingen /,'')+' · '+r.minutes+' min',()=>select(places.findIndex(v=>v.name===r.dest))));
+  if(p.actions.length)side.append(el('h3','Local actions'));
+  for(const a of p.actions){const row=el('section');row.append(el('strong',a.label));if(a.target)row.append(el('small',data.actors[a.target]||a.target));row.append(detail('Command definition',[a.id,JSON.stringify(a.requires,null,2)].join('\n')));side.append(row)}
+ });
+ search.oninput=()=>{matches.replaceChildren();const q=search.value.trim().toLowerCase();if(!q)return;places.forEach((p,i)=>{
+  if([p.name,...p.actions.flatMap(a=>[a.label,a.id,a.target,data.actors[a.target]])].join(' ').toLowerCase().includes(q))matches.append(button(p.name,()=>{board.select(i);board.focus(i)}))});
+  if(!matches.childElementCount)matches.textContent='No matching places.'};
+}
+function encounter(){for(const e of data.encounters){const a=el('article');a.className='sheet';a.append(el('small',e.place),el('h2',e.name),el('p','Target · '+e.target),el('h3','Opponent actions assigned here'),list(e.actions),detail('Opening conditions',JSON.stringify(e.requires,null,2)));e.turns.forEach((turn,i)=>a.append(el('h3','Exchange '+(i+1)),list(turn)));main.append(a)}}
+function target(){
+ const article=el('article', null, 'creature-object');
+ const tabs=el('nav'), record=createCreatureRecord(document,{expanded:true});
+ tabs.setAttribute('aria-label','Observed conditions');
+ const draw=i=>{
+  record.update(data.target[i]);
+  [...tabs.children].forEach((button,j)=>button.setAttribute('aria-pressed',String(i===j)));
+ };
+ for(const [i,label] of ['First meeting','After playing with yarn','Smoke in the room'].entries()) tabs.append(button(label,()=>draw(i)));
+ const link=el('a','Open creature fieldbook');link.href='/creatures';
+ article.append(tabs,record.node,link);main.append(article);draw(0);
+}
+function editor(){
+ const groups=[
+  {kind:'Location',key:'siteName',fields:['siteName','siteDescription'],x:18,y:49},
+  {kind:'Gather',key:'inputName',fields:['inputName','inputStart','gatherMinutes','gatherAmount'],x:49,y:21},
+  {kind:'Work',key:'activityName',fields:['activityName','activityDescription','requiredInput','inputCost','minutes'],x:49,y:76},
+  {kind:'Product',key:'outputName',fields:['outputName','outputGain','coinPay'],x:81,y:49}
+ ];
+ const exportButton=button('Export playable site',async()=>{try{
+  const r=await fetch('/export',{method:'POST',body:JSON.stringify(draft)});if(!r.ok)throw Error(await r.text());
+  const url=URL.createObjectURL(await r.blob()),a=el('a');a.href=url;a.download='authored-site.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent='Exported. In Your own places, import the file and choose Apply site.';
+ }catch(e){status.textContent=e.message}});
+ const bar=el('div'),status=el('output');bar.append(exportButton,status);main.append(el('h2','Village site workshop'),el('p','Select a node to edit it. Drag to arrange the diagram. Import the exported site through Your own places.'),bar);
+ const board=graph(groups.map(g=>({...g,label:draft[g.key]})),[[0,1],[0,2],[1,2],[2,3]],(i,side)=>{
+  const g=groups[i];side.append(el('small',g.kind),el('h2',draft[g.key]));
+  for(const key of g.fields){const [,type,title,min,max]=data.fields.find(f=>f[0]===key);
+   const label=el('label',title),input=el(type==='text'&&max>60?'textarea':'input');input.name=key;input.value=draft[key];
+   if(type==='int'){input.type='number';input.min=min;input.max=max}else input.maxLength=max;
+   input.oninput=()=>{draft[key]=type==='int'?input.valueAsNumber:input.value;status.textContent='';if(key===g.key){board.rename(i,input.value);side.querySelector('h2').textContent=input.value}};
+   label.append(input);side.append(label)}
+ });
+}
+showPage();
+</script></html>

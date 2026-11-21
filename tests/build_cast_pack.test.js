@@ -120,6 +120,17 @@ test('an authored base place wins over a generated conflict',()=>{
     assert.equal(pack.places.find(p=>p.id==='authored-hall').name,'Authored hall');
 });
 
+test('whole-book places inside an authored placement say authored, not canon-derived',()=>{
+    const f=fixture(),parent='lotm.place.fixture-yard',child='lotm.place.fixture-shed',plain='lotm.place.fixture-mill';
+    f.registry.push({id:parent,kind:'place',label:'Fixture yard',firstMention:loc},{id:child,kind:'place',label:'Fixture shed',firstMention:loc},{id:plain,kind:'place',label:'Fixture mill',firstMention:loc});
+    f.scenes[0].place=child;f.scenes[1].place=plain;
+    f.extras.push({extra:'places',id:child,within:parent,label:'S',locator:loc,routes:[]},{extra:'places',id:plain,within:'lotm.place.storm',label:'S',locator:loc,routes:[]});
+    f.base.places=[{id:parent,indexId:parent,name:'Fixture yard',openingHours:[],travel:{district:'machinery',provenance:'authored'}}];
+    const {pack}=buildCastPack({...f,wholeBook:true}),shed=pack.places.find(p=>p.indexId===child),mill=pack.places.find(p=>p.indexId===plain);
+    assert.equal(shed.travel.district,'machinery');assert.equal(shed.travel.provenance,'authored');assert.match(shed.travel.basis,/authored placement/);
+    assert.equal(mill.travel.district,'storm');assert.equal(mill.travel.provenance,'canon-derived');
+});
+
 test('places-only regeneration retains the prior pack systems and adds only place rows',()=>{
     const f=fixture(),street='lotm.place.fixture-street';
     f.registry.push({id:street,kind:'place',label:'Fixture street',firstMention:loc});f.scenes[0].place=street;

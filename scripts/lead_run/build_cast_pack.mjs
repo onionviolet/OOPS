@@ -155,13 +155,15 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         const row=selectedEvidence.get(id)?.find(r=>typeof r.within==='string' && r.within.startsWith(placePrefix));
         return row?.within || null;
     };
+    // Places whose district comes from an authored placement (an atlas pick), not the book.
+    const authoredDistrict = new Set();
     const districtFor = id => {
         const seen=new Set(); let at=id;
         while(at && !seen.has(at)){
             seen.add(at);
             if(explicitDistricts.has(at))return at.startsWith(placePrefix) ? at.slice(placePrefix.length) : at;
             const authored=base.places.find(p=>p.id===at||p.indexId===at);
-            if(authored?.travel?.district) return authored.travel.district;
+            if(authored?.travel?.district) { if(authored.travel.provenance==='authored') authoredDistrict.add(id); return authored.travel.district; }
             at=byParent(at);
         }
         return null;
@@ -181,7 +183,7 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         else if(kind!=='region') {
             const route=routes[0];
             const placement=district || fallbackDistrict;
-            if (placement) row.travel={district:placement,provenance:wholeBook&&district?'canon-derived':'fill',basis:district?'District inherited from the containing place; district links supply walk time.':'Provisional home-district placement; source district unresolved. District links supply walk time.',
+            if (placement) row.travel={district:placement,provenance:authoredDistrict.has(indexId)?'authored':wholeBook&&district?'canon-derived':'fill',basis:authoredDistrict.has(indexId)?'District inherited from an authored placement of the containing place; district links supply walk time.':district?'District inherited from the containing place; district links supply walk time.':'Provisional home-district placement; source district unresolved. District links supply walk time.',
                 ...(route?{minutes:route.minutes,minutesProvenance:['S','T'].includes(route.label)?'canon':route.label==='I'?'canon-derived':'fill',routeTo:route.to,routeLocator:route.locator}:{minutes:2,minutesProvenance:'fill'})};
         }
         pack.places.push(row);placeIds.add(resolved);
