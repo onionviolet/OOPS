@@ -1,7 +1,7 @@
 import {decorateActionComponents} from './ui_components.js';
 import {definePanel} from './panel_kit.js';
 import {createReferenceDisclosure} from './workspace_disclosure.js';
-import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule} from './workspace_layout.js';
+import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule, hostWorkspaceModule} from './workspace_layout.js';
 import {publishChange} from './ui_change_signal.js';
 import {applyWorldLook} from './world_look.js';
 import {sayReason} from './locked_control.js';
@@ -38,6 +38,43 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     // Discovery: the first real fight (save facts: last combat location or a landed hit), or being shown in one now.
     if(combat)definePanel({id:'combat',role:'actions',unavailableReason:()=> 'No fight right now',title:'Combat',node:combat,home:'center',after:'current-work',eligible:()=>shown(combat),discovered:()=>combatKnown()||shown(combat)});
     if(stance)definePanel({id:'stance',role:'character',unavailableReason:()=> 'Only during a fight',title:'Stance & combatants',node:stance,home:'left',after:'combat-controls',eligible:stanceShown,discovered:()=>combatKnown()||stanceShown()});
+    // The composed desktop parks the native stance module. Give that same module
+    // the Combat side of the left switch for a tempo fight, then return it home.
+    const switcher = document.getElementById('inventory_combat_switch_selection');
+    const fightBoard = document.getElementById('main_content');
+    const combatTab = document.getElementById('switch_to_combat'), inventoryTab = document.getElementById('switch_to_inventory');
+    const stancePage = document.createElement('div');
+    stancePage.className = 'fight-page-stance-seat';
+    const combatSelected = () => document.documentElement.style.getPropertyValue('--character_combat_div_display') === 'block';
+    let releaseStance = null, previousTab = null;
+    const showSelection = () => {
+        if (!previousTab) return;
+        const selected = combatSelected() ? 'combat' : 'inventory';
+        if (fightBoard.dataset.tempoStance !== selected) fightBoard.dataset.tempoStance = selected;
+    };
+    switcher?.addEventListener('click', showSelection);
+    const syncTempoStance = active => {
+        if (!switcher || !stance) return;
+        if (active) {
+            if (!previousTab) {
+                previousTab = combatSelected() ? combatTab : inventoryTab;
+                switcher.append(stancePage);
+                if (!document.getElementById('options_dont_autoswitch_to_combat')?.checked) combatTab.click();
+            }
+            releaseStance ??= hostWorkspaceModule('stance', stancePage, () => combatTab.click());
+            showSelection();
+        } else if (previousTab) {
+            if (!shown(combat) && (previousTab === combatTab) !== combatSelected()) previousTab.click();
+            previousTab = null;
+            delete fightBoard.dataset.tempoStance;
+            releaseStance?.();
+            releaseStance = null;
+            stancePage.remove();
+        }
+    };
+    const syncFightTab = () => syncTempoStance(fightBoard?.dataset.activeFight === 'tempo' && !document.getElementById('fight_situation')?.hasAttribute('data-fight-settled'));
+    const fightObserver = new MutationObserver(syncFightTab);
+    if (fightBoard) fightObserver.observe(fightBoard, {attributes: true, attributeFilter: ['data-active-fight']});
     // Place prose keeps its first lines readable; the rest opens in place.
     const prose=document.getElementById('location_description_div'),more=document.createElement('button');
     more.type='button';more.className='workspace-prose-toggle';more.hidden=true;
@@ -60,22 +97,24 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     const render=()=>{
         references.render();
         syncProse();
-        const view=read(),next=JSON.stringify(view);
+        const view=read(),root=document.getElementById('main_content');
+        const activeFight=root?.dataset.activeFight || '', next=JSON.stringify([view,activeFight]);
+        syncFightTab();
         if(next!==signature){signature=next;
             // A life that opens on its own panel has nothing under Here to point at (G10).
             const idleText=view.inVillage||document.documentElement.dataset.ownHoldings==='on'||livesOwnLife(view.world)?'No work running.':'No work running. Pick something under Here to start.';
             work.textContent=view.work.length?view.work.join(' · '):idleText;
             jump.textContent=view.waiting?'Open waiting response':'Open local controls';
             ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';ownership.hidden=view.canWrite; // UIC146: the top bar reads this line and shows it; a warning also shows here
-            ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!view.waiting&&!view.work.length&&view.canWrite;
+            ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!!activeFight||!view.waiting&&!view.work.length&&view.canWrite;
             // UIX2: this panel owns the current-work presentation; readers (the bar chip) re-read it.
             panel.dataset.workCount=String(view.work.length);publishChange('work','current-work');}
         // Direction B (PS53): the status line shows the work line in every view; this panel keeps the controls (the
         // jump button, a read-only warning) and drops its own copy of the words while the line is up.
-        const working=view.work.length>0,inLine=setStatusText('work',working?view.work.join(' · '):'No work running',{idle:!working,title:working?'Work under way. Select to show it on Here.':'Nothing is running. Pick something under Here to start.'});
+        const working=view.work.length>0,inLine=setStatusText('work',working?view.work.join(' · '):'No work running',{idle:!working,title:working?'Work under way. Select to show its current status.':'Nothing is running. Pick something under Here to start.'});
         if(work.hidden!==inLine)work.hidden=inLine;
         // Generic world palettes stay deliberately independent of sealed IDs.
-        const world=!view.world || view.world === 'base.frontier' ? 'native' : view.world,theme=view.away?'cool':'warm',root=document.getElementById('main_content');
+        const world=!view.world || view.world === 'base.frontier' ? 'native' : view.world,theme=view.away?'cool':'warm';
         if(document.documentElement.dataset.world!==world)document.documentElement.dataset.world=world;
         applyWorldLook(document.documentElement,view.world||'base.frontier'); // DSG12 family and flourish hooks
         if(root.dataset.worldTheme!==theme)root.dataset.worldTheme=theme;
@@ -93,7 +132,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     };
     nativeHost?.addEventListener('keydown',onKey);
     const observer=new MutationObserver(decorate);if(nativeHost)observer.observe(nativeHost,{childList:true,subtree:true,attributes:true,attributeFilter:['onclick','class']});decorate();
-    render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);components.destroy();references.destroy();observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();more.remove();taskObserver.disconnect();}};
+    render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);fightObserver.disconnect();syncTempoStance(false);switcher?.removeEventListener('click',showSelection);components.destroy();references.destroy();observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();more.remove();taskObserver.disconnect();}};
 }
 
 export function createEquipmentComparison({read}) {

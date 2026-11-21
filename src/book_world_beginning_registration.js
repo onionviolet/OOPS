@@ -90,6 +90,7 @@ import {registerGuLeadEarGrass,guLeadEarGrassClockRequest} from './world_packs/b
 import {registerGuLeadIceSoul,guLeadIceSoulClockRequest} from './world_packs/book_gu_lead_ice_soul.js';
 import {registerGuLeadIceCrystal} from './world_packs/book_gu_lead_ice_crystal.js';
 import {registerGuLeadDay} from './world_packs/book_gu_lead_day.js';
+import {registerRiDailyPowers} from './ri_daily_powers.js';
 import {registerGuLeadWildRefinement} from './world_packs/book_gu_lead_wild_refinement.js';
 import './ri_lead_sea_domain.js'; // Fang Yuan's sea refills on its own (stage hook)
 import './ri_tide_ledger.js'; // Fang Yuan's patrols and merit per wolf tide (stage hook, academy line)
@@ -256,6 +257,7 @@ export async function registerBookBeginnings(register, choices, hpPorts = null) 
     await registerGuLeadLycan(register, guLead);
     await registerGuLeadInvestigator(register, guLead);
     await registerGuLeadDay(register, guLead);
+    registerRiDailyPowers(hpPorts);
     await registerGuLeadWildRefinement(register, guLead);
     choices.register({packId: guLead.id, label: 'Reverend Insanity · the returned clan youth',
         arrival: 'Begin in your guardians’ house on the morning of the Awakening Ceremony. You remember a life that everyone around you has yet to live.',

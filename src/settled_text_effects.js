@@ -26,7 +26,11 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
     const motion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
     let animation = null, context = null, oscillator = null;
     let drawings = [], pulse = null, anchor = null, frame = null;
-    const trackPulse = () => { positionPulse(); if (pulse) frame = globalThis.requestAnimationFrame?.(trackPulse); };
+    const targetVisible = () => container.isConnected && (!anchor || (container.contains(anchor) && anchor.getClientRects().length > 0));
+    const trackPulse = () => {
+        if (!targetVisible() || effectsCap() === 'off') { cancel(); return; }
+        positionPulse(); if (pulse) frame = globalThis.requestAnimationFrame?.(trackPulse);
+    };
     const positionPulse = () => {
         if (!pulse || !anchor || !container.contains(anchor)) return;
         const outer = container.getBoundingClientRect(), target = anchor.getBoundingClientRect();
@@ -73,8 +77,11 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
         // the tab must not replay old sounds or visual cues.
         if (!receiptIsVisible(receipt)) return false;
         cancel();
-        const options = settings();
+        const options = settings(), cap = effectsCap();
+        if (cap === 'off') return false;
+        if (cap === 'reduced') options.effects = 'reduced';
         if (options.effects === 'off') return false;
+        if (target.anchor && (!container.contains(target.anchor) || !target.anchor.getClientRects().length)) return false;
         let definition = null;
         if (options.effectDefinition) {
             try { definition = validatePresentationSettings({effectDefinition: options.effectDefinition}, true).effectDefinition; } catch { /* Malformed external presentation cannot affect a receipt. */ }
@@ -103,18 +110,23 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
         // Three visible motifs describe settled causes, never unearned powers.
         const outline = path(craftReceipt ? 'M11 5H30L38 13V43H11ZM30 5V13H38' : kind === 'closing' ? 'M8 14H40M8 34H40M8 14V34M40 14V34' : kind === 'guidance' ? 'M24 4L44 24L24 44L4 24Z' : 'M24 4A20 20 0 1 1 23.99 4');
         const detail = path(craftReceipt ? 'M17 19H31M17 25H27M19 34L23 38L31 30' : kind === 'closing' ? 'M14 24H34' : kind === 'guidance' ? 'M14 29L24 19L34 29M24 19V35M14 10L10 14M34 10L38 14' : 'M13 24L21 32L35 17');
-        if (!definition?.plain) overlay.append(glyph);
+        const symbol = typeof target.symbol === 'string' ? target.symbol.slice(0, 16) : '';
+        overlay.dataset.localReaction = String(!!symbol);
+        if (symbol && !definition?.plain) {
+            const expression = document.createElement('span'); expression.className = 'settled-reaction-symbol';
+            expression.textContent = symbol; expression.setAttribute('aria-hidden', 'true'); overlay.append(expression);
+        } else if (!definition?.plain) overlay.append(glyph);
         // The mark is decorative receipt ink, never item identity or a bonus.
         if(craftReceipt)overlay.setAttribute('data-mark','decorative-receipt');
         else overlay.removeAttribute('data-mark');
         // A host that keeps the sentence in its own line passes caption:false: the words show once (UR147) and the
         // card stays away, so only the outline on the host's line marks the change.
         const bare = target.caption === false;
-        if (bare) overlay.replaceChildren();
-        else if (options.presentation !== 'margin' || definition?.plain) {
+        if (bare && !symbol) overlay.replaceChildren();
+        else if (!bare && (options.presentation !== 'margin' || definition?.plain)) {
             const caption = document.createElement('span'); caption.textContent = receipt.text; overlay.append(caption);
         }
-        overlay.hidden = bare;
+        overlay.hidden = bare && !symbol;
         tone();
         if (!overlay.animate) { overlay.hidden = true; return true; }
         const reduced = options.effects === 'reduced' || motion?.matches || definition?.static || definition?.plain;
@@ -126,6 +138,14 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
             ], {duration: drawDuration, fill: 'forwards', easing: 'ease-out'}));
             if (kind === 'closing') drawings.push(glyph.animate([{transform: 'scaleX(1)'}, {transform: 'scaleX(.15)', opacity: 0}], {duration: drawDuration, delay: duration * .42, fill: 'forwards'}));
             if (kind === 'guidance') drawings.push(glyph.animate([{transform: 'scale(.85)'}, {transform: 'scale(1.12)'}, {transform: 'scale(1)'}], {duration: drawDuration}));
+            // Only an explicitly supplied illustration moves, never the button
+            // or text being used. The command has already settled.
+            if (target.subject && container.contains(target.subject) && target.subject.animate) {
+                const poses = target.reaction === 'play'
+                    ? [{transform:'translateX(0)'}, {transform:'translateX(-4px) rotate(-5deg)'}, {transform:'translateX(5px) rotate(4deg)'}, {transform:'translateX(0)'}]
+                    : [{transform:'scale(1)'}, {transform:'scale(1.12)'}, {transform:'scale(1)'}];
+                drawings.push(target.subject.animate(poses, {duration:650, easing:'ease-in-out'}));
+            }
         }
         if (target.anchor && container.contains(target.anchor)) {
             anchor = target.anchor; pulse = document.createElement('div'); pulse.className = 'work-ledger-target-pulse';
@@ -144,9 +164,11 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
     const visibility = () => { if (document.hidden) cancel(); };
     document.addEventListener('visibilitychange', visibility);
     const motionChange = () => cancel(); motion?.addEventListener?.('change', motionChange);
+    const preferences = globalThis.MutationObserver ? new MutationObserver(motionChange) : null;
+    preferences?.observe(document.documentElement, {attributes:true, attributeFilter:['data-effects']});
     return {present, cancel, gesture, destroy() {
         cancel(); document.removeEventListener('visibilitychange', visibility);
-        motion?.removeEventListener?.('change', motionChange); resize?.disconnect(); context?.close()?.catch(() => {}); overlay.remove();
+        motion?.removeEventListener?.('change', motionChange); preferences?.disconnect(); resize?.disconnect(); context?.close()?.catch(() => {}); overlay.remove();
     }};
 }
 
@@ -213,7 +235,61 @@ export function installCoinFeedback({purse = document.getElementById('money_div'
     return {destroy() { observer.disconnect(); clear(); document.removeEventListener('pointerdown', gesture, true); document.removeEventListener('keydown', gesture, true); }};
 }
 
+// Acknowledges activation, not command success. Delegation includes existing
+// native controls and kit consumers without per-control listeners or polling.
+export function installControlFeedback(doc = document) {
+    const active = new Map(), motion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
+    const clear = () => { for (const animation of active.values()) animation.cancel(); active.clear(); };
+    const enabled = control => control?.isConnected && !control.disabled && control.getAttribute('aria-disabled') !== 'true';
+    const press = (control, kit) => {
+        if (!enabled(control) || doc.hidden || effectsCap() === 'off' || !control.animate) return;
+        active.get(control)?.cancel();
+        const still = motion?.matches || effectsCap() === 'reduced';
+        const outline = still
+            ? [{outlineColor:'currentColor', outlineOffset:'1px'}, {outlineColor:'transparent', outlineOffset:'1px'}]
+            : [{outlineColor:'transparent', outlineOffset:'0px'}, {outlineColor:'currentColor', outlineOffset:'2px', offset:.25}, {outlineColor:'transparent', outlineOffset:'2px'}];
+        // Keep the focus outline and button geometry intact throughout the press.
+        const frames = kit ? [
+            {filter: 'brightness(.78)'},
+            {filter: `brightness(${still ? 1 : 1.08})`, offset: .48},
+            {filter: 'brightness(1)'},
+        ] : outline.map(frame => ({outlineStyle:'solid',outlineWidth:'1px',...frame}));
+        const animation = control.animate(frames, {duration: kit ? 180 : still ? 220 : 320, easing:'ease-out'});
+        active.set(control, animation);
+        const forget = () => { if (active.get(control) === animation) active.delete(control); };
+        animation.finished.then(forget, forget);
+    };
+    const click = event => {
+        const control = event.target?.closest?.('button, [role="button"], summary, a[href], input[type="button"], input[type="submit"]');
+        if (!enabled(control)) return;
+        const key = control.dataset.kitControl;
+        if (key === undefined) { press(control, false); return; }
+        // An action may synchronously replace its row and restore focus to its new button.
+        const surface = control.closest('[data-surface-type], .workspace-module');
+        queueMicrotask(() => {
+            if (control.isConnected) { press(control, true); return; }
+            const replacement = doc.activeElement;
+            if (surface?.contains(replacement) && replacement.dataset.kitControl === key) press(replacement, true);
+        });
+    };
+    const keydown = event => {
+        // Let the button generate its own click for Enter/Space, once per press.
+        if (event.repeat && (event.key === 'Enter' || event.key === ' ') && event.target?.matches?.('button[data-kit-control]')) event.preventDefault();
+    };
+    const visibility = () => { if (doc.hidden) clear(); };
+    const preferences = globalThis.MutationObserver ? new MutationObserver(clear) : null;
+    preferences?.observe(doc.documentElement, {attributes:true, attributeFilter:['data-effects']});
+    doc.addEventListener('click', click, true);
+    doc.addEventListener('keydown', keydown, true);
+    doc.addEventListener('visibilitychange', visibility);
+    motion?.addEventListener?.('change', clear);
+    return {destroy() { clear(); preferences?.disconnect(); doc.removeEventListener('click', click, true); doc.removeEventListener('keydown', keydown, true); doc.removeEventListener('visibilitychange', visibility); motion?.removeEventListener?.('change', clear); }};
+}
+
 if (typeof document !== 'undefined' && typeof window !== 'undefined') {
-    const start = () => { if (!window.__coinFeedback) window.__coinFeedback = installCoinFeedback(); };
+    const start = () => {
+        if (!window.__coinFeedback) window.__coinFeedback = installCoinFeedback();
+        if (!window.__controlFeedback) window.__controlFeedback = installControlFeedback();
+    };
     if (document.getElementById('money_div')) start(); else document.addEventListener('DOMContentLoaded', start, {once: true});
 }

@@ -6,8 +6,12 @@
 import {validateDiet, dietNeed} from './living_upkeep.js';
 import {APERTURE_LAW, apertureGrade} from './gu_aperture.js';
 import {readSpoilage} from './spoilage.js';
+import {detectGuApproach} from './gu_senses.js';
 
 export const RI_LEAD_DAY = 'book.ri.lead.day';
+export const RI_DAILY_POWERS = 'book.ri.lead.daily_powers';
+export const RI_ACADEMY_ELDER = 'book.ri.lead.academy_elder';
+export const RI_MOONGLOW_SALE_NOTE = `${RI_DAILY_POWERS}.sale`;
 const key = id => JSON.stringify({id});
 const DAY = 1440;
 // Item ids his own life already uses (the story continuations own them; this module only reads and spends them).
@@ -105,6 +109,13 @@ export function riLeadDayFacts(state) {
     out[`${RI_LEAD_DAY}.hurt`] = a.facts?.[`${RI_LEAD_DAY}.injured`] === true;
     out[`${RI_LEAD_DAY}.wolf_waiting`] = a.facts?.[RI_WOLF_AT_WALL.fact] === true;
     out[`${RI_LEAD_DAY}.meat_fresh`] = riMeatState(state)?.state !== 'spoiled';
+    const elder = state.simulation?.people?.[RI_ACADEMY_ELDER];
+    const here = state.simulation?.people?.player?.location;
+    // The kitchen cut is an exposed Moonblade. Only the elder's reachable
+    // sight counts while he is here in this life.
+    out[`${RI_DAILY_POWERS}.seen`] = !!here && elder?.life === 'alive' && elder.location === here &&
+        state.actors[RI_ACADEMY_ELDER]?.worldId === a.worldId &&
+        detectGuApproach({senses: {sight: {reach: 1}}}) === 'sight';
     for(const d of RI_DAY_DIETS) {
         const n = riDayNeed(d, known[d.fed]?.at, state.clock);
         out[`${RI_LEAD_DAY}.${d.slot}.due`] = n.stage !== 'fed';

@@ -24,7 +24,7 @@ import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 import {lotmPositionsFromView,lotmPositionLine} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,guardPayWords} from './book_world_lotm_guard.js';
 import {wageWords} from './book_world_lotm_wage.js';
-import {kitRow} from './ui/kit.js';
+import {kitControl,kitRow} from './ui/kit.js';
 import {formatDuration} from './number_format.js';
 import {homeModelLines} from './home_overview_model.js';
 import {renderHomeView} from './ui/home_view.js';
@@ -85,20 +85,68 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
  // Brewing bench (DWF128): one picked formula at a time, never a button per formula. Surface: a disclosure inside the place service (UR42).
  function renderBench(v){
   const b=v.bench;bench.open=benchOpen||!!selected;
-  bench.append(node('summary','Brewing bench · formulas'));
+  const kept=b.rows.filter(r=>r.brewing||r.doses);
+  const waiting=kept.find(r=>r.brewing);
+  const readiness=r=>r.ready?'Settled · ready to bottle':'Still settling';
+  bench.append(node('summary',waiting?`Brewing bench · ${waiting.name} · ${readiness(waiting)}`
+   :kept.length?'Brewing bench · Bottled doses':'Brewing bench · formulas'));
+  const pickFormula=id=>{selected=id||null;benchOpen=true;signature='';render();};
+  for(const r of kept){
+   if(r.id===selected)continue;
+   bench.append(kitRow({label:`Return to ${r.name}`,state:r.ready||!r.brewing?'ready':'running',
+    fact:r.brewing?readiness(r):`${r.doses} bottled ${r.doses===1?'dose':'doses'} held`,
+    action:{run:()=>{pickFormula(r.id);findControl('bench_select',{focusAction:true});}},
+    data:{panelRow:'',lotmBenchReturn:r.id}}));
+  }
   const sel=node('select');sel.dataset.lotm='bench_select';sel.setAttribute('aria-label','Choose a formula');
   sel.append(Object.assign(node('option','Pick a formula'),{value:''}));
   const groups=new Map();for(const r of b.rows){if(!groups.has(r.pathway))groups.set(r.pathway,[]);groups.get(r.pathway).push(r);}
   for(const [pw,rows] of groups){const g=node('optgroup');g.label=pw;for(const r of rows.sort((x,y)=>y.seq-x.seq)){const o=node('option',`Sequence ${r.seq} ${r.name} · ${r.status}${r.formulaKnown?' · formula held':''}${r.brewing?' · brewing':''}`);o.value=r.id;o.selected=r.id===selected;g.append(o);}sel.append(g);}
-  sel.onchange=()=>{selected=sel.value||null;benchOpen=true;signature='';render();};
+  sel.onchange=()=>pickFormula(sel.value);
   bench.append(sel);
   const d=b.selected;if(!d){bench.append(node('p','Pick a formula to see its materials, its rite, what is unknown and what you can do about it.'));return;}
   bench.append(node('h3',`${d.name} · Sequence ${d.seq} · ${d.pathway}`));
   bench.append(node('p',`${d.status==='brewable'?'Brewable':'Inspect-only (the notes do not name every material)'}${d.price?` · formula copy ${d.price.pence} pence (canon ${d.price.canon.pounds} pounds, scaled)`:''} · ${d.minutes} minutes at the bench · formula ${d.formulaKnown?'held':'not held'}`));
   if(d.via)bench.append(node('p',d.via));
+  const actionRow=(a,observation)=>{
+   const b=kitControl(button(a.label,a.id,()=>{
+    b.focus({preventScroll:true});
+    if(!a.eligible)return;
+    run(()=>act(a.id),'');
+    if(!bench.contains(document.activeElement))findControl('bench_select',{focusAction:true});
+   },!a.eligible&&!observation,tidyReasons(a.reasons)||(!a.eligible?a.label:'')),a.id);
+   if(!a.eligible&&observation){b.setAttribute('aria-disabled','true');b.setAttribute('aria-describedby',observation.id);}
+   return row(b);
+  };
+  // Bring the live bottle controls up beside the vessel. Formula reference
+  // material below stays available without making the player scroll past it.
+  if(d.brewing||d.doses){
+   const dose=node('section');dose.className='potion-bench potion-bench--tingen';
+   const figure=node('figure');figure.className='potion-bench__vessel';
+   const glass=node('div');glass.className='potion-bench__glass';glass.setAttribute('aria-hidden','true');
+   glass.dataset.vessel=d.brewing?'pot':'bottle';
+   const liquid=node('span');liquid.className='potion-bench__liquid';liquid.dataset.liquid='unconfirmed';glass.append(liquid);
+   figure.append(glass,node('figcaption',d.brewing?'Brewing pot':'Bottled dose'));
+   const result=node('div');result.className='potion-bench__dose';
+   if(d.brewing){
+    const state=node('strong',readiness(d));state.dataset.semanticInk='state';state.id='lotm-bench-settling';result.append(state);
+    for(const a of d.actions.filter(a=>a.id.startsWith('book.lotm.bf_collect_')))result.append(actionRow(a,d.ready?null:state));
+   }
+   if(d.doses){
+    const held=node('strong',`You hold ${d.doses} ${d.product?.name||'dose'}.`);held.dataset.semanticInk='item';result.append(held);
+    const bottled=v.records?.find(r=>r.id===`book.lotm.brew.${d.id}.collected`);
+    const start=v.records?.find(r=>r.id===`book.lotm.brew.${d.id}.started`);
+    if(!d.brewing&&start&&bottled){
+     const record=node('details');record.append(node('summary','Brew record'),node('p',start.text),node('p',bottled.text));result.append(record);
+    }
+    for(const o of d.drinkOptions||[])result.append(actionRow(o));
+    if(d.drink)result.append(row(button('Drink a brewed dose','bench_drink',()=>{},true,d.drink.reason)));
+   }
+   dose.append(figure,result);bench.append(dose);
+  }
   // RPX1/RPX2 glance before the reference lines (UR42): the rite circle beside its risk ledger, then the making tracks.
   // The lines below stay the full text form (UR37) and keep the buy buttons.
-  const circle=riteCircleSpec(d),ledger=riskLedger(d),making=makingSpec(d);
+  const circle=riteCircleSpec(d),ledger=riskLedger(d),making=d.brewing||d.doses?null:makingSpec(d);
   if(circle){const r=node('div');r.className='fig-row';r.dataset.lotmFigure=circle.id;const fig=node('div');renderFigure(fig,circle,{idPrefix:`lotm-${circle.id}`});
    const l=node('div');l.className='fig-ledger';l.dataset.lotmLedger=ledger.grade;l.append(node('p',ledger.headline),node('p',ledger.advice));
    for(const x of ledger.rows){const row=node('div');row.className=`fig-ledger-row fig-state--${x.status==='met'?'filled':x.status==='substituted'?'strained':'empty'}`;
@@ -121,11 +169,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    for(const c of r.conditions){const p=node('p',c.status==='met'?`${c.label}: met (${c.via})`:c.status==='substituted'?`${c.label}: substituted, fit ${c.fit} (${c.via})`:`${c.label}: absent. Wanted: ${c.wanted}.`);p.dataset.lotmRiteCondition=c.status;box.append(p);}
    bench.append(box);}
   for(const g of d.gaps){const p=node('p',`Unknown: ${g}`);p.dataset.lotmGap='';bench.append(p);}
-  if(d.brewing)bench.append(node('p',d.ready?'The pot has settled and is ready to bottle.':`Brewing · ${d.left} min left`));
-  if(d.doses)bench.append(node('p',`You hold ${d.doses} ${d.product?.name||'dose'}.`));
-  for(const a of d.actions)bench.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,tidyReasons(a.reasons))));
-  for(const o of d.drinkOptions||[])bench.append(row(button(o.label,o.id,()=>run(()=>act(o.id),''),!o.eligible,tidyReasons(o.reasons)||o.label)));
-  if(d.drink)bench.append(row(button('Drink a brewed dose','bench_drink',()=>{},true,d.drink.reason),node('span',d.drink.reason)));
+  for(const a of d.actions.filter(a=>!a.id.startsWith('book.lotm.bf_collect_')))bench.append(actionRow(a));
  }
  // In-world entrance (field_ui.js workshop-door pattern): a Village place action that only opens this panel; it commits nothing.
  const door=node('button');door.type='button';door.className='location_choice_dropdown choice_travel';door.dataset.lotmDoor='';

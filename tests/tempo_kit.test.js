@@ -4,10 +4,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import '../src/native_battle.js';
+import '../src/tempo_lead_fights.js';
 import {expeditionRegistry as registry} from '../src/expedition_content.js';
+import {applyEnergyEffect} from '../src/energy_resources.js';
+import {loadExpansionState} from '../src/expansion_engine.js';
 import {createFieldFixture, joinField, fieldContext} from '../scripts/field_fixtures.mjs';
 import {beginTempoFight, commitTempoMove, driveTempoFight, nextActor, senseOf, setTempoHoldBack, tempoView, validateTempoBattle} from '../src/tempo_fight.js';
 import {tempoStakes, validateTempoKitRow, TEMPO_PRESETS} from '../src/tempo_kit.js';
+import {tempoOpener} from '../src/tempo_starters.js';
+import {RI_DAY_ITEMS} from '../src/ri_lead_day_facts.js';
+import {guLeadLife} from '../src/world_packs/book_gu_lead_life.js';
 
 const stats = {attack_points: 45, agility: 5, intuition: 5, defense: 1, attack_count: 1, crit_rate: .3, crit_multiplier: 1.5, stamina_efficiency: 1};
 const profile = {stats, attackPower: 8, shield: 0, shieldSkill: 0, emptyStaminaMultiplier: .5};
@@ -116,6 +122,45 @@ test('a wound from the same night\'s patrol is carried into the wolf fight', asy
     const spec = tempoOpener('ri.wolf.tide').spec(state, ctx, {me: profile, vitals: {health: 50, max_health: 60, stamina: 10, max_stamina: 10}, parts: {}, enemyProfile: () => profile});
     assert.equal(spec.fighters[0].hp, 35);
     assert.match(tempoOpener('ri.wolf.tide').quote(state, ctx).reason, /wound/);
+});
+
+test('the wolf fight settles its essence spend once alongside outside costs', () => {
+    const state = structuredClone(base.state), [policy] = guLeadLife.simulation.energies, essence = policy.id;
+    const energies = new Map(registry.simulation.energies).set(essence, policy);
+    const extended = {...registry, simulation: {...registry.simulation, energies}};
+    const change = (state, operation, fields = {}) => applyEnergyEffect(state, 'player', {operation, energyId: essence, ...fields}, extended.simulation);
+    const pool = state => state.simulation.energies.player[essence];
+    change(state, 'learn');
+    change(state, 'recover', {amount: 20});
+
+    const ctx = {...context, gameplay: {player: {inventory: {[JSON.stringify({id: RI_DAY_ITEMS.whiteJade})]: 1}}}};
+    const spec = tempoOpener('ri.wolf.tide').spec(state, ctx, {me: profile, vitals: ctx.vitals.player, enemyProfile: () => profile});
+    spec.conditions.footing = 'firm';
+    spec.stakes.stopAt = 12;
+    const opened = beginTempoFight(state, extended, ctx, spec);
+    const mid = commitTempoMove(opened.state, extended, {...ctx, vitals: opened.vitals}, {moveId: 'jade_skin'});
+    const battle = state => state.simulation.sessions.player.nativeBattle;
+    const restore = state => loadExpansionState(JSON.parse(JSON.stringify(state)), extended);
+    const saved = restore(mid.state);
+    assert.equal(battle(saved).startEssence, 20);
+    assert.equal(battle(saved).fighters.player.means.essence, 18);
+    assert.equal(pool(saved).reserve, 20, 'the open fight has only spent from its own copy');
+    const invalid = structuredClone(saved);
+    battle(invalid).startEssence = 17;
+    assert.throws(() => restore(invalid), /Invalid tempo starting essence/);
+
+    const finish = state => driveTempoFight(state, extended, {...ctx, vitals: mid.vitals}, 'safe').state;
+    assert.equal(pool(finish(saved)).reserve, 18, 'a normal fight still charges two parts');
+    change(saved, 'use', {output: 3, control: 1});
+    const settled = finish(saved);
+    assert.equal(pool(settled).reserve, 15);
+    assert.equal(JSON.parse(settled.actors.player.facts['book.ri.lead.day.wolf_fight']).essenceSpent, 2);
+
+    const legacy = structuredClone(saved);
+    delete battle(legacy).startEssence;
+    assert.equal(pool(finish(restore(legacy))).reserve, 17, 'an older fight retains the smaller reserve');
+    change(saved, 'use', {output: 16, control: 1});
+    assert.equal(pool(finish(saved)).reserve, 0, 'settlement floors the reserve at zero');
 });
 
 test('a wolf left at the wall by the patrol is fought at night and settles the patrol\'s plain facts', async () => {

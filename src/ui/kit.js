@@ -16,9 +16,15 @@ export const KIT_VOCABULARY = Object.freeze({
 let kitDoc = null;
 /** Draw into another document (a card rendered into host.ownerDocument, MDL13). Pass null to return to the global one. */
 export function useKitDocument(doc) { kitDoc = doc || null; }
-export const kitElement = (tag, cls, text) => el(tag, cls, text); // one element, drawn into the kit's document (PS245: features build markup here, not on their own)
-const el = (tag, cls, text) => { const n = (kitDoc || globalThis.document).createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+export const kitElement = (tag, cls, text, doc) => el(tag, cls, text, doc);
+const el = (tag, cls, text, doc = kitDoc || globalThis.document) => { const n = doc.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const tag = (node, data = {}) => { for (const [k, v] of Object.entries(data)) if (v != null) node.dataset[k] = String(v); return node; };
+
+/** Give a native button the shared press response. Keep its key stable across a redraw. */
+export function kitControl(button, key = button.textContent) {
+    button.dataset.kitControl = key;
+    return button;
+}
 
 /**
  * A row: an action (or a plain label), a fact and where it comes from.
@@ -27,7 +33,7 @@ const tag = (node, data = {}) => { for (const [k, v] of Object.entries(data)) if
 export function kitRow({tag: t = 'div', state = '', label, action, fact = '', from = '', className = '', labelClass = '', factClass = '', fromClass = '', data = {}} = {}) {
     const row = tag(el(t, `kit-row${state ? ` kit-row--${state}` : ''}${className ? ` ${className}` : ''}`), {...data, kitState: state || null});
     const head = action ? el('button', `kit-row__label${labelClass ? ` ${labelClass}` : ''}`, label) : el('span', `kit-row__label${labelClass ? ` ${labelClass}` : ''}`, label);
-    if (action) { head.type = 'button'; head.title = action.title || label; head.disabled = !!action.disabled; if (action.run) head.addEventListener('click', action.run); }
+    if (action) { kitControl(head, label); head.type = 'button'; head.title = action.title || label; head.disabled = !!action.disabled; if (action.run) head.addEventListener('click', action.run); }
     row.append(head, el('small', `kit-row__fact${factClass ? ` ${factClass}` : ''}`, fact), el('small', `kit-row__from${fromClass ? ` ${fromClass}` : ''}`, from));
     return row;
 }
@@ -39,7 +45,7 @@ export function kitVerb({label, icon = '', mark = '', markState = '', run, class
     verb.append(el('span', 'kit-verb__label', label));
     if (mark) tag(verb, {readyMark: mark, readyMarkState: markState || null});
     if (run) verb.addEventListener('click', run);
-    return verb;
+    return kitControl(verb, label);
 }
 
 /** A number as the life knows it (PS130): plain, ~estimate, low–high or "?", naming its field. */
@@ -48,7 +54,7 @@ export function kitNumber(value, how = {}, {field = ''} = {}) { const n = knownN
 /** A chip: a short label with an optional count; a pressed chip is a filter that is on. */
 export function kitChip({label, count, pressed, run, className = ''} = {}) {
     const chip = el(run ? 'button' : 'span', `kit-chip${className ? ` ${className}` : ''}`, count != null ? `${label} · ${count}` : label);
-    if (run) { chip.type = 'button'; chip.addEventListener('click', run); }
+    if (run) { kitControl(chip, label); chip.type = 'button'; chip.addEventListener('click', run); }
     if (pressed != null) chip.setAttribute('aria-pressed', String(!!pressed));
     return chip;
 }

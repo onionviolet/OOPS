@@ -7,12 +7,146 @@ import {HP_ABRASIVE_PROCESS as ABRASIVE} from './hp_ingredient_substitution.js';
 import {compareTrials} from './craft_experiment_log.js';
 import {hash64} from './gen_kit.js';
 import {HP_PROCESS, assessHpPreparation, inspectHpPreparation} from './hp_brewing_formula.js';
+import {POLYJUICE_FINISH} from './hp_polyjuice_duration.js';
+import {DRAUGHT_OF_LIVING_DEATH} from './world_packs/hp_brew_pack.js';
+import {kitChip, kitControl} from './ui/kit.js';
+import {semanticInk} from './ui/semantic_ink.js';
+import {effectsCap} from './display_settings.js';
+import {formatCount} from './number_format.js';
 
 const el = (tag, text, cls) => {const n = document.createElement(tag); if(text != null) n.textContent = text; if(cls) n.className = cls; return n;};
 const FORM_NAMES = {raw: 'raw', stewed: 'stewed', powdered: 'powdered', shredded: 'shredded'};
-const slotName = id => HP.ingredients.find(i => i.id === HP.formula.slots.find(s => s.id === id).ingredient).label;
+const slotName = id => id === 'bean' ? 'Bean' : HP.ingredients.find(i => i.id === HP.formula.slots.find(s => s.id === id)?.ingredient)?.label ?? 'Ingredient';
 const route = id => HP.routes.find(r => r.id === id);
 const stockHandle = key => {const h = hash64(0, key); return `N-${h.hi.toString(16).padStart(8, '0')}${h.lo.toString(16).padStart(8, '0')}`;};
+const DRAUGHT_CUES = DRAUGHT_OF_LIVING_DEATH.cues;
+const STIR_NAMES = {L: 'Counterclockwise', R: 'Clockwise'};
+
+function benchVessel(cue, label, {pot = false, filled = false, heated = false} = {}) {
+    const figure = el('figure', null, 'potion-bench__vessel');
+    const glass = el('div', null, 'potion-bench__glass');
+    glass.setAttribute('aria-hidden', 'true');
+    if(pot) glass.dataset.vessel = 'pot';
+    if(cue || filled) {
+        const fill = cue === DRAUGHT_CUES.afterAddition.cue ? 'lilac'
+            : cue === DRAUGHT_CUES.afterStirring.cue ? 'pink' : 'unconfirmed';
+        glass.dataset.fill = fill;
+        const liquid = el('span', null, 'potion-bench__liquid');
+        liquid.dataset.liquid = fill;
+        glass.append(liquid);
+    }
+    const caption = el('figcaption', label ? [label, cue].filter(Boolean).join(' · ') : cue);
+    caption.tabIndex = -1;
+    figure.append(glass);
+    if(pot) {
+        const flame = el('span', null, 'potion-bench__flame');
+        flame.setAttribute('aria-hidden', 'true');
+        flame.hidden = !heated;
+        figure.append(flame);
+    }
+    figure.append(caption);
+    return figure;
+}
+
+// Draw committed actions on the new vessel. The old colour is a fading layer
+// above the observation just published by the game.
+function showVesselAction(figure, request, previousFill) {
+    const motion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
+    const host = figure?.closest('.expanded-panel-view');
+    const workspace = figure?.closest('#main_content');
+    const task = workspace?.dataset.centerTask;
+    const visible = () => figure?.isConnected && !document.hidden && effectsCap() === 'full'
+        && !motion?.matches && (!host || host.contains(figure)) && workspace?.dataset.centerTask === task
+        && figure.getClientRects().length > 0;
+    if(!visible() || !figure.animate) return;
+
+    const glass = figure.querySelector('.potion-bench__glass');
+    const liquid = glass.querySelector('.potion-bench__liquid');
+    const layers = [], animations = [];
+    const animate = (target, frames, duration) => animations.push(target.animate(frames, {duration, easing: 'ease-out'}));
+    const layer = (parent, name) => {
+        const node = el('span', null, `potion-bench__${name}`);
+        parent.append(node);
+        layers.push(node);
+        return node;
+    };
+    if(request.type === 'startDraught') {
+        const drop = layer(glass, 'drop');
+        const splash = layer(glass, 'splash');
+        // Landing, spread and final colour all refer to the same added juice.
+        animate(liquid, [{opacity: 0}, {opacity: .15, offset: .25}, {opacity: 1}], 440);
+        animate(drop, [{transform: 'translateY(0)', opacity: 1},
+            {transform: 'translateY(160%)', opacity: 1, offset: .32}, {transform: 'translateY(175%)', opacity: 0, offset: .44},
+            {transform: 'translateY(175%)', opacity: 0}], 440);
+        animate(splash, [{transform: 'scale(.2)', opacity: 0}, {transform: 'scale(.5)', opacity: 1, offset: .32},
+            {transform: 'scale(1.8)', opacity: 0}], 440);
+    } else if(request.type === 'stirDraught') {
+        if(previousFill && previousFill !== glass.dataset.fill) {
+            const before = layer(liquid, 'prior-liquid');
+            before.dataset.liquid = previousFill;
+            animate(before, [{opacity: 1}, {opacity: 0}], 420);
+        }
+        const swirl = layer(liquid, 'swirl');
+        const turn = request.direction === 'R' ? 1 : -1;
+        animate(swirl, [{transform: 'rotate(0deg) scale(.8)', opacity: .35},
+            {transform: `rotate(${turn * 100}deg) scale(1.15)`, opacity: .95, offset: .4},
+            {transform: `rotate(${turn * 205}deg) scale(1.25)`, opacity: 0}], 500);
+    } else {
+        const flame = figure.querySelector('.potion-bench__flame:not([hidden])');
+        if(!flame) return;
+        animate(flame, [{transform: 'scaleY(.35)', opacity: .4},
+            {transform: 'scaleY(1.25)', opacity: 1, offset: .44}, {transform: 'scaleY(1)', opacity: 1}], 460);
+    }
+
+    const visibility = () => { if(!visible()) clear(); };
+    const observer = new MutationObserver(visibility);
+    observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-effects']});
+    if(workspace) observer.observe(workspace, {attributes: true, attributeFilter: ['data-center-task']});
+    if(host) observer.observe(host, {childList: true, subtree: true});
+    function clear() {
+        observer.disconnect();
+        document.removeEventListener('visibilitychange', visibility);
+        motion?.removeEventListener?.('change', visibility);
+        for(const animation of animations) animation.cancel();
+        for(const node of layers) node.remove();
+    }
+    document.addEventListener('visibilitychange', visibility);
+    motion?.addEventListener?.('change', visibility);
+    Promise.allSettled(animations.map(animation => animation.finished)).then(clear);
+}
+
+function draughtRecord({addition, stirring, strokes, preparation, response}) {
+    const record = el('div', null, 'potion-bench__record');
+    record.append(el('h4', response ? 'Hand-in record' : 'Brew record'));
+    if(!addition) {
+        record.append(el('p', 'Add the bean juice to start.'));
+        return record;
+    }
+    const steps = el('ol');
+    const added = el('li', preparation ? ` ${preparation === 'crush' ? 'Crushed' : 'Sliced'} bean juice added` : ' Bean juice added');
+    added.append(el('strong', addition, 'potion-bench__observation'));
+    const stirred = el('li', strokes.length ? ` ${strokes.length} ${strokes.length === 1 ? 'stroke' : 'strokes'}` : ' No strokes yet');
+    if(strokes.length) {
+        const marks = el('span', null, 'potion-bench__strokes');
+        const runs = strokes.match(/L+|R+/g) ?? [];
+        marks.setAttribute('role', 'group');
+        marks.setAttribute('aria-label', runs.map(run => `${STIR_NAMES[run[0]]}: ${run.length}`).join(', then '));
+        for(const run of runs) {
+            const mark = el('span', `${run[0] === 'L' ? '↺' : '↻'}${run.length > 1 ? ` ${run.length}` : ''}`);
+            mark.title = `${STIR_NAMES[run[0]]}: ${run.length}`;
+            marks.append(mark);
+        }
+        stirred.append(marks, el('strong', stirring, 'potion-bench__observation'));
+    }
+    steps.append(added, stirred);
+    record.append(steps);
+    if(response) {
+        const verdict = semanticInk(el('p', response, 'potion-bench__verdict'), 'state');
+        verdict.tabIndex = -1;
+        record.append(verdict);
+    }
+    return record;
+}
 
 // Expanded center workspace view (UR): one node, owned here, home is the main content.
 export function createHpBrewingPanel({read, quote, execute}) {
@@ -20,16 +154,53 @@ export function createHpBrewingPanel({read, quote, execute}) {
     const heading = el('h2'), body = el('div');
     panel.append(heading, body);
     const sel = {ingredient: '', route: '', prepared: false, slots: {}, batch: '', sample: '', method: HP_PROCESS.id, materialInputs: [], choiceId: '', methodId: '', repeatMode: 'quick', before: '', after: '', samplesOpen: false, methodsOpen: false, notesOpen: false, assessmentOpen: false};
-    let signature = '', notice = '';
+    let signature = '', notice = '', draughtNotice = false;
     let antidoteBinder = '0', antidoteMethod = 'warm';
     let potionSubject = '';
     let antidoteSteps = [], antidoteCatalyst = false;
-    const run = (req) => { try {const out = execute(req); notice = out.summary; } catch(error) {notice = error.message;} signature = ''; render(); };
+    const run = (req, source) => {
+        const active = source ?? document.activeElement;
+        const id = active?.dataset?.hpAction;
+        const index = id ? [...panel.querySelectorAll('[data-hp-action]')].filter(n => n.dataset.hpAction === id).indexOf(active) : -1;
+        const draughtAction = ['startDraught', 'stirDraught', 'submitDraught'].includes(req.type);
+        const previousFill = req.type === 'stirDraught' ? panel.querySelector('.potion-bench__glass')?.dataset.fill : null;
+        let committed = false;
+        draughtNotice = draughtAction;
+        try {const out = execute(req); notice = draughtAction ? '' : out.summary; committed = true;} catch(error) {notice = error.message;}
+        signature = ''; render();
+        if(id) {
+            const replacement = [...panel.querySelectorAll('[data-hp-action]')].filter(n => n.dataset.hpAction === id)[index];
+            const fallback = req.type === 'brew' && committed ? '[data-hp-work] figcaption'
+                : !draughtAction || notice ? '.hp-notice'
+                : req.type === 'submitDraught' ? '.potion-bench__verdict' : '.potion-bench__vessel figcaption';
+            const next = replacement && !replacement.disabled ? replacement : panel.querySelector(fallback);
+            next?.focus({preventScroll: draughtAction || (req.type === 'brew' && committed)});
+        }
+        if(committed && (req.type === 'startDraught' || req.type === 'stirDraught')) {
+            showVesselAction(panel.querySelector('.potion-bench__vessel'), req, previousFill);
+        } else if(committed && req.type === 'brew') {
+            showVesselAction(panel.querySelector('[data-hp-work] .potion-bench__vessel'), req);
+        }
+    };
     function button(text, req, parent, extra = {}) {
         const b = el('button', text); b.type = 'button'; if(extra.id) b.dataset.hpAction = extra.id;
-        const q = quote(req); b.disabled = !q.eligible; b.title = q.eligible ? q.summary : q.reason;
-        b.onclick = () => run(req); parent.append(b);
-        // The shared disabled-reason component renders title once for this action.
+        const q = quote(req);
+        b.title = q.eligible ? q.summary : q.reason;
+        if(extra.bench) kitControl(b, extra.id);
+        b.onclick = () => {
+            if(q.eligible) run(req, extra.bench ? b : undefined);
+            else if(extra.bench) b.focus({preventScroll: true});
+        };
+        parent.append(b);
+        if(!q.eligible && extra.bench) {
+            // Keep the refusal on its own action, where keyboard users can read it.
+            const sharedReason = [...parent.children].find(n => n.classList.contains('potion-bench__refusal') && n.textContent === q.reason);
+            const reason = sharedReason ?? el('small', q.reason, 'potion-bench__refusal');
+            if(!sharedReason) reason.id = `hp-${extra.id}-reason`;
+            b.setAttribute('aria-disabled', 'true');
+            b.setAttribute('aria-describedby', reason.id);
+            parent.append(reason);
+        } else b.disabled = !q.eligible;
         return b;
     }
     const select = (label, rows, current, onChange, id) => {
@@ -45,6 +216,51 @@ export function createHpBrewingPanel({read, quote, execute}) {
     const section = (title, ...kids) => {const s = el('div', null, 'hp-section'); s.append(el('h3', title), ...kids); return s;};
     const lotLine = l => `${l.name} [${l.id}] · ${l.custody} · ${FORM_NAMES[l.form]}${l.variant ? ` (${l.variant.toLowerCase()})` : ''}${l.stewing ? ` · stewing, day ${l.stewDaysDone + 1}` : ''}`
         + `${l.claim ? ` · ${l.claim}` : ''}${l.provenance && l.provenance !== 'unknown' ? ` · ${l.provenance === 'full_moon' ? 'known full-moon pick' : 'known not full-moon'}` : ''}${l.freshnessText ? ` · ${l.freshnessText}` : ''}${l.stewedKnown ? ` · stewed ${l.stewedKnown}` : ''}${l.preparation ? ` · ${l.preparation.means.laborCoins} coins paid for preparation` : ''}`;
+
+    function renderDraught(v, status) {
+        const active = v.draught;
+        // The experiment log sorts observed cues. Recover their stage from
+        // the law's vocabulary rather than treating their array order as time.
+        const last = !active && v.experiments.entries.findLast(entry => entry.setup?.law === 'book.hp.draught.class@1');
+        const seenAt = stage => last?.seen?.find(cue => [stage.cue, stage.below].includes(cue));
+        const addition = active?.afterAddition ?? seenAt(DRAUGHT_CUES.afterAddition);
+        const stirring = active?.afterStirring ?? seenAt(DRAUGHT_CUES.afterStirring);
+        const strokes = active?.strokes ?? (last ? last.setup.process.map(([op]) =>
+            op === 'counterclockwise' ? 'L' : op === 'clockwise' ? 'R' : '').join('') : '');
+
+        const bench = el('section', null, 'potion-bench');
+        const header = el('header', null, 'potion-bench__head');
+        header.append(el('h3', 'Draught of Living Death'),
+            semanticInk(kitChip({label: active ? 'In the flask' : last ? 'Assessed' : 'Class exercise'}), 'state'));
+        const table = el('div', null, 'potion-bench__table');
+        const inputs = el('div', null, 'potion-bench__inputs');
+        inputs.append(el('h4', active ? 'In the mixture' : 'From the class bench'),
+            semanticInk(el('p', '1 prepared base'), 'item'),
+            semanticInk(el('p', active ? 'Juice from 1 bean' : '1 Sopophorous bean'), 'item'));
+        if(!active) inputs.append(el('p', 'Blade and cauldron supplied'),
+            semanticInk(el('p', `${v.purse} coins held · ${v.draughtFee} per flask`), 'state'));
+        inputs.append(el('h4', 'Yields'), el('p', '1 flask for a colour assessment'));
+
+        const station = el('div', null, 'potion-bench__station');
+        const cue = strokes.length ? stirring : addition;
+        station.append(benchVessel(cue, last ? 'At hand-in' : cue ? null : 'Empty flask'));
+        const controls = el('div', null, 'potion-bench__actions');
+        const work = (text, req, id) => button(text, req, controls, {id, bench: true});
+        if(active) {
+            work('Stir counterclockwise', {type: 'stirDraught', direction: 'L'}, 'draught-left');
+            work('Stir clockwise', {type: 'stirDraught', direction: 'R'}, 'draught-right');
+            work('Hand in flask', {type: 'submitDraught'}, 'draught-submit');
+        } else {
+            work('Crush bean and add juice', {type: 'startDraught', preparation: 'crush'}, 'draught-crush');
+            work('Slice bean and add juice', {type: 'startDraught', preparation: 'slice'}, 'draught-slice');
+        }
+        station.append(controls);
+        table.append(inputs, station, draughtRecord({addition, stirring, strokes,
+            preparation: last?.setup?.preparation?.bean, response: last?.observation?.response}));
+        bench.append(header, table);
+        if(status) bench.append(status);
+        return bench;
+    }
 
     function renderWorking(working) {
         const place = section('Worktable', el('p', 'Choose local stock, measure your portions and put the operations in order. Supply times and the trial formulas are original.'));
@@ -123,24 +339,22 @@ export function createHpBrewingPanel({read, quote, execute}) {
         const v = read(), key = JSON.stringify([v, sel, notice]);
         if(key === signature) return; signature = key;
         const parts = [];
-        heading.textContent = v.potionWorkings?.title ?? 'Polyjuice bench';
+        heading.textContent = v.potionWorkings?.title ?? 'Potions practice bench';
         const status = el('p', notice, 'hp-notice');
         status.setAttribute('role', 'status');
+        status.tabIndex = -1;
         if(v.potionWorkings) parts.push(status, renderWorking(v.potionWorkings));
-        if(v.potionWorkings?.skinTrial) {
+        if(v.potionWorkings) {
             body.replaceChildren(...parts);
             return;
         }
-        parts.push(el('p', 'The Polyjuice method comes from Chamber of Secrets. The other bench experiments and their measurements are original.'));
+        parts.push(el('p', 'A separate practice bench, outside Harry’s school timetable. The Polyjuice method comes from Chamber of Secrets; the bean exercise draws on Half-Blood Prince. Bench costs and measurements are original.'));
         if(!v.begun) {
             const intro = section('Begin', el('p', v.waiting ? 'The game clock is not ready yet.' : 'Set up a small bench, a purse of slice coins and three classmates who might lend a sample. Lots, prices and consequences are original proposals around the sourced formula.'));
-            button('Set up the Polyjuice bench', {type: 'begin'}, intro, {id: 'begin'}); parts.push(intro);
+            button('Set up the practice bench', {type: 'begin'}, intro, {id: 'begin'}); parts.push(intro);
         } else {
-            parts.push(el('p', `Purse ${v.purse} coins · moon: ${v.moon ?? 'unknown'} · cauldron ${v.cauldron.condition}, ${v.cauldron.residue}${v.cauldron.brewing ? `, ${v.cauldron.activity} (${v.cauldron.readyInMinutes < 60 ? `${v.cauldron.readyInMinutes} min` : `${v.cauldron.readyInHours} h`} left)` : ''} · Potions master: ${v.master}`, 'hp-status'));
-            if(v.cauldron.brewing) {
-                const work = section('Current cauldron work', el('p', `${v.cauldron.activity}: ${v.cauldron.readyInMinutes} played minutes remaining. Reviewing ingredients does not change this batch. Use the batch controls below when it is ready.`));
-                work.dataset.hpWork = ''; parts.push(work);
-            }
+            parts.push(renderDraught(v, draughtNotice && notice ? status : null));
+            parts.push(el('p', `Purse ${v.purse} coins · moon: ${v.moon ?? 'unknown'} · cauldron ${v.cauldron.condition}, ${v.cauldron.residue} · Potions master: ${v.master}`, 'hp-status'));
             // 1. Obtain
             const ings = HP.ingredients, offered = ing => HP.routes.filter(r => Object.hasOwn(r.cost, ing));
             const obtain = section('1. Obtain ingredients', select('Ingredient', ings.map(i => [i.id, i.label]), sel.ingredient, x => {sel.ingredient = x; sel.route = '';}, 'ingredient'));
@@ -194,8 +408,9 @@ export function createHpBrewingPanel({read, quote, execute}) {
             } else parts.push(samples);
             // 4. Brew
             const brewable = v.lots.filter(l => !l.stewing).map(l => [l.id, lotLine(l)]);
+            const simmerTime = formatCount(HP_PROCESS.minutes);
             const brew = section('4. Make at the cauldron',
-                select('Making method', [[HP_PROCESS.id, 'Pinned Polyjuice method · two days'], [ABRASIVE.ref, 'Original suspension · 20 min · 1 water-service coin']], sel.method, x => {sel.method = x || HP_PROCESS.id;}, 'method'),
+                select('Making method', [[HP_PROCESS.id, `Pinned Polyjuice method · ${simmerTime} min`], [ABRASIVE.ref, 'Original suspension · 20 min · 1 water-service coin']], sel.method, x => {sel.method = x || HP_PROCESS.id;}, 'method'),
                 el('p', sel.method === ABRASIVE.ref ? 'Suspend up to three selected solid portions in water. This is an original physical experiment; it does not predict a transformation or a cleaning result.' : 'Any lots may go in any place; the pinned formula determines the pinned potion.'));
             if(sel.method === ABRASIVE.ref && v.substitution) {
                 brew.append(el('p', v.substitution.cost, 'hp-note'));
@@ -237,10 +452,21 @@ export function createHpBrewingPanel({read, quote, execute}) {
                 comparison.append(el('p', assessment.coverage, 'hp-note')); brew.append(comparison);
             }
             const brewRequest = {type: 'brew', method: sel.method, slots: chosen, ...(sel.method === ABRASIVE.ref ? {materialInputs: sel.materialInputs} : {})};
-            button(sel.method === ABRASIVE.ref ? 'Settle suspension (20 min · 1 coin)' : 'Simmer (two days)', brewRequest, brew, {id: 'brew', why: true});
+            const cauldron = el('div', null, 'potion-bench potion-bench--cauldron');
+            cauldron.dataset.hpWork = '';
+            const filled = v.cauldron.brewing;
+            const heated = filled && v.cauldron.activity === 'simmering';
+            const label = heated ? 'Cauldron simmering over the fire' : filled ? 'Suspension settling' : 'Cauldron';
+            const controls = el('div', null, 'potion-bench__actions');
+            button(sel.method === ABRASIVE.ref ? 'Settle suspension (20 min · 1 coin)' : `Simmer (${simmerTime} min)`, brewRequest, controls, {id: 'brew', why: true});
             if(sel.method === HP_PROCESS.id) {
-                button('Concentrate · two days and one hour · two doses', {...brewRequest, finish: 'concentrated'}, brew, {id: 'brew-concentrated', why: true});
+                const time = formatCount(HP_PROCESS.minutes + POLYJUICE_FINISH.extraMinutes);
+                const doses = HP.rules.doses - POLYJUICE_FINISH.yieldLoss;
+                button(`Concentrate · ${time} min · ${doses} doses`, {...brewRequest, finish: 'concentrated'}, controls, {id: 'brew-concentrated', why: true});
             }
+            if(filled) controls.append(el('p', `${formatCount(v.cauldron.readyInMinutes)} min remaining. Use the batch controls below when it is ready.`));
+            cauldron.append(benchVessel(null, label, {pot: true, filled, heated}), controls);
+            brew.append(cauldron);
             const brewingMethods = v.methods.filter(m => m.request.type === 'brew');
             if(brewingMethods.length) {
                 const repeat = el('details'); repeat.dataset.hpMethods = ''; repeat.open = sel.methodsOpen; repeat.ontoggle = () => {sel.methodsOpen = repeat.open;};
@@ -259,18 +485,6 @@ export function createHpBrewingPanel({read, quote, execute}) {
             }
             button(`Scour cauldron (${HP.rules.scourCost})`, {type: 'scour'}, brew, {id: 'scour'});
             parts.push(brew);
-            const classWork = section('Draught of Living Death',
-                el('p', 'Class exercise: prepare the bean with the supplied blade, stir the flask, then hand it in for a colour assessment.'));
-            if(v.draught) {
-                classWork.append(el('p', `After adding juice: ${v.draught.afterAddition}. After stirring: ${v.draught.afterStirring}. Strokes: ${v.draught.strokes.length}.`));
-                button('Stir counterclockwise', {type: 'stirDraught', direction: 'L'}, classWork, {id: 'draught-left'});
-                button('Stir clockwise', {type: 'stirDraught', direction: 'R'}, classWork, {id: 'draught-right'});
-                button('Hand in flask', {type: 'submitDraught'}, classWork, {id: 'draught-submit'});
-            } else {
-                button(`Crush the bean and add juice · ${v.draughtFee} coins`, {type: 'startDraught', preparation: 'crush'}, classWork, {id: 'draught-crush'});
-                button(`Slice the bean and add juice · ${v.draughtFee} coins`, {type: 'startDraught', preparation: 'slice'}, classWork, {id: 'draught-slice'});
-            }
-            parts.push(classWork);
             const antidote = section('Blended-antidote assay',
                 el('p', 'Each test uses two stock remedies. Choose a binder amount and how to mix it, then test one dose in a phial.'));
             if(v.antidotePhial) {
@@ -408,7 +622,7 @@ export function createHpBrewingPanel({read, quote, execute}) {
             for(const e of [...v.ledger].reverse()) ledger.append(el('p', e.text, 'hp-ledger'));
             parts.push(ledger);
         }
-        if(!v.potionWorkings) parts.push(status);
+        if(!draughtNotice || !v.begun) parts.push(status);
         body.replaceChildren(...parts);
     }
     definePanel({id: 'hp-polyjuice', title: 'Potioneering', role: 'actions', node: panel, home: document.getElementById('main_content'), defaultDock: 'center',

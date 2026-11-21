@@ -1,0 +1,120 @@
+{
+  "fixture": "packFightSave({count: 8})",
+  "browser": "offscreen WebKit",
+  "units": "CSS pixels from the viewport top",
+  "bundleSha256": "21ea42a423446cb1c54faf5478b1aaacd03e9406fa6e3ab340fd6ed5eb3bfd1c",
+  "combatCssSha256": "201ca5b53bdc849b9998fc13384ad73aa1d26e5ee6e005a2c443c3c1305cab4d",
+  "samples": "At open, then after each of five Quick strikes. Before strikes 2 through 5, choose the next member of the folded group.",
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "reserved": 8,
+      "samples": [
+        {
+          "stripY": 586.71875,
+          "strikeY": 588.71875,
+          "rosterHeight": 457,
+          "horizontalOverflow": 0,
+          "visibleEntries": 2,
+          "actions": 0
+        },
+        {
+          "stripY": 586.71875,
+          "strikeY": 588.71875,
+          "rosterHeight": 457,
+          "horizontalOverflow": 0,
+          "visibleEntries": 3,
+          "actions": 8
+        },
+        {
+          "stripY": 586.71875,
+          "strikeY": 588.71875,
+          "rosterHeight": 457,
+          "horizontalOverflow": 0,
+          "visibleEntries": 4,
+          "actions": 16
+        },
+        {
+          "stripY": 586.71875,
+          "strikeY": 588.71875,
+          "rosterHeight": 457,
+          "horizontalOverflow": 0,
+          "visibleEntries": 5,
+          "actions": 17
+        },
+        {
+          "stripY": 586.71875,
+          "strikeY": 588.71875,
+          "rosterHeight": 457,
+          "horizontalOverflow": 0,
+          "visibleEntries": 6,
+          "actions": 25
+        },
+        {
+          "stripY": 586.71875,
+          "strikeY": 588.71875,
+          "rosterHeight": 457,
+          "horizontalOverflow": 0,
+          "visibleEntries": 7,
+          "actions": 26
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "reserved": 6,
+      "samples": [
+        {
+          "stripY": 473.71875,
+          "strikeY": 475.71875,
+          "rosterHeight": 344,
+          "horizontalOverflow": 0,
+          "visibleEntries": 2,
+          "actions": 0
+        },
+        {
+          "stripY": 473.71875,
+          "strikeY": 475.71875,
+          "rosterHeight": 344,
+          "horizontalOverflow": 0,
+          "visibleEntries": 3,
+          "actions": 8
+        },
+        {
+          "stripY": 473.71875,
+          "strikeY": 475.71875,
+          "rosterHeight": 344,
+          "horizontalOverflow": 0,
+          "visibleEntries": 4,
+          "actions": 16
+        },
+        {
+          "stripY": 473.71875,
+          "strikeY": 475.71875,
+          "rosterHeight": 344,
+          "horizontalOverflow": 0,
+          "visibleEntries": 5,
+          "actions": 17
+        },
+        {
+          "stripY": 473.71875,
+          "strikeY": 475.71875,
+          "rosterHeight": 344,
+          "horizontalOverflow": 0,
+          "visibleEntries": 6,
+          "actions": 25
+        },
+        {
+          "stripY": 473.71875,
+          "strikeY": 475.71875,
+          "rosterHeight": 344,
+          "horizontalOverflow": 0,
+          "visibleEntries": 7,
+          "actions": 26
+        }
+      ]
+    }
+  ]
+}

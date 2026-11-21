@@ -1,4 +1,6 @@
 import {check} from './basics.js';
+import {applyTechniqueEffect, techniqueFacts} from './techniques.js';
+import {RAT_STEP} from './technique_content.js';
 import {tempoOpeners} from './tempo_starters.js';
 import {address, drawFraction} from './gen_kit.js';
 import {checkKey} from './check_keys.js';
@@ -16,8 +18,8 @@ import {leaveChance, yieldChance, followers, EXIT_DIALS} from './tempo_exit.js';
 import {winChance} from './notch_contest.js';
 import {stockEdge, stockKindLabel} from './stock_kinds.js';
 import {tempoStakes, kitWhy, kitCostText, kitDetail} from './tempo_kit.js';
-import {foeKind, asksNow, TERMS_LABEL, termsClash, wantsText, theirTerms, robbedAmount} from './fight_terms.js';
-import {TEMPO_SCHEMA, TEMPO_LOG_LINES, TEMPO_MOVE_IDS, TEMPO_ALLOWED_MOVE_IDS, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle} from './tempo_fight_contract.js';
+import {foeKind, asksNow, canTakeAlive, TERMS_LABEL, termsClash, wantsText, theirTerms, robbedAmount} from './fight_terms.js';
+import {TEMPO_SCHEMA, TEMPO_LOG_LINES, TEMPO_MOVE_IDS, TEMPO_STOCK_MOVE_IDS, RAT_STEP_MOVE, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle} from './tempo_fight_contract.js';
 export {TEMPO_SCHEMA, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle};
 
 // Tempo fights (LSD307-LSD317, LSD341-LSD343): every move costs time units, the
@@ -47,6 +49,8 @@ export const TEMPO_DIALS = {
 // safe moves are the only ones an opt-in hand-over may choose (LSD316).
 export const TEMPO_MOVES = {
     jab: {label: 'Quick strike', kind: 'strike', cost: 3, power: .7, safe: false, text: 'A fast, light blow. Cheap in time, small in harm.'},
+    [RAT_STEP_MOVE]: {label: 'Rat-step counter', kind: 'strike', cost: 4, power: 1, safe: false,
+        text: 'Step in as their blow goes wide. Strike before they find their feet.'},
     swing: {label: 'Heavy swing', kind: 'strike', cost: 6, power: 1.4, safe: false, text: 'A slow, hard blow. Leaves you open longer.'},
     guard: {label: 'Brace', kind: 'guard', cost: 2, safe: true, text: 'Take the next blow better. Costs a little time.'},
     tend: {label: 'Tend a wound', kind: 'remedy', cost: 5, heal: .15, stamina: 2, safe: true, text: 'Stop the worst of the bleeding. Needs two stamina.'},
@@ -58,6 +62,9 @@ export const TEMPO_MOVES = {
     escalate: {label: 'Go for the kill', kind: 'escalate', cost: 1, safe: false, text: 'Make it plain you mean to kill. From now a downing blow can kill, for both sides.'},
     finish: {label: 'Finish them', kind: 'fate', cost: 2, safe: false, text: 'They are down and helpless. End it.'},
     spare: {label: 'Spare them', kind: 'fate', cost: 1, safe: true, text: 'They are down. Leave them alive.'},
+    bind_fate: {label: 'Bind', kind: 'fate', cost: 2, safe: true, text: 'Bind them and keep them alive.'},
+    // PS48 (proposal): the first of the further terms. Offered only for a body that carries something (a fighter's `purse`); they live.
+    rob: {label: 'Take their things', kind: 'fate', cost: 2, safe: true, text: 'They are down. Go through their pockets, take what they carry and leave them alive.'},
     order: {label: 'Give an order', kind: 'order', cost: 2, safe: false, text: 'Say it to an ally. Costs a little time and may not be heard.'},
     // Stock moves (FD3/FD17): only fighters granted them and carrying stock see them. Odds come from the world's own scale, set when the fight begins.
     shoot: {label: 'Fire', kind: 'shoot', cost: 3, safe: false, text: 'Spend one loaded round on the nearest foe. Misses still spend it.'},
@@ -67,11 +74,33 @@ const KEEP = TEMPO_MOVE_IDS.filter(m => m !== 'order');
 const natural = n => Number.isSafeInteger(n) && n >= 0;
 const sideOf = (b, id) => b.fighters[id].side;
 const active = (b, side) => Object.keys(b.fighters).filter(id => b.fighters[id].status === 'active' && (!side || b.fighters[id].side === side)).sort();
+const newBattles = new WeakSet();
+// A view can consume committed reactions and log lines without replaying them
+// from the saved tail. Conflict plans clone the battle on each step.
+const presentation = new WeakMap();
+const present = (b, event) => presentation.get(b)?.push(event);
+const mark = (b, subject, kind, damaged = false) => present(b, {subject, kind, damaged});
+const staminaForStrike = f => Math.min(f.stamina, 1 / (f.profile.stats.stamina_efficiency || 1));
+const shownAmount = n => Number(n.toFixed(2));
+const movePrice = (f, row) => Object.entries(row.spends || {}).map(([key, n]) =>
+    `${n} of ${shownAmount(f.means?.[key] ?? 0)} ${f.meansLabels?.[key] ?? key.replace(/_/g, ' ')}`).join(', ');
+
+function fighterNames(b) {
+    const foes = Object.entries(b.fighters).filter(([, f]) => f.side === 'b');
+    const groups = Map.groupBy(foes, ([, f]) => f.name);
+    return new Map(foes.map(([id, f], i) => [id, groups.get(f.name).length > 1 && i < 26 ? `${f.name} ${String.fromCharCode(65 + i)}` : f.name]));
+}
 const round1 = n => Math.round(n * 10) / 10;
+const recoveryBonus = (f, id) => f.ratStep?.mastered && (id === RAT_STEP_MOVE || id === 'withdraw') ? 1 : 0;
+const openingFor = (b, f) => {
+    const id = f.ratStep?.opening;
+    return b.fighters[id]?.status === 'active' ? id : null;
+};
 const scaled = (move, f) => Math.max(1, Math.round(move.cost * 100 / (f.speed * oddsOf(f).speed)));
+const moveCost = (f, id) => Math.max(1, scaled(moveRow(f, id), f) - recoveryBonus(f, id));
 // A fighter's own kit rows (tempo_kit.js) sit beside the shared moves; `kind` is derived from what the row does, never from its label.
 // Moves the fight itself offers: the fate of a body you downed, and changing the stakes (a plea while it can kill, going for the kill while it cannot).
-export const STAKES_MOVE_IDS = ['plead', 'escalate', 'finish', 'spare'];
+export const STAKES_MOVE_IDS = ['plead', 'escalate', 'finish', 'spare', 'rob', 'bind_fate'];
 // What follows each choice, as the character would know it (PS22, PRS1). An opener may give a foe its own `fateText`; a beast and a person differ.
 const isBeast = f => !!f?.tags?.includes('beast');
 export function fateText(f) {
@@ -85,9 +114,15 @@ const pleaWhy = b => { const them = active(b, 'b').map(id => b.fighters[id]); re
 // A shift in stakes is an event the card shows once (PS23): the new state and one line of why.
 const shift = (b, cue) => { b.stakes.cue = cue.slice(0, 300); };
 const fates = (b, actorId) => Object.entries(b.fate || {}).filter(([, by]) => by === actorId).map(([id]) => id);
+// What a downed or yielding body carries that you could take (PS48): its purse, in the world's own money, once.
+const carries = f => Number.isSafeInteger(f?.purse) && f.purse > 0 && !f.robbed;
+const canBind = (actor, target) => foeKind(target) === 'person' && canTakeAlive(actor);
+const fateIds = (actor, target) => ['finish', 'spare', ...(carries(target) ? ['rob'] : []), ...(canBind(actor, target) ? ['bind_fate'] : [])];
 export function offered(b, actorId) {
     if(!b.stakes || b.fighters[actorId]?.status !== 'active') return [];
-    return [...(fates(b, actorId).length ? ['finish', 'spare'] : []), ...(actorId === 'player' && active(b, 'b').length ? [b.stakes.lethal ? 'plead' : 'escalate'] : [])];
+    const choices = new Set(fates(b, actorId).flatMap(id => fateIds(b.fighters[actorId], b.fighters[id])));
+    if(actorId === 'player' && active(b, 'b').length) choices.add(b.stakes.lethal ? 'plead' : 'escalate');
+    return [...choices];
 }
 export const moveRow = (f, id) => TEMPO_MOVES[id] ?? (f.kit?.[id] ? {...f.kit[id], kind: f.kit[id].ward ? 'ward' : 'kit', safe: !!f.kit[id].ward || !!f.kit[id].safe} : null);
 const isAttack = row => row && (row.kind === 'strike' || (row.kind === 'kit' && ((row.power ?? 0) > 0 || row.force > 0 || row.binds || row.stun || Object.keys(row.takes || {}).length)));
@@ -171,6 +206,7 @@ export function mishapChance(b, f) {
 const witnessEffect = (plan, b, holder, subject, amount, severity, place, cause) => ({holder, subject, cause, axis: 'respect', amount: -amount,
     text: 'Struck in a public fight.', clock: plan.state.clock, scene: {place, severity}});
 function say(b, text) {
+    present(b, {line: text});
     b.last = text; b.log.push(text); b.log = b.log.slice(-TEMPO_DIALS.logLines.value);
 }
 // Channel effects (lane W7-B, N3): the log is the player's view, so the player is the one observer. The line is decided here, when written, so a concealed
@@ -225,6 +261,7 @@ function policyChoice(b, actorId, policy) {
     if(policy === 'aggressive') return pick(has('swing') && f.stamina > f.maxStamina * .4 ? 'swing' : 'jab');
     if(hp < .3 && has('withdraw') && f.side === 'b') return pick('withdraw');
     if(hp < .5 && has('tend') && f.stamina >= TEMPO_MOVES.tend.stamina) return pick('tend');
+    if(policy === 'steady' && has(RAT_STEP_MOVE) && openingFor(b, f)) return {moveId: RAT_STEP_MOVE, targetId: openingFor(b, f)};
     return pick(has('swing') && draw(b, 'choice', actorId) < .3 ? 'swing' : 'jab');
 }
 
@@ -239,10 +276,9 @@ function finishFight(plan, registry, result) {
     if(hurt.length) plan.harmEffects = hurt.map(([partId, rung]) => ({partId, rung, cause: `fight:${b.id}`}));
     for(const w of Object.values(b.worst || {})) (plan.memoryEffects ||= []).push(witnessEffect(plan, b, w.holder, w.subject, Math.max(1, Math.round(w.amount)), w.severity, w.place, `battle:${b.id}`));
     for(const [id, f] of Object.entries(b.fighters)) {
-        const vitals = id === 'player' ? plan.vitals.player : state.simulation.people[id]?.vitals;
-        if(vitals) {vitals.health = Math.max(1, Math.min(vitals.max_health ?? f.maxHp, f.hp)); vitals.stamina = Math.min(vitals.max_stamina ?? f.maxStamina, f.stamina);}
+        const vitals = id === 'player' ? null : state.simulation.people[id]?.vitals;
+        if(vitals) writeBackVitals(vitals, f, f.startVitals);
     }
-    stagePlayerVitals(plan);
     // Rounds spent or loaded go back to the player's own stock counts once, in the same commit as the result (FD3).
     const st = b.fighters.player.stock;
     if(st?.keys) {
@@ -255,9 +291,17 @@ function finishFight(plan, registry, result) {
     const facts = state.actors.player.facts;
     facts[TEMPO_FACT_HELD] = Math.min(TEMPO_DIALS.heldCapMinutes.value, (facts[TEMPO_FACT_HELD] || 0) + held);
     facts['tempo.lastResult'] = result;
+    // The closing screen can read the same rows once the host publishes this state.
+    // The saved account remains the durable record of the fight.
+    settledRosters.set(facts, rosterFor(b, () => null));
+    settledPresentation.set(facts, presentation.get(b) ?? []);
     // How each opposing fighter ended, for the host's result block (not saved: the host turns it into player text).
     plan.fightEnd = Object.values(b.fighters).filter(f => f.side === 'b').map(f => ({name: f.name, end: f.end ?? (f.status === 'down' ? 'down' : f.yielded ? 'yielded' : f.status === 'left' ? 'withdrew' : 'stood'), ...(f.byTerms ? {byTerms: true} : {})}));
     if(b.fighters.player.end) plan.playerEnd = b.fighters.player.end;
+    // What you took from them (PS48): their purse goes to yours in this same commit, and the result line says so.
+    const took = Object.values(b.fighters).filter(f => f.side === 'b' && f.robbed > 0);
+    if(took.length && Number.isFinite(plan.external?.money)) { const total = took.reduce((n, f) => n + f.robbed, 0); plan.external.money += total;
+        (plan.fightCarry ||= []).push(`You took what ${took.map(f => f.name).join(' and ')} carried (${total}).`); }
     plan.fightLines = [...b.log]; // the whole fight's lines, so the last blow still reaches Reports after the card closes (not saved)
     // Their terms (PS45): what the side that downed you does first. A robbery takes from the purse in this same commit.
     if(result === 'lost') {
@@ -293,6 +337,23 @@ function finishFight(plan, registry, result) {
 }
 const publishers = {won: finishFight, lost: finishFight, withdrawn: finishFight, yielded: finishFight};
 
+function clampVitals(vitals, fighter, health, stamina) {
+    return {health: Math.max(1, Math.min(vitals.max_health ?? fighter.maxHp, health)),
+        stamina: Math.max(0, Math.min(vitals.max_stamina ?? fighter.maxStamina, stamina))};
+}
+
+function writeBackVitals(vitals, fighter, before) {
+    const health = fighter.hp + (before ? vitals.health - before.health : 0);
+    const stamina = fighter.stamina + (before ? vitals.stamina - before.stamina : 0);
+    Object.assign(vitals, clampVitals(vitals, fighter, health, stamina));
+}
+
+function playerVitalsBefore(battle, context) {
+    const player = battle?.fighters.player;
+    if(!player?.startVitals || !battle.actions) return player?.startVitals;
+    return clampVitals(context.vitals.player, player, player.hp, player.stamina);
+}
+
 // The existing native transaction writes these offsets into the save before
 // publishing them to the live character. Stage them for every visible turn,
 // as well as settlement, so the fight and the character share one health.
@@ -316,19 +377,20 @@ function runKit(b, id, f, name, command, move) {
     const foeId = target(b, id, command.targetId); check(foeId, 'No one is left to aim at.');
     const odds = oddsOf(f); check(odds.allowed, `${odds.blockedBy?.reason || 'An injury'} stops you.`);
     for(const [q, n] of Object.entries(move.spends || {})) f.means[q] -= n;
-    const foe = b.fighters[foeId], foeName = foeId === 'player' ? 'you' : foe.name, s = id === 'player' ? '' : 's';
+    const foe = b.fighters[foeId], foeName = foeId === 'player' ? 'you' : fighterNames(b).get(foeId) ?? foe.name, s = id === 'player' ? '' : 's';
     let k = 0;
     const random = () => drawFraction(b.seed, checkKey({subject: `${b.id}:kit`, method: 'kit', period: {at: b.actions}, targetState: {draw: k++}, attemptState: {actor: id, foe: foeId, move: command.moveId}}));
     const power = (move.power ?? 0) > 0 ? move.power : .7; // a cast with no harm still lands like a quick blow would
     const strike = rollCombatStrike({attackPower: move.force ?? power * f.profile.attackPower, attacker: f.profile.stats, target: foe.profile.stats, shield: foe.profile.shield, shieldSkill: foe.profile.shieldSkill, random,
         hitModifier: odds.accuracy * (move.hit ?? 1) * (foe.guard && foe.ward ? TEMPO_DIALS.wardCast.value : 1), evasionModifier: oddsOf(foe).evasion});
-    if(strike.kind !== 'hit') { say(b, `${name} use${s} ${move.label} on ${foeName}, ${strike.kind === 'blocked' ? 'and it is blocked' : 'and it misses'}.`); return false; }
+    if(strike.kind !== 'hit') { mark(b, foeId, strike.kind === 'blocked' ? 'blocked' : 'miss'); say(b, `${name} use${s} ${move.label} on ${foeName}, ${strike.kind === 'blocked' ? 'and it is blocked' : 'and it misses'}.`); return false; }
     const bits = [];
     let dmg = 0, over = 0;
     if((move.power ?? 0) > 0 || move.force > 0) {
         dmg = mitigateCombatDamageFromStats(strike.values, foe.profile.stats, foe.guard ? (foe.ward ?? TEMPO_DIALS.guardBonus.value) : 0, f.profile.stats.armor_penetration ?? 0, 1);
         if(dmg) { over = dmg - (foe.hp - b.floor); foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.adrenalineUntil = b.now + 10; bits.push(`for ${round1(dmg)}${strike.critted ? ' (critical)' : ''}`); }
     }
+    mark(b, foeId, foe.guard ? 'guard broken' : 'hit', dmg > 0);
     foe.guard = false; delete foe.ward;
     for(const [q, n] of Object.entries(move.takes || {})) if((foe.means?.[q] ?? 0) > 0) {
         foe.means[q] = Math.max(0, foe.means[q] - n);
@@ -345,24 +407,28 @@ function runKit(b, id, f, name, command, move) {
     return true; // a landed cast is progress even without harm (the stall count, AT21)
 }
 
-function runMove(plan, registry, command, publish) {
+function runMove(plan, registry, command, publish, vitalsBefore) {
     const b = plan.state.simulation.sessions.player.nativeBattle;
     const id = nextActor(b);
     check(id && (command.actorId ?? id) === id, 'It is not that fighter\'s turn.');
     const f = b.fighters[id], move = moveRow(f, command.moveId);
     check(move && (f.moves.includes(command.moveId) || offered(b, id).includes(command.moveId)), 'That fighter cannot make that move.');
-    const name = id === 'player' ? 'You' : f.name;
+    const names = fighterNames(b), name = id === 'player' ? 'You' : names.get(id) ?? f.name;
     b.now = f.ready; b.actions++;
-    let cost = scaled(move, f);
+    const opening = openingFor(b, f);
+    if(command.moveId === RAT_STEP_MOVE) check(opening, 'Wait for a blow to go wide.');
+    if(f.ratStep) f.ratStep.opening = null;
+    let cost = moveCost(f, command.moveId);
     if(command.why) say(b, command.why);
     let harmed = false;
     const mishap = move.kind !== 'order' && draw(b, 'mishap', id) < mishapChance(b, f);
     f.guard = false; delete f.ward;
     if(mishap) {
+        mark(b, id, 'stumble');
         cost += 2; f.stamina = Math.max(0, f.stamina - 1);
         say(b, `${name} ${id === 'player' ? 'stumble' : 'stumbles'}; the move comes to nothing.`);
     } else if(move.kind === 'strike') {
-        let foeId = target(b, id, command.targetId);
+        let foeId = command.moveId === RAT_STEP_MOVE ? opening : target(b, id, command.targetId);
         check(foeId, 'No one is left to strike.');
         // A covering ally may take the blow meant for the player (LSD319): keyed chance on bond, discipline and fear.
         if(foeId === 'player') {
@@ -373,7 +439,7 @@ function runMove(plan, registry, command, publish) {
         const odds = oddsOf(f), foeOdds = oddsOf(foe), aim = SLOT_IDS.includes(command.aim) ? command.aim : null;
         check(odds.allowed, `${odds.blockedBy?.reason || 'An injury'} stops you striking.`);
         if(aim) cost += LOCATION_DIALS.aimCost.value;
-        f.stamina = Math.max(0, f.stamina - Math.min(f.stamina, 1 / (f.profile.stats.stamina_efficiency || 1)));
+        f.stamina = Math.max(0, f.stamina - staminaForStrike(f));
         let k = 0;
         const random = () => drawFraction(b.seed, checkKey({subject: `${b.id}:strike`, method: 'strike', period: {at: b.actions}, targetState: {draw: k++}, attemptState: {actor: id, foe: foeId}}));
         const strike = rollCombatStrike({attackPower: move.power * f.profile.attackPower * (had && f.stamina === 0 ? (f.profile.emptyStaminaMultiplier || .5) : 1),
@@ -392,6 +458,7 @@ function runMove(plan, registry, command, publish) {
             unguarded = guardMod ? mitigateCombatDamageFromStats(strike.values, {...foe.profile.stats, defense: def.total}, 0, pen, scale) : dmg;
             if(def.worn > 0) stopped = round1(Math.max(0, mitigateCombatDamageFromStats(strike.values, {...foe.profile.stats, defense: def.base}, guardMod, pen, scale) - dmg));
         }
+        mark(b, foeId, dmg && foe.guard ? 'guard broken' : strike.kind === 'hit' ? 'hit' : strike.kind === 'blocked' ? 'blocked' : 'miss', dmg > 0);
         if(dmg) {
             harmed = true;
             const over = dmg - (foe.hp - b.floor);
@@ -400,13 +467,17 @@ function runMove(plan, registry, command, publish) {
             const part = SLOTS[slot].part, next = part ? injuryFor(foe.parts?.[part], dmg, foe.maxHp, strike.critted) : null;
             if(next) {(foe.parts ||= {})[part] = next; injury = `${partLabel(part)}: ${next}`;}
         }
-        // PS237: you learn how hard a foe hits by taking its blows; the first one is a small moment in the log, and its attack shows as "~N".
+        // PS237: each attack estimate is personal. Announce the discovery once for this kind in the fight.
         if(dmg && f.side === 'b' && foeId === 'player') {
+            const firstOfKind = !f.seen && !Object.values(b.fighters).some(other =>
+                other.side === 'b' && other.name === f.name && other.seen);
             const seen = f.seen ||= {blows: 0, total: 0}; seen.blows++; seen.total = round1(seen.total + unguarded);
-            // PS238: a rumour can be wrong; the first blow settles it, and the log says which (dial: off by more than a quarter is wrong).
-            const who = f.name.replace(/^(The|A|An) /, w => w.toLowerCase()), felt = Math.max(1, Math.round(unguarded)), heard = f.heard?.atk;
-            if(seen.blows === 1) say(b, Number.isFinite(heard) ? (Math.abs(felt - heard) > heard * HEARD_OFF ? `The rumour was wrong: ${who} hits for about ${felt}, not ${heard}.` : `The rumour held: ${who} hits for about ${felt}.`)
-                : `You know how hard ${who} hits now: about ${felt}.`);
+            if(firstOfKind) {
+                // PS238: the first blow confirms or corrects a rumour.
+                const who = f.name.replace(/^(The|A|An) /, w => w.toLowerCase()), felt = Math.max(1, Math.round(unguarded)), heard = f.heard?.atk;
+                say(b, Number.isFinite(heard) ? (Math.abs(felt - heard) > heard * HEARD_OFF ? `The rumour was wrong: ${who} hits for about ${felt}, not ${heard}.` : `The rumour held: ${who} hits for about ${felt}.`)
+                    : `You know how hard ${who} hits now: about ${felt}.`);
+            }
         }
         // The player's side learns how this foe takes the blow's main type by seeing it land.
         if(typed && f.side === 'a' && foe.side === 'b') (foe.learned ||= {})[typed.kind] = typed.note || 'normal';
@@ -426,15 +497,32 @@ function runMove(plan, registry, command, publish) {
             const took = takeOnHit(plan.state, registry, {takerId: id, targetId: foeId, sessionId: plan.state.simulation.sessions.player.id});
             if(took?.observed) {say(b, took.observed); applySimulationEffects(plan, [{type: 'knowledge', key: PT_KNOWLEDGE, stage: 'seen', value: took.observed}], {actorId: 'player'}, registry, `power-taking:${plan.state.sequence}`);}
         }
-        const foeName = foeId === 'player' ? 'you' : foe.name;
+        const foeName = foeId === 'player' ? 'you' : names.get(foeId) ?? foe.name;
+        if(command.moveId === RAT_STEP_MOVE) {
+            const actor = plan.state.actors.player;
+            applyTechniqueEffect(actor, {techniqueId: RAT_STEP, operation: 'execute'},
+                {registry, clock: plan.state.clock, worldId: actor.worldId, receiptId: `${b.id}:${b.actions}`});
+            say(b, `You slip inside ${foeName}'s reach and answer with Rat-step.`);
+        }
+        if(strike.kind === 'evaded' && f.side === 'b' && foe.ratStep) foe.ratStep.opening = id;
         say(b, `${name} ${strike.kind === 'hit' ? `hit${id === 'player' ? '' : 's'} ${foeName} ${slot === 'head' ? 'in the head' : slot === 'torso' ? 'in the body' : `on the ${SLOTS[slot].label}`} for ${round1(dmg)}${typed ? ` ${typed.kind}` : ''}${strike.critted ? ' (critical)' : ''}${typed?.note ? `, ${typed.note}` : ''}${stopped ? `, armour stopped ${stopped}` : ''}` : strike.kind === 'blocked' ? `meet${id === 'player' ? '' : 's'} a full block` : `miss${id === 'player' ? '' : 'es'}`}.`);
         if(injury) say(b, `${foeId === 'player' ? 'Your' : `${foe.name}'s`} ${injury.replace(': ', ' are ').toLowerCase()}.`);
         if(foe.status === 'down') say(b, endLine(foeId, foe));
     } else if(move.kind === 'fate') {
         const foeId = fates(b, id).includes(command.targetId) ? command.targetId : fates(b, id)[0];
         check(foeId, 'No one is down at your feet.');
-        const foe = b.fighters[foeId]; delete b.fate[foeId];
-        if(foe.yielding && command.moveId === 'spare') acceptYield(b, foeId, `${name} accept${id === 'player' ? '' : 's'} ${foe.name}'s yield.`);
+        const foe = b.fighters[foeId];
+        if(command.moveId === 'bind_fate') check(canBind(f, foe), 'You need binding means and a person to bind.');
+        delete b.fate[foeId];
+        if(command.moveId === 'bind_fate') {
+            foe.end = 'bound';
+            say(b, `${name} bind${id === 'player' ? '' : 's'} ${foe.name} and keep${id === 'player' ? '' : 's'} them alive.`);
+        } else if(command.moveId === 'rob') {
+            check(carries(foe), 'They carry nothing worth taking.');
+            foe.robbed = foe.purse; const s = id === 'player' ? '' : 's';
+            if(foe.yielding) acceptYield(b, foeId, `${name} accept${s} ${foe.name}'s yield and take${s} what ${foe.name} carries.`);
+            else { foe.end = 'knocked_out'; say(b, `${name} go${id === 'player' ? '' : 'es'} through ${foe.name}'s pockets, take${s} what ${foe.name} carries and leave${s} ${foe.name} lying.`); }
+        } else if(foe.yielding && command.moveId === 'spare') acceptYield(b, foeId, `${name} accept${id === 'player' ? '' : 's'} ${foe.name}'s yield.`);
         else {
             foe.end = command.moveId === 'finish' ? 'killed' : 'knocked_out';
             if(foe.yielding && command.moveId === 'finish') shift(b, `${name === 'You' ? 'You' : name} killed someone who had yielded.`);
@@ -464,7 +552,8 @@ function runMove(plan, registry, command, publish) {
         const foe = b.fighters[foeId], odds = stockEdge(st.kind, foe.tags, st.vs[foeId]);
         st.loaded--;
         const hit = draw(b, 'shot', id, {foe: foeId}) < odds.chance;
-        const foeName = foeId === 'player' ? 'you' : foe.name;
+        const foeName = foeId === 'player' ? 'you' : names.get(foeId) ?? foe.name;
+        mark(b, foeId, !hit ? 'miss' : foe.guard ? 'guard broken' : 'hit', hit);
         if(hit) {
             harmed = true;
             const dmg = round1(foe.maxHp / odds.downIn);
@@ -519,9 +608,9 @@ function runMove(plan, registry, command, publish) {
     }
     if(!mishap) channelLine(b, id, f, command.moveId);
     f.ready += cost; b.seconds += cost; plan.state.sequence++;
-    // One home for the player's contest vitals (R3-C11): every view reads the same value while the fight is open.
-    const mine = b.fighters.player, pv = plan.vitals.player;
-    pv.health = Math.max(1, Math.min(pv.max_health ?? mine.maxHp, mine.hp)); pv.stamina = Math.min(pv.max_stamina ?? mine.maxStamina, mine.stamina);
+    // Player vitals are published on every turn. Apply only the change since
+    // the last published turn, using the same baseline for automatic replies.
+    writeBackVitals(plan.vitals.player, b.fighters.player, vitalsBefore);
     stagePlayerVitals(plan);
     if(move.kind === 'yield' && !mishap && f.status === 'left') publish(f.side === 'a' ? 'yielded' : 'won');
     else resolveEnd(b, publish, f, id);
@@ -540,18 +629,19 @@ function runMove(plan, registry, command, publish) {
 
 const definition = {
     id: 'tempo.fight', revision: 1, sides: [['a'], ['b']], objective: 'yield', results: publishers, validate: validateExpansionState,
-    prepare({command, plan, publishResult, registry}) {
-        return {moves: [{id: 'move', types: ['move'], apply: () => runMove(plan, registry, command, publishResult)}]};
+    prepare({command, plan, battle, publishResult, registry, vitalsBefore, previousPresentation}) {
+        presentation.set(battle, previousPresentation?.slice(-120) ?? []);
+        return {moves: [{id: 'move', types: ['move'], apply: () => runMove(plan, registry, command, publishResult, vitalsBefore)}]};
     }
 };
-function step(state, registry, context, command) {
+function step(state, registry, context, command, vitalsBefore) {
     const session = state.simulation?.sessions.player, b = session?.nativeBattle;
     check(b?.schema === TEMPO_SCHEMA && !b.result, 'No tempo fight is waiting.');
-    return runConflictFrame(definition, {state, registry, context, command: {type: 'move', ...command}});
+    return runConflictFrame(definition, {state, registry, context, command: {type: 'move', ...command}, vitalsBefore, previousPresentation: presentation.get(b)});
 }
 
 // Foes and allies act on their own until the player is next to act or the fight ends.
-function settleAuto(plan, registry, context, driver = null, limit = 400) {
+function settleAuto(plan, registry, context, driver = null, vitalsBefore = playerVitalsBefore(plan.state.simulation.sessions.player?.nativeBattle, context), limit = 400) {
     // Each step builds a fresh plan, so witness memories are carried across steps by hand.
     const carried = [...(plan.memoryEffects || [])], done = p => {if(carried.length) p.memoryEffects = carried; return p;};
     for(let n = 0; n < limit; n++) {
@@ -560,7 +650,7 @@ function settleAuto(plan, registry, context, driver = null, limit = 400) {
         const id = nextActor(b);
         if(!id || (id === 'player' && !driver)) return done(plan);
         const pick = id === 'player' ? policyMove(b, id, driver) : policyMove(b, id, 'steady');
-        plan = step(plan.state, registry, context, {actorId: id, ...pick});
+        plan = step(plan.state, registry, context, {actorId: id, ...pick}, vitalsBefore);
         carried.push(...(plan.memoryEffects || []));
     }
     throw new Error('Tempo fight did not settle within its step budget.');
@@ -582,12 +672,26 @@ export function beginTempoFight(state, registry, context, spec) {
     const fighters = {};
     for(const f of [...spec.fighters].sort((x, y) => (x.id < y.id ? -1 : 1))) {
         fighters[f.id] = {name: f.name, side: f.side, speed: f.speed ?? 100, ready: 0, hp: f.hp, maxHp: f.maxHp ?? f.hp, stamina: f.stamina ?? 10, maxStamina: f.maxStamina ?? f.stamina ?? 10,
-            profile: structuredClone(f.profile), moves: (f.moves || [...KEEP, ...Object.keys(f.kit || {})]).filter(m => KEEP.includes(m) || (f.stock && TEMPO_ALLOWED_MOVE_IDS.includes(m) && !TEMPO_MOVE_IDS.includes(m)) || !!f.kit?.[m]), perception: f.perception ?? 5, stealth: f.stealth ?? 5,
-            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), ...(f.kit ? {kit: structuredClone(f.kit)} : {}), ...(f.means ? {means: {...f.means}} : {}), ...(f.meansLabels ? {meansLabels: {...f.meansLabels}} : {}), ...(f.holdBack ? {holdBack: true} : {}), ...(Number.isFinite(f.holdSkill) && f.holdSkill > 0 ? {holdSkill: Math.min(1, f.holdSkill)} : {}), ...(f.stance ? {stance: f.stance} : {}), ...(f.wants ? {wants: f.wants} : {}), ...(f.heard ? {heard: {...f.heard}} : {}), ...(f.fateText ? {fateText: {...f.fateText}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
+            profile: structuredClone(f.profile), moves: (f.moves || [...KEEP, ...Object.keys(f.kit || {})]).filter(m => KEEP.includes(m) || (f.stock && TEMPO_STOCK_MOVE_IDS.includes(m)) || !!f.kit?.[m]), perception: f.perception ?? 5, stealth: f.stealth ?? 5,
+            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), ...(f.kit ? {kit: structuredClone(f.kit)} : {}), ...(f.means ? {means: {...f.means}} : {}), ...(f.meansLabels ? {meansLabels: {...f.meansLabels}} : {}), ...(f.holdBack ? {holdBack: true} : {}), ...(Number.isFinite(f.holdSkill) && f.holdSkill > 0 ? {holdSkill: Math.min(1, f.holdSkill)} : {}), ...(f.stance ? {stance: f.stance} : {}), ...(f.wants ? {wants: f.wants} : {}), ...(f.heard ? {heard: {...f.heard}} : {}), ...(Number.isSafeInteger(f.purse) && f.purse > 0 ? {purse: f.purse} : {}), ...(f.fateText ? {fateText: {...f.fateText}} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
+        const vitals = f.id === 'player' ? (adopt?.vitals ?? context.vitals).player : base.simulation.people[f.id]?.vitals;
+        if(Number.isFinite(vitals?.health) && Number.isFinite(vitals.stamina)) {
+            fighters[f.id].startVitals = {health: vitals.health, stamina: vitals.stamina};
+        }
+    }
+    const player = base.actors.player;
+    if(player.techniques?.[RAT_STEP]) {
+        const facts = techniqueFacts(player, registry, context);
+        if(facts[`technique.${RAT_STEP}.executable`]) {
+            fighters.player.moves.push(RAT_STEP_MOVE);
+            fighters.player.ratStep = {opening: null, mastered: facts[`technique.${RAT_STEP}.proficiency`] >= registry.techniques.get(RAT_STEP).maxProficiency};
+        }
     }
     if(Object.values(fighters).some(f => f.side === 'a' && f.ally)) fighters.player.moves.push('order');
     const b = {schema: TEMPO_SCHEMA, id: spec.id, title: spec.title || 'A fight', seed, actions: 0, now: 0, seconds: 0, held: 0, floor: spec.floor ?? 0,
         conditions: {light: 'day', footing: 'firm', weather: 'clear', ...spec.conditions}, fighters, log: [], last: '', result: null, surprised: null, ...(spec.stakes ? {stakes: tempoStakes(spec.stakes)} : {}), ...(spec.terms ? {terms: {...spec.terms}} : {})};
+    presentation.set(b, []);
+    if(spec.startEssence !== undefined) b.startEssence = spec.startEssence;
     // Who notices first sets the opening (LSD341): aware side vs the other's best stealth.
     const best = (side, key) => Math.max(...Object.values(fighters).filter(f => f.side === side).map(f => f[key]));
     const aware = side => best(side, 'perception') + 10 * drawFraction(seed, checkKey({subject: `${b.id}:notice`, method: 'notice', period: {at: 0}, targetState: {side}})) >= best(side === 'a' ? 'b' : 'a', 'stealth');
@@ -601,14 +705,19 @@ export function beginTempoFight(state, registry, context, spec) {
     else base.simulation.sessions.player = {id: cause, definitionId: 'tempo.fight', revision: 1, targetId: null, commandId: 'tempo.fight', claim: null, turns: [{responses: []}], turn: 0, lethal: false, settlement: [], answers: [], partyIds: [], participants: Object.keys(fighters).filter(id => id === 'player' || base.simulation.people[id]), nativeBattle: b};
     const plan = adopt || {state: base, external: structuredClone(context.external), gameplay: structuredClone(context.gameplay), vitals: structuredClone(context.vitals), acquisitions: [], unlocks: []};
     validateTempoBattle(b, plan.state.simulation.sessions.player);
-    return withHold(settleAuto(plan, registry, adopt ? {...context, external: adopt.external, gameplay: adopt.gameplay, vitals: adopt.vitals} : context));
+    const begun = withHold(settleAuto(plan, registry, adopt ? {...context, external: adopt.external, gameplay: adopt.gameplay, vitals: adopt.vitals} : context));
+    const waiting = begun.state.simulation.sessions.player?.nativeBattle;
+    if(waiting) newBattles.add(waiting);
+    return begun;
 }
 
 // The player's own move. Everyone else then acts until the player is next.
 export function commitTempoMove(state, registry, context, command, expectedSequence = state.sequence) {
     check(state.sequence === expectedSequence, 'This combat action is stale.');
-    check(nextActor(state.simulation.sessions.player?.nativeBattle ?? {fighters: {}}) === 'player', 'It is not your turn.');
-    return withHold(settleAuto(step(state, registry, context, {actorId: 'player', ...command}), registry, context));
+    const battle = state.simulation.sessions.player?.nativeBattle;
+    check(nextActor(battle ?? {fighters: {}}) === 'player', 'It is not your turn.');
+    const before = playerVitalsBefore(battle, context);
+    return withHold(settleAuto(step(state, registry, context, {actorId: 'player', ...command}, before), registry, context, null, before));
 }
 
 // How likely holding back is to slip against the foe in front, from the player's heaviest attack (PS24, CBD213). Kit rows with `force` carry
@@ -637,7 +746,7 @@ export function handOverTempoFight(state, registry, context, {steps = 1} = {}) {
         if(!b || nextActor(b) !== 'player') break;
         const pick = policyMove(b, 'player', 'safe');
         check(TEMPO_MOVES[pick.moveId].safe, 'Hand-over may only choose safe moves.');
-        plan = commitTempoMove(s, registry, context, pick); s = plan.state;
+        plan = commitTempoMove(s, registry, plan ? {...context, vitals: plan.vitals} : context, pick); s = plan.state;
     }
     check(plan, 'Nothing to hand over.');
     return plan;
@@ -647,41 +756,119 @@ export function handOverTempoFight(state, registry, context, {steps = 1} = {}) {
 // tagged uncanny, or a fight whose stakes say so, gives no read at all (some worlds keep more "?"; Weibao: "sometimes not knowing is part of it").
 export const HEARD_OFF = .25; // PS238 dial: a rumour off by more than a quarter reads as wrong when the truth lands
 export const SENSE_DIALS = {stronger: 1.25, weaker: .8, faster: 1.15, slower: .87, why: 'a quarter more reach or weight is what most people can see at a glance'};
-export function senseOf(b, foe, me) {
-    if(foe.tags?.includes?.('uncanny') || b.stakes?.uncanny) return null;
-    const words = [], power = (foe.profile?.attackPower || 0) / Math.max(.001, me.profile?.attackPower || 0), speed = (foe.speed || 0) / Math.max(1, me.speed || 0);
-    words.push(power >= SENSE_DIALS.stronger ? 'looks stronger than you' : power <= SENSE_DIALS.weaker ? 'looks weaker than you' : 'looks about your match');
-    if(speed >= SENSE_DIALS.faster) words.push('faster than you'); else if(speed <= SENSE_DIALS.slower) words.push('slower than you');
-    if(foe.parts?.leg) words.push('limping');
-    return words.join(', ');
+function perceivedTraits(b, foe, me) {
+    if(foe.tags?.includes?.('uncanny') || b.stakes?.uncanny) return {sense: null, observations: {}};
+    const power = (foe.profile?.attackPower || 0) / Math.max(.001, me.profile?.attackPower || 0);
+    const speed = (foe.speed || 0) / Math.max(1, me.speed || 0);
+    const attack = power >= SENSE_DIALS.stronger ? 'looks stronger than you' : power <= SENSE_DIALS.weaker ? 'looks weaker than you' : 'looks about your match';
+    const pace = speed >= SENSE_DIALS.faster ? 'faster than you' : speed <= SENSE_DIALS.slower ? 'slower than you' : null;
+    return {sense: [attack, pace, foe.parts?.leg && 'limping'].filter(Boolean).join(', '), observations: {attack, speed: pace}};
+}
+export const senseOf = (b, foe, me) => perceivedTraits(b, foe, me).sense;
+
+const MOVE_EFFECT = {strike: 'harm', shoot: 'harm', guard: 'protect', ward: 'protect', remedy: 'protect', reload: 'protect',
+    escalate: 'influence', plead: 'influence', order: 'influence', yield: 'influence', withdraw: 'escape'};
+const moveEffect = row => row.binds || row.stun || Object.keys(row.takes || {}).length ? 'hinder' : MOVE_EFFECT[row.kind] ?? 'harm';
+const observedHealth = (hp, max) => hp / max > .66 ? 'fresh' : hp / max > .33 ? 'hurt' : 'barely standing';
+function harmRead(b, me, moveId, targetId) {
+    const row = moveRow(me, moveId), foe = b.fighters[targetId];
+    if (moveId === RAT_STEP_MOVE && targetId !== openingFor(b, me)) return null;
+    if (row.kind === 'shoot' && !me.stock?.vs[targetId]) return null;
+    const power = row.force ?? (row.power ?? 0) * me.profile.attackPower;
+    if (!power && row.kind !== 'shoot') return null;
+    const guard = foe.guard ? (foe.ward ?? TEMPO_DIALS.guardBonus.value) : 0;
+    const body = row.kind === 'strike' ? defenceAt(foe.profile, 'torso', null).total : foe.profile.stats.defense;
+    const values = Array(me.profile.stats.attack_count || 1).fill(power);
+    const damage = row.kind === 'shoot' ? foe.maxHp / me.stock.vs[targetId].downIn :
+        mitigateCombatDamageFromStats(values, {...foe.profile.stats, defense: body}, guard, me.profile.stats.armor_penetration);
+    const next = foe.hp - damage;
+    // A typical landed blow is a reading, independent of the keyed draw.
+    return next <= b.floor ? 'down' : observedHealth(next, foe.maxHp);
+}
+const POSTURE = {downed: 'Down', knocked_out: 'Unconscious', killed: 'Dead', disarmed: 'Disarmed', bound: 'Bound', stopped: 'Stopped'};
+const settledRosters = new WeakMap(), settledPresentation = new WeakMap();
+export const settledTempoPresentation = facts => settledPresentation.get(facts) ?? [];
+export const settledTempoRoster = facts => settledRosters.get(facts) ?? null;
+function fighterState(f) {
+    const done = f.status !== 'active';
+    const posture = f.end && f.end !== 'downed' ? POSTURE[f.end] : f.yielded ? 'Yielded' : f.yielding ? 'Yielding' :
+        f.status === 'left' ? 'Fled' : done ? 'Down' : 'Standing';
+    const protection = !done && f.guard ? (f.ward ? 'Warded' : 'Guarding') : null;
+    return {done, posture, protection, conditions: Object.entries(f.parts || {}).map(([part, rung]) => `${partLabel(part)}: ${rung}`)};
+}
+function rosterFor(b, readyOf) {
+    const next = b.result ? null : nextActor(b);
+    const names = fighterNames(b);
+    const ranks = new Map(actingOrder(b, Object.keys(b.fighters).length).map((id, index) => [id, index]));
+    const rows = Object.entries(b.fighters).map(([id, f]) => {
+        const state = fighterState(f);
+        const causes = Object.fromEntries(state.conditions.flatMap(condition => {
+            const source = b.hits?.findLast(hit => hit.target === id && hit.injury === condition)?.actor;
+            if (!source) return [];
+            const by = source === 'player' ? 'your blow' : (names.get(source) ?? b.fighters[source]?.name) + '’s blow';
+            return [[condition, 'From ' + by + '.']];
+        }));
+        if (state.protection) {
+            const who = id === 'player' ? 'You' : names.get(id) ?? f.name;
+            const observed = state.protection === 'Warded'
+                ? b.log.findLast(line => line.startsWith(who + (id === 'player' ? ' raise ' : ' raises ')))
+                : b.log.findLast(line => line === who + (id === 'player' ? ' brace.' : ' braces.'));
+            if (observed) causes[state.protection] = observed;
+        }
+        return {id, name: id === 'player' ? 'You' : f.name, side: f.side,
+            ...state, causes, ready: readyOf(id), next: id === next, rank: ranks.get(id),
+            ...(f.side === 'b' && f.tags?.includes('beast') && !f.tags.some(tag => ['elite', 'named', 'large'].includes(tag)) ? {packKind: f.name} : {}),
+            ...(f.side === 'a' ? {hp: f.hp, maxHp: f.maxHp} : {})};
+    });
+    return rows.sort((a, b) => Number(b.id === 'player') - Number(a.id === 'player') || a.side.localeCompare(b.side));
 }
 
 // Text-first view (LSD314): one line per step and a who-acts-next strip.
 export function tempoView(b) {
-    const next = actingOrder(b).map(id => id === 'player' ? 'You' : b.fighters[id].name);
+    const names = fighterNames(b);
+    const next = actingOrder(b).map(id => id === 'player' ? 'You' : names.get(id) ?? b.fighters[id].name);
     const mine = nextActor(b) === 'player';
     const me = b.fighters.player;
     const mix = me.profile.types?.attack || null, st = me.stock, foe0 = st && active(b, 'b').find(id => st.vs[id]);
     const stockWhy = id => id === 'shoot' ? (!st?.loaded ? 'The chamber is empty.' : !foe0 ? 'No one is in your sights.' : '') : id === 'reload' ? (!st?.carried ? 'You have no rounds to load.' : st.loaded >= st.capacity ? 'Every chamber is already loaded.' : '') : '';
     const kitRow = id => me.kit?.[id] ? moveRow(me, id) : null;
+    const opening = openingFor(b, me);
+    const harm = id => Object.fromEntries(active(b, 'b').flatMap(targetId => {
+        const read = harmRead(b, me, id, targetId);
+        return read ? [[targetId, read]] : [];
+    }));
+    const moveBlocker = id => id === RAT_STEP_MOVE && !opening ? 'Wait for a blow to go wide.' : stockWhy(id);
     // How close each standing fighter is to acting (DU10): 1 for whoever acts next; the wait behind them is measured in that fighter's own
     // heavy swing (dial), so a foe who strikes right after you reads nearly full and one a whole swing or more away reads empty.
     const soonest = Math.min(...active(b).map(id => b.fighters[id].ready));
     const readyOf = id => b.fighters[id].status !== 'active' ? null : Math.max(0, 1 - (b.fighters[id].ready - soonest) / scaled(TEMPO_MOVES.swing, b.fighters[id]));
-    return {title: b.title, lines: [...b.log], next, ...(b.stakes ? {stakes: {...b.stakes}} : {}), holdBack: !!me.holdBack,
-        you: {hp: me.hp, maxHp: me.maxHp, stamina: me.stamina, maxStamina: me.maxStamina, ready: readyOf('player'), mix, ...(me.means ? {means: Object.entries(me.means).map(([id, n]) => ({id, n, label: me.meansLabels?.[id] ?? id.replace(/_/g, ' ')}))} : {}), ...(st ? {stock: {loaded: st.loaded, carried: st.carried, capacity: st.capacity, kind: st.kind, kindLabel: stockKindLabel(st.kind)}} : {})}, hits: [...(b.hits || [])], yourTurn: mine && !b.result, result: b.result,
+    return {title: b.title, lines: [...b.log], presentation: presentation.get(b) ?? [], turn: b.actions, next, openedHere: newBattles.has(b), targetId: target(b, 'player'),
+        ...(b.stakes ? {stakes: {...b.stakes}} : {}), ...(b.terms ? {terms: {...b.terms}} : {}), holdBack: !!me.holdBack,
+        you: {hp: me.hp, maxHp: me.maxHp, stamina: me.stamina, maxStamina: me.maxStamina, ready: readyOf('player'), mix,
+            // wolfKit snapshots hunger on the owned blade. An empty reserve can block a fed Gu separately.
+            ...(me.kit?.moonblade ? {moonglow: me.kit.moonblade.blocked ? 'Hungry' : 'Fed'} : {}),
+            ...(me.means ? {means: Object.entries(me.means).map(([id, n]) => ({id, n, label: me.meansLabels?.[id] ?? id.replace(/_/g, ' ')}))} : {}), ...(st ? {stock: {loaded: st.loaded, carried: st.carried, capacity: st.capacity, kind: st.kind, kindLabel: stockKindLabel(st.kind)}} : {})}, hits: [...(b.hits || [])], yourTurn: mine && !b.result, result: b.result,
+        ratStepOpening: mine && oddsOf(me).allowed ? opening : null,
         // Fate and stakes moves the fight offers now, one row per body waiting on a decision.
         fates: fates(b, 'player').map(id => ({id, name: b.fighters[id].name})),
-        moves: mine ? [...me.moves.filter(id => id !== 'order'), ...offered(b, 'player').filter(id => id !== 'finish' && id !== 'spare')].map(id => kitRow(id) ? {id, label: kitRow(id).label, text: kitRow(id).text, cost: scaled(kitRow(id), me), safe: kitRow(id).safe, kit: true,
-            usable: !kitWhy(me, kitRow(id)) && oddsOf(me).allowed, why: kitWhy(me, kitRow(id)), price: kitCostText(me, kitRow(id)), detail: kitDetail(me, kitRow(id), b.stakes), odds: null} : ({id, label: TEMPO_MOVES[id].label, ...(TEMPO_MOVES[id].kind === 'strike' && mix ? {mix} : {}), text: TEMPO_MOVES[id].text, cost: scaled(TEMPO_MOVES[id], me), safe: TEMPO_MOVES[id].safe,
-            usable: (id !== 'tend' || me.stamina >= TEMPO_MOVES.tend.stamina) && (TEMPO_MOVES[id].kind !== 'strike' || oddsOf(me).allowed) && !stockWhy(id) && !(id === 'plead' && pleaWhy(b)),
+        moves: mine ? [...me.moves.filter(id => id !== 'order'), ...offered(b, 'player').filter(id => TEMPO_MOVES[id].kind !== 'fate')].map(id => kitRow(id) ? {id, label: kitRow(id).label, text: kitRow(id).text, cost: scaled(kitRow(id), me), safe: kitRow(id).safe, kit: true,
+            effect: moveEffect(kitRow(id)), usable: !kitWhy(me, kitRow(id)) && oddsOf(me).allowed, why: kitWhy(me, kitRow(id)) || (!oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you using ${kitRow(id).label}.` : ''), price: kitCostText(me, kitRow(id)), quote: movePrice(me, kitRow(id)), harm: harm(id), detail: kitDetail(me, kitRow(id), b.stakes), odds: null} : ({id, label: TEMPO_MOVES[id].label, ...(TEMPO_MOVES[id].kind === 'strike' && mix ? {mix} : {}), text: id === RAT_STEP_MOVE && opening ? `${TEMPO_MOVES[id].text} Opening: ${b.fighters[opening].name}.` : TEMPO_MOVES[id].text,
+            cost: moveCost(me, id), harm: harm(id), safe: TEMPO_MOVES[id].safe, effect: moveEffect(TEMPO_MOVES[id]),
+            ...(TEMPO_MOVES[id].kind === 'strike' ? {quote: staminaForStrike(me) ? `${shownAmount(staminaForStrike(me))} of ${shownAmount(me.stamina)} stamina` : ''} :
+                id === 'tend' ? {quote: `${TEMPO_MOVES.tend.stamina} of ${shownAmount(me.stamina)} stamina`} :
+                id === 'shoot' ? {quote: `1 of ${st.loaded} loaded rounds`} : {}),
+            ...(id === 'tend' ? {price: `${TEMPO_MOVES.tend.stamina} stamina`} : id === 'shoot' ? {price: '1 loaded round'} : {}),
+            ...(recoveryBonus(me, id) && scaled(TEMPO_MOVES[id], me) > moveCost(me, id) ? {recovery: 'Rat-step mastery · 1 beat less to recover'} : {}),
+            usable: (id !== 'tend' || me.stamina >= TEMPO_MOVES.tend.stamina) && (TEMPO_MOVES[id].kind !== 'strike' || oddsOf(me).allowed) && !moveBlocker(id) && !(id === 'plead' && pleaWhy(b)),
             odds: id === 'withdraw' ? oddsWord(leaveChance(b, me, x => oddsOf(x).speed)) : id === 'yield' ? oddsWord(yieldChance(b, me)) : id === 'shoot' && foe0 ? oddsWord(st.vs[foe0].chance) : null,
             ...(id === 'shoot' || id === 'reload' ? {text: `${TEMPO_MOVES[id].text} ${st.loaded} of ${st.capacity} loaded, ${st.carried} carried (${stockKindLabel(st.kind)}).`} : {}),
-            why: id === 'plead' && pleaWhy(b) ? pleaWhy(b) : stockWhy(id) ? stockWhy(id) : id === 'tend' && me.stamina < TEMPO_MOVES.tend.stamina ? 'Needs two stamina.' : TEMPO_MOVES[id].kind === 'strike' && !oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you striking.` : '',
-            ...(TEMPO_MOVES[id].kind === 'strike' && b.stakes ? {detail: `${TEMPO_MOVES[id].text} ${b.stakes.lethal ? (me.holdBack ? 'You are holding back: a downing blow knocks out.' : 'In this fight a downing blow can kill, a fist included.') : 'A downing blow knocks out.'}`} : {})})) : [],
-        ...(mine ? {fateMoves: fates(b, 'player').flatMap(foeId => ['finish', 'spare'].map(m => ({id: m, targetId: foeId, name: b.fighters[foeId].name, label: m === 'finish' ? 'Finish' : b.fighters[foeId].yielding ? 'Accept' : 'Spare', ...(b.fighters[foeId].yielding ? {yielding: true} : {}),
-            text: fateText(b.fighters[foeId])[m], ...(m === 'finish' && fateText(b.fighters[foeId]).detail ? {detail: fateText(b.fighters[foeId]).detail} : {}), cost: scaled(TEMPO_MOVES[m], me), safe: TEMPO_MOVES[m].safe, usable: true, why: '', odds: null})))} : {fateMoves: []}),
-        place: b.conditions.place || null, holdRisk: holdRisk(b),
+            why: id === 'plead' && pleaWhy(b) ? pleaWhy(b) : moveBlocker(id) ? moveBlocker(id) : id === 'tend' && me.stamina < TEMPO_MOVES.tend.stamina ? 'Needs two stamina.' : TEMPO_MOVES[id].kind === 'strike' && !oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you striking.` : '',
+            ...(id !== RAT_STEP_MOVE && TEMPO_MOVES[id].kind === 'strike' && b.stakes ? {detail: `${TEMPO_MOVES[id].text} ${b.stakes.lethal ? (me.holdBack ? 'You are holding back: a downing blow knocks out.' : 'In this fight a downing blow can kill, a fist included.') : 'A downing blow knocks out.'}`} : {})})) : [],
+        ...(mine ? {fateMoves: fates(b, 'player').flatMap(foeId => fateIds(me, b.fighters[foeId]).map(m => ({id: m, targetId: foeId, name: b.fighters[foeId].name, label: m === 'finish' ? 'Finish' : m === 'spare' ? (b.fighters[foeId].yielding ? 'Accept' : 'Spare') : TEMPO_MOVES[m].label, ...(b.fighters[foeId].yielding ? {yielding: true} : {}),
+            text: fateText(b.fighters[foeId])[m] ?? TEMPO_MOVES[m].text, ...(m === 'finish' && fateText(b.fighters[foeId]).detail ? {detail: fateText(b.fighters[foeId]).detail} : {}), cost: scaled(TEMPO_MOVES[m], me), safe: TEMPO_MOVES[m].safe, usable: true, why: '', odds: null})))} : {fateMoves: []}),
+        place: b.conditions.place || null, scene: {light: b.conditions.light, footing: b.conditions.footing,
+            weather: b.conditions.weather, visibility: b.conditions.visibility}, holdRisk: holdRisk(b),
+        roster: rosterFor(b, readyOf),
         aims: mine ? SLOT_IDS.map(id => ({id, label: SLOTS[id].label === 'body' ? 'Body' : SLOTS[id].label[0].toUpperCase() + SLOTS[id].label.slice(1), text: SLOTS[id].why})) : [],
         hurt: Object.entries(me.parts || {}).map(([id, rung]) => ({id, label: partLabel(id), rung, shift: oddsOf({parts: {[id]: rung}}).shift})),
         orders: mine && me.moves.includes('order') ? active(b, 'a').filter(id => b.fighters[id].ally).flatMap(id => ALLY_ORDER_IDS.map(o => ({allyId: id, orderId: o, label: `${b.fighters[id].name}: ${ALLY_ORDERS[o].label}`,
@@ -690,8 +877,8 @@ export function tempoView(b) {
             order: activeOrder(b, b.fighters[id])?.id ? ALLY_ORDERS[activeOrder(b, b.fighters[id]).id].label : null})),
         // A body waiting on your decision stays on the card, down, so the choice has a place to be made (CBC4).
         // Every foe keeps its row in the same place; one that fell or left stays, dimmed (DU11, PS147): the list does not jump while you read.
-        foes: Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status !== 'active' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina, ready: readyOf(id), sense: senseOf(b, b.fighters[id], me), ...(b.fighters[id].seen ? {seenAtk: round1(b.fighters[id].seen.total / b.fighters[id].seen.blows)} : {}), ...(b.fighters[id].heard ? {heard: {...b.fighters[id].heard}} : {}),
-            ...(b.fighters[id].means && Object.keys(b.fighters[id].means).length ? {means: Object.entries(b.fighters[id].means).map(([q, n]) => ({id: q, n, label: b.fighters[id].meansLabels?.[q] ?? q.replace(/_/g, ' ')}))} : {}), learned: {...b.fighters[id].learned}, injuries: Object.entries(b.fighters[id].parts || {}).map(([p, rung]) => ({label: partLabel(p), rung})), hurt: b.fighters[id].status === 'down' ? 'down and helpless' : b.fighters[id].hp / b.fighters[id].maxHp > .66 ? 'fresh' : b.fighters[id].hp / b.fighters[id].maxHp > .33 ? 'hurt' : 'barely standing'}))};
+        foes: Object.keys(b.fighters).filter(id => b.fighters[id].side === 'b').map(id => ({id, name: b.fighters[id].name, wants: wantsText(b.fighters[id], b.stakes || {}), ...(b.fighters[id].status !== 'active' ? {down: true} : {}), hp: b.fighters[id].hp, maxHp: b.fighters[id].maxHp, stamina: b.fighters[id].stamina, maxStamina: b.fighters[id].maxStamina, ready: readyOf(id), ...perceivedTraits(b, b.fighters[id], me), ...(b.fighters[id].seen ? {seenAtk: round1(b.fighters[id].seen.total / b.fighters[id].seen.blows)} : {}), ...(b.fighters[id].heard ? {heard: {...b.fighters[id].heard}} : {}),
+            ...(b.fighters[id].means && Object.keys(b.fighters[id].means).length ? {means: Object.entries(b.fighters[id].means).map(([q, n]) => ({id: q, n, label: b.fighters[id].meansLabels?.[q] ?? q.replace(/_/g, ' ')}))} : {}), learned: {...b.fighters[id].learned}, injuries: Object.entries(b.fighters[id].parts || {}).map(([p, rung]) => ({label: partLabel(p), rung})), hurt: b.fighters[id].status === 'down' ? 'down and helpless' : observedHealth(b.fighters[id].hp, b.fighters[id].maxHp)}))};
 }
 
 export const tempoKey = address;

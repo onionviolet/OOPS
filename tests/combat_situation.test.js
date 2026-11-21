@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {fightSituation, chaseSituation, hardestBlow, chanceWord, pickLeaveChoice} from '../src/ui/combat_situation.js';
 import {validateFigureSpec, figureText} from '../src/ui/figure.js';
-import {fromCombatOpponentsProjection} from '../src/opponent_board.js';
+import {foldTempoRoster, fromCombatOpponentsProjection} from '../src/opponent_board.js';
 import {projectOpponents} from '../src/combat_opponents_domain.js';
 import {DUEL_BOARD, BRAWL_BOARD, COMBAT_FIXTURES} from '../src/ui/preview/fixtures/combat.js';
 
@@ -142,4 +142,34 @@ test('an enemy that declares a type shows it on its Attack fact; an undeclared o
     assert.equal(typed.value, '5 dmg x2');
     assert.equal(attackFact({}).damageType, undefined);
     assert.equal(attackFact({}).typeHelp, undefined);
+});
+
+test('a restored fight recognizes its prior Reports despite later non-combat lines', async () => {
+    const {reportedTempoPrefix} = await import('../src/combat_situation_ui.js');
+    const lines = ['The wolf sees you.', 'Your Moonblade lands.', 'The wolf strikes.'];
+    assert.equal(reportedTempoPrefix(lines, ['A prior hunt ended.', ...lines, 'Saved manually.']), 3);
+    assert.equal(reportedTempoPrefix(lines, [...lines.slice(0, 2), 'Gained a Spark of Inspiration.']), 2);
+    assert.equal(reportedTempoPrefix(lines, ['A prior hunt ended.']), 0);
+    const repeated = ['The wolf sees you.', 'Wolf rat misses.', 'Wolf rat misses.', 'Wolf rat misses.'];
+    assert.equal(reportedTempoPrefix(repeated, ['The wolf sees you.', 'Wolf rat misses. ×2']), 3);
+    assert.equal(reportedTempoPrefix(repeated, ['The wolf sees you.', 'Wolf rat misses. ×3']), 4);
+});
+
+test('a pack member split by an observation stays separate when that observation converges', () => {
+    const row = (id, attack) => ({id, packKind: 'Wolf rat', posture: 'Standing', health: 'Fresh', conditions: [], observations: {attack}});
+    const a = row('a', 'Looks weaker'), b = row('b', 'Looks weaker'), c = row('c', 'Looks stronger');
+    const split = new Set();
+    assert.deepEqual([...foldTempoRoster([a, b, c], null, split).keys()], ['a', 'b']);
+    assert.deepEqual([...foldTempoRoster([a, b, row('c', 'Looks weaker')], null, split).keys()], ['a', 'b']);
+    assert.deepEqual([...foldTempoRoster([a, b, c], 'a', split).keys()], []);
+    assert.deepEqual([...foldTempoRoster([a, b, c], null, split).keys()], []);
+});
+
+test('bracing or raising a ward distinguishes a fresh pack member even after the defence drops', () => {
+    const rats = ['a', 'b', 'c', 'd'].map(id => ({id, packKind: 'Wolf rat', posture: 'Standing', health: 'Fresh', conditions: []}));
+    const split = new Set();
+    assert.equal(foldTempoRoster(rats, null, split).size, 4);
+    const defended = [rats[0], rats[1], {...rats[2], protection: 'Guarding'}, {...rats[3], protection: 'Warded'}];
+    assert.deepEqual([...foldTempoRoster(defended, null, split).keys()], ['a', 'b']);
+    assert.deepEqual([...foldTempoRoster(rats, null, split).keys()], ['a', 'b']);
 });

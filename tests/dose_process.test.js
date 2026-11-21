@@ -168,7 +168,15 @@ test('the bench view lists every row, shows one formula, and drinking is honestl
     const {p, row} = bench('door_8'); const {host, box} = hostOver(p);
     const v0 = host.view(); assert.equal(v0.bench.rows.length, 43); assert.equal(v0.bench.selected, null);
     assert.ok(!v0.actions.some(a => a.id.startsWith('book.lotm.bf_')), 'the flat list stays free of bench buttons');
-    host.act('book.lotm.bf_start_door_8'); box.p = pass(box.p, row.minutes); host.act('book.lotm.bf_collect_door_8');
+    host.act('book.lotm.bf_start_door_8');
+    const pending = host.view().bench.rows.find(r => r.id === 'door_8');
+    assert.equal(pending.brewing, true);
+    assert.equal(pending.left, row.minutes);
+    assert.equal(pending.ready, false);
+    box.p = pass(box.p, row.minutes);
+    assert.equal(host.view().bench.rows.find(r => r.id === pending.id).ready, true);
+    host.act('book.lotm.bf_collect_door_8');
+    assert.equal(host.view().bench.rows.find(r => r.id === pending.id).doses, 1);
     const d = host.view('door_8').bench.selected;
     assert.equal(d.doses, 1); assert.match(d.drink.reason, /Not yet written/); assert.equal(d.drink.eligible, false);
     assert.equal(d.slots.length, row.slots.length); assert.ok(d.ritual.text); assert.ok(d.gaps.length >= 0);

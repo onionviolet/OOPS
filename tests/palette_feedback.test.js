@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createPaletteFeedbackLedger} from '../src/palette_feedback.js';
-import {createReceiptGate, installCoinFeedback} from '../src/settled_text_effects.js';
+import {createReceiptGate, installCoinFeedback, installControlFeedback} from '../src/settled_text_effects.js';
+import {kitControl} from '../src/ui/kit.js';
 
 test('tool condition changes stay attached to the observed tool copy', () => {
     const ledger = createPaletteFeedbackLedger();
@@ -65,6 +66,51 @@ test('a hidden-tab receipt is consumed and cannot replay after visibility return
     }
 });
 
+test('kit press follows a redrawn action once and skips disabled and effects-off actions', async () => {
+    const original = Object.getOwnPropertyDescriptor(globalThis, 'document');
+    const handlers = new Map(), pressed = [];
+    const doc = {documentElement: {dataset: {}},
+        addEventListener: (type, handler) => handlers.set(type, handler),
+        removeEventListener: type => handlers.delete(type)};
+    globalThis.document = doc;
+    const surface = {contains: node => node === doc.activeElement};
+    const button = (key, ariaDisabled = false) => kitControl({dataset: {}, isConnected: true,
+        closest: selector => selector.startsWith('button,') ? doc.activeElement : surface,
+        getAttribute: () => ariaDisabled ? 'true' : null,
+        animate() {
+            pressed.push(this);
+            return {cancel() {}, finished: Promise.resolve()};
+        }}, key);
+    const feedback = installControlFeedback(doc);
+    try {
+        const original = button('stir');
+        doc.activeElement = original;
+        handlers.get('click')({target: original});
+        original.isConnected = false;
+        const replacement = doc.activeElement = button('stir');
+        await Promise.resolve();
+        assert.deepEqual(pressed, [replacement]);
+
+        const blocked = doc.activeElement = button('bottle', true);
+        handlers.get('click')({target: blocked});
+        doc.documentElement.dataset.effects = 'off';
+        doc.activeElement = replacement;
+        handlers.get('click')({target: replacement});
+        await Promise.resolve();
+        assert.deepEqual(pressed, [replacement]);
+
+        const prevented = [];
+        for(const key of ['Enter', ' ', 'ArrowDown']) for(const repeat of [false, true]) {
+            handlers.get('keydown')({key, repeat, target: {matches: () => true}, preventDefault: () => prevented.push(key)});
+        }
+        assert.deepEqual(prevented, ['Enter', ' ']);
+    } finally {
+        feedback.destroy();
+        if(original) Object.defineProperty(globalThis, 'document', original);
+        else delete globalThis.document;
+    }
+});
+
 test('body recovery requires an observed amount gain at unchanged capacity; competence has a caused authored pose',()=>{
  const l=createPaletteFeedbackLedger(),body={subjectId:'player',health:10,maxHealth:20,stamina:5,maxStamina:10};
  assert.equal(l.observeBody(body),null);assert.equal(l.observeBody({...body,health:15,maxHealth:25}),null,'capacity growth is not healing');
@@ -118,9 +164,10 @@ test('a scene cue shows its sentence once: the kept line carries the words and i
         replaceChildren(...nodes) { this.children = []; this.append(...nodes); }
         contains(n) { return n === this || this.children.some(c => c.contains(n)); }
         getBoundingClientRect() { return {left: 0, top: 0, width: 0, height: 0}; }
+        getClientRects() { return [this.getBoundingClientRect()]; }
         animate() { return {finished: new Promise(() => {}), cancel() {}}; }
     }
-    const doc = {hidden: false, createElement: tag => new El(tag), createElementNS: (_, tag) => new El(tag), addEventListener() {}, removeEventListener() {}};
+    const doc = {hidden: false, documentElement:{dataset:{effects:'full'}}, createElement: tag => new El(tag), createElementNS: (_, tag) => new El(tag), addEventListener() {}, removeEventListener() {}};
     const original = Object.getOwnPropertyDescriptor(globalThis, 'document');
     Object.defineProperty(globalThis, 'document', {configurable: true, value: doc});
     try {

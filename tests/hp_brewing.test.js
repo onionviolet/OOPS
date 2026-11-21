@@ -49,6 +49,13 @@ test('Draught class charges once, resumes the stirring sequence, and records con
     assert.equal(view(r.s, {now: r.now}).draught.afterStirring, 'Pale pink');
     assert.match(r.do({type: 'submitDraught'}), /accepts/);
     assert.throws(() => r.do({type: 'submitDraught'}), /first/);
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    const handedIn = view(r.s, {now: r.now}).experiments.entries.at(-1);
+    assert.equal(handedIn.setup.preparation.bean, 'crush');
+    assert.deepEqual(handedIn.setup.process, [['admit', 1],
+        ...Array.from({length: 7}, () => ['counterclockwise', 1]), ['clockwise', 1]]);
+    assert.deepEqual(handedIn.seen, ['Lilac', 'Pale pink']);
+    assert.match(handedIn.observation.response, /accepts/);
     r.do({type: 'startDraught', preparation: 'crush'});
     r.do({type: 'stirDraught', direction: 'R'});
     assert.match(r.do({type: 'submitDraught'}), /missed/);

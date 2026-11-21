@@ -1,0 +1,295 @@
+.potion-bench {
+    container-type: inline-size;
+    margin-block: var(--kit-gap-3);
+    border: var(--kit-border) solid var(--sem-record-edge);
+    color: var(--ui-text);
+    background: var(--sem-record-bg);
+}
+
+.potion-bench__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--kit-gap-2);
+    padding: var(--kit-gap-2) var(--kit-gap-3);
+    background: var(--sem-record-band);
+    border-bottom: var(--kit-border) solid var(--sem-record-edge);
+}
+
+.potion-bench :is(h3, h4, p, ol) {
+    margin: 0;
+}
+
+.potion-bench__head h3 {
+    font-size: var(--ui-type-title);
+}
+
+.potion-bench__table {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+}
+
+.potion-bench__inputs,
+.potion-bench__station,
+.potion-bench__record {
+    min-width: 0;
+    padding: var(--kit-gap-3);
+}
+
+.potion-bench__inputs,
+.potion-bench__record {
+    overflow-wrap: anywhere;
+    font-size: var(--ui-type-small);
+    line-height: 1.45;
+}
+
+.potion-bench__inputs {
+    background: linear-gradient(135deg, var(--sem-record-bg), var(--sem-record-footer));
+}
+
+.potion-bench__record {
+    background: var(--ui-potion-record);
+}
+
+.potion-bench__table h4 {
+    padding-bottom: var(--kit-gap-1);
+    margin-bottom: var(--kit-gap-2);
+    color: var(--sem-place);
+    border-bottom: var(--kit-border) dotted var(--sem-record-dash);
+    font-size: var(--ui-type-body);
+}
+
+.potion-bench__inputs h4:not(:first-child) {
+    margin-top: var(--kit-gap-4);
+}
+
+.potion-bench__inputs p + p {
+    margin-top: var(--kit-gap-1);
+}
+
+.potion-bench__station {
+    border-inline: var(--kit-border) solid var(--sem-record-edge);
+    background: var(--ui-potion-worktop);
+}
+
+.potion-bench__vessel {
+    display: grid;
+    justify-items: center;
+    gap: var(--kit-gap-2);
+    margin: 0;
+    text-align: center;
+}
+
+.potion-bench__glass {
+    --glass-cut: polygon(34% 0, 66% 0, 66% 33%, 92% 78%, 92% 88%, 86% 96%, 78% 100%, 22% 100%, 14% 96%, 8% 88%, 8% 78%, 34% 33%);
+    position: relative;
+    isolation: isolate;
+    width: 106px;
+    height: 124px;
+    clip-path: var(--glass-cut);
+    background: linear-gradient(125deg, var(--sem-place), var(--ui-potion-glass) 55%, var(--sem-record-edge));
+}
+
+.potion-bench__glass::before {
+    position: absolute;
+    inset: 2px;
+    content: '';
+    clip-path: var(--glass-cut);
+    background: linear-gradient(105deg, var(--sem-record-bg), var(--sem-record-footer) 38%, var(--ui-potion-worktop) 63%, var(--sem-record-bg));
+}
+
+.potion-bench__liquid,
+.potion-bench__prior-liquid {
+    position: absolute;
+    pointer-events: none;
+    background: linear-gradient(to bottom, var(--liquid-rim), var(--liquid) 10%, var(--liquid-shadow));
+    --liquid: color-mix(in srgb, var(--ui-potion-glass) 35%, var(--ui-potion-worktop));
+    --liquid-rim: color-mix(in srgb, var(--ui-potion-glass) 68%, var(--ui-potion-worktop));
+    --liquid-shadow: color-mix(in srgb, var(--liquid) 50%, var(--sem-record-bg));
+}
+
+.potion-bench__liquid {
+    inset: 60% 2px 2px;
+    overflow: hidden;
+}
+
+.potion-bench__prior-liquid {
+    inset: 0;
+}
+
+.potion-bench [data-liquid="lilac"] {
+    --liquid: var(--ui-potion-lilac);
+    --liquid-rim: color-mix(in srgb, var(--liquid) 87%, white);
+}
+
+.potion-bench [data-liquid="pink"] {
+    --liquid: var(--ui-potion-pink);
+    --liquid-rim: color-mix(in srgb, var(--liquid) 87%, white);
+}
+
+.potion-bench__drop,
+.potion-bench__splash,
+.potion-bench__swirl {
+    position: absolute;
+    pointer-events: none;
+}
+
+.potion-bench__drop {
+    inset: 24% auto auto 48%;
+    width: 6%;
+    height: 22%;
+    background: linear-gradient(transparent, var(--sem-place));
+    border-radius: 100% 100% 65% 65%;
+}
+
+.potion-bench__splash,
+.potion-bench__swirl {
+    border-radius: 50%;
+}
+
+.potion-bench__splash {
+    inset: 60% 31% 29%;
+    border: 2px solid var(--sem-place);
+}
+
+.potion-bench__swirl {
+    inset: -12% 13% 20%;
+    background: conic-gradient(from 24deg, transparent 5%, var(--sem-place) 22%, transparent 46%,
+        transparent 61%, var(--liquid-rim) 76%, transparent 97%);
+    mask-image: radial-gradient(ellipse, transparent 43%, black 50% 59%, transparent 66%);
+}
+
+.potion-bench__vessel figcaption {
+    width: 100%;
+    padding-block: var(--kit-gap-2);
+    border-top: var(--kit-border) solid var(--ui-potion-glass);
+}
+
+.potion-bench__actions {
+    display: grid;
+    gap: var(--kit-gap-1);
+}
+
+#hp_brewing .potion-bench__actions button {
+    width: 100%;
+    min-height: 30px;
+    margin: 0;
+}
+
+.potion-bench__record ol {
+    padding-inline-start: 0;
+    list-style-position: inside;
+    max-block-size: 16rem;
+    overflow-y: auto;
+}
+
+.potion-bench__record li {
+    min-block-size: 30px;
+    padding-block: var(--kit-gap-1);
+}
+
+.potion-bench__record li + li {
+    border-top: var(--kit-border) solid var(--sem-record-edge);
+}
+
+.potion-bench__record .potion-bench__verdict {
+    margin-top: var(--kit-gap-3);
+    padding-top: var(--kit-gap-2);
+    border-top: var(--kit-border) solid var(--sem-record-edge);
+}
+
+.potion-bench__observation {
+    display: block;
+    margin-top: var(--kit-gap-1);
+    color: var(--sem-place);
+}
+
+.potion-bench__strokes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--kit-gap-1);
+    margin-block: var(--kit-gap-1);
+}
+
+.potion-bench__strokes span {
+    white-space: nowrap;
+    padding-inline: var(--kit-gap-1);
+    background: var(--sem-record-footer);
+    border: var(--kit-border) solid var(--sem-record-edge);
+}
+
+.potion-bench__refusal {
+    color: var(--ui-muted);
+}
+
+#hp_brewing .potion-bench .hp-notice:not(:empty) {
+    margin: 0;
+    padding: var(--kit-gap-2) var(--kit-gap-3);
+    border-top: var(--kit-border) solid var(--sem-record-edge);
+    color: var(--sem-prose);
+}
+
+@container (max-width: 440px) {
+    .potion-bench__table {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .potion-bench__station {
+        grid-column: span 2;
+        grid-row: 1;
+        border-inline: 0;
+        border-bottom: var(--kit-border) solid var(--sem-record-edge);
+    }
+}
+
+.potion-bench--tingen,
+.potion-bench--cauldron {
+    display: grid;
+    grid-template-columns: minmax(6rem, 1fr) minmax(0, 2fr);
+    align-items: center;
+    gap: var(--kit-gap-3);
+    padding: var(--kit-gap-3);
+    background: var(--ui-potion-worktop);
+}
+
+.potion-bench--tingen .potion-bench__glass,
+.potion-bench--cauldron .potion-bench__glass {
+    width: 62px;
+    height: 76px;
+}
+
+.potion-bench__glass[data-vessel="pot"] {
+    --glass-cut: polygon(0 10%, 100% 10%, 100% 21%, 94% 21%, 88% 79%, 77% 93%, 23% 93%, 12% 79%, 6% 21%, 0 21%);
+}
+
+.potion-bench__glass[data-vessel="pot"] .potion-bench__liquid {
+    inset-block-start: 43%;
+}
+
+.potion-bench__flame {
+    width: 2rem;
+    height: .85rem;
+    margin-block-start: calc(-1 * var(--kit-gap-3));
+    clip-path: polygon(0 100%, 13% 47%, 31% 67%, 52% 0, 68% 66%, 83% 40%, 100% 100%);
+    background: radial-gradient(ellipse at 50% 100%, var(--sem-place), var(--sem-state) 53%, var(--sem-state-label));
+    transform-origin: center bottom;
+    pointer-events: none;
+}
+
+.potion-bench__flame[hidden] {
+    display: block;
+    visibility: hidden;
+}
+
+.potion-bench__glass[data-vessel="bottle"] {
+    --glass-cut: polygon(35% 0, 65% 0, 65% 32%, 82% 49%, 82% 96%, 75% 100%, 25% 100%, 18% 96%, 18% 49%, 35% 32%);
+}
+
+.potion-bench__dose > * + * {
+    margin-top: var(--kit-gap-2);
+}
+
+[data-display-contrast="high"] :is(.potion-bench__record, .potion-bench__station, .potion-bench--tingen, .potion-bench--cauldron) {
+    background: var(--sem-record-bg);
+}

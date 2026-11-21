@@ -1,0 +1,94 @@
+Focused regression before the change (exit 1)
+    actual: [ 'You know how hard Wolf rat hits now: about 1.', 'You know how hard Cave rat hits now: about 1.', 'You know how hard Wolf rat hits now: about 1.', 'You know how hard Wolf rat hits now: about 1.', 'You know how hard Wolf rat hits now: about 1.' ],
+    expected: [ 'You know how hard Wolf rat hits now: about 1.', 'You know how hard Cave rat hits now: about 1.' ],
+
+Focused regression with the fix (exit 0)
+✔ five pack hits teach attack once per opponent kind while each attacker keeps its observation (45.895709ms)
+ℹ pass 1
+ℹ fail 0
+
+Thirteen focused test files (exit 0)
+ℹ tests 131
+ℹ pass 131
+ℹ fail 0
+ℹ skipped 0
+
+Working tree copied to scratch, node build.js (exit 0)
+▲ [WARNING] Duplicate key "deeds" in object literal [duplicate-object-key]
+    src/layout_spec.js:256:8:
+▲ [WARNING] Duplicate key "dial" in object literal [duplicate-object-key]
+    src/travel_legs.js:28:81:
+Javascript build complete!
+
+WebKit capture before (exit 0)
+Quick strike on G
+Motion {"motion":"full","effects":"full","systemReduced":false,"trailWidth":"19.21875px","trailColor":"color(srgb 0.441647 0.155686 0.21498)","prior":"100%","now":"95.5%"}
+Reports {"hits":["Wolf rat hits you on the leg for 0.6.","Wolf rat hits you in the body for 0.6.","Wolf rat hits you on the arm for 0.5.","Wolf rat hits you on the arm for 0.5.","Wolf rat hits you on the leg for 0.5."],"announcements":["You know how hard Wolf rat hits now: about 1.","You know how hard Wolf rat hits now: about 1.","You know how hard Wolf rat hits now: about 1.","You know how hard Wolf rat hits now: about 1.","You know how hard Wolf rat hits now: about 1."]}
+Five real hit lines and 5 discovery line(s)
+Flash events {"events":[],"visibility":"visible","timeline":8281,"anim":[[null,"running",716,7565],[null,"running",716,7565]]}
+
+Settled viewport 1920 × 1080. Roster 672 px, row 112 px, scrollTop 112 px. Move strip y = 767.7 to 815.9.
+
+WebKit capture after (exit 0)
+Quick strike on G
+Motion {"motion":"full","effects":"full","systemReduced":false,"name":"fight-hero-hit","duration":"0.18s","count":"1","flashDisplay":"block","trailWidth":"19.21875px","trailColor":"color(srgb 0.441647 0.155686 0.21498)","prior":"100%","now":"95.5%","animations":[{"name":"fight-hero-hit","frames":["0.65","0"]}]}
+Reports {"hits":["Wolf rat hits you on the leg for 0.6.","Wolf rat hits you in the body for 0.6.","Wolf rat hits you on the arm for 0.5.","Wolf rat hits you on the arm for 0.5.","Wolf rat hits you on the leg for 0.5."],"announcements":["You know how hard Wolf rat hits now: about 1."]}
+Five real hit lines and 1 discovery line(s)
+Flash events {"events":[["animationstart",0],["animationend",0.18]],"visibility":"visible","timeline":8537,"anim":[[null,"running",447,8090],[null,"running",447,8090]]}
+Settled layout is in bounds
+Saved the played pack via the bottom bar
+Fighters, their observations, time and the single discovery survived
+Imported that Export file through the native input
+Fighters, their observations, time and the single discovery survived
+Later hits after import still announce the kind only once
+
+Settled viewport 1920 × 1080. Roster 364 px, row 60.6875 px, scrollTop 61 px. Move strip y = 459.9 to 508.1.
+
+WebKit capture laptop (exit 0)
+Quick strike on G
+Motion {"motion":"full","effects":"full","systemReduced":false,"name":"fight-hero-hit","duration":"0.18s","count":"1","flashDisplay":"block","trailWidth":"12.34375px","trailColor":"color(srgb 0.441647 0.155686 0.21498)","prior":"100%","now":"95.5%","animations":[{"name":"fight-hero-hit","frames":["0.65","0"]}]}
+Reports {"hits":["Wolf rat hits you on the leg for 0.6.","Wolf rat hits you in the body for 0.6.","Wolf rat hits you on the arm for 0.5.","Wolf rat hits you on the arm for 0.5.","Wolf rat hits you on the leg for 0.5."],"announcements":["You know how hard Wolf rat hits now: about 1."]}
+Five real hit lines and 1 discovery line(s)
+Flash events {"events":[["animationstart",0],["animationend",0.18]],"visibility":"visible","timeline":8398,"anim":[[null,"running",437,7961],[null,"running",437,7961]]}
+Settled layout is in bounds
+
+Settled viewport 1280 × 800. Roster 364 px, row 60.6875 px, scrollTop 61 px. Move strip y = 459.9 to 542.3.
+
+WebKit capture reduced (exit 0)
+Enabled the game's Reduce motion preference
+Quick strike on G
+Motion {"motion":"reduce","effects":"full","systemReduced":false,"name":"none","duration":"0s","count":"1","flashDisplay":"none","trailWidth":"19.21875px","trailColor":"color(srgb 0.441647 0.155686 0.21498)","prior":"100%","now":"95.5%","animations":[]}
+Reports {"hits":["Wolf rat hits you on the leg for 0.6.","Wolf rat hits you in the body for 0.6.","Wolf rat hits you on the arm for 0.5.","Wolf rat hits you on the arm for 0.5.","Wolf rat hits you on the leg for 0.5."],"announcements":["You know how hard Wolf rat hits now: about 1."]}
+Five real hit lines and 1 discovery line(s)
+Flash events {"events":[],"visibility":"visible","timeline":8540,"anim":[]}
+Settled layout is in bounds
+
+Settled viewport 1920 × 1080. Roster 364 px, row 60.6875 px, scrollTop 61 px. Move strip y = 459.9 to 508.1.
+
+npm run check:arch (exit 0)
+src/main.js: 10117 lines; baseline 10115; growth 2
+src/display.js: 6746 lines; baseline 6767; growth -21
+src/save_files.js: 310 lines; baseline 310; growth 0
+Grandfathered: 6 main imports, 205 cyclic edges.
+
+node tests/combat_situation_page.browser.mjs (exit 1)
+Error: listen EPERM: operation not permitted 127.0.0.1
+
+npm run check:flow (exit 1)
+Error: listen EPERM: operation not permitted 127.0.0.1
+
+Direct launchChrome() (exit 1)
+browserType.launch: Target page, context or browser has been closed
+
+npm run check:rules (exit 1)
+  FAIL  src/absorb_p23/host_joins/tranche_one_ui.js:16 "played minutes": Hearth lit · ${a.hearth.fuel} played minutes of fuel.
+FAIL (1 new)
+
+node --test tests/ui_style_ratchet.test.js (exit 1)
+    actual: [ 'src/ui/book_craft_controls.js: ownMarkup 4 -> 5' ],
+
+npm run check:docs (exit 1). 49 findings outside fix-pass/.
+docs/gm/USER_VISION_LOG_2026-11.md:1821: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+docs/representations/evidence/combat-page-sol-2026-11-20/second-pass/README.md:25: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+
+Scoped git diff --check (exit 0).

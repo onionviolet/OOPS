@@ -11,8 +11,9 @@ export const TEMPO_SCHEMA = 7;
 export const TEMPO_LOG_LINES = 12;
 export const TEMPO_MOVE_IDS = ['jab', 'swing', 'guard', 'tend', 'withdraw', 'yield', 'order'];
 // Stock moves (FD3/FD17, AT15): granted per fighter, never in the default list, so fights that do not name them are unchanged.
+export const RAT_STEP_MOVE = 'rat_step';
 export const TEMPO_STOCK_MOVE_IDS = ['shoot', 'reload'];
-export const TEMPO_ALLOWED_MOVE_IDS = [...TEMPO_MOVE_IDS, ...TEMPO_STOCK_MOVE_IDS];
+export const TEMPO_ALLOWED_MOVE_IDS = [...TEMPO_MOVE_IDS, ...TEMPO_STOCK_MOVE_IDS, RAT_STEP_MOVE];
 export const TEMPO_FACT_HELD = 'tempo.held_minutes';
 
 // Away minutes during an open fight are banked in memory by the clock and folded
@@ -26,6 +27,7 @@ export function recordTempoHold(minutes, battle) {
 export function takeTempoHold() {const m = pendingHold; pendingHold = 0; return m;}
 
 const natural = n => Number.isSafeInteger(n) && n >= 0;
+const nonnegative = n => Number.isFinite(n) && n >= 0;
 // Ready stock carried into a fight (FD3): counts live in the fight record; `keys` (player only) names the actor resources written back once at the end.
 const chance = n => Number.isFinite(n) && n >= 0 && n <= 1;
 // N7: `holder` names the fighter who carries the stock (stamped at begin; absent in older saves). Only the player's stock may carry `keys`:
@@ -59,10 +61,17 @@ export function validateTempoBattle(b, session, state) {
     check(Array.isArray(b.log) && b.log.length <= TEMPO_LOG_LINES && typeof b.last === 'string' && b.last.length <= 500 && b.result === null, 'Invalid tempo log.');
     const ids = Object.keys(b.fighters || {});
     check(ids.includes('player') && b.fighters.player.side === 'a' && ids.some(id => b.fighters[id].side === 'b'), 'Invalid tempo roster.');
+    const essence = b.fighters.player.means?.essence;
+    check(b.startEssence === undefined || (natural(b.startEssence) && natural(essence) && essence <= b.startEssence), 'Invalid tempo starting essence.');
     for(const id of ids) {
         const f = b.fighters[id];
+        const start = f.startVitals;
+        check(start === undefined || (start && nonnegative(start.health) && nonnegative(start.stamina)), 'Invalid tempo starting vitals.');
         check(['a', 'b'].includes(f.side) && natural(f.ready) && f.speed > 0 && Number.isFinite(f.hp) && f.hp >= 0 && f.hp <= f.maxHp && f.stamina >= 0 && f.stamina <= f.maxStamina &&
-            ['active', 'down', 'left'].includes(f.status) && Array.isArray(f.moves) && f.moves.every(m => TEMPO_ALLOWED_MOVE_IDS.includes(m) || !!f.kit?.[m]) && validateTempoKit(f, TEMPO_ALLOWED_MOVE_IDS) && validateTempoStock(f.stock, ids, id) && (f.tags === undefined || (Array.isArray(f.tags) && f.tags.length <= 8 && f.tags.every(t => typeof t === 'string' && t.length > 0 && t.length <= 32))) && validateTempoChannels(f) && f.profile?.stats && (f.ally === undefined || (f.side === 'a' && validateAlly(f.ally))) && validateParts(f.parts) && validateGoals(f.goals) && (f.learned === undefined || (f.learned && typeof f.learned === 'object' && Object.values(f.learned).every(v => typeof v === 'string'))) && (f.tries === undefined || natural(f.tries)) && (f.heard === undefined || (Number.isFinite(f.heard.atk) && f.heard.atk >= 0 && typeof f.heard.from === 'string' && f.heard.from.length > 0 && f.heard.from.length <= 200)) && (f.seen === undefined || (natural(f.seen.blows) && f.seen.blows > 0 && Number.isFinite(f.seen.total) && f.seen.total >= 0)), 'Invalid saved tempo fighter.');
+            ['active', 'down', 'left'].includes(f.status) && Array.isArray(f.moves) && f.moves.every(m => TEMPO_ALLOWED_MOVE_IDS.includes(m) || !!f.kit?.[m]) && validateTempoKit(f, TEMPO_ALLOWED_MOVE_IDS) && validateTempoStock(f.stock, ids, id) && (f.tags === undefined || (Array.isArray(f.tags) && f.tags.length <= 8 && f.tags.every(t => typeof t === 'string' && t.length > 0 && t.length <= 32))) && validateTempoChannels(f) && f.profile?.stats && (f.ally === undefined || (f.side === 'a' && validateAlly(f.ally))) && validateParts(f.parts) && validateGoals(f.goals) && (f.learned === undefined || (f.learned && typeof f.learned === 'object' && Object.values(f.learned).every(v => typeof v === 'string'))) && (f.tries === undefined || natural(f.tries)) && (f.purse === undefined || natural(f.purse)) && (f.robbed === undefined || natural(f.robbed)) && (f.heard === undefined || (Number.isFinite(f.heard.atk) && f.heard.atk >= 0 && typeof f.heard.from === 'string' && f.heard.from.length > 0 && f.heard.from.length <= 200)) && (f.seen === undefined || (natural(f.seen.blows) && f.seen.blows > 0 && Number.isFinite(f.seen.total) && f.seen.total >= 0)), 'Invalid saved tempo fighter.');
+        check(f.ratStep === undefined ? !f.moves.includes(RAT_STEP_MOVE) :
+            id === 'player' && f.moves.includes(RAT_STEP_MOVE) && typeof f.ratStep.mastered === 'boolean' &&
+            (f.ratStep.opening === null || (b.fighters[f.ratStep.opening]?.side === 'b' && typeof f.ratStep.opening === 'string')), 'Invalid Rat-step record.');
         if(state && id !== 'player') check(!state.simulation.people[id] || state.simulation.people[id].life === 'alive', 'Unavailable tempo fighter.');
     }
     // An open fight can also be waiting on the fate of a downed body (CBC4 window) with no foe still standing.

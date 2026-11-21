@@ -1,0 +1,846 @@
+{
+  "builds": {
+    "before": {
+      "bundleSHA256": "21ea42a423446cb1c54faf5478b1aaacd03e9406fa6e3ab340fd6ed5eb3bfd1c",
+      "combatCssSHA256": "201ca5b53bdc849b9998fc13384ad73aa1d26e5ee6e005a2c443c3c1305cab4d"
+    },
+    "after": {
+      "bundleSHA256": "50542c749493920da4c55a3aeab2b94268fcaa6f2de42b646247b84d139d70c9",
+      "combatCssSHA256": "edccf31f5e90990fac7c5efc510ab3beec3b5461941309d880e0385814209bae"
+    }
+  },
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "before": {
+        "pack": {
+          "bars": [
+            {
+              "subject": "fold:rat1",
+              "visibleText": "All fresh",
+              "accessible": "Wolf rat ×7 (A–F, H) health · All fresh",
+              "title": "Wolf rat ×7 (A–F, H) health · All fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat7",
+              "visibleText": "Barely standing → likely Down",
+              "accessible": "Wolf rat G health · Barely standing · Likely down on a hit",
+              "title": "Wolf rat G health · Barely standing",
+              "fill": "33%",
+              "preview": true,
+              "striped": true
+            }
+          ],
+          "hero": {
+            "height": 255,
+            "scrollHeight": 259,
+            "verticalOverflow": 4,
+            "hpText": "60/60 hp",
+            "dockBottom": 297,
+            "conditionBottom": 279.1875
+          },
+          "terms": [
+            {
+              "id": "withdraw",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": "4 beats",
+              "costInsideButton": false
+            },
+            {
+              "id": "yield",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": "2 beats",
+              "costInsideButton": false
+            },
+            {
+              "id": "plead",
+              "y": 679,
+              "height": 46.375,
+              "beatCost": null,
+              "costInsideButton": null,
+              "refused": "A wolf does not bargain."
+            },
+            {
+              "id": "terms:beast:finish",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            },
+            {
+              "id": "terms:beast:spare",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            },
+            {
+              "id": "terms:beast:ask",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            }
+          ],
+          "pageErrors": []
+        },
+        "forecast": {
+          "bars": [
+            {
+              "subject": "fold:rat1",
+              "visibleText": "All fresh",
+              "accessible": "Wolf rat ×6 (A–F) health · All fresh",
+              "title": "Wolf rat ×6 (A–F) health · All fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat7",
+              "visibleText": "Barely standing",
+              "accessible": "Wolf rat G health · Barely standing",
+              "title": "Wolf rat G health · Barely standing",
+              "fill": "33%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat8",
+              "visibleText": "Fresh → likely Hurt",
+              "accessible": "Wolf rat H health · Fresh · Likely hurt on a hit",
+              "title": "Wolf rat H health · Fresh",
+              "fill": "100%",
+              "preview": true,
+              "striped": true
+            }
+          ],
+          "pageErrors": []
+        },
+        "guard": {
+          "bars": [
+            {
+              "subject": "adept",
+              "visibleText": "Hurt",
+              "accessible": "Jade adept health · Hurt",
+              "title": "Jade adept health · Hurt",
+              "fill": "67%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rival",
+              "visibleText": "Fresh",
+              "accessible": "Injured rival health · Fresh",
+              "title": "Injured rival health · Fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            }
+          ],
+          "hero": {
+            "height": 255,
+            "scrollHeight": 259,
+            "verticalOverflow": 4,
+            "hpText": "60/60 hp",
+            "dockBottom": 297,
+            "conditionBottom": 279.1875
+          },
+          "injuredRival": {
+            "condition": "Hands: maimed",
+            "conditionWidth": 108,
+            "conditionScrollWidth": 108,
+            "stats": [
+              {
+                "text": "Atk looks about your match",
+                "title": "Attack · looks about your match",
+                "width": 158,
+                "scrollWidth": 158
+              },
+              {
+                "text": "Spd slower than you",
+                "title": "Speed · slower than you",
+                "width": 119,
+                "scrollWidth": 119
+              },
+              {
+                "text": "Hit ?",
+                "title": "Hit chance · Unknown",
+                "width": 30,
+                "scrollWidth": 30
+              },
+              {
+                "text": "Ddg ?",
+                "title": "Dodge chance · Unknown",
+                "width": 37,
+                "scrollWidth": 37
+              },
+              {
+                "text": "Def ?",
+                "title": "Defense · Unknown",
+                "width": 33,
+                "scrollWidth": 33
+              }
+            ]
+          },
+          "pageErrors": []
+        }
+      },
+      "after": {
+        "pack": {
+          "bars": [
+            {
+              "subject": "fold:rat1",
+              "visibleText": "",
+              "accessible": "Wolf rat ×7 (A–F, H) health · All fresh",
+              "title": "Wolf rat ×7 (A–F, H) health · All fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat7",
+              "visibleText": "",
+              "accessible": "Wolf rat G health · Barely standing · Likely down on a hit",
+              "title": "Wolf rat G health · Barely standing · Likely down on a hit",
+              "fill": "33%",
+              "preview": true,
+              "striped": true
+            }
+          ],
+          "hero": {
+            "height": 259,
+            "scrollHeight": 259,
+            "verticalOverflow": 0,
+            "hpText": "60/60 hp",
+            "dockBottom": 301,
+            "conditionBottom": 279.1875
+          },
+          "terms": [
+            {
+              "id": "withdraw",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": "4 beats",
+              "costInsideButton": true
+            },
+            {
+              "id": "yield",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": "2 beats",
+              "costInsideButton": true
+            },
+            {
+              "id": "plead",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": "2 beats",
+              "costInsideButton": true,
+              "refused": "A wolf does not bargain."
+            },
+            {
+              "id": "terms:beast:finish",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            },
+            {
+              "id": "terms:beast:spare",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            },
+            {
+              "id": "terms:beast:ask",
+              "y": 688.09375,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            }
+          ],
+          "pageErrors": []
+        },
+        "forecast": {
+          "bars": [
+            {
+              "subject": "fold:rat1",
+              "visibleText": "",
+              "accessible": "Wolf rat ×6 (A–F) health · All fresh",
+              "title": "Wolf rat ×6 (A–F) health · All fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat7",
+              "visibleText": "",
+              "accessible": "Wolf rat G health · Barely standing",
+              "title": "Wolf rat G health · Barely standing",
+              "fill": "33%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat8",
+              "visibleText": "",
+              "accessible": "Wolf rat H health · Fresh · Likely hurt on a hit",
+              "title": "Wolf rat H health · Fresh · Likely hurt on a hit",
+              "fill": "100%",
+              "preview": true,
+              "striped": true
+            }
+          ],
+          "pageErrors": []
+        },
+        "guard": {
+          "bars": [
+            {
+              "subject": "adept",
+              "visibleText": "",
+              "accessible": "Jade adept health · Hurt",
+              "title": "Jade adept health · Hurt",
+              "fill": "67%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rival",
+              "visibleText": "",
+              "accessible": "Injured rival health · Fresh",
+              "title": "Injured rival health · Fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            }
+          ],
+          "hero": {
+            "height": 259,
+            "scrollHeight": 259,
+            "verticalOverflow": 0,
+            "hpText": "60/60 hp",
+            "dockBottom": 301,
+            "conditionBottom": 279.1875
+          },
+          "injuredRival": {
+            "condition": "Hands: maimed",
+            "conditionWidth": 108,
+            "conditionScrollWidth": 108,
+            "stats": [
+              {
+                "text": "Atk looks about your match",
+                "title": "Attack · looks about your match",
+                "width": 158,
+                "scrollWidth": 158
+              },
+              {
+                "text": "Spd slower than you",
+                "title": "Speed · slower than you",
+                "width": 119,
+                "scrollWidth": 119
+              },
+              {
+                "text": "Hit ?",
+                "title": "Hit chance · Unknown",
+                "width": 30,
+                "scrollWidth": 30
+              },
+              {
+                "text": "Ddg ?",
+                "title": "Dodge chance · Unknown",
+                "width": 37,
+                "scrollWidth": 37
+              },
+              {
+                "text": "Def ?",
+                "title": "Defense · Unknown",
+                "width": 33,
+                "scrollWidth": 33
+              }
+            ]
+          },
+          "pageErrors": []
+        }
+      },
+      "fiveStrikes": {
+        "width": 1920,
+        "height": 1080,
+        "reserved": 8,
+        "sawDamageTrail": true,
+        "samples": [
+          {
+            "stripY": 586.71875,
+            "strikeY": 588.71875,
+            "rosterHeight": 457,
+            "horizontalOverflow": 0,
+            "visibleEntries": 2,
+            "actions": 0
+          },
+          {
+            "stripY": 586.71875,
+            "strikeY": 588.71875,
+            "rosterHeight": 457,
+            "horizontalOverflow": 0,
+            "visibleEntries": 3,
+            "actions": 8
+          },
+          {
+            "stripY": 586.71875,
+            "strikeY": 588.71875,
+            "rosterHeight": 457,
+            "horizontalOverflow": 0,
+            "visibleEntries": 4,
+            "actions": 16
+          },
+          {
+            "stripY": 586.71875,
+            "strikeY": 588.71875,
+            "rosterHeight": 457,
+            "horizontalOverflow": 0,
+            "visibleEntries": 5,
+            "actions": 17
+          },
+          {
+            "stripY": 586.71875,
+            "strikeY": 588.71875,
+            "rosterHeight": 457,
+            "horizontalOverflow": 0,
+            "visibleEntries": 6,
+            "actions": 25
+          },
+          {
+            "stripY": 586.71875,
+            "strikeY": 588.71875,
+            "rosterHeight": 457,
+            "horizontalOverflow": 0,
+            "visibleEntries": 7,
+            "actions": 26
+          }
+        ]
+      }
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "before": {
+        "pack": {
+          "bars": [
+            {
+              "subject": "fold:rat1",
+              "visibleText": "All fresh",
+              "accessible": "Wolf rat ×7 (A–F, H) health · All fresh",
+              "title": "Wolf rat ×7 (A–F, H) health · All fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat7",
+              "visibleText": "Barely standing → likely Down",
+              "accessible": "Wolf rat G health · Barely standing · Likely down on a hit",
+              "title": "Wolf rat G health · Barely standing",
+              "fill": "33%",
+              "preview": true,
+              "striped": true
+            }
+          ],
+          "hero": {
+            "height": 255,
+            "scrollHeight": 331,
+            "verticalOverflow": 76,
+            "hpText": "60/60 hp",
+            "dockBottom": 297,
+            "conditionBottom": 351.1875
+          },
+          "terms": [
+            {
+              "id": "withdraw",
+              "y": 584.1875,
+              "height": 28.1875,
+              "beatCost": "4 beats",
+              "costInsideButton": false
+            },
+            {
+              "id": "yield",
+              "y": 575.09375,
+              "height": 28.1875,
+              "beatCost": "2 beats",
+              "costInsideButton": false
+            },
+            {
+              "id": "plead",
+              "y": 584.1875,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null,
+              "refused": "A wolf does not bargain."
+            },
+            {
+              "id": "terms:beast:finish",
+              "y": 655.46875,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            },
+            {
+              "id": "terms:beast:spare",
+              "y": 655.46875,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            },
+            {
+              "id": "terms:beast:ask",
+              "y": 655.46875,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            }
+          ],
+          "pageErrors": []
+        },
+        "forecast": {
+          "bars": [
+            {
+              "subject": "fold:rat1",
+              "visibleText": "All fresh",
+              "accessible": "Wolf rat ×6 (A–F) health · All fresh",
+              "title": "Wolf rat ×6 (A–F) health · All fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat7",
+              "visibleText": "Barely standing",
+              "accessible": "Wolf rat G health · Barely standing",
+              "title": "Wolf rat G health · Barely standing",
+              "fill": "33%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat8",
+              "visibleText": "Fresh → likely Hurt",
+              "accessible": "Wolf rat H health · Fresh · Likely hurt on a hit",
+              "title": "Wolf rat H health · Fresh",
+              "fill": "100%",
+              "preview": true,
+              "striped": true
+            }
+          ],
+          "pageErrors": []
+        },
+        "guard": {
+          "bars": [
+            {
+              "subject": "adept",
+              "visibleText": "Hurt",
+              "accessible": "Jade adept health · Hurt",
+              "title": "Jade adept health · Hurt",
+              "fill": "67%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rival",
+              "visibleText": "Fresh",
+              "accessible": "Injured rival health · Fresh",
+              "title": "Injured rival health · Fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            }
+          ],
+          "hero": {
+            "height": 255,
+            "scrollHeight": 331,
+            "verticalOverflow": 76,
+            "hpText": "60/60 hp",
+            "dockBottom": 297,
+            "conditionBottom": 351.1875
+          },
+          "injuredRival": {
+            "condition": "Hands: maimed",
+            "conditionWidth": 36,
+            "conditionScrollWidth": 108,
+            "stats": [
+              {
+                "text": "Atk looks about your match",
+                "title": "Attack · looks about your match",
+                "width": 106,
+                "scrollWidth": 158
+              },
+              {
+                "text": "Spd slower than you",
+                "title": "Speed · slower than you",
+                "width": 79,
+                "scrollWidth": 119
+              },
+              {
+                "text": "Hit ?",
+                "title": "Hit chance · Unknown",
+                "width": 30,
+                "scrollWidth": 30
+              },
+              {
+                "text": "Ddg ?",
+                "title": "Dodge chance · Unknown",
+                "width": 37,
+                "scrollWidth": 37
+              },
+              {
+                "text": "Def ?",
+                "title": "Defense · Unknown",
+                "width": 33,
+                "scrollWidth": 33
+              }
+            ]
+          },
+          "pageErrors": []
+        }
+      },
+      "after": {
+        "pack": {
+          "bars": [
+            {
+              "subject": "fold:rat1",
+              "visibleText": "",
+              "accessible": "Wolf rat ×7 (A–F, H) health · All fresh",
+              "title": "Wolf rat ×7 (A–F, H) health · All fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat7",
+              "visibleText": "",
+              "accessible": "Wolf rat G health · Barely standing · Likely down on a hit",
+              "title": "Wolf rat G health · Barely standing · Likely down on a hit",
+              "fill": "33%",
+              "preview": true,
+              "striped": true
+            }
+          ],
+          "hero": {
+            "height": 283,
+            "scrollHeight": 283,
+            "verticalOverflow": 0,
+            "hpText": "60/60 hp",
+            "dockBottom": 325,
+            "conditionBottom": 303.1875
+          },
+          "terms": [
+            {
+              "id": "withdraw",
+              "y": 575.09375,
+              "height": 28.1875,
+              "beatCost": "4 beats",
+              "costInsideButton": true
+            },
+            {
+              "id": "yield",
+              "y": 575.09375,
+              "height": 28.1875,
+              "beatCost": "2 beats",
+              "costInsideButton": true
+            },
+            {
+              "id": "plead",
+              "y": 575.09375,
+              "height": 28.1875,
+              "beatCost": "2 beats",
+              "costInsideButton": true,
+              "refused": "A wolf does not bargain."
+            },
+            {
+              "id": "terms:beast:finish",
+              "y": 605.28125,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            },
+            {
+              "id": "terms:beast:spare",
+              "y": 605.28125,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            },
+            {
+              "id": "terms:beast:ask",
+              "y": 605.28125,
+              "height": 28.1875,
+              "beatCost": null,
+              "costInsideButton": null
+            }
+          ],
+          "pageErrors": []
+        },
+        "forecast": {
+          "bars": [
+            {
+              "subject": "fold:rat1",
+              "visibleText": "",
+              "accessible": "Wolf rat ×6 (A–F) health · All fresh",
+              "title": "Wolf rat ×6 (A–F) health · All fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat7",
+              "visibleText": "",
+              "accessible": "Wolf rat G health · Barely standing",
+              "title": "Wolf rat G health · Barely standing",
+              "fill": "33%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rat8",
+              "visibleText": "",
+              "accessible": "Wolf rat H health · Fresh · Likely hurt on a hit",
+              "title": "Wolf rat H health · Fresh · Likely hurt on a hit",
+              "fill": "100%",
+              "preview": true,
+              "striped": true
+            }
+          ],
+          "pageErrors": []
+        },
+        "guard": {
+          "bars": [
+            {
+              "subject": "adept",
+              "visibleText": "",
+              "accessible": "Jade adept health · Hurt",
+              "title": "Jade adept health · Hurt",
+              "fill": "67%",
+              "preview": false,
+              "striped": false
+            },
+            {
+              "subject": "rival",
+              "visibleText": "",
+              "accessible": "Injured rival health · Fresh",
+              "title": "Injured rival health · Fresh",
+              "fill": "100%",
+              "preview": false,
+              "striped": false
+            }
+          ],
+          "hero": {
+            "height": 283,
+            "scrollHeight": 283,
+            "verticalOverflow": 0,
+            "hpText": "60/60 hp",
+            "dockBottom": 325,
+            "conditionBottom": 303.1875
+          },
+          "injuredRival": {
+            "condition": "Hands: maimed",
+            "conditionWidth": 108,
+            "conditionScrollWidth": 108,
+            "stats": [
+              {
+                "text": "Atk ~",
+                "title": "Attack · looks about your match",
+                "width": 34,
+                "scrollWidth": 34
+              },
+              {
+                "text": "Spd",
+                "title": "Speed · slower than you",
+                "width": 26,
+                "scrollWidth": 26
+              },
+              {
+                "text": "Hit ?",
+                "title": "Hit chance · Unknown",
+                "width": 30,
+                "scrollWidth": 30
+              },
+              {
+                "text": "Ddg ?",
+                "title": "Dodge chance · Unknown",
+                "width": 37,
+                "scrollWidth": 37
+              },
+              {
+                "text": "Def ?",
+                "title": "Defense · Unknown",
+                "width": 33,
+                "scrollWidth": 33
+              }
+            ]
+          },
+          "pageErrors": []
+        }
+      },
+      "fiveStrikes": {
+        "width": 1280,
+        "height": 800,
+        "reserved": 6,
+        "sawDamageTrail": true,
+        "samples": [
+          {
+            "stripY": 473.71875,
+            "strikeY": 475.71875,
+            "rosterHeight": 344,
+            "horizontalOverflow": 0,
+            "visibleEntries": 2,
+            "actions": 0
+          },
+          {
+            "stripY": 473.71875,
+            "strikeY": 475.71875,
+            "rosterHeight": 344,
+            "horizontalOverflow": 0,
+            "visibleEntries": 3,
+            "actions": 8
+          },
+          {
+            "stripY": 473.71875,
+            "strikeY": 475.71875,
+            "rosterHeight": 344,
+            "horizontalOverflow": 0,
+            "visibleEntries": 4,
+            "actions": 16
+          },
+          {
+            "stripY": 473.71875,
+            "strikeY": 475.71875,
+            "rosterHeight": 344,
+            "horizontalOverflow": 0,
+            "visibleEntries": 5,
+            "actions": 17
+          },
+          {
+            "stripY": 473.71875,
+            "strikeY": 475.71875,
+            "rosterHeight": 344,
+            "horizontalOverflow": 0,
+            "visibleEntries": 6,
+            "actions": 25
+          },
+          {
+            "stripY": 473.71875,
+            "strikeY": 475.71875,
+            "rosterHeight": 344,
+            "horizontalOverflow": 0,
+            "visibleEntries": 7,
+            "actions": 26
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -317,6 +317,11 @@ export function updateWorkspace() {
     setData(owner.root,'presentation',owner.shell&&owner.context==='play'?'proto23-shell':'');
     setData(owner.root,'parity',owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'');
     setData(owner.root,'parityCombat',String(!!registry.get('combat')?.eligible()));
+    const {activeFight, centerTask} = owner.root.dataset;
+    const fightLanes = activeFight && (!centerTask || centerTask === 'tempo-combat') &&
+        owner.root.dataset.parity === 'r3' && !owner.editing &&
+        isDefault(owner.placement, placementContext()) ? activeFight : '';
+    setData(owner.root, 'combatLanes', fightLanes);
     setData(owner.root,'layoutContext',placementContext());
     // PS192: the Here look (Display > Look > Here box). Grows with the life keeps the box in column 2, which is its place; a fight keeps it there too.
     setHereLook(getDisplaySetting('panel.look.here')!=='place'&&getDisplaySetting('panel.look.layout')!=='grows');

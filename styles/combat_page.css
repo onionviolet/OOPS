@@ -1,0 +1,415 @@
+.fight-situation[data-fight-mode="tempo"] > .scene-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ui-space-2);
+    padding: var(--ui-space-2);
+    color: var(--ui-text);
+    background: var(--fight-field-slate);
+    border: 1px solid var(--fight-field-rule);
+}
+.fight-situation[data-fight-mode="tempo"] .scene-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--ui-space-3);
+    padding: var(--ui-space-2);
+    margin: 0;
+    font-weight: var(--ui-weight-strong);
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.fight-page-scene-conditions { font-weight: normal; color: var(--ui-muted); }
+.fight-page-scene > summary::before { content: '▸'; color: var(--fight-field-focus); }
+.fight-page-scene[open] > summary::before { content: '▾'; }
+.fight-page-scene > summary::-webkit-details-marker { display: none; }
+.fight-page-scene > summary > span { margin-inline-end: auto; }
+/* Measure a compact row at fight open. Every opponent reserves a row up to the
+   available height, so unfolding the pack fills space above the moves. */
+.fight-page-roster {
+    display: block;
+    container-type: inline-size;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid var(--fight-field-rule);
+}
+.fight-page-fighter {
+    position: relative;
+    display: grid;
+    grid-template: "name stats" auto "bars bars" auto / minmax(0, 1fr) auto;
+    border-block-end: 1px solid var(--fight-field-rule);
+    min-width: 0;
+    background: var(--fight-field-slate);
+}
+.fight-page-fighter[data-down="true"], .fight-page-dead-fold { color: var(--ui-muted); }
+.fight-page-fighter[data-target="true"] {
+    background: color-mix(in srgb, var(--fight-field-focus) 9%, var(--fight-field-slate));
+}
+.fight-page-identity {
+    grid-area: name;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--ui-space-1);
+    min-width: 0;
+    min-height: var(--ui-target-min);
+    padding-inline: var(--ui-space-2);
+}
+.fight-page-identity h4 {
+    flex: 0 0 auto;
+    font: inherit;
+    font-weight: var(--ui-weight-strong);
+    color: inherit;
+    margin: 0;
+    white-space: nowrap;
+}
+.fight-page-identity .versus-inspect {
+    min-height: var(--ui-target-min);
+    padding: 0;
+    text-align: start;
+    white-space: nowrap;
+}
+.fight-page-target { flex-shrink: 0; color: var(--fight-field-focus); font-size: var(--ui-type-small); white-space: nowrap; }
+.fight-page-protection { flex: none; white-space: nowrap; color: var(--theme-warning, var(--ui-meter-warn)); }
+.fight-page-protection + .fight-page-conditions::before { content: '· '; }
+.fight-page-conditions {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--theme-warning, var(--ui-meter-warn));
+}
+.fight-page-observations {
+    grid-area: stats;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+    font-size: var(--ui-type-small);
+    line-height: var(--ui-line-small);
+}
+.fight-page-observations > span {
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-inline: var(--ui-space-1);
+}
+.fight-page-observations > span + span { border-inline-start: 1px solid var(--fight-field-rule); }
+.fight-page-observations > span:nth-child(n + 3) { flex: 0 0 auto; }
+.fight-page-observations small { font: inherit; color: var(--ui-muted); }
+.fight-page-stat-short { display: none; }
+@container (max-width: 43rem) {
+    .fight-page-stat-full { display: none; }
+    .fight-page-stat-short { display: inline; }
+}
+.fight-page-bars { grid-area: bars; display: grid; grid-template-columns: minmax(0, 1fr) auto; min-width: 0; }
+.fight-page-bars > [data-track="health"] { grid-column: 1 / -1; }
+.fight-page-bars > [data-track="timing"] { grid-column: 1; }
+.fight-page-dead-fold {
+    position: relative;
+    margin: 0;
+    padding: var(--ui-space-1) var(--ui-space-2);
+    font: inherit;
+    border-block-end: 1px solid var(--fight-field-rule);
+}
+.fight-page-track[data-fold-ticks] { position: relative; }
+.fight-page-tick {
+    --tick-width: 2px;
+    position: absolute;
+    inset: 0 clamp(0px, var(--tick), calc(100% - var(--tick-width))) 0 auto;
+    inline-size: var(--tick-width);
+    background: var(--fight-field-timing);
+}
+.fight-page-tick[data-next] { --tick-width: 4px; background: var(--ui-text); z-index: 1; }
+.fight-page-track {
+    background: linear-gradient(90deg, var(--fight-track-ink) var(--fight-fill, 0%),
+        var(--ui-meter-track-bg) var(--fight-fill, 0%));
+}
+.fight-page-track[data-track="health"] {
+    --fight-track-ink: var(--ui-swatch-055);
+    display: grid;
+    place-items: center;
+    position: relative;
+    min-height: var(--ui-control-sm);
+    font-variant-numeric: tabular-nums;
+}
+.fight-page-track[data-track="health"] > span {
+    position: relative;
+    z-index: 1;
+}
+.fight-page-track[data-track="timing"] {
+    --fight-track-ink: var(--ui-swatch-071);
+    block-size: .55em;
+    background: linear-gradient(90deg, var(--fight-track-ink) var(--fight-fill, 0%),
+        color-mix(in srgb, var(--fight-field-timing) 19%, var(--fight-field-slate)) var(--fight-fill, 0%));
+}
+.fight-page-bars [data-track="timing"] { transform: scaleX(-1); }
+.fight-page-facts { overflow-wrap: anywhere; }
+.fight-page-facts p { margin-block: var(--ui-space-1); }
+.fight-situation[data-fight-mode="tempo"] .fight-situation-approach {
+    padding-inline: var(--ui-space-1);
+}
+.fight-situation[data-fight-mode="tempo"] .fight-situation-approach > summary {
+    color: var(--ui-text);
+}
+#fight_situation[data-fight-mode="tempo"]:not([data-fight-settled]) > .scene-card > .fight-situation-notice {
+    block-size: calc(2 * var(--ui-line-small));
+    min-height: 0;
+    margin: 0;
+    overflow: auto;
+}
+.fight-page-moves { display: grid; gap: var(--ui-space-2); min-width: 0; container-type: inline-size; }
+.fight-page-group {
+    display: grid;
+    grid-template-columns: 8ch minmax(0, 1fr);
+    align-items: start;
+    gap: var(--ui-space-2);
+}
+.fight-page-group h3 {
+    color: var(--ui-muted);
+    font: var(--ui-type-small)/var(--ui-line-small) monospace;
+    margin: var(--ui-space-1) 0 0;
+}
+.fight-page-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 7em), 1fr));
+    gap: var(--ui-space-1);
+    align-items: stretch;
+}
+.fight-page-group[data-move-source="powers"] > .fight-page-strip {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8em), 1fr));
+}
+.fight-page-group[data-move-source="terms"] { border-block-start: 1px solid var(--fight-field-rule); padding-block-start: var(--ui-space-1); }
+.fight-page-group[data-move-source="terms"] > .fight-page-strip {
+    display: flex;
+    overflow-x: auto;
+}
+.fight-situation[data-fight-mode="tempo"] .fight-page-strip .scene-card-option {
+    position: relative;
+    display: grid;
+    grid-template-rows: minmax(var(--ui-target-min), auto) minmax(var(--ui-line-small), auto);
+    align-content: start;
+    min-height: 44px;
+    gap: 0;
+    text-align: center;
+    border-block-start: var(--ui-space-1) solid var(--move-ink, transparent);
+}
+.fight-page-strip [data-fight-effect="harm"] { --move-ink: var(--fight-field-harm); }
+.fight-page-strip [data-fight-effect="hinder"] { --move-ink: var(--fight-field-hinder); }
+.fight-page-strip [data-fight-effect="protect"] { --move-ink: var(--fight-field-focus); }
+.fight-page-strip [data-fight-effect="influence"],
+[data-move-source="items"] .fight-page-strip .scene-card-option { --move-ink: var(--theme-warning, var(--ui-meter-warn)); }
+.fight-page-strip [data-fight-effect="escape"] { --move-ink: var(--theme-accent, var(--ui-accent)); }
+#fight_situation[data-fight-mode="tempo"] .fight-page-strip .scene-card-option > button {
+    min-height: var(--ui-target-min);
+    text-align: center;
+    padding-inline: var(--ui-space-2);
+}
+.fight-page-key {
+    position: absolute;
+    inset: 0 auto auto var(--ui-space-1);
+    color: var(--ui-muted);
+    font-size: var(--ui-type-small);
+    pointer-events: none;
+}
+.fight-page-strip .scene-card-option > small {
+    font-size: var(--ui-type-small);
+    line-height: var(--ui-line-small);
+    min-width: 0;
+}
+.fight-page-strip .scene-card-blocked { color: var(--theme-warning, var(--ui-meter-warn)); }
+#fight_situation[data-fight-mode="tempo"] [data-move-source="terms"] .scene-card-option {
+    display: grid;
+    flex: 1 0 auto;
+    grid-template: 1fr / 1fr;
+    align-content: stretch;
+    min-height: var(--ui-target-min);
+    border: 0;
+}
+#fight_situation[data-fight-mode="tempo"] [data-move-source="terms"] .scene-card-option > button {
+    display: flex;
+    align-items: center;
+    gap: var(--ui-space-2);
+    text-align: start;
+    white-space: nowrap;
+}
+.fight-page-group[data-move-source="terms"] .scene-card-quote {
+    margin-inline-start: auto;
+    font-size: var(--ui-type-small);
+    font-variant-numeric: tabular-nums;
+}
+.fight-page-group[data-move-source="terms"] .scene-card-blocked {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    padding-inline: var(--ui-space-1);
+    background: var(--fight-field-slate);
+    opacity: 0;
+    pointer-events: none;
+}
+.fight-page-group[data-move-source="terms"] .scene-card-blocked:focus { opacity: 1; }
+.fight-page-strip [data-fight-term-selected="true"] { color: var(--theme-accent, var(--ui-accent)); }
+.fight-page-strip [data-fight-option="plead"]:disabled { border: 1px dashed var(--fight-field-rule); }
+.fight-page-strip .scene-card-option > .scene-card-blocked { grid-column: 1 / -1; }
+@container (max-width: 43rem) {
+    .fight-page-strip .scene-card-option { grid-template-rows: minmax(var(--ui-target-min), auto) calc(2 * var(--ui-line-small)); }
+    .fight-page-group[data-move-source="terms"] > .fight-page-strip { flex-wrap: wrap; }
+}
+@container (min-width: 32rem) and (max-width: 43rem) {
+    .fight-page-group[data-move-source="terms"] > .fight-page-strip:has(> :nth-child(4)) {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(max-content, 1fr));
+    }
+}
+.fight-page-extra { position: relative; }
+.fight-page-extra > summary { min-height: var(--ui-target-min); cursor: pointer; }
+.fight-page-extra[open] > .fight-page-strip {
+    position: absolute;
+    inset: auto 0 calc(100% + var(--ui-space-1)) auto;
+    z-index: 2;
+    width: min(28em, 65vw);
+    padding: var(--ui-space-2);
+    background: var(--fight-field-slate);
+    border: 1px solid var(--fight-field-rule);
+}
+.fight-page-pack { min-height: var(--ui-target-min); }
+.fight-situation[data-fight-mode="tempo"] .fight-situation-band { grid-template-columns: 1fr; }
+.fight-page-fate {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10em), 1fr));
+    gap: var(--ui-space-2);
+}
+.fight-page-fate [data-fight-fate="bind"] { border-inline-start: var(--ui-space-1) solid var(--fight-field-hinder); }
+
+/* Back away spends a turn. The ordinary workspace Back remains available in
+   the scene disclosure and through Escape, and returns when the fight ends. */
+#main_content:has(#fight_situation:not([data-fight-settled]) .fight-page-scene:not([open])) #center_mode_navigation[data-center-mode="tempo-combat"] { display: none; }
+
+/* Use the native tabs and the registered stance node in the lower left box. */
+#main_content.workspace-active[data-parity="r3"][data-tempo-stance] .workspace-module[data-module="combat-controls"] {
+    display: block !important;
+    margin-top: 0;
+}
+#main_content.workspace-active[data-parity="r3"][data-tempo-stance="combat"] [data-region] > :is([data-module="shell-inventory-tools"], [data-module="belongings"]) {
+    display: none !important;
+}
+#main_content.workspace-active[data-tempo-stance] #inventory_combat_switch_selection {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: var(--ui-space-1);
+}
+#main_content[data-tempo-stance] #inventory_combat_switch_selection > button {
+    flex: 1 1 0;
+    width: auto;
+}
+#main_content[data-tempo-stance] #switch_to_combat { pointer-events: auto !important; cursor: pointer !important; color: inherit !important; }
+.fight-page-stance-seat { grid-column: 1 / -1; min-width: 0; text-align: start; }
+#main_content[data-tempo-stance="inventory"] .fight-page-stance-seat { display: none; }
+#main_content .fight-page-stance-seat > #character_combat_management {
+    display: block;
+    position: static;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+}
+.fight-page-stance-seat #character_combat_management > :not(.fight-page-player) { display: none; }
+.fight-page-player {
+    padding: var(--ui-space-1) var(--ui-space-2);
+    color: var(--ui-text);
+    background: var(--fight-field-slate);
+    border: 1px solid var(--fight-field-rule);
+}
+.fight-page-player-turn, .fight-page-player-facts {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: var(--ui-space-1) var(--ui-space-2);
+}
+.fight-page-player-turn [data-track] { grid-column: 1 / -1; block-size: .8em; }
+.fight-page-player-turn strong, .fight-page-player-facts strong { text-align: end; }
+.fight-page-player-facts > span { text-transform: capitalize; }
+.fight-page-player-approach { margin-block: var(--ui-space-1); }
+.fight-page-player-approach > summary { color: var(--fight-field-focus); }
+#main_content.workspace-active[data-parity="r3"][data-active-fight="tempo"] #basic_character_info_div:not([data-custom-palette="true"]) #character_healthbar_current {
+    background: var(--ui-swatch-055) !important;
+}
+#character_healthbar_max:is([data-recent-hit], :has(.fight-page-hit-flash)) { position: relative; }
+:is(#character_healthbar_max, .fight-page-track)[data-recent-hit]::after {
+    content: '';
+    position: absolute;
+    inset: 0 calc(100% - var(--fight-before-hit)) 0 var(--fight-after-hit);
+    background: color-mix(in srgb, var(--ui-swatch-055) 37%, var(--fight-field-slate));
+    pointer-events: none;
+}
+.fight-page-track[data-harm-preview]::before {
+    content: '';
+    position: absolute;
+    inset: 0 calc(100% - var(--fight-fill)) 0 var(--fight-harm-start);
+    background: repeating-linear-gradient(135deg, transparent 0 3px, var(--fight-field-rule) 3px 5px);
+    pointer-events: none;
+}
+.fight-page-hit-flash, .fight-page-gain { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+    :root:not([data-look-motion="reduce"], [data-effects="off"], [data-effects="reduced"]) .fight-page-hit-flash {
+        display: block;
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        border: 2px solid var(--fight-field-harm);
+        color: var(--ui-text);
+        background: color-mix(in srgb, var(--fight-field-harm) 18%, transparent);
+        text-align: end;
+        padding-inline: var(--ui-space-1);
+        opacity: 0;
+        pointer-events: none;
+        animation: fight-hit .8s ease-out 1;
+    }
+    :root:not([data-look-motion="reduce"], [data-effects="off"], [data-effects="reduced"]) .fight-page-hit-flash:is([data-reaction="miss"], [data-reaction="blocked"]) {
+        border-color: var(--fight-field-rule);
+        background: transparent;
+    }
+    :root:not([data-look-motion="reduce"], [data-effects="off"], [data-effects="reduced"]) .fight-page-gain {
+        display: block;
+        position: absolute;
+        inset: 0 var(--ui-space-2) auto auto;
+        z-index: 3;
+        color: var(--theme-warning, var(--ui-meter-warn));
+        background: var(--fight-field-slate);
+        padding-inline: var(--ui-space-2);
+        opacity: 0;
+        pointer-events: none;
+        animation: fight-gain .9s ease-out 1;
+    }
+    :root:not([data-look-motion="reduce"], [data-effects="off"], [data-effects="reduced"]) [data-fight-new-item] { animation: fight-new-item .8s ease-out 1; }
+}
+@keyframes fight-hit { from { opacity: 1; } to { opacity: 0; } }
+@keyframes fight-gain { from { opacity: 1; } to { opacity: 0; transform: translateY(-1.5em); } }
+@keyframes fight-new-item { 25% { outline: 2px solid var(--theme-warning, var(--ui-meter-warn)); } }
+#main_content.workspace-active[data-active-fight="tempo"] .report-kinds {
+    justify-content: space-evenly;
+    gap: var(--ui-space-1);
+}
+#main_content.workspace-active[data-active-fight="tempo"] .report-kinds > .kit-chip {
+    padding-inline: var(--ui-space-1);
+    min-height: var(--ui-target-min);
+}
+#main_content[data-active-fight="tempo"] #shell_condition[data-effect-count="0"] {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    column-gap: var(--ui-space-2);
+}
+#main_content[data-active-fight="tempo"] #shell_condition[data-effect-count="0"] .condition-summary { margin: 0; }
+#main_content[data-active-fight="tempo"] #shell_condition[data-effect-count="0"] .condition-effects { display: none; }
+#main_content[data-active-fight="tempo"] #shell_condition[data-effect-count="0"] details[open] { flex-basis: 100%; }
+
+/* The Hero modules set the first row's height when the fight and Reports span both rows. */
+@media (min-width: 1001px) {
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="tempo"] .workspace-board {
+        --shell-top-row: max-content;
+    }
+}

@@ -13,6 +13,46 @@ import {observerView} from './observer_view.js';
 import {readPort} from './ui_ports.js';
 
 const UNKNOWN_TEXT = /^(?:\?+|unknown|unavailable)(?:\s|$)/i;
+
+// The same three readings the tempo view already gives a standing opponent.
+// A stepped fill carries those readings without exposing the opponent's HP.
+const OBSERVED_HEALTH = {fresh: 1, hurt: 2 / 3, 'barely standing': 1 / 3};
+export function tempoRoster(fight, versus) {
+    const foes = new Map((fight.foes ?? []).map(foe => [foe.id, foe]));
+    const opponents = new Map(versus.opponents.map(foe => [foe.id, foe]));
+    return (fight.roster ?? []).map(row => {
+        const foe = foes.get(row.id), detail = opponents.get(row.id);
+        const fraction = foe ? detail?.hp.fraction ?? OBSERVED_HEALTH[foe.hurt] ?? null : row.maxHp > 0 ? row.hp / row.maxHp : null;
+        return {...row, name: detail?.name ?? row.name, fraction,
+            health: foe ? (row.done ? '—' : detail?.hp.text ?? '?') : `${Math.ceil(row.hp)}/${Math.ceil(row.maxHp)} hp`,
+            ...(foe ? {observations: foe.observations, attack: detail?.numbers,
+                damaged: foe.hp < foe.maxHp || (fight.hits ?? []).some(hit => hit.target === row.id && hit.dmg > 0)} : {}),
+            detail: row.id === 'player' ? versus.you : detail};
+    });
+}
+const observationKey = row => JSON.stringify([
+    row.health, row.observations, Number.isFinite(row.attack?.atk) ? Math.round(row.attack.atk) : null,
+    row.attack?.heardFrom, row.detail?.types,
+]);
+
+// One roster lives for one fight. Equal public observations can share a row
+// until any member splits. Display state is rebuilt from the saved fight.
+export function foldTempoRoster(opponents, targetId, split) {
+    const packs = Map.groupBy(opponents.filter(row => row.packKind), row => row.packKind);
+    const folds = new Map();
+    for (const pack of packs.values()) {
+        const eligible = pack.filter(row => !row.done && row.id !== targetId && !split.has(row.id)
+            && !row.damaged && row.health === 'Fresh' && row.posture === 'Standing' && !row.protection && !row.conditions.length && !row.detail?.opening);
+        const byObservation = Map.groupBy(eligible, observationKey);
+        for (const row of pack) {
+            const members = byObservation.get(observationKey(row));
+            if (members?.length > 1 && members.includes(row)) folds.set(row.id, members);
+            else if (!row.done) split.add(row.id);
+        }
+    }
+    return folds;
+}
+
 export const isUnknownText = value => value == null || !String(value).trim() || UNKNOWN_TEXT.test(String(value).trim());
 const SHOWN = new Set(['known', 'native', 'partial']);
 
@@ -42,7 +82,7 @@ export function projectNativeOpponents(rows = [], {groupsLeft = '', clears = ''}
         return {id: row.id, slot, letter: letterFor(slot), name: row.name, knowledge: 'native',
             defeated: !!health && Number(health[1]) === 0,
             health: {text: row.hp, progress: row.healthProgress ?? null, knowledge: health ? 'native' : 'unknown'},
-            cycle: row.attackProgress ?? null,
+            cycle: row.attackProgress ?? null, ...(row.attackNext ? {attackNext: true} : {}),
             facts: viaSheet((row.facts || []).map(f => ({label: f.label, value: f.value, knowledge: isUnknownText(f.value) ? 'unknown' : 'native'})))};
     })};
 }

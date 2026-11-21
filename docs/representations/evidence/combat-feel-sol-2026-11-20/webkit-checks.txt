@@ -1,0 +1,48 @@
+$ proof-final pack <fresh port>
+Eight-rat fixture
+Playing five strikes
+Five strikes and target splits held the move strip and button
+Exit 0
+
+$ proof-final pack-1280 <fresh port>
+Eight-rat fixture
+Playing five strikes
+Five strikes and target splits held the move strip and button
+Exit 0
+
+$ proof-final guard <fresh port>
+Brace gives the active rivals their reply
+Fully visible defences and their observed causes
+Defences [["Standing · Warded","Jade adept raises white jade skin.",119,119],["Standing · Guarding","Injured rival braces.",128,128]]
+Saved with both defences raised
+Fully visible defences and their observed causes
+Defences [["Standing · Warded","Jade adept raises white jade skin.",119,119],["Standing · Guarding","Injured rival braces.",128,128]]
+Exported the browser save
+Imported through the file input
+Fully visible defences and their observed causes
+Defences [["Standing · Warded","Jade adept raises white jade skin.",119,119],["Standing · Guarding","Injured rival braces.",128,128]]
+A strike breaks the visible ward and ends the Hero's own brace
+Exit 0
+
+$ proof-final guard-1280 <fresh port>
+Brace gives the active rivals their reply
+Fully visible defences and their observed causes
+Defences [["Standing · Warded","Jade adept raises white jade skin.",119,119],["Standing · Guarding","Injured rival braces.",128,128]]
+Saved with both defences raised
+Fully visible defences and their observed causes
+Defences [["Standing · Warded","Jade adept raises white jade skin.",119,119],["Standing · Guarding","Injured rival braces.",128,128]]
+Exported the browser save
+Imported through the file input
+Fully visible defences and their observed causes
+Defences [["Standing · Warded","Jade adept raises white jade skin.",119,119],["Standing · Guarding","Injured rival braces.",128,128]]
+A strike breaks the visible ward and ends the Hero's own brace
+Exit 0
+
+$ proof-final retarget <fresh port>
+Compared manual saves with two distinct target-only histories
+Saved sessions {"initial":"rat7","picked":["rat8","rat1"],"turns":0,"bytes":5213}
+Confirmed the target-only members re-fold on restore
+Exported the browser save
+Imported through the file input
+Confirmed the target-only members re-fold on restore
+Exit 0

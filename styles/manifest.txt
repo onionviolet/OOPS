@@ -50,3 +50,6 @@ styles/day_strip.css
 styles/status_line.css
 styles/feel_finish.css
 styles/bench_form.css
+styles/potion_bench.css
+styles/combat_page.css
+styles/daily_powers.css

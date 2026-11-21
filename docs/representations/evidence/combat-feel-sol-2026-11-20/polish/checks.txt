@@ -1,0 +1,71 @@
+November 21 combat polish
+
+Isolated builds, node build.js
+before, exit 0
+▲ [WARNING] Duplicate key "deeds" in object literal [duplicate-object-key]
+▲ [WARNING] Duplicate key "dial" in object literal [duplicate-object-key]
+Javascript build complete!
+after, exit 0
+▲ [WARNING] Duplicate key "deeds" in object literal [duplicate-object-key]
+▲ [WARNING] Duplicate key "dial" in object literal [duplicate-object-key]
+Javascript build complete!
+
+Offscreen WebKit replays
+focused pack-1920 54201 before (exit 0)
+  Measured painted game
+focused pack-1280 54202 before (exit 0)
+  Measured painted game
+focused guard-1920 54203 before (exit 0)
+  Played Brace
+  Measured painted game
+focused guard-1280 54204 before (exit 0)
+  Played Brace
+  Measured painted game
+focused-forecast forecast-1920 54205 before (exit 0)
+  Targeted the fresh pack member and focused Heavy swing
+  Measured painted game
+focused-forecast forecast-1280 54206 before (exit 0)
+  Targeted the fresh pack member and focused Heavy swing
+  Measured painted game
+focused pack-1920 54301 after (exit 0)
+  Measured painted game
+  Four polish checks
+  Stationary strip through five strikes
+focused pack-1280 54302 after (exit 0)
+  Measured painted game
+  Four polish checks
+  Stationary strip through five strikes
+focused guard-1920 54303 after (exit 0)
+  Played Brace
+  Measured painted game
+  Four polish checks
+  Guard and ward still expire on the right fighters
+focused guard-1280 54304 after (exit 0)
+  Played Brace
+  Measured painted game
+  Four polish checks
+  Guard and ward still expire on the right fighters
+focused-forecast forecast-1920 54305 after (exit 0)
+  Targeted the fresh pack member and focused Heavy swing
+  Measured painted game
+  Fresh and harm forecast in title and accessible label only
+focused-forecast forecast-1280 54306 after (exit 0)
+  Targeted the fresh pack member and focused Heavy swing
+  Measured painted game
+  Fresh and harm forecast in title and accessible label only
+
+Other checks
+node --test (12 combat suites listed in README.md) (exit 0)
+  ℹ pass 127
+npm run check:arch (exit 0)
+  Grandfathered: 6 main imports, 205 cyclic edges.
+node tests/combat_situation_page.browser.mjs (exit 1)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+npm run check:flow (exit 1)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+npm run check:rules (exit 1)
+  FAIL  src/absorb_p23/host_joins/tranche_one_ui.js:16 "played minutes": Hearth lit · ${a.hearth.fuel} played minutes of fuel.
+npm run check:docs (exit 1)
+  docs/gm/USER_VISION_LOG_2026-11.md:1821: absolute rule word has no default, dial, exception, or reason in this row or paragraph
+node --test tests/ui_style_ratchet.test.js (exit 1)
+  +   'src/ui/book_craft_controls.js: ownMarkup 4 -> 5'

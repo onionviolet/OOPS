@@ -1992,3 +1992,22 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 #main_content.workspace-active .report-kinds > .kit-chip:hover {background:var(--ui-swatch-131);}
 #main_content.workspace-active .report-kinds > [hidden] {display:none;}
 .report-hide-story #message_box_div .message_common.report-story, .report-hide-ready #message_box_div .message_common:has(> .report-next) {display:none!important;}
+
+/* Potion observation ink and reference materials (UR177). */
+:root {
+    --ui-potion-worktop: #12273c;
+    --ui-potion-glass: #88a7bc;
+    --ui-potion-record: #24153b;
+    --ui-potion-lilac: #b9a2e7;
+    --ui-potion-pink: #f5bad4;
+}
+
+/* Fight centre: YAIR slate, wound and timing colours adapted for readable ink. */
+:root {
+    --fight-field-slate: #1d243c;
+    --fight-field-rule: #797691;
+    --fight-field-harm: #ff8f94;
+    --fight-field-timing: #d36ad3;
+    --fight-field-hinder: #d4acef;
+    --fight-field-focus: #9be2e0;
+}

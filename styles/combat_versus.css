@@ -56,7 +56,7 @@
 .fight-situation-log {margin: 0; padding: 0; list-style-position: inside; display: grid; gap: var(--ui-space-1); font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
 .fight-situation-dev {margin: 0; padding-left: var(--ui-space-5); font-size: var(--ui-type-small); color: var(--theme-muted, var(--ui-hairline));}
 /* Moves as a compact grid at desktop width: label and time on the button row, the effect line under it. */
-.fight-situation[data-fight-mode="tempo"] .scene-card {display: grid; grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3); align-items: start;}
+.fight-situation[data-fight-mode="tempo"] .scene-card {display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, max(12em, 46%)), 1fr)); gap: var(--ui-space-2) var(--ui-space-3); align-items: start;}
 .fight-situation[data-fight-mode="tempo"] .scene-card > :not(.scene-card-option) {grid-column: 1 / -1;}
 .fight-situation[data-fight-mode="tempo"] .scene-card-option {display: grid; gap: var(--ui-space-1); min-width: 0;}
 
@@ -70,7 +70,7 @@
 .fight-situation-band .scene-card-option {display: grid; gap: var(--ui-space-1);}
 .fight-situation-band .scene-card-option > button {min-height: var(--ui-control-md, 2.5em); font-weight: var(--ui-weight-strong);}
 .fight-situation-more > summary {cursor: pointer; font-size: var(--ui-type-small);}
-.fight-situation-more[open] {display: grid; grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); gap: var(--ui-space-2) var(--ui-space-3);}
+.fight-situation-more[open] {display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, max(12em, 46%)), 1fr)); gap: var(--ui-space-2) var(--ui-space-3);}
 .fight-situation-more[open] > summary {grid-column: 1 / -1;}
 .fight-situation-cue, .fight-situation-risk {color: var(--theme-muted, inherit);}
 .fight-situation-key {font: inherit; font-size: var(--ui-type-small); padding: 0 var(--ui-space-1); border: 1px solid var(--ui-hairline);}
@@ -84,6 +84,7 @@
 .approach-why[data-approach-clash] {color: inherit; font-weight: var(--ui-weight-strong);}
 .approach-stance > select {min-height: var(--ui-control-sm);}
 .fight-situation-chip {display: inline-block; padding: 0 var(--ui-space-2); border: 1px solid var(--ui-hairline); cursor: help;}
+.versus-sense {margin: 0; font-size: var(--ui-type-small); line-height: var(--ui-line-small);}
 .versus-wants {margin: 0; font-size: var(--ui-type-small); font-style: italic;}
 /* PS130: a number the character does not know reads "?", paler, until DU6's shared unknown style lands. */
 .versus-numbers {margin: 0; font-size: var(--ui-type-small, inherit);}
@@ -118,3 +119,226 @@
 /* PS50: a bestiary row names your terms for its kind ("your terms: Finish"), between the name and the kill count. */
 .bestiary_entry_div[data-bestiary-terms]::after {content: "· " attr(data-bestiary-terms); order: 1; flex: 0 0 auto; padding: 0 var(--ui-space-2); color: var(--theme-muted, var(--ui-hairline)); white-space: nowrap;}
 .bestiary_entry_div[data-bestiary-terms] > .bestiary_entry_kill_count {order: 2; margin-left: auto;}
+
+/* The native travel control still owns withdrawal. Its visible proxy shares
+   the fight card with stance and terms. */
+#location_actions_div [data-withdraw-proxy] { display: none !important; }
+
+#main_content.workspace-active[data-parity="r3"][data-center-task="tempo-combat"] [data-region="focus"] { display: none; }
+#main_content.workspace-active[data-parity="r3"][data-center-task="tempo-combat"] [data-region="actions"] { grid-column: 2; grid-row: 1 / -1; }
+#main_content.workspace-active[data-parity="r3"][data-center-task="tempo-combat"] [data-region="inventory"] { grid-column: 1 / 2; }
+
+/* Desktop combat uses the shell's existing panels in reading order:
+   player, fight, Reports. Reference views retain their normal layout. */
+@media (min-width: 1001px) {
+    #main_content.workspace-active[data-parity="r3"]:is([data-combat-lanes="native"], [data-combat-lanes="tempo"]) .workspace-board {
+        grid-template-columns: minmax(0, 24fr) minmax(0, 48fr) minmax(0, 28fr) !important;
+        grid-template-areas: none !important;
+    }
+    #main_content.workspace-active[data-parity="r3"]:is([data-combat-lanes="native"], [data-combat-lanes="tempo"]) .workspace-board > [data-region="player"] {
+        grid-column: 1 !important; grid-row: 1 !important;
+    }
+    #main_content.workspace-active[data-parity="r3"]:is([data-combat-lanes="native"], [data-combat-lanes="tempo"]) .workspace-board > [data-region="inventory"] {
+        grid-column: 1 !important; grid-row: 2 / -1 !important;
+    }
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="native"] .workspace-board > [data-region="focus"] {
+        grid-column: 2 !important; grid-row: 1 !important;
+    }
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="native"] .workspace-board > [data-region="actions"] {
+        grid-column: 2 !important; grid-row: 2 / -1 !important;
+        display: flex !important;
+    }
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="tempo"] .workspace-board > [data-region="actions"] {
+        grid-column: 2 !important; grid-row: 1 / -1 !important;
+    }
+    #main_content.workspace-active[data-parity="r3"]:is([data-combat-lanes="native"], [data-combat-lanes="tempo"]) .workspace-board > [data-region="log"] {
+        grid-column: 3 !important; grid-row: 1 / -1 !important;
+    }
+    #main_content.workspace-active[data-parity="r3"]:is([data-combat-lanes="native"], [data-combat-lanes="tempo"]) [data-region="journal"],
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="native"] [data-region="actions"] > [data-module="village-scene"],
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="tempo"] .versus-side--you > :is(.versus-bar--hp, .versus-bar--stamina) {
+        display: none !important;
+    }
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="tempo"] #center_mode_content {
+        flex: 0 1 auto !important;
+    }
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="tempo"] .versus-row {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 2fr);
+    }
+    #main_content.workspace-active[data-parity="r3"][data-combat-lanes="tempo"] .fight-situation-next {
+        font-weight: var(--ui-weight-strong);
+    }
+}
+
+.native-hero-cycle { display: none; }
+#main_content[data-parity="r3"][data-active-fight="native"] .native-hero-cycle:not([hidden]) {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; order: 5;
+    gap: var(--ui-space-2); padding: var(--ui-space-1) var(--ui-space-2);
+}
+#main_content[data-parity="r3"][data-active-fight="native"] :is(.native-hero-cycle progress,.enemy-card-cycle,.opponent-target-cycle) {
+    height: .45em; accent-color: var(--p23-mana-fill);
+}
+#main_content[data-parity="r3"][data-active-fight="native"] .native-hero-cycle progress {
+    width: 100%;
+}
+#main_content[data-parity="r3"][data-combat-lanes="native"] .enemy-cards[data-layout] {
+    --board-row: 3.8em;
+    gap: var(--ui-space-1) var(--ui-space-2);
+}
+#main_content[data-parity="r3"][data-combat-lanes="native"] .enemy-cards[data-compare="true"] { --board-row: auto; }
+#main_content[data-parity="r3"][data-combat-lanes="native"] .enemy-cards[data-layout] > .enemy-card {
+    grid-template-columns: minmax(0,1fr);
+    grid-template-areas: "name" "health" "cycle" "facts";
+    padding: var(--ui-space-1) var(--ui-space-2);
+}
+#main_content[data-parity="r3"][data-combat-lanes="native"] .enemy-cards[data-layout] :is(.enemy-card-health, .enemy-card-cycle) {
+    width: 100%;
+}
+#main_content[data-parity="r3"][data-combat-lanes="native"] .enemy-cards[data-layout] .enemy-card-health {
+    padding: 0 var(--ui-space-1); background-color: var(--p23-track);
+    background-size: var(--roster-health) 100%; box-shadow: none;
+}
+#main_content[data-parity="r3"][data-combat-lanes="native"] .enemy-card-health[data-health-known="true"] > span {
+    background: var(--p23-track); padding-inline: var(--ui-space-1);
+}
+.fight-situation-foot {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.fight-situation-foot [data-fight-exit="true"] { border-top: 1px solid var(--ui-hairline); padding-top: var(--ui-space-2); }
+
+#main_content.workspace-active[data-parity="r3"][data-active-fight="native"] .enemy-cards[data-layout] .enemy-card-cycle {
+    height: .45em;
+}
+
+#main_content[data-parity="r3"][data-combat-lanes="native"] .native-hero-cycle:not([hidden]) {
+    order: 2;
+}
+#main_content.workspace-active[data-parity="r3"][data-combat-lanes="native"] #basic_character_info_div #character_health_div {
+    margin-block-start: var(--hero-cycle-offset, 0px) !important;
+}
+#main_content.workspace-active[data-parity="r3"][data-combat-lanes="native"] #character_xp_div { order: 3; }
+#main_content.workspace-active[data-parity="r3"][data-combat-lanes="native"] #character_stamina_div { order: 4; }
+#main_content.workspace-active[data-parity="r3"][data-combat-lanes="native"] #character_mana_div { order: 5; }
+
+#main_content[data-combat-lanes="tempo"] .tempo-player-details:not([hidden]) {
+    display: block;
+    order: 5;
+}
+.tempo-player-details[hidden] { display: none; }
+.tempo-player-details > .versus-side--you {
+    padding: var(--ui-space-2);
+    border-inline: 0;
+    border-block-end: 0;
+}
+.tempo-player-details .versus-bar--timer {
+    height: .35em;
+}
+#main_content.workspace-active[data-parity="r3"][data-combat-lanes="tempo"] .versus-row.versus-row--opponents-only {
+    grid-template-columns: minmax(0, 1fr);
+}
+.fight-move-preview {
+    padding: var(--ui-space-2) var(--ui-space-3);
+    margin-top: var(--ui-space-2);
+    border: 1px solid var(--ui-hairline);
+    background: var(--p23-context);
+    display: grid;
+    gap: var(--ui-space-1);
+}
+.fight-move-preview :is(h3, p) { margin: 0; }
+.fight-move-preview h3 { font: inherit; font-weight: var(--ui-weight-strong); }
+.fight-move-preview p { font-size: var(--ui-type-small); line-height: var(--ui-line-small); }
+.fight-move-preview [hidden] { display: none; }
+
+#main_content[data-parity="r3"] #fight_situation .versus-side--them .versus-bar--timer > * {
+    background: var(--p23-mana-fill);
+}
+
+.enemy-cycle-row {
+    grid-area: cycle;
+    display: flex;
+    gap: var(--ui-space-2);
+    align-items: center;
+    min-width: 0;
+}
+.enemy-cycle-row > progress { flex: 1; min-width: 0; align-self: center !important; }
+.enemy-cycle-row > .attack-next { flex: 0 0 3em; text-align: center; }
+#main_content[data-parity="r3"][data-active-fight="native"] .native-hero-cycle:not([hidden]) {
+    grid-template-columns: auto minmax(0, 1fr) 3em;
+}
+.attack-next, .fight-opening {
+    color: var(--p23-text, inherit);
+    background: var(--p23-selected, var(--versus-surface));
+    border: 1px solid var(--ui-hairline);
+    padding-inline: var(--ui-space-1);
+    font-weight: var(--ui-weight-strong);
+}
+.attack-next {
+    font-size: var(--ui-type-small);
+    line-height: 1;
+    justify-self: end;
+}
+.attack-next[hidden] { visibility: hidden; display: block; }
+.fight-opening { font-size: .85em; }
+
+/* The Gothic combat lanes share the same opponent row and inspection treatment. */
+#main_content.workspace-active[data-parity="r3"] :is(.enemy-cards, .versus-row--opponents-only) {
+    --opponent-row-surface: var(--p23-context);
+    --opponent-row-selected: var(--p23-hover-fill);
+}
+#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] {
+    --opponent-row-custom-selection: var(--shell-user-fill);
+}
+#main_content.workspace-active[data-parity="r3"]:is([data-combat-lanes="native"], [data-combat-lanes="tempo"]) :is([data-layout] > .enemy-card, .versus-row--opponents-only .versus-card).combat-opponent-row {
+    display: grid;
+    align-content: start;
+    row-gap: var(--ui-space-1);
+    min-width: 0;
+    padding: var(--ui-space-1) var(--ui-space-2);
+    border: 0;
+    border-inline-start: 3px solid transparent;
+    border-bottom: 1px solid var(--p23-quiet-line);
+    background: var(--opponent-row-surface, var(--p23-context));
+}
+#main_content.workspace-active[data-parity="r3"]:is([data-combat-lanes="native"], [data-combat-lanes="tempo"]) :is([data-layout] > .enemy-card, .versus-row--opponents-only .versus-card).combat-opponent-row[data-inspected="true"] {
+    border-inline-start-color: var(--p23-value);
+    background: var(--opponent-row-custom-selection, var(--opponent-row-selected, var(--p23-hover-fill)));
+}
+.versus-row--opponents-only > .versus-side--them {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ui-space-1);
+}
+.versus-row--opponents-only .versus-heading--them { text-transform: none; letter-spacing: normal; }
+.versus-row--opponents-only .versus-condition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--ui-space-2);
+    padding-inline: var(--ui-space-1);
+    min-height: 1.3em;
+    background: var(--p23-track);
+    color: var(--p23-text);
+}
+.versus-condition > span { color: var(--versus-muted); }
+.versus-opponent-details {
+    display: grid;
+    gap: var(--ui-space-1);
+    padding: var(--ui-space-1) var(--ui-space-2);
+}
+.versus-row .versus-opponent-details .versus-bar--stamina {
+    justify-self: start;
+    width: min(100%, 14em);
+    min-height: 1.1em;
+    height: auto;
+    font-size: var(--ui-type-small);
+}
+.versus-row .versus-opponent-details .versus-bar--stamina > .versus-bar-fill { position: absolute; inset: 0 auto 0 0; }
+.versus-row .versus-opponent-details .versus-bar--stamina > .versus-bar-text { position: relative; }
+.versus-row--opponents-only .versus-inspect {
+    background: transparent;
+    color: inherit;
+    border: 0;
+    padding: 0;
+    min-height: 0;
+    font: inherit;
+    text-align: start;
+}

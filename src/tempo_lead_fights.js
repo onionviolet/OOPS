@@ -44,6 +44,8 @@ registerTempoOpener({id: 'lotm.lane.knife', label: 'Face the knifeman in the bac
             foe(helpers, {id: 'lotm.lane.knifeman', name: 'The knifeman', hp: TINGEN_BRAWL.foeHp.value, body: {attack: 6, agility: 5, dexterity: 6, intuition: 5, attack_speed: .9, defense: 1, crit_rate: .08, crit_multiplier: 1.5, attack_count: 1},
                 goals: {survive: .7, aim: .3}, tags: ['person'], wants: 'He wants your purse, not your life. Hurt him and the knife may come out.',
                 heard: {atk: 12, from: 'A lamplighter swears the knifeman of the back lanes hits like a dock porter.'},
+                // PS48: what he carries if you go through his pockets: a few pence from the night's work (authored; dial).
+                purse: 7,
                 fateText: {finish: 'He dies in the lane. A death in Tingen brings the police, and someone may have seen.', spare: 'He crawls off into the alley. He will remember your face.'},
                 kit: {knife: {label: 'Knife thrust', text: 'A short, quick stab.', cost: 3, power: TINGEN_BRAWL.knife.value, escalates: true, whenHurt: TINGEN_BRAWL.temper.value, why: TINGEN_BRAWL.knife.why}}})]}),
 });
@@ -135,11 +137,12 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
     spec(state, context, helpers) {
         const kit = wolfKit(state, context);
         const patrol = wolfWaiting(state), wolf = riWolfFoe(state), large = wolf.large;
-        return {id: patrol ? PATROL_ID : 'ri-wolf-tide', title: patrol ? 'The wolf at the wall' : 'A lightning wolf beyond the wall', floor: 1,
+        const startEssence = reserve(state);
+        return {id: patrol ? PATROL_ID : 'ri-wolf-tide', title: patrol ? 'The wolf at the wall' : 'A lightning wolf beyond the wall', floor: 1, startEssence,
             conditions: {light: patrol ? 'dark' : 'day', footing: 'bad', place: patrol ? 'The village wall' : 'Beyond the wall'},
             stakes: {preset: 'hunt', stakes: 'the wolf\'s life, and wolf parts for the board', text: 'A hunt beyond the wall: the wolf fights for its life. A blow that drops it kills it; if it drops you, you wake badly hurt.',
                 why: 'WS2: killing is common outside the walls; the tide is why you are here.'},
-            fighters: [you(helpers, {moves: [...PLAIN, ...Object.keys(kit)], kit, means: {essence: reserve(state)}, meansLabels: {essence: 'essence'},
+            fighters: [you(helpers, {moves: [...PLAIN, ...Object.keys(kit)], kit, means: {essence: startEssence}, meansLabels: {essence: 'essence'},
                 ...(woundCarried(state) ? {hp: Math.max(1, Math.round(helpers.vitals.health * WOLF_HUNT.woundCarried.value * 10) / 10)} : {})}),
                 foe(helpers, {id: 'ri.wolf.tide.wolf', name: large ? 'A large lightning wolf' : 'A lightning wolf', hp: wolf.hp, tags: large ? ['beast', 'large'] : ['beast'],
                     body: {attack: wolf.attack, agility: 5, dexterity: 6, intuition: 4, attack_speed: 1.1, defense: 1, crit_rate: .1, crit_multiplier: 1.5, attack_count: 1},
@@ -151,8 +154,10 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
     // From the patrol, it also frees the patrol, pays the kill merit, and leaves him injured when he was hurt or did not win (plain facts the
     // pack's rules read), plus a readable record for Reports and later readers.
     after(plan, result, b) {
-        const me = b.fighters.player, start = reserve(plan.state), left = me.means?.essence, pool = plan.state.simulation?.energies?.player?.[ESSENCE];
-        if(pool && Number.isFinite(left)) pool.reserve = Math.max(0, Math.min(pool.reserve, left));
+        const me = b.fighters.player, left = me.means?.essence, pool = plan.state.simulation?.energies?.player?.[ESSENCE];
+        const start = b.startEssence ?? reserve(plan.state);
+        const spent = Number.isFinite(left) ? Math.max(0, start - left) : 0;
+        if(pool && Number.isFinite(left)) pool.reserve = Math.max(0, pool.reserve - spent);
         const wolf = b.fighters['ri.wolf.tide.wolf'], killed = result === 'won' && wolf?.end === 'killed' ? 1 : 0;
         const inv = ((plan.gameplay ||= {}).player ||= {}).inventory ||= {}, add = (id, n) => { inv[key(id)] = (inv[key(id)] || 0) + n; };
         // Weibao, 2026-11-14: "Rather than merit immediately it could be like part of the wolf drops and then I can trade that in for merit".
@@ -173,6 +178,6 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
             if(wounded || result === 'lost' || result === 'withdrawn' || result === 'yielded') facts['book.ri.lead.day.injured'] = true;
         }
         facts['book.ri.lead.day.wolf_fight'] = JSON.stringify({from: b.id === PATROL_ID ? 'patrol' : 'hunt', result, killed, wolf: wolf?.end ?? (wolf?.status === 'left' ? 'withdrew' : 'stood'),
-            essenceSpent: Number.isFinite(left) ? Math.max(0, start - left) : 0, healthMissing: Math.max(0, Math.round((me.maxHp - me.hp) * 10) / 10), wounded, at: plan.state.clock});
+            essenceSpent: spent, healthMissing: Math.max(0, Math.round((me.maxHp - me.hp) * 10) / 10), wounded, at: plan.state.clock});
     },
 });

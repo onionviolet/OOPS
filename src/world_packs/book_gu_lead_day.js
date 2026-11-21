@@ -11,7 +11,8 @@ import {extensionFact} from '../structured_pack_extensions.js';
 import {formatDuration} from '../number_format.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_RANK_TWO} from './book_gu_lead_rank_two.js';
-import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, RI_WOLF_AT_WALL as WOLF, RI_WOLF_PART_ITEMS, RI_MEAT_NOTE, riSeaMinutesPerPart} from '../ri_lead_day_facts.js';
+import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as K, RI_PATROL_ENCOUNTERS, RI_WOLF_AT_WALL as WOLF, RI_WOLF_PART_ITEMS, RI_MEAT_NOTE, riSeaMinutesPerPart,
+    RI_DAILY_POWERS, RI_ACADEMY_ELDER, RI_MOONGLOW_SALE_NOTE} from '../ri_lead_day_facts.js';
 import {riWolfParts} from '../ri_wolf_tide.js';
 import {riPatrolWeightFact} from '../ri_lead_day_tide.js';
 
@@ -75,6 +76,10 @@ const broughtBack = (got, tallies) => {
     return list.length ? ` Brought back: ${list.join(', ')}.` : '';
 };
 const meatFresh = v => eq(local('meat_fresh'), v, v ? 'The meat has spoiled. Nobody will buy it; throw it out.' : 'The meat is still fresh. Sell it before it turns.');
+const saleNeeds = [has(IT.meat, K.meatSale.jin, `You need ${K.meatSale.jin} jin of wolf meat.`), meatFresh(true)];
+const saleCosts = [item(IT.meat, -K.meatSale.jin)];
+const salePayout = item(IT.stone, K.meatSale.stones);
+const saleLine = `The kitchens paid a primeval stone for ${K.meatSale.jin} jin of wolf meat.`;
 
 export const guLeadDay = {
     schema: 1, id: GU_LEAD_DAY, revision: 6,
@@ -116,8 +121,7 @@ export const guLeadDay = {
             [item(IT.stone, K.peltSale.stones), note(local('sold'), `The leather seller paid ${K.peltSale.stones} primeval stone${K.peltSale.stones === 1 ? '' : 's'} for a lightning wolf hide.`)],
             {needs: [has(IT.pelt, 1, 'You have no wolf hide to sell.')], costs: [item(IT.pelt, -1)]}),
         act('sell_meat', `Sell ${K.meatSale.jin} jin of wolf meat to the village kitchens · ${K.meatSale.stones} stone`, 15, `${K.meatSale.say} Only fresh meat sells; it keeps about three days from the night you brought it back.`,
-            [item(IT.stone, K.meatSale.stones), note(local('sold'), `The kitchens paid a primeval stone for ${K.meatSale.jin} jin of wolf meat.`)],
-            {needs: [has(IT.meat, K.meatSale.jin, `You need ${K.meatSale.jin} jin of wolf meat.`), meatFresh(true)], costs: [item(IT.meat, -K.meatSale.jin)]}),
+            [salePayout, note(local('sold'), saleLine)], {needs: saleNeeds, costs: saleCosts}),
         act('throw_meat', `Throw out ${K.meatSale.jin} jin of spoiled wolf meat`, 5, 'The meat has turned. The village dogs get it.',
             [note(local('sold'), `You threw ${K.meatSale.jin} jin of spoiled wolf meat to the village dogs.`)],
             {needs: [has(IT.meat, K.meatSale.jin, `You hold less than ${K.meatSale.jin} jin of wolf meat.`), meatFresh(false)], costs: [item(IT.meat, -K.meatSale.jin)]}),
@@ -153,7 +157,51 @@ export const guLeadDay = {
     ]
 };
 
+const powersAdmitted = eq(extensionFact(RI_DAILY_POWERS), true);
+const holdingMoonglow = has(moonglow.gu, 1, 'Keep the Moonglow Gu with you.');
+const fedMoonglow = eq(local('moonglow.hungry'), false, 'Feed the Moonglow Gu before asking it to cut.');
+export const RI_MOONGLOW_SALE = Object.freeze({parts: 4, minutes: 10});
+
+function moonglowSale(seen) {
+    const {parts, minutes} = RI_MOONGLOW_SALE;
+    const support = all(ready, admitted, powersAdmitted, at, holdingMoonglow, fedMoonglow);
+    const sight = eq(`${RI_DAILY_POWERS}.seen`, seen);
+    const glance = ' The academy elder looks up at the flash from your palm.';
+    return {
+        id: `${RI_DAILY_POWERS}.portion${seen ? '_seen' : ''}`, revision: 1,
+        label: 'Portion wolf meat with Moonglow',
+        description: 'Cut your portion with a short crescent, then hand it over at the village kitchens.',
+        group: 'structured_local', worldId: world, actorId: 'player', location: academy, audience: ['$actor'],
+        once: false, duration: minutes, visibleWhen: all(holdingMoonglow, sight),
+        requires: all(support, ...saleNeeds, {fact: `energy.${essence}.reserve`, op: 'gte', value: parts,
+            reason: `You need ${parts} parts of essence in your sea.`}),
+        // The witness is selected at acceptance, when the crescent flashes.
+        // Only the living player and the original work site need to persist.
+        completionRequires: all(ready, admitted, powersAdmitted, at), completionCoLocated: true,
+        completionFailure: 'refund', cancellation: 'refund', reservationReturns: 1,
+        costs: [...saleCosts, spend(parts)],
+        effects: [salePayout, note(RI_MOONGLOW_SALE_NOTE, saleLine + (seen ? glance : '')),
+            ...(seen ? [{type: 'knowledge', actor: RI_ACADEMY_ELDER, key: RI_MOONGLOW_SALE_NOTE,
+                stage: 'seen', value: 'Fang Yuan cut the wolf meat with a Moonglow crescent.'}] : [])]
+    };
+}
+
+// Keep the existing day pin and pending sales byte-compatible. Old lives can
+// adopt this optional task through the same continuation mechanism.
+export const guLeadDailyPowers = {
+    schema: 1, id: RI_DAILY_POWERS, revision: 1, base: guLeadDay.base,
+    dependsOn: [GU_LEAD_DAY],
+    label: 'Moonglow at the village kitchens',
+    description: 'Use your Moonglow Gu to portion wolf meat for the kitchens.',
+    requires: all(ready, admitted, at, holdingMoonglow),
+    reason: 'Open your ordinary day and bring the Moonglow Gu to the clan academy.',
+    status: [{id: `${RI_DAILY_POWERS}.last_sale`, label: 'Moonglow at the kitchens', knowledgeKey: RI_MOONGLOW_SALE_NOTE}],
+    commands: [moonglowSale(false), moonglowSale(true)]
+};
+
 export async function registerGuLeadDay(register, base) {
     if(!register.bundledInstantExtension || base.contentHash !== baseHash) return null;
-    return register.bundledInstantExtension(guLeadDay, base);
+    const day = await register.bundledInstantExtension(guLeadDay, base);
+    await register.bundledInstantExtension(guLeadDailyPowers, base);
+    return day;
 }
