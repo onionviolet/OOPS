@@ -7,7 +7,7 @@
 import {registerTempoOpener} from './tempo_starters.js';
 import {practiseDuelKit} from './hp_duel_mastery.js';
 import {riLeadDayFacts, RI_DAY_ITEMS, RI_WOLF_AT_WALL, RI_WOLF_PART_ITEMS, RI_MEAT_NOTE} from './ri_lead_day_facts.js';
-import {riWolfFoe, riWolfParts, riRecordWolfKill, RI_WOLF_TIDE_FACT} from './ri_wolf_tide.js';
+import {riWolfFoe, riWolfParts, riRecordWolfKill, riWolfTideView, RI_WOLF_TIDE_FACT, RI_WOLF_TIDE_DIALS, RI_WOLF_SPECIES} from './ri_wolf_tide.js';
 
 const key = id => JSON.stringify({id});
 const held = (context, id) => Number(context.gameplay?.player?.inventory?.[key(id)] || 0);
@@ -179,5 +179,59 @@ registerTempoOpener({id: 'ri.wolf.tide', label: 'Hunt a lightning wolf on the ti
         }
         facts['book.ri.lead.day.wolf_fight'] = JSON.stringify({from: b.id === PATROL_ID ? 'patrol' : 'hunt', result, killed, wolf: wolf?.end ?? (wolf?.status === 'left' ? 'withdrew' : 'stood'),
             essenceSpent: spent, healthMissing: Math.max(0, Math.round((me.maxHp - me.hp) * 10) / 10), wounded, at: plan.state.clock});
+    },
+});
+
+// A wolf pack at a gap in the wall (TF4, MS7; Weibao, 2026-11-21: "implement entirely"). The tide's wolves come as one crowd: a blow lands
+// on the wolf in front, Sweep reaches the front two, Single out drives a chosen wolf forward, and a hurt wolf at the front gives way to a
+// fresher one. Each wolf is its own body, so every kill drops its own parts and counts against the tide (MS9). An original encounter beside
+// canon (AD32), with authored dials.
+export const WOLF_PACK = Object.freeze({
+    size: {value: 5, why: 'Authored: a pack of five pressing a gap is a real crowd for one Gu Master, not a tide; fewer if the wall is thinned.'},
+    least: {value: 2, why: 'Two or more wolves make a crowd; with fewer about, there is no pack to meet.'},
+});
+const PACK_ID = 'ri-wolf-pack';
+const packSize = state => Math.min(WOLF_PACK.size.value, riWolfTideView(state).rows.find(r => r.id === RI_WOLF_SPECIES.ordinary)?.left ?? 0);
+registerTempoOpener({id: 'ri.wolf.pack', label: 'Hold a gap in the wall against a wolf pack', meets: {kind: 'beast', preset: 'hunt', lethal: true},
+    text: 'A pack of lightning wolves presses a gap in the wall. They come as one crowd: you can only reach the wolf in front, unless you sweep or drive one forward.',
+    owns: id => id === PACK_ID,
+    quote(state, context) {
+        if(state.actors?.player?.worldId !== 'book.ri.lead.world') return {visible: false};
+        if(!held(context, GU.moonglow)) return {visible: false};
+        if(busy(state)) return {visible: true, eligible: false, reason: 'Another encounter is already open.'};
+        const n = packSize(state);
+        if(n < WOLF_PACK.least.value) return {visible: true, eligible: false, reason: 'The wolves at this stretch of wall are thinned; no pack is pressing the gap.'};
+        return {visible: true, eligible: true, reason: `${n} wolves at the gap, coming as one pack. ${reserve(state)} parts of essence in your sea.${woundCarried(state) ? ' You carry tonight\'s wound into it.' : ''}`};
+    },
+    spec(state, context, helpers) {
+        const kit = wolfKit(state, context), startEssence = reserve(state), n = packSize(state);
+        const wolves = Array.from({length: n}, (_, i) => foe(helpers, {id: `ri.wolf.pack.${i + 1}`, name: 'Lightning wolf', hp: RI_WOLF_TIDE_DIALS.ordinaryHp.value, tags: ['beast'],
+            body: {attack: RI_WOLF_TIDE_DIALS.ordinaryAttack.value, agility: 5, dexterity: 6, intuition: 4, attack_speed: 1.1, defense: 1, crit_rate: .1, crit_multiplier: 1.5, attack_count: 1},
+            goals: {survive: .4, aim: .6}, moves: ['jab', 'swing'], wants: 'They fight to eat, as a pack; the front wolf takes the blows.',
+            fateText: {finish: 'It dies. You can cut out its eye; the board pays for the eye.', spare: 'It limps back into the trees.', detail: 'One wolf eye to hand in at the alliance board.'}}));
+        return {id: PACK_ID, title: 'A wolf pack at the gap', floor: 1, startEssence,
+            conditions: {light: 'day', footing: 'bad', place: 'A gap in the wall'},
+            stakes: {preset: 'hunt', stakes: 'the gap, and wolf parts for the board', text: 'A pack at a gap in the wall: the wolves fight for their lives, as one crowd. A blow that drops one kills it; if they drop you, you wake badly hurt.',
+                why: 'WS2: killing is common outside the walls; the tide is why you are here.'},
+            terms: {beast: 'finish'},
+            crowds: [{id: 'pack', name: 'The wolf pack', members: wolves.map(w => w.id)}],
+            fighters: [you(helpers, {moves: [...PLAIN, ...Object.keys(kit)], kit, means: {essence: startEssence}, meansLabels: {essence: 'essence'},
+                ...(woundCarried(state) ? {hp: Math.max(1, Math.round(helpers.vitals.health * WOLF_HUNT.woundCarried.value * 10) / 10)} : {})}), ...wolves]};
+    },
+    // Essence leaves the reserve once; each killed wolf drops its own parts and counts against the tide.
+    after(plan, result, b) {
+        const me = b.fighters.player, left = me.means?.essence, pool = plan.state.simulation?.energies?.player?.[ESSENCE];
+        const spent = Number.isFinite(left) ? Math.max(0, (b.startEssence ?? reserve(plan.state)) - left) : 0;
+        if(pool && Number.isFinite(left)) pool.reserve = Math.max(0, pool.reserve - spent);
+        const killed = Object.keys(b.fighters).filter(id => id.startsWith('ri.wolf.pack.') && b.fighters[id].end === 'killed').length;
+        const inv = ((plan.gameplay ||= {}).player ||= {}).inventory ||= {}, add = (id, n) => { inv[key(id)] = (inv[key(id)] || 0) + n; };
+        const parts = riWolfParts({large: false});
+        for(const [part, n] of Object.entries(parts)) if(n > 0 && RI_WOLF_PART_ITEMS[part]) add(RI_WOLF_PART_ITEMS[part], n * killed);
+        if(killed && parts.meat > 0) ((plan.state.simulation.knowledge ||= {}).player ||= {})[RI_MEAT_NOTE] = {stage: 'understood', value: `You carried ${parts.meat * killed} jin of wolf meat back from the gap.`, at: plan.state.clock, cause: `tempo:${b.id}`};
+        if(killed) plan.state.actors.player.facts[RI_WOLF_TIDE_FACT] = riRecordWolfKill(plan.state, {n: killed});
+        plan.fightCarry = killed ? [`${killed === 1 ? 'A wolf eye' : `${killed} wolf eyes`} for the board${parts.pelt ? ', hides' : ''}${parts.meat ? ` and ${parts.meat * killed} jin of meat` : ''} are in your pack.`] : [];
+        const facts = plan.state.actors.player.facts;
+        if(Object.keys(me.parts || {}).length || result === 'lost') facts['book.ri.lead.day.injured'] = true;
+        facts['book.ri.lead.day.wolf_fight'] = JSON.stringify({from: 'pack', result, killed, essenceSpent: spent, healthMissing: Math.max(0, Math.round((me.maxHp - me.hp) * 10) / 10), at: plan.state.clock});
     },
 });

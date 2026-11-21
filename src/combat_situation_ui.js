@@ -261,6 +261,54 @@ function foldEntry(members, inspect, entry) {
     return entry;
 }
 
+// A crowd (TF3, TF4, LB1): one layered bar for its standing members. The top layer is the front member's health; where it has drained, a
+// deeper layer shows while more stand behind, and the ×N chip carries the count in words (UR37). The member buttons, front first, pick who
+// the target slot shows; a blow still lands on the front until Single out brings the pick forward.
+function crowdEntry(members, {targetId, inspect}, entry) {
+    const front = members[0], name = front.crowd.name;
+    entry.dataset.combatSubject = 'crowd:' + front.crowd.id;
+    entry.dataset.crowd = String(members.length);
+    entry.dataset.target = String(members.some(m => m.id === targetId));
+    entry.title = name + ' · front first: ' + members.map(m => m.name + ' ' + m.health).join(', ');
+    const identity = node('div', 'fight-page-identity');
+    const title = node('h4', '', name);
+    const picks = node('span', 'fight-page-crowd-members');
+    for (const member of members) {
+        const b = kitControl(node('button', 'fight-page-crowd-member', member.detail?.letter || String(member.crowd.rank + 1)), 'fight:target:' + member.id);
+        b.type = 'button';
+        b.dataset.fightInspect = member.id;
+        if (member === front) b.dataset.front = '';
+        b.setAttribute('aria-pressed', String(member.id === targetId));
+        b.setAttribute('aria-label', (member === front ? 'Front: ' : 'Behind the front: ') + member.name + ', ' + member.health);
+        b.title = member.name + ' · ' + member.health + (member === front ? ' · at the front' : '');
+        b.onclick = () => { b.focus({preventScroll: true}); inspect(member.id); };
+        picks.append(b);
+    }
+    identity.append(title, picks);
+    if (members.some(m => m.id === targetId)) identity.append(node('span', 'fight-page-target', 'Target'));
+    const bars = node('div', 'fight-page-bars');
+    const health = track('health', name + ' health', 'Front ' + String(front.health).toLowerCase(), front.fraction ?? 1);
+    health.dataset.layers = String(members.length);
+    if (members.length > 1) health.dataset.behind = '';
+    const chip = node('b', 'fight-page-layer-count', '×' + members.length);
+    chip.title = members.length + ' standing, front first: ' + members.map(m => m.name + ' ' + m.health).join(' · ');
+    health.prepend(chip);
+    const ticks = track('timing', name + ' timing', members.reduce((a, b) => b.rank < a.rank ? b : a).name + ' acts next of this crowd', 0);
+    ticks.dataset.foldTicks = '';
+    const next = members.reduce((a, b) => b.rank < a.rank ? b : a);
+    for (const member of members) {
+        const tick = node('i', 'fight-page-tick');
+        tick.style.setProperty('--tick', Math.round((member.ready ?? 0) * 100) + '%');
+        tick.dataset.combatMember = member.id;
+        tick.title = member.name;
+        if (member === next) tick.dataset.next = '';
+        ticks.append(tick);
+    }
+    bars.append(health, ticks);
+    entry.replaceChildren(identity, observationLine(front), bars);
+    return entry;
+}
+
 function renderRoster(host, opponents, {targetId, inspect, split, trails}) {
     const canChoose = inspect && opponents.filter(row => !row.done).length > 1;
     const folds = inspect ? foldTempoRoster(opponents, targetId, split) : new Map();
@@ -268,7 +316,16 @@ function renderRoster(host, opponents, {targetId, inspect, split, trails}) {
     const priorFold = new Map([...host.querySelectorAll('[data-combat-member]')].map(tick =>
         [tick.dataset.combatMember, tick.closest('[data-fold]')]));
     const entries = [], dead = [];
+    const crowds = Map.groupBy(opponents.filter(row => row.crowd && !row.done), row => row.crowd.id);
     for (const row of opponents) {
+        const crowd = inspect && row.crowd && !row.done && crowds.get(row.crowd.id);
+        if (crowd) {
+            if (crowd.placed) continue;
+            crowd.placed = true;
+            const members = [...crowd].sort((a, b) => a.crowd.rank - b.crowd.rank);
+            entries.push(crowdEntry(members, {targetId, inspect}, existing.get('crowd:' + row.crowd.id) ?? node('article', 'fight-page-fighter')));
+            continue;
+        }
         const members = folds.get(row.id);
         if (members) {
             if (members[0] !== row) continue;
@@ -364,7 +421,14 @@ function showGains(host, before, after) {
     setTimeout(() => cue.remove(), 950);
 }
 
-function sizeRoster(roster, card, opponentCount) {
+// A crowd draws as one entry, so a crowd fight reserves one row per entry plus the line its fallen join (TF3), not the six-row floor.
+function rosterRows(opponents, crowds) {
+    if (!crowds.length) return [opponents.length, 6];
+    const inCrowd = new Set(crowds.flatMap(crowd => crowd.order));
+    const rows = opponents.filter(row => !inCrowd.has(row.id)).length + crowds.length + 1;
+    return [rows, Math.min(6, rows)];
+}
+function sizeRoster(roster, card, opponentCount, floor = 6) {
     const bounds = roster.getBoundingClientRect();
     const row = Math.min(...[...roster.querySelectorAll('.fight-page-fighter')].map(row => row.getBoundingClientRect().height));
     if (!Number.isFinite(row) || !row) return;
@@ -373,8 +437,10 @@ function sizeRoster(roster, card, opponentCount) {
     const backBar = document.getElementById('center_mode_navigation')?.getBoundingClientRect().height ?? 0;
     const frame = roster.offsetHeight - roster.clientHeight;
     const room = bottom - backBar - card.getBoundingClientRect().bottom + bounds.height;
-    const rows = Math.max(6, Math.min(opponentCount, Math.floor((room - frame) / row)));
-    roster.style.height = Math.ceil(rows * row + frame) + 'px';
+    const rows = Math.max(floor, Math.min(opponentCount, Math.floor((room - frame) / row)));
+    // A crowd fight keeps its rows' own height plus one line for the fallen, since a crowd row is taller than a fighter row (TF3).
+    const crowdHeight = roster.querySelector('[data-crowd]') ? roster.scrollHeight + Math.ceil(parseFloat(getComputedStyle(roster).fontSize) * 2) : 0;
+    roster.style.height = Math.ceil(crowdHeight || rows * row + frame) + 'px';
     const target = roster.querySelector('[data-target="true"]');
     if (target) roster.scrollTop = Math.max(0, target.getBoundingClientRect().bottom - roster.getBoundingClientRect().bottom + 1);
 }
@@ -521,7 +587,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
     };
     const playerPanel = node('section', 'fight-page-player');
     playerPanel.setAttribute('aria-label', 'Your fight');
-    let lastRoster = [], fighterRoster = null, damageTrail = null, split = new Set(), trails = new Map();
+    let lastRoster = [], fighterRoster = null, targetSlot = null, damageTrail = null, split = new Set(), trails = new Map();
     let moveSlots = new Map(), moveOrder, fateMovesOpen = false, powersMoreOpen = false, previousStock = {};
     let seenPresentation = new WeakSet(), reportFightStarted = false;
     const ordersByLife = new Map();
@@ -539,7 +605,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         for (const [id, marks] of Map.groupBy(fresh.filter(event => event.subject), event => event.subject)) {
             const cssId = CSS.escape(id);
             const row = id === 'player' ? document.getElementById('character_healthbar_max') :
-                host?.querySelector(`[data-combat-subject="${cssId}"], [data-fallen="${cssId}"], [data-combat-member="${cssId}"]`);
+                (host === fighterRoster && targetSlot?.isConnected ? targetSlot.querySelector(`[data-combat-subject="${cssId}"]`) : null) ?? host?.querySelector(`[data-combat-subject="${cssId}"], [data-fallen="${cssId}"], [data-combat-member="${cssId}"]`);
             const kind = marks.findLast(event => event.kind !== 'miss' && event.kind !== 'blocked')?.kind ?? marks.at(-1).kind;
             const dead = row?.closest('.fight-page-dead-fold');
             const fighter = row?.closest('.fight-page-fighter');
@@ -610,6 +676,9 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         if (opening) {
             fighterRoster = node('section', 'fight-situation-versus fight-page-roster');
             fighterRoster.setAttribute('aria-label', 'Opponents');
+            // TF3: a crowd fight keeps the chosen member's full row in one fixed place under the roster.
+            targetSlot = node('section', 'fight-page-target-slot');
+            targetSlot.setAttribute('aria-label', 'Your target');
             document.getElementById('character_combat_management')?.prepend(playerPanel);
             damageTrail?.clear();
             damageTrail = heroDamageTrail(healthFraction(view.fight.you));
@@ -661,7 +730,11 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         const runCommand = domainRegistry.command('tempo_fight', 'run');
         const runOn = () => { try { lastNotice = runCommand() || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
         const wait = t.yourTurn ? '' : 'Not your turn yet.';
+        const crowds = view.fight.crowds ?? [];
         const targetId = roster.some(row => row.id === inspectedOpponent && !row.done) ? inspectedOpponent : view.fight.targetId;
+        const targetCrowd = crowds.find(crowd => crowd.order.includes(targetId));
+        // TF4: Single out needs a pick behind the front; the button keeps its place and says why until then.
+        const singleOutWhy = !targetCrowd ? 'Pick one of the crowd.' : targetCrowd.order[0] === targetId ? 'Pick one behind.' : '';
         const termsCommand = domainRegistry.command('tempo_fight', 'terms'), losingCommand = domainRegistry.command('tempo_fight', 'losing');
         const said = fn => { try { lastNotice = fn() || ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
         const pickTerms = (kind, value) => said(() => { const result = termsCommand({kind, value}); syncBestiaryTerms(); return result; });
@@ -679,7 +752,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
                 source: ['withdraw', 'yield', 'plead', 'escalate'].includes(m.id) ? 'terms' : m.kit ? 'powers' : 'body',
                 time: beats(m.cost), cost: m.quote ?? m.price, harm: m.harm, affects: m.text, detail: m.detail, attack: m.mixText, odds: m.odds, recovery: m.recovery,
                 aim: (m.id === 'jab' || m.id === 'swing') ? t.aims.find(a => a.id === t.aim)?.label : null,
-                attrs: {fightOption: m.id, ...(m.id === RAT_STEP_MOVE && m.usable && !blocked ? {fightReady: ''} : {})}, blocked: blocked || (m.usable === false ? (m.why || 'Not possible now.').replace(/^Needs (.+); ([\d.]+) left\.$/, `${m.label} needs $1, you have $2.`) : ''), onChoose: () => move({moveId: m.id, ...((m.kit || ['jab', 'swing', 'shoot'].includes(m.id)) && inspectedOpponent === targetId ? {targetId} : {})})})),
+                attrs: {fightOption: m.id, ...(m.id === RAT_STEP_MOVE && m.usable && !blocked ? {fightReady: ''} : {})}, blocked: blocked || (m.id === 'single_out' ? singleOutWhy : '') || (m.usable === false ? (m.why || 'Not possible now.').replace(/^Needs (.+); ([\d.]+) left\.$/, `${m.label} needs $1, you have $2.`) : ''), onChoose: () => move({moveId: m.id, ...((m.kit || ['jab', 'swing', 'shoot', 'sweep', 'single_out'].includes(m.id)) && inspectedOpponent === targetId ? {targetId} : {})})})),
             ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, source: 'body', effect: 'influence', time: beats(o.cost), affects: `${o.text} Heard ${o.odds}; not certain.`,
                 attrs: {fightOption: `order:${o.orderId}:${o.allyId}`}, blocked, onChoose: () => move({moveId: 'order', allyId: o.allyId, orderId: o.orderId})})),
             {id: 'handover', label: HANDOVER_LABEL, affects: HANDOVER_TEXT, attrs: {fightOption: 'handover'}, blocked, onChoose: () => move({handOver: true})},
@@ -703,11 +776,24 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         const heading = card.querySelector('.scene-card-header');
         const sceneSummary = sceneFacts.filter(Boolean).join(' · ');
         heading.after(notice, fighterRoster);
-        renderRoster(fighterRoster, opponents, {targetId, split, trails, inspect: id => { inspectedOpponent = id; cardKey = ''; render(); }});
+        const inspect = id => { inspectedOpponent = id; cardKey = ''; render(); };
+        renderRoster(fighterRoster, opponents, {targetId, split, trails, inspect});
         fighterRoster.scrollTop = rosterScroll;
+        if (crowds.length) {
+            fighterRoster.after(targetSlot);
+            const chosen = opponents.find(row => row.id === targetId);
+            const entry = chosen ? fighterEntry(chosen, {selected: true, canChoose: false, inspect}, targetSlot.firstElementChild?.dataset.combatSubject === targetId ? targetSlot.firstElementChild : node('article', 'fight-page-fighter'), trails) : null;
+            if (entry && targetCrowd && targetCrowd.order[0] !== targetId) {
+                const front = opponents.find(row => row.id === targetCrowd.order[0]);
+                const reach = node('span', 'fight-page-reach', 'Behind the front');
+                reach.title = 'Blows land on ' + (front?.name ?? 'the front') + ' until you single this one out.';
+                entry.querySelector('.fight-page-identity').append(reach);
+            }
+            targetSlot.replaceChildren(...(entry ? [entry] : []));
+        } else targetSlot?.remove();
         const playerApproach = renderPlayer(playerPanel, view.fight, t, party);
         const target = opponents.find(row => row.id === targetId);
-        const targetTrack = fighterRoster.querySelector('[data-target="true"] [data-track="health"]');
+        const targetTrack = (crowds.length ? targetSlot : fighterRoster).querySelector('[data-target="true"] [data-track="health"]');
         const byOption = new Map(options.map(option => [option.id, option]));
         for (const button of card.querySelectorAll('button[data-fight-option]')) {
             const option = byOption.get(button.dataset.fightOption);
@@ -852,7 +938,9 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
         if (opening) {
             const openedRoster = fighterRoster;
             requestAnimationFrame(() => {
-                if (openedRoster.isConnected && fighterRoster === openedRoster) sizeRoster(openedRoster, openedRoster.parentElement, opponents.length);
+                if (openedRoster.isConnected && fighterRoster === openedRoster) sizeRoster(openedRoster, openedRoster.parentElement, ...rosterRows(opponents, crowds));
+                // The slot keeps the height it opened with, so a pick with more conditions never moves the moves (MT1).
+                if (targetSlot.isConnected && !targetSlot.style.height) targetSlot.style.height = targetSlot.offsetHeight + 'px';
             });
             section.parentElement.scrollTop = 0;
             notice.focus({preventScroll: true});

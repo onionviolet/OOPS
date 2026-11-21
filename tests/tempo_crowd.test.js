@@ -81,3 +81,25 @@ test('a saved crowd naming a missing or shared member is refused on load', () =>
     bad.simulation.sessions.player.nativeBattle.crowds.tide.order.push('nobody');
     assert.throws(() => reload(bad), /Invalid tempo crowd/);
 });
+
+test('the wolf pack at the gap opens as one crowd and pays parts per killed wolf', async () => {
+    await import('../src/tempo_lead_fights.js');
+    const {tempoOpener} = await import('../src/tempo_starters.js');
+    const {RI_WOLF_PART_ITEMS} = await import('../src/ri_lead_day_facts.js');
+    const {riWolfParts, RI_WOLF_TIDE_FACT} = await import('../src/ri_wolf_tide.js');
+    const opener = tempoOpener('ri.wolf.pack');
+    const state = {actors: {player: {worldId: 'book.ri.lead.world', facts: {}}}, simulation: {sessions: {}, knowledge: {player: {}}, energies: {player: {'book.ri.lead.primeval': {reserve: 20}}}}, clock: 5};
+    const ctx = {gameplay: {player: {inventory: {[JSON.stringify({id: 'book.ri.lead.moonglow.moonglow_gu'})]: 1}}}};
+    assert.equal(opener.quote(state, ctx).eligible, true);
+    assert.match(opener.quote(state, ctx).reason, /5 wolves at the gap/);
+    const spec = opener.spec(state, ctx, {me: profile, vitals: {health: 50, max_health: 60, stamina: 10, max_stamina: 10}, parts: {}, enemyProfile: () => profile});
+    assert.deepEqual(spec.crowds[0].members, ['ri.wolf.pack.1', 'ri.wolf.pack.2', 'ri.wolf.pack.3', 'ri.wolf.pack.4', 'ri.wolf.pack.5']);
+    const plan = {state: structuredClone(state), gameplay: {player: {inventory: {}}}};
+    const wolves = Object.fromEntries(spec.crowds[0].members.map((id, i) => [id, {end: i < 3 ? 'killed' : 'knocked_out', status: 'down'}]));
+    opener.after(plan, 'won', {id: spec.id, startEssence: 20, fighters: {player: {means: {essence: 12}, hp: 40, maxHp: 50}, ...wolves}});
+    for (const [part, n] of Object.entries(riWolfParts({large: false}))) if (n > 0)
+        assert.equal(plan.gameplay.player.inventory[JSON.stringify({id: RI_WOLF_PART_ITEMS[part]})], 3 * n, part);
+    assert.ok(plan.state.actors.player.facts[RI_WOLF_TIDE_FACT], 'kills count against the tide');
+    assert.equal(plan.state.simulation.energies.player['book.ri.lead.primeval'].reserve, 12);
+    assert.match(plan.fightCarry[0], /^3 wolf eyes/);
+});

@@ -31,6 +31,7 @@
     container-type: inline-size;
     box-sizing: border-box;
     overflow-y: auto;
+    overflow-x: hidden;
     overscroll-behavior: contain;
     border: 1px solid var(--fight-field-rule);
 }
@@ -413,3 +414,61 @@
         --shell-top-row: max-content;
     }
 }
+
+/* TF2 (Weibao 2026-11-21, "implement entirely"): the target row keeps its place in the list order and stays in view while the list
+   scrolls, pinned to the top or bottom edge it would leave by. Its own background covers the rows passing under it. */
+.fight-page-roster > .fight-page-fighter[data-target="true"] {
+    position: sticky;
+    inset-block: 0;
+    z-index: 2;
+}
+
+/* A crowd (TF3, LB1): one layered bar. The front's health drains to show a deeper red layer while more stand behind it, so the bar keeps
+   colour until the last layer; the ×N chip says how many in words (UR37). */
+.fight-page-roster .fight-page-track[data-layers] {
+    display: flex;
+    align-items: center;
+    gap: var(--ui-space-1);
+}
+.fight-page-roster .fight-page-track[data-layers] > span { margin-inline-start: 0; }
+.fight-page-roster .fight-page-track[data-behind] {
+    background: linear-gradient(90deg, var(--ui-swatch-055) var(--fight-fill, 0%),
+        color-mix(in srgb, var(--ui-swatch-055) 45%, black) var(--fight-fill, 0%));
+}
+.fight-page-layer-count {
+    position: relative;
+    z-index: 1;
+    margin-inline-start: var(--ui-space-1);
+    padding-inline: var(--ui-space-1);
+    background: var(--fight-field-slate);
+    border: 1px solid color-mix(in srgb, var(--ui-swatch-055) 70%, white);
+    font-variant-numeric: tabular-nums;
+}
+/* The crowd's name and picks keep one line; its stat line truncates first, as a guarded row's does. */
+.fight-page-fighter[data-crowd] { grid-template-columns: minmax(min-content, 1fr) minmax(0, 1.2fr); }
+/* Member picks, front first: square, the card's own rule colour, the pick marked like the Target tag. */
+.fight-page-crowd-members { display: flex; gap: 2px; flex: none; }
+.fight-page-crowd-member {
+    min-inline-size: max(24px, var(--ui-control-sm));
+    min-block-size: max(24px, var(--ui-control-sm));
+    padding: 0 var(--ui-space-1);
+    font: inherit;
+    font-size: var(--ui-type-small);
+    color: var(--ui-text);
+    background: color-mix(in srgb, black 35%, var(--fight-field-slate));
+    border: 1px solid var(--fight-field-rule);
+    border-radius: 0;
+    cursor: pointer;
+}
+.fight-page-crowd-member[data-front] { border-block-start: 2px solid var(--ui-swatch-055); }
+.fight-page-crowd-member[aria-pressed="true"] { border-color: var(--fight-field-focus); color: var(--fight-field-focus); }
+.fight-page-crowd-member:focus-visible { outline: 2px solid var(--fight-field-focus); outline-offset: 1px; }
+
+/* TF3: the chosen crowd member's full row, in one fixed place under the roster. Its height is set when the fight opens. */
+.fight-page-target-slot {
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid var(--fight-field-focus);
+}
+.fight-page-target-slot > .fight-page-fighter { border-block-end: 0; }
+.fight-page-reach { flex: none; white-space: nowrap; color: var(--theme-warning, var(--ui-meter-warn)); font-style: italic; font-size: var(--ui-type-small); }
