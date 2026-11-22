@@ -335,3 +335,7 @@ The carry-out also holds [tie-in considerations](../PROCEDURAL_CARRY_OUT.md#tie-
 ## UI rules trim and keep-or-retire pass, 2026-11-19
 
 [UI rules keep or retire](../audits/UI_RULES_KEEP_RETIRE_2026-11-19.md) (proposal; nothing retired until Weibao says yes): all 176 UR codes classified, 149 keep, 22 merge, 5 retire, about 2,700 words removable. Done the same day: history notes moved to [UI rules history notes](../audits/UI_RULES_HISTORY_NOTES.md), the UI path rule cut from 873 to 204 words, and the cohesion section UR163–UR176 compressed.
+
+## World atlas ideaboard, 2026-11-22
+
+[World atlas ideaboard](../research/WORLD_ATLAS_IDEABOARD_2026-11-22.md) (WA1-WA22, proposals): a more flavourful and more useful atlas. First five: per-world themes (WA1), gap cards that end in a next step (WA8), one dossier per thing (WA12), places on the district maps (WA5) and snapshot diffs (WA16). Next: Weibao picks.
