@@ -35,6 +35,21 @@ export const STAGES = [
     {key: 'held', label: 'Held'}, {key: 'prepared', label: 'Prepared'}, {key: 'read', label: 'Read, all five passes'},
     {key: 'consumer', label: 'Used by the game'}, {key: 'inGame', label: 'In the game'}, {key: 'walkable', label: 'Walkable'},
 ];
+// O1: the progress atlas's proof and delivery columns continue the lane. They come from the latest dated
+// docs/reports/progress-atlas-*.json, so they are only as fresh as that run; a world it never covered is unknown, not failed.
+export const PROGRESS_STAGES = [{key: 'proven', label: 'Proven'}, {key: 'delivered', label: 'Delivered'}];
+export const PROGRESS_GROUP = {yes: 'reached', partial: 'partial', no: 'missing', unknown: 'unknown', na: 'unknown'};
+export function progressRow(data, id, list = 'worlds') {
+    const row = data.progress?.[list]?.find(w => w.id === id);
+    const cell = k => row?.[k] ? {state: row[k][0], text: row[k][1]} : {state: 'unknown', text: data.progress ? 'Not covered by the ' + data.progress.snapshot + ' progress atlas' : 'No progress atlas data'};
+    return {row, proven: cell('proven'), delivered: cell('delivered'), built: cell('built'), integrated: cell('integrated')};
+}
+export const batchLine = (data, keys) => {
+    const rows = (data.batches || []).filter(b => keys.includes(b.key));
+    if (!rows.length) return 'No batch plans';
+    const sum = k => rows.reduce((a, r) => a + r[k], 0);
+    return `Batch reading: ${sum('plans')} plans, ${sum('estimated')} estimated ($${Math.round(rows.reduce((a, r) => a + r.usdEstimate, 0) * 100) / 100}), ${sum('submitted')} submitted, ${sum('collected')} collected`;
+};
 
 export const worldTitle = id => TITLES[id] || id;
 
@@ -69,11 +84,12 @@ const readMark = {key: 'partial', icon: 'hourglass_bottom', label: 'Partly read'
 const gameMark = {key: 'game', icon: 'sports_esports', label: 'Used by the game'};
 const askedMark = {key: 'asked', icon: 'bookmark_added', label: 'Reading requested'};
 
-function worldFacts(w, side, list) {
+function worldFacts(w, side, list, data) {
     side.append(list([
         `Reading keys: ${w.keys.length} (${w.held} held, ${w.complete} through all five passes)`,
         `Prepared shards: ${w.shards} · pass coverage ${pct(w.coverage)}`,
         `Extracted rows: ${w.rows}`,
+        batchLine(data, w.keys),
         w.consumer ? `In the game: ${w.castPlaces ? w.castPlaces + ' cast-pack places' : ''}${w.castPlaces && w.located ? ' · ' : ''}${w.located ? w.located + ' registered locations' : ''}` : 'No game consumer yet',
         w.castPlaces ? (w.walkVia === 'host' ? 'Walked by its own host' : `${w.onWalk} places on a walk`) : null,
     ].filter(Boolean)));
@@ -92,18 +108,25 @@ export function readingPipeline({main, data, controls, finder, list, button, clo
     if (worldId && byId.has(worldId)) {
         if (!fixed) bar.append(button('All reading worlds', () => open()));
         const w = byId.get(worldId);
-        const nodes = STAGES.map((s, i) => ({id: s.key, label: s.label, x: i * 190, y: 0, w: 160, h: 50,
-            group: w.reached[s.key] ? 'reached' : 'missing', marks: s.key === w.stop ? [{key: 'stop', icon: 'block', label: 'Lane stops here'}] : []}));
-        const edges = STAGES.slice(1).map((s, i) => ({from: STAGES[i].key, to: s.key, kind: 'feeds'}));
+        const prog = progressRow(data, w.id), lane = [...STAGES, ...PROGRESS_STAGES];
+        const nodes = lane.map((s, i) => ({id: s.key, label: s.label, x: (i % 4) * 190, y: Math.floor(i / 4) * 110, w: 160, h: 50,
+            group: prog[s.key] ? PROGRESS_GROUP[prog[s.key].state] : w.reached[s.key] ? 'reached' : 'missing', marks: s.key === w.stop ? [{key: 'stop', icon: 'block', label: 'Lane stops here'}] : []}));
+        const edges = lane.slice(1).map((s, i) => ({from: lane[i].key, to: s.key, kind: 'feeds'}));
         boxCanvas({parent: main, title: w.label, nodes, edges, kind: 'library', close: closeCanvas, initial: STAGES.some(s => s.key === w.stop) ? w.stop : 'walkable',
             marks: [{key: 'stop', icon: 'block', label: 'Lane stops here'}, {key: 'feeds', label: 'Feeds'}, {key: 'selected', label: 'Selected'}],
             select(id, side) {
-                const s = STAGES.find(x => x.key === id);
+                const s = lane.find(x => x.key === id);
+                if (prog[id]) {
+                    side.append(el('small', {yes: 'Reached', partial: 'Partly reached', no: 'Not reached', unknown: 'Unknown', na: 'Not applicable'}[prog[id].state]), el('h2', s.label), el('p', prog[id].text));
+                    if (data.progress) side.append(el('p', `From the ${data.progress.snapshot} progress atlas (${data.progress.report}). Rerun /progress-atlas to refresh.`));
+                    if (prog.row?.findings?.length) side.append(el('p', 'Findings: ' + prog.row.findings.join(', ')));
+                    return;
+                }
                 side.append(el('small', w.reached[id] ? 'Reached' : 'Not reached'), el('h2', s.label));
                 const facts = {
                     held: `${w.held} of ${w.keys.length} source files present`,
                     prepared: `${w.shards} prepared shards`,
-                    read: `${w.complete} of ${w.keys.length} keys through census, scenes, rules, people and texture · coverage ${pct(w.coverage)}`,
+                    read: `${w.complete} of ${w.keys.length} keys through census, scenes, rules, people and texture · coverage ${pct(w.coverage)} · ${batchLine(data, w.keys)}`,
                     consumer: w.consumer ? `Feeds ${w.consumer.cast ? 'the ' + w.consumer.cast.toUpperCase() + ' cast pack and ' : ''}${w.consumer.group} locations` : 'No game system reads this world yet',
                     inGame: w.inGame ? `${w.castPlaces} cast-pack places, ${w.located} registered locations` : `${w.castPlaces + w.located} places in the game`,
                     walkable: w.walkVia === 'host' && w.castPlaces ? 'Walked by its own host' : `${w.onWalk} places on a walk`,
@@ -131,7 +154,7 @@ export function readingPipeline({main, data, controls, finder, list, button, clo
         select(id, side) {
             const w = byId.get(id);
             side.append(el('small', w.stop === 'done' ? 'Reaches every stage' : 'Lane stops at: ' + STAGES.find(s => s.key === w.stop).label), el('h2', w.label));
-            worldFacts(w, side, list);
+            worldFacts(w, side, list, data);
             side.append(button('Open lane', () => open(id)));
             const link = worldLink(w, button);
             if (link) side.append(link);
@@ -169,7 +192,7 @@ export function libraryShelves({main, data, controls, finder, list, button, clos
                 }
                 const w = byId.get(id);
                 side.append(el('small', {complete: 'Read through', partial: 'Partly read', none: 'Prepared, not read'}[w.readState]), el('h2', w.label));
-                worldFacts(w, side, list);
+                worldFacts(w, side, list, data);
                 const others = SHELVES.filter(s => s.id !== shelf.id && s.worlds.includes(id));
                 if (others.length) side.append(el('p', 'Also on: ' + others.map(s => s.label).join(' · ')));
                 const link = worldLink(w, button);
@@ -225,7 +248,7 @@ export function mechanicReadiness({main, data, controls, finder, list, button, c
                 const w = worlds.find(x => x.id === id), s = state(w, aspect);
                 side.append(el('small', {backed: 'In the game, with source pointers', gap: 'In the game, no source pointers yet', unused: 'Source pointers, no game use yet', none: 'Nothing yet'}[s]), el('h2', w.label));
                 side.append(el('p', `${w.aspects[aspect] || 0} rows point at ${ASPECT_LABELS[aspect].toLowerCase()}.`));
-                worldFacts(w, side, list);
+                worldFacts(w, side, list, data);
                 const link = worldLink(w, button);
                 if (link) side.append(link);
                 const done = requests.filter(r => r.world === id && r.aspect === aspect);

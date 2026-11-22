@@ -1,0 +1,717 @@
+{
+ "about": "Machine-readable rows of the November 14 progress atlas (PROGRESS_ATLAS_2026-11-14.md, 'Where things stand'). Transcribed 2026-11-21 for the world atlas; the markdown report stays the owner. States: yes, partial, no, unknown, na. Each future /progress-atlas run writes its own dated file beside this one. Parts list what the report names under Built; a part's other columns are unknown unless the report states them.",
+ "snapshot": "2026-11-14",
+ "commit": "2c95b5a01",
+ "report": "docs/reports/PROGRESS_ATLAS_2026-11-14.md",
+ "columns": {
+  "built": "In code",
+  "proven": "An agent-native run or score",
+  "integrated": "A lead life or the game UI consumes it",
+  "delivered": "Reachable in the installed app"
+ },
+ "worlds": [
+  {
+   "id": "lotm",
+   "lead": "Klein",
+   "built": [
+    "yes",
+    "slices to kjw49 (ch163) as earned saves"
+   ],
+   "proven": [
+    "partial",
+    "rebuilt browser to kjw42 (ch129); later slices load but are not browser-proven; wage loop headless only"
+   ],
+   "integrated": [
+    "yes",
+    "uses LOTM mechanisms, live brawl"
+   ],
+   "delivered": [
+    "no",
+    "app is the Nov 10 build"
+   ],
+   "findings": [
+    "AT38",
+    "AT7",
+    "G17",
+    "G18"
+   ],
+   "owner": "PROJECT.md current focus; lead core-flow audit G17, G18"
+  },
+  {
+   "id": "ri",
+   "lead": "Fang Yuan",
+   "built": [
+    "yes",
+    "to ch140 verified; ch141-145 below floor; earned save to ch171"
+   ],
+   "proven": [
+    "partial",
+    "ch140 browser; day loop on private saves only (PS6)"
+   ],
+   "integrated": [
+    "yes",
+    "Gu care, patrols, wild Gu refine, live hunt"
+   ],
+   "delivered": [
+    "no",
+    "not in app"
+   ],
+   "findings": [
+    "AT38",
+    "AT40",
+    "AT41",
+    "PS6"
+   ],
+   "owner": "audit G11; play surface CHECKPOINT"
+  },
+  {
+   "id": "hp",
+   "lead": "Harry",
+   "built": [
+    "yes",
+    "Book 1 closed (King's Cross)"
+   ],
+   "proven": [
+    "yes",
+    "rebuilt browser with save, reload, import"
+   ],
+   "integrated": [
+    "partial",
+    "live duel; Spellbook; no daily loop"
+   ],
+   "delivered": [
+    "no",
+    "not in app"
+   ],
+   "findings": [
+    "AT40",
+    "G2"
+   ],
+   "owner": "cross-world CHECKPOINT"
+  },
+  {
+   "id": "mol",
+   "lead": "Zorian",
+   "built": [
+    "yes",
+    "Arc 1 closed (ch26)"
+   ],
+   "proven": [
+    "yes",
+    "rebuilt browser"
+   ],
+   "integrated": [
+    "unknown",
+    "not covered by the audit"
+   ],
+   "delivered": [
+    "no",
+    "not in app"
+   ],
+   "findings": [],
+   "owner": "PROJECT.md current focus"
+  }
+ ],
+ "mechanics": [
+  {
+   "id": "gu",
+   "label": "Gu foundation",
+   "built": [
+    "yes",
+    "catalogue, refinement, activation, aperture, wild Gu, wolf tide"
+   ],
+   "proven": [
+    "partial",
+    "coverage ledger; no held-out split"
+   ],
+   "integrated": [
+    "partial",
+    "one row (refine the wild Gu)"
+   ],
+   "delivered": [
+    "no",
+    ""
+   ],
+   "findings": [
+    "AT39",
+    "AT42"
+   ],
+   "parts": [
+    {
+     "id": "catalogue",
+     "label": "Catalogue",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "refinement",
+     "label": "Refinement",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "activation",
+     "label": "Activation",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "aperture",
+     "label": "Aperture",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "wild-gu",
+     "label": "Wild Gu",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "yes",
+      "one row: refine the wild Gu"
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "wolf-tide",
+     "label": "Wolf tide",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "no",
+      "not hooked into play"
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    }
+   ]
+  },
+  {
+   "id": "creatures",
+   "label": "Creatures",
+   "built": [
+    "yes",
+    "lifecycle, populations, evolution, herds"
+   ],
+   "proven": [
+    "partial",
+    "17 computed cases"
+   ],
+   "integrated": [
+    "no",
+    "wolf tide not hooked"
+   ],
+   "delivered": [
+    "no",
+    "engine only"
+   ],
+   "findings": [
+    "AT39",
+    "AT41"
+   ],
+   "parts": [
+    {
+     "id": "lifecycle",
+     "label": "Lifecycle",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "populations",
+     "label": "Populations",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "no",
+      "wolf tide not hooked"
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "evolution",
+     "label": "Evolution",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "herds",
+     "label": "Herds",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    }
+   ]
+  },
+  {
+   "id": "potions",
+   "label": "Potions",
+   "built": [
+    "yes",
+    "brew law, dose, assay, generation"
+   ],
+   "proven": [
+    "partial",
+    "held-out 13-15 of 17 outcome on the engine"
+   ],
+   "integrated": [
+    "no",
+    "Klein digests by acting: backlog"
+   ],
+   "delivered": [
+    "no",
+    ""
+   ],
+   "findings": [
+    "AT39"
+   ],
+   "laws": [
+    "brew_law",
+    "b.dose",
+    "engine_brew_stock",
+    "lotm_brew_pack",
+    "lotm_derived_formulas"
+   ],
+   "parts": [
+    {
+     "id": "brew-law",
+     "label": "Brew law",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "dose",
+     "label": "Dose",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "assay",
+     "label": "Assay",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "generation",
+     "label": "Generation",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    }
+   ]
+  },
+  {
+   "id": "spells",
+   "label": "Spells",
+   "built": [
+    "yes",
+    "spell law, grammar, Hogwarts pack"
+   ],
+   "proven": [
+    "partial",
+    "held-out engine matches 13 of 99; 82 cannot run"
+   ],
+   "integrated": [
+    "no",
+    "Harry duel hook is a no-op until practice rows land"
+   ],
+   "delivered": [
+    "partial",
+    "native Spellbook only"
+   ],
+   "findings": [
+    "AT39"
+   ],
+   "laws": [
+    "effect_grammar",
+    "hp_property_set"
+   ],
+   "parts": [
+    {
+     "id": "spell-law",
+     "label": "Spell law",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "grammar",
+     "label": "Grammar",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "hogwarts-pack",
+     "label": "Hogwarts pack",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crafting",
+   "label": "Crafting, chemistry, home",
+   "built": [
+    "yes",
+    "modules exist"
+   ],
+   "proven": [
+    "unknown",
+    "worker reports only, no ledger"
+   ],
+   "integrated": [
+    "unknown",
+    ""
+   ],
+   "delivered": [
+    "unknown",
+    ""
+   ],
+   "findings": [
+    "AT39"
+   ]
+  },
+  {
+   "id": "fights",
+   "label": "Fights",
+   "built": [
+    "yes",
+    "tempo fight, kit, lead openers, contest stakes"
+   ],
+   "proven": [
+    "partial",
+    "three live fights in headless browser screenshots"
+   ],
+   "integrated": [
+    "yes",
+    "one per lead world"
+   ],
+   "delivered": [
+    "no",
+    "not in app"
+   ],
+   "findings": [],
+   "parts": [
+    {
+     "id": "tempo-fight",
+     "label": "Tempo fight",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "kit",
+     "label": "Kit",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "lead-openers",
+     "label": "Lead openers",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    },
+    {
+     "id": "contest-stakes",
+     "label": "Contest stakes",
+     "built": [
+      "yes",
+      ""
+     ],
+     "proven": [
+      "unknown",
+      ""
+     ],
+     "integrated": [
+      "unknown",
+      ""
+     ],
+     "delivered": [
+      "unknown",
+      ""
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ui",
+   "label": "UI",
+   "built": [
+    "yes",
+    "UIC180-UIC200"
+   ],
+   "proven": [
+    "partial",
+    "check:visual, check:flow, headless 1920x1080 on fixtures"
+   ],
+   "integrated": [
+    "yes",
+    ""
+   ],
+   "delivered": [
+    "no",
+    "not in app"
+   ],
+   "findings": []
+  }
+ ]
+}

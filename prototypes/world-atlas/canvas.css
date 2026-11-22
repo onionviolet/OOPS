@@ -255,3 +255,12 @@ body > header h1, .box-canvas :is(h2,h3), .canvas-box { font-family: var(--ui-fo
 .box-canvas[data-canvas-kind="worlds"] .canvas-box[data-group="walk"] { border-color: #ace79e; }
 .box-canvas[data-canvas-kind="worlds"] .canvas-box[data-group="registered"] { border-color: #a5c8e0; }
 .box-canvas[data-canvas-kind="worlds"] .canvas-box[data-group="library"] { border-style: dashed; border-color: #e0c27a; }
+/* Unknown is hatched, never drawn as empty or failed (progress atlas rule). */
+.box-canvas .canvas-box[data-group="unknown"] { border-style: dotted; border-color: #9aa6b2; background-image: repeating-linear-gradient(135deg, transparent 0 6px, rgba(154, 166, 178, .18) 6px 8px); }
+.box-canvas .canvas-box[data-group="absorbed"] { border-color: #ace79e; }
+.box-canvas .canvas-box[data-group="source"] { border-style: dashed; border-color: #a5c8e0; }
+.box-canvas .canvas-box[data-group="added"] { border-color: #c9a7ec; border-width: 2px; }
+.box-canvas .canvas-box[data-group="region"] { border-width: 2px; border-color: #e0c27a; }
+.box-canvas .canvas-box[data-group="law"] { border-color: #ace79e; }
+.box-canvas .canvas-box[data-group="missing-mech"] { border-color: #e39a8f; }
+.box-canvas .canvas-box[data-group="scenes"] { border-color: #c9a7ec; }

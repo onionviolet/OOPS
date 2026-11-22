@@ -1,0 +1,144 @@
+// One headless proof for the whole atlas: starts the server on a free port with scratch request and pick files,
+// walks every section at 1920x1080, saves screenshots, and exits non-zero on a failed check or a page error.
+//   node prototypes/world-atlas/prove-all.mjs [--out docs/representations/evidence/world-atlas-2026-11-21] [--scratch <dir>]
+import assert from 'node:assert/strict';
+import {spawn} from 'node:child_process';
+import {mkdirSync, mkdtempSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join, resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {loadPlaywright} from '../../scripts/perf/lib.mjs';
+
+const arg = (k, d) => {const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d;};
+const root = fileURLToPath(new URL('../../', import.meta.url));
+const out = resolve(root, arg('--out', 'docs/representations/evidence/world-atlas-2026-11-21'));
+const scratch = arg('--scratch', mkdtempSync(join(tmpdir(), 'atlas-prove-')));
+mkdirSync(out, {recursive: true});
+const port = 4300 + Math.floor(Math.random() * 500);
+const server = spawn(process.execPath, [join(root, 'prototypes/world-atlas/serve.mjs')], {cwd: root, stdio: ['ignore', 'pipe', 'inherit'],
+    env: {...process.env, ATLAS_PORT: String(port), ATLAS_REQUESTS: join(scratch, 'requests.json'), ATLAS_PICKS: join(scratch, 'picks.json')}});
+await new Promise((ok, no) => {server.stdout.on('data', d => String(d).includes('listening') && ok()); server.on('exit', c => no(Error('server exited ' + c)));});
+const base = `http://127.0.0.1:${port}`;
+const results = [];
+const check = (name, fn) => results.push([name, fn]);
+const browser = await loadPlaywright().chromium.launch({headless: true, executablePath: process.env.YAIRPG_CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', args: ['--single-process', '--disable-gpu']});
+let failed = 0;
+try {
+    const page = await browser.newPage({viewport: {width: 1920, height: 1080}});
+    const errors = [];
+    page.on('pageerror', e => errors.push(e.message));
+    page.on('console', m => {if (m.type() === 'error' && !m.text().startsWith('Failed to load resource')) errors.push(m.text());});
+    const canvas = async (hash, kind) => {
+        await page.goto(base + '/#' + hash);
+        const c = page.locator(kind ? `[data-canvas-kind=${kind}]` : '.box-canvas').first();
+        await c.waitFor({timeout: 90000});
+        await page.evaluate(async () => {await document.fonts.ready;});
+        return c;
+    };
+    const shot = name => page.screenshot({path: join(out, name)});
+    const inspector = async c => (await c.locator('.canvas-inspector').innerText()).replace(/\n+/g, ' | ');
+
+    check('worlds index lists the source games', async () => {
+        const c = await canvas('worlds', 'worlds');
+        for (const t of ['Yet Another Idle RPG', 'Proto23 (original)', 'Arkivia']) assert.ok(await c.locator('.canvas-box', {hasText: t}).count(), t);
+        await shot('worlds-with-sources.png');
+    });
+    for (const [game, id, min] of [['yair', 'yair', 61], ['proto23', 'proto23-src', 60], ['arkivia', 'arkivia', 3]]) check(`${game} source map draws`, async () => {
+        const c = await canvas(`world/${id}/source`, 'source');
+        const n = await c.locator('.canvas-box').count();
+        assert.ok(n >= Math.min(min, 3), `${game}: ${n} boxes`);
+        const bar = await page.locator('nav.atlas-tools').innerText();
+        console.log(game, n, 'boxes ·', bar.replace(/\n/g, ' ').slice(0, 200));
+        await c.locator('.canvas-box').first().click();
+        const insp = await inspector(c);
+        assert.match(insp, /Source id/);
+        const inner = c.locator('.canvas-inspector').getByRole('button', {name: /Open inside/});
+        if (await inner.count()) {await inner.first().click(); await page.locator('[data-canvas-kind=source] .canvas-box').first().waitFor();}
+        await shot(`source-${game}.png`);
+    });
+    check('LOTM scenes view and a place inspector with scenes', async () => {
+        const c = await canvas('world/lotm/scenes', 'book');
+        assert.ok(await c.locator('.canvas-box').count() > 10);
+        await c.locator('.canvas-box').first().click();
+        assert.match(await inspector(c), /Book scenes here/);
+        await shot('scenes-lotm.png');
+    });
+    check('MOL scenes view', async () => {
+        const c = await canvas('world/mol/scenes', 'book');
+        assert.ok(await c.locator('.canvas-box').count() > 5);
+        await shot('scenes-mol.png');
+    });
+    check('reading lane carries proven and delivered from the progress atlas', async () => {
+        const c = await canvas('world/lotm/reading', 'library');
+        assert.equal(await c.locator('.canvas-box').count(), 8);
+        await c.locator('.canvas-box', {hasText: 'Proven'}).click();
+        assert.match(await inspector(c), /progress atlas/);
+        await shot('reading-lane-progress-lotm.png');
+        const s = await canvas('world/ss/reading', 'library');
+        assert.equal(await s.locator('.canvas-box[data-group=unknown]').count(), 2, 'Shadow Slave proof and delivery are unknown, not failed');
+    });
+    check('progress overview', async () => {
+        const c = await canvas('progress/overview', 'library');
+        assert.ok(await c.locator('.canvas-box[data-group=unknown]').count() >= 1);
+        await c.locator('.canvas-box', {hasText: 'Klein'}).click();
+        assert.match(await inspector(c), /proven/);
+        await shot('progress-overview.png');
+        await c.locator('.canvas-inspector').getByRole('button', {name: 'Open sub-progress'}).click();
+        const sub = page.locator('[data-canvas-kind=library]').first();
+        await sub.locator('.canvas-box', {hasText: 'Batch'}).waitFor();
+        for (const t of ['Held', 'Read', 'Places', 'Book scenes', 'Proven']) assert.ok(await sub.locator('.canvas-box', {hasText: t}).count(), t);
+        await shot('progress-sub-lotm.png');
+        await page.getByRole('button', {name: 'All progress'}).click();
+        const top = page.locator('[data-canvas-kind=library]').first();
+        await top.locator('.canvas-box', {hasText: 'Potions'}).click();
+        await top.locator('.canvas-inspector').getByRole('button', {name: 'Open sub-progress'}).click();
+        const pot = page.locator('[data-canvas-kind=library]').first();
+        await pot.locator('.canvas-box', {hasText: 'brew_law'}).waitFor();
+        assert.ok(await pot.locator('.canvas-box', {hasText: 'Assay'}).count(), 'potion parts');
+        await shot('progress-sub-potions.png');
+    });
+    check('mechanics, then one mechanic', async () => {
+        const c = await canvas('progress/mechanics2', 'library');
+        assert.ok(await c.locator('.canvas-box[data-group=law]').count() >= 5);
+        await shot('mechanics.png');
+        await c.locator('.canvas-box', {hasText: 'brew_law'}).first().click();
+        await c.locator('.canvas-inspector').getByRole('button', {name: 'Open mechanic'}).click();
+        const m = page.locator('[data-canvas-kind=library]').first();
+        await m.locator('.canvas-box').first().waitFor();
+        await m.locator('.canvas-box').first().click();
+        const insp = await inspector(m);
+        assert.match(insp, /Progress atlas/);
+        console.log('brew_law:', insp.slice(0, 240));
+        await shot('mechanic-brew-law.png');
+    });
+    check('pick a district for an unplaced place, then see it in Send to the game', async () => {
+        const c = await canvas('world/lotm/places', 'book');
+        await page.getByRole('searchbox').fill('Tingen outskirts');
+        await page.locator('nav.atlas-tools').getByRole('button', {name: /Tingen outskirts/}).first().click();
+        const sel = page.locator('.atlas-pick select');
+        await sel.waitFor();
+        await sel.selectOption('storm');
+        await page.locator('.atlas-pick output', {hasText: 'Pick saved'}).waitFor();
+        await shot('pick-tingen-outskirts.png');
+        await canvas('worlds', 'worlds');
+        await page.goto(base + '/#workbench/transfer');
+        await page.locator('.sheet', {hasText: 'Send placements to the game'}).waitFor();
+        const text = await page.locator('.sheet').innerText();
+        assert.match(text, /Tingen outskirts → storm/);
+        await shot('send-to-game.png');
+        void c;
+    });
+    check('village region and legacy links still land', async () => {
+        await canvas('world/village/places');
+        await page.goto(base + '/#tingen-districts');
+        await page.waitForTimeout(400);
+        assert.equal(page.url().split('#')[1], 'world/lotm/districts');
+    });
+    for (const [name, fn] of results) {
+        try {await fn(); console.log('ok  ', name);} catch (e) {failed++; console.log('FAIL', name, '·', e.message.split('\n')[0]);}
+    }
+    console.log('page errors', JSON.stringify(errors));
+    if (errors.length) failed++;
+} finally {await browser.close(); server.kill();}
+console.log(`${results.length - failed} of ${results.length} checks passed · screenshots in ${out}`);
+process.exit(failed ? 1 : 0);

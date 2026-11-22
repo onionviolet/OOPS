@@ -31,6 +31,8 @@ import {placeMarks, villageDiagram} from '/village-layout.mjs';
 import {bookWorlds} from '/book-worlds.mjs';
 import {otherPlaces} from '/other-places.mjs';
 import {readingPipeline, libraryShelves, mechanicReadiness, libraryWorlds} from '/library-views.mjs';
+import {sourceGamePage, scenesView, mechanicsView, progressView, SOURCE_GAMES} from '/atlas-views.mjs';
+import {transferView} from '/transfer-view.mjs';
 import {creatureMarks, creatureOverview, creatureShelf, creatureNeighborhood, libraryEdges} from '/creature-layout.mjs';
 
 const main=document.querySelector('main'), nav=document.querySelector('nav');
@@ -42,21 +44,24 @@ let draft={...data.draft};
 // One shell: four sections; a world owns its places, walks and reading. Old tab links still land.
 const WORLDS=[
  {id:'village',label:'The Village',note:'Native region, where a fresh game starts',views:['places']},
- {id:'lotm',label:'Lord of the Mysteries',cast:'lotm',group:'Lord of the Mysteries',views:['places','locations','districts','reading']},
- {id:'mol',label:'Mother of Learning',cast:'mol',group:'Mother of Learning',views:['places','locations','encounter','reading']},
+ {id:'lotm',label:'Lord of the Mysteries',cast:'lotm',group:'Lord of the Mysteries',views:['places','scenes','locations','districts','reading']},
+ {id:'mol',label:'Mother of Learning',cast:'mol',group:'Mother of Learning',views:['places','scenes','locations','encounter','reading']},
  {id:'hp',label:'Harry Potter',group:'Harry Potter',views:['locations','reading']},
  {id:'ri',label:'Reverend Insanity',group:'Reverend Insanity',views:['locations','reading']},
  {id:'ss',label:'Shadow Slave',group:'Shadow Slave',views:['locations','reading']},
  {id:'paradise',label:'Reincarnation Paradise',group:'Reincarnation Paradise',views:['locations']},
  {id:'proto23',label:'Proto23 reference',group:'Proto23 reference',views:['locations']},
  {id:'testpacks',label:'Private test packs',group:'Private test packs',views:['locations']},
+ {id:'yair',label:SOURCE_GAMES.yair.label,source:'yair',note:SOURCE_GAMES.yair.note,views:['source']},
+ {id:'proto23-src',label:SOURCE_GAMES.proto23.label,source:'proto23',note:SOURCE_GAMES.proto23.note,views:['source']},
+ {id:'arkivia',label:SOURCE_GAMES.arkivia.label,source:'arkivia',note:SOURCE_GAMES.arkivia.note,views:['source']},
  {id:'frontier',label:'Frontier outposts',note:'Registered, but no route from the Village at a fresh start',group:'Frontier, not reached from the Village',views:['locations']},
 ];
 const worldById=new Map(WORLDS.map(w=>[w.id,w]));
-const VIEW_LABELS={places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
+const VIEW_LABELS={source:'Source map',scenes:'Scenes',overview:'Where things stand',mechanics2:'Mechanics',transfer:'Send to the game',places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
  pipeline:'Reading pipeline',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds',observations:'Identified target',site:'Village site workshop'};
 const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'library',label:'Library',views:['pipeline','shelves','mechanics']},
- {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'workbench',label:'Workbench',views:['site']}];
+ {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'progress',label:'Progress',views:['overview','mechanics2']},{id:'workbench',label:'Workbench',views:['transfer','site']}];
 const LEGACY={'village-region':'world/village/places','other-game-places':'worlds','book-worlds':'world/lotm/places','reading-pipeline':'library/pipeline',
  'library-shelves':'library/shelves','mechanic-readiness':'library/mechanics','tingen-districts':'world/lotm/districts','world-library':'worlds',
  'entity-library':'creatures/kinds','village-site-workshop':'workbench/site','cyoria-encounter':'world/mol/encounter','identified-target':'creatures/observations'};
@@ -88,9 +93,11 @@ function showPage(){
  if(r.world)return worldView(r.world,r.view,shared);
  if(r.section==='worlds')return worldsIndex();
  ({pipeline:()=>readingPipeline(shared),shelves:()=>libraryShelves(shared),mechanics:()=>mechanicReadiness(shared),
-   kinds:()=>library(),observations:target,site:editor})[r.view]();
+   kinds:()=>library(),observations:target,site:editor,overview:()=>progressView(shared),mechanics2:()=>mechanicsView(shared),transfer:()=>transferView(shared)})[r.view]();
 }
 function worldView(w,view,shared){
+ if(view==='source')return sourceGamePage({...shared,game:w.source});
+ if(view==='scenes')return scenesView({...shared,worldId:w.cast});
  if(view==='places'&&w.id==='village')return regionalMap();
  if(view==='places')return bookWorlds({...shared,worldId:w.cast,fixed:true});
  if(view==='locations')return otherPlaces({...shared,group:w.group,title:w.label+' · registered locations'});
@@ -175,7 +182,7 @@ const worldMarks=[{key:'walk',icon:'directions_walk',label:'Has places you can w
 function worldStats(w){
  const reading=libraryWorlds(data).find(r=>r.id===w.id),cast=w.cast&&data.books?.[w.cast];
  const located=w.group?data.others.filter(r=>r.group===w.group).length:0;
- const places=w.id==='village'?data.frontier.length:(cast?cast.places.length:0);
+ const places=w.source?(data.sources?.[w.source]?.places.length||0):w.id==='village'?data.frontier.length:(cast?cast.places.length:0);
  const walk=w.id==='village'?data.frontier.length:cast?(cast.places.some(p=>p.district)?cast.places.filter(p=>p.district).length:cast.places.length):0;
  return {reading,places,located,walk};
 }
@@ -185,13 +192,13 @@ function worldsIndex(){
  const bar=controls();
  bar.append(el('small',`${WORLDS.length} worlds in the game · ${readingOnly.length} more read but not used by the game yet`));
  finder(bar,WORLDS,w=>go('world/'+w.id));
- const order=[['village','lotm','mol'],['hp','ri','ss','paradise'],['proto23','testpacks','frontier','library']];
+ const order=[['village','lotm','mol'],['hp','ri','ss','paradise'],['proto23','testpacks','frontier','library'],['yair','proto23-src','arkivia']];
  const nodes=[];
  order.forEach((row,r)=>row.forEach((id,c)=>{
   const x=(c-(row.length-1)/2)*250,y=r*110;
   if(id==='library')return nodes.push({id,label:`Read, not in the game · ${readingOnly.length}`,x,y,w:220,h:58,group:'library',marks:[]});
   const w=worldById.get(id),st=stats.get(id),count=st.places||st.located;
-  nodes.push({id,label:`${w.label} · ${count}`,x,y,w:220,h:58,group:st.walk?'walk':'registered',
+  nodes.push({id,label:`${w.label} · ${count}`,x,y:y+(w.source?40:0),w:220,h:58,group:w.source?'source':st.walk?'walk':'registered',
    marks:[...(st.walk?[worldMarks[0]]:[]),...(st.reading?.readState==='partial'?[worldMarks[1]]:[]),...(st.reading?.readState==='complete'?[worldMarks[2]]:[])]});
  }));
  boxCanvas({parent:main,title:'Worlds',nodes,edges:[],marks:worldMarks,kind:'worlds',initial:'village',
@@ -199,13 +206,13 @@ function worldsIndex(){
    if(id==='library'){side.append(el('small','Library'),el('h2','Read, not in the game'),el('p',readingOnly.length+' reading worlds have no game consumer yet.'),
     listOf(readingOnly.slice(0,8).map(r=>r.label+' · '+{complete:'read through',partial:'partly read',none:'prepared'}[r.readState])),button('Open reading pipeline',()=>go('library/pipeline')));return}
    const w=worldById.get(id),st=stats.get(id);
-   side.append(el('small',st.walk?'In the game · walkable':'In the game · registered locations'),el('h2',w.label));
+   side.append(el('small',w.source?'Source game · not in play':st.walk?'In the game · walkable':'In the game · registered locations'),el('h2',w.label));
    if(w.note)side.append(el('p',w.note));
    side.append(listOf([
     st.places?`${st.places} places${w.cast?' from the cast pack':''}`:null,
     st.located&&w.id!=='village'?`${st.located} registered locations`:null,
     st.walk&&w.cast?`${st.walk} on a walk`:null,
-    st.reading?`Reading: ${st.reading.keys.length} keys, ${Math.round(st.reading.coverage*100)}% of passes done`:'No reading keys',
+    w.source?null:st.reading?`Reading: ${st.reading.keys.length} keys, ${Math.round(st.reading.coverage*100)}% of passes done`:'No reading keys',
    ].filter(Boolean)));
    side.append(routeButtons(w.views.map(v=>({id:v,label:VIEW_LABELS[v]})),v=>go('world/'+id+'/'+v)));
   }});

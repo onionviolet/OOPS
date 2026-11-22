@@ -41,6 +41,14 @@ export function projectCast(world, pack) {
     for (const r of pack.routines || []) note(r.place || r.indexPlace, r.actor, 'routine');
     for (const r of pack.remoteWhereabouts || []) note(r.place, r.actor, 'whereabouts');
     for (const r of pack.schedule || []) note(r.place || r.location, r.actor || r.person, 'schedule');
+    // Book scenes anchored to a place: beats, dated anchors, schedule slots and household acts. Ids and locators only.
+    const rows = v => Array.isArray(v) ? v : Object.values(v || {}).flat();
+    const scenes = new Map();
+    const scene = (place, row) => {const id = resolve(place); if (!id) return; (scenes.get(id) || scenes.set(id, []).get(id)).push(row);};
+    for (const b of rows(pack.beats)) scene(b.place, {id: b.id, kind: 'beat', locator: b.knows?.[0]?.locator || b.locator || null, day: b.dayIndex ?? null, actor: b.actor || null});
+    for (const a of rows(pack.anchors)) scene(a.place || a.indexPlace, {id: a.id || a.place + '.anchor', kind: 'anchor', locator: a.locator || null, day: a.dayWindow?.[0] ?? null, actor: a.actor || null});
+    for (const s of rows(pack.schedule)) scene(s.place || s.location, {id: s.id, kind: 'schedule', locator: s.locator || null, day: s.day ?? null, actor: s.actor || s.person || null});
+    for (const h of rows(pack.householdActs)) scene(h.place, {id: h.id, kind: 'household', locator: h.locator || null, day: null, actor: null});
     const known = new Set(pack.leadLife?.knownPlaces || []);
     const places = pack.places.map(p => ({
         id: p.id, indexId: p.indexId || null, name: placeName(p), kind: p.kind || null,
@@ -48,6 +56,7 @@ export function projectCast(world, pack) {
         district: p.travel?.district || p.district || null, provenance: p.travel?.provenance || null,
         evidence: p.label || null, locator: p.locator || null, known: known.has(p.id),
         people: [...(seen.get(p.id) || [])].map(([id, how]) => ({id, how})),
+        scenes: scenes.get(p.id) || [],
     }));
     const ids = new Set(places.map(p => p.id));
     for (const p of places) if (p.parent === p.id || !ids.has(p.parent)) p.parent = null;

@@ -1,6 +1,8 @@
 // Book worlds: containment canvas over the cast packs the game loads.
 // Read-only. States come from pack fields: travel district and its provenance.
 import {boxCanvas, element as el} from '/canvas.mjs';
+import {sceneList} from '/atlas-views.mjs';
+import {pickControl} from '/transfer-view.mjs';
 
 const WORLD_NAMES = {lotm: 'Lord of the Mysteries', mol: 'Mother of Learning'};
 const EVIDENCE = {T: 'Stated in text', S: 'Shown in a scene', I: 'Inferred', U: 'Unresolved'};
@@ -159,6 +161,8 @@ export function bookWorlds({main, data, controls, finder, routeButtons, button, 
                     list(p.people.map(({id: who, how}) => (ix.people.get(who)?.name || who) + ' · ' + how)));
                 side.append(group);
             }
+            if (p.scenes?.length) side.append(sceneList(p, list));
+            if (ix.usesDistricts && state !== 'walk') side.append(pickControl(p, data));
         },
     });
 }
