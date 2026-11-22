@@ -48,3 +48,39 @@ test('game recipes: item, component variants and equipment become workings', () 
     assert.deepEqual(recipes[1].products.map(x => x.id), ['game.iron-short-blade', 'game.short-blade']);
     assert.deepEqual(recipes[3].inputs.map(x => x.id), ['game.short-blade', 'game.short-handle']);
 });
+
+test('people, places, other rows and fills fold onto entities; agent fill joins the census and is marked', () => {
+    const klein = {id: 'w.person.klein', label: 'Klein', kind: 'person'}, port = {id: 'w.place.port', label: 'Port', kind: 'place'};
+    const shard = prefix => ({prefix, census: [sheet, charm, klein, port], rules: [{...rule, products: []}],
+        people: [{id: klein.id, routine: [{what: 'writes letters', place: port.id}], relations: [{with: 'w.person.azik', kind: 'mentor'}], knows: [{fact: 'x'}]}],
+        places: [{id: port.id, hours: 'dawn to dusk', affordances: [{class: 'travel', what: 'buy a ticket'}]}],
+        other: {rules: [{what: 'Copper whistle lacks an id', about: [sheet.id]}], texture: [{what: 'copper whistle lacks an id'}]},
+        fills: [{id: 'w.fill.sun', kind: 'person', what: 'Sun seat unnamed', layer: 'invented'}]});
+    const d = digestWorld({world: 'w', shards: [shard('a'), shard('b')], makingFill: [{id: rule.id, products: [{item: 'w.item.slumber-charm', confidence: 'stated'}], outcome: null}]});
+    const k = d.entities.find(e => e.id === klein.id), p = d.entities.find(e => e.id === port.id);
+    assert.equal(k.routine.length, 1);
+    assert.equal(k.relations[0].kind, 'mentor');
+    assert.equal(k.knows, 2);
+    assert.equal(p.hours, 'dawn to dusk');
+    assert.equal(p.affordances.length, 1);
+    assert.equal(d.counts.notes.distinct, 1, 'other rows dedupe by wording across passes and shards');
+    assert.equal(d.entities.find(e => e.id === sheet.id).notes, 1);
+    assert.equal(d.counts.fills.distinct, 1);
+    const made = d.rules[0].products[0];
+    assert.deepEqual([made.id, made.matched, made.fill], ['w.item.slumber-charm', true, 'stated']);
+});
+
+test('game making: a playable citation beats a recorded one; no citation is absent', async () => {
+    const {ruleState} = await import('../prototypes/world-atlas/game-making.mjs');
+    assert.equal(ruleState(undefined), 'absent');
+    assert.equal(ruleState([{playable: false}]), 'recorded');
+    assert.equal(ruleState([{playable: false}, {playable: true}]), 'playable');
+});
+
+test('an evidence letter in a census label is not a name; a later real label replaces it', () => {
+    const d = digestWorld({world: 'w', shards: [{prefix: 'a', census: [{id: 'w.item.moon-flower', label: 'S', kind: 'item'}]}, {prefix: 'b', census: [{id: 'w.item.moon-flower', label: 'Moon flower', kind: 'item'}]},
+        {prefix: 'c', census: [{id: 'w.item.gold-mint', label: 'T', kind: 'item'}]}]});
+    assert.equal(d.entities.find(e => e.id === 'w.item.moon-flower').label, 'Moon flower');
+    assert.equal(d.entities.find(e => e.id === 'w.item.gold-mint').label, 'Gold mint');
+    assert.ok(!('fallback' in d.entities[0]) || d.entities[0].fallback === undefined);
+});

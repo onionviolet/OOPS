@@ -1,0 +1,79 @@
+{
+ "name": "oa-2026-11-22-pl",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 7.49,
+ "capTotal": 7.49,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pl_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "pl-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pl_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "pl-pilot-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pl_census_oa1122.json",
+     "cap": 1.46,
+     "label": "pl-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pl_scenes_oa1122.json",
+     "cap": 1.46,
+     "label": "pl-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pl_rules_oa1122.json",
+     "cap": 1.5,
+     "label": "pl-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pl_people_oa1122.json",
+     "cap": 1.5,
+     "label": "pl-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/pl_texture_oa1122.json",
+     "cap": 1.49,
+     "label": "pl-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,163 @@
+{
+ "name": "oa-2026-11-22-wus",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 6.79,
+ "capTotal": 6.79,
+ "steps": [
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_census_oa1122.json",
+     "cap": 0.04,
+     "label": "wus4-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_census_oa1122.json",
+     "cap": 0.04,
+     "label": "wus5-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_census_oa1122.json",
+     "cap": 0.04,
+     "label": "wus6-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_census_oa1122.json",
+     "cap": 0.04,
+     "label": "wus7-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_census_oa1122.json",
+     "cap": 0.04,
+     "label": "wus8-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_scenes_oa1122.json",
+     "cap": 1.22,
+     "label": "wus4-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_scenes_oa1122.json",
+     "cap": 1.25,
+     "label": "wus5-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_scenes_oa1122.json",
+     "cap": 1.22,
+     "label": "wus6-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_scenes_oa1122.json",
+     "cap": 1.22,
+     "label": "wus7-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_scenes_oa1122.json",
+     "cap": 1.08,
+     "label": "wus8-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_rules_oa1122.json",
+     "cap": 0.04,
+     "label": "wus4-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_rules_oa1122.json",
+     "cap": 0.04,
+     "label": "wus5-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_rules_oa1122.json",
+     "cap": 0.04,
+     "label": "wus6-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_rules_oa1122.json",
+     "cap": 0.04,
+     "label": "wus7-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_rules_oa1122.json",
+     "cap": 0.04,
+     "label": "wus8-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_people_oa1122.json",
+     "cap": 0.04,
+     "label": "wus4-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_people_oa1122.json",
+     "cap": 0.04,
+     "label": "wus5-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_people_oa1122.json",
+     "cap": 0.04,
+     "label": "wus6-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_people_oa1122.json",
+     "cap": 0.04,
+     "label": "wus7-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_people_oa1122.json",
+     "cap": 0.04,
+     "label": "wus8-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_texture_oa1122.json",
+     "cap": 0.04,
+     "label": "wus4-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_texture_oa1122.json",
+     "cap": 0.04,
+     "label": "wus5-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_texture_oa1122.json",
+     "cap": 0.04,
+     "label": "wus6-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_texture_oa1122.json",
+     "cap": 0.04,
+     "label": "wus7-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_texture_oa1122.json",
+     "cap": 0.04,
+     "label": "wus8-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}

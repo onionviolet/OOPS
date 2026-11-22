@@ -1,0 +1,219 @@
+{
+ "name": "oa-2026-11-22-boc",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 25.8,
+ "capTotal": 25.8,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "boc1-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "boc1-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "boc2-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "boc2-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "boc3-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "boc3-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "boc4-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "boc4-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "boc5-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "boc5-pilot-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_census_oa1122.json",
+     "cap": 0.85,
+     "label": "boc1-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_census_oa1122.json",
+     "cap": 1.15,
+     "label": "boc2-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_census_oa1122.json",
+     "cap": 1.28,
+     "label": "boc3-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_census_oa1122.json",
+     "cap": 1.09,
+     "label": "boc4-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_census_oa1122.json",
+     "cap": 0.6,
+     "label": "boc5-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_scenes_oa1122.json",
+     "cap": 0.86,
+     "label": "boc1-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_scenes_oa1122.json",
+     "cap": 1.15,
+     "label": "boc2-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_scenes_oa1122.json",
+     "cap": 1.29,
+     "label": "boc3-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_scenes_oa1122.json",
+     "cap": 1.09,
+     "label": "boc4-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_scenes_oa1122.json",
+     "cap": 0.6,
+     "label": "boc5-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_rules_oa1122.json",
+     "cap": 0.89,
+     "label": "boc1-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_rules_oa1122.json",
+     "cap": 1.19,
+     "label": "boc2-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_rules_oa1122.json",
+     "cap": 1.32,
+     "label": "boc3-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_rules_oa1122.json",
+     "cap": 1.12,
+     "label": "boc4-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_rules_oa1122.json",
+     "cap": 0.63,
+     "label": "boc5-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_people_oa1122.json",
+     "cap": 0.89,
+     "label": "boc1-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_people_oa1122.json",
+     "cap": 1.19,
+     "label": "boc2-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_people_oa1122.json",
+     "cap": 1.32,
+     "label": "boc3-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_people_oa1122.json",
+     "cap": 1.12,
+     "label": "boc4-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_people_oa1122.json",
+     "cap": 0.63,
+     "label": "boc5-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_texture_oa1122.json",
+     "cap": 0.89,
+     "label": "boc1-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_texture_oa1122.json",
+     "cap": 1.18,
+     "label": "boc2-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_texture_oa1122.json",
+     "cap": 1.32,
+     "label": "boc3-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_texture_oa1122.json",
+     "cap": 1.12,
+     "label": "boc4-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_texture_oa1122.json",
+     "cap": 0.63,
+     "label": "boc5-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}

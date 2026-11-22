@@ -1,0 +1,184 @@
+{
+ "name": "oa-2026-11-22-dc",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 18.41,
+ "capTotal": 18.41,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "dc3-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "dc3-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "dc4-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "dc4-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "dc5-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "dc5-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "dc6-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "dc6-pilot-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_census_oa1122.json",
+     "cap": 0.79,
+     "label": "dc3-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_census_oa1122.json",
+     "cap": 0.72,
+     "label": "dc4-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_census_oa1122.json",
+     "cap": 0.79,
+     "label": "dc5-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_census_oa1122.json",
+     "cap": 1.24,
+     "label": "dc6-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_scenes_oa1122.json",
+     "cap": 0.79,
+     "label": "dc3-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_scenes_oa1122.json",
+     "cap": 0.72,
+     "label": "dc4-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_scenes_oa1122.json",
+     "cap": 0.79,
+     "label": "dc5-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_scenes_oa1122.json",
+     "cap": 1.24,
+     "label": "dc6-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_rules_oa1122.json",
+     "cap": 0.82,
+     "label": "dc3-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_rules_oa1122.json",
+     "cap": 0.76,
+     "label": "dc4-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_rules_oa1122.json",
+     "cap": 0.82,
+     "label": "dc5-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_rules_oa1122.json",
+     "cap": 1.28,
+     "label": "dc6-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_people_oa1122.json",
+     "cap": 0.82,
+     "label": "dc3-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_people_oa1122.json",
+     "cap": 0.75,
+     "label": "dc4-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_people_oa1122.json",
+     "cap": 0.82,
+     "label": "dc5-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_people_oa1122.json",
+     "cap": 1.28,
+     "label": "dc6-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_texture_oa1122.json",
+     "cap": 0.82,
+     "label": "dc3-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_texture_oa1122.json",
+     "cap": 0.75,
+     "label": "dc4-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_texture_oa1122.json",
+     "cap": 0.82,
+     "label": "dc5-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_texture_oa1122.json",
+     "cap": 1.27,
+     "label": "dc6-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}

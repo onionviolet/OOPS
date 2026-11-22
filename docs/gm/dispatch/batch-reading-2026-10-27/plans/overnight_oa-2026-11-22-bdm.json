@@ -1,0 +1,79 @@
+{
+ "name": "oa-2026-11-22-bdm",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 4.12,
+ "capTotal": 4.12,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/bdm_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "bdm-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/bdm_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "bdm-pilot-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/bdm_census_oa1122.json",
+     "cap": 0.79,
+     "label": "bdm-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/bdm_scenes_oa1122.json",
+     "cap": 0.79,
+     "label": "bdm-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/bdm_rules_oa1122.json",
+     "cap": 0.82,
+     "label": "bdm-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/bdm_people_oa1122.json",
+     "cap": 0.82,
+     "label": "bdm-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/bdm_texture_oa1122.json",
+     "cap": 0.82,
+     "label": "bdm-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}

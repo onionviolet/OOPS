@@ -42,7 +42,7 @@ const target=['first meeting','after play','smoky hearth'].map((stage,i)=>househ
 const snap=(!process.env.ATLAS_REBUILD&&readSnapshot())||buildSnapshot();
 // ATLAS_LOTM_CAST previews a scratch pack, so the cast projection reruns instead of coming from the snapshot.
 const books=process.env.ATLAS_LOTM_CAST?JSON.parse(execFileSync(process.execPath,[fileURLToPath(new URL('./cast-places.mjs',import.meta.url))],{encoding:'utf8',maxBuffer:64e6})):snap.books;
-const {frontier,others,sources,mechanics,findings,recipes}=snap;
+const {frontier,others,sources,mechanics,findings,recipes,gameMaking}=snap;
 const progress=latestProgress(); // read live: a new /progress-atlas file shows without a rebuild
 const reading=readLibrary();
 const batches=readBatches(reading.keys.map(k=>k.key));
@@ -78,7 +78,7 @@ async function transferState(){
     }
     return {picks:loadPicks().map(p=>({...p,label:lotmPlaces.get(p.place)?.name})),picksFile:picksFile.replace(root,''),running:!!running,runs};
 }
-export const api = {findings,recipes,transfer,snapshot:{builtAt:snap.builtAt,commit:snap.commit,failures:snap.failures},sources,mechanics,progress,batches,reading,readingRequests:loadRequests(),frontier,others,books,library:entityLibrary(places,actors),target,places, actors:Object.fromEntries(actors), encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT};
+export const api = {findings,recipes,gameMaking,transfer,snapshot:{builtAt:snap.builtAt,commit:snap.commit,failures:snap.failures},sources,mechanics,progress,batches,reading,readingRequests:loadRequests(),frontier,others,books,library:entityLibrary(places,actors),target,places, actors:Object.fromEntries(actors), encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT};
 const assets = {
     '/creature-record.js':['../../src/ui/creature_record.js','text/javascript'],
     '/kit.js':['../../src/ui/kit.js','text/javascript'],

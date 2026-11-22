@@ -1,0 +1,219 @@
+{
+ "name": "oa-2026-11-22-sg",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 14.83,
+ "capTotal": 14.83,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "sg1-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "sg1-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "sg2-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "sg2-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "sg3-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "sg3-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "sg4-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "sg4-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "sg5-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "sg5-pilot-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_census_oa1122.json",
+     "cap": 0.96,
+     "label": "sg1-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_census_oa1122.json",
+     "cap": 0.44,
+     "label": "sg2-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_census_oa1122.json",
+     "cap": 0.68,
+     "label": "sg3-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_census_oa1122.json",
+     "cap": 0.35,
+     "label": "sg4-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_census_oa1122.json",
+     "cap": 0.35,
+     "label": "sg5-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_scenes_oa1122.json",
+     "cap": 0.97,
+     "label": "sg1-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_scenes_oa1122.json",
+     "cap": 0.44,
+     "label": "sg2-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_scenes_oa1122.json",
+     "cap": 0.68,
+     "label": "sg3-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_scenes_oa1122.json",
+     "cap": 0.35,
+     "label": "sg4-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_scenes_oa1122.json",
+     "cap": 0.35,
+     "label": "sg5-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_rules_oa1122.json",
+     "cap": 1,
+     "label": "sg1-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_rules_oa1122.json",
+     "cap": 0.48,
+     "label": "sg2-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_rules_oa1122.json",
+     "cap": 0.71,
+     "label": "sg3-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_rules_oa1122.json",
+     "cap": 0.38,
+     "label": "sg4-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_rules_oa1122.json",
+     "cap": 0.39,
+     "label": "sg5-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_people_oa1122.json",
+     "cap": 1,
+     "label": "sg1-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_people_oa1122.json",
+     "cap": 0.47,
+     "label": "sg2-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_people_oa1122.json",
+     "cap": 0.71,
+     "label": "sg3-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_people_oa1122.json",
+     "cap": 0.38,
+     "label": "sg4-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_people_oa1122.json",
+     "cap": 0.39,
+     "label": "sg5-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_texture_oa1122.json",
+     "cap": 1,
+     "label": "sg1-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_texture_oa1122.json",
+     "cap": 0.47,
+     "label": "sg2-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_texture_oa1122.json",
+     "cap": 0.71,
+     "label": "sg3-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_texture_oa1122.json",
+     "cap": 0.38,
+     "label": "sg4-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_texture_oa1122.json",
+     "cap": 0.39,
+     "label": "sg5-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}

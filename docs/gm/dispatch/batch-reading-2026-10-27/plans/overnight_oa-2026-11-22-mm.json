@@ -1,0 +1,219 @@
+{
+ "name": "oa-2026-11-22-mm",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 28.49,
+ "capTotal": 28.49,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "mm1-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "mm1-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "mm2-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "mm2-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "mm3-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "mm3-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "mm4-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "mm4-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "mm5-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "mm5-pilot-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_census_oa1122.json",
+     "cap": 1.02,
+     "label": "mm1-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_census_oa1122.json",
+     "cap": 0.95,
+     "label": "mm2-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_census_oa1122.json",
+     "cap": 1.38,
+     "label": "mm3-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_census_oa1122.json",
+     "cap": 1.05,
+     "label": "mm4-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_census_oa1122.json",
+     "cap": 1.12,
+     "label": "mm5-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_scenes_oa1122.json",
+     "cap": 1.02,
+     "label": "mm1-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_scenes_oa1122.json",
+     "cap": 0.95,
+     "label": "mm2-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_scenes_oa1122.json",
+     "cap": 1.38,
+     "label": "mm3-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_scenes_oa1122.json",
+     "cap": 1.05,
+     "label": "mm4-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_scenes_oa1122.json",
+     "cap": 1.12,
+     "label": "mm5-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_rules_oa1122.json",
+     "cap": 1.05,
+     "label": "mm1-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_rules_oa1122.json",
+     "cap": 0.99,
+     "label": "mm2-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_rules_oa1122.json",
+     "cap": 1.41,
+     "label": "mm3-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_rules_oa1122.json",
+     "cap": 1.09,
+     "label": "mm4-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_rules_oa1122.json",
+     "cap": 1.15,
+     "label": "mm5-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_people_oa1122.json",
+     "cap": 1.05,
+     "label": "mm1-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_people_oa1122.json",
+     "cap": 0.99,
+     "label": "mm2-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_people_oa1122.json",
+     "cap": 1.41,
+     "label": "mm3-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_people_oa1122.json",
+     "cap": 1.08,
+     "label": "mm4-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_people_oa1122.json",
+     "cap": 1.15,
+     "label": "mm5-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_texture_oa1122.json",
+     "cap": 1.05,
+     "label": "mm1-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_texture_oa1122.json",
+     "cap": 0.99,
+     "label": "mm2-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_texture_oa1122.json",
+     "cap": 1.41,
+     "label": "mm3-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_texture_oa1122.json",
+     "cap": 1.08,
+     "label": "mm4-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_texture_oa1122.json",
+     "cap": 1.15,
+     "label": "mm5-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}

@@ -170,3 +170,46 @@ Findings:
   and many products show as unmatched.
 - F24: the YAIR-format recipe book in OOPS has 257 workings (component recipes count once per material), 34 added by OOPS
   and none of upstream's dropped.
+
+## Game link, fills and the remaining reader rows (built 2026-11-22)
+
+Weibao asked for O1–O5 from the follow-up list: link book workings to the game's making, fill the incomplete
+recipes, draw the reader rows the atlas still skipped, send the batch readers, and the housekeeping.
+
+- `game-making.mjs` reads the game's own making rows: the LOTM rite, craft and aid rows (`book_world_lotm_acts_host.js`),
+  the LOTM potion rules and summons, and three playable makers that cite nothing (the Seer brew, the HP Cure for Boils,
+  the Tingen silver amulet). A row the host compiles into a command is playable. A row that only sits in a source table
+  is recorded. The three uncited makers get atlas-authored links, labelled as such in the inspector. World › Making now
+  colours each reader working by that state and adds Playable, Recorded only and Not in the game tabs.
+- Six Haiku agents read the readers' own step text for the 1,168 LOTM workings that lacked inputs or products and
+  wrote `work/atlas-fill/lotm/making_fill-*.jsonl` (gitignored). They added only stated or plainly implied items; a
+  working that makes no item gets an outcome line instead. `reader-findings.mjs` applies the fill before the census
+  join and marks each filled item with its confidence.
+- The digest now folds the people pass (routines, ties, what a person knows) and the places pass (hours, access,
+  affordances) onto entities, and keeps the `other` rows of every pass and the fills. Things gains `"Other" rows` and
+  `Fills (proposals)` tabs; a person's inspector shows routine and ties, a place's shows what you can do there.
+- Batch readers: 29 dry run files for the unread and partly read worlds, true bound $816.18, all PENDING
+  ([preflight](../gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md#unread-world-preflight-november-22)).
+
+Findings:
+
+- F25: of LOTM's 1,642 reader workings, 10 are playable, 99 are recorded in game source tables only and 1,533 are
+  not in the game. The 86 game rows hold 132 citations; 8 rows are playable. 20 citations name ids the readers never
+  wrote, mostly older spellings. The charm rows cite `lotm.craft.charm-making`, `lotm.craft.slumber-charm` and
+  `lotm.rule.dream-charm-making`, while the merged readers recorded `lotm.rule.charm-crafting`, so the most
+  developed LOTM craft does not link to its reader working. Renaming the citations, or adding the reader id beside
+  them, would close it; that is a source-row edit for the owning lane.
+- F26: F23's shallow trees were mostly not missing data. Of the 1,168 incomplete workings, the fill gave about 935
+  an outcome instead of an item (rites, readings, effects), added 294 items to the rest (146 joined to a census
+  entry), and found nothing in about 70. With the fill, 1,138 of 1,642 workings name inputs and a product or an
+  outcome; 526 name both inputs and an item product, up from 474. Filled items are agent work from the readers'
+  steps, not a reread of the text, and are marked in the inspector.
+- F27: the people pass has rows for 1,328 LOTM people and the "other" rows hold 87,624 distinct loose facts after
+  dedupe; the digest keeps the first 3,000 for the tab and the full count in the matrix. Fills (2,321) are now
+  listed by layer. Census notes and step prose stay out of the digests on purpose.
+- F28: the batch read of the unread worlds is ready but not sent. Its bound is $816.18 and its expected spend about
+  $80–120 against a paid balance no project key can read.
+- F29: some census rows put the evidence letter (S, T, I) in `label`, so 316 LOTM, 62 HP and 61 MOL entities
+  showed as "S" or "T" in Things and Making since the 2026-11-21 build. The digest now ignores a one-letter label,
+  falls back to the id, and takes the first real label any shard gives. The reader schema could reject it at
+  collect; that is the reading lane's call.

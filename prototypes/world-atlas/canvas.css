@@ -276,3 +276,6 @@ body > header h1, .box-canvas :is(h2,h3), .canvas-box { font-family: var(--ui-fo
 .findings-matrix td[data-state=rows]{background:#4d3d17;color:#fbe7b0}
 .findings-matrix td[data-state=empty]{color:#7f8f92}
 .findings-matrix tr[data-state=none] td,.findings-matrix tr[data-state=none] th{color:#8fa0a3;background-image:repeating-linear-gradient(135deg,#ffffff10 0 6px,transparent 6px 12px)}
+/* Making: a book working the game plays, one it only records, one it lacks (law, the default). */
+.box-canvas .canvas-box[data-group="playable"] { border-color: #ace79e; border-width: 2px; }
+.box-canvas .canvas-box[data-group="recorded"] { border-color: #e0c27a; border-style: dashed; }

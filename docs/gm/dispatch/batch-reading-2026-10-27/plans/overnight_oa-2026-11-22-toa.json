@@ -1,0 +1,254 @@
+{
+ "name": "oa-2026-11-22-toa",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 37.47,
+ "capTotal": 37.47,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa1_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "toa1-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa1_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "toa1-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa2_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "toa2-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa2_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "toa2-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa3_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "toa3-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa3_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "toa3-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa4_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "toa4-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa4_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "toa4-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa5_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "toa5-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa5_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "toa5-pilot-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa6_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "toa6-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa6_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "toa6-pilot-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa1_census_oa1122.json",
+     "cap": 1.92,
+     "label": "toa1-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa2_census_oa1122.json",
+     "cap": 1.47,
+     "label": "toa2-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa3_census_oa1122.json",
+     "cap": 1.18,
+     "label": "toa3-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa4_census_oa1122.json",
+     "cap": 0.96,
+     "label": "toa4-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa5_census_oa1122.json",
+     "cap": 0.96,
+     "label": "toa5-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa6_census_oa1122.json",
+     "cap": 0.79,
+     "label": "toa6-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa1_scenes_oa1122.json",
+     "cap": 1.92,
+     "label": "toa1-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa2_scenes_oa1122.json",
+     "cap": 1.47,
+     "label": "toa2-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa3_scenes_oa1122.json",
+     "cap": 1.19,
+     "label": "toa3-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa4_scenes_oa1122.json",
+     "cap": 0.96,
+     "label": "toa4-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa5_scenes_oa1122.json",
+     "cap": 0.96,
+     "label": "toa5-scenes-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa6_scenes_oa1122.json",
+     "cap": 0.79,
+     "label": "toa6-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa1_rules_oa1122.json",
+     "cap": 1.95,
+     "label": "toa1-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa2_rules_oa1122.json",
+     "cap": 1.5,
+     "label": "toa2-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa3_rules_oa1122.json",
+     "cap": 1.22,
+     "label": "toa3-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa4_rules_oa1122.json",
+     "cap": 0.99,
+     "label": "toa4-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa5_rules_oa1122.json",
+     "cap": 0.99,
+     "label": "toa5-rules-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa6_rules_oa1122.json",
+     "cap": 0.83,
+     "label": "toa6-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa1_people_oa1122.json",
+     "cap": 1.95,
+     "label": "toa1-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa2_people_oa1122.json",
+     "cap": 1.5,
+     "label": "toa2-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa3_people_oa1122.json",
+     "cap": 1.22,
+     "label": "toa3-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa4_people_oa1122.json",
+     "cap": 0.99,
+     "label": "toa4-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa5_people_oa1122.json",
+     "cap": 0.99,
+     "label": "toa5-people-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa6_people_oa1122.json",
+     "cap": 0.82,
+     "label": "toa6-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa1_texture_oa1122.json",
+     "cap": 1.95,
+     "label": "toa1-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa2_texture_oa1122.json",
+     "cap": 1.5,
+     "label": "toa2-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa3_texture_oa1122.json",
+     "cap": 1.22,
+     "label": "toa3-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa4_texture_oa1122.json",
+     "cap": 0.99,
+     "label": "toa4-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa5_texture_oa1122.json",
+     "cap": 0.99,
+     "label": "toa5-texture-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/toa6_texture_oa1122.json",
+     "cap": 0.82,
+     "label": "toa6-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}

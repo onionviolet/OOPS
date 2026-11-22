@@ -65,8 +65,9 @@ export function buildSnapshot() {
     // Reader findings: the matrix rides in the snapshot; one digest per world goes beside it for the Things and Making views.
     const findings = part('findings', () => run('reader-findings.mjs', ['--out-dir', READERS]));
     const recipes = part('recipes', () => run('game-recipes.mjs'));
+    const gameMaking = part('gameMaking', () => run('game-making.mjs'));
     const snapshot = {builtAt: new Date().toISOString(), commit: execFileSync('git', ['rev-parse', '--short', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim(),
-        timings, failures, books, frontier: native.frontier, others: native.others, sources, mechanics, progress, findings, recipes};
+        timings, failures, books, frontier: native.frontier, others: native.others, sources, mechanics, progress, findings, recipes, gameMaking};
     return snapshot;
 }
 
@@ -80,6 +81,6 @@ if (import.meta.main) {
     const count = v => v ? v.places?.length ?? v.length ?? Object.keys(v).length : 0;
     console.log(JSON.stringify({out, commit: s.commit, books: Object.fromEntries(Object.entries(s.books).map(([k, v]) => [k, v.places.length])),
         village: s.frontier.length, others: s.others.length, sources: Object.fromEntries(Object.entries(s.sources).map(([k, v]) => [k, count(v)])),
-        mechanics: s.mechanics?.mechanics.length ?? 0, progress: s.progress?.snapshot ?? null, findings: s.findings?.worlds.filter(w => w.read).length ?? 0, recipes: s.recipes?.recipes.length ?? 0, timings: s.timings, failures: s.failures}));
+        mechanics: s.mechanics?.mechanics.length ?? 0, progress: s.progress?.snapshot ?? null, findings: s.findings?.worlds.filter(w => w.read).length ?? 0, recipes: s.recipes?.recipes.length ?? 0, gameMaking: s.gameMaking?.rows.length ?? 0, timings: s.timings, failures: s.failures}));
     if (s.failures.some(f => f.required)) process.exit(1);
 }

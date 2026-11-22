@@ -25,6 +25,7 @@ const browser = await loadPlaywright().chromium.launch({headless: true, executab
 let failed = 0;
 try {
     const page = await browser.newPage({viewport: {width: 1920, height: 1080}});
+    page.setDefaultTimeout(90000);
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     page.on('console', m => {if (m.type() === 'error' && !m.text().startsWith('Failed to load resource')) errors.push(m.text());});
@@ -159,6 +160,36 @@ try {
         await page.goto(base + '/#world/lotm/making');
         await page.locator('[data-canvas-kind=library] .canvas-box').first().waitFor({timeout: 90000});
         await shot('making-lotm-overview.png');
+    });
+    check('LOTM making: book workings the game plays, records or lacks', async () => {
+        await page.goto(base + '/#world/lotm/making');
+        const c = page.locator('[data-canvas-kind=library]').first();
+        await c.locator('.canvas-box').first().waitFor({timeout: 90000});
+        const bar = await page.locator('nav.atlas-tools').innerText();
+        const m = /In the game: (\d+) playable, (\d+) recorded/.exec(bar);
+        assert.ok(m && +m[1] >= 5 && +m[2] >= 50, bar.slice(0, 200));
+        console.log('lotm game state:', m[0]);
+        await page.getByRole('button', {name: /^Playable · /}).click();
+        await page.goto(base + '/#world/lotm/making/' + encodeURIComponent('lotm.item.moon-flower'));
+        const t = page.locator('[data-canvas-kind=library]').first();
+        await t.locator('.canvas-box[data-group=playable]').first().waitFor({timeout: 90000});
+        await t.locator('.canvas-box[data-group=playable]').first().click();
+        assert.match(await inspector(t), /Playable in the game/);
+        await shot('making-lotm-game-state.png');
+    });
+    check('LOTM things: ties, other rows and fills', async () => {
+        await canvas('world/lotm/things', 'library');
+        await page.getByRole('button', {name: /^People · /}).click();
+        await page.getByRole('searchbox').fill('Klein Moretti');
+        await page.locator('nav.atlas-tools').getByRole('button', {name: /^Klein Moretti/}).first().click();
+        const k = page.locator('[data-canvas-kind=library]').first();
+        await k.locator('.canvas-inspector h3', {hasText: 'Ties'}).waitFor({timeout: 90000});
+        await shot('things-lotm-klein-ties.png');
+        await page.getByRole('button', {name: /^"Other" rows · /}).click();
+        await page.locator('.sheet details summary', {hasText: 'rules pass'}).waitFor();
+        await page.getByRole('button', {name: /^Fills \(proposals\) · /}).click();
+        await page.locator('.sheet p', {hasText: 'authored proposals'}).waitFor();
+        await shot('things-lotm-fills.png');
     });
     check('OOPS recipe book: iron ingot tree and upstream comparison', async () => {
         await page.goto(base + '/#world/village/making/' + encodeURIComponent('game.iron-ingot'));

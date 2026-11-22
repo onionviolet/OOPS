@@ -1,0 +1,79 @@
+{
+ "name": "oa-2026-11-22-ark",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 82.21,
+ "capTotal": 82.21,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_pilot_census_oa1122.json",
+     "cap": 0.04,
+     "label": "ark-pilot-census-oa1122"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_pilot_scenes_oa1122.json",
+     "cap": 0.04,
+     "label": "ark-pilot-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_census_oa1122.json",
+     "cap": 16.38,
+     "label": "ark-census-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_scenes_oa1122.json",
+     "cap": 16.42,
+     "label": "ark-scenes-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_rules_oa1122.json",
+     "cap": 16.46,
+     "label": "ark-rules-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_people_oa1122.json",
+     "cap": 16.44,
+     "label": "ark-people-oa1122"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_texture_oa1122.json",
+     "cap": 16.43,
+     "label": "ark-texture-oa1122"
+    }
+   ]
+  }
+ ]
+}
