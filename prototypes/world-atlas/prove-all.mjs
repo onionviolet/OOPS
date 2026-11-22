@@ -128,6 +128,53 @@ try {
         await shot('send-to-game.png');
         void c;
     });
+    check('reader findings matrix: drawn, not drawn and planned-unread rows', async () => {
+        await page.goto(base + '/#progress/findings');
+        const t = page.locator('.findings-matrix');
+        await t.waitFor({timeout: 90000});
+        const read = await t.locator('tbody tr[data-state=read]').count(), none = await t.locator('tbody tr[data-state=none]').count();
+        assert.ok(read >= 15 && none >= 10, `read ${read}, none ${none}`);
+        assert.ok(await t.locator('td[data-state=rows]').count() >= 1, 'scenes without a cast pack show as rows not drawn');
+        console.log('findings rows', read, 'read ·', none, 'planned only');
+        await shot('reader-findings.png');
+    });
+    check('LOTM things: items with workings marked', async () => {
+        const c = await canvas('world/lotm/things', 'library');
+        assert.ok(await c.locator('.canvas-box').count() >= 40);
+        await page.getByRole('searchbox').fill('Silver sheet');
+        await page.locator('nav.atlas-tools').getByRole('button', {name: /^Silver sheet/}).first().click();
+        const c2 = page.locator('[data-canvas-kind=library]').first();
+        await c2.locator('.canvas-inspector').getByRole('button', {name: 'Open its making tree'}).waitFor();
+        assert.match(await inspector(c2), /Low-grade charm crafting/);
+        await shot('things-lotm-items.png');
+    });
+    check('LOTM making tree: silver sheet into charm crafting into the charms', async () => {
+        await page.goto(base + '/#world/lotm/making/' + encodeURIComponent('lotm.item.silver-sheet'));
+        const c = page.locator('[data-canvas-kind=library]').first();
+        await c.locator('.canvas-box', {hasText: 'Low-grade charm crafting'}).waitFor({timeout: 90000});
+        assert.ok(await c.locator('.canvas-box', {hasText: 'Slumber Charm'}).count(), 'slumber charm product');
+        await c.locator('.canvas-box', {hasText: 'Low-grade charm crafting'}).click();
+        assert.match(await inspector(c), /Takes: .*Silver sheet/);
+        await shot('making-lotm-silver-sheet.png');
+        await page.goto(base + '/#world/lotm/making');
+        await page.locator('[data-canvas-kind=library] .canvas-box').first().waitFor({timeout: 90000});
+        await shot('making-lotm-overview.png');
+    });
+    check('OOPS recipe book: iron ingot tree and upstream comparison', async () => {
+        await page.goto(base + '/#world/village/making/' + encodeURIComponent('game.iron-ingot'));
+        const c = page.locator('[data-canvas-kind=library]').first();
+        await c.locator('.canvas-box', {hasText: 'Iron short blade'}).first().waitFor({timeout: 90000});
+        assert.match(await page.locator('nav.atlas-tools').innerText(), /added by OOPS/);
+        await shot('making-oops-iron-ingot.png');
+        await page.goto(base + '/#world/yair/making');
+        await page.locator('[data-canvas-kind=library] .canvas-box').first().waitFor({timeout: 90000});
+    });
+    check('a read-only world (Circle of Inevitability) has things and making', async () => {
+        const c = await canvas('world/coi/things', 'library');
+        assert.ok(await c.locator('.canvas-box').count() >= 20);
+        await page.goto(base + '/#world/coi/making');
+        await page.locator('[data-canvas-kind=library] .canvas-box').first().waitFor({timeout: 90000});
+    });
     check('village region and legacy links still land', async () => {
         await canvas('world/village/places');
         await page.goto(base + '/#tingen-districts');

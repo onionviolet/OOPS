@@ -13,7 +13,7 @@ const ASPECT_KEYS = ['rules', 'other', 'people', 'services'];
 export const REGISTRY = 'docs/gm/dispatch/batch-reading-2026-10-27/plans/books.json';
 
 // Same choice as reading_review.mjs: the plain prefix first, then the Luna lane copy.
-function chosenFile(files, prefix, pass, key) {
+export function chosenFile(files, prefix, pass, key) {
     for (const p of [prefix, `${prefix}L`]) {
         if (files.has(`${p}_${pass}.partial`)) continue;
         const file = ['census', 'scenes'].includes(pass) ? `${p}m_${pass}.jsonl` : `${p}_${extraFile(pass, key)}.jsonl`;

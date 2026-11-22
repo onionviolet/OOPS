@@ -30,9 +30,10 @@ import {dangerLabel} from '/map-marks.js';
 import {placeMarks, villageDiagram} from '/village-layout.mjs';
 import {bookWorlds} from '/book-worlds.mjs';
 import {otherPlaces} from '/other-places.mjs';
-import {readingPipeline, libraryShelves, mechanicReadiness, libraryWorlds} from '/library-views.mjs';
+import {readingPipeline, libraryShelves, mechanicReadiness, libraryWorlds, worldTitle} from '/library-views.mjs';
 import {sourceGamePage, scenesView, mechanicsView, progressView, SOURCE_GAMES} from '/atlas-views.mjs';
 import {transferView} from '/transfer-view.mjs';
+import {findingsView, thingsView, makingView} from '/things-views.mjs';
 import {creatureMarks, creatureOverview, creatureShelf, creatureNeighborhood, libraryEdges} from '/creature-layout.mjs';
 
 const main=document.querySelector('main'), nav=document.querySelector('nav');
@@ -43,33 +44,35 @@ const data=await (await fetch('/data')).json();data.bookIndex={};
 let draft={...data.draft};
 // One shell: four sections; a world owns its places, walks and reading. Old tab links still land.
 const WORLDS=[
- {id:'village',label:'The Village',note:'Native region, where a fresh game starts',views:['places']},
- {id:'lotm',label:'Lord of the Mysteries',cast:'lotm',group:'Lord of the Mysteries',views:['places','scenes','locations','districts','reading']},
- {id:'mol',label:'Mother of Learning',cast:'mol',group:'Mother of Learning',views:['places','scenes','locations','encounter','reading']},
- {id:'hp',label:'Harry Potter',group:'Harry Potter',views:['locations','reading']},
- {id:'ri',label:'Reverend Insanity',group:'Reverend Insanity',views:['locations','reading']},
- {id:'ss',label:'Shadow Slave',group:'Shadow Slave',views:['locations','reading']},
+ {id:'village',label:'The Village',note:'Native region, where a fresh game starts',game:'oops',views:['places','making']},
+ {id:'lotm',label:'Lord of the Mysteries',cast:'lotm',group:'Lord of the Mysteries',views:['places','scenes','things','making','locations','districts','reading']},
+ {id:'mol',label:'Mother of Learning',cast:'mol',group:'Mother of Learning',views:['places','scenes','things','making','locations','encounter','reading']},
+ {id:'hp',label:'Harry Potter',group:'Harry Potter',views:['locations','things','making','reading']},
+ {id:'ri',label:'Reverend Insanity',group:'Reverend Insanity',views:['locations','things','making','reading']},
+ {id:'ss',label:'Shadow Slave',group:'Shadow Slave',views:['locations','things','making','reading']},
  {id:'paradise',label:'Reincarnation Paradise',group:'Reincarnation Paradise',views:['locations']},
  {id:'proto23',label:'Proto23 reference',group:'Proto23 reference',views:['locations']},
  {id:'testpacks',label:'Private test packs',group:'Private test packs',views:['locations']},
- {id:'yair',label:SOURCE_GAMES.yair.label,source:'yair',note:SOURCE_GAMES.yair.note,views:['source']},
+ {id:'yair',label:SOURCE_GAMES.yair.label,source:'yair',game:'yair',note:SOURCE_GAMES.yair.note,views:['source','making']},
  {id:'proto23-src',label:SOURCE_GAMES.proto23.label,source:'proto23',note:SOURCE_GAMES.proto23.note,views:['source']},
  {id:'arkivia',label:SOURCE_GAMES.arkivia.label,source:'arkivia',note:SOURCE_GAMES.arkivia.note,views:['source']},
  {id:'frontier',label:'Frontier outposts',note:'Registered, but no route from the Village at a fresh start',group:'Frontier, not reached from the Village',views:['locations']},
 ];
+// Every other read world with reader rows gets a page of its own: things, making and its reading lane.
+for(const f of data.findings?.worlds||[])if(f.read&&!WORLDS.some(w=>w.id===f.world))WORLDS.push({id:f.world,label:worldTitle(f.world),readOnly:true,note:'Read by the batch readers; not used by the game yet',views:['things','making','reading']});
 const worldById=new Map(WORLDS.map(w=>[w.id,w]));
-const VIEW_LABELS={source:'Source map',scenes:'Scenes',overview:'Where things stand',mechanics2:'Mechanics',transfer:'Send to the game',places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
+const VIEW_LABELS={things:'Things',making:'Making',findings:'Reader findings',source:'Source map',scenes:'Scenes',overview:'Where things stand',mechanics2:'Mechanics',transfer:'Send to the game',places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
  pipeline:'Reading pipeline',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds',observations:'Identified target',site:'Village site workshop'};
 const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'library',label:'Library',views:['pipeline','shelves','mechanics']},
- {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'progress',label:'Progress',views:['overview','mechanics2']},{id:'workbench',label:'Workbench',views:['transfer','site']}];
+ {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'progress',label:'Progress',views:['overview','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['transfer','site']}];
 const LEGACY={'village-region':'world/village/places','other-game-places':'worlds','book-worlds':'world/lotm/places','reading-pipeline':'library/pipeline',
  'library-shelves':'library/shelves','mechanic-readiness':'library/mechanics','tingen-districts':'world/lotm/districts','world-library':'worlds',
  'entity-library':'creatures/kinds','village-site-workshop':'workbench/site','cyoria-encounter':'world/mol/encounter','identified-target':'creatures/observations'};
 const go=hash=>{location.hash=hash};
 function route(){
  const raw=location.hash.slice(1);if(LEGACY[raw]){history.replaceState(null,'','#'+LEGACY[raw]);return route()}
- const [section='worlds',a,b]=raw.split('/');
- if(section==='world'&&worldById.has(a)){const w=worldById.get(a);return {section:'worlds',world:w,view:w.views.includes(b)?b:w.views[0]}}
+ const [section='worlds',a,b,c]=raw.split('/');
+ if(section==='world'&&worldById.has(a)){const w=worldById.get(a);return {section:'worlds',world:w,view:w.views.includes(b)?b:w.views[0],focus:c?decodeURIComponent(c):null}}
  const s=SECTIONS.find(x=>x.id===section)||SECTIONS[0];
  return {section:s.id,view:s.views?.includes(a)?a:s.views?.[0]};
 }
@@ -90,13 +93,15 @@ function showPage(){
  trail.append(crumbs);if(list.length>1)trail.append(views);
  main.replaceChildren();
  const shared={main,data,controls,finder,list:listOf,button,routeButtons,closeCanvas};
- if(r.world)return worldView(r.world,r.view,shared);
+ if(r.world)return worldView(r.world,r.view,{...shared,focus:r.focus});
  if(r.section==='worlds')return worldsIndex();
  ({pipeline:()=>readingPipeline(shared),shelves:()=>libraryShelves(shared),mechanics:()=>mechanicReadiness(shared),
-   kinds:()=>library(),observations:target,site:editor,overview:()=>progressView(shared),mechanics2:()=>mechanicsView(shared),transfer:()=>transferView(shared)})[r.view]();
+   kinds:()=>library(),observations:target,site:editor,overview:()=>progressView(shared),findings:()=>findingsView(shared),mechanics2:()=>mechanicsView(shared),transfer:()=>transferView(shared)})[r.view]();
 }
 function worldView(w,view,shared){
- if(view==='source')return sourceGamePage({...shared,game:w.source});
+ if(view==='source')return sourceGamePage({...shared,game:w.source,focus:undefined});
+ if(view==='things')return thingsView({...shared,worldId:w.id});
+ if(view==='making')return makingView({...shared,worldId:w.id,game:w.game});
  if(view==='scenes')return scenesView({...shared,worldId:w.cast});
  if(view==='places'&&w.id==='village')return regionalMap();
  if(view==='places')return bookWorlds({...shared,worldId:w.cast,fixed:true});
@@ -188,9 +193,9 @@ function worldStats(w){
 }
 function worldsIndex(){
  const stats=new Map(WORLDS.map(w=>[w.id,worldStats(w)]));
- const readingOnly=libraryWorlds(data).filter(r=>!worldById.has(r.id));
+ const readingOnly=libraryWorlds(data).filter(r=>!worldById.has(r.id)||worldById.get(r.id).readOnly);
  const bar=controls();
- bar.append(el('small',`${WORLDS.length} worlds in the game · ${readingOnly.length} more read but not used by the game yet`));
+ bar.append(el('small',`${WORLDS.filter(w=>!w.readOnly).length} worlds in the game · ${readingOnly.length} more read but not used by the game yet`));
  finder(bar,WORLDS,w=>go('world/'+w.id));
  const order=[['village','lotm','mol'],['hp','ri','ss','paradise'],['proto23','testpacks','frontier','library'],['yair','proto23-src','arkivia']];
  const nodes=[];
@@ -204,7 +209,8 @@ function worldsIndex(){
  boxCanvas({parent:main,title:'Worlds',nodes,edges:[],marks:worldMarks,kind:'worlds',initial:'village',
   select(id,side){
    if(id==='library'){side.append(el('small','Library'),el('h2','Read, not in the game'),el('p',readingOnly.length+' reading worlds have no game consumer yet.'),
-    listOf(readingOnly.slice(0,8).map(r=>r.label+' · '+{complete:'read through',partial:'partly read',none:'prepared'}[r.readState])),button('Open reading pipeline',()=>go('library/pipeline')));return}
+    listOf(readingOnly.slice(0,8).map(r=>r.label+' · '+{complete:'read through',partial:'partly read',none:'prepared'}[r.readState])),button('Open reading pipeline',()=>go('library/pipeline')),button('Open reader findings',()=>go('progress/findings')));
+    const readers=WORLDS.filter(w=>w.readOnly);if(readers.length)side.append(el('h3','Things the readers found · '+readers.length),routeButtons(readers.map(w=>({id:w.id,label:w.label})),id=>go('world/'+id+'/things')));return}
    const w=worldById.get(id),st=stats.get(id);
    side.append(el('small',w.source?'Source game · not in play':st.walk?'In the game · walkable':'In the game · registered locations'),el('h2',w.label));
    if(w.note)side.append(el('p',w.note));

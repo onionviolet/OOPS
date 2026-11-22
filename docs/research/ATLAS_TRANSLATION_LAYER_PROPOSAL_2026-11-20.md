@@ -128,3 +128,45 @@ Weibao: "build all three, improve the batched run capabilities to add to this? i
 - F20: the mechanics projection falls back to a file-name guess for ledgers that `worlds.jsonl` does not list, so a few worlds appear twice under two ids (for example `pf1` and `tt-pf1`).
 
 **Still gated.** Adopting a candidate into `private_packs/lotm-cast/cast.json` needs Weibao's yes, followed by AD43 browser proof in the game. Only LOTM is wired for transfer. Source-game pages have no in-game path, by request.
+
+## Reader findings, things and making (built 2026-11-21)
+
+Weibao asked whether the atlas had absorbed everything the batch readers found. It had not. The atlas read
+places through the cast pack, scenes for LOTM and MOL, and batch receipts. It did not read the census kinds
+(items, creatures, groups, gods, documents, prices, clocks), the rules pass (crafts, potions, rites, spells,
+abilities, laws) or the texture pass (services, customs, news).
+
+- `reader-findings.mjs` digests every registry world. It reads one canonical file per shard and pass, using
+  the library's `chosenFile` (merged `m_` census, plain prefix before the Luna copy), so `m13`, `x2`, pilot
+  and A/B runs never count. It then dedupes by id. For LOTM it also reads the 63 Book 1 lead-run slices
+  that predate the registry, one stem per slice (`w1s10`-`w4s41`, then `b4s42`-`b7s72`; the `c` family re-reads
+  the `b` chapters and is skipped). Rule items join to census ids, then to census
+  labels and aliases; unmatched items are kept and hatched. Census notes and step prose stay out.
+- `build.mjs` writes the counts matrix into the snapshot and one digest per world to
+  `work/atlas-snapshot/readers/`. The server serves those at `/readers/<world>`.
+- `game-recipes.mjs` reads `src/crafting_recipes.js` and upstream's copy statically, in the same shape.
+- Progress › Reader findings: one row per registry world, one column per row family.
+- World › Things: census entities by kind, ranked by slices, plus abilities, laws and services, customs, news.
+- World › Making: raw materials, intermediates and products, and a tree centered on any item (what makes
+  it from what; what it goes into). Book worlds draw reader rules; the Village draws the YAIR-format recipe book
+  in OOPS (`crafting_recipes.js`) and YAIR the upstream one. It does not draw the making domain
+  (`craft_resolver`, cast making), LOTM brewing and charms, HP brewing, Gu refinement or the native material
+  catalogues. The 14 read worlds with no game page get their own Things, Making and Reading.
+
+Proof: `prove-all.mjs` passes 16 of 16 with no page errors, including the matrix, LOTM silver sheet →
+low-grade charm crafting → slumber, soothing and dream charms, and the OOPS iron ingot tree. Unit tests:
+`tests/atlas_reader_findings.test.js` (dedupe across three shards, joins, recipe extraction).
+
+Findings:
+
+- F21: 19 of 44 registry worlds have reader rows. 25 have prepared shards and no output (Ar'Kendrithyst,
+  Randidly Ghosthound, Mark of the Fool and others); Shadow Slave, Reverend Insanity, Wish Upon the Stars and
+  Wasteland Border Inspector are partly read.
+- F22: reader scenes reach the atlas only through a cast pack, so 17 worlds' scenes are recorded and not drawn.
+  The people pass (relationships), the `other` rows of the rules and texture passes, and fills are not drawn
+  anywhere.
+- F23: making rules name both inputs and products in only about a third of LOTM workings (474 of 1,642); rites
+  and abilities often record a product as a note (`lotm.note.*`) rather than an item, so the trees are shallow
+  and many products show as unmatched.
+- F24: the YAIR-format recipe book in OOPS has 257 workings (component recipes count once per material), 34 added by OOPS
+  and none of upstream's dropped.

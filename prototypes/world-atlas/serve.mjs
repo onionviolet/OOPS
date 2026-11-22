@@ -8,7 +8,7 @@ import {existsSync, readFileSync, openSync} from 'node:fs';
 import {FLAGGED_PLACES} from '../../scripts/atlas/transfer_candidate.mjs';
 import {dirname} from 'node:path';
 import {readLibrary} from './library-reading.mjs';
-import {readSnapshot, buildSnapshot, latestProgress} from './build.mjs';
+import {readSnapshot, buildSnapshot, latestProgress, READERS} from './build.mjs';
 import {readBatches, batchCommands} from './batch-status.mjs';
 import {LOTM_DISTRICTS, districtCommands, lotmWalkRoute, LOTM_PLACE_KEYS} from '../../src/book_world_lotm_districts.js';
 import {brewCommands} from '../../src/book_world_lotm_brew.js';
@@ -42,7 +42,7 @@ const target=['first meeting','after play','smoky hearth'].map((stage,i)=>househ
 const snap=(!process.env.ATLAS_REBUILD&&readSnapshot())||buildSnapshot();
 // ATLAS_LOTM_CAST previews a scratch pack, so the cast projection reruns instead of coming from the snapshot.
 const books=process.env.ATLAS_LOTM_CAST?JSON.parse(execFileSync(process.execPath,[fileURLToPath(new URL('./cast-places.mjs',import.meta.url))],{encoding:'utf8',maxBuffer:64e6})):snap.books;
-const {frontier,others,sources,mechanics}=snap;
+const {frontier,others,sources,mechanics,findings,recipes}=snap;
 const progress=latestProgress(); // read live: a new /progress-atlas file shows without a rebuild
 const reading=readLibrary();
 const batches=readBatches(reading.keys.map(k=>k.key));
@@ -78,7 +78,7 @@ async function transferState(){
     }
     return {picks:loadPicks().map(p=>({...p,label:lotmPlaces.get(p.place)?.name})),picksFile:picksFile.replace(root,''),running:!!running,runs};
 }
-export const api = {transfer,snapshot:{builtAt:snap.builtAt,commit:snap.commit,failures:snap.failures},sources,mechanics,progress,batches,reading,readingRequests:loadRequests(),frontier,others,books,library:entityLibrary(places,actors),target,places, actors:Object.fromEntries(actors), encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT};
+export const api = {findings,recipes,transfer,snapshot:{builtAt:snap.builtAt,commit:snap.commit,failures:snap.failures},sources,mechanics,progress,batches,reading,readingRequests:loadRequests(),frontier,others,books,library:entityLibrary(places,actors),target,places, actors:Object.fromEntries(actors), encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT};
 const assets = {
     '/creature-record.js':['../../src/ui/creature_record.js','text/javascript'],
     '/kit.js':['../../src/ui/kit.js','text/javascript'],
@@ -101,6 +101,7 @@ const assets = {
     '/library-views.mjs':['./library-views.mjs','text/javascript'],
     '/atlas-views.mjs':['./atlas-views.mjs','text/javascript'],
     '/transfer-view.mjs':['./transfer-view.mjs','text/javascript'],
+    '/things-views.mjs':['./things-views.mjs','text/javascript'],
 };
 for (let size=7;size<=22;size++) {
     const path='resources/fonts/private/gothic-bitmap-'+size+'.woff2';
@@ -124,6 +125,13 @@ const server=createServer(async(req,res)=>{
             await writeFile(requestFile,JSON.stringify({note:'Atlas reading requests. Proposals only; nothing runs from this file.',requests},null,1)+'\n');
             api.readingRequests=requests;
             return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(requests));
+        }
+        // One reader digest per world, fetched when a Things or Making view opens (LOTM's is several MB).
+        const reader=/^\/readers\/([a-z0-9-]+)$/.exec(req.url);
+        if(req.method === 'GET' && reader){
+            const file=READERS+'/'+reader[1]+'.json';
+            if(!existsSync(file))return res.writeHead(404,{'Content-Type':'text/plain'}).end('No reader digest for this world. Run node prototypes/world-atlas/build.mjs.');
+            return res.writeHead(200,{'Content-Type':'application/json'}).end(await readFile(file));
         }
         if(req.method === 'GET' && req.url === '/transfer')return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(await transferState()));
         if(req.method === 'POST' && req.url === '/pick'){
