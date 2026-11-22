@@ -33,6 +33,31 @@ from [phone_shelf.json](phone_shelf.json), exit 0.
   builder hashes that folder, but the Source Library catalogue still points at
   the old paths.
 
+## Readest facts (checked in its source on GitHub, 2026-11-22)
+
+- **Grouping:** the library groups by None, manual Group, Series, Author, Tag
+  or Subject (`LibraryGroupByType` in `src/types/settings.ts`). Custom
+  bookshelves with filter rules and their own grouping also exist
+  (`src/types/bookshelf.ts`). Inferred, not tested: Subject reads the EPUB's
+  `dc:subject` and Series reads `calibre:series`. Its EPUB parser and series
+  tests mention `calibre:series`.
+- **Book identity:** Readest matches books by a KOReader-style partial MD5
+  that samples byte ranges of the file (`src/utils/md5.ts`). Changing a
+  file's bytes therefore makes it a different book, so progress and
+  highlights do not follow a re-exported file. Editing metadata inside Readest
+  keeps the identity.
+- **Shelf tags (rebuilt 2026-11-22, Weibao: "Tag and re-import"):** each EPUB
+  now has exactly one `dc:subject`, its shelf name (for example
+  `04 LitRPG & Progression`), and any older subjects are dropped. The builder
+  also handles OPFs that prefix the OPF namespace (`opf:`, `ns0:`). All 247
+  EPUBs re-passed the checks with the right subject, and 242 carry series
+  metadata (the five TTKS books have none). The Harry Potter PDF can't be
+  tagged. The tagged files replaced `All Books` on the phone: 248 files,
+  SHA-256 read back. Group the Readest library by Subject after re-importing.
+- **iOS import:** only "From Local File" (multi-select) shows on the phone.
+  The staging was flattened into `KyBook 3/Phone Shelf/All Books` (248 files,
+  sizes match the Mac).
+
 ## Phone check (KyBook 3, 2026-11-22)
 
 The iPhone has KyBook 3, Readest, BookFusion and Apple Books installed. KyBook's

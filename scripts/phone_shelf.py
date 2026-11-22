@@ -64,7 +64,7 @@ def safe(name):
     return re.sub(r'[/\\:*?"<>|]', "_", name).strip()
 
 
-def rewrite_epub(src, dst, title, series, vol):
+def rewrite_epub(src, dst, title, series, vol, shelf):
     """Copy an EPUB, setting dc:title and series metadata in the OPF."""
     zin = zipfile.ZipFile(src)
     names = zin.namelist()
@@ -81,20 +81,26 @@ def rewrite_epub(src, dst, title, series, vol):
                 continue
             data = zin.read(info.filename)
             if info.filename == opf:
-                data = patch_opf(data.decode("utf8", "ignore"), title, series, vol).encode("utf8")
+                data = patch_opf(data.decode("utf8", "ignore"), title, series, vol, shelf).encode("utf8")
             zout.writestr(info, data, compress_type=zipfile.ZIP_DEFLATED)
 
 
-def patch_opf(x, title, series, vol):
+def patch_opf(x, title, series, vol, shelf):
     t = html.escape(title, quote=False)
+    # one subject per book, the shelf, so Readest can group by subject
+    x = re.sub(r"<dc:subject\b[^>]*/>|<dc:subject\b[^>]*>.*?</dc:subject>", "", x, flags=re.S)
     x, n = re.subn(r"(<dc:title\b[^>]*>).*?(</dc:title>)", lambda m: m.group(1) + t + m.group(2), x, count=1, flags=re.S)
     if not n:
         x = re.sub(r"(<metadata\b[^>]*>)", lambda m: m.group(1) + f"<dc:title>{t}</dc:title>", x, count=1)
-    x = re.sub(r'<meta[^>]*name="calibre:series(_index)?"[^>]*/>', "", x)
-    extra = f'<meta name="calibre:series" content="{html.escape(series)}"/>'
+    x = re.sub(r'<(\w+:)?meta[^>]*name="calibre:series(_index)?"[^>]*/>', "", x)
+    end = re.search(r"</(\w+:)?metadata>", x)
+    if not end:
+        return x
+    pre = end.group(1) or ""  # some OPFs prefix the OPF namespace (opf:, ns0:)
+    extra = f'<dc:subject>{html.escape(shelf, quote=False)}</dc:subject><{pre}meta name="calibre:series" content="{html.escape(series)}"/>'
     if vol is not None:
-        extra += f'<meta name="calibre:series_index" content="{vol}"/>'
-    return re.sub(r"</metadata>", extra + "</metadata>", x, count=1)
+        extra += f'<{pre}meta name="calibre:series_index" content="{vol}"/>'
+    return x[:end.start()] + extra + x[end.start():]
 
 
 def ttks_chapters(code):
@@ -112,7 +118,7 @@ def ttks_chapters(code):
     return [chapters[k] for k in sorted(chapters)]
 
 
-def build_ttks(code, dst, title):
+def build_ttks(code, dst, title, shelf):
     chs = ttks_chapters(code)
     esc = lambda s: html.escape(s, quote=False)
     items, spine, nav, ncx = [], [], [], []
@@ -134,7 +140,7 @@ def build_ttks(code, dst, title):
         z.writestr("OEBPS/nav.xhtml", '<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>目录</title></head><body><nav epub:type="toc"><ol>' + "".join(nav) + "</ol></nav></body></html>", compress_type=zipfile.ZIP_DEFLATED)
         z.writestr("OEBPS/toc.ncx", '<?xml version="1.0" encoding="utf-8"?><ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1"><head><meta name="dtb:uid" content="ttks-' + code + '"/></head><docTitle><text>' + esc(title) + "</text></docTitle><navMap>" + "".join(ncx) + "</navMap></ncx>", compress_type=zipfile.ZIP_DEFLATED)
         opf = ('<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uid"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/">'
-               f'<dc:identifier id="uid">ttks-{code}</dc:identifier><dc:title>{esc(title)}</dc:title><dc:creator>{esc(TTKS_AUTHORS[code])}</dc:creator><dc:language>zh-Hant</dc:language>'
+               f'<dc:identifier id="uid">ttks-{code}</dc:identifier><dc:title>{esc(title)}</dc:title><dc:creator>{esc(TTKS_AUTHORS[code])}</dc:creator><dc:language>zh-Hant</dc:language><dc:subject>{esc(shelf)}</dc:subject>'
                '<meta property="dcterms:modified">2026-11-22T00:00:00Z</meta></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/><item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>'
                + "".join(items) + '</manifest><spine toc="ncx">' + "".join(spine) + "</spine></package>")
         z.writestr("OEBPS/content.opf", opf, compress_type=zipfile.ZIP_DEFLATED)
@@ -157,7 +163,7 @@ def main():
             name = display(series, vol, sub)
             if src.startswith("ttks:"):
                 dst = out / shelf / (safe(name.replace(" [zh]", "")) + " [zh].epub")
-                n = build_ttks(src[5:], dst, series.replace(" [zh]", ""))
+                n = build_ttks(src[5:], dst, series.replace(" [zh]", ""), shelf)
                 receipt.append({"shelf": shelf, "name": name, "source": src, "chapters": n, "_dst": dst})
                 continue
             path = resolve(src, idx)
@@ -172,7 +178,7 @@ def main():
             ext = Path(path).suffix.lower()
             dst = out / shelf / (safe(name) + ext)
             if ext == ".epub":
-                rewrite_epub(path, dst, name.replace(" [zh]", ""), series.replace(" [zh]", ""), vol)
+                rewrite_epub(path, dst, name.replace(" [zh]", ""), series.replace(" [zh]", ""), vol, shelf)
             else:
                 dst.write_bytes(Path(path).read_bytes())
             receipt.append({"shelf": shelf, "name": name, "source": src, "source_sha256": key, "source_path": path, "_dst": dst})
