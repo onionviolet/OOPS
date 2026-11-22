@@ -1,0 +1,36 @@
+{
+ "ceilingUsd": 40,
+ "reservedUsd": 33.77,
+ "unallocatedUsd": 6.23,
+ "approval": "Weibao 2026-11-22: \"Start with $40\" after the preflight named a $816.18 bound for all unread worlds and offered the smaller worlds under a $40 ceiling. Paid OpenAI balance; credit expired Nov 14.",
+ "reservations": [
+  {
+   "id": "oa-2026-11-22-fod",
+   "capUsd": 2.67
+  },
+  {
+   "id": "oa-2026-11-22-rak",
+   "capUsd": 3.32
+  },
+  {
+   "id": "oa-2026-11-22-bdm",
+   "capUsd": 4.12
+  },
+  {
+   "id": "oa-2026-11-22-pge",
+   "capUsd": 4.15
+  },
+  {
+   "id": "oa-2026-11-22-vs",
+   "capUsd": 5.46
+  },
+  {
+   "id": "oa-2026-11-22-az",
+   "capUsd": 6.78
+  },
+  {
+   "id": "oa-2026-11-22-sth",
+   "capUsd": 7.27
+  }
+ ]
+}
