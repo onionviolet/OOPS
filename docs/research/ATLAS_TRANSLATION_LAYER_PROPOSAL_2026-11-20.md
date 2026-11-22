@@ -123,7 +123,7 @@ Weibao: "build all three, improve the batched run capabilities to add to this? i
 
 **Findings.**
 - F17: Proto23's original places and OOPS's Proto23 reference places share no names, so the reference pack is a reimagining, not a port.
-- F18: the journeys and household-act passes disagree with the live pack even with no picks (616 against 522 journeys, 551 against 620 acts). The live rows come from older builders plus reviewed merges, so the candidate keeps the live rows; `--recompile-derived` switches. Whether to recompile is Weibao's call.
+- F18: the journeys and household-act passes disagree with the live pack even with no picks (616 against 522 journeys, 551 against 620 acts). The live rows come from older builders plus reviewed merges, so the candidate keeps the live rows; `--recompile-derived` switches. Decided 2026-11-22 (Weibao, "Keep live rows for Q1"): candidates keep the live journeys and household acts; `--recompile-derived` stays an explicit opt-in.
 - F19: picks cannot change those derived rows; for every derived key, the outputs differ by nothing between the candidate and the live pack.
 - F20: the mechanics projection falls back to a file-name guess for ledgers that `worlds.jsonl` does not list, so a few worlds appear twice under two ids (for example `pf1` and `tt-pf1`).
 
