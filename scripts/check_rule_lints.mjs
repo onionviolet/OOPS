@@ -10,6 +10,10 @@
 //   WKR1  (docs/WORLD_KIND_RULES.md)  a reader comparing a preset id with a string literal
 //                                      (`.preset === 'x'`, `switch (w.preset)`, `presetId`,
 //                                      `startsWith('preset:')`) outside the pack manifest and loader.
+//   UR178 (docs/UI_RULES.md)        a player string literal holding a known filler phrase: a state
+//                                      word the fill already shows ("All fresh", "near the limit"), a
+//                                      developer note ("not modelled", "stages only") or
+//                                      an empty-state sentence ("Nothing here", "Nothing yet").
 //   STY17 (docs/STORY_RULES.md)       a story window module (builds `completed.${…}` facts and
 //                                      defines its own `local`/`done` helper) that does not
 //                                      import from window_chain.js.
@@ -34,6 +38,7 @@ const sha = s => createHash('sha256').update(s.replace(/\s+/g, '')).digest('hex'
 export const RULES = {
     TMR1: 'new day counter outside world_day_index.js; read dayIndex/resolveWorldCalendar instead (docs/TIME_RULES.md TMR1)',
     WKR1: 'reader branches on a preset id; read the axis values instead (docs/WORLD_KIND_RULES.md WKR1)',
+    UR178: 'filler in player text: say only what the fill, number, position or colour cannot; move it to the hover or drop it (docs/UI_RULES.md UR178)',
     STY17: 'story window builds its own helpers; start from windowKit in window_chain.js (docs/STORY_RULES.md STY17)',
 };
 
@@ -93,6 +98,20 @@ export function scanPreset(name, source) {
     return hits;
 }
 
+// UR178 (PV2, docs/audits/DESCRIPTOR_RULES_AUDIT_2026-11-22.md): known filler phrases inside a string literal on a
+// code line. Narrow on purpose: it names the kinds found in the audit and misses new ones rather than crying wolf.
+export const FILLER = /(['"`])[^'"`\n]*?(All fresh|near the limit|[Nn]ot modell?ed|stages only|Nothing here\.|Nothing yet\b)[^'"`\n]*?\1/;
+export function scanFiller(name, source) {
+    const hits = [];
+    source.split('\n').forEach((line, i) => {
+        if (allowed(line) || /^\s*(\/\/|\*|\/\*)/.test(line)) return;
+        const m = line.match(FILLER);
+        if (!m) return;
+        hits.push({rule: 'UR178', file: name, line: i + 1, text: m[0].slice(0, 120), key: `UR178:${name}:${sha(m[0])}`});
+    });
+    return hits;
+}
+
 export function scanWindow(name, source) {
     if (STY17_EXEMPT.has(name)) return [];
     if (!/completed\.\$\{/.test(source)) return [];
@@ -103,7 +122,7 @@ export function scanWindow(name, source) {
 }
 
 export function scanSource(name, source) {
-    return [...scanClock(name, source), ...scanPreset(name, source), ...scanWindow(name, source)];
+    return [...scanClock(name, source), ...scanPreset(name, source), ...scanWindow(name, source), ...scanFiller(name, source)];
 }
 
 function sources() {
@@ -144,7 +163,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     const baseline = existsSync(baselinePath) ? JSON.parse(readFileSync(baselinePath, 'utf8')).keys : {};
     const fresh = newHits(hits, baseline);
     const by = rule => hits.filter(h => h.rule === rule).length;
-    console.log(`Rule lints (warning only): TMR1 ${by('TMR1')}, WKR1 ${by('WKR1')}, STY17 ${by('STY17')} hits; ${fresh.length} new beyond baseline`);
+    console.log(`Rule lints (warning only): TMR1 ${by('TMR1')}, WKR1 ${by('WKR1')}, STY17 ${by('STY17')}, UR178 ${by('UR178')} hits; ${fresh.length} new beyond baseline`);
     for (const h of fresh) console.log(`  WARN  ${h.rule}  ${h.file}:${h.line}  ${h.text.slice(0, 100)}\n        ${RULES[h.rule]}`);
     if (fresh.length) console.log('  Fix it, mark a deliberate case with `// rule-lint: allow <why>`, or rerun with --update-baseline after review.');
     console.log(fresh.length ? `WARN (${fresh.length} new, not failing)` : 'PASS');

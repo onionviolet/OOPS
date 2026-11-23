@@ -54,6 +54,17 @@
   "TMR1:src/research_view.js:c13ef2e4e2c9": 1,
   "TMR1:src/simulation_effects.js:77fde76e12de": 1,
   "TMR1:src/simulation_ui.js:77fde76e12de": 1,
-  "TMR1:src/wait_until.js:ceaa95e52d23": 1
+  "TMR1:src/wait_until.js:ceaa95e52d23": 1,
+  "UR178:src/book_world_hp_positions.js:3475a370c895": 2,
+  "UR178:src/book_world_lotm_causes.js:17667801dcf3": 1,
+  "UR178:src/book_world_lotm_guard.js:f4ab56037153": 1,
+  "UR178:src/book_world_lotm_positions.js:3475a370c895": 1,
+  "UR178:src/combat_situation_ui.js:e10437dbf941": 1,
+  "UR178:src/economy_standing_ui.js:b9cc8d74dbdd": 1,
+  "UR178:src/meter_bar.js:2569bf56f161": 1,
+  "UR178:src/spell_seam.js:a7aed3cebb1b": 1,
+  "UR178:src/stock_view_ui.js:15ad5219211b": 1,
+  "UR178:src/systems_irrigation_model.js:e824c36dafbd": 1,
+  "UR178:src/world_society_sheet.js:becb59c9c48e": 1
  }
 }

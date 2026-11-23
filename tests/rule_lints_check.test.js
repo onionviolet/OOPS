@@ -51,3 +51,10 @@ test('the baseline counts known hits, so only extra hits are new', () => {
     assert.deepEqual(newHits(hits, {a: 2, b: 1}), []);
     assert.deepEqual(newHits(hits, {a: 1}), [{key: 'a'}, {key: 'b'}]);
 });
+
+test('UR178: filler phrases in a player string are flagged; comments, identifiers and allowed lines are not', async () => {
+    const {scanFiller} = await import('../scripts/check_rule_lints.mjs');
+    const hits = src => scanFiller('src/x.js', src).map(h => h.line);
+    assert.deepEqual(hits("const t = 'All fresh';\nconst u = `near the limit`;\nconst v = \"Nothing here.\";"), [1, 2, 3]);
+    assert.deepEqual(hits("// Not modelled yet.\ninput.placeholder = 'Find';\nconst w = 'Nothing yet.'; // rule-lint: allow first meeting"), []);
+});
