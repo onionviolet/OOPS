@@ -5,6 +5,12 @@ and Android and a category scheme for the library. Source text stays outside
 tracked files; this page holds routing only. Holdings stay in
 [LIBRARY_INDEX](LIBRARY_INDEX.md).
 
+**November 23 handoff.** The Mac shelf receipt now lists 1,152 files with no
+missing entries. The additional books still need to be staged in KyBook's
+`Phone Shelf/New Books`. The paired iPhone had no usbmux connection, and
+CoreDevice could not enumerate the KyBook folder. Readest import and
+grouping for the expanded shelf also remain open.
+
 ## Build receipt (2026-11-22)
 
 Weibao said "Build it". Built by `python3 -I scripts/phone_shelf.py --zip`

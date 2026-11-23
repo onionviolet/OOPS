@@ -1,5 +1,9 @@
 # Play surface wave: handoff of open ideas (2026-11-16)
 
+The [November 23 Claude follow-up](../../../audits/CLAUDE_FOLLOWUP_2026-11-23.md)
+records current branches and verification for the Skills, Graphite, Here,
+fight endings, Reports and Klein handoffs.
+
 The play-surface wave (2026-11-14 to 2026-11-16) closes here, as Weibao asked: "finishing everything here, commit push an merge, and then we can start ideaboarding after handing off all the rest ideas". Each row is open work with its code, its owner when the wave stopped, and a done check. The codes live in [CONSIDERATIONS.md](CONSIDERATIONS.md) (PS1–PS302) unless named otherwise. Each lane's own handover holds the detail. Nothing here is accepted direction unless Weibao's words are quoted.
 
 ## Waiting on Weibao

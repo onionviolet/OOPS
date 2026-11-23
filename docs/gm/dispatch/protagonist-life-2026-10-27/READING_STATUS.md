@@ -320,3 +320,11 @@ Weibao asked to send the batch readers to the worlds the atlas's reader-findings
 ### Launch under the $40 ceiling, November 22
 
 Weibao chose "Start with $40". The seven smallest runs fit under it at their true bound: Fear of the Dark book 2 (`fod2`), `rak`, `bdm`, `pge`, `vs`, `az` and `sth`, $33.77 reserved together in [the ledger](../batch-reading-2026-10-27/plans/reading_budget_2026-11-22_start40.json), $6.23 unallocated. Each run file now carries the approval and that ledger, so a driver refuses to exceed its reservation. Drivers launched at 1:01 a.m. Eastern (PIDs 45644–45650; logs and PIDs in the gitignored `work/batch-2026-11-22/`). OpenAI accepted all 14 one-shard pilots, a census and a scenes pilot per world. Later steps submit only after the pilots collect and pass the stop rules. Settled spend awaits collection; the other 22 runs stay PENDING.
+
+**November 23 resume.** All seven drivers had stopped during collection.
+Each outstanding stage had a matching receipt. At 4:06 p.m. Eastern the
+existing drivers resumed, collected those stages and advanced under the
+original $33.77 reservation. The first recheck measured $1.7316 in collected
+work across the seven runs, with further stages pending. The resume logs in
+`work/batch-2026-11-22/` carry the stage and spend evidence. The other 22 plans
+remain PENDING. See the [Claude follow-up](../../../audits/CLAUDE_FOLLOWUP_2026-11-23.md#interrupted-work-resumed).

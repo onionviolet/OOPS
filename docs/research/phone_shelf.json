@@ -1,274 +1,6158 @@
 {
-  "note": "Phone Shelf manifest. Entry = [series, volume or null, source, optional subtitle]. Source is a SHA-256 prefix (Source Library catalogue or the phone intake folder), 'path:<file>' or 'ttks:<code>'. Built by scripts/phone_shelf.py into ~/Documents/Library/Phone Shelf. Plan: docs/research/PHONE_LIBRARY_PLAN_2026-11-22.md",
-  "intake": ["~/Documents/Library/Phone Intake", "~/Downloads/Books_Reading"],
-  "shelves": {
-    "01 Mystery & Occult": [
-      ["Lord of the Mysteries", null, "2c8e3803ca", "Webnovel official"],
-      ["Lord of the Mysteries [zh]", null, "5b525c77c4", "诡秘之主 1-1432"],
-      ["Circle of Inevitability", null, "a46863a268", "Webnovel official"],
-      ["Circle of Inevitability [zh]", null, "f76f8c412e", "宿命之环"]
-    ],
-    "02 Cultivation": [
-      ["Reverend Insanity", null, "981c313a5f"],
-      ["A Regressor's Tale of Cultivation", null, "798bfee322"],
-      ["Beware of Chicken", 1, "73d30ca59b"],
-      ["Beware of Chicken", 2, "bca76d4fa5"],
-      ["Beware of Chicken", 3, "27af174886"],
-      ["Beware of Chicken", 4, "7b435c64ee"],
-      ["Beware of Chicken", 5, "965b780f6f"],
-      ["Street Cultivation", 1, "5fa2eaf80c"],
-      ["Street Cultivation", 2, "e1d89529ba"],
-      ["Street Cultivation", 3, "c27ba72a7b"],
-      ["Forge of Destiny", 1, "312d0abff7"],
-      ["Forge of Destiny", 2, "cd23cdbb3a"],
-      ["Forge of Destiny", 3, "c849da008d"],
-      ["Virtuous Sons", null, "01fec9a08f"],
-      ["Unintended Cultivator", 1, "fa70753094"],
-      ["Unintended Cultivator", 2, "f3d5918b1d"],
-      ["Unintended Cultivator", 3, "bc86375528"]
-    ],
-    "03 Chinese Web Novels": [
-      ["巫师你好，我是伪人 [zh]", null, "ttks:B1"],
-      ["一年抽取一词条，模拟的也可以？ [zh]", null, "ttks:B2"],
-      ["咒回：特级的我去死灭打宿傩了！ [zh]", null, "ttks:B3"],
-      ["全人类的继承者 [zh]", null, "ttks:B4"],
-      ["废土边境检查官 [zh]", null, "ttks:B5"]
-    ],
-    "04 LitRPG & Progression": [
-      ["A Soldier's Life", 1, "f76da7f9c0"],
-      ["A Soldier's Life", 2, "267caa7226"],
-      ["A Soldier's Life", 3, "2ca9209151"],
-      ["A Soldier's Life", 4, "16576d1f36"],
-      ["A Soldier's Life", 5, "1a120a9b2d"],
-      ["A Soldier's Life", 6, "d696f804d9"],
-      ["You Are Summoned", 1, "fcaffc0ba2"],
-      ["You Are Summoned", 2, "645c434918"],
-      ["You Are Summoned", 3, "4ca2df6b52"],
-      ["You Are Summoned", 4, "2571e0b88c"],
-      ["You Are Summoned", 5, "5b2b226f97"],
-      ["You Are Summoned", 6, "76fc4e68a1"],
-      ["Wish Upon the Stars", 1, "980d690730"],
-      ["Wish Upon the Stars", 2, "a4b49bb7e7"],
-      ["Wish Upon the Stars", 3, "ae76005f53"],
-      ["Wish Upon the Stars", 4, "256b9bcfef"],
-      ["Wish Upon the Stars", 5, "1350babb4e"],
-      ["Wish Upon the Stars", 6, "8b4129bfc9"],
-      ["Wish Upon the Stars", 7, "0ff3ced6ad"],
-      ["Wish Upon the Stars", 8, "1b184277b7"],
-      ["Wish Upon the Stars", 9, "b7bf4dc046"],
-      ["Wish Upon the Stars", 10, "e6f41d835b"],
-      ["Wish Upon the Stars", 11, "e63a7fcafc"],
-      ["Wish Upon the Stars", 12, "0ae7d6b298"],
-      ["Wish Upon the Stars", 13, "bbfc17c9e6"],
-      ["The Legend of Randidly Ghosthound", 1, "e0d9a4672b"],
-      ["The Legend of Randidly Ghosthound", 2, "5d3793544f"],
-      ["The Legend of Randidly Ghosthound", 3, "b45e45e62a"],
-      ["The Legend of Randidly Ghosthound", 4, "fd3badca29"],
-      ["The Legend of Randidly Ghosthound", 5, "2cad0d71bc"],
-      ["The Legend of Randidly Ghosthound", 6, "ef8356905f"],
-      ["The Legend of Randidly Ghosthound", 7, "db764fb6fb"],
-      ["The Legend of Randidly Ghosthound", 8, "e620f9693a"],
-      ["The Legend of Randidly Ghosthound", 9, "f068f1cfd3"],
-      ["The Legend of Randidly Ghosthound", 10, "c276a18956"],
-      ["The Legend of Randidly Ghosthound", 11, "1b2d9a924c"],
-      ["The Legend of Randidly Ghosthound", 12, "e80891ef0a"],
-      ["The Legend of Randidly Ghosthound", 13, "352c69510a"],
-      ["The Legend of Randidly Ghosthound", 14, "a0854f4999"],
-      ["The Legend of Randidly Ghosthound", 15, "64a82c7316"],
-      ["Azarinth Healer", 1, "964cb0e759"],
-      ["Azarinth Healer", 2, "6a33f1ca7c"],
-      ["Azarinth Healer", 3, "05254a5d5e"],
-      ["Azarinth Healer", 4, "034eba88fc"],
-      ["Azarinth Healer", 5, "54eb283fd8"],
-      ["Azarinth Healer", 6, "c726dbf165"],
-      ["Azarinth Healer", 7, "c2edf26b5f"],
-      ["He Who Fights with Monsters", 1, "72d0259171"],
-      ["He Who Fights with Monsters", 2, "e6ee452e8e"],
-      ["He Who Fights with Monsters", 3, "51559cfb78"],
-      ["He Who Fights with Monsters", 4, "e82152b5cd"],
-      ["He Who Fights with Monsters", 5, "f41c6b0dae"],
-      ["He Who Fights with Monsters", 6, "b4f52cde0f"],
-      ["He Who Fights with Monsters", 7, "315baf4576"],
-      ["He Who Fights with Monsters", 8, "4ecea45f63"],
-      ["He Who Fights with Monsters", 9, "5feda9db8c"],
-      ["He Who Fights with Monsters", 10, "aa1be19c6f"],
-      ["He Who Fights with Monsters", 11, "d261361890"],
-      ["He Who Fights with Monsters", 12, "ab30512118"],
-      ["He Who Fights with Monsters", 13, "6d624cc901"],
-      ["The Path of Ascension", 1, "a4f27db775"],
-      ["The Path of Ascension", 2, "58666fd599"],
-      ["The Path of Ascension", 3, "b3097a9eab"],
-      ["The Path of Ascension", 4, "5eb0bcc879"],
-      ["The Path of Ascension", 5, "356cdf2138"],
-      ["The Path of Ascension", 6, "50b3607b42"],
-      ["The Path of Ascension", 7, "71c3c71d21"],
-      ["The Path of Ascension", 8, "b40e961f5b"],
-      ["The Path of Ascension", 9, "6315a27d63"],
-      ["The Path of Ascension", 10, "b5be2a15f1"],
-      ["The Path of Ascension", 11, "f60112c20e"],
-      ["The Path of Ascension", 12, "42439b239d"],
-      ["Mana Mirror", 1, "d2dc695fa5", "The First Gate"],
-      ["Mana Mirror", 2, "9aa2fc6cae", "The Second Gate"],
-      ["Mana Mirror", 3, "c859f1b992", "The Third Gate"],
-      ["Mana Mirror", 4, "6dbd27d1f7", "The Twin Trials"],
-      ["Mana Mirror", 5, "8671901669", "The Third Portal"],
-      ["The Runesmith", null, "06fad552e9", "chapters 1-302"],
-      ["12 Miles Below", 1, "bfa18f4d00"],
-      ["12 Miles Below", 2, "cd026eca75"],
-      ["12 Miles Below", 3, "252e47fd44"],
-      ["12 Miles Below", 4, "01b75afe4e"],
-      ["12 Miles Below", 5, "6854ef55fc"],
-      ["12 Miles Below", 6, "f3af99b867"],
-      ["12 Miles Below", 7, "48161a7f2c"],
-      ["Beneath the Dragoneye Moons", 1, "f10c37926c"],
-      ["Beneath the Dragoneye Moons", 2, "78f49e783f"],
-      ["Beneath the Dragoneye Moons", 3, "fbeff288f6"],
-      ["Beneath the Dragoneye Moons", 4, "6e487e0eca"],
-      ["Beneath the Dragoneye Moons", 5, "645cbeb857"],
-      ["Beneath the Dragoneye Moons", 6, "89b7a98a83"],
-      ["Beneath the Dragoneye Moons", 7, "3fc6a2d004"],
-      ["Beneath the Dragoneye Moons", 8, "1aa54d9df6"],
-      ["Beneath the Dragoneye Moons", 9, "483880a675"],
-      ["Beneath the Dragoneye Moons", null, "158fbb437d", "Mandate of Heaven"],
-      ["Beneath the Dragoneye Moons", null, "296fac7c1e", "Moonfall"],
-      ["Beneath the Dragoneye Moons", null, "4b81dc18d1", "Rise from the Ashes"],
-      ["Elydes", 1, "ab9a9d338a"],
-      ["Elydes", 2, "8bfdcac812"],
-      ["Elydes", 3, "eabaf0485f"],
-      ["Small Town Hero", 1, "5a88510487"],
-      ["Ar'Kendrithyst", null, "fda333e0d2"],
-      ["A Universe of Bloody Evolution", 1, "3486f71634", "The First Stage"],
-      ["A Universe of Bloody Evolution", 2, "507b3fce52", "The Second Stage"],
-      ["Saintess Summons Skeletons", 1, "2d082b0f2c"],
-      ["Saintess Summons Skeletons", 2, "9ef0f7e1e2"],
-      ["Saintess Summons Skeletons", 3, "04772e84a4"],
-      ["Saintess Summons Skeletons", 4, "cfa37a7035"],
-      ["System Universe", 1, "bf91b2a7ca", "System Change"],
-      ["System Universe", 2, "5988dd9282", "Torith"],
-      ["System Universe", 3, "f692b1a5f2", "Savannah"],
-      ["System Universe", 4, "43e4a80b86", "Trials of Cydaria"],
-      ["System Universe", 5, "b1c2995773", "System Interference"],
-      ["System Universe", 6, "4650456482", "Indaria"],
-      ["Kairos", 1, "5a9f50713a", "The Last Gods"],
-      ["Kairos", 2, "69f18a953d", "Legacy of Hades"],
-      ["Kairos", 3, "cc155685e2"],
-      ["Commerce Emperor", 1, "a1c84ae7d3"],
-      ["Infernal Ascension", null, "98043bba0f"],
-      ["Path of the Deathless", 1, "5ab1604b64"],
-      ["Jake's Magical Market", null, "bdd5220e54"],
-      ["Quest Academy", 1, "6bc09a0bbc", "Silvers"],
-      ["Low-Fantasy Occultist", 2, "15b8339f39"],
-      ["Deadworld Isekai", null, "5f777199af"],
-      ["Technomagica", null, "64f380d3c9"],
-      ["The Game at Carousel", 1, "6ecc7403b1", "The Bystander"]
-    ],
-    "05 Dungeons & Monsters": [
-      ["Life of a Dungeon Core", 1, "087d974f6b"],
-      ["Life of a Dungeon Core", 2, "759443bae1"],
-      ["Life of a Dungeon Core", 3, "edbe639623"],
-      ["Life of a Dungeon Core", 4, "b588101e46"],
-      ["Life of a Dungeon Core", 5, "9e91620af1"],
-      ["Life of a Dungeon Core", 6, "0031b37002"],
-      ["Dungeon Life", 1, "f24a0aaecb"],
-      ["Dungeon Life", 2, "d9fe4fb66d"],
-      ["Dungeon Life", 3, "baefec2dde"],
-      ["Dungeon Life", 4, "3bf450bae3"],
-      ["Tree of Aeons", 1, "035397dc6f"],
-      ["Tree of Aeons", 2, "51fed2dea9"],
-      ["Tree of Aeons", 3, "2c18a910dd"],
-      ["Tree of Aeons", 4, "f384b1c311"],
-      ["Tree of Aeons", 5, "8bda1ae274"],
-      ["Tree of Aeons", 6, "9bed9532ff"],
-      ["Tree of Aeons", 7, "09fcea5a57"],
-      ["Tree of Aeons", 8, "a8e29999a1"],
-      ["Dungeon Crawler Carl", 1, "38ff482677"]
-    ],
-    "06 Time Loops": [
-      ["Mother of Learning", null, "e53f956957"],
-      ["The Perfect Run", null, "47320275f2"],
-      ["The Perfect Run", null, "d4155bb332", "Bad Runs"],
-      ["The Stubborn Skill-Grinder in a Time Loop", 1, "96453ea5f1"],
-      ["The Stubborn Skill-Grinder in a Time Loop", 2, "7b737e6137"],
-      ["The Stubborn Skill-Grinder in a Time Loop", 3, "1e5ea2c582"],
-      ["The Stubborn Skill-Grinder in a Time Loop", 4, "46488414eb"],
-      ["The Stubborn Skill-Grinder in a Time Loop", 5, "78e8ace6ff"],
-      ["The Menocht Loop", 1, "c252fecfd0"],
-      ["The Menocht Loop", 2, "f36bcbd99b", "The False Ascendant"],
-      ["The Menocht Loop", 3, "054054069e", "The Eldemari's Wrath"],
-      ["The Menocht Loop", 4, "6c238fa2f1", "The Samsara Crucible"],
-      ["The Menocht Loop", 5, "67f3a46f0d", "The Blade of Revelation"],
-      ["The Menocht Loop", 6, "7c4ec73b71", "The Trials of Descent"],
-      ["Dear Spellbook", 1, "0ea67b9b71", "Sorcerer"]
-    ],
-    "07 Supers & Urban": [
-      ["Worm", null, "path:~/Calibre Library/John McCrae/Worm (32)"],
-      ["Super Supportive", null, "0f13fc3cc0"],
-      ["Godclads", 1, "4c8c618981", "The Broken Cage"],
-      ["Godclads", 2, "479702f7e4", "Death of the Ideal"],
-      ["Godclads", null, "2897032b6d", "web serial, 500 chapters"],
-      ["Super Powereds", 1, "2573350d5d"],
-      ["Paranoid Mage", 1, "1b9d51d3ca"],
-      ["Systema Delenda Est", null, "7c7698f749", "full trilogy"]
-    ],
-    "08 Epic & Dark Fantasy": [
-      ["Shadow Slave", 1, "2faa3640bf", "chapters 1-1840"],
-      ["Shadow Slave", 9, "b8fcea86e2", "Throne of War"],
-      ["Shadow Slave", 10, "18e8216c63", "Dark Lord's Dreadful Travelogue"],
-      ["Shadow Slave", 11, "b1151c9f2e", "The Song of Ariadne"],
-      ["Shadow Slave", 12, "2b6a68c063", "chapters 3001-3242"],
-      ["The Wandering Inn", 1, "380b79265a"],
-      ["The Wandering Inn", 2, "c160409e97"],
-      ["The Wandering Inn", 3, "83f8f7309a"],
-      ["The Wandering Inn", 4, "47f4a1d4e8", "Winter Solstice"],
-      ["The Wandering Inn", 5, "4bfe416ef4"],
-      ["The Wandering Inn", 6, "27b8846392", "The General of Izril"],
-      ["The Wandering Inn", 7, "849179fd2b", "Rains of Liscor"],
-      ["The Wandering Inn", 8, "eaf579c296"],
-      ["The Wandering Inn", 9, "a855151d1f", "Tears of Liscor"],
-      ["The Wandering Inn", 10, "321eb8575c", "The Wind Runner"],
-      ["The Wandering Inn", 11, "c6d29518f6", "The Titan of Baleros"],
-      ["The Wandering Inn", 12, "addbc20806", "The Witch of Webs"],
-      ["The Wandering Inn", 13, "3245e4d8e0"],
-      ["The Wandering Inn", 14, "4affd34b67"],
-      ["The Wandering Inn", 15, "31fd8b5e70", "Garden of Sanctuary"],
-      ["The Wandering Inn", 16, "d1f2282951", "King of Duels"],
-      ["The Wandering Inn", 17, "3149bf4e38", "Lady of Fire"],
-      ["The Wandering Inn", 18, "8b35c96103", "Archmage's Ire"],
-      ["The Wandering Inn", 19, "bbd3d9d6d0", "Couriers Outbound"],
-      ["The Wandering Inn", 20, "1b1147bb00", "Memory's Flame, web text"],
-      ["The Wandering Inn", null, "00e09574cf", "Gravesong"],
-      ["The Wandering Inn", null, "8ecb4bf685", "Huntsong"],
-      ["A Practical Guide to Evil", null, "305d4b37e0"],
-      ["Pale Lights", null, "3833b66fc8"],
-      ["Worth the Candle", null, "53e4bd2730"],
-      ["The Books of the Raksura", null, "1c7a2530bb"],
-      ["Mark of the Fool", 1, "d73f809cf2"],
-      ["Mark of the Fool", 2, "a605207492"],
-      ["Mark of the Fool", 3, "9431cad4c6"],
-      ["Mark of the Fool", 4, "04edc30756"],
-      ["Mark of the Fool", 5, "bbe294904c"],
-      ["Mark of the Fool", 6, "fade168cb7"],
-      ["Mark of the Fool", 7, "a5139291ce"],
-      ["Mark of the Fool", 8, "e3c1e278c3"],
-      ["Mark of the Fool", 9, "ec428262c3"],
-      ["Mark of the Fool", 10, "632e92a88e"],
-      ["The Chronicles of Fid", null, "627a5a9ea5", "Books 1-3"],
-      ["Harry Potter", null, "path:~/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "Books 1-7 omnibus"]
-    ],
-    "09 Nonfiction & Learning": [
-      ["Book of Proof", null, "a9938c6ad7"],
-      ["Computer Science Distilled", null, "a36ae7ce84"],
-      ["Grokking Algorithms", null, "fc7f60658c", "2nd edition"],
-      ["The Pattern on the Stone", null, "5f261530f3"],
-      ["How to Invent Everything", null, "63329719f1"],
-      ["Make It Stick", null, "c0b9fbdb12"],
-      ["Thinking in Bets", null, "b2f301e01d"],
-      ["Chinese Communist Espionage", null, "9fd898fdba"],
-      ["Models", null, "119b66d71a"]
-    ],
-    "10 Literary & SF": [
-      ["Klara and the Sun", null, "a89fb2821d"],
-      ["The Ultimate Hitchhiker's Guide to the Galaxy", null, "1330189eea"]
-    ]
-  }
+ "note": "Phone Shelf manifest. Entry = [series, volume or null, source, optional subtitle]. Source is a SHA-256 prefix (Source Library catalogue or the phone intake folder), 'path:<file>' or 'ttks:<code>'. Built by scripts/phone_shelf.py into ~/Documents/Library/Phone Shelf. Plan: docs/research/PHONE_LIBRARY_PLAN_2026-11-22.md",
+ "intake": [
+  "~/Documents/Library/Phone Intake",
+  "~/Downloads/Books_Reading"
+ ],
+ "shelves": {
+  "01 Mystery & Occult": [
+   [
+    "Lord of the Mysteries",
+    null,
+    "2c8e3803ca",
+    "Webnovel official"
+   ],
+   [
+    "Lord of the Mysteries [zh]",
+    null,
+    "5b525c77c4",
+    "诡秘之主 1-1432"
+   ],
+   [
+    "Circle of Inevitability",
+    null,
+    "a46863a268",
+    "Webnovel official"
+   ],
+   [
+    "Circle of Inevitability [zh]",
+    null,
+    "f76f8c412e",
+    "宿命之环"
+   ],
+   [
+    "Deep Sea Embers",
+    1,
+    "54f0982cb93e"
+   ],
+   [
+    "Embers Ad Infinitum",
+    null,
+    "478f0fe47f0a"
+   ],
+   [
+    "My House of Horrors",
+    null,
+    "ebdb42347aae",
+    "chapters 1-700"
+   ],
+   [
+    "My House of Horrors",
+    null,
+    "1deacd912ae7",
+    "chapters 701-1211"
+   ],
+   [
+    "The Dresden Files",
+    16,
+    "60ec33c7376d",
+    "Peace Talks"
+   ],
+   [
+    "The Dresden Files",
+    17,
+    "0ffc9785cbb8",
+    "Battle Ground"
+   ],
+   [
+    "The Dresden Files",
+    18,
+    "e93c04ad56be",
+    "Twelve Months"
+   ],
+   [
+    "The Dresden Files",
+    null,
+    "cacaa43b4907",
+    "omnibus, books 0-15"
+   ],
+   [
+    "Unsong",
+    null,
+    "780d7d2aa8cd"
+   ],
+   [
+    "Dorothy's Forbidden Grimoire",
+    null,
+    "b00b1604bc8c",
+    "machine translation, 828 chapters"
+   ],
+   [
+    "Dorothy's Forbidden Grimoire [zh]",
+    null,
+    "3b3d0a9d9e44",
+    "多萝西的禁密书典"
+   ]
+  ],
+  "02 Cultivation": [
+   [
+    "Reverend Insanity",
+    null,
+    "981c313a5f"
+   ],
+   [
+    "A Regressor's Tale of Cultivation",
+    null,
+    "798bfee322"
+   ],
+   [
+    "Beware of Chicken",
+    1,
+    "73d30ca59b"
+   ],
+   [
+    "Beware of Chicken",
+    2,
+    "bca76d4fa5"
+   ],
+   [
+    "Beware of Chicken",
+    3,
+    "27af174886"
+   ],
+   [
+    "Beware of Chicken",
+    4,
+    "7b435c64ee"
+   ],
+   [
+    "Beware of Chicken",
+    5,
+    "965b780f6f"
+   ],
+   [
+    "Street Cultivation",
+    1,
+    "5fa2eaf80c"
+   ],
+   [
+    "Street Cultivation",
+    2,
+    "e1d89529ba"
+   ],
+   [
+    "Street Cultivation",
+    3,
+    "c27ba72a7b"
+   ],
+   [
+    "Forge of Destiny",
+    1,
+    "312d0abff7"
+   ],
+   [
+    "Forge of Destiny",
+    2,
+    "cd23cdbb3a"
+   ],
+   [
+    "Forge of Destiny",
+    3,
+    "c849da008d"
+   ],
+   [
+    "Virtuous Sons",
+    null,
+    "01fec9a08f"
+   ],
+   [
+    "Unintended Cultivator",
+    1,
+    "fa70753094"
+   ],
+   [
+    "Unintended Cultivator",
+    2,
+    "f3d5918b1d"
+   ],
+   [
+    "Unintended Cultivator",
+    3,
+    "bc86375528"
+   ],
+   [
+    "A Thousand Li",
+    1,
+    "5bdb4c4c445c",
+    "books 1-3 omnibus"
+   ],
+   [
+    "A Thousand Li",
+    4,
+    "40331d527faa",
+    "books 4-6 omnibus"
+   ],
+   [
+    "A Thousand Li",
+    7,
+    "78ffed00d5ff"
+   ],
+   [
+    "A Thousand Li",
+    8,
+    "a3f7a6fb8618"
+   ],
+   [
+    "A Thousand Li",
+    9,
+    "62efd922c10d"
+   ],
+   [
+    "A Thousand Li",
+    10,
+    "83dcd78757ef"
+   ],
+   [
+    "A Thousand Li",
+    11,
+    "2756b905bc48"
+   ],
+   [
+    "A Thousand Li",
+    12,
+    "268c704da688"
+   ],
+   [
+    "A Will Eternal",
+    null,
+    "04121d68cccc"
+   ],
+   [
+    "Beyond the Timescape",
+    null,
+    "03d50edb9c12"
+   ],
+   [
+    "Blueprint for Immortality",
+    1,
+    "a99e3e985683",
+    "Mortal"
+   ],
+   [
+    "Coiling Dragon",
+    null,
+    "585df8329bc2",
+    "compilation"
+   ],
+   [
+    "Dao of the Bizarre Immortal",
+    null,
+    "1cdc73305780"
+   ],
+   [
+    "Forty Millenniums of Cultivation",
+    null,
+    "c971d0ea5018"
+   ],
+   [
+    "I Shall Seal the Heavens",
+    null,
+    "e626ca5238b3"
+   ],
+   [
+    "Martial Peak",
+    null,
+    "bcc942547629",
+    "compilation"
+   ],
+   [
+    "Renegade Immortal",
+    null,
+    "07699acee9e9",
+    "books 1-13"
+   ],
+   [
+    "Return of the Mount Hua Sect",
+    null,
+    "6ec51f03f978",
+    "chapters 1-1636"
+   ]
+  ],
+  "03 Chinese Web Novels": [
+   [
+    "巫师你好，我是伪人 [zh]",
+    null,
+    "ttks:B1"
+   ],
+   [
+    "一年抽取一词条，模拟的也可以？ [zh]",
+    null,
+    "ttks:B2"
+   ],
+   [
+    "咒回：特级的我去死灭打宿傩了！ [zh]",
+    null,
+    "ttks:B3"
+   ],
+   [
+    "全人类的继承者 [zh]",
+    null,
+    "ttks:B4"
+   ],
+   [
+    "废土边境检查官 [zh]",
+    null,
+    "ttks:B5"
+   ]
+  ],
+  "04 LitRPG & Progression": [
+   [
+    "A Soldier's Life",
+    1,
+    "f76da7f9c0"
+   ],
+   [
+    "A Soldier's Life",
+    2,
+    "267caa7226"
+   ],
+   [
+    "A Soldier's Life",
+    3,
+    "2ca9209151"
+   ],
+   [
+    "A Soldier's Life",
+    4,
+    "16576d1f36"
+   ],
+   [
+    "A Soldier's Life",
+    5,
+    "1a120a9b2d"
+   ],
+   [
+    "A Soldier's Life",
+    6,
+    "d696f804d9"
+   ],
+   [
+    "You Are Summoned",
+    1,
+    "fcaffc0ba2"
+   ],
+   [
+    "You Are Summoned",
+    2,
+    "645c434918"
+   ],
+   [
+    "You Are Summoned",
+    3,
+    "4ca2df6b52"
+   ],
+   [
+    "You Are Summoned",
+    4,
+    "2571e0b88c"
+   ],
+   [
+    "You Are Summoned",
+    5,
+    "5b2b226f97"
+   ],
+   [
+    "You Are Summoned",
+    6,
+    "76fc4e68a1"
+   ],
+   [
+    "Wish Upon the Stars",
+    1,
+    "980d690730"
+   ],
+   [
+    "Wish Upon the Stars",
+    2,
+    "a4b49bb7e7"
+   ],
+   [
+    "Wish Upon the Stars",
+    3,
+    "ae76005f53"
+   ],
+   [
+    "Wish Upon the Stars",
+    4,
+    "256b9bcfef"
+   ],
+   [
+    "Wish Upon the Stars",
+    5,
+    "1350babb4e"
+   ],
+   [
+    "Wish Upon the Stars",
+    6,
+    "8b4129bfc9"
+   ],
+   [
+    "Wish Upon the Stars",
+    7,
+    "0ff3ced6ad"
+   ],
+   [
+    "Wish Upon the Stars",
+    8,
+    "1b184277b7"
+   ],
+   [
+    "Wish Upon the Stars",
+    9,
+    "b7bf4dc046"
+   ],
+   [
+    "Wish Upon the Stars",
+    10,
+    "e6f41d835b"
+   ],
+   [
+    "Wish Upon the Stars",
+    11,
+    "e63a7fcafc"
+   ],
+   [
+    "Wish Upon the Stars",
+    12,
+    "0ae7d6b298"
+   ],
+   [
+    "Wish Upon the Stars",
+    13,
+    "bbfc17c9e6"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    1,
+    "e0d9a4672b"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    2,
+    "5d3793544f"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    3,
+    "b45e45e62a"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    4,
+    "fd3badca29"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    5,
+    "2cad0d71bc"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    6,
+    "ef8356905f"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    7,
+    "db764fb6fb"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    8,
+    "e620f9693a"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    9,
+    "f068f1cfd3"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    10,
+    "c276a18956"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    11,
+    "1b2d9a924c"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    12,
+    "e80891ef0a"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    13,
+    "352c69510a"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    14,
+    "a0854f4999"
+   ],
+   [
+    "The Legend of Randidly Ghosthound",
+    15,
+    "64a82c7316"
+   ],
+   [
+    "Azarinth Healer",
+    1,
+    "964cb0e759"
+   ],
+   [
+    "Azarinth Healer",
+    2,
+    "6a33f1ca7c"
+   ],
+   [
+    "Azarinth Healer",
+    3,
+    "05254a5d5e"
+   ],
+   [
+    "Azarinth Healer",
+    4,
+    "034eba88fc"
+   ],
+   [
+    "Azarinth Healer",
+    5,
+    "54eb283fd8"
+   ],
+   [
+    "Azarinth Healer",
+    6,
+    "c726dbf165"
+   ],
+   [
+    "Azarinth Healer",
+    7,
+    "c2edf26b5f"
+   ],
+   [
+    "He Who Fights with Monsters",
+    1,
+    "72d0259171"
+   ],
+   [
+    "He Who Fights with Monsters",
+    2,
+    "e6ee452e8e"
+   ],
+   [
+    "He Who Fights with Monsters",
+    3,
+    "51559cfb78"
+   ],
+   [
+    "He Who Fights with Monsters",
+    4,
+    "e82152b5cd"
+   ],
+   [
+    "He Who Fights with Monsters",
+    5,
+    "f41c6b0dae"
+   ],
+   [
+    "He Who Fights with Monsters",
+    6,
+    "b4f52cde0f"
+   ],
+   [
+    "He Who Fights with Monsters",
+    7,
+    "315baf4576"
+   ],
+   [
+    "He Who Fights with Monsters",
+    8,
+    "4ecea45f63"
+   ],
+   [
+    "He Who Fights with Monsters",
+    9,
+    "5feda9db8c"
+   ],
+   [
+    "He Who Fights with Monsters",
+    10,
+    "aa1be19c6f"
+   ],
+   [
+    "He Who Fights with Monsters",
+    11,
+    "d261361890"
+   ],
+   [
+    "He Who Fights with Monsters",
+    12,
+    "ab30512118"
+   ],
+   [
+    "He Who Fights with Monsters",
+    13,
+    "6d624cc901"
+   ],
+   [
+    "The Path of Ascension",
+    1,
+    "a4f27db775"
+   ],
+   [
+    "The Path of Ascension",
+    2,
+    "58666fd599"
+   ],
+   [
+    "The Path of Ascension",
+    3,
+    "b3097a9eab"
+   ],
+   [
+    "The Path of Ascension",
+    4,
+    "5eb0bcc879"
+   ],
+   [
+    "The Path of Ascension",
+    5,
+    "356cdf2138"
+   ],
+   [
+    "The Path of Ascension",
+    6,
+    "50b3607b42"
+   ],
+   [
+    "The Path of Ascension",
+    7,
+    "71c3c71d21"
+   ],
+   [
+    "The Path of Ascension",
+    8,
+    "b40e961f5b"
+   ],
+   [
+    "The Path of Ascension",
+    9,
+    "6315a27d63"
+   ],
+   [
+    "The Path of Ascension",
+    10,
+    "b5be2a15f1"
+   ],
+   [
+    "The Path of Ascension",
+    11,
+    "f60112c20e"
+   ],
+   [
+    "The Path of Ascension",
+    12,
+    "42439b239d"
+   ],
+   [
+    "Mana Mirror",
+    1,
+    "d2dc695fa5",
+    "The First Gate"
+   ],
+   [
+    "Mana Mirror",
+    2,
+    "9aa2fc6cae",
+    "The Second Gate"
+   ],
+   [
+    "Mana Mirror",
+    3,
+    "c859f1b992",
+    "The Third Gate"
+   ],
+   [
+    "Mana Mirror",
+    4,
+    "6dbd27d1f7",
+    "The Twin Trials"
+   ],
+   [
+    "Mana Mirror",
+    5,
+    "8671901669",
+    "The Third Portal"
+   ],
+   [
+    "The Runesmith",
+    null,
+    "06fad552e9",
+    "chapters 1-302"
+   ],
+   [
+    "12 Miles Below",
+    1,
+    "bfa18f4d00"
+   ],
+   [
+    "12 Miles Below",
+    2,
+    "cd026eca75"
+   ],
+   [
+    "12 Miles Below",
+    3,
+    "252e47fd44"
+   ],
+   [
+    "12 Miles Below",
+    4,
+    "01b75afe4e"
+   ],
+   [
+    "12 Miles Below",
+    5,
+    "6854ef55fc"
+   ],
+   [
+    "12 Miles Below",
+    6,
+    "f3af99b867"
+   ],
+   [
+    "12 Miles Below",
+    7,
+    "48161a7f2c"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    1,
+    "f10c37926c"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    2,
+    "78f49e783f"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    3,
+    "fbeff288f6"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    4,
+    "6e487e0eca"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    5,
+    "645cbeb857"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    6,
+    "89b7a98a83"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    7,
+    "3fc6a2d004"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    8,
+    "1aa54d9df6"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    9,
+    "483880a675"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    null,
+    "158fbb437d",
+    "Mandate of Heaven"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    null,
+    "296fac7c1e",
+    "Moonfall"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    null,
+    "4b81dc18d1",
+    "Rise from the Ashes"
+   ],
+   [
+    "Elydes",
+    1,
+    "ab9a9d338a"
+   ],
+   [
+    "Elydes",
+    2,
+    "8bfdcac812"
+   ],
+   [
+    "Elydes",
+    3,
+    "eabaf0485f"
+   ],
+   [
+    "Small Town Hero",
+    1,
+    "5a88510487"
+   ],
+   [
+    "Ar'Kendrithyst",
+    null,
+    "fda333e0d2"
+   ],
+   [
+    "A Universe of Bloody Evolution",
+    1,
+    "3486f71634",
+    "The First Stage"
+   ],
+   [
+    "A Universe of Bloody Evolution",
+    2,
+    "507b3fce52",
+    "The Second Stage"
+   ],
+   [
+    "Saintess Summons Skeletons",
+    1,
+    "2d082b0f2c"
+   ],
+   [
+    "Saintess Summons Skeletons",
+    2,
+    "9ef0f7e1e2"
+   ],
+   [
+    "Saintess Summons Skeletons",
+    3,
+    "04772e84a4"
+   ],
+   [
+    "Saintess Summons Skeletons",
+    4,
+    "cfa37a7035"
+   ],
+   [
+    "System Universe",
+    1,
+    "bf91b2a7ca",
+    "System Change"
+   ],
+   [
+    "System Universe",
+    2,
+    "5988dd9282",
+    "Torith"
+   ],
+   [
+    "System Universe",
+    3,
+    "f692b1a5f2",
+    "Savannah"
+   ],
+   [
+    "System Universe",
+    4,
+    "43e4a80b86",
+    "Trials of Cydaria"
+   ],
+   [
+    "System Universe",
+    5,
+    "b1c2995773",
+    "System Interference"
+   ],
+   [
+    "System Universe",
+    6,
+    "4650456482",
+    "Indaria"
+   ],
+   [
+    "Kairos",
+    1,
+    "5a9f50713a",
+    "The Last Gods"
+   ],
+   [
+    "Kairos",
+    2,
+    "69f18a953d",
+    "Legacy of Hades"
+   ],
+   [
+    "Kairos",
+    3,
+    "cc155685e2"
+   ],
+   [
+    "Commerce Emperor",
+    1,
+    "a1c84ae7d3"
+   ],
+   [
+    "Infernal Ascension",
+    null,
+    "98043bba0f"
+   ],
+   [
+    "Path of the Deathless",
+    1,
+    "5ab1604b64"
+   ],
+   [
+    "Jake's Magical Market",
+    null,
+    "bdd5220e54"
+   ],
+   [
+    "Quest Academy",
+    1,
+    "6bc09a0bbc",
+    "Silvers"
+   ],
+   [
+    "Low-Fantasy Occultist",
+    2,
+    "15b8339f39"
+   ],
+   [
+    "Deadworld Isekai",
+    null,
+    "5f777199af"
+   ],
+   [
+    "Technomagica",
+    null,
+    "64f380d3c9"
+   ],
+   [
+    "The Game at Carousel",
+    1,
+    "6ecc7403b1",
+    "The Bystander"
+   ],
+   [
+    "A Gamer's Guide to Beating the Tutorial",
+    2,
+    "ee7bfee95945",
+    "Lust"
+   ],
+   [
+    "A Gamer's Guide to Beating the Tutorial",
+    3,
+    "0adff61adfdc",
+    "Gluttony"
+   ],
+   [
+    "A Novel Concept: He Who Eludes Death",
+    null,
+    "927d35be34ad"
+   ],
+   [
+    "A Practical Guide to Sorcery",
+    2,
+    "55da5f7dcb99",
+    "A Binding of Blood"
+   ],
+   [
+    "A Practical Guide to Sorcery",
+    3,
+    "0844c9036e46",
+    "A Sacrifice of Light"
+   ],
+   [
+    "A Practical Guide to Sorcery",
+    4,
+    "eb9925e02575",
+    "A Foreboding of Woe"
+   ],
+   [
+    "A Practical Guide to Sorcery",
+    5,
+    "dafe8f164e3f",
+    "A Cauldron of Bitterness"
+   ],
+   [
+    "A Practical Guide to Sorcery",
+    6,
+    "d518b3e3ae1c",
+    "A Builder of Dreams"
+   ],
+   [
+    "All the Dust That Falls",
+    1,
+    "207bc615cccb"
+   ],
+   [
+    "All the Dust That Falls",
+    2,
+    "b1296a0f9e64"
+   ],
+   [
+    "All the Dust That Falls",
+    3,
+    "e4eb78780125"
+   ],
+   [
+    "All the Dust That Falls",
+    4,
+    "24d7becdcbf6"
+   ],
+   [
+    "All the Skills",
+    1,
+    "b4d721d1dd29"
+   ],
+   [
+    "All the Skills",
+    2,
+    "12d88240024b"
+   ],
+   [
+    "All the Skills",
+    3,
+    "27d82ad365f0"
+   ],
+   [
+    "All the Skills",
+    4,
+    "f7100b754fa2"
+   ],
+   [
+    "All the Skills",
+    5,
+    "b83c496155f4"
+   ],
+   [
+    "All the Skills",
+    6,
+    "eb59085dfb9e"
+   ],
+   [
+    "Arcane Ascension",
+    1,
+    "6d23329904fa",
+    "Sufficiently Advanced Magic"
+   ],
+   [
+    "Arcane Ascension",
+    2,
+    "394244f1351f",
+    "On the Shoulders of Titans"
+   ],
+   [
+    "Arcane Ascension",
+    3,
+    "790fe4cc054c",
+    "The Torch That Ignites the Stars"
+   ],
+   [
+    "Arcane Ascension",
+    4,
+    "1af4ec370bc2",
+    "The Silence of Unworthy Gods"
+   ],
+   [
+    "Arcane Ascension",
+    5,
+    "3874f867cb8f",
+    "When Wizards Follow Fools"
+   ],
+   [
+    "Arcane Ascension",
+    6,
+    "7aabf0a7a69e",
+    "A Brief History of Chronomancy"
+   ],
+   [
+    "Awaken Online",
+    1,
+    "f919d4ed42f7",
+    "Catharsis"
+   ],
+   [
+    "Awaken Online",
+    null,
+    "853ace7e1588",
+    "Armageddon"
+   ],
+   [
+    "Awaken Online",
+    null,
+    "102799da2498",
+    "Dominion"
+   ],
+   [
+    "Awaken Online",
+    null,
+    "689e7ff50409",
+    "Hellion"
+   ],
+   [
+    "Battle Mage Farmer",
+    1,
+    "695a5db664b8",
+    "Domestication"
+   ],
+   [
+    "Battle Mage Farmer",
+    2,
+    "003cf174c8d8",
+    "Germination"
+   ],
+   [
+    "Battle Mage Farmer",
+    3,
+    "047e3a0fc2bc",
+    "Cultivation"
+   ],
+   [
+    "Battle Mage Farmer",
+    4,
+    "4a1f58433484",
+    "Fermentation"
+   ],
+   [
+    "Battle Mage Farmer",
+    5,
+    "8e07b2a2ade4",
+    "Transformation"
+   ],
+   [
+    "Battle Mage Farmer",
+    6,
+    "f6f19c16d1e1",
+    "Preservation"
+   ],
+   [
+    "Battle Mage Farmer",
+    7,
+    "1f2357b19904",
+    "Separation"
+   ],
+   [
+    "Battle Mage Farmer",
+    8,
+    "769a6e39c8bc",
+    "Conservation"
+   ],
+   [
+    "Battle Mage Farmer",
+    9,
+    "4468facd7f99",
+    "Culmination"
+   ],
+   [
+    "Battle Mage Farmer",
+    10,
+    "39e9f6ac39a2",
+    "Tales of the Ecclesia"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    12,
+    "b7a8e30068e7",
+    "The Phoenix Peaks"
+   ],
+   [
+    "Beneath the Dragoneye Moons",
+    null,
+    "cff3ef985e80",
+    "Immortal War"
+   ],
+   [
+    "Chaotic Craftsman Worships the Cube",
+    null,
+    "d9050a4484e0",
+    "chapters 1-604"
+   ],
+   [
+    "Chrysalis",
+    1,
+    "21f03c46923b",
+    "The Antventure Begins"
+   ],
+   [
+    "Chrysalis",
+    2,
+    "b278254a51e2",
+    "Upping the Ante"
+   ],
+   [
+    "Chrysalis",
+    3,
+    "575b9718977d",
+    "Antelligent Design"
+   ],
+   [
+    "Chrysalis",
+    4,
+    "057236144472",
+    "Between a Rock and a Carapace"
+   ],
+   [
+    "Chrysalis",
+    5,
+    "33c4d4d6f09f",
+    "Enemy A(n)t the Gates"
+   ],
+   [
+    "Chrysalis",
+    6,
+    "fd173bccf5c0",
+    "Antvance into the Unknown"
+   ],
+   [
+    "Chrysalis",
+    7,
+    "819607bfde13",
+    "Fated Antagonist"
+   ],
+   [
+    "Chrysalis",
+    8,
+    "16ea8640b5fc",
+    "Anticipate the Fall"
+   ],
+   [
+    "Chrysalis",
+    9,
+    "0dfcc634bfaa",
+    "Antdustrial Revolution"
+   ],
+   [
+    "Cinnamon Bun",
+    1,
+    "bcb158c7f9c5"
+   ],
+   [
+    "Cinnamon Bun",
+    2,
+    "7751b3442072"
+   ],
+   [
+    "Cinnamon Bun",
+    3,
+    "5600a1411362"
+   ],
+   [
+    "Cinnamon Bun",
+    4,
+    "c0f0df405618"
+   ],
+   [
+    "Cinnamon Bun",
+    5,
+    "e67cdca43e90"
+   ],
+   [
+    "Cinnamon Bun",
+    6,
+    "055018f0d534"
+   ],
+   [
+    "Cinnamon Bun",
+    7,
+    "5f764c13c7cb"
+   ],
+   [
+    "Commerce Emperor",
+    2,
+    "e0590f376db1"
+   ],
+   [
+    "Commerce Emperor",
+    3,
+    "57a069ff0b15"
+   ],
+   [
+    "Corpo Age",
+    1,
+    "45962d348798"
+   ],
+   [
+    "Corpo Age",
+    2,
+    "05937499222b"
+   ],
+   [
+    "Cradle",
+    1,
+    "4c7bce8b3196",
+    "Foundation, books 1-3 omnibus"
+   ],
+   [
+    "Cradle",
+    4,
+    "6d1b4becb412",
+    "Skysworn"
+   ],
+   [
+    "Cradle",
+    5,
+    "982b61c7a110",
+    "Ghostwater"
+   ],
+   [
+    "Cradle",
+    6,
+    "8f7f74cf09b6",
+    "Underlord"
+   ],
+   [
+    "Cradle",
+    7,
+    "bcdb3f765e4d",
+    "Uncrowned"
+   ],
+   [
+    "Cradle",
+    8,
+    "582fad97fd66",
+    "Wintersteel"
+   ],
+   [
+    "Cradle",
+    9,
+    "5931784bc708",
+    "Bloodline"
+   ],
+   [
+    "Cradle",
+    10,
+    "4afd0b75f18c",
+    "Reaper"
+   ],
+   [
+    "Cradle",
+    13,
+    "edf7e8a2367f",
+    "Threshold: Stories from Cradle"
+   ],
+   [
+    "Cultist of Cerebon",
+    1,
+    "eb11000c254d"
+   ],
+   [
+    "Cultist of Cerebon",
+    2,
+    "d2d2ac7c2c56"
+   ],
+   [
+    "Dark Lord of Crafting",
+    1,
+    "f88d9dc56b36"
+   ],
+   [
+    "Dark Lord of Crafting",
+    2,
+    "1178c938f5a5"
+   ],
+   [
+    "Dark Lord of Crafting",
+    3,
+    "c6f2c3ed7e53"
+   ],
+   [
+    "Dark Lord of Crafting",
+    4,
+    "d546ece994d8"
+   ],
+   [
+    "Defiance of the Fall",
+    1,
+    "748e1e023323"
+   ],
+   [
+    "Defiance of the Fall",
+    2,
+    "bb722d9bee04"
+   ],
+   [
+    "Double-Blind",
+    1,
+    "fd3029fce3dd",
+    "Rogue Tactics"
+   ],
+   [
+    "Double-Blind",
+    2,
+    "468af8a03ca5",
+    "Gilded Tower"
+   ],
+   [
+    "Double-Blind",
+    3,
+    "133262d3a6ea",
+    "Nychta's Favor"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    1,
+    "2485426d6ab7",
+    "Morningwood"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    2,
+    "6e622eb0d22f"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    3,
+    "0918ce37e9b5"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    4,
+    "ce02d779936b"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    5,
+    "e439ea0ad95d"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    6,
+    "412e1dcc252f"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    7,
+    "6748d5a014aa",
+    "Goroth"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    8,
+    "8bc93bf6f190",
+    "Stain"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    9,
+    "564964e4deda",
+    "Jackson"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    10,
+    "0cedff22cddc",
+    "Law"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    11,
+    "e5584fa2a4fb",
+    "Tol-Saroth"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    12,
+    "8389b3ba2e6b",
+    "Hazalag"
+   ],
+   [
+    "Everybody Loves Large Chests",
+    13,
+    "99a9c2661326",
+    "Aboxageddon"
+   ],
+   [
+    "Frith Chronicles",
+    1,
+    "c7092ebd535a",
+    "Knightmare Arcanist"
+   ],
+   [
+    "Genetic Ascension",
+    null,
+    "142655d4c796",
+    "light novel cave scrape"
+   ],
+   [
+    "Heretical Fishing",
+    2,
+    "e05b0375eaa7"
+   ],
+   [
+    "Heretical Fishing",
+    3,
+    "2d4adf08e743"
+   ],
+   [
+    "Heretical Fishing",
+    4,
+    "ff8847d8ce5d"
+   ],
+   [
+    "Heretical Fishing",
+    5,
+    "624f50ab5a6d"
+   ],
+   [
+    "Industrial Mage",
+    1,
+    "f80770e03727"
+   ],
+   [
+    "Industrial Mage",
+    2,
+    "44b00699b426"
+   ],
+   [
+    "Industrial Mage",
+    3,
+    "d39b9aa25829"
+   ],
+   [
+    "Jackal Among Snakes",
+    1,
+    "0415d0f25409"
+   ],
+   [
+    "Jackal Among Snakes",
+    2,
+    "f22077fc8009"
+   ],
+   [
+    "Jackal Among Snakes",
+    3,
+    "36a45f0ee3aa"
+   ],
+   [
+    "Jackal Among Snakes",
+    4,
+    "6ec77ceeaf31"
+   ],
+   [
+    "Jackal Among Snakes",
+    5,
+    "09dfd3cea6f1"
+   ],
+   [
+    "Jackal Among Snakes",
+    6,
+    "23aba5db35fb"
+   ],
+   [
+    "Jackal Among Snakes",
+    7,
+    "0a139ea17309"
+   ],
+   [
+    "Jackal Among Snakes",
+    8,
+    "a5ee81c32047"
+   ],
+   [
+    "Jackal Among Snakes",
+    9,
+    "14d2e963189f"
+   ],
+   [
+    "Jackal Among Snakes",
+    10,
+    "5f666e97ab11"
+   ],
+   [
+    "Jackal Among Snakes",
+    11,
+    "4cae25250d67"
+   ],
+   [
+    "Jackal Among Snakes",
+    12,
+    "8854b2709f2a"
+   ],
+   [
+    "Jekua",
+    1,
+    "929e38a9a03b",
+    "On Lavender Tides"
+   ],
+   [
+    "Labyrinth of the Mad God",
+    1,
+    "c3caa8d82829"
+   ],
+   [
+    "Labyrinth of the Mad God",
+    2,
+    "cce77f8ec3b2"
+   ],
+   [
+    "Legendary Shadow Blacksmith",
+    null,
+    "52a2d1d479b1",
+    "The Bridge"
+   ],
+   [
+    "Mage Errant",
+    1,
+    "92300d39be46",
+    "Into the Labyrinth"
+   ],
+   [
+    "Meadowreach Homestead",
+    1,
+    "221b6aad2ddf"
+   ],
+   [
+    "Meadowreach Homestead",
+    2,
+    "086bdf3a2429"
+   ],
+   [
+    "Meadowreach Homestead",
+    3,
+    "47fbc0ee8756"
+   ],
+   [
+    "Meadowreach Homestead",
+    4,
+    "1aef0d1fe849"
+   ],
+   [
+    "Meadowreach Homestead",
+    5,
+    "6ec688539b1c"
+   ],
+   [
+    "Meadowreach Homestead",
+    6,
+    "49d933654e92"
+   ],
+   [
+    "Meadowreach Homestead",
+    7,
+    "79e6ca1e2b73"
+   ],
+   [
+    "Meadowreach Homestead",
+    8,
+    "b0f5dd5b0956"
+   ],
+   [
+    "Millennial Mage",
+    3,
+    "4253a011d563",
+    "Binding"
+   ],
+   [
+    "Millennial Mage",
+    4,
+    "0ddc241b0808",
+    "Bound"
+   ],
+   [
+    "Millennial Mage",
+    5,
+    "63efaf37eee8",
+    "Fusing"
+   ],
+   [
+    "Millennial Mage",
+    6,
+    "5c6100f878d5",
+    "Fused"
+   ],
+   [
+    "Millennial Mage",
+    7,
+    "a1859e8c4bb2",
+    "Eskau"
+   ],
+   [
+    "Millennial Mage",
+    8,
+    "90c73f33b668",
+    "Ironbound"
+   ],
+   [
+    "Millennial Mage",
+    9,
+    "ef0165086766",
+    "Citybound"
+   ],
+   [
+    "Millennial Mage",
+    10,
+    "ffcd145edda2",
+    "Voidbound"
+   ],
+   [
+    "Millennial Mage",
+    12,
+    "0e01bcc49d36",
+    "Outbound"
+   ],
+   [
+    "Minute Mage",
+    1,
+    "47dd908b6978"
+   ],
+   [
+    "Minute Mage",
+    2,
+    "aef905fe77ef"
+   ],
+   [
+    "Minute Mage",
+    3,
+    "e793df50959f"
+   ],
+   [
+    "Norman the Necromancer",
+    1,
+    "7cfc1e48983e"
+   ],
+   [
+    "Norman the Necromancer",
+    2,
+    "bc9456a046b5"
+   ],
+   [
+    "Norman the Necromancer",
+    3,
+    "22acbb17f66d"
+   ],
+   [
+    "Rank Zero Waystation Mage",
+    1,
+    "2aae4c23e189"
+   ],
+   [
+    "Rank Zero Waystation Mage",
+    2,
+    "e9b85f682b5f"
+   ],
+   [
+    "Rank Zero Waystation Mage",
+    3,
+    "af1aacf1904b"
+   ],
+   [
+    "Rank Zero Waystation Mage",
+    4,
+    "93d116b99a6b"
+   ],
+   [
+    "Rank Zero Waystation Mage",
+    5,
+    "3caee68f02c9"
+   ],
+   [
+    "Rank Zero Waystation Mage",
+    6,
+    "6e523990cc4a"
+   ],
+   [
+    "Reborn as a Demonic Tree",
+    1,
+    "c8e1335deca6"
+   ],
+   [
+    "Reborn as a Demonic Tree",
+    2,
+    "3004500970b7"
+   ],
+   [
+    "Reborn as a Demonic Tree",
+    3,
+    "17a517bee352"
+   ],
+   [
+    "Sagewood",
+    1,
+    "8b796b70e455",
+    "Restore the Farm"
+   ],
+   [
+    "Sagewood",
+    2,
+    "8b00d340b05b",
+    "Into the Caves"
+   ],
+   [
+    "Sagewood",
+    3,
+    "6fc6d86f1ae9",
+    "A Way Home"
+   ],
+   [
+    "Sagewood",
+    4,
+    "62ed31e37815",
+    "Restore the Balance"
+   ],
+   [
+    "Skill Eater",
+    1,
+    "05936843dbf9"
+   ],
+   [
+    "Skill Eater",
+    2,
+    "36525a9467a8"
+   ],
+   [
+    "Skill Eater",
+    3,
+    "f8f5f222c064"
+   ],
+   [
+    "Skill Eater",
+    4,
+    "dd2f1d1a108e"
+   ],
+   [
+    "Skill Eater",
+    5,
+    "5b97ad196a21"
+   ],
+   [
+    "Slumrat Rising",
+    1,
+    "f3b9b36602e4",
+    "A Starbrite Man"
+   ],
+   [
+    "Slumrat Rising",
+    2,
+    "e79bb6011505",
+    "The Man from Nag Hamadi"
+   ],
+   [
+    "Slumrat Rising",
+    3,
+    "c33fa989bb77",
+    "Deadman Running"
+   ],
+   [
+    "Slumrat Rising",
+    4,
+    "f58f87fd925c",
+    "A Man on Fire"
+   ],
+   [
+    "Slumrat Rising",
+    5,
+    "a99434c87c9a",
+    "The Dislocated Man"
+   ],
+   [
+    "Slumrat Rising",
+    6,
+    "5df7574da1e6",
+    "His Own Man"
+   ],
+   [
+    "Speedrunning the Multiverse",
+    1,
+    "95c453dd8b78"
+   ],
+   [
+    "Speedrunning the Multiverse",
+    2,
+    "5ac3696da074"
+   ],
+   [
+    "Speedrunning the Multiverse",
+    3,
+    "255a1547ed15"
+   ],
+   [
+    "Speedrunning the Multiverse",
+    4,
+    "cbe16ea54571"
+   ],
+   [
+    "The Chronicles of Emberstone Farm",
+    1,
+    "cc201317cfa4"
+   ],
+   [
+    "The Chronicles of Emberstone Farm",
+    2,
+    "0281ff534e0a"
+   ],
+   [
+    "The Chronicles of Emberstone Farm",
+    3,
+    "8cd5da1c5dc0"
+   ],
+   [
+    "The Daily Grind",
+    null,
+    "5f5bc506476c",
+    "chapters 1-276"
+   ],
+   [
+    "The Game at Carousel",
+    2,
+    "1eaccdd5a624",
+    "The Invitation"
+   ],
+   [
+    "The Game at Carousel",
+    3,
+    "724900bf5174",
+    "The Atlas"
+   ],
+   [
+    "The Hearthwood Chronicles",
+    1,
+    "200f1cc2de08",
+    "The Hearthwood Alchemist"
+   ],
+   [
+    "The Legendary Mechanic",
+    null,
+    "fcf19109551a"
+   ],
+   [
+    "The Oracle Paths",
+    null,
+    "9440e2132399"
+   ],
+   [
+    "The Primal Hunter",
+    1,
+    "9d7678ed7b9b"
+   ],
+   [
+    "The Primal Hunter",
+    2,
+    "7eb1498cdf55"
+   ],
+   [
+    "The Primal Hunter",
+    3,
+    "3564fb61ee7e"
+   ],
+   [
+    "The Primal Hunter",
+    4,
+    "922d179d9531"
+   ],
+   [
+    "The Primal Hunter",
+    5,
+    "04bd9d29782d"
+   ],
+   [
+    "The Primal Hunter",
+    6,
+    "bd9d65bd815b"
+   ],
+   [
+    "The Primal Hunter",
+    7,
+    "0846374023e5"
+   ],
+   [
+    "The Primal Hunter",
+    8,
+    "36d9ba3acd97"
+   ],
+   [
+    "The Primal Hunter",
+    9,
+    "fa71da0495fa"
+   ],
+   [
+    "The Primal Hunter",
+    10,
+    "173dc213d901"
+   ],
+   [
+    "The Primal Hunter",
+    11,
+    "a7453bea8e59"
+   ],
+   [
+    "The Weirkey Chronicles",
+    1,
+    "4af911eb4508",
+    "Soulhome"
+   ],
+   [
+    "The Weirkey Chronicles",
+    2,
+    "2e506315b1ce",
+    "Rainhorn"
+   ],
+   [
+    "The Weirkey Chronicles",
+    3,
+    "e40d2a31b438",
+    "Archcrafter"
+   ],
+   [
+    "The Weirkey Chronicles",
+    4,
+    "1f3b46173501",
+    "Chasmfall"
+   ],
+   [
+    "The Weirkey Chronicles",
+    5,
+    "52690f619887",
+    "Bondsfungi"
+   ],
+   [
+    "The Weirkey Chronicles",
+    6,
+    "dcd232853643",
+    "Bloodcrete"
+   ],
+   [
+    "The Weirkey Chronicles",
+    7,
+    "da58b8c60cc9",
+    "Wakespire"
+   ],
+   [
+    "The Weirkey Chronicles",
+    8,
+    "610847662ddd",
+    "Deathseed"
+   ],
+   [
+    "The Weirkey Chronicles",
+    9,
+    "c02b3fd5a234",
+    "Skyvenom"
+   ],
+   [
+    "The Weirkey Chronicles",
+    10,
+    "e3bbfa1e0243",
+    "Crimsoncrest"
+   ],
+   [
+    "The Weirkey Chronicles",
+    11,
+    "7f7a159f8281",
+    "Deadgold"
+   ],
+   [
+    "Threadbare",
+    1,
+    "672dc9277209",
+    "complete trilogy"
+   ],
+   [
+    "Ultimate Level",
+    1,
+    "8b56f77de531"
+   ],
+   [
+    "Unwilling Eldritch Horror of Fortune",
+    1,
+    "fce96a2c1ad0"
+   ],
+   [
+    "Unwilling Eldritch Horror of Fortune",
+    2,
+    "81ecb15612c5"
+   ],
+   [
+    "Unwilling Eldritch Horror of Fortune",
+    3,
+    "9474ade253a8"
+   ],
+   [
+    "Vigor Mortis",
+    1,
+    "a0bc6bb24c00"
+   ],
+   [
+    "Vigor Mortis",
+    2,
+    "f3c941a7c08c"
+   ],
+   [
+    "Vigor Mortis",
+    3,
+    "2fc46892160b"
+   ],
+   [
+    "Vigor Mortis",
+    4,
+    "30359a7d9624"
+   ],
+   [
+    "Warformed: Stormweaver",
+    1,
+    "e57f2d25740b",
+    "Iron Prince"
+   ],
+   [
+    "Warformed: Stormweaver",
+    2,
+    "8c9804214438",
+    "Fire and Song"
+   ],
+   [
+    "World Tree Apocalypse",
+    1,
+    "aefe139d2145"
+   ],
+   [
+    "Hell Difficulty Tutorial",
+    1,
+    "dfedf2bd57e7"
+   ],
+   [
+    "Hell Difficulty Tutorial",
+    2,
+    "f7ac204de5bc"
+   ],
+   [
+    "Hell Difficulty Tutorial",
+    3,
+    "545ebeb34998"
+   ],
+   [
+    "Hell Difficulty Tutorial",
+    4,
+    "6416a0719343"
+   ],
+   [
+    "Hell Difficulty Tutorial",
+    5,
+    "d62ac48f5410"
+   ],
+   [
+    "Hell Difficulty Tutorial",
+    6,
+    "ebfc0a31b7c9"
+   ],
+   [
+    "Hell Difficulty Tutorial",
+    7,
+    "7099bb5b3793"
+   ],
+   [
+    "Hell Difficulty Tutorial",
+    8,
+    "bfd719db4470"
+   ]
+  ],
+  "05 Dungeons & Monsters": [
+   [
+    "Life of a Dungeon Core",
+    1,
+    "087d974f6b"
+   ],
+   [
+    "Life of a Dungeon Core",
+    2,
+    "759443bae1"
+   ],
+   [
+    "Life of a Dungeon Core",
+    3,
+    "edbe639623"
+   ],
+   [
+    "Life of a Dungeon Core",
+    4,
+    "b588101e46"
+   ],
+   [
+    "Life of a Dungeon Core",
+    5,
+    "9e91620af1"
+   ],
+   [
+    "Life of a Dungeon Core",
+    6,
+    "0031b37002"
+   ],
+   [
+    "Dungeon Life",
+    1,
+    "f24a0aaecb"
+   ],
+   [
+    "Dungeon Life",
+    2,
+    "d9fe4fb66d"
+   ],
+   [
+    "Dungeon Life",
+    3,
+    "baefec2dde"
+   ],
+   [
+    "Dungeon Life",
+    4,
+    "3bf450bae3"
+   ],
+   [
+    "Tree of Aeons",
+    1,
+    "035397dc6f"
+   ],
+   [
+    "Tree of Aeons",
+    2,
+    "51fed2dea9"
+   ],
+   [
+    "Tree of Aeons",
+    3,
+    "2c18a910dd"
+   ],
+   [
+    "Tree of Aeons",
+    4,
+    "f384b1c311"
+   ],
+   [
+    "Tree of Aeons",
+    5,
+    "8bda1ae274"
+   ],
+   [
+    "Tree of Aeons",
+    6,
+    "9bed9532ff"
+   ],
+   [
+    "Tree of Aeons",
+    7,
+    "09fcea5a57"
+   ],
+   [
+    "Tree of Aeons",
+    8,
+    "a8e29999a1"
+   ],
+   [
+    "Dungeon Crawler Carl",
+    1,
+    "38ff482677"
+   ],
+   [
+    "Blue Core",
+    1,
+    "77c19e2a9190"
+   ],
+   [
+    "Blue Core",
+    2,
+    "5c6c485a454a"
+   ],
+   [
+    "Blue Core",
+    3,
+    "605ed7b5d348"
+   ],
+   [
+    "Butler to a Core Lord",
+    1,
+    "a9f88d4979bb"
+   ],
+   [
+    "Dungeon Crawler Carl",
+    2,
+    "4fc73532b3f9",
+    "Carl's Doomsday Scenario"
+   ],
+   [
+    "Dungeon Crawler Carl",
+    3,
+    "0896e4abae34",
+    "The Dungeon Anarchist's Cookbook"
+   ],
+   [
+    "Dungeon Crawler Carl",
+    4,
+    "325ffb1e6786",
+    "The Gate of the Feral Gods"
+   ],
+   [
+    "Dungeon Crawler Carl",
+    5,
+    "4e7108c32ee0",
+    "The Butcher's Masquerade"
+   ],
+   [
+    "Dungeon Crawler Carl",
+    6,
+    "47f196029288",
+    "The Eye of the Bedlam Bride"
+   ],
+   [
+    "Dungeon Crawler Carl",
+    7,
+    "747d764aaa38",
+    "This Inevitable Ruin"
+   ],
+   [
+    "Dungeon Crawler Carl",
+    8,
+    "2bcd260a852f"
+   ],
+   [
+    "Dungeon Farm",
+    1,
+    "b584c4e1b0b4"
+   ],
+   [
+    "Dungeon Farm",
+    2,
+    "d6c16842d735"
+   ],
+   [
+    "Dungeon Farm",
+    3,
+    "a5831df1c057"
+   ],
+   [
+    "Salvos",
+    null,
+    "a0f63dc7a394"
+   ],
+   [
+    "That Time I Turned My Farm Into A Dungeon",
+    1,
+    "06b40df5c965",
+    "books 1-3 omnibus"
+   ],
+   [
+    "The Divine Dungeon",
+    1,
+    "b6f72e9dca53",
+    "Dungeon Born"
+   ],
+   [
+    "This Used to Be About Dungeons",
+    1,
+    "cddee8565587"
+   ],
+   [
+    "This Used to Be About Dungeons",
+    2,
+    "1b19367d784c"
+   ],
+   [
+    "This Used to Be About Dungeons",
+    3,
+    "32c5c0b2f19f"
+   ],
+   [
+    "Vainqueur the Dragon",
+    1,
+    "6efcb45b598d"
+   ],
+   [
+    "Vainqueur the Dragon",
+    2,
+    "fde0a37e8ab1",
+    "The Year of the Rogues"
+   ],
+   [
+    "Vainqueur the Dragon",
+    3,
+    "595c65c693d0",
+    "World Tour Edition"
+   ],
+   [
+    "Vainqueur the Dragon",
+    4,
+    "cec94ab3e190",
+    "The Last Adventure"
+   ]
+  ],
+  "06 Time Loops": [
+   [
+    "Mother of Learning",
+    null,
+    "e53f956957"
+   ],
+   [
+    "The Perfect Run",
+    null,
+    "47320275f2"
+   ],
+   [
+    "The Perfect Run",
+    null,
+    "d4155bb332",
+    "Bad Runs"
+   ],
+   [
+    "The Stubborn Skill-Grinder in a Time Loop",
+    1,
+    "96453ea5f1"
+   ],
+   [
+    "The Stubborn Skill-Grinder in a Time Loop",
+    2,
+    "7b737e6137"
+   ],
+   [
+    "The Stubborn Skill-Grinder in a Time Loop",
+    3,
+    "1e5ea2c582"
+   ],
+   [
+    "The Stubborn Skill-Grinder in a Time Loop",
+    4,
+    "46488414eb"
+   ],
+   [
+    "The Stubborn Skill-Grinder in a Time Loop",
+    5,
+    "78e8ace6ff"
+   ],
+   [
+    "The Menocht Loop",
+    1,
+    "c252fecfd0"
+   ],
+   [
+    "The Menocht Loop",
+    2,
+    "f36bcbd99b",
+    "The False Ascendant"
+   ],
+   [
+    "The Menocht Loop",
+    3,
+    "054054069e",
+    "The Eldemari's Wrath"
+   ],
+   [
+    "The Menocht Loop",
+    4,
+    "6c238fa2f1",
+    "The Samsara Crucible"
+   ],
+   [
+    "The Menocht Loop",
+    5,
+    "67f3a46f0d",
+    "The Blade of Revelation"
+   ],
+   [
+    "The Menocht Loop",
+    6,
+    "7c4ec73b71",
+    "The Trials of Descent"
+   ],
+   [
+    "Dear Spellbook",
+    1,
+    "0ea67b9b71",
+    "Sorcerer"
+   ],
+   [
+    "All You Need Is Kill",
+    null,
+    "c00db8153b63"
+   ],
+   [
+    "You Have Died Again",
+    null,
+    "a59fc5654eec"
+   ]
+  ],
+  "07 Supers & Urban": [
+   [
+    "Worm",
+    null,
+    "path:~/Calibre Library/John McCrae/Worm (32)"
+   ],
+   [
+    "Super Supportive",
+    null,
+    "0f13fc3cc0"
+   ],
+   [
+    "Godclads",
+    1,
+    "4c8c618981",
+    "The Broken Cage"
+   ],
+   [
+    "Godclads",
+    2,
+    "479702f7e4",
+    "Death of the Ideal"
+   ],
+   [
+    "Godclads",
+    null,
+    "2897032b6d",
+    "web serial, 500 chapters"
+   ],
+   [
+    "Super Powereds",
+    1,
+    "2573350d5d"
+   ],
+   [
+    "Paranoid Mage",
+    1,
+    "1b9d51d3ca"
+   ],
+   [
+    "Systema Delenda Est",
+    null,
+    "7c7698f749",
+    "full trilogy"
+   ],
+   [
+    "Super Minion",
+    null,
+    "4c4b81ef9208"
+   ],
+   [
+    "Super Powereds",
+    2,
+    "5a745f89e124",
+    "Year 2"
+   ],
+   [
+    "Super Powereds",
+    3,
+    "77f1eb5a0a61",
+    "Year 3"
+   ],
+   [
+    "Super Powereds",
+    4,
+    "4baa2e83bddf",
+    "Year 4"
+   ],
+   [
+    "Super Powereds: Corpies",
+    1,
+    "45dde40cea96"
+   ],
+   [
+    "Twig",
+    null,
+    "d88c88080d60"
+   ],
+   [
+    "Ward",
+    null,
+    "d1b55735a082"
+   ]
+  ],
+  "08 Epic & Dark Fantasy": [
+   [
+    "Shadow Slave",
+    1,
+    "2faa3640bf",
+    "chapters 1-1840"
+   ],
+   [
+    "Shadow Slave",
+    9,
+    "b8fcea86e2",
+    "Throne of War"
+   ],
+   [
+    "Shadow Slave",
+    10,
+    "18e8216c63",
+    "Dark Lord's Dreadful Travelogue"
+   ],
+   [
+    "Shadow Slave",
+    11,
+    "b1151c9f2e",
+    "The Song of Ariadne"
+   ],
+   [
+    "Shadow Slave",
+    12,
+    "2b6a68c063",
+    "chapters 3001-3242"
+   ],
+   [
+    "The Wandering Inn",
+    1,
+    "380b79265a"
+   ],
+   [
+    "The Wandering Inn",
+    2,
+    "c160409e97"
+   ],
+   [
+    "The Wandering Inn",
+    3,
+    "83f8f7309a"
+   ],
+   [
+    "The Wandering Inn",
+    4,
+    "47f4a1d4e8",
+    "Winter Solstice"
+   ],
+   [
+    "The Wandering Inn",
+    5,
+    "4bfe416ef4"
+   ],
+   [
+    "The Wandering Inn",
+    6,
+    "27b8846392",
+    "The General of Izril"
+   ],
+   [
+    "The Wandering Inn",
+    7,
+    "849179fd2b",
+    "Rains of Liscor"
+   ],
+   [
+    "The Wandering Inn",
+    8,
+    "eaf579c296"
+   ],
+   [
+    "The Wandering Inn",
+    9,
+    "a855151d1f",
+    "Tears of Liscor"
+   ],
+   [
+    "The Wandering Inn",
+    10,
+    "321eb8575c",
+    "The Wind Runner"
+   ],
+   [
+    "The Wandering Inn",
+    11,
+    "c6d29518f6",
+    "The Titan of Baleros"
+   ],
+   [
+    "The Wandering Inn",
+    12,
+    "addbc20806",
+    "The Witch of Webs"
+   ],
+   [
+    "The Wandering Inn",
+    13,
+    "3245e4d8e0"
+   ],
+   [
+    "The Wandering Inn",
+    14,
+    "4affd34b67"
+   ],
+   [
+    "The Wandering Inn",
+    15,
+    "31fd8b5e70",
+    "Garden of Sanctuary"
+   ],
+   [
+    "The Wandering Inn",
+    16,
+    "d1f2282951",
+    "King of Duels"
+   ],
+   [
+    "The Wandering Inn",
+    17,
+    "3149bf4e38",
+    "Lady of Fire"
+   ],
+   [
+    "The Wandering Inn",
+    18,
+    "8b35c96103",
+    "Archmage's Ire"
+   ],
+   [
+    "The Wandering Inn",
+    19,
+    "bbd3d9d6d0",
+    "Couriers Outbound"
+   ],
+   [
+    "The Wandering Inn",
+    20,
+    "1b1147bb00",
+    "Memory's Flame, web text"
+   ],
+   [
+    "The Wandering Inn",
+    null,
+    "00e09574cf",
+    "Gravesong"
+   ],
+   [
+    "The Wandering Inn",
+    null,
+    "8ecb4bf685",
+    "Huntsong"
+   ],
+   [
+    "A Practical Guide to Evil",
+    null,
+    "305d4b37e0"
+   ],
+   [
+    "Pale Lights",
+    null,
+    "3833b66fc8"
+   ],
+   [
+    "Worth the Candle",
+    null,
+    "53e4bd2730"
+   ],
+   [
+    "The Books of the Raksura",
+    null,
+    "1c7a2530bb"
+   ],
+   [
+    "Mark of the Fool",
+    1,
+    "d73f809cf2"
+   ],
+   [
+    "Mark of the Fool",
+    2,
+    "a605207492"
+   ],
+   [
+    "Mark of the Fool",
+    3,
+    "9431cad4c6"
+   ],
+   [
+    "Mark of the Fool",
+    4,
+    "04edc30756"
+   ],
+   [
+    "Mark of the Fool",
+    5,
+    "bbe294904c"
+   ],
+   [
+    "Mark of the Fool",
+    6,
+    "fade168cb7"
+   ],
+   [
+    "Mark of the Fool",
+    7,
+    "a5139291ce"
+   ],
+   [
+    "Mark of the Fool",
+    8,
+    "e3c1e278c3"
+   ],
+   [
+    "Mark of the Fool",
+    9,
+    "ec428262c3"
+   ],
+   [
+    "Mark of the Fool",
+    10,
+    "632e92a88e"
+   ],
+   [
+    "The Chronicles of Fid",
+    null,
+    "627a5a9ea5",
+    "Books 1-3"
+   ],
+   [
+    "Harry Potter",
+    null,
+    "path:~/Downloads/The Complete Harry Potter (Harry Potter and the Sorcerers Stone Harry Potter and the Chamber of Secrets Harry Potter and the… (J. K. Rowling) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "Books 1-7 omnibus"
+   ],
+   [
+    "Arcanum Unbounded",
+    null,
+    "ce73ca13b1e0"
+   ],
+   [
+    "Craft Sequence",
+    1,
+    "a4f0186cbc56",
+    "books 1-5 omnibus"
+   ],
+   [
+    "Craft Sequence",
+    6,
+    "36b41fa9b2d1",
+    "The Ruin of Angels"
+   ],
+   [
+    "Earthsea",
+    null,
+    "869ac68b9b0b",
+    "complete illustrated edition"
+   ],
+   [
+    "Elantris",
+    null,
+    "534edd01e131",
+    "Tenth Anniversary Edition"
+   ],
+   [
+    "Flamesong",
+    null,
+    "bc3d5dbb53c6"
+   ],
+   [
+    "Harry Potter",
+    8,
+    "9d0264e0f379",
+    "Cursed Child (script)"
+   ],
+   [
+    "Harry Potter",
+    null,
+    "58a855eee939",
+    "Short Stories from Hogwarts (Pottermore Presents)"
+   ],
+   [
+    "Harry Potter",
+    null,
+    "bcf3ae4cb53e",
+    "Tales of Beedle the Bard"
+   ],
+   [
+    "Malazan Book of the Fallen",
+    null,
+    "e9c320fe2211",
+    "complete series"
+   ],
+   [
+    "Mistborn",
+    1,
+    "9f7d4f5e3dfa",
+    "Era 1 trilogy boxed set"
+   ],
+   [
+    "Mistborn",
+    4,
+    "4af6c7f323a1",
+    "The Alloy of Law"
+   ],
+   [
+    "Mistborn",
+    5,
+    "d88274cb6a64",
+    "The Shadows of Self"
+   ],
+   [
+    "Mistborn",
+    6,
+    "145903052e5f",
+    "The Bands of Mourning"
+   ],
+   [
+    "Mistborn",
+    7,
+    "8198b62c0c98",
+    "The Lost Metal"
+   ],
+   [
+    "Mistborn",
+    null,
+    "46fed712d82d",
+    "Secret History"
+   ],
+   [
+    "Shadow Slave",
+    2,
+    "6a7ed51e4370",
+    "Demon of Change"
+   ],
+   [
+    "Tale of Lanen Kaelar",
+    1,
+    "85a52d532108",
+    "The Lesser Kindred"
+   ],
+   [
+    "The Curse of Chalion",
+    null,
+    "62f1e76a28c4"
+   ],
+   [
+    "The Goblin Emperor",
+    null,
+    "f0ecbd0c2daf"
+   ],
+   [
+    "The Gods Are Bastards",
+    1,
+    "67039e959f3a"
+   ],
+   [
+    "The Gods Are Bastards",
+    2,
+    "cb278cf1e930",
+    "Spacious Skies, Amber Waves"
+   ],
+   [
+    "The Gods Are Bastards",
+    3,
+    "ff64abc7ea5b"
+   ],
+   [
+    "The Gods Are Bastards",
+    4,
+    "1deba92cbbbc"
+   ],
+   [
+    "The Iron Teeth",
+    null,
+    "61ccde601307"
+   ],
+   [
+    "The Kingkiller Chronicle",
+    1,
+    "e2aa5de10fd1",
+    "The Name of the Wind"
+   ],
+   [
+    "The Kingkiller Chronicle",
+    2,
+    "f256579d68a5",
+    "The Wise Man's Fear"
+   ],
+   [
+    "The Masquerade",
+    1,
+    "a8e704a42eb0",
+    "The Traitor Baru Cormorant"
+   ],
+   [
+    "The Stormlight Archive",
+    1,
+    "2c4d0410ad04",
+    "The Way of Kings"
+   ],
+   [
+    "The Stormlight Archive",
+    2,
+    "0ede9183928d",
+    "Words of Radiance"
+   ],
+   [
+    "The Stormlight Archive",
+    3,
+    "7223b56b7861",
+    "Oathbringer"
+   ],
+   [
+    "The Stormlight Archive",
+    4,
+    "23ecb4399349",
+    "Rhythm of War"
+   ],
+   [
+    "The Stormlight Archive",
+    5,
+    "80086fe99fee",
+    "Wind and Truth"
+   ],
+   [
+    "The Sword of Kaigen",
+    null,
+    "c23fccdc5673"
+   ],
+   [
+    "The Well at the World's End",
+    null,
+    "7bcd0c738b31"
+   ],
+   [
+    "The Wheel of Time",
+    null,
+    "3e0cb2cd800e",
+    "complete omnibus"
+   ],
+   [
+    "Warbreaker",
+    null,
+    "bbc028a5b9b6"
+   ]
+  ],
+  "09 Nonfiction & Learning": [
+   [
+    "Book of Proof",
+    null,
+    "a9938c6ad7"
+   ],
+   [
+    "Computer Science Distilled",
+    null,
+    "a36ae7ce84"
+   ],
+   [
+    "Grokking Algorithms",
+    null,
+    "fc7f60658c",
+    "2nd edition"
+   ],
+   [
+    "The Pattern on the Stone",
+    null,
+    "5f261530f3"
+   ],
+   [
+    "How to Invent Everything",
+    null,
+    "63329719f1"
+   ],
+   [
+    "Make It Stick",
+    null,
+    "c0b9fbdb12"
+   ],
+   [
+    "Thinking in Bets",
+    null,
+    "b2f301e01d"
+   ],
+   [
+    "Chinese Communist Espionage",
+    null,
+    "9fd898fdba"
+   ],
+   [
+    "Models",
+    null,
+    "119b66d71a"
+   ]
+  ],
+  "10 Literary & SF": [
+   [
+    "Klara and the Sun",
+    null,
+    "a89fb2821d"
+   ],
+   [
+    "The Ultimate Hitchhiker's Guide to the Galaxy",
+    null,
+    "1330189eea"
+   ],
+   [
+    "Beowulf",
+    null,
+    "8d00de478028"
+   ],
+   [
+    "Burning Chrome",
+    null,
+    "83a9a1635338"
+   ],
+   [
+    "Cheela",
+    1,
+    "474239c70c53",
+    "Dragon's Egg"
+   ],
+   [
+    "Children of Time",
+    null,
+    "ebacea8b3d89"
+   ],
+   [
+    "Cyberpunk 2077: No Coincidence",
+    null,
+    "e5e747da6529"
+   ],
+   [
+    "Do Androids Dream of Electric Sheep?",
+    null,
+    "0b2880b21193"
+   ],
+   [
+    "Eisenhorn",
+    null,
+    "223a60d70f9e",
+    "omnibus"
+   ],
+   [
+    "Empire Games",
+    3,
+    "d8c1ac0138ae",
+    "Invisible Sun"
+   ],
+   [
+    "Ender's Saga",
+    1,
+    "f70000fd97b1",
+    "Ender's Game"
+   ],
+   [
+    "Ender's Saga",
+    2,
+    "fcdb842b5fa0",
+    "Speaker for the Dead"
+   ],
+   [
+    "Ender's Saga",
+    3,
+    "38ae865f9d2e",
+    "Xenocide"
+   ],
+   [
+    "Ender's Saga",
+    4,
+    "b11c6a2f43ac",
+    "Children of the Mind"
+   ],
+   [
+    "Ender's Saga",
+    5,
+    "69fc6d17f68e",
+    "Ender in Exile"
+   ],
+   [
+    "Ender's Shadow",
+    1,
+    "976f5555a034"
+   ],
+   [
+    "Fine Structure",
+    null,
+    "15a3eb085ca4"
+   ],
+   [
+    "Hardwired",
+    null,
+    "3ec8d6961280",
+    "30th Anniversary Edition"
+   ],
+   [
+    "Kalevala",
+    null,
+    "821a3101d4bd"
+   ],
+   [
+    "Le Morte d'Arthur",
+    1,
+    "f16d403e100d"
+   ],
+   [
+    "Le Morte d'Arthur",
+    2,
+    "b9ead31619d3"
+   ],
+   [
+    "Ra",
+    null,
+    "6ffde46d8db7"
+   ],
+   [
+    "Romance of the Three Kingdoms",
+    1,
+    "8fc4c59014c6",
+    "volume 1 of 2"
+   ],
+   [
+    "Snow Crash",
+    null,
+    "dc0b03ea94ef"
+   ],
+   [
+    "Strange Stories from a Chinese Studio",
+    null,
+    "a94c3ce67f17",
+    "volumes 1 and 2"
+   ],
+   [
+    "Takeshi Kovacs",
+    1,
+    "7cc1f99ae7f8",
+    "Altered Carbon"
+   ],
+   [
+    "Takeshi Kovacs",
+    2,
+    "8e28561cd34d",
+    "Broken Angels"
+   ],
+   [
+    "Takeshi Kovacs",
+    3,
+    "05b10abe2b4f",
+    "Woken Furies"
+   ],
+   [
+    "The Mabinogion",
+    null,
+    "f06a0a290bba"
+   ],
+   [
+    "The Nibelungenlied",
+    null,
+    "03282b8776cd"
+   ],
+   [
+    "The Prose Edda",
+    null,
+    "3326be8185d3"
+   ],
+   [
+    "The Sprawl",
+    1,
+    "64926e330658",
+    "Neuromancer"
+   ],
+   [
+    "The Sprawl",
+    2,
+    "dad3aa17a0ea",
+    "Count Zero"
+   ],
+   [
+    "The Sprawl",
+    3,
+    "461721e4f673",
+    "Mona Lisa Overdrive"
+   ],
+   [
+    "The Steerswoman",
+    1,
+    "b22feeb37baf"
+   ],
+   [
+    "The Steerswoman",
+    2,
+    "0b66f0cf6587",
+    "The Outskirter's Secret"
+   ],
+   [
+    "The Steerswoman",
+    3,
+    "50f9afb594a9",
+    "The Lost Steersman"
+   ],
+   [
+    "The Steerswoman",
+    4,
+    "a7c77d2748b0",
+    "The Language of Power"
+   ],
+   [
+    "The Volsunga Saga",
+    null,
+    "0f04064b6b8d",
+    "with excerpts from the Poetic Edda"
+   ],
+   [
+    "Vita Nostra",
+    null,
+    "74ca5e2ea24e"
+   ]
+  ],
+  "11 Light Novels": [
+   [
+    "48 Hours a Day",
+    null,
+    "a0f758c5b42c"
+   ],
+   [
+    "A Certain Magical Index",
+    1,
+    "52f40ec17901"
+   ],
+   [
+    "A Certain Magical Index",
+    2,
+    "3c3c44128eef"
+   ],
+   [
+    "A Certain Magical Index",
+    3,
+    "a5a2bdffe0eb"
+   ],
+   [
+    "A Certain Magical Index",
+    4,
+    "d4ca5fc37ee1"
+   ],
+   [
+    "A Certain Magical Index",
+    5,
+    "c6363958a987"
+   ],
+   [
+    "A Certain Magical Index",
+    6,
+    "c86dc546a4ef"
+   ],
+   [
+    "A Certain Magical Index",
+    7,
+    "b7137b202476"
+   ],
+   [
+    "A Certain Magical Index",
+    8,
+    "68d8ef3a4653"
+   ],
+   [
+    "A Certain Magical Index",
+    9,
+    "d4eacade8583"
+   ],
+   [
+    "A Certain Magical Index",
+    10,
+    "cfbf1adc40f4"
+   ],
+   [
+    "A Certain Magical Index",
+    11,
+    "5f3c77039bf0"
+   ],
+   [
+    "A Certain Magical Index",
+    12,
+    "07d10304f98b"
+   ],
+   [
+    "A Certain Magical Index",
+    13,
+    "9bd7efc2a7eb"
+   ],
+   [
+    "A Certain Magical Index",
+    14,
+    "fe75937488ba"
+   ],
+   [
+    "A Certain Magical Index",
+    15,
+    "b02a9dbf4df5"
+   ],
+   [
+    "A Certain Magical Index",
+    16,
+    "ce3ee3683ca9"
+   ],
+   [
+    "A Certain Magical Index",
+    17,
+    "b3155e953208"
+   ],
+   [
+    "A Certain Magical Index",
+    18,
+    "dc0a52534e93"
+   ],
+   [
+    "A Certain Magical Index",
+    19,
+    "c51409366337"
+   ],
+   [
+    "A Certain Magical Index",
+    20,
+    "3d238af7bac2"
+   ],
+   [
+    "A Certain Magical Index",
+    21,
+    "130ed0cdced6"
+   ],
+   [
+    "A Certain Magical Index",
+    22,
+    "99fea2de701e"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    1,
+    "ed9a69c0903c"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    2,
+    "218421c7de76"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    3,
+    "51d8764ef269"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    4,
+    "bb3ff2011de2"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    5,
+    "4c099e542cd3"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    6,
+    "27322f4fed1e"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    7,
+    "5b12fbd2a4a1"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    8,
+    "bbe555df7383"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    9,
+    "244b48334982"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    10,
+    "430636b1e654"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    11,
+    "0c8e659b54d3"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    12,
+    "8440f8180a95"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    13,
+    "5b4ffd5867b5"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    14,
+    "938cead26fc2"
+   ],
+   [
+    "A Certain Magical Index: Genesis Testament",
+    15,
+    "5d0d7aae9650"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    1,
+    "558374be54d5"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    2,
+    "de6007887f48"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    3,
+    "66c21532f000"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    4,
+    "e6f92bb10e33"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    5,
+    "354f534fa35d"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    6,
+    "2908f6a90ca8"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    7,
+    "9073b68126a7"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    8,
+    "18dd3f36bcb1"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    9,
+    "1a4b2c22930e"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    10,
+    "ea8da7daa5e6"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    11,
+    "13301815b111"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    12,
+    "de890e6f6b70"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    13,
+    "542452dc05c1"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    14,
+    "16a714e55396"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    15,
+    "829bc3e4193b"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    16,
+    "96973bc7671c"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    17,
+    "41c5892b3d1d"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    18,
+    "ae4f153163d5"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    19,
+    "e337087494ba"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    20,
+    "be499035afa3"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    21,
+    "5bbbfe3b117a"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    22,
+    "09518fae0021"
+   ],
+   [
+    "A Certain Magical Index: New Testament",
+    23,
+    "43eeb1d500a5",
+    "Volume 22 Reverse"
+   ],
+   [
+    "A Certain Scientific Railgun",
+    1,
+    "45da1a134b74",
+    "novel"
+   ],
+   [
+    "A Certain Scientific Railgun SS",
+    1,
+    "85a71ac8be6a"
+   ],
+   [
+    "A Certain Scientific Railgun SS",
+    2,
+    "c160041c63b2"
+   ],
+   [
+    "A Certain Scientific Railgun SS",
+    3,
+    "b0c30325a504"
+   ],
+   [
+    "A Knight Who Eternally Regresses",
+    null,
+    "5eb786ba0579"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    1,
+    "93223a3a0e67"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    2,
+    "8c6835c41d7e"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    3,
+    "4307a508356e"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    4,
+    "c5e67f4b729e"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    5,
+    "c5ee42ea9c4d"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    6,
+    "8cf3856b45f6"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    7,
+    "6fbc8e94d0f3"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    8,
+    "e3acba0e5b36"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    9,
+    "9073e09ad800"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    10,
+    "6729876a1bfd"
+   ],
+   [
+    "A Tale of the Secret Saint",
+    11,
+    "8c9521c21525"
+   ],
+   [
+    "A Tale of the Secret Saint ZERO",
+    1,
+    "4030fb8ea358"
+   ],
+   [
+    "A Tale of the Secret Saint ZERO",
+    2,
+    "4afb70ce62dd"
+   ],
+   [
+    "A Tale of the Secret Saint ZERO",
+    3,
+    "5f7faa6a5efa"
+   ],
+   [
+    "A Tale of the Secret Saint ZERO",
+    4,
+    "199977d06d22"
+   ],
+   [
+    "A Tale of the Secret Saint ZERO",
+    5,
+    "25e963b5351a"
+   ],
+   [
+    "A Tale of the Secret Saint ZERO",
+    6,
+    "306b08edd073"
+   ],
+   [
+    "Absolute Regression",
+    null,
+    "63276f8cdec9"
+   ],
+   [
+    "Arifureta Zero",
+    1,
+    "00502bb54463"
+   ],
+   [
+    "Arifureta Zero",
+    2,
+    "20a1573f080c"
+   ],
+   [
+    "Arifureta Zero",
+    3,
+    "ab9224e0094a"
+   ],
+   [
+    "Arifureta Zero",
+    4,
+    "1dabbe16607c"
+   ],
+   [
+    "Arifureta Zero",
+    5,
+    "fed51c0fcf9f"
+   ],
+   [
+    "Arifureta Zero",
+    6,
+    "88d11b34411f"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    1,
+    "8cf5325f5686"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    2,
+    "c628147ba7fd"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    3,
+    "fb6a0c8df9c7"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    4,
+    "b5d9ecc3694a"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    5,
+    "da85b36d7f6c"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    6,
+    "df3b534794a3"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    7,
+    "fab63f46b523"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    8,
+    "a12e0d75738c"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    9,
+    "69473fb8a28f"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    10,
+    "ad444aa4f170"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    11,
+    "af46da691569"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    12,
+    "5da4fedabb82"
+   ],
+   [
+    "Arifureta: From Commonplace to World's Strongest",
+    13,
+    "50d997df7e4c"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "0d1872e445ea",
+    "Part 1 Vol 1"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "5636c5f56eeb",
+    "Part 1 Vol 2"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "85956c0e7b1b",
+    "Part 1 Vol 3"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "af377133f5b9",
+    "Part 2 Vol 1"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "4de47fa85995",
+    "Part 2 Vol 2"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "cdcd80c5f289",
+    "Part 2 Vol 3"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "dbfd6196a957",
+    "Part 3 Vol 1"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "379048ffa5bc",
+    "Part 3 Vol 2"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "5e46bbb8743e",
+    "Part 3 Vol 3"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "ede0979581ad",
+    "Part 3 Vol 4"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "d7e2e3ba55d6",
+    "Part 3 Vol 5"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "cbd12ff0b5ce",
+    "Part 4 Vol 1"
+   ],
+   [
+    "Ascendance of a Bookworm",
+    null,
+    "c90eff1938fa",
+    "Part 5 Vol 1"
+   ],
+   [
+    "Ascendance of a Bookworm Short Story Collection",
+    1,
+    "067f77f80b82"
+   ],
+   [
+    "Ascendance of a Bookworm Short Story Collection",
+    2,
+    "091b7bcc43ea"
+   ],
+   [
+    "Bleach: Can't Fear Your Own World",
+    1,
+    "0ad4fb9c5c79"
+   ],
+   [
+    "Bleach: Can't Fear Your Own World",
+    2,
+    "4cdd78d8ec44"
+   ],
+   [
+    "Bleach: Can't Fear Your Own World",
+    3,
+    "a5779425929b"
+   ],
+   [
+    "Chainsaw Man: Buddy Stories",
+    null,
+    "ceceb1e40598"
+   ],
+   [
+    "Code Geass: Lelouch of the Rebellion R2",
+    1,
+    "14d5397bdbaa",
+    "Turn 1, chapter 1 fan translation"
+   ],
+   [
+    "D-Genesis: Three Years After the Dungeons Appeared",
+    1,
+    "51fdc5ea0a83"
+   ],
+   [
+    "D-Genesis: Three Years After the Dungeons Appeared",
+    2,
+    "234bbbd3dcfe"
+   ],
+   [
+    "Dungeon Reset",
+    null,
+    "ba641c3431cd"
+   ],
+   [
+    "Fate/Apocrypha",
+    1,
+    "720489f9c233"
+   ],
+   [
+    "Fate/strange Fake",
+    1,
+    "aa8e1f2030b4",
+    "nakulas edition"
+   ],
+   [
+    "Fate/strange Fake",
+    4,
+    "da9c9271f111"
+   ],
+   [
+    "Fate/strange Fake",
+    5,
+    "a9322b3ed55c"
+   ],
+   [
+    "Fate/Zero",
+    2,
+    "23b89a752ad4",
+    "The Mad Feast of Kings"
+   ],
+   [
+    "Fate/Zero",
+    3,
+    "3776da553b9a",
+    "The Scattered Ones"
+   ],
+   [
+    "Fate/Zero",
+    4,
+    "82125ec93dbc",
+    "Flames of Purgatory"
+   ],
+   [
+    "Fullmetal Alchemist Novels",
+    1,
+    "2934405d693c",
+    "The Land of Sand"
+   ],
+   [
+    "Fullmetal Alchemist Novels",
+    2,
+    "9c0166167367",
+    "The Abducted Alchemist"
+   ],
+   [
+    "Fullmetal Alchemist Novels",
+    3,
+    "a2db7c5321d5",
+    "The Valley of White Petals"
+   ],
+   [
+    "Fullmetal Alchemist Novels",
+    null,
+    "d78d1116a5a2",
+    "A New Beginning"
+   ],
+   [
+    "Fullmetal Alchemist Novels",
+    null,
+    "8bc964db5728",
+    "Under the Faraway Sky, second edition"
+   ],
+   [
+    "I Am the Fated Villain",
+    null,
+    "3136ed56debd",
+    "machine translation (gemini-2.5-flash)"
+   ],
+   [
+    "Infinite Dendrogram",
+    1,
+    "4bae66ce1d99"
+   ],
+   [
+    "Infinite Dendrogram",
+    2,
+    "76b10402fa6f"
+   ],
+   [
+    "Infinite Dendrogram",
+    3,
+    "4e4c2c4a0ae8"
+   ],
+   [
+    "Infinite Dendrogram",
+    4,
+    "8e4c9135464f"
+   ],
+   [
+    "Infinite Dendrogram",
+    5,
+    "7b0fb5e978b6"
+   ],
+   [
+    "Infinite Dendrogram",
+    6,
+    "9eb6d35acfb7"
+   ],
+   [
+    "Infinite Dendrogram",
+    7,
+    "360604c1cad4"
+   ],
+   [
+    "Infinite Dendrogram",
+    8,
+    "784bbeb5a938"
+   ],
+   [
+    "Infinite Dendrogram",
+    9,
+    "0713daf7e831"
+   ],
+   [
+    "Infinite Dendrogram",
+    10,
+    "9ef88fd65e4e"
+   ],
+   [
+    "Infinite Dendrogram",
+    11,
+    "c324a9257427"
+   ],
+   [
+    "Infinite Dendrogram",
+    12,
+    "2789e4a37df5"
+   ],
+   [
+    "Infinite Dendrogram",
+    13,
+    "5ca395cf54ab"
+   ],
+   [
+    "Infinite Dendrogram",
+    14,
+    "7b624b63c552"
+   ],
+   [
+    "Infinite Dendrogram",
+    15,
+    "53208e4e66d5"
+   ],
+   [
+    "Infinite Dendrogram",
+    16,
+    "0909245a7cf6"
+   ],
+   [
+    "Infinite Dendrogram",
+    17,
+    "3b3532602330"
+   ],
+   [
+    "Infinite Dendrogram",
+    18,
+    "c1096f0b700e"
+   ],
+   [
+    "Infinite Dendrogram",
+    19,
+    "60e762ac117c"
+   ],
+   [
+    "Infinite Dendrogram",
+    20,
+    "931f954a444f"
+   ],
+   [
+    "Infinite Dendrogram",
+    21,
+    "585cc1f5b6a8"
+   ],
+   [
+    "Infinite Dendrogram",
+    22,
+    "348fd9050a74"
+   ],
+   [
+    "Infinite Dendrogram",
+    23,
+    "ca91118c0566"
+   ],
+   [
+    "Ishura",
+    1,
+    "9cedeb5a423b"
+   ],
+   [
+    "Ishura",
+    2,
+    "e04dae298498"
+   ],
+   [
+    "Ishura",
+    3,
+    "020a3660a105"
+   ],
+   [
+    "Ishura",
+    4,
+    "244e3e6a5cdd"
+   ],
+   [
+    "Ishura",
+    5,
+    "4ee8f89c8843"
+   ],
+   [
+    "Ishura",
+    6,
+    "fecca2f6502d"
+   ],
+   [
+    "Ishura",
+    7,
+    "aa58dba375d3"
+   ],
+   [
+    "Ishura",
+    8,
+    "5eadc57bf61c"
+   ],
+   [
+    "Ishura",
+    9,
+    "e46bb4ef22a8"
+   ],
+   [
+    "Ishura",
+    10,
+    "3711a0c21226"
+   ],
+   [
+    "JoJo's Bizarre Adventure Novels",
+    null,
+    "bd9d60ca095f",
+    "Jorge Joestar"
+   ],
+   [
+    "JoJo's Bizarre Adventure Novels",
+    null,
+    "541385e89097",
+    "Over Heaven"
+   ],
+   [
+    "JoJo's Bizarre Adventure Novels",
+    null,
+    "d223d9044185",
+    "Purple Haze Feedback"
+   ],
+   [
+    "JoJo's Bizarre Adventure Novels",
+    null,
+    "fab4a992c513",
+    "Purple Smoke Distortion"
+   ],
+   [
+    "JoJo's Bizarre Adventure Novels",
+    null,
+    "126835b39a75",
+    "The Book: 4th Another Day"
+   ],
+   [
+    "JoJo's Bizarre Adventure Novels",
+    null,
+    "474ad4b62ebe",
+    "fan translation compilation (Genesis of Universe etc.)"
+   ],
+   [
+    "Jujutsu Kaisen Novels",
+    1,
+    "288e6158697e",
+    "Summer of Ashes, Autumn of Dust"
+   ],
+   [
+    "Jujutsu Kaisen Novels",
+    2,
+    "9f91aea0c46e",
+    "Thorny Road at Dawn"
+   ],
+   [
+    "Konosuba",
+    1,
+    "dc40d08cff75"
+   ],
+   [
+    "Konosuba",
+    2,
+    "9e78deb84593"
+   ],
+   [
+    "Konosuba",
+    3,
+    "3599e07ea6ac"
+   ],
+   [
+    "Konosuba",
+    4,
+    "8158bf64a191"
+   ],
+   [
+    "Konosuba",
+    5,
+    "dff46bdb3491"
+   ],
+   [
+    "Konosuba",
+    6,
+    "2fb16c64a977"
+   ],
+   [
+    "Konosuba",
+    7,
+    "1a8f4effef96"
+   ],
+   [
+    "Konosuba",
+    8,
+    "754a8252e221"
+   ],
+   [
+    "Konosuba",
+    9,
+    "91cb7faa153f"
+   ],
+   [
+    "Konosuba",
+    10,
+    "4c1e042a1ec0"
+   ],
+   [
+    "Konosuba",
+    11,
+    "1dbb4cb220cf"
+   ],
+   [
+    "Konosuba",
+    12,
+    "c18cff2b2f62"
+   ],
+   [
+    "Konosuba",
+    13,
+    "3a38efcf59a4"
+   ],
+   [
+    "Konosuba",
+    14,
+    "5b5e0814a292"
+   ],
+   [
+    "Konosuba",
+    15,
+    "3cb8b980d4f9"
+   ],
+   [
+    "Konosuba",
+    16,
+    "a5a65c754b6a"
+   ],
+   [
+    "Konosuba",
+    17,
+    "a8ded73cd7b0"
+   ],
+   [
+    "Lazy Dungeon Master",
+    1,
+    "c32b6c453f89"
+   ],
+   [
+    "Lazy Dungeon Master",
+    2,
+    "b763a6969f9a"
+   ],
+   [
+    "Lazy Dungeon Master",
+    3,
+    "76d99ad701ab"
+   ],
+   [
+    "Log Horizon",
+    1,
+    "fe05c723919e"
+   ],
+   [
+    "Log Horizon",
+    2,
+    "5c70f361da73",
+    "The Knights of Camelot"
+   ],
+   [
+    "Log Horizon",
+    5,
+    "dc36cadd51d4",
+    "A Sunday in Akiba"
+   ],
+   [
+    "Log Horizon",
+    6,
+    "74401adb76f1",
+    "Lost Child of the Dawn"
+   ],
+   [
+    "Log Horizon",
+    7,
+    "d84b3da99173",
+    "The Gold of the Kunie"
+   ],
+   [
+    "Log Horizon",
+    8,
+    "06dd3d1d279f",
+    "The Larks Take Flight"
+   ],
+   [
+    "Log Horizon",
+    9,
+    "f59d2cd871b4",
+    "Go East, Kanami!"
+   ],
+   [
+    "Log Horizon",
+    10,
+    "f1b1abdb6821",
+    "Homesteading the Noosphere"
+   ],
+   [
+    "Log Horizon",
+    11,
+    "46f3f9fcc723",
+    "Krusty, Tycoon Lord"
+   ],
+   [
+    "Lord El-Melloi II Case Files",
+    1,
+    "01f9553d255b"
+   ],
+   [
+    "Lord El-Melloi II Case Files",
+    2,
+    "1322176bd7a2"
+   ],
+   [
+    "Lord El-Melloi II Case Files",
+    3,
+    "bb67c374d3dc"
+   ],
+   [
+    "Lord El-Melloi II Case Files",
+    4,
+    "17cb8deac33e"
+   ],
+   [
+    "Lout of Count's Family",
+    1,
+    "6adeb7b748a2"
+   ],
+   [
+    "Lout of Count's Family",
+    2,
+    "cfece05c881e"
+   ],
+   [
+    "Lout of Count's Family",
+    3,
+    "12a462f2d9ee"
+   ],
+   [
+    "Lout of Count's Family",
+    4,
+    "41a754637f73"
+   ],
+   [
+    "Lout of Count's Family",
+    5,
+    "d8d5c0322d85"
+   ],
+   [
+    "Lout of Count's Family",
+    6,
+    "beef76c201f1"
+   ],
+   [
+    "Lout of Count's Family",
+    7,
+    "6cb17087ba44"
+   ],
+   [
+    "Lout of Count's Family",
+    8,
+    "2315031cf425"
+   ],
+   [
+    "Lout of Count's Family",
+    9,
+    "b1f46ce31199"
+   ],
+   [
+    "Lout of Count's Family",
+    null,
+    "1c85d663510a",
+    "web novel Part I, 776 chapters"
+   ],
+   [
+    "Making Magic",
+    1,
+    "375b79efe269"
+   ],
+   [
+    "Making Magic",
+    2,
+    "b4e13a76ed1f"
+   ],
+   [
+    "Making Magic",
+    3,
+    "297b6ac7351b"
+   ],
+   [
+    "Min-Maxing My TRPG Build in Another World",
+    1,
+    "c11861c3cf90"
+   ],
+   [
+    "Min-Maxing My TRPG Build in Another World",
+    2,
+    "15934279069f"
+   ],
+   [
+    "Mist [Unlimited]",
+    null,
+    "127a5d4c65b8"
+   ],
+   [
+    "Monster Tamer",
+    1,
+    "1cb97260b585"
+   ],
+   [
+    "Monster Tamer",
+    2,
+    "5d5301c93f94"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    1,
+    "09cbd64be631"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    2,
+    "9d7ae9b0eac8"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    3,
+    "48a8b2f7fe41"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    4,
+    "2d116148c04c"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    5,
+    "37afd42cc383"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    6,
+    "e6084b56e863"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    7,
+    "88738f580111"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    8,
+    "4c799537dcd7"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    9,
+    "02baa7061975"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    10,
+    "04fef640e6ca"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    11,
+    "4d7444d1ceaa"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    12,
+    "80fa1bed7d10"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    13,
+    "dc1ce1e00a83"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    14,
+    "73ab0cf92e5d"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    15,
+    "a4214addada6"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    16,
+    "4f333be7b525"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    17,
+    "fcc032e15c0c"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    18,
+    "c935053ff392"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    19,
+    "98fb80395146"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    20,
+    "470a0235d035"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    21,
+    "44399ac130e4"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    22,
+    "ee38432b3076"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    23,
+    "275933f0977f"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    24,
+    "cb7b11edd4c0"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    25,
+    "cf7278e7f09c"
+   ],
+   [
+    "Mushoku Tensei: Jobless Reincarnation",
+    26,
+    "32628992a91c"
+   ],
+   [
+    "Naruto Hiden",
+    1,
+    "3e04a9be7f83",
+    "Akatsuki Hiden: Evil Flowers in Full Bloom"
+   ],
+   [
+    "Naruto Hiden",
+    2,
+    "7efca481177b",
+    "Gaara Hiden: A Sandstorm Mirage"
+   ],
+   [
+    "Naruto Hiden",
+    4,
+    "0b72130aebb5",
+    "Konoha Hiden: The Perfect Day for a Wedding"
+   ],
+   [
+    "Naruto Hiden",
+    6,
+    "ff2fc1a45280",
+    "Sakura Hiden"
+   ],
+   [
+    "Naruto Hiden",
+    8,
+    "42e0cac34396",
+    "Itachi Shinden: Book of Bright Light"
+   ],
+   [
+    "Naruto Hiden",
+    9,
+    "4be0195bc347",
+    "Kakashi Hiden: Lightning in the Icy Sky"
+   ],
+   [
+    "Naruto Hiden",
+    10,
+    "1b8b63e34f3d",
+    "Sasuke Shinden: Book of Sunrise"
+   ],
+   [
+    "Naruto Hiden",
+    11,
+    "2b8ae7bbddd1",
+    "Shikamaru Hiden: A Cloud Drifting in Silent Darkness"
+   ],
+   [
+    "Naruto Retsuden",
+    null,
+    "a93296d4d4ea",
+    "Kakashi's Story: The Sixth Hokage and the Failed Prince"
+   ],
+   [
+    "Naruto Retsuden",
+    null,
+    "7a7a5d8dd80f",
+    "Naruto's Story: Uzumaki Naruto and the Spiral Destiny"
+   ],
+   [
+    "Naruto Retsuden",
+    null,
+    "fc6037a2566c",
+    "Sasuke's Story: Star Pupil"
+   ],
+   [
+    "No Game No Life",
+    1,
+    "a1f8bee0b875"
+   ],
+   [
+    "No Game No Life",
+    2,
+    "3c4606bd1a4d"
+   ],
+   [
+    "No Game No Life",
+    3,
+    "6ce57e179a1f"
+   ],
+   [
+    "No Game No Life",
+    4,
+    "1b33e534931d"
+   ],
+   [
+    "No Game No Life",
+    5,
+    "78c36a4099b9"
+   ],
+   [
+    "No Game No Life",
+    6,
+    "582fb362815c"
+   ],
+   [
+    "No Game No Life",
+    7,
+    "33fd4f288e17"
+   ],
+   [
+    "No Game No Life",
+    8,
+    "c82a68451b69"
+   ],
+   [
+    "No Game No Life",
+    9,
+    "8646be0fccb6"
+   ],
+   [
+    "No Game No Life",
+    10,
+    "576b7be1ccb6"
+   ],
+   [
+    "No Game No Life",
+    11,
+    "446fab547d83"
+   ],
+   [
+    "No Game No Life",
+    12,
+    "23c10f510ffd"
+   ],
+   [
+    "Overgeared",
+    null,
+    "b1201c8124ac",
+    "compilation"
+   ],
+   [
+    "Overlord",
+    1,
+    "2279c0fa95af"
+   ],
+   [
+    "Overlord",
+    2,
+    "97d1f58bdea4"
+   ],
+   [
+    "Overlord",
+    3,
+    "2c97ffc2c8b5"
+   ],
+   [
+    "Overlord",
+    4,
+    "c6ebdba46e8d"
+   ],
+   [
+    "Overlord",
+    5,
+    "97d474aa79ee"
+   ],
+   [
+    "Overlord",
+    6,
+    "7c36bcb192c5"
+   ],
+   [
+    "Overlord",
+    7,
+    "5c2f38bd19fc"
+   ],
+   [
+    "Overlord",
+    8,
+    "5859391d1d09"
+   ],
+   [
+    "Overlord",
+    9,
+    "9852db699a58"
+   ],
+   [
+    "Overlord",
+    10,
+    "dce359df9eba"
+   ],
+   [
+    "Overlord",
+    11,
+    "4d822176a454"
+   ],
+   [
+    "Overlord",
+    12,
+    "79d91f50c2c0"
+   ],
+   [
+    "Overlord",
+    13,
+    "e9af2c143038"
+   ],
+   [
+    "Overlord",
+    14,
+    "1a4bca01ace9"
+   ],
+   [
+    "Overlord",
+    15,
+    "fea8a3198e44"
+   ],
+   [
+    "Overlord",
+    16,
+    "d33551579f50"
+   ],
+   [
+    "Re:Monster",
+    1,
+    "608fcec32e9e"
+   ],
+   [
+    "Re:Monster",
+    2,
+    "7f9033245ef7"
+   ],
+   [
+    "Re:Monster",
+    3,
+    "3e4a88d22160"
+   ],
+   [
+    "Re:Monster",
+    4,
+    "074ac53eafcb"
+   ],
+   [
+    "Re:Monster",
+    5,
+    "82c5405b50bd"
+   ],
+   [
+    "Re:Monster",
+    6,
+    "f7183e260781"
+   ],
+   [
+    "Re:Monster",
+    7,
+    "4e2ba9a598a3"
+   ],
+   [
+    "Re:Zero",
+    1,
+    "3266ed9252f6"
+   ],
+   [
+    "Re:Zero",
+    2,
+    "64952c24a372"
+   ],
+   [
+    "Re:Zero",
+    3,
+    "e70185f3ac03"
+   ],
+   [
+    "Re:Zero",
+    4,
+    "839a94720318"
+   ],
+   [
+    "Re:Zero",
+    5,
+    "d90238041deb"
+   ],
+   [
+    "Re:Zero",
+    6,
+    "845318439277"
+   ],
+   [
+    "Re:Zero",
+    7,
+    "7df3ca14cfbf"
+   ],
+   [
+    "Re:Zero",
+    8,
+    "ec64d36f76e2"
+   ],
+   [
+    "Re:Zero",
+    9,
+    "d045f2a3adcf"
+   ],
+   [
+    "Re:Zero",
+    10,
+    "01b367fd6cd7"
+   ],
+   [
+    "Re:Zero",
+    11,
+    "dd86f4d83504"
+   ],
+   [
+    "Re:Zero",
+    12,
+    "ec331adade35"
+   ],
+   [
+    "Re:Zero",
+    13,
+    "d41da18d611e"
+   ],
+   [
+    "Re:Zero",
+    14,
+    "e16c91ee16c9"
+   ],
+   [
+    "Re:Zero",
+    15,
+    "d6f00544e089"
+   ],
+   [
+    "Re:Zero",
+    16,
+    "b7c4985089bc"
+   ],
+   [
+    "Re:Zero",
+    17,
+    "15a66278f4ff"
+   ],
+   [
+    "Re:Zero",
+    18,
+    "1b093c74ace7"
+   ],
+   [
+    "Re:Zero",
+    19,
+    "17ac166a4331"
+   ],
+   [
+    "Re:Zero",
+    20,
+    "24f2bae41d1b"
+   ],
+   [
+    "Re:Zero",
+    21,
+    "8267c969d548"
+   ],
+   [
+    "Re:Zero",
+    22,
+    "5f14a2b0e0f4"
+   ],
+   [
+    "Re:Zero",
+    23,
+    "bc60017fb468"
+   ],
+   [
+    "Re:Zero",
+    24,
+    "ed9d225b56a6"
+   ],
+   [
+    "Re:Zero",
+    25,
+    "1042abcb46d1"
+   ],
+   [
+    "Re:Zero",
+    26,
+    "8d240b05cc3b"
+   ],
+   [
+    "Re:Zero",
+    27,
+    "404160252465"
+   ],
+   [
+    "Re:Zero",
+    28,
+    "4f165fca8b5b"
+   ],
+   [
+    "Re:Zero",
+    29,
+    "4dd2c7ae4ed3"
+   ],
+   [
+    "Re:Zero Ex",
+    1,
+    "1f4096cffd24",
+    "The Dream of the Lion King"
+   ],
+   [
+    "Re:Zero Ex",
+    2,
+    "70672849bdd1",
+    "The Love Song of the Sword Devil"
+   ],
+   [
+    "Re:Zero Ex",
+    3,
+    "02e10ce155a7",
+    "The Love Ballad of the Sword Devil"
+   ],
+   [
+    "Re:Zero Ex",
+    4,
+    "74f3ff4da278",
+    "The Great Journeys"
+   ],
+   [
+    "Re:Zero Ex",
+    5,
+    "687024a4a2b6",
+    "The Tale of the Scarlet Princess"
+   ],
+   [
+    "Re:Zero Ex",
+    6,
+    "1c95758badcf",
+    "The Battle Hymn of the Sword Devil"
+   ],
+   [
+    "Re:Zero Short Story Collection",
+    1,
+    "fa1210364adf"
+   ],
+   [
+    "Re:Zero Short Story Collection",
+    2,
+    "aac3af6b6b3a"
+   ],
+   [
+    "Re:Zero Short Story Collection",
+    3,
+    "81cfeaa005b5"
+   ],
+   [
+    "Re:Zero Short Story Collection",
+    4,
+    "60146d5e4cca"
+   ],
+   [
+    "Re:Zero Short Story Collection",
+    5,
+    "8cc8393ee606"
+   ],
+   [
+    "Re:Zero Web Novel",
+    1,
+    "3ed1513eb266",
+    "Arc 1: A Tumultuous First Day"
+   ],
+   [
+    "Re:Zero Web Novel",
+    2,
+    "95325d69544e",
+    "Arc 2: The Chaotic Week, chapters 1-49 (Eminent Translations; 20-49 via Pandemonium Transla"
+   ],
+   [
+    "Re:Zero Web Novel",
+    5,
+    "b1bfb8f6ccef",
+    "Arc 5: Stars What Make History"
+   ],
+   [
+    "Re:Zero Web Novel",
+    6,
+    "bfc232bd8c65",
+    "Arc 6: Hall of Memories"
+   ],
+   [
+    "Re:Zero Web Novel",
+    8,
+    "85d8c6be215f",
+    "Arc 8: Vincent Vollachia"
+   ],
+   [
+    "Re:Zero Web Novel",
+    9,
+    "f2dc129a2220",
+    "Arc 9: Light of a Nameless Star"
+   ],
+   [
+    "Re:Zero Web Novel",
+    10,
+    "91bbcc411cc1",
+    "Arc 10: The Land of the Lion Kings"
+   ],
+   [
+    "Reborn as a Vending Machine",
+    1,
+    "d9c114cd3eae"
+   ],
+   [
+    "Reborn as a Vending Machine",
+    2,
+    "908c61290071"
+   ],
+   [
+    "Reborn as a Vending Machine",
+    3,
+    "0f7d91f09f87"
+   ],
+   [
+    "Reincarnated as a Sword",
+    1,
+    "73424962db62"
+   ],
+   [
+    "Reincarnated as a Sword",
+    2,
+    "5bbaa8a9fbe6"
+   ],
+   [
+    "Reincarnated as a Sword",
+    3,
+    "ccb54d8c68bd"
+   ],
+   [
+    "Reincarnated as a Sword",
+    4,
+    "0f73534c78e9"
+   ],
+   [
+    "Reincarnated as a Sword",
+    5,
+    "2a1e10f365bb"
+   ],
+   [
+    "Reincarnated as a Sword",
+    6,
+    "74fc19dcb36a"
+   ],
+   [
+    "Reincarnated as a Sword",
+    7,
+    "3679dea4c770"
+   ],
+   [
+    "Reincarnated as a Sword",
+    8,
+    "ae3117c353cf"
+   ],
+   [
+    "Reincarnated as a Sword",
+    9,
+    "5e756ec0c339"
+   ],
+   [
+    "Reincarnated as a Sword",
+    10,
+    "53c70c790b61"
+   ],
+   [
+    "Reincarnated as a Sword",
+    11,
+    "9f6e386d9627"
+   ],
+   [
+    "Reincarnated as a Sword",
+    12,
+    "daae13f9e584"
+   ],
+   [
+    "Reincarnated as a Sword",
+    13,
+    "f6fc3735aaa9"
+   ],
+   [
+    "Reincarnated as a Sword",
+    14,
+    "ae2e51b6d6cf"
+   ],
+   [
+    "Reincarnated as a Sword",
+    15,
+    "4438a1c6915d"
+   ],
+   [
+    "Reincarnated as a Sword",
+    16,
+    "a931b64fb20b"
+   ],
+   [
+    "Reincarnated as a Sword",
+    17,
+    "3c868a3310da"
+   ],
+   [
+    "Reincarnated as a Sword",
+    18,
+    "2fdb7962c51d"
+   ],
+   [
+    "Reincarnated as a Sword",
+    19,
+    "6eddd9075427"
+   ],
+   [
+    "Reincarnation Paradise",
+    null,
+    "67f15d112389",
+    "machine translation (gemini-2.5-flash)"
+   ],
+   [
+    "Release That Witch",
+    null,
+    "efd64a259e23",
+    "chapters 1-1499"
+   ],
+   [
+    "Second Life Ranker",
+    null,
+    "8bce4c52d83a",
+    "chapters 1-805, NovelGet scrape"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    1,
+    "41d1210ff795"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    2,
+    "aeb6268c0b86"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    3,
+    "c6fb3ce87005"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    4,
+    "e6329b35c62d"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    5,
+    "ff293a4bc5f7"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    6,
+    "aed746ef634e"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    7,
+    "4a6e9658d3d8"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    8,
+    "ad22aa8a6f81"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    9,
+    "1ffb3bdfcd71"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    10,
+    "9115e7ad833c"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    11,
+    "3578a50a1043"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    12,
+    "bb5f38de671b"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    13,
+    "3485e3761472"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    14,
+    "b4bc3219d09f"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    15,
+    "5752e1b896dc"
+   ],
+   [
+    "So I'm a Spider, So What?",
+    16,
+    "330bdcf63a50"
+   ],
+   [
+    "Solo Leveling",
+    1,
+    "477d072d7283"
+   ],
+   [
+    "Solo Leveling",
+    2,
+    "e854837222be"
+   ],
+   [
+    "Solo Leveling",
+    3,
+    "13935b19ee43"
+   ],
+   [
+    "Solo Leveling",
+    4,
+    "eecfb808f8e5"
+   ],
+   [
+    "Solo Leveling",
+    5,
+    "4d9e9df337a2"
+   ],
+   [
+    "Solo Leveling",
+    6,
+    "20abc7c4d348"
+   ],
+   [
+    "Solo Leveling",
+    7,
+    "e2bedb257152"
+   ],
+   [
+    "Solo Leveling",
+    8,
+    "ee036db296e9"
+   ],
+   [
+    "Solo Leveling",
+    null,
+    "15fa260dd549",
+    "web novel text"
+   ],
+   [
+    "Spice & Wolf",
+    null,
+    "6ed5f2970bd8",
+    "omnibus"
+   ],
+   [
+    "SSS-Class Suicide Hunter",
+    null,
+    "1835d07f350f"
+   ],
+   [
+    "Sword Art Online Progressive",
+    1,
+    "4d50861d2e8a"
+   ],
+   [
+    "Sword Art Online Progressive",
+    2,
+    "e481375a7b94"
+   ],
+   [
+    "Sword Art Online Progressive",
+    3,
+    "3a1a2d298d8b"
+   ],
+   [
+    "Sword Art Online Progressive",
+    4,
+    "4b9dea07a438"
+   ],
+   [
+    "Sword Art Online Progressive",
+    5,
+    "cbc9adc9fb7d"
+   ],
+   [
+    "Sword Art Online Progressive",
+    6,
+    "dbc0906cb097"
+   ],
+   [
+    "Sword Art Online Progressive",
+    7,
+    "a3570b363b21"
+   ],
+   [
+    "Sword Art Online Progressive",
+    8,
+    "ebb2c23a311a"
+   ],
+   [
+    "Sword Art Online Progressive",
+    9,
+    "fb6332f208b9"
+   ],
+   [
+    "Terror Infinity",
+    null,
+    "9f45a7f26cdf",
+    "NovelGet scrape"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    1,
+    "2ae93cac5b98"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    2,
+    "ad8148553e9d"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    3,
+    "4bcb68aab360"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    4,
+    "e20e025e03ff"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    5,
+    "2e4a8001aaea"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    6,
+    "d8ccd0631d58"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    7,
+    "356cd2dbd323"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    8,
+    "48fab99b1eb5"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    9,
+    "367592d54fa8"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    10,
+    "378e47589f91"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    11,
+    "8ca6ddb221d6"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    12,
+    "2fbf40f418f2"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    13,
+    "720196815a78"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    14,
+    "2d305a998a0e"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    15,
+    "5a107aca86df"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    16,
+    "69a400546c54"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    17,
+    "e7d40d083f4d"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    18,
+    "a623662656b7"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    19,
+    "368452b72ce5"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    20,
+    "2752691a3e7e"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    21,
+    "1b9e21f8b872"
+   ],
+   [
+    "That Time I Got Reincarnated as a Slime",
+    22,
+    "08a65be45b4c"
+   ],
+   [
+    "The Apothecary Diaries",
+    1,
+    "58fe87b6a7b5"
+   ],
+   [
+    "The Apothecary Diaries",
+    2,
+    "722ba70072b8"
+   ],
+   [
+    "The Apothecary Diaries",
+    3,
+    "fbcd529e5ae6"
+   ],
+   [
+    "The Apothecary Diaries",
+    4,
+    "62bd7a0f1da2"
+   ],
+   [
+    "The Apothecary Diaries",
+    5,
+    "2bc0a980c28a"
+   ],
+   [
+    "The Apothecary Diaries",
+    6,
+    "0d61c53ca4cf"
+   ],
+   [
+    "The Apothecary Diaries",
+    7,
+    "f8d5cd0383fd"
+   ],
+   [
+    "The Apothecary Diaries",
+    8,
+    "104e27dfbe0b"
+   ],
+   [
+    "The Apothecary Diaries",
+    9,
+    "b65fd273912b"
+   ],
+   [
+    "The Apothecary Diaries",
+    10,
+    "d788b724d740"
+   ],
+   [
+    "The Apothecary Diaries",
+    11,
+    "fa3475d84494"
+   ],
+   [
+    "The Apothecary Diaries",
+    12,
+    "3965943c50c8"
+   ],
+   [
+    "The Apothecary Diaries",
+    13,
+    "815f6cfa6a02"
+   ],
+   [
+    "The Apothecary Diaries",
+    14,
+    "3c063b3b2226"
+   ],
+   [
+    "The Apothecary Diaries",
+    15,
+    "dc718d8268e6"
+   ],
+   [
+    "The Apothecary Diaries",
+    16,
+    "2b2bae0a7e75"
+   ],
+   [
+    "The Irregular at Magic High School",
+    1,
+    "f46636cc0495",
+    "Enrollment Arc, Part I"
+   ],
+   [
+    "The Irregular at Magic High School",
+    2,
+    "078e0a77359c",
+    "Enrollment Arc, Part II"
+   ],
+   [
+    "The Irregular at Magic High School",
+    3,
+    "c3082995a370",
+    "Nine School Competition Arc, Part I"
+   ],
+   [
+    "The Irregular at Magic High School",
+    4,
+    "491cb5970bef",
+    "Nine School Competition Arc, Part II"
+   ],
+   [
+    "The Irregular at Magic High School",
+    5,
+    "d4436308e72b",
+    "Summer Vacation Arc+1"
+   ],
+   [
+    "The Irregular at Magic High School",
+    6,
+    "f9dc45d838b5",
+    "Yokohama Disturbance Arc, Part I"
+   ],
+   [
+    "The Irregular at Magic High School",
+    7,
+    "fb7755e78fb7"
+   ],
+   [
+    "The Irregular at Magic High School",
+    8,
+    "29b2386e2c2e"
+   ],
+   [
+    "The Irregular at Magic High School",
+    9,
+    "cd6a5496ba08"
+   ],
+   [
+    "The Irregular at Magic High School",
+    10,
+    "134fca8c45e5"
+   ],
+   [
+    "The Irregular at Magic High School",
+    11,
+    "345e6e665f86"
+   ],
+   [
+    "The Irregular at Magic High School",
+    12,
+    "38237e1c2ee2"
+   ],
+   [
+    "The Irregular at Magic High School",
+    13,
+    "810b1b7637a6"
+   ],
+   [
+    "The Irregular at Magic High School",
+    14,
+    "55c9bc792c9e"
+   ],
+   [
+    "The Irregular at Magic High School",
+    15,
+    "8bd2a637c197"
+   ],
+   [
+    "The Irregular at Magic High School",
+    16,
+    "011acc609a4d"
+   ],
+   [
+    "The Irregular at Magic High School",
+    17,
+    "2f510cbaab80"
+   ],
+   [
+    "The Irregular at Magic High School",
+    18,
+    "a390c5eea64d"
+   ],
+   [
+    "The Irregular at Magic High School",
+    19,
+    "5c10056bf92f"
+   ],
+   [
+    "The Irregular at Magic High School",
+    20,
+    "2d5877847d21"
+   ],
+   [
+    "The Irregular at Magic High School",
+    21,
+    "e3b576fcc8dd"
+   ],
+   [
+    "The Irregular at Magic High School",
+    22,
+    "8a5ec9ff8967"
+   ],
+   [
+    "The Irregular at Magic High School",
+    23,
+    "04d3274b448d"
+   ],
+   [
+    "The Irregular at Magic High School",
+    24,
+    "0c33076a611e"
+   ],
+   [
+    "The Irregular at Magic High School",
+    25,
+    "d2fd7981a632"
+   ],
+   [
+    "The Irregular at Magic High School",
+    26,
+    "6635a4d5a2fd"
+   ],
+   [
+    "The Irregular at Magic High School",
+    27,
+    "7443e032ba66",
+    "Sudden Change Arc"
+   ],
+   [
+    "The Second Coming of Gluttony",
+    null,
+    "9fbe0ad7edfd"
+   ],
+   [
+    "The Tutorial Is Too Hard",
+    1,
+    "d9e940cd199c",
+    "anthology"
+   ],
+   [
+    "The Twelve Kingdoms",
+    1,
+    "1258fabdcaac",
+    "Shadow of the Moon, Shadow of the Sea, Part 1"
+   ],
+   [
+    "The Twelve Kingdoms",
+    2,
+    "d347378f8c3d",
+    "Shadow of the Moon, Shadow of the Sea, Part 2"
+   ],
+   [
+    "The Twelve Kingdoms",
+    3,
+    "b3d9520b1ec8",
+    "Sea of Wind, Shore of the Labyrinth"
+   ],
+   [
+    "The Twelve Kingdoms",
+    5,
+    "dbd9e96efded",
+    "Tonan no Tsubasa"
+   ],
+   [
+    "The Twelve Kingdoms",
+    6,
+    "d546e12d1bc0",
+    "Tasogare no Kishi, Akatsuki no Sora"
+   ],
+   [
+    "The Twelve Kingdoms",
+    7,
+    "e32d8a781a89",
+    "Kasho no Yume"
+   ],
+   [
+    "The Twelve Kingdoms",
+    8,
+    "611966e4d75e",
+    "Hisho no Tori"
+   ],
+   [
+    "The Twelve Kingdoms",
+    9,
+    "73fffc4eee9e",
+    "Hakugin no Oka, Kuro no Tsuki"
+   ],
+   [
+    "The Twelve Kingdoms",
+    null,
+    "229798120187",
+    "Demon Child (extra story)"
+   ],
+   [
+    "Throne of Magical Arcana",
+    null,
+    "ce30d3016be7",
+    "chapters 1-910"
+   ],
+   [
+    "Warlock of the Magus World",
+    null,
+    "51567bca0673",
+    "chapters 1-1201"
+   ]
+  ],
+  "12 Young Adult": [
+   [
+    "Daughter of the Deep",
+    null,
+    "4d4930b7e696"
+   ],
+   [
+    "His Dark Materials",
+    null,
+    "4bc25f54c3c2",
+    "complete trilogy"
+   ],
+   [
+    "Magnus Chase and the Gods of Asgard",
+    1,
+    "8d9f4a27a2f2",
+    "The Sword of Summer"
+   ],
+   [
+    "Magnus Chase and the Gods of Asgard",
+    2,
+    "3b8f46d0fc6b",
+    "The Hammer of Thor"
+   ],
+   [
+    "Magnus Chase and the Gods of Asgard",
+    3,
+    "467d01968b72",
+    "The Ship of the Dead"
+   ],
+   [
+    "Magnus Chase and the Gods of Asgard",
+    null,
+    "4e1388d9f4b1",
+    "9 from the Nine Worlds"
+   ],
+   [
+    "Percy Jackson and the Olympians",
+    1,
+    "2c00ca15d5af",
+    "The Lightning Thief"
+   ],
+   [
+    "Percy Jackson and the Olympians",
+    2,
+    "4e41829181a7",
+    "The Sea of Monsters"
+   ],
+   [
+    "Percy Jackson and the Olympians",
+    3,
+    "a4214894abf3",
+    "The Titan's Curse"
+   ],
+   [
+    "Percy Jackson and the Olympians",
+    4,
+    "c7101437e159",
+    "The Battle of the Labyrinth"
+   ],
+   [
+    "Percy Jackson and the Olympians",
+    5,
+    "7612c5a17001",
+    "The Last Olympian"
+   ],
+   [
+    "Percy Jackson and the Olympians",
+    6,
+    "94357e68f601",
+    "The Chalice of the Gods"
+   ],
+   [
+    "Percy Jackson and the Olympians",
+    7,
+    "afad14999bd7",
+    "Wrath of the Triple Goddess"
+   ],
+   [
+    "Percy Jackson and the Olympians",
+    null,
+    "50ce92928d38",
+    "The Demigod Files"
+   ],
+   [
+    "Percy Jackson's Greek Myths",
+    1,
+    "a3c543ab8c65",
+    "Greek Gods"
+   ],
+   [
+    "Percy Jackson's Greek Myths",
+    2,
+    "cf57338d8173",
+    "Greek Heroes"
+   ],
+   [
+    "The Heroes of Olympus",
+    1,
+    "0eb6cc1f0a5b",
+    "The Lost Hero"
+   ],
+   [
+    "The Heroes of Olympus",
+    2,
+    "87a8954d0917",
+    "The Son of Neptune"
+   ],
+   [
+    "The Heroes of Olympus",
+    3,
+    "ffe3ca41f07b",
+    "The Mark of Athena"
+   ],
+   [
+    "The Heroes of Olympus",
+    4,
+    "dbdda4840e41",
+    "The House of Hades"
+   ],
+   [
+    "The Heroes of Olympus",
+    5,
+    "ad0ab6ddd2a3",
+    "The Blood of Olympus"
+   ],
+   [
+    "The Heroes of Olympus",
+    null,
+    "4a37701cca66",
+    "The Demigod Diaries"
+   ],
+   [
+    "The Hunger Games",
+    1,
+    "78a74a7bbc34"
+   ],
+   [
+    "The Hunger Games",
+    2,
+    "e6022ed26c8e",
+    "Catching Fire"
+   ],
+   [
+    "The Hunger Games",
+    3,
+    "bd1a8ba23125",
+    "Mockingjay"
+   ],
+   [
+    "The Hunger Games",
+    null,
+    "2b7e8b4db917",
+    "Sunrise on the Reaping (prequel)"
+   ],
+   [
+    "The Hunger Games",
+    null,
+    "301c3abdfdad",
+    "The Ballad of Songbirds and Snakes (prequel)"
+   ],
+   [
+    "The Kane Chronicles",
+    null,
+    "3ff43b79b45c",
+    "complete trilogy"
+   ],
+   [
+    "The Sun and the Star",
+    null,
+    "16a0dfadea7f"
+   ],
+   [
+    "The Trials of Apollo",
+    1,
+    "96f983adfaa3",
+    "The Hidden Oracle"
+   ],
+   [
+    "The Trials of Apollo",
+    2,
+    "193d7c3c4d2b",
+    "The Dark Prophecy"
+   ],
+   [
+    "The Trials of Apollo",
+    3,
+    "975952b37daa",
+    "The Burning Maze"
+   ],
+   [
+    "The Trials of Apollo",
+    4,
+    "0f02e886d52d",
+    "The Tyrant's Tomb"
+   ],
+   [
+    "The Trials of Apollo",
+    5,
+    "270fe73347a1",
+    "The Tower of Nero"
+   ],
+   [
+    "The Trials of Apollo",
+    null,
+    "1c3e4c6c47c6",
+    "Percy Jackson and the Singer of Apollo"
+   ]
+  ],
+  "13 Manga & Comics": [
+   [
+    "Frieren: Beyond Journey's End",
+    1,
+    "85bfadaada07"
+   ],
+   [
+    "Frieren: Beyond Journey's End",
+    2,
+    "079882c719cb"
+   ],
+   [
+    "Frieren: Beyond Journey's End",
+    3,
+    "864e2cfefa89"
+   ],
+   [
+    "Frieren: Beyond Journey's End",
+    4,
+    "95b7ebd30247"
+   ],
+   [
+    "Frieren: Beyond Journey's End",
+    5,
+    "9dd3034729cb"
+   ],
+   [
+    "Frieren: Beyond Journey's End",
+    6,
+    "90237bcf136d"
+   ],
+   [
+    "Frieren: Beyond Journey's End",
+    11,
+    "69ac4cb5a066"
+   ],
+   [
+    "Frieren: Beyond Journey's End",
+    12,
+    "e5187a68e730"
+   ],
+   [
+    "Frieren: Beyond Journey's End",
+    13,
+    "44de504db06b"
+   ],
+   [
+    "Frieren: Beyond Journey's End Prelude",
+    1,
+    "d9c9c4940d64"
+   ],
+   [
+    "Frieren: Beyond Journey's End Prelude",
+    2,
+    "b29abaac9406"
+   ],
+   [
+    "Witch Hat Atelier",
+    1,
+    "879c51d34e72"
+   ],
+   [
+    "Witch Hat Atelier",
+    2,
+    "8b805fcdb007"
+   ],
+   [
+    "Witch Hat Atelier",
+    3,
+    "bcf4c98318d2"
+   ],
+   [
+    "Witch Hat Atelier",
+    4,
+    "da16db77c2d0"
+   ],
+   [
+    "Witch Hat Atelier",
+    5,
+    "f4a57773300c"
+   ],
+   [
+    "Witch Hat Atelier",
+    6,
+    "e7acdcd204e4"
+   ],
+   [
+    "Witch Hat Atelier",
+    13,
+    "98e112fbdba3"
+   ]
+  ],
+  "14 Inbox": [
+   [
+    "The Tyrant Riot",
+    null,
+    "ed432b884633"
+   ]
+  ]
+ }
 }

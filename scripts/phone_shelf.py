@@ -16,6 +16,16 @@ MANIFEST = ROOT / "docs/research/phone_shelf.json"
 CATALOGUE = Path("~/.local/share/source-platform/catalogue.sqlite").expanduser()
 TTKS = ROOT / "docs/research/novels/ttks-novels-2026-10-10"
 TTKS_AUTHORS = {"B1": "软糖鸢尾蓝", "B2": "六大六子", "B3": "皮卡堂布拉特", "B4": "万里万雪", "B5": "斤斤斤"}
+FIXED = (2026, 11, 22, 0, 0, 0)
+
+
+def zi(name):
+    """ZipInfo with a fixed timestamp, so generated EPUBs are byte-identical across builds."""
+    i = zipfile.ZipInfo(name, date_time=FIXED)
+    i.compress_type = zipfile.ZIP_DEFLATED
+    return i
+
+
 AD = re.compile(r"[【(（][^】)）]*(域名|ttk|天天看小說|天天看小说)[^】)）]*[】)）]|\(本章完\)")
 
 
@@ -123,8 +133,9 @@ def build_ttks(code, dst, title, shelf):
     esc = lambda s: html.escape(s, quote=False)
     items, spine, nav, ncx = [], [], [], []
     with zipfile.ZipFile(dst, "w") as z:
-        z.writestr(zipfile.ZipInfo("mimetype"), "application/epub+zip", compress_type=zipfile.ZIP_STORED)
-        z.writestr("META-INF/container.xml", '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>', compress_type=zipfile.ZIP_DEFLATED)
+        m = zipfile.ZipInfo("mimetype", date_time=FIXED)
+        z.writestr(m, "application/epub+zip", compress_type=zipfile.ZIP_STORED)
+        z.writestr(zi("META-INF/container.xml"), '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>')
         for i, (head, body) in enumerate(chs, 1):
             paras = [AD.sub("", p).strip().strip(" ") for p in body.split("\n")]
             paras = [p for p in paras if p and p != head]
@@ -132,18 +143,18 @@ def build_ttks(code, dst, title, shelf):
                      + esc(head) + "</title></head><body><h2>" + esc(head) + "</h2>"
                      + "".join(f"<p>{esc(p)}</p>" for p in paras) + "</body></html>")
             fn = f"c{i:04d}.xhtml"
-            z.writestr("OEBPS/" + fn, xhtml, compress_type=zipfile.ZIP_DEFLATED)
+            z.writestr(zi("OEBPS/" + fn), xhtml)
             items.append(f'<item id="c{i}" href="{fn}" media-type="application/xhtml+xml"/>')
             spine.append(f'<itemref idref="c{i}"/>')
             nav.append(f'<li><a href="{fn}">{esc(head)}</a></li>')
             ncx.append(f'<navPoint id="n{i}" playOrder="{i}"><navLabel><text>{esc(head)}</text></navLabel><content src="{fn}"/></navPoint>')
-        z.writestr("OEBPS/nav.xhtml", '<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>目录</title></head><body><nav epub:type="toc"><ol>' + "".join(nav) + "</ol></nav></body></html>", compress_type=zipfile.ZIP_DEFLATED)
-        z.writestr("OEBPS/toc.ncx", '<?xml version="1.0" encoding="utf-8"?><ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1"><head><meta name="dtb:uid" content="ttks-' + code + '"/></head><docTitle><text>' + esc(title) + "</text></docTitle><navMap>" + "".join(ncx) + "</navMap></ncx>", compress_type=zipfile.ZIP_DEFLATED)
+        z.writestr(zi("OEBPS/nav.xhtml"), '<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>目录</title></head><body><nav epub:type="toc"><ol>' + "".join(nav) + "</ol></nav></body></html>")
+        z.writestr(zi("OEBPS/toc.ncx"), '<?xml version="1.0" encoding="utf-8"?><ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1"><head><meta name="dtb:uid" content="ttks-' + code + '"/></head><docTitle><text>' + esc(title) + "</text></docTitle><navMap>" + "".join(ncx) + "</navMap></ncx>")
         opf = ('<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uid"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/">'
                f'<dc:identifier id="uid">ttks-{code}</dc:identifier><dc:title>{esc(title)}</dc:title><dc:creator>{esc(TTKS_AUTHORS[code])}</dc:creator><dc:language>zh-Hant</dc:language><dc:subject>{esc(shelf)}</dc:subject>'
                '<meta property="dcterms:modified">2026-11-22T00:00:00Z</meta></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/><item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>'
                + "".join(items) + '</manifest><spine toc="ncx">' + "".join(spine) + "</spine></package>")
-        z.writestr("OEBPS/content.opf", opf, compress_type=zipfile.ZIP_DEFLATED)
+        z.writestr(zi("OEBPS/content.opf"), opf)
     return len(chs)
 
 
@@ -151,6 +162,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="~/Documents/Library/Phone Shelf")
     ap.add_argument("--zip", action="store_true")
+    ap.add_argument("--incremental", action="store_true", help="keep outputs that already exist (builds are byte-identical)")
     a = ap.parse_args()
     out = Path(a.out).expanduser()
     m = json.load(open(MANIFEST, encoding="utf8"))
@@ -177,7 +189,9 @@ def main():
             seen[key] = name
             ext = Path(path).suffix.lower()
             dst = out / shelf / (safe(name) + ext)
-            if ext == ".epub":
+            if a.incremental and dst.exists():
+                pass
+            elif ext == ".epub":
                 rewrite_epub(path, dst, name.replace(" [zh]", ""), series.replace(" [zh]", ""), vol, shelf)
             else:
                 dst.write_bytes(Path(path).read_bytes())
