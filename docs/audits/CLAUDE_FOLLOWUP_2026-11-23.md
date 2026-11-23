@@ -56,3 +56,24 @@ Browser findings are agent-verified, with human visual review open.
 Full wave and publication gates remain open. The two Phone Shelf commits
 ahead of the recorded remote were already local before this follow-up.
 Local logs and small Reports captures are in `work/claude-followup-2026-11-23/`.
+
+## Publication follow-up
+
+Weibao asked to commit and push the follow-up. GitHub `master` received the
+Phone Shelf commits, the follow-up notes and expanded manifest in
+`9f9e85ab1`, and the UR178 copy rule and lint in `2bfd5f171`. Both push
+gates passed. The UR178 gate selected 19 tests and all passed.
+
+| Candidate | Saved revision and remaining gate |
+| --- | --- |
+| Compact skills and Graphite | `codex/claude-ui-followup` at `ef9ea1bf9`. The candidate passed the legacy profile browser round trip. The first flow pass found an 8px Skills overflow. The final commit includes row padding in the width; the browser probe then reported zero findings at normal width and 14em. |
+| Here | `codex/claude-here-followup` at `42102dad4`. The rebuilt candidate passed flow and the crowded idle ceiling. It added zero UI contract findings compared with the published base. |
+| Fight, away time, and Reports | Reports is saved in its original worktree at `335eec50a`. `codex/claude-combat-followup` at `1b3ed1c2f` carries the selected source delta on public history, excluding the mixed checkout snapshot. It passed 86 focused tests, flow and the crowded idle ceiling. The rebuilt tide-wolf browser walk showed loot and highlights at 1920 and 1280, and the highlight survived save, reload and import at 1920. |
+
+The runtime candidates stay local. Focused reproduction confirmed
+`here_kinds`, `observer_view`, and `ui_contract` fail on the published base
+and all three candidates. The UI contract check counted 18 findings on the
+base, with 9 additional findings on the Skills and Graphite candidate and
+40 on the combined combat candidate. After confirming those failures, the
+queued full runs were stopped before executing. The complete runtime push
+gates remain open. Logs are under `work/claude-publish-2026-11-23/`.
