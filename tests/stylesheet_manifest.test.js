@@ -39,6 +39,7 @@ const NOT_LOADED_ON_PURPOSE = {
     'styles/figure_gallery.css': 'only figure-gallery.html and item-card-gallery.html link it',
     'styles/ui_preview.css': 'only ui-preview.html links it',
     'styles/ui_directions.css': 'only ui-directions.html links it',
+    'styles/fold.css': 'only prototypes/design-kit links it until the Fold (src/ui/fold.js) is adopted into a panel',
 };
 
 test('every styles/*.css file is in the manifest or on the not-loaded-on-purpose list', () => {

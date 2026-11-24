@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-effects="reduced" data-feel-glow="on" data-feel-ready="pulse">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>OOPS design kit</title>
+<!-- Live design kit (docs/DESIGN_GRAMMAR.md; proposal under AD32). Every cell imports the real component from src/ and
+     draws it in Graphite with the game's own stylesheets (styles/manifest.txt). No mock copies: if a component changes,
+     this page changes. Serve the repository root (for example `python3 -m http.server`) and open
+     /prototypes/design-kit/index.html at 1920x1080. styles/fold.css is linked directly: it is not in the manifest yet. -->
+<style>
+ html { background: #161616; } /* the game's page colour (--graphite-page); the kit's own chrome below uses tokens */
+ body { margin: 0; width: 1920px; color: var(--graphite-text); font-size: var(--ui-type-body); line-height: var(--ui-line-body); }
+ .kit-head { display: flex; align-items: baseline; gap: var(--ui-space-6); padding: var(--ui-space-4) var(--ui-space-6); }
+ .kit-head h1 { margin: 0; font-size: var(--ui-type-heading); font-weight: var(--ui-weight-strong); }
+ .kit-head small { color: var(--graphite-muted); }
+ .kit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ui-space-6); padding: 0 var(--ui-space-6) var(--ui-space-6); align-items: start; }
+ .kit-cell { background: var(--graphite-panel); border: var(--kit-border) solid var(--graphite-rule); min-width: 0; }
+   .kit-cell > header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--ui-space-4); padding: var(--ui-space-2) var(--ui-space-4); background: var(--graphite-raised); border-bottom: var(--kit-border) solid var(--graphite-rule); }
+ .kit-cell > header strong { font-weight: var(--ui-weight-strong); }
+ .kit-cell > header code { overflow-wrap: anywhere; color: var(--graphite-muted); font-size: var(--ui-type-small); }
+ .kit-cell > .kit-body { padding: var(--ui-space-4); display: grid; gap: var(--ui-space-4); }
+ .kit-state { display: grid; gap: var(--ui-space-1); }
+ .kit-state > small { color: var(--graphite-muted); font-size: var(--ui-type-small); }
+ .kit-gap { color: var(--ui-state-blocked); font-size: var(--ui-type-small); }
+ .kit-wide { grid-column: span 2; }
+ .kit-controls { display: flex; gap: var(--ui-space-3); flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div id="main_content" class="workspace-active" data-parity="r3">
+ <div class="workspace-module"><div class="customization-module" data-component-theme="graphite">
+  <header class="kit-head"><h1>OOPS design kit</h1><small>Graphite, 1920x1080. Real components from src/, one per primitive; each state beside its neighbours. Proposal (AD32), see docs/DESIGN_GRAMMAR.md.</small></header>
+  <main class="kit-grid" id="kit"></main>
+ </div></div>
+</div>
+<script type="module" src="./kit_page.js"></script>
+</body>
+</html>

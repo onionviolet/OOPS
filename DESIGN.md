@@ -108,6 +108,8 @@ This does not move KJ2's buttons or create a global automation panel. [CA2–CA5
 
 ## Where to look next
 
+- Design grammar (proposal, AD32): the primitives, their one implementation, states and quality checks, with a live Graphite kit at [prototypes/design-kit](prototypes/design-kit/index.html): [DESIGN_GRAMMAR](docs/DESIGN_GRAMMAR.md).
+
 - Populated LOTM UI: [UI audit round 27](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-27-2026-11-01-populated-lotm-journey-before-more-ui-infrastructure) implements the selected current-task/navigation/cost/consequence slice; its journey receipt distinguishes native verification from the remaining repository-wide gate.
 
 - Native equipment review and UI sequencing: [UI audit round 26](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-26-2026-11-01-native-equipment-reviews-and-ui-priority-check) tests real tool/gear adapters and recommends connected LOTM/general UI clarity before more comparison infrastructure. Proposal under AD32; housing benefits stay in HB4 of the home palette.

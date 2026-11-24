@@ -1,0 +1,18 @@
+/* The Fold (src/ui/fold.js, docs/DESIGN_GRAMMAR.md primitive 4). Tokens only. Not yet in styles/manifest.txt: the
+   design kit page links it directly; registering it needs a manifest line and a rebuilt index.html. */
+.fold {line-height:var(--ui-line-compact);text-align:start;}
+.fold__head {display:flex;align-items:center;gap:var(--ui-space-3);list-style:none;margin:0;min-height:var(--ui-control-sm);padding:0 var(--ui-space-2);border-block-end:var(--kit-border) solid var(--ui-hairline);cursor:pointer;background:transparent;border-inline:0;border-block-start:0;color:inherit;font:inherit;text-align:start;width:100%;}
+.fold__head::-webkit-details-marker {display:none;}
+.fold__mark::before {content:'+';display:inline-grid;place-items:center;width:1.05em;height:var(--ui-type-body);border:var(--kit-border) solid currentColor;}
+.fold[open] > .fold__head > .fold__mark::before {content:'−';}
+.fold__head:hover {background:var(--feel-hover-fill);}
+.fold__head:focus-visible {outline:var(--feel-focus-ring);outline-offset:calc(var(--ui-space-1) * -1);}
+.fold__summary {margin-inline-start:auto;color:var(--ui-muted);}
+.fold > .fold__body {padding:var(--ui-space-1) var(--ui-space-3) var(--ui-space-2) var(--ui-space-4);}
+.fold .fold {margin-inline-start:var(--ui-space-5);border-inline-start:var(--kit-border) solid var(--ui-hairline);}
+.fold__line {margin:0;}
+.fold__line--unknown, .fold__line--empty, .fold__note {color:var(--ui-muted);}
+.fold[data-fold-state="unknown"] > .fold__head .fold__summary {color:var(--ui-muted);}
+.fold--sealed {display:flex;align-items:center;gap:var(--ui-space-3);min-height:var(--ui-control-sm);padding:0 var(--ui-space-2);opacity:.6;}
+.fold--sealed .fold__head {width:auto;border:0;cursor:not-allowed;}
+.fold__reason {color:var(--ui-state-blocked);}
