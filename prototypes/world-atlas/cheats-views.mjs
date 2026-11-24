@@ -22,9 +22,11 @@ const CSS = `
 .cheats-rows{list-style:none;margin:0;padding:0}.cheats-rows li{margin:0}
 .cheats-rows button{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem;width:100%;text-align:left;margin:.15rem 0;background:#202422;color:inherit;border:1px solid var(--canvas-border)}
 .cheats-rows button[aria-pressed=true]{outline:2px solid #e2f1bd;outline-offset:1px}.cheats-rows span{overflow-wrap:anywhere}
-.cheats-tools{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem}.cheats-tools input{flex:1 1 9rem;width:auto}
+.cheats-tools{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem}.cheats-since input{flex:0 1 28rem;width:auto;max-width:100%}.cheats-commits details{display:inline;margin:0 0 0 .4rem}.cheats-commits details[open]{display:block}.cheats-tools input{flex:1 1 9rem;width:auto}
 .cheats-pager{display:flex;gap:.5rem;align-items:center;margin-top:.5rem}
 .cheats-detail dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.3rem .8rem;margin:.4rem 0}.cheats-detail dd{margin:0;overflow-wrap:anywhere;color:var(--canvas-ink);font-weight:400}
+.cheats-col.cheats-detail{max-height:none;overflow:visible}
+.cheats-detail h3{margin:1.1rem 0 .35rem}.cheats-detail h4{margin:.7rem 0 .2rem}.cheats-detail dd p{margin:0 0 .2rem}.cheats-detail dd{min-width:0}
 .cheats-detail dt{color:var(--canvas-muted)}.cheats-detail ul{margin:.2rem 0;padding-left:1.1rem}.cheats-detail code{overflow-wrap:anywhere}
 .cheats-missing{color:var(--canvas-muted);font-style:italic}
 .cheats table{border-collapse:collapse;width:100%}.cheats td,.cheats th{border:1px solid var(--canvas-border);padding:.25rem .5rem;text-align:left;vertical-align:top;overflow-wrap:anywhere}
@@ -95,12 +97,14 @@ export async function cheatsView({main, tab = 'list', focus = null, go}) {
     main.replaceChildren();
     const root = el('section', null, 'cheats'); root.setAttribute('aria-label', 'Cheat log');
     main.append(root);
+    const loading = el('p', 'Loading the cheat log…', 'cheats-missing'); root.append(loading);
     let sum;
-    try {sum = await get('/cheats');} catch (e) {root.append(el('p', 'The cheat log is not available: ' + e.message)); return;}
+    try {sum = await get('/cheats');} catch (e) {loading.replaceWith(el('p', 'The cheat log is not available: ' + e.message)); return;}
+    loading.remove();
     const candidates = tab === 'candidates';
     const view = {status: candidates ? 'candidate' : '', world: '', q: focus || '', offset: 0, selected: null};
     const head = el('div', null, 'cheats-head');
-    head.append(el('strong', statusLine(sum)));
+    head.append(el('strong', candidates ? `${n(sum.counts.candidates)} candidates: cheat ideas found in docs that the catalogue does not list yet` : statusLine(sum)));
     const sweep = sum.sweep;
     const stamp = el('small', `Absorption sweep: ${n(sweep.docsScanned)} docs mention cheats, ${n(sweep.tables)} tables read, ${n(sweep.namedRows)} named rows, ${n(sweep.codedRows)} coded rows · input ${sum.builtFrom?.hash ?? 'unknown'}${sum.unlinkedDefinitions.length ? ' · definitions no row names: ' + sum.unlinkedDefinitions.join(', ') : ''}`);
 
@@ -116,11 +120,7 @@ export async function cheatsView({main, tab = 'list', focus = null, go}) {
         const b = el('button', label); b.type = 'button'; b.dataset.status = value; b.setAttribute('aria-pressed', String(value === view.status));
         b.onclick = () => {view.status = value; view.offset = 0; load();}; statusBar.append(b);
     }
-    const tabs = el('div', null, 'cheats-tools');
-    for (const [id, label] of [['list', `Catalogue (${n(sum.counts.cheats)})`], ['candidates', `Candidates (${n(sum.counts.candidates)})`]]) {
-        const b = el('button', label); b.type = 'button'; b.setAttribute('aria-pressed', String((id === 'candidates') === candidates)); b.onclick = () => go('cheats/' + id); tabs.append(b);
-    }
-    listCol.append(el('h3', candidates ? 'Candidates' : 'Cheats'), tabs, tools, statusBar, count, list, pager);
+    listCol.append(el('h3', candidates ? `Candidates · ${n(sum.counts.candidates)}` : `Cheats · ${n(sum.counts.cheats)}`), tools, statusBar, count, list, pager);
     const detailHost = el('div'); detailCol.append(el('h3', 'Detail'), detailHost);
     detailHost.append(el('p', candidates ? 'Choose a candidate to see where it was found.' : 'Choose a cheat to see every variation and its source.', 'cheats-missing'));
 
@@ -138,7 +138,7 @@ export async function cheatsView({main, tab = 'list', focus = null, go}) {
         for (const r of page.rows) {
             const li = el('li'), b = el('button'); b.type = 'button'; b.setAttribute('aria-pressed', String(r.key === view.selected));
             b.append(el('span', r.kind === 'candidate' ? `${r.code ? r.code + ' ' : ''}${r.name}` : `${r.id} ${r.name}`),
-                el('small', r.kind === 'candidate' ? `${n(r.docsCount)} doc${r.docsCount === 1 ? '' : 's'}` : r.status));
+                el('small', r.kind === 'candidate' ? `in ${n(r.docsCount)} doc${r.docsCount === 1 ? '' : 's'}` : r.status));
             const open = () => {view.selected = r.key; for (const x of list.querySelectorAll('button')) x.setAttribute('aria-pressed', String(x === b)); (r.kind === 'candidate' ? showCandidate : showCatalogue)(detailHost, r);};
             b.onclick = open; li.append(b); list.append(li);
             if (focus && r.id === focus && view.selected !== r.key) open();
@@ -162,7 +162,7 @@ export async function changesView({main}) {
     main.replaceChildren();
     const root = el('section', null, 'cheats'); root.setAttribute('aria-label', 'Atlas changes');
     main.append(root);
-    const bar = el('div', null, 'cheats-tools'), input = el('input'), go = el('button', 'Show changes'), out = el('div');
+    const bar = el('div', null, 'cheats-tools cheats-since'), input = el('input'), go = el('button', 'Show changes'), out = el('div');
     input.type = 'text'; input.placeholder = 'Since: ISO date or commit (empty = previous snapshot)'; input.setAttribute('aria-label', 'Since');
     go.type = 'button'; bar.append(input, go);
     root.append(bar, out);
@@ -173,8 +173,9 @@ export async function changesView({main}) {
         out.replaceChildren();
         out.append(el('p', `Since ${d.since.label}. Head ${d.head}${d.builtAt ? ' · snapshot built ' + d.builtAt : ''}.`));
         if (d.note) out.append(el('p', d.note, 'cheats-missing'));
-        out.append(el('h3', 'Count changes'));
-        if (d.deltas == null) out.append(missing('Counts compare against the previous snapshot only; this starting point has none.'));
+        if (d.deltas == null && !d.note) out.append(missing('Count changes appear after the next snapshot build; this one has no earlier snapshot to compare with.'));
+        else out.append(el('h3', 'Count changes'));
+        if (d.deltas == null) {/* nothing to compare yet */}
         else if (!d.deltas.length) out.append(missing('No count moved between the previous snapshot and this one.'));
         else {
             const t = el('table'), h = el('tr'); for (const c of ['Count', 'From', 'To', 'Change']) h.append(el('th', c)); t.append(h);
@@ -184,11 +185,11 @@ export async function changesView({main}) {
         const label = Object.fromEntries(d.groups.map(g => [g.id, g.label]));
         out.append(el('h3', `Commits · ${n(d.commits.length)}`));
         if (!d.commits.length) out.append(missing('No commit touched these inputs.'));
-        const ul = el('ul');
+        const ul = el('ul', null, 'cheats-commits');
         for (const c of d.commits) {
             const li = el('li', `${c.hash.slice(0, 9)} ${c.date.slice(0, 10)} ${c.subject} `);
-            li.append(el('small', `· ${c.groups.map(g => label[g]).join(', ')} · ${n(c.files.length)} file${c.files.length === 1 ? '' : 's'}`));
-            const det = el('details'); det.append(el('summary', 'Files')); const fl = el('ul'); for (const f of c.files) fl.append(el('li', f)); det.append(fl); li.append(det); ul.append(li);
+            li.append(el('small', `· ${c.groups.map(g => label[g]).join(', ')}`));
+            const det = el('details'); det.append(el('summary', `Files (${n(c.files.length)})`)); const fl = el('ul'); for (const f of c.files) fl.append(el('li', f)); det.append(fl); li.append(det); ul.append(li);
         }
         out.append(ul, el('h3', `Uncommitted in these inputs · ${n(d.working.length)}`));
         if (!d.working.length) out.append(missing('Clean.'));

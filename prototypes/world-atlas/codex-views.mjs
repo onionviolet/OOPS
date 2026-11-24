@@ -16,8 +16,8 @@ const CSS = `
 .codex small{color:var(--canvas-muted)}
 .codex-head{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.codex-head select{max-width:100%}
 .codex-bar{display:flex;height:1.4rem;border:1px solid var(--canvas-border);background:#202422}
-.codex-bar i{display:block;min-width:2px}.codex-bar i[data-f=runs]{background:#2a6139}.codex-bar i[data-f=expressed]{background:#ace79e}.codex-bar i[data-f=catalogued]{background:#3b463d}.codex-bar i[data-f=blocked]{background:#d9ad89}.codex-bar i[data-f=notAThing]{background:#141615}
-.codex-legend{display:flex;gap:.3rem 1rem;flex-wrap:wrap;margin:0;padding:0;list-style:none}.codex-legend li{margin:0}.codex-legend b{font-variant-numeric:tabular-nums}
+.codex-bar i{display:block;min-width:6px}.codex-bar i[data-f=runs]{background:#ace79e}.codex-bar i[data-f=expressed]{background:#2a6139}.codex-bar i[data-f=catalogued]{background:#3b463d}.codex-bar i[data-f=blocked]{background:#d9ad89}.codex-bar i[data-f=notAThing]{background:#141615}
+.codex-legend{display:flex;gap:.3rem 1rem;flex-wrap:wrap;margin:0;padding:0;list-style:none}.codex-legend li{margin:0;display:flex;align-items:center;gap:.3rem}.codex-legend i{display:inline-block;width:.8rem;height:.8rem;border:1px solid var(--canvas-border)}.codex-legend i[data-f=runs]{background:#ace79e}.codex-legend i[data-f=expressed]{background:#2a6139}.codex-legend i[data-f=catalogued]{background:#3b463d}.codex-legend i[data-f=blocked]{background:#d9ad89}.codex-legend i[data-f=notAThing]{background:#141615}.codex-legend b{font-variant-numeric:tabular-nums}
 .codex-body{display:grid;grid-template-columns:minmax(14rem,1fr) minmax(0,2fr) minmax(16rem,1fr);gap:.8rem;align-items:start}
 @media(max-width:1000px){.codex-body{grid-template-columns:minmax(0,1fr)}}
 .codex-col{border:1px solid var(--canvas-border);background:#141615;padding:.6rem;min-width:0;max-height:70vh;overflow:auto}
@@ -28,6 +28,7 @@ const CSS = `
 .codex-rows button{display:grid;grid-template-columns:minmax(0,1fr) auto}.codex-rows span{overflow-wrap:anywhere}
 .codex-tools{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem}.codex-tools input{flex:1 1 10rem;width:auto}
 .codex-pager{display:flex;gap:.5rem;align-items:center;margin-top:.5rem}
+.codex-col.codex-detail{max-height:none;overflow:visible}
 .codex-detail dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.3rem .8rem;margin:.4rem 0}.codex-detail dd{margin:0;overflow-wrap:anywhere;color:var(--canvas-ink);font-weight:400}
 .codex-detail dt{color:var(--canvas-muted)}.codex-detail ul{margin:.2rem 0;padding-left:1.1rem}
 .codex-missing{color:var(--canvas-muted);font-style:italic}`;
@@ -48,10 +49,12 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
     const root = el('section', null, 'codex'), body = el('div', null, 'codex-body');
     root.setAttribute('aria-label', 'Coverage codex');
     main.append(root);
+    const loading = el('p', 'Loading the codex…', 'codex-missing'); root.append(loading);
     let list, sum;
-    try {list = (await get('/codex')).ledgers;} catch (e) {root.append(el('p', 'The codex is not available: ' + e.message)); return;}
+    try {list = (await get('/codex')).ledgers;} catch (e) {loading.replaceWith(el('p', 'The codex is not available: ' + e.message)); return;}
     if (!list.some(l => l.ledger === ledger)) ledger = list[0]?.ledger;
-    try {sum = await get('/codex/' + ledger);} catch (e) {root.append(el('p', 'This ledger could not be read: ' + e.message)); return;}
+    try {sum = await get('/codex/' + ledger);} catch (e) {loading.replaceWith(el('p', 'This ledger could not be read: ' + e.message)); return;}
+    loading.remove();
 
     // Ledger picker, coverage bar, legend.
     const head = el('div', null, 'codex-head'), pick = el('select'), label = el('label', 'Ledger ');
@@ -66,7 +69,7 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
     for (const f of FAMILIES) {
         const c = sum.counts[f];
         if (c) {const seg = el('i'); seg.dataset.f = f; seg.style.width = (100 * c / sum.rows) + '%'; seg.title = `${FAMILY_LABEL[f]}: ${n(c)}`; bar.append(seg);}
-        const li = el('li'); li.append(el('b', n(c) + ' '), document.createTextNode(FAMILY_LABEL[f])); legend.append(li);
+        const li = el('li'), sw = el('i'); sw.dataset.f = f; sw.setAttribute('aria-hidden', 'true'); li.append(sw, el('b', n(c)), document.createTextNode(FAMILY_LABEL[f])); legend.append(li);
     }
     const stamp = el('small', `${n(sum.things)} things (rows that are not "not a thing") · input ${sum.builtFrom?.hash ?? 'unknown'}${sum.invalid ? ' · ' + sum.invalid + ' rows with no state' : ''}`);
 
@@ -76,7 +79,7 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
     const blockList = el('ul', null, 'codex-blockers');
     blockCol.append(blockList);
     const detailHost = el('div'); detailCol.append(el('h3', 'Row detail'), detailHost);
-    detailHost.append(el('p', 'Choose a row to see its ladder fields and source.', 'codex-missing'));
+    detailHost.append(el('p', 'Choose a row to see its state, its evidence ladder (case, reachability, player action, persistence) and where it comes from.', 'codex-missing'));
 
     const view = {state: '', q: '', offset: 0, selected: null};
     const search = el('input'), clear = el('button', 'All states'), count = el('small'), rowList = el('ul', null, 'codex-rows'), pager = el('div', null, 'codex-pager');
@@ -135,6 +138,7 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
         const add = (k, v) => {dl.append(el('dt', k)); const dd = el('dd'); if (v instanceof Node) dd.append(v); else if (v == null || v === '') dd.append(missing()); else dd.textContent = v; dl.append(dd);};
         detailHost.append(el('strong', r.key));
         if (r.label) detailHost.append(el('p', r.label));
+        const checkHost = el('div'); detailHost.append(checkHost);
         add('State', r.state || null);
         add('Blocker', r.blocker);
         add('Mechanisms', r.mechanisms.join(', ') || null);
@@ -218,7 +222,7 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
                 btn.disabled = false;
                 out.scrollIntoView?.({block: 'start', behavior: 'smooth'});
             };
-            detailHost.append(el('h3', 'Check this passage'), btn, out);
+            checkHost.append(btn, out);
         }
     }
 
