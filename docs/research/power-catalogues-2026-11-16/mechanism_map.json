@@ -69,6 +69,7 @@
   "rank-unknown": {"class": "reading"},
   "revival-on-death": {"substrate": "beings", "verbs": ["revive"]},
   "role-cannot-run": {"class": "reading"},
+  "roles-partial": {"class": "reading"},
   "roles-unchecked": {"class": "reading"},
   "roles-unknown": {"class": "reading"},
   "sentient-agent": {"substrate": "beings", "verbs": ["will"]},
