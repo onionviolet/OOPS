@@ -1942,3 +1942,13 @@ After Q2 was reframed as what would make him want to play beyond a 20-minute ses
 > How can we save everything thus far?
 
 The [goal discovery writeup](../reviews/OOPS_GOAL_DISCOVERY_2026-11-24.md) records the working interpretation, comparison evidence and follow-up question. The goal and scope are provisional.
+
+## Atlas audience, foundations milestone and look (2026-11-24)
+
+Asked through the goal-discovery questions after the atlas platform rounds ([note](../reviews/WORLD_ATLAS_PLATFORM_2026-11-24.md)):
+
+- Who the atlas serves first: "Both equally" (Weibao browsing and deciding, and agents picking up work).
+- Which first foundations milestone would feel like progress (deep in play, wide coverage, one world complete): "Not sure yet".
+- How distinctive the design language should be: "Polished and broad? more to consider? Some sort of identity somewhere but thats low priority".
+
+Working reading, provisional: build atlas rows and actions once, with a human page and an agent-readable route over the same data; learn the foundations milestone by running one deep slice and one wide pass side by side; the design grammar aims for consistent polish across every surface first, with identity as a later layer.
