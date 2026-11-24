@@ -189,17 +189,30 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
                     out.replaceChildren();
                     const cd = el('dl'), put = (k, v) => {cd.append(el('dt', k), el('dd', v == null ? 'not recorded' : String(v)));};
                     put('Terms', (c.terms || []).join(', '));
-                    put('Chapters searched', c.chapterRange ? JSON.stringify(c.chapterRange) : null);
+                    put('Chapters searched', c.chapterRange ? `${c.chapterRange[0]}–${c.chapterRange[1]}` : 'whole text');
                     put('Counts', Object.entries(c.counts || {}).map(([k, v]) => `${k} ${v}`).join(' · '));
-                    put('Chapter tier', c.evidence?.chapterTier ?? null);
-                    put('Wiki tier', c.evidence?.wikiTier ?? null);
-                    put('Full-text ranks', c.evidence?.fulltextRanks ? JSON.stringify(c.evidence.fulltextRanks) : null);
-                    out.append(cd, el('p', 'Tags are a heuristic for a second reader: unverified.', 'codex-missing'));
+                    // Tier records are objects; show their fields as words, a nested locator as itself, never raw JSON.
+                    const fields = o => o == null ? null : Object.entries(o).filter(([, v]) => v != null && v !== '' && !(typeof v === 'object' && !Object.keys(v).length))
+                        .map(([k, v]) => `${k} ${typeof v === 'object' ? (v.locator ?? v.food ?? Object.values(v).join(' / ')) : v}`).join(' · ');
+                    put('Chapter tier', fields(c.evidence?.chapterTier));
+                    put('Wiki tier', fields(c.evidence?.wikiTier));
+                    const fr = c.evidence?.fulltextRanks;
+                    put('Full-text ranks', fr ? `rank ${fr.rank ?? '?'} by ${fr.basis ?? 'unstated basis'} of ${fr.mentions ?? '?'} mentions${fr.wikiRank != null ? `; wiki says ${fr.wikiRank}` : ''}` : null);
+                    out.append(cd);
+                    if (fr?.at?.length) {
+                        const t = el('table'), head = el('tr');
+                        for (const h of ['Locator', 'Rank', 'Pattern']) head.append(el('th', h));
+                        t.append(head);
+                        for (const a of fr.at.slice(0, 12)) {const tr = el('tr'); for (const v of [a.locator, a.rank, a.pattern]) tr.append(el('td', String(v ?? ''))); t.append(tr);}
+                        out.append(t);
+                    }
+                    out.append(el('p', 'Tags are a heuristic for a second reader: unverified.', 'codex-missing'));
                     const ul = el('ul');
                     for (const m of (c.matches || []).slice(0, 8)) ul.append(el('li', `${m.locator} · ${m.tag} (unverified) · ${m.term}: ${m.text}`));
                     if (ul.childNodes.length) out.append(ul); else out.append(el('p', 'No matches in the local text.', 'codex-missing'));
                 } catch (e) {out.replaceChildren(el('p', `Check failed: ${e.message}`, 'codex-missing'));}
                 btn.disabled = false;
+                out.scrollIntoView?.({block: 'start', behavior: 'smooth'});
             };
             detailHost.append(el('h3', 'Check this passage'), btn, out);
         }
