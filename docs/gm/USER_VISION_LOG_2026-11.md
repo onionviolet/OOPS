@@ -1952,3 +1952,15 @@ Asked through the goal-discovery questions after the atlas platform rounds ([not
 - How distinctive the design language should be: "Polished and broad? more to consider? Some sort of identity somewhere but thats low priority".
 
 Working reading, provisional: build atlas rows and actions once, with a human page and an agent-readable route over the same data; learn the foundations milestone by running one deep slice and one wide pass side by side; the design grammar aims for consistent polish across every surface first, with identity as a later layer.
+
+## Weak rules W1–W7 reconciled (2026-11-24)
+
+Weibao, asked "Should I start the owner-led cleanup of weak rules W1–W7?" ([audit §2](../audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm)): "Yes, W1–W7". Same method as the colour removal above: keep the useful outcome, remove the accidental ban. Each rule keeps its code and carries a dated "Reworded" line. W8–W22 are untouched.
+
+- W1 (DSG3, UR165, UR166): the leftover "colour with words/symbols" wording now says colour may carry meaning alone (UR37); existing labels stay.
+- W2 (P own-number bullet, UR151): the old "own numbers need an in-world status window" bullet is retired with AD8 as successor; UR151's earned views no longer list "a stat as a description" and say own stats stay exact.
+- W3 (DSG12, DSG16, UR12): the fallback is the active skin (Graphite by default), not Luminous; UR12's baseline is composition, with fills following the skin.
+- W4 (UR3, merged UR77): the 20/5/4/7 counts are diagnostic dials judged by journey and space, with no "Weibao's yes" gate; the Also clause keeps UR77's Proposal status and the first sentence stays Accepted.
+- W5 (UR178): the word budgets are defaults; a choice-critical explanation stays visible beside its control and may exceed them.
+- W6 (UR100): a shared-primitive change samples meaningfully different consumers; a local change covers the states and world dresses it reaches; the shared kit owns reusable state fixtures.
+- W7 (UR176): the blind panel is an optional design experiment; baselines cover the look choices the change affects, not a cross-product. Neighbour and real-font comparison stay.

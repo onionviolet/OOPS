@@ -2110,9 +2110,14 @@ saw.
   an appraisal skill, a reading item). Without one, wounds are described
   (`a deep cut across the arm`). Lose the means and the numbers go back
   to words.
-- **Your own numbers follow the same logic.** A character with a status
-  window sees their HP; one without feels `you're losing a lot of
-  blood`. The plain layer under each effect (TX2) uses the same wording.
+- **Your own numbers: see AD8 (own stats are exact).** *Retired
+  2026-11-24 (Weibao's yes to W2,
+  [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm)),
+  successor AD8; the B435 note below already says AD8 supersedes it. Was:
+  "A character with a status window sees their HP; one without feels
+  `you're losing a lot of blood`. The plain layer under each effect (TX2)
+  uses the same wording."* In-fiction self-sensation can still be
+  written as flavour beside the exact number.
 - **Effects stay honest without numbers.** Infinity's dots measure the
   remaining gap, not a damage number, so the effect works in either
   style. Adaptation can shrink the described wound instead of a number.
