@@ -6,7 +6,7 @@
 //   - size efficiency: raw, gzip and base64 export sizes
 //   - with --profile: a CPU profile of the idle window, self time by function, from an unminified temp build
 // Read-only for the checkout: nothing in dist/ or index.html changes.
-//   node scripts/perf/save_probe.mjs [--rev HEAD|WORKTREE] [--fixtures fresh,mid,crowded] [--saves 15] [--idle 15] [--profile] [--tmp dir]
+//   node scripts/perf/save_probe.mjs [--rev HEAD|WORKTREE] [--fixtures fresh,mid,crowded] [--saves 15] [--idle 15] [--profile] [--profile-out prefix] [--tmp dir]
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -89,6 +89,7 @@ try {
         if(cdp) {await cdp.send('Profiler.enable'); await cdp.send('Profiler.setSamplingInterval', {interval: 200}); await cdp.send('Profiler.start');}
         const window_ = await idleWindow(context, page, idle);
         if(cdp) cpu = (await cdp.send('Profiler.stop')).profile;
+        if(cpu && arg('profile-out')) fs.writeFileSync(`${arg('profile-out')}.${name}.cpuprofile`, JSON.stringify(cpu));
         const stored = await page.evaluate(() => localStorage.getItem('save data') ?? '');
         report.fixtures[name] = {
             size: sizes(stored),

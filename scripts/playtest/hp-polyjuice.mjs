@@ -49,7 +49,7 @@ try {
     assert.equal(panelSlice(await s.save()), undefined);
     checks.push('A fresh origin saves with no hp_brewing slice before the player begins');
     await open();
-    assert.match(await text(), /Polyjuice bench/);
+    assert.match(await text(), /Potions practice bench/);
     await act('begin');
     assert.ok(panelSlice(await s.save()), 'slice saved after Begin');
     assert.match(await text(), /moon: (Full|Waning|New|Waxing)/);

@@ -3,6 +3,14 @@ import {GEAR_ACTIONS} from './gear_work.js';
 import {panelSection,labelControl,quotedActionList} from './ui/panel_sections.js';
 import {getAffix} from './gear_affixes.js';
 import {renderReforgePreview,renderReforgeResult} from './ui/reforge_preview.js';
+import {renderBenchNext} from './ui/bench_form.js';
+import {nextRows, workspaceRoutes} from './making_next.js';
+// MKC5: where a worked piece goes next. The bench keeps its own three sections (its layout waits on Weibao's bench answer).
+export const gearNextRoutes = item => item ? [
+    {label: 'Wear it', fact: `${item.name} returns to your carried gear; equip it in Inventory`, panel: 'belongings'},
+    {label: 'Carve a rune tablet to fight with it', fact: 'a worn tablet or a charged strip adds to the fight', panel: 'rune-bench'},
+    {label: 'Sell it', fact: 'a place with a trader buys carried gear', panel: 'local-actions'},
+] : [];
 const el = (tag, text) => {const n = document.createElement(tag); if(text != null) n.textContent = text; return n;};
 const labels = {attack_points:'Attack precision',cold_tolerance:'Cold tolerance',crit_resistance:'Critical resistance',damage_taken:'Damage taken',min_damage_share:'Minimum share of a hit',stamina_efficiency:'Stamina efficiency',attack_speed:'Attack speed',attack_power:'Attack power'};
 const select = label => {const n = el('select'); n.setAttribute('aria-label', label); return n;};
@@ -71,12 +79,14 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
         if(q.eligible&&q.preview) details.append(renderReforgePreview(document,q.preview,{cost:costRows}));
         else for(const row of costRows) details.append(el('p', `Consumes ${row.name} ×${row.count}`));
         outcome.replaceChildren();
+        const next=renderBenchNext(document,nextRows(gearNextRoutes(item),workspaceRoutes),'Choose a carried item to see where it can go after the work.');next.dataset.gearNext='';
         if(fresh&&view.rows.some(r=>r.key===fresh.key)){
             const back=quote({maker:maker.value||'player',action:'revert',key:fresh.key});
             outcome.append(renderReforgeResult(document,{from:fresh.from,to:fresh.to,revertReason:back.eligible?'':back.reason,revertCost:'1 Charcoal',
                 onKeep:()=>{fresh=null;notice.textContent='You keep the new mark.';signature='';render();},
                 onRevert:()=>{try{const r=execute(back);notice.textContent=r.summary;fresh=null;items.value=r.resultKey;}catch(e){notice.textContent=e.message;}signature='';render();}}));
         } else fresh=null;
+        outcome.append(next);
     }
     for(const input of [maker, items, action, material, role, slot, focus,affix]) input.onchange = () => {signature = ''; render();};
     run.onclick = () => {

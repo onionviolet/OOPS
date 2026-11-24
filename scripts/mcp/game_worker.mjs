@@ -4,7 +4,7 @@
 // Replies carry what a player could see, plus hashes. Raw saves never leave:
 // export writes a file under the private temp folder and returns only its path.
 import {boot, canonicalSave} from '../headless/runner.mjs';
-import {advanceGame} from '../headless/advance.mjs';
+import {advanceGame, MINUTES_PER_DAY} from '../headless/advance.mjs';
 import {scenarioSave, SCENARIOS} from '../headless/scenarios.mjs';
 import {createHash, randomUUID} from 'node:crypto';
 import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
@@ -20,6 +20,8 @@ const need = () => {if(!game) throw new Error('No game yet. Call game_new first.
 const text = id => game.document.getElementById(id)?.textContent.trim() ?? '';
 const clock = () => {const t = need().internals.current_game_time; return {day: t.day_count, hour: t.hour, minute: t.minute};};
 const sha = s => createHash('sha256').update(s).digest('hex').slice(0, 16);
+const MAX_STEP_DAYS = 400;
+const MAX_STEP_MINUTES = MAX_STEP_DAYS * MINUTES_PER_DAY;
 
 // The DOM shim's innerText includes hidden descendants. Walk visible text instead.
 function visibleText(root) {
@@ -84,6 +86,21 @@ function look({scope, offset = 0, view} = {}) {
 // Named scopes a player can discover: "reports" is the Reports log; "panel:<title>" is a panel by the title the
 // All panels list shows (e.g. "panel:Known things"). Anything else is a CSS selector, as before.
 const NAMED_SCOPES = {reports: '#message_box_div'};
+function reportRows(g) {
+    return [...(g.document.querySelector(NAMED_SCOPES.reports)?.children ?? [])];
+}
+function stepReceipt(g, advance, until, beforeReports) {
+    const rows = reportRows(g).filter(row => !beforeReports.has(row));
+    const latest = [];
+    for(let i = rows.length - 1; i >= 0 && latest.length < 3; i--) {
+        const line = visibleText(rows[i]).replace(/\s+/g, ' ').trim();
+        if(line) latest.unshift(line.slice(0, 180));
+    }
+    const stopReason = advance.reason ?? (advance.capped ? 'time cap reached' : advance.advanced < advance.requested
+        ? 'advance ended early' : until ? 'event boundary reached' : 'requested time reached');
+    return {view: 'receipt', time: clock(), location: text('location_name_span'), advance, stopReason,
+        reports: {scope: 'reports', latest}, pageErrors: g.errors.length};
+}
 function scopeRoot(g, scope) {
     if(!scope) return g.document.body;
     if(NAMED_SCOPES[scope]) return g.document.querySelector(NAMED_SCOPES[scope]);
@@ -199,14 +216,18 @@ const ops = {
         if([minutes != null, days != null, until != null].filter(Boolean).length !== 1) throw new Error('Give exactly one of minutes, days or until.');
         if(until != null && until !== 'event') throw new Error("until must be 'event'.");
         if(minutes != null && !(minutes > 0 && minutes <= 10080)) throw new Error('minutes must be 1 to 10080; use days for longer.');
-        if(days != null && !(days > 0 && days <= 400)) throw new Error('days must be above 0 and at most 400.');
+        if(days != null && !(days > 0 && days <= MAX_STEP_DAYS)) throw new Error(`days must be above 0 and at most ${MAX_STEP_DAYS}.`);
         if(!['exact', 'span'].includes(mode)) throw new Error("mode must be 'exact' or 'span'.");
+        const receipt = view === 'receipt';
+        const beforeReports = receipt ? new Set(reportRows(g)) : null;
+        if(receipt) last = []; // Action indices belong to the prior view.
         // exact: the same stepper as minutes (RT8: byte-identical to single ticks); days and until:event just lift the per-call cap.
         // span: the labelled faster mode (runner.spans, not RT8). Both report progress once per game day so the
         // MCP timeout covers one day of stepping, not the whole call.
-        const amount = minutes != null ? {minutes} : days != null ? {days} : {untilEvent: true, maxMinutes: 400 * 1440};
+        const amount = minutes != null ? {minutes} : days != null ? {days} : {untilEvent: true, maxMinutes: MAX_STEP_MINUTES};
         const advance = await advanceGame(g, {...amount, span: mode === 'span',
             onSlice: async p => {progress?.(p); await new Promise(r => setImmediate(r));}});
+        if(receipt) return stepReceipt(g, advance, until, beforeReports);
         return {advance, ...look({view})};
     },
     status() {

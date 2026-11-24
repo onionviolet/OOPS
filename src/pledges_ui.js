@@ -4,6 +4,7 @@ import {definePanel} from './panel_kit.js';
 import {chip, infoRow, reasonLine} from './ui/panel_sections.js';
 import {renderBenchForm} from './ui/bench_form.js';
 import {runeBenchForm} from './rune_bench_form.js';
+import {workspaceRoutes} from './making_next.js';
 // Desktop-first (UI target 1536/1920; mobile deferred). Two reference-dock panels (ST6) that read one projection;
 // every button calls a domain command that revalidates and reports its own refusal text in place.
 const node = (tag, text = '', className = '') => { const n = document.createElement(tag); if(text) n.textContent = text; if(className) n.className = className; return n; };
@@ -119,7 +120,7 @@ export function createRuneBenchPanel({read, commands}) {
     let strip = [],mode='attack',recipe='';
     function render() {
         const v = read(), r = v.runes;
-        if(!s.changed([v.state.runes, v.state.talisman, v.wood, v.state.charged,mode,recipe,v.now >= (v.state.talisman?.until ?? 0), strip, v.ready])) return;
+        if(!s.changed([v.state.runes, v.state.talisman, v.wood, v.state.charged,mode,recipe,v.now >= (v.state.talisman?.until ?? 0), strip, v.ready, workspaceRoutes.found('gear-workshop')])) return;
         s.body.replaceChildren(node('h3', `Pairs tried: ${r.coverage.tried} of ${r.total}`));
         for(const p of r.tried) { const row = node('p', `${p.a} then ${p.b}: ${r.effectText[p.effect] ?? p.effect}`); row.dataset.runePair = `${p.a}>${p.b}`; s.body.append(row); }
         if(!r.tried.length) s.body.append(node('p', 'Nothing tried yet. A tablet of just two runes shows what that pair does.', 'expedition_requirements'));
@@ -129,7 +130,7 @@ export function createRuneBenchPanel({read, commands}) {
         s.body.append(picker);
         const gross = strip.length * r.perRune, cost = Math.max(0, gross - r.release.talisman), costCharged = Math.max(0, gross - r.release.charged);
         // PS250/PS251: the shared bench form (goes in, room, clashes, how sure, after), the same place on every bench.
-        const prev = renderBenchForm(document, runeBenchForm(r, strip, v.wood));
+        const prev = renderBenchForm(document, runeBenchForm(r, strip, v.wood, {charged: v.state.charged, routes: workspaceRoutes}));
         if(strip.length && r.release.charged) prev.append(node('p', `A charged strip would cover ${Math.min(gross, r.release.charged)}; spend ${costCharged}.`));
         prev.dataset.runePreview = ''; s.body.append(prev);
         s.body.append(s.button('Carve and wear', {carve: ''}, () => { s.act(() => commands.carve(strip), read => `Worn: ${Object.entries(read.effects).map(([e, n]) => `${r.effectText[e] ?? e} ${n}`).join(', ')}.`); strip = []; render(); }, strip.length < 2 || v.wood < cost, strip.length < 2 ? 'Choose at least two runes.' : v.wood < cost ? 'Not enough wood.' : ''));

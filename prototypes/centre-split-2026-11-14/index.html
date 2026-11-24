@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>Centre split mock</title>
+<!-- Centre split, 2026-11-14 (Weibao: "Ui feels cluncky, with things not obviously sectioned off? the center panel might be
+     better to split into multiple panels"). A full-size 1920x1080 mock, not a build. Text is taken from the game's own
+     screens: Fang Yuan's opener (ri-fang-yuan-ice-crystal, his day adopted), the Village home (perf-mid) and Crafting.
+     "Today" is the real capture. Open with ?screen=fy|village|craft&opt=today|stacked|columns, or use the picker
+     (keys 1-3 for the screen, q/w/e for the option, m for the measurements). Proposals only (AD32). -->
+<style>
+:root { --bg:#02061a; --panel:#07184a; --panel2:#0a2a4a; --line:#2c6ad0; --quiet:#153a78; --text:#d8f0ff; --muted:#8fb2cc; --accent:#ffd84d;
+  --gain:#5dff8a; --rep:#2a1a4a; --head:#0b2457; }
+* { box-sizing:border-box; }
+html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--bg); color:var(--text); font:14px/1.35 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+#today { position:absolute; inset:0; width:1920px; height:1080px; display:none; }
+body[data-opt="today"] #today { display:block; }
+body[data-opt="today"] #frame { display:none; }
+.bar { position:absolute; left:0; right:0; top:0; height:27px; display:flex; background:#06123c; border-bottom:1px solid var(--line); white-space:nowrap; overflow:hidden; }
+.bar span { padding:4px 8px; border-right:1px solid #1c3f86; }
+.bar .r { margin-left:auto; color:var(--muted); }
+.status { position:absolute; left:0; right:0; top:28px; height:24px; display:flex; background:#051238; border-bottom:1px solid #1c3f86; font-size:12px; }
+.status span { padding:4px 10px; border-right:1px solid var(--quiet); } .status .place { color:var(--accent); font-weight:700; } .status .save { margin-left:auto; color:var(--muted); border:0; }
+.strip { position:absolute; left:6px; right:6px; top:56px; height:16px; border:1px solid var(--quiet); background:#0c2a5a; }
+.strip i { position:absolute; top:0; bottom:0; left:0; width:var(--now); background:#1d5fae; } .strip b { position:absolute; top:0; bottom:0; left:var(--now); width:3px; background:var(--accent); }
+.col { position:absolute; top:95px; bottom:20px; display:flex; flex-direction:column; gap:8px; }
+.left { left:20px; width:330px; } .right { left:1401px; width:499px; } .centre { left:362px; width:1027px; }
+.box { background:var(--panel); border:1px solid var(--line); min-height:0; display:flex; flex-direction:column; }
+.box.rep { background:var(--rep); border-color:#5a4aa0; }
+.box > h3 { margin:0; padding:3px 10px; font-size:14px; background:var(--head); border-bottom:1px solid var(--line); color:var(--accent); display:flex; justify-content:space-between; flex:0 0 auto; }
+.box > h3 small { color:var(--muted); font-weight:400; }
+.box > .body { padding:4px 10px; overflow:auto; min-height:0; flex:1 1 auto; scrollbar-gutter:stable; }
+.row { display:flex; justify-content:space-between; gap:12px; border-top:1px solid var(--quiet); padding:3px 0; }
+.row:first-child { border-top:0; }
+.row .act { border:1px solid var(--line); padding:1px 8px; } .row.near .act { border-style:dashed; color:var(--muted); } .row.urgent .act { border-color:#ffd18c; }
+.row .gap { color:var(--accent); } .row .m, .m { color:var(--muted); } .row .from { color:var(--muted); font-size:12px; }
+.para { margin:4px 0; } .sub { margin:6px 0 2px; color:var(--muted); font-size:12px; text-transform:none; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:4px 12px; }
+.tabs { flex:0 0 28px; display:flex; border:1px solid var(--line); background:#06123c; }
+.tabs span { flex:1; text-align:center; padding:4px; border-right:1px solid #1c3f86; } .tabs span.on { border-bottom:2px solid var(--accent); }
+/* Options for the centre. Stacked: one column of docked panels, each sized to its content and shrinking in proportion. */
+.cwrap { flex:1 1 auto; min-height:0; display:flex; gap:8px; }
+.cwrap .stack { flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:8px; min-height:0; }
+.cwrap .box { flex:0 1 auto; }
+.cwrap .box.grow { flex:1 1 auto; }
+#pick { position:fixed; right:24px; bottom:26px; z-index:9; background:#000c; border:1px solid var(--accent); padding:6px 8px; font-size:12px; }
+#pick button { font:inherit; color:var(--text); background:#0a1a44; border:1px solid var(--line); margin:1px; padding:2px 6px; cursor:pointer; }
+#pick button[aria-pressed="true"] { border-color:var(--accent); color:var(--accent); }
+#measure { position:fixed; left:362px; bottom:60px; z-index:9; background:#000d; border:1px solid var(--accent); padding:6px 10px; font-size:12px; display:none; max-width:1027px; }
+body.measuring #measure { display:block; }
+.hidden-px { color:#ff9d57; }
+</style>
+</head>
+<body data-opt="stacked">
+<img id="today" alt="Today's screen, captured from the game">
+<div id="frame">
+  <div class="bar"><span>Stats</span><span>Condition</span><span>Inventory</span><span>Notebook</span><span>Worlds</span><span>Beginning</span><span>All panels…</span><span class="r">Find · Save · Export · Import · Menu</span></div>
+  <div class="status" id="status"></div>
+  <div class="strip" style="--now:35%"><i></i><b></b></div>
+  <div class="col left" id="left"></div>
+  <div class="col centre" id="centre"></div>
+  <div class="col right"><div class="box rep" style="flex:1"><h3>Reports</h3><div class="body" id="reports"></div></div></div>
+</div>
+<div id="pick"></div>
+<div id="measure"></div>
+<script>
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
+const row = (act, right = '', cls = '', from = '') => `<div class="row ${cls}"><span class="act">${esc(act)}</span><span>${right}${from ? ` <span class="from">${esc(from)}</span>` : ''}</span></div>`;
+const plain = (a, b = '') => `<div class="row"><span>${esc(a)}</span><span class="m">${esc(b)}</span></div>`;
+const box = (title, note, body, cls = '') => `<section class="box ${cls}" data-panel="${esc(title)}"><h3>${esc(title)}<small>${esc(note || '')}</small></h3><div class="body">${body}</div></section>`;
+
+// Content per screen, taken from the game's own text (see the comment at the top).
+const SCREENS = {
+  fy: {
+    label: "Fang Yuan's opener", today: 'today-fang-yuan.jpg',
+    status: ['Clan academy', 'Calendar unknown here', 'Green-copper primeval essence 33/44', 'No work running', 'Saving available.'],
+    left: box('Fang Yuan', 'Rank Two', plain('Aperture', 'green copper, 33/44') + plain('Moonglow Gu', 'missed a meal') + plain('Four Flavours Liquor Worm', 'missed a meal') + plain('White Jade Gu', 'no jade rock')) + box('Inventory', '21', ['Primeval stone x879', 'Moon Orchid petal x6', 'Jar of green bamboo wine x25', 'Hidden lightning wolf eye x6', 'Lightning wolf skins and teeth', 'Hundred-year bitter shell · intact x4', 'Nine Leaf Vitality Grass', 'Beast-skin map', 'Black Boar Gu', 'Dormitory guard’s sabre'].map(t => plain(t)).join(''), 'grow'),
+    reports: '<p class="para">Banked time: 14 h 50 min. Spending it plays your current routine forward at the normal pace and stops at any choice.</p><p class="para">Deed done: Across the Threshold.</p>',
+    panels: {
+      ready: box('Ready now', '2 ready · 1 close', row('Feed the Moonglow Gu · 2 Moon Orchid petals', '<span class="m">5 min · missed a meal</span>', 'urgent', 'Your day') + row('Feed the Four Flavours Liquor Worm · one jar', '<span class="m">5 min · missed a meal</span>', 'urgent', 'Your day') + row('Buy a bag of Moon Orchid petals · 10 for 1 stone', '<span class="m">20 min</span>', '', 'Your day') + row('Buy a jar of green bamboo wine · 2 stones', '<span class="m">20 min</span>', '', 'Your day') + row('Feed the White Jade Gu', '<span class="gap">needs 1 parcel of jade rock; you have 0</span>', 'near', 'Your Gu') + row('Bind your wound and rest · 6 h', '<span class="gap">you are not hurt</span>', 'near', 'Your day') + '<div class="m">Show 4 more</div>'),
+      doing: box('Doing now', 'a fight · tempo', '<p class="para">The fight will stop and ask you.</p>' + row('Hunt a lightning wolf on the tide (play it out)', '<span class="m">33 parts of essence; a moonblade costs 4</span>') + '<p class="para">Stance <span class="act" style="border:1px solid var(--line);padding:0 6px">Normal Stance ▾</span></p><p class="para">If it goes down: <b>Finish</b> · Spare · <u>Ask me</u></p><p class="para">If I am losing: <u>Fight on</u> · Yield · Break off at a third</p>'),
+      place: box('This place', 'Clan academy', '<p class="para">Pupils who opened their apertures sit at low desks. The elder shows the class how to sense the sea and move its essence.</p><div class="sub">People here · 1</div>' + plain('Academy elder', 'marks your first exercise complete') + '<div class="sub">Ways out · 2</div>' + plain('Dormitory', 'next door') + plain('Outer wall', 'wolves at night')),
+      story: box('Story', 'Reverend Insanity · the returned clan youth', '<p class="para">Try both throws from the same mark and see which crescent reaches the far straw target. Refine your Little Light Gu and keep both Gu to practise the pairing.</p>' + row('Choose Practice the Moonlight and Little Light pairing') + '<p class="para">Answer Qing Shu before you join the clans at Alliance Slope.</p>' + row('Choose Fang Yuan attends the three-clan gathering') + '<div class="m">▸ Not available yet (the next 3)</div><p class="para m">You woke at fifteen with memories of another lifetime. You remember the clan’s ceremony and the weight of the water.</p>'),
+    },
+  },
+  village: {
+    label: 'Village home', today: 'today-village.jpg',
+    status: ['Village', '01/04/999 08:12, Mon · Day', '☀ Summer Dry 14.9 °C · comfortable', 'No work running', 'Saving available.'],
+    left: box('You', 'Lv 0', plain('60/60 hp · 0/10 xp · 40/40 stamina') + plain('STR 12 · AGL 8 · DEX 10') + plain('INT 10 · Defense 1 · Magic 0')) + box('Condition', '', plain('No active effects') + plain('Body · Human')) + box('Inventory', '10C 4W', ['Ledger workshop cache', 'Prepared survey kit x2', 'Sealed survey parcel x2', 'Stale bread x5', 'Cheap leather pants [legs]'].map(t => plain(t)).join(''), 'grow'),
+    reports: '<p class="para">Nothing has happened yet this sitting. What you do, find, win, lose and hear is written here as it happens, newest at the bottom.</p><p class="para">[ Home · 01/04/999, Summer, Mon ]</p>',
+    panels: {
+      ready: box('Ready now', '1 next step · 3 close', row('Ask the elder about the spare weapon', '<span class="m">talk with Old Hesk</span>', 'urgent', 'Next step') + row('Make Bonemeal', '<span class="gap">needs 20 animal tooth</span>', 'near', 'Crafting') + row('Make Fish skewer', '<span class="gap">needs 5 small fish</span>', 'near', 'Crafting') + row('Make Fried fish', '<span class="gap">needs 1 medium fish</span>', 'near', 'Crafting') + '<div class="sub">Also here</div>' + row('Find work') + row('Train') + row('Cross to another world: Tingen')),
+      doing: box('Doing now', 'nothing running', '<p class="para m">No work running. Pick something under Ready now or This place to start.</p>'),
+      place: box('This place', 'Village', '<p class="para">Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. ▸ More</p><div class="grid2"><div><div class="sub">People here · 2</div>' + plain('Old Hesk, the village elder', 'neighbour') + plain('Dunstan, the village trader', 'merchant') + '<div class="sub">Ways out · 2</div>' + plain('Infested field', '15 min · not safe') + plain('Wild willow stand', '5 min') + '</div><div><div class="sub">Services & stations · 6</div>' + ['Waypost supply clerk', 'Homes', 'Village mixing counter', 'Crafting stations', 'Village common herb verge', 'Gear workshop'].map(t => plain(t)).join('') + '</div></div>'),
+      story: box('Journal', 'Lost memory', row('Find out what happened', '<span class="m">done</span>') + row('Help with the wolf rat infestation', '<span class="m">open</span>')),
+    },
+  },
+  craft: {
+    label: 'Crafting', today: 'today-crafting.jpg',
+    status: ['Village', '01/04/999 08:12, Mon · Day', '☀ Summer Dry 14.9 °C · comfortable', 'No work running', 'Saving available.'],
+    left: box('You', 'Lv 0', plain('60/60 hp · 0/10 xp · 40/40 stamina')) + box('Wool cloth', 'selected recipe', '<p class="para">Uses: Wool x2 (you have 0). Makes: Wool cloth x1. Station: Village bench, tier 1. Instant: no game time passes.</p>' + plain('Chance', '80%') + plain('XP', 'Tinkering +4'), 'grow') + box('Inventory', '10C 4W', ['Ledger workshop cache', 'Stale bread x5', 'Cheap leather pants [legs]'].map(t => plain(t)).join('')),
+    reports: '<p class="para">Nothing has happened yet this sitting.</p>',
+    panels: {
+      ready: box('Ready now', '3 close', row('Make Bonemeal', '<span class="gap">needs 20 animal tooth</span>', 'near', 'Crafting') + row('Make Fish skewer', '<span class="gap">needs 5 small fish</span>', 'near', 'Crafting') + row('Make Fried fish', '<span class="gap">needs 1 medium fish</span>', 'near', 'Crafting')),
+      doing: box('Crafting · Tinkering', '17 recipes · 0 ready', '<p class="para m">Tinkering · Butchering · Cooking · Woodworking · Smelting · Forging · Alchemy</p>' + [['Wool cloth', '1 material short'], ['Fine wool cloth', '1 material short'], ['Sinew string', '1 material short'], ['Flax string', '1 material short'], ['Bonemeal', 'needs 20 animal tooth'], ['Wolf trophy', '1 material short'], ['Boar trophy', '1 material short'], ['Mountain goat trophy', '1 material short'], ['Bear trophy', '1 material short'], ['Crab trophy', '1 material short'], ['Bandersnatch trophy', '2 of 2 materials short'], ['Gryphon trophy', '3 of 3 materials short'], ['Knotted chance charm', '2 of 2 materials short'], ['Forager pendant', '2 of 2 materials short'], ['Market tally pendant', '2 of 2 materials short'], ['Travel hearth pendant', '2 of 2 materials short']].map(([a, b]) => plain(a, b)).join(''), 'grow'),
+      place: box('This place', 'Village', '<p class="para m">People 2 · stations 6 · ways out 2 ▸</p>'),
+      story: '',
+    },
+  },
+};
+
+// Options. Stacked: one centre column of docked panels. Columns: two centre columns. Today: the real capture.
+const OPTIONS = {
+  stacked: s => `<div class="cwrap"><div class="stack">${s.panels.ready}${s.panels.doing.replace('class="box ', 'class="box ')}${s.panels.place}${s.panels.story}</div></div>`,
+  columns: s => `<div class="cwrap"><div class="stack">${s.panels.ready}${s.panels.doing}</div><div class="stack">${s.panels.place}${s.panels.story}</div></div>`,
+};
+const params = new URLSearchParams(location.search);
+let screen = params.get('screen') || 'fy', opt = params.get('opt') || 'stacked';
+function render() {
+  const s = SCREENS[screen];
+  document.body.dataset.opt = opt;
+  document.getElementById('today').src = s.today;
+  document.getElementById('status').innerHTML = s.status.map((t, i) => `<span class="${i === 0 ? 'place' : i === s.status.length - 1 ? 'save' : ''}">${esc(t)}</span>`).join('');
+  document.getElementById('left').innerHTML = s.left;
+  document.getElementById('reports').innerHTML = s.reports;
+  if (opt !== 'today') document.getElementById('centre').innerHTML = OPTIONS[opt](s) + '<div class="tabs"><span class="on">Here</span><span>Skills</span><span>Crafting</span><span>Mixing</span><span>Keys</span></div>';
+  pick(); requestAnimationFrame(measure);
+}
+// What each panel shows without scrolling: its height, the content it hides, and how many rows are fully in view.
+function measure() {
+  const out = [...document.querySelectorAll('#centre .box')].map(b => {
+    const body = b.querySelector('.body'), bottom = body.getBoundingClientRect().bottom;
+    const rows = [...body.querySelectorAll('.row')], seen = rows.filter(r => r.getBoundingClientRect().bottom <= bottom + 0.5).length;
+    return {panel: b.dataset.panel, height: Math.round(b.getBoundingClientRect().height), width: Math.round(b.getBoundingClientRect().width), hidden: Math.max(0, body.scrollHeight - body.clientHeight), rows: `${seen}/${rows.length}`};
+  });
+  window.__measure = {screen, opt, panels: out};
+  document.getElementById('measure').innerHTML = `<b>${esc(SCREENS[screen].label)} · ${opt}</b><br>` + out.map(m => `${esc(m.panel)}: ${m.width}×${m.height} px, rows in view ${m.rows}${m.hidden ? `, <span class="hidden-px">${m.hidden} px scrolled away</span>` : ', all in view'}`).join('<br>');
+}
+function pick() {
+  const p = document.getElementById('pick');
+  p.innerHTML = Object.entries(SCREENS).map(([k, s], i) => `<button data-s="${k}" aria-pressed="${k === screen}">${i + 1} ${esc(s.label)}</button>`).join('') + '<br>' +
+    [['today', 'q Today'], ['stacked', 'w Stacked panels'], ['columns', 'e Two columns']].map(([k, l]) => `<button data-o="${k}" aria-pressed="${k === opt}">${l}</button>`).join('') + ' <button data-m>m measure</button>';
+  p.onclick = e => { const b = e.target.closest('button'); if (!b) return; if (b.dataset.s) screen = b.dataset.s; if (b.dataset.o) opt = b.dataset.o; if ('m' in b.dataset) document.body.classList.toggle('measuring'); render(); };
+}
+addEventListener('keydown', e => { const s = {1: 'fy', 2: 'village', 3: 'craft'}[e.key], o = {q: 'today', w: 'stacked', e: 'columns'}[e.key]; if (s) screen = s; if (o) opt = o; if (e.key === 'm') document.body.classList.toggle('measuring'); render(); });
+if (params.has('clean')) document.getElementById('pick').style.display = 'none';
+render();
+</script>
+</body>
+</html>

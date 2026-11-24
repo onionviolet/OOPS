@@ -136,6 +136,7 @@ test('pack: refining through the real command yields the drawn kind as his own G
     assert.equal(held(save, RI_DAY_ITEMS.eye), 1, 'the essence route leaves the eye');
     const line = save.expansion.simulation.knowledge.player[RI_WILD_NOTE].value;
     assert.match(line, new RegExp(riWildGuLabel(kind)));
+    assert.ok(line.includes(`You spent ${44 - sea(save)} parts of essence`));
     assert.equal(save.expansion.actors.player.facts[`${W}.refined`], 1);
     assert.deepEqual(g.errors, []);
 });
@@ -210,7 +211,9 @@ test('pack: a slipped hold returns the wild Gu to his hand, warier, with the ess
     assert.equal(save.expansion.actors.player.facts[`${W}.wary`], 5, 'warier');
     assert.equal(save.expansion.actors.player.facts[`${W}.refined`] ?? 0, 0);
     assert.equal(sea(save), 44 - D.parts.value, 'the essence poured in stays spent');
-    assert.match(save.expansion.simulation.knowledge.player[RI_WILD_NOTE].value, /slipped your hold/);
+    const note = save.expansion.simulation.knowledge.player[RI_WILD_NOTE].value;
+    assert.match(note, /slipped your hold/);
+    assert.ok(note.includes(`You spent ${44 - sea(save)} parts of essence`));
     assert.deepEqual(g.errors, []);
 });
 

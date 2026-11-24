@@ -23,3 +23,8 @@ test('a name gets a title only while the row cuts it', () => {
     name.scrollWidth = 90; name.title = 'stale'; name.attrs.title = 'stale'; handler(event); assert.equal(name.attrs.title, undefined);
     handler({target: {closest: () => null}}); // not a name: nothing happens
 });
+
+test('SKC1: progress counts read in short form, like the reference "4k/7k"', async () => {
+    const {shortCount} = await import('../src/ui/skill_row.js');
+    assert.deepEqual([0, 6.73, 42, 999, 1000, 4123, 12800, 2.5e6, 3e9].map(shortCount), ['0', '6.7', '42', '999', '1k', '4.1k', '12k', '2.5M', '3B']);
+});

@@ -113,7 +113,7 @@ export function createAdventureNotebook({registry, read}) {
         wrappers.get("technique_panel").hidden = location !== "Village" && !Object.keys(actor.techniques).length && active?.panel !== "technique_panel";
         for(const [id] of panels) if((snapshot.inDialogue || snapshot.inCombat) && !active) wrappers.get(id).hidden = true;
         if(location !== lastLocation && !active && selected !== "people") selected="here";
-        if(active && !active.ownPanel && active.id !== lastAttention) {
+        if(active && !active.ownPanel && active.panel !== "tempo_fight_panel" && active.id !== lastAttention) {
             selected=active.view; const panel=document.getElementById(active.panel); if(panel) panel.open=true;
             // A newly waiting response must remain reachable after moving away
             // from the location menu. User tab choices then survive later ticks.

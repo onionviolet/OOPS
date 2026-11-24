@@ -10,7 +10,7 @@
 .household-cat-face {display:block;white-space:nowrap;color:var(--p23-text);line-height:1.5;}
 @keyframes household-fire { from { transform: scaleY(.94) rotate(-3deg); } to { transform: scaleY(1.05) rotate(3deg); } }
 @media (prefers-reduced-motion: no-preference) {
- html[data-effects="full"] .household-scene [data-lit="true"] .household-scene-flame { animation: household-fire 1.4s ease-in-out infinite alternate; }
+ html:is([data-effects="full"],[data-effects="auto"]) .household-scene [data-lit="true"] .household-scene-flame { animation: household-fire 1.4s ease-in-out infinite alternate; }
 }
 .household-scene [data-lit="true"] { color: var(--sem-money); }
 .household-scene [data-mood="content"] { color: var(--sem-gain); }

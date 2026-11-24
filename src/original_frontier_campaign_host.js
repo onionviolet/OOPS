@@ -5,8 +5,37 @@ import {meets} from './simulation_contracts.js';
 import {originalFrontierFacts} from './original_frontier_facts.js';
 import {featureLegibilityRow, featureActionDisclosure} from './feature_expansion_legibility.js';
 import {projectAcceptedWorkLegibility, projectSimulationAftermath} from './action_legibility.js';
+import {formatDuration} from './number_format.js';
 
 const encounterPrefix = 'original_frontier.control.encounter';
+export const FRONTIER_COMPARISON = 'original_frontier.practice_local_comparison';
+
+export async function advanceFrontierComparison({state, busy, commands, fastForward, waiting}) {
+    const read = () => {
+        const current = state();
+        const {simulation, actors, clock} = current;
+        const program = simulation?.programs.player;
+        const job = simulation?.jobs.find(j => j.actorId === 'player' && j.commandId === FRONTIER_COMPARISON);
+        const active = program?.commandId === FRONTIER_COMPARISON && (job || program.status === 'running');
+        return {actors, clock, program, job, active, choice: !!simulation?.sessions.player || !!waiting(current)};
+    };
+    const before = read();
+    if(!before.active || busy())throw new Error('Start a local comparison routine before advancing it.');
+    const work = commands.get(FRONTIER_COMPARISON);
+    const remains = before.program.status === 'running' ? before.program.remaining : 0;
+    const limit = (before.job ? before.job.due - before.clock : 0) + remains * work.duration;
+    const initialCompleted = before.actors.player.completed[FRONTIER_COMPARISON] || 0;
+    await fastForward(limit, {untilClock:before.clock+limit, continueWhile:()=>{
+        const current = read();
+        return !!current.active && !current.choice;
+    }});
+    const after = read();
+    const completed = (after.actors.player.completed[FRONTIER_COMPARISON] || 0) - initialCompleted;
+    const effort = -work.costs.find(cost => cost.type === 'vital' && cost.key === 'stamina').amount;
+    const stop = after.choice ? ' Answer the waiting choice before continuing.' : '';
+    return `${formatDuration(after.clock-before.clock)} played. ${completed} of your comparisons finished, spending ${effort*completed} stamina on finished work.${stop}`;
+}
+
 const acceptedZones = {original_frontier_accept_cave: ['Cave room','Nearby cave'], original_frontier_accept_forest: ['Forest','Forest road']};
 const acceptance = id => acceptedZones[id.replaceAll('.','_')];
 
@@ -83,10 +112,17 @@ export function originalFrontierPresentation(state, registry, context) {
     const canBegin = !episode.introduced && !context.busy && context.facts['village.elderMet'] && context.facts['originalFrontier.townAccessible'] && context.facts.location === 'Village';
     const job = s?.jobs.find(j => j.actorId === 'player' && registry.simulation.commands.get(j.commandId)?.group === 'original_frontier');
     const savedProgram = s?.programs.player, program = savedProgram && registry.simulation.commands.get(savedProgram.commandId)?.group === 'original_frontier' ? {...savedProgram} : null;
+    if (program?.commandId === FRONTIER_COMPARISON) {
+        program.comparison = true;
+        program.completed = a.completed[program.commandId] || 0;
+        program.inProgress = job?.commandId === program.commandId;
+        program.canAdvance = !context.busy && (program.inProgress || program.status === 'running');
+    }
     const session = s?.sessions.player, active = session && registry.simulation.commands.get(session.commandId)?.group === 'original_frontier' ? session : null;
     const actions = [];
     if(episode.introduced) for(const d of registry.simulation.commands.values()) {
         if(d.group !== 'original_frontier' || d.actorId !== 'player' || d.id === ORIGINAL_FRONTIER_IDS.begin || d.once && a.completed[d.id] || d.claim && s.claims[d.claim]) continue;
+        if (d.targetId && !s?.people?.[d.targetId]) continue;
         const ctx = originalFrontierContext(state,registry,{...context,targetId:d.targetId || null});
         if(!meets(d.visibleWhen, simulationFacts(state,ctx,registry))) continue;
         const p = previewSimulationCommand(state,registry,d.id,{...ctx,busy:ctx.busy || a.facts['original_frontier.travel.remaining']>0});
@@ -94,6 +130,13 @@ export function originalFrontierPresentation(state, registry, context) {
         const legibility=featureLegibilityRow(state,registry,ctx,d.id,p);
         actions.push({id:d.id,label:d.label,description:d.description || '',targetId:d.targetId || null,eligible:p.eligible,legibility,
             reasons:legibility?.blockers?.map(r=>r.text) || p.reasons,duration:p.duration,cancellation:d.cancellation || 'none',automatable:!!d.automatable});
+    }
+    if (program?.comparison && program.status === 'paused' && !program.inProgress && program.remaining) {
+        const next = actions.find(action => action.id === program.commandId);
+        program.nextReason = context.facts['native.skill.Perception.level'] >= 6
+            ? 'You have reached Perception six. Choose other work.'
+            : next?.reasons[0];
+        program.canResume = !!next?.eligible;
     }
     // Only the player's retained ledger qualifies an account. No pending job
     // outcome or private NPC state is inspected to explain its cause.

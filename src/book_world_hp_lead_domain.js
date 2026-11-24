@@ -30,7 +30,8 @@ import {schoolYearText} from './book_world_hp_school_calendar.js';
 import {registerDutySet} from './duties_domain.js';
 import {hpDutySet} from './book_world_hp_duties.js';
 import {HP_AT_SCHOOL_FACT} from './book_world_hp_duties.js';
-import {hpLessonView,keepClassSlot} from './book_world_hp_lessons.js';
+import {hpLessonView,keepClassSlot,FLASK_BONUS} from './book_world_hp_lessons.js';
+import {hpPotionsBench} from './hp_lead_making.js';
 import {hpExamView} from './book_world_hp_exams.js';
 import {domainRegistry} from './domain_registry.js';
 import {hpStudyRows,hpStudyStart,hpStudyWriteNote} from './book_world_hp_inquiry.js';
@@ -71,7 +72,9 @@ export function hpLeadProjection(state,data=actData(),locked=getHpLeadCast()?.lo
     const halloweenCharms=!!state.actors?.player?.completed?.[HP_LEAD_HALLOWEEN+'.charms'];
     const hufflepuffResult=state.simulation.knowledge?.player?.[HP_LEAD_NORBERT+'.match-result']?.value??null;
     const termResults=state.simulation.knowledge?.player?.[HP_LEAD_FINALE+'.cup-result']?.value??null;
-    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,being:norbert?norbertCard(state):null,arc,schoolWeek:!!week,halloweenCharms,
+    const potionsBench=hpPotionsBench(state,readPort('character')?.getItems?.());
+    if(potionsBench?.flask==='cure')potionsBench.lessonBonus=Math.round(FLASK_BONUS*100);
+    return {potionsBench,enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,being:norbert?norbertCard(state):null,arc,schoolWeek:!!week,halloweenCharms,
         termResults,hufflepuffResult,excursion:excursion?{id:arc.id,venue}:null,housePoints:halloweenArc?hpHalloweenHousePoints(state):null,match:matchArc?hpQuidditchMatch(state):null,reputation:reputationView(state,{known:id=>id==='book.hp.lead.ron'&&!!hpSchoolRoute(state).house}),school:hpSchoolRoute(state),ties:hpSchoolRoute(state).house?tieShownView(state):[],home:hpLeadHomeView(state,{homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}),lessons:hpLessonView(state),atCharmsBench:state.simulation.people.player.location===LEAD_ID+'.school_hall',trialJournal:hpLeadTrialJournal(state),jinxRows:hpLeadJinxRows(state),boardResult:state.simulation.knowledge?.player?.[LEAD_ID+'.spell_practice.last']?.value??null,exams:hpExamView(state),locked:structuredClone((excursion?excursion.locked?.[shown]:locked[shown])??[]),jobs:structuredClone(state.simulation.jobs||[])};
 }
 // Live holdings: the purse is the player's own resource under the pack's currency key (one integer in the smallest coin,

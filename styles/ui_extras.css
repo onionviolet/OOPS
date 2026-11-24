@@ -1,3 +1,4 @@
+@import url("./field_record.css");
 /* Command palette, row menu, shortcut sheet groups, panel badges and the new reference panels.
    Tokens only (ui_contract): colors, type and frames come from styles/ui_tokens.css. */
 #command_palette {
@@ -120,3 +121,5 @@ button[data-new-count]::after {
 .learning-now .ui-chip {border: 0; padding: 0; color: var(--ui-muted); font-variant-numeric: tabular-nums;}
 .learning-now .ui-chip + .ui-chip::before {content: " · ";}
 .learning-now .ui-chip[data-guess] {border: 0;}
+
+#known_things_panel {container-type:inline-size;}

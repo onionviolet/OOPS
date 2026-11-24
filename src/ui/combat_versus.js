@@ -23,6 +23,7 @@ function youLine(you) {
 }
 function opponentLine(o) {
     const bits = o.down ? [o.name, 'Down'] : [o.name, o.hp.text, `${o.threat.word}${o.threat.rung ? ` · reaches ${o.threat.rung}` : ''}`];
+    if (o.opening) bits.push('Opening');
     if (o.intent) bits.push(o.intent.word);
     if (o.odds) { const t = oddsText(o.odds); if (t) bits.push(t); }
     if (o.target === 'unread') bits.push('Target unread');
@@ -81,17 +82,20 @@ const chip = (doc, kind, text, extra = '') => make(doc, 'span', `versus-chip ver
 
 // PS222: under each card, its own latest line, when Display > Look > Fight log says "On each card".
 const lastLine = (doc, text) => { const p = make(doc, 'p', 'versus-last', text); p.dataset.versusLast = ''; return p; };
-function youSide(doc, you, showLast = false) {
+function youSide(doc, you, showLast = false, compact = false) {
     const side = make(doc, 'section', 'versus-side versus-side--you');
     side.setAttribute('aria-label', 'Your side');
-    side.append(make(doc, 'h4', 'versus-name', you.name));
-    if (you.hp) {
+    if (!compact) side.append(make(doc, 'h4', 'versus-name', you.name));
+    if (!compact && you.hp) {
         if (you.hp.max > 0) side.append(meter(doc, 'versus-bar versus-bar--you versus-bar--hp', `${you.name} hit points`, you.hp.current / you.hp.max, you.hp.text, you.hp.text));
         else side.append(make(doc, 'p', 'versus-hp', you.hp.text));
     }
     // Stamina under health, as upstream YAIR's two bars (tempo fights only pass it).
-    if (you.stamina?.max > 0) side.append(meter(doc, 'versus-bar versus-bar--stamina', `${you.name} stamina`, you.stamina.current / you.stamina.max, you.stamina.text, you.stamina.text));
-    { const t = timer(doc, you.name, you.ready); if (t) side.append(t); }
+    if (!compact && you.stamina?.max > 0) side.append(meter(doc, 'versus-bar versus-bar--stamina', `${you.name} stamina`, you.stamina.current / you.stamina.max, you.stamina.text, you.stamina.text));
+    if (Number.isFinite(you.ready)) {
+        if (compact) side.append(make(doc, 'p', 'versus-means', `Readiness · ${readyWord(you.ready)}`));
+        side.append(timer(doc, you.name, you.ready));
+    }
     if (you.means) side.append(make(doc, 'p', 'versus-means', you.means));
     if (you.allyCards?.length) {
         // D6: allies stand on your side, each its own small card under "Beside you" (the same words as the old one-line list).
@@ -107,14 +111,30 @@ function youSide(doc, you, showLast = false) {
     return side;
 }
 
-function card(doc, o, showLast = false) {
+function card(doc, o, showLast = false, inspection = null) {
     const c = make(doc, 'article', 'versus-card');
     c.dataset.threat = o.threat.level;
     c.dataset.known = String(o.known);
     c.dataset.down = String(!!o.down);
     c.dataset.combatSubject = o.id;
     c.setAttribute('aria-label', opponentLine(o));
-    c.append(named(doc, o.name));
+    const name = named(doc, o.name);
+    if (inspection) {
+        c.classList.add('combat-opponent-row');
+        c.dataset.inspected = String(inspection.selected);
+        if (inspection.choose) {
+            const button = make(doc, 'button', 'versus-inspect', o.name);
+            button.type = 'button';
+            button.dataset.fightInspect = o.id;
+            button.setAttribute('aria-pressed', String(inspection.selected));
+            button.setAttribute('aria-label', `Inspect opponent ${inspection.label}`);
+            button.onclick = inspection.choose;
+            name.replaceChildren(button);
+        }
+    }
+    if (o.opening) name.append(make(doc, 'span', 'fight-opening', 'Opening'));
+    c.append(name);
+    const details = inspection?.details ?? c;
     let hpInside = null;
     // Numbers as the character knows them (PS130): "Atk ? · ?/? hp" until seen; the hp line keeps only its words (Fresh, Down), one home per fact.
     if (o.numbers && !o.down) {
@@ -130,17 +150,21 @@ function card(doc, o, showLast = false) {
         if (was) { was.title = 'What the rumour said.'; }
         n.append(t('Atk '), ...(was ? [was, t(' ')] : []), atk, ...(o.numbers.heardFrom ? [t(', from a rumour')] : []));
         // PS297: health as YAIR draws it, its numbers inside the bar (still "?" until known); attack stays a line of its own above it.
-        hpInside = [num(o.numbers.hp, 'health'), t('/'), num(o.numbers.maxHp, 'most health'), t(' hp')];
-        c.append(n);
-        if (o.sense) { const w = make(doc, 'p', 'versus-sense', `It ${o.sense}.`); w.dataset.versusSense = ''; c.append(w); }
+        if (!o.hp.qualitative) hpInside = [num(o.numbers.hp, 'health'), t('/'), num(o.numbers.maxHp, 'most health'), t(' hp')];
+        details.append(n);
+        if (o.sense) { const w = make(doc, 'p', 'versus-sense', `It ${o.sense}.`); w.dataset.versusSense = ''; details.append(w); }
     }
     const known = o.hp.fraction !== null && o.hp.fraction !== undefined, inside = hpInside || (known && !o.down ? o.hp.text : null);
-    if (o.down || (o.numbers ? !/\d|\?\?\?/.test(o.hp.text) : !inside)) c.append(make(doc, 'p', 'versus-hp', o.hp.text));
+    if (inspection && o.hp.qualitative) {
+        const condition = make(doc, 'p', 'versus-hp versus-condition');
+        condition.append(make(doc, 'span', '', 'Condition'), make(doc, 'strong', '', o.hp.text));
+        c.append(condition);
+    } else if (o.down || (o.numbers ? !/\d|\?\?\?/.test(o.hp.text) : !inside)) c.append(make(doc, 'p', 'versus-hp', o.hp.text));
     if (known || hpInside) { const bar = meter(doc, 'versus-bar versus-bar--hp', `${o.name} hit points`, known ? o.hp.fraction : null, o.hp.text, inside); bar.dataset.healthKnown = String(known); c.append(bar); }
-    if (o.stamina?.max > 0) c.append(meter(doc, 'versus-bar versus-bar--stamina', `${o.name} stamina`, o.stamina.current / o.stamina.max, o.stamina.text, o.stamina.text));
+    if (o.stamina?.max > 0) details.append(meter(doc, 'versus-bar versus-bar--stamina', `${o.name} stamina`, o.stamina.current / o.stamina.max, o.stamina.text, o.stamina.text));
     { const t = !o.down && timer(doc, o.name, o.ready); if (t) c.append(t); }
-    if (o.means) c.append(make(doc, 'p', 'versus-means', o.means));
-    if (o.wants) { const w = make(doc, 'p', 'versus-wants', o.wants); w.dataset.versusWants = ''; c.append(w); }
+    if (o.means) details.append(make(doc, 'p', 'versus-means', o.means));
+    if (o.wants) { const w = make(doc, 'p', 'versus-wants', o.wants); w.dataset.versusWants = ''; details.append(w); }
     const chips = make(doc, 'div', 'versus-chips');
     const threat = chip(doc, 'threat', threatText(o.threat), o.threat.level === 'lethal' ? 'fig-fx--pulse' : '');
     if (Number.isFinite(o.threat.blow)) threat.setAttribute('title', BOUND_NOTE);
@@ -152,12 +176,12 @@ function card(doc, o, showLast = false) {
         const c2 = chip(doc, 'type', typeText(t), t.source === 'learned' ? '' : 'versus-chip--revealed');
         c2.dataset.damageType = t.type; c2.dataset.source = t.source; chips.append(c2);
     }
-    c.append(chips);
+    details.append(chips);
     if (showLast && o.last) c.append(lastLine(doc, o.last));
     return c;
 }
 
-export function renderVersusRow(host, versus) {
+export function renderVersusRow(host, versus, {playerHost, inspectedId, onInspect} = {}) {
     const doc = host.ownerDocument;
     const root = make(doc, 'div', 'versus-row');
     root.dataset.opponents = String(versus.opponents.length);
@@ -167,12 +191,35 @@ export function renderVersusRow(host, versus) {
     them.setAttribute('aria-label', 'Opponents');
     // D6: the other side is named and counted; fallen foes keep their cards (DU11), so the count is who still stands.
     const standing = versus.opponents.filter(o => !o.down).length;
-    them.append(make(doc, 'h5', 'versus-heading versus-heading--them', `Against you · ${standing}${standing < versus.opponents.length ? ` of ${versus.opponents.length}` : ''}`));
-    for (const o of versus.opponents) them.append(card(doc, o, !!versus.showLast));
+    const count = `${standing}${standing < versus.opponents.length ? ` of ${versus.opponents.length}` : ''}`;
+    them.append(make(doc, 'h5', 'versus-heading versus-heading--them', `${playerHost ? 'Opponents' : 'Against you'} · ${count}`));
+    if (playerHost) {
+        const inspected = versus.opponents.find(o => o.id === inspectedId) || versus.opponents.find(o => !o.down) || versus.opponents[0];
+        const selectedDetails = make(doc, 'section', 'versus-opponent-details');
+        for (const [i, o] of versus.opponents.entries()) {
+            const selected = o === inspected;
+            them.append(card(doc, o, !!versus.showLast, {
+                selected,
+                details: selected ? selectedDetails : doc.createDocumentFragment(),
+                label: `${o.name}, ${i + 1} of ${versus.opponents.length}`,
+                choose: versus.opponents.length > 1 && onInspect ? () => onInspect(o.id) : null,
+            }));
+        }
+        if (inspected) {
+            selectedDetails.setAttribute('aria-label', `${inspected.name} details`);
+            them.append(selectedDetails);
+        }
+    } else {
+        for (const o of versus.opponents) them.append(card(doc, o, !!versus.showLast));
+    }
     // PS297: every fighter's box is the same width: your side takes one share, theirs one per card (up to three a row).
     const cols = Math.max(1, Math.min(3, versus.opponents.length));
     root.style.setProperty('--versus-them', `${cols}fr`); them.style.setProperty('--versus-cols', String(cols));
-    root.append(youSide(doc, versus.you, !!versus.showLast), sep, them);
+    if (playerHost) {
+        playerHost.replaceChildren(youSide(doc, versus.you, !!versus.showLast, true));
+        root.classList.add('versus-row--opponents-only');
+        root.append(them);
+    } else root.append(youSide(doc, versus.you, !!versus.showLast), sep, them);
     host.replaceChildren(root);
     return root;
 }

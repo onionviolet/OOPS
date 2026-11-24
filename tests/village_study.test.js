@@ -25,6 +25,20 @@ test('knowledge, personal rehearsal and current loan custody are separate execut
  const done=finishVillageShift(active,true);assert.equal(done.watchcraft.used,true);assert.equal(villageShiftBonus(done,true),0);
  const debt=resolveVillageKit(done,'keep');assert.throws(()=>beginVillageShift(debt,true),/settle/);assert.equal(watchcraftPresentation(debt,true).executable,false);
 });
+test('the well lead belongs to the first completed clear report',()=>{
+ let state=issueWatchcraft(dependable());
+ for(let i=0;i<5;i++)state=practice(state);
+ const round=beginVillageShift(state,true);
+ assert.equal(finishVillageShift(round,false,{markWellLinen:true}).watchcraft.wellLinenLead,undefined);
+ const prior=finishVillageShift(round,true);
+ assert.equal(migrateVillageCareer({village_career:prior}).watchcraft.wellLinenLead,undefined);
+ const late=beginVillageShift(resolveVillageKit(prior,'return'),true);
+ assert.equal(finishVillageShift(late,true,{markWellLinen:true}).watchcraft.wellLinenLead,undefined);
+ const report=finishVillageShift(round,true,{markWellLinen:true});
+ assert.equal(migrateVillageCareer({village_career:report}).watchcraft.wellLinenLead,true);
+ const forged={...state,watchcraft:{...state.watchcraft,wellLinenLead:true}};
+ assert.throws(()=>migrateVillageCareer({village_career:forged}),/unearned clear-report lead/);
+});
 test('import rejects fabricated practice without native book completion',()=>{
  let s=issueWatchcraft(dependable());s=practice(s);
  const envelope={'game version':'v0.5.5.30','current time':{year:999,month:4,day:1,hour:8,minute:0},'current location':'Village',character:{name:'Hero',money:102,xp:{total_xp:0},inventory:{},equipment:{}},skills:{Literacy:{total_xp:6}},locations:{},activities:{},dialogues:{},traders:{},village_career:s};

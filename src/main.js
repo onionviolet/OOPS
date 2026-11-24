@@ -18,8 +18,9 @@ import {bindNativeView} from './native_view.js';
 import {translate, bindTranslationReaders} from './native_translation.js';
 import {can_work, enough_time_for_earnings} from './activity_time.js';
 import {global_flags, languages, language, current_location, travel_times, unlocked_beds, last_location_with_bed, last_combat_location, active_effects, selected_stance, faved_stances, favourite_consumables, favourite_items, game_options, setLanguage, setCurrentLocation, setTravelTimes, setLastLocationWithBed, setLastCombatLocation, setSelectedStance} from './runtime_state.js';
-import {readNativeCombatFocus} from './combat_focus.js';
+import {readNativeCadence} from './combat_focus.js';
 import {mountProto23Shell} from './proto23_shell.js';
+import {quoteJourney, setJourneyPace, villageRoadPace} from './journey_quote.js';
 import {makeItemCardReader} from './item_card_reader.js';
 import {mountWorkspaceNavigation} from './workspace_navigation.js';
 import {createVillageWorkspace, placeExits, heardName} from './village_workspace.js'; import {mountDayStrip} from './ui/day_strip.js';
@@ -100,7 +101,7 @@ import {createLocalLivelihoodContent} from './local_livelihood_content.js';impor
 import {mountFirstHour} from './first_hour.js';
 import {mountWorkspace,registerWorkspaceModule,registerLayoutSignal,workspaceOwns,openWorkspaceModule,expandWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {createWorkspaceViews,createEquipmentComparison} from './workspace_views.js';
-import {defaultCustomizationState,neutralPresentationSettings,upgradeUntouchedCustomization,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
+import {DEFAULT_LOOK_MARK,moveToDefaultLook,defaultCustomizationState,neutralPresentationSettings,upgradeUntouchedCustomization,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
 import {createCustomizationUI} from './customization_ui.js';
 import {createWorkLedgerAuthorUI} from './work_ledger_author_ui.js';
 import {createSettledTextEffects} from './settled_text_effects.js';
@@ -227,7 +228,7 @@ import {TraderComponent} from './components/trader_component.js';
 import {skillExpansionContext} from './skill_expansion_host.js';
 import {createSkillExpansionPanel} from './skill_expansion_ui.js';
 import {createOriginalFrontierPanel} from './original_frontier_campaign_ui.js';
-import {beginOriginalFrontier,commitOriginalFrontier,originalFrontierContext,recordOriginalFrontierEncounter} from './original_frontier_campaign_host.js';
+import {beginOriginalFrontier,commitOriginalFrontier,originalFrontierContext,recordOriginalFrontierEncounter,advanceFrontierComparison} from './original_frontier_campaign_host.js';
 import {createPocketRealmPanel} from './pocket_realm_ui.js';
 import {registerPocketLocation,POCKET_LOCATION} from './data/pocket_location.js';
 import {activeRealmVisit,realmSimulationContexts,syncRealmClock} from './realm_state.js';
@@ -342,6 +343,7 @@ import { end_activity_animation,
 import { update_displayed_fighters_stats, update_displayed_health_of_fighter, } from "./ui/combat_display.js";
 import { compare_game_version, crafting_tags_to_skills, get_component_name, is_a_older_than_b, get_item_mapping, skill_consumable_tags, rtp, write_availability_status, npc_key_mapping, format_working_time, stat_names } from "./misc.js";
 import { stances } from "./combat_stances.js";
+import { TEMPO_SCHEMA } from "./tempo_fight_contract.js";
 import { registerMixtureGathering, recipes, get_recipe_xp_value, get_component_stats } from "./crafting_recipes.js";
 import { game_version, get_game_version } from "./game_version.js";
 import { restoreActiveEffect, ActiveEffect, effect_templates } from "./active_effects.js";
@@ -576,7 +578,7 @@ import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_
 import {createVillageLivesPanel} from './npc_lives_ui.js';
 import {registerQuestBoard} from './quest_board_ui.js';
 import {restoreGeneratedPeople, generatedPeopleSnapshot, registerGeneratedPeople} from './generated_people_ui.js';
-import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
+import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, WATCHCRAFT_BONUS, patrolPayText, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
 import {createVillageCareerControls} from './village_career_ui.js';
 import {askTypedConfirm} from './typed_confirm.js';import {showLoadFailureNotice} from './load_failure_notice.js';
 let customization = defaultCustomizationState();
@@ -1635,6 +1637,7 @@ function localLifeContext(calendar=current_game_time, state=expansionState, loca
         idle:!current_combat&&!current_activity&&!current_game_action&&!is_sleeping&&!is_reading&&!current_dialogue&&!is_in_trade()&&nativeActionReasons(state).length===0,
         clock:calendarMinutes(calendar),calendarMinute:calendarMinutes(calendar),
         perception:character.getTotalSkillLevel('Perception'),money:character.money,villageReputation:character.reputation.Village,illumination:domainRegistry.project('lamplight')?.light?.light,nightVisionRatio:character.getTotalSkillLevel('Night vision')/skills['Night vision'].max_level,
+        knowsWellLinen:villageCareer.watchcraft.wellLinenLead===true,
         millUnlocked:locations['Eastern mill'].getAvailabilityComponent().getStatus().is_unlocked===true,
         bleedingRemaining:active_effects.Bleeding?.duration||0,
         foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0};
@@ -1713,9 +1716,11 @@ function buildSimulationNativeContexts(readFrame) {
 }
 
 function frontierNativeEvidence(){
-    const nativeSkillLevels=Object.fromEntries(Object.keys(skills).map(id=>[id,character.getLevelableComponent().skill_progress[id]?.current_level || 0]));
+    const progress=character.getLevelableComponent().skill_progress;
+    const nativeSkillLevels=Object.fromEntries(Object.keys(skills).map(id=>[id,progress[id]?.current_level || 0]));
     const nativeZoneCounts=Object.fromEntries(Object.entries(locations).filter(([,l])=>l.tags.combat_zone).map(([id,l])=>[id,l.enemy_groups_killed || 0]));
     const facts={'originalFrontier.townAccessible':!!locations['Town square'].canBeStarted(get_context())};
+    if(nativeSkillLevels.Perception===5)facts['native.perceptionLevelSixXP']=progress.Perception.total_xp_to_next_lvl;
     for(const id of ['Forest road','Nearby cave','Cave room','Forest','Infested field','Shack','Town outskirts']) facts[`native.zone.${id}.accessible`]=!!locations[id]?.canBeStarted(get_context());
     return {nativeSkillLevels,nativeZoneCounts,facts};
 }
@@ -2426,6 +2431,10 @@ function actSkillExpansion(command){
 }
 function actOriginalFrontier(command){
     if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
+    if(command.type==='advanceComparison')return advanceFrontierComparison({
+        state:()=>expansionState,busy:()=>campaignContext().busy,
+        commands:expeditionRegistry.simulation.commands,fastForward,waiting:waitingSimulationChoice,
+    });
     const definition=expeditionRegistry.simulation.commands.get(command.id);
     const context={...campaignContext(),targetId:command.targetId || definition?.targetId || null,
         equipment:Object.fromEntries(Object.entries(simulationNativeContexts()).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment]))};
@@ -3287,8 +3296,8 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
     if((expansionState.worlds?.['base.frontier']?.facts?.['drainage.seed']!==undefined||Object.keys(residenceState()?.properties||{}).length>0||p23Exposure!==undefined||household!==undefined||p23LivingGear!==undefined||p23CombatOptions!==undefined||p23Salvage!==undefined||expansionState.p23Reading!==undefined||p23Field!==undefined||p23Repeat!==undefined||p23Market!==undefined||p23Leisure!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
         if(!pathfinder){pathfinder=new Pathfinder();pathfinder.fill_connections(locations);}
         travel_times[previous_location.id] ||= pathfinder.find_shortest_paths(previous_location.id);
-        const running=revealFacts()['reveal.run']===true&&character.getTotalSkillLevel('Running')>=1&&!practiceRunReason();
-        const minutes=Math.max(1,Math.ceil(travel_times[previous_location.id][location.id]*(running?.8:1)));
+        const quote=quoteJourney(travel_times[previous_location.id][location.id]),running=!!quote?.parts.some(p=>p.id==='running');
+        const minutes=quote?.minutes;
         if(!Number.isSafeInteger(minutes))throw Error('No admitted native route connects these places.');
         const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true);
         if(plan.state.clock-expansionState.clock!==minutes){const consumed=plan.state.clock-expansionState.clock;persistExpansion(plan);domainRegistry.tick(consumed);log_message('Finish the current local decision before completing this journey.','notification');return;}
@@ -3344,9 +3353,9 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
     }
 
     if(previous_location && !skip_travel_time) {
-        const running=revealFacts()['reveal.run']===true && character.getTotalSkillLevel('Running')>=1 && !practiceRunReason();
-        if(running)use_stamina({stamina_to_use:2});
-        progress_time({value: Math.max(1,Math.ceil(travel_times[previous_location.id][current_location.id]*(running?.8:1))), source: "travel"});
+        const quote=quoteJourney(travel_times[previous_location.id][current_location.id]);
+        if(quote?.parts.some(p=>p.id==='running'))use_stamina({stamina_to_use:2});
+        progress_time({value: quote?.minutes ?? 1, source: "travel"});
     }
 
     travel_times[current_location.id] ||= pathfinder.find_shortest_paths(current_location.id); // Time consumers may invalidate the derived path cache.
@@ -3392,7 +3401,7 @@ function handle_location_icon_click() {
 function customizationFromSave(save) {
     // Saves written before Luminous Gothic became the default (2026-10-29) carry no marker;
     // their untouched Neutral profile is upgraded once. Later saves keep an explicit Neutral.
-    if(save.customization!=null)return save.customization_default==='luminous'?validateCustomizationState(save.customization):upgradeUntouchedCustomization(save.customization);
+    if(save.customization!=null)return save.customization_default===DEFAULT_LOOK_MARK?validateCustomizationState(save.customization):moveToDefaultLook(save.customization); // DK1: every save moves to the dark default once
     const next={...defaultCustomizationState(),profiles:{Default:{settings:neutralPresentationSettings(),modules:{}}}};if(save.work_ledger?.settings)Object.assign(next.profiles.Default.settings,save.work_ledger.settings);return upgradeUntouchedCustomization(next);
 }
 function refreshCustomization() {
@@ -3560,18 +3569,22 @@ function end_activity() {
         const firstUse=bonus>0 && !villageCareer.watchcraft.used;
         const teachingStipend=villageTeachingStipend(villageCareer,current_activity.earnings>0);
         const teachingCost=villageTeachingCost(villageCareer,current_activity.earnings>0);
-        villageCareer = finishVillageShift(villageCareer, current_activity.earnings > 0);
+        const base = current_activity.earnings;
+        const total = Math.max(0, base + bonus - teachingCost) + teachingStipend;
+        const lead = firstUse && !localLife.searches.Village.found;
+        villageCareer = finishVillageShift(villageCareer, paidRoundCompleted, {markWellLinen:lead});
         if(teachingCost)log_message(teachingCost===60?'This full teaching shift earns no pay, as agreed.':'The post pays 10 less: teaching on your shift meant less patrol work. These are lost wages, not a fee.');
         if(bonus) {
-            current_activity.earnings+=bonus;
-            log_message('Your practiced watchcraft and loaned lantern and baton produced a clear patrol report: +10 coins, 60 total.');
+            log_message(`Tessa’s clear patrol report · ${patrolPayText(base, bonus, total)}.${
+                lead ? ' “You marked linen caught by the well.” Follow up in Local life → Look around.' : ''
+            }`, 'notification', lead ? {safeText:true,panelId:'local-actions',panelLabel:'Open Actions'} : {safeText:true});
             if(firstUse) {
                 const t=current_game_time;
                 lifeRecord=appendLifeMilestone(lifeRecord,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:'You first used Tessa’s practiced watchcraft with the loaned lantern and baton to earn a clearer patrol report.'});
                 lifeRecordPanel?.render();
             }
         }
-        current_activity.earnings=Math.max(0,current_activity.earnings-teachingCost)+teachingStipend;
+        current_activity.earnings=total;
         if(teachingStipend)log_message('Tessa pays a 10-coin teaching stipend on top of your round. Training recruits is part of a Mentor’s job.');
         log_message('Tessa notes how your shift went. Bring back the loaned lantern and baton before taking another round.');
     }
@@ -4044,6 +4057,14 @@ function end_reading() {
 let practicePanel, referenceRender=()=>{}, openingStep=0;
 try{const step=Number(localStorage.getItem('yairpg.opening.v1'));if(Number.isInteger(step)&&step>=0&&step<=3)openingStep=step;}catch{/* Session-only presentation if browser storage is unavailable. */}
 function revealFacts(){return expansionState.actors.player.facts;}
+// AK17: the one pace reader for walks; the exit labels, the charge and the arrival clock read it through journey_quote.js.
+setJourneyPace(() => {
+    if (expansionState.actors.player.worldId !== 'base.frontier' || revealFacts()['original_frontier.freight.introduced']) return [];
+    const {stamina, max_stamina: maxStamina} = character.getFullStats();
+    const running = revealFacts()['reveal.run'] === true && character.getTotalSkillLevel('Running') >= 1 && !practiceRunReason();
+    const logs = character.getItems()['{"id":"Rough wood log"}']?.count || 0;
+    return villageRoadPace({running, stamina, maxStamina, logs});
+});
 function materialInsightContext(){return {facts:revealFacts(),worldId:expansionState.actors.player.worldId,recipes,known:id=>(item_log.items[id]?.number||0)>0,level:id=>character.getTotalSkillLevel(id)};}
 const recipeLesson=createAcquisitionLesson({
     canWrite:()=>!restoringNativeSave&&ownsSave&&!foundationSaveBlocked&&!importProbeToken,
@@ -4644,6 +4665,18 @@ function get_context() {
         season: current_game_time.getSeason(),
         global_flags,
         height_values,
+        get villagePatrol() {
+            if (current_location?.id !== 'Village' || expansionState.actors.player.worldId !== 'base.frontier') return null;
+            const {loan,watchcraft}=villageCareer;
+            const rehearsed=watchcraftKnown() && watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE;
+            return {
+                kitDue:!!loan && loan.status!=='active',
+                nextBonus:rehearsed ? WATCHCRAFT_BONUS : 0,
+                activeBonus:loan?.watchcraft ? WATCHCRAFT_BONUS : 0,
+                teachingAdjustment:villageTeachingStipend(villageCareer,true)-villageTeachingCost(villageCareer,true),
+                showHandoff:rehearsed && !watchcraft.used && ownsSave && !foundationSaveBlocked && !importProbeToken,
+            };
+        },
         playable_races,
         locations,
         quests
@@ -6560,7 +6593,7 @@ function create_save({forExport = false} = {}) {
         save_data.village_career = structuredClone(villageCareer);
         save_data.work_ledger=structuredClone(workLedger);
         save_data.customization=structuredClone(customization);
-        save_data.customization_default='luminous';
+        save_data.customization_default=DEFAULT_LOOK_MARK;
         save_data.fork_schema = 1;
         save_data.life_record = observeLifeSave(lifeRecord, {...save_data, expansion: expansionState});
         const generatedSnapshot=generatedPeopleSnapshot(calendarMinutes(current_game_time));
@@ -8887,7 +8920,7 @@ function simulateTick() {
                     const before=villageCareer.watchcraft.practiceMinutes;
                     villageCareer=practiceWatchcraft(villageCareer,{known:watchcraftKnown(),location:current_location.id,activity:current_activity.id,worldId:expansionState.actors.player.worldId,alive:character.is_alive===true});
                     if(before<WATCHCRAFT_PRACTICE && villageCareer.watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE)
-                        log_message('Watchcraft practiced: you can now apply the sector scan on a new full Village patrol with Tessa’s loaned lantern and baton.');
+                        log_message('Watchcraft rehearsed, 5/5. Use sector scanning on your next Village patrol.');
                 }
 
                 //if effects: add them
@@ -8917,6 +8950,8 @@ function simulateTick() {
                     //add xp
                     if(current_activity.xp_given_per_working_period) {
                         add_xp_to_activity_skills();
+                        // Record the work cycle at settlement even when panel refreshes are batched.
+                        domainRegistry.command('skillRecords','observeProgress')?.();
                     }
 
                     //add resource drops (if defined)
@@ -9186,25 +9221,26 @@ let fastForwarding = null;
 const yieldToBrowser = () => globalThis.scheduler?.yield ? globalThis.scheduler.yield() : new Promise(resolve => {
     const channel = new MessageChannel(); channel.port1.onmessage = () => {channel.port1.close(); resolve();}; channel.port2.postMessage(0);
 });
-function fastForward(n, {sliceMs = 30, onProgress, untilClock = null} = {}) {
-    checkTickCount(n);
+function fastForward(n, {sliceMs = 30, onProgress, untilClock = null, continueWhile = () => true} = {}) {
+    if(!Number.isSafeInteger(n) || n < 0 || n > 1000000) return Promise.reject(new RangeError('Invalid time request.'));
     if(fastForwarding || stepperSaves) return Promise.reject(new Error('Cannot nest fastForward.'));
     if(!Number.isFinite(sliceMs) || sliceMs <= 0) return Promise.reject(new RangeError('sliceMs must be positive.'));
     const run = async () => {
         // Outside a run, stepping() is true exactly while the engine is paused.
-        const started = performance.now(), wasPaused = stepping();
+        const started = performance.now();
         let ticks = 0, callbacks = 0, slices = 0, maxSliceMs = 0, autosaves = 0, close = null;
         // Each tick builds and drops several whole-save strings and buffers. Only idle time lets the browser release
         // that off-heap memory, so a long unbroken batch grows by gigabytes and crashes the page; rest briefly now and then.
         let lastRest = performance.now();
-        pauseEngine();
+        const release = suspendEngine();
         try {
             close = openStepperBatch(false);
             // untilClock (the away bank, TMR5): count minutes on the root clock, since a sleeping tick covers several; n stays the tick cap.
-            const more = () => ticks < n && (untilClock === null || expansionState.clock < untilClock);
+            const more = () => ticks < n && (untilClock === null || expansionState.clock < untilClock) && continueWhile();
             while(more()) {
                 // Yield first, so not even the first slice joins the caller's task.
                 await yieldToBrowser();
+                if(!more())break;
                 const sliceStart = performance.now();
                 let count = 0, elapsed = 0;
                 // Stop before a tick that would likely cross the slice budget.
@@ -9216,7 +9252,7 @@ function fastForward(n, {sliceMs = 30, onProgress, untilClock = null} = {}) {
             }
         } finally {
             try {if(close) autosaves = close();}
-            finally {if(!wasPaused) resumeEngine();}
+            finally {release();}
         }
         return {ticks, callbacks, autosaves, slices, maxSliceMs: +maxSliceMs.toFixed(1), wallMs: Math.round(performance.now() - started)};
     };
@@ -9959,10 +9995,10 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         const dealing=current_trader?{id:current_trader,name:NPCRegistry.get(current_trader).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}),role:'Merchant',met:true,traits:[],relationship:null}:null;
         const people=[...authored,...travelers,...(dealing&&!authored.some(p=>p.id===dealing.id)?[dealing]:[])],things=inVillage?[{id:'homes',name:'Homes',description:'Residence rights, furnishings, storage and optional home beginnings.'},{id:'mixing',name:'Village mixing counter',description:'Mix and observe your own ingredients.'},...(document.querySelector('.choice_craft')?[{id:'crafting',name:'Crafting stations',description:'Benches and tools for making things.'}]:[]),{id:'herbal-experiments',name:'Village common herb verge',description:'Gather common herbs and inspect your carried materials and preparations.'},...(domainRegistry.project('gear_workshop')?.discovered?[{id:'gear-workshop',name:'Gear workshop',description:'Inspect and work on carried gear: fittings, treatment, repair, reforge and salvage.'}]:[]),{id:'projects',name:'Projects',description:'Read optional proposals before opting in.'}]:(current_location?.stations||[]);
         const busy=!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()||nativeOccupationReason());
-        const exits=placeExits(current_combat?null:current_location,get_context(),travel_times);const actions=[...exits.map(e=>({id:e.id,target:e.id,label:e.act,disabled:false,reason:''})),...people.map(p=>({id:`talk:${p.id}`,target:p.id,label:p.met||!p.status?`Talk with ${p.name.split(',')[0].replace(/^The /,'the ')}`:'Meet traveler',disabled:busy,reason:busy?'Finish your current work or conversation first.':''})),...things.map(t=>({id:t.id,target:t.id,label:t.id==='projects'?'Open Projects':`Open ${t.name}`,disabled:t.id!=='projects'&&busy,reason:busy?'Finish your current work or conversation first.':''}))];
+        const exits=placeExits(current_combat?null:current_location,get_context(),travel_times,{now:current_game_time});const actions=[...exits.map(e=>({id:e.id,target:e.id,label:e.act,disabled:false,reason:''})),...people.map(p=>({id:`talk:${p.id}`,target:p.id,label:p.met||!p.status?`Talk with ${p.name.split(',')[0].replace(/^The /,'the ')}`:'Meet traveler',disabled:busy,reason:busy?'Finish your current work or conversation first.':''})),...things.map(t=>({id:t.id,target:t.id,label:t.id==='projects'?'Open Projects':`Open ${t.name}`,disabled:t.id!=='projects'&&busy,reason:busy?'Finish your current work or conversation first.':''}))];
         const weatherNode=document.getElementById('weather_div'),weatherLabel=weatherNode?.querySelector('.material-icons')?.textContent.trim()==='ac_unit'?'Snow':is_raining()?'Rain':'Dry',temperatureText=weatherNode?.querySelector('span:not(.material-icons):not(.temperature_tooltip)')?.textContent||'';
-        const enemies=readNativeCombatFocus(current_combat?.defenders_ui_slot),enemy=enemies[0]||null;
-        return {inVillage,worldId:expansionState.actors.player.worldId,calendar:readLocalCalendar(),weatherWords:readLocalWeatherWords(),place:current_location?.name||current_location?.id||'',placeTypes:projectPlaceTypes(current_location?.types,{stageOf:(type,stage)=>location_types[type]?.stages?.[stage],penalty:get_location_type_penalty,statName:stat=>stat_names[stat]??stat}),clock:`${current_location?.name||current_location?.id} · ${current_game_time.toString()} · ${current_game_time.getTimeOfDaySimple()} · ${weatherLabel} · ${temperatureText}`,people,things,exits,actions,dialogue:current_dialogue||current_trader,enemy,enemies,history:expansionState,services:inVillage?[{id:'waypost-clerk',name:'Waypost supply clerk',role:'Supply clerk',met:true,traits:[],relationship:null}]:[]};
+        const {enemies,heroAttackNext}=readNativeCadence(current_combat?.defenders_ui_slot,current_combat?.attackers_ui_slot),enemy=enemies[0]||null;
+        return {inVillage,worldId:expansionState.actors.player.worldId,calendar:readLocalCalendar(),skyPhase:current_game_time.getTimeOfDay(),weatherWords:readLocalWeatherWords(),place:current_location?.name||current_location?.id||'',placeTypes:projectPlaceTypes(current_location?.types,{stageOf:(type,stage)=>location_types[type]?.stages?.[stage],penalty:get_location_type_penalty,statName:stat=>stat_names[stat]??stat}),clock:`${current_location?.name||current_location?.id} · ${current_game_time.toString()} · ${current_game_time.getTimeOfDaySimple()} · ${weatherLabel} · ${temperatureText}`,people,things,exits,actions,dialogue:current_dialogue||current_trader,enemy,enemies,heroAttackNext,history:expansionState,services:inVillage?[{id:'waypost-clerk',name:'Waypost supply clerk',role:'Supply clerk',met:true,traits:[],relationship:null}]:[]};
     },act:id=>{
         if(id==='mixing'){document.getElementById('village_mixing_open')?.click();return;} if(id==='crafting'){window.openCraftingWindow();return;}
         const station=current_location?.stations?.find(s=>s.id===id);if(station||['homes','herbal-experiments','gear-workshop'].includes(id)){expandWorkspaceModule(station?.module||id);return;}
@@ -9979,7 +10015,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             ...expansionState.pending.filter(j=>j.context.actorId==='player').map(j=>`${j.label||expeditionRegistry.actions.get(j.actionId)?.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),
             ...(expansionState.simulation?.jobs||[]).filter(j=>j.actorId==='player').map(j=>`${j.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),
             ...Object.entries(optionalPackState.packs).filter(([,r])=>r.active&&r.job).map(([id,r])=>`${optionalPacks.get(id)?.activities.find(a=>a.id===r.job.actionId)?.label||'Local work'}: ${r.job.remaining} min remaining`),
-            expansionState.simulation?.sessions.player?'A response is waiting in your notes.':null,
+            expansionState.simulation?.sessions.player?.nativeBattle?.schema===TEMPO_SCHEMA?'Fight in progress':
+                expansionState.simulation?.sessions.player?'A response is waiting in your notes.':null,
             ...Object.values(expansionState.simulation?.events||{}).filter(e=>e.actorId==='player'&&e.mode==='decision'&&e.nonBlocking!==true&&e.status==='open'&&e.discoveredBy.includes('player')).map(e=>'Waiting response: '+e.label),
         ].filter(Boolean),waiting:!!expansionState.simulation?.sessions.player||Object.values(expansionState.simulation?.events||{}).some(e=>e.actorId==='player'&&e.mode==='decision'&&e.nonBlocking!==true&&e.status==='open'&&e.discoveredBy.includes('player')),canWrite:workLedgerCanWrite(),error:expansionError,
         world:Object.values(optionalPackState.packs).find(p=>p.active)?.worldId || expansionState.actors.player.worldId,
@@ -10002,7 +10039,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
     setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();zorianLoop.tick();}},500);
     mountWorkspace();mountDayStrip();
-    mountWorkspaceNavigation({notice:(text,panelId,options)=>log_message(text,'notification',{safeText:true,panelId,...options}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,refreshGear:()=>{update_displayed_equipment();for(const [slot,worn] of Object.entries(character.getEquipment()))if(worn?.getInventoryKey)try{update_displayed_character_inventory({equip_slot:slot});}catch{}},logAchievement:text=>log_message(text,'level_up'),gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,continuation:()=>continuationState,lifeRecord:()=>lifeRecord,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
+    mountWorkspaceNavigation({notice:(text,panelId,options)=>log_message(text,'notification',{safeText:true,panelId,...options}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,refreshGear:()=>{update_displayed_equipment();for(const [slot,worn] of Object.entries(character.getEquipment()))if(worn?.getInventoryKey)try{update_displayed_character_inventory({equip_slot:slot});}catch{}},logAchievement:text=>log_message(text,'level_up'),gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,continuation:()=>continuationState,lifeRecord:()=>lifeRecord,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills,recipes})}});
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);

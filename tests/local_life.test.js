@@ -43,6 +43,23 @@ test('C2 five-minute searches persist misses, cap chance, and award a finite nat
     assert.equal(p.state.looking,false);assert.equal(localLifeAction(p.state,frame(),'look').ok,false);
     assert.deepEqual(advanceLocalLife(p.state,frame({clock:11})).native.items,[]);
 });
+test('a Watchcraft report leads to the existing well find once, with normal search time',()=>{
+    const dark = {knowsWellLinen:true,illumination:0};
+    const context = frame(dark);
+    const started = localLifeAction(undefined,context,'look');
+    assert.match(localLifeView(started.state,context).summary,/Tessa’s report/);
+    assert.equal(localLifeView(undefined,context).rows[0].label,'Look around the well (10 min)');
+    const noRoll = () => assert.fail('Known location should not roll for a loose find');
+    const early = advanceLocalLife(started.state,frame({...dark,clock:9}),noRoll);
+    assert.deepEqual(early.native.items,[]);
+    const found = advanceLocalLife(early.state,frame({...dark,clock:10}),noRoll);
+    assert.deepEqual(found.native.items,[{item_id:'Linen cloth',count:1}]);
+    assert.match(found.messages[0],/linen.*well/);
+    assert.equal(localLifeAction(found.state,context,'look').ok,false);
+    assert.equal(localLifeView(found.state,context).rows[0].label,'Nothing left to find');
+    const shack = frame({...dark,location:'Shack'});
+    assert.equal(localLifeView(undefined,shack).rows[0].label,'Look around');
+});
 test('C2 interruptions and clock jumps never replay unbounded idle searches',()=>{
     let s=localLifeAction(undefined,frame(),'look').state;
     let p=advanceLocalLife(s,frame({clock:1000,idle:false}));assert.equal(p.state.looking,false);assert.deepEqual(p.native.items,[]);

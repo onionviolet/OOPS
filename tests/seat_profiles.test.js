@@ -8,6 +8,14 @@ import {BE_PROFILE_ID,controlForRoute,registerCapability,seatAllows,seatOf,seatK
 const beside = {lotm:{entryProfile:'lotm.early_tingen.sample_profile@1'}};
 const be = {lotm:{entryProfile:BE_PROFILE_ID}};
 
+test('ordinary Hogwarts arrival can reach its local workroom while Harry keeps his class panel',()=>{
+ const panel={id:'hp-polyjuice'};
+ const life=world=>({actors:{player:{worldId:world}}});
+ assert.equal(seatKnownPanels(life('book.hp.school.world'),[panel]).length,1);
+ assert.equal(seatKnownPanels(life('book.hp.lead.world'),[panel]).length,0);
+ assert.equal(seatKnownPanels(life('book.mol.cyoria'),[panel]).length,1);
+});
+
 test('the lead known-panel list keeps its world and system perspectives',()=>{
  const state={...be,actors:{player:{worldId:'fixture.world'}}};
  const panels=[{id:'lotm',perspective:'fixture.world'},{id:'settings',perspective:'system'},

@@ -1,7 +1,8 @@
 // Directions B and D (adopted 2026-11-14; PS53, PS57): the status line's reserve words and the ready-now rows.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {reserveWords} from '../src/ui/status_line.js';
+import {reserveWords, statusReserveWords} from '../src/ui/status_line.js';
+import {TEMPO_SCHEMA} from '../src/tempo_fight_contract.js';
 import {orderReady, readyUsing, registerReady, collectReady} from '../src/ready_rows.js';
 import {hubModel} from '../src/ui/ready_hub.js';
 import {guCareRows, heldIn, craftingRowsFrom} from '../src/ready_sources.js';
@@ -12,6 +13,29 @@ test('the reserve reads the life\'s own pools, at most two, and nothing when it 
     assert.equal(reserveWords([]), '');
     assert.equal(reserveWords([{label: 'A', reserve: 1, capacity: 2}, {label: 'B', reserve: 0, capacity: 3}, {label: 'C', reserve: 1, capacity: 1}]), 'A 1/2 · B 0/3');
     assert.equal(reserveWords([{label: 'Broken', reserve: 1, capacity: 0}]), '', 'a pool with no capacity says nothing');
+});
+
+test('Fang Yuan’s status reserve follows live fight spending without writing back early', () => {
+    const pool = {reserve: 44, policy: {label: 'Primeval essence', capacity: 44}};
+    const state = {actors: {player: {worldId: 'book.ri.lead.world'}}, simulation: {
+        energies: {player: {'book.ri.lead.primeval': pool}}, sessions: {player: {nativeBattle: {
+            schema: TEMPO_SCHEMA, result: null, fighters: {player: {means: {essence: 40}}, foe: {means: {essence: 9}}},
+        }}},
+    }};
+    const fight = state.simulation.sessions.player.nativeBattle;
+    assert.equal(statusReserveWords(state), 'Primeval essence 40/44');
+    fight.fighters.player.means.essence = 0;
+    assert.equal(statusReserveWords(state), 'Primeval essence 0/44');
+    assert.equal(pool.reserve, 44, 'rendering must leave settlement to the fight');
+    delete fight.fighters.player.means;
+    assert.equal(statusReserveWords(state), 'Primeval essence 44/44', 'ordinary fights keep the life pool');
+    fight.fighters.player.means = {essence: 20};
+    fight.result = 'withdrawn'; pool.reserve = 20;
+    assert.equal(statusReserveWords(state), 'Primeval essence 20/44');
+    pool.reserve = 22;
+    assert.equal(statusReserveWords(state), 'Primeval essence 22/44', 'settled fights no longer mask recovery');
+    fight.result = null; state.actors.player.worldId = 'base.frontier';
+    assert.equal(statusReserveWords(state), 'Primeval essence 22/44', 'other worlds never borrow this essence');
 });
 
 test('ready rows order across features: ready first, urgent on top, then near with its gap; rest is counted', () => {

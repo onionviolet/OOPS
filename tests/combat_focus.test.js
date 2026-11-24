@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {combatFactEntries,readNativeCombatFocus,chooseCombatFocus} from '../src/combat_focus.js';
+import {combatFactEntries,readNativeCombatFocus,chooseCombatFocus,drawNativeAttackBar,nativeAttackProgress,freezeNativeAttackBar,nextNativeAttackBar} from '../src/combat_focus.js';
 test('combat focus retains native zero values, units and multiple-hit text without recomputing stats',()=>{
     assert.deepEqual(combatFactEntries(['Atk: 4dmg x2','| Spd: 0.82','| Hit: 22%','| Ddg: 10%','| Def: 0']),[
         {label:'Attack',value:'4 dmg x2'},{label:'Speed',value:'0.82 /s'},{label:'Hit you',value:'22%'},{label:'Evade you',value:'10%'},{label:'Defense',value:'0'}]);
@@ -22,4 +22,31 @@ test('contextual percentages keep their direction and native AP/EP remain rating
         {label:'Hit you',value:'0%'},{label:'Evade you',value:'100%'},{label:'Attack rating',value:'23'},{label:'Evasion rating',value:'0'}]);
     const row={id:'defender_0_div',dataset:{playerHitChance:'85%'},querySelector:()=>null,querySelectorAll:()=>[]};
     assert.deepEqual(readNativeCombatFocus({querySelectorAll:()=>[row]})[0].facts,[{label:'You hit them',value:'85%'}]);
+});
+
+test('a mirrored attack cycle samples the drawn timing independently of native bar width', () => {
+    const bar = {style: {}, classList: {contains: () => false}};
+    const slot = {children: [{querySelector: () => bar}]};
+    const before = performance.now();
+    drawNativeAttackBar(slot, 0, .25, 1000);
+    assert.equal(bar.style.width, '100%');
+    assert.equal(nativeAttackProgress(bar, before), 25);
+    assert.ok(Math.abs(nativeAttackProgress(bar, before + 500) - 62.5) < 1);
+    freezeNativeAttackBar(slot, 0);
+    assert.equal(nativeAttackProgress(bar, before + 2000), nativeAttackProgress(bar, before + 3000));
+});
+
+test('Next compares scheduled swings across fighters and retires frozen or tied cycles', () => {
+    const bar = () => ({style: {}, classList: {contains: () => false}});
+    const hero = bar(), rat = bar(), another = bar();
+    const slot = (...bars) => ({children: bars.map(b => ({querySelector: () => b}))});
+    const left = slot(hero), right = slot(rat, another);
+    drawNativeAttackBar(left, 0, .8, 100, 200);
+    drawNativeAttackBar(right, 0, .5, 70, 170);
+    drawNativeAttackBar(right, 1, .95, 80, 180);
+    assert.equal(nextNativeAttackBar(left,right), rat);
+    freezeNativeAttackBar(right,0);
+    assert.equal(nextNativeAttackBar(left,right), another);
+    drawNativeAttackBar(right,1,.95,100,200);
+    assert.equal(nextNativeAttackBar(left,right),null);
 });

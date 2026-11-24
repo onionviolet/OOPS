@@ -103,6 +103,8 @@ export const WORLDS = Object.freeze({
     gc: {lang: 'en', name: 'Godclads'},
     pr: {lang: 'en', name: 'The Perfect Run'},
     sup: {lang: 'en', name: 'Super Supportive'},
+    ti: {lang: 'en', name: 'Terror Infinity'},
+    hours48: {lang: 'en', name: '48 Hours a Day'},
     ttks1: {lang: 'zh', name: '巫师你好，我是伪人 (TTKS B1)'},
     ttks2: {lang: 'zh', name: '一年抽取一词条，模拟的也可以？ (TTKS B2)'},
     ttks3: {lang: 'zh', name: '咒回：特级的我去死灭打宿傩了！ (TTKS B3)'},

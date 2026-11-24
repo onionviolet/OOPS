@@ -2,10 +2,18 @@
 import {natural} from './basics.js';
 export const CAREER_RANKS = ['Apprentice', 'Dependable worker', 'Mentor'];
 export const KIT_DEBT = 50;
+export const PATROL_BASE_PAY = 50;
 export const WATCHCRAFT_BOOK = 'Tessa’s watchcraft notes';
 export const WATCHCRAFT_READING = 6;
 export const WATCHCRAFT_PRACTICE = 5;
 export const WATCHCRAFT_BONUS = 10;
+export function patrolPayText(base, bonus, total = base + bonus) {
+    if (!bonus) return `${base} coins base pay`;
+    const split = `${base} base + ${bonus} Watchcraft`;
+    return total === base + bonus
+        ? `${split} = ${total} coins`
+        : `${split}, adjusted for teaching = ${total} coins`;
+}
 const emptyStudy = () => ({issued:false,practiceMinutes:0,used:false,notesIssued:false,tutorMinutes:0,tutoring:false});
 const check = (ok, message) => {if(!ok) throw new Error(`Village career: ${message}.`);};
 export function createVillageCareer() {
@@ -25,6 +33,7 @@ export function validateVillageCareer(s) {
         check(!w.issued || s.rank>=1,'watchcraft needs Tessa’s promotion');
         check(!w.practiceMinutes || w.issued,'practice needs the offered method');
         check(!w.used || (w.practiceMinutes===WATCHCRAFT_PRACTICE && s.completed>0),'unearned watchcraft use');
+        check(w.wellLinenLead===undefined || (w.wellLinenLead===true && w.used),'unearned clear-report lead');
         check(!s.loan?.watchcraft || (s.loan.status==='active' && w.practiceMinutes===WATCHCRAFT_PRACTICE),'unpracticed patrol method');
         check(!s.loan || s.loan.watchcraft==null || typeof s.loan.watchcraft==='boolean','invalid patrol method');
     }
@@ -73,9 +82,16 @@ export function beginVillageShift(state,known=false) {
     const s=migrateVillageCareer({village_career:state});check(!s.loan,'return the loaned kit or settle its debt before another shift');
     s.shifts++;s.loan={status:'active',completed:false,watchcraft:known && s.watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE};return validateVillageCareer(s);
 }
-export function finishVillageShift(state,completed) {
+export function finishVillageShift(state,completed,{markWellLinen=false}={}) {
     const s=migrateVillageCareer({village_career:state});check(s.loan?.status==='active','no active career shift');
-    if(completed) {s.completed++;if(s.loan.watchcraft)s.watchcraft.used=true;}
+    if(completed) {
+        s.completed++;
+        if(s.loan.watchcraft) {
+            // Older reports lack this optional observation. Loading one never invents it.
+            if(markWellLinen && !s.watchcraft.used)s.watchcraft.wellLinenLead=true;
+            s.watchcraft.used=true;
+        }
+    }
     s.loan={status:'return_due',completed};s.lastShift={number:s.shifts,completed,kit:'due'};
     return validateVillageCareer(s);
 }

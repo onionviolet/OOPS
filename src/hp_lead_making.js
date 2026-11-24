@@ -14,6 +14,7 @@
 //
 import {defineCastMaking} from './cast_making_adapter.js';
 import {MAKING_TRAITS} from './making_traits.js';
+import {procedureStepKey} from './making_procedure.js';
 
 const P = 'book.hp.lead';
 const itemKey = name => JSON.stringify({id: `${P}.item.${name}`});
@@ -102,6 +103,22 @@ export const hpLeadMakingCommands = defineCastMaking(HP_LEAD_MAKING, {
     worldId: `${P}.world`, group: 'structured_local', situationId: SITUATION,
     requires: {fact: 'actor.hp.lead.atSchool', op: 'eq', value: true},
 });
+
+export function hpPotionsBench(state, carried = {}) {
+    const knowledge = state.simulation?.knowledge?.player;
+    if (!knowledge?.[KNOW]) return null;
+    const facts = state.actors.player.facts;
+    const preparations = HP_LEAD_MAKING.rows;
+    const started = preparations.some(row => facts[procedureStepKey(row.id)] > 0);
+    return {
+        inputs: inputs.map(({key, label, qty}) => ({label, need: qty, have: carried[key]?.count ?? 0})),
+        heat: started ? (facts['hp.lead.potions.onFire'] ? 'Cauldron over the fire' : 'Cauldron off the fire') : null,
+        flasks: preparations.filter(row => carried[row.product.key]?.count > 0 && knowledge[`making.${row.id}`])
+            .map(row => row.product.label),
+        handIn: knowledge[`${P}.potions.flask_last`]?.value,
+        flask: facts[FLASK_FACT],
+    };
+}
 
 const item = (key, label, description, value = 1) => ({id: JSON.parse(key).id, label, description, value});
 export const hpLeadMakingItems = Object.freeze([

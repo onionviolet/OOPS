@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creature fieldbook · OOPS</title>
+<style>
+:root{color-scheme:light;font:16px/1.5 "Source Sans 3",system-ui,sans-serif;color:#263a32;background:#e9e6da}
+*{box-sizing:border-box}body{max-width:1050px;margin:auto;padding:clamp(1rem,4vw,3rem)}h1,h2,h3{font-family:"Spectral",Georgia,serif;line-height:1.15}h1{font-size:2.5rem;margin:0}header,.tools{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}main{display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;margin-top:1.5rem}section,article{padding:1.5rem;background:#faf8ee;border-top:3px solid #456852}article{align-self:start;position:sticky;top:1rem;background:#233e32;color:#fcfaed}label{display:block;font-weight:600;margin:.65rem 0}input,textarea,select,button{font:inherit;border:1px solid #a1a596;border-radius:.25rem;padding:.4rem .6rem}input,textarea{display:block;width:100%;background:#fffef8;color:#18271f}textarea{resize:vertical}button{cursor:pointer;background:#fbf8e9;color:#24452f}h2{margin:.25rem 0 1rem}article h3{color:#d3dfb6;margin:1rem 0 .25rem}article p{margin:0;white-space:pre-wrap}article label{font-weight:400}small{display:block}button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #da923c} @media(max-width:730px){main{grid-template-columns:1fr}article{position:static}}
+#relations{margin-top:1.5rem;border-top:1px solid #78927e;padding-top:.75rem}#relations summary{cursor:pointer}#relations dl{margin-left:.6rem;border-left:2px solid #91ad89;padding-left:1rem}#relations dt{font-size:.82rem;color:#d4dfb8}#relations dd{margin:0 0 .65rem}
+#observations details{padding:.45rem 0;border-top:1px solid #627c69}#observations summary{cursor:pointer;color:#d3dfb6}#observations p{padding:.45rem 1rem}</style>
+<header><h1>Creature fieldbook</h1><div class="tools"><button id="open">Open draft</button><input type="file" id="file" accept=".json" hidden style="display:none"><button id="download">Download draft</button></div></header><small id="notice" role="status"></small>
+<main><section><h2>Author’s notes</h2><form id="fields"></form><small>Download to keep your notes before closing.</small></section>
+<article><div class="tools"><strong>Field observation</strong><label>Perception <select id="lens"><option value="ordinary">Ordinary senses</option><option value="thought">Thought-reading</option></select></label></div><label>Encounter <select id="encounter"><option value="behavior">Watching</option><option value="approach">Approaching</option><option value="release">Giving room</option></select></label><h2 id="title"></h2><div id="observations"></div><details id="relations"><summary>Author’s creature map</summary><dl></dl></details></article></main>
+<script>
+const fields = [
+ ['name','Individual','Reedbank fox'],
+ ['kind','Living kind ID','fox'],
+ ['body','Visible features','A russet fox with a pale nick in its left ear.'],
+ ['behavior','Observed behavior','It keeps turning toward the reeds.'],
+ ['motive','Private motive','Its cub is hiding on the bank.'],
+ ['thought','Thought accessible to a reader','Stay still, little one.'],
+ ['approach','If approached','It slips between you and the reeds.'],
+ ['release','If given room','It waits until the path is clear, then slips back to the bank.'],
+ ['memory','What it remembers','Whether this visitor backed away when it stood its ground.']
+];
+if(location.protocol==='http:' && location.pathname==='/creatures'){
+ const atlas=document.createElement('a');atlas.href='/#identified-target';atlas.textContent='← Identified target';document.body.prepend(atlas);
+}
+const form=document.querySelector('form');
+for(const [key,label,value] of fields){
+ const wrapper=document.createElement('label');
+ wrapper.textContent=label;
+ const input=document.createElement(['kind','name'].includes(key)?'input':'textarea');
+ input.name=key;input.value=value;wrapper.append(input);form.append(wrapper);
+}
+const read=()=>Object.fromEntries(new FormData(form));
+function render(){
+ const draft=read(), box=document.querySelector('#observations');
+ document.querySelector('#title').textContent=draft.name||'Unnamed creature';
+ const opened=new Set([...box.querySelectorAll('details[open]')].map(n=>n.dataset.section));
+ const first=box.childElementCount===0;box.replaceChildren();
+ const links=document.querySelector('#relations dl');links.replaceChildren();
+ for(const [relation,value] of [['Kind',draft.kind],['Motive',draft.motive],['When approached',draft.approach],['When given room',draft.release],['Memory',draft.memory]]){
+  if(!value.trim())continue;
+  const term=document.createElement('dt'),result=document.createElement('dd');term.textContent=relation;result.textContent=value;links.append(term,result);
+ }
+ const rows=[['Appearance',draft.body],['What you notice',draft[document.querySelector('#encounter').value]]];
+ if(document.querySelector('#lens').value==='thought') rows.push(['A thought you hear',draft.thought]);
+ for(const [label,value] of rows){
+  if(!value.trim())continue;
+  const section=document.createElement('details'),heading=document.createElement('summary'),line=document.createElement('p');
+  section.dataset.section=label;section.open=opened.has(label)||(first&&label==='What you notice');
+  heading.textContent=label;line.textContent=value;section.append(heading,line);box.append(section);
+ }
+}
+form.addEventListener('input',render);
+form.addEventListener('submit',event=>event.preventDefault());
+document.querySelector('#lens').addEventListener('change',render);
+document.querySelector('#encounter').addEventListener('change',render);
+const file=document.querySelector('#file'), notice=document.querySelector('#notice');
+document.querySelector('#open').onclick=()=>file.click();
+file.onchange=async()=>{
+ if(!file.files.length)return;
+ try{
+  const draft=JSON.parse(await file.files[0].text());
+  if(!draft || !fields.every(([key])=>typeof draft[key]==='string'))throw Error();
+  for(const [key] of fields)form.elements.namedItem(key).value=draft[key];
+  notice.textContent='Opened draft.';render();
+ }catch{notice.textContent='Choose a JSON draft downloaded from this fieldbook.';}
+ file.value='';
+};
+document.querySelector('#download').onclick=()=>{
+ const draft=read(), a=document.createElement('a');
+ const url=URL.createObjectURL(new Blob([JSON.stringify(draft,null,2)],{type:'application/json'}));
+ a.href=url;a.download=(draft.name.trim().replace(/[^a-z0-9_-]+/gi,'-')||'creature')+'.json';a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+render();
+</script></html>

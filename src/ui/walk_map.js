@@ -4,6 +4,9 @@
 // this seat is drawn; a place or person the seat does not know never reaches the spec (SR9, LTU11).
 // Name-free and pure apart from walkMapBlock, which builds the panel disclosure. Design: docs/representations/MAPS_AND_TRAVEL.md.
 import {renderFigure} from './figure.js';
+import {walkTopology} from './walk_topology.js';
+import {activityMarks, dangerLabel} from './map_marks.js';
+import {kitElement} from './kit.js';
 
 // view: {places:[{place, district?, here, minutes}], moves?:[{id, label, eligible, reasons}],
 //        elsewhere?:[{id, label}], people?:[{id, label, place, when?}]}
@@ -100,14 +103,16 @@ export function routeStripSpec(route) {
 
 // The panel disclosure: figure, its text form, and a click on a place that focuses that place's walk button.
 export function walkMapBlock(view, {open = true, ontoggle, onPick} = {}) {
-    const {spec, controls} = walkMapSpec(view);
+    const {spec, controls} = view.graph ? {} : walkMapSpec(view);
     const doc = globalThis.document, box = doc.createElement('details');
     box.dataset.walkMap = ''; box.open = open;
     if (ontoggle) box.addEventListener('toggle', () => ontoggle(box.open));
     const summary = doc.createElement('summary'); summary.textContent = 'Walking map · minutes from here';
     const figure = doc.createElement('div');
-    const {text} = renderFigure(figure, spec, {idPrefix: 'walk-map'});
-    if (onPick) figure.addEventListener('click', event => {
+    let text;
+    if (view.graph) text = drawNeighborhood(doc, figure, view, onPick);
+    else ({text} = renderFigure(figure, spec, {idPrefix: 'walk-map'}));
+    if (onPick && !view.graph) figure.addEventListener('click', event => {
         const id = event.target.closest?.('[data-id]')?.dataset.id;
         if (controls[id]) onPick(controls[id]);
     });
@@ -117,4 +122,75 @@ export function walkMapBlock(view, {open = true, ontoggle, onPick} = {}) {
     words.append(wordsSummary, pre);
     box.append(summary, figure, words);
     return box;
+}
+
+function drawNeighborhood(doc, figure, {graph, neighbors}, onPick) {
+    const {layers, edges, outside} = walkTopology(graph, neighbors);
+    const positions = new Map(), byId = new Map(graph.map(place => [place.id, place]));
+    const dimensions = [layers.length * 150 + 12, Math.max(...layers.map(layer => layer.length)) * 82 + 12];
+    const node = (tag, text, className) => kitElement(tag, className, text, doc);
+    const icon = mark => {
+        const pip = node('span', mark.icon, 'material-icons walk-map-pip');
+        pip.dataset.mark = mark.key;
+        pip.setAttribute('aria-hidden', 'true');
+        return pip;
+    };
+    const travelWords = place => place.here ? 'You are here' : Number.isFinite(place.minutes) ? place.minutes + ' min' : 'Direct exit';
+    const key = node('div', '', 'walk-map-key');
+    key.append(node('strong', 'Map key'), node('span', 'You are here', 'walk-map-here'),
+        node('span', '▲ Combat / ◆ Challenge · observed enemy rank'));
+    for (const mark of activityMarks) {
+        const entry = node('span'); entry.append(icon(mark), node('span', mark.label)); key.append(entry);
+    }
+    const viewport = node('div', '', 'walk-map-viewport'), plane = node('div', '', 'walk-map-plane');
+    viewport.tabIndex = 0;
+    viewport.setAttribute('aria-label', 'Walking map. Scroll to explore.');
+    viewport.append(plane);
+    figure.append(key, viewport);
+    [plane.style.width, plane.style.height] = dimensions.map(size => size + 'px');
+    const svg = doc.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('viewBox', `0 0 ${dimensions.join(' ')}`);
+    plane.append(svg);
+    for (const [i, layer] of layers.entries()) layer.forEach((id, j) => {
+        const place = byId.get(id);
+        const x = 81 + i * 150, y = dimensions[1] / 2 + (j - (layer.length - 1) / 2) * 82;
+        positions.set(id, [x, y]);
+        const box = node(place.here ? 'div' : 'button', '', 'walk-map-place');
+        box.dataset.placeId = id;
+        if (place.here) box.classList.add('walk-map-here');
+        else {box.type = 'button'; box.onclick = () => onPick?.(place.moveId);}
+        box.style.left = x + 'px'; box.style.top = y + 'px';
+        const words = travelWords(place);
+        const danger = place.danger && dangerLabel(place.danger);
+        const label = [place.place, words, danger, ...(place.marks || []).map(mark => mark.label)].filter(Boolean).join(' · ');
+        box.title = label;
+        if (!place.here) box.setAttribute('aria-label', label);
+        const pips = node('span', '', 'walk-map-pips');
+        pips.append(...(place.marks || []).map(icon));
+        box.append(pips, node('span', place.place), node('small', words));
+        if (danger) {
+            box.dataset.danger = '';
+            box.append(node('small', (place.danger.challenge ? '◆ ' : '▲ ') + (place.danger.rank ?? ''), 'walk-map-danger'));
+        }
+        plane.append(box);
+    });
+    for (const {from, to, both} of edges) {
+        const [x1,y1] = positions.get(from), [x2,y2] = positions.get(to);
+        const path = doc.createElementNS(svg.namespaceURI, 'path');
+        path.setAttribute('d', `M${x1},${y1} L${(x1+x2)/2},${y1} L${(x1+x2)/2},${y2} L${x2},${y2}`);
+        path.setAttribute('data-walk-edge', '');
+        svg.append(path);
+        if (!both) {
+            const arrow = doc.createElementNS(svg.namespaceURI, 'text');
+            arrow.setAttribute('x', String((x1+x2)/2));
+            arrow.setAttribute('y', String((y1+y2)/2));
+            arrow.textContent = x1 < x2 ? '›' : x1 > x2 ? '‹' : y1 < y2 ? '⌄' : '⌃';
+            svg.append(arrow);
+        }
+    }
+    if (outside.length) figure.append(node('p', 'Some known destinations have no visible connecting route on this map.'));
+    return [...graph.map(place => `${place.place} · ${travelWords(place)}` +
+        [place.danger && dangerLabel(place.danger), ...(place.marks || []).map(mark => mark.label)].filter(Boolean).map(label => ' · ' + label).join('')),
+        '', ...edges.map(e => `${byId.get(e.from).place} ${e.both ? '↔' : '→'} ${byId.get(e.to).place}`)].join('\n');
 }

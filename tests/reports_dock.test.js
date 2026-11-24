@@ -14,6 +14,13 @@ test('once the log has enough lines it takes the column, and only the next step 
     assert.deepEqual(dockRows({logLines: LOG_TAKES_OVER, next, today}).map(r => r.kind), ['next']);
     assert.deepEqual(dockRows({logLines: LOG_TAKES_OVER, next: null, today}), []);
 });
+test('an active fight takes the briefing slot even when the log is full', () => {
+    const fight = 'Auto-fighting at Infested field';
+    for (const logLines of [0, LOG_TAKES_OVER]) {
+        assert.deepEqual(dockRows({logLines, next, today, fight}), [{kind: 'fight', text: fight}]);
+    }
+    assert.equal(dockRows({logLines: 0, next, today})[0].kind, 'next');
+});
 test('running commitments appear only when there are some', () => {
     const rows = dockRows({logLines: 0, next: null, today: {...today, open: [], running: {count: 2, nextIn: 30}}});
     assert.deepEqual(rows.map(r => r.kind), ['clock', 'running']);

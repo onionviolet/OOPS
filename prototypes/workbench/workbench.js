@@ -6,7 +6,6 @@ const pending=new Map();
 function options(select,items){select.replaceChildren(...items.map(item=>Object.assign(document.createElement('option'),{value:item.id,textContent:item.label||item.title})));}
 options($('#experiment'),experiments);
 $('#experiment').value=study.id;
-if(['launch','character','native-character','native-home','functional-home','home-replacement','equipment-comparison'].includes(study.id))$('#viewport').value='1920x1080';
 function status(text){$('#status').textContent=text;}
 function run(fn){queue=queue.then(fn).catch(error=>status(`Review error: ${error.message}`));return queue;}
 function command(frame,command,value,variant){return new Promise((resolve,reject)=>{
@@ -69,7 +68,7 @@ function describe(){
   $('#brief').replaceChildren();
   for(const [label,key]of [['Question','question'],['Try this','task'],['Surface','surface'],['Fixture','fixture'],['Limits','limits']]){const p=document.createElement('p'),b=document.createElement('strong');b.textContent=label+': ';p.append(b,document.createTextNode(study[key]));$('#brief').append(p);}
 }
-$('#experiment').onchange=()=>run(async()=>{study=experiments.find(x=>x.id===$('#experiment').value);snapshot=null;if(['launch','character','native-character','native-home','functional-home','home-replacement','equipment-comparison'].includes(study.id))$('#viewport').value='1920x1080';describe();await mount();});
+$('#experiment').onchange=()=>run(async()=>{study=experiments.find(x=>x.id===$('#experiment').value);snapshot=null;describe();await mount();});
 $('#variant').onchange=()=>run(async()=>{
   snapshot=await command(frames[0],'capture');
   if(!$('#compare').checked){frames[0].variant=$('#variant').value;await command(frames[0],'variant',$('#variant').value);frames[0].title=study.variants.find(v=>v.id===$('#variant').value).label;frames[0].parentElement.querySelector('.caption').textContent=frames[0].title+' · interactive fixture';}

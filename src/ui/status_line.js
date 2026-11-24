@@ -6,7 +6,7 @@
 // places it here: the place view its name, calendar and conditions (village_workspace.js), the current-work panel its
 // work line (workspace_views.js), the game bar its save state (game_bar.js). Moving a node, not copying its text,
 // keeps the temperature button's focus and preview handlers. The one fact read here is the reserve, from the
-// existing energy projection (energy_resources.js energyView), because no panel owns a reserve line yet.
+// existing energy projection (energy_resources.js energyView), using Fang Yuan's live fight reserve until settlement.
 //
 // Reserve, a proposal with its dial: the player's energies in this world (Fang Yuan's primeval essence, a caster's
 // pool), at most two. Money stays in the Inventory heading, which already shows the purse; a world that wants its
@@ -14,6 +14,8 @@
 import {readPort} from '../ui_ports.js';
 import {energyView} from '../energy_resources.js';
 import {centerModes} from '../center_modes.js';
+import {TEMPO_SCHEMA} from '../tempo_fight_contract.js';
+import {semanticInk} from './semantic_ink.js';
 
 const SLOTS = ['place', 'when', 'weather', 'reserve', 'today', 'work', 'save'];
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
@@ -23,8 +25,36 @@ export function reserveWords(energies = []) {
     return energies.filter(e => e && e.label && Number.isFinite(e.reserve) && Number.isFinite(e.capacity) && e.capacity > 0)
         .slice(0, 2).map(e => `${e.label} ${e.reserve}/${e.capacity}`).join(' · ');
 }
-let reserveReader = () => { const state = readPort('expansion'); return state ? reserveWords(energyView(state, 'player')) : ''; };
+// During Fang Yuan's hunt the fight owns the spend until settlement writes it back.
+// Keep the pool's own label and capacity, and never write the projected reserve.
+export function statusReserveWords(state) {
+    if (!state) return '';
+    const fight = state.simulation?.sessions?.player?.nativeBattle;
+    const essence = fight?.schema === TEMPO_SCHEMA && !fight.result && state.actors?.player?.worldId === 'book.ri.lead.world'
+        ? fight.fighters?.player?.means?.essence : undefined;
+    return reserveWords(energyView(state, 'player').map(e => e.id === 'book.ri.lead.primeval' && Number.isFinite(essence)
+        ? {...e, reserve: essence} : e));
+}
+let reserveReader = () => statusReserveWords(readPort('expansion'));
 export function setReserveReader(fn) { reserveReader = typeof fn === 'function' ? fn : reserveReader; }
+
+// Owners return a navigation callback only while their work is running. Opening
+// work must focus its status, never activate the adjacent cancellation control.
+const workTargets = new Set();
+export function registerWorkTarget(read) { workTargets.add(read); return () => workTargets.delete(read); }
+export function openRunningWork() {
+    const open = [...workTargets].map(read => read()).find(Boolean);
+    if (open) { open(); return; }
+    const target = () => document.getElementById('action_status_div') || document.getElementById('workspace_current_work');
+    if (!target()?.checkVisibility()) centerModes().showHere();
+    requestAnimationFrame(() => {
+        const node = target();
+        if (!node) return;
+        node.tabIndex = -1;
+        node.focus({preventScroll: true});
+        node.scrollIntoView({block: 'nearest'});
+    });
+}
 
 let line = null;
 const slots = new Map();
@@ -63,15 +93,10 @@ export function mountStatusLine({bar}) {
     for (const name of SLOTS) {
         const slot = el(name === 'work' ? 'button' : 'span', `game-status-${name}`);
         slot.dataset.statusSlot = name;
+        if (name === 'place') semanticInk(slot, 'place');
         if (name === 'work') {
             slot.type = 'button';
-            // Work under way names what runs and the time left; selecting it shows Doing now (the running activity's own
-            // block, else the Current work panel) on Here.
-            const target = () => document.getElementById('action_status_div') || document.getElementById('workspace_current_work');
-            slot.addEventListener('click', () => {
-                if (!target()?.checkVisibility()) centerModes().showHere();
-                requestAnimationFrame(() => target()?.scrollIntoView({block: 'nearest'}));
-            });
+            slot.addEventListener('click', openRunningWork);
         }
         slots.set(name, slot); line.append(slot);
     }

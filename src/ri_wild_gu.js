@@ -167,7 +167,8 @@ export function riWildGuConsequences(state, effect) {
     if(!r.ok && !r.slipped) throw Error(r.reason ?? 'The wild Gu refinement did not finish.');
     const refund = need.essence - r.spent.essence;
     const back = refund > 0 ? [{type: 'energy', actor: 'player', energyId: id('primeval'), operation: 'recover', amount: refund}] : [];
-    const note = {type: 'knowledge', actor: 'player', key: RI_WILD_NOTE, stage: 'understood', value: r.line};
+    const note = {type: 'knowledge', actor: 'player', key: RI_WILD_NOTE, stage: 'understood',
+        value: `${r.line} You spent ${r.spent.essence} parts of essence${r.spent.eyes ? ' and a lightning wolf eye' : ''}.${refund ? ` The remaining ${refund} returned to your sea.` : ''}`};
     if(r.slipped) {
         // The wild Gu is still his to try again: it comes back to his hand, warier, and the essence poured in stays spent.
         return [{type: 'item', actor: 'player', key: itemKey(RI_DAY_ITEMS.wildGu), amount: 1}, ...back,

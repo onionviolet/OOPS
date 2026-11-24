@@ -28,6 +28,9 @@
 .work-ledger-effect[data-motif='guidance'] .work-ledger-effect-glyph { color: var(--ui-swatch-123); }
 .work-ledger-effect[data-motif='closing'] .work-ledger-effect-glyph { color: var(--ui-swatch-124); }
 .work-ledger-target-pulse { position: absolute; pointer-events: none; box-sizing: border-box; border: 2px solid var(--ui-swatch-120); border-radius: var(--ui-radius); z-index: var(--ui-layer-raised); }
+.work-ledger-effect[data-local-reaction='true'] { width: max-content; padding: var(--ui-space-2); border: 0; box-shadow: none; background: transparent; }
+.settled-reaction-symbol { font-size: var(--ui-type-title); color: var(--ui-accent); line-height: 1; }
+.household-action-result { min-height: 2lh; margin-block: var(--ui-space-2); }
 
 .settled-effects-host { position: relative; overflow: hidden; }
 

@@ -67,19 +67,61 @@ test('Luminous Gothic name collision gets a valid suffix and profile cap is enfo
     assert.throws(() => createLuminousGothicDraft(full), /profile limit is 20/);
 });
 
-test('Luminous Gothic is the default look and only an untouched Neutral profile is upgraded', async () => {
+test('Graphite is the default look; only an untouched Neutral or Luminous default profile is upgraded', async () => {
     const {neutralPresentationSettings, upgradeUntouchedCustomization} = await import('../src/customization_profiles.js');
     const fresh = defaultCustomizationState();
-    assert.equal(fresh.profiles.Default.settings.componentTheme, 'luminous');
-    assert.deepEqual(fresh.profiles.Default.settings.palette, {background:'#07162d',text:'#d5f7ff',accent:'#7fe7e8'});
-    assert.deepEqual(fresh.profiles.Default.modules.messages.palette, {background:'#231735',text:'#eee5ff',accent:'#bca4ff'});
+    assert.equal(fresh.profiles.Default.settings.componentTheme, 'graphite');
+    assert.deepEqual(fresh.profiles.Default.settings.palette, {background:'#1e1e1e',text:'#eeeeee',accent:'#518ae0'});
+    assert.deepEqual(fresh.profiles.Default.modules.messages.palette, {background:'#1e1e1e',text:'#eeeeee',accent:'#b9a0d8'});
     const legacy = {schema:1, active:'Default', theme:{mode:'automatic',season:'spring'}, profiles:{Default:{settings:neutralPresentationSettings(), modules:{}}}};
     const upgraded = upgradeUntouchedCustomization(clone(legacy));
-    assert.equal(upgraded.profiles.Default.settings.componentTheme, 'luminous');
+    assert.equal(upgraded.profiles.Default.settings.componentTheme, 'graphite');
+    // A save from the Luminous default (2026-10-29 to 2026-11-20) that was never touched moves to Graphite once.
+    const luminousDefault = {schema:1, active:'Default', theme:{mode:'off',season:'spring'}, profiles:{Default:{settings:{...neutralPresentationSettings(), componentTheme:'luminous', palette:{background:'#07162d',text:'#d5f7ff',accent:'#7fe7e8'}}, modules:{messages:{palette:{background:'#231735',text:'#eee5ff',accent:'#bca4ff'}}}}}};
+    assert.equal(upgradeUntouchedCustomization(clone(luminousDefault)).profiles.Default.settings.componentTheme, 'graphite');
+    const keptLuminous = clone(luminousDefault); keptLuminous.profiles.Default.settings.spacing = 12;
+    assert.equal(upgradeUntouchedCustomization(keptLuminous).profiles.Default.settings.componentTheme, 'luminous');
     assert.equal(upgraded.theme.mode, 'automatic');
     const edited = clone(legacy); edited.profiles.Default.settings.typography.size = 17;
     assert.deepEqual(upgradeUntouchedCustomization(edited), validateCustomizationState(edited));
     const named = clone(legacy); named.profiles.Mine = clone(legacy.profiles.Default);
     assert.equal(upgradeUntouchedCustomization(named).profiles.Default.settings.componentTheme, 'neutral');
     assert.deepEqual(validateCustomizationState(JSON.parse(JSON.stringify(fresh))), fresh);
+});
+
+test('DK1: every save moves to the dark default once; an edited look is kept as its own profile', async () => {
+    const {neutralPresentationSettings, moveToDefaultLook} = await import('../src/customization_profiles.js');
+    const lum = {schema:1, active:'Default', theme:{mode:'off',season:'spring'}, profiles:{Default:{settings:{...neutralPresentationSettings(), componentTheme:'luminous', spacing:12}, modules:{}}}};
+    const moved = moveToDefaultLook(clone(lum));
+    assert.equal(moved.active, 'Default');
+    assert.equal(moved.profiles.Default.settings.componentTheme, 'graphite');
+    assert.equal(moved.profiles['Kept look'].settings.componentTheme, 'luminous');
+    assert.equal(moved.profiles['Kept look'].settings.spacing, 12);
+    const mine = clone(lum); mine.profiles.Mine = mine.profiles.Default; delete mine.profiles.Default; mine.active = 'Mine';
+    const moved2 = moveToDefaultLook(mine);
+    assert.deepEqual(Object.keys(moved2.profiles).sort(), ['Default', 'Mine']);
+    const already = moveToDefaultLook(moved);
+    assert.deepEqual(already, moved);
+});
+
+test('DK1 keeps inactive and capped profiles when adding Graphite', async () => {
+    const {neutralPresentationSettings, moveToDefaultLook} = await import('../src/customization_profiles.js');
+    const oldLook = {settings:{...neutralPresentationSettings(), spacing:12}, modules:{}};
+    const state = {schema:1, active:'Mine', theme:{mode:'off',season:'spring'}, profiles:{
+        Default:oldLook, Mine:{...oldLook, settings:{...oldLook.settings, spacing:16}}, Graphite:oldLook,
+    }};
+    const moved = moveToDefaultLook(state);
+    assert.equal(moved.active, 'Graphite 2');
+    for (const [name, profile] of Object.entries(state.profiles)) assert.deepEqual(moved.profiles[name], profile);
+    for (let i = 4; i <= 19; i++) state.profiles[`Look ${i}`] = oldLook;
+    state.active = 'Default';
+    const lastSlot = moveToDefaultLook(state);
+    assert.equal(Object.keys(lastSlot.profiles).length, 20);
+    assert.deepEqual(lastSlot.profiles['Kept look'], oldLook);
+    state.profiles['Look 20'] = oldLook;
+    assert.deepEqual(moveToDefaultLook(state), validateCustomizationState(state));
+    state.profiles['Look 20'] = defaultCustomizationState().profiles.Default;
+    const reused = moveToDefaultLook(state);
+    assert.equal(reused.active, 'Look 20');
+    assert.deepEqual(reused.profiles, validateCustomizationState(state).profiles);
 });

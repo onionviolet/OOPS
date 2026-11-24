@@ -1,6 +1,7 @@
 import {storyRecap} from './lore_history_view.js';
 import {kitChip} from './ui/kit.js';
 import {formatDuration} from './number_format.js';
+import {quoteJourney, journeyTitle} from './journey_quote.js';
 import {LAYOUT_SPEC} from './layout_spec.js';
 
 // UIC127, PRS1: what the action list calls someone ("Talk to the suspicious man" gives "The suspicious man"), so Around you
@@ -9,14 +10,17 @@ export const heardName = line => {const m = String(line || '').replace(/<[^>]*>/
 
 // UIC127: the ways out of a place, read from the same links the action list uses. A fight has none.
 // `act` is the verb the player presses; `role` is the walk, with a warning where the far side is not safe.
-export function placeExits(location, context, travelTimes = {}) {
+// AK17: the minutes come from the journey quote, so the row shows what the walk charges and when it arrives.
+export function placeExits(location, context, travelTimes = {}, pace = {}) {
     if (!location || LAYOUT_SPEC.placeList?.exits === false) return [];
     return (location.connected_locations || []).map(link => link.location)
         .filter(to => to && to.canBeStarted(context) && !to.is_challenge)
         .map(to => {
-            const minutes = travelTimes[location.id]?.[to.id], safe = !!to.tags?.safe_zone;
+            const base = travelTimes[location.id]?.[to.id], safe = !!to.tags?.safe_zone;
+            const quote = Number.isFinite(base) && base > 0 ? quoteJourney(base, pace) : null;
             return {id: `go:${to.id}`, name: to.name, safe, act: safe ? `Go to ${to.name}` : `Enter ${to.name}`,
-                role: [Number.isFinite(minutes) && minutes > 0 ? `${formatDuration(minutes)} away` : '', safe ? '' : 'Not safe'].filter(Boolean).join(' · ')};
+                role: [quote ? `${formatDuration(quote.minutes)} away` : '', quote?.arriveAt ? `arrive ${quote.arriveAt.text}` : '', safe ? '' : 'Not safe'].filter(Boolean).join(' · '),
+                title: journeyTitle(quote, formatDuration), pace: quote?.parts.map(part => part.source).join(' · ')};
         });
 }
 
@@ -60,7 +64,7 @@ export function projectNearbyContext(frame = {}, selected = null, description = 
     const add = (source, kind) => rows(source).filter(admitted).filter(row => {
         if (row.id === 'projects' || seen.has(row.id)) return false;
         seen.add(row.id); return true;
-    }).map(row => ({id:row.id,name:row.name,kind,role:row.role || row.description || '',
+    }).map(row => ({id:row.id,name:row.name,kind,role:row.role || row.description || '', title:row.title, pace:row.pace,
         traits:row.met === true ? rows(row.traits) : [],
         relationship:row.met === true ? row.relationship : null,
         memory:row.met === true ? storyRecap(frame.history || {}, row.id)?.line : null,
@@ -108,7 +112,10 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     for(const [kind,selector] of [['people','.choice_dialogue'],['services',null],['exits','.choice_travel']]){const b=kitChip({label:'',run:()=>openKind(kind,selector)});b.dataset.hereLink=kind;hereLinks[kind]=b;}
     const showAll=kitChip({label:'',run:()=>{expanded=!expanded;update(lastArgs);}});showAll.dataset.hereLink='all';
     hereLine.append(el('span','Here:'),hereLinks.people,hereLinks.services,hereLinks.exits,showAll);
-    node.append(summary,placeLead,place,hereLine,split,empty);
+    const layoutSwitch=el('button','Village board');layoutSwitch.type='button';
+    let boardMode=true;
+    layoutSwitch.onclick=()=>{boardMode=!boardMode;update(lastArgs);};
+    node.append(summary,placeLead,place,hereLine,layoutSwitch,split,empty);
     const groups=new Map(),buttons=new Map(),rowOf=new Map(),verbButtons=new Map(),actionButtons=new Map();let model=null,lastPlace=null,returnId=null,missingNotice=false;
     const select=id=>{missingNotice=false;returnId=id || model?.selectedId || returnId;choose?.(id);};
     const move=direction=>{if(!model?.subjects.length)return;const index=model.subjects.findIndex(s=>s.id===model.selectedId);const target=model.subjects[(index+direction+model.subjects.length)%model.subjects.length];select(target.id);};
@@ -132,6 +139,9 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     };
     const update=({frame,selected=null,description='',here=false}={})=>{
         lastArgs={frame,selected,description,here};node.dataset.here=String(!!here);
+        layoutSwitch.hidden=!(here&&frame?.inVillage);
+        node.dataset.villageBoard=String(!layoutSwitch.hidden&&boardMode);
+        layoutSwitch.setAttribute('aria-pressed',node.dataset.villageBoard);
         const previousModel=model;model=projectNearbyContext({...frame,exits:[...rows(frame?.exits),...extraWayOuts()]},selected,description);
         if(lastPlace!==model.place){place.open=false;returnId=null;missingNotice=false;lastPlace=model.place;list.scrollTop=0;detail.scrollTop=0;}
         if(model.missing)missingNotice=true;
@@ -158,7 +168,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
                 if(body.children[index]!==row)body.insertBefore(row,body.children[index]||null);
                 syncVerbs(row.lastChild,subject,here);
                 text(button.firstChild,subject.name);text(button.lastChild,subject.role);button.lastChild.hidden=!subject.role;
-                button.dataset.nearbyKind=subject.kind;button.setAttribute('aria-pressed',String(subject.id===model.selectedId));button.title=subject.kind==='exit'?`${subject.name}: see the way there`:`Inspect ${subject.name}`;
+                button.dataset.nearbyKind=subject.kind;button.setAttribute('aria-pressed',String(subject.id===model.selectedId));button.title=subject.title || (subject.kind==='exit'?`${subject.name}: see the way there`:`Inspect ${subject.name}`);
             }
         }
         let removedFocus=false;for(const [id,button] of buttons)if(!model.subjects.some(s=>s.id===id)){removedFocus ||= doc.activeElement===button;rowOf.get(id)?.remove();rowOf.delete(id);for(const key of [...verbButtons.keys()])if(key.startsWith(`${id}\0`))verbButtons.delete(key);button.remove();buttons.delete(id);}
@@ -167,7 +177,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         empty.hidden=!!subject || (frame?.inVillage===true && model.subjects.length>0 && !missingNotice);
         text(empty,missingNotice?'That subject is no longer available here. Choose another known subject.':model.subjects.length?'Choose someone or something here to inspect.':(model.description?'Nothing here to pick out just now.':'Nothing here to inspect yet. Talk to someone in Local actions to meet them.'));
         if(subject){text(title,subject.name);text(role,subject.role);role.hidden=!subject.role;
-            const known=[subject.traits.length?`Known traits: ${subject.traits.join(', ')}`:'',subject.relationship?`Relationship: ${subject.relationship}`:''].filter(Boolean).join(' · ');
+            const known=[subject.pace||'',subject.traits.length?`Known traits: ${subject.traits.join(', ')}`:'',subject.relationship?`Relationship: ${subject.relationship}`:''].filter(Boolean).join(' · ');
             text(facts,known);facts.hidden=!known;text(memory,subject.memory);memory.hidden=!subject.memory;
             previous.hidden=next.hidden=model.subjects.length<2;
         }

@@ -62,6 +62,7 @@ export function localSearchMethod(c) {
     return visual ? {id:'visual',rate:1,text:'Each look takes five minutes.'} :
         {id:'touch',rate:.5,text:'Too dark to see: each try means feeling about for ten minutes. A light or night vision helps.'};
 }
+const knowsWellLinen = c => c.worldId === 'base.frontier' && c.location === 'Village' && c.knowsWellLinen === true;
 const chance = (s,c) => Math.min(LOCAL_LIFE_BALANCE.chanceCap,LOCAL_LIFE_BALANCE.baseChance+
     LOCAL_LIFE_BALANCE.missStep*(s.searches[c.location]?.misses||0)+Math.min(LOCAL_LIFE_BALANCE.perceptionCap,
         LOCAL_LIFE_BALANCE.perceptionStep*(finite(c.perception)?c.perception:0)));
@@ -122,10 +123,13 @@ export function advanceLocalLife(raw,c,rng=()=>{throw new Error("Local life need
             // of historical rolls after a load, clock jump or sleeping tick.
             s.searchProgress=0;
             addXp(p,'Perception',.5);
-            if(roll(rng)<chance(s,c)) {
+            const lead=knowsWellLinen(c);
+            if(lead || roll(rng)<chance(s,c)) {
                 s.searches[c.location].found=true;s.looking=false;
                 p.native.items.push({item_id:places[c.location].item,count:1});
-                p.messages.push(`You find ${places[c.location].label}. Nothing else catches your eye here.`);
+                p.messages.push(lead
+                    ? 'You pull a scrap of linen free by the well. Nothing else catches your eye here.'
+                    : `You find ${places[c.location].label}. Nothing else catches your eye here.`);
             } else {s.searches[c.location].misses++;p.messages.push('Nothing useful this time. Your next search chance has improved, up to 40%.');}
         }
     }
@@ -250,14 +254,15 @@ export function localLifeView(raw,c) {
     const window=natural(c.calendarMinute)?recurringWindow(MEAL_SCHEDULE,c.calendarMinute,s.mealClaim):{open:false,nextIn:0};
     // Round 5 (PRS9, UR151): the panel speaks as the narrator; exact odds and timings sit in `detail` (shown on hover)
     // until a feat or skill earns them a place on screen.
-    const dark=localSearchMethod(c).id==='touch';
+    const method=localSearchMethod(c),dark=method.id==='touch',lead=!found && knowsWellLinen(c);
     return {visible,title:'Local life',summary:!places[c.location]?'Nothing loose to find at this stop.':found?'Nothing left to find here.':
+        lead?'Tessa’s report marks a scrap of linen by the well.':
         dark?'Something might be tucked away around here, but it is too dark to look. I would have to feel for it.':'Something might be tucked away around here.',
-        summaryDetail:places[c.location]&&!found?`${Math.round(chance(s,c)*100)}% chance per look, rising 5 points with each miss up to 40%; Perception adds up to 10. ${localSearchMethod(c).text} Search work already done is kept.`:'',
+        summaryDetail:places[c.location]&&!found&&!lead?`${Math.round(chance(s,c)*100)}% chance per look, rising 5 points with each miss up to 40%; Perception adds up to 10. ${method.text} Search work already done is kept.`:'',
         exposure:'Raw potatoes and roasted rat meat can turn your stomach. Cooked or safe food will not.',
         exposureDetail:`Raw Potato: 20 minutes of food poisoning; Roasted rat meat: 45. Each poisoned minute trains Poison resistance (0.25 XP; ${s.poisonMinutes} minutes so far).`,
         readiness:available?'':'Finish what you are doing first.',
-        rows:[{id:'look',label:found?'Nothing left to find':s.looking?`Stop looking (${s.searchProgress} of 5 searched)`:'Look around',disabled:!available||found||!places[c.location]},
+        rows:[{id:'look',label:found?'Nothing left to find':s.looking?`Stop looking (${s.searchProgress} of 5 searched)`:lead?`Look around the well (${formatDuration(LOCAL_LIFE_BALANCE.searchMinutes/method.rate)})`:'Look around',disabled:!available||found||!places[c.location]},
             ...(s.parcelStep===3 && c.location==='Village'?[{id:'parcel_again',label:'Start another Village parcel relay',disabled:!available}]:[]),
             ...(relayOpen(s,c) && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3${s.parcelStep===2?` (receipt pays 8 coins, +${VILLAGE_STANDING.relay} Village reputation)`:''}: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}${s.parcelStarted?' The parcel waits while you travel or rest; nothing is lost.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
             ...(c.location==='Village'?[

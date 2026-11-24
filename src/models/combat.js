@@ -4,6 +4,7 @@ import {effectiveCritChance} from '../gear_dimensions.js';
 import {acquiredLootKeys} from '../gear_acquisition.js';
 import {engineTimeout,clearEngineTimeout,engineNow} from '../simulation_clock.js';
 import {combatHitText} from '../ui_polish.js';
+import {drawNativeAttackBar, freezeNativeAttackBar} from '../combat_focus.js';
 import {combatLogEvent} from '../combat_log.js';
 import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 import {getElementalDefenseModifier} from '../absorb_e3/elemental_affinities.js';
@@ -75,29 +76,6 @@ function fired_subticks(schedule, now) {
         fired = k;
     }
     return fired;
-}
-
-const bar_animations = new WeakMap();
-function draw_attack_bar(slot, fighter_index, progress, remaining_ms) {
-    const bar = slot?.children?.[fighter_index]?.querySelector?.("[data-attack_bar]");
-    if(!bar) return;
-    bar_animations.get(bar)?.cancel();
-    bar_animations.delete(bar);
-    bar.style.width = "100%";
-    bar.style.transformOrigin = bar.classList.contains("enemy_attack_bar") ? "right" : "left";
-    bar.style.transform = `scaleX(${Math.min(progress, 1)})`;
-    if(remaining_ms > 0 && typeof bar.animate === "function") {
-        bar_animations.set(bar, bar.animate([{transform: `scaleX(${Math.min(progress, 1)})`}, {transform: "scaleX(1)"}],
-            {duration: remaining_ms, easing: "linear", fill: "forwards"}));
-    }
-}
-function freeze_attack_bar(slot, fighter_index) {
-    const bar = slot?.children?.[fighter_index]?.querySelector?.("[data-attack_bar]");
-    const animation = bar && bar_animations.get(bar);
-    if(!animation) return;
-    const progress = getComputedStyle(bar).transform;
-    animation.cancel(); bar_animations.delete(bar);
-    if(progress && progress !== "none") bar.style.transform = progress;
 }
 
 class Combat {
@@ -405,7 +383,7 @@ class Combat {
         const arm_final = () => {
             const delay = actual_cooldown*1000/(60*tickrate) - fighter_data.timer_adjustments[fighter_index];
             fighter_data.attack_loops[fighter_index] = engineTimeout(final_subtick, delay);
-            this.#drawBar(is_attacker, fighter_index, (SUBTICKS - 1)/SUBTICKS, Math.max(0, delay));
+            this.#drawBar(is_attacker, fighter_index, (SUBTICKS - 1)/SUBTICKS, Math.max(0, delay), engineNow() + Math.max(0, delay));
         };
 
         if(schedule.from >= SUBTICKS) {
@@ -428,11 +406,13 @@ class Combat {
             entry.count = SUBTICKS - 1;
             arm_final();
         }, prefinal_due - now);
-        this.#drawBar(is_attacker, fighter_index, count/SUBTICKS, prefinal_due - now + subtick_interval(actual_cooldown, tickrate));
+        const finalInterval = subtick_interval(actual_cooldown, tickrate);
+        const swingDue = prefinal_due + Math.max(0, finalInterval - schedule.states[SUBTICKS - 1].adj);
+        this.#drawBar(is_attacker, fighter_index, count/SUBTICKS, prefinal_due - now + finalInterval, swingDue);
     }
 
-    #drawBar(is_attacker, fighter_index, progress, remaining_ms) {
-        draw_attack_bar(is_attacker ? this.attackers_ui_slot : this.defenders_ui_slot, fighter_index, progress, remaining_ms);
+    #drawBar(is_attacker, fighter_index, progress, remaining_ms, due) {
+        drawNativeAttackBar(is_attacker ? this.attackers_ui_slot : this.defenders_ui_slot, fighter_index, progress, remaining_ms, due);
     }
 
     /** Pending loops as the old sub-tick timers left them, with each live cycle's sub-tick count at this moment. */
@@ -772,7 +752,7 @@ class Combat {
             fighter_data.timer_adjustments[fighter_index] = adj;
         }
         if(this.#pendingLoops[key] === schedule.entry) schedule.entry.count = fired;
-        freeze_attack_bar(is_attacker ? this.attackers_ui_slot : this.defenders_ui_slot, fighter_index);
+        freezeNativeAttackBar(is_attacker ? this.attackers_ui_slot : this.defenders_ui_slot, fighter_index);
     }
 
     /**

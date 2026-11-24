@@ -8,6 +8,7 @@ import { GameAction } from "../models/game_action.js";
 import { fill_market_regions } from "../market_saturation.js";
 
 import {global_flags} from "../runtime_state.js";
+import { PATROL_BASE_PAY } from '../village_career.js';
 import {readVillageLedgerSentence} from "../native_view.js";
 import { availabilities } from "./component_references.js";
 import { LocationType, SafeLocation, CombatZone, ChallengeZone, LocationCrafting, 
@@ -1995,8 +1996,8 @@ There's another gate on the wall in front of you, but you have a strange feeling
         }),
         "patrolling": new LocationActivity({
             activity_name: "patrolling",
-            starting_text: "Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
-            get_payment: () => {return 50},
+            starting_text: "Take a loaned kit and patrol with Tessa",
+            get_payment: () => PATROL_BASE_PAY,
             is_unlocked: true,
             working_period: 60*2,
             skill_xp_per_tick: 1

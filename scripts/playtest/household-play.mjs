@@ -15,16 +15,23 @@ const session=new Session({url:server.url+'?test_hooks=1',seed:19,wall:Date.UTC(
 const receipt={setup:'Synthetic owned Shack, installed hearth, carried logs and Linen cloth. Meet, play, sitting, hearth and persistence use native controls. No natural campaign acquisition claim.',checks:[]};
 let page;
 const cloth=JSON.stringify({id:'Linen cloth'});
+function assertRetained(actual,expected){
+    // The current Reports owner may append the manual-save notification after
+    // the exported snapshot. Do not mistake that one delivery line for changed
+    // household, inventory or world state; every other delta still fails.
+    const differences=diffSaves(canonicalSave(actual),canonicalSave(expected));
+    assert.deepEqual(differences.filter(d=>!(d.path.startsWith('/reports_dock/lines/')&&d.a===undefined&&d.b==='"Saved the game manually"')),[]);
+}
 const action=id=>page.locator(`[data-household-action="${id}"]`);
-async function home(){page=session.page;await page.locator('button[data-place-tab="options"]').click();await page.locator('#p23_household_panel').evaluate(el=>{el.open=true;});}
+async function home(){page=session.page;await page.locator('button[data-place-tab="home"]').click();await page.locator('#p23_household_panel').evaluate(el=>{el.open=true;});}
 async function history(){await page.locator('[data-household-animal-history]').evaluate(el=>{el.open=true;});}
 async function replay(){await page.waitForFunction(()=>typeof simulationTestHooks==='object');await page.evaluate(()=>simulationTestHooks.pause());await page.locator('#loading_screen_play_button').click();await home();}
 async function persist(label){
     const before=await session.save();await page.reload();await replay();
-    assert.deepEqual(diffSaves(canonicalSave(await session.save()),canonicalSave(before)),[]);
+    assertRetained(await session.save(),before);
     const literal=await page.evaluate(()=>save_to_file()),exported=await session.save();await writeFile(join(out,label+'-export.txt'),literal);
     await Promise.all([page.waitForEvent('load'),page.evaluate(raw=>load_progress(raw),literal)]);await replay();
-    assert.deepEqual(diffSaves(canonicalSave(await session.save()),canonicalSave(exported)),[]);
+    assertRetained(await session.save(),exported);
     await history();assert.match(await page.locator('#p23_household_panel').innerText(),/Likes chasing a trailing cloth/);
     receipt.checks.push(`${label}: exact Save/reload/Export/literal Import retains the learned preference with no replayed bond`);
 }

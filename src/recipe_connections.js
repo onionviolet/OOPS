@@ -52,10 +52,17 @@ export function bindSubjectGesture(node, readSubject, activate) {
     });
 }
 const escapeHTML = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function knownUseLinks(item, variants) {
+    if (!item) return [];
+    return knownUsesOf(item, variants).map(({category, subcategory, recipe_id, material_id, title}) => ({
+        label: `${title} · ${category}`,
+        target: encodeURIComponent(JSON.stringify({category, subcategory, recipe_id, material_id})),
+    }));
+}
 export function knownUsesHTML(item, variants) {
-    const uses = knownUsesOf(item,variants);
+    const uses = knownUseLinks(item, variants);
     if(!uses.length) return '';
-    return '<br><br>Known uses (tracking does not reserve stock):<br>'+uses.map(v=>`<button type="button" data-known-recipe="${encodeURIComponent(JSON.stringify({category:v.category,subcategory:v.subcategory,recipe_id:v.recipe_id,material_id:v.material_id}))}">${escapeHTML(v.title)} · ${escapeHTML(v.category)}</button>`).join('<br>');
+    return '<br><br>Known uses (tracking does not reserve stock):<br>'+uses.map(({label, target})=>`<button type="button" data-known-recipe="${escapeHTML(target)}">${escapeHTML(label)}</button>`).join('<br>');
 }
 export function installKnownRecipeLinks(document, follow) {
     document.addEventListener('click',event=>{
