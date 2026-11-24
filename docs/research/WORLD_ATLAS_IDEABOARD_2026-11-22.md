@@ -113,6 +113,19 @@ new stale citations, readers collected since. Fed by the dated snapshots and the
 **WA17 · Batch run watch.** The seven running reader drivers as a live strip: step, batch ids, measured
 spend against the $40 ledger, stop-rule state. Today that lives in log files.
 
+**WA23 · Evidence per recipe slot (added 2026-11-24, from I1 of the [community research](RI_COMMUNITY_ANSWERS_2026-11-24.md)).**
+A killer move's dossier (WA12) gets one fold per slot: the Gu, its role (core, support, unnamed), the variant,
+the locator, and whether the source states an order. Unnamed supports stay visible as open slots. Authored
+values go on a separate scratch recipe, so a tested guess never reads as canon. Reason: whole-row blockers
+such as `roles-unknown` (651 Gu move rows) hide usable facts. Chapter 1561 names four cores and 14 supports
+for one Myriad Self configuration, and an umbrella row flattens several versions of a move into one.
+
+**WA24 · "Check this passage" before paying for a read (added 2026-11-24, from I2).** A gap card (WA8) takes
+a chapter and a name or alias and opens the matching local passages for a second reader, each tagged as an
+explicit fact, a bare mention, a name collision ("Life Gu" inside "Remnant life Gu") or a character's
+hypothesis. Paid reads are offered after that check. Reason: the [Gu blocker audit](../audits/GU_UNKNOWN_BLOCKERS_SAMPLE_2026-11-24.md)
+found collisions and already-answered rows that a paid pass would have bought again.
+
 ## More: stretch and unusual
 
 **WA18 · Time scrubber.** A slider over the book's chapters or in-world days. Places, people and workings
@@ -144,6 +157,12 @@ toggle. Pure flavour, cheap, easy to hate; listed so it is decided rather than f
 The smallest useful bundle is WA1 on LOTM only (the theme table plus a toggle), then WA8 gap cards from the
 four gap sources the snapshot already has. Both live in `things-views.mjs`, `library-views.mjs` and `canvas.css`,
 and both can be proven with the existing `prove-all.mjs` screenshots at 1920×1080.
+
+**Picked 2026-11-24: WA23 and WA24.** Weibao: "add the I1 and I2 ideas to the atlas ideaboard, can we start work
+by coordinating the codex and sending them out to work on those?" Two Codex lanes build the data and tooling
+outside `prototypes/world-atlas/`: a slot-evidence file and builder for WA23, and a local passage checker for
+WA24. Briefs are in [atlas-slots-passages-2026-11-24](../gm/dispatch/atlas-slots-passages-2026-11-24/). The atlas
+platform session owns the atlas UI and wires both in.
 
 ## Implementation workspace proposal (2026-11-24)
 
