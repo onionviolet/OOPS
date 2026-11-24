@@ -1964,3 +1964,23 @@ Weibao, asked "Should I start the owner-led cleanup of weak rules W1–W7?" ([au
 - W5 (UR178): the word budgets are defaults; a choice-critical explanation stays visible beside its control and may exceed them.
 - W6 (UR100): a shared-primitive change samples meaningfully different consumers; a local change covers the states and world dresses it reaches; the shared kit owns reusable state fixtures.
 - W7 (UR176): the blind panel is an optional design experiment; baselines cover the look choices the change affects, not a cross-product. Neighbour and real-font comparison stay.
+
+## Contradictory rules retired (2026-11-24)
+
+Weibao: "lets remove rules accordingly that are contradictory, and leave current defaults as current defaults". Same owner-led method as W1–W7: where a rule contradicts a current default or a later dated direction, the current default wins and the old clause carries a dated "Reworded"/"Merged" line naming what it was. Codes, rows and history stay; protections kept (truthful preview and commit, one state owner, observer filtering, stable targets, save compatibility, candidate identity, scoped proof). Rows W8–W22 of [audit §2](../audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm):
+
+- W8 (UR11, DSG1): reworded. "Never shrink the log" lost to UR145 (a region sizes to its content); Reports stays full height by default with room to read whole.
+- W9 (UR144): merged with UR69/UR145/UR146. Neighbours may lend space at settled moments, not while reading or on ticks.
+- W10 (UR7): reworded. "Raw unframed text" became shared type, row and control roles; framing follows grouping (DSG1, seamless Graphite).
+- W11 (UR119): left. Row anatomy is a kit default with a columns dial; no settled line contradicts it.
+- W12 (UR124): reworded. "Dial: None" became a pane-local return per UR41; centre replacements keep the bottom Back bar and Esc.
+- W13 (UR92): left. It already derives history from settled events with a depth dial; no direction requires an archive.
+- W14 (UR94): left. A critique prompt, not a gate that contradicts anything.
+- W15 (UR6/65/163): left. UR65, UR131 and UR163 already carry the exceptions; the ratchet is a built quality check.
+- W16 (DSG6–10): left. Pointers to governing rules, no competing authority.
+- W17 (UR102): merged with UR149. Peer choices compared side by side may each carry equal prominence.
+- W18 (P X2–X6, P4, TX4, IM2): left. Budgets and intensity ladders are already named dials by B435; IM2 is an unbuilt lint.
+- W19 (TX9, TX10): reworded. One effect per line is a default (B435); glyph meaning is scoped to a role or world vocabulary (TX6, DSG4). TX2 left: its plain line is an accessible name, not a visible sentence.
+- W20 (TX11, bluff tell): reworded. Source cues and tells follow what the observer's means can see (B435).
+- W21 (P5, TX7, IM5): reworded. The return reel is opt-in; visibility follows the actual surface; the tap equivalent waits for mobile, "nothing relies on hover alone" stays.
+- W22 (IM10): reworded. Old saved effect ids stay resolvable through aliases or migration; names may change (AD45).

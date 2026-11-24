@@ -55,7 +55,7 @@ every time.
 | P2 | **Room to grow** | Every effect has a placeholder level (a color, an icon, a word). Better versions replace it later without touching gameplay. Nothing waits on art |
 | P3 | **Quiet baseline, loud moments** | Most of the screen stays calm so a Black Flash or a shattered panel lands. Contrast is the coolness |
 | P4 | **Intensity tracks the rung** | *Slightly* is a wisp; *absurdly* is a show (E8F ladders). Bigger powers, bigger effects |
-| P5 | **Attention-aware** | An idle game is mostly unwatched. Animate when the player is looking; when they return, show a short highlight reel instead of replaying everything |
+| P5 | **Attention-aware** | An idle game is mostly unwatched. Animate when the player is looking; when they return, a short highlight reel may stand in for replaying everything (opt-in). *Reworded 2026-11-24 (Weibao: remove contradictory rules; [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm) W21): was "show a short highlight reel".* |
 | P6 | **Style per world** | Ink and brush in a Hanzi world, crisp system panels in a status-window world, grime in a grim one |
 | P7 | **Readable and comfortable** | Reduced motion, no harsh flashing, a global effects slider (colour alone may carry meaning: Weibao, 2026-11-21) |
 
@@ -1090,11 +1090,11 @@ checked is marked as such.
 
 | Code | Rule | In practice |
 |---|---|---|
-| TX7 | **Watched, or summarized** | Effects play only when the tab is visible and the line's log group is shown. Unwatched fights fold into one summary line: `∞ held 1,204 hits (412k) while you were away` |
+| TX7 | **Watched, or summarized** | By default effects play when the tab is visible and the surface they sit on (a log line's group, or an ambient or subject surface) is shown. *Reworded 2026-11-24 (Weibao: remove contradictory rules; [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm) W21): was "the line's log group is shown" only; the 2026-11-20 direction allows ambient and subject feedback outside log lines.* Unwatched fights fold into one summary line: `∞ held 1,204 hits (412k) while you were away` |
 | TX8 | **Repeats decay** | The first Infinity in a fight plays in full; the tenth is a single `∞` after the number; the hundredth is plain text. An escalation (bigger hit, new rung) resets the decay (X4) |
-| TX9 | **One effect owns a line** | At most one line effect per line. When two apply, the collision table decides the combined result instead of stacking glyphs |
-| TX10 | **A glyph means one thing** | `∅` nullified, `∞` held, `†` dead, `☸` adapting, `████` unknown. A Notebook glossary fills in the first time each glyph is seen |
-| TX11 | **The source is visible** | Whoever causes an effect is identifiable by color or motif, so the player can tell a curse from a glitch from a meta character |
+| TX9 | **One effect owns a line** | By default one line effect per line (an authoring dial, B435). When two apply, the collision table decides the combined result, or a composed result where it reads clearly, instead of stacking glyphs. *Reworded 2026-11-24 (Weibao: remove contradictory rules; [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm) W19): was "At most one line effect per line"; B435 calls one effect per line a dial.* |
+| TX10 | **A glyph means one thing** | Within a shared role or a world's glyph vocabulary (TX6, DSG4): `∅` nullified, `∞` held, `†` dead, `☸` adapting, `████` unknown. A Notebook glossary fills in the first time each glyph is seen. *Reworded 2026-11-24 (Weibao: remove contradictory rules; [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm) W19): was a global meaning per glyph; TX6 lets a world reskin the glyph set.* |
+| TX11 | **The source is visible to an observer who knows it** | Whoever causes an effect is identifiable by color or motif where the observer's means support it, so the player can tell a curse from a glitch from a meta character; an unknown source keeps a neutral cue (B435: a source motif or colour can itself leak). *Reworded 2026-11-24 (Weibao: remove contradictory rules; [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm) W20): was "Whoever causes an effect is identifiable by color or motif" for everyone.* |
 | TX12 | **Never move a click target** | Shakes, offsets and swaps never touch buttons the player is about to press. Panels drift only when no input is pending |
 | TX13 | **The plain layer is what the character perceives** | Not the hidden truth. An illusion's plain line is the illusion; a sealed secret's plain line is the cover story. This keeps TX2 from leaking sealed secrets through screen readers, copy-paste or the Notebook |
 
@@ -1493,8 +1493,9 @@ used against them, by characters inside the fiction.
 | BL5 | **Your own bluffs** | The player can learn deception techniques that print fake effects to enemies. Their reactions show in their lines |
 | BL6 | **Counterfeit system messages** | In a status-window world, a rival forges a `[ Quest complete ]` box with a single wrong character in the frame |
 
-Rule: a bluff always has a tell that's consistent with TX1, so the
-truth is in the text for anyone who looks closely. TX13 holds too: the
+Rule: a bluff has a tell that's consistent with TX1 when the world
+makes one available, so the truth is in the text for anyone whose means
+can see it. *Reworded 2026-11-24 (Weibao: remove contradictory rules; [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm) W20): was "always has a tell"; B435 allows perfect illusion with no tell until use.* TX13 holds too: the
 plain layer shows what the character believes until they see through
 it. Bluffs are in-world deceptions, never the game lying to the player
 about real state outside the fiction.
@@ -1600,7 +1601,7 @@ spy or a captured notebook can show you *their* dossier on you:
 
 #### Kinds of ability bluffs
 
-| Code | Bluff | Example | The tell (TX1: always present) |
+| Code | Bluff | Example | The tell (TX1; not universal, a perfect bluff may have none until use, B435) |
 |---|---|---|---|
 | AB1 | **Fake ability** | You fake a domain with a frame illusion, or fake a common barrier class you don't have. (Faking a famous unique like Infinity is rare; see bluff plausibility) | The fake can't imitate every rule: a fake domain's lines still show dodge text; a fake barrier never cracks |
 | AB2 | **Misattribution** | Your speed technique is staged to look like teleporting, so they prepare for the wrong counter | Teleport leaves no motion trail; yours does, faintly |
@@ -2229,12 +2230,12 @@ For rare set pieces, a tiny text picture can beat any animation.
 | IM2 | **Budget lint** | A test that counts each world's big effects (X3) and flags a world that spends too many, or an exceptional-tier effect on a common event |
 | IM3 | **Glyph vocabulary check** | A test that each glyph in TX10's glossary is used for one meaning only across the registry |
 | IM4 | **Effect collection** | An "effects seen" page in the Notebook, like a bestiary, filled when each effect first plays. It doubles as the glossary and costs only a set of ids in the save (a persistence addition with an empty default) |
-| IM5 | **Touch screens** | Hover-based effects (shy text, cursed tooltips) need a tap equivalent; nothing may rely on hover alone |
+| IM5 | **Touch screens** | Nothing may rely on hover alone (keyboard and pinned routes, UR43). A tap equivalent for hover-based effects (shy text, cursed tooltips) waits for mobile, which is deferred. *Reworded 2026-11-24 (Weibao: remove contradictory rules; [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm) W21): was "need a tap equivalent" now.* |
 | IM6 | **Readability options** | A dyslexia-friendly option turns off spacing and letter-swap effects and keeps color and weight; a text-speed option controls typewriter effects |
 | IM7 | **Color-blind safety** (retired 2026-11-21) | Weibao removed the colour-with-words rule; colour may carry meaning alone. Existing labels stay, because agents read them. |
 | IM8 | **Long sessions** | Idle tabs run for days. Effects must clean up their nodes and listeners; a soak test with the tab open for hours checks memory doesn't climb |
 | IM9 | **Theme tokens** | World styles as CSS custom properties (frame glyph set, palette, numeral style, sound vocabulary), switched on world crossing |
-| IM10 | **Stable ids for marks** | Cosmetic marks saved on records (scorch, kintsugi, dust age) reference effect ids that never get renamed; a renamed effect keeps an alias |
+| IM10 | **Stable ids for marks** | Cosmetic marks saved on records (scorch, kintsugi, dust age) reference effect ids that stay resolvable: an effect may be renamed when the old id keeps an alias or a save migration. *Reworded 2026-11-24 (Weibao: remove contradictory rules; [audit](audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm) W22): was a fixed, unrenamable id, which the same row's alias clause and AD45 contradicted.* |
 | IM11 | **Share card** | Photo mode can render a moment as an image on a canvas, downloaded only on a player click. No upload, no sharing service |
 | IM12 | **Horror and comfort tiers** | Horror effects (something behind, wrong NPC) sit behind the meta setting like M4 and M5, with a content note in the world's description |
 | IM13 | **Effect authoring guide** | A short doc for agents adding effects: pick primitives, write the plain line (TX13), define the static form, set a budget cost, add a gallery entry |
