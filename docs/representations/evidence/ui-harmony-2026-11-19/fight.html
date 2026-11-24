@@ -1,0 +1,146 @@
+<!doctype html><html><head><meta charset="utf-8"><title>One fight form</title>
+<style>
+@font-face{font-family:G;src:url(../../../../resources/fonts/private/gothic-bitmap-21.woff2)}
+:root{--ink:#e8eef8;--dim:#8aa0bf;--faint:#5a6f8f;--line:#2f5a8c;--line2:#1d3b63;--acc:#ffd84a;--hurt:#ff6a6a;--you:#7fe0ff;--atk:#9a5cff;--ok:#7dff9a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1920px;height:1080px;background:linear-gradient(180deg,#020a1e,#062a4a);color:var(--ink);font:21px/1.35 G,monospace;overflow:hidden}
+.top{height:26px;font-size:14px;display:flex;gap:18px;padding:4px 10px;color:var(--dim);border-bottom:1px solid var(--line2)}
+.grid{display:grid;grid-template-columns:430px 1fr 560px;gap:10px;padding:10px;height:1000px}
+.box{border:2px solid var(--line);background:rgba(4,20,48,.75);padding:10px 12px}
+.col{display:flex;flex-direction:column;gap:10px;min-height:0}
+h3{font-size:21px;font-weight:normal;color:var(--you);display:flex;justify-content:space-between}
+.k{color:var(--dim)}.f{color:var(--faint)}.a{color:var(--acc)}.r{color:var(--hurt)}.g{color:var(--ok)}
+.bar{position:relative;height:26px;background:#0b1a33;border:1px solid var(--line2);margin:4px 0}
+.bar i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#f6e27a,#3fe0d0)}
+.bar.st i{background:#6a3a9a}.bar.at{height:12px}.bar.at i{background:var(--atk)}
+.bar span{position:absolute;inset:0;text-align:center;font-size:18px;line-height:26px;text-shadow:0 0 3px #000}
+.bar.at span{display:none}
+.tag{font-size:16px;border:1px solid var(--acc);color:var(--acc);padding:0 6px;margin-left:8px}
+.terms{display:grid;grid-template-columns:auto 1fr;gap:2px 16px;font-size:19px}
+.slot{border:1px solid var(--line2);padding:6px 10px;margin-top:6px;display:grid;grid-template-columns:150px 1fr 120px;gap:4px 12px;align-items:center}
+.slot.sel{border:2px solid var(--acc)}
+.slot.down{opacity:.45}.slot.empty{border-style:dashed;color:var(--faint);opacity:.6}
+.cond{display:flex;gap:3px}.cond b{flex:1;height:14px;background:#1c2f4f}.cond b.on{background:#e6b04a}
+.mode{display:flex;gap:10px;align-items:center;font-size:19px}
+.btn{border:1px solid var(--line);padding:3px 10px;background:#0a2140}.btn.on{border-color:var(--acc);color:var(--acc)}
+.moves{display:grid;grid-template-columns:110px repeat(3,1fr);gap:6px 8px;font-size:19px;align-items:stretch}
+.moves .lab{color:var(--dim);padding-top:6px}
+.mv{border:1px solid var(--line);padding:5px 8px;display:flex;justify-content:space-between;background:#071a36}
+.mv em{font-style:normal;color:var(--dim);font-size:16px}
+.mv.hot{border:2px solid var(--acc)}.mv.blk{color:var(--faint);border-style:dashed}
+.prev{font-size:19px}
+.log div{font-size:18px;padding:3px 0;border-bottom:1px solid var(--line2)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);font-size:18px;gap:2px 10px;margin-top:6px}
+.stats span{display:flex;justify-content:space-between}
+.sum{font-size:18px;color:var(--dim)}
+</style></head><body>
+<div class="top"><span id="t1">Cave room</span><span>01/04/999 09:20 Mon · Day</span><span>Summer · 17.4 °C</span><span class="a" id="t2">Fight: clearing the cave</span></div>
+<div class="grid">
+ <div class="col">
+  <div class="box">
+   <h3><span>You</span><span class="k">Lv 0 · Human</span></h3>
+   <div class="bar"><i id="yhp" style="width:93%"></i><span id="yhpt">56/60 hp</span></div>
+   <div class="bar st"><i style="width:90%"></i><span id="yst">36/40 stamina</span></div>
+   <div class="k" style="font-size:18px;margin-top:6px">Your attack <span class="a" id="ready">· Ready next</span></div>
+   <div class="bar at"><i id="yat" style="width:82%"></i></div>
+   <div style="font-size:18px;margin-top:6px"><span class="k">Stance</span> Normal · <span class="k">Strikes</span> <span id="ytype">slashing 100%</span></div>
+   <div style="font-size:18px"><span class="k">Technique</span> Rat-step <span class="tag" id="rst">primed</span></div>
+   <div class="stats"><span><b class="k">Atk</b>11.0</span><span><b class="k">Spd</b>0.9/s</span><span><b class="k">Def</b>1.0</span><span><b class="k">Hit</b>85%</span><span><b class="k">Eva</b>15%</span><span><b class="k">Crit</b>8%</span></div>
+  </div>
+  <div class="box">
+   <h3><span>On hand</span><span class="k">usable now</span></h3>
+   <div style="font-size:19px">Stale bread ×5 <span class="k">· eat, 2 beats</span></div>
+   <div style="font-size:19px">Survey kit ×2 <span class="f">· not in a fight</span></div>
+   <div style="font-size:19px">Iron sword <span class="k">· worn, 100%</span></div>
+  </div>
+  <div class="box" style="flex:1">
+   <h3><span>If you lose</span></h3>
+   <div style="font-size:19px" id="lose">You wake at the cave mouth with 1 hp. Carried coin is safe; the wave restarts.</div>
+   <h3 style="margin-top:12px"><span>Stops auto when</span></h3>
+   <div style="font-size:19px" id="stops">hp under 30% · a new kind of foe · Rat-step opens</div>
+  </div>
+ </div>
+
+ <div class="col">
+  <div class="box">
+   <h3><span id="goal">Clear the cave room</span><span class="k" id="prog">group 1 of 25 · 1 down, 1 left</span></h3>
+   <div class="terms" style="margin-top:6px">
+    <span class="k">Win</span><span id="win">every rat in the group down → next group, loot rolls</span>
+    <span class="k">Lose</span><span id="lose2">you fall (see left)</span>
+    <span class="k">Leave</span><span id="leave">Withdraw to entrance · 5 min · wave progress kept</span>
+   </div>
+  </div>
+  <div class="box">
+   <h3><span id="opptitle">Opponents · 2 of 3 slots</span><span class="k">click to inspect · Tab cycles</span></h3>
+   <div id="roster"></div>
+   <div id="detail" style="font-size:18px;margin-top:8px;padding-top:6px;border-top:1px solid var(--line2)"></div>
+  </div>
+  <div class="box">
+   <div class="mode"><span class="k">Control</span><span class="btn" id="mAuto">Auto</span><span class="btn" id="mTake">Take over</span><span class="k" id="modeNote" style="margin-left:12px"></span></div>
+  </div>
+  <div class="box">
+   <div class="moves" id="moves"></div>
+  </div>
+  <div class="box prev" style="flex:1">
+   <h3><span id="pvh">Preview · Quick strike</span><span class="k" id="pvb">3 beats</span></h3>
+   <div id="pv" style="margin-top:6px"></div>
+  </div>
+ </div>
+
+ <div class="col">
+  <div class="box" style="flex:1;overflow:hidden">
+   <h3><span>This fight</span><span class="k">blow by blow · <u>summary</u></span></h3>
+   <div class="sum" id="sum" style="margin:6px 0 8px"></div>
+   <div class="log" id="log"></div>
+  </div>
+  <div class="box" style="height:170px">
+   <h3><span>Reports</span><span class="k">other news · 2</span></h3>
+   <div style="font-size:18px" class="k">The watch is taking volunteers until 10:00.</div>
+   <div style="font-size:18px" class="k">A courier left a Village route pamphlet.</div>
+  </div>
+ </div>
+</div>
+<script>
+const duel=location.hash==='#duel';
+const $=id=>document.getElementById(id);
+if(!duel){
+ $('roster').innerHTML=`
+ <div class="slot sel"><span>Wolf rat</span><div><div class="bar"><i style="width:100%"></i><span>31/31 hp</span></div><div class="bar at"><i style="width:64%"></i></div></div><span class="a" style="font-size:17px">Next to act</span></div>
+ <div class="slot down"><span><s>Wolf rat</s></span><div class="k" style="font-size:18px">down · 2 hides, 4 xp</div><span class="k" style="font-size:17px">defeated</span></div>
+ <div class="slot empty"><span>—</span><div style="font-size:17px">empty slot</div><span></span></div>`;
+ $('detail').innerHTML=`<span class="a">Wolf rat</span> · bites <b>6 piercing</b> <span class="k">(you 11.0)</span> · 1.04/s <span class="k">(you 0.9)</span> · hits you 52% · you hit it 85% · <span class="k">Bestiary: seen 7, felled 6</span>`;
+ $('mAuto').classList.add('on');
+ $('modeNote').textContent='Auto will: Quick strike the Wolf rat';
+ $('moves').innerHTML=`
+ <span class="lab">Attack</span><span class="mv hot">Quick strike<em>3 beats</em></span><span class="mv">Heavy swing<em>6 beats</em></span><span class="mv blk">Rat-step<em>needs an opening</em></span>
+ <span class="lab">Guard</span><span class="mv">Brace<em>2 beats</em></span><span class="mv">Eat bread<em>2 beats</em></span><span></span>
+ <span class="lab">Leave</span><span class="mv">Withdraw<em>5 min</em></span><span></span><span></span>`;
+ $('pv').innerHTML=`At the Wolf rat (31/31). Hits 85% for about 9–11 slashing; crit 8%.<br>Your next attack comes 3 beats later. The rat acts first: <span class="r">bites ~4.5</span> at 52%.<br><span class="k">Auto picks this when nothing is open. Click to take over and choose.</span>`;
+ $('sum').innerHTML='1:12 in · you dealt 35, took 4.5 · <span class="g">1 rat down</span> · 2 hides, 4 xp so far';
+ $('log').innerHTML=['<span class="r">Wolf rat bites you · 4.5</span>','Wolf rat misses you ×2','You hit Wolf rat · 8.9','You hit Wolf rat · 10.4','<span class="a">You crit Wolf rat · 15.8</span>','<span class="g">Wolf rat is down</span>','<span class="k">Group 1: one rat left</span>','You hit Wolf rat · 9.6 <span class="k">(hp shown fresh)</span>'].map(x=>`<div>${x}</div>`).join('');
+}else{
+ $('t1').textContent='Village';$('t2').textContent='Fight: Mara’s road contest';
+ $('goal').textContent='Mara’s road contest';$('prog').textContent='your move · beat 14';
+ $('win').innerHTML='Mara yields, or <b>3 clean hits</b> <span class="k">(you 2 · her 0)</span> → purse 12c, her respect';
+ $('lose2').innerHTML='you yield or drop to Hurt → no purse, she copies a step';
+ $('leave').innerHTML='Yield · Back away <span class="k">(she calls it a forfeit)</span>';
+ $('lose').innerHTML='No injury beyond bruises. She keeps the purse and copies one of your steps for 6 h.';
+ $('stops').innerHTML='Take over is on: the clock waits at your Ready.';
+ $('yhpt').textContent='57/60 hp';$('yst').textContent='30/40 stamina';$('ytype').textContent='bludgeoning 100%';$('rst').textContent='READY';
+ $('ready').textContent='· Ready, clock waiting';$('yat').style.width='100%';
+ $('opptitle').textContent='Opponent · 1';
+ $('roster').innerHTML=`
+ <div class="slot sel"><span>Mara <span class="tag">Opening</span></span><div><div class="cond"><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b></b></div><div class="bar at"><i style="width:30%"></i></div></div><span class="a" style="font-size:17px">Hurt</span></div>`;
+ $('detail').innerHTML=`<span class="a">Mara</span> · hits about <b>3</b> <span class="k">(learned)</span> · reach longer than yours · <span class="k">stamina 0/12 · ? sized up · ? intent</span> · takes normal bludgeoning`;
+ $('mTake').classList.add('on');
+ $('modeNote').textContent='Auto would: Rat-step (opening)';
+ $('moves').innerHTML=`
+ <span class="lab">Attack</span><span class="mv">Quick strike<em>3 beats</em></span><span class="mv">Heavy swing<em>6 beats</em></span><span class="mv hot">Rat-step<em>3 beats · ready</em></span>
+ <span class="lab">Guard</span><span class="mv">Brace<em>2 beats</em></span><span class="mv">Tend a wound<em>5 beats</em></span><span class="mv">One careful turn<em>auto 1 move</em></span>
+ <span class="lab">Leave</span><span class="mv">Yield<em>2 beats</em></span><span class="mv">Back away<em>3 beats</em></span><span class="mv">Fight on<em>hand to auto</em></span>`;
+ $('pvh').textContent='Preview · Rat-step counter';
+ $('pv').innerHTML=`Mara’s blow went wide: step inside her reach and strike before she recovers.<br>Bludgeoning 100% · 3 beats · Rat-step mastery: 1 beat less to recover.<br>Would make clean hit <b>3 of 3</b> → <span class="g">you win the contest</span> if it lands.<br><span class="k">Opening closes at her next action.</span>`;
+ $('sum').innerHTML='beat 14 · clean hits you 2, her 0 · she is <span class="a">Hurt</span> and out of stamina';
+ $('log').innerHTML=['Mara misses.','<span class="a">You hit Mara in the head · 1.4</span>','Mara misses.','You hit Mara in the body · 1.3 (crit)','<span class="k">You now know how hard Mara hits: about 3.</span>','<span class="r">Mara hits you in the body · 3.1</span>','You miss.','Mara misses. <span class="a">Opening.</span>'].map(x=>`<div>${x}</div>`).join('');
+}
+</script></body></html>

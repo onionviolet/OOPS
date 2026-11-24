@@ -1,0 +1,25 @@
+{
+  "bundle": "86e07197f86ca4a3",
+  "origin": "http://127.0.0.1:56553/?test_hooks=1",
+  "fixture": "ri-fang-yuan-wild-gu plus Moonglow and Black Boar Gu (composed)",
+  "steps": [
+    {
+      "label": "outside",
+      "text": "Green-copper primeval essence 44/44",
+      "pool": 44
+    },
+    {
+      "label": "spent",
+      "text": "Green-copper primeval essence 43/44",
+      "pool": 44,
+      "live": 43,
+      "result": null
+    },
+    {
+      "label": "exit",
+      "text": "Green-copper primeval essence 43/44",
+      "pool": 43
+    }
+  ],
+  "pageerrors": []
+}

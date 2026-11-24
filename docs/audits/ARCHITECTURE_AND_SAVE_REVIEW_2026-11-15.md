@@ -355,3 +355,13 @@ Proposed standing line (not added without Weibao's yes): **AR23 (proposal) · Di
 - O21 first slice: level medium, sonnet lane. Done when the five hottest pollers render through one scheduler and the probe shows lower crowded idle task busy with no visual-baseline change.
 - O22 spike: level small, sonnet. Done when the facts frame reports which worlds it built per render and a fresh Frontier life builds Frontier facts alone.
 - Tauri probe run: level small. Done when the same report comes from WKWebView.
+
+## Round 5: O21 first slice, measured (2026-11-15)
+
+Weibao: "Yes, start O21". The fresh profile (after the day's other commits) moved the target. The biggest idle cost is the tick's publication batch, where about 60 panels redraw on every commit, and not the pollers. Two of those redraws, plus their visibility checks, took about 15% of a core on the crowded fixture. The first slice gates them with `src/display_gate.js`: off screen, a panel redraws on a command, a layout change, a return to screen or a 3 s fallback dial. The fallback keeps self-revealing panels (the known-routes trap its own code warns about) working. Result: those two costs fell from 10.5% to 2.7%, `checkVisibility` from 4.7% to 0.3%, and fresh-life long tasks from 15 to 2 per 15 s. Detail, browser evidence and gaps: [checkpoint, O21 section](../gm/dispatch/save-architecture-2026-11-15/CHECKPOINT.md#o21-first-slice-display-gate-2026-11-15).
+
+What remains, ranked by the new profile:
+- The other publication-batch panels: same gate, one at a time. The next biggest are `domain_registry.refresh`'s other domains, `body_ui`, `pursuit_ui` and `field_ui`.
+- The tick's facts frame and native contexts for every world (F13, O22), now the largest single block.
+- Polling timers that are not per-tick (O21 proper): the shell's 400 ms render, the workspace views' 250 ms render and the Reports dock's 1 s render, moved onto `ui_change_signal.js` topics.
+- Proposed AR23 stays a proposal.

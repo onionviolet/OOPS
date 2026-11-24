@@ -1,0 +1,86 @@
+{
+  "bundle": "e58a349c6d8049d177adba0f38f9af94c528747a65e9cd4b421c85e61d7d5e12",
+  "route": "Earned ri-fang-yuan-moonglow checkpoint, unchanged inventory/feed history; ordinary-day extension adopted by click",
+  "checks": [
+    "Hungry Moonblade blocked; ordinary jab and withdraw clicked",
+    "One stone bought ten petals; feeding consumed two; compressed patrol returned parts and wound; three fed Moonblades spent 12 essence; kill added parts without merit; board consumed eye for ten merit; hide and meat each sold for one stone."
+  ],
+  "hungryAfter": {
+    "essence": 25,
+    "petals": 8,
+    "stones": 654,
+    "eye": 0,
+    "pelt": 0,
+    "merit": 0
+  },
+  "afterBuy": {
+    "essence": 25,
+    "petals": 18,
+    "stones": 653,
+    "eye": 0,
+    "pelt": 0,
+    "merit": 0
+  },
+  "afterFeed": {
+    "essence": 25,
+    "petals": 16,
+    "stones": 653,
+    "eye": 0,
+    "pelt": 0,
+    "merit": 0
+  },
+  "afterPatrol": {
+    "essence": 22,
+    "petals": 16,
+    "stones": 653,
+    "eye": 1,
+    "pelt": 1,
+    "merit": 0
+  },
+  "fedStart": {
+    "essence": 22,
+    "petals": 16,
+    "stones": 653,
+    "eye": 1,
+    "pelt": 1,
+    "merit": 0
+  },
+  "firstCast": {
+    "ordinaryReserve": 22,
+    "liveEssence": 18
+  },
+  "fedEnd": {
+    "essence": 10,
+    "petals": 16,
+    "stones": 653,
+    "eye": 2,
+    "pelt": 2,
+    "merit": 0
+  },
+  "account": "{\"head\":\"A lightning wolf beyond the wall. You: standing.\",\"items\":[[\"Them\",\"A lightning wolf: killed, as you meant to.\"],[\"Hurt\",\"Health 39.4 of 42.\"],[\"Asked\",\"3 decisions.\"],[\"Carried\",\"A wolf eye for the board, its hide and 6 jin of meat are in your pack.\"]]}",
+  "afterBoard": {
+    "essence": 10,
+    "petals": 16,
+    "stones": 653,
+    "eye": 1,
+    "pelt": 2,
+    "merit": 10
+  },
+  "afterHideSale": {
+    "essence": 11,
+    "petals": 16,
+    "stones": 654,
+    "eye": 1,
+    "pelt": 1,
+    "merit": 10
+  },
+  "afterMeatSale": {
+    "essence": 12,
+    "petals": 16,
+    "stones": 655,
+    "eye": 1,
+    "pelt": 1,
+    "merit": 10
+  },
+  "errors": []
+}

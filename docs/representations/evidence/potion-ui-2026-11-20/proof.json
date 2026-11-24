@@ -1,0 +1,19 @@
+{
+  "ordinaryHome": [
+    {
+      "prep": "crush",
+      "cost": 3,
+      "start": "Draught of Living Death\n\nClass exercise: prepare the bean with the supplied blade, stir the flask, then hand it in for a colour assessment.\n\nAfter adding juice: Lilac. Not stirred yet. Strokes: 0.\n\nStir counterclockwiseStir clockwiseHand in flask",
+      "after": "Draught of Living Death\n\nClass exercise: prepare the bean with the supplied blade, stir the flask, then hand it in for a colour assessment.\n\nAfter adding juice: Lilac. After stirring: Pale pink. Strokes: 8.\n\nStir counterclockwiseStir clockwiseHand in flask",
+      "result": "The teacher accepts the pale-pink sample."
+    },
+    {
+      "prep": "slice",
+      "cost": 3,
+      "start": "Draught of Living Death\n\nClass exercise: prepare the bean with the supplied blade, stir the flask, then hand it in for a colour assessment.\n\nAfter adding juice: Below the lilac cue. Not stirred yet. Strokes: 0.\n\nStir counterclockwiseStir clockwiseHand in flask",
+      "after": "Draught of Living Death\n\nClass exercise: prepare the bean with the supplied blade, stir the flask, then hand it in for a colour assessment.\n\nAfter adding juice: Below the lilac cue. After stirring: Below the pale pink cue. Strokes: 8.\n\nStir counterclockwiseStir clockwiseHand in flask",
+      "result": "The teacher returns the flask. It missed the pale-pink checkpoint."
+    }
+  ],
+  "errors": []
+}

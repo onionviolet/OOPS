@@ -69,13 +69,13 @@ Weibao: "How to prevent redudant or Ai prose in the future?" The filler came fro
   - state words set next to bar or meter code ("Fresh", "near the limit"),
   - developer phrases in player strings ("not modelled", "stages only", "placeholder"),
   - empty-state sentences ("Nothing here", "Nothing yet").
-
+  
   It warns, never fails, and counts only new hits beyond the baseline, as the existing lints do.
 - **PV3. A screen check that reads like a player** (in `npm run check:flow`). On each walked state it flags:
   - the same sentence shown twice in one view (the fight verdict was in three places),
   - words printed over a bar whose fill is known,
   - a box whose words per line of height run past a budget.
-
+  
   The fight-card session's "verdict appears once" count is the first instance of this.
 - **PV4. Agents justify each new string.** When an agent adds player text, its report lists each new string and what it says that the picture doesn't. It goes in the consistency gates in `docs/gm/AGENT_WORKFLOWS.md`, the step every UI change already passes through. This is the cheapest of the five, and it catches what a lint can't.
 - **PV5. Word budgets per surface,** taken from the reference games, which say a fight's end in one log line:

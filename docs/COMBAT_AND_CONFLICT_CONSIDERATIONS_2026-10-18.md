@@ -1715,3 +1715,47 @@ One table for the whole day's work, so the rounds above can be read as a palette
 | One fight in the live game | Built 2026-11-14 on the tempo fight card (proposal): a "Fight on until something changes" row plays a steady policy and hands back when the last move is gone, a new injury lands, health falls under half or the fight ends; a "Worth a look" line gives the reason to stop; the card shows an itemised result at the end. The result is kept with the life and was read back after save, reload and import in a headless browser; what counts as a known foe still lasts for the session | `tempo_fight_domain.js` `run`; `tests/tempo_fight_run.test.js` |
 
 **Revised in place on 2026-11-13.** CBD61, CBD68 and CBD74 now say headless first. The round 15 example line, the round 16 result and after-choice sketches, the round 17 Reports column and the round 18 folding example use the terse register. Rounds 19 to 31 are unchanged; where one says "at the first live tie-in", read it in the order above. Round 32's list of what is still staged is superseded by this table: the pause rule and its memory, the plain blocked reason, the street fight's result block and the Gu labels are now built.
+
+## Round 33. Pixel character animation at the wall gap (2026-11-22, proposal)
+
+The indexed “Harry Potter and Malfoid” reel credits Sakami for pixel art and
+@ryusaque for animation. The reel preview was inaccessible. Sakami's portfolio
+shows anime-style pixel illustration and describes stance loops with breathing,
+blinks and hair movement. Use that as a reference for expressive poses and
+small movements between actions. The reel's exact timing and technique remain
+unverified. [Reel listing](https://pictame.com/en/discover/hashtag/art-animations)
+[Artist portfolio](https://vgen.co/pixelsakami)
+
+### ACCOUNT FOR NOW
+
+- **F1. Start with the decision at the gap.** The [wolf pack opener](../src/tempo_lead_fights.js#L185)
+  gives Fang Yuan an advancing front wolf, a sweep that reaches two, and a
+  Single out move that changes who stands in front. Try one small animated
+  scene inside the existing card, using original artwork. Show the front wolf
+  clearly and animate its replacement when the fight records the change.
+  The [FTL5 and FTL7 mocks](gm/dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md#ftl5-and-ftl7-mocked-2026-11-21)
+  give the scene a place in the card. The
+  [Wang Er prototype](../prototypes/wang-er-duel/README.md) supplies a comparison
+  pattern for text, a still board and an animated board.
+- **F2. Keep playback subordinate to play.** Draw the visible state and play
+  short reactions from fight events. The existing commands, clock, costs and
+  result own play. Restore the current pose on reload. If auto resolves a burst,
+  draw the current formation and surface the important change. Represent pack
+  order without implying distances the encounter does not model.
+- **F3. Measure what motion adds.** With the same encounter and controls, see
+  whether a player can identify the next wolf a normal strike will reach, who
+  Sweep can hit, and who took the front after Single out. Compare a still scene
+  and short motion before paying for more sprites. Check that both paths produce
+  the same outcome and that reload shows the current pack and legal moves.
+
+### LATER / DELEGATE
+
+- **O1. A standalone game could make the rival's performance playable.** In an
+  original one-room apprenticeship trial, two rivals keep a failing seal shut.
+  The player reads the rival's posture, then chooses to brace the seal, redirect
+  the surge, or hand over control. The rival remembers whether you trusted them,
+  which changes the division of work on the next attempt. A three-exchange scene
+  can test the loop. Dialogue portraits would be a smaller art-only experiment
+  if expression is the main draw.
+
+Status: design proposal. The comparison and standalone scene have not been built or playtested.

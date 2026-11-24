@@ -1,0 +1,82 @@
+{
+  "viewport": [
+    1920,
+    1080
+  ],
+  "bundle": "66959079717fc8b7c8eac63dd631e24cd6341641840278884000e1780524cc52",
+  "method": "Native five-wolf fight. Browser-only phase, text and palette overrides on the same open turn, with the current cyan colors as a matched control. All samples use a 21px combat cue. Encounter light, calendar and mechanics stay as authored.",
+  "samples": [
+    {
+      "name": "daylight-cyan",
+      "label": "Daylight",
+      "color": "rgb(188, 254, 254)",
+      "fill": "rgb(22, 60, 86)",
+      "size": "21px",
+      "bodySize": "21px",
+      "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "name": "dawn",
+      "label": "Dawn",
+      "color": "rgb(255, 229, 164)",
+      "fill": "rgb(130, 64, 79)",
+      "size": "21px",
+      "bodySize": "21px",
+      "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "name": "daylight",
+      "label": "Daylight",
+      "color": "rgb(255, 207, 128)",
+      "fill": "rgb(84, 56, 21)",
+      "size": "21px",
+      "bodySize": "21px",
+      "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "name": "dusk",
+      "label": "Dusk",
+      "color": "rgb(255, 198, 142)",
+      "fill": "rgb(82, 39, 79)",
+      "size": "21px",
+      "bodySize": "21px",
+      "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "name": "night",
+      "label": "Night",
+      "color": "rgb(209, 206, 255)",
+      "fill": "rgb(40, 38, 83)",
+      "size": "21px",
+      "bodySize": "21px",
+      "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "viewport": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "header": {
+    "x": 478.796875,
+    "y": 60,
+    "width": 884.59375,
+    "height": 37
+  },
+  "browserErrors": []
+}

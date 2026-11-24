@@ -1,0 +1,145 @@
+{
+ "clicks": 9,
+ "log": [
+  [
+   "row before",
+   "Gear workshop\nVillage forge · Iron sword, step 1 of 4: Heat\nOpen\nWork it here"
+  ],
+  [
+   "card step",
+   "Heat the iron sword"
+  ],
+  [
+   "after heat+shape",
+   {
+    "line": "Village forge · Iron sword, step 3 of 4: Quench, hot 5 min",
+    "step": "Quench the iron sword",
+    "stages": [
+     [
+      "cold",
+      2
+     ],
+     [
+      "shaped",
+      1
+     ]
+    ]
+   }
+  ],
+  [
+   "after reload, row",
+   "Gear workshop\nVillage forge · Iron sword, step 3 of 4: Quench, hot 5 min\nOpen\nWork it here"
+  ],
+  [
+   "after reload, card step",
+   "Quench the iron sword"
+  ],
+  [
+   "one sword done",
+   {
+    "clicks": 6,
+    "stages": [
+     [
+      "cold",
+      2
+     ],
+     [
+      "tempered",
+      1
+     ]
+    ],
+    "next": "Next\nWear it\nIron sword returns to your carried gear; equip it in Inventory\nCarve a rune tablet to fight with it\na worn tablet or a charged strip adds to the fight\nSell it\na place with a trader buys carried gear"
+   }
+  ],
+  [
+   "saved",
+   "Saved My sword method: Heat, Shape, Quench, Temper."
+  ],
+  [
+   "quick x2",
+   {
+    "clicks": 8,
+    "notice": "My sword method ran on 2 pieces.",
+    "stages": [
+     [
+      "tempered",
+      1
+     ],
+     [
+      "tempered",
+      1
+     ],
+     [
+      "tempered",
+      1
+     ]
+    ]
+   }
+  ],
+  [
+   "centre",
+   {
+    "frames": 2,
+    "sizes": [
+     "centre",
+     "centre"
+    ],
+    "slotText": "Work it here"
+   }
+  ],
+  [
+   "reload after quick",
+   {
+    "stages": [
+     [
+      "tempered",
+      1
+     ],
+     [
+      "tempered",
+      1
+     ],
+     [
+      "tempered",
+      1
+     ]
+    ],
+    "row": "Gear workshop\nVillage forge · Iron sword, tempered\nOpen\nWork it here"
+   }
+  ],
+  [
+   "rune frame",
+   {
+    "frames": [
+     [
+      "pattern",
+      "centre"
+     ]
+    ],
+    "parts": [
+     "inputs",
+     "workpiece",
+     "clashes",
+     "chance",
+     "after",
+     "next",
+     "method"
+    ]
+   }
+  ],
+  [
+   "rune after carve, next",
+   "Next\nFight while the tablet is worn\n2 h left\nWork the blade you fight with\nforge, temper or reforge it at the gear workshop"
+  ],
+  [
+   "rune frame columns",
+   [
+    "work-frame__in",
+    "work-frame__piece",
+    "work-frame__out",
+    "work-frame__method"
+   ]
+  ]
+ ],
+ "errs": []
+}

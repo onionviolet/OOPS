@@ -1,0 +1,224 @@
+{
+  "road": {
+    "bundleSha256": "b7049bdc9e8633b34ee40d3d025d79c4deb410e23fb79956bc5d8b2fb7ee02de",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "result": {
+      "start": {
+        "size": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+        "location": "Village",
+        "mode": "tempo-combat",
+        "result": null,
+        "back": false,
+        "fight": "Village\nDaylight · Firm footing\n\nMara misses.\n\nMara\nTarget\nAtk looks stronger than you\nSpd ?\nHit ?\nDdg ?\nDef ?\nBody and weapon\nA\nQuick strike\n3 beats · 1 of 40 stamina\nB\nHeavy swing\n6 beats · 1 of 40 stamina\nC\nBrace\n2 beats\nD\nTend a wound\n5 beats · 2 of 40 stamina\nItems\nNothing ready · Open pack\nTerms\nBack away\n4 beats\nYield\n2 beats",
+        "loot": [],
+        "focus": "Mara misses."
+      },
+      "trace": [
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab"
+      ],
+      "end": {
+        "size": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+        "location": "Village",
+        "mode": "local",
+        "result": "won",
+        "back": false,
+        "loot": [],
+        "focus": "Village"
+      }
+    },
+    "errors": [
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"recipe\" -> \"undefined\""
+      },
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"item\" -> \"Ledger workshop cache\""
+      },
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"item\" -> \"Sealed survey parcel\""
+      }
+    ]
+  },
+  "hogwarts": {
+    "bundleSha256": "b7049bdc9e8633b34ee40d3d025d79c4deb410e23fb79956bc5d8b2fb7ee02de",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "result": {
+      "start": {
+        "size": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+        "location": "book.hp.lead.school_hall",
+        "mode": "tempo-combat",
+        "result": null,
+        "back": false,
+        "fight": "Third-floor corridor\nDaylight · Firm footing\n\nThey are caught off guard.\n\nDraco Malfoy\nTarget\nAtk ~\nSpd ?\nHit ?\nDdg ?\nDef ?\nBody and weapon\nA\nQuick strike\n3 beats · 1 of 41.7 stamina\nB\nHeavy swing\n6 beats · 1 of 41.7 stamina\nC\nBrace\n2 beats\nD\nTend a wound\n5 beats · 2 of 41.7 stamina\nPowers\nQ\nLocomotor Mortis\n4 beats\nR\nPetrificus Totalus\n6 beats\nS\nS",
+        "loot": [],
+        "focus": "They are caught off guard."
+      },
+      "trace": [
+        "body_bind",
+        "body_bind"
+      ],
+      "end": {
+        "size": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+        "location": "book.hp.lead.school_hall",
+        "mode": "local",
+        "result": "won",
+        "back": false,
+        "loot": [],
+        "focus": "Hogwarts, the Great Hall"
+      }
+    },
+    "errors": []
+  },
+  "pack": {
+    "bundleSha256": "b7049bdc9e8633b34ee40d3d025d79c4deb410e23fb79956bc5d8b2fb7ee02de",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "result": {
+      "start": {
+        "size": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+        "location": "book.ri.lead.academy",
+        "mode": "tempo-combat",
+        "result": null,
+        "back": false,
+        "fight": "A gap in the wall\nDaylight · Poor footing\n\nBoth sides see each other at once.\n\nThe wolf pack\nA\nB\nC\nD\nE\nTarget\nAtk looks stronger than you\nSpd ?\nHit ?\nDdg ?\nDef ?\n×5\nLightning wolf A\nTarget\nAtk looks stronger than you\nSpd ?\nHit ?\nDdg ?\nDef ?\nBody and weapon\nA\nQuick strike\n3 beats · 3.33 of 41.7 stamina\nB\nHeavy swing\n6 beats · 3.33 of 41.7 stamina\nC\n",
+        "loot": [],
+        "focus": "Both sides see each other at once."
+      },
+      "normalTrace": [
+        "moonblade",
+        "moonblade",
+        "moonblade",
+        "moonblade",
+        "moonblade",
+        "moonblade"
+      ],
+      "blocked": {
+        "size": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+        "location": "book.ri.lead.academy",
+        "mode": "tempo-combat",
+        "result": null,
+        "back": false,
+        "fight": "A gap in the wall\nDaylight · Poor footing\n\nInvalid inventory count.\n\nThe wolf pack\nC\nD\nE\nA\nB\nTarget\nAtk ~5\nSpd ?\nHit ?\nDdg ?\nDef ?\n×5\nLightning wolf C\nTarget\nAtk ~5\nSpd ?\nHit ?\nDdg ?\nDef ?\nBody and weapon\nA\nQuick strike\n3 beats · 3.33 of 41.7 stamina\nB\nHeavy swing\n7 beats · 3.33 of 41.7 stamina\nC\nBrace\n2 beats\nD\nTend a wound\n6 beats · 2 of 41.7 sta",
+        "loot": [],
+        "focus": "QMoonblade"
+      },
+      "preparedTrace": [
+        "sweep",
+        "sweep"
+      ],
+      "continuing": {
+        "remaining": 4,
+        "size": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+        "location": "book.ri.lead.academy",
+        "mode": "tempo-combat",
+        "result": null,
+        "back": false,
+        "fight": "A gap in the wall\nDaylight · Poor footing\n\nLightning wolf C hits you on the leg for 1.4 physical.\n\nThe wolf pack\nA\nC\nD\nE\nTarget\nAtk looks stronger than you\nSpd ?\nHit ?\nDdg ?\nDef ?\n×4\n\nLightning wolf B · Dead\n\nLightning wolf A\nTarget\nAtk looks stronger than you\nSpd ?\nHit ?\nDdg ?\nDef ?\nBody and weapon\nA\nQuick strike\n3 beats · 3.33 of 38.36 stamina\nB\n",
+        "loot": [],
+        "focus": "ESweep"
+      },
+      "clear": {
+        "size": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "font": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+        "location": "book.ri.lead.academy",
+        "mode": "local",
+        "result": "won",
+        "back": false,
+        "loot": [
+          "Hidden lightning wolf eye",
+          "Lightning wolf hide",
+          "Wolf meat · jin"
+        ],
+        "focus": "Clan academy"
+      }
+    },
+    "errors": []
+  }
+}

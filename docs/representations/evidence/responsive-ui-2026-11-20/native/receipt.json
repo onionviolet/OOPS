@@ -1,0 +1,14 @@
+{
+  "setup": "Synthetic owned Shack, installed hearth, carried logs and Linen cloth. Meet, play, sitting, hearth and persistence use native controls. No natural campaign acquisition claim.",
+  "checks": [
+    "Native meet/play learns preference, keeps cloth and shares the five-minute visit boundary; native refresh keeps focused node",
+    "played: exact Save/reload/Export/literal Import retains the learned preference with no replayed bond",
+    "Native warmth and actual smoke change the observed posture and eligibility; ventilation restores it without a cosmetic timer",
+    "adopted: exact Save/reload/Export/literal Import retains the learned preference with no replayed bond",
+    "Actual 14/21px profile at 1920×1080, 1800×1040 and 1536×864 retains readable known history and controls without page-width overflow",
+    "Component-only stale-home pointer gestures reject A-to-B rebinding before enrollment and with an existing scene; fresh activations work"
+  ],
+  "status": "passed",
+  "bundle_sha256": "ab32ae113484836435d885f25b180ed5d28f486f1d2b0d9b61112143d0200135",
+  "optional404s": []
+}

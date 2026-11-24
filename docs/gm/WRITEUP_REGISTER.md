@@ -87,6 +87,7 @@ Latest round is the newest reviewed round or part in the file, with its review d
 
 | File | Topic | State | Extends | Latest round | Open decisions | Next action (owner) and done check |
 | --- | --- | --- | --- | --- | --- | --- |
+| [What should bring us back to OOPS?](../reviews/OOPS_GOAL_DISCOVERY_2026-11-24.md) | Numbers, discovery, player-directed pursuits, and a more interactive future | Working vision | Vision digest and [direction log](USER_VISION_LOG_2026-11.md#what-should-bring-us-back-to-oops-2026-11-24) | Q2 revision and reference comparison, 2026-11-24 | Q2 follow-up on one enjoyable number; eventual scope open | Weibao names an example or tries A1. Done check for the next round: describe what made him want to keep playing and what that would change about the next milestone. |
 | [Loose-document reconciliation](../audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) | Continuous actual-content review under the Nov 4 request; original-ID dispositions and owner folds in linked batches | Active across batches; source reading distinguished from metadata and partial owner review | This register, IDEA_INDEX and current domain owners | B624, continuous execution 2026-11-05 | No deletion, new gameplay or blanket proposal adoption selected | Use the linked inventory and reviewed-range ledger; continue remaining actual-content batches through their incumbent owners without a batch approval stop. Full coverage includes partial-owner residue, not just metadata-only rows. Done check for this pass: skill validation, document/rules/link checks and input-drift accounting; historical gameplay receipts retain their dates. |
 | [Reconcile-project scope assessment](../audits/RECONCILE_PROJECT_SCOPE_ASSESSMENT_2026-11-04.md) | Prior assessment leading to the requested skill update | Follow-through recorded in the reconciliation row above | Generic reconcile-project skill; this register | Follow-through 2026-11-04 | None for the requested workflow edit | Assessment retained as provenance; execution record owns delivered changes and residue. |
 | [Progress evidence map](../audits/PROGRESS_EVIDENCE_MAP_2026-11-04.md) | Original document-label progress view and bounded foundation follow-through | Reconciled at selected foundation scope; original visualization remains historical | systems/README, SAVES, Klein mechanism sequence; [foundation reconciliation](dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md#reconciliation-of-foundation-follow-through-2026-11-04) | Foundation delivery/routing refresh, 2026-11-04 | Broader proposals remain proposals under AD32 | Conversation, pack validation, retained identity and paid-work runtime integrated in `72a33f151`; retain each pinned route and current-input drift. M21/M22/M25 has a later released method-use receipt, scoped to its named command, native paper and recipient; see B153 in the reconciliation record. Done check: selected focused tests and document/rules links; no clean full-suite or fresh whole-game claim. |
@@ -332,10 +333,45 @@ The carry-out also holds [tie-in considerations](../PROCEDURAL_CARRY_OUT.md#tie-
 
 [Procedural system audit](../audits/PROCEDURAL_SYSTEM_AUDIT_2026-11-17.md) (2026-11-17, proposals, agent-verified): 17 procedural pieces scored true and useful from reachability, coverage, tests and a played village life; computed `runs` is 0 against 1,765 typed, unbuilt pin store and derivation score file, and a ranked revamp plan PSA24-PSA33 with three limits for Weibao.
 
+## Making crafts ideaboard, 2026-11-19
+
+[Making crafts ideaboard](../MAKING_CRAFTS_IDEABOARD_2026-11-19.md) (MKC1-MKC116, proposals; MKC60 built, uncommitted; round 7 embeds five forms in the scene; forge mock on `mock/forge-method-2026-11-20`): I3 from the play-surface ideaboard starter, expanded per craft with how it opens, what to add, its bench on the five-part form and a done check; ranked build-first list and questions for Weibao. Round 2 (MKC33-MKC40): one eight-step loop in every world, eight kinds of making by mechanism, a per-world loop table, the bench read by kind, a Making page per life, and made things crossing by the place's law. Round 3 (MKC41-MKC59): Gu made five ways (claim, fuse, raise, breed, compose), the Gu house as the keeping surface, spellcraft as kind K9 over the existing SPD list and spell engine, and ranked considerations (save size, the combat lane's files, persistence, sealed truths, MCP reach). Static code read, not played.
+
+## UI harmony review, 2026-11-19
+
+[UI harmony review](../audits/UI_HARMONY_REVIEW_2026-11-19.md) (F1-F6, B1-B4, O1-O3, A1-A5, C1-C14, M1-M14, B1-B5, proposals): round 1 diagnosis from captures and style counts; round 2 withdraws F1 and O2, proposes one fight form (terms, one clock with Auto and Take over, fixed opponent slots, grouped moves) with 1920 mocks and an O3 almanac mock. Not wired to the engine.
+
+## Performance and development tools review, 2026-11-19
+
+[Performance and dev tools review](../audits/PERF_AND_DEVTOOLS_REVIEW_2026-11-19.md) (F1-F10, O24-O30, A1-A5, proposals): crowded idle main thread saturated at HEAD versus Nov 15; round 2 bisected it to a self-feeding sweep in feel_finish (`3edf6f72a`) and fixed it (fresh 70% to 24%, crowded 101% to 69% task busy), wired span mode and a per-day timeout into game_step, added a crowded idle ceiling to the push gate and landed O21 slice 1, merged into master as `7f32e5850`, not pushed.
+
 ## UI rules trim and keep-or-retire pass, 2026-11-19
 
 [UI rules keep or retire](../audits/UI_RULES_KEEP_RETIRE_2026-11-19.md) (proposal; nothing retired until Weibao says yes): all 176 UR codes classified, 149 keep, 22 merge, 5 retire, about 2,700 words removable. Done the same day: history notes moved to [UI rules history notes](../audits/UI_RULES_HISTORY_NOTES.md), the UI path rule cut from 873 to 204 words, and the cohesion section UR163–UR176 compressed.
 
+[Codex chat drift review](../audits/CODEX_CHAT_DRIFT_REVIEW_2026-11-20.md) (CD1-CD9, P1-P7, proposals): how the "Assess procedural systems readiness" Codex chat misread directions; visual references treated as data questions, easiest target picked over stated priorities, demo pages instead of game, dropped sub-questions, role split eroded. Next: Weibao picks which proposals to send to that chat. Cross-chat section (XC1-XC8, UG1-UG10, XP1-XP5) added the same day.
+[Codex chat drift review: Improve combat and game UI](../audits/CODEX_CHAT_DRIFT_REVIEW_IMPROVE_COMBAT_UI_2026-11-20.md) (CG1-CG10, CGP1-CGP5, proposals): Weibao's nine turns quoted; label and focus fixes landed while forge, potion and combat identity did not; glass work came from a relayed instruction he never gave; forge picker orphaned. Next: Weibao picks proposals.
+
+[Codex chat drift review: Scout Discord pictures](../audits/CODEX_CHAT_DRIFT_REVIEW_DISCORD_PICTURES_2026-11-20.md) (DP1-DP6, DPP1-DPP4, proposals): 18-card picture sheet, six rules rewritten from questions, research-only chat edited household runtime code and was interrupted before proof. Next: Weibao rules on the six rules and the unfinished slice.
+
+[Codex chat drift review: Sol potion](../audits/CODEX_CHAT_DRIFT_REVIEW_SOL_POTION_2026-11-20.md) (SP1-SP3, SPP1-SPP2, proposals): route and stirring fixes verified by the agent, panel look unchanged, "Goal complete" overstated. Next: accept or reject the uncommitted fixes.
+
+[Codex chat drift review: Sol combat](../audits/CODEX_CHAT_DRIFT_REVIEW_SOL_COMBAT_2026-11-20.md) (SC1-SC4, SCP1-SCP3, proposals): cost units on move buttons and earned Moonblade route; Take alive gap recorded, not fixed; "make the combat page our own" never reached it. Next: Weibao decides F16 and G1.
+
+## Protagonist walkthrough UI and combat pack mock, 2026-11-20 to 11-21
+
+[Protagonist walkthrough UI elements](dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md) (CN, BT, MC, AK, PP, RS, RV, FT, ST, CD, MS, LB, UO, SH, MT; proposals unless marked): sent to the combat feel pass are RS (rows by source plus Terms), FT1-FT10, ST (pack fold), CD2/CD3/CD5 and MT1-MT3. Open for Weibao: LB layered bars, MS mass combat, SH shield bar, UO5 two columns, MT4 reload behaviour. [Combat pack mock](../representations/evidence/combat-pack-mock-2026-11-21/README.md) (F1-F10): native mock on local branches `mock/combat-pack-2026-11-21` and `mock/combat-pack-stack-2026-11-21`, not pushed. Next: the combat feel pass absorbs the fold; the branches retire after it lands.
+
 ## World atlas ideaboard, 2026-11-22
 
 [World atlas ideaboard](../research/WORLD_ATLAS_IDEABOARD_2026-11-22.md) (WA1-WA22, proposals): a more flavourful and more useful atlas. First five: per-world themes (WA1), gap cards that end in a next step (WA8), one dossier per thing (WA12), places on the district maps (WA5) and snapshot diffs (WA16). Next: Weibao picks.
+
+## Run shapes, 2026-11-22
+
+[Run shapes](../research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#run-shapes-short-identities-death-as-a-door-and-bounded-careers-2026-11-22) (LRS1-LRS7, F1-F7, R1-R5, proposals): identities that end or change, the loop they need, and what each costs. Open decision Q1: soul thread or world thread on death.
+
+Same-person loops, 2026-11-22: [SPL1-SPL11](../research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md#same-person-same-scenario-the-loop-as-a-run-shape-2026-11-22-proposals-ad32) with prior art. Open decision Q2: knowledge-only or knowledge plus skill loops.
+
+External forces and attachment, 2026-11-22: [EXF1-EXF22](../research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#when-the-world-happens-to-you-external-forces-and-attachment-to-identity-2026-11-22). Q1/Q2 answered (carrier decides). Open Q3: world-pressure default.
+
+Identity generation, 2026-11-22: [IDG1-IDG8](../research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#new-identities-in-the-same-world-and-timeline-without-endless-authoring-2026-11-22): author the world, promote people, grow by verbs.

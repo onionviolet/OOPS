@@ -144,3 +144,44 @@ toggle. Pure flavour, cheap, easy to hate; listed so it is decided rather than f
 The smallest useful bundle is WA1 on LOTM only (the theme table plus a toggle), then WA8 gap cards from the
 four gap sources the snapshot already has. Both live in `things-views.mjs`, `library-views.mjs` and `canvas.css`,
 and both can be proven with the existing `prove-all.mjs` screenshots at 1920×1080.
+
+## Implementation workspace proposal (2026-11-24)
+
+Use the World Atlas as the place to find a world, choose a playable improvement, and return to its evidence.
+The library and readers own source findings. The game and its packs own behavior. The idea index and lane
+checkpoints own proposals and work state. The scenario registry and task receipts own replay and proof.
+The Atlas joins those records by their existing IDs and links back to their owners.
+
+**F1 · A fresh build can still show old evidence.** The default local snapshot was built November 22 UTC
+on `f7b037688`. A scratch build on the November 24 working tree at `db24d3a92` exited 0 with zero
+projection failures. Both read the November 14 Progress Atlas report. The snapshot records HEAD, so it
+does not identify which working-tree edits contributed. The server loads most projections at startup.
+Show the snapshot date and dirty-tree state, the date of each imported report, and any unavailable inputs.
+Refresh with the existing batch builder and reload the served snapshot.
+
+**F2 · Source and game are already connected in specific places.** Making links reader workings to game
+rows and distinguishes recorded data from bound commands. A bound command still needs a play receipt to
+establish what a player can reach and use. The placement Workbench can produce a scratch pack and a diff.
+Keep that candidate pattern for content types that already have a compiler. For runtime changes, hand off
+through the owning module and existing task record. See the [translation layer record](ATLAS_TRANSLATION_LAYER_PROPOSAL_2026-11-20.md).
+
+### First useful pass
+
+1. **Refresh and show provenance.** Build on demand and at the end of a relevant reading or delivery task.
+   Show changed source rows, new runtime bindings and new play receipts separately where the inputs support
+   those distinctions. A stale report or an unmapped item stays visible.
+2. **Add a Workbench implementation view using WA8 and WA12.** A short list of active work links each
+   player outcome to its world or shared system, source or design record, game owner, current gap, named
+   scenario and proof. Reuse IDs from those owners. A proposal can link to an idea before a lane exists.
+   A shared system can appear under multiple worlds with distinct player routes and outcomes.
+3. **Pilot on Watchcraft.** Show the verified rehearsal, skilled patrol and report as existing play.
+   Link the [browser receipt](../audits/WATCHCRAFT_HANDOFF_REPLAY_2026-11-24.md) and surface the open
+   next-day question from the [vision review](../reviews/OOPS_DESIGN_DIVERGENCE_2026-11-24.md#round-4--why-come-back-tomorrow).
+   Register the earned pre-patrol starting point through the existing scenario registry. From the Atlas,
+   a developer should be able to find that start, replay the patrol and another evening, and locate the
+   evidence and the intended next change from the same card.
+
+After the pilot, check the same view against Hogwarts potion preparation or an active foundation case.
+Expand by adding links as work is picked up. For older records, backfill where a missing link blocks a
+real decision. Refresh and show changed inputs before building a historical diff view (WA16). The
+[project build order](../../PROJECT.md#current-focus) continues to determine which work is active.

@@ -64,6 +64,71 @@ from [phone_shelf.json](phone_shelf.json), exit 0.
   The staging was flattened into `KyBook 3/Phone Shelf/All Books` (248 files,
   sizes match the Mac).
 
+## What else could go on (checked 2026-11-22)
+
+- **Requested titles:** A Regressor's Tale is on the shelf (prologue to
+  chapter 639). Two held extras are not: the continuation after chapter 640
+  (`866408d634`) and the chapter 211 plus extras snapshot (`acd035e415`).
+  *Hell Difficulty Tutorial* (Cerim, Aethon, six books plus light novels) is
+  neither held nor on the wishlist. *Sleight of Hand* and *Dorothy's Forbidden
+  Grimoire* are not held, and a web search could not identify either one;
+  they need an author or a link.
+- **RTOC is complete in the library (checked 2026-11-22).** [Ranobes](https://ranobes.top/novels/1206418-a-regressors-tale-of-cultivation.html)
+  lists it as completed in the original and in translation (WeTried
+  Translations, 867 entries), with the last chapter at 861 "Side Story -
+  Conclusion". The held continuation `866408d634` covers 641-874: the ending
+  "807 + 808: Seo Eun-hyun ⟨End⟩ + Afterword", the afterstories, the side
+  stories through 861, and 862-874 "F-Rank Hunter Jeon Myeong-hoon" (13
+  chapters past ranobes' list). `acd035e415` adds chapter 211 and the
+  author's extras. DL122's "gap at 808" is a combined chapter rather than a
+  missing one, so no pull is needed.
+- **Dorothy's Forbidden Grimoire** is 多萝西的禁密书典 by 天使末日, a completed
+  Chinese web novel (about 828 chapters per [Librate](https://www.librate.app/novel/dorothy-s-forbidden-grimoire);
+  [Novel Updates](https://www.novelupdates.com/series/dorothys-forbidden-grimoire/)).
+  Not held. Weibao accepts AI translation if names stay mostly consistent.
+- **Held but not shelved:** 954 EPUBs from 273 authors (originals only, private
+  copies excluded). The biggest groups are light novels (Toaru Index 64, Re:Zero
+  36, Mushoku Tensei 24, Irregular at Magic High School 20, Slime 19,
+  Bookworm 17, Overlord 17), western progression (Primal Hunter 11, Cradle 9,
+  Chrysalis 9, Dungeon Crawler Carl 2-8, Arcane Ascension 6) and Sanderson and
+  Riordan.
+- **Space:** the iPhone has 47.3 GB free (lockdown `AmountDataAvailable`), and
+  every held EPUB together is about 11.5 GB.
+- **Repeatable builds (R):** TTKS EPUBs take the build time as their ZIP
+  timestamps, so every rebuild changes their bytes and Readest's partial MD5.
+  Later pushes should add only new files, or the builder should pin
+  timestamps first.
+
+## Manga (checked 2026-11-22)
+
+Held as per-chapter CBZ files in the Source Library: 2,144 files, 13.9 GB,
+from the manga governor's capture (LIBRARY_INDEX BC10). The language tags are
+empty. One JJK page was checked by eye and is English; the other series come
+from the same downloader, so they are probably English too.
+
+| Series | Held |
+|---|---|
+| Jujutsu Kaisen | 1-271.5 (main run complete) plus JJK Modulo 1-10 |
+| Naruto | 1-700.5 complete, plus Gaiden, Shinden, Konoha Shinden, Sasuke Retsuden and Boruto 1-80 |
+| Bleach | 1-208 of 686 |
+| Omniscient Reader | 0-311 |
+| The World After the Fall | 259 episodes |
+| Lord of the Mysteries manhua | 0-65, plus the 2025 version 0-25 |
+| JoJo Part 1 / Part 2 | 1-44 / 1-69 (both complete) |
+| Code Geass (Majiko!) | 1-26.5 (volumes 1-6) |
+| Witch Hat Atelier | volumes 7, 8 and 14 as CBZ (the EPUB shelf lacks 7-12) |
+
+Queued but not held (BC10): Hunter x Hunter, FMA, Chainsaw Man, Dungeon
+Meshi, Frieren, Demon Slayer and about 45 more.
+
+Readers: Panels is the usual iOS pick for local CBZ, with an optional Pro
+in-app purchase and OPDS support for Komga or Kavita
+([Applestan](https://applestan.com/blog/posts/read-cbr-cbz-files-on-iphone/),
+[Digital Citizen](https://www.digitalcitizen.life/best-manga-reader-apps-for-iphone-ipad/)).
+YACReader pairs with a desktop server. Tachimanga reads Komga but needs
+sideloading ([tachimanga.app](https://tachimanga.app/)). On Android, Mihon
+reads local CBZ and Komga (general knowledge, not rechecked today).
+
 ## Phone check (KyBook 3, 2026-11-22)
 
 The iPhone has KyBook 3, Readest, BookFusion and Apple Books installed. KyBook's

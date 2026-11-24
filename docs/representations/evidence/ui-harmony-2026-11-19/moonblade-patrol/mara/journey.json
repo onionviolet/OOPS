@@ -1,0 +1,429 @@
+{
+ "bundleHash": "e47178a87c51",
+ "viewport": "1920x1080",
+ "route": "DEV SEEDED field-workshop fixture (named, as in the P4 proof): road challenge begun via fixtures; contest started and played with real clicks",
+ "started": {
+  "actions": 1,
+  "typed": {
+   "you": {
+    "attack": {
+     "bludgeoning": 1
+    },
+    "defense": {}
+   },
+   "mara": {
+    "attack": {
+     "physical": 1
+    },
+    "defense": {}
+   }
+  }
+ },
+ "open": {
+  "visible": true,
+  "box": [
+   485,
+   57,
+   876,
+   519
+  ],
+  "stakes": "Village: 1 opponent standing.",
+  "next": "Your move · You → Mara",
+  "opponents": [
+   "Mara. Fresh. Not sized up. Intent unread."
+  ],
+  "typeChips": [],
+  "moves": [
+   "Quick strike · 3 beats",
+   "Heavy swing · 6 beats",
+   "Brace · 2 beats",
+   "Tend a wound · 5 beats",
+   "Fight on",
+   "One careful turn",
+   "Yield · 2 beats",
+   "Back away · 4 beats"
+  ],
+  "reportsLog": [
+   "EARLIER",
+   "Started a new quest: Lost memory",
+   "Your name is set in the You panel header. Click it to rename.",
+   "[ Home · 01/04/999, Summer, Mon ]",
+   "Both sides see each other at once.",
+   "Mara misses.",
+   "Saved the game manually"
+  ],
+  "log": [],
+  "dev": [],
+  "aims": [
+   {
+    "aim": "any",
+    "disabled": false,
+    "pressed": "true",
+    "top": 350
+   },
+   {
+    "aim": "head",
+    "disabled": false,
+    "pressed": "false",
+    "top": 350
+   },
+   {
+    "aim": "torso",
+    "disabled": false,
+    "pressed": "false",
+    "top": 350
+   },
+   {
+    "aim": "arms",
+    "disabled": false,
+    "pressed": "false",
+    "top": 350
+   },
+   {
+    "aim": "legs",
+    "disabled": false,
+    "pressed": "false",
+    "top": 350
+   }
+  ],
+  "aimReason": "",
+  "notice": "Both sides see each other at once. Mara misses.",
+  "world": "frontier",
+  "oldPanel": "Road contest · tempoBoth sides see each other at once. Mara misses."
+ },
+ "afterMoves": {
+  "visible": true,
+  "box": [
+   485,
+   57,
+   876,
+   494
+  ],
+  "stakes": "Village: 1 opponent standing.",
+  "next": "Your move · You → Mara",
+  "opponents": [
+   "Mara. Fresh. Not sized up. Intent unread. ◼ takes normal bludgeoning."
+  ],
+  "typeChips": [
+   {
+    "text": "◼ takes normal bludgeoning",
+    "type": "bludgeoning",
+    "source": "learned"
+   }
+  ],
+  "moves": [
+   "Quick strike · 3 beats You hit Mara in the head for 1 bludgeoning.",
+   "Heavy swing · 6 beats",
+   "Brace · 2 beats",
+   "Tend a wound · 5 beats",
+   "Fight on",
+   "One careful turn",
+   "Yield · 2 beats",
+   "Back away · 4 beats"
+  ],
+  "reportsLog": [
+   "EARLIER",
+   "Started a new quest: Lost memory",
+   "Your name is set in the You panel header. Click it to rename.",
+   "[ Home · 01/04/999, Summer, Mon ]",
+   "Both sides see each other at once.",
+   "Mara misses.",
+   "Saved the game manually",
+   "Saved the game manually",
+   "You hit Mara in the body for 0.7 bludgeoning.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "You know how hard Mara hits now: about 3.",
+   "Mara copied your Load-bearing Step (lease, ends in 6 h).",
+   "Mara hits you on the arm for 2.5 physical.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "Mara misses.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1 bludgeoning."
+  ],
+  "log": [],
+  "dev": [],
+  "aims": [
+   {
+    "aim": "any",
+    "disabled": false,
+    "pressed": "true",
+    "top": 325
+   },
+   {
+    "aim": "head",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "torso",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "arms",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "legs",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   }
+  ],
+  "aimReason": "",
+  "notice": "You hit Mara in the head for 1 bludgeoning.",
+  "world": "frontier",
+  "oldPanel": "Road contest · tempoBoth sides see each other at once. Mara misses."
+ },
+ "dev": [
+  "player → roadRival [torso]: 0.7 at x1 (bludgeoning 100%)",
+  "player → roadRival [head]: 1.3 at x1 (bludgeoning 100%)",
+  "roadRival → player [arms]: 2.5 at x1 (physical 100%)",
+  "player → roadRival [head]: 1.3 at x1 (bludgeoning 100%)",
+  "player → roadRival [head]: 1 at x1 (bludgeoning 100%)"
+ ],
+ "reload": {
+  "identical": true,
+  "diff": [
+   "held"
+  ],
+  "held": [
+   5,
+   6
+  ]
+ },
+ "reloadIdentical": true,
+ "afterReload": {
+  "visible": true,
+  "box": [
+   485,
+   57,
+   876,
+   494
+  ],
+  "stakes": "Village: 1 opponent standing.",
+  "next": "Your move · You → Mara",
+  "opponents": [
+   "Mara. Fresh. Not sized up. Intent unread. ◼ takes normal bludgeoning."
+  ],
+  "typeChips": [
+   {
+    "text": "◼ takes normal bludgeoning",
+    "type": "bludgeoning",
+    "source": "learned"
+   }
+  ],
+  "moves": [
+   "Quick strike · 3 beats",
+   "Heavy swing · 6 beats",
+   "Brace · 2 beats",
+   "Tend a wound · 5 beats",
+   "Fight on",
+   "One careful turn",
+   "Yield · 2 beats",
+   "Back away · 4 beats"
+  ],
+  "reportsLog": [
+   "EARLIER",
+   "Started a new quest: Lost memory",
+   "Your name is set in the You panel header. Click it to rename.",
+   "Both sides see each other at once.",
+   "Mara misses.",
+   "Saved the game manually",
+   "Saved the game manually",
+   "You hit Mara in the body for 0.7 bludgeoning.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "You know how hard Mara hits now: about 3.",
+   "Mara copied your Load-bearing Step (lease, ends in 6 h).",
+   "Mara hits you on the arm for 2.5 physical.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "Mara misses.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1 bludgeoning.",
+   "Saved the game manually",
+   "[ Home · 01/04/999, Summer, Mon ]",
+   "Both sides see each other at once.",
+   "Mara misses.",
+   "You hit Mara in the body for 0.7 bludgeoning.",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "You know how hard Mara hits now: about 3.",
+   "Mara copied your Load-bearing Step (lease, ends in 6 h).",
+   "Mara hits you on the arm for 2.5 physical.",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "Mara misses.",
+   "You hit Mara in the head for 1 bludgeoning.",
+   "Saved the game manually"
+  ],
+  "log": [],
+  "dev": [],
+  "aims": [
+   {
+    "aim": "any",
+    "disabled": false,
+    "pressed": "true",
+    "top": 325
+   },
+   {
+    "aim": "head",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "torso",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "arms",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "legs",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   }
+  ],
+  "aimReason": "",
+  "notice": "Both sides see each other at once. Mara misses. You hit Mara in the body for 0.7 bludgeoning. You hit Mara in the head for 1.3 bludgeoning. You know how hard Mara hits now: about 3. Mara copied your Load-bearing Step (lease, ends in 6 h). Mara hits you on the arm for 2.5 physical. You hit Mara in the head for 1.3 bludgeoning. Mara misses. You hit Mara in the head for 1 bludgeoning.",
+  "world": "frontier",
+  "oldPanel": "Road contest · tempo"
+ },
+ "import": {
+  "identical": true,
+  "diff": [
+   "held"
+  ],
+  "held": [
+   5,
+   7
+  ]
+ },
+ "importIdentical": true,
+ "afterImport": {
+  "visible": true,
+  "box": [
+   485,
+   57,
+   876,
+   494
+  ],
+  "stakes": "Village: 1 opponent standing.",
+  "next": "Your move · You → Mara",
+  "opponents": [
+   "Mara. Fresh. Not sized up. Intent unread. ◼ takes normal bludgeoning."
+  ],
+  "typeChips": [
+   {
+    "text": "◼ takes normal bludgeoning",
+    "type": "bludgeoning",
+    "source": "learned"
+   }
+  ],
+  "moves": [
+   "Quick strike · 3 beats",
+   "Heavy swing · 6 beats",
+   "Brace · 2 beats",
+   "Tend a wound · 5 beats",
+   "Fight on",
+   "One careful turn",
+   "Yield · 2 beats",
+   "Back away · 4 beats"
+  ],
+  "reportsLog": [
+   "EARLIER",
+   "Saved the game manually",
+   "You hit Mara in the body for 0.7 bludgeoning.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "You know how hard Mara hits now: about 3.",
+   "Mara copied your Load-bearing Step (lease, ends in 6 h).",
+   "Mara hits you on the arm for 2.5 physical.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "Mara misses.",
+   "Saved the game manually",
+   "You hit Mara in the head for 1 bludgeoning.",
+   "Saved the game manually",
+   "Both sides see each other at once.",
+   "Mara misses.",
+   "You hit Mara in the body for 0.7 bludgeoning.",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "You know how hard Mara hits now: about 3.",
+   "Mara copied your Load-bearing Step (lease, ends in 6 h).",
+   "Mara hits you on the arm for 2.5 physical.",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "Mara misses.",
+   "You hit Mara in the head for 1 bludgeoning.",
+   "Saved the game manually",
+   "[ Home · 01/04/999, Summer, Mon ]",
+   "Both sides see each other at once.",
+   "Mara misses.",
+   "You hit Mara in the body for 0.7 bludgeoning.",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "You know how hard Mara hits now: about 3.",
+   "Mara copied your Load-bearing Step (lease, ends in 6 h).",
+   "Mara hits you on the arm for 2.5 physical.",
+   "You hit Mara in the head for 1.3 bludgeoning.",
+   "Mara misses.",
+   "You hit Mara in the head for 1 bludgeoning.",
+   "Saved the game manually"
+  ],
+  "log": [],
+  "dev": [],
+  "aims": [
+   {
+    "aim": "any",
+    "disabled": false,
+    "pressed": "true",
+    "top": 325
+   },
+   {
+    "aim": "head",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "torso",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "arms",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   },
+   {
+    "aim": "legs",
+    "disabled": false,
+    "pressed": "false",
+    "top": 325
+   }
+  ],
+  "aimReason": "",
+  "notice": "Both sides see each other at once. Mara misses. You hit Mara in the body for 0.7 bludgeoning. You hit Mara in the head for 1.3 bludgeoning. You know how hard Mara hits now: about 3. Mara copied your Load-bearing Step (lease, ends in 6 h). Mara hits you on the arm for 2.5 physical. You hit Mara in the head for 1.3 bludgeoning. Mara misses. You hit Mara in the head for 1 bludgeoning.",
+  "world": "frontier",
+  "oldPanel": "Road contest · tempo"
+ },
+ "finished": {
+  "session": null,
+  "tempoLast": "won",
+  "cardHidden": true
+ },
+ "errors": []
+}

@@ -1,0 +1,9 @@
+{
+  "base": "71c973050",
+  "bundleSha256": "e58a349c6d8049d177adba0f38f9af94c528747a65e9cd4b421c85e61d7d5e12",
+  "files": {
+    "src/hp_brewing_panel.js": "0aec30f0d5369c671e648b7aeb43c27b9f1a42de3f934a197cb53171c07fd732",
+    "src/seat_profiles.js": "7ac82898ff693c916bdf968912847b9137bcf051934012cc5e523429cf82322d",
+    "tests/seat_profiles.test.js": "3deae90df54b9a254365c35fcd53d1b1653f5bbd880786805d2c2f6e2b6fffa0"
+  }
+}

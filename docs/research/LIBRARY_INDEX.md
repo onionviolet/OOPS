@@ -4,6 +4,8 @@ Current routing, reconciled2026-11-05; the dated sections preserve their origina
 
 Source text stays outside tracked files. Never modify the library; convert into a gitignored private copy.
 
+Start from the [library build atlas](LIBRARY_BUILD_ATLAS_2026-11-20.md) when you know what you want to build and need to find the relevant shelves, source cases and project owners.
+
 ## Prime books
 
 **The Wandering Inn current holdings:** main-series coverage through book 19 plus the four newer split editions of books 1-2. Books 18-19 are web-text compilations with validated chapter-range coverage and separate repaired reader copies, not verified retail editions. See [the full-series receipt](#wandering-inn-published-run-acquisition-2026-10-31); this supersedes earlier partial-holdings snapshots.
@@ -1439,6 +1441,227 @@ directory. Remaining identified candidates include *A Thousand Li* 11–12,
 The manga governor was paused at 17 GB free against its 30 GB floor, and
 its runner was already halted on `naruto-extra` chapter 11537.
 
+## Wishlist intake, 2026-11-13
+
+Private transfer, chapter and verification receipts are in
+`docs/research/novels/wave-2026-11-13-wishlist/`.
+
+| Wishlist | Verified addition | Source Library SHA-256 prefix |
+|---|---|---|
+| DL58 | pirateaba’s *Memory’s Flame* web-serial reader copy. The EPUB contains all 19 entries mapped to book 20 in the [author’s contents](https://wanderinginn.com/table-of-contents/): 7.56–7.62, three interludes, and Solstice parts 1–9. The paced transport collected the [independent mirror](https://www.alinovel.com/book/38641/); original presentation and retail equivalence were not verified. The retail ebook stays open. | `1b1147bb007b` |
+| DL50 | Tao Wong’s *A Thousand Li* 11 (*The Fourth Fall*) and 12 (*The Fourth Wall*). Together with the earlier books, the main run reaches 1–12. | `2756b905bc48`, `268c704da688` |
+| DL71 | *The Irregular at Magic High School* 19–23 and 27. The held English light novels now span 1–27; 24–26 remain fan editions. | `5c10056bf92f`, `2d5877847d21`, `e3b576fcc8dd`, `8a5ec9ff8967`, `04d3274b448d`, `7443e032ba66` |
+
+Anna’s supplied volumes 19–23. The first volume 20 candidate matched the
+provider MD5 but failed ZIP CRC on an illustration and was not registered.
+A different Yen On EPUB passed CRC and spine verification. Anna’s returned
+`Record_not_found` for volume 27, so the shared Z-Library ledger transferred
+the exact edition and verified its MD5. The EPUB package, English language
+and spine were checked for the fiction files above.
+
+The Source Library ledger showed DL112’s 27 earlier *Code Geass* manga jobs
+complete and all four DL111 comic batches complete (66 original LOTM, 26 remake,
+59 *Omniscient Reader* and 259 *The World After the Fall*). The later manga queue
+remained stopped at a separate Naruto edition review.
+
+DL33 added Ian Mortimer’s *The Time Traveller’s Guide to Elizabethan
+England* (English EPUB, `f9b740938617`). CRC and the 65-item spine
+passed; its ISBN matches the [publisher’s ebook](https://www.penguin.co.uk/books/407377/the-time-travellers-guide-to-elizabethan-england-by-ian-mortimer/9781409029564).
+
+DL98 added Greg Stolze’s 2007 *Reign: A Game of Lords and Leaders* corebook
+(`83a03142a73e`, 364 PDF pages). The screened cover and title page match.
+The scan renders; qpdf reports an outline hint-table warning.
+
+DL86’s first verified reader copies without render warnings were GAZ1, *The
+Grand Duchy of Karameikos* (`3328dbc5e8f7`, 77 pages), GAZ4, *The Kingdom
+of Ierendi* (`7eeb3a9aa150`, 78 pages), GAZ5, *The Elves of Alfheim*
+(`1c893a43b7de`, 102 pages), GAZ6, *The Dwarves of Rockhome*
+(`a09b3429f216`, 120 pages), GAZ8, *The Five Shires*
+(`02739f622bc9`, 101 pages), GAZ10, *The Orcs of Thar*
+(`b7395a303b2d`, 142 pages), GAZ11, *The Republic of Darokin*
+(`fb5cdde1dfee`, 117 pages), GAZ12, *The Golden Khan of Ethengar*
+(`9b9e7e74f2c8`, 118 pages), GAZ13, *The Shadow Elves*
+(`ae1b1293d180`, 110 pages), and GAZ14, *The Atruaghin Clans*
+(`4013f8d847ac`, 78 pages). Covers match and every page rendered without
+decoder warnings. GAZ2 (`1d5df839d811`) and GAZ3 (`5769001c9cca`) matched
+their covers and rendered all pages, but Poppler reported premature JPEG
+data on some pages. Those copies are registered with this caveat; clean
+replacements remain wanted. GAZ7, *The Northern Reaches* (`03ca9eb53d9b`),
+matched the cover but has a damaged page tree and failed the full render.
+A clean replacement is still needed. Thirteen of the fourteen Gazetteers
+were acquired; ten passed the full render without decoder warnings. GAZ9,
+*The Minrothad Guilds*, remains unacquired: the indexed PDF returned 404
+and the checked catalogues did not supply a matching downloadable edition.
+
+The exact-edition searches found no retail *Ghostsong*, *Cinnamon Bun* 8,
+or English *Bookworm Official Fanbook* 8 through the available download
+catalogue. *Ghostsong* hits were a draft and preview; the [retail edition](https://store.wanderinginn.com/products/ghostsong/)
+remains separate. The primary Royal Road and Scribble Hub collection
+refusals remained in force. The independent WuxiaFull route for *Forty
+Millenniums of Cultivation* returned HTTP 403, and the SpaceBattles
+threadmark route for *The Law of Averages* disallowed this crawler. No
+continuation coverage was added for either. No retail purchase was made.
+
+The East Tale mirror probe for SenescentSoul’s *Delve* stopped on HTTP 522
+before a chapter request. No serial files were added for DL25 or DL107.
+
+DL85 added *Tékumel: Empire of the Petal Throne* (`762c2fed5e16`,
+243 PDF pages), published by Guardians of Order in 2005. Cover and
+publication page match, and qpdf passed. This is a distinct game edition;
+the [original 1975 TSR rules](https://www.tekumelfoundation.org/post/empire-of-the-petal-throne)
+remain open.
+
+## Modern-day rulebook intake, 2026-11-13
+
+Three full English rulebooks are indexed in Source Library.
+The private PDFs, screening records and receipts are in
+`docs/research/novels/wave-2026-11-13-modern-rules/`.
+
+| Title | SHA-256 prefix | PDF pages |
+|---|---|---:|
+| [*Delta Green: Agent’s Handbook*](https://shop.arcdream.com/collections/delta-green-core-rules/products/delta-green-agents-handbook) | `a90c5cbfc025` | 194 |
+| [*Delta Green: Handler’s Guide*](https://shop.arcdream.com/collections/delta-green-core-rules/products/delta-green-handlers-guide-hardback) | `39dfa4a20473` | 370 |
+| [*Everyday Heroes Core Rulebook*](https://evilgeniusgames.com/shop/everyday-heroes-core-rulebook/) | `b0c99b459d9f` | 461 |
+
+The covers matched, all three PDFs were screened, and every page rendered
+without decoder warnings. Both *Delta Green* PDFs came from the redhg mirror
+and qpdf reported structural metadata warnings. The *Everyday Heroes* PDF
+from Anna’s matched the provider MD5 and passed qpdf without warnings.
+The full English *Modern AGE* and *Unknown Armies* 3e core volumes remain
+in the [wishlist](DOWNLOAD_WISHLIST_2026-10-30.md#w13-modern-day-rulebooks-2026-11-13).
+
+## Anna’s light-novel and Mistborn intake, 2026-11-15
+
+DL108 batch requested after a live quota check. The existing Anna’s runner
+passed its verified transfer-host TLS check and used Z-Library metadata to
+select editions by MD5. The first successful link response showed 50
+available before that request. Z-Library served metadata and no files.
+
+| English EPUB coverage added | SHA-256 prefixes in volume order |
+|---|---|
+| *So I’m a Spider, So What?* 7–11, 13, 15–16 | `4a6e9658d3d8`, `ad22aa8a6f81`, `1ffb3bdfcd71`, `9115e7ad833c`, `3578a50a1043`, `3485e3761472`, `5752e1b896dc`, `330bdcf63a50` |
+| *Reincarnated as a Sword* light novels 6–19, completing the English volumes released as of this run | `74fc19dcb36a`, `3679dea4c770`, `ae3117c353cf`, `5e756ec0c339`, `53c70c790b61`, `9f6e386d9627`, `daae13f9e584`, `208e056180d3`, `ae2e51b6d6cf`, `4438a1c6915d`, `a931b64fb20b`, `3c868a3310da`, `2fdb7962c51d`, `6eddd9075427` |
+| *Wax & Wayne* 2–4, completing the four-volume series | `d88274cb6a64`, `145903052e5f`, `8198b62c0c98` |
+
+All 25 listed EPUBs passed MD5, SHA-256, ZIP CRC, English package metadata
+and spine-member checks. The first *Sword* 13 copy (`f6fc3735aaa9`) remains
+registered with a broken spine reference to `OEBPS/Text/jln.html`. The
+alternate above has all 16 reading-order members. *Spider* 12 and 14 each
+returned HTTP 504 on two distinct MD5s. Volume 12’s first copy also failed
+on a same-day retry. Stop after the repeated gateway errors under AR53.
+Anna’s last readable counter was 22 before the clean *Sword* 13 request,
+followed by the failed *Spider* 14 transfer. Z-Library still showed 10 of
+10 downloads available at 10:28 p.m. ET.
+
+Private selections, transfer receipts and package verification are in
+`docs/research/novels/wave-2026-11-15-quota/`.
+
+## Spider and Mystara follow-up, 2026-11-15
+
+| Wishlist | Matched edition | SHA-256 prefix | Verification |
+|---|---|---|---|
+| DL108 | Okina Baba, *So I’m a Spider, So What?* 12, English Yen On EPUB | `bb5f38de671b` | MD5, SHA-256, ZIP CRC, English package and 63 spine members passed |
+| DL108 | Okina Baba, *So I’m a Spider, So What?* 14, English Yen On EPUB | `b4bc3219d09f` | MD5, SHA-256, ZIP CRC, English package and 54 spine members passed |
+| DL86 | GAZ2, *The Emirates of Ylaruam*, TSR 9194 | `fdb2eaf64e8e` | 78/78 pages rendered |
+| DL86 | GAZ3, *The Principalities of Glantri*, TSR 9208 | `0808b8680f4f` | 102/102 pages rendered. Poppler reported a bad annotation destination when rendering the cover at review resolution |
+| DL86 | GAZ7, *The Northern Reaches*, TSR 9230 | `886c812ad16b` | 105/105 pages rendered |
+| DL86 | GAZ9, *The Minrothad Guilds*, TSR 9236 | `d5118ab45d63` | 120/120 pages rendered |
+
+The Z-Library downloads complete *Spider* 1–16 and leave eight of ten slots.
+Anna’s supplied all four Mystara files. The covers match the official English
+editions, the received MD5 and managed SHA-256 match, and qpdf passed each PDF.
+The screening pass preserved flagged text layers for GAZ7 and GAZ9. Edition
+identification used the rendered covers. The numbered Mystara series now has
+reader copies of GAZ1–14. The older GAZ2, GAZ3 and GAZ7 scans remain indexed
+with their prior caveats; use the hashes above.
+
+The Anna’s search had no exact match for Green Ronin’s English *Modern AGE
+Basic Rulebook* (GRR6301, 9781934547915) or Atlas’s English *Unknown Armies*
+third-edition *Play*, *Run* and *Reveal*. It included title, stock-code and
+ISBN searches, including the third-edition deluxe ISBN. Both rows stay open.
+[Green Ronin](https://greenroninstore.com/products/modern-age-basic-rulebook-pdf) ·
+[Atlas Games](https://atlas-games.com/unknownarmies)
+
+Private evidence is in `docs/research/novels/wave-2026-11-15-tabletop/` and
+`docs/research/novels/wave-2026-11-15-quota/zlib-spider-verified.jsonl`.
+
+## Warhammer and Cyberpunk wishlist follow-up, 2026-11-16
+
+Anna’s supplied all three Cubicle 7 English PDFs. For each, the cover
+matched the selected edition, the managed file matched both the provider
+MD5 and receipt SHA-256, and every page rendered without decoder warnings.
+
+| Wishlist | Edition | Pages | SHA-256 prefix |
+|---|---|---:|---|
+| DL43 | [*Warhammer Fantasy Roleplay* 4e core rulebook, CB72400](https://cubicle7games.com/en_US/warhammer-fantasy-roleplay-rulebook) | 352 | `eed184042862` |
+| DL121 | [*Warhammer: The Old World Roleplaying Game Player’s Guide*](https://cubicle7games.com/en_US/warhammer-the-old-world-roleplaying-game-player-s-guide) | 191 | `03523bd3f3f6` |
+| DL121 | [*Warhammer: The Old World Roleplaying Game Gamemaster’s Guide*](https://cubicle7games.com/en_GB/warhammer-the-old-world) | 192 | `d00228ca3209` |
+
+The WFRP PDF is the core edition. The prior `5b9abafc84` entry remains the
+misnamed *Deft Steps, Light Fingers*. The WFRP whole-file screen timed out.
+The first four pages were screened for edition review, the cover was
+visually checked, and the full file passed qpdf and full-page rendering.
+Both *Old World* guides were screened in full. The *Player’s Guide* gave
+an unsorted name/number-tree warning in qpdf. Its 191-page count agrees with
+the [digital edition record](https://boardgamegeek.com/rpgitemversion/768955/pdf-v11).
+
+For DL120, exact-title, CR3121 and Peter Norton searches on Anna’s and
+Z-Library produced no matching [*Cyberpunk RED: Single Player Mode*](https://rtalsoriangames.com/2025/09/16/cyberpunk-red-alert-single-player-mode-single-player-mode-now-released/)
+listing. The Z-Library result *Easy Mode* is a separate release. DL120 stays
+open. Z-Library reported eight of ten slots available after the run.
+Private selections, receipts and verification are in
+`docs/research/novels/wave-2026-11-16-wishlist/`.
+
+## Cyberpunk RED supplements intake, 2026-11-16
+
+Anna’s supplied six English PDFs for DL120. The covers match the selected
+volumes and campaign. The registered files match the selected MD5 and
+receipt SHA-256, and Poppler rendered every page.
+
+| Edition | Pages | SHA-256 prefix |
+|---|---:|---|
+| *Interface RED* 1 (CR3041) | 66 | `25ddfee4e846` |
+| *Interface RED* 2 (CR3065) | 78 | `8583d2002ce6` |
+| *Interface RED* 3 (CR3081) | 114 | `28d23b415db1` |
+| *Interface RED* 4 (CR3111) | 90 | `752f0f3481d1` |
+| *Interface RED* 5 (CR3131) | 150 | `d95a5aa8b999` |
+| *Tales of the RED: Hope Reborn* (CR3091) | 194 | `451b5a5a94b6` |
+
+Screening covered the first four pages of each PDF. qpdf reported
+linearization warnings for the five *Interface RED* files and an unsorted
+PDF metadata tree for *Hope Reborn*. Poppler also reported font-weight
+warnings for *Interface RED*. All 692 pages rendered.
+
+The exact [*Cyberpunk RED Data Pack*](https://talsorianstore.com/products/cyberpunk-red-data-pack-digital-pdf)
+(CR3021) remains open after title and product-code searches on Anna’s and
+Z-Library. Z-Library’s *Cyberpunk 2020 Data Screen* hit was a different
+product. Z-Library still reported eight of ten slots available.
+Private selections, receipts, and checks are in
+`docs/research/novels/wave-2026-11-16-cyberpunk/`.
+
+## Cyberpunk RED online reader access, 2026-11-16
+
+DL120 has two online references. The live library check found no local
+copy of either edition. No files were imported during this pass.
+
+| Edition | Access and remaining gap |
+|---|---|
+| *Single Player Mode* (CR3121), v1.0, English | [AnyFlip’s 106-page reader](https://anyflip.com/imype/umyt/basic) has no PDF export. The paced capture stopped on HTTP 403 at the viewer host’s robots endpoint before fetching pages. |
+| *Data Pack* (CR3021), 36-page booklet | [Scribd’s booklet](https://www.scribd.com/document/531770344/CP3021-Cyberpunk-RED-Data-Pack-Booklet-OEF-2021-10-01) redirects Download to sign-up. Anna’s and Z-Library returned no match for the booklet or alternate catalogue code. The [full pack](https://talsorianstore.com/products/cyberpunk-red-data-pack-digital-pdf) remains on the wishlist, including the maps and character sheets. |
+
+## Single Player Mode reader PDF, 2026-11-16
+
+DL120 added one English v1.0 reader PDF of *Cyberpunk RED: Single Player
+Mode* (CR3121, ISBN 9781950911363) from [AnyFlip’s public viewer](https://anyflip.com/imype/umyt/basic).
+All 106 page images were exported through the browser. Each PDF page’s
+decoded pixels matched its corresponding source image. qpdf and all-page
+rendering passed, and the screened credits page confirmed the edition.
+The reader PDF is image-based. A fresh edition lookup found no existing
+copy, and the managed import matched SHA-256 `4f27d93eeefe`.
+
+The follow-up search found no additional download of the 36-page *Data Pack*
+booklet. The booklet and the full CR3021 pack remain open. Page and import
+receipts are in `docs/research/novels/wave-2026-11-16-cyberpunk-reader/`.
 
 ## Book pulls, 2026-11-17 (DL18, DL128-DL131, DL133)
 
@@ -1447,3 +1670,200 @@ Thirteen files from the ranked wishlist (Weibao's WARP-on approval): *Dark Heres
 ## JoJo and extreme-ability collection, 2026-11-18 (DL141-DL143)
 
 Lane `jojo-collector`; full table and ids in the [collector report](power-systems/anime-manga/JOJO_AND_EXTREME_POWERS_COLLECTION_2026-11-18.md). Anna's fast route (preflight passed, MD5 verified, ZIP CRC checked, registered in Source Library, not screened or read): six JoJo novels (*Jorge Joestar* `bd9d60ca095f`, *Purple Haze Feedback* `d223d9044185`, *Purple Smoke Distortion* `fab4a992c513`, *Over Heaven* `541385e89097`, *The Book 4th Another Day* `126835b39a75`, *Light Novel Collection* `474ad4b62ebe`); *A Certain Magical Index* 1 to 22; *New Testament* 1 to 5, 7, 8, 10, 11; Railgun novel and SS1 to SS3. *New Testament* 6, 9 and 12 failed ZIP open from Anna's (bad uploads; Z-Library ids in the report). Anna's fast left 7 of 50, Z-Library untouched (10). Fandom JoJo wiki WikiTeam history XML (2020-02-22, 48 MB) is at `~/.codex/research/wikis/jojo.fandom.com/dump/` and carries Stand stat letters. jojowiki.com: polite transport closed the host on a Cloudflare challenge. JoJo manga: all eight parts are in the governor queue, moved ahead of `naruto-extra` (backup `queue.json.bak-2026-11-18-jojo-first`); nothing downloaded yet, runner halted outside its window. Not found: the Rohan, Golden Heart Golden Ring and Crazy Diamond novels, JoJo TTRPG rules, game move lists.
+
+## Wishlist intake, 2026-11-20
+
+The Z-Library desktop account went from ten available downloads to zero.
+Anna’s download host failed certificate verification during the preflight.
+No Anna’s link was requested, and its remaining fast balance was unverified.
+
+| Wishlist | Registered English EPUBs | SHA-256 prefixes |
+|---|---|---|
+| DL142 | Kazuma Kamachi, *A Certain Magical Index: New Testament* 6, 9, 12, 13, 14 and 15 | `2908f6a90ca8`, `1a4b2c22930e`, `de890e6f6b70`, `542452dc05c1`, `16a714e55396`, `829bc3e4193b` |
+| DL129 | Brandon Sanderson, *Oathbringer* and *Rhythm of War* | `7223b56b7861`, `23ecb4399349` |
+| DL123 (Cyberpunk and Warhammer) | Rafał Kosik, *Cyberpunk 2077: No Coincidence*, and Dan Abnett, *Eisenhorn: The Omnibus* (Black Library, 2022, ISBN 9781800269187) | `e5e747da6529`, `223a60d70f9e` |
+
+All ten matched the source MD5 and download-receipt SHA-256, passed ZIP CRC,
+and had populated EPUB spine files. All ten were imported into managed
+Source Library storage and confirmed on disk. *New Testament* is now
+continuous by volume through 15. Translation fidelity and chapter-level
+equivalence to other editions remain unreviewed. Private receipts are under
+`docs/research/novels/wave-2026-11-20-wishlist/`.
+
+*Wind and Truth* has a Z-Library listing and awaits quota or a verified
+alternate source. *Modern AGE Basic Rulebook*, the three *Unknown Armies*
+3e core volumes and *Cyberpunk RED Data Pack* (including its standalone
+booklet) remain open. See the [wishlist search and source leads](DOWNLOAD_WISHLIST_2026-10-30.md).
+
+## Next wishlist pulls, 2026-11-20
+
+| Wishlist | New managed source | Verification |
+|---|---|---|
+| DL144 | *My House of Horrors*, chapters 1–700 and 701–1,211 | English EPUBs `ebdb42347aae` and `1deacd912ae7`. ZIP CRC passed. Each numbered chapter links to a distinct populated spine file, without gaps across both EPUBs. Coverage matches [Webnovel’s catalogue](https://www.webnovel.com/book/11530348105422805/catalog). The files are [third-party packages](https://9kafe.com/book/my-house-of-horrors/download/), and translation fidelity has not been checked. |
+| DL145 companion | *Night City Hook Book* | Official 13-page [free supplement](https://rtalsoriangames.com/2026/05/24/cyberpunk-red-dlc-release-night-city-hook-book/), `bb6fabca40c0`. Screened and rendered all pages. qpdf returned warnings for linearization hints. The full *Night City 2045* sourcebook remains open. |
+| DL146 sample | *Electric Bastionland Free Edition*, DriveThru sample | Watermarked 42-page PDF, `4c6a133ba141`. Screened and rendered all pages. qpdf passed. The full *Electric Bastionland* remains open. |
+
+Anna’s catalogue lookup was blocked and the download host failed verified TLS.
+Z-Library returned a network error for the live quota check. The previously
+verified balance was zero. Neither account was charged for this batch.
+The full *Heart: The City Beneath* and its quickstart remain open.
+Private files and receipts are under
+`docs/research/novels/wave-2026-11-20-next-pulls/`.
+
+## Wishlist intake, 2026-11-21
+
+The run used the open wishlist and the live holdings before requesting files.
+Anna’s fast route passed verified TLS. Both *Stonetop* editions went through
+Z-Library after Anna’s returned `Record_not_found`. Z-Library had 8 of 10
+downloads remaining after intake. Anna’s last response reported 25 remaining.
+
+| Wishlist | Managed Source Library addition | SHA-256 prefixes in volume order |
+|---|---|---|
+| DL129 | Brandon Sanderson, *Wind and Truth*, English EPUB | `80086fe99fee` |
+| DL142 | Kazuma Kamachi, *A Certain Magical Index: New Testament* 16–22 and *22 Reverse*, English EPUBs | `96973bc7671c`, `41c5892b3d1d`, `ae4f153163d5`, `e337087494ba`, `be499035afa3`, `5bbbfe3b117a`, `09518fae0021`, `43eeb1d500a5` |
+| DL142 | Kazuma Kamachi, *A Certain Magical Index: Genesis Testament* 1–11, English EPUBs | `ed9a69c0903c`, `218421c7de76`, `51d8764ef269`, `bb3ff2011de2`, `4c099e542cd3`, `27322f4fed1e`, `5b12fbd2a4a1`, `bbe555df7383`, `244b48334982`, `430636b1e654`, `0c8e659b54d3` |
+| DL105 | Natsu Hyuuga, *The Apothecary Diaries* light novel 16, English EPUB | `2b2bae0a7e75` |
+| DL148 | Wei Feng Ji Xu, *Mist [Unlimited]*, English serial EPUB, chapters 1–103 and three extras | `127a5d4c65b8` |
+| DL145 | *Night City 2045*, full sourcebook PDF, 314 PDF pages including covers | `eed591dc925f` |
+| DL146 | *Electric Bastionland*, 336-page core PDF | `f8b741e914d8` |
+| DL147 | *Heart: The City Beneath*, 226-page core PDF | `f75986693039` |
+| DL149 | *Stonetop* Books I and II, 614 and 602 pages | `da02cf859c23`, `53206d086bb3` |
+| DL150 | *Mythic Bastionland*, 212-page core PDF | `f391b3aebf44` |
+
+All listed files matched provider MD5 and registered SHA-256 on disk. EPUBs
+passed ZIP CRC and populated-spine checks. Translation fidelity remains
+unreviewed. Every PDF was screened and every page rendered. qpdf reported
+linearization warnings for *Stonetop* Book II and linearization and index
+warnings for *Night City 2045*.
+Private receipts and screening logs are under
+`docs/research/novels/wave-2026-11-21-quota/`.
+
+Still open from this pass: *Ghostsong* retail ebook, *Modern AGE Basic
+Rulebook*, *Unknown Armies* 3e English core set, *Cyberpunk RED Data Pack*
+and *The Between*. Catalogue searches did not return matching editions.
+
+## Wishlist continuations and duplicate audit, 2026-11-21
+
+The follow-up added 32 English EPUBs to managed Source Library storage.
+Anna’s fast supplied 24. Z-Library supplied 8, including the last slot for
+*No Game No Life* 12. Anna’s returned `No_downloads_left`, and the desktop
+account showed 0 of 10 remaining. All 32 downloads matched provider MD5
+and stored SHA-256. ZIP CRC, embedded edition metadata and populated EPUB
+spines passed. Translation fidelity and narrative equivalence remain
+unreviewed.
+
+| Wishlist | New volumes and resulting coverage | SHA-256 prefixes |
+|---|---|---|
+| DL39 | *Wish Upon the Stars* 11–13, now held 1–13 | `e63a7fcafcc4`, `0ae7d6b2985c`, `bbfc17c9e627` |
+| DL152 | *All the Skills* 2–6, now held 1–6 | `12d88240024b`, `27d82ad365f0`, `f7100b754fa2`, `b83c496155f4`, `eb59085dfb9e` |
+| DL23 | *Everybody Loves Large Chests* main books 7–13, now held 1 through the [author’s finale](https://www.patreon.com/cw/ELLC?l=en-GB) | `6748d5a014aa`, `8bc93bf6f190`, `564964e4deda`, `0cedff22cddc`, `e5584fa2a4fb`, `8389b3ba2e6b`, `99a9c2661326` |
+| DL105 | *Arifureta Zero* 3–6, now held 1 through the [concluding volume](https://j-novel.club/series/arifureta-zero) | `ab9224e0094a`, `1dabbe16607c`, `fed51c0fcf9f`, `88d11b34411f` |
+| DL105 | *A Tale of the Secret Saint* 11 and *ZERO* 5–6, bringing the branches to 1–11 and 1–6 | `8c9521c21525`, `25e963b5351a`, `306b08edd073` |
+| DL142 | *A Certain Magical Index: Genesis Testament* 12–15, now held 1–15 in English | `8440f8180a95`, `5b4ffd5867b5`, `938cead26fc2`, `5d0d7aae9650` |
+| DL40 | *No Game No Life* 5, 6, 8, 10, 11 and 12, now held 1–12 | `78c36a4099b9`, `582fb362815c`, `c82a68451b69`, `576b7be1ccb6`, `446fab547d83`, `23c10f510ffd` |
+
+The three requested editions remain open. *Ghostsong*’s [retail ISBN and
+ASIN](https://store.wanderinginn.com/products/ghostsong/) distinguished it
+from the Z-Library Patreon draft and preview. The indexed exact *Modern AGE
+Basic Rulebook* PDF returned 404, and its public flipbook returned 403. An
+alternate *Unknown Armies* 3e directory returned 404. The accessible
+catalogue records surfaced Spanish core books, earlier editions and
+supplements. The LibGen adapter failed to parse its results, Anna’s catalogue
+was blocked, and the Bookracy reader did not return results.
+
+Title and coverage checks skipped held books before transfer, including
+*A Soldier’s Life* 6, *Dragoneye Moons* 15, *The Primal Hunter* 15–16,
+*The Path of Ascension* 11–12, and *Infinite Dendrogram* 17–23. The read-only
+duplicate audit counted 225 SHA-256 values shared by the Calibre files and
+live Source Library catalogue. Across distinct paths in both catalogues it
+counted 307 hashes with more than one location. Eight same-volume
+*Wish Upon the Stars* EPUB pairs also had 97–99% normalized five-word
+sequence overlap and distinct SHA-256 values. The near matches warrant
+edition review before consolidation. Private per-file receipts and the
+dedupe summary are under `docs/research/novels/wave-2026-11-21-continuations/`.
+
+## Hell Difficulty Tutorial and Dorothy's Forbidden Grimoire, 2026-11-22 (DL153, DL154)
+
+Asked for the phone library ([plan](PHONE_LIBRARY_PLAN_2026-11-22.md)). Before the pull,
+`library_coverage.py` showed 0 held records for the series, for Cerim and for Dorothy.
+Route: Z-Library through Source Library, 10 of 10 uses spent (books 7–8 added later that day on Weibao's yes). Anna's was
+not used: the TLS preflight to the download host failed with a FortiGate CA issuer (AR52,
+VPN down), and the run did not bypass it. Runner and receipts:
+`novels/wave-2026-11-22-hdt-dorothy/` (gitignored). All files registered in Source Library.
+
+| Work | Z-Library id | MD5 | SHA-256 prefix | Coverage |
+|---|---|---|---|---|
+| *Hell Difficulty Tutorial* 1 | 28564580 | `74a1e413eee3` | `dfedf2bd57e7` | chapters 1–101 |
+| *Hell Difficulty Tutorial* 2 | 29603629 | `3b8f26d4b039` | `f7ac204de5bc` | 1–107 (106 and 107 present) |
+| *Hell Difficulty Tutorial* 3 | 76721251 | `6c01f3bebc22` | `545ebeb34998` | 1–88 |
+| *Hell Difficulty Tutorial* 4 | 116397358 | `85ec67ae9919` | `6416a0719343` | 1–89 |
+| *Hell Difficulty Tutorial* 5 | 118594266 | `d7cc1abf0972` | `d62ac48f5410` | 1–85 |
+| *Hell Difficulty Tutorial* 6 | 120364679 | `0470fb738cc2` | `ebfc0a31b7c9` | 1–80 |
+| *Hell Difficulty Tutorial* 7 | 125770894 | `17b9b8055b1f` | `7099bb5b3793` | chapters 1–65 |
+| *Hell Difficulty Tutorial* 8 | 128765501 | `302a52812065` | `bfd719db4470` | 1–81 |
+| *Dorothy’s Forbidden Grimoire*, English | 126715556 | `d7291b78636a` | `b00b1604bc8c` | 1–828, 831 parts, 7.7 MB |
+| 多萝西的禁密书典, Chinese | 29312468 | `4e603b318165` | `3b3d0a9d9e44` | 833 parts, chapters through 第八百二十八章 尾声 |
+
+Notes:
+- Each MD5 matched Z-Library metadata and the registered file. Z-Library lists duplicate
+  uploads of each HDT volume under other ids; one edition per volume was taken. Books
+  7 and 8 were pulled later the same day on a further yes.
+- Dorothy translation check: the English EPUB is a fan or machine translation labelled
+  with the author's name. Spot checks of chapters 3, 4, 200, 400, 600 and 800 read as
+  coherent English. Name counts across chapters 1–200, 201–400, 401–600 and 601–831 show
+  one spelling per name (Dorothy, Misha with no Mischa, Radiance Church, Literary Sea,
+  Edrick early, Dark Coin late). Top capitalised names in chapters 1–100, 401–500 and
+  731–831 are stable or change with the plot. Verdict: accepted. It is not a read-through.
+- Edition caveat: the Chinese file is a Z-Library upload, not checked against the
+  original site. Chapter 828 is the epilogue; Librate and Novel Updates say about 828.
+
+## Quota intake, 2026-11-23
+
+Source Library registered 11 English EPUBs. Anna’s fast supplied nine and
+last reported 42 downloads remaining. Z-Library supplied two and showed
+8 of 10 remaining. Z-Library’s search endpoint returned errors, so the run
+used saved catalogue records with live edition metadata and holdings checks.
+
+| Source | Edition or coverage | SHA-256 prefixes |
+|---|---|---|
+| DL39 · *Ascendance of a Bookworm* | Official Fanbook 8, J-Novel Club English EPUB, ISBN 9781718344709. Fanbooks 1–8 are held. | `8f955659100e` |
+| DL40 · *No Game No Life Practical War Game* | Yen On side-story collection, ISBN 9781975319687. | `70ef5d03a704` |
+| *A Practical Guide to Evil* | Mango Media’s revised books I and II, alongside the web serial. | `f4ef09afaaeb`, `31794611e52d` |
+| DL108 · *Konosuba* | English publisher editions of 16 and 17 alongside the fan translations. Volume 3 is an alternate packaging of the already held Yen On edition, with 99.82% overlap in normalized five-word sequences. | `2497edd5546b`, `67d6a65629e8`, `92208c4048cd` (vol. 3) |
+| C3 · *Global Examination* | Two English web compilations cover numbered chapters 1–166 together. The Asianovel EPUB skips 104 and has two entries numbered 118. The KK Translates EPUB supplies 104 and has no entry numbered 118. | `32e4fa9082ca`, `ee877ed31b09` |
+| C5 · *Kaleidoscope of Death* | English web compilation with chapters 1–139 and ten extra entries. | `2eceb7ac9a49` |
+| C1 · *Terror Infinity* | Alternate English compilation contains populated entries for the three known narrative gaps in the earlier copy: Vol. 16 Ch. 11-3, Vol. 19 Ch. 11-6 and Vol. 23 Ch. 16-7. The alternate’s remaining entries and extras have yet to be aligned against [Wuxiaworld’s catalogue](https://www.wuxiaworld.com/novel/terror-infinity). | `af245f423436` |
+
+All 11 files matched the provider MD5 and the stored SHA-256, passed ZIP CRC,
+and had populated EPUB spines. Chapter checks establish file coverage.
+Translation fidelity remains unreviewed. The earlier advertised *Terror
+Infinity* compilation matched the held MD5 and was skipped without a transfer.
+Private receipts and checks are under `novels/wave-2026-11-23-quota/`.
+
+*The Earth Is Online*, retail *Ghostsong*, *Modern AGE Basic Rulebook*,
+English *Unknown Armies* 3e, *Cyberpunk RED Data Pack* and *The Between*
+remain open. Anna’s catalogue and the LibGen adapter failed to return
+usable search results for those titles.
+
+## Quota intake, 2026-11-24
+
+Source Library registered two English *A Certain Scientific Railgun* side stories
+by Kazuma Kamachi (DL142). Anna’s fast returned `Record_not_found` for both
+MD5s. Z-Library supplied the EPUBs and reported 8 of 10 downloads remaining.
+Its desktop search returned an API error. The run used saved catalogue candidates
+with live edition metadata and holdings checks.
+
+| Source | Z-Library ID | SHA-256 prefix | EPUB spine |
+|---|---|---|---|
+| *Cold Game* | 128999837 | `cfc608adfaf9` | 28 items |
+| *A Superfluous Story, or A Certain Incident’s End* | 128999835 | `b96caf1e6692` | 19 items |
+
+Both files matched the provider MD5 and registered SHA-256, passed ZIP CRC,
+and had populated spines. The [Baka-Tsuki side-story index](https://www.baka-tsuki.org/project/index.php?title=Template%3AToaru%3ASide_Stories)
+lists the two works separately from the held Railgun novel and SS1–SS3.
+Translation fidelity remains unchecked. Private receipts are under
+`novels/wave-2026-11-24-quota/`.
+
+No full English EPUB candidate surfaced for *The Earth Is Online* on the
+working routes. *Genesis Testament* 16 remains on the wishlist for offline
+intake. [Baka-Tsuki lists the completed English web translation](https://www.baka-tsuki.org/project/index.php?title=Toaru_Majutsu_no_Index%3A_Genesis_Testament).

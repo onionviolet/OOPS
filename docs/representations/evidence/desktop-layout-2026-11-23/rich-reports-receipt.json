@@ -1,0 +1,84 @@
+{
+  "viewport": [
+    1280,
+    800
+  ],
+  "text": 21,
+  "here": [
+    {
+      "label": "Enter",
+      "hit": true
+    },
+    {
+      "label": "Go",
+      "hit": true
+    },
+    {
+      "label": "Cross",
+      "hit": true
+    }
+  ],
+  "returnFocus": true,
+  "reports": {
+    "text": "21px",
+    "background": "rgb(43, 36, 48)",
+    "tones": [
+      "notice",
+      "growth",
+      "routine",
+      "strike",
+      "danger",
+      "loot"
+    ],
+    "marks": [
+      [
+        "Moonblade",
+        "rgb(255, 111, 174)"
+      ],
+      [
+        "Moonblade",
+        "rgb(255, 111, 174)"
+      ],
+      [
+        "Moonblade",
+        "rgb(255, 111, 174)"
+      ],
+      [
+        "Moonblade",
+        "rgb(255, 111, 174)"
+      ],
+      [
+        "Moonblade",
+        "rgb(255, 111, 174)"
+      ]
+    ],
+    "loot": [
+      "Hidden lightning wolf eye",
+      "Lightning wolf hide",
+      "Wolf meat · jin"
+    ],
+    "next": [
+      [
+        "report-next report-next--compact",
+        "Hand a wolf eye in at the alliance board · +10 merit"
+      ],
+      [
+        "report-next report-next--compact",
+        "Sell a wolf hide at the village stalls · 1 stone"
+      ],
+      [
+        "report-next report-next--compact",
+        "Sell 6 jin of wolf meat to the village kitchens · 1 stone\nMore uses"
+      ]
+    ]
+  },
+  "moreUses": true,
+  "filterKeyboard": true,
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "No such element with availability as \"recipe\" -> \"undefined\""
+    }
+  ]
+}

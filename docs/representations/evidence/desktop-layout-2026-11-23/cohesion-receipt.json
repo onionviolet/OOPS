@@ -1,0 +1,91 @@
+{
+  "viewport": [
+    1280,
+    800
+  ],
+  "text": 21,
+  "place": {
+    "header": "Village\nMore about this place\nBoard",
+    "focusPanelHeader": false,
+    "stations": [
+      [
+        "Waypost supply clerk",
+        true
+      ],
+      [
+        "Homes",
+        true
+      ],
+      [
+        "Village mixing counter",
+        true
+      ],
+      [
+        "Village common herb verge",
+        true
+      ],
+      [
+        "Gear workshop",
+        true
+      ]
+    ],
+    "exits": [
+      [
+        "Enter",
+        true
+      ],
+      [
+        "Go",
+        true
+      ],
+      [
+        "Cross",
+        true
+      ]
+    ],
+    "reportsHint": false,
+    "statColumns": "117.25px 117.266px",
+    "unknownJournalTabVisible": false,
+    "placeTabs": [
+      "Local",
+      "Household",
+      "Options"
+    ],
+    "text": "21px"
+  },
+  "returnFocus": true,
+  "heskDialogue": true,
+  "fight": "Beyond the wall\nDaylight · Poor footing\n\nWon",
+  "loot": [
+    [
+      "Hand in at alliance board · +10 merit",
+      "Hand a wolf eye in at the alliance board · +10 merit"
+    ],
+    [
+      "Sell at stalls · 1 stone",
+      "Sell a wolf hide at the village stalls · 1 stone"
+    ],
+    [
+      "Sell at kitchens · 1 stone",
+      "Sell 6 jin of wolf meat to the village kitchens · 1 stone"
+    ]
+  ],
+  "tones": [
+    "notice",
+    "growth",
+    "routine",
+    "strike",
+    "danger",
+    "loot"
+  ],
+  "highlight": "rgb(255, 111, 174)",
+  "filterKeyboard": true,
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "No such element with availability as \"recipe\" -> \"undefined\""
+    }
+  ],
+  "heskHintFallback": true
+}

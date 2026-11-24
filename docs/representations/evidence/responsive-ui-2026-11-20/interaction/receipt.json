@@ -1,0 +1,6 @@
+{
+  "setup": "Synthetic owned Shack, hearth, logs and Linen cloth; subsequent actions use native controls in the rebuilt bundle. Lifecycle checks explicitly import the source component.",
+  "checks": [],
+  "status": "failed",
+  "failure": "locator.innerText: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#p23_household_panel .settled-reaction-symbol')\u001b[22m\n\n    at /Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/responsive-ui.mjs:20:59"
+}
