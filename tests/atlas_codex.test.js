@@ -88,3 +88,20 @@ test('nextAction points at an owner and never acts', async () => {
     const codex = {ledgers: [aggregate('A', A)], inputs: {}, canonical: canon, blockers: {}};
     assert.equal(summary(codex, 'A').blockers.find(b => b.slug === 'form').nextAction.kind, 'normalize-slug');
 });
+
+test('WA23 moveSlots groups one move by variant, keeps open slots and unstated order, and ignores other moves', async () => {
+    const {moveSlots} = await import('../prototypes/world-atlas/codex.mjs');
+    const {mkdtempSync, writeFileSync} = await import('node:fs');
+    const {tmpdir} = await import('node:os');
+    const {join: pj} = await import('node:path');
+    const file = pj(mkdtempSync(pj(tmpdir(), 'slots-')), 'gu_move_slots.jsonl');
+    const row = o => JSON.stringify({move: 'm1', variant: 'm1@ch1', role: 'core', gu: 'a', name: 'A Gu', locator: 'ri:ch1:p1', tier: 'chapter', orderStated: false, order: null, resolution: 'exact', ...o});
+    writeFileSync(file, [row(), row({role: 'unnamed', gu: null, name: 'many mortal Gu', resolution: 'unresolved'}), row({variant: null, locator: 'wiki:M#x', tier: 'wiki'}), row({move: 'm2'})].join('\n') + '\n');
+    const s = moveSlots('m1', file);
+    assert.equal(s.variants.length, 2);
+    const v1 = s.variants.find(v => v.variant === 'm1@ch1');
+    assert.equal(v1.slots.length, 2);
+    assert.deepEqual(v1.slots.map(t => t.role), ['core', 'unnamed']);
+    assert.ok(v1.slots.every(t => t.order === null && t.orderStated === false));
+    assert.equal(moveSlots('m1', file + '.missing'), null);
+});

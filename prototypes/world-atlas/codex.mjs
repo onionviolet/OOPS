@@ -20,14 +20,14 @@
 // record is `null` ("not recorded"), never filled in from another rung. Counts and ids are the only derived numbers.
 //   node prototypes/world-atlas/codex.mjs [ledger]     prints the summary (or all aggregates) as JSON
 import {createHash} from 'node:crypto';
-import {existsSync, readFileSync, readdirSync} from 'node:fs';
+import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const DIR = 'docs/coverage';
 // The same exclusions as scripts/coverage_report.mjs readLedgers(): these two files are not ledgers.
-const NOT_LEDGERS = new Set(['worlds', 'interaction_oracle']);
+const NOT_LEDGERS = new Set(['worlds', 'interaction_oracle', 'gu_move_slots']); // gu_move_slots is WA23 slot evidence, read by moveSlots()
 export const FAMILIES = ['runs', 'expressed', 'catalogued', 'blocked', 'notAThing'];
 export const MAX_PAGE = 100; // C2: at most 100 mounted result rows
 
@@ -171,4 +171,21 @@ export function buildCodex(names = ledgerNames(), dir = join(root, DIR)) {
 if (import.meta.main) {
     const codex = buildCodex(process.argv[2] ? [process.argv[2]] : undefined);
     process.stdout.write(JSON.stringify(process.argv[2] ? summary(codex, process.argv[2]) : codex));
+}
+
+// WA23 slot evidence (owned by scripts/gu_move_slots.py): the recipe slots of one gu_moves row, grouped by variant.
+// The file carries no passage text. Order is shown only when orderStated; unnamed slots stay open.
+let slotCache = null;
+export function moveSlots(move, file = join(root, DIR, 'gu_move_slots.jsonl')) {
+    if (!existsSync(file)) return null;
+    const mtime = statSync(file).mtimeMs;
+    if (!slotCache || slotCache.mtime !== mtime) slotCache = {mtime, rows: parseRows(readFileSync(file, 'utf8'))};
+    const variants = new Map();
+    for (const r of slotCache.rows) if (r.move === move) {
+        const k = r.variant ?? null;
+        if (!variants.has(k)) variants.set(k, []);
+        variants.get(k).push({role: r.role, gu: r.gu ?? null, name: r.name, locator: r.locator, tier: r.tier,
+            order: r.orderStated ? r.order : null, orderStated: !!r.orderStated, resolution: r.resolution});
+    }
+    return {move, variants: [...variants].map(([variant, slots]) => ({variant, slots}))};
 }

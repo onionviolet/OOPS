@@ -13,7 +13,7 @@ import {encodeSaveFile} from '../../src/save_files.js';
 import {readLibrary} from './library-reading.mjs';
 import {readSnapshot, buildSnapshot, latestProgress, latestBatchCollection, READERS} from './build.mjs';
 import {readBatches, batchCommands} from './batch-status.mjs';
-import {buildCodex, summary as codexSummary, pageRows as codexPage, readLedger as codexLedger, ledgerNames as codexNames} from './codex.mjs';
+import {buildCodex, summary as codexSummary, pageRows as codexPage, readLedger as codexLedger, ledgerNames as codexNames, moveSlots} from './codex.mjs';
 import {readCheats, summarize as cheatsSummary, pageCheats} from './cheats.mjs';
 import {changesSince} from './changelog.mjs';
 import {LOTM_DISTRICTS, districtCommands, lotmWalkRoute, LOTM_PLACE_KEYS} from '../../src/book_world_lotm_districts.js';
@@ -176,6 +176,12 @@ const server=createServer(async(req,res)=>{
         }
         // Codex: /codex lists ledgers, /codex/<ledger> is its summary, /codex/<ledger>/rows pages its rows. Never in /data (C1).
         // WA24 (owned by scripts/check_passage.py): local-text check for one Gu row. JSON goes to the page only; match text is never written to tracked files.
+        // WA23 (owned by scripts/gu_move_slots.py): recipe slots for one gu_moves row.
+        if(req.method === 'GET' && /^\/codex\/gu_moves\/slots\?/.test(req.url)){
+            const id = new URL(req.url,'http://x').searchParams.get('id') || '';
+            const out = moveSlots(id);
+            return res.writeHead(out ? 200 : 404,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(out || {error:'No slot evidence file.'}));
+        }
         const passageUrl=/^\/codex\/(gu_kinds|gu_moves)\/check-passage\?/.exec(req.url);
         if(req.method === 'GET' && passageUrl){
             const id = new URL(req.url,'http://x').searchParams.get('id') || '';

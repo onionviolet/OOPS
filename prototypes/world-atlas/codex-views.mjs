@@ -153,8 +153,30 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
         if (r.locators.length) {const ul = el('ul'); for (const l of r.locators) ul.append(el('li', l)); detailHost.append(ul);} else detailHost.append(missing());
         if (r.derived) detailHost.append(el('h3', 'Derived'), el('pre', JSON.stringify(r.derived, null, 1)));
         if (r.note) detailHost.append(el('h3', 'Note'), el('p', r.note));
-        // WA24: what the local text already says about this row, before anyone pays for a read. Text stays on this page.
         const [ledger, ...idParts] = r.key.split(':'), id = idParts.join(':');
+        // WA23: the move's recipe slots by variant. Unnamed slots stay open; order shows only when the source states it.
+        if (ledger === 'gu_moves') {
+            const slotHost = el('div');
+            detailHost.append(el('h3', 'Recipe slots'), slotHost);
+            fetch(`/codex/gu_moves/slots?id=${encodeURIComponent(id)}`).then(res => res.json()).then(s => {
+                if (detailHost.dataset.key !== r.key) return;
+                if (!s.variants?.length) {slotHost.append(el('p', 'No slot evidence for this move yet.', 'codex-missing')); return;}
+                for (const v of s.variants) {
+                    const d = el('details'); d.open = s.variants.length === 1;
+                    d.append(el('summary', `${v.variant || 'main'} · ${v.slots.length} slots`));
+                    const ul = el('ul');
+                    for (const t of v.slots) {
+                        const who = t.role === 'unnamed' ? `open slot (${t.name})` : `${t.role}: ${t.name}`;
+                        const gu = t.gu ? ` → gu_kinds:${t.gu}` : '';
+                        const order = t.orderStated ? ` · order ${t.order}` : ' · order not stated';
+                        ul.append(el('li', `${who}${gu} · ${t.resolution} · ${t.tier} · ${t.locator}${order}`));
+                    }
+                    d.append(ul); slotHost.append(d);
+                }
+                slotHost.append(el('p', 'Slots are machine-extracted; most are unchecked. Use Check this passage for a second read.', 'codex-missing'));
+            }).catch(e => slotHost.append(el('p', `Slots failed: ${e.message}`, 'codex-missing')));
+        }
+        // WA24: what the local text already says about this row, before anyone pays for a read. Text stays on this page.
         if (['gu_kinds', 'gu_moves'].includes(ledger)) {
             const out = el('div'), btn = el('button', 'Check this passage');
             btn.type = 'button';
