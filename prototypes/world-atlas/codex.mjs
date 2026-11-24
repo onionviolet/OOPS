@@ -176,7 +176,7 @@ if (import.meta.main) {
 // WA23 slot evidence (owned by scripts/gu_move_slots.py): the recipe slots of one gu_moves row, grouped by variant.
 // The file carries no passage text. Order is shown only when orderStated; unnamed slots stay open.
 let slotCache = null;
-export function moveSlots(move, file = join(root, DIR, 'gu_move_slots.jsonl')) {
+export function moveSlots(move, file = join(root, DIR, 'evidence', 'gu_move_slots.jsonl')) {
     if (!existsSync(file)) return null;
     const mtime = statSync(file).mtimeMs;
     if (!slotCache || slotCache.mtime !== mtime) slotCache = {mtime, rows: parseRows(readFileSync(file, 'utf8'))};
