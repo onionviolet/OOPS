@@ -19,6 +19,10 @@ shattering UI panels and more to consider?"
 style and intensity (rule 2). References are from memory; verify before
 citing details.
 
+## Current scope: everyday responsiveness and expressive detail, 2026-11-20
+
+The [November 20 direction](gm/USER_VISION_LOG_2026-11.md#responsive-animated-and-expressive-ui-2026-11-20) explicitly welcomes tactile clicks, animated actions, small transient symbols/emoticons, subject reactions and ambient detail. Feel and atmosphere can justify them without a new mechanic or decision. The historical rarity ladder below concerns dramatic power/event effects; it does not cap ordinary feedback, a hearth loop or a small decorative reaction. DESIGN DSG3/5 and UI rules UR91/139/146/165 own the current application. Meaningful result claims still come from the actual owner, and player effects/reduced-motion settings remain available. Sound remains separately optional.
+
 ## Direction: restraint makes effects land (Weibao, 2026-10-10)
 
 > It doesn't always have to be UI effects, this is to make any effect that
@@ -53,7 +57,7 @@ every time.
 | P4 | **Intensity tracks the rung** | *Slightly* is a wisp; *absurdly* is a show (E8F ladders). Bigger powers, bigger effects |
 | P5 | **Attention-aware** | An idle game is mostly unwatched. Animate when the player is looking; when they return, show a short highlight reel instead of replaying everything |
 | P6 | **Style per world** | Ink and brush in a Hanzi world, crisp system panels in a status-window world, grime in a grim one |
-| P7 | **Readable and comfortable** | Reduced motion, no harsh flashing, never color alone, a global effects slider |
+| P7 | **Readable and comfortable** | Reduced motion, no harsh flashing, a global effects slider (colour alone may carry meaning: Weibao, 2026-11-21) |
 
 ## Animation style and coolness
 
@@ -2222,7 +2226,7 @@ For rare set pieces, a tiny text picture can beat any animation.
 | IM4 | **Effect collection** | An "effects seen" page in the Notebook, like a bestiary, filled when each effect first plays. It doubles as the glossary and costs only a set of ids in the save (a persistence addition with an empty default) |
 | IM5 | **Touch screens** | Hover-based effects (shy text, cursed tooltips) need a tap equivalent; nothing may rely on hover alone |
 | IM6 | **Readability options** | A dyslexia-friendly option turns off spacing and letter-swap effects and keeps color and weight; a text-speed option controls typewriter effects |
-| IM7 | **Color-blind safety** | Every color-carried meaning has a glyph or weight backup (P7); test the palette under common simulations |
+| IM7 | **Color-blind safety** (retired 2026-11-21) | Weibao removed the colour-with-words rule; colour may carry meaning alone. Existing labels stay, because agents read them. |
 | IM8 | **Long sessions** | Idle tabs run for days. Effects must clean up their nodes and listeners; a soak test with the tab open for hours checks memory doesn't climb |
 | IM9 | **Theme tokens** | World styles as CSS custom properties (frame glyph set, palette, numeral style, sound vocabulary), switched on world crossing |
 | IM10 | **Stable ids for marks** | Cosmetic marks saved on records (scorch, kintsugi, dust age) reference effect ids that never get renamed; a renamed effect keeps an alias |

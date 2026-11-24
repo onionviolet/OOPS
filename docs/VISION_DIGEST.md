@@ -57,8 +57,10 @@ Ahead sources (2026-11-10): hold the source that runs furthest, prefer text that
 
 ## Current taste calls
 
+- **Responsive and expressive UI (2026-11-20).** Tactile clicks, animated actions, small subject reactions and symbols/emoticons, and ambient detail are welcome. Pleasant feel or atmosphere can justify presentation without another mechanic or decision. Calm hierarchy means readable, stable controls, not a static screen. [Direction and image follow-through](gm/USER_VISION_LOG_2026-11.md#responsive-animated-and-expressive-ui-2026-11-20).
+
 - Improve the Proto23-style functional UI first. Weibao found the pictured home unhelpful; prioritise housing information/actions in the existing shell and evaluate spatial views per actual task, not as a general upgrade ([feedback](USER_VISION.md#functional-proto23-style-ui-over-the-pictured-home-2026-11-01), [look owner](../DESIGN.md#selective-2d-exploration-2026-11-01)).
-- Desktop and laptop first, using the full screen with independent panels visible, not condensed. Target 1920x1080 ([why](USER_VISION.md#standing-ui-priority-2026-10-13)).
+- Desktop and laptop first, using the full screen with independent panels visible, not condensed. Lead workspace reviews at 1920×1080 on a populated save. Use 1280×800 for small-window stress checks ([direction](USER_VISION.md#standing-ui-priority-2026-10-13)).
 - One web codebase; Tauri is the desktop host from 2026-11-06, adjusted as we learn; Electron removed the same day ([why](USER_VISION.md#tauri-as-the-main-desktop-target-2026-11-06)). Older computers with 8 GB RAM are the performance target, not a verified minimum; reduce measured costs while preserving progression and saving ([direction](USER_VISION.md#comfortable-play-on-older-8-gb-computers-2026-11-06)).
 - Depth goes to book worlds and menus. Frontier and Mistglass stay playable test beds with no new depth of their own, and nothing is deleted ([why](USER_VISION.md#book-worlds-and-menus-first-frontier-and-mistglass-as-test-beds-2026-10-26)).
 - Canon play leads with Harry Potter, D&D and the book worlds; parallel versions start from easy reuse ([why](USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13)).

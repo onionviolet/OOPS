@@ -2,21 +2,14 @@
 
 ## Claude Code notes
 
-AGENTS.md is the shared rulebook for Codex and Claude. Edit it there, not here.
-
-For book/fanwork downloads, follow AGENTS.md's source acquisition tools link;
-it identifies the existing polite scraper and bridges before a new collector.
-
-PROJECT.md is a short current-state summary (under 200 lines, test-enforced; read it
-whole). Dated history is in `docs/gm/PROJECT_LOG_2026-10-29.md` (2026-10-07 to
-2026-10-29) and `docs/gm/PROJECT_LOG.md` (earlier): search them, do not read them whole.
+Follow the shared entry point above. Matching `.claude/rules/` files supply
+subsystem rules. Search the dated logs when the task needs a past decision.
 
 Codex history for this repo lives in `~/.codex/sessions/` (session_meta cwd
 `/Users/weiwei/code/yet-another-idle-rpg`) and `~/.codex/memories/MEMORY.md`.
 Search them when a past decision is not recorded in PROJECT.md or docs/.
 
-GM role and "subagent pool" language in AGENTS.md maps to Claude's Agent tool
-and separate sessions. Keep its ownership and handoff rules.
+For GM work, use the shared [coordination procedure](docs/gm/AGENT_WORKFLOWS.md#multi-agent-work). Claude uses its Agent tool or separate sessions when authorized.
 
 
 <!-- BEGIN PORTABLE AGENT RULES v1 -->

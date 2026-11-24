@@ -305,6 +305,7 @@ Preserve the distinction between a slice's deliberate compatibility choice and n
 
 - **Old saves:** no migration; a save without the key loads fresh (`migrate(null)`). A slice from a newer schema is refused on load, not guessed at.
 - **Writes:** nothing held writes no key, so existing saves stay byte-identical.
+- **Pump-station watch:** the optional validated `rewind.echoTrial` holds one mark, two mechanism states and one spending decision. Captures restore a mechanism while spending and the ending stay outside the capture. Missing `echoTrial` offers the watch afresh.
 - **A restore cannot corrupt a save:** a rewind plans on copies, runs each touched slice through its owner's `migrate`/`validate`, and loads only if all pass; a failed load rolls the loaded slices back. A tampered capture is refused with its reason and every slice stays as it was (`tests/rewind.test.js`).
 - **Not covered:** native clock, inventories, character (not domains); a downgrade drops the key (old-save compatibility is deferred, 2026-10-17).
 

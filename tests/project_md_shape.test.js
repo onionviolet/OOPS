@@ -7,11 +7,18 @@ import {fileURLToPath} from 'node:url';
 // a 2,200-line dated log twice, so the shape is enforced here, not in prose.
 const project = readFileSync(fileURLToPath(new URL('../PROJECT.md', import.meta.url)), 'utf8');
 const MAX_LINES = 200;
+const MAX_BYTES = 16_000;
 
 test('PROJECT.md stays a short current-state summary', () => {
   const lines = project.split('\n').length;
   assert.ok(lines <= MAX_LINES,
     `PROJECT.md has ${lines} lines (cap ${MAX_LINES}). Replace stale lines and move history to docs/gm/PROJECT_LOG_2026-10-29.md.`);
+});
+
+test('PROJECT.md stays within its text budget', () => {
+  const bytes = Buffer.byteLength(project, 'utf8');
+  assert.ok(bytes <= MAX_BYTES,
+    `PROJECT.md is ${bytes} bytes (cap ${MAX_BYTES}). Keep live state here and move detailed receipts to their owners.`);
 });
 
 test('PROJECT.md has no dated section headings', () => {

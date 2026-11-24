@@ -96,7 +96,7 @@ How to use and update it:
 
 ## UI and look
 
-- **Desktop and laptop first, full screen, not condensed.** "dont condense thing into one thing, I still need to scroll down, I want to fully make use of the Screen". Target 1920×1080; 1366×768 is retired as a target or gate; mobile waits unless he asks ([2026-10-13](gm/USER_VISION_LOG_2026-10.md#standing-ui-priority-2026-10-13), [2026-10-17](gm/USER_VISION_LOG_2026-10.md#extensible-panels-and-layout-seams-2026-10-16), [2026-10-19](gm/USER_VISION_LOG_2026-10.md#retire-the-1366768-floor-2026-10-19)).
+- **Desktop and laptop first, full screen, not condensed.** "dont condense thing into one thing, I still need to scroll down, I want to fully make use of the Screen". Lead workspace reviews at 1920×1080 on a populated save. Use 1280×800 as a secondary small-window stress check ([2026-11-24](gm/USER_VISION_LOG_2026-11.md#workspace-review-viewport-and-fit-2026-11-24)). The 1366×768 target is retired. Mobile waits unless he asks ([2026-10-13](gm/USER_VISION_LOG_2026-10.md#standing-ui-priority-2026-10-13), [2026-10-17](gm/USER_VISION_LOG_2026-10.md#extensible-panels-and-layout-seams-2026-10-16), [2026-10-19](gm/USER_VISION_LOG_2026-10.md#retire-the-1366768-floor-2026-10-19)).
 - **Proto23 is the visual and composition baseline**, keeping YAIR choices that serve its goals; the redesigned shell is the default ([2026-10-15](gm/USER_VISION_LOG_2026-10.md#parity-keeps-yair-specific-reasons-2026-10-15), [2026-10-15](gm/USER_VISION_LOG_2026-10.md#proto23-visual-baseline-reaffirmed-2026-10-15), [2026-10-16](gm/USER_VISION_LOG_2026-10.md#extensible-panels-and-layout-seams-2026-10-16)).
 - **Luminous Gothic (the blue) is the default and the one look to develop**; the paper skin is parked. MS Gothic is the internal default font ([2026-10-29](gm/USER_VISION_LOG_2026-10.md#luminous-gothic-is-the-default-look-2026-10-29), [2026-10-30](gm/USER_VISION_LOG_2026-10.md#gallery-less-generic-less-wall-of-text-2026-10-30), [2026-10-21](gm/USER_VISION_LOG_2026-10.md#current-reference-gaps-and-fitting-implementation-2026-10-20)).
 - **DESIGN.md is the one owner for the look** ([2026-10-30](gm/USER_VISION_LOG_2026-10.md#ui-identity-per-world-basics-and-combat-surfaces-2026-10-30)).
@@ -104,7 +104,7 @@ How to use and update it:
 - **Housing:** improve the Proto23-style functional home (overview, furniture, storage, actions), not a pictured 2D home ([2026-11-01](gm/USER_VISION_LOG_2026-11.md#functional-proto23-style-ui-over-the-pictured-home-2026-11-01)).
 - **Paths back to large panels**, everything viewable without much scrolling; related views may change their own panel instead of opening at the bottom by default ([2026-10-15](gm/USER_VISION_LOG_2026-10.md#overarching-design-direction-core-2026-10-15), [2026-10-15](gm/USER_VISION_LOG_2026-10.md#contextual-ui-navigation-and-standing-conventions-2026-10-15)).
 - **Task layers fit the craft:** browsing, inspection, setup, commitment, work and reference are roles that may share a pane ([2026-11-04](gm/USER_VISION_LOG_2026-11.md#task-appropriate-ui-layers-and-crafting-follow-through-2026-11-04)).
-- **Prose can stand on its own**; distinctive UI starts with actions, state, progress and feedback. UI effects are a rare menu, not a default ([2026-11-04](gm/USER_VISION_LOG_2026-11.md#prose-first-visuals-and-hall-interaction-2026-11-04), [2026-10-10](gm/USER_VISION_LOG_2026-10.md#jjk-world-adaptation-and-a-testing-world-2026-10-10)).
+- **Responsive, animated and expressive UI** includes tactile clicks, animated actions, subject reactions, brief symbols/emoticons and ambient detail. Pleasing presentation need not add a mechanic or decision. Prose can still stand alone; the earlier rare-effects wording does not cap ordinary feedback or atmosphere ([2026-11-20 clarification](gm/USER_VISION_LOG_2026-11.md#responsive-animated-and-expressive-ui-2026-11-20)).
 - **Whimsy belongs to UI and flavor; characters stay themselves.** "Whimsy in UI, Character is chracter, ui nad flavor is ui and flavor" ([2026-11-04](gm/USER_VISION_LOG_2026-11.md#ui-and-prose-defaults-subtle-details-and-whimsy-2026-11-04)).
 - **Subtle humour is worth considering in interface text.** "Consider for suble humor in things, like 456011 minues(or 317~ days) passed" ([2026-11-13](gm/USER_VISION_LOG_2026-11.md#ui-ideas-missed-catches-and-subtle-humour-2026-11-13)); deadpan lands better and it is a long-term consideration ("Some jokes landbetter deadpan, but this can be a long term thing to consider?"); how it is done is the proposed PRS13 in [prose rules](PROSE_RULES.md).
 - **Descriptions say what a thing means and does** for the character, with numbers available ([2026-10-25](gm/USER_VISION_LOG_2026-10.md#effect-first-ui-descriptions-2026-10-25)).
@@ -183,10 +183,12 @@ How to use and update it:
 
 ## Request log index
 
-Every former heading of this file, newest first, kept as an anchor. Each entry links to its full text in the log.
+Selected requests, newest first, with anchors preserved for former headings. Each entry links to its full text in the log.
 
 ### 2026-11
 
+[What OOPS should borrow or change to realize the vision, 2026-11-24](gm/USER_VISION_LOG_2026-11.md#what-oops-should-borrow-or-change-to-realize-the-vision-2026-11-24)<br>
+<a id="estimated-opponent-numbers-and-one-fight-view-2026-11-19"></a>[Estimated opponent numbers and one fight view, 2026-11-19](gm/USER_VISION_LOG_2026-11.md#estimated-opponent-numbers-and-one-fight-view-2026-11-19)<br>
 <a id="paid-api-passes-go-by-batch-with-the-shared-text-first-2026-11-16"></a>[Paid API passes go by batch, with the shared text first, 2026-11-16](gm/USER_VISION_LOG_2026-11.md#paid-api-passes-go-by-batch-with-the-shared-text-first-2026-11-16)<br>
 <a id="each-merge-deletes-the-merged-lanes-extras-2026-11-16"></a>[Each merge deletes the merged lanes' extras, 2026-11-16](gm/USER_VISION_LOG_2026-11.md#each-merge-deletes-the-merged-lanes-extras-2026-11-16)<br>
 <a id="rule-statuses-made-coherent-reconcile-closes-the-loop-2026-11-14"></a>[Rule statuses made coherent; reconcile closes the loop, 2026-11-14](gm/USER_VISION_LOG_2026-11.md#rule-statuses-made-coherent-reconcile-closes-the-loop-2026-11-14)<br>
