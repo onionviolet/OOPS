@@ -185,7 +185,8 @@ export function moveSlots(move, file = join(root, DIR, 'evidence', 'gu_move_slot
         const k = r.variant ?? null;
         if (!variants.has(k)) variants.set(k, []);
         variants.get(k).push({role: r.role, gu: r.gu ?? null, name: r.name, locator: r.locator, tier: r.tier,
-            order: r.orderStated ? r.order : null, orderStated: !!r.orderStated, resolution: r.resolution});
+            order: r.orderStated ? r.order : null, orderStated: !!r.orderStated, resolution: r.resolution,
+               secondRead: r.secondRead ?? null, secondReadNote: r.secondReadNote ?? null, job: r.job ?? null, jobAt: r.jobAt ?? null});
     }
     return {move, variants: [...variants].map(([variant, slots]) => ({variant, slots}))};
 }

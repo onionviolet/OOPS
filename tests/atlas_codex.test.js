@@ -96,12 +96,14 @@ test('WA23 moveSlots groups one move by variant, keeps open slots and unstated o
     const {join: pj} = await import('node:path');
     const file = pj(mkdtempSync(pj(tmpdir(), 'slots-')), 'gu_move_slots.jsonl');
     const row = o => JSON.stringify({move: 'm1', variant: 'm1@ch1', role: 'core', gu: 'a', name: 'A Gu', locator: 'ri:ch1:p1', tier: 'chapter', orderStated: false, order: null, resolution: 'exact', ...o});
-    writeFileSync(file, [row(), row({role: 'unnamed', gu: null, name: 'many mortal Gu', resolution: 'unresolved'}), row({variant: null, locator: 'wiki:M#x', tier: 'wiki'}), row({move: 'm2'})].join('\n') + '\n');
+    writeFileSync(file, [row(), row({role: 'unnamed', gu: null, name: 'many mortal Gu', resolution: 'unresolved', secondRead: 'differ', secondReadNote: 'n', job: 'feed', jobAt: 'ri:ch1:p2'}), row({variant: null, locator: 'wiki:M#x', tier: 'wiki'}), row({move: 'm2'})].join('\n') + '\n');
     const s = moveSlots('m1', file);
     assert.equal(s.variants.length, 2);
     const v1 = s.variants.find(v => v.variant === 'm1@ch1');
     assert.equal(v1.slots.length, 2);
     assert.deepEqual(v1.slots.map(t => t.role), ['core', 'unnamed']);
     assert.ok(v1.slots.every(t => t.order === null && t.orderStated === false));
+    assert.deepEqual([v1.slots[1].secondRead, v1.slots[1].secondReadNote, v1.slots[1].job, v1.slots[1].jobAt], ['differ', 'n', 'feed', 'ri:ch1:p2']);
+    assert.equal(v1.slots[0].secondRead, null, 'an unread slot stays null, never inferred');
     assert.equal(moveSlots('m1', file + '.missing'), null);
 });

@@ -166,14 +166,18 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
                     d.append(el('summary', `${v.variant || 'main'} · ${v.slots.length} slots`));
                     const ul = el('ul');
                     for (const t of v.slots) {
-                        const who = t.role === 'unnamed' ? `open slot (${t.name})` : `${t.role}: ${t.name}`;
+                        const who = t.role === 'unnamed' ? `open slot: ${t.job || t.name}` : `${t.role}: ${t.name}`;
                         const gu = t.gu ? ` → gu_kinds:${t.gu}` : '';
                         const order = t.orderStated ? ` · order ${t.order}` : ' · order not stated';
-                        ul.append(el('li', `${who}${gu} · ${t.resolution} · ${t.tier} · ${t.locator}${order}`));
+                        const job = t.job && t.role !== 'unnamed' ? ` · job: ${t.job}` : '';
+                        const jobAt = t.job && t.jobAt ? ` (job at ${t.jobAt})` : '';
+                        // B4: lane B's second read, kept as its own word; a differing read shows its note.
+                        const read = t.secondRead ? ` · second read: ${t.secondRead}${t.secondRead === 'differ' && t.secondReadNote ? ` (${t.secondReadNote})` : ''}` : ' · second read: none';
+                        ul.append(el('li', `${who}${gu}${job}${jobAt} · ${t.resolution} · ${t.tier} · ${t.locator}${order}${read}`));
                     }
                     d.append(ul); slotHost.append(d);
                 }
-                slotHost.append(el('p', 'Slots are machine-extracted; most are unchecked. Use Check this passage for a second read.', 'codex-missing'));
+                slotHost.append(el('p', 'Slots are machine-extracted. A second read of agree or differ is lane B\u2019s check of the chapter; none means unchecked.', 'codex-missing'));
             }).catch(e => slotHost.append(el('p', `Slots failed: ${e.message}`, 'codex-missing')));
         }
         // WA24: what the local text already says about this row, before anyone pays for a read. Text stays on this page.
