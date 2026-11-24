@@ -37,6 +37,7 @@ import {transferView} from '/transfer-view.mjs';
 import {findingsView, thingsView, makingView} from '/things-views.mjs';
 import {codexView} from '/codex-views.mjs';
 import {cheatsView, changesView} from '/cheats-views.mjs';
+import {ideasView} from '/ideas-views.mjs';
 import {creatureMarks, creatureOverview, creatureShelf, creatureNeighborhood, libraryEdges} from '/creature-layout.mjs';
 
 const main=document.querySelector('main'), nav=document.querySelector('nav');
@@ -68,7 +69,7 @@ const worldById=new Map(WORLDS.map(w=>[w.id,w]));
 const VIEW_LABELS={things:'Things',making:'Making',findings:'Reader findings',source:'Source map',scenes:'Scenes',overview:'Where things stand',mechanics2:'Mechanics',implementation:'Implementation',transfer:'Send to the game',places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
  pipeline:'Reading pipeline',list:'Catalogue',candidates:'Candidates',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds',observations:'Identified target',site:'Village site workshop'};
 const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'library',label:'Library',views:['pipeline','shelves','mechanics']},
- {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'progress',label:'Progress',views:['overview','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['implementation','transfer','site']},{id:'codex',label:'Codex'},{id:'cheats',label:'Cheats',views:['list','candidates']},{id:'changes',label:'Changes'}];
+ {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'progress',label:'Progress',views:['overview','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['implementation','transfer','site']},{id:'codex',label:'Codex'},{id:'cheats',label:'Cheats',views:['list','candidates']},{id:'ideas',label:'Ideas'},{id:'changes',label:'Changes'}];
 const LEGACY={'village-region':'world/village/places','other-game-places':'worlds','book-worlds':'world/lotm/places','reading-pipeline':'library/pipeline',
  'library-shelves':'library/shelves','mechanic-readiness':'library/mechanics','tingen-districts':'world/lotm/districts','world-library':'worlds',
  'entity-library':'creatures/kinds','village-site-workshop':'workbench/site','cyoria-encounter':'world/mol/encounter','identified-target':'creatures/observations'};
@@ -77,6 +78,7 @@ function route(){
  const raw=location.hash.slice(1);if(LEGACY[raw]){history.replaceState(null,'','#'+LEGACY[raw]);return route()}
  const [section='worlds',a,b,c]=raw.split('/');
  if(section==='codex')return {section:'codex',ledger:/^[a-z0-9_]+$/.test(a||'')?a:'gu_kinds'};
+ if(section==='ideas')return {section:'ideas',focus:a?decodeURIComponent(a):null};
  if(section==='cheats')return {section:'cheats',view:a==='candidates'?'candidates':'list',focus:/^CTC\d+$/.test(b||'')?b:null};
  if(section==='world'&&worldById.has(a)){const w=worldById.get(a);return {section:'worlds',world:w,view:w.views.includes(b)?b:w.views[0],focus:c?decodeURIComponent(c):null}}
  const s=SECTIONS.find(x=>x.id===section)||SECTIONS[0];
@@ -102,6 +104,7 @@ function showPage(){
  if(r.world)return worldView(r.world,r.view,{...shared,focus:r.focus});
  if(r.section==='worlds')return worldsIndex();
  if(r.section==='codex')return codexView({...shared,ledger:r.ledger,go});
+ if(r.section==='ideas')return ideasView({...shared,focus:r.focus,go});
  if(r.section==='cheats')return cheatsView({...shared,tab:r.view,focus:r.focus,go});
  if(r.section==='changes')return changesView(shared);
  ({pipeline:()=>readingPipeline(shared),shelves:()=>libraryShelves(shared),mechanics:()=>mechanicReadiness(shared),

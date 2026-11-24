@@ -10,6 +10,7 @@ import {readLibrary} from './library-reading.mjs';
 import {readBatches} from './batch-status.mjs';
 import {buildCodex} from './codex.mjs';
 import {buildCheats} from './cheats.mjs';
+import {buildIdeas} from './ideas.mjs';
 import {buildChanges} from './changelog.mjs';
 
 const here = fileURLToPath(new URL('.', import.meta.url)), root = join(here, '..', '..');
@@ -79,10 +80,11 @@ export function buildSnapshot(out = SNAPSHOT) {
     const gameMaking = part('gameMaking', () => run('game-making.mjs'));
     const codex = part('codex', () => buildCodex()); // aggregates only; row pages are served on demand (C1)
     const cheats = part('cheats', () => buildCheats()); // summary and top candidates only; rows are served on demand
+    const ideas = part('ideas', () => buildIdeas()); // summary only (boards, families, collisions, residue counts); rows are served on demand
     const head = execFileSync('git', ['rev-parse', '--short', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim();
     const changes = part('changes', () => buildChanges({commit: head, codex, cheats, existing: readSnapshot(out)?.changes ?? null}));
     const snapshot = {builtAt: new Date().toISOString(), commit: execFileSync('git', ['rev-parse', '--short', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim(),
-        dirty, latestCollectedAt, timings, failures, books, frontier: native.frontier, others: native.others, sources, mechanics, progress, findings, recipes, gameMaking, codex, cheats, changes};
+        dirty, latestCollectedAt, timings, failures, books, frontier: native.frontier, others: native.others, sources, mechanics, progress, findings, recipes, gameMaking, codex, cheats, ideas, changes};
     return snapshot;
 }
 
@@ -100,6 +102,6 @@ if (import.meta.main) {
     const count = v => v ? v.places?.length ?? v.length ?? Object.keys(v).length : 0;
     console.log(JSON.stringify({out, commit: s.commit, books: Object.fromEntries(Object.entries(s.books).map(([k, v]) => [k, v.places.length])),
         village: s.frontier.length, others: s.others.length, sources: Object.fromEntries(Object.entries(s.sources).map(([k, v]) => [k, count(v)])),
-        mechanics: s.mechanics?.mechanics.length ?? 0, progress: s.progress?.snapshot ?? null, findings: s.findings?.worlds.filter(w => w.read).length ?? 0, recipes: s.recipes?.recipes.length ?? 0, gameMaking: s.gameMaking?.rows.length ?? 0, codex: s.codex?.ledgers.length ?? 0, cheats: s.cheats?.counts ?? null, changes: s.changes?.previous ? s.changes.previous.commit : null, timings: s.timings, failures: s.failures}));
+        mechanics: s.mechanics?.mechanics.length ?? 0, progress: s.progress?.snapshot ?? null, findings: s.findings?.worlds.filter(w => w.read).length ?? 0, recipes: s.recipes?.recipes.length ?? 0, gameMaking: s.gameMaking?.rows.length ?? 0, codex: s.codex?.ledgers.length ?? 0, cheats: s.cheats?.counts ?? null, ideas: s.ideas?.counts ?? null, changes: s.changes?.previous ? s.changes.previous.commit : null, timings: s.timings, failures: s.failures}));
     if (s.failures.some(f => f.required)) process.exit(1);
 }

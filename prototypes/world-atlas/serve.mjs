@@ -16,6 +16,7 @@ import {readBatches, batchCommands} from './batch-status.mjs';
 import {buildCodex, summary as codexSummary, pageRows as codexPage, readLedger as codexLedger, ledgerNames as codexNames, moveSlots} from './codex.mjs';
 import {readCheats, summarize as cheatsSummary, pageCheats} from './cheats.mjs';
 import {changesSince} from './changelog.mjs';
+import {readIdeas, summarize as ideasSummary, pageIdeas, pageBoards, rowDetail as ideaRow, familiesOf as ideaFamilies, residueOf as ideaResidue} from './ideas.mjs';
 import {LOTM_DISTRICTS, districtCommands, lotmWalkRoute, LOTM_PLACE_KEYS} from '../../src/book_world_lotm_districts.js';
 import {brewCommands} from '../../src/book_world_lotm_brew.js';
 import {molCommands, molEncounters} from '../../src/book_world_mol_actions.js';
@@ -136,6 +137,7 @@ const assets = {
     '/things-views.mjs':['./things-views.mjs','text/javascript'],
     '/codex-views.mjs':['./codex-views.mjs','text/javascript'],
     '/cheats-views.mjs':['./cheats-views.mjs','text/javascript'],
+    '/ideas-views.mjs':['./ideas-views.mjs','text/javascript'],
 };
 for (let size=7;size<=22;size++) {
     const path='resources/fonts/private/gothic-bitmap-'+size+'.woff2';
@@ -209,6 +211,18 @@ const server=createServer(async(req,res)=>{
             if(!cheatsUrl[1])return json(cheatsSummary(data,{hash:data.hash,files:data.files}));
             const q = new URL(req.url,'http://x').searchParams;
             return json({...pageCheats(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),status:q.get('status'),world:q.get('world')}),hash:data.hash});
+        }
+        // Ideas: /ideas summary, /ideas/rows, /ideas/row, /ideas/families, /ideas/boards, /ideas/residue (contract at the top of ideas.mjs). Never in /data (C1).
+        const ideasUrl=/^\/ideas(?:\/(rows|row|families|boards|residue))?(?:\?.*)?$/.exec(req.url);
+        if(req.method === 'GET' && ideasUrl){
+            const data = readIdeas(), q = new URL(req.url,'http://x').searchParams, json = body => res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(body));
+            const miss = what => res.writeHead(404,{'Content-Type':'text/plain'}).end('No such '+what+'.');
+            if(!ideasUrl[1])return json(ideasSummary(data,{hash:data.hash,files:data.files}));
+            if(ideasUrl[1] === 'rows')return json({...pageIdeas(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),board:q.get('board'),family:q.get('family'),status:q.get('status'),kind:q.get('kind') || 'idea',links:q.get('links'),local:q.get('local')}),hash:data.hash});
+            if(ideasUrl[1] === 'row'){const out = ideaRow(data,q.get('id') || ''); return out ? json(out) : miss('idea');}
+            if(ideasUrl[1] === 'families')return json(ideaFamilies(data));
+            if(ideasUrl[1] === 'boards')return json({...pageBoards(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),tier:q.get('tier')}),hash:data.hash});
+            const out = ideaResidue(data,q.get('board') || ''); return out ? json(out) : miss('board');
         }
         // Changes: what moved in the atlas's inputs since the previous snapshot (or a given date or commit).
         const changesUrl=/^\/changes(?:\?.*)?$/.exec(req.url);
