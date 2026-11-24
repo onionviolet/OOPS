@@ -22,7 +22,7 @@ header,main{max-width:none;padding-inline:clamp(.8rem,2vw,2rem)}
 @media(max-width:750px){.atlas-workspace{grid-template-columns:1fr}.atlas-plane{min-width:480px}.atlas-workspace aside{max-height:none}}
 .map-scale{display:flex;justify-content:flex-end;align-items:center;gap:.4rem;margin-top:.35rem}.map-scale button{padding:.1em .6em}.map-scale output{font-variant-numeric:tabular-nums}.atlas-stop{max-width:13rem}
 </style><link rel="stylesheet" href="/styles/ui_tokens.css"><link rel="stylesheet" href="/styles/material_icons.css"><link rel="stylesheet" href="/field-record.css"><link rel="stylesheet" href="/canvas.css">
-<header><h1>World atlas</h1><nav aria-label="Atlas sections"></nav></header><div class="atlas-trail" aria-label="Where you are"></div><main id="main">Loading world records…</main>
+<header><div class="atlas-heading"><h1>World atlas</h1><div id="atlas-snapshot"></div></div><nav aria-label="Atlas sections"></nav></header><div class="atlas-trail" aria-label="Where you are"></div><main id="main">Loading world records…</main>
 <script type="module">
 import {boxCanvas, element as el} from '/canvas.mjs';
 import {createCreatureRecord} from '/creature-record.js';
@@ -32,8 +32,11 @@ import {bookWorlds} from '/book-worlds.mjs';
 import {otherPlaces} from '/other-places.mjs';
 import {readingPipeline, libraryShelves, mechanicReadiness, libraryWorlds, worldTitle} from '/library-views.mjs';
 import {sourceGamePage, scenesView, mechanicsView, progressView, SOURCE_GAMES} from '/atlas-views.mjs';
+import {implementationView, snapshotStatus} from '/implementation-view.mjs';
 import {transferView} from '/transfer-view.mjs';
 import {findingsView, thingsView, makingView} from '/things-views.mjs';
+import {codexView} from '/codex-views.mjs';
+import {cheatsView, changesView} from '/cheats-views.mjs';
 import {creatureMarks, creatureOverview, creatureShelf, creatureNeighborhood, libraryEdges} from '/creature-layout.mjs';
 
 const main=document.querySelector('main'), nav=document.querySelector('nav');
@@ -41,6 +44,7 @@ const button=(label,fn)=>{const b=el('button',label);b.type='button';b.onclick=f
 const list=rows=>{const ul=el('ul');for(const r of rows)ul.append(el('li',r));return ul};const listOf=list;
 const detail=(title,value)=>{const d=el('details');d.append(el('summary',title),el('pre',value));return d};
 const data=await (await fetch('/data')).json();data.bookIndex={};
+snapshotStatus(document.getElementById('atlas-snapshot'), data);
 let draft={...data.draft};
 // One shell: four sections; a world owns its places, walks and reading. Old tab links still land.
 const WORLDS=[
@@ -61,10 +65,10 @@ const WORLDS=[
 // Every other read world with reader rows gets a page of its own: things, making and its reading lane.
 for(const f of data.findings?.worlds||[])if(f.read&&!WORLDS.some(w=>w.id===f.world))WORLDS.push({id:f.world,label:worldTitle(f.world),readOnly:true,note:'Read by the batch readers; not used by the game yet',views:['things','making','reading']});
 const worldById=new Map(WORLDS.map(w=>[w.id,w]));
-const VIEW_LABELS={things:'Things',making:'Making',findings:'Reader findings',source:'Source map',scenes:'Scenes',overview:'Where things stand',mechanics2:'Mechanics',transfer:'Send to the game',places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
- pipeline:'Reading pipeline',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds',observations:'Identified target',site:'Village site workshop'};
+const VIEW_LABELS={things:'Things',making:'Making',findings:'Reader findings',source:'Source map',scenes:'Scenes',overview:'Where things stand',mechanics2:'Mechanics',implementation:'Implementation',transfer:'Send to the game',places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
+ pipeline:'Reading pipeline',list:'Catalogue',candidates:'Candidates',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds',observations:'Identified target',site:'Village site workshop'};
 const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'library',label:'Library',views:['pipeline','shelves','mechanics']},
- {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'progress',label:'Progress',views:['overview','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['transfer','site']}];
+ {id:'creatures',label:'Creatures',views:['kinds','observations']},{id:'progress',label:'Progress',views:['overview','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['implementation','transfer','site']},{id:'codex',label:'Codex'},{id:'cheats',label:'Cheats',views:['list','candidates']},{id:'changes',label:'Changes'}];
 const LEGACY={'village-region':'world/village/places','other-game-places':'worlds','book-worlds':'world/lotm/places','reading-pipeline':'library/pipeline',
  'library-shelves':'library/shelves','mechanic-readiness':'library/mechanics','tingen-districts':'world/lotm/districts','world-library':'worlds',
  'entity-library':'creatures/kinds','village-site-workshop':'workbench/site','cyoria-encounter':'world/mol/encounter','identified-target':'creatures/observations'};
@@ -72,6 +76,8 @@ const go=hash=>{location.hash=hash};
 function route(){
  const raw=location.hash.slice(1);if(LEGACY[raw]){history.replaceState(null,'','#'+LEGACY[raw]);return route()}
  const [section='worlds',a,b,c]=raw.split('/');
+ if(section==='codex')return {section:'codex',ledger:/^[a-z0-9_]+$/.test(a||'')?a:'gu_kinds'};
+ if(section==='cheats')return {section:'cheats',view:a==='candidates'?'candidates':'list',focus:/^CTC\d+$/.test(b||'')?b:null};
  if(section==='world'&&worldById.has(a)){const w=worldById.get(a);return {section:'worlds',world:w,view:w.views.includes(b)?b:w.views[0],focus:c?decodeURIComponent(c):null}}
  const s=SECTIONS.find(x=>x.id===section)||SECTIONS[0];
  return {section:s.id,view:s.views?.includes(a)?a:s.views?.[0]};
@@ -95,8 +101,11 @@ function showPage(){
  const shared={main,data,controls,finder,list:listOf,button,routeButtons,closeCanvas};
  if(r.world)return worldView(r.world,r.view,{...shared,focus:r.focus});
  if(r.section==='worlds')return worldsIndex();
+ if(r.section==='codex')return codexView({...shared,ledger:r.ledger,go});
+ if(r.section==='cheats')return cheatsView({...shared,tab:r.view,focus:r.focus,go});
+ if(r.section==='changes')return changesView(shared);
  ({pipeline:()=>readingPipeline(shared),shelves:()=>libraryShelves(shared),mechanics:()=>mechanicReadiness(shared),
-   kinds:()=>library(),observations:target,site:editor,overview:()=>progressView(shared),findings:()=>findingsView(shared),mechanics2:()=>mechanicsView(shared),transfer:()=>transferView(shared)})[r.view]();
+   kinds:()=>library(),observations:target,site:editor,overview:()=>progressView(shared),findings:()=>findingsView(shared),mechanics2:()=>mechanicsView(shared),implementation:()=>implementationView(shared),transfer:()=>transferView(shared)})[r.view]();
 }
 function worldView(w,view,shared){
  if(view==='source')return sourceGamePage({...shared,game:w.source,focus:undefined});

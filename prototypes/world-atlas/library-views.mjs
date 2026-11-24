@@ -132,6 +132,9 @@ export function readingPipeline({main, data, controls, finder, list, button, clo
                     walkable: w.walkVia === 'host' && w.castPlaces ? 'Walked by its own host' : `${w.onWalk} places on a walk`,
                 }[id];
                 side.append(el('p', facts));
+                if (id === 'read' && data.findings?.worlds.some(world => world.world === w.id && world.read)) {
+                    side.append(button('Open collected findings', () => {location.hash = `world/${w.id}/things`;}));
+                }
                 if (id === 'inGame' && w.consumer?.cast) side.append(button('Open places', () => {location.hash = `world/${w.id}/places`;}));
                 if (id === 'inGame' && w.located) side.append(button('Open registered locations', () => {location.hash = `world/${w.id}/locations`;}));
                 if (id === 'walkable' && !w.reached.walkable && w.consumer && !w.consumer.cast) side.append(el('p', 'Not established: these locations have no walk projection in the atlas yet.'));

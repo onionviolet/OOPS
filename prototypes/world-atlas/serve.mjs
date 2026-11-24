@@ -1,15 +1,21 @@
 // Development-only, read-only projections of public world definitions.
 import {entityLibrary} from './entity-library.mjs';
-import {execFileSync, spawn} from 'node:child_process';
+import {execFile, execFileSync, spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createServer} from 'node:http';
 import {readFile, writeFile, mkdir, readdir} from 'node:fs/promises';
 import {existsSync, readFileSync, openSync} from 'node:fs';
 import {FLAGGED_PLACES} from '../../scripts/atlas/transfer_candidate.mjs';
-import {dirname} from 'node:path';
+import {dirname, join} from 'node:path';
+import {promisify} from 'node:util';
+import {implementation} from './implementation.mjs';
+import {encodeSaveFile} from '../../src/save_files.js';
 import {readLibrary} from './library-reading.mjs';
-import {readSnapshot, buildSnapshot, latestProgress, READERS} from './build.mjs';
+import {readSnapshot, buildSnapshot, latestProgress, latestBatchCollection, READERS} from './build.mjs';
 import {readBatches, batchCommands} from './batch-status.mjs';
+import {buildCodex, summary as codexSummary, pageRows as codexPage, readLedger as codexLedger, ledgerNames as codexNames} from './codex.mjs';
+import {readCheats, summarize as cheatsSummary, pageCheats} from './cheats.mjs';
+import {changesSince} from './changelog.mjs';
 import {LOTM_DISTRICTS, districtCommands, lotmWalkRoute, LOTM_PLACE_KEYS} from '../../src/book_world_lotm_districts.js';
 import {brewCommands} from '../../src/book_world_lotm_brew.js';
 import {molCommands, molEncounters} from '../../src/book_world_mol_actions.js';
@@ -38,18 +44,44 @@ const target=['first meeting','after play','smoky hearth'].map((stage,i)=>househ
     homeId:'cottage',hearth:{smoke:i===2?1:0,fuelMinutes:0},
     animal:{metAt:0,ageMinutes:i?60:0,mood:i===2?'sheltering':'curious',bond:i?10:0,playVisits:i?1:0,playObject:'yarn',adopted:false}
 },observer));
-// The batch build (build.mjs) writes one snapshot; the server reads it, or builds one when it is missing or ATLAS_REBUILD=1.
-const snap=(!process.env.ATLAS_REBUILD&&readSnapshot())||buildSnapshot();
-// ATLAS_LOTM_CAST previews a scratch pack, so the cast projection reruns instead of coming from the snapshot.
-const books=process.env.ATLAS_LOTM_CAST?JSON.parse(execFileSync(process.execPath,[fileURLToPath(new URL('./cast-places.mjs',import.meta.url))],{encoding:'utf8',maxBuffer:64e6})):snap.books;
-const {frontier,others,sources,mechanics,findings,recipes,gameMaking}=snap;
-const progress=latestProgress(); // read live: a new /progress-atlas file shows without a rebuild
-const reading=readLibrary();
-const batches=readBatches(reading.keys.map(k=>k.key));
+// Read collected batch receipts on each Atlas load. One shared build brings newly collected shards into the views.
+let snap = (!process.env.ATLAS_REBUILD && readSnapshot()) || buildSnapshot();
+let refresh, refreshError, attemptedCollection = 0;
+const run = promisify(execFile);
+const root = fileURLToPath(new URL('../../', import.meta.url));
+const previewBooks = process.env.ATLAS_LOTM_CAST
+    ? JSON.parse(execFileSync(process.execPath, [fileURLToPath(new URL('./cast-places.mjs', import.meta.url))], {encoding:'utf8', maxBuffer:64e6}))
+    : null;
+const currentBooks = () => previewBooks ?? snap.books;
+
+function refreshAtlas() {
+    if (!refresh) refresh = run(process.execPath, [fileURLToPath(new URL('./build.mjs', import.meta.url))], {cwd: root})
+        .then(() => {snap = readSnapshot(); refreshError = null;})
+        .catch(error => {refreshError = 'Atlas refresh failed. The previous snapshot is still available.'; throw error;})
+        .finally(() => {refresh = null;});
+    return refresh;
+}
+async function atlasData() {
+    if (refresh) await refresh.catch(() => {});
+    const reading = readLibrary();
+    const batches = readBatches(reading.keys.map(k => k.key));
+    const latestCollectedAt = latestBatchCollection(batches);
+    const current = readSnapshot();
+    if (current?.builtAt > snap.builtAt) snap = current;
+    if (latestCollectedAt > Math.max(snap.latestCollectedAt ?? Date.parse(snap.builtAt), attemptedCollection)) {
+        attemptedCollection = latestCollectedAt;
+        await refreshAtlas().catch(() => {});
+    }
+    const {builtAt, commit, dirty, failures, findings, recipes, gameMaking, sources, mechanics, frontier, others} = snap;
+    return {findings, recipes, gameMaking, transfer, snapshot:{builtAt, commit, dirty, failures}, sources, mechanics,
+        progress: latestProgress(), batches, latestCollectedAt, refreshError, reading, readingRequests: loadRequests(),
+        frontier, others, books:currentBooks(), library:entityLibrary(places,actors), target, places, actors:Object.fromEntries(actors),
+        encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT, implementation};
+}
 // Reading requests: the atlas's writeback for the library. Gitignored; nothing runs from it.
 const requestFile=process.env.ATLAS_REQUESTS||fileURLToPath(new URL('../../work/atlas-reading-requests.json',import.meta.url));
 const loadRequests=()=>existsSync(requestFile)?JSON.parse(readFileSync(requestFile,'utf8')).requests:[];
-function readingRoute(world,aspect){
+function readingRoute(world,aspect,reading){
     const keys=reading.keys.filter(k=>k.world===world);
     if(!keys.length||!reading.aspects.includes(aspect))throw Error('Unknown world or mechanic.');
     const names=keys.map(k=>k.key).join(',');
@@ -58,10 +90,9 @@ function readingRoute(world,aspect){
     return {route:'review',next:`node scripts/lead_run/reading_review.mjs --keys ${names} --topic ${aspect} --out work/reading-requests/${world}-${aspect}`};
 }
 // Placement picks: the atlas's writeback for places. Gitignored; transfer_candidate.mjs turns them into a candidate pack.
-const root=fileURLToPath(new URL('../../',import.meta.url));
 const picksFile=process.env.ATLAS_PICKS||root+'work/atlas-picks.json', transferDir=root+'work/atlas-transfer';
 const loadPicks=()=>existsSync(picksFile)?JSON.parse(readFileSync(picksFile,'utf8')).picks:[];
-const lotmPlaces=new Map((books.lotm?.places||[]).map(p=>[p.id,p]));
+const lotmPlaces = () => new Map((currentBooks().lotm?.places || []).map(p => [p.id, p]));
 const transfer={districts:LOTM_DISTRICTS.map(d=>({id:d.id,label:d.label||d.qlabel||d.id})),flagged:FLAGGED_PLACES};
 let running=null;
 async function transferState(){
@@ -76,9 +107,9 @@ async function transferState(){
         else if(existsSync(dir+'/run.log'))row.error=readFileSync(dir+'/run.log','utf8').trim().split('\n').slice(-3).join(' ');
         runs.push(row);
     }
-    return {picks:loadPicks().map(p=>({...p,label:lotmPlaces.get(p.place)?.name})),picksFile:picksFile.replace(root,''),running:!!running,runs};
+    const byId = lotmPlaces();
+    return {picks:loadPicks().map(p=>({...p,label:byId.get(p.place)?.name})),picksFile:picksFile.replace(root,''),running:!!running,runs};
 }
-export const api = {findings,recipes,gameMaking,transfer,snapshot:{builtAt:snap.builtAt,commit:snap.commit,failures:snap.failures},sources,mechanics,progress,batches,reading,readingRequests:loadRequests(),frontier,others,books,library:entityLibrary(places,actors),target,places, actors:Object.fromEntries(actors), encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT};
 const assets = {
     '/creature-record.js':['../../src/ui/creature_record.js','text/javascript'],
     '/kit.js':['../../src/ui/kit.js','text/javascript'],
@@ -100,8 +131,11 @@ const assets = {
     '/other-places.mjs':['./other-places.mjs','text/javascript'],
     '/library-views.mjs':['./library-views.mjs','text/javascript'],
     '/atlas-views.mjs':['./atlas-views.mjs','text/javascript'],
+    '/implementation-view.mjs':['./implementation-view.mjs','text/javascript'],
     '/transfer-view.mjs':['./transfer-view.mjs','text/javascript'],
     '/things-views.mjs':['./things-views.mjs','text/javascript'],
+    '/codex-views.mjs':['./codex-views.mjs','text/javascript'],
+    '/cheats-views.mjs':['./cheats-views.mjs','text/javascript'],
 };
 for (let size=7;size<=22;size++) {
     const path='resources/fonts/private/gothic-bitmap-'+size+'.woff2';
@@ -113,22 +147,86 @@ const server=createServer(async(req,res)=>{
             const [file,type]=assets[req.url];
             return res.writeHead(200,{'Content-Type':type}).end(await readFile(new URL(file,import.meta.url)));
         }
-        if(req.method === 'GET' && req.url === '/data')return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(api));
+        if(req.method === 'GET' && req.url === '/data') {
+            const data = await atlasData();
+            return res.writeHead(200, {'Content-Type':'application/json', 'Cache-Control':'no-store'}).end(JSON.stringify(data));
+        }
+        if(req.method === 'POST' && req.url === '/refresh' && req.headers['content-type'] === 'application/json') {
+            try {
+                await refreshAtlas();
+                return res.writeHead(204).end();
+            } catch {
+                return res.writeHead(500, {'Content-Type':'text/plain'}).end(refreshError);
+            }
+        }
+        const workResource = /^\/implementation\/([a-z0-9-]+)\/(save|design|owner|proof)$/.exec(req.url);
+        if(req.method === 'GET' && workResource) {
+            const [, id, key] = workResource;
+            const work = implementation.find(item => item.id === id);
+            if (work && key === 'save') {
+                const {scenarioSave} = await import('../../scripts/headless/scenarios.mjs');
+                const save = await scenarioSave(work.id);
+                return res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8',
+                    'Content-Disposition':'attachment; filename="' + id + '.txt"'}).end(encodeSaveFile(save));
+            }
+            if (work?.references[key]) {
+                const text = await readFile(join(root, work.references[key].path));
+                return res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'}).end(text);
+            }
+        }
+        // Codex: /codex lists ledgers, /codex/<ledger> is its summary, /codex/<ledger>/rows pages its rows. Never in /data (C1).
+        // WA24 (owned by scripts/check_passage.py): local-text check for one Gu row. JSON goes to the page only; match text is never written to tracked files.
+        const passageUrl=/^\/codex\/(gu_kinds|gu_moves)\/check-passage\?/.exec(req.url);
+        if(req.method === 'GET' && passageUrl){
+            const id = new URL(req.url,'http://x').searchParams.get('id') || '';
+            if(!/^[\w.:-]{1,160}$/.test(id))return res.writeHead(400,{'Content-Type':'application/json'}).end(JSON.stringify({error:'Bad row id.'}));
+            execFile('python3',['-I','scripts/check_passage.py','--ledger',passageUrl[1],'--id',id,'--json'],{cwd:root,timeout:30000,maxBuffer:16e6},(err,stdout,stderr)=>{
+                if(err)return res.writeHead(502,{'Content-Type':'application/json'}).end(JSON.stringify({error:(stderr||err.message).split('\n').filter(Boolean).pop()||'check_passage failed'}));
+                res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(stdout);
+            });
+            return;
+        }
+        const codexUrl=/^\/codex(?:\/([a-z0-9_]+)(\/rows)?)?(?:\?.*)?$/.exec(req.url);
+        if(req.method === 'GET' && codexUrl){
+            const [, ledger, rows] = codexUrl, json = body => res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(body));
+            const codex = snap.codex?.canonical ? snap.codex : (snap.codex = buildCodex()); // a snapshot built before nextAction lacks the canonical list
+            if(!ledger)return json({ledgers:codex.ledgers.map(l=>({ledger:l.ledger,rows:l.rows,things:l.things,counts:l.counts}))});
+            if(!codexNames().includes(ledger))return res.writeHead(404,{'Content-Type':'text/plain'}).end('No such ledger.');
+            if(!rows)return json(codexSummary(codex,ledger));
+            const q = new URL(req.url,'http://x').searchParams, entry = codexLedger(ledger);
+            return json({...codexPage(ledger,entry.rows,{offset:q.get('offset'),limit:q.get('limit'),state:q.get('state'),q:q.get('q')}),hash:entry.hash});
+        }
+        // Cheats: /cheats is the summary, /cheats/rows pages catalogue rows (or `status=candidate` sweep rows). Never in /data (C1).
+        const cheatsUrl=/^\/cheats(\/rows)?(?:\?.*)?$/.exec(req.url);
+        if(req.method === 'GET' && cheatsUrl){
+            const data = readCheats(), json = body => res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(body));
+            if(!cheatsUrl[1])return json(cheatsSummary(data,{hash:data.hash,files:data.files}));
+            const q = new URL(req.url,'http://x').searchParams;
+            return json({...pageCheats(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),status:q.get('status'),world:q.get('world')}),hash:data.hash});
+        }
+        // Changes: what moved in the atlas's inputs since the previous snapshot (or a given date or commit).
+        const changesUrl=/^\/changes(?:\?.*)?$/.exec(req.url);
+        if(req.method === 'GET' && changesUrl){
+            const since = new URL(req.url,'http://x').searchParams.get('since');
+            const body = JSON.stringify(changesSince(snap.changes,since)); // built first: a bad `since` must reach the 400 handler before headers are sent
+            return res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(body);
+        }
         if(req.method === 'GET' && req.url === '/creatures')return res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'}).end(await readFile(new URL('../creature-desk/index.html',import.meta.url)));
         if(req.method === 'GET' && req.url === '/')return res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'}).end(await readFile(new URL('./index.html',import.meta.url)));
         if(req.method === 'POST' && req.url === '/reading-request'){
             let body='';for await(const chunk of req){body+=chunk;if(body.length>2000)throw Error('Request is too large.');}
             const {world,aspect}=JSON.parse(body);
+            const reading = readLibrary();
             const requests=loadRequests();
-            if(!requests.some(r=>r.world===world&&r.aspect===aspect))requests.push({world,aspect,keys:reading.keys.filter(k=>k.world===world).map(k=>k.key),...readingRoute(world,aspect),requestedAt:new Date().toISOString()});
+            if(!requests.some(r=>r.world===world&&r.aspect===aspect))requests.push({world,aspect,keys:reading.keys.filter(k=>k.world===world).map(k=>k.key),...readingRoute(world,aspect,reading),requestedAt:new Date().toISOString()});
             await mkdir(dirname(requestFile),{recursive:true});
             await writeFile(requestFile,JSON.stringify({note:'Atlas reading requests. Proposals only; nothing runs from this file.',requests},null,1)+'\n');
-            api.readingRequests=requests;
             return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(requests));
         }
         // One reader digest per world, fetched when a Things or Making view opens (LOTM's is several MB).
         const reader=/^\/readers\/([a-z0-9-]+)$/.exec(req.url);
         if(req.method === 'GET' && reader){
+            if (refresh) await refresh.catch(() => {});
             const file=READERS+'/'+reader[1]+'.json';
             if(!existsSync(file))return res.writeHead(404,{'Content-Type':'text/plain'}).end('No reader digest for this world. Run node prototypes/world-atlas/build.mjs.');
             return res.writeHead(200,{'Content-Type':'application/json'}).end(await readFile(file));
@@ -137,7 +235,7 @@ const server=createServer(async(req,res)=>{
         if(req.method === 'POST' && req.url === '/pick'){
             let body='';for await(const chunk of req){body+=chunk;if(body.length>2000)throw Error('Request is too large.');}
             const {place,district}=JSON.parse(body);
-            if(!lotmPlaces.has(place))throw Error('Unknown place.');
+            if(!lotmPlaces().has(place))throw Error('Unknown place.');
             if(FLAGGED_PLACES[place])throw Error('Not offered: '+FLAGGED_PLACES[place]);
             if(district!=null&&!transfer.districts.some(d=>d.id===district))throw Error('Unknown district.');
             const picks=loadPicks().filter(p=>p.place!==place);

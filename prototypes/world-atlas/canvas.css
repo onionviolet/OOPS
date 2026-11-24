@@ -279,3 +279,35 @@ body > header h1, .box-canvas :is(h2,h3), .canvas-box { font-family: var(--ui-fo
 /* Making: a book working the game plays, one it only records, one it lacks (law, the default). */
 .box-canvas .canvas-box[data-group="playable"] { border-color: #ace79e; border-width: 2px; }
 .box-canvas .canvas-box[data-group="recorded"] { border-color: #e0c27a; border-style: dashed; }
+
+.atlas-heading { display: flex; align-items: baseline; gap: 1rem 2rem; flex-wrap: wrap; justify-content: space-between; }
+.atlas-freshness { font-size: .86rem; color: #bccbc2; }
+.atlas-freshness p { margin: .35rem 0; }
+.atlas-freshness output { display: block; margin: .45rem 0; }
+.atlas-data-error { color: #ffbf9e; }
+.implementation-card { background: #172622; border: 1px solid #4c6858; max-width: 66rem; }
+.implementation-heading { background: #20372c; border-bottom: 1px solid #4c6858; padding: 1.25rem 1.5rem; }
+.implementation-heading h3 { font-size: 2rem; margin: .3rem 0 .6rem; }
+.implementation-card p { max-width: 58ch; margin: .4rem 0; }
+.implementation-card a { color: #cee7b9; text-underline-offset: .2em; }
+.implementation-card a:focus-visible { outline: 2px solid #edbd7c; outline-offset: 3px; }
+.implementation-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.implementation-columns section { padding: 1.1rem 1.5rem; }
+.implementation-columns section + section { border-inline-start: 1px solid #4c6858; }
+.implementation-columns h4 { margin: .15rem 0; }
+.implementation-columns p + h4 { margin-top: 1rem; }
+.implementation-download {
+    display: inline-block;
+    margin: .55rem 0 .15rem;
+    padding: .35rem .7rem;
+    background: #294735;
+    border: 1px solid #7c9e78;
+    border-radius: .25rem;
+    font-weight: 600;
+}
+.implementation-columns code { display: block; overflow-wrap: anywhere; margin-top: .65rem; font-size: .8rem; }
+.implementation-references { border-top: 1px solid #4c6858; gap: .5rem 1.35rem; padding: .65rem 1.5rem; }
+@media (max-width: 740px) {
+    .implementation-columns { grid-template-columns: 1fr; }
+    .implementation-columns section + section { border-inline-start: 0; border-top: 1px solid #4c6858; }
+}

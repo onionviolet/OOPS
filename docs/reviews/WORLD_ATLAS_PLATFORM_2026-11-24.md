@@ -165,6 +165,19 @@ Weibao: "we can also use the discord MCP in parallel for more ideas too". No Dis
 - One writer per file: another session is editing the atlas server now; T3 touches shared `src/ui/` files owned by play-surface lanes (OR6).
 - A rule unblocks across worlds: a blocker page should list every corpus it blocks (mind-state blocks HP potions and Gu kinds alike).
 
+## Round 5: where Claude and Astra agree (2026-11-24, later)
+
+Astra's [direction and weak-rules review](../audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md) compares this note item by item. Claude accepts its corrections:
+
+- **Canvas (R13):** T1 plus T4 with selected pure game components, not T3. The renderer waits for a measured workload.
+- **FR2:** not a universal gate. Engine-only waves stay valid (OR1); player waves report new uses.
+- **R11:** a `*-unknown` slug does not prove a reading gap. Missing binding, extraction, source evidence and engine support need different remedies; no automatic paid reads.
+- **R8:** Known things has its own runtime suppliers; a shared identity join is proposed, not existing.
+- **R12 Fold:** reuse the existing creature disclosure, generalize against a second kind, and never label a source description as live thought.
+- **DC3:** review the changed journey and mechanism, not screenshots alone; no new universal sign-off.
+
+Agreed order (Astra O1-O5): land the codex work and extend it; design kit in parallel on three contrasting specimens (a Gu record, a potion preparation, a creature disclosure); one Gu gap-to-proof cycle through the atlas as the platform pilot, LOTM potions next; resume foundation waves picked by capability value and consumer need; then the blocker queue, bounded relation canvas, unlock lens and receipt comparison. Weak rules W1-W22 are candidates for an owner-led reconciliation, W1-W7 first, awaiting Weibao's yes (D4).
+
 ## Suggested order
 
 0. **A0** Land the uncommitted tree by owner (R16, FR6). Weibao's call which session does it.

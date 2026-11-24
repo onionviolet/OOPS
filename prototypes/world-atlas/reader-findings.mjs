@@ -5,7 +5,7 @@
 // Ids, labels, kinds, counts and one locator per row; census notes and step prose stay out.
 //   node prototypes/world-atlas/reader-findings.mjs [--out-dir work/atlas-snapshot/readers]
 // Prints the coverage matrix as JSON; with --out-dir also writes one digest per world.
-import {existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
+import {existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {bookShards} from '../../scripts/lead_run/make_book_plans.mjs';
@@ -234,7 +234,12 @@ if (import.meta.main) {
     const digests = readFindings();
     if (outDir) {
         mkdirSync(outDir, {recursive: true});
-        for (const d of digests) writeFileSync(join(outDir, d.world + '.json'), JSON.stringify(d));
+        for (const d of digests) {
+            const file = join(outDir, d.world + '.json');
+            const temporary = file + '.' + process.pid + '.tmp';
+            writeFileSync(temporary, JSON.stringify(d));
+            renameSync(temporary, file);
+        }
     }
     process.stdout.write(JSON.stringify(findingsMatrix(digests)));
 }
