@@ -9,7 +9,7 @@ import {DEFAULT_ENTRY, reachableFrom} from '../scripts/reachable.mjs';
 const reload = engine => run.restore(JSON.parse(JSON.stringify(serializeEngineWorld(engine))));
 const SAYS = {vapor: /breathed in 3 units/, splash: /swollen for 30 minutes/, aperture: /rose by 24000 motes/, ward: /ward took 4 of 4/,
     breath: /breath fell from 3 to 0/, fire: /fuel went from 3 to 0/, focus: /conjured thing ended/, potion: /vitality \+3/,
-    gu: /vitality \+3/, spell: /vitality \+2/, formula: /Seer \(Fool 9\).*power: bind thing/, search: /wordings fit/, tend: /brewer could be tended/};
+    gu: /vitality \+3/, lotus: /own pool rose by 40 of 40 motes/, spell: /vitality \+2/, formula: /Seer \(Fool 9\).*power: bind thing/, search: /wordings fit/, tend: /brewer could be tended/};
 
 test('every act of the workshop shows its pack, one act at a time on a fresh world, and survives a reload', () => {
     const acts = run.view(run.create()).actions.map(a => a.id);
@@ -29,7 +29,7 @@ test('the whole run in order is the same after a reload at every step', () => {
         reloaded = run.act(reload(reloaded), id);
     }
     assert.deepEqual(serializeEngineWorld(reload(reloaded)), serializeEngineWorld(straight));
-    assert.equal(run.view(straight).history.length, 13);
+    assert.equal(run.view(straight).history.length, 14);
 });
 
 test('an act cannot be repeated', () => {
