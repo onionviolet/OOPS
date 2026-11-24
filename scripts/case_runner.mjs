@@ -83,6 +83,8 @@ export function expectHolds(before, after, expect) {
 
 // Law families a working case may name. Each turns plain case data into {law, method, bindings}.
 const WORKING_FAMILIES = {
+    // HW3 / B5 (2026-11-24): composed Gu investigation, sweep or probe (src/world_packs/gu_investigation_cases.js).
+    'gu-investigation': async w => (await import('../src/world_packs/gu_investigation_cases.js')).investigationWorking(w),
     'lantern-fleece': async w => {
         const {LANTERN_EVOLUTION, LANTERN_FLEECE_LAW, LANTERN_FLASH, LANTERN_MOONBEAM, LANTERN_WISP_GLOW} =
             await import('../src/world_packs/meadow_lantern_fleece.js');

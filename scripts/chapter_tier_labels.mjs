@@ -147,6 +147,48 @@ if (existsSync(checksFile)) {
     scores.secondReader = {fieldsDropped: counts, source: 'docs/coverage/second_reader_checks.json'};
 }
 out.meta.scores = scores;
+// Located second reads for the 2026-11-24 Gu leads. Keep the batch's scores on its original labels.
+const guRankReads = [
+    ['photo-audio', 3, 'ri:ch156:p22'],
+    ['group-strength', 5, 'ri:ch678:p58'],
+    ['saga:paper-crane-gu', 2, 'ri:ch323:p98'],
+    ['saga:vagrant-warrior-gu', 3, 'ri:ch2065:p12'],
+    ['blood-asset', 6, 'ri:ch1063:p55'],
+    ['candidate:pill-fire-gu', 3, 'ri:ch312:p96'],
+    ['candidate:east-window-gu', 4, 'ri:ch516:p63'],
+    ['candidate:relic-gu', 1, 'ri:ch1796:p38'], // Kept catalogue identity is the Green Copper variant.
+    ['saga:red-steel-relic-gu', 2, 'ri:ch1796:p38'],
+    ['saga:white-silver-relic-gu', 3, 'ri:ch1796:p38'],
+    ['saga:yellow-gold-relic-gu', 4, 'ri:ch1796:p38'],
+    ['saga:purple-crystal-relic-gu', 5, 'ri:ch1796:p38'],
+    ['candidate:sovereign-immortal-fetus-gu', 9, 'ri:ch1018:p69', 'character_claim'],
+    ['candidate:second-aperture-gu', 6, 'ri:ch377:p61'],
+    ['candidate:calamity-beckoning-gu', 7, 'ri:ch567:p2'],
+    ['candidate:demonic-blood-skull-gu', 4, 'ri:ch194:p74'],
+    ['candidate:derivation-gu', 9, 'ri:ch2291:p24'],
+    ['wisdom', 9, 'ri:ch637:p80'],
+    ['fandom:Fortune_Rivalling_Heaven_Gu', 8, 'ri:ch622:p8'],
+    ['self-strength', 6, 'ri:ch1291:p83'],
+    ['candidate:dark-limit-immortal-gu', 6, 'ri:ch1063:p55'],
+    ['fandom:Time_Anchor_Gu', 6, 'ri:ch1810:p41'],
+];
+const guTypeReads = [
+    ['candidate:wolf-swallow-gu', 'storage', 'ri:ch459:p36'],
+    ['candidate:primeval-elder-gu', 'storage', 'ri:ch422:p8'],
+    ['candidate:battle-space-gu', 'space path', 'ri:ch584:p14', 'character_claim'],
+    ['fandom:Keep_Silent_Gu', 'sound path', 'ri:ch841:p28'],
+    ['fandom:Smelly_Fart_Fat_Worm_Gu', 'poison path', 'ri:ch2098:p7'],
+];
+const guLabel = id => out.gu_kinds[id] ??= {heldOut: heldOut(id)};
+for (const [id, rank, locator, speaker = 'narrator'] of guRankReads) {
+    const label = guLabel(id);
+    delete label.rankUnconfirmed;
+    Object.assign(label, {rank, rankBasis: 'chapter-stated', rankAt: {locator, speaker}, secondRead: 'agree'});
+}
+for (const [id, type, locator, speaker = 'narrator'] of guTypeReads) {
+    Object.assign(guLabel(id), {type, typeAt: {locator, speaker}, typeSecondRead: 'agree'});
+}
+out.gu_kinds = sorted(out.gu_kinds);
 // PWC27 writes its own section (scripts/chapter_effect_labels.mjs); keep it when this script rewrites the file.
 const prior = existsSync(`${root}docs/coverage/chapter_tier_labels.json`) ? json(`${root}docs/coverage/chapter_tier_labels.json`) : {};
 if (prior.effect_unknown) out.effect_unknown = prior.effect_unknown;

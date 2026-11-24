@@ -225,6 +225,13 @@ function leadRow(lead) {
 
 const kinds = index.records.map(kindRow);
 const moves = [...index.moves.map(moveRow), ...index.move_candidates.records.map(leadRow)];
+// HW3 / B5 (2026-11-24, proposal): an authored composed investigation case with no index record. Its case runs through
+// runCase (family 'gu-investigation'); see docs/gm/dispatch/proposal-build-2026-11-24/lane-c/REPORT.md.
+if (!moves.some(m => m.id === 'combined-investigation')) moves.push({id: 'combined-investigation',
+    source: ['Reverend Insanity (local English EPUB), ch714 p12 and ch138 p57', 'authored HW3'], state: 'expressed-authored',
+    mechanisms: ['G', 'K', 'W', 'L'], test: 'tests/gu_investigation_cases.test.js',
+    note: 'Authored sight and spirit recipe with a paid wide sweep, a focused probe and failed-support recoil. Local canon anchors complementary scouting and limited evidence.',
+    case: {module: 'src/world_packs/gu_investigation_cases.js', id: 'combined-investigation'}});
 moves.push({id: MOONBLADE_COVERAGE_ID, name: 'Little Light Moonblade',
     source: ['docs/research/RI_MOONBLADE_DAMAGE_CALIBRATION_2026-11-12.md', 'ch70'], layer: 'authored',
     roles: [{id: 'blade', kind: 'moonlight'}, {id: 'light', kind: 'little-light'}],
@@ -243,6 +250,23 @@ for (const rows of [kinds, moves]) {
         while (seen.has(row.id)) row.id += '~';
         seen.add(row.id);
     }
+}
+const slotEvidence = readFileSync(join(root, 'docs/coverage/evidence/gu_move_slots.jsonl'), 'utf8')
+    .trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+const movesWithAgreedSlots = new Set(slotEvidence.filter(slot => slot.tier === 'chapter' && slot.secondRead === 'agree')
+    .map(slot => slot.move));
+for (const row of moves) {
+    if (movesWithAgreedSlots.has(row.id) && ['blocked:roles-unknown', 'blocked:roles-unchecked'].includes(row.state)) {
+        row.state = 'blocked:roles-partial';
+        row.note = `A second reader confirmed chapter slots in gu_move_slots.jsonl. The recipe still needs its remaining roles and activation order. Prior evidence: ${row.note}`;
+    }
+}
+// WA9 handoffs applied by the coverage owner (Q1 pilot B3, 2026-11-24): wiki-layer rows whose case this generator
+// cannot attach through the chapter-layer path. Each handoff line replaces the generated row's ledger fields.
+const HANDOFFS = ['docs/gm/dispatch/atlas-platform-2026-11-24/pilot/fandom_Heavenly_Essence_Treasure_Monarch_Lotus.jsonl'];
+for (const file of HANDOFFS) for (const line of readFileSync(join(root, file), 'utf8').trim().split('\n').filter(Boolean)) {
+    const handoff = JSON.parse(line), row = kinds.find(kind => kind.id === handoff.id);
+    if (row) Object.assign(row, handoff, {source: handoff.source.split('; ')});
 }
 // P's ledger format has six base fields and the optional case link. G's labels (layer, rank, function, roles and
 // their basis) go to a sidecar keyed by ledger and id, which the coverage test reads to run each row.

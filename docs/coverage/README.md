@@ -12,7 +12,7 @@
 
 *`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world's things (rows that are not `not-a-thing`).*
 
-All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3%), typed 2179 (3.1%).
+All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3%), typed 2178 (3.1%).
 
 | World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -21,7 +21,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | Warhammer 40,000, the 41st millennium (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum) | 4747 | 0 | 0% | 109 | 2.3% | 0 |
 | Pathfinder 1e (d20pfsrd pages) | 4567 | 0 | 0% | 89 | 1.9% | 0 |
 | Forgotten Realms (3e campaign setting and Grand History) | 3934 | 0 | 0% | 78 | 2% | 0 |
-| Reverend Insanity | 3652 | 16 | 0.4% | 91 | 2.5% | 1742 |
+| Reverend Insanity | 3653 | 17 | 0.5% | 92 | 2.5% | 1741 |
 | D&D 5e 2014 core and supplements (design reference; PHB, DMG, MM, Xanathar, Fizban, MotM) | 3598 | 0 | 0% | 52 | 1.4% | 0 |
 | Mystara (Gazetteers GAZ1-GAZ14) | 3353 | 0 | 0% | 62 | 1.8% | 0 |
 | Eclipse Phase (2nd edition) | 2912 | 0 | 0% | 105 | 3.6% | 0 |
@@ -75,9 +75,9 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | runs-derived | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 16 | 0 | 597 | 101 | 0 | 100% | 1.2% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 17 | 0 | 602 | 101 | 0 | 100% | 1.2% |
 | [gu_generated](gu_generated.jsonl) | G | to build | 1321 | 0 | 0 | 0 | 285 | 0 | 0 | 100% | 0% |
-| [gu_moves](gu_moves.jsonl) | G | 776 | 778 | 0 | 0 | 0 | 759 | 0 | 0 | 100% | 0% |
+| [gu_moves](gu_moves.jsonl) | G | 776 | 779 | 0 | 0 | 0 | 759 | 0 | 0 | 100% | 0% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 90 | 0 | 193 | 32 | 0 | 100% | 31.7% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 4 | 0 | 171 | 9 | 0 | 100% | 1% |
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 0 | 46 | 162 | 18 | 0 | 0 | 100% | 20.4% |
@@ -401,8 +401,8 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | golarion_powers | 0 | 8 | 0 | 0 |
 | golarion_rules | 0 | 0 | 0 | 0 |
 | gu_generated | 0 | 0 | 0 | 0 |
-| gu_kinds | 16 | 16 | 16 | 0 |
-| gu_moves | 0 | 9 | 0 | 0 |
+| gu_kinds | 17 | 17 | 17 | 0 |
+| gu_moves | 0 | 10 | 0 | 0 |
 | hp_creatures | 0 | 0 | 0 | 0 |
 | hp_ingredients | 4 | 209 | 4 | 0 |
 | hp_objects | 0 | 0 | 0 | 0 |
@@ -533,7 +533,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1699 of 1919 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1710 of 1932 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -1177,12 +1177,12 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | Ledger | Missing rule | Rows |
 | --- | --- | ---: |
 | pf1_items | item-bound-power | 974 |
-| gu_moves | roles-unknown | 651 |
+| gu_moves | roles-unknown | 640 |
 | hp_creatures | effect-unknown | 306 |
-| gu_kinds | effect-unknown | 296 |
+| gu_kinds | effect-unknown | 291 |
 | pf1_spells | area-field | 244 |
 | dnd_srd_items | item-bound-power | 225 |
-| gu_kinds | rank-unknown | 221 |
+| gu_kinds | rank-unknown | 218 |
 | ward_powers | power-interaction | 213 |
 | shadow_slave_creatures | effect-unknown | 202 |
 | fated_villain_artifacts | effect-unknown | 180 |
@@ -1255,7 +1255,6 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | strixhaven_powers | effect-unknown | 63 |
 | pf1_spells | familiar-summon | 63 |
 | ars_magica_spells | mind-state | 63 |
-| gu_moves | roles-unchecked | 63 |
 | fate_powers | area-field | 62 |
 | hp_creatures | material-row | 62 |
 | numenera_creatures | mind-binding | 62 |
@@ -1271,6 +1270,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | mystara_artifacts | item-bound-power | 55 |
 | circle_of_inevitability_powers | item-bound-power | 54 |
 | warhammer_40k_powers | mind-binding | 54 |
+| gu_moves | roles-unchecked | 54 |
 | aos_soulbound_powers | area-field | 53 |
 | ward_powers | concept-law | 53 |
 | wus_powers | concept-law | 53 |
@@ -1523,6 +1523,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | regressors_tale_artifacts | formation-field | 20 |
 | numenera_creatures | item-bound-power | 20 |
 | pf1_conditions | negative-effect-drift | 20 |
+| gu_moves | roles-partial | 20 |
 | the_strange_creatures | soul-state | 20 |
 | cypher_powers | tinker-device | 20 |
 | dnd_srd_powers | area-field | 19 |
@@ -1793,6 +1794,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | warhammer_40k_artifacts | item-state | 11 |
 | pf1_items | memory-transfer | 11 |
 | brp_conditions | mind-state | 11 |
+| gu_kinds | mind-state | 11 |
 | pf1_powers | mind-state | 11 |
 | dnd5e_2014_powers | object-surface | 11 |
 | numenera_rules | power-interaction | 11 |
@@ -1840,13 +1842,13 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | eclipse_phase_institutions | mind-binding | 10 |
 | hp_objects | mind-binding | 10 |
 | theros_creatures | mind-binding | 10 |
-| gu_kinds | mind-state | 10 |
 | warhammer_40k_powers | negative-effect-drift | 10 |
 | cypher_powers | object-surface | 10 |
 | fate_powers | object-surface | 10 |
 | pf1_items | portal-space | 10 |
 | circle_of_inevitability_powers | power-interaction | 10 |
 | cyberpunk_artifacts | power-interaction | 10 |
+| gu_kinds | power-interaction | 10 |
 | lotm_artifacts | power-interaction | 10 |
 | ravnica_powers | power-interaction | 10 |
 | numenera_artifacts | power-transfer | 10 |
@@ -1927,6 +1929,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | pf1_spells | spirit-contract-judgement | 9 |
 | jojo_powers | time-loop | 9 |
 | dnd5e_2014_surge_tables | time-manipulation | 9 |
+| gu_kinds | time-manipulation | 9 |
 | pf1_items | tinker-device | 9 |
 | brp_items | area-field | 8 |
 | planescape_rules | area-field | 8 |
@@ -2002,7 +2005,6 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | ars_magica_spells | spirit-contract-judgement | 8 |
 | pf1_items | spirit-contract-judgement | 8 |
 | fate_powers | time-manipulation | 8 |
-| gu_kinds | time-manipulation | 8 |
 | eclipse_phase_places | area-field | 7 |
 | fate_conditions | area-field | 7 |
 | spelljammer_rules | area-field | 7 |
@@ -2092,6 +2094,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | numenera_powers | soul-state | 7 |
 | ravenloft_artifacts | soul-state | 7 |
 | wildemount_powers | soul-state | 7 |
+| gu_kinds | spatial-storage | 7 |
 | dnd5e_2014_class_features | sponsorship-contract | 7 |
 | dnd5e_2014_powers | time-manipulation | 7 |
 | eclipse_phase_creatures | area-field | 6 |
@@ -2275,6 +2278,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | eclipse_phase_qs_items | item-bound-power | 5 |
 | regressors_tale_powers | item-bound-power | 5 |
 | stars_without_number_rules | item-bound-power | 5 |
+| gu_kinds | item-state | 5 |
 | cypher_powers | luck-mechanism | 5 |
 | dnd5e_2014_powers | luck-mechanism | 5 |
 | dnd_srd_class_features | luck-mechanism | 5 |
@@ -2298,6 +2302,7 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | ars_magica_creatures | place-release | 5 |
 | pf1_powers | plant-or-creature-target | 5 |
 | dnd_srd_spells | portal-space | 5 |
+| gu_kinds | portal-space | 5 |
 | ars_magica_creatures | power-granting | 5 |
 | pf1_spells | power-granting | 5 |
 | aos_soulbound_artifacts | power-interaction | 5 |
@@ -2336,7 +2341,6 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | dnd5e_2014_powers | spatial-storage | 5 |
 | eclipse_phase_rules | spatial-storage | 5 |
 | forgotten_realms_powers | spatial-storage | 5 |
-| gu_kinds | spatial-storage | 5 |
 | mystara_places | spatial-storage | 5 |
 | planescape_places | spatial-storage | 5 |
 | dnd5e_2014_powers | speech-penalty | 5 |
@@ -2446,7 +2450,6 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | warhammer_40k_rules | item-bound-power | 4 |
 | you_have_died_again_powers | item-bound-power | 4 |
 | forgotten_realms_artifacts | item-state | 4 |
-| gu_kinds | item-state | 4 |
 | mystara_artifacts | item-state | 4 |
 | planescape_artifacts | item-state | 4 |
 | ravenloft_artifacts | item-state | 4 |
@@ -2493,7 +2496,6 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | dnd_srd_creatures | plant-or-creature-target | 4 |
 | fate_creatures | plant-or-creature-target | 4 |
 | dnd5e_2014_items | portal-space | 4 |
-| gu_kinds | portal-space | 4 |
 | dnd5e_2014_spells | power-granting | 4 |
 | pf1_items | power-granting | 4 |
 | aos_soulbound_creatures | power-interaction | 4 |
@@ -2730,7 +2732,6 @@ All worlds: 71348 things, computed runs 432 (0.6%), computed expressed 1615 (2.3
 | ars_magica_items | power-interaction | 3 |
 | eberron_artifacts | power-interaction | 3 |
 | forgotten_realms_institutions | power-interaction | 3 |
-| gu_kinds | power-interaction | 3 |
 | mystara_places | power-interaction | 3 |
 | omniscient_reader_powers | power-interaction | 3 |
 | perfect_run_powers | power-interaction | 3 |

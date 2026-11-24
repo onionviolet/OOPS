@@ -17,6 +17,9 @@ sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[1]
 COVERAGE = ROOT / "docs/coverage"
 OUTPUT = COVERAGE / "evidence" / "gu_move_slots.jsonl"  # outside the ledger sweep: coverage scripts read docs/coverage/*.jsonl as ledgers
+REVIEWS = OUTPUT.with_name("gu_move_slot_reviews.json")
+SLOT_KEY_FIELDS = ("move", "variant", "role", "name", "locator")
+REVIEW_FIELDS = ("secondRead", "secondReadNote", "job", "jobAt")
 
 
 def load_script(name):
@@ -146,7 +149,7 @@ def wiki_slots(moves, labels, names, indexed):
     # The ledger note mirrors the labels today. Preserve note-only roles if the
     # label drops one, without creating a second observation for the same lead.
     for move, row in moves.items():
-        if row["state"] != "blocked:roles-unchecked":
+        if row["state"] not in {"blocked:roles-unchecked", "blocked:roles-partial"}:
             continue
         labelled = {(c.get("kind"), c["role"]) for c in labels.get(move, {}).get("components", [])
                     if c["locator"].startswith("wiki:")}
@@ -375,7 +378,17 @@ def community_slots(by_locator, names):
 
 
 def slot_key(row):
-    return tuple(row[field] or "" for field in ("move", "variant", "role", "name", "locator"))
+    return tuple(row[field] or "" for field in SLOT_KEY_FIELDS)
+
+
+def merge_reviews(rows, reviews):
+    seen = set()
+    for review in reviews:
+        k = slot_key(review)
+        if k in seen or k not in rows:
+            raise ValueError(f"Duplicate or missing slot for review: {k}")
+        seen.add(k)
+        rows[k].update({field: review[field] for field in REVIEW_FIELDS if field in review})
 
 
 def build():
@@ -391,6 +404,7 @@ def build():
     chapter = chapter_slots(chapters, moves, names, {row["locator"] for row in curated})
     rows = {slot_key(row): row for stream in (wiki_slots(moves, labels, names, indexed), chapter, curated)
             for row in stream if row["move"] in moves}
+    merge_reviews(rows, read_json(REVIEWS))
     rows = [rows[k] for k in sorted(rows)]
     OUTPUT.write_text("".join(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n" for row in rows),
                       encoding="utf-8")
@@ -432,6 +446,10 @@ def self_test():
     assert len(rows) == 9, rows
     assert [(row["name"], row["resolution"]) for row in rows[-2:]] == [
         ("Life Gu", "collision"), ("Remnant life Gu", "unresolved")]
+    slot = rows[0]
+    review = {field: slot[field] for field in SLOT_KEY_FIELDS}
+    merge_reviews({slot_key(slot): slot}, [{**review, "secondRead": "agree"}])
+    assert slot["secondRead"] == "agree"
     print("WA23 self-test passed")
 
 

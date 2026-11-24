@@ -1984,3 +1984,12 @@ Weibao: "lets remove rules accordingly that are contradictory, and leave current
 - W20 (TX11, bluff tell): reworded. Source cues and tells follow what the observer's means can see (B435).
 - W21 (P5, TX7, IM5): reworded. The return reel is opt-in; visibility follows the actual surface; the tap equivalent waits for mobile, "nothing relies on hover alone" stays.
 - W22 (IM10): reworded. Old saved effect ids stay resolvable through aliases or migration; names may change (AD45).
+
+## Proposal reconciliation Q1–Q4 answered, B1–B5 started (2026-11-24)
+
+Weibao, answering the [reconciliation](../audits/PROPOSAL_RECONCILIATION_2026-11-24.md#decision-packet)'s offer to start B1 or answer Q1–Q5 first: "Start all of them up till Q5". The working reading, recorded as the agent's interpretation: start build items B1–B5, and take the recommended answers to Q1–Q4. Q5 (paid reads for the residue) stays open until B1 and B2 report the residue.
+
+- Q1: one Gu gap-to-proof cycle is the atlas pilot, using the corrected evidence ladder (case, reachability, player action and persistence as separate fields).
+- Q2: the atlas renderer grows its own canvas plus a page web (T1+T4), sharing pure grammar pieces. Revisit on a measured workload.
+- Q3: engine-only foundation waves count. Tie-in waves report player outcomes; engine waves report held-out capability and a named future consumer.
+- Q4: `gu_moves` gains a partial-recipe state for moves whose sources name some slots.

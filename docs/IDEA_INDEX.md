@@ -1,5 +1,7 @@
 # Game idea index
 
+[Reconciliation of the 2026-11-24 Gu and atlas proposals](audits/PROPOSAL_RECONCILIATION_2026-11-24.md): routes every selected proposal from the Gu blocker audit, RI community research, Heaven's Will ideas, atlas ideaboard WA1-WA24 and atlas goal check. Build list B1-B5 (second-read and fold today's Gu leads first). Decision packet Q1-Q5. Audit, not a decision.
+
 [World atlas platform goal check, 2026-11-24](reviews/WORLD_ATLAS_PLATFORM_2026-11-24.md): checks the [atlas ideaboard](research/WORLD_ATLAS_IDEABOARD_2026-11-22.md) implementation workspace proposal against the provisional goal and foundations-first order. F1-F7: merge the Watchcraft pilot with the goal check, add an unlock-chain lens and foundation shared-system rows, a receipts strip, and rename the clashing WA codes. Proposal.
 
 [Idle and incremental games to play for OOPS, 2026-11-24](research/IDLE_INCREMENTAL_RADAR_2026-11-24.md) compares current Steam charts, Reddit discussions and awards, and browser games. The play shortlist covers connected skills, story progression, repeat runs and background combat.
