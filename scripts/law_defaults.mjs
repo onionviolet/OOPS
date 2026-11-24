@@ -15,7 +15,7 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {runCaseData} from './coverage_report.mjs';
-import {AREA_TERMS, AREA_TIMES, areaCase, areaCaseId} from '../src/area_field_law.js';
+import {AREA_TIMES, areaBlocker, areaCase, areaCaseId} from '../src/area_field_law.js';
 import {FORM_VERBS, formCase, formCaseId} from '../src/form_transformation_law.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -43,7 +43,9 @@ export const SPECS = {
         required: ['sentence', 'time', 'anchor', 'who'],
         fields: {
             sentence: {role: 'read', from: 'the label verb.object only; the confirmed `inside` was tried as a source (damage = remove.vitality, protect-or-heal = add.vitality) and lost to the majority baseline on held-out rows, so it is not used', reason: 'what the area does to what is inside it; without it nothing can be shown'},
-            time: {role: 'derive', from: 'the label time; else the confirmed duration (rule area.time-from-duration)', default: 'sustained', source: 'rows: the commonest label time among area-field rows (see held-out)', reason: 'instant, held or lasting changes how many pulses land'},
+            time: {role: 'derive', from: 'the label time; else the confirmed duration (rule area.time-from-duration)', default: 'sustained', source: 'rows: the commonest ordinary label time among area-field rows (see held-out)', reason: 'time determines whether a pulse lands now, repeats, waits for a clock or waits for a stimulus'},
+            delay: {role: 'dial', default: '600 world minutes', source: 'design: the law’s existing later dial', reason: 'a delayed label names the wait without specifying its length'},
+            trigger: {role: 'dial', default: 'arrival at the field’s current place', source: 'design: a stored-working event the world already records', reason: 'the coverage fill has no trigger field; authored workings may instead supply an event or word'},
             anchor: {role: 'dial', from: 'label target self or fill shape aura-on-holder = holder', default: 'place', source: 'rows: 87% of confirmed shapes are not an aura on the holder', reason: 'a fixed field stays; an aura goes where its holder goes'},
             who: {role: 'dial', from: 'fill affects: allies, enemies, chosen, holder = marked; everyone and terrain-or-objects = everyone', default: 'everyone', source: 'tabletop: an area effect hits everyone in it unless it names a choice (PF1 Area of Effect; D&D 5e Areas of Effect)', reason: 'a choice needs the caster to mark who counts'},
             ends: {role: 'derive', from: 'time (rule area.ends-from-time): instant = none, sustained = dismissed, lasting = timeout', reason: 'follows the time; not asked of the text'},
@@ -91,7 +93,8 @@ const FORM_LABEL_TARGET = Object.freeze({self: 'holder', touched: 'other', bound
 export function fitDials(slug, facts) {
     const dev = facts.filter(x => !isTest(x.id)), mode = vals => { const c = {}; for (const v of vals) c[v] = (c[v] ?? 0) + 1; return Object.entries(c).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0]?.[0]; };
     if (slug === 'area-field') {
-        const lab = dev.filter(x => AREA_TIMES.includes(x.label?.time));
+        // Delay and the need for a stimulus must be stated, never silently inferred.
+        const lab = dev.filter(x => Object.hasOwn(ENDS_OF_TIME, x.label?.time));
         return {time: {all: mode(lab.map(x => x.label.time)), byKind: Object.fromEntries(KINDS.map(k => [k, mode(lab.filter(x => x.kind === k).map(x => x.label.time))]).filter(([, v]) => v))}};
     }
     return {reversal: {all: mode(dev.filter(x => x.f.reversal).map(x => x.f.reversal))}};
@@ -102,7 +105,7 @@ export function compose(slug, x, dials) {
     const prov = {};
     if (slug === 'area-field') {
         if (x.f.fits === 'not-area') return {blocked: 'read as not an area effect', prov};
-        let s = x.label && {verb: x.label.verb, object: x.label.object};
+        const s = x.label && {verb: x.label.verb, object: x.label.object};
         if (s) prov.sentence = 'label';
         if (!s) return {blocked: 'no stated sentence', prov};
         let time = x.label?.time && AREA_TIMES.includes(x.label.time) ? x.label.time : null;
@@ -110,7 +113,10 @@ export function compose(slug, x, dials) {
         else if (x.label?.time) return {blocked: `time ${x.label.time} has no pulse model`, prov};
         else if (DURATION_TO_TIME[x.f.duration]) { time = DURATION_TO_TIME[x.f.duration]; prov.time = 'fill'; }
         else { time = dials.time.byKind[x.kind] ?? dials.time.all; prov.time = 'default'; }
-        if (!AREA_TERMS[`${s.verb}.${s.object}`]) return {blocked: `${s.verb}.${s.object} has no world account`, prov};
+        const blocked = areaBlocker({...s, time});
+        if (blocked) return {blocked, prov};
+        if (time === 'delayed') prov.delay = 'default';
+        if (time === 'triggered') prov.trigger = 'default';
         const aura = x.label?.target === 'self' || x.f.shape === 'aura-on-holder';
         prov.anchor = x.label || x.f.shape ? 'stated' : 'default';
         const who = WHO_OF_AFFECTS[x.f.affects] ?? 'everyone';
@@ -175,7 +181,7 @@ export function scores(slug, facts, dials) {
             x => INSIDE_SENTENCE[x.f.inside] && x.label, x => `${x.label.verb}.${x.label.object}`, x => `${INSIDE_SENTENCE[x.f.inside].verb}.${INSIDE_SENTENCE[x.f.inside].object}`, rows => mode(rows.filter(r => r.label), r => `${r.label.verb}.${r.label.object}`),
             'Truth is the label sentence, which the same readers wrote.', {inputs: ['confirmed inside']}));
         out.push(one('law.area-field.ends-from-time', 'Area ends from time: instant = none, sustained = dismissed, lasting = timeout',
-            x => lt(x) && x.f.ends, x => x.f.ends === 'never' ? 'none' : ['timeout', 'dismissed'].includes(x.f.ends) ? x.f.ends : null, x => ENDS_OF_TIME[lt(x)], rows => mode(rows.filter(r => r.f.ends), r => r.f.ends === 'never' ? 'none' : ['timeout', 'dismissed'].includes(r.f.ends) ? r.f.ends : null),
+            x => ENDS_OF_TIME[lt(x)] && x.f.ends, x => x.f.ends === 'never' ? 'none' : ['timeout', 'dismissed'].includes(x.f.ends) ? x.f.ends : null, x => ENDS_OF_TIME[lt(x)], rows => mode(rows.filter(r => r.f.ends), r => r.f.ends === 'never' ? 'none' : ['timeout', 'dismissed'].includes(r.f.ends) ? r.f.ends : null),
             'Truth is the confirmed ends (removed-by-counter and source-lost are left out: the law has no counter model for an area yet).', {inputs: ['label time']}));
     } else {
         const rv = x => x.f.reversal;
@@ -199,7 +205,7 @@ export async function take(slug, facts, dials) {
     const memo = new Map(), rows = [], blockedWhy = {};
     for (const x of facts) {
         const c = compose(slug, x, dials);
-        if (!c.case) { blockedWhy[c.blocked] = (blockedWhy[c.blocked] ?? 0) + 1; rows.push({id: x.id, state: 'catalogued', detail: c.blocked, basis: null, confidence: null, take: false, prov: c.prov}); continue; }
+        if (!c.case) { blockedWhy[c.blocked] = (blockedWhy[c.blocked] ?? 0) + 1; rows.push({id: x.id, state: 'catalogued', detail: c.blocked, basis: null, confidence: null, take: false, prov: c.prov, test: isTest(x.id)}); continue; }
         if (!memo.has(c.case)) { const data = (slug === 'area-field' ? areaCase : formCase)(c.case); memo.set(c.case, await runCaseData(data, {id: c.case})); }
         const out = memo.get(c.case), taken = /^(expressed|runs)-/.test(out.state);
         if (!taken) blockedWhy[`case ${out.state}`] = (blockedWhy[`case ${out.state}`] ?? 0) + 1;

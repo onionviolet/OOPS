@@ -12,49 +12,49 @@
 
 *`runs` and `expressed` are computed: a row counts only when it carries a `case` that executes and its `expect` holds through the case runner (`runs` also needs the case module reachable from `src/main.js`). `typed` is the old hand-typed `runs-*` label (rows demoted to `catalogued` keep it in their `typed` field); it is shown beside the computed numbers and is never a runs count. Shares are over the world's things (rows that are not `not-a-thing`).*
 
-All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3%), typed 2178 (3.1%).
+All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1737 (2.4%), typed 2178 (3.1%).
 
 | World | Things | Computed runs | Runs share | Computed expressed | Expressed share | Typed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Numenera (Ninth World) | 5079 | 0 | 0% | 164 | 3.2% | 0 |
+| Numenera (Ninth World) | 5079 | 0 | 0% | 184 | 3.6% | 0 |
 | Ars Magica 5e | 4773 | 0 | 0% | 68 | 1.4% | 0 |
-| Warhammer 40,000, the 41st millennium (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum) | 4747 | 0 | 0% | 109 | 2.3% | 0 |
+| Warhammer 40,000, the 41st millennium (9th edition core, Rogue Trader, Wrath & Glory, Imperium Maledictum) | 4747 | 0 | 0% | 115 | 2.4% | 0 |
 | Pathfinder 1e (d20pfsrd pages) | 4567 | 0 | 0% | 89 | 1.9% | 0 |
-| Forgotten Realms (3e campaign setting and Grand History) | 3934 | 0 | 0% | 78 | 2% | 0 |
+| Forgotten Realms (3e campaign setting and Grand History) | 3934 | 0 | 0% | 86 | 2.2% | 0 |
 | Reverend Insanity | 3653 | 17 | 0.5% | 92 | 2.5% | 1741 |
 | D&D 5e 2014 core and supplements (design reference; PHB, DMG, MM, Xanathar, Fizban, MotM) | 3598 | 0 | 0% | 52 | 1.4% | 0 |
-| Mystara (Gazetteers GAZ1-GAZ14) | 3353 | 0 | 0% | 62 | 1.8% | 0 |
-| Eclipse Phase (2nd edition) | 2912 | 0 | 0% | 105 | 3.6% | 0 |
-| The Strange (recursions) | 2342 | 0 | 0% | 108 | 4.6% | 0 |
+| Mystara (Gazetteers GAZ1-GAZ14) | 3353 | 0 | 0% | 68 | 2% | 0 |
+| Eclipse Phase (2nd edition) | 2912 | 0 | 0% | 108 | 3.7% | 0 |
+| The Strange (recursions) | 2342 | 0 | 0% | 126 | 5.4% | 0 |
 | Harry Potter | 2191 | 202 | 9.2% | 208 | 9.5% | 223 |
-| Eberron (Rising from the Last War) | 1991 | 0 | 0% | 41 | 2.1% | 0 |
+| Eberron (Rising from the Last War) | 1991 | 0 | 0% | 53 | 2.7% | 0 |
 | D&D 5.2.1 SRD | 1847 | 0 | 0% | 12 | 0.6% | 0 |
-| Wildemount (Explorer's Guide) | 1590 | 0 | 0% | 46 | 2.9% | 0 |
-| Cyberpunk (RED and 2020) | 1495 | 0 | 0% | 19 | 1.3% | 0 |
-| The Dark Eye 5e (Aventuria) | 1397 | 0 | 0% | 20 | 1.4% | 0 |
-| Warhammer Age of Sigmar: the Mortal Realms (Soulbound) | 1353 | 0 | 0% | 35 | 2.6% | 0 |
-| Shadow Slave | 1237 | 0 | 0% | 45 | 3.6% | 0 |
+| Wildemount (Explorer's Guide) | 1590 | 0 | 0% | 47 | 3% | 0 |
+| Cyberpunk (RED and 2020) | 1495 | 0 | 0% | 21 | 1.4% | 0 |
+| The Dark Eye 5e (Aventuria) | 1397 | 0 | 0% | 25 | 1.8% | 0 |
+| Warhammer Age of Sigmar: the Mortal Realms (Soulbound) | 1353 | 0 | 0% | 36 | 2.7% | 0 |
+| Shadow Slave | 1237 | 0 | 0% | 48 | 3.9% | 0 |
 | Ward | 1217 | 0 | 0% | 0 | 0% | 0 |
 | Fate SRD | 1216 | 0 | 0% | 7 | 0.6% | 0 |
-| Ravenloft (Van Richten's Guide) | 1207 | 0 | 0% | 44 | 3.6% | 0 |
+| Ravenloft (Van Richten's Guide) | 1207 | 0 | 0% | 48 | 4% | 0 |
 | Lord of the Mysteries | 1112 | 208 | 18.7% | 0 | 0% | 208 |
 | A Certain Magical Index and Railgun | 1071 | 0 | 0% | 0 | 0% | 0 |
 | Cypher Reference Document | 1069 | 0 | 0% | 12 | 1.1% | 0 |
 | Warhammer: the Old World (WFRP 4e Up in Arms; core not yet read) | 991 | 0 | 0% | 9 | 0.9% | 0 |
-| Golarion (Inner Sea World Guide and Lost Omens World Guide) | 966 | 0 | 0% | 11 | 1.1% | 0 |
-| Theros (Mythic Odysseys) | 959 | 0 | 0% | 19 | 2% | 0 |
-| Stars Without Number (Revised, free edition) | 873 | 0 | 0% | 17 | 1.9% | 0 |
-| The Legendary Mechanic | 799 | 0 | 0% | 8 | 1% | 0 |
-| I Am the Fated Villain | 740 | 0 | 0% | 10 | 1.4% | 0 |
-| Circle of Inevitability | 722 | 6 | 0.8% | 30 | 4.2% | 6 |
-| A Regressor's Tale of Cultivation | 698 | 0 | 0% | 14 | 2% | 0 |
-| Strixhaven (Curriculum of Chaos) | 677 | 0 | 0% | 31 | 4.6% | 0 |
+| Golarion (Inner Sea World Guide and Lost Omens World Guide) | 966 | 0 | 0% | 12 | 1.2% | 0 |
+| Theros (Mythic Odysseys) | 959 | 0 | 0% | 21 | 2.2% | 0 |
+| Stars Without Number (Revised, free edition) | 873 | 0 | 0% | 22 | 2.5% | 0 |
+| The Legendary Mechanic | 799 | 0 | 0% | 9 | 1.1% | 0 |
+| I Am the Fated Villain | 740 | 0 | 0% | 13 | 1.8% | 0 |
+| Circle of Inevitability | 722 | 6 | 0.8% | 35 | 4.8% | 6 |
+| A Regressor's Tale of Cultivation | 698 | 0 | 0% | 15 | 2.1% | 0 |
+| Strixhaven (Curriculum of Chaos) | 677 | 0 | 0% | 37 | 5.5% | 0 |
 | Wish Upon the Stars | 648 | 0 | 0% | 0 | 0% | 0 |
-| Spelljammer (Adventures in Space) | 623 | 0 | 0% | 9 | 1.4% | 0 |
+| Spelljammer (Adventures in Space) | 623 | 0 | 0% | 13 | 2.1% | 0 |
 | Planescape (Adventures in the Multiverse, 2023) | 559 | 0 | 0% | 13 | 2.3% | 0 |
 | Basic Roleplaying ORC | 513 | 0 | 0% | 6 | 1.2% | 0 |
 | JoJo's Bizarre Adventure | 376 | 0 | 0% | 0 | 0% | 0 |
-| Mother of Learning | 371 | 0 | 0% | 6 | 1.6% | 0 |
+| Mother of Learning | 371 | 0 | 0% | 9 | 2.4% | 0 |
 | Worm | 279 | 0 | 0% | 0 | 0% | 0 |
 | Blades in the Dark SRD | 190 | 0 | 0% | 0 | 0% | 0 |
 | Ravnica (Guildmasters' Guide) | 190 | 0 | 0% | 4 | 2.1% | 0 |
@@ -67,7 +67,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | Eclipse Phase 2e Quickstart | 99 | 0 | 0% | 0 | 0% | 0 |
 | A Novel Concept | 89 | 0 | 0% | 0 | 0% | 0 |
 | Labyrinth of the Mad God | 40 | 0 | 0% | 1 | 2.5% | 0 |
-| Solo Leveling | 36 | 0 | 0% | 2 | 5.6% | 0 |
+| Solo Leveling | 36 | 0 | 0% | 3 | 8.3% | 0 |
 | You Have Died Again | 29 | 0 | 0% | 1 | 3.4% | 0 |
 | Call of Cthulhu 7e Quick-Start | 16 | 0 | 0% | 0 | 0% | 0 |
 
@@ -94,15 +94,15 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [lotm_artifacts](lotm_artifacts.jsonl) | A | 240 | 240 | 0 | 0 | 0 | 126 | 3 | 0 | 100% | 0% |
 | [hp_objects](hp_objects.jsonl) | A | 599 | 599 | 0 | 0 | 0 | 160 | 20 | 0 | 100% | 0% |
 | [ri_treasures](ri_treasures.jsonl) | A | 91 | 91 | 0 | 0 | 0 | 56 | 2 | 0 | 100% | 0% |
-| [shadow_slave_powers](shadow_slave_powers.jsonl) | W | 436 | 436 | 0 | 0 | 0 | 133 | 3 | 0 | 100% | 0% |
-| [solo_leveling_powers](solo_leveling_powers.jsonl) | W | 38 | 38 | 0 | 0 | 0 | 14 | 2 | 0 | 100% | 0% |
+| [shadow_slave_powers](shadow_slave_powers.jsonl) | W | 436 | 436 | 0 | 0 | 0 | 130 | 3 | 0 | 100% | 0% |
+| [solo_leveling_powers](solo_leveling_powers.jsonl) | W | 38 | 38 | 0 | 0 | 0 | 13 | 2 | 0 | 100% | 0% |
 | [omniscient_reader_powers](omniscient_reader_powers.jsonl) | W | 102 | 102 | 0 | 0 | 0 | 66 | 2 | 0 | 100% | 0% |
-| [regressors_tale_powers](regressors_tale_powers.jsonl) | W | 184 | 184 | 0 | 0 | 0 | 69 | 0 | 0 | 100% | 0% |
-| [mother_of_learning_powers](mother_of_learning_powers.jsonl) | W | 230 | 230 | 0 | 0 | 0 | 145 | 5 | 0 | 100% | 0% |
+| [regressors_tale_powers](regressors_tale_powers.jsonl) | W | 184 | 184 | 0 | 0 | 0 | 68 | 0 | 0 | 100% | 0% |
+| [mother_of_learning_powers](mother_of_learning_powers.jsonl) | W | 230 | 230 | 0 | 0 | 0 | 142 | 5 | 0 | 100% | 0% |
 | [circle_of_inevitability_potions](circle_of_inevitability_potions.jsonl) | W | to build | 20 | 0 | 0 | 6 | 14 | 0 | 0 | 100% | 0% |
-| [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 0 | 279 | 8 | 0 | 100% | 0% |
-| [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 0 | 150 | 3 | 0 | 100% | 0% |
-| [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 0 | 204 | 10 | 0 | 100% | 0% |
+| [circle_of_inevitability_powers](circle_of_inevitability_powers.jsonl) | W | 445 | 445 | 0 | 0 | 0 | 274 | 8 | 0 | 100% | 0% |
+| [legendary_mechanic_powers](legendary_mechanic_powers.jsonl) | W | 219 | 219 | 0 | 0 | 0 | 149 | 3 | 0 | 100% | 0% |
+| [fated_villain_powers](fated_villain_powers.jsonl) | W | 309 | 309 | 0 | 0 | 0 | 201 | 10 | 0 | 100% | 0% |
 | [hp_creatures](hp_creatures.jsonl) | L | 819 | 819 | 0 | 0 | 0 | 473 | 2 | 0 | 100% | 0% |
 | [lotm_powers](lotm_powers.jsonl) | P | 652 | 652 | 0 | 0 | 0 | 342 | 3 | 0 | 100% | 0% |
 | [mother_of_learning_artifacts](mother_of_learning_artifacts.jsonl) | A | to build | 149 | 0 | 0 | 0 | 59 | 3 | 0 | 100% | 0% |
@@ -114,7 +114,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [regressors_tale_artifacts](regressors_tale_artifacts.jsonl) | A | 674 | 674 | 0 | 0 | 0 | 201 | 160 | 0 | 100% | 0% |
 | [shadow_slave_creatures](shadow_slave_creatures.jsonl) | L | 365 | 365 | 0 | 0 | 0 | 283 | 22 | 0 | 100% | 0% |
 | [shadow_slave_echoes](shadow_slave_echoes.jsonl) | L | 37 | 37 | 0 | 0 | 0 | 27 | 2 | 0 | 100% | 0% |
-| [aos_soulbound_artifacts](aos_soulbound_artifacts.jsonl) |  | to build | 230 | 0 | 0 | 0 | 88 | 0 | 0 | 100% | 0% |
+| [aos_soulbound_artifacts](aos_soulbound_artifacts.jsonl) |  | to build | 230 | 0 | 0 | 0 | 87 | 0 | 0 | 100% | 0% |
 | [aos_soulbound_creatures](aos_soulbound_creatures.jsonl) |  | to build | 264 | 0 | 0 | 0 | 97 | 0 | 0 | 100% | 0% |
 | [aos_soulbound_institutions](aos_soulbound_institutions.jsonl) |  | to build | 175 | 0 | 0 | 0 | 14 | 1 | 0 | 100% | 0% |
 | [aos_soulbound_places](aos_soulbound_places.jsonl) |  | to build | 210 | 0 | 0 | 0 | 12 | 0 | 0 | 100% | 0% |
@@ -139,11 +139,11 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [coc_items](coc_items.jsonl) |  | to build | 4 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
 | [coc_powers](coc_powers.jsonl) |  | to build | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
 | [coc_spells](coc_spells.jsonl) |  | to build | 4 | 0 | 0 | 0 | 3 | 0 | 0 | 100% | 0% |
-| [cyberpunk_artifacts](cyberpunk_artifacts.jsonl) |  | to build | 523 | 0 | 0 | 0 | 82 | 1 | 0 | 100% | 0% |
+| [cyberpunk_artifacts](cyberpunk_artifacts.jsonl) |  | to build | 523 | 0 | 0 | 0 | 81 | 1 | 0 | 100% | 0% |
 | [cyberpunk_creatures](cyberpunk_creatures.jsonl) |  | to build | 67 | 0 | 0 | 0 | 21 | 0 | 0 | 100% | 0% |
 | [cyberpunk_institutions](cyberpunk_institutions.jsonl) |  | to build | 262 | 0 | 0 | 0 | 4 | 3 | 0 | 100% | 0% |
 | [cyberpunk_places](cyberpunk_places.jsonl) |  | to build | 264 | 0 | 0 | 0 | 1 | 0 | 0 | 100% | 0% |
-| [cyberpunk_powers](cyberpunk_powers.jsonl) |  | to build | 261 | 0 | 0 | 0 | 66 | 0 | 0 | 100% | 0% |
+| [cyberpunk_powers](cyberpunk_powers.jsonl) |  | to build | 261 | 0 | 0 | 0 | 65 | 0 | 0 | 100% | 0% |
 | [cyberpunk_rules](cyberpunk_rules.jsonl) |  | to build | 147 | 0 | 0 | 0 | 28 | 25 | 0 | 100% | 0% |
 | [cypher_conditions](cypher_conditions.jsonl) |  | to build | 18 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
 | [cypher_creatures](cypher_creatures.jsonl) |  | to build | 38 | 0 | 0 | 0 | 21 | 0 | 0 | 100% | 0% |
@@ -168,17 +168,17 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [dnd_srd_powers](dnd_srd_powers.jsonl) |  | to build | 494 | 0 | 0 | 0 | 220 | 0 | 0 | 100% | 0% |
 | [dnd_srd_spells](dnd_srd_spells.jsonl) |  | to build | 339 | 0 | 0 | 0 | 272 | 0 | 0 | 100% | 0% |
 | [dnd_srd_surge_tables](dnd_srd_surge_tables.jsonl) |  | to build | 17 | 0 | 0 | 0 | 10 | 0 | 0 | 100% | 0% |
-| [eberron_artifacts](eberron_artifacts.jsonl) |  | to build | 357 | 0 | 0 | 0 | 168 | 2 | 0 | 100% | 0% |
-| [eberron_creatures](eberron_creatures.jsonl) |  | to build | 398 | 0 | 0 | 0 | 109 | 1 | 0 | 100% | 0% |
+| [eberron_artifacts](eberron_artifacts.jsonl) |  | to build | 357 | 0 | 0 | 0 | 159 | 2 | 0 | 100% | 0% |
+| [eberron_creatures](eberron_creatures.jsonl) |  | to build | 398 | 0 | 0 | 0 | 108 | 1 | 0 | 100% | 0% |
 | [eberron_institutions](eberron_institutions.jsonl) |  | to build | 289 | 0 | 0 | 0 | 8 | 1 | 0 | 100% | 0% |
 | [eberron_places](eberron_places.jsonl) |  | to build | 438 | 0 | 0 | 0 | 37 | 3 | 0 | 100% | 0% |
-| [eberron_powers](eberron_powers.jsonl) |  | to build | 400 | 0 | 0 | 0 | 247 | 9 | 0 | 100% | 0% |
+| [eberron_powers](eberron_powers.jsonl) |  | to build | 400 | 0 | 0 | 0 | 245 | 9 | 0 | 100% | 0% |
 | [eberron_rules](eberron_rules.jsonl) |  | to build | 125 | 0 | 0 | 0 | 55 | 0 | 0 | 100% | 0% |
-| [eclipse_phase_artifacts](eclipse_phase_artifacts.jsonl) |  | to build | 719 | 0 | 0 | 0 | 218 | 1 | 0 | 100% | 0% |
+| [eclipse_phase_artifacts](eclipse_phase_artifacts.jsonl) |  | to build | 719 | 0 | 0 | 0 | 216 | 1 | 0 | 100% | 0% |
 | [eclipse_phase_creatures](eclipse_phase_creatures.jsonl) |  | to build | 474 | 0 | 0 | 0 | 92 | 20 | 0 | 100% | 0% |
 | [eclipse_phase_institutions](eclipse_phase_institutions.jsonl) |  | to build | 414 | 0 | 0 | 0 | 22 | 2 | 0 | 100% | 0% |
 | [eclipse_phase_places](eclipse_phase_places.jsonl) |  | to build | 346 | 0 | 0 | 0 | 13 | 0 | 0 | 100% | 0% |
-| [eclipse_phase_powers](eclipse_phase_powers.jsonl) |  | to build | 547 | 0 | 0 | 0 | 245 | 0 | 0 | 100% | 0% |
+| [eclipse_phase_powers](eclipse_phase_powers.jsonl) |  | to build | 547 | 0 | 0 | 0 | 244 | 0 | 0 | 100% | 0% |
 | [eclipse_phase_qs_conditions](eclipse_phase_qs_conditions.jsonl) |  | to build | 16 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
 | [eclipse_phase_qs_creatures](eclipse_phase_qs_creatures.jsonl) |  | to build | 5 | 0 | 0 | 0 | 5 | 0 | 0 | 100% | 0% |
 | [eclipse_phase_qs_items](eclipse_phase_qs_items.jsonl) |  | to build | 48 | 0 | 0 | 0 | 28 | 0 | 0 | 100% | 0% |
@@ -189,13 +189,13 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [fate_items](fate_items.jsonl) |  | to build | 71 | 0 | 0 | 0 | 37 | 0 | 0 | 100% | 0% |
 | [fate_powers](fate_powers.jsonl) |  | to build | 940 | 0 | 0 | 0 | 505 | 0 | 0 | 100% | 0% |
 | [fate_spells](fate_spells.jsonl) |  | to build | 15 | 0 | 0 | 0 | 13 | 0 | 0 | 100% | 0% |
-| [forgotten_realms_artifacts](forgotten_realms_artifacts.jsonl) |  | to build | 530 | 0 | 0 | 0 | 219 | 0 | 0 | 100% | 0% |
+| [forgotten_realms_artifacts](forgotten_realms_artifacts.jsonl) |  | to build | 530 | 0 | 0 | 0 | 215 | 0 | 0 | 100% | 0% |
 | [forgotten_realms_creatures](forgotten_realms_creatures.jsonl) |  | to build | 868 | 0 | 0 | 0 | 152 | 1 | 0 | 100% | 0% |
 | [forgotten_realms_institutions](forgotten_realms_institutions.jsonl) |  | to build | 531 | 0 | 0 | 0 | 12 | 2 | 0 | 100% | 0% |
 | [forgotten_realms_places](forgotten_realms_places.jsonl) |  | to build | 1234 | 0 | 0 | 0 | 52 | 4 | 0 | 100% | 0% |
-| [forgotten_realms_powers](forgotten_realms_powers.jsonl) |  | to build | 638 | 0 | 0 | 0 | 346 | 2 | 0 | 100% | 0% |
+| [forgotten_realms_powers](forgotten_realms_powers.jsonl) |  | to build | 638 | 0 | 0 | 0 | 342 | 2 | 0 | 100% | 0% |
 | [forgotten_realms_rules](forgotten_realms_rules.jsonl) |  | to build | 153 | 0 | 0 | 0 | 58 | 11 | 0 | 100% | 0% |
-| [golarion_artifacts](golarion_artifacts.jsonl) |  | to build | 49 | 0 | 0 | 0 | 32 | 0 | 0 | 100% | 0% |
+| [golarion_artifacts](golarion_artifacts.jsonl) |  | to build | 49 | 0 | 0 | 0 | 31 | 0 | 0 | 100% | 0% |
 | [golarion_creatures](golarion_creatures.jsonl) |  | to build | 201 | 0 | 0 | 0 | 35 | 0 | 0 | 100% | 0% |
 | [golarion_institutions](golarion_institutions.jsonl) |  | to build | 165 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
 | [golarion_places](golarion_places.jsonl) |  | to build | 407 | 0 | 0 | 0 | 41 | 0 | 0 | 100% | 0% |
@@ -207,17 +207,17 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [ironsworn_powers](ironsworn_powers.jsonl) |  | to build | 128 | 0 | 0 | 0 | 58 | 0 | 0 | 100% | 0% |
 | [mm3e_conditions](mm3e_conditions.jsonl) |  | to build | 3 | 0 | 0 | 0 | 3 | 0 | 0 | 100% | 0% |
 | [mm3e_powers](mm3e_powers.jsonl) |  | to build | 157 | 0 | 0 | 0 | 103 | 0 | 0 | 100% | 0% |
-| [mystara_artifacts](mystara_artifacts.jsonl) |  | to build | 542 | 0 | 0 | 0 | 167 | 2 | 0 | 100% | 0% |
-| [mystara_creatures](mystara_creatures.jsonl) |  | to build | 641 | 0 | 0 | 0 | 110 | 3 | 0 | 100% | 0% |
+| [mystara_artifacts](mystara_artifacts.jsonl) |  | to build | 542 | 0 | 0 | 0 | 162 | 2 | 0 | 100% | 0% |
+| [mystara_creatures](mystara_creatures.jsonl) |  | to build | 641 | 0 | 0 | 0 | 109 | 3 | 0 | 100% | 0% |
 | [mystara_institutions](mystara_institutions.jsonl) |  | to build | 510 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
 | [mystara_places](mystara_places.jsonl) |  | to build | 792 | 0 | 0 | 0 | 29 | 7 | 0 | 100% | 0% |
 | [mystara_powers](mystara_powers.jsonl) |  | to build | 542 | 0 | 0 | 0 | 281 | 3 | 0 | 100% | 0% |
 | [mystara_rules](mystara_rules.jsonl) |  | to build | 374 | 0 | 0 | 0 | 83 | 33 | 0 | 100% | 0% |
-| [numenera_artifacts](numenera_artifacts.jsonl) |  | to build | 1746 | 0 | 0 | 0 | 743 | 0 | 0 | 100% | 0% |
-| [numenera_creatures](numenera_creatures.jsonl) |  | to build | 933 | 0 | 0 | 0 | 298 | 1 | 0 | 100% | 0% |
+| [numenera_artifacts](numenera_artifacts.jsonl) |  | to build | 1746 | 0 | 0 | 0 | 728 | 0 | 0 | 100% | 0% |
+| [numenera_creatures](numenera_creatures.jsonl) |  | to build | 933 | 0 | 0 | 0 | 297 | 1 | 0 | 100% | 0% |
 | [numenera_institutions](numenera_institutions.jsonl) |  | to build | 179 | 0 | 0 | 0 | 17 | 1 | 0 | 100% | 0% |
 | [numenera_places](numenera_places.jsonl) |  | to build | 622 | 0 | 0 | 0 | 66 | 3 | 0 | 100% | 0% |
-| [numenera_powers](numenera_powers.jsonl) |  | to build | 1114 | 0 | 0 | 0 | 421 | 9 | 0 | 100% | 0% |
+| [numenera_powers](numenera_powers.jsonl) |  | to build | 1114 | 0 | 0 | 0 | 417 | 9 | 0 | 100% | 0% |
 | [numenera_rules](numenera_rules.jsonl) |  | to build | 528 | 0 | 0 | 0 | 207 | 29 | 0 | 100% | 0% |
 | [pf1_conditions](pf1_conditions.jsonl) |  | to build | 170 | 0 | 0 | 0 | 136 | 0 | 0 | 100% | 0% |
 | [pf1_creatures](pf1_creatures.jsonl) |  | to build | 125 | 0 | 0 | 0 | 106 | 0 | 0 | 100% | 0% |
@@ -230,11 +230,11 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [planescape_places](planescape_places.jsonl) |  | to build | 158 | 0 | 0 | 0 | 26 | 0 | 0 | 100% | 0% |
 | [planescape_powers](planescape_powers.jsonl) |  | to build | 17 | 0 | 0 | 0 | 15 | 0 | 0 | 100% | 0% |
 | [planescape_rules](planescape_rules.jsonl) |  | to build | 49 | 0 | 0 | 0 | 24 | 0 | 0 | 100% | 0% |
-| [ravenloft_artifacts](ravenloft_artifacts.jsonl) |  | to build | 196 | 0 | 0 | 0 | 46 | 0 | 0 | 100% | 0% |
-| [ravenloft_creatures](ravenloft_creatures.jsonl) |  | to build | 354 | 0 | 0 | 0 | 136 | 0 | 0 | 100% | 0% |
+| [ravenloft_artifacts](ravenloft_artifacts.jsonl) |  | to build | 196 | 0 | 0 | 0 | 44 | 0 | 0 | 100% | 0% |
+| [ravenloft_creatures](ravenloft_creatures.jsonl) |  | to build | 354 | 0 | 0 | 0 | 135 | 0 | 0 | 100% | 0% |
 | [ravenloft_institutions](ravenloft_institutions.jsonl) |  | to build | 73 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
 | [ravenloft_places](ravenloft_places.jsonl) |  | to build | 233 | 0 | 0 | 0 | 28 | 1 | 0 | 100% | 0% |
-| [ravenloft_powers](ravenloft_powers.jsonl) |  | to build | 251 | 0 | 0 | 0 | 119 | 0 | 0 | 100% | 0% |
+| [ravenloft_powers](ravenloft_powers.jsonl) |  | to build | 251 | 0 | 0 | 0 | 118 | 0 | 0 | 100% | 0% |
 | [ravenloft_rules](ravenloft_rules.jsonl) |  | to build | 101 | 0 | 0 | 0 | 62 | 0 | 0 | 100% | 0% |
 | [ravnica_artifacts](ravnica_artifacts.jsonl) |  | to build | 5 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
 | [ravnica_creatures](ravnica_creatures.jsonl) |  | to build | 47 | 0 | 0 | 0 | 5 | 0 | 0 | 100% | 0% |
@@ -242,49 +242,49 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [ravnica_places](ravnica_places.jsonl) |  | to build | 24 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
 | [ravnica_powers](ravnica_powers.jsonl) |  | to build | 88 | 0 | 0 | 0 | 38 | 0 | 0 | 100% | 0% |
 | [ravnica_rules](ravnica_rules.jsonl) |  | to build | 5 | 0 | 0 | 0 | 3 | 0 | 0 | 100% | 0% |
-| [spelljammer_artifacts](spelljammer_artifacts.jsonl) |  | to build | 115 | 0 | 0 | 0 | 28 | 0 | 0 | 100% | 0% |
+| [spelljammer_artifacts](spelljammer_artifacts.jsonl) |  | to build | 115 | 0 | 0 | 0 | 24 | 0 | 0 | 100% | 0% |
 | [spelljammer_creatures](spelljammer_creatures.jsonl) |  | to build | 187 | 0 | 0 | 0 | 33 | 0 | 0 | 100% | 0% |
 | [spelljammer_institutions](spelljammer_institutions.jsonl) |  | to build | 33 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
 | [spelljammer_places](spelljammer_places.jsonl) |  | to build | 82 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
 | [spelljammer_powers](spelljammer_powers.jsonl) |  | to build | 155 | 0 | 0 | 0 | 74 | 0 | 0 | 100% | 0% |
 | [spelljammer_rules](spelljammer_rules.jsonl) |  | to build | 55 | 0 | 0 | 0 | 23 | 4 | 0 | 100% | 0% |
-| [stars_without_number_artifacts](stars_without_number_artifacts.jsonl) |  | to build | 427 | 0 | 0 | 0 | 54 | 0 | 0 | 100% | 0% |
+| [stars_without_number_artifacts](stars_without_number_artifacts.jsonl) |  | to build | 427 | 0 | 0 | 0 | 51 | 0 | 0 | 100% | 0% |
 | [stars_without_number_creatures](stars_without_number_creatures.jsonl) |  | to build | 80 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
 | [stars_without_number_institutions](stars_without_number_institutions.jsonl) |  | to build | 42 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
 | [stars_without_number_places](stars_without_number_places.jsonl) |  | to build | 52 | 0 | 0 | 0 | 0 | 0 | 0 | 100% | 0% |
-| [stars_without_number_powers](stars_without_number_powers.jsonl) |  | to build | 139 | 0 | 0 | 0 | 71 | 0 | 0 | 100% | 0% |
+| [stars_without_number_powers](stars_without_number_powers.jsonl) |  | to build | 139 | 0 | 0 | 0 | 69 | 0 | 0 | 100% | 0% |
 | [stars_without_number_rules](stars_without_number_rules.jsonl) |  | to build | 169 | 0 | 0 | 0 | 20 | 36 | 0 | 100% | 0% |
-| [strixhaven_artifacts](strixhaven_artifacts.jsonl) |  | to build | 117 | 0 | 0 | 0 | 55 | 0 | 0 | 100% | 0% |
-| [strixhaven_creatures](strixhaven_creatures.jsonl) |  | to build | 158 | 0 | 0 | 0 | 61 | 0 | 0 | 100% | 0% |
+| [strixhaven_artifacts](strixhaven_artifacts.jsonl) |  | to build | 117 | 0 | 0 | 0 | 50 | 0 | 0 | 100% | 0% |
+| [strixhaven_creatures](strixhaven_creatures.jsonl) |  | to build | 158 | 0 | 0 | 0 | 60 | 0 | 0 | 100% | 0% |
 | [strixhaven_institutions](strixhaven_institutions.jsonl) |  | to build | 42 | 0 | 0 | 0 | 0 | 1 | 0 | 100% | 0% |
 | [strixhaven_places](strixhaven_places.jsonl) |  | to build | 58 | 0 | 0 | 0 | 7 | 0 | 0 | 100% | 0% |
 | [strixhaven_powers](strixhaven_powers.jsonl) |  | to build | 277 | 0 | 0 | 0 | 147 | 1 | 0 | 100% | 0% |
 | [strixhaven_rules](strixhaven_rules.jsonl) |  | to build | 37 | 0 | 0 | 0 | 12 | 10 | 0 | 100% | 0% |
-| [the_dark_eye_artifacts](the_dark_eye_artifacts.jsonl) |  | to build | 235 | 0 | 0 | 0 | 47 | 0 | 0 | 100% | 0% |
+| [the_dark_eye_artifacts](the_dark_eye_artifacts.jsonl) |  | to build | 235 | 0 | 0 | 0 | 43 | 0 | 0 | 100% | 0% |
 | [the_dark_eye_creatures](the_dark_eye_creatures.jsonl) |  | to build | 212 | 0 | 0 | 0 | 30 | 0 | 0 | 100% | 0% |
 | [the_dark_eye_institutions](the_dark_eye_institutions.jsonl) |  | to build | 116 | 0 | 0 | 0 | 2 | 1 | 0 | 100% | 0% |
 | [the_dark_eye_places](the_dark_eye_places.jsonl) |  | to build | 145 | 0 | 0 | 0 | 5 | 1 | 0 | 100% | 0% |
-| [the_dark_eye_powers](the_dark_eye_powers.jsonl) |  | to build | 523 | 0 | 0 | 0 | 206 | 1 | 0 | 100% | 0% |
+| [the_dark_eye_powers](the_dark_eye_powers.jsonl) |  | to build | 523 | 0 | 0 | 0 | 205 | 1 | 0 | 100% | 0% |
 | [the_dark_eye_rules](the_dark_eye_rules.jsonl) |  | to build | 189 | 0 | 0 | 0 | 39 | 20 | 0 | 100% | 0% |
-| [the_strange_artifacts](the_strange_artifacts.jsonl) |  | to build | 489 | 0 | 0 | 0 | 225 | 2 | 0 | 100% | 0% |
-| [the_strange_creatures](the_strange_creatures.jsonl) |  | to build | 458 | 0 | 0 | 0 | 146 | 2 | 0 | 100% | 0% |
+| [the_strange_artifacts](the_strange_artifacts.jsonl) |  | to build | 489 | 0 | 0 | 0 | 213 | 2 | 0 | 100% | 0% |
+| [the_strange_creatures](the_strange_creatures.jsonl) |  | to build | 458 | 0 | 0 | 0 | 144 | 2 | 0 | 100% | 0% |
 | [the_strange_institutions](the_strange_institutions.jsonl) |  | to build | 160 | 0 | 0 | 0 | 5 | 1 | 0 | 100% | 0% |
 | [the_strange_places](the_strange_places.jsonl) |  | to build | 365 | 0 | 0 | 0 | 55 | 1 | 0 | 100% | 0% |
-| [the_strange_powers](the_strange_powers.jsonl) |  | to build | 585 | 0 | 0 | 0 | 234 | 2 | 0 | 100% | 0% |
+| [the_strange_powers](the_strange_powers.jsonl) |  | to build | 585 | 0 | 0 | 0 | 230 | 2 | 0 | 100% | 0% |
 | [the_strange_rules](the_strange_rules.jsonl) |  | to build | 305 | 0 | 0 | 0 | 133 | 12 | 0 | 100% | 0% |
-| [theros_artifacts](theros_artifacts.jsonl) |  | to build | 82 | 0 | 0 | 0 | 26 | 0 | 0 | 100% | 0% |
-| [theros_creatures](theros_creatures.jsonl) |  | to build | 305 | 0 | 0 | 0 | 84 | 0 | 0 | 100% | 0% |
+| [theros_artifacts](theros_artifacts.jsonl) |  | to build | 82 | 0 | 0 | 0 | 25 | 0 | 0 | 100% | 0% |
+| [theros_creatures](theros_creatures.jsonl) |  | to build | 305 | 0 | 0 | 0 | 83 | 0 | 0 | 100% | 0% |
 | [theros_institutions](theros_institutions.jsonl) |  | to build | 75 | 0 | 0 | 0 | 6 | 0 | 0 | 100% | 0% |
 | [theros_places](theros_places.jsonl) |  | to build | 131 | 0 | 0 | 0 | 23 | 0 | 0 | 100% | 0% |
 | [theros_powers](theros_powers.jsonl) |  | to build | 280 | 0 | 0 | 0 | 136 | 0 | 0 | 100% | 0% |
 | [theros_rules](theros_rules.jsonl) |  | to build | 86 | 0 | 0 | 0 | 51 | 0 | 0 | 100% | 0% |
 | [toaru_powers](toaru_powers.jsonl) |  | to build | 1071 | 0 | 0 | 0 | 304 | 0 | 0 | 100% | 0% |
 | [ward_powers](ward_powers.jsonl) |  | to build | 1217 | 0 | 0 | 0 | 349 | 0 | 0 | 100% | 0% |
-| [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 1216 | 0 | 0 | 0 | 279 | 16 | 0 | 100% | 0% |
+| [warhammer_40k_artifacts](warhammer_40k_artifacts.jsonl) |  | to build | 1216 | 0 | 0 | 0 | 274 | 16 | 0 | 100% | 0% |
 | [warhammer_40k_creatures](warhammer_40k_creatures.jsonl) |  | to build | 546 | 0 | 0 | 0 | 116 | 2 | 0 | 100% | 0% |
 | [warhammer_40k_institutions](warhammer_40k_institutions.jsonl) |  | to build | 653 | 0 | 0 | 0 | 24 | 14 | 0 | 100% | 0% |
 | [warhammer_40k_places](warhammer_40k_places.jsonl) |  | to build | 560 | 0 | 0 | 0 | 41 | 2 | 0 | 100% | 0% |
-| [warhammer_40k_powers](warhammer_40k_powers.jsonl) |  | to build | 1284 | 0 | 0 | 0 | 459 | 1 | 0 | 100% | 0% |
+| [warhammer_40k_powers](warhammer_40k_powers.jsonl) |  | to build | 1284 | 0 | 0 | 0 | 458 | 1 | 0 | 100% | 0% |
 | [warhammer_40k_rules](warhammer_40k_rules.jsonl) |  | to build | 564 | 0 | 0 | 0 | 164 | 41 | 0 | 100% | 0% |
 | [wfrp4e_artifacts](wfrp4e_artifacts.jsonl) |  | to build | 287 | 0 | 0 | 0 | 29 | 6 | 0 | 100% | 0% |
 | [wfrp4e_creatures](wfrp4e_creatures.jsonl) |  | to build | 197 | 0 | 0 | 0 | 26 | 1 | 0 | 100% | 0% |
@@ -292,7 +292,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | [wfrp4e_places](wfrp4e_places.jsonl) |  | to build | 176 | 0 | 0 | 0 | 4 | 0 | 0 | 100% | 0% |
 | [wfrp4e_powers](wfrp4e_powers.jsonl) |  | to build | 136 | 0 | 0 | 0 | 64 | 27 | 0 | 100% | 0% |
 | [wfrp4e_rules](wfrp4e_rules.jsonl) |  | to build | 83 | 0 | 0 | 0 | 2 | 20 | 0 | 100% | 0% |
-| [wildemount_artifacts](wildemount_artifacts.jsonl) |  | to build | 205 | 0 | 0 | 0 | 81 | 3 | 0 | 100% | 0% |
+| [wildemount_artifacts](wildemount_artifacts.jsonl) |  | to build | 205 | 0 | 0 | 0 | 80 | 3 | 0 | 100% | 0% |
 | [wildemount_creatures](wildemount_creatures.jsonl) |  | to build | 461 | 0 | 0 | 0 | 103 | 1 | 0 | 100% | 0% |
 | [wildemount_institutions](wildemount_institutions.jsonl) |  | to build | 175 | 0 | 0 | 0 | 9 | 0 | 0 | 100% | 0% |
 | [wildemount_places](wildemount_places.jsonl) |  | to build | 473 | 0 | 0 | 0 | 13 | 1 | 0 | 100% | 0% |
@@ -307,7 +307,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
 | a_novel_concept_powers | 0 | 0 | 0 | 0 |
-| aos_soulbound_artifacts | 0 | 7 | 0 | 0 |
+| aos_soulbound_artifacts | 0 | 8 | 0 | 0 |
 | aos_soulbound_creatures | 0 | 12 | 0 | 0 |
 | aos_soulbound_institutions | 0 | 0 | 0 | 0 |
 | aos_soulbound_places | 0 | 1 | 0 | 0 |
@@ -329,18 +329,18 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | brp_spells | 0 | 2 | 0 | 0 |
 | circle_of_inevitability_artifacts | 0 | 0 | 0 | 0 |
 | circle_of_inevitability_potions | 6 | 6 | 6 | 0 |
-| circle_of_inevitability_powers | 0 | 30 | 0 | 0 |
+| circle_of_inevitability_powers | 0 | 35 | 0 | 0 |
 | coc_conditions | 0 | 0 | 0 | 0 |
 | coc_creatures | 0 | 0 | 0 | 0 |
 | coc_items | 0 | 0 | 0 | 0 |
 | coc_powers | 0 | 0 | 0 | 0 |
 | coc_spells | 0 | 0 | 0 | 0 |
 | creatures | 0 | 82 | 0 | 0 |
-| cyberpunk_artifacts | 0 | 3 | 0 | 0 |
+| cyberpunk_artifacts | 0 | 4 | 0 | 0 |
 | cyberpunk_creatures | 0 | 2 | 0 | 0 |
 | cyberpunk_institutions | 0 | 0 | 0 | 0 |
 | cyberpunk_places | 0 | 0 | 0 | 0 |
-| cyberpunk_powers | 0 | 14 | 0 | 0 |
+| cyberpunk_powers | 0 | 15 | 0 | 0 |
 | cyberpunk_rules | 0 | 0 | 0 | 0 |
 | cypher_conditions | 0 | 0 | 0 | 0 |
 | cypher_creatures | 0 | 0 | 0 | 0 |
@@ -365,17 +365,17 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | dnd_srd_powers | 0 | 2 | 0 | 0 |
 | dnd_srd_spells | 0 | 7 | 0 | 0 |
 | dnd_srd_surge_tables | 0 | 0 | 0 | 0 |
-| eberron_artifacts | 0 | 5 | 0 | 0 |
-| eberron_creatures | 0 | 16 | 0 | 0 |
+| eberron_artifacts | 0 | 14 | 0 | 0 |
+| eberron_creatures | 0 | 17 | 0 | 0 |
 | eberron_institutions | 0 | 0 | 0 | 0 |
 | eberron_places | 0 | 3 | 0 | 0 |
-| eberron_powers | 0 | 16 | 0 | 0 |
+| eberron_powers | 0 | 18 | 0 | 0 |
 | eberron_rules | 0 | 1 | 0 | 0 |
-| eclipse_phase_artifacts | 0 | 15 | 0 | 0 |
+| eclipse_phase_artifacts | 0 | 17 | 0 | 0 |
 | eclipse_phase_creatures | 0 | 46 | 0 | 0 |
 | eclipse_phase_institutions | 0 | 5 | 0 | 0 |
 | eclipse_phase_places | 0 | 0 | 0 | 0 |
-| eclipse_phase_powers | 0 | 35 | 0 | 0 |
+| eclipse_phase_powers | 0 | 36 | 0 | 0 |
 | eclipse_phase_qs_conditions | 0 | 0 | 0 | 0 |
 | eclipse_phase_qs_creatures | 0 | 0 | 0 | 0 |
 | eclipse_phase_qs_items | 0 | 0 | 0 | 0 |
@@ -387,14 +387,14 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | fate_powers | 0 | 6 | 0 | 0 |
 | fate_spells | 0 | 1 | 0 | 0 |
 | fated_villain_artifacts | 0 | 0 | 0 | 0 |
-| fated_villain_powers | 0 | 10 | 0 | 0 |
-| forgotten_realms_artifacts | 0 | 12 | 0 | 0 |
+| fated_villain_powers | 0 | 13 | 0 | 0 |
+| forgotten_realms_artifacts | 0 | 16 | 0 | 0 |
 | forgotten_realms_creatures | 0 | 37 | 0 | 0 |
 | forgotten_realms_institutions | 0 | 1 | 0 | 0 |
 | forgotten_realms_places | 0 | 2 | 0 | 0 |
-| forgotten_realms_powers | 0 | 25 | 0 | 0 |
+| forgotten_realms_powers | 0 | 29 | 0 | 0 |
 | forgotten_realms_rules | 0 | 1 | 0 | 0 |
-| golarion_artifacts | 0 | 1 | 0 | 0 |
+| golarion_artifacts | 0 | 2 | 0 | 0 |
 | golarion_creatures | 0 | 2 | 0 | 0 |
 | golarion_institutions | 0 | 0 | 0 | 0 |
 | golarion_places | 0 | 0 | 0 | 0 |
@@ -415,25 +415,25 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | jojo_powers | 0 | 0 | 0 | 0 |
 | labyrinth_mad_god_powers | 0 | 1 | 0 | 0 |
 | legendary_mechanic_artifacts | 0 | 0 | 0 | 0 |
-| legendary_mechanic_powers | 0 | 8 | 0 | 0 |
+| legendary_mechanic_powers | 0 | 9 | 0 | 0 |
 | lotm_artifacts | 0 | 0 | 0 | 0 |
 | lotm_potions | 208 | 208 | 208 | 0 |
 | lotm_powers | 0 | 0 | 0 | 0 |
 | mm3e_conditions | 0 | 0 | 0 | 0 |
 | mm3e_powers | 0 | 4 | 0 | 0 |
 | mother_of_learning_artifacts | 0 | 0 | 0 | 0 |
-| mother_of_learning_powers | 0 | 6 | 0 | 0 |
-| mystara_artifacts | 0 | 6 | 0 | 0 |
-| mystara_creatures | 0 | 23 | 0 | 0 |
+| mother_of_learning_powers | 0 | 9 | 0 | 0 |
+| mystara_artifacts | 0 | 11 | 0 | 0 |
+| mystara_creatures | 0 | 24 | 0 | 0 |
 | mystara_institutions | 0 | 0 | 0 | 0 |
 | mystara_places | 0 | 0 | 0 | 0 |
 | mystara_powers | 0 | 33 | 0 | 0 |
 | mystara_rules | 0 | 0 | 0 | 0 |
-| numenera_artifacts | 0 | 75 | 0 | 0 |
-| numenera_creatures | 0 | 39 | 0 | 0 |
+| numenera_artifacts | 0 | 90 | 0 | 0 |
+| numenera_creatures | 0 | 40 | 0 | 0 |
 | numenera_institutions | 0 | 1 | 0 | 0 |
 | numenera_places | 0 | 6 | 0 | 0 |
-| numenera_powers | 0 | 42 | 0 | 0 |
+| numenera_powers | 0 | 46 | 0 | 0 |
 | numenera_rules | 0 | 1 | 0 | 0 |
 | omniscient_reader_powers | 0 | 2 | 0 | 0 |
 | perfect_run_powers | 0 | 0 | 0 | 0 |
@@ -448,11 +448,11 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | planescape_places | 0 | 1 | 0 | 0 |
 | planescape_powers | 0 | 0 | 0 | 0 |
 | planescape_rules | 0 | 1 | 0 | 0 |
-| ravenloft_artifacts | 0 | 2 | 0 | 0 |
-| ravenloft_creatures | 0 | 20 | 0 | 0 |
+| ravenloft_artifacts | 0 | 4 | 0 | 0 |
+| ravenloft_creatures | 0 | 21 | 0 | 0 |
 | ravenloft_institutions | 0 | 2 | 0 | 0 |
 | ravenloft_places | 0 | 1 | 0 | 0 |
-| ravenloft_powers | 0 | 16 | 0 | 0 |
+| ravenloft_powers | 0 | 17 | 0 | 0 |
 | ravenloft_rules | 0 | 3 | 0 | 0 |
 | ravnica_artifacts | 0 | 0 | 0 | 0 |
 | ravnica_creatures | 0 | 0 | 0 | 0 |
@@ -461,59 +461,59 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | ravnica_powers | 0 | 4 | 0 | 0 |
 | ravnica_rules | 0 | 0 | 0 | 0 |
 | regressors_tale_artifacts | 0 | 0 | 0 | 0 |
-| regressors_tale_powers | 0 | 14 | 0 | 0 |
+| regressors_tale_powers | 0 | 15 | 0 | 0 |
 | rezero_powers | 0 | 0 | 0 | 0 |
 | ri_treasures | 0 | 0 | 0 | 0 |
 | shadow_slave_artifacts | 0 | 0 | 0 | 0 |
 | shadow_slave_creatures | 0 | 0 | 0 | 0 |
 | shadow_slave_echoes | 0 | 0 | 0 | 0 |
-| shadow_slave_powers | 0 | 45 | 0 | 0 |
-| solo_leveling_powers | 0 | 2 | 0 | 0 |
+| shadow_slave_powers | 0 | 48 | 0 | 0 |
+| solo_leveling_powers | 0 | 3 | 0 | 0 |
 | speedrunning_multiverse_artifacts | 0 | 0 | 0 | 0 |
 | speedrunning_multiverse_powers | 0 | 3 | 0 | 0 |
-| spelljammer_artifacts | 0 | 2 | 0 | 0 |
+| spelljammer_artifacts | 0 | 6 | 0 | 0 |
 | spelljammer_creatures | 0 | 4 | 0 | 0 |
 | spelljammer_institutions | 0 | 0 | 0 | 0 |
 | spelljammer_places | 0 | 0 | 0 | 0 |
 | spelljammer_powers | 0 | 3 | 0 | 0 |
 | spelljammer_rules | 0 | 0 | 0 | 0 |
-| stars_without_number_artifacts | 0 | 8 | 0 | 0 |
+| stars_without_number_artifacts | 0 | 11 | 0 | 0 |
 | stars_without_number_creatures | 0 | 1 | 0 | 0 |
 | stars_without_number_institutions | 0 | 1 | 0 | 0 |
 | stars_without_number_places | 0 | 0 | 0 | 0 |
-| stars_without_number_powers | 0 | 7 | 0 | 0 |
+| stars_without_number_powers | 0 | 9 | 0 | 0 |
 | stars_without_number_rules | 0 | 0 | 0 | 0 |
-| strixhaven_artifacts | 0 | 9 | 0 | 0 |
-| strixhaven_creatures | 0 | 5 | 0 | 0 |
+| strixhaven_artifacts | 0 | 14 | 0 | 0 |
+| strixhaven_creatures | 0 | 6 | 0 | 0 |
 | strixhaven_institutions | 0 | 0 | 0 | 0 |
 | strixhaven_places | 0 | 0 | 0 | 0 |
 | strixhaven_powers | 0 | 17 | 0 | 0 |
 | strixhaven_rules | 0 | 0 | 0 | 0 |
-| the_dark_eye_artifacts | 0 | 2 | 0 | 0 |
+| the_dark_eye_artifacts | 0 | 6 | 0 | 0 |
 | the_dark_eye_creatures | 0 | 3 | 0 | 0 |
 | the_dark_eye_institutions | 0 | 1 | 0 | 0 |
 | the_dark_eye_places | 0 | 0 | 0 | 0 |
-| the_dark_eye_powers | 0 | 14 | 0 | 0 |
+| the_dark_eye_powers | 0 | 15 | 0 | 0 |
 | the_dark_eye_rules | 0 | 0 | 0 | 0 |
-| the_strange_artifacts | 0 | 21 | 0 | 0 |
-| the_strange_creatures | 0 | 38 | 0 | 0 |
+| the_strange_artifacts | 0 | 33 | 0 | 0 |
+| the_strange_creatures | 0 | 40 | 0 | 0 |
 | the_strange_institutions | 0 | 4 | 0 | 0 |
 | the_strange_places | 0 | 11 | 0 | 0 |
-| the_strange_powers | 0 | 29 | 0 | 0 |
+| the_strange_powers | 0 | 33 | 0 | 0 |
 | the_strange_rules | 0 | 5 | 0 | 0 |
-| theros_artifacts | 0 | 2 | 0 | 0 |
-| theros_creatures | 0 | 5 | 0 | 0 |
+| theros_artifacts | 0 | 3 | 0 | 0 |
+| theros_creatures | 0 | 6 | 0 | 0 |
 | theros_institutions | 0 | 0 | 0 | 0 |
 | theros_places | 0 | 0 | 0 | 0 |
 | theros_powers | 0 | 10 | 0 | 0 |
 | theros_rules | 0 | 2 | 0 | 0 |
 | toaru_powers | 0 | 0 | 0 | 0 |
 | ward_powers | 0 | 0 | 0 | 0 |
-| warhammer_40k_artifacts | 0 | 13 | 0 | 0 |
+| warhammer_40k_artifacts | 0 | 18 | 0 | 0 |
 | warhammer_40k_creatures | 0 | 19 | 0 | 0 |
 | warhammer_40k_institutions | 0 | 3 | 0 | 0 |
 | warhammer_40k_places | 0 | 0 | 0 | 0 |
-| warhammer_40k_powers | 0 | 74 | 0 | 0 |
+| warhammer_40k_powers | 0 | 75 | 0 | 0 |
 | warhammer_40k_rules | 0 | 0 | 0 | 0 |
 | wfrp4e_artifacts | 0 | 1 | 0 | 0 |
 | wfrp4e_creatures | 0 | 2 | 0 | 0 |
@@ -521,7 +521,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | wfrp4e_places | 0 | 0 | 0 | 0 |
 | wfrp4e_powers | 0 | 6 | 0 | 0 |
 | wfrp4e_rules | 0 | 0 | 0 | 0 |
-| wildemount_artifacts | 0 | 10 | 0 | 0 |
+| wildemount_artifacts | 0 | 11 | 0 | 0 |
 | wildemount_creatures | 0 | 26 | 0 | 0 |
 | wildemount_institutions | 0 | 2 | 0 | 0 |
 | wildemount_places | 0 | 0 | 0 | 0 |
@@ -533,7 +533,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1710 of 1932 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1711 of 1933 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -583,7 +583,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | Godclads | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
 | The Perfect Run | book |  | perfect_run_powers (113) | missing | missing | missing | missing | missing | missing | missing | missing | missing | 1 | 9 | 0 |
 | Super Supportive | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
-| Reverend Insanity | book |  | gu_moves (2244) | ri_treasures (91) | missing | missing | creatures (99) | missing | missing | missing | missing | missing | 3 | 7 | 0 |
+| Reverend Insanity | book |  | gu_moves (2245) | ri_treasures (91) | missing | missing | creatures (99) | missing | missing | missing | missing | missing | 3 | 7 | 0 |
 | A Regressor's Tale of Cultivation | book |  | regressors_tale_powers (184) | regressors_tale_artifacts (674) | missing | missing | missing | missing | missing | missing | missing | missing | 2 | 8 | 0 |
 | Wizard, Hello, I'm an Imposter (TTKS B1) | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
 | One Entry a Year, and a Simulated One Counts? (TTKS B2) | book |  | missing | missing | missing | missing | missing | missing | missing | missing | missing | missing | 0 | 10 | 0 |
@@ -1207,7 +1207,6 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | pf1_spells | body-form | 106 |
 | mystara_powers | effect-unknown | 106 |
 | circle_of_inevitability_artifacts | effect-unknown | 104 |
-| numenera_artifacts | item-bound-power | 102 |
 | dnd5e_2014_powers | area-field | 101 |
 | ars_magica_powers | area-field | 100 |
 | pf1_items | area-field | 100 |
@@ -1223,6 +1222,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | eberron_powers | effect-unknown | 91 |
 | ars_magica_spells | area-field | 88 |
 | warhammer_40k_powers | area-field | 88 |
+| numenera_artifacts | item-bound-power | 87 |
 | pf1_spells | item-bound-power | 86 |
 | numenera_powers | area-field | 85 |
 | pf1_items | protection-field | 84 |
@@ -1245,7 +1245,6 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | fated_villain_powers | effect-unknown | 70 |
 | ward_powers | power-transfer | 68 |
 | numenera_powers | effect-unknown | 67 |
-| the_strange_artifacts | item-bound-power | 67 |
 | warhammer_40k_artifacts | area-field | 66 |
 | legendary_mechanic_powers | effect-unknown | 66 |
 | ars_magica_powers | ingredient-properties | 65 |
@@ -1258,17 +1257,16 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | fate_powers | area-field | 62 |
 | hp_creatures | material-row | 62 |
 | numenera_creatures | mind-binding | 62 |
-| forgotten_realms_artifacts | item-bound-power | 61 |
 | eclipse_phase_artifacts | area-field | 60 |
 | rezero_powers | effect-unknown | 59 |
 | dnd5e_2014_spells | area-field | 58 |
 | dnd5e_2014_creatures | creature-control | 58 |
 | numenera_artifacts | divination | 58 |
 | ars_magica_conditions | negative-effect-drift | 58 |
+| forgotten_realms_artifacts | item-bound-power | 57 |
 | numenera_powers | mind-binding | 57 |
 | shadow_slave_powers | area-field | 55 |
-| mystara_artifacts | item-bound-power | 55 |
-| circle_of_inevitability_powers | item-bound-power | 54 |
+| the_strange_artifacts | item-bound-power | 55 |
 | warhammer_40k_powers | mind-binding | 54 |
 | gu_moves | roles-unchecked | 54 |
 | aos_soulbound_powers | area-field | 53 |
@@ -1281,10 +1279,11 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | pf1_items | power-interaction | 52 |
 | dnd_srd_creatures | area-field | 50 |
 | cypher_powers | conceal-or-sense | 50 |
-| warhammer_40k_artifacts | item-bound-power | 50 |
+| mystara_artifacts | item-bound-power | 50 |
 | fate_powers | mind-state | 50 |
 | omniscient_reader_powers | sponsorship-contract | 50 |
 | worm_powers | effect-unknown | 49 |
+| circle_of_inevitability_powers | item-bound-power | 49 |
 | dnd5e_2014_creatures | conceal-or-sense | 48 |
 | ravenloft_creatures | effect-unknown | 48 |
 | pf1_conditions | area-field | 47 |
@@ -1298,6 +1297,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | pf1_items | creature-control | 45 |
 | forgotten_realms_creatures | effect-unknown | 45 |
 | ars_magica_spells | item-bound-power | 45 |
+| warhammer_40k_artifacts | item-bound-power | 45 |
 | numenera_artifacts | material-row | 45 |
 | lotm_powers | mind-binding | 45 |
 | wus_powers | power-transfer | 45 |
@@ -1340,7 +1340,6 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | the_strange_rules | soul-state | 38 |
 | mystara_powers | area-field | 37 |
 | pf1_creatures | area-field | 37 |
-| eberron_artifacts | item-bound-power | 37 |
 | eberron_powers | mind-binding | 37 |
 | pf1_items | mind-state | 37 |
 | pf1_spells | creature-control | 36 |
@@ -1355,13 +1354,11 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | wus_powers | wish-grant | 35 |
 | pf1_spells | dimension-travel | 34 |
 | wfrp4e_powers | effect-unknown | 34 |
-| numenera_powers | item-bound-power | 34 |
 | hp_creatures | venom-or-disease | 34 |
 | dnd5e_2014_class_features | conceal-or-sense | 33 |
 | dnd_srd_powers | conceal-or-sense | 33 |
 | hp_potions | effect-sentence | 33 |
 | wildemount_powers | effect-unknown | 33 |
-| eclipse_phase_artifacts | item-bound-power | 33 |
 | forgotten_realms_powers | power-interaction | 33 |
 | ars_magica_powers | power-transfer | 33 |
 | numenera_artifacts | soul-state | 33 |
@@ -1370,7 +1367,6 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | eberron_powers | area-field | 32 |
 | the_strange_powers | area-field | 32 |
 | dnd5e_2014_powers | creature-control | 32 |
-| fated_villain_powers | item-bound-power | 32 |
 | hp_potions | plant-or-creature-target | 32 |
 | pf1_items | power-transfer | 32 |
 | eberron_creatures | soul-state | 32 |
@@ -1381,7 +1377,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | golarion_powers | effect-unknown | 31 |
 | ars_magica_spells | familiar-summon | 31 |
 | numenera_artifacts | form-transformation | 31 |
-| shadow_slave_powers | item-bound-power | 31 |
+| eclipse_phase_artifacts | item-bound-power | 31 |
 | pf1_items | mind-binding | 31 |
 | the_strange_creatures | mind-binding | 31 |
 | wildemount_creatures | mind-binding | 31 |
@@ -1396,6 +1392,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | pf1_items | divination-fate | 30 |
 | the_strange_creatures | effect-unknown | 30 |
 | numenera_creatures | form-transformation | 30 |
+| numenera_powers | item-bound-power | 30 |
 | ars_magica_creatures | mind-state | 30 |
 | ars_magica_spells | plant-or-creature-target | 30 |
 | lotm_powers | power-interaction | 30 |
@@ -1409,11 +1406,14 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | ars_magica_creatures | creature-control | 29 |
 | mystara_creatures | effect-unknown | 29 |
 | pf1_spells | form-transformation | 29 |
+| fated_villain_powers | item-bound-power | 29 |
 | dnd5e_2014_powers | portal-space | 29 |
 | cypher_powers | protection-field | 29 |
 | mystara_creatures | soul-state | 29 |
 | dnd5e_2014_powers | dimension-travel | 28 |
 | pf1_spells | divination-fate | 28 |
+| eberron_artifacts | item-bound-power | 28 |
+| shadow_slave_powers | item-bound-power | 28 |
 | eclipse_phase_artifacts | mind-binding | 28 |
 | fate_conditions | mind-state | 28 |
 | ars_magica_powers | object-surface | 28 |
@@ -1475,7 +1475,6 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | forgotten_realms_creatures | familiar-summon | 23 |
 | eclipse_phase_creatures | form-transformation | 23 |
 | ars_magica_items | ingredient-properties | 23 |
-| strixhaven_artifacts | item-bound-power | 23 |
 | pf1_spells | plant-or-creature-target | 23 |
 | fate_powers | power-granting | 23 |
 | dnd_srd_powers | power-interaction | 23 |
@@ -1483,7 +1482,6 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | circle_of_inevitability_powers | area-field | 22 |
 | dnd_srd_creatures | conceal-or-sense | 22 |
 | dnd5e_2014_spells | creature-control | 22 |
-| wildemount_artifacts | item-bound-power | 22 |
 | ars_magica_spells | mind-binding | 22 |
 | cypher_powers | mind-state | 22 |
 | pf1_conditions | mind-state | 22 |
@@ -1500,8 +1498,8 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | strixhaven_artifacts | effect-unknown | 21 |
 | ars_magica_creatures | ingredient-properties | 21 |
 | pf1_items | ingredient-properties | 21 |
-| cyberpunk_powers | item-bound-power | 21 |
 | cypher_powers | item-bound-power | 21 |
+| wildemount_artifacts | item-bound-power | 21 |
 | ars_magica_powers | memory-transfer | 21 |
 | dnd_srd_spells | mind-binding | 21 |
 | eberron_creatures | mind-binding | 21 |
@@ -1521,7 +1519,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | ars_magica_conditions | conceal-or-sense | 20 |
 | wildemount_creatures | effect-unknown | 20 |
 | regressors_tale_artifacts | formation-field | 20 |
-| numenera_creatures | item-bound-power | 20 |
+| cyberpunk_powers | item-bound-power | 20 |
 | pf1_conditions | negative-effect-drift | 20 |
 | gu_moves | roles-partial | 20 |
 | the_strange_creatures | soul-state | 20 |
@@ -1538,7 +1536,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | dnd5e_2014_items | familiar-summon | 19 |
 | numenera_rules | form-transformation | 19 |
 | fate_items | item-bound-power | 19 |
-| the_dark_eye_artifacts | item-bound-power | 19 |
+| numenera_creatures | item-bound-power | 19 |
 | ars_magica_creatures | mind-binding | 19 |
 | eclipse_phase_creatures | mind-binding | 19 |
 | the_strange_artifacts | mind-binding | 19 |
@@ -1560,7 +1558,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | dnd5e_2014_powers | body-form | 18 |
 | ars_magica_creatures | form-transformation | 18 |
 | dnd5e_2014_powers | item-bound-power | 18 |
-| eberron_powers | item-bound-power | 18 |
+| strixhaven_artifacts | item-bound-power | 18 |
 | numenera_rules | item-state | 18 |
 | dnd5e_2014_class_features | mind-binding | 18 |
 | eclipse_phase_rules | mind-binding | 18 |
@@ -1600,6 +1598,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | strixhaven_powers | familiar-summon | 16 |
 | ravenloft_creatures | form-transformation | 16 |
 | shadow_slave_creatures | form-transformation | 16 |
+| eberron_powers | item-bound-power | 16 |
 | ars_magica_spells | luck-mechanism | 16 |
 | ars_magica_spells | memory-transfer | 16 |
 | pf1_spells | memory-transfer | 16 |
@@ -1629,6 +1628,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | dnd5e_2014_spells | familiar-summon | 15 |
 | ars_magica_spells | ingredient-properties | 15 |
 | mystara_powers | item-bound-power | 15 |
+| the_dark_eye_artifacts | item-bound-power | 15 |
 | aos_soulbound_creatures | mind-binding | 15 |
 | cypher_powers | mind-binding | 15 |
 | fate_powers | mind-binding | 15 |
@@ -1658,11 +1658,8 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | circle_of_inevitability_potions | formula-in-notes | 14 |
 | hp_ingredients | ingredient-effect-outside-axis-set | 14 |
 | hp_ingredients | ingredient-recipe-effect-unknown | 14 |
-| cyberpunk_artifacts | item-bound-power | 14 |
 | dnd5e_2014_class_features | item-bound-power | 14 |
-| forgotten_realms_powers | item-bound-power | 14 |
 | the_dark_eye_rules | item-bound-power | 14 |
-| the_strange_powers | item-bound-power | 14 |
 | the_strange_rules | item-state | 14 |
 | dnd_srd_powers | mind-state | 14 |
 | dnd_srd_spells | mind-state | 14 |
@@ -1699,6 +1696,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | the_dark_eye_powers | divination | 13 |
 | dnd_srd_items | familiar-summon | 13 |
 | the_dark_eye_creatures | familiar-summon | 13 |
+| cyberpunk_artifacts | item-bound-power | 13 |
 | pf1_powers | item-bound-power | 13 |
 | dnd5e_2014_class_features | luck-mechanism | 13 |
 | fate_powers | luck-mechanism | 13 |
@@ -1737,8 +1735,6 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | pf1_spells | formation-field | 12 |
 | lotm_potions | formula-wiki-unchecked | 12 |
 | aos_soulbound_powers | item-bound-power | 12 |
-| legendary_mechanic_powers | item-bound-power | 12 |
-| spelljammer_artifacts | item-bound-power | 12 |
 | ars_magica_powers | luck-mechanism | 12 |
 | numenera_rules | material-row | 12 |
 | shadow_slave_creatures | material-row | 12 |
@@ -1785,11 +1781,8 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | forgotten_realms_creatures | form-transformation | 11 |
 | warhammer_40k_powers | form-transformation | 11 |
 | ars_magica_conditions | ingredient-properties | 11 |
-| aos_soulbound_artifacts | item-bound-power | 11 |
-| ravenloft_artifacts | item-bound-power | 11 |
+| legendary_mechanic_powers | item-bound-power | 11 |
 | speedrunning_multiverse_powers | item-bound-power | 11 |
-| stars_without_number_artifacts | item-bound-power | 11 |
-| the_dark_eye_powers | item-bound-power | 11 |
 | the_strange_artifacts | item-state | 11 |
 | warhammer_40k_artifacts | item-state | 11 |
 | pf1_items | memory-transfer | 11 |
@@ -1835,9 +1828,12 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | eberron_creatures | form-transformation | 10 |
 | lotm_artifacts | form-transformation | 10 |
 | the_strange_creatures | form-transformation | 10 |
+| aos_soulbound_artifacts | item-bound-power | 10 |
 | dnd_srd_powers | item-bound-power | 10 |
+| forgotten_realms_powers | item-bound-power | 10 |
 | labyrinth_mad_god_powers | item-bound-power | 10 |
-| mother_of_learning_powers | item-bound-power | 10 |
+| the_dark_eye_powers | item-bound-power | 10 |
+| the_strange_powers | item-bound-power | 10 |
 | ri_treasures | material-row | 10 |
 | eclipse_phase_institutions | mind-binding | 10 |
 | hp_objects | mind-binding | 10 |
@@ -1892,7 +1888,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | ars_magica_conditions | item-bound-power | 9 |
 | cypher_items | item-bound-power | 9 |
 | fate_powers | item-bound-power | 9 |
-| the_strange_creatures | item-bound-power | 9 |
+| ravenloft_artifacts | item-bound-power | 9 |
 | eclipse_phase_artifacts | item-state | 9 |
 | warhammer_40k_rules | item-state | 9 |
 | shadow_slave_artifacts | material-row | 9 |
@@ -1961,6 +1957,8 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | hp_objects | formation-field | 8 |
 | dnd_srd_spells | item-bound-power | 8 |
 | mystara_rules | item-bound-power | 8 |
+| spelljammer_artifacts | item-bound-power | 8 |
+| stars_without_number_artifacts | item-bound-power | 8 |
 | numenera_powers | item-state | 8 |
 | hp_creatures | lifecycle-breeding | 8 |
 | pf1_items | luck-mechanism | 8 |
@@ -2042,6 +2040,8 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | hp_ingredients | ingredient-derived-below-confidence | 7 |
 | cyberpunk_creatures | item-bound-power | 7 |
 | dnd5e_2014_spells | item-bound-power | 7 |
+| mother_of_learning_powers | item-bound-power | 7 |
+| the_strange_creatures | item-bound-power | 7 |
 | the_strange_rules | item-bound-power | 7 |
 | theros_powers | item-bound-power | 7 |
 | mystara_rules | item-state | 7 |
@@ -2139,7 +2139,6 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | pf1_items | formation-field | 6 |
 | pf1_powers | ingredient-properties | 6 |
 | brp_spells | item-bound-power | 6 |
-| golarion_artifacts | item-bound-power | 6 |
 | hp_objects | item-state | 6 |
 | warhammer_40k_powers | item-state | 6 |
 | aos_soulbound_powers | material-row | 6 |
@@ -2276,7 +2275,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | dnd5e_2014_items | ingredient-properties | 5 |
 | dnd_srd_class_features | item-bound-power | 5 |
 | eclipse_phase_qs_items | item-bound-power | 5 |
-| regressors_tale_powers | item-bound-power | 5 |
+| golarion_artifacts | item-bound-power | 5 |
 | stars_without_number_rules | item-bound-power | 5 |
 | gu_kinds | item-state | 5 |
 | cypher_powers | luck-mechanism | 5 |
@@ -2445,8 +2444,7 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | eclipse_phase_rules | item-bound-power | 4 |
 | forgotten_realms_rules | item-bound-power | 4 |
 | jojo_powers | item-bound-power | 4 |
-| stars_without_number_powers | item-bound-power | 4 |
-| theros_artifacts | item-bound-power | 4 |
+| regressors_tale_powers | item-bound-power | 4 |
 | warhammer_40k_rules | item-bound-power | 4 |
 | you_have_died_again_powers | item-bound-power | 4 |
 | forgotten_realms_artifacts | item-state | 4 |
@@ -2653,12 +2651,9 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | ars_magica_creatures | item-bound-power | 3 |
 | cypher_spells | item-bound-power | 3 |
 | eberron_rules | item-bound-power | 3 |
-| ravenloft_powers | item-bound-power | 3 |
-| solo_leveling_powers | item-bound-power | 3 |
 | spelljammer_creatures | item-bound-power | 3 |
 | spelljammer_powers | item-bound-power | 3 |
-| strixhaven_creatures | item-bound-power | 3 |
-| warhammer_40k_powers | item-bound-power | 3 |
+| theros_artifacts | item-bound-power | 3 |
 | aos_soulbound_artifacts | item-state | 3 |
 | aos_soulbound_powers | item-state | 3 |
 | aos_soulbound_rules | item-state | 3 |
@@ -2976,14 +2971,15 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | brp_powers | item-bound-power | 2 |
 | coc_items | item-bound-power | 2 |
 | cyberpunk_rules | item-bound-power | 2 |
-| eberron_creatures | item-bound-power | 2 |
-| eclipse_phase_powers | item-bound-power | 2 |
 | golarion_powers | item-bound-power | 2 |
 | ironsworn_items | item-bound-power | 2 |
 | mm3e_powers | item-bound-power | 2 |
-| mystara_creatures | item-bound-power | 2 |
 | planescape_artifacts | item-bound-power | 2 |
-| ravenloft_creatures | item-bound-power | 2 |
+| ravenloft_powers | item-bound-power | 2 |
+| solo_leveling_powers | item-bound-power | 2 |
+| stars_without_number_powers | item-bound-power | 2 |
+| strixhaven_creatures | item-bound-power | 2 |
+| warhammer_40k_powers | item-bound-power | 2 |
 | wildemount_rules | item-bound-power | 2 |
 | cyberpunk_rules | item-state | 2 |
 | eberron_artifacts | item-state | 2 |
@@ -3495,18 +3491,21 @@ All worlds: 71349 things, computed runs 433 (0.6%), computed expressed 1616 (2.3
 | dnd5e_2014_feats | item-bound-power | 1 |
 | dnd_srd_creatures | item-bound-power | 1 |
 | dnd_srd_surge_tables | item-bound-power | 1 |
+| eberron_creatures | item-bound-power | 1 |
 | eclipse_phase_creatures | item-bound-power | 1 |
+| eclipse_phase_powers | item-bound-power | 1 |
 | fate_spells | item-bound-power | 1 |
 | forgotten_realms_institutions | item-bound-power | 1 |
 | golarion_rules | item-bound-power | 1 |
 | ironsworn_powers | item-bound-power | 1 |
+| mystara_creatures | item-bound-power | 1 |
 | mystara_places | item-bound-power | 1 |
 | planescape_rules | item-bound-power | 1 |
+| ravenloft_creatures | item-bound-power | 1 |
 | ravenloft_rules | item-bound-power | 1 |
 | ravnica_artifacts | item-bound-power | 1 |
 | ravnica_powers | item-bound-power | 1 |
 | the_strange_places | item-bound-power | 1 |
-| theros_creatures | item-bound-power | 1 |
 | theros_rules | item-bound-power | 1 |
 | warhammer_40k_institutions | item-bound-power | 1 |
 | wfrp4e_artifacts | item-bound-power | 1 |

@@ -6,6 +6,7 @@
 // world or a domain (PFP3). Counterplay comes free (EF3): `block` stops any verb
 // on any object it names, `conceal` defeats `sense`, `alter` changes law fields.
 import {applyWorldOps, quantityDef, reachReport, worldLinks} from './world_substrate.js'; // E10: reachReport, worldLinks
+import {FORCE_QUANTITY} from './force_effects.js';
 
 // Kept in step with P's effect grammar verbs (src/effect_grammar.js EFFECT_VERBS): one list of twelve.
 export const EFFECT_VERBS = Object.freeze(['move', 'add', 'remove', 'transform', 'bind', 'release', 'sense', 'conceal', 'copy', 'block', 'end', 'alter']);
@@ -18,7 +19,7 @@ export const EFFECT_VERBS = Object.freeze(['move', 'add', 'remove', 'transform',
  * lowering (`light:<kind>`, `energy:<kind>`). */
 export const W_OBJECT_OF = Object.freeze({
     vitality: 'vitality', heat: 'temperature', light: 'light', sound: 'noise', essence: 'energy', moisture: 'humidity',
-    force: null, lifespan: null,
+    force: FORCE_QUANTITY.id, lifespan: null,
     position: 'position', form: 'property:form', mind: null,
     information: null, memory: null,
     relation: 'property:marks', thing: 'position', working: null, law: 'law:*', time: 'law:*',
@@ -154,9 +155,15 @@ export function applyEffect(rules, world, act, cause, {previewVitality = false} 
     check(typeof cause === 'string' && cause, 'an act needs a cause.');
     const verb = act.verb;
     check(!previewVitality || verb === 'remove' && act.object === 'vitality', 'Only direct vitality removal can be previewed.');
-    // bind and conceal write the marks and concealed properties; block, alter and a bare sense name no object.
+    const forceChange = act.object === FORCE_QUANTITY.id && ['add', 'remove', 'alter'].includes(verb);
+    if (forceChange && !quantityDef(rules, act.object)) {
+        const targets = resolveTargets(world, act.target);
+        return {world, outcome: {applied: [], blocked: [], observed: [],
+            skipped: targets.map(target => ({target, reason: 'not-carried'}))}};
+    }
+    // Bind and conceal imply properties. A field change, unlike alter force, needs no parsed object.
     const implied = {bind: 'property:marks', conceal: 'property:concealed'}[verb] ?? (verb === 'release' ? `property:${act.channel ? 'concealed' : 'marks'}` : undefined);
-    const base = implied ? parseObject(rules, implied) : verb === 'block' || verb === 'alter' || verb === 'end' || verb === 'sense' && !act.object
+    const base = implied ? parseObject(rules, implied) : verb === 'block' || verb === 'alter' && !forceChange || verb === 'end' || verb === 'sense' && !act.object
         ? {type: 'none', name: act.object ?? '*'} : parseObject(rules, act.object);
     const physical = base.type === 'position';
     let obj = base;
@@ -240,7 +247,7 @@ export function applyEffect(rules, world, act, cause, {previewVitality = false} 
         }
         const def = quantityDef(rules, obj.name), before = cur(target)[obj.name];
         const after = Math.min(def.max, Math.max(def.min, before + delta));
-        if (after === before && (physical || verb === 'transform')) {
+        if (after === before && (physical || forceChange || verb === 'transform')) {
             outcome.skipped.push({target, reason: 'at-bound'});
             return;
         }
@@ -278,6 +285,10 @@ export function applyEffect(rules, world, act, cause, {previewVitality = false} 
         const blocker = affected.map(object => blockerOf(world, target, verb, object)).find(Boolean);
         if (blocker) { outcome.blocked.push({target, by: blocker}); continue; }
         const h = world.holders[target];
+        if (forceChange && !Object.hasOwn(h.quantities, obj.name)) {
+            outcome.skipped.push({target, reason: 'not-carried'});
+            continue;
+        }
         switch (verb) {
         case 'add': case 'remove': {
             if (physical && verb === 'add') {
@@ -426,6 +437,11 @@ export function applyEffect(rules, world, act, cause, {previewVitality = false} 
             break;
         }
         case 'alter': {
+            if (forceChange) {
+                check(whole(act.delta) && act.delta !== 0, 'alter force needs a nonzero signed whole delta.');
+                adjust(target, act.delta);
+                break;
+            }
             // Change law fields scoped to the target: remove one, change its params, or add one.
             if (act.remove) {
                 const f = world.laws.find(x => x.id === act.remove && x.scope === target);

@@ -34,7 +34,7 @@ test('a wrong expectation fails: a stranger cannot use a bound item, and a spent
 });
 
 test('sentences with no world account stay blocked; patterns read the row words; the limit refuses past its count', () => {
-    for (const s of [{verb: 'add', object: 'force'}, {verb: 'alter', object: 'working'}, {verb: 'move', object: 'position'}]) assert.equal(canRunItemBound(s), false);
+    for (const s of [{verb: 'add', object: 'force'}, {verb: 'alter', object: 'working'}, {verb: 'transform', object: 'moisture'}]) assert.equal(canRunItemBound(s), false);
     assert.throws(() => itemBoundCase('item:add.force.instant.single'));
     assert.equal(itemBoundPatternOf('a cypher'), 'single');
     assert.equal(itemBoundPatternOf('works only for its attuned holder'), 'bound');
@@ -42,4 +42,20 @@ test('sentences with no world account stay blocked; patterns read the row words;
     assert.deepEqual(carryAdmit(2, 3), {ok: true, left: 0});
     assert.deepEqual(carryAdmit(3, 3), {ok: false, reason: 'limit', displace: 1});
     assert.throws(() => carryAdmit(-1, 3));
+});
+
+test('vitality counterplay blocks a loss and ending the existing ward permits it', async () => {
+    const probe = (direction, to) => ({
+        id: 'strike',
+        sentence: {verb: 'remove', object: 'vitality'},
+        details: {target: {shape: 'holder', id: 'wielder'}, amount: 5},
+        expect: [{holder: 'wielder', quantity: 'vitality', direction, to}],
+    });
+    for (const [verb, direction, to] of [['block', 'unchanged', 50], ['end', 'down', 45]]) {
+        const id = `item:${verb}.vitality.instant.single`, data = itemBoundCase(id);
+        data.world.holders.find(h => h.id === 'wielder').quantities.vitality = 50;
+        data.timeline.push(probe(direction, to));
+        const out = await runCaseData(data, {id});
+        assert.equal(out.state, 'expressed-authored', out.detail);
+    }
 });

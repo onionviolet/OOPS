@@ -311,7 +311,7 @@
    "split": "sha1(split:id) mod 5 = 0 held out, frozen before scoring",
    "baselineRule": "most common development value (sustained)",
    "set": "held-out rows that state both the input and the truth",
-   "heldOutN": 203,
+   "heldOutN": 217,
    "exact": 80,
    "withinBand": null,
    "baseline": {
@@ -322,9 +322,9 @@
    "allHeldOut": null,
    "verdict": "fails-baseline",
    "confidence": {
-    "exact": 0.394,
+    "exact": 0.369,
     "withinBand": null,
-    "n": 203,
+    "n": 217,
     "verdict": "fails-baseline"
    },
    "note": "The default a row with no label time and no duration receives. A dial per world, not a fact.",

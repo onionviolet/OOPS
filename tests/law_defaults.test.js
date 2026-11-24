@@ -46,6 +46,9 @@ test('composition reads the label first, never defaults the sentence, and names 
     const row = text => factsOf('area-field', {id: 'x', ledger: 'pf1_spells', text}, {f: {}});
     assert.equal(compose('area-field', row('Effect remove.vitality/area/instant (x)'), dials).case, 'area:remove.vitality.instant.place.everyone');
     assert.equal(compose('area-field', row('Effect remove.vitality/self/sustained'), dials).case, 'area:remove.vitality.sustained.holder.everyone');
+    assert.equal(compose('area-field', row('Effect move.position/area/delayed'), dials).prov.delay, 'default');
+    assert.equal(compose('area-field', row('Effect block.essence/area/triggered'), dials).prov.trigger, 'default');
+    assert.match(compose('area-field', row('Effect add.thing/area/sustained'), dials).blocked, /distinct identity/);
     assert.match(compose('area-field', row('[verb transform]'), dials).blocked, /no stated sentence/);
     assert.match(compose('area-field', row('Effect add.force/area/instant'), dials).blocked, /no world account/);
     const form = (text, f = {}) => compose('form-transformation', factsOf('form-transformation', {id: 'y', ledger: 'x', text}, {f}), dials);
@@ -62,6 +65,7 @@ test('the dry-run take through the real cases: form change clears a quarter of i
     const ft = await take('form-transformation', f, fitDials('form-transformation', f)), at = await take('area-field', a, fitDials('area-field', a));
     assert.ok(ft.rows.filter(r => r.take).length / f.length > 0.25);
     assert.ok(at.rows.filter(r => r.take).length / a.length < 0.25);
+    assert.equal(at.rows.filter(r => r.test).length, a.filter(r => isTest(r.id)).length);
     assert.ok(ft.rows.every(r => !r.take || /^(expressed|runs)-/.test(r.state)));
     const l = leaning('form-transformation', ft.rows);
     assert.ok(l.noDefault > 0 && l.noDefault + l.oneDefault + l.twoPlus === l.taken);
