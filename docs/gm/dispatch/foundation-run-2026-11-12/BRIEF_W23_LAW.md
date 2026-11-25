@@ -1,0 +1,18 @@
+# Wave 23 law lane brief (shared by W23-D, W23-S, W23-M)
+
+Your lane's slug, owned files and consumer are in the launch message after this brief, and in [WAVE_23_LAWS.md](WAVE_23_LAWS.md).
+
+Read first: AGENTS.md and the rules it routes you to; docs/ARCHITECTURE_RULES.md (AR1-AR16); docs/coverage/CASE_SHAPE.md; docs/coverage/README.md; the two sentence-first laws that set the pattern, `src/form_transformation_law.js` (wired, 64.7% take) and `src/area_field_law.js`, with `scripts/law_defaults.mjs` (PSA28 dry run, held-out split `isTest`, PWC60 floor) and `scripts/form_transformation_ledgers.mjs` (the attach script); `src/effect_grammar.js`, `src/world_quantities.js`, `src/world_effects.js` (read only), `src/stored_working.js`; `docs/coverage/derivation_rules.json`. Find the blocked rows: every `docs/coverage/*.jsonl` row whose state is `blocked:<your slug>`; most carry an "Effect verb.object/target/time" label in their note or fields.
+
+Do, in order:
+1. **Census.** Read the labelled sentences for your slug: count the distinct verb.object pairs, targets and times. Write the counts in your report. Decide which few fields change play; everything else is a dial with a stated source (tabletop, rows, design), as law_defaults does.
+2. **Design.** One law, sentence-first, laid on the existing engine (stored workings, effect grammar, world quantities). Pick a default under AD56 with its reason; name rejected designs in one line each; list world dials (AD5). Things work by how they work (AD38). If the slug mixes mechanisms that one law cannot honestly cover, cover the largest coherent group and leave the rest blocked with a sharper slug proposal in your report (do not rewrite slugs).
+3. **Build** `src/<slug>_law.js` exporting the same shape as the form law (`<X>_CASE_MODULE`, dials, `<x>CaseId`, `<x>Case`, `coverageCase`, a `canRun<X>` sentence test, a blocker function for rows it cannot take). Tests in `tests/<slug>_law.test.js`: each case runs through `runCase`, a near miss fails, a row the law cannot take stays blocked with a reason, save/restore of any state it adds.
+4. **Dry run.** Build `scripts/<slug>_ledgers.mjs` modelled on form_transformation_ledgers.mjs, with a default **dry-run mode that writes nothing** and prints: take over all blocked rows of your slug, take on the held-out fifth (`isTest` from law_defaults.mjs), and the top reasons rows stay blocked. A `--write` mode may exist but **do not run it**; the coordinator runs ledger writes one law at a time.
+5. **Consumer note.** Name the first place in play that would use the law (your lane's consumer), the file and function where the tie-in would go, and what the player would see (OR2 shapes). Do not edit consumer files.
+
+Owned files: `src/<slug>_law.js`, `tests/<slug>_law.test.js`, `scripts/<slug>_ledgers.mjs`, `docs/gm/dispatch/foundation-run-2026-11-12/w23-<slug>/` (your report, `REPORT.md`). Everything else is read only, including `scripts/law_defaults.mjs`, `docs/coverage/**`, `src/world_effects.js` and every other law. If the law truly needs a change in a shared file, describe the exact change in your report instead.
+
+Never: stage, commit, stash, reset, check out, push; network or paid model calls; book text in tracked files.
+
+Checks: your tests, `node --test tests/case_runner*.test.js tests/*_law.test.js`, `npm run -s check:arch`, `npm run -s check:rules`, `npm run -s check:docs`, and your dry run. Report in REPORT.md and your final message: census, design and rejected options, dials, files, dry-run take (all and held out) against the 25% floor, top blocked reasons, consumer note, checks with result lines, gaps. Proposals (AD32), agent-verified.
