@@ -16,6 +16,7 @@ import {readBatches, batchCommands} from './batch-status.mjs';
 import {buildCodex, summary as codexSummary, pageRows as codexPage, readLedger as codexLedger, ledgerNames as codexNames, moveSlots} from './codex.mjs';
 import {readCheats, summarize as cheatsSummary, pageCheats} from './cheats.mjs';
 import {changesSince} from './changelog.mjs';
+import {buildDraft, saveDraft, listDrafts} from './workbench.mjs';
 import {readIdeas, summarize as ideasSummary, pageIdeas, pageBoards, rowDetail as ideaRow, familiesOf as ideaFamilies, residueOf as ideaResidue} from './ideas.mjs';
 import {LOTM_DISTRICTS, districtCommands, lotmWalkRoute, LOTM_PLACE_KEYS} from '../../src/book_world_lotm_districts.js';
 import {brewCommands} from '../../src/book_world_lotm_brew.js';
@@ -138,6 +139,7 @@ const assets = {
     '/codex-views.mjs':['./codex-views.mjs','text/javascript'],
     '/cheats-views.mjs':['./cheats-views.mjs','text/javascript'],
     '/ideas-views.mjs':['./ideas-views.mjs','text/javascript'],
+    '/workbench-views.mjs':['./workbench-views.mjs','text/javascript'],
 };
 for (let size=7;size<=22;size++) {
     const path='resources/fonts/private/gothic-bitmap-'+size+'.woff2';
@@ -194,6 +196,24 @@ const server=createServer(async(req,res)=>{
             });
             return;
         }
+        // Workbench drafts (G4, contract at the top of workbench.mjs): preview, save (never overwrite) and list. Text is built here from the ledger row.
+        const rowOf = (ledger, id) => codexNames().includes(ledger) ? codexLedger(ledger).rows.find(r => String(r.id) === id) ?? null : null;
+        const draftUrl=/^\/codex\/([a-z0-9_]+)\/draft\?/.exec(req.url);
+        if(req.method === 'GET' && draftUrl){
+            const id = new URL(req.url,'http://x').searchParams.get('id') || '', row = rowOf(draftUrl[1], id);
+            if(!row)return res.writeHead(404,{'Content-Type':'application/json'}).end(JSON.stringify({error:'No such row.'}));
+            const codex = snap.codex?.canonical ? snap.codex : (snap.codex = buildCodex());
+            return res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(buildDraft(draftUrl[1],row,{canonical:codex.canonical})));
+        }
+        if(req.method === 'POST' && req.url === '/drafts'){
+            let body='';for await(const chunk of req){body+=chunk;if(body.length>2000)throw Error('Request is too large.');}
+            const {ledger,id}=JSON.parse(body), row = typeof ledger === 'string' && typeof id === 'string' ? rowOf(ledger, id) : null;
+            if(!row)return res.writeHead(404,{'Content-Type':'application/json'}).end(JSON.stringify({error:'No such row.'}));
+            const codex = snap.codex?.canonical ? snap.codex : (snap.codex = buildCodex());
+            const out = saveDraft(buildDraft(ledger,row,{canonical:codex.canonical}));
+            return res.writeHead(out.conflict ? 409 : 201,{'Content-Type':'application/json'}).end(JSON.stringify(out));
+        }
+        if(req.method === 'GET' && req.url === '/drafts')return res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify({drafts:listDrafts(rowOf)}));
         const codexUrl=/^\/codex(?:\/([a-z0-9_]+)(\/rows)?)?(?:\?.*)?$/.exec(req.url);
         if(req.method === 'GET' && codexUrl){
             const [, ledger, rows] = codexUrl, json = body => res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(body));

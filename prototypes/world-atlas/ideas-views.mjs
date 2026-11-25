@@ -8,7 +8,7 @@ const n = v => Number(v).toLocaleString('en-US');
 const get = async url => {const r = await fetch(url); if (!r.ok) throw Error(await r.text() || r.statusText); return r.json();};
 const STATUSES = [['', 'All'], ['proposal', 'Proposal'], ['sent', 'Sent'], ['decided', 'Decided'], ['accepted', 'Accepted'], ['built', 'Built'], ['retired', 'Retired'], ['superseded', 'Superseded'], ['working-default', 'Working default']];
 const TABS = [['ideas', 'Ideas'], ['boards', 'Boards'], ['families', 'Family tree']];
-const hash = {idea: id => 'ideas/' + encodeURIComponent(id), cheat: id => 'cheats/list/' + id, ledger: key => 'codex/' + key.split(':')[0], world: id => 'world/' + id};
+const hash = {idea: id => 'ideas/' + encodeURIComponent(id), cheat: id => 'cheats/list/' + id, ledger: key => {const [l, ...rest] = key.split(':'); return 'codex/' + l + (rest.length ? '/' + encodeURIComponent(rest.join(':')) : '');}, world: id => 'world/' + id};
 
 // Same tokens as cheats-views and codex-views; nothing new.
 const CSS = `

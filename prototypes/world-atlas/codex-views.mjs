@@ -3,6 +3,7 @@
 // never rides in /data (C1). Row keys are `<ledger>:<id>`. The ladder rungs are shown as separate fields and a rung the
 // ledger does not record reads "not recorded here", never a guess from another rung (D1).
 import {element as el} from '/canvas.mjs';
+import {draftBlock} from '/workbench-views.mjs';
 
 const PAGE = 50; // mounted rows per page; the server caps at 100
 const n = v => Number(v).toLocaleString('en-US');
@@ -43,7 +44,7 @@ export function coverageLine(a) {
     return `${n(a.counts.runs)} of ${n(a.rows)} run · ${n(a.counts.expressed)} expressed · ${n(a.counts.blocked)} blocked · ${n(a.counts.notAThing)} not a thing`;
 }
 
-export async function codexView({main, data, controls, ledger = 'gu_kinds', go}) {
+export async function codexView({main, data, controls, ledger = 'gu_kinds', focus = null, go}) {
     style();
     main.replaceChildren();
     const root = el('section', null, 'codex'), body = el('div', null, 'codex-body');
@@ -81,9 +82,9 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
     const detailHost = el('div'); detailCol.append(el('h3', 'Row detail'), detailHost);
     detailHost.append(el('p', 'Choose a row to see its state, its evidence ladder (case, reachability, player action, persistence) and where it comes from.', 'codex-missing'));
 
-    const view = {state: '', q: '', offset: 0, selected: null};
+    const view = {state: '', q: focus || '', offset: 0, selected: null};
     const search = el('input'), clear = el('button', 'All states'), count = el('small'), rowList = el('ul', null, 'codex-rows'), pager = el('div', null, 'codex-pager');
-    search.type = 'search'; search.placeholder = 'Search id, label, mechanism, source'; search.setAttribute('aria-label', 'Search rows');
+    search.type = 'search'; search.placeholder = 'Search id, label, mechanism, source'; search.setAttribute('aria-label', 'Search rows'); search.value = view.q;
     clear.type = 'button';
     const tools = el('div', null, 'codex-tools'); tools.append(search, clear);
     rowCol.append(el('h3', 'Rows'), tools, count, rowList, pager);
@@ -119,6 +120,7 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
             b.append(el('span', r.label ? `${r.label} (${r.id})` : r.id), el('small', r.state));
             b.onclick = () => {view.selected = r.key; for (const x of rowList.querySelectorAll('button')) x.setAttribute('aria-pressed', String(x === b)); show(r);};
             li.append(b); rowList.append(li);
+            if (focus && r.id === focus && !view.selected) b.click(); // a link to codex/<ledger>/<id> opens that row
         }
         pager.replaceChildren();
         const prev = el('button', 'Previous'), next = el('button', 'Next');
@@ -152,7 +154,7 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', go})
         rung('2 Module reachability', r.ladder.moduleReachable);
         rung('3 Player-action proof', r.ladder.playerAction);
         rung('4 Persistence proof', r.ladder.persistence);
-        detailHost.append(lad);
+        detailHost.append(lad, el('h3', 'Draft work'), draftBlock(r.ledger, r.id, go));
         detailHost.append(el('h3', 'Source locator'));
         if (r.locators.length) {const ul = el('ul'); for (const l of r.locators) ul.append(el('li', l)); detailHost.append(ul);} else detailHost.append(missing());
         if (r.derived) detailHost.append(el('h3', 'Derived'), el('pre', JSON.stringify(r.derived, null, 1)));
