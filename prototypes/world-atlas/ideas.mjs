@@ -5,16 +5,16 @@
 //   GET /ideas/rows?offset&limit&q&board&family&status&kind&links=<id>&local=hide|only
 //                                     {total, offset, limit<=100, hash, rows:[row]}. board = slug; family = code prefix (WA, MKC, PS-AR);
 //                                     status = proposal | sent | decided | accepted | built | retired | superseded | working-default;
-//                                     kind = idea (default) | panel | all; q = substring of id, code, title, board, round, excerpt;
+//                                     kind = idea (reference, default) | idea-all (every board) | panel | all; q = substring of id, code, title, board, round, excerpt;
 //                                     links = any link target: an idea id (`board#CODE`), a bare code, a rule code, a world id, a ledger key
 //                                     (`gu_moves:ID`), a CTC id, a src path or a panel id; rows that link to it. A `#` in an id must be sent as %23.
 //                                     local = hide | only: a single-letter prefix (F, T, W...) is a numbering local to one doc, flagged `local` on the row.
 //   GET /ideas/row?id=<id>            {row, parent{brief}|null, children[brief], linkedFrom[brief<=50], linkedFromTotal}; 404 for an unknown id.
 //   GET /ideas/families               {total, families:[{prefix, kind:idea|rule|mixed, local, boards[{board,kind,count}], ideas, rules,
 //                                     flags[`shared-prefix`|`code-collision`|`idea-vs-rule`|`dup-in-board`], collidingCodes[{code,boards[]}]}]}
-//   GET /ideas/boards?offset&limit&q  {total, offset, limit<=100, boards:[{slug,file,title,kind,ideas,rules,families[],registers[],residue,rounds[<=60]{name,line,count}}]}
+//   GET /ideas/boards?offset&limit&q&tier=reference|registered|all  {total, offset, limit<=100, boards:[{slug,file,title,kind,ideas,rules,families[],registers[],residue,rounds[<=60]{name,line,count}}]}
 //   GET /ideas/residue?board=<slug>   {board, lines:[{line,reason,text}]}: lines that look like ideas (a code at the start) but did not parse. 404 for an unknown board.
-//   idea row  {key, id:"<board-slug>#<CODE>", kind:"idea", code, family, local, title, board, boardTitle, locator{file,line,heading,anchor,link}, round, chain[],
+//   idea row  {key, id:"<board-slug>#<CODE>", kind:"idea", boardKind, reference, code, family, local, title, board, boardTitle, locator{file,line,heading,anchor,link}, round, chain[],
 //              format:"table"|"bold"|"list", parent:{kind:"idea",id}|{kind:"round",name,line,anchor}|null, children[id], dupInBoard,
 //              status, statusLabel, statusSource:"stated"|"heading"|"default", statusRaw|null,
 //              links{ideas[{code,ids[],ambiguous}], rules[{code,file,line|null,resolved}], worlds[], ledgers[], cheats[], src[], panels[]},
@@ -25,6 +25,9 @@
 // in the item's own bracket or parenthesis, or a section heading that opens with the word (statusSource says which). Nothing stated = "proposal (AD32)".
 // Built is never inferred from prose. Rule codes (RULES_INDEX register families, defined in their owner rulebooks) are not idea rows: ideas link to
 // them. nextAction is a pointer only: nothing here adopts, routes or retires anything, and `gated` marks steps that need Weibao's yes.
+// Board kinds: idea-board, plan, considerations, backlog, rules, audit, run-output, research, other. docs/ideas/BOARD_KINDS.json overrides path heuristics.
+// Reference = registered board, or a found idea-board, considerations, plan or backlog. `node prototypes/world-atlas/ideas.mjs search <query> [--family X] [--kind K] [--all] [--json]`
+// prints composite id, status, title and source locator. Search defaults to the reference tier; --all includes every board.
 // Discovery (rerun on every build, deterministic): a board is a docs/**/*.md file (not under private/ or docs/research/novels/) with at least 3 coded
 // idea items, or any file that IDEA_INDEX or WRITEUP_REGISTER links and that has at least 1. Coded item formats: a table row whose code column
 // (header Code/ID/#, else the first cell) is `CODE`, `CODE · title`, `CODE: title` or `CODE = ALIAS`; a bold paragraph `**CODE · title**`,
@@ -46,6 +49,25 @@ export const SWEEP_DOC = 'docs/audits/IDEA_REGISTRY_SWEEP_2026-11-24.md'; // the
 export const IDEA_INDEX = 'docs/IDEA_INDEX.md', WRITEUP_REGISTER = 'docs/gm/WRITEUP_REGISTER.md', RULES_INDEX = 'docs/RULES_INDEX.md';
 export const DEFAULT_STATUS = 'proposal (AD32)';
 export const STATUSES = ['proposal', 'sent', 'decided', 'accepted', 'built', 'retired', 'superseded', 'working-default'];
+export const BOARD_KINDS = ['idea-board', 'plan', 'considerations', 'backlog', 'rules', 'audit', 'run-output', 'research', 'other'];
+const REFERENCE_KINDS = new Set(['idea-board', 'plan', 'considerations', 'backlog']);
+export const isReferenceBoard = b => b.tier === 'registered' || REFERENCE_KINDS.has(b.kind);
+export function boardKind(file, title, overrides = {}) {
+    const override = overrides[file];
+    if (override && BOARD_KINDS.includes(override.kind)) return override.kind;
+    const path = file.toLowerCase(), name = file.split('/').at(-1).toLowerCase(), t = title.toLowerCase();
+    if (/(?:^|\/)runs?\/|\/dispatch\/.*\/(?:r\d+|tw-[a-z])\//.test(path) || /(?:^|[_-])(output|report|dedupe|receipt|checkpoint|census|result)(?:[_.-]|$)/.test(name)) return 'run-output';
+    if (/(?:^|\/)(?:audits?|reviews?)\//.test(path) || /(?:^|[_-])(audit|coverage|inventory|sweep|reconciliation)(?:[_.-]|$)/.test(name) || /\baudit\b/i.test(t)) return 'audit';
+    if (/(?:^|[_-])(rules?|rulebook)(?:[_.-]|$)/.test(name) || /\brulebook\b/i.test(t)) return 'rules';
+    if (/(?:^|[_-])backlog(?:[_.-]|$)/.test(name) || /\bbacklog\b/i.test(t)) return 'backlog';
+    if (/(?:^|[_-])considerations?(?:[_.-]|$)/.test(name) || /\bconsiderations?\b/i.test(t)) return 'considerations';
+    if (/(?:^|[_-])(?:ideas?|ideaboard|idea_board)(?:[_.-]|$)/.test(name) || /\bideaboard\b/i.test(t)) return 'idea-board';
+    if (/(?:^|[_-])plan(?:[_.-]|$)/.test(name) || /\bplan\b/i.test(t)) return 'plan';
+    if (/^docs\/research\//.test(path)) return 'research';
+    if (/^docs\/worlds\/(?:world-depth|world-core-kit)\//.test(path) || /^docs\/worlds\//.test(path) && /\bproposals?\b/i.test(t)) return 'considerations';
+    if (/\bproposals?\b/i.test(t)) return 'considerations';
+    return 'other';
+}
 
 // ---- codes ----
 const CODE_SRC = String.raw`[A-Z]{1,6}(?:-[A-Z]{1,5})?\d{1,4}[a-z]?(?:\.\d{1,2})?`;
@@ -128,8 +150,13 @@ export function scanIdeas(text) {
                 const aliases = [...cell.matchAll(ALIAS_CODE)].map(x => x[1]).filter(c => c !== m[1]);
                 const titleI = header.findIndex((c, k) => k !== codeI && TITLE_HEAD.test(plain(c)));
                 const statusI = header.findIndex(c => /^(status|state)\b/i.test(plain(c)));
+                const titleCell = titleI >= 0 ? plain(cells[titleI]) : '';
+                const candidate = titleCell || cells.map((c, k) => k !== codeI && k !== statusI ? plain(c) : '').find(Boolean) || '';
+                // A code in another column is a link/reference, not a new table idea.
+                const codeOnly = s => !!s && /^(?:[A-Z]{1,6}(?:-[A-Z]{1,5})?\d{1,4}[a-z]?(?:\.\d{1,2})?(?:\s*\([^)]*\))?)(?:\s*[/+,;&-]\s*[A-Z]{1,6}(?:-[A-Z]{1,5})?\d{1,4}[a-z]?(?:\.\d{1,2})?)*$/.test(s);
+                if (!candidate || codeOnly(candidate)) continue;
                 let title = /=/.test(cell) || /^\(/.test(rest) ? '' : plain(rest);
-                if (!title) {const k = titleI >= 0 ? titleI : cells.findIndex((_, k) => k !== codeI && k !== statusI && plain(cells[k]).length > 0); title = k >= 0 ? plain(cells[k]) : '';}
+                if (!title || codeOnly(title)) title = candidate;
                 push({code: m[1], title: sentence(title, 160), line: i + 1, format: 'table', indent: 0, aliases, statusCell: statusI >= 0 ? plain(cells[statusI] ?? '') : null,
                     text: cells.map(plain).join(' · '), firstLine: cells.map(plain).join(' · '), parentLine: null});
             } else if (LEAD_CODE.test(cell)) noteResidue(i, 'table-cell-not-single-code');
@@ -276,6 +303,8 @@ function nextActionOf(row, board, registers) {
  * `exists(path)` answers for src/ links; `worlds` is [{id,name}]; `ledgerIds(name)` returns a Set of ids or null. Pure given those, so tests pass fixtures.
  */
 export function assembleIdeas({read, files, srcFiles = [], exists = () => false, worlds = [], ledgerNames = [], ledgerIds = () => null, minItems = MIN_ITEMS, stamp = null, scanCache = null}) {
+    let overrides = {};
+    try {overrides = JSON.parse(read('docs/ideas/BOARD_KINDS.json') || '{}');} catch { /* malformed overrides do not block the registry */ }
     const rulesText = read(RULES_INDEX) || '', reg = parseRuleRegister(rulesText);
     const ruleOwners = new Set([...reg.owners, RULES_INDEX]);
     const registerLinks = {index: linkedDocs(read(IDEA_INDEX) || '', IDEA_INDEX), writeup: linkedDocs(read(WRITEUP_REGISTER) || '', WRITEUP_REGISTER)};
@@ -362,7 +391,10 @@ export function assembleIdeas({read, files, srcFiles = [], exists = () => false,
         const rounds = new Map();
         for (const r of mine) {const k = r.round || '(no heading)'; const o = rounds.get(k) || {name: k, line: b.scan.headings.find(x => x.slug === r.locator.anchor)?.line ?? null, count: 0}; o.count++; rounds.set(k, o);}
         ideaRowsByBoard.set(slug, mine);
-        boardMeta.push({slug, file: b.file, tier: registers.index || registers.writeup ? 'registered' : 'found', title: fileTitle(b.scan, b.file), kind: b.ideas.length ? (b.rules.length ? 'mixed' : 'board') : 'rulebook', ideas: mine.length, rules: b.rules.length,
+        const title = fileTitle(b.scan, b.file);
+        const kind = boardKind(b.file, title, overrides);
+        for (const row of mine) {row.boardKind = kind; row.reference = registers.index || registers.writeup || REFERENCE_KINDS.has(kind);}
+        boardMeta.push({slug, file: b.file, tier: registers.index || registers.writeup ? 'registered' : 'found', reference: registers.index || registers.writeup || REFERENCE_KINDS.has(kind), title, kind, ideas: mine.length, rules: b.rules.length,
             families: [...new Set([...mine.map(r => r.family), ...b.rules.map(r => prefixOf(r.code))])].sort(), registers: [registers.index && 'IDEA_INDEX', registers.writeup && 'WRITEUP_REGISTER'].filter(Boolean),
             residue: b.scan.residue, rounds: [...rounds.values()].slice(0, 60), _registers: registers, _ruleItems: b.rules});
     }
@@ -456,13 +488,13 @@ export function assembleIdeas({read, files, srcFiles = [], exists = () => false,
 }
 
 // ---- projections ----
-const publicBoard = m => ({slug: m.slug, tier: m.tier, file: m.file, title: m.title, kind: m.kind, ideas: m.ideas, rules: m.rules, families: m.families.slice(0, 30), familyCount: m.families.length, registers: m.registers, residue: m.residue.length, rounds: m.rounds});
+const publicBoard = m => ({slug: m.slug, tier: m.tier, reference: m.reference, file: m.file, title: m.title, kind: m.kind, ideas: m.ideas, rules: m.rules, families: m.families.slice(0, 30), familyCount: m.families.length, registers: m.registers, residue: m.residue.length, rounds: m.rounds});
 export function summarize(data, inputs = null) {
     const byStatus = {}; for (const r of data.rows) byStatus[r.status] = (byStatus[r.status] || 0) + 1;
     const colliding = data.families.filter(f => f.flags.includes('code-collision')), dupFams = data.families.filter(f => f.flags.includes('dup-in-board')), ivr = data.families.filter(f => f.flags.includes('idea-vs-rule'));
     const compact = f => ({prefix: f.prefix, kind: f.kind, local: f.local, ideas: f.ideas, rules: f.rules, boards: f.boards.length, flags: f.flags});
     return {
-        counts: {boards: data.boards.length, registeredBoards: data.boards.filter(b => b.tier === 'registered').length, ideaBoards: data.boards.filter(b => b.ideas > 0).length, ideas: data.rows.length, rules: data.boards.reduce((n, b) => n + b.rules, 0), families: data.families.length,
+        counts: {boards: data.boards.length, registeredBoards: data.boards.filter(b => b.tier === 'registered').length, referenceBoards: data.boards.filter(b => b.reference).length, referenceRows: data.rows.filter(r => r.reference).length, boardsByKind: Object.fromEntries(BOARD_KINDS.map(k => [k, data.boards.filter(b => b.kind === k).length])), ideaBoards: data.boards.filter(b => b.ideas > 0).length, ideas: data.rows.length, rules: data.boards.reduce((n, b) => n + b.rules, 0), families: data.families.length,
             collisions: {families: colliding.length + ivr.filter(f => !colliding.includes(f)).length, codes: data.families.reduce((n, f) => n + f.collidingCodes.length, 0), ideaVsRule: ivr.length, dupInBoard: data.rows.filter(r => r.dupInBoard).length, dupFamilies: dupFams.length},
             panels: data.panels.length, residueLines: data.stats.residueLines, residueBoards: data.boards.filter(b => b.residue.length).length, byStatus},
         boards: data.boards.slice().sort((a, b) => (a.tier === 'registered' ? 0 : 1) - (b.tier === 'registered' ? 0 : 1) || b.ideas + b.rules - a.ideas - a.rules || a.slug.localeCompare(b.slug)).slice(0, 40).map(m => ({tier: m.tier, slug: m.slug, file: m.file, title: m.title, kind: m.kind, ideas: m.ideas, rules: m.rules, families: m.families.slice(0, 12), familyCount: m.families.length})),
@@ -487,11 +519,13 @@ const linkTargetsOf = r => {
     for (const p of L.panels) out.add(p);
     return out;
 };
-export function pageIdeas(data, {offset = 0, limit = MAX_PAGE, q = '', board = '', family = '', status = '', kind = 'idea', links = '', local = ''} = {}) {
+export function pageIdeas(data, {offset = 0, limit = MAX_PAGE, q = '', board = '', family = '', status = '', kind = 'idea', boardKind: boardKindFilter = '', links = '', local = ''} = {}) {
     const lim = Math.min(Math.max(Math.trunc(Number(limit)) || MAX_PAGE, 1), MAX_PAGE), off = Math.max(Math.trunc(Number(offset)) || 0, 0);
     const needle = norm(String(q || '').trim()), want = String(status || '').trim().toLowerCase(), k = String(kind || 'idea');
     const pool = k === 'panel' ? data.panels : k === 'all' ? [...data.rows, ...data.panels] : data.rows;
     const hits = pool.filter(r => {
+        if (k === 'idea' && !r.reference) return false;
+        if (boardKindFilter && r.boardKind !== boardKindFilter) return false;
         if (board && r.board !== board) return false;
         if (family && r.family !== family) return false;
         if (local === 'hide' && r.local) return false;
@@ -511,9 +545,9 @@ export function rowDetail(data, id) {
     return {row: r, parent: parentRow ? briefOf(parentRow) : null, children: r.children.map(c => byId.get(c)).filter(Boolean).map(briefOf),
         linkedFrom: linkedFrom.slice(0, 50).map(briefOf), linkedFromTotal: linkedFrom.length};
 }
-export function pageBoards(data, {offset = 0, limit = MAX_PAGE, q = '', tier = ''} = {}) {
+export function pageBoards(data, {offset = 0, limit = MAX_PAGE, q = '', tier = '', kind = ''} = {}) {
     const lim = Math.min(Math.max(Math.trunc(Number(limit)) || MAX_PAGE, 1), MAX_PAGE), off = Math.max(Math.trunc(Number(offset)) || 0, 0), needle = norm(String(q || '').trim());
-    const hits = data.boards.filter(b => (!tier || b.tier === tier) && (!needle || norm([b.slug, b.file, b.title, b.families.join(' ')].join('\n')).includes(needle)))
+    const hits = data.boards.filter(b => (tier === 'all' || (tier === 'registered' ? b.tier === 'registered' : b.reference)) && (!kind || b.kind === kind) && (!needle || norm([b.slug, b.file, b.title, b.families.join(' ')].join('\n')).includes(needle)))
         .sort((a, b) => (a.tier === 'registered' ? 0 : 1) - (b.tier === 'registered' ? 0 : 1) || b.ideas + b.rules - a.ideas - a.rules || a.slug.localeCompare(b.slug));
     return {total: hits.length, offset: off, limit: lim, boards: hits.slice(off, off + lim).map(publicBoard)};
 }
@@ -547,7 +581,7 @@ export function readIdeas(dir = root) {
     const h = createHash('sha1'), stamps = new Map(), stat = f => {const t = statSync(join(dir, f)); stamps.set(f, t.size + ':' + t.mtimeMs); h.update(f + t.size + ':' + t.mtimeMs + '\n');};
     for (const f of files) stat(f);
     for (const f of srcPaths) stat(f);
-    for (const f of ['docs/coverage/worlds.jsonl']) if (existsSync(join(dir, f))) stat(f);
+    for (const f of ['docs/coverage/worlds.jsonl', 'docs/ideas/BOARD_KINDS.json']) if (existsSync(join(dir, f))) stat(f);
     const sig = h.digest('hex').slice(0, 12);
     if (dir === root && cache.sig === sig) return cache.data;
     const srcFiles = srcPaths.map(f => ({file: f, text: readFileSync(join(dir, f), 'utf8')}));
@@ -568,4 +602,25 @@ export function buildIdeas(dir = root) {
     return summarize(data, {hash: data.hash, files: data.files});
 }
 
-if (import.meta.main) process.stdout.write(JSON.stringify(buildIdeas()));
+export function searchIdeas(data, query, {family = '', kind = '', all = false} = {}) {
+    const needle = norm(String(query || '').trim());
+    return data.rows.filter(r => (all || r.reference) && (!family || r.family.toLowerCase() === family.toLowerCase()) && (!kind || r.boardKind === kind) &&
+        (!needle || hay(r).includes(needle)));
+}
+
+if (import.meta.main) {
+    const args = process.argv.slice(2);
+    if (args[0] === 'search') {
+        const query = args[1];
+        if (!query || query.startsWith('--')) {process.stderr.write('Usage: node prototypes/world-atlas/ideas.mjs search <query> [--family X] [--kind K] [--all] [--json]\n'); process.exitCode = 2;}
+        else {
+            const opts = {all: args.includes('--all')};
+            for (const flag of ['--family', '--kind']) {const at = args.indexOf(flag); if (at >= 0) opts[flag.slice(2)] = args[at + 1] || '';}
+            if (opts.kind && !BOARD_KINDS.includes(opts.kind)) {process.stderr.write('Unknown board kind: ' + opts.kind + '\n'); process.exitCode = 2;}
+            else {
+                const hits = searchIdeas(readIdeas(), query, opts).map(r => ({id: r.id, status: r.statusLabel, title: r.title, kind: r.boardKind, locator: `${r.locator.file}:${r.locator.line}`}));
+                process.stdout.write(args.includes('--json') ? JSON.stringify(hits, null, 2) + '\n' : hits.map(r => `${r.id}\t${r.status}\t${r.title}\t${r.locator}`).join('\n') + (hits.length ? '\n' : ''));
+            }
+        }
+    } else process.stdout.write(JSON.stringify(buildIdeas()));
+}

@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {mkdtempSync, mkdirSync, writeFileSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {scanIdeas, scanPanels, statusWord, statedStatus, parseRuleRegister, linkedDocs, assembleIdeas, summarize, pageIdeas, pageBoards, rowDetail, familiesOf, residueOf, readIdeas, prefixOf, baseOf, boardSlug, MAX_PAGE, DEFAULT_STATUS}
+import {execFileSync} from 'node:child_process';
+import {scanIdeas, scanPanels, statusWord, statedStatus, parseRuleRegister, linkedDocs, assembleIdeas, summarize, pageIdeas, pageBoards, rowDetail, familiesOf, residueOf, readIdeas, searchIdeas, boardKind, prefixOf, baseOf, boardSlug, MAX_PAGE, DEFAULT_STATUS}
     from '../prototypes/world-atlas/ideas.mjs';
 
 const TABLE = `# Table board
@@ -146,6 +147,26 @@ test('scanIdeas reads every format and keeps residue for lines it cannot read', 
     assert.equal(scanIdeas('```\n**FX1 · fenced.** x\n```\n').items.length, 0);
 });
 
+test('table codes used only as links do not become ideas', () => {
+    const s = scanIdeas(`# Links\n\n| Code | Idea | Status |\n|---|---|---|\n| LK1 | LK2/LK3 | proposed |\n| LK2 | S17 (C2) | proposed |\n| LK3 | A real title | proposed |\n| LK4 | | proposed |\n`);
+    assert.deepEqual(s.items.map(i => i.code), ['LK3']);
+});
+
+test('board kinds, hand overrides and reference tier', () => {
+    assert.equal(boardKind('docs/gm/dispatch/x/r2/OUTPUT.md', 'Ideas'), 'run-output');
+    assert.equal(boardKind('docs/FUTURE_PLAN.md', 'Future'), 'plan');
+    assert.equal(boardKind('docs/a.md', 'Other', {'docs/a.md': {kind: 'idea-board', note: 'Reviewed'}}), 'idea-board');
+    const d = run({read: p => p === 'docs/ideas/BOARD_KINDS.json' ? JSON.stringify({'docs/research/OTHER.md': {kind: 'idea-board', note: 'Reviewed source'}}) : DOCS[p] ?? null});
+    const other = d.boards.find(b => b.slug === 'other');
+    assert.equal(other.kind, 'idea-board'); assert.equal(other.reference, true);
+    assert.equal(byId(d)['other#BD1'].boardKind, 'idea-board');
+    assert.equal(pageIdeas(d, {board: 'other'}).total, 3);
+    assert.equal(pageBoards(d).boards.some(b => b.slug === 'other'), true);
+    assert.equal(searchIdeas(d, 'Another', {kind: 'idea-board'}).length, 3);
+    assert.equal(searchIdeas(run(), 'Another').some(r => r.board === 'other'), false);
+    assert.equal(searchIdeas(run(), 'Another', {all: true}).filter(r => r.board === 'other').length, 3);
+});
+
 test('assemble: boards, composite ids, collisions across boards, discovery rules', () => {
     const d = run(), rows = byId(d);
     const slugs = d.boards.map(b => b.slug).sort();
@@ -172,7 +193,7 @@ test('a linked doc with one item is a board; family registry flags local prefixe
 test('idea versus rule: a rulebook code is not an idea row, and the family says both', () => {
     const d = run(), rows = byId(d);
     assert.ok(!Object.keys(rows).some(k => k.startsWith('world-absorption-rules#')), 'rule items do not become idea rows');
-    const rb = d.boards.find(b => b.slug === 'world-absorption-rules'); assert.equal(rb.kind, 'rulebook'); assert.equal(rb.rules, 3); assert.equal(rb.ideas, 0);
+    const rb = d.boards.find(b => b.slug === 'world-absorption-rules'); assert.equal(rb.kind, 'rules'); assert.equal(rb.rules, 3); assert.equal(rb.ideas, 0);
     const wa = d.families.find(f => f.prefix === 'WA'); assert.equal(wa.kind, 'mixed'); assert.ok(wa.flags.includes('idea-vs-rule'));
     assert.deepEqual(wa.boards.map(b => [b.board, b.kind]).sort(), [['atlas-ideaboard', 'idea'], ['world-absorption-rules', 'rule']]);
     assert.deepEqual([...parseRuleRegister(REGISTER).prefixes.keys()], ['WA']); assert.ok(parseRuleRegister(REGISTER).reserved.has('UR'));
@@ -244,7 +265,8 @@ test('rows route: paging cap, filters, links= with an id that contains #', () =>
     const d = run();
     assert.equal(pageIdeas(d, {limit: 9999}).limit, MAX_PAGE); assert.equal(pageIdeas(d, {limit: 2, offset: 1}).rows.length, 2);
     assert.deepEqual(pageIdeas(d, {board: 'table-board'}).rows.map(r => r.code), ['TB1', 'TB2', 'TB3']);
-    assert.deepEqual(pageIdeas(d, {family: 'LB'}).rows.map(r => r.code), ['LB1', 'LB2', 'LB3', 'LB7', 'LB8', 'LB9']);
+    assert.deepEqual(pageIdeas(d, {family: 'LB'}).rows.map(r => r.code), [], 'generic found boards stay outside the reference tier');
+    assert.deepEqual(pageIdeas(d, {family: 'LB', kind: 'idea-all'}).rows.map(r => r.code), ['LB1', 'LB2', 'LB3', 'LB7', 'LB8', 'LB9']);
     assert.deepEqual(pageIdeas(d, {status: 'built'}).rows.map(r => r.id).sort(), ['atlas-ideaboard#WA3', 'bold-board#BD4', 'table-board#TB1']);
     assert.deepEqual(pageIdeas(d, {q: 'GLYPHS'}).rows.map(r => r.id), ['atlas-ideaboard#WA2']);
     assert.deepEqual(pageIdeas(d, {links: 'table-board#TB1'}).rows.map(r => r.id), ['bold-board#BD1'], 'links= takes a composite id, # included');
@@ -279,4 +301,15 @@ test('readIdeas walks a real folder: private/ and novels skipped, panels read fr
         const d = readIdeas(dir);
         assert.deepEqual(d.rows.map(r => r.id), ['a#AA1', 'a#AA2', 'a#AA3']); assert.deepEqual(d.panels.map(p => p.id), ['panel#p-one']); assert.equal(typeof d.hash, 'string');
     } finally {rmSync(dir, {recursive: true, force: true});}
+});
+
+test('search CLI prints a composite id and locator in text and JSON', () => {
+    const script = join(import.meta.dirname, '../prototypes/world-atlas/ideas.mjs');
+    const args = ['search', 'workpiece', '--family', 'MKC', '--kind', 'idea-board'];
+    const out = execFileSync(process.execPath, [script, ...args], {encoding: 'utf8'});
+    assert.match(out, /making-crafts-ideaboard-2026-11-19#MKC89/);
+    assert.match(out, /docs\/MAKING_CRAFTS_IDEABOARD_2026-11-19\.md:\d+/);
+    const json = JSON.parse(execFileSync(process.execPath, [script, ...args, '--json'], {encoding: 'utf8'}));
+    assert.equal(json[0].id, 'making-crafts-ideaboard-2026-11-19#MKC89');
+    assert.equal(json[0].kind, 'idea-board');
 });
