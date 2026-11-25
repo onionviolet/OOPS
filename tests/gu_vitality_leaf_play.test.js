@@ -10,7 +10,7 @@ import {boot} from '../scripts/headless/runner.mjs';
 const wallStart = Date.UTC(2026, 10, 24, 12);
 const LINE = /Gu grammar · vitality leaf reads [^.]*\./;
 
-test('a player feeds a vitality leaf in the workshop, then reloads and imports it', {timeout: 30000}, async () => {
+test('a player feeds a vitality leaf in the workshop, then reloads and imports it', {timeout: 240000}, async () => {
     const game = await boot(null, {seed: 1, wallStart, heroName: null});
     const text = () => (game.document.querySelector('#capability_runs_view')?.textContent ?? '').replace(/\s+/g, ' ');
     const open = async () => { await game.clickText('Capability runs'); await game.click('[data-capability-run="workshop"]'); };

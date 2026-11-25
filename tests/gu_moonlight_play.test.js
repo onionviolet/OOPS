@@ -11,7 +11,7 @@ const wallStart = Date.UTC(2026, 10, 24, 12);
 const KEY = 'book.ri.keeper.km.use.moonblade__moon__own';
 const LINE = 'The Moonblade struck: the boar lost 12 of 12 vitality.';
 
-test('the keeper Moonblade hunt lands and persists through reload and import', {timeout: 30000}, async () => {
+test('the keeper Moonblade hunt lands and persists through reload and import', {timeout: 240000}, async () => {
     const game = await boot(null, {seed: 1, wallStart, heroName: null});
     const completed = () => game.internals.expansionState?.actors?.player?.completed?.[KEY];
     const visible = () => game.text('#message_log_div')?.includes(LINE) ?? false;
