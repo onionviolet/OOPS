@@ -42,3 +42,11 @@ The present row already has the authored case and workshop action. The evidence 
 1. Should a clan's spirit spring be available for irreversible consumption in ordinary play, with owner response, or should the first route require negotiated access to springs outside settlements?
 2. Should a lower-rank Gu Master be allowed to hold the rank four Lotus before they can use its full output, or should acquisition itself wait for rank four?
 3. Should the first ordinary route produce aperture recovery, leaving primeval-stone production for a later economy pass?
+
+## Working defaults, 2026-11-24
+
+Weibao asked the coordinator to choose ("make most sense? send codex accordingly"). These are working defaults for the first slice, open to change:
+
+- **D1 · Springs (question 1):** the first route uses negotiated access to a spirit spring outside the settlement, held by a named custodian whose terms state the price and obligations. Consuming a spring is permanent for that spring. Rejected for now: irreversible consumption of a clan's own spring with owner pursuit (needs an owner-response system; risks a farmable town resource). It stays available as option O3.
+- **D2 · Rank gate (question 2):** a Gu Master below rank four may hold the Lotus; its recovery is capped by the holder's own pool, so a rank one keeper gets a slow trickle. Rejected: gating acquisition at rank four, which would put the route out of reach of ordinary play for a long time.
+- **D3 · Output (question 3):** the first version recovers essence into the holder's own pool, with no stone output, for the reason that primeval-stone production needs an economy pass first.
