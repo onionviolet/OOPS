@@ -1,5 +1,11 @@
 # Game idea index
 
+[Game Idea Bank, ported 2026-11-24](ideas/GAME_IDEA_BANK_2026-11-24.md): Weibao's banked game concepts from the planning vault, ported with his yes. GIB1 progression-fantasy life simulation (continues in OOPS), GIB2 an AI and DNA evolution concept, GIB3 a scale-growing war game with GIB3a-GIB3z. His words verbatim, interpretations labelled apart. Proposal.
+
+[Proto23 Discord ideas, 2026-11-24](research/PROTO23_DISCORD_IDEAS_2026-11-24.md): PXD1-PXD30 paraphrased from a sample of 504 #proto-23 messages (2021-2026), top 10 ranked for OOPS: save recovery, skill progress clues, bulk actions, a returning-player recap, early food. No usernames or quotes. Proposal.
+
+[Monarch Lotus in ordinary play, 2026-11-24](research/MONARCH_LOTUS_ACQUISITION_LORE_2026-11-24.md): what Reverend Insanity says about obtaining a Heavenly Essence Treasure Monarch Lotus (paraphrased, locators only) and three acquisition options; recommends earning the rank three precursor and advancing it with seven spirit springs. Three questions for Weibao. Proposal.
+
 [What OOPS can absorb from nine niche repos, 2026-11-02](research/OOPS_NICHE_REPO_ABSORB_2026-11-02.md): a Codex research run ported into the repo on 2026-11-24 for the atlas registry. OAB1-OAB5 ranked (gate-necessity simulation, closed-form balance with a Monte Carlo check, a flaky-test soak runner, one effect record with a combining rule, a shared import limits table), OAB6-OAB15 smaller ideas. License notes per repo: ideas only. Proposal.
 
 [Reconciliation of the 2026-11-24 Gu and atlas proposals](audits/PROPOSAL_RECONCILIATION_2026-11-24.md): routes every selected proposal from the Gu blocker audit, RI community research, Heaven's Will ideas, atlas ideaboard WA1-WA24 and atlas goal check. Build list B1-B5 (second-read and fold today's Gu leads first). Decision packet Q1-Q5. Audit, not a decision.
