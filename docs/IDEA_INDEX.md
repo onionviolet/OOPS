@@ -1,5 +1,7 @@
 # Game idea index
 
+[What OOPS can absorb from nine niche repos, 2026-11-02](research/OOPS_NICHE_REPO_ABSORB_2026-11-02.md): a Codex research run ported into the repo on 2026-11-24 for the atlas registry. OAB1-OAB5 ranked (gate-necessity simulation, closed-form balance with a Monte Carlo check, a flaky-test soak runner, one effect record with a combining rule, a shared import limits table), OAB6-OAB15 smaller ideas. License notes per repo: ideas only. Proposal.
+
 [Reconciliation of the 2026-11-24 Gu and atlas proposals](audits/PROPOSAL_RECONCILIATION_2026-11-24.md): routes every selected proposal from the Gu blocker audit, RI community research, Heaven's Will ideas, atlas ideaboard WA1-WA24 and atlas goal check. Build list B1-B5 (second-read and fold today's Gu leads first). Decision packet Q1-Q5. Audit, not a decision.
 
 [World atlas platform goal check, 2026-11-24](reviews/WORLD_ATLAS_PLATFORM_2026-11-24.md): checks the [atlas ideaboard](research/WORLD_ATLAS_IDEABOARD_2026-11-22.md) implementation workspace proposal against the provisional goal and foundations-first order. F1-F7: merge the Watchcraft pilot with the goal check, add an unlock-chain lens and foundation shared-system rows, a receipts strip, and rename the clashing WA codes. Proposal.
