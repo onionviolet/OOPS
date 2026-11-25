@@ -189,7 +189,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     try {
         if (cmd === 'reach') { const receipt = buildReach(); write('reachability.json', receipt);
             console.log(`reach rows: ${Object.keys(receipt.rows).length}; modules: ${Object.keys(receipt.modules).length}; no case: ${receipt.noCaseModuleCount}; ${receipt.producer.ms} ms`); }
-        else if (cmd === 'play') play(args.length ? args : ['tests/gu_lotus_essence_play.test.js']);
+        else if (cmd === 'play') play(args.length ? args : fs.readdirSync(path.join(ROOT, 'tests')).filter(f => f.endsWith('_play.test.js')).sort()
+            .map(f => `tests/${f}`).filter(f => /^\s*\/\/ @ladder /m.test(fs.readFileSync(path.join(ROOT, f), 'utf8'))));
         else if (cmd === 'engine') await engine();
         else throw Error('usage: ladder_receipts.mjs reach|play [test files...]|engine');
     } catch (error) { console.error(error.stack ?? error); process.exitCode = 1; }
