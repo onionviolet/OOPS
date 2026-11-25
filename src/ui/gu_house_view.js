@@ -24,6 +24,13 @@ export function renderGuHouse(parent, house) {
         el('p', g.now >= g.max ? `The sea is full at your aptitude cap, so each hour's unit has nowhere to go: about ${g.lostPerDay} lost a day until you spend some.` : `Next unit in ${span(g.nextRegenIn)}. A Gu activation costs ${g.perActivation}.`, wrap);
     }
     el('p', house.feedingCap.line, root, {'data-gu': 'feeding-cap', role: 'status'});
+    if (house.lotus) {
+        const lotus = house.lotus;
+        el('p', `Monarch Lotus · ${lotus.held ? `rank ${lotus.rank} in your care` : lotus.precursor ? 'rank-three precursor in your care' : 'precursor with the steward'} · ${lotus.recipe ? 'recipe learned' : 'recipe unknown'} · ${lotus.springs.filter(s => s.spent).length}/7 springs spent${lotus.progress ? ` · refinement ${lotus.progress.status}, stage ${lotus.progress.stage}/7` : ''}${lotus.held && lotus.nextUseIn ? ` · next use in ${span(lotus.nextUseIn)}` : ''}`,
+            root, {'data-gu': 'monarch-lotus', role: 'status'});
+        for (const spring of lotus.springs) el('p', `${spring.id} spring · ${spring.custodian} · ${spring.spent ? 'consumed permanently' : 'available'}`,
+            root, {'data-gu': `lotus-spring-${spring.id}`});
+    }
     if(house.colony) {
         const {ordinary, emerged, starGrass, light, pending, kept} = house.colony;
         el('p', `Firefly bed · ${ordinary} ordinary fireflies · ${emerged} Gu ready to collect · ${starGrass} patches of star fragment grass · ${light === 'shaded' ? 'shaded' : 'open to sun'}${pending ? ' · check the overdue bed' : ''}`,

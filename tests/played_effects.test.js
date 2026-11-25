@@ -38,11 +38,11 @@ test('each played entry point lands once per completion and never on the first (
         const next = Object.fromEntries(ENTRY_POINTS.map(row => [row.key, 2]));
         playedEffectsTick(next, line => lines.push(line));
         playedEffectsTick(next, line => lines.push(line));                   // the same counters again: nothing more
-        assert.equal(lines.length, 3);
+        assert.equal(lines.length, 4);
         const fired = rows.filter(r => r.changed);
         assert.deepEqual([...new Set(fired.map(r => `${r.law}/${r.entry}`))].sort(),
-            ['brew-dose/tingen-supervised-dose', 'gu-working/keeper-moonblade-hunt', 'layered-ward/gu-house-ward']);
-        assert.equal(fired.length, 3 + 0, 'ward raise, hunt strike and dose each count once; the blocked pest strike is idle');
+            ['brew-dose/tingen-supervised-dose', 'gu-working/keeper-monarch-lotus', 'gu-working/keeper-moonblade-hunt', 'layered-ward/gu-house-ward']);
+        assert.equal(fired.length, 4 + 0, 'ward raise, hunt strike, dose and Lotus use each count once; the blocked pest strike is idle');
     } finally { done(); }
 });
 

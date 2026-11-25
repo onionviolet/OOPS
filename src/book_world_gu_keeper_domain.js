@@ -5,6 +5,7 @@ import {registerDomain} from './domain_registry.js';
 import {keeperColonyView, validateKeeperColony} from './gu_keeper_colony.js';
 import {keeperWildView, validateKeeperWild} from './gu_keeper_wild.js';
 import {keeperRefinementView, validateKeeperRefinement} from './gu_keeper_refinement.js';
+import {keeperLotusFacts, keeperLotusView, validateKeeperLotus} from './gu_keeper_lotus_route.js';
 import {keeperGateSky, keeperStargateSky} from './gu_stargate.js';
 import {moonlightTrialView, validateMoonlightTrial} from './gu_keeper_moonlight_trial.js';
 import {moonlightStockView, validateMoonlightStock} from './gu_moonlight_stock.js';
@@ -60,6 +61,7 @@ export function validateKeeperEnvelope(save) {
     validateKeeperMoveTrial(state, record);
     validateKeeperWild(state, record);
     validateKeeperRefinement(state, record);
+    validateKeeperLotus(state, record);
     for(const g of KEEPER_GU) {
         const p = s.people[id(g.slot)], title = s.claims[id(g.slot + '_title')], diet = keeperDiets.find(d => d.holder === id(g.slot));
         check(p?.body?.id === id(g.slot + '_body') && p.body.ownerId === id(g.slot) && ['alive', 'dead'].includes(p.life), `The ${g.label} identity has changed.`);
@@ -140,6 +142,7 @@ export function keeperHouseView(state, definition, record, context) {
     const income = paid * DIAL.stipendStones + chores;
     const spent = spentOnGu + spentOnFood - projects.reduce((sum, row) => sum + row.amount, 0);
     return {gauge, gu: rows, stones, moves: keeperMovesView(state), colony: keeperColonyView(state), wildWorm: keeperWildView(state, record), refinement: keeperRefinementView(state), moonlightTrial: moonlightTrialView(state), moonlightStock: moonlightStockView(state), moveTrial: keeperMoveTrialView(state, record), trayMove: keeperTrayMoveView(state, record), fireTrial: keeperFireTrialView(state, record), rainbow: keeperRainbowView(state, record), propagation: keeperPropagationView(state, record), vitalityGarden: keeperVitalityView(state, record), hostedWolf: hostedWolfView(state, record), cooperation: keeperCooperationView(state), fixedTravel: keeperFixedTravelView(state, record, inventory), fixedForge: keeperFixedForgeView(state, record, inventory), attitude: keeperAttitudeView(state, record), antNest: keeperAntNestView(state, record), procedure: keeperProcedureView(state, record), giantHand: giantHandView(state, record, inventory), spirit: keeperSpiritView(state, record), goalResearch: keeperGoalView(state, record), moonFusion: keeperFusionView(state, record),
+        lotus: record.extensions?.some(pin => pin.id === 'book.ri.keeper.lotus_route') ? keeperLotusView(state) : null,
         bladeChains: keeperChainView(state, record), lightReaders: keeperSignalView(state, record),
         gateSky: record.extensions?.some(pin => pin.id === keeperGateSky) ? keeperStargateSky(state, context) : null, feedingCap: {held: held.length, sustained: cap.fed.length, line: held.length ? `At this week's stipend you can afford to feed ${cap.fed.length} of ${held.length} Gu you hold${cap.starving.length ? `; ${cap.starving.map(i => KEEPER_GU.find(g => g.slot === i).label).join(', ')} would go short. Each Gu starves from its own larder, so the timers below are what decides.` : '.'}` : 'You hold no Gu yet.'},
         ledger: {stones, agreement: ledger.rows[0], nextStipendIn: nextStipend, lines: [
@@ -151,4 +154,4 @@ export function keeperHouseView(state, definition, record, context) {
             net: income - spent}};
 }
 // GKM2: the move facts the engine reads (guKm.*), from the same reader the move panel uses.
-registerDomain({id: 'gu_keeper', validate: (_slice, envelope) => validateKeeperEnvelope(envelope), projection: (kind, state, context) => kind === 'facts' ? keeperMoveFacts(state, context) : null});
+registerDomain({id: 'gu_keeper', validate: (_slice, envelope) => validateKeeperEnvelope(envelope), projection: (kind, state, context) => kind === 'facts' ? {...keeperMoveFacts(state, context), ...keeperLotusFacts(state, context)} : null});

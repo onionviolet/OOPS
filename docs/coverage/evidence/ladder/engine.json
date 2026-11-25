@@ -3,6 +3,306 @@
   "rung": "persistence",
   "entries": [
     {
+      "key": "aos_soulbound_artifacts:aos-soulbound.artifact.glimmerings",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "a2a95c40559ad19e7698973ed5aa503a9111c87c"
+    },
+    {
+      "key": "aos_soulbound_artifacts:aos-soulbound.artifact.divination-plate",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "aa3c3d8b9d775d4ccc07d28a06f5dab43b31b11f"
+    },
+    {
+      "key": "aos_soulbound_artifacts:aos-soulbound.artifact.aetheric-lenses",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "26c37f5471076b14a2a0c05e5a0261035e430a61"
+    },
+    {
+      "key": "aos_soulbound_artifacts:aos-soulbound.artifact.heavy-instruments",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "6c49cbfd11c1fa8598f449126732f5abb0594b06"
+    },
+    {
+      "key": "aos_soulbound_artifacts:aos-soulbound.artifact.spear-of-mallus",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "61bc04a384b3432ee98da7b8d00f3d3edeb66272"
+    },
+    {
+      "key": "aos_soulbound_artifacts:aos-soulbound.artifact.eternis-gate-orrery",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "1439ba2ccc28cf8b6f828792e6c397a1cb7b1018"
+    },
+    {
+      "key": "aos_soulbound_artifacts:aos-soulbound.artifact.ocular-devices",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "c5c983ca5a69737c18b15a86cdff7160b9b96393"
+    },
+    {
+      "key": "aos_soulbound_creatures:aos-soulbound.creature.gryph-hound",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "80093fa6d7e127c6a0ba2190cbfc0f3b68016ab1"
+    },
+    {
+      "key": "aos_soulbound_creatures:aos-soulbound.creature.cat",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "b7d28d84d8b3aabb3109654a2255f1dbf1240eb3"
+    },
+    {
+      "key": "aos_soulbound_creatures:aos-soulbound.creature.mustori",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "779d241c5c1f9aa6dd35262a53010cd5fab1d05e"
+    },
+    {
+      "key": "aos_soulbound_creatures:aos-soulbound.creature.glaivewraith",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "2631601e26883ad385fd93e8e10aa0635ce8866f"
+    },
+    {
+      "key": "aos_soulbound_places:aos-soulbound.place.tempest-s-eye",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "92bf8cc03ab2cf487bb01af48efb2a6689e42423"
+    },
+    {
+      "key": "aos_soulbound_places:aos-soulbound.place.castle-regal",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "bdc11836d68a63007b18bbdc0284634aeb274ca5"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.natural-awareness",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "bd7a6f2971887e38f9cb7b69a561420332771d4d"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.children-of-alarielle",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "683952c31df111d34fe85612f95189f12625a9b4"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.diviner-of-truth",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "f15bba83b27fc823ac815df316c0cc0ac59d28b2"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.sense-a-spell-being-cast",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "7a750254b3708b5f7ca2b5bdcb4a1568ce6318de"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.detect-the-dweomer-of-an-enchanted-object",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "d576b039c9e09d26646a9a8a7edb46c140639d42"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.celestial-magic",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "a7dd4ac7e4fc1f0fcb41eb3bdb2501856c93929d"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.orrery",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "62025cfba8f3924657503d07cec2c7523a357550"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.prophecy",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "4e7102869aef23ac874c2af68ac563a37c57954a"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.lie-of-the-land",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "a847da9a95880ad3f0aff206071de7289bb8e6c2"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.whispers-in-the-wind",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "ceebd724598114fa8b0cb0b45e513ebf030604df"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.provenance",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "20a8883d53fa5c99edf14837ad3488f5b1a9d876"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.cats-eyes",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "efdaa92285a06ef888424673f97268110a125f82"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.warning-cry",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "8bb1db7b3c2e3423f56ad81515eb78073cba1e50"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.aetheric-affinity",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "2fa26fa8b9c3210e4ed5c4fe50456fd2e83ef805"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.oracular-visions",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "9987349f5941fefa571c32afae15a164cb8fea24"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.blood-scent",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "12bf2bc88c273839c27da360bc42ea7d88f59591"
+    },
+    {
+      "key": "aos_soulbound_powers:aos-soulbound.power.heartseeker",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "2a01ca091a068e61cfdd2933585c363000e103bb"
+    },
+    {
       "key": "circle_of_inevitability_potions:coi.potion.demoness_9",
       "engineRestore": true,
       "state": "runs-derived",
@@ -71,6 +371,566 @@
         "id": "lantern-fleece.moon-veil"
       },
       "rowSha1": "d7408c03cc6255621c7f9fc0437db17d0f116c82"
+    },
+    {
+      "key": "eberron_artifacts:eberron.artifact.crown-of-eyes",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "b27a4292fa0e84522e14fcb8e078e7c911ce0441"
+    },
+    {
+      "key": "eberron_artifacts:eberron.artifact.crystal-ball",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "a3d885870b634e88d4f159471aae551783a3e9f8"
+    },
+    {
+      "key": "eberron_artifacts:eberron.artifact.finder-s-goggles",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "b89f219c6d4cfdb7f39240a9873af129d531488d"
+    },
+    {
+      "key": "eberron_creatures:eberron.creature.zae",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "1afb341a221408bc0aac679f48f5c35591298757"
+    },
+    {
+      "key": "eberron_creatures:eberron.creature.dusk-hag",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "f1100bf38b86b9df67146f27d137e43b9031aefc"
+    },
+    {
+      "key": "eberron_powers:eberron.power.magical-detection",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "b2c9e49e85b422a84e68d3a57eac896bbb018a4c"
+    },
+    {
+      "key": "eberron_powers:eberron.power.detect-evil-and-good",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "da83eda41fc78b131cad75b83b854d3c0063e08c"
+    },
+    {
+      "key": "eberron_powers:eberron.power.detect-poison-and-disease",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "95c6b1b18b08c2e5aa0a7e6b8e11c2a43b434f62"
+    },
+    {
+      "key": "eberron_powers:eberron.power.find-traps",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "e29f2da765aae586610f08c8371a1c6f609ea6d7"
+    },
+    {
+      "key": "eberron_powers:eberron.power.clairvoyance",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "f1e4bd1c1263560dbaaa48888c3d833373ca5eec"
+    },
+    {
+      "key": "eberron_powers:eberron.power.arcane-eye",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "a322c8498a8bd71e1da5a435a5989af2f31ce395"
+    },
+    {
+      "key": "eberron_powers:eberron.power.legend-lore",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "796f829475b87d1464bb6c80d8595b88253057b8"
+    },
+    {
+      "key": "eberron_powers:eberron.power.finder-s-magic",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "592acbc608d34166b1e26b4e17451880ae7e0fb9"
+    },
+    {
+      "key": "eberron_powers:eberron.power.locate-animals-or-plants",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "a039d9d9ac34c150a0f48079f8df11cfaf6b1217"
+    },
+    {
+      "key": "eberron_powers:eberron.power.locate-object",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "7891b8623e0f2124eee2ea66737ab09c4614fd0d"
+    },
+    {
+      "key": "eberron_powers:eberron.power.locate-creature",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "fdfda71ff6cb9c3a5f76e2b48959f855c46fe609"
+    },
+    {
+      "key": "eberron_powers:eberron.power.commune-with-nature",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "1060e03359a010da19124c48ff1ea6109be42964"
+    },
+    {
+      "key": "eberron_powers:eberron.power.identify",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "1faf82ad7fce9a9efb296fbf58d6dbb30c5a2f08"
+    },
+    {
+      "key": "eberron_powers:eberron.power.lie-detector",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "b7687b1b08a2c4f6d34e93f2992c1c62d8f7802d"
+    },
+    {
+      "key": "eclipse_phase_artifacts:eclipse-phase.artifact.mesh-ids",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "94c52b8bbeaa9112d6edcd94b874308bf2b86a8e"
+    },
+    {
+      "key": "eclipse_phase_artifacts:eclipse-phase.artifact.the-castle",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "9ce9d44209e8ad92707cee6504f8d7cba45c7de3"
+    },
+    {
+      "key": "eclipse_phase_artifacts:eclipse-phase.artifact.portable-brainprint-scanner",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "5e0d2744068b104a4632a9cb02ca90a37b15e159"
+    },
+    {
+      "key": "eclipse_phase_creatures:eclipse-phase.creature.xenovore-egg",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "e837646db6b209c1e781b3d7dfef8ef3edf47601"
+    },
+    {
+      "key": "eclipse_phase_institutions:eclipse-phase.institution.apollo-project",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "6b988e542c6968c0a8cf8553c0419faea829258f"
+    },
+    {
+      "key": "eclipse_phase_institutions:eclipse-phase.institution.market-predictions",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "14148f7f4c9cd10839da0a2f0ac0cec2f95dde99"
+    },
+    {
+      "key": "eclipse_phase_powers:eclipse-phase.power.ego-sense",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "f6efdf5b6e1ea17edccef4d66caceac8ac6f0812"
+    },
+    {
+      "key": "eclipse_phase_powers:eclipse-phase.power.grok",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "b3c04b7e4fa637bf7fbf520a3d946bbe3649b7df"
+    },
+    {
+      "key": "eclipse_phase_powers:eclipse-phase.power.sense-infection",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.bound.instant"
+      },
+      "rowSha1": "3086f53461f6b4f0e72d9e8681217d5de84dbc3c"
+    },
+    {
+      "key": "eclipse_phase_powers:eclipse-phase.power.xeno-empathy",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "6e08b9d911af5f2cd6133e3bdabeadc590c17638"
+    },
+    {
+      "key": "eclipse_phase_powers:eclipse-phase.power.heightened-awareness",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "3252f6b6993ce49b2be10e53fe07923e2146465f"
+    },
+    {
+      "key": "eclipse_phase_powers:eclipse-phase.power.eco-empathy",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "54f880b55d14ac6e9078606f5edb596753ddf507"
+    },
+    {
+      "key": "eclipse_phase_powers:eclipse-phase.power.predictive-boost",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "aa837237a4d5b0fab7436f83e5d20bd0acb7eeb0"
+    },
+    {
+      "key": "eclipse_phase_powers:eclipse-phase.power.mental-evaluation",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "dc3d698a6959ef7914f6422ea43ea20d97434a51"
+    },
+    {
+      "key": "forgotten_realms_artifacts:forgotten-realms.artifact.fountains-of-memory",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "59898bf81c378fefab8bdb1c398fa05a0f63e46a"
+    },
+    {
+      "key": "forgotten_realms_artifacts:forgotten-realms.artifact.robe-of-eyes",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "4975642bb1fd587ca17b700eb015eb1c6120a0ae"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.true-seeing",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "f684e5a01cd2ac8b46360fa6e4305b92bcc4a8d6"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.stonecunning",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "cf545164ae5f3b917e87303617063328668a695c"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.locate-creature",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "4081107f9bfd7e7c621af1b9635fdec40f4fa5be"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.detect-poison",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "0459c71aacbbba77060f875064bae69e0cec21d6"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.divination-spells",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "0c345a31cafba44287a79e81cf8d51302b6c5494"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.discern-location",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "6137d3b851b7de8c45893486657349d1e18c6f37"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.find-the-path",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "d63e878f2585e866b3cbc22c53139266309802a1"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.identify",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "d855b89a7a4768fc626a2a801231446d35eb5b7a"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.scrying",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "8652f2bee8cf1dab48a0a21c05484700797dae18"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.detect-magic-su",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "15515732d6df0c3a3114b9f5ee7f5733480c7448"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.muirara-s-map",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "28571757d492c1fbf8cf6a27c59e501efaa203ad"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.analyze-portal",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "06b08095947d296a19f5882cabce3a23dab8a5c9"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.clairaudience-clairvoyance",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "3bdc6e7c80566843365b90ce9c77fa28c447c0f1"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.prying-eyes",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "65b3a1328b28cf4e84dcc07f0d31907940f8d30e"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.scrying-pools",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "38da1a098bef049f2006acdf9a07133443da7817"
+    },
+    {
+      "key": "forgotten_realms_powers:forgotten-realms.power.insightful-manipulator",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "2147c337d76f95a1ebb4f4df14b350626ece4180"
+    },
+    {
+      "key": "golarion_artifacts:golarion.artifact.magical-seawater-lenses",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "acb7db72cadd08af5d897310ffdba90186d4d8f4"
+    },
+    {
+      "key": "golarion_creatures:golarion.creature.ooze-colony",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "927b3935ed22bc1291d75edefd55de561374f2a0"
+    },
+    {
+      "key": "golarion_institutions:golarion.institution.listeners",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "a20a8e3638773861503d5996ac6cab4b7f252806"
+    },
+    {
+      "key": "golarion_powers:golarion.power.careful-explorer",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.triggered"
+      },
+      "rowSha1": "1a708343b639e333dd91985cf84eca4d7dac5dde"
+    },
+    {
+      "key": "golarion_powers:golarion.power.grave-sense",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "c2e824a0862080244198d5a189b0f7e447e96c6d"
     },
     {
       "key": "gu_moves:iceblade-storm",
@@ -2921,24 +3781,2405 @@
         "id": "lotm.derived.wheel_of_fortune_0"
       },
       "rowSha1": "c6958f87959c063e3a0280e90efdac5d5f8c7fe4"
+    },
+    {
+      "key": "mystara_artifacts:mystara.artifact.the-magic-tunic",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "8e5e53ecbbec6da4ae6b0d1ad0cbcfed1a6d6b3a"
+    },
+    {
+      "key": "mystara_artifacts:mystara.artifact.lens",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "54e92225ff28837c6cbc4b2f31d861b59ab8763a"
+    },
+    {
+      "key": "mystara_creatures:mystara.creature.elf",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "1afdf6f4fa7756d23d192677b42dec00577d533a"
+    },
+    {
+      "key": "mystara_powers:mystara.power.detect-magic",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "12a4300ee5d5e01ad9cfd60009f5513e08941fa0"
+    },
+    {
+      "key": "mystara_powers:mystara.power.locate",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "7ca776eea956289eebc6963235afeefdce6da3c3"
+    },
+    {
+      "key": "mystara_powers:mystara.power.know-alignment",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "43f408313cce55e88507a588df771947bb7d2683"
+    },
+    {
+      "key": "mystara_powers:mystara.power.know-destiny",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "98c4ce4de7bf2fbd8ec370e79e1cb21a93831ddb"
+    },
+    {
+      "key": "mystara_powers:mystara.power.commune",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "3f985bcffc7ce48609ead05650206c858569edba"
+    },
+    {
+      "key": "mystara_powers:mystara.power.predict-weather",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "1a64eb6edf73ac77af0ba177e7d165e9b39c9120"
+    },
+    {
+      "key": "mystara_powers:mystara.power.know-destiny-spell",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "aa2842d961e2722b8aca9f279e81de55c0b5ec28"
+    },
+    {
+      "key": "mystara_powers:mystara.power.view-adjacent-elemental-planes",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "10410ed5c891779942788020fe675241f022ea6e"
+    },
+    {
+      "key": "mystara_powers:mystara.power.detect-danger",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "63c97c2581a9ee5abf99ad4c3c3e5abf2a507108"
+    },
+    {
+      "key": "mystara_powers:mystara.power.truesight",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "662cef8a7117a44b61811ddefd5a879b819454fb"
+    },
+    {
+      "key": "mystara_powers:mystara.power.clairvoyance",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "869184b3c3f93b9d0cf171ede72f8406f51dfa63"
+    },
+    {
+      "key": "mystara_powers:mystara.power.detect-evil",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "8eb5bdd27c8fe1e616ef55d1f4b4dcfc951b62fc"
+    },
+    {
+      "key": "mystara_powers:mystara.power.locate-object",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "9514417c6d6697f79db52694d1428a6a7b247bc3"
+    },
+    {
+      "key": "mystara_powers:mystara.power.detect-invisible",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "542f4cb52c8fc97abc4230521bcd79cf5db98a75"
+    },
+    {
+      "key": "mystara_powers:mystara.power.clear-sight",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "4b4c201516d68bdaac1678c7b4586a70268564ce"
+    },
+    {
+      "key": "mystara_powers:mystara.power.locate-sea-life",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "dc96490def32caf6ad9ee6572e7eb52e1b90effc"
+    },
+    {
+      "key": "mystara_powers:mystara.power.truth-spell",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "0b86d7d4f490895a479fffd518fb67a5cac8c84d"
+    },
+    {
+      "key": "mystara_powers:mystara.power.instinct",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "e5a77d032a5bddadae26f25028468edc7220ec80"
+    },
+    {
+      "key": "mystara_powers:mystara.power.detect-ambush",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "c488c3cb44c7da107b1ed01ad1e10dabf7d4eb42"
+    },
+    {
+      "key": "mystara_powers:mystara.power.detect-lie",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "6216572605d302d568a7223c6862bce28030ab8f"
+    },
+    {
+      "key": "mystara_powers:mystara.power.detect-totem",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "201a55dcdefc2056f7a94be04633bfeda47275a8"
+    },
+    {
+      "key": "mystara_powers:mystara.power.lore",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "1a2db90a5b39da7bb8ea29f702a3c54020512144"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.temporal-viewer",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "865373b314ad28af179bd2f2f357a704c6997ba3"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.the-detector",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "cba5ae95da71170d206b37109cc9c0e35227a4fc"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.izaltu-s-blue-eye",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "57c34c90ec2c343fce878a1e7b08e7b07294239b"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.motes-of-solid-light",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.triggered"
+      },
+      "rowSha1": "ae2def11a2545bbb65ed7d52dcdaabff85864c00"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.vralkan-truth-needle",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "c6138006641246d018b1aaafa0c8cc9fcce68167"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.sonar-range-finder",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "314ed5dfb6e2b8b71e56ed4d08cd8939db6f19a3"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.analysis-daemon",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "b0cf94f3a166a531966d0acc2f2ac3bc234baf25"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.awareness-enhancer",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "080b09da2cadd9fd09b967be62fd48957568a57f"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.biometric-reference",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "ac2ffdf512b399d7dec5fdbfe4ae010aacd5adad"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.blue-crystal",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "61691fc7e3fe10366f1aba7af60b292baf3591a9"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.cicerone",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "592386b8d2cf600a108d8dd3c9bd99131061a324"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.conflict-advisor",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "1b67e9ffafb51dea6710c03a5605e4c305666190"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.deficiency-detector",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "b40bc09a5dca3c48cd9d9735871f3f31d9574273"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.dreamachine",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "e1009a734ad78a81dbd98cc831b1f3f1fdd0a4e2"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.numenera-analyzer",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "62c6de9f3ad6d2dae3c7c1bc732093da1a3a2ebb"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.remote-sensorium",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "e32c211a39b14c3e3ed54239e7e37faac30c5b4e"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.secret-finder",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "3706116fc3cf8f690751cc6a5dea11b8e540e622"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.signal-detector",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "9bfe53046896ae344c8f774a5feeec681170c3a0"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.sleep-watch",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "df2e5b3526b89878e995770bca770c66d09615a1"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.snake-eye",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.bound.sustained"
+      },
+      "rowSha1": "a8829a8d39f84efca77db7301c985f9375389117"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.distance-imager",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "87364b230aa87edb93fadd61b026de0874a1e502"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.eye-of-the-sky",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "a133dbffd1e54f47aeb6775fc5dc6d367bd4f8df"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.mind-displacer",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "585e043065a824a8d3e01f4bd7887e8a6cc6646c"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.remnant-reader",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "0c863c954dc86dfe1ba4f20621c245aca6174b6f"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.roving-eyes",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "b0e05b21bdab657649f78fada16a7c6f7d077c16"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.truth-seeker",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "9f35e4c458f3d9757147566ee056e7258c5812b6"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.library-obelisk",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "74568a0ebf0de95737f3d14898f186499832c18a"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.truthbox",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "be64ca1765b3c73938eb3f4d373615f93a5e5ea0"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.datasphere-obelisk",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "4cb684c53259904a6c3065a66fccd1eeaab58ee8"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.transdimensional-sense",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "3e516e45f1c4d910d7c4ca31224004809847e5f4"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.dead-timeline-viewer",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "2488ef97f3ccd8ac8d62bbfff4f97579d82b85c9"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.explorer-s-lenses",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "682de7e6db27a92d9ac8c2070e62398ecda36e02"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.iotum-scanner",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "ff16e04754b03e3681ba58390da0b4d31ba36fb5"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.observatory",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "0321d7918e768e8c912fb02879c65b9c4798879f"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.cube-frame",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "05a63c8c7f371ef6c898177a10d89a0cfe212677"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.extrapolate-future",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.delayed"
+      },
+      "rowSha1": "81af0dccca200a8c0e62908121c035d993854040"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.extrapolate-termination",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "9e67f375529d437e12765c71cc0f83600927baf5"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.frame-query",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "b9a2debcfcea4c9dbdb04caa86ba03a3ceeda9d6"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.frame-viewer",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.lasting"
+      },
+      "rowSha1": "4c1f9520770457461b6516655acc80040edaf50a"
+    },
+    {
+      "key": "numenera_artifacts:numenera.artifact.dowsing-blade",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "6fbf744621f034633158a49754913bbd637b9096"
+    },
+    {
+      "key": "numenera_places:numenera.place.the-odd-grove",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "845122b51af425a86e0e90d4e6c22dc2c3ee1b8c"
+    },
+    {
+      "key": "numenera_places:numenera.place.library-of-ylem",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "2fd229b5206ca236d7aaf1847180e88156466607"
+    },
+    {
+      "key": "numenera_places:numenera.place.the-cube",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "eccdac56ce14a39900c8f52f6256aab3e0a2384c"
+    },
+    {
+      "key": "numenera_powers:numenera.power.scan",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "c52be1818609c10fd7a9d121baa0da153183e84e"
+    },
+    {
+      "key": "numenera_powers:numenera.power.wilderness-awareness",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "469406ce3c879d8b9b5db6f5606ddae76df150f8"
+    },
+    {
+      "key": "numenera_powers:numenera.power.information-gathering",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "9b1fc626c6007631e8bd5b9f178e16ed9c847d4f"
+    },
+    {
+      "key": "numenera_powers:numenera.power.datasphere-siphon",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "1e277be3f91ce447f5dfd13928fbae794151c878"
+    },
+    {
+      "key": "numenera_powers:numenera.power.see-into-the-past",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "20b340f9cdbdccb46e707ee47bcc6d2a3cc79291"
+    },
+    {
+      "key": "numenera_powers:numenera.power.artifact-eye",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "0ec7b86dcb85ae42fbadd3bcab872ec672ebd585"
+    },
+    {
+      "key": "numenera_powers:numenera.power.scanner-devices",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "105a464183648d7481c292699927dda3b6d76cb1"
+    },
+    {
+      "key": "numenera_powers:numenera.power.low-level-telepathic-gift",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.sustained"
+      },
+      "rowSha1": "35ad1cb1270f9d9c257d70d1ab37368ccb8325ab"
+    },
+    {
+      "key": "numenera_powers:numenera.power.low-level-telepathic-ability",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "dbeef19aef2b5f844cc36eaf3c1131764bba49ec"
+    },
+    {
+      "key": "numenera_powers:numenera.power.learn",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "cf56c557c79909aa43274eacc095b83361bf6336"
+    },
+    {
+      "key": "numenera_powers:numenera.power.knowing-the-unknown",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "231f443943020c582e727a48d97122d2a00639d7"
+    },
+    {
+      "key": "numenera_powers:numenera.power.scan-for-iotum",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "a7aecefc66cf9def1fcaf405756597178dc8d698"
+    },
+    {
+      "key": "numenera_powers:numenera.power.community-awareness",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "d616c19368072b97fad1d1a735558a38b29dfc59"
+    },
+    {
+      "key": "numenera_powers:numenera.power.device-insight",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "a8b92d8dfb62002ee74a67cfba2c5cb0f25acd98"
+    },
+    {
+      "key": "numenera_powers:numenera.power.eye-for-detail",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "e305dca1148201b4ddb6e52ab9a27b0a72b67771"
+    },
+    {
+      "key": "numenera_powers:numenera.power.creature-insight",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "7edbcc8c23a91cb1e418a6f378823421f7cfdc7b"
+    },
+    {
+      "key": "numenera_powers:numenera.power.trapfinder",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "ce7fb3c5a658cd3e1487d51d42ae75b32c7f3653"
+    },
+    {
+      "key": "numenera_powers:numenera.power.getting-the-word",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "e7f3dfa52ea542bbb5f76487f9af7a069deb8b8d"
+    },
+    {
+      "key": "numenera_powers:numenera.power.guarding",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "c9eeb9b7893e20d209e133e5a1597748857c03e5"
+    },
+    {
+      "key": "numenera_powers:numenera.power.extend-awareness",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "d0cc2572721beafcf840344532bffefbb5247fe6"
+    },
+    {
+      "key": "numenera_powers:numenera.power.insight",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "85f799c41b47039fc83ba9e5028ce9576f5894a0"
+    },
+    {
+      "key": "numenera_powers:numenera.power.mind-of-a-ruler",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "21d887d90ec1ab7cac3888b7f083b897b25dc202"
+    },
+    {
+      "key": "numenera_powers:numenera.power.got-a-feeling",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "aa0e2bfa05bf7bbce21dae36c4ee6bc7002c0ed8"
+    },
+    {
+      "key": "numenera_powers:numenera.power.see-the-unseen",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "1452b438319359b4ececf594d226547b9e2648bc"
+    },
+    {
+      "key": "numenera_powers:numenera.power.see-through-matter",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "ba0a21cd9d2c7b6849375c6c8329102d1c9907a5"
+    },
+    {
+      "key": "numenera_powers:numenera.power.remote-viewing",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "cb9b786d40791e8263fd8a0f08793e751a0de0e3"
+    },
+    {
+      "key": "numenera_powers:numenera.power.see-through-time",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.delayed"
+      },
+      "rowSha1": "3bad02c4d1f7df515355a051d1fbca0002b1b726"
+    },
+    {
+      "key": "numenera_powers:numenera.power.community-knowledge",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "6bfa38ae98eca12c02b4c698f4276f3d73ff545b"
+    },
+    {
+      "key": "numenera_powers:numenera.power.echolocation",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "56fa6720b3e7e8c13f26115b8fd3431a951ac436"
+    },
+    {
+      "key": "numenera_powers:numenera.power.poison-eater",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "0febaa1ff9ea668994ad483f2f63d7e6078bc8d3"
+    },
+    {
+      "key": "numenera_powers:numenera.power.future-glimpse",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "f85b54cd12a3a7a4e7979d8b7c9e763391c9a18d"
+    },
+    {
+      "key": "planescape_creatures:planescape.creature.celestials",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "b503e2c8235961288e3c9424b9f148e300f75d8b"
+    },
+    {
+      "key": "planescape_creatures:planescape.creature.the-norns",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "093c5430705b2268e1159e7edf6bd8b11da00a43"
+    },
+    {
+      "key": "planescape_creatures:planescape.creature.the-graeae",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "44e7a58b195f499e3eadcaf2b9d4d95054afd71d"
+    },
+    {
+      "key": "planescape_creatures:planescape.creature.the-fates",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "a241c5156f0416b4b030e85097f8fb788f30cb6e"
+    },
+    {
+      "key": "planescape_places:planescape.place.sacred-well",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "47555cd5c8fa2a804233c440816d9793e4010f91"
+    },
+    {
+      "key": "planescape_powers:planescape.power.divination-magic",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "210bedc37d12158d7e4071b49b50b0466f0c7fd0"
+    },
+    {
+      "key": "ravenloft_artifacts:ravenloft.artifact.eye-of-hazlik",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "eba0913e36b391f20df4faab5097b5df00097461"
+    },
+    {
+      "key": "ravenloft_artifacts:ravenloft.artifact.seer-s-glass",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "5b9a462f2a275b0f62d890976feb13d3624c3943"
+    },
+    {
+      "key": "ravenloft_artifacts:ravenloft.artifact.spirit-boards",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "84749e19f22fe8bd113e06cf47cb257eb6b0cb11"
+    },
+    {
+      "key": "ravenloft_artifacts:ravenloft.artifact.planchette",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "47244d4733e0743225fe1616f21ac1d529456938"
+    },
+    {
+      "key": "ravenloft_creatures:ravenloft.creature.staring-cats-of-uldun-dar",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "a6d710961e385c9a7821c0fe26dffa1ac0660e5c"
+    },
+    {
+      "key": "ravenloft_institutions:ravenloft.institution.eye-of-hazlik",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "14fc890e5b795979812819cd0cc254a83500a81c"
+    },
+    {
+      "key": "ravenloft_powers:ravenloft.power.remote-viewing",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "f16a10ac961824c5d2ef69bcbf4ec8fac4471c14"
+    },
+    {
+      "key": "ravenloft_powers:ravenloft.power.scrying",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "9c02079b7b1848a2eb9e239778b3eb08ad181f8d"
+    },
+    {
+      "key": "ravenloft_powers:ravenloft.power.callous-genius",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "a4e65a024709561f42fe0baaeee5ccc159b69a80"
+    },
+    {
+      "key": "ravenloft_powers:ravenloft.power.eyes-of-hazlik",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "c48774d8dd5233165aa84a2164573134aba5da6b"
+    },
+    {
+      "key": "ravenloft_powers:ravenloft.power.divine-sense",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "f7a88976b52eef8dc53215d9af83420f906201c3"
+    },
+    {
+      "key": "ravenloft_powers:ravenloft.power.detect-evil-and-good",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "ee485649719bc292846bfb3f084235f483e307f4"
+    },
+    {
+      "key": "ravenloft_powers:ravenloft.power.divination-senses",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "c6ae3dfe10b89bdb343883211a354641177ca610"
+    },
+    {
+      "key": "ravenloft_powers:ravenloft.power.spirit-medium",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "17f794f1835824959041aaef06fe2cd8fe4b564f"
+    },
+    {
+      "key": "spelljammer_artifacts:spelljammer.artifact.telescope",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "2f405778aeff75458b6f8c154817a2d4bb7b58e5"
+    },
+    {
+      "key": "spelljammer_artifacts:spelljammer.artifact.wildspace-orrery",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "4811ee3bf77ad1c53a39a5e6128899826788ac3a"
+    },
+    {
+      "key": "spelljammer_creatures:spelljammer.creature.gaj",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.bound.instant"
+      },
+      "rowSha1": "23a5498c4c1226663367744d0ea9989b1c06a083"
+    },
+    {
+      "key": "spelljammer_powers:spelljammer.power.astral-sea-navigation",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "092ffb036f0e8b4f673163494df701672e3dbbb5"
+    },
+    {
+      "key": "spelljammer_powers:spelljammer.power.scrying",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "e89fa845010da37ca6b6e8d02c4bb6d81a07ba60"
+    },
+    {
+      "key": "spelljammer_powers:spelljammer.power.mind-probing-antennae",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.bound.instant"
+      },
+      "rowSha1": "f9d0cc6d2a079e51ada8a41c012d6384dbe91109"
+    },
+    {
+      "key": "spelljammer_powers:spelljammer.power.divination",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "907cde3ceec548ba56457ae72aa3ded9d010331a"
+    },
+    {
+      "key": "stars_without_number_artifacts:stars-without-number.artifact.precognitive-nav-chamber",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "c0cb3e542b1c81c9114b8622f7e0bf64018b266e"
+    },
+    {
+      "key": "stars_without_number_artifacts:stars-without-number.artifact.survey-sensor-array",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "5a53e48244c02ed5a64af2f42b75ab5214c7f1b5"
+    },
+    {
+      "key": "stars_without_number_artifacts:stars-without-number.artifact.counterintel-units",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "9b4bd9bfed50c78cb78a3f7e8ac80d5ee928d1b9"
+    },
+    {
+      "key": "stars_without_number_powers:stars-without-number.power.precognition",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "97c30195fd21a685787f715440e8600f5d9a3592"
+    },
+    {
+      "key": "stars_without_number_powers:stars-without-number.power.mindtracing",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "e8ae1232ed0f551db335f017a00c479adba2828d"
+    },
+    {
+      "key": "stars_without_number_powers:stars-without-number.power.oracle",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "63ead42aab6ddbfd897cf7fd4bea6add9747d9e5"
+    },
+    {
+      "key": "stars_without_number_powers:stars-without-number.power.terminal-reflection",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "37b8bef0149aaaccd6c3fe2c83785dc20205d818"
+    },
+    {
+      "key": "strixhaven_powers:strixhaven.power.arcane-eye",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "dab2d81bcac2df0e410808ace1c9af1d97474af6"
+    },
+    {
+      "key": "strixhaven_powers:strixhaven.power.legend-lore",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "4ad8fb4db6a771c42d4dc8c266ee539b08eff54e"
+    },
+    {
+      "key": "strixhaven_powers:strixhaven.power.magical-statue-reads-aloud-the-contents-of-most-",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "8da4cd6de87a8fdd7f8bdb1efcdac4b3b7cb97c2"
+    },
+    {
+      "key": "strixhaven_powers:strixhaven.power.magic-sense",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "8dcc4c8d1f82fd204a60794ba6c9a2650ce9d9ba"
+    },
+    {
+      "key": "the_dark_eye_powers:the-dark-eye.power.numerology",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "87a3a0a091ae9bbadbb9f224e75a819efea3f053"
+    },
+    {
+      "key": "the_dark_eye_powers:the-dark-eye.power.predict-weather",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "69de72d2122f536130b9a2c3fe3c85b3b52e9a0b"
+    },
+    {
+      "key": "the_dark_eye_powers:the-dark-eye.power.analyst",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "d2907675905e8bb0c54fd79442f43cf27f8dcc5e"
+    },
+    {
+      "key": "the_dark_eye_powers:the-dark-eye.power.see-magic",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "a300e18c7c90b97bef54a8ea2aece3deec931c67"
+    },
+    {
+      "key": "the_dark_eye_powers:the-dark-eye.power.clairvoyance",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "2b33f4e0013564698a67961f590bf38803cdfbcb"
+    },
+    {
+      "key": "the_dark_eye_powers:the-dark-eye.power.analyze-arcane-structure",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "f3bf3118c5aba24496c996d51e79c70f359b1fef"
+    },
+    {
+      "key": "the_dark_eye_powers:the-dark-eye.power.analyze",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "17fc8d7ddbb2a2a3eb6ff54535b5bfda2c46e4bd"
+    },
+    {
+      "key": "the_strange_artifacts:the-strange.artifact.interface-disc",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "eb2b36d919c60cf7904c9ebb0fddc6681247a57a"
+    },
+    {
+      "key": "the_strange_artifacts:the-strange.artifact.terminal-of-communion",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "1a91ab76466dc5f83439b8a98e0992134f6b155f"
+    },
+    {
+      "key": "the_strange_artifacts:the-strange.artifact.necronomicon",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "b4dcde74642f95db50ba1a003992fb390ccfd240"
+    },
+    {
+      "key": "the_strange_artifacts:the-strange.artifact.information-lenses",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "4a84c3f98bed3491fac066180e045ed2d429cc29"
+    },
+    {
+      "key": "the_strange_artifacts:the-strange.artifact.mapper",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "ccf33c6c39849f7faa95be027dc901a14eb6a67a"
+    },
+    {
+      "key": "the_strange_artifacts:the-strange.artifact.surveillance-set",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "456d308bbaa653cced9c365715a45b22c2998e9f"
+    },
+    {
+      "key": "the_strange_creatures:the-strange.creature.spiralers",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "1a8645dd74a6ffc24a1f15d05f9df66f98da57c5"
+    },
+    {
+      "key": "the_strange_creatures:the-strange.creature.oracle-of-ardeyn",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.delayed"
+      },
+      "rowSha1": "7182663ada77fdbfb4f23c9b8aa31192fb2b00fb"
+    },
+    {
+      "key": "the_strange_creatures:the-strange.creature.tengen",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "7fd71505b843b176d8345edbe5fcfedf2f8a3f8c"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.premonition",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "5fec72af119bec6d9e691c2e0d58ca64122d3d4b"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.recursion-viewing",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "fe3dbeb7922431ef23bdc7ab63ee6672645d8945"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.read-the-signs",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "72e94d6dcf538634160756afc13a56c34a36bf4a"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.strange",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "bf37b05a746b3f5afa71a29a25645296f9c8ee54"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.discern-the-sins",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "bb53350683370c91794e43210b9e8a3ae62a8394"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.lab-analysis",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "7df9f80b289facd3f9a5c6f43ca4a456bd6326eb"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.mind-of-a-leader",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "5ab026fb657ff2759aabab0abda13d337211b8ca"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.animal-senses-and-sensibilities",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.triggered"
+      },
+      "rowSha1": "267dd4f85467f7a2a759cec6a9234553d420579a"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.wilderness-awareness",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "28031cb52e534495c08b456443f7acf882237e96"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.soul-rider",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "bd5d2db3278737e0d64f0eed98124b5513b4dc95"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.gliding-through-the-all-song",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "38eaced7dcc15d05c6f4db54a7220a3a2c9b1492"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.unearth-knowledge",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "8258546949dc6e46032449fdf5efd99f725d4cf2"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.find-the-undoing",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "54ea1382accf617b817741b94ba1398f8745e59d"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.draw-conclusion",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "f32a1f99b84a77fba5e07731794f037c4559e132"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.follow-through-fiction",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.lasting"
+      },
+      "rowSha1": "292a2fbf692fd400675573815dd3b35106f28177"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.skeptical",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "cea32da7d12424e594de9bd5bea2e4530d4316dd"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.processes-information",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "4dd92982242d7d3deb6505a5901cedcccba0822f"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.awareness",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.lasting"
+      },
+      "rowSha1": "44c47963ae8206c26445c5765a5a1e3d703167cb"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.learns-one-random-fact-about-a-person-or-locatio",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "a9b763dabb61f41cf8e636ed2371441811c83316"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.analyze",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "c20920f1d842ecb88bf2fba7d2b14fa4fc629ca3"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.chemokinesis",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "28c1571217eeb7acdc1a32b79af0f64614565121"
+    },
+    {
+      "key": "the_strange_powers:the-strange.power.name",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "8c00b146183b6dcd2ab35a563a87b36e639798ef"
+    },
+    {
+      "key": "theros_artifacts:theros.artifact.orestes-s-sarcophagus",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "1617dba80cc061cb1ff7666cac0b85740bde9262"
+    },
+    {
+      "key": "theros_creatures:theros.creature.sibyls",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "24faea3c5e5076348056dae187fcde813fde151a"
+    },
+    {
+      "key": "theros_creatures:theros.creature.cresa",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "0bb1c08381835e30ef3cd86d627d5a1eb04fa8da"
+    },
+    {
+      "key": "theros_creatures:theros.creature.oracle",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "edce702d903c6150b7ac3398b6b46d461e090a60"
+    },
+    {
+      "key": "theros_institutions:theros.institution.sun-guides",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "8ed49849b0096e518448bec4f6ccd02718f05e80"
+    },
+    {
+      "key": "theros_places:theros.place.nykthos",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "bba0cfa5a345bd003d4ca6369a631ffd5434cea4"
+    },
+    {
+      "key": "theros_places:theros.place.sun-s-mirror",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.triggered"
+      },
+      "rowSha1": "7112f304402eef14d2c7ee4c2031166703342545"
+    },
+    {
+      "key": "theros_places:theros.place.oracular-conflux",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "ad30dd51c6e8971961da2250af5017292bcef242"
+    },
+    {
+      "key": "theros_places:theros.place.enorasi",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "cc09e6cb8641e7fe57272d4f901e6d4e799e3639"
+    },
+    {
+      "key": "theros_powers:theros.power.keen-mind",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "ce5d078a836c970e37e066e9e06ed90859d98d7b"
+    },
+    {
+      "key": "theros_powers:theros.power.observant",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "64ec77f65a27b37d8e6ed5d90cbb1e49fca7c8de"
+    },
+    {
+      "key": "theros_powers:theros.power.oracle",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "ec26d5323673a1ae0a01e025bd9479b56e2f07bd"
+    },
+    {
+      "key": "theros_powers:theros.power.ears-of-the-oracle",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "dd0d5252eec613c912c0dd8f56c97db3bec7d0e3"
+    },
+    {
+      "key": "theros_powers:theros.power.augur",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "01ea0c7d2a61a959c360f3fb28cc06f15233100f"
+    },
+    {
+      "key": "theros_powers:theros.power.seer",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "1742598e1d242a13d73ee6f03e5fe2a35be1cabf"
+    },
+    {
+      "key": "theros_powers:theros.power.sibyl",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "772dfff9632309002bd3b283046f15f8a00869de"
+    },
+    {
+      "key": "theros_powers:theros.power.wild-creative-vision",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "d422c8cfd363834ab21003c563bce9f5e2f4911d"
+    },
+    {
+      "key": "theros_powers:theros.power.insatiable-greed",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "c4d764393d74056faa8bcc2e5cb7bb5e1ba98716"
+    },
+    {
+      "key": "theros_powers:theros.power.augury",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "4869fe0083dd9c2f7356cc2726f0a8d91ff770a8"
+    },
+    {
+      "key": "theros_powers:theros.power.scrying",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "63d6b5e59c319fbdc38619ab12a557f2229ac67e"
+    },
+    {
+      "key": "warhammer_40k_artifacts:warhammer-40k.artifact.runecaster",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "c322aae1ef3770a803279d5e797d31c8b7dd7403"
+    },
+    {
+      "key": "warhammer_40k_artifacts:warhammer-40k.artifact.auspex",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "8d00ea0d32a8e8d2967652b963ea526123e4ac2b"
+    },
+    {
+      "key": "warhammer_40k_artifacts:warhammer-40k.artifact.astropathic-mnemolith",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "a82df9b25e10b0f7a5f22d8425b5328b7c652cf3"
+    },
+    {
+      "key": "warhammer_40k_artifacts:warhammer-40k.artifact.eyes-of-the-crone",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "397537347ea7f2c3553e194e460ab9b023e9bec6"
+    },
+    {
+      "key": "warhammer_40k_artifacts:warhammer-40k.artifact.ident-scanner",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "59608ce8db162d0b8f0dd340987f980d1c685c3a"
+    },
+    {
+      "key": "warhammer_40k_artifacts:warhammer-40k.artifact.medicae-diagnostor",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.instant"
+      },
+      "rowSha1": "d49858c83c8b6b0f064abefb25f0dbc381c73afd"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.glean-glimpses-of-the-future",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "2af045a28fe78d89195ad42b07c625a0a3e4c722"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.scry-battle-plans",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "f2f16af6146a8fdc3c456210d7c8e62bb5be9d02"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.navigator",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "f93cb234502a022ab1c0eb5aea7ddd4dbcb70b97"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.improved-warp-sense",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "46e832ad666656eb9104f753d3af86105cdd56a4"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.scrutiny",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.instant"
+      },
+      "rowSha1": "a6852565f225bab0822a0736a35d6169cbc033b5"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.tracking",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "e6a63e0d622a7064850cc0e9a6ffbd860129cfe8"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.aura-reading",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "5c6637cae695827aca7eef99c9d09fab9bfaf0eb"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.augury",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.touched.delayed"
+      },
+      "rowSha1": "ab3e35b71ba67a3879a9e53007695e5b16adf876"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.foreshadow",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.delayed"
+      },
+      "rowSha1": "3991ef85e46eec583dfb450997fd1344a42da6c7"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.in-harm-s-way",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.delayed"
+      },
+      "rowSha1": "e82d2f5f526a13118d54d16c8dc08f436c2f0b76"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.divining-the-future",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.delayed"
+      },
+      "rowSha1": "bb08987e27c6c2e7a06d4671f21ef45f73954dd1"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.blessed-by-the-emperor",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "c9b32f1db541adb1b2955b3c4ecbd729c25b5544"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.walking-the-path",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "e227441afdb0e7a14eced90693337333ca483a68"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.tracks-in-the-stars",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "17a26ba6ef35d76f9f45c039c5dddca15976f32e"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.navigator-gene",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "46090170b0618c924b0602e8ae00ac3f28a66c46"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.prescience",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "e94d81971ff34e7d3dde46058bc40b5fe534eee3"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.ever-vigilant",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.triggered"
+      },
+      "rowSha1": "b44e9e0af9a9f25f7949b0d8c529f1737e0d01cd"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.forewarning",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.lasting"
+      },
+      "rowSha1": "914909326349536439843ce0aabc858cd92f5fd9"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.scrier-s-gaze",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "d4ffe25e8816a7fff30d86e317859014164f2aa4"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.visions",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "f7bd2d54ed89bf3caa382a49aed8d4529fa92f25"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.wraithsight",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "ec940dfaae4db2a4400e08cfa2bf00734f6d7200"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.oracular",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "a75e9a2af296d46eb975dc8f779e70d5fee6facc"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.warped-visions",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.triggered"
+      },
+      "rowSha1": "896a1608ff0ca010f28126023d9168b6ae59cf4f"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.preternatural-senses",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "08e2052db2a0e197b8d68572f6f7947871620f21"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.psychic-scrutiny",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "ae095571f6982554cd945619c836d2427d47ce0a"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.question-the-warp",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.delayed"
+      },
+      "rowSha1": "fbda63868716875a83461ea14177fc8ef4c6b2ec"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.scrying-gaze",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "8d0671207cb8123d1b22bad51945106239f19403"
+    },
+    {
+      "key": "warhammer_40k_powers:warhammer-40k.power.watchward",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.sustained"
+      },
+      "rowSha1": "97d13cea81f5079b2d8d2475bf864d3fc13b3a45"
+    },
+    {
+      "key": "wfrp4e_creatures:wfrp4e.creature.dirmann",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.sustained"
+      },
+      "rowSha1": "764023d0f06f6e98603e105a99faff9248123ca3"
+    },
+    {
+      "key": "wfrp4e_powers:wfrp4e.power.lose-the-loot",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "15f44870409aeb1451661e204a1ca7a3f818d341"
+    },
+    {
+      "key": "wfrp4e_powers:wfrp4e.power.know-your-enemy",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.instant"
+      },
+      "rowSha1": "a4fcfc82882c29f7b84fc2ea7401fa1d412462a6"
+    },
+    {
+      "key": "wildemount_artifacts:wildemount.artifact.goggles-of-object-reading",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "1195b714eed05b48f89728a154beb9674307c188"
+    },
+    {
+      "key": "wildemount_artifacts:wildemount.artifact.danoth-s-visor",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.line.sustained"
+      },
+      "rowSha1": "2cb420c08d3db8c03d694623aadc456f6c350da5"
+    },
+    {
+      "key": "wildemount_powers:wildemount.power.scrying-spell",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.marked.sustained"
+      },
+      "rowSha1": "58d183c30ab781fa16e335b43a1800f4597b359a"
+    },
+    {
+      "key": "wildemount_powers:wildemount.power.detect-magic",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.area.instant"
+      },
+      "rowSha1": "ae9c4ed3fe828d8c0d4ee823b5bbe6017201129c"
+    },
+    {
+      "key": "wildemount_powers:wildemount.power.commune",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "c6a365011eb4c257d191f34df78598fd9e853f3a"
+    },
+    {
+      "key": "wildemount_powers:wildemount.power.divination",
+      "engineRestore": true,
+      "state": "expressed-authored",
+      "case": {
+        "module": "src/divination_law.js",
+        "id": "divination:sense.information.self.instant"
+      },
+      "rowSha1": "97e962117ddcd675ff792d2499d07e5c333c689c"
     }
   ],
   "producer": {
     "command": "node scripts/ladder_receipts.mjs engine",
-    "ms": 1299
+    "ms": 1460
   },
   "tree": {
-    "commit": "949510f7ceb9e6c522550f5ed525d4f1ac3e350c",
+    "commit": "004d80151fe25f0ebcce0aaff74013d41d3c0a23",
     "dirty": true
   },
-  "at": "2026-11-25T00:35:16.918Z",
+  "at": "2026-11-25T02:11:38.528Z",
   "watch": {
-    "docs/coverage/aos_soulbound_artifacts.jsonl": "59b2366ba06f1a9f8c944ff1882d3b388ac6ca4c",
+    "docs/coverage/aos_soulbound_artifacts.jsonl": "536ed248b2cadbbd332c19886878f4ac5cab522d",
     "src/item_bound_law.js": "4ed49eedc3530bbdc96164e640e28e5b95f39c7b",
+    "src/divination_law.js": "66a03728ea2fa61e743a92aaf7f77e5371fbfd21",
     "src/form_transformation_law.js": "8b63e9c4a86ac7b29dd1646ed67788d4f892d670",
-    "docs/coverage/aos_soulbound_creatures.jsonl": "5d006a6dcc79a1bd77e3cd012c4e00a86030b5cf",
-    "docs/coverage/aos_soulbound_places.jsonl": "2928d559305e8c85d6521c65e46e1e685e3c533e",
-    "docs/coverage/aos_soulbound_powers.jsonl": "bf57535a40085b36d5d9cda575a25fb87dc7dee4",
+    "docs/coverage/aos_soulbound_creatures.jsonl": "455d9a8c527abcc8707f85ae319136aaea71fe9c",
+    "docs/coverage/aos_soulbound_places.jsonl": "3fd7234caf84fc262bbf1156aede164fd4c32abc",
+    "docs/coverage/aos_soulbound_powers.jsonl": "62e233ee018858d6fedf46e510ae9a2f4a8f0915",
     "docs/coverage/ars_magica_conditions.jsonl": "f6f724d5396800fa525b36babbe8e100f22d0245",
     "docs/coverage/ars_magica_creatures.jsonl": "46067e9619fa3b50511ede665645945fbce3c71a",
     "docs/coverage/ars_magica_items.jsonl": "9a3cf44450eb4de48a38ee4170fd4201e69b4219",
@@ -2969,28 +6210,29 @@
     "docs/coverage/dnd_srd_creatures.jsonl": "4c6b45e02b2d1ee65745b510e17f24bc6bb75764",
     "docs/coverage/dnd_srd_powers.jsonl": "51f27f552bfbda3db60cadaa9dc2c8d22bccb7c8",
     "docs/coverage/dnd_srd_spells.jsonl": "6d7881fd35aab4c6d8cd81037fcce8296a80b853",
-    "docs/coverage/eberron_artifacts.jsonl": "395ccaf6b1d53184d4a0e784e9cf6f715cb4db86",
-    "docs/coverage/eberron_creatures.jsonl": "8939536daad63160fdce4265c25628dc0061e047",
+    "docs/coverage/eberron_artifacts.jsonl": "5e8a0f0f269e05eec22bcc03996e934eccee3ef1",
+    "docs/coverage/eberron_creatures.jsonl": "0cbab970ff0d4974d1daaa0041ed2c3da53a9825",
     "docs/coverage/eberron_places.jsonl": "37aaaf1e39989aef2f3828997c28770f8498a7e2",
-    "docs/coverage/eberron_powers.jsonl": "bebfde05327b3f259dff276eede5bba135c04f8e",
+    "docs/coverage/eberron_powers.jsonl": "8d26c22dc76c4642c5201d4d12b773b4bf777f14",
     "docs/coverage/eberron_rules.jsonl": "b8655e0935ada088ffd6c67272da7595d1f9edb5",
-    "docs/coverage/eclipse_phase_artifacts.jsonl": "bc210534e39c4bd7d0e38362d916b3f7da4e8508",
-    "docs/coverage/eclipse_phase_creatures.jsonl": "2b0cf850be88f2ce28f99cf868be851b2aa2337f",
-    "docs/coverage/eclipse_phase_institutions.jsonl": "24b45302f16f5a650664760a1433034eccf4713b",
-    "docs/coverage/eclipse_phase_powers.jsonl": "96a553b8932f3a67631d57bbb7a63c7ad2f799a4",
+    "docs/coverage/eclipse_phase_artifacts.jsonl": "6c2e4b39b5e6e93a9fa10c898ca87c71c13d3071",
+    "docs/coverage/eclipse_phase_creatures.jsonl": "3ebc0f4b26f525268ef1a8cd50051ed50715c0fa",
+    "docs/coverage/eclipse_phase_institutions.jsonl": "75993085f70feb90f94006c97c748f0bc48e6e04",
+    "docs/coverage/eclipse_phase_powers.jsonl": "75663d0d7d31da1d5354c6c6fd5b50cd1074a486",
     "docs/coverage/eclipse_phase_rules.jsonl": "be3465860fdc6e102d241a237d158f61a49aa362",
     "docs/coverage/fate_powers.jsonl": "1aa4a1d7417477f1d273df71a4598a13da075404",
     "docs/coverage/fate_spells.jsonl": "1056f7446c5028eaf5823be01e6ca5fbee279467",
     "docs/coverage/fated_villain_powers.jsonl": "f84aa64972f331a15c742d80ac18613b05a51e63",
-    "docs/coverage/forgotten_realms_artifacts.jsonl": "9b6d16fa42cdd0e13d80f613fdd385442c682b5f",
+    "docs/coverage/forgotten_realms_artifacts.jsonl": "2a929e48b1cd7cb550671ef543e9e35549f29433",
     "docs/coverage/forgotten_realms_creatures.jsonl": "b7503ccd417a3f223929597e60482e742ef4ecdb",
     "docs/coverage/forgotten_realms_institutions.jsonl": "9f4467a46fedaf002ea680e05bf88fb875fe3c88",
     "docs/coverage/forgotten_realms_places.jsonl": "cfd942daa3c6d6858bf7d3e71606da4199fe6c18",
-    "docs/coverage/forgotten_realms_powers.jsonl": "c824fbe5060c7239c572e8abe86d3e6b9794ddff",
+    "docs/coverage/forgotten_realms_powers.jsonl": "8f5916940de3fd2d33ba3e3f85e9e34ec256eca1",
     "docs/coverage/forgotten_realms_rules.jsonl": "f897f00b3744f3e5bf2fd2fc3592ec420e9d461f",
-    "docs/coverage/golarion_artifacts.jsonl": "b1f8898a50d8ce65ff98b3411c69df3e264498b9",
-    "docs/coverage/golarion_creatures.jsonl": "ef4cdb7b505c7aacf7f42db073e8e7519eb29f13",
-    "docs/coverage/golarion_powers.jsonl": "ba9b195c32cdeb243e82b1be8f00e67ad28a25dc",
+    "docs/coverage/golarion_artifacts.jsonl": "ac7deaebe75298e55357a4b9ba7579d4d4d441aa",
+    "docs/coverage/golarion_creatures.jsonl": "82712bdb10a523989e58bcced2ec501b32e63300",
+    "docs/coverage/golarion_institutions.jsonl": "cbc72750b1a3c99ed74f6c996697c9745ca262a2",
+    "docs/coverage/golarion_powers.jsonl": "fee196596db3c3c5d94aa229b7ff2518e9439918",
     "docs/coverage/gu_kinds.jsonl": "a6dd37a096d26f35dadd37b761c74653c7c6868a",
     "src/world_packs/gu_effect_pack.js": "01fef0e153afb80579e192c663edefc1ba5f041d",
     "src/world_packs/gu_lotus_essence_case.js": "b0deada393f94b00859eb90d8655a760abcbc255",
@@ -3012,14 +6254,14 @@
     "docs/coverage/lotm_potions.jsonl": "91363b1cf667a7def4d6766f6e891b3eb4666567",
     "docs/coverage/mm3e_powers.jsonl": "5066ad57abda37f4758d1ab5eee090baf059f7f9",
     "docs/coverage/mother_of_learning_powers.jsonl": "0564b7a39eb6dbc143403b09b6689a90db54ae99",
-    "docs/coverage/mystara_artifacts.jsonl": "0156753dea98cc21a71d78703b8d9fea7bcbbed1",
-    "docs/coverage/mystara_creatures.jsonl": "1d74f06207bf88ee93c016bea83aa7eb6974effb",
-    "docs/coverage/mystara_powers.jsonl": "870fc2524ad3e75d5a2db3b58ec1a55ba788cdc7",
-    "docs/coverage/numenera_artifacts.jsonl": "5f57bd7991054269ebad38dbf987c40d4fcf600d",
+    "docs/coverage/mystara_artifacts.jsonl": "1debf393c1816a35372b86cfb494afa50b14354a",
+    "docs/coverage/mystara_creatures.jsonl": "1f1a851a53b737c6c841ec46f4433f5a91af2767",
+    "docs/coverage/mystara_powers.jsonl": "f1ac37059f502d6effc3593c165584eaffd6f6c3",
+    "docs/coverage/numenera_artifacts.jsonl": "1e5abc4079dd44a9aecd45eaca95edebae2b148b",
     "docs/coverage/numenera_creatures.jsonl": "c4b641c457bd18087d5cadd4568bf900b6aee8e0",
     "docs/coverage/numenera_institutions.jsonl": "e0949a202a36d8eb1070e1d8fb84f0eba2a4a21b",
-    "docs/coverage/numenera_places.jsonl": "b06245b59443a959eac888cd619d8d437fb72b6b",
-    "docs/coverage/numenera_powers.jsonl": "674e3a18057777acab1714012fb8bdc884eb8cd3",
+    "docs/coverage/numenera_places.jsonl": "f250e5fb10feac4ffac08b99b373c5323345585f",
+    "docs/coverage/numenera_powers.jsonl": "043dba2ce19081e7840421654a1f3e92af3f8a28",
     "docs/coverage/numenera_rules.jsonl": "c18c829d2cacb45ad972cb80b34f3a27f34303a0",
     "docs/coverage/omniscient_reader_powers.jsonl": "7a95a2048a67f697aedd64b20aa37d02ac274410",
     "docs/coverage/pf1_conditions.jsonl": "336a8b001caca8786ba80946f9743e74002d4b10",
@@ -3027,56 +6269,59 @@
     "docs/coverage/pf1_powers.jsonl": "25160dc6841684883f59c6f2a853535303ebe254",
     "docs/coverage/pf1_spells.jsonl": "0821d79fac08393b6a00e785df20ffddcbec5c04",
     "docs/coverage/planescape_artifacts.jsonl": "e93e0634d95f83c4aceb116532cfb7076fa2930c",
-    "docs/coverage/planescape_creatures.jsonl": "e7120d93c63165171f9242ee595ca6b7f8d60c14",
+    "docs/coverage/planescape_creatures.jsonl": "147e1769056689dac3ccd1c7166606e79e1232c4",
     "docs/coverage/planescape_institutions.jsonl": "a96ef764c571cd08b149c0a4d1186834b527bc5a",
-    "docs/coverage/planescape_places.jsonl": "d083021bf518ee23e068267f41f12ba36c8c2aa8",
+    "docs/coverage/planescape_places.jsonl": "91d90c1a52ffb7d7dbb40b4d9928a0911a44216b",
+    "docs/coverage/planescape_powers.jsonl": "c0cb1195e63da562c758d38209c9dc0eb2a17b62",
     "docs/coverage/planescape_rules.jsonl": "289b9127a7692cc677becf8325cc55aa16aa5436",
-    "docs/coverage/ravenloft_artifacts.jsonl": "2641a4033224a7eac119f1eb61e43633fbeefa9a",
-    "docs/coverage/ravenloft_creatures.jsonl": "d605b7db92c2e2e495bbe6ebaa9de20b592ab8aa",
-    "docs/coverage/ravenloft_institutions.jsonl": "51a91b6d45c376211c9146e940870be63ab8d905",
+    "docs/coverage/ravenloft_artifacts.jsonl": "c39d351211a69476d5cc1faa7e093aab17d782bf",
+    "docs/coverage/ravenloft_creatures.jsonl": "88d473866d14bbcdc05c575ecec057b30818097a",
+    "docs/coverage/ravenloft_institutions.jsonl": "62d83c2df97925330c55e88ae80fec1e3098ea46",
     "docs/coverage/ravenloft_places.jsonl": "7b449d12a60c18029011d395e35b730ade25bf97",
-    "docs/coverage/ravenloft_powers.jsonl": "a06954d746ace3ba19947238c1746ba158040c32",
+    "docs/coverage/ravenloft_powers.jsonl": "82168042d269b9a59a5542fe2207b92e69e321e5",
     "docs/coverage/ravenloft_rules.jsonl": "2c539142d9bbe9d96b3bdb828fe168bdf94c17d0",
     "docs/coverage/ravnica_powers.jsonl": "31f10ecd575b8e59a40e9ae302df834acc6f4f29",
     "docs/coverage/regressors_tale_powers.jsonl": "db5f34b4d82e77762a269cbacd31fd1e61dcce3e",
     "docs/coverage/shadow_slave_powers.jsonl": "31b1548ef2d89437e248c2e00664c94d198ff566",
     "docs/coverage/solo_leveling_powers.jsonl": "129a0f210be6fb06371021b5b3859f9802da059b",
     "docs/coverage/speedrunning_multiverse_powers.jsonl": "5d8ec9a75334e31feab337b84916934d6dcb1f1e",
-    "docs/coverage/spelljammer_artifacts.jsonl": "e52f5830cffca825b69dd9f4feb240debbed31d3",
-    "docs/coverage/spelljammer_creatures.jsonl": "b72ea0f686f39c6d806910ef293c69b3ea2d13f0",
-    "docs/coverage/spelljammer_powers.jsonl": "c1c7809a4b76d00366275b659462ee826ff12c40",
-    "docs/coverage/stars_without_number_artifacts.jsonl": "9af66cdbc1d9f26ce67bfc2ff3199419d18928dc",
+    "docs/coverage/spelljammer_artifacts.jsonl": "7ef7dc2c680d498212334a51b8ac7f7b19d2bce7",
+    "docs/coverage/spelljammer_creatures.jsonl": "c3d3794a689dfb081013afa2e4a88224327733b8",
+    "docs/coverage/spelljammer_powers.jsonl": "d1e6b6217be0b5b1fc81b8daf9ae4f4b2162d4f6",
+    "docs/coverage/stars_without_number_artifacts.jsonl": "ddd257ac1e699d41e6d60281c1221274572430db",
     "docs/coverage/stars_without_number_creatures.jsonl": "4e02617434a25bd3d79381f84095d3807966f5e2",
     "docs/coverage/stars_without_number_institutions.jsonl": "172f61ab6c3060553579509b9b2b40c6efa75b7d",
-    "docs/coverage/stars_without_number_powers.jsonl": "5434bea53e36f44f3a3c9a91aa2f1cc27e14d861",
+    "docs/coverage/stars_without_number_powers.jsonl": "c04a5540c3b39903c1ef60751062c2290d15a2b5",
     "docs/coverage/strixhaven_artifacts.jsonl": "8d978dbc335f8c97e298e1d4860ca62b013368af",
     "docs/coverage/strixhaven_creatures.jsonl": "4ed309eccb8e5278c7e1b509fea7a61e7375685a",
-    "docs/coverage/strixhaven_powers.jsonl": "4067a6f314c910be88272cd0237043ac60102de0",
+    "docs/coverage/strixhaven_powers.jsonl": "b5971490399a6ee1b942a101d628b9354dba0f10",
     "docs/coverage/the_dark_eye_artifacts.jsonl": "efeb94d5026e3d7e5137eca6193327b9c69491be",
     "docs/coverage/the_dark_eye_creatures.jsonl": "1c5e2015aca5ae049a626f33cc70f53350911310",
     "docs/coverage/the_dark_eye_institutions.jsonl": "10e9fd32ef7b063a03b1e4f72e7bee6809c0551f",
-    "docs/coverage/the_dark_eye_powers.jsonl": "218aaa8039f98ccffeb66bb767093578dd2bf87c",
-    "docs/coverage/the_strange_artifacts.jsonl": "2628cb3527b6332e6a642e9a0d7a3eba0c778d34",
-    "docs/coverage/the_strange_creatures.jsonl": "c745eb8412fea34d4df65a2632a2af6d1871fc70",
+    "docs/coverage/the_dark_eye_powers.jsonl": "b20f94c76f35f205f91da5c91b30db62ddac7e7b",
+    "docs/coverage/the_strange_artifacts.jsonl": "16a1daa86436fd017a0a7f47cad66a6d9964c578",
+    "docs/coverage/the_strange_creatures.jsonl": "0635683a3e7491621852369199036b293bb85932",
     "docs/coverage/the_strange_institutions.jsonl": "443f5fb573e631e182429d9d74f859206fd83c96",
     "docs/coverage/the_strange_places.jsonl": "d4c4a95339a3aa27381d82768eb08166508fac52",
-    "docs/coverage/the_strange_powers.jsonl": "3b9bbf9434738fc2fdf41c6e35220bac91e8bba3",
+    "docs/coverage/the_strange_powers.jsonl": "a3ca3850944774ced3bb4853ad8e47af404264f6",
     "docs/coverage/the_strange_rules.jsonl": "628d01d8bbf1d66a7aaadf205280cf04e3adef9e",
-    "docs/coverage/theros_artifacts.jsonl": "34dab5ee7f6d28172c576b8c00065f8344f2c633",
-    "docs/coverage/theros_creatures.jsonl": "540c2c4eb0014c8422b2dbd3513a8ba0c8ddaef8",
-    "docs/coverage/theros_powers.jsonl": "7d7c477dab2c9fa58a657b0fb602dc49a31f41cd",
+    "docs/coverage/theros_artifacts.jsonl": "570a80980870a18f52e25c625715dad2e39a0073",
+    "docs/coverage/theros_creatures.jsonl": "0520ff7d2f00b6ac33aea56ac8d05a1a5cee7122",
+    "docs/coverage/theros_institutions.jsonl": "8445e3a5b8f9b1794dd0968d79ede7baad304921",
+    "docs/coverage/theros_places.jsonl": "baff5134f19e580d6446e5385a6e7851448b63ad",
+    "docs/coverage/theros_powers.jsonl": "e20d00ddf74038a230aea5b083d78129ef4e8cd7",
     "docs/coverage/theros_rules.jsonl": "4f40dde3aa65846b1710cc9763870d85128618fd",
-    "docs/coverage/warhammer_40k_artifacts.jsonl": "f8f0c4b04e5c63d528de4788dfaa9b473bcf189b",
+    "docs/coverage/warhammer_40k_artifacts.jsonl": "1ad873c47d851b013c6b09d47a3583bf3c557dc6",
     "docs/coverage/warhammer_40k_creatures.jsonl": "0e5594babc53da99cf84bf811341e80162a3760c",
     "docs/coverage/warhammer_40k_institutions.jsonl": "42f7fa3bb0e4368cce1585b767b8d99a69e135ff",
-    "docs/coverage/warhammer_40k_powers.jsonl": "9da5af2e568d75854b596f840fb8324279da84a9",
+    "docs/coverage/warhammer_40k_powers.jsonl": "8c66a01a50a53787a8897c39c46c296d7fe43db0",
     "docs/coverage/wfrp4e_artifacts.jsonl": "d6f71a49f259a7b4443fba7bbe9637f3bd4379d9",
-    "docs/coverage/wfrp4e_creatures.jsonl": "c878841147c19bdf13c164ad57c3da08571614aa",
-    "docs/coverage/wfrp4e_powers.jsonl": "65cbf84253f3157f3d1e4142cf98833c772860df",
-    "docs/coverage/wildemount_artifacts.jsonl": "6c600c32100b5af7caced096dec80e2f6e91f6f6",
+    "docs/coverage/wfrp4e_creatures.jsonl": "3415126030ad73fc87c492c2f2d0d4e598607994",
+    "docs/coverage/wfrp4e_powers.jsonl": "db555ab32ec456d3909663afa83908da2d49036f",
+    "docs/coverage/wildemount_artifacts.jsonl": "4720b3d9b41c0ee2a9eeaf5dcb3d30aead3b8180",
     "docs/coverage/wildemount_creatures.jsonl": "a32e244c6792156c99cacfde239dd3d8e26b589f",
     "docs/coverage/wildemount_institutions.jsonl": "c7b2439b43ce775db6be79dd1982048fd2af4d84",
-    "docs/coverage/wildemount_powers.jsonl": "e19238195010b9cbb034865eedb23f3e087e072d",
+    "docs/coverage/wildemount_powers.jsonl": "721aedabf05f8424d2252d4c1da5f5f922a5d6c8",
     "docs/coverage/you_have_died_again_powers.jsonl": "8081cdfef9dc5aa45d87564c0fbe804cd3aac04c",
     "src/ability_cost_infer.js": "d62f1a602db3fefbe681103f089daf47b1389b93",
     "src/ability_graph.js": "e9c597aac59d10dd42247a585b067078391304b9",
@@ -3251,12 +6496,12 @@
     "src/book_craft_workings.js": "2e1200e1efd1f125d4f4625e576d546f18c5af3d",
     "src/book_finish_lines.js": "2bbdb0e7e6d9f3e1b21eaceedf5c22b95b5ee425",
     "src/book_life_holdings.js": "2c3f1ac81920bcef49ff3078deca7264c0e25cb3",
-    "src/book_world_beginning_registration.js": "4c92e38353d8d1fa90f387a69c42d764a2bc1bd0",
+    "src/book_world_beginning_registration.js": "03a728cce24fa93f9fd5b2775743e2fe00b20768",
     "src/book_world_definitions.js": "5c2183f9cfac6a9b5e3796245cfbedc74e6b9baf",
     "src/book_world_effects.js": "26f662f4f2b65b21cae4d5a60c0853cb1bc4d137",
     "src/book_world_gu_care_story.js": "bbff8ffdba2719c5929a6abb8f0a7f1fb1e82965",
     "src/book_world_gu_domain.js": "26937a80cbc988435a5dfd5a0fd932046a9991d7",
-    "src/book_world_gu_keeper_domain.js": "8035d8d6019fc8bb7f212b3e9daf53e1e401fdee",
+    "src/book_world_gu_keeper_domain.js": "90911180ba6e2729133e1f7c57b9233237df6e65",
     "src/book_world_hp_contact.js": "1f75e7152752c1ecd36b7f423192171a6cd3e4c7",
     "src/book_world_hp_contact_panel.js": "69ed515384c4f39cfcd5af3422b1c8e9e0dbbbaa",
     "src/book_world_hp_content.js": "0d655adc2d4577555b59cb2b0841c8e49d20e83e",
@@ -3818,6 +7063,7 @@
     "src/gu_keeper_giant_hand.js": "0474669ed583c2f00fcc4a6e34f7f94b2d0a7be3",
     "src/gu_keeper_goal.js": "c98b597e67dd652a9e924227a51f6c976df42f9b",
     "src/gu_keeper_immortal_travel.js": "f9d42394052a8e0f241f4401fc161e9c93957302",
+    "src/gu_keeper_lotus_route.js": "7892d58cbe9797e27683b1f9697644818c1d4cd3",
     "src/gu_keeper_moonlight_trial.js": "6edce87e3fe4f22da80d8447758bbfa27fa7bf65",
     "src/gu_keeper_move_trial.js": "8d15c3c67e24090d1a5dbbbef084b4f6357f4f95",
     "src/gu_keeper_move_view.js": "c1e2d523cb4aaa8caf7b01e5080ea01f66ba3e58",
@@ -4103,6 +7349,7 @@
     "src/meter_bar.js": "eb5fab6d75e648899a06d0cd4eefd5c7bde5020f",
     "src/method_editor.js": "2990863cf09a4789d917494a308bf8f02b14ffc9",
     "src/method_program.js": "7fae16d944b1640c8ba872783999210a1280e30e",
+    "src/mind_binding_law.js": "cfd903571e076e82a76cd0b3d76ff5eb06de56ae",
     "src/mind_meters.js": "b3c1d3dd228737adda2d9bcd424f0fc76fd4bac2",
     "src/misc.js": "d0fec159158a3d4dfbf364e4f14021a7849e3f52",
     "src/mistglass_artifact_refining.js": "01a79d8bc31c62e9df8a04bb914116e28e69963a",
@@ -4252,7 +7499,7 @@
     "src/place_types_projection.js": "5cdd864cec99180fedb25c1ffff67e6473a93da8",
     "src/planar_drying_field.js": "9022086b98732de27f30621bfcee565b00775ffa",
     "src/planning_read_frame.js": "02d1b799090224de61fff9e2b6ade2543ab5d8a0",
-    "src/played_effects_domain.js": "b4c1e3d324ecbffb92aab8c568dddc8356cce41d",
+    "src/played_effects_domain.js": "e113371fcd1e12e7763d40fad59466589777896b",
     "src/played_landing.js": "5fadc507d9a6a4b9cba3f32f831fd8d1fae13be0",
     "src/player_attribute_definitions.js": "b3494814961773d65c1c1482c5b0f3ba4b3c20fe",
     "src/player_reasons.js": "1f339e846a95266fc0d700304adffe85838053cb",
@@ -4448,6 +7695,7 @@
     "src/social_contact.js": "05781b47c7495907d3be84f67c804bee4cbc6b17",
     "src/social_contact_domain.js": "8471ab0843f90775231a857d110c70f54f6e967c",
     "src/social_contest.js": "50353763ce442d8dab45dd4f607c6e3de6fb4477",
+    "src/soul_state_law.js": "9a2f00fc3d77481b5d9923ae9be36c7039cb5263",
     "src/source_suppliers.js": "abf83719faa1dc55a0ec8b3db84039afc51d5a5f",
     "src/spell_adapter_hp.js": "3413e0b24efb6b6bef09e2f88077cef2a74e8294",
     "src/spell_adapter_lotm.js": "66faa8603b3f7a38ef08b648e5b8ca8b0eeb59e4",
@@ -4611,7 +7859,7 @@
     "src/ui/gather_line.js": "b13a2c9f5c0a8b92d0996e33d8ab3e982bdeb7fe",
     "src/ui/gathering_view.js": "389d46ba013edad12be01bb2c7092fb2911f59a5",
     "src/ui/grow_columns.js": "6d57c7f59212b6250ea57a9d9b0e083786f34b0f",
-    "src/ui/gu_house_view.js": "f04156cb66c484852678b7b195fa1a9bf9d4afac",
+    "src/ui/gu_house_view.js": "990fa91614c86837e82397e9e7a353b79b1240ce",
     "src/ui/gu_moves_view.js": "9583394a30a2688be4bfcfda949b72a9ec712bb3",
     "src/ui/here_kinds.js": "33334015d48c53c90f62b1af53dfa4f8a6ef7c69",
     "src/ui/home_view.js": "30e425b97112a9e39a89102d9ed1c0e662307899",
@@ -4816,6 +8064,7 @@
     "src/world_packs/book_gu_keeper_immortal_refinement.js": "29ee272c174d3e60a27d748db2820b18178c7a27",
     "src/world_packs/book_gu_keeper_insight_moth.js": "df18293a4db33a997459cc5eb555f8b19fbea92b",
     "src/world_packs/book_gu_keeper_lines.js": "d18b0129e363fa903044b62f30cccf2e9d9af249",
+    "src/world_packs/book_gu_keeper_lotus_route.js": "25dc546cfc63cc5bdc8d8732d5b4e8fbe4d11177",
     "src/world_packs/book_gu_keeper_moonblade.js": "c3bac0ab17b94cd2505062185f0c80eb97af7992",
     "src/world_packs/book_gu_keeper_moonlight_prospect.js": "c4bc1f6ef2cb8ff8243f346e212081066487404c",
     "src/world_packs/book_gu_keeper_moonlight_stock.js": "d57c45b68820392dd2845606f22b0bee3ceb0322",
@@ -4996,7 +8245,7 @@
     "src/worn_equipment_comparison.js": "4e124ebeb2d6c42cd76839e60b1dc4fa6712b42e",
     "src/you_sheet.js": "bc6dcdc076b99acde05fb18c2ceab5e73febc745",
     "scripts/ladder_receipts.mjs": "de46a5c1427e3ef0d1b1d4e72d29be42f6b45667",
-    "scripts/case_runner.mjs": "a0af3aa35fbd668dc447185ce6777bc3f34a6d10",
+    "scripts/case_runner.mjs": "94e56e03d27cac5a2fc7e326b50263e5516c3072",
     "scripts/reachable.mjs": "fe7dd3fc9d82ffaa4982ac9cbc187fd0498aae47"
   }
 }

@@ -56,6 +56,7 @@ import {registerGuKeeperNine} from './world_packs/book_gu_keeper_nine.js';
 import {registerGuKeeperImmortalRefinement} from './world_packs/book_gu_keeper_immortal_refinement.js';
 import {registerGuKeeperImmortalAdvancement} from './world_packs/book_gu_keeper_immortal_advancement.js';
 import {registerGuKeeperImmortalReclamation} from './world_packs/book_gu_keeper_immortal_reclamation.js';
+import {registerGuKeeperLotusRoute} from './world_packs/book_gu_keeper_lotus_route.js';
 import {guLeadLife} from './world_packs/book_gu_lead_life.js';
 import {registerGuLeadSelection,guLeadAcademyPassageClockRequest} from './world_packs/book_gu_lead_selection.js';
 import {registerGuLeadRefinement,guLeadRefinementClockRequest} from './world_packs/book_gu_lead_refinement.js';
@@ -207,6 +208,7 @@ export async function registerBookBeginnings(register, choices, hpPorts = null) 
     await registerGuKeeperImmortalRefinement(register, keeper);
     await registerGuKeeperImmortalAdvancement(register, keeper);
     await registerGuKeeperImmortalReclamation(register, keeper);
+    await registerGuKeeperLotusRoute(register, keeper);
     choices.register({packId:keeper.id,label:'Reverend Insanity · original Gu keeper, first year',
         arrival:'Begin an original adult clan-sponsored Gu keeper with an already-opened Rank-one aperture and a weekly stone stipend.',
         means:'Three primeval stones, eight essence, a free Moonlight Gu and two more Gu for sale. Feed each on its own schedule, take in only what you can pay for, and risk one refinement.'});
