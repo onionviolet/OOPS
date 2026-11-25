@@ -1993,3 +1993,14 @@ Weibao, answering the [reconciliation](../audits/PROPOSAL_RECONCILIATION_2026-11
 - Q2: the atlas renderer grows its own canvas plus a page web (T1+T4), sharing pure grammar pieces. Revisit on a measured workload.
 - Q3: engine-only foundation waves count. Tie-in waves report player outcomes; engine waves report held-out capability and a named future consumer.
 - Q4: `gu_moves` gains a partial-recipe state for moves whose sources name some slots.
+
+## Tabletop progression: fidelity, dice views and carried methods (2026-11-24)
+
+Weibao asked how easy TTRPG-style progression (D&D, Cyberpunk and others) would be in OOPS, then about UI, player choice, quick-time events and game-master work. Asked four questions in the [tabletop progression proposal](../research/tabletop-library-2026-10-14/TABLETOP_PROGRESSION_AND_GM_PROPOSAL_2026-11-24.md), he answered:
+
+- Q1, rules fidelity (faithful 5e or 5e-flavored): "maybe it depends on the world?" Agent reading: each world sets its own fidelity to its source rules, consistent with each world choosing its own systems (2026-10-30) and AD46.
+- Q2, dice shown by default or kept in the inspector: "sure, can alkso make it a option or ability to unlock to see, can both be possible". Agent reading: both routes coexist. A world sets whether rolls show by default; an option, earned faculty or cheat can reveal them anywhere, in line with earned precise views (UR151).
+- Q3, quick-time events: he asked "what do QTEs stand for?" No decision; the reaction-window recommendation in the proposal stays a proposal.
+- Q4, whether D&D levels and cyberware travel with the traveler: "depends on the methods and more?" Agent reading: what carries over follows how each method works (knowledge with the traveler, a body faculty with the body, a world-bound source only where an equivalent exists), consistent with "things work by how they work" (2026-10-17).
+
+He also asked "what about proper game master psosibiltiies and more? do we have no material to work of fwith and expose a constraint of this type of deleloppment? it requires someone to create the events and more?" The answer and the existing owners are in the proposal's GM section. He then said "Yes, record both" to recording these answers and saving the proposal.

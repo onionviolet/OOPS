@@ -13,6 +13,7 @@
 | What we actually have, per-file page counts and local links | [CATALOG.md](CATALOG.md) |
 | What still needs buying, dependencies and free-but-queued items | [BUYING_LIST.md](BUYING_LIST.md) |
 | Multiverse types, retained powers, text presentation and reading priorities | [DESIGN_CONSIDERATIONS.md](DESIGN_CONSIDERATIONS.md) |
+| Progression packs, player choice, quick-time events and the in-game GM (2026-11-24 proposal) | [TABLETOP_PROGRESSION_AND_GM_PROPOSAL_2026-11-24.md](TABLETOP_PROGRESSION_AND_GM_PROPOSAL_2026-11-24.md) |
 | Earlier publisher comparison, Warhammer distinctions and 5e explanation | [Original sweep](../TABLETOP_BOOK_SWEEP_2026-10-14.md) |
 | Original sources, full text and receipt evidence | [Private library](private/) |
 

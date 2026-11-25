@@ -83,6 +83,7 @@ How to use and update it:
 - **Using a power grows it, alongside each world's own growth law.** "Casting should Add mastry...", "Things should usualkly not be limited to a specific way", "dont forget the core rules after all": every cast adds practice, worked or fizzled; classes, digestion and other world laws keep working beside it ([2026-11-08](gm/USER_VISION_LOG_2026-11.md#casting-adds-mastery-and-use-is-not-the-only-way-2026-11-08)).
 - **Recovery is forgiving by default**; harsher modes are optional or forewarned; world danger and recovery strictness are separate. Comfort settings change freely; difficulty changes explain their effects ([2026-10-15](gm/USER_VISION_LOG_2026-10.md#proto23-visual-baseline-reaffirmed-2026-10-15), [2026-10-15](gm/USER_VISION_LOG_2026-10.md#proto23-shell-variant-over-yair-systems-2026-10-15)).
 - **HP stays the overall pool**; part damage is recorded when something reads it and shifts odds by degree ([2026-10-30](gm/USER_VISION_LOG_2026-10.md#injuries-overall-hp-plus-part-damage-where-it-matters-2026-10-30)).
+- **Tabletop rule systems are per world and per method.** Rules fidelity to a source system "maybe it depends on the world?"; dice can show by default per world and also be "a option or ability to unlock to see, can both be possible"; what a traveler keeps from such a system "depends on the methods and more?" (agent readings of his words, [2026-11-24](gm/USER_VISION_LOG_2026-11.md#tabletop-progression-fidelity-dice-views-and-carried-methods-2026-11-24)).
 - **Long term:** pathway switching, and content outside the lead's life for other playthroughs ([2026-10-30](gm/USER_VISION_LOG_2026-10.md#pathway-card-ladder-and-map-switching-and-life-outside-the-lead-later-2026-10-30)).
 
 ## Making and crafting
@@ -187,6 +188,7 @@ Selected requests, newest first, with anchors preserved for former headings. Eac
 
 ### 2026-11
 
+<a id="tabletop-progression-fidelity-dice-views-and-carried-methods-2026-11-24"></a>[Tabletop progression: fidelity, dice views and carried methods, 2026-11-24](gm/USER_VISION_LOG_2026-11.md#tabletop-progression-fidelity-dice-views-and-carried-methods-2026-11-24)<br>
 [What OOPS should borrow or change to realize the vision, 2026-11-24](gm/USER_VISION_LOG_2026-11.md#what-oops-should-borrow-or-change-to-realize-the-vision-2026-11-24)<br>
 <a id="estimated-opponent-numbers-and-one-fight-view-2026-11-19"></a>[Estimated opponent numbers and one fight view, 2026-11-19](gm/USER_VISION_LOG_2026-11.md#estimated-opponent-numbers-and-one-fight-view-2026-11-19)<br>
 <a id="paid-api-passes-go-by-batch-with-the-shared-text-first-2026-11-16"></a>[Paid API passes go by batch, with the shared text first, 2026-11-16](gm/USER_VISION_LOG_2026-11.md#paid-api-passes-go-by-batch-with-the-shared-text-first-2026-11-16)<br>
