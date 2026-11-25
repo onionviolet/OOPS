@@ -83,6 +83,11 @@ export function expectHolds(before, after, expect) {
 
 // Law families a working case may name. Each turns plain case data into {law, method, bindings}.
 const WORKING_FAMILIES = {
+    // Wave 23 (2026-11-24): the divination law (src/divination_law.js); a reading publishes information to the observer.
+    'divination': async w => {
+        const {DIVINATION_LAW} = await import('../src/divination_law.js');
+        return {law: DIVINATION_LAW, method: w.method, bindings: w.bindings};
+    },
     // HW3 / B5 (2026-11-24): composed Gu investigation, sweep or probe (src/world_packs/gu_investigation_cases.js).
     'gu-investigation': async w => (await import('../src/world_packs/gu_investigation_cases.js')).investigationWorking(w),
     'lantern-fleece': async w => {

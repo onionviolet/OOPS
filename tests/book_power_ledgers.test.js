@@ -11,6 +11,7 @@ import {parseLedger} from '../scripts/coverage_report.mjs';
 import {EFFECT_OBJECTS} from '../src/effect_grammar.js';
 import {attachItemBoundRows} from '../scripts/item_bound_ledgers.mjs';
 import {attachFormRows} from '../scripts/form_transformation_ledgers.mjs';
+import {attachDivinationRows} from '../scripts/divination_ledgers.mjs';
 
 const file = name => new URL(`../docs/coverage/${name}`, import.meta.url);
 const lotm = new Set(readFileSync(file('lotm_potions.jsonl'), 'utf8').trim().split('\n').map(l => JSON.parse(l).id));
@@ -21,7 +22,7 @@ for (const [key, book] of Object.entries(BOOKS)) {
     const rows = text.trim().split('\n').map(l => JSON.parse(l));
 
     test(`${key}: the committed ledger equals a rebuild from the committed sidecar`, async () => {
-        assert.deepEqual(rows, JSON.parse(JSON.stringify(await attachFormRows(await attachItemBoundRows(buildLedger(side))))));
+        assert.deepEqual(rows, JSON.parse(JSON.stringify(await attachDivinationRows(await attachFormRows(await attachItemBoundRows(buildLedger(side)))))));
     });
 
     test(`${key}: every row is classified, ids are unique, the validator passes, blocked rows name a known slug`, () => {

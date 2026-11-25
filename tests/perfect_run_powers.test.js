@@ -10,6 +10,7 @@ import {parseLedger} from '../scripts/coverage_report.mjs';
 import {EFFECT_OBJECTS} from '../src/effect_grammar.js';
 import {attachItemBoundRows} from '../scripts/item_bound_ledgers.mjs';
 import {attachFormRows} from '../scripts/form_transformation_ledgers.mjs';
+import {attachDivinationRows} from '../scripts/divination_ledgers.mjs';
 
 const file = name => new URL(`../docs/coverage/${name}`, import.meta.url);
 const side = JSON.parse(readFileSync(file('perfect_run_power_labels.json'), 'utf8'));
@@ -17,7 +18,7 @@ const text = readFileSync(file('perfect_run_powers.jsonl'), 'utf8');
 const rows = text.trim().split('\n').map(l => JSON.parse(l));
 
 test('the committed ledger equals a rebuild from the committed sidecar (item-bound law applied after, PWC55)', async () => {
-    assert.deepEqual(rows, JSON.parse(JSON.stringify(await attachFormRows(await attachItemBoundRows(buildLedger(side))))));
+    assert.deepEqual(rows, JSON.parse(JSON.stringify(await attachDivinationRows(await attachFormRows(await attachItemBoundRows(buildLedger(side)))))));
 });
 
 test('every row is classified, ids are unique, the shared validator passes, blocked rows name a known slug', () => {

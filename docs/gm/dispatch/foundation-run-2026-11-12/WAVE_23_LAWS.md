@@ -25,3 +25,15 @@ Coordination: the lotus-route-v1 Codex lane owns the new Gu keeper lotus files. 
 - **Pacing:** Codex highest window 75% at launch; stop new lanes above 90%.
 - **Stop:** all three folded, or a decision Weibao must make (a label split, a floor exception).
 - **Resume prompt:** "Resume foundation Wave 23 from docs/gm/dispatch/foundation-run-2026-11-12/WAVE_23_LAWS.md: check `node scripts/codex_lane.mjs status` for w23-*, fold each finished lane per the resume block, keep one writer per ledger write."
+
+## Fold (2026-11-24, agent-verified, not human-reviewed)
+
+| Lane | Dry-run take, all | Held out | Result |
+|---|---|---|---|
+| W23-D divination | 324 of 567 (57.1%) after the runner adapter | 67 of 131 (51.1%) | Wired: 324 rows in 51 ledgers move from `blocked:divination` to expressed. The coordinator added the `divination` family to `scripts/case_runner.mjs` (without it the take was 0) and the attach step to the three sidecar ledger builders and their rebuild tests. gu_kinds and gu_moves are left to their own builder. |
+| W23-S soul-state | 79 of 1,234 (6.4%) | 26 of 273 (9.5%) | Spec only, below the 25% floor. Top reasons: 674 with no parseable sentence, 383 whose sentence is about another object. |
+| W23-M mind-binding | 45 of 1,758 (2.6%) | 16 of 356 (4.5%) | Spec only. Top reasons: 660 with no parseable sentence, 362 `alter.mind` (a different mechanism from a command). |
+
+Finding: soul-state and mind-binding are limited by labels and slug splits, not by the engine. The next useful step for both is a labelling and slug-split pass (proposals in each lane REPORT.md), then rerun the dry runs.
+
+Next: played tie-in for divination (Klein's readings through `src/cast_divination_adapter.js`, per w23-divination/REPORT.md); spatial-storage law once the Gu keeper lotus lane lands.
