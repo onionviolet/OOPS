@@ -47,12 +47,13 @@ test('the fit never reads held-out rows', () => {
 
 test('measured held-out score (diagnostic, pinned at the measured result)', () => {
     const s = scoreSpells(split.heldOut, fit, HP_SPELL_WORLD, opts);
-    assert.deepEqual([s.n, s.verbObject, s.outcome, s.targeting, s.time, s.sentence, s.both], [99, 33, 33, 22, 26, 9, 12]);
+    assert.deepEqual([s.n, s.verbObject, s.outcome, s.targeting, s.time, s.sentence, s.both], [99, 48, 45, 33, 36, 12, 20]);
+    // Pinned 2026-11-24 on blind lexicon v2 (v1 read 99, 33, 33, 22, 26, 9, 12); see docs/audits/GRAMMAR_CANON_MEASURE_2026-11-24.md.
     const kept = s.rows.filter(r => !singletonIntentRows(HP_SPELL_ROWS).includes(r.id));
-    assert.deepEqual([kept.length, kept.filter(r => r.verbObject).length, kept.filter(r => r.targeting).length], [46, 13, 12]);
+    assert.deepEqual([kept.length, kept.filter(r => r.verbObject).length, kept.filter(r => r.targeting).length], [46, 21, 16]);
     const cats = {};
     for (const r of s.misses) cats[r.miss.category] = (cats[r.miss.category] ?? 0) + 1;
-    assert.deepEqual(cats, {'wrong rule': 42, 'missing data': 37, 'undecidable default': 11});
+    assert.deepEqual(cats, {'wrong rule': 64, 'missing data': 12, 'undecidable default': 11});
 });
 
 const run = data => runCaseData(data, {id: 'held-out'});
@@ -68,7 +69,7 @@ test('engine probes: a wrong prediction is a world mismatch, an unrunnable pair 
 test('engine execution score on the held-out rows, and the probes run on their own labels', async () => {
     const held = await spellHeldOut();
     const n = f => held.engineHeld.filter(f).length;
-    assert.deepEqual([n(r => r.outcome === 'match'), n(r => r.outcome === 'mismatch'), n(r => r.outcome.startsWith('cannot'))], [13, 4, 82]);
+    assert.deepEqual([n(r => r.outcome === 'match'), n(r => r.outcome === 'mismatch'), n(r => r.outcome.startsWith('cannot'))], [21, 2, 76]);
     assert.deepEqual([held.selfRun.match, held.selfRun.n], [39, 39]);
     assert.deepEqual([held.bespoke.scenes, held.bespoke.exceptionCases, held.bespoke.built], [108, 3, 26]);
 });

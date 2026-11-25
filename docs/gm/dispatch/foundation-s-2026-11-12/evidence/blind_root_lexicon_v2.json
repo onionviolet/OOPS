@@ -1,0 +1,1385 @@
+{
+ "note": "Blind glosses v2, 2026-11-24: a haiku reader given the 163 word strings and the 82-intent list only (no spell names, outcomes or other files), told to pick the nearest intent even when the fit is loose. lum, nox and dur keep their v1 entries because the instruction used their meanings as examples after they were seen failing, which would leak. Evidence for the GL2 and spell_heldout tests; not game data. v1 stays beside it.",
+ "roots": {
+  "avada": {
+   "gloss": "Avada Kedavra curse; origin uncertain, possibly Aramaic-style incantation",
+   "intents": [
+    "end"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "kedavra": {
+   "gloss": "Kedavra, part of Avada Kedavra; origin uncertain",
+   "intents": [
+    "end"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "agua": {
+   "gloss": "Latin aqua, water",
+   "intents": [
+    "pour"
+   ],
+   "targets": []
+  },
+  "ridic": {
+   "gloss": "Latin ridiculus, laughable; ridere, to laugh",
+   "intents": [
+    "tickle",
+    "cheer"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "evanesc": {
+   "gloss": "Latin evanescere, to vanish",
+   "intents": [
+    "vanish"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "reduc": {
+   "gloss": "Latin reducere, to bring back, reduce",
+   "intents": [
+    "shrink",
+    "blast"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "cruc": {
+   "gloss": "Latin crux, cross; cruciare, to torture",
+   "intents": [
+    "torment",
+    "hurt"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "imped": {
+   "gloss": "Latin impedire, to hinder, entangle",
+   "intents": [
+    "unsettle_footing",
+    "hold"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "orchid": {
+   "gloss": "Greek orchis, orchid (flower name)",
+   "intents": [
+    "conjure"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "incend": {
+   "gloss": "Latin incendere, to set on fire",
+   "intents": [
+    "kindle",
+    "unleash_fire"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "descend": {
+   "gloss": "Latin descendere, to go down",
+   "intents": [
+    "lower"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "dissend": {
+   "gloss": "Latin dis-, apart, plus send; sends apart",
+   "intents": [
+    "send"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "diffind": {
+   "gloss": "Latin diffindere, to split apart",
+   "intents": [
+    "sever"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "confund": {
+   "gloss": "Latin confundere, to mix up, confuse",
+   "intents": [
+    "confuse"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "fod": {
+   "gloss": "Latin fodere, to dig",
+   "intents": [
+    "dig"
+   ],
+   "targets": [
+    "place"
+   ]
+  },
+  "mord": {
+   "gloss": "Latin mordere, to bite",
+   "intents": [
+    "hurt"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "dele": {
+   "gloss": "Latin delere, to erase, destroy",
+   "intents": [
+    "erase_trace"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "muggle": {
+   "gloss": "English slang for a non-magical person; origin uncertain",
+   "intents": [],
+   "targets": [
+    "creature"
+   ]
+  },
+  "stupe": {
+   "gloss": "Latin stupere, to be stunned, amazed",
+   "intents": [
+    "stun"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "proteg": {
+   "gloss": "Latin protegere, to cover, shield",
+   "intents": [
+    "shield",
+    "ward"
+   ],
+   "targets": []
+  },
+  "lang": {
+   "gloss": "Latin lingua, tongue, language (tongue-binding jinx)",
+   "intents": [
+    "silence"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "confring": {
+   "gloss": "Latin confringere, to shatter completely",
+   "intents": [
+    "blast",
+    "strike"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "wing": {
+   "gloss": "English wing; wingardium, flying",
+   "intents": [
+    "raise",
+    "travel"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "terg": {
+   "gloss": "Latin tergere, to wipe clean",
+   "intents": [
+    "clean"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "engorg": {
+   "gloss": "English engorge, from Latin gurges, throat; to swell",
+   "intents": [
+    "enlarge"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "aug": {
+   "gloss": "Latin augere, to increase",
+   "intents": [
+    "amplify",
+    "enlarge"
+   ],
+   "targets": []
+  },
+  "relash": {
+   "gloss": "English re- plus lash; release a binding",
+   "intents": [
+    "free",
+    "strike"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "acci": {
+   "gloss": "Latin accire, to summon",
+   "intents": [
+    "fetch",
+    "summon_agent"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "waddi": {
+   "gloss": "English wad, a ball of paper; origin uncertain",
+   "intents": [
+    "send"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "avi": {
+   "gloss": "Latin avis, bird",
+   "intents": [
+    "conjure"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "lock": {
+   "gloss": "English lock, fastening",
+   "intents": [
+    "seal"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "episk": {
+   "gloss": "Greek episkeuē, repair, mending",
+   "intents": [
+    "mend",
+    "heal"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "special": {
+   "gloss": "Latin specialis, of a particular kind",
+   "intents": [
+    "reveal"
+   ],
+   "targets": []
+  },
+  "total": {
+   "gloss": "Latin totus, whole, entire",
+   "intents": [],
+   "targets": []
+  },
+  "revel": {
+   "gloss": "Latin revelare, to unveil",
+   "intents": [
+    "reveal"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "muffl": {
+   "gloss": "English muffle, to deaden sound",
+   "intents": [
+    "muffle"
+   ],
+   "targets": []
+  },
+  "mobil": {
+   "gloss": "Latin mobilis, movable",
+   "intents": [
+    "carry",
+    "travel"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "legil": {
+   "gloss": "Latin legere, to read",
+   "intents": [
+    "read_mind"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "repell": {
+   "gloss": "Latin repellere, to drive back",
+   "intents": [
+    "counter"
+   ],
+   "targets": []
+  },
+  "expell": {
+   "gloss": "Latin expellere, to drive out",
+   "intents": [
+    "disarm",
+    "send"
+   ],
+   "targets": []
+  },
+  "coll": {
+   "gloss": "Latin collum or colligere, to bind together",
+   "intents": [
+    "seal"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "furuncul": {
+   "gloss": "Latin furunculus, boil",
+   "intents": [
+    "afflict"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "ferul": {
+   "gloss": "Latin ferula, rod or cane",
+   "intents": [
+    "hurt"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "deprim": {
+   "gloss": "Latin deprimere, to press down",
+   "intents": [
+    "lower"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "arm": {
+   "gloss": "English arm, weapon",
+   "intents": [
+    "disarm"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "lum": {
+   "gloss": "Latin lumen, light (noun)",
+   "intents": []
+  },
+  "silen": {
+   "gloss": "Latin silere, to be silent",
+   "intents": [
+    "silence"
+   ],
+   "targets": []
+  },
+  "men": {
+   "gloss": "Latin mens, mind",
+   "intents": [
+    "read_mind"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "serpen": {
+   "gloss": "Latin serpens, serpent",
+   "intents": [
+    "summon_agent"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "oppugn": {
+   "gloss": "Latin oppugnare, to attack, assault",
+   "intents": [
+    "strike"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "fin": {
+   "gloss": "Latin finis, end",
+   "intents": [
+    "end"
+   ],
+   "targets": []
+  },
+  "gemin": {
+   "gloss": "Latin geminus, twin, double",
+   "intents": [
+    "duplicate"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "homin": {
+   "gloss": "Latin homo, hominis, human being",
+   "intents": [
+    "sense_magic"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "patron": {
+   "gloss": "Latin patronus, protector, defender",
+   "intents": [
+    "ward"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "son": {
+   "gloss": "Latin sonus, sound",
+   "intents": [
+    "amplify",
+    "sound_alarm"
+   ],
+   "targets": []
+  },
+  "loco": {
+   "gloss": "Latin locus, place; locomotor, moving",
+   "intents": [
+    "travel",
+    "carry"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "pneo": {
+   "gloss": "Greek pneuma, breath, air",
+   "intents": [
+    "clear_airway",
+    "supply_air"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "aloho": {
+   "gloss": "Alohomora, unlocking word; origin uncertain",
+   "intents": [
+    "unfasten"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "repar": {
+   "gloss": "Latin reparare, to repair",
+   "intents": [
+    "mend"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "appar": {
+   "gloss": "Latin apparere, to appear",
+   "intents": [
+    "travel"
+   ],
+   "targets": [
+    "self"
+   ]
+  },
+  "liber": {
+   "gloss": "Latin liber, free",
+   "intents": [
+    "free"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "incarcer": {
+   "gloss": "Latin incarcerare, to imprison",
+   "intents": [
+    "hold"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "semper": {
+   "gloss": "Latin semper, always; no clear action",
+   "intents": [],
+   "targets": []
+  },
+  "imper": {
+   "gloss": "Latin imperare, to command",
+   "intents": [
+    "compel"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "flagr": {
+   "gloss": "Latin flagrare, to blaze",
+   "intents": [
+    "kindle"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "allegr": {
+   "gloss": "Italian or Latin allegro, cheerful, lively",
+   "intents": [
+    "cheer"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "arbor": {
+   "gloss": "Latin arbor, tree",
+   "intents": [],
+   "targets": []
+  },
+  "meteor": {
+   "gloss": "Greek meteoros, high in the air; weather",
+   "intents": [],
+   "targets": []
+  },
+  "prior": {
+   "gloss": "Latin prior, earlier",
+   "intents": [
+    "replay_spell"
+   ],
+   "targets": []
+  },
+  "petr": {
+   "gloss": "Latin petra, rock, stone",
+   "intents": [
+    "harden"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "obscur": {
+   "gloss": "Latin obscurus, dark",
+   "intents": [
+    "darken"
+   ],
+   "targets": [
+    "place"
+   ]
+  },
+  "dur": {
+   "gloss": "Latin durus, hard, enduring",
+   "intents": []
+  },
+  "scour": {
+   "gloss": "English scour, to clean by rubbing",
+   "intents": [
+    "clean"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "four": {
+   "gloss": "English four (number); no clear action",
+   "intents": [],
+   "targets": []
+  },
+  "expuls": {
+   "gloss": "Latin expulsus, driven out",
+   "intents": [
+    "send"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "dens": {
+   "gloss": "Latin densus, thick, dense",
+   "intents": [
+    "enlarge"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "mors": {
+   "gloss": "Latin mors, death",
+   "intents": [
+    "end"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "gliss": {
+   "gloss": "Latin glissare, to slide",
+   "intents": [
+    "unsettle_footing"
+   ],
+   "targets": [
+    "place"
+   ]
+  },
+  "corpus": {
+   "gloss": "Latin corpus, body",
+   "intents": [
+    "carry"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "expect": {
+   "gloss": "Latin expectare, to await",
+   "intents": [
+    "summon_agent"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "erect": {
+   "gloss": "Latin erigere, to raise, set upright",
+   "intents": [
+    "raise",
+    "assemble_tent"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "sect": {
+   "gloss": "Latin secare, to cut",
+   "intents": [
+    "sever"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "rict": {
+   "gloss": "Latin rictus, a wide grin",
+   "intents": [
+    "tickle"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "quiet": {
+   "gloss": "English quiet, silent",
+   "intents": [
+    "silence"
+   ],
+   "targets": []
+  },
+  "recant": {
+   "gloss": "Latin recantare, to take back",
+   "intents": [
+    "counter"
+   ],
+   "targets": []
+  },
+  "incant": {
+   "gloss": "Latin incantare, to enchant",
+   "intents": [
+    "counter"
+   ],
+   "targets": []
+  },
+  "tarant": {
+   "gloss": "Tarantella, a dance; Tarantallegra makes legs dance",
+   "intents": [
+    "unsettle_footing"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "point": {
+   "gloss": "Latin punctum, point, direction",
+   "intents": [
+    "guide",
+    "orient"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "mot": {
+   "gloss": "Latin motus, movement",
+   "intents": [
+    "travel"
+   ],
+   "targets": []
+  },
+  "mort": {
+   "gloss": "French mort, death",
+   "intents": [
+    "end"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "port": {
+   "gloss": "Latin portare, to carry",
+   "intents": [
+    "carry",
+    "travel"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "lev": {
+   "gloss": "Latin levare, to raise; levis, light",
+   "intents": [
+    "raise",
+    "carry"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "obliv": {
+   "gloss": "Latin oblivisci, to forget",
+   "intents": [
+    "forget"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "nerv": {
+   "gloss": "Latin nervus, sinew, nerve",
+   "intents": [
+    "stun"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "nox": {
+   "gloss": "Latin nox, night",
+   "intents": []
+  }
+ },
+ "names": {
+  "head": {
+   "gloss": "English head",
+   "intents": [],
+   "targets": []
+  },
+  "shield": {
+   "gloss": "English shield, protective barrier",
+   "intents": [
+    "shield"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "bind": {
+   "gloss": "English bind, to tie fast",
+   "intents": [
+    "hold"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "trace": {
+   "gloss": "English trace, a track or mark left behind",
+   "intents": [
+    "trace_magic",
+    "erase_trace"
+   ],
+   "targets": []
+  },
+  "unbreakable": {
+   "gloss": "English unbreakable, not able to be broken",
+   "intents": [
+    "harden"
+   ],
+   "targets": []
+  },
+  "undetectable": {
+   "gloss": "English undetectable, not able to be sensed",
+   "intents": [
+    "conceal"
+   ],
+   "targets": [
+    "self"
+   ]
+  },
+  "unforgivable": {
+   "gloss": "English unforgivable, beyond pardon",
+   "intents": [],
+   "targets": []
+  },
+  "bubble": {
+   "gloss": "English bubble, air in a film of liquid",
+   "intents": [
+    "supply_air"
+   ],
+   "targets": [
+    "self"
+   ]
+  },
+  "muggle": {
+   "gloss": "English slang for a non-magical person",
+   "intents": [],
+   "targets": [
+    "creature"
+   ]
+  },
+  "flame": {
+   "gloss": "English flame, fire",
+   "intents": [
+    "kindle",
+    "unleash_fire"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "fiendfyre": {
+   "gloss": "English fiend plus fyre, a demonic fire",
+   "intents": [
+    "unleash_fire"
+   ],
+   "targets": []
+  },
+  "apparate": {
+   "gloss": "English apparate, to appear or vanish from one place to another",
+   "intents": [
+    "travel"
+   ],
+   "targets": [
+    "self"
+   ]
+  },
+  "parseltongue": {
+   "gloss": "English parsel, snake, plus tongue; language of serpents",
+   "intents": [
+    "summon_agent"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "leg": {
+   "gloss": "English leg, limb",
+   "intents": [
+    "compel_steps"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "silencing": {
+   "gloss": "English silencing, making quiet",
+   "intents": [
+    "silence"
+   ],
+   "targets": []
+  },
+  "banishing": {
+   "gloss": "English banish, to send away",
+   "intents": [
+    "send"
+   ],
+   "targets": []
+  },
+  "vanishing": {
+   "gloss": "English vanish, to disappear",
+   "intents": [
+    "vanish"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "braking": {
+   "gloss": "English braking, slowing down",
+   "intents": [
+    "brake"
+   ],
+   "targets": []
+  },
+  "sticking": {
+   "gloss": "English sticking, to adhere",
+   "intents": [
+    "hold"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "tickling": {
+   "gloss": "English tickling, light touching that makes one laugh",
+   "intents": [
+    "tickle"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "repelling": {
+   "gloss": "English repel, to drive back",
+   "intents": [
+    "counter"
+   ],
+   "targets": []
+  },
+  "killing": {
+   "gloss": "English killing, causing death",
+   "intents": [
+    "end"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "caterwauling": {
+   "gloss": "English caterwaul, a loud cat yowl",
+   "intents": [
+    "sound_alarm"
+   ],
+   "targets": []
+  },
+  "bedazzling": {
+   "gloss": "English bedazzle, to dazzle",
+   "intents": [
+    "blind"
+   ],
+   "targets": []
+  },
+  "disarming": {
+   "gloss": "English disarm, to take a weapon away",
+   "intents": [
+    "disarm"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "opening": {
+   "gloss": "English opening, a gap or entrance",
+   "intents": [
+    "open"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "stunning": {
+   "gloss": "English stun, to daze",
+   "intents": [
+    "stun"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "summoning": {
+   "gloss": "English summon, to call for",
+   "intents": [
+    "fetch",
+    "summon_agent"
+   ],
+   "targets": []
+  },
+  "cheering": {
+   "gloss": "English cheer, to make glad",
+   "intents": [
+    "cheer"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "severing": {
+   "gloss": "English sever, to cut apart",
+   "intents": [
+    "sever"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "scouring": {
+   "gloss": "English scour, to clean by rubbing",
+   "intents": [
+    "clean"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "blasting": {
+   "gloss": "English blast, a violent explosion",
+   "intents": [
+    "blast"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "freezing": {
+   "gloss": "English freeze, to make cold",
+   "intents": [
+    "chill"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "anti": {
+   "gloss": "Greek anti, against",
+   "intents": [
+    "counter"
+   ],
+   "targets": []
+  },
+  "revelaspell": {
+   "gloss": "English reveal plus spell; shows hidden magic",
+   "intents": [
+    "reveal"
+   ],
+   "targets": []
+  },
+  "full": {
+   "gloss": "English full, filled",
+   "intents": [],
+   "targets": []
+  },
+  "protean": {
+   "gloss": "English protean, changing shape",
+   "intents": [
+    "reshape"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "scarpin": {
+   "gloss": "Italian or French scarpin, a light shoe; no clear action",
+   "intents": [],
+   "targets": []
+  },
+  "extension": {
+   "gloss": "English extension, an enlargement",
+   "intents": [
+    "extend_interior"
+   ],
+   "targets": [
+    "place"
+   ]
+  },
+  "disapparation": {
+   "gloss": "English dis- plus apparate; leaving by disappearing",
+   "intents": [
+    "vanish",
+    "travel"
+   ],
+   "targets": [
+    "self"
+   ]
+  },
+  "obliteration": {
+   "gloss": "English obliterate, to erase completely",
+   "intents": [
+    "erase_trace"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "levitation": {
+   "gloss": "English levitate, to rise and float",
+   "intents": [
+    "raise"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "apparition": {
+   "gloss": "English apparition, a sudden appearance",
+   "intents": [
+    "travel"
+   ],
+   "targets": []
+  },
+  "taboo": {
+   "gloss": "English taboo, a forbidden word or act",
+   "intents": [
+    "taboo_name"
+   ],
+   "targets": []
+  },
+  "locker": {
+   "gloss": "English locker, a lockable box",
+   "intents": [
+    "seal"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "hover": {
+   "gloss": "English hover, to float in air",
+   "intents": [
+    "raise"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "reductor": {
+   "gloss": "Latin reductor, one who brings back; the Reductor curse breaks objects",
+   "intents": [
+    "blast"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "four": {
+   "gloss": "English four (number); no clear action",
+   "intents": [],
+   "targets": []
+  },
+  "curses": {
+   "gloss": "English curse, a hostile spell",
+   "intents": [
+    "afflict"
+   ],
+   "targets": []
+  },
+  "legs": {
+   "gloss": "English legs, limbs",
+   "intents": [
+    "compel_steps"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "confundus": {
+   "gloss": "English confound, to confuse",
+   "intents": [
+    "confuse"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "fidelius": {
+   "gloss": "Latin fidelis, faithful; the Fidelius charm hides a secret",
+   "intents": [
+    "conceal",
+    "entrust_secret"
+   ],
+   "targets": [
+    "place"
+   ]
+  },
+  "imperius": {
+   "gloss": "Latin imperium, command",
+   "intents": [
+    "compel"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "furnunculus": {
+   "gloss": "Latin furunculus, boil",
+   "intents": [
+    "afflict"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "patronus": {
+   "gloss": "Latin patronus, protector",
+   "intents": [
+    "ward"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "cruciatus": {
+   "gloss": "Latin cruciatus, torture",
+   "intents": [
+    "torment",
+    "hurt"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "bat": {
+   "gloss": "English bat, a flying mammal",
+   "intents": [
+    "hurt"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "engorgement": {
+   "gloss": "English engorgement, a swelling",
+   "intents": [
+    "enlarge"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "disillusionment": {
+   "gloss": "English disillusion, to free from illusion; the charm makes one invisible",
+   "intents": [
+    "conceal_wearer"
+   ],
+   "targets": [
+    "self"
+   ]
+  },
+  "point": {
+   "gloss": "English point, a direction",
+   "intents": [
+    "guide",
+    "orient"
+   ],
+   "targets": [
+    "object"
+   ]
+  },
+  "boggart": {
+   "gloss": "English boggart, a shapeshifting folk spirit",
+   "intents": [],
+   "targets": [
+    "creature"
+   ]
+  },
+  "request": {
+   "gloss": "English request, to ask for",
+   "intents": [
+    "fetch"
+   ],
+   "targets": []
+  },
+  "vow": {
+   "gloss": "English vow, a solemn promise",
+   "intents": [
+    "entrust_secret"
+   ],
+   "targets": []
+  },
+  "legilimency": {
+   "gloss": "Latin legere, to read, plus mens, mind; reading the mind",
+   "intents": [
+    "read_mind"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "occlumency": {
+   "gloss": "Latin occludere, to shut up; guarding the mind",
+   "intents": [
+    "shield"
+   ],
+   "targets": [
+    "mind"
+   ]
+  },
+  "body": {
+   "gloss": "English body, physical form",
+   "intents": [],
+   "targets": [
+    "creature"
+   ]
+  },
+  "bogey": {
+   "gloss": "English bogey, a bogeyman or evil spirit",
+   "intents": [
+    "afflict"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "jelly": {
+   "gloss": "English jelly, a soft wobbling substance",
+   "intents": [
+    "unsettle_footing"
+   ],
+   "targets": [
+    "creature"
+   ]
+  },
+  "memory": {
+   "gloss": "English memory, recollection",
+   "intents": [
+    "forget",
+    "read_mind"
+   ],
+   "targets": [
+    "mind"
+   ]
+  }
+ }
+}

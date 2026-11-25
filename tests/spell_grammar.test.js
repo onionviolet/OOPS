@@ -177,7 +177,7 @@ test('every Hogwarts spellbook row runs through the spell law', async () => {
 test('GL2 effect layer: Hogwarts effects predicted from identity alone with blind glosses (floor, not target)', async () => {
     const {HP_SPELL_NAME_WORDS} = await import('../src/spell_pack_hogwarts.js');
     const {effectLayerTest} = await import('../src/spell_grammar.js');
-    const blind = JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon.json', import.meta.url), 'utf8'));
+    const blind = JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon_v2.json', import.meta.url), 'utf8'));
     let holdingOutLight = false;
     let lightAttempts = 0;
     const report = effectLayerTest(grammar, HP_SPELL_ROWS, HP_SPELL_WORLD, {
@@ -196,7 +196,7 @@ test('GL2 effect layer: Hogwarts effects predicted from identity alone with blin
     // Measured 2026-11-12 after the source check moved 14 rows out: 33 verb and object, 12 full sentences. The plan's target is 70% (dial); these floors catch regressions.
     assert.ok(report.verbObject >= 33, `verb and object ${report.verbObject}`);
     assert.ok(report.sentence >= 12, `full sentence ${report.sentence}`);
-    assert.deepEqual(report.missingRules.map(m => m.rule).sort(), ['intent-from-identity', 'no-identity-evidence', 'target-from-intent', 'time-from-intent']);
+    assert.deepEqual(report.missingRules.map(m => m.rule).sort(), ['field-direction', 'intent-from-identity', 'no-identity-evidence', 'target-from-intent', 'time-from-intent']);
     // The blind gloss names light without supplying a runnable intent.
     assert.ok(report.missingRules.find(m => m.rule === 'no-identity-evidence').ids.includes('light'));
     assert.equal(lightAttempts, 0);

@@ -275,7 +275,7 @@ export async function guHeldOut() {
 }
 
 // Hogwarts spells (wave 2026-11-14). The fit and the prediction read the tuning rows and the blind gloss file only.
-export const BLIND_LEXICON = 'docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon.json';
+export const BLIND_LEXICON = 'docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon_v2.json';
 export async function spellHeldOut() {
     const {HP_SPELL_ROWS, HP_SPELL_WORLD, HP_SPELL_NAME_WORDS, HP_SPELL_LEDGER_EXCEPTIONS} = await import('../src/spell_pack_hogwarts.js');
     const {HP_CASE_SCENES} = await import('../src/world_packs/hp_effect_pack.js');

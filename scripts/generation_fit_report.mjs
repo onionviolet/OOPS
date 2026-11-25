@@ -172,7 +172,7 @@ export async function heldoutCompanions() {
         const {HP_SPELL_ROWS, HP_SPELL_WORLD, HP_SPELL_NAME_WORDS} = await import('../src/spell_pack_hogwarts.js');
         const {splitSpells, fitSpells, scoreSpells} = await import('../src/spell_heldout.js');
         const {executeSpellRows} = await import('../src/spell_heldout_cases.js');
-        const blind = JSON.parse(fs.readFileSync(path.join(here, '..', 'docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon.json'), 'utf8'));
+        const blind = JSON.parse(fs.readFileSync(path.join(here, '..', 'docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon_v2.json'), 'utf8'));
         const split = splitSpells(HP_SPELL_ROWS), fit = fitSpells(split.tuned, HP_SPELL_WORLD);
         const diag = scoreSpells(split.heldOut, fit, HP_SPELL_WORLD, {lexicon: {...blind.roots, ...blind.names}, nameWords: HP_SPELL_NAME_WORDS});
         const sentences = new Map(diag.rows.map(r => [r.id, r.sentenceValue]));
