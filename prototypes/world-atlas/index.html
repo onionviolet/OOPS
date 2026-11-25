@@ -39,6 +39,7 @@ import {codexView} from '/codex-views.mjs';
 import {cheatsView, changesView} from '/cheats-views.mjs';
 import {ideasView} from '/ideas-views.mjs';
 import {draftsView} from '/workbench-views.mjs';
+import {codexMapView} from '/codex-map.mjs';
 import {creatureMarks, creatureOverview, creatureShelf, creatureNeighborhood, libraryEdges} from '/creature-layout.mjs';
 
 const main=document.querySelector('main'), nav=document.querySelector('nav');
@@ -78,6 +79,7 @@ const go=hash=>{location.hash=hash};
 function route(){
  const raw=location.hash.slice(1);if(LEGACY[raw]){history.replaceState(null,'','#'+LEGACY[raw]);return route()}
  const [section='worlds',a,b,c]=raw.split('/');
+ if(section==='codex-map')return {section:'codex',map:true};
  if(section==='codex')return {section:'codex',ledger:/^[a-z0-9_]+$/.test(a||'')?a:'gu_kinds',focus:b?decodeURIComponent(b):null};
  if(section==='ideas')return {section:'ideas',focus:a?decodeURIComponent(a):null};
  if(section==='cheats')return {section:'cheats',view:a==='candidates'?'candidates':'list',focus:/^CTC\d+$/.test(b||'')?b:null};
@@ -104,6 +106,7 @@ function showPage(){
  const shared={main,data,controls,finder,list:listOf,button,routeButtons,closeCanvas};
  if(r.world)return worldView(r.world,r.view,{...shared,focus:r.focus});
  if(r.section==='worlds')return worldsIndex();
+ if(r.section==='codex'&&r.map)return codexMapView({...shared,go});
  if(r.section==='codex')return codexView({...shared,ledger:r.ledger,focus:r.focus,go});
  if(r.section==='ideas')return ideasView({...shared,focus:r.focus,go});
  if(r.section==='cheats')return cheatsView({...shared,tab:r.view,focus:r.focus,go});

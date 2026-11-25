@@ -33,7 +33,12 @@ const CSS = `
 .codex-detail dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.3rem .8rem;margin:.4rem 0}.codex-detail dd{margin:0;overflow-wrap:anywhere;color:var(--canvas-ink);font-weight:400}
 .codex-detail dt{color:var(--canvas-muted)}.codex-detail ul{margin:.2rem 0;padding-left:1.1rem}
 .codex-missing{color:var(--canvas-muted);font-style:italic}
-.codex-detail dd[data-state=stale]>div{opacity:.7}.codex-detail dd small{display:block}.codex-detail dd code{display:block;overflow-wrap:anywhere}`;
+.codex-detail dd[data-state=stale]>div{opacity:.7}.codex-detail dd small{display:block}.codex-detail dd code{display:block;overflow-wrap:anywhere}
+.codex-fold{border-inline-start:2px solid var(--canvas-border);padding:.25rem .55rem;margin:.35rem 0;background:#202422}
+.codex-fold summary{display:flex;gap:.5rem;align-items:baseline;list-style:none}.codex-fold summary::-webkit-details-marker{display:none}
+.codex-fold summary::before{content:'+';font-weight:700}.codex-fold[open] summary::before{content:'−'}
+.codex-fold[data-fold-state=known]{border-color:#ace79e}.codex-fold[data-fold-state=estimated]{border-color:#d9ad89}.codex-fold[data-fold-state=unknown]{border-style:dotted}.codex-fold[data-fold-state=empty]{border-color:var(--canvas-muted)}
+.codex-fold small{display:block}.codex-fold code{display:block;overflow-wrap:anywhere}`;
 
 function style() {
     if (document.getElementById('codex-style')) return;
@@ -43,6 +48,12 @@ function style() {
 export function coverageLine(a) {
     // "16 of 1,466 run": over every row, with not-a-thing named so the denominator is honest.
     return `${n(a.counts.runs)} of ${n(a.rows)} run · ${n(a.counts.expressed)} expressed · ${n(a.counts.blocked)} blocked · ${n(a.counts.notAThing)} not a thing`;
+}
+
+export function ladderFoldState(rung, receipt, hasCase = true) {
+    if (rung === 2 && !hasCase) return 'empty';
+    if (!receipt) return 'unknown';
+    return receipt.state === 'current' || rung === 1 ? 'known' : 'estimated';
 }
 
 export async function codexView({main, data, controls, ledger = 'gu_kinds', focus = null, go}) {
@@ -64,7 +75,8 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', focu
     for (const l of list) {const o = el('option', `${l.ledger} (${n(l.rows)})`); o.value = l.ledger; o.selected = l.ledger === ledger; pick.append(o);}
     pick.onchange = () => go('codex/' + pick.value);
     label.append(pick);
-    head.append(label, el('strong', coverageLine(sum)));
+    const mapButton = el('button', 'Blocker map'); mapButton.type = 'button'; mapButton.onclick = () => go('codex-map');
+    head.append(label, el('strong', coverageLine(sum)), mapButton);
     const bar = el('div', null, 'codex-bar');
     bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', coverageLine(sum));
     const legend = el('ul', null, 'codex-legend');
@@ -148,21 +160,33 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', focu
         add('Test', r.test);
         add('Typed (old label)', r.typed);
         detailHost.append(dl, el('h3', 'Evidence ladder'));
-        const lad = el('dl');
-        const rung = (k, v) => {lad.append(el('dt', k)); const dd = el('dd'); if (v == null) dd.append(missing()); else dd.textContent = v; lad.append(dd);};
-        rung('1 Case success (row state)', r.ladder.caseState);
-        rung('   case reference', r.ladder.case ? `${r.ladder.case.module} · ${r.ladder.case.id}` : null);
-        // Rungs 2-4 come from receipts (scripts/ladder_receipts.mjs). Each shows its own freshness; a stale receipt is not proof.
+        const lad = el('div');
+        // Mirror the shared Fold state vocabulary here. serve.mjs does not expose src/ui/fold.js or its stylesheet.
+        const fold = (key, label, state, content) => {
+            const node = el('details', null, 'codex-fold'); node.dataset.foldState = state; node.dataset.foldPath = key; node.open = state === 'known' || state === 'estimated';
+            const summary = el('summary', `${label} · ${state}`);
+            node.append(summary);
+            if (state === 'unknown') node.append(el('p', 'not recorded here', 'codex-missing'));
+            else if (state === 'empty') node.append(el('p', 'no case module', 'codex-missing'));
+            else node.append(...content);
+            lad.append(node);
+        };
+        fold('case', '1 Case success (row state)', ladderFoldState(1, r.ladder.caseState), [el('p', r.ladder.caseState || '')]);
+        if (r.ladder.case) fold('case-reference', 'Case reference', 'known', [el('p', `${r.ladder.case.module} · ${r.ladder.case.id}`)]);
+        // Rungs 2-4 come from separate receipts. Estimated means stale and is not proof.
         const day = at => new Date(at).toLocaleString('en-CA', {dateStyle: 'short', timeStyle: 'short'});
-        const fresh = x => x.state === 'current' ? `receipt ${day(x.at)}` : `STALE receipt from ${day(x.at)}: inputs changed since, rerun before relying on it`;
-        const rich = (k, x, body) => {lad.append(el('dt', k)); const dd = el('dd'); if (!x) dd.append(missing()); else {dd.append(...body(x), el('small', fresh(x), 'codex-missing')); dd.dataset.state = x.state;} lad.append(dd);};
-        rich('2 Module reachability', r.ladder.moduleReachable, x => {
+        const fresh = x => x.state === 'current' ? `receipt ${day(x.at)}` : `STALE receipt from ${day(x.at)}: a stale receipt is not proof; inputs changed, rerun before relying on it`;
+        const rich = (key, k, x, body) => {
+            const state = ladderFoldState(Number(key), x, !!r.ladder.case);
+            fold(key, k, state, x ? [...body(x), el('small', fresh(x), 'codex-missing')] : []);
+        };
+        rich('2', '2 Module reachability', r.ladder.moduleReachable, x => {
             const out = [el('div', x.value)];
             if (x.via) {const d = el('details'); d.append(el('summary', `import chain · ${x.via.length} files`), el('div', x.via.join(' → '))); out.push(d);}
             return out;
         });
-        rich('3 Player-action proof', r.ladder.playerAction, x => [el('div', x.value), ...(x.command ? [el('code', x.command)] : [])]);
-        rich('4 Persistence proof', r.ladder.persistence, x => [el('div', Object.entries(x.checks).map(([k, v]) => `${k} ${v ? 'yes' : 'no'}`).join(' · '))]);
+        rich('3', '3 Player-action proof', r.ladder.playerAction, x => [el('div', x.value), ...(x.command ? [el('code', x.command)] : [])]);
+        rich('4', '4 Persistence proof', r.ladder.persistence, x => [el('div', Object.entries(x.checks).map(([k, v]) => `${k} ${v ? 'yes' : 'no'}`).join(' · '))]);
         detailHost.append(lad, el('h3', 'Draft work'), draftBlock(r.ledger, r.id, go));
         detailHost.append(el('h3', 'Source locator'));
         if (r.locators.length) {const ul = el('ul'); for (const l of r.locators) ul.append(el('li', l)); detailHost.append(ul);} else detailHost.append(missing());

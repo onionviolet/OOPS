@@ -12,7 +12,7 @@ const [out = '.', port = '47930', w = '1920', h = '1080'] = process.argv.slice(2
 const OUT = resolve(out), B = `http://127.0.0.1:${port}/`;
 mkdirSync(OUT, {recursive: true});
 const PAGES = [['codex', 'codex/gu_kinds'], ['codex-moves', 'codex/gu_moves'], ['cheats', 'cheats/list'], ['candidates', 'cheats/candidates'],
-    ['ideas', 'ideas'], ['changes', 'changes'], ['worlds', 'worlds']];
+    ['ideas', 'ideas'], ['changes', 'changes'], ['worlds', 'worlds'], ['codex-map', 'codex-map'], ['drafts', 'workbench/drafts']];
 
 (async () => {
     const br = await launchChrome();

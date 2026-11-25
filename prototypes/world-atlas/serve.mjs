@@ -140,6 +140,7 @@ const assets = {
     '/cheats-views.mjs':['./cheats-views.mjs','text/javascript'],
     '/ideas-views.mjs':['./ideas-views.mjs','text/javascript'],
     '/workbench-views.mjs':['./workbench-views.mjs','text/javascript'],
+    '/codex-map.mjs':['./codex-map.mjs','text/javascript'],
 };
 for (let size=7;size<=22;size++) {
     const path='resources/fonts/private/gothic-bitmap-'+size+'.woff2';
