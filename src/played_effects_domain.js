@@ -24,7 +24,8 @@ export const ENTRY_POINTS = Object.freeze([
             return {body, steps: [{sentence: sentence(r.sentence.verb, r.sentence.object, 'self', 'sustained', 'potion'), details: r.details}]};
         },
         line: ({before, after}) => `The dose takes hold and your senses flare (mood ${before.properties.mind_mood} to ${after.properties.mind_mood}).`},
-    {key: 'book.ri.keeper.km.use.moonblade__moon__own', law: 'gu-working', entry: 'keeper-moonblade-hunt',
+    // The native action pays essence; this adapter lands the moonlight row's cut with cost already paid.
+    {key: 'book.ri.keeper.km.use.moonblade__moon__own', law: 'gu-working', entry: 'keeper-moonblade-hunt', ledgerKey: 'gu_kinds:moonlight',
         build() {
             const landing = guLanding({kind: 'attack', magnitude: ENTRY_DIALS.strike});
             return {body: {id: 'boar', quantities: {vitality: ENTRY_DIALS.boarVitality}}, steps: [landing]};

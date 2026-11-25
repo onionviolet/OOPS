@@ -32,7 +32,8 @@ const CSS = `
 .codex-col.codex-detail{max-height:none;overflow:visible}
 .codex-detail dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.3rem .8rem;margin:.4rem 0}.codex-detail dd{margin:0;overflow-wrap:anywhere;color:var(--canvas-ink);font-weight:400}
 .codex-detail dt{color:var(--canvas-muted)}.codex-detail ul{margin:.2rem 0;padding-left:1.1rem}
-.codex-missing{color:var(--canvas-muted);font-style:italic}`;
+.codex-missing{color:var(--canvas-muted);font-style:italic}
+.codex-detail dd[data-state=stale]>div{opacity:.7}.codex-detail dd small{display:block}.codex-detail dd code{display:block;overflow-wrap:anywhere}`;
 
 function style() {
     if (document.getElementById('codex-style')) return;
@@ -151,9 +152,17 @@ export async function codexView({main, data, controls, ledger = 'gu_kinds', focu
         const rung = (k, v) => {lad.append(el('dt', k)); const dd = el('dd'); if (v == null) dd.append(missing()); else dd.textContent = v; lad.append(dd);};
         rung('1 Case success (row state)', r.ladder.caseState);
         rung('   case reference', r.ladder.case ? `${r.ladder.case.module} · ${r.ladder.case.id}` : null);
-        rung('2 Module reachability', r.ladder.moduleReachable);
-        rung('3 Player-action proof', r.ladder.playerAction);
-        rung('4 Persistence proof', r.ladder.persistence);
+        // Rungs 2-4 come from receipts (scripts/ladder_receipts.mjs). Each shows its own freshness; a stale receipt is not proof.
+        const day = at => new Date(at).toLocaleString('en-CA', {dateStyle: 'short', timeStyle: 'short'});
+        const fresh = x => x.state === 'current' ? `receipt ${day(x.at)}` : `STALE receipt from ${day(x.at)}: inputs changed since, rerun before relying on it`;
+        const rich = (k, x, body) => {lad.append(el('dt', k)); const dd = el('dd'); if (!x) dd.append(missing()); else {dd.append(...body(x), el('small', fresh(x), 'codex-missing')); dd.dataset.state = x.state;} lad.append(dd);};
+        rich('2 Module reachability', r.ladder.moduleReachable, x => {
+            const out = [el('div', x.value)];
+            if (x.via) {const d = el('details'); d.append(el('summary', `import chain · ${x.via.length} files`), el('div', x.via.join(' → '))); out.push(d);}
+            return out;
+        });
+        rich('3 Player-action proof', r.ladder.playerAction, x => [el('div', x.value), ...(x.command ? [el('code', x.command)] : [])]);
+        rich('4 Persistence proof', r.ladder.persistence, x => [el('div', Object.entries(x.checks).map(([k, v]) => `${k} ${v ? 'yes' : 'no'}`).join(' · '))]);
         detailHost.append(lad, el('h3', 'Draft work'), draftBlock(r.ledger, r.id, go));
         detailHost.append(el('h3', 'Source locator'));
         if (r.locators.length) {const ul = el('ul'); for (const l of r.locators) ul.append(el('li', l)); detailHost.append(ul);} else detailHost.append(missing());

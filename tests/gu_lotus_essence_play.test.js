@@ -1,5 +1,8 @@
 // Atlas pilot B3, rungs 3 and 4 for the Monarch Lotus: the whole game boots headless, a player opens Capability runs, begins the
 // workshop, presses the Lotus act, then the save is reloaded and the export is imported. Slow (boots the game three times).
+// @ladder {"keys":["gu_kinds:fandom:Heavenly_Essence_Treasure_Monarch_Lotus"],"scope":"workshop demo",
+// @ladder  "route":"capability-run","checks":{"saveReload":true,"exportImport":true,"browser":false},
+// @ladder  "watch":["src/world_packs/effects_workshop.js","src/world_packs/gu_lotus_essence_case.js"]}
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {boot} from '../scripts/headless/runner.mjs';

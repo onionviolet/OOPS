@@ -23,6 +23,7 @@ import {createHash} from 'node:crypto';
 import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {receiptState} from '../../scripts/ladder_receipts.mjs';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const DIR = 'docs/coverage';
@@ -124,6 +125,54 @@ export function summary(codex, ledger) {
     })};
 }
 
+// ---- Ladder receipts (G2): rungs 2-4 from docs/coverage/evidence/ladder/*.json, written by scripts/ladder_receipts.mjs ----
+// Each rung is shown only from its own receipt. A receipt whose watched files changed reads "stale"; a row whose bytes changed
+// since the receipt reads "row changed". Neither is shown as proof. Hashing the watch lists is cached for 30 s.
+const LADDER = join(root, DIR, 'evidence', 'ladder');
+let ladderCache = null;
+const sha1 = text => createHash('sha1').update(text).digest('hex');
+export function readReceipts(dir = LADDER, now = Date.now()) {
+    const files = ['reachability.json', 'engine.json', 'play.json'].map(f => join(dir, f));
+    const stamp = files.map(f => existsSync(f) ? statSync(f).mtimeMs : 0).join('|');
+    if (ladderCache && ladderCache.stamp === stamp && now - ladderCache.at < 30000) return ladderCache.value;
+    const read = f => {try {return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : null;} catch {return null;}};
+    const [reach, engine, play] = files.map(read);
+    const state = r => r ? receiptState(r, root.replace(/\/$/, '')) : null;
+    const plays = new Map();
+    for (const r of play?.receipts ?? []) for (const k of r.keys ?? []) (plays.get(k) ?? plays.set(k, []).get(k)).push({...r, state: state(r)});
+    const value = {
+        reach: reach && {at: reach.at, commit: reach.tree?.commit ?? null, state: state(reach), rows: reach.rows ?? {}, modules: reach.modules ?? {}},
+        engine: engine && {at: engine.at, state: state(engine), rows: new Map((engine.entries ?? []).map(e => [e.key, e]))},
+        plays,
+    };
+    ladderCache = {stamp, at: now, value};
+    return value;
+}
+/** Rungs 2-4 for one projected row from the receipts, each with its own freshness. `raw` is the ledger line's parsed row. */
+export function ladderFromReceipts(p, raw, rc = readReceipts()) {
+    const rowSha = raw ? sha1(JSON.stringify(raw)) : null; // receipts hash the ledger line text; compare loosely below
+    const reachRow = rc.reach?.rows[p.key];
+    let moduleReachable = null;
+    if (rc.reach) {
+        if (!reachRow) moduleReachable = {value: 'no case module', state: rc.reach.state, at: rc.reach.at};
+        else {
+            const m = rc.reach.modules[reachRow.module] ?? {};
+            moduleReachable = {value: m.reachable ? (m.consumerCallsCase ? 'reachable, and a file on the chain calls the case' : 'reachable by import only: nothing on the chain calls the case, so this is not play')
+                : 'not reachable from src/main.js', module: reachRow.module, via: m.via ?? null, state: rc.reach.state, at: rc.reach.at};
+        }
+    }
+    const plays = rc.plays.get(p.key) ?? [];
+    const best = plays.find(x => x.state === 'current' && x.playerAction) ?? plays[0] ?? null;
+    const playerAction = best ? {value: best.playerAction ? `proven in ${best.scope} (${best.route})` : 'test ran but did not prove a player action', state: best.state, at: best.at, command: best.producer?.command ?? null} : null;
+    const eng = rc.engine?.rows.get(p.key);
+    const checks = {...(best?.persistence ?? {})};
+    if (eng) checks.engineRestore = checks.engineRestore || !!eng.engineRestore;
+    const names = {engineRestore: 'engine restore', saveReload: 'save and reload', exportImport: 'export and import', browser: 'browser'};
+    const persistence = (best || eng) ? {checks: Object.fromEntries(Object.keys(names).map(k => [names[k], !!checks[k]])), state: best?.state ?? rc.engine?.state ?? null,
+        at: best?.at ?? rc.engine?.at ?? null} : null;
+    return {moduleReachable, playerAction, persistence, rowSha};
+}
+
 /** Paged rows. `state` matches an exact state, a family name or a blocker slug; `q` is a case-insensitive substring of id, label, blocker, mechanisms, test or source. */
 export function pageRows(ledger, rows, {offset = 0, limit = MAX_PAGE, state = '', q = ''} = {}) {
     const lim = Math.min(Math.max(Math.trunc(Number(limit)) || MAX_PAGE, 1), MAX_PAGE), off = Math.max(Math.trunc(Number(offset)) || 0, 0);
@@ -138,7 +187,11 @@ export function pageRows(ledger, rows, {offset = 0, limit = MAX_PAGE, state = ''
         }
         hits.push(r);
     }
-    return {ledger, total: hits.length, offset: off, limit: lim, rows: hits.slice(off, off + lim).map(r => projectRow(ledger, r))};
+    const rc = readReceipts();
+    return {ledger, total: hits.length, offset: off, limit: lim, rows: hits.slice(off, off + lim).map(r => {
+        const p = projectRow(ledger, r), lad = ladderFromReceipts(p, r, rc);
+        return {...p, ladder: {...p.ladder, moduleReachable: lad.moduleReachable, playerAction: lad.playerAction, persistence: lad.persistence}};
+    })};
 }
 
 // ---- IO: cached reads, the build part ----
