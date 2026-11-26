@@ -5,8 +5,9 @@ import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_v
 import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
 import {projectItemIdentityView} from './item_identity.js';
 import {observerView} from './observer_view.js';
+import {riStoneItemView} from './ri_stone_pieces.js';
 
 export function projectItemView(item, state, fallback) {
     return projectItemIdentityView(item, state ? observerView(state).knowledge() : {},
-        projectGameAbsorptionAssayItemView(item, state, projectFieldcraftItemView(item, state, fallback)));
+        riStoneItemView(item,state,projectGameAbsorptionAssayItemView(item, state, projectFieldcraftItemView(item, state, fallback))));
 }

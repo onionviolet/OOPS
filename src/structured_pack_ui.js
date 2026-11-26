@@ -1,3 +1,4 @@
+import {setStructuredCenterPlace} from './center_modes.js';
 import {getDisplaySetting,subscribeDisplaySettings} from './display_settings.js';
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, expandWorkspaceModule} from './workspace_layout.js';
 import {setText} from './dom_sync.js';
@@ -27,7 +28,11 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
         if(actual.type==='cancel')return 'Stopped. The work is set down where it was.';
         const job=after.jobs.find(j=>j.commandId===actual.id);
         if(job)return `Started: ${label||job.label}. ${formatDuration(job.remaining)} to go.`;
-        if(actual.type==='action'&&after.actions.find(a=>a.id===actual.id)?.completed>(before?.completed||0)){const note=changedNote(beforeStatus,after);return note?`Done: ${label}. ${note}`:`Done: ${label}.`;}
+        if(actual.type==='action'&&before){
+            const note=changedNote(beforeStatus,after);
+            if(note)return `Done: ${label}. ${note}`;
+            if(after.actions.find(a=>a.id===actual.id)?.completed>(before.completed||0))return `Done: ${label}.`;
+        }
         return label?`Chosen: ${label}.`:'Done.';};
     const panel=document.createElement('details');panel.id='structured_pack_panel';panel.open=true;
     const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
@@ -47,7 +52,8 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
         expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
         status:(v.status||[]).map(s=>({label:s.label,value:s.value,note:!!s.note})),ladders:v.ladders||[],house:v.house||null,craft:v.craft??null,
-        actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable,once:!!a.once,runs:Number.isFinite(a.runs)?a.runs:null,verb:a.verb||null})),
+        actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],itemInputs:a.itemInputs||[],completed:a.completed||0,repeatable:!!a.repeatable,queueRepeatable:a.queueRepeatable==null?!!a.repeatable:!!a.queueRepeatable,once:!!a.once,runs:Number.isFinite(a.runs)?a.runs:null,verb:a.verb||null})),
+        stonePieces:v.stonePieces||[],
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
         extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons,mastery:v.renewal.mastery,reserve:v.renewal.reserve,masteryThreshold:v.renewal.masteryThreshold,next:v.renewal.next}:null,canWrite:!!v.canWrite,error:v.error};};
     const button=(label,data,request,disabled)=>{
@@ -58,8 +64,11 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
     const run=request=>{
             repetition=null;
             if(request.type==='stop-repeat'){notice='Further repetitions stopped. Current work is unchanged.';render(true);return;}
-            const times=request.times||1,actual={...request};delete actual.times;
+            const actual={...request};delete actual.times;
             const prior=projected(),before=prior.actions.find(a=>a.id===actual.id);
+            // Row, Here and stale repeat requests share this dispatch boundary.
+            // Redoing the ordinary action later remains available.
+            const times=before?.queueRepeatable?(request.times||1):1;
             try{command(actual);noticeError=false;const after=projected();notice=resultLine(actual,before,after,prior.status);
                 const started=actual.type==='action'&&times===1&&after.jobs.find(j=>j.commandId===actual.id);timed=started?{id:actual.id,jobId:started.id,label:before?.label||started.label,completed:before?.completed||0,status:prior.status}:null;
                 if(times>1){const job=projected().jobs.find(j=>j.commandId===actual.id);
@@ -71,12 +80,12 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
     function render(force=false) {
         if(changed)token=changed();
         const host=document.getElementById('location_actions_div');if(host&&!workspaceOwns(panel)&&panel.parentElement!==host)host.append(panel);
-        const view=projected();lastView=view;
+        const view=projected();setStructuredCenterPlace(view.active?view.place:null);lastView=view;
         craft.render(view.craft,view.canWrite);
         if(repetition&&(!view.canWrite||view.error)){notice='Repeated work stopped. '+(view.error||'Restore saving before continuing.');repetition=null;}
         if(repetition&&!view.jobs.some(j=>j.id===repetition.jobId)){
             const a=view.actions.find(a=>a.id===repetition.id);
-            if(!view.canWrite||view.error||!a?.eligible||!a.repeatable||a.completed!==repetition.completed+1){
+            if(!view.canWrite||view.error||!a?.eligible||!a.queueRepeatable||a.completed!==repetition.completed+1){
                 notice='Repeated work stopped. '+(view.error||a?.reasons?.join(' ')||'The work is no longer available.');repetition=null;
             }else{
                 const pending=repetition;repetition=null;
@@ -142,7 +151,15 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                 let shut=0;for(const e of view.extensions){
                     if(!e.eligible&&shut++>=NEXT_SHUT)continue;
                     p(e.description,steps);for(const reason of e.reasons)p(reason,steps);
-                    add(steps,'Choose '+e.label,{structuredExtension:e.id},{type:'adopt-extension',id:e.id,revision:e.revision,contentHash:e.contentHash},!view.canWrite||!e.eligible);
+                    const label=/^choose\b/i.test(e.label)?e.label:'Choose '+e.label;
+                    add(steps,label,{structuredExtension:e.id},{type:'adopt-extension',id:e.id,revision:e.revision,contentHash:e.contentHash},!view.canWrite||!e.eligible);
+                }
+                if(view.stonePieces?.length){
+                    const label=node('label',steps);label.textContent='Stone to draw from';
+                    const select=node('select',label);select.setAttribute('aria-label','Stone to draw from');select.dataset.structuredStoneSelect='';select.disabled=!view.canWrite||view.jobs.length>0;
+                    for(const piece of view.stonePieces){const option=node('option',select);option.value=piece.key;option.textContent=piece.label;option.selected=piece.selected;}
+                    select.onchange=()=>run({type:'ri-stone-select',key:select.value});
+                    rows.get(steps).push(['stone-select',view.stonePieces,select.disabled]);
                 }
                 for(const job of view.jobs){
                     let row=jobRows.get(job.id);
@@ -187,7 +204,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     setText(row.act,action.label);row.act.disabled=!view.canWrite||!action.eligible;
                     // A repeat offer never promises more runs than the inputs in hand cover; below two runs there is nothing to repeat.
                     const times=Math.min(3,action.runs??3);row.repeatRequest.times=times;setText(row.repeat,`Repeat ×${times}`);const repeatSays=`Repeat ${action.label} ${times} times`;if(row.repeat.title!==repeatSays){row.repeat.title=repeatSays;row.repeat.setAttribute?.('aria-label',repeatSays);} // PS11: the act's name is on its own button; the repeat says only how many
-                    row.repeat.hidden=!action.repeatable||times<2;row.repeat.disabled=row.act.disabled;
+                    row.repeat.hidden=!action.queueRepeatable||times<2;row.repeat.disabled=row.act.disabled;
                     // A blocked repeat gives the act's own reason to the shared disabled-reason note, not its name (title), which it would print as a line.
                     const repeatWhy=row.repeat.disabled?(action.reasons[0]||'Not available now.'):'';if((row.repeat.dataset.disabledReason||'')!==repeatWhy){if(repeatWhy)row.repeat.dataset.disabledReason=repeatWhy;else delete row.repeat.dataset.disabledReason;}
                     // PS304: an act that cannot run yet, ordinary or story, folds into the one "Not yet" line with its reason; only story steps are capped (G15).
@@ -238,5 +255,5 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         });}});
     // G10: a life's own timed work stays with the life. Without an owner the Notebook claimed it and took the centre on every press (as UIC182 for the courtyard).
     const releaseWork=registerOwnedWorkPanel(work=>lastView?.actions.some(a=>a.id===work.commandId)||lastView?.jobs.some(j=>j.id===work.id)?'structured_pack_panel':null);
-    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const offDial=subscribeDisplaySettings(()=>render(true)),timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){offDial();clearInterval(timer);releaseWork();releaseReady();releaseGuTab?.();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
+    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const offDial=subscribeDisplaySettings(()=>render(true)),timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){setStructuredCenterPlace(null);offDial();clearInterval(timer);releaseWork();releaseReady();releaseGuTab?.();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
 }

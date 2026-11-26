@@ -6,7 +6,8 @@ import {publishChange} from './ui_change_signal.js';
 import {applyWorldLook} from './world_look.js';
 import {sayReason} from './locked_control.js';
 import {livesOwnLife} from './seat_profiles.js';
-import {setStatusText} from './ui/status_line.js';
+import {setStatusText,setWorkStatusJump} from './ui/status_line.js';
+import {readWorkAttention} from './work_attention.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
 // definition lookup, command dispatcher or gameplay timer belongs here.
@@ -23,7 +24,9 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     const heading=document.createElement('strong');heading.textContent='Current work';
     const work=document.createElement('p'),ownership=document.createElement('p');
     const jump=document.createElement('button');jump.type='button';jump.textContent='Open local controls';
-    jump.onclick=()=>{if(read().waiting){openWorkspaceModule('notebook');sayReason(jump,'Opened your waiting response in the notebook.');return;}openWorkspaceModule('local-actions');const target=document.getElementById('location_related_div');target?.scrollIntoView({block:'nearest'});const first=target?.querySelector('button:not(:disabled),[role="button"],summary');first?.focus();sayReason(jump,first?'Opened local controls. The first action there has focus.':'Opened local controls. Nothing here is ready to act on yet.');};
+    const openAttention=()=>{const attention=readWorkAttention(read());return attention?.open()===true;};
+    setWorkStatusJump(openAttention);
+    jump.onclick=()=>{if(read().waiting){openWorkspaceModule('notebook');sayReason(jump,'Opened your waiting response in the notebook.');return;}if(openAttention())return;openWorkspaceModule('local-actions');const target=document.getElementById('location_related_div');target?.scrollIntoView({block:'nearest'});const first=target?.querySelector('button:not(:disabled),[role="button"],summary');first?.focus();sayReason(jump,first?'Opened local controls. The first action there has focus.':'Opened local controls. Nothing here is ready to act on yet.');};
     panel.append(heading,work,ownership,jump);
     document.getElementById('location_related_div')?.prepend(panel);
     registerWorkspaceModule({id:'current-work',title:'Current work & saving',node:panel,home:'center',critical:true});
@@ -97,21 +100,21 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     const render=()=>{
         references.render();
         syncProse();
-        const view=read(),root=document.getElementById('main_content');
-        const activeFight=root?.dataset.activeFight || '', next=JSON.stringify([view,activeFight]);
+        const view=read(),root=document.getElementById('main_content'),attention=readWorkAttention(view);
+        const activeFight=root?.dataset.activeFight || '', next=JSON.stringify([view,activeFight,attention?.text,attention?.label]);
         syncFightTab();
         if(next!==signature){signature=next;
             // A life that opens on its own panel has nothing under Here to point at (G10).
             const idleText=view.inVillage||document.documentElement.dataset.ownHoldings==='on'||livesOwnLife(view.world)?'No work running.':'No work running. Pick something under Here to start.';
-            work.textContent=view.work.length?view.work.join(' · '):idleText;
-            jump.textContent=view.waiting?'Open waiting response':'Open local controls';
+            work.textContent=view.work.length?view.work.join(' · '):attention?.text||idleText;
+            jump.textContent=view.waiting?'Open waiting response':attention?.label||'Open local controls';
             ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';ownership.hidden=view.canWrite; // UIC146: the top bar reads this line and shows it; a warning also shows here
-            ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!!activeFight||!view.waiting&&!view.work.length&&view.canWrite;
+            ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!!activeFight||!view.waiting&&!view.work.length&&!attention&&view.canWrite;
             // UIX2: this panel owns the current-work presentation; readers (the bar chip) re-read it.
             panel.dataset.workCount=String(view.work.length);publishChange('work','current-work');}
         // Direction B (PS53): the status line shows the work line in every view; this panel keeps the controls (the
         // jump button, a read-only warning) and drops its own copy of the words while the line is up.
-        const working=view.work.length>0,inLine=setStatusText('work',working?view.work.join(' · '):'No work running',{idle:!working,title:working?'Work under way. Select to show its current status.':'Nothing is running. Pick something under Here to start.'});
+        const working=view.work.length>0,inLine=setStatusText('work',working?view.work.join(' · '):attention?.text||'No work running',{idle:!working&&!attention,title:working?'Work under way. Select to show its current status.':attention?.label||'Nothing is running. Pick something under Here to start.'});
         if(work.hidden!==inLine)work.hidden=inLine;
         // Generic world palettes stay deliberately independent of sealed IDs.
         const world=!view.world || view.world === 'base.frontier' ? 'native' : view.world,theme=view.away?'cool':'warm';
@@ -132,7 +135,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     };
     nativeHost?.addEventListener('keydown',onKey);
     const observer=new MutationObserver(decorate);if(nativeHost)observer.observe(nativeHost,{childList:true,subtree:true,attributes:true,attributeFilter:['onclick','class']});decorate();
-    render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);fightObserver.disconnect();syncTempoStance(false);switcher?.removeEventListener('click',showSelection);components.destroy();references.destroy();observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();more.remove();taskObserver.disconnect();}};
+    render();const timer=setInterval(render,250);return {render,destroy(){setWorkStatusJump(null);clearInterval(timer);fightObserver.disconnect();syncTempoStance(false);switcher?.removeEventListener('click',showSelection);components.destroy();references.destroy();observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();more.remove();taskObserver.disconnect();}};
 }
 
 export function createEquipmentComparison({read}) {

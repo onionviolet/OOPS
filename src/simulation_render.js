@@ -6,6 +6,7 @@ const validationMemos = new Map();
 // dev-stepping batch coalesced. Each named read builds once per pass, every caller
 // gets its own copy, and reuse ends once the world key (expansion state) changes.
 let frame = null;
+let readMutationDepth = 0;
 // Only pure, immutable-input checks may use this per-advance cache.
 export function simulationValidationMemo(check) {
     if(!batching) return null;
@@ -18,14 +19,26 @@ export function deferSimulationRender(key, render) {
     return true;
 }
 export function withSimulationFrame(key, run) {
-    const outer = frame; frame = {key, values: new Map()};
+    const outer = frame; frame = {key, values: new Map(), parent: outer, clock:key?.clock, sequence:key?.sequence};
     try {return run();} finally {frame = outer;}
 }
 export const inSimulationFrame = key => frame?.key === key;
 export function framedSimulationRead(key, name, build, copy) {
-    if(!frame || frame.key !== key) return build();
-    if(!frame.values.has(name)) frame.values.set(name, build());
-    return copy(frame.values.get(name));
+    if(readMutationDepth)return build();
+    // A projected-state facts pass may nest inside a live native display pass.
+    // Find the exact input's active ancestor, not a cache from another state.
+    let owner=frame;while(owner&&owner.key!==key)owner=owner.parent;
+    if(!owner) return build();
+    if(owner.clock!==key?.clock||owner.sequence!==key?.sequence){owner.values.clear();owner.clock=key?.clock;owner.sequence=key?.sequence;}
+    if(!owner.values.has(name)) owner.values.set(name, build());
+    return copy(owner.values.get(name));
+}
+// Native builders can depend on nested input supplied to a facts writer. A
+// writer conservatively ends every active read phase, including ancestors.
+export function invalidateSimulationReads(){for(let owner=frame;owner;owner=owner.parent)owner.values.clear();}
+export function withSimulationReadMutation(run){
+    readMutationDepth++;
+    try{return run();}finally{readMutationDepth--;invalidateSimulationReads();}
 }
 // simulationFacts reads only its arguments (state, registry and the context's own
 // fields), so inside a frame over that same state a call whose context matches an

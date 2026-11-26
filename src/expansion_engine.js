@@ -21,6 +21,7 @@ import {validateProto23State,syncProto23Clock,nextProto23Boundary} from './proto
 import {proto23SimulationContexts} from './proto23_world_host.js';
 import {reconcileParadiseCampaignDepthRuntime,validateParadiseCampaignDepthControllers} from './book_world_paradise_campaign_runtime.js';
 import {validateParadiseCampaignDepthState} from './book_world_paradise_campaign_facts.js';
+import {validateRiStoneState} from './ri_stone_pieces.js';
 import {worldCompletionCropClockSupported} from './world_completion_crop_clock.js';
 import {validateWorldCompletionState,worldCompletionContext} from './world_completion_facts.js';
 import {validateSystemsWorkshop} from './systems_workshop_validation.js';
@@ -215,6 +216,7 @@ function fullyValidateExpansionState(state, registry) {
     validateNestedCampaignState(state);
     validateParadiseCampaignState(state);
     validateParadiseCampaignDepthState(state,registry);
+    validateRiStoneState(state);
     validateParadiseCampaignDepthControllers(state,registry);
     validateMolCampaignState(state);
     validateLotmState(state);

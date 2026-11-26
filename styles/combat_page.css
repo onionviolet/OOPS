@@ -121,7 +121,7 @@
     inline-size: var(--tick-width);
     background: var(--fight-field-timing);
 }
-.fight-page-tick[data-next] { --tick-width: 4px; background: var(--ui-text); z-index: 1; }
+.fight-page-tick[data-next] { --tick-width: 4px; background: var(--ui-text); z-index: var(--ui-layer-raised); }
 .fight-page-track {
     background: linear-gradient(90deg, var(--fight-track-ink) var(--fight-fill, 0%),
         var(--ui-meter-track-bg) var(--fight-fill, 0%));
@@ -136,7 +136,7 @@
 }
 .fight-page-track[data-track="health"] > span {
     position: relative;
-    z-index: 1;
+    z-index: var(--ui-layer-raised);
 }
 .fight-page-track[data-track="timing"] {
     --fight-track-ink: var(--ui-swatch-071);
@@ -268,7 +268,7 @@
 .fight-page-extra[open] > .fight-page-strip {
     position: absolute;
     inset: auto 0 calc(100% + var(--ui-space-1)) auto;
-    z-index: 2;
+    z-index: calc(var(--ui-layer-raised) + 1);
     width: min(28em, 65vw);
     padding: var(--ui-space-2);
     background: var(--fight-field-slate);
@@ -359,7 +359,7 @@
         display: block;
         position: absolute;
         inset: 0;
-        z-index: 2;
+        z-index: calc(var(--ui-layer-raised) + 1);
         border: 2px solid var(--fight-field-harm);
         color: var(--ui-text);
         background: color-mix(in srgb, var(--fight-field-harm) 18%, transparent);
@@ -367,7 +367,7 @@
         padding-inline: var(--ui-space-1);
         opacity: 0;
         pointer-events: none;
-        animation: fight-hit .8s ease-out 1;
+        animation: fight-hit calc(var(--ui-motion-settle) * 8 / 9) var(--ui-motion-ease) 1;
     }
     :root:not([data-look-motion="reduce"], [data-effects="off"], [data-effects="reduced"]) .fight-page-hit-flash:is([data-reaction="miss"], [data-reaction="blocked"]) {
         border-color: var(--fight-field-rule);
@@ -377,15 +377,15 @@
         display: block;
         position: absolute;
         inset: 0 var(--ui-space-2) auto auto;
-        z-index: 3;
+        z-index: calc(var(--ui-layer-raised) + 2);
         color: var(--theme-warning, var(--ui-meter-warn));
         background: var(--fight-field-slate);
         padding-inline: var(--ui-space-2);
         opacity: 0;
         pointer-events: none;
-        animation: fight-gain .9s ease-out 1;
+        animation: fight-gain var(--ui-motion-settle) var(--ui-motion-ease) 1;
     }
-    :root:not([data-look-motion="reduce"], [data-effects="off"], [data-effects="reduced"]) [data-fight-new-item] { animation: fight-new-item .8s ease-out 1; }
+    :root:not([data-look-motion="reduce"], [data-effects="off"], [data-effects="reduced"]) [data-fight-new-item] { animation: fight-new-item calc(var(--ui-motion-settle) * 8 / 9) var(--ui-motion-ease) 1; }
 }
 @keyframes fight-hit { from { opacity: 1; } to { opacity: 0; } }
 @keyframes fight-gain { from { opacity: 1; } to { opacity: 0; transform: translateY(-1.5em); } }
@@ -420,7 +420,7 @@
 .fight-page-roster > .fight-page-fighter[data-target="true"] {
     position: sticky;
     inset-block: 0;
-    z-index: 2;
+    z-index: calc(var(--ui-layer-raised) + 1);
 }
 
 /* A crowd (TF3, LB1): one layered bar. The front's health drains to show a deeper red layer while more stand behind it, so the bar keeps
@@ -437,7 +437,7 @@
 }
 .fight-page-layer-count {
     position: relative;
-    z-index: 1;
+    z-index: var(--ui-layer-raised);
     margin-inline-start: var(--ui-space-1);
     padding-inline: var(--ui-space-1);
     background: var(--fight-field-slate);
@@ -447,7 +447,7 @@
 /* The crowd's name and picks keep one line; its stat line truncates first, as a guarded row's does. */
 .fight-page-fighter[data-crowd] { grid-template-columns: minmax(min-content, 1fr) minmax(0, 1.2fr); }
 /* Member picks, front first: square, the card's own rule colour, the pick marked like the Target tag. */
-.fight-page-crowd-members { display: flex; gap: 2px; flex: none; }
+.fight-page-crowd-members { display: flex; gap: var(--ui-space-1); flex: none; }
 .fight-page-crowd-member {
     min-inline-size: max(24px, var(--ui-control-sm));
     min-block-size: max(24px, var(--ui-control-sm));
@@ -457,7 +457,7 @@
     color: var(--ui-text);
     background: color-mix(in srgb, black 35%, var(--fight-field-slate));
     border: 1px solid var(--fight-field-rule);
-    border-radius: 0;
+    border-radius: var(--ui-radius);
     cursor: pointer;
 }
 .fight-page-crowd-member[data-front] { border-block-start: 2px solid var(--ui-swatch-055); }

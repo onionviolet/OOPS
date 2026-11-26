@@ -10,6 +10,7 @@ import {readyWord} from './ui/combat_versus.js';
 import {knownNumberNode} from './ui/known_number.js';
 import {kitControl, kitElement as node} from './ui/kit.js';
 import {readPort} from './ui_ports.js';
+import {observerView} from './observer_view.js';
 import {projectItemView} from './item_views.js';
 import {settledTempoPresentation, settledTempoRoster} from './tempo_fight.js';
 import {renderSceneCard} from './ui/scene_card.js';
@@ -689,7 +690,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
             seenPresentation = new WeakSet();
             reportFightStarted = false;
             previousStock = carried();
-            const life = (readPort('expansion')?.actors?.player?.worldId || '') + ':' + (readPort('character')?.name || '');
+            const life = (observerView(readPort('expansion')).worldId || '') + ':' + (readPort('character')?.name || '');
             if (!ordersByLife.has(life)) ordersByLife.set(life, Object.fromEntries(Object.keys(MOVE_ROWS).map(source => [source, []])));
             moveOrder = ordersByLife.get(life);
             fateMovesOpen = false;
@@ -967,7 +968,7 @@ export function mountFightSituation({getCombat, readout, every = 400, report = n
             playerPanel.replaceChildren();
             resume.remove();
             let view = null; try { view = domainRegistry.project('tempo_fight'); } catch { /* status below remains honest */ }
-            const facts = readPort('expansion')?.actors?.player?.facts;
+            const facts = observerView(readPort('expansion')).facts();
             const roster = settledTempoRoster(facts);
             damageTrail?.update(document.getElementById('character_healthbar_max'), healthFraction(roster?.find(row => row.id === 'player')));
             const finishedHere = roster && center.mode === TEMPO_CENTER && section.querySelector('.fight-page-roster');

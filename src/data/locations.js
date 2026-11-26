@@ -1,4 +1,5 @@
 import {registerFortLocations} from "../fork_fort_content.js";
+import {grainAppleAction,GRAIN_APPLE_ACTION} from '../village_grain_cart.js';
 "use strict";
 
 import { skills } from "./skills.js";
@@ -2570,6 +2571,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
 //add actions
 (function(){
     locations["Village"].actions = {
+        [GRAIN_APPLE_ACTION]:new GameAction(grainAppleAction()),
         "search for delivery": new GameAction({
             action_id: "search for delivery",
             starting_text: "Search the village for the missing grain delivery",
@@ -2599,7 +2601,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
             attempt_duration: 15,
             success_chances: [0.5, 1],
             rewards: {
-                actions: [{location: "Village", action: "carry grain"}, {location: "Village", action: "pull cart"}, {location: "Village", action: "convince horse"}, {location: "Village", action: "carry cart"}],
+                actions: [{location: "Village", action: "carry grain"}, {location: "Village", action: "pull cart"}, {location: "Village", action: "convince horse"}, {location: "Village", action: "carry cart"}, {location:'Village',action:GRAIN_APPLE_ACTION}],
                 skill_xp: {
                     Perception: 100,
                 }
@@ -2629,7 +2631,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
                 skill_xp: {Weightlifting: 300},
                 textlines: [{dialogue: "village millers", lines: ["delivered"]}],
                 locks: {
-                    actions: [{location: "Village", action: "pull cart"}, {location: "Village", action: "convince horse"}, {location: "Village", action: "carry cart"}],
+                    actions: [{location: "Village", action: "pull cart"}, {location: "Village", action: "convince horse"}, {location: "Village", action: "carry cart"}, {location:'Village',action:GRAIN_APPLE_ACTION}],
                 },
             },
         }),
@@ -2656,7 +2658,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
                 skill_xp: {Weightlifting: 300},
                 textlines: [{dialogue: "village millers", lines: ["delivered"]}],
                 locks: {
-                    actions: [{location: "Village", action: "carry grain"}, {location: "Village", action: "convince horse"}, {location: "Village", action: "carry cart"}],
+                    actions: [{location: "Village", action: "carry grain"}, {location: "Village", action: "convince horse"}, {location: "Village", action: "carry cart"}, {location:'Village',action:GRAIN_APPLE_ACTION}],
                 },
             },
         }),
@@ -2683,7 +2685,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
                 skill_xp: {"Animal handling": 300},
                 textlines: [{dialogue: "village millers", lines: ["delivered"]}],
                 locks: {
-                    actions: [{location: "Village", action: "pull cart"}, {location: "Village", action: "carry grain"}, {location: "Village", action: "carry cart"}],
+                    actions: [{location: "Village", action: "pull cart"}, {location: "Village", action: "carry grain"}, {location: "Village", action: "carry cart"}, {location:'Village',action:GRAIN_APPLE_ACTION}],
                 },
             },
         }),
@@ -2717,7 +2719,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
                 skill_xp: {"Weightlifting": 2e6},
                 textlines: [{dialogue: "village millers", lines: ["delivered"]}],
                 locks: {
-                    actions: [{location: "Village", action: "pull cart"}, {location: "Village", action: "carry grain"},{location: "Village", action: "convince horse"}],
+                    actions: [{location: "Village", action: "pull cart"}, {location: "Village", action: "carry grain"},{location: "Village", action: "convince horse"}, {location:'Village',action:GRAIN_APPLE_ACTION}],
                 },
             },
         }),

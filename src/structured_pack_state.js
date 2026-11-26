@@ -1,3 +1,4 @@
+import {structuredSelectionIdentity} from './structured_pack_identity.js';
 import {object} from './basics.js';
 import {validateExtensionRefs,requireStructuredExtensions,structuredAdmittedLocations} from './structured_pack_extensions.js';
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
@@ -26,7 +27,7 @@ export function requireStructuredSelection(selection,definitions) {
     if(selection==null)return;
     validateStructuredSelection(selection);validateStructuredLifetime(selection);
     const d=definitions.get(selection.packId),b=d?.starts?.[selection.choice];
-    if(!b||d.revision!==selection.revision||d.contentHash!==selection.contentHash||d.starts.length!==selection.startCount||b.id!==selection.startId||b.snapshotHash!==selection.snapshotHash||d.world.id!==selection.worldId||b.locationId!==selection.locationId||b.body.id!==selection.bodyId||b.body.controllerId!==selection.controllerId)throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');
+    if(!b||d.revision!==selection.revision||!structuredSelectionIdentity(d,selection,b)||d.starts.length!==selection.startCount||b.id!==selection.startId||d.world.id!==selection.worldId||b.locationId!==selection.locationId||b.body.id!==selection.bodyId||b.body.controllerId!==selection.controllerId)throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');
 }
 export function requireStructuredContent(record,definitions,state) {
     validateStructuredRecord(record);if(!record)return;
@@ -34,7 +35,7 @@ export function requireStructuredContent(record,definitions,state) {
     requireStructuredExtensions(record,d,state);
     if(record.schema===2)requireStructuredSelection(record,definitions);
     const b=record.schema===2?d?.starts?.find(b=>b.id===record.startId):d?.bootstrap;
-    if(!d||d.revision!==record.revision||d.contentHash!==record.contentHash||d.world.id!==record.worldId||b?.id!==record.startId||b?.locationId!==record.locationId||JSON.stringify(structuredAdmittedLocations(d,record).map(l=>l.id))!==JSON.stringify(record.locationIds)||JSON.stringify((d.simulation.people||[]).map(p=>p.id))!==JSON.stringify(record.peopleIds)||JSON.stringify(record.units)!==JSON.stringify(d.units||[])||JSON.stringify(record.containerBindings||[])!==JSON.stringify((d.simulation.containers||[]).map(c=>({id:c.id,category:c.category,holder:c.holder,revision:c.revision}))))throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');
+    if(!d||d.revision!==record.revision||(d.contentHash!==record.contentHash&&!(record.schema===2&&b&&structuredSelectionIdentity(d,record,b)))||d.world.id!==record.worldId||b?.id!==record.startId||b?.locationId!==record.locationId||JSON.stringify(structuredAdmittedLocations(d,record).map(l=>l.id))!==JSON.stringify(record.locationIds)||JSON.stringify((d.simulation.people||[]).map(p=>p.id))!==JSON.stringify(record.peopleIds)||JSON.stringify(record.units)!==JSON.stringify(d.units||[])||JSON.stringify(record.containerBindings||[])!==JSON.stringify((d.simulation.containers||[]).map(c=>({id:c.id,category:c.category,holder:c.holder,revision:c.revision}))))throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');
 }
 export function validateStructuredEnvelope(save) {
     const pending=save.content_packs?.pendingStructured;

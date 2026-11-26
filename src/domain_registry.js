@@ -3,7 +3,7 @@ import {calendarMinutes} from './world_rhythm.js';
 import {deferSimulationRender} from './simulation_render.js';
 // One synchronous lifecycle. Native clock, transaction and storage owners stay outside.
 export function createDomainRegistry() {
-    const domains=new Map(),ownsCache=new Map();
+    const domains=new Map(),ownsCache=new Map(),commandGuards=new Map();
     let orderedDomains;
     function ordered() {
         if(orderedDomains)return orderedDomains;
@@ -26,6 +26,11 @@ export function createDomainRegistry() {
         // lifecycle graph or command routing. Domain closure state stays owned.
         const commands=domain.commands && Object.freeze(Object.fromEntries(Object.entries(domain.commands).map(([name,command])=>
             [name,command && typeof command==='object'?Object.freeze({...command}):command])));
+        const guardEntries=Object.entries(domain.commandGuards||{});
+        if(guardEntries.some(([id,guard])=>!id||typeof guard!=='function'))throw Error('Invalid command guard.');
+        if(domain.commandGuards)for(const [id,guard] of guardEntries) {
+            const guards=commandGuards.get(id)||[];commandGuards.set(id,[...guards,guard]);
+        }
         domains.set(domain.id,Object.freeze({...domain,
             ...(domain.deps?{deps:Object.freeze([...domain.deps])}:{}),
             ...(domain.panels?{panels:Object.freeze([...domain.panels])}:{}),
@@ -52,6 +57,11 @@ export function createDomainRegistry() {
         // Owners decide from the key text alone; inventory checks ask per key many times
         // a tick, so answers are cached until the domain set changes (T3).
         ownsItemKey:key=>{const hit=ownsCache.get(key);if(hit!==undefined)return hit;const v=ordered().some(d=>d.ownsItemKey?.(key)===true);if(ownsCache.size>=5000)ownsCache.clear();ownsCache.set(key,v);return v;},
+        commandGuardReasons:(state,command,context)=> (commandGuards.get(command.id)||[]).flatMap(guard=>{
+            const reasons=guard(state,command,context)||[];
+            if(!Array.isArray(reasons)||reasons.some(reason=>typeof reason!=='string'))throw Error('Invalid command guard result.');
+            return reasons;
+        }),
         command:(id,name)=>domains.get(id)?.commands?.[name],
         project:(id,...args)=>domains.get(id)?.projection?.(...args)
     });

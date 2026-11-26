@@ -153,6 +153,9 @@ function qualifyNativeTabs(node) {
         }
     }
 }
+function gothicFamily(size) {
+    return size >= 10 && size <= 22 ? `"OOPS Gothic Bitmap ${size}", var(--ui-font-gothic)` : 'var(--ui-gothic-outline)';
+}
 export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}) {
     const valid = validateCustomizationState(state);
     const entries = moduleNodes instanceof Map ? moduleNodes.entries() : Object.entries(moduleNodes);
@@ -164,11 +167,11 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         node.dataset.componentTheme = settings.componentTheme || 'neutral';
         node.dataset.customizationSeason = settings.resolvedSeason || 'off';
         const font = settings.typography.font;
-        const family = {system: 'var(--ui-font-system)', serif: 'Georgia, serif', mono: 'monospace', gothic: `"OOPS Gothic Bitmap ${settings.typography.size}", var(--ui-font-gothic)`}[font];
+        const family = {system: 'var(--ui-font-system)', serif: 'Georgia, serif', mono: 'monospace', gothic: gothicFamily(settings.typography.size)}[font];
         // Small Gothic labels need their own native strike, rather than a
         // fractional scaling of the body strike's pixel grid.
         const smallSize = Math.round(settings.typography.size * .85);
-        const smallFamily = font === 'gothic' ? `"OOPS Gothic Bitmap ${smallSize}", var(--ui-font-gothic)` : family;
+        const smallFamily = font === 'gothic' ? gothicFamily(smallSize) : family;
         const vars = {'--custom-font': family, '--custom-prose-font': family, '--custom-size': `${settings.typography.size}px`, '--custom-small-font': smallFamily, '--custom-small-size': `${smallSize}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
         node.dataset.typographyFont = font;
         Object.assign(vars, componentThemeTokens(settings));

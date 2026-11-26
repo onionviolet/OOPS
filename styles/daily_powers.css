@@ -34,7 +34,7 @@
 .daily-powers__meter::-webkit-meter-bar {
     background: var(--p23-track, var(--ui-navy));
     border: 0;
-    border-radius: 0;
+    border-radius: var(--ui-radius);
 }
 
 .daily-powers__meter::-webkit-meter-optimum-value {
@@ -45,28 +45,46 @@
     background: var(--p23-energy-fill, var(--ui-accent));
 }
 
-.daily-powers__action {
+.daily-powers__row:not([hidden]) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 0;
+    padding-block: var(--ui-space-hairline);
+    border-block-start: var(--kit-border);
+}
+
+.daily-powers__row .kit-row__label {
     min-width: 0;
-    padding: var(--ui-space-hairline) var(--kit-gap-1);
-    border: 1px solid var(--p23-quiet-line, var(--ui-hairline));
-    background: var(--p23-context, var(--ui-navy));
-    color: inherit;
+    justify-self: start;
     text-align: start;
     white-space: normal;
 }
 
-.daily-powers__action:enabled:hover {
-    background: var(--p23-hover-fill, var(--ui-navy));
-}
-
-.daily-powers__hint {
+.daily-powers__row .kit-row__fact {
     color: var(--p23-muted, var(--ui-muted));
+    white-space: normal;
 }
 
+.daily-powers__row .kit-row__from,
 .daily-powers__reason {
     color: var(--ui-state-blocked);
+    white-space: normal;
 }
 
-.daily-powers__result {
+.daily-powers__result:not([hidden]) {
+    padding-block-start: var(--kit-gap-1);
+    border-block-start: var(--kit-border);
+}
+
+.daily-powers__result summary {
+    cursor: pointer;
+}
+
+.daily-powers__latest {
     margin: 0;
+}
+
+.daily-powers__result details p {
+    margin-block: var(--kit-gap-1) 0;
 }

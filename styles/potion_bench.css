@@ -173,7 +173,7 @@
 
 #hp_brewing .potion-bench__actions button {
     width: 100%;
-    min-height: 30px;
+    min-height: calc(var(--ui-control-md) + var(--ui-space-1));
     margin: 0;
 }
 

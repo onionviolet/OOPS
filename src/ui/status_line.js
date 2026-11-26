@@ -27,6 +27,8 @@ let reserveReader = () => { const state = readPort('expansion'); return state ? 
 export function setReserveReader(fn) { reserveReader = typeof fn === 'function' ? fn : reserveReader; }
 
 let line = null;
+let workJump=null;
+export function setWorkStatusJump(open){workJump=typeof open==='function'?open:null;}
 const slots = new Map();
 export const statusLineMounted = () => !!line?.isConnected;
 
@@ -69,6 +71,7 @@ export function mountStatusLine({bar}) {
             // block, else the Current work panel) on Here.
             const target = () => document.getElementById('action_status_div') || document.getElementById('workspace_current_work');
             slot.addEventListener('click', () => {
+                if(workJump?.()===true)return;
                 if (!target()?.checkVisibility()) centerModes().showHere();
                 requestAnimationFrame(() => target()?.scrollIntoView({block: 'nearest'}));
             });

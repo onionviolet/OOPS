@@ -1,4 +1,4 @@
-import {withSimulationFrame, inSimulationFrame} from './simulation_render.js';
+import {withSimulationFrame, inSimulationFrame, invalidateSimulationReads, withSimulationReadMutation} from './simulation_render.js';
 
 // Publication is a synchronous, read-only phase over a committed state. Mutable
 // planning/clock work stays outside this frame unless its writers invalidate the
@@ -24,6 +24,7 @@ export function withDisplayFactsFrame(state, run) {
     return inSimulationFrame(state) && (!enabled || current?.state === state) ? run() : withFactsFrame(state, run);
 }
 export function invalidateFactsInput(input) {
+    invalidateSimulationReads();
     for(let frame = current; frame; frame = frame.parent)
         frame.versions.set(input, (frame.versions.get(input) || 0) + 1);
 }
@@ -31,7 +32,7 @@ export function invalidateFactsInput(input) {
 // partial write to its disposable plan. No intermediate read may use a cache.
 export function withFactsMutation(inputs, run) {
     mutationDepth++;
-    try {return run();}
+    try {return withSimulationReadMutation(run);}
     finally {
         mutationDepth--;
         for(const input of inputs) invalidateFactsInput(input);

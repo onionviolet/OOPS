@@ -278,7 +278,7 @@
     justify-self: end;
 }
 .attack-next[hidden] { visibility: hidden; display: block; }
-.fight-opening { font-size: .85em; }
+.fight-opening { font-size: var(--ui-type-small); }
 
 /* The Gothic combat lanes share the same opponent row and inspection treatment. */
 #main_content.workspace-active[data-parity="r3"] :is(.enemy-cards, .versus-row--opponents-only) {

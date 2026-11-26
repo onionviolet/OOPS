@@ -1,10 +1,14 @@
-import {admittedExtensionCommands,previewStructuredExtension,planStructuredExtension,structuredAdmittedLocations} from './structured_pack_extensions.js';
+import {structuredQueueRepeatable} from './structured_queue_repeat.js';
+import {riStoneStatus,riStoneChoices,riStoneLegacyHidden} from './ri_stone_pieces.js';
+import {structuredPeoplePresentation,admittedExtensionCommands,previewStructuredExtension,planStructuredExtension,structuredAdmittedLocations} from './structured_pack_extensions.js';
 import {energyCharge} from './energy_resources.js';
 import {hashStreamSeed} from './hash_rng.js';
 import {guCareStatus} from './book_world_gu_domain.js';
 import {keeperHouseView} from './book_world_gu_keeper_domain.js';
 import {shadowCompanyStatus} from './book_world_shadow_company_domain.js';
 import {hpSchoolCalendar,hpLifeStatus} from './book_world_hp_facts.js';
+import {paradiseLeadTrialStatus,paradiseLeadOpeningStatus} from './world_packs/book_paradise_lead_life.js';
+import {paradiseIntruderStatus} from './paradise_intruder.js';
 import {structuredLadderViews} from './structured_ladder_view.js';
 import {previewStructuredExpeditions} from './structured_expedition_runtime.js';
 import {createSimulationState,validateSimulationState,validateSimulationEffect,jsonData,stableId} from './simulation_contracts.js';
@@ -38,6 +42,14 @@ export function validateStructuredBootstrap(d, startId) {
     const selected=startId==null?starts[0]:starts.find(b=>b.id===startId);
     if(!selected)throw Error('Unsupported structured beginning.');
     return selected;
+}
+
+// A fresh typed body is a new report subject. Reservation, restoration,
+// extension adoption and travel within the same life are not that boundary.
+export function replacesStructuredReportLife(previous,plan){
+    const record=plan?.nativePatch?.content_packs?.structured;
+    const nextLife=plan?.state?.simulation?.people?.player?.lifeId;
+    return record?.schema===2&&typeof nextLife==='string'&&nextLife===record.lifeId&&nextLife!==previous?.simulation?.people?.player?.lifeId;
 }
 
 function requireUnpublishedTypedOrigin(state,d,context) {
@@ -118,16 +130,24 @@ export function structuredCampaignView(state,d,record,context) {return withDispl
 function structuredCampaignViewIn(state,d,record,context) {
     if(!record)return {available:!!d,active:false,title:d?.title||'A new beginning',description:d?.description||'Begin an independent local life. Your existing progress stays in this save.',people:[],status:[],actions:[],jobs:[]};
     requireStructuredContent(record,new Map([[d.id,d]]),state);
+    // Restore can publish the validated life pin before its native simulation.
+    // Keep the saved life, but expose no observations or actions in that window.
+    if(!state.simulation)return {available:false,active:true,loading:true,title:d.title||'Local life',description:'Restoring this life.',people:[],status:[],actions:[],jobs:[],extensions:[]};
     const known=state.simulation.knowledge.player||{},people=[];
-    for(const p of d.simulation.people||[]) {
-        const key=d.presentation.people[p.id].introductionKnowledgeKey;
+    const peoplePresentation=structuredPeoplePresentation(d,record);
+    const admittedPeople=(d.extensions||[]).filter(e=>record.extensions?.some(pin=>pin.id===e.id)).flatMap(e=>e.roles||[]);
+    for(const p of [...(d.simulation.people||[]),...admittedPeople]) {
+        const key=peoplePresentation[p.id].introductionKnowledgeKey;
         // LT8: what the player saw of this person (observations attributed to them, such as person_ties notes), after the introduction.
         if(known[key])people.push({name:p.label,details:[known[key].value,...Object.entries(known).filter(([k,r])=>k!==key&&r.basis?.attributedTo===p.id).map(([,r])=>r.value)]});
     }
     const extensionStatus=(d.extensions||[]).filter(e=>record.extensions?.some(pin=>pin.id===e.id)).flatMap(e=>e.status||[]);
-    const status=[...d.presentation.status,...extensionStatus].filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value,note:true}));
+    const status=paradiseLeadOpeningStatus(state,[...d.presentation.status,...extensionStatus].filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value,note:true})));
     status.push(...hpLifeStatus(state,context));
+    status.push(...paradiseLeadTrialStatus(state));
+    status.push(...paradiseIntruderStatus(state));
     status.push(...guCareStatus(state,d,record,context));
+    status.push(...riStoneStatus(state,context));
     status.push(...shadowCompanyStatus(state,d,record,context));
     const hpCalendar=hpSchoolCalendar(state);
     if(hpCalendar)status.push({label:'School calendar',value:hpCalendar.label});
@@ -145,16 +165,17 @@ function structuredCampaignViewIn(state,d,record,context) {
     const actions=[],reachFacts=new Map();
     const hints=a=>{const target=a.targetId||null;if(!reachFacts.has(target))reachFacts.set(target,simulationFacts(state,{...context,targetId:target},context.registry));return structuredReachabilityHints(d,a,reachFacts.get(target));};
     for(const a of [...(d.simulation.commands||[]),...admittedExtensionCommands(d,record)]) {
+        if(riStoneLegacyHidden(state,a.id,context))continue;
         if(a.actorId && a.actorId!=='player' || a.actorDefinitionId && a.actorDefinitionId!==state.simulation.people.player?.definitionId)continue;
         if(a.location!=null&&a.location!==(context.facts?.location||state.simulation.people.player.location))continue;
         const quote=previewSimulationCommand(state,context.registry,a.id,{...context,targetId:a.targetId});
         if(!quote.visible)continue;
         const reasons=quote.eligible?[...hints(a),...quote.reasons]:structuredActionReasons(a,[...hints(a),...quote.reasons],reachFacts.get(a.targetId||null)),costList=quote.costs?.length?quote.costs:a.costs;
-        actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons,duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,once:!!a.once,costs:structuredActionCosts({...quote,costs:costList},d,state),runs:structuredActionRuns(costList,reachFacts.get(a.targetId||null))});
+        actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons,duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,queueRepeatable:structuredQueueRepeatable(a,quote.duration),once:!!a.once,costs:structuredActionCosts({...quote,costs:costList},d,state),itemInputs:structuredItemInputs(costList,reachFacts.get(a.targetId||null)),runs:structuredActionRuns(costList,reachFacts.get(a.targetId||null))});
     }
-    const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:context.registry.simulation.commands.get(j.commandId)?.duration||0,cancellable:j.cancellation!=='none'}));
-    const extensions=(d.extensions||[]).filter(e=>!record.extensions?.some(pin=>pin.id===e.id)).map(e=>previewStructuredExtension(state,d,record,e,context,simulationFacts(state,context,context.registry)));
-    return {available:true,active:true,extensions,expeditions:previewStructuredExpeditions(state,d,context),ladders:structuredLadderViews(d,state.actors.player?.facts),title:d.title||'Local life',place:structuredAdmittedLocations(d,record).find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs,house:keeperHouseView(state,d,record,context)};
+    const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:j.duration??context.registry.simulation.commands.get(j.commandId)?.duration??0,cancellable:j.cancellation!=='none'}));
+    const extensions=(d.extensions||[]).filter(e=>!(e.id==='book.ri.lead.half_stone_use'&&d.extensions.some(x=>x.id==='book.ri.lead.half_stone_piece'))).filter(e=>!record.extensions?.some(pin=>pin.id===e.id)).map(e=>previewStructuredExtension(state,d,record,e,context,simulationFacts(state,context,context.registry)));
+    return {available:true,active:true,extensions,expeditions:previewStructuredExpeditions(state,d,context),ladders:structuredLadderViews(d,state.actors.player?.facts),title:d.title||'Local life',place:context.locationLabel||structuredAdmittedLocations(d,record).find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs,stonePieces:riStoneChoices(state,context),house:keeperHouseView(state,d,record,context)};
 }
 
 // An item no longer held has no fact, so a missing fact reads as none in hand.
@@ -162,9 +183,16 @@ function structuredCampaignViewIn(state,d,record,context) {
 // than the hand holds. Items only: other inputs refill while the work runs, and the command's own check still stops a run that falls short.
 export function structuredActionRuns(costs,facts) {
     let runs=null;
-    for(const e of costs||[]){if(e.type!=='item'||!(e.amount<0)||e.actor!=null&&!['player','$actor'].includes(e.actor))continue;
-        if(!facts)continue;const held=Number(facts[`item.${e.key}`]??0);if(!Number.isFinite(held))continue;const n=Math.floor(held/-e.amount);runs=runs==null?n:Math.min(runs,n);}
+    for(const input of structuredItemInputs(costs,facts)){const n=Math.floor(input.held/input.amount);runs=runs==null?n:Math.min(runs,n);}
     return runs;
+}
+export function structuredItemInputs(costs,facts){
+    if(!facts)return [];
+    return (costs||[]).flatMap(e=>{
+        if(e.type!=='item'||!(e.amount<0)||e.actor!=null&&!['player','$actor'].includes(e.actor))return [];
+        const held=Number(facts[`item.${e.key}`]??0);
+        return Number.isFinite(held)?[{key:e.key,amount:-e.amount,held}]:[];
+    });
 }
 
 // Show only the acting character's executable input quote. NPC reserves and

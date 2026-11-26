@@ -1,11 +1,23 @@
+import {registerGuLeadBreakfast} from './world_packs/book_gu_lead_breakfast.js';
+import {registerGuLeadBreakfastAfterwards} from './world_packs/book_gu_lead_breakfast_afterwards.js';
+import {registerGuLeadHalfStone} from './world_packs/book_gu_lead_half_stone.js';
+import {registerGuLeadHalfStonePiece} from './world_packs/book_gu_lead_half_stone_piece.js';
+import {registerWormLeadBus} from './world_packs/book_worm_lead_bus.js';
+import {paradiseLeadLife} from './world_packs/book_paradise_lead_life.js';
+import {registerParadiseLeadRoof} from './world_packs/book_paradise_lead_roof.js';
+import {registerParadiseLeadIntruder} from './world_packs/book_paradise_lead_intruder.js';
 // One composition registration for source-qualified typed book beginnings.
 // Each book retains its own content owner and exact saved definition.
+import {wormLeadLife} from './world_packs/book_worm_lead_life.js';
+import {supLeadLife} from './world_packs/book_sup_lead_life.js';
 import {registerHpBeginnings} from './book_world_hp_content.js';
 import {registerDomain, domainRegistry} from './domain_registry.js';
 import {packNative} from './world_pack_registry.js';
-import {loadHpLeadCast,withHpLeadCast} from './book_world_hp_lead_pack.js';
+import {loadHpLeadCast,withHpLeadCast,getHpLeadCast} from './book_world_hp_lead_pack.js';
 import {hpLeadPracticeExtension} from './hp_lead_spells.js';
 import {hpLeadDayExtension} from './world_packs/book_hp_lead_day.js';
+import {hpLeadLibraryExtension} from './hp_library_work.js';
+import {hpSummerExtension,setHpSummerExtension,hpSummerClockRequest} from './hp_summer_passage.js';
 import {registerHpLeadDomain} from './book_world_hp_lead_domain.js';
 import {registerHpLeadFlight,hpSchoolPassageClockRequest} from './book_world_hp_lead_flight.js';
 import {registerHpLeadDuel,hpDuelPassageClockRequest} from './book_world_hp_lead_duel.js';
@@ -56,6 +68,8 @@ import {registerGuKeeperNine} from './world_packs/book_gu_keeper_nine.js';
 import {registerGuKeeperImmortalRefinement} from './world_packs/book_gu_keeper_immortal_refinement.js';
 import {registerGuKeeperImmortalAdvancement} from './world_packs/book_gu_keeper_immortal_advancement.js';
 import {registerGuKeeperImmortalReclamation} from './world_packs/book_gu_keeper_immortal_reclamation.js';
+import {registerGuLeadFirstNightChoice} from './world_packs/book_gu_lead_first_night_choice.js';
+import {registerGuLeadEarlyRecovery,guLeadEarlyRecoveryClockRequest} from './world_packs/book_gu_lead_early_recovery.js';
 import {guLeadLife} from './world_packs/book_gu_lead_life.js';
 import {registerGuLeadSelection,guLeadAcademyPassageClockRequest} from './world_packs/book_gu_lead_selection.js';
 import {registerGuLeadRefinement,guLeadRefinementClockRequest} from './world_packs/book_gu_lead_refinement.js';
@@ -107,12 +121,12 @@ import {molSchoolPassageClockRequest} from './mol_zorian_sensing.js';
 import {shadowCompanyLife} from './world_packs/book_shadow_company_life.js';
 
 export function bookPassageClockRequest(state,record) {
-    return hpSchoolPassageClockRequest(state,record) ?? hpDuelPassageClockRequest(state,record) ??
+    return hpSummerClockRequest(state,record) ?? hpSchoolPassageClockRequest(state,record) ?? hpDuelPassageClockRequest(state,record) ??
         hpHalloweenPassageClockRequest(state,record) ?? hpQuidditchPassageClockRequest(state,record) ??
         hpMirrorPassageClockRequest(state,record) ?? hpFlamelPassageClockRequest(state,record) ??
         hpNorbertPassageClockRequest(state,record) ?? hpFinalePassageClockRequest(state,record) ??
         guLeadAcademyPassageClockRequest(state,record) ?? guLeadRefinementClockRequest(state,record) ??
-        guLeadVitalClockRequest(state,record) ?? guLeadMoonbladeClockRequest(state,record) ??
+        guLeadEarlyRecoveryClockRequest(state,record) ?? guLeadVitalClockRequest(state,record) ?? guLeadMoonbladeClockRequest(state,record) ??
         guLeadDormClockRequest(state,record) ??
         guLeadConfrontationClockRequest(state,record) ??
         guLeadClanResponseClockRequest(state,record) ??
@@ -146,6 +160,9 @@ export async function registerBookBeginnings(register, choices, hpPorts = null) 
     const lead = await register(withHpLeadCast(packNative('book.hp.lead'), await loadHpLeadCast()));
     if(register.bundledInstantExtension)await register.bundledInstantExtension(hpLeadPracticeExtension(lead),lead);
     if(register.bundledInstantExtension)await register.bundledInstantExtension(hpLeadDayExtension(lead),lead);
+    if(register.bundledInstantExtension)await register.bundledInstantExtension(hpLeadLibraryExtension(lead),lead);
+    const summer=hpSummerExtension(lead,getHpLeadCast());
+    setHpSummerExtension(summer&&register.bundledInstantExtension?await register.bundledInstantExtension(summer,lead):null);
     await registerHpLeadFlight(register, lead);
     await registerHpLeadDuel(register, lead);
     await registerHpLeadHalloween(register, lead);
@@ -160,6 +177,21 @@ export async function registerBookBeginnings(register, choices, hpPorts = null) 
     choices.register({packId: lead.id, label: 'Harry Potter · the boy in the cupboard',
         arrival: 'Begin as a ten-year-old in your guardians\' household on the morning of a cousin\'s birthday. This is an opt-in lead life; the school and trade lives are unchanged.',
         means: 'No money, no wand and no method of your own. Your aunt and uncle decide the day; something in you sometimes acts on its own.'});
+    const worm = await register(wormLeadLife);
+    await registerWormLeadBus(register, worm);
+    choices.register({packId: worm.id, label: 'Worm · Taylor Hebert',
+        arrival: 'The girls have left you soaked in the school washroom. Insects crowd the room. Decide what to do before you leave.',
+        means: 'You have spent three months practicing in private. You can feel the insects around you and direct them, together or one at a time.'});
+    const supLead = await register(supLeadLife);
+    choices.register({packId: supLead.id, label: 'Super Supportive · Alden Thorn',
+        arrival: 'A children’s hospital, two weeks after the opening incident. Begin at the first offered visitor choice in chapter two; the rescue is remembered context.',
+        means: 'A child under care, with Wummy and a therapy game console. No money or powers granted.'});
+    const suLead = await register(paradiseLeadLife);
+    await registerParadiseLeadRoof(register, suLead);
+    await registerParadiseLeadIntruder(register, suLead);
+    choices.register({packId: suLead.id, label: 'Reincarnation Paradise · Su Xiao',
+        arrival: 'You are injured in a dark recruitment space. Accept the contract or face death. Treatment, awakening and a trial await you.',
+        means: 'Your injured body and your memories. Your family knife is missing. You have no coins or sword.'});
     const d = await register(shadowSlaveApprentice);
     choices.register({packId: d.id, label: 'Shadow Slave · divergent Memory apprentice',
         arrival: 'Begin a divergent Woken artisan life with rare acquired weave sight and replication training.',
@@ -259,6 +291,12 @@ export async function registerBookBeginnings(register, choices, hpPorts = null) 
     await registerGuLeadDay(register, guLead);
     registerRiDailyPowers(hpPorts);
     await registerGuLeadWildRefinement(register, guLead);
+    await registerGuLeadEarlyRecovery(register, guLead);
+    await registerGuLeadFirstNightChoice(register, guLead);
+    await registerGuLeadBreakfast(register, guLead, hpPorts);
+    await registerGuLeadBreakfastAfterwards(register, guLead);
+    await registerGuLeadHalfStone(register, guLead);
+    await registerGuLeadHalfStonePiece(register, guLead);
     choices.register({packId: guLead.id, label: 'Reverend Insanity · the returned clan youth',
         arrival: 'Begin in your guardians’ house on the morning of the Awakening Ceremony. You remember a life that everyone around you has yet to live.',
         means: 'Your clan name gives you a place at the ceremony. You have no opened aperture, primeval essence or Gu of your own.'});

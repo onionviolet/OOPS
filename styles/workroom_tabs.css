@@ -7,6 +7,68 @@
 .workroom-moved::before { content: "New"; font-style: normal; color: var(--ui-accent); }
 .workroom-moved button { margin-left: auto; font-style: normal; }
 
+/* A physical handbill inside the existing Tingen service, not a new panel. */
+.lotm-handbill { max-width: 28rem; margin-block: var(--kit-gap-2); }
+.lotm-handbill > summary { color: var(--ui-accent); }
+.lotm-handbill__sheet {
+    margin-block: var(--kit-gap-2);
+    padding: var(--kit-gap-3);
+    border: var(--ui-space-hairline) solid var(--paper-rule);
+    background: var(--paper-sheet);
+    color: var(--paper-ink);
+    text-align: center;
+}
+.lotm-handbill__sheet::before, .lotm-handbill__sheet::after {
+    content: '';
+    display: block;
+    border-block-start: var(--ui-space-1) double var(--paper-rule);
+    margin-block: var(--kit-gap-1);
+}
+.lotm-handbill__sheet .lotm-handbill__title {
+    margin-block: var(--kit-gap-2);
+    color: var(--paper-ink);
+    font-size: var(--ui-type-heading);
+    line-height: var(--ui-line-prose);
+    text-transform: uppercase;
+}
+.lotm-handbill__sheet .lotm-handbill__line { margin-block: var(--kit-gap-2); color: var(--paper-ink); }
+.lotm-handbill__caption { color: var(--ui-text-muted, var(--ui-text)); }
+
 /* The real action remains beside its current meaning and quote. */
 .lotm-task-action { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); margin-block: var(--ui-space-2); }
 .lotm-task-action button { max-width: 100%; white-space: normal; }
+
+[data-lotm-office-day],
+[data-hp-school-day] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--kit-gap-2) var(--kit-gap-4);
+}
+
+[data-lotm-office-day] > h3,
+[data-hp-school-day] > h3,
+.hp-school-day__place { grid-column: 1 / -1; }
+[data-lotm-office-day] > div,
+[data-hp-school-group] { min-width: 0; border-block-start: var(--kit-border); }
+[data-lotm-office-day] h4,
+[data-lotm-office-day] p,
+[data-hp-school-day] h4,
+[data-hp-school-day] p { margin-block: var(--kit-gap-1); }
+
+[data-lotm-office-day] .kit-row__label,
+[data-lotm-office-day] .kit-row__fact,
+[data-hp-school-day] .kit-row__label,
+[data-hp-school-day] .kit-row__fact { white-space: normal; overflow-wrap: anywhere; }
+[data-lotm-office-day] .kit-row__label,
+[data-hp-school-day] .kit-row__label { text-align: start; }
+[data-hp-school-day] .kit-row { padding-block: var(--kit-gap-1); }
+[data-lotm-office-day] [data-duty-policy] {
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 1050px) {
+    [data-lotm-office-day],
+    [data-hp-school-day] { grid-template-columns: minmax(0, 1fr); }
+}

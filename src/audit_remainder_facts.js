@@ -11,10 +11,15 @@ const projections = [remainderLivelihoodFacts, remainderHomeFacts, remainderOffe
     remainderConsequencesFacts, remainderCombatFitFacts, remainderCombatObjectivesFacts];
 export function auditRemainderCombinedFacts(state, context = {}, registry) {
     const facts = auditRemainderFacts(state);
+    // The inherited dictionary is immutable for this synchronous read. Keep a
+    // fresh local dependency map rather than copying all of it for every leaf.
+    // Returned family facts remain separate from the caller's unrelated keys.
+    const dependencies = {...context.facts, ...facts};
     for(const project of projections) {
-        const projected = project(state, {...context, facts: {...context.facts, ...facts}}, registry);
+        const projected = project(state, {...context, facts: dependencies}, registry);
         delete projected['auditRemainder.enrolled']; // Root receipt alone owns this admission fact.
         Object.assign(facts, projected);
+        Object.assign(dependencies, projected);
     }
     return facts;
 }

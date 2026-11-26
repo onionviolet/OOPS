@@ -22,7 +22,7 @@ import {isKeeperFixedTravelEffect, keeperFixedTravel, keeperFixedTravelWorld} fr
 import {isKeeperCooperationEffect, keeperCooperationEffectPack, keeperCooperationWorld} from './gu_keeper_cooperation.js';
 import {isHostedWolfEffect, hostedWolfEffectPack, hostedWolfWorld} from './gu_hosted_wolf.js';
 import {smokePassage, smokeSteward, smokeStewardDestinations} from './gu_smoke_passage.js';
-import {requireExtensionBase} from './structured_pack_extensions.js';
+import {requireExtensionBase,structuredSupportCommand} from './structured_pack_extensions.js';
 import {compileStructuredExpeditions} from './structured_expedition_runtime.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 import {compileClaims} from './claim_runtime.js';
@@ -215,19 +215,45 @@ export function stageStructuredNativeObjects(d,{availabilities,makeLocation,make
 // Bundled extensions may add local places. The base world, actors and
 // beginning stay pinned. Stage native objects after the definition checks.
 export function registerStructuredCommandExtension(raw,contentHash,base,registry,stageObjects,{bundledInstant=false}={}) {
-    jsonData(raw);requireExtensionBase(raw,base);
+    jsonData(raw, 0, raw?.id || 'extension');requireExtensionBase(raw,base);
     check(raw.schema===1&&stableId(raw.id)&&raw.id.startsWith(base.id+'.')&&Number.isSafeInteger(raw.revision)&&raw.revision>0&&/^sha256:[a-f0-9]{64}$/.test(contentHash),'Invalid command extension header.');
-    check(Object.keys(raw).every(k=>['schema','id','revision','base','label','description','requires','reason','commands','items','status','locations','dependsOn','energies'].includes(k))&&typeof raw.label==='string'&&typeof raw.description==='string'&&typeof raw.reason==='string'&&Array.isArray(raw.commands)&&raw.commands.length>0,'Only a command extension is supported.');
+    check(Object.keys(raw).every(k=>['schema','id','revision','base','label','description','requires','reason','commands','items','status','locations','dependsOn','energies','roles','conditions','supportAlternatives'].includes(k))&&typeof raw.label==='string'&&typeof raw.description==='string'&&typeof raw.reason==='string'&&Array.isArray(raw.commands)&&raw.commands.length>0,'Only a command extension is supported.');
     validatePredicate(raw.requires);
+    if(raw.supportAlternatives!==undefined) {
+        check(bundledInstant&&Array.isArray(raw.supportAlternatives)&&raw.supportAlternatives.length>0,'Alternate means need a bundled method.');
+        for(const a of raw.supportAlternatives) {
+            const target=base.extensions?.find(e=>e.id===a?.target?.id&&e.revision===a.target.revision&&e.contentHash===a.target.contentHash);
+            check(target&&Object.keys(a).sort().join(',')==='admission,commands,replaces,requires,target'&&typeof a.admission==='boolean'&&Array.isArray(a.commands)&&a.commands.length>0&&new Set(a.commands).size===a.commands.length&&a.commands.every(id=>target.commands.some(c=>c.id===id)),'Alternate means need an exact installed target and named commands.');
+            validatePredicate(a.requires);check(a.requires!=null,'Alternate means need actual support.');
+            validatePredicate(a.replaces);
+            const receipt=a.replaces;
+            check(object(receipt)&&Object.keys(receipt).sort().join(',')==='fact,op,value'&&receipt.fact.startsWith(`completed.${base.id}.`)&&receipt.op==='eq'&&receipt.value===true,'Alternate means replace one explicit completed receipt.');
+            const contains=rule=>JSON.stringify(rule)===JSON.stringify(receipt)||['all','any'].some(join=>rule?.[join]?.some(contains));
+            check((!a.admission||contains(target.requires))&&a.commands.every(id=>{const command=target.commands.find(c=>c.id===id);return ['requires','visibleWhen','completionRequires'].every(field=>contains(command[field]));}),'Alternate receipt must occur in admission and every named command support.');
+        }
+    }
     check(!(base.extensions||[]).some(e=>e.id===raw.id),'Duplicate structured extension.');
     for(const c of raw.commands) {
-        const timed=c.duration>0&&c.cancellation==='refund'&&c.reservationReturns===1&&!c.outcomes&&!c.powerId;
+        // Curated player continuations can spend an attempt irreversibly (a
+        // continuously fueled Gu, for example). Keep the existing refund path
+        // and validate the same costs/effects and base ownership below.
+        const spent=bundledInstant&&c.actorId==='player'&&c.cancellation==='forfeit'&&
+            c.completionFailure==='forfeit'&&(c.reservationReturns??0)===0;
+        const timed=c.duration>0&&(c.cancellation==='refund'&&c.reservationReturns===1||spent)&&!c.outcomes&&!c.powerId;
         const instant=bundledInstant&&c.duration===0&&c.actorId==='player'&&
             (!c.powerId||base.simulation.powers?.some(power=>power.id===c.powerId));
         check(c.id.startsWith(raw.id+'.')&&!registry.simulation.commands.has(c.id)&&!c.fluency&&(timed||instant),'Unsupported or colliding extension command.');
     }
+    const roles=raw.roles||[];
+    check(raw.roles===undefined||bundledInstant&&Array.isArray(roles)&&roles.length>0&&new Set(roles.map(r=>r.id)).size===roles.length&&roles.every(role=>role&&role.id.startsWith(raw.id+'.')&&role.worldId===base.world.id&&role.inventory==='simulation'&&role.provision===false&&role.introductionKnowledgeKey?.startsWith(raw.id+'.')&&!registry.simulation.people.has(role.id)),'Optional people need distinct, non-provisioned, local role definitions.');
+    check(roles.every(role=>raw.commands.some(c=>(c.effects||[]).some(e=>e.type==='knowledge'&&e.actor==='player'&&e.key===role.introductionKnowledgeKey))),'Optional people need a declared player introduction.');
     const items=raw.items||[],status=raw.status||[];
     const own=id=>stableId(id)&&id.startsWith(raw.id+'.');
+    const conditions=raw.conditions||[];
+    check(raw.conditions===undefined||bundledInstant&&roles.length>0&&Array.isArray(conditions)&&conditions.length>0&&
+        new Set(conditions.map(d=>d.id)).size===conditions.length&&conditions.every(d=>object(d)&&own(d.id)&&
+            !registry.simulation.conditions.has(d.id)&&Object.keys(d).every(k=>['id','revision','label','stacking','absence'].includes(k))&&
+            d.stacking==='max'&&d.absence==='zero'),'Optional conditions need local introduced people and inert condition definitions.');
     const energies=raw.energies||[];
     check(raw.energies===undefined||bundledInstant&&Array.isArray(energies)&&energies.length>0&&
         energies.every(d=>object(d)&&own(d.id)&&!registry.simulation.energies.has(d.id)),
@@ -242,17 +268,31 @@ export function registerStructuredCommandExtension(raw,contentHash,base,registry
         new Set(dependencies).size===dependencies.length&&dependencies.every(id=>previous.some(e=>e.id===id)),
         'Install bundled continuation dependencies first.');
     const localLocations=[...base.locations,...locations,...previous.filter(e=>dependencies.includes(e.id)).flatMap(e=>e.locations||[])];
+    const dependencyRoles=previous.filter(e=>dependencies.includes(e.id)).flatMap(e=>e.roles||[]);
     for(const c of raw.commands)check(c.location==null||localLocations.some(l=>l.id===c.location),'Unknown extension command location.');
     for(const c of raw.commands){
         const playerEffect=e=>c.actorId==='player'&&(e.actor==null||e.actor==='player'||e.actor==='$actor');
         const localEnergy=e=>e.type==='energy'&&playerEffect(e)&&energies.some(row=>row.id===e.energyId)&&e.policy===undefined;
         const existingEnergy=e=>localEnergy(e)||e.type==='energy'&&playerEffect(e)&&base.simulation.energies?.some(row=>row.id===e.energyId);
-        const coLocatedTarget=c.actorId==='player'&&c.coLocated===true&&c.completionCoLocated===true&&base.simulation.people?.some(p=>p.id===c.targetId);
+        const role=roles.find(r=>r.id===c.targetId)||registry.simulation.people.get(c.targetId);
+        const ownRole=role?.provision===false&&role.inventory==='simulation'&&role.worldId===base.world.id&&role.id.startsWith(raw.id+'.');
+        const dependentRole=role?.provision===false&&role.inventory==='simulation'&&role.worldId===base.world.id&&dependencyRoles.some(r=>r.id===role.id);
+        const coLocatedTarget=c.actorId==='player'&&c.coLocated===true&&(c.duration===0||c.completionCoLocated===true)&&(base.simulation.people?.some(p=>p.id===c.targetId)||bundledInstant&&ownRole);
+        const spawnRole=e=>bundledInstant&&e.type==='spawn'&&e.personId===e.definitionId&&e.personId.startsWith(raw.id+'.')&&roles.some(r=>r.id===e.definitionId);
+        const roleCondition=e=>bundledInstant&&coLocatedTarget&&ownRole&&e.type==='condition'&&e.actor===c.targetId&&
+            conditions.some(d=>d.id===e.id)&&(e.operation==='remove'||e.operation==='apply'&&e.intensity===1&&Number.isSafeInteger(e.duration)&&e.duration>0);
+        const departRole=e=>bundledInstant&&dependentRole&&c.actorId==='player'&&c.coLocated===true&&c.duration===0&&
+            e.type==='relocate'&&e.actor===c.targetId&&locations.some(l=>l.id===e.location);
+        const offeredTransfer=e=>bundledInstant&&coLocatedTarget&&ownRole&&e.type==='transfer'&&e.from===c.targetId&&e.to==='player'&&Number.isSafeInteger(e.count)&&e.count>0;
         const allowedCost=e=>['item','vital'].includes(e.type)&&typeof e.amount==='number'||
             existingEnergy(e)&&e.operation==='use'&&Number.isSafeInteger(e.output)&&Number.isSafeInteger(e.control);
-        const allowedEffect=e=>['item','knowledge','xp'].includes(e.type)&&(!('amount' in e)||typeof e.amount==='number')||
+        const patrolLeaf=e=>bundledInstant&&raw.id==='book.ri.lead.leaf_treatment'&&base.world.id==='book.ri.lead.world'&&
+            c.id==='book.ri.lead.leaf_treatment.treat'&&c.duration===0&&playerEffect(e)&&
+            e.type==='fact'&&e.scope==='actor'&&e.key==='book.ri.lead.day.injured'&&e.value===false;
+        const allowedEffect=e=>bundledInstant&&raw.id==='book.ri.lead.half_stone_piece'&&c.id===raw.id+'.draw'&&e.type==='riStoneDraw'&&e.actor==='player'&&e.amount===1||spawnRole(e)||roleCondition(e)||departRole(e)||offeredTransfer(e)||['item','knowledge','xp'].includes(e.type)&&(!('amount' in e)||typeof e.amount==='number')||patrolLeaf(e)||
             e.type==='fact'&&['actor','world'].includes(e.scope)&&playerEffect(e)&&own(e.key)||
-            e.type==='relationship'&&coLocatedTarget&&e.actor===c.targetId&&e.target==='player'&&e.axis==='tie.affection'&&Number.isSafeInteger(e.amount)||
+            e.type==='relationship'&&coLocatedTarget&&e.actor===c.targetId&&e.target==='player'&&
+                (e.axis==='tie.affection'||bundledInstant&&ownRole&&e.axis==='tie.trust')&&Number.isSafeInteger(e.amount)||
             e.type==='relocate'&&playerEffect(e)&&localLocations.some(row=>row.id===e.location)||
             existingEnergy(e)&&e.operation==='recover'&&Number.isSafeInteger(e.amount)||
             localEnergy(e)&&e.operation==='learn';
@@ -311,15 +351,27 @@ export function registerStructuredCommandExtension(raw,contentHash,base,registry
     check(raw.status===undefined||Array.isArray(status)&&status.length>0&&status.every(r=>object(r)&&own(r.id)&&own(r.knowledgeKey)&&notes.has(r.knowledgeKey)),'Invalid extension status.');
     const priorItems=(base.extensions||[]).flatMap(extension=>extension.items||[]);
     const priorLocations=previous.flatMap(extension=>extension.locations||[]);
-    const candidate={...base,locations:[...base.locations,...priorLocations,...locations],items:[...(base.items||[]),...priorItems,...items],presentation:{...base.presentation,status:[...base.presentation.status,...status]},
-        simulation:{...base.simulation,energies:[...(base.simulation.energies||[]),...energies],commands:[...base.simulation.commands,...raw.commands]}};
+    const candidate={...base,locations:[...base.locations,...priorLocations,...locations],items:[...(base.items||[]),...priorItems,...items],presentation:{...base.presentation,people:{...base.presentation.people,...Object.fromEntries([...dependencyRoles,...roles].map(role=>[role.id,{introductionKnowledgeKey:role.introductionKnowledgeKey}]))},status:[...base.presentation.status,...status]},
+        simulation:{...base.simulation,people:[...(base.simulation.people||[]),...dependencyRoles,...roles],conditions:[...(base.simulation.conditions||[]),...conditions],energies:[...(base.simulation.energies||[]),...energies],commands:[...base.simulation.commands,...raw.commands]}};
     const compiled=compileStructuredPack(candidate);
     const commands=raw.commands.map(c=>compiled.registry.simulation.commands.get(c.id));
     const extension=freeze({...structuredClone(raw),contentHash,commands});
     for(const c of commands)check(!registry.simulation.commands.has(c.id),'Structured extension command collision.');
     if((items.length||locations.length)&&stageObjects)stageObjects(items,locations);
+    for(const role of roles)registry.simulation.people.set(role.id,compiled.registry.simulation.people.get(role.id));
+    for(const d of conditions)registry.simulation.conditions.set(d.id,compiled.registry.simulation.conditions.get(d.id));
     for(const d of energies)registry.simulation.energies.set(d.id,compiled.registry.simulation.energies.get(d.id));
     for(const c of commands)registry.simulation.commands.set(c.id,c);
     base.extensions=[...(base.extensions||[]),extension];
+    // Existing methods are untouched. Resolve only the explicitly named target
+    // commands when an alternate provider is installed, not every prior command
+    // after every extension registration.
+    for(const alternative of raw.supportAlternatives||[]) {
+        const target=base.extensions.find(e=>e.id===alternative.target.id);
+        for(const id of alternative.commands) {
+            const command=target.commands.find(c=>c.id===id);
+            registry.simulation.commands.set(id,freeze(structuredSupportCommand(base,target,command)));
+        }
+    }
     return extension;
 }

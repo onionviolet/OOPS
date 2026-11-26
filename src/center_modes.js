@@ -1,3 +1,34 @@
+// The active structured life supplies its observer-safe place label. Native
+// location_name_span remains the fallback for ordinary lives and Village.
+export function createCenterReturnLabel(write, nativePlace) {
+    let place = '', mode = 'local', namedDestination = '';
+    const sync = () => {
+        const label = namedDestination || place || nativePlace() || 'Local actions';
+        write(`← Back to ${label}${mode === 'reading' ? ' · Stop reading' : mode === 'sleep' ? ' · Wake up' : ''}`);
+    };
+    return {
+        draw(nextMode, destinationLabel) {
+            mode = nextMode;
+            namedDestination = destinationLabel || '';
+            sync();
+        },
+        setPlace(nextPlace) {
+            const next = typeof nextPlace === 'string' ? nextPlace.trim() : '';
+            if (next === place) return;
+            place = next;
+            sync();
+        }
+    };
+}
+const returnLabel = createCenterReturnLabel(label => {
+    if (typeof document === 'undefined') return;
+    const back = document.getElementById('center_mode_back');
+    if (!back) return;
+    back.textContent = label;
+    back.setAttribute('aria-label', label);
+}, () => typeof document === 'undefined' ? '' : document.getElementById('location_name_span')?.textContent.trim());
+export const setStructuredCenterPlace = place => returnLabel.setPlace(place);
+
 // Ephemeral navigation only. Native commands still own stopping work and trade.
 export function createCenterModes(paint) {
     const stack = [];
@@ -86,10 +117,8 @@ export function centerModes() {
         const board = root?.querySelector('.workspace-board');
         if (board && depth && !board.dataset.heldRows) { board.dataset.heldRows = board.style.getPropertyValue('grid-template-rows') || ' '; board.style.setProperty('grid-template-rows', getComputedStyle(board).gridTemplateRows, 'important'); }
         else if (board && !depth && board.dataset.heldRows) { const was = board.dataset.heldRows.trim(); delete board.dataset.heldRows; if (was) board.style.setProperty('grid-template-rows', was, 'important'); else board.style.removeProperty('grid-template-rows'); }
-        const place = document.getElementById('location_name_span')?.textContent.trim() || 'Local actions';
-        const label = views.get(destination)?.label || {mixing:'Village mixing counter',dialogue:'Conversation',reading:'Reading',sleep:'Resting',activity:'Current work',action:'Current work',crafting:'Crafting',trade:'Trade',storage:'Storage'}[destination] || place;
-        back.textContent = `← Back to ${label}${mode === 'reading' ? ' · Stop reading' : mode === 'sleep' ? ' · Wake up' : ''}`;
-        back.setAttribute('aria-label', back.textContent);
+        const label = views.get(destination)?.label || {mixing:'Village mixing counter',dialogue:'Conversation',reading:'Reading',sleep:'Resting',activity:'Current work',action:'Current work',crafting:'Crafting',trade:'Trade',storage:'Storage'}[destination];
+        returnLabel.draw(mode, label);
         nav.dataset.centerMode = mode;
         for (const [key, id] of Object.entries(surfaces)) {
             const node = document.getElementById(id); if (!node) continue;

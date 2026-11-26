@@ -4,7 +4,7 @@ import {retainCombatInspection} from './combat_subject.js';
 import {bindSubjectGesture} from './recipe_connections.js';
 import {createNearbyContextView,placeAccount} from './nearby_context_view.js';
 import {placeNoticed} from './place_noticed.js';
-export {placeExits, heardName} from './nearby_context_view.js';
+export {placeExits, heardName, canOpenCurrentWorkStation} from './nearby_context_view.js';
 import {readTemperature} from './condition_facts.js';
 import {boardLayout} from './layout_spec.js';
 import {domainRegistry} from './domain_registry.js';

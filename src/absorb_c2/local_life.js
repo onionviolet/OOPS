@@ -155,7 +155,7 @@ function villageWaiting(s,c) {
         ...(!s.watching&&open(WATCH_SCHEDULE,s.watchDay)?['the watch is taking volunteers until 10:00']:[]),
         ...(s.visitorMet&&!s.pamphletRead?['the courier’s pamphlet is still unread']:[]),
         ...(s.encounter?['a supply runner is waiting by the well']:[]),
-        ...(s.pamphletRead&&s.parcelStep===2?['the old craftsman expects your receipt']:[])];
+        ...(s.parcelStep===2?['the old craftsman expects your receipt']:[])];
     return notes.length?`${notes.join('; ')}.`.replace(/^./,m=>m.toUpperCase()):'';
 }
 

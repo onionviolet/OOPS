@@ -1239,6 +1239,15 @@ function unassign_dynamic_loot_message() {
     dynamic_loot_message = null;
 }
 
+// Transient Reports belong to the native body whose actions produced them.
+// This is called after a durable replacement beginning, not on ordinary travel.
+function reset_message_log_for_life() {
+    message_log?.replaceChildren();
+    for(const group of Object.keys(message_count))message_count[group]=0;
+    dynamic_loot_message=null;hide_message_log_unread();
+    batched_log_following=undefined;batched_log_scroll_requested=false;
+}
+
 function format_book_bonuses(bonuses) {
     let formatted = '';
     if(bonuses.stats) {
@@ -2412,16 +2421,15 @@ function update_displayed_normal_location(location) {
         start_sleeping_div.id = "start_sleeping_div";
         start_sleeping_div.setAttribute('onclick', 'start_sleeping()');
 
-        const open_storage_div = document.createElement("div");
-        
-        insert_HTML(open_storage_div, '<i class="material-icons">inventory_2</i>  Open your personal chest');
-        open_storage_div.id = "open_storage_div";
-        open_storage_div.setAttribute('onclick', 'openStorage()');
-
         location_choice_divs["sleeping"] = start_sleeping_div;
-        location_choice_divs["storage"] = open_storage_div;
+        if(location.housing.personal_storage!==false) {
+            const open_storage_div = document.createElement("div");
+            insert_HTML(open_storage_div, '<i class="material-icons">inventory_2</i>  Open your personal chest');
+            open_storage_div.id = "open_storage_div";
+            open_storage_div.setAttribute('onclick', 'openStorage()');
+            location_choice_divs["storage"] = open_storage_div;
+        }
         //action_div.appendChild(start_sleeping_div);
-        //action_div.appendChild(open_storage_div);
     }
     
     ////////////////////////////////////
@@ -6723,7 +6731,7 @@ export {
     update_displayed_item_log,
     set_HTML,
     set_light_based_background_color,
-    unassign_dynamic_loot_message,
+    unassign_dynamic_loot_message, reset_message_log_for_life,
     fill_character_bio, create_race_tooltip, create_height_tooltip, create_gender_tooltip,
     insert_HTML, clear_HTML_content
 }

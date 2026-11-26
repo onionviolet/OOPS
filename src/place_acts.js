@@ -106,7 +106,7 @@ export function quotePlaceActs(state,commands,data,preview,{blocked='',decide=()
   if(remoteRule)known.push(...disclosedReasons(remoteRule,publicFacts));
   const reasons=[...(q.reasons||[]).flatMap(r=>r==='The required knowledge, means or circumstances are missing.'&&known.length?known:[r.startsWith('Insufficient ')&&row.costReason?row.costReason:r]),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
   const cost=d.divination?divinationCostText(state,d,q.eligible?q.costs:d.costs):d.procedure?.costLabel||row.costLabel||'no stock spent';
-  return [{id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${cost}${d.cancellation==='forfeit'?' · inputs stay spent if stopped':''}`,
+  return [{id:d.id,knowledgeKey:row.knowledgeKey,label:`${d.label} · ${q.duration??d.duration} min · ${cost}${d.cancellation==='forfeit'?' · inputs stay spent if stopped':''}`,
    description:d.procedure?d.description:row.description,...(row.flavour?{flavour:row.flavour}:{}),eligible:q.eligible&&!blocked&&decision.allowed,reasons,duration:q.duration??d.duration}];
  });
 }

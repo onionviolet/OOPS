@@ -3,6 +3,7 @@ import {validateItemKey} from './gameplay_transactions.js';
 import {createContentRegistry} from './expansion_engine.js';
 import {stableId, jsonData} from './simulation_contracts.js';
 import {validateStructuredRecord,validateStructuredSelection} from './structured_pack_state.js';
+import {migrateRegistrationPredecessor,registrationIsDormant} from './pack_registration_predecessors.js';
 const scalar=v=>['string','boolean','number'].includes(typeof v)&& (typeof v!=='number'||Number.isFinite(v));
 export const MAX_PACK_PAY=10000;
 export const emptyPackState=()=>({schema:1,packs:{}});
@@ -142,7 +143,8 @@ export function declareRegistrationAdditions(packId,additions) {
     check(typeof packId==='string'&&packId&&additions&&typeof additions==='object'&&!declaredAdditions.has(packId),'Invalid additive registration declaration.');
     declaredAdditions.set(packId,structuredClone(additions));
 }
-function migrateRegistration(row,d) {
+function migrateRegistration(row,d,dormant=false) {
+    row=migrateRegistrationPredecessor(row,d,dormant);
     const additions=d.compatibility?.registrationAdditions??declaredAdditions.get(d.id);
     if(!row || !additions)return row;
     const next={...row};
@@ -162,7 +164,7 @@ function migrateRegistration(row,d) {
 export function packSaveState(state,definitions) {
     validatePackState(state);const next=structuredClone(state);next.registered??={};
     for(const [id,d] of definitions) {
-        const prior=migrateRegistration(next.registered[id],d),locationIds=d.locations.map(l=>l.id);
+        const prior=migrateRegistration(next.registered[id],d,registrationIsDormant(next,id)),locationIds=d.locations.map(l=>l.id);
         check(!prior||prior.worldId===d.world.id&&JSON.stringify(prior.locationIds)===JSON.stringify(locationIds),'Optional registration needs an explicit migration.');
         const itemIds=(d.items||[]).map(item=>item.id);
         check(prior?.itemIds==null||JSON.stringify(prior.itemIds)===JSON.stringify(itemIds),'Optional item registration needs an explicit migration.');
@@ -180,7 +182,7 @@ export function preparePackSave(original,definitions) {
     for(const [id,row] of Object.entries(save.content_packs.packs))
         save.content_packs.registered[id]??={worldId:row.worldId,locationIds:[...row.locationIds]};
     for(const [id,savedRegistration] of Object.entries(save.content_packs.registered)) {
-        const registration=definitions.has(id)?migrateRegistration(savedRegistration,definitions.get(id)):savedRegistration;
+        const registration=definitions.has(id)?migrateRegistration(savedRegistration,definitions.get(id),registrationIsDormant(save.content_packs,id)):savedRegistration;
         save.content_packs.registered[id]=registration;
         const d=definitions.get(id),row=save.content_packs.packs[id];
         if(d) {

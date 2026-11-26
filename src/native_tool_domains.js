@@ -44,6 +44,9 @@ import {configureSkillRecords} from './skill_records_domain.js';
 import {configureSkillLadder} from './skill_ladder_domain.js';
 import {configureReturnDigest} from './return_digest_domain.js';
 import {configureAwayBank} from './away_bank_domain.js';
+import {configureFarmSupply} from './management/farm_supply.js';
+import {commitSimulationCommand,previewSimulationCommand} from './simulation.js';
+import {managementFacts} from './management/facts.js';
 import {configureHiredHands} from './hired_hands.js';
 
 // AR17: a world-neutral engine takes the save-state write port (work ledger, restore, storage, alive), never the Frontier harvest port.
@@ -60,6 +63,7 @@ export function configureNativeToolDomains(operations) {
     configureOrganizations({...operations, writable: neutralWritable(operations), blocked: operations.worldWorkBlocked});
     configureInquiry({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations)});
     configureSocialContact({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations)});
+    configureFarmSupply({...operations,commitCommand:commitSimulationCommand,previewCommand:previewSimulationCommand,context:plan=>{const c={...operations.campaignContext(),external:plan.external,gameplay:plan.gameplay};return {...c,facts:{...c.facts,...managementFacts(plan.state,c)}};}});
     configureHiredHands({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations), idle: operations.idle, logMessage: operations.logMessage});
     configureCohort({...operations,blocked:operations.worldWorkBlocked});
     configureTempoFight({...operations, writable: neutralWritable(operations)});
