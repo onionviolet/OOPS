@@ -1,0 +1,20 @@
+{
+  "stage": "after",
+  "bundleSha256": "0f6b81ae3403ac45fe9af83166549e661db16a619d58ffb78e5bbab952a89734",
+  "stylesheetSha256": "2c48659cbe468b7d38ef99202615b2e6079b796fe3b71a1d194ff0425a966395",
+  "viewports": [
+    [
+      1366,
+      768
+    ],
+    [
+      1920,
+      1080
+    ]
+  ],
+  "checks": [
+    "Hogwarts Lumos and Nox",
+    "Fang blocked action with visible reason"
+  ],
+  "errors": []
+}
