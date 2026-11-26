@@ -1,5 +1,6 @@
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
 import test from 'node:test';
-import {mkdtemp, cp, readdir, symlink, writeFile, readFile, rm} from 'node:fs/promises';
+import {mkdtemp, cp, readdir, writeFile, readFile, rm} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {execFile} from 'node:child_process';
@@ -11,7 +12,7 @@ test('native trait route: fresh meeting/supply fixture, interruption, amends, re
  t.after(()=>rm(dir,{recursive:true,force:true}));
  for(const name of ['src','scripts','tests']) await cp(join(root,name),join(dir,name),{recursive:true});
  for(const entry of await readdir(root,{withFileTypes:true})) if(!['.git','src','scripts','tests','private_packs','.lane-builds'].includes(entry.name))
-  await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
+  await linkFixtureInput(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  // MR1/MR2 are integrated. Existing simulation regressions run separately, once.
  // Named native fixture: background tab, decorative mutation observers paused; explicit workshop render only.
  const main=join(dir,'src/main.js');

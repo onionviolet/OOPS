@@ -1,3 +1,6 @@
+import {runFixtureWorker} from './helpers/fixture_process.mjs';
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
+import {createFixtureTiming,formatFixtureTiming,readFixtureTiming,scheduleFixtureTimingReport} from './helpers/fixture_timing.mjs';
 import test from 'node:test';
 // Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
 const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
@@ -86,17 +89,22 @@ test('timed preparation and document handling retain action/object facts without
 });
 
 test('live joins preserve pending and used batches through native Save, reload, Export and Import', {timeout:300000*TS}, async t=>{
- const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
- const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
+ const {mkdtemp,cp,readdir,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
+ const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');const {pathToFileURL}=await import('node:url');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
  const exec=promisify(execFile),root=process.cwd(),dir=await mkdtemp(join(tmpdir(),'yairpg-mk1-save-'));
- t.after(()=>rm(dir,{recursive:true,force:true}));
+ const timingPath=join(dir,'fixture-timing.json'),timing=createFixtureTiming(timingPath,'cast-making');
+ let workerDone=Promise.resolve();
+ t.after(async()=>{const beforeCleanup=readFixtureTiming(timingPath);if(beforeCleanup?.active?.length)t.diagnostic('Fixture timing at cleanup: '+formatFixtureTiming(beforeCleanup));await workerDone.catch(()=>{});const receipt=readFixtureTiming(timingPath);if(!beforeCleanup?.active?.length&&receipt?.lastError)t.diagnostic('Fixture timing at cleanup: '+formatFixtureTiming(receipt));await rm(dir,{recursive:true,force:true});});
+ await timing.measure('fixture copy and input links',async()=>{
  for(const name of ['src','scripts'])await cp(join(root,name),join(dir,name),{recursive:true});
  for(const entry of await readdir(root,{withFileTypes:true})){
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
-  await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
+  await linkFixtureInput(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
+ });
 
+ await timing.measure('fixture pack and source injection',async()=>{
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`
 export {whenCastLoaded as mkReady} from './book_world_lotm_cast_days.js';
@@ -116,23 +124,30 @@ export const mkAct=id=>{domainRegistry.refresh();document.querySelector('[data-l
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
+ });
  const buildOut=join(dir,'mk1-build');
- await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:60000*TS,maxBuffer:1024*1024});
+ await timing.measure('integrated build',()=>exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:buildOut},timeout:60000*TS,maxBuffer:1024*1024}),{cpu:false});
  const {createHash}=await import('node:crypto');
  t.diagnostic('Disposable integrated build SHA-256: '+createHash('sha256').update(await readFile(join(buildOut,'dist/bundle.js'))).digest('hex'));
  const worker=join(dir,'mk1-save-worker.mjs');
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
+const {createFixtureTiming}=await import(process.env.OOPS_FIXTURE_TIMING_MODULE);
+const timing=createFixtureTiming(process.env.OOPS_FIXTURE_TIMING_FILE,'cast-making');
 const key=id=>JSON.stringify({id});
-const g=await boot(null,{seed:37,heroName:null});
+await timing.measure('native worker',async()=>{
+const g=await timing.measure('boot',()=>boot(null,{seed:37,heroName:null}));
 try {
+ let initial,encoded;
+ await timing.measure('enroll and initial state',async()=>{
  await g.module.mkReady();g.module.mkEnroll();
- let initial=JSON.parse(g.internals.create_save());
+ initial=JSON.parse(g.internals.create_save());
  initial.expansion.simulation.knowledge.player||={};
  initial.expansion.simulation.knowledge.player['fixture.recipe']={stage:'seen',value:'A known method.',at:initial.expansion.clock,cause:'fixture.setup'};
  for(const id of ['fixture.leaf','fixture.water','fixture.tool'])initial.inventories.person.main_character[key(id)]={count:2};
  await g.load(initial);await g.settle();
+ });
  const button=id=>document.querySelector('[data-lotm="'+id+'"]');
  assert.ok(button('fixture.make'),'making route is reachable');
  assert.equal(button('fixture.make.use').disabled,true);
@@ -144,12 +159,15 @@ try {
  assert.throws(()=>g.module.mkValidate(bad),/exact admitted definition/);
  const badSupport=structuredClone(saved);badSupport.expansion.simulation.jobs.find(j=>j.commandId==='fixture.make').completionSupport.location='fixture.other';
  assert.throws(()=>g.module.mkValidate(badSupport),/support differs/);
+ await timing.measure('pending batch persistence',async()=>{
  // Pending Export/Import, then reload and settle through the live job owner.
- let encoded=await g.exportFile();await g.importFile(encoded);await g.reload();await g.step(2);
+ encoded=await g.exportFile();await g.importFile(encoded);await g.reload();await g.step(2);
  saved=await g.save();assert.equal(saved.inventories.person.main_character[key('fixture.liquid')].count,1);
  assert.equal(saved.inventories.person.main_character[key('fixture.leaf')].count,1);
  assert.equal(saved.inventories.person.main_character[key('fixture.tool')].count,2);
  assert.equal(button('fixture.make.use').disabled,false);
+ });
+ await timing.measure('used batch persistence',async()=>{
  saved.character.hp_to_full=8;await g.load(saved);await g.settle();
  const beforeUse=(await g.save()).character.hp_to_full;
  g.module.mkAct('fixture.make.use');await g.save();await g.reload();await g.step(1);
@@ -159,6 +177,8 @@ try {
  const after=await g.save();assert.equal(after.expansion.simulation.knowledge.player['making.fixture.make.used'].value,'You drank the liquid.');
  assert.equal(after.inventories.person.main_character[key('fixture.leaf')].count,1);
  assert.equal(after.inventories.person.main_character[key('fixture.liquid')],undefined);
+ });
+ await timing.measure('timed preparation and document persistence',async()=>{
  g.module.mkAct('fixture.prep.unbound');let timed=await g.save();
  const timedJob=timed.expansion.simulation.jobs.find(j=>j.commandId==='fixture.prep.unbound');assert.ok(timedJob);
  const badTimed=structuredClone(timed);badTimed.expansion.simulation.jobs.find(j=>j.id===timedJob.id).effects[0].value=false;
@@ -171,9 +191,16 @@ try {
  assert.equal(timed.expansion.simulation.knowledge.player['making.fixture.document.write'].value,'You performed the write action.');
  g.module.mkAct('fixture.prep.stock');await g.step(2);
  assert.equal((await g.save()).inventories.person.main_character[key('fixture.leaf')],undefined);
+ });
  assert.deepEqual(g.errors,[]);assert.equal(g.internals.foundationSaveBlocked,false);
 } finally {g.close();}
+});
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});}
- catch(error){assert.fail(`Native making fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
+ const helperUrl=pathToFileURL(join(root,'tests/helpers/fixture_timing.mjs')).href;
+ const clearProgressReport=scheduleFixtureTimingReport(t,timingPath,270000*TS);
+ try{await (workerDone=runFixtureWorker(process.execPath,[worker],{cwd:dir,env:{...process.env,OOPS_FIXTURE_TIMING_FILE:timingPath,OOPS_FIXTURE_TIMING_MODULE:helperUrl},timeout:270000*TS,maxBuffer:1024*1024,signal:t.signal}));
+  t.diagnostic('Fixture timing: '+formatFixtureTiming(readFixtureTiming(timingPath)));
+ }
+ catch(error){assert.fail(`Native making fixture failed: ${error.message}\nFixture timing: ${formatFixtureTiming(readFixtureTiming(timingPath))}\n${error.stdout||''}\n${error.stderr||''}`);}
+ finally{clearProgressReport();}
 });

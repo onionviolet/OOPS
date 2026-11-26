@@ -1,16 +1,17 @@
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
 import test from 'node:test';
 // Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
 const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import assert from 'node:assert/strict';
 
 test('current card host integration preserves pending and settled card state through the real validator', {timeout:300000*TS}, async t=>{
- const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
+ const {mkdtemp,cp,readdir,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
  const exec=promisify(execFile),root=process.cwd(),dir=await mkdtemp(join(tmpdir(),'yairpg-cr2-save-'));
  t.after(()=>rm(dir,{recursive:true,force:true}));
  for(const name of ['src','scripts','tests'])await cp(join(root,name),join(dir,name),{recursive:true});
- for(const entry of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(entry.name))await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
+ for(const entry of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(entry.name))await linkFixtureInput(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  // Exercise the current integrated source; historical patch applicability is not a runtime feature check.
  const main=join(dir,'src/main.js');await writeFile(main,(await readFile(main,'utf8'))+`\nexport {whenCastLoaded as cr2Ready} from './book_world_lotm_cast_days.js';\nexport const cr2Enroll=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const cr2Validate=save=>validateSaveEnvelope(save,game_version);\nexport {nextCastBeatTime as cr2NextBoundary,currentCastBeatLedger as cr2Ledger} from './book_world_lotm_cast_host.js';\nexport const cr2Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
  const ev={label:'I',locator:'fixture page'},person={id:'fixture.person.lead',indexId:'fixture.person.lead',name:'Lead',tier:'principal',relations:[],knows:[],wants:[],...ev};

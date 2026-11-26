@@ -1,7 +1,8 @@
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
 import test from 'node:test';
 // Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
 const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
-import {mkdtemp, cp, readdir, symlink, writeFile, readFile, rm} from 'node:fs/promises';
+import {mkdtemp, cp, readdir, writeFile, readFile, rm} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {execFile} from 'node:child_process';
@@ -16,7 +17,7 @@ test('real Save, reload, Export and literal Import retain episodes, hearsay and 
     for (const name of ['src', 'scripts']) await cp(join(root, name), join(dir, name), {recursive: true});
     for (const entry of await readdir(root, {withFileTypes: true})) {
         if (!['.git', 'src', 'scripts', 'private_packs', '.lane-builds'].includes(entry.name))
-            await symlink(join(root, entry.name), join(dir, entry.name), entry.isDirectory() ? 'dir' : 'file');
+            await linkFixtureInput(join(root, entry.name), join(dir, entry.name), entry.isDirectory() ? 'dir' : 'file');
     }
     const patch = 'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MR1_INTEGRATION.patch';
     // MR2's combined patch carries this registration forward; either form counts as integrated.

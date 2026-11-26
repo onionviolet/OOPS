@@ -3,11 +3,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {readCanonicalText} from '../scripts/canonical_text.mjs';
+import {fileURLToPath} from 'node:url';
 import {build, toText, WORLDS_FILE, CORPORA, GENERATED_LEDGERS, REGISTRY, readCensus, libraryRows, uncoveredLibraryRows} from '../scripts/worlds_ledger.mjs';
 import {readLedgers, countLedger, DENOMINATORS, nextCells, renderWorlds} from '../scripts/coverage_report.mjs';
 
-const root = new URL('../', import.meta.url).pathname;
-const text = fs.readFileSync(`${root}${WORLDS_FILE}`, 'utf8');
+const root = fileURLToPath(new URL('../', import.meta.url));
+const text = readCanonicalText(`${root}${WORLDS_FILE}`);
 const rows = text.trim().split('\n').map(l => JSON.parse(l));
 const ledgers = readLedgers();
 

@@ -1,8 +1,8 @@
-import test from 'node:test';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync, writeFileSync, readFileSync, existsSync} from 'node:fs';
+import {mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync, existsSync} from 'node:fs';
 import {tmpdir} from 'node:os';
-import {join} from 'node:path';
+import {basename, dirname, join, resolve} from 'node:path';
 import {normalize, shardSchema, buildRequest, systemText, estimateCost, makeClient, parseMessage, collect, repairRequest, mergeRepair, requestsFromPlan, candidateCoverage} from '../scripts/lead_run/batch_lib.mjs';
 import {submit} from '../scripts/lead_run/batch_submit.mjs';
 import {buildGlossary} from '../scripts/lead_run/shard_tools.mjs';
@@ -16,8 +16,17 @@ const scene = {schema: 'lead-run/1.3', beat: 'lr.test.main.0001', order: 1, pov:
 const census = {schema: 'census/1.3', id: 'test.item.bread', label: 'Bread', zh: '面包', nameSource: 'pinyin-unconfirmed', kind: 'item', rung: 'M0', whereabouts: [],
     firstMention: 'zh 第1章 p2', aliases: [], claimant: 'narration', note: 'Sold.'};
 
+const fixtureDirs = [];
+after(() => {
+    for (const dir of fixtureDirs) {
+        assert.equal(dirname(resolve(dir)), resolve(tmpdir()));
+        assert.ok(basename(dir).startsWith('batch-'));
+        rmSync(dir, {recursive: true, force: true});
+    }
+});
 function fixture() {
     const dir = mkdtempSync(join(tmpdir(), 'batch-'));
+    fixtureDirs.push(dir);
     writeFileSync(join(dir, 'shard.txt'), TEXT);
     return {dir, plan: {label: 't', pass: 'full', world: 'test', privateDir: join(dir, 'p'), outDir: join(dir, 'o'), shards: [{prefix: 'z1', shard: join(dir, 'shard.txt'), base: '0001', chapters: '1-1'}]}};
 }
@@ -118,12 +127,14 @@ test('max_tokens, errored and expired results become repair entries, not crashes
 
 test('plan requests rebuild from files with the graded-only glossary filter', () => {
     const {plan, dir} = fixture();
-    writeFileSync(join(dir, 'g1m_census.jsonl'), JSON.stringify({zh: '约翰·史密斯', id: 'test.person.john', label: 'John', kind: 'person'}) + '\n');
-    writeFileSync(join(dir, 'g1m_header.json'), JSON.stringify({grade: 'B'}));
-    writeFileSync(join(dir, 'g3m_census.jsonl'), JSON.stringify({zh: '面包', id: 'test.person.graded-c', label: 'C shard', kind: 'person'}) + '\n');
-    writeFileSync(join(dir, 'g3m_header.json'), JSON.stringify({grade: 'C'}));
-    writeFileSync(join(dir, 'g2_census.jsonl'), JSON.stringify({zh: '面包', id: 'test.person.bread', label: 'Bread', kind: 'person'}) + '\n');
-    const reqs = requestsFromPlan({...plan, glossary: {censusDir: dir, censusMatch: '^g[13]m_census\\.jsonl$'}});
+    const censusDir = join(dir, 'graded census with spaces');
+    mkdirSync(censusDir);
+    writeFileSync(join(censusDir, 'g1m_census.jsonl'), JSON.stringify({zh: '约翰·史密斯', id: 'test.person.john', label: 'John', kind: 'person'}) + '\n');
+    writeFileSync(join(censusDir, 'g1m_header.json'), JSON.stringify({grade: 'B'}));
+    writeFileSync(join(censusDir, 'g3m_census.jsonl'), JSON.stringify({zh: '面包', id: 'test.person.graded-c', label: 'C shard', kind: 'person'}) + '\n');
+    writeFileSync(join(censusDir, 'g3m_header.json'), JSON.stringify({grade: 'C'}));
+    writeFileSync(join(censusDir, 'g2_census.jsonl'), JSON.stringify({zh: '面包', id: 'test.person.bread', label: 'Bread', kind: 'person'}) + '\n');
+    const reqs = requestsFromPlan({...plan, glossary: {censusDir, censusMatch: '^g[13]m_census\\.jsonl$'}});
     assert.equal(reqs[0]._hits, 1);
     assert.ok(!reqs[0].params.messages[0].content[0].text.includes('graded-c'), 'a grade C shard never feeds the glossary (PL-A47)');
     assert.ok(!reqs[0].params.messages[0].content[0].text.includes('test.person.bread'));
@@ -152,6 +163,20 @@ test('a scenes pass collected after a census pass keeps the census', async () =>
     const h = JSON.parse(readFileSync(join(plan.privateDir, 'z1m_header.json'), 'utf8'));
     assert.equal(h.counts.census, 1);
     assert.equal(h.route, 'batch');
+});
+
+test('collection runs its local migrator when Node is absent from PATH', async () => {
+    const {plan} = fixture(), previousPath = process.env.PATH;
+    try {
+        process.env.PATH = '';
+        const summary = await collect({client: mockClient([ok('z1-full', {scenes: [scene], census: [census], fills: []})]),
+            batchId: 'local-fixture', plan, outDir: plan.outDir, sleep: async () => {}});
+        assert.equal(summary.shards[0].status, 'ok');
+        assert.ok(existsSync(join(plan.privateDir, 'z1m_scenes.jsonl')));
+    } finally {
+        if (previousPath === undefined) delete process.env.PATH;
+        else process.env.PATH = previousPath;
+    }
 });
 
 test('a repair batch submits the written request file, and a second live submit needs --resubmit', async () => {

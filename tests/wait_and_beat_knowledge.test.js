@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {waitUntilOptions,runWaitUntil} from '../src/wait_until.js';
+import {waitUntilOptions,runWaitUntil,createWaitUntil,scheduleWaitUntil} from '../src/wait_until.js';
 import {beatKnowledgeWrites,applyBeatKnowledge} from '../src/beat_knowledge.js';
 import {planLotmCastBeats,LOTM_BESIDE_PROFILE,castSettledPeople,nextCastBeatTime} from '../src/book_world_lotm_cast_host.js';
 import {newBeatState} from '../src/beat_records.js';
@@ -49,6 +49,32 @@ test('a clock owner that clips a step falls back to single minutes and rechecks 
   advance:n=>{calls.push(n);clock+=calls.length===1?3:n;}});
  assert.deepEqual(calls,[10,1,1]);assert.equal(result.minutes,5);assert.equal(result.interrupted,true);
 });
+test('scheduled waits yield before each committed minute and stop without spending future time',async()=>{
+ let clock=0,money=10,yields=0;const progress=[],events=[];
+ const waiting=createWaitUntil('wait.until.10',{read:()=>({clock,place:'home'}),options:()=>[{id:'wait.until.10',at:10}],advance:n=>{assert.equal(n,1);clock+=n;money-=n;events.push(clock);}});
+ const pending=scheduleWaitUntil(waiting,{yieldControl:async()=>{yields++;if(yields===4)waiting.stop('You stopped waiting.');},onProgress:p=>progress.push(p.minutes)});
+ assert.equal(clock,0,'click returns before any native time is advanced');
+ const result=await pending;assert.deepEqual(result,{minutes:3,interrupted:true,reason:'You stopped waiting.'});assert.equal(money,7);assert.deepEqual(events,[1,2,3]);assert.deepEqual(progress,[0,1,2,3]);
+ const restored=JSON.parse(JSON.stringify({clock,money,events}));assert.deepEqual(restored,{clock:3,money:7,events:[1,2,3]});
+ clock++;assert.equal(waiting.view().minutes,3,'finished receipt does not count later ordinary time');
+});
+
+test('scheduled waits honor native event boundaries and stop for changes between tasks',async()=>{
+ for(const mode of ['complete','moved','read-only','rewound']){
+  let clock=0,place='home',reason='',turn=0;const events=[];
+  const waiting=createWaitUntil('wait.until.5',{read:()=>({clock,place}),options:()=>[{id:'wait.until.5',at:5}],blocked:()=>reason,nextBoundary:(r,target)=>r.clock<2?2:target,advance:n=>{clock+=n;if(clock===2)events.push('due event');}});
+  const result=await scheduleWaitUntil(waiting,{yieldControl:async()=>{if(++turn===4){if(mode==='moved')place='road';if(mode==='read-only')reason='Saving is paused.';if(mode==='rewound')clock=1;}}});
+  assert.deepEqual(events,['due event']);assert.equal(result.interrupted,mode!=='complete');assert.equal(clock,mode==='complete'?5:mode==='rewound'?1:3);
+ }
+});
+
+test('scheduled wait does not enqueue future advancement after native pause or failed durable commit',async()=>{
+ let clock=0,calls=0;const ports={read:()=>({clock,place:'home'}),options:()=>[{id:'wait.until.3',at:3}],advance:()=>{calls++;return 0;}};
+ assert.equal((await scheduleWaitUntil(createWaitUntil('wait.until.3',ports),{yieldControl:async()=>{}})).reason,'Time is paused by a local decision.');assert.equal(calls,1);
+ const waiting=createWaitUntil('wait.until.3',{...ports,advance:()=>{calls++;throw Error('Save failed.');}});
+ await assert.rejects(scheduleWaitUntil(waiting,{yieldControl:async()=>{}}),/Save failed/);assert.equal(clock,0);assert.equal(calls,2);
+});
+
 const beat={id:'fixture.beat.lesson',actor:'fixture.teacher',knows:[
  {key:'fixture.private',value:'A private recollection.'},
  {key:'fixture.lesson',value:'The lesson teaches a route.',audience:'present'},

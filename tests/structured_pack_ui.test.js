@@ -124,6 +124,18 @@ test('acts that cannot run yet fold into one Not yet line with their reasons, be
     panel.destroy();
 }));
 
+test('a resolved choice shows its reply after its buttons disappear', () => withDom(({host, find, text}) => {
+    const v=view();
+    v.jobs=[];
+    const panel=createStructuredPackPanel({read:()=>v,command:()=>{
+        v.actions=[];
+        v.status=[{label:'Breakfast',value:'Fang Zheng closes his hand around the pouch.',note:true}];
+    }});
+    find(host.children[0],'structuredAction','work').click();
+    assert.match(text(host.children[0]),/Done: Prepare supplies\. Fang Zheng closes his hand around the pouch\./);
+    panel.destroy();
+}));
+
 test('an instant act shows the outcome note it wrote, not only "Done"', () => withDom(({host, find, text}) => {
     const v = view(); v.jobs = []; v.actions = [{...v.actions[0], id: 'report', label: 'Report the watch', duration: 0, completed: 0, eligible: true, reasons: []}];
     v.status = [{label: 'Held', value: 2}, {label: 'Last watch', value: 'Quiet night.', note: true}];
@@ -189,4 +201,29 @@ test('two acts with one stored name are told apart on their rows by what each do
     assert.match(quote('a'), /Follow the written steps\./); assert.match(quote('b'), /Drop the quills in early\./);
     assert.doesNotMatch(quote('c'), /Sit down/, 'a name used once stays plain');
     panel.destroy();
+}));
+
+test('active structured place keeps visible and accessible return labels current while panel remains open', () => withDom(({document, tick}) => {
+    const back = document.createElement('button');back.id = 'center_mode_back';document.root.append(back);
+    const v = view();
+    const panel = createStructuredPackPanel({read: () => v, command: () => {}});
+    assert.equal(back.textContent, '← Back to Workroom');
+    assert.equal(back.getAttribute('aria-label'), back.textContent);
+    back.focus();
+    v.place = 'School corridor';tick();
+    assert.equal(back.textContent, '← Back to School corridor');
+    assert.equal(back.getAttribute('aria-label'), back.textContent);
+    assert.equal(document.activeElement, back, 'place synchronization does not redraw navigation or steal focus');
+    panel.destroy();
+}));
+
+test('immediate queue opt-out hides repeat and guards stale dispatch without making the act once-ever',()=>withDom(({host,find,tick})=>{
+ const v=view(),calls=[];v.jobs=[];v.actions[0].repeatable=true;v.actions[0].queueRepeatable=false;v.actions[0].completed=0;v.actions[0].duration=1;
+ const panel=createStructuredPackPanel({read:()=>v,command:request=>{calls.push(request);v.jobs=[{id:'job.queue',commandId:'work',label:'Climb',remaining:1,duration:1,cancellable:true}];}});
+ const root=host.children[0],repeat=find(root,'structuredRepeat','work');assert.equal(repeat.hidden,true);
+ // An older retained button or another caller still passes through the same run boundary.
+ repeat.click();assert.deepEqual(calls,[{type:'action',id:'work'}]);
+ v.jobs=[];v.actions[0].completed=1;tick();assert.equal(calls.length,1,'no second command is queued');
+ find(root,'structuredAction','work').click();assert.equal(calls.length,2,'ordinary later reuse remains available');
+ panel.destroy();
 }));

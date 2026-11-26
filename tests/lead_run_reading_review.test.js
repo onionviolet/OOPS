@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mkdtempSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
-import {join} from 'node:path';
+import {basename,join} from 'node:path';
 import {planObject} from '../scripts/lead_run/make_book_plans.mjs';
 import {rowMetrics, inspectBook, dossierTemplate} from '../scripts/lead_run/reading_review.mjs';
 import {systemText} from '../scripts/lead_run/batch_lib.mjs';
@@ -43,9 +43,10 @@ test('inventory reuses Luna output, respects partials and reports malformed rows
 });
 
 test('maintenance preserves submitted bytes and refuses an upgrade that breaches a cap', () => {
-    const plans = {sent: {label: 'sent', outDir: '/o', schemaVersion: '1.3'}, pending: {label: 'pending', outDir: '/o'}};
+    const outDir = join(tmpdir(),'reading-maintenance-output');
+    const plans = {sent: {label: 'sent', outDir, schemaVersion: '1.3'}, pending: {label: 'pending', outDir}};
     const run = {steps: [{labels: [{plan: 'sent', cap: .04}, {plan: 'pending', cap: .04}]}]};
-    const writes = [], opts = {root: '/', read: p => plans[p.slice(1)], exists: p => p === '/o/sent_receipt.json', write: (p, v) => writes.push([p, v]), bound: () => ({usdBatch: .033})};
+    const writes = [], opts = {root: tmpdir(), read: p => plans[basename(p)], exists: p => p === join(outDir,'sent_receipt.json'), write: (p, v) => writes.push([p, v]), bound: () => ({usdBatch: .033})};
     const result = upgradeUnsubmitted(run, opts);
     assert.deepEqual(result.retained, ['sent']); assert.equal(writes.length, 1);
     assert.equal(writes[0][1].schemaVersion, '1.5'); assert.equal(plans.sent.schemaVersion, '1.3');

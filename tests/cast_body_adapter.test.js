@@ -1,3 +1,5 @@
+import {runFixtureWorker} from './helpers/fixture_process.mjs';
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
 import test from 'node:test';
 // Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
 const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
@@ -77,15 +79,16 @@ test('pack fact-waking does not substitute native sleep state, and interruption 
 });
 
 test('native sleep, waking, meals and real validator Save/reload/Export/Import', {timeout:300000*TS}, async t=>{
- const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
+ const {mkdtemp,cp,readdir,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
  const exec=promisify(execFile),root=process.cwd(),dir=await mkdtemp(join(tmpdir(),'yairpg-bd1-save-'));
- t.after(()=>rm(dir,{recursive:true,force:true}));
+ let workerDone=Promise.resolve();
+ t.after(async()=>{await workerDone.catch(()=>{});await rm(dir,{recursive:true,force:true});});
  for(const name of ['src','scripts'])await cp(join(root,name),join(dir,name),{recursive:true});
  for(const entry of await readdir(root,{withFileTypes:true})){
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
-  await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
+  await linkFixtureInput(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
  await mkdir(join(dir,'tests'),{recursive:true});
  await cp(join(root,'tests/perspective_controls.test.js'),join(dir,'tests/perspective_controls.test.js'));
@@ -160,6 +163,6 @@ try {
  await g.settle();
 } finally {g.close();}
 `);
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});}
+ try{await (workerDone=runFixtureWorker(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024,signal:t.signal}));}
  catch(error){assert.fail(`Native body fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
 });

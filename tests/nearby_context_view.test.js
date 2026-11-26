@@ -1,6 +1,24 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {projectNearbyContext} from '../src/nearby_context_view.js';
+import {projectNearbyContext,canOpenCurrentWorkStation} from '../src/nearby_context_view.js';
+
+test('a resumed ordinary work station opens its own panel without freeing occupied travel, dialogue or other stations',()=>{
+ const commandId='book.lotm.merit_case_file_copy',location='Tingen supervised workroom';
+ const state={pending:[],simulation:{people:{player:{location}},sessions:{},jobs:[{actorId:'player',commandId}]}};
+ const station={id:'lotm-workroom',module:'lotm'},options={location,commands:new Map([[commandId,{group:'book_lotm',location}]])};
+ const before=structuredClone(state);
+ assert.equal(canOpenCurrentWorkStation(station,state,options),true);
+ assert.deepEqual(state,before,'navigation quote does not change work');
+ assert.equal(canOpenCurrentWorkStation(station,state,{...options,nativeBusy:true}),false,'native dialogue or activity stays occupied');
+ assert.equal(canOpenCurrentWorkStation({module:'other'},state,options),false,'unrelated station stays blocked');
+ assert.equal(canOpenCurrentWorkStation(station,state,{...options,location:'Elsewhere'}),false);
+ state.simulation.jobs[0].commandId='book.lotm.walk_workroom_lodging';
+ assert.equal(canOpenCurrentWorkStation(station,state,options),false,'travel does not gain a station exception');
+ state.simulation.jobs[0].commandId=commandId;state.pending.push({context:{actorId:'player'}});
+ assert.equal(canOpenCurrentWorkStation(station,state,options),false,'other pending work stays occupied');
+ state.pending=[];state.simulation.sessions.player={};
+ assert.equal(canOpenCurrentWorkStation(station,state,options),false,'an encounter keeps its boundary');
+});
 
 const frame=()=>({place:'Village',people:[{id:'elder',name:'Village elder',role:'Neighbor',met:true,traits:['patient']},{id:'visitor',name:'Unmet traveler',met:false,traits:['private trait'],relationship:'private relationship'}],services:[{id:'clerk',name:'Supply clerk'}],things:[{id:'mixing',name:'Mixing counter',description:'Mix ingredients.'},{id:'projects',name:'Projects'},{id:'hidden',name:'Sealed subject',known:false}],actions:[{id:'talk:elder',target:'elder',label:'Talk with elder'},{id:'mixing',target:'mixing',label:'Open mixing',disabled:true,reason:'Busy'}]});
 test('nearby representation separates admitted people and stations without changing source or executing commands',()=>{
@@ -48,6 +66,17 @@ test('UIC127: the ways out join people and stations in one list, each with its o
     assert.equal(model.subject.kind, 'exit');
     assert.deepEqual(model.subject.actions.map(a => a.label), ['Go to Street']);
     assert.equal(model.subjects.length, 2, 'a place with ways out is not an empty place');
+});
+
+test('retained copying sheets and clarification reopen their current workroom after restore',()=>{
+ const location='Tingen supervised workroom',station={id:'lotm-workroom',module:'lotm'};
+ for(const commandId of ['book.lotm.copy_file.sheet','book.lotm.copy_file.ask']){
+  const state={pending:[],simulation:{people:{player:{location}},sessions:{},jobs:[{actorId:'player',commandId}]}};
+  const options={location,commands:new Map([[commandId,{group:'book_lotm',location}]])},before=structuredClone(state);
+  assert.equal(canOpenCurrentWorkStation(station,state,options),true);assert.deepEqual(state,before);
+  assert.equal(canOpenCurrentWorkStation(station,state,{...options,nativeBusy:true}),false);
+  assert.equal(canOpenCurrentWorkStation(station,state,{...options,location:'Other desk'}),false);
+ }
 });
 
 test('UIC127, PRS1: a person outside the Village goes by what the action list calls them', async () => {

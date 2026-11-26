@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createExpansionState, createContentRegistry, advanceSimulation} from '../src/expansion_engine.js';
+import {createExpansionState, createContentRegistry, advanceSimulation, loadExpansionState} from '../src/expansion_engine.js';
 import {compileStructuredPack, mergeStructuredPack} from '../src/structured_pack_definitions.js';
 import {beginStructuredCampaign,structuredCampaignView,structuredActionCosts} from '../src/structured_pack_runtime.js';
 import {requireStructuredContent, validateStructuredEnvelope} from '../src/structured_pack_state.js';
@@ -34,12 +34,12 @@ function fixture() {
     };
 }
 const bindings = {player: {category: 'person', id: 'main_character'}};
-function setup(raw = fixture()) {
+function setup(raw = fixture(), extraContext = {}) {
     const registry = createContentRegistry({worlds: [{id: 'base.frontier', label: 'Home'}]});
     const compiled = compileStructuredPack(raw, registry); mergeStructuredPack(compiled, registry);
     const definition = {...compiled.definition, contentHash: 'sha256:' + 'a'.repeat(64)};
     const before = createExpansionState(123);
-    const context = {registry, actorId: 'player', worldId: 'base.frontier', external: {money: 0}, gameplay: {player: {inventory: {}, skills: {Crafting: {xp: 0, enabled: true}}, reputation: {}}}, vitals: {player: {health: 10, max_health: 10, stamina: 10, max_stamina: 10}}, facts: {location: 'atelier.room'}, nativeBody: {id: 'native.player.body', form: 'human'}, busy: false};
+    const context = {registry, actorId: 'player', worldId: 'base.frontier', external: {money: 0}, gameplay: {player: {inventory: {}, skills: {Crafting: {xp: 0, enabled: true}}, reputation: {}}}, vitals: {player: {health: 10, max_health: 10, stamina: 10, max_stamina: 10}}, facts: {location: 'atelier.room'}, nativeBody: {id: 'native.player.body', form: 'human'}, busy: false, ...extraContext};
     const {plan, record} = beginStructuredCampaign(before, definition, context, null);
     return {registry, definition, before, context: {...context, worldId: 'atelier.world', gameplay: plan.gameplay}, plan, record};
 }
@@ -48,6 +48,19 @@ function envelope(plan, record) {
     writeGameplayToEnvelope(save, plan.gameplay, bindings); return save;
 }
 const run = (f, id, state = f.plan.state, gameplay = f.plan.gameplay) => commitSimulationCommand(state, f.registry, {id: 'atelier.' + id}, {...f.context, gameplay, targetId: f.definition.simulation.commands.find(c => c.id === 'atelier.' + id).targetId});
+
+test('a validated saved life waits without invented observations or start actions while its simulation restores',()=>{
+ const f=setup(),state=structuredClone(f.plan.state);state.simulation=null;
+ const before=JSON.stringify(state),record=JSON.stringify(f.record),context={...f.context,registry:f.registry};
+ const waiting=structuredCampaignView(state,f.definition,f.record,context);
+ assert.equal(waiting.loading,true);assert.equal(waiting.active,true);assert.equal(waiting.available,false);
+ for(const field of ['people','status','actions','jobs','extensions'])assert.deepEqual(waiting[field],[]);
+ assert.equal(JSON.stringify(state),before);assert.equal(JSON.stringify(f.record),record);
+ assert.throws(()=>structuredCampaignView(state,f.definition,{...f.record,contentHash:'sha256:'+'b'.repeat(64)},context));
+ const restored=structuredCampaignView(f.plan.state,f.definition,f.record,context);
+ assert.equal(restored.active,true);assert.equal(restored.loading,undefined);assert.ok(restored.actions.length);
+ const unstarted=structuredCampaignView(state,f.definition,null,context);assert.equal(unstarted.active,false);assert.equal(unstarted.loading,undefined);
+});
 
 test('first initialization is staged once and never converts scalar legacy history', () => {
     const f = setup(), legacy = {schema: 1, packs: {old: {worldId: 'old.world', locationIds: ['old.room'], active: false, values: {stock: 9, paid: 2}, job: null}}}, prior = structuredClone(legacy);
@@ -227,4 +240,60 @@ test('an act quotes how many runs the held items cover, null when it spends no i
     assert.equal(structuredActionRuns(costs.slice(0, 1), {[`item.${key}`]: 1}), 1);
     assert.equal(structuredActionRuns(costs.slice(0, 1), {}), 0, 'a spent item has no fact: none in hand');
     assert.equal(structuredActionRuns([{type: 'vital', key: 'stamina', amount: -5}], {}), null);
+});
+
+test('movement remains reusable after returning but never offers an immediate location-invalid batch',()=>{
+ const raw=fixture();raw.locations.push({id:'atelier.roof',label:'Roof',description:'A second test place.',underRoof:false});
+ raw.simulation.commands.push(command('climb',{duration:1,once:false,requires:eq('actor.life','alive'),completionRequires:eq('actor.life','alive'),completionCoLocated:true,cancellation:'refund',completionFailure:'refund',effects:[{type:'relocate',actor:'player',location:'atelier.roof'}]}));
+ raw.simulation.commands.push(command('lower',{location:'atelier.roof',duration:1,once:false,requires:eq('actor.life','alive'),completionRequires:eq('actor.life','alive'),completionCoLocated:true,cancellation:'refund',completionFailure:'refund',effects:[{type:'relocate',actor:'player',location:'atelier.room'}]}));
+ const f=setup(raw,{nativeAlive:true,nativeReady:true,nativeBody:{id:'native.player.body',form:'human',ownerId:'player',controllerId:'player',mobile:true}});
+ const context={...f.context,registry:f.registry,structuredNative:{...f.record,bound:true,bodyId:'native.player.body'}};
+ const before=JSON.stringify(f.plan.state),initial=structuredCampaignView(f.plan.state,f.definition,f.record,context);
+ const climb=initial.actions.find(a=>a.id==='atelier.climb');assert.equal(climb.repeatable,true);assert.equal(climb.queueRepeatable,false);
+ assert.equal(initial.actions.find(a=>a.id==='atelier.repair').queueRepeatable,true);
+ assert.equal(JSON.stringify(f.plan.state),before,'view forecast leaves saved work unchanged');
+ const started=commitSimulationCommand(f.plan.state,f.registry,{id:'atelier.climb'},context);
+ const pendingBytes=JSON.stringify(started.state);
+ const pendingView=structuredCampaignView(started.state,f.definition,f.record,{...context,gameplay:started.gameplay});
+ assert.equal(pendingView.jobs[0].commandId,'atelier.climb');assert.equal(JSON.stringify(started.state),pendingBytes);
+ const restored=loadExpansionState(JSON.parse(pendingBytes),f.registry);
+ assert.deepEqual(restored.simulation.jobs,started.state.simulation.jobs,'existing pending work keeps its native definition');
+ const climbed=advanceSimulation(restored,f.registry,1,started.external,started.gameplay,{player:context});assert.equal(climbed.state.simulation.people.player.location,'atelier.roof');
+ const roofContext={...context,facts:{location:'atelier.roof'},gameplay:climbed.gameplay};
+ const roof=structuredCampaignView(climbed.state,f.definition,f.record,roofContext);assert.equal(roof.actions.some(a=>a.id==='atelier.climb'),false);
+ const lowered=commitSimulationCommand(climbed.state,f.registry,{id:'atelier.lower'},roofContext);
+ const finished=advanceSimulation(lowered.state,f.registry,1,lowered.external,lowered.gameplay,{player:roofContext});
+ const back=structuredCampaignView(finished.state,f.definition,f.record,{...context,gameplay:finished.gameplay});
+ assert.equal(back.actions.find(a=>a.id==='atelier.climb').eligible,true);
+ assert.equal(back.actions.find(a=>a.id==='atelier.climb').queueRepeatable,false);
+});
+
+test('stationary farming and training retain real consecutive runs and ordinary input limits',()=>{
+ const raw=fixture();
+ raw.items.push({id:'atelier.seed',label:'Seed',description:'Counted test seed.',value:0},{id:'atelier.crop',label:'Crop',description:'Counted test crop.',value:0});
+ raw.bootstrap.effects.push({type:'item',actor:'player',key:key('seed'),amount:3});
+ raw.simulation.commands.push(command('farm',{duration:1,once:false,costs:[{type:'item',actor:'player',key:key('seed'),amount:-1}],effects:[{type:'item',actor:'player',key:key('crop'),amount:1}]}));
+ raw.simulation.commands.push(command('train',{duration:1,once:false,effects:[{type:'xp',skill:'Crafting',amount:1}]}));
+ const f=setup(raw);let plan=f.plan;
+ const view=()=>structuredCampaignView(plan.state,f.definition,f.record,{...f.context,registry:f.registry,gameplay:plan.gameplay});
+ assert.equal(view().actions.find(a=>a.id==='atelier.farm').queueRepeatable,true);
+ assert.equal(view().actions.find(a=>a.id==='atelier.farm').runs,3);
+ assert.equal(view().actions.find(a=>a.id==='atelier.train').queueRepeatable,true);
+ for(const id of ['farm','farm','farm','train','train','train']){
+  const context={...f.context,registry:f.registry,gameplay:plan.gameplay};
+  plan=commitSimulationCommand(plan.state,f.registry,{id:'atelier.'+id},context);
+  plan=advanceSimulation(plan.state,f.registry,1,plan.external,plan.gameplay,{player:context});
+ }
+ assert.equal(plan.gameplay.player.inventory[key('crop')],3);
+ assert.equal(plan.gameplay.player.inventory[key('seed')],undefined);
+ assert.equal(plan.gameplay.player.skills.Crafting.xp,3);
+ assert.equal(view().actions.find(a=>a.id==='atelier.farm').runs,0);
+ assert.equal(view().actions.find(a=>a.id==='atelier.farm').eligible,false);
+});
+
+test('host scene caption labels the observer view without moving the authored location',()=>{
+ const f=setup(),state=JSON.stringify(f.plan.state);
+ const view=structuredCampaignView(f.plan.state,f.definition,f.record,{...f.context,registry:f.registry,locationLabel:'Room at the inn'});
+ assert.equal(view.place,'Room at the inn');assert.equal(f.record.locationId,'atelier.room');
+ assert.equal(f.plan.state.simulation.people.player.location,'atelier.room');assert.equal(JSON.stringify(f.plan.state),state);
 });

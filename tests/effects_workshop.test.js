@@ -2,6 +2,8 @@
 // by the owning pack's law and the whole run must save, reload and settle the same.
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
 import {effectsWorkshopRun as run} from '../src/world_packs/effects_workshop.js';
 import {serializeEngineWorld} from '../src/engine_world.js';
 import {DEFAULT_ENTRY, reachableFrom} from '../scripts/reachable.mjs';
@@ -38,10 +40,10 @@ test('an act cannot be repeated', () => {
 });
 
 test('the effect packs are reachable from main.js', () => {
-    const reached = reachableFrom(DEFAULT_ENTRY), root = new URL('..', import.meta.url).pathname;
+    const reached = reachableFrom(DEFAULT_ENTRY), root = fileURLToPath(new URL('..', import.meta.url));
     for (const f of ['src/world_packs/brew_effects_pack.js', 'src/world_packs/gu_effect_pack.js', 'src/world_packs/hp_effect_pack.js',
         'src/world_packs/lotm_derived_cases.js', 'src/kernel_search.js', 'src/effect_checks.js',
         ...['breathing', 'brew_splash', 'brew_vapor', 'fiendfyre', 'gu_aperture', 'layered_protection', 'spell_sustain'].map(n => `src/world_substrate_packs/${n}.js`)]) {
-        assert.equal(reached.has(root + f), true, f);
+        assert.equal(reached.has(join(root, f)), true, f);
     }
 });

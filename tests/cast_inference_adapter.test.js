@@ -1,3 +1,5 @@
+import {runFixtureWorker} from './helpers/fixture_process.mjs';
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
 import test from 'node:test';
 // Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
 const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
@@ -102,18 +104,19 @@ test('single source-attributed perceptions and recollections permit belief and a
 });
 
 test('live integration crosses native UI and real save validator in a disposable copy',{timeout:300000*TS},async t=>{
- const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
+ const {mkdtemp,cp,readdir,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
  const exec=promisify(execFile),root=process.cwd(),dir=await mkdtemp(join(tmpdir(),'yairpg-kn1-save-'));
- t.after(()=>rm(dir,{recursive:true,force:true}));
+ let workerDone=Promise.resolve();
+ t.after(async()=>{await workerDone.catch(()=>{});await rm(dir,{recursive:true,force:true});});
  await mkdir(join(dir,'tests'));await cp(join(root,'tests/perspective_controls.test.js'),join(dir,'tests/perspective_controls.test.js'));
  for(const name of ['src','scripts'])await cp(join(root,name),join(dir,name),{recursive:true});
  for(const entry of await readdir(root,{withFileTypes:true})){
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
-  await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
+  await linkFixtureInput(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
- const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:60000*TS,maxBuffer:1024*1024});t.diagnostic(arch.stdout.trim());
+ const arch=await exec(process.execPath,['scripts/check_architecture.mjs'],{cwd:dir,timeout:60000*TS,maxBuffer:1024*1024});t.diagnostic(arch.stdout.trim());
  // Check production architecture before adding fixture-only exports.
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as kn1CastReady} from './book_world_lotm_cast_days.js';\nexport const kn1EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const kn1Validate=save=>validateSaveEnvelope(save,game_version);\nexport const kn1Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
@@ -131,7 +134,7 @@ test('live integration crosses native UI and real save validator in a disposable
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
- await exec('npm',['run','build'],{cwd:dir,env:{...process.env,BUILD_OUT:join(dir,'candidate')},timeout:60000*TS,maxBuffer:1024*1024});
+ await exec(process.execPath,['build.js'],{cwd:dir,env:{...process.env,BUILD_OUT:join(dir,'candidate')},timeout:60000*TS,maxBuffer:1024*1024});
  const {createHash}=await import('node:crypto');t.diagnostic('Disposable integrated build SHA-256: '+createHash('sha256').update(await readFile(join(dir,'candidate/dist/bundle.js'))).digest('hex'));
  await exec(process.execPath,['--test',join(dir,'tests/perspective_controls.test.js')],{cwd:dir,timeout:30000*TS,maxBuffer:1024*1024});
  const worker=join(dir,'kn1-save-worker.mjs');
@@ -191,5 +194,5 @@ try {
  process.stdout.write('native belief, intention gate, pending/settled Save/reload/Export/Import, support/effect tamper: PASS');
 } finally {g.close();}
  `);
- const {stdout}=await exec(process.execPath,['--max-old-space-size=8192',worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});assert.match(stdout,/tamper: PASS/);
+ const {stdout}=await (workerDone=runFixtureWorker(process.execPath,['--max-old-space-size=8192',worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024,signal:t.signal}));assert.match(stdout,/tamper: PASS/);
 });

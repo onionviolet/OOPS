@@ -1,9 +1,10 @@
+import {linkFixtureInput} from '../helpers/fixture_fs.mjs';
 // Full-game differential, deliberately separate from the ordinary unit glob.
 // Baseline is a frozen pre-P6 checkout; candidate uses current owned files plus
 // the prepared composition-root patch. Private pack copies stay in temp dirs.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,cp,readdir,symlink,readFile,writeFile} from 'node:fs/promises';
+import {mkdtemp,cp,readdir,readFile,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -14,7 +15,7 @@ const exec=promisify(execFile),root=resolve(fileURLToPath(new URL('../..',import
 const at=minute=>({calendar:{year:Math.floor(minute/(360*1440)),month:Math.floor(minute/1440%360/30)+1,day:Math.floor(minute/1440)%30+1,day_count:Math.floor(minute/1440)+1,hour:Math.floor(minute%1440/60),minute:minute%60}});
 async function snapshot(source,dir,pack){
  for(const name of ['src','scripts','tests','private_packs'])await cp(join(source,name),join(dir,name),{recursive:true});
- for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await symlink(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
+ for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await linkFixtureInput(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
  if(pack)await cp(pack,join(dir,'private_packs/lotm-cast/cast.json'));
  // A supplied diagnostic baseline may already expose these harness ports.
  let main=await readFile(join(dir,'src/main.js'),'utf8');

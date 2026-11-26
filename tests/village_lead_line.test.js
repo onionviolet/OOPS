@@ -5,11 +5,12 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
+import {fileURLToPath} from 'node:url';
 import {VILLAGE_BEATS, LEAD_FACTS, LEAD_ID, leadStartFacts, villageLeadRunRows} from '../src/world_packs/village_lead_line.js';
 import {resolveBeats, newBeatState, beatReport} from '../src/beat_records.js';
 import {runVillageLeadLine, DATES} from '../scripts/headless/lead_runs/village_lead_line.mjs';
 
-const ROOT = new URL('..', import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const CHILD = `import {runVillageLeadLine, DATES} from './scripts/headless/lead_runs/village_lead_line.mjs';
 const r = await runVillageLeadLine(); const out = JSON.stringify({minutes: r.minutes, log: r.log}); r.bot.close();
 (await import('node:fs')).writeSync(1, out);`;

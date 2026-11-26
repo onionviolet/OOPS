@@ -18,8 +18,8 @@ const HERE_APPENDERS = ['src/absorb_p23/host_joins/combat_options_ui.js', 'src/a
 
 test('no new module appends its own panel under Here; it declares a kind and the frame places it (PS108)', () => {
     const root = fileURLToPath(new URL('../', import.meta.url));
-    const paths = [...new Set(uiViolations(root).filter(v => v.rule === 'foreign-host').map(v => v.path))]
-        .filter(p => readFileSync(new URL(`../${p}`, import.meta.url), 'utf8').includes('location_actions_div')).sort();
+    const paths = [...new Set(uiViolations(root).filter(v => v.rule === 'foreign-host' &&
+        (v.targets.includes('location_actions_div') || (!v.targets.length && readFileSync(new URL(`../${v.path}`, import.meta.url), 'utf8').includes('location_actions_div')))).map(v => v.path))].sort();
     assert.deepEqual(paths.filter(p => !HERE_APPENDERS.includes(p)), [], 'Use placeHerePanel(panel, kind, home) from src/ui/here_kinds.js instead of appending to #location_actions_div.');
 });
 

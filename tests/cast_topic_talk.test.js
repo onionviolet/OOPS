@@ -1,3 +1,4 @@
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
 import test from 'node:test';
 // Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
 const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
@@ -106,7 +107,7 @@ test('generator-shaped source attribution binds the host situation through nativ
 test('live host and save validator round-trip native topic jobs, choices and receipts', {timeout:300000*TS}, async t=>{
  // Run the real native save owner in a disposable copy, with a synthetic cast pack.
  // Host and save integration are already in the live source. Exercise that copy.
- const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
+ const {mkdtemp,cp,readdir,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
  const exec=promisify(execFile),root=process.cwd(),dir=await mkdtemp(join(tmpdir(),'yairpg-d2-save-'));
@@ -114,7 +115,7 @@ test('live host and save validator round-trip native topic jobs, choices and rec
  for(const name of ['src','scripts'])await cp(join(root,name),join(dir,name),{recursive:true});
  for(const entry of await readdir(root,{withFileTypes:true})){
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
-  await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
+  await linkFixtureInput(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as d2CastReady} from './book_world_lotm_cast_days.js';\nexport {castAvailable as d2CastAvailable} from './book_world_lotm_cast_host.js';\nimport {LOTM_PROFILES as d2Profiles} from './book_world_lotm_lives.js';\nexport const d2BeProfile=()=>d2Profiles.be;\nimport {castTalkPreview as d2Presence} from './book_world_lotm_cast_host.js';\nexport const d2AwayPreview=()=>{const s=structuredClone(expansionState);s.clock=s.lotm.initializedAt+101;return d2Presence(s,{id:'book.lotm.fixture_offer.agree',targetId:'fixture.person.relative'},{visible:true,eligible:true,reasons:[]});};\nexport const d2EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const d2Validate=save=>validateSaveEnvelope(save,game_version);\nexport const d2Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);

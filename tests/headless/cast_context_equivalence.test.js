@@ -1,7 +1,8 @@
+import {linkFixtureInput} from '../helpers/fixture_fs.mjs';
 // Frozen P7 differential. Run explicitly; the coordinator owns the full suite.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,cp,readdir,symlink,readFile,writeFile} from 'node:fs/promises';
+import {mkdtemp,cp,readdir,readFile,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -20,7 +21,7 @@ test('actor reads, observer promotions, state and exact save bytes equal the fro
   for(const phase of ['before','after']){
    const dir=join(temp,phase+'-'+pack);
    for(const name of ['src','scripts','tests','private_packs'])await cp(join(baseline,name),join(dir,name),{recursive:true});
-   for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await symlink(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
+   for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await linkFixtureInput(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
    if(pack==='candidate')await cp(process.env.YAIRPG_CONTEXT_PACK||join(baseline+'-candidate','private_packs/lotm-cast/cast.json'),join(dir,'private_packs/lotm-cast/cast.json'));
    if(phase==='after')for(const path of changed)await cp(join(root,path),join(dir,path));
    let main=await readFile(join(dir,'src/main.js'),'utf8');

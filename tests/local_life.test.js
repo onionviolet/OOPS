@@ -257,6 +257,8 @@ test('leaving says what it costs; returning says what waits; the place remembers
     assert.equal(advanceLocalLife(undefined,c({clock:5,calendarMinute:505})).messages.some(m=>m.startsWith('Back')),false);
     const relayBack=advanceLocalLife({...normalizeLocalLife(),pamphletRead:true,parcelStep:2,lastClock:0,lastLocation:'Eastern mill'},c({clock:60,calendarMinute:780}));
     assert.match(relayBack.messages.find(m=>m.startsWith('Back'))||'',/midday bread is on the table; the old craftsman expects your receipt/);
+    const standingRelayBack=advanceLocalLife({...normalizeLocalLife(),parcelStarted:true,parcelStep:2,lastClock:0,lastLocation:'Eastern mill'},c({clock:60,calendarMinute:780,villageReputation:4}));
+    assert.match(standingRelayBack.messages.find(m=>m.startsWith('Back'))||'',/the old craftsman expects your receipt/,'returning receipt is due through either admission route');
     // Description: silent for a Stranger, names actual service at Known Face.
     assert.equal(villageStandingSentence(undefined,3),'');
     assert.equal(villageStandingSentence({...normalizeLocalLife(),watchShifts:5},10),'People nod when you pass. They remember your 5 watch shifts.');

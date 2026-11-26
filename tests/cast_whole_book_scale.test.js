@@ -1,6 +1,7 @@
 import {LOTM_IDS as I} from '../src/book_world_lotm_ids.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {SLUMBER_SLEEP,isSlumberAsleep} from '../src/lotm_silver_charms.js';
 const evidence={label:'I',locator:'authored fixture'};
 const place=(id,name,district)=>({id,name,indexId:id,openingHours:[],...evidence,...(district?{travel:{district,basis:'Authored test district.'}}:{})});
 const person=(id,name)=>({id,indexId:id,name,tier:'principal',relations:[],knows:[],wants:[],...evidence});
@@ -83,6 +84,24 @@ test('journeys and acts quote locally or when pending; known people retain away 
  offers=read();assert.equal(offers.length,6);assert.equal(calls.length,6);
  calls.length=0;s.simulation.jobs=[];s.simulation.people.player.location='fixture.place.shop';
  offers=read();assert.deepEqual(calls.sort(),['fixture.act.shop','fixture.journey.shop','fixture.topic.home.ask','fixture.topic.shop.ask']);assert.equal(offers.length,4);
+ assert.equal(offers.find(o=>o.id==='fixture.topic.shop.ask').eligible,true,'an absent condition table means no sleep condition');
+ assert.equal(s.simulation.conditions,undefined,'quoting does not provision a condition table');
+ s.simulation.conditions={[role]:{[SLUMBER_SLEEP]:{expiresAt:2}}};calls.length=0;
+ offers=read();assert.equal(offers.find(o=>o.id==='fixture.topic.shop.ask').eligible,false);
+ assert.match(offers.find(o=>o.id==='fixture.topic.shop.ask').reasons.join(' '),/asleep/);
+ s.simulation.people.player.location='fixture.place.home';calls.length=0;offers=read();
+ assert.match(offers.find(o=>o.id==='fixture.topic.shop.ask').reasons.join(' '),/Away|away|return/);
+ assert.doesNotMatch(offers.find(o=>o.id==='fixture.topic.shop.ask').reasons.join(' '),/asleep/,'away topics do not expose an unobserved sleep condition');
+ s.simulation.people.player.location='fixture.place.shop';
+ s.clock=2;calls.length=0;offers=read();assert.equal(offers.find(o=>o.id==='fixture.topic.shop.ask').eligible,true,'expiry restores the local topic');
+ delete s.simulation.conditions;
  calls.length=0;delete s.simulation.knowledge.player[`book.lotm.cast.known.${role}`];read();
  assert.deepEqual(calls.sort(),['fixture.act.shop','fixture.journey.shop']);
+});
+
+test('Slumber absence is zero for sparse projection states and another person’s condition does not leak',()=>{
+ assert.equal(isSlumberAsleep({clock:1},role),false);
+ assert.equal(isSlumberAsleep({clock:1,simulation:{}},role),false);
+ assert.equal(isSlumberAsleep({clock:1,simulation:{conditions:{}}},role),false);
+ assert.equal(isSlumberAsleep({clock:1,simulation:{conditions:{other:{[SLUMBER_SLEEP]:{expiresAt:5}}}}},role),false);
 });

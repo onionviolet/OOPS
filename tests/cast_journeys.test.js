@@ -1,3 +1,6 @@
+import {runFixtureWorker} from './helpers/fixture_process.mjs';
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
+import {createFixtureTiming,formatFixtureTiming,readFixtureTiming,scheduleFixtureTimingReport} from './helpers/fixture_timing.mjs';
 import test from 'node:test';
 // Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
 const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
@@ -108,16 +111,21 @@ for(const [kind,make] of [
 });
 
 test('native place-panel journey validates pending Save/reload, arrival and literal Export/Import', {timeout:300000*TS}, async t=>{
- const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
- const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');
+ const {mkdtemp,cp,readdir,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
+ const {join,resolve}=await import('node:path');const {tmpdir}=await import('node:os');const {pathToFileURL}=await import('node:url');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
  const exec=promisify(execFile),root=process.cwd(),dir=await mkdtemp(join(tmpdir(),'yairpg-t2-save-'));
- t.after(()=>rm(dir,{recursive:true,force:true}));
+ const timingPath=join(dir,'fixture-timing.json'),timing=createFixtureTiming(timingPath,'cast-journeys');
+ let workerDone=Promise.resolve();
+ t.after(async()=>{const beforeCleanup=readFixtureTiming(timingPath);if(beforeCleanup?.active?.length)t.diagnostic('Fixture timing at cleanup: '+formatFixtureTiming(beforeCleanup));await workerDone.catch(()=>{});const receipt=readFixtureTiming(timingPath);if(!beforeCleanup?.active?.length&&receipt?.lastError)t.diagnostic('Fixture timing at cleanup: '+formatFixtureTiming(receipt));await rm(dir,{recursive:true,force:true});});
+ await timing.measure('fixture copy and input links',async()=>{
  for(const name of ['src','scripts'])await cp(join(root,name),join(dir,name),{recursive:true});
  for(const entry of await readdir(root,{withFileTypes:true})){
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
-  await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
+  await linkFixtureInput(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
+ });
+ await timing.measure('fixture pack and source injection',async()=>{
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as t2Ready} from './book_world_lotm_cast_days.js';\nexport const t2Enroll=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const t2Validate=save=>validateSaveEnvelope(save,game_version);\nexport const t2Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
  const evidence={label:'I',locator:'fixture p1'},people=['lead','relative'].map(id=>({id:`fixture.person.${id}`,indexId:`fixture.person.${id}`,name:id,tier:'principal',relations:[],knows:[],wants:[],...evidence}));
@@ -143,11 +151,15 @@ test('native place-panel journey validates pending Save/reload, arrival and lite
  await mkdir(join(dir,'private_packs/lotm-cast'),{recursive:true});
  await writeFile(join(dir,'private_packs/manifest.json'),JSON.stringify({schema:1,supplements:['lotm-cast/cast.json']}));
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
+ });
  const worker=join(dir,'t2-save-worker.mjs');
  await writeFile(worker,`
 import assert from 'node:assert/strict';
 import {boot} from './scripts/headless/runner.mjs';
-const g=await boot(null,{seed:37,heroName:null});
+const {createFixtureTiming}=await import(process.env.OOPS_FIXTURE_TIMING_MODULE);
+const timing=createFixtureTiming(process.env.OOPS_FIXTURE_TIMING_FILE,'cast-journeys');
+await timing.measure('native worker',async()=>{
+const g=await timing.measure('boot',()=>boot(null,{seed:37,heroName:null}));
 try {
  await g.module.t2Ready();g.module.t2Enroll();
  const initial=await g.save(),button=id=>document.querySelector('[data-lotm="'+id+'"]');
@@ -176,10 +188,12 @@ try {
   const moved=await g.save();g.module.t2Validate(moved);assert.equal(moved['current location'],'fixture.place.third');assert.equal(moved.expansion.simulation.people.player.location,'fixture.place.third');
   // Both relocation methods are saved and validated; the shared arrival envelope is imported below.
  }
+ let saved;
+ await timing.measure('native pending and arrival persistence',async()=>{
  await g.load(initial);
  g.module.t2Act('fixture.journey.carriage');
  assert.equal(g.internals.foundationSaveBlocked,false);
- let saved=await g.save();assert.equal(saved.character.money,3);
+ saved=await g.save();assert.equal(saved.character.money,3);
  assert.equal(saved['current location'],'fixture.place.other');
  const pending=saved.expansion.simulation.jobs.find(j=>j.commandId==='fixture.journey.carriage');assert.ok(pending);
  const changed=structuredClone(saved);changed.expansion.simulation.jobs.find(j=>j.commandId==='fixture.journey.carriage').effects[0].location='fixture.place.third';
@@ -194,12 +208,19 @@ try {
  assert.equal(saved['current location'],'fixture.place.second');assert.equal(saved.expansion.simulation.people.player.location,'fixture.place.second');assert.equal(saved.character.money,3);
  assert.equal(saved.expansion.simulation.knowledge.player['journey.arrived.fixture.journey.carriage'].value,'You arrive by carriage.');
  const encoded=await g.exportFile();await g.importFile(encoded);saved=await g.save();assert.equal(saved['current location'],'fixture.place.second');assert.equal(saved.character.money,3);
+ });
  g.module.t2Act('fixture.journey.return');await g.step(2);saved=await g.save();assert.equal(saved['current location'],'fixture.place.other');assert.equal(saved.character.money,3);
  assert.equal(g.internals.foundationSaveBlocked,false);assert.deepEqual(g.errors,[]);
  await g.settle();
 } finally {g.close();}
+});
 `);
  // Keep pending reload and literal pending/arrival imports; avoid duplicate boots for the same state.
- try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000*TS,maxBuffer:1024*1024});}
- catch(error){assert.fail(`Native journey fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
+ const helperUrl=pathToFileURL(join(root,'tests/helpers/fixture_timing.mjs')).href;
+ const clearProgressReport=scheduleFixtureTimingReport(t,timingPath,270000*TS);
+ try{await (workerDone=runFixtureWorker(process.execPath,[worker],{cwd:dir,env:{...process.env,OOPS_FIXTURE_TIMING_FILE:timingPath,OOPS_FIXTURE_TIMING_MODULE:helperUrl},timeout:270000*TS,maxBuffer:1024*1024,signal:t.signal}));
+  t.diagnostic('Fixture timing: '+formatFixtureTiming(readFixtureTiming(timingPath)));
+ }
+ catch(error){assert.fail(`Native journey fixture failed: ${error.message}\nFixture timing: ${formatFixtureTiming(readFixtureTiming(timingPath))}\n${error.stdout||''}\n${error.stderr||''}`);}
+ finally{clearProgressReport();}
 });

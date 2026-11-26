@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import fs from 'node:fs';
+import {readCanonicalText} from '../scripts/canonical_text.mjs';
 import vm from 'node:vm';
 import {damageRecord, supportedHarvest} from '../src/harvest.js';
 import {combatHitText} from '../src/ui_polish.js';
@@ -124,7 +124,7 @@ function native(draw = 0, defense = 0, hp = 30, runtime, speeds = [1, 1]) {
     const clock = 1_000_000;
     Object.assign(context, {engineTimeout:context.setTimeout, clearEngineTimeout:context.clearTimeout, engineNow:()=>clock});
     for(const k of ['log_message','update_displayed_health','update_stance_tooltip','process_current_loot','do_onhit_animation','do_onstart_animation','fill_fighter_divs','remove_onhit_animation','update_attack_bar','update_displayed_health_of_fighter']) context[k] = () => {};
-    let source = fs.readFileSync(new URL('../src/models/combat.js', import.meta.url), 'utf8').replace(/^import .*;\n/gm, '').replace('export default Combat;', 'globalThis.NativeCombat = Combat;');
+    let source = readCanonicalText(new URL('../src/models/combat.js', import.meta.url)).replace(/^import .*;\n/gm, '').replace('export default Combat;', 'globalThis.NativeCombat = Combat;');
     vm.runInNewContext(source, context);
     const combat = new context.NativeCombat({attackers: [hero], defenders: [target], combatOptions: runtime, nextCombatEvent: () => 1});
     const strike = () => combat.doCombatAction({fighter_index: 0, is_attacker: true, target, attack_power: 5, target_count: 1, attack_count: 1});

@@ -1,11 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {defineInstitution, offerFor, auditLedger, storeView} from '../src/institution_store.js';
-import {NIGHTHAWKS} from '../src/book_world_lotm_merit.js';
+import {NIGHTHAWKS, meritChoiceHint} from '../src/book_world_lotm_merit.js';
 import {fresh, run, wait, holds, save, hostOver} from './lotm_helpers.js';
 import {validateLotmState} from '../src/book_world_lotm_state.js';
 import {validateLotmEnvelope} from '../src/book_world_lotm_envelope.js';
 import {INGREDIENT_BY_NAME} from '../src/book_world_lotm_bench.js';
+import '../src/book_world_lotm_domain.js'; // Native fact projection refreshes between saved routine assignments.
 
 // DWF154/DWF155/DWF162: the leaf is world-neutral; the Nighthawks prove it through real timed assignments and store commands.
 const row = {id: 'i', world: 'w', name: 'I', currency: {label: 'Points', unit: 'points'},
@@ -43,6 +44,55 @@ test('the ledger audit is the one rule: spent never passes earned', () => {
 const ok = p => { assert.ok(validateLotmState(p.state)); assert.ok(validateLotmEnvelope(save(p))); };
 const merit = p => hostOver(p).host.view().merit;
 const pass = (p, minutes) => { const to = p.state.clock + minutes; for(let i = 0; p.state.clock < to && i < 40; i++) p = wait(p, to - p.state.clock); return p; };
+test('ordinary work explains its practice and start count without promising a mismatched comparison',()=>{
+    const p=run(fresh(500,'probationer'),'report_in');
+    const offers=merit(p).missions;
+    assert.match(offers.find(m=>m.id==='case_file_copy').comparison,/Practises your copying hand.*30 min.*1 merit/);
+    const watch=NIGHTHAWKS.missions.find(m=>m.id==='cold_room_watch');
+    assert.match(offers.find(m=>m.id===watch.id).comparison,/One start covers 1 h.*2 merit.*copying takes 2 starts/);
+    assert.doesNotMatch(offers.map(m=>m.comparison).join(' '),/take.*home|sealed references|mastery 20/i,'undiscovered practice rewards stay undisclosed');
+    assert.doesNotMatch(meritChoiceHint({...watch,pay:3}),/Matching/,'different merit rates are not called equal');
+    assert.doesNotMatch(meritChoiceHint({...watch,minutes:45}),/Matching/,'a partial copying assignment does not count as a full start');
+});
+
+test('ordinary finite assignments settle once, survive reload and stop their queue when cancelled',()=>{
+    const start=run(fresh(500,'probationer'),'report_in');
+    let {host,box}=hostOver(start);
+    const action=host.view().merit.missions.find(m=>m.id==='case_file_copy');
+    assert.ok(action.action.eligible&&action.repeat.eligible,'single work and finite repeat remain available');
+    host.act(action.repeat.id);
+    assert.equal(box.p.state.simulation.programs.player.remaining,1);
+    box.p=pass(box.p,30);
+    assert.equal(merit(box.p).balance,1);
+    assert.equal(box.p.state.simulation.jobs.length,1,'second copy starts through existing queue');
+    ({host,box}=hostOver(JSON.parse(JSON.stringify(box.p))));
+    box.p=pass(box.p,30);
+    assert.equal(merit(box.p).balance,2);
+    assert.equal(box.p.state.simulation.jobs.length,0);
+    assert.match(host.view().merit.routine,/finished.*No further/);
+    box.p=pass(box.p,30);assert.equal(merit(box.p).balance,2,'finite queue stays settled');
+    host.act(action.repeat.id);
+    box.p=pass(box.p,10);host.cancel(box.p.state.simulation.jobs[0].id);
+    assert.match(host.view().merit.routine,/stopped early/);
+    ({host,box}=hostOver(JSON.parse(JSON.stringify(box.p))));
+    box.p=pass(box.p,60);assert.equal(merit(box.p).balance,2,'cancelled queue cannot restart after reload');
+    assert.equal(box.p.state.simulation.jobs.length,0);ok(box.p);
+});
+
+test('ordinary finite assignments respect known appointment quotes and recheck at submission',()=>{
+    const start=run(fresh(500,'probationer'),'report_in');
+    let appointments=[];
+    const {host,box}=hostOver(start,{knownAppointments:()=>appointments});
+    const id=host.view().merit.missions.find(m=>m.id==='case_file_copy').repeat.id;
+    appointments=[{known:true,at:box.p.state.clock+45,label:'Meet the clerk'}];
+    const offer=host.view().merit.missions.find(m=>m.id==='case_file_copy');
+    assert.equal(offer.repeat.eligible,false);assert.ok(offer.action.eligible);
+    assert.match(offer.repeat.reasons.join(' '),/past Meet the clerk/);
+    assert.throws(()=>host.act(id),/past Meet the clerk/);
+    appointments=[{known:false,at:box.p.state.clock+15,label:'Unknown meeting'}];
+    assert.ok(host.view().merit.missions.find(m=>m.id==='case_file_copy').repeat.eligible,'unknown appointments are not leaked');
+    assert.throws(()=>host.act('repeat.2.book.lotm.report_in'),/visible ordinary assignment/);
+});
 
 test('Nighthawk merit: an assignment is a real timed action, the formula and ingredients cost merit, stock runs out', () => {
     let p = run(fresh(500), 'report_in');

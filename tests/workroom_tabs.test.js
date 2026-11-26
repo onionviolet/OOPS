@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {WORKROOM_TABS, workroomTabModel, mountWorkroomTabs} from '../src/book_world_lotm_tabs.js';
+import {scanUiText} from './helpers/ui_contract.mjs';
 
 class Element {
     constructor(tag) { this.tagName = tag; this.dataset = {}; this.children = []; this.attrs = {}; this.parent = null; this._text = ''; this.hiddenWrites = 0; this._hidden = false; }
@@ -82,6 +83,7 @@ test('Got it removes the moved notice', () => withDoc(() => {
 
 test('workroom_tabs.css uses tokens only', () => {
     const css = readFileSync(new URL('../styles/workroom_tabs.css', import.meta.url), 'utf8');
-    assert.doesNotMatch(css, /#[0-9a-fA-F]{3,8}\b/); assert.doesNotMatch(css, /rgba?\(/); assert.doesNotMatch(css, /\d\s*px\b/);
+    assert.deepEqual(scanUiText(css), [], 'declarations use UI tokens; responsive media breakpoints are layout conditions');
+    assert.doesNotMatch(css.replace(/@(?:media|container)[^{]*\{/g, '{'), /\d\s*px\b/, 'pixel declarations remain forbidden inside responsive rules');
     assert.match(css, /\[data-tab-off\]\s*\{\s*display:\s*none !important;\s*\}/);
 });
