@@ -12,7 +12,7 @@ export {hpEffects, labelHpEffect, compareHpEffect, HP_FORBID, hpEffectsGl2, labe
 export function hpEffectRows(path = new URL('../../../docs/research/HOGWARTS_SPELLBOOK_2026-11-11.md', import.meta.url)) {
     const rows = [];
     let family = null;
-    for (const line of fs.readFileSync(path, 'utf8').split('\n')) {
+    for (const line of fs.readFileSync(path, 'utf8').split(/\r?\n/)) {
         const heading = /^### (.+)$/.exec(line);
         if (heading) { family = /ACT NOW|ACCOUNT|LATER/.test(heading[1]) ? null : heading[1].trim(); continue; }
         const m = /^\| `([^`]+)` \| ([^|]+) \| ([^|]+) \|/.exec(line);
