@@ -216,6 +216,8 @@ What is kept on purpose: the full suite once per merge wave, the existing arch, 
 
 ## Engine first, tie-in later (PC95, 2026-11-12)
 
+**Nov 26 scope.** The engine world remains the integration target for experiments. Every foundation slice delivered in the Nov 26 run also needs a capture or replay from the normal game entry. Host the tested part through an existing route and keep the broader tie-in in its own phase. [Current direction](USER_VISION.md#nov-26-coordination-direction)
+
 Weibao (2026-11-12): "Because foundational first, We can omit game tie in until foundational and procedural systems work?" and, after the trade-off was laid out, "reconcile accordingly, we can absorb bespoke into the system".
 
 This is direction, and it overrides earlier lines in both docs. Wherever the core or this doc says "reachable from `src/main.js`", "the game loads it", "in the game" or "in play" as a bar for counting something, read "runs in the engine world" until the tie-in phase.
