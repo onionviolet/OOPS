@@ -1,0 +1,9 @@
+# Current-build library fixture attempt
+
+Status: blocked before gameplay, not a passing native proof. No playtest attachment was created.
+
+The existing documented command was run against the normal checkout and bundle `9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1`, with the retained `.lane-builds/harry-library-20261125/astronomy-fixture.json` and this fresh output directory. It exited 1 at the initial Play click: `#structured_recovery` intercepted pointer events. No library, class, homework or persistence actions ran. The subsequent diagnostic using the same helper met the same interception before it could read the recovery body. [Original failure](original-failure.txt) and [blocked-run metadata](blocked.json) preserve the observed result.
+
+The fixture pins the old public-stub base `sha256:660dedbf984a5469f8f51f9dfa07d16c80dbe30977805cc3f8cf0384758cbcac`; the restored real cast's recorded canonical identity is `sha256:f9cfc3e531af70cd0cab095801b536ac60d52f4bdb0369dddcdce623d4760d5d`. The prepared fixture is therefore incompatible with this actual-pack setup. No pin was rewritten and no recovery control was bypassed. Earlier successful evidence remains unchanged.
+
+The existing harness also wrote `robots.txt` into its supplied build root. The coordinator owns restoration of that incidental root-file change. The cause is fixed in `tests/hp_library_work_browser.cjs`: both isolated browser contexts now intercept the fixture-origin `/robots.txt` response, and the harness no longer writes that file. `node --check tests/hp_library_work_browser.cjs` passed. No new native assertions or repeat gameplay run followed the fix. Browser/server cleanup completed; no fixture or game-source change. AD36/AD43: this attempt does not establish current-build library acceptance.

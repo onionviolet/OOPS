@@ -1,0 +1,39 @@
+{
+  "status": "passed-bounded-entry",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "027e28270ce0a49f2165716fea2164622695e6404005d191a379b4a13ad0de6c",
+  "route": "Fresh PLAY -> Village -> Your beginning -> Harry preview/Confirm arrival -> cupboard -> natural five-minute dressing -> Save/reload",
+  "setup": "No supplied save, private cast, time/skill grant, clock mutation, stepped ticks or timer override. Ordinary real timer remained running.",
+  "localDependencies": {
+    "manifest": false,
+    "hpCast": false,
+    "privateReadingOwner": false
+  },
+  "genuinelyEarned": {
+    "world": "book.hp.lead.world",
+    "place": "book.hp.lead.cupboard",
+    "lifeStage": "child",
+    "dressing": {
+      "stage": "understood",
+      "value": "You are dressed. Today is your cousin's birthday.",
+      "at": 10,
+      "cause": "simulation:2"
+    },
+    "savedAndReloaded": true
+  },
+  "nextDependency": {
+    "commandId": "book.hp.lead.arrive_school",
+    "refusal": "Take the train to Hogwarts · 8 h\n\nThe term starts on 1 September; there is no train to the school before then.\n\nThe school year starts on 1 September. Your trunk, your ticket and the long train north; you arrive at the castle in the evening.",
+    "arrivalDay": 32,
+    "currentDay": 0,
+    "remainingGameMinutes": 45593,
+    "ordinaryAwakeSecondsPerGameMinute": 1,
+    "publicRoute": "calendar-gated train, then Sorting and scheduled lessons",
+    "missingSourceRoute": "hp-cast household/summer acts",
+    "schoolStudyOrChartReached": false
+  },
+  "pageErrors": []
+}

@@ -1,3 +1,4 @@
+import {hpStudyBonus} from './hp_study_rules.js';
 import {spellTrialObservation,testedSpellRevision,readSpellTrials} from './spell_trial_evidence.js';
 import {extensionFact} from './structured_pack_extensions.js';
 // Harry's levitation charm as a cast (W1b, proposal under AD32, LT2): a spell row through the shared spell seam and the shared cast lowering.
@@ -33,7 +34,8 @@ export const hpLeadSpellSet = definePowerGrammar([{
     unstated: ['wand (the lead life holds no wand fact at his first Charms lesson)', 'spoken words (no speech fact in the lead life)']}],
     hpLeadPowerLaw, hpSpellAdapter({worldId: WORLD, prefix: PREFIX}));
 
-const castId = hpLeadSpellSet.ids[KEY].command;
+export const HP_FEATHER_CAST = hpLeadSpellSet.ids[KEY].command;
+const castId = HP_FEATHER_CAST;
 export const hpLeadChanceFact = id => `hp.lead.spell.${id.slice(PREFIX.length + 1)}.failChance`;
 
 export const hpLeadSpellCommands = lowerSpellCasts(hpLeadSpellSet, {chanceFact: hpLeadChanceFact, practice: {powerOf: () => HP_LEVITATION, amount: 1}}).filter(c => c.id === castId).map(c => {
@@ -43,7 +45,16 @@ export const hpLeadSpellCommands = lowerSpellCasts(hpLeadSpellSet, {chanceFact: 
             reason: 'You need to be at Hogwarts and to know the charm.'}};
 });
 
-export const hpLeadSpellFacts = state => ({...spellCastFacts(state, hpLeadSpellSet, {chanceFact: hpLeadChanceFact, powerOf: () => HP_LEVITATION}), ...hpLeadAdditionalSpellFacts(state), ...labTrialFacts(state), [pathBlocked]: state.worlds?.[WORLD]?.facts?.[BOARD]===true?0:1, ...spellCastFacts(state, benchSpells, {chanceFact: benchChanceFact, powerOf: () => HP_LEVITATION}), ...jinxFacts(state)});
+const levitationFacts = (state, set, options) => Object.fromEntries(Object.entries(spellCastFacts(state, set, options))
+    .map(([key, chance]) => [key, Math.max(0, chance - hpStudyBonus(state, 'charms'))]));
+const featherFacts = state => levitationFacts(state, hpLeadSpellSet, {chanceFact: hpLeadChanceFact, powerOf: () => HP_LEVITATION});
+export function hpLeadFeatherPractice(state) {
+    const power = state?.simulation?.powers?.player?.[HP_LEVITATION];
+    if(!power?.owned) return null;
+    return {tries: power.mastery ?? 0, chance: Math.round(100 * (1 - featherFacts(state)[hpLeadChanceFact(castId)]))};
+}
+
+export const hpLeadSpellFacts = state => ({...featherFacts(state), ...hpLeadAdditionalSpellFacts(state), ...labTrialFacts(state), [pathBlocked]: state.worlds?.[WORLD]?.facts?.[BOARD]===true?0:1, ...levitationFacts(state, benchSpells, {chanceFact: benchChanceFact, powerOf: () => HP_LEVITATION}), ...jinxFacts(state)});
 
 // A second application of the learned charm, not a second learned power. The
 // lesson supplier issues one practice feather; the transfer owner conserves it.
@@ -70,7 +81,7 @@ export const hpLeadAdditionalSpellCommands = lowerSpellCasts(hpLeadPassingSpellS
     .filter(c => c.id === hpLeadPassingSpellSet.ids.pass_feather.command).map(c => ({...c, powerId: HP_LEVITATION, group: 'structured_local', worldId: WORLD, location: HALL, audience: ['$actor'], participants: ['player', 'book.hp.lead.ron'], participantsCoLocated: true,
         requires: {all: [alive, ...hpLeadPassingSpellSet.cards.pass_feather.conditions.map(x => structuredClone(x.requires)),
             {fact: `power.${HP_LEVITATION}.owned`, op: 'eq', value: true, reason: 'Learn the charm in Charms first.'}], reason: 'You need to know the charm and have a practice feather at Hogwarts.'}}));
-export const hpLeadAdditionalSpellFacts = state => spellCastFacts(state, hpLeadPassingSpellSet, {chanceFact: hpLeadChanceFact, powerOf: () => HP_LEVITATION});
+export const hpLeadAdditionalSpellFacts = state => levitationFacts(state, hpLeadPassingSpellSet, {chanceFact: hpLeadChanceFact, powerOf: () => HP_LEVITATION});
 
 hpLeadSpellCommands.push(...hpLeadAdditionalSpellCommands);
 
@@ -289,7 +300,7 @@ hpLeadBenchCommands.push(
 
 function labTrialFacts(state) {
     const mastery=state.simulation?.powers?.player?.[HP_LEVITATION]?.mastery??0;
-    const base=spellCastFacts(state,benchSpells,{chanceFact:benchChanceFact,powerOf:()=>HP_LEVITATION})[benchChanceFact(benchCast.id)];
+    const base=levitationFacts(state,benchSpells,{chanceFact:benchChanceFact,powerOf:()=>HP_LEVITATION})[benchChanceFact(benchCast.id)];
     return Object.fromEntries(variants.map(({delivery,stroke,aim})=>[
         HP_SPELL_PRACTICE+'.trial.'+[delivery,stroke,aim].join('.')+'.chance',
         delivery==='mental'?(mastery<fluency?1:Math.min(1,base+0.2)):base,

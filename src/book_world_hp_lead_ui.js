@@ -1,10 +1,12 @@
 import {homeModelLines} from './home_overview_model.js';
 import {renderHomeView} from './ui/home_view.js';
 import {definePanel} from './panel_kit.js';
+import {setWorkspaceModuleTitle} from './workspace_layout.js';
 import {shortActionLabel} from './ui/action_label.js';
+import {renderHpSchoolDay} from './ui/hp_school_day.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
 import {hpLeadTieCommands,hpLeadMakingCommands} from './world_packs/book_hp_lead_life_data.js';
-import {hpLeadSpellCommands,hpLeadBenchCommands,HP_SPELL_PRACTICE} from './hp_lead_spells.js';
+import {hpLeadSpellCommands,hpLeadBenchCommands,HP_FEATHER_CAST,HP_SPELL_PRACTICE} from './hp_lead_spells.js';
 import {HP_LEAD_MAKING} from './hp_lead_making.js';
 import {HP_LEAD_FLIGHT,isHpSchoolPassage} from './book_world_hp_lead_flight.js';
 import {isHpDuelPassage} from './book_world_hp_lead_duel.js';
@@ -14,6 +16,7 @@ import {isHpMirrorPassage} from './book_world_hp_lead_mirror.js';
 import {isHpFlamelPassage} from './book_world_hp_lead_flamel.js';
 import {isHpNorbertPassage} from './book_world_hp_lead_norbert.js';
 import {isHpFinalePassage} from './book_world_hp_lead_finale.js';
+import {HP_SUMMER,HP_SUMMER_ACTION} from './hp_summer_passage.js';
 // The lead life owns its household and school work, including the native
 // train and Sorting commands shared with the public start.
 registerOwnedWorkPanel((_work,definition)=>definition?.worldId==='book.hp.lead.world'?'hp_panel':null);
@@ -26,13 +29,29 @@ const workTime=minutes=>{
 };
 export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct}){
  const panel=node('section');panel.id='hp_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
- const body=node('div'),encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: a shared fight panel renders here (as Tingen's panel), not re-rendered
- panel.append(node('h2','The household day'),encounterSlot,body);
- let notice='';
+ const heading=node('h2','The household day'),schoolBody=node('div'),body=node('div'),encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: the shared fight panel renders here
+ panel.append(heading,schoolBody,encounterSlot,body);
+ let notice='',schoolHistoryOpen=false;
  const render=()=>{
-  const v=project();body.replaceChildren();
+  const v=project();body.replaceChildren();schoolBody.replaceChildren();
   if(!v?.enrolled)return;
+  const title=v.schoolDay?'Hogwarts':'The household day';
+  if(heading.textContent!==title){heading.textContent=title;setWorkspaceModuleTitle('hp',title);}
   const campaign=read(),arc=v.arc,section=node('section');section.className='ui-panel-section';section.dataset.hpArc=arc.id;
+  if(v.summer){
+   const s=node('section');s.className='ui-panel-section';s.dataset.hpSummer='';
+   s.append(node('h3','Before the school term'),node('p',v.summer.date),
+    node('p',v.summer.remaining?`Next: the train to Hogwarts, available on 1 September. ${workTime(v.summer.remaining)} until then.`:'It is 1 September. Take the train to Hogwarts when you are ready.'));
+   const offer=(campaign.extensions||[]).find(e=>e.id===HP_SUMMER),a=(campaign.actions||[]).find(a=>a.id===HP_SUMMER_ACTION),job=(campaign.jobs||[]).find(j=>j.commandId===HP_SUMMER_ACTION);
+   const b=node('button',job?'Stop household routine':offer?'Choose an ordinary household routine':a?.label||'');b.type='button';b.dataset.hpSummerAction=job?'stop':offer?'adopt':'start';
+   b.disabled=!campaign.canWrite||(!job&&(offer?!offer.eligible:!a?.eligible));
+   b.onclick=()=>{try{command(job?{type:'cancel',jobId:job.id}:offer?{type:'adopt-extension',id:offer.id,revision:offer.revision,contentHash:offer.contentHash}:{type:'action',id:HP_SUMMER_ACTION});notice=job?'Routine stopped. Time already spent still counts.':'';}catch(e){notice=e.message;}render();};
+   if(job||offer||a&&v.summer.remaining){s.append(b,node('p','An optional routine through ordinary household days, with a quicker school clock. Stop to do something else; elapsed time still counts. You choose the train yourself.'));
+    const reasons=offer?.reasons||a?.reasons||[];if(!job&&reasons.length)s.append(node('p',reasons.join(' ')));}
+   section.append(s);
+  }
+  if(v.schoolDay&&!v.schoolDay.inFight)schoolBody.append(renderHpSchoolDay(v,campaign,{study,studyRun:(id,write)=>{try{write?study.writeNote(id):study.start(id);notice='';}catch(e){notice=e.message;}render();},historyOpen:schoolHistoryOpen,revealHistory:open=>{schoolHistoryOpen=open;},
+   run:(request,lesson)=>{try{command(request);if(lesson)keepSlot?.();notice='';}catch(e){notice=e.message;}render();}}));
   section.append(node('h3',arc.title));
   const next=arc.next,running=next&&v.jobs.find(j=>j.commandId===next.id),action=next&&(campaign.actions||[]).find(a=>a.id===next.id);
   const excursion=v.excursion,flight=excursion?.id===HP_LEAD_FLIGHT;
@@ -148,7 +167,8 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
      if(jx.last){const p=node('p',`Last try: ${jx.last}`);p.dataset.hpJinxLast='';row.append(p);}}
     parent.append(row);};
   const ls=v.lessons;
-  if(ls&&schoolExtras){const s3=node('section');s3.className='ui-panel-section';s3.dataset.hpLessons='';s3.append(node('h3','Lessons'));
+  if(ls&&schoolExtras){const s3=node('section');s3.className='ui-panel-section';
+   if(!v.schoolDay){s3.dataset.hpLessons='';s3.append(node('h3','Lessons'));
    for(const l of ls.lessons){const a=(campaign.actions||[]).find(x=>x.id===l.commandId);if(!a)continue;
     const row=node('div');row.dataset.panelRow='';
     const label=v.halloweenCharms&&l.commandId==='book.hp.lead.lesson_charms'? `Attend another Charms lesson · ${a.duration} min`:a.label;
@@ -162,15 +182,19 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
    // W1b: casting the learned charm outside class (shared spell lowering; stamina either way, a fizzle chance that falls with practice).
    for(const c of hpLeadSpellCommands)renderCharm(s3,c);
    for(const t of ls.last){const p=node('p',`Last class: ${t}`);p.dataset.hpLessonResult='';s3.append(p);}
+   }
+   if(v.schoolDay){const extra=node('section');extra.className='ui-panel-section';
+    for(const c of hpLeadSpellCommands)if(c.id!==HP_FEATHER_CAST)renderCharm(extra,c);
+    if(extra.childElementCount){extra.prepend(node('h3','More spell practice'));section.append(extra);}}
    // W11-C: library study through the inquiry domain (one hour a session; the topic finishes on minutes plus lessons attended).
-   for(const r of study?.rows?.()||[]){const row=node('div');row.dataset.panelRow='';
+   for(const r of study?.rows?.()||[]){if(v.schoolDay&&r.topic==='charms')continue;const row=node('div');row.dataset.panelRow='';
     const b=node('button',r.label);b.type='button';b.dataset.hpStudy=r.id;b.disabled=!r.eligible||!campaign.canWrite;
     b.onclick=()=>{try{study.start(r.id);notice='';}catch(e){notice=e.message;}render();};
     row.append(b);row.append(node('p',r.eligible?r.progress:(r.done?`Worked out. ${r.progress}`:`${r.reason} ${r.progress}`)));if(r.lead){const lead=node('p',r.lead);lead.dataset.studyLead='';row.append(lead);}
     if(r.canNote){const nb=node('button','Write it up as a note');nb.type='button';nb.dataset.hpStudyNote=r.id;
      nb.onclick=()=>{try{study.writeNote(r.id);notice='You wrote a note.';}catch(e){notice=e.message;}render();};row.append(nb);}
     s3.append(row);}
-   section.append(s3);}
+   if(s3.childElementCount){if(v.schoolDay)s3.prepend(node('h3','Library study'));section.append(s3);}}
   const practice=node('section');practice.className='ui-panel-section';
    const bench=(campaign.extensions||[]).find(e=>e.id===HP_SPELL_PRACTICE);
    if(bench?.eligible&&v.atCharmsBench){const b=node('button','Open the Charms practice bench');b.type='button';b.disabled=!campaign.canWrite;

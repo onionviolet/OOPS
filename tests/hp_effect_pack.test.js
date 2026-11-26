@@ -145,7 +145,8 @@ test('the ledger carries exactly the pack cases, typed as the runner computes th
     const ledger = fs.readFileSync(new URL('../docs/coverage/hp_spells.jsonl', import.meta.url), 'utf8').trim().split('\n').map(l => JSON.parse(l));
     const withCase = ledger.filter(r => r.case?.module === pack.HP_CASE_MODULE);
     assert.deepEqual(withCase.map(r => r.id).sort(), [...ids].sort());
-    for (const row of withCase) assert.equal((await runCase(row, {reachable: reachableFrom()})).state, row.state, row.id);
+    const reachable = reachableFrom();
+    for (const row of withCase) assert.equal((await runCase(row, {reachable})).state, row.state, row.id);
 });
 
 test('the camp ward case depends on both the jinx filter and the arrival warning', async () => {

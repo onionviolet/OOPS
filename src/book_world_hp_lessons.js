@@ -5,6 +5,7 @@
 // state.simulation.powers.player['book.hp.lead.levitation'] (saved with the expansion state); the Alchemy skill owns potion progress.
 // Authored proposals (dial, reason): the class slot is Monday 09:00 to 11:00 (book_world_hp_duties.js). Charms takes its first hour,
 // Potions its second, so either lesson keeps the week's slot. Lessons also need the Sorting first (canon order).
+import {hpStudyBonus, HP_LIBRARY_OPEN, HP_LIBRARY_BOOK_DOWN} from './hp_study_rules.js';
 import {lessonAvailability} from './lesson.js';
 import {failureChance} from './spell_seam.js';
 import {schoolYearPosition} from './book_world_hp_school_calendar.js';
@@ -41,10 +42,7 @@ const powerOf = state => state?.simulation?.powers?.player?.[HP_LEVITATION];
 // 'understood' in the player's knowledge (the inquiry's output; a note read second hand is 'interpreted' and earns no bonus).
 // Dial with reason: +10 points on the lesson's chance, the worth of one more practice try, because knowing why the motion works
 // helps the hand but is not the practice. The sum still respects each lesson's own cap.
-export const HP_STUDY = Object.freeze({charms: Object.freeze({inquiry: 'study.hp.charms', key: 'study.hp.charms.writeup'}),
-    potions: Object.freeze({inquiry: 'study.hp.potions', key: 'study.hp.potions.writeup'}), bonus: 0.1});
-const studied = (state, topic) => state?.simulation?.knowledge?.player?.[HP_STUDY[topic].key]?.stage === 'understood';
-export const hpStudyBonus = (state, topic) => studied(state, topic) ? HP_STUDY.bonus : 0;
+export {HP_STUDY, hpStudyBonus} from './hp_study_rules.js';
 // Exam result read back (hp_exam_model.js; trait for next year): a high or top Charms paper earns the charms master's regard, five points on the
 // charm's chance in later lessons. Dial: the size. Reason: a master who thinks well of a pupil corrects the wrist sooner. First-year lessons are over
 // by the time marks are read, so this only bites once a later year exists (below the floor until then).
@@ -75,7 +73,7 @@ const flaskBonus = state => state?.actors?.player?.facts?.['hp.lead.potions.flas
 export function hpLessonFacts(state, context = {}) {
     let charms = false, potions = false;
     try { charms = lessonOpen(state, HP_LESSONS.charms); potions = lessonOpen(state, HP_LESSONS.potions); } catch { /* calendar not ready: closed */ }
-    return {[HP_LESSONS.charms.fact]: charms, [HP_LESSONS.potions.fact]: potions,
+    return {[HP_LIBRARY_OPEN]: !hpLibraryReason(state), [`world.${HP_LIBRARY_BOOK_DOWN}`]: state.worlds?.['book.hp.lead.world']?.facts?.[HP_LIBRARY_BOOK_DOWN] === true, [HP_LESSONS.charms.fact]: charms, [HP_LESSONS.potions.fact]: potions,
         'hp.lead.levitateChance': levitateWith(powerOf(state)?.mastery ?? 0, hpStudyBonus(state, 'charms') + examRegard(state)),
         'hp.lead.brewChance': brewWith(context.gameplay?.player?.skills?.Alchemy?.xp ?? 0, hpStudyBonus(state, 'potions') + flaskBonus(state))};
 }
