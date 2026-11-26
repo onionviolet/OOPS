@@ -1,0 +1,111 @@
+{
+  "viewport": "1920x1080",
+  "setup": "continuation of this proof's actual ordinary life; no fixture, seed override, grants or time hooks",
+  "route": [],
+  "errors": [],
+  "bundleSHA256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "runnerSHA256": "b129535c051e4bff09e5395cfa3a631cd5e99fb2657f6409626c25bf7fea927e",
+  "inputSaveSHA256": "ef7dce103cd39d1c1118e4ade1d87c580c49cc92f309aed62d3afc1b68a72436",
+  "resume": "Unmodified localStorage from this proof's actual ordinary life; origin metadata moved to the new isolated server.",
+  "loadedBundleSHA256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "carriedWork": {
+    "saved": {
+      "activity_id": "fieldwork",
+      "earnings": 84,
+      "gathering_time": 73,
+      "gathered_materials": {}
+    },
+    "startClock": "02/04/999 13:45, Summer, Tue, Day",
+    "wallStart": "2026-11-25T23:46:29.131Z",
+    "stopQuote": "(pay accrued on stopping: 11C 4W)",
+    "endMoney": 525,
+    "endClock": "02/04/999 14:33, Summer, Tue, Day",
+    "wallEnd": "2026-11-25T23:47:16.811Z"
+  },
+  "stock": [
+    {
+      "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+      "name": "Rat pelt cape",
+      "quality": 113,
+      "shownPrice": "50C",
+      "price": 500
+    },
+    {
+      "key": "{\"id\":\"Cheap leather pants\",\"quality\":112}",
+      "name": "Cheap leather pants",
+      "quality": 112,
+      "shownPrice": "57C",
+      "price": 570
+    },
+    {
+      "key": "{\"id\":\"Leather shoes\",\"quality\":120}",
+      "name": "Leather shoes",
+      "quality": 120,
+      "shownPrice": "80C",
+      "price": 800
+    },
+    {
+      "key": "{\"components\":{\"shield_base\":\"Cheap wooden shield base\",\"handle\":\"Simple wooden shield handle\"},\"quality\":118}",
+      "name": "Cheap wooden shield",
+      "quality": 118,
+      "shownPrice": "1S 8C",
+      "price": 1080
+    },
+    {
+      "key": "{\"components\":{\"head\":\"Cheap iron axe head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":108}",
+      "name": "Cheap iron axe",
+      "quality": 108,
+      "shownPrice": "1S 40C",
+      "price": 1400
+    }
+  ],
+  "initialMoney": 525,
+  "initialClock": "02/04/999 14:34, Summer, Tue, Day",
+  "saleOffers": [],
+  "target": {
+    "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+    "name": "Rat pelt cape",
+    "quality": 113,
+    "shownPrice": "50C",
+    "price": 500
+  },
+  "keepPlan": {
+    "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+    "description": "Keep exactly the remaining units through this merchant’s stock refresh, including zero after purchase. Release this plan to receive ordinary future stock. No copy or free goods are created.",
+    "paid": 0
+  },
+  "saleSettlementQuote": "nothing",
+  "afterSalesMoney": 525,
+  "actualSaleProceeds": 0,
+  "beforePurchaseMoney": 525,
+  "afterPurchaseMoney": 25,
+  "newPickup": {
+    "name": "Rat pelt cape",
+    "rarity": "uncommon",
+    "quality": "[113%]",
+    "new": true,
+    "worn": false,
+    "shadow": "color(srgb 0.498039 0.909804 0.560784 / 0.45) 0px 0px 4px 0px inset",
+    "animation": "feel-new-pulse",
+    "duration": "0.9s",
+    "indicator": "none",
+    "glow": "on",
+    "effects": "auto"
+  },
+  "seen": {
+    "name": "Rat pelt cape",
+    "rarity": "uncommon",
+    "quality": "[113%]",
+    "new": false,
+    "worn": false,
+    "shadow": "color(srgb 0.498039 0.909804 0.560784 / 0.45) 0px 0px 4px 0px inset",
+    "animation": "none",
+    "duration": "0s",
+    "indicator": "none",
+    "glow": "on",
+    "effects": "auto"
+  },
+  "failure": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#inventory_content_div > [data-character_item]').first().locator('.equip_item_button')\u001b[22m\n\u001b[2m    - locator resolved to <span class=\"equip_item_button item_controls\">[equip]</span>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    25 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at C:\\Users\\wayba\\dev\\OOPS\\tests\\feel_rarity_earned_browser.mjs:152:61",
+  "failureVisible": "Village\n02/04/999 14:58, Tue · ☼ Day\n☀\nSummer\nDry\n22.2 °C · comfortable\nToday: nothing planned\nNo work running\nSaving available.\nPin\nYou\nLv 0\n60/60 hp\n0/10 xp\n48/48 stamina\nSTR\n16.0\nAGL\n8.0\nDEX\n11.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.6\nSpeed\n1.0 /s\nCrit %\n5%\nCrit\n×1.3\nAP\n35\nEP\n25\nAttributes ›\nGear · 0\nIt's a cape... made of wolf rat pelts. Only for poor or insane\nQuality: 113% [uncommon]\nSlot: cape\nDefense: 0\nCold tolerance: +2.2\nNothing worn in this slot: wearing this adds every effect above in full.\nValue: 12C 5W [originally 12C 5W]\nItem specifics\nFull item ›\nInspection is free · Esc closes\nCondition\n\nNo active effects\n\nBody · Human\nAll\n1\nGear\n1\nUse\n0\nOther\n0\n★\n0\nInventory\n2C 5W\n▾\nExpand\nFind / filter:\nName ↑\n▾\n[cape]\nRat pelt cape\n[113%]\n12C 5W\nVillage\n\nMedium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.\n\nMore about this place\nActions\nHome\nWorkshop\nOptions\nLocal life · 5 of 9 ready\nVillage practice and familiar ground\nstorefront Visit a merchant\n Trade on the village market\nwork_outline Find work\nfitness_center Train\nMix at the Village counter\nActions\nSkills\nCrafting\nMixing\nKeys\nHere\nPeople here · 2\nOld Hesk, the village elder\nVillage neighbor\nTalk\nDunstan, the village trader\nMerchant\nTalk\nThings here · 5\nWaypost supply clerk\nSupply clerk\nHomes\nResidence rights, furnishings, storage and optional home beginnings.\nOpen\nVillage mixing counter\nMix and observe your own ingredients.\nOpen\nVillage common herb verge\nGather common herbs and inspect your carried materials and preparations.\nOpen\nGear workshop\nInspect and work on carried gear: fittings, treatment, repair, reforge and salvage.\nOpen\nWays out · 2\nInfested field\n15 min away · Not safe\nEnter\nWild willow stand\n5 min away\nGo\nJournal\nFilter:\nAll quests\n▾\nQuests\n???????\n???????\nData\nKnows\nNotebook\nPeople\nLost memory\ncheck_box\nFind out what happened\ncheck_box_outline_blank\nHelp with the wolf rat infestation\nSkills & practice\nSort / filter:\nName\n▾\nFind\n2 / 2 skills\nkeyboard_double_arrow_downActivity skills\nFarming : level 6/10\n14.3%\nPatience : level 2/10\n2.2%\nLearning now\nPatience\n6 XP an hour\nFarming\n38.3 XP an hour\n\nPatience reached 2\n\nSkills\nStances\n???????\nReports\nView:\nAll reports\n▾\nLatest\nRight now\n\nNext step: Ask the elder about the spare weapon and pick one, or go without.\nTalk with Old Hesk in Around you, then \"About the spare weapon...\". Your choice goes in your inventory.\n\nShow me\n\nOpen here: fieldwork\n\nWhile you were away\n\nBanked time: 6 min. Spending it plays your current routine forward at the normal pace and stops at any choice.\n\nSpend 6 min of banked time\nEARLIER\nYour name is set in the You panel header. Click it to rename.\nA visiting courier offers a Village route pamphlet. Their name now stays in Local life.\nFinished a task for a quest: \"Lost memory\"\nUnlocked location \"Infested field\"\nUnlocked activity \"weightlifting\" in location \"Village\"\nUnlocked activity \"running\" in location \"Village\"\nMade some progress in quest: \"Lost memory\"\nHero obtained \"Cheap iron sword x1\"\nYou can now visit the village market\nUnlocked activity \"fieldwork\" in location \"Village\"\nUnlocked new skill: Farming\nFarming has reached level 1 Thanks to Farming reaching a new milestone, Hero gained: +2 stamina\n\"I just don't believe you can find one that big\"\nFarming has reached level 2 Thanks to Farming reaching a new milestone, Hero gained: +1 str\nFarming has reached level 3 Thanks to Farming reaching a new milestone, Hero gained: +1 dex +2 stamina\nFarming has reached level 4 Thanks to Farming reaching a new milestone, Hero gained: +1 str +2 stamina\n\"Look, a bird!\"\nFarming has reached level 5 Thanks to Farming reaching a new milestone, Hero gained: +1 str +2 stamina x1.05 ????? xp gain\nHero stopped fieldwork\nHero earned 11C 6W\nA supply runner pauses by the Village well. You can offer five coins for their meal or let them continue.\n\"These nasty rats almost ate my cat!\"\n\"*You hear some rustling*\"\nFarming has reached level 6 Thanks to Farming reaching a new milestone, Hero gained: +1 str x1.1 ????? xp gain\n[ Home · 02/04/999, Summer, Tue ]Hero stopped fieldworkHero earned 11C 4W\n2 new\nGrowth\nEvents\nCrafting\nCombat\nLoot\nReady\nStory\nWorld\nStats\nCondition\nInventory\nJournal\nData\nKnows\nNotebook\nPeople\nTravelers\nProjects\nLedger\nOrganizations\nWorlds\nBeginning\nCapability runs\nConnection\nSettings\nAll panels…\nFamily qualities\nProjects\nStudy · Ask around for someone to teach you\nVitals\nStats\nCondition\nTools\nGear workshop\nInventory\nEquipment comparison\nItem details · Select an item in Inventory\nPhandalin\nYour journal\nReturn to the mark\nStories and history\nVows and tempering\nRune bench\nKnown things (1 new)\nNaming and achievements\nDeeds\nStatistics\nLives and inheritance\nYour beginning\nNotebook\nPeople you know\nRemembered years\nReports\nLedger\nHomes and belongings\nHome at a glance\nVillage experiments\nGathering at a glance\nStanding and ledger\nPotioneering\nRiverside exploration\nCapability runs\nSpills and smoke\nWhere I am\nTingen workroom\nSpellbook · not here\nOther worlds · No added world is open yet. A crossing fr…\nOrganizations · Market courtyard\nPatrol & custody\nTravelers\nNeighbors\nSkills & practice\nJournal\nLocal actions\nAround you\nScene\nAppearance\nEffects & sound\nYour own rules\nPreview of your changes\nYour own places\nContinuing connection\nFind\nSave\nExport\nImport\nMenu\n▾",
+  "actualLifeState": "C:\\Users\\wayba\\dev\\OOPS\\work\\glow-earned-rarity-20261125\\browser-state.json"
+}

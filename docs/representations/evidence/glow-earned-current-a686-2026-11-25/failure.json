@@ -1,0 +1,5 @@
+{
+  "error": "AggregateError: Owned browser startup and cleanup failed.\n    at launchOwnedChromium (C:\\Users\\wayba\\dev\\OOPS\\scripts\\owned_chrome.cjs:145:35)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async file:///C:/Users/wayba/dev/OOPS/tests/feel_rarity_current_browser.mjs:17:13",
+  "observations": {},
+  "errors": []
+}

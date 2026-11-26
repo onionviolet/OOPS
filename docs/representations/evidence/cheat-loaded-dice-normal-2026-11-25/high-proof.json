@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "bundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "result": {
+    "direction": "high",
+    "peltQuality": 80,
+    "peltCount": 1,
+    "completeness": "damaged",
+    "charges": 1,
+    "used": 1,
+    "fightTicks": 9,
+    "overrideReceipts": 1,
+    "pendingWorkingUsedSaveReloadExportFreshImport": true
+  },
+  "errors": []
+}

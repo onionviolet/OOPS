@@ -1,0 +1,173 @@
+{
+  "schema": "native-earned-rarity-proof/1",
+  "bundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "viewport": "1920x1080",
+  "route": "Ordinary default Village life: elder sword gift and market unlock; real starter-item sale; natural fieldwork over two workdays; held 113% uncommon Rat pelt cape bought for 500 W; visible Full item → Equip; compare new/seen/worn, Item glow off and Effects reduced.",
+  "setup": "Actual fresh ordinary life, continued from its own unmodified saved localStorage on isolated origins. No fixture items, grants, seed override, clock hooks, runtime or dist edits. First-day work used e797966b; final natural work, actual purchase and desktop controls used current 9a960b. No complete earned rare-tier claim.",
+  "status": "agent-verified, not human-reviewed",
+  "world": "base.frontier",
+  "owner": "src/ui/feel_finish.js",
+  "acquisition": {
+    "item": "Rat pelt cape",
+    "quality": 113,
+    "rarity": "uncommon",
+    "startingCash": 102,
+    "nativeStarterSaleProceeds": 193,
+    "fieldworkDayOnePay": 116,
+    "fieldworkDayTwoPay": 114,
+    "totalEarnedWages": 230,
+    "beforePurchaseCash": 525,
+    "purchasePrice": 500,
+    "afterPurchaseCash": 25,
+    "keptStockFee": 0,
+    "paidRounds": 9,
+    "paidWorkGameHours": 18,
+    "firstWorkClock": "01/04/999 08:52, Summer, Mon, Day",
+    "lastWorkClock": "02/04/999 14:33, Summer, Tue, Day",
+    "originalWallStart": "2026-11-25T23:15:55.113Z",
+    "workCollectedWallEnd": "2026-11-25T23:47:16.811Z",
+    "workElapsedWallSeconds": 1881.698,
+    "extension": "The original 30 minute limit preserved the actual partial round; the coordinator authorized completing the nearby remaining round. Another 47.68 seconds of resumed natural work collected it."
+  },
+  "observations": {
+    "new": {
+      "name": "Rat pelt cape",
+      "rarity": "uncommon",
+      "quality": "[113%]",
+      "new": true,
+      "worn": false,
+      "shadow": "color(srgb 0.498039 0.909804 0.560784 / 0.45) 0px 0px 4px 0px inset",
+      "animation": "feel-new-pulse",
+      "duration": "0.9s",
+      "indicator": "none",
+      "glow": "on",
+      "effects": "auto"
+    },
+    "seen": {
+      "name": "Rat pelt cape",
+      "rarity": "uncommon",
+      "quality": "[113%]",
+      "new": false,
+      "worn": false,
+      "shadow": "color(srgb 0.498039 0.909804 0.560784 / 0.45) 0px 0px 4px 0px inset",
+      "animation": "none",
+      "duration": "0s",
+      "indicator": "none",
+      "glow": "on",
+      "effects": "auto"
+    },
+    "equipped": {
+      "name": "Rat pelt cape",
+      "rarity": "uncommon",
+      "quality": "[113%]",
+      "new": false,
+      "worn": true,
+      "shadow": "color(srgb 0.498039 0.909804 0.560784 / 0.45) 0px 0px 4px 0px inset",
+      "indicator": "\"◆\"",
+      "qualityColor": "rgb(127, 232, 143)",
+      "animation": "none",
+      "duration": "0s",
+      "settle": "900ms",
+      "glow": "on",
+      "effects": "auto"
+    },
+    "glowOff": {
+      "name": "Rat pelt cape",
+      "rarity": "uncommon",
+      "quality": "[113%]",
+      "new": false,
+      "worn": true,
+      "shadow": "none",
+      "indicator": "none",
+      "qualityColor": "rgb(127, 232, 143)",
+      "animation": "none",
+      "duration": "0s",
+      "settle": "900ms",
+      "glow": "off",
+      "effects": "auto"
+    },
+    "reduced": {
+      "name": "Rat pelt cape",
+      "rarity": "uncommon",
+      "quality": "[113%]",
+      "new": false,
+      "worn": true,
+      "shadow": "color(srgb 0.498039 0.909804 0.560784 / 0.45) 0px 0px 4px 0px inset",
+      "indicator": "\"◆\"",
+      "qualityColor": "rgb(127, 232, 143)",
+      "animation": "none",
+      "duration": "0s",
+      "settle": "0ms",
+      "glow": "on",
+      "effects": "reduced"
+    },
+    "reloaded": {
+      "name": "Rat pelt cape",
+      "rarity": "uncommon",
+      "quality": "[113%]",
+      "new": false,
+      "worn": false,
+      "shadow": "color(srgb 0.498039 0.909804 0.560784 / 0.45) 0px 0px 4px 0px inset",
+      "indicator": "none",
+      "qualityColor": "rgb(127, 232, 143)",
+      "animation": "none",
+      "duration": "0s",
+      "settle": "900ms",
+      "glow": "on",
+      "effects": "auto"
+    }
+  },
+  "execution": {
+    "acquisition": "Native purchase prefix verified; that long runner then exited1 targeting obsolete hidden inline Equip. The actual earned life was retained, not regenerated.",
+    "controls": "Visible Full item → Equip and both settings comparisons passed in a separate desktop command with normal exit 0 on that same earned life.",
+    "errors": []
+  },
+  "gaps": [
+    "Earned rare/epic/legendary/mythical items were not exercised. Initial market quality cap120 is below rare threshold130.",
+    "No single seed-independent short uncommon acquisition claim: the actual offered stock and all cash costs are recorded."
+  ],
+  "earlierWorkBundleSha256": "e797966bfa5b358605400dc68227cb544adf7dc58406cb5b6479c43ebf975aa5",
+  "sourceHashes": {
+    "src/ui/feel_finish.js": "5e193246000a4b3be7f4a8de32b52e1383ead3409a15656921405e95c8852916",
+    "styles/feel_finish.css": "33e0a4f86c219ff5eaa24c6fb867bf6c24fea352612731ff5fb4fba56402af4c"
+  },
+  "evidence": {
+    "earned-purchase.json": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/earned-purchase.json",
+      "sha256": "5a95e15654bddd2c4811c56d59d6182f1117fcdbf5f20cd971abc013e345ea3e"
+    },
+    "controls.json": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/controls.json",
+      "sha256": "432c6e4aab7082e17fd0e02edb1a6a68bd9e1e5bdbd6464ac05f3dd62db50af5"
+    },
+    "day-one-work.json": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/day-one-work.json",
+      "sha256": "c45b0ac9ed993f324075e74242174a71206c0ea05fc646e9a7e4c8b30761010a"
+    },
+    "day-two-work.json": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/day-two-work.json",
+      "sha256": "de54ee7c1e30c06cdfe8c91dc216ee6cf4df56e570f4a4b3c93b2d3632fc7d4c"
+    },
+    "uncommon-new.png": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/uncommon-new.png",
+      "sha256": "3ef96f852e56abb49a6d6390ce75d8eddda7cd0dca542a5ab11d677a22b502cc"
+    },
+    "uncommon-seen.png": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/uncommon-seen.png",
+      "sha256": "ab42d053cafed70e0634f6705645fb840996c8c5a6b72a2b0fa73a12ba3fd56c"
+    },
+    "uncommon-equipped.png": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/uncommon-equipped.png",
+      "sha256": "4a05c31476e9312004359d77f9a33416e0f2f092c45df94a4a80b802b4d8af28"
+    },
+    "glow-off.png": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/glow-off.png",
+      "sha256": "d36e17e375bdbabbf4b2b640d1cf70d6f9cca34216229c7dcac5c07d0114c459"
+    },
+    "effects-reduced.png": {
+      "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/effects-reduced.png",
+      "sha256": "92ca32b0b72c891839a34f2195835cf086d2c8561e71593d69d49aff3275c391"
+    }
+  },
+  "receipt": "docs/gm/dispatch/play-surface-2026-11-14/GLOW_EARNED_RARITY_2026-11-25.md"
+}

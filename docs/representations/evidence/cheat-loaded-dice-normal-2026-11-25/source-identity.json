@@ -1,0 +1,29 @@
+{
+  "bundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "files": [
+    {
+      "path": "src/cheat_loaded_dice.js",
+      "built": "06b6d96e1ed37cb797808b5b36ac04bfb61e7abdf9ba00b0dbd3813d4080e404",
+      "current": "06b6d96e1ed37cb797808b5b36ac04bfb61e7abdf9ba00b0dbd3813d4080e404",
+      "unchanged": true
+    },
+    {
+      "path": "src/cheat_definitions.js",
+      "built": "b891d9290915d5f2d521ba1679aad98660e0c0d7a93d20af8e475bc91a7177e1",
+      "current": "b891d9290915d5f2d521ba1679aad98660e0c0d7a93d20af8e475bc91a7177e1",
+      "unchanged": true
+    },
+    {
+      "path": "src/cheat_mechanisms.js",
+      "built": "d4bec77076a2b4a9d873daa4331195d0dd8782e3d8f8055d5542f5623c33c6bd",
+      "current": "d4bec77076a2b4a9d873daa4331195d0dd8782e3d8f8055d5542f5623c33c6bd",
+      "unchanged": true
+    },
+    {
+      "path": "src/cheat_ui.js",
+      "built": "019cf23360eae3aa0dcbf1352a018df65ad4f196d88542f78868d982b929c7e8",
+      "current": "019cf23360eae3aa0dcbf1352a018df65ad4f196d88542f78868d982b929c7e8",
+      "unchanged": true
+    }
+  ]
+}

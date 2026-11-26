@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "bundleSha256": "ee41b923e2510bafcd2736c3568907e1d6b0e2cc02e783b8a56bcf57bf19ecec",
+  "servedBundleSha256": "ee41b923e2510bafcd2736c3568907e1d6b0e2cc02e783b8a56bcf57bf19ecec",
+  "viewport": "1920x1080",
+  "route": "Declared held Loaded Dice fixture -> ordinary elder sword and field access -> no call / low / high -> one actual native field kill -> existing native pelt work -> owned graded pelt. Native pending/working/used Save/reload/Export/fresh Import.",
+  "setup": "Fresh native body and RNG copied identically; setup grants only an awakened held Loaded Dice card with2reserves. Card acquisition is not proved here. No enemy, tool, physical inventory, skill or native outcome edited. Native clock stepper advances fights/work. High branch verifies rejected quota write then retry before credit.",
+  "ordinaryProofReused": true,
+  "reusedScope": "Ordinary case passed on this same pinned bundle before proof-only receipt-field and fault-injection corrections. Its separate proof remains unchanged.",
+  "results": [
+    {
+      "direction": "ordinary",
+      "peltQuality": 75,
+      "peltCount": 1,
+      "completeness": "damaged",
+      "charges": 2,
+      "used": 0,
+      "fightTicks": 9,
+      "overrideReceipts": 0,
+      "pendingWorkingUsedSaveReloadExportFreshImport": true
+    },
+    {
+      "direction": "low",
+      "peltQuality": 70,
+      "peltCount": 1,
+      "completeness": "damaged",
+      "charges": 1,
+      "used": 1,
+      "fightTicks": 9,
+      "overrideReceipts": 1,
+      "pendingWorkingUsedSaveReloadExportFreshImport": true
+    },
+    {
+      "direction": "high",
+      "peltQuality": 80,
+      "peltCount": 1,
+      "completeness": "damaged",
+      "charges": 1,
+      "used": 1,
+      "fightTicks": 9,
+      "overrideReceipts": 1,
+      "pendingWorkingUsedSaveReloadExportFreshImport": true
+    }
+  ],
+  "errors": []
+}

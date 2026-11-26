@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "bundleSha256": "b691073af3c1a5a3c1ccf49171c4d97175873f992e4b7d00e8d6b1c05eca9d2a",
+  "result": {
+    "choice": "ordinary",
+    "earnedBeforeSpending": 3,
+    "claimedMilestones": [
+      "Recognize the continuing insight · ready ",
+      "Win a combat-zone round · ready ",
+      "Learn through perception · ready "
+    ],
+    "facets": 3,
+    "distinctNativeCarcassReadings": 3,
+    "recharges": 0,
+    "openingAndUsedSaveReloadExportFreshImport": true,
+    "ordinaryElderSword": true,
+    "actualFieldFightTicks": 65
+  },
+  "errors": []
+}

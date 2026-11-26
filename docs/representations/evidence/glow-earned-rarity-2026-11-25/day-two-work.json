@@ -1,0 +1,94 @@
+{
+  "viewport": "1920x1080",
+  "setup": "continuation of this proof's actual ordinary life; no fixture, seed override, grants or time hooks",
+  "route": [],
+  "errors": [],
+  "bundleSHA256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "runnerSHA256": "de46275dee7a85719a93ea22b2e07fd1b0401a02571daf27ed70e4ee73700a08",
+  "inputSaveSHA256": "a2ec0fa22243eb37bf9963bbbd4d3dc777858d98f4cf4ebead15b4c6343b255b",
+  "resume": "Unmodified localStorage from this proof's actual ordinary life; origin metadata moved to the new isolated server.",
+  "loadedBundleSHA256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "stock": [
+    {
+      "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+      "name": "Rat pelt cape",
+      "quality": 113,
+      "shownPrice": "50C",
+      "price": 500
+    },
+    {
+      "key": "{\"id\":\"Cheap leather pants\",\"quality\":112}",
+      "name": "Cheap leather pants",
+      "quality": 112,
+      "shownPrice": "57C",
+      "price": 570
+    },
+    {
+      "key": "{\"id\":\"Leather shoes\",\"quality\":120}",
+      "name": "Leather shoes",
+      "quality": 120,
+      "shownPrice": "80C",
+      "price": 800
+    },
+    {
+      "key": "{\"components\":{\"shield_base\":\"Cheap wooden shield base\",\"handle\":\"Simple wooden shield handle\"},\"quality\":118}",
+      "name": "Cheap wooden shield",
+      "quality": 118,
+      "shownPrice": "1S 8C",
+      "price": 1080
+    },
+    {
+      "key": "{\"components\":{\"head\":\"Cheap iron axe head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":108}",
+      "name": "Cheap iron axe",
+      "quality": 108,
+      "shownPrice": "1S 40C",
+      "price": 1400
+    }
+  ],
+  "initialMoney": 411,
+  "initialClock": "02/04/999 06:23, Summer, Tue, Day",
+  "saleOffers": [],
+  "target": {
+    "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+    "name": "Rat pelt cape",
+    "quality": 113,
+    "shownPrice": "50C",
+    "price": 500
+  },
+  "keepPlan": {
+    "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+    "description": "Keep exactly the remaining units through this merchant’s stock refresh, including zero after purchase. Release this plan to receive ordinary future stock. No copy or free goods are created.",
+    "paid": 0
+  },
+  "saleSettlementQuote": "nothing",
+  "afterSalesMoney": 411,
+  "actualSaleProceeds": 0,
+  "work": {
+    "startMoney": 411,
+    "startClock": "02/04/999 06:29, Summer, Tue, Day",
+    "wallStart": "2026-11-25T23:38:40.235Z",
+    "samples": [
+      {
+        "cash": 411,
+        "accrued": 28,
+        "active": true,
+        "clock": "02/04/999 08:31, Summer, Tue, Day"
+      },
+      {
+        "cash": 411,
+        "accrued": 56,
+        "active": true,
+        "clock": "02/04/999 10:31, Summer, Tue, Day"
+      },
+      {
+        "cash": 411,
+        "accrued": 84,
+        "active": true,
+        "clock": "02/04/999 12:31, Summer, Tue, Day"
+      }
+    ],
+    "originalWallStart": "2026-11-25T23:15:55.113Z"
+  },
+  "failure": "page.waitForFunction: Timeout 74076ms exceeded.\n    at C:\\Users\\wayba\\dev\\OOPS\\tests\\feel_rarity_earned_browser.mjs:111:28",
+  "actualLifeState": "C:\\Users\\wayba\\dev\\OOPS\\work\\glow-earned-rarity-20261125\\browser-state.json"
+}

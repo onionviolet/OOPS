@@ -1,10 +1,11 @@
 import {validateFurnace,emptyFurnace} from './patient_furnace.js';
 import {validateCompact} from './heirloom_compact.js';
 import {validatePattern} from './pattern_book.js';
+import {validateStartingInsight} from './cheat_starting_insight.js';
 // Authored defaults. Costs describe these faculties, not universal world law.
 export const CHEAT_MODULES = Object.freeze([
     {id:'true-appraisal',name:'True Appraisal',family:'perception',ui:'appraisal-lens',hook:'harvest.observe',description:'Read a selected carcass more closely. Readings keep their original time.',state:{revision:1,charges:3,used:0,recharged:0,readings:[]}},
-    {id:'loaded-dice',name:'Loaded Dice',family:'fortune',ui:'quiet',hook:'stream.call',description:'Commit a low next loot roll. One charge is spent now; the call remains until a loot decision uses it.',state:{revision:1,charges:2,used:0,recharged:0}},
+    {id:'loaded-dice',name:'Loaded Dice',family:'fortune',ui:'quiet',hook:'stream.call',description:'Choose a low or high next loot roll. One charge is spent now; the call remains until a loot decision uses it.',state:{revision:1,charges:2,used:0,recharged:0}},
     {id:'fate-ledger',name:'Fate Ledger',family:'foresight',ui:'simulator-foresight',hook:'stream.peek',description:'Read one named loot decision without advancing or drawing it. A call already committed by Loaded Dice is included.',state:{revision:1,charges:3,used:0,recharged:0,readings:[]}},
     {id:'earned-habit',name:'Earned Habit',family:'practice',ui:'quiet',hook:'harvest.routine',description:'Set a finite carcass routine after processing one by hand. Existing tools, time, body and interruption rules still apply.',state:{revision:1,charges:3,used:0,recharged:0}},
     {id:'pattern-book',name:"Traveler's Pattern Book",family:'knowledge',ui:'quiet',hook:'crafting.pattern',description:'Remember a method you can actually read. Rebuild its design in a new body, using the original law. Materials, skill and hidden properties stay separate.',state:{revision:1,charges:3,used:0,recharged:0,patterns:[]}},
@@ -21,6 +22,7 @@ const natural=x=>Number.isSafeInteger(x)&&x>=0;
 export function validateModuleState(card) {
     if(card.id==='quiet-faculty'){
         const s=card.state,ids=new Set(),milestones=new Set(['recognition','first-victory','first-processing','practised-craft','practised-perception','learned-method','recorded-pattern','completed-routine']);
+        validateStartingInsight(s);
         if(!natural(s.points)||!natural(s.earned)||!natural(s.spent)||s.points!==s.earned-s.spent||!Array.isArray(s.claimed)||s.claimed.some(id=>!milestones.has(id))||new Set(s.claimed).size!==s.claimed.length)
             throw Error('Invalid cheat faculty accounting.');
         if(!Array.isArray(card.stages))throw Error('Invalid cheat faculty stages.');
