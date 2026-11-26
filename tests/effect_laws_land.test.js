@@ -33,14 +33,26 @@ test('every catalogue ability kind reads as a sentence, and an unknown kind stay
     assert.equal(landEffect(rules, world, {kind: 'merged-body'}, {cause: 'test:label'}).status, 'label-only');
 });
 
-test('a spell settles through the spell law and lands in a fresh world, and the label derives from the sentence', () => {
+test('Lumos and Nox settle through the spell law; an old active-light run restores without a save change', () => {
     assert.equal(spellLabel({verb: 'add', object: 'light'}), 'spell.add.light');
     let engine = run.create();
     assert.equal(lumosLight(engine), 0);
+    assert.deepEqual(run.view(engine).actions.map(action => action.id), ['lumos', 'nox']);
     engine = run.act(engine, 'lumos');
     assert.equal(lumosLight(engine), 4);
     const saved = JSON.parse(JSON.stringify(serializeEngineWorld(engine)));
     const back = run.restore(saved);
     assert.equal(lumosLight(back), 4, 'save and restore keep the landed light');
-    assert.equal(lumosLight(run.act(back, 'lumos')), 8);
+    assert.equal(run.view(back).history[0], 'Cast 1: Lumos.');
+    const dark = run.act(back, 'nox');
+    assert.equal(lumosLight(dark), 0, 'Nox removes the active wand-light');
+    assert.equal(run.view(dark).result, "You cast Nox. The room's wand-light stands at 0.");
+    assert.equal(lumosLight(run.act(dark, 'lumos')), 4, 'the existing Lumos action still works');
+    assert.equal(lumosLight(run.act(run.act(back, 'lumos'), 'nox')), 0, 'one wand goes dark even after recasting Lumos');
+});
+
+test('Nox on an unlit room is a no-effect control', () => {
+    const engine = run.act(run.create(), 'nox');
+    assert.equal(lumosLight(engine), 0);
+    assert.equal(run.view(engine).result, "You cast Nox. The room's wand-light stands at 0.");
 });
