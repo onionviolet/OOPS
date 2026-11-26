@@ -1,3 +1,4 @@
+import {restoreGrainCartChoice} from './village_grain_cart.js';
 // v0.6's native loader migrates the registries. Preserve the older biography
 // explicitly and let existing characters continue without creation again.
 export function prepareV06Save(original) {
@@ -22,5 +23,6 @@ export function prepareV06Save(original) {
         inventory[key] = {count};
         save.expansion.actors.player.resources.kits = 0;
     }
+    restoreGrainCartChoice(save);
     return save;
 }
