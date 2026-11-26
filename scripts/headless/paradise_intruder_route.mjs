@@ -8,7 +8,7 @@ import {boot,bundleGame} from './runner.mjs';
 const root=resolve('.'),out=resolve(process.argv[2]||'work/su-intruder-native-20261126');
 const E='book.su.lead.intruder',M=E+'.visitor',B='book.su.lead',sha=x=>createHash('sha256').update(x).digest('hex');
 const inputs=[{kind:'fresh-earned',file:resolve('work/su-gray-terminal-visitor-20261126/fresh-arrival-export.txt'),idle:0},
- {kind:'inherited-roof',file:resolve('../OOPS-candidates/paradise-roof-20261126/private-fixtures/after-roof-export.txt'),idle:3}];
+ {kind:'inherited-roof',file:resolve('.local/candidates/paradise-roof-20261126/private-fixtures/after-roof-export.txt'),idle:3}];
 await fs.mkdir(out,{recursive:true});const results=[];
 for(const input of inputs.filter(i=>!process.argv[3]||i.kind===process.argv[3]))for(const branch of ['source','distance'].filter(b=>!process.argv[4]||b===process.argv[4])){
  const encoded=await fs.readFile(input.file,'utf8');let game;
