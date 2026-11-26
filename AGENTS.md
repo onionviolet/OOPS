@@ -188,9 +188,11 @@ compatibility decision.
 Use origin for the personal fork (public) and upstream for the original.
 Inspect the working tree before editing and preserve unrelated changes.
 
-Agent work stays in the background (Weibao, 2026-10-30, standing rule). Never open
-a visible window on his screen: browsers run headless, the Tauri app runs hidden, and
-native computer control needs his say-so first.
+Agent work stays in the background (Weibao, 2026-10-30, standing rule). Use the
+built-in background browser for project work, implementation and checks; research
+and user-specific work use the signed-in browser extension (2026-11-25). Never open
+a visible window on his screen: the Tauri app runs hidden, and native computer
+control needs his say-so first.
 
 Finished tasks delete their extras (Weibao, 2026-11-14, standing rule): scratch
 worktrees and their registration, build candidates, copied saves, temp and `work/`
