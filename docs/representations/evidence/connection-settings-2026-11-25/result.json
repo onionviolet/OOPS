@@ -1,0 +1,42 @@
+{
+  "viewport": "1920x1080",
+  "fixture": "tests/fixtures/perf/mid.json",
+  "before": {
+    "mode": "local",
+    "context": "play",
+    "focus": "<button type=\"button\" data-panel-path=\"continuation\" data-route-id=\"continuation\" title=\"Connection · Alt+Y\" aria-keyshortcuts=\"Alt+y\" aria-current=\"false\">Connection</button>",
+    "intro": "Profile, typography, palette and seasonal theme for your panels. Changes remain a draft until applied.",
+    "target": "Panel"
+  },
+  "opened": {
+    "mode": "workspace:customization",
+    "context": "play",
+    "focus": "<div class=\"workspace-module-header expanded-panel-heading\" tabindex=\"-1\"><button type=\"button\" data-workspace-action=\"handle\" data-module=\"customization\" class=\"workspace-drag-handle\" draggable=\"false\" title=\"Drag to reorder or dock. Arrow keys move; left/right changes dock.\" aria-label=\"Move Appea",
+    "intro": "Profile, typography, palette and seasonal theme for your panels. Changes remain a draft until applied.",
+    "target": "Panel"
+  },
+  "returned": {
+    "mode": "local",
+    "context": "play",
+    "focus": "<button type=\"button\" data-panel-path=\"customization\" data-route-id=\"customization\" title=\"Settings · Alt+S\" aria-keyshortcuts=\"Alt+s\" aria-current=\"false\">Settings</button>",
+    "intro": "Profile, typography, palette and seasonal theme for your panels. Changes remain a draft until applied.",
+    "target": "Panel"
+  },
+  "checks": [
+    "Connection single-step Escape and focus return; starting-point wording",
+    "Editing control and shortcut dialog retain Escape priority"
+  ],
+  "bundleSha256": "c352727473048da07e0aad7b15e5485436e563cb942bbfab4f36520943216d4d",
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

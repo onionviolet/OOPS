@@ -1,0 +1,29 @@
+{
+  "viewport": "1366x900",
+  "route": "#workbench/card-trial",
+  "moduleSha256": "852b04757338186d10e9869eb77a4c7552fd0713a7b2a4d48ba363d4fc844ee6",
+  "manual": {
+    "ordinary": {
+      "turn": 4,
+      "spent": 6
+    },
+    "extraLand": {
+      "turn": 3,
+      "spent": 5
+    },
+    "sameOpponents": true
+  },
+  "tradeOrder": {
+    "moves": 6,
+    "spent": 10,
+    "budgetStopSpent": 6
+  },
+  "wardStop": {
+    "needed": 1000,
+    "ready": 2,
+    "spent": 0
+  },
+  "openingEnergyRefresh": 1,
+  "userStopRetained": "Turn 2/8 · Land 2 · Energy 2 · Route 0/3 · Total spent 1 · Crossing open",
+  "pageErrors": []
+}

@@ -1,0 +1,64 @@
+{
+  "atlas": {
+    "natural": [
+      "OOPS Gothic Bitmap 14"
+    ],
+    "tested": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "failed": [],
+    "errors": []
+  },
+  "game": {
+    "natural": [
+      "OOPS Gothic Bitmap 14"
+    ],
+    "tested": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "failed": [],
+    "errors": []
+  },
+  "verifiedFontHashes": {
+    "7": "27c6ec429fc640f1308aa285ee6ae1b03050274f977a24d89ba9e507166c8907",
+    "8": "1617a7f6a974dc58fcea20e7370b95d66fb2b3ffd581e50d216cbe62452ba90c",
+    "9": "95d9ee46a186ce2c1257741123e5391eefcb41aca24ac3c7db905144f7f06c35",
+    "10": "1fd767363cd6e464fe7e1ed216db540ec4cabcfd4403c8bf768693f402d37f54",
+    "11": "3f557b44b82370300f6014bee1ed8453305db08b26a5d03c2be2d30ee30fdff9",
+    "12": "62a70bd75878b1921db8c95c5db56a203dca6d36db8c7ea735c0eb0560671016",
+    "13": "28b93dd4ee3b33695b4361e221e615eb00ffeef63a3923da1e69ba4737ffbfec",
+    "14": "2324c3f064c33d408d862fdca85fae0b64b0200498becee72a4e088cd2c75758",
+    "15": "78327f5809691a9332c016fa25aafa54448c67c6f40813ea788ea6a31d4f8a94",
+    "16": "4cb842cf1e36f4e63b6dc8d68d891e2cb972d2840bc5cc7de34082871bae96be",
+    "17": "a38e5036406122db3888ce6efd3281d1d4e047b2d85e445051cc82bdb653cf85",
+    "18": "5c4be815296bf099c97b74b6cca16b6d46b3259a91e9d43045b6a6de106ed96f",
+    "19": "4264f19b7de273ca115ce0573e4c7902490b40cbfa5b93abd6757394cf2d5566",
+    "20": "7d0e9e02e77244680058f7d5f901a9b5f77a7136622e74a80fb0de617aaecfdc",
+    "21": "f68dcbdad5a6bd61d858f61f62cc8aaebdb6fa9b9fda7b31b879a73a6a1ff439",
+    "22": "f279ab60854e6d0bacab7b4147c8ac695eaf8e5820924e2ca27fd643224840a6"
+  }
+}

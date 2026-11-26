@@ -87,6 +87,7 @@ Imports run the same functions on a clone before any write.
 | `village_career` | 1 to 2 to 3 to 4 | Adds `watchcraft` study, `recruit`, tutor and teaching fields; grants no method | `migrateVillageCareer`, `src/village_career.js` |
 | `work_ledger` | 1 to 2 | Adds frozen `rules`, `acquired`, `settings`, `receipts` from original terms | `migrateWorkLedger`, `src/work_ledger_system.js` |
 | `absorb_local_life` | 1, 2, 3 | Normalizes searches and runner meal accounts | `normalizeLocalLife`, `src/absorb_c2/local_life.js` |
+| `ri_lead_sea` | 1, optional paid-inn body ID | Older anchors retain their settled minute. Using the paid inn bed starts recovery for that body at bedtime, or carries forward an existing fractional interval. | `src/ri_lead_sea_domain.js`, `tests/ri_inn_sleep_recovery.test.js` |
 | `fort_supply` | 1 | Validates, no rewrite; absent value creates a fresh ledger | `migrateFortSupply`, `src/absorb_d/fort.js` |
 | `pacing_e1` | 1 | Normalizes with defaults | `normalizePacing`, `src/absorb_e1/pacing.js` |
 | `life_record` | absent | Created at the loaded date, no invented past | `migrateLifeRecord`, `src/life_record.js` |

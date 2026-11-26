@@ -1,0 +1,24 @@
+{
+  "viewport": "1366x900",
+  "term": "method",
+  "unfilteredTotal": 415,
+  "counts": {
+    "feature-proposal": 79,
+    "acceptance-check": 4,
+    "finding": 21,
+    "historical-note": 26,
+    "backlog-entry": 285
+  },
+  "sumEqualsUnfiltered": true,
+  "canonicalFilesRead": 296,
+  "unchangedDefault": true,
+  "noInitialOrSelectChangeSearch": true,
+  "filterPreservedInUrlReloadAndPagination": true,
+  "exactEntryLinkRechecked": true,
+  "pageErrors": [],
+  "sourceHashes": {
+    "prototypes/world-atlas/owner-idea-search.mjs": "425c26fdde9e89d317ee86b691f2356eb6efdbf579df0d2413334f79dc742f40",
+    "prototypes/world-atlas/idea-owners-view.mjs": "ab90a02a49066b5453629c389fd2d87a09ae1553b7542ce172eb56544bbb12c6",
+    "prototypes/world-atlas/serve.mjs": "dbfc7e84714e3d3156a8edc5833a003e4efd767babb2d0414b62e1e5abbfb096"
+  }
+}

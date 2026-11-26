@@ -1,0 +1,36 @@
+{
+  "bundleSha256": "6cd80403907c3c913edcf3c85c02dc0e917b5a0a2e9dc2e922c2f5b7d6ef1b69",
+  "paths": [
+    {
+      "path": "src/world_packs/book_worm_lead_bus.js",
+      "primaryBaselineSha256": null,
+      "candidateSha256": "ed18267790ae4c092ad1d419f7d0a22bf2889c6bf4bcbef7345123b31e361762"
+    },
+    {
+      "path": "src/structured_pack_identity.js",
+      "primaryBaselineSha256": null,
+      "candidateSha256": "fff35a8f9d5057020b0ea53d601d135e91f2abebb43894a7e6cf9b3cf6da23d4"
+    },
+    {
+      "path": "src/structured_pack_state.js",
+      "primaryBaselineSha256": "b21a4333d12b96066ab3e116f276111c1d98767b70882071522147d5aaf530ae",
+      "candidateSha256": "38abfe192af021bf212caa8c1c5849c1b0a4f733681c9e581bddef7dfd026ebe"
+    },
+    {
+      "path": "src/structured_pack_extensions.js",
+      "primaryBaselineSha256": "4b99766044dc1ad0ac1a4a1e9f9b404d70d5d127c2f9b9b593669c4176027855",
+      "candidateSha256": "5ae12652febdb8185e9d652b4534661f38bfa11a30d0a78a6069982e2926a4f8"
+    },
+    {
+      "path": "src/book_world_beginning_registration.js",
+      "primaryBaselineSha256": "08d93a9102ae7959c764ea79bdfac5e861ac94da51dd965928dbe3220bd88ac6",
+      "candidateSha256": "0a9dac62ba91c7d20b51dd667cb43365a3e3828c333401c7ddde15afc03a52be"
+    },
+    {
+      "path": "tests/worm_bus.test.js",
+      "primaryBaselineSha256": null,
+      "candidateSha256": "c5a76e447663a196c0df81d7fae44f7dfcff1a7181beb7dfd32a0395846e3551"
+    }
+  ],
+  "status": "guarded primary adoption; coordinator normal build reproduced bundle"
+}

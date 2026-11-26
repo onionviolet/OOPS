@@ -18,6 +18,18 @@ holds the lines Weibao has accepted (AD32/AD44). This guide is a reading aid wit
 
 **Coverage route (reconciled 2026-10-31):** the explanatory LSD matrix remains scoped to LSD1–LSD256; LSD257–LSD470 stay in the design source and are not claimed reviewed by this guide. Current UI/engine mappings live in the [MC1–MC134 map and MC135–MC173 supplement](gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md#incremental-supplement-mc135mc173). A mapped code is not a completed mechanic. Use the [runtime tracker](gm/dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md) for current ownership and unfinished proof (AD32/AD36). Add no LSD codes here (LSD216: planning text is outrunning playable change).
 
+## Choosing how to start a protagonist
+
+Choose a scene where the lead can already do something consequential. The [four opening runs](gm/dispatch/foundation-run-2026-11-12/RUN.md#current-cross-world-pass-2026-11-26) give two implementation examples. A new identity, body, relationships and place fit a typed **Beginning**, as with Alden and Taylor. An independently saved scene that a player can revisit from another life fits **Capability runs**, as with Ryan’s first rewind or Su Xiao’s Test Hall. Su Xiao’s recruitment and his drill use both entry points for different purposes.
+
+For a typed Beginning, let the choice change a physical or social fact that another action reads. Taylor’s next visit finds the insects where she left them. Hannah can answer from Alden’s bedside after he lets her in. Keep the source location and any invented alternative in the author’s receipt. For a capability run, reveal an option when the protagonist can know to try it. Ryan can wait for the attacker after remembering the ambush. His repaired pub, returned briefcase and retained memories can then be checked separately on a retry.
+
+When extending a scene, play it once with a canon detail changed. Taylor carries a soaked backpack in the book. In the game, leaving it at school still lets her board the bus and spend ten minutes riding home. To inspect the notebook she has to go back for the bag. This gives the player control over travel while preserving the physical reason for what Taylor can discover. [Backpack and bus playtest](representations/WORM_OPENING_2026-11-26.md#backpack-and-bus-continuation-implemented)
+
+When updating a shipped Beginning, check a native export from the earlier build. Both the pack and its starting snapshot identify the edition that created that life. The [saved-edition check](representations/WORM_OPENING_2026-11-26.md#exact-saved-edition-compatibility) shows how to retain genuine earlier pairs through a wording correction. A new save created during an intermediate build is also an earlier edition.
+
+A protagonist’s saved life can depend on other worlds through the shared native save. Ryan’s chapter-one export opened in a candidate built without the optional world files. With the installed files present, the same bytes reached an incompatible location registration during import. When reproducing a save report, record which optional packs were present in the build that wrote it and the build that reads it. Keep the original export for the replay. [Ryan’s candidate and packaging record](gm/dispatch/protagonist-foundations-2026-11-25/RYAN_RUN_2026-11-26.md#playable-candidate-2026-11-26)
+
 ## Contents
 
 1. The model on one page

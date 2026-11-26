@@ -1,0 +1,28 @@
+{
+  "error": "SyntaxError: Unexpected token 'Y', \"YAIR-UTF8-\"... is not valid JSON\n    at JSON.parse (<anonymous>)\n    at file:///C:/Users/wayba/dev/OOPS/tests/ri_leaf_source_native_browser.mjs:63:23",
+  "errors": [],
+  "results": {
+    "main": {
+      "purchase": {
+        "stonesBefore": 4,
+        "stonesAfter": 0,
+        "leavesBought": 2
+      },
+      "nativeDriveOff": {
+        "tallies": 1,
+        "injury": true
+      },
+      "afterTreatment": {
+        "leaves": 1,
+        "injury": false,
+        "treatedAt": 0
+      },
+      "persistence": "Save/reload/Export/literal Import retained paid stock, treatment note and healed wound",
+      "downstream": {
+        "nativePatrolCompleted": true,
+        "steppedMinutes": 181,
+        "leafRetained": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "status": "desktop host/payment acceptance passed; coordinator observed",
+  "observer": "root coordinator using built-in background browser",
+  "recordedAt": "2026-11-26T09:22:36.075Z",
+  "bundleSha256": "71d4c2541833e955e0be8b5986c1c14229c0567f155f67f9a725a4372dec2c40",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "setup": {
+    "kind": "actual earned manual-stored native checkpoint imported as UTF-8 file on fresh origin",
+    "privateSnapshotSha256": "0f74634216f80e04ea95ea3a87c17130ae028c519251bc844bdeebaa05efec99",
+    "outcomeEdited": false
+  },
+  "observations": [
+    {
+      "surface": "Market courtyard → Grain for Bram",
+      "visible": "Mira holds one portion; household reserve4; meal unpaid"
+    },
+    {
+      "surface": "Events and performances → Host Bram with set-aside grain",
+      "visible": "Expected payment5; balance9C4W before hosting"
+    },
+    {
+      "surface": "After completion",
+      "visible": "No pending job; balance9C9W; Meal finished. Keep 4 grain for the household until you clear this order."
+    }
+  ],
+  "scope": "Actual imported earned custody state, discoverable host choice, completion, payment and persistent household-policy readout. This is the coordinator reported desktop replay; no screenshot artifact was supplied to this lane.",
+  "notClaimed": [
+    "Fresh browser earning of the harvest or order",
+    "Browser Save/reload or mid-meal Export/Import",
+    "1920×1080 layout acceptance",
+    "Repeated hired three-day production in browser"
+  ],
+  "relatedNative": "native.json"
+}

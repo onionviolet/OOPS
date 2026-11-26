@@ -1,0 +1,34 @@
+{
+  "route": [
+    "Village > Beginning > Worm / Taylor > Confirm arrival",
+    "Leave first: insects remain in washroom",
+    "Return > disperse > insects outside > native Export/Import"
+  ],
+  "errors": [],
+  "persistence": {
+    "saveReload": true,
+    "exportImport": true
+  },
+  "schema": 1,
+  "verification": "isolated native headless, ordinary fresh entry; no desktop browser or default build",
+  "source": {
+    "medium": "held English EPUB",
+    "chapter": "Gestation 1.1",
+    "paragraphsRead": 52,
+    "implementedScope": "paragraphs 43\u201351; aftermath context 30\u201342",
+    "epubSha256": "137b6342b5f7de939c8cd043f69e52bebbb36c8932d24ba4546aab31124b71e3",
+    "member": "worm_split_000.html",
+    "memberSha256": "f5f23995e7e8efc4c2b063d182583462feb9f4e9c541720d2bf771cfeb81eb9a"
+  },
+  "authored": {
+    "durationMinutes": 1,
+    "departureFirst": "not the chapter choice",
+    "groupedActor": "represents the gathered insects without a numerical population"
+  },
+  "sourceHashes": {
+    "src/world_packs/book_worm_lead_life.js": "128c0904004d7f010ecf68bb1586e2495bd7085be29b46f0ba5380a4f8f223fb",
+    "src/book_world_beginning_registration.js": "782022fcfc0ab790edfafa77a2d8b8a5d10123935809d4b398b56eb349a8b8ea",
+    "src/world_packs/book_sup_lead_life.js": "d1f177cb3a164448d48cd331df10790f7d321b9f5bc437ce82c152881bd3fa6a",
+    "tests/worm_lead_opening.test.js": "864ca5cfbaa86a92513b86284cafa91512670d473736bab629503cc8460af2e1"
+  }
+}

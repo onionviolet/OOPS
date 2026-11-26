@@ -1,0 +1,16 @@
+Historical initial browser gameplay assertions completed and result.json was written.
+Initial process exit: 1 during shared runner teardown.
+
+C:\Users\wayba\dev\OOPS\scripts\owned_chrome.cjs:57
+if(!await settledWithin(graceful, timeoutMs)) throw new Error('Owned proof Chrome did not release its transport after exact-tree cleanup.');
+
+Error: Owned proof Chrome did not release its transport after exact-tree cleanup.
+    at C:\Users\wayba\dev\OOPS\scripts\owned_chrome.cjs:57:61
+    at async file:///C:/Users/wayba/dev/OOPS/tests/lotm_watch_contact_browser.mjs:54:9
+
+Node.js v22.22.3
+
+Closing update: after the shared runner owner's repair, the normal browser proof
+was rerun on the same fa27a75e1398fd84bb1bf2068902d0044caaea1ff32f96331f5f6e7c3c5d5f96
+bundle. All gameplay and persistence assertions passed again. Final process exit 0,
+with no cleanup warning. The refreshed result.json records that successful rerun.

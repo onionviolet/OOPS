@@ -2662,3 +2662,17 @@ Superseded opening of the PROJECT.md current-focus line (foundations now lead; t
 
 The PROJECT.md build-order line gained a clause: game tie-in waits for the engine (Weibao, [direction](USER_VISION_LOG_2026-11.md#engine-first-game-tie-in-later-2026-11-12)). Its earlier wording ended at "one chat per part, canon as data over shared rules." and named the procedural foundation plan alone as the owner of order; the [procedural core](../PROCEDURAL_CORE.md) and [carry-out](../PROCEDURAL_CARRY_OUT.md) now hold the current order.
 
+### Cheat implementation brought forward, 2026-11-25
+
+The former PROJECT.md summary described cheats as back in consideration. On November 25 Weibao explicitly asked for implementation alongside gameplay work and gave starting-resource and ward examples. [Direction log](USER_VISION_LOG_2026-11.md#playable-cheat-advantages-2026-11-25)
+
+On 2026-11-25 the general priority “Deepen existing YAIRPG systems as well as adding new ones” gained an explicit build order. Extend a playable foundation first and use a concrete limitation in play to choose the next original system. [Direction](../USER_VISION.md#playable-foundations-first)
+
+The 2026-11-25 foundation-first goal now names the player experience shared by that work: choosing one's life and destination, developing power and relationships, and seeing consequences in the same world. The watch and two-life Tingen comparison are the current playable test. [Direction](../USER_VISION.md#player-directed-lives)
+The World Atlas focus previously named source-linked records one group at a time. On November 25 it expanded to browsable world rules and individually playable comparisons across cheat families.
+The Atlas goal now also covers desktop typography, cross-section Find and the route from an Atlas record to native play evidence. See the November 25 Desktop Atlas flow entry in the direction log.
+November 25: the verified Atlas and native-play wave closed. The continuing goal now uses each playable result, relevant research and PR intake to choose the next improvement.
+
+November 26. The earlier comparison treated waiting for a full sea as a timed recovery action. The next playable comparison uses the guardians’ bed and ordinary sleep, with early departure and paid recovery. See [Fang Yuan’s first night](dispatch/play-surface-2026-11-14/FANG_YUAN_DAY_COMPARISON_2026-11-24.md#first-night-at-the-guardians-house).
+
+November 26. The existing stone example used separate item definitions for fifteen charge levels. Weibao made individualized physical resources a standing direction. [Item rule ITM24](../ITEM_RULES.md#physical-resources)

@@ -1,0 +1,11 @@
+{
+  "setup": "Ordinary fresh Village entry; no edited save or fixture",
+  "steps": [
+    "Fresh normal beginning; disperse; choose The way home; one neutral backpack collected in washroom",
+    "Inspect on bus ride; arrival reveals private notebook damage through actual bag access",
+    "Native Save/reload and Export/Import retain one bag, observed contents and earlier dispersal"
+  ],
+  "errors": [],
+  "bundleSha256": "6cd80403907c3c913edcf3c85c02dc0e917b5a0a2e9dc2e922c2f5b7d6ef1b69",
+  "scope": "Native headless normal-entry/action/save paths; coordinator independently rebuilt identical desktop bundle."
+}

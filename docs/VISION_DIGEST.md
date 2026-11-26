@@ -6,6 +6,18 @@ OOPS (Optimistic Progression Simulator) is Weibao's fork of Miktaew's Yet Anothe
 
 ## Pillars
 
+- **Individual physical resources.** A partly used or entrusted object keeps the state that makes its next use different. The player can act on that particular piece and see what remains. [Direction](USER_VISION.md#individual-physical-resources)
+
+- **Shared foundations across world varieties.** Exercise common behavior through distinct protagonist runs. Start with Reincarnation Paradise, then bring in Worm, Super Supportive and The Perfect Run. [Direction](USER_VISION.md#shared-foundations-across-world-varieties)
+
+  Fang Yuan’s first night applies that principle to the bed and sleep loop. Waking early trades recovered essence for time to do something else.
+
+- **Improve from play.** Use the outcome of each playable slice to choose the next change across gameplay, assets, dialogue and foundations. Open PRs and targeted research can supply candidates. [Direction](USER_VISION.md#continuous-improvement)
+
+- **Player-directed lives, foundation first.** A protagonist, side character or local may go somewhere simply because the player wants to. Time, access, relationships and ability determine what happens there. Extend existing activities, entrust familiar work to the character and draw on the Atlas and cheat catalogue to change what those lives can do. [Direction](USER_VISION.md#player-directed-lives)
+
+The development World Atlas lets us search across people, places, world rules and cheats. A legible desktop record gives the source and a short In OOPS status. Native play evidence identifies the actual action and life that exercised it. Each cheat family should show a decision its advantage changes. [Direction](USER_VISION.md#research-and-sources) · [Atlas owner](research/WORLD_ATLAS_IDEABOARD_2026-11-22.md#standing-world-atlas-goal)
+
 Protagonist capability runs build repeatable actions for lead lives. Fang Yuan's
 first run covers acquiring, feeding and using a Gu, including combat. See the
 [lead-life workflow](LEAD_LIFE_GUIDE.md#capability-runs-2026-11-12).
@@ -33,7 +45,7 @@ design. Each world and situation draws on the capabilities that fit its rules.
 - **Book campaigns (2026-11-02/03):** runtime mechanisms lead and book windows follow as their consumers; the protagonist's life should play as their own life, with daily-life granularity a later adjustable dial. The lore's stated numbers are fixed points and our systems are calibrated to reproduce them (AD49; [USER_VISION](USER_VISION.md#match-the-lores-numbers-by-calibrating-our-systems-2026-11-03)).
 - **Open ideas welcome, limits to him first (2026-11-10, AD56).** Ideas that follow the core rules and widen play become adjustable working defaults; anything that narrows options waits for Weibao ([why](USER_VISION.md#ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10)).
 - **No forced weakness, anywhere (2026-11-10).** Nothing must carry a weakness, drawback, counter or tell by rule; limits are adjectives per thing and pushback comes from in-world agents with reasons ([why](USER_VISION.md#levels-of-fate-cheats-further-no-forced-weakness-anywhere-2026-11-10)).
-- **Cheats come back into consideration (2026-11-10).** Weibao: "Cheats should be brough earlier for consideration", ending the 2026-10-30 long-term deferral; the [cheat rules](CHEAT_RULES.md) are proposals and no cheat slice is authorized yet. Seven foundational rulebooks were drafted the same day at his request (TIE, LVR, TMR, KNW, STN, STY, CHT; [why](USER_VISION.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)).
+- **Cheats as playable advantages (2026-11-25).** Weibao asked to implement cheats alongside the current work and see how an extra starting resource changes play. Individual worlds determine which resources, opponents and responses exist. [Direction](USER_VISION.md#playable-cheat-advantages-2026-11-25) · [cheat rules](CHEAT_RULES.md).
 - **Limiting-line answers (2026-11-10).** Growing away-bank cap; no forgetting except external causes, so remembered information gets organized; rank and power can diverge; mind control must be noticeable; gentle wear with repair as play; belief is a resource where a method draws on it; no protagonist lifespan for now, and where one exists it fits the character, can be shown (the base cheat can show it) and harm to it should worry; routines can refine and improve ([why](gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-third-round-2026-11-10), [review](audits/LIMITING_LINES_REVIEW_2026-11-10.md)).
 - **Each slice leaves the next one cheaper (2026-11-07, AD54).** A walk that reaches a useful state saves it as a scenario, new actions get a caller checked at commit, world hosts take one registration line per consumer, tests share life-start builders, and a lane writes one record instead of touching every shared doc ([why](USER_VISION.md#each-slice-leaves-the-next-one-cheaper-2026-11-07)). On 2026-11-09 he asked for the docs and core rules to be reconciled so future development is easier; the resulting [system practice rules](SYSTEM_PRACTICE_RULES.md) SPR1–SPR22 and making rules MR37–MR44 are proposals until he accepts them by name ([request](gm/USER_VISION_LOG_2026-11.md#rules-for-building-and-tuning-systems-2026-11-09)).
 

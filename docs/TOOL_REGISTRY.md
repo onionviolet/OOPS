@@ -17,6 +17,25 @@ Inside this checkout, `python3 scripts/toolsets.py ...` is equivalent. `list --j
 
 Probe stdout and stderr are decoded as UTF-8 with replacement for invalid bytes, retaining up to 16,000 stdout characters and 4,000 stderr characters. Decoding errors do not turn a failing probe into a success; the child exit status and timeout outcome remain authoritative.
 
+## External owner documents
+
+External documentation is identified in the [tracked registry](../scripts/toolsets/registry.json) by `tool ID/document ID`: find the tool's `id`, then that entry in its `documents` array. This is a portable locator for the original owner, not a copy of its contents. From this checkout, run `python scripts/toolsets.py show discord` or `python scripts/toolsets.py show source-library` (`python3` on the Mac). `resolved_documents` supplies each exact local path, presence and current SHA-256 even when the tool runtime is missing. The same information appears in a scoped `doctor` result.
+
+Paths expand through `YAIR_TOOLS_CODE`, defaulting to the current user's `~/code`; set it to the actual sibling-repository directory on another host before `show`. The original `/Users/weiwei/code/...` identities remain in `original_path`. Read a present document at its resolved path before using the tool. A missing result means restore or mount that exact repository owner; registry metadata cannot substitute for its scope contract or establish installation/readiness.
+
+The [October 21 local inventory](audits/toolsets_2026-10-21/LOCAL_INVENTORY.json) records historical SHA-256 identities for `discord/readme`, `discord/collector` and `source-library/project-profile`. `recorded` preserves that dated provenance, separately from the current file hash and `matches_recorded`. The other Source Library documents retain their previously cited identities but have no document body or digest attestation tracked here. Absence or a changed current hash does not establish what the owner says now. On the checked Windows host, both external repositories are absent at the default registry roots; no owner contents were inferred from this registry.
+
+| External owner | Exact registry locator |
+| --- | --- |
+| `discord-reference-workbench/README.md` | `discord/readme` |
+| `discord-reference-workbench/docs/LOCAL_COLLECTOR.md` | `discord/collector` |
+| `zlibrary-research/docs/SOURCE_LIBRARY_0_5_0.md` | `source-library/platform-0.5.0` |
+| `zlibrary-research/docs/KAVITA_READER_0_6_1.md` | `source-library/kavita-0.6.1` |
+| `zlibrary-research/docs/INTEGRATED_READER_0_6_0.md` | `source-library/komga-0.6.0` |
+| `zlibrary-research/docs/LIGHT_NOVEL_SOURCES_0_5_2.md` | `source-library/novels-0.5.2` |
+| `zlibrary-research/docs/SUWAYOMI_EXTENSIONS_2026-10-22.md` | `source-library/suwayomi-2026-10-22` |
+| `zlibrary-research/docs/YAIRPG.md` | `source-library/project-profile` |
+
 `run ID -- ARG...` replaces the launcher process with that tool. It preserves caller working directory, stdin/stdout/stderr, argument boundaries, exit status and signal handling. Relative input/output paths therefore refer to the caller's directory. Use absolute source/output paths for reproducibility. No shell interpolation, command logging, credential capture, automatic installation, fallback version, retries or MCP registration occurs. The selected tool retains its normal behavior and authority requirements. `show` and doctor output include paths/configured values; keep them local if overrides contain private values. Do not put credentials in argv or these path/configuration overrides.
 
 ## Choose the route
@@ -24,8 +43,8 @@ Probe stdout and stderr are decoded as UTF-8 with replacement for invalid bytes,
 | Need | IDs / owner | Current boundary |
 |---|---|---|
 | Source already saved | `saved-sources`; [deep-dive modes](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#saved-sources-first) | Match exact edition/build and receipts; root presence does not prove every artifact exists or was read. |
-| Discord evidence | `discord`; [workbench README](/Users/weiwei/code/discord-reference-workbench/README.md) | Offline import/snapshot/search/gallery/verify. Preserve original/derivative and animation distinctions. |
-| Discord collection | `discord-web`, `discord-desktop`, `discord-exporters`; [collector owner](/Users/weiwei/code/discord-reference-workbench/docs/LOCAL_COLLECTOR.md) | Manual sign-in, one collector at a time, explicit channels/threads and pacing. Packaged/smoke proof differs from real export acceptance. |
+| Discord evidence | `discord`; [workbench README locator](../scripts/toolsets/registry.json), `discord/readme` | Offline import/snapshot/search/gallery/verify. Preserve original/derivative and animation distinctions. |
+| Discord collection | `discord-web`, `discord-desktop`, `discord-exporters`; [collector owner locator](../scripts/toolsets/registry.json), `discord/collector` | Manual sign-in, one collector at a time, explicit channels/threads and pacing. Packaged/smoke proof differs from real export acceptance. |
 | Native binary investigation | `rea`, `rea-pinned`, `ghidra`; [tool fit](research/REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md) | Updated upstream REA 6.7.0 is the default. Patched 6.4.0 remains explicit as `rea-pinned`; neither route transfers repaired projects automatically. |
 | REA source | `rea-source` | `/Users/weiwei/code/rea` is now updated and built at revision `6d356b84344659085f2b912857b5e27fe0160c9b`. |
 | Managed code | `dotnet`, `ilspy` | Explicit .NET root avoids PATH/runtime ambiguity. Trace real method consumers, not declarations alone. |
@@ -36,7 +55,7 @@ Probe stdout and stderr are decoded as UTF-8 with replacement for invalid bytes,
 | Books and fanworks | `lncrawl`, `zlibrary`, `zlibrary-mcp`, `epub-prepare`; [acquisition owner](research/SOURCE_ACQUISITION_TOOLS.md) | Local library first. Preserve selected source, transport state, private output and extraction-versus-reading coverage. |
 | Paid API: Message Batches reading | `anthropic-batch`; [workflow](research/BATCH_READING_WORKFLOW.md) (registry, generator, driver, budget), [campaign plan](gm/dispatch/batch-reading-2026-10-27/PLAN.md), `scripts/lead_run/batch_submit.mjs` and `batch_collect.mjs` | **Paid route, Weibao's explicit go per batch** (AU7: no silent paid fallback). Dry run is the default and calls nothing. Live runs read the key only from `ANTHROPIC_API_KEY` in the child environment (Keychain service `anthropic-api-yairpg`), model `claude-haiku-5-5`, `--max-usd` cap, spend limit set on the Console workspace. Source text goes to Anthropic; outputs stay private. |
 | Paid API: OpenAI Batch reading | `openai-batch`; [workflow](research/BATCH_READING_WORKFLOW.md#openai-backend-2026-11-08), `scripts/lead_run/openai_batch.mjs` behind the same submit, collect and overnight scripts | **Paid route, Weibao's explicit go per run** (AU7). Chosen by a plan `model` starting `gpt-` (default `gpt-6-luna`; `make_book_plans.mjs --model gpt-6-luna --tag oa`). Live runs read only `OPENAI_API_KEY` in the child environment (Keychain service `openai-api-yairpg`, present 2026-11-08); no fallback to the Anthropic key. One provider per run file; a live submit refuses shards in flight under another label, and already-read shards unless the plan states a fix (`reread`) or `--reread` is passed. Source text goes to OpenAI: responses are unstored (`store: false`), but the uploaded request file and the output file stay in the project's Files storage until collect deletes them after writing the summary (`--keep-files` skips that). Outputs stay private. |
-| Unified books/comics/manga app | `source-library`, `source-library-services`, `source-library-bootstrap`; [0.5.0 owner](/Users/weiwei/code/zlibrary-research/docs/SOURCE_LIBRARY_0_5_0.md) | Native app, private catalogue and 25-tool MCP. Unified download ledger, Suwayomi, Komga, CLU and Gutenberg verified. Bookracy remains 403-blocked; LibGen disabled after browser safety rejection. Existing `zlibrary-mcp` launches this server. |
+| Unified books/comics/manga app | `source-library`, `source-library-services`, `source-library-bootstrap`; [0.5.0 owner locator](../scripts/toolsets/registry.json), `source-library/platform-0.5.0` | Native app, private catalogue and 25-tool MCP. Unified download ledger, Suwayomi, Komga, CLU and Gutenberg verified. Bookracy remains 403-blocked; LibGen disabled after browser safety rejection. Existing `zlibrary-mcp` launches this server. |
 | Local library/PDF/OCR/media | `calibre`, `pdf2md`, `pdftotext`, `tesseract`, `ffmpeg` | Version/help proof only. Several tools write beside the input unless output is explicit. |
 | Manga and manhwa text, panel clips | `manga-text`; [README](../scripts/manga_text/README.md), [decision report](research/MANGA_OCR_AND_VISION_OPTIONS_2026-10-22.md) | Apple Vision plus a comic text detector for manga pages; strips and a profile-driven panel step for webtoons. Reads the Source Library read-only, writes only the git-ignored `docs/research/manga-text/private/`. `watch` is one detached instance (STOP and PAUSE files, worker cap); `summary`/`query`/`slice` give agents counts, locators and bounded text, never page images; `read-page` runs a local LLM only on selected pages and caches by CBZ hash, page, model and prompt. Panel profiles live in `scripts/manga_text/profiles/`; `bootstrap.sh` rebuilds the environment with pinned requirements and a checksummed detector. Stage 1 text, not speaker or scene facts; accuracy limits are in the validation reports. |
 | Live browser or connected sources | `browser`, `connectors` | Discover tools in the current session. Session/authentication and write authority cannot be inferred from this registry. |
@@ -64,7 +83,7 @@ python3 scripts/toolsets.py run discord-web
 python3 scripts/toolsets.py run test-queue -- browser node scripts/playtest/run.mjs --runs 2
 ```
 
-Read the [collector scope contract](/Users/weiwei/code/discord-reference-workbench/docs/LOCAL_COLLECTOR.md) before either collector launch. `REFERENCE_SCOPE` selects its explicit scope file; `REFERENCE_PORT` can select a port, but changing origins changes workspace continuity. Launch wrappers do not broaden channel/thread scope or resolve rate limits. There is no credential extraction or automatic account login.
+Read the collector scope contract at [registry locator `discord/collector`](../scripts/toolsets/registry.json), resolved through `show discord`, before either collector launch. If it is missing, its scope contract remains unavailable. `REFERENCE_SCOPE` selects its explicit scope file; `REFERENCE_PORT` can select a port, but changing origins changes workspace continuity. Launch wrappers do not broaden channel/thread scope or resolve rate limits. There is no credential extraction or automatic account login.
 
 ## Configuration and precedence
 

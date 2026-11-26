@@ -1,0 +1,26 @@
+{
+  "viewport": "1920x1080",
+  "fixture": "composed native mill-cart/orchard checkpoint based on tests/fixtures/perf/mid.json",
+  "setup": "Native mill quest first two tasks, cart discovery, farm access and trained Farming are fixture setup; no apples or Animal handling skill are gifted. Original combat earning is not covered.",
+  "fixtureSha256": "4bd3575acac393661673405b5157f0520213e3010deec380b787e5867d1fa019",
+  "bundleSha256": "51c575c4509b87c32368190378104d43bb054eea3652de9ce7aadf729ba176dc",
+  "checks": [
+    "Missing apples refuses immediately with no delivery",
+    "Native orchard harvesting produced 2 apples, none seeded",
+    "Stop keeps apples and withholds mill receipt; partial work survives Save/reload",
+    "Success consumes exactly2 apples, closes all cart routes, and millers pay existing500-coin quest reward plus native training access",
+    "Literal Export/Import preserves consumed food, finished delivery and claimed downstream reward"
+  ],
+  "production": {
+    "apples": 2,
+    "reportedHarvest": 2
+  },
+  "use": {
+    "applesBefore": 2,
+    "applesAfter": 0,
+    "moneyBeforeClaim": 104,
+    "moneyAfterClaim": 604,
+    "elapsedCommitment": 30
+  },
+  "pageErrors": []
+}

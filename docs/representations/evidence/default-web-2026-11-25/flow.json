@@ -1,0 +1,79 @@
+{
+ "routes": [
+  {
+   "name": "Stats",
+   "id": "preparation"
+  },
+  {
+   "name": "Condition",
+   "id": "condition"
+  },
+  {
+   "name": "Inventory",
+   "id": "belongings"
+  },
+  {
+   "name": "Journal",
+   "id": "records:quests"
+  },
+  {
+   "name": "Data",
+   "id": "records:data"
+  },
+  {
+   "name": "Knows",
+   "id": "records:knows"
+  },
+  {
+   "name": "Notebook",
+   "id": "records:notebook"
+  },
+  {
+   "name": "People",
+   "id": "known-people"
+  },
+  {
+   "name": "Travelers",
+   "id": "village-travelers"
+  },
+  {
+   "name": "Projects",
+   "id": "projects"
+  },
+  {
+   "name": "Ledger",
+   "id": "ledger"
+  },
+  {
+   "name": "Organizations",
+   "id": "organizations"
+  },
+  {
+   "name": "Beginning",
+   "id": "beginning"
+  },
+  {
+   "name": "Capability runs",
+   "id": "capability-runs"
+  },
+  {
+   "name": "Connection",
+   "id": "continuation"
+  },
+  {
+   "name": "Settings",
+   "id": "customization"
+  }
+ ],
+ "states": [
+  "early life",
+  "day 4, returned after ten days",
+  "a rainy day, two hours in the rain",
+  "a fight in the Infested field"
+ ],
+ "strays": [
+  "action summary \"Calculation and sources\"",
+  "panel #shell_inspector"
+ ],
+ "findings": []
+}

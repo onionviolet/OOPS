@@ -1,0 +1,311 @@
+{
+  "variant": "default",
+  "route": "fresh normal Village -> elder hello/head injury/leave/need/starting gear/dagger",
+  "earned": {
+    "text": "[weapon]\nCheap iron dagger\n[50%]\n7C 9W",
+    "rarity": "common",
+    "quality": "50%",
+    "color": "rgb(255, 255, 255)",
+    "rarityTitle": "Quality 50%: common",
+    "shadow": "none",
+    "animation": "feel-new-pulse",
+    "duration": "0.9s",
+    "new": true,
+    "newWord": "\"new\"",
+    "worn": false,
+    "wornMark": "none"
+  },
+  "observed": {
+    "root": {
+      "glow": "on",
+      "effects": "auto",
+      "lookMotion": "full",
+      "systemReduced": false
+    },
+    "events": [
+      {
+        "type": "animationstart",
+        "name": "feel-new-pulse",
+        "elapsed": 0,
+        "at": 10873.90000000596
+      },
+      {
+        "type": "animationend",
+        "name": "feel-new-pulse",
+        "elapsed": 0.9,
+        "at": 11421.5
+      }
+    ],
+    "frames": [
+      {
+        "at": 10874,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.585452) 0px 0px 3.90301px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 316.6220000049993
+          }
+        ]
+      },
+      {
+        "at": 10929.600000023842,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.585452) 0px 0px 3.90301px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 316.6220000049993
+          }
+        ]
+      },
+      {
+        "at": 11018.90000000596,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.527317) 0px 0px 3.51544px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 400.2680000049992
+          }
+        ]
+      },
+      {
+        "at": 11070.800000011921,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.316016) 0px 0px 2.10677px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 533.6680000049992
+          }
+        ]
+      },
+      {
+        "at": 11075.200000017881,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.292414) 0px 0px 1.94943px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 550.3680000049993
+          }
+        ]
+      },
+      {
+        "at": 11087.800000011921,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.269604) 0px 0px 1.79736px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 566.9680000049997
+          }
+        ]
+      },
+      {
+        "at": 11121.600000023842,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.247197) 0px 0px 1.64798px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 583.7680000049996
+          }
+        ]
+      },
+      {
+        "at": 11148.800000011921,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.225743) 0px 0px 1.50495px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 600.368000005
+          }
+        ]
+      },
+      {
+        "at": 11178.90000000596,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.204871) 0px 0px 1.36581px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 617.0680000050002
+          }
+        ]
+      },
+      {
+        "at": 11183.300000011921,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.165482) 0px 0px 1.10321px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 650.368000004999
+          }
+        ]
+      },
+      {
+        "at": 11187.90000000596,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.146904) 0px 0px 0.979361px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 667.0680000049991
+          }
+        ]
+      },
+      {
+        "at": 11204.600000023842,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.129261) 0px 0px 0.861739px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 683.6680000049995
+          }
+        ]
+      },
+      {
+        "at": 11221.40000000596,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.112279) 0px 0px 0.748525px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 700.4680000049995
+          }
+        ]
+      },
+      {
+        "at": 11237.90000000596,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.096405) 0px 0px 0.6427px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 717.0680000049998
+          }
+        ]
+      },
+      {
+        "at": 11335,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.0812182) 0px 0px 0.541455px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 733.9680000049996
+          }
+        ]
+      },
+      {
+        "at": 11336.100000023842,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.0319826) 0px 0px 0.213217px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 800.7680000050002
+          }
+        ]
+      },
+      {
+        "at": 11337.90000000596,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.0229327) 0px 0px 0.152885px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 817.0680000049995
+          }
+        ]
+      },
+      {
+        "at": 11354.800000011921,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.0149576) 0px 0px 0.0997176px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 833.9680000049991
+          }
+        ]
+      },
+      {
+        "at": 11374.5,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.00866435) 0px 0px 0.0577623px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 850.4680000049998
+          }
+        ]
+      },
+      {
+        "at": 11388.5,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.00390278) 0px 0px 0.0260185px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 867.2680000049997
+          }
+        ]
+      },
+      {
+        "at": 11404.700000017881,
+        "shadow": "oklab(0.885913 -0.00325981 0.153837 / 0.000979031) 0px 0px 0.00652687px 0px",
+        "duration": "0.9s",
+        "animations": [
+          {
+            "playState": "running",
+            "currentTime": 883.8680000050001
+          }
+        ]
+      },
+      {
+        "at": 11421.5,
+        "shadow": "none",
+        "duration": "0.9s",
+        "animations": []
+      }
+    ]
+  },
+  "acknowledged": {
+    "text": "[weapon]\nCheap iron dagger\n[50%]\n7C 9W",
+    "rarity": "common",
+    "quality": "50%",
+    "color": "rgb(255, 255, 255)",
+    "rarityTitle": "Quality 50%: common",
+    "shadow": "color(srgb 1 0.788235 0.290196 / 0.48) 0px 0px 9px 0px",
+    "animation": "none",
+    "duration": "0s",
+    "new": false,
+    "newWord": "none",
+    "worn": false,
+    "wornMark": "none"
+  },
+  "equipped": {
+    "text": "[weapon] Cheap iron dagger [50%]\n[take off]\n7C 9W",
+    "rarity": "common",
+    "quality": "50%",
+    "color": "rgb(255, 255, 255)",
+    "rarityTitle": "Quality 50%: common",
+    "shadow": "none",
+    "animation": "none",
+    "duration": "0s",
+    "new": false,
+    "newWord": "none",
+    "worn": true,
+    "wornMark": "\"◆\""
+  },
+  "quantity": 1,
+  "quality": 50,
+  "pageErrors": 0,
+  "fixture": false
+}

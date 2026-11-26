@@ -1809,3 +1809,50 @@ Weibao, reviewing the Discord-picture implementation: it "lacks the coloring dif
 ## AR1 line ratchet off for the UI push, 2026-11-20
 
 Weibao, after the drift reviews showed every lane's fix blocked by `main.js` at 10117 lines against a 10115 baseline: "we can realign the limits accordingly, remove limits and stuff until we finish implementing the Ui and more?" Offered raise-with-headroom or removal; he chose "Remove the ratchet". `scripts/check_architecture.mjs` no longer fails on line growth or a raised line baseline; it still prints counts, and the main-import and cycle checks stay on. To restore after the UI work: put the two checks back in `checkBaseline` and run `npm run check:arch -- --shrink`.
+
+## Standing World Atlas goal, 2026-11-24
+
+Weibao: “Yeah do people next. I want to click someone and see who they are, what they do, where and when I can find them, who they know, and their linked scenes. Keep the short In OOPS line.” Then: “make this a long standing goal and work on them accordingly”.
+
+The [atlas owner](../research/WORLD_ATLAS_IDEABOARD_2026-11-22.md#standing-world-atlas-goal) tracks the group-by-group work from collected readings. This direction applies to the development atlas.
+
+## Playable cheat advantages, 2026-11-25
+
+Weibao asked, “at the same time can we work on implementing cheats and how that change things?” His example was “1 extra energy/land when starting off” and a boss protecting its own ward card while giving its other cards ward 3. He also asked how to keep an RPG with those interactions idle. This authorizes trying a concrete advantage alongside current work. The exact resource, ward rule and idle controls are design choices for the relevant world. [Cheat rules](../CHEAT_RULES.md)
+
+## Playable foundations first
+
+Weibao asked on 2026-11-25, “e can work on the foundational playble stuff to extend from Yair and proto and ar??? first, getting what they do right and extending it, and then bbuilding our own systems, do we need to change our representations and stuff accross oeverything?” He also asked whether the cheat catalogue could serve that goal and whether the genre needs to change. The working goal and the incremental representation proposal are in [USER_VISION](../USER_VISION.md#playable-foundations-first). The identity of the third reference is open.
+
+## Player-directed lives
+
+On 2026-11-25 Weibao asked, “some stuff might jsut have a reeason because the player wants to take control and bring the persdon there, thoughts?” and “lets first reconcile our sayings into /uservision and like reocncile goals and stuff?” He requested the concrete comparison: “finish the village watch and relay, then pick a real Tingen incident from the readings and let us play it as Klein and a random local, so we can see how our relationships and choices change what happens?” [Current direction](../USER_VISION.md#player-directed-lives). Independent NPC control, simulation detail and original-world authoring costs remain questions of method.
+
+## World rules and individual cheats
+
+On 2026-11-25 Weibao asked, “do we need tyo absorb the rules of the world into world atlas too? other aspects?” and “Work on fleshing out the seperate cheats and all the sections? update our current goal and begin work accordingly?” [Standing direction](../USER_VISION.md#research-and-sources). The current game work remains the Village and Tingen comparison.
+
+## Desktop Atlas flow
+
+On 2026-11-25 Weibao asked, “make the UI for atlas better too? the flow to search, see, find, way better?” and “improving font and stuff and more? Does implementing things in atlas implement into the game? Can we restart our goal after udpating it and work in parallel accordinglyt?” [Standing vision](../USER_VISION.md#research-and-sources). The earlier Codex goal completed after its playable and UI checks. A new goal started for searchable, readable Atlas records, native proof, and independent parallel implementation.
+
+## Continuous improvement
+
+Weibao asked on 2026-11-25 to “make this a goal to recursively self improve on this” and to consider “assets, gameplay, dialogue, other aspects and more” alongside PRs, research and lighter agents. [Current direction](../USER_VISION.md#continuous-improvement).
+## Shared foundations across world varieties, 2026-11-26
+
+Weibao asked to “begin work on foundational stuff, and then on each variety of worldf, like reincarnation paradise and stuff”. The coordinator selected Reincarnation Paradise as the first named world to exercise in this pass. The order of the remaining worlds is open. [Standing direction](../USER_VISION.md#shared-foundations-across-world-varieties)
+
+He then asked to “begin proitaginist run for each world type/genre? like Reincarnation paradise, then we can have worm/supersupportive/pefect run, and others and more?” The named follow-ups begin with the protagonist of each book. [Lead-life guide](../LEAD_LIFE_GUIDE.md)
+
+## Fang Yuan’s first night, 2026-11-26
+
+“make Fang Yuan’s first night playable using the existing bed and sleep loop? let me wake early or spend a stone if I need the essence sooner, or dont want to recover fully”. This follows the recovery audit at the guardians’ house after the first resisted infusion. [Recovery goal audit](dispatch/play-surface-2026-11-14/FANG_YUAN_DAY_COMPARISON_2026-11-24.md#recovery-goal-audit)
+
+## Individual physical resources, 2026-11-26
+
+<a id="individual-physical-resources"></a>
+
+> we can turn the stone into a resource, so like things should be more itemized and indivdualistic and more fine rather than a blanket selection of phrasing and stuff, this should be a long standing thing?
+
+Standing direction from the stone example. A physical resource can have its own remaining contents, holder and history. When these change what a player can do, the game tracks them on the particular item and lets the player act on it. The item rules own the implementation default and the first example.

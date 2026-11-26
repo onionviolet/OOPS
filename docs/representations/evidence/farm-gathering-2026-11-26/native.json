@@ -1,0 +1,271 @@
+{
+  "status": "adopted; native verified; desktop host/payment verified separately",
+  "authority": "FARMING_PATH_PROPOSAL.md#From a harvest to somebody’s table, 2026-11-26",
+  "adoptedAt": "2026-11-26T09:12:04.086Z",
+  "normalBundleReference": "8a430b383bc1bedbc77af0c33e4317aecd3cecbca77ce3c3c26609bfe9aaa2b1",
+  "normalBundleExecuted": false,
+  "executedNativeBundle": "7bfb24cde35027e515ea30a019f975ef5bd4e78bc1fe3b8c96709011a6894cec",
+  "browserUsed": false,
+  "browserUnavailable": "cua.getBrowser iab returned Browser is not available: iab",
+  "startedAt": "2026-11-26T09:15:54.112Z",
+  "endedAt": "2026-11-26T09:20:52.909Z",
+  "sourceHashes": {
+    "management/farm_supply.js": "0d8ce6bdff8c16b7bb8c4550cb46cd95d7b611d9a497b6e3b19fd5b6214220a2",
+    "management/content.js": "cb5a81c9aa035664925a7ca3ffb4a6f6b365d11d444a62c5efc687a8d268d228",
+    "management/facts.js": "c2c15fb3c2b6a445fd37a77e8bd9b6410a914ec56a348e6697ebdad98aeb6e20",
+    "management/host.js": "bfd00fa89cb2b7cbf577c9146179b4ed05f8ed3e52c430e3d4ebae341a3d062c",
+    "management/ui.js": "e57dcf3ac8a139b7868d21f0113bc9aa66e1dd182fcc3d6662871c72d547dc94",
+    "management/validation.js": "695d6c68e1ea7b13a861d1bb018373d6fa2f002ca073473d7b22937e8c489627",
+    "hired_hands_plot.js": "13ecff2a1d5d84efb786ec8bbea06b22a4f45b58502909db0cb544c6cebbb6f1",
+    "native_tool_domains.js": "2d371c84decc36f87dd5d251407d92d6fc21def697d1c4ce5ccb734c17257652"
+  },
+  "sourceDrift": [],
+  "persistence": "native Save/reload and options Export/Import while stored and mid-meal; cancel then successful settlement",
+  "results": [
+    {
+      "mode": "manual",
+      "route": [
+        {
+          "action": "Visit the market courtyard",
+          "clock": 1,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 102
+        },
+        {
+          "action": "Rent Mira",
+          "clock": 1,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 98
+        },
+        {
+          "action": "Buy one courtyard seed packet",
+          "clock": 1,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 96
+        },
+        {
+          "action": "Book the courtyard",
+          "clock": 1,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Reserve next grain for Bram",
+          "clock": 1,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Plant grain",
+          "clock": 4,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Tend the planted crop",
+          "clock": 5,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Grow tended grain",
+          "clock": 11,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Harvest ready grain",
+          "clock": 11,
+          "playerGrain": 4,
+          "MiraGrain": 1,
+          "cash": 94
+        },
+        {
+          "action": "Host Bram’s gathering with Mira’s set-aside grain",
+          "clock": 11,
+          "playerGrain": 4,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Cancel Host Bram",
+          "clock": 13,
+          "playerGrain": 4,
+          "MiraGrain": 1,
+          "cash": 94
+        },
+        {
+          "action": "Host Bram’s gathering with Mira’s set-aside grain",
+          "clock": 19,
+          "playerGrain": 4,
+          "MiraGrain": 0,
+          "cash": 99
+        }
+      ],
+      "clock": 19,
+      "playerGrain": 4,
+      "MiraGrain": 0,
+      "cash": 99,
+      "BramCoins": 195,
+      "phase": "finished",
+      "errors": []
+    },
+    {
+      "mode": "reserve-holds",
+      "route": [
+        {
+          "action": "Reserve next grain for Bram",
+          "clock": 2,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Plant grain",
+          "clock": 5,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Tend the planted crop",
+          "clock": 6,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Grow tended grain",
+          "clock": 12,
+          "playerGrain": 0,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Harvest ready grain",
+          "clock": 12,
+          "playerGrain": 5,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Clear grain order",
+          "clock": 12,
+          "playerGrain": 5,
+          "MiraGrain": 0,
+          "cash": 94
+        },
+        {
+          "action": "Host the grain gathering",
+          "clock": 18,
+          "playerGrain": 4,
+          "MiraGrain": 0,
+          "cash": 99
+        }
+      ],
+      "clock": 18,
+      "playerGrain": 4,
+      "MiraGrain": 0,
+      "cash": 99,
+      "BramCoins": 195,
+      "phase": "cancelled",
+      "errors": []
+    },
+    {
+      "mode": "cancel-booking",
+      "route": [
+        {
+          "action": "Cancel the unhosted event booking",
+          "clock": 12,
+          "playerGrain": 5,
+          "MiraGrain": 0,
+          "cash": 96
+        },
+        {
+          "action": "Clear grain order",
+          "clock": 12,
+          "playerGrain": 5,
+          "MiraGrain": 0,
+          "cash": 96
+        }
+      ],
+      "clock": 12,
+      "playerGrain": 5,
+      "MiraGrain": 0,
+      "cash": 96,
+      "BramCoins": 200,
+      "phase": "cancelled",
+      "errors": []
+    },
+    {
+      "mode": "old-carry",
+      "route": [
+        {
+          "action": "Host the grain gathering",
+          "clock": 18,
+          "playerGrain": 4,
+          "MiraGrain": 0,
+          "cash": 99
+        }
+      ],
+      "clock": 18,
+      "playerGrain": 4,
+      "MiraGrain": 0,
+      "cash": 99,
+      "BramCoins": 195,
+      "phase": "none",
+      "errors": []
+    },
+    {
+      "mode": "custodian-away",
+      "route": [
+        {
+          "action": "declared-absent-Mira-fixture-blocks-pantry-host",
+          "clock": 12
+        }
+      ],
+      "clock": 12,
+      "playerGrain": 4,
+      "MiraGrain": 1,
+      "cash": 94,
+      "BramCoins": 200,
+      "phase": "stored",
+      "errors": []
+    }
+  ],
+  "privateProofSha256": "32b50949cd7d250cd1e0d5d68c8460bfe8dfda89308be0bf2046b8ca0231b3c7",
+  "checks": [
+    {
+      "command": "node --test tests/farm_supply.test.js tests/management.test.js tests/hired_hands.test.js",
+      "result": "33/33 PASS"
+    },
+    {
+      "command": "npm run check:arch",
+      "result": "PASS;0new cycles/main imports"
+    },
+    {
+      "command": "node scripts/check_player_text.mjs",
+      "result": "PASS"
+    }
+  ],
+  "priorHiredEvidence": {
+    "scope": "Separate isolated actual three-day hired production; earned continuation and resumed existing sell order. Not repeated by this final primary replay.",
+    "candidateFinalBundle": "4ec5b068e30607e52f47a275afda8b0e64f4f889c433f105fc678ec97f2dbc93"
+  },
+  "boundaries": [
+    "Mira pantry role is authored continuation.",
+    "Automatic delivery settles at harvest with local support; offsite harvest/return retry not exercised.",
+    "Private saves and raw lineage remain outside public receipt.",
+    "Full-suite wave gate owned by coordinator."
+  ],
+  "desktopEvidence": "desktop.json",
+  "browserScope": "This native replay used no browser; coordinator desktop replay is recorded separately in desktop.json."
+}

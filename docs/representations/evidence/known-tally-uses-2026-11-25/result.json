@@ -1,0 +1,13 @@
+{
+  "bundleSha256": "58a6029b2fa7ad2ed84897b8a939de4e667238d434b06f7e5311d9c6670b0bbd",
+  "viewport": "1920x1080",
+  "fixture": "composed Fang rank/day wall encounter; tally earned by actual drive-off; branches from same earned post-terms save",
+  "tooltip": "Watch tallyA marked bamboo slip from the watch captain for a kill you shared. The board pays a tally like one eye, your share of a kill you did not finish yourself.Carried, exact variant: 1",
+  "checks": [
+    "Earned tally shows known board quote; unadmitted healer is absent",
+    "Both admitted uses share held tally context and actual input/time quotes",
+    "Leaf trade consumes tally; reload retains leaf and no stale spendable card",
+    "Same earned checkpoint funds board instead: reachable running Stop,5min→10merit, no leaf, persistent consumed tally"
+  ],
+  "pageErrors": []
+}

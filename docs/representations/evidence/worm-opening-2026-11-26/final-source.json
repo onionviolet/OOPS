@@ -1,0 +1,9 @@
+{
+  "scope": "final lived-prose correction; unchanged behavior, 2 focused checks passed; earlier native replay retained separately",
+  "hashes": {
+    "src/world_packs/book_worm_lead_life.js": "3437c0cd5342df0d2607babd4605f06380f5f60484204114406e9fb77dd6a382",
+    "src/book_world_beginning_registration.js": "0d23fe2f4ec5b31db93093b5cdc4388fd03417997bbf5c230fe744e57e94d02a",
+    "src/world_packs/book_sup_lead_life.js": "d1f177cb3a164448d48cd331df10790f7d321b9f5bc437ce82c152881bd3fa6a",
+    "tests/worm_lead_opening.test.js": "864ca5cfbaa86a92513b86284cafa91512670d473736bab629503cc8460af2e1"
+  }
+}
