@@ -2,6 +2,7 @@
 import d0 from './fang.js';
 import d1 from './harry.js';
 import d2 from './klein.js';
-import d3 from './su.js';
-import d4 from './workshop.js';
-export const CAPABILITY_RUNS = [d0, d1, d2, d3, d4];
+import d3 from './ryan.js';
+import d4 from './su.js';
+import d5 from './workshop.js';
+export const CAPABILITY_RUNS = [d0, d1, d2, d3, d4, d5];
