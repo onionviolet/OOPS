@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "baseline": "8dc42926d82fd20e88bc198631fe676e03009ff75b3a47d50114812e5b0e411d",
+  "nativeBundle": "13866612a7a90113b47960d9cc9c3b03ca20fbcd79230bd4116cfe5cb5f91be1",
+  "morning": {
+    "whole": 3,
+    "half": 0,
+    "work": 0,
+    "legacy": 0,
+    "date": {
+      "year": 999,
+      "month": 4,
+      "day": 12,
+      "hour": 7,
+      "minute": 3,
+      "day_count": 12
+    },
+    "person": false
+  },
+  "offered": {
+    "whole": 3,
+    "half": 0,
+    "work": 0,
+    "legacy": 0,
+    "date": {
+      "year": 999,
+      "month": 4,
+      "day": 12,
+      "hour": 7,
+      "minute": 13,
+      "day_count": 12
+    },
+    "person": true
+  },
+  "pending": "aba6bca637d390ba0273a41186075bc2a02ebe40ae0612ffc17e9482eb126839",
+  "outcomes": {
+    "refuse": {
+      "whole": 3,
+      "half": 0,
+      "work": 0,
+      "legacy": 0,
+      "date": {
+        "year": 999,
+        "month": 4,
+        "day": 12,
+        "hour": 7,
+        "minute": 13,
+        "day_count": 12
+      },
+      "person": true,
+      "export": "75ffc63e42e92bc93ca2a38e2e45ae8142b3b2397f64c1d307674aeb9fec387a",
+      "brotherWhole": 5,
+      "brotherHalf": 1
+    },
+    "accept": {
+      "whole": 8,
+      "half": 1,
+      "work": 0,
+      "legacy": 0,
+      "date": {
+        "year": 999,
+        "month": 4,
+        "day": 12,
+        "hour": 7,
+        "minute": 13,
+        "day_count": 12
+      },
+      "person": true,
+      "export": "867f824f57b362532d1f10d33b6281d15795875f4f873bdd514bc04c2f8014ce",
+      "brotherWhole": 0,
+      "brotherHalf": 0
+    }
+  },
+  "schema": "fang-yuan-breakfast/1",
+  "desktop": {
+    "webBundle": "b7d18eb2b6f3fd15774a20bea1b5b377b0ccddfc11a0b62e4745035b727b5514",
+    "viewport": [
+      1280,
+      720
+    ],
+    "setup": "Imported the same earned morning offer for each choice.",
+    "observed": "Refusing left three whole stones and displayed Fang Zheng closing his hand around the pouch. Accepting left eight and displayed the count and his reply."
+  },
+  "previouslyPaid": {
+    "status": "passed",
+    "nativeBundle": "a2e99fc45b45c4f314959ad9a4d640594b10e172bb3137af99d46f60ff3d3996",
+    "earned": "dffe39348bd5f7d64632fbb7c2ff390fa6e572533b69cfe694a3eb1532b22b1a",
+    "baseline": {
+      "scene": "inn",
+      "brother": 1,
+      "worked": 1,
+      "whole": 19,
+      "half": 1,
+      "visitor": false,
+      "newEncounter": false
+    },
+    "continued": "book.ri.lead.vital.press_again"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "scope": "Existing early breakfast alternative. Each earned branch bought wine through Beginning, checked that the grove action became available, then exported and reimported.",
+  "cases": [
+    {
+      "branch": "accept",
+      "bundle": "5b913e45e422d025777e7c2063073cc0b356403dba6cfdc5514521f5cc5b4e2b",
+      "input": "867f824f57b362532d1f10d33b6281d15795875f4f873bdd514bc04c2f8014ce",
+      "before": {
+        "minute": 15793,
+        "whole": 8,
+        "wine": 0,
+        "pieces": [],
+        "worked": 0
+      },
+      "after": {
+        "minute": 15798,
+        "whole": 6,
+        "wine": 1,
+        "pieces": [
+          "book.ri.lead.run.3275721402.1.half-stone.1"
+        ],
+        "worked": 0
+      },
+      "lureAvailable": true,
+      "fileRestored": true
+    },
+    {
+      "branch": "refuse",
+      "bundle": "5b913e45e422d025777e7c2063073cc0b356403dba6cfdc5514521f5cc5b4e2b",
+      "input": "75ffc63e42e92bc93ca2a38e2e45ae8142b3b2397f64c1d307674aeb9fec387a",
+      "before": {
+        "minute": 15793,
+        "whole": 3,
+        "wine": 0,
+        "pieces": [],
+        "worked": 0
+      },
+      "after": {
+        "minute": 15798,
+        "whole": 1,
+        "wine": 1,
+        "pieces": [],
+        "worked": 0
+      },
+      "lureAvailable": true,
+      "fileRestored": true
+    }
+  ]
+}

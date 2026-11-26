@@ -1,0 +1,197 @@
+{
+  "schema": "fang-yuan-first-night-evidence/1",
+  "owner": "docs/gm/dispatch/play-surface-2026-11-14/FANG_YUAN_DAY_COMPARISON_2026-11-24.md#first-night-at-the-guardians-house",
+  "source": "Prepared English volume 1, chapter 10, paragraphs 14–43. The aperture's natural recovery and faster stone recovery are sourced. The optional bedtime, early departure and measured-draw controls are authored.",
+  "earnedStart": {
+    "saveSha256": "ea22d85a40cec94cb79b88b66e7fe0752a99608676aef845a13d87d5952d5db5",
+    "place": "Guardians’ house",
+    "time": "16:39",
+    "clock": 14919,
+    "essence": 14,
+    "capacity": 44,
+    "untouchedStones": 6
+  },
+  "directDeparture": {
+    "webBundleSha256": "08527e6e39e5f8dba34ccc8a6d8b758b96e24cc3785b93220046e2c37e3bba82",
+    "minutesAtInnArrival": 14939,
+    "essenceAtArrival": 15,
+    "untouchedStonesAtArrival": 4,
+    "saveReloadExportImport": true
+  },
+  "earlyWakeDesktop": {
+    "webBundleSha256": "fa360fe89c07b981bd4038a9b5f2fcbeae1298c56375d00cdc2a441393c6f6c4",
+    "observed": "Sleep remained active after native Save and reload. Woke at a partial reserve, saw 17/44, took the inn room and unlocked the green bamboo wine action."
+  },
+  "measuredDrawDesktop": {
+    "webBundleSha256": "08527e6e39e5f8dba34ccc8a6d8b758b96e24cc3785b93220046e2c37e3bba82",
+    "viewport": [
+      1280,
+      720
+    ],
+    "observed": "The first draw raised 14/44 to 15/44. The second used the retained stone. After paying for the inn the inventory showed three untouched stones and one stone marked two parts drawn.",
+    "issueAtThisBuild": "The Local actions panel retained a stale household bed at the inn. The sleep guard refused it."
+  },
+  "correctedScene": {
+    "bundleSha256": "d87e9e8f0df4b8c9ee45a047f516a1a5214c317fec8f3a3bf1e49cc47efd2332",
+    "sourceSha256": "2bd37511ad69429fd0e6bbc0eb2e2e8e6f71435290c7acdd69d7e6deb93d2404",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "route": "Early wake -> partial departure -> original inn -> Local actions",
+    "localActions": [
+      "Room at the inn",
+      "You have taken a room at the village inn.",
+      "Options",
+      "Optional pacing",
+      "Equipment condition and repair",
+      "Actions",
+      "Skills",
+      "Keys"
+    ],
+    "errors": []
+  },
+  "nativeSleep": {
+    "earnedInput": "ea22d85a40cec94cb79b88b66e7fe0752a99608676aef845a13d87d5952d5db5",
+    "elapsed": {
+      "nativeMinutes": 30,
+      "structuredMinutes": 30,
+      "hostTicks": 5
+    },
+    "outcomes": [
+      {
+        "event": "sleep-entered",
+        "clock": 14919,
+        "essence": 14,
+        "asleep": true
+      },
+      {
+        "event": "after-30-played-minutes",
+        "clock": 14949,
+        "essence": 16,
+        "asleep": true
+      },
+      {
+        "event": "wake",
+        "clock": 14949,
+        "essence": 16,
+        "asleep": false
+      }
+    ],
+    "awakeExportSha256": "66c9d71f53c6faa65a639427e7925ca6c142d33752043aa14e6af1e1c067af7b",
+    "errors": []
+  },
+  "bankedTime": {
+    "webBundleSha256": "d87e9e8f0df4b8c9ee45a047f516a1a5214c317fec8f3a3bf1e49cc47efd2332",
+    "earnedInput": "ea22d85a40cec94cb79b88b66e7fe0752a99608676aef845a13d87d5952d5db5",
+    "controlledWallAdvanceMinutes": 60,
+    "before": [
+      14925,
+      14,
+      60
+    ],
+    "after": [
+      14985,
+      18,
+      0
+    ],
+    "fields": [
+      "world minute",
+      "essence",
+      "banked minutes"
+    ],
+    "untouchedStones": 6,
+    "stillSleeping": true,
+    "errors": []
+  },
+  "fullNight": [
+    {
+      "kind": "full-sea-still-asleep",
+      "clock": 15369,
+      "time": {
+        "year": 999,
+        "month": 4,
+        "day": 12,
+        "hour": 0,
+        "minute": 9,
+        "day_count": 12
+      },
+      "reserve": 44,
+      "stones": 6,
+      "hostTicks": 75,
+      "nativeMinutes": 450,
+      "structuredMinutes": 450
+    },
+    {
+      "kind": "wake-after-cap-and-native-roundtrip",
+      "reserve": 44,
+      "stones": 6,
+      "activationCount": 1
+    },
+    {
+      "kind": "inn-scene-dom",
+      "nativeId": "book.ri.lead.home",
+      "scene": "inn",
+      "heading": "Room at the inn",
+      "guardiansBedVisible": false,
+      "stones": 4
+    }
+  ],
+  "bodilyRecoveryFixture": {
+    "setup": "Explicit depleted HP/stamina fixture cloned from earned input; no inventory, energy, clock or knowledge edits",
+    "events": [
+      {
+        "kind": "before",
+        "hpToFull": 20,
+        "staminaToFull": 10,
+        "sleeping": false,
+        "clock": 14919
+      },
+      {
+        "kind": "native-body-recovery",
+        "hpToFull": 10,
+        "staminaToFull": 0,
+        "sleeping": true,
+        "clock": 14931
+      },
+      {
+        "kind": "full-body-cap-wake",
+        "hpToFull": 0,
+        "staminaToFull": 0,
+        "sleeping": false,
+        "clock": 14991
+      }
+    ]
+  },
+  "partialWakeAndStone": {
+    "webBundleSha256": "d87e9e8f0df4b8c9ee45a047f516a1a5214c317fec8f3a3bf1e49cc47efd2332",
+    "route": "Wake after 30 world minutes at 16/44. Draw one part twice from the same stone, cancel a third draw, then pay two untouched stones for the inn.",
+    "clockAfterWake": 14949,
+    "essenceAfterDraws": 18,
+    "essenceAtInn": 19,
+    "untouchedStonesAtInn": 3,
+    "partsDrawnOnCarriedStone": 2,
+    "carriedStoneCount": 1,
+    "persistence": [
+      {
+        "state": "measured-first-pending",
+        "saveReloadExportImport": true,
+        "worldMinute": 14949,
+        "essence": 16
+      },
+      {
+        "state": "measured-kept",
+        "saveReloadExportImport": true,
+        "worldMinute": 14951,
+        "essence": 18
+      },
+      {
+        "state": "measured-inn",
+        "saveReloadExportImport": true,
+        "worldMinute": 14971,
+        "essence": 19
+      }
+    ],
+    "errors": []
+  }
+}

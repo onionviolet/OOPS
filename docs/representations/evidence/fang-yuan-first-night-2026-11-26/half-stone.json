@@ -1,0 +1,96 @@
+{
+  "schema": "fang-yuan-half-stone/1",
+  "authoredCharge": 15,
+  "desktop": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "build": "d43a1ff56f348e30b8c8d016862c77768311b2e2194c907e571a8e00c8ea16a1",
+    "setup": "Imported the earned post-working accepted-pouch export, admitted the option and clicked Draw one part.",
+    "reserveBefore": 14,
+    "reserveAfter": 15,
+    "otherWholeStones": 19,
+    "remainingPartsShown": 14
+  },
+  "nearCapacitySetup": {
+    "source": "b9d5f5a8add25cfc2264a0c20e7c76aac98cf315e6a971a2e1cc66f1a412f358",
+    "nativeBundle": "1f1208a073e60a57c89ea102d9758961d9559ccfa6a01247d17c3ea958f78b69",
+    "reserve": 43,
+    "elapsed": 438,
+    "whole": 19,
+    "half": 1,
+    "export": "952a5d05d80ff9ea1657df90d123211b32aab92330fd54fa55359ba79db539a4"
+  },
+  "nearCapacity": {
+    "nativeBundle": "0933d7997e07ba54ec530d161de7432ff0a59f40e142e6d2aca3f913fee31355",
+    "input": "03ab2b3a644ad1ae32ebbcf923b2d79d2b23aaa8fc82eff800aa1849d41f81da",
+    "start": {
+      "sea": 43,
+      "clock": 16247,
+      "whole": 19,
+      "otherDrawn": 1,
+      "original": 1,
+      "remainder": 0,
+      "job": null
+    },
+    "outcome": {
+      "pending": {
+        "sea": 43,
+        "clock": 16247,
+        "whole": 19,
+        "otherDrawn": 1,
+        "original": 0,
+        "remainder": 0,
+        "job": "simulation:27"
+      },
+      "cancelledAndRestored": true,
+      "after": {
+        "sea": 44,
+        "clock": 16248,
+        "whole": 19,
+        "otherDrawn": 1,
+        "original": 0,
+        "remainder": 1,
+        "job": null
+      },
+      "export": "e85ed9f9483969d6245fe25d1d7d192c7e707e4866ed40c253018dd861607c86"
+    }
+  },
+  "refusal": {
+    "nativeBundle": "0933d7997e07ba54ec530d161de7432ff0a59f40e142e6d2aca3f913fee31355",
+    "input": "c3e0b5cffbbd825071fd7450a4af06f7933ba25cc6f96eea114cf16632d85e7a",
+    "start": {
+      "sea": 14,
+      "clock": 15809,
+      "whole": 14,
+      "otherDrawn": 1,
+      "original": 0,
+      "remainder": 0,
+      "job": null
+    },
+    "outcome": {
+      "unavailable": true
+    }
+  },
+  "olderAcceptedSave": {
+    "status": "passed",
+    "nativeBundleSha256": "0933d7997e07ba54ec530d161de7432ff0a59f40e142e6d2aca3f913fee31355",
+    "inputSha256": "dffe39348bd5f7d64632fbb7c2ff390fa6e572533b69cfe694a3eb1532b22b1a",
+    "start": {
+      "reserve": 17,
+      "whole": 19,
+      "half": 1
+    },
+    "end": {
+      "reserve": 19,
+      "remaining": 14,
+      "whole": 19
+    },
+    "naturalPartsDuringDraw": 1,
+    "pendingSaveReloadImport": true,
+    "cancelExactCarrier": true,
+    "finalSaveReloadImport": true,
+    "errors": []
+  }
+}

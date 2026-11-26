@@ -1,0 +1,113 @@
+{
+  "schema": "fang-first-night-native-measured/1",
+  "status": "passed",
+  "testedBundleSha256": "d87e9e8f0df4b8c9ee45a047f516a1a5214c317fec8f3a3bf1e49cc47efd2332",
+  "routeKind": "native-earned-checkpoint",
+  "setup": "Unchanged earned first-infusion save, then genuine native bed Sleep30playedminutes, sleeping Save/reload and keyboard Wake produced16/44. No direct state edits.",
+  "inputSha256": "2bd37511ad69429fd0e6bbc0eb2e2e8e6f71435290c7acdd69d7e6deb93d2404",
+  "prelude": {
+    "status": "passed",
+    "inputSha256": "2bd37511ad69429fd0e6bbc0eb2e2e8e6f71435290c7acdd69d7e6deb93d2404",
+    "webBundleSha256": "d87e9e8f0df4b8c9ee45a047f516a1a5214c317fec8f3a3bf1e49cc47efd2332",
+    "headlessBundleSha256": "8454c1a9d7798cd13cdc1120bba54b71645ea1c762ac5f2504e68cfd1fa2f158",
+    "initialReserve": 16,
+    "finalReserve": 18,
+    "knownPartsDrawn": 2,
+    "untouchedStones": 5,
+    "keptCarrier": 1,
+    "cancelledNextPart": true,
+    "route": [
+      {
+        "action": "first_night_choice.draw_part_0",
+        "from": 14949,
+        "to": 14949,
+        "wallMs": 8067.083999999995
+      },
+      {
+        "action": "first_night_choice.draw_part_1",
+        "from": 14950,
+        "to": 14951,
+        "wallMs": 5260.589600000007
+      },
+      {
+        "action": "first_night_choice.draw_part_2",
+        "from": 14951,
+        "to": 14951,
+        "wallMs": 1331.2068000000145
+      }
+    ],
+    "checks": [
+      {
+        "label": "measured-first-pending",
+        "saveReloadExportImport": true,
+        "saveSha256": "ba976ed6d3c8147297efdaf8d704b1d636c782f7b43dd6c66b1fa4abbe832471",
+        "encodedSha256": "7941e7524bd27162ae279066e57531bd8b190b671036c3751c8f6cddb13a8ec2",
+        "clock": 14949,
+        "reserve": 16
+      }
+    ],
+    "outputSha256": "7acbeea7ed9cc95ea788c3ec29f4b6a36daa98157a4a808bdd54ce064cc26c5f",
+    "errors": []
+  },
+  "closure": {
+    "status": "passed",
+    "inputSha256": "7acbeea7ed9cc95ea788c3ec29f4b6a36daa98157a4a808bdd54ce064cc26c5f",
+    "webBundleSha256": "d87e9e8f0df4b8c9ee45a047f516a1a5214c317fec8f3a3bf1e49cc47efd2332",
+    "headlessBundleSha256": "8454c1a9d7798cd13cdc1120bba54b71645ea1c762ac5f2504e68cfd1fa2f158",
+    "reserve": 19,
+    "untouchedStones": 3,
+    "knownPartsDrawn": 2,
+    "keptCarrier": 1,
+    "route": [
+      {
+        "action": "first_night_choice.set_out",
+        "from": 14951,
+        "to": 14951,
+        "wallMs": 2861.270199999999
+      },
+      {
+        "action": "vital.leave",
+        "from": 14951,
+        "to": 14971,
+        "wallMs": 6943.063200000004
+      }
+    ],
+    "checks": [
+      {
+        "label": "measured-kept",
+        "saveReloadExportImport": true,
+        "saveSha256": "1de2aa9468d7792ebd4d847b194a633c922ef68b76e80fd2780425980d28f7a2",
+        "encodedSha256": "1c511adc4689e1f3273df8f20a56469fde6f65d9eba8553cd3ecf1aa54e92f4e",
+        "clock": 14951,
+        "reserve": 18
+      },
+      {
+        "label": "measured-inn",
+        "saveReloadExportImport": true,
+        "saveSha256": "d62cad86de163222ede3268258604b869214e0673652974e862aa389894adcd9",
+        "encodedSha256": "972342bec2a46438ab366fc002c958f2a2ea54ad41181911acf3695248a4870a",
+        "clock": 14971,
+        "reserve": 19
+      }
+    ],
+    "errors": []
+  },
+  "chargedStoneScope": "Two completed measured one-minute draws supply two parts; the same retained carrier records two parts drawn. No total stone capacity is inferred. Cancelled next draw returns the unmodified carrier. Full top-up remains a separately labelled choice.",
+  "oldContracts": "Original early_recovery and vital definitions unchanged. Exact declared predicate normalization permits prior saved alternatives without removing unrelated support.",
+  "checks": {
+    "recoveryDayAndQueue": "31/31 passed",
+    "structuredDefinitionsRuntimeUI": "48/48 passed",
+    "capEdge": "43/44at29min anchors29; immediate spend has no banked next-minute gain; split15then29 identical",
+    "scopedWhitespace": "passed"
+  },
+  "files": {
+    "src/world_packs/book_gu_lead_first_night_choice.js": "d764be135ff7253c11913c99dc0aef9e6472ca8f1e774c5022eb71333c9e8e1e",
+    "src/structured_pack_extensions.js": "549718d9d7056e187b5b22ba47c9eebef7eae3d86c6c7e0f420c915f0bee3699",
+    "src/ri_lead_sea_domain.js": "5d5a24647dd556f1f89a81e865863c27bbfbc339625e2f8073571418312d4856",
+    "src/ri_lead_day_facts.js": "85b96005f7ca34831502ed46f43a77a1e88902d9e3e4fc35d47ffc283ec3cffe",
+    "src/book_world_beginning_registration.js": "587c8174cdd04488905996eea18a93fa02674fac5b51676ca97d024cce71f629",
+    "tests/ri_early_recovery.test.js": "6e8da53bbca4d77fb89d77da9da20dd902d13e701699b31f3441b7d92a5ebb4a",
+    "tests/ri_lead_day.test.js": "b9f379a8a2e9a17e7797a80aa930e5f68b205d164e2d179e6ec49a9c4b89aa60"
+  },
+  "privateArtifacts": "Raw saves and encoded exports retained privately; this metadata contains no raw save or source prose."
+}

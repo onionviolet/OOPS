@@ -1,0 +1,144 @@
+{
+  "schema": "fang-yuan-early-recovery-proof/1",
+  "date": "2026-11-26",
+  "status": "implemented; native persistence/consumption and actual-main desktop Cancel/resume verified; queue wording issue remains",
+  "source": {
+    "qualificationOwner": "docs/gm/dispatch/cross-world-systems-2026-11-07/READ_AHEAD_USE_2026-11-08.md",
+    "locator": "prepared English b1 ch10 P014\u2013043",
+    "newRawSourceRead": false,
+    "authored": "optional rest choice, controls, linear partial stone refill, alternate continuation admission"
+  },
+  "normalBundleSha256": "dfe1b29bb10085139dcc6f1c6359bb001e8a69616135d0b48f0bbaf9f13c21ba",
+  "files": {
+    "src/structured_pack_definitions.js": "cc38a90ead7cc45a55e992ac32e66fec8cd153585441e2f7c56d644eeb63a734",
+    "src/structured_pack_extensions.js": "4081255fb0d007c312223b6f16f2d7d4cc2f14a09a272ee27b8139ae89368755",
+    "src/simulation.js": "dd4673c6ec4930144b4b37b4d44817e45be36adc41103e97b8fcb92291dca895",
+    "src/simulation_contracts.js": "d96499557a7837f52d51756fae1d34169c100324a63b8dddaccfa5bdcb8259eb",
+    "src/structured_pack_runtime.js": "f7f88b4300338f89491f08e6f967bcdd7d29189a971d74d396676d1a465b9beb",
+    "src/ri_lead_sea_domain.js": "8b76744d721c6ebc13384c9d5698a9827607201b42bea9b661a567b1a24675df",
+    "src/ri_lead_day_facts.js": "938fc128235bcb649a7fa20b748aa0eebed1f0e6afb5617509c558434a31d6a2",
+    "src/book_world_beginning_registration.js": "aa3281a5077e327564261a358a7c127dcba4afdaa2e0347605a2d93e0e73357c",
+    "src/world_packs/book_gu_lead_early_recovery.js": "a3611de1470605d53f692192b76d5f97b1daf8f29aef11663cb8a7056636f199",
+    "tests/ri_early_recovery.test.js": "5f84a3f5d8904339486a13db39d7d199a5ac3ff8da0d8f9ba4f8f8511960450c"
+  },
+  "checks": {
+    "candidateRecoveryAndDay": "22/22 passed",
+    "mainRecoveryDayQueueAndDormantHp": "31/31 passed",
+    "mainOriginalAwakeningAndFirstAttempt": "2/2 passed",
+    "architecture": "passed; existing baseline output retained",
+    "rules": "passed; existing stale private_packs glob warning",
+    "fullSuite": "not yet run for this delta"
+  },
+  "checkpoints": [
+    {
+      "id": "earned-first-infusion",
+      "sha256": "ea22d85a40cec94cb79b88b66e7fe0752a99608676aef845a13d87d5952d5db5",
+      "clock": 14919,
+      "reserve": 14,
+      "untouchedStones": 6,
+      "partlyDrawnStones": 0,
+      "originalDrawCompleted": false
+    },
+    {
+      "id": "natural-pending",
+      "sha256": "678d57d335d7d1c1aee346159e889a4cc88a60f724d7c21e11289f8a12dd1450",
+      "clock": 14979,
+      "reserve": 18,
+      "untouchedStones": 6,
+      "partlyDrawnStones": 0,
+      "originalDrawCompleted": false
+    },
+    {
+      "id": "natural-stopped",
+      "sha256": "fd169a4296611add164f6754cb540145e587411f1cf3e1dff9636d15ce8e8fde",
+      "clock": 14979,
+      "reserve": 18,
+      "untouchedStones": 6,
+      "partlyDrawnStones": 0,
+      "originalDrawCompleted": false
+    },
+    {
+      "id": "natural-recovered",
+      "sha256": "aaa1b0d6c1e937eb64b2e365d97e0c6238c824df9e7aa022e06a7cca79e8c928",
+      "clock": 15369,
+      "reserve": 44,
+      "untouchedStones": 6,
+      "partlyDrawnStones": 0,
+      "originalDrawCompleted": false
+    },
+    {
+      "id": "natural-inn",
+      "sha256": "c4ec4d13030c69b7b275926e8b790a6fcc91470d08bd75464c8ba893d8a24875",
+      "clock": 15389,
+      "reserve": 44,
+      "untouchedStones": 4,
+      "partlyDrawnStones": 0,
+      "originalDrawCompleted": false
+    },
+    {
+      "id": "stone-pending",
+      "sha256": "6011c00a5e9ae126d9d932cec46e49ef9269a6918518804888acb801021f29df",
+      "clock": 14994,
+      "reserve": 19,
+      "untouchedStones": 5,
+      "partlyDrawnStones": 0,
+      "originalDrawCompleted": false
+    },
+    {
+      "id": "stone-recovered",
+      "sha256": "3622280168c03b7cb0cb8f34d6e58ffc853a7868f65fde266144fd5ea48cdb8e",
+      "clock": 15019,
+      "reserve": 44,
+      "untouchedStones": 5,
+      "partlyDrawnStones": 1,
+      "originalDrawCompleted": false
+    },
+    {
+      "id": "final-paid-inn",
+      "sha256": "8dc42926d82fd20e88bc198631fe676e03009ff75b3a47d50114812e5b0e411d",
+      "clock": 15039,
+      "reserve": 44,
+      "untouchedStones": 3,
+      "partlyDrawnStones": 1,
+      "originalDrawCompleted": false
+    },
+    {
+      "id": "main-natural-inn",
+      "sha256": "a33385fff72f35d69eeab49850be869bf1221173b5dde32d51b1e0591f05978f",
+      "clock": 15389,
+      "reserve": 44,
+      "untouchedStones": 4,
+      "partlyDrawnStones": 0,
+      "originalDrawCompleted": false
+    }
+  ],
+  "native": {
+    "natural": "Fresh native normal entry; real controls and engine ticks; pending, cancelled, resumed, recovered and inn persistence; no direct state mutation",
+    "naturalElapsedMinutes": 450,
+    "paidClosure": {
+      "status": "passed",
+      "webBundleSha256": "dfe1b29bb10085139dcc6f1c6359bb001e8a69616135d0b48f0bbaf9f13c21ba",
+      "errors": [],
+      "persistenceCases": 2
+    },
+    "actualMain": {
+      "status": "passed",
+      "webBundleSha256": "dfe1b29bb10085139dcc6f1c6359bb001e8a69616135d0b48f0bbaf9f13c21ba",
+      "errors": [],
+      "persistenceCases": 2
+    },
+    "longRunLimit": "One combined Node-DOM process exhausted V8 heap after many retained reload realms. Actual earned paid recovery was retained; paid closure and main replay passed in separate fresh processes."
+  },
+  "desktop": {
+    "owner": "coordinator built-in browser",
+    "testedBundleSha256": "36391b63da04331f5da69895b8340f7b94b5ff6eb5991e8db8df0629d92d4825",
+    "observed": "Imported natural recovery; 44/44 visible; admitted search after rain; inn started with20minutes remaining and4stones. Native proof separately checks completion.",
+    "screenshotClaim": false
+  },
+  "desktopFinal": {
+    "testedBundleSha256": "dfe1b29bb10085139dcc6f1c6359bb001e8a69616135d0b48f0bbaf9f13c21ba",
+    "observed": "390playedminutes remaining; Cancel;6stones; after cancel both rest and remaining-stone choices; clicked Rest again",
+    "screenshotClaim": false,
+    "remainingIssue": "Shared Repeat Rest until your primeval sea fills3times label overpromises; queue validation prevents consecutive fills. No source change before suite."
+  }
+}

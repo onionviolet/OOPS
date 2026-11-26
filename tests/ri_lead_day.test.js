@@ -62,6 +62,11 @@ test('the sea refills on its own at the C-grade pace, the same over one long wri
     assert.deepEqual(long, {reserve: 43, anchor: 600});
     assert.deepEqual(settleSea({reserve: 44, capacity: 44, anchor: 0, now: 6000, per: 15}), {reserve: 44, anchor: 6000});
     assert.deepEqual(settleSea({reserve: 40, capacity: 44, anchor: 0, now: 6000, per: 15}), {reserve: 44, anchor: 6000});
+    const capped = settleSea({reserve: 43, capacity: 44, anchor: 0, now: 29, per: 15});
+    assert.deepEqual(capped, {reserve: 44, anchor: 29}, 'reaching the cap discards the unused fractional interval');
+    assert.deepEqual(settleSea({...capped, reserve: 43, capacity: 44, now: 30, per: 15}), {reserve: 43, anchor: 29}, 'spending at the cap does not release banked recovery');
+    const splitCap = settleSea({...settleSea({reserve: 43, capacity: 44, anchor: 0, now: 15, per: 15}), capacity: 44, now: 29, per: 15});
+    assert.deepEqual(splitCap, capped);
 });
 
 test('the sea is settled only in his life and only once the ordinary day has begun', () => {
