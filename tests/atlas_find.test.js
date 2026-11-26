@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync, mkdirSync, writeFileSync, rmSync} from 'node:fs';
+import {mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {projectFindSubjects, readFindSubjects, buildFindIndex, searchAtlas} from '../prototypes/world-atlas/atlas-find.mjs';
@@ -64,9 +64,23 @@ test('grouped search ranks exact names/IDs, retains scopes and pages, and return
     assert.ok(!JSON.stringify(page).includes('labelSearch'));
     assert.equal(searchAtlas(index, {q: 'nothing matches'}).total, 0);
     assert.equal(searchAtlas(index).total, 0);
-    assert.equal(page.scope, 'Search covers public subjects, places, recorded rules, cheat designs, reader scene IDs and locators, and native playable route evidence.');
+    assert.match(page.scope, /vision themes/);
     for (const invalid of [{q: 'x'.repeat(161)}, {type: 'raw'}, {page: -1}, {limit: 1000}]) {
         assert.throws(() => searchAtlas(index, invalid));
+    }
+});
+
+test('every standing vision heading is searchable with a coverage status and direct address', () => {
+    const owner = readFileSync(new URL('../docs/USER_VISION.md', import.meta.url), 'utf8');
+    const expected = [...owner.split('## Request log index')[0].matchAll(/^## (.+)\r?$/gm)]
+        .map(([, title]) => title.replace(/[’']/g, '').toLowerCase().replace(/[,]/g, '').trim().replace(/\s+/g, '-'));
+    const index = buildFindIndex();
+    assert.deepEqual(index.rows.filter(row => row.type === 'vision').map(row => row.id), expected);
+    for (const id of expected) {
+        const result = searchAtlas(index, {q: id, type: 'vision'}).groups[0].rows[0];
+        assert.equal(result.href, `#progress/vision/${id}`);
+        assert.match(result.status, /^(Playable|Partial|Reading-only)$/);
+        assert.ok(result.summary);
     }
 });
 

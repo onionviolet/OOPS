@@ -2,6 +2,10 @@
 import {readFile, readdir} from 'node:fs/promises';
 import {join} from 'node:path';
 import {parseLocator} from '../../scripts/lead_run/world_profiles.mjs';
+import {VISION_THEMES} from './vision-coverage.mjs';
+
+const FIND_GROUPS = [['subjects', 'Subjects and places'], ['rules', 'World rules'], ['cheats', 'Cheat catalogue'],
+    ['scenes', 'Reader scenes'], ['routes', 'Playable routes'], ['vision', 'Vision themes']];
 
 function hidden(row) {
     if (!row || typeof row !== 'object') return false;
@@ -139,6 +143,10 @@ export function projectFindRoutes(report) {
 export function buildFindIndex({subjects = [], rules = {records: [], worlds: []}, cheats = [], playEvidence} = {}) {
     const rows = subjects.map(row => ({...row, type: row.origin === 'reader-scene' ? 'scenes' : 'subjects'}));
     rows.push(...projectFindRoutes(playEvidence));
+    for (const {id, label, status, summary, terms} of VISION_THEMES) {
+        rows.push({id, label, status, summary, terms, type:'vision', kind:'Vision theme', world:'oops-vision',
+            worldLabel:'OOPS vision', href:`#progress/vision/${id}`});
+    }
     for (const rule of rules.records) {
         rows.push({
             id: rule.id, label: rule.name, world: rule.world, type: 'rules',
@@ -185,7 +193,7 @@ export function buildFindIndex({subjects = [], rules = {records: [], worlds: []}
 }
 
 export function searchAtlas(index, {q = '', type = 'all', world = '', page = 1, limit = 8} = {}) {
-    if (typeof q !== 'string' || q.length > 160 || !['all', 'subjects', 'rules', 'cheats', 'scenes', 'routes'].includes(type) ||
+    if (typeof q !== 'string' || q.length > 160 || (type !== 'all' && !FIND_GROUPS.some(group => group[0] === type)) ||
         !Number.isSafeInteger(page) || page < 1 || !Number.isSafeInteger(limit) || limit < 1 || limit > 20) {
         throw Error('Invalid Find query.');
     }
@@ -209,7 +217,7 @@ export function searchAtlas(index, {q = '', type = 'all', world = '', page = 1, 
     matches.sort((a, b) => b.score - a.score || a.row.label.localeCompare(b.row.label) ||
         a.row.world.localeCompare(b.row.world) || a.row.id.localeCompare(b.row.id));
     const groups = [];
-    for (const [id, label] of [['subjects', 'Subjects and places'], ['rules', 'World rules'], ['cheats', 'Cheat catalogue'], ['scenes','Reader scenes'], ['routes','Playable routes']]) {
+    for (const [id, label] of FIND_GROUPS) {
         if (type !== 'all' && type !== id) continue;
         const all = matches.filter(match => match.row.type === id);
         const rows = all.slice((page - 1) * limit, page * limit).map(({row}) => {
@@ -221,6 +229,6 @@ export function searchAtlas(index, {q = '', type = 'all', world = '', page = 1, 
     return {
         query: q, type, world, page, limit, total: matches.length, groups, worlds: index.worlds,
         pages: Math.max(1, ...groups.map(group => Math.ceil(group.total / limit))),
-        scope: 'Search covers public subjects, places, recorded rules, cheat designs, reader scene IDs and locators, and native playable route evidence.',
+        scope: 'Search covers public subjects, places, recorded rules, cheat designs, reader scenes, playable route evidence and vision themes.',
     };
 }

@@ -192,6 +192,7 @@ const assets = {
     '/cheat-proof/CTC21':['../../docs/representations/evidence/cheat-starting-insight-normal-2026-11-25/proof.json','application/json'],
     '/cheat-proof/CTC64':['../../docs/representations/evidence/cheat-loaded-dice-normal-2026-11-25/proof.json','application/json'],
     '/atlas-find-view.mjs':['./atlas-find-view.mjs','text/javascript'],
+    '/vision-coverage.mjs':['./vision-coverage.mjs','text/javascript'],
     '/world-entry-inventory.mjs':['./world-entry-inventory.mjs','text/javascript'],
     '/atlas-native-evidence-view.mjs':['./atlas-native-evidence-view.mjs','text/javascript'],
     '/paid-inn-evidence-view.mjs':['./paid-inn-evidence-view.mjs','text/javascript'],

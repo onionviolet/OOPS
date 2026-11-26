@@ -73,7 +73,8 @@ async function atlasFindView({ main }) {
     ["rules", "World rules"],
     ["cheats", "Cheat catalogue"],
     ["scenes", "Reader scenes"],
-    ["routes", "Playable routes"]
+    ["routes", "Playable routes"],
+    ["vision", "Vision themes"]
   ]) {
     const o = el("option", label);
     o.value = id;

@@ -3,6 +3,12 @@ import {createReadStream} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 const sha=b=>createHash('sha256').update(b).digest('hex');
+// Tracked text may be checked out as CRLF. Accept the canonical Git text bytes
+// for a pinned receipt, while rejecting every other edit.
+function receiptHash(bytes, expected) {
+ const raw=sha(bytes);
+ return raw===expected||sha(bytes.toString('utf8').replace(/\r\n/g,'\n'))!==expected?raw:expected;
+}
 const isHash=s=>typeof s==='string'&&/^[a-f0-9]{64}$/.test(s);
 const empty=a=>Array.isArray(a)&&a.length===0;
 const source=(id,path,fingerprint,format,scope,evidenceDate='2026-11-25')=>({id,path:'docs/representations/evidence/'+path,fingerprint,format,scope,evidenceDate});
@@ -172,7 +178,7 @@ export async function loadNativePlayEvidence(root,{cards=NATIVE_EVIDENCE_CARDS}=
    const base={id:definition.id,expectedSha256:definition.fingerprint,scope:definition.scope,evidenceDate:definition.evidenceDate??'2026-11-25'};
    try{
     if((await stat(join(root,definition.path))).size>65536)throw Error('Receipt too large');
-    const bytes=await readFile(join(root,definition.path)),actualSha256=sha(bytes);
+    const bytes=await readFile(join(root,definition.path)),actualSha256=receiptHash(bytes,definition.fingerprint);
     if(actualSha256!==definition.fingerprint){receipts.push({...base,status:'changed',actualSha256,buildComparison:'unavailable'});continue;}
     const testedBundleSha256=testedBundle(JSON.parse(bytes),definition.format);
     receipts.push({...base,status:'verified',actualSha256,testedBundleSha256,buildComparison:!currentBundleSha256?'unavailable':testedBundleSha256===currentBundleSha256?'exact':'different'});
@@ -181,7 +187,7 @@ export async function loadNativePlayEvidence(root,{cards=NATIVE_EVIDENCE_CARDS}=
   const references=[];
   for(const reference of card.references||[]){
    const base={id:reference.id,label:reference.label,href:reference.href,scope:reference.scope,expectedSha256:reference.fingerprint};
-   try{if((await stat(join(root,reference.path))).size>65536)throw Error('Record too large');const actualSha256=sha(await readFile(join(root,reference.path)));references.push({...base,actualSha256,status:actualSha256===reference.fingerprint?'verified':'changed'});}catch{references.push({...base,status:'unavailable'});}
+   try{if((await stat(join(root,reference.path))).size>65536)throw Error('Record too large');const actualSha256=receiptHash(await readFile(join(root,reference.path)),reference.fingerprint);references.push({...base,actualSha256,status:actualSha256===reference.fingerprint?'verified':'changed'});}catch{references.push({...base,status:'unavailable'});}
   }
   const referencesVerified=references.every(x=>x.status==='verified');
   const verified=referencesVerified&&receipts.every(r=>r.status==='verified');
@@ -205,7 +211,7 @@ export async function loadPaidInnEvidence(root){
  const ref=NATIVE_EVIDENCE_CARDS.find(c=>c.id==='fang-first-night').references.find(r=>r.id==='fang-paid-inn');
  try{
   const path=join(root,ref.path);if((await stat(path)).size>65536)throw Error();
-  const bytes=await readFile(path);if(sha(bytes)!==ref.fingerprint)throw Error();
+  const bytes=await readFile(path);if(receiptHash(bytes,ref.fingerprint)!==ref.fingerprint)throw Error();
   const p=JSON.parse(bytes),names={buy_wine:'Buy green bamboo wine',lure:'Lure the worm',follow:'Follow it',take_worm:'Take the worm',search_crevice:'Search the crevice',return_inn:'Return to the inn',first_night:'Finish the first-night working'},places={grove:'Grove',crevice:'Crevice',inn:'Paid inn'};
   if(p.schema!=='fang-yuan-paid-room/1'||p.testedBundle!=='8751c15de722c1deff382507b29c841ed535f6df4772d1048f7e14c70ebc423f'||!empty(p.errors)||p.ordinaryRoute?.length!==7||p.sleepAndBreakfast?.length!==2)throw Error();
   return {...base,status:'verified',testedBundleSha256:p.testedBundle,evidenceSha256:ref.fingerprint,scope:p.scope,
@@ -218,7 +224,7 @@ export async function loadPaidInnEvidence(root){
 async function loadBreakfastStoneEvidence(root){
  const ref=NATIVE_EVIDENCE_CARDS.find(c=>c.id==='fang-first-night').references.find(r=>r.id==='fang-half-stone');
  try{
-  const path=join(root,ref.path);if((await stat(path)).size>65536)throw Error();const bytes=await readFile(path);if(sha(bytes)!==ref.fingerprint)throw Error();const p=JSON.parse(bytes);
+  const path=join(root,ref.path);if((await stat(path)).size>65536)throw Error();const bytes=await readFile(path);if(receiptHash(bytes,ref.fingerprint)!==ref.fingerprint)throw Error();const p=JSON.parse(bytes);
   if(p.schema!=='fang-yuan-half-stone/1'||p.authoredCharge!==15||p.olderAcceptedSave?.status!=='passed')throw Error();
   return {status:'verified',authoredParts:p.authoredCharge,evidenceSha256:ref.fingerprint,
    desktop:{bundleSha256:p.desktop.build,before:p.desktop.reserveBefore,after:p.desktop.reserveAfter,whole:p.desktop.otherWholeStones,remaining:p.desktop.remainingPartsShown},
@@ -232,14 +238,14 @@ async function readFangReceipt(root, filename, fingerprint) {
  try {
   if ((await stat(path)).size > 65536) return null;
   const bytes = await readFile(path);
-  return sha(bytes) === fingerprint ? JSON.parse(bytes) : null;
+  return receiptHash(bytes,fingerprint) === fingerprint ? JSON.parse(bytes) : null;
  } catch { return null; }
 }
 export async function loadBreakfastEvidence(root){
  const base={schema:'atlas-breakfast-evidence/1',title:'Fang Yuan · breakfast choices',backHref:'#workbench/play-evidence/fang-first-night'};
  const ref=NATIVE_EVIDENCE_CARDS.find(c=>c.id==='fang-first-night').references.find(r=>r.id==='fang-breakfast');
  try{
-  const path=join(root,ref.path);if((await stat(path)).size>65536)throw Error();const bytes=await readFile(path);if(sha(bytes)!==ref.fingerprint)throw Error();
+  const path=join(root,ref.path);if((await stat(path)).size>65536)throw Error();const bytes=await readFile(path);if(receiptHash(bytes,ref.fingerprint)!==ref.fingerprint)throw Error();
   const p=JSON.parse(bytes);if(p.schema!=='fang-yuan-breakfast/1'||p.status!=='passed'||!isHash(p.nativeBundle)||!isHash(p.desktop?.webBundle)||p.previouslyPaid?.status!=='passed')throw Error();
   const time=r=>'Day '+r.date.day_count+' · '+String(r.date.hour).padStart(2,'0')+':'+String(r.date.minute).padStart(2,'0');
   const [selection, purchase] = await Promise.all([

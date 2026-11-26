@@ -111,3 +111,13 @@ body:has(> main#main) [data-native-evidence] a:focus-visible {
     outline: 3px solid #ebc682;
     outline-offset: 3px;
 }
+.vision-coverage-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(1rem, 3vw, 3rem);
+}
+.vision-coverage-layout a { color: #cae4bd; text-underline-offset: .15em; }
+.vision-coverage-layout a:focus-visible { outline: 2px solid #cae4bd; outline-offset: 2px; }
+@media (max-width: 900px) {
+    .vision-coverage-layout { grid-template-columns: 1fr; }
+}
