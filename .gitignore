@@ -262,3 +262,6 @@ work
 /docs/gm/dispatch/**/*.png
 tests/fixtures/visual/*.new.png
 /docs/gm/dispatch/life-walk-2026-11-18/private/
+
+# Local builds, candidates and scratch kept inside the project
+.local/
