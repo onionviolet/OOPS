@@ -383,7 +383,8 @@ task record and checks. No separate checklist file or universal compliance score
      still runs before merge.
    - **Pushes are gated by reach; wave closes run everything** (Weibao 2026-11-16,
      approving tiered gates). `npm run gate:push` runs arch, rules, docs and the bundle
-     match, check:flow when a player would see the change, and the test files the push
+     match, plus the four earned old-save replays in `gate:save` (Weibao, 2026-11-26).
+     It runs check:flow when a player would see the change, and the test files the push
      reaches with the slow tier included. Dial: the full suite at every wave close
      (`--full`), for pushes touching the harness, fixtures, build, `src/main.js` or saves,
      and when the reach is half the suite anyway. Reason: a narrow push is gated in

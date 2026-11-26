@@ -4,3 +4,6 @@ stories/feature_wave.json text eol=lf
 # Immutable invention QA text and its source pack have reviewed byte digests.
 tests/fixtures/invention_qa/v1/*.json text eol=lf
 src/data/invention_pack_home.js text eol=lf
+# Preserve the exact captured save bytes across Git checkouts.
+scripts/save_gate_fixtures/*.save.txt -text
+scripts/save_gate_fixtures/*.save.json -text

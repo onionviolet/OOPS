@@ -17,7 +17,7 @@ Lowercase `pc1` to `pc3` in the run record and `scripts/emergence_cases.mjs` are
 | Other avenues | PC77-PC80 | Proposal | None |
 | Additions from the readings check | PC81-PC88 | Proposal; PC88 declined ("No, engine first") | None |
 
-**Engine first, tie-in later (Weibao, 2026-11-12).** "We can omit game tie in until foundational and procedural systems work?" and "reconcile accordingly, we can absorb bespoke into the system". Until the tie-in phase, every line below that counts something by "reachable from `src/main.js`", "the game loads" or "in play" is read as "runs in the engine world": one headless world that composes every pack. Bespoke modules are absorbed with a parity fixture now and deleted at tie-in. Details and the current order: [carry-out PC95](PROCEDURAL_CARRY_OUT.md#engine-first-tie-in-later-pc95-2026-11-12).
+**Engine experiments and game delivery.** [Carry-out PC95](PROCEDURAL_CARRY_OUT.md#engine-first-tie-in-later-pc95-2026-11-12) owns the headless engine phase, the parity requirement for absorbing bespoke work and the normal-entry replay required for delivered Nov 26 slices. Count engine and game results at the route each result exercised.
 
 ## Why a core
 
