@@ -1,10 +1,10 @@
 // Read ordinary literal definitions without importing the native DOM graph.
 // Evaluation is restricted to object declarations in this checkout, with inert
 // constructors. No owner module, gameplay function, timer or random draw runs.
-import {readFileSync} from 'node:fs';
+import {readCanonicalText} from './canonical_text.mjs';
 import {runInNewContext} from 'node:vm';
 import {buildVillageObtainability} from '../src/village_obtainability.js';
-const read=file=>readFileSync(new URL(`../src/${file}`,import.meta.url),'utf8');
+const read=file=>readCanonicalText(new URL(`../src/${file}`,import.meta.url));
 function balanced(s,start,open='{',close='}') {
  let depth=0,quote=null,line=false,block=false;
  for(let i=start;i<s.length;i++) {const c=s[i],n=s[i+1];

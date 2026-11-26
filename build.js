@@ -11,7 +11,7 @@ import {readManifest, renderStylesheets} from './scripts/stylesheet_manifest.mjs
 // A runtime cursor requires this exact authored source/compiler/artifact join.
 execFileSync(process.execPath,['scripts/gen_capability_runs.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/compile_feature_ink.mjs','--check'],{stdio:'inherit'});
-const inkNotices=fs.readFileSync('docs/gm/feature-wave/ink/COMPILER.md','utf8');
+const inkNotices=fs.readFileSync('docs/gm/feature-wave/ink/COMPILER.md','utf8').replace(/\r\n/g, '\n');
 const buildOut = process.env.BUILD_OUT;
 if (buildOut && path.resolve(buildOut) === process.cwd()) throw new Error('BUILD_OUT must differ from the source root');
 const outputRoot = buildOut || '.';
@@ -65,9 +65,18 @@ esbuild
                 if (!fs.existsSync(asset)) continue; // Optional local pack directory.
                 const destination = path.resolve(buildOut, asset);
                 const source = path.resolve(asset);
-                if (!fs.existsSync(destination)) fs.symlinkSync(source, destination);
+                if (!fs.existsSync(destination)) {
+                    // Windows junctions and file hard links need no symlink privilege.
+                    if (process.platform === 'win32') {
+                        if (fs.statSync(source).isDirectory()) fs.symlinkSync(source, destination, 'junction');
+                        else fs.linkSync(source, destination);
+                    } else fs.symlinkSync(source, destination);
+                }
                 else if (fs.realpathSync(destination) !== fs.realpathSync(source)) {
-                    throw new Error(`BUILD_OUT contains an unrelated asset: ${asset}`);
+                    const actual = fs.statSync(destination), expected = fs.statSync(source);
+                    if (actual.dev !== expected.dev || actual.ino !== expected.ino) {
+                        throw new Error(`BUILD_OUT contains an unrelated asset: ${asset}`);
+                    }
                 }
             }
         }
@@ -79,4 +88,7 @@ esbuild
             process.exit(1);
         }
         
-    }).catch(() => process.exit(1));
+    }).catch(error => {
+        console.error(error);
+        process.exit(1);
+    });

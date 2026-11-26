@@ -35,7 +35,11 @@ export async function loadNative(entries, {stubs = {}, presentation = /\/src\/(m
             stdin: {contents: entries, resolveDir: ROOT},
             bundle: true, format: 'esm', platform: 'node', outfile, ...(logLevel ? {logLevel} : {}),
             plugins: [{name: 'presentation-only', setup(b) {
-                b.onLoad({filter: presentation}, async a => {
+                b.onLoad({filter: /.*/}, async a => {
+                    // esbuild supplies native Windows separators; the presentation patterns use module paths.
+                    presentation.lastIndex = 0;
+                    if (!presentation.test(a.path.replace(/\\/g, '/'))) return;
+
                     const source = await readFile(a.path, 'utf8');
                     const names = [...source.matchAll(/export\s*\{([^}]+)\}/g)]
                         .flatMap(m => m[1].split(',').map(s => s.trim().split(/\s+as\s+/).at(-1)))

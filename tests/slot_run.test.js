@@ -5,16 +5,23 @@ import {existsSync, mkdirSync, mkdtempSync, readdirSync, rmSync, writeFileSync} 
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {randomUUID} from 'node:crypto';
 
 const SCRIPT = fileURLToPath(new URL('../scripts/slot_run.mjs', import.meta.url));
 
 function env(dir) {
   // The suite itself may run under a held slot; these tests need a clean environment.
-  const {YAIRPG_SLOT_HELD, ...rest} = process.env;
+  const {YAIRPG_SLOT_HELD, YAIRPG_SLOT_MAX_LOAD, ...rest} = process.env;
   return {...rest, YAIRPG_SLOT_DIR: dir, YAIRPG_SLOT_POLL_MS: '50'};
 }
-function start(dir, args) {
-  const child = spawn(process.execPath, [SCRIPT, ...args], {env: env(dir), stdio: ['ignore', 'pipe', 'pipe']});
+const nodeArgs = (args, load) => [...(load == null ? [] : ['--import', 'data:text/javascript,' + encodeURIComponent(
+  `import {createRequire,syncBuiltinESMExports} from 'node:module';const os=createRequire(process.cwd()+'/slot-load-fixture.cjs')('node:os');os.loadavg=()=>[${load},0,0];syncBuiltinESMExports();`)]), SCRIPT, ...args];
+function start(dir, args, {load} = {}) {
+  const release = join(dir, `finish-${randomUUID()}`);
+  const child = spawn(process.execPath, nodeArgs(args, load), {env: {...env(dir), SLOT_FIXTURE_RELEASE:release}, stdio: ['ignore', 'pipe', 'pipe']});
+  // Windows SIGTERM is an abrupt TerminateProcess, not a catchable signal. Complete
+  // the real child there; POSIX continues to exercise the runner's signal forwarding.
+  child.stop = () => {if(process.platform === 'win32') writeFileSync(release, 'done');else child.kill('SIGTERM');};
   child.out = '';
   child.err = '';
   child.stdout.on('data', (d) => { child.out += d; });
@@ -29,7 +36,7 @@ const until = async (fn, ms = 5000) => {
 };
 const held = (dir) => { try { return readdirSync(join(dir, 'heavy')).length; } catch { return 0; } };
 const tmp = () => mkdtempSync(join(tmpdir(), 'slot-run-'));
-const SLEEP = ['--', process.execPath, '-e', 'setTimeout(()=>{}, 60000)'];
+const SLEEP = ['--', process.execPath, '-e', 'const fs=require("node:fs");const timer=setInterval(()=>{if(fs.existsSync(process.env.SLOT_FIXTURE_RELEASE)){clearInterval(timer);}},25);setTimeout(()=>process.exit(1),60000).unref()'];
 
 test('two slots admit two holders and block the third', async () => {
   const dir = tmp();
@@ -39,12 +46,12 @@ test('two slots admit two holders and block the third', async () => {
   const c = start(dir, ['--slots', '2', '--', process.execPath, '-e', '0']);
   assert.ok(await until(() => c.err.includes('waiting')));
   assert.equal(held(dir), 2);
-  a.kill('SIGTERM');
+  a.stop();
   assert.equal(await c.done, 0);
   assert.ok(c.err.includes('slot acquired'));
-  b.kill('SIGTERM');
+  b.stop();
   await Promise.all([a.done, b.done]);
-  assert.equal(held(dir), 0, 'signal releases the slot');
+  assert.equal(held(dir), 0, process.platform === 'win32' ? 'child completion releases the slot' : 'signal releases the slot');
   rmSync(dir, {recursive: true, force: true});
 });
 
@@ -81,28 +88,33 @@ test('browser kind uses its own single slot and --status lists holders', async (
   assert.match(s.stdout, /browser\/slot-0 pid=\d+ alive/);
   const heavy = spawnSync(process.execPath, [SCRIPT, '--kind', 'build', '--', process.execPath, '-e', '0'], {env: env(dir)});
   assert.equal(heavy.status, 0, 'build pool is independent of browser');
-  a.kill('SIGTERM');
+  a.stop();
   await a.done;
   rmSync(dir, {recursive: true, force: true});
 });
 
 test('--max-load holds the gate while the load average is above it, without taking a slot', async () => {
   const dir = tmp();
-  const c = start(dir, ['--max-load', '0.0001', '--', process.execPath, '-e', '0']);
+  // Node reports zero loadavg on Windows; simulate the measured OS input rather
+  // than hoping the host happens to be busy. The production limiter is unchanged.
+  const c = start(dir, ['--max-load', '12', '--', process.execPath, '-e', '0'], {load: 24});
   assert.ok(await until(() => c.err.includes('load')));
   assert.equal(held(dir), 0);
   c.kill('SIGTERM');
   await c.done;
-  const ok = spawnSync(process.execPath, [SCRIPT, '--max-load', '100000', '--', process.execPath, '-e', '0'], {env: env(dir)});
+  const ok = spawnSync(process.execPath, nodeArgs(['--max-load', '12', '--', process.execPath, '-e', '0'], 0), {env: env(dir)});
   assert.equal(ok.status, 0);
   rmSync(dir, {recursive: true, force: true});
 });
 
 test('a nested slot_run under a held slot runs without taking another slot', () => {
     const dir = mkdtempSync(join(tmpdir(), 'slots-'));
-    const inner = `node ${SCRIPT} --slots 1 -- node -e "process.exit(7)"`;
-    const r = spawnSync(process.execPath, [SCRIPT, '--slots', '1', '--', 'sh', '-c', inner], {env: env(dir), encoding: 'utf8', timeout: 15000});
-    assert.equal(r.status, 7);
+    try {
+      const r = spawnSync(process.execPath, [SCRIPT, '--slots', '1', '--', process.execPath, SCRIPT,
+        '--slots', '1', '--', process.execPath, '-e', 'process.exit(7)'], {env: env(dir), encoding: 'utf8', timeout: 15000});
+      assert.equal(r.status, 7);
+      assert.equal(held(dir), 0);
+    } finally {rmSync(dir, {recursive:true,force:true});}
 });
 
 import {loadGate} from '../scripts/slot_gate.mjs';
@@ -124,10 +136,14 @@ test('a soft load wait runs the command after the wait; --status lists the waite
   assert.ok(await until(() => spawnSync(process.execPath, [SCRIPT, '--status'], {env: env(dir), encoding: 'utf8'}).stdout.includes('waiting #1')));
   const status = spawnSync(process.execPath, [SCRIPT, '--status'], {env: env(dir), encoding: 'utf8'}).stdout;
   assert.match(status, /why=1\/1 slots held/);
-  holder.kill('SIGTERM');
+  holder.stop();
   assert.equal(await waiter.done, 0);
   await holder.done;
-  const soft = spawnSync(process.execPath, [SCRIPT, '--max-load', '0.0001', '--load-wait', '1', '--', process.execPath, '-e', '0'], {env: env(tmp()), encoding: 'utf8', timeout: 20000});
-  assert.equal(soft.status, 0);
-  assert.match(soft.stderr, /running anyway/);
+  const softDir = tmp();
+  try {
+    const soft = spawnSync(process.execPath, nodeArgs(['--max-load', '12', '--load-wait', '1', '--', process.execPath, '-e', '0'], 24), {env: env(softDir), encoding: 'utf8', timeout: 20000});
+    assert.equal(soft.status, 0);
+    assert.match(soft.stderr, /running anyway/);
+    assert.equal(held(softDir), 0);
+  } finally {rmSync(dir,{recursive:true,force:true});rmSync(softDir,{recursive:true,force:true});}
 });

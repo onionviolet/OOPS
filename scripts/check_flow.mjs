@@ -28,6 +28,7 @@
 import {readFile, writeFile, mkdtemp, rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {prepareTree, build, serve} from './perf/lib.mjs';
 import {Session} from './playtest/lib.mjs';
 import {defaultCustomizationState} from '../src/customization_profiles.js';
@@ -35,12 +36,18 @@ import {ENGINE_WORDS} from './check_player_text.mjs';
 import {collectRows, drawnTwice, collectStrays, strayVerdict} from './flow_checks.mjs';
 import {LAYOUT_SPEC} from '../src/layout_spec.js';
 import {skillRowWrap, learnOneSkill} from './check_skill_rows.mjs';
+import {openFlowSession} from './flow_session.mjs';
 
-const root = new URL('..', import.meta.url).pathname;
+const root = fileURLToPath(new URL('..', import.meta.url));
 const jsonOut = process.argv.includes('--json') ? process.argv[process.argv.indexOf('--json') + 1] : null;
 const tree = await mkdtemp(join(tmpdir(), 'yairpg-flow-'));
+const started = Date.now();
+const progress = label => {
+    if (process.env.YAIRPG_FLOW_PROGRESS === '1') console.error('[flow +' + Math.round((Date.now() - started) / 1000) + 's] ' + label);
+};
 // --rev HEAD walks committed code when another session's unfinished edit breaks the shared tree's build.
 prepareTree(process.argv.includes('--rev') ? process.argv[process.argv.indexOf('--rev') + 1] : 'WORKTREE', tree);
+progress('Building the staged game');
 await build(tree);
 const server = await serve(tree);
 const session = new Session({url: server.url + '?test_hooks=1', seed: 87, wall: Date.UTC(2026, 9, 26, 15),
@@ -50,6 +57,7 @@ delete seed.availabilities.recipe.undefined; delete seed.availabilities.recipe['
 seed.customization = defaultCustomizationState();
 seed.customization.profiles.Default.settings.effects = 'reduced'; // steady captures: the default follows the OS (PS155)
 seed.global_flags.is_crafting_unlocked = true;
+progress('Opening the saved Village life');
 await session.start();
 await session.open(seed);
 let p = session.page;
@@ -195,6 +203,7 @@ const routes = await p.evaluate(() => [...document.querySelectorAll('#workspace_
     .filter(b => b.offsetParent && b.getAttribute('aria-disabled') !== 'true' && !b.disabled && b.dataset.routeId)
     .map(b => ({name: b.textContent.trim(), id: b.dataset.routeId})));
 for(const route of routes) {
+    progress('Checking ' + route.name);
     await p.locator(`#workspace_navigation button[data-route-id="${route.id}"]`).click();
     await p.waitForTimeout(350);
     const now = await screen();
@@ -248,7 +257,7 @@ for(const e of errors) add('error', 'page', e.text.split('\n')[0]);
 // A state that cannot be built, or that does not show what its label says, is a finding, not a silent skip.
 const WALL = Date.UTC(2026, 9, 26, 15), DAY = 24 * 60;
 const noPacks = {beforeOpen: async c => c.route('**/private_packs/manifest.json', r => r.fulfill({json: {schema: 1, packs: []}}))};
-const openState = async (save, wall) => {const s = new Session({url: server.url + '?test_hooks=1', seed: 87, wall, hooks: noPacks}); await s.start(); await s.open(save); return s;};
+const openState = (save, wall, setup) => openFlowSession(new Session({url: server.url + '?test_hooks=1', seed: 87, wall, hooks: noPacks}), save, setup);
 // Where the weather line is read. The one-bar shell moved it from the place panel's body into the status line
 // (#game_status, 2026-11-14), so the rain state looks in both; weather itself did not change (rain falls on days 4 to 7 and 11 of 13).
 const rainShown = () => [...document.querySelectorAll('#game_status, #main_content .workspace-module-body')].some(e => e.offsetParent && /°C/.test(e.textContent) && /Rain/.test(e.textContent));
@@ -264,27 +273,24 @@ const STATES = [
     }},
     // UIC144: rain is fixed by the seed and the day, so the walk plays forward until the weather line says Rain, then
     // stands in it for two hours. `must` returns what is wrong, or '' when the state shows what its label says.
-    {label: 'a rainy day, two hours in the rain', open: async () => {
-        const s = await openState(null, WALL);
+    {label: 'a rainy day, two hours in the rain', open: () => openState(null, WALL, async s => {
         const raining = () => s.page.evaluate(rainShown);
         for(let i = 0; i < 120 && !await raining(); i++) await s.step(120);
         if(await raining()) await s.step(120);
-        return s;
-    }, must: async p => {
+    }), must: async p => {
         if(!await p.evaluate(rainShown)) return 'no rain within ten played days';
         return /Wet|Cold/.test(await p.evaluate(() => document.getElementById('shell_condition')?.textContent || '')) ? '' : 'two hours in the rain and Condition names neither Wet nor Cold';
     }},
     // A fight: walk from the Village into the Infested field on the mid-life save and let the first exchange play.
-    {label: 'a fight in the Infested field', open: async () => {
-        const s = await openState(seed, WALL);
+    {label: 'a fight in the Infested field', open: () => openState(seed, WALL, async s => {
         await s.page.locator('[data-nearby-verb="go:Infested field"]:visible, .location_choice[data-travel="Infested field"]:visible').first().click();
         await s.step(20);
-        return s;
-    }, must: p => p.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /opponent/i.test(e.textContent) && /\d+\/\d+ hp/.test(e.textContent))
+    }), must: p => p.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module-body')].some(e => e.offsetParent && /opponent/i.test(e.textContent) && /\d+\/\d+ hp/.test(e.textContent))
         ? '' : 'walked into the Infested field and no opponent with health is on screen')},
 ];
 const statesRead = [];
 for(const {label, open, expect = [], must} of STATES) {
+    progress('Playing ' + label);
     let other = null;
     try {
         other = await open();
@@ -297,7 +303,7 @@ for(const {label, open, expect = [], must} of STATES) {
         for(const line of await placeholders()) add('placeholder', label, line);
         for(const e of other.errors.filter(e => e.kind === 'pageerror')) add('error', label, e.text.split('\n')[0]);
         statesRead.push(label);
-    } catch(error) {add('state', label, `could not be read: ${String(error.message || error).split('\n')[0].slice(0, 120)}`);}
+    } catch(error) {add('state', label, `could not be read: ${String(error.message || error)}`);}
     finally {await other?.close?.();}
 }
 // PS195: the stray count against its accepted baseline (the ratchet: it may fall, it may not rise).

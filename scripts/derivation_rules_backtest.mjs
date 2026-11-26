@@ -13,14 +13,15 @@
 // Confidence on a derived row = the rule's exact and within-band rates on that set, plus n and verdict (read from derivation_rules.json).
 import {readFileSync, writeFileSync, existsSync, readdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {readCanonicalText} from './canonical_text.mjs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-const root = new URL('..', import.meta.url).pathname;
+const root = fileURLToPath(new URL('..', import.meta.url));
 export const RULES_FILE = 'docs/coverage/derivation_rules.json';
 export const FLOOR = 10;
 const rd = f => JSON.parse(readFileSync(join(root, f), 'utf8'));
-const sha = files => createHash('sha1').update(files.map(f => readFileSync(join(root, f))).reduce((a, b) => Buffer.concat([a, b]), Buffer.alloc(0))).digest('hex').slice(0, 10);
+const sha = files => createHash('sha1').update(files.map(f => readCanonicalText(join(root, f))).join('')).digest('hex').slice(0, 10);
 const rate = (k, n) => (n ? Math.round(1000 * k / n) / 1000 : null);
 
 export function verdictOf(n, exact, within, bExact, bWithin) {

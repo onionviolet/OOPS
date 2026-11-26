@@ -11,6 +11,7 @@ __pycache__/
 
 # Optional private content is fetched at runtime, never bundled
 /private_packs/
+/resources/fonts/private/
 
 # Source-identifying dispatch input remains local-only
 /docs/gm/dispatch/soldiers-life-world-2026-10-09/ASSIGNMENT.md

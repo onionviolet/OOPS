@@ -19,7 +19,7 @@ import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src
 import {attachItemBoundRows} from './item_bound_ledgers.mjs';
 import {attachFormRows} from './form_transformation_ledgers.mjs';
 
-const root = new URL('..', import.meta.url).pathname;
+const root = fileURLToPath(new URL('../', import.meta.url));
 const PRIMARY = '/Users/weiwei/code/yet-another-idle-rpg/';
 const NOVELS = `${PRIMARY}docs/research/novels/full-book/`;
 const PRIVATE = `${PRIMARY}docs/research/power-catalogues-2026-11-16/private/`;

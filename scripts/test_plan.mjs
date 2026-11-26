@@ -51,3 +51,73 @@ export function shardFiles(files, n, known = {}, fallbackMs = 1000) {
     }
     return groups.map(g => g.files);
 }
+
+// CreateProcess allows 32,767 UTF-16 code units including the terminator.
+// Quoting can double backslashes and escape quotes; this bound also includes
+// the executable, spaces and terminator. Leave room below the OS ceiling.
+export const WINDOWS_TEST_COMMAND_LIMIT = 30000;
+export function commandLengthBound(args, executable = process.execPath) {
+    return [executable, ...args].reduce((n, arg) => n + String(arg).length * 2 + 3, 1);
+}
+
+/** Split a lane into serial commands, retaining order and every input occurrence. */
+export function commandBatches(files, {concurrency = concurrencyFor(), platform = process.platform,
+    limit = WINDOWS_TEST_COMMAND_LIMIT, executable = process.execPath, cwd = process.cwd()} = {}) {
+    if (platform !== 'win32') return [files];
+    const fixed = commandLengthBound(nodeTestArgs([], {concurrency, cwd}), executable);
+    const batches = [];
+    let batch = [], length = fixed;
+    for (const file of files) {
+        const extra = String(file).length * 2 + 3;
+        if (fixed + extra > limit) throw new Error(`Test path exceeds the Windows command limit: ${file}`);
+        if (batch.length && length + extra > limit) {
+            batches.push(batch); batch = []; length = fixed;
+        }
+        batch.push(file); length += extra;
+    }
+    if (batch.length) batches.push(batch);
+    return batches;
+}
+
+// Windows resource-isolation group. The cast files compile disposable live trees
+// and run repeated native boot/import workers. The currency and LOTM money files
+// do the same for Save/reload/Export/Import; continuity_check has a measured
+// five-second whole-tree scan threshold. Under concurrent load, native child
+// processes were SIGTERMed and the timed scan exceeded its unchanged threshold;
+// the controlled four-slot replay passed all three. Keep assertions, deadlines,
+// non-Windows scheduling and ordinary-test parallelism unchanged. The exported
+// constant keeps its historical name for callers. Cast evidence:
+// docs/gm/dispatch/play-surface-2026-11-14/WINDOWS_NATIVE_CAST_ACCEPTANCE_2026-11-25.md.
+export const WINDOWS_NATIVE_INTEGRATION_FILES = Object.freeze([
+    'tests/cast_exchange_adapter.test.js', 'tests/cast_inference_adapter.test.js',
+    'tests/cast_divination_adapter.test.js', 'tests/cast_making_adapter.test.js',
+    'tests/cast_ability_adapter.test.js', 'tests/cast_body_adapter.test.js',
+    'tests/cast_journeys.test.js',
+    'tests/currency_subunits_save.test.js', 'tests/lotm_money_save.test.js',
+    'tests/continuity_check.test.js',
+]);
+
+/** Full-suite phase barrier: Windows native compilers run alone, then ordinary parallel shards. */
+export function suitePhases(files, {platform = process.platform, concurrency = concurrencyFor(), shards = 1,
+    known = {}, exclusiveFiles = WINDOWS_NATIVE_INTEGRATION_FILES, ...batchOptions} = {}) {
+    const normalize = f => f.replaceAll('\\', '/');
+    const estimates = Object.fromEntries(files.map(f => [f, known[f] ?? known[normalize(f)]]));
+    const exclusive = new Set(platform === 'win32' ? exclusiveFiles.map(normalize) : []);
+    const heavy = longestFirst(files.filter(f => exclusive.has(normalize(f))), estimates);
+    const ordinary = files.filter(f => !exclusive.has(normalize(f)));
+    const phases = [];
+    if (heavy.length) phases.push({name: 'Windows resource isolation (exclusive)', lanes: [{concurrency: 1,
+        // One result per file makes progress and failure visible, without overlap.
+        batches: heavy.flatMap(f => commandBatches([f], {...batchOptions, platform, concurrency: 1})),
+    }]});
+    if (ordinary.length) {
+        const count = Math.min(concurrency, Math.max(1, Math.floor(shards) || 1));
+        const groups = (count === 1 ? [longestFirst(ordinary, estimates)] : shardFiles(ordinary, count, estimates)).filter(g => g.length);
+        const perShard = Math.floor(concurrency / groups.length), remainder = concurrency % groups.length;
+        phases.push({name: 'parallel tests', lanes: groups.map((group, i) => {
+            const slots = perShard + Number(i < remainder);
+            return {concurrency: slots, batches: commandBatches(group, {...batchOptions, platform, concurrency: slots})};
+        })});
+    }
+    return phases;
+}

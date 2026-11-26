@@ -10,8 +10,8 @@
 //   const saved = await game.save();                // real save_progress -> localStorage path
 //
 // One live game per process: each boot reinstalls the browser globals.
-import {readFile, mkdir, writeFile, readdir, stat} from 'node:fs/promises';
-import {createHash} from 'node:crypto';
+import {readFile, mkdir, writeFile, readdir, stat, link, rename, rm} from 'node:fs/promises';
+import {createHash, randomUUID} from 'node:crypto';
 import {webcrypto} from 'node:crypto';
 import {tmpdir} from 'node:os';
 import {join, resolve, dirname} from 'node:path';
@@ -42,11 +42,21 @@ ${FUNCTIONS.map(n => `    ${n}: (...args) => ${n}(...args),`).join('\n')}
 };
 `;
 
-async function hashTree(dir, hash, filter) {
-    for(const entry of (await readdir(dir, {withFileTypes:true})).sort((a, b) => a.name.localeCompare(b.name))) {
-        const path = join(dir, entry.name);
-        if(entry.isDirectory()) await hashTree(path, hash, filter);
-        else if(filter(path)) {const s = await stat(path); hash.update(`${path}:${s.size}:${s.mtimeMs}\n`);}
+export async function hashTree(dir, hash, filter) {
+    // Preserve depth-first sorted hash bytes, while overlapping independent metadata
+    // reads. Serial stat calls cost seconds on Windows on every native reload.
+    const paths = [];
+    async function collect(at) {
+        for(const entry of (await readdir(at, {withFileTypes:true})).sort((a, b) => a.name.localeCompare(b.name))) {
+            const path = join(at, entry.name);
+            if(entry.isDirectory()) await collect(path);
+            else if(filter(path)) paths.push(path);
+        }
+    }
+    await collect(dir);
+    for(let i = 0; i < paths.length; i += 16) {
+        const batch = paths.slice(i, i + 16), stats = await Promise.all(batch.map(path => stat(path)));
+        batch.forEach((path, n) => hash.update(`${path}:${stats[n].size}:${stats[n].mtimeMs}\n`));
     }
 }
 
@@ -61,14 +71,20 @@ export async function bundleGame({root = ROOT, force = false} = {}) {
     if(!force) try {await stat(out); return out;} catch {}
     await mkdir(dir, {recursive:true});
     const {build} = await import('esbuild');
-    const tmp = out + `.${process.pid}.tmp.mjs`;
-    await build({entryPoints:[join(root, 'src/main.js')], bundle:true, format:'esm', platform:'browser', target:'es2022',
-        outfile:tmp, logLevel:'error', sourcemap:'inline',
-        plugins:[{name:'headless-internals', setup(b) {
-            b.onLoad({filter:/[\\/]src[\\/]main\.js$/}, async a => ({contents:(await readFile(a.path, 'utf8')) + HARNESS_TAIL, loader:'js'}));
-        }}]});
-    const {rename} = await import('node:fs/promises');
-    await rename(tmp, out);
+    const tmp = out + `.${randomUUID()}.tmp.mjs`;
+    try {
+        await build({entryPoints:[join(root, 'src/main.js')], bundle:true, format:'esm', platform:'browser', target:'es2022',
+            outfile:tmp, logLevel:'error', sourcemap:'inline',
+            plugins:[{name:'headless-internals', setup(b) {
+                b.onLoad({filter:/[\\/]src[\\/]main\.js$/}, async a => ({contents:(await readFile(a.path, 'utf8')) + HARNESS_TAIL, loader:'js'}));
+            }}]});
+        if (force) await rename(tmp, out);
+        else {
+            // Publish complete bytes once. Other builders and active importers keep their file.
+            try { await link(tmp, out); }
+            catch (error) { if (error.code !== 'EEXIST') throw error; }
+        }
+    } finally { await rm(tmp, {force:true}); }
     await pruneBundles(dir, out);
     return out;
 }

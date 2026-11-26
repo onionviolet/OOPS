@@ -32,6 +32,7 @@ export function globToRegExp(glob) {
 }
 
 export function parseRuleFile(text) {
+    text = text.replace(/\r\n/g, '\n');
     const fm = /^---\n([\s\S]*?)\n---/.exec(text);
     const globs = fm ? [...fm[1].matchAll(/^\s*-\s*"?([^"\n]+?)"?\s*$/gm)].map(m => m[1]) : [];
     const body = fm ? text.slice(fm[0].length) : text;
@@ -50,7 +51,7 @@ export function loadRoutes(dir = rulesDir) {
 }
 
 export function routesFor(path, routes) {
-    return routes.filter(r => r.res.some(re => re.test(path)));
+    return routes.filter(r => r.res.some(re => re.test(path.replaceAll('\\', '/'))));
 }
 
 function changedPaths() {

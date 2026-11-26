@@ -1,4 +1,7 @@
 const fs = require('node:fs');
+const path = require('node:path');
+const os = require('node:os');
+const {launchOwnedChromium} = require('./owned_chrome.cjs');
 
 const openNotebook = async page => {
     await page.locator('#journal_show_notebook').waitFor({state:'visible'});
@@ -6,16 +9,19 @@ const openNotebook = async page => {
 };
 
 // One browser choice for every check: YAIRPG_CHROME, then system Chrome, then Playwright's bundled Chromium.
-const SYSTEM_CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const CODEX_PLAYWRIGHT = '/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright';
+const SYSTEM_CHROME = process.platform === 'win32'
+    ? [process.env.PROGRAMFILES, process.env['PROGRAMFILES(X86)'], process.env.LOCALAPPDATA]
+        .filter(Boolean).map(root => path.join(root,'Google/Chrome/Application/chrome.exe')).find(file => fs.existsSync(file))
+    : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const CODEX_PLAYWRIGHT = path.join(os.homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const loadPlaywright = () => {
     for(const id of [process.env.YAIRPG_PLAYWRIGHT, 'playwright', CODEX_PLAYWRIGHT].filter(Boolean)) {
         try {return require(id);} catch(e) {if(e.code !== 'MODULE_NOT_FOUND') throw e;}
     }
     throw new Error('Playwright not found. Set YAIRPG_PLAYWRIGHT to its module path.');
 };
-const chromeExecutable = () => process.env.YAIRPG_CHROME || (fs.existsSync(SYSTEM_CHROME) ? SYSTEM_CHROME : undefined);
-const launchChrome = (options = {}) => loadPlaywright().chromium.launch({headless:true, executablePath:chromeExecutable(), ...options});
+const chromeExecutable = () => process.env.YAIRPG_CHROME || (SYSTEM_CHROME && fs.existsSync(SYSTEM_CHROME) ? SYSTEM_CHROME : undefined);
+const launchChrome = (options = {}) => launchOwnedChromium(loadPlaywright().chromium, {headless:true, executablePath:chromeExecutable(), ...options});
 
 /** Launch, run, and always close the browser, even when an assertion throws. */
 async function runBrowser(fn, options) {

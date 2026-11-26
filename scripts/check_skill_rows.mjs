@@ -1,6 +1,8 @@
 // PS284: skill rows wrap correctly in a narrow column. Measures the Skills box at the widest column and at the narrowest the layout
 // allows (14 body-size characters): a row's name and percent each stay on one line, no word breaks mid-word, nothing scrolls sideways.
 // check:flow calls skillRowWrap(page) once a skill is learned; run alone with `node scripts/check_skill_rows.mjs` (builds a scratch tree).
+import {fileURLToPath, pathToFileURL} from 'node:url';
+
 export const NARROW_EM = 14;
 
 /** Returns finding lines for the Skills box on `page`, at its own width and at NARROW_EM wide. */
@@ -38,19 +40,23 @@ export async function skillRowWrap(page) {
 
 /** Learn one skill by play (a run around the village) so the box has a row. */
 export async function learnOneSkill(page, session) {
-    const run = page.locator('.start_activity[data-activity="running"]').first();
-    if (!await run.isVisible()) { await page.getByRole('button', {name: 'Train'}).first().click(); await page.waitForTimeout(300); }
+    const training = page.locator('[data-choice-key="Train"]:visible').first();
+    const run = training.locator('.start_activity[data-activity="running"]');
+    if (!await run.isVisible()) await training.click();
     await run.click(); await session.step(120); await page.waitForTimeout(400);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
     const {mkdtemp, readFile, rm} = await import('node:fs/promises');
     const {tmpdir} = await import('node:os'), {join} = await import('node:path');
     const {prepareTree, build, serve} = await import('./perf/lib.mjs'), {Session} = await import('./playtest/lib.mjs');
-    const root = new URL('..', import.meta.url).pathname, tree = await mkdtemp(join(tmpdir(), 'yairpg-skills-'));
+    const root = fileURLToPath(new URL('..', import.meta.url)), tree = await mkdtemp(join(tmpdir(), 'yairpg-skills-'));
     prepareTree('WORKTREE', tree);
-    const {symlinkSync, existsSync} = await import('node:fs'); // PS293: the real font, so wrapping is measured as a player sees it
-    if (existsSync(join(root, 'resources/fonts/private'))) symlinkSync(join(root, 'resources/fonts/private'), join(tree, 'resources/fonts/private'));
+    const {existsSync} = await import('node:fs'); // PS293: measure with local fonts when held.
+    const {linkFixtureInputSync} = await import('../tests/helpers/fixture_fs.mjs');
+    if (existsSync(join(root, 'resources/fonts/private')) && !existsSync(join(tree, 'resources/fonts/private'))) {
+        linkFixtureInputSync(join(root, 'resources/fonts/private'), join(tree, 'resources/fonts/private'), 'dir');
+    }
     await build(tree);
     const server = await serve(tree);
     const session = new Session({url: server.url + '?test_hooks=1', seed: 87, wall: Date.UTC(2026, 9, 26, 15), hooks: {beforeOpen: async c => c.route('**/private_packs/manifest.json', r => r.fulfill({json: {schema: 1, packs: []}}))}});

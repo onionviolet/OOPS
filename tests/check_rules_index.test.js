@@ -4,8 +4,9 @@ import {mkdirSync, mkdtempSync, readFileSync, writeFileSync, rmSync} from "node:
 import {tmpdir} from "node:os";
 import {join} from "node:path";
 import {spawnSync} from "node:child_process";
+import {fileURLToPath} from "node:url";
 
-const script = new URL("../scripts/check_rules_index.mjs", import.meta.url).pathname;
+const script = fileURLToPath(new URL("../scripts/check_rules_index.mjs", import.meta.url));
 
 // The state the checker expects in a fixture owner's header: the rows' shared state, else Mixed.
 const fixtureState = index => {

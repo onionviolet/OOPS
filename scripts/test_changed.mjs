@@ -71,7 +71,7 @@ export async function reachGraph(tests, {cwd = root} = {}) {
                 const edges = [];
                 for (const spec of specs.get(file) || []) {
                     if (!spec.startsWith('.')) continue;
-                    const target = path.normalize(path.join(path.dirname(file), spec));
+                    const target = path.posix.join(path.posix.dirname(file), spec);
                     if (target.startsWith('..') || target.startsWith('node_modules/')) continue;
                     edges.push(target);
                     if (!graph.has(target) && !next.has(target) && CODE.test(target) && existsSync(target)) next.add(target);
@@ -103,7 +103,7 @@ function namedPaths(file) {
     const out = new Set();
     for (const [, lit] of text.matchAll(PATH_LITERAL)) {
         if (!lit.includes('/')) continue;
-        for (const cand of [path.normalize(path.join(path.dirname(file), lit)), path.normalize(lit.replace(/^(\.\.?\/)+/, ''))])
+        for (const cand of [path.posix.join(path.posix.dirname(file), lit), path.posix.normalize(lit.replace(/^(\.\.?\/)+/, ''))])
             if (!cand.startsWith('..') && !cand.startsWith('node_modules/') && cand !== file && existsSync(cand)) { out.add(cand); break; }
     }
     return [...out];
@@ -124,7 +124,7 @@ function closureOf(start, graph, cache) {
 
 // Paths a file could use to name `target`: repo-relative, and relative to the file's folder.
 function namesFor(file, target) {
-    const rel = path.relative(path.dirname(file), target);
+    const rel = path.posix.relative(path.posix.dirname(file), target);
     return [...new Set([target, rel.replace(/^(\.\.\/)+/, '')].filter(n => n.includes('/') || n.includes('.')))];
 }
 

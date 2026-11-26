@@ -12,7 +12,7 @@
 import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
 import {settleState as demoteTypedRuns} from './typed_runs.mjs';
 import {dirname, join, resolve} from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath, pathToFileURL} from 'node:url';
 import {canonicalRow} from './slug_normalize.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -292,7 +292,7 @@ function foldLotmWiki(row) {
 }
 
 async function nonPathwayRows() {
-    const {LOTM_AID_PREPARATIONS} = await import(at('src/lotm_potion_rule_rows.js'));
+    const {LOTM_AID_PREPARATIONS} = await import(pathToFileURL(at('src/lotm_potion_rule_rows.js')).href);
     return LOTM_AID_PREPARATIONS.rows.map(r => ({id: `lotm.potion.${slug(r.id.replace(/^lotm\.aid\./, 'aid_'))}`, pathway: null, seq: null,
         name: r.label, source: 'src/lotm_potion_rule_rows.js', state: 'blocked:body-door', mechanisms: ['brew_law'], test: null,
         note: 'A non-pathway preparation with source ingredients; its effect needs L\'s dose door and its amounts are unstated.'}));
@@ -349,7 +349,7 @@ export async function buildLedgers() {
     const catalogue = readFileSync(at(CATALOGUE), 'utf8').trim().split('\n').map(l => JSON.parse(l));
     const potions = catalogue.filter(r => r.kinds.includes('potion_related')).map(hpPotionRow);
     const ingredients = catalogue.filter(r => r.kinds.includes('ingredient_related')).map(hpIngredientRow);
-    const {LOTM_BREW_ROWS} = await import(at('src/world_packs/lotm_brew_pack.js'));
+    const {LOTM_BREW_ROWS} = await import(pathToFileURL(at('src/world_packs/lotm_brew_pack.js')).href);
     const o = readOverrides();
     const extra = (o.lotm_extra ?? []).map(r => {
         if (!r.id?.startsWith('lotm.potion.') || !r.evidence) throw new Error(`${OVERRIDES}: lotm_extra rows need a lotm.potion. id and evidence.`);
@@ -362,7 +362,7 @@ export async function buildLedgers() {
         attachCase(hpPotions.find(row => row.id === `hp.potion.${id}`), id, note, ['brew_law', 'b.dose']);
     // BRC12: one dose-response law runs every body-door row whose labelled sentence names a body account
     // (src/brew_dose_response.js). Sentence and route come from the label; amounts are authored dials.
-    const {canRunDose, doseCaseId, doseRouteOf, DOSE_CASE_MODULE, DOSE_DIALS} = await import(at('src/brew_dose_response.js'));
+    const {canRunDose, doseCaseId, doseRouteOf, DOSE_CASE_MODULE, DOSE_DIALS} = await import(pathToFileURL(at('src/brew_dose_response.js')).href);
     for (const row of hpPotions) {
         if (!['blocked:body-door', 'blocked:mind-state', 'blocked:body-form'].includes(row.state)) continue;
         const luna = tierOf(row.id);
@@ -399,7 +399,7 @@ export async function buildLedgers() {
         ['hp.gillyweed', 'l.breathing', 'l.creature_form']);
     foldIngredientTier(hpIngredients);
     // MR37: a row whose wiki-tier axes fit the one Hogwarts property set runs as a material row (src/hp_property_set.js).
-    const {hpMaterialRow, materialCaseId, HP_PROPERTY_MODULE, HP_LEVELS} = await import(at('src/hp_property_set.js'));
+    const {hpMaterialRow, materialCaseId, HP_PROPERTY_MODULE, HP_LEVELS} = await import(pathToFileURL(at('src/hp_property_set.js')).href);
     for (const row of hpIngredients) {
         if (row.state !== 'blocked:material-row') continue;
         const axes = tierFile().hp_ingredients?.[row.id]?.axes;

@@ -107,6 +107,74 @@ class LauncherTests(unittest.TestCase):
                 if row['id'] in ['discord-web', 'discord-desktop', 'zlibrary-mcp', 'playtest', 'simfuzz', 'perf']:
                     self.assertIsNone(row['probe'])
 
+    def test_owner_documents_resolve_without_runtime_and_without_launch(self):
+        with tempfile.TemporaryDirectory(prefix='toolsets owners ') as folder:
+            owner = Path(folder) / 'fixture repo' / 'docs' / 'OWNER.md'
+            owner.parent.mkdir(parents=True)
+            owner.write_text('Fixture owner text', encoding='utf-8')
+            row = self.row(required=[str(Path(folder) / 'missing-runtime')], documents=[{
+                'id':'scope', 'path':'{code}/fixture repo/docs/OWNER.md',
+                'original_path':'/Users/fixture/code/fixture repo/docs/OWNER.md'}])
+            env = dict(os.environ, YAIR_TOOLS_CODE=folder)
+            with patch.object(toolsets, 'load_registry', return_value={'fixture':row}), \
+                 patch.dict(os.environ, env, clear=True), \
+                 patch.object(subprocess, 'run') as execute, \
+                 patch('sys.stdout', new=io.StringIO()) as output:
+                self.assertEqual(toolsets.main(['show','fixture']),0)
+                shown=json.loads(output.getvalue())
+                self.assertFalse(shown['resolved']['ready'])
+                document=shown['resolved_documents'][0]
+                self.assertEqual(Path(document['path']),owner)
+                self.assertEqual(document['state'],'present')
+                self.assertEqual(document['sha256'],toolsets.hashlib.sha256(owner.read_bytes()).hexdigest())
+                self.assertIsNone(document['recorded'])
+                self.assertIsNone(document['matches_recorded'])
+                execute.assert_not_called()
+
+    def test_owner_provenance_distinguishes_missing_current_and_historical_digest(self):
+        row=toolsets.load_registry()['discord']
+        with tempfile.TemporaryDirectory(prefix='toolsets owner provenance ') as folder:
+            env={'YAIR_TOOLS_CODE':folder}
+            absent=toolsets.resolve_documents(row,env)[0]
+            self.assertEqual(absent['state'],'missing')
+            self.assertIsNone(absent['sha256'])
+            self.assertIsNone(absent['matches_recorded'])
+            self.assertEqual(absent['recorded']['sha256'],
+                             'bcc8768fa5e712dab9cc67ae862083598bc7b8d275554ff12794f4dd94825553')
+            owner=Path(absent['path']);owner.parent.mkdir(parents=True)
+            owner.write_text('A different fixture revision',encoding='utf-8')
+            present=toolsets.resolve_documents(row,env)[0]
+            self.assertEqual(present['state'],'present')
+            self.assertFalse(present['matches_recorded'])
+            self.assertEqual(present['original_path'],absent['original_path'])
+            self.assertEqual(present['recorded'],absent['recorded'])
+
+    def test_owner_scoped_doctor_reports_document_absence_without_executing_missing_tool(self):
+        with tempfile.TemporaryDirectory(prefix='toolsets missing owners ') as folder:
+            row=self.row(required=[str(Path(folder)/'missing-runtime')],probe=['--help'],documents=[{
+                'id':'scope','path':'{code}/missing/OWNER.md','original_path':'/original/OWNER.md'}])
+            with patch.object(subprocess,'run') as execute:
+                result=toolsets.diagnose(row,dict(os.environ,YAIR_TOOLS_CODE=folder),probe=True)
+                self.assertEqual(result['state'],'missing')
+                self.assertEqual(result['documents'][0]['state'],'missing')
+                execute.assert_not_called()
+
+    def test_owner_locators_preserve_all_eight_original_document_identities(self):
+        registry=toolsets.load_registry()
+        actual={document['original_path'] for tool in ['discord','source-library']
+                for document in registry[tool]['documents']}
+        expected={
+            '/Users/weiwei/code/discord-reference-workbench/README.md',
+            '/Users/weiwei/code/discord-reference-workbench/docs/LOCAL_COLLECTOR.md',
+            *('/Users/weiwei/code/zlibrary-research/docs/'+name for name in [
+                'SOURCE_LIBRARY_0_5_0.md','KAVITA_READER_0_6_1.md','INTEGRATED_READER_0_6_0.md',
+                'LIGHT_NOVEL_SOURCES_0_5_2.md','SUWAYOMI_EXTENSIONS_2026-10-22.md','YAIRPG.md'])}
+        self.assertEqual(actual,expected)
+        for tool in ['discord','source-library']:
+            documents=registry[tool]['documents']
+            self.assertEqual(len({document['id'] for document in documents}),len(documents))
+            self.assertTrue(all(document['path'].startswith(registry[tool]['root']+'/') for document in documents))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -9,11 +9,13 @@ import os from 'node:os';
 import {execFileSync, spawn} from 'node:child_process';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
+import {linkFixtureInputSync} from '../../tests/helpers/fixture_fs.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const FIXTURE_DIR = path.join(ROOT, 'tests/fixtures/perf');
 export const FIXTURES = ['fresh', 'mid', 'crowded'];
 const require = createRequire(import.meta.url);
+const {launchOwnedChromium} = require('../owned_chrome.cjs');
 
 export function loadPlaywright() {
   const candidates = [process.env.YAIRPG_PLAYWRIGHT, 'playwright',
@@ -26,7 +28,7 @@ export async function launchChrome() {
   const {chromium} = loadPlaywright();
   const mac = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
   const executablePath = process.env.YAIRPG_CHROME || (fs.existsSync(mac) ? mac : undefined);
-  return chromium.launch({headless: true, ...(executablePath ? {executablePath} : {})});
+  return launchOwnedChromium(chromium, {headless: true, ...(executablePath ? {executablePath} : {})});
 }
 
 // Paths the build and the served page need. docs/ is large, so only the docs
@@ -64,7 +66,7 @@ export function prepareTree(rev, dir) {
   copy(TREE_PATHS);
   copy(docsImports(dir));
   fs.mkdirSync(path.join(dir, 'dist'), {recursive: true});
-  fs.symlinkSync(path.join(ROOT, 'node_modules'), path.join(dir, 'node_modules'));
+  linkFixtureInputSync(path.join(ROOT, 'node_modules'), path.join(dir, 'node_modules'), 'dir');
   return dir;
 }
 

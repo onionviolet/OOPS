@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Discover and launch existing YAIR research tools without installing them."""
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -68,12 +69,43 @@ def plan(row, env):
             'missing': missing, 'ready': not missing}, child_env
 
 
+def resolve_documents(row, env):
+    """Resolve declared owner locators without requiring or launching a runtime.
+
+    The inventory digest is historical provenance, not a replacement owner body
+    or evidence that a document exists on this host.
+    """
+    values = roots(env)
+    result = []
+    for document in row.get('documents', []):
+        path = Path(document['path'].format_map(values)).absolute()
+        recorded = None
+        if document.get('inventory'):
+            inventory = json.loads((REPO / document['inventory']).read_text(encoding='utf-8'))
+            digest = inventory.get('source_sha256', {}).get(document['original_path'])
+            if digest:
+                recorded = {'inventory': document['inventory'],
+                            'captured_at_utc': inventory.get('captured_at_utc'),
+                            'sha256': digest}
+        present = path.is_file()
+        digest = hashlib.sha256(path.read_bytes()).hexdigest() if present else None
+        result.append({'id': document['id'], 'path': str(path),
+                       'original_path': document['original_path'],
+                       'state': 'present' if present else 'missing',
+                       'sha256': digest, 'recorded': recorded,
+                       'matches_recorded': digest == recorded['sha256'] if digest and recorded else None})
+    return result
+
+
 def diagnose(row, env, probe=False):
     if row['kind'] != 'launch':
-        return {'id': row['id'], 'state': 'reference', 'owner': row['owner']}
+        return {'id': row['id'], 'state': 'reference', 'owner': row['owner'],
+                **({'documents': resolve_documents(row, env)} if row.get('documents') else {})}
     resolved, child_env = plan(row, env)
     state = 'present' if resolved['ready'] else 'missing'
     result = {**resolved, 'state': state}
+    if row.get('documents'):
+        result['documents'] = resolve_documents(row, env)
     if probe and resolved['ready'] and row.get('probe'):
         command = resolved['argv'] + row['probe']
         # Registry probes are finite, offline help/version/import/health checks.
@@ -135,6 +167,8 @@ def main(argv=None):
             detail = dict(row)
             if row['kind'] == 'launch':
                 detail['resolved'] = plan(row, os.environ)[0]
+            if row.get('documents'):
+                detail['resolved_documents'] = resolve_documents(row, os.environ)
             print(json.dumps(detail, indent=2))
             return 0
         resolved, env = plan(row, os.environ)

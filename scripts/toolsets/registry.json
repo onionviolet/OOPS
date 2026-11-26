@@ -177,6 +177,20 @@
       "title": "Offline Discord evidence CLI",
       "kind": "launch",
       "root": "{code}/discord-reference-workbench",
+      "documents": [
+        {
+          "id": "readme",
+          "path": "{code}/discord-reference-workbench/README.md",
+          "original_path": "/Users/weiwei/code/discord-reference-workbench/README.md",
+          "inventory": "docs/audits/toolsets_2026-10-21/LOCAL_INVENTORY.json"
+        },
+        {
+          "id": "collector",
+          "path": "{code}/discord-reference-workbench/docs/LOCAL_COLLECTOR.md",
+          "original_path": "/Users/weiwei/code/discord-reference-workbench/docs/LOCAL_COLLECTOR.md",
+          "inventory": "docs/audits/toolsets_2026-10-21/LOCAL_INVENTORY.json"
+        }
+      ],
       "argv": [
         "{python}",
         "-m",
@@ -663,6 +677,39 @@
       "title": "Unified Source Library app API and JSON CLI",
       "kind": "launch",
       "root": "{code}/zlibrary-research",
+      "documents": [
+        {
+          "id": "platform-0.5.0",
+          "path": "{code}/zlibrary-research/docs/SOURCE_LIBRARY_0_5_0.md",
+          "original_path": "/Users/weiwei/code/zlibrary-research/docs/SOURCE_LIBRARY_0_5_0.md"
+        },
+        {
+          "id": "kavita-0.6.1",
+          "path": "{code}/zlibrary-research/docs/KAVITA_READER_0_6_1.md",
+          "original_path": "/Users/weiwei/code/zlibrary-research/docs/KAVITA_READER_0_6_1.md"
+        },
+        {
+          "id": "komga-0.6.0",
+          "path": "{code}/zlibrary-research/docs/INTEGRATED_READER_0_6_0.md",
+          "original_path": "/Users/weiwei/code/zlibrary-research/docs/INTEGRATED_READER_0_6_0.md"
+        },
+        {
+          "id": "novels-0.5.2",
+          "path": "{code}/zlibrary-research/docs/LIGHT_NOVEL_SOURCES_0_5_2.md",
+          "original_path": "/Users/weiwei/code/zlibrary-research/docs/LIGHT_NOVEL_SOURCES_0_5_2.md"
+        },
+        {
+          "id": "suwayomi-2026-10-22",
+          "path": "{code}/zlibrary-research/docs/SUWAYOMI_EXTENSIONS_2026-10-22.md",
+          "original_path": "/Users/weiwei/code/zlibrary-research/docs/SUWAYOMI_EXTENSIONS_2026-10-22.md"
+        },
+        {
+          "id": "project-profile",
+          "path": "{code}/zlibrary-research/docs/YAIRPG.md",
+          "original_path": "/Users/weiwei/code/zlibrary-research/docs/YAIRPG.md",
+          "inventory": "docs/audits/toolsets_2026-10-21/LOCAL_INVENTORY.json"
+        }
+      ],
       "argv": [
         "{code}/zlibrary-research/.venv/bin/source-library"
       ],

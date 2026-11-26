@@ -14,13 +14,14 @@
 // chapter text; locators are chapter numbers only and no prose is committed. Disclosure: the labeller read those chapters before the
 // split file was written, so the labels are not blind to the rule; the rule and split are fixed code, and nothing was tuned afterwards.
 import {createHash} from 'node:crypto';
+import {readCanonicalText} from './canonical_text.mjs';
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {settleState} from './typed_runs.mjs';
 import {fileURLToPath} from 'node:url';
 import {derivedSpec, derivedRowId, lotmSequenceName, LOTM_DERIVE_RULES} from '../src/lotm_derived_formulas.js';
 import {confidenceOf} from './derivation_confidence.mjs';
 
-const root = new URL('..', import.meta.url).pathname;
+const root = fileURLToPath(new URL('..', import.meta.url));
 export const FROZEN_FILE = 'docs/coverage/coi_potions_frozen.json';
 export const LABELS_FILE = 'docs/coverage/coi_potions_labels.json';
 export const SCORE_FILE = 'docs/coverage/coi_potions_score.json';
@@ -31,7 +32,7 @@ export const RULE_B = 'coi.rule.lotm-main-slot-count';
 export const heldOut = id => createHash('sha1').update(id).digest()[0] < 0x33;
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 export const rowId = (pathway, seq) => `coi.potion.${derivedRowId(pathway, seq)}`;
-const sha = files => createHash('sha1').update(files.map(f => readFileSync(root + f)).reduce((a, b) => Buffer.concat([a, b]), Buffer.alloc(0))).digest('hex').slice(0, 10);
+const sha = files => createHash('sha1').update(files.map(f => readCanonicalText(root + f)).join('')).digest('hex').slice(0, 10);
 const rd = f => JSON.parse(readFileSync(root + f, 'utf8'));
 
 // The cohort: every CoI potion the novel states a formula sheet for (chapter numbers of the local English text).

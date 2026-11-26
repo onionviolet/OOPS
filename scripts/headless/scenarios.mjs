@@ -9,6 +9,7 @@
 // out for writing. The game MCP exposes the same names as game_new({scenario}).
 import {readFile, writeFile, mkdir, mkdtemp, readdir, rename, rm, stat} from 'node:fs/promises';
 import {join, resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
 import {boot, canonicalSave, diffSaves, ROOT} from './runner.mjs';
@@ -304,7 +305,7 @@ export async function determinismCheck(name, {days = 1, seed = 1} = {}) {
     return {scenario: name, days, seed, identical: results[0] === results[1], hash: createHash('sha256').update(results[0]).digest('hex').slice(0, 16), diffs};
 }
 
-if(import.meta.url === `file://${process.argv[1]}`) {
+if(process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
     const [cmd, name, ...rest] = process.argv.slice(2);
     const opt = Object.fromEntries(rest.reduce((a, v, i) => v.startsWith('--') ? [...a, [v.slice(2), rest[i + 1]]] : a, []));
     let line;
