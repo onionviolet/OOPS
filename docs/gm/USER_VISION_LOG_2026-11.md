@@ -1856,3 +1856,11 @@ He then asked to “begin proitaginist run for each world type/genre? like Reinc
 > we can turn the stone into a resource, so like things should be more itemized and indivdualistic and more fine rather than a blanket selection of phrasing and stuff, this should be a long standing thing?
 
 Standing direction from the stone example. A physical resource can have its own remaining contents, holder and history. When these change what a player can do, the game tracks them on the particular item and lets the player act on it. The item rules own the implementation default and the first example.
+
+## Coordination direction, 2026-11-26
+
+For the next one to two weeks: "Foundation and making atlas actually reflect my vision? Standardizing UI and more?"
+
+On effort: "As much as needed as we get a good quality."
+
+Standing direction: "Keep OOPS a progression RPG with idle play" (01:50) and "check how YAIR and OOPS already handle the activity" before a new mechanic. [Owner](../USER_VISION.md#nov-26-coordination-direction)

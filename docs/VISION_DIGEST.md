@@ -6,6 +6,8 @@ OOPS (Optimistic Progression Simulator) is Weibao's fork of Miktaew's Yet Anothe
 
 ## Pillars
 
+- **Current coordination focus.** Advance procedural foundations in the game, make the Atlas traceable to Weibao's vision, and standardize desktop and laptop UI. OOPS remains a progression RPG with idle play. Check YAIR and OOPS before adding a mechanic. [Direction](USER_VISION.md#nov-26-coordination-direction)
+
 - **Individual physical resources.** A partly used or entrusted object keeps the state that makes its next use different. The player can act on that particular piece and see what remains. [Direction](USER_VISION.md#individual-physical-resources)
 
 - **Shared foundations across world varieties.** Exercise common behavior through distinct protagonist runs. Start with Reincarnation Paradise, then bring in Worm, Super Supportive and The Perfect Run. [Direction](USER_VISION.md#shared-foundations-across-world-varieties)
